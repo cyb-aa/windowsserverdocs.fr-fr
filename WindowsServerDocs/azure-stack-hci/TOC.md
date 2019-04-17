@@ -1,7 +1,0 @@
-# [Azure Stack HCI](index.md)
-## [Hyper-V](../virtualization/hyper-v/index.md)
-## [Espaces de stockage directs](../storage/storage-spaces/storage-spaces-direct-overview.md)
-## [Clustering de basculement](../failover-clustering/failover-clustering-overview.md)
-## [Mise en réseau SDN (Software-Defined Networking)](https://docs.microsoft.com/windows-server/networking/sdn/)
-## [Windows Admin Center](../manage/windows-admin-center/overview.md)
-## [Se connecter à Azure](../azure-hybrid-services/index.md)
