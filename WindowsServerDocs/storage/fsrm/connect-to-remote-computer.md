@@ -1,6 +1,6 @@
 ---
-title: "Se connecter à un ordinateur distant"
-description: "Cet article explique comment se connecter à un ordinateur distant pour gérer les ressources de stockage à partir du Gestionnaire de ressources du serveur de fichiers"
+title: Se connecter à un ordinateur distant
+description: Cet article explique comment se connecter à un ordinateur distant pour gérer les ressources de stockage à partir du Gestionnaire de ressources du serveur de fichiers
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 93d2be926437b65ed8eb84a828ea0d7da6a51086
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59818860"
 ---
 # <a name="connect-to-a-remote-computer"></a>Se connecter à un ordinateur distant 
 
-> S’applique à: WindowsServer (canal semi-annuel), WindowsServer2016, WindowsServer2012R2, WindowsServer2012, WindowsServer2008R2
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Pour gérer les ressources de stockage sur un ordinateur distant, vous pouvez vous connecter à l'ordinateur distant à partir du Gestionnaire de ressources du serveur de fichiers. Lorsque vous êtes connecté, le Gestionnaire de ressources du serveur de fichiers vous permet de gérer les quotas, de filtrer les fichiers, de gérer les classifications, de planifier les tâches de gestion de fichiers et de générer des rapports avec ces ressources distantes.
 
@@ -36,14 +37,14 @@ Pour gérer les ressources de stockage sur un ordinateur distant, vous pouvez vo
 > [!Important]
 > La commande **Se connecter à un autre ordinateur** est disponible uniquement si vous ouvrez le Gestionnaire de ressources de serveur de fichiers à partir des **Outils d’administration**. Si vous accédez au Gestionnaire de ressources de serveur de fichiers à partir du Gestionnaire de serveur, la commande n’est pas disponible.
 
-## <a name="additional-considerations"></a>Autres éléments à prendre en considération
+## <a name="additional-considerations"></a>Considérations supplémentaires
 
-Pour gérer des ressources distantes à l'aide du Gestionnaire de ressources du serveur de fichiers:
+Pour gérer des ressources distantes à l'aide du Gestionnaire de ressources du serveur de fichiers :
 
 -   Vous devez être connecté à l'ordinateur local avec un compte de domaine membre du groupe **Administrateurs** sur l'ordinateur distant.
 -   L’ordinateur distant doit exécuter Windows Server et le Gestionnaire de ressources du serveur de fichiers doit être installé.
 -   L'exception **Gestion de ressources du serveur de fichiers à distance** doit être activée sur l’ordinateur distant. Activez cette exception à l’aide du pare-feu Windows dans le panneau de configuration.
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
--   [Gestion des ressources de stockage distant](managing-remote-storage-resources.md)
+-   [La gestion des ressources de stockage à distance](managing-remote-storage-resources.md)
