@@ -1,6 +1,6 @@
 ---
 title: Rôles, Services de rôle et fonctionnalités pas dans Windows Server - Server Core
-description: Obtenir des informations sur les rôles et les fonctionnalités non incluses dans l’option d’installation Server Core de Windows Server.
+description: En savoir plus sur les rôles et les fonctionnalités non incluses dans l’option d’installation Server Core pour Windows Server.
 ms.prod: windows-server-threshold
 ms.mktglfcycl: manage
 ms.sitesec: library
@@ -8,85 +8,85 @@ author: lizap
 ms.localizationpriority: medium
 ms.date: 02/23/2018
 ms.openlocfilehash: 308bc8a5d25e2ec67438f0ee03cbfce6f7411ca2
-ms.sourcegitcommit: 4b9b21ca1f366388a78ead7413cb581f2b23d4c6
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "2604787"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59825530"
 ---
-# Rôles, Services de rôle et fonctionnalités pas dans Windows Server - Server Core
+# <a name="roles-role-services-and-features-not-in-windows-server---server-core"></a>Rôles, Services de rôle et fonctionnalités pas dans Windows Server - Server Core
 
-> S’applique à: Windows Server (Channel annuel séparées) et Windows Server 2016
+> S’applique à : Windows Server (canal semi-annuel) et Windows Server 2016
 
-Les rôles, services de rôle et fonctionnalités suivantes ont été supprimées de l’option d’installation Server Core de Windows Server. Utiliser ces informations pour aider à déterminer si l’option Server Core fonctionne pour votre environnement.
+Les rôles, les services de rôle et les fonctionnalités suivantes ont été supprimées à partir de l’option d’installation Server Core de Windows Server. Utilisez ces informations pour aider à déterminer si l’option Server Core fonctionne pour votre environnement.
 
 > [!NOTE]
-> Vous pouvez également consulter une liste de rôles, services de rôle, les fonctionnalités qui [sont inclus dans le serveur principal](server-core-roles-and-services.md). Il s’agit d’une très grande liste, pour des résultats optimaux, recherchez dans cette liste pour le rôle spécifique ou une fonctionnalité qui vous intéresse.
+> Vous pouvez également voir une liste des rôles, services de rôle et des fonctionnalités offertes par [sont inclus dans le Server Core](server-core-roles-and-services.md). Il s’agit d’une liste très volumineuse, pour de meilleurs résultats, recherchez dans cette liste pour le rôle spécifique ou une fonctionnalité qui vous intéresse.
 
-## Server Core de rôles
+## <a name="roles-not-in-server-core"></a>Rôles pas dans Server Core
 
 - Télécopie
 - MultiPointServerRole
 - NPAS
 - WDS
 
-## Services de rôle pas dans Server Core
-Notez que certains services de rôle Bureau à distance sont incluses dans Server Core (connexion Broker, licences, hôte de virtualisation), mais d’autres ne le sont pas (passerelle, hôte de Session Bureau à distance, l’accès Web).
+## <a name="role-services-not-in-server-core"></a>Pas de Server Core, les Services de rôle
+Notez que certains services de rôle du Bureau à distance sont inclus dans Server Core (connexion Broker, gestion des licences, hôte de virtualisation), mais d’autres ne le sont pas (passerelle, hôte de Session Bureau à distance, l’accès Web).
 
 - Serveur d’analyse d’impression
-- Impression-Internet
-- Passerelle RDS
-- Serveur RDS-Bureau à distance
-- Accès-Web-RDS
-- Console de gestion Web
-- Console Web-Lgcy-Mgmt
-- WDS-déploiement
-- WDS-Transport *(avant Windows Server version 1803)*
+- Print-Internet
+- Passerelle de services Bureau à distance
+- Serveur de bureau à distance de services Bureau à distance
+- RDS-Web-Access
+- Web-Mgmt-Console
+- Web-Lgcy-Mgmt-Console
+- Déploiement de WDS
+- Transport de WDS *(avant Windows Server version 1803)*
 
-## Server Core de fonctionnalités
+## <a name="features-not-in-server-core"></a>Fonctionnalités pas de Server Core
 
 - BITS-IIS-Ext
 - BitLocker-NetworkUnlock
 - Direct-Play
-- Client de l’impression Internet
+- Internet-Print-Client
 - Moniteur de Port LPR
-- MSMQ-multidiffusion
-- CONNECTION MANAGER
+- MSMQ-Multicasting
+- CMAK
 - Assistance à distance
 - RSAT-SMTP
 - RSAT-Feature-Tools-BitLocker-RemoteAdminTool
 - Serveur RSAT-Bits
-- RSAT-ÉQUILIBRAGE DE CHARGE RÉSEAU
+- RSAT-NLB
 - RSAT-SNMP
 - RSAT-WINS
 - Hyper-V-Tools
-- Outils RSAT-RDS
-- RSAT-RDS-passerelle
-- RSAT-RDS-licence-diagnostic-interface utilisateur
-- Interface RDS utilisateur gestion des licences
-- UpdateServices-interface utilisateur
-- RSAT-ADC
-- RSAT-ADC-Mgmt
-- Répondeur en ligne RSAT
+- Outils de services Bureau à distance de serveur distant
+- RSAT-services Bureau à distance-Gateway
+- RSAT-services Bureau à distance-licence-diagnostic-interface utilisateur
+- UI Gestionnaire de licences des services Bureau à distance
+- UpdateServices-UI
+- RSAT-ADCS
+- RSAT-ADCS-Mgmt
+- RSAT-Online-Responder
 - RSAT-ADRMS
-- RSAT-télécopie
-- Services de fichiers RSAT
+- RSAT-Fax
+- Services de fichiers de serveur distant
 - RSAT-DFS-Mgmt-Con
 - RSAT-FSRM-Mgmt
 - RSAT-NFS-Admin
 - RSAT-NPAS
-- Services d’impression RSAT
-- Outils RSAT-VA
-- WDS-AdminPack
-- Serveur SMTP
-- Client TFTP
-- Redirecteur de WebDAV
-- Biométrique Framework
+- RSAT-Print-Services
+- Outils d’évaluation des vulnérabilités serveur distant
+- AdminPack de WDS
+- SMTP-serveur
+- TFTP-Client
+- -Redirecteur WebDAV
+- Biometric Framework
 - Windows-Defender-Gui
-- Identité-Windows-Foundation
-- PowerShell ISE
+- Windows-Identity-Foundation
+- PowerShell-ISE
 - Service de recherche
 - Windows-TIFF-IFilter
 - Mise en réseau sans fil
-- Visionneuse XPS
+- XPS-Viewer
 

@@ -1,6 +1,6 @@
 ---
-title: "Configurer les notifications par courrier électronique"
-description: "Cet article explique comment configurer les notifications par courrier électronique"
+title: Configurer les notifications par courrier électronique
+description: Cet article explique comment configurer les notifications par courrier électronique
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: d53be34d04edfac9f30b6e269833be74a6ebcf22
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59820350"
 ---
 # <a name="configure-e-mail-notifications"></a>Configurer les notifications par courrier électronique
 
-> S’applique à: WindowsServer (canal semi-annuel), WindowsServer2016, WindowsServer2012R2, WindowsServer2012, WindowsServer2008R2
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Quand vous créez des quotas et des filtres de fichiers, vous pouvez envoyer des notifications par courrier électronique aux utilisateurs quand leur limite de quota approche ou quand ils ont essayé d'enregistrer des fichiers qui ont été bloqués. Quand vous générez des rapports de stockage, vous pouvez les envoyer par courrier électronique à des destinataires spécifiques. Si vous souhaitez informer certains administrateurs des événements liés aux quotas et aux filtres de fichiers ou envoyer des rapports de stockage, vous pouvez configurer un ou plusieurs destinataires par défaut.
 
@@ -39,6 +40,6 @@ Pour envoyer ces notifications et ces rapports de stockage, vous devez spécifie
 6.  Cliquez sur **OK**.
 
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
--   [Définition des options du Gestionnaire de ressources du serveur de fichiers](setting-file-server-resource-manager-options.md)
+-   [Options de paramètre File Server Resource Manager](setting-file-server-resource-manager-options.md)

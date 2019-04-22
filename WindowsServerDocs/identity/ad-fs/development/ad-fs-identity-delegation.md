@@ -1,6 +1,6 @@
 ---
-title: "Scénario de délégation d’identité avec ADFS"
-description: "Ce scénario décrit une application qui doit accéder aux ressources principal qui nécessitent la chaîne de la délégation d’identité pour effectuer des vérifications de contrôle d’accès."
+title: Scénario de délégation d’identité avec AD FS
+description: Ce scénario décrit une application qui doit accéder aux ressources de back-end qui nécessitent la chaîne de délégation d’identité pour effectuer des vérifications de contrôle d’accès.
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,83 +9,84 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: b82d5fd749ac874d09bc54123727aaf902c4d778
-ms.sourcegitcommit: c16a2bf1b8a48ff267e71ff29f18b5e5cda003e8
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59819850"
 ---
-# <a name="identity-delegation-scenario-with-ad-fs"></a>Scénario de délégation d’identité avec ADFS
+# <a name="identity-delegation-scenario-with-ad-fs"></a>Scénario de délégation d’identité avec AD FS
 
 
-[Depuis le .NETFramework 4.5, WindowsIdentityFoundation (WIF) a été entièrement intégrée à .NETFramework. La version de WIF décrit dans cette rubrique, WIF 3.5 est déconseillée et ne doit être utilisée pour le développement pour le .NETFramework 3.5SP1 ou .NETFramework 4. Pour plus d’informations sur WIF dans le .NETFramework 4.5, également appelé WIF 4.5, consultez la documentation de WindowsIdentityFoundation dans le Guide de développement .NETFramework 4.5.] 
+[À compter de .NET Framework 4.5, Windows Identity Foundation (WIF) a été entièrement intégré à .NET Framework. La version de WIF décrit dans cette rubrique, WIF 3.5, est déconseillée et ne doit être utilisée lors du développement avec le .NET Framework 3.5 SP1 ou .NET Framework 4. Pour plus d’informations sur WIF dans .NET Framework 4.5, également appelé WIF 4.5, consultez la documentation de Windows Identity Foundation dans le Guide de développement .NET Framework 4.5.] 
 
-Ce scénario décrit une application qui doit accéder aux ressources principal qui nécessitent la chaîne de la délégation d’identité pour effectuer des vérifications de contrôle d’accès. Une chaîne de délégation d’identité simple se compose généralement des informations sur l’appelant initial et l’identité de l’appelant immédiat.
+Ce scénario décrit une application qui doit accéder aux ressources de back-end qui nécessitent la chaîne de délégation d’identité pour effectuer des vérifications de contrôle d’accès. Une chaîne de délégation d’identité simple se compose généralement des informations sur l’appelant initial et l’identité de l’appelant immédiat.
 
-Le modèle de délégation Kerberos sur la plateforme Windows aujourd'hui, les ressources principal doivent accéder uniquement à l’identité de l’appelant immédiat et pas à celle de l’appelant initial. Ce modèle est communément appelé le modèle de sous-système approuvé. WIF conserve l’identité de l’appelant initial, ainsi que l’appelant immédiat dans la chaîne de délégation à l’aide de la propriété de l’intervenant.
+Le modèle de délégation Kerberos sur la plateforme Windows dès aujourd'hui, les ressources back-end doivent accéder uniquement à l’identité de l’appelant immédiat et non à celle de l’appelant initial. Ce modèle est communément appelé modèle de sous-système approuvé. WIF gère l’identité de l’appelant initial, ainsi que l’appelant immédiat dans la chaîne de délégation à l’aide de la propriété de l’acteur.
 
-Le diagramme suivant illustre un scénario de délégation d’identité classique dans lequel un employé de Fabrikam accède aux ressources exposées dans une application Contoso.com.
+Le diagramme suivant illustre un scénario de délégation d’identité standard dans lequel un employé de Fabrikam accède aux ressources exposées dans une application de Contoso.com.
 
 ![Identité](media/ad-fs-identity-delegation/id1.png)
 
-Les utilisateurs fictifs participant dans ce scénario sont:
+Les utilisateurs fictifs participant à ce scénario sont :
 
-- Frank: Un employé de Fabrikam qui souhaite accéder aux ressources de Contoso.
-- Daniel: Un Contoso développeur d’applications qui implémente les modifications nécessaires dans l’application.
-- ADAM: Contoso administrateur informatique.
+- Frank : Un employé de Fabrikam souhaite accéder aux ressources de Contoso.
+- Daniel : Un développeur d’applications Contoso qui implémente les modifications nécessaires dans l’application.
+- ADAM : L’administrateur informatique de Contoso.
 
-Les composants impliqués dans ce scénario sont:
+Les composants impliqués dans ce scénario sont :
 
-- web1: une application Web avec des liens vers des ressources principal qui exigent que l’identité de l’appelant initial déléguée. Cette application est générée avec ASP.NET.
-- Un service Web qui accède à un serveur SQLServer, ce qui nécessite l’identité du délégué de l’appelant initial, ainsi que celui de l’appelant immédiat. Ce service est créé avec WCF.
-- STS1: un service STS qui se trouve dans le rôle de fournisseur de revendications et émet les revendications qui sont attendues par l’application (web1). Il a établi l’approbation avec les Fabrikam.com et l’application.
-- sts2: un service STS qui figure dans le rôle de fournisseur d’identité pour Fabrikam.com et fournit un point de terminaison, l’employé de Fabrikam utilise pour s’authentifier. Il a établi la relation d’approbation avec Contoso.com afin que les employés de Fabrikam sont autorisés à accéder aux ressources sur Contoso.com.
+- web1 : Une application Web avec des liens vers des ressources back-end qui nécessitent l’identité déléguée de l’appelant initial. Cette application est générée avec ASP.NET.
+- Un service Web qui accède à un serveur SQL, ce qui nécessite l’identité déléguée de l’appelant initial, ainsi que celle de l’appelant immédiat. Ce service est créé avec WCF.
+- sts1: Un service STS qui est dans le rôle de fournisseur de revendications et émet des revendications qui sont attendues par l’application (web1). Il a établi l’approbation avec Fabrikam.com ainsi qu’avec l’application.
+- sts2: Un service STS qui est dans le rôle de fournisseur d’identité pour Fabrikam.com et fournit un point de terminaison, les employés de Fabrikam utilise pour s’authentifier. Il a établi la relation d’approbation avec Contoso.com afin que les employés de Fabrikam sont autorisés à accéder aux ressources de Contoso.com.
 
 >[!NOTE] 
->Le terme "Jeton ActAs", qui est souvent utilisé dans ce scénario, fait référence à un jeton est émis par un service STS et qui contient l’identité de l’utilisateur. La propriété acteur contient identité de l’émission.
+>Le terme « Jeton ActAs », qui est souvent utilisé dans ce scénario, fait référence à un jeton qui est émis par un STS et contient l’identité de l’utilisateur. La propriété de l’acteur contient les identités du STS.
 
-Comme indiqué dans le diagramme précédent, le flux dans ce scénario est:
+Comme indiqué dans le diagramme précédent, le flux dans ce scénario est :
 
 
-1. L’application Contoso est configurée pour obtenir un jeton ActAs qui contient l’identité de l’employé de Fabrikam et identité de l’appelant immédiat dans la propriété de l’intervenant. Daniel a implémenté ces modifications à l’application.
-2. L’application Contoso est configurée pour transmettre le jeton ActAs au service principal. Daniel a implémenté ces modifications à l’application.
+1. L’application Contoso est configurée pour obtenir un jeton ActAs qui contient l’identité de l’employé de Fabrikam et identité de l’appelant immédiat dans la propriété de l’acteur. Daniel a implémenté ces modifications à l’application.
+2. L’application Contoso est configurée pour transmettre le jeton ActAs pour le service back-end. Daniel a implémenté ces modifications à l’application.
 3. Le service Web de Contoso est configuré pour valider le jeton ActAs en appelant sts1. ADAM a activé sts1 traiter les demandes de délégation.
-4. Fabrikam utilisateur Frank accède à l’application Contoso et est autorisé à accéder aux ressources principal.
+4. Utilisateur de Fabrikam Frank accède à l’application Contoso et accède aux ressources back-end.
 
 ## <a name="set-up-the-identity-provider-ip"></a>Configurer le fournisseur d’identité (IP)
 
-Il existe trois options disponibles pour l’administrateur Fabrikam.com, Frank:
+Il existe trois options disponibles pour l’administrateur de Fabrikam.com, Frank :
 
 
-1. Acheter et installer un produit STS tels que les Services de fédération ActiveDirectory® (ADFS).
-2. S’abonner à un produit de STS cloud comme LiveID STS.
-3. Créer un service STS personnalisé à l’aide de WIF.
+1. Acheter et installer un produit de STS tels que Active Directory® Federation Services (ADFS).
+2. S’abonner à un produit de STS cloud tel que LiveID STS.
+3. Créer un STS personnalisé à l’aide de WIF.
 
-Pour cet exemple de scénario, nous partons du principe que Frank sélectionne option1 et installe l’IP-STS ADFS. Il configure également un point de terminaison, nommé \windowsauth, pour authentifier les utilisateurs. En faisant référence à la documentation du produit ADFS et donner la parole à Adam, l’administrateur informatique de Contoso, Frank établit une relation d’approbation avec le domaine Contoso.com.
+Pour cet exemple de scénario, nous partons du principe que Frank sélectionne option1 et installe les services AD FS en tant que l’IP-STS. Il configure également un point de terminaison nommé \windowsauth, pour authentifier les utilisateurs. En faisant référence à la documentation du produit AD FS et communique avec Adam, l’administrateur informatique de Contoso, Frank établit la relation d’approbation avec le domaine Contoso.com.
 
 ## <a name="set-up-the-claims-provider"></a>Configurer le fournisseur de revendications
 
-Les options disponibles pour l’administrateur Contoso.com, Adam, sont les mêmes que ceux décrits précédemment pour le fournisseur d’identité. Pour cet exemple de scénario, nous partons du principe qu’Adam sélectionne l’Option 1 et installe le RP-service STS ADFS 2.0.
+Les options disponibles pour l’administrateur de Contoso.com, Adam, sont identiques à celles décrites précédemment pour le fournisseur d’identité. Pour cet exemple de scénario, nous partons du principe que Adam sélectionne l’Option 1 et installe les services AD FS 2.0 en tant que le service RP-STS.
 
 ## <a name="set-up-trust-with-the-ip-and-application"></a>Configurer la relation d’approbation avec l’adresse IP et l’Application
 
-En faisant référence à la documentation ADFS, Adam établit une relation d’approbation entre Fabrikam.com et l’application.
+En vous reportant à la documentation d’AD FS, Adam établit la relation d’approbation entre Fabrikam.com et l’application.
 
 ## <a name="set-up-delegation"></a>Configurer la délégation
 
-ADFS fournit le traitement de la délégation. En faisant référence à la documentation ADFS, Adam permet le traitement des jetons ActAs.
+AD FS fournit le traitement de la délégation. En vous reportant à la documentation d’AD FS, Adam permet le traitement des jetons de ActAs.
 
 ## <a name="application-specific-changes"></a>Modifications spécifiques à l’application
 
-Les modifications suivantes doivent être apportées pour prendre en charge pour la délégation d’identité pour une application existante. Daniel utilise WIF pour apporter ces modifications.
+Les modifications suivantes doivent être apportées pour ajouter la prise en charge de la délégation d’identité à une application existante. Daniel utilise WIF pour effectuer ces modifications.
 
 
-- Mettre en cache le jeton d’amorçage qui web1 reçu à partir de sts1.
-- Utilisez CreateChannelActingAs avec le jeton émis pour créer un canal pour le service Web principal.
-- Appelez la méthode du service principal.
+- Mettre en cache le jeton de démarrage que web1 provenant de sts1.
+- Utilisez CreateChannelActingAs avec le jeton émis pour créer un canal pour le service Web back-end.
+- Appelez la méthode du service de serveur principal.
 
-## <a name="cache-the-bootstrap-token"></a>Mettre en cache le jeton d’amorçage
+## <a name="cache-the-bootstrap-token"></a>Mettre en cache le jeton de démarrage
 
-Le jeton d’amorçage est le jeton initial émis par le STS et l’application extrait les revendications à partir de celui-ci. Dans cet exemple de scénario, ce jeton est émis par sts1 pour l’utilisateur Frank et l’application met en cache. L’exemple de code suivant montre comment récupérer les données d’amorçage jeton dans une application ASP.NET:
+Le jeton de démarrage est le jeton initial émis par le STS et l’application extrait les revendications à partir de celui-ci. Dans cet exemple de scénario, ce jeton est émis par sts1 pour l’utilisateur Frank, et l’application met en cache. L’exemple de code suivant montre comment récupérer des données d’amorçage jeton dans une application ASP.NET :
 
 ```
 // Get the Bootstrap Token
@@ -98,9 +99,9 @@ if ( claimsPrincipal != null )
     bootstrapToken = claimsIdentity.BootstrapToken;
 }
 ```
-WIF fournit une méthode, [CreateChannelActingAs](https://msdn.microsoft.com/library/ee733863.aspx), qui crée un canal du type spécifié qui augmente les demandes d’émission de jeton avec le jeton de sécurité spécifié comme un élément ActAs. Vous pouvez transmettre le jeton d’amorçage à cette méthode et appelez ensuite la méthode de service nécessaires sur le canal retourné. Dans cet exemple de scénario a identité de Frank le [acteur](https://msdn.microsoft.com/library/microsoft.identitymodel.claims.iclaimsidentity.actor.aspx) propriété définie sur l’identité de web1.
+WIF fournit une méthode, [CreateChannelActingAs](https://msdn.microsoft.com/library/ee733863.aspx), qui crée un canal du type spécifié qui augmente les demandes d’émission de jeton avec le jeton de sécurité spécifié comme un élément ActAs. Vous pouvez passer le jeton de démarrage à cette méthode et puis appelez la méthode de service nécessaire sur le canal retourné. Dans cet exemple de scénario, les identités de Frank a la [acteur](https://msdn.microsoft.com/library/microsoft.identitymodel.claims.iclaimsidentity.actor.aspx) propriété définie sur identité de web1.
 
-L’extrait de code suivant montre comment appeler le service Web avec [CreateChannelActingAs](https://msdn.microsoft.com/library/ee733863.aspx), puis appelez une des méthodes du service, ComputeResponse, sur le canal retourné:
+L’extrait de code suivant montre comment appeler le service Web avec [CreateChannelActingAs](https://msdn.microsoft.com/library/ee733863.aspx) et appelez ensuite une des méthodes du service, ComputeResponse, sur le canal retourné :
 
 ```
 // Get the channel factory to the backend service from the application state
@@ -135,9 +136,9 @@ try
 ```
 ## <a name="web-service-specific-changes"></a>Modifications spécifiques au Service Web
 
-Dans la mesure où le service Web est créé avec WCF et activé pour WIF, une fois que la liaison est configurée avec IssuedSecurityTokenParameters avec l’adresse de l’émetteur appropriée, la validation de l’ActAs est gérée automatiquement par WIF. 
+Dans la mesure où le service Web créé avec WCF et activé pour WIF, une fois que la liaison est configurée avec IssuedSecurityTokenParameters avec l’adresse d’émetteur appropriée, la validation de la ActAs est gérée automatiquement par WIF. 
 
-Le service Web expose les méthodes spécifiques requis par l’application. Il n’existe aucune modification du code spécifique requis sur le service. L’exemple de code suivant illustre la configuration du service Web avec IssuedSecurityTokenParameters:
+Le service Web expose les méthodes spécifiques requises par l’application. Il n’y a aucune modification de code spécifique du service. L’exemple de code suivant montre la configuration du service Web avec IssuedSecurityTokenParameters :
 
 ```
 // Configure the issued token parameters with the correct settings
@@ -182,4 +183,4 @@ using ( ServiceHost host = new ServiceHost( typeof( Service2 ), new Uri( "http:/
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Développement d’ADFS](../../ad-fs/AD-FS-Development.md)  
+[Développement de AD FS](../../ad-fs/AD-FS-Development.md)  

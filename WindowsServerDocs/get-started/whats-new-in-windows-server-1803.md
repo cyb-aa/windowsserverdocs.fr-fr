@@ -1,5 +1,5 @@
 ---
-title: Nouveautés de WindowsServer, version1803
+title: Nouveautés de Windows Server, version 1803
 description: Présentation des nouvelles fonctionnalités de calcul, d’identité, de gestion, d’automatisation, de mise en réseau, de sécurité et de stockage.
 ms.prod: windows-server-threshold
 ms.technology: server-general
@@ -9,17 +9,17 @@ ms.author: greg-lindsay
 ms.localizationpriority: high
 ms.date: 05/07/2018
 ms.openlocfilehash: c4f80b668b91e65b6c8bc528e14f52a1d117a3c9
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2061469"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59823090"
 ---
-# <a name="whats-new-in-windows-server-version-1803"></a>Nouveautés de WindowsServer, version1803
+# <a name="whats-new-in-windows-server-version-1803"></a>Nouveautés de Windows Server, version 1803
 
->S’applique à: WindowsServer (canal semi-annuel)
+>S'applique à : Windows Server (canal semi-annuel)
 
-<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Le contenu de cette section décrit les nouveautés et les modifications de WindowsServer, version1803. Les nouvelles fonctionnalités et modifications répertoriées ici sont celles qui sont susceptibles d’avoir l’impact le plus important quand vous utilisez cette version. Voir aussi [Mise à jour Windows Server du canal semi-annuel](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/).
+<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Le contenu de cette section décrit les nouveautés et les modifications de Windows Server, version 1803. Les nouvelles fonctionnalités et modifications répertoriées ici sont celles qui sont susceptibles d'avoir l'impact le plus important quand vous utilisez cette version. Voir aussi [Mise à jour Windows Server du canal semi-annuel](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/).
 
 ## <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -31,19 +31,19 @@ Le projet Honolulu s'appelle désormais **Windows Admin Center**.
 
 ## <a name="windows-server-release-strategy"></a>Stratégie de publication de Windows Server
 
-Windows Server version1709 a été publiée en septembre2017 en tant que première version du canal semi-annuel. Le canal semi-annuel suit une cadence de publication plus rapide et répond aux commentaires de ceux qui souhaitent une innovation rapide tous les mois. Il complète le canal de maintenance à long terme, dans lequel de nouvelles versions sont publiées tous les 2 à 3ans.
+Windows Server version 1709 a été publiée en septembre 2017 en tant que première version du canal semi-annuel. Le canal semi-annuel suit une cadence de publication plus rapide et répond aux commentaires de ceux qui souhaitent une innovation rapide tous les mois. Il complète le canal de maintenance à long terme, dans lequel de nouvelles versions sont publiées tous les 2 à 3 ans.
 
-En fonction de la télémétrie et des commentaires, ces canaux ont démontré qu’ils respectent la stratégie générale suivante:
+En fonction de la télémétrie et des commentaires, ces canaux ont démontré qu’ils respectent la stratégie générale suivante :
 - Le canal semi-annuel est idéal pour les applications modernes et les scénarios d'innovation, tels que les conteneurs et les micro-services.
 - Le canal de maintenance à long terme est la version privilégiée pour les scénarios d’infrastructure principaux, par exemple un centre de données défini par logiciel et une infrastructure hyperconvergée (HCI). 
 
-Les scénarios spécifiques pour le canal semi-annuel et le canal de maintenance à long terme sont les suivants:
+Les scénarios spécifiques pour le canal semi-annuel et le canal de maintenance à long terme sont les suivants :
 
 |   | Canal de maintenance à long terme |  Canal semi-annuel |
 | ------------- | ------------- | ------------ |
 | Scénarios recommandés     | Serveurs de fichiers usage général, charges de travail internes et tierces, applications traditionnelles, rôles d’infrastructure, centre de données défini par logiciel et infrastructure hyperconvergée  | Scénarios d'applications en conteneur, d'hôtes de conteneur et d'application bénéficiant d'une innovation plus rapide |
-| Nouvelles versions  | Tous les 2 à 3ans  | Tous les 6mois |
-| Support  | 5ans de support standard + 5ans de support étendu  | 18mois |
+| Nouvelles versions  | Tous les 2 à 3 ans  | Tous les 6 mois |
+| Support  | 5 ans de support standard + 5 ans de support étendu  | 18 mois |
 | Éditions  | Toutes les éditions disponibles de Windows Server  | Éditions Standard et Datacenter |
 | Qui peut l'utiliser  | Tous les clients par le biais de tous les canaux | Clients Software Assurance et cloud uniquement |
 | Options d’installation  | Server Core et Serveur avec Expérience utilisateur  | Server Core pour hôte et image de conteneur et image du conteneur Nano Server |
@@ -51,20 +51,20 @@ Les scénarios spécifiques pour le canal semi-annuel et le canal de maintenance
 ## <a name="application-platform-and-containers"></a>Conteneurs et plateforme d’applications
 
 - Optimisation
-    - L’image de base du conteneur Server Core est réduite de 30% à partir de Windows Server, version1709. 
+    - L’image de base du conteneur Server Core est réduite de 30 % à partir de Windows Server, version 1709. 
     - La compatibilité des applications est également améliorée pour vous aider dans la conteneurisation d'applications traditionnelles.
     - Les performances de démarrage de conteneur et d'exécution sont également améliorées grâce à divers correctifs et optimisations.
-- Mise en réseau du conteneur: la prise en charge des proxy Localhost et http a été ajoutée et l’évolutivité et le temps de démarrage du conteneur ont été améliorés.
-- Outils: la prise en charge de Curl.exe, Tar.exe et SSH a été améliorée pour compléter PowerShell pour les scénarios de création et de débogage.
+- Mise en réseau de conteneur : Prise en charge de proxy localhost et http a été ajouté, et temps de démarrage et l’évolutivité du conteneur est améliorée.
+- Outils : Prise en charge de Curl.exe Tar.exe et SSH a été amélioré pour compléter PowerShell pour générer et déboguer des scénarios.
 
-### <a name="server-core-container-image"></a>Image de conteneur ServerCore
+### <a name="server-core-container-image"></a>Image de conteneur Server Core
 
 Un conteneur Server Core plus petit avec une meilleure compatibilité des applications est désormais disponible. Des informations détaillées sont disponibles [ici](https://blogs.technet.microsoft.com/virtualization/2018/01/22/a-smaller-windows-server-core-container-with-better-application-compatibility/).
 
 - Des fonctionnalités et des rôles facultatifs inutilisés ont été supprimés. Pour plus d’informations, voir [Fonctionnalités, rôles et services de rôle non présents dans les conteneurs Server Core](../administration/server-core/server-core-container-removed-roles.md).
-    - Taille de téléchargement diminuée à 1,58Go, soit 30% de réduction par rapport à Windows Server, version1709.
-    - Taille sur disque réduite à 3,61Go, soit 20% de réduction par rapport à Windows Server, version1709.
-- L'image de conteneur Nano Server est inférieure à 100Mo
+    - Taille de téléchargement diminuée à 1,58 Go, soit 30 % de réduction par rapport à Windows Server, version 1709.
+    - Taille sur disque réduite à 3,61 Go, soit 20 % de réduction par rapport à Windows Server, version 1709.
+- L'image de conteneur Nano Server est inférieure à 100 Mo
 
 ### <a name="windows-subsystem-for-linux-wsl"></a>Sous-système de Windows pour Linux (WSL)
 
@@ -74,12 +74,12 @@ WSL permet aux administrateurs de serveur d'utiliser les outils et les scripts e
 
 Kubernetes (généralement appelé K8s) est un système en open source pour l’automatisation du déploiement, la mise à l’échelle et la gestion des applications en conteneur développées sous la direction de la [Cloud Native Computing Foundation](https://www.cncf.io). 
 
-Dans Windows Server, version1709, les utilisateurs pouvaient bénéficier de Kubernetes sur les fonctionnalités de mise en réseau Windows, notamment les suivantes:
-- Compartiments de pod partagés: les pods d’infrastructure et de travail partagent désormais un compartiment réseau (comparable à un espace de noms Linux).
-- Optimisation du point de terminaison: grâce au partage des compartiments, les services de conteneurs doivent suivre au moins deux fois moins de points de terminaison qu’auparavant.
-- Optimisation du chemin d’accès aux données: les améliorations apportées à la plateforme de filtrage virtuel (VFP, Virtual Filtering Platform) et au service HNS (Host Networking Service) permettent un équilibrage de charge basé sur le noyau.
+Dans Windows Server, version 1709, les utilisateurs pouvaient bénéficier de Kubernetes sur les fonctionnalités de mise en réseau Windows, notamment les suivantes :
+- Partagé pod compartiments : Infrastructure et travail pods désormais partagent un compartiment réseau (analogue à un espace de noms Linux).
+- Optimisation de point de terminaison : Grâce à compartiment de partage, les services de conteneur ont besoin effectuer le suivi de points de terminaison autant au moins la moitié.
+- Optimisation du chemin d’accès de données : Améliorations apportées à la plateforme de filtrage virtuel et le Service de mise en réseau hôte autoriser basée sur le noyau équilibrage de charge.
 
-Avec la publication de Windows Server, version1803, davantage de fonctionnalités seront disponibles dans les prochaines versions de Kubernetes: 
+Avec la publication de Windows Server, version 1803, davantage de fonctionnalités seront disponibles dans les prochaines versions de Kubernetes : 
 - [Plug-ins de stockage](https://github.com/Microsoft/K8s-Storage-Plugins) pour les conteneurs Windows orchestrés par Kubernetes.
 - Mise en réseau à l’échelle du cloud à travers des initiatives telles que notre partenariat avec la prise en charge de [Tigera sur le Projet Calico](https://cloudblogs.microsoft.com/windowsserver/2017/12/07/securing-modernized-apps-and-simplified-networking-on-windows-with-calico/).
 - Prise en charge de la plateforme Windows des pods isolés Hyper-V avec plusieurs conteneurs par pod.
@@ -102,13 +102,13 @@ Le rôle Serveur de transport dans le rôle des Services de déploiement Windows
 
 Serveur de transport contient uniquement les composants de mise en réseau principaux de WDS. Vous pouvez utiliser le Serveur de transport pour créer des espaces de noms de multidiffusion qui transmettent les données (y compris les images du système d’exploitation) à partir d’un serveur autonome. Vous pouvez également l’utiliser si vous souhaitez disposer d’un serveur PXE qui permette aux clients d’utiliser un démarrage PXE et de télécharger votre propre application d’installation personnalisée. Vous devez utiliser cette option si vous souhaitez utiliser l'un de ces scénarios.
 
-Vous pouvez utiliser la commande Windows PowerShell suivante pour activer le service de Serveur de transport sur Server Core:
+Vous pouvez utiliser la commande Windows PowerShell suivante pour activer le service de Serveur de transport sur Server Core :
 
 ```
 Install-WindowsFeature -Name WDS
 ```
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
-[Informations de publication de WindowsServer](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)<br>
-[Nouveautés de Windows10 version1803 concernant les contenus destinés aux professionnels de l'informatique](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1803)
+[Informations de version de Windows Server](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)<br>
+[Quelles sont les nouveautés dans Windows 10, le contenu de professionnels de l’informatique version 1803](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1803)

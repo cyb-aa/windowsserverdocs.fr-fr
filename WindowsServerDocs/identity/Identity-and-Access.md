@@ -11,16 +11,16 @@ ms.topic: landing-page
 ms.author: billmath
 ms.localizationpriority: high
 ms.openlocfilehash: 161840d86cae6b688e3e7a877c7c44b17aefd432
-ms.sourcegitcommit: c6ac2f70f8fb5f27f6bbe5c9cfc9f76b02f557b5
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "4286171"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59824240"
 ---
-# Identité | Accès
+# <a name="identity--access"></a>Identité | Accès
 
 >[!TIP]
-> Vous recherchez des informations sur des versions plus anciennes de WindowsServer? Consultez nos autres [bibliothèques Windows Server](/previous-versions/windows/) sur docs.microsoft.com. Vous pouvez également [rechercher dans ce site](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) des informations spécifiques.
+> Vous recherchez des informations sur des versions plus anciennes de Windows Server ? Consultez nos autres [bibliothèques Windows Server](/previous-versions/windows/) sur docs.microsoft.com. Vous pouvez également [rechercher dans ce site](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) des informations spécifiques.
 
 <hr />
 
@@ -39,8 +39,8 @@ Les technologies d'identité et d'accès permettent de sécuriser des environnem
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h2>Quelles sont les nouveautés?</h2>
-                                            <p>Découvrir les nouveautés des services de fédération Active Directory (ADFS)</p>
+                                            <h2>Quelles sont les nouveautés ?</h2>
+                                            <p>Découvrir les nouveautés des services de fédération Active Directory (AD FS)</p>
                                         </div>
                                     </div>
                                 </div>
@@ -61,8 +61,8 @@ Les technologies d'identité et d'accès permettent de sécuriser des environnem
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Privileged Access Management pour les services Active Directory Domain Services et ADDS</h3><hr />
-                        <p>Privileged Access Management (PAM) pour Active Directory Domain Services (ADDS) est une solution basée sur Microsoft Identity Manager (MIM) et WindowsServer.</p>
+                        <h3>Privileged Access Management pour les services Active Directory Domain Services et AD DS</h3><hr />
+                        <p>Privileged Access Management (PAM) pour Active Directory Domain Services (AD DS) est une solution basée sur Microsoft Identity Manager (MIM) et Windows Server.</p>
                     </div>
                 </div>
             </div>
@@ -80,8 +80,8 @@ Les technologies d'identité et d'accès permettent de sécuriser des environnem
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Windows10 pour l'entreprise: utiliser les appareils pour travailler</h3><hr />
-                        <p>Windows10vous offre la possibilité de tirer parti d’Azure ActiveDirectory. Les appareils Windows10 peuvent être connectés à Azure AD. Leurs utilisateurs peuvent se connecter à Windows avec des comptes AzureAD ou ajouter leur IDAzure pour accéder aux applications métier et aux ressources.</p>
+                        <h3>Windows 10 pour l’entreprise : Façons d’utiliser des appareils professionnels</h3><hr />
+                        <p>Windows 10 vous offre la possibilité de tirer parti d’Azure Active Directory. Les appareils Windows 10 peuvent être connectés à Azure AD. Leurs utilisateurs peuvent se connecter à Windows avec des comptes Azure AD ou ajouter leur ID Azure pour accéder aux applications métier et aux ressources.</p>
                     </div>
                 </div>
             </div>
@@ -99,8 +99,8 @@ Les technologies d'identité et d'accès permettent de sécuriser des environnem
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Active Directory Domain Services</h3><hr />
-                        <p>Documentation détaillée de toutes les fonctionnalités disponibles pour ADDS dans WindowsServer.</p>
+                        <h3>Services de domaine Active Directory</h3><hr />
+                        <p>Documentation détaillée de toutes les fonctionnalités disponibles pour AD DS dans Windows Server.</p>
                     </div>
                 </div>
             </div>
@@ -118,8 +118,8 @@ Les technologies d'identité et d'accès permettent de sécuriser des environnem
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Services de fédération ActiveDirectory (ADFS)</h3><hr />
-                        <p>Documentation détaillée de toutes les fonctionnalités disponibles pour ADFS dans WindowsServer.</p>
+                        <h3>Services de fédération Active Directory (AD FS)</h3><hr />
+                        <p>Documentation détaillée de toutes les fonctionnalités disponibles pour AD FS dans Windows Server.</p>
                     </div>
                 </div>
             </div>
@@ -130,8 +130,8 @@ Les technologies d'identité et d'accès permettent de sécuriser des environnem
 
 ---
 
-## Guides de solutions et de scénarios  
-* [Sécuriser l’accès aux ressources de la société depuis n’importe quel endroit et n’importe quel appareil](https://technet.microsoft.com/library/dn550982.aspx)  
-*  [Joindre un espace de travail à partir de n’importe quel appareil en utilisant l’authentification unique et l’authentification de second facteur transparente pour accéder aux applications de l’entreprise](https://technet.microsoft.com/library/dn280945.aspx)  
-* [Gérer les risques avec une authentification multifacteur supplémentaire pour les applications sensibles](https://technet.microsoft.com/library/dn280949.aspx)  
-* [Gérer les risques avec le contrôle d’accès conditionnel](https://technet.microsoft.com/library/dn280937.aspx)
+## <a name="solutions-and-scenario-guides"></a>Guides de solutions et de scénarios  
+* [Sécuriser l’accès aux ressources d’entreprise à partir de n’importe quel emplacement sur n’importe quel appareil](https://technet.microsoft.com/library/dn550982.aspx)  
+*  [Rejoindre un espace de travail à partir de n’importe quel appareil pour l’authentification unique et transparente du facteur d’authentification entre les Applications d’entreprise](https://technet.microsoft.com/library/dn280945.aspx)  
+* [Gérer les risques avec une authentification multifacteur supplémentaire pour les Applications sensibles](https://technet.microsoft.com/library/dn280949.aspx)  
+* [Gérer les risques avec contrôle d’accès conditionnel](https://technet.microsoft.com/library/dn280937.aspx)

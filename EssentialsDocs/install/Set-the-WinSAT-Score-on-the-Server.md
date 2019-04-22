@@ -1,6 +1,6 @@
 ---
-title: "Définition du Score WinSAT sur le serveur"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Définition du score WinSAT sur le serveur
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,35 +13,36 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 77866acccac13ac48da8779700c8654f2c7f3277
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59819950"
 ---
-# <a name="set-the-winsat-score-on-the-server"></a>Définition du Score WinSAT sur le serveur
+# <a name="set-the-winsat-score-on-the-server"></a>Définition du score WinSAT sur le serveur
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Vous devez définir le score WinSAT du processeur pour un serveur qui exécute le système d’exploitation WindowsServerEssentials pour optimiser la résolution de diffusion vidéo. Pour cela, en créant et en installant le fichier .xml contenant les informations du score WinSAT.  
+Vous devez définir le score WinSAT du processeur pour un serveur qui exécute le système d’exploitation Windows Server Essentials pour optimiser la résolution vidéo de diffusion en continu. Pour ce faire, il convient de créer et d’installer le fichier .xml contenant les indices de performance WinSAT.  
   
-## <a name="obtain-the-winsat-cpu-score"></a>Obtenir le score WinSAT du processeur  
- Vous disposez d’un programme avec le Kit de préinstallation OEM appelé WinServerSAT.exe qui détecte le score WinSAT du processeur et de placer cette information dans le fichier WinServerSAT.xml qui lit le système d’exploitation.  
+## <a name="obtain-the-winsat-cpu-score"></a>Obtention du score WinSAT du processeur  
+ Le Kit de préinstallation OEM (OPK) est fourni avec un programme appelé WinServerSAT.exe. Celui-ci a pour fonction de relever la note du processeur obtenue au cours du test d’évaluation WinSAT et de placer cette information dans le fichier WinServerSAT.xml consultable par le système d’exploitation.  
   
-#### <a name="to-obtain-the-winsat-cpu-score"></a>Pour obtenir le score WinSAT du processeur  
+#### <a name="to-obtain-the-winsat-cpu-score"></a>Pour obtenir le score du processeur lors de l’évaluation WinSAT  
   
-1.  Copiez Resources\WinServerSAT\\ * dans le support ADK sur l’ordinateur de référence.  
+1.  Copier le Resources\WinServerSAT\\* dans le support ADK sur l’ordinateur de référence.  
   
 2.  Sur l’ordinateur de référence, ouvrez une fenêtre d’invite de commandes avec élévation de privilèges.  
   
-3.  Si le dossier %ProgramFiles%\Windows Server\Bin\OEM n’existe pas, tapez la commande suivante et appuyez sur ENTRÉE.  
+3.  Si le dossier %ProgramFiles%\Windows Server\Bin\OEM n'existe pas, entrez la commande suivante et appuyez sur Entrée.  
   
-     **Mkdir «%ProgramFiles%\Windows Server\Bin\OEM»**  
+     **mkdir "%ProgramFiles%\Windows Server\Bin\OEM"**  
   
-4.  Tapez la commande suivante et appuyez sur ENTRÉE.  
+4.  Entrez la commande suivante et appuyez sur Entrée.  
   
-     **WinServerSAT.exe «%ProgramFiles%\Windows Server\Bin\OEM\WinServerSAT.xml»**  
+     **WinServerSAT.exe "%ProgramFiles%\Windows Server\Bin\OEM\WinServerSAT.xml"**  
   
- L’exemple suivant montre le contenu XML du fichier WinServerSAT.xml créé.  
+ L'exemple suivant montre les contenus XML du fichier WinServerSAT.xml créé.  
   
 ```  
   
@@ -51,7 +52,7 @@ Vous devez définir le score WinSAT du processeur pour un serveur qui exécute l
 </WinSAT>  
 ```  
   
- Où *Score_winsat* est remplacé par la valeur relevée sur le serveur.  
+ *Score_WinSAT* représente la valeur relevée sur le serveur.  
   
 > [!IMPORTANT]
->  Vous devez supprimer les fichiers WinServerSAT.exe, winsat.prx, winsat.wmv et WinSATEncode.wmv de l’ordinateur de référence avant de capturer l’image.
+>  Avant d'affectuer une capture de l’image, n’oubliez pas de supprimer les fichiers WinServerSAT.exe, winsat.prx, winsat.wmv et WinSATEncode.wmv de l’ordinateur de référence.

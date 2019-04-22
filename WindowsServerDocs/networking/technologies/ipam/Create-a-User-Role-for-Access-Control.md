@@ -1,6 +1,6 @@
 ---
 title: Créer un rôle d’utilisateur pour le contrôle d’accès
-description: Cette rubrique fait partie du guide de gestion de la gestion des adresses IP (IPAM) dans Windows Server2016.
+description: Cette rubrique fait partie du guide de gestion de la gestion des adresses IP (IPAM) dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,40 +13,41 @@ ms.topic: article
 ms.assetid: ae6a42db-a104-401b-a8e6-b85c47d30b46
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fa0ed71d399ad638a648946952fe170d93f69ceb
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 69d7acec19a460b51819bdc30ce40e21089c7bcf
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59823580"
 ---
 # <a name="create-a-user-role-for-access-control"></a>Créer un rôle d’utilisateur pour le contrôle d’accès
 
->S’applique à: Windows Server (canal annuel un point-virgule), Windows Server2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour créer un nouveau rôle d’utilisateur de contrôle d’accès dans la console client IPAM.  
   
-L’appartenance au groupe **administrateurs**, ou équivalente, est la condition minimale requise pour effectuer cette procédure.  
+Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au groupe **Administrateurs** ou à un groupe équivalent.  
   
 > [!NOTE]  
-> Après avoir créé un rôle, vous pouvez créer une stratégie d’accès pour affecter le rôle à un utilisateur spécifique ou un groupe ActiveDirectory. Pour plus d’informations, voir [créer une stratégie d’accès](../../technologies/ipam/Create-an-Access-Policy.md).  
+> Après avoir créé un rôle, vous pouvez créer une stratégie d’accès pour affecter le rôle à un utilisateur spécifique ou d’un groupe Active Directory. Pour plus d’informations, consultez [créer une stratégie d’accès](../../technologies/ipam/Create-an-Access-Policy.md).  
   
 ### <a name="to-create-a-role"></a>Pour créer un rôle  
   
 1.  Dans le Gestionnaire de serveur, cliquez sur **IPAM**. La console client IPAM s’affiche.  
   
-2.  Dans le volet de navigation, cliquez sur **le contrôle d’accès**, dans le volet de navigation inférieur, cliquez sur **rôles**.  
+2.  Dans le volet de navigation, cliquez sur **contrôle d’accès**, dans le volet de navigation inférieur, cliquez sur **rôles**.  
   
     ![Rôles de contrôle d’accès](../../media/Create-a-User-Role-for-Access-Control/ipam_CreateUserRole_01.jpg)  
   
-3.  Avec le bouton droit **rôles**, puis cliquez sur **ajouter un rôle d’utilisateur**.  
+3.  Avec le bouton droit **rôles**, puis cliquez sur **ajouter un rôle utilisateur**.  
   
     ![Ajouter le rôle d’utilisateur](../../media/Create-a-User-Role-for-Access-Control/ipam_CreateUserRole_02.jpg)  
   
-4.  Le **ajouter ou modifier le rôle** boîte de dialogue s’ouvre. Dans **nom**, tapez un nom pour le rôle qui rend la fonction de rôle à effacer. Par exemple, si vous souhaitez créer un rôle qui permet aux administrateurs de gérer des enregistrements de ressource SRV DNS, vous pouvez nommer le rôle **IPAMSrv**. Si nécessaire, faites défiler **Operations** pour rechercher le type d’opérations que vous souhaitez définir pour le rôle. Pour cet exemple, faites défiler jusqu'à **les opérations de gestion des enregistrements de ressource DNS**.  
+4.  Le **ajouter ou modifier le rôle** boîte de dialogue s’ouvre. Dans **nom**, tapez un nom pour le rôle qui rend la fonction du rôle à effacer. Par exemple, si vous souhaitez créer un rôle qui permet aux administrateurs de gérer les enregistrements de ressource SRV de DNS, vous pouvez nommer le rôle **IPAMSrv**. Si nécessaire, faites défiler **opérations** pour localiser le type d’opérations que vous souhaitez définir pour le rôle. Pour cet exemple, faites défiler jusqu'à **opérations de gestion des enregistrements de ressource DNS**.  
   
     ![Opérations de gestion des enregistrements de ressource DNS](../../media/Create-a-User-Role-for-Access-Control/ipam_CreateUserRole_03.jpg)  
   
-5.  Développez **les opérations de gestion des enregistrements de ressource DNS**, puis recherchez **les opérations d’enregistrement SRV**.  
+5.  Développez **opérations de gestion des enregistrements de ressource DNS**, puis recherchez **les opérations d’enregistrement SRV**.  
   
     ![Opérations d’enregistrement SRV](../../media/Create-a-User-Role-for-Access-Control/ipam_CreateUserRole_04.jpg)  
   
@@ -59,7 +60,7 @@ L’appartenance au groupe **administrateurs**, ou équivalente, est la conditio
     ![Détails du nouveau rôle](../../media/Create-a-User-Role-for-Access-Control/ipam_CreateUserRole_06.jpg)  
   
 ## <a name="see-also"></a>Voir aussi  
-[Contrôle d’accès basé sur les rôles](Role-based-Access-Control.md)  
+[Contrôle d’accès en fonction du rôle](Role-based-Access-Control.md)  
 [Gérer IPAM](Manage-IPAM.md)  
   
 

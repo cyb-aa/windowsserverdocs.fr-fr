@@ -1,6 +1,6 @@
 ---
-title: Publication des Extensions pour Windows Admin Center
-description: Publication des Extensions pour Windows Admin Center (projet Honolulu)
+title: Publication d’Extensions pour Windows Admin Center
+description: Publication d’Extensions pour Windows Admin Center (projet Honolulu)
 ms.technology: manage
 ms.topic: article
 author: daniellee-msft
@@ -9,75 +9,75 @@ ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: 762bd4613fa8ad6cdfb5b44745a7ce78b331499d
-ms.sourcegitcommit: 3883eebbba70bfea0221e510863ee1a724a5f926
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "5783751"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59820420"
 ---
-# Publication d’Extensions
+# <a name="publishing-extensions"></a>Extensions de publication
 
->S’applique à: Windows Admin Center, Windows Admin Center Preview
+>S'applique à : Windows Admin Center, version préliminaire de Windows Admin Center
 
-Une fois que vous avez développé votre extension, vous devrez le publier et la rendre disponible aux autres tests ou d’utiliser. En fonction de votre public et le rôle de publication, il existe quelques options qui nous présenterons ci-dessous, ainsi que les étapes et la configuration requise pour la publication.
+Une fois que vous avez développé votre extension, vous devez le publier et le rendre disponible à d’autres personnes pour tester ou utiliser. En fonction de votre audience et l’objectif de la publication, il existe quelques options qui nous présenterons ci-dessous, ainsi que les étapes et les exigences pour la publication.
 
-## Options de publication
+## <a name="publishing-options"></a>Options de publication
 
-Il existe trois options principales pour les sources de package configurable qui prend en charge de Windows Admin Center:
-* Flux public Windows Admin Center NuGet de Microsoft
-* Votre propre flux NuGet privé
+Il existe trois options principales pour les sources de package configurable qui prend en charge de Windows Admin Center :
+* Public Windows Admin Center flux NuGet de Microsoft
+* Vos propres flux NuGet privé
 * Local ou partage de fichiers réseau
 
-### La publication dans la flux d’extension Windows Admin Center
+### <a name="publishing-to-the-windows-admin-center-extension-feed"></a>Publication à l’extension Windows Admin Center de flux
 
-Par défaut, Windows Admin Center est connecté à un NuGet flux gérée par l’équipe de produit Windows Admin Center chez Microsoft. Premières versions d’aperçu de nouvelles extensions développées par Microsoft peuvent être publiées à ce flux et disponible pour les utilisateurs de Windows Admin Center. Les développeurs externes planification pour créer et publier des extensions publiquement peuvent également [soumettre une demande](#publishing-your-extension-to-the-windows-admin-center-feed) de publier dans ce flux.
+Par défaut, Windows Admin Center est connecté à un package NuGet flux géré par l’équipe de produit Windows Admin Center chez Microsoft. Premières versions préliminaires de nouvelles extensions développées par Microsoft peuvent être publiée sur ce flux et disponibles pour les utilisateurs Windows Admin Center. Planification créer et distribuer publiquement les extensions des développeurs externes peuvent également [soumettre une demande](#publishing-your-extension-to-the-windows-admin-center-feed) à publier sur ce flux.
 
-### Flux de publication dans un autre NuGet
+### <a name="publishing-to-a-different-nuget-feed"></a>Flux de publication sur un autre package de NuGet
 
-Vous pouvez également créer vos propres NuGet pour publier vos extensions à une des nombreuses [options différentes pour la configuration d’une source privée ou à l’aide d’un NuGet qui héberge le service](https://docs.microsoft.com/nuget/hosting-packages/overview)à l’aide de flux. Le flux de NuGet doit prendre en charge l’API de v2 NuGet. Dans la mesure où Windows Admin Center ne prend pas en charge d’authentification, le flux doit être configuré pour autoriser l’accès en lecture à tout le monde.
+Vous pouvez également créer votre propre flux pour publier vos extensions à l’aide d’une des nombreuses NuGet [différentes options pour la configuration d’une source privée ou à l’aide d’un service d’hébergement de NuGet](https://docs.microsoft.com/nuget/hosting-packages/overview). Le flux NuGet doit prendre en charge l’API v2 de NuGet. Dans la mesure où Windows Admin Center ne prend pas en charge les flux d’authentification, le flux doit être configuré pour autoriser l’accès en lecture à tout le monde.
 
-### La publication dans un partage de fichiers
+### <a name="publishing-to-a-file-share"></a>Publication sur un partage de fichiers
 
-Pour limiter l’accès de votre extension dans votre organisation ou à un groupe limité de personnes, vous pouvez utiliser un partage de fichiers SMB comme une flux d’extension. Dans ce cas, les autorisations de partage et du dossier du fichier s’appliqueront pour autoriser l’accès au flux.
+Pour restreindre l’accès de votre extension à votre organisation ou à un groupe limité d’utilisateurs, vous pouvez utiliser un partage de fichiers SMB en tant qu’extension du flux. Dans ce cas, les autorisations de partage et le dossier de fichiers seront appliqueront pour autoriser l’accès au flux.
 
-## Préparation de votre extension publiée
+## <a name="preparing-your-extension-for-release"></a>Préparation de votre extension pour la mise en production
 
-Veillez à lire et prendre en compte les rubriques de développement suivantes:
+Vérifiez que vous lire et prendre en compte les rubriques de développement suivantes :
 
 - [Contrôler la visibilité de votre outil](guides/dynamic-tool-display.md)
 - [Chaînes et localisation](guides/strings-localization.md)
 
-### Envisagez de publier comme une version préliminaire
+### <a name="consider-releasing-as-a-preview-release"></a>Envisager de sortir en version préliminaire
 
-Si vous publiez une version d’évaluation de votre extension à des fins d’évaluation, il est recommandé que vous:
+Si vous lancez une version préliminaire de votre extension à des fins d’évaluation, nous recommandons que vous :
 
-- Ajouter «(aperçu)» à la fin du titre de votre extension dans le fichier .nuspec
+- Ajouter « (aperçu) » à la fin du titre de votre extension dans le fichier .nuspec
 - Expliquez les limites dans la description de votre extension dans le fichier .nuspec
 
-## Création d’un package d’extension
+## <a name="creating-an-extension-package"></a>Création d’un package d’extension
 
-Windows Admin Center utilise les packages NuGet et des flux de distribution et de téléchargement des extensions.  Dans l’ordre de votre package doivent être livrées, vous devez générer un package NuGet qui contient votre plug-ins et des extensions.  Un seul package peut contenir à la fois une extension de l’interface utilisateur, ainsi qu’un plug-in de passerelle, et la section suivante vous guide à travers le processus.
+Windows Admin Center utilise des flux pour la distribution et le téléchargement des extensions et des packages NuGet.  Dans l’ordre pour votre paquet à expédier, vous devez générer un package NuGet contenant votre plug-ins et les extensions.  Un package unique peut contenir une extension de l’interface utilisateur ainsi que sur un plug-in de la passerelle, et la section suivante vous guidera dans le processus.
 
-### 1. créer votre extension
+### <a name="1-build-your-extension"></a>1. Générer votre extension
 
-Dès que vous êtes prêt à démarrer empaqueter votre extension, créez un nouveau répertoire sur votre système de fichiers, ouvrez une console et CD dedans.  Il s’agit du répertoire racine qui nous utiliserons pour contenir tous les répertoires de nuspec et le contenu qui composent notre package.  Nous référencera ce dossier en tant que «Package NuGet» pendant toute la durée de ce document.
+Dès que vous êtes prêt à empaqueter votre extension, créez un répertoire sur votre système de fichiers, ouvrez une console et CD dedans.  Il s’agit du répertoire racine qui nous utiliserons pour contenir tous les répertoires de nuspec et de contenu qui composent notre package.  Nous ferons référence à ce dossier en tant que « Package NuGet » pendant la durée de ce document.
 
-#### Extensions de l’interface utilisateur
+#### <a name="ui-extensions"></a>Extensions de l’interface utilisateur
 
-Pour commencer le processus de collecte de tout le contenu nécessaire pour une extension de l’interface utilisateur, exécutez «gulp build» sur votre outil et assurez-vous que la génération est réussie.  Packages de ce processus tous les composants dans un dossier appelé «offre groupée» qui se trouvent dans le répertoire racine de votre extension (au même niveau du répertoire src).  Copiez ce répertoire et tous il s’agit de contenu dans le dossier «NuGet Package».
+Pour commencer le processus sur la collecte de tout le contenu nécessaire pour une extension de l’interface utilisateur, exécutez « gulp build » sur votre outil et vérifiez que la génération a réussi.  Packages de ce processus tous les composants ensemble dans un dossier nommé « regrouper » situés dans le répertoire racine de votre extension (au même niveau du répertoire src).  Copiez ce répertoire et tous ses contenu dans le dossier « NuGet Package ».
 
-#### Plug-ins de passerelle
+#### <a name="gateway-plugins"></a>Plug-ins de la passerelle
 
-À l’aide de votre infrastructure de Build (qui peut être aussi simple que vous ouvrez Visual Studio et en cliquant sur le bouton Générer), compiler et créer votre plug-in.  Ouvrez votre répertoire de sortie de génération et copier la DLL qui représentent votre plug-in et placez-les dans un nouveau dossier à l’intérieur de l’annuaire de «NuGet Package» appelé «package».  Vous n’avez pas besoin de copier la dll FeatureInterface, simplement la DLL qui représentent votre code.
+À l’aide de votre infrastructure de Build (il peut s’agir aussi simple que d’ouvrir Visual Studio et en cliquant sur le bouton de génération), compiler et générer votre plug-in.  Ouvrez votre répertoire de sortie et copier la DLL qui représentent votre plug-in et les placer dans un nouveau dossier dans le répertoire « NuGet Package » appelé « package ».  Il est inutile de copier la dll FeatureInterface, simplement l’ou les DLL qui représentent votre code.
 
-### 2. créer le fichier .nuspec
+### <a name="2-create-the-nuspec-file"></a>2. Créer le fichier .nuspec
 
-Pour créer le package NuGet, vous devez d’abord créer un fichier .nuspec. Un fichier .nuspec est un manifeste XML qui contient des métadonnées de package NuGet. Ce manifeste est utilisé pour générer le package et à fournir des informations aux consommateurs.  Placez ce fichier à la racine du dossier «NuGet Package».
+Pour créer le package NuGet, vous devez d’abord créer un fichier .nuspec. Un fichier .nuspec est un manifeste XML qui contient des métadonnées de package NuGet. Ce manifeste est utilisé pour générer le package et pour fournir des informations aux consommateurs.  Placez ce fichier à la racine du dossier « NuGet Package ».
 
-Voici un exemple de fichier .nuspec et la liste des propriétés requises ou recommandées. Pour le schéma complet, voir la [référence .nuspec](https://docs.microsoft.com/nuget/reference/nuspec). Enregistrez le fichier de .nuspec au dossier de racine de votre projet avec un nom de fichier de votre choix.
+Voici un exemple de fichier .nuspec et la liste des propriétés requises ou recommandées. Pour le schéma complet, consultez la [de référence sur .nuspec](https://docs.microsoft.com/nuget/reference/nuspec). Enregistrez le fichier .nuspec au dossier racine de votre projet avec un nom de fichier de votre choix.
 
 > [!IMPORTANT]
-> Le ```<id>``` valeur dans le fichier .nuspec doit correspondre à la ```"name"``` valeur de votre projet ```manifest.json``` fichier, faute de votre extension publiée ne se charge pas correctement dans Windows Admin Center.
+> Le ```<id>``` valeur dans le fichier .nuspec doit correspondre à la ```"name"``` valeur dans votre projet ```manifest.json``` fichier, sans quoi votre extension publiée ne se charge pas correctement dans Windows Admin Center.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -106,49 +106,49 @@ Voici un exemple de fichier .nuspec et la liste des propriétés requises ou rec
 </package>
 ```
 
-#### Requises ou recommandées propriétés
+#### <a name="required-or-recommended-properties"></a>Requis ou recommandés propriétés
 
-| Nom de propriété | Requis / recommandé | Description |
+| Nom de la propriété | Requis / recommandé | Description |
 | ---- | ---- | ---- |
-| packageType | Requis | Utilisez «WindowsAdminCenterExtension», qui est le type de package NuGet défini pour les extensions de Windows Admin Center. |
-| id | Requis | Identificateur unique du Package dans le flux. Cette valeur doit correspondre à la valeur «name» dans le fichier manifest.json de votre projet.  Pour obtenir des instructions, consultez [choix d’un identificateur unique de package](https://docs.microsoft.com/nuget/create-packages/creating-a-package#choosing-a-unique-package-identifier-and-setting-the-version-number) . |
-| title | Requis pour la publication sur le centre d’administration Windows de flux | Nom convivial pour le package qui s’affiche dans Windows Admin Center Extension Manager. |
-| version | Requis | Version de l’extension. À l’aide du [Contrôle de version sémantique (convention SemVer)](http://semver.org/spec/v1.0.0.html) est recommandé mais non obligatoires. |
-| auteurs | Requis | Si publiez pour le compte de votre société, utilisez le nom de votre société. |
-| description | Requis | Fournir une description de la fonctionnalité de l’extension. |
-| iconUrl | Recommandée lors de la publication dans le centre d’administration Windows de flux | URL d’icône à afficher dans le Gestionnaire d’extensions. |
-| projectUrl | Requis pour la publication sur le centre d’administration Windows de flux | URL de site Web de votre extension. Si vous ne disposez pas d’un site Web distinct, utilisez l’URL de la page Web de package sur le flux de NuGet. |
-| licenseUrl | Requis pour la publication sur le centre d’administration Windows de flux | URL de contrat de licence utilisateur final de votre extension. |
-| fichiers | Requis | Ces deux paramètres de configuration de la structure de dossiers que Windows Admin Center s’attend des extensions de l’interface utilisateur et les plug-ins de passerelle. |
+| packageType | Obligatoire | Utilisez « WindowsAdminCenterExtension », qui est le type de package NuGet défini pour les extensions Windows Admin Center. |
+| id | Obligatoire | Identificateur unique du Package dans le flux. Cette valeur doit correspondre à la valeur « name » dans le fichier manifest.json de votre projet.  Consultez [choix d’un identificateur de package unique](https://docs.microsoft.com/nuget/create-packages/creating-a-package#choosing-a-unique-package-identifier-and-setting-the-version-number) pour obtenir des conseils. |
+| title | Requis pour la publication sur le Windows Admin Center de flux | Nom convivial pour le package s’affiche dans le Gestionnaire d’extensions Windows Admin Center. |
+| version | Obligatoire | Version de l’extension. À l’aide de [Semver (convention SemVer)](http://semver.org/spec/v1.0.0.html) est recommandé mais pas obligatoire. |
+| Auteurs | Obligatoire | Si la publication pour le compte de votre entreprise, utilisez le nom de votre entreprise. |
+| description | Obligatoire | Fournissez une description des fonctionnalités de l’extension. |
+| iconUrl | Recommandé lors de la publication pour le Windows Admin Center de flux | URL d’icône à afficher dans le Gestionnaire d’extensions. |
+| projectUrl | Requis pour la publication sur le Windows Admin Center de flux | URL vers le site Web de votre extension. Si vous n’avez pas d’un site Web distinct, utilisez l’URL de la page Web de package sur le flux NuGet. |
+| licenseUrl | Requis pour la publication sur le Windows Admin Center de flux | URL vers le contrat de licence utilisateur final de votre extension. |
+| fichiers | Obligatoire | Ces deux paramètres, définir la structure de dossier Windows Admin Center attend des extensions de l’interface utilisateur et des plug-ins de la passerelle. |
 
-### 3. Générez le package NuGet d’extension
+### <a name="3-build-the-extension-nuget-package"></a>3. Générer le package NuGet d’extension
 
-À l’aide du fichier .nuspec que vous avez créé ci-dessus, vous allez maintenant créer le fichier .nupkg du package NuGet que vous pouvez charger et publier dans le flux de NuGet.
+Utilisez le fichier .nuspec que vous avez créé ci-dessus, vous allez maintenant créer le fichier .nupkg de package NuGet que vous pouvez télécharger et publier sur le flux NuGet.
 
-1. Télécharger l’outil CLI nuget.exe à partir du [site Web des outils client NuGet](https://docs.microsoft.com/nuget/install-nuget-client-tools).
-2. Exécutez «nuget.exe pack [nom du fichier .nuspec]» pour créer le fichier .nupkg.
+1. Télécharger l’outil CLI de nuget.exe à partir de la [site Web des outils clients NuGet](https://docs.microsoft.com/nuget/install-nuget-client-tools).
+2. Exécutez « pack de nuget.exe [nom de fichier .nuspec] » pour créer le fichier .nupkg.
 
-### 4. signature de votre package NuGet d’extension
+### <a name="4-signing-your-extension-nuget-package"></a>4. Signature de votre package NuGet d’extension
 
-Tous les fichiers .dll inclus dans votre extension sont requises pour être signé avec un certificat à partir d’une autorité de certification approuvée (CA). Par défaut, les fichiers .dll non signées seront bloquées afin d’en cours d’exécution lorsque Windows Admin Center s’exécute en Mode de Production.
+Tous les fichiers .dll inclus dans votre extension sont requis pour être signé avec un certificat à partir d’une autorité de certificat approuvé (CA). Par défaut, les fichiers .dll non signé ne pourra s’exécuter lorsque Windows Admin Center s’exécute en Mode de Production.
 
-Nous vous recommandons également vivement que vous vous connectez le package NuGet d’extension pour garantir l’intégrité du package, mais il ne s’agit pas d’une étape obligatoire.
+Nous recommandons également vivement que vous vous connectez le package NuGet d’extension pour garantir l’intégrité du package, mais ce n’est pas une étape obligatoire.
 
-### 5. test de votre package NuGet d’extension
+### <a name="5-test-your-extension-nuget-package"></a>5. Tester votre package NuGet d’extension
 
-Votre package d’extension est prêt pour le test! Téléchargez le fichier .nupkg vers un flux NuGet ou copiez-la dans un partage de fichiers. Pour afficher et télécharger des packages à partir d’un flux différents ou d’un partage de fichiers, vous aurez besoin pour [modifier votre configuration de l’alimentation](../configure/using-extensions.md#installing-extensions-from-a-different-feed) pour pointer vers votre fichier ou de flux de NuGet partager. Lorsque vous testez, assurez-vous que les propriétés s’affichent correctement dans le Gestionnaire d’extensions et vous pouvez installer et désinstaller votre extension correctement.
+Votre package d’extension est désormais prêt à être testé ! Télécharger le fichier .nupkg vers un flux NuGet ou copiez-la dans un partage de fichiers. Pour afficher et télécharger des packages à partir d’un autre flux ou un partage de fichiers, vous devrez [modifier votre configuration de l’alimentation](../configure/using-extensions.md#installing-extensions-from-a-different-feed) pour pointer vers votre flux NuGet ou partage de fichiers. Lorsque vous testez, assurez-vous que les propriétés sont affichent correctement dans le Gestionnaire d’extensions et pouvoir installer et désinstaller votre extension.
 
-## La publication de votre extension dans le centre d’administration Windows de flux
+## <a name="publishing-your-extension-to-the-windows-admin-center-feed"></a>Flux de publication de votre extension pour le Windows Admin Center
 
-En les publiant sur le flux de Windows Admin Center, vous pouvez rendre votre extension disponible pour n’importe quel utilisateur Windows Admin Center. Dans la mesure où le SDK Windows Admin Center est toujours en version préliminaire, nous souhaitons travailler en étroite collaboration avec vous aider à résoudre les problèmes de développement et, assurez-vous que vous êtes en mesure de fournir un produit de qualité découvrir à vos utilisateurs.
+En le publiant sur le Windows Admin Center flux, vous pouvez mettre votre extension de disposition à tout utilisateur Windows Admin Center. Étant donné que le Kit de développement logiciel Windows Admin Center est toujours en version préliminaire, nous souhaitons travailler en étroite collaboration avec vous aider à résoudre les problèmes de développement et, assurez-vous que vous êtes en mesure de livrer un produit de qualité découvrir à vos utilisateurs.
 
-Avant de libérer la version initiale de votre extension, nous recommandons que vous soumettez une demande de révision d’extension à Microsoft au moins 2 à 3 semaines avant le lancement de que nous disposer de suffisamment de temps pour passer en revue et vous pouvez apporter des modifications à votre extension si nécessaire. Une fois que votre extension est prête à être publiée, vous devrez nous les envoyer pour passer en revue et si approuvée, nous allons publier dans le flux pour vous.
+Avant de libérer de la version initiale de votre extension, nous recommandons que vous envoyez une demande de révision d’extension à Microsoft au moins 2 à 3 semaines avant la mise en production afin de que nous avoir suffisamment de temps pour passer en revue et vous pouvez apporter des modifications à votre extension si nécessaire. Une fois que votre extension est prête à être publié, vous devez nous l’envoyer pour révision et approbation, nous allons le publier au flux pour vous.
 
-Par la suite, si vous voulez effectuer une mise à jour à votre extension, vous devez soumettre une demande un autre avis. Alors que, selon l’étendue de modification, le délai pour les avis de mise à jour doit généralement être plus court.
+Par la suite, si vous souhaitez publier une mise à jour vers votre extension, vous devez envoyer une autre demande de révision. Bien que, selon l’étendue de modification, le délai d’exécution pour les évaluations de mise à jour doit généralement être plus court.
 
-### Soumettre une demande de révision d’extension à Microsoft
+### <a name="submit-an-extension-review-request-to-microsoft"></a>Soumettre une demande de révision d’extension à Microsoft
 
-Pour soumettre une demande de révision d’extension, entrez les informations suivantes et envoyer par courrier électronique à [wacextensionrequest@microsoft.com](mailto:wacextensionrequest@microsoft.com?subject=Windows%20Admin%20Center%20Extension%20Review%20Request). Nous sera renvoyé à votre adresse e-mail au sein d’une semaine.
+Pour soumettre une demande de révision d’extension, entrez les informations suivantes et envoyer sous forme d’un e-mail à [ wacextensionrequest@microsoft.com ](mailto:wacextensionrequest@microsoft.com?subject=Windows%20Admin%20Center%20Extension%20Review%20Request). Nous vous répondrons à votre courrier électronique dans une semaine.
 
 ```
 Windows Admin Center Extension Review Request
@@ -160,11 +160,11 @@ Windows Admin Center Extension Review Request
 6. For extension update review – Description of changes (include product screenshots if UI has been significantly changed):
 ```
 
-### Soumettre votre package d’extension pour passer en revue et sa publication
+### <a name="submit-your-extension-package-for-review-and-publishing"></a>Soumettre votre package d’extension pour révision et la publication
 
-Assurez-vous que vous suivez les instructions ci-dessus pour la [Création d’un package d’extension](#creating-an-extension-package) et le fichier .nuspec est correctement défini et les fichiers sont signés. Nous vous recommandons également que vous disposez d’un site Web de projet, y compris les éléments suivants:
+Assurez-vous de suivre les instructions ci-dessus pour [création d’un package d’extension](#creating-an-extension-package) et le fichier .nuspec est défini correctement et que les fichiers sont signés. Nous vous recommandons également d’avoir un site Web du projet, y compris les éléments suivants :
 
-- Description détaillée de votre extension, y compris les captures d’écran ou une vidéo
-- Fonctionnalité adresse ou le site Web par courrier électronique pour recevoir des commentaires ou questions
+- Description détaillée de votre extension, y compris des captures d’écran ou vidéo
+- Fonctionnalité d’adresse ou le site Web par courrier électronique pour recevoir des commentaires ou questions
 
-Lorsque vous êtes prêt à publier votre extension, envoyer un courrier électronique à [wacextensionrequest@microsoft.com](mailto:wacextensionrequest@microsoft.com?subject=Windows%20Admin%20Center%20Extension%20Package%20Review) et nous fournirons des instructions sur la façon de pour nous envoyer votre package d’extension. Une fois que nous recevons votre package, nous examinerons et si approuvée, publier dans le centre d’administration Windows de flux.
+Lorsque vous êtes prêt à publier votre extension, envoyez un e-mail à [ wacextensionrequest@microsoft.com ](mailto:wacextensionrequest@microsoft.com?subject=Windows%20Admin%20Center%20Extension%20Package%20Review) et nous fournirons des instructions sur la façon de nous envoyer votre package d’extension. Une fois que nous recevons votre package, nous vérifierons et cas d’approbation, publier sur le Windows Admin Center de flux.

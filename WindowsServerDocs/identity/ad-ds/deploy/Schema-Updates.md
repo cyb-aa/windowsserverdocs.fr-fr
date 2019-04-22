@@ -1,27 +1,32 @@
 ---
 ms.assetid: abf69b09-6528-42e0-b164-813c7c2c78e7
-title: "Mises à jour de schéma"
-description: 
+title: Mises à jour de schéma dans Windows Server
+description: Modifications de schéma apportées par adprep par version de système d’exploitation
 author: MicrosoftGuyJFlo
 ms.author: joflore
-manager: femila
-ms.date: 11/27/2017
+manager: mtillman
+ms.date: 11/30/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 1604910ed3c3a1db2d5e23fa34cce0798138579b
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 41b9837ab73dc12f134dcdba8b9f2b02a0a86b65
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59822660"
 ---
-# <a name="schema-updates"></a>Mises à jour de schéma
+# <a name="windows-server-active-directory-schema-updates"></a>Mises à jour de schéma Windows Server Active Directory
 
->S’applique à: Windows Server2016, Windows Server2012R2, Windows Server2012
+>S'applique à : Windows Server
 
 Cette rubrique répertorie les fichiers LDF qui incluent les modifications apportées par Adprep.exe.  
 
-Voici les fichiers LDF inclus dans Windows Server2016:
+Il s’agit du fichier LDF inclus dans Windows Server 2019 :
+
+-   [Sch88.ldf](#BKMK_Sch88)
+
+Il s’agit des fichiers LDF inclus dans Windows Server 2016 :
 
 -   [Sch58.ldf](#BKMK_Sch58)
 
@@ -83,7 +88,7 @@ Voici les fichiers LDF inclus dans Windows Server2016:
 
 -   [Sch87.ldf](#BKMK_Sch87)
 
-Voici les fichiers LDF inclus dans Windows Server2012R2:  
+Il s’agit des fichiers LDF inclus dans Windows Server 2012 R2 :  
   
 -   [Sch57.ldf](#BKMK_Sch57)  
   
@@ -111,7 +116,7 @@ Voici les fichiers LDF inclus dans Windows Server2012R2:
   
 -   [Sch69.ldf](#BKMK_Sch69)  
   
-Voici les fichiers LDF inclus dans Windows Server2012:  
+Il s’agit des fichiers LDF inclus dans Windows Server 2012 :  
   
 -   [Sch48.ldf](#BKMK_Sch48)  
   
@@ -131,9 +136,70 @@ Voici les fichiers LDF inclus dans Windows Server2012:
   
 -   [Sch56.ldf](#BKMK_Sch56)  
 
-## <a name="schema-updates-in-windows-server-2016"></a>Mises à jour de schéma dans Windows Server2016  
+## <a name="schema-update-in-windows-server-2019"></a>Mise à jour de schéma dans Windows Server 2019
   
-### <a name="BKMK_Sch58"></a>Sch58.ldf  
+### <a name="BKMK_Sch88"></a>Sch88.ldf
+
+```
+dn: CN=ms-DS-Preferred-Data-Location,CN=schema,CN=configuration,DC=X
+changetype: ntdsSchemaAdd
+objectClass: attributeSchema
+attributeID: 1.2.840.113556.1.4.2366
+attributeSyntax: 2.5.5.12
+adminDisplayName: ms-DS-Preferred-Data-Location
+adminDescription: ms-DS-Preferred-Data-Location
+oMSyntax: 64
+lDAPDisplayName: msDS-preferredDataLocation
+isSingleValued: TRUE
+schemaIDGUID:: 3ooM+pRMEEa6zhgO/e4hQA==
+searchFlags: 0
+showInAdvancedViewOnly: FALSE
+systemFlags: 16
+systemOnly: FALSE
+rangeLower: 1
+rangeUpper: 10
+isMemberOfPartialAttributeSet: TRUE
+
+dn:
+changetype: modify
+add: schemaUpdateNow
+schemaUpdateNow: 1
+-
+
+dn: CN=User,CN=Schema,CN=Configuration,DC=X
+changetype: ntdsSchemaModify
+add: systemMayContain
+systemMayContain: 1.2.840.113556.1.4.2366
+-
+
+dn: CN=Contact,CN=Schema,CN=Configuration,DC=X
+changetype: ntdsSchemaModify
+add: systemMayContain
+systemMayContain: 1.2.840.113556.1.4.2366
+-
+
+dn: CN=Group,CN=Schema,CN=Configuration,DC=X
+changetype: ntdsSchemaModify
+add: systemMayContain
+systemMayContain: 1.2.840.113556.1.4.2366
+-
+
+dn: CN=Schema,CN=Configuration,DC=X
+changeType: ntdsSchemaModify
+replace: objectVersion
+objectVersion: 88
+-
+
+dn:
+changetype: modify
+add: schemaUpdateNow
+schemaUpdateNow: 1
+-
+```
+
+## <a name="schema-updates-in-windows-server-2016"></a>Mises à jour de schéma dans Windows Server 2016
+  
+### <a name="BKMK_Sch58"></a>Sch58.ldf
 
 ```
 dn: CN=ms-DS-Resource-Property-List,CN=Schema,CN=Configuration,DC=X
@@ -2812,7 +2878,7 @@ schemaUpdateNow: 1
 
 ```
 
-## <a name="BKMK_SchemaUpdates2012R2"></a>Mises à jour de schéma dans Windows Server2012R2  
+## <a name="BKMK_SchemaUpdates2012R2"></a>Mises à jour de schéma dans Windows Server 2012 R2  
   
 ### <a name="BKMK_Sch57"></a>Sch57.ldf  
   
@@ -4467,7 +4533,7 @@ schemaUpdateNow: 1
 -  
 ```  
   
-## <a name="BKMK_SchemaUpdates2012"></a>Mises à jour de schéma dans Windows Server2012  
+## <a name="BKMK_SchemaUpdates2012"></a>Mises à jour de schéma dans Windows Server 2012  
   
 ### <a name="BKMK_Sch48"></a>Sch48.ldf  
   
