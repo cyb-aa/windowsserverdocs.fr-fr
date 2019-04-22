@@ -1,6 +1,6 @@
 ---
-title: "Créer un filtre de fichiers"
-description: "Cet article explique comment créer un filtre de fichiers"
+title: Créer un filtre de fichiers
+description: Cet article explique comment créer un filtre de fichiers
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: c1f261eb926eca3ead58b87aeb00a5060b9d957c
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59815920"
 ---
 # <a name="create-a-file-screen"></a>Créer un filtre de fichiers
 
-> S’applique à: WindowsServer (canal semi-annuel), WindowsServer2016, WindowsServer2012R2, WindowsServer2012, WindowsServer2008R2
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Lorsque vous créez un filtre de fichiers, vous pouvez choisir d’enregistrer un modèle de filtre de fichiers basé sur les propriétés de filtre de fichiers personnalisées que vous définissez. L’avantage de cette méthode est qu’un lien est conservé entre les filtres de fichiers et le modèle qui a servi à les créer, de sorte qu’à l’avenir, les modifications apportées au modèle s'appliquent à tous les filtres de fichiers qui en dérivent. Cette fonctionnalité simplifie la mise en œuvre de modifications dans la stratégie de stockage, puisque toutes les mises à jour peuvent s’effectuer au même endroit.
 
@@ -32,13 +33,13 @@ Lorsque vous créez un filtre de fichiers, vous pouvez choisir d’enregistrer u
 
 5.  Si vous souhaitez copier les propriétés d’un modèle existant de manière à les utiliser comme base de votre filtre de fichiers, sélectionnez un modèle dans la liste déroulante **Copier les propriétés du modèle**. Cliquez ensuite sur **Copier**.
 
-    Dans la boîte de dialogue **Propriétés du filtre de fichiers**, modifiez ou définissez les valeurs suivantes sous l'onglet **Paramètres**:
+    Dans la boîte de dialogue **Propriétés du filtre de fichiers**, modifiez ou définissez les valeurs suivantes sous l'onglet **Paramètres** :
 
 6.  Sous **Type de filtrage**, cliquez sur l'option **Filtrage actif** ou **Filtrage passif**. (Le filtrage actif empêche les utilisateurs d’enregistrer des fichiers qui sont membres de groupes de fichiers bloqués et génère des notifications lorsque les utilisateurs tentent d’enregistrer des fichiers non autorisés. Le filtrage passif envoie les notifications configurées, mais n’empêche pas les utilisateurs d’enregistrer des fichiers.)
 
 7.  Sous **Groupes de fichiers**, sélectionnez chaque groupe de fichiers que vous souhaitez inclure dans votre filtre de fichiers. (Pour activer la case à cocher du groupe de fichiers, double-cliquez sur le nom du groupe.)
 
-    Si vous souhaitez afficher les types de fichiers inclus et exclus par un groupe de fichiers, cliquez sur le nom du groupe, puis cliquez sur **Modifier**. Pour créer un groupe de fichiers, cliquez sur **Créer**.
+    Si vous souhaitez afficher un groupe de fichiers contient et exclut les types de fichiers et cliquez sur l’étiquette de groupe de fichiers, puis cliquez sur **modifier**. Pour créer un groupe de fichiers, cliquez sur **créer**.
 
 8.  Vous pouvez également configurer le **Gestionnaire de ressources de serveur de fichiers** pour qu'il génère une ou plusieurs notifications en définissant les options sous les onglets **Message électronique**, **Journal des événements**, **Commande** et **Rapport**. Pour plus d’informations sur les options de notification du filtre de fichiers, voir [Créer un modèle de filtre de fichiers](create-file-screen-template.md).
 
@@ -46,18 +47,18 @@ Lorsque vous créez un filtre de fichiers, vous pouvez choisir d’enregistrer u
 
 10. Dans la boîte de dialogue **Créer un filtre de fichiers**, cliquez sur **Créer** pour enregistrer le filtre de fichiers. La boîte de dialogue **Enregistrer les propriétés personnalisées sous forme de modèle** s'affiche.
 
-11. Sélectionnez le type de filtre de fichiers personnalisé que vous souhaitez créer:
+11. Sélectionnez le type de filtre de fichiers personnalisé que vous souhaitez créer :
 
     -   Pour enregistrer un modèle qui repose sur ces propriétés personnalisées (recommandé), cliquez sur **Enregistrer les propriétés personnalisées sous forme de modèle** et entrez un nom pour le modèle. Cette option applique le modèle au nouveau filtre de fichiers. Vous pouvez utiliser le modèle pour créer d'autres filtres de fichiers à l’avenir. Vous pourrez ultérieurement mettre à jour les filtres de fichiers automatiquement en mettant à jour le modèle.
     -   Si vous ne souhaitez pas enregistrer un modèle lorsque vous enregistrez le filtre de fichiers, cliquez sur **Enregistrer le filtre de fichiers personnalisé sans créer de modèle**.
 
 12. Cliquez sur **OK**.
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
--   [Gestion du filtrage de fichiers](file-screening-management.md)
+-   [Gestion des filtres de fichiers](file-screening-management.md)
 -   [Définir des groupes de fichiers pour le filtrage](define-file-groups-for-screening.md)
--   [Créer un modèle de filtre de fichiers](create-file-screen-template.md)
--   [Modifier les propriétés du modèle de filtre de fichiers](edit-file-screen-template-properties.md)
+-   [Créer un modèle d’écran de fichier](create-file-screen-template.md)
+-   [Modifier les propriétés de modèle de filtre de fichier](edit-file-screen-template-properties.md)
 
 

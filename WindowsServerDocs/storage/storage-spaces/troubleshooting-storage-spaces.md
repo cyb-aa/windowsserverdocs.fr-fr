@@ -1,5 +1,5 @@
 ---
-title: Résolution des problèmes Direct d’espaces de stockage
+title: Résolution des problèmes directe des espaces de stockage
 description: Découvrez comment résoudre les problèmes de votre déploiement d’espaces de stockage Direct.
 keywords: Espaces de stockage
 ms.prod: windows-server-threshold
@@ -9,39 +9,39 @@ ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: c7c9573732ff1cf5a998588b1aec81915c227ee2
-ms.sourcegitcommit: 5d55c3ebd1ceee7229ea9a9989c69cf93757ed88
+ms.openlocfilehash: ecf3cb5703a90976dce15abbd0c9fdd1d4aa24ec
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "9256932"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59812630"
 ---
-# Résoudre les problèmes d’espaces de stockage Direct
+# <a name="troubleshoot-storage-spaces-direct"></a>Résoudre les espaces de stockage Direct
 
 Utilisez les informations suivantes pour résoudre les problèmes de votre déploiement d’espaces de stockage Direct.
 
-En règle générale, commencez par les étapes suivantes:
+En règle générale, vous démarrez avec les étapes suivantes :
 
-1. Vérifiez que la marque/modèle de disque SSD est certifié pour Windows Server 2016 à l’aide du catalogue Windows Server. Avec le fournisseur, vérifiez que les lecteurs sont pris en charge pour les espaces de stockage Direct.
-2. Vérifiez que le stockage pour les lecteurs défectueux. Utiliser des logiciels de gestion de stockage pour vérifier l’état des disques. Si un des lecteurs sont défectueuses, fonctionnent avec votre fournisseur. 
-3. Mettre à jour de stockage et le microprogramme de lecteur si nécessaire.
-   Assurez-vous que les dernières mises à jour Windows sont installées sur tous les nœuds. Vous pouvez obtenir les dernières mises à jour pour Windows Server 2016 à partir de [https://aka.ms/update2016](https://aka.ms/update2016).
-4. Mettre à jour du microprogramme et des pilotes de carte réseau.
-5. Exécuter la validation du cluster et passez en revue la section de l’espace de stockage Direct, vérifiez les disques qui seront utilisés pour le cache sont signalés correctement et sans erreur.
+1. Confirmer que la marque/modèle de disque SSD est certifié pour Windows Server 2016 à l’aide du catalogue Windows Server. Vérifiez auprès des fournisseurs que les lecteurs sont pris en charge pour les espaces de stockage Direct.
+2. Inspecter le stockage pour tous les lecteurs défectueux. Utilisez le logiciel de gestion de stockage pour vérifier l’état des disques. Si tous les lecteurs sont défectueux, demandez à votre fournisseur. 
+3. Mettre à jour le stockage et le microprogramme de lecteur, si nécessaire.
+   Vérifiez que les dernières mises à jour Windows sont installés sur tous les nœuds. Vous pouvez obtenir les dernières mises à jour pour Windows Server 2016 à partir de [ https://aka.ms/update2016 ](https://aka.ms/update2016).
+4. Mettre à jour des microprogrammes et les pilotes de carte réseau.
+5. Exécuter la validation de cluster et passez en revue la section espace de stockage Direct, vérifiez les lecteurs qui seront utilisés pour le cache sont signalées correctement et qu’aucune erreur.
 
 Si vous rencontrez toujours des problèmes, passez en revue les scénarios ci-dessous.
 
-## Ressources de disque virtuel sont en état non redondance
-Les nœuds d’un système d’espaces de stockage Direct redémarrer de façon inattendue en raison d’une défaillance de se bloquer ou hors tension. Ensuite, un ou plusieurs des disques virtuels ne peuvent pas être en ligne et vous voir la description «pas suffisamment d’informations redondance.»
+## <a name="virtual-disk-resources-are-in-no-redundancy-state"></a>Ressources de disque virtuel sont dans un état non redondance
+Les nœuds d’un système d’espaces de stockage Direct redémarrer de façon inattendue en raison d’une défaillance de l’incident ou hors tension. Ensuite, un ou plusieurs des disques virtuels ne soient pas en ligne, et vous voyez la description « pas suffisamment d’informations redondance. »
     
-|friendlyName|ResiliencySettingName| OperationalStatus| HealthStatus| IsManualAttach|Taille| PSComputerName|
+|FriendlyName|ResiliencySettingName| OperationalStatus| HealthStatus| IsManualAttach|Size| PSComputerName|
 |------------|---------------------| -----------------| ------------| --------------|-----| --------------|
-|Disquette n° 4| Mirror| OK|  Healthy| Vrai|  10 TO|  Nœud-01.conto …|
-|Disquette n° 3         |Mirror                 |OK                          |Healthy       |Vrai            |10 TO | Nœud-01.conto …|
-|2         |Mirror                 |Pas de redondance               |Unhealthy     |Vrai            |10 TO | Nœud-01.conto …|
-|Disque 1         |Mirror                 |{Aucune redondance, InService}  |Unhealthy     |Vrai            |10 TO | Nœud-01.conto …| 
+|Disquette n° 4| Mirror| OK|  Healthy| True|  10 TO|  Nœud-01.conto...|
+|Disk3         |Mirror                 |OK                          |Healthy       |True            |10 TO | Nœud-01.conto...|
+|Disk2         |Mirror                 |Pas de redondance               |Unhealthy     |True            |10 TO | Nœud-01.conto...|
+|Disque 1         |Mirror                 |{Pas de redondance, InService}  |Unhealthy     |True            |10 TO | Nœud-01.conto...| 
 
-En outre, après une tentative de remettre le disque virtuel en ligne, les informations suivantes sont enregistrées dans le journal de Cluster (DiskRecoveryAction).  
+En outre, après une tentative de mettre le disque virtuel en ligne, les informations suivantes sont enregistrées dans le journal de Cluster (DiskRecoveryAction).  
 
 ```
 [Verbose] 00002904.00001040::YYYY/MM/DD-12:03:44.891 INFO [RES] Physical Disk <DiskName>: OnlineThread: SuGetSpace returned 0.
@@ -49,16 +49,16 @@ En outre, après une tentative de remettre le disque virtuel en ligne, les infor
 [Verbose] 00002904.00001040:: YYYY/MM/DD -12:03:44.891 ERR [RES] Physical Disk <DiskName>: Failing online due to virtual disk in 'no redundancy' state. If you would like to attempt to online the disk anyway, first set this resource's private property 'DiskRecoveryAction' to 1. We will try to bring the disk online for recovery, but even if successful, its volume(s) or CSV may be unavailable. 
 ``` 
 
-L' **État opérationnel de redondance aucun** peut se produire si un disque a échoué ou si le système ne peut pas accéder aux données sur le disque virtuel. Ce problème peut se produire si un redémarrage se produit sur un nœud durant la maintenance sur les nœuds.
+Le **état opérationnel de redondance non** peut se produire si un disque a échoué ou si le système ne peut pas accéder aux données sur le disque virtuel. Ce problème peut se produire si un redémarrage se produit sur un nœud lors de la maintenance sur les nœuds.
     
-Pour résoudre ce problème, procédez comme suit:
+Pour résoudre ce problème, procédez comme suit :
 
-1. Supprimez les disques virtuels affectés de volume partagé de cluster. Cela permet de les placer dans le groupe «Stockage disponible» dans le cluster et de démarrer affichés sous la forme d’un type de ressource de «Disque physique».
+1. Supprimez les disques virtuels affectés de volume partagé de cluster. Cela les placer dans le groupe « Stockage disponible » dans le cluster et commencer à afficher comme un type de ressource de « Disque physique ».
 
    ```powershell
    Remove-ClusterSharedVolume -name "VdiskName"
    ``` 
-2. Sur le nœud propriétaire du groupe de stockage disponible, exécutez la commande suivante sur chaque disque qui est dans un état non redondance. Pour identifier le nœud le groupe «Stockage disponible» se trouve sur vous pouvez exécuter la commande suivante.
+2. Sur le nœud qui possède le groupe de stockage disponible, exécutez la commande suivante sur chaque disque qui se trouve dans un état non redondance. Pour identifier quel nœud du groupe « Stockage disponible » se trouve sur vous pouvez exécuter la commande suivante.
 
    ```powershell
    Get-ClusterGroup
@@ -68,44 +68,44 @@ Pour résoudre ce problème, procédez comme suit:
    Get-ClusterResource "VdiskName" | Set-ClusterParameter -Name DiskRecoveryAction -Value 1
    Start-ClusterResource -Name "VdiskName"
    ```
-4. Une réparation doit démarrer automatiquement. Attendez que la réparation terminer. Il peut accéder à un état suspendu et recommencer. Pour surveiller la progression: 
-    - Exécutez **Get-StorageJob** pour surveiller l’état de la réparation et pour déterminer lorsqu’il est terminé.
-    - Exécutez **Get-VirtualDisk** et vérifiez que l’espace retourne un HealthStatus sain.
-5. Après la réparation se termine et les disques virtuels sont sain, rétablir les paramètres de disque virtuel.
+4. Une réparation doit démarrer automatiquement. Attendez que la réparation se termine. Il peut aller dans un état suspendu et recommencer. Pour surveiller la progression : 
+    - Exécutez **Get-StorageJob** pour surveiller l’état de la réparation et voir que l’opération est terminée.
+    - Exécutez **Get-VirtualDisk** et vérifiez que l’espace retourne HealthStatus est sain.
+5. Après la réparation terminée et les disques virtuels sont sain, changez les paramètres de disque virtuel de sauvegarde.
 
    ```powershell
     Get-ClusterResource "VdiskName" | Set-ClusterParameter -Name DiskRecoveryAction -Value 0
    ```
-6. Tirez l’ou les disques en mode hors connexion et puis en ligne à nouveau pour que la DiskRecoveryAction prennent effet:
+6. Prenez l’ou les disques en mode hors connexion et puis en ligne à nouveau pour que la DiskRecoveryAction prennent effet :
 
    ```powershell
    Stop-ClusterResource "VdiskName"
    Start-ClusterResource "VdiskName"
    ``` 
-7. Ajoutez les disques virtuels affectés revenir au format CSV.
+7. Ajoutez les disques virtuels affectés au volume partagé de cluster.
 
    ```powershell
    Add-ClusterSharedVolume -name "VdiskName"
    ```
 
-**DiskRecoveryAction** est un commutateur de substitution qui permet d’attacher le volume de l’espace en mode lecture-écriture sans toutes les vérifications. La propriété vous permet de vous permettent d’effectuer des tests de diagnostic dans pourquoi un volume ne sont pas mis en ligne. Il est très similaire au Mode de Maintenance, mais vous pouvez l’appeler sur une ressource en état d’échec. Elle vous permet également d’accéder aux données, qui peuvent être utiles dans les situations telles que «No redondance», où vous pouvez obtenir l’accès à toutes les données, vous pouvez et copiez-le. La propriété DiskRecoveryAction a été ajoutée dans la février 22 2018, mise à jour, 4077525 Ko.
+**DiskRecoveryAction** est un commutateur de remplacement qui permet d’attacher le volume d’espace en mode lecture-écriture sans aucun contrôle. La propriété vous permet de faire des diagnostics dans pourquoi un volume ne sont pas mis en ligne. Il est très semblable au Mode de Maintenance, mais vous pouvez l’appeler sur une ressource dans un état d’échec. Il vous permet également d’accéder aux données, qui peuvent être utiles dans les situations telles que « No redondance », où vous pouvez accéder à toutes les données, vous pouvez et copiez-la. La propriété DiskRecoveryAction a été ajoutée dans le 22 février 2018, mise à jour, 4077525 de la base de connaissances.
     
     
-## État détaché dans un cluster 
+## <a name="detached-status-in-a-cluster"></a>État détaché dans un cluster 
 
-Lorsque vous exécutez l’applet de commande **Get-VirtualDisk** , le OperationalStatus pour un ou plusieurs disques virtuels espaces de stockage Direct est détachée. Toutefois, le HealthStatus signalées par l’applet de commande **Get-PhysicalDisk** indique que tous les disques physiques sont dans un état intègre.
+Lorsque vous exécutez le **Get-VirtualDisk** applet de commande, le OperationalStatus pour un ou plusieurs espaces de stockage Direct des disques virtuels est détachée. Toutefois, le HealthStatus signalés par le **Get-PhysicalDisk** applet de commande indique que tous les disques physiques sont dans un état sain.
 
-Voici un exemple de la sortie de l’applet de commande **Get-VirtualDisk** .
+Voici un exemple de sortie de la **Get-VirtualDisk** applet de commande.
 
-|friendlyName|  ResiliencySettingName|  OperationalStatus|   HealthStatus|  IsManualAttach|  Taille|   PSComputerName|
+|FriendlyName|  ResiliencySettingName|  OperationalStatus|   HealthStatus|  IsManualAttach|  Size|   PSComputerName|
 |-|-|-|-|-|-|-|
-|Disquette n° 4|         Mirror|                 OK|                  Healthy|       Vrai|            10 TO|  Nœud-01.conto …|
-|Disquette n° 3|         Mirror|                 OK|                  Healthy|       Vrai|            10 TO|  Nœud-01.conto …|
-|2|         Mirror|                 Détaché|            Inconnu|       Vrai|            10 TO|  Nœud-01.conto …|
-|Disque 1|         Mirror|                 Détaché|            Inconnu|       Vrai|            10 TO|  Nœud-01.conto …| 
+|Disquette n° 4|         Mirror|                 OK|                  Healthy|       True|            10 TO|  Nœud-01.conto...|
+|Disk3|         Mirror|                 OK|                  Healthy|       True|            10 TO|  Nœud-01.conto...|
+|Disk2|         Mirror|                 Détaché|            Inconnu|       True|            10 TO|  Nœud-01.conto...|
+|Disque 1|         Mirror|                 Détaché|            Inconnu|       True|            10 TO|  Nœud-01.conto...| 
 
 
-En outre, les événements suivants peuvent être enregistrés sur les nœuds:
+En outre, les événements suivants peuvent être enregistrés sur les nœuds :
 
 ```
 Log Name: Microsoft-Windows-StorageSpaces-Driver/Operational
@@ -149,9 +149,9 @@ DeviceName:
 Volume Name:
 ``` 
 
-L' **État opérationnel détaché** peut se produire si la région modifiée de suivi (DRT) journal est plein. Les espaces de stockage utilise région modifiée de suivi (DRT) pour les espaces de mise en miroir pour s’assurer que lorsqu’une coupure se produit, les mises à jour en cours d’exécution aux métadonnées sont enregistrés pour vous assurer que l’espace de stockage peut rétablir ou annuler les opérations pour ramener l’espace de stockage dans un flexible et état cohérent lorsque l’alimentation est restaurée et le système fonctionne à nouveau. Si le journal DRT est saturée, le disque virtuel ne peut pas être mis en ligne jusqu'à ce que les métadonnées DRT sont synchronisée et vidée. Ce processus nécessite l’exécution d’une analyse complète, ce processus peut prendre plusieurs heures pour terminer.
+Le **état opérationnel détachée** peut se produire si la région modifiée (DRT) de suivi des journaux est plein. Espaces de stockage utilise des régions modifiées suivi (DRT) pour les espaces en miroir pour s’assurer que lorsqu’une panne de courant se produit, les mises à jour en cours aux métadonnées sont connectés pour vous assurer que l’espace de stockage peut rétablir ou annuler les opérations afin de rétablir l’espace de stockage dans un flexible et un état cohérent lors de l’alimentation est restaurée et le système fonctionne à nouveau. Si le journal de la fonction DRT est plein, le disque virtuel ne peut pas être mis en ligne jusqu'à ce que les métadonnées de la fonction DRT sont synchronisée et vidées. Ce processus nécessite une analyse complète, ce qui peut prendre plusieurs heures en cours d’exécution.
     
-Pour résoudre ce problème, procédez comme suit:
+Pour résoudre ce problème, procédez comme suit :
 1. Supprimez les disques virtuels affectés de volume partagé de cluster.
 
    ```powershell
@@ -168,39 +168,38 @@ Pour résoudre ce problème, procédez comme suit:
    ```powershell
    Get-ScheduledTask -TaskName "Data Integrity Scan for Crash Recovery" | Start-ScheduledTask 
    ```
-   Cette tâche doit être lancée sur tous les nœuds sur lesquels le volume détaché est en ligne. Une réparation doit démarrer automatiquement. Attendez que la réparation terminer. Il peut accéder à un état suspendu et recommencer. Pour surveiller la progression: 
-   - Exécutez **Get-StorageJob** pour surveiller l’état de la réparation et pour déterminer lorsqu’il est terminé.
-   -  Exécutez **Get-VirtualDisk** et vérifiez que l’espace renvoie un HealthStatus sain.
-    - La «l’intégrité analyse pour se bloque pas restauration des données» est une tâche qui ne s’affiche en tant qu’un travail de stockage, et il n’existe aucun indicateur de progression. Si la tâche s’affiche en cours d’exécution, il est en cours d’exécution. Lorsqu’il a terminé, il affiche terminée.
+   Cette tâche doit être initiée sur tous les nœuds sur lesquels le volume détaché est en ligne. Une réparation doit démarrer automatiquement. Attendez que la réparation se termine. Il peut aller dans un état suspendu et recommencer. Pour surveiller la progression : 
+   - Exécutez **Get-StorageJob** pour surveiller l’état de la réparation et voir que l’opération est terminée.
+   -  Exécutez **Get-VirtualDisk** et vérifiez l’espace retourne HealthStatus est sain.
+    - Le « intégrité d’analyse pour se bloquer récupération des données » est une tâche qui n’apparaît pas comme un travail de stockage, et il n’existe aucun indicateur de progression. Si la tâche ne s’affichent comme en cours d’exécution, il est en cours d’exécution. Lorsqu’elle est terminée, elle indiquera terminée.
     
-       En outre, vous pouvez afficher l’état d’une tâche planifiée en cours d’exécution à l’aide de l’applet de commande suivante: 
+       En outre, vous pouvez afficher l’état d’une tâche planifiée en cours d’exécution à l’aide de l’applet de commande suivante : 
        ```powershell
        Get-ScheduledTask | ? State -eq running
        ``` 
-4. Dès que le «données d’intégrité du analyse pour se bloquer restauration» est terminée, la fin de réparation et les disques virtuels sont sain, rétablir les paramètres de disque virtuel. 
+4. Dès que les « données l’intégrité d’analyse pour récupération après blocage » est terminée, la fin de la réparation et les disques virtuels sont sain, changez les paramètres de disque virtuel de sauvegarde. 
 
    ```powershell
    Get-ClusterResource -Name "VdiskName" | Set-ClusterParameter DiskRunChkDsk 0 
    ```
-5. Ajoutez les disques virtuels affectés revenir au format CSV.    
+5. Ajoutez les disques virtuels affectés au volume partagé de cluster.    
 
    ```powershell
    Add-ClusterSharedVolume -name "VdiskName"
    ```  
-**DiskRunChkdsk valeur 7** est utilisé pour joindre le volume de l’espace et la partition en mode lecture seule. Ainsi, pour détecter automatiquement les espaces et autoréparation en déclenchant une réparation. Opérations de réparation seront exécute automatiquement une fois montés. Il vous permet également d’accéder aux données, qui peuvent être utiles obtenir un accès à toutes les données vous pouvez copier. Pour certaines conditions d’erreur, par exemple, un journal DRT complète, vous devez exécuter l’analyse de l’intégrité des données pour la tâche planifiée de récupération.
+**Valeur DiskRunChkdsk 7** est utilisé pour attacher le volume d’espace et avoir la partition en mode lecture seule. Ainsi, les espaces de découvrir eux-mêmes et réparer en déclenchant une réparation. Réparation s’exécute automatiquement une fois monté. Il vous permet également d’accéder aux données, qui peuvent être utiles pour accéder à toutes les données permettant de copier. Pour certaines conditions d’erreur, tels qu’un journal DRT complète, vous devez exécuter l’analyse de l’intégrité des données pour la tâche planifiée de récupération après blocage.
     
-**Analyse des données d’intégrité pour la tâche de récupération** est utilisé pour synchroniser et effacer un journal de suivi (DRT) région complète modifiée. Cette tâche peut prendre plusieurs heures. La «l’intégrité analyse pour se bloque pas restauration des données» est une tâche qui ne s’affiche en tant qu’un travail de stockage, et il n’existe aucun indicateur de progression. Si la tâche s’affiche en cours d’exécution, il est en cours d’exécution. Lorsqu’il a terminé, il apparaît comme terminé. Si vous annulez la tâche ou que vous redémarrez un nœud pendant l’exécution de cette tâche, la tâche devez recommencer depuis le début.
+**Analyse de l’intégrité des données pour la tâche de récupération après blocage** est utilisé pour synchroniser et effacer le journal de suivi (DRT) une région modifiée complète. Cette tâche peut prendre plusieurs heures. Le « intégrité d’analyse pour se bloquer récupération des données » est une tâche qui n’apparaît pas comme un travail de stockage, et il n’existe aucun indicateur de progression. Si la tâche ne s’affichent comme en cours d’exécution, il est en cours d’exécution. Lorsqu’elle est terminée, elle affichera comme étant terminés. Si vous annulez la tâche ou un nœud pendant l’exécution de cette tâche, la tâche devrez recommencer depuis le début.
 
-Pour plus d’informations, voir [intégrité dépannage des espaces de stockage Direct et états opérationnels](storage-spaces-states.md).
+Pour plus d’informations, consultez [intégrité résolution des espaces de stockage Direct et les états opérationnels](storage-spaces-states.md).
     
-## Événement 5120 avec STATUS_IO_TIMEOUT c00000b5 
+## <a name="event-5120-with-statusiotimeout-c00000b5"></a>Événement 5120 avec STATUS_IO_TIMEOUT c00000b5 
 
-> [!Important]
-> Pour réduire le risque de ces symptômes lors de l’application de la mise à jour avec le correctif, il est recommandé d’utiliser la procédure de Mode de gestion de stockage ci-dessous pour installer [18 octobre 2018, la mise à jour cumulative pour Windows Server 2016](https://support.microsoft.com/help/4462928) ou une version ultérieure Lorsque les nœuds actuellement ont installé une mise à jour cumulative de Windows Server 2016 qui a été publiée à partir de [8 mai 2018](https://support.microsoft.com/help/4103723) à [9 octobre 2018](https://support.microsoft.com/help/KB4462917).
+>[! Important} pour réduire le risque de ces symptômes lors de l’application de la mise à jour avec le correctif, il est recommandé d’utiliser la procédure de Mode de Maintenance de stockage ci-dessous pour installer le [18 octobre 2018, la mise à jour cumulative pour Windows Server 2016 ](https://support.microsoft.com/help/4462928) ou une version ultérieure, lorsque les nœuds actuellement installé une mise à jour cumulative Windows Server 2016 à qui a été publiée à partir de [le 8 mai 2018](https://support.microsoft.com/help/4103723) à [9 octobre 2018](https://support.microsoft.com/help/KB4462917).
 
-Vous pouvez obtenir l’événement 5120 avec STATUS_IO_TIMEOUT c00000b5 après le redémarrage d’un nœud sur Windows Server 2016 avec la mise à jour cumulative qui ont été publiées à partir de [peut 8 Ko 2018 4103723](https://support.microsoft.com/help/4103723) à [9 octobre 2018 Ko 4462917](https://support.microsoft.com/help/4462917) installé.
+Vous pouvez obtenir l’événement 5120 avec STATUS_IO_TIMEOUT c00000b5 après le redémarrage d’un nœud sur Windows Server 2016 avec mise à jour cumulative qui ont été publiés à partir de [8 mai 2018 Ko 4103723](https://support.microsoft.com/help/4103723) à [le 9 octobre 2018 Ko 4462917](https://support.microsoft.com/help/4462917)installé.
 
-Lorsque vous redémarrez le nœud, 5120 d’événement est consigné dans le journal des événements système et inclut un des codes d’erreur suivants:
+Lorsque vous redémarrez le nœud, 5120 d’événement est consigné dans le journal des événements système et inclut l’une des codes d’erreur suivants :
 
 ```
 Event Source: Microsoft-Windows-FailoverClustering
@@ -210,7 +209,7 @@ Description:    Cluster Shared Volume 'CSVName' ('Cluster Virtual Disk (CSVName)
 Cluster Shared Volume ‘CSVName’ ('Cluster Virtual Disk (CSVName)') has entered a paused state because of 'STATUS_CONNECTION_DISCONNECTED(c000020c)'. All I/O will temporarily be queued until a path to the volume is reestablished.    
 ```
 
-Lorsqu’un 5120 d’événement est connecté, un vidage direct est généré pour collecter des informations de débogage qui peuvent provoquer des problèmes supplémentaires, ou avoir une incidence sur les performances. Générer le vidage direct crée une courte pause pour activer la prise d’un instantané de la mémoire d’écrire le fichier de vidage. Systèmes qui dispose d’un grand nombre de mémoire et sous tension peuvent entraîner des nœuds disparaissent l’appartenance au cluster et également provoquer le 1135 événement suivant être connectés.
+Lorsqu’un événement de 5120 est connecté, un vidage en direct est généré pour collecter des informations de débogage qui peuvent provoquer des problèmes supplémentaires ou qui ont un effet sur les performances. Génération de l’image mémoire dynamique crée une courte pause pour activer la prise d’un instantané de mémoire pour écrire le fichier de vidage. Les systèmes qui ont beaucoup de mémoire et sont en situation de stress risque de nœuds à supprimer en dehors de l’appartenance au cluster et également provoquer le 1135 événement suivant à enregistrer.
 
 ```
 Event source: Microsoft-Windows-FailoverClustering
@@ -218,67 +217,67 @@ Event ID: 1135
 Description: Cluster node 'NODENAME'was removed from the active failover cluster membership. The Cluster service on this node may have stopped. This could also be due to the node having lost communication with other active nodes in the failover cluster. Run the Validate a Configuration wizard to check your network configuration. If the condition persists, check for hardware or software errors related to the network adapters on this node. Also check for failures in any other network components to which the node is connected such as hubs, switches, or bridges.
 ```
 
-Une modification a été introduite dans la mise à jour cumulative 8 mai 2018, pour ajouter gère résilient SMB pour les sessions de réseau SMB intra-cluster espaces de stockage Direct. Cela a été fait pour améliorer la résilience pour réseau temporaire et améliorer la façon dont RoCE gère encombrement du réseau.
+Une modification a été introduite dans la mise à jour cumulative 8 mai 2018, pour ajouter gère résilientes SMB pour les espaces de stockage Direct intra-cluster réseau les sessions SMB. Cela a été fait pour améliorer la résilience aux défaillances réseau temporaires et améliorer la façon dont RoCE gère la congestion du réseau.
 
-Ces améliorations ont augmenté également par inadvertance les délais d’attente lorsque connexions SMB tentent de se reconnecter et attend de délai d’expiration lorsqu’un nœud a redémarré. Ces problèmes peuvent affecter un système qui est sous tension. Au cours des arrêts, met en pause des e/s de jusqu'à 60 secondes ont été observés également pendant que le système en attente pour les connexions à un délai d’expiration.
+Ces améliorations augmenté par inadvertance des délais d’expiration lorsque les connexions SMB essaient de vous reconnecter et attend de délai d’attente lorsqu’un nœud est redémarré. Ces problèmes peuvent affecter un système est en situation de stress. Pendant les temps d’arrêt non planifié, interruptions d’e/s de jusqu'à 60 secondes également ont été observées pendant que le système en attente pour les connexions à un délai d’attente.
 
 Pour résoudre ce problème, installez le [18 octobre 2018, la mise à jour cumulative pour Windows Server 2016](https://support.microsoft.com/help/4462928) ou une version ultérieure.
 
-*Remarque* Cette mise à jour s’aligne les délais d’attente de volume partagé de cluster avec les délais de connexion SMB pour résoudre ce problème. Il n’implémente pas les modifications pour désactiver la génération de vidage direct mentionnée dans la section de la solution de contournement.
+*Remarque* cette mise à jour aligne les délais d’attente CSV avec des délais d’expiration de connexion SMB pour résoudre ce problème. Il n’implémente pas les modifications pour désactiver la génération dynamique de vidage mentionnée dans la section solution de contournement.
     
-### Flux de processus d’arrêt:
+### <a name="shutdown-process-flow"></a>Flux de processus d’arrêt :
 
 1. Exécutez l’applet de commande Get-VirtualDisk et vous assurer que la valeur HealthStatus est sain.
-2. Décharger le nœud en exécutant l’applet de commande suivante:
+2. Drainer le nœud en exécutant l’applet de commande suivante :
 
    ```powershell
    Suspend-ClusterNode -Drain
    ```
-3. Placez les disques sur ce nœud en Mode de gestion de stockage en exécutant l’applet de commande suivante: 
+3. Placez les disques sur ce nœud en Mode de Maintenance de stockage en exécutant l’applet de commande suivante : 
 
    ```powershell
    Get-StorageFaultDomain -type StorageScaleUnit | Where-Object {$_.FriendlyName -eq "<NodeName>"} | Enable-StorageMaintenanceMode
    ```
-4. Exécutez l’applet de commande **Get-PhysicalDisk** et vous assurer que la valeur OperationalStatus est en Mode de Maintenance.
-5. Exécutez l’applet de commande **Restart-Computer** pour redémarrer le nœud.
-6. Après le redémarrage de nœud, supprimez les disques sur ce nœud à partir du Mode de gestion de stockage en exécutant l’applet de commande suivante:
+4. Exécutez le **Get-PhysicalDisk** applet de commande et vous assurer que la valeur OperationalStatus est en Mode de Maintenance.
+5. Exécutez le **Restart-Computer** applet de commande pour redémarrer le nœud.
+6. Après le redémarrage du nœud, supprimez les disques sur ce nœud du Mode de Maintenance de stockage en exécutant l’applet de commande suivante :
 
    ```powershell
    Get-StorageFaultDomain -type StorageScaleUnit | Where-Object {$_.FriendlyName -eq "<NodeName>"} | Disable-StorageMaintenanceMode
    ```
-7. Reprendre le nœud en exécutant l’applet de commande suivante:
+7. Relancer le nœud en exécutant l’applet de commande suivante :
 
    ```powershell
    Resume-ClusterNode
    ```
-8. Vérifier l’état de la resynchronisation en exécutant l’applet de commande suivante:
+8. Vérifiez l’état des travaux de resynchronisation en exécutant l’applet de commande suivante :
 
    ```powershell
    Get-StorageJob
    ```
 
-### La désactivation de vidages dynamiques
-Pour limiter l’effet de la génération de vidage direct sur les systèmes qui dispose d’un grand nombre de mémoire et sous tension, vous voudrez en outre désactiver la génération de vidage dynamiques. Trois options sont fournies ci-dessous.
+### <a name="disabling-live-dumps"></a>La désactivation de vidages en direct
+Pour atténuer l’effet de la génération de débogage en direct sur les systèmes qui ont beaucoup de mémoire et sont en situation de stress, en outre voulez-vous désactiver la génération de vidage en direct. Trois options sont fournies ci-dessous.
 
 >[!Caution]
->Cette procédure peut empêcher la collecte d’informations de diagnostics qui Support Microsoft peuvent nécessiter d’examiner ce problème. Un agent du Support devra peut-être vous invitera à réactiver génération de vidage dynamiques basée sur des scénarios de résolution des problèmes spécifiques.
+>Cette procédure peut empêcher la collecte des informations de diagnostic devant le Support Microsoft peut analyser ce problème. Un agent de Support peut avoir à vous inviter à nouveau activer la génération du vidage en direct basée sur des scénarios de résolution des problèmes spécifiques.
 
-Il existe deux méthodes pour désactiver les vidages dynamiques, comme décrit ci-dessous.
+Il existe deux méthodes pour désactiver les images en direct, comme décrit ci-dessous.
 
-#### Méthode 1 (recommandé dans ce scénario)
-Pour désactiver complètement toutes les vidages, y compris les vidages dynamiques à l’échelle du système, procédez comme suit:
+#### <a name="method-1-recommended-in-this-scenario"></a>Méthode 1 (recommandé dans ce scénario)
+Pour désactiver complètement tous les dumps, y compris les dumps dynamiques au niveau du système, procédez comme suit :
 
-1. Créez la clé de Registre suivante: HKLM\System\CurrentControlSet\Control\CrashControl\ForceDumpsDisabled
-2. Sous la nouvelle clé **ForceDumpsDisabled** , créez une propriété REG_DWORD comme GuardedHost et puis définissez sa valeur sur 0 x 10000000.
-3. Appliquez la nouvelle clé de Registre sur chaque nœud du cluster.
+1. Créez la clé de Registre suivante : HKLM\System\CurrentControlSet\Control\CrashControl\ForceDumpsDisabled
+2. Sous la nouvelle **ForceDumpsDisabled** clé, créez une propriété REG_DWORD comme GuardedHost et puis définissez sa valeur sur 0 x 10000000.
+3. Appliquer la nouvelle clé de Registre pour chaque nœud du cluster.
 
 >[!NOTE]
->Vous devez redémarrer l’ordinateur pour que la modification nregistry prennent effet.
+>Vous devez redémarrer l’ordinateur pour que la modification %nregistry entrent en vigueur.
 
-Une fois que cette clé de Registre est défini, dynamiques création d’un vidage échoue et générer une erreur «STATUS_NOT_SUPPORTED» lorsque.
+Une fois cette clé de Registre est définie, en direct vidage création échoue et génère une erreur « STATUS_NOT_SUPPORTED » lorsque.
 
-#### Méthode 2
-Par défaut, rapport d’erreurs Windows permettra LiveDump qu’un seul par type de rapport par 7 jours et 1 seul LiveDump par ordinateur par des 5 derniers jours. Vous pouvez modifier qui en définissant les clés de Registre suivantes pour autoriser uniquement un LiveDump sur l’ordinateur indéfiniment.
+#### <a name="method-2"></a>Méthode 2
+Par défaut, le rapport d’erreurs Windows permettra LiveDump qu’une seule par type de rapport par 7 jours et LiveDump uniquement 1 par machine par 5 jours. Vous pouvez modifier qui en définissant les clés de Registre suivantes afin d’autoriser uniquement un LiveDump sur l’ordinateur indéfiniment.
 ```
 reg add "HKLM\Software\Microsoft\Windows\Windows Error Reporting\FullLiveKernelReports" /v SystemThrottleThreshold /t REG_DWORD /d 0xFFFFFFFF /f
 ```
@@ -286,174 +285,174 @@ reg add "HKLM\Software\Microsoft\Windows\Windows Error Reporting\FullLiveKernelR
 reg add "HKLM\Software\Microsoft\Windows\Windows Error Reporting\FullLiveKernelReports" /v ComponentThrottleThreshold /t REG_DWORD /d 0xFFFFFFFF /f
 ```
 
-*Remarque* Vous devez redémarrer l’ordinateur pour que les modifications prennent effet.
+*Remarque* vous devez redémarrer l’ordinateur pour que la modification prenne effet.
 
-### Méthode 3
-Pour désactiver la génération de cluster de vidages dynamiques (par exemple, lorsqu’un événement de 5120 est connecté), exécutez l’applet de commande suivante:
+### <a name="method-3"></a>Méthode 3
+Pour désactiver la génération de cluster d’images en direct (par exemple, lorsqu’un événement de 5120 est ouvert une session), exécutez l’applet de commande suivante :
 
 ```powershell
 (Get-Cluster).DumpPolicy = ((Get-Cluster).DumpPolicy -band 0xFFFFFFFFFFFFFFFE)
 ```
-Cette applet de commande a une incidence immédiate sur tous les nœuds de cluster sans redémarrage de l’ordinateur.
+Cette applet de commande a un effet immédiat sur tous les nœuds de cluster sans un redémarrage de l’ordinateur.
     
-## Baisse des performances d’e/s
+## <a name="slow-io-performance"></a>Ralentissement des performances d’e/s
 
-Si vous rencontrez une baisse des performances d’e/s, vérifiez si le cache est activé dans votre configuration d’espaces de stockage Direct. 
+Si vous rencontrez un ralentissement des performances d’e/s, vérifiez si le cache est activé dans votre configuration d’espaces de stockage Direct. 
 
-Il existe deux façons de vérifier: 
+Il existe deux manières de vérifier : 
      
  
-1. L’utilisation du journal de cluster. Ouvrez le journal de cluster dans un éditeur de texte de choix et recherchez «[=== disques SBL ===].» Il s’agit d’une liste du disque sur le nœud sur que du journal a été généré. 
+1. À l’aide du journal de cluster. Ouvrez le journal de cluster dans l’éditeur de texte de choix et recherchez « [=== SBL disques ===]. » Il s’agit d’une liste du disque sur le nœud que le journal a été généré sur. 
 
-     Exemple de disques cache activé: Notez ici que l’état est CacheDiskStateInitializedAndBound et qu’il s’agit d’un GUID présent ici. 
+     Cache activé disques exemple : Notez ici que l’état est CacheDiskStateInitializedAndBound et il est un GUID présent ici. 
 
    ```
    [=== SBL Disks ===]
     {26e2e40f-a243-1196-49e3-8522f987df76},3,false,true,1,48,{1ff348f1-d10d-7a1a-d781-4734f4440481},CacheDiskStateInitializedAndBound,1,8087,54,false,false,HGST    ,HUH721010AL4200 ,        7PG3N2ER,A21D,{d5e27a3b-42fb-410a-81c6-9d8cc12da20c},[R/M 0 R/U 0 R/T 0 W/M 0 W/U 0 W/T 0],
     ```
 
-    Le cache n’est pas activé: Ici, nous pouvons voir il n’existe aucun GUID présent et l’état est CacheDiskStateNonHybrid. 
+    Cache n’est ne pas activé : Ici, nous pouvons voir aucun GUID présent et l’état est CacheDiskStateNonHybrid. 
     ```
    [=== SBL Disks ===]
     {426f7f04-e975-fc9d-28fd-72a32f811b7d},12,false,true,1,24,{00000000-0000-0000-0000-000000000000},CacheDiskStateNonHybrid,0,0,0,false,false,HGST    ,HUH721010AL4200 ,        7PGXXG6C,A21D,{d5e27a3b-42fb-410a-81c6-9d8cc12da20c},[R/M 0 R/U 0 R/T 0 W/M 0 W/U 0 W/T 0],
     ```
 
-    Le cache n’est pas activé: Lorsque tous les disques sont du même type cas n’est pas activé par défaut. Ici, nous pouvons voir il n’existe aucun GUID présent et l’état est CacheDiskStateIneligibleDataPartition. 
+    Cache n’est ne pas activé : Lorsque tous les disques sont de la même casse de type n’est pas activée par défaut. Ici, nous pouvons voir aucun GUID présent et l’état est CacheDiskStateIneligibleDataPartition. 
     ```
     {d543f90c-798b-d2fe-7f0a-cb226c77eeed},10,false,false,1,20,{00000000-0000-0000-0000-000000000000},CacheDiskStateIneligibleDataPartition,0,0,0,false,false,NVMe    ,INTEL SSDPE7KX02,  PHLF7330004V2P0LGN,0170,{79b4d631-976f-4c94-a783-df950389fd38},[R/M 0 R/U 0 R/T 0 W/M 0 W/U 0 W/T 0], 
     ```  
 2. À l’aide de Get-PhysicalDisk.xml à partir de la SDDCDiagnosticInfo
-    1. Ouvrez le fichier XML à l’aide «$d = Import-Clixml GetPhysicalDisk.XML»
-    2. Exécutez le stockage «bureau»
-    3. Exécutez «$d». Notez que l’utilisation est sélection automatique, pas feuille vous verrez sortie comme suit: 
+    1. Ouvrez le fichier XML en utilisant « $d = Import-Clixml GetPhysicalDisk.XML »
+    2. Exécutez « stockage ipmo »
+    3. Exécutez « $d ». Notez que l’utilisation est la sélection automatique, pas Journal vous obtiendrez une sortie comme suit : 
 
-   |friendlyName|  SerialNumber| Type de média| CanPool| OperationalStatus| HealthStatus| Utilisation| Taille|
+   |FriendlyName|  SerialNumber| Type de média| CanPool| OperationalStatus| HealthStatus| Utilisation| Size|
    |-----------|------------|---------| -------| -----------------| ------------| -----| ----|
-   |NVMe INTEL SSDPE7KX02| PHLF733000372P0LGN| SSD| Faux|   OK|                Healthy|      Sélection automatique 1,82 to|
-   |NVMe INTEL SSDPE7KX02 |PHLF7504008J2P0LGN| SSD|  Faux|    OK|                Healthy| Sélection automatique| 1,82 TO|
-   |NVMe INTEL SSDPE7KX02| PHLF7504005F2P0LGN| SSD|  Faux|  OK|                Healthy| Sélection automatique| 1,82 TO|
-   |NVMe INTEL SSDPE7KX02 |PHLF7504002A2P0LGN| SSD| Faux| OK|    Healthy| Sélection automatique| 1,82 TO|
-   |NVMe INTEL SSDPE7KX02| PHLF7504004T2P0LGN |SSD| Faux|OK|       Healthy| Sélection automatique| 1,82 TO|
-   |NVMe INTEL SSDPE7KX02 |PHLF7504002E2P0LGN| SSD| Faux| OK|      Healthy| Sélection automatique| 1,82 TO|
-   |NVMe INTEL SSDPE7KX02 |PHLF7330002Z2P0LGN| SSD| Faux| OK|      Healthy|Sélection automatique| 1,82 TO|
-   |NVMe INTEL SSDPE7KX02 |PHLF733000272P0LGN |SSD| Faux| OK|  Healthy| Sélection automatique| 1,82 TO|
-   |NVMe INTEL SSDPE7KX02 |PHLF7330001J2P0LGN |SSD| Faux| OK| Healthy| Sélection automatique| 1,82 TO|
-   |NVMe INTEL SSDPE7KX02| PHLF733000302P0LGN |SSD| Faux| OK|Healthy| Sélection automatique| 1,82 TO|
-   |NVMe INTEL SSDPE7KX02| PHLF7330004D2P0LGN |SSD| Faux| OK| Healthy| Sélection automatique |1,82 TO|
+   |NVMe INTEL SSDPE7KX02| PHLF733000372P0LGN| SSD| False|   OK|                Healthy|      TO 1,82 sélection automatique|
+   |NVMe INTEL SSDPE7KX02 |PHLF7504008J2P0LGN| SSD|  False|    OK|                Healthy| Sélection automatique| 1,82 TO|
+   |NVMe INTEL SSDPE7KX02| PHLF7504005F2P0LGN| SSD|  False|  OK|                Healthy| Sélection automatique| 1,82 TO|
+   |NVMe INTEL SSDPE7KX02 |PHLF7504002A2P0LGN| SSD| False| OK|    Healthy| Sélection automatique| 1,82 TO|
+   |NVMe INTEL SSDPE7KX02| PHLF7504004T2P0LGN |SSD| False|OK|       Healthy| Sélection automatique| 1,82 TO|
+   |NVMe INTEL SSDPE7KX02 |PHLF7504002E2P0LGN| SSD| False| OK|      Healthy| Sélection automatique| 1,82 TO|
+   |NVMe INTEL SSDPE7KX02 |PHLF7330002Z2P0LGN| SSD| False| OK|      Healthy|Sélection automatique| 1,82 TO|
+   |NVMe INTEL SSDPE7KX02 |PHLF733000272P0LGN |SSD| False| OK|  Healthy| Sélection automatique| 1,82 TO|
+   |NVMe INTEL SSDPE7KX02 |PHLF7330001J2P0LGN |SSD| False| OK| Healthy| Sélection automatique| 1,82 TO|
+   |NVMe INTEL SSDPE7KX02| PHLF733000302P0LGN |SSD| False| OK|Healthy| Sélection automatique| 1,82 TO|
+   |NVMe INTEL SSDPE7KX02| PHLF7330004D2P0LGN |SSD| False| OK| Healthy| Sélection automatique |1,82 TO|
     
-## Comment détruire un cluster existant, afin que vous pouvez réutiliser les mêmes disques
+## <a name="how-to-destroy-an-existing-cluster-so-you-can-use-the-same-disks-again"></a>Comment détruire un cluster existant, vous pouvez donc utiliser les mêmes disques à nouveau
 
-Dans un cluster d’espaces de stockage Direct, une fois que vous désactivez les espaces de stockage Direct et que vous utilisez le processus de nettoyage décrit dans le [nettoyage des lecteurs](deploy-storage-spaces-direct.md#step-31-clean-drives), le pool de stockage en cluster qu’il reste encore dans un état hors connexion, et le Service d’intégrité est supprimé de cluster.
+Dans un cluster d’espaces de stockage Direct, une fois vous les désactiver espaces de stockage Direct et utilisez la procédure de nettoyage décrite dans [nettoyer les lecteurs](deploy-storage-spaces-direct.md#step-31-clean-drives), le pool de stockage en cluster se trouve toujours dans un état hors connexion, et le Service d’intégrité est supprimé de Grappe.
 
-L’étape suivante consiste à supprimer le pool de stockage fantôme: 
+L’étape suivante consiste à supprimer le pool de stockage fantôme : 
    ```powershell
    Get-ClusterResource -Name "Cluster Pool 1" | Remove-ClusterResource
    ```
 
-À présent, si vous exécutez **Get-PhysicalDisk** sur les nœuds, vous verrez tous les disques qui étaient dans le pool. Par exemple, dans un laboratoire avec un cluster de 4 nœuds avec 4 disques SAS, 100 Go chaque présentée à chaque nœud. Dans ce cas, une fois que l’espace de stockage Direct est désactivé, ce qui supprime la SBL (couche de Bus de stockage), mais laisse le filtre, si vous exécutez **Get-PhysicalDisk**, elle doit signaler 4 disques en excluant le disque du système d’exploitation local. Au lieu de cela il signalé 16 à la place. Il s’agit de la même pour tous les nœuds du cluster. Lorsque vous exécutez une commande **Get-Disk** , vous verrez les disques connectés localement numérotés en tant que 0, 1, 2, et ainsi de suite, comme illustré dans cet exemple de sortie:
+Maintenant, si vous exécutez **Get-PhysicalDisk** sur les nœuds, vous pouvez voir tous les disques qui étaient dans le pool. Par exemple, dans un laboratoire avec un cluster à 4 nœuds avec 4 disques SAS, 100 Go chacune présenté à chaque nœud. Dans ce cas, une fois que l’espace de stockage Direct est désactivé, ce qui supprime le SBL (couche de Bus de stockage), mais laisse le filtre, si vous exécutez **Get-PhysicalDisk**, il doit signaler 4 disques à l’exclusion du disque du système d’exploitation local. Au lieu de cela il signalé 16 à la place. Ceci est le même pour tous les nœuds du cluster. Lorsque vous exécutez un **Get-Disk** commande, vous verrez les disques connectés localement numérotées en tant que 0, 1, 2 et ainsi de suite, comme illustré dans cet exemple de sortie :
 
-|Nombre| Nom convivial| Numéro de série|HealthStatus|OperationalStatus|Taille totale| Style de partition|
+|Numéro| Nom convivial| Numéro de série|HealthStatus|OperationalStatus|Taille totale| Style de partition|
 |-|-|-|-|-|-|-|-|
-|0|Manière unique msft …  ||Healthy | Online|  127 GO| GPT|
-||Manière unique msft … ||Healthy| Hors connexion| 100 GO| Cru|
-||Manière unique msft … ||Healthy| Hors connexion| 100 GO| Cru|
-||Manière unique msft … ||Healthy| Hors connexion| 100 GO| Cru|
-||Manière unique msft … ||Healthy| Hors connexion| 100 GO| Cru|
-|1|Manière unique msft …||Healthy| Hors connexion| 100 GO| Cru|
-||Manière unique msft … ||Healthy| Hors connexion| 100 GO| Cru|
-|2|Manière unique msft …||Healthy| Hors connexion| 100 GO| Cru|
-||Manière unique msft … ||Healthy| Hors connexion| 100 GO| Cru|
-||Manière unique msft … ||Healthy| Hors connexion| 100 GO| Cru|
-||Manière unique msft … ||Healthy| Hors connexion| 100 GO| Cru|
-||Manière unique msft … ||Healthy| Hors connexion| 100 GO| Cru|
-|4|Manière unique msft …||Healthy| Hors connexion| 100 GO| Cru|
-|3|Manière unique msft …||Healthy| Hors connexion| 100 GO| Cru|
-||Manière unique msft … ||Healthy| Hors connexion| 100 GO| Cru|
-||Manière unique msft … ||Healthy| Hors connexion| 100 GO| Cru|
-||Manière unique msft … ||Healthy| Hors connexion| 100 GO| Cru|
+|0|Msft Virtu...  ||Healthy | La licence|  127 Go| GPT|
+||Msft Virtu... ||Healthy| Hors connexion| 100 GO| RAW|
+||Msft Virtu... ||Healthy| Hors connexion| 100 GO| RAW|
+||Msft Virtu... ||Healthy| Hors connexion| 100 GO| RAW|
+||Msft Virtu... ||Healthy| Hors connexion| 100 GO| RAW|
+|1|Msft Virtu...||Healthy| Hors connexion| 100 GO| RAW|
+||Msft Virtu... ||Healthy| Hors connexion| 100 GO| RAW|
+|2|Msft Virtu...||Healthy| Hors connexion| 100 GO| RAW|
+||Msft Virtu... ||Healthy| Hors connexion| 100 GO| RAW|
+||Msft Virtu... ||Healthy| Hors connexion| 100 GO| RAW|
+||Msft Virtu... ||Healthy| Hors connexion| 100 GO| RAW|
+||Msft Virtu... ||Healthy| Hors connexion| 100 GO| RAW|
+|4|Msft Virtu...||Healthy| Hors connexion| 100 GO| RAW|
+|3|Msft Virtu...||Healthy| Hors connexion| 100 GO| RAW|
+||Msft Virtu... ||Healthy| Hors connexion| 100 GO| RAW|
+||Msft Virtu... ||Healthy| Hors connexion| 100 GO| RAW|
+||Msft Virtu... ||Healthy| Hors connexion| 100 GO| RAW|
 
     
-## Message d’erreur indiquant que «type de média non pris en charge» lorsque vous créez un cluster d’espaces de stockage Direct à l’aide de Enable-ClusterS2D  
+## <a name="error-message-about-unsupported-media-type-when-you-create-an-storage-spaces-direct-cluster-using-enable-clusters2d"></a>Message d’erreur sur « type de média non pris en charge » lorsque vous créez un cluster d’espaces de stockage Direct à l’aide d’Enable-ClusterS2D  
 
-Vous pouvez voir des erreurs semblables à celle-ci lorsque vous exécutez l’applet de commande **Enable-ClusterS2D** :
+Vous pouvez rencontrer des erreurs similaires à ceci lorsque vous exécutez le **Enable-ClusterS2D** applet de commande :
 
 ![Message d’erreur scénario 6](media/troubleshooting/scenario-error-message.png)
 
-Pour résoudre ce problème, vérifiez que la carte HBA est configurée en mode HBA. Aucun adaptateur de bus hôte ne doit être configuré en mode RAID.  
+Pour résoudre ce problème, vérifiez que l’adaptateur HBA est configuré en mode HBA. Aucun adaptateur de bus hôte ne doit être configuré en mode RAID.  
     
-## Enable-ClusterStorageSpacesDirect se bloque au «Attendre SBL disques sont exposées» ou 27 %
+## <a name="enable-clusterstoragespacesdirect-hangs-at-waiting-until-sbl-disks-are-surfaced-or-at-27"></a>Enable-ClusterStorageSpacesDirect se bloque au « En attente jusqu'à ce que SBL disques sont signalées » ou au 27 %
 
-Vous verrez les informations suivantes dans le rapport de validation:
+Vous voyez les informations suivantes dans le rapport de validation :
 
     Disk <identifier> connected to node <nodename> returned a SCSI Port Association and the corresponding enclosure device could not be found. The hardware is not compatible with Storage Spaces Direct (S2D), contact the hardware vendor to verify support for SCSI Enclosure Services (SES). 
     
   
-Le problème est avec la carte de développement HPE SAS qui se trouve entre les disques et la carte HBA. Le système d’extension SAS crée un ID en double entre le premier lecteur connecté à l’agrandissement et le développeur proprement dit.  Cela a été résolu dans [HPE actives tableau contrôleurs SAS agrandissement microprogramme: 4.02](https://support.hpe.com/hpsc/swd/public/detail?sp4ts.oid=7304566&swItemId=MTX_ef8d0bf4006542e194854eea6a&swEnvOid=4184#tab3).
+Le problème est avec la carte d’expander HPE SAS qui se trouve entre les disques et la carte HBA. L’expandeur SAS crée un ID en double entre le premier lecteur connecté à l’icône de développement et de l’icône de développement.  Ce problème a été résolu dans [HPE Smart tableau contrôleurs SAS Expander microprogramme : 4.02](https://support.hpe.com/hpsc/swd/public/detail?sp4ts.oid=7304566&swItemId=MTX_ef8d0bf4006542e194854eea6a&swEnvOid=4184#tab3).
     
-## Série Intel SSD DC P4600 a un NGUID non unique
-Vous constaterez peut-être un problème dans lequel un périphérique de la gamme Intel SSD DC P4600 semble être reporting similaires de 16 octets NGUID pour plusieurs espaces de noms tels que 0100000001000000E4D25C000014E214 ou 0100000001000000E4D25C0000EEE214 dans l’exemple ci-dessous.
+## <a name="intel-ssd-dc-p4600-series-has-a-non-unique-nguid"></a>Intel SSD DC P4600 série a un NGUID non uniques
+Vous pouvez voir un problème où un appareil de série Intel SSD DC P4600 semble être reporting similaire 16 octets NGUID pour plusieurs espaces de noms tels que 0100000001000000E4D25C000014E214 ou 0100000001000000E4D25C0000EEE214 dans l’exemple ci-dessous.
 
-|ID unique| ID d’appareil |Type de média| BusType| numéro de série| size|canpool| FriendlyName| OperationalStatus|
+|uniqueid| deviceid |Type de média| BusType| SerialNumber (Numéro_série)| size|canpool| FriendlyName| OperationalStatus|
 |-|-|-|-|-|-|-|-|-
-|5000CCA251D12E30| 0| HDD| SAS| 7PKR197G|                  10000831348736 |Faux|HGST| HUH721010AL4200| OK|
-|EUI.0100000001000000E4D25C000014E214 |4|SSD| NVMe|   0100_0000_0100_0000_E4D2_5C00_0014_E214.|1600321314816|Vrai| INTEL| SSDPE2KE016T7|  OK|
-|EUI.0100000001000000E4D25C000014E214 |5|        SSD|       NVMe|    0100_0000_0100_0000_E4D2_5C00_0014_E214.|  1600321314816|    Vrai| INTEL| SSDPE2KE016T7|  OK|
-|EUI.0100000001000000E4D25C0000EEE214| 6|        SSD|       NVMe|    0100_0000_0100_0000_E4D2_5C00_00EE_E214.|  1600321314816|    Vrai| INTEL| SSDPE2KE016T7|  OK|
-|EUI.0100000001000000E4D25C0000EEE214| 7|        SSD|       NVMe|    0100_0000_0100_0000_E4D2_5C00_00EE_E214.|  1600321314816|    Vrai| INTEL| SSDPE2KE016T7|  OK|
+|5000CCA251D12E30| 0| HDD| SAS| 7PKR197G|                  10000831348736 |False|HGST| HUH721010AL4200| OK|
+|eui.0100000001000000E4D25C000014E214 |4|SSD| NVMe|   0100_0000_0100_0000_E4D2_5C00_0014_E214.|1600321314816|True| INTEL| SSDPE2KE016T7|  OK|
+|eui.0100000001000000E4D25C000014E214 |5|        SSD|       NVMe|    0100_0000_0100_0000_E4D2_5C00_0014_E214.|  1600321314816|    True| INTEL| SSDPE2KE016T7|  OK|
+|eui.0100000001000000E4D25C0000EEE214| 6|        SSD|       NVMe|    0100_0000_0100_0000_E4D2_5C00_00EE_E214.|  1600321314816|    True| INTEL| SSDPE2KE016T7|  OK|
+|eui.0100000001000000E4D25C0000EEE214| 7|        SSD|       NVMe|    0100_0000_0100_0000_E4D2_5C00_00EE_E214.|  1600321314816|    True| INTEL| SSDPE2KE016T7|  OK|
 
-Pour résoudre ce problème, mettez à jour le microprogramme sur les lecteurs Intel vers la dernière version.  Version du microprogramme QDV101B1 à partir du mois de mai 2018 est connu pour résoudre ce problème.
+Pour résoudre ce problème, vous devez mettre à jour le microprogramme sur les lecteurs Intel vers la dernière version.  Version du microprogramme QDV101B1 à partir de mai 2018 est connue pour résoudre ce problème.
 
-Le [mois de mai 2018 libérer de l’outil de centre de données SSD Intel](https://downloadmirror.intel.com/27778/eng/Intel_SSD_Data_Center_Tool_3_0_12_Release_Notes_330715-026.pdf) inclut un microprogramme mise à jour, QDV101B1, de la série Intel SSD DC P4600.
+Le [version de mai 2018 de l’outil de centre de données SSD Intel](https://downloadmirror.intel.com/27778/eng/Intel_SSD_Data_Center_Tool_3_0_12_Release_Notes_330715-026.pdf) inclut un microprogramme mise à jour, QDV101B1, pour la série Intel SSD DC P4600.
 
     
-## Physiques disque «Sain» et l’état opérationnel est «Suppression de Pool de» 
+## <a name="physical-disk-healthy-and-operational-status-is-removing-from-pool"></a>Physique disque « Sain » et l’état opérationnel est « Suppression de Pool de » 
 
-Dans un cluster d’espaces de stockage Windows Server 2016 Direct, vous pouvez voir les HealthStatus pour les disques physiques une ou plusieurs en tant que «Saines», tandis que le OperationalStatus est «(suppression pool, OK).» 
+Dans un cluster d’espaces de stockage Windows Server 2016 Direct, vous verrez la HealthStatus de disques physiques d’un ou plusieurs en tant que « Intègre », tandis que le OperationalStatus est « (suppression de Pool, OK). » 
 
-«Supprimer de Pool» est une intention définie lorsque **Remove-PhysicalDisk** est appelée mais stockés dans la santé pour conserver l’état et permettre la récupération en cas d’échec de l’opération de suppression. Vous pouvez modifier manuellement le OperationalStatus sain avec l’une des méthodes suivantes:
+« Suppression de Pool » est une intention définie lorsque **Remove-PhysicalDisk** est appelé, mais stockées dans le contrôle d’intégrité pour maintenir l’état et autoriser la récupération si l’opération de suppression échoue. Vous pouvez modifier manuellement le OperationalStatus sain avec l’une des méthodes suivantes :
 
-- Supprimer le disque physique du pool et puis ajoutez-le.
-- Exécutez le [script Clear-PhysicalDiskHealthData.ps1](https://go.microsoft.com/fwlink/?linkid=2034205) pour effacer l’intention. (Disponible en téléchargement en tant qu’un. Fichier TXT. Vous devez enregistrer en tant qu’un. Fichier ps1 avant que vous pouvez l’exécuter.)
+- Supprimer le disque physique dans le pool, puis rajoutez-le.
+- Exécutez le [Clear-PhysicalDiskHealthData.ps1 script](https://go.microsoft.com/fwlink/?linkid=2034205) pour effacer l’intention. (Disponible en téléchargement en tant qu’un. Fichier TXT. Vous devrez l’enregistrer en tant qu’un. Fichier ps1 avant de pouvoir l’exécuter.)
 
-Voici quelques exemples illustrant comment exécuter le script:
+Voici quelques exemples montrant comment exécuter le script :
 
-- Utilisez le paramètre de **numéro de série** pour spécifier le disque, que vous devez définir sain. Vous pouvez obtenir le numéro de série à partir de **WMI MSFT_PhysicalDisk** ou **Get-PhysicalDIsk**. (Nous utilisons simplement 0 pour le numéro de série ci-dessous.)
+- Utilisez le **SerialNumber** paramètre pour spécifier le disque, vous devez définir sur l’état intègre. Vous pouvez obtenir le numéro de série à partir de **WMI MSFT_PhysicalDisk** ou **Get-PhysicalDIsk**. (Nous les utilisons 0 s pour le numéro de série ci-dessous.)
    
    ```powershell
    Clear-PhysicalDiskHealthData -Intent -Policy -SerialNumber 000000000000000 -Verbose -Force
     ```
 
-- Utilisez le paramètre de **l’ID unique** pour spécifier le disque (à partir de **WMI MSFT_PhysicalDisk** ou **Get-PhysicalDIsk**).
+- Utilisez le **UniqueId** paramètre pour spécifier le disque (à partir de **WMI MSFT_PhysicalDisk** ou **Get-PhysicalDIsk**).
 
    ```powershell
    Clear-PhysicalDiskHealthData -Intent -Policy -UniqueId 00000000000000000 -Verbose -Force
    ```
 
-## Copie des fichiers est lente
+## <a name="file-copy-is-slow"></a>Copie de fichiers est lente
 
-Vous pouvez vu un problème dans l’Explorateur de fichiers à copier un disque dur virtuel de grande taille sur le disque virtuel - la copie du fichier est plue longue que prévu.
+Vous pouvez vu un problème à l’aide de l’Explorateur de fichiers pour copier un disque dur virtuel volumineux vers le disque virtuel : la copie de fichier est plue longue que prévu.
 
-L’Explorateur de fichiers, Robocopy ou Xcopy pour copier un disque dur virtuel de grande taille sur le disque virtuel n’est pas une méthode recommandée pour que cela se traduit par plus lente que les performances attendues. Le processus de copie ne va pas par le biais de la pile d’espaces de stockage Direct, ce qui se trouve en bas de la pile de stockage et à la place se comporte comme un processus de copie locale.
+L’Explorateur de fichiers, Robocopy ou Xcopy pour copier un disque dur virtuel volumineux vers le disque virtuel n’est pas une méthode recommandée car cela entraîne le moindre que les performances attendues. Le processus de copie ne traverse pas la pile d’espaces de stockage Direct, qui se trouve plus sur la pile de stockage et à la place agit comme un processus de copie locale.
 
-Si vous souhaitez tester les performances d’espaces de stockage Direct, nous vous recommandons d’utiliser VMFleet et Diskspd pour charger et de test de contrainte les serveurs pour obtenir une ligne de base et définissez les attentes des performances espaces de stockage Direct.
+Si vous souhaitez tester les performances d’espaces de stockage Direct, nous vous recommandons d’utiliser VMFleet et Diskspd à charge et tests de contrainte sur les serveurs pour obtenir une ligne de base et de définir les attentes des performances espaces de stockage Direct.
 
-## Prévu des événements que vous verriez dans le reste des nœuds lors du redémarrage d’un nœud. 
+## <a name="expected-events-that-you-would-see-on-rest-of-the-nodes-during-the-reboot-of-a-node"></a>Attendu des événements que vous verriez sur le reste des nœuds pendant le redémarrage d’un nœud. 
 
-Il est sûr d’ignorer ces événements: 
+Vous pouvez sans risque ignorer ces événements : 
 
     Event ID 205: Windows lost communication with physical disk {XXXXXXXXXXXXXXXXXXXX }. This can occur if a cable failed or was disconnected, or if the disk itself failed. 
 
     Event ID 203: Windows lost communication with physical disk {xxxxxxxxxxxxxxxxxxxxxxxx }. This can occur if a cable failed or was disconnected, or if the disk itself failed. 
 
-Si vous exécutez des machines virtuelles Azure, vous pouvez ignorer cet événement:
+Si vous exécutez des machines virtuelles Azure, vous pouvez ignorer cet événement :
 
     Event ID 32: The driver detected that the device \Device\Harddisk5\DR5 has its write cache enabled. Data corruption may occur. 
     
-## Baisse des performances ou «Perte de Communication,» «Erreur d’e/s», «Détaché», ou des erreurs «No redondance» pour les déploiements qui utilisent des appareils Intel P3x00 NVMe
+## <a name="slow-performance-or-lost-communication-io-error-detached-or-no-redundancy-errors-for-deployments-that-use-intel-p3x00-nvme-devices"></a>Ralentissement des performances ou « Perte de Communication, » « Erreur d’e/s », « Détachée » ou « No redondance » des erreurs pour les déploiements qui utilisent des périphériques Intel P3x00 NVMe
 
-Nous avons identifié un problème critique qui a une incidence sur certains utilisateurs espaces de stockage Direct, qui sont à l’aide de matériel en fonction de la famille Intel P3x00 de NVM Express (NVMe) avec les versions du microprogramme avant la «Mise à jour 8». 
+Nous avons identifié un problème critique qui affecte certains utilisateurs d’espaces de stockage Direct qui sont à l’aide de matériel en fonction de la famille Intel P3x00 de NVM Express (NVMe) des appareils avec les versions de microprogramme avant « Mise à jour 8 ». 
 
 >[!NOTE]
-> Les fabricants OEM individuels peuvent employer des appareils qui sont basées sur la famille Intel P3x00 de périphériques NVMe avec des chaînes de version du microprogramme unique. Pour plus d’informations de la dernière version du microprogramme, contactez votre fabricant OEM.
+> Les fabricants OEM individuels peuvent avoir des périphériques qui sont basées sur la famille Intel P3x00 de périphériques NVMe avec des chaînes de version du microprogramme unique. Pour plus d’informations de la dernière version du microprogramme, contactez votre fabricant OEM.
 
-Si vous utilisez le matériel dans votre déploiement basé sur la famille Intel P3x00 de périphériques NVMe, nous recommandons d’appliquer immédiatement le microprogramme le plus récent disponible (au moins 8 de publication de Maintenance). Cet [article du support technique Microsoft](https://support.microsoft.com/en-us/help/4052341/slow-performance-or-lost-communication-io-error-detached-or-no-redunda) fournit des informations supplémentaires sur ce problème. 
+Si vous utilisez le matériel dans votre déploiement en fonction de la famille Intel P3x00 de périphériques NVMe, nous vous recommandons d’appliquer immédiatement le dernier microprogramme disponible (au moins 8 de version de Maintenance). Cela [article du Support Microsoft](https://support.microsoft.com/en-us/help/4052341/slow-performance-or-lost-communication-io-error-detached-or-no-redunda) fournit des informations supplémentaires sur ce problème. 

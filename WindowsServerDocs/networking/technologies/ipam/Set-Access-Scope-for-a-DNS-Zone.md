@@ -1,6 +1,6 @@
 ---
-title: Définir l’étendue d’accès pour une Zone DNS
-description: Cette rubrique fait partie du guide de gestion de la gestion des adresses IP (IPAM) dans Windows Server2016.
+title: Définir l’étendue d’accès pour une zone DNS
+description: Cette rubrique fait partie du guide de gestion de la gestion des adresses IP (IPAM) dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,19 +13,20 @@ ms.topic: article
 ms.assetid: 6a211dde-80eb-4888-b5bb-4e28fe8dc7df
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a4e84f249e57df6bfd04203c8b825ff5d4d643b2
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 73d96a9be7c13afbe4c96d46fffefc0096046c8c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59813980"
 ---
-# <a name="set-access-scope-for-a-dns-zone"></a>Définir l’étendue d’accès pour une Zone DNS
+# <a name="set-access-scope-for-a-dns-zone"></a>Définir l’étendue d’accès pour une zone DNS
 
->S’applique à: Windows Server (canal annuel un point-virgule), Windows Server2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour définir l’étendue d’accès pour une zone DNS à l’aide de la console client IPAM.  
   
-L’appartenance au groupe **administrateurs**, ou équivalente, est la condition minimale requise pour effectuer cette procédure.  
+Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au groupe **Administrateurs** ou à un groupe équivalent.  
   
 ### <a name="to-set-the-access-scope-for-a-dns-zone"></a>Pour définir l’étendue d’accès pour une zone DNS  
   
@@ -39,12 +40,12 @@ L’appartenance au groupe **administrateurs**, ou équivalente, est la conditio
   
     ![Sélectionnez l’étendue d’accès](../../media/Set-Access-Scope-for-a-DNS-Zone/ipam_SetAccessScopeOfZone_03.jpg)  
   
-4.  Dans le volet d’informations console client IPAM, vérifiez que l’étendue d’accès pour la zone est modifié.  
+4.  Dans le volet Affichage de console du client IPAM, vérifiez que l’étendue d’accès pour la zone est modifiée.  
   
     ![Vérifiez que l’étendue d’accès pour la zone est modifiée.](../../media/Set-Access-Scope-for-a-DNS-Zone/ipam_SetAccessScopeOfZone_04.jpg)  
   
 ## <a name="see-also"></a>Voir aussi  
-[Contrôle d’accès basé sur les rôles](Role-based-Access-Control.md)  
+[Contrôle d’accès en fonction du rôle](Role-based-Access-Control.md)  
 [Gérer IPAM](Manage-IPAM.md)  
   
 

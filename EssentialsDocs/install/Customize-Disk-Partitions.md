@@ -1,6 +1,6 @@
 ---
-title: Personnaliser les Partitions de disque
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Personnalisation des partitions de disque
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,16 +13,17 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 32c05393d66b32e62c9562e3adbd4cc0f52b6d81
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59814970"
 ---
-# <a name="customize-disk-partitions"></a>Personnaliser les Partitions de disque
+# <a name="customize-disk-partitions"></a>Personnalisation des partitions de disque
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Pour personnaliser la configuration de la partition, vous pouvez créer au préalable l’image à l’aide d’un fichier unattend.xml. Il est fortement recommandé qu’une partition dédiée aux données est utilisée dans toutes les configurations pour vous assurer que le serveur peut être facilement sauvegardé et restauré.  
+Pour personnaliser la configuration de la partition, vous pouvez pré-créer l’image à l’aide d’un fichier unattend.xml. Il est fortement recommandé de créer une partition dédiée aux données dans toutes les configurations pour s'assurer que le serveur puisse être facilement sauvegardé et restauré.  
   
 ## <a name="see-also"></a>Voir aussi  
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   

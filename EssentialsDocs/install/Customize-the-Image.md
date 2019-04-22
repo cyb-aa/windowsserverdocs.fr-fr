@@ -1,6 +1,6 @@
 ---
-title: "Personnaliser l’Image"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Personnalisation de l’image
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,20 +13,21 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 66c1b08653cccb5ecf7a0fd168906d1d0cd0184b
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59814880"
 ---
-# <a name="customize-the-image"></a>Personnaliser l’Image
+# <a name="customize-the-image"></a>Personnalisation de l’image
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Vous pouvez utiliser les informations de cette section pour personnaliser une image du système d’exploitation.  
+Aidez-vous des informations proposées dans cette section pour personnaliser une image du système d’exploitation.  
   
- Cette section comprend les rubriques suivantes:  
+ Cette section comprend les rubriques suivantes :  
   
--   [Ajouter des entrées pour configurer des compléments, état rapide et des liens d’aide](Add-Entries-to-SETUP--ADD-INS--QUICK-STATUS--and-HELP-Links.md)  
+-   [Ajouter des entrées pour le programme d’installation, des compléments, état rapide et liens d’aide](Add-Entries-to-SETUP--ADD-INS--QUICK-STATUS--and-HELP-Links.md)  
   
 -   [Ajouter des alertes d’intégrité](Add-Health-Alerts.md)  
   
@@ -40,6 +41,6 @@ Vous pouvez utiliser les informations de cette section pour personnaliser une im
   
 -   [Définir les paramètres d’affichage](Define-Display-Settings.md)  
   
--   [Installer Add-Ins](Install-Add-Ins.md)  
+-   [Installer des compléments](Install-Add-Ins.md)  
   
 -   [Définition du Score WinSAT sur le serveur](Set-the-WinSAT-Score-on-the-Server.md)

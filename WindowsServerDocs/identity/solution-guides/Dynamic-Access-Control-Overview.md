@@ -1,7 +1,7 @@
 ---
 ms.assetid: 9ee8a6cb-7550-46e2-9c11-78d0545c3a97
-title: "Vue d’ensemble du contrôle d’accès dynamique"
-description: 
+title: Vue d’ensemble du contrôle d’accès dynamique
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,124 +10,125 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: 5cf74042c9b511abb1fbeb88224dea0c7f2c8706
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59812050"
 ---
 # <a name="dynamic-access-control-overview"></a>Vue d’ensemble du contrôle d’accès dynamique
 
->S’applique à: Windows Server2012R2, Windows Server2012
+>S'applique à : Windows Server 2012 R2, Windows Server 2012
 
-Cette rubrique de présentation destinée aux professionnels de l’informatique décrit le contrôle d’accès dynamique et il est associé à des éléments qui ont été introduits dans Windows Server2012 et Windows8.  
+Cette rubrique de présentation à destination des professionnels de l’informatique décrit la fonctionnalité de contrôle d’accès dynamique et les éléments associés, qui ont été inaugurés dans Windows Server 2012 et Windows 8.  
   
-Contrôle d’accès dynamique basé sur un domaine permet aux administrateurs d’appliquer des autorisations de contrôle d’accès et des restrictions basées sur les règles bien définies et peuvent inclure la sensibilité les ressources, la tâche ou le rôle de l’utilisateur et la configuration de l’appareil est utilisé pour accéder à ces ressources.  
+Le contrôle d’accès dynamique basé sur les domaines permet aux administrateurs d’établir des autorisations et des restrictions de contrôle d’accès fondées sur des règles précises. Ces règles peuvent être définies en fonction du niveau de confidentialité des ressources, du travail ou du rôle de l’utilisateur et de la configuration du périphérique utilisé pour accéder aux ressources.  
   
-Par exemple, un utilisateur peut avoir des autorisations différentes lorsqu’ils accèdent à une ressource à partir de leur ordinateur de bureau ou lorsqu’ils utilisent un ordinateur portable via un réseau privé virtuel. Ou accès peuvent être autorisé uniquement si un périphérique répond aux exigences de sécurité qui sont définies par les administrateurs réseau. Lorsque le contrôle d’accès dynamique est utilisé, les autorisations d’un utilisateur modifier dynamiquement sans intervention de l’administrateur si le travail ou le rôle de l’utilisateur change (entraînant des attributs de compte de l’utilisateur dans ADDS).  
+Par exemple, un utilisateur donné peut disposer d’autorisations distinctes selon qu’il accède à une ressource à partir de son ordinateur de bureau ou qu’il utilise un ordinateur portable via un réseau privé virtuel. Par ailleurs, l’accès peut être autorisé à la condition que l’appareil soit conforme aux exigences de sécurité définies par les administrateurs réseau. Lorsque le contrôle d’accès dynamique est utilisé, les autorisations d’un utilisateur changent dynamiquement sans intervention de l’administrateur supplémentaires si le rôle ou le travail de l’utilisateur change (ce qui entraîne des modifications aux attributs de compte d’utilisateur dans AD DS).  
   
-Contrôle d’accès dynamique n’est pas prise en charge dans les systèmes d’exploitation Windows antérieurs à Windows Server2012 et Windows8. Lorsque le contrôle d’accès dynamique est configuré dans les environnements avec des versions prises en charge et non pris en charge de Windows, seules les versions prises en charge implémentent les modifications.  
+Le contrôle d’accès dynamique n’est pas pris en charge dans les systèmes d’exploitation Windows antérieurs à Windows Server 2012 et Windows 8. Quand le contrôle d’accès dynamique est configuré dans un environnement constitué à la fois de versions prises en charge et de versions non prises de Windows, seules les versions prises en charge implémentent les modifications.  
   
-Fonctionnalités et les concepts associés au contrôle d’accès dynamique sont les suivantes:  
+Les fonctionnalités et les concepts associés au contrôle d’accès dynamique sont les suivants :  
   
 -   [Règles d’accès centralisées](#BKMK_Rules)  
   
 -   [Stratégies d’accès centralisées](#BKMK_Policies)  
   
--   [Revendications](#BKMK_Claims)  
+-   [revendications](#BKMK_Claims)  
   
 -   [Expressions](#BKMK_Expressions2)  
   
 -   [Autorisations proposées](#BKMK_Permissions2)  
   
 ### <a name="BKMK_Rules"></a>Règles d’accès centralisées  
-Une règle d’accès central est une expression de règles d’autorisation qui peut inclure un ou plusieurs conditions pour des groupes d’utilisateurs, les revendications d’utilisateur, les revendications de périphérique et les propriétés de ressource. Plusieurs règles d’accès centralisées peuvent être combinées dans une stratégie d’accès centralisée.  
+Une règle d’accès centralisée est une expression de règles d’autorisation, qui comporte une ou plusieurs conditions pour des groupes d’utilisateurs, des revendications d’utilisateur ou de périphérique et des propriétés de ressources. Plusieurs règles d’accès centralisées peuvent être combinées dans une stratégie d’accès centralisée.  
   
-Si un ou plusieurs règles d’accès centralisées ont été définies pour un domaine, administrateurs de partage de fichiers peuvent correspondre à des règles spécifiques à des ressources et exigences professionnelles.  
+Si une ou plusieurs règles d’accès centralisées ont été définies pour un domaine, les administrateurs des partages de fichiers peuvent associer des règles particulières à des ressources et des exigences professionnelles spécifiques.  
   
 ### <a name="BKMK_Policies"></a>Stratégies d’accès centralisées  
-Stratégies d’accès centralisées sont des stratégies d’autorisation qui comprennent des expressions conditionnelles. Par exemple, qu'une organisation a un besoin commercial à limiter l’accès aux informations d’identification personnelle (PII) dans les fichiers qu’au propriétaire du fichier et les membres du service ressources humaines (RH) qui sont autorisés à afficher les informations d’identification personnelle. Il s’agit d’une stratégie de l’organisation qui s’applique aux fichiers PII stockés sur les serveurs de fichiers dans l’organisation. Pour implémenter cette stratégie, une organisation doit être en mesure de:  
+Les stratégies d’accès centralisées sont des stratégies d’autorisation qui comportent des expressions conditionnelles. Par exemple, qu'une organisation possède une exigence métier pour restreindre l’accès aux informations d’identification personnelle (PII) dans les fichiers qu’au propriétaire du fichier et les membres du département Ressources humaines (RH) qui sont autorisés à afficher des informations d’identification personnelle. Il s’agit d’une stratégie à l’échelle de l’organisation qui s’applique aux fichiers PII, où qu’ils résident sur les serveurs de fichiers de l’organisation. Pour appliquer cette stratégie, l’organisation doit :  
   
--   Identifier et marquer les fichiers qui contiennent les informations d’identification personnelle.  
+-   identifier et marquer les fichiers qui contiennent les informations d’identification personnelle ;  
   
--   Identifier le groupe de ressources humaines les membres qui sont autorisés à afficher les informations d’identification personnelle.  
+-   identifier le groupe d’employés du service des ressources humaines habilités à consulter ce type d’information ;  
   
--   Ajouter la stratégie d’accès centralisée à une règle d’accès central et appliquer la règle d’accès central à tous les fichiers qui contiennent les informations d’identification personnelle, où ils se trouvent entre les serveurs de fichiers dans l’organisation.  
+-   ajouter la stratégie d’accès centralisée à une règle d’accès centralisée, puis appliquer cette règle à tous les fichiers qui contiennent les informations d’identification personnelle, où qu’elles se trouvent sur les serveurs de fichiers de l’organisation.  
   
-Stratégies d’accès centralisées agissent comme parapluies de sécurité une organisation s’appliquent à ses serveurs. Ces stratégies complètent (mais ne remplacent pas) les stratégies d’accès local ou les listes de contrôle d’accès discrétionnaire (DACL) qui sont appliquées aux fichiers et dossiers.  
+Les stratégies d’accès centralisées agissent comme un processus de sécurité « parapluie » que l’organisation déploie sur tous ses serveurs. Ces stratégies complètent (mais ne remplacent pas) les stratégies d’accès locales ou les listes de contrôle d’accès discrétionnaire (DACL, Discretionary Access Control List) qui s’appliquent aux fichiers et dossiers.  
   
-### <a name="BKMK_Claims"></a>Revendications  
-Une revendication est un élément unique d’informations sur un utilisateur, un périphérique ou une ressource qui a été publié par un contrôleur de domaine. Titre de l’utilisateur, la classification de service d’un fichier ou de l’état d’intégrité d’un ordinateur sont des exemples de la revendication. Une entité peut impliquer plusieurs revendications, et n’importe quelle combinaison de revendications peut servir à autoriser l’accès aux ressources. Les types de revendications suivants sont disponibles dans les versions de Windows prises en charge:  
+### <a name="BKMK_Claims"></a>revendications  
+Une revendication est un élément d’information unique relatif à un utilisateur, un périphérique ou une ressource qui a été publié par un contrôleur de domaine. Titre de l’utilisateur, la classification de service d’un fichier ou l’état d’intégrité d’un ordinateur sont des exemples valides d’une revendication. Une entité peut faire l’objet de plusieurs revendications, et celles-ci peuvent être combinées pour autoriser l’accès aux ressources. Les types de revendication décrits ci-dessous sont disponibles dans les versions prises en charge de Windows :  
   
--   **Revendications d’utilisateur** attributs ActiveDirectory qui sont associés à un utilisateur spécifique.  
+-   **Revendications d’utilisateur** : attributs Active Directory associés à un utilisateur spécifique.  
   
--   **Revendications de périphérique** attributs ActiveDirectory qui sont associés à un objet ordinateur spécifique.  
+-   **Revendications de périphérique** : attributs Active Directory associés à un objet ordinateur spécifique.  
   
--   **Attributs de ressource** propriétés de ressources globales qui sont marquées pour une utilisation dans les décisions d’autorisation et publiées dans ActiveDirectory.  
+-   **Attributs de ressources** : propriétés de ressources globales marquées pour une utilisation dans les décisions d’autorisation et publiées dans Active Directory.  
   
-Revendications permettent aux administrateurs d’effectuer des instructions de l’organisation ou entreprise précis sur les utilisateurs, appareils et ressources qui peuvent être incorporées dans les expressions, règles et stratégies.  
+Avec les revendications, les administrateurs peuvent définir de façon précise, à l’échelle de l’entreprise ou de l’organisation, les utilisateurs, appareils et ressources à intégrer dans les expressions, règles et stratégies.  
   
 ### <a name="BKMK_Expressions2"></a>Expressions  
-Expressions conditionnelles sont une amélioration de la gestion du contrôle d’accès qui autorise ou refuse l’accès aux ressources uniquement lorsque certaines conditions sont remplies, par exemple, l’appartenance au groupe, emplacement ou l’état de sécurité de l’appareil. Les expressions sont gérées par le biais de la boîte de dialogue Paramètres de sécurité avancés de l’éditeur ACL ou l’éditeur de règles d’accès Central dans l’ActiveDirectory Administrative Center (ADAC).  
+Les expressions conditionnelles améliorent la gestion du contrôle d’accès qui autorise ou refuse l’accès aux ressources selon que certaines conditions sont réunies ou pas, par exemple, l’appartenance à un groupe, l’emplacement ou l’état de la sécurité du périphérique. Les expressions sont gérées par le biais de la boîte de dialogue Paramètres de sécurité avancés dans l’Éditeur ACL, ou de l’Éditeur de règles d’accès centralisées dans le Centre d’administration Active Directory (ADAC).  
   
-Expressions aider les administrateurs à gérer l’accès aux ressources sensibles avec les conditions dans les environnements d’entreprise plus en plus complexes.  
+Avec les expressions, les administrateurs gèrent plus facilement l’accès aux ressources sensibles, car ils peuvent définir et modifier les conditions en fonction des besoins toujours plus complexes de leur environnement de travail.  
   
 ### <a name="BKMK_Permissions2"></a>Autorisations proposées  
-Les autorisations proposées permettent à un administrateur plus précisément l’impact d’une modification éventuelle pour accéder aux paramètres de contrôle sans les modifier réellement.  
+Avec les autorisations proposées, un administrateur peut analyser plus précisément l’impact d’une modification éventuelle des paramètres de contrôle d’accès sans les modifier réellement.  
   
-Anticipant l’accès effectif à une ressource vous pouvez mieux planifier et configurer des autorisations pour ces ressources avant d’implémenter ces modifications.  
+En anticipant l’accès effectif aux ressources, vous pouvez mieux planifier et configurer les autorisations pour ces ressources avant de procéder aux modifications.  
   
-## <a name="additional-changes"></a>Modifications supplémentaires  
-Améliorations supplémentaires dans les versions prises en charge de Windows qui prennent en charge le contrôle d’accès dynamique:  
+## <a name="additional-changes"></a>Autres modifications  
+D’autres améliorations ont été apportées aux versions prises en charge de Windows compatibles avec le contrôle d’accès dynamique, à savoir :  
   
-### <a name="support-in-the-kerberos-authentication-protocol-to-reliably-provide-user-claims-device-claims-and-device-groups"></a>Prendre en charge le protocole d’authentification Kerberos pour fournir de manière fiable les revendications d’utilisateur, les revendications de périphérique et les groupes de périphériques.  
-Par défaut, les appareils exécutant les versions prises en charge de Windows sont en mesure de traiter les tickets Kerberos relevant du contrôle d’accès dynamique, ce qui incluent les données nécessaires pour l’authentification composée. Contrôleurs de domaine sont en mesure d’émettre et de répondre aux tickets Kerberos avec les informations d’authentification composées. Lorsqu’un domaine est configuré pour reconnaître le contrôle d’accès dynamique, les appareils reçoivent les revendications de contrôleurs de domaine lors de l’authentification initiale, et ils reçoivent les tickets de l’authentification composée lors de l’envoi des demandes de ticket de service. L’authentification composée génère un jeton d’accès qui contient l’identité de l’utilisateur et l’appareil sur les ressources qui reconnaissent le contrôle d’accès dynamique.  
+### <a name="support-in-the-kerberos-authentication-protocol-to-reliably-provide-user-claims-device-claims-and-device-groups"></a>Prise en charge du protocole d’authentification Kerberos pour fournir de manière fiable les revendications d’utilisateur, les revendications de périphérique et les groupes d’appareils.  
+Par défaut, les appareils exécutant l’une des versions prises en charge de Windows peuvent traiter les tickets Kerberos relevant du contrôle d’accès dynamique, ce qui inclut les données nécessaires à l’authentification composée. Les contrôleurs de domaine peuvent émettre des tickets Kerberos avec des informations liées à l’authentification composée, et répondre à ces tickets. Quand un domaine est configuré pour reconnaître le contrôle d’accès dynamique, les appareils reçoivent les revendications des contrôleurs de domaine pendant l’authentification initiale, puis ils reçoivent les tickets de l’authentification composée pendant l’envoi des demandes de ticket de service. L’authentification composée génère un jeton d’accès qui indique l’identité de l’utilisateur et du périphérique utilisé pour accéder aux ressources qui reconnaissent le contrôle d’accès dynamique.  
   
-### <a name="support-for-using-the-key-distribution-center-kdc-group-policy-setting-to-enable-dynamic-access-control-for-a-domain"></a>Prise en charge pour l’utilisation du paramètre de stratégie de groupe de Key Distribution Center (KDC) pour activer le contrôle d’accès dynamique pour un domaine.  
-Chaque contrôleur de domaine doit avoir le même paramètre de stratégie du modèle d’administration, se trouve dans **contrôle d’accès dynamique ordinateur configuration administration\système\kdc\prendre en charge et le blindage Kerberos**.  
+### <a name="support-for-using-the-key-distribution-center-kdc-group-policy-setting-to-enable-dynamic-access-control-for-a-domain"></a>Prise en charge de l’utilisation du paramètre de stratégie de groupe du centre de distribution de clés (KDC) pour activer le contrôle d’accès dynamique sur un domaine.  
+Chaque contrôleur de domaine doit avoir le même paramètre de stratégie de modèles d’administration (sous **Configuration ordinateur\Stratégies\Modèles d’administration\Système\KDC\Prendre en charge le contrôle d’accès dynamique et le blindage Kerberos**).  
   
-### <a name="support-for-using-the-key-distribution-center-kdc-group-policy-setting-to-enable-dynamic-access-control-for-a-domain"></a>Prise en charge pour l’utilisation du paramètre de stratégie de groupe de Key Distribution Center (KDC) pour activer le contrôle d’accès dynamique pour un domaine.  
-Chaque contrôleur de domaine doit avoir le même paramètre de stratégie du modèle d’administration, se trouve dans **contrôle d’accès dynamique ordinateur configuration administration\système\kdc\prendre en charge et le blindage Kerberos**.  
+### <a name="support-for-using-the-key-distribution-center-kdc-group-policy-setting-to-enable-dynamic-access-control-for-a-domain"></a>Prise en charge de l’utilisation du paramètre de stratégie de groupe du centre de distribution de clés (KDC) pour activer le contrôle d’accès dynamique sur un domaine.  
+Chaque contrôleur de domaine doit avoir le même paramètre de stratégie de modèles d’administration (sous **Configuration ordinateur\Stratégies\Modèles d’administration\Système\KDC\Prendre en charge le contrôle d’accès dynamique et le blindage Kerberos**).  
   
-### <a name="support-in-active-directory-to-store-user-and-device-claims-resource-properties-and-central-access-policy-objects"></a>Prise en charge dans ActiveDirectory pour stocker les revendications d’utilisateur et périphérique, les propriétés de ressource et objets de stratégie d’accès centralisée.  
+### <a name="support-in-active-directory-to-store-user-and-device-claims-resource-properties-and-central-access-policy-objects"></a>Prise en charge dans Active Directory du stockage des revendications d’utilisateur et d’appareil, des propriétés de ressources ainsi que des objets de stratégie d’accès centralisée.  
   
-### <a name="support-for-using-group-policy-to-deploy-central-access-policy-objects"></a>Prise en charge pour l’utilisation de la stratégie de groupe pour déployer des objets de stratégie d’accès centralisée.  
-Le paramètre de stratégie de groupe suivant vous permet de déployer des objets de stratégie d’accès centralisée aux serveurs de fichiers dans votre organisation: **ordinateur Configuration ordinateur\Stratégies\Paramètres Windows\Paramètres sécurité\Système accès Fichiers\stratégie**.  
+### <a name="support-for-using-group-policy-to-deploy-central-access-policy-objects"></a>Prise en charge de l’utilisation d’une stratégie de groupe pour déployer les objets de stratégie d’accès centralisée.  
+Le paramètre de stratégie de groupe suivant vous permet de déployer des objets de stratégie d’accès centralisée aux serveurs de fichiers dans votre organisation : **Ordinateur Configuration ordinateur\Stratégies\Paramètres Windows Windows\Paramètres sécurité\Système Fichiers\stratégie d’accès**.  
   
-### <a name="support-for-claims-based-file-authorization-and-auditing-for-file-systems-by-using-group-policy-and-global-object-access-auditing"></a>Prise en charge de l’autorisation de fichiers basée sur les revendications et l’audit des systèmes de fichiers à l’aide de la stratégie de groupe et d’audit d’accès aux objets globaux  
-Vous devez activer l’audit des stratégies accès centralisées intermédiaires auditer l’accès effectif d’une stratégie d’accès centralisée à l’aide des autorisations proposées. Vous configurez ce paramètre pour l’ordinateur sous **Configuration avancée de stratégie d’Audit** dans les **les paramètres de sécurité** d’un objet de stratégie de groupe (GPO). Après avoir configuré le paramètre de sécurité dans l’objet de stratégie de groupe, vous pouvez déployer l’objet de stratégie de groupe aux ordinateurs de votre réseau.  
+### <a name="support-for-claims-based-file-authorization-and-auditing-for-file-systems-by-using-group-policy-and-global-object-access-auditing"></a>Prise en charge de l’autorisation de fichiers basée sur les revendications et de l’audit des systèmes de fichiers avec la stratégie de groupe et l’audit de l’accès global aux objets  
+Vous devez activer l’audit des stratégies d’accès centralisées intermédiaires pour pouvoir évaluer l’accès effectif d’une stratégie d’accès centralisée à l’aide des autorisations proposées. Vous pouvez configurer ce paramètre de l’ordinateur sous **Configuration avancée de la stratégie d’audit** dans les **Paramètres de sécurité** d’un objet de stratégie de groupe (GPO). Une fois que vous avez configuré le paramètre de sécurité dans le GPO, vous pouvez déployer ce dernier sur les ordinateurs de votre réseau.  
   
-### <a name="support-for-transforming-or-filtering-claim-policy-objects-that-traverse-active-directory-forest-trusts"></a>Prise en charge de la transformation ou du filtrage des objets de stratégie de revendication qui parcourent les approbations de forêt ActiveDirectory  
-Vous pouvez filtrer ou transformer les revendications entrantes et sortantes qui parcourent une approbation de forêt. Il existe trois principaux scénarios de filtrage et de transformation des revendications:  
+### <a name="support-for-transforming-or-filtering-claim-policy-objects-that-traverse-active-directory-forest-trusts"></a>Prise en charge de la transformation ou du filtrage des objets de stratégie de revendication qui parcourent les approbations de forêt Active Directory  
+Vous pouvez filtrer ou transformer les revendications entrantes et sortantes qui parcourent une approbation de forêt. Il existe trois principaux scénarios de filtrage et de transformation des revendications :  
   
--   **Filtrage basé sur une valeur** filtres peuvent être basés sur la valeur de la revendication. Cela permet de la forêt approuvée empêcher que les revendications avec certaines valeurs soient envoyées à la forêt d’approbation. Contrôleurs de domaine dans les forêts de confiance peuvent utiliser le filtrage basé sur une valeur pour vous protéger contre une attaque par élévation de privilèges en filtrant les revendications entrantes ayant des valeurs spécifiques de la forêt approuvée.  
+-   **Filtrage basé sur les valeurs** : les filtres peuvent être basés sur la valeur d’une revendication. Dans ce cas, la forêt approuvée peut empêcher que les revendications avec certaines valeurs soient envoyées à la forêt d’approbation. Les contrôleurs de domaine situés dans les forêts d’approbation peuvent utiliser un filtrage basé sur les valeurs pour empêcher une attaque par élévation de privilège en filtrant les revendications entrantes ayant des valeurs spécifiques de la forêt approuvée.  
   
--   **Filtrage basé sur le type de revendication** filtres sont basés sur le type de revendication, plutôt que la valeur de la revendication. Vous identifiez le type de revendication par le nom de la revendication. Vous pouvez utiliser ce type basé le filtrage dans la forêt approuvée, et il empêche Windows d’envoyer des revendications qui divulguent des informations à la forêt d’approbation.  
+-   **Filtrage basé sur le type de la revendication** : les filtres sont basés sur le type de la revendication et non sur sa valeur. C’est le nom de la revendication qui vous permet d’identifier son type. Vous pouvez utiliser ce type de filtrage dans la forêt approuvée pour empêcher Windows d’envoyer des revendications qui divulguent des informations à la forêt d’approbation.  
   
--   **Transformation basée sur le type de revendication**: manipule une revendication avant de l’envoyer à la cible prévue. Vous utilisez la transformation basée sur le type de revendication dans la forêt approuvée pour généraliser une revendication connue qui contient des informations spécifiques. Vous pouvez utiliser les transformations pour généraliser le type de revendication, la valeur de revendication ou les deux.  
+-   **Transformation basée sur le type de la revendication** : manipule une revendication avant de l’envoyer à la cible prévue. Vous pouvez utiliser la transformation basée sur le type des revendications dans la forêt approuvée pour généraliser une revendication connue qui contient des informations spécifiques. Les transformations permettent de généraliser le type et/ou la valeur de la revendication.  
   
 ## <a name="software-requirements"></a>Configuration logicielle requise  
-Étant donné que les revendications et l’authentification composée pour le contrôle d’accès dynamique nécessitent des extensions d’authentification Kerberos, n’importe quel domaine qui prend en charge le contrôle d’accès dynamique doit comporter suffisamment de contrôleurs de domaine exécutant les versions prises en charge de Windows pour prendre en charge l’authentification à partir de clients Kerberos avec contrôle d’accès dynamique. Par défaut, les périphériques doivent utiliser des contrôleurs de domaine dans d’autres sites. Si aucun ces contrôleurs de domaine ne sont disponibles, l’authentification échoue. Par conséquent, vous devez prendre en charge une des conditions suivantes:  
+Les revendications et l’authentification composée pour le contrôle d’accès dynamique nécessitent des extensions d’authentification Kerberos. De ce fait, les domaines qui prennent en charge le contrôle d’accès dynamique doivent avoir suffisamment de contrôleurs de domaine exécutant les versions prises en charge de Windows pour assurer la prise en charge des demandes d’authentification provenant de clients Kerberos avec contrôle d’accès dynamique. Par défaut, les appareils doivent utiliser des contrôleurs de domaine d’autres sites. S’il n’existe pas de contrôleurs de domaine avec cette configuration, l’authentification échoue. En conséquence, vous devez prendre en charge l’une des situations suivantes :  
   
--   Chaque domaine qui prend en charge le contrôle d’accès dynamique doit comporter suffisamment de contrôleurs de domaine exécutant les versions prises en charge de Windows Server pour prendre en charge l’authentification à partir de tous les appareils exécutant les versions prises en charge de Windows ou Windows Server.  
+-   Chaque domaine qui prend en charge le contrôle d’accès dynamique doit avoir suffisamment de contrôleurs de domaine exécutant les versions prises en charge de Windows Server pour assurer la prise en charge des demandes d’authentification de tous les appareils exécutant les versions prises en charge de Windows ou Windows Server.  
   
--   Les appareils exécutant les versions prises en charge de Windows ou qui ne protègent pas les ressources à l’aide de revendications ou une identité composée, doit désactiver la prise en charge du protocole Kerberos pour le contrôle d’accès dynamique.  
+-   Sur les appareils exécutant les versions prises en charge de Windows ou qui ne protègent pas les ressources au moyen de revendications ou d’une identité composée, la prise en charge du protocole Kerberos pour le contrôle d’accès dynamique doit être désactivée.  
   
-Pour les domaines qui prennent en charge les revendications d’utilisateur, chaque contrôleur de domaine exécutant les versions prises en charge de Windows server doit être configuré avec le paramètre approprié pour prendre en charge les revendications et l’authentification composée et pour fournir le blindage Kerberos. Configurer les paramètres de la stratégie de modèle d’administration KDC comme suit:  
+Dans le cas des domaines qui prennent en charge les revendications d’utilisateur, chaque contrôleur de domaine exécutant les versions prises en charge de Windows Server doit être configuré de manière appropriée pour prendre en charge les revendications et l’authentification composée, et fournir le blindage Kerberos. Configurez les paramètres de la stratégie de modèles d’administration dans le centre de distribution de clés comme expliqué ci-dessous :  
   
--   **Toujours fournir des revendications** utiliser ce paramètre si tous les contrôleurs de domaine exécutent les versions prises en charge de Windows Server. En outre, définissez le niveau fonctionnel du domaine vers Windows Server2012 ou version ultérieure.  
+-   **Toujours fournir des revendications** : utilisez ce paramètre si tous les contrôleurs de domaine exécutent les versions prises en charge de Windows Server. Par ailleurs, configurez le domaine au niveau fonctionnel Windows Server 2012 ou supérieur.  
   
--   **Prise en charge** lorsque vous utilisez ce paramètre, les contrôleurs de domaine pour vous assurer que le nombre de contrôleurs de domaine exécutant les versions prises en charge de Windows Server est suffisant pour le nombre d’ordinateurs clients qui doivent accéder aux ressources protégées par le contrôle d’accès dynamique.  
+-   **Pris en charge** : si vous utilisez ce paramètre, vérifiez que les contrôleurs de domaine exécutant les versions prises en charge de Windows Server sont en nombre suffisant par rapport au nombre d’ordinateurs clients ayant besoin d’accéder aux ressources protégées par le contrôle d’accès dynamique.  
   
-Si le domaine de l’utilisateur et le domaine de serveur de fichiers se trouvent dans des forêts différentes, tous les contrôleurs de domaine racine de la forêt du serveur de fichiers doivent être définies au niveau fonctionnel supérieure ou Windows Server2012.  
+Si le domaine de l’utilisateur et le domaine du serveur de fichiers se trouvent dans des forêts différentes, tous les contrôleurs de domaine racine de la forêt du serveur de fichiers doivent être définies sur le Windows Server 2012 niveau fonctionnel ou supérieur.  
   
-Si les clients ne reconnaissent pas de contrôle d’accès dynamique, il doit être une relation d’approbation bidirectionnelle entre les deux forêts.  
+Si les clients ne prennent pas en charge le contrôle d’accès dynamique, vous devez définir une relation d’approbation bidirectionnelle entre les deux forêts.  
   
-Si les revendications sont transformées à leur une forêt, tous les contrôleurs de domaine racine de la forêt de l’utilisateur doivent être définis au niveau fonctionnel supérieure ou Windows Server2012.  
+Si les revendications sont transformées lorsqu’ils quittent une forêt, tous les contrôleurs de domaine racine de forêt de l’utilisateur doivent être définies sur le Windows Server 2012 niveau fonctionnel ou supérieur.  
   
-Un serveur de fichiers exécutant Windows Server2012 ou Windows Server2012R2 doit avoir un paramètre de stratégie de groupe qui spécifie s’il doit obtenir des revendications d’utilisateur pour les jetons d’utilisateur qui ne transmettent pas de revendications. Ce paramètre est défini par défaut à **automatique**, ce qui aboutit à ce paramètre de stratégie de groupe peut être activée **sur** s’il existe une stratégie centralisée contenant des revendications utilisateur ou périphérique pour ce serveur de fichiers. Si le serveur de fichiers contient des listes DACL qui incluent des revendications d’utilisateur, vous devez définir cette stratégie de groupe **sur** afin que le serveur qu’il doit pour demander des revendications pour les utilisateurs qui ne fournissent pas de revendications lorsqu’ils accèdent à du serveur.  
+Un serveur de fichiers exécutant Windows Server 2012 ou Windows Server 2012 R2 doit avoir un paramètre de stratégie de groupe qui spécifie s’il doit obtenir des revendications d’utilisateur pour les jetons d’utilisateur qui ne transmettent pas de revendications. La valeur par défaut de ce paramètre de stratégie étant **Automatique**, il prend la valeur **Activé** si une stratégie centralisée contenant des revendications d’utilisateur ou de périphérique a été définie pour ce serveur de fichiers. Si le serveur de fichiers comporte des listes de contrôle d’accès discrétionnaire (DACL) avec des revendications d’utilisateur, vous devez attribuer à ce paramètre de stratégie la valeur **Activé** pour indiquer au serveur qu’il doit demander des revendications pour les utilisateurs qui n’en fournissent au moment d’accéder au serveur.  
   
 ## <a name="additional-resource"></a>Ressources supplémentaires  
-Pour plus d’informations sur l’implémentation des solutions basées sur cette technologie, consultez [contrôle d’accès dynamique: vue d’ensemble du scénario](Dynamic-Access-Control--Scenario-Overview.md).  
+Pour plus d’informations sur l’implémentation des solutions basées sur cette technologie, consultez [contrôle d’accès dynamique : Vue d’ensemble du scénario](Dynamic-Access-Control--Scenario-Overview.md).  
   
 
 
