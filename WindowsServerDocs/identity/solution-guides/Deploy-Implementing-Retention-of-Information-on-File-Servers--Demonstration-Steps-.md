@@ -1,7 +1,7 @@
 ---
 ms.assetid: ee008835-7d3b-4977-adcb-7084c40e5918
-title: "Déployer l’implémentation de rétention des informations sur les serveurs de fichiers (étapes de démonstration)"
-description: 
+title: Deploy Implementing Retention of Information on File Servers (Demonstration Steps)
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,37 +10,38 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: e0f79dd72190888340144bc5c109ee31fa301937
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59870800"
 ---
-# <a name="deploy-implementing-retention-of-information-on-file-servers-demonstration-steps"></a>Déployer l’implémentation de rétention des informations sur les serveurs de fichiers (étapes de démonstration)
+# <a name="deploy-implementing-retention-of-information-on-file-servers-demonstration-steps"></a>Deploy Implementing Retention of Information on File Servers (Demonstration Steps)
 
->S’applique à: Windows Server2016, Windows Server2012R2, Windows Server2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Vous pouvez définir des périodes de rétention pour les dossiers et placer des fichiers légale à l’aide d’Infrastructure de Classification des fichiers et Gestionnaire de ressources du serveur de fichiers.  
+Vous pouvez définir des périodes de rétention pour les dossiers et placer des fichiers en mode de conservation légale à l'aide de l'Infrastructure de classification des fichiers et du Gestionnaire de ressources du serveur de fichiers.  
   
 **Dans ce document**  
   
 -   [Conditions préalables](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Prereqs)  
   
--   [Étape1: Créer des définitions de propriété de ressource](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step1)  
+-   [Étape 1 : Créer des définitions de propriété de ressource](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step1)  
   
--   [Étape2: Configurer les notifications](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step2)  
+-   [Étape 2 : Configurer les notifications](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step2)  
   
--   [Étape3: Créer une tâche de gestion de fichiers](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step3)  
+-   [Étape 3 : Créer une tâche de gestion de fichiers](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step3)  
   
--   [Étape4: Classifier un fichier manuellement](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step4)  
+-   [Étape 4 : Classifier un fichier manuellement](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step4)  
   
 > [!NOTE]  
-> Cette rubrique inclut des applets de commande exemple Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, voir [applets de commande à l’aide de](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="prerequisites"></a>Conditions préalables  
-Les étapes décrites dans cette rubrique supposent que vous avez un serveur SMTP configuré pour les notifications d’expiration de fichier.  
+## <a name="prerequisites"></a>Prérequis  
+Les étapes décrites dans cette rubrique partent du principe que vous avez un serveur SMTP configuré pour les notifications d'expiration de fichier.  
   
-## <a name="BKMK_Step1"></a>Étape1: Créer des définitions de propriété de ressource  
-Dans cette étape, nous activer les propriétés de ressource de période de rétention et de détectabilité pour que l’Infrastructure de Classification des fichiers peut utiliser ces propriétés de ressource pour baliser les fichiers analysés dans un dossier réseau partagé.  
+## <a name="BKMK_Step1"></a>Étape 1 : créer des définitions de propriétés de ressource  
+Lors de cette étape, nous allons activer les propriétés de ressource de période de rétention et de détectabilité pour que l'Infrastructure de classification des fichiers puisse les utiliser pour baliser les fichiers analysés dans un dossier réseau partagé.  
   
 [Effectuez cette étape à l’aide de Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1)  
   
@@ -48,25 +49,25 @@ Dans cette étape, nous activer les propriétés de ressource de période de ré
   
 1.  Sur le contrôleur de domaine, connectez-vous au serveur en tant que membre du groupe de sécurité Admins du domaine.  
   
-2.  Ouvrir le centre d’administration ActiveDirectory. Dans le Gestionnaire de serveur, cliquez sur **outils**, puis cliquez sur **centre d’administration Active Directory**.  
+2.  Ouvrez le Centre d'administration Active Directory. Dans le Gestionnaire de serveur, cliquez sur **Outils**, puis sur **Centre d'administration Active Directory**.  
   
-3.  Développez **contrôle d’accès dynamique**, puis cliquez sur **propriétés de ressource**.  
+3.  Développez **Contrôle d'accès dynamique**, puis cliquez sur **Propriétés de ressource**.  
   
-4.  Avec le bouton droit **période de rétention**, puis cliquez sur **activer**.  
+4.  Cliquez avec le bouton droit sur **Période de rétention**, puis cliquez sur **Activer**.  
   
-5.  Avec le bouton droit **détectabilité**, puis cliquez sur **activer**.  
+5.  Cliquez avec le bouton droit sur **Détectabilité**, puis cliquez sur **Activer**.  
   
-![guides de solutions](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalentes commandes ***  
+![guides de solutions](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
   
-L’applet de commande Windows PowerShell ou les applets de commande suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
 ```  
 Set-ADResourceProperty -Enabled:$true -Identity:'CN=RetentionPeriod_MS,CN=Resource Properties,CN=Claims Configuration,CN=Services,CN=Configuration,DC=contoso,DC=com'  
 Set-ADResourceProperty -Enabled:$true -Identity:'CN=Discoverability_MS,CN=Resource Properties,CN=Claims Configuration,CN=Services,CN=Configuration,DC=contoso,DC=com'  
 ```  
   
-## <a name="BKMK_Step2"></a>Étape2: Configurer les notifications  
-Dans cette étape, nous utilisons la console du Gestionnaire de ressources de serveur de fichiers pour configurer le serveur SMTP et l’adresse de messagerie par défaut que les rapports sont envoyés à partir de l’adresse de messagerie d’administrateur par défaut.  
+## <a name="BKMK_Step2"></a>Étape 2 : configurer les notifications  
+Lors de cette étape, nous allons utiliser la console Gestionnaire de ressources du serveur de fichiers pour configurer le serveur SMTP, l'adresse de messagerie de l'administrateur par défaut et l'adresse de messagerie par défaut depuis laquelle sont envoyés les rapports.  
   
 [Effectuez cette étape à l’aide de Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
   
@@ -74,38 +75,38 @@ Dans cette étape, nous utilisons la console du Gestionnaire de ressources de se
   
 1.  Connectez-vous au serveur de fichiers en tant que membre du groupe de sécurité Administrateurs.  
   
-2.  À partir de l’invite de commandes Windows PowerShell, tapez **Update-FsrmClassificationPropertyDefinition**, puis appuyez sur ENTRÉE. Cette commande permet de synchroniser les définitions de propriétés qui sont créées sur le contrôleur de domaine pour le serveur de fichiers.  
+2.  À l'invite de commandes Windows PowerShell, tapez **Update-FsrmClassificationPropertyDefinition**, puis appuyez sur Entrée. Cette commande permet de synchroniser les définitions de propriétés qui sont créées sur le contrôleur de domaine avec le serveur de fichiers.  
   
-3.  Ouvrez le Gestionnaire de ressources du serveur de fichiers. Dans le Gestionnaire de serveur, cliquez sur **outils**, puis cliquez sur **File Server Resource Manager**.  
+3.  Ouvrez le Gestionnaire de ressources du serveur de fichiers. Dans le Gestionnaire de serveur, cliquez sur **Outils**, puis sur **Gestionnaire de ressources du serveur de fichiers**.  
   
-4.  Avec le bouton droit **Gestionnaire de ressources du serveur de fichiers (local)**, puis cliquez sur **configurer les Options**.  
+4.  Cliquez avec le bouton droit sur **Gestionnaire de ressources du serveur de fichiers (local)**, puis cliquez sur **Configurer les options**.  
   
-5.  Sur le **Notifications par courrier électronique** onglet, configurez les éléments suivants:  
+5.  Sous l'onglet **Notifications par courrier électronique** , configurez ce qui suit :  
   
-    -   Dans le **nom du serveur SMTP ou l’adresse IP**, tapez le nom du serveur SMTP sur votre réseau.  
+    -   Dans la zone **Nom ou adresse IP du serveur SMTP**, tapez le nom du serveur SMTP de votre réseau.  
   
-    -   Dans le **Administrateurs destinataires par défaut** zone, tapez l’adresse de messagerie de l’administrateur qui doit recevoir la notification.  
+    -   Dans la zone **Administrateurs destinataires par défaut**, tapez l'adresse de messagerie de l'administrateur qui doit recevoir la notification.  
   
-    -   Dans le **par défaut «De» de l’adresse de messagerie**, tapez l’adresse de messagerie qui doit être utilisé pour envoyer les notifications.  
+    -   Dans le **par défaut « From » de l’adresse de messagerie** , tapez l’adresse de messagerie qui doit être utilisée pour envoyer les notifications.  
   
 6.  Cliquez sur **OK**.  
   
-![guides de solutions](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalentes commandes ***  
+![guides de solutions](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
   
-L’applet de commande Windows PowerShell ou les applets de commande suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
 ```  
 Set-FsrmSetting -SmtpServer IP address of SMTP server -FromEmailAddress "FromEmailAddress" -AdminEmailAddress "AdministratorEmailAddress"  
 ```  
   
-## <a name="BKMK_Step3"></a>Étape3: Créer une tâche de gestion de fichiers  
-Dans cette étape, nous utilisons la console du Gestionnaire de ressources de serveur de fichiers pour créer une tâche de gestion de fichiers qui exécutera le dernier jour du mois et faire expirer des fichiers avec les critères suivants:  
+## <a name="BKMK_Step3"></a>Étape 3 : créer une tâche de gestion de fichiers  
+Lors de cette étape, nous allons utiliser la console Gestionnaire de ressources du serveur de fichiers pour créer une tâche de gestion de fichiers qui s'exécutera le dernier jour du mois et provoquera l'expiration des fichiers qui remplissent les critères suivants :  
   
--   Le fichier n’est pas classifié comme étant légale.  
+-   le fichier n'est pas classifié comme étant en mode de conservation légale ;  
   
--   Le fichier est classifié comme ayant une période de rétention à long terme.  
+-   le fichier est classifié comme ayant une période de rétention à long terme ;  
   
--   Le fichier n’a pas été modifié au cours des 10dernières années.  
+-   le fichier n'a pas été modifié au cours des 10 dernières années.  
   
 [Effectuez cette étape à l’aide de Windows PowerShell](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep3)  
   
@@ -113,37 +114,37 @@ Dans cette étape, nous utilisons la console du Gestionnaire de ressources de se
   
 1.  Connectez-vous au serveur de fichiers en tant que membre du groupe de sécurité Administrateurs.  
   
-2.  Ouvrez le Gestionnaire de ressources du serveur de fichiers. Dans le Gestionnaire de serveur, cliquez sur **outils**, puis cliquez sur **File Server Resource Manager**.  
+2.  Ouvrez le Gestionnaire de ressources du serveur de fichiers. Dans le Gestionnaire de serveur, cliquez sur **Outils**, puis sur **Gestionnaire de ressources du serveur de fichiers**.  
   
-3.  Avec le bouton droit **tâches de gestion de fichiers**, puis cliquez sur **créer une tâche de gestion de fichiers**.  
+3.  Cliquez avec le bouton droit sur **Tâches de gestion de fichiers**, puis cliquez sur **Créer une tâche de gestion de fichiers**.  
   
-4.  Sur le **général** onglet le **nom de la tâche**, tapez un nom pour la tâche de gestion de fichiers, par exemple, la tâche de rétention.  
+4.  Sous l'onglet **Général**, dans la zone **Nom de la tâche**, tapez un nom pour la tâche de gestion de fichiers, par exemple Tâche de rétention.  
   
-5.  Sur le **étendue**, cliquez sur **ajouter**et choisir les dossiers qui doivent être inclus dans cette règle, tels que D:\Finance Documents.  
+5.  Sous l'onglet **Étendue** , cliquez sur **Ajouter**et choisissez les dossiers qui doivent être inclus dans cette règle, tels que D:\Finance Documents.  
   
-6.  Sur le **Action** onglet le **Type**, cliquez sur **expiration de fichier**. Dans le **répertoire d’Expiration**, tapez un chemin d’accès à un dossier sur le serveur de fichiers local où les fichiers ayant expiré va être déplacées. Ce dossier doit posséder une liste de contrôle d’accès qui accorde l’accès uniquement les administrateurs de serveur de fichiers.  
+6.  Sous l'onglet **Action** , dans la zone **Type** , cliquez sur **Expiration de fichier**. Dans la zone **Répertoire d'expiration** , tapez le chemin d'accès à un dossier sur le serveur de fichiers local où seront déplacés les fichiers ayant expiré. Ce dossier doit avoir une liste de contrôle d'accès qui accorde un accès uniquement aux administrateurs du serveur de fichiers.  
   
-7.  Sur le **Notification**, cliquez sur **ajouter**.  
+7.  Sous l'onglet **Notification** , cliquez sur **Ajouter**.  
   
-    -   Sélectionnez le **envoyer un courrier électronique aux administrateurs suivants** case à cocher.  
+    -   Cochez la case **Envoyer un courrier électronique aux administrateurs suivants**.  
   
-    -   Sélectionnez le **envoyer un courrier électronique aux utilisateurs avec les fichiers affectés** case à cocher, puis cliquez sur **OK**.  
+    -   Cochez la case **Envoyer un message électronique aux utilisateurs avec les fichiers affectés** , puis cliquez sur **OK**.  
   
-8.  Sur le **Condition**, cliquez sur **ajouter**et ajoutez les propriétés suivantes:  
+8.  Sous l'onglet **Condition**, cliquez sur **Ajouter** et ajoutez les propriétés suivantes :  
   
-    -   Dans le **propriété**, cliquez sur **détectabilité**. Dans le **opérateur**, cliquez sur **pas égal**. Dans le **valeur**, cliquez sur **longuement**.  
+    -   Dans la liste **Propriété**, cliquez sur **Détectabilité**. Dans la liste **Opérateur** , cliquez sur **Différente**. Dans la liste **Valeur**, cliquez sur **Attente**.  
   
-    -   Dans le **propriété**, cliquez sur **période de rétention**. Dans le **opérateur**, cliquez sur **égale**. Dans le **valeur**, cliquez sur **à long terme**.  
+    -   Dans la liste **Propriété** , cliquez sur **Période de rétention**. Dans la liste **Opérateur** , cliquez sur **Égal**. Dans la liste **Valeur**, cliquez sur **Long terme**.  
   
-9. Sur le **Condition** onglet, sélectionnez le **nombre de jours depuis la dernière modification du fichier** case à cocher, puis définissez la valeur sur **3650**.  
+9. Sous l'onglet **Condition** , cochez la case **Nombre de jours depuis la dernière modification au fichier** , puis affectez la valeur **3650**.  
   
-10. Sur le **calendrier**, cliquez sur le **mensuel** option, puis sélectionnez le **dernière** case à cocher.  
+10. Sous l'onglet **Planification** , cliquez sur l'option **Tous les mois** , puis cochez la case **Dernier** .  
   
 11. Cliquez sur **OK**.  
   
-![guides de solutions](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalentes commandes ***  
+![guides de solutions](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
   
-L’applet de commande Windows PowerShell ou les applets de commande suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
+L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
 ```  
 $fmjexpiration = New-FSRMFmjAction -Type 'Expiration' -ExpirationFolder folder  
@@ -157,37 +158,37 @@ $schedule = New-FsrmScheduledTask -Time $date -Monthly @(-1)
 $fmj1=New-FSRMFileManagementJob -Name "Retention Task" -Namespace @('D:\Finance Documents') -Action $fmjexpiration -Schedule $schedule -Notification @($fmjNotification) -Condition @( $fmjCondition1, $fmjCondition2, $fmjCondition3)  
 ```  
   
-## <a name="BKMK_Step4"></a>Étape4: Classifier un fichier manuellement  
-Dans cette étape, nous allons classifier manuellement un fichier pour être légale. Le dossier parent de ce fichier sera classifié avec une période de rétention à long terme.  
+## <a name="BKMK_Step4"></a>Étape 4 : classifier un fichier manuellement  
+Lors de cette étape, nous allons classifier manuellement un fichier en mode de conservation légale. Le dossier parent de ce fichier sera classifié avec une période de rétention à long terme.  
   
 #### <a name="to-manually-classify-a-file"></a>Pour classifier manuellement un fichier  
   
 1.  Connectez-vous au serveur de fichiers en tant que membre du groupe de sécurité Administrateurs.  
   
-2.  Accédez au dossier qui a été configuré dans l’étendue de la tâche de gestion de fichiers créée à l’étape3.  
+2.  Accédez au dossier qui a été configuré dans l'étendue de la tâche de gestion de fichiers à l'Étape 3.  
   
-3.  Cliquez avec le bouton droit, puis cliquez sur **propriétés**.  
+3.  Cliquez avec le bouton droit sur le dossier et cliquez sur **Propriétés**.  
   
-4.  Sur le **Classification**, cliquez sur **période de rétention**, cliquez sur **à long terme**, puis cliquez sur **OK**.  
+4.  Sous l'onglet **Classification**, cliquez sur **Période de rétention**, sur **Long terme**, puis sur **OK**.  
   
-5.  Cliquez sur un fichier dans ce dossier, puis cliquez sur **propriétés**.  
+5.  Cliquez avec le bouton droit sur un fichier dans ce dossier, puis cliquez sur **Propriétés**.  
   
-6.  Sur le **Classification**, cliquez sur **détectabilité**, cliquez sur **longuement**, cliquez sur **appliquer**, puis cliquez sur **OK**.  
+6.  Sous l'onglet **Classification** , cliquez sur **Détectabilité**, sur **Attente**, sur **Appliquer**, puis sur **OK**.  
   
-7.  Sur le serveur de fichiers, exécutez la tâche de gestion de fichiers à l’aide de la console du Gestionnaire de ressources de serveur de fichiers. Une fois la tâche de gestion de fichiers terminée, vérifiez le dossier et vérifiez que le fichier n’a pas été déplacé vers le répertoire d’expiration.  
+7.  Sur le serveur de fichiers, exécutez la tâche de gestion de fichiers à l'aide de la console Gestionnaire de ressources du serveur de fichiers. Une fois la tâche de gestion de fichiers terminée, vérifiez le dossier et assurez-vous que le fichier n'a pas été déplacé vers le répertoire d'expiration.  
   
-8.  Cliquez sur le même fichier dans ce dossier, puis cliquez sur **propriétés**.  
+8.  Cliquez avec le bouton droit sur le même fichier dans ce dossier, puis cliquez sur **Propriétés**.  
   
-9. Sur le **Classification**, cliquez sur **détectabilité**, cliquez sur **non Applicable**, cliquez sur **appliquer**, puis cliquez sur **OK**.  
+9. Sous l'onglet **Classification** , cliquez sur **Détectabilité**, sur **Non applicable**, sur **Appliquer**, puis sur **OK**.  
   
-10. Sur le serveur de fichiers, réexécutez la tâche de gestion de fichiers à l’aide de la console du Gestionnaire de ressources de serveur de fichiers. Une fois la tâche de gestion de fichiers terminée, vérifiez le dossier et assurez-vous que le fichier a été déplacé vers le répertoire d’expiration.  
+10. Sur le serveur de fichiers, réexécutez la tâche de gestion de fichiers à l'aide de la console Gestionnaire de ressources du serveur de fichiers. Une fois la tâche de gestion de fichiers terminée, vérifiez le dossier et assurez-vous que ce fichier a été déplacé vers le répertoire d'expiration.  
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Scénario: Implémenter la rétention des informations sur les serveurs de fichiers](Scenario--Implement-Retention-of-Information-on-File-Servers.md)  
+-   [Scénario : Implémenter la rétention des informations sur les serveurs de fichiers](Scenario--Implement-Retention-of-Information-on-File-Servers.md)  
   
 -   [Planifier la rétention des informations sur les serveurs de fichiers](assetId:///edf13190-7077-455a-ac01-f534064a9e0c)  
   
--   [Contrôle d’accès dynamique: Vue d’ensemble du scénario](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Contrôle d’accès dynamique : Vue d’ensemble du scénario](Dynamic-Access-Control--Scenario-Overview.md)  
   
 

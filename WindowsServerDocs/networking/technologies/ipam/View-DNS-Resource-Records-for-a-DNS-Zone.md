@@ -1,6 +1,6 @@
 ---
-title: Afficher les enregistrements de ressource DNS pour une Zone DNS
-description: Cette rubrique fait partie du guide de gestion de la gestion des adresses IP (IPAM) dans Windows Server2016.
+title: Afficher les enregistrements de ressources DNS pour une zone DNS
+description: Cette rubrique fait partie du guide de gestion de la gestion des adresses IP (IPAM) dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,40 +13,41 @@ ms.topic: article
 ms.assetid: 375feefc-949e-47c3-9e61-35b79e021966
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 786c1ee8fd673bd17465ab9586dd1e0bcfd7971c
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 9cd1184c9f9d603b82ac43829d4c8f7946f26561
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59867980"
 ---
-# <a name="view-dns-resource-records-for-a-dns-zone"></a>Afficher les enregistrements de ressource DNS pour une Zone DNS
+# <a name="view-dns-resource-records-for-a-dns-zone"></a>Afficher les enregistrements de ressources DNS pour une zone DNS
 
->S’applique à: Windows Server (canal annuel un point-virgule), Windows Server2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour afficher les enregistrements de ressource DNS pour une zone DNS dans la console client IPAM.  
   
-L’appartenance au groupe **administrateurs**, ou équivalente, est la condition minimale requise pour effectuer cette procédure.  
+Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au groupe **Administrateurs** ou à un groupe équivalent.  
   
 ### <a name="to-view-dns-resource-records-for-a-zone"></a>Pour afficher les enregistrements de ressource DNS pour une zone  
   
 1.  Dans le Gestionnaire de serveur, cliquez sur **IPAM**. La console client IPAM s’affiche.  
   
-2.  Dans le volet de navigation dans **surveiller et gérer**, cliquez sur **Zones DNS**.  Le volet de navigation se divise en un volet de navigation supérieur et un volet de navigation inférieur.  
+2.  Dans le volet de navigation, dans **surveiller et gérer**, cliquez sur **Zones DNS**.  Le volet de navigation divise en un volet de navigation supérieur et un volet de navigation inférieur.  
   
-3.  Dans le volet de navigation inférieur, cliquez sur **recherche directe**, puis développez la liste de domaine et le fuseau horaire pour rechercher et sélectionner la zone que vous voulez afficher. Par exemple, si vous disposez d’une zone intitulée dublin, cliquez sur **dublin**.  
+3.  Dans le volet de navigation inférieur, cliquez sur **recherche directe**, puis développez la liste de domaine et fuseau horaire pour rechercher et sélectionner la zone que vous souhaitez afficher. Par exemple, si vous avez une zone nommée dublin, cliquez sur **dublin**.  
   
-    ![Sélectionnez la zone que vous voulez afficher](../../media/View-DNS-Resource-Records-for-a-DNS-Zone/ipam_DNSzones_01a.jpg)  
+    ![Sélectionnez la zone à afficher](../../media/View-DNS-Resource-Records-for-a-DNS-Zone/ipam_DNSzones_01a.jpg)  
 
   
-4.  Dans le volet d’informations, l’affichage par défaut est des serveurs DNS de la zone. Pour modifier l’affichage, cliquez sur **affichage actuel**, puis cliquez sur **enregistrements de ressource**.  
+4.  Dans le volet d’informations, la vue par défaut est des serveurs DNS pour la zone. Pour modifier la vue, cliquez sur **affichage actuel**, puis cliquez sur **enregistrements de ressource**.  
   
-    ![Modifier l’affichage des enregistrements de ressources](../../media/View-DNS-Resource-Records-for-a-DNS-Zone/ipam_Zone_RR_02.jpg)  
+    ![Modifiez l’affichage des enregistrements de ressource](../../media/View-DNS-Resource-Records-for-a-DNS-Zone/ipam_Zone_RR_02.jpg)  
   
-5.  Les enregistrements de ressource DNS pour la zone sont affichés. Pour filtrer les enregistrements, tapez le texte que vous souhaitez trouver dans **filtre**.  
+5.  Les enregistrements de ressources DNS pour la zone sont affichés. Pour filtrer les enregistrements, tapez le texte à rechercher dans **filtre**.  
   
     ![Tapez le texte à filtrer les enregistrements](../../media/View-DNS-Resource-Records-for-a-DNS-Zone/ipam_DNSzones_01c.jpg)  
   
-6.  Pour filtrer les enregistrements de ressources par type d’enregistrement, de l’étendue d’accès ou d’autres critères, cliquez sur **ajouter des critères**et effectuer des sélections à partir de la liste des critères, puis cliquez sur **ajouter**.  
+6.  Pour filtrer les enregistrements de ressource par type d’enregistrement, l’étendue d’accès ou d’autres critères, cliquez sur **ajouter des critères**et effectuer des sélections parmi la liste des critères, puis cliquez sur **ajouter**.  
   
     ![Utiliser des critères pour filtrer les enregistrements](../../media/View-DNS-Resource-Records-for-a-DNS-Zone/ipam_DNSzones_01d.jpg)  
   

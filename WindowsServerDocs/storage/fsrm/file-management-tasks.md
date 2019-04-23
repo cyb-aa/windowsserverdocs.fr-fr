@@ -1,6 +1,6 @@
 ---
-title: "Tâches de gestion de fichiers"
-description: "Cet article décrit le processus d’automatisation des tâches de gestion de fichiers"
+title: Tâches de gestion de fichiers
+description: Cet article décrit le processus d’automatisation des tâches de gestion de fichiers
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,18 +9,19 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: e83d0b79117144d42a0aff748f482f3c181cb300
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59874050"
 ---
 # <a name="file-management-tasks"></a>Tâches de gestion de fichiers
 
-> S’applique à: WindowsServer (canal semi-annuel), WindowsServer2016, WindowsServer2012R2, WindowsServer2012, WindowsServer2008R2
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Les tâches de gestion de fichiers automatisent le processus de recherche des sous-ensembles de fichiers sur un serveur et d’application de commandes simples. Ces tâches peuvent être planifiées pour se produire régulièrement, afin de réduire les coûts répétitifs. Les fichiers qui seront traités par une tâche de gestion de fichiers peuvent être définis via l'une des propriétés suivantes:
+Les tâches de gestion de fichiers automatisent le processus de recherche des sous-ensembles de fichiers sur un serveur et d’application de commandes simples. Ces tâches peuvent être planifiées pour se produire régulièrement, afin de réduire les coûts répétitifs. Les fichiers qui seront traités par une tâche de gestion de fichiers peuvent être définis via l'une des propriétés suivantes :
 
--   Emplacement
+-   Location
 -   Propriétés de classification
 -   Date de création
 -   Date de modification
@@ -32,16 +33,16 @@ Les tâches de gestion de fichiers peuvent également être configurées pour av
 > Chaque tâche de gestion des fichiers est exécutée selon une planification indépendante.
 
 <br />
-Cette section comprend les rubriques suivantes:
+Cette section comprend les rubriques suivantes :
 
--   [Créer une tâche d'expiration de fichiers](create-file-expiration-task.md)
+-   [Créer une tâche d’Expiration de fichiers](create-file-expiration-task.md)
 -   [Créer une tâche de gestion de fichiers personnalisée](create-custom-file-management-task.md)
 
 > [!Note]
 > Pour définir des notifications par courrier électronique et certaines fonctionnalités de création de rapports, vous devez d’abord configurer les options générales du Gestionnaire de ressources du serveur de fichiers.
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
--   [Définition des options du Gestionnaire de ressources du serveur de fichiers](setting-file-server-resource-manager-options.md)
+-   [Options de paramètre File Server Resource Manager](setting-file-server-resource-manager-options.md)
 
 

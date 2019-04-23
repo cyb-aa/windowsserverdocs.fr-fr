@@ -1,6 +1,6 @@
 ---
-title: "Ajout de catégories de niveau supérieur au Launchpad (système d’exploitation Macintosh)"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Ajout de catégories de niveau supérieur à la zone de lancement (système d'exploitation Macintosh)
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,18 +13,19 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: ae4eb5943d37b4a9d3b554af28cb425420782cf8
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59869960"
 ---
-# <a name="add-top-level-categories-to-the-launchpad-macintosh-operating-system"></a>Ajout de catégories de niveau supérieur au Launchpad (système d’exploitation Macintosh)
+# <a name="add-top-level-categories-to-the-launchpad-macintosh-operating-system"></a>Ajout de catégories de niveau supérieur à la zone de lancement (système d'exploitation Macintosh)
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Vous pouvez ajouter des catégories de niveau supérieur au Launchpad sur un ordinateur exécutant le système d’exploitation Macintosh. Pour créer un complément Launchpad qui ajoute les catégories de niveau supérieur, vous pouvez utiliser une combinaison d’informations à partir de cette page et de la rubrique de procédure: ajouter des tâches et catégories au Launchpad? dans le [WindowsServerSolutionsSDK](https://go.microsoft.com/fwlink/?LinkID=248648).  
+Vous pouvez ajouter des catégories de niveau supérieur au Launchpad sur un ordinateur fonctionnant avec le système d'exploitation Macintosh. Pour créer un complément Launchpad qui ajoute des catégories de niveau supérieur, vous pouvez utiliser une combinaison d’informations sur cette page et à partir de la rubrique de procédure : Ajout de tâches et catégories au Launchpad ? dans le [Windows Server Solutions SDK](https://go.microsoft.com/fwlink/?LinkID=248648).  
   
- L’exemple suivant montre comment vous pouvez spécifier votre entrée Launchpad pour la catégorie de niveau supérieur dans le fichier .launchpad:  
+ L'exemple suivant montre comment définir votre entrée Launchpad en tant que catégorie de niveau supérieur dans le fichier .launchpad :  
   
 ```  
   
@@ -39,7 +40,7 @@ Vous pouvez ajouter des catégories de niveau supérieur au Launchpad sur un ord
 </LaunchPad>  
 ```  
   
- Pour l’entrée à la catégorie de niveau supérieur, l’attribut Id de l’élément Category doit être «Microsoft.Launchpad.HomeCategory».  
+ Pour configurer l'entrée comme catégorie de niveau supérieur, l'attribut ID de l'élément Category doit être « Microsoft.Launchpad.HomeCategory ».  
   
 ## <a name="see-also"></a>Voir aussi  
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   

@@ -7,19 +7,19 @@ ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 10/08/2018
-Keywords: Storage Spaces Direct, S2D, maintenance
+Keywords: Espaces de stockage directs, S2D, maintenance
 ms.assetid: 73dd8f9c-dcdb-4b25-8540-1d8707e9a148
 ms.localizationpriority: medium
 ms.openlocfilehash: 96ae0ad0d1def12ab68466f0a9ae60d0afcc2c17
-ms.sourcegitcommit: e73fbe1046a8bd2bf4f24ccffc11465ad8dfab1d
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "8992522"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59871220"
 ---
-# Mise hors connexion d'un serveur d'espaces de stockage direct pour la maintenance
+# <a name="taking-a-storage-spaces-direct-server-offline-for-maintenance"></a>Mise hors connexion d'un serveur d'espaces de stockage direct pour la maintenance
 
-> S’applique à: Windows Server 2019, Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server 2016
 
 Cette rubrique fournit des conseils sur le redémarrage ou l'arrêt correct de serveurs avec [espaces de stockage direct](storage-spaces-direct-overview.md).
 
@@ -30,17 +30,17 @@ Utilisez les procédures suivantes pour suspendre correctement un serveur dans u
    > [!IMPORTANT]
    > Pour installer des mises à jour sur un cluster d’espaces de stockage direct, utilisez Mise à jour adaptée aux clusters, qui effectue automatiquement les procédures décrites dans cette rubrique à votre place lors de l’installation des mises à jour. Pour plus d’informations, voir [Mise à jour adaptée aux clusters](https://technet.microsoft.com/library/hh831694.aspx).
 
-## Vérification que la mise hors connexion du serveur est sûre
+## <a name="verifying-its-safe-to-take-the-server-offline"></a>Vérification que la mise hors connexion du serveur est sûre
 
 Avant de mettre un serveur hors connexion pour maintenance, vérifiez que tous vos volumes sont sains.
 
-Pour ce faire, ouvrez une session PowerShell avec des autorisations Administrateur, puis exécutez la commande suivante pour afficher le statut du volume:
+Pour ce faire, ouvrez une session PowerShell avec des autorisations Administrateur, puis exécutez la commande suivante pour afficher le statut du volume :
 
 ```PowerShell
 Get-VirtualDisk 
 ```
 
-Voici un exemple de ce à quoi peut ressembler la sortie:
+Voici un exemple de ce à quoi peut ressembler la sortie :
 ```
 FriendlyName ResiliencySettingName OperationalStatus HealthStatus IsManualAttach Size
 ------------ --------------------- ----------------- ------------ -------------- ----
@@ -55,7 +55,7 @@ Pour ce faire dans le Gestionnaire du cluster de basculement, accédez à **Stoc
 
 Vérifiez que la colonne  **Statut**pour chaque volume (disque virtuel) indique **En ligne**.
 
-## Mise en pause et drainage du serveur
+## <a name="pausing-and-draining-the-server"></a>Mise en pause et drainage du serveur
 
 Avant le redémarrage ou l’arrêt du serveur, la mise en pause et le drainage (déplacement) de tous les rôles, tels que les ordinateurs virtuels en cours d’exécution sur ce dernier. Cela permet également aux espaces de stockage direct de vider et valider des données de la façon appropriée pour vous assurer que l’arrêt est transparent pour toutes les applications en cours d’exécution sur ce serveur.
 
@@ -79,11 +79,11 @@ Tous les ordinateurs virtuels vont commencer la migration dynamique vers d’aut
 
 ![Vérification de sécurité](media/maintain-servers/safety-check.png)
 
-## Arrêt du serveur
+## <a name="shutting-down-the-server"></a>Arrêt du serveur
 
 Une fois que le serveur a terminé le drainage, il est indiqué comme **En pause** dans le Gestionnaire du cluster de basculement et PowerShell.
 
-![En pause](media/maintain-servers/paused.png)
+![Suspendu](media/maintain-servers/paused.png)
 
 Vous pouvez maintenant le redémarrer ou l'arrêter en toute sécurité, comme vous le feriez normalement (par exemple, en utilisant les applets de commande PowerShell Restart-Computer ou Stop-Computer).
 
@@ -97,9 +97,9 @@ MyVolume2    Mirror                Incomplete        Warning      True          
 MyVolume3    Mirror                Incomplete        Warning      True           1 TB
 ```
 
-Incomplètes ou dégradée l’état opérationnel est normal lors de l’arrêt de nœuds ou de service sur un nœud de démarrage/arrêt du cluster et ne doit pas provoquer de problème. Tous vos volumes restent en ligne et accessibles.
+Incomplet ou l’état de fonctionnement détérioré est normal lorsque les nœuds sont en cours d’arrêt ou de démarrage/arrêt du cluster sur un nœud de service et ne doivent pas provoquer de problème. Tous vos volumes restent en ligne et accessibles.
 
-## Reprise du serveur
+## <a name="resuming-the-server"></a>Reprise du serveur
 
 Lorsque le serveur est prêt à recommencer à héberger des charges de travail, faites-le reprendre.
 
@@ -119,9 +119,9 @@ Pour ce faire dans le Gestionnaire du cluster de basculement, accédez à **Nœu
 
 ![Reprendre-Restauration automatique](media/maintain-servers/resume-failback.png)
 
-## En attente de resynchronisation du stockage
+## <a name="waiting-for-storage-to-resync"></a>En attente de resynchronisation du stockage
 
-Lorsque le serveur reprend, toute nouvelle écriture qui s’est produite pendant qu’il était indisponible doit être resynchronisée. Cela se fait de manière automatique. Grâce au suivi des modifications intelligent, il n’est pas nécessaire d'analyse ou de synchroniser *toutes les* données, mais uniquement les modifications. Ce processus est limité pour atténuer l’impact sur les charges de travail de production. En fonction de la durée pendant laquelle le serveur a été mis en pause et de la quantité de nouvelles données écrites, plusieurs minutes peuvent être nécessaires.
+Lorsque le serveur reprend, toutes les écritures qui se sont produites pendant qu’il était indisponible doivent resynchroniser. Cela se fait de manière automatique. Grâce au suivi des modifications intelligent, il n’est pas nécessaire d'analyse ou de synchroniser *toutes les* données, mais uniquement les modifications. Ce processus est limité pour atténuer l’impact sur les charges de travail de production. En fonction de la durée pendant laquelle le serveur a été mis en pause et de la quantité de nouvelles données écrites, plusieurs minutes peuvent être nécessaires.
 
 Vous devez attendre la fin de la resynchronisation avant de mettre d’autres serveurs du cluster hors connexion.
 
@@ -130,7 +130,7 @@ Dans PowerShell, exécutez l’applet de commande suivante (en tant qu’adminis
 ```PowerShell
 Get-StorageJob
 ```
-Voici quelques exemples de sortie indiquant les tâches de resynchronisation (réparation):
+Voici quelques exemples de sortie indiquant les tâches de resynchronisation (réparation) :
 ```
 Name   IsBackgroundTask ElapsedTime JobState  PercentComplete BytesProcessed BytesTotal
 ----   ---------------- ----------- --------  --------------- -------------- ----------
@@ -146,7 +146,7 @@ Repair True             00:06:52    Running   68              20104802841    221
 
 Pendant ce temps, vos volumes sont toujours marqués comme **Avertissement**, ce qui est normal. 
 
-Par exemple, si vous utilisez l'applet de commande `Get-VirtualDisk`, vous pouvez voir la sortie suivante:
+Par exemple, si vous utilisez l'applet de commande `Get-VirtualDisk`, vous pouvez voir la sortie suivante :
 ```
 FriendlyName ResiliencySettingName OperationalStatus HealthStatus IsManualAttach Size
 ------------ --------------------- ----------------- ------------ -------------- ----
@@ -155,7 +155,7 @@ MyVolume2    Mirror                InService         Warning      True          
 MyVolume3    Mirror                InService         Warning      True           1 TB
 ```
 
-Une fois les tâches terminées, vérifiez que les volumes sont de nouveau marqués comme **Sains** à l’aide de l'applet de commande `Get-VirtualDisk`. Voici quelques exemples de sortie:
+Une fois les tâches terminées, vérifiez que les volumes sont de nouveau marqués comme **Sains** à l’aide de l'applet de commande `Get-VirtualDisk`. Voici quelques exemples de sortie :
 
 ```
 FriendlyName ResiliencySettingName OperationalStatus HealthStatus IsManualAttach Size
@@ -167,24 +167,24 @@ MyVolume3    Mirror                OK                Healthy      True          
 
 Vous pouvez maintenant mettre en pause et redémarrer les autres serveurs du cluster en toute sécurité.
 
-## Comment mettre à jour des espaces de stockage Direct nœuds en mode hors connexion
-Utilisez les étapes suivantes pour le chemin d’accès de votre système espaces de stockage Direct rapidement. Elle implique la planification d’une fenêtre de maintenance et d’arrêter le système pour la correction. S’il existe une mise à jour de sécurité critiques dont vous avez besoin appliquée rapidement ou peut-être que vous devez vous assurer que la correction a été exécutée dans votre fenêtre de maintenance, cette méthode peut être pour vous. Ce processus entraîne le cluster d’espaces de stockage Direct, il correctifs et le met en tout à nouveau. La contrepartie est temps d’arrêt pour les ressources hébergés.
+## <a name="how-to-update-storage-spaces-direct-nodes-offline"></a>Comment mettre à jour les espaces de stockage Direct nœuds hors connexion
+Procédez comme suit pour le chemin d’accès de votre système d’espaces de stockage Direct rapidement. Elle implique la planification d’une fenêtre de maintenance et d’arrêter le système pour la mise à jour corrective. S’il existe une mise à jour de sécurité critiques dont vous avez besoin appliquées rapidement ou vous avez peut-être besoin garantir la mise à jour corrective se termine dans votre fenêtre de maintenance, cette méthode peut être pour vous. Ce processus vous permet de diminuer le cluster d’espaces de stockage Direct, il corrige et rend tout à nouveau. Le compromis est le temps d’arrêt sur les ressources hébergées.
 
-1. Planifier votre fenêtre de maintenance.
-2. Déconnectez les disques virtuels.
-3. Arrêtez le cluster pour tirer le pool de stockage en mode hors connexion. Exécutez l’applet de commande **Stop-Cluster** ou à utiliser le Gestionnaire du Cluster de basculement pour empêcher le cluster.
-4. Définissez le service de cluster sur **désactivé** dans Services.msc sur chaque nœud. Cela empêche le service de cluster de démarrer tout en étant corrigé.
-5. Appliquer la mise à jour Cumulative Windows Server et les obligatoires des mises à jour de la pile de maintenance à tous les nœuds. (Vous pouvez mettre à jour tous les nœuds en même temps, sans devoir d’attendre dans la mesure où le cluster est vers le bas).  
-6. Redémarrez les nœuds et assurez-vous que tout s’affiche correctement.
-7. Définissez le service de cluster sur **automatique** sur chaque nœud.
-8. Démarrer le cluster. Exécutez l’applet de commande **Start-Cluster** ou utiliser le Gestionnaire du Cluster de basculement. 
+1. Planifiez votre fenêtre de maintenance.
+2. Mettre les disques virtuels hors connexion.
+3. Arrêter le cluster pour mettre le pool de stockage hors connexion. Exécutez le **Stop-Cluster** applet de commande ou utilisez le Gestionnaire du Cluster de basculement pour arrêter le cluster.
+4. La valeur est le service de cluster **désactivé** dans Services.msc sur chaque nœud. Cela empêche le service de cluster de démarrer tout en étant corrigé.
+5. Appliquer la mise à jour Cumulative du serveur Windows et toute requise des mises à jour de la pile de maintenance à tous les nœuds. (Vous pouvez mettre à jour tous les nœuds en même temps, sans plus attendre dans la mesure où le cluster est arrêté).  
+6. Redémarrez les nœuds et vérifiez que tout semble correct.
+7. Ensemble, le service de cluster au **automatique** sur chaque nœud.
+8. Démarrez le cluster. Exécutez le **Start-Cluster** applet de commande ou utilisez le Gestionnaire du Cluster de basculement. 
 
-   Lui donner quelques minutes.  Assurez-vous que le pool de stockage est sain.
-9. Importer les disques virtuels en ligne.
-10. Surveiller l’état des disques virtuels en exécutant les applets de commande **Get-Volume** et **Get-VirtualDisk** .
+   Patientez quelques minutes.  Assurez-vous que le pool de stockage est sain.
+9. Mettre les disques virtuels en ligne.
+10. Surveiller l’état des disques virtuels en exécutant la **Get-Volume** et **Get-VirtualDisk** applets de commande.
 
 
-## Voir également
+## <a name="see-also"></a>Voir aussi
 
-- [Présentation des espaces de stockage direct](storage-spaces-direct-overview.md)
-- [Mise à jour adaptée aux clusters](https://technet.microsoft.com/library/hh831694.aspx)
+- [Vue d’ensemble Direct des espaces de stockage](storage-spaces-direct-overview.md)
+- [La mise à jour adaptée à du cluster](https://technet.microsoft.com/library/hh831694.aspx)

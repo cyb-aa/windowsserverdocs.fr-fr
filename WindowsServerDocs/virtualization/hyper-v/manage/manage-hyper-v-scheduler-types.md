@@ -1,5 +1,5 @@
 ---
-title: Présentation et utilisation des types de planificateur de l’hyperviseur Hyper-V
+title: Comprendre et utiliser des types de planificateur d’hyperviseur Hyper-V
 description: Fournit des informations pour les administrateurs d’hôtes Hyper-V sur l’utilisation du Planificateur de Hyper-V de modes
 author: allenma
 ms.author: allenma
@@ -10,176 +10,176 @@ ms.technology: virtualization
 ms.localizationpriority: low
 ms.assetid: 6cb13f84-cb50-4e60-a685-54f67c9146be
 ms.openlocfilehash: 7af6d68b02367d349580eacb27405c6f37e97ff8
-ms.sourcegitcommit: 3883eebbba70bfea0221e510863ee1a724a5f926
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "5783691"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59871990"
 ---
-# Gestion des types de planificateur de l’hyperviseur Hyper-V
+# <a name="managing-hyper-v-hypervisor-scheduler-types"></a>La gestion des types de planificateur d’hyperviseur Hyper-V
 
->S’applique à: Windows 10, Windows Server 2016, Windows Server, version 1709, Windows Server, version 1803, Windows Server 2019
+>S'applique à : Windows 10, Windows Server 2016, Windows Server, version 1709, Windows Server, version 1803, Windows Server 2019
 
-Cet article décrit les nouveaux modes de processeur virtuel planification logique tout d’abord introduite dans Windows Server 2016. Ces modes ou des types de planificateur, déterminent comment l’hyperviseur Hyper-V alloue et gère le travail sur les processeurs virtuels invités. Un administrateur de l’hôte Hyper-V permet de types de planificateur hyperviseur idéale pour les machines virtuelles invité (VM) et configurer les ordinateurs virtuels pour tirer parti de la logique de planification.
+Cet article décrit les nouveaux modes de processeur virtuel planification logique introduite dans Windows Server 2016. Ces modes ou des types de planificateur, déterminent comment l’hyperviseur Hyper-V alloue et gère le travail entre les processeurs virtuels invités. Un administrateur de l’hôte Hyper-V peut sélectionner les types de planificateur hyperviseur qui conviennent le mieux pour les ordinateurs virtuels invités (machines virtuelles) et configurer les machines virtuelles pour tirer parti de la logique de planification.
 
 >[!NOTE]
->Mises à jour sont tenus d’utiliser les fonctionnalités de planificateur hyperviseur décrites dans ce document. Pour plus d’informations, voir [mises à jour requises](#required-updates).
+>Mises à jour sont nécessaires pour utiliser les fonctionnalités de planificateur hyperviseur décrites dans ce document. Pour plus d’informations, consultez [mises à jour requises](#required-updates).
 
-## Arrière-plan
+## <a name="background"></a>Arrière-plan
 
-Avant d’aborder la logique et les contrôles derrière processeur virtuel Hyper-V planification, il est utile passer en revue les concepts de base traitées dans cet article.
+Avant d’aborder la logique et les contrôles derrière processeur virtuel Hyper-V de planification, il est utile passer en revue les concepts de base abordées dans cet article.
 
-### Compréhension SMT
+### <a name="understanding-smt"></a>Présentation SMT
 
-Le multithreading simultané ou SMT, est une technique employée dans les conceptions de processeur moderne qui permet aux ressources du processeur être partagé par les threads distincts, indépendamment de l’exécution. En règle générale, SMT offre une amélioration des performances modeste pour la plupart des charges de travail par parallélisation des calculs dans la mesure du possible, augmenter le débit de l’instruction, même si aucun performances conquérir ou même une légère perte de performances peuvent se produire lorsque contention entre les threads pour ressources de processeur partagés se produit.
-Processeurs prenant en charge SMT sont disponibles à partir d’Intel et AMD. Intel fait référence à leurs offres SMT en tant que technologie Intel Hyper-Threading ou HT Intel.
+Simultanée multithreading ou SMT, est une technique utilisée dans les conceptions de processeur moderne qui permet aux ressources du processeur devant être partagé par les threads d’exécution distinct et indépendant. En règle générale, SMT offre une amélioration des performances idéales pour la plupart des charges de travail en parallélisant calculs dans la mesure du possible, augmentation du débit de l’instruction, même si aucun performances obtenir ou même une légère perte de performances peuvent se produire lors de la contention entre les threads pour ressources du processeur partagé se produit.
+Processeurs prenant en charge de SMT sont disponibles à partir d’Intel et AMD. Intel fait référence à leurs offres SMT en tant que technologie Hyper-Threading d’Intel ou HT d’Intel.
 
-Dans le cadre de cet article, les descriptions de SMT et la façon dont il est utilisé par Hyper-V s’appliquent également aux systèmes Intel et AMD.
+Dans le cadre de cet article, les descriptions de SMT et comment il est utilisé par Hyper-V s’appliquent également aux systèmes Intel et AMD.
 
-* Pour plus d’informations sur la technologie Intel HT, reportez-vous à [La technologie Intel Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html)
+* Pour plus d’informations sur la technologie HT Intel, consultez [technologie Hyper-Threading d’Intel](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html)
 
-* Pour plus d’informations sur AMD SMT, reportez-vous à [L’Architecture de «Simplicité»](https://www.amd.com/en/technologies/zen-core)
+* Pour plus d’informations sur AMD SMT, reportez-vous à [l’Architecture de base « Zen »](https://www.amd.com/en/technologies/zen-core)
 
-## Comprendre comment Hyper-V virtualise processeurs
+## <a name="understanding-how-hyper-v-virtualizes-processors"></a>Comprendre comment Hyper-V virtualise les processeurs
 
-Avant d’aborder hyperviseur types planificateur, il est également utile de comprendre l’architecture Hyper-V. Vous trouverez une synthèse générale de [Présentation de la technologie Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview). Voici quelques concepts importants pour cet article:
+Avant de considérer les types de planificateur que hyperviseur, il est également utile de comprendre l’architecture Hyper-V. Vous trouverez un résumé général dans [vue d’ensemble de la technologie Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview). Il s’agit des concepts importants pour cet article :
 
-* Hyper-V crée et gère les partitions de machine virtuelle, sur le calcul des ressources sont allouées et partagés, sous le contrôle de l’hyperviseur. Les partitions offrent des limites d’isolement forte entre l’ensemble des machines virtuelles invitées et entre les machines virtuelles invitées et la partition racine.
+* Hyper-V crée et gère les partitions de la machine virtuelle, sur le calcul des ressources sont alloués et partagés, sous contrôle de l’hyperviseur. Les partitions offrent des limites d’isolation renforcée entre toutes les machines de virtuelles invitées et entre les machines virtuelles invitées et la partition racine.
 
-* La partition racine est lui-même une partition de la machine virtuelle, bien qu’il a des propriétés et bien supérieures privilèges que les machines virtuelles invitées. La partition racine fournit les services de gestion qui contrôlent l’ensemble des machines virtuelles invitées, prend en charge les périphériques virtuels invités et gère tous les périphériques d’e/s pour les machines virtuelles invitées. Microsoft recommande vivement exécute ne pas les charges de travail d’application dans la partition racine.
+* La partition racine est lui-même une partition de la machine virtuelle, bien qu’il ait des propriétés uniques et bien supérieure privilèges que les machines virtuelles invitées. La partition racine fournit les services de gestion qui contrôlent toutes les machines virtuelles d’invité fournit la prise en charge de l’appareil virtuel pour les invités et gère toutes les e/s de périphérique pour les machines virtuelles invitées. Microsoft vous recommande fortement de ne pas en cours d’exécution de charges de travail d’application dans la partition racine.
 
-* Chaque processeur virtuel (VC) de la partition racine est mappé 1:1 d’un processeur logique sous-jacent (site). Un hôte vice-président s’exécute toujours sur le même LP sous-jacent: il n’existe pas de migration de PV la partition racine.
+* Chaque processeur virtuel (VP) de la partition racine est mappé 1:1 pour un processeur logique sous-jacent (LP). Un hôte VP s’exécute toujours sur le même LP sous-jacente : il n’existe aucune migration de VPs la partition racine.
 
-* Par défaut, les pl sur lequel exécute PV hôte peuvent également exécuter PV invité.
+* Par défaut, les LPs sur lequel exécuter hôte VPs peuvent également exécuter des VPs d’invité.
 
-* Un vice-président invité peut être planifié par l’hyperviseur à s’exécuter sur tous les processeurs logiques disponibles. Alors que le Planificateur de l’hyperviseur s’occupe de prendre en compte localité du cache temporelle, la topologie NUMA et nombreux autres facteurs lors de la planification d’un vice-président invité, en fin de compte le vice-président peut être planifié sur n’importe quel hôte LP.
+* Un vice-président invité peut être planifié par l’hyperviseur pour s’exécuter sur n’importe quel processeur logique disponible. Alors que le Planificateur de l’hyperviseur prend soin d’envisager localité de cache temporelle, topologie NUMA et beaucoup d’autres facteurs lors de la planification de vice-président des invités, au final le vice-président peut être planifiée sur n’importe quel hôte LP.
 
-## Types de planificateur de l’hyperviseur
+## <a name="hypervisor-scheduler-types"></a>Types de planificateur d’hyperviseur
 
-À compter de Windows Server 2016, l’hyperviseur Hyper-V prend en charge plusieurs modes de logique planificateur, qui déterminent la façon dont l’hyperviseur planifie les processeurs virtuels sur les processeurs logiques sous-jacent. Ces types de planificateur sont:
+À compter de Windows Server 2016, l’hyperviseur Hyper-V prend en charge plusieurs modes de logique de planificateur, qui déterminent comment l’hyperviseur planifie les processeurs virtuels sur les processeurs logiques sous-jacents. Ces types de planificateur sont :
 
-- [Le planificateur classique, équitable](#the-classic-scheduler)
-- [Le Planificateur de core](#the-core-scheduler)
+- [Le planificateur classique, le partage équitable](#the-classic-scheduler)
+- [Le Planificateur de noyau](#the-core-scheduler)
 - [Le Planificateur de racine](#the-root-scheduler)
 
-### Le planificateur classique
+### <a name="the-classic-scheduler"></a>Le planificateur classique
 
-Le planificateur classique a été la valeur par défaut pour toutes les versions de l’hyperviseur Hyper-V de Windows depuis son introduction, y compris Windows Server 2016 Hyper-V. Le planificateur classique offre une partie équitable, préemptive modèle de planification de tourniquet DNS pour les processeurs virtuels invités.
+Le planificateur classique a été la valeur par défaut pour toutes les versions de l’hyperviseur Hyper-V de Windows depuis sa création, y compris Windows Server 2016 Hyper-V. Le planificateur classic fournit une répartition de charge équilibrée, preemptive modèle de planification de tourniquet (round-robin) pour les processeurs virtuels invités.
 
-Le type de planificateur classique est la plus appropriée pour la grande majorité des utilisations de Hyper-V traditionnelles: aux clouds privés, fournisseurs d’hébergement et ainsi de suite. Les caractéristiques de performances encourus et sont mieux optimisés pour prendre en charge un large éventail de scénarios de virtualisation, telles que de surallocation de PV à des pl, exécution simultanée de nombreuses machines virtuelles et des charges de travail hétérogènes, en cours d’exécution plus grande échelle élevée performances de machines virtuelles, prise en charge de la fonctionnalité complète l’ensemble de Hyper-V sans restriction et bien plus encore.
+Le type de planificateur classique est le plus approprié pour la grande majorité des utilisations traditionnelles de Hyper-V – pour les clouds privés, les fournisseurs d’hébergement et ainsi de suite. Les caractéristiques de performances sont bien comprises et sont mieux optimisés pour prendre en charge un large éventail de scénarios de virtualisation, telles que surabonnement des vice-présidents LPs, l’exécution simultanée de plusieurs machines virtuelles et des charges de travail hétérogènes, en cours d’exécution élevé de plus grande échelle performances des machines virtuelles, prenant en charge la fonctionnalité complète ensemble d’Hyper-V sans restrictions et bien plus encore.
 
-### Le Planificateur de core
+### <a name="the-core-scheduler"></a>Le Planificateur de noyau
 
-Le Planificateur de core hyperviseur est une nouvelle alternative à la logique de planificateur classique, introduite dans Windows Server 2016 et Windows 10 version 1607. Le Planificateur de core offre une limite de sécurité renforcée pour l’isolation de charge de travail invité et variabilité de baisse des performances pour les charges de travail à l’intérieur de machines virtuelles qui sont exécutent sur un hôte de virtualisation compatible SMT. Le Planificateur de core permet en cours d’exécution SMT et non-SMT machines virtuelles simultanément sur le même hôte de virtualisation compatible SMT.
+Le Planificateur de noyau hyperviseur est une nouvelle alternative à la logique de planificateur classique, introduite dans Windows Server 2016 et Windows 10 version 1607. Le planificateur core offre une limite de sécurité renforcée pour l’isolation de la charge de travail invité et la variabilité des performances réduites pour les charges de travail à l’intérieur de machines virtuelles qui sont exécutent sur un hôte de virtualisation prenant en charge SMT. Le planificateur core permet en cours d’exécution des machines virtuelles SMT et non-SMT simultanément sur le même hôte de virtualisation prenant en charge SMT.
 
-Le Planificateur de core utilise la topologie SMT de l’hôte de virtualisation et si vous le souhaitez expose les paires SMT aux machines virtuelles invitées et aux groupes de planifications de processeurs virtuels invités à partir de la même machine virtuelle sur des groupes de processeurs logiques SMT. Cette opération est effectuée symétriques afin que si PL se trouvent dans des groupes de deux, PV sont planifiés dans des groupes de deux, et un cœur n’est jamais partagé entre les ordinateurs virtuels.
-Si la VC est planifié pour une machine virtuelle sans SMT est activé, que vice-président utilisera les principales lorsqu’elle s’exécute.
+Le planificateur core utilise la topologie SMT de l’hôte de virtualisation et éventuellement expose les paires SMT aux machines virtuelles invitées et aux groupes de planifications de processeurs virtuels invités à partir de la même machine virtuelle sur des groupes de processeurs logiques SMT. Cela symétriquement afin que si LPs se trouvent dans des groupes de deux, VPs sont planifiées dans les deux groupes, et un noyau n’est jamais partagé entre les machines virtuelles.
+Lorsque le vice-président est planifié pour une machine virtuelle sans SMT activé, que VP consommera les principales lorsqu’elle s’exécute.
 
-Le résultat global du planificateur core est que:
+Le résultat global du planificateur core est que :
 
-* PV invité sont limités à s’exécuter sur sous-jacente des paires de cœur physique, isoler un ordinateur virtuel aux limites de cœur de processeur, ce qui réduit la vulnérabilité aux attaques snooping canal à partir d’ordinateurs virtuels malveillants.
+* Invité VPs sont limités à une exécution sur sous-jacent de paires de cœur physique, isoler une machine virtuelle à des limites de cœur de processeur, ce qui réduit la vulnérabilité aux attaques d’espionnage côté canal à partir d’ordinateurs virtuels malveillants.
 
 * Variabilité de débit est considérablement réduite.
 
-* Performances sont potentiellement réduites, car si seul un groupe de PV peut s’exécuter, uniquement un des flux instruction dans le noyau s’exécute pendant que l’autre est devenue inactive.
+* Les performances sont potentiellement réduites, car si seul un groupe de VPs peut exécuter, seul les flux d’instructions dans le noyau exécute alors que l’autre est devenue inactive.
 
-* Le système d’exploitation et les applications en cours d’exécution sur l’ordinateur virtuel invité peuvent utiliser le comportement SMT et (API) pour contrôler et distribuer le travail sur les threads MTS, tout comme ils exécuterait lorsque non virtualisés interfaces de programmation.
+* Le système d’exploitation et les applications en cours d’exécution dans la machine virtuelle invitée peuvent utiliser un comportement SMT et interfaces de programmation (API) pour contrôler et de répartir le travail entre les threads SMT, comme s’ils étaient exécutés quand non virtualisés.
 
-* Une limite de sécurité renforcée pour l’isolation de charge de travail invité - invité PV sont limitées à s’exécuter sur des paires de cœur physique sous-jacent, réduire la vulnérabilité aux attaques snooping de canal.
+* Une limite de sécurité renforcée pour l’isolation des charges de travail invité - invité VPs sont limités à une exécution sur des paires de cœur physique sous-jacent, ce qui réduit la vulnérabilité aux attaques par espionnage de canal latéral.
 
-Le Planificateur de core servira par défaut à partir de Windows Server 2019. Sur Windows Server 2016, le planificateur core est facultatif et doit être activé explicitement par l’administrateur de l’hôte Hyper-V et le planificateur classique est la valeur par défaut.
+Le planificateur core sera utilisé par défaut à compter de Windows Server 2019. Sur Windows Server 2016, le Planificateur de noyau est facultatif et doit être explicitement activé par l’administrateur de l’hôte Hyper-V, et le planificateur classique est la valeur par défaut.
 
-#### Comportement de planificateur de Core avec hôte SMT désactivé
+#### <a name="core-scheduler-behavior-with-host-smt-disabled"></a>Comportement de planificateur principal avec hôte SMT désactivé
 
-Si l’hyperviseur est configuré pour utiliser le type de planificateur core, mais la fonctionnalité SMT est désactivé ou non présents sur l’hôte de virtualisation, l’hyperviseur utilise le comportement classique planificateur, quel que soit le paramètre de type de planificateur de l’hyperviseur.
+Si l’hyperviseur est configuré pour utiliser le type de planificateur core, mais la fonctionnalité SMT est désactivé ou n’existe pas sur l’hôte de virtualisation, l’hyperviseur utilisera le comportement du planificateur classique, quel que soit le paramètre de type de planificateur hyperviseur.
 
-### Le Planificateur de racine
+### <a name="the-root-scheduler"></a>Le Planificateur de racine
 
-Le Planificateur de racine a été introduit avec Windows 10 version 1803. Lorsque le type de planificateur racine est activé, l’hyperviseur cedes contrôle de planification de travail à la partition racine. Le Planificateur de NT dans une instance de système d’exploitation de la partition racine gère tous les aspects de la planification de travail au système pl.
+Le planificateur racine a été introduit avec Windows 10 version 1803. Lorsque le type de planificateur racine est activé, l’hyperviseur cède le contrôle de la planification de travail à la partition racine. Le Planificateur de NT dans l’instance de système d’exploitation de la partition racine gère tous les aspects de la planification de travail au système LPs.
 
-Le Planificateur de racine répond aux critères spécifiques inhérents avec prise en charge une partition utilitaire pour assurer l’isolation de la charge de travail forte, tel qu’utilisé avec Windows Defender Application Guard (WDAG). Dans ce scénario, en laissant planifier responsabilités à la racine du système d’exploitation offre plusieurs avantages. Par exemple, les contrôles de ressources de processeur applicables aux scénarios de conteneur est utilisable avec la partition d’utilitaires, simplifier la gestion et le déploiement. En outre, le Planificateur de système d’exploitation racine peut facilement collecter des mesures sur la charge de travail de l’UC à l’intérieur du conteneur et utiliser ces données comme entrée pour la même stratégie planification applicable à tous les autres charges de travail dans le système. Ces mêmes mesures également contribuer à clairement attribut travail effectuées dans un conteneur d’application au système hôte. Ces mesures de suivi est plus difficile avec les charges de travail traditionnels de machines virtuelles, où des tâches pour le compte tous les en cours d’exécution de la machine virtuelle a lieu dans la partition racine.
+Le planificateur racine répond aux besoins inhérentes à une partition de l’utilitaire de prise en charge pour assurer l’isolation de forte charge de travail, tel qu’utilisé avec Windows Defender Application Guard (WDAG). Dans ce scénario, en laissant la planification des responsabilités à la racine du système d’exploitation offre plusieurs avantages. Par exemple, les contrôles de ressources processeur applicable aux scénarios de conteneur peuvent servir avec la partition de l’utilitaire, ce qui simplifie la gestion et le déploiement. En outre, le planificateur du système d’exploitation racine peut facilement collecter des mesures sur la charge de travail de l’utilisation du processeur à l’intérieur du conteneur et de les utiliser en tant qu’entrée à la même stratégie de planification applicable à tous les autres charges de travail dans le système. Ces mêmes mesures également aider à clairement attribut le travail effectué dans un conteneur d’application pour le système hôte. Ces mesures de suivi est plus difficile avec des charges de travail traditionnels de machines virtuelles, où un travail procuration tous en cours d’exécution de la machine virtuelle a lieu dans la partition racine.
 
-#### Utilisation de planificateur de racine sur les systèmes clients
+#### <a name="root-scheduler-use-on-client-systems"></a>Utilisation du Planificateur de racine sur les systèmes clients
 
-À partir de Windows 10 version 1803, le Planificateur de racine est utilisé par défaut sur les systèmes client uniquement, où l’hyperviseur peut être activée à l’appui de sécurité basée sur la virtualisation et l’isolation de charge de travail WDAG et au bon fonctionnement de futurs systèmes avec architectures core hétérogènes. Il s’agit de la configuration de planificateur hyperviseur pris en charge uniquement pour les systèmes clients. Les administrateurs ne devraient pas essayer de remplacer le type de planificateur de l’hyperviseur par défaut sur les systèmes clients Windows 10.
+À compter de Windows 10 version 1803, le planificateur racine est utilisé par défaut sur les systèmes clients uniquement, où l’hyperviseur peut être activée pour prendre en charge la sécurité basée sur la virtualisation et d’isolation de la charge de travail WDAG et au bon fonctionnement de futurs systèmes avec architectures de core hétérogènes. Il s’agit de la configuration du planificateur hyperviseur pris en charge uniquement pour les systèmes clients. Les administrateurs ne devraient pas essayer de substituer le type de planificateur par défaut hyperviseur sur les systèmes clients Windows 10.
 
-#### Contrôles de ressources de processeur de l’ordinateur virtuel et le Planificateur de racine
+#### <a name="virtual-machine-cpu-resource-controls-and-the-root-scheduler"></a>Les contrôles de ressources du processeur d’ordinateur virtuel et le Planificateur de racine
 
-Les contrôles de ressources de processeur de machine virtuelle fournies par Hyper-V ne sont pas pris en charge lorsque le Planificateur de racine de l’hyperviseur est activé, comme une logique planificateur du système d’exploitation racine est la gestion des ressources de l’hôte sur une base globale et n’a pas connaissance d’une machine virtuelle paramètres de configuration spécifiques. Les contrôles de ressources de processeur à par machines virtuelles de Hyper-V, comme VERR, poids et réserves, sont appliquent uniquement lorsque l’hyperviseur contrôle directement vice-président planification, comme avec les types de planificateur classique et standard.
+Les contrôles de ressources de processeur de machine virtuelle fournies par Hyper-V ne sont pas pris en charge lorsque le Planificateur de racine hyperviseur est activé comme logique du planificateur du système d’exploitation racine est la gestion des ressources de l’hôte de manière globale et n’a pas connaissance d’une machine virtuelle paramètres de configuration spécifiques. Les contrôles de ressources processeur de Hyper-V par machine virtuelle, tels que les majuscules, les poids et les réserves de ressources, sont appliquent uniquement lorsque l’hyperviseur contrôle directement VP de planification, comme avec les types de planificateur classique et core.
 
-#### Utilisation de planificateur de racine sur les systèmes de serveur
+#### <a name="root-scheduler-use-on-server-systems"></a>Utilisation de planificateur de racine sur des systèmes de serveur
 
-Le Planificateur de racine n’est pas recommandé pour une utilisation avec Hyper-V sur des serveurs à ce stade, comme ses caractéristiques de performances n’ont pas encore été entièrement caractérisés et ajustées pour prendre en charge la grande variété de charges de travail classiques de nombreux déploiements de la virtualisation de serveur.
+Le Planificateur de racine n’est pas recommandé pour une utilisation avec Hyper-V sur les serveurs pour l’instant, car ses caractéristiques de performance n’ont pas encore été caractérisés entièrement et ajustées pour prendre en charge la large gamme de charges de travail typiques de nombreux déploiements de virtualisation de serveur.
 
-## L’activation de SMT sur des machines virtuelles invité
+## <a name="enabling-smt-in-guest-virtual-machines"></a>L’activation de SMT dans les machines virtuelles invitées
 
-Une fois que l’hyperviseur de l’hôte de virtualisation est configuré pour utiliser le type de planificateur core, les machines virtuelles invitées peuvent être configurés pour utiliser SMT si vous le souhaitez. Exposition au fait que PV multicœur à une machine virtuelle invitée permet le planificateur dans le système d’exploitation invité et les charges de travail en cours d’exécution sur la machine virtuelle à détecter et à utiliser la topologie de SMT dans leur propre planification de travail. Sur Windows Server 2016, invité SMT n’est pas configurée par défaut et doit être activée explicitement par l’administrateur de l’hôte Hyper-V. À compter de Windows Server 2019, nouveaux ordinateurs virtuels créés sur l’ordinateur hôte héritera de topologie SMT de l’hôte par défaut.  Autrement dit, une version que VM 9.0 créés sur un hôte avec des threads MTS 2 par cœur pourrait voir également 2 threads MTS par cœur.
+Une fois que l’hyperviseur de l’hôte de virtualisation est configuré pour utiliser le type de planificateur core, les ordinateurs virtuels invités peuvent être configurés pour utiliser SMT si vous le souhaitez. Le planificateur dans le système d’exploitation invité et les charges de travail en cours d’exécution dans la machine virtuelle pour détecter et utiliser la topologie SMT dans leur propre planification de travail permet d’exposer le fait que VPs sont hyperthreaded à une machine virtuelle invitée. Sur Windows Server 2016, invité SMT n’est pas configurée par défaut et doit être explicitement activée par l’administrateur de l’hôte Hyper-V. À compter de Windows Server 2019, nouvelles machines virtuelles créées sur l’ordinateur hôte hérite topologie SMT de l’hôte par défaut.  Autrement dit, une version que 9.0 de machine virtuelle créée sur un ordinateur hôte avec 2 threads SMT par cœur serait également voir 2 threads SMT par cœur.
 
-PowerShell doit être utilisée pour activer SMT dans une machine virtuelle invitée; Il n’existe aucune interface utilisateur fournie dans le Gestionnaire Hyper-V.
-Pour activer SMT dans une machine virtuelle invitée, ouvrez une fenêtre PowerShell avec des autorisations suffisantes et le type:
+PowerShell doit être utilisé pour activer SMT sur une machine virtuelle invitée ; Il n’existe aucune interface utilisateur fourni dans le Gestionnaire Hyper-V.
+Pour activer SMT dans une machine virtuelle invitée, ouvrez une fenêtre PowerShell avec des autorisations suffisantes, puis tapez :
 
 ``` powershell
 Set-VMProcessor -VMName <VMName> -HwThreadCountPerCore <n>
 ```
 
-Où <n> est le nombre de threads MTS par cœur de l’invité d’ordinateur virtuel s’affiche.  
-Notez que <n> = 0 définit la valeur HwThreadCountPerCore pour correspondre au nombre de thread de l’hôte SMT par valeur fondamentale.
+Où <n> est le nombre de threads SMT par cœur de l’invité de machine virtuelle s’affiche.  
+Notez que <n> = 0 définit la valeur HwThreadCountPerCore pour faire correspondre le nombre de threads de l’hôte SMT par valeur fondamentale.
 
 >[!NOTE] 
->Paramètre HwThreadCountPerCore = 0 est pris en charge à compter de Windows Server 2019.
+>Paramètre HwThreadCountPerCore = 0 est prise en charge à partir de Windows Server 2019.
 
-Voici un exemple d’informations système provenant du système d’exploitation invité en cours d’exécution dans une machine virtuelle avec 2 processeurs virtuels et SMT activée. Le système d’exploitation invité détecte 2 processeurs logiques appartenant à la même cœur.
+Voici un exemple de système d’informations provenant du système d’exploitation invité s’exécutant dans une machine virtuelle avec 2 processeurs virtuels et SMT activé. Le système d’exploitation invité détecte 2 processeurs logiques appartenant à la même cœur.
 
-![Capture d’écran qui s’affiche msinfo32 dans une machine virtuelle avec SMT activé invité](media/Hyper-V-CoreScheduler-VM-Msinfo32.png)
+![Capture d’écran montrant msinfo32 dans un invité de machine virtuelle avec SMT activé](media/Hyper-V-CoreScheduler-VM-Msinfo32.png)
 
-## Configuration du type de planificateur hyperviseur sur Windows Server 2016 Hyper-V
+## <a name="configuring-the-hypervisor-scheduler-type-on-windows-server-2016-hyper-v"></a>Configuration du type de planificateur de hyperviseur sur Windows Server 2016 Hyper-V
 
-Windows Server 2016 Hyper-V utilise le modèle de planificateur hyperviseur classique par défaut. L’hyperviseur peut éventuellement être configuré pour utiliser le planificateur core, pour renforcer la sécurité en limitant PV invité à s’exécuter sur des paires SMT physiques correspondantes et prendre en charge l’utilisation des machines virtuelles avec SMT planification pour leur PV invité.
-
->[!NOTE]
->Microsoft recommande que tous les clients exécutant Windows Server 2016 Hyper-V sélectionner le Planificateur de core pour vous assurer que leurs ordinateurs hôtes de virtualisation sont optimale protégés contre les machines virtuelles invitées potentiellement malveillants.
-
-## Valeurs par défaut de Windows Server 2019 Hyper-V à l’aide du Planificateur de core
-
-Pour garantir la hôtes Hyper-V sont déployés dans les personnels une sécurité optimale, Windows Server 2019 Hyper-V utilise maintenant le modèle de planificateur de l’hyperviseur core par défaut. L’administrateur de l’hôte peut éventuellement configurer l’hôte afin d’utiliser le planificateur classique hérité. Les administrateurs doivent Lisez attentivement, comprendre et prendre en compte l’impact de que chaque type de planificateur présente sur la sécurité et les performances des hôtes de virtualisation avant de remplacer les paramètres par défaut du type de maintenance.  Pour plus d’informations, consultez la [sélection du type de planificateur présentation d’Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/understanding-hyper-v-scheduler-type-selection) .
-
-### Mises à jour requises
+Windows Server 2016 Hyper-V utilise le modèle de planificateur d’hyperviseur classique par défaut. L’hyperviseur peut éventuellement être configuré pour utiliser le Planificateur de noyau, pour augmenter la sécurité en limitant les VPs invité à exécuter sur des paires SMT physiques correspondants et pour prendre en charge l’utilisation de machines virtuelles avec la planification de SMT pour leurs VPs invité.
 
 >[!NOTE]
->Les mises à jour suivantes sont tenus d’utiliser les fonctionnalités de planificateur hyperviseur décrites dans ce document. Ces mises à jour incluent des modifications pour prendre en charge de la nouvelle option BCD «hypervisorschedulertype», ce qui est nécessaire pour la configuration de l’hôte.
+>Microsoft recommande que tous les clients qui exécutent Windows Server 2016 Hyper-V sélectionnez le Planificateur de noyau pour garantir la que protection optimale de leurs hôtes de virtualisation sur les machines virtuelles invitées potentiellement malveillants.
 
-| Version | Release  | Mise à jour requise | Article |
+## <a name="windows-server-2019-hyper-v-defaults-to-using-the-core-scheduler"></a>Valeurs par défaut de Windows Server 2019 Hyper-V à l’aide du Planificateur de noyau
+
+Pour garantir les hôtes Hyper-V sont déployés dans la configuration d’une sécurité optimale, Windows Server 2019 Hyper-V utilisent désormais le modèle planificateur d’hyperviseur core par défaut. L’administrateur de l’hôte peut éventuellement configurer l’hôte pour utiliser le planificateur classic hérité. Les administrateurs doivent soigneusement lire, comprendre et prendre en compte l’impact de que chaque type de planificateur a sur la sécurité et les performances des hôtes de virtualisation avant de remplacer les paramètres par défaut du type du planificateur.  Consultez [sélection du type de présentation d’Hyper-V planificateur](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/understanding-hyper-v-scheduler-type-selection) pour plus d’informations.
+
+### <a name="required-updates"></a>Mises à jour nécessaires
+
+>[!NOTE]
+>Les mises à jour suivantes sont requises pour utiliser les fonctionnalités de planificateur hyperviseur décrites dans ce document. Ces mises à jour incluent des modifications pour prendre en charge de la nouvelle option de BCD 'hypervisorschedulertype', qui est nécessaire pour la configuration de l’hôte.
+
+| Version | Release  | Mise à jour requise | Article de la base de connaissances |
 |--------------------|------|---------|-------------:|
-|WindowsServer2016 | 1607 | 2018.07 C | [KB4338822](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822) |
-|WindowsServer2016 | 1703 | 2018.07 C | [KB4338827](https://support.microsoft.com/help/4338827/windows-10-update-kb4338827) |
-|WindowsServer2016 | 1709 | 2018.07 C | [KB4338817](https://support.microsoft.com/help/4338817/windows-10-update-kb4338817) |
-|Windows Server 2019 | 1804 | Aucun(e) | Aucun(e) |
+|Windows Server 2016 | 1607 | 2018.07 C | [KB4338822](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822) |
+|Windows Server 2016 | 1703 | 2018.07 C | [KB4338827](https://support.microsoft.com/help/4338827/windows-10-update-kb4338827) |
+|Windows Server 2016 | 1709 | 2018.07 C | [KB4338817](https://support.microsoft.com/help/4338817/windows-10-update-kb4338817) |
+|Windows Server 2019 | 1804 | Aucune | Aucune |
 
-## Sélection du type de planificateur hyperviseur sur Windows Server
+## <a name="selecting-the-hypervisor-scheduler-type-on-windows-server"></a>Sélection du type de planificateur hyperviseur sur Windows Server
 
-La configuration du Planificateur de l’hyperviseur est contrôlée par l’entrée BCD hypervisorschedulertype.
+La configuration du planificateur hyperviseur est contrôlée par le biais de l’entrée de BCD hypervisorschedulertype.
 
-Pour sélectionner un type de planificateur, ouvrez une invite de commandes avec des privilèges d’administrateur:
+Pour sélectionner un type de planificateur, ouvrez une invite de commandes avec des privilèges d’administrateur :
 
 ``` command
      bcdedit /set hypervisorschedulertype type
 ```
 
-Où `type` est l’un des:
+Où `type` est une des :
 
 * Classique
 * Standard
 
-Le système doit être redémarré pour que les modifications dans le type de planificateur hyperviseur prennent effet.
+Le système doit être redémarré pour toutes les modifications vers le type de planificateur hyperviseur entrent en vigueur.
 
 >[!NOTE]
->Le Planificateur de racine de l’hyperviseur n'est pas pris en charge sur Windows Server Hyper-V pour l’instant. Les administrateurs Hyper-V ne devraient pas essayer de configurer le Planificateur de racine pour une utilisation avec des scénarios de virtualisation de serveur.
+>Le Planificateur de racine hyperviseur n'est pas pris en charge sur Windows Server Hyper-V pour l’instant. Les administrateurs Hyper-V ne doivent pas tenter de configurer le Planificateur de racine pour une utilisation avec les scénarios de virtualisation de serveur.
 
-## Détermination du type de planificateur actuel
+## <a name="determining-the-current-scheduler-type"></a>Détermination du type de planificateur actuel
 
-Vous pouvez déterminer le type de planificateur hyperviseur actuel en cours d’utilisation en examinant le journal système dans l’Observateur d’événements pour l’événement de lancement de l’hyperviseur ID 2, la plus récente qui signale le type de planificateur hyperviseur configuré au lancement de l’hyperviseur. Événements de lancement de l’hyperviseur peuvent être obtenus à partir de l’Observateur d’événements Windows, ou via PowerShell.
+Vous pouvez déterminer le type de planificateur hyperviseur actuel en cours d’utilisation en examinant le journal système dans l’Observateur d’événements pour l’événement de lancement hyperviseur plus récent ID 2, ce qui indique le type de planificateur hyperviseur configuré au lancement de l’hyperviseur. Événements de lancement d’hyperviseur peuvent être obtenus à partir de l’Observateur d’événements Windows, ou via PowerShell.
 
-Événement de lancement de l’hyperviseur ID 2 indique le type de planificateur hyperviseur, où:
+Événement de lancement hyperviseur ID 2 indique le type de planificateur hyperviseur, où :
 
     1 = Classic scheduler, SMT disabled
 
@@ -189,16 +189,16 @@ Vous pouvez déterminer le type de planificateur hyperviseur actuel en cours d�
 
     4 = Root scheduler
 
-![Capture d’écran montrant les informations de 2 ID d’événement du lancement de l’hyperviseur](media/Hyper-V-CoreScheduler-EventID2-Details.png)
+![Affichage des détails de l’événement ID 2 hyperviseur lancement capture d’écran](media/Hyper-V-CoreScheduler-EventID2-Details.png)
 
-![Capture d’écran montrant l’Observateur d’événements affichant l’événement de lancement de l’hyperviseur ID 2](media/Hyper-V-CoreScheduler-EventViewer.png)
+![Capture d’écran montrant l’Observateur d’événements affichant l’événement de lancement hyperviseur ID 2](media/Hyper-V-CoreScheduler-EventViewer.png)
 
-### Interrogation de l’événement de lancement de type de planificateur Hyper-V hyperviseur à l’aide de PowerShell
+### <a name="querying-the-hyper-v-hypervisor-scheduler-type-launch-event-using-powershell"></a>Interrogation de l’événement de lancement de type de planificateur Hyper-V hyperviseur à l’aide de PowerShell
 
-Pour rechercher l’hyperviseur événement ID 2 à l’aide de PowerShell, entrez les commandes suivantes à partir d’une invite de commandes PowerShell.
+À la requête pour l’événement hyperviseur ID 2 à l’aide de PowerShell, entrez les commandes suivantes à partir d’une invite de PowerShell.
 
 ``` powershell
 Get-WinEvent -FilterHashTable @{ProviderName="Microsoft-Windows-Hyper-V-Hypervisor"; ID=2} -MaxEvents 1
 ```
 
-![Capture d’écran montrant la requête de PowerShell et les résultats de l’événement de lancement de l’hyperviseur ID 2](media/Hyper-V-CoreScheduler-PowerShell.png)
+![Capture d’écran montrant la requête PowerShell et les résultats de l’événement de lancement hyperviseur ID 2](media/Hyper-V-CoreScheduler-PowerShell.png)

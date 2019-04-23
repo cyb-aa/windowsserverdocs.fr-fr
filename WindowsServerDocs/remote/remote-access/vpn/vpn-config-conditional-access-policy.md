@@ -1,6 +1,6 @@
 ---
 title: Configurer la stratégie d'accès conditionnel
-description: Après avoir créé un certificat racine, la 'connectivité VPN' déclenche la création de l’application de cloud «Serveur VPN» dans le locataire du client.
+description: Une fois un certificat racine a été créé, la connectivité « VPN » déclenche la création de l’application de cloud « Serveur VPN » dans le client.
 services: active-directory
 ms.prod: windows-server-threshold
 ms.technology: networking-ras
@@ -16,84 +16,84 @@ author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
 ms.openlocfilehash: 8c00855c50de79efa1b48c7b8762e1b679db4a87
-ms.sourcegitcommit: 4893d79345cea85db427224bb106fc1bf88ffdbc
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "6067116"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59870280"
 ---
-# Étape7.3. Configurer la stratégie d’accès conditionnel
+# <a name="step-73-configure-the-conditional-access-policy"></a>Étape 7.3. Configurer la stratégie d’accès conditionnel
 
->S’applique à: Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-& #171;  [ **Précédente:** étape 7.2. Créer des certificats racine pour l’authentification VPN avec Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)<br>
-& #187; [ **Suivant:** étape 7.4. Déployer des certificats racine de l’accès conditionnel sur site AD](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md)
+&#171;  [**Précédent :** Étape 7.2. Créer des certificats racines pour l’authentification VPN auprès d’Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)<br>
+&#187;[ **Suivant :** Étape 7.4. Déployer des certificats racine de l’accès conditionnel en local AD](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md)
 
-Dans cette étape, vous configurez la stratégie d’accès conditionnel pour une connexion VPN. Lorsque le premier certificat racine est créé dans le panneau de «Connectivité VPN», il crée automatiquement une application en nuage «Serveur VPN» dans le client. 
+Dans cette étape, vous configurez la stratégie d’accès conditionnel pour la connectivité VPN. Quand le premier certificat racine est créé dans le panneau « Connectivité VPN », il crée automatiquement une application en nuage « Serveur VPN » dans le client. 
 
-Créer une stratégie d’accès conditionnel qui est attribuée à un groupe d’utilisateurs VPN et l’étendue de l' **application de Cloud** pour le **Serveur VPN**: 
+Créer une stratégie d’accès conditionnel qui est affectée au groupe d’utilisateurs VPN et de la portée du **application Cloud** à **serveur VPN**: 
 
-- **Les utilisateurs**: les utilisateurs VPN
-- **Application cloud**: serveur VPN
-- **Grant (contrôle d’accès)**: «Nécessitent une authentification multifacteur». Autres contrôles peuvent être utilisés si vous le souhaitez.
+- **Utilisateurs** : Utilisateurs VPN
+- **Application cloud**: Serveur VPN
+- **Grant (contrôle d’accès)**: « Exiger une authentification multifacteur ». Autres contrôles peuvent être utilisés si vous le souhaitez.
 
-**Procédure:** Cette étape couvre la création de la stratégie d’accès conditionnel plus simple.Si vous le souhaitez, des contrôles et des Conditions supplémentaires peuvent être utilisés.
+**Procédure :** Cette étape couvre la création de la stratégie d’accès conditionnel plus simple.  Si vous le souhaitez, des Conditions et des contrôles supplémentaires peuvent être utilisés.
 
 
-1. Sur la page de **L’accès conditionnel** , dans la barre d’outils dans la partie supérieure, cliquez sur **Ajouter**.
+1. Sur le **accès conditionnel** page, dans la barre d’outils en haut, cliquez sur **ajouter**.
 
-    ![Sélectionnez Ajouter sur la page de l’accès conditionnel](../../media/Always-On-Vpn/07.png)
+    ![Sélectionnez Ajouter dans la page accès conditionnel](../../media/Always-On-Vpn/07.png)
 
-2. Sur la page de **Nouveau** , dans la zone **nom** , tapez un nom pour votre stratégie. Par exemple, tapez **stratégie VPN**.
+2. Sur le **New** page, dans le **nom** , tapez un nom pour votre stratégie. Par exemple, tapez **stratégie VPN**.
 
-    ![Ajoutez le nom de la stratégie sur la page de l’accès conditionnel](../../media/Always-On-Vpn/08.png)
+    ![Ajouter le nom de stratégie dans la page accès conditionnel](../../media/Always-On-Vpn/08.png)
 
-3. Dans la section **attribution** , cliquez sur **les utilisateurs et groupes**.
+3. Dans le **attribution** , cliquez sur **utilisateurs et groupes**.
 
-    ![Sélectionnez Utilisateurs et groupes](../../media/Always-On-Vpn/09.png)
+    ![Sélectionnez les utilisateurs et groupes](../../media/Always-On-Vpn/09.png)
 
-4. Sur la page **utilisateurs et groupes** , procédez comme suit:
+4. Sur le **utilisateurs et groupes** page, procédez comme suit :
 
-    ![Sélectionnez tester un utilisateur](../../media/Always-On-Vpn/10.png)
+    ![Utilisateur de sélectionner un test](../../media/Always-On-Vpn/10.png)
 
-    a. Cliquez sur **Sélectionner des utilisateurs et groupes**.
+    a. Cliquez sur **sélectionner des utilisateurs et groupes**.
 
     b. Cliquez sur **Sélectionner**.
 
-    c. Sur la page **Sélectionner** , sélectionnez le groupe **d’utilisateurs VPN** , puis cliquez sur **Sélectionner**.
+    c. Sur le **sélectionnez** , sélectionnez le **utilisateurs VPN** de groupe, puis cliquez sur **sélectionnez**.
 
-    d. Sur la page **utilisateurs et groupes** , cliquez sur **terminé**.
+    d. Sur le **utilisateurs et groupes** , cliquez sur **fait**.
 
-5. Sur la page de **Nouveau** , procédez comme suit:
+5. Sur le **New** page, procédez comme suit :
 
-    ![Sélectionnez les applications dans le cloud](../../media/Always-On-Vpn/11.png)
+    ![Sélectionnez les applications cloud](../../media/Always-On-Vpn/11.png)
 
-    a. Dans la section **affectations** , cliquez sur **applications dans le Cloud**.
+    a. Dans le **affectations** , cliquez sur **applications Cloud**.
 
-    b. Sur la page **applications dans le Cloud** , cliquez sur **Sélectionner des applications**.
+    b. Sur le **applications Cloud** , cliquez sur **sélectionner les applications**.
 
-    d. Sélectionnez le **serveur VPN**.
+    d. Sélectionnez **serveur VPN**.
 
-13. Sur la page de **Nouveau** , pour ouvrir la page **Grant** , dans la section **contrôles** , cliquez sur **octroyer**.
+13. Sur le **New** page, pour ouvrir le **Grant** page, dans le **contrôles** , cliquez sur **Grant**.
 
-    ![Sélectionnez la licence](../../media/Always-On-Vpn/13.png)
+    ![Sélectionnez octroyer](../../media/Always-On-Vpn/13.png)
 
-14. Sur la page **Grant** , procédez comme suit:
+14. Sur le **Grant** page, procédez comme suit :
 
     ![Sélectionnez exiger une authentification multifacteur](../../media/Always-On-Vpn/14.png)
 
-    a. Sélectionnez **Exiger une authentification multifacteur**.
+    a. Sélectionnez **exiger une authentification multifacteur**.
 
     b. Cliquez sur **Sélectionner**.
 
-15. Sur la page de **Nouveau** , sous la **stratégie est activée**, cliquez **sur**.
+15. Sur le **New** page sous **activer la stratégie**, cliquez sur **sur**.
 
     ![Activer la stratégie](../../media/Always-On-Vpn/15.png)
 
-16. Sur la page de **Nouveau** , cliquez sur **créer**.
+16. Sur le **New** , cliquez sur **créer**.
 
 
-## Étape suivante
-Étape [7.4. Déployer des certificats racine de l’accès conditionnel sur site AD](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md): dans cette étape, vous déployez le certificat racine de l’accès conditionnel comme certificat racine de confiance pour l’authentification VPN vers votre site sur AD.
+## <a name="next-step"></a>Étape suivante
+[Étape 7.4. Déployer des certificats racine de l’accès conditionnel en local AD](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md): Dans cette étape, vous déployez le certificat racine de l’accès conditionnel en tant que certificat racine approuvé pour l’authentification VPN sur votre réseau local AD.
 
 ---

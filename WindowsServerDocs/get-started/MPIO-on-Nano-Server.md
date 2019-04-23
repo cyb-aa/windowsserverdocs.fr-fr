@@ -13,27 +13,27 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 15d9ebfe72744ed26239587ef297b06361233425
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2082085"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59874040"
 ---
 # <a name="mpio-on-nano-server"></a>MPIO sur Nano Server
 
->S’applique à WindowsServer2016
+>S'applique à : Windows Server 2016
 
 > [!IMPORTANT]
-> À compter de WindowsServer, version1709, NanoServer sera uniquement disponible sous forme d’[image du système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Consultez [Modifications apportées à NanoServer](nano-in-semi-annual-channel.md) pour en savoir plus. 
+> À compter de Windows Server, version 1709, Nano Server sera uniquement disponible sous forme d’[image du système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Consultez [Modifications apportées à Nano Server](nano-in-semi-annual-channel.md) pour en savoir plus. 
 
-Cette rubrique présente l’utilisation de MPIO dans les installations NanoServer de WindowsServer2016. Pour obtenir des informations générales sur MPIO dans WindowsServer, consultez [Vue d’ensemble de MPIO (Multipath I/O)](https://technet.microsoft.com/library/cc725907.aspx).  
+Cette rubrique présente l’utilisation de MPIO dans les installations Nano Server de Windows Server 2016. Pour obtenir des informations générales sur MPIO dans Windows Server, consultez [Vue d’ensemble de MPIO (Multipath I/O)](https://technet.microsoft.com/library/cc725907.aspx).  
 
 ## <a name="using-mpio-on-nano-server"></a>Utilisation de MPIO sur Nano Server  
-Vous pouvez utiliser MPIO sur Nano Server, mais en tenant compte des points suivants:  
+Vous pouvez utiliser MPIO sur Nano Server, mais en tenant compte des points suivants :  
   
 -   Seul MSDSM est pris en charge.  
   
--   La stratégie d’équilibrage de charge est choisie de manière dynamique et ne peut pas être modifiée. Les caractéristiques de la stratégie sont les suivantes:  
+-   La stratégie d’équilibrage de charge est choisie de manière dynamique et ne peut pas être modifiée. Les caractéristiques de la stratégie sont les suivantes :  
   
     -   Par défaut -- RoundRobin (actif/actif)  
   
@@ -47,7 +47,7 @@ Vous pouvez utiliser MPIO sur Nano Server, mais en tenant compte des points suiv
 
 - Le démarrage iSCSI n’est pas pris en charge.
   
-Activez MPIO avec cette applet de commande Windows PowerShell:  
+Activez MPIO avec cette applet de commande Windows PowerShell :  
   
 `Enable-WindowsOptionalFeature -Online -FeatureName MultiPathIO`  
   

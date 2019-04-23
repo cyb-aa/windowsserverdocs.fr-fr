@@ -1,22 +1,23 @@
 ---
-title: "Flux d’intégrité ReFS"
-description: 
+title: Flux d’intégrité ReFS
+description: ''
 author: gawatu
 ms.author: jgerend
 manager: dmoss
-ms.date: 11/14/2016
+ms.date: 10/16/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.assetid: 1f1215cd-404f-42f2-b55f-3888294d8a1f
-ms.openlocfilehash: d9e14e74591b341048316e9c2e69a312062c3304
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 11f0a696fb843f5cd8b4a7ff3318c28d6c1adeb8
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59871340"
 ---
 # <a name="refs-integrity-streams"></a>Flux d’intégrité ReFS
->S’applique à: WindowsServer (canal semi-annuel), WindowsServer2016, WindowsServer2012R2, WindowsServer2012, Windows10
+>S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server (canal semi-annuel), Windows 10
 
 La fonctionnalité Flux d’intégrité est facultative dans ReFS. Elle valide et maintient l’intégrité des données à l’aide de sommes de contrôle. ReFS utilise toujours des sommes de contrôle pour les métadonnées, mais, par défaut, ReFS ne génère pas et ne valide pas de sommes de contrôle pour les données de fichier. La fonctionnalité facultative Flux d’intégrité permet aux utilisateurs d’utiliser les sommes de contrôle pour les données de fichier. Lorsque les flux d’intégrité sont activés, ReFS peut déterminer clairement si les données sont valides ou endommagées. De plus, l’utilisation conjointe de ReFS et des espaces de stockage permet de corriger automatiquement les données et métadonnées endommagées.
 
@@ -24,11 +25,11 @@ La fonctionnalité Flux d’intégrité est facultative dans ReFS. Elle valide e
 
 Les flux d’intégrité peuvent être activés pour des fichiers ou des répertoires spécifiques, ou pour l’intégralité du volume. Les paramètres des flux d’intégrité peuvent être activés et désactivés à tout moment. Par ailleurs, les paramètres des flux d’intégrité pour les fichiers et les répertoires sont hérités des répertoires parents. 
 
-Une fois que les flux d’intégrité sont activés, ReFS crée et gère une somme de contrôle pour les fichiers spécifiés dans les métadonnées de ces fichiers. Cette somme de contrôle permet à ReFS de valider l’intégrité des données avant d’y accéder. Avant de retourner des données pour lesquelles le flux d’intégrité est activé, ReFS commence par calculer leur somme de contrôle:
+Une fois que les flux d’intégrité sont activés, ReFS crée et gère une somme de contrôle pour les fichiers spécifiés dans les métadonnées de ces fichiers. Cette somme de contrôle permet à ReFS de valider l’intégrité des données avant d’y accéder. Avant de retourner des données pour lesquelles le flux d’intégrité est activé, ReFS commence par calculer leur somme de contrôle :
 
-<img src=media/compute-checksum.gif alt="Compute checksum for file data"/>
+![Calculer la somme de contrôle pour les données de fichier](media/compute-checksum.gif)
 
-Cette somme de contrôle est alors comparée à la somme de contrôle contenue dans les métadonnées de fichier. Si les sommes de contrôle correspondent, les données sont marquées comme valides et retournées à l’utilisateur. Si les sommes de contrôle ne correspondent pas, les données sont endommagées. La résilience du volume détermine comment ReFS répond aux altérations:
+Cette somme de contrôle est alors comparée à la somme de contrôle contenue dans les métadonnées de fichier. Si les sommes de contrôle correspondent, les données sont marquées comme valides et retournées à l’utilisateur. Si les sommes de contrôle ne correspondent pas, les données sont endommagées. La résilience du volume détermine comment ReFS répond aux altérations :
 
 - Si ReFS est monté dans un espace simple non résilient ou un lecteur nu, ReFS retourne une erreur à l’utilisateur sans retourner les données endommagées. 
 - Si ReFS est monté dans un miroir résilient ou un espace de parité, il tente de corriger l’altération. 
@@ -37,11 +38,11 @@ Cette somme de contrôle est alors comparée à la somme de contrôle contenue d
 
 ReFS enregistre toutes les altérations dans le journal des événements système, lequel indique si les altérations ont été corrigées. 
 
-<img src=media/corrective-write.gif alt="Corrective write restores data integrity."/>
+![Écriture corrective restaure l’intégrité des données](media/corrective-write.gif)
 
 ## <a name="performance"></a>Performances 
 
-Si le flux d’intégrité fournit une meilleure intégrité des données pour le système, il entraîne également une baisse des performances. Cette baisse des performances s’explique pour deux raisons:
+Si le flux d’intégrité fournit une meilleure intégrité des données pour le système, il entraîne également une baisse des performances. Cette baisse des performances s’explique pour deux raisons :
 - Si les flux d’intégrité sont activés, toutes les opérations d’écriture deviennent des opérations d’allocation à l’écriture. Même si cela évite des goulots d’étranglement en lecture, modification et écriture puisque ReFS n’a pas besoin de lire ou de modifier les données existantes, les données de fichier sont fréquemment fragmentées, ce qui retarde les lectures. 
 - En fonction de la charge de travail et du stockage sous-jacent du système, le coût du calcul et de la validation de la somme de contrôle peut provoquer une augmentation de la latence d’E/S. 
 
@@ -94,6 +95,6 @@ PS C:\> Set-FileIntegrity H:\Docs -Enable $True
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Vue d’ensemble du système ReFS](refs-overview.md)
--   [Clonage de bloc sur ReFS](block-cloning.md)
--   [Vue d’ensemble des espaces de stockage direct](../storage-spaces/storage-spaces-direct-overview.md)
+-   [Vue d’ensemble de références](refs-overview.md)
+-   [Clonage de bloc reFS](block-cloning.md)
+-   [Vue d’ensemble Direct des espaces de stockage](../storage-spaces/storage-spaces-direct-overview.md)
