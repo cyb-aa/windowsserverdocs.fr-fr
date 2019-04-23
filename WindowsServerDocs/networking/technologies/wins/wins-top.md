@@ -1,6 +1,6 @@
 ---
-title: Windows Internet Name Service (WINS)
-description: Cette rubrique fournit des informations sur la désaffectation WINS et DNS pour les services de résolution de noms sur votre réseau.
+title: Service WINS (Windows Internet Name Service)
+description: Cette rubrique fournit des informations sur le retrait de WINS et à l’aide de DNS pour les services de résolution de noms sur votre réseau.
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -8,20 +8,21 @@ ms.topic: article
 ms.assetid: 32eabe7d-1130-4001-a79a-8ddb31993e5b
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5a3d132ada7b1ede83b046499058399a9da12190
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: bbc1871d29021aa3c99f14368a4711dac63f4cee
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59843630"
 ---
-#  <a name="windows-internet-name-service-wins"></a>Windows Internet Name Service (WINS)
+#  <a name="windows-internet-name-service-wins"></a>Service WINS (Windows Internet Name Service)
 
->S’applique à: Windows Server (canal annuel un point-virgule), Windows Server2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-WINS Windows Internet Name Service () est un service de nom ordinateur hérité inscription et de résolution qui mappe les noms d’ordinateur NetBIOS en adresses IP.
+Le service WINS (Windows Internet Name Service) représente un service hérité d’inscription et de résolution de noms d’ordinateurs qui mappe les noms NetBIOS d’ordinateurs à des adresses IP.
 
-Si vous ne disposez pas déjà déployés sur votre réseau de WINS, ne pas déployer WINS - au lieu de cela, déployer le système de nom de domaine \(DNS\). DNS fournit des services d’inscription et la résolution du nom ordinateur et comprend de nombreux avantages supplémentaires sur WINS, telles que l’intégration avec les Services de domaine Active Directory.
+Si vous n’avez pas déjà WINS déployés sur votre réseau, ne pas déployer WINS - au lieu de cela, déployez Domain Name System \(DNS\). DNS fournit des services de l’inscription et la résolution de nom ordinateur et comprend de nombreux avantages supplémentaires sur WINS, tels que l’intégration avec les Services de domaine Active Directory.
 
-Pour plus d’informations, voir [système DNS (Domain Name)](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
+Pour plus d’informations, consultez [système DNS (Domain Name)](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
 
-Si vous avez déjà déployé WINS sur votre réseau, il est recommandé de déployer le système DNS et de le retirer puis WINS.
+Si vous avez déjà déployé WINS sur votre réseau, il est recommandé de déployer le système DNS et de retrait puis de WINS.

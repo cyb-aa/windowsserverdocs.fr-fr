@@ -6,107 +6,107 @@ ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 10/08/2018
-Keywords: Storage Spaces Direct
+Keywords: Espaces de stockage directs
 ms.localizationpriority: medium
 ms.openlocfilehash: 629e49a0c1919286d8e4f418b3e99d69e720f4fd
-ms.sourcegitcommit: f2ef58003da6de049c7c4b578f789a97e0a0f512
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "5591845"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59866880"
 ---
-# Considérations relatives à la symétrie lecteur pour les espaces de stockage Direct 
+# <a name="drive-symmetry-considerations-for-storage-spaces-direct"></a>Considérations relatives à la symétrie lecteur pour les espaces de stockage Direct 
 
-> S’applique à: Windows Server 2019, Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server 2016
 
-[Espaces de stockage Direct](storage-spaces-direct-overview.md) fonctionne de manière optimale lorsque chaque serveur possède exactement les mêmes lecteurs.
+[Espaces de stockage Direct](storage-spaces-direct-overview.md) fonctionne mieux lorsque chaque serveur possède exactement les mêmes lecteurs.
 
-En réalité, nous savons cela n’est pas toujours pratique: espaces de stockage Direct est conçu pour exécuter des années et à l’échelle en les besoins de votre organisation. Aujourd'hui, vous pouvez acheter spacieux 3 To des disques durs; année suivante, il peut s’avérer impossible, recherchez celles petit. Par conséquent, un certain mixage-et-mise en correspondance est pris en charge.
+En réalité, nous reconnaissons que cela n’est pas toujours pratique : Espaces de stockage Direct est conçu pour s’exécuter pendant des années et à l’échelle selon l’évoluent des besoins de votre organisation. Aujourd'hui, vous pourrez acheter 3 To spacieux des disques durs ; année suivante, il peut devenir impossible de trouver celles qui petit. Par conséquent, une certaine quantité d’et associations est pris en charge.
 
 Cette rubrique explique les contraintes et fournit des exemples de configurations prises en charge et non pris en charge.
 
-## Contraintes
+## <a name="constraints"></a>Contraintes
 
-### Type
+### <a name="type"></a>Type
 
-Tous les serveurs doivent avoir les mêmes [types de disques](choosing-drives.md#drive-types).
+Tous les serveurs doivent avoir le même [types de lecteurs](choosing-drives.md#drive-types).
 
-Par exemple, si un serveur dispose de disques NVMe, elles doivent *toutes* avoir NVMe.
+Par exemple, si un serveur a NVMe, ils le devraient *tous les* ont NVMe.
 
-### Nombre
+### <a name="number"></a>Numéro
 
-Tous les serveurs doivent avoir le même nombre de disques de chaque type.
+Tous les serveurs doivent avoir le même nombre de lecteurs de chaque type.
 
-Par exemple, si un serveur dispose de six SSD, elles doivent *toutes* avoir six SSD.
-
-   > [!NOTE]
-   > Il est OK pour le nombre de disques de différer temporairement pendant les défaillances ou lors de l’ajout ou la suppression des lecteurs.
-
-### Modèle
-
-Nous recommandons l’utilisation de disques du même modèle et la version du microprogramme autant que possible. Si vous ne pouvez pas, sélectionnez avec soin les disques qui sont aussi proches que possible. Nous déconseillons mixage-et-mise en correspondance des disques du même type présentant des caractéristiques de performances ou endurance diminue brutalement différentes (sauf si un est le cache et l’autre capacité), car les espaces de stockage Direct répartit uniformément les e/s et n’a pas distinguer en fonction de modèle .
+Par exemple, si un serveur a six SSD, ils le devraient *tous les* avoir six SSD.
 
    > [!NOTE]
-   > Il est OK et combinaisons les disques SAS et SATA similaires.
+   > Il est OK pour le nombre de lecteurs pour différer temporairement lors de pannes ou tout ajout ou suppression de lecteurs.
 
-### Taille
+### <a name="model"></a>Modèle
 
-Nous recommandons l’utilisation de disques de la même taille autant que possible. À l’aide de lecteurs de capacité de tailles différentes peut entraîner une capacité inutilisable et à l’aide de lecteurs de cache de tailles différentes pas peut améliorer les performances du cache. Consultez la section suivante pour plus d’informations.
+Nous vous recommandons d’utiliser des lecteurs du même modèle et la version de microprogramme autant que possible. Si vous ne pouvez pas, sélectionnez avec soin les lecteurs qui sont aussi semblables que possible. Nous déconseillons les lecteurs et associations du même type avec des caractéristiques de performances ou de résistance nettement différentes (sauf si un est le cache et l’autre est la capacité), car les espaces de stockage Direct distribue uniformément les e/s et ne celle-ci de discriminer selon de modèle .
+
+   > [!NOTE]
+   > Il est OK pour mélanger et les disques SATA et SAS similaire.
+
+### <a name="size"></a>Size
+
+Nous recommandons d’utiliser des disques de la même taille de chaque fois que possible. À l’aide de disques de la capacité de différentes tailles peut-être entraîner dans une certaine mesure inutilisable, et à l’aide de différentes tailles, les lecteurs de cache n’améliore pas les performances du cache. Consultez la section suivante pour plus d’informations.
 
    > [!WARNING]
-   > Différentes tailles de lecteurs de capacité entre les serveurs peuvent entraîner de capacités inutilisées.
+   > Différentes tailles de disques de capacité entre les serveurs peuvent entraîner des capacités inutilisées.
 
-## Comprendre: déséquilibre de capacité
+## <a name="understand-capacity-imbalance"></a>Comprendre : déséquilibre de capacité
 
-Espaces de stockage Direct est robuste déséquilibre de capacité sur les lecteurs et les serveurs. Même si le déséquilibre est grave, tous les éléments continueront à fonctionner. Toutefois, en fonction de plusieurs facteurs, la capacité n’est pas disponible dans tous les serveurs est peut-être pas utilisable.
+Espaces de stockage Direct est robuste déséquilibre de la capacité sur les lecteurs et les serveurs. Même si le déséquilibre est grave, tout continue de fonctionner. Toutefois, selon plusieurs facteurs, capacité qui n’est pas disponible dans chaque serveur peut-être pas utilisable.
 
-Pour connaître la raison pour laquelle cela se produit, pensez à l’illustration simplifiée ci-dessous. Chaque zone colorée représente une copie des données en miroir. Par exemple, les zones marqué A A» et un compte personnel sont trois copies des mêmes données. Respecter la tolérance de panne de serveur, ces copies *doivent* être stockées sur différents serveurs.
+Pour voir pourquoi cela se produit, examinez l’illustration simplifiée. Chaque zone colorée représente une seule copie de données mise en miroir. Par exemple, les zones marquée A, A » et un '' sont trois copies des mêmes données. Pour respecter la tolérance de panne du serveur, ces copies *doit* être stockées dans des serveurs différents.
 
-### Capacités inutilisées
+### <a name="stranded-capacity"></a>Capacités inutilisées
 
-Lors de son dessin, Server 1 (10 To) et Server 2 (10 To) sont complet. Serveur 3 dispose de disques plus grands, donc sa capacité totale est plus grande (15 To). Toutefois, pour stocker les données de mise en miroir triple plus sur le serveur 3 nécessiterait copies sur Server 1 et 2 serveur trop, qui sont déjà complet. La capacité de 5 to restante sur Server 3 ne peuvent pas être utilisée; c’est *«inutilisés»* de capacité.
+Lors de son dessin, le serveur 1 (10 To) et 2 (10 To) sont saturées. Serveur 3 dispose de disques plus volumineux, par conséquent sa capacité totale est supérieure (15 To). Toutefois, pour stocker davantage de données en miroir triple sur serveur 3 nécessiterait des copies sur le serveur 1 et 2 du serveur trop, qui sont déjà complet. Impossible d’utiliser la capacité de 5 to restante sur le serveur 3 – il s’agit *inutilisés » »* capacité.
 
-![Miroir triple, trois serveurs, inutilisés capacité](media/drive-symmetry-considerations/Size-Asymmetry-3N-Stranded.png)
+![Miroir triple, trois serveurs, en échec la capacité](media/drive-symmetry-considerations/Size-Asymmetry-3N-Stranded.png)
 
-### Positionnement optimal
+### <a name="optimal-placement"></a>Placement optimal
 
-À l’inverse, avec quatre serveurs de 10 To, 10 To, 10 To et 15 To de capacité et la résilience en miroir triple, il *est* possible de légitimement placez des copies d’une façon qui utilise toute la capacité disponible, comme dessinée. Chaque fois que cela est possible, l’espaces de stockage Direct d’allocation sera trouver et utiliser le placement optimal, en laissant aucune capacités inutilisées.
+À l’inverse, avec quatre serveurs de 10 To, 10 To, 10 To et 15 To de capacité et la résilience en miroir triple, il *est* possible de placer correctement les copies d’une manière qui utilise toute la capacité disponible, comme dessiné. Chaque fois que cela soit possible, l’allocateur d’espaces de stockage Direct recherchera et utiliser le placement optimal, en laissant aucune capacité inutilisée.
 
-![Miroir triple, quatre serveurs, aucune capacité bloquée](media/drive-symmetry-considerations/Size-Asymmetry-4N-No-Stranded.png)
+![Miroir triple, quatre serveurs, aucune capacité inutilisée](media/drive-symmetry-considerations/Size-Asymmetry-4N-No-Stranded.png)
 
-Le nombre de serveurs, la résilience, la gravité de le déséquilibre de capacité et d’autres facteurs affecte s’il y a des capacités inutilisées. **La règle générale plus prudente consiste à supposer que la capacité uniquement disponible dans tous les serveurs est garantie utilisable.**
+Le nombre de serveurs, la résilience, la gravité de déséquilibre de la capacité et d’autres facteurs affecte s’il y a des capacités inutilisées. **La règle générale plus prudente consiste à supposer que seule la capacité disponible dans chaque serveur est garantie pour être utilisable.**
 
-## Comprendre: déséquilibre de cache
+## <a name="understand-cache-imbalance"></a>Comprendre : déséquilibre de cache
 
-Espaces de stockage Direct est robuste déséquilibre de cache sur les lecteurs et les serveurs. Même si le déséquilibre est grave, tous les éléments continueront à fonctionner. En outre, les espaces de stockage Direct utilise toujours tous les cache disponible de manière optimale.
+Espaces de stockage Direct est robuste déséquilibre de cache sur les lecteurs et les serveurs. Même si le déséquilibre est grave, tout continue de fonctionner. En outre, espaces de stockage Direct utilise toujours tous les disponible dans le cache de manière optimale.
 
-Toutefois, à l’aide de lecteurs de cache de tailles différentes ne peut pas améliorer les performances de cache uniformément ou de manière prévisible: seules les e/s pour [les mappages de lecteurs](understand-the-cache.md#server-side-architecture) avec des lecteurs de cache plus grandes peuvent voir une amélioration des performances. Espaces de stockage Direct répartit des e/s de manière égale dans les liaisons et n’a pas distinguer en fonction de coefficient de capacité de cache.
+Toutefois, à l’aide de différentes tailles, les lecteurs de cache n’améliore pas les performances du cache uniformément ou de manière prévisible : uniquement les e/s à [lecteur liaisons](understand-the-cache.md#server-side-architecture) lecteurs peuvent constater de meilleures performances avec la taille du cache. Espaces de stockage Direct distribue uniformément les e/s entre les liaisons et ne celle-ci de discriminer selon les taux de capacité maximale du cache.
 
-![Déséquilibre de cache](media/drive-symmetry-considerations/Cache-Asymmetry.png)
+![Déséquilibre du cache](media/drive-symmetry-considerations/Cache-Asymmetry.png)
 
    > [!TIP]
-   > Consultez le [fonctionnement du cache](understand-the-cache.md) en savoir plus sur les liaisons de cache.
+   > Consultez [présentation du cache](understand-the-cache.md) pour en savoir plus sur les liaisons de cache.
 
-## Exemples de configurations
+## <a name="example-configurations"></a>Exemples de configuration
 
-Voici certaines configurations prises en charge et non pris en charge:
+Voici certaines configurations prises en charge et non pris en charge :
 
-### ![pris en charge](media/drive-symmetry-considerations/supported.png) Pris en charge: les modèles différents entre les serveurs
+### <a name="supportedmediadrive-symmetry-considerationssupportedpng-supported-different-models-between-servers"></a>![prise en charge](media/drive-symmetry-considerations/supported.png) Prise en charge : des modèles différents entre les serveurs
 
-Les deux premiers serveurs utilisent NVMe modèle «X», mais le troisième serveur utilise un modèle de NVMe «Z», qui est très similaire.
+Les deux premiers serveurs utilisent NVMe modèle « X », mais le troisième serveur utilise le modèle NVMe « Z », qui est très similaire.
 
-| Serveur 1                    | Serveur 2                    | Serveur 3                    |
+| Serveur 1                    | Serveur 2                    | Serveur 3                    |
 |-----------------------------|-----------------------------|-----------------------------|
 | 2 x NVMe modèle X (cache)    | 2 x NVMe modèle X (cache)    | 2 x NVMe modèle Z (cache)    |
 | 10 x SSD modèle Y (capacité) | 10 x SSD modèle Y (capacité) | 10 x SSD modèle Y (capacité) |
 
 Cela est pris en charge.
 
-### ![pris en charge](media/drive-symmetry-considerations/supported.png) Pris en charge: les modèles différents au sein de serveur
+### <a name="supportedmediadrive-symmetry-considerationssupportedpng-supported-different-models-within-server"></a>![prise en charge](media/drive-symmetry-considerations/supported.png) Prise en charge : des modèles différents au sein du serveur
 
-Chaque serveur utilise certains différents modèles de disque dur «Y» et «Z», qui sont très similaires. Chaque serveur possède 10 HDD total.
+Chaque serveur utilise une combinaison différente de modèles HDD « Y » et « Z », qui sont très similaires. Chaque serveur a 10 HDD total.
 
-| Serveur 1                   | Serveur 2                   | Serveur 3                   |
+| Serveur 1                   | Serveur 2                   | Serveur 3                   |
 |----------------------------|----------------------------|----------------------------|
 | 2 x SSD modèle X (cache)    | 2 x SSD modèle X (cache)    | 2 x SSD modèle X (cache)    |
 | 7 x HDD modèle Y (capacité) | 5 x HDD modèle Y (capacité) | 1 x HDD modèle Y (capacité) |
@@ -114,74 +114,74 @@ Chaque serveur utilise certains différents modèles de disque dur «Y» et «Z�
 
 Cela est pris en charge.
 
-### ![pris en charge](media/drive-symmetry-considerations/supported.png) Pris en charge: différentes tailles entre les serveurs
+### <a name="supportedmediadrive-symmetry-considerationssupportedpng-supported-different-sizes-across-servers"></a>![prise en charge](media/drive-symmetry-considerations/supported.png) Prise en charge : des tailles différentes entre les serveurs
 
-Les deux premiers serveurs utilisent HDD de 4 To, mais le troisième serveur utilise très similaire 6 To HDD.
+Les deux premiers serveurs utilisent des disques durs de 4 To, mais le troisième serveur utilise très similaire 6 To du disque dur.
 
-| Serveur 1                | Serveur 2                | Serveur 3                |
+| Serveur 1                | Serveur 2                | Serveur 3                |
 |-------------------------|-------------------------|-------------------------|
 | 2 x 800 Go NVMe (cache) | 2 x 800 Go NVMe (cache) | 2 x 800 Go NVMe (cache) |
 | 4 x 4 To HDD (capacité) | 4 x 4 To HDD (capacité) | 4 x 6 To HDD (capacité) |
 
-Cela est pris en charge, même si elle se traduit par des capacités inutilisées.
+Cela est pris en charge, bien que cela entraînerait des capacités inutilisées.
 
-### ![pris en charge](media/drive-symmetry-considerations/supported.png) Pris en charge: les tailles différentes au sein de serveur
+### <a name="supportedmediadrive-symmetry-considerationssupportedpng-supported-different-sizes-within-server"></a>![prise en charge](media/drive-symmetry-considerations/supported.png) Prise en charge : des tailles différentes au sein du serveur
 
-Chaque serveur utilise certains différents 1,2 To et très similaire 1,6 To SSD. Chaque serveur a 4 SSD total.
+Chaque serveur utilise une combinaison différente de 1,2 To et très similaire 1,6 To SSD. Chaque serveur a 4 SSD total.
 
-| Serveur 1                 | Serveur 2                 | Serveur 3                 |
+| Serveur 1                 | Serveur 2                 | Serveur 3                 |
 |--------------------------|--------------------------|--------------------------|
-| 3 x 1.2 To SSD (cache)   | 2 x 1.2 To SSD (cache)   | 4 x 1.2 To SSD (cache)   |
-| 1 x 1,6 To SSD (cache)   | 2 x 1,6 To SSD (cache)   | -                        |
+| 3 x 1,2 To SSD (cache)   | 2 x 1,2 To SSD (cache)   | 4 x 1,2 To SSD (cache)   |
+| 1 1,6 To SSD (cache)   | 2 x 1.6 To SSD (cache)   | -                        |
 | 20 x 4 To HDD (capacité) | 20 x 4 To HDD (capacité) | 20 x 4 To HDD (capacité) |
 
 Cela est pris en charge.
 
-### ![absence de prise en charge](media/drive-symmetry-considerations/unsupported.png) Non pris en charge: différents types de disques entre les serveurs
+### <a name="unsupportedmediadrive-symmetry-considerationsunsupportedpng-not-supported-different-types-of-drives-across-servers"></a>![absence de prise en charge](media/drive-symmetry-considerations/unsupported.png) Non pris en charge : différents types de disques entre serveurs
 
 Le serveur 1 a NVMe, mais les autres ne.
 
-| Serveur 1            | Serveur 2            | Serveur 3            |
+| Serveur 1            | Serveur 2            | Serveur 3            |
 |---------------------|---------------------|---------------------|
 | 6 x NVMe (cache)    | -                   | -                   |
 | -                   | 6 x SSD (cache)     | 6 x SSD (cache)     |
 | 18 x HDD (capacité) | 18 x HDD (capacité) | 18 x HDD (capacité) |
 
-Cela n’est pas pris en charge. Les types de disques doivent être identique dans tous les serveurs.
+Cela n’est pas pris en charge. Les types de lecteurs doivent être identiques dans chaque serveur.
 
-### ![absence de prise en charge](media/drive-symmetry-considerations/unsupported.png) Non pris en charge: nombre de chaque type entre les serveurs différent
+### <a name="unsupportedmediadrive-symmetry-considerationsunsupportedpng-not-supported-different-number-of-each-type-across-servers"></a>![absence de prise en charge](media/drive-symmetry-considerations/unsupported.png) Non pris en charge : un nombre différent de chaque type entre les serveurs
 
-Serveur 3 dispose de plusieurs lecteurs que les autres.
+Serveur 3 a davantage de lecteurs que les autres.
 
-| Serveur 1            | Serveur 2            | Serveur 3            |
+| Serveur 1            | Serveur 2            | Serveur 3            |
 |---------------------|---------------------|---------------------|
 | 2 x NVMe (cache)    | 2 x NVMe (cache)    | 4 x NVMe (cache)    |
 | 10 x HDD (capacité) | 10 x HDD (capacité) | 20 x HDD (capacité) |
 
-Cela n’est pas pris en charge. Le nombre de disques de chaque type doit être identique dans tous les serveurs.
+Cela n’est pas pris en charge. Le nombre de lecteurs de chaque type doit être identique dans chaque serveur.
 
-### ![absence de prise en charge](media/drive-symmetry-considerations/unsupported.png) Non pris en charge: seuls les lecteurs de disque dur
+### <a name="unsupportedmediadrive-symmetry-considerationsunsupportedpng-not-supported-only-hdd-drives"></a>![absence de prise en charge](media/drive-symmetry-considerations/unsupported.png) Non pris en charge : seuls les lecteurs de disque dur
 
-Tous les serveurs ont uniquement des disques HDD connectés.
+Tous les serveurs possèdent uniquement les lecteurs de disques durs connectés.
 
-|Serveur 1|Serveur 2|Serveur 3|
+|Serveur 1|Serveur 2|Serveur 3|
 |-|-|-| 
 |18 x HDD (capacité) |18 x HDD (capacité)|18 x HDD (capacité)|
 
-Cela n’est pas pris en charge. Vous devez ajouter au moins deux lecteurs de cache (NvME ou SSD) associées à chacun des serveurs.
+Cela n’est pas pris en charge. Vous devez ajouter un minimum de deux lecteurs de cache (NvME ou SSD) attachés à chacun des serveurs.
 
-## Résumé
+## <a name="summary"></a>Récapitulatif
 
-Pour résumer, tous les serveurs du cluster doivent avoir les mêmes types de disques et le même nombre de chaque type. Il est pris en charge pour les modèles de disques et combinaisons et tailles de disques en fonction des besoins, avec les considérations ci-dessus.
+Pour résumer, chaque serveur dans le cluster doit avoir les mêmes types de disques et le même nombre de chaque type. Il est pris en charge pour les modèles de lecteur de mélanger et et tailles de lecteur en fonction des besoins, avec les considérations ci-dessus.
 
-| Contrainte                               |               |
+| contrainte                               |               |
 |------------------------------------------|---------------|
-| Mêmes types de disques de chaque serveur     | **Requis**  |
-| Même nombre de chaque type de chaque serveur | **Requis**  |
-| Modèles de disques même dans tous les serveurs        | Nos recommandations   |
-| Même des tailles de disques dans chaque serveur         | Nos recommandations   |
+| Mêmes types de disques dans chaque serveur     | **Obligatoire**  |
+| Même nombre de chaque type dans chaque serveur | **Obligatoire**  |
+| Modèles de lecteur même dans chaque serveur        | Recommandé   |
+| Tailles de lecteur même dans chaque serveur         | Recommandé   |
 
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 
-- [Configuration matérielle requise pour les espaces de stockage direct](storage-spaces-direct-hardware-requirements.md)
-- [Présentation des espaces de stockage direct](storage-spaces-direct-overview.md)
+- [Configuration matérielle directe des espaces de stockage](storage-spaces-direct-hardware-requirements.md)
+- [Vue d’ensemble Direct des espaces de stockage](storage-spaces-direct-overview.md)

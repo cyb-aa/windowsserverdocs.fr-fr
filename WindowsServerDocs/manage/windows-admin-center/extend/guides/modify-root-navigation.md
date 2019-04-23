@@ -1,6 +1,6 @@
 ---
 title: Modifier le comportement de navigation racine
-description: Développer une extension de solution SDK Windows Admin Center (projet Honolulu) - modifier le comportement de navigation racine
+description: Développer une extension de la solution Windows Admin Center SDK (projet Honolulu) - modifier le comportement de navigation de racine
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -9,27 +9,27 @@ ms.date: 08/07/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: 4a5cba228aa3a0afed99c0d853c3720a5b46f650
-ms.sourcegitcommit: 546229d6b5fa7e16f725c6c35f4dcc272711b811
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "4905039"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59861730"
 ---
-# Modifier le comportement de navigation racine pour une extension de solution
+# <a name="modify-root-navigation-behavior-for-a-solution-extension"></a>Modifier le comportement de navigation de racine pour une extension de la solution
 
->S’applique à: Windows Admin Center, Windows Admin Center Preview
+>S'applique à : Windows Admin Center, version préliminaire de Windows Admin Center
 
-Dans ce guide, nous allez découvrir comment modifier le comportement de navigation racine pour votre solution de disposer de comportement de liste de connexion différente, mais aussi comment afficher ou masquer la liste des outils.
+Dans ce guide, vous allez apprendre comment modifier le comportement de navigation racine pour votre solution avoir un comportement liste autre connexion, ainsi que comment masquer ou afficher la liste des outils.
 
-## Modification de comportement de navigation racine
+## <a name="modifying-root-navigation-behavior"></a>Modification du comportement de navigation de racine
 
-Ouvrez manifest.json fichier dans {racine d’extension} \src et recherchez la propriété «rootNavigationBehavior». Cette propriété a deux valeurs valides: «connexion» ou «path». Le comportement de «connexion» est détaillé plus loin dans la documentation.
+Ouvrez le fichier manifest.json dans {racine d’extension} \src et recherchez la propriété « rootNavigationBehavior ». Cette propriété a deux valeurs valides : « connexions » ou « path ». Le comportement de « connexions » est détaillé plus loin dans la documentation.
 
-### Chemin d’accès de paramètre comme un rootNavigationBehavior
+### <a name="setting-path-as-a-rootnavigationbehavior"></a>Chemin d’accès de paramètre comme un rootNavigationBehavior
 
-Définissez la valeur de ```rootNavigationBehavior``` à ```path```, puis supprimez la ```requirements``` propriété et laissez le ```path``` propriété comme une chaîne vide. Vous avez terminé la configuration minimale requise pour créer une extension de solution. Enregistrez le fichier, puis gulp build & gt; gulp servent vous un outil et côté puis chargerait l’extension dans votre extension Windows Admin Center locale.
+Définissez la valeur de ```rootNavigationBehavior``` à ```path```, puis supprimez le ```requirements``` propriété et laissez le ```path``` propriété comme une chaîne vide. Vous avez terminé la configuration minimale requise pour générer une extension de la solution. Enregistrez le fichier et build gulp -> gulp servent vous seraient un outil et le côté puis charger l’extension de votre extension de Windows Admin Center locale.
 
-Un tableau de points d’entrée du manifeste valide se présente comme suit:
+Un tableau de points d’entrée manifeste valide se présente comme suit :
 ```
     "entryPoints": [
         {
@@ -45,13 +45,13 @@ Un tableau de points d’entrée du manifeste valide se présente comme suit:
     ],
 ```
 
-Outils intégrés avec ce type de structure seront connexions non requises pour charger, mais ne possèdent des fonctionnalités de connectivité de nœud soit.
+Outils intégrés avec ce type de structure ne seront pas nécessaire de connexions à charger, mais n’auront pas les fonctions de connectivité nœud soit.
 
-### Configuration de connexions comme un rootNavigationBehavior
+### <a name="setting-connections-as-a-rootnavigationbehavior"></a>Définition des connexions en tant qu’un rootNavigationBehavior
 
-Lorsque vous définissez le ```rootNavigationBehavior``` propriété ```connections```, vous indiquez l’interpréteur de commandes Windows Admin Center qu’il y aura un nœud connecté (toujours un serveur d’un type) auquel il doit se connecter, et vérifiez l’état de la connexion. Cela, il existe 2 étapes lors de la vérification de connexion. 1) Windows Admin Center tentera d’établir une tentative de connexion dans le nœud avec vos informations d’identification (pour l’établissement de la session PowerShell à distance), et 2) il s’exécutera le script PowerShell que vous fournissez afin d’identifier si le nœud est dans un état pouvant être connecté.
+Lorsque vous définissez la ```rootNavigationBehavior``` propriété ```connections```, vous indiquez à l’interpréteur de commandes Windows Admin Center qu’il y aura un nœud connecté (toujours un serveur d’un certain type) auquel il doit se connecter et vérifiez l’état de la connexion. Avec cela, il existe 2 étapes de vérification de la connexion. 1) Windows Admin Center tentera de rendre une tentative de connexion dans le nœud avec vos informations d’identification (pour l’établissement de la session PowerShell à distance), et (2) il exécutera le script PowerShell que vous fournissez pour déterminer si le nœud est dans un état connectable.
 
-Une définition de solution valide avec des connexions se présente comme suit:
+Une définition de solution valide avec des connexions ressemblera à ceci :
 
 ``` json
         {
@@ -75,8 +75,8 @@ Une définition de solution valide avec des connexions se présente comme suit:
         },
 ```
 
-Lorsque le rootNavigationBehavior est défini sur «connexion» vous sont requis pour générer la définition de connexions dans le manifeste. Cela inclut la propriété «en-tête» (servira à afficher dans votre en-tête solution quand un utilisateur la sélectionne à partir du menu), un tableau de connectionTypes (Cela spécifiera les connectionTypes sont utilisés dans la solution. Plus d’informations dans la documentation connectionProvider.).
+Lorsque le rootNavigationBehavior est définie sur « connexions », vous devez créer la définition de connexions dans le manifeste. Cela inclut la propriété « header » (doit être utilisée pour afficher dans l’en-tête de votre solution lorsqu’un utilisateur le sélectionne à partir du menu), un tableau de connectionTypes (elle permet d’indiquer les connectionTypes sont utilisés dans la solution. Plus d’informations dans la documentation du fournisseur de connexion.).
 
-## Activation et désactivation du menu Outils ##
+## <a name="enabling-and-disabling-the-tools-menu"></a>Activation et désactivation du menu Outils ##
 
-Une autre propriété disponible dans la définition de la solution est la propriété «outil». Vous pourrez ainsi déterminer si le menu Outils s’affiche, ainsi que de l’outil qui sera chargé. Lorsqu’elle est activée, Windows Admin Center rendra le menu Outils de gauche. DefaultTool, il est nécessaire que vous ajoutez un point d’entrée outil au manifeste afin de charger les ressources appropriées. La valeur de «defaultTool» doit être la propriété «name» de l’outil telle qu’elle est définie dans le manifeste.
+Une autre propriété disponible dans la définition de la solution est la propriété « outils ». Cela détermine si le menu Outils s’affiche, ainsi que l’outil qui est chargée. Quand activé, Windows Admin Center restitue le menu Outils de gauche. Avec defaultTool, il est nécessaire que vous ajoutez un point d’entrée outil au manifeste afin de charger les ressources appropriées. La valeur de « defaultTool » doit être la propriété « name » de l’outil, car il est défini dans le manifeste.

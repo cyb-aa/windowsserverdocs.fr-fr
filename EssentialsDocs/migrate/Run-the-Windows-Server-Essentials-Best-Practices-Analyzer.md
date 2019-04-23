@@ -1,6 +1,6 @@
 ---
-title: "Exécutez le Analyzer6 meilleures pratiques pour WindowsServerEssentials"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Exécutez le Analyzer6 meilleures pratiques Windows Server Essentials
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,23 +13,24 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 3d81515017d6855d904f5aeb12792c326e9dfa33
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59862410"
 ---
-# <a name="run-the-windows-server-essentials-best-practices-analyzer6"></a>Exécutez le Analyzer6 meilleures pratiques pour WindowsServerEssentials
+# <a name="run-the-windows-server-essentials-best-practices-analyzer6"></a>Exécutez le Analyzer6 meilleures pratiques Windows Server Essentials
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Lorsque vous avez terminé la migration de vos paramètres et données vers WindowsServerEssentials, vous devez exécuter le WindowsServerEssentialsBestPractices Analyzer (BPA) sur le serveur de Destination. L’outil BPA examine un serveur qui exécute WindowsServerEssentials et présente un rapport qui décrit les problèmes et fournit des recommandations pour les résoudre. Les recommandations sont développées par l’organisation du support technique pour WindowsServerEssentials.  
+Lorsque vous avez terminé la migration de vos paramètres et données vers Windows Server Essentials, vous devez exécuter le Windows Server Essentials Best Practices Analyzer (BPA) sur le serveur de Destination. L’outil BPA examine un serveur qui exécute Windows Server Essentials et présente un rapport qui décrit les problèmes et fournit des recommandations pour les résoudre. Les recommandations sont développées par l’organisation de support technique pour Windows Server Essentials.  
   
-### <a name="to-run-the--windows-server-essentials-bpa-on-the-destination-server"></a>Pour exécuter l’outil BPA WindowsServerEssentials sur le serveur de Destination  
+### <a name="to-run-the--windows-server-essentials-bpa-on-the-destination-server"></a>Pour exécuter l’outil BPA de Windows Server Essentials sur le serveur de Destination  
   
-1.  Ouvrez une session sur le serveur de Destination en tant qu’administrateur, puis ouvrez le tableau de bord.  
+1.  Connectez-vous au serveur de destination en tant qu'administrateur, puis ouvrez le tableau de bord.  
   
-2.  Dans le tableau de bord, cliquez sur le **périphériques** onglet.  
+2.  Dans le tableau de bord, cliquez sur l'onglet **Périphériques** .  
   
-3.  Dans le *Server***tâches** volet, cliquez sur **Best Practices Analyzer**.  
+3.  Dans le *Server *** tâches** volet, cliquez sur **Best Practices Analyzer**.  
   
-4.  Passez en revue chaque message BPA et suivez les instructions pour résoudre les problèmes si nécessaire.
+4.  Passez en revue chaque message du BPA et suivez les instructions pour résoudre les problèmes si nécessaire.

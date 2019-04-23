@@ -1,7 +1,7 @@
 ---
-title: Créer une nouvelle équipe de cartes réseau sur un ordinateur hôte ou un ordinateur virtuel
-description: Cette rubrique fournit des informations sur la configuration d’association de cartes réseau afin que vous comprenez les sélections que vous devez effectuer lorsque vous configurez une nouvelle équipe de cartes réseau dans Windows Server2016.
-manager: brianlic
+title: Créer une association de cartes réseau sur un ordinateur hôte ou d’une machine virtuelle
+description: Dans cette rubrique, vous créez une nouvelle association de cartes réseau sur un ordinateur hôte ou sur une machine de virtuelle (VM) Hyper-V exécutant Windows Server 2016.
+manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,142 +13,196 @@ ms.topic: article
 ms.assetid: a4caaa86-5799-4580-8775-03ee213784a3
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6a9866d1f4e72b3c77c3233b5e5582d250cfe6a2
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 09/13/2018
+ms.openlocfilehash: 3518436f08a0e7fe0ea8fed06724b11df6acccea
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59864630"
 ---
-# <a name="create-a-new-nic-team-on-a-host-computer-or-vm"></a>Créer une nouvelle équipe de cartes réseau sur un ordinateur hôte ou un ordinateur virtuel
+# <a name="create-a-new-nic-team-on-a-host-computer-or-vm"></a>Créer une association de cartes réseau sur un ordinateur hôte ou d’une machine virtuelle
 
->S’applique à: Windows Server (canal annuel un point-virgule), Windows Server2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Cette rubrique fournit des informations sur la configuration d’association de cartes réseau afin que vous comprenez les sélections que vous devez effectuer lorsque vous configurez une nouvelle équipe de cartes réseau. Cette rubrique contient les sections suivantes.  
+Dans cette rubrique, vous créez une nouvelle association de cartes réseau sur un ordinateur hôte ou sur une machine de virtuelle (VM) Hyper-V exécutant Windows Server 2016.  
+
+## <a name="network-configuration-requirements"></a>Configuration réseau requise  
+Avant de pouvoir créer une association de cartes réseau, vous devez déployer un hôte Hyper-V avec deux cartes réseau qui se connectent à des commutateurs physiques différents. Vous devez également configurer les cartes réseau avec des adresses IP qui sont à partir de la même plage d’adresses IP.  
+
+Le commutateur physique, le commutateur virtuel Hyper-V, réseau local (LAN) et les exigences d’association de cartes réseau pour la création d’une association de cartes réseau dans une machine virtuelle sont :  
   
--   [Choix d’un Mode d’association](#bkmk_teaming)  
+-   L’ordinateur exécutant Hyper-V doit avoir au moins deux cartes réseau.  
   
--   [Choix d’un Mode d’équilibrage de charge](#bkmk_lb)  
+-   Si vous vous connectez les cartes réseau à plusieurs commutateurs physiques, les commutateurs physiques doivent être sur le même sous-réseau de couche 2.  
   
--   [Choix d’un paramètre de mise en veille de carte](#bkmk_standby)  
+-   Vous devez utiliser le Gestionnaire Hyper-V ou Windows PowerShell pour créer deux commutateurs virtuels Hyper-V externe, chacune connectée à une carte réseau physique différente.  
   
--   [À l’aide de la propriété d’Interface équipe principale](#bkmk_primary)  
+-   La machine virtuelle doit se connecter pour les deux commutateurs virtuels externes que vous créez.  
   
-> [!NOTE]  
-> Si vous comprenez déjà ces éléments de configuration, vous pouvez utiliser les procédures suivantes pour configurer l’association de cartes réseau.  
->   
-> -   [Créer une nouvelle équipe de cartes réseau dans une machine virtuelle](../../technologies/nic-teaming/Create-a-New-NIC-Team-in-a-VM.md)  
-> -   [Créer une nouvelle équipe de cartes réseau](../../technologies/nic-teaming/Create-a-New-NIC-Team.md)  
+-   Association de cartes réseau, dans Windows Server 2016, prend en charge les équipes avec deux membres dans les machines virtuelles. Vous pouvez créer des équipes plus grandes, mais il n’existe aucune prise en charge.
   
-Lorsque vous créez une nouvelle équipe de cartes réseau, vous devez configurer les propriétés d’association de cartes réseau suivantes.  
+-   Si vous configurez une association de cartes réseau dans une machine virtuelle, vous devez sélectionner un **mode d’association** de _indépendant du commutateur_ et un **mode d’équilibrage de charge** de _hachage d’adresse_. 
+
+
+
+## <a name="step-1-configure-the-physical-and-virtual-network"></a>Étape 1. Configurer le réseau physique et virtuel  
+Dans cette procédure, vous créez deux commutateurs virtuels Hyper-V externe, connectez une machine virtuelle pour les commutateurs, puis configurez les connexions de la machine virtuelle pour les commutateurs.  
+ 
+
+### <a name="prerequisites"></a>Prérequis
+  
+Vous devez être membre du **administrateurs**, ou équivalent.  
+  
+### <a name="procedure"></a>Procédure
+  
+1.  Sur l’hôte Hyper-V, ouvrez le Gestionnaire Hyper-V, sous Actions, cliquez sur **Gestionnaire de commutateur virtuel**.  
+  
+    ![Gestionnaire de commutateur virtuel](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hv.jpg)  
+  
+2.  Dans le Gestionnaire de commutateur virtuel, assurez-vous que **externe** est sélectionnée, puis cliquez sur **créer un commutateur virtuel**.  
+  
+    ![Créer un commutateur virtuel](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hv_02.jpg)  
+  
+3.  Dans les propriétés du commutateur virtuel, tapez un **nom** pour le commutateur virtuel et ajoutez **Notes** en fonction des besoins.  
+  
+4.  Dans **type de connexion**, dans **réseau externe**, sélectionnez la carte réseau physique à laquelle vous souhaitez attacher le commutateur virtuel.  
+  
+5.  Configurer les propriétés du commutateur supplémentaire pour votre déploiement, puis cliquez sur **OK**.  
+  
+6.  Créer un deuxième commutateur virtuel externe en répétant les étapes précédentes. Se connecter à la deuxième commutateur externe à une autre carte réseau.  
+  
+7.  Dans le Gestionnaire Hyper-V, sous **Machines virtuelles**, avec le bouton droit de la machine virtuelle que vous souhaitez configurer, puis cliquez sur **paramètres**.<p>La machine virtuelle **paramètres** boîte de dialogue s’ouvre.  
+
+8.  Assurez-vous que la machine virtuelle n’est pas démarrée. Si elle est démarrée, effectuer un arrêt avant de configurer la machine virtuelle.  
+  
+8.  Dans **matériel**, cliquez sur **carte réseau**.  
+  
+    ![Carte réseau](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_01.jpg)  
+  
+9. Dans **carte réseau** propriétés, sélectionnez un des commutateurs virtuels que vous avez créé dans les étapes précédentes, puis cliquez sur **appliquer**.  
+  
+    ![Sélectionnez un commutateur virtuel](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_02.jpg)  
+  
+10. Dans **matériel**, cliquez pour développer le signe plus (+) à côté **carte réseau**. 
+
+11. Cliquez sur **fonctionnalités avancées** pour activer l’association de cartes réseau à l’aide de l’interface utilisateur graphique. 
+
+    >[!TIP]
+    >Vous pouvez également activer l’association de cartes réseau avec une commande Windows PowerShell : 
+    >
+    >```PowerShell
+    >Set-VMNetworkAdapter -VMName <VMname> -AllowTeaming On
+    >```
+   
+    a. Sélectionnez **dynamique** adresse MAC. 
+
+    b. Cliquez pour sélectionner **protégé réseau**. 
+
+    c. Cliquez pour sélectionner **activer cette carte réseau faire partie d’une équipe dans le système d’exploitation invité**. 
+
+    d. Cliquez sur **OK**.  
+  
+    ![Ajouter une carte réseau à une équipe](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_05.jpg)  
+  
+13. Pour ajouter une deuxième carte réseau, dans le Gestionnaire Hyper-V, dans **Machines virtuelles**, avec le bouton droit de la même machine virtuelle, puis cliquez sur **paramètres**.<p>La machine virtuelle **paramètres** boîte de dialogue s’ouvre.  
+  
+14. Dans **Ajout de matériel**, cliquez sur **carte réseau**, puis cliquez sur **ajouter**.  
+  
+    ![Ajouter une carte réseau](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_06.jpg)  
+  
+15. Dans **carte réseau** propriétés, sélectionnez le deuxième commutateur virtuel que vous avez créé dans les étapes précédentes, puis cliquez sur **appliquer**.  
+  
+    ![Appliquer un commutateur virtuel](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_07.jpg)  
+  
+16. Dans **matériel**, cliquez pour développer le signe plus (+) à côté **carte réseau**. 
+
+17. Cliquez sur **fonctionnalités avancées**, faites défiler jusqu'à **association de cartes réseau**, puis cliquez pour sélectionner **activer cette carte réseau faire partie d’une équipe dans le système d’exploitation invité**. 
+
+18. Cliquez sur **OK**.  
+  
+_**Félicitations !**_  Vous avez configuré le réseau physique et virtuel.  Vous pouvez maintenant passer à la création d’une association de cartes réseau.  
+
+## <a name="step-2-create-a-new-nic-team"></a>Étape 2. Créer une nouvelle association de cartes réseau
+  
+Lorsque vous créez une nouvelle association de cartes réseau, vous devez configurer les propriétés de l’association de cartes réseau :  
   
 -   Nom de l’équipe  
   
 -   Cartes membres  
   
--   Mode d’association de cartes réseau  
+-   Mode d’association  
   
--   Mode d’équilibrage de la charge  
+-   Mode d’équilibrage de charge  
   
--   Carte de mise en veille  
+-   Adaptateur de secours  
   
-Vous pouvez également configurer l’interface d’équipe principale et configurer un numéro de réseau local virtuel (VLAN) virtuel.  
+Vous pouvez également configurer l’interface de l’équipe principale et configurer un nombre LAN (VLAN) virtuel.  
   
-Ces propriétés de l’association de cartes réseau sont affichées dans l’illustration suivante, qui contient des exemples de valeurs pour certaines propriétés de l’association de cartes réseau.  
-  
-![Propriétés de l’association de cartes réseau](../../media/Create-a-New-NIC-Team-on-a-Host-Computer-or-VM/nict_06_properties.jpg)  
-  
-## <a name="bkmk_teaming"></a>Choix d’un Mode d’association  
-Les options de mode d’association sont **indépendant du commutateur**, **association statique**, et **contrôle protocole LACP (Link Aggregation)**. Association statique et le protocole LACP sont modes dépendants du commutateur. Pour de meilleures performances d’association de cartes réseau avec tous les trois modes d’association, il est recommandé que vous utilisez un mode d’équilibrage de charge de la distribution dynamique.  
-  
-**Indépendants du commutateur**  
-  
-Avec mode basculer indépendant, le commutateur ou les commutateurs sur lesquels l’association de membres sont connectés ne seront pas informés de la présence de l’association de cartes réseau et ne déterminent pas comment distribuer le trafic réseau vers les membres de l’équipe de cartes réseau - au lieu de cela, l’équipe de cartes réseau répartit le trafic réseau entrant sur les membres de l’équipe de cartes réseau.  
-  
-Lorsque vous utilisez le mode indépendant du commutateur avec une distribution dynamique, la charge de trafic réseau est distribuée basée sur le hachage d’adresse de Ports TCP modifié par l’algorithme d’équilibrage de charge dynamique. L’algorithme d’équilibrage de charge dynamique redistribué par flux pour optimiser l’utilisation de la bande passante de membre de l’équipe afin que les transmissions de flux individuels peuvent déplacer à partir d’un membre de l’équipe active vers un autre. L’algorithme prend en compte la possibilité de petite que redistribution du trafic pouvant entraîner la sortie de livraison des paquets, afin qu’il prend les mesures nécessaires pour minimiser ce risque.  
-  
-**Dépendants du commutateur**  
-  
-Avec les modes basculer dépendant, le commutateur pour les membres de l’équipe de cartes réseau sont connectés détermine comment distribuer le trafic réseau entrant parmi les membres de l’équipe de cartes réseau. Le commutateur a indépendance pour déterminer comment répartir le trafic réseau entre les membres de l’équipe de cartes réseau.  
-  
-> [!IMPORTANT]  
-> Commutateur dépendant d’association de cartes réseau nécessite que tous les membres de l’équipe sont connectés au même commutateur physique ou un châssis multi commutateur qui partage un ID de commutateur parmi plusieurs châssis.  
-  
-Association statique, vous devez configurer manuellement le commutateur et l’ordinateur hôte pour identifier les liens à partir de l’équipe. Dans la mesure où il s’agit d’une solution configurée de manière statique, il n’existe aucun protocole supplémentaire pour aider le commutateur et l’hôte d’identifier correctement branché câbles ou autres erreurs pouvant entraîner l’équipe ne parviennent pas à effectuer. Ce mode est généralement pris en charge par les commutateurs de classe serveur.  
-  
-Contrairement à une association statique, mode d’association de protocole LACP identifie dynamiquement des liens qui sont connectés entre l’ordinateur hôte et le commutateur. Cette connexion dynamique permet la création automatique d’une association et, en théorie, mais rarement dans la pratique, la réduction d’une équipe et l’extension simplement en la transmission ou la réception de paquets LACP à partir de l’entité d’homologue. Tous les commutateurs de classe serveur prennent en charge le protocole LACP et toutes nécessitent l’opérateur de réseau pour activer le protocole LACP sur le port de commutateur administrativement. Lorsque vous configurez un mode d’association de protocole LACP, association de cartes réseau fonctionne toujours en mode actif du protocole LACP avec un minuteur court.  Aucune option n’est actuellement disponible pour modifier le minuteur ou modifier le mode LACP.  
-  
-Lorsque vous utilisez des modes dépendants du commutateur avec une distribution dynamique, la charge de trafic réseau est distribuée basé sur le hachage d’adresse TransportPorts modifié par l’algorithme d’équilibrage de charge dynamique.  L’algorithme d’équilibrage de la charge dynamique redistribué par flux pour optimiser l’utilisation de la bande passante de membre de l’équipe. Les transmissions de flux individuels peuvent déplacer membres de l’équipe active à l’autre dans le cadre de la distribution dynamique. L’algorithme prend en compte la possibilité de petite que redistribution du trafic pouvant entraîner la sortie de livraison des paquets, afin qu’il prend les mesures nécessaires pour minimiser ce risque.  
-  
-Comme avec toutes les configurations dépendantes de commutateur, le commutateur détermine comment distribuer le trafic entrant parmi les membres de l’équipe.  Le commutateur est prévu pour effectuer une tâche raisonnable de répartir le trafic des membres de l’équipe, mais il a indépendance pour déterminer comment elle le fait.  
-  
-## <a name="bkmk_lb"></a>Choix d’un Mode d’équilibrage de charge  
-Les options pour l’équilibrage de charge le mode de distribution sont **hachage d’adresse**, **Port Hyper-V**, et **dynamique**.  
-  
-**Hachage d’adresse**  
-  
-Ce mode d’équilibrage de charge crée un hachage basé sur les composants d’adresses du paquet. Il affecte alors les paquets qui ont cette valeur de hachage à une des cartes disponibles. Généralement, ce seul mécanisme suffise est suffisant pour créer un équilibre raisonnable entre les cartes disponibles.  
-  
-Vous pouvez utiliser Windows PowerShell pour spécifier des valeurs pour les composants de fonction de hachage suivants.  
-  
--   Les ports TCP source et de destination et source et destination des adresses IP. Il s’agit de la valeur par défaut lorsque vous sélectionnez **hachage d’adresse** en tant que le mode d’équilibrage de charge.  
-  
--   Source et destination uniquement des adresses IP.  
-  
--   Adresses source et destination MAC uniquement.  
-  
-Le hachage de ports TCP crée la distribution plus fine des flux de trafic, aboutissant à un flux de plus petits qui peuvent être déplacés de manière indépendante entre les membres de l’équipe de cartes réseau. Toutefois, vous ne pouvez pas utiliser le hachage de ports TCP pour le trafic non TCP ou UDP, ou lorsque les ports TCP et UDP sont masqués à partir de la pile, comme avec le trafic protégé par IPsec. Dans ces cas, la valeur de hachage utilise automatiquement le hachage d’adresse IP, ou si le trafic n’est pas le trafic IP, le hachage d’adresse MAC est utilisé.  
-  
-**Port Hyper-V**  
-  
-Il existe un avantage de l’utilisation du mode de Port Hyper-V pour les associations de cartes réseau qui sont configurés sur des ordinateurs hôtes Hyper-V. Étant donné que les ordinateurs virtuels ont des adresses MAC indépendantes, adresse MAC de l’ordinateur - ou le port de que l’ordinateur virtuel est connecté par le commutateur virtuel Hyper-V - peut servir de base sur lequel vous souhaitez diviser le trafic réseau entre les membres de l’association de cartes réseau.  
-  
-> [!IMPORTANT]  
-> Associations de cartes réseau que vous créez dans des ordinateurs virtuels ne peuvent pas être configurées avec le mode d’équilibrage de la charge Port Hyper-V. Utiliser le hachage d’adresse à la place de mode d’équilibrage de la charger.  
-  
-Étant donné que le commutateur adjacent voit toujours une adresse MAC spécifique sur un seul port, le commutateur distribue la charge de pénétration (le trafic du commutateur à l’ordinateur hôte) sur plusieurs liens en fonction de l’adresse MAC (VM MAC) de destination. Cela est particulièrement utile lorsque les files d’attente de la Machine virtuelle (Vmq) sont utilisés, car une file d’attente peut être placé sur la carte d’interface réseau spécifique où le trafic est supposé arriver.  
-  
-Toutefois, si l’ordinateur hôte a seuls les quelques ordinateurs virtuels, ce mode peut-être pas suffisamment précis pour obtenir une distribution bien équilibrée. Ce mode limite également toujours un seul ordinateur virtuel (par exemple, le trafic à partir d’un port de commutateur unique) pour la bande passante disponible sur une interface unique. Association de cartes réseau utilise le Port de commutateur virtuel Hyper-V en tant que l’identificateur au lieu d’utiliser l’adresse MAC source car, dans certains cas, un ordinateur virtuel peut être configuré avec plusieurs adresses MAC sur un port de commutateur.  
-  
-**Dynamique**  
-  
-Ce mode d’équilibrage utilise les meilleurs aspects de chacune des deux autres modes et les regroupe dans un seul mode:  
-  
--   Charges de trafic sortants sont distribués basé sur un hachage des adresses IP et Ports TCP.  Mode dynamique rééquilibre également charges en temps réel afin qu’un flux de trafic sortant donné peut aller et venir entre les membres de l’équipe.  
-  
--   Charges de trafic entrants sont distribuées de la même manière que le mode de port Hyper-V.  
-  
-Les charges de trafic sortants dans ce mode sont équilibrées dynamiquement en fonction de la notion de flowlets. Tout comme la parole a sauts naturelles à la fin des mots et des phrases, les flux TCP (flux de communication TCP) ont également naturelles sauts. La partie d’un flux TCP entre deux sauts de ce type est appelée un flowlet.  
-  
-Lorsque l’algorithme de mode dynamique détecte qu’une limite flowlet s’est produite - par exemple, quand un saut de longueur suffisante s’est produite dans le flux TCP - l’algorithme rééquilibre automatiquement le flux à un autre membre de l’équipe si nécessaire.  Dans certains cas l’algorithme peut également régulièrement rééquilibrer les flux qui ne contiennent pas de n’importe quel flowlets. Pour cette raison, l’affinité entre les membres d’équipe et des flux TCP peut modifier à tout moment que l’algorithme d’équilibrage de la dynamique fonctionne afin d’équilibrer la charge de travail membre de l’équipe.  
-  
-Si l’équipe est configurée avec le commutateur indépendant ou un des modes dépendants du commutateur, il est recommandé d’utiliser le mode de distribution dynamique pour de meilleures performances.  
-  
-Il existe une exception à cette règle lorsque l’équipe de cartes réseau a seulement deux membres de l’équipe, est configuré en mode indépendant du commutateur et a activé, avec une carte réseau active le mode actif/mise en veille et l’autre configuré pour la mise en veille. Avec cette configuration de l’association de cartes réseau, distribution de hachage d’adresse légèrement plus performant que dynamique distribution.  
-  
-## <a name="bkmk_standby"></a>Choix d’un paramètre de mise en veille de carte  
-Les options de mise en veille carte sont None (toutes les cartes Active) ou votre sélection d’une carte réseau spécifique dans l’équipe de cartes réseau qui agira en tant qu’une carte de mise en veille, tandis que les autres membres de l’équipe non sélectionnés sont actifs. Lorsque vous configurez une carte réseau en tant qu’une carte de mise en veille, aucun trafic réseau est envoyé vers ou traitée par la carte, sauf si et jusqu’au moment où lorsqu’une carte réseau Active échoue. Après l’échec d’une carte réseau Active, la carte réseau de secours devient active et traite le trafic réseau. Si tous les membres de l’équipe sont remis en service, membre de l’équipe en attente est renvoyé à l’état de secours.  
-  
-Si vous disposez d’une association de deux et que vous choisissez de configurer une carte réseau en tant qu’une carte de mise en veille, vous perdez la bande passante avantages d’agrégation qui existent avec deux cartes réseau actives.  
-  
-> [!IMPORTANT]  
-> Vous n’avez pas besoin de désigner une carte de veille pour atteindre une tolérance de panne; tolérance de panne est toujours présente chaque fois qu’il existe au moins deux cartes réseau dans une association de cartes réseau.  
-  
-## <a name="bkmk_primary"></a>À l’aide de la propriété d’Interface équipe principale  
-Pour accéder à la boîte de dialogue Interface d’équipe principale, vous devez cliquer sur le lien est mis en surbrillance dans l’illustration ci-dessous.  
-  
-![Propriété d’Interface équipe principale](../../media/Create-a-New-NIC-Team-on-a-Host-Computer-or-VM/nict_10_primaryteaminterface.jpg)  
-  
-Après avoir cliqué sur le lien en surbrillance, les éléments suivants **nouvelle Interface d’équipe** boîte de dialogue s’ouvre.  
-  
-![Boîte de dialogue Nouvelle Interface d’équipe](../../media/Create-a-New-NIC-Team-on-a-Host-Computer-or-VM/nict_newteaminterface.jpg)  
-  
-Si vous utilisez des réseaux locaux virtuels, vous pouvez utiliser cette boîte de dialogue pour spécifier un numéro de réseau local virtuel.  
-  
-Si vous utilisez des réseaux locaux virtuels, ou non, vous pouvez spécifier un nom de tNIC pour l’équipe de cartes réseau.  
-  
-## <a name="see-also"></a>Voir aussi  
-[Créer une nouvelle équipe de cartes réseau dans une machine virtuelle](../../technologies/nic-teaming/Create-a-New-NIC-Team-in-a-VM.md)  
-[Association de cartes réseau](NIC-Teaming.md)  
-  
+Pour plus d’informations sur ces paramètres, consultez [paramètres d’association de cartes réseau](nic-teaming-settings.md).
 
+### <a name="prerequisites"></a>Prérequis
 
+Vous devez être membre du **administrateurs**, ou équivalent.  
+  
+### <a name="procedure"></a>Procédure
+  
+1.  Dans le Gestionnaire de serveur, cliquez sur **Serveur local**.  
+  
+2.  Dans le **propriétés** volet, dans la première colonne, recherchez **association de cartes réseau**, puis cliquez sur le **désactivé** lien.<p>Le **association de cartes réseau** boîte de dialogue s’ouvre.<p>![Boîte de dialogue association de cartes réseau](../../media/Create-a-New-NIC-Team/nict_02_nicteaming.jpg)  
+  
+3.  Dans **adaptateurs et les Interfaces**, sélectionnez l’une ou plusieurs cartes réseau que vous souhaitez ajouter à une association de cartes réseau.  
+  
+4.  Cliquez sur **tâches**, puis cliquez sur **ajouter à la nouvelle équipe**.<p>Le **nouvelle équipe** boîte de dialogue s’ouvre et affiche les cartes réseau et les membres de l’équipe.  
+  
+5.  Dans **nom de l’équipe**, tapez un nom pour l’association de cartes réseau, puis cliquez sur **des propriétés supplémentaires**.  
+  
+6.  Dans **des propriétés supplémentaires**, sélectionnez des valeurs pour :
+
+    - **Mode d’association**. Les options de mode d’association sont **indépendant du commutateur** et **dépendants du commutateur**. Le commutateur dépendants mode inclut **association statique** et **protocole LACP (Link Aggregation contrôle Protocol)**. 
+      
+      - **Indépendant du commutateur.** [!INCLUDE [switch-independent-shortdesc-include](../../includes/switch-independent-shortdesc-include.md)]
+      
+      - **Dépendants du commutateur.** [!INCLUDE [switch-dependent-shortdesc-include](../../includes/switch-dependent-shortdesc-include.md)] 
+      
+        | | |
+        |---|---|
+        |**Association statique** | Vous devez configurer manuellement le commutateur et l’hôte pour identifier le liens forment l’association. Comme il s’agit d’une solution configurée de manière statique, il n’existe aucun protocole supplémentaire afin de faciliter le commutateur et l’hôte pour identifier de manière incorrecte sur secteur câbles ou autres erreurs susceptibles de l’équipe ne parviennent pas à effectuer. Ce mode est généralement pris en charge par les commutateurs préconisés pour les serveurs. |
+        |**Link Aggregation Control Protocol (LACP)** |Contrairement à une association statique, mode d’association LACP identifie dynamiquement des liens qui sont connectés entre l’hôte et le commutateur. Cette connexion dynamique permet la création automatique d’une équipe et, en théorie, mais rarement dans la pratique, la réduction d’une association et l’extension simplement par la transmission ou la réception des paquets LACP à partir de l’entité pair. Tous les commutateurs de classe du serveur prend en charge le protocole LACP et requièrent tous l’opérateur de réseau à activer de manière administrative LACP sur le port de commutateur. Lorsque vous configurez un mode d’association du protocole LACP, association de cartes réseau fonctionne toujours en mode actif du protocole LACP avec un minuteur court.  Aucune option n’est actuellement disponible pour modifier la minuterie ou de modifier le mode LACP. |
+        ---
+    
+    - **Mode d’équilibrage de charge**. Les options de mode de distribution d’équilibrage de charge sont **hachage d’adresse**, **Port Hyper-V**, et **dynamique**.
+    
+       - **Hachage d’adresse.** [!INCLUDE [address-hash-shortdesc-include](../../includes/address-hash-shortdesc-include.md)]
+       
+       - **Port Hyper-V.** [!INCLUDE [hyper-v-port-shortdesc-include](../../includes/hyper-v-port-shortdesc-include.md)]
+       
+       - **Dynamique.** [!INCLUDE [dynamic-shortdesc-include](../../includes/dynamic-shortdesc-include.md)]
+    
+    - **Adaptateur de secours**. Les options de carte de mise en veille sont **None (toutes les cartes actif)** ou votre sélection d’une carte réseau spécifique dans l’association de cartes réseau qui agit comme une carte de mise en veille.
+   
+   > [!TIP]  
+   > Si vous configurez une association de cartes réseau dans une machine virtuelle (VM), vous devez sélectionner un **mode d’association** de _indépendant du commutateur_ et un **mode d’équilibrage de charge** de  _Hachage d’adresses_.  
+  
+7.  Si vous souhaitez configurer le nom de l’interface équipe principale ou affecter un numéro de réseau local virtuel à l’association de cartes réseau, cliquez sur le lien à droite de **interface d’équipe principale**.<p>Le **nouvelle interface d’équipe** boîte de dialogue s’ouvre.<p>![Nouvelle interface d’équipe](../../media/Create-a-New-NIC-Team/nict_newteaminterface.jpg)  
+  
+8.  Selon vos besoins, effectuez l’une des opérations suivantes :  
+  
+    -   Fournir un nom de l’interface tNIC.  
+  
+    -   Configurer l’appartenance au VLAN : cliquez sur **VLAN spécifique** et tapez les informations de réseau local virtuel. Par exemple, si vous souhaitez ajouter cette association de cartes réseau pour le réseau local virtuel comptabilité numéro 44, 44 de gestion des comptes de Type - VLAN.   
+  
+9. Cliquez sur **OK**.  
+
+_**Félicitations !**_  Vous avez créé une association de cartes réseau sur un ordinateur hôte ou d’une machine virtuelle.
+
+## <a name="related-topics"></a>Rubriques connexes
+- [Association de cartes réseau](NIC-Teaming.md): Dans cette rubrique, nous vous donner une vue d’ensemble de l’association de carte d’Interface réseau (NIC) dans Windows Server 2016. Association de cartes réseau vous permet de regrouper entre 1 et 32 de cartes réseau Ethernet physiques dans un ou plusieurs adaptateurs de réseau virtuel basé sur le logiciel. Ces cartes réseau virtuelles fournissent des performances élevées et une tolérance de panne importante en cas de défaillance de la carte réseau.   
+
+- [Utilisation des adresses MAC de l’association de cartes réseau et la gestion](NIC-Teaming-MAC-Address-Use-and-Management.md): Lorsque vous configurez une association de cartes réseau avec le mode indépendant du commutateur et de hachage d’adresse ou distribution de charge dynamique, l’équipe utilise que l’accès au média (adresse MAC control) du membre principal association de cartes réseau sur le trafic sortant. Le membre d’association de cartes réseau principal est une carte réseau sélectionnée par le système d’exploitation à partir de l’ensemble initial de membres de l’équipe.
+
+- [Paramètres d’association de cartes réseau](nic-teaming-settings.md): Dans cette rubrique, nous vous donner une vue d’ensemble des propriétés d’association de cartes réseau telles que l’association de cartes et modes d’équilibrage de charge. Nous vous donnons également plus d’informations sur le paramètre de carte de mise en veille et de la propriété d’interface équipe principale. Si vous avez au moins deux cartes réseau dans une association de cartes réseau, il est inutile de désigner une carte de mise en veille pour une tolérance de panne.
+
+- [Résolution des problèmes d’association de cartes réseau](Troubleshooting-NIC-Teaming.md): Dans cette rubrique, nous abordons les façons de résoudre les problèmes d’association de cartes réseau, telles que le matériel, les titres de commutateur physique et la désactivation ou l’activation des cartes réseau à l’aide de Windows PowerShell. 
+
+---

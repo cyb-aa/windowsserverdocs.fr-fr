@@ -1,6 +1,6 @@
 ---
-title: Gérer basé sur les rôles contrôle d’accès avec Windows PowerShell
-description: Cette rubrique fait partie du guide de gestion de la gestion des adresses IP (IPAM) dans Windows Server2016.
+title: Gérer le contrôle d’accès basé sur les rôles avec Windows PowerShell
+description: Cette rubrique fait partie du guide de gestion de la gestion des adresses IP (IPAM) dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,34 +13,35 @@ ms.topic: article
 ms.assetid: 4f13f78e-0114-4e41-9a28-82a4feccecfc
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: df6fa423a4ec891f1ad3faefad6c6054519542c4
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: e0318db1b2b1b2730ee6dc57b7b9df6d16fe57e8
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59841470"
 ---
-# <a name="manage-role-based-access-control-with-windows-powershell"></a>Gérer basé sur les rôles contrôle d’accès avec Windows PowerShell
+# <a name="manage-role-based-access-control-with-windows-powershell"></a>Gérer le contrôle d’accès basé sur les rôles avec Windows PowerShell
 
->S’applique à: Windows Server (canal annuel un point-virgule), Windows Server2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour savoir comment utiliser IPAM pour gérer le contrôle d’accès basé sur les rôles avec Windows PowerShell.  
+Vous pouvez utiliser cette rubrique pour apprendre à utiliser IPAM pour gérer le contrôle d’accès en fonction du rôle avec Windows PowerShell.  
   
 >[!NOTE]
->Pour la référence de commande IPAM Windows PowerShell, voir [applets de commande de serveur de gestion des adresses IP (IPAM) dans Windows PowerShell](https://technet.microsoft.com/library/jj553807.aspx).  
+>Pour la référence de commande IPAM Windows PowerShell, consultez le [IpamServer des applets de commande dans Windows PowerShell](https://docs.microsoft.com/powershell/module/ipamserver/?view=win10-ps).  
   
-Les nouvelles commandes Windows PowerShell IPAM vous donnent la possibilité de récupérer et modifier les étendues d’accès des objets DNS et DHCP. Le tableau suivant illustre la commande appropriée à utiliser pour chaque objet IPAM.  
+Les nouvelles commandes Windows PowerShell IPAM vous offrent la possibilité de récupérer et modifier les étendues d’accès d’objets DNS et DHCP. Le tableau suivant illustre la commande correcte à utiliser pour chaque objet IPAM.  
   
-|Objet IPAM|Commande|Description|  
+|Objet d’IPAM|Command|Description|  
 |---------------|-----------|---------------|  
-|Serveur DNS|Get-IpamDnsServer|Cette applet de commande retourne l’objet serveur DNS dans IPAM|  
+|Serveur DNS|Get-IpamDnsServer|Cette applet de commande retourne l’objet de serveur DNS dans IPAM|  
 |Zone DNS|Get-IpamDnsZone|Cette applet de commande retourne l’objet de zone DNS dans IPAM|  
 |Enregistrement de ressource DNS|Get-IpamResourceRecord|Cette applet de commande retourne l’objet d’enregistrement de ressource DNS dans IPAM|  
-|Redirecteur conditionnel DNS|Get-IpamDnsConditionalForwarder|Cette applet de commande retourne l’objet de redirecteur conditionnel DNS dans IPAM|  
-|Serveur DHCP|Get-IpamDhcpServer|Cette applet de commande retourne l’objet serveur DHCP dans IPAM|  
+|Redirecteur DNS conditionnel|Get-IpamDnsConditionalForwarder|Cette applet de commande retourne l’objet de redirecteur conditionnel de DNS dans IPAM|  
+|Serveur DHCP|Get-IpamDhcpServer|Cette applet de commande retourne l’objet de serveur DHCP dans IPAM|  
 |Étendue globale DHCP|Get-IpamDhcpSuperscope|Cette applet de commande retourne l’objet d’étendue globale DHCP dans IPAM|  
 |Étendue DHCP|Get-IpamDhcpScope|Cette applet de commande retourne l’objet d’étendue DHCP dans IPAM|  
   
-Dans l’exemple suivant de sortie de la commande, le `Get-IpamDnsZone` applet de commande extrait le **dublin.contoso.com** zone DNS.  
+Dans l’exemple suivant de sortie de commande, le `Get-IpamDnsZone` applet de commande récupère le **dublin.contoso.com** zone DNS.  
   
 ```  
 PS C:\Users\Administrator.CONTOSO> Get-IpamDnsZone -ZoneType Forward -ZoneName dublin.contoso.com  
@@ -53,7 +54,7 @@ DynamicUpdateStatus  : None
 ScavengeStaleRecords : False  
 ```  
   
-## <a name="setting-access-scopes-on-ipam-objects"></a>Définition des étendues d’accès sur des objets IPAM  
+## <a name="setting-access-scopes-on-ipam-objects"></a>Définir des étendues d’accès sur les objets IPAM  
 Vous pouvez définir des étendues d’accès sur des objets IPAM à l’aide de la `Set-IpamAccessScope` commande. Vous pouvez utiliser cette commande pour définir l’étendue d’accès à une valeur spécifique pour un objet ou les objets à hériter l’étendue d’accès d’objets parents. Voici les objets que vous pouvez configurer avec cette commande.  
   
 -   Étendue DHCP  
@@ -62,7 +63,7 @@ Vous pouvez définir des étendues d’accès sur des objets IPAM à l’aide de
   
 -   Étendue globale DHCP  
   
--   Redirecteur conditionnel DNS  
+-   Redirecteur DNS conditionnel  
   
 -   Enregistrements de ressource DNS  
   
@@ -70,13 +71,13 @@ Vous pouvez définir des étendues d’accès sur des objets IPAM à l’aide de
   
 -   Zone DNS  
   
--   Bloc d’adresses IP  
+-   Bloc d’adresses IP  
   
 -   Plage d’adresses IP  
   
 -   Espace d’adressage IP  
   
--   Sous-réseau d’adresse IP  
+-   Sous-réseau d’adresses IP  
   
 Voici la syntaxe pour le `Set-IpamAccessScope` commande.  
   
@@ -116,7 +117,7 @@ SYNTAX
     Set-IpamAccessScope [-IpamBlock] -InputObject <ciminstance[]> [-AccessScopePath <string>] [-IsInheritedAccessScope] [-PassThru] [-CimSession <CimSession[]>] [-ThrottleLimit <int>] [-AsJob] [-WhatIf] [-Confirm]  [<CommonParameters>]  
 ```  
   
-Dans l’exemple suivant, l’étendue d’accès de la zone DNS **dublin.contoso.com** est changé de **Dublin** à **Europe**.  
+Dans l’exemple suivant, l’étendue d’accès de la zone DNS **dublin.contoso.com** est remplacée par **Dublin** à **Europe**.  
   
 ```  
 PS C:\Users\Administrator.CONTOSO> Get-IpamDnsZone -ZoneType Forward -ZoneName dublin.contoso.com  
