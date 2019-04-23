@@ -4,37 +4,42 @@ title: Service de temps Windows
 description: ''
 author: shortpatti
 ms.author: pashort
-manager: brianlic
-ms.date: 02/01/2018
+manager: dougkim
+ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server-threshold
-ms.technology: identity-adds
-ms.openlocfilehash: b997d1f26e8da82e0d595b1ce13763e0a87d6d03
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.technology: networking
+ms.openlocfilehash: a86c2bdde9c65878b228f153009734da8f03960d
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59856830"
 ---
 # <a name="windows-time-service-w32time"></a>Service de temps Windows (W32Time)
 
->S’applique à: Windows Server2016, Windows Server2012R2, Windows Server2012
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10 ou version ultérieure
 
-Le service de temps Windows (W32Time) synchronise la date et l’heure sur tous les ordinateurs dans les Services de domaine ActiveDirectory (ADDS). Synchronisation de l’heure est essentielle pour le bon fonctionnement de nombreux services Windows et des applications line of business (LOB). Le service de temps Windows utilise le protocole NTP (Network Time) pour synchroniser l’horloge de l’ordinateur sur le réseau. NTP garantit qu’une valeur d’horloge précise, ou horodateur, peut être affectée réseau les demandes d’accès aux ressources et de validation.
+Le service de temps de Windows (W32Time) synchronise la date et l’heure pour tous les ordinateurs en cours d’exécution dans les Services de domaine Active Directory (AD DS). Synchronisation date / heure est essentielle pour le bon fonctionnement de nombreux services de Windows et les applications line of business (LOB). Le service de temps de Windows utilise le protocole NTP (Network Time) pour synchroniser les horloges d’ordinateur sur le réseau. NTP garantit qu’une valeur d’horloge précise, ou horodateur, peut être affecté aux demandes d’accès aux ressources et de validation du réseau.
 
-Dans la rubrique de Service de temps Windows (W32Time), le contenu suivant est disponible:
-- **[Heure précise Windows2016](accurate-time.md).** Précision de la synchronisation de temps dans Windows Server 2016 a été améliorée considérablement, tout en conservant une compatibilité NTP avec des versions antérieures de Windows.  Conditions de fonctionnement raisonnable, vous pouvez conserver un 1 précision ms en ce qui concerne l’heure UTC ou supérieure pour les membres du domaine Windows Server 2016 et mise à jour anniversaire Windows 10.
-- **[Référence technique de service de temps Windows ](windows-time-service-tech-ref.md).** Le service W32Time fournit la synchronisation d’horloge de réseau pour les ordinateurs sans avoir besoin de configuration étendues. Le service W32Time est essentiel pour le bon fonctionnement de l’authentification Kerberos V5 et, par conséquent, pour l’authentification par ADDS.
-    - **[Comment le service de temps Windows fonctionne ](How-the-Windows-Time-Service-Works.md).** Bien que le service de temps Windows n’est pas une implémentation exacte du protocole NTP (Network Time), il utilise la suite complexe d’algorithmes qui est définie dans les spécifications NTP pour vous assurer que les horloges sur les ordinateurs sur un réseau sont aussi précis que possible.
-    - **[Paramètres et outils de service de temps Windows ](Windows-Time-Service-Tools-and-Settings.md).** La plupart des ordinateurs membres du domaine ont un type de client de temps de NT5DS, ce qui signifie qu’ils synchronisent l’heure à partir de la hiérarchie de domaine. L’exception uniquement par défaut est le contrôleur de domaine qui fonctionne en tant que le maître d’opérations émulateur contrôleur principal de domaine du domaine racine de forêt, qui est généralement configuré pour synchroniser l’heure avec une source de temps externe.
+Dans la rubrique de Service de temps Windows (W32Time), le contenu suivant est disponible :
+- **[Heure précise de Windows Server 2016](accurate-time.md).** Précision de synchronisation de temps dans Windows Server 2016 a été considérablement améliorée, tout en conservant une compatibilité NTP avec les versions antérieures de Windows. Conditions d’exploitation raisonnable, vous pouvez conserver un 1 précision ms en ce qui concerne l’heure UTC ou mieux pour les membres de domaine Windows Server 2016 et de mise à jour anniversaire de Windows 10.
+- **[Limites de prise en charge pour les environnements de haute-précision](support-boundary.md).** Cet article décrit les limites de prise en charge pour le service de temps de Windows (W32Time) dans les environnements nécessitant un temps système très précis et plus stable.
+- **[Configuration des systèmes de haute précision](configuring-systems-for-high-accuracy.md).** Synchronisation date / heure dans Windows 10 et Windows Server 2016 a été considérablement améliorée.  Conditions raisonnable d’exploitation, les systèmes peuvent être configurés pour mettre à jour de 1 ms (millisecondes) ou mieux (par rapport à UTC).
+- **[Heure de Windows pour la traçabilité](windows-time-for-traceability.md).** Réglementations dans de nombreux secteurs requièrent des systèmes garantissant la traçabilité en temps UTC.  Cela signifie que vous pouvez attesté par décalage d’un système en ce qui concerne l’heure UTC.  Pour activer les scénarios de conformité aux réglementations, Windows 10 et Server 2016 fournit les nouveaux journaux des événements pour fournir une image du point de vue du système d’exploitation pour former une compréhension des actions effectuées sur l’horloge système.  Ces journaux des événements sont générés en continu pour le service de temps de Windows et peut être examiné ou archivé pour une analyse ultérieure.
+- **[Référence technique du service Windows temps](windows-time-service-tech-ref.md).** Le service W32Time fournit la synchronisation d’horloge de réseau pour les ordinateurs sans nécessiter de configuration étendues. Le service W32Time est essentiel pour le bon fonctionnement de l’authentification Kerberos V5 et, par conséquent, pour l’authentification basée sur le service d’annuaire AD.
+    - **[Fonctionnement du service de temps de Windows](How-the-Windows-Time-Service-Works.md).** Bien que le service de temps de Windows n’est pas une implémentation exacte du protocole NTP (Network Time), il utilise la suite d’algorithmes complexe qui est définie dans les spécifications NTP pour vous assurer que les horloges des ordinateurs à travers un réseau soient aussi précis que possible.
+    - **[Outils de service Windows et les paramètres](Windows-Time-Service-Tools-and-Settings.md).** La plupart des ordinateurs membres du domaine sont de type client heure NT5DS, ce qui signifie que lorsqu’ils synchronisent à temps à partir de la hiérarchie de domaine. L’exception à cette règle uniquement classique est le contrôleur de domaine qui fonctionne comme le principal (PDC) émulateur maître d’opérations PDC du domaine racine de forêt, qui est généralement configuré pour synchroniser l’heure avec une source externe.
+
 
 ## <a name="related-topics"></a>Rubriques connexes
-Pour plus d’informations sur la hiérarchie de domaine et du système de score, voir la ["Qu’est le Service de temps Windows?»](https://blogs.msdn.microsoft.com/w32time/2007/07/07/what-is-windows-time-service/) Billet de blog.
+Pour plus d’informations sur la hiérarchie de domaine et le système de calcul de score, consultez le [« Quel est le Service de temps Windows ? »](https://blogs.msdn.microsoft.com/w32time/2007/07/07/what-is-windows-time-service/) billet de blog.
 
-Le modèle de plug-in de fournisseur de temps windows est [documentées sur TechNet](https://msdn.microsoft.com/en-us/library/windows/desktop/ms725475%28v=vs.85%29.aspx).
+Le modèle de plug-in de fournisseur de temps windows est [documentée sur TechNet](https://msdn.microsoft.com/library/windows/desktop/ms725475%28v=vs.85%29.aspx).
 
-Un addendum référencé par l’article Windows2016précis temps peut être téléchargé [ici](http://windocs.blob.core.windows.net/windocs/WindowsTimeSyncAccuracy_Addendum.pdf)
+Un addenda référencé par l’article Windows 2016 précise temps peut être téléchargé [ici](https://windocs.blob.core.windows.net/windocs/WindowsTimeSyncAccuracy_Addendum.pdf)
 
-Pour obtenir une vue d’ensemble du service de temps Windows, jeter un coup de œil cela [vue d’ensemble vidéo ](https://aka.ms/WS2016TimeVideo).
+Pour une présentation rapide du service de temps de Windows, examinons ce [vidéo de présentation de haut niveau](https://aka.ms/WS2016TimeVideo).
 
 <!-- In this guide
 In this guide:

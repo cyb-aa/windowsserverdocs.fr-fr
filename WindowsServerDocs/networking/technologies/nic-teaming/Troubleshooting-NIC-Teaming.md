@@ -1,7 +1,7 @@
 ---
 title: Résolution des problèmes d’association de cartes réseau
-description: Cette rubrique fournit des informations sur la résolution des problèmes d’association de cartes réseau dans Windows Server2016.
-manager: brianlic
+description: Cette rubrique fournit des informations sur la résolution de l’association de cartes réseau dans Windows Server 2016.
+manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,54 +13,54 @@ ms.topic: article
 ms.assetid: fdee02ec-3a7e-473e-9784-2889dc1b6dbb
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 634ec1a5eee0cd661ca89c2673e5b74abd458cd6
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 09/13/2018
+ms.openlocfilehash: d39dc6a4dcf5dca8186b0599fb479ed5ae684e0f
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59856250"
 ---
 # <a name="troubleshooting-nic-teaming"></a>Résolution des problèmes d’association de cartes réseau
 
->S’applique à: Windows Server (canal annuel un point-virgule), Windows Server2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Cette rubrique fournit des informations sur la résolution des problèmes d’association de cartes réseau et contient les sections suivantes qui décrivent les causes possibles des problèmes avec l’association de cartes réseau.  
+Dans cette rubrique, nous abordons les façons de résoudre les problèmes d’association de cartes réseau, telles que le matériel et les titres de commutateur physique.  Lorsque les implémentations matérielles de protocoles standard ne sont pas conformes aux spécifications, les performances d’association de cartes réseau peut être affectée. En outre, selon la configuration, association de cartes réseau peuvent envoyer des paquets à partir de la même adresse IP avec plusieurs adresses MAC aller-retour des fonctionnalités de sécurité sur le commutateur physique.
+
   
--   [Matériel qui n’est pas conforme aux spécifications](#bkmk_hardware)  
+## <a name="hardware-that-doesnt-conform-to-specification"></a>Matériel qui ne sont pas conformes à la spécification  
   
--   [Fonctionnalités de sécurité commutateur physique](#bkmk_switch)  
+En fonctionnement normal, association de cartes réseau peuvent envoyer des paquets à partir de la même adresse IP, encore avec plusieurs adresses MAC. Selon les normes de protocole, les destinataires de ces paquets doivent résoudre l’adresse IP de la machine virtuelle ou un hôte à une adresse MAC spécifique plutôt qu’à répondre à l’adresse MAC à partir de la réception du paquet.  Les clients qui implémentent correctement les protocoles de résolution d’adresse (ARP et NDP) envoient des paquets avec les adresses MAC de destination correcte, autrement dit, l’adresse MAC de la machine virtuelle ou un hôte qui possède cette adresse IP. 
   
--   [Désactivation et activation avec Windows PowerShell](#bkmk_ps)  
+Certains matériels embedded n’implémente pas correctement les protocoles de résolution d’adresse et également peut ne pas explicitement résoudre une adresse IP à une adresse MAC à l’aide de ARP ou NDP.  Par exemple, un contrôleur de réseau SAN de zone de stockage peut effectuer de cette manière. Appareils non conformes copier l’adresse MAC source à partir d’un paquet reçu et ensuite l’utiliser comme l’adresse MAC de destination dans les paquets sortants correspondants, ce qui entraîne les paquets envoyés à l’adresse MAC de destination incorrecte. Pour cette raison, les paquets sont ignorés par le commutateur virtuel Hyper-V, car ils ne correspondent pas n’importe quelle destination connue.  
   
-## <a name="bkmk_hardware"></a>Matériel qui n’est pas conforme aux spécifications  
-Lorsque les implémentations matérielles de protocoles standard ne sont pas conformes à la spécification, les performances d’association de cartes réseau peut être affectée.  
+Si vous êtes avoir arrive pas à se connecter à des contrôleurs de réseau SAN ou autre incorporé matériel, vous devez prendre des captures de paquets pour déterminer si votre matériel est correctement mise en œuvre ARP ou NDP et contactez votre fournisseur de matériel pour la prise en charge.  
+
   
-En fonctionnement normal, association de cartes réseau peuvent envoyer des paquets à partir de la même adresse IP, mais avec l’accès de support source différent plusieurs adresses control (MAC). Selon les normes de protocole, les destinataires de ces paquets doivent résoudre l’adresse IP de l’ordinateur hôte ou un ordinateur virtuel à une adresse MAC spécifique plutôt que de répondre à l’adresse MAC à partir duquel le paquet a été reçu.  Les clients qui implémentent correctement les protocoles de résolution adresse protocole ARP du IPv4 (Address Resolution) ou le protocole de découverte de voisin de IPv6 (NDP), envoie les paquets avec l’adresse MAC (l’adresse MAC de l’ordinateur virtuel ou d’un hôte qui possède cette adresse IP) cible correcte.  
+## <a name="physical-switch-security-features"></a>Fonctionnalités de sécurité de commutateur physique  
+Selon la configuration, association de cartes réseau peuvent envoyer des paquets à partir de la même adresse IP avec plusieurs adresses MAC source retour des fonctionnalités de sécurité sur le commutateur physique. Par exemple, l’inspection dynamique ARP ou la fonctionnalité IP source guard, surtout si le commutateur physique ne prenant en charge que les ports font partie d’une équipe, ce qui se produit lorsque vous configurez association de cartes réseau en mode indépendant du commutateur. Examinez les journaux de commutateur pour déterminer si les fonctionnalités de sécurité de commutateur sont à l’origine des problèmes de connectivité. 
   
-Certains incorporé matériel n’implémentent pas correctement les protocoles de résolution d’adresses et également ne peut-être pas explicitement résoudre une adresse IP à une adresse MAC à l’aide de ARP ou NDP.  Un contrôleur de réseau SAN de zone de stockage est un exemple d’un périphérique qui peut effectuer de cette manière. Périphériques non conformes copier la source des adresses MAC qui sont contenue dans un paquet reçu et l’utiliser en tant que l’adresse MAC dans les paquets sortants correspondants de destination.  
+## <a name="disabling-and-enabling-network-adapters-by-using-windows-powershell"></a>Désactivation et activation des cartes réseau à l’aide de Windows PowerShell  
+
+Une raison courante pour une association de cartes réseau échec est que l’interface de l’équipe est désactivée et dans de nombreux cas, par inadvertance lors de l’exécution d’une séquence de commandes.  Cette séquence particulière de commandes n’active pas toutes la NetAdapters désactivée, car la désactivation de tous les membres physiques sous-jacent de cartes réseau supprime l’interface d’équipe de carte réseau. 
+
+Dans ce cas, l’interface d’équipe de carte réseau n’affiche plus dans Get-NetAdapter et pour cette raison, **Enable-NetAdapter \***  n’active pas l’association de cartes réseau. Le **Enable-NetAdapter \***  commande est le cas, toutefois, activer le membre cartes réseau, qui recrée l’interface d’équipe puis (après un bref instant). L’interface de l’équipe reste dans l’état « désactivé » jusqu'à ce que réactivée, autorisant le trafic réseau commencer à circuler. 
+
+La séquence de commandes Windows PowerShell suivante peut désactiver l’interface de l’équipe par inadvertance :  
   
-Ainsi, les paquets envoyés à l’adresse MAC de destination incorrecte. Pour cette raison, les paquets sont perdus par le commutateur virtuel Hyper-V, car ils ne correspondent pas toutes les destinations connues.  
-  
-Si vous ne rencontrez des problèmes pour se connecter à des contrôleurs de SAN ou d’autres incorporé matériel, vous devez prendre des captures de paquets et déterminer si votre matériel est correctement mise en œuvre ARP ou NDP et contactez votre fournisseur de matériel pour la prise en charge.  
-  
-## <a name="bkmk_switch"></a>Fonctionnalités de sécurité commutateur physique  
-Selon la configuration, l’association de cartes réseau peuvent envoyer des paquets à partir de la même adresse IP avec plusieurs adresses MAC source différente.  Cela peut déclencher la sécurité protéger de fonctionnalités sur le commutateur physique comme dynamique inspection ARP ou IP source, en particulier si le commutateur physique n’est pas en charge que les ports font partie d’une équipe. Cela peut se produire si vous configurez l’association de cartes réseau en mode indépendant du commutateur.  Vous devez examiner les journaux de commutateur pour déterminer si les fonctionnalités de sécurité de commutateur sont à l’origine des problèmes de connectivité avec l’association de cartes réseau.  
-  
-## <a name="bkmk_ps"></a>Désactivation et activation de cartes réseau à l’aide de Windows PowerShell  
-Une raison courante d’une association échec est que l’interface d’équipe est désactivée. Dans de nombreux cas, l’interface est désactivée par inadvertance lors de l’exécution de la séquence de commandes Windows PowerShell suivante:  
-  
-```  
+```PowerShell 
 Disable-NetAdapter *  
 Enable-NetAdapter *  
 ```  
   
-Cette séquence de commandes n’active pas toutes les NetAdapters il désactivé.  
+
   
-Il s’agit, car la désactivation de toutes les cartes réseau de membres physique sous-jacent entraîne l’interface équipe de cartes réseau à supprimer et n’apparaissent plus dans Get-NetAdapter. Pour cette raison, les **Enable-NetAdapter \ *** commande n’active pas l’équipe de cartes réseau, car cette carte est supprimée.  
-  
-Le **Enable-NetAdapter \ *** commande est le cas, toutefois, activer le membre, les cartes réseau qui entraîne l’interface d’équipe à être recréés puis (après un bref moment). Dans ce cas, l’interface de l’équipe est toujours dans un état «disabled», car il n’a pas été réactivé. L’activation de l’interface d’équipe une fois qu’il est recréé autorise le trafic réseau commencer à transmettre à nouveau.  
-  
-## <a name="see-also"></a>Voir aussi  
-[Association de cartes réseau](NIC-Teaming.md)  
+## <a name="related-topics"></a>Rubriques connexes  
+- [Association de cartes réseau](NIC-Teaming.md): Dans cette rubrique, nous vous donner une vue d’ensemble de l’association de carte d’Interface réseau (NIC) dans Windows Server 2016. Association de cartes réseau vous permet de regrouper entre 1 et 32 de cartes réseau Ethernet physiques dans un ou plusieurs adaptateurs de réseau virtuel basé sur le logiciel. Ces cartes réseau virtuelles fournissent des performances élevées et une tolérance de panne importante en cas de défaillance de la carte réseau.   
+
+- [Utilisation des adresses MAC de l’association de cartes réseau et la gestion](NIC-Teaming-MAC-Address-Use-and-Management.md): Lorsque vous configurez une association de cartes réseau avec le mode indépendant du commutateur et de hachage d’adresse ou distribution de charge dynamique, l’équipe utilise que l’accès au média (adresse MAC control) du membre principal association de cartes réseau sur le trafic sortant. Le membre d’association de cartes réseau principal est une carte réseau sélectionnée par le système d’exploitation à partir de l’ensemble initial de membres de l’équipe.
+
+- [Paramètres d’association de cartes réseau](nic-teaming-settings.md): Dans cette rubrique, nous vous donner une vue d’ensemble des propriétés d’association de cartes réseau telles que l’association de cartes et modes d’équilibrage de charge. Nous vous donnons également plus d’informations sur le paramètre de carte de mise en veille et de la propriété d’interface équipe principale. Si vous avez au moins deux cartes réseau dans une association de cartes réseau, il est inutile de désigner une carte de mise en veille pour une tolérance de panne.
   
 
 
