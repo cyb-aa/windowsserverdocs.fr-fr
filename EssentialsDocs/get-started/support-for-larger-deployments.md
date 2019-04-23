@@ -1,6 +1,6 @@
 ---
-title: "Prise en charge des déploiements plus importants"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Prise en charge des déploiements plus importants
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,56 +13,57 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: c60e5f73c88a225fbd1067992894f9d20da745ad
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59860480"
 ---
 #<a name="support-for-larger-deployments"></a>Prise en charge des déploiements plus importants
 
->S’applique à: Windows Server2016Essentials
+>S'applique à : WindowsServer2016 Essentials
 
 > [!IMPORTANT]  
-> Les fonctionnalités décrites dans cette rubrique fonctionnent uniquement sur Windows Server2016 avec le rôle expérience Essentials est activé et non à la référence SKU de Windows Server2016Essentials.
+> Les fonctionnalités décrites dans cette rubrique fonctionnent uniquement sur Windows Server 2016 avec le rôle expérience Essentials activé et non avec la référence SKU de Windows Server 2016 Essentials.
 
 
-WindowsServerEssentials prend désormais en charge les déploiements plus importants avec:
+Windows Server Essentials prend désormais en charge les déploiements plus importants avec :
 
 - plusieurs domaines
 - plusieurs contrôleurs de domaine
 - possibilité de spécifier un contrôleur de domaine désigné
-- Prise en charge jusqu'à 500utilisateurs et 500périphériques
+- prise en charge jusqu'à 500 utilisateurs et 500 appareils
 
-##<a name="support-for-multiple-domains"></a>Prise en charge de plusieurs domaines
+##<a name="support-for-multiple-domains"></a>Prise en charge de domaines multiples
 
-Serveur Windows2012R2 Essentials prend en charge qu’un seul domaine par serveur, ce qui est nécessaire, et le serveur Essentials doit être la racine de la forêt. Un domaine et forêt sont toujours nécessaires, le rôle expérience Windows Server2016Essentials peut désormais être déployé sur Windows Server2016 Standard ou Datacenter pour prendre en charge plusieurs domaines.
+Serveur de Windows 2012 R2 Essentials prend en charge qu’un seul domaine par serveur, ce qui est requis, et le serveur Essentials doit être la racine de la forêt. Pendant un domaine et une forêt sont toujours nécessaires, le rôle expérience Windows Server 2016 Essentials peut désormais être déployé sur Windows Server 2016 Standard ou centre de données pour prendre en charge de plusieurs domaines.
 
 ## <a name="support-for-multiple-domain-controllers"></a>Prise en charge de plusieurs contrôleurs de domaine
 
- WindowsServerEssentials2012R2 bloque tous les services qui tirent parti d’Azure ActiveDirectory, par exemple Office 365, où plusieurs contrôleurs de domaine est déployé. La raison est que la synchronisation de compte et mot de passe entre les contrôleurs de domaine local et Azure ActiveDirectory peut entraîner des informations d’identification compte avec des mots de passe qui ne sont pas synchronisées. Cette limitation a été supprimée dans Windows Server2016Essentials.
+ Windows Server Essentials 2012 R2 bloque tous les services qui tirent parti d’Azure Active Directory, telles qu’Office 365, où plusieurs contrôleurs de domaine est déployé. La raison est que la synchronisation de compte et mot de passe entre les contrôleurs de domaine locaux et Azure Active Directory peut entraîner aux informations d’identification de compte avec les mots de passe qui ne sont pas synchronisés. Cette limitation a été supprimée dans Windows Server 2016 Essentials.
 
-##<a name="ability-to-specify-a-designated-domain-controller"></a>Possibilité de spécifier un contrôleur de domaine désigné
+##<a name="ability-to-specify-a-designated-domain-controller"></a>possibilité de spécifier un contrôleur de domaine désigné
 
-Vous pouvez désormais choisir un contrôleur de domaine désigné qui sera améliorer les temps de récupération des objets de domaine ActiveDirectory, ainsi que coordonner la synchronisation de changement de compte sur les autres contrôleurs de domaine dans le domaine.
+Vous pouvez maintenant choisir un contrôleur de domaine désigné qui sera améliorer les temps de récupération des objets de domaine Active Directory, ainsi que coordonner la synchronisation de la modification du compte entre autres contrôleurs de domaine dans le domaine.
 
-Désigné du contrôleur de domaine par défaut sera le même serveur qui exécute le rôle serveur expérience WindowsServerEssentials. Si ce serveur est un serveur membre, ce qui signifie qu’il n’est pas un contrôleur de domaine, puis la valeur par défaut, le contrôleur de domaine désigné sera déterminé automatiquement basé sur les tests du contrôleur de domaine dans le domaine a la plus faible latence du réseau pour le serveur qui exécute le rôle serveur expérience Windows Server. Si vous souhaitez modifier manuellement le serveur qui est le contrôleur de domaine désigné, vous pouvez le faire dans **paramètres** dans les **tableau de bord WindowsServerEssentials** comme illustré ci-dessous.
+Désigné du contrôleur de domaine par défaut sera le même serveur qui exécute le rôle serveur expérience Windows Server Essentials. Si ce serveur est un serveur membre, ce qui signifie qu’il n’est pas un contrôleur de domaine, puis la valeur par défaut, le contrôleur de domaine désignée est automatiquement déterminé en fonction de test quel contrôleur de domaine dans le domaine a la latence réseau la plus faible vers le serveur exécutant le Rôle de serveur d’expérience Windows Server. Si vous souhaitez modifier manuellement le serveur qui est le contrôleur de domaine désigné, vous pouvez effectuer dans **paramètres** dans le **tableau de bord Windows Server Essentials** comme indiqué ci-dessous.
 
-![Une capture d’écran montrant les paramètres du Panneau de commande au premier plan et le tableau de bord WindowsServerEssentials en arrière-plan. La page de contrôleur de domaine désigné du Panneau de configuration de paramètres est sélectionnée.](media/larger-deployments-1.PNG)
+![Une capture d’écran montrant les paramètres du Panneau de commande au premier plan et le tableau de bord Windows Server Essentials en arrière-plan. La page de contrôleur de domaine désigné du Panneau de paramètres est actuellement sélectionnée.](media/larger-deployments-1.PNG)
 
-##<a name="support-for-500-users-and-500-devices"></a>Prise en charge de 500utilisateurs et 500périphériques
+##<a name="support-for-500-users-and-500-devices"></a>Prise en charge de 500 utilisateurs et 500 appareils
 -------------------------------------
 
-Le nombre maximal d’utilisateurs pris en charge et des périphériques dans Windows Server2012R2 Essentials est 25 et 50, respectivement. Avec l’introduction du rôle serveur expérience WindowsServerEssentials, cette limite a été augmentée à 100utilisateurs et 200appareils.
+Le nombre maximal d’utilisateurs pris en charge et d’appareils dans Windows Server 2012 R2 Essentials est 25 et 50, respectivement. Avec l’introduction du rôle serveur expérience Windows Server Essentials, cette limite a été augmentée à 100 utilisateurs et 200 appareils.
 
-Windows Server2016Essentials prend en charge 500utilisateurs et 500périphériques. Rendre cet possible est une mise à jour pour l’infrastructure du fournisseur et le contrôle de liste d’objets pour qu’ils mettent en cache et rendu rapidement de longues listes d’objets utilisateur et périphérique. En outre, une fonctionnalité de recherche et de filtre a été ajoutée pour trouver rapidement l’utilisateur ou le périphérique peut être recherchées (voir Figure5-2). Vous trouverez des fonctionnalités de recherche et de filtrage dans le **tableau de bord WindowsServerEssentials**, **accès Web à distance**et le magasin Windows et Windows Phone **mon serveur** applications.
+Windows Server 2016 Essentials prend en charge 500 utilisateurs et 500 appareils. Ce qui en fait possible est une mise à jour pour l’infrastructure du fournisseur et le contrôle de liste d’objets afin de mettre en cache et restituer rapidement les grandes listes d’objets utilisateur et appareil. En outre, une fonctionnalité de recherche et de filtre a été ajoutée à trouver rapidement l’utilisateur ou l’appareil que peuvent être recherchées (voir Figure 5-2). Vous trouverez la fonctionnalité de recherche et de filtre dans le **tableau de bord Windows Server Essentials**, **accès Web à distance**et le magasin de Windows et Windows Phone **mon serveur** applications.
 
-![Une capture d’écran illustrant l’utilisation de la fonctionnalité de recherche du tableau de bord WindowsServerEssentials pour rechercher la chaîne «d5c». Les résultats de la recherche incluent deux fichiers et les dossiers et les deux utilisateurs.](media/larger-deployments-2.PNG)
+![Une capture d’écran illustrant l’utilisation de la fonctionnalité de recherche du tableau de bord Windows Server Essentials pour rechercher la chaîne « d5c ». Les résultats de la recherche incluent les deux fichiers et les dossiers et les deux utilisateurs.](media/larger-deployments-2.PNG)
 
-Une capture d’écran illustrant l’utilisation de la fonctionnalité de recherche du tableau de bord WindowsServerEssentials pour rechercher la chaîne «d5c». Les résultats de la recherche incluent deux fichiers et les dossiers et les deux utilisateurs.
+Une capture d’écran illustrant l’utilisation de la fonctionnalité de recherche du tableau de bord Windows Server Essentials pour rechercher la chaîne « d5c ». Les résultats de la recherche incluent les deux fichiers et les dossiers et les deux utilisateurs.
 
 > [!NOTE]  
-> Alors que la limite utilisateur et périphérique pris en charge a augmenté pour le rôle de serveur WindowsServerEssentials, la limite de prise en charge pour le reste de sauvegarde de client à 75.
+> Bien que la limite d’utilisateurs et d’appareils pris en charge a augmenté pour le rôle de serveur Windows Server Essentials, la limite prise en charge pour le reste de sauvegarde de client à 75.
 
 <a name="see-also"></a>Voir aussi
 --------
-[Prise en main WindowsServerEssentials](get-started.md)
+[Prise en main Windows Server Essentials](get-started.md)

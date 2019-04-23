@@ -1,7 +1,7 @@
 ---
 ms.assetid: a2f23877-30a7-439f-817d-387da9e00e86
-title: "Configurer un ordinateur pour le rôle de Proxy de serveur de fédération"
-description: 
+title: Configurer un ordinateur pour le rôle de serveur proxy de fédération
+description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -10,68 +10,69 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
 ms.openlocfilehash: 2a89bab2fd1af1a1d7234da29f2025b4b12d6774
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59861800"
 ---
-# <a name="configure-a-computer-for-the-federation-server-proxy-role"></a>Configurer un ordinateur pour le rôle de Proxy de serveur de fédération
+# <a name="configure-a-computer-for-the-federation-server-proxy-role"></a>Configurer un ordinateur pour le rôle de serveur proxy de fédération
 
->S’applique à: Windows Server2016, Windows Server2012R2, Windows Server2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Après avoir configuré un ordinateur avec les certificats requis et que vous avez installé le service de rôle Proxy du Service de fédération, vous êtes prêt à configurer l’ordinateur pour qu’il devienne un serveur proxy de fédération. Vous pouvez utiliser la procédure suivante pour que l’ordinateur tienne le rôle de proxy de serveur de fédération.  
+Après avoir configuré un ordinateur avec les certificats requis et que vous avez installé le service de rôle Proxy du Service de fédération, vous êtes prêt à configurer l’ordinateur pour qu’il devienne un serveur proxy de fédération. Vous pouvez utiliser la procédure suivante pour que l’ordinateur tienne le rôle de serveur proxy de fédération.  
   
 > [!IMPORTANT]  
-> Avant d’utiliser cette procédure pour configurer l’ordinateur de proxy de serveur de fédération, assurez-vous que vous avez suivi toutes les étapes de [liste de vérification: configuration d’un serveur Proxy de fédération](Checklist--Setting-Up-a-Federation-Server-Proxy.md) dans l’ordre d’apparition. Assurez-vous qu’au moins un serveur de fédération est déployé et que tous les informations d’identification pour autoriser une configuration serveur proxy de fédération sont implémentées. Vous devez également configurer les liaisons \(SSL\) (Secure Sockets Layer) sur le site Web par défaut, ou si cet Assistant ne démarrera pas. Toutes ces tâches doivent être effectuées avant que ce serveur proxy de fédération puisse fonctionner.  
+> Avant d’utiliser cette procédure pour configurer le serveur proxy de fédération, assurez-vous que vous avez suivi les étapes décrites dans [liste de vérification : Paramètre d’un serveur Proxy de fédération](Checklist--Setting-Up-a-Federation-Server-Proxy.md) dans l’ordre d’apparition. Veillez à ce qu’au moins un serveur de fédération soit déployé et que toutes les informations d’identification nécessaires pour autoriser la configuration d’un serveur proxy de fédération sont implémentées. Vous devez également configurer le protocole SSL (Secure Sockets Layer) \(SSL\) liaisons sur le Site Web par défaut, ou que cet Assistant ne démarrera pas. Toutes ces tâches doivent être exécutées avant que le serveur proxy de fédération ne puisse fonctionner.  
   
-Après avoir terminé la configuration de l’ordinateur, vérifiez que le serveur proxy de fédération fonctionne comme prévu. Pour plus d’informations, voir [Vérifiez qu’un Federation Server Proxy est opérationnel](Verify-That-a-Federation-Server-Proxy-Is-Operational.md).  
+Quand vous avez fini de configurer l’ordinateur, vérifiez que le serveur proxy de fédération fonctionne comme prévu. Pour plus d'informations, voir [Vérifier qu'un serveur proxy de fédération est opérationnel](Verify-That-a-Federation-Server-Proxy-Is-Operational.md).  
   
-L’appartenance au groupe **administrateurs**, ou équivalente, sur l’ordinateur local est la condition minimale requise pour effectuer cette procédure.  Examinez les informations relatives à l’aide des comptes appropriés et les appartenances au groupe [locaux et groupes de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-### <a name="to-configure-a-computer-for-the-federation-server-proxy-role"></a>Pour configurer un ordinateur pour le rôle de proxy de serveur de fédération  
+### <a name="to-configure-a-computer-for-the-federation-server-proxy-role"></a>Pour configurer un ordinateur pour le rôle de serveur proxy de fédération  
   
-1.  Il existe deux façons de démarrer l’Assistant Configuration du serveur de fédération ADFS. Pour démarrer l’Assistant, effectuez l’une des opérations suivantes:  
+1.  Il existe deux façons de démarrer l’Assistant Configuration du serveur de fédération AD FS. Pour démarrer l'Assistant, effectuez l'une des opérations suivantes :  
   
-    -   Sur le **Démarrer**, tapez**Assistant Configuration de Proxy du serveur de fédération ADFS**, puis appuyez sur ENTRÉE.  
+    -   Sur le **Démarrer** , tapez**Assistant Configuration Proxy du serveur de fédération AD FS**, puis appuyez sur ENTRÉE.  
   
-    -   À tout moment une fois l’Assistant Installation terminé, ouvrez l’Explorateur Windows, accédez à la **C:\\Windows\\ADFS** dossier, puis double-cliquant sur **FspConfigWizard.exe**.  
+    -   Une fois l’Assistant installation est terminée, ouvrez l’Explorateur Windows, accédez à la **C:\\Windows\\ADFS** dossier et puis double\-cliquez sur **FspConfigWizard.exe**.  
   
-2.  À l’aide de l’autre méthode, démarrez l’Assistant, puis, dans le **Bienvenue**, cliquez sur **suivant**.  
+2.  Quelle que soit la méthode choisie, démarrez ensuite l'Assistant et, dans la page **Bienvenue**, cliquez sur **Suivant**.  
   
-3.  Sur le **spécifier un nom de Service de fédération** sous **nom du Service de fédération**, tapez le nom qui représente le Service de fédération pour lequel cet ordinateur tiendra le rôle de proxy.  
+3.  Dans la page **Spécifier le nom du service FS**, sous **Nom du service de fédération**, tapez le nom désignant le service de fédération pour lequel cet ordinateur aura un rôle de proxy.  
   
-4.  Selon vos besoins en matière de réseau spécifique, déterminez si vous devez utiliser un serveur proxy HTTP pour transférer les demandes au Service de fédération. Si tel est le cas, sélectionnez le **utiliser un serveur proxy HTTP lors de l’envoi des demandes à ce Service de fédération** case à cocher sous **adresse du serveur proxy HTTP** tapez l’adresse du serveur proxy, cliquez sur **tester la connexion** pour vérifier la connectivité, puis cliquez sur **suivant**.  
+4.  En fonction de la configuration requise pour votre réseau, déterminez si vous avez besoin d'un serveur proxy HTTP pour transférer les requêtes au service de fédération. Si c'est le cas, cochez la case **Utiliser un serveur proxy HTTP pour l'envoi de requêtes à ce service de fédération**, sous **Adresse du serveur proxy HTTP**, tapez l'adresse du serveur proxy, cliquez sur **Tester la connexion** pour vérifier la connectivité, puis cliquez sur **Suivant**.  
   
-5.  Lorsque vous y êtes invité, spécifiez les informations d’identification qui sont nécessaires pour établir une relation d’approbation entre ce serveur proxy de fédération et le Service de fédération.  
+5.  Lorsque vous y êtes invité, entrez les informations d'identification nécessaires pour établir une relation d'approbation entre ce serveur proxy de fédération et le service de fédération.  
   
-    Par défaut, seul le compte de service utilisé par le Service de fédération ou un membre du groupe local BUILTIN\\Administrateurs peut autoriser un serveur proxy de fédération.  
+    Par défaut, uniquement le compte de service utilisé par le Service de fédération ou un membre de la local BUILTIN\\groupe Administrateurs peut autoriser un serveur proxy de fédération.  
   
-6.  Sur le **prêt à appliquer les paramètres** page, passez en revue les détails. Si les paramètres sont corrects, cliquez sur **suivant** pour commencer à configurer cet ordinateur avec ces paramètres de proxy.  
+6.  Dans la page **Prêt à appliquer les paramètres**, vérifiez les paramètres définis. Si les paramètres sont corrects, cliquez sur **Suivant** pour commencer à configurer l'ordinateur avec ces paramètres de proxy.  
   
-7.  Sur le **résultats de la Configuration** page, passez en revue les résultats. Lorsque toutes les étapes de configuration sont terminées, cliquez sur **fermer** pour quitter l’Assistant.  
+7.  Dans la page **Résultats de la configuration**, examinez les résultats. Lorsque toutes les étapes de configuration sont terminées, cliquez sur **fermer** pour quitter l’Assistant.  
   
-    Il n’existe aucune \(MMC\) snap\ MicrosoftManagement Console-dans à utiliser pour administrer les proxys de serveur de fédération. Pour configurer les paramètres pour chacun des proxys de serveur de fédération dans votre organisation, utilisez les applets de commande Windows PowerShell.  
+    Il n’existe aucune Console de gestion Microsoft \(MMC\) aligner\-in à utiliser pour administrer les proxys serveur de fédération. Pour configurer les paramètres pour chacun des proxys serveur de fédération dans votre organisation, utilisez les applets de commande Windows PowerShell.  
   
-## <a name="configuring-an-alternate-tcpip-port-for-proxy-operations"></a>La configuration d’un autre Port TCP\/IP pour les opérations de Proxy  
-Par défaut, le service de proxy de serveur de fédération est configuré pour utiliser le port TCP 443 pour le trafic HTTPS et le port 80 pour le trafic HTTP pour la communication avec le serveur de fédération. Pour configurer des ports différents, tels que le port TCP 444 pour le protocole HTTPS et le port 81 pour le protocole HTTP, les tâches suivantes doivent être effectuées.  
+## <a name="configuring-an-alternate-tcpip-port-for-proxy-operations"></a>Configuration d’un autre TCP\/Port IP pour les opérations de Proxy  
+Par défaut, le service de proxy de serveur de fédération est configuré pour utiliser le port TCP 443 pour le trafic HTTPS et le port 80 pour le trafic HTTP pour la communication avec le serveur de fédération. Pour configurer des ports différents, par exemple le port TCP 444 pour le trafic HTTPS et le port 81 pour le trafic HTTP, effectuez les tâches décrites ci-dessous.  
   
 > [!NOTE]  
-> Si vous envisagez de déployer initialement ADFS pour fonctionner sous d’autres ports TCP\/IP, vous devez tout d’abord modifier les ports dans vos liaisons de protocole IIS pour HTTP et HTTPS sur le serveur de fédération et les ordinateurs de proxy de serveur de fédération. Cela doit se produire avant d’exécuter les Assistants de configuration ADFS pour la configuration initiale. Si vous configurez d’abord \(IIS\) Internet Information Services, vos paramètres de port alternatifs TCP\/IP sont découverts lors de la configuration basée sur les assistant\ se produit dans ADFS, et la procédure suivante n’est pas nécessaire. Si vous souhaitez modifier les paramètres de port ultérieurement, mettre à jour les liaisons de protocole IIS tout d’abord, puis utilisez la procédure suivante pour mettre à jour les paramètres de port en conséquence. Pour plus d’informations sur la modification des liaisons IIS, consultez [article 149605](https://go.microsoft.com/fwlink/?LinkId=190275) dans la Base de connaissances Microsoft.  
+> Si vous projetez de déployer initialement AD FS pour fonctionner sous un autre TCP\/ports IP, vous devez tout d’abord modifier les ports dans vos liaisons de protocole IIS pour HTTP et HTTPS sur le serveur de fédération et les ordinateurs de proxy de serveur de fédération. Cela doit se produire avant d’exécuter les Assistants de configuration AD FS pour la configuration initiale. Si vous configurez Internet Information Services \(IIS\) tout d’abord, votre autre TCP\/les paramètres de port IP sont découverts lorsque l’Assistant\-en fonction de configuration se produit au sein d’AD FS, et la procédure suivante n’est pas nécessaire. Si vous voulez modifier les paramètres de port définis initialement, mettez d'abord à jour les liaisons de protocole IIS, puis suivez la procédure ci-dessous pour mettre à jour les paramètres de port de façon appropriée. Pour plus d’informations sur la modification des liaisons IIS, consultez [article 149605](https://go.microsoft.com/fwlink/?LinkId=190275) dans la Base de connaissances Microsoft.  
   
-#### <a name="to-configure-alternate-tcpip-ports-for-the-federation-server-proxy-to-use"></a>Pour configurer d’autres ports TCP\/IP pour le serveur proxy de fédération à utiliser  
+#### <a name="to-configure-alternate-tcpip-ports-for-the-federation-server-proxy-to-use"></a>Pour configurer TCP autre\/ports IP pour le serveur proxy de fédération à utiliser  
   
-1.  Configurer le serveur de fédération pour utiliser les ports par défaut.  
+1.  Configurez le serveur de fédération pour qu'il utilise d'autres ports que ceux prévus par défaut.  
   
-    Pour ce faire, spécifiez le numéro de port par défaut en l’ajoutant avec la *HttpsPort* et *HttpPort* options dans le cadre de la **Set-ADFSProperties** applet de commande. Par exemple, pour configurer ces ports, utilisez les commandes suivantes dans la session Windows PowerShell sur l’ordinateur de serveur de fédération:  
+    Pour ce faire, spécifiez le numéro de port non défini par défaut en l’incluant avec le *HttpsPort* et *HttpPort* options dans le cadre de la **définir\-ADFSProperties** applet de commande. Par exemple, pour configurer ces ports, utilisez les commandes suivantes dans la session Windows PowerShell sur l’ordinateur de serveur de fédération :  
   
     ```  
     Set-ADFSProperties -HttpsPort 444  
     Set-ADFSProperties -HttpPort 81  
     ```  
   
-2.  Configurer le serveur proxy de fédération pour utiliser le port par défaut.  
+2.  Configurer le serveur proxy de fédération pour utiliser le port non défini par défaut.  
   
-    Pour ce faire, spécifiez le numéro de port par défaut en l’ajoutant avec la *HttpsPort* et *HttpPort* options dans le cadre de la **Set-ADFSProxyProperties** applet de commande. Par exemple, pour configurer ces ports, utilisez les commandes suivantes dans la session Windows PowerShell sur l’ordinateur de serveur de fédération:  
+    Pour ce faire, spécifiez le numéro de port non défini par défaut en l’incluant avec le *HttpsPort* et *HttpPort* options dans le cadre de la **définir\-ADFSProxyProperties** l’applet de commande. Par exemple, pour configurer ces ports, utilisez les commandes suivantes dans la session Windows PowerShell sur l’ordinateur de serveur de fédération :  
   
     ```  
     Set-ADFSProxyProperties -HttpsPort 444  
@@ -79,16 +80,16 @@ Par défaut, le service de proxy de serveur de fédération est configuré pour 
     ```  
   
     > [!NOTE]  
-    > URL de point de terminaison ne sont pas activées par défaut pour le service de proxy de serveur de fédération. Si vous configurez une nouvelle installation de serveur de fédération, vous devez activer les points de terminaison service federation server proxy tout d’abord. Par exemple, il est supposé que pour tous les points de terminaison qui désigne l’exemple dans cette procédure vous avez activé pour le proxy en les sélectionnant dans la gestion ADFS enfichable puis en sélectionnant **activer sur le proxy**.  
+    > URL de point de terminaison ne sont pas activés par défaut pour le service de proxy de serveur de fédération. Si vous configurez une nouvelle installation de serveur de fédération, vous devez activer tout d’abord les points de terminaison service federation server proxy. Par exemple, il est supposé que pour tous les points de terminaison que l’exemple de cette procédure fait référence à vous avez activé pour le proxy en les sélectionnant dans le composant logiciel enfichable Gestion AD FS\-dans, puis en sélectionnant **activer sur le proxy**.  
   
-3.  Mettre à jour l’installation d’IIS sur le serveur proxy de fédération afin que Security Assertion Markup Language \(SAML\) et les points de terminaison WS-Trust sont configurés pour prendre en compte le numéro de port mis à jour. Pour ce faire, vous pouvez utiliser le bloc-notes pour modifier le code suivant dans le fichier Web.config, qui se trouve dans systemdrive%\\inetpub\\adfs\\ls\\ sur l’ordinateur de proxy de serveur de fédération. Par exemple, en supposant que vous disposez d’un serveur de fédération nommé sts1.contoso.com et le nouveau numéro de port 444, recherchez et ouvrez le fichier Web.config dans le bloc-notes sur l’ordinateur de proxy de serveur de fédération, recherchez la section suivante, modifiez le numéro de port comme indiqué ci-dessous, puis enregistrez et fermez le bloc-notes.  
+3.  Mettre à jour de l’installation d’IIS sur le serveur proxy de fédération donc que Security Assertion Markup Language \(SAML\) et WS\-approuver les points de terminaison sont configurés pour refléter le numéro de port mis à jour. Pour ce faire, vous pouvez utiliser le bloc-notes pour modifier les éléments suivants dans le fichier Web.config, qui se trouve sous systemdrive %\\inetpub\\adfs\\ls\\ sur le serveur proxy de fédération. Par exemple, en supposant que vous avez un serveur de fédération nommé sts1.contoso.com et le nouveau numéro de port est 444, accédez à et ouvrez le fichier Web.config dans le bloc-notes sur le serveur proxy de fédération, recherchez la section suivante, modifiez le numéro de port en tant que mis en surbrillance ci-dessous, puis enregistrez et quittez le bloc-notes.  
   
     ```  
     <securityTokenService samlProtocolEndpoint="https://sts1.contoso.com:444/adfs/services/trust/samlprotocol/proxycertificatetransport"  
-          wsTrustEndpoint="https://sts1.contoso.com:444/adfs/services/trust/proxycertificatetransport" />  
+          wsTrustEndpoint="https://sts1.contoso.com:444/adfs/services/trust/proxycertificatetransport" />  
     ```  
   
-4.  Ajouter le compte d’utilisateur de service de proxy de fédération serveur pour le contrôle d’accès de liste \(ACL\) pour les URL de point de terminaison associées. Par exemple, si le numéro de port est 1234 et que le compte d’utilisateur qui est utilisé pour exécuter le service du serveur proxy AD FSfederation sous est le compte de Service réseau intégrée, tapez la commande suivante à une invite de commandes:  
+4.  Ajouter le compte d’utilisateur de service de proxy de fédération serveur à la liste de contrôle d’accès \(ACL\) pour les URL de point de terminaison associées. Par exemple, si le numéro de port est 1234 et le compte d’utilisateur qui est utilisé pour exécuter le AD FSfederation serveur proxy de service sous est intégrée\-dans le compte de Service réseau, tapez la commande suivante à une invite de commandes :  
   
     ```  
     netsh http add urlacl https://+:444/adfs/fs/federationserverservice.asmx/ user="NT Authority\Network Service"  
@@ -98,9 +99,9 @@ Par défaut, le service de proxy de serveur de fédération est configuré pour 
     netsh http add urlacl http://+:81/adfs/services/ user="NT Authority\Network Service"  
     ```  
   
-    Les commandes précédentes doivent être exécutées sur le serveur de fédération et les serveurs proxy de fédération.  
+    Les commandes précédentes doivent être exécutées sur le serveur de fédération et les ordinateurs de proxy de serveur de fédération.  
   
 ## <a name="additional-references"></a>Références supplémentaires  
-[Liste de vérification: Configuration d’un serveur Proxy de fédération](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Liste de vérification : Configuration d’un serveur Proxy de fédération](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 
