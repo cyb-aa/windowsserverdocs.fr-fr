@@ -1,6 +1,6 @@
 ---
-title: "Configurer la prise en charge pour un réseau sans fil"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Configuration de la prise en charge pour un réseau sans fil
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,40 +13,41 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: c5c98727b81bf37fdb3f90c612270462a51908c8
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59833110"
 ---
-# <a name="configure-support-for-a-wireless-network"></a>Configurer la prise en charge pour un réseau sans fil
+# <a name="configure-support-for-a-wireless-network"></a>Configuration de la prise en charge pour un réseau sans fil
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Vous pouvez configurer le système d’exploitation pour prendre en charge un réseau sans fil. Les conditions suivantes doivent être remplies pour prendre en charge sans fil sur le serveur:  
+Vous pouvez configurer le système d’exploitation de façon à prendre en charge un réseau sans fil. Un certain nombre de conditions doivent être remplies :  
   
--   Le serveur doit disposer d’une carte réseau câblé.  
+-   Le serveur doit être équipé d’une carte réseau câblé.  
   
--   Le pilote approprié pour la carte réseau sans fil doit être préinstallé si la carte réseau n’est pas pris en charge par le système d’exploitation.  
+-   Le pilote de la carte réseau câblé correct doit être préinstallé si la carte n’est pas prise en charge par le système d’exploitation.  
   
--   La possibilité d’activer et désactiver la carte réseau sans fil doit être rendue disponible. Méthodes pour cela peuvent inclure un bouton physique sur le serveur ou une interface utilisateur personnalisée dans le tableau de bord. Le manuel du produit doit fournir les étapes d’activation et désactivation de la carte réseau sans fil.  
+-   Il doit être possible d’activer ou de désactiver la carte réseau sans fil (par le biais d’un bouton sur le serveur ou d’une interface utilisateur personnalisée dans le Tableau de bord). Le manuel de référence du produit doit expliquer comment procéder pour activer ou désactiver la carte réseau sans fil.  
   
--   La possibilité de sélectionner un réseau sans fil et s’y connecter doit être rendue disponible. Cela doit être fait en ajoutant une interface utilisateur personnalisée au tableau de bord. Le manuel du produit doit fournir les étapes de la sélection et la connexion à un réseau sans fil.  
+-   Il doit être possible de sélectionner un réseau sans fil et de s’y connecter. Pour ce faire, il convient d’ajouter une interface utilisateur personnalisée au Tableau de bord. Le manuel de référence du produit doit fournir les instructions nécessaires pour sélectionner un réseau sans fil et établir la connexion.  
   
--   Si la possibilité de prendre en charge un réseau sans fil ad hoc est nécessaire, vous devez fournir une interface utilisateur améliorée dans le tableau de bord. L’interface utilisateur peut être un bouton ou un lien qui lance le paramétrage d’un Assistant de réseau sans fil Ad hoc dans le panneau de commandes dans Windows Server2008R2.  
+-   Si la prise en charge d’un réseau ad hoc sans fil est nécessaire, vous devez prévoir une interface utilisateur améliorée dans le Tableau de bord. Il peut s’agir, en l’occurrence, d’un bouton ou d’un lien permettant de lancer l’Assistant Configurer un réseau sans fil ad hoc dans le Panneau de configuration de Windows Server 2008 R2.  
   
 ## <a name="additional-considerations"></a>Considérations supplémentaires  
- Les informations suivantes sont également à envisager lors de la configuration prise en charge pour un réseau sans fil:  
+ Vous devez également tenir compte des points suivants lors de la configuration de la prise en charge d’un réseau sans fil :  
   
--   Le serveur doit être connecté au réseau par un câble pour exécuter le programme d’installation.  
+-   Le serveur doit être connecté au réseau à l’aide d’un câble pour pouvoir effectuer l’installation.  
   
--   Un ordinateur réseau sur lequel est exécutée une restauration complète doit être connecté au réseau par un câble.  
+-   L’ordinateur du réseau sur lequel a lieu une récupération complète doit être relié au réseau par un câble.  
   
--   Le serveur doit être connecté au réseau par un câble pour effectuer une restauration complète du serveur.  
+-   Le serveur doit être connecté au réseau par un câble pour procéder à la récupération complète du serveur.  
   
--   Si un réseau ad hoc est créé sur le serveur, la carte réseau sans fil est dédiée pour le réseau ad hoc afin de l’utilisateur doit toujours Branchez le câble réseau au serveur pour obtenir une connexion Internet.  
+-   Si un réseau ad hoc est créé sur le serveur, la carte réseau sans fil est dédiée au réseau ad hoc. C’est la raison pour laquelle l’utilisateur est tenu de raccorder le câble du réseau au serveur pour obtenir une connexion Internet.  
   
 > [!NOTE]
->  Pour plus d’informations sur la configuration des connexions réseau, voir [préconfiguration d’un routeur](Preconfiguring-a-Router.md).  
+>  Pour plus d'informations sur la configuration des connexions réseau, voir [Préconfiguration d'un routeur](Preconfiguring-a-Router.md).  
   
 ## <a name="see-also"></a>Voir aussi  
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   

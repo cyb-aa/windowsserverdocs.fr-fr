@@ -1,6 +1,6 @@
 ---
-title: "Ajouter des informations de MicrosoftOnline Service partenaire contrat partenaire d’enregistrement"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Ajouter l’identification du partenaire de référence (ID POR) dans le cadre de l’accord partenaire Microsoft Online Service
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,17 +13,18 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 39ce43228cd7392bcc86de4a410c52676ce15047
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59833040"
 ---
-# <a name="add-microsoft-online-service-partner-agreement-partner-of-record-information"></a>Ajouter des informations de MicrosoftOnline Service partenaire contrat partenaire d’enregistrement
+# <a name="add-microsoft-online-service-partner-agreement-partner-of-record-information"></a>Ajouter l’identification du partenaire de référence (ID POR) dans le cadre de l’accord partenaire Microsoft Online Service
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 ##  <a name="BKMK_3rdLevelDomanNames"></a>   
- Si vous êtes un partenaire MicrosoftOnline Service Partner Agreement (MOSPA) pour Office 365, vous devez créer une clé de Registre contenant votre partenaire de (référence POR ID) pour vous assurer que programme une demande d’abonnement émanant de WindowsServerEssentials via le Module d’intégration d’Office 365. Les informations suivantes sont lu et transmises au fournisseur de service par le biais de l’URL d’abonnement à Office 365.  
+ Si vous êtes un partenaire Microsoft Online Service Partner contrat (MOSPA) pour Office 365, pour vous assurer que vous sont rémunérés correctement lorsqu’une demande d’abonnement émanant de Windows Server Essentials via le Module d’intégration Office 365, vous devez créer un clé de Registre contenant votre partenaire de référence (POR ID). Les informations suivantes sont lues et transmises au fournisseur de service via les URL d’inscription d’Office 365.  
   
 -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\MSO  
   
@@ -35,21 +36,21 @@ ms.lasthandoff: 07/03/2017
   
 #### <a name="to-add-the-por-id-key-to-the-registry"></a>Pour ajouter la clé ID POR au Registre  
   
-1.  Sur l’ordinateur de référence, cliquez sur **Démarrer**, type **regedit**, puis appuyez sur ENTRÉE.  
+1.  Sur l'ordinateur de référence, cliquez sur **Démarrer**, tapez **regedit**, puis appuyez sur Entrée.  
   
-2.  Dans le volet gauche, développez **HKEY_LOCAL_MACHINE**, développez **logiciel**, développez **Microsoft**, puis développez **Windows Server**.  
+2.  Dans le volet gauche, développez successivement les entrées **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**et **Windows Server**.  
   
-3.  Avec le bouton droit **Windows Server**, pointez sur **New**, puis cliquez sur **clé**.  
+3.  Cliquez avec le bouton droit sur **Windows Server**, pointez sur **Nouveau**, puis cliquez sur **Clé**.  
   
-4.  Type **MSO** pour le nom de la clé.  
+4.  Tapez **MSO** comme nom de clé.  
   
-5.  Cliquez sur la clé que vous venez de créé, puis cliquez sur **valeur de chaîne**.  
+5.  Cliquez avec le bouton droit sur la clé que vous venez de créer, puis cliquez sur **Nom de la valeur**.  
   
-6.  Type **partenaire** pour le nom de chaîne, puis appuyez sur ENTRÉE.  
+6.  Tapez **Partner** comme nom de chaîne, puis appuyez sur Entrée.  
   
-7.  Cliquez sur le nouveau **partenaire** chaîne dans le volet droit, puis cliquez sur **modifier**.  
+7.  Cliquez avec le bouton droit sur la nouvelle chaîne **Partner** dans le volet droit, puis cliquez sur **Modifier**.  
   
-8.  Entrez votre ID POR dans le **données de la valeur** zone de texte, puis cliquez sur **OK**.  
+8.  Saisissez votre identificateur de partenaire de référence (ID POR) dans la zone de texte **Données de la valeur** , puis cliquez sur **OK**.  
   
 ## <a name="see-also"></a>Voir aussi  
 

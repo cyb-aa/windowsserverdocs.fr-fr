@@ -1,0 +1,1 @@
+**Mettre hors service le serveur DirectAccess.** Lorsque vous avez supprimé les paramètres de configuration et les enregistrements DNS, vous êtes prêt à détruire le serveur DirectAccess. Pour ce faire, soit supprimer le rôle dans le Gestionnaire de serveur ou de retirer le serveur et le supprime de AD DS.
