@@ -1,6 +1,6 @@
 ---
 title: Développer un plug-in de passerelle
-description: Développer un plug-in de passerelle SDK Windows Admin Center (projet Honolulu)
+description: Développer un plug-in de passerelle Windows Admin Center SDK (projet Honolulu)
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -9,109 +9,109 @@ ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: 93cee5b8e3611a264119947103d22d9aa3b9a56b
-ms.sourcegitcommit: be0144eb59daf3269bebea93cb1c467d67e2d2f1
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "4081156"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59834390"
 ---
-# Développer un plug-in de passerelle
+# <a name="develop-a-gateway-plugin"></a>Développer un plug-in de passerelle
 
->S’applique à: Windows Admin Center, Windows Admin Center Preview
+>S'applique à : Windows Admin Center, version préliminaire de Windows Admin Center
 
-Un plug-in de passerelle Windows Admin Center permet une communication API à partir de l’interface utilisateur de votre outil ou une solution à un nœud cible.  Windows Admin Center héberge un service de passerelle qui relaie les commandes et les scripts de plug-ins de passerelle à exécuter sur des nœuds de la cible. Le service de passerelle peut être étendu pour inclure des plug-ins de passerelle personnalisé qui prennent en charge les protocoles autres que les styles par défaut.
+Un plug-in de la passerelle Windows Admin Center permet la communication de API à partir de l’interface utilisateur de votre outil ou une solution à un nœud cible.  Windows Admin Center héberge un service de passerelle qui relaie les commandes et des scripts à partir de plug-ins de la passerelle doit être exécuté sur les nœuds cibles. Le service de passerelle peut être étendu pour inclure les plug-ins de la passerelle personnalisée qui prennent en charge les protocoles autres que celles par défaut.
 
-Ces plug-ins de passerelle sont incluses par défaut avec Windows Admin Center:
+Ces plug-ins de passerelle sont inclus par défaut avec Windows Admin Center :
 
-* Plug-in de passerelle PowerShell
-* Plug-in de passerelle WMI
+* Plug-in de la passerelle PowerShell
+* Plug-in de la passerelle WMI
 
-Si vous souhaitez communiquer avec un protocole autre que PowerShell ou WMI, comme avec REST, vous pouvez créer votre propre plug-in de passerelle.  Plug-ins de passerelle sont chargés dans un AppDomain séparé à partir du processus de passerelle existant, mais utilisent le même niveau d’élévation des droits.
-
-> [!NOTE]
-> Pas familiarisé avec les types d’extension différente? En savoir plus sur les [types d’architecture et l’extension extensibilité](understand-extensions.md).
-
-## Préparer votre environnement
-
-Si vous n’avez pas déjà fait, [préparer votre environnement](prepare-development-environment.md) en installant les dépendances et les conditions préalables globales requis pour tous les projets.
-
-## Créer un plug-in de passerelle (bibliothèque c#)
-
-Pour créer un plug-in de passerelle personnalisé, créez une nouvelle classe c# qui implémente le ```IPlugIn``` d’interface à partir de la ```Microsoft.ManagementExperience.FeatureInterfaces``` espace de noms.  
+Si vous souhaitez communiquer avec un protocole autre que PowerShell ou WMI, comme avec REST, vous pouvez créer votre propre plug-in de la passerelle.  Plug-ins de la passerelle sont chargés dans un AppDomain séparé à partir du processus de passerelle existante, mais utilisent le même niveau d’élévation pour les droits.
 
 > [!NOTE]
-> Le ```IFeature``` interface, disponible dans les versions précédentes du SDK, est désormais signalée comme obsolète.  Tous les développements de plug-in de passerelle doivent utiliser IPlugIn (ou si vous le souhaitez la classe abstraite HttpPlugIn).
+> Ne connaissent pas les types d’extension différents ? En savoir plus sur la [types d’architecture et l’extension d’extensibilité](understand-extensions.md).
 
-### Télécharger l’exemple à partir de GitHub
+## <a name="prepare-your-environment"></a>Préparer votre environnement
 
-Pour commencer rapidement avec un plug-in de passerelle personnalisé, vous pouvez dupliquer ou télécharger une copie de notre [exemple c# plug-in de projet](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/GatewayPluginExample/Plugin) à partir de notre [site GitHub](https://aka.ms/wacsdk)du SDK Windows Admin Center.
+Si vous n’avez pas déjà fait, [préparer votre environnement](prepare-development-environment.md) en installant des dépendances et globales conditions préalables requises pour tous les projets.
 
-### Ajouter du contenu
+## <a name="create-a-gateway-plugin-c-library"></a>Créer un plug-in de la passerelle (C# bibliothèque)
 
-Ajouter un nouveau contenu sur votre copie clonée du projet [exemple c# plug-in de projet](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/GatewayPluginExample/Plugin) (ou de votre projet) pour contenir vos API personnalisé, puis créer votre fichier DLL de plug-in de passerelle personnalisées à utiliser dans les étapes suivantes.
-
-### Déployer des plug-in de test
-
-Testez votre plug-in de passerelle personnalisée DLL en chargeant dans le processus de passerelle Windows Admin Center.
-
-Windows Admin Center recherche tous les plug-ins dans un ```plugins``` dossier dans le dossier de données d’Application de l’ordinateur en cours (à l’aide de la valeur de CommonApplicationData de l’énumération Environment.SpecialFolder). Sur Windows 10 cet emplacement est ```C:\ProgramData\Server Management Experience```.  Si le ```plugins``` dossier n’existe pas encore, vous pouvez créer le dossier vous-même.
+Pour créer un plug-in passerelle personnalisée, créez un nouveau C# classe qui implémente le ```IPlugIn``` de l’interface à partir de la ```Microsoft.ManagementExperience.FeatureInterfaces``` espace de noms.  
 
 > [!NOTE]
-> Vous pouvez remplacer l’emplacement de plug-in dans une version de débogage en mettant à jour la valeur de configuration «StaticsFolder». Si vous déboguez localement, ce paramètre est dans le fichier App.Config de la solution de bureau. 
+> Le ```IFeature``` interface, disponible dans les versions antérieures du kit SDK, est désormais marqué comme obsolète.  Tout développement de plug-in de passerelle doit utiliser IPlugIn (ou éventuellement à la classe abstraite HttpPlugIn).
 
-À l’intérieur du dossier Plug-ins (dans cet exemple, ```C:\ProgramData\Server Management Experience\plugins```)
+### <a name="download-sample-from-github"></a>Télécharger l’exemple à partir de GitHub
 
-* Créez un dossier portant le même nom que le ```Name``` valeur de propriété de la ```Feature``` dans votre plug-in de passerelle personnalisée DLL (dans notre exemple de projet, le ```Name``` est «Exemple Uno»)
-* Copiez votre fichier DLL de plug-in de passerelle personnalisées dans ce nouveau dossier
-* Redémarrer le processus de Windows Admin Center
+Pour commencer rapidement à utiliser un plug-in passerelle personnalisée, vous pouvez cloner ou télécharger une copie de notre [exemple C# plug-in project](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/GatewayPluginExample/Plugin) à partir de notre kit de développement logiciel Windows Admin Center [site GitHub](https://aka.ms/wacsdk).
 
-Après le redémarrage du processus d’administration de Windows, vous serez en mesure d’exercer les API dans votre plug-in de passerelle personnalisée DLL en émettant une GET, placer, corriger, supprimer ou publier sur ```http(s)://{domain|localhost}/api/nodes/{node}/features/{feature name}/{identifier}```
+### <a name="add-content"></a>Ajoutez du contenu
 
-### Facultatif: Attacher au plug-in pour le débogage
+Ajouter un nouveau contenu de votre copie clonée de la [exemple C# plug-in project](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/GatewayPluginExample/Plugin) du fichier projet (ou votre propre projet) pour contenir vos API personnalisées, puis générez votre plug-in passerelle personnalisée DLL pour être utilisé dans les étapes suivantes.
 
-Dans Visual Studio 2017, dans le menu Déboguer, sélectionnez «Attacher au processus». Dans la fenêtre suivante, faites défiler la liste des processus disponibles et sélectionnez SMEDesktop.exe, puis cliquez sur «Attacher». Une fois le démarrage du débogueur, vous pouvez placer un point d’arrêt dans votre code de la fonctionnalité et l’exercice puis par le biais du format d’URL ci-dessus. Pour notre exemple de projet (nom de la fonctionnalité: «Exemple Uno») est l’URL: «http://localhost:6516/api/nodes/fake-server.my.domain.com/features/Sample%20Uno»
+### <a name="deploy-plugin-for-testing"></a>Déployer le plug-in de test
 
-## Créer une extension d’outil avec l’interface CLI de Windows Admin Center ##
+Tester votre plug-in passerelle personnalisée DLL en la chargeant dans le processus de passerelle Windows Admin Center.
 
-Nous devons maintenant créer une extension d’outil à partir duquel vous pouvez appeler votre plug-in de passerelle personnalisée.  Créez ou accédez à un dossier où vous souhaitez stocker vos fichiers de projet, ouvrez une invite de commandes et la définition de ce dossier comme répertoire de travail.  À l’aide de Windows Admin Center CLI qui a été installé précédemment, créez une nouvelle extension avec la syntaxe suivante:
+Windows Admin Center recherche tous les plug-ins dans un ```plugins``` dossier dans le dossier Application Data de l’ordinateur actuel (à l’aide de la valeur CommonApplicationData de l’énumération Environment.SpecialFolder). Sur Windows 10, cet emplacement est ```C:\ProgramData\Server Management Experience```.  Si le ```plugins``` dossier n’existe pas encore, vous pouvez créer le dossier vous-même.
+
+> [!NOTE]
+> Vous pouvez remplacer l’emplacement du plug-in dans une version debug en mettant à jour la valeur de configuration « StaticsFolder ». Si vous déboguez localement, ce paramètre est dans le fichier App.Config de la solution de bureau. 
+
+Dans le dossier de plug-ins (dans cet exemple, ```C:\ProgramData\Server Management Experience\plugins```)
+
+* Créez un dossier portant le même nom que le ```Name``` valeur de propriété de la ```Feature``` dans votre plug-in passerelle personnalisée DLL (dans notre exemple de projet, le ```Name``` est « Exemple Uno »)
+* Copiez votre fichier DLL de plug-in de passerelle personnalisée vers ce nouveau dossier
+* Redémarrez le processus Windows Admin Center
+
+Une fois que le processus d’administration de Windows redémarre, vous pourrez tester les API dans votre plug-in passerelle personnalisée DLL en émettant une commande GET, PUT, PATCH, DELETE ou publier sur ```http(s)://{domain|localhost}/api/nodes/{node}/features/{feature name}/{identifier}```
+
+### <a name="optional-attach-to-plugin-for-debugging"></a>Facultatif : Attacher au plug-in pour le débogage
+
+Dans Visual Studio 2017, dans le menu Déboguer, sélectionnez « Attacher au processus ». Dans la fenêtre suivante, faites défiler la liste processus disponibles et sélectionnez SMEDesktop.exe, puis cliquez sur « Joindre ». Une fois le débogueur démarre, vous pouvez placer un point d’arrêt dans votre code de fonctionnalité et d’un exercice puis par le biais du format d’URL ci-dessus. Pour notre exemple de projet (nom de la fonctionnalité : « Exemple Uno ») l’URL est : « http://localhost:6516/api/nodes/fake-server.my.domain.com/features/Sample%20Uno»
+
+## <a name="create-a-tool-extension-with-the-windows-admin-center-cli"></a>Créer une extension de l’outil avec l’interface CLI de Windows Admin Center ##
+
+Nous devons maintenant créer une extension de l’outil à partir de laquelle vous pouvez appeler votre plug-in de passerelle personnalisée.  Créez ou accédez au dossier où vous souhaitez stocker vos fichiers projet, ouvrez une invite de commandes et configurez ce dossier comme répertoire de travail.  À l’aide de l’interface Windows Admin Center CLI qui a été précédemment installé, créez une nouvelle extension avec la syntaxe suivante :
 
 ```
 wac create --company "{!Company Name}" --tool "{!Tool Name}"
 ```
 
-| Valeur | Explication | Exemple |
+| Value | Explication | Exemple |
 | ----- | ----------- | ------- |
 | ```{!Company Name}``` | Nom de votre société (avec des espaces) | ```Contoso Inc``` |
-| ```{!Tool Name}``` | Nom de votre outil (avec des espaces) | ```Manage Foo Works``` |
+| ```{!Tool Name}``` | Votre nom de l’outil (avec des espaces) | ```Manage Foo Works``` |
 
-Voici un exemple d’utilisation:
+Voici un exemple d’utilisation :
 
 ```
 wac create --company "Contoso Inc" --tool "Manage Foo Works"
 ```
 
-Cela crée un nouveau dossier à l’intérieur du répertoire de travail actuel en utilisant le nom que vous spécifiée pour votre outil de copie tous les fichiers de modèle nécessaires dans votre projet et configure les fichiers avec le nom de votre société et l’outil.  
+Cette opération crée un nouveau dossier dans le répertoire de travail actuel dans le nom spécifié pour votre outil de copie tous les fichiers de modèle nécessaire dans votre projet et configure les fichiers avec le nom de votre entreprise et l’outil.  
 
-Ensuite, modifiez le répertoire dans le dossier venez de créer et installer des dépendances locales nécessaires en exécutant la commande suivante:
+Ensuite, changez de répertoire dans le dossier venez de créer, puis installer les dépendances requises locales en exécutant la commande suivante :
 
 ```
 npm install
 ```
 
-Une fois cette opération terminée, vous avez configuré tout ce dont vous avez besoin pour charger votre nouvelle extension dans Windows Admin Center. 
+Une fois cette opération terminée, vous avez configuré tous les éléments que nécessaires pour charger votre nouvelle extension dans Windows Admin Center. 
 
-## Connecter votre extension d’outil à votre plug-in de passerelle personnalisé
+## <a name="connect-your-tool-extension-to-your-custom-gateway-plugin"></a>Connecter votre extension de l’outil à votre plug-in passerelle personnalisée
 
-Maintenant que vous avez créé une extension avec l’interface CLI de Windows Admin Center, vous êtes prêt à connecter votre extension d’outil pour votre plug-in de passerelle personnalisé, en procédant comme suit:
+Maintenant que vous avez créé une extension avec l’interface CLI de Windows Admin Center, vous êtes prêt à vous connecter votre extension de l’outil pour votre plug-in passerelle personnalisée, procédez comme suit :
 
 - Ajouter un [module vide](guides\add-module.md)
-- Utilisez votre [plug-in de passerelle personnalisés](guides\use-custom-gateway-plugin.md) dans votre extension d’outil
+- Utilisez votre [plug-in de la passerelle personnalisée](guides\use-custom-gateway-plugin.md) dans votre extension de l’outil
  
-## Génération et côté chargent votre extension
+## <a name="build-and-side-load-your-extension"></a>Génération et côté chargent votre extension
 
-Ensuite, build et côté chargent votre extension dans Windows Admin Center.  Ouvrez une fenêtre de commande, modifiez le répertoire à votre répertoire source, puis vous êtes prêt à générer.
+Ensuite, build et côté chargent votre extension dans Windows Admin Center.  Ouvrez une fenêtre de commande, accédez à votre répertoire source, puis vous êtes prêt à créer.
 
-* Créez et proposez avec gulp:
+* Créez et proposez avec gulp :
 
     ```
     gulp build
@@ -124,7 +124,7 @@ Votre projet peut être chargé de manière indépendante dans une instance loca
 
 * Lancez Windows Admin Center dans un navigateur web
 * Ouvrez le débogueur (F12)
-* Ouvrez la Console, puis tapez la commande suivante:
+* Ouvrez la Console, puis tapez la commande suivante :
 
     ```
     MsftSme.sideLoad("http://localhost:4201")
@@ -134,6 +134,6 @@ Votre projet peut être chargé de manière indépendante dans une instance loca
 
 Votre projet sera désormais visible dans la liste d'outils avec (side loaded) en regard du nom.
 
-## Cibler une autre version du SDK Windows Admin Center
+## <a name="target-a-different-version-of-the-windows-admin-center-sdk"></a>Cibler une version différente du Kit de développement Windows Admin Center
 
-Il est facile de garder votre extension à jour avec les modifications du Kit de développement logiciel et les modifications de la plateforme.  En savoir plus sur la [cible une autre version](target-sdk-version.md) du SDK Windows Admin Center.
+Il est facile de garder votre extension à jour avec les modifications apportées au SDK et les modifications de la plateforme.  En savoir plus sur comment [cibler une version différente](target-sdk-version.md) du Kit de développement Windows Admin Center.

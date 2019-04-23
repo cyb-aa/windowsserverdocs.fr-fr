@@ -12,48 +12,48 @@ ms.assetid: aab895f2-fe4d-4408-b66b-cdeadbd8969e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
-ms.localizationpriority: high
+ms.localizationpriority: medium
 ms.date: 02/01/2018
-ms.openlocfilehash: 007279c8a60e5e762d1e59b1519c449484cfc167
-ms.sourcegitcommit: 5101bd19a4dce9ed9d3d7836c927e2a5745dcb7e
-ms.translationtype: HT
+ms.openlocfilehash: a663e7dbb3ee84c09fc14ba23a50e6de16c4c7b5
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "1985269"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59840690"
 ---
 # <a name="add-servers-to-server-manager"></a>Ajouter des serveurs au Gestionnaire de serveur
 
->S’applique à: WindowsServer (canal semi-annuel), WindowsServer2016, WindowsServer2012R2, WindowsServer2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Dans Windows Server, vous pouvez gérer plusieurs serveurs distants à l’aide d’une seule console du Gestionnaire de serveur. Les serveurs que vous voulez gérer à l’aide du Gestionnaire de serveur peuvent exécuter Windows Server2016, Windows Server2012R2, Windows Server2012, Windows Server2008R2 ou Windows Server2008. Notez que vous ne pouvez pas gérer une version plus récente de Windows Server avec une version antérieure du Gestionnaire de serveur.
+Dans Windows Server, vous pouvez gérer plusieurs serveurs distants à l’aide d’une seule console du Gestionnaire de serveur. Les serveurs que vous voulez gérer à l’aide du Gestionnaire de serveur peuvent exécuter Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008. Notez que vous ne pouvez pas gérer une version plus récente de Windows Server avec une version antérieure du Gestionnaire de serveur.
 
 Cette rubrique explique comment ajouter des serveurs au pool de serveurs du Gestionnaire de serveur.
 
 > [!NOTE]
-> Dans nos tests, le Gestionnaire de serveur dans Windows Server2012 et les versions ultérieures de WindowsServer permet de gérer jusqu’à 100serveurs qui sont configurés avec une charge de travail classique. Le nombre de serveurs que vous pouvez gérer en utilisant une console du Gestionnaire de serveur unique peut varier en fonction de la quantité de données que vous demandez aux serveurs gérés ainsi que des ressources matérielles et réseau disponibles pour l’ordinateur exécutant le Gestionnaire de serveur. Lorsque la quantité de données à afficher est sur le point d’atteindre la capacité des ressources de cet ordinateur, vous pouvez être confronté à des réactions lentes du Gestionnaire de serveur ainsi qu’à des retards dans la réalisation des actualisations. Pour augmenter le nombre de serveurs que vous pouvez gérer à l’aide du Gestionnaire de serveur, nous vous conseillons de limiter la quantité de données d’événement que le Gestionnaire de serveur obtient de vos serveurs gérés en utilisant les paramètres de la boîte de dialogue **Configurer les données d’événement**. Configurer les données d’événement peut être ouverte à partir du menu **Tâches** dans la vignette **Événements**. Si vous devez gérer un très grand nombre de serveurs dans votre organisation, nous vous recommandons d’évaluer des produits de la [suite Microsoft System Center](https://go.microsoft.com/fwlink/p/?LinkId=239437).
+> Dans nos tests, le Gestionnaire de serveur dans Windows Server 2012 et les versions ultérieures de Windows Server permet de gérer jusqu’à 100 serveurs qui sont configurés avec une charge de travail classique. Le nombre de serveurs que vous pouvez gérer en utilisant une console du Gestionnaire de serveur unique peut varier en fonction de la quantité de données que vous demandez aux serveurs gérés ainsi que des ressources matérielles et réseau disponibles pour l’ordinateur exécutant le Gestionnaire de serveur. Lorsque la quantité de données à afficher est sur le point d’atteindre la capacité des ressources de cet ordinateur, vous pouvez être confronté à des réactions lentes du Gestionnaire de serveur ainsi qu’à des retards dans la réalisation des actualisations. Pour augmenter le nombre de serveurs que vous pouvez gérer à l’aide du Gestionnaire de serveur, nous vous conseillons de limiter la quantité de données d’événement que le Gestionnaire de serveur obtient de vos serveurs gérés en utilisant les paramètres de la boîte de dialogue **Configurer les données d’événement**. Configurer les données d’événement peut être ouverte à partir du menu **Tâches** dans la vignette **Événements** . Si vous devez gérer un très grand nombre de serveurs dans votre organisation, nous vous recommandons d’évaluer des produits de la [suite Microsoft System Center](https://go.microsoft.com/fwlink/p/?LinkId=239437).
 >
-> Le Gestionnaire de serveur peut recevoir uniquement des informations sur l’état en ligne ou hors connexion en provenance de serveurs exécutant Windows Server2003. Vous pouvez utiliser le Gestionnaire de serveur pour effectuer des tâches de gestion sur les serveurs qui exécutent Windows Server2008R2 ou Windows Server2008, mais vous ne pouvez pas ajouter de rôles ni de fonctionnalités aux serveurs qui exécutent Windows Server2008R2, Windows Server2008 ou Windows Server2003.
+> Le Gestionnaire de serveur peut recevoir uniquement des informations sur l’état en ligne ou hors connexion en provenance de serveurs exécutant Windows Server 2003. Vous pouvez utiliser le Gestionnaire de serveur pour effectuer des tâches de gestion sur les serveurs qui exécutent Windows Server 2008 R2 ou Windows Server 2008, mais vous ne pouvez pas ajouter de rôles ni de fonctionnalités aux serveurs qui exécutent Windows Server 2008 R2, Windows Server 2008 ou Windows Server 2003.
 
-> Le Gestionnaire de serveur ne peut pas être utilisé pour gérer une version plus récente du système d’exploitation Windows Server. Le Gestionnaire de serveur en cours d'exécution sur Windows Server2012R2, Windows Server2012, Windows8.1 ou Windows8 ne peut pas être utilisé pour gérer les serveurs qui exécutent Windows Server2016.
+> Le Gestionnaire de serveur ne peut pas être utilisé pour gérer une version plus récente du système d’exploitation Windows Server. Le Gestionnaire de serveur en cours d'exécution sur Windows Server 2012 R2, Windows Server 2012, Windows 8.1 ou Windows 8 ne peut pas être utilisé pour gérer les serveurs qui exécutent Windows Server 2016.
 
 Cette rubrique contient les sections suivantes.
 
 -   [Ajouter des serveurs à gérer](#BKMK_add)
 
--   [Fournir des informations d’identification avec la commande Gérer en tant que](#BKMK_creds)
+-   [Fournir des informations d’identification avec la commande gérer en tant que](#BKMK_creds)
 
-## <a name="BKMK_creds"></a>Fournir des informations d’identification avec la commande Gérer en tant que
-Lorsque vous ajoutez des serveurs distants au Gestionnaire de serveur, certains des serveurs que vous ajoutez peuvent nécessiter des informations d’identification de compte utilisateur différentes à des fins d’accès ou de gestion. Pour spécifier des informations d’identification relatives à un serveur géré qui diffèrent de celles que vous utilisez pour vous connecter à l’ordinateur sur lequel vous exécutez le Gestionnaire de serveur, utilisez la commande **Gérer en tant que** après avoir ajouté un serveur au Gestionnaire de serveur, qui est accessible en cliquant avec le bouton droit sur l’entrée d’un serveur géré dans la vignette **Serveurs** d’une page d’accueil de rôle ou de groupe. Cliquez sur **Gérer en tant que** pour ouvrir la boîte de dialogue **Sécurité Windows**, dans laquelle vous pouvez indiquer un nom d’utilisateur disposant de droits d’accès sur le serveur géré, selon l’un des formats suivants.
+## <a name="BKMK_creds"></a>Fournir des informations d’identification avec la commande gérer en tant que
+Lorsque vous ajoutez des serveurs distants au Gestionnaire de serveur, certains des serveurs que vous ajoutez peuvent nécessiter des informations d’identification de compte utilisateur différentes à des fins d’accès ou de gestion. Pour spécifier des informations d’identification relatives à un serveur géré qui diffèrent de celles que vous utilisez pour vous connecter à l’ordinateur sur lequel vous exécutez le Gestionnaire de serveur, utilisez la commande **Gérer en tant que** après avoir ajouté un serveur au Gestionnaire de serveur, qui est accessible en cliquant avec le bouton droit sur l’entrée d’un serveur géré dans la vignette **Serveurs** d’une page d’accueil de rôle ou de groupe. Cliquez sur **Gérer en tant que** pour ouvrir la boîte de dialogue **Sécurité Windows** , dans laquelle vous pouvez indiquer un nom d’utilisateur disposant de droits d’accès sur le serveur géré, selon l’un des formats suivants.
 
--   *Nom d’utilisateur*
+-   *Nom d'utilisateur*
 
 -   *Nom d’utilisateur*@example.domain.com
 
--   *Domaine*\\*Nom d'utilisateur*
+-   *Domainee*\\*Nom d’utilisateur*
 
 La boîte de dialogue **Sécurité Windows** ouverte par la commande **Gérer en tant que** ne peut pas accepter les informations d’identification de carte à puce. L’indication d’informations d’identification de carte à puce via le Gestionnaire de serveur n’est pas prise en charge. Les informations d’identification fournies pour un serveur géré à l’aide de la commande **Gérer en tant que** sont mises en cache et persistent tant que vous gérez le serveur en utilisant le même ordinateur que celui sur lequel vous exécutez le Gestionnaire de serveur, ou tant que vous ne pas les remplacez pas par des informations d’identification différentes pour le même serveur ou aucune information d’identification. Si vous exportez les paramètres de votre Gestionnaire de serveur sur d’autres ordinateurs, ou configurez votre profil de domaine pour le rendre itinérant et permettre l’utilisation des paramètres du Gestionnaire de serveur sur d’autres ordinateurs, les informations d’identification **Gérer en tant que** des serveurs de votre pool de serveurs ne sont pas stockées dans le profil itinérant. Les utilisateurs du Gestionnaire de serveur doivent les ajouter à chaque ordinateur à partir duquel ils veulent effectuer la gestion.
 
-Après avoir ajouté des serveurs à gérer en suivant les procédures décrites dans cette rubrique, mais avant d’utiliser la commande **Gérer en tant que** pour spécifier d’autres informations d’identification qui peuvent être nécessaires pour gérer un serveur ajouté, il est possible d’afficher les erreurs d’état de la gestion suivantes pour le serveur:
+Après avoir ajouté des serveurs à gérer en suivant les procédures décrites dans cette rubrique, mais avant d’utiliser la commande **Gérer en tant que** pour spécifier d’autres informations d’identification qui peuvent être nécessaires pour gérer un serveur ajouté, il est possible d’afficher les erreurs d’état de la gestion suivantes pour le serveur :
 
 -   Erreur de résolution de cible Kerberos
 
@@ -83,11 +83,11 @@ Vous pouvez ajouter des serveurs à administrer avec le Gestionnaire de serveur 
 
 2.  Dans le menu **Gérer**, cliquez sur **Ajouter des serveurs**.
 
-3.  Effectuez l’une des opérations suivantes:
+3.  Effectuez l’une des opérations suivantes :
 
     -   Sous l’onglet **Active Directory**, sélectionnez des serveurs qui se trouvent dans le domaine actif. Appuyez sur **Ctrl** pendant que vous sélectionnez plusieurs serveurs. Cliquez sur la flèche Droite pour déplacer les serveurs sélectionnés vers la liste **sélectionné**.
 
-    -   Sous l’onglet **DNS**, tapez les premiers caractères d’un nom d’ordinateur ou d’une adresse IP, puis appuyez sur **Entrée** ou cliquez sur **Rechercher**. Choisissez les serveurs à ajouter, puis cliquez sur la flèche Droite.
+    -   Sous l’onglet **DNS** , tapez les premiers caractères d’un nom d’ordinateur ou d’une adresse IP, puis appuyez sur **Entrée** ou cliquez sur **Rechercher**. Choisissez les serveurs à ajouter, puis cliquez sur la flèche Droite.
 
     -   Sous l’onglet **importer**, naviguez jusqu’à un fichier texte qui contient les noms DNS ou adresses IP des ordinateurs que vous souhaitez afficher, un nom ou une adresse IP par ligne.
 
@@ -114,7 +114,7 @@ Ces erreurs ou des erreurs similaires peuvent se produire dans les conditions su
 
 ##### <a name="to-add-remote-workgroup-servers-to-server-manager"></a>Pour ajouter des serveurs de groupe de travail distant au Gestionnaire de serveur
 
-1.  Sur l’ordinateur qui exécute le Gestionnaire de serveur, ajoutez le nom du serveur de groupe de travail à la liste **TrustedHosts**. Cette opération est obligatoire dans le cadre de l’authentification NTLM. Pour ajouter un nom d’ordinateur à une liste existante d’hôtes approuvés, ajoutez le paramètre `Concatenate` à la commande. Par exemple, pour ajouter l’ordinateur `Server01` à une liste existante d’hôtes approuvés, utilisez la commande suivante:
+1.  Sur l’ordinateur qui exécute le Gestionnaire de serveur, ajoutez le nom du serveur de groupe de travail à la liste **TrustedHosts**. Cette opération est obligatoire dans le cadre de l’authentification NTLM. Pour ajouter un nom d’ordinateur à une liste existante d’hôtes approuvés, ajoutez le paramètre `Concatenate` à la commande suivante : Par exemple, pour ajouter l’ordinateur `Server01` à une liste existante d’hôtes approuvés, utilisez la commande suivante :
 
     ```
     Set-Item wsman:\localhost\Client\TrustedHosts Server01 -Concatenate -force
@@ -129,7 +129,7 @@ Ces erreurs ou des erreurs similaires peuvent se produire dans les conditions su
 3.  > [!IMPORTANT]
     > L’exécution de l’applet de commande à cette étape a pour effet de remplacer les mesures de Contrôle de compte d’utilisateur (UAC) qui empêchent l’exécution de processus élevés sur les ordinateurs de groupe de travail, sauf si le compte Administrateur ou Système intégré exécute ces processus. L’applet de commande permet aux membres du groupe Administrateurs de gérer le serveur de groupe de travail sans se connecter via le compte Administrateur intégré. En autorisant des utilisateurs supplémentaires à gérer le serveur de groupe de travail, vous pouvez réduire la sécurité de ce dernier. Cette opération est néanmoins plus sûre que de fournir les informations d’identification d’un compte Administrateur intégré à une multitude possible de personnes chargées de gérer le serveur de groupe de travail.
 
-    Pour outrepasser les restrictions liées au contrôle de compte d’utilisateur (UAC) relatives à l’exécution de processus élevés sur les ordinateurs de groupe de travail, créez une entrée de Registre nommée **LocalAccountTokenFilterPolicy** sur l’ordinateur de groupe de travail en exécutant l’applet de commande suivante.
+    Pour outrepasser les restrictions du contrôle de compte d’utilisateur relatives à l’exécution de processus élevés sur les ordinateurs de groupe de travail, créez une entrée de Registre nommée **LocalAccountTokenFilterPolicy** sur l’ordinateur de groupe de travail en exécutant l’applet de commande suivante.
 
     ```
     New-ItemProperty -Name LocalAccountTokenFilterPolicy -path HKLM:\SOFTWARE\Microsoft\Windows\Currentversion\Policies\System -propertytype DWord -value 1
@@ -145,7 +145,7 @@ Ces erreurs ou des erreurs similaires peuvent se produire dans les conditions su
 
 ##### <a name="to-add-remote-servers-when-server-manager-is-running-on-a-workgroup-computer"></a>Pour ajouter des serveurs distants lorsque le Gestionnaire de serveur fonctionne sur un ordinateur de groupe de travail
 
-1.  Sur l’ordinateur qui exécute le Gestionnaire de serveur, ajoutez des serveurs distants à la liste **TrustedHosts** de l’ordinateur local dans une session Windows PowerShell. Pour ajouter un nom d’ordinateur à une liste existante d’hôtes approuvés, ajoutez le paramètre `Concatenate` à la commande. Par exemple, pour ajouter l’ordinateur `Server01` à une liste existante d’hôtes approuvés, utilisez la commande suivante:
+1.  Sur l’ordinateur qui exécute le Gestionnaire de serveur, ajoutez des serveurs distants à la liste **TrustedHosts** de l’ordinateur local dans une session Windows PowerShell. Pour ajouter un nom d’ordinateur à une liste existante d’hôtes approuvés, ajoutez le paramètre `Concatenate` à la commande suivante : Par exemple, pour ajouter l’ordinateur `Server01` à une liste existante d’hôtes approuvés, utilisez la commande suivante :
 
     ```
     Set-Item wsman:\localhost\Client\TrustedHosts Server01 -Concatenate -force
@@ -176,6 +176,6 @@ Vous pouvez utiliser le Gestionnaire de serveur pour gérer les serveurs qui se 
 
 -   Vous ne pouvez pas installer de rôles et de fonctionnalités sur un serveur virtuel en cluster.
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 [Gestionnaire de serveur](server-manager.md)
 [créer et gérer des groupes de serveurs](create-and-manage-server-groups.md)

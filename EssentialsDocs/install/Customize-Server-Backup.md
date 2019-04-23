@@ -1,6 +1,6 @@
 ---
 title: Personnaliser la sauvegarde du serveur
-description: "Décrit comment utiliser WindowsServerEssentials"
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,59 +13,60 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: d18dca276bccdf672664a5a3c2bd28e0221fff94
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59838540"
 ---
 # <a name="customize-server-backup"></a>Personnaliser la sauvegarde du serveur
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-## <a name="turn-off-server-backup-by-default"></a>Désactiver la sauvegarde du serveur par défaut  
+## <a name="turn-off-server-backup-by-default"></a>Désactiver la sauvegarde du serveur par défaut.  
  Vous pouvez choisir de désactiver la sauvegarde du serveur par défaut. Vous devez définir la valeur de **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Server\ServerBackup\ProviderDisabled** sur 1 pour activer cette option.  
   
- Lorsque cette clé est définie, l’interface utilisateur de sauvegarde de serveur ne sera pas exposée par le biais du tableau de bord ou le Launchpad. Cela vous permet d’utiliser des applications tierces pour la sauvegarde du serveur.  
+ Lorsque cette clé est définie, l’interface utilisateur de la sauvegarde du serveur ne sera pas exposée via le Tableau de bord ou le Launchpad. Cela vous permet d'utiliser des applications tierces pour la sauvegarde du serveur.  
   
-#### <a name="to-add-serverbackupproviderdisabled-registry-key-and-set-the-value-to-1"></a>Pour ajouter ServerBackup\ProviderDisabled? clé de Registre et définissez la valeur sur 1  
+#### <a name="to-add-serverbackupproviderdisabled-registry-key-and-set-the-value-to-1"></a>Pour ajouter ServerBackup\ProviderDisabled ? clé de Registre et définissez la valeur sur 1  
   
-1.  Sur le serveur, cliquez sur **Démarrer**, cliquez sur **exécuter**, type **regedit** dans les **ouvrir** zone de texte, puis cliquez sur **OK**.  
+1.  Sur le serveur, cliquez successivement sur **Démarrer**et **Exécuter**, tapez **regedit** dans le champ **Ouvrir** , puis cliquez sur **OK**.  
   
-2.  Dans le volet de navigation, développez **HKEY_LOCAL_MACHINE**, développez **logiciel**, développez **Microsoft**, développez **Windows Server**, puis développez **ServerBackup**.  
+2.  Dans le volet de navigation, développez successivement **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**, **Windows Server**, et enfin **ServerBackup**.  
   
-3.  Avec le bouton droit **ServerBackup**, cliquez sur **New**, puis cliquez sur **la valeur DWORD**.  
+3.  Cliquez avec le bouton droit sur **ServerBackup**, cliquez sur **Nouveau**, puis cliquez sur **Valeur DWARD**.  
   
-4.  Pour nom, entrez **ProviderDisabled**.  
+4.  Comme nom, entrez **ProviderDisabled**.  
   
-5.  Cliquez sur le nom, sélectionnez **modifier**, entrez **1** pour les données de la valeur, puis cliquez sur **OK**.  
+5.  Cliquez avec le bouton droit sur le nom, sélectionnez **Modifier**, entrez **1** comme valeur, puis cliquez sur **OK**.  
   
 ## <a name="turn-on-server-backup"></a>Activer la sauvegarde du serveur  
- Vous pouvez activer la sauvegarde du serveur s’il a été désactivé en créant **ProviderDisabled** clé de Registre (comme décrit précédemment dans ce document).  
+ Vous pouvez activer la sauvegarde du serveur si elle était désactivée en créant la clé de registre **ProviderDisabled** (comme décrit auparavant dans le présent document).  
   
- Vous devez supprimer la clé **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Server\ServerBackup\ProviderDisabled** afin d’activer la sauvegarde du serveur par défaut, modifier le type de démarrage de service du Service de sauvegarde de serveurs Windows Server et redémarrez le serveur.  
+ Vous devez supprimer la clé **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Server\ServerBackup\ProviderDisabled** afin d’activer la sauvegarde du serveur par défaut, de modifier le type de démarrage du Service de sauvegarde de serveurs Windows Server et de redémarrer le serveur.  
   
-#### <a name="to-delete-serverbackupproviderdisabled-registry-key"></a>Pour supprimer ServerBackup\ProviderDisabled? clé de Registre  
+#### <a name="to-delete-serverbackupproviderdisabled-registry-key"></a>Pour supprimer ServerBackup\ProviderDisabled ? clé de Registre  
   
-1.  Sur le serveur, déplacez votre souris vers le coin supérieur droit de l’écran, puis cliquez sur **recherche**.  
+1.  Sur le serveur, déplacez votre souris sur le coin supérieur droit de l’écran, puis cliquez sur **Rechercher**.  
   
-2.  Dans la zone de recherche, tapez **regedit**, puis cliquez sur le **Regedit** application.  
+2.  Dans la zone de recherche, tapez **regedit**, puis cliquez sur l’application **Regedit** .  
   
-3.  Dans le volet de navigation, développez **HKEY_LOCAL_MACHINE**, développez **logiciel**, développez **Microsoft**, développez **Windows Server**, puis développez **ServerBackup**.  
+3.  Dans le volet de navigation, développez successivement **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**, **Windows Server**, et enfin **ServerBackup**.  
   
-4.  Avec le bouton droit **ProviderDisabled**, puis cliquez sur **supprimer**.  
+4.  Cliquez avec le bouton droit de la souris sur **ProviderDisabled**, puis cliquez sur **Supprimer**.  
   
-#### <a name="change-the-start-type-of-windows-server-server-backup-service"></a>Modifier le type de démarrage du Service de sauvegarde du serveur Windows Server  
+#### <a name="change-the-start-type-of-windows-server-server-backup-service"></a>Modifier le type de démarrage du Service de sauvegarde de serveurs Windows Server  
   
-1.  Sur le serveur, déplacez votre souris vers le coin supérieur droit de l’écran, puis cliquez sur **recherche**.  
+1.  Sur le serveur, déplacez votre souris sur le coin supérieur droit de l’écran, puis cliquez sur **Rechercher**.  
   
-2.  Dans la zone de recherche, tapez **services.msc**, puis cliquez sur **Services** application.  
+2.  Dans la boîte de dialogue Rechercher, entrez **services.msc**, puis cliquez sur l'application **Services** application.  
   
-3.  Dans le volet services, cliquez sur le **Service de sauvegarde du serveur Windows Server**, puis cliquez sur **propriétés**.  
+3.  Dans le volet Services, cliquez avec le bouton droit sur **Service de sauvegarde de serveurs Windows Server**, puis cliquez sur **Propriétés**.  
   
-4.  Dans **général** onglet, sélectionnez **automatique** pour **type de démarrage**.  
+4.  Dans l'onglet **Général**, sélectionnez **Automatique** comme **Type de démarrage**.  
   
 5.  Cliquez sur **OK** pour fermer la boîte de dialogue.  
   
-#### <a name="restart-the-server"></a>Redémarrez le serveur  
+#### <a name="restart-the-server"></a>Redémarrer le serveur  
   
-1.  Sur le serveur, déplacez votre souris vers le coin supérieur droit de l’écran, cliquez sur **paramètres**, cliquez sur **alimentation**, puis cliquez sur Redémarrer.
+1.  Sur le serveur, déplacez votre souris sur le coin supérieur droit de l’écran, cliquez sur **Paramètres**, sur **Alimentation**, puis sur Redémarrer.

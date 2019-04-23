@@ -1,6 +1,6 @@
 ---
 title: Contrôler la visibilité de votre outil dans une solution
-description: Contrôler la visibilité de votre outil dans une solution de SDK Windows Admin Center (projet Honolulu)
+description: Contrôler la visibilité de votre outil dans une solution Windows Admin Center SDK (projet Honolulu)
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -9,29 +9,29 @@ ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: f3f34b4c86854bfc55cf4b1b57a0fd3c2baf2ffc
-ms.sourcegitcommit: be0144eb59daf3269bebea93cb1c467d67e2d2f1
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "4080966"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59839250"
 ---
-# Contrôler la visibilité de votre outil dans une solution #
+# <a name="control-your-tools-visibility-in-a-solution"></a>Contrôler la visibilité de votre outil dans une solution #
 
->S’applique à: Windows Admin Center, Windows Admin Center Preview
+>S'applique à : Windows Admin Center, version préliminaire de Windows Admin Center
 
-Il peut arriver que lorsque vous souhaitez exclure (ou masquer) votre extension ou un outil à partir de la liste des outils disponibles. Par exemple, si votre outil cible uniquement Windows Server 2016 (pas les anciennes versions), vous souhaiterez pas un utilisateur qui se connecte à un serveur Windows Server 2012 R2 pour voir votre outil du tout. (Imaginez l’expérience utilisateur: ils clique dessus, attendez que l’outil pour charger, uniquement pour obtenir un message que ses fonctionnalités ne sont pas disponibles pour leur connexion.) Vous pouvez définir le moment afficher (ou masquer) d’une fonctionnalité de votre fichier de manifest.json de l’outil.
+Il peut arriver lorsque vous souhaitez exclure (ou masquer) votre extension ou l’outil à partir de la liste des outils disponibles. Par exemple, si votre outil cible uniquement Windows Server 2016 (pas les anciennes versions), vous pouvez exclure un utilisateur qui se connecte à un serveur Windows Server 2012 R2 pour voir votre outil tout. (Imaginez l’expérience utilisateur - ils cliquer dessus, attendez que l’outil de chargement, uniquement pour recevoir un message que ses fonctionnalités ne sont pas disponibles pour leur connexion.) Vous pouvez définir quand afficher (ou masquer) votre fonctionnalité dans le fichier de l’outil manifest.json.
 
-## Options pour déterminer à quel moment afficher un outil ##
+## <a name="options-for-deciding-when-to-show-a-tool"></a>Options pour déterminer à quel moment afficher un outil ##
 
-Il existe trois options différentes, que vous pouvez utiliser pour déterminer si votre outil doit être affiché et disponible pour un serveur spécifique ou d’une connexion de cluster.
+Il existe trois options différentes, que vous pouvez utiliser pour déterminer si votre outil doit être affichées et disponibles pour un serveur spécifique ou d’une connexion au cluster.
 
-* hôte local
+* localhost
 * inventaire (il s’agit d’un tableau de propriétés)
 * script
 
-### Hôte local ###
+### <a name="localhost"></a>LocalHost ###
 
-La propriété de l’hôte local de l’objet de Conditions contient une valeur booléenne qui peut être évaluée pour déduire si le nœud qui se connecte localHost (le même ordinateur Windows Admin Center est installé sur) ou non. En passant une valeur à la propriété, vous indiquez quand (condition) pour afficher l’outil. Par exemple, si vous ne souhaitez que l’outil à afficher si l’utilisateur se connecte en fait à l’hôte local, configurez-la comme suit:
+La propriété localHost de l’objet de Conditions contient une valeur booléenne qui peut être évaluée pour déduire si le nœud qui se connecte est localHost (le même ordinateur Windows Admin Center est installé sur) ou non. En transmettant une valeur à la propriété, vous indiquez quand (condition) pour afficher l’outil. Par exemple, si vous ne voulez que l’outil à afficher si l’utilisateur se connecte en fait à l’hôte local, configurez-le comme suit :
 
 ``` json
 "conditions": [
@@ -40,7 +40,7 @@ La propriété de l’hôte local de l’objet de Conditions contient une valeur
 }]
 ```
 
-Par ailleurs, si vous ne souhaitez que votre outil à afficher lorsque l’hôte local *n’est pas* de nœud qui se connecte:
+Vous pouvez également, si vous ne voulez que votre outil à afficher lorsque le nœud connexion *n’est pas* localhost :
 
 ``` json
 "conditions": [
@@ -49,7 +49,7 @@ Par ailleurs, si vous ne souhaitez que votre outil à afficher lorsque l’hôte
 }]
 ```
 
-Voici ce à quoi les paramètres de configuration ressembler à afficher uniquement un outil lorsque le nœud qui se connecte n’est pas localhost:
+Voici ce que les paramètres de configuration ressemblent à afficher uniquement un outil lorsque le nœud de connexion n’est pas localhost :
 
 ``` json
 "entryPoints": [
@@ -79,23 +79,23 @@ Voici ce à quoi les paramètres de configuration ressembler à afficher uniquem
 }
 ```
 
-### Propriétés d’inventaire ###
+### <a name="inventory-properties"></a>Propriétés de l’inventaire ###
 
-Le SDK inclut un ensemble de propriétés d’inventaire que vous pouvez utiliser pour créer des conditions pour déterminer quand votre outil doit être disponible ou non au préalable. Il existe des propriétés différentes neuf dans le tableau «stock»:
+Le SDK inclut un ensemble organisé préalable de propriétés stock que vous pouvez utiliser pour générer des conditions pour déterminer quand votre outil doit être disponible ou non. Il existe neuf propriétés différentes dans le tableau « stock » :
 
-| Nom de propriété | Type de valeur attendue |
+| Nom de la propriété | Type de valeur attendu |
 | ------------- | ------------------- |
 | computerManufacturer | chaîne |
 | operatingSystemSKU | nombre |
-| operatingSystemVersion | version_string (par ex.: «10.1. *») |
+| operatingSystemVersion | version_string (par exemple : "10.1.*") |
 | productType | nombre |
-| FQDNServeur | chaîne |
+| clusterFqdn | chaîne |
 | isHyperVRoleInstalled | booléen |
 | isHyperVPowershellInstalled | booléen |
 | isManagementToolsAvailable | booléen |
 | isWmfInstalled | booléen |
 
-Chaque objet dans le tableau de stock doit être conforme à la structure de json suivantes:
+Chaque objet dans le tableau d’inventaire doit être conforme à la structure json suivante :
 
 ``` json
 "<property name>": {
@@ -105,41 +105,41 @@ Chaque objet dans le tableau de stock doit être conforme à la structure de jso
 }
 ```
 
-#### Valeurs de l’opérateur ####
+#### <a name="operator-values"></a>Valeurs d’opérateur ####
 
 | Opérateur | Description |
 | -------- | ----------- |
-| gt | supérieure à |
-| GE | supérieur ou égal à |
-| lt | inférieur à |
-| le | inférieur ou égal à |
-| EQ | égal à |
-| ne | non égal à |
+| gt | Supérieur à |
+| GE | Supérieur ou égal à |
+| lt | Inférieur à |
+| le | Inférieur ou égal à |
+| eq | Égal à |
+| Nou | Non égal à |
 | est | vérifier si une valeur est true |
-| pas | vérifier si une valeur est false |
+| not | vérifier si une valeur est false |
 | contient | élément existe dans une chaîne |
 | notContains | élément n’existe pas dans une chaîne |
 
-#### Types de données ####
+#### <a name="data-types"></a>Types de données ####
 
-Options disponibles pour la propriété «type»:
+Options disponibles pour la propriété 'type' :
 
 | Type | Description |
 | ---- | ----------- |
-| version | un numéro de version (par ex.: 10.1. *) |
+| version | un numéro de version (par exemple : 10.1.*) |
 | nombre | une valeur numérique |
-| chaîne | une valeur de chaîne |
-| booléen | True ou false |
+| chaîne | valeur de chaîne |
+| booléen | la valeur True ou false |
 
-#### Types de valeur ####
+#### <a name="value-types"></a>Types valeur ####
 
-La propriété «value» accepte les types suivants:
+La propriété 'value' accepte ces types :
 
 * chaîne
 * nombre
 * booléen
 
-Un ensemble de conditions de stock correctement formé se présente comme suit:
+Un ensemble de conditions de stock correctement formé ressemble à ceci :
 
 ``` json
 "entryPoints": [
@@ -180,9 +180,9 @@ Un ensemble de conditions de stock correctement formé se présente comme suit:
 }
 ```
 
-### Script ###
+### <a name="script"></a>Script ###
 
-Enfin, vous pouvez exécuter un script PowerShell personnalisé pour identifier la disponibilité et l’état du nœud. Tous les scripts doivent retourner un objet avec la structure suivante:
+Enfin, vous pouvez exécuter un script PowerShell personnalisé afin d’identifier la disponibilité et l’état du nœud. Tous les scripts doivent retourner un objet avec la structure suivante :
 
 ``` ps
 @{
@@ -193,14 +193,14 @@ Enfin, vous pouvez exécuter un script PowerShell personnalisé pour identifier 
         @{Name='Prop2'; Value = 12345678; Type='number'; };
 }
 ```
-La propriété d’état est la valeur importante afin de contrôler la décision d’afficher ou masquer votre extension dans la liste d’outils.  Les valeurs autorisées sont:
-| Valeur | Description |
+La propriété State est la valeur importante qui contrôle la décision pour afficher ou masquer votre extension dans la liste des outils.  Les valeurs autorisées sont :
+| Value | Description |
 | ---- | ----------- |
-| Disponible | L’extension doit être affichée dans la liste d’outils. |
-| NotSupported | L’extension ne doit pas être affichée dans la liste d’outils. |
-| NotConfigured | Il s’agit d’une valeur d’espace réservé pour les travaux ultérieurs qui invite l’utilisateur pour une configuration supplémentaire avant de l’outil est mis à disposition.  Actuellement, cette valeur se traduit par l’outil affiche et est l’équivalent à «Disponible». |
+| Disponible | L’extension doit être affichée dans la liste des outils. |
+| NotSupported | L’extension ne doit pas être affichée dans la liste des outils. |
+| NotConfigured | Il s’agit d’une valeur d’espace réservé pour les travaux ultérieurs qui invitent l’utilisateur pour une configuration supplémentaire avant que l’outil est mis à disposition.  Actuellement, cette valeur entraîne l’outil d’affichage et est l’équivalent fonctionnel sur « Disponible ». |
 
-Par exemple, si nous voulons un outil pour charger uniquement si le serveur distant a BitLocker installé, le script se présente comme suit:
+Par exemple, si nous voulons un outil pour charger uniquement si le serveur distant a BitLocker installé, le script ressemble à ceci :
 
 ``` ps
 $response = @{
@@ -224,7 +224,7 @@ if($isGood) {
 $response
 ```
 
-Une configuration de point d’entrée à l’aide de l’option de script se présente comme suit:
+Une configuration de point d’entrée à l’aide de l’option de script ressemble à ceci :
 
 ``` json
 "entryPoints": [
@@ -267,11 +267,11 @@ Une configuration de point d’entrée à l’aide de l’option de script se pr
 }
 ```
 
-## Prise en charge plusieurs jeux exigence ##
+## <a name="supporting-multiple-requirement-sets"></a>Prise en charge de plusieurs jeux d’exigence ##
 
-Vous pouvez utiliser plus d’un ensemble d’exigences pour déterminer le moment afficher votre outil en définissant plusieurs blocs «exigences».
+Vous pouvez utiliser plus d’un ensemble d’exigences pour déterminer le moment afficher votre outil en définissant plusieurs blocs de « configuration requise ».
 
-Par exemple, pour afficher votre outil si «scénario A» ou «scénario B» a la valeur true, définir deux exigences blocs; Si une est vraie (autrement dit, toutes les conditions dans un bloc de conditions sont remplies), l’outil s’affiche.
+Par exemple, pour afficher votre outil si « scénario A » ou « scénario B » est vraie, définir deux blocs d’exigences ; Si une est vraie (autrement dit, toutes les conditions dans un bloc d’exigences sont remplies), l’outil s’affiche.
 
 ``` json
 "entryPoints": [
@@ -304,13 +304,13 @@ Par exemple, pour afficher votre outil si «scénario A» ou «scénario B» a l
 
 ```
 
-## Prise en charge des plages de condition ##
+## <a name="supporting-condition-ranges"></a>Prise en charge des plages de condition ##
 
-Vous pouvez également définir un éventail de conditions en définissant plusieurs blocs «conditions» avec la même propriété, mais avec des opérateurs différents.
+Vous pouvez également définir un éventail de conditions en définissant plusieurs blocs de « conditions » avec la même propriété, mais avec différents opérateurs.
 
-Lors de la même propriété est définie avec des opérateurs différents, l’outil s’affiche tant que la valeur est comprise entre les deux conditions.
+Lors de la même propriété est définie avec différents opérateurs, l’outil s’affiche tant que la valeur est comprise entre les deux conditions.
 
-Par exemple, cet outil s’affiche tant que le système d’exploitation est une version entre 6.3.0 et 10.0.0:
+Par exemple, cet outil s’affiche tant que le système d’exploitation est une version entre 6.3.0 et 10.0.0 :
 
 ``` json
 "entryPoints": [

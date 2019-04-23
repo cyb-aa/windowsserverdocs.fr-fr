@@ -1,64 +1,67 @@
 ---
-title: Guide de Configuration de réseau convergé Interface carte (NIC)
-description: Cette rubrique fait partie de la convergé NIC Configuration Guide pour Windows Server2016.
+title: Conseils de configuration de carte d’Interface réseau (NIC) convergé
+description: Carte d’interface réseau (NIC) vous permet d’exposer RDMA via une carte réseau virtuelle de partition de l’ordinateur hôte (vNIC) afin que les services de la partition hôte peuvent accéder à distance mémoire accès Direct (RDMA) sur les mêmes cartes réseau que les invités Hyper-V utilisé pour le trafic TCP/IP.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
 ms.assetid: d7642338-9b33-4dce-8100-8b2c38d7127a
-manager: brianlic
+manager: dougkim
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 42f7ef674da1754253ad72ae30ad505f29ba6a7d
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 09/13/2018
+ms.openlocfilehash: e9f5180285dda790e11cec543a109d0cb58edd2d
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59838840"
 ---
-# <a name="converged-network-interface-card-nic-configuration-guide"></a>Guide de Configuration de réseau convergé Interface carte \(NIC\)
+# <a name="converged-network-interface-card-nic-configuration-guidance"></a>Convergé carte d’Interface réseau \(carte réseau\) des conseils de configuration
 
->S’applique à: Windows Server (canal annuel un point-virgule), Windows Server2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Carte d’interface réseau convergé \(NIC\) vous permet d’exposer RDMA par le biais d’une partition de host\ virtuel NIC \(vNIC\) afin que les services de partition hôte puissent accéder \(RDMA\) Remote Direct Memory Access sur les mêmes cartes réseau qui utilisent les invités Hyper-V pour le trafic TCP/IP.
+Carte d’interface réseau convergé \(NIC\) vous permet d’exposer RDMA via un hôte\-partitionner la carte réseau virtuelle \(carte réseau virtuelle\) afin que les services de la partition hôte peuvent accéder à Remote Direct Memory Access \(RDMA\) sur les mêmes cartes réseau que les invités Hyper-V utilisé pour le trafic TCP/IP.
 
-Avant de la fonctionnalité de la carte d’interface réseau convergé, services \(host partition\) de gestion qui voulaient utiliser RDMA devaient utiliser des cartes réseau prenant en charge RDMA\ dédiés, même si la bande passante est disponible sur les cartes réseau qui ont été liées au commutateur virtuel Hyper-V.
+Avant de la fonctionnalité de carte d’interface réseau convergé, gestion \(héberger la partition\) services qui voulaient utiliser RDMA devaient utiliser RDMA dédié\-cartes réseau compatibles, même si la bande passante n’était disponible sur les cartes réseau qui étaient liés à Hyper-V Commutateur virtuel.
 
-Avec les cartes réseau convergé, les charges de deux travail \ (gestion des utilisateurs de RDMA et invité traffic\) peuvent partager les mêmes cartes réseau physiques, ce qui vous permet d’installer des cartes réseau moins de vos serveurs.
+Avec la carte réseau convergé, les deux charges de travail \(utilisateurs de la gestion du trafic RDMA et invité\) peuvent partager les mêmes cartes réseau physiques, ce qui vous permet d’installer moins de cartes réseau sur vos serveurs.
 
-Lorsque vous déployez NIC convergée avec des ordinateurs hôtes Windows Server2016 Hyper-V et commutateurs virtuels Hyper-V, les cartes réseau virtuelles dans les ordinateurs hôtes Hyper-V exposent les services RDMA pour les processus hôte à l’aide de RDMA over sur n’importe quelle technologie RDMA basée sur Ethernet\.
-
->[!NOTE]
->Pour utiliser la technologie de réseau convergé, les cartes réseau certifiées dans vos serveurs doivent prendre en charge RDMA.
-
-Ce guide fournit deux ensembles d’obtenir des instructions, une pour les déploiements où vos serveurs ont une seule carte réseau installée, qui est un déploiement de base de cartes réseau convergé. et un autre ensemble d’instructions où vos serveurs ont deux ou plusieurs cartes réseau, qui est un déploiement de carte de réseau convergé sur une équipe \(SET\) Switch Embedded Teaming de cartes réseau compatibles RDMA\.
-
-Ce guide contient les rubriques suivantes.
-
-- [Configuration des cartes réseau convergé avec une seule carte réseau](cnic-single.md)
-- [Configuration des cartes réseau associées de cartes réseau convergé](cnic-datacenter.md)
-- [Configuration du commutateur physique pour les cartes réseau convergé](cnic-app-switch-config.md)
-- [Résolution des problèmes convergent des Configurations de cartes réseau](cnic-app-troubleshoot.md)
-
-## <a name="prerequisites"></a>Conditions préalables
-
-Voici la configuration requise pour les déploiements de base et le centre de données de convergé la carte réseau.
+Lorsque vous déployez la carte d’interface réseau convergé avec les hôtes Windows Server 2016 Hyper-V et commutateurs virtuels Hyper-V, les cartes réseau virtuelles dans les hôtes Hyper-V exposent des services RDMA pour les processus hôtes à l’aide de RDMA sur n’importe quel Ethernet\-en fonction de la technologie RDMA.
 
 >[!NOTE]
->Pour les exemples de ce guide, un adaptateur Ethernet de Mellanox ConnectX-3 Pro 40Gbits/s est utilisé, mais vous pouvez utiliser une de Windows Server certifié compatible RDMA\ cartes réseau qui prennent en charge cette fonctionnalité. Pour plus d’informations sur les cartes réseau compatibles, voir la rubrique catalogue Windows Server [cartes LAN](https://www.windowsservercatalog.com/results.aspx?&bCatID=1468&cpID=0&avc=85&ava=0&avt=0&avq=46&OR=1).
+>Pour utiliser la technologie de carte d’interface réseau convergé, les cartes réseau certifiées dans vos serveurs doivent prendre en charge RDMA.
 
-### <a name="basic-converged-nic-prerequisites"></a>Conditions préalables convergé les cartes réseau de base
+Ce guide fournit deux ensembles d’instructions, une pour les déploiements où vos serveurs ont une seule carte réseau installée, qui est un déploiement de base de carte de réseau convergé ; et un autre ensemble d’instructions où vos serveurs ont deux ou plusieurs cartes réseau, qui est un déploiement de carte de réseau convergé sur un Switch Embedded Teaming \(définir\) équipe de RDMA\-cartes réseau compatibles.
 
-Pour effectuer les étapes de ce guide pour la configuration de base convergé de cartes réseau, vous devez disposer les éléments suivants.
 
-- Deux serveurs qui exécutent Windows Server2016 Datacenter edition ou Windows Server2016, Standard edition.
-- Un compatibles RDMA, certifié la carte réseau installée sur chaque serveur.
-- Le rôle de serveur Hyper-V doit être installé sur chaque serveur.
+## <a name="prerequisites"></a>Prérequis
 
-### <a name="datacenter-converged-nic-prerequisites"></a>Conditions préalables de centre de données convergé de cartes réseau
+Voici la configuration requise pour les déploiements de base et de centre de données de convergé la carte réseau.
 
-Pour effectuer les étapes de ce guide pour la configuration de carte de réseau convergé de centre de données, vous devez disposer des éléments suivants.
+>[!NOTE]
+>Pour les exemples fournis, nous utilisons une carte Ethernet de Mellanox ConnectX-3 Pro 40 Gbits/s, mais vous pouvez utiliser des différents serveurs Windows certifié RDMA\-les cartes réseau compatibles qui prennent en charge cette fonctionnalité. Pour plus d’informations sur les cartes réseau compatibles, consultez la rubrique de catalogue Windows Server [cartes LAN](https://www.windowsservercatalog.com/results.aspx?&bCatID=1468&cpID=0&avc=85&ava=0&avt=0&avq=46&OR=1).
 
-- Deux serveurs qui exécutent Windows Server2016 Datacenter edition ou Windows Server2016, Standard edition.
-- La certification deux en charge RDMA, les cartes réseau installées sur chaque serveur.
-- Le rôle de serveur Hyper-V doit être installé sur chaque serveur.
-- Vous devez être familiarisé avec Switch Embedded Teaming \(SET\), qui est une alternative la solution d’association de cartes réseau que vous pouvez utiliser dans les environnements qui incluent Hyper-V et la pile logicielle définie de mise en réseau (SDN) dans Windows Server2016. ENSEMBLE intègre des fonctionnalités d’association de cartes réseau dans le commutateur virtuel Hyper-V. Pour plus d’informations, voir [accès à la mémoire Direct à distance (RDMA) et le commutateur SET (Embedded Teaming)](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).
+### <a name="basic-converged-nic-prerequisites"></a>Conditions préalables de base convergé carte d’interface réseau
 
+Pour effectuer les étapes de ce guide pour la configuration de la carte d’interface réseau convergé base, vous devez disposer des éléments suivants.
+
+- Deux serveurs qui exécutent Windows Server 2016 Datacenter edition ou Windows Server 2016 Standard edition.
+- Un prenant en charge RDMA, certifié la carte réseau installée sur chaque serveur.
+- Rôle de serveur Hyper-V installé sur chaque serveur.
+
+### <a name="datacenter-converged-nic-prerequisites"></a>Conditions préalables de centre de données convergé carte d’interface réseau
+
+Pour effectuer les étapes de ce guide pour la configuration de carte d’interface réseau convergé de centre de données, vous devez disposer des éléments suivants.
+
+- Deux serveurs qui exécutent Windows Server 2016 Datacenter edition ou Windows Server 2016 Standard edition.
+- Deux prenant en charge RDMA, certifié des cartes réseau installées sur chaque serveur.
+- Rôle de serveur Hyper-V installé sur chaque serveur.
+- Vous devez être familiarisé avec Switch Embedded Teaming \(définir\), un autre réseau NIC solution utilisée dans les environnements qui incluent Hyper-V et la pile de mise en réseau SDN (Software Defined) dans Windows Server 2016. JEU intègre des fonctionnalités d’association de cartes réseau dans le commutateur virtuel Hyper-V. Pour plus d’informations, consultez [accès de mémoire Direct à distance (RDMA) et l’association de cartes SET (Switch Embedded)](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).
+
+## <a name="related-topics"></a>Rubriques connexes
+- [Configuration de carte réseau convergé avec une seule carte réseau](cnic-single.md)
+- [Configuration des cartes réseau de carte réseau convergé](cnic-datacenter.md)
+- [Configuration de commutateur physique pour la carte réseau convergé](cnic-app-switch-config.md)
+- [Résolution des problèmes convergé des Configurations de carte réseau](cnic-app-troubleshoot.md)
+
+---

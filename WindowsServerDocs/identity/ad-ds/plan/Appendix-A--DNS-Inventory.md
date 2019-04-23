@@ -1,25 +1,26 @@
 ---
 ms.assetid: f3506489-f695-4d7d-b27a-ec714843c002
 title: Annexe A - inventaire DNS
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
-ms.date: 05/31/2017
+description: ''
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 36fc95ebf7fb558509d5f417b24abd8776904bc1
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: 91f671894c70778fab134a53b4e52bc7c1633e8c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59834560"
 ---
-# <a name="appendix-a-dns-inventory"></a>Annexe a: DNS inventaire
+# <a name="appendix-a-dns-inventory"></a>Annexe A : Inventaire DNS
 
->S’applique à: Windows Server2016, Windows Server2012R2, Windows Server2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Vous pouvez utiliser les tableaux suivants pour vous aider à la documentation de la méthode de résolution de noms récursive de votre structure de système DNS (Domain Name) en cours dans le cadre de la conception de la structure logique pour Windows Server 2008 Active Directory Services de domaine (AD DS).  
+Vous pouvez utiliser les tableaux suivants pour vous aider à documenter la méthode de résolution de noms récursive de la structure actuelle de votre système DNS (Domain Name) dans le cadre de la conception de la structure logique pour Windows Server Active Directory Domain Services (AD DS).  
   
 ## <a name="root-hints"></a>Indications de racine  
   
@@ -32,6 +33,3 @@ Vous pouvez utiliser les tableaux suivants pour vous aider à la documentation d
 |Nom|Adresse IPv4|Adresse IPv6|Emplacement physique|  
 |--------|----------------|----------------|---------------------|  
 |||||  
-  
-
-

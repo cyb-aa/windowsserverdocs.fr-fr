@@ -1,97 +1,121 @@
 ---
 ms.assetid: 7671e0c9-faf0-40de-808a-62f54645f891
-title: "La mise à niveau vers ADFS dans Windows Server2016"
-description: 
+title: Mise à niveau vers ADFS dans Windows Server2016
+description: ''
 author: billmath
 manager: femila
-ms.date: 05/31/2017
+ms.date: 04/09/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: ce07398a2d624a1e9b004cd35eb9228d59dc2b5b
-ms.sourcegitcommit: 76e57a5453d6ee9a04dcff6a8cca087132cb1d5f
+ms.openlocfilehash: 39c735e9dde0fd60c7eb9ccfe0af890bdc5a5950
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59838320"
 ---
-# <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Mise à niveau vers ADFS dans Windows Server2016 à l’aide d’une base de données WID
+# <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Mise à niveau vers AD FS dans Windows Server 2016 à l'aide d'une base de données WID
 
->S’applique à: Windows Server2016
+>S'applique à : Windows Server 2019, Windows Server 2016
 
 
-## <a name="moving-from-a-windows-server-2012-r2-ad-fs-farm-to-a-windows-server-2016-ad-fs-farm"></a>Déplacement d’une batterie de serveurs AD FS de Windows Server 2012 R2 vers une batterie de serveurs AD FS de Windows Server 2016  
-Le document suivant décrit comment mettre à niveau votre batterie de serveurs AD FS Windows Server 2012 R2 à AD FS dans Windows Server 2016, lorsque vous utilisez une base de données WID.  
+## <a name="upgrading-a-windows-server-2012-r2-or-2016-ad-fs-farm-to-windows-server-2019"></a>La mise à niveau un serveur Windows Server 2012 R2 ou 2016 batterie de serveurs ADFS pour Windows Server 2019 
+Le document suivant décrit comment mettre à niveau votre batterie AD FS à AD FS dans Windows Server 2019 lorsque vous utilisez une base de données WID.  
 
-### <a name="upgrading-ad-fs-to-windows-server-2016-fbl"></a>Mise à niveau des services AD FS vers Windows Server 2016 FBL  
-Nouveau dans AD FS pour Windows Server 2016 est la fonctionnalité de niveau de comportement de la batterie de serveurs (FBL).   Cette fonctionnalité est l’échelle de la batterie et détermine les fonctionnalités qui permet de la batterie AD FS.   Par défaut, le FBL dans une batterie de serveurs AD FS de Windows Server 2012 R2 est à le FBL Windows Server 2012 R2.  
+### <a name="ad-fs-farm-behavior-levels-fbl"></a>Niveaux de comportement AD FS de batterie de serveurs (FBL)  
+Dans AD FS pour Windows Server 2016, le niveau de comportement de la batterie (FBL) a été introduit. Il s’agit de batterie de serveurs à l’échelle du paramètre qui détermine que la batterie de serveurs fonctionnalités AD FS peut utiliser. 
 
-Un serveur Windows Server 2016 AD FS peut être ajouté à une batterie de serveurs Windows Server 2012 R2 et il fonctionnera à la même FBL comme un composant Windows Server 2012 R2.  Lorsque vous disposez d’un serveur AD FS de Windows Server 2016 de cette manière, votre batterie de serveurs est dit «mixte».  Toutefois, vous ne serez pas en mesure de tirer parti des nouvelles fonctionnalités de Windows Server 2016 jusqu'à ce que le FBL est déclenché pour Windows Server 2016.  Avec une batterie de serveurs mixte:  
-
--   Les administrateurs peuvent ajouter de nouveau, Windows Server 2016 les serveurs de fédération à une batterie de serveurs Windows Server 2012 R2 existant.  Par conséquent, la batterie est en «mode mixte» et fonctionne le niveau de comportement de la batterie de serveurs Windows Server 2012 R2.  Pour garantir un comportement cohérent entre la batterie de serveurs, les nouvelles fonctionnalités de Windows Server 2016 ne peut pas être configurées ou utilisées dans ce mode.  
-
--   Une fois tous les serveurs de fédération Windows Server 2012 R2 ont été supprimés de la batterie de serveurs en mode mixte, et dans le cas d’une batterie WID, un des nouveaux serveurs de fédération Windows Server 2016 a été promu au rôle de nœud principal, l’administrateur peut augmenter puis le FBL à partir de Windows Server 2012 R2 vers Windows Server 2016.  Par conséquent, toutes les nouvelles fonctionnalités de 2016 AD FS Windows Server peuvent être configurées et utilisées.  
-
--   Par conséquent, de la fonctionnalité de la batterie de serveurs mixte, AD FS Windows Server 2012 R2 organisations cherchant à mettre à niveau vers Windows Server 2016 ne seront pas nécessaire de déployer une batterie de serveurs entièrement nouveau, exporter et importer des données de configuration.  Au lieu de cela, ils peuvent ajouter des nœuds de Windows Server 2016 à une batterie existante alors qu’elle est en ligne et occasionner uniquement le temps d’arrêt relativement courte impliqués dans l’augmentation FBL.  
-
-N’oubliez pas qu’en mode mixte de batterie de serveurs, la batterie AD FS n’est pas capable de toutes les nouvelles fonctionnalités ou une fonctionnalité introduite dans AD FS dans Windows Server 2016.  Cela signifie que les organisations qui souhaitent tester les nouvelles fonctionnalités ne sont pas jusqu'à ce que le FBL est déclenché.  Par conséquent, si votre organisation recherche pour tester les nouvelles fonctionnalités avant rasing le FBL, vous devez déployer une batterie de serveurs distincte pour ce faire.  
-
-Le reste de l’est document fournit les étapes pour ajouter un serveur de fédération Windows Server 2016 dans un environnement Windows Server 2012 R2 et de puis déclencher le FBL à Windows Server 2016.  Ces étapes ont été effectuées dans un environnement de test indiqué par le schéma ci-dessous.  
+Le tableau suivant répertorie les valeurs FBL par version de Windows Server :
+| Version de Windows Server  | FBL | AD FS Configuration Database Name |
+| ------------- | ------------- | ------------- |
+| 2012 R2  | 1  | AdfsConfiguration |
+| 2016  | 3  | AdfsConfigurationV3 |
+| 2019  | 4  | AdfsConfigurationV4 |
 
 > [!NOTE]  
-> Avant de pouvoir déplacer à AD FS dans Windows Server 2016 FBL, vous devez supprimer tous les nœuds Windows 2012 R2.  Vous ne pouvez pas simplement mettre à niveau d’un système d’exploitation de Windows Server 2012 R2 vers Windows Server 2016 et devenir un nœud 2016.  Vous devez le supprimer et le remplacer par un nouveau nœud 2016.
->
-> La mise à niveau le FBL lors de l’utilisation de SQL pour stocker la configuration ADFS crée une nouvelle base de données "AdfsConfigurationV3".
+> La mise à niveau le FBL crée une nouvelle base de données de configuration AD FS.  Consultez le tableau ci-dessus pour les noms de la base de données de configuration pour chaque version de Windows Server AD FS et de la valeur FBL
 
-##### <a name="to-upgrade-your-ad-fs-farm-to-windows-server-2016-farm-behavior-level"></a>Pour mettre à niveau de votre batterie AD FS à niveau de comportement de la batterie de serveurs Windows Server 2016  
+### <a name="new-vs-upgraded-farms"></a>Nouveau vs mis à niveau les batteries de serveurs
+Par défaut, le FBL dans une nouvelle batterie AD FS correspond à la valeur pour la version de Windows Server du premier nœud de batterie de serveurs.  
 
-1.  À l’aide du Gestionnaire de serveur, installez le rôle Services de fédération Active Directory sur Windows Server 2016  
+Un serveur AD FS d’une version ultérieure peut être jointe à une batterie de serveurs AD FS 2012 R2 ou 2016, et la batterie de serveurs fonctionnera à la même FBL en tant que les nœuds existants. Lorsque vous avez plusieurs versions de Windows Server dans la même batterie de serveurs à la valeur FBL de la version la plus faible, votre batterie de serveurs est dite « mixed ». Toutefois, vous ne serez pas en mesure de tirer parti des fonctionnalités des versions ultérieures jusqu'à ce que le FBL est déclenché. Avec une batterie de serveurs mixte :  
 
-2.  À l’aide de l’Assistant Configuration des services ADFS, de joindre le nouveau serveur Windows Server 2016 à la batterie de serveurs AD FS existante.  
+-   Les administrateurs peuvent ajouter de nouveaux serveurs de fédération Windows Server 2019 à un serveur Windows Server 2012 R2 existant ou de batterie de serveurs 2016. Par conséquent, la batterie de serveurs est en « mode mixte » et opère au même niveau de comportement de batterie de serveurs en tant que la batterie de serveurs d’origine. Pour garantir un comportement cohérent entre la batterie de serveurs, les fonctionnalités les plus récentes versions de Windows Server AD FS ne peut pas être configurées ou utilisées.  
 
-    ![mise à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_1.png)  
+- Avant du FBL peut être déclenché, les administrateurs doivent supprimer les nœuds AD FS de versions précédentes de Windows Server à partir de la batterie de serveurs.  Dans le cas d’une batterie de serveurs WID, notez que cela requiert une des tp de serveurs de fédération Windows Server 2019 nouveau être promu au rôle de nœud principal dans la batterie de serveurs.
 
-3.  Sur le serveur de fédération Windows Server 2016, ouvrez Gestion AD FS.    Notez que rien ne s’affiche que ce serveur de fédération n’est pas le serveur principal.  
+-   Une fois que tous les serveurs de fédération dans la batterie de serveurs sont la même version de Windows Server, le FBL peut être déclenché.  Par conséquent, les nouvelles fonctionnalités de 2019 AD FS Windows Server peuvent ensuite être configurées et utilisées.
 
-    ![mise à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_3.png)  
+N’oubliez pas qu’en mode mixte de batterie de serveurs, la batterie de serveurs AD FS n’est pas capable d’aucune nouvelle fonctionnalité ou une fonctionnalité introduite dans AD FS dans Windows Server 2019. Cela signifie que les organisations qui souhaitent essayer de nouvelles fonctionnalités ne sont pas jusqu'à ce que le FBL est déclenché. Par conséquent, si votre organisation cherche à tester les nouvelles fonctionnalités avant rasing la FBL, vous devez déployer une batterie de serveurs distincte pour ce faire.  
 
-4.  Une fois la jointure est terminée, sur le serveur Windows Server 2016, ouvrez PowerShell et exécutez l’applet de commande suivante: Set-AdfsSyncProperties-PrimaryComputer de rôle  
-
-    ![mise à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_4.png)  
-
-5.  Sur le serveur Windows Server 2012 R2 AD FS d’origine, ouvrez PowerShell et exécutez l’applet de commande suivante: Set-AdfsSyncProperties-rôle SecondaryComputer - PrimaryComputerName {nom de domaine complet}  
-
-    ![mise à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_5.png)  
-
-6.  Sur votre Proxy d’Application Web, ouvrez PowerShell et exécutez l’applet de commande followoing: Install-WebApplicationProxy - CertificateThumbprint {SSLCert} - fsname fsname - TrustCred $trustcred  
-
-7.  Désormais sur le serveur de fédération Windows Server 2016 ouvrir Gestion AD FS.  Notez que tous les nœuds s’affichent dans la mesure où le rôle principal a été transféré sur ce serveur.  
-
-    ![mise à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_6.png)  
-
-8.  Avec le support d’installation Windows Server 2016, ouvrez une invite de commandes et accédez au répertoire support\adprep.  Exécutez la commande suivante: adprep /forestprep.  
-
-    ![mise à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_7.png)  
-
-9. Une fois que terminée exécuter adprep/domainprep  
-
-    ![mise à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_8.png)  
-
-10. Désormais, sur le serveur Windows Server 2016, ouvrez PowerShell et exécutez l’applet de commande suivant: AdfsFarmBehaviorLevelRaise appeler  
-
-    ![mise à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_9.png)  
-
-11. Lorsque vous y êtes invité, tapez Y. Commence alors augmenter le niveau.  Une fois cette opération terminée avec succès le FBL avoir élevé.  
-
-    ![mise à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_10.png)  
+Le reste de l’est le document décrit les étapes pour l’ajout d’un serveur de fédération Windows Server 2019 à un serveur Windows Server 2016 ou environnement 2012 R2 et puis d’augmenter la FBL à Windows Server 2019. Ces étapes ont été effectuées dans un environnement de test décrit par le diagramme architectural ci-dessous.  
 
 > [!NOTE]  
-> Si vos serveurs ADFS utilisent SQL pour la configuration, une nouvelle base de données manamgement a maintenant été créé avec le nom "AdfsConfiguraionV3". 
+> Avant de pouvoir déplacer vers AD FS dans Windows Server 2019 FBL, vous devez supprimer tous les Windows Server 2016 ou 2012 R2 nœuds. Vous ne pouvez pas simplement mettre à niveau d’un serveur Windows Server 2016 ou le système d’exploitation de 2012 R2 vers Windows Server 2019 et le devenir un nœud 2019. Vous devez le supprimer et le remplacer par un nouveau nœud 2019.
 
-12. Désormais, si vous accédez à gestion AD FS, vous verrez les nouveaux nœuds qui ont été ajoutés pour AD FS dans Windows Server 2016  
 
-    ![mise à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_12.png)  
 
-13. De même, vous pouvez utiliser l’applet de commande PowerShell: Get-AdfsFarmInformation vous montrer le FBL actuel.  
+##### <a name="to-upgrade-your-ad-fs-farm-to-windows-server-2019-farm-behavior-level"></a>Pour mettre à niveau votre batterie AD FS pour le niveau de comportement de batterie de serveurs Windows Server 2019  
 
-    ![mise à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_13.png)  
+1.  À l’aide du Gestionnaire de serveur, installez le rôle Services de fédération Active Directory sur le 2019 de serveur Windows 
+
+2.  À l’aide de l’Assistant de Configuration AD FS, de joindre le nouveau serveur Windows Server 2019 pour la batterie de serveurs AD FS existante.  
+
+    ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_1.png)  
+
+3.  Sur le serveur de fédération Windows Server 2019, ouvrez Gestion AD FS. Notez que les fonctionnalités de gestion ne sont pas disponibles, car ce serveur de fédération n’est pas le serveur principal.  
+
+    ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_3.png)  
+
+4.  Sur le serveur Windows Server 2019, ouvrez une fenêtre de commande PowerShell avec élévation de privilèges et exécutez l’applet de commande suivante : `Set-AdfsSyncProperties -Role PrimaryComputer`
+
+    ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_4.png)  
+
+5.  Sur le serveur AD FS qui a été configuré précédemment en tant que principal, ouvrez une fenêtre de commande PowerShell avec élévation de privilèges et exécutez l’applet de commande suivante : `Set-AdfsSyncProperties -Role SecondaryComputer -PrimaryComputerName {FQDN} `
+
+    ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_5.png)  
+
+6.  Sur chaque Proxy d’Application Web, reconfigurez le proxy d’application Web en exécutant la commande PowerShell suivante dans une fenêtre avec élévation de privilèges :  
+```powershell
+$trustcred = Get-Credential -Message "Enter Domain Administrator credentials"
+Install-WebApplicationProxy -CertificateThumbprint {SSLCert} -fsname fsname -FederationServiceTrustCredential $trustcred  
+```
+
+7.  Ouvrez Gestion AD FS maintenant sur le serveur de fédération Windows Server 2016. Notez que maintenant toutes les fonctionnalités d’administration apparaissent, car le rôle principal a été transféré à ce serveur.  
+
+    ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_6.png)  
+
+8.  Si vous mettez à niveau une batterie de serveurs AD FS 2012 R2 à 2016 ou 2019, la mise à niveau de la batterie de serveurs requiert le schéma Active Directory soit au moins le niveau 85.  Pour mettre à niveau le schéma, le support d’installation avec le Windows Server 2016, ouvrez une invite de commandes et accédez au répertoire de support\adprep. Exécutez la commande suivante :  `adprep /forestprep`
+
+    ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_7.png)  
+
+    Une fois que l’exécution se termine `adprep/domainprep`
+    >[!NOTE]
+    >Avant d’exécuter l’étape suivante, assurez-vous de que Windows Server est en cours en exécutant la mise à jour Windows à partir des paramètres. Continuez ce processus jusqu’à ce qu’il n’y ait plus de mises à jour nécessaires. 
+    > 
+    
+    ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_8.png)  
+
+9. Maintenant disponible sur le serveur Windows Server 2016, ouvrez PowerShell et exécutez l’applet de commande suivante :
+    >[!NOTE]
+    > Tous les serveurs de 2012 R2 doivent être supprimés de la batterie avant d’exécuter l’étape suivante.
+ 
+    `Invoke-AdfsFarmBehaviorLevelRaise`  
+
+    ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_9.png)  
+
+10. Lorsque vous y êtes invité, tapez O. Ceci lancera augmentation du niveau. Une fois cette opération terminée vous avez correctement déclenché la FBL.  
+
+    ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_10.png)  
+
+11. Maintenant, si vous accédez à gestion AD FS, vous verrez que les nouvelles fonctionnalités ont été ajoutées pour la dernière version d’AD FS 
+
+    ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_12.png)  
+
+13. De même, vous pouvez utiliser l’applet de commande PowerShell : `Get-AdfsFarmInformation` pour vous montrer le FBL actuel.  
+
+    ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_13.png)  
+    
+

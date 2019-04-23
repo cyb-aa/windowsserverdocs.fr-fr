@@ -1,49 +1,50 @@
 ---
 ms.assetid: 7e87ce2b-062e-479f-bcf2-585b6c42026a
-title: "Mises à jour du composant identité"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: Mises à jour des composants d’identité
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 827acc3073b09ebb9fbbf649145442f5cf609526
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: 1d975fa32f19facfdee7a31e58293006fc5859ff
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59834480"
 ---
-# <a name="identity-component-updates"></a>Mises à jour du composant identité
+# <a name="identity-component-updates"></a>Mises à jour des composants d’identité
 
->S’applique à: Windows Server2016, Windows Server2012R2, Windows Server2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
-## <a name="lesson-1-identity-component-updates"></a>Leçon 1: Mises à jour des composants d’identité  
-Elle explique les mises à jour du composant identité dans Windows Server 2012 R2.  
+## <a name="lesson-1-identity-component-updates"></a>Leçon 1 : Mises à jour des composants d’identité  
+Cette leçon explique les mises à jour de composant identité dans Windows Server 2012 R2.  
   
 ### <a name="what-you-will-learn"></a>Ce que vous allez apprendre  
-Après avoir effectué cette leçon, vous serez en mesure de:  
+À l’issue de cette leçon, vous serez en mesure de :  
   
--   Décrivez les modifications suivantes:  
+-   Décrire les modifications suivantes :  
   
     -   [Unicité des noms SPN et UPN](../../../ad-ds/manage/component-updates/SPN-and-UPN-uniqueness.md)  
   
-    -   [Connexion redémarrage automatique Winlogon sur et #40; aRSO et #41;](../../../ad-ds/manage/component-updates/Winlogon-Automatic-Restart-Sign-On--ARSO-.md)  
+    -   [Redémarrage automatique Sign-On &#40;ARSO&#41;](../../../ad-ds/manage/component-updates/Winlogon-Automatic-Restart-Sign-On--ARSO-.md)  
   
     -   [Attestation de clé TPM](../../../ad-ds/manage/component-updates/TPM-Key-Attestation.md)  
   
-    -   [Applets de commande sauvegarde de l’autorité de certification et de restauration Windows PowerShell](../../../ad-ds/manage/component-updates/CA-Backup-and-Restore-Windows-PowerShell-cmdlets.md)  
+    -   [Applets de commande de sauvegarde et de restauration de l'autorité de certification Windows PowerShell](../../../ad-ds/manage/component-updates/CA-Backup-and-Restore-Windows-PowerShell-cmdlets.md)  
   
     -   [Audit des processus de ligne de commande](../../../ad-ds/manage/component-updates/Command-line-process-auditing.md)  
   
-    -   [Gestion et Protection des informations d’identification](https://technet.microsoft.com/library/dn408190.aspx)  
+    -   [Gestion et protection des informations d'identification](https://technet.microsoft.com/library/dn408190.aspx)  
   
-**Auteur**: Justin Turner, ingénieur Support résolution Senior avec le groupe de Windows  
+**Auteur**: Justin Turner, ingénieur Support résolution Senior auprès du groupe Windows  
   
 > [!NOTE]  
-> Ce contenu est écrit par un ingénieur du support client Microsoft et est destiné aux administrateurs expérimentés et architectes système qui recherchent des explications techniques plus approfondies des fonctionnalités et des solutions Windows Server2012R2 que proposent généralement les rubriques sur TechNet. Toutefois, il n’a pas subi les mêmes passes, afin de la partie du langage peut sembler que moins finalisée que ce qui se trouvent généralement sur TechNet.  
+> Ce contenu est écrit par un ingénieur du support client Microsoft et est destiné aux administrateurs expérimentés et aux architectes système qui recherchent des explications techniques plus approfondies des fonctionnalités et des solutions Windows Server 2012 R2 que n'en proposent généralement les rubriques de TechNet. Toutefois, il n'a pas subi les mêmes passes de correction. De ce fait, une partie du langage peut sembler moins finalisée que le contenu de TechNet.  
   
 
 

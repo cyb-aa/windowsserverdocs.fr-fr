@@ -11,20 +11,20 @@ author: shortpatti
 ms.author: pashort
 ms.localizationpriority: high
 ms.openlocfilehash: 1ae36a2e1be1559094dd55dba41fa9a468118260
-ms.sourcegitcommit: 9ed4c9fe04ebf3ef488170503c9a354c992b6fde
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "4339457"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59840060"
 ---
-# Virtualisation
+# <a name="virtualization"></a>Virtualisation
 
 >[!TIP]
-> Vous recherchez des informations sur des versions plus anciennes de WindowsServer? Consultez nos autres [bibliothèques Windows Server](/previous-versions/windows/) sur docs.microsoft.com. Vous pouvez également [rechercher dans ce site](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) des informations spécifiques.
+> Vous recherchez des informations sur des versions plus anciennes de Windows Server ? Consultez nos autres [bibliothèques Windows Server](/previous-versions/windows/) sur docs.microsoft.com. Vous pouvez également [rechercher dans ce site](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) des informations spécifiques.
 
 <HR />
 
-La virtualisation dans WindowsServer est l'une des technologies fondamentales nécessaires à la création de votre infrastructure à définition logicielle. Avec la mise en réseau et le stockage, les fonctionnalités de virtualisation offrent la flexibilité dont vous avez besoin pour les charges de travail de vos clients.
+La virtualisation dans Windows Server est l'une des technologies fondamentales nécessaires à la création de votre infrastructure à définition logicielle. Avec la mise en réseau et le stockage, les fonctionnalités de virtualisation offrent la flexibilité dont vous avez besoin pour les charges de travail de vos clients.
 
 <HR />
 <ul class="cardsI panelContent">
@@ -39,9 +39,9 @@ La virtualisation dans WindowsServer est l'une des technologies fondamentales n�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Structure protégée et machines virtuelles dotées d'une protection maximale</h3>
+                        <h3>Structure protégée et machines virtuelles dotées d’une protection maximale</h3>
 <HR />
-                        <p>En tant que fournisseur de services cloud ou administrateur d’un cloud privé d’entreprise, vous pouvez utiliser une structure protégée pour offrir un environnement plus sécurisé pour les ordinateurs virtuels. Une structure protégée (Guarded Fabric) se compose d’un Service Guardian hôte (HGS), généralement, un cluster de trois nœuds, d’un ou de plusieurs hôtes protégés et d’un ensemble d’ordinateurs virtuels.</p>
+                        <p>En tant que fournisseur de services cloud ou administrateur d’un cloud privé d’entreprise, vous pouvez utiliser une structure protégée pour offrir un environnement plus sécurisé pour les ordinateurs virtuels. Une structure protégée se compose d’un Service de surveillance d’hôte \(SGH\) -en général, un cluster de trois nœuds - plus un ou plusieurs hôtes service Guardian et un ensemble de machines virtuelles protégées.</p>
                      </div>
                   </div>
               </div>
@@ -99,7 +99,7 @@ La virtualisation dans WindowsServer est l'une des technologies fondamentales n�
                         </div>
                     </div>
                     <div class="cardText">
-                       <h3>Windows10 pour l'entreprise: utiliser les appareils pour travailler</h3>
+                       <h3>Windows 10 pour l’entreprise : Façons d’utiliser des appareils professionnels</h3>
 <HR />
                        <p>La technologie Hyper-V fournit des ressources de calcul au travers de la virtualisation du matériel. Hyper-V crée une version logicielle d'un ordinateur, appelée ordinateur virtuel, que vous utilisez pour exécuter un système d'exploitation et des applications. Vous pouvez exécuter plusieurs ordinateurs virtuels en même temps et les créer et les supprimer en fonction de vos besoins.</p>
                      </div>
@@ -121,13 +121,13 @@ La virtualisation dans WindowsServer est l'une des technologies fondamentales n�
                     <div class="cardText">
                         <h3>Commutateur virtuel Hyper-V</h3>
 <HR />
-                        <p>Le commutateur virtuel Hyper-V désigne un commutateur réseau Ethernet de couche2 logiciel inclus dans toutes les versions d'Hyper-V.</p>
+                        <p>Le commutateur virtuel Hyper-V désigne un commutateur réseau Ethernet de couche 2 logiciel inclus dans toutes les versions d'Hyper-V.</p>
 <HR />
                         <p>Le commutateur virtuel Hyper-V est disponible dans le Gestionnaire Hyper-V une fois que le rôle serveur Hyper-V est installé.</p>
 <HR />
                         <p>Le commutateur virtuel Hyper-V offre des fonctionnalités gérées par programme et extensibles qui vous permettent de connecter des machines virtuelles aux réseaux virtuels et au réseau physique à la fois.</p>
 <HR />
-                        <p>Qui plus est, le commutateur virtuel Hyper-V assure l'application de la stratégie de sécurité et d'isolement, ainsi que des niveaux de service.</p>
+                        <p>Qui plus est, le commutateur virtuel Hyper-V assure l’application de la stratégie de sécurité et d’isolement, ainsi que des niveaux de service.</p>
                      </div>
                   </div>
               </div>
@@ -138,9 +138,9 @@ La virtualisation dans WindowsServer est l'une des technologies fondamentales n�
 
 ---
 
-### Liens apparentés
+### <a name="related"></a>Liens apparentés
 
-- Hyper-V nécessite un matériel spécifique pour créer l'environnement de virtualisation. Pour plus d'informations, voir [Configuration système pour Hyper-V sur WindowsServer2016](./hyper-v/system-requirements-for-hyper-v-on-windows.md). 
+- Hyper-V nécessite un matériel spécifique pour créer l'environnement de virtualisation. Pour plus d'informations, voir [Configuration système pour Hyper-V sur Windows Server 2016](./hyper-v/system-requirements-for-hyper-v-on-windows.md). 
 
-- Pour plus d'informations concernant Hyper-V sur Windows10, voir [Hyper-V sur Windows10](https://docs.microsoft.com/virtualization/hyper-v-on-windows).
+- Pour plus d'informations concernant Hyper-V sur Windows 10, voir [Hyper-V sur Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows).
 

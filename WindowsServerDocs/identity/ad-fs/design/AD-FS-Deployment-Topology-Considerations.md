@@ -1,7 +1,7 @@
 ---
 ms.assetid: 4ef052f0-61a9-4912-b780-5c96187c850f
-title: "Considérations sur la topologie déploiement ADFS"
-description: 
+title: Considérations sur la topologie du déploiement d'AD FS
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,60 +9,61 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: eee14ee7bb50e1a82f35caf9fbacda0b86d3a1ad
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: bbd3ec26e5fb0ce9857f2c9e5321300fb835b303
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59834590"
 ---
-# <a name="ad-fs-deployment-topology-considerations"></a>Considérations sur la topologie déploiement ADFS
+# <a name="ad-fs-deployment-topology-considerations"></a>Considérations sur la topologie du déploiement d'AD FS
 
->S’applique à: Windows Server2016, Windows Server2012R2, Windows Server2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Cette rubrique décrit les considérations importantes pour vous aider à planifier et concevoir la topologie de déploiement \(ADFS\) qui ActiveDirectory Federation Services à utiliser dans votre environnement de production. Cette rubrique est un point de départ pour examiner et évaluer les aspects qui influent sur les fonctionnalités ou capacités disponibles après le déploiement d’ADFS. Par exemple, en fonction de la base de données type que vous choisissez pour stocker la base de données de configuration ADFS en fin de compte détermine si vous pouvez implémenter certaines fonctionnalités \(SAML\) Security Assertion Markup Language qui nécessitent SQLServer.  
+Cette rubrique décrit les considérations importantes pour vous aider à planifier et concevoir les Services de fédération Active Directory \(AD FS\) topologie de déploiement à utiliser dans votre environnement de production. Cette rubrique est un point de départ pour examiner et évaluer les aspects qui influent sur les fonctionnalités ou capacités disponibles après le déploiement d’AD FS. Par exemple, en fonction de la base de données type que vous choisissez de stocker la base de données de configuration AD FS finalement déterminera si vous pouvez implémenter certaines Security Assertion Markup Language \(SAML\) fonctionnalités qui nécessitent SQL Serveur.  
   
-## <a name="determining-which-type-of-ad-fs-configuration-database-to-use"></a>Détermination du type de base de données de configuration ADFS à utiliser  
-ADFS utilise une base de données pour stocker la configuration et, dans certains cas, les données transactionnelles liées au Service de fédération. Vous pouvez utiliser le logiciel ADFS pour sélectionner l’intégrée de base de données interne Windows \(WID\) ou MicrosoftSQLServer version2005 ou ultérieure pour stocker les données dans le Service de fédération.  
+## <a name="determining-which-type-of-adfs-configuration-database-to-use"></a>Détermination du type de base de données de configuration AD FS à utiliser  
+AD FS utilise une base de données pour stocker la configuration et, dans certains cas, les données transactionnelles liées au Service de fédération. Vous pouvez utiliser le logiciel AD FS pour sélectionner intégrées\-dans la base de données interne Windows \(WID\) ou Microsoft SQL Server 2005 ou ultérieure pour stocker les données dans le Service de fédération.  
   
-Pour la plupart des cas, les types de base de données de deux sont relativement équivalents. Toutefois, il existe certaines différences à connaître avant de commencer la lecture plus d’informations sur les différentes topologies de déploiement que vous pouvez utiliser avec ADFS. Le tableau suivant décrit les différences de fonctionnalités prises en charge entre une base de données WID et une base de données SQLServer.  
+En règle générale, les deux types de base de données sont relativement équivalents. Toutefois, il existe certaines différences à connaître avant de commencer la lecture plus d’informations sur les différentes topologies de déploiement que vous pouvez utiliser avec AD FS. Le tableau suivant décrit les fonctionnalités et indique si elles sont prises en charge dans une base de données interne Windows et dans une base de données SQL Server.  
   
-Fonctionnalités de ADFS  
+Fonctionnalités d’AD FS  
   
-|Fonctionnalité|Prise en charge par WID?|Prise en charge par SQLServer?|Plus d’informations sur cette fonctionnalité|  
+|Fonctionnalité|Prise en charge par la base de données interne Windows ?|Prise en charge par SQL Server ?|Pour en savoir plus sur cette fonctionnalité|  
 |-----------|---------------------|----------------------------|---------------------------------------|  
-|Déploiement de la batterie de serveurs de fédération|Oui, avec une limite de cinq serveurs de fédération par batterie.|Oui. Aucune limite n’est appliquée pour le nombre de serveurs de fédération que vous pouvez déployer dans une batterie|[Déterminer votre topologie de déploiement ADFS](Determine-Your-AD-FS-Deployment-Topology.md)|  
-|Résolution d’artefacts SAML **Remarque:** cette fonctionnalité n’est pas requise pour les scénarios MicrosoftOnline Services, MicrosoftOffice 365, MicrosoftExchange ou MicrosoftOffice SharePoint.|N°|Oui|[Le rôle de la base de données de Configuration ADFS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Meilleures pratiques pour sécuriser la planification et déploiement d’ADFS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
-|Détection de relecture de jetons SAML\/WS-Federation|N°|Oui|[Le rôle de la base de données de Configuration ADFS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Meilleures pratiques pour sécuriser la planification et déploiement d’ADFS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
+|Déploiement d'une batterie de serveurs de fédération|Oui, avec une limite de 30 serveurs de fédération pour chaque batterie de serveurs|Oui. Vous pouvez déployer un nombre illimité de serveurs de fédération dans une batterie.|[Déterminer votre topologie de déploiement AD FS](Determine-Your-AD-FS-Deployment-Topology.md)|  
+|Résolution d’artefacts SAML **Remarque :** Cette fonctionnalité n'est pas nécessaire pour les scénarios Microsoft Online Services, Microsoft Office 365, Microsoft Exchange ou Microsoft Office SharePoint.|Non|Oui|[Le rôle de la base de données de Configuration AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Meilleures pratiques pour sécuriser la planification et déploiement d’AD FS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
+|SAML\/WS\-détection de relecture de jetons de fédération|Non|Oui|[Le rôle de la base de données de Configuration AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Meilleures pratiques pour sécuriser la planification et déploiement d’AD FS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
   
 Fonctionnalités de base de données  
   
-|Fonctionnalité|Prise en charge par WID?|Prise en charge par SQLServer?|Plus d’informations sur cette fonctionnalité|  
+|Fonctionnalité|Prise en charge par la base de données interne Windows ?|Prise en charge par SQL Server ?|Pour en savoir plus sur cette fonctionnalité|  
 |-----------|---------------------|----------------------------|---------------------------------------|  
-|Redondance de base de la base de données à l’aide de la réplication par réception, où un ou plusieurs serveurs hébergeant une copie en lecture seule des modifications de demande de base de données qui sont effectuées sur un serveur source qui héberge une copie en lecture/écriture de la base de données|Oui|N°|[Le rôle de la base de données de Configuration ADFS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)|  
-|Redondance de base de données à l’aide des solutions de disponibilité évolutifs, telles que le basculement clustering ou la mise en miroir \ (à l’only\ de couche base de données) **Remarque:** toutes les topologies de déploiement d’ADFS prend en charge le clustering au niveau de la couche de service ADFS.|N°|Oui|[Le rôle de la base de données de Configuration ADFS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Vue d’ensemble des Solutions haute disponibilité](https://go.microsoft.com/fwlink/?LinkId=179853)|  
+|Redondance de base de données à l’aide d’extraire la réplication, où un ou plusieurs serveurs hébergeant une lecture\-seule copie des modifications de requête de base de données qui sont effectuées sur un serveur source qui héberge une lecture\/écrire la copie de la base de données|Oui|Non|[Le rôle de la base de données de Configuration AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)|  
+|Redondance de base de données à l’aide de haute\-des solutions de disponibilité, telles que le basculement de clustering ou de mise en miroir \(au niveau de la couche base de données uniquement\) **Remarque :** Toutes les topologies de déploiement d’AD FS prend en charge le clustering au niveau de la couche de service AD FS.|Non|Oui|[Le rôle de la base de données de Configuration AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Vue d’ensemble des Solutions de haute disponibilité](https://go.microsoft.com/fwlink/?LinkId=179853)|  
   
-### <a name="sql-server-considerations"></a>Considérations concernant SQLServer  
-Vous devez envisager les facteurs suivants si vous sélectionnez SQLServer en tant que la base de données de configuration pour votre déploiement d’ADFS.  
+### <a name="sql-server-considerations"></a>Considérations concernant SQL Server  
+Vous devez prendre en compte les facteurs suivants si vous choisissez SQL Server comme base de données de configuration pour le déploiement d'AD FS.  
   
--   **SAML fonctionnalités et leur impact sur la taille de la base de données et la croissance**. Résolution d’artefacts SAML ou de fonctionnalités de détection de relecture de jetons SAML sont activées, ADFS stocke des informations dans la base de données de configuration SQLServer pour chaque jeton ADFS émis. La croissance de la base de données SQLServer à la suite de cette activité n’est pas considérée comme significative et dépend de la période de rétention de relecture de jetons configurée. Chaque enregistrement d’artefact a une taille de \(KB\) environ 30kilo-octets.  
+-   **Fonctionnalités SAML et leur impact sur la taille et sur la croissance de la base de données**. Quand la résolution d'artefacts SAML ou la détection de relecture de jetons SAML est activée, AD FS stocke des informations dans la base de données de configuration SQL Server pour chaque jeton AD FS émis. La croissance de la base de données SQL Server qu'entraîne cette activité n'est pas considérée comme significative et dépend de la période de rétention de la relecture de jetons configurée. Chaque enregistrement d’artefact a une taille d’environ 30 kilo-octets \(Ko\).  
   
--   **Nombre de serveurs nécessaires pour votre déploiement**. Vous devez ajouter au moins un serveur supplémentaire \ (et le nombre total de serveurs nécessaires pour déployer votre infrastructure\ ADFS) qui agit comme un hôte dédié de l’instance de SQLServer. Si vous envisagez d’utiliser la mise en miroir ou de clustering de basculement pour fournir une tolérance de panne et l’extensibilité pour la base de données de configuration de SQLServer, un minimum de deux serveurs SQLServer est requis.  
+-   **Nombre de serveurs nécessaires pour votre déploiement**. Vous devez ajouter au moins un serveur supplémentaire \(et le nombre total de serveurs nécessaires pour déployer votre infrastructure AD FS\) qui agira comme un hôte dédié de l’instance de SQL Server. Si vous envisagez d'utiliser le clustering avec basculement ou la mise en miroir pour fournir les fonctionnalités de tolérance de panne et d'extensibilité pour la base de données de configuration SQL Server, au moins deux serveurs SQL sont nécessaires.  
   
-### <a name="how-the-configuration-database-type-you-select-may-impact-hardware-resources"></a>Comment le type de base de données de configuration que vous sélectionnez peut-être affecter les ressources matérielles  
-L’impact sur les ressources matérielles sur un serveur de fédération qui est déployé dans une batterie de serveurs à l’aide de WID par opposition à un serveur de fédération qui est déployé dans une batterie de serveurs à l’aide de la base de données SQLServer n’est pas significatif. Toutefois, il est important de prendre en compte que lorsque vous utilisez WID pour la batterie de serveurs, chaque serveur de fédération doit stocker, gérer et mettre à jour les changements de réplication pour sa copie locale de la base de données de configuration ADFS tout en continuant également pour les opérations normales qui nécessite le Service de fédération.  
+### <a name="how-the-configuration-database-type-you-select-may-impact-hardware-resources"></a>Impact du type de base de données de configuration sélectionné sur les ressources matérielles  
+L'impact sur les ressources matérielles d'un serveur de fédération déployé dans une batterie utilisant la base de données interne Windows n'est pas significatif par rapport à un serveur de fédération déployé dans une batterie utilisant la base de données SQL Server. Toutefois, gardez à l'esprit que quand vous utilisez la base de données interne Windows pour la batterie, chaque serveur de fédération appartenant à celle-ci doit stocker et gérer les changements de réplication pour sa copie locale de la base de données de configuration AD FS tout en effectuant les opérations normales nécessaires au service de fédération.  
   
-En comparaison, les serveurs de fédération qui sont déployés dans une batterie de serveurs qui utilise la base de données SQLServer ne contiennent pas nécessairement une instance locale de la base de données de configuration ADFS. Par conséquent, ils peuvent solliciter un peu moins de ressources matérielles.  
+À l'opposé, les serveurs de fédération déployés dans une batterie qui utilise la base de données SQL Server ne contiennent pas nécessairement une instance locale de la base de données de configuration AD FS. Ils sont donc susceptibles de solliciter un peu moins les ressources matérielles.  
   
-## <a name="verifying-that-your-production-environment-can-support-an-ad-fs-deployment"></a>Vérifier que votre environnement de production peut prendre en charge un déploiement d’ADFS  
-Outre les serveurs de fédération que vous allez déployer et selon la configuration de votre environnement de production est, les serveurs suivants être amenés à fournir l’infrastructure nécessaire pour prendre en charge de votre nouveau déploiement d’ADFS:  
+## <a name="verifying-that-your-production-environment-can-support-an-ad-fs-deployment"></a>Vérification que votre environnement de production peut prendre en charge un déploiement d'AD FS  
+Outre les serveurs de fédération que vous allez déployer, et selon la façon dont votre environnement de production est configuré, les serveurs suivants être amenés à fournir l’infrastructure nécessaire pour prendre en charge de votre nouveau déploiement d’AD FS :  
   
--   Contrôleur de domaine ActiveDirectory  
+-   Contrôleur de domaine Active Directory  
   
--   Autorité de certification \(CA\)  
+-   Autorité de certification \(autorité de certification\)  
   
--   Serveur Web pour les métadonnées de fédération hôte  
+-   Serveur web destiné à héberger les métadonnées de fédération  
   
--   \(NLB\) équilibrage de charge réseau  
+-   Équilibrage de charge réseau \(NLB\)  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception ADFS dans Windows Server2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

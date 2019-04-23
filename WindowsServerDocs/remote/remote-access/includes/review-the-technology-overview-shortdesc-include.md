@@ -1,0 +1,1 @@
+**[En savoir plus sur la technologie VPN Always On](../vpn/always-on-vpn/always-on-vpn-technology-overview.md).** Pour ce déploiement, vous devez installer un nouveau serveur d’accès à distance qui exécute Windows Server 2016, mais aussi modifier une partie de votre infrastructure existante pour le déploiement.
