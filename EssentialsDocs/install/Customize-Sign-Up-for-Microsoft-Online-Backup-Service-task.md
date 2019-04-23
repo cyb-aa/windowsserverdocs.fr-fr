@@ -1,6 +1,6 @@
 ---
-title: "Personnalisation de connexion tâche du Service de sauvegarde en ligne Microsoft"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Personnaliser la tâche d’inscription au service Microsoft Online Backup Service
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,22 +13,23 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: cd148e0e58cd80dbff7f7884ead95dc1e46b6257
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879930"
 ---
-# <a name="customize-sign-up-for-microsoft-online-backup-service-task"></a>Personnalisation de connexion tâche du Service de sauvegarde en ligne Microsoft
+# <a name="customize-sign-up-for-microsoft-online-backup-service-task"></a>Personnaliser la tâche d’inscription au service Microsoft Online Backup Service
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Par défaut, le **s’inscrire pour le Service de sauvegarde en ligne Microsoft** de tâches sur le **périphériques** onglet du tableau de bord s’ouvre le site Web du Service de sauvegarde en ligne Microsoft. Le site Web fournit des informations sur le service et vous permet de vous abonner au service et télécharger le logiciel requis.  
+Par défaut, la tâche **Inscription au service de sauvegarde en ligne Microsoft** dans l'onglet **PÉRIPHÉRIQUES** du Tableau de bord ouvre le site Web des services de sauvegarde en ligne Microsoft. Le site Web fournit des informations sur le service et vous aide à vous inscrire au service et à télécharger le logiciel requis.  
   
- Vous pouvez personnaliser le **s’inscrire pour le Service de sauvegarde en ligne Microsoft** tâches de deux manières:  
+ Vous pouvez personnaliser la tâche **Inscription au service de sauvegarde en ligne Microsoft** de deux manières :  
   
--   Vous pouvez remplacer l’URL pour le site Web par défaut avec une URL qui représente une expérience utilisateur personnalisée. Pour remplacer l’URL par défaut, ouvrez l’Éditeur du Registre, créez la clé de Registre: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\OnlineBackup\LinkUrl**, puis affectez l’URL personnalisée en tant que la valeur de la clé.  
+-   Vous pouvez remplacer l'URL du site Web par défaut par un URL qui représente une expérience utilisateur personnalisée. Pour remplacer l'URL par défaut, ouvrez l'Éditeur du Registre, créez la clé de Registre : **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\OnlineBackup\LinkUrl**, puis affectez l'URL personnalisée en tant que valeur de la clé.  
   
--   Vous pouvez masquer la tâche. Pour masquer la tâche, ouvrez l’Éditeur du Registre et créez la clé de Registre: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\OnlineBackup\OnlineBackupInstalled **.  
+-   Vous pouvez masquer la tâche. Pour masquer la tâche, ouvrez l'Éditeur du Registre et créez la clé de Registre : **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\OnlineBackup\OnlineBackupInstalled**.  
   
 ## <a name="see-also"></a>Voir aussi  
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   

@@ -1,7 +1,7 @@
 ---
 ms.assetid: 5b9fc9c1-5d12-4ad4-8ddc-3b8a6d45b217
-title: "Créer une partie de confiance"
-description: 
+title: Créer une partie de confiance
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,89 +10,90 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 14e1cc732ed60b7f05a9a4a9aac9037c48b702f2
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879920"
 ---
 # <a name="create-a-relying-party-trust"></a>Créer une partie de confiance
 
->S’applique à: Windows Server2016, Windows Server2012R2
+>S'applique à : Windows Server 2016, Windows Server 2012 R2
 
-Le document suivant fournit des informations sur la création manuelle d’une relation de confiance et à l’aide des métadonnées de fédération.
+Le document suivant fournit des informations sur la création manuelle d’une partie de confiance et à l’aide des métadonnées de fédération.
   
-## <a name="to-create-a-claims-aware-relying-party-trust-manually"></a>Pour créer un revendications tiers de partie de confiance prenant en charge approuver manuellement 
+## <a name="to-create-a-claims-aware-relying-party-trust-manually"></a>Pour créer un revendications confiance prenant en charge les approuver manuellement 
 
-Pour ajouter une nouvelle approbation de partie de confiance à l’aide de la gestion ADFS enfichable et configurer manuellement les paramètres, effectuez la procédure suivante sur un serveur de fédération.  
+Pour ajouter une nouvelle partie de confiance à l’aide du composant logiciel enfichable Gestion AD FS\-manuellement et à configurer les paramètres, effectuez la procédure suivante sur un serveur de fédération.  
 
-L’appartenance au groupe **administrateurs**, ou équivalente, sur l’ordinateur local est la condition minimale requise pour effectuer cette procédure.  Examinez les informations relatives à l’aide des comptes appropriés et les appartenances au groupe [locaux et groupes de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).
+Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).
   
-1. Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion ADFS**.  
+1. Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion AD FS**.  
   
-2.  Sous **Actions**, cliquez sur **ajouter une approbation de partie de confiance **.  
-![Partie de confiance](media/Create-a-Relying-Party-Trust/addtrust1.PNG)   
+2.  Sous **Actions**, cliquez sur **ajouter Relying Party Trust**.  
+![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust1.PNG)   
 
-3.  Sur le **Bienvenue** page, choisissez **prenant en charge des revendications** et cliquez sur **Démarrer **.  
-![Partie de confiance](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
+3.  Sur le **Bienvenue** page, choisissez **prenant en charge des revendications** et cliquez sur **Démarrer**.  
+![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
   
-4.  Sur le **sélectionner une Source de données**, cliquez sur **entrer manuellement les données sur la partie de confiance**, puis cliquez sur **suivant **.  
-![Partie de confiance](media/Create-a-Relying-Party-Trust/addtrust3.PNG) 
+4.  Dans la page **Sélectionner une source de données**, cliquez sur **Entrer manuellement les données concernant la partie de confiance**, puis sur **Suivant**.  
+![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust3.PNG) 
   
-5.  Sur le **entrer le nom complet**, tapez un nom dans **nom d’affichage**, sous **Notes** tapez une description pour cette approbation de partie de confiance, puis cliquez sur **suivant **.  
-![Partie de confiance](media/Create-a-Relying-Party-Trust/addtrust4.PNG) 
+5.  Sur le **entrer le nom complet** page, tapez un nom dans **nom d’affichage**, sous **Notes** une description pour cette partie de confiance, puis tapez **suivant** .  
+![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust4.PNG) 
 
-6. Sur le **configurer le certificat** page, si vous disposez d’un certificat de chiffrement de jetons facultatif, cliquez sur **Parcourir** pour rechercher un fichier de certificat, puis cliquez sur **suivant **.  
-![Partie de confiance](media/Create-a-Relying-Party-Trust/addtrust5.PNG) 
+6. Sur le **configurer le certificat** page, si vous avez un certificat de chiffrement de jeton facultatif, cliquez sur **Parcourir** à localiser un fichier de certificat, puis cliquez sur **suivant**.  
+![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust5.PNG) 
 
-7.  Sur le **configurer l’URL**, effectuez au moins des opérations suivantes, cliquez sur **suivant**, puis passez à l’étape8:  
+7.  Sur le **configurer l’URL** , effectuez l’une des opérations suivantes, cliquez sur **suivant**, puis passez à l’étape 8 :  
   
-    -   Sélectionnez le **activer la prise en charge du protocole WS-Federation passif** case à cocher. Sous **URL protocole WS-Federation passif partie de confiance**, tapez l’URL pour cette approbation de partie de confiance, puis cliquez sur **suivant**.  
+    -   Sélectionnez le **activer la prise en charge de WS\-protocole Federation passif** case à cocher. Sous **partie de confiance tiers WS\-URL du protocole passif de fédération**, tapez l’URL pour cette partie de confiance, puis cliquez sur **suivant**.  
   
-    -   Sélectionnez le **activer la prise en charge du protocole WebSSO SAML 2.0** case à cocher. Sous **URL partie de confiance service SSO SAML 2.0**, tapez l’URL de point de terminaison du service \(SAML\) Security Assertion Markup Language pour cette approbation de partie de confiance, puis cliquez sur **suivant**.  
-![Partie de confiance](media/Create-a-Relying-Party-Trust/addtrust6.PNG)   
+    -   Activez la case à cocher **Activer la prise en charge du protocole WebSSO SAML 2.0**. Sous **service URL SSO SAML 2.0 partie de confiance**, tapez le Security Assertion Markup Language \(SAML\) URL de point de terminaison pour cette partie de confiance du service, puis cliquez sur **suivant**.  
+![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust6.PNG)   
 
-8. Sur le **configurer les identificateurs**, spécifiez un ou plusieurs identificateurs pour cette partie de confiance, cliquez sur **ajouter** pour les ajouter à la liste, puis cliquez sur **suivant**.  
-![Partie de confiance](media/Create-a-Relying-Party-Trust/addtrust8.PNG)
+8. Dans la page **Configurer les identificateurs**, spécifiez un ou plusieurs identificateurs pour cette partie de confiance, cliquez sur **Ajouter** pour les ajouter à la liste, puis cliquez sur **Suivant**.  
+![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust8.PNG)
   
-9.  Sur le **stratégie de contrôle d’accès choisir** sélectionnez une stratégie et cliquez sur **suivant**.  Pour plus d’informations sur les stratégies de contrôle d’accès, voir [stratégies de contrôle d’accès dans ADFS](Access-Control-Policies-in-AD-FS.md). 
-![Partie de confiance](media/Create-a-Relying-Party-Trust/addtrust9.PNG)
+9.  Sur le **choisir la stratégie de contrôle d’accès** sélectionnez une stratégie, puis cliquez sur **suivant**.  Pour plus d’informations sur les stratégies de contrôle d’accès, consultez [stratégies de contrôle d’accès dans AD FS](Access-Control-Policies-in-AD-FS.md). 
+![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust9.PNG)
 
-10. Sur le **prêt à ajouter l’approbation** page, passez en revue les paramètres, puis cliquez sur **suivant** pour enregistrer votre confiance les informations de confidentialité.  
-   ![Partie de confiance](media/Create-a-Relying-Party-Trust/addtrust10.PNG) 
-11. Sur le **Terminer**, cliquez sur **fermer**. Cette action affiche automatiquement les **modifier les règles de revendication** boîte de dialogue.  
-![Partie de confiance](media/Create-a-Relying-Party-Trust/addtrust11.PNG) 
+10. Dans la page **Prêt à ajouter l'approbation**, vérifiez les paramètres, puis cliquez sur **Suivant** pour enregistrer les informations de la nouvelle approbation de partie de confiance.  
+   ![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust10.PNG) 
+11. Dans la page **Terminer** , cliquez sur **Fermer**. Cette action affiche automatiquement la boîte de dialogue **Modifier les règles de revendication**.  
+![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust11.PNG) 
 
-## <a name="to-create-a-claims-aware-relying-party-trust-using-federation-metadata"></a>Pour créer un revendications tiers de partie de confiance prenant en charge faire confiance à l’aide des métadonnées de fédération
+## <a name="to-create-a-claims-aware-relying-party-trust-using-federation-metadata"></a>Pour créer un revendications confiance prenant en charge les faire confiance à l’aide des métadonnées de fédération
 
-Pour ajouter une nouvelle partie de confiance, à l’aide du composant logiciel enfichable Gestion ADFS, en important automatiquement les données de configuration relatives au partenaire à partir des métadonnées de fédération que le partenaire a publiées sur un réseau local ou à Internet, effectuez la procédure suivante sur un serveur de fédération dans l’organisation partenaire de compte.
+Pour ajouter une nouvelle partie de confiance, à l’aide du composant logiciel enfichable Gestion AD FS, en important automatiquement les données de configuration relatives au partenaire à partir des métadonnées de fédération du partenaire a publiées sur un réseau local ou à Internet, effectuez la procédure suivante sur un serveur de fédération dans l’organisation partenaire de compte.
 
 >[!NOTE]
->Bien qu’a longtemps été une pratique courante consiste à utiliser des certificats avec des noms d’hôte non qualifiés comme https://myserver, ces certificats n’ont aucune valeur de sécurité et peuvent permettre à un attaquant d’emprunter l’identité d’un Service de fédération qui publie des métadonnées de fédération. Par conséquent, lors de l’interrogation des métadonnées de fédération, vous devez utiliser uniquement un nom de domaine complet comme https://myserver.contoso.com.
+>Même si elle a longtemps été courant d’utiliser des certificats avec des noms d’hôte non qualifié tel que https://myserver, ces certificats n’ont aucune valeur de sécurité et peut permettre à un pirate d’emprunter l’identité d’un Service de fédération qui publie des métadonnées de fédération. Par conséquent, lors de l’interrogation des métadonnées de fédération, vous devez uniquement utiliser un nom de domaine complet comme https://myserver.contoso.com.
 
-L’appartenance au groupe **administrateurs**, ou équivalente, sur l’ordinateur local est la condition minimale requise pour effectuer cette procédure.  Examinez les informations relatives à l’aide des comptes appropriés et les appartenances au groupe [locaux et groupes de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).
+Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).
 
 
-1. Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion ADFS**.  
+1. Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion AD FS**.  
   
-2.  Sous **Actions**, cliquez sur **ajouter une approbation de partie de confiance **.  
-![Partie de confiance](media/Create-a-Relying-Party-Trust/addtrust1.PNG)   
+2.  Sous **Actions**, cliquez sur **ajouter Relying Party Trust**.  
+![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust1.PNG)   
 
-3.  Sur le **Bienvenue** page, choisissez **prenant en charge des revendications** et cliquez sur **Démarrer **.  
-![Partie de confiance](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
+3.  Sur le **Bienvenue** page, choisissez **prenant en charge des revendications** et cliquez sur **Démarrer**.  
+![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
   
-4.  Sur le **sélectionner une Source de données**, cliquez sur **importer les données sur la partie de confiance publiées en ligne ou sur un réseau local*. Dans **adresse des métadonnées de fédération (nom d’hôte ou URL)**, tapez la fédération métadonnées URL ou nom d’hôte du partenaire, puis cliquez sur **suivant**.  
-![Partie de confiance](media/Create-a-Relying-Party-Trust/addtrust12.PNG) 
+4.  Sur le **sélectionner une Source de données** , cliquez sur **importer les données sur la partie de confiance publiées en ligne ou sur un réseau local*. Dans **Adresse des métadonnées de fédération (nom d’hôte ou URL)**, tapez l’URL de métadonnées de fédération ou le nom d’hôte du partenaire, puis cliquez sur **Suivant**.  
+![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust12.PNG) 
 
-5.  Sur la page spécifier le nom complet, tapez un nom dans **nom d’affichage**, sous Notes tapez une description pour cette approbation de partie de confiance, puis cliquez sur **suivant**.
+5.  Dans la page spécifier le nom complet, tapez un nom dans **surnom**, sous Notes tapez une description pour cette partie de confiance, puis cliquez sur **suivant**.
 
-6.  Sur la page Choisir les règles d’autorisation d’émission, sélectionnez **autoriser tous les utilisateurs à accéder à cette partie de confiance** ou **refuser à tous les utilisateurs l’accès à cette partie de confiance**, puis cliquez sur **suivant**.
+6.  Dans la page Choisir les règles d’autorisation d’émission, sélectionnez **autoriser tous les utilisateurs à accéder à cette confiance** ou **refuser tous les utilisateurs l’accès à cette partie de confiance**, puis cliquez sur **suivant**.
 
-7.  Sur la page prêt à ajouter l’approbation, passez en revue les paramètres, puis cliquez sur **suivant** pour enregistrer votre confiance les informations de confidentialité.
+7.  Sur la page Prêt pour ajouter l’approbation, passez en revue les paramètres, puis cliquez sur **suivant** pour enregistrer votre partie de confiance les informations de confidentialité.
 
-8.  Sur la page Terminer, cliquez sur **fermer**. Cette action affiche automatiquement la boîte de dialogue Modifier les règles de revendication. Pour plus d’informations sur l’ajout de règles de revendication pour cette approbation de partie de confiance, voir Références supplémentaires.
+8.  Dans la page Terminer, cliquez sur **fermer**. Cette action affiche automatiquement la boîte de dialogue Modifier les règles de revendication. Pour plus d'informations sur l'ajout de règles de revendication pour cette approbation de partie de confiance, voir Références supplémentaires.
 
 
 
 
 ## <a name="see-also"></a>Voir aussi  
-[Opérations ADFS](../../ad-fs/AD-FS-2016-Operations.md) 
+[Opérations d’AD FS](../../ad-fs/AD-FS-2016-Operations.md) 

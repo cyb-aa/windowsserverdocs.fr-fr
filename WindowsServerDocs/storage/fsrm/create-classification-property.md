@@ -1,6 +1,6 @@
 ---
-title: "Créer une propriété de classification"
-description: "Cet article décrit les propriétés de classification utilisées pour affecter des valeurs à des fichiers dans un dossier ou un volume spécifié."
+title: Créer une propriété de classification
+description: Cet article décrit les propriétés de classification utilisées pour affecter des valeurs à des fichiers dans un dossier ou un volume spécifié.
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,16 +9,17 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: aa1f1a2ab4422f4bb36a737e47894b22b60160e1
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59880650"
 ---
 # <a name="create-a-classification-property"></a>Créer une propriété de classification
 
-> S’applique à: WindowsServer (canal semi-annuel), WindowsServer2016, WindowsServer2012R2, WindowsServer2012, WindowsServer2008R2
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Les propriétés de classification sont utilisées pour affecter des valeurs à des fichiers dans un dossier ou un volume spécifié. Vous avez le choix entre de nombreux types de propriétés, en fonction de vos besoins. Le tableau suivant définit les types de propriétés disponibles:
+Les propriétés de classification sont utilisées pour affecter des valeurs à des fichiers dans un dossier ou un volume spécifié. Vous avez le choix entre de nombreux types de propriétés, en fonction de vos besoins. Le tableau suivant définit les types de propriétés disponibles :
 
 |Propriété | Description |
 | --- | --- |
@@ -44,11 +45,11 @@ La procédure suivante vous guide tout au long du processus de création d’une
 
 4.  Dans la zone de texte **Description**, ajoutez une description facultative pour la propriété.
 
-5.  Dans la liste déroulante **Type de propriété**, sélectionnez un type de propriété.
+5.  Dans la liste déroulante **Type de propriété**, sélectionnez un type de propriété dans la liste.
 
 6.  Cliquez sur **OK**.
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
--   [Créer une règle de classification automatique](create-automatic-classification-rule.md)
+-   [Créer une règle de Classification automatique](create-automatic-classification-rule.md)
 -   [Gestion de la classification](classification-management.md)

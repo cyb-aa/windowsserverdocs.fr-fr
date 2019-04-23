@@ -1,6 +1,6 @@
 ---
 title: Planifier un ensemble de rapports
-description: "Cet article explique comment générer un ensemble de rapports à intervalles réguliers"
+description: Cet article explique comment générer un ensemble de rapports à intervalles réguliers
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,16 +9,17 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 15b69e723af3a30375beae73782ab122c68f8880
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879720"
 ---
 # <a name="schedule-a-set-of-reports"></a>Planifier un ensemble de rapports
 
-> S’applique à: WindowsServer (canal semi-annuel), WindowsServer2016, WindowsServer2012R2, WindowsServer2012, WindowsServer2008R2
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
-Pour générer un ensemble de rapports à intervalles réguliers, vous devez planifier une *tâche de rapport.* La tâche de rapport spécifie les rapports à générer et les paramètres à utiliser; les volumes et les dossiers concernés par le rapport; la fréquence de génération des rapports et les formats d'enregistrement des fichiers de rapport.
+Pour générer un ensemble de rapports à intervalles réguliers, vous devez planifier une *tâche de rapport.* La tâche de rapport spécifie les rapports à générer et les paramètres à utiliser ; les volumes et les dossiers concernés par le rapport ; la fréquence de génération des rapports et les formats d'enregistrement des fichiers de rapport.
 
 Les rapports planifiés sont enregistrés dans un emplacement par défaut que vous pouvez spécifier dans la boîte de dialogue **Options du Gestionnaire de ressources du serveur de fichiers**. Vous avez également la possibilité d’envoyer les rapports par courrier électronique à un groupe d’administrateurs.
 
@@ -31,35 +32,35 @@ Les rapports planifiés sont enregistrés dans un emplacement par défaut que vo
 
 2.  Cliquez avec le bouton droit sur **Gestion des rapports de stockage**, puis cliquez sur **Planifier une nouvelle tâche de rapport** (ou sélectionnez **Planifier une nouvelle tâche de rapport** à partir du volet **Actions**). La boîte de dialogue **Propriétés des tâches de rapports de stockage** s'affiche.
 
-3.  Pour sélectionner les volumes ou les dossiers sur lesquels vous voulez générer des rapports:
+3.  Pour sélectionner les volumes ou les dossiers sur lesquels vous voulez générer des rapports :
 
     -   Sous **Étendue**, cliquez sur **Ajouter**.
     -   Recherchez le volume ou le dossier sur lequel vous souhaitez générer les rapports, sélectionnez-le, puis cliquez sur **OK** pour ajouter le chemin d’accès à la liste.
     -   Ajoutez autant de volumes ou de dossiers que vous souhaitez inclure dans les rapports. (Pour supprimer un volume ou un dossier, cliquez sur le chemin d’accès, puis cliquez sur **Supprimer**).
 
-4.  Pour spécifier les rapports à générer:
+4.  Pour spécifier les rapports à générer :
 
     -  Sous **Données de rapport**, sélectionnez chaque rapport à inclure. Par défaut, tous les rapports sont générés pour une tâche de rapport planifiée.
 
-    Pour modifier les paramètres d’un rapport:
+    Pour modifier les paramètres d’un rapport :
 
     -   Cliquez sur l’étiquette du rapport, puis sur **Modifier les paramètres**.
     -   Dans la boîte de dialogue **Paramètres du rapport**, modifiez les paramètres selon vos besoins, puis cliquez sur **OK**.
 
     -   Pour afficher la liste des paramètres de tous les rapports sélectionnés, cliquez sur **Consulter les rapports sélectionnés**. Cliquez ensuite sur **Fermer**.
 
-5.  Pour spécifier les formats d'enregistrement des rapports:
+5.  Pour spécifier les formats d'enregistrement des rapports :
 
     -  Sous **Formats des rapports**, sélectionnez un ou plusieurs formats pour les rapports planifiés. Par défaut, les rapports sont générés en Dynamic HTML (DHTML). Vous pouvez également sélectionner les formats HTML, XML, CSV et texte. Les rapports sont enregistrés dans l’emplacement par défaut des rapports planifiés.
 
-6.  Pour envoyer aux administrateurs les copies des rapports par courrier électronique:
+6.  Pour envoyer aux administrateurs les copies des rapports par courrier électronique :
 
     - Sous l'onglet **Remise**, cochez la case **Envoyer des rapports aux administrateurs suivants**, puis entrez les noms des comptes administratifs qui recevront les rapports. 
     - Utilisez le format *account@domain* et séparez les différents comptes par des points-virgules.
 
-7.  Pour planifier les rapports:
+7.  Pour planifier les rapports :
 
-    Sous l'onglet **Planification**, cliquez sur **Créer une planification**, puis, dans la boîte de dialogue **Planification**, cliquez sur **Nouvelle**. Une planification par défaut s'affiche, configurée à 9h00 tous les jours, que vous pouvez modifier.
+    Sous l'onglet **Planification**, cliquez sur **Créer une planification**, puis, dans la boîte de dialogue **Planification**, cliquez sur **Nouvelle**. Une planification par défaut s'affiche, configurée à 9 h 00 tous les jours, que vous pouvez modifier.
 
     -   Pour spécifier une fréquence de génération des rapports, sélectionnez un intervalle dans la liste déroulante **Planifier une tâche**.
         Vous pouvez planifier des rapports quotidiens, hebdomadaires ou mensuels, ou ne générer les rapports qu’une seule fois. Vous pouvez également générer des rapports au démarrage du système ou à l'ouverture de session, ou si l’ordinateur a été inactif pendant une durée spécifiée.
@@ -76,9 +77,9 @@ La tâche de rapport est ajoutée au nœud **Gestion des rapports de stockage**.
 
 De plus, vous pouvez afficher l’état actuel du rapport (si le rapport est ou non en cours d’exécution), la date de la dernière exécution et son résultat, ainsi que la prochaine date d’exécution planifiée.
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
 -   [Gestion des rapports de stockage](storage-reports-management.md)
--   [Définition des options du Gestionnaire de ressources du serveur de fichiers](setting-file-server-resource-manager-options.md)
+-   [Options de paramètre File Server Resource Manager](setting-file-server-resource-manager-options.md)
 
 

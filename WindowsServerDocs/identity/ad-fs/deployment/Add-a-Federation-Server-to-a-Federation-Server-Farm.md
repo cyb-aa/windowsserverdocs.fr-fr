@@ -1,7 +1,7 @@
 ---
 ms.assetid: 6ecf8d85-cd61-4c87-add8-00a679a6e3ff
-title: "Ajouter un serveur de fédération à une batterie de serveurs de fédération"
-description: 
+title: Ajouter un serveur de fédération à une batterie de serveurs de fédération
+description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -10,49 +10,50 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
 ms.openlocfilehash: d67f4c252ad25a05f11b88771f12fd01d13137d4
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59880390"
 ---
 # <a name="add-a-federation-server-to-a-federation-server-farm"></a>Ajouter un serveur de fédération à une batterie de serveurs de fédération
 
->S’applique à: Windows Server2016, Windows Server2012R2, Windows Server2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Une fois que vous installez le service de rôle Service de fédération et configurez les certificats requis sur un ordinateur, vous êtes prêt à configurer l’ordinateur pour qu’il devienne un serveur de fédération. Vous pouvez utiliser la procédure suivante pour joindre un ordinateur à une batterie de serveurs de fédération.  
+Une fois que vous installez le service de rôle Service de fédération et configurez les certificats requis sur un ordinateur, vous êtes prêt à configurer l’ordinateur pour qu’il devienne un serveur de fédération. Vous pouvez utiliser la procédure suivante pour joindre un ordinateur à une nouvelle batterie de serveurs de fédération.  
   
-Vous joignez un ordinateur à une batterie avec l’Assistant Configuration du serveur de fédération ADFS. Lorsque vous utilisez cet Assistant pour joindre un ordinateur à une batterie existante, l’ordinateur est configuré avec une copie en lecture seule de la base de données de configuration ADFS et elle doit recevoir les mises à jour à partir d’un serveur de fédération principal.  
+Joindre un ordinateur à une batterie de serveurs avec l’Assistant Configuration du serveur de fédération AD FS. Lorsque vous utilisez cet Assistant pour joindre un ordinateur à une batterie de serveurs existante, l’ordinateur est configuré avec une lecture\-uniquement la copie de la base de données de configuration AD FS et il doit recevoir les mises à jour à partir d’un serveur de fédération principal.  
   
 > [!NOTE]  
-> Pour la conception \(SSO\) Single\-Sign\-On de Web fédéré, vous devez disposer d’au moins un serveur de fédération dans l’organisation partenaire de compte et au moins un serveur de fédération dans l’organisation partenaire de ressource. Pour plus d’informations, voir [où placer un serveur de fédération](https://technet.microsoft.com/library/dd807127.aspx).  
+> Pour l’unique Web fédérée\-connexion\-sur \(SSO\) conception, vous devez disposer au moins un serveur de fédération dans l’organisation partenaire de compte et au moins un serveur de fédération dans l’organisation partenaire de ressource . Pour plus d'informations, voir [Où placer un serveur de fédération](https://technet.microsoft.com/library/dd807127.aspx).  
   
-L’appartenance au groupe **administrateurs**, ou équivalente, sur l’ordinateur local est la condition minimale requise pour effectuer cette procédure.  Examinez les informations relatives à l’aide des comptes appropriés et les appartenances au groupe [locaux et groupes de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477) \ (http:///\/ go.microsoft.com\/fwlink\ /? LinkId\ = 83477\).   
+Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’aide de comptes appropriés et les appartenances au groupe [locaux et les groupes de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477) \(http :\/\/go.microsoft.com\/fwlink\/? LinkId\=83477\).   
   
 ### <a name="to-add-a-federation-server-to-a-federation-server-farm"></a>Pour ajouter un serveur de fédération à une batterie de serveurs de fédération  
   
-1.  Il existe deux façons de démarrer l’Assistant Configuration du serveur de fédération ADFS. Pour démarrer l’Assistant, effectuez l’une des opérations suivantes:  
+1.  Il existe deux façons de démarrer l’Assistant Configuration du serveur de fédération AD FS. Pour démarrer l'Assistant, effectuez l'une des opérations suivantes :  
   
-    -   Après l’installation du service de rôle Service de fédération est terminée, ouvrez la gestion ADFS de composants et cliquez sur le **Assistant Configuration du serveur de fédération ADFS** lier sur le **vue d’ensemble** page ou dans le **Actions** volet.  
+    -   Une fois l’installation de service de rôle Service de fédération est terminée, ouvrez le composant logiciel enfichable Gestion AD FS\-dans et cliquez sur le **Assistant Configuration du serveur de fédération AD FS** lien sur le **vue d’ensemble** page ou dans le **Actions** volet.  
   
-    -   À tout moment une fois l’Assistant Installation terminé, ouvrez l’Explorateur Windows, accédez à la **C:\\Windows\\ADFS** dossier et double-cliquant sur **FsConfigWizard.exe**.  
+    -   Une fois l’Assistant installation est terminée, ouvrez l’Explorateur Windows, accédez à la **C:\\Windows\\ADFS** dossier et double\-cliquez sur **FsConfigWizard.exe**.  
   
-2.  Sur le **Bienvenue** page, vérifiez que **ajouter un serveur de fédération à un Service de fédération** est sélectionné, puis cliquez sur **suivant**.  
+2.  Sur la page **Bienvenue**, vérifiez que la case **Ajouter un serveur de fédération à un service de fédération** est activée, puis cliquez sur **Suivant**.  
   
-3.  Si la base de données ADFS que vous avez sélectionné déjà existe, le **existante ADFS Configuration de base de données détectée** page s’affiche. Si tel est le cas, cliquez sur **base de données**, puis cliquez sur **suivant**.  
+3.  Si la base de données AD FS que vous avez déjà sélectionné existe, le **AD FS Configuration Database détectée** page s’affiche. Si tel est le cas, cliquez sur **Supprimer la base de données**, puis cliquez sur **Suivant**.  
   
     > [!CAUTION]  
-    > Sélectionnez cette option uniquement lorsque vous êtes sûr que les données de cette base de données ADFS ne sont pas importantes ou qu’il n’est pas utilisé dans une batterie de serveurs de fédération de production.  
+    > Sélectionnez cette option uniquement lorsque vous êtes sûr que les données dans cette base de données AD FS ne sont pas importantes ou qu’il n’est pas utilisé dans une batterie de serveurs de fédération de production.  
   
-4.  Sur le **spécifier le serveur de fédération principal et le compte de Service** sous **nom du serveur de fédération principal**, tapez le nom d’ordinateur du serveur de fédération principal dans la batterie de serveurs, puis cliquez sur **Parcourir**. Dans le **Parcourir** boîte de dialogue, recherchez le compte de domaine qui est utilisé comme compte de service par tous les autres serveurs de fédération dans la batterie de serveurs de fédération existante, puis cliquez sur **OK**. Tapez le mot de passe et confirmez-le, puis cliquez sur **suivant**:  
+4.  Dans la page **Spécifiez le serveur de fédération principal et le compte de service**, sous **Nom du serveur de fédération principal**, tapez le nom d’ordinateur du serveur de fédération principal, puis cliquez sur**Parcourir**. Dans la boîte de dialogue **Parcourir**, recherchez le compte de domaine qui sera utilisé comme compte de service par tous les autres serveurs de fédération dans la nouvelle batterie de serveurs de fédération, puis cliquez sur **OK**. Tapez le mot de passe et confirmez-le, puis cliquez sur **suivant**:  
   
     > [!NOTE]  
-    > Pour plus d’informations sur la spécification d’un compte de service pour une batterie de serveurs de fédération, consultez [configurer manuellement un compte de Service pour une batterie de serveurs de fédération](Manually-Configure-a-Service-Account-for-a-Federation-Server-Farm.md). Chaque serveur de fédération dans la batterie de serveurs de fédération doit spécifier le même compte de service pour la batterie soit opérationnelle. Par exemple, si le compte de service créé était contoso\\ADFS2SVC, chaque ordinateur que vous configurez pour le rôle de serveur de fédération et qui va participer à la même batterie doit spécifier contoso\\ADFS2SVC à cette étape dans l’Assistant de Configuration de serveur de fédération de la batterie soit opérationnelle.  
+    > Pour plus d’informations sur la spécification d’un compte de service pour une batterie de serveurs de fédération, consultez [configurer manuellement un compte de Service pour une batterie de serveurs de fédération](Manually-Configure-a-Service-Account-for-a-Federation-Server-Farm.md). Chaque serveur de fédération dans la batterie de serveurs de fédération doit spécifier le même compte de service pour la batterie soit opérationnelle. Par exemple, si le compte de service créé était contoso\\ADFS2SVC, chaque ordinateur que vous configurez pour le rôle de serveur de fédération et qui fera partie de la même batterie doit spécifier contoso\\ADFS2SVC à cette étape dans la Assistant serveur de fédération Configuration pour la batterie soit opérationnelle.  
   
-5.  Sur le **prêt à appliquer les paramètres** page, passez en revue les détails. Si les paramètres sont corrects, cliquez sur **suivant** pour commencer à configurer ADFS avec ces paramètres.  
+5.  Dans la page **Prêt à appliquer les paramètres**, vérifiez les paramètres définis. Si les paramètres semblent corrects, cliquez sur **suivant** pour commencer à configurer AD FS avec ces paramètres.  
   
-6.  Sur le **résultats de la Configuration** page, passez en revue les résultats. Lorsque toutes les étapes de configuration sont terminées, cliquez sur **fermer** pour quitter l’Assistant.  
+6.  Dans la page **Résultats de la configuration**, examinez les résultats. Lorsque toutes les étapes de configuration sont terminées, cliquez sur **fermer** pour quitter l’Assistant.  
   
 ## <a name="additional-references"></a>Références supplémentaires  
-[Liste de vérification: Configuration d’un serveur de fédération](Checklist--Setting-Up-a-Federation-Server.md)  
+[Liste de vérification : Configuration d’un serveur de fédération](Checklist--Setting-Up-a-Federation-Server.md)  
   
 

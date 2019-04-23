@@ -1,61 +1,61 @@
 ---
 title: Paramètres
-description: En savoir plus sur les paramètres dans Windows Admin Center (projet Honolulu). Paramètres utilisateur permettent aux utilisateurs de modifier leur langue/région et les autres préférences. Paramètres de la passerelle permettent aux administrateurs de configurer la passerelle.
+description: En savoir plus sur les paramètres dans Windows Admin Center (projet Honolulu). Paramètres utilisateur permettent aux utilisateurs de modifier leur langue/région et autres préférences. Paramètres de la passerelle permettent aux administrateurs de configurer la passerelle.
 ms.technology: manage
 ms.topic: article
 author: haley-rowland
 ms.author: harowl
-ms.date: 04/12/2018
+ms.date: 09/19/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: d67a2c743900792353141186112cd09dbf780309
-ms.sourcegitcommit: f1edfc6525e09dd116b106293f9260123a94de0c
-ms.translationtype: MT
+ms.openlocfilehash: 1e1231500733f70ddfcbd4f8a847047b73f24a00
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "9296621"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59882380"
 ---
-# Paramètres de Windows Admin Center
+# <a name="settings"></a>Paramètres
 
-> S’applique à: Windows Admin Center
+> S'applique à : Windows Admin Center
 
-Paramètres de Windows Admin Center sont constituées des paramètres de niveau utilisateur et au niveau de passerelle. Une modification à un paramètre de niveau utilisateur affecte uniquement le profil de l’utilisateur actuel, tandis que la modification d’un paramètre au niveau de la passerelle affecte tous les utilisateurs sur la passerelle Windows Admin Center.
+Les paramètres Windows Admin Center se composent des paramètres au niveau de l’utilisateur et au niveau de la passerelle. Une modification apportée à un paramètre au niveau de l’utilisateur affecte uniquement le profil de l’utilisateur actuel, tandis que la modification d’un paramètre au niveau de la passerelle affecte tous les utilisateurs sur la passerelle Windows Admin Center.
 
-## Paramètres utilisateur
+## <a name="user-settings"></a>Paramètres utilisateur
 
-Paramètres au niveau de l’utilisateur comprennent les sections suivantes:
+Paramètres au niveau de l’utilisateur se composent des sections suivantes :
 
 - Compte
-- Personnalisation
-- Langue ou une région
+- Langue/région
 - Suggestions
-- Avancé
 
-Dans l’onglet **compte** , les utilisateurs peuvent passer en revue les informations d’identification qu’ils ont utilisé pour s’authentifier pour Windows Admin Center. Si Azure AD est configuré pour être le fournisseur d’identité, l’utilisateur peut se connecter en dehors de leur compte Azure AD à partir de cet onglet.
+Dans le **compte** onglet, les utilisateurs peuvent consulter les informations d’identification à laquelle ils ont utilisés pour l’authentification à Windows Admin Center. Si Azure AD est configuré pour être le fournisseur d’identité, l’utilisateur peut se déconnecter de leur compte Azure AD à partir de cet onglet.
 
-Dans l’onglet **personnalisation** , les utilisateurs peuvent basculer vers un thème foncé de l’interface utilisateur.
+Dans le **langue/région** onglet, les utilisateurs peuvent modifier les formats de langue et région affichés par Windows Admin Center.
 
-Dans l’onglet **Langue ou une région** , les utilisateurs peuvent modifier les formats de langue et la région affichés par Windows Admin Center.
+Dans le **Suggestions** onglet, les utilisateurs peuvent activer/désactiver les suggestions sur les nouvelles fonctionnalités et les services Azure.
 
-Dans l’onglet de **Suggestions** , les utilisateurs peuvent activer/désactiver les suggestions sur les services Azure et des nouvelles fonctionnalités.
+### <a name="dark-theme"></a>Thème foncé
 
-L’onglet **Options avancées** offre aux développeurs de Windows Admin Center extension des fonctionnalités supplémentaires.
+> S'applique à : Windows Admin Center Preview
 
-## Paramètres de la passerelle
+Dans la version préliminaire de Windows Admin Center, vous pouvez déverrouiller un autre **personnalisation** section qui contient l’option pour activer/désactiver un thème sombre de l’interface utilisateur. Pour activer la **personnalisation** section, entrez ```msft.sme.shell.personalization``` comme une clé de l’expérience.
 
-Paramètres au niveau de la passerelle comprennent les sections suivantes:
+>[!IMPORTANT]
+> Thème foncé est un travail en cours, veuillez le faire pas signaler des bogues pour l’instant.
+
+## <a name="gateway-settings"></a>Paramètres de la passerelle
+
+Paramètres au niveau de la passerelle se composent des sections suivantes :
 
 - Extensions
-- Access
+- Accès
 - Azure
-- Connexions partagées
 
-Seuls les administrateurs de passerelle sont en mesure de voir et modifier ces paramètres. Modifications apportées à ces paramètres de modifier la configuration de la passerelle et affectent tous les utilisateurs de la passerelle Windows Admin Center.
+Seuls les administrateurs de passerelle sont en mesure de voir et modifier ces paramètres. Modifications apportées à ces paramètres modifier la configuration de la passerelle et affectent tous les utilisateurs de la passerelle Windows Admin Center.
 
-Dans l’onglet **Extensions** , les administrateurs peuvent installer, désinstaller ou mettre à jour les extensions de passerelle. [En savoir plus sur les extensions.](using-extensions.md)
+Dans le **Extensions** onglet, les administrateurs peuvent installer, désinstaller ou mettre à jour les extensions de passerelle. [En savoir plus sur les extensions.](using-extensions.md)
 
-L’onglet **accès** permet aux administrateurs de configurer qui peut accéder à la passerelle Windows Admin Center, ainsi que le fournisseur d’identité utilisé pour authentifier les utilisateurs. [En savoir plus sur le contrôle d’accès à la passerelle.](user-access-control.md)
+Le **accès** onglet permet aux administrateurs de configurer l’accès à la passerelle Windows Admin Center, ainsi que le fournisseur d’identité utilisé pour authentifier les utilisateurs. [En savoir plus sur le contrôle d’accès à la passerelle.](user-access-control.md)
 
-Dans l’onglet **Azure** , les administrateurs peuvent s’inscrire à la passerelle avec Azure pour activer les [fonctionnalités d’intégration Azure](azure-integration.md) dans Windows Admin Center.
-
-À l’aide de l’onglet **Connexions partagé** , les administrateurs peuvent configurer une seule liste de connexions à être partagées entre tous les utilisateurs de la passerelle Windows Admin Center. [En savoir plus sur la configuration de connexions qu’une seule fois pour tous les utilisateurs d’une passerelle.](shared-connections.md)
+À partir de la **Azure** onglet, les administrateurs peuvent inscrire la passerelle avec Azure pour activer [fonctionnalités d’intégration Azure](azure-integration.md) dans Windows Admin Center.
