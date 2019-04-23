@@ -1,6 +1,6 @@
 ---
 title: Utiliser Windows Server Essentials Log Collector
-description: "Décrit comment utiliser WindowsServerEssentials"
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,46 +13,47 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: d003c6a45159548f7e34d86ca242f74868659d2f
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59877990"
 ---
 # <a name="use-the-windows-server-essentials-log-collector"></a>Utiliser Windows Server Essentials Log Collector
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Lors du dépannage de problèmes de l’ordinateur, un représentant du support technique et Service clientèle Microsoft peut vous demander de collecter les journaux à partir de serveurs, les ordinateurs sur le réseau, ou à l’aide de Windows Server Essentials Log Collector.  
+Lorsque vous dépannez les problèmes de l’ordinateur, un représentant du support technique et Service clientèle Microsoft peut vous demander à collecter les journaux à partir de serveurs, les ordinateurs sur le réseau, ou les deux à l’aide de Windows Server Essentials Log Collector.  
   
- Log Collector copie les journaux des programmes, les journaux des événements réviseur et informations sur l’environnement associés dans un fichier zip unique à un emplacement spécifié. Vous pouvez exécuter Log Collector directement à partir du serveur ou de n’importe quel ordinateur sur le réseau ou à l’aide d’une connexion à distance aux ordinateurs.  
+ Log Collector copie les journaux des programmes, les journaux de l'observateur d'événements et d'autres informations relatives à votre environnement dans un fichier zip unique à un emplacement spécifié. Vous pouvez exécuter Log Collector directement à partir du serveur ou d'un ordinateur réseau quelconque, ou bien à l'aide d'une connexion à distance aux ordinateurs.  
   
 > [!NOTE]
->  -   Le collecteur de journaux ne pas analyser les problèmes de réseau ou apporter des modifications à n’importe quel ordinateur serveur ou sur le réseau. Pour plus d’informations sur la façon de résoudre les problèmes de réseau, consultez la documentation de votre produit serveur.  
-> -   Dans ce guide, les ordinateurs sur votre réseau, à l’exception de votre serveur, sont appelés ordinateurs du réseau.  
+>  -   Log Collector n'analyse pas les problèmes réseau et n'apporte aucune modification aux serveurs ou ordinateurs sur le réseau. Pour plus d'informations sur la résolution des problèmes réseau, voir la documentation d'aide accompagnant votre produit serveur.  
+> -   Dans ce guide, les ordinateurs sur votre réseau, à l’exception de votre serveur, sont appelés ordinateurs réseau.  
 > -   [Télécharger le package d’installation de Windows Server Essentials Log Collector](https://go.microsoft.com/fwlink/?LinkID=266341).  
   
- Pour installer et exécuter Log Collector, effectuez les opérations dans les rubriques suivantes:  
+ Pour installer et exécuter Log Collector, effectuez les étapes répertoriées dans les rubriques suivantes :  
   
 
 1.  [Installer le collecteur de journaux](Install-the-Windows-Server-Essentials-Log-Collector.md)  
   
-2.  [Exécuter Log Collector](Run-the-Windows-Server-Essentials-Log-Collector.md)  
+2.  [Exécutez le collecteur de journaux](Run-the-Windows-Server-Essentials-Log-Collector.md)  
 
 1.  [Installer le collecteur de journaux](../support/Install-the-Windows-Server-Essentials-Log-Collector.md)  
   
-2.  [Exécuter Log Collector](../support/Run-the-Windows-Server-Essentials-Log-Collector.md)  
+2.  [Exécutez le collecteur de journaux](../support/Run-the-Windows-Server-Essentials-Log-Collector.md)  
 
   
-## <a name="environment-information-collected"></a>Informations collectées sur l’environnement  
- Pour chaque ordinateur du réseau ou le serveur que vous spécifiez, Log Collector collecte l’informations suivantes sur l’environnement et le place dans le fichier de collecte de journaux.  
+## <a name="environment-information-collected"></a>Informations collectées sur l'environnement  
+ Pour chaque ordinateur réseau ou serveur que vous spécifiez, Log Collector collecte les informations suivantes sur l'environnement et les enregistre dans le fichier de collecte des journaux.  
   
--   Version du système d’exploitation  
+-   Version du système d'exploitation  
   
--   Description et le fabricant du processeur  
+-   Fabricant de l'unité centrale et description  
   
--   L’allocation et la quantité de mémoire  
+-   Quantité de mémoire et allocation  
   
--   Cartes réseau qui sont liées à TCP/IP  
+-   Cartes réseau liées à TCP/IP  
   
 -   Paramètres régionaux  
   
@@ -60,68 +61,68 @@ Lors du dépannage de problèmes de l’ordinateur, un représentant du support 
   
 -   Configuration du stockage  
   
--   Informations de fichier hôte  
+-   Informations sur les fichiers de l'hôte  
   
--   Journaux des événements, y compris Application, système, Windows Server et Media Center  
+-   Journaux des événements, y compris Application, Système, Windows Server et Media Center  
   
--   Messages du Gestionnaire de contrôle de service  
+-   Messages du Gestionnaire de contrôle des services  
   
--   Événements de redémarrage et événements de mise à jour de Windows  
+-   Événements de redémarrage et événements Windows Update  
   
--   Erreurs système et des erreurs d’Application  
+-   Erreurs système et erreurs d'application  
   
-## <a name="services-information-collected"></a>Les informations collectées des services  
+## <a name="services-information-collected"></a>Informations collectées sur les services  
   
-### <a name="server-services"></a>Services de serveur  
+### <a name="server-services"></a>Services du serveur  
   
--   Service sauvegarde de l’ordinateur Client de Windows Server  
+-   Service Sauvegarde d'ordinateur client Windows Server  
   
--   Service de fournisseur de sauvegarde ordinateur Client Windows Server  
+-   Service fournisseur de sauvegarde Windows Server pour ordinateurs clients  
   
 -   Fournisseur de périphériques Windows Server  
   
--   Gestion des noms de domaine Windows Server  
+-   Gestion des noms de domaine de Windows Server  
   
--   Registre du fournisseur du Service de serveur Windows  
+-   Registre du fournisseur de services de Windows Server  
   
 -   Fournisseur de paramètres de Windows Server  
   
 -   Service de périphérique UPnP de Windows Server  
   
--   Fournisseur d’Administration accès Web à distance Windows Server  
+-   Fournisseur d'administration Windows Server pour l'accès web à distance  
   
--   Service de contrôle d’intégrité de Windows Server  
+-   Service de contrôle d'intégrité de Windows Server  
   
--   Service de stockage Windows Server  
-  
--   Service SQM Windows Server  
-  
-### <a name="network-computer-services"></a>Services de l’ordinateur réseau  
-  
--   Service de fournisseur de sauvegarde ordinateur Client Windows Server  
-  
--   Service de contrôle d’intégrité de Windows Server  
-  
--   Registre du fournisseur du Service de serveur Windows  
+-   Service de Windows Storage Server  
   
 -   Service SQM Windows Server  
   
-## <a name="logs-and-registry-information-collected"></a>Journaux et les informations du Registre collectées  
- Pour chaque ordinateur du réseau ou le serveur spécifié, Log Collector collecte des informations de journaux et le Registre à partir du serveur et l’ordinateur réseau comme suit.  
+### <a name="network-computer-services"></a>Services de l'ordinateur réseau  
   
-### <a name="server-logs-and-registry-information"></a>Journaux du serveur et les informations du Registre  
+-   Service fournisseur de sauvegarde Windows Server pour ordinateurs clients  
   
--   Journaux de produit du serveur, à partir de < ProgramData\ > \Microsoft\Windows Server\Logs  
+-   Service de contrôle d'intégrité de Windows Server  
+  
+-   Registre du fournisseur de services de Windows Server  
+  
+-   Service SQM Windows Server  
+  
+## <a name="logs-and-registry-information-collected"></a>Informations collectées sur les journaux et le Registre  
+ Pour chaque ordinateur réseau ou serveur spécifié, Log Collector collecte des informations sur les journaux et le Registre à partir du serveur et de l'ordinateur réseau comme suit.  
+  
+### <a name="server-logs-and-registry-information"></a>Informations sur les journaux et le Registre du serveur  
+  
+-   Journaux de produit du serveur, à partir de < ProgramData\>\Microsoft\Windows Server\Logs  
   
 -   Tâches planifiées  
   
--   Journaux API d’installation  
+-   Journaux API d'installation  
   
 -   Journaux Windows Update  
   
--   Fichier d’alertes d’intégrité  
+-   Fichier d'alertes d'intégrité  
   
--   Fichier d’informations de périphériques  
+-   Fichier d'informations sur les périphériques  
   
 -   Fichier journal de sauvegarde du serveur  
   
@@ -129,7 +130,7 @@ Lors du dépannage de problèmes de l’ordinateur, un représentant du support 
   
 -   Services  
   
--   Clés de Registre, à partir de  
+-   Clés de Registre situées aux emplacements suivants :  
   
     -   \\\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\  
   
@@ -137,30 +138,30 @@ Lors du dépannage de problèmes de l’ordinateur, un représentant du support 
   
     -   \\\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DomainManagerProviderSvc  
   
-### <a name="network-computer-logs-and-registry-information"></a>Journaux de l’ordinateur du réseau et les informations du Registre  
+### <a name="network-computer-logs-and-registry-information"></a>Informations sur les journaux et le Registre de l'ordinateur réseau  
   
--   Journaux de produit ordinateur réseau \Microsoft\Windows Server\Logs < ProgramData\ >  
+-   Journaux de produit de l’ordinateur réseau < ProgramData\>\Microsoft\Windows Server\Logs  
   
--   Fichier d’alertes d’intégrité à < ProgramData\ > Server\Data  
+-   Fichier d’alertes d’intégrité dans < ProgramData\>Server\Data  
   
 -   Journaux Windows Update  
   
--   Journaux API d’installation  
+-   Journaux API d'installation  
   
 -   Informations sur les tâches planifiées  
   
 -   Clés de Registre à partir de \\\HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows Server\  
   
-## <a name="logs-for-computers-that-do-not-run-a-version-of-the-windows-operating-system"></a>Journaux pour les ordinateurs qui n’exécutent pas une version du système d’exploitation Windows  
- Log Collector ne collecte pas les fichiers journaux à partir d’ordinateurs qui n’exécutent pas une version du système d’exploitation Windows. Pour les ordinateurs non Windows, vous devez copier manuellement les fichiers journaux suivants vers le même emplacement où vous stockez les fichiers Log Collector.  
+## <a name="logs-for-computers-that-do-not-run-a-version-of-the-windows-operating-system"></a>Journaux pour les ordinateurs qui n'exécutent pas une version du système d'exploitation Windows  
+ Log Collector ne collecte pas les fichiers journaux des ordinateurs qui n'exécutent pas une version du système d'exploitation Windows. Pour les ordinateurs non-Windows, vous devez copier manuellement les fichiers journaux suivants à l'emplacement où vous stockez les fichiers Log Collector.  
   
 -   System.log  
   
--   Server.log journaux/Library/Windows  
+-   Library/Logs/Windows Server.log  
   
--   Library/Logs/CrashReporter/LaunchPad-< nnn\ > (copier tous les fichiers LaunchPad-< nnn\ > .crash)  
+-   Library/Logs/CrashReporter/LaunchPad-< nnn\> (copier tout le LaunchPad-< nnn\>fichiers .crash)  
   
--   Library/Logs/DiagnosticReports/LaunchPad-< nnn\ > (copier tous les fichiers LaunchPad-< nnn\ > .crash)  
+-   Library/Logs/DiagnosticReports/LaunchPad-< nnn\> (copier tout le LaunchPad-< nnn\>fichiers .crash)  
   
 ## <a name="see-also"></a>Voir aussi  
   

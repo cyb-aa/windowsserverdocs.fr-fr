@@ -1,6 +1,6 @@
 ---
-title: "Modifier les propriétés de quota automatique"
-description: "Cet article décrit la procédure pour modifier les propriétés de quota automatique"
+title: Modifier les propriétés de quota automatique
+description: Cet article décrit la procédure pour modifier les propriétés de quota automatique
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: aa2155268d42293ade925d53da5e29142d13aae4
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59878060"
 ---
 # <a name="edit-auto-apply-quota-properties"></a>Modifier les propriétés de quota automatique
 
-> S’applique à: WindowsServer (canal semi-annuel), WindowsServer2016, WindowsServer2012R2, WindowsServer2012, WindowsServer2008R2
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Lorsque vous modifiez un quota automatique, vous avez la possibilité d’étendre ces modifications aux quotas existants dans le chemin d’accès du quota automatique. Vous pouvez choisir de modifier uniquement les quotas qui correspondent encore au quota automatique d’origine ou tous ceux qui figurent dans le chemin d’accès du quota automatique, quelles que soient les modifications qui leur ont été apportées depuis leur création. Cette fonctionnalité simplifie le processus de mise à jour des propriétés des quotas dérivées d'un quota automatique, puisque toutes les modifications peuvent s’effectuer au même endroit.
 
@@ -33,7 +34,7 @@ Lorsque vous modifiez un quota automatique, vous avez la possibilité d’étend
 
 4.  Cliquez sur **OK**. La boîte de dialogue **Mettre à jour les quotas dérivés du quota automatique** s'affiche.
 
-5.  Sélectionnez le type de mise à jour à appliquer:
+5.  Sélectionnez le type de mise à jour à appliquer :
 
     -   Si vous avez des quotas qui ont été modifiés depuis leur génération automatique et que vous ne souhaitez pas modifier, sélectionnez **Appliquer le quota automatique uniquement aux quotas dérivés qui correspondent au quota automatique d’origine**. Cette option met à jour uniquement les quotas figurant dans le chemin d’accès du quota automatique qui n’ont pas été modifiés depuis leur génération automatique.
     -   Si vous souhaitez modifier tous les quotas existants dans le chemin d’accès du quota automatique, sélectionnez **Appliquer le quota automatique à tous les quotas dérivés**.
@@ -41,9 +42,9 @@ Lorsque vous modifiez un quota automatique, vous avez la possibilité d’étend
 
 6.  Cliquez sur **OK**.
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
 -   [Gestion de quota](quota-management.md)
--   [Créer un quota automatique](create-auto-apply-quota.md)
+-   [Créer une fonction automatique d’un quota](create-auto-apply-quota.md)
 
 

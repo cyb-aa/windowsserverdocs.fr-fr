@@ -1,6 +1,6 @@
 ---
-title: Résolution des problèmes convergent des Configurations de cartes réseau
-description: Cette rubrique fait partie de la convergé NIC Configuration Guide pour Windows Server2016.
+title: Résolution des problèmes convergé des Configurations de carte réseau
+description: Cette rubrique fait partie de la convergé NIC Configuration Guide pour Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -8,162 +8,174 @@ ms.assetid: 0bc6746f-2adb-43d8-a503-52f473833164
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 373ecd9b9fff62aaabd8caa176ff091ec98ad81c
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 3004ff9d6fe874410c24d174755a6d26f99f8f2a
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59876480"
 ---
-# <a name="troubleshooting-converged-nic-configurations"></a>Résolution des problèmes convergent des Configurations de cartes réseau
+# <a name="troubleshooting-converged-nic-configurations"></a>Résolution des problèmes convergé des Configurations de carte réseau
 
->S’applique à: Windows Server (canal annuel un point-virgule), Windows Server2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser le script suivant pour vérifier si la configuration RDMA est correcte sur l’ordinateur hôte Hyper-V.
+Vous pouvez utiliser le script suivant pour vérifier si le RDMA est correctement configuré sur l’ordinateur hôte Hyper-V.
 
-- [Télécharger le script Test-Rdma .ps1](https://github.com/Microsoft/SDN/blob/master/Diagnostics/Test-Rdma.ps1)
+- [Télécharger le script Test-Rdma.ps1](https://github.com/Microsoft/SDN/blob/master/Diagnostics/Test-Rdma.ps1)
 
 Vous pouvez également utiliser les commandes Windows PowerShell suivantes pour dépanner et vérifier la configuration de vos cartes réseau convergé.
 
 ## <a name="get-netadapterrdma"></a>Get-NetAdapterRdma
 
-Pour vérifier votre configuration RDMA des cartes réseau, exécutez la commande Windows PowerShell suivante sur le serveur Hyper-V.
+Pour vérifier votre configuration RDMA de carte réseau, exécutez la commande Windows PowerShell suivante sur le serveur Hyper-V.
 
     
     Get-NetAdapterRdma | fl *
     
 
-Pour identifier et résoudre les problèmes après l’exécution de cette commande sur l’ordinateur hôte Hyper-V, vous pouvez utiliser suivantes prévu et des résultats inattendus.
+Pour identifier et résoudre les problèmes après avoir exécuté cette commande sur l’ordinateur hôte Hyper-V, vous pouvez utiliser suivantes attendu et des résultats inattendus.
 
-### <a name="get-netadapterrdma-expected-results"></a>Get-NetAdapterRdma les résultats attendus
+### <a name="get-netadapterrdma-expected-results"></a>Résultats de Get-NetAdapterRdma attendu
 
-Carte réseau virtuelle de l’ordinateur hôte et de la carte réseau physique affichent les fonctions RDMA différente de zéro.
+Carte réseau virtuelle hôte et la carte réseau physique affichent les fonctionnalités RDMA différente de zéro.
 
-![Résultats de Windows PowerShell prévu](../../media/Converged-NIC/CNIC-Troubleshooting/cnic-tshoot-01.jpg)
+![Résultats de PowerShell Windows attendu](../../media/Converged-NIC/CNIC-Troubleshooting/cnic-tshoot-01.jpg)
 
-### <a name="get-netadapterrdma-unexpected-results"></a>Get-NetAdapterRdma des résultats inattendus
+### <a name="get-netadapterrdma-unexpected-results"></a>Get-NetAdapterRdma résultats inattendus
 
 Procédez comme suit si vous recevez des résultats inattendus lorsque vous exécutez le **Get-NetAdapterRdma** commande.
 
-1. Assurez-vous que les pilotes de bus Mlnx Mlnx miniport sont plus récentes. Pour Mellanox, utilisez drop au moins 42. 
-2. Vérifiez que les pilotes de miniport et bus Mlnx correspondent en vérifiant la version du pilote par le biais du Gestionnaire de périphériques. Vous trouverez le pilote de bus périphériques système. Le nom doit commencer par Mellanox Connect-X 3 PRO VPI, comme illustré dans la capture d’écran suivante de propriétés de la carte réseau.
+1. Assurez-vous que le miniport Mlnx et les pilotes de bus Mlnx sont plus récentes. Pour Mellanox, utilisez drop au moins 42. 
+2. Vérifiez que les pilotes miniport et bus Mlnx correspondent en vérifiant la version du pilote par le biais du Gestionnaire de périphériques. Vous trouverez le pilote de bus périphériques système. Le nom doit commencer par Mellanox Connect-X 3 PRO VPI, comme illustré dans la capture d’écran suivante de propriétés de la carte réseau.
 
-![Propriétés de la carte réseau](../../media/Converged-NIC/CNIC-Troubleshooting/cnic-tshoot-02.jpg)
+![Propriétés des cartes réseau](../../media/Converged-NIC/CNIC-Troubleshooting/cnic-tshoot-02.jpg)
 
-4. Assurez-vous que le réseau Direct (RDMA) est activé sur la carte réseau physique et les cartes réseau virtuelles hôtes.
-5. Assurez-vous que le commutateur virtuel est créé sur la carte physique droite en vérifiant ses fonctions RDMA.
-6. Vérifiez le journal système EventViewer et filtrer par source «Hyper-V-VmSwitch».
+4. Assurez-vous que le réseau Direct (RDMA) est activé sur la carte réseau physique et la carte réseau virtuelle hôte.
+5. Assurez-vous que le commutateur virtuel est créé sur la carte physique à droite en vérifiant ses fonctionnalités RDMA.
+6. Vérifiez le journal système de l’Observateur d’événements et les filtrer par source « Hyper-V-VmSwitch ».
 
-## <a name="get-smbclientnetworkinterface"></a>Obtenir SmbClientNetworkInterface
+--- 
+
+## <a name="get-smbclientnetworkinterface"></a>Get-SmbClientNetworkInterface
 
 Comme une étape supplémentaire pour vérifier votre configuration RDMA, exécutez la commande Windows PowerShell suivante sur le serveur Hyper-V.
 
 
-    Get SmbClientNetworkInterface
+    Get-SmbClientNetworkInterface
 
-### <a name="get-smbclientnetworkinterface-expected-results"></a>Obtenir des résultats SmbClientNetworkInterface prévu
+### <a name="get-smbclientnetworkinterface-expected-results"></a>Résultats de Get-SmbClientNetworkInterface attendu
 
-La carte réseau virtuelle hôte doit apparaître comme compatible RDMA à partir du point de vue de SMB également.
+La carte réseau virtuelle hôte doit apparaître comme prenant en charge RDMA de SMB point de vue également.
 
-![Propriétés de la carte réseau](../../media/Converged-NIC/CNIC-Troubleshooting/cnic-tshoot-03.jpg)
+![Propriétés des cartes réseau](../../media/Converged-NIC/CNIC-Troubleshooting/cnic-tshoot-03.jpg)
 
 
-### <a name="get-smbclientnetworkinterface-unexpected-results"></a>Obtenir SmbClientNetworkInterface des résultats inattendus
+### <a name="get-smbclientnetworkinterface-unexpected-results"></a>Get-SmbClientNetworkInterface résultats inattendus
 
-1. Assurez-vous que les pilotes de bus Mlnx Mlnx miniport sont plus récentes. Pour Mellanox, utilisez drop au moins 42. 
-2. Vérifiez que les pilotes de miniport et bus Mlnx correspondent en vérifiant la version du pilote par le biais du Gestionnaire de périphériques. Vous trouverez le pilote de bus périphériques système. Le nom doit commencer par Mellanox Connect-X 3 PRO VPI, comme illustré dans la capture d’écran suivante de propriétés de la carte réseau.
-3. Assurez-vous que le réseau Direct (RDMA) est activé sur la carte réseau physique et les cartes réseau virtuelles hôtes.
-4. Assurez-vous que le commutateur virtuel Hyper-V est créé sur la carte physique droite en vérifiant ses fonctions RDMA.
-5. Recherchez «Client SMB» les journaux EventViewer **Services et applications | Microsoft | Windows**.
+1. Assurez-vous que le miniport Mlnx et les pilotes de bus Mlnx sont plus récentes. Pour Mellanox, utilisez drop au moins 42. 
+2. Vérifiez que les pilotes miniport et bus Mlnx correspondent en vérifiant la version du pilote par le biais du Gestionnaire de périphériques. Vous trouverez le pilote de bus périphériques système. Le nom doit commencer par Mellanox Connect-X 3 PRO VPI, comme illustré dans la capture d’écran suivante de propriétés de la carte réseau.
+3. Assurez-vous que le réseau Direct (RDMA) est activé sur la carte réseau physique et la carte réseau virtuelle hôte.
+4. Assurez-vous que le commutateur virtuel Hyper-V est créé sur la carte physique à droite en vérifiant ses fonctionnalités RDMA.
+5. Recherchez « Client SMB » les journaux de l’Observateur d’événements **Services et applications | Microsoft | Windows**.
+
+--- 
 
 ## <a name="get-netadapterqos"></a>Get-NetAdapterQos
 
-Vous pouvez afficher la qualité de la carte réseau de configuration du service \(QoS\) en exécutant la commande Windows PowerShell suivante.
+Vous pouvez afficher la qualité de la carte réseau du service \(QoS\) configuration en exécutant la commande Windows PowerShell suivante.
 
     Get-NetAdapterQos
 
-### <a name="get-netadapterqos-expected-results"></a>Get-NetAdapterQos les résultats attendus
+### <a name="get-netadapterqos-expected-results"></a>Résultats de Get-NetAdapterQos attendu
 
-Priorités et des classes de trafic doivent s’afficher en fonction de la première étape de configuration que vous avez effectuées à l’aide de ce guide.
+Priorités et classes de trafic doivent être affichées en fonction de la première étape de configuration que vous avez effectuées à l’aide de ce guide.
 
 ![Qualité des priorités de service et des classes](../../media/Converged-NIC/CNIC-Troubleshooting/cnic-tshoot-04.jpg)
 
-### <a name="get-netadapterqos-unexpected-results"></a>Get-NetAdapterQos des résultats inattendus
+### <a name="get-netadapterqos-unexpected-results"></a>Get-NetAdapterQos résultats inattendus
 
 Si vos résultats sont inattendus, procédez comme suit.
 
-1. Vérifiez que la carte réseau physique prend en charge \(DCB\) Data Center Bridging et qualité de service
+1. Assurez-vous que la carte réseau physique prend en charge Data Center Bridging \(DCB\) et qualité de service
 2. Assurez-vous que les pilotes de carte réseau sont à jour.
 
+--- 
 
 ## <a name="get-smbmultichannelconnection"></a>Get-SmbMultiChannelConnection
 
-Vous pouvez utiliser la commande Windows PowerShell suivante pour vérifier que l’adresse du nœud distant est compatible RDMA\.
+Vous pouvez utiliser la commande Windows PowerShell suivante pour vérifier que les adresse IP du nœud distant est RDMA\-capable.
 
     Get-SmbMultiChannelConnection
 
 
-### <a name="get-smbmultichannelconnection-expected-results"></a>Get-SmbMultiChannelConnection les résultats attendus
+### <a name="get-smbmultichannelconnection-expected-results"></a>Résultats de Get-SmbMultiChannelConnection attendu
 
-Adresse IP du nœud distant s’affiche comme RDMA compatible.
+Adresse IP du nœud distant est affiché comme RDMA capable.
 
-![Adresse IP de nœud distant compatibles RDMA](../../media/Converged-NIC/CNIC-Troubleshooting/cnic-tshoot-05.jpg)
+![Adresse IP de nœud distant compatible RDMA](../../media/Converged-NIC/CNIC-Troubleshooting/cnic-tshoot-05.jpg)
 
-### <a name="get-smbmultichannelconnection-unexpected-results"></a>Get-SmbMultiChannelConnection des résultats inattendus
+### <a name="get-smbmultichannelconnection-unexpected-results"></a>Get-SmbMultiChannelConnection résultats inattendus
 
 Si vos résultats sont inattendus, procédez comme suit.
 
-1. Assurez-vous que la commande ping fonctionne de deux façons.
-2. Assurez-vous que le pare-feu ne bloque pas l’initialisation de la connexion SMB. Plus spécifiquement, activer la règle de pare-feu pour le port SMB Direct5445 pour iWARP et 445 pour le ROCE.
+1. Assurez-vous que ping fonctionne les deux sens.
+2. Assurez-vous que le pare-feu ne bloque pas l’initialisation de la connexion SMB. Plus précisément, activer la règle de pare-feu pour le port SMB Direct 5445 pour iWARP et 445 pour le ROCE.
+
+--- 
 
 ## <a name="get-smbclientnetworkinterface"></a>Get-SmbClientNetworkInterface
 
-Vous pouvez utiliser la commande suivante pour vérifier que la carte réseau virtuelle que vous avez activé pour RDMA est signalée comme étant capable de RDMA\ par SMB.
+Vous pouvez utiliser la commande suivante pour vérifier que la carte réseau virtuelle que vous avez activé pour RDMA est signalée comme RDMA\-capable de protocole SMB.
 
     Get-SmbClientNetworkInterface
 
 
-### <a name="get-smbclientnetworkinterface-expected-results"></a>Get-SmbClientNetworkInterface les résultats attendus
+### <a name="get-smbclientnetworkinterface-expected-results"></a>Résultats de Get-SmbClientNetworkInterface attendu
 
-Carte réseau virtuelle qui a été activé pour RDMA doit être considérée comme compatible RDMA par SMB.
+Carte réseau virtuelle qui a été activée pour RDMA doit être considéré comme compatible RDMA par SMB.
 
-![SMB signale que les cartes réseau sont compatible RDMA](../../media/Converged-NIC/CNIC-Troubleshooting/cnic-tshoot-06.jpg)
+![SMB signale que les cartes réseau est prenant en charge RDMA](../../media/Converged-NIC/CNIC-Troubleshooting/cnic-tshoot-06.jpg)
 
-### <a name="get-smbclientnetworkinterface-unexpected-results"></a>Get-SmbClientNetworkInterface des résultats inattendus
+### <a name="get-smbclientnetworkinterface-unexpected-results"></a>Get-SmbClientNetworkInterface résultats inattendus
 
 Si vos résultats sont inattendus, procédez comme suit.
 
-1. Assurez-vous que la commande ping fonctionne de deux façons.
+1. Assurez-vous que ping fonctionne les deux sens.
 2. Assurez-vous que le pare-feu ne bloque pas l’initialisation de la connexion SMB.
 
-## <a name="vstat-mellanox-specific"></a>Vstat \(Mellanox specific\)
+--- 
 
-Si vous utilisez des cartes réseau Mellanox, vous pouvez utiliser le **vstat** pour vérifier le RDMA sur la version de \(RoCE\) Converged Ethernet sur les nœuds Hyper-V.
+## <a name="vstat-mellanox-specific"></a>vstat \(Mellanox spécifiques\)
 
-### <a name="vstat-expected-results"></a>Résultats vstat prévu
+Si vous utilisez des cartes réseau Mellanox, vous pouvez utiliser la **vstat** commande pour vérifier que le RDMA over Converged Ethernet \(RoCE\) version sur les nœuds Hyper-V.
 
-La version RoCE sur les deux nœuds doit être le même. Il s’agit également d’un moyen efficace pour vérifier que la version du microprogramme sur les deux nœuds est plus récente.
+### <a name="vstat-expected-results"></a>résultats vstat attendu
 
-![Exemples de résultat de vérification de version RoCE](../../media/Converged-NIC/CNIC-Troubleshooting/cnic-tshoot-07.jpg)
+La version RoCE sur les deux nœuds doit être le même. C’est également un bon moyen pour vérifier que la version du microprogramme sur les deux nœuds est la plus récente.
 
-### <a name="vstat-unexpected-results"></a>Vstat des résultats inattendus
+![Exemples de résultat de vérifications de version RoCE](../../media/Converged-NIC/CNIC-Troubleshooting/cnic-tshoot-07.jpg)
+
+### <a name="vstat-unexpected-results"></a>vstat résultats inattendus
 
 Si vos résultats sont inattendus, procédez comme suit.
 
 1. Définir la version RoCE correcte à l’aide de Set-MlnxDriverCoreSetting
-2. Installer le microprogramme le plus récent à partir du site Web Mellanox.
+2. Installez la dernière version du microprogramme à partir du site Web Mellanox.
 
+--- 
 
-## <a name="perfmon-counters"></a>Compteurs de performance
+## <a name="perfmon-counters"></a>Compteurs PerfMon
 
 Vous pouvez consulter les compteurs dans l’Analyseur de performances pour vérifier l’activité RDMA de votre configuration.
 
 ![Exemples de résultat de moniteur de performances](../../media/Converged-NIC/CNIC-Troubleshooting/cnic-tshoot-08.jpg)
 
-## <a name="all-topics-in-this-guide"></a>Toutes les rubriques de ce guide
+--- 
 
-Ce guide contient les rubriques suivantes.
+## <a name="related-topics"></a>Rubriques connexes
 
-- [Configuration des cartes réseau convergé avec une seule carte réseau](cnic-single.md)
-- [Configuration des cartes réseau associées de cartes réseau convergé](cnic-datacenter.md)
-- [Configuration du commutateur physique pour les cartes réseau convergé](cnic-app-switch-config.md)
-- [Résolution des problèmes convergent des Configurations de cartes réseau](cnic-app-troubleshoot.md)
+- [Configuration de carte réseau convergé avec une seule carte réseau](cnic-single.md)
+- [Configuration des cartes réseau de carte réseau convergé](cnic-datacenter.md)
+- [Configuration de commutateur physique pour la carte réseau convergé](cnic-app-switch-config.md)
+
+---
