@@ -1,40 +1,41 @@
 ---
 ms.assetid: c911d6c6-98c6-4532-b1db-5724e1ceb96c
-title: "Annexe: Administration simplifiée"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: Annexe une Administration simplifiée
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 5de7431d0f3fe9a078432b11a63ce996d3abe447
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 36cdacec27e64586c359146b858a9d68750e5026
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59858260"
 ---
-# <a name="simplified-administration-appendix"></a>Annexe: Administration simplifiée
+# <a name="simplified-administration-appendix"></a>Annexe une Administration simplifiée
 
->S’applique à: Windows Server2016, Windows Server2012R2, Windows Server2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
--   [Le Gestionnaire de serveur ajouter la boîte de dialogue serveurs (ActiveDirectory)](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_AddServers)  
+-   [Le Gestionnaire de serveur ajouter des serveurs de boîte de dialogue (Active Directory)](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_AddServers)  
   
 -   [État du Gestionnaire de serveur à distance serveur](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_ServerMgrStatus)  
   
--   [Chargement du Module PowerShell de Windows](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_PSLoadModule)  
+-   [Lors du chargement du Module PowerShell de Windows](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_PSLoadModule)  
   
--   [RID d’émission correctifs pour les systèmes d’exploitation précédents](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_Rid)  
+-   [RID de correctifs logiciels d’émission pour les systèmes d’exploitation précédents](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_Rid)  
   
--   [Ntdsutil.exe installer from Media Changes](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM)  
+-   [Ntdsutil.exe Install from Media Changes](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM)  
   
-## <a name="BKMK_AddServers"></a>Le Gestionnaire de serveur ajouter la boîte de dialogue serveurs (ActiveDirectory)  
+## <a name="BKMK_AddServers"></a>Le Gestionnaire de serveur ajouter des serveurs de boîte de dialogue (Active Directory)  
 
-Le **ajouter des serveurs** boîte de dialogue permet de recherche dans ActiveDirectory pour les serveurs, par le système d’exploitation, à l’aide de caractères génériques et par emplacement. La boîte de dialogue permet également à l’aide de requêtes DNS par nom de domaine complet ou le préfixe du nom. Ces recherches utilisent des protocoles DNS et LDAP natifs implémentées par le biais de .NET, pas ActiveDirectory Windows PowerShell par rapport à la passerelle de gestion ActiveDirectory par le biais de SOAP - ce qui signifie que les contrôleurs de domaine contactés par le Gestionnaire de serveur peuvent même exécuter Windows Server2003. Vous pouvez également importer un fichier avec des noms de serveur pour la configuration à des fins.  
+Le **ajouter des serveurs** boîte de dialogue permet la recherche dans Active Directory pour les serveurs, par système d’exploitation, à l’aide des caractères génériques et par emplacement. La boîte de dialogue permet également à l’aide de requêtes DNS par nom de domaine complet ou nom de préfixe. Ces recherches utilisent des protocoles DNS et LDAP natives implémentées via .NET, pas AD Windows PowerShell par rapport à la passerelle de gestion AD via SOAP - ce qui signifie que les contrôleurs de domaine contactés par le Gestionnaire de serveur peuvent même exécuter Windows Server 2003. Vous pouvez également importer un fichier dont le nom de serveur pour l’approvisionnement à des fins.  
   
-La recherche ActiveDirectory utilise les filtres LDAP suivants:  
+La recherche Active Directory utilise les filtres LDAP suivants :  
   
 ```  
 (&(ObjectCategory=computer)  
@@ -49,7 +50,7 @@ La recherche ActiveDirectory utilise les filtres LDAP suivants:
   
 ```  
   
-La recherche ActiveDirectory renvoie les attributs suivants:  
+La recherche Active Directory retourne les attributs suivants :  
   
 ```  
 ( dnsHostName )( operatingSystem )( cn )  
@@ -57,12 +58,12 @@ La recherche ActiveDirectory renvoie les attributs suivants:
 ```  
   
 ## <a name="BKMK_ServerMgrStatus"></a>État du Gestionnaire de serveur à distance serveur  
-Le Gestionnaire de serveur teste l’accessibilité de serveur distant à l’aide du protocole de routage d’adresse. Tous les serveurs ne répond ne pas aux requêtes ARP ne sont pas répertoriés, même s’ils sont dans le pool.  
+Le Gestionnaire de serveur teste l’accessibilité du serveur distant à l’aide du protocole de routage d’adresse. Tous les serveurs ne répond ne pas aux requêtes ARP ne sont pas répertoriés, même si elles se trouvent dans le pool.  
   
-Si ARP répond, DCOM et WMI connexions sont apportées au serveur pour renvoyer les informations d’état. Si les RPC, DCOM et WMI sont inaccessibles, le Gestionnaire de serveur ne peut pas gérer entièrement le serveur.  
+Si ARP répond, les connexions DCOM et WMI sont établies sur le serveur pour retourner des informations d’état. Si RPC, DCOM et WMI ne sont pas accessibles, le Gestionnaire de serveur ne peut pas gérer entièrement le serveur.  
   
-## <a name="BKMK_PSLoadModule"></a>Chargement du Module PowerShell de Windows  
-WindowsPowerShell3.0 implémente un module dynamique du chargement. À l’aide de la **Import-Module** applet de commande généralement n’est plus nécessaire; au lieu de cela, simplement l’appel de l’applet de commande, alias ou fonction automatiquement charge le module.  
+## <a name="BKMK_PSLoadModule"></a>Lors du chargement du Module PowerShell de Windows  
+Windows PowerShell 3.0 implémente le chargement de module dynamique. À l’aide de la **Import-Module** applet de commande en général, n’est plus nécessaire ; au lieu de cela, simplement l’appel de l’applet de commande, alias ou fonction automatiquement charge le module.  
   
 Pour afficher les modules chargés, utilisez le **Get-Module** applet de commande.  
   
@@ -73,14 +74,14 @@ Get-Module
   
 ![Administration simplifiée](media/Simplified-Administration-Appendix/ADDS_PSGetModule.gif)  
   
-Pour afficher tous les modules installés avec leurs fonctions exportées et les applets de commande, utilisez:  
+Pour afficher tous les modules installés avec leurs fonctions exportées et les applets de commande, utilisez :  
   
 ```  
 Get-Module -ListAvailable  
   
 ```  
   
-Le cas principal pour l’utilisation de la **import-module** commande est lorsque vous devez accéder à la» AD: «lecteur virtuel de Windows PowerShell et rien d’autre a déjà chargé le module. Par exemple, en utilisant les commandes suivantes:  
+Le principal cas pour l’utilisation de la **import-module** commande est lorsque vous devez accéder à la « AD : » Lecteur virtuel Windows PowerShell et rien d’autre a déjà chargé le module. Par exemple, utilisez les commandes suivantes :  
   
 ```  
 import-module activedirectory  
@@ -89,19 +90,19 @@ dir
   
 ```  
   
-## <a name="BKMK_Rid"></a>RID d’émission correctifs pour les systèmes d’exploitation précédents  
-Voir [une mise à jour est disponible pour détecter et empêcher trop la consommation du pool RID global sur un contrôleur de domaine qui exécute Windows Server2008R2](https://support.microsoft.com/kb/2618669).  
+## <a name="BKMK_Rid"></a>RID de correctifs logiciels d’émission pour les systèmes d’exploitation précédents  
+Consultez [une mise à jour est disponible pour détecter et éviter de trop la consommation du pool RID global sur un contrôleur de domaine qui exécute Windows Server 2008 R2](https://support.microsoft.com/kb/2618669).  
   
 ## <a name="BKMK_IFM"></a>Ntdsutil.exe Install from Media Changes  
-Windows Server2012 ajoute deux options à l’outil de ligne de commande Ntdsutil.exe pour le **IFM (création de supports IFM)** menu. Ces permettent de créer des magasins d’IFM sans effectuer au préalable une défragmentation hors connexion de l’exportation NTDS.DIT de base de données de fichier. Lorsque l’espace disque n’est pas un premium, cela fait gagner du temps créer l’IFM.  
+Windows Server 2012 ajoute deux options supplémentaires à l’outil de ligne de commande Ntdsutil.exe pour le **IFM (la création du média IFM)** menu. Elles vous permettent de vous permettent de créer des magasins d’IFM sans effectuer au préalable une défragmentation hors connexion du fichier exporté NTDS. Fichier de base de données DIT. Lors de l’espace disque n’est pas une prime, cela fait gagner du temps de création la IFM.  
   
-Le tableau suivant décrit les deux nouveaux éléments de menu:  
+Le tableau suivant décrit les deux nouveaux éléments de menu :  
   
 |||  
 |-|-|  
 |Élément de menu|Explication|  
-|Créer NoDefrag complète %s|Créer des supports IFM sans défragmentation pour un contrôleur de domaine ActiveDirectory complète ou une instance AD/ADLDS dans le dossier %s|  
-|Créer plein de Sysvol NoDefrag %s|Créer des supports IFM avec SYSVOL et sans défragmentation pour un contrôleur de domaine ActiveDirectory complète dans le dossier %s|  
+|Créer NoDefrag complète %s|Créer des supports IFM sans défragmentation pour un contrôleur de domaine AD complet ou une/instance AD LDS dans le dossier %s|  
+|Créer Sysvol intégral NoDefrag %s|Créer des supports IFM avec SYSVOL et sans défragmentation pour un contrôleur de domaine complet AD dans le dossier %s|  
   
 ![Administration simplifiée](media/Simplified-Administration-Appendix/ADDS_PSIFM.png)  
   

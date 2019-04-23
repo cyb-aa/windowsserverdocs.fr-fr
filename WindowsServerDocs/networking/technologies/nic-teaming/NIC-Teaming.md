@@ -1,7 +1,7 @@
 ---
 title: Association de cartes réseau
-description: Cette rubrique fournit une vue d’ensemble de l’association de cartes d’Interface réseau (NIC) dans Windows Server 2016.
-manager: brianlic
+description: Dans cette rubrique, nous vous donner une vue d’ensemble de l’association de carte d’Interface réseau (NIC) dans Windows Server 2016. Association de cartes réseau vous permet de regrouper entre 1 et 32 de cartes réseau Ethernet physiques dans un ou plusieurs adaptateurs de réseau virtuel basé sur le logiciel. Ces cartes réseau virtuelles fournissent des performances élevées et une tolérance de panne importante en cas de défaillance de la carte réseau.
+manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,106 +13,154 @@ ms.topic: article
 ms.assetid: abded6f3-5708-4e35-9a9e-890e81924fec
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 142f56153187368effdb802c0c1b50359fffc36a
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 09/10/2018
+ms.openlocfilehash: 367de10e8c77490ff27be81ddc05239f931ad1f4
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59860470"
 ---
 # <a name="nic-teaming"></a>Association de cartes réseau
 
->S’applique à: Windows Server (canal annuel un point-virgule), Windows Server2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Cette rubrique fournit une vue d’ensemble de l’association de cartes d’Interface réseau (NIC) dans Windows Server 2016.
+Dans cette rubrique, nous vous donner une vue d’ensemble de l’association de carte d’Interface réseau (NIC) dans Windows Server 2016. Association de cartes réseau vous permet de regrouper entre 1 et 32 de cartes réseau Ethernet physiques dans un ou plusieurs adaptateurs de réseau virtuel basé sur le logiciel. Ces cartes réseau virtuelles fournissent des performances élevées et une tolérance de panne importante en cas de défaillance de la carte réseau.  
+  
+>[!IMPORTANT]
+>Vous devez installer des cartes réseau de l’association de cartes réseau dans le même ordinateur hôte physique. 
 
-> [!NOTE]  
-> Outre cette rubrique, le contenu suivant d’association de cartes réseau est disponible.  
->   
-> - [Association de cartes dans des Machines virtuelles & #40; Ordinateurs virtuels & #41;](nict-vms.md)
-> - [Association de cartes réseau et les réseaux locaux virtuels & #40; Réseaux locaux virtuels & #41;](nict-and-vlans.md)
-> - [Association de gestion et utilisation des adresses MAC](NIC-Teaming-MAC-Address-Use-and-Management.md)
-> - [Résolution des problèmes d’association de cartes réseau](Troubleshooting-NIC-Teaming.md) 
-> - [Créer une nouvelle équipe de cartes réseau sur un ordinateur hôte ou un ordinateur virtuel](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md)
-> - [Association de cartes applets de commande (NetLBFO) dans Windows PowerShell](https://technet.microsoft.com/library/jj130849.aspx)
-> - Téléchargement de la Galerie TechNet: [Windows Server 2016 cartes réseau et le commutateur Embedded Teaming Guide de l’utilisateur](https://gallery.technet.microsoft.com/Windows-Server-2016-839cb607?redir=0)
+> [!TIP]  
+> Une association de cartes réseau qui contient une seule carte réseau ne peut pas fournir l’équilibrage de charge et le basculement. Toutefois, avec une carte réseau, vous pouvez utiliser association de cartes réseau pour séparer le trafic réseau lorsque vous utilisez également des réseaux locaux virtuels (VLAN).  
   
-## <a name="bkmk_over"></a>Vue d’ensemble de l’association de cartes réseau  
-Association de cartes réseau vous permet de regrouper entre une et trente deux cartes réseau Ethernet physiques dans une ou plusieurs cartes réseau virtuel basé sur les logiciels. Ces cartes réseau virtuelles fournissent des performances élevées et la tolérance de panne en cas de défaillance de la carte réseau.  
+Lorsque vous configurez les cartes réseau dans une association de cartes réseau, ils se connectent à la carte réseau association solution tronc commun, qui présente ensuite un ou plusieurs cartes virtuelles (également appelés équipe cartes réseau [tNICs] ou interfaces de l’équipe) pour le système d’exploitation. 
+
+Dans la mesure où Windows Server 2016 prend en charge jusqu'à 32 interfaces d’équipe par équipe, il existe une variété d’algorithmes qui distribuent le trafic sortant (charge) entre les cartes réseau.  L’illustration suivante représente une association de cartes réseau avec plusieurs tNICs.  
   
-Toutes les cartes réseau de l’association de cartes réseau doivent être installés sur le même ordinateur hôte physique doivent être placés dans une équipe.  
+![Association de cartes réseau avec plusieurs tNICs](../../media/NIC-Teaming/nict_overview.jpg)  
   
-> [!NOTE]  
-> Une association qui contient une seule carte réseau ne peut pas fournir l’équilibrage de charge et basculement; Toutefois avec une carte réseau, vous pouvez utiliser l’association de séparer le trafic réseau lorsque vous utilisez également des réseaux locaux virtuels (VLAN).  
+En outre, vous pouvez connecter vos cartes réseau associées au même commutateur ou différents commutateurs. Si vous vous connectez les cartes réseau à différents commutateurs, les deux commutateurs doivent être sur le même sous-réseau.  
   
-Lorsque vous configurez les cartes réseau dans une association de cartes réseau, ils sont connectés à la carte réseau association solution tronc commun, qui présente ensuite une ou plusieurs cartes virtuelles (également appelés équipe cartes réseau [tNICs] ou interfaces équipe) pour le système d’exploitation. Windows Server 2016 prend en charge jusqu'à 32 interfaces équipe par l’équipe. Il existe une variété d’algorithmes qui distribuent le trafic sortant (chargement) entre les cartes réseau.  
+## <a name="availability"></a>Disponibilité  
+Association de cartes réseau est disponible dans toutes les versions de Windows Server 2016. Vous pouvez utiliser un large éventail d’outils pour gérer l’association de cartes réseau des ordinateurs exécutant un système d’exploitation client, telles que : • • des applets de commande Windows PowerShell Bureau à distance • Outils d’Administration de serveur distant  
   
-L’illustration suivante représente une association avec plusieurs tNICs.  
+## <a name="supported-and-unsupported-nics"></a>Cartes réseau prises en charge et non pris en charge   
+Vous pouvez utiliser une carte réseau Ethernet qui a passé le test de Qualification du matériel Windows et le Logo (tests WHQL) dans une association de cartes réseau dans Windows Server 2016.  
   
-![Équipe de cartes réseau avec plusieurs tNICs](../../media/NIC-Teaming/nict_overview.jpg)  
+Vous ne pouvez pas placer les cartes réseau suivantes dans une association de cartes réseau :
   
-En outre, vous pouvez connecter vos cartes réseau associées au même commutateur ou à des commutateurs distincts. Si vous vous connectez les cartes réseau à différents commutateurs, les deux commutateurs doivent être sur le même sous-réseau.  
-  
-## <a name="bkmk_avail"></a>Disponibilité de l’association de cartes réseau  
-Association de cartes réseau est disponible dans toutes les versions de Windows Server 2016. En outre, vous pouvez utiliser les commandes Windows PowerShell, les services Bureau à distance et les outils d’Administration de serveur distant pour gérer l’association de cartes réseau à partir d’ordinateurs qui exécutent un système d’exploitation de client sur lequel les outils sont pris en charge.  
-  
-## <a name="bkmk_nics"></a>Cartes réseau prises en charge et non pris en charge pour l’association de cartes réseau  
-Vous pouvez utiliser une carte réseau Ethernet a passé le test de Qualification de matériel Windows et le Logo (tests WHQL) dans une association de cartes réseau dans Windows Server 2016.  
-  
-Les cartes réseau suivantes ne peut pas être placés dans une association.  
-  
--   Cartes réseau virtuel Hyper-V qui sont exposés en tant que cartes réseau dans la partition hôte des ports de commutateur virtuel Hyper-V.  
+-   Adaptateurs de réseau virtuel Hyper-V qui sont exposées en tant que cartes d’interface réseau dans la partition hôte des ports de commutateur virtuel Hyper-V.  
   
     > [!IMPORTANT]  
-    > Cartes réseau virtuelles Hyper-V qui sont exposées dans la partition hôte (cartes réseau virtuelles) ne doivent pas être placés dans une équipe. L’association de cartes réseau virtuelles au sein de la partition de l’ordinateur hôte n’est pas pris en charge dans une configuration ou une combinaison. Tentatives de cartes réseau virtuelles de l’équipe peuvent entraîner une perte complète de communication cas de panne réseau.  
+    > Ne placez pas les cartes réseau virtuelles de Hyper-V exposées dans la partition hôte (VNIC) dans une équipe. L’association de cartes réseau virtuelles à l’intérieur de la partition hôte n’est pas pris en charge dans une configuration. Tente de cartes réseau virtuelles de l’équipe peut entraîner une perte de communication complète en cas de défaillances du réseau.  
   
--   (KDNIC) de la carte du réseau de débogage du noyau.  
+-   Adaptateur de réseau de débogage du noyau (KDNIC).  
   
--   Cartes réseau qui sont utilisés pour le démarrage réseau.  
+-   Cartes d’interface réseau utilisés pour le démarrage réseau.  
   
--   Cartes réseau qui utilisent des technologies de Ethernet, tels que WWAN, WLAN/Wi-Fi, Bluetooth et Infiniband, y compris Internet Protocol sur les cartes réseau Infiniband (IPoIB).  
+-   Cartes réseau qui utilisent des technologies autres que Ethernet, tels que WWAN, WLAN/Wi-Fi, Bluetooth et Infiniband, y compris le protocole d’Internet sur les cartes réseau Infiniband (IPoIB).  
   
-## <a name="bkmk_compat"></a>Compatibilité de l’association de cartes réseau  
+## <a name="compatibility"></a>Compatibilité  
 Association de cartes réseau est compatible avec toutes les technologies de mise en réseau dans Windows Server 2016 avec les exceptions suivantes.  
   
--   **Virtualisation d’e/s de racine unique (SR-IOV)**. Pour SR-IOV, les données sont fournies directement à la carte réseau sans passer par la pile de mise en réseau (dans le système d’exploitation, dans le cas de virtualisation). Par conséquent, il n’est pas possible pour l’équipe de cartes réseau pour inspecter ou rediriger les données vers un autre chemin dans l’équipe.  
+-   **La virtualisation d’e/s de racine unique (SR-IOV)**. Dans le SR-IOV, les données sont fournies directement à la carte réseau sans passer par la pile réseau (dans le système d’exploitation hôte, dans le cas de virtualisation). Par conséquent, il n’est pas possible pour l’association de cartes réseau inspecter ou rediriger les données vers un autre chemin dans l’équipe.  
   
--   **Hôte natif qualité de Service (QoS)**. Lorsque les stratégies de QoS sont définies sur natif ou système hôte et ces stratégies appellent des limitations de bande passante minimale, le débit global pour une équipe de cartes réseau est moins qu’il serait sans les stratégies de la bande passante en place.  
+-   **Qualité de Service (QoS) de hôte natif**. Lorsque vous définissez des stratégies de QoS sur natif ou le système hôte et ces stratégies d’appel de limitations de bande passante minimale, le débit global d’une association de cartes réseau est inférieure à celle qu’elle serait sans les stratégies de la bande passante en place.  
   
 -   **TCP Chimney**. TCP Chimney n’est pas pris en charge avec l’association de cartes réseau, car le déchargement TCP Chimney décharge toute la pile de mise en réseau directement à la carte réseau.  
   
--   **802. 1 x d’authentification**. 802. 1 l’authentification X ne doit pas être utilisée avec l’association de cartes réseau. Certains commutateurs n’autorisent pas la configuration d’authentification de 802. 1 X et que l’association de cartes réseau sur le même port.  
+-   **802. 1 x authentification**. Vous ne devez pas utiliser authentification de 802. 1 X avec association de cartes réseau, car certains commutateurs n’autorisent pas la configuration d’authentification de 802. 1 X et que l’association de cartes réseau sur le même port.  
   
-Pour en savoir plus sur l’utilisation de l’association de cartes réseau dans les machines virtuelles (VM) qui s’exécutent sur un ordinateur hôte Hyper-V, voir [association de cartes réseau dans les Machines virtuelles & #40; Ordinateurs virtuels & #41; ](../../technologies/nic-teaming/../../technologies/nic-teaming/NIC-Teaming-in-Virtual-Machines--VMs-.md).  
+Pour en savoir plus sur l’utilisation d’association de cartes réseau dans des machines virtuelles (VM) qui s’exécutent sur un hôte Hyper-V, consultez [créer une association de cartes réseau sur un ordinateur hôte ou d’une machine virtuelle](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md).
   
-## <a name="bkmk_vmq"></a>Association de cartes réseau et les files d’attente de la Machine virtuelle (Vmq)  
-VMQ et association de cartes réseau fonctionnent bien ensemble; VMQ doit être activé à tout moment Hyper-V est activé. Selon le mode de configuration du commutateur et l’algorithme de distribution de charge, l’association de cartes réseau soit présente les fonctionnalités VMQ au commutateur Hyper-V qui indiquent le nombre de files d’attente disponibles pour être le plus petit nombre de files d’attente de la prise en charge par n’importe quelle carte dans l’équipe (mode Min-files d’attente) ou le nombre total de files d’attente disponibles sur tous les membres de l’équipe (mode de somme de files d’attente).  
+## <a name="virtual-machine-queues-vmqs"></a>Files d’attente de la Machine virtuelle (Vmq)  
+
+Vmq est une fonctionnalité de carte réseau qui alloue une file d’attente pour chaque machine virtuelle.  Chaque fois que vous avez Hyper-V est activé ; Vous devez également activer des ordinateurs virtuels. Dans Windows Server 2016, Vmq permet vPorts de commutateur de la carte réseau avec une file d’attente unique affecté à la vPort fournissent les mêmes fonctionnalités. 
+
+Selon le mode de configuration de commutateur et l’algorithme de distribution de charge, association de cartes réseau présente le plus petit nombre de files d’attente disponibles et pris en charge par n’importe quelle carte dans l’équipe (mode Min-files d’attente) ou le nombre total de files d’attente disponibles au sein de tous les équipe membres (mode de somme de files d’attente).  
+
+Si l’équipe est en mode d’association indépendant du commutateur et vous définissez la distribution de charge au mode de Port Hyper-V ou dynamique, le nombre de files d’attente signalé est la somme de toutes les files d’attente disponibles à partir des membres de l’équipe (mode de somme de files d’attente). Sinon, le nombre de files d’attente signalé est le plus petit nombre de files d’attente de la prise en charge par n’importe quel membre de l’équipe (mode Min-files d’attente).
+
+Voici pourquoi :  
   
-Plus précisément, si l’équipe est dans indépendants du commutateur association de cartes réseau en mode et la Distribution de la charge est défini sur le mode de Port Hyper-V ou dynamiques, puis le nombre de files d’attente signalé est la somme de toutes les files d’attente disponibles à partir des membres de l’équipe (mode somme de files d’attente); dans le cas contraire, le nombre de files d’attente signalé est le plus petit nombre de files d’attente de la prise en charge par tous les membres de l’équipe (mode Min-files d’attente).  
+-   Lorsque l’équipe indépendant du commutateur est en mode de Port Hyper-V ou dynamique du trafic entrant pour un port de commutateur Hyper-V (VM) toujours arrive sur le même membre de l’équipe. L’hôte peut prédire/contrôle le membre qui reçoit le trafic pour une machine virtuelle particulière afin de l’association de cartes réseau peut être plus réfléchie sur les files d’attente de VMQ à allouer sur un membre d’équipe particulier. Association de cartes réseau, utilisation avec le commutateur Hyper-V, définit les ordinateurs virtuels pour une machine virtuelle sur exactement un seul membre de l’équipe et de savoir que le trafic entrant atteint cette file d’attente.  
   
-Voici pourquoi:  
+-   Lorsque l’équipe est dans n’importe quel mode dépendants du commutateur (association statique ou l’association LACP), le commutateur de l’équipe est connectée au contrôle de la distribution du trafic entrant. Le logiciel d’association de cartes réseau de l’hôte ne peut pas prévoir quelle équipe membre Obtient le trafic entrant pour une machine virtuelle, et il peut être que le commutateur répartit le trafic pour une machine virtuelle sur tous les membres de l’équipe. Comme un résultat de l’association de cartes réseau logiciels, avec le commutateur Hyper-V, les programmes une file d’attente pour la machine virtuelle sur chaque membre de l’équipe, pas seulement un membre de l’équipe.  
   
--   Lorsque l’équipe indépendants du commutateur est en mode de Port Hyper-V ou dynamique du trafic entrant pour un port de commutateur Hyper-V (VM) sera toujours arrivent sur le même membre de l’équipe. L’ordinateur hôte peut prévoir/contrôle le membre qui reçoit le trafic pour un ordinateur virtuel afin de l’association de cartes réseau peut être plus réfléchi sur les files d’attente de VMQ à allouer sur un membre particulier. Association de cartes réseau fonctionne avec le commutateur Hyper-V, pour définir la file pour un ordinateur virtuel sur un membre de l’équipe et savoir que le trafic entrant sera atteint cette file d’attente.  
+-   Lorsque l’équipe est dans le mode indépendant du commutateur et hachage d’adresse utilise l’équilibrage de charge, le trafic entrant arrive toujours sur une carte réseau (membre de l’équipe principal) - tout cela sur le membre de l’équipe qu’un seul. Étant donné que les autres membres de l’équipe ne sont pas affaire à trafic entrant, ils obtient programmés avec les files d’attente mêmes en tant que le membre principal afin que si le membre principal échoue, n’importe quel autre membre de l’équipe peut être utilisé pour prélever le trafic entrant, et les files d’attente sont déjà en place.  
+
+- La plupart des cartes réseau ont des files d’attente utilisés pour la mise à l’échelle côté réception (RSS) ou VMQ, mais pas en même temps. Certains paramètres VMQ semblent être des paramètres pour les files d’attente RSS mais sont des paramètres sur les files d’attente génériques qui RSS et VMQ utilisation selon quelle fonctionnalité est actuellement en cours d’utilisation. Chaque carte réseau a dans ses propriétés avancées, les valeurs pour * RssBaseProcNumber et \*MaxRssProcessors. Voici quelques paramètres VMQ qui offrent de meilleures performances système.  
   
--   Lorsque l’équipe est dans n’importe quel mode dépendants du commutateur (association statique ou LACP association de cartes réseau), le commutateur connecté à l’équipe de contrôle de la distribution du trafic entrant. Logiciel d’association de cartes réseau de l’ordinateur hôte ne peut pas prédire les de l’équipe membre obtiendra le trafic entrant pour un ordinateur virtuel, et il peut être que le commutateur répartit le trafic pour un ordinateur virtuel sur tous les membres de l’équipe. Comme le logiciel d’association de cartes réseau, fonctionne avec le commutateur Hyper-V, un résultat de programmes une file d’attente pour l’ordinateur virtuel sur chaque membre de l’équipe, pas seulement un membre de l’équipe.  
+-   Dans l’idéal, chaque carte réseau doit avoir le * RssBaseProcNumber la valeur est un nombre pair supérieur ou égal à deux (2). Le premier processeur physique, en règle générale, les principaux 0 (processeurs logiques 0 et 1), effectue la majeure partie du système de traitement pour le traitement réseau doit diriger en dehors de ce processeur physique. Certaines architectures machine n’ont pas deux processeurs logiques par processeur physique, donc pour ces ordinateurs, le processeur de base doit être supérieur ou égal à 1. Si dans le doute supposer que votre hôte utilise un processeur logique 2 par architecture de processeur physique.  
   
--   Lorsque l’équipe est en mode indépendants du commutateur et utilise un algorithme de distribution de charge de hachage adresse, le trafic entrant toujours arriveront sur une carte réseau (membre de l’équipe principal) - tout membre de l’équipe qu’un seul. Dans la mesure où les autres membres de l’équipe ne sont pas gérer le trafic entrant, avec qu'ils obtient programmées la même file d’attente en tant que le membre principal afin que si le membre principal échoue de n’importe quel autre membre de l’équipe peut être utilisé afin de sélectionner le trafic entrant et les files d’attente sont déjà en place.  
+-   Si l’équipe est en mode de la somme des files d’attentes des processeurs de membres de l’équipe doivent être sans chevauchement. Par exemple, dans un hôte de 4 cœurs (8 processeurs logiques) avec une équipe de 2 cartes réseau de 10 Gbits/s, vous pouvez définir la première condition à utiliser le processeur de base de 2 et à utiliser les 4 cœurs ; utiliser le processeur de base 6 et 2 cœurs, la seconde est définie.  
   
-La plupart des cartes réseau ont des files d’attente qui peuvent être utilisés pour la mise à l’échelle côté réception (RSS) ou file, mais pas les deux en même temps. Certains paramètres VMQ paramètres pour les files d’attente RSS mais ne sont vraiment paramètres sur les files d’attente génériques qui RSS et VMQ utilisation en fonction de la fonctionnalité qui est actuellement en cours d’utilisation. Chaque carte réseau a dans ses propriétés avancées, des valeurs pour * RssBaseProcNumber et \*MaxRssProcessors. Voici quelques paramètres VMQ qui offrent de meilleures performances système.  
+-   Si l’équipe est en mode de files d’attente de Min les jeux de processeur utilisés par les membres d’équipe doivent être identiques.  
+
   
--   Dans l’idéal, chaque carte réseau doit avoir le * RssBaseProcNumber définie sur un nombre pair supérieur ou égal à deux (2). Il s’agit dans la mesure où le premier processeur physique, Core 0 (processeurs logiques 0 et 1), en règle générale effectue la plupart du système de traitement pour le traitement réseau doit être directrices hors de ce processeur physique. (Certains architectures de l’ordinateur n’ont pas deux processeurs logiques par processeur physique aussi pour ces ordinateurs virtuels, le processeur de base doit être supérieure ou égale à 1. Si des doutes supposent que votre hôte est équipé d’un processeur logique 2 par architecture de processeur physique.)  
+## <a name="hyper-v-network-virtualization-hnv"></a>Virtualisation de réseau Hyper-V  
+Association de cartes réseau est entièrement compatible avec la virtualisation de réseau Hyper-V (HNV).  Le système de gestion de HNV fournit des informations pour le pilote d’association de cartes réseau qui permet l’association de cartes réseau répartir la charge d’une manière qui optimise le trafic HNV.  
   
--   Si l’équipe est en mode de somme de files d’attente des processeurs de membres de l’équipe doivent être l’étendue pratique, sans chevauchement. Par exemple, dans un hôte de 4 cœurs (8 processeurs logiques) avec une association de cartes réseau de 10 Gbit/s 2, vous pouvez définir l’utilisation du processeur de base de 2 et d’utiliser 4 cœurs; la seconde serait définie à utiliser le processeur base 6 et 2 cœurs.  
-  
--   Si l’équipe est en mode Min-files d’attente, les jeux de processeurs utilisés par les membres de l’équipe doivent être identiques.  
-  
-## <a name="bkmk_hnv"></a>Virtualisation de réseau association de cartes réseau et Hyper-V (HNV)  
-Association de cartes réseau est entièrement compatible avec la virtualisation de réseau Hyper-V (HNV).  Le système de gestion HNV fournit des informations sur le pilote d’association de cartes réseau qui permet l’association de cartes réseau distribuer la charge d’une manière qui est optimisée pour le trafic HNV.  
-  
-## <a name="bkmk_live"></a>Association de cartes réseau et la Migration dynamique  
-Association de cartes réseau dans des machines virtuelles n’affecte pas la Migration dynamique. Les mêmes règles existent pour la Migration dynamique ou non association de cartes réseau est configuré dans l’ordinateur virtuel.  
-  
-## <a name="see-also"></a>Voir aussi  
-[Association de cartes dans des Machines virtuelles & #40; Ordinateurs virtuels & #41;](../../technologies/nic-teaming/../../technologies/nic-teaming/NIC-Teaming-in-Virtual-Machines--VMs-.md)  
-  
+## <a name="live-migration"></a>Migration dynamique  
+L’association de cartes réseau sur des machines virtuelles n’affecte pas la Migration dynamique. Les mêmes règles existent pour la Migration en direct déterminant la configuration d’association de cartes réseau dans la machine virtuelle.  
 
 
+## <a name="virtual-local-area-networks-vlans"></a>Réseaux locaux virtuels (VLAN)
+Lorsque vous utilisez l’association de cartes réseau, la création de plusieurs interfaces de l’équipe permet à un hôte pour vous connecter à différents réseaux locaux virtuels en même temps. Configurer votre environnement en suivant les recommandations suivantes :
+  
+- Avant d’activer association de cartes réseau, configurez les ports de commutateur physique connectés à l’hôte d’association à utiliser le mode trunk (proximité). Le commutateur physique doit passer tout le trafic à l’hôte pour le filtrage sans modifier le trafic.  
+
+- Ne configurez pas les filtres de réseau local virtuel sur les cartes réseau à l’aide de la carte réseau que les paramètres de propriétés avancée. Laisser le logiciel d’association de cartes réseau ou le commutateur virtuel Hyper-V (le cas échéant) effectuer un filtrage du réseau local virtuel.  
+  
+### <a name="use-vlans-with-nic-teaming-in-a-vm"></a>Utiliser des réseaux locaux virtuels avec l’association de cartes réseau dans une machine virtuelle  
+Lorsqu’une équipe se connecte à un commutateur virtuel Hyper-V, tous les ségrégation de réseau local virtuel doit être effectuée dans le commutateur virtuel Hyper-V plutôt que dans l’association de cartes réseau.  
+
+Envisagez d’utiliser des réseaux locaux virtuels sur un ordinateur virtuel configuré avec une association de cartes réseau en suivant les recommandations suivantes :
+  
+-   La méthode de prise en charge de plusieurs réseaux locaux virtuels dans une machine virtuelle recommandée consiste à configurer la machine virtuelle avec plusieurs ports sur le commutateur virtuel Hyper-V et associer chaque port à un réseau local virtuel. Équipe jamais ces ports dans la machine virtuelle, car cela entraîne des problèmes de communication réseau.  
+
+-   Si la machine virtuelle a plusieurs fonctions virtuelles (VFs) de SR-IOV, vérifiez qu’ils sont sur le même réseau local virtuel avant leur association dans la machine virtuelle. Vous pouvez facilement configurer le système de fichiers virtuel différent pour être sur différents réseaux locaux virtuels et que cela entraîne des problèmes de communication réseau.  
+ 
+  
+### <a name="manage-network-interfaces-and-vlans"></a>Gérer les interfaces réseau et les réseaux locaux virtuels 
+Si vous devez disposer de plusieurs VLAN exposé dans un système d’exploitation, pensez à renommer les interfaces Ethernet pour clarifier le réseau local virtuel attribué à l’interface. Par exemple, si vous associez **Ethernet** interface avec 12 de réseau local virtuel et le **Ethernet 2** l’interface avec le réseau local virtuel 48, renommez l’interface Ethernet pour **EthernetVLAN12** et le autres à **EthernetVLAN48**. 
+
+Renommer des interfaces à l’aide de la commande Windows PowerShell **Rename-NetAdapter** ou en effectuant la procédure suivante :
+  
+1.  Dans le Gestionnaire de serveur, dans **propriétés** pour la carte réseau que vous souhaitez renommer, cliquez sur le lien à droite du nom de l’adaptateur de réseau. 
+  
+2.  Avec le bouton droit de la carte réseau que vous souhaitez renommer, puis sélectionnez **renommer**.  
+  
+3.  Tapez le nouveau nom pour la carte réseau et appuyez sur ENTRÉE.  
+
+
+## <a name="virtual-machines-vms"></a>Machines virtuelles (VM)
+
+Si vous souhaitez utiliser l’association de cartes réseau dans une machine virtuelle, vous devez connecter les cartes réseau virtuelles dans la machine virtuelle pour Hyper-V commutateurs virtuels externes uniquement. Cela permet à la machine virtuelle pour supporter la connectivité réseau même dans le cas lorsqu’une des cartes réseau physiques connectés à un seul commutateur virtuel échoue ou est déconnectée. Les cartes réseau virtuelles connectées à interne ou privé des commutateurs virtuels Hyper-V ne sont pas en mesure de se connecter au commutateur lorsqu’ils se trouvent dans une équipe, et mise en réseau échoue pour la machine virtuelle.  
+  
+L’association de cartes réseau dans Windows Server 2016 prend en charge les équipes avec deux membres dans les machines virtuelles. Vous pouvez créer des équipes plus grandes, mais il n’existe aucune prise en charge pour les équipes plus grandes. Chaque membre de l’équipe doit se connecter à un commutateur virtuel externe Hyper-V différent, et les interfaces réseau de la machine virtuelle doivent être configurés pour autoriser l’association de cartes.
+
+  
+Si vous configurez une association de cartes réseau dans une machine virtuelle, vous devez sélectionner un **mode d’association** de _indépendant du commutateur_ et un **mode d’équilibrage de charge** de _hachage d’adresse_.   
+  
+  
+## <a name="sr-iov-capable-network-adapters"></a>Cartes réseau compatibles SR-IOV  
+Une association de cartes réseau dans ou sous l’hôte Hyper-V ne peut pas protéger le trafic SR-IOV, car il n’accède pas à travers le commutateur Hyper-V.  Avec l’option de l’association de cartes réseau machine virtuelle, vous pouvez configurer deux commutateurs virtuels Hyper-V externe, chacun étant connecté à son propre compatibles SR-IOV carte réseau.  
+  
+![Avec les cartes réseau compatibles SR-IOV une association de cartes réseau](../../media/NIC-Teaming-in-Virtual-Machines--VMs-/nict_in_vm.jpg)  
+  
+Chaque machine virtuelle peut avoir une fonction virtuelle (VF) à partir d’un ou deux cartes d’interface réseau SR-IOV et, en cas de déconnexion de la carte réseau, le basculement depuis le facteur principal vers l’adaptateur de secours (VF). Par ailleurs, la machine virtuelle peut avoir une fonction virtuelle à partir d’une carte réseau et un réseau d’ordinateur virtuel non-VF connectés à un autre commutateur virtuel. Si la carte réseau associée à la fonction virtuelle est déconnectée, le trafic peut basculer vers l’autre commutateur sans perte de connectivité.  
+  
+Étant donné que le basculement entre les cartes réseau dans une machine virtuelle peut provoquer le trafic envoyé avec l’adresse MAC de l’autre réseau d’ordinateur virtuel, chaque port de commutateur virtuel Hyper-V associé à une machine virtuelle à l’aide d’association de cartes réseau doit être définie pour permettre l’association. 
+
+
+## <a name="related-topics"></a>Rubriques connexes
+
+- [Utilisation des adresses MAC de l’association de cartes réseau et la gestion](NIC-Teaming-MAC-Address-Use-and-Management.md): Lorsque vous configurez une association de cartes réseau avec le mode indépendant du commutateur et de hachage d’adresse ou distribution de charge dynamique, l’équipe utilise que l’accès au média (adresse MAC control) du membre principal association de cartes réseau sur le trafic sortant. Le membre d’association de cartes réseau principal est une carte réseau sélectionnée par le système d’exploitation à partir de l’ensemble initial de membres de l’équipe.
+
+- [Paramètres d’association de cartes réseau](nic-teaming-settings.md): Dans cette rubrique, nous vous donner une vue d’ensemble des propriétés d’association de cartes réseau telles que l’association de cartes et modes d’équilibrage de charge. Nous vous donnons également plus d’informations sur le paramètre de carte de mise en veille et de la propriété d’interface équipe principale. Si vous avez au moins deux cartes réseau dans une association de cartes réseau, il est inutile de désigner une carte de mise en veille pour une tolérance de panne.
+  
+- [Créer une association de cartes réseau sur un ordinateur hôte ou d’une machine virtuelle](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md): Dans cette rubrique, vous créez une nouvelle association de cartes réseau sur un ordinateur hôte ou sur une machine de virtuelle (VM) Hyper-V exécutant Windows Server 2016.
+
+- [Résolution des problèmes d’association de cartes réseau](Troubleshooting-NIC-Teaming.md): Dans cette rubrique, nous abordons les façons de résoudre les problèmes d’association de cartes réseau, telles que le matériel, les titres de commutateur physique et la désactivation ou l’activation des cartes réseau à l’aide de Windows PowerShell. 
+ 

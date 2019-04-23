@@ -1,6 +1,6 @@
 ---
-title: "Gérer des Applications dans WindowsServerEssentials"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Gérer des applications dans Windows Server Essentials
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,86 +13,87 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: e98d661ac71697bc0e38b6a25fe2f9d2b0b7254f
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59860170"
 ---
-# <a name="manage-applications-in-windows-server-essentials"></a>Gérer des Applications dans WindowsServerEssentials
+# <a name="manage-applications-in-windows-server-essentials"></a>Gérer des applications dans Windows Server Essentials
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
  
- Le serveur du tableau de bord dans WindowsServerEssentials et Windows Server2012R2 avec le rôle expérience WindowsServerEssentials installé permettent d’effectuer des tâches d’administration courantes. Pour effectuer ces tâches, consultez les rubriques suivantes:  
+ Le serveur du tableau de bord dans Windows Server Essentials et Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé permettent d’effectuer des tâches administratives. Pour effectuer ces tâches, reportez-vous aux sections suivantes :  
   
--   [Tâches de gestion d’applications dans le tableau de bord](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_1)  
+-   [Tâches de gestion d’application dans le tableau de bord](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_1)  
   
 -   [Installer ou supprimer des compléments à l’aide du tableau de bord](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_2)  
   
-##  <a name="BKMK_1"></a>Tâches de gestion d’applications dans le tableau de bord  
- Le **Applications** page de gestion du tableau de bord fournit:  
+##  <a name="BKMK_1"></a> Tâches de gestion d’application dans le tableau de bord  
+ La page de gestion **Applications** du tableau de bord fournit :  
   
--   Liste des compléments installés, qui affiche:  
+-   la liste des compléments installés, qui indique :  
   
-    -   Le nom du service en ligne ou du complément  
+    -   le nom du complément ou du service en ligne ;  
   
-    -   L’état de mise à jour du complément;  
+    -   l'état de mise à jour du complément ;  
   
-    -   L’état d’abonnement du complément;  
+    -   l'état de l'abonnement du complément ;  
   
-    -   Le nom de la société ou d’un éditeur qui est mise à disposition du complément;  
+    -   le nom de la société ou de l'éditeur qui propose ce complément ;  
   
--   Un volet des tâches qui inclut un ensemble de tâches permettant de gérer un complément sélectionné  
+-   un volet des tâches qui inclut un ensemble de tâches permettant de gérer un complément sélectionné ;  
   
--   Une liste des modules complémentaires qui sont disponibles pour télécharger et installer à partir de MicrosoftPinpoint  
+-   la liste des compléments pouvant être téléchargés et installés à partir de Microsoft Pinpoint.  
   
- Le tableau suivant décrit les différentes tâches de gestion de complément qui sont disponibles dans le tableau de bord du serveur. Certaines tâches sont spécifiques du complément, afin qu’ils soient visibles uniquement lorsque vous sélectionnez un complément dans la liste.  
+ Le tableau ci-dessous décrit les différentes tâches de gestion de complément disponibles dans le tableau de bord du serveur. Certaines de ces tâches sont spécifiques au complément et s'affichent uniquement quand vous sélectionnez un complément dans la liste.  
   
 |Nom de la tâche|Description|  
 |---------------|-----------------|  
-|Supprimer le complément|Supprime le complément sélectionné à partir du serveur et de tous les autres ordinateurs du réseau.|  
-|Installer le complément sur les ordinateurs du réseau|Vous permet de planifier l’installation du complément sélectionné sur tous les autres ordinateurs du réseau.|  
-|Obtenir de l’aide avec le complément|Ouvre votre navigateur Internet pour un site Web à partir de laquelle vous pouvez rechercher des solutions aux problèmes et en savoir plus sur un complément sélectionné.|  
-|Mise à jour le complément|Vous permet de télécharger et installer les mises à jour pour les compléments installés sur votre serveur et les ordinateurs du réseau.|  
-|Renouveler l’abonnement du complément;|Ouvre votre navigateur Internet pour un site Web à partir de laquelle vous pouvez renouveler votre abonnement du complément.|  
-|Lire la déclaration de confidentialité pour le complément|Ouvre votre navigateur Internet pour un site Web à partir de laquelle vous pouvez afficher la déclaration de confidentialité.|  
-|Comment installer ou supprimer des compléments?|Ouvre votre navigateur Internet et affiche une page web qui affiche la rubrique d’aide sujet.|  
+|Supprimer le complément|Supprime le complément sélectionné du serveur et de tous les autres ordinateurs du réseau.|  
+|Installer le complément dans les ordinateurs du réseau|Vous permet de planifier l'installation du complément sélectionné sur tous les autres ordinateurs du réseau.|  
+|Obtenir de l'aide sur le complément|Ouvre votre navigateur Internet et affiche un site web à partir duquel vous pouvez rechercher des solutions à des problèmes et en savoir plus sur un complément sélectionné.|  
+|Mettre à jour le complément|Favorise le téléchargement et l'installation de mises à jour des compléments installés sur votre serveur et les ordinateurs du réseau.|  
+|Renouveler l'abonnement au complément|Ouvre votre navigateur Internet et affiche un site web à partir duquel vous pouvez renouveler votre abonnement au complément.|  
+|Consulter la déclaration de confidentialité du complément|Ouvre votre navigateur Internet et affiche un site web dans lequel vous pouvez consulter la déclaration de confidentialité.|  
+|Comment installer ou supprimer des compléments ?|Ouvre votre navigateur Internet et affiche une page web contenant la rubrique d'aide sur ce sujet.|  
   
-##  <a name="BKMK_2"></a>Installer ou supprimer des compléments à l’aide du tableau de bord  
- Un complément est une application logicielle qui fournit les fonctionnalités supplémentaires pour votre serveur. Un nombre croissant de compléments est disponible à partir de Microsoft et d’autres éditeurs de logiciels indépendants (ISV).  
+##  <a name="BKMK_2"></a> Installer ou supprimer des compléments à l’aide du tableau de bord  
+ Un complément est une application logicielle qui fournit des fonctions et des fonctionnalités supplémentaires pour votre serveur. Un nombre croissant de compléments sont disponibles auprès de Microsoft et d'autres éditeurs de logiciels indépendants.  
   
- Avant que vous pouvez tirer parti des fonctionnalités étendues qui un complément fournit, vous devez d’abord installer le complément sur le serveur.  
+ Pour pouvoir tirer parti des fonctionnalités étendues fournies par un complément, vous devez installer au préalable le complément sur le serveur.  
   
-#### <a name="to-install-an-add-in-from-microsoft-pinpoint"></a>Pour installer un complément à partir de MicrosoftPinpoint  
+#### <a name="to-install-an-add-in-from-microsoft-pinpoint"></a>Pour installer un complément à partir de Microsoft Pinpoint  
   
-1.  Dans le tableau de bord du serveur, cliquez sur **Applications**, puis cliquez sur le **MicrosoftPinpoint** onglet.  Une liste des compléments disponibles s’affichent.  
+1.  Dans le tableau de bord du serveur, cliquez sur **Applications**, puis sur l'onglet **Microsoft Pinpoint** .  La liste des compléments disponibles s'affiche.  
   
-2.  Cliquez sur le complément que vous souhaitez installer. La page informations du complément s’affiche.  
+2.  Cliquez sur le complément que vous souhaitez installer. Une page d'informations sur le complément s'affiche.  
   
-3.  Sur la page informations du complément, cliquez sur Télécharger et suivez les instructions pour télécharger et installer le complément.  
+3.  Dans la page d'informations du complément, cliquez sur Télécharger et suivez les instructions qui s'affichent pour télécharger et installer le complément.  
   
-4.  Suivez les instructions de l’Assistant pour installer le complément.  
+4.  Suivez les instructions de l'Assistant pour installer le complément.  
   
-5.  Lorsque l’installation est terminée, redémarrez le tableau de bord, ouvrez le **Applications** page du tableau de bord, serveur et vérifiez que le complément s’affiche dans la liste.  
+5.  Une fois l'installation terminée, redémarrez le tableau de bord, ouvrez la page **Applications** du tableau de bord du serveur et vérifiez que le complément figure dans la liste.  
   
-#### <a name="to-install-an-add-in-from-another-provider"></a>Pour installer un complément à partir d’un autre fournisseur  
+#### <a name="to-install-an-add-in-from-another-provider"></a>Pour installer un complément à partir d'un autre fournisseur  
   
-1.  Ouvrez l’Explorateur Windows et accédez à l’emplacement du fichier d’installation du complément.  
+1.  Ouvrez l'Explorateur Windows et accédez à l'emplacement du fichier d'installation du complément.  
   
-2.  Double-cliquez sur le fichier pour exécuter l’Assistant installation.  
+2.  Double-cliquez sur le fichier pour exécuter l'Assistant d'installation.  
   
-3.  Suivez les instructions de l’Assistant pour installer le complément.  
+3.  Suivez les instructions de l'Assistant pour installer le complément.  
   
-4.  Lorsque l’installation est terminée, redémarrez le tableau de bord, ouvrez le **Applications** page, puis vérifiez que le complément s’affiche dans la liste.  
+4.  Une fois l'installation terminée, redémarrez le tableau de bord, ouvrez la page **Applications**, puis vérifiez que le complément figure dans la liste.  
   
 #### <a name="to-remove-an-add-in"></a>Pour supprimer un complément  
   
 1.  Ouvrez le tableau de bord du serveur.  
   
-2.  Cliquez sur le **Applications** onglet.  
+2.  Cliquez sur l'onglet **Applications** .  
   
-3.  Sur le **compléments**, sélectionnez le complément que vous souhaitez supprimer, puis cliquez sur **supprimer le complément**.  
+3.  Sous l'onglet **Compléments**, sélectionnez le complément à supprimer, puis cliquez sur **Supprimer le complément**.  
   
-4.  Dans le **supprimer complément** fenêtre, cliquez sur **supprimer**.  
+4.  Dans la fenêtre **Supprimer le complément**, cliquez sur **Supprimer**.  
   
     > [!NOTE]
     >  Vous devrez peut-être redémarrer le tableau de bord pour supprimer complètement le complément.  
@@ -101,4 +102,4 @@ ms.lasthandoff: 07/03/2017
   
 -   [Vue d’ensemble du tableau de bord](Overview-of-the-Dashboard-in-Windows-Server-Essentials.md)  
   
--   [Gérer WindowsServerEssentials](Manage-Windows-Server-Essentials.md)
+-   [Gérer Windows Server Essentials](Manage-Windows-Server-Essentials.md)

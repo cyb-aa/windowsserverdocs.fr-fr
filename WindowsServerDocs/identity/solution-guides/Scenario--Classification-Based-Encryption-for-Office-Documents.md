@@ -1,7 +1,7 @@
 ---
 ms.assetid: 73542e1c-53ef-4ddb-89b1-bc563b2bfb49
-title: "Scénario de chiffrement Classification des Documents Office"
-description: 
+title: Scénario basé sur la Classification de chiffrement pour les Documents Office
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,45 +10,46 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: 38e058f36522ba6a2c81694cb883d0946b04adda
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59865180"
 ---
-# <a name="scenario-classification-based-encryption-for-office-documents"></a>Scénario: Chiffrement Classification des Documents Office
+# <a name="scenario-classification-based-encryption-for-office-documents"></a>Scénario : chiffrement des documents Office d'après leur classification
 
->S’applique à: Windows Server2016, Windows Server2012R2, Windows Server2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Protection des informations confidentielles a principalement pour minimiser les risques pour l’organisation. Diverses normes de conformité, telles que la d’intégrité Insurance Portability and Accountability Act (HIPAA) et paiement carte Industry Data Security Standard (PCI-DSS), imposent le chiffrement d’informations, et il existe de nombreuses raisons professionnelles motivent. Toutefois, le chiffrement des informations est coûteux et il peut nuire à la productivité de l’entreprise. Par conséquent, les organisations ont tendance à avoir des approches différentes et des priorités pour le chiffrement de leurs informations.  
+La protection des informations confidentielles a principalement pour but de minimiser les risques pour une organisation. Diverses normes de conformité, telles que la norme HIPAA (Health Insurance Portability and Accountability Act) et la norme PCI-DSS (Payment Card Industry Data Security Standard), imposent le chiffrement des informations et de nombreuses raisons professionnelles motivent le chiffrement des données professionnelles à caractère confidentiel. Cependant, le chiffrement des informations est coûteux et il peut nuire à la productivité de l’entreprise. C’est pourquoi les organisations ont souvent des approches et des priorités différentes en matière de chiffrement des données.  
   
 ## <a name="BKMK_OVER"></a>Description du scénario  
- Windows Server2012 offre la possibilité de chiffrer automatiquement des fichiers MicrosoftOffice confidentiels, en fonction de leur classification. Cela s’effectue via des tâches de gestion de fichiers qui font appel à la protection ActiveDirectory Rights Management Services (ADRMS) des documents confidentiels quelques secondes après que le fichier a été identifié comme un fichier confidentiel sur le serveur de fichiers. Cette opération est facilitée par les tâches de gestion de fichiers continues sur le serveur de fichiers.  
+ Windows Server 2012 offre la possibilité de chiffrer automatiquement les fichiers Microsoft Office confidentiels, en fonction de leur classification. Cette opération se fait par le biais de tâches de gestion des fichiers. Ces tâches entraînent une protection AD RMS (Active Directory Rights Management Services) des documents confidentiels quelques secondes après que le fichier a été identifié comme fichier confidentiel sur le serveur de fichiers. Cette opération est facilitée par des tâches de gestion de fichiers continues sur le serveur de fichiers.  
   
-Le chiffrement ADRMS fournit une autre couche de protection pour les fichiers. Même si une personne ayant accès à un fichier confidentiel envoie par inadvertance ce fichier par courrier électronique, le fichier est protégé par le chiffrement ADRMS. Les utilisateurs qui souhaitent accéder au fichier doivent tout d’abord s’authentifier auprès d’un serveur ADRMS pour recevoir la clé de déchiffrement. La figure suivante illustre ce processus.  
+Le chiffrement AD RMS fournit une autre couche de protection pour les fichiers. Même si une personne ayant accès à un fichier confidentiel envoie par inadvertance ce fichier par courrier électronique, le fichier est protégé par le chiffrement AD RMS. Les utilisateurs qui souhaitent accéder au fichier doivent d'abord s'authentifier auprès d'un serveur AD RMS pour recevoir la clé de déchiffrement. Ce processus est illustré par la figure ci-dessous.  
   
 ![guides de solutions](media/Scenario--Classification-Based-Encryption-for-Office-Documents/DynamicAccessControl_RevGuide_6.JPG)  
   
-**Figure6** protection RMS basée sur la Classification  
+**Figure 6** Protection RMS basée sur la classification  
   
-Prise en charge des formats de fichier non Microsoft est disponible par le biais de fournisseurs non-Microsoft. Une fois un fichier a été protégé par le chiffrement ADRMS, les fonctionnalités de gestion des données telles que la classification en fonction de recherche ou de contenu ne sont plus disponibles pour ce fichier.  
+La prise en charge des formats de fichiers non-Microsoft est disponible par l'intermédiaire de fournisseurs autres que Microsoft. Une fois qu'un fichier a été protégé par le chiffrement AD RMS, des fonctionnalités de gestion de données telles que la classification basée sur la recherche ou sur le contenu ne sont plus disponibles pour ce fichier.  
   
 ## <a name="in-this-scenario"></a>Dans ce scénario  
-Voici les instructions disponibles pour ce scénario:  
+Vous trouverez ci-dessous les instructions disponibles pour ce scénario :  
   
 -   [Considérations de planification pour le chiffrement des Documents Office](assetId:///14714ba6-d6a2-45e4-aae5-d3318817e52a)  
   
--   [Déployer le chiffrement des fichiers Office et #40; les étapes de démonstration et #41;](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md)  
+-   [Déployer le chiffrement des fichiers Office &#40;étapes de démonstration&#41;](Deploy-Encryption-of-Office-Files--Demonstration-Steps-.md)  
   
--   [Contrôle d’accès dynamique: Vue d’ensemble du scénario](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Contrôle d’accès dynamique : Vue d’ensemble du scénario](Dynamic-Access-Control--Scenario-Overview.md)  
   
 ## <a name="BKMK_NEW"></a>Fonctionnalités et rôles inclus dans ce scénario  
-Le tableau suivant répertorie les rôles et fonctionnalités qui font partie de ce scénario et décrit la prise en charge.  
+Le tableau qui suit décrit les rôles et les fonctionnalités inclus dans ce scénario et détaille la manière dont ils prennent en charge ce dernier.  
   
-|Rôle ou une fonctionnalité|Comment il prend en charge ce scénario|  
+|Rôle/fonctionnalité|Prise en charge de ce scénario|  
 |-----------------|---------------------------------|  
-|Rôle des Services de domaine ActiveDirectory (ADDS)|Les services ADDS fournit une base de données distribuée qui stocke et gère des informations sur les ressources réseau et les données spécifiques à l’application à partir d’applications d’annuaire. Dans ce scénario, les services ADDS dans Windows Server2012 introduit une plateforme d’autorisation basée sur les revendications qui permet de créer des revendications d’utilisateur et revendications de périphérique, une identité composée (utilisateur plus revendications de périphérique), un nouveau modèle de stratégies d’accès centralisée et l’utilisation des informations de classification des fichiers dans les décisions d’autorisation.|  
-|Rôle Services de fichiers et stockage<br /><br />Gestionnaire de ressources du serveur de fichiers|Services de fichiers et stockage fournit des technologies pour aider à configurer et de gérer un ou plusieurs serveurs de fichiers qui constituent des emplacements centralisés sur votre réseau où vous pouvez stocker les fichiers et les partager avec des utilisateurs. Si vos utilisateurs réseau doivent accéder aux mêmes fichiers et applications, ou si la gestion centralisée de sauvegarde et de fichier est importante pour votre organisation, vous devez configurer un ou plusieurs ordinateurs en tant qu’un serveur de fichiers en ajoutant le rôle Services de fichiers et stockage et les services de rôle appropriés sur les ordinateurs. Dans ce scénario, les administrateurs de serveur de fichiers peuvent configurer des tâches de gestion de fichiers qui font appel à la protection ADRMS pour les documents confidentiels quelques secondes après que le fichier a été identifié comme un fichier confidentiel sur le serveur de fichiers (tâches de gestion de fichiers continues sur le serveur de fichiers).|  
-|Rôle d’ActiveDirectory Rights Management Services ADRMS)|Les services ADRMS permet de personnes et les administrateurs (via des stratégies d’Information Rights Management (IRM)) pour spécifier des autorisations d’accès aux documents, des classeurs et des présentations. Cela aide à éviter des informations sensibles d’être imprimés, le transfert ou copiés par des personnes non autorisées. Une fois que l’autorisation d’un fichier a été restreinte par IRM, les restrictions d’accès et d’utilisation sont appliquées quel que soit l’où les informations sont, car l’autorisation à un fichier est stockée dans le fichier de document lui-même. Dans ce scénario, le chiffrement ADRMS fournit une autre couche de protection pour les fichiers. Même si une personne ayant accès à un fichier confidentiel envoie par inadvertance ce fichier par courrier électronique, le fichier est protégé par le chiffrement ADRMS. Les utilisateurs qui souhaitent accéder au fichier doivent tout d’abord s’authentifier auprès d’un serveur ADRMS pour recevoir la clé de déchiffrement.|  
+|Rôle AD DS (Active Directory Domain Services)|Les services AD DS fournissent une base de données distribuée qui stocke et gère des informations sur les ressources réseau et les données spécifiques à des applications provenant d’applications utilisant un annuaire. Dans ce scénario, les services AD DS dans Windows Server 2012 introduit une plateforme d’autorisation basée sur les revendications qui permet de créer des revendications d’utilisateur et revendications de périphérique, une identité composée (utilisateur plus revendications de périphérique), un nouveau modèle de stratégies d’accès centralisée et l’utilisation de informations de classification des fichiers dans les décisions d’autorisation.|  
+|Rôle des Services de fichiers et de stockage<br /><br />Outils de gestion de ressources pour serveur de fichiers|Les services de fichiers et de stockage fournissent des technologies qui vous permettent de configurer et de gérer un ou plusieurs serveurs de fichiers qui constituent sur votre réseau des emplacements centralisés où vous pouvez stocker des fichiers et les partager avec d'autres utilisateurs. Si vos utilisateurs réseau doivent accéder aux mêmes fichiers et applications, ou si la sauvegarde et la gestion des fichiers centralisées sont des éléments importants pour votre organisation, configurez un ou plusieurs ordinateurs en tant que serveurs de fichiers en ajoutant le rôle Services de fichiers et de stockage et les services de rôle appropriés aux ordinateurs. Dans ce scénario, les administrateurs du serveur de fichiers peuvent configurer des tâches de gestion de fichiers qui font appel à la protection AD RMS pour les documents confidentiels quelques secondes après que le fichier a été identifié comme confidentiel sur le serveur de fichiers (tâches de gestion de fichiers continues sur le serveur de fichiers).|  
+|Rôle des services AD RMS (Active Directory Rights Management Services)|Les services AD RMS permettent par le biais de stratégies de Gestion des droits relatifs à l'information à des utilisateurs et des administrateurs de spécifier des autorisations d'accès à des documents, des classeurs et des présentations. Cela aide à éviter l'impression, le transfert ou la copie d'informations sensibles par des personnes non autorisées. Une fois qu’une autorisation a été restreinte pour un fichier en utilisant la Gestion IRM, les restrictions d’accès et d’utilisation sont appliquées quel que soit l’emplacement des informations, car l’autorisation sur un fichier est stockée dans le fichier de document lui-même. Dans ce scénario, le chiffrement AD RMS fournit une autre couche de protection pour les fichiers. Même si une personne ayant accès à un fichier confidentiel envoie par inadvertance ce fichier par courrier électronique, le fichier est protégé par le chiffrement AD RMS. Les utilisateurs qui souhaitent accéder au fichier doivent d'abord s'authentifier auprès d'un serveur AD RMS pour recevoir la clé de déchiffrement.|  
   
 
 

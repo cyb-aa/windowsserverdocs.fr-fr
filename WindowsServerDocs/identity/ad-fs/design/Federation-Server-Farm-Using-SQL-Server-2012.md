@@ -1,7 +1,7 @@
 ---
 ms.assetid: 6618b3ce-0e94-4009-b887-d8e05453358b
-title: "Batterie de serveurs de fédération à l’aide de SQL Server"
-description: 
+title: Batterie de serveurs de fédération utilisant SQL Server
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,58 +10,59 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: a0fff975b9cb278e59686323d2bd72e641597573
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59863950"
 ---
-# <a name="federation-server-farm-using-sql-server"></a>Batterie de serveurs de fédération à l’aide de SQL Server
+# <a name="federation-server-farm-using-sql-server"></a>Batterie de serveurs de fédération utilisant SQL Server
 
->S’applique à: Windows Server2012
+>S'applique à : Windows Server 2012
 
-Cette topologie pour ActiveDirectory Federation Services \(ADFS\) diffère de la batterie de serveurs de fédération à l’aide de la topologie de déploiement de base de données interne Windows \(WID\) dans la mesure où elle ne réplique pas les données pour chaque serveur de fédération dans la batterie de serveurs. Au lieu de cela, tous les serveurs de fédération de la batterie de serveurs peuvent lire et écrire des données dans une base de données commune qui est stocké sur un serveur exécutant MicrosoftSQLServer qui se trouve dans le réseau d’entreprise.  
+Cette topologie pour Active Directory Federation Services \(AD FS\) diffère de la batterie de serveurs de fédération à l’aide de la base de données interne Windows \(WID\) topologie de déploiement qui elle ne réplique pas les données à chaque serveur de fédération dans la batterie de serveurs. Au lieu de cela, tous les serveurs de fédération dans la batterie de serveurs peuvent lire et écrire des données dans une base de données commune qui est stocké sur un serveur exécutant Microsoft SQL Server qui se trouve dans le réseau d’entreprise.  
   
 ## <a name="deployment-considerations"></a>Considérations relatives au déploiement  
-Cette section décrit des considérations sur le public, les avantages et les limites qui sont associés à cette topologie de déploiement.  
+Cette section décrit divers points de vue sur le public visé, les avantages et les limites qui sont associés à cette topologie de déploiement.  
   
-### <a name="who-should-use-this-topology"></a>Qui doit utiliser cette topologie?  
+### <a name="who-should-use-this-topology"></a>Qui doit utiliser cette topologie ?  
   
--   Grandes entreprises avec plus de 100relations d’approbation qui doivent fournir leurs utilisateurs internes et les utilisateurs externes connexion \(SSO\) accès unique à l’application fédérée ou des services  
+-   Grandes organisations avec plus de 100 relations d’approbation qui doivent fournir leurs utilisateurs internes et les utilisateurs externes avec l’authentification unique\-sur \(SSO\) accès aux applications fédérées ou de services  
   
--   Les organisations ayant déjà utilisent SQLServer et souhaitent tirer parti de leurs outils existants et de l’expertise  
+-   Les organisations ayant déjà utilisent SQL Server et souhaitent tirer parti de leurs outils existants et de savoir-faire  
   
-### <a name="what-are-the-benefits-of-using-this-topology"></a>Quels sont les avantages de l’utilisation de cette topologie?  
+### <a name="what-are-the-benefits-of-using-this-topology"></a>Quels sont les avantages de l’utilisation de cette topologie ?  
   
--   Prise en charge pour un plus grand nombre de relations d’approbation \(more than 100\)  
+-   Prise en charge pour un plus grand nombre de relations d’approbation \(plus de 100\)  
   
--   Prise en charge pour la détection de relecture de jetons \(a security feature\) et résolution d’artefacts \ (dans le cadre de la \(SAML\) Security Assertion Markup Language 2.0 protocol\)  
+-   Prise en charge pour la détection de relecture de jetons \(une fonctionnalité de sécurité\) et résolution d’artefacts \(dans le cadre de la Security Assertion Markup Language \(SAML\) protocole 2.0\)  
   
--   Outils de support pour tous les avantages de SQLServer, telles que la mise en miroir de base de données, le clustering de basculement, rapports et gestion  
+-   Outils de support pour tous les avantages de SQL Server, telles que la mise en miroir de base de données, clustering de basculement, reporting et gestion  
   
-### <a name="what-are-the-limitations-of-using-this-topology"></a>Quelles sont les limites de l’utilisation de cette topologie?  
+### <a name="what-are-the-limitations-of-using-this-topology"></a>Quelles sont les limitations de l’utilisation de cette topologie ?  
   
--   Cette topologie ne fournit pas de redondance de base de données par défaut. Même si une batterie de serveurs de fédération avec topologie WID réplique automatiquement la base de données WID sur chaque serveur de fédération de la batterie, la batterie de serveurs de fédération avec topologie SQLServer contient une copie de la base de données  
+-   Cette topologie ne fournit pas de redondance de base de données par défaut. Bien qu’une batterie de serveurs de fédération avec topologie WID réplique automatiquement la base de données WID sur chaque serveur de fédération dans la batterie de serveurs, la batterie de serveurs de fédération avec topologie SQL Server contient une seule copie de la base de données  
   
 > [!NOTE]  
-> SQLServer prend en charge les nombreuses différentes données et les options de la redondance d’application, y compris le clustering de basculement, la mise en miroir de base de données et différents types de réplication SQLServer.  
+> SQL Server prend en charge plusieurs données différentes et les options de redondance d’application, y compris le clustering de basculement, la mise en miroir de base de données et les différents types de réplication SQL Server.  
   
-Le service MicrosoftInformation Technology \(IT\) utilise la mise en miroir de base de données SQLServer en mode de \(synchronous\) de sécurité évolutifs et clustering de basculement pour prendre en charge de disponibilité évolutifs pour l’instance SQLServer. \(Peer\-to\-peer\) transactionnelle SQLServer et la réplication de fusion n’ont pas été testés par l’équipe du produit ADFS chez Microsoft. Pour plus d’informations sur SQLServer, voir [vue d’ensemble des Solutions haute disponibilité](https://go.microsoft.com/fwlink/?LinkId=179853) ou [en sélectionnant le Type approprié de réplication](https://go.microsoft.com/fwlink/?LinkId=214648).  
+Le Microsoft Information Technology \(informatique\) service utilise la mise en miroir de base de données SQL Server dans haute\-sécurité \(synchrone\) mode et le clustering de basculement pour fournir une élevée\- prise en charge de la disponibilité de l’instance de SQL Server. SQL Server transactionnelle \(homologue\-à\-homologue\) et la réplication de fusion n’ont pas été testés par l’équipe de produit AD FS chez Microsoft. Pour plus d’informations sur SQL Server, consultez [vue d’ensemble des Solutions haute disponibilité](https://go.microsoft.com/fwlink/?LinkId=179853) ou [en sélectionnant le Type de réplication appropriée](https://go.microsoft.com/fwlink/?LinkId=214648).  
   
-### <a name="supported-sql-server-versions"></a>Versions prises en charge de SQLServer  
-Les versions suivantes de SQL server sont prises en charge avec ADFS installé avec Windows Server2012:  
+### <a name="supported-sql-server-versions"></a>Versions prises en charge de SQL Server  
+Les versions suivantes de SQL server sont prises en charge avec AD FS installé avec Windows Server 2012 :  
   
--   SQLServer2008 \ / R2  
+-   SQL Server 2008 \/ R2  
   
 -   SQL Server 2012  
   
-## <a name="server-placement-and-network-layout-recommendations"></a>Recommandations de mise en réseau et la sélection élective serveur  
-Similaire à la batterie de serveurs de fédération avec topologie WID, tous les serveurs de fédération dans la batterie de serveurs sont configurés pour utiliser un nom de cluster \(DNS\) Domain Name System \ (qui représente le Service de fédération nom\) et l’adresse IP d’un cluster cadre de la configuration du cluster \(NLB\) équilibrage de charge réseau. Cela permet à l’hôte NLB d’allouer les demandes des clients vers les serveurs de fédération individuels. Serveurs proxy de fédération peut servir aux demandes de client de proxy pour la batterie de serveurs de fédération.  
+## <a name="server-placement-and-network-layout-recommendations"></a>Recommandations de mise en page de positionnement et de réseau serveur  
+Comme pour la batterie de serveurs de fédération avec topologie WID, tous les serveurs de fédération dans la batterie de serveurs sont configurés pour utiliser un seul cluster Domain Name System \(DNS\) nom \(qui représente le nom du Service de fédération\)et adresse IP du cluster d’un cadre de l’équilibrage de charge réseau \(NLB\) configuration du cluster. Cela permet à l’hôte NLB d’allouer les demandes des clients vers les serveurs de fédération individuels. Serveurs proxy de fédération permet aux demandes des clients de proxy pour la batterie de serveurs de fédération.  
   
-L’illustration suivante montre comment la société fictive Contoso Pharmaceuticals déployé sa batterie de serveurs de fédération avec topologie SQLServer dans le réseau d’entreprise. Il montre également comment cette société configuré le réseau de périmètre avec accès à un serveur DNS, un hôte NLB supplémentaire qui utilise le même nom \(fs.contoso.com\) cluster DNS qui est utilisé sur le cluster NLB du réseau d’entreprise, et deux serveurs proxys de fédération \(fsp1 and fsp2\).  
+L’illustration suivante montre comment la société fictive Contoso Pharmaceuticals a déployé sa batterie de serveurs de fédération avec topologie SQL Server dans le réseau d’entreprise. Il montre également comment cette entreprise a configuré le réseau de périmètre avec un accès à un serveur DNS, un hôte NLB supplémentaire qui utilise le même nom DNS de cluster \(fs.contoso.com\) qui est utilisé sur le cluster d’équilibrage de charge réseau de réseau d’entreprise et avec deux serveurs proxy de fédération \(fsp1 and fsp2\).  
   
-![Batterie de serveurs à l’aide de SQL](media/FarmSQLProxies.gif)  
+![batterie de serveurs à l’aide de SQL](media/FarmSQLProxies.gif)  
   
-Pour plus d’informations sur la configuration de votre environnement réseau pour une utilisation avec les serveurs de fédération ou serveurs proxy de fédération, voir [Name Resolution Requirements for Federation Servers](Name-Resolution-Requirements-for-Federation-Servers.md) ou [Name Resolution Requirements for Federation Server Proxies](Name-Resolution-Requirements-for-Federation-Server-Proxies.md).  
+Pour plus d’informations sur la configuration de votre environnement réseau pour une utilisation avec les serveurs de fédération ou de serveurs proxy de fédération, consultez [Name Resolution Requirements for Federation Servers](Name-Resolution-Requirements-for-Federation-Servers.md) ou [nom Configuration de la résolution pour les serveurs proxy de fédération](Name-Resolution-Requirements-for-Federation-Server-Proxies.md).  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception ADFS dans Windows Server2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

@@ -1,25 +1,26 @@
 ---
-title: "Paramètres du Service d’intégrité"
+title: Paramètres du Service d’intégrité
 ms.prod: windows-server-threshold
 manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
 ms.topic: article
-ms.assetid: 
+ms.assetid: ''
 author: cosmosdarwin
 ms.date: 08/14/2017
 ms.openlocfilehash: 569cf7ba30fd3f993394efd3735a56d116c067e0
-ms.sourcegitcommit: 30fcae929ce7b611f5d3a5f8fee64b0299272110
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59858330"
 ---
 # <a name="health-service-settings"></a>Paramètres du Service d’intégrité
-> S’applique à Windows Server2016
+> S’applique à Windows Server 2016
 
-Le Service de contrôle d’intégrité est une nouvelle fonctionnalité de Windows Server 2016 qui améliore l’analyse quotidienne et expérience opérationnel pour les clusters exécutant espaces de stockage Direct.
+Le Service de contrôle d’intégrité est une nouvelle fonctionnalité de Windows Server 2016 qui améliore l’analyse quotidienne et une expérience opérationnelle pour les clusters exécutant des espaces de stockage Direct.
 
-La plupart des paramètres qui déterminent le comportement du Service de contrôle d’intégrité sont exposés en tant que paramètres. Vous pouvez modifier ces pour régler l’intensité des erreurs ou des actions, activer certains comportements activé/désactivé et bien plus encore.
+La plupart des paramètres qui régissent le comportement du Service d’intégrité sont exposées en tant que paramètres. Vous pouvez modifier ces pour ajuster l’intensité des erreurs ou des actions, activer certains comportements activé/désactivé et bien plus encore.
 
 Utilisez l’applet de commande PowerShell suivante pour définir ou modifier les paramètres.
 
@@ -37,9 +38,9 @@ Get-StorageSubSystem Cluster* | Set-StorageHealthSetting -Name "System.Storage.V
 
 ### <a name="common-settings"></a>Paramètres communs
 
-Certains paramètres fréquemment modifiés sont répertoriées ci-dessous, ainsi que leurs valeurs par défaut.
+Certains paramètres couramment modifiées sont mentionnées ci-dessous, ainsi que leurs valeurs par défaut.
 
-#### <a name="volume-capacity-threshold"></a>Seuil du volume de la capacité
+#### <a name="volume-capacity-threshold"></a>Seuil de capacité de volume
 
 ```
 "System.Storage.Volume.CapacityThreshold.Enabled"  = True
@@ -68,7 +69,7 @@ Certains paramètres fréquemment modifiés sont répertoriées ci-dessous, ains
 
 Consultez la section précédente.
 
-#### <a name="firmware-rollout"></a>Lancement du microprogramme
+#### <a name="firmware-rollout"></a>Déploiement de microprogramme
 
 ```
 "System.Storage.PhysicalDisk.AutoFirmwareUpdate.SingleDrive.Enabled"       = True
@@ -79,7 +80,7 @@ Consultez la section précédente.
 "System.Storage.PhysicalDisk.AutoFirmwareUpdate.RollOut.FailureTolerance"  = 3
 ```
 
-#### <a name="platform--quiescence"></a>Plateforme / mise en veille
+#### <a name="platform--quiescence"></a>Plateforme / arrêt inactive
 
 ```
 "Platform.Quiescence.MinDelaySeconds" = 120 (i.e. 2 minutes)
@@ -92,7 +93,7 @@ Consultez la section précédente.
 "System.Reports.ReportingPeriodSeconds" = 1
 ```
 
-#### <a name="debugging"></a>Le débogage
+#### <a name="debugging"></a>Débogage
 
 ```
 "System.LogLevel" = 4
@@ -100,5 +101,5 @@ Consultez la section précédente.
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Service de contrôle d’intégrité dans Windows Server 2016](health-service-overview.md)
+- [Service d’intégrité de Windows Server 2016](health-service-overview.md)
 - [Espaces de stockage Direct dans Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)

@@ -8,69 +8,69 @@ ms.topic: get-started-article
 ms.assetid: 20fee213-8ba5-4cd3-87a6-e77359e82bc0
 author: stevenek
 ms.date: 8/16/2018
-description: Instructions pas à pas pour déployer le stockage à définition logicielle avec des espaces de stockage Direct dans Windows Server en tant qu’infrastructure hyperconvergée ou convergé infrastructure (également appelé désagrégée).
+description: Obtenir des instructions détaillées pour déployer le stockage à définition logicielle avec les espaces de stockage Direct dans Windows Server en tant qu’infrastructure hyperconvergé ou convergé infrastructure (également appelé désagrégé).
 ms.localizationpriority: medium
 ms.openlocfilehash: 55cfa0e066506d7174f9e5b1e61cc0aa290706d7
-ms.sourcegitcommit: 65e4f760be73104e67847f77e834e7b5e065211b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "5429041"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59865410"
 ---
-# Déployer des espaces de stockage direct
+# <a name="deploy-storage-spaces-direct"></a>Déployer des espaces de stockage direct
 
-> S’applique à: Windows Server 2019, Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server 2016
 
-Cette rubrique fournit des instructions détaillées pour déployer des [Espaces de stockage Direct](storage-spaces-direct-overview.md).
-
-> [!Tip]
-> Vous cherchez à acquérir une Infrastructure hyperconvergée? Microsoft recommande de ces solutions [Windows Server Software-Defined](https://microsoft.com/wssd) de nos partenaires. Ils sont conçues, assemblées et validées par rapport à notre architecture de référence pour assurer la compatibilité et la fiabilité, afin de vous préparer et rapidement opérationnels.
+Cette rubrique fournit des instructions détaillées pour déployer [espaces de stockage Direct](storage-spaces-direct-overview.md).
 
 > [!Tip]
-> Vous pouvez utiliser des machines virtuelles de Hyper-V, notamment dans Microsoft Azure, pour [évaluer les espaces de stockage Direct sans matériel](storage-spaces-direct-in-vm.md). Vous pouvez également passer en revue les pratiques [scripts de déploiement de laboratoire rapide de Windows Server](https://aka.ms/wslab), que nous utilisons à des fins de formation.
+> Cherchez à acquérir Hyper-Converged Infrastructure ? Microsoft recommande ces [défini par le logiciel Windows Server](https://microsoft.com/wssd) solutions proposées par nos partenaires. Elles sont conçues, assemblées et validés par rapport à notre architecture de référence pour garantir la compatibilité et la fiabilité, afin de vous être opérationnel rapidement opérationnel.
 
-## Avant de commencer
+> [!Tip]
+> Vous pouvez utiliser des machines virtuelles de Hyper-V, y compris dans Microsoft Azure, à [évaluer les espaces de stockage Direct sans matériel](storage-spaces-direct-in-vm.md). Vous pouvez également passer en revue les pratiques [scripts de déploiement de laboratoire rapide de Windows Server](https://aka.ms/wslab), que nous utilisons à des fins de formation.
 
-Passez en revue les [espaces de stockage Direct configuration matérielle requise](Storage-Spaces-Direct-Hardware-Requirements.md) et Parcourir ce document pour vous familiariser avec l’approche globale et des remarques importantes associées à certaines étapes.
+## <a name="before-you-start"></a>Avant de commencer
 
-Collecter les informations suivantes:
+Examinez le [espaces de stockage Direct configuration matérielle requise](Storage-Spaces-Direct-Hardware-Requirements.md) et ce document pour vous familiariser avec l’approche globale et les notes importantes associées à certaines étapes de cette rubrique.
 
-- **Option de déploiement.** Prend en charge les espaces de stockage Direct [deux options de déploiement: hyperconvergé et convergé](storage-spaces-direct-overview.md#deployment-options), également appelé désagrégée. Vous devez vous familiariser avec les avantages de chaque déterminer ce qui vous convient. Étapes 1 à 3 ci-dessous s’appliquent à ces deux options de déploiement. Étape 4 est uniquement nécessaire pour le déploiement convergé.
+Collectez les informations suivantes :
 
-- **Noms de serveur.** Familiarisez-vous avec les stratégies d’attribution de noms de votre organisation pour les ordinateurs, les fichiers, les chemins d’accès et les autres ressources. Vous devez configurer plusieurs serveurs, chacun avec des noms uniques.
+- **Option de déploiement.** Prend en charge les espaces de stockage Direct [deux options de déploiement : hyperconvergées et convergé](storage-spaces-direct-overview.md#deployment-options), également appelé désagrégé. Familiarisez-vous avec les avantages de chacun d’eux à décider ce qui vous convient. Étapes 1 à 3 ci-dessous s’appliquent à ces deux options de déploiement. Étape 4 est uniquement nécessaire pour le déploiement convergé.
 
-- **Nom de domaine.** Familiarisez-vous avec les stratégies de votre organisation pour l’attribution de noms de domaine et jonction de domaine.  Vous allez joindre les serveurs de votre domaine, et vous devez spécifier le nom de domaine. 
+- **Noms de serveur.** Vous familiariser avec les stratégies d’affectation de noms de votre organisation pour les ordinateurs, les fichiers, les chemins d’accès et les autres ressources. Vous devez configurer plusieurs serveurs, chacun avec des noms uniques.
 
-- **Mise en réseau RDMA.** Il existe deux types de protocoles RDMA: iWarp et RoCE. Notez celle qui permet de vos cartes réseau, et si RoCE, Notez également la version (v1 ou v2). Pour RoCE, Notez également le modèle de votre commutateur top-of-rack.
+- **Nom de domaine.** Vous familiariser avec les stratégies de votre organisation pour l’affectation de noms de domaine et de jonction de domaine.  Vous allez joindre les serveurs à votre domaine, et vous devez spécifier le nom de domaine. 
 
-- **ID DE RÉSEAU LOCAL VIRTUEL.** Notez l’ID de réseau local virtuel pour être utilisé pour les cartes réseau de gestion du système d’exploitation sur les serveurs, le cas échéant. Vous devriez pouvoir l’obtenir auprès de votre administrateur réseau.
+- **Mise en réseau RDMA.** Il existe deux types de protocoles RDMA : iWarp et RoCE. Remarque lequel vos cartes réseau utilisent, et si RoCE, Notez également la version (v1 ou v2). Pour le RoCE, Notez également le modèle de votre commutateur top-of-rack.
 
-## Étape1: Déployer Windows Server
+- **ID DE VLAN.** Notez l’ID de VLAN à utiliser pour les cartes réseau de gestion du système d’exploitation sur les serveurs, le cas échéant. Vous devriez pouvoir l’obtenir auprès de votre administrateur réseau.
 
-### Étape 1.1: Installer le système d’exploitation
+## <a name="step-1-deploy-windows-server"></a>Étape 1 : Déployer Windows Server
 
-La première étape consiste à installer Windows Server sur chaque serveur qui sera dans le cluster. Windows Server 2016 Datacenter Edition requiert les espaces de stockage Direct. Vous pouvez utiliser l’option d’installation Server Core ou serveur avec expérience utilisateur.
+### <a name="step-11-install-the-operating-system"></a>Étape 1.1 : Installer le système d’exploitation
 
-Lorsque vous installez Windows Server à l’aide de l’Assistant installation, vous pouvez choisir entre *Windows Server* (référence à Server Core) et *Windows Server (serveur avec expérience utilisateur)*, qui est l’équivalent de l’option d’installation *complète* disponible dans Windows Server 2012 R2. Si vous ne choisissez pas, vous obtiendrez l’option d’installation Server Core. Pour plus d’informations, voir les [Options d’Installation pour Windows Server 2016](../../get-started/Windows-Server-2016.md).
+La première étape consiste à installer Windows Server sur chaque serveur qui figurera dans le cluster. Espaces de stockage Direct nécessite Windows Server 2016 Datacenter Edition. Vous pouvez utiliser l’option d’installation Server Core ou le serveur avec expérience utilisateur.
 
-### Étape 1.2: Se connecter aux serveurs
+Lorsque vous installez Windows Server à l’aide de l’Assistant installation, vous pouvez choisir entre *Windows Server* (qui fait référence à Server Core) et *Windows Server (serveur avec expérience utilisateur)*, ce qui équivaut à de la *complète* option d’installation disponible dans Windows Server 2012 R2. Si vous ne choisissez pas, vous obtiendrez l’option d’installation Server Core. Pour plus d’informations, consultez [Options d’Installation pour Windows Server 2016](../../get-started/Windows-Server-2016.md).
 
-Ce guide concentre l’option d’installation Server Core et le déploiement/gestion à distance à partir d’un système de gestion distincte, qui doit avoir:
+### <a name="step-12-connect-to-the-servers"></a>Étape 1.2 : Se connecter aux serveurs
+
+Ce guide concentre l’option d’installation Server Core et le déploiement/la gestion à distance à partir d’un système de gestion distinct, qui doit avoir :
 
 - Windows Server 2016 avec les mêmes mises à jour que les serveurs qu’il gère
-- Connectivité réseau aux serveurs qu’il gère
-- Joint au même domaine ou à un domaine entièrement fiable
-- Outils d’administration de serveur distant et modules PowerShell pour Hyper-V et le clustering de basculement. Outils de serveur distant et modules PowerShell sont disponibles sur Windows Server et peuvent être installées sans installer d’autres fonctionnalités. Vous pouvez également installer les [Outils d’Administration de serveur distant](https://www.microsoft.com/download/details.aspx?id=45520) sur un PC de gestion de Windows 10.
+- Connectivité réseau vers les serveurs qu’il gère
+- Joint au même domaine ou un domaine entièrement fiable
+- Outils d’administration de serveur distant et modules PowerShell pour Hyper-V et le clustering de basculement. Outils de serveur distant et modules PowerShell sont disponibles sur Windows Server et peuvent être installés sans installer d’autres fonctionnalités. Vous pouvez également installer le [outils d’Administration de serveur distant](https://www.microsoft.com/download/details.aspx?id=45520) sur un PC de gestion Windows 10.
 
 Sur le système de gestion, installez le cluster de basculement et les outils de gestion Hyper-V. Vous pouvez effectuer cette opération à l’aide du Gestionnaire de serveur en utilisant l’**Assistant Ajout de rôles et de fonctionnalités**. Dans la page **Fonctionnalités**, sélectionnez **Outils d’administration de serveur distant**, puis sélectionnez les outils à installer.
 
-Ouvrez la session PowerShell, puis utilisez le nom du serveur ou l’adresseIP du nœud auquel vous souhaitez vous connecter. Vous serez invité à entrer un mot de passe après avoir exécuté cette commande, entrez le mot de passe administrateur que vous avez spécifié lors de la configuration de Windows.
+Ouvrez la session PowerShell, puis utilisez le nom du serveur ou l’adresse IP du nœud auquel vous souhaitez vous connecter. Vous serez invité à entrer un mot de passe après avoir exécuté cette commande, entrez le mot de passe administrateur que vous avez spécifié lors de la configuration Windows.
 
    ```PowerShell
    Enter-PSSession -ComputerName <myComputerName> -Credential LocalHost\Administrator
    ```
 
-   Voici un exemple d’exécution de la même chose d’une façon qui est plus utile dans les scripts, au cas où vous avez besoin effectuer cette opération plusieurs fois:
+   Voici un exemple de faire la même chose d’une manière qui est plus utile dans les scripts, au cas où vous deviez effectuer cette opération plusieurs fois :
 
    ```PowerShell
    $myServer1 = "myServer-1"
@@ -80,52 +80,52 @@ Ouvrez la session PowerShell, puis utilisez le nom du serveur ou l’adresseIP d
    ```
 
 > [!TIP]
-> Si vous déployez à distance à partir d’un système de gestion, vous risquez d’obtenir une erreur comme *WinRM ne peut pas traiter la demande.* Pour résoudre ce problème, utilisez Windows PowerShell pour ajouter chaque serveur à la liste des hôtes approuvés sur votre ordinateur de gestion:  
+> Si vous déployez à distance à partir d’un système de gestion, vous pouvez obtenir une erreur telle que *WinRM ne peut pas traiter la demande.* Pour résoudre ce problème, utilisez Windows PowerShell pour ajouter chaque serveur à la liste des hôtes approuvés sur votre ordinateur de gestion :  
 >   
 > `Set-Item WSMAN:\Localhost\Client\TrustedHosts -Value Server01 -Force`
 >  
-> Remarque: la liste des hôtes approuvés prend en charge les caractères génériques, par exemple `Server*`.
+> Remarque : la liste des hôtes approuvés prend en charge des caractères génériques, tels que `Server*`.
 >
-> Pour afficher votre liste des hôtes approuvés, tapez `Get-Item WSMAN:\Localhost\Client\TrustedHosts`.  
+> Pour afficher votre liste d’hôtes approuvés, tapez `Get-Item WSMAN:\Localhost\Client\TrustedHosts`.  
 >   
 > Pour vider la liste, tapez `Clear-Item WSMAN:\Localhost\Client\TrustedHost`.  
 
-### Étape 1.3: Joindre le domaine et ajouter des comptes de domaine
+### <a name="step-13-join-the-domain-and-add-domain-accounts"></a>Étape 1.3 : Joindre le domaine et ajouter des comptes de domaine
 
 Jusqu'à présent, vous avez configuré les serveurs individuels avec le compte administrateur local, `<ComputerName>\Administrator`.
 
-Pour gérer les espaces de stockage Direct, vous devez joindre les serveurs à un domaine et utiliser un compte de domaine Active Directory Domain Services qui se trouve dans le groupe d’administrateurs sur chaque serveur.
+Pour gérer les espaces de stockage Direct, vous devrez joindre les serveurs à un domaine et utiliser un compte de domaine Active Directory Domain Services qui se trouve dans le groupe Administrateurs sur chaque serveur.
 
-À partir du système de gestion, ouvrez une console PowerShell avec des privilèges d’administrateur. Utilisez `Enter-PSSession` pour vous connecter à chaque serveur, exécutez l’applet de commande suivante, en remplaçant votre propre nom d’ordinateur, nom de domaine et les informations d’identification de domaine:
+À partir du système de gestion, ouvrez une console PowerShell avec des privilèges d’administrateur. Utilisez `Enter-PSSession` pour vous connecter à chaque serveur et exécutez la cmdlet suivante, en remplaçant votre propre nom de l’ordinateur, nom de domaine et les informations d’identification de domaine :
 
 ```PowerShell  
 Add-Computer -NewName "Server01" -DomainName "contoso.com" -Credential "CONTOSO\User" -Restart -Force  
 ```
 
-Si votre compte d’administrateur de stockage n’est pas membre du groupe Admins du domaine, ajoutez votre compte d’administrateur de stockage au groupe Administrateurs local sur chaque nœud - ou mieux encore, ajoutez le groupe que vous utilisez pour les administrateurs de stockage. Vous pouvez utiliser la commande suivante (ou écrire une fonction de Windows PowerShell pour effectuer cette opération - pour plus d’informations, voir [Utiliser PowerShell pour ajouter des utilisateurs de domaine à un groupe Local](http://blogs.technet.com/b/heyscriptingguy/archive/2010/08/19/use-powershell-to-add-domain-users-to-a-local-group.aspx) ):
+Si votre compte d’administrateur de stockage n’est pas membre du groupe Admins du domaine, ajoutez votre compte d’administrateur de stockage au groupe Administrateurs local sur chaque nœud - ou mieux encore, ajoutez le groupe que vous utilisez pour les administrateurs de stockage. Vous pouvez utiliser la commande suivante (ou écrivez une fonction de Windows PowerShell pour faire - voir [utiliser PowerShell pour ajouter des utilisateurs de domaine à un groupe Local](http://blogs.technet.com/b/heyscriptingguy/archive/2010/08/19/use-powershell-to-add-domain-users-to-a-local-group.aspx) pour plus d’informations) :
 
 ```
 Net localgroup Administrators <Domain\Account> /add
 ```
 
-### Étape 1.4: Installer des rôles et fonctionnalités
+### <a name="step-14-install-roles-and-features"></a>Étape 1.4 : Installer des rôles et fonctionnalités
 
-L’étape suivante consiste à installer des rôles de serveur sur chaque serveur. Vous pouvez le faire à l’aide de [Windows Admin Center](../../manage/windows-admin-center/use/manage-servers.md), [Le Gestionnaire de serveur](../../administration/server-manager/install-or-uninstall-roles-role-services-or-features.md)), ou PowerShell. Voici les rôles à installer:
+L’étape suivante consiste à installer des rôles de serveur sur chaque serveur. Vous pouvez le faire à l’aide de [Windows Admin Center](../../manage/windows-admin-center/use/manage-servers.md), [le Gestionnaire de serveur](../../administration/server-manager/install-or-uninstall-roles-role-services-or-features.md)), ou de PowerShell. Voici les rôles à installer :
 
 - Clustering de basculement
 - Hyper-V
-- Serveur de fichiers (si vous souhaitez héberger les partages de fichiers, par exemple pour un déploiement convergé)
+- Serveur de fichiers (si vous souhaitez héberger les partages de fichiers, par exemple, pour un déploiement convergé)
 - Data-Center-Bridging (si vous utilisez RoCEv2 au lieu des cartes réseau iWARP)
 - RSAT-Clustering-PowerShell
 - Hyper-V-PowerShell
 
-Pour installer via PowerShell, utilisez l’applet de commande [Install-WindowsFeature](https://docs.microsoft.com/powershell/module/microsoft.windows.servermanager.migration/install-windowsfeature) . Vous pouvez l’utiliser sur un seul serveur comme suit:
+Pour installer via PowerShell, utilisez le [Install-WindowsFeature](https://docs.microsoft.com/powershell/module/microsoft.windows.servermanager.migration/install-windowsfeature) applet de commande. Vous pouvez l’utiliser sur un seul serveur comme suit :
 
 ```PowerShell
 Install-WindowsFeature -Name "Hyper-V", "Failover-Clustering", "Data-Center-Bridging", "RSAT-Clustering-PowerShell", "Hyper-V-PowerShell", "FS-FileServer"
 ```
 
-Pour exécuter la commande sur tous les serveurs du cluster en même temps, utilisez ce peu de script, modification de la liste des variables au début du script pour s’adapter à votre environnement.
+Pour exécuter la commande sur tous les serveurs du cluster en même temps, utilisez ce petit script, la modification de la liste des variables au début du script adaptée à votre environnement.
 
 ```PowerShell
 # Fill in these variables with your values
@@ -138,29 +138,29 @@ Invoke-Command ($ServerList) {
 }
 ```
 
-## Étape2: Configurer le réseau
+## <a name="step-2-configure-the-network"></a>Étape 2 : Configurer le réseau
 
-Si vous déployez des espaces de stockage Direct à l’intérieur des machines virtuelles, ignorez cette section.
+Si vous déployez des espaces de stockage Direct à l’intérieur de machines virtuelles, ignorez cette section.
 
-Bande passante élevée, faible latence réseau entre les serveurs du cluster requiert les espaces de stockage Direct. Mise en réseau GbE au moins 10 est nécessaire et un accès direct à la mémoire à distance (RDMA) est recommandé. Vous pouvez utiliser iWARP ou RoCE tant qu’elles présentent le logo Windows Server 2016, mais iWARP est généralement plus facile à configurer.
+Espaces de stockage Direct nécessite la bande passante élevée, faible latence réseau entre les serveurs du cluster. Mise en réseau de moins de 10 GbE est requis et l’accès direct à la mémoire à distance (RDMA) est recommandé. Vous pouvez utiliser iWARP ou RoCE tant qu’il a le logo Windows Server 2016, mais iWARP est généralement plus facile à configurer.
 
 > [!Important]
-> Selon votre matériel de mise en réseau et en particulier avec RoCE v2, une configuration du commutateur top-of-rack peut être nécessaire. Configuration de commutateur correct est importante de s’assurer de la fiabilité et les performances des espaces de stockage Direct.
+> En fonction de votre équipement réseau et en particulier avec RoCE v2, une configuration du commutateur top-of-rack peut être nécessaire. Configuration de commutateur correct est importante de garantir la fiabilité et les performances des espaces de stockage Direct.
 
-Windows Server 2016 introduit switch embedded association (SET) au sein du commutateur virtuel Hyper-V. Ainsi, les mêmes ports de carte réseau physiques à utiliser pour tout le trafic réseau lors de l’utilisation RDMA, en réduisant le nombre de ports de carte réseau physique requis. Set (switch embedded Teaming la) est recommandée pour les espaces de stockage Direct.
+Windows Server 2016 introduit incorporées commutateur association (SET) au sein du commutateur virtuel Hyper-V. Ainsi, les mêmes ports de carte réseau physiques à utiliser pour tout le trafic réseau lors de l’utilisation de RDMA, réduisant le nombre de ports de carte réseau physiques requis. L’association de cartes incorporé de commutateur est recommandée pour espaces de stockage Direct.
 
-Pour savoir comment configurer un réseau pour les espaces de stockage Direct, consultez [Windows Server 2016 convergé NIC et Guide de déploiement RDMA invité](https://github.com/Microsoft/SDN/blob/master/Diagnostics/S2D%20WS2016_ConvergedNIC_Configuration.docx).
+Pour obtenir des instructions configurer la mise en réseau pour les espaces de stockage Direct, consultez [Windows Server 2016 convergé carte d’interface réseau et le Guide de déploiement de RDMA invité](https://github.com/Microsoft/SDN/blob/master/Diagnostics/S2D%20WS2016_ConvergedNIC_Configuration.docx).
 
-## Étape3: Configurer les espaces de stockage direct
+## <a name="step-3-configure-storage-spaces-direct"></a>Étape 3 : Configurer les espaces de stockage direct
 
-Les étapes suivantes sont effectuées sur un système de gestion qui est de la même version que les serveurs en cours de configuration. Les étapes suivantes ne doivent pas être exécutés à distance à l’aide d’une session PowerShell, mais est exécutées dans une session PowerShell locale sur le système de gestion, avec des autorisations administratives.
+Les étapes suivantes sont effectuées sur un système de gestion qui est de la même version que les serveurs en cours de configuration. Les étapes suivantes ne doivent pas être exécutés à distance à l’aide d’une session PowerShell, mais est exécutés dans une session PowerShell locale sur le système de gestion, avec des autorisations administratives.
 
-### Étape 3.1: Nettoyage des lecteurs.
+### <a name="step-31-clean-drives"></a>Étape 3.1 : Nettoyage des lecteurs
 
-Avant d’activer les espaces de stockage Direct, vérifiez vos disques sont vides: aucune partition ancienne ou autres données. Exécutez le script suivant, en remplaçant vos noms d’ordinateur, pour supprimer toutes les partitions anciennes ou autres données.
+Avant d’activer les espaces de stockage Direct, assurez-vous que vos lecteurs sont vides : aucune partition ancienne ou autres données. Exécutez le script suivant, en remplaçant les noms d’ordinateur, pour supprimer les anciennes partitions ou autres données.
 
 > [!Warning]
-> Ce script supprimera définitivement toutes les données sur les lecteurs autres que le lecteur de démarrage du système d’exploitation!
+> Ce script supprime définitivement toutes les données sur des lecteurs autres que le lecteur de démarrage du système d’exploitation !
 
 ```PowerShell
 # Fill in these variables with your values
@@ -183,7 +183,7 @@ Invoke-Command ($ServerList) {
 } | Sort -Property PsComputerName, Count
 ```
 
-La sortie doit ressembler à ceci, où le **nombre** est le nombre de disques de chaque modèle de chaque serveur:
+La sortie se présente comme suit, où **nombre** est le nombre de lecteurs de chaque modèle dans chaque serveur :
 
 ```
 Count Name                          PSComputerName
@@ -198,49 +198,49 @@ Count Name                          PSComputerName
 10    ATA ST4000NM0033              Server04
 ```
 
-### Étape 3.2: Valider le cluster
+### <a name="step-32-validate-the-cluster"></a>Étape 3.2 : Valider le cluster
 
-Dans cette étape, vous allez exécuter l’outil de validation de cluster pour garantir que les nœuds de serveur sont correctement configurés pour créer un cluster à l’aide d’espaces de stockage Direct. Validation de cluster lorsque (`Test-Cluster`) est exécutée avant la création du cluster, il exécute les tests qui vérifient que la configuration est appropriée pour fonctionner correctement comme un cluster de basculement. L’exemple ci-dessous utilise le `-Include` paramètre, puis les catégories de tests spécifiques sont définies. Cela garantit que les tests spécifiques des espaces de stockage direct sont inclus dans la validation.
+Dans cette étape, vous allez exécuter l’outil de validation de cluster pour vous assurer que les nœuds de serveur sont configurés correctement pour créer un cluster à l’aide d’espaces de stockage Direct. Lorsque la validation du cluster (`Test-Cluster`) est exécutée avant la création du cluster, il exécute les tests qui vérifient que la configuration est appropriée pour fonctionner correctement comme un cluster de basculement. L’exemple ci-dessous utilise la `-Include` paramètre, puis les catégories de tests spécifiques sont définies. Cela garantit que les tests spécifiques des espaces de stockage direct sont inclus dans la validation.
 
-Utilisez la commande PowerShell suivante pour valider un ensemble de serveurs à utiliser comme cluster d'espaces de stockage direct.
+Utilisez la commande PowerShell suivante pour valider un ensemble de serveurs à utiliser comme cluster d’espaces de stockage direct.
 
 ```PowerShell
 Test-Cluster –Node <MachineName1, MachineName2, MachineName3, MachineName4> –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
 ```
 
-### Étape 3.3: Créer le cluster
+### <a name="step-33-create-the-cluster"></a>Étape 3.3 : créer le cluster
 
 Dans cette étape, vous allez créer un cluster avec les nœuds que vous avez validés pour la création du cluster à l’étape précédente à l’aide de l’applet de commande PowerShell suivante.
 
-Lors de la création du cluster, vous obtiendrez un avertissement indiquant: «des problèmes se sont alors que la création du rôle en cluster qui peut ne pas démarrer. Pour de plus amples informations, consultez le fichier de rapport ci-dessous.» Vous pouvez ignorer cet avertissement en toute sécurité. Cela est dû au fait qu’aucun disque n’est disponible pour le quorum du cluster. Il est recommandé de configurer un témoin de partage de fichiers ou un témoin de cloud après la création du cluster.
+Lors de la création du cluster, vous obtiendrez un avertissement indiquant : « vous rencontrez des problèmes pendant la création du rôle en cluster qui peut-être empêcher son démarrage. Pour de plus amples informations, consultez le fichier de rapport ci-dessous. » Vous pouvez ignorer cet avertissement en toute sécurité. Cela est dû au fait qu’aucun disque n’est disponible pour le quorum du cluster. Il est recommandé de configurer un témoin de partage de fichiers ou un témoin de cloud après la création du cluster.
 
 > [!Note]
-> Si les serveurs utilisent des adressesIP statiques, modifiez la commande suivante afin de refléter l’adresseIP statique en ajoutant le paramètre suivant et en spécifiant l’adresseIP: –StaticAddress&lt;X.X.X.X&gt;.
-> Dans la commande suivante, l’espace réservé ClusterName doit être remplacé par un nom NetBIOS unique et d’au maximum 15caractères.
+> Si les serveurs utilisent des adresses IP statiques, modifiez la commande suivante afin de refléter l’adresse IP statique en ajoutant le paramètre suivant et en spécifiant l’adresse IP : –StaticAddress &lt;X.X.X.X&gt;.
+> Dans la commande suivante, l’espace réservé ClusterName doit être remplacé par un nom NetBIOS unique et d’au maximum 15 caractères.
 > ```PowerShell
 > New-Cluster –Name <ClusterName> –Node <MachineName1,MachineName2,MachineName3,MachineName4> –NoStorage
 > ```
 
-Une fois le cluster créé, la réplication de l’entréeDNS pour le nom du cluster peut demander du temps. Cette durée dépend de l’environnement et la configuration de la réplicationDNS. Si la résolution du cluster échoue, dans la plupart des cas, vous pouvez réussir en utilisant le nom d’ordinateur d’un nœud est un membre actif du cluster à la place du nom du cluster.
+Une fois le cluster créé, la réplication de l’entrée DNS pour le nom du cluster peut demander du temps. Cette durée dépend de l’environnement et la configuration de la réplication DNS. Si la résolution du cluster échoue, dans la plupart des cas, vous pouvez réussir en utilisant le nom d’ordinateur d’un nœud est un membre actif du cluster à la place du nom du cluster.
 
-### Étape 3.4: Configurer un témoin de cluster
+### <a name="step-34-configure-a-cluster-witness"></a>Étape 3.4 : Configurer un témoin de cluster
 
-Nous vous recommandons de configurer un témoin pour le cluster, afin que les clusters au moins trois serveurs peuvent résister aux deux serveurs Échec ou à la mise hors connexion. Un déploiement à deux serveurs nécessite un témoin de cluster, dans le cas contraire mode serveur hors connexion oblige l’autre à devenir indisponible également. Avec ces systèmes, vous pouvez utiliser un partage de fichiers en tant que témoin, ou utiliser un témoin de cloud. 
+Nous vous recommandons de configurer un témoin pour le cluster, afin de clusters avec trois serveurs ou plus peuvent résister à deux serveurs défaillant ou hors connexion. Un déploiement à deux serveurs nécessite un témoin de cluster, sinon des serveurs hors connexion entraîne l’autre indisponibilité ainsi. Avec ces systèmes, vous pouvez utiliser un partage de fichiers en tant que témoin, ou utiliser un témoin de cloud. 
 
-Pour plus d’informations, voir les rubriques suivantes:
+Pour plus d’informations, voir les rubriques suivantes :
 
 - [Configurer et gérer le quorum](../../failover-clustering/manage-cluster-quorum.md)
-- [Déployer un témoin de cloud pour un cluster de basculement](../../failover-clustering/deploy-cloud-witness.md)
+- [Déployer un témoin Cloud pour un Cluster de basculement](../../failover-clustering/deploy-cloud-witness.md)
 
-### Étape3.5: Activer les espaces de stockage direct
+### <a name="step-35-enable-storage-spaces-direct"></a>Étape 3.5 : Activer les espaces de stockage direct
 
-Après avoir créé le cluster, utilisez le `Enable-ClusterStorageSpacesDirect` applet de commande PowerShell, ce qui mettra le système de stockage dans le mode d’espaces de stockage Direct et automatiquement les opérations suivantes:
+Après avoir créé le cluster, utilisez le `Enable-ClusterStorageSpacesDirect` applet de commande PowerShell, ce qui permettra de mettre le système de stockage dans le mode d’espaces de stockage Direct et automatiquement les opérations suivantes :
 
--   **Créer un pool:** crée un seul pool volumineux qui porte un nom semblable à «S2D sur Cluster1».
+-   **Créer un pool :** Crée un seul pool volumineux qui porte un nom semblable à « S2D sur Cluster1 ».
 
--   **Configurer les caches des espaces de stockage direct:** si plusieurs types de média (disque) sont disponibles pour l’utilisation d'espaces de stockage direct, les plus rapides en tant que périphériques cache sont activés (en lecture et en écriture dans la plupart des cas).
+-   **Configure les caches des espaces de stockage Direct :** Si plus d’un média (lecteur) type disponible pour une utilisation directe des espaces de stockage, il permet la plus rapide en tant que périphériques cache (lire et écrire dans la plupart des cas)
 
--   **Niveaux:** Crée deux niveaux comme niveaux par défaut. L’un est appelé «Capacité» et l’autre est appelé «Performances». L’applet de commande analyse les périphériques et configure chaque niveau avec une combinaison de types de périphériques et de résilience.
+-   **Niveaux :** Crée deux niveaux comme niveaux par défaut. L’un est appelé « Capacité » et l’autre est appelé « Performances ». L’applet de commande analyse les périphériques et configure chaque niveau avec une combinaison de types de périphériques et de résilience.
 
 À partir du système de gestion, dans une fenêtre de commande PowerShell ouverte avec des privilèges d’administrateur, lancez la commande suivante. Le nom de cluster est celui du cluster que vous avez créé aux étapes précédentes. Si cette commande est exécutée localement sur l’un des nœuds, le paramètre -CimSession n’est pas nécessaire.
 
@@ -248,23 +248,23 @@ Après avoir créé le cluster, utilisez le `Enable-ClusterStorageSpacesDirect` 
 Enable-ClusterStorageSpacesDirect –CimSession <ClusterName>
 ```
 
-Pour activer vos espaces de stockage direct à l’aide de la commande ci-dessus, vous pouvez également utiliser le nom du nœud à la place du nom du cluster. L’utilisation du nom du nœud peut être plus fiable en raison de retards de réplication DNS qui peuvent se produire avec le nom du cluster nouvellement créé.
+Pour activer les espaces de stockage direct à l’aide de la commande ci-dessus, vous pouvez également utiliser le nom du nœud à la place du nom du cluster. L’utilisation du nom du nœud peut être plus fiable en raison de retards de réplication DNS qui peuvent se produire avec le nom du cluster nouvellement créé.
 
 Quand l’exécution de cette commande est terminée, ce qui peut prendre plusieurs minutes, le système est prêt pour la création de volumes.
 
-### Étape 3.6: Créer des volumes
+### <a name="step-36-create-volumes"></a>Étape 3.6 : Créer des volumes
 
-Nous vous recommandons d’utiliser le `New-Volume` applet de commande telle qu’elle assure une expérience plus rapide et plus simple. Cet applet de commande unique crée et formate automatiquement le disque virtuel et les partitions, crée le volume avec le nom correspondant et l’ajoute aux volumes partagés de cluster – le tout en une seule étape facile.
+Nous vous recommandons d’utiliser le `New-Volume` applet de commande qu’elle fournit l’expérience la plus simple et rapide. Cet applet de commande unique crée et formate automatiquement le disque virtuel et les partitions, crée le volume avec le nom correspondant et l’ajoute aux volumes partagés de cluster – le tout en une seule étape facile.
 
 Pour plus d’informations, consultez [Création de volumes dans les espaces de stockage direct](create-volumes.md).
 
-### Étape 3.7: Éventuellement activer le cache de volume partagé de cluster
+### <a name="step-37-optionally-enable-the-csv-cache"></a>Étape 3.7 : Si vous le souhaitez activer le cache de volume partagé de cluster
 
-Vous pouvez éventuellement activer le cache de volume (CSV) partagé de cluster à utiliser la mémoire système (RAM) sert de cache au niveau du bloc écriture à l’aide d’opérations de lecture qui ne sont pas déjà mis en cache par le Gestionnaire de cache de Windows. Cela peut améliorer les performances pour les applications telles que Hyper-V. Le cache de volume partagé de cluster peut améliorer les performances des demandes de lecture et est également utile pour les scénarios de serveur de fichiers avec montée en.
+Vous pouvez éventuellement activer le cache de volume (CSV) partagé de cluster à utiliser la mémoire système (RAM) comme un cache à double écriture au niveau du bloc d’opérations de lecture qui ne sont pas déjà mis en cache par le Gestionnaire de cache de Windows. Cela peut améliorer les performances pour les applications telles que Hyper-V. Le cache de volume partagé de cluster peut améliorer les performances des demandes de lecture et est également utile pour les scénarios de serveur de fichiers avec montée en puissance.
 
-Activation du cache de volume partagé de cluster permet de réduire la quantité de mémoire disponible pour exécuter des ordinateurs virtuels sur un cluster hyperconvergé, vous devez donc trouver un équilibre entre performances de stockage avec la mémoire disponible pour les disques durs virtuels.
+L’activation du cache de volume partagé de cluster permet de réduire la quantité de mémoire disponible pour exécuter des machines virtuelles sur un cluster hyperconvergé, vous devez donc équilibrer les performances de stockage avec la mémoire disponible pour les disques durs virtuels.
 
-Pour définir la taille du cache de volume partagé de cluster, ouvrez une session PowerShell sur le système de gestion avec un compte disposant des autorisations d’administrateur sur le cluster de stockage et ensuite utiliser ce script, en modifiant le `$ClusterName` et `$CSVCacheSize` variables de façon adéquate (cet exemple définit un 2 Go CSV cache par serveur):
+Pour définir la taille du cache de volume partagé de cluster, ouvrez une session PowerShell sur le système de gestion avec un compte disposant des autorisations d’administrateur sur le cluster de stockage et ensuite utiliser ce script, en changeant le `$ClusterName` et `$CSVCacheSize` variables comme cela (cela est approprié Il montre un cache de volume partagé de cluster de 2 Go par serveur) :
 
 ```PowerShell
 $ClusterName = "StorageSpacesDirect1"
@@ -277,63 +277,63 @@ $CSVCurrentCacheSize = (Get-Cluster $ClusterName).BlockCacheSize
 Write-Output "$ClusterName CSV cache size: $CSVCurrentCacheSize MB"
 ```
 
-Pour plus d’informations, voir [l’utilisation du volume partagé de cluster en mémoire cache de lecture](csv-cache.md).
+Pour plus d’informations, consultez [à l’aide de la CSV en mémoire cache de lecture](csv-cache.md).
 
-### Étape 3.8: Déployer des machines virtuelles pour les déploiements hyperconvergés
+### <a name="step-38-deploy-virtual-machines-for-hyper-converged-deployments"></a>Étape 3.8 : Déployer des machines virtuelles pour les déploiements hyperconvergés
 
-Si vous déployez un cluster hyperconvergé, la dernière étape consiste à configurer des ordinateurs virtuels sur le cluster d’espaces de stockage Direct.
+Si vous déployez un cluster hyperconvergé, la dernière étape consiste à approvisionner des machines virtuelles sur le cluster d’espaces de stockage Direct.
 
-Les fichiers de la machine virtuelle doivent être stockés dans l’espace de nomsCSV du système (par exemple: c:\\ClusterStorage\\Volume1) exactement comme les machines virtuelles en cluster sur les clusters de basculement.
+Les fichiers de la machine virtuelle doivent être stockés sur l’espace de noms de volume partagé de cluster de systèmes (exemple : c:\\ClusterStorage\\Volume1) exactement comme les machines virtuelles en cluster sur les clusters de basculement.
 
 Vous pouvez utiliser les outils fournis ou autres outils pour gérer le stockage et les machines virtuelles, tels que System Center Virtual Machine Manager.
 
-## Étape 4: Déployer le serveur de fichiers avec montée en pour les solutions convergées
+## <a name="step-4-deploy-scale-out-file-server-for-converged-solutions"></a>Étape 4 : Déployer le serveur de fichiers avec montée en puissance pour les solutions convergées
 
-Si vous déployez une solution convergée, l’étape suivante consiste à créer une instance de serveur de fichiers avec montée en et d’installation des partages de fichiers. Si vous déployez un cluster hyperconvergé - vous avez terminé et que vous n’avez pas besoin cette section.
+Si vous déployez une solution convergence, l’étape suivante consiste à créer une instance de serveur de fichiers avec montée en puissance et de configurer des partages de fichiers. Si vous déployez un cluster hyperconvergé - vous avez terminé et que vous n’avez pas besoin cette section.
 
-### Étape 4.1: Créer le rôle de serveur de fichiers avec montée en
+### <a name="step-41-create-the-scale-out-file-server-role"></a>Étape 4.1 : Créer le rôle de serveur de fichiers avec montée en puissance
 
-L’étape suivante dans la configuration du cluster services pour votre serveur de fichiers est créer le rôle de serveur de fichiers en cluster, lorsque vous créez l’instance de serveur de fichiers avec montée en qui héberge vos partages de fichiers disponibles en permanence.
+L’étape suivante de la configuration des services de cluster pour votre serveur de fichiers crée le rôle de serveur de fichiers en cluster, c'est-à-dire lorsque vous créez l’instance de serveur de fichiers avec montée en puissance sur lequel se trouvent vos partages de fichiers disponibles en permanence.
 
-#### Pour créer un rôle de serveur de fichiers avec montée en à l’aide du Gestionnaire de serveur
+#### <a name="to-create-a-scale-out-file-server-role-by-using-server-manager"></a>Pour créer un rôle de serveur de fichiers avec montée en puissance à l’aide du Gestionnaire de serveur
 
-1.  Dans le Gestionnaire de Cluster de basculement, sélectionnez le cluster, accédez aux **rôles**, puis cliquez sur **Configurer un rôle**.<br>L’Assistant haute disponibilité s’affiche.
-2.  Sur la page **Sélectionner un rôle** , cliquez sur le **Serveur de fichiers**.
-3.  Dans la page **Type de serveur de fichiers** , cliquez sur **Le serveur de fichiers avec montée en données d’application**.
-4.  Sur la page de **Point d’accès Client** , tapez un nom pour le serveur de fichiers avec montée en.
-5.  Vérifiez que le rôle a été correctement configuré en accédant à des **rôles** et confirmer que la colonne **état** affiche **en cours d’exécution** en regard du rôle de serveur de fichiers en cluster que vous avez créé, comme illustré dans la Figure 1.
+1.  Dans le Gestionnaire de Cluster de basculement, sélectionnez le cluster, accédez à **rôles**, puis cliquez sur **configurer un rôle...** .<br>L’Assistant haute disponibilité s’affiche.
+2.  Sur le **sélectionner un rôle** , cliquez sur **serveur de fichiers**.
+3.  Sur le **Type de serveur de fichiers** , cliquez sur **Scale-Out File Server pour les données d’application**.
+4.  Sur le **Point d’accès Client** , tapez un nom pour le serveur de fichiers de montée en puissance.
+5.  Vérifiez que le rôle a été correctement configuré en accédant à **rôles** et confirme que le **état** colonne affiche **en cours d’exécution** en regard du rôle de serveur de fichiers en cluster que vous avez créé, comme indiqué dans la Figure 1.
 
-    ![Capture d’écran du Gestionnaire du Cluster de basculement montrant le serveur de fichiers avec montée en](media\Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016\SOFS_in_FCM.png "Failover Cluster Manager showing the Scale-Out File Server")
+    ![Capture d’écran du Gestionnaire de Cluster de basculement affiche le serveur de fichiers de montée en puissance](media\Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016\SOFS_in_FCM.png "Gestionnaire du Cluster de basculement affiche le serveur de fichiers de montée en puissance")
 
-     **Figure 1** Gestionnaire du Cluster de basculement montrant le serveur de fichiers avec montée en avec le statut en cours d’exécution
+     **Figure 1** Gestionnaire du Cluster de basculement affiche le serveur de fichiers de montée en puissance avec l’état en cours d’exécution
 
 > [!NOTE]
->  Après la création du rôle en cluster, il peut exister certaines réseau retards de propagation de qui vous empêchent de créer des partages de fichiers dessus pendant quelques minutes, ou potentiellement plus.  
+>  Après avoir créé le rôle en cluster, il peut y avoir un réseau des retards de propagation qui peuvent vous empêcher de créer des partages de fichiers dessus pendant quelques minutes, ou potentiellement longue.  
   
-#### Pour créer un rôle de serveur de fichiers avec montée en à l’aide de Windows PowerShell
+#### <a name="to-create-a-scale-out-file-server-role-by-using-windows-powershell"></a>Pour créer un rôle de serveur de fichiers avec montée en puissance à l’aide de Windows PowerShell
 
- Dans une session Windows PowerShell qui est connectée au cluster de serveurs de fichier, entrez les commandes suivantes pour créer le rôle de serveur de fichiers avec montée en modifiant *FSCLUSTER* pour correspondre au nom de votre cluster et *en puissance* pour correspondre au nom que vous souhaitez donner le Rôle de serveur de fichiers avec montée en:
+ Dans une session Windows PowerShell qui est connectée au cluster de serveur de fichiers, entrez les commandes suivantes pour créer le rôle de serveur de fichiers avec montée en puissance, modification *FSCLUSTER* corresponde au nom de votre cluster, et *SOFS* doit correspondre au nom que vous souhaitez attribuer le rôle de serveur de fichiers avec montée en puissance :
 
 ```PowerShell
 Add-ClusterScaleOutFileServerRole -Name SOFS -Cluster FSCLUSTER
 ```
 
 > [!NOTE]
->  Après la création du rôle en cluster, il peut exister certaines réseau retards de propagation de qui vous empêchent de créer des partages de fichiers dessus pendant quelques minutes, ou potentiellement plus. Si le rôle en puissance échoue immédiatement et ne démarre pas, il peut être parce que l’objet d’ordinateur du cluster n’est pas autorisé à créer un compte d’ordinateur pour le rôle en puissance. Pour faciliter la que, consultez ce billet de blog: [avec montée en fichier serveur rôle échoue à démarrer With événement ID 1205, 1069 et 1194](http://www.aidanfinn.com/?p=14142).
+>  Après avoir créé le rôle en cluster, il peut y avoir un réseau des retards de propagation qui peuvent vous empêcher de créer des partages de fichiers dessus pendant quelques minutes, ou potentiellement longue. Si le rôle de serveur SOFS échoue immédiatement et ne démarre pas, il peut être, car l’objet d’ordinateur du cluster n’est pas autorisé à créer un compte d’ordinateur pour le rôle de serveur SOFS. Pour obtenir une aide, consultez ce billet de blog : [Montée en puissance fichier serveur rôle ne parvient pas à démarrer avec l’ID d’événement 1205, 1069 et 1194](http://www.aidanfinn.com/?p=14142).
 
-### Étape 4.2: Créer des partages de fichiers
+### <a name="step-42-create-file-shares"></a>Étape 4.2 : Créer des partages de fichiers
 
-Une fois que vous avez créé vos disques virtuels et ajoutés au volumes partagés de cluster, il est temps de créer des partages de fichiers sur chacun d’eux - partage un seul fichier par volume partagé de cluster par disque virtuel. System Center Virtual Machine Manager (VMM) est probablement le moyen côté de le faire, car il gère les autorisations pour vous, mais si vous ne l’avez pas dans votre environnement, vous pouvez utiliser Windows PowerShell pour automatiser partiellement le déploiement.
+Une fois que vous avez créé vos disques virtuels et ajoutés à des volumes partagés de cluster, il est temps de créer des partages de fichiers dessus - un partage de fichiers par volume partagé de cluster par disque virtuel. System Center Virtual Machine Manager (VMM) est probablement le côtés moyen pour ce faire, car il gère les autorisations pour vous, mais si vous ne l’avez dans votre environnement, vous pouvez utiliser Windows PowerShell pour automatiser partiellement le déploiement.
 
-Utiliser les scripts inclus dans le script de [Configuration du partage SMB pour les charges de travail Hyper-V](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) , qui partiellement automatise le processus de création des groupes et des partages. Elle est destinée aux charges de travail Hyper-V, donc si vous déployez des autres charges de travail, vous devrez peut-être modifier les paramètres ou des étapes supplémentaires après avoir créé les partages. Par exemple, si vous utilisez Microsoft SQL Server, le compte de service SQL Server doit se voir attribuer un contrôle total sur le partage et le système de fichiers.
+Utiliser les scripts inclus dans le [Configuration du partage SMB pour les charges de travail Hyper-V](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) script, lequel partiellement automatise le processus de création de partages et groupes. Il est écrit pour les charges de travail Hyper-V, donc si vous déployez des autres charges de travail, vous devrez peut-être modifier les paramètres ou effectuer des étapes supplémentaires après avoir créé les partages. Par exemple, si vous utilisez Microsoft SQL Server, le compte de service SQL Server doit pouvoir un contrôle total sur le partage et le système de fichiers.
 
 > [!NOTE]
->  Vous devez mettre à jour l’appartenance au groupe lorsque vous ajoutez des nœuds de cluster, sauf si vous utilisez System Center Virtual Machine Manager pour créer vos partages.
+>  Vous devrez mettre à jour l’appartenance au groupe lorsque vous ajoutez des nœuds de cluster, sauf si vous utilisez System Center Virtual Machine Manager pour créer vos partages.
 
-Pour créer des partages de fichiers à l’aide de scripts PowerShell, procédez comme suit:
+Pour créer des partages de fichiers à l’aide de scripts PowerShell, procédez comme suit :
 
-1. Téléchargez les scripts inclus dans la [Configuration du partage SMB pour les charges de travail Hyper-V](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) à l’un des nœuds du cluster de serveurs de fichiers.
-2. Ouvrez une session Windows PowerShell avec des droits d’administrateur de domaine sur le système de gestion et ensuite utiliser le script suivant pour créer un groupe d’Active Directory pour les objets ordinateur Hyper-V, la modification des valeurs pour les variables en fonction de votre environnement:
+1. Télécharger les scripts inclus dans [Configuration du partage SMB pour les charges de travail Hyper-V](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) à un des nœuds du cluster de serveur de fichiers.
+2. Ouvrez une session Windows PowerShell avec les informations d’identification d’administrateur de domaine sur le système de gestion, puis utilisez le script suivant pour créer un groupe Active Directory pour les objets ordinateur Hyper-V, en modifiant les valeurs des variables en fonction de votre environnement :
 
     ```PowerShell
     # Replace the values of these variables
@@ -345,7 +345,7 @@ Pour créer des partages de fichiers à l’aide de scripts PowerShell, procéde
     CD $ScriptFolder
     .\ADGroupSetup.ps1 -HyperVObjectADGroupSamName $HyperVObjectADGroupSamName -HyperVClusterName $HyperVClusterName
     ```
-3. Ouvrez une session Windows PowerShell en tant qu’administrateur sur l’un des nœuds de stockage et ensuite utiliser le script suivant pour créer des partages pour chaque volume partagé de cluster et accorder des autorisations d’administration pour les partages au groupe Admins du domaine et le cluster de calcul.
+3. Ouvrez une session Windows PowerShell avec les informations d’identification d’administrateur sur l’un des nœuds de stockage et ensuite utiliser le script suivant pour créer des partages pour chaque volume partagé de cluster et accorder des autorisations administratives pour les partages au groupe Admins du domaine et le cluster de calcul.
 
     ```PowerShell
     # Replace the values of these variables
@@ -365,9 +365,9 @@ Pour créer des partages de fichiers à l’aide de scripts PowerShell, procéde
     }
     ```
 
-### Activer l’authentification Kerberos étape 4.3 la délégation contrainte
+### <a name="step-43-enable-kerberos-constrained-delegation"></a>Activer l’authentification Kerberos étape 4.3 la délégation contrainte
 
-Pour configurer la délégation contrainte Kerberos pour la gestion de scénario à distance et une sécurité accrue Live Migration, à partir d’un des nœuds du cluster de stockage, utilisez le script KCDSetup.ps1 inclus dans la [Configuration du partage SMB pour les charges de travail Hyper-V](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a). Voici un wrapper peu pour le script:
+Pour configurer la délégation contrainte Kerberos pour gestion de scénario à distance et une sécurité accrue Migration dynamique, à partir d’un des nœuds de cluster de stockage, utilisent le script KCDSetup.ps1 inclus dans [Configuration du partage SMB pour les charges de travail Hyper-V](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a). Voici un petit wrapper pour le script :
 
 ```PowerShell
 $HyperVClusterName = "Compute01"
@@ -378,15 +378,15 @@ CD $ScriptFolder
 .\KCDSetup.ps1 -HyperVClusterName $HyperVClusterName -ScaleOutFSName $ScaleOutFSName -EnableLM
 ```
 
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
-Après le déploiement de votre serveur de fichiers en cluster, nous vous recommandons de tester les performances de votre solution à l’aide de charges de travail synthétiques avant de vous appelez les charges de travail réels. Cela vous permet de confirmer que la solution s’exécute correctement et fonctionnent tous les points en attente avant d’ajouter la complexité des charges de travail. Pour plus d’informations, consultez [Test stockage espaces performances à l’aide de synthétique charges de travail](https://technet.microsoft.com/library/dn894707.aspx).
+Après avoir déployé votre serveur de fichiers en cluster, il est recommandé de tester les performances de votre solution à l’aide de charges de travail synthétiques avant de mettre les charges de travail réelles. Cela vous permet de confirmer que la solution s’exécute correctement et résolvez les problèmes en attente avant d’ajouter la complexité des charges de travail. Pour plus d’informations, consultez [Test stockage espaces performances à l’aide de charges de travail synthétiques](https://technet.microsoft.com/library/dn894707.aspx).
 
-## Articles associés
+## <a name="see-also"></a>Voir aussi
 
--   [Espaces de stockage direct dans WindowsServer2016](storage-spaces-direct-overview.md)
--   [Fonctionnement du cache dans les espaces de stockage direct](understand-the-cache.md)
--   [Planification des volumes dans les espaces de stockage direct](plan-volumes.md)
--   [Tolérance de panne des espaces de stockage](storage-spaces-fault-tolerance.md)
--   [Configuration matérielle requise pour les espaces de stockage direct](Storage-Spaces-Direct-Hardware-Requirements.md)
+-   [Espaces de stockage Direct dans Windows Server 2016](storage-spaces-direct-overview.md)
+-   [Comprendre le cache dans les espaces de stockage Direct](understand-the-cache.md)
+-   [Planification des volumes dans les espaces de stockage Direct](plan-volumes.md)
+-   [Tolérance des espaces de stockage](storage-spaces-fault-tolerance.md)
+-   [Espaces de stockage Direct configuration matérielle requise](Storage-Spaces-Direct-Hardware-Requirements.md)
 -   [To RDMA, or not to RDMA – that is the question](https://blogs.technet.microsoft.com/filecab/2017/03/27/to-rdma-or-not-to-rdma-that-is-the-question/) (blog TechNet)

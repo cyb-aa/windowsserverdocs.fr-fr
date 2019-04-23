@@ -1,6 +1,6 @@
 ---
-title: "Étape3: Joindre des ordinateurs au nouveau serveur WindowsServerEssentials"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: 'Étape 3 : Joindre des ordinateurs au nouveau serveur Windows Server Essentials'
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,49 +13,50 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: f71ac280e2de0b7d945f2d979fe52d173f7c3323
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59861870"
 ---
-# <a name="step-3-join-computers-to-the-new-windows-server-essentials-server"></a>Étape3: Joindre des ordinateurs au nouveau serveur WindowsServerEssentials
+# <a name="step-3-join-computers-to-the-new-windows-server-essentials-server"></a>Étape 3 : Joindre des ordinateurs au nouveau serveur Windows Server Essentials
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-L’étape suivante du processus de migration consiste à connecter des ordinateurs clients vers le nouveau serveur exécutant WindowsServerEssentials.  
+L’étape suivante du processus de migration consiste à connecter des ordinateurs clients vers le nouveau serveur exécutant Windows Server Essentials.  
   
 > [!NOTE]
->  Vous pouvez ignorer cette étape pour les ordinateurs qui exécutent WindowsXP ou des systèmes d’exploitation WindowsVista. Le logiciel Connecteur Windows Server ne prend pas en charge les ordinateurs qui exécutent WindowsXP ou WindowsVista.  
+>  Vous pouvez ignorer cette étape pour les ordinateurs qui exécutent les systèmes d'exploitation Windows XP ou Windows Vista. Le logiciel Connecteur Windows Server ne prend pas en charge les ordinateurs qui exécutent Windows XP ou Windows Vista.  
   
- Avant de pouvoir joindre un ordinateur client vers le nouveau serveur WindowsServerEssentials, vous devez le déconnecter du serveur Source en désinstallant le logiciel Connecteur Windows Server sur l’ordinateur client.  
+ Avant de pouvoir joindre un ordinateur client vers le nouveau serveur Windows Server Essentials, vous devez le déconnecter du serveur Source en désinstallant le logiciel Connecteur Windows Server sur l’ordinateur client.  
   
-### <a name="to-uninstall-windows-server-connector-on-a-client-computer"></a>Pour désinstaller le connecteur Windows Server sur un ordinateur client  
+### <a name="to-uninstall-windows-server-connector-on-a-client-computer"></a>Pour désinstaller le connecteur Windows Server d'un ordinateur client  
   
-1.  À partir d’un ordinateur client, ouvrez le panneau de configuration, puis **programmes et fonctionnalités**.  
+1.  À partir d'un ordinateur client, ouvrez le Panneau de configuration, puis ouvrez **Programmes et fonctionnalités**.  
   
-2.  Dans la liste des programmes, cliquez sur l’application de connexion qui s’exécute sur votre ordinateur.  
+2.  Dans la liste des programmes, cliquez sur l'application de connexion qui s'exécute sur votre ordinateur.  
   
     > [!NOTE]
-    >  L’application connecteur peut être **connecteur de WindowsSmallBusinessServer2011Essentials**, ou **connecteur WindowsServerEssentials**, en fonction de la version de l’ordinateur client a été connecté à WindowsServerEssentials.  
+    >  L’application connecteur peut être **connecteur de Windows Small Business Server 2011 Essentials**, ou **connecteur Windows Server Essentials**, selon la version de Windows Server Essentials le ordinateur client a été connecté à.  
   
-3.  Cliquez sur **désinstaller**.  
+3.  Cliquez sur **Désinstaller**.  
   
 ### <a name="to-reconnect-a-client-computer-to-the-server"></a>Pour reconnecter un ordinateur client au serveur  
   
-1.  Connectez-vous à l’ordinateur que vous souhaitez vous connecter au serveur.  
+1.  Connectez-vous à l'ordinateur que vous voulez connecter au serveur.  
   
     > [!NOTE]
-    >  Si cet ordinateur comporte plusieurs comptes d’utilisateur, connectez-vous à l’aide du compte d’utilisateur qui a des documents, images et préférences personnelles que vous souhaitez conserver après que vous être connecté au serveur de l’ordinateur.  
+    >  Si cet ordinateur comporte plusieurs comptes d'utilisateur, démarrez la session du compte d'utilisateur dont vous souhaitez conserver les documents, images et préférences personnelles une fois l'ordinateur connecté au serveur.  
   
-2.  Ouvrez un navigateur Internet, telles qu’Internet Explorer.  
+2.  Ouvrez un navigateur Internet, par exemple Internet Explorer.  
   
-3.  Dans la barre d’adresses, tapez **http://<servername\>/Connect**, puis appuyez sur ENTRÉE.  
+3.  Dans la barre d’adresses, tapez **http://<servername\>/se connecter**, puis appuyez sur ENTRÉE.  
   
-4.  Suivez les instructions à l’écran pour joindre l’ordinateur client vers le nouveau serveur WindowsServerEssentials.  
+4.  Suivez les instructions à l’écran pour joindre l’ordinateur client vers le nouveau serveur Windows Server Essentials.  
   
 ## <a name="next-steps"></a>Étapes suivantes  
- Vous avez joint vos ordinateurs clients vers le nouveau serveur exécutant WindowsServerEssentials. Passez maintenant à [étape4: déplacer les paramètres et les données pour la migration du serveur de Destination pour WindowsServerEssentials](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  
+ Vous avez joint vos ordinateurs clients vers le nouveau serveur exécutant Windows Server Essentials. Passez maintenant à [étape 4 : Déplacer les paramètres et les données pour la migration du serveur de Destination pour Windows Server Essentials](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  
   
 
-Pour afficher toutes les étapes, voir [migrer vers WindowsServerEssentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).
+Pour afficher toutes les étapes, consultez [migrer vers Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).
 

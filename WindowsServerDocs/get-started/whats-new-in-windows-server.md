@@ -1,38 +1,37 @@
 ---
-title: Nouveautés de WindowsServer
+title: Nouveautés de Windows Server
 description: Présentation des nouvelles fonctionnalités de calcul, d’identité, de gestion, d’automatisation, de mise en réseau, de sécurité et de stockage.
 ms.prod: windows-server
-ms.date: 04/10/2019
+ms.date: 10/17/2017
 ms.technology: server-general
 ms.topic: article
-author: jasongerend
-ms.author: jgerend
+author: greg-lindsay
+ms.author: greg-lindsay
 ms.localizationpriority: medium
-ms.openlocfilehash: ca29140946136ca2d48e4935820857b529a28e11
-ms.sourcegitcommit: d3f73936160505a40633ad8dd5931ac5fe3eccdb
-ms.translationtype: MT
+ms.openlocfilehash: 98da95e8ee01e9f59b06a2b609727cb68ce9f386
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "9297239"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59861940"
 ---
-# Nouveautés de Windows Server
+# <a name="whats-new-in-windows-server"></a>Nouveautés de Windows Server
 
->S’applique à: Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Vous pouvez trouver les nouvelles fonctionnalités pour chacune de ces versions de Windows Server.  
+Vous pouvez rechercher les nouvelles fonctionnalités pour chacun de ces Windows Server 2016 et versions de Windows Server (canal semi-annuel).  
+   
+<br>
+<br>
+<br>
+<br>
+[Nouveautés dans Windows Server, version 1803](whats-new-in-windows-server-1803.md)
+<br>
+[Nouveautés dans Windows Server, version 1709](whats-new-in-windows-server-1709.md)<BR>
+[Quelles sont les nouveautés dans Windows Server 2016](whats-new-in-windows-server-2016.md)
 
-Versions du canal de maintenance à long terme (LTSC):
 
-- [Quelles sont les nouveautés dans Windows Server 2019](../get-started-19/whats-new-19.md)
-- [Nouveautés de WindowsServer2016](whats-new-in-windows-server-2016.md)
 
-Versions du canal semi-annuel:
+## <a name="see-also"></a>Voir aussi  
+-   [Notes de publication : Problèmes importants dans Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)  
 
-- [Nouveautés de WindowsServer, version1809](whats-new-in-windows-server-1809.md)
-- [Nouveautés de WindowsServer, version1803](whats-new-in-windows-server-1803.md)
-- [Nouveautés de WindowsServer, version1709](whats-new-in-windows-server-1709.md)
-
-## Articles associés
-
-- [Notes de publication: problèmes importants concernant WindowsServer2019](../get-started-19/rel-notes-19.md)
-- [Notes de publication: problèmes importants concernant WindowsServer2016](Windows-Server-2016-GA-Release-Notes.md)
