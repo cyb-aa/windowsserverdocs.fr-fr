@@ -6,75 +6,75 @@ ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 09/07/2018
-Keywords: Storage Spaces Direct
+Keywords: Espaces de stockage directs
 ms.localizationpriority: medium
 ms.openlocfilehash: f8072ab5fc853248f2eedd26019956ec864a891d
-ms.sourcegitcommit: d31e266130b3b082372f7af4024e6089cb347d74
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "4239216"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59890870"
 ---
-# Historique des performances pour les machines virtuelles
+# <a name="performance-history-for-virtual-machines"></a>Historique des performances pour les machines virtuelles
 
-> S’applique à: Windows Server Insider Preview
+> S'applique à : Présentation de Windows Server Insider
 
-Cette rubrique secondaire de [l’historique des performances pour les espaces de stockage Direct](performance-history.md) décrit en détail l’historique des performances collectées pour les machines virtuelles (VM). Historique des performances est disponible pour chaque en cours d’exécution, ordinateur virtuel en cluster.
+Cette sous-rubrique de [l’historique des performances pour les espaces de stockage Direct](performance-history.md) décrit en détail l’historique des performances collecté pour les machines virtuelles (VM). Historique des performances sont disponible pour chaque exécution, la machine virtuelle en cluster.
 
    > [!NOTE]
-   > Elle peut prendre plusieurs minutes pour la collecte de commencer pour les ordinateurs virtuels nouvellement créés ou renommés.
+   > Il peut prendre plusieurs minutes avant que la collection commencer pour les machines virtuelles qui vient d’être créées ou renommées.
 
-## Unités publicitaires et les noms de série
+## <a name="series-names-and-units"></a>Unités et les noms de série
 
-Ces séries sont collectés pour chaque ordinateur virtuel éligible:
+Ces séries sont collectées pour chaque machine virtuelle éligible :
 
-| Série                            | Unit             |
+| série                            | Unit             |
 |-----------------------------------|------------------|
 | `vm.cpu.usage`                    | %          |
-| `vm.memory.assigned`              |  octets            |
-| `vm.memory.available`             |  octets            |
-| `vm.memory.maximum`               |  octets            |
-| `vm.memory.minimum`               |  octets            |
+| `vm.memory.assigned`              | bytes            |
+| `vm.memory.available`             | bytes            |
+| `vm.memory.maximum`               | bytes            |
+| `vm.memory.minimum`               | bytes            |
 | `vm.memory.pressure`              | -                |
-| `vm.memory.startup`               |  octets            |
-| `vm.memory.total`                 |  octets            |
-| `vmnetworkadapter.bandwidth.inbound`  | bits par seconde |
-| `vmnetworkadapter.bandwidth.outbound` | bits par seconde |
-| `vmnetworkadapter.bandwidth.total`    | bits par seconde |
+| `vm.memory.startup`               | bytes            |
+| `vm.memory.total`                 | bytes            |
+| `vmnetworkadapter.bandwidth.inbound`  | Bits par seconde |
+| `vmnetworkadapter.bandwidth.outbound` | Bits par seconde |
+| `vmnetworkadapter.bandwidth.total`    | Bits par seconde |
 
-En outre, toutes les séries de disque dur virtuel (VHD), tels que `vhd.iops.total`, sont agrégées pour chaque disque dur virtuel attaché à la machine virtuelle.
+En outre, toutes les séries de disque dur virtuel (VHD), tel que `vhd.iops.total`, sont agrégées pour chaque disque dur virtuel attaché à la machine virtuelle.
 
-## Comment interpréter
+## <a name="how-to-interpret"></a>Comment interpréter
 
 
-| Série                            | Description                                                                                                  |
+| série                            | Description                                                                                                  |
 |-----------------------------------|--------------------------------------------------------------------------------------------------------------|
-| `vm.cpu.usage`                    | Pourcentage de la machine virtuelle est à l’aide de processeur (s) du serveur de son hôte.                                   |
-| `vm.memory.assigned`              | La quantité de mémoire allouée à la machine virtuelle.                                                      |
-| `vm.memory.available`             | La quantité de mémoire qui reste disponible, la quantité affectée.                                       |
+| `vm.cpu.usage`                    | Pourcentage de la machine virtuelle est à l’aide du processeur (s) de son serveur hôte.                                   |
+| `vm.memory.assigned`              | La quantité de mémoire attribuée à la machine virtuelle.                                                      |
+| `vm.memory.available`             | La quantité de mémoire reste disponible, la quantité affectée.                                       |
 | `vm.memory.maximum`               | Si vous utilisez la mémoire dynamique, il s’agit de la quantité maximale de mémoire qui peut être affectée à la machine virtuelle. |
 | `vm.memory.minimum`               | Si vous utilisez la mémoire dynamique, il s’agit de la quantité minimale de mémoire qui peut être affectée à la machine virtuelle. |
-| `vm.memory.pressure`              | Le coefficient de mémoire exigée par la machine virtuelle au cours de la mémoire allouée à la machine virtuelle.            |
-| `vm.memory.startup`               | La quantité de mémoire requise pour la machine virtuelle à démarrer.                                            |
+| `vm.memory.pressure`              | Rapport entre la mémoire exigée par la machine virtuelle sur la mémoire allouée à la machine virtuelle.            |
+| `vm.memory.startup`               | La quantité de mémoire nécessaire pour la machine virtuelle à démarrer.                                            |
 | `vm.memory.total`                 | Mémoire totale. |
 | `vmnetworkadapter.bandwidth.inbound`  | Taux de données reçues par l’ordinateur virtuel sur toutes les cartes de son réseau virtuel.                        |
-| `vmnetworkadapter.bandwidth.outbound` | Taux de données envoyées par la machine virtuelle sur toutes les cartes de son réseau virtuel.                            |
-| `vmnetworkadapter.bandwidth.total`    | Vitesse totale de données reçus ou envoyés par l’ordinateur virtuel sur toutes les cartes de son réseau virtuel.          |
+| `vmnetworkadapter.bandwidth.outbound` | Taux de données envoyées par l’ordinateur virtuel sur toutes ses cartes réseau virtuelles.                            |
+| `vmnetworkadapter.bandwidth.total`    | Taux total de données reçus ou envoyés par l’ordinateur virtuel sur toutes les cartes de son réseau virtuel.          |
 
    > [!NOTE]
-   > Compteurs de performance sont mesurées sur l’intervalle entière, ne pas échantillonné. Par exemple, si l’ordinateur virtuel est inactif pendant 9 secondes, mais les pics d’utiliser 50 % de l’UC hôte dans la deuxième 10, son `vm.cpu.usage` est enregistré en tant que 5 % en moyenne pendant cette période de 10 secondes. Cela garantit son historique de performances capture toutes les activités et est robuste au bruit.
+   > Les compteurs sont mesurées sur tout l’intervalle, ont ne pas été échantillonnée. Par exemple, si la machine virtuelle est inactive pendant 9 secondes mais pics à utiliser 50 % du processeur d’ordinateur hôte dans la deuxième de 10, sa `vm.cpu.usage` seront enregistrées en tant que 5 % en moyenne pendant cet intervalle de 10 secondes. Cela garantit son historique des performances capture toutes les activités et sont robuste au bruit.
 
-## Utilisation de PowerShell
+## <a name="usage-in-powershell"></a>Utilisation dans PowerShell
 
-Utilisez l’applet de commande [Get-VM](https://docs.microsoft.com/powershell/module/hyper-v/get-vm) :
+Utilisez le [Get-VM](https://docs.microsoft.com/powershell/module/hyper-v/get-vm) applet de commande :
 
 ```PowerShell
 Get-VM <Name> | Get-ClusterPerf
 ```
 
    > [!NOTE]
-   > L’applet de commande Get-VM retourne uniquement les machines virtuelles sur le serveur local (ou spécifié), pas sur le cluster.
+   > L’applet de commande Get-VM retourne uniquement les machines virtuelles sur le serveur local (ou spécifié), pas au sein du cluster.
 
-## Articles associés
+## <a name="see-also"></a>Voir aussi
 
 - [Historique des performances pour les espaces de stockage Direct](performance-history.md)
