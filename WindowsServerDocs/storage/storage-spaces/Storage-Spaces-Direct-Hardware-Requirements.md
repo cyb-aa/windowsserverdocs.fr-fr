@@ -1,7 +1,7 @@
 ---
 title: Configuration matérielle requise pour les espaces de stockage direct
 ms.prod: windows-server-threshold
-description: Configuration matérielle minimale requise pour tester les espaces de stockage direct.
+description: Configuration matérielle minimale requise pour tester les espaces de stockage direct
 ms.author: eldenc
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -10,115 +10,115 @@ author: eldenchristensen
 ms.date: 04/12/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: 84d10ab3e25500720dd13e2ba057dc3c5bf05a6f
-ms.sourcegitcommit: 515b4fd5c40fcbae0e12a2c30090384533972353
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "8232528"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59849320"
 ---
-# Configuration matérielle requise pour les espaces de stockage direct
+# <a name="storage-spaces-direct-hardware-requirements"></a>Configuration matérielle requise pour les espaces de stockage direct
 
-> S’applique à: Windows Server 2016, Windows Server Insider Preview
+> S’applique à : Windows Server 2016, Windows Server Insider Preview
 
 Cette rubrique décrit la configuration matérielle minimale requise pour les espaces de stockage Direct.
 
-Pour la production, Microsoft vous recommande de ces offres matérielle/logicielle [Windows Server Software-Defined](https://microsoft.com/wssd) de nos partenaires, qui incluent des procédures et les outils de déploiement. Ils sont conçues, assemblées et validées par rapport à notre architecture de référence pour assurer la compatibilité et la fiabilité, afin de vous préparer et en cours d’exécution rapidement. En savoir plus sur dans [https://microsoft.com/wssd](https://microsoft.com/wssd).
+Pour la production, Microsoft vous recommande ces [défini par le logiciel Windows Server](https://microsoft.com/wssd) matérielle/logicielle offre à partir de nos partenaires, qui incluent des outils de déploiement et de procédures. Elles sont conçues, assemblées et validés par rapport à notre architecture de référence pour garantir la compatibilité et la fiabilité, afin de vous être opérationnel rapidement opérationnel. En savoir plus sur [ https://microsoft.com/wssd ](https://microsoft.com/wssd).
 
-![logos de nos partenaires Windows Server Software Defined](media/hardware-requirements/wssd-partners.png)
+![logos de nos partenaires logicielle Windows Server](media/hardware-requirements/wssd-partners.png)
 
    > [!TIP]
-   > D’évaluer les espaces de stockage Direct, mais n’avez pas matériel? Utiliser Hyper-V ou les machines virtuelles Azure comme décrit à l’aide d’espaces de [Stockage Direct dans des clusters de machine virtuelle invité](storage-spaces-direct-in-vm.md).
+   > À évaluer les espaces de stockage Direct, mais n’ai pas matériel ? Utilisez des machines virtuelles Hyper-V ou Azure comme décrit dans [à l’aide de Storage Spaces Direct dans les clusters d’ordinateurs virtuels invités](storage-spaces-direct-in-vm.md).
 
-## Configuration requise de base
+## <a name="base-requirements"></a>Exigences de base
 
-Systèmes, composants, appareils et pilotes doivent être **Windows Server 2016 certifiés** par le [Catalogue Windows Server](https://www.windowsservercatalog.com). En outre, nous vous recommandons de serveurs, les lecteurs, les adaptateurs de bus hôte et les cartes réseau les qualifications supplémentaires **Standard de centre de données Software-Defined (SDDC)** et/ou de **Centre de données Software-Defined (SDDC) Premium** (AQs), comme illustré ci-dessous ci-dessous. Il existe plus de 1 000 composants avec la AQs SDDC.
+Systèmes, les composants, les périphériques et les pilotes doivent être **certifié de Windows Server 2016** par le [catalogue Windows Server](https://www.windowsservercatalog.com). En outre, nous recommandons que les serveurs, les lecteurs, les adaptateurs de bus hôte et les cartes réseau ont le **Software-Defined Data Center (SDDC) Standard** et/ou **Software-Defined Data Center (SDDC) Premium** qualifications supplémentaires (AQs), comme illustré ci-dessous. Il existe plus de 1 000 composants avec le AQs SDDC.
 
-![capture d’écran du catalogue Windows Server montrant le SDDC AQs](media/hardware-requirements/sddc-aqs.png)
+![capture d’écran du catalogue Windows Server montrant le AQs SDDC](media/hardware-requirements/sddc-aqs.png)
 
-Le cluster entièrement configuré (serveurs, réseau et stockage) doit réussir tous les [tests de validation de cluster](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx) par l’Assistant dans le Gestionnaire de Cluster de basculement ou avec le `Test-Cluster` [applet de commande](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) dans PowerShell.
+Le cluster complètement configuré (serveurs, réseau et stockage) doit réussir tous les [les tests de validation de cluster](https://technet.microsoft.com/library/cc732035(v=ws.10).aspx) par l’Assistant dans le Gestionnaire de Cluster de basculement ou avec le `Test-Cluster` [applet de commande](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) dans PowerShell.
 
-En outre, les conditions suivantes s’appliquent:
+En outre, les conditions suivantes s’appliquent :
 
-## Serveurs
+## <a name="servers"></a>Serveurs
 
-- Deux serveurs minimum, 16serveurs maximum
+- Deux serveurs minimum, 16 serveurs maximum
 - Recommandé que tous les serveurs du même fabricant et modèle
 
-## CPU
+## <a name="cpu"></a>Processeur
 
-- Intel Nehalem ou un processeur compatible; ou
-- AMD EPYC ou un processeur compatible
+- Intel Nehalem ou version ultérieure compatible ; ou
+- AMD EPYC ou version ultérieure compatible
 
-## Mémoire
+## <a name="memory"></a>Mémoire
 
-- Mémoire pour Windows Server, machines virtuelles et les autres applications ou les charges de travail; plus
-- 4 Go de RAM par téraoctet (To) de capacité de lecteur de cache sur chaque serveur, pour les espaces de stockage Direct métadonnées
+- Mémoire pour Windows Server, les machines virtuelles et d’autres applications ou charges de travail ; signe plus
+- 4 Go de RAM par téraoctet (To) de capacité de disque de cache sur chaque serveur, pour les métadonnées d’espaces de stockage Direct
 
-## Démarrage
+## <a name="boot"></a>Démarrage
 
-- N’importe quel périphérique de démarrage pris en charge par Windows Server, qui [inclut désormais SATADOM](https://cloudblogs.microsoft.com/windowsserver/2017/08/30/announcing-support-for-satadom-boot-drives-in-windows-server-2016/)
-- RAID 1 miroir n’est **pas** obligatoire, mais est pris en charge pour le démarrage
-- Recommandé: taille minimale de 200 Go
+- N’importe quel périphérique de démarrage pris en charge par Windows Server, lequel [inclut désormais SATADOM](https://cloudblogs.microsoft.com/windowsserver/2017/08/30/announcing-support-for-satadom-boot-drives-in-windows-server-2016/)
+- RAID 1 est mise en miroir **pas** requis, mais est pris en charge pour le démarrage
+- Recommandé : Taille minimale de 200 Go
 
-## Réseaux
+## <a name="networking"></a>Mise en réseau
 
-Minimum (pour le nœud de petite échelle 2 à 3)
-- Une interface réseau 10 Gbits/s
-- De connexion directe (DAS) est pris en charge avec 2 nœuds
+Minimum (pour le nœud d’à petite échelle 2-3)
+- Interface réseau de 10 Gbits/s
+- À connexion directe (DAS) est pris en charge avec 2 nœuds
 
-Recommandé (pour des performances élevées, à l’échelle ou les déploiements de 4 + nœuds)
-- Cartes réseau avec accès direct à distance à la mémoire (RDMA) compatible, iWARP (recommandé) ou RoCE
-- Deux ou plusieurs cartes réseau pour la redondance et performances
-- 25 Gbits/s, une interface réseau ou une version ultérieure
+Recommandé (pour de hautes performances, à l’échelle, ni les déploiements de nœuds 4 +)
+- Cartes réseau qui est les accès à la mémoire directs à distance (RDMA) compatible, iWARP (recommandé) ou RoCE
+- Deux ou plusieurs cartes d’interface réseau pour la redondance et performances
+- Interface réseau de 25 Gbits/s ou version ultérieure
 
-## Lecteurs
+## <a name="drives"></a>Lecteurs
 
-Espaces de stockage Direct fonctionne avec attachement direct SATA, SAS ou NVMe disques physiquement reliés à un seul serveur. Pour plus d'informations sur le choix des disques, voir la rubrique [Choix des disques](choosing-drives.md).
+Espaces de stockage Direct fonctionne avec DAS SATA, SAS ou NVMe des lecteurs sont physiquement attachés à un seul serveur. Pour plus d'informations sur le choix des disques, voir la rubrique [Choix des disques](choosing-drives.md).
 
-- SATA, SAS ou NVMe lecteurs (M.2, suivants: U.2 et Add-carte complémentaire) sont toutes prises en charge
-- 512n, 512e et les lecteurs de 4K natifs sont toutes prises en charge
-- Les disques SSD doivent fournir [une protection contre les pertes d’alimentation](https://blogs.technet.microsoft.com/filecab/2016/11/18/dont-do-it-consumer-ssd/)
-- Même nombre et les types de disques dans chaque serveur – voir [Considérations relatives à la symétrie du lecteur](drive-symmetry-considerations.md)
-- Pilote NVMe est intégrés de Microsoft ou NVMe pilote mis à jour.
-- Recommandé: Nombre de disques de capacité est un multiple du nombre de lecteurs de cache entier
-- Recommandé: Les lecteurs de Cache doivent avoir une endurance élevée en écriture: au moins 3 drive-writes-per-day (DWPD) ou au moins 4 téraoctets écrit (TBW) par jour – voir [Understanding drive écrit par jour (DWPD), téraoctets écrits (TBW) et la valeur minimale recommandée pour le stockage Espaces Direct](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
+- Les lecteurs SATA, SAS ou NVMe (M.2 U.2 et ajouter de carte) sont toutes prises en charge
+- 512n, émulation de 512 octets et 4K natif lecteurs sont toutes prises en charge
+- Disques SSD doivent fournir [protection contre la perte d’alimentation](https://blogs.technet.microsoft.com/filecab/2016/11/18/dont-do-it-consumer-ssd/)
+- Même nombre et types de lecteurs dans chaque serveur – consultez [considérations relatives à la symétrie de lecteur](drive-symmetry-considerations.md)
+- NVMe pilote est l’emploi de Microsoft ou NVMe pilote mis à jour.
+- Recommandé : Nombre de lecteurs de capacité est un multiple entier du nombre de lecteurs de cache
+- Recommandé : Lecteurs de cache doivent avoir la résistance de l’écriture élevée : au moins 3 lecteur écritures par jour (DWPD) ou au moins 4 téraoctets écrits (TBW) par jour – consultez [lecteur de présentation écrit par jour (DWPD), téraoctets écrite (TBW) et la valeur minimale recommandée pour le stockage Espaces Direct](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
 
-Voici comment les lecteurs peuvent être connectés pour les espaces de stockage Direct:
+Voici comment les lecteurs peuvent être connectés pour les espaces de stockage Direct :
 
 1. Attachement direct des disques SATA
-2. Attachement direct des disques NVMe
-3. Adaptateur de bus hôte (HBA) SAS avec les disques SAS
+2. Lecteurs NVMe connectés directement
+3. Adaptateur de bus hôte (HBA) SAS avec des disques SAS
 4. Adaptateur de bus hôte (HBA) SAS avec des disques SATA
-5. **Non pris en charge:** RAID cartes contrôleur ou SAN (Fibre Channel, iSCSI, FCoE) stockage. Cartes de bus hôte (HBA) doivent implémenter le mode Pass-Through simple.
+5. **NON PRIS EN CHARGE :** RAID SAN (Fibre Channel, iSCSI, FCoE) ou cartes contrôleurs de stockage. Cartes de bus hôte (HBA) doivent implémenter le mode Pass-Through simple.
 
-![diagramme du lecteur pris en charge interconnexions](media/hardware-requirements/drive-interconnect-support-1.png)
+![interconnexions de diagramme de disque pris en charge](media/hardware-requirements/drive-interconnect-support-1.png)
 
-Les lecteurs peuvent être internes au serveur, ou d’un boîtier externe qui est connecté au qu’un seul serveur. SCSI Enclosure Services (SES) est requis pour l’identification et mappage d’emplacement. Chaque boîtier externe doit présenter un identificateur unique (ID Unique).
+Les lecteurs peuvent être internes au serveur, ou dans un boîtier externe qui est connecté à un seul serveur. Services SES (SCSI Enclosure) est requis pour l’identification et de mappage d’emplacement. Chaque boîtier externe doit présenter un identificateur unique (ID Unique).
 
 1. Lecteurs internes au serveur
-2. Les disques d’un boîtier externe («JBOD») connecté à un serveur
-3. **Non pris en charge:** Des boîtiers SAS partagés connecté à plusieurs serveurs ou de toute forme de plusieurs chemins d’e/s (MPIO) dans lequel les lecteurs sont accessibles par plusieurs chemins d’accès.
+2. Les disques dans un boîtier externe « JBOD ( ») connecté à un seul serveur
+3. **NON PRIS EN CHARGE :** Les boîtiers SAS partagés connecté à plusieurs serveurs ou de toute forme de chemins d’accès multiples d’e/s (MPIO) où les lecteurs sont accessibles par plusieurs chemins d’accès.
 
-![diagramme du lecteur pris en charge interconnexions](media/hardware-requirements/drive-interconnect-support-2.png)
+![interconnexions de diagramme de disque pris en charge](media/hardware-requirements/drive-interconnect-support-2.png)
 
-### Nombre minimal de disques (exclut lecteur de démarrage)
+### <a name="minimum-number-of-drives-excludes-boot-drive"></a>Nombre minimal de disques (exclut le lecteur de démarrage)
 
 - Si des disques sont utilisés en cache, il doit y en avoir au moins deux par serveur.
 - Au moins quatre disques de capacité (non utilisés en cache) doivent être utilisés par serveur
 
 | Types de disques présents   | Nombre minimal requis |
 |-----------------------|-------------------------|
-| Tous NVMe (même modèle) | 4NVMe                  |
-| Tous SSD (même modèle)  | 4SSD                   |
-| NVMe + SSD            | 2NVMe + 4SSD          |
-| NVMe + HDD            | 2NVMe + 4HDD          |
-| SSD + HDD             | 2SSD + 4HDD           |
-| NVMe + SSD + HDD      | 2NVMe + 4autres       |
+| Tous NVMe (même modèle) | 4 NVMe                  |
+| Tous SSD (même modèle)  | 4 SSD                   |
+| NVMe + SSD            | 2 NVMe + 4 SSD          |
+| NVMe + HDD            | 2 NVMe + 4 HDD          |
+| SSD + HDD             | 2 SSD + 4 HDD           |
+| NVMe + SSD + HDD      | 2 NVMe + 4 autres       |
 
    >[!NOTE]
-   > Le tableau suivant fournit la valeur minimale pour les déploiements de matériel. Si vous effectuez le déploiement avec les machines virtuelles et le stockage virtualisé, comme dans Microsoft Azure, reportez-vous [à l’aide d’espaces de stockage Direct dans des clusters de machine virtuelle invité](storage-spaces-direct-in-vm.md).
+   > Ce tableau fournit la valeur minimale pour les déploiements de matériel. Si votre déploiement avec des machines virtuelles et virtualisé stockage, comme Microsoft Azure, consultez [à l’aide de Storage Spaces Direct dans les clusters d’ordinateurs virtuels invités](storage-spaces-direct-in-vm.md).
 
-### Capacité maximale
+### <a name="maximum-capacity"></a>Capacité maximale
 
-- Recommandé: La capacité de stockage brute Maximum 100 téraoctets (To) par serveur
-- 1 pétaoctet (1 000 To) capacité brute maximale du pool de stockage
+- Recommandé : Capacité de stockage brut maximale 100 téraoctets (To) par serveur
+- 1 pétaoctet (1 000 To) brut capacité maximale du pool de stockage

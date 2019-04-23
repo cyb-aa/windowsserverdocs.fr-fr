@@ -1,6 +1,6 @@
 ---
 title: Journalisation des événements
-description: Journalisation des événements à partir du centre d’administration de Windows (Honolulu Project)
+description: Journalisation des événements à partir de Windows Admin Center (projet Honolulu)
 ms.technology: manage
 ms.topic: article
 author: haley-rowland
@@ -9,38 +9,38 @@ ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: d91b92cb3bba99ae4aa96a96650a251a6df4cea5
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2074340"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59849300"
 ---
-# <a name="use-event-logging-in-windows-admin-center-to-gain-insight-into-management-activities-and-track-gateway-usage"></a>Journalisation des événements dans le centre d’administration de Windows permet d’obtenir des informations sur les activités de gestion et l’utilisation de passerelle de suivi
+# <a name="use-event-logging-in-windows-admin-center-to-gain-insight-into-management-activities-and-track-gateway-usage"></a>Journalisation des événements dans Windows Admin Center permet d’obtenir des informations sur les activités de gestion et de suivre l’utilisation de passerelle
 
->S’applique à: Windows Admin Center, aperçu du centre d’administration de Windows
+>S'applique à : Windows Admin Center, version préliminaire de Windows Admin Center
 
-Centre d’administration de Windows écrit les journaux des événements pour vous permettre de voir les activités de gestion en cours d’exécution sur les serveurs de votre environnement, ainsi que pour vous aider à résoudre les problèmes de centre d’administration de Windows.
+Windows Admin Center écrit des journaux des événements pour vous permettre de voir les activités de gestion en cours d’exécution sur les serveurs dans votre environnement, ainsi que pour vous aider à résoudre les problèmes de Windows Admin Center.
 
-## <a name="gain-insight-into-management-activities-in-your-environment-through-user-action-logging"></a>Obtenir un aperçu des activités de gestion de votre environnement via l’enregistrement de l’action utilisateur
+## <a name="gain-insight-into-management-activities-in-your-environment-through-user-action-logging"></a>Familiarisez-vous avec les activités de gestion dans votre environnement via la journalisation d’action utilisateur
 
-Centre d’administration de Windows fournit des informations sur les activités de gestion effectuées sur les serveurs de votre environnement par des actions de journalisation pour le canal d’événements **Microsoft-ServerManagementExperience** dans le journal des événements du serveur géré, avec l’ID d’événement 4000 et SMEGateway de Source. Centre d’administration de Windows enregistre uniquement les actions sur le serveur géré, afin que vous ne verrez pas les événements enregistrés si un utilisateur accède à un serveur en lecture seule.
+Windows Admin Center fournit des informations sur les activités de gestion effectuées sur les serveurs dans votre environnement par des actions de journalisation pour le **Microsoft-ServerManagementExperience** canal d’événement dans le journal des événements de managé serveur avec ID d’événement 4000 et SMEGateway de la Source. Windows Admin Center enregistre uniquement les actions sur le serveur géré, donc vous ne verrez les événements consignés si un utilisateur accède à un serveur en lecture seule.
 
-Événements enregistrés incluent les informations suivantes:
+Événements enregistrés incluent les informations suivantes :
 
-| Clé           | Valeur                                                                                              |
+| Touche           | Value                                                                                              |
 |---------------|----------------------------------------------------------------------------------------------------|
-| PowerShell    | Nom du script PowerShell qui a été exécutée sur le serveur, si l’action a exécuté un script PowerShell |
-| CIM           | Appel CIM qui a été exécutée sur le serveur, si l’action a exécuté un appel CIM                        |
-| Module        | Outil (ou un module) dans lequel l’action a été exécutée                                                     |
-| Passerelle       | Nom de l’ordinateur de passerelle de centre d’administration de Windows où l’action a été exécutée                     |
-| UserOnGateway | Nom d’utilisateur utilisé pour accéder à la passerelle du centre d’administration de Windows et exécuter l’action                    |
-| UserOnTarget  | Nom d’utilisateur utilisé pour accéder au serveur géré cible, s’il diffère de l’userOnGateway (c'est-à-dire l’utilisateur accédé via le serveur à l’aide des informations d’identification «Gérer en tant que») |
-| Délégation    | Valeur booléenne: si la cible est géré serveur approuve la passerelle et délégation des informations d’identification à partir de l’ordinateur client de l’utilisateur             |
-| LAPS          | Valeur booléenne: si le serveur à l’aide des informations d’identification [LAPS](https://technet.microsoft.com/mt227395.aspx) accédé à l’utilisateur                          |
-| File          | nom du fichier téléchargé, si l’action était un téléchargement de fichier                                |
+| PowerShell    | Nom du script PowerShell qui a été exécuté sur le serveur, si l’action a été exécuté un script PowerShell |
+| CIM           | Appel CIM qui a été exécuté sur le serveur, si l’action a été exécuté un appel CIM                        |
+| Module        | Outil (ou module) où l’action a été exécutée                                                     |
+| Passerelle       | Nom de l’ordinateur de passerelle Windows Admin Center où l’action a été exécutée                     |
+| UserOnGateway | Nom d’utilisateur utilisé pour accéder à la passerelle Windows Admin Center et exécuter l’action                    |
+| UserOnTarget  | Nom d’utilisateur utilisé pour accéder au serveur géré cible, s’il diffère de l’userOnGateway (autrement dit, l’utilisateur accédé à l’aide du serveur à l’aide de « Gérer en tant que » les informations d’identification) |
+| Délégation    | Valeur booléenne : si la cible géré server approuve la passerelle et informations d’identification sont déléguées à partir de l’ordinateur client de l’utilisateur             |
+| LAPS          | Valeur booléenne : si l’utilisateur a accédé le serveur à l’aide [LAPS](https://technet.microsoft.com/mt227395.aspx) informations d’identification                          |
+| Fichier          | nom du fichier chargé, si l’action a été un téléchargement de fichier                                |
 
-## <a name="learn-about-windows-admin-center-activity-with-event-logging"></a>En savoir plus sur l’activité du centre d’administration de Windows avec la journalisation des événements
+## <a name="learn-about-windows-admin-center-activity-with-event-logging"></a>En savoir plus sur l’activité Windows Admin Center avec la journalisation des événements
 
-Centre d’administration de Windows enregistre l’activité passerelle dans le canal d’événements sur l’ordinateur de passerelle pour vous aider à résoudre les problèmes et de visualiser les mesures d’utilisation. Ces événements sont consignés dans le canal d’événements **Microsoft-ServerManagementExperience** .
+Windows Admin Center consigne les activités de la passerelle pour le canal d’événement sur l’ordinateur de passerelle pour vous aider à résoudre les problèmes et afficher les mesures sur l’utilisation. Ces événements sont consignés dans le **Microsoft-ServerManagementExperience** canal d’événement.
 
-[Pour plus d’informations sur la résolution des problèmes du centre d’administration de Windows.](troubleshooting.md)
+[En savoir plus sur le dépannage de Windows Admin Center.](troubleshooting.md)

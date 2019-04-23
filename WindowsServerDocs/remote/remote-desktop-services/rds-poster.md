@@ -15,15 +15,15 @@ ms.topic: article
 ms.assetid: a8c6d5fa-399b-4823-8f10-affec1bbfe65
 ms.localizationpriority: medium
 ms.openlocfilehash: 601261780f64a779d0aa43ea8d14f58fdcb5f502
-ms.sourcegitcommit: 3883eebbba70bfea0221e510863ee1a724a5f926
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "5783631"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59874140"
 ---
-# Services Bureau à distance - Affiche pour la planification
+# <a name="remote-desktop-services---planning-poster"></a>Services Bureau à distance - Affiche pour la planification
 
-## Services Bureau à distance dans WindowsServer
+## <a name="remote-desktop-services-in-windows-server"></a>Services Bureau à distance dans Windows Server
 
 L’équipe des Services Bureau à distance a créé une affiche pour vous aider à planifier, créer et exécuter votre environnement de Services Bureau à distance.
 
@@ -31,12 +31,12 @@ L’équipe des Services Bureau à distance a créé une affiche pour vous aider
 
 Vous pouvez obtenir un exemplaire de l’affiche en cliquant avec le bouton droit sur l’image et en l’enregistrant sur votre système local.
 
-Consultez les rubriques suivantes pour en savoir plus sur la planification:
+Consultez les rubriques suivantes pour en savoir plus sur la planification :
 
 - [Planifier et concevoir votre déploiement des services Bureau à distance](rds-plan-and-design.md)
-- [Créer et déployer les services Bureau à distance](rds-build-and-deploy.md)
+- [Générer et déployer des services Bureau à distance](rds-build-and-deploy.md)
 - [Exécuter et optimiser votre environnement de services Bureau à distance](rds-run-and-tune.md)
 
-## Bureau virtuel Windows
+## <a name="windows-virtual-desktop"></a>Bureau virtuel Windows
 
-Vous avez peut-être entendu nous abordons une nouvelle «infrastructure moderne» pour les services Bureau à distance. Peut-être que vous avez nous entendu à utiliser l’expression «RDmi». L’expression que vous devez savoir est «Windows Virtual Desktop». Apprenez-en plus sur cette nouvelle virtualisation offre dans [Microsoft 365 ajoute bureau moderne sur Azure](https://azure.microsoft.com/blog/microsoft-365-adds-modern-desktop-on-azure/) et notre [présentation Ignite 2018 sur le bureau virtuel Windows](https://www.youtube.com/watch?v=_7G37PFYVe4). Bureau virtuel Windows est actuellement en version préliminaire privée.
+Vous avez peut-être entendu nous parler à une nouveau « infrastructure moderne » pour le Bureau à distance. Peut-être que vous nous avez entendus utilise l’expression « RDmi ». L’expression que vous devez savoir est « Desktop virtuelle de Windows. » En savoir plus sur cette nouvelle virtualisation offre dans [Microsoft 365 ajoute de bureau moderne sur Azure](https://azure.microsoft.com/blog/microsoft-365-adds-modern-desktop-on-azure/) et notre [présentation Ignite 2018 sur le bureau virtuel Windows](https://www.youtube.com/watch?v=_7G37PFYVe4). Bureau virtuel Windows est actuellement en version préliminaire privée.

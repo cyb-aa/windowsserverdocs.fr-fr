@@ -1,6 +1,6 @@
 ---
-title: Étude de cas SDK Windows Admin Center - stockage pur
-description: Étude de cas SDK Windows Admin Center - stockage pur
+title: Étude de cas de kit de développement logiciel Windows Admin Center - stockage purs
+description: Étude de cas de kit de développement logiciel Windows Admin Center - stockage purs
 ms.technology: extend
 ms.topic: article
 author: daniellee-msft
@@ -9,48 +9,48 @@ ms.date: 1/7/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: 25018474fd22d05804ecc7faafbd633fbb4db269
-ms.sourcegitcommit: ebeec824f802f020d0ece17524ba43b1baeba893
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "8995321"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59849920"
 ---
-# Extension de stockage pur
+# <a name="pure-storage-extension"></a>Extension de stockage purs
 
-## En proposant une gestion tableau de bout en bout pour Windows Admin Center 
+## <a name="providing-end-to-end-array-management-for-windows-admin-center"></a>Une gestion de tableau de bout en bout pour Windows Admin Center 
 
-[Stockage pur](https://www.purestorage.com/) fournit une entreprise, les solutions de stockage flash-toutes les données qui permettent d’architecture centrées sur les données afin d’accélérer vos activités pour un avantage compétitif.  Pure est un Microsoft Gold Partner, certifiés pour Microsoft Windows Server et développe des intégrations techniques pour les solutions Microsoft clées comme Azure, Hyper-V, SQL Server, System Center, Windows PowerShell et SMB de Windows. Pure récemment annoncé un tech preview de l’extension prise en charge de la dernière version de Windows Admin Center qui fournit une vue du volet unique dans les produits FlashArray pur.  À partir de cette extension, les utilisateurs sont habilitées à partir d’un seul outil pour effectuer des tâches de surveillance, afficher les mesures de performances en temps réel et gérer des initiateurs et les volumes de stockage.
+[Stockage purs](https://www.purestorage.com/) fournit l’entreprise, les solutions de stockage flash de toutes les données qui offrent une architecture orientée données afin d’accélérer votre entreprise un avantage concurrentiel.  Pur est un partenaire Microsoft Gold, certifié pour Microsoft Windows Server et développe des intégrations techniques pour les solutions Microsoft clés tels que Azure, Hyper-V, SQL Server, System Center, Windows PowerShell et SMB de Windows. Pur a récemment annoncé un aperçu technique d’une extension prenant en charge de la dernière version de Windows Admin Center qui fournit un affichage simple dans les produits FlashArray Pure.  À partir de cette extension, les utilisateurs sont habilités à partir d’un outil pour effectuer des tâches de surveillance, afficher les mesures de performances en temps réel et gérer les initiateurs et les volumes de stockage.
 
-Dès le départ lorsque Windows Admin Center a été appelé «Projet Honolulu», Pure vu la valeur d’être en mesure de fournir des clients et partenaires la possibilité de gérer plusieurs FlashArrays stockage pur à partir du volet unique qui fournit Windows Admin Center.
+Dès le départ lorsque Windows Admin Center était appelé « Projet Honolulu », pur vu la valeur de mettre à disposition des clients et partenaires la possibilité de gérer plusieurs Pure FlashArrays de stockage à partir du volet unique de verre Windows Admin Center fournit.
 
-Démarrage de recherche le cas d’utilisation avec «Projet Honolulu» Pure ils réalisés immédiatement le risque de fournir une expérience de gestion unifiée entre Windows Admin Center et FlashArray. Pure étroitement collaboré avec l’équipe d’ingénieurs de Windows Admin Center, qui a permis à définir les détails d’implémentation pour les fonctionnalités. Pure a été également en mesure de fournir des commentaires sur les premières phases de Windows Admin Center et apportez les contributions à l’équipe Microsoft. 
+Lorsque pur commencé à rechercher le cas d’usage avec « Projet Honolulu » qu’ils comprenaient immédiatement le potentiel pour fournir une expérience de gestion unifiée entre Windows Admin Center et FlashArray. Pur étroitement collaboré avec l’équipe d’ingénierie Windows Admin Center, qui lui a permis de définir les détails d’implémentation pour les fonctionnalités. Pur est également parvenu à fournir des commentaires lors des premières phases de Windows Admin Center et de contribuer à l’équipe de Microsoft. 
 
-![Extension de stockage pur](../../media/extend-case-study-purestorage/purestorage-1.png)
+![Extension de stockage purs](../../media/extend-case-study-purestorage/purestorage-1.png)
 
-> <cite>«Nous avons intégré un ensemble de fonctionnalités qui imite notre interface web de FlashArray pour activer la gestion directe à partir de Windows Admin Center. Nos clients et partenaires bénéficieront d’un volet unique par rapport à la nécessité de fonctionner avec deux outils de gestion différents. Outre le point unique de la gestion des avantages pour les clients sera en mesure de gérer des serveurs Windows qui sont connectés à le FlashArray opportun.»</cite>
+> <cite>« Nous avons intégré un ensemble de fonctionnalités qui imite notre interface web de FlashArray pour activer la gestion directe depuis Windows Admin Center. Nos clients et partenaires bénéficient d’un volet unique plutôt que de devoir travailler avec deux outils d’administration différents. Outre le point de gestion unique avantages pour les clients seront en mesure de gérer en fonction du contexte des serveurs Windows qui sont connectés à la FlashArray. »</cite>
 >
-> --Barkz, directeur technique Microsoft Solutions et intégration de stockage pur
+> --Barkz, directeur technique Microsoft Solutions & intégration, stockage purs
 
-Les fonctionnalités qui sont incluses dans l’Extension de Solution de stockage pur sont les suivantes:
+Les fonctionnalités qui sont incluses dans l’Extension de Solution de stockage Pure incluent :
 - Connexion à plusieurs FlashArrays.
-- Affichage des détails FlashArray, y compris/s par seconde, la bande passante, latence, réduction des données et gestion de l’espace. Il s’agit de tous les détails mêmes que vous obtenez de l’interface utilisateur graphique de gestion FlashArray.
-- Afficher les groupes hôte configuré qui sont utilisés pour activer l’accès de volume partagé pour les hôtes de Windows Server et les Volumes partagés en cluster (volumes partagés de cluster).
-- Vue hôtes: Toutes les informations de connectivité est disponible, y compris les noms d’hôtes, iSCSI nom qualifié (IQN) et World Wide Names (WWN).
-- Gérer les Volumes, Cela inclut la possibilité de créer et supprimer les volumes. Une fois qu’un volume est détruit il va être placé dans la plage d’éléments détruit et vous devez Eradicate à partir de l’interface utilisateur graphique de gestion FlashArray principal.
-- Gérer les initiateurs, C’est une des fonctionnalités plus intéressantes fournissant le contexte pour les serveurs gérés par le déploiement de Windows Admin Center. Vous pouvez afficher les disques connectés (volumes) aux serveurs Windows individuels, vérifiez si les e/s-MPIO (MPIO) est installé/configuré et création/montage de nouveaux volumes.
+- Affichage des détails FlashArray, y compris les e/s, de bande passante, de latence, de réduction des données et de gestion de l’espace. Il s’agit des mêmes détails que vous obtenez à partir de l’interface utilisateur graphique de gestion FlashArray.
+- Afficher les groupes hôtes configurés qui sont utilisés pour autoriser l’accès au volume partagé pour les hôtes Windows Server et les Volumes partagés en cluster (CSV).
+- Hôtes de la vue, Toutes les informations de connectivité est disponible, y compris les noms d’hôte, iSCSI nom qualifié (IQN) et les noms WWN (WWN).
+- Gérer les Volumes, Cela inclut la possibilité de créer et détruire des volumes. Une fois un volume est détruit. il est placé dans la plage d’éléments de destruction et vous devrez Eradicate à partir de l’interface utilisateur graphique de gestion principal FlashArray.
+- Gestion des initiateurs — C’est une des fonctionnalités plus intéressantes de fournir un contexte aux serveurs individuels gérés par le déploiement de Windows Admin Center. Vous pouvez afficher les disques connectés (volumes) à des serveurs Windows individuels, vérifiez si les e/s de Multipath i/o (MPIO) est installé/configuré et création de montage de nouveaux volumes.
 
-Une [vidéo de démonstration](https://youtu.be/IFAeCAd6V2g) qui montre toutes les fonctionnalités qui fournit l’Extension de Solution de stockage pur a été créé. 
+Un [vidéo de démonstration](https://youtu.be/IFAeCAd6V2g) a été créé qui affiche toutes les fonctionnalités fournies par l’Extension de Solution de stockage Pure. 
 
-La ci-dessous capture d’écran illustre l’affichage les disques (volumes) sont connectés à un hôte Windows Server spécifique. En plus de consulter les détails de connectivité, nous vérifions si Multipath-e/s est configuré.
+La capture d’écran ci-dessous illustre l’affichage les disques (volumes) sont connectés à un hôte Windows Server spécifique. Outre l’affichage des détails de la connectivité, nous vérifions si Multipath i/o-e/s est configuré.
 
-![Extension de stockage pur](../../media/extend-case-study-purestorage/purestorage-2.png)
+![Extension de stockage purs](../../media/extend-case-study-purestorage/purestorage-2.png)
 
-En plus de l’affichage des disques, nouveaux volumes peuvent être créés et montés immédiatement à l’hôte sans avoir à utiliser l’outil Gestion des disques de Windows.
+Outre l’affichage les disques, les nouveaux volumes peuvent être créés et montés immédiatement à l’hôte sans avoir à utiliser l’outil Gestion des disques Windows.
 
-![Extension de stockage pur](../../media/extend-case-study-purestorage/purestorage-3.png)
+![Extension de stockage purs](../../media/extend-case-study-purestorage/purestorage-3.png)
 
-Étant donné que notre Technical Preview, les commentaires des clients collectées jusqu'à présent, en libérant a été très positive et également nous a fourni des informations sur les différentes fonctionnalités à ajouter dans les futures versions. 
+Étant donné que la libération de notre Technical Preview, les commentaires des clients collectées jusqu'à présent ont été très positif et également nous a fourni les informations sur les différentes fonctionnalités à ajouter dans les futures versions. 
 
-Ressources supplémentaires:
+Ressources supplémentaires :
 - [Billet de blog pure stockage extension annonce](https://blog.purestorage.com/tech-preview-of-the-pure-storage-extension-for-windows-admin-center/)
-- Podcast [PureReport](https://itunes.apple.com/us/podcast/windows-admin-center-extension-from-pure-storage/id1392639991?i=1000424316130&mt=2)
+- [PureReport](https://itunes.apple.com/us/podcast/windows-admin-center-extension-from-pure-storage/id1392639991?i=1000424316130&mt=2) podcast

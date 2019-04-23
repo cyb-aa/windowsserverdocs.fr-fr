@@ -1,6 +1,6 @@
 ---
-title: "Règles utilisées par l’outil Windows Server Essentials Best Practices Analyzer (BPA)"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Règles utilisées par l’outil BPA (Best Practices Analyzer) de Windows Server Essentials
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,806 +13,807 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: c205bc8ff75bf64d4a13a7d799988c9d1ebe1a22
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59850690"
 ---
-# <a name="rules-used-by-the-windows-server-essentials-best-practices-analyzer-bpa-tool"></a>Règles utilisées par l’outil Windows Server Essentials Best Practices Analyzer (BPA)
+# <a name="rules-used-by-the-windows-server-essentials-best-practices-analyzer-bpa-tool"></a>Règles utilisées par l’outil BPA (Best Practices Analyzer) de Windows Server Essentials
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Cet article décrit les règles utilisées par le WindowsServerEssentialsBestPractices Analyzer (BPA). L’outil BPA examine un serveur qui exécute WindowsServerEssentials et présente un rapport qui décrit les problèmes et fournit des recommandations pour les résoudre. Les recommandations sont développées par l’organisation du support technique pour WindowsServerEssentials.  
+Cet article décrit les règles utilisées par le Windows Server Essentials Best Practices Analyzer (BPA). L’outil BPA examine un serveur qui exécute Windows Server Essentials et présente un rapport qui décrit les problèmes et fournit des recommandations pour les résoudre. Les recommandations sont développées par l’organisation de support technique pour Windows Server Essentials.  
   
-## <a name="using-the-tool"></a>À l’aide de l’outil  
- Il est conseillé, lorsque vous migrez vers WindowsServerEssentials à partir de WindowsServerEssentials2011, WindowsSmallBusinessServer2011Essentials ou WindowsHomeServer2011, pour exécuter l’outil BPA sur le serveur de Destination après avoir terminé la migration de vos paramètres et données. Vous pouvez exécuter l’outil à partir du tableau de bord à tout moment.  
+## <a name="using-the-tool"></a>Utilisation de l’outil  
+ Il est conseillé, lorsque vous migrez vers Windows Server Essentials à partir de Windows Server 2011 Essentials, Windows Small Business Server 2011 Essentials ou Windows Home Server 2011, pour exécuter l’outil BPA sur le serveur de Destination après avoir terminé la migration votre paramètres et données. Vous pouvez à tout moment exécuter l’outil à partir du tableau de bord.  
   
-#### <a name="to-run-the--windows-server-essentials-bpa-on-the-server"></a>Pour exécuter l’outil BPA WindowsServerEssentials sur le serveur  
+#### <a name="to-run-the--windows-server-essentials-bpa-on-the-server"></a>Pour exécuter l’outil BPA de Windows Server Essentials sur le serveur  
   
-1.  Ouvrez une session sur le serveur en tant qu’administrateur, puis ouvrez le tableau de bord.  
+1.  Connectez-vous au serveur en tant qu’administrateur, puis ouvrez le tableau de bord.  
   
-2.  Dans le tableau de bord, cliquez sur le **périphériques** onglet.  
+2.  Dans le tableau de bord, cliquez sur l'onglet **Périphériques**.  
   
-3.  Sur le **tâches serveur** volet, cliquez sur **Best Practices Analyzer**.  
+3.  Dans le volet **Tâches du serveur**, cliquez sur **Best Practices Analyzer**.  
   
-4.  Passez en revue chaque message BPA et suivez les instructions pour résoudre les problèmes si nécessaire.  
+4.  Passez en revue chaque message du BPA et suivez les instructions pour résoudre les problèmes si nécessaire.  
   
 ## <a name="rules-used-by-the-best-practices-analyzer"></a>Règles utilisées par l’outil Best Practices Analyzer  
   
 ### <a name="disable-ip-filtering"></a>Désactiver le filtrage IP  
- **Problème:** le filtrage IP est actuellement activé sur le serveur. Vous devez désactiver le filtrage IP.  
+ **Problème :** Le filtrage IP est actuellement activé sur le serveur. Vous devez le désactiver.  
   
- **Impact:** si le filtrage IP est activé, le trafic réseau peut être bloqué.  
+ **Impact :** Le trafic du réseau peut se bloquer si le filtrage IP est activé.  
   
- **Résolution:**  
+ **Résolution :**  
   
 ##### <a name="to-disable-ip-filtering"></a>Pour désactiver le filtrage IP  
   
-1.  Ouvrez regedit.exe sur le serveur.  
+1.  Ouvrez le fichier regedit.exe sur le serveur.  
   
-2.  Naviguez jusqu'à HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters.  
+2.  Naviguez jusqu’à HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters.  
   
-3.  Avec le bouton droit **EnableSecurityFilters**, puis cliquez sur **modifier**.  
+3.  Cliquez avec le bouton droit sur **EnableSecurityFilters**, puis cliquez sur **Modifier**.  
   
-4.  Dans le **modifier DWORD (32bits) valeur** fenêtre, modifier le **données de la valeur** champ à zéro, puis cliquez sur **OK**.  
+4.  Dans la fenêtre **Modifier la valeur DWORD 32 bits**, indiquez 0 dans le champ des **données de la valeur**, puis cliquez sur **OK**.  
   
-5.  Pour appliquer la modification, redémarrez le serveur.  
+5.  Redémarrez le serveur pour que la modification soit effective.  
   
-### <a name="the-distributed-transaction-coordinator-msdtc-service-should-be-set-to-start-automatically-by-default"></a>Le service Distributed Transaction Coordinator (MSDTC) doit être configuré pour démarrer automatiquement par défaut  
- **Problème:** le service MSDTC n’est pas configuré pour démarrer automatiquement.  
+### <a name="the-distributed-transaction-coordinator-msdtc-service-should-be-set-to-start-automatically-by-default"></a>Le service MSDTC (Microsoft Distributed Transaction Coordinator) doit être configuré pour démarrer automatiquement par défaut.  
+ **Problème :** Le service MSDTC n’est pas configuré pour démarrer automatiquement.  
   
- **Impact:** le service MSDTC ne peut pas démarrer automatiquement lorsque le serveur démarre. Si le service est arrêté, certaines fonctions de SQLServer ou COM pourraient échouer. Par conséquent, les applications qui utilisent des fonctions de MicrosoftSQLServer ou COM pourraient ne pas fonctionnent correctement.  
+ **Impact :** Il se peut que le service MSDTC ne démarre pas automatiquement au démarrage du serveur. En cas d’arrêt du service, certaines fonctions SQL ou COM pourraient échouer. Par conséquent, les applications utilisant des fonctions SQL ou COM pourraient ne pas fonctionner correctement.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-configure-the-msdtc-service-to-start-automatically"></a>Pour configurer le service MSDTC pour démarrer automatiquement  
-  
-1.  Ouvrez services.msc sur le serveur.  
-  
-2.  Cliquez sur le **Distributed Transaction Coordinator** de service, puis cliquez sur **propriétés**.  
-  
-3.  Sur le **général**, modifiez le **type de démarrage** à **automatique (début différé)**, puis cliquez sur **OK**.  
-  
-### <a name="the-netlogon-service-should-be-configured-to-start-automatically-by-default"></a>Le service Netlogon doit être configuré pour démarrer automatiquement par défaut  
- **Problème:** le service Netlogon n’est pas configuré pour démarrer automatiquement.  
-  
- **Impact:** le service Netlogon peut pas démarrer automatiquement lorsque le serveur démarre. Si le service est arrêté, le serveur ne peut pas authentifier utilisateurs et les services.  
-  
- **Résolution:**  
-  
-##### <a name="to-configure-the-netlogon-service-to-start-automatically"></a>Pour configurer le service Netlogon pour démarrer automatiquement  
+##### <a name="to-configure-the-msdtc-service-to-start-automatically"></a>Pour configurer le service MSDTC en vue d’un démarrage automatique  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Cliquez sur le **Netlogon** de service, puis cliquez sur **propriétés**.  
+2.  Cliquez avec le bouton droit sur le service **Distributed Transaction Coordinator**, puis cliquez sur **Propriétés**.  
   
-3.  Sur le **général**, modifiez le **type de démarrage** à **automatique**, puis cliquez sur **OK**.  
+3.  Dans l’onglet **Général**, définissez le **Type de démarrage** sur **Automatique (début différé)**, puis cliquez sur **OK**.  
   
-### <a name="the-dns-client-service-should-be-configured-to-start-automatically-by-default"></a>Le service Client DNS doit être configuré pour démarrer automatiquement par défaut  
- **Problème:** le service Client DNS n’est pas configuré pour démarrer automatiquement.  
+### <a name="the-netlogon-service-should-be-configured-to-start-automatically-by-default"></a>Par défaut le service Netlogon doit être configuré pour démarrer automatiquement par défaut  
+ **Problème :** Le service Netlogon n’est pas configuré pour démarrer automatiquement.  
   
- **Impact:** le service Client DNS ne peut pas démarrer automatiquement lorsque le serveur démarre. Si ce service est arrêté, le serveur ne peut pas être en mesure de résoudre les noms DNS.  
+ **Impact :**  Il se peut que le service Netlogon ne démarre pas automatiquement lorsque le serveur démarre. En cas d’arrêt du service, le serveur pourrait ne plus être en mesure d’authentifier les utilisateurs et les services.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-configure-the-dns-client-service-to-start-automatically"></a>Pour configurer le service Client DNS pour démarrer automatiquement  
-  
-1.  Ouvrez services.msc sur le serveur.  
-  
-2.  Cliquez sur le **Client DNS** de service, puis cliquez sur **propriétés**.  
-  
-3.  Sur le **général**, modifiez le **type de démarrage** à **automatique**, puis cliquez sur **OK**.  
-  
-### <a name="the-dns-server-service-should-be-configured-to-start-automatically-by-default"></a>Le service serveur DNS doit être configuré pour démarrer automatiquement par défaut  
- **Problème:** le service serveur DNS n’est pas configuré pour démarrer automatiquement.  
-  
- **Impact:** le service serveur DNS ne peut pas démarrer automatiquement lorsque le serveur démarre. Si ce service est arrêté, les mises à jour DNS ne produira pas.  
-  
- **Résolution:**  
-  
-##### <a name="to-configure-the-dns-server-service-to-start-automatically"></a>Pour configurer le service serveur DNS pour démarrer automatiquement  
+##### <a name="to-configure-the-netlogon-service-to-start-automatically"></a>Pour configurer le service Netlogon pour qu’il démarre automatiquement  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Cliquez sur le **serveur DNS** de service, puis cliquez sur **propriétés**.  
+2.  Cliquez avec le bouton droit sur le service **Netlogon**, puis cliquez sur **Propriétés**.  
   
-3.  Sur le **général**, modifiez le **type de démarrage** à **automatique**, puis cliquez sur **OK**.  
+3.  Dans l’onglet **Général** , modifiez le **Type de démarrage** en spécifiant **Automatique**, puis cliquez sur **OK**.  
   
-### <a name="active-directory-web-services-is-not-set-to-the-default-start-mode"></a>Services Web ActiveDirectory n’est pas défini sur le mode de démarrage par défaut  
- **Problème:** Services Web ActiveDirectory n’est pas défini sur le mode de démarrage par défaut automatique.  
+### <a name="the-dns-client-service-should-be-configured-to-start-automatically-by-default"></a>Par défaut, le service Client DNS doit être configuré pour démarrer automatiquement.  
+ **Problème :**  Le service Client DNS n’est pas configuré pour démarrer automatiquement.  
   
- **Impact:** Services Web d’ActiveDirectory (ADWS) n’est pas configuré pour le mode de démarrage par défaut automatique. Si les services Web ActiveDirectory sur le serveur est arrêté ou désactivé, les applications clientes telles que le module ActiveDirectory pour Windows PowerShell ou le centre d’administration ActiveDirectory ne peut pas accéder ou gérer les instances du service annuaire qui sont en cours d’exécution sur ce serveur. Pour plus d’informations, voir [Nouveautés dans ADDS: Services Web ActiveDirectory](https://technet.microsoft.com/library/dd391908\(WS.10\).aspx) (https://technet.microsoft.com/library/dd391908(WS.10).aspx) dans la bibliothèque technique Windows Server.  
+ **Impact :**  Il se peut que le service Client DNS ne démarre pas automatiquement au démarrage du serveur. En cas d’arrêt du service, le serveur pourrait ne plus être en mesure de résoudre des noms DNS.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-configure-the-active-directory-web-services-service-to-start-automatically"></a>Pour configurer le service Services Web ActiveDirectory pour démarrer automatiquement  
-  
-1.  Ouvrez services.msc sur le serveur.  
-  
-2.  Cliquez sur le **Services Web ActiveDirectory** de service, puis cliquez sur **propriétés**.  
-  
-3.  Sur le **général**, modifiez le **type de démarrage** à **automatique**, puis cliquez sur **OK**.  
-  
-### <a name="the-dhcp-client-service-should-be-configured-to-start-automatically-by-default"></a>Le service Client DHCP doit être configuré pour démarrer automatiquement par défaut  
- **Problème:** le service Client DHCP n’est pas configuré pour démarrer automatiquement.  
-  
- **Impact:** le service Client DHCP ne démarre pas automatiquement lorsque le serveur démarre. Si ce service est arrêté, les ordinateurs clients ne peuvent pas recevoir une adresse IP à partir du serveur.  
-  
- **Résolution:**  
-  
-##### <a name="to-configure-the-dhcp-client-service-to-start-automatically"></a>Pour configurer le service Client DHCP pour démarrer automatiquement  
+##### <a name="to-configure-the-dns-client-service-to-start-automatically"></a>Pour configurer le service Client DNS en vue d’un démarrage automatique  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Cliquez sur le **Client DHCP** de service, puis cliquez sur **propriétés**.  
+2.  Cliquez avec le bouton droit sur le service **Client DNS**, puis cliquez sur **Propriétés**.  
   
-3.  Sur le **général**, modifiez le **type de démarrage** à **automatique**, puis cliquez sur **OK**.  
+3.  Dans l’onglet **Général** , modifiez le **Type de démarrage** en spécifiant **Automatique**, puis cliquez sur **OK**.  
   
-### <a name="the-iis-admin-service-should-be-configured-to-start-automatically-by-default"></a>Le Service d’administration IIS doit être configuré pour démarrer automatiquement par défaut  
- **Problème:** le Service d’administration IIS n’est pas configuré pour démarrer automatiquement.  
+### <a name="the-dns-server-service-should-be-configured-to-start-automatically-by-default"></a>Le service Serveur DNS doit être configuré pour démarrer automatiquement par défaut.  
+ **Problème :**  Le service Serveur DNS n’est pas configuré pour démarrer automatiquement.  
   
- **Impact:** le Service d’administration IIS ne démarre pas automatiquement lorsque le serveur démarre. Si ce service est arrêté, il se peut que vous ne puissiez pas accéder aux sites Internet en cours d’exécution sur le serveur, comme l’accès Web à distance.  
+ **Impact :**  Il se peut que le service Client DNS ne démarre pas automatiquement au démarrage du serveur. En cas d’arrêt du service, les mises à jour DNS ne seront pas exécutées.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-configure-the-iis-admin-service-to-start-automatically"></a>Pour configurer le service d’administration IIS pour démarrer automatiquement  
-  
-1.  Ouvrez services.msc sur le serveur.  
-  
-2.  Avec le bouton droit **Service d’administration IIS**, puis cliquez sur **propriétés**.  
-  
-3.  Sur le **général**, modifiez le **type de démarrage** à **automatique**, puis cliquez sur **OK**.  
-  
-### <a name="the-world-wide-web-publishing-service-should-be-configured-to-start-automatically-by-default"></a>Le Service de publication World Wide Web doit être configuré pour démarrer automatiquement par défaut  
- **Problème:** le Service de publication World Wide Web n’est pas configuré pour démarrer automatiquement.  
-  
- **Impact:** le Service de publication World Wide Web ne peut pas démarrer automatiquement lorsque le serveur démarre. Si ce service est arrêté, il se peut que vous ne puissiez pas accéder aux sites Internet en cours d’exécution sur le serveur, comme l’accès Web à distance.  
-  
- **Résolution:**  
-  
-##### <a name="to-configure-the-world-wide-web-publishing-service-to-start-automatically"></a>Pour configurer le Service de publication World Wide Web pour démarrer automatiquement  
+##### <a name="to-configure-the-dns-server-service-to-start-automatically"></a>Pour configurer le service Serveur DNS en vue d’un démarrage automatique  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Avec le bouton droit **Service de publication World Wide Web**, puis cliquez sur **propriétés**.  
+2.  Cliquez avec le bouton droit sur le service **Serveur DNS**, puis cliquez sur **Propriétés**.  
   
-3.  Sur le **général**, modifiez le **type de démarrage** à **automatique**, puis cliquez sur **OK**.  
+3.  Dans l’onglet **Général** , modifiez le **Type de démarrage** en spécifiant **Automatique**, puis cliquez sur **OK**.  
   
-### <a name="the-remote-registry-service-should-be-configured-to-start-automatically-by-default"></a>Le service de Registre distant doit être configuré pour démarrer automatiquement par défaut  
- **Problème:** le service Registre à distance n’est pas configuré pour démarrer automatiquement.  
+### <a name="active-directory-web-services-is-not-set-to-the-default-start-mode"></a>Les services Web Active Directory ne sont pas configurés en mode de démarrage par défaut  
+ **Problème :**  Les services Web Active Directory ne sont pas configurés en mode automatique de démarrage par défaut.  
   
- **Impact:**  
+ **Impact :**  Les services Web Active Directory (ADWS) ne sont pas configurés par défaut en mode de démarrage automatique. Si les services Web Active Directory (ADWS) sont arrêtés ou désactivés sur le serveur, les applications clientes comme le module Active Directory pour Windows PowerShell ou le Centre d’administration Active Directory ne peuvent pas accéder aux instances du service d’annuaire exécutées sur ce serveur ou les gérer. Pour plus d'informations, consultez [Nouveautés dans AD DS : Services Web Active Directory](https://technet.microsoft.com/library/dd391908\(WS.10\).aspx) (https://technet.microsoft.com/library/dd391908(WS.10).aspx) dans la bibliothèque technique Windows Server.  
   
- Le service Registre à distance ne peut pas démarrer automatiquement au démarrage du serveur. Si ce service est arrêté, vous serez peut-être pas en mesure d’effectuer certaines opérations réseau à distance.  
+ **Résolution :**  
   
- **Résolution:**  
-  
-##### <a name="to-configure-the-remote-registry-service-to-start-automatically"></a>Pour configurer le service Registre à distance pour démarrer automatiquement  
+##### <a name="to-configure-the-active-directory-web-services-service-to-start-automatically"></a>Pour configurer les Services Web Active Directory en vue d’un démarrage automatique  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Avec le bouton droit le **Registre distant** de service, puis cliquez sur **propriétés**.  
+2.  Cliquez avec le bouton droit sur **Services Web Active Directory**, puis cliquez sur **Propriétés**.  
   
-3.  Sur le **général**, modifiez le **type de démarrage** à **automatique**, puis cliquez sur **OK**.  
+3.  Dans l’onglet **Général** , modifiez le **Type de démarrage** en spécifiant **Automatique**, puis cliquez sur **OK**.  
   
-### <a name="the-remote-desktop-gateway-service-should-be-configured-to-start-automatically-by-default"></a>Le service passerelle des services Bureau à distance doit être configuré pour démarrer automatiquement par défaut.  
- **Problème:** le service passerelle des services Bureau à distance n’est pas configuré pour démarrer automatiquement.  
+### <a name="the-dhcp-client-service-should-be-configured-to-start-automatically-by-default"></a>Le service client DHCP doit être configuré pour démarrer automatiquement par défaut  
+ **Problème :**  Le service client DHCP n’est pas configuré pour démarrer automatiquement.  
   
- **Impact:** si ce service est arrêté, les utilisateurs ne peuvent peut-être pas accéder aux ordinateurs à l’aide d’accès Web à distance.  
+ **Impact :**  Le service Client DHCP ne démarrera pas automatiquement au démarrage du serveur. En cas d’arrêt du service, les ordinateurs client ne seront plus en mesure de recevoir une adresse IP depuis le serveur.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-configure-the-remote-desktop-gateway-service-to-start-automatically"></a>Pour configurer le service passerelle des services Bureau à distance pour démarrer automatiquement  
-  
-1.  Ouvrez services.msc sur le serveur.  
-  
-2.  Cliquez sur le **passerelle des services Bureau à distance** de service, puis cliquez sur **propriétés**.  
-  
-3.  Sur le **général**, modifiez le **type de démarrage** à **automatique (début différé)**, puis cliquez sur **OK**.  
-  
-### <a name="the-windows-time-service-should-be-configured-to-start-automatically-by-default"></a>Le service de temps Windows doit être configuré pour démarrer automatiquement par défaut  
- **Problème:** le service de temps Windows n’est pas configuré pour démarrer automatiquement.  
-  
- **Impact:** si ce service est arrêté, la synchronisation de données et l’heure ne sont pas disponibles.  
-  
- **Résolution:**  
-  
-##### <a name="to-configure-the-windows-time-service-to-start-automatically"></a>Pour configurer le service de temps Windows pour démarrer automatiquement  
+##### <a name="to-configure-the-dhcp-client-service-to-start-automatically"></a>Pour configurer le service client DHCP en vue d’un démarrage automatique  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Avec le bouton droit le **temps Windows** de service, puis cliquez sur **propriétés**.  
+2.  Cliquez avec le bouton droit sur **Client DHCP**, puis cliquez sur **Propriétés**.  
   
-3.  Sur le **général**, modifiez le **type de démarrage** à **automatique**, puis cliquez sur **OK**.  
+3.  Dans l’onglet **Général** , modifiez le **Type de démarrage** en spécifiant **Automatique**, puis cliquez sur **OK**.  
   
-### <a name="the-distributed-transaction-coordinator-msdtc-service-should-be-started"></a>Le service Distributed Transaction Coordinator (MSDTC) doit être démarré.  
- **Problème:** le service MSDTC n’est pas en cours d’exécution sur le serveur.  
+### <a name="the-iis-admin-service-should-be-configured-to-start-automatically-by-default"></a>Le service d’administration IIS doit être configuré pour démarrer automatiquement par défaut.  
+ **Problème :** Le service d’administration IIS n’est pas configuré pour démarrer automatiquement.  
   
- **Impact:** si ce service est arrêté, certaines fonctions de SQLServer ou COM pourraient échouer. Par conséquent, les applications qui utilisent des fonctions de MicrosoftSQLServer ou COM pourraient ne pas fonctionnent correctement.  
+ **Impact :** Le service d’administration IIS ne démarrera pas automatiquement au démarrage du serveur. En cas d’arrêt du service, vous ne pourrez peut-être pas accéder aux sites Internet exécutés sur le serveur, comme par exemple l’Accès Web à distance.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-start-the-distributed-transaction-coordinator-service"></a>Pour démarrer le service Distributed Transaction Coordinator  
+##### <a name="to-configure-the-iis-admin-service-to-start-automatically"></a>Pour configurer le service d’administration IIS en vue d’un démarrage automatique  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Cliquez sur le **Distributed Transaction Coordinator** de service, puis cliquez sur **Démarrer**.  
+2.  Cliquez avec le bouton droit sur **Service d’administration IIS**, puis cliquez sur **Propriétés**.  
+  
+3.  Dans l’onglet **Général** , modifiez le **Type de démarrage** en spécifiant **Automatique**, puis cliquez sur **OK**.  
+  
+### <a name="the-world-wide-web-publishing-service-should-be-configured-to-start-automatically-by-default"></a>Le service de publication World Wide Web doit être configuré pour démarrer automatiquement par défaut  
+ **Problème :**  Le service de publication World Wide Web n’est pas configuré pour démarrer automatiquement.  
+  
+ **Impact :**  Il se peut que le service de publication World Wide Web ne démarre pas automatiquement au démarrage du serveur. En cas d’arrêt du service, vous ne pourrez peut-être pas accéder aux sites Internet exécutés sur le serveur, comme par exemple l’Accès Web à distance.  
+  
+ **Résolution :**  
+  
+##### <a name="to-configure-the-world-wide-web-publishing-service-to-start-automatically"></a>Pour configurer le service de publication World Wide Web en vue d’un démarrage automatique  
+  
+1.  Ouvrez services.msc sur le serveur.  
+  
+2.  Cliquez avec le bouton droit sur **Service de publication World Wide Web**, puis cliquez sur **Propriétés**.  
+  
+3.  Dans l’onglet **Général** , modifiez le **Type de démarrage** en spécifiant **Automatique**, puis cliquez sur **OK**.  
+  
+### <a name="the-remote-registry-service-should-be-configured-to-start-automatically-by-default"></a>Le service d’accès à distance au Registre doit être configuré pour démarrer automatiquement par défaut  
+ **Problème :**  Le service d’accès à distance au Registre n’est pas configuré pour démarrer automatiquement.  
+  
+ **Impact :**  
+  
+ Il se peut que le service d’accès à distance au Registre ne démarre pas automatiquement au démarrage du serveur. En cas d’arrêt du service, vous ne pourrez peut-être pas exécuter certaines des opérations réseau à distance.  
+  
+ **Résolution :**  
+  
+##### <a name="to-configure-the-remote-registry-service-to-start-automatically"></a>Pour configurer le service Registre à distance en vue d’un démarrage automatique  
+  
+1.  Ouvrez services.msc sur le serveur.  
+  
+2.  Cliquez avec le bouton droit sur le service **Registre à distance**, puis cliquez sur **Propriétés**.  
+  
+3.  Dans l’onglet **Général** , modifiez le **Type de démarrage** en spécifiant **Automatique**, puis cliquez sur **OK**.  
+  
+### <a name="the-remote-desktop-gateway-service-should-be-configured-to-start-automatically-by-default"></a>Le service Passerelle des services Bureau à distance doit être configuré pour démarrer automatiquement par défaut  
+ **Problème :**  Le service Passerelle des services Bureau à distance n’est pas configuré pour démarrer automatiquement.  
+  
+ **Impact :**  En cas d’arrêt du service, il se peut que les utilisateurs ne soient pas en mesure d’accéder aux ordinateurs qui utilisent l’accès Web à distance.  
+  
+ **Résolution :**  
+  
+##### <a name="to-configure-the-remote-desktop-gateway-service-to-start-automatically"></a>Pour configurer le service Passerelle des services Bureau à distance en vue d’un démarrage automatique  
+  
+1.  Ouvrez services.msc sur le serveur.  
+  
+2.  Cliquez avec le bouton droit sur le service **Passerelle des services Bureau à distance**, puis cliquez sur **Propriétés**.  
+  
+3.  Dans l’onglet **Général**, définissez le **Type de démarrage** sur **Automatique (début différé)**, puis cliquez sur **OK**.  
+  
+### <a name="the-windows-time-service-should-be-configured-to-start-automatically-by-default"></a>Service de temps Windows doit être configuré pour démarrer automatiquement par défaut  
+ **Problème :**  Service de temps Windows n’est pas configuré pour démarrer automatiquement.  
+  
+ **Impact :**  En cas d’arrêt du service, la synchronisation horaire et la synchronisation des données ne seront pas disponibles.  
+  
+ **Résolution :**  
+  
+##### <a name="to-configure-the-windows-time-service-to-start-automatically"></a>Pour configurer le service Horloge Windows en vue d’un démarrage automatique  
+  
+1.  Ouvrez services.msc sur le serveur.  
+  
+2.  Cliquez avec le bouton droit sur **Horloge Windows**, puis cliquez sur **Propriétés**.  
+  
+3.  Dans l’onglet **Général** , modifiez le **Type de démarrage** en spécifiant **Automatique**, puis cliquez sur **OK**.  
+  
+### <a name="the-distributed-transaction-coordinator-msdtc-service-should-be-started"></a>Le service MSDTC (Distributed Transaction Coordinator) devrait démarrer  
+ **Problème :**  Le service MSDTC n’est pas en cours d’exécution sur le serveur.  
+  
+ **Impact :**  En cas d’arrêt du service, certaines fonctions SQL ou COM pourraient échouer. Par conséquent, les applications utilisant des fonctions SQL ou COM pourraient ne pas fonctionner correctement.  
+  
+ **Résolution :**  
+  
+##### <a name="to-start-the-distributed-transaction-coordinator-service"></a>Pour démarrer le service MSDTC (Microsoft Distributed Transaction Coordinator)  
+  
+1.  Ouvrez services.msc sur le serveur.  
+  
+2.  Cliquez avec le bouton droit sur le service **Distributed Transaction Coordinator**, puis cliquez sur **Démarrer**.  
   
 ### <a name="the-netlogon-service-should-be-started"></a>Le service Netlogon devrait démarrer  
- **Problème:** le service Netlogon n’est pas en cours d’exécution sur le serveur.  
+ **Problème :**  Le service Netlogon n’est pas en cours d’exécution sur le serveur.  
   
- **Impact:** si ce service n’est pas démarré, le serveur ne peut pas authentifier utilisateurs et les services.  
+ **Impact :**  Si le service n’est pas démarré, le serveur pourrait ne pas être en mesure d’authentifier les utilisateurs et les services.  
   
- **Résolution:**  
+ **Résolution :**  
   
 ##### <a name="to-start-the-netlogon-service"></a>Pour démarrer le service Netlogon  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Cliquez sur le **Netlogon** de service, puis cliquez sur **Démarrer**.  
+2.  Cliquez avec le bouton droit sur le service **Netlogon**, puis cliquez sur **Démarrer**.  
   
 ### <a name="the-dns-client-service-should-be-started"></a>Le service Client DNS devrait démarrer  
- **Problème:** le service Client DNS n’est pas en cours d’exécution sur le serveur.  
+ **Problème :**  Le service Client DNS n’est pas en cours d’exécution sur le serveur.  
   
- **Impact:** si ce service n’est pas démarré, le serveur peut être en mesure de résoudre les noms DNS.  
+ **Impact :**  Si le service n’est pas démarré, le serveur pourrait ne pas être en mesure de résoudre des noms DNS.  
   
- **Résolution:**  
+ **Résolution :**  
   
 ##### <a name="to-start-the-dns-client-service"></a>Pour démarrer le service Client DNS  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Cliquez sur le **Client DNS** de service, puis cliquez sur **Démarrer**.  
+2.  Cliquez avec le bouton droit sur le service **Client DNS**, puis cliquez sur **Démarrer**.  
   
-### <a name="the-dns-server-service-should-be-started"></a>Le service serveur DNS doit être démarré.  
- **Problème:** le service serveur DNS n’est pas en cours d’exécution sur le serveur.  
+### <a name="the-dns-server-service-should-be-started"></a>Le service Serveur DNS devrait démarrer  
+ **Problème :**  Le service Serveur DNS n’est pas en cours d’exécution sur le serveur.  
   
- **Impact:** si le service serveur DNS n’est pas démarré, mises à jour DNS ne peuvent pas se produire.  
+ **Impact :**  Si le service Serveur DNS n’est pas démarré, il se peut que les mises à jour DNS ne soient pas exécutées.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-start-the-dns-server-service"></a>Pour démarrer le service serveur DNS  
-  
-1.  Ouvrez services.msc sur le serveur.  
-  
-2.  Cliquez sur le **serveur DNS** de service, puis cliquez sur **Démarrer**.  
-  
-### <a name="active-directory-web-services-is-not-started"></a>Services Web ActiveDirectory n’est pas démarré.  
- **Problème:** Services Web ActiveDirectory n’est pas démarré.  
-  
- **Impact:** Services Web d’ActiveDirectory (ADWS) n’est pas démarré. Si les services Web ActiveDirectory sur le serveur est arrêté ou désactivé, les applications clientes telles que le module ActiveDirectory pour Windows PowerShell ou le centre d’administration ActiveDirectory ne peut pas accéder ou gérer les instances du service annuaire qui sont en cours d’exécution sur ce serveur. Pour plus d’informations, voir [Nouveautés dans ADDS: Services Web ActiveDirectory](https://technet.microsoft.com/library/dd391908\(WS.10\).aspx) (https://technet.microsoft.com/library/dd391908(WS.10).aspx) dans la bibliothèque technique Windows Server.  
-  
- **Résolution:**  
-  
-##### <a name="to-start-the-active-directory-web-services-service"></a>Pour démarrer le service Services Web ActiveDirectory  
+##### <a name="to-start-the-dns-server-service"></a>Pour démarrer le service Serveur DNS  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Avec le bouton droit **Services Web ActiveDirectory**, puis cliquez sur **Démarrer**.  
+2.  Cliquez sur le compte du service **Serveur DNS**, puis sur **Démarrer**.  
+  
+### <a name="active-directory-web-services-is-not-started"></a>Les Services Web Active Directory ne se sont pas lancés  
+ **Problème :**  Les Services Web Active Directory ne se sont pas démarrés.  
+  
+ **Impact :**  Les services Web Active Directory (ADWS) ne sont pas démarrés. Si les services Web Active Directory (ADWS) sont arrêtés ou désactivés sur le serveur, les applications clientes comme le module Active Directory pour Windows PowerShell ou le Centre d’administration Active Directory ne peuvent pas accéder aux instances du service d’annuaire exécutées sur ce serveur ou les gérer. Pour plus d'informations, consultez [Nouveautés dans AD DS : Services Web Active Directory](https://technet.microsoft.com/library/dd391908\(WS.10\).aspx) (https://technet.microsoft.com/library/dd391908(WS.10).aspx) dans la bibliothèque technique Windows Server.  
+  
+ **Résolution :**  
+  
+##### <a name="to-start-the-active-directory-web-services-service"></a>Pour démarrer les Services Web Active Directory  
+  
+1.  Ouvrez services.msc sur le serveur.  
+  
+2.  Cliquez avec le bouton droit sur **Services Web Active Directory**, puis cliquez sur **Démarrer**.  
   
 ### <a name="the-dhcp-client-service-should-be-started"></a>Le service Client DHCP devrait démarrer  
- **Problème:** le service Client DHCP n’est pas en cours d’exécution sur le serveur.  
+ **Problème :**  Le service Client DHCP n’est pas en cours d’exécution sur le serveur.  
   
- **Impact:** si ce service est arrêté, les ordinateurs clients ne peuvent pas recevoir une adresse IP du serveur.  
+ **Impact :**  En cas d’arrêt du service, les ordinateurs client ne seront plus en mesure de recevoir une adresse IP depuis le serveur.  
   
- **Résolution:**  
+ **Résolution :**  
   
 ##### <a name="to-start-the-dhcp-client-service"></a>Pour démarrer le service Client DHCP  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Cliquez sur le **Client DHCP** de service, puis cliquez sur **Démarrer**.  
+2.  Cliquez avec le bouton droit sur le service **Client DHCP**, puis cliquez sur **Démarrer**.  
   
-### <a name="the-iis-admin-service-should-be-started"></a>Le Service d’administration IIS devrait démarrer  
- **Problème:** le Service d’administration IIS n’est pas en cours d’exécution sur le serveur.  
+### <a name="the-iis-admin-service-should-be-started"></a>Le service d’administration IIS devrait démarrer  
+ **Problème :**  Le service d’administration IIS n’est pas en cours d’exécution sur le serveur.  
   
- **Impact:** si ce service est arrêté, vous ne pourrez peut-être pas accéder aux sites Web en cours d’exécution sur le serveur, comme l’accès Web à distance.  
+ **Impact :**  En cas d’arrêt du service, vous ne pourrez peut-être pas accéder aux sites Internet exécutés sur le serveur, comme par exemple l’Accès Web à distance.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-start-the-iis-admin-service"></a>Pour démarrer le Service d’administration IIS  
-  
-1.  Ouvrez services.msc sur le serveur.  
-  
-2.  Avec le bouton droit **Service d’administration IIS**, puis cliquez sur **Démarrer**.  
-  
-### <a name="the-world-wide-web-publishing-service-should-be-started"></a>Le Service de publication World Wide Web devrait démarrer  
- **Problème:** le Service de publication World Wide Web n’est pas en cours d’exécution sur le serveur.  
-  
- **Impact:** si ce service est arrêté, vous ne pourrez peut-être pas accéder aux sites Web en cours d’exécution sur le serveur, comme l’accès Web à distance.  
-  
- **Résolution:**  
-  
-##### <a name="to-start-the-world-wide-web-publishing-service"></a>Pour démarrer le Service de publication World Wide Web  
+##### <a name="to-start-the-iis-admin-service"></a>Pour démarrer le service d’administration IIS  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Avec le bouton droit **Service de publication World Wide Web**, puis cliquez sur **Démarrer**.  
+2.  Cliquez avec le bouton droit sur **Service d’administration IIS**, puis cliquez sur **Démarrer**.  
   
-### <a name="the-remote-desktop-gateway-service-should-be-started"></a>Le service passerelle des services Bureau à distance doit être démarré.  
- **Problème:** le service passerelle des services Bureau à distance n’est pas en cours d’exécution sur le serveur.  
+### <a name="the-world-wide-web-publishing-service-should-be-started"></a>Le service de publication World Wide Web devrait démarrer  
+ **Problème :**  Le service de publication World Wide Web n’est pas en cours d’exécution sur le serveur.  
   
- **Impact:** si ce service est arrêté, les utilisateurs ne peuvent peut-être pas accéder aux ordinateurs à l’aide de l’accès Web à distance.  
+ **Impact :**  En cas d’arrêt du service, vous ne pourrez peut-être pas accéder aux sites Internet exécutés sur le serveur, comme par exemple l’Accès Web à distance.  
   
- **Résolution:**  
+ **Résolution :**  
+  
+##### <a name="to-start-the-world-wide-web-publishing-service"></a>Pour démarrer le service de publication World Wide Web  
+  
+1.  Ouvrez services.msc sur le serveur.  
+  
+2.  Cliquez avec le bouton droit sur **Service de publication World Wide Web**, puis cliquez sur **Démarrer**.  
+  
+### <a name="the-remote-desktop-gateway-service-should-be-started"></a>Le service Passerelle des services Bureau à distance devrait démarrer.  
+ **Problème :**  Le service Passerelle des services Bureau à distance n’est pas en cours d’exécution sur le serveur.  
+  
+ **Impact :**  En cas d’arrêt du service, il se peut que les utilisateurs ne soient pas en mesure d’accéder aux ordinateurs qui utilisent l’accès Web à distance.  
+  
+ **Résolution :**  
   
 ##### <a name="to-start-the-remote-desktop-gateway-service"></a>Pour démarrer le Service de passerelle Bureau à distance  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Cliquez sur le **passerelle des services Bureau à distance** de service, puis cliquez sur **Démarrer**.  
+2.  Cliquez avec le bouton droit sur le service **Passerelle des services Bureau à distance**, puis cliquez sur **Démarrer**.  
   
 ### <a name="the-windows-time-service-should-be-started"></a>Le service de temps Windows devrait démarrer  
- **Problème:** le service de temps Windows n’est pas en cours d’exécution sur le serveur.  
+ **Problème :**  Le service de temps Windows n’est pas en cours d’exécution sur le serveur.  
   
- **Impact:** si ce service est arrêté et l’heure de synchronisation sera pas disponible.  
+ **Impact :**  En cas d’arrêt du service, la synchronisation horaire et la synchronisation des données ne seront pas disponibles.  
   
- **Résolution:**  
+ **Résolution :**  
   
 ##### <a name="to-start-the-windows-time-service"></a>Pour démarrer le Service de temps Windows  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Avec le bouton droit le **temps Windows** de service, puis cliquez sur **Démarrer**.  
+2.  Cliquez avec le bouton droit sur **Horloge Windows**, puis cliquez sur **Démarrer**.  
   
-### <a name="the-distributed-transaction-coordinator-msdtc-service-logon-account-should-be-nt-authoritynetwork-service"></a>Le compte d’ouverture de session du service Distributed Transaction Coordinator (MSDTC) doit être NT AUTHORITY\\NETWORK Service  
- **Problème:** le compte d’ouverture de session par défaut pour le service Distributed Transaction Coordinator (MSDTC) a changé.  
+### <a name="the-distributed-transaction-coordinator-msdtc-service-logon-account-should-be-nt-authoritynetwork-service"></a>Le compte d’ouverture de session du service MSDTC (Distributed Transaction Coordinator) devrait être NT AUTHORITY\\Network Service  
+ **Problème :**  Le compte d’ouverture de session par défaut pour le service MSDTC (Distributed Transaction Coordinator) a changé.  
   
- **Impact:** le service ne dispose ne peut-être pas les autorisations requises pour fonctionner comme prévu. Par conséquent, les applications qui utilisent des fonctions SQL ou COM pourraient ne pas fonctionnent correctement.  
+ **Impact :**  Le service ne dispose peut-être pas des permissions appropriées requises pour fonctionner correctement. Par conséquent, les applications qui utilisent des fonctions SQL ou COM peuvent ne pas fonctionnent correctement.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-change-the-logon-account-for-the-service"></a>Pour modifier le compte d’ouverture de session pour le service  
+##### <a name="to-change-the-logon-account-for-the-service"></a>Pour changer le compte d’ouverture de session pour du service  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Cliquez sur le **Distributed Transaction Coordinator** de service, puis cliquez sur **propriétés**.  
+2.  Cliquez avec le bouton droit sur le service **Distributed Transaction Coordinator**, puis cliquez sur **Propriétés**.  
   
-3.  Sur le **ouverture de session** onglet, sélectionnez **ce compte**, type **NT AUTHORITY\Network Service**, puis cliquez sur **OK**.  
+3.  Dans l’onglet **Ouvrir une session**, sélectionnez **Ce compte**, entrez **NT AUTHORITY\Network Service**, puis cliquez sur **OK**.  
   
-### <a name="the-netlogon-service-should-use-the-local-system-account-as-its-logon-account"></a>Le service Netlogon doit utiliser le compte système Local comme compte d’ouverture de session  
- **Problème:** le compte d’ouverture de session par défaut pour le service Netlogon a changé.  
+### <a name="the-netlogon-service-should-use-the-local-system-account-as-its-logon-account"></a>Le service Netlogon doit utiliser le compte Système local comme compte d’ouverture de session  
+ **Problème :**  Le compte d’ouverture de session par défaut pour le service Netlogon a changé.  
   
- **Impact:** le service ne dispose ne peut-être pas les autorisations requises pour fonctionner comme prévu. Par conséquent, le serveur ne peut pas authentifier utilisateurs et les services.  
+ **Impact :**  Le service ne dispose peut-être pas des permissions appropriées requises pour fonctionner correctement. Par conséquent, il se peut que le serveur ne soit pas en mesure d’authentifier les utilisateurs et les services.  
   
- **Résolution:**  
+ **Résolution :**  
   
 ##### <a name="to-change-the-netlogon-service-logon-account"></a>Pour changer le compte d’ouverture de session du service Netlogon  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Cliquez sur le **Netlogon** de service, puis cliquez sur **propriétés**.  
+2.  Cliquez avec le bouton droit sur le service **Netlogon**, puis cliquez sur **Propriétés**.  
   
-3.  Sur le **ouverture de session** onglet, sélectionnez **compte système Local**.  
+3.  Dans l’onglet **Ouvrir une session**, sélectionnez **Compte système Local**.  
   
-### <a name="the-dns-client-service-should-use-the-nt-authoritynetwork-service-account-as-its-logon-account"></a>Le service Client DNS doit utiliser le compte NT AUTHORITY\\NETWORK Service comme compte d’ouverture de session  
- **Problème:** le compte d’ouverture de session par défaut pour le service Client DNS a changé.  
+### <a name="the-dns-client-service-should-use-the-nt-authoritynetwork-service-account-as-its-logon-account"></a>Le service Client DNS doit utiliser le compte NT AUTHORITY\\Network Service comme compte d’ouverture de session  
+ **Problème :**  Le compte d’ouverture de session par défaut pour le service Client DNS a changé.  
   
- **Impact:** le service ne dispose ne peut-être pas les autorisations requises pour fonctionner comme prévu. Par conséquent, le serveur peut être impossible de résoudre les noms DNS.  
+ **Impact :**  Le service ne dispose peut-être pas des permissions appropriées requises pour fonctionner correctement. Par conséquent, il se peut que le serveur ne soit pas en mesure de résoudre des noms DNS.  
   
- **Résolution:**  
+ **Résolution :**  
   
 ##### <a name="to-change-the-dns-client-service-logon-account"></a>Pour changer le compte d’ouverture de session du service Client DNS  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Cliquez sur le **Client DNS** de service, puis cliquez sur **propriétés**.  
+2.  Cliquez avec le bouton droit sur le service **Client DNS**, puis cliquez sur **Propriétés**.  
   
-3.  Sur le **ouverture de session** onglet, sélectionnez **ce compte**, puis tapez **NT AUTHORITY\Network Service**.  
+3.  Dans l’onglet **Ouvrir une session**, cliquez sur **Ce compte**, puis entrez **NT AUTHORITY\Network Service**.  
   
 ### <a name="the-dns-server-service-should-use-the-local-system-account-as-its-logon-account"></a>Le service serveur DNS doit utiliser le compte système Local comme compte d’ouverture de session  
- **Problème:** le compte d’ouverture de session par défaut pour le service serveur DNS a changé.  
+ **Problème :**  Le compte d’ouverture de session par défaut pour le service Serveur DNS a changé.  
   
- **Impact:** le service ne dispose ne peut-être pas les autorisations requises pour fonctionner comme prévu. Par conséquent, les mises à jour DNS ne soient pas exécutées.  
+ **Impact :**  Le service ne dispose peut-être pas des permissions appropriées requises pour fonctionner correctement. Par conséquent, les mises à jour DNS ne seront peut-être pas exécutées.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-change-the-dns-server-service-logon-account"></a>Pour modifier le compte d’ouverture de session du service serveur DNS  
+##### <a name="to-change-the-dns-server-service-logon-account"></a>Pour changer le compte d’ouverture de session du service Serveur DNS  
   
-1.  Ouvrez services.msc sur le serveur  
+1.  Sur le serveur, ouvrez services.msc  
   
-2.  Cliquez sur le **serveur DNS** de service, puis cliquez sur **propriétés**.  
+2.  Cliquez avec le bouton droit sur le service **Serveur DNS**, puis cliquez sur **Propriétés**.  
   
-3.  Sur le **ouverture de session** onglet, sélectionnez **compte système Local**.  
+3.  Dans l’onglet **Ouvrir une session**, sélectionnez **Compte système Local**.  
   
-### <a name="active-directory-web-services-is-not-the-default-logon-account"></a>Services Web ActiveDirectory n’est pas le compte d’ouverture de session par défaut  
- **Problème:** Services Web ActiveDirectory n’est pas le compte d’ouverture de session par défaut. Par défaut, le compte d’ouverture de session est défini sur **compte système Local**.  
+### <a name="active-directory-web-services-is-not-the-default-logon-account"></a>Le compte Services Web Active Directory n’est pas le compte d’ouverture de session par défaut  
+ **Problème :**  Le compte Services Web Active Directory n’est pas le compte d’ouverture de session par défaut. Par défaut, le compte d’ouverture de session est défini sur **Compte système local**.  
   
- **Impact:** Services Web d’ActiveDirectory (ADWS) n’est pas démarré. Si les services Web ActiveDirectory sur le serveur est arrêté ou désactivé, les applications clientes telles que le module ActiveDirectory pour Windows PowerShell ou le centre d’administration ActiveDirectory ne peut pas accéder ou gérer les instances du service annuaire qui sont en cours d’exécution sur ce serveur. Pour plus d’informations, voir [Nouveautés dans ADDS: Services Web ActiveDirectory](https://technet.microsoft.com/library/dd391908\(WS.10\).aspx) (https://technet.microsoft.com/library/dd391908(WS.10).aspx) dans la bibliothèque technique Windows Server.  
+ **Impact :**  Les services Web Active Directory (ADWS) ne sont pas démarrés. Si les services Web Active Directory (ADWS) sont arrêtés ou désactivés sur le serveur, les applications clientes comme le module Active Directory pour Windows PowerShell ou le Centre d’administration Active Directory ne peuvent pas accéder aux instances du service d’annuaire exécutées sur ce serveur ou les gérer. Pour plus d'informations, consultez [Nouveautés dans AD DS : Services Web Active Directory](https://technet.microsoft.com/library/dd391908\(WS.10\).aspx) (https://technet.microsoft.com/library/dd391908(WS.10).aspx) dans la bibliothèque technique Windows Server.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-change-the-active-directory-web-services-logon-account"></a>Pour modifier le compte d’ouverture de session de Services Web ActiveDirectory  
-  
-1.  Ouvrez services.msc sur le serveur.  
-  
-2.  Avec le bouton droit **Services Web ActiveDirectory**, puis cliquez sur **propriétés**.  
-  
-3.  Modifier le **type de démarrage** à **automatique**, puis cliquez sur **OK**.  
-  
-4.  Dans les Services Web ActiveDirectory **propriétés**, cliquez sur le **ouverture de session** onglet.  
-  
-5.  Sélectionnez le **compte système Local** option, puis cliquez sur **OK**.  
-  
-### <a name="the-windows-update-service-should-use-the-local-system-account-as-its-logon-account"></a>Le service de mise à jour Windows doit utiliser le compte système Local comme compte d’ouverture de session  
- **Problème:** le compte d’ouverture de session par défaut pour le service mises à jour automatiques a changé.  
-  
- **Impact:** le service ne dispose ne peut-être pas les autorisations requises pour fonctionner comme prévu. Par conséquent, le serveur ne recevront pas de mises à jour automatiques.  
-  
- **Résolution:**  
-  
-##### <a name="to-change-the-windows-update-service-logon-account"></a>Pour modifier le compte d’ouverture de session du service Windows Update  
+##### <a name="to-change-the-active-directory-web-services-logon-account"></a>Pour changer le compte d’ouverture de session des Services Web Active Directory  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Avec le bouton droit le **mise à jour Windows** de service, puis cliquez sur Propriétés.  
+2.  Cliquez avec le bouton droit sur **Services Web Active Directory**, puis cliquez sur **Propriétés**.  
   
-3.  Sur le **ouverture de session** onglet, sélectionnez **compte système Local**.  
+3.  Définissez le **Type de démarrage** sur **Automatique**, puis cliquez sur **OK**.  
   
-### <a name="the-dhcp-client-service-should-use-the-nt-authoritylocalservice-account-as-its-logon-account"></a>Le service Client DHCP doit utiliser le compte NT authority\\localservice comme compte d’ouverture de session  
- **Problème:** le compte d’ouverture de session par défaut pour le service Client DHCP a changé.  
+4.  Cliquez sur l’onglet **Ouvrir une session** dans les **propriétés** des Services Web Active Directory.  
   
- **Impact:** le service ne dispose ne peut-être pas les autorisations requises pour fonctionner comme prévu. Par conséquent, l’ordinateur client recevra pas les adresses IP à partir du serveur.  
+5.  Sélectionnez l’option **Compte système local**, puis cliquez sur **OK**.  
   
- **Résolution:**  
+### <a name="the-windows-update-service-should-use-the-local-system-account-as-its-logon-account"></a>Le service Windows Update doit utiliser le compte Système local comme compte d’ouverture de session  
+ **Problème :**  Le compte d’ouverture de session par défaut pour le service des mises à jour automatiques a changé.  
   
-##### <a name="to-change-the-dhcp-client-service-logon-account"></a>Pour modifier le compte d’ouverture de session du service Client DHCP  
+ **Impact :**  Le service ne dispose peut-être pas des permissions appropriées requises pour fonctionner correctement. Par conséquent, il se peut que le serveur ne soit pas en mesure de recevoir les mises à jour automatiques.  
   
-1.  Ouvrez services.msc sur le serveur.  
+ **Résolution :**  
   
-2.  Cliquez sur le **Client DHCP** de service, puis cliquez sur **propriétés**.  
-  
-3.  Sur le **ouverture de session** onglet, sélectionnez **ce compte**, puis tapez **NT AUTHORITY\Local Service**.  
-  
-### <a name="the-iis-admin-service-should-use-the-local-system-account-as-its-logon-account"></a>Le service d’administration IIS doit utiliser le compte système Local comme compte d’ouverture de session  
- **Problème:** le compte d’ouverture de session par défaut pour le service d’administration IIS a changé.  
-  
- **Impact:** le service ne dispose ne peut-être pas les autorisations requises qui sont requises pour fonctionner comme prévu. Par conséquent, il se peut que vous ne puissiez pas accéder aux sites Internet en cours d’exécution sur le serveur, comme l’accès Web à distance.  
-  
- **Résolution:**  
-  
-##### <a name="to-change-the-service-logon-account"></a>Pour modifier le compte d’ouverture de session du service  
+##### <a name="to-change-the-windows-update-service-logon-account"></a>Pour changer le compte d’ouverture de session du service Windows Update  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Avec le bouton droit **service d’administration IIS**, puis cliquez sur **propriétés**.  
+2.  Cliquez avec le bouton droit sur le service **Windows Update**, puis cliquez sur Propriétés.  
   
-3.  Sur le **ouverture de session** onglet, sélectionnez **compte système Local**.  
+3.  Dans l’onglet **Ouvrir une session**, sélectionnez **Compte système Local**.  
   
-### <a name="the-world-wide-web-publishing-service-should-use-the-local-system-account-as-its-logon-account"></a>Le Service de publication World Wide Web doit utiliser le compte système Local comme compte d’ouverture de session  
- **Problème:** le compte d’ouverture de session par défaut pour le Service de publication World Wide Web a changé.  
+### <a name="the-dhcp-client-service-should-use-the-nt-authoritylocalservice-account-as-its-logon-account"></a>Le service Client DHCP doit utiliser le compte NT AUTHORITY\\LocalService comme compte d’ouverture de session  
+ **Problème :**  Le compte d’ouverture de session par défaut pour le service Client DHCP a changé.  
   
- **Impact:** le service ne dispose ne peut-être pas les autorisations requises pour fonctionner comme prévu. Par conséquent, il se peut que vous ne puissiez pas accéder aux sites Internet en cours d’exécution sur le serveur, comme l’accès Web à distance.  
+ **Impact :**  Le service ne dispose peut-être pas des permissions appropriées requises pour fonctionner correctement. Par conséquent, l’ordinateur client ne pourra pas recevoir d’adresses IP du serveur.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-change-the-world-wide-web-publishing-service-logon-account"></a>Pour modifier le compte d’ouverture de session de Service de publication World Wide Web  
-  
-1.  Ouvrez services.msc sur le serveur.  
-  
-2.  Avec le bouton droit **Service de publication World Wide Web**, puis cliquez sur **propriétés**.  
-  
-3.  Sur le **ouverture de session** onglet, sélectionnez **compte système Local**.  
-  
-### <a name="the-remote-desktop-gateway-service-should-use-the-nt-authoritynetwork-service-account-as-its-logon-account"></a>Le service de passerelle des services Bureau à distance doit utiliser le compte NT AUTHORITY\\NETWORK Service comme compte d’ouverture de session  
- **Problème:** le compte d’ouverture de session par défaut pour le service passerelle des services Bureau à distance a changé.  
-  
- **Impact:** le service ne dispose ne peut-être pas les autorisations appropriées à fonctionner comme prévu. Par conséquent, les utilisateurs ne peuvent pas en mesure d’accéder aux ordinateurs à l’aide de l’accès Web à distance.  
-  
- **Résolution:**  
-  
-##### <a name="to-change-the-remote-desktop-gateway-service-logon-account"></a>Pour modifier le compte d’ouverture de session du service passerelle des services Bureau à distance  
+##### <a name="to-change-the-dhcp-client-service-logon-account"></a>Pour changer le compte d’ouverture de session du service Client DHCP  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Cliquez sur le **passerelle des services Bureau à distance** de service, puis cliquez sur **propriétés**.  
+2.  Cliquez avec le bouton droit sur **Client DHCP**, puis cliquez sur **Propriétés**.  
   
-3.  Sur le **ouverture de session** onglet, sélectionnez **ce compte**, puis tapez **NT AUTHORITY\Network Service**.  
+3.  Dans l’onglet **Ouvrir une session**, cliquez sur **Ce compte**, puis tapez **NT AUTHORITY\Local Service**.  
   
-### <a name="the-windows-time-service-should-use-the-nt-authoritynetwork-service-account-as-its-logon-account"></a>Le service de temps Windows doit utiliser le compte NT AUTHORITY\\NETWORK Service comme compte d’ouverture de session  
- **Problème:** le compte d’ouverture de session par défaut pour le service de temps Windows a changé.  
+### <a name="the-iis-admin-service-should-use-the-local-system-account-as-its-logon-account"></a>Le service d’administration IIS doit utiliser le compte Système local comme compte d’ouverture de session  
+ **Problème :**  Le compte d’ouverture de session par défaut pour le service Admin IIS a changé.  
   
- **Impact:** le service ne dispose ne peut-être pas les autorisations appropriées à fonctionner comme prévu. Par conséquent, date et heure de synchronisation sont peut-être pas disponible.  
+ **Impact :**  Le service ne dispose peut-être pas des permissions appropriées requises pour fonctionner correctement. Par conséquent, il se peut que vous ne puissiez pas accéder aux sites Internet exécutés sur le serveur, comme par exemple l’accès Web à distance.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-change-the-windows-time-service-logon-account"></a>Pour modifier le compte de connexion de service de temps Windows  
+##### <a name="to-change-the-service-logon-account"></a>Pour changer le compte d’ouverture de session du service  
   
 1.  Ouvrez services.msc sur le serveur.  
   
-2.  Avec le bouton droit le **temps Windows** de service, puis cliquez sur **propriétés**.  
+2.  Cliquez avec le bouton droit sur **Service d’administration IIS**, puis cliquez sur **Propriétés**.  
   
-3.  Sur le **ouverture de session** onglet, sélectionnez **ce compte**, puis tapez **NT AUTHORITY\Local Service**.  
+3.  Dans l’onglet **Ouvrir une session**, sélectionnez **Compte système Local**.  
   
-### <a name="the-built-in-administrators-group-does-not-have-the-right-to-log-on-as-batch-job"></a>Le groupe Administrateurs intégré ne dispose pas le droit d’ouvrir une session en tant que traitement par lots  
- **Problème:** au groupe Administrateurs intégré ne dispose pas le droit d’ouvrir une session en tant que traitement par lots.  
+### <a name="the-world-wide-web-publishing-service-should-use-the-local-system-account-as-its-logon-account"></a>Le service de publication World Wide Web doit utiliser le compte Système local comme compte d’ouverture de session  
+ **Problème :**  Le compte d’ouverture de session par défaut pour le service de publication World Wide Web a changé.  
   
- **Impact:** si l’administrateur crée une alerte et configure l’alerte à s’exécuter lorsque l’administrateur n’est pas connecté, l’alerte échouera avec un code d’erreur de 2147943785.  
+ **Impact :**  Le service ne dispose peut-être pas des permissions appropriées requises pour fonctionner correctement. Par conséquent, il se peut que vous ne puissiez pas accéder aux sites Internet exécutés sur le serveur, comme par exemple l’accès Web à distance.  
   
- **Résolution:** pour plus d’informations sur la façon de donner les administrateurs intégrés groupe l’autorisation d’ouvrir une session en tant que traitement par lots, voir [donner au groupe administrateur intégré le droit d’ouvrir une session en tant que traitement par lots](https://technet.microsoft.com/library/jj635076) (https://technet.microsoft.com/library/jj635076).  
+ **Résolution :**  
   
-### <a name="the-windows-firewall-is-turned-off"></a>Le pare-feu Windows est désactivé.  
- **Problème:** pare-feu Windows est désactivé. La valeur par défaut est activé.  
+##### <a name="to-change-the-world-wide-web-publishing-service-logon-account"></a>Pour changer le compte d’ouverture de session par défaut du service de publication World Wide Web  
   
- **Impact:** en fonction de vos paramètres de pare-feu, le pare-feu Windows peut aider à protéger votre serveur et réseau des activités malveillantes en bloquant certaines informations qui passent par le serveur.  
+1.  Ouvrez services.msc sur le serveur.  
   
- **Résolution:**  
+2.  Cliquez avec le bouton droit sur **Service de publication World Wide Web**, puis cliquez sur **Propriétés**.  
   
-##### <a name="to-turn-on-windows-firewall-on-the-server"></a>Pour activer le pare-feu Windows sur le serveur  
+3.  Dans l’onglet **Ouvrir une session**, sélectionnez **Compte système Local**.  
   
-1.  Ouvrez le panneau de configuration sur le serveur.  
+### <a name="the-remote-desktop-gateway-service-should-use-the-nt-authoritynetwork-service-account-as-its-logon-account"></a>e service Passerelle des services Bureau à distance doit utiliser le compte NT AUTHORITY\\Network Service comme compte d’ouverture de session  
+ **Problème :**  Le compte d’ouverture de session par défaut pour le service Passerelle des services Bureau à distance a changé.  
   
-2.  Dans le panneau de configuration, cliquez sur **système et sécurité**, puis cliquez sur **pare-feu Windows**.  
+ **Impact :**  Le service ne dispose peut-être pas des permissions appropriées requises pour fonctionner correctement. Par conséquent, il se peut que vous ne soyez pas en mesure d’accéder aux ordinateurs utilisant l’Accès Web à distance.  
   
-3.  Dans le pare-feu Windows, cliquez sur **activer ou désactiver le pare-feu Windows**, sélectionnez le **activer le pare-feu Windows** option, puis cliquez sur **OK**.  
+ **Résolution :**  
   
-### <a name="the-internal-network-adapter-is-not-configured-to-register-ip-address-in-dns"></a>La carte réseau interne n’est pas configurée pour enregistrer les adresses IP dans DNS  
- **Problème:** la carte réseau interne n’est pas configurée pour enregistrer son adresse IP dans DNS.  
+##### <a name="to-change-the-remote-desktop-gateway-service-logon-account"></a>Pour changer le compte d’ouverture de session du service Passerelle des services Bureau à distance  
   
- **Impact:** si l’adresse IP de la carte réseau interne n’est pas enregistré dans DNS, il ne peut-être pas possible d’accéder au serveur à l’aide du nom de l’ordinateur serveur s.  
+1.  Ouvrez services.msc sur le serveur.  
   
- **Résolution:** Vérifiez que la carte réseau interne est configurée pour enregistrer dans DNS.  
+2.  Cliquez avec le bouton droit sur le service **Passerelle des services Bureau à distance**, puis cliquez sur **Propriétés**.  
   
-### <a name="dns-the-values-for-the-dns-forwardingtimeout-and-recursiontimeout-registry-key-are-identical"></a>DNS: Les valeurs de la clé de Registre DNS ForwardingTimeout et RecursionTimeout sont identiques  
- **Problème:** la valeur de la clé de Registre ForwardingTimeout du DNS ne doit pas être identique à la valeur de la clé de Registre RecursionTimeout.  
+3.  Dans l’onglet **Ouvrir une session**, cliquez sur **Ce compte**, puis entrez **NT AUTHORITY\Network Service**.  
   
- **Impact:** vous n’êtes peut-être pas en mesure d’accéder aux ressources Internet par nom.  
+### <a name="the-windows-time-service-should-use-the-nt-authoritynetwork-service-account-as-its-logon-account"></a>Le service de temps Windows doit utiliser le compte NT AUTHORITY\\Network Service comme compte d’ouverture de session  
+ **Problème :**  Le compte d’ouverture de session par défaut pour le service de temps Windows a changé.  
   
- **Résolution:** définir la valeur de la clé de Registre RecursionTimeout est supérieure à la valeur de la clé ForwardingTimeout, situé dans le Registre au niveau du HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNS\Parameters.  
+ **Impact :**  Le service ne dispose peut-être pas des permissions appropriées requises pour fonctionner correctement. Par conséquent, il se peut que la synchronisation de la date et de l’heure ne soit pas disponible.  
   
-### <a name="the-forward-dns-zone-for-your-active-directory-domain-does-not-allow-secure-updates"></a>La zone de recherche directe DNS pour votre domaine ActiveDirectory n’autorise pas les mises à jour sécurisées  
- **Problème:** vous devez configurer la zone de recherche directe pour autoriser uniquement les mises à jour dynamiques sécurisées.  
+ **Résolution :**  
   
- **Impact:** lorsque vous activez des mises à jour dynamiques sécurisées, seuls les utilisateurs autorisés et les hôtes peuvent apporter des modifications aux enregistrements.  
+##### <a name="to-change-the-windows-time-service-logon-account"></a>Pour changer le compte d’ouverture de session du service Horloge Windows  
   
- **Résolution:**  
+1.  Ouvrez services.msc sur le serveur.  
   
-##### <a name="to-configure-the-forward-lookup-zone-for-your-active-directory-domain"></a>Pour configurer la zone de recherche directe pour votre domaine ActiveDirectory  
+2.  Cliquez avec le bouton droit sur **Horloge Windows**, puis cliquez sur **Propriétés**.  
+  
+3.  Dans l’onglet **Ouvrir une session**, cliquez sur **Ce compte**, puis tapez **NT AUTHORITY\Local Service**.  
+  
+### <a name="the-built-in-administrators-group-does-not-have-the-right-to-log-on-as-batch-job"></a>Le groupe Administrateurs intégré ne dispose pas des droits pour se connecter en tant que traitement par lot  
+ **Problème :**  Le groupe Administrateurs intégré ne dispose pas des droits pour se connecter en tant que traitement par lot.  
+  
+ **Impact :**  Si l’administrateur génère une alerte et configure cette alerte pour qu’elle s’exécute lorsque l’Administrateur n’est pas connecté, l’alerte échouera avec le code d’erreur 2147943785.  
+  
+ **Résolution :**  Pour plus d’informations sur la façon d’autoriser les administrateurs intégrés groupe à une session en tant que traitement par lots, consultez [donner au groupe administrateur intégré le droit Ouvrir une session en tant que traitement par lots](https://technet.microsoft.com/library/jj635076) (https://technet.microsoft.com/library/jj635076).  
+  
+### <a name="the-windows-firewall-is-turned-off"></a>Le Pare-feu Windows est désactivé  
+ **Problème :**  Le pare-feu de Windows est désactivé. Sa valeur par défaut est Activé.  
+  
+ **Impact :**  En fonction des configurations de votre pare-feu, le Pare-feu Windows peut vous aider à protéger votre serveur et votre réseau des activités malveillantes en bloquant certaines informations qui passent par votre serveur.  
+  
+ **Résolution :**  
+  
+##### <a name="to-turn-on-windows-firewall-on-the-server"></a>Pour activer le Pare-feu Windows  
+  
+1.  Ouvrez le Panneau de configuration sur le serveur.  
+  
+2.  Dans le Panneau de configuration, cliquez sur **Système et sécurité**, puis cliquez sur **Pare-feu Windows**.  
+  
+3.  Dans Pare-feu Windows, cliquez sur **Activer ou désactiver le Pare-feu Windows**, cliquez sur **Activer le Pare-feu Windows**, puis cliquez sur **OK**.  
+  
+### <a name="the-internal-network-adapter-is-not-configured-to-register-ip-address-in-dns"></a>La carte réseau interne n’est pas configurée pour enregistrer une adresse IP dans le DNS  
+ **Problème :**  La carte réseau interne n’est pas configurée pour enregistrer son adresse IP dans le DNS.  
+  
+ **Impact :**  Si l’adresse IP de la carte réseau interne n’est pas inscrit dans DNS, il n’est peut-être pas possible d’accéder au serveur à l’aide du nom de l’ordinateur serveur.  
+  
+ **Résolution :**  Vérifiez que votre carte réseau interne est configurée pour être enregistrée dans le DNS.  
+  
+### <a name="dns-the-values-for-the-dns-forwardingtimeout-and-recursiontimeout-registry-key-are-identical"></a>DNS : les valeurs des clés de registre ForwardingTimeout et RecursionTimeout du DNS sont identiques  
+ **Problème :**  La valeur de la clé de registre ForwardingTimeout du DNS doit être différente de la valeur de la clé de registre RecursionTimeout.  
+  
+ **Impact :**  Vous ne pourrez peut-être pas accéder aux ressources Internet par nom.  
+  
+ **Résolution :**  Définissez la valeur de la clé de Registre RecursionTimeout de façon à ce qu’elle soit supérieure à celle de la clé ForwardingTimeout située dans le registre sous HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNS\Parameters.  
+  
+### <a name="the-forward-dns-zone-for-your-active-directory-domain-does-not-allow-secure-updates"></a>La zone de transfert DNS de votre domaine Active Directory ne vous permet pas d’effectuer des mises à jour de sécurité  
+ **Problème :**  Vous devez configurer la zone de recherche directe pour n’autoriser que les mises à jour dynamiques sécurisées.  
+  
+ **Impact :**  Lorsque les mises à jour dynamiques sécurisées sont activées, seuls les utilisateurs et les hôtes autorisés peuvent modifier les enregistrements.  
+  
+ **Résolution :**  
+  
+##### <a name="to-configure-the-forward-lookup-zone-for-your-active-directory-domain"></a>Pour configurer la zone de recherche directe pour votre domaine Active Directory  
   
 1.  Ouvrez dnsmgmt.msc sur le serveur.  
   
-2.  Avec le bouton droit de la zone de recherche directe pour votre domaine ActiveDirectory, puis cliquez sur **propriétés**.  
+2.  Cliquez avec le bouton droit sur la zone de recherche directe pour votre domaine Active Directory, puis cliquez sur **Propriétés**.  
   
-3.  Dans le **mises à jour dynamiques** la liste déroulante, sélectionnez-le **sécurisé uniquement**, puis cliquez sur **OK**.  
+3.  Dans la liste déroulante **Mises à jour dynamiques**, sélectionnez **Sécurisé uniquement**, puis cliquez sur **OK**.  
   
-### <a name="the-forward-dns-zone-does-not-allow-secure-updates"></a>Le transfert de zone DNS n’autorise pas sécurisée des mises à jour  
- **Problème:** vous devez configurer la zone de recherche directe pour la zone _msdcs.* n’autorise uniquement les mises à jour dynamiques sécurisées.  
+### <a name="the-forward-dns-zone-does-not-allow-secure-updates"></a>La zone de transfert DNS ne permet pas l’exécution de mises à jour sécurisées  
+ **Problème :**  Vous devez configurer la zone de recherche directe pour que la zone _msdcs.* n’autorise que les mises à jour dynamiques sécurisées.  
   
- **Impact:** lorsque vous activez des mises à jour dynamiques sécurisées, seuls les utilisateurs autorisés et les hôtes peuvent apporter des modifications aux enregistrements dans la zone msdcs.*.  
+ **Impact :**  Lorsque les mises à jour dynamiques sécurisées sont activées, seuls les utilisateurs et les hôtes autorisés peuvent modifier les enregistrements dans la zone msdcs.*.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-allow-secure-updates-in-the-msdcs-zone"></a>Pour autoriser les mises à jour sécurisées dans la zone _msdcs  
+##### <a name="to-allow-secure-updates-in-the-msdcs-zone"></a>Pour autoriser les mises à jour sécurisées dans la zone _msdcs  
   
 1.  Ouvrez dnsmgmt.msc sur le serveur.  
   
-2.  Avec le bouton droit de la zone de recherche directe pour la zone _msdcs, puis cliquez sur **propriétés**.  
+2.  Cliquez avec le bouton droit sur la zone de recherche directe pour la zone _msdcs, puis cliquez sur **Propriétés**.  
   
-3.  Dans le **mises à jour dynamiques** la liste déroulante, sélectionnez-le **sécurisé uniquement**, puis cliquez sur **OK**.  
+3.  Dans la liste déroulante **Mises à jour dynamiques**, sélectionnez **Sécurisé uniquement**, puis cliquez sur **OK**.  
   
-### <a name="internet-explorer-enhanced-security-configuration-is-not-enabled"></a>Configuration de sécurité renforcée d’Internet Explorer n’est pas activée.  
- **Problème:** Internet Explorer Configuration de sécurité renforcée (IE ESC) n’est actuellement pas activée pour le groupe Administrateurs.  
+### <a name="internet-explorer-enhanced-security-configuration-is-not-enabled"></a>La Configuration de sécurité renforcée d’Internet Explorer n’est pas activée.  
+ **Problème :**  Internet Explorer Configuration de sécurité renforcée (IE ESC) n’est actuellement pas activée pour le groupe Administrateurs.  
   
- **Impact:** si la Configuration de sécurité renforcée d’Internet Explorer n’est pas activée pour le groupe Administrateurs, votre serveur et Internet Explorer ont augmenté exposition aux attaques malveillantes qui peuvent se produire par le biais de Web contenu et les scripts d’application.  
+ **Impact :**  Si la Configuration de sécurité renforcée d’Internet Explorer n’est pas activée pour le groupe Administrateurs, votre serveur et Internet Explorer sont plus exposés aux attaques malveillantes provenant de contenus Internet et des scripts des applications.  
   
- **Résolution:**  
-  
-##### <a name="to-enable-internet-explorer-enhanced-security-configuration"></a>Pour activer la Configuration de sécurité renforcée d’Internet Explorer  
-  
-1.  Ouvrez **le Gestionnaire de serveur** sur le serveur et puis cliquez sur **serveur Local**.  
-  
-2.  Sur le **propriétés** volet, définissez le paramètre **la Configuration de sécurité renforcée d’Internet Explorer** à **sur**, puis cliquez sur **OK**.  
-  
-### <a name="internet-explorer-enhanced-security-configuration-is-not-enabled"></a>Configuration de sécurité renforcée d’Internet Explorer n’est pas activée.  
- **Problème:** Internet Explorer Configuration de sécurité renforcée (IE ESC) n’est actuellement pas activée pour le groupe d’utilisateurs.  
-  
- **Impact:** si la Configuration de sécurité renforcée d’Internet Explorer n’est pas activée pour le groupe d’utilisateurs, votre serveur et Internet Explorer ont augmenté exposition aux attaques malveillantes qui peuvent se produire par le biais de Web contenu et les scripts d’application.  
-  
- **Résolution:**  
+ **Résolution :**  
   
 ##### <a name="to-enable-internet-explorer-enhanced-security-configuration"></a>Pour activer la Configuration de sécurité renforcée d’Internet Explorer  
   
-1.  Ouvrez **le Gestionnaire de serveur**, puis cliquez sur **serveur Local**.  
+1.  Ouvrez le **Gestionnaire de serveur** sur le serveur, puis cliquez sur **Serveur local**.  
   
-2.  Sur le **propriétés** volet, définissez le paramètre **la Configuration de sécurité renforcée d’Internet Explorer** à **sur**, puis cliquez sur **OK**.  
+2.  Dans le volet **Propriétés**, définissez le paramètre de la **Configuration de sécurité renforcée d’Internet Explorer** sur **Activé**, puis cliquez sur **OK**.  
   
-### <a name="the-source-server-remains-in-active-directory-sites-and-services"></a>Le serveur source demeure dans les Services et Sites ActiveDirectory  
- **Problème:** le serveur source qui exécute WindowsSmallBusinessServer existe toujours dans les Services et Sites ActiveDirectory dans le Default-First-Site-Name.  
+### <a name="internet-explorer-enhanced-security-configuration-is-not-enabled"></a>La Configuration de sécurité renforcée d’Internet Explorer n’est pas activée.  
+ **Problème :**  Internet Explorer Configuration de sécurité renforcée (IE ESC) n’est actuellement pas activée pour le groupe d’utilisateurs.  
   
- **Impact:** si le serveur source demeure dans les Services et Sites ActiveDirectory, les ordinateurs clients peuvent rencontrer des problème de connectivité: s.  
+ **Impact :**  Si la Configuration de sécurité renforcée d’Internet Explorer n’est pas activée pour le groupe Administrateurs, votre serveur et Internet Explorer sont plus exposés aux attaques malveillantes provenant du contenus Internet et de scripts des applications.  
   
- **Résolution:** vous devez rétrograder le serveur source, supprimez-le du domaine et puis supprimez le serveur source à partir de Sites ActiveDirectory et Services et des utilisateurs ActiveDirectory et les ordinateurs.  
+ **Résolution :**  
   
-### <a name="source-server-remains-in-sbscomputer-ou"></a>Serveur source demeure dans SBSComputer OU  
- **Problème:** le serveur source qui exécute WindowsSmallBusinessServer existe toujours dans ActiveDirectory Users and Computers.  
+##### <a name="to-enable-internet-explorer-enhanced-security-configuration"></a>Pour activer la Configuration de sécurité renforcée d’Internet Explorer  
   
- **Impact:** si le serveur source demeure dans ActiveDirectory Users and Computers, les ordinateurs clients peuvent rencontrer des problème de connectivité: s.  
+1.  Ouvrez le **Gestionnaire de serveur**, puis cliquez sur **Serveur local**.  
   
- **Résolution:** vous devez rétrograder le serveur source, supprimez-le du domaine et puis supprimez le serveur source à partir de Sites ActiveDirectory et Services et des utilisateurs ActiveDirectory et les ordinateurs.  
+2.  Dans le volet **Propriétés**, définissez le paramètre de la **Configuration de sécurité renforcée d’Internet Explorer** sur **Activé**, puis cliquez sur **OK**.  
+  
+### <a name="the-source-server-remains-in-active-directory-sites-and-services"></a>Le serveur source demeure dans les Sites et services Active Directory  
+ **Problème :**  Le serveur source exécutant Windows Small Business Server existe toujours dans les Sites et services Active Directory dans le Nom-premier-site-par-défaut.  
+  
+ **Impact :**  Si le serveur source demeure dans les Sites Active Directory et Services, les ordinateurs clients peuvent rencontrer des problème de connectivité : s.  
+  
+ **Résolution :**  Vous devez abaisser d’un niveau le serveur source, le retirer du domaine, puis supprimer le serveur source des Sites et services Active Directory et des Utilisateurs et ordinateurs Active Directory.  
+  
+### <a name="source-server-remains-in-sbscomputer-ou"></a>Le serveur source demeure dans l’ordinateur OU SBS  
+ **Problème :**  Le serveur source exécutant Windows Small Business Server existe toujours dans les Utilisateurs et ordinateurs Active Directory.  
+  
+ **Impact :**  Si le serveur source demeure dans Active Directory Users and Computers, les ordinateurs clients peuvent rencontrer des problème de connectivité : s.  
+  
+ **Résolution :**  Vous devez abaisser d’un niveau le serveur source, le retirer du domaine, puis supprimer le serveur source des Sites et services Active Directory et des Utilisateurs et ordinateurs Active Directory.  
   
 ### <a name="a-group-policy-is-missing"></a>Il manque une stratégie de groupe  
- **Problème:** la stratégie de groupe de stratégie de domaine par défaut est manquante.  
+ **Problème :**  Il manque une stratégie de groupe pour le domaine par défaut.  
   
- **Impact:** la stratégie de domaine par défaut est requise pour les fonctions de domaine approprié.  
+ **Impact :**  La stratégie du domaine par défaut est requise pour un fonctionnement correct du domaine.  
   
- **Résolution:**  
+ **Résolution :**  
   
 ##### <a name="to-restore-a-missing-group-policy"></a>Pour restaurer une stratégie de groupe manquante  
   
 1.  Ouvrez gpmc.msc sur le serveur.  
   
-2.  Dans le Gestionnaire de stratégie de groupe, développez la forêt de domaines et rechercher l’arborescence de la console pour le **stratégie de domaine par défaut** objet de stratégie de groupe.  
+2.  Dans le Gestionnaire de stratégie de groupe, étendez la forêt de domaine et recherchez l’arborescence de la console de l’objet de la stratégie de groupe de la **stratégie de groupe du domaine par défaut**.  
   
-3.  Si la stratégie n’apparaît pas dans l’arborescence, restaurez-la à partir d’une sauvegarde de l’état système.  
+3.  Si la stratégie n’apparaît pas dans l’arborescence, vous devrez la restaurer depuis une sauvegarde de l’état du système.  
   
-### <a name="no-dns-name-server-resource-records"></a>Serveur de nom sans DNS des enregistrements de ressource  
- **Problème:** n’existe aucun enregistrement de ressource de serveur (NS) de nom DNS dans la zone de recherche directe pour votre serveur.  
+### <a name="no-dns-name-server-resource-records"></a>Aucun enregistrement de ressource du serveur de nom DNS  
+ **Problème :**  Il n’existe aucun enregistrement de ressource de serveur de nom DNS dans la zone de recherche directe pour votre serveur.  
   
- **Impact:** si aucun enregistrement de ressource DNS nom serveur (NS) n’existe dans la zone de recherche directe pour le domaine ActiveDirectory, les utilisateurs ne peuvent pas en mesure d’accéder aux ressources sur le réseau ou sur Internet.  
+ **Impact :**  Si aucun enregistrement de ressource du serveur de nom DNS n’existe dans la zone de recherche directe pour le domaine Active Directory, il se peut que les utilisateurs ne puissent pas accéder aux ressources du réseau ou à Internet.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-restore-missing-dns-name-server-resource-records"></a>Pour restaurer manquant serveur de nom DNS des enregistrements de ressource  
-  
-1.  Ouvrez dnsmgmt.msc sur le serveur.  
-  
-2.  Dans le Gestionnaire DNS, avec le bouton droit de la zone de recherche directe pour le domaine ActiveDirectory, puis cliquez sur **propriétés**.  
-  
-3.  Sur le **serveurs de noms**, vérifiez que les paramètres sont corrects.  
-  
-4.  Apportez les modifications nécessaires, puis cliquez sur **OK** pour enregistrer les paramètres.  
-  
-### <a name="no-dns-name-server-records"></a>Aucun enregistrement de serveur de nom DNS  
- **Problème:** aucun serveur de noms (NS) DNS ne des enregistrements de ressource dans la zone _msdcs pour votre serveur (par exemple: _msdcs.contoso.local).  
-  
- **Impact:** si aucun enregistrement de ressource DNS nom serveur (NS) n’existe dans la zone _msdcs pour le domaine ActiveDirectory, les utilisateurs ne peuvent pas en mesure d’accéder aux ressources sur le réseau ou sur Internet.  
-  
- **Résolution:**  
-  
-##### <a name="to-restore-missing-dns-name-server-records"></a>Pour restaurer les enregistrements de serveur de noms DNS manquants  
+##### <a name="to-restore-missing-dns-name-server-resource-records"></a>Pour restaurer les enregistrements de ressources de serveurs de noms DNS manquants  
   
 1.  Ouvrez dnsmgmt.msc sur le serveur.  
   
-2.  Dans le Gestionnaire DNS, avec le bouton droit de la zone de recherche directe pour la zone _msdcs, puis cliquez sur **propriétés**.  
+2.  Dans le Gestionnaire DNS, cliquez avec le bouton droit sur la zone de recherche directe pour votre domaine Active Directory, puis cliquez sur **Propriétés**.  
   
-3.  Sur le **serveurs de noms**, vérifiez que les paramètres sont corrects.  
+3.  Vérifiez que les paramètres dans l’onglet **Serveurs de noms** sont corrects.  
   
-4.  Apportez les modifications nécessaires, puis cliquez sur **OK** pour enregistrer les paramètres.  
+4.  Effectuez le cas échéant les modifications nécessaires, puis cliquez sur **OK** pour enregistrer les paramètres.  
   
-### <a name="no-dns-name-server-records"></a>Aucun enregistrement de serveur de nom DNS  
- **Problème:** n’existe aucun serveur de noms (NS) DNS des enregistrements de ressources pour la zone _msdcs déléguée transférer la zone de recherche.  
+### <a name="no-dns-name-server-records"></a>Aucun enregistrement du serveur de nom DNS  
+ **Problème :**  Il n’existe aucun enregistrement de ressources du serveur de nom DNS dans la zone _msdcs pour votre serveur (par exemple : _msdcs.contoso.local).  
   
- **Impact:** si aucun enregistrement de ressource DNS nom serveur (NS) n’existe pour la zone _msdcs déléguée transférer la zone de recherche, le service serveur DNS ne peut pas résoudre les enregistrements de ressource DNS pour le domaine et ne pourra pas démarrer.  
+ **Impact :**  Si aucun enregistrement de ressource du serveur de nom n’existe dans la zone _msdcs pour le domaine Active Directory, il se peut que les utilisateurs ne puissent pas accéder aux ressources du réseau ou à Internet.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-reconfigure-missing-dns-name-server-records"></a>Pour reconfigurer les enregistrements de serveur de noms DNS manquants  
+##### <a name="to-restore-missing-dns-name-server-records"></a>Pour restaurer les enregistrements de serveurs de noms DNS manquants  
   
 1.  Ouvrez dnsmgmt.msc sur le serveur.  
   
-2.  Dans le Gestionnaire DNS, développez le nom de votre serveur, puis développez **Zones de recherche directe**.  
+2.  Dans le Gestionnaire DNS, cliquez avec le bouton droit sur la zone de recherche directe pour la zone _msdcs, puis cliquez sur **Propriétés**.  
   
-3.  Cliquez sur la zone de recherche directe pour votre domaine ActiveDirectory (par exemple: contoso.local).  
+3.  Vérifiez que les paramètres dans l’onglet **Serveurs de noms** sont corrects.  
   
-4.  La zone _msdcs déléguée apparaît sous la forme d’un dossier grisé. Avec le bouton droit de la zone _msdcs, puis cliquez sur **propriétés**.  
+4.  Effectuez le cas échéant les modifications nécessaires, puis cliquez sur **OK** pour enregistrer les paramètres.  
   
-5.  Sur le **serveurs de noms**, vérifiez que les paramètres sont corrects.  
+### <a name="no-dns-name-server-records"></a>Aucun enregistrement du serveur de nom DNS  
+ **Problème :**  Il n’existe aucun enregistrement de ressource du serveur de nom DNS dans la zone de recherche directe _msdcs déléguée.  
   
-6.  Apportez les modifications nécessaires, puis cliquez sur **OK** pour enregistrer les paramètres.  
+ **Impact :**  Si aucun enregistrement de ressource du serveur de nom n’existe dans la zone de recherche directe _msdcs déléguée, le service du serveur DNS ne pourra résoudre les enregistrements de ressource DNS pour le domaine et ne pourra pas démarrer.  
   
-### <a name="authenticated-users-not-a-member-of-the-pre-windows-2000-compatible-access-group"></a>Utilisateurs authentifiés pas un membre du groupe accès Compatible pré-Windows2000  
- **Problème:** le groupe utilisateurs authentifiés n’est pas membre du groupe accès Compatible pré-Windows2000.  
+ **Résolution :**  
   
- **Impact:** si le groupe des utilisateurs authentifiés n’est pas membre du groupe accès Compatible pré-Windows2000, les utilisateurs de réseau peuvent rencontrer des erreurs «Accès refusé».  
+##### <a name="to-reconfigure-missing-dns-name-server-records"></a>Pour reconfigurer les enregistrements de serveurs de noms DNS manquants  
   
- **Résolution:**  
+1.  Ouvrez dnsmgmt.msc sur le serveur.  
   
-##### <a name="to-add-authenticated-users-to-the-pre-windows-2000-compatible-access-group"></a>Pour ajouter des utilisateurs authentifiés au groupe accès Compatible pré-Windows2000  
+2.  Dans le Gestionnaire DNS, étendez votre nom de serveur, puis étendez les **zones de recherche directe**.  
+  
+3.  Cliquez sur la zone de recherche directe pour votre domaine Active Directory (par exemple : contoso.local).  
+  
+4.  La zone _msdcs déléguée s’affiche dans un dossier grisé. Cliquez avec le bouton droit sur la zone _msdcs, puis cliquez sur **Propriétés**.  
+  
+5.  Vérifiez que les paramètres dans l’onglet **Serveurs de noms** sont corrects.  
+  
+6.  Effectuez le cas échéant les modifications nécessaires, puis cliquez sur **OK** pour enregistrer les paramètres.  
+  
+### <a name="authenticated-users-not-a-member-of-the-pre-windows-2000-compatible-access-group"></a>Les utilisateurs authentifiés ne sont pas membres du groupe Accès compatible pré-Windows 2000  
+ **Problème :**  Le groupe des utilisateurs authentifiés n’est pas membre du groupe Accès compatible pré-Windows 2000.  
+  
+ **Impact :**  Si le groupe des utilisateurs authentifiés n’est pas membre du groupe Accès compatible pré-Windows 2000, les utilisateurs du réseau peuvent rencontrer des erreurs « Accès refusé ».  
+  
+ **Résolution :**  
+  
+##### <a name="to-add-authenticated-users-to-the-pre-windows-2000-compatible-access-group"></a>Pour ajouter les utilisateurs authentifiés au groupe Accès compatible pré-Windows 2000  
   
 1.  Ouvrez dsa.msc sur le serveur.  
   
-2.  Dans le **Builtin** dossier, faites un clic droit **accès Compatible pré-Windows2000**, puis cliquez sur **propriétés**.  
+2.  Dans le dossier **intégré**, cliquez avec le bouton droit sur **Accès compatible pré-Windows 2000**, puis cliquez sur **Propriétés**.  
   
-3.  Cliquez sur **ajouter**, type **utilisateurs authentifiés**, puis cliquez sur **OK** deux fois.  
+3.  Cliquez sur **Ajouter**, saisissez **Utilisateurs authentifiés** et cliquez deux fois sur **OK**.  
   
-### <a name="dns-client-not-configured"></a>Client DNS non configuré  
- **Problème:** le client DNS n’est pas configuré pour pointer uniquement vers l’adresse IP interne du serveur.  
+### <a name="dns-client-not-configured"></a>Le client DNS n’est pas configuré  
+ **Problème :**  Le Client DNS n’est pas configuré pour pointer uniquement vers l’adresse IP interne du serveur.  
   
- **Impact:** si le client DNS n’est pas configuré pour pointer uniquement vers l’adresse IP interne du serveur, la résolution de noms DNS peut échouer.  
+ **Impact :**  Si le Client DNS n’est pas configuré pour pointer uniquement vers l’adresse IP interne du serveur, la résolution du nom DNS peut échouer.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-configure-dns-to-point-only-to-the-server-s-internal-ip-address"></a>Pour configurer DNS pour pointer uniquement vers l’adresse IP interne du serveur s  
+##### <a name="to-configure-dns-to-point-only-to-the-server-s-internal-ip-address"></a>Pour configurer DNS pour pointer uniquement vers l’adresse IP interne de serveur s  
   
-1.  À partir de l’ordinateur client, ouvrez le **propriétés** page de la connexion réseau.  
+1.  Ouvrez la page des **Propriétés** de la connexion réseau depuis l’ordinateur client.  
   
-2.  Assurez-vous que le DNS est configuré pour pointer uniquement vers l’adresse IP interne du serveur.  
+2.  Assurez-vous que le DNS est configuré pour pointer uniquement vers l’adresse IP interne du serveur.  
   
-### <a name="default-application-pool-value-changed"></a>Valeur du Pool d’applications par défaut modifié  
- **Problème:** le nombre maximal de processus de travail pour le Pool d’Application DefaultAppPool n’est pas défini sur 1 la valeur par défaut.  
+### <a name="default-application-pool-value-changed"></a>La valeur du pool d’applications par défaut a changé  
+ **Problème :**  Le nombre de processus de travail maximum pour le pool d’application DefaultAppPool n’est pas défini sur la valeur 1 par défaut.  
   
- **Impact:** les utilisateurs ne sont peut-être pas en mesure de se connecter à des services web de WindowsSmallBusinessServer.  
+ **Impact :**  Les utilisateurs ne seront peut-être pas en mesure de se connecter aux services basés sur le Web de Windows SBS.  
   
- **Résolution:**  
+ **Résolution :**  
   
 ##### <a name="to-reset-maximum-worker-processes-for-the-default-application-pool"></a>Pour réinitialiser le nombre maximal de processus de travail pour le pool d’applications par défaut  
   
-1.  Ouvrez le Gestionnaire Internet Information Services (IIS) sur le serveur.  
+1.  Ouvrez le Gestionnaire d’Internet Information Services (IIS) sur le serveur.  
   
-2.  Dans le Gestionnaire des services Internet, développez le nom de votre serveur, puis **Pools d’applications**.  
+2.  Dans le gestionnaire IIS, étendez votre nom de serveur, puis cliquez sur **Pools d’applications**.  
   
-3.  Dans **Pools d’applications**, avec le bouton droit **DefaultAppPool**, puis cliquez sur **paramètres avancés**.  
+3.  Dans **Pools d’applications**, cliquez avec le bouton droit sur **DefaultAppPool**, puis cliquez sur **Paramètres avancés**.  
   
-4.  Dans **paramètres avancés**, modifiez la valeur de **nombre maximal de processus de travail** sur 1, puis cliquez sur **OK**.  
+4.  Dans les **Paramètres avancés**, définissez la valeur du **Nombre maximal de processus de travail** sur 1, puis cliquez sur **OK**.  
   
-5.  Fermer **paramètres avancés**, avec le bouton droit **DefaultAppPool**, puis arrêtez et redémarrez le pool d’applications.  
+5.  Fermez les **Paramètres avancés**, cliquez avec le bouton droit sur **DefaultAppPool**, puis arrêtez et redémarrez le pool d’applications.  
   
-### <a name="application-pool-for-remote-web-access-does-not-use-the-default-account"></a>Pool d’applications pour accès Web à distance n’utilise pas le compte par défaut  
- **Problème:** le pool d’applications RemoteAppPool n’est pas exécuté avec le compte par défaut.  
+### <a name="application-pool-for-remote-web-access-does-not-use-the-default-account"></a>Le pool d’application pour l’Accès web à distance n’utilise pas le compte par défaut  
+ **Problème :**  Le pool d’applications RemoteAppPool n’est pas exécuté avec le compte par défaut.  
   
- **Impact:** utilisateurs du réseau n’est peut-être pas en mesure d’accéder au site Web accès Web à distance.  
+ **Impact :**  Les utilisateurs du réseau ne seront peut-être pas en mesure de se connecter au site de l’Accès web à distance.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-reset-the-remote-application-pool-to-use-the-default-account"></a>Pour réinitialiser le pool d’applications à distance pour utiliser le compte par défaut  
+##### <a name="to-reset-the-remote-application-pool-to-use-the-default-account"></a>Pour réinitialiser le pool d’applications pour qu’il utilise le compte par défaut.  
   
-1.  Ouvrez le Gestionnaire Internet Information Services (IIS) sur le serveur.  
+1.  Ouvrez le Gestionnaire d’Internet Information Services (IIS) sur le serveur.  
   
-2.  Dans le Gestionnaire des services Internet, développez le nom de votre serveur, puis **Pools d’applications**.  
+2.  Dans le gestionnaire IIS, étendez votre nom de serveur, puis cliquez sur **Pools d’applications**.  
   
-3.  Dans **Pools d’applications**, avec le bouton droit **RemoteAppPool**, puis cliquez sur **paramètres avancés**.  
+3.  Dans **Pools d’applications**, cliquez avec le bouton droit sur **RemoteAppPool**, puis cliquez sur **Paramètres avancés**.  
   
-4.  Dans **paramètres avancés**, modifiez le **identité** à **NetworkService**, puis cliquez sur **OK**.  
+4.  Dans **Paramètres avancés**, remplacez le paramètre **Identité** par **ServiceRéseau**, puis cliquez sur**OK**.  
   
-5.  Fermer **paramètres avancés**, avec le bouton droit **RemoteAppPool**, puis arrêtez et redémarrez le pool d’applications.  
+5.  Fermez **Paramètres avancés**, cliquez avec le bouton droit sur **RemoteAppPool**, puis arrêtez et redémarrez le pool d’applications.  
   
-### <a name="application-pool-for-remote-web-access-does-not-use-the-default-net-framework-version"></a>Pool d’applications pour accès Web à distance n’utilise pas la version de .NETFramework par défaut  
- **Problème:** le pool d’applications RemoteAppPool n’est pas exécuté avec la version par défaut de Microsoft .NETFramework.  
+### <a name="application-pool-for-remote-web-access-does-not-use-the-default-net-framework-version"></a>Le pool d’applications pour l’Accès web à distance n’utilise pas la version de .NET Framework par défaut  
+ **Problème :**  Le pool d’applications RemoteAppPool n’est pas exécuté avec la version par défaut de .NET Framework.  
   
- **Impact:** utilisateurs du réseau n’est peut-être pas en mesure d’accéder au site Web accès Web à distance.  
+ **Impact :**  Les utilisateurs du réseau ne seront peut-être pas en mesure de se connecter au site de l’Accès web à distance.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-change-the-net-framework-version-used-by-the-remoteapppool"></a>Pour modifier la version de .NETFramework utilisée par RemoteAppPool  
+##### <a name="to-change-the-net-framework-version-used-by-the-remoteapppool"></a>Pour modifier la version de .NET Framework utilisée par RemoteAppPool  
   
-1.  Ouvrez le Gestionnaire Internet Information Services (IIS) sur le serveur.  
+1.  Ouvrez le Gestionnaire d’Internet Information Services (IIS) sur le serveur.  
   
-2.  Dans le Gestionnaire des services Internet, développez le nom de votre serveur, puis **Pools d’applications**.  
+2.  Dans le gestionnaire IIS, étendez votre nom de serveur, puis cliquez sur **Pools d’applications**.  
   
-3.  Dans **Pools d’applications**, avec le bouton droit **RemoteAppPool**, puis cliquez sur **paramètres avancés**.  
+3.  Dans **Pools d’applications**, cliquez avec le bouton droit sur **RemoteAppPool**, puis cliquez sur **Paramètres avancés**.  
   
-4.  Dans **paramètres avancés**, modifiez le **.NETFramework Version** sur v4.0, puis cliquez sur **OK**.  
+4.  Dans **Paramètres avancés**, remplacez la **Version de .NET Framework** par v4.0, puis cliquez sur **OK**.  
   
-5.  Fermer **paramètres avancés**, avec le bouton droit **RemoteAppPool**, puis arrêtez et redémarrez le pool d’applications.  
+5.  Fermez **Paramètres avancés**, cliquez avec le bouton droit sur **RemoteAppPool**, puis arrêtez et redémarrez le pool d’applications.  
   
-### <a name="the-remoteaccesslog-file-is-larger-than-1-gb-in-size"></a>Le fichier RemoteAccess.log est supérieur à 1Go  
- **Problème:** si la taille du fichier Remoteaccess.log dépasse 1Go, vous pouvez rencontrer des erreurs d’espace disque insuffisant sur le lecteur système.  
+### <a name="the-remoteaccesslog-file-is-larger-than-1-gb-in-size"></a>La taille du fichier RemoteAccess.log dépasse 1 Go  
+ **Problème :**  Si le fichier Remoteaccess.log excède 1 Go, vous aurez peut-être des problèmes d’espace disque sur le lecteur système.  
   
- **Impact:** le fichier Remoteaccess.log est trop importante, il peut éventuellement provoquer de problème d’espace libre: s sur le lecteur C:.  
+ **Impact :**  Si le fichier Remoteaccess.log est trop volumineux, il risque de problème d’espace libre : s sur le lecteur C:.  
   
- **Résolution:** une fois que vous sauvegardez le serveur, vous pouvez supprimer le fichier Remoteaccess.log qui se trouve dans le dossier %ProgramData%\Microsoft\Windows Server\Logs\WebApps.  
+ **Résolution :**  Une fois le serveur sauvegardé, vous pouvez supprimer le fichier Remoteaccess.log qui se trouve sous %ProgramData%\Microsoft\Windows Server\Logs\WebApps.  
   
-### <a name="default-web-sites-log-directory-is-over-1-gb-in-size"></a>Répertoire des journaux du site Web par défaut est de plus de 1Go  
- **Problème:** si la taille du dossier de journalisation du site Web par défaut dépasse 1Go, vous pouvez rencontrer des erreurs d’espace disque insuffisant sur le lecteur système.  
+### <a name="default-web-sites-log-directory-is-over-1-gb-in-size"></a>La taille du répertoire des journaux du site Web par défaut dépasse 1 Go.  
+ **Problème :**  Si la taille du dossier de journal du site Web par défaut dépasse 1 Go, vous pouvez rencontrer des erreurs d’espace disque faible sur le lecteur système.  
   
- **Impact:** dossier de journalisation du site Web par défaut est trop importante, peut entraîner l’espace libre problème: s sur le lecteur C:  
+ **Impact :**  Dossier du journal du site Web par défaut est trop volumineux, peut entraîner l’espace libre problème : s sur le lecteur C:  
   
- **Résolution:** une fois que vous sauvegardez le serveur, et lorsque le site Web par défaut est arrêté, vous pouvez supprimer les fichiers journaux dans le dossier C:\inetpub\logs\LogFiles\W3SVC1. Démarrez ensuite le site Web par défaut.  
+ **Résolution :**  Une fois la sauvegarde du serveur effectuée et le site Internet par défaut arrêté, vous pouvez supprimer les fichiers journaux dans le répertoire C:\inetpub\logs\LogFiles\W3SVC1. Démarrez ensuite le site Internet par défaut.  
   
 ### <a name="no-binding-for-ssl-on-all-ip-addresses"></a>Aucune liaison pour SSL sur toutes les adresses IP  
- **Problème:** aucune liaison pour SSL (Secure Sockets Layer) sur toutes les adresses IP sur le serveur.  
+ **Problème :**  Aucune liaison pour SSL sur toutes les adresses IP sur le serveur.  
   
- **Impact:** si SSL n’est pas lié à toutes les adresses IP sur le serveur, certains sites Web ne sera pas disponible pour les utilisateurs.  
+ **Impact :**  Si le SSL n’est pas lié à l’ensemble des adresses IP sur le serveur, certains sites web ne seront pas disponibles pour les utilisateurs.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-bind-ssl-to-all-ip-addresses-on-the-server"></a>Pour effectuer une liaison SSL à toutes les adresses IP sur le serveur  
+##### <a name="to-bind-ssl-to-all-ip-addresses-on-the-server"></a>Pour lier SSL à l’ensemble des adresses IP sur le serveur  
   
-1.  Ouvrez le Gestionnaire Internet Information Services (IIS) sur le serveur.  
+1.  Ouvrez le Gestionnaire d’Internet Information Services (IIS) sur le serveur.  
   
-2.  Dans le Gestionnaire IIS, sur le **connexions** volet, développez votre serveur, **Sites**, avec le bouton droit **site Web par défaut**, puis cliquez sur **modifier les liaisons**.  
+2.  Dans le volet **Connexions** du Gestionnaire IIS, étendez votre serveur, étendez **Sites**, cliquez avec le bouton droit sur **Site Web par défaut**, puis cliquez sur **Modifier les liaisons**.  
   
-3.  Dans **liaisons de Site**, cliquez sur **ajouter**, puis sélectionnez les paramètres suivants:  
+3.  Dans les **Liaisons de site**, cliquez sur **Ajouter**, puis sélectionnez les options suivantes :  
   
     -   **Type** = **https**  
   
@@ -823,19 +824,19 @@ Cet article décrit les règles utilisées par le WindowsServerEssentialsBestPra
 4.  Sélectionnez un certificat SSL, puis cliquez sur **OK** pour enregistrer vos modifications.  
   
 ### <a name="no-binding-for-ssl-on-the-default-web-site"></a>Aucune liaison pour SSL sur le site Web par défaut  
- **Problème:** aucune liaison pour SSL sur le site Web par défaut.  
+ **Problème :**  Il n’existe aucune liaison pour SSL sur le site Web par défaut.  
   
- **Impact:** si SSL n’est pas lié au site Web par défaut, certains sites Web ne peut pas être disponible pour les utilisateurs.  
+ **Impact :**  Si le SSL n’est pas lié au site web par défaut, les utilisateurs pourraient ne pas avoir accès à certains sites web.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-bind-ssl-to-the-default-website"></a>Pour lier SSL au site Web par défaut  
+##### <a name="to-bind-ssl-to-the-default-website"></a>Pour lier SSL au site web par défaut  
   
-1.  Ouvrez le Gestionnaire Internet Information Services (IIS) sur le serveur.  
+1.  Ouvrez le Gestionnaire d’Internet Information Services (IIS) sur le serveur.  
   
-2.  Dans le Gestionnaire IIS, sur le **connexions** volet, développez votre serveur, **Sites**, avec le bouton droit **site Web par défaut**, puis cliquez sur **modifier les liaisons**.  
+2.  Dans le volet **Connexions** du Gestionnaire IIS, étendez votre serveur, étendez **Sites**, cliquez avec le bouton droit sur **Site Web par défaut**, puis cliquez sur **Modifier les liaisons**.  
   
-3.  Dans **liaisons de Site**, cliquez sur **ajouter**, puis sélectionnez les options suivantes:  
+3.  Dans les **Liaisons de site**, cliquez sur **Ajouter**, puis sélectionnez les options suivantes :  
   
     -   **Type** = **https**  
   
@@ -844,366 +845,366 @@ Cet article décrit les règles utilisées par le WindowsServerEssentialsBestPra
     -   **Port** = 443  
   
     > [!NOTE]
-    >  Si une liaison HTTPS pour le port 443 existe pour une adresse IP spécifique, modifiez le **adresse IP** attribut pour cette liaison sur **toutes non attribuées**. L’exception à cela est l’adresse IP 127.0.0.1. Ne modifiez pas la liaison pour 127.0.0.1.  
+    >  Si une liaison HTTPS pour le port 443 existe pour une adresse IP spécifique, définissez l’attribut d’**Adresse IP** pour cette liaison sur **Tous les non affectés**. L’adresse IP 127.0.0.1 constitue une exception. Ne modifiez pas la liaison pour 127.0.0.1.  
   
 4.  Sélectionnez un certificat SSL, puis cliquez sur **OK** pour enregistrer vos modifications.  
   
-### <a name="a-certificate-expires-within-30-days"></a>Un certificat expire dans 30jours  
- **Problème:** votre certificat de serveur expire dans 30jours.  
+### <a name="a-certificate-expires-within-30-days"></a>Un certificat expire dans 30 jours  
+ **Problème :**  Votre certificat de serveur expirera dans 30 jours.  
   
- **Impact:** le serveur ne peut pas utiliser un certificat expiré. Si le certificat expire, les utilisateurs ne peuvent pas être en mesure d’utiliser les fonctions d’accès en tout lieu.  
+ **Impact :**  Le serveur ne peut pas utiliser un certificat expiré. Si le certificat expire, il se peut que les utilisateurs ne puissent pas utiliser les fonctionnalités d’Accès en tout lieu.  
   
- **Résolution:** pour empêcher le certificat de point d’expirer, renouveler le certificat avec votre autorité de Certification.  
+ **Résolution :**  Afin d’empêcher l’expiration du certificat, renouvelez-le à l’aide de votre autorité de certification.  
   
-### <a name="certificate-subject-does-not-match-the-name-configured-by-domain-name-wizard"></a>Objet du certificat ne correspond pas au nom configuré par l’Assistant nom de domaine  
- **Problème:** l’objet du certificat ne correspond pas au nom configuré par l’Assistant nom du domaine.  
+### <a name="certificate-subject-does-not-match-the-name-configured-by-domain-name-wizard"></a>L’objet du certificat ne correspond pas au nom configuré par l’Assistant Nom du domaine  
+ **Problème :**  L’objet du certificat ne correspond pas au nom configuré par l’Assistant Nom du domaine.  
   
- **Impact:** si l’objet du certificat ne correspond pas à celui qui a été configuré par l’Assistant de nom de domaine, certains sites Web ne pourront pas être initialisés. Autres sites afficheront l’erreur «Il est un problème avec le certificat de sécurité de ce site Web».  
+ **Impact :**  Si l’objet du certificat ne correspond pas au nom configuré par l’assistant Nom du domaine, certains sites Web ne pourront pas être initialisés. Autres sites afficheront l’erreur « Il est un problème avec le certificat de sécurité de ce site Web. »  
   
- **Résolution:** pour résoudre ce problème:, réexécutez l’Assistant de l’accès en tout lieu de configurer et fournissez le nom de domaine correct pour le certificat ou acheter un nouveau certificat qui correspond au nom de domaine que vous souhaitez utiliser.  
+ **Résolution :**  Pour résoudre ce problème :, réexécutez l’Assistant d’accès en tout lieu de configurer et indiquez le nom de domaine correct pour le certificat ou achetez un nouveau certificat qui correspond au nom de domaine que vous souhaitez utiliser.  
   
-### <a name="one-or-more-user-accounts-have-duplicate-cn-names"></a>Un ou plusieurs comptes d’utilisateur ont des noms CN dupliqués  
- **Problème:** un ou plusieurs comptes d’utilisateur ont des noms CN dupliqués: {0}.  
+### <a name="one-or-more-user-accounts-have-duplicate-cn-names"></a>Un ou plusieurs comptes utilisateur ont des noms CN dupliqués  
+ **Problème :**  Un ou plusieurs comptes d’utilisateur ont des noms CN dupliqués : {0}.  
   
- **Impact:** si les comptes d’utilisateur ont des noms CN dupliqués, les utilisateurs ne soient pas en mesure d’ouvrir une session sur le réseau. En outre, les recherches ActiveDirectory pour les utilisateurs peuvent renvoyer des valeurs incorrectes.  
+ **Impact :**  Si des comptes utilisateur ont des noms CN dupliqués, les utilisateurs ne pourront peut-être pas se connecter au réseau. De plus, les recherches Active Directory d’utilisateurs peuvent renvoyer des valeurs incorrectes.  
   
- **Résolution:** pour résoudre ce problème:, assurez-vous que les comptes d’utilisateur réseau n’ont pas de doublons «CN = «noms. Pour ce faire, exportez les contenus d’Active dans un fichier texte pour passer en revue. Pour plus d’informations sur la procédure à suivre, voir [à l’aide de LDIFDE pour importer et exporter des objets d’annuaire vers ActiveDirectory (article de la Base de connaissances 237677)](https://support.microsoft.com/kb/237677) (https://support.microsoft.com/kb/237677).  
+ **Résolution :**  Pour résoudre ce problème :, vérifiez que les comptes d’utilisateur réseau n’ont pas de doublon « CN = « noms. Pour vous faciliter la tâche, exportez les contenus d’Active Directory au format fichier texte pour les passer en revue. Pour savoir comment procéder, consultez [à l’aide de LDIFDE pour importer et exporter des objets d’annuaire vers Active Directory (article 237677 de la Base de connaissances)](https://support.microsoft.com/kb/237677) (https://support.microsoft.com/kb/237677).  
   
-### <a name="nt-backup-is-installed"></a>NT Backup est installé.  
- **Problème:** le programme WindowsNTBackup est installé sur le serveur.  
+### <a name="nt-backup-is-installed"></a>NT Backup est installé  
+ **Problème :**  Le programme Windows NT Backup est installé sur le serveur.  
   
- **Impact:** WindowsServerEssentials utilise la sauvegarde de Windows Server. Si le programme de sauvegarde de Windows NT est également installé, les conflits peuvent survenir entre les deux programmes de sauvegarde. Cela peut entraîner l’échec du processus de sauvegarde de Windows Server. Les conflits peuvent également vous empêcher d’utiliser une sauvegarde pour restaurer le serveur.  
+ **Impact :**   Windows Server Essentials utilise la sauvegarde de Windows Server. Si le programme NT Backup est déjà installé, des conflits peuvent survenir entre les deux programmes de sauvegarde. Cela peut entraîner l’échec du processus de Sauvegarde de Windows Server. Les conflits peuvent également vous empêcher d’utiliser une sauvegarde pour restaurer le serveur.  
   
- **Résolution:** pour résoudre ce problème:, désinstallez le programme NT Backup à partir du serveur.  
+ **Résolution :** Pour résoudre ce problème :, désinstallez le programme NT Backup à partir du serveur.  
   
-### <a name="iis-does-not-own-port-80-000080-or-port-443-0000443"></a>IIS n’appartient pas au port 80 (0.0.0.0:80) ou 443 (0.0.0.0: 443)  
- **Problème:** Internet Information Services (IIS) ne possède pas le port 80 (0.0.0.0:80) ou le Port 443. Ces ports sont actuellement liés par d’autres applications.  
+### <a name="iis-does-not-own-port-80-000080-or-port-443-0000443"></a>Les ports 80 (0.0.0.0:80) et 443 (0.0.0.0:443) n’appartiennent pas à IIS.  
+ **Problème :**  Les ports 80 (0.0.0.0:80) et 443 n’appartiennent pas à Internet Information Services (IIS). Ces ports sont actuellement affectés à d’autres applications.  
   
- **Impact:** applications web de WindowsServerEssentials nécessitent l’utilisation du port 80 et le port 443 pour que les services disponibles pour les utilisateurs. Si un autre processus ou une application utilise déjà le port 80 ou 443, les applications web de WindowsServerEssentials ne peut pas s’exécuter. Si cela se produit, accès Web à distance et autres applications ne sont pas disponibles pour les utilisateurs.  
+ **Impact :**   Applications web de Windows Server Essentials nécessitent l’utilisation des ports 80 et 443 pour rendre les services disponibles aux utilisateurs. Si un autre processus ou une application utilise déjà le port 80 ou 443, Impossible d’exécuter les applications web de Windows Server Essentials. Dans ce cas, l’accès Web à distance et d’autres applications ne seront pas accessibles aux utilisateurs.  
   
- **Résolution:** pour résoudre ce problème:, soit désinstaller l’application qui est déjà à l’aide du port 80 ou 443, ou affecter cette application à un autre port.  
+ **Résolution :**  Pour résoudre ce problème :, soit désinstaller l’application qui est déjà à l’aide du port 80 ou 443, ou affecter cette application à un autre port.  
   
-### <a name="the-default-website-is-not-running"></a>Le site Web par défaut n’est pas en cours d’exécution.  
- **Problème:** le site Web par défaut n’est pas en cours d’exécution dans votre environnement WindowsServerEssentials.  
+### <a name="the-default-website-is-not-running"></a>Le site Web par défaut ne fonctionne pas  
+ **Problème :**  Le site Web par défaut n’est pas en cours d’exécution dans votre environnement Windows Server Essentials.  
   
- **Impact:** applications web de WindowsServerEssentials nécessitent l’utilisation du site Web par défaut. Si le site Web par défaut n’est pas en cours d’exécution, accès Web à distance et autres applications ne sont pas disponibles pour les utilisateurs.  
+ **Impact :**   Applications web de Windows Server Essentials nécessitent l’utilisation du site Web par défaut. Si le site Web par défaut ne fonctionne pas, l’accès Web à distance et d’autres applications ne seront pas accessibles aux utilisateurs.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-start-the-default-website"></a>Pour démarrer le site Web par défaut  
+##### <a name="to-start-the-default-website"></a>Pour démarrer le site web par défaut  
   
-1.  Ouvrez le Gestionnaire Internet Information Services (IIS) sur le serveur.  
+1.  Ouvrez le Gestionnaire d’Internet Information Services (IIS) sur le serveur.  
   
-2.  Dans le Gestionnaire des services Internet, développez le nom de votre serveur, puis **Sites**.  
+2.  Dans le Gestionnaire des services Internet (IIS), développez le nom de votre serveur, puis cliquez sur **Sites**.  
   
-3.  Avec le bouton droit **site Web par défaut**, pointez sur **gérer le site Web**, puis cliquez sur **Démarrer**.  
+3.  Cliquez avec le bouton droit sur **Site Web par défaut**, sélectionnez **Gérer le site web**, puis cliquez sur **Démarrer**.  
   
-### <a name="read-and-script-permissions-for-the-remote-virtual-directory-are-incorrect"></a>Autorisations de lecture et Script pour le répertoire virtuel /Remote sont incorrectes  
- **Problème:** autorisations lecture et Script ne sont pas attribuées au répertoire virtuel /Remote.  
+### <a name="read-and-script-permissions-for-the-remote-virtual-directory-are-incorrect"></a>Les autorisations Lecture et Script pour le /Répertoire virtuel distant sont incorrectes  
+ **Problème :**  Les autorisations Lecture et Script ne sont pas attribuées au /Répertoire virtuel distant.  
   
- **Impact:** si les autorisations de lecture et Script pour le répertoire virtuel /Remote sont incorrectes, les utilisateurs ne peuvent pas utiliser accès Web à distance. Lorsqu’ils essaient d’accès Web à distance permet de naviguer sur Internet, ils peuvent rencontrer l’erreur «HTTP Error 403.1 interdit.»  
+ **Impact :**  Si les autorisations Lecture et Script pour le /Répertoire virtuel distant sont incorrectes, les utilisateurs ne pourront pas utiliser l’accès Web à distance. Lorsque vous essayez d’utiliser l’accès Web à distance pour naviguer sur Internet, ils peuvent rencontrer l’erreur « HTTP Error 403.1 interdit. »  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-assign-read-and-script-permissions-to-the-remote-directory"></a>Pour affecter des autorisations de lecture et Script dans le répertoire /Remote  
+##### <a name="to-assign-read-and-script-permissions-to-the-remote-directory"></a>Pour attribuer des autorisations Lecture et Script au /Répertoire virtuel distant  
   
-1.  Ouvrez le Gestionnaire Internet Information Services (IIS) sur le serveur.  
+1.  Ouvrez le Gestionnaire d’Internet Information Services (IIS) sur le serveur.  
   
-2.  Dans le Gestionnaire des services Internet, développez le nom de votre serveur, puis **Sites**.  
+2.  Dans le Gestionnaire des services Internet (IIS), développez le nom de votre serveur, puis cliquez sur **Sites**.  
   
-3.  Développez **site Web par défaut**, puis développez **distant**.  
+3.  Développez **Site Web par défaut**, puis **Distant**.  
   
-4.  Dans **affichage des fonctionnalités**, double-cliquez sur **mappages de gestionnaires**.  
+4.  Dans **l’affichage Fonctionnalités**, double-cliquez sur **Mappages de gestionnaires**.  
   
-5.  Sur le **Actions** volet, cliquez sur **modifier les autorisations de fonctionnalité**.  
+5.  Dans le volet **Actions**, cliquez sur **Modifier les autorisations de fonctions**.  
   
-6.  Sélectionnez le **lecture** et **Script** cases à cocher, puis cliquez sur **OK**.  
+6.  Cochez les cases **Lecture** et **Script**, puis cliquez sur **OK**.  
   
-### <a name="http-redirect-is-either-set-or-inherited-on-the-remote-virtual-directory"></a>Redirection HTTP est définie ou héritée sur le répertoire virtuel /Remote  
- **Problème:** l’attribut de redirection HTTP est inattendu définie ou héritée sur le répertoire virtuel /Remote.  
+### <a name="http-redirect-is-either-set-or-inherited-on-the-remote-virtual-directory"></a>La redirection HTTP est définie ou héritée sur le /Répertoire virtuel distant  
+ **Problème :**  L’attribut de redirection HTTP est défini ou hérité de façon inattendue sur le /Répertoire virtuel distant.  
   
- **Impact:** si l’attribut de redirection HTTP est défini sur le répertoire virtuel /Remote, Remote Web Workplace ne fonctionne pas correctement.  
+ **Impact :**  Si l’attribut de redirection HTTP est défini sur le /Répertoire virtuel distant, Remote Web Workplace ne fonctionnera pas correctement.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-remove-the-http-redirect-attribute"></a>Pour supprimer l’attribut de redirection HTTP  
+##### <a name="to-remove-the-http-redirect-attribute"></a>Pour supprimer l’attribut Redirection HTTP  
   
-1.  Ouvrez le Gestionnaire Internet Information Services (IIS) sur le serveur.  
+1.  Ouvrez le Gestionnaire d’Internet Information Services (IIS) sur le serveur.  
   
-2.  Dans le Gestionnaire des services Internet, développez le nom de votre serveur, puis **Sites**.  
+2.  Dans le Gestionnaire des services Internet (IIS), développez le nom de votre serveur, puis cliquez sur **Sites**.  
   
-3.  Développez **site Web par défaut**, puis développez **distant**.  
+3.  Développez **Site Web par défaut**, puis **Distant**.  
   
-4.  Dans **affichage des fonctionnalités**, double-cliquez sur **redirection HTTP**.  
+4.  Dans **l’affichage Fonctionnalités**, double-cliquez sur **Redirection HTTP**.  
   
-5.  Désactivez le **rediriger les demandes vers cette destination** case à cocher, puis cliquez sur **appliquer** sur le **Actions** volet.  
+5.  Décochez la case **Rediriger les demandes vers cette destination**, puis cliquez sur **Appliquer** dans le volet **Actions**.  
   
-### <a name="a-host-name-exists-for-port-80-on-the-default-website"></a>Un nom d’hôte existe pour le port 80 sur le site Web par défaut  
- **Problème:** un nom d’hôte est affecté au port 80 sur le site Web par défaut.  
+### <a name="a-host-name-exists-for-port-80-on-the-default-website"></a>Un nom d’hôte existe pour le port 80 du site Web par défaut  
+ **Problème :**  Un nom d’hôte est affecté au port 80 du site Web par défaut.  
   
- **Impact:** si un nom d’hôte est affecté au port 80 sur le site Web par défaut, vous ne serez peut-être pas en mesure de se connecter à certaines applications web de WindowsServerEssentials. Un nom d’hôte n’est pas nécessaire et n’est pas recommandé dans cette situation  
+ **Impact :**  Si un nom d’hôte est affecté au port 80 sur le site Web par défaut, vous n’êtes peut-être pas en mesure de se connecter à certaines applications web de Windows Server Essentials. Dans ce cas, il n’est pas obligatoire ni recommandé d’avoir un nom d’hôte.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-clear-the-host-name-entry-for-port-80-on-the-default-website"></a>Pour effacer l’entrée de nom d’hôte pour le port 80 sur le site Web par défaut  
+##### <a name="to-clear-the-host-name-entry-for-port-80-on-the-default-website"></a>Pour effacer l’entrée de nom d’hôte du port 80 sur le site web par défaut  
   
-1.  Ouvrez le Gestionnaire Internet Information Services (IIS) sur le serveur.  
+1.  Ouvrez le Gestionnaire d’Internet Information Services (IIS) sur le serveur.  
   
-2.  Dans le Gestionnaire des services Internet, développez le nom de votre serveur, puis **Sites**.  
+2.  Dans le Gestionnaire des services Internet (IIS), développez le nom de votre serveur, puis cliquez sur **Sites**.  
   
-3.  Dans **affichage des fonctionnalités**, avec le bouton droit **site Web par défaut**, puis cliquez sur **liaisons**.  
+3.  Dans l’**affichage Fonctionnalités**, cliquez avec le bouton droit sur **Site Web par défaut**, puis cliquez sur **Liaisons**.  
   
-4.  Dans **liaisons de Site**, sélectionnez le **http pour le port 80** définition, puis cliquez sur **modifier**.  
+4.  Dans **Liaisons de site**, sélectionnez le paramètre **HTTP pour le port 80**, puis cliquez sur **Modifier**.  
   
-5.  Dans **modifier la liaison de Site**, désactivez le **nom d’hôte** entrée, puis cliquez sur **OK**.  
+5.  Dans **Modifier la liaison de site**, supprimez l’entrée du **Nom d’hôte**, puis cliquez sur **OK**.  
   
-### <a name="backup-does-not-succeed-because-of-a-hidden-partition"></a>Échec de la sauvegarde en raison d’une partition cachée  
- **Problème:** une partition non-NTFS est planifiée pour la sauvegarde par la sauvegarde de Windows Server.  
+### <a name="backup-does-not-succeed-because-of-a-hidden-partition"></a>Échec de la Sauvegarde en raison d’une partition cachée  
+ **Problème :**  La sauvegarde par la Sauvegarde Windows Server d’une partition non-NTFS est planifiée.  
   
- **Impact:** sauvegarde de Windows Server peut uniquement sauvegarder les partitions au format NTFS.  
+ **Impact :**  La Sauvegarde Windows Server peut uniquement sauvegarder les partitions au format NTFS.  
   
- **Résolution:** ne configurez pas de sauvegarde de Windows Server pour sauvegarder les partitions non-NTFS. Pour plus d’informations, voir [ID d’événements 12290 et 16387enregistrés en cas d’échec de sauvegarde de l’état système sur un ordinateur Windows Server2008 (article de la Base de connaissances 968128)](https://support.microsoft.com/kb/968128) (https://support.microsoft.com/kb/968128).  
+ **Résolution :**  Ne configurez pas la Sauvegarde Windows Server pour sauvegarder des partitions autres que NTFS. Pour plus d’informations, consultez [ID d’événements 12290 et 16387 enregistrés en cas d’échec de sauvegarde de l’état système sur un ordinateur Windows Server 2008 (article 968128 de la Base de connaissances)](https://support.microsoft.com/kb/968128) (https://support.microsoft.com/kb/968128).  
   
-### <a name="the-most-recent-backup-did-not-succeed"></a>La dernière sauvegarde a échoué.  
- **Problème:** la dernière tentative de sauvegarde n’a pas abouti.  
+### <a name="the-most-recent-backup-did-not-succeed"></a>La dernière sauvegarde a échoué  
+ **Problème :**  La dernière tentative de sauvegarde a échoué.  
   
- **Impact:** l’état de sauvegarde pour le système n’est pas correcte.  
+ **Impact :**  L’état de la sauvegarde pour le système est incorrect.  
   
- **Résolution:** passer en revue les journaux des événements et les journaux de sauvegarde pour les erreurs qui s’est produite lors de la sauvegarde la plus récente.  
+ **Résolution :**  Examinez les journaux des événements et les journaux de sauvegarde pour identifier les erreurs survenues durant la dernière sauvegarde.  
   
-### <a name="the-startup-type-for-the-file-replication-service-is-not-set-to-automatic"></a>Le type de démarrage pour le Service de réplication de fichiers n’est pas défini sur automatique  
- **Problème:** le Service de réplication de fichiers (FRS) peut ne pas démarrer si le type de démarrage n’est pas défini sur la valeur par défaut automatique.  
+### <a name="the-startup-type-for-the-file-replication-service-is-not-set-to-automatic"></a>Le type de démarrage pour le service de réplication de fichiers n’est pas défini sur Automatique  
+ **Problème :**  Il se peut que le service de réplication de fichiers ne démarre pas si le type de démarrage n’est pas défini sur la valeur Automatique par défaut.  
   
- **Impact:** si le Service de réplication de fichiers n’est pas en cours d’exécution, le contrôleur de domaine pourra cesser de publier ses services. Cela peut entraîner d’autres problèmes tels que des erreurs d’ouverture de session et de stratégie de groupe.  
+ **Impact :**  Si le service de réplication de fichiers ne fonctionne pas, le contrôleur de domaine pourra cesser de publier ses services. Cela peut entraîner d’autres problèmes, tels que des erreurs d’ouverture de session ou des erreurs de stratégie de groupe.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-configure-the-file-replication-service-for-automatic-startup"></a>Pour configurer le Service de réplication pour un démarrage automatique  
+##### <a name="to-configure-the-file-replication-service-for-automatic-startup"></a>Pour configurer le service de réplication de fichiers en vue d’un démarrage automatique  
   
-1.  Ouvrez la console Services.  
+1.  Ouvrez la Console des services.  
   
-2.  Dans la liste des services, double-cliquez sur **la réplication de fichiers**.  
+2.  Dans la liste des services, double-cliquez sur **Réplication de fichiers**.  
   
-3.  Pour **type de démarrage**, sélectionnez **automatique**, puis cliquez sur **appliquer**.  
+3.  Pour **Type de démarrage**, sélectionnez **Automatique**, puis cliquez sur **Appliquer**.  
   
-### <a name="the-file-replication-service-is-not-running"></a>Le Service de réplication de fichiers n’est pas en cours d’exécution.  
- **Problème:** le Service de réplication de fichiers n’est pas en cours d’exécution.  
+### <a name="the-file-replication-service-is-not-running"></a>Le service de réplication de fichiers ne fonctionne pas  
+ **Problème :**  Le service de réplication de fichiers ne fonctionne pas.  
   
- **Impact:** si le Service de réplication de fichiers n’est pas en cours d’exécution, le contrôleur de domaine pourra cesser de publier ses services. Ce comportement peut entraîner d’autres problèmes tels que des erreurs d’ouverture de session et de stratégie de groupe.  
+ **Impact :**  Si le service de réplication de fichiers ne fonctionne pas, le contrôleur de domaine pourra cesser de publier ses services. Cela peut entraîner d’autres problèmes, tels que des erreurs d’ouverture de session ou des erreurs de stratégie de groupe.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-start-the-file-replication-service"></a>Pour démarrer le Service de réplication de fichiers  
+##### <a name="to-start-the-file-replication-service"></a>Pour démarrer le service de réplication de fichiers  
   
-1.  Ouvrez la console Services.  
+1.  Ouvrez la Console des services.  
   
 2.  Dans la liste des services, double-cliquez sur **Service de réplication de fichiers**.  
   
 3.  Cliquez sur **Démarrer**.  
   
-### <a name="the-logon-account-for-the-file-replication-service-is-not-set-to-use-the-local-system-account"></a>Le compte d’ouverture de session pour le Service de réplication de fichiers n’est pas configuré pour utiliser le compte système Local  
- **Problème:** le Service de réplication de fichiers n’est pas configuré pour utiliser le compte système Local comme compte d’ouverture de session par défaut.  
+### <a name="the-logon-account-for-the-file-replication-service-is-not-set-to-use-the-local-system-account"></a>Le compte d’ouverture de session pour le service de Réplication de fichiers n’est pas configuré pour utiliser le Compte système local  
+ **Problème :**  Le Service de réplication de fichiers n’est pas configuré pour utiliser le Compte système local comme compte d’ouverture de session par défaut.  
   
- **Impact:** si le Service de réplication de fichiers n’utilise pas de système Local comme compte d’ouverture de session par défaut, vous pouvez rencontrer des erreurs d’autorisation. Ces erreurs peuvent déclencher d’autres erreurs et peuvent conduire le contrôleur de domaine à cesser de publier ses services.  
+ **Impact :**  Si le Service de réplication de fichiers n’utilise pas le compte Système local comme compte d’ouverture de session par défaut, des erreurs d’autorisation pourraient se produire. Des erreurs peuvent déclencher d’autres erreurs, qui pourrait conduire le contrôleur de domaine à cesser de publier ses services.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-configure-local-system-as-the-default-logon-account-for-file-replication"></a>Pour configurer le système Local comme compte d’ouverture de session par défaut pour la réplication de fichiers  
+##### <a name="to-configure-local-system-as-the-default-logon-account-for-file-replication"></a>Pour configurer le compte Système local comme compte d’ouverture de session par défaut pour la réplication de fichiers  
   
-1.  Ouvrez la console Services.  
+1.  Ouvrez la Console des services.  
   
-2.  Dans la liste des services, double-cliquez sur **la réplication de fichiers**.  
+2.  Dans la liste des services, double-cliquez sur **Réplication de fichiers**.  
   
-3.  Sur le **propriétés du Service**, cliquez sur le **ouverture de session** onglet.  
+3.  Dans la page **Propriétés du service**, cliquez sur l’onglet **Ouvrir une session**.  
   
-4.  Sélectionnez le **compte système Local** option, puis cliquez sur **appliquer**.  
+4.  Sélectionnez l’option **Compte Système local**, puis cliquez sur **Appliquer**.  
   
 5.  Redémarrez le service.  
   
-### <a name="the-startup-type-for-the-dfs-replication-service-is-not-set-to-automatic"></a>Le type de démarrage pour le service de réplication DFS n’est pas défini sur automatique  
- **Problème:** le service de réplication DFS ne peut pas démarrer si le type de démarrage n’est pas défini sur la valeur par défaut automatique.  
+### <a name="the-startup-type-for-the-dfs-replication-service-is-not-set-to-automatic"></a>Le type de démarrage pour le service de réplication DFS n’est pas défini sur Automatique  
+ **Problème :**  Il se peut que le service de réplication DFS ne démarre pas si le type de démarrage n’est pas défini sur la valeur par défaut Automatique.  
   
- **Impact:** si le service de réplication DFS n’est pas en cours d’exécution, le contrôleur de domaine pourra cesser de publier ses services. Cela peut entraîner d’autres problèmes tels que des erreurs d’ouverture de session et de stratégie de groupe.  
+ **Impact :**  Si le service de réplication DFS ne fonctionne pas, le contrôleur de domaine pourra cesser de publier ses services. Cela peut entraîner d’autres problèmes, tels que des erreurs d’ouverture de session ou des erreurs de stratégie de groupe.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-configure-the-dfs-replication-service-for-automatic-startup"></a>Pour configurer le service de réplication DFS pour un démarrage automatique  
+##### <a name="to-configure-the-dfs-replication-service-for-automatic-startup"></a>Pour configurer le service de réplication DFS en vue d’un démarrage automatique  
   
-1.  Ouvrez la console Services.  
+1.  Ouvrez la Console des services.  
   
-2.  Dans la liste des services, double-cliquez sur **la réplication DFS**.  
+2.  Dans la liste des services, double-cliquez sur **Réplication DFS**.  
   
-3.  Pour **type de démarrage**, sélectionnez **automatique**, puis cliquez sur **appliquer**.  
+3.  Pour **Type de démarrage**, sélectionnez **Automatique**, puis cliquez sur **Appliquer**.  
   
-### <a name="the-dfs-replication-service-is-not-running"></a>Le service de réplication DFS n’est pas en cours d’exécution.  
- **Problème:** le service de réplication DFS n’est pas en cours d’exécution.  
+### <a name="the-dfs-replication-service-is-not-running"></a>Le service de réplication DFS ne fonctionne pas  
+ **Problème :**  Le service de réplication DFS ne fonctionne pas actuellement.  
   
- **Impact:** si le service de réplication DFS n’est pas en cours d’exécution, le contrôleur de domaine pourra cesser de publier ses services. Ce comportement peut entraîner d’autres problèmes tels que des erreurs d’ouverture de session et de stratégie de groupe.  
+ **Impact :**  Si le service de réplication DFS ne fonctionne pas, le contrôleur de domaine pourra cesser de publier ses services. Cela peut entraîner d’autres problèmes, tels que des erreurs d’ouverture de session ou des erreurs de stratégie de groupe.  
   
- **Résolution:**  
+ **Résolution :**  
   
 ##### <a name="to-start-the-dfs-replication-service"></a>Pour démarrer le service de réplication DFS  
   
-1.  Ouvrez la console Services.  
+1.  Ouvrez la Console des services.  
   
-2.  Dans la liste des services, double-cliquez sur **la réplication DFS**.  
-  
-3.  Cliquez sur **Démarrer**.  
-  
-### <a name="the-dfs-replication-service-is-not-is-not-set-to-use-the-local-system-account"></a>Le service n’est pas la réplication DFS n’est pas configurée pour utiliser le compte système Local  
- **Problème:** le service de réplication DFS n’est pas configuré pour utiliser le compte système Local comme compte d’ouverture de session par défaut.  
-  
- **Impact:** si le service de réplication DFS n’utilise pas de système Local comme compte d’ouverture de session par défaut, vous pouvez rencontrer des erreurs d’autorisation. Ces erreurs peuvent déclencher d’autres erreurs et peuvent conduire le contrôleur de domaine à cesser de publier ses services.  
-  
- **Résolution:**  
-  
-##### <a name="to-configure-dfs-replication-to-use-local-system-as-the-default-logon-account"></a>Pour configurer la réplication DFS pour utiliser le système Local comme compte d’ouverture de session par défaut  
-  
-1.  Ouvrez la console Services.  
-  
-2.  Dans la liste des services, double-cliquez sur **la réplication DFS**.  
-  
-3.  Sur le **propriétés du Service**, cliquez sur le **ouverture de session** onglet.  
-  
-4.  Sélectionnez le **compte système Local** option, puis cliquez sur **appliquer**.  
-  
-5.  Redémarrez le service.  
-  
-### <a name="the-windows-server-office-365-integration-service-is-not-set-to-use-the-local-system-account"></a>Le Service d’intégration WindowsServerOffice 365 n’est pas configuré pour utiliser le compte système Local  
- **Problème:** le Service d’intégration WindowsServerOffice 365 n’est pas défini pour utiliser le compte système Local comme compte d’ouverture de session par défaut.  
-  
- **Impact:** si le Service d’intégration Office 365 pour Windows Server n’utilise pas de système Local comme compte d’ouverture de session par défaut, certaines fonctionnalités d’Office 365 ne peuvent pas fonctionner correctement. Vous pouvez également rencontrer des erreurs d’autorisation.  
-  
- **Résolution:**  
-  
-##### <a name="to-configure-the-office-365-integration-service-to-use-local-system-as-the-default-logon-account"></a>Pour configurer le Service d’intégration Office 365 pour utiliser le système Local comme compte d’ouverture de session par défaut  
-  
-1.  Ouvrez la console Services.  
-  
-2.  Dans la liste des services, double-cliquez sur **Service d’intégration Office 365 pour Windows Server**.  
-  
-3.  Sur le **propriétés du Service**, cliquez sur le **ouverture de session** onglet.  
-  
-4.  Sélectionnez le **compte système Local** option, puis cliquez sur **appliquer**.  
-  
-5.  Redémarrez le service.  
-  
-### <a name="the-windows-server-office-365-integration-service-is-not-running"></a>Le Service d’intégration WindowsServerOffice 365 n’est pas en cours d’exécution.  
- **Problème:** le Service d’intégration WindowsServerOffice 365 n’est pas en cours d’exécution.  
-  
- **Impact:** si le Service d’intégration WindowsServerOffice 365 n’est pas en cours d’exécution, les fonctions basées sur le cloud d’Office 365 ne sont pas disponibles.  
-  
- **Résolution:**  
-  
-##### <a name="to-start-the-windows-server-office-365-integration-service"></a>Pour démarrer le Service d’intégration WindowsServerOffice 365  
-  
-1.  Ouvrez la console Services.  
-  
-2.  Dans la liste des services, double-cliquez sur **Service d’intégration Office 365 pour Windows Server**.  
+2.  Dans la liste des services, double-cliquez sur **Réplication DFS**.  
   
 3.  Cliquez sur **Démarrer**.  
   
-### <a name="the-startup-type-for-the-windows-server-office-365-integration-service-is-not-set-to-automatic"></a>Le type de démarrage pour le Service d’intégration WindowsServerOffice 365 n’est pas défini sur automatique  
- **Problème:** le Service d’intégration WindowsServerOffice 365 ne peut pas démarrer si le type de démarrage n’est pas défini sur la valeur par défaut automatique.  
+### <a name="the-dfs-replication-service-is-not-is-not-set-to-use-the-local-system-account"></a>Le service de réplication DFS n’est pas configuré pour utiliser le Compte système local  
+ **Problème :**  Le service de Réplication DFS n’est pas configuré pour utiliser le Compte système local comme compte d’ouverture de session par défaut.  
   
- **Impact:** si le Service d’intégration WindowsServerOffice 365 n’est pas en cours d’exécution, les fonctions basées sur le cloud d’Office 365 ne sont pas disponibles.  
+ **Impact :**  Si le Service de réplication DFS n’utilise pas le compte Système local comme compte d’ouverture de session par défaut, des erreurs d’autorisation pourraient se produire. Des erreurs peuvent déclencher d’autres erreurs, qui pourrait conduire le contrôleur de domaine à cesser de publier ses services.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-configure-the-office-365-integration-service-for-automatic-startup"></a>Pour configurer le Service d’intégration Office 365 pour un démarrage automatique  
+##### <a name="to-configure-dfs-replication-to-use-local-system-as-the-default-logon-account"></a>Pour configurer le compte Système local comme compte d’ouverture de session par défaut pour la réplication DFS  
   
-1.  Ouvrez la console Services.  
+1.  Ouvrez la Console des services.  
   
-2.  Dans la liste des services, double-cliquez sur **Service d’intégration Office 365 pour Windows Server**.  
+2.  Dans la liste des services, double-cliquez sur **Réplication DFS**.  
   
-3.  Pour **type de démarrage**, sélectionnez **automatique**, puis cliquez sur **appliquer**.  
+3.  Dans la page **Propriétés du service**, cliquez sur l’onglet **Ouvrir une session**.  
   
-### <a name="a-registry-value-is-missing-or-set-incorrectly"></a>Une valeur de Registre est manquante ou mal définie  
- **Problème:** une clé de Registre sous HKEY_LOCAL_MACHINE \Software\Microsoft\Rpc\RpcProxy contient des valeurs incorrectes ou n’existe pas.  
+4.  Sélectionnez l’option **Compte Système local**, puis cliquez sur **Appliquer**.  
   
- **Impact:** si la clé de Registre RPCProxy est mal configurée, vous pouvez recevoir un message d’erreur semblable au suivant: «votre ordinateur ne peut pas se connecter à l’ordinateur distant car le serveur de passerelle Bureau à distance n’est temporairement pas disponible. Essayez de vous reconnecter ultérieurement ou contactez votre administrateur réseau».  
+5.  Redémarrez le service.  
   
- **Résolution:**  
+### <a name="the-windows-server-office-365-integration-service-is-not-set-to-use-the-local-system-account"></a>Le Service d’intégration d’Office 365 pour Windows Server n’est pas configuré pour utiliser le Compte système local  
+ **Problème :**  Le Service d’intégration d’Office 365 pour Windows Server n’est pas configuré pour utiliser le Compte système local comme compte d’ouverture de session par défaut.  
   
-##### <a name="to-correct-the-registry-setting"></a>Pour corriger le paramètre de Registre  
+ **Impact :**  Si le Service d’intégration d’Office 365 pour Windows Server n’est pas configuré pour utiliser le Compte système local comme compte d’ouverture de session par défaut, certaines fonctions d’Office 365 pourraient ne pas fonctionner correctement. De même, des erreurs d’autorisation pourraient se produire.  
+  
+ **Résolution :**  
+  
+##### <a name="to-configure-the-office-365-integration-service-to-use-local-system-as-the-default-logon-account"></a>Pour configurer le service Intégration d’Office 365 pour qu’il utilise le compte Système local comme compte d’ouverture de session par défaut  
+  
+1.  Ouvrez la Console des services.  
+  
+2.  Dans la liste des services, double-cliquez sur **Service Intégration d’Office 365 pour Windows Server**.  
+  
+3.  Dans la page **Propriétés du service**, cliquez sur l’onglet **Ouvrir une session**.  
+  
+4.  Sélectionnez l’option **Compte Système local**, puis cliquez sur **Appliquer**.  
+  
+5.  Redémarrez le service.  
+  
+### <a name="the-windows-server-office-365-integration-service-is-not-running"></a>Le Service d’intégration d’Office 365 pour Windows Server ne fonctionne pas  
+ **Problème :**  Le Service d’intégration d’Office 365 pour Windows Server ne fonctionne pas actuellement.  
+  
+ **Impact :**  Si le Service d’intégration d’Office 365 pour Windows Server ne fonctionne pas, les fonctions d’Office 365 en nuage ne seront pas disponibles.  
+  
+ **Résolution :**  
+  
+##### <a name="to-start-the-windows-server-office-365-integration-service"></a>Pour démarrer le service d’intégration d’Office 365 pour Windows Server  
+  
+1.  Ouvrez la Console des services.  
+  
+2.  Dans la liste des services, double-cliquez sur **Service Intégration d’Office 365 pour Windows Server**.  
+  
+3.  Cliquez sur **Démarrer**.  
+  
+### <a name="the-startup-type-for-the-windows-server-office-365-integration-service-is-not-set-to-automatic"></a>Le type de démarrage pour le service d’intégration d’Office 365 pour Windows Server n’est pas défini sur Automatique  
+ **Problème :**  Il se peut que le Service d’intégration d’Office 365 pour Windows Server ne démarre pas si le type de démarrage n’est pas défini sur la valeur par défaut Automatique.  
+  
+ **Impact :**  Si le Service d’intégration d’Office 365 pour Windows Server ne fonctionne pas, les fonctions d’Office 365 en nuage ne seront pas disponibles.  
+  
+ **Résolution :**  
+  
+##### <a name="to-configure-the-office-365-integration-service-for-automatic-startup"></a>Pour configurer le démarrage automatique du service d’intégration d’Office 365  
+  
+1.  Ouvrez la Console des services.  
+  
+2.  Dans la liste des services, double-cliquez sur **Service Intégration d’Office 365 pour Windows Server**.  
+  
+3.  Pour **Type de démarrage**, sélectionnez **Automatique**, puis cliquez sur **Appliquer**.  
+  
+### <a name="a-registry-value-is-missing-or-set-incorrectly"></a>Une valeur de registre est manquante ou mal définie  
+ **Problème :**  Une clé de registre sous HKEY_LOCAL_MACHINE \Software\Microsoft\Rpc\RpcProxy contient des valeurs incorrectes ou n’existe pas.  
+  
+ **Impact :**  Si la clé de registre RPCProxy est mal définie, vous pourrez recevoir un message d’erreur de type : « Votre ordinateur ne peut pas se connecter à un ordinateur distant en raison d’une indisponibilité provisoire du serveur de passerelle Bureau à distance. Essayez de vous reconnecter plus tard ou contactez votre administrateur réseau pour obtenir de l’aide. »  
+  
+ **Résolution :**  
+  
+##### <a name="to-correct-the-registry-setting"></a>Pour corriger le paramètre dans le registre :  
   
 1.  Ouvrez l’Éditeur du Registre.  
   
-2.  Accédez à la clé de Registre suivante:  
+2.  Accédez à la clé de Registre suivante :  
   
-     Niveau de HKEY_LOCAL_MACHINE\Software\Microsoft\Rpc\RpcProxy  
+     HKEY_LOCAL_MACHINE\Software\Microsoft\Rpc\RpcProxy  
   
-3.  Vérifiez que la chaîne appelée «Site Web» a une valeur de données de site Web par défaut:  
+3.  Assurez-vous que la chaîne nommée « Site Web » a une valeur de données de Site Web par défaut :  
   
-    -   Si la valeur de données est incorrecte, modifiez la chaîne pour utiliser la valeur correcte.  
+    -   Si la valeur de données est incorrecte, modifiez la chaîne afin d’utiliser la bonne valeur.  
   
-    -   Si la chaîne n’existe pas, créez une nouvelle chaîne appelée «Site Web» et définissez la valeur de données sur le site Web par défaut.»  
+    -   Si la chaîne n’existe pas, créez une nouvelle chaîne appelée « Site Web » et définissez la valeur de données sur Site Web par défaut. »  
   
-### <a name="the-startup-type-for-the-block-level-backup-engine-service-is-not-set-to-manual"></a>Le type de démarrage pour le Service de moteur de sauvegarde de niveau bloc n’est pas défini sur manuel  
- **Problème:** le Service de moteur de sauvegarde de niveau bloc n’utilise pas le type de démarrage par défaut du manuel.  
+### <a name="the-startup-type-for-the-block-level-backup-engine-service-is-not-set-to-manual"></a>Le type de démarrage pour le Service de moteur de sauvegarde en mode bloc n’est pas défini sur Manuel  
+ **Problème :**  Le Service de moteur de sauvegarde en mode bloc n’utilise pas le type de démarrage par défaut Manuel.  
   
- **Impact:** le Service de moteur de sauvegarde de niveau bloc ne peut pas démarrer si le type de démarrage n’est pas défini sur manuel. Ce problème: peut entraîner l’échec des tâches de sauvegarde de Windows Server.  
+ **Impact :**  Le Service de moteur de sauvegarde en mode bloc pourrait ne pas démarrer si le type de démarrage n’est pas défini sur Manuel. Ce problème : peut entraîner l’échec des tâches de sauvegarde de Windows Server.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-configure-the-block-level-backup-engine-service-for-manual-startup"></a>Pour configurer le Service de moteur de sauvegarde de niveau bloc pour un démarrage manuel  
+##### <a name="to-configure-the-block-level-backup-engine-service-for-manual-startup"></a>Pour configurer le Service de moteur de sauvegarde en mode bloc pour le démarrage manuel  
   
-1.  Ouvrez la console Services.  
+1.  Ouvrez la Console des services.  
   
-2.  Dans la liste des services, double-cliquez sur **Service moteur de sauvegarde en mode bloc**.  
+2.  Dans la liste des services, double-cliquez sur **Service de moteur de sauvegarde en mode bloc**.  
   
-3.  Pour **type de démarrage**, sélectionnez **manuel**, puis cliquez sur **appliquer**.  
+3.  Pour **Type de démarrage**, sélectionnez **Manuel**, puis cliquez sur **Appliquer**.  
   
-### <a name="the-logon-account-for-the-block-level-backup-engine-service-is-not-set-to-use-the-local-system-account"></a>Le compte d’ouverture de session pour le Service de moteur de sauvegarde de niveau bloc n’est pas configuré pour utiliser le compte système Local  
- **Problème:** le Service de moteur de sauvegarde de niveau bloc n’est pas défini pour utiliser le compte système Local comme compte d’ouverture de session par défaut.  
+### <a name="the-logon-account-for-the-block-level-backup-engine-service-is-not-set-to-use-the-local-system-account"></a>Le compte d’ouverture de session pour le Service de moteur de sauvegarde en mode bloc n’est pas configuré pour utiliser le Compte système local  
+ **Problème :**  Le Service de moteur de sauvegarde en mode bloc n’est pas configuré pour utiliser le Compte système local comme compte d’ouverture de session par défaut.  
   
- **Impact:** si le Service moteur de sauvegarde en mode bloc n’utilise pas de système Local comme compte d’ouverture de session par défaut, vous pouvez rencontrer des erreurs d’autorisation. Ces erreurs peuvent empêcher les tâches de sauvegarde de Windows Server avec succès.  
+ **Impact :**  Si le Service de moteur de sauvegarde en mode bloc n’est pas configuré pour utiliser le Compte système local comme compte d’ouverture de session par défaut, des erreurs d’autorisation pourraient se produire. Ces erreurs pourraient empêcher la bonne exécution des tâches de Sauvegarde de Windows Server.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-configure-the-block-level-backup-engine-service-to-use-local-system-as-the-default-logon-account"></a>Pour configurer le Service de moteur de sauvegarde de niveau bloc pour utiliser le système Local comme compte d’ouverture de session par défaut  
+##### <a name="to-configure-the-block-level-backup-engine-service-to-use-local-system-as-the-default-logon-account"></a>Pour configurer le Service de moteur de sauvegarde en mode bloc pour qu’il utilise le compte Système local comme compte d’ouverture de session par défaut  
   
-1.  Ouvrez la console Services.  
+1.  Ouvrez la Console des services.  
   
-2.  Dans la liste des services, double-cliquez sur **Service moteur de sauvegarde en mode bloc**.  
+2.  Dans la liste des services, double-cliquez sur **Service de moteur de sauvegarde en mode bloc**.  
   
-3.  Sur le **propriétés du Service**, cliquez sur le **ouverture de session** onglet.  
+3.  Dans la page **Propriétés du service**, cliquez sur l’onglet **Ouvrir une session**.  
   
-4.  Sélectionnez le **compte système Local** option, puis cliquez sur **appliquer**.  
+4.  Sélectionnez l’option **Compte Système local**, puis cliquez sur **Appliquer**.  
   
 5.  Redémarrez le service.  
   
-### <a name="the-common-name-on-the-certificate-that-is-bound-to-the-wss-certificate-web-service-website-does-not-match-the-server-name"></a>Le nom commun du certificat qui est lié au site Web de Service Web certificat WSS ne correspond pas au nom de serveur  
- **Problème:** un certificat non valide est lié au site Web de Service Web certificat WSS dans IIS. Le nom commun sur ce certificat ne correspond pas le nom du serveur.  
+### <a name="the-common-name-on-the-certificate-that-is-bound-to-the-wss-certificate-web-service-website-does-not-match-the-server-name"></a>Le nom commun sur le certificat qui est lié au site Web du Service Web de certificat WSS ne correspond pas au nom du serveur  
+ **Problème :**  Un certificat non valide est lié au site Web du Service Web de certificat WSS dans IIS. Le nom commun sur ce certificat ne correspond pas au nom du serveur.  
   
- **Impact:** si vous liez un certificat non valide pour le site Web du Service Web certificat WSS, l’Assistant de connexion ne peut pas fonctionner correctement.  
+ **Impact :**  Si vous liez un certificat non valide au site Web du Service Web de certificat WSS, l’assistant de connexion risque de ne pas fonctionner correctement.  
   
- **Résolution:**  
+ **Résolution :**  
   
 ##### <a name="to-configure-a-valid-certificate-for-the-wss-certificate-web-service"></a>Pour configurer un certificat valide pour le Service Web de certificat WSS  
   
-1.  Ouvrez le Gestionnaire Internet Information Services (IIS) sur le serveur.  
+1.  Ouvrez le Gestionnaire d’Internet Information Services (IIS) sur le serveur.  
   
-2.  Dans le Gestionnaire des services Internet, développez le nom de votre serveur, puis **Sites**.  
+2.  Dans le Gestionnaire des services Internet (IIS), développez le nom de votre serveur, puis cliquez sur **Sites**.  
   
-3.  Avec le bouton droit **Service Web certificat WSS**, puis cliquez sur **modifier les liaisons**.  
+3.  Cliquez avec le bouton droit sur **Service Web de certificat WSS**, puis cliquez sur **Modifier les liaisons**.  
   
-4.  Dans **liaisons de Site**, cliquez sur **HTTPS**, puis cliquez sur **modifier**.  
+4.  Dans **Liaisons du site**, cliquez sur **HTTPS**, puis sur **Modifier**.  
   
-5.  Dans **modifier la liaison de Site**, pour **certificat SSL**, sélectionnez le certificat qui a le même nom que votre serveur.  
+5.  Dans **Modifier les liaisons du site**, pour le **certificat SSL**, sélectionnez le certificat portant le même nom que votre serveur.  
   
-6.  Si plusieurs entrées de certificat possède le même nom que votre serveur, cliquez sur **affichage** pour déterminer quel certificat est valide, puis sélectionnez le certificat approprié.  
+6.  Si plus d’une entrée de certificat est identique au nom de votre serveur, cliquez sur **Afficher** pour déterminer quel certificat est valide, puis sélectionnez le certificat qui convient.  
   
-### <a name="there-appears-to-be-a-problem-with-the-certificate-binding-for-the-remote-desktop-gateway-service"></a>Il doit s’agir d’un problème avec la liaison de certificat pour le service passerelle des services Bureau à distance  
- **Problème:** le certificat pour le service passerelle des services Bureau à distance semble être mal lié.  
+### <a name="there-appears-to-be-a-problem-with-the-certificate-binding-for-the-remote-desktop-gateway-service"></a>La liaison de certificat pour le service Passerelle des services Bureau à distance semble poser problème  
+ **Problème :**  Le certificat pour le service Passerelle des services Bureau à distance semble être mal lié.  
   
- **Impact:** si le certificat pour le service passerelle des services Bureau à distance n’est pas configuré correctement, les utilisateurs ne peuvent pas se connecter à accès Web à distance.  
+ **Impact :**  Si le certificat pour le service Passerelle des services Bureau à distance n’est pas configuré correctement, les utilisateurs ne pourront pas se connecter à l’Accès Web à distance.  
   
- **Résolution:**  
+ **Résolution :**  
   
-##### <a name="to-fix-the-binding-for-the-remote-desktop-gateway-service"></a>Pour corriger la liaison pour le service passerelle des services Bureau à distance  
+##### <a name="to-fix-the-binding-for-the-remote-desktop-gateway-service"></a>Pour corriger la liaison du service Passerelle des services Bureau à distance  
   
--   Ouvrez une invite de commandes en tant qu’administrateur et entrez les commandes suivantes:  
+-   Ouvrez une invite de commandes en tant qu’administrateur et tapez les commandes suivantes :  
   
     ```  
     REG ADD HKLM\SYSTEM\CurrentControlSet\services\HTTP\Parameters\SslBindingInfo\0.0.0.0:443  /v DefaultFlags /t REG_DWORD /d 1 /f  
@@ -1211,4 +1212,4 @@ Cet article décrit les règles utilisées par le WindowsServerEssentialsBestPra
     net start tsgateway  
     ```  
   
-     Pour plus d’informations, voir [comment gérer le Service de passerelle Bureau à distance dans WindowsServerEssentials (article de la Base de connaissances 2472211)](https://support.microsoft.com/kb/2472211) (https://support.microsoft.com/kb/2472211).
+     Pour plus d’informations, consultez [comment gérer le Service de passerelle Bureau à distance dans Windows Server Essentials (article 2472211 de la Base de connaissances)](https://support.microsoft.com/kb/2472211) (https://support.microsoft.com/kb/2472211).

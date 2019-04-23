@@ -1,6 +1,6 @@
 ---
-title: "Gérer les Services en ligne Microsoft dans WindowsServerEssentials"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Gérer les services en ligne Microsoft dans Windows Server Essentials
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,16 +13,17 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 9feb65903be589e6f6a9cc6c3b8738d858a70f30
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59849510"
 ---
-# <a name="manage-microsoft-online-services-in-windows-server-essentials"></a>Gérer les Services en ligne Microsoft dans WindowsServerEssentials
+# <a name="manage-microsoft-online-services-in-windows-server-essentials"></a>Gérer les services en ligne Microsoft dans Windows Server Essentials
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Les rubriques suivantes fournissent des informations sur les méthodes que vous pouvez utiliser pour gérer les services en ligne pour votre organisation:  
+Les rubriques suivantes fournissent des informations sur les méthodes que vous pouvez utiliser pour gérer des services en ligne pour votre organisation :  
   
 -   [Gérer Office 365](Manage-Office-365-in-Windows-Server-Essentials.md)   
   
@@ -32,6 +33,6 @@ Les rubriques suivantes fournissent des informations sur les méthodes que vous 
   
 ## <a name="see-also"></a>Voir aussi  
   
--   [Gérer WindowsServerEssentials](Manage-Windows-Server-Essentials.md)  
+-   [Gérer Windows Server Essentials](Manage-Windows-Server-Essentials.md)  
   
 -   [Utiliser Windows Server Essentials](../use/Use-Windows-Server-Essentials.md)

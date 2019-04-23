@@ -1,0 +1,1 @@
+**[En savoir plus sur les améliorations de fonctionnalités de VPN Always On](../vpn/always-on-vpn/always-on-vpn-enhancements.md).** Découvrez les fonctionnalités nouvelles ou améliorées qui propose des VPN Always On pour améliorer votre configuration.

@@ -1,0 +1,1 @@
+**Créez des anneaux de migration.** Comme dans la plupart des autres migrations de système, cibler les migrations de client dans les phases pour aider à identifier les problèmes avant qu’ils affectent toute l’organisation. La première partie de la migration des VPN Always On n’est pas différente.
