@@ -1,6 +1,6 @@
 ---
-title: "Créer le fichier Oobe.xml, y compris le Logo et le CLUF"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Créer le fichier OOBE.xml, y compris le logo et le CLUF
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,30 +13,31 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: f8f99a2051e114b3c890f1cdac23aebf58689980
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884650"
 ---
-# <a name="create-the-oobexml-file-including-logo-and-eula"></a>Créer le fichier Oobe.xml, y compris le Logo et le CLUF
+# <a name="create-the-oobexml-file-including-logo-and-eula"></a>Créer le fichier OOBE.xml, y compris le logo et le CLUF
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Vous pouvez ajouter votre propre contrat de licence utilisateur final (CLUF) pour la Configuration initiale en utilisant le fichier Oobe.xml. Oobe.xml est un fichier utilisé pour fournir le texte et des images pour la Configuration initiale, accueil de Windows et les autres pages présentées à l’utilisateur final. Vous pouvez ajouter plusieurs fichiers Oobe.xml pour personnaliser le contenu selon les sélections de langue et du pays ou région de l’utilisateur final. Pour plus d’informations, voir la [Kit de déploiement pour Windows8 et évaluation Windows](https://go.microsoft.com/fwlink/?LinkId=248694) documentation.  
+Vous avez la possibilité d'ajouter votre propre Contrat de Licence Utilisateur Final (CLUF) à la configuration initiale grâce au fichier Oobe.xml. Le fichier Oobe.xml contient le texte et les images destinés à la configuration initiale, à l'écran d'accueil de Windows et à d'autres pages présentées à l'utilisateur final. Vous pouvez ajouter plusieurs fichiers Oobe.xml afin de personnaliser le contenu en fonction de la langue et du pays ou de la région sélectionnés par l'utilisateur final. Pour plus d’informations, consultez la documentation [Kit de déploiement et d’évaluation Windows (ADK) pour Windows 8](https://go.microsoft.com/fwlink/?LinkId=248694).  
   
- Le CLUF de votre société est affiché en plus de EULA de Microsoft. Le sera EULA Microsoft le CLUF première affiché lors de l’expérience utilisateur final de la configuration initiale, puis votre volonté CLUF s’afficher. Votre CLUF permettre être placée n’importe où sur le serveur et que vous spécifiez l’emplacement dans le fichier Oobe.xml.  
+ Le CLUF de votre société est affiché à la suite du CLUF Microsoft. En effet, le CLUF de Microsoft est le premier contrat de licence présenté à l'utilisateur au cours de la configuration initiale. Vous êtes libre de placer votre CLUF à l'endroit de votre choix sur le serveur. Il suffira simplement de mentionner son emplacement dans le fichier Oobe.xml.  
   
-#### <a name="to-add-your-company-eula-and-logo"></a>Pour ajouter votre société CLUF et le logo  
+#### <a name="to-add-your-company-eula-and-logo"></a>Pour ajouter le CLUF et le logo de votre société  
   
-1.  Ouvrez le fichier Oobe.xml dans un éditeur de texte, tel que le bloc-notes.  
+1.  Ouvrez le fichier Oobe.xml dans un éditeur de texte, tel que le Bloc-notes.  
   
-2.  Dans le < logopath\ >< / logopath\ > balises, entrez le chemin d’accès absolu au fichier de votre logo. Ce fichier doit contenir un fichier (.png) graphique réseau portable 32bits de 240 x 100pixels.  
+2.  Dans le < logopath\>< / logopath\> balises, entrez le chemin d’accès absolu à votre fichier de logo. Choisissez un logo au format .png (Portable Network Graphics) 32 bits de 240 x 100 pixels.  
   
-3.  Dans le < eulafilename\ >< / eulafilename\ > balises, entrez le chemin d’accès absolu au fichier du CLUF. Le fichier CLUF doit être un fichier de (.rtf) format RTF.  
+3.  Dans le < eulafilename\>< / eulafilename\> balises, entrez le chemin d’accès absolu au fichier du CLUF. Optez pour un fichier au format .rtf.  
   
-4.  Dans le < nom\ >< / nom\ > balises, entrez le nom de votre société.  
+4.  Dans le < nom\>< / nom\> balises, entrez le nom de votre société.  
   
-     L’exemple suivant montre les balises dans un fichier Oobe.xml:  
+     L'exemple suivant illustre les balises d'un fichier Oobe.xml :  
   
     ```  
   
@@ -54,40 +55,40 @@ Vous pouvez ajouter votre propre contrat de licence utilisateur final (CLUF) pou
   
 5.  Enregistrez le fichier.  
   
-6.  Placez le fichier Oobe.xml dans un des emplacements suivants:  
+6.  Placez le fichier Oobe.xml à l'un des emplacements suivants :  
   
-    |Emplacement Oobe.xml|Condition pour déterminer l’emplacement|  
+    |Emplacement Oobe.XML|Critère de détermination de l'emplacement|  
     |-----------------------|----------------------------------------|  
-    |%windir%\system32\oobe\info\|Le serveur est prévu pour fonctionner dans un pays/une région unique et un système de langue unique.|  
-    |%windir%\system32\oobe\info\default\\ < langue >|Le serveur est prévu pour fonctionner dans un pays/une région unique et système multilingue.|  
-    |%windir%\system32\oobe\info\\ < pays/région > \ et %windir%\system32\oobe\info\\ < pays/région > \\ < langue > \|Le serveur est prévu pour fonctionner à plusieurs pays/région et nécessitera chaque pays/région, chacun avec une seule langue. Où < pays/région > est la version en notation décimale de l’identificateur d’emplacement géographique (GeoID) du pays ou région où le serveur est déployé et < langue > est la version en notation décimale de l’identificateur de paramètres régionaux (LCID).|  
+    |%windir%\System32\Oobe\Info\|le serveur est prévu dans un pays/région unique et un système de langue unique.|  
+    |%windir%\system32\oobe\info\default\\<language\>|Le serveur est prévu pour fonctionner dans une seule région/pays et sur un système multilingue.|  
+    |%windir%\System32\Oobe\Info\\< pays/région > \ et %windir%\system32\oobe\info\\< pays/région >\\< langage\>\|le serveur est prévu pour plus d’un pays / paramètres de région et les besoin de personnalisations sur une base par pays/région, chacun avec une seule langue. Où < pays/région > est la version en notation décimale de l’identificateur d’emplacement géographique (GeoID) du pays ou région où le serveur est déployé, et < langue\> est la version en notation décimale de l’identificateur de paramètres régionaux (LCID).|  
   
- Si vous avez un logo d’entreprise alternatif avec un texte blanc, il peut afficher une meilleure pendant la configuration en raison de l’arrière-plan bleu.  Vous pouvez éventuellement spécifier ce logo en définissant une clé de Registre et une valeur.  
+ Si vous disposez d'un logo d'entreprise alternatif avec un texte blanc, la qualité d'affichage sera meilleure pendant la configuration car l'arrière-plan est bleu.  Vous pouvez spécifier ce logo en option en définissant une clé de registre et une valeur.  
   
-#### <a name="to-specify-a-company-logo-by-setting-the-oem-registry-key"></a>Pour spécifier un logo d’entreprise en définissant la clé de Registre OEM  
+#### <a name="to-specify-a-company-logo-by-setting-the-oem-registry-key"></a>Pour spécifier un logo d'entreprise en définissant la clé de registre OEM  
   
-1.  Sur le serveur, déplacez votre souris vers le coin supérieur droit de l’écran, puis cliquez sur **recherche**.  
+1.  Sur le serveur, déplacez votre souris sur le coin supérieur droit de l’écran, puis cliquez sur **Rechercher**.  
   
-2.  Dans la zone de recherche, tapez **regedit**, puis cliquez sur l’application Regedit.  
+2.  Dans la zone de recherche, tapez **regedit**, puis cliquez sur l'application Regedit.  
   
-3.  Dans le volet de navigation, accédez à **HKEY_LOCAL_MACHINE**, développez **logiciel**, développez **Microsoft**, développez **Windows Server**. Si la clé OEM n’existe pas, créez la clé comme suit:  
+3.  Dans le volet de navigation, naviguez jusqu'aux entrées **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft** et **Windows Server**. Si la clé OEM n'existe pas, vous pouvez la créer de la manière suivante :  
   
-    1.  Avec le bouton droit **Windows Server**, cliquez sur **New**, puis cliquez sur **clé**.  
+    1.  Faites un clic droit sur **Windows Server**, cliquez sur **Nouveau**, puis cliquez sur **Clé**.  
   
-    2.  Pour le nom de la clé, tapez **OEM**.  
+    2.  Tapez **OEM**comme nom de clé.  
   
-4.  (Facultatif) Si vous créez une entrée pour un logo, vous pouvez créer des clés différentes pour différencier les versions de langue du logo. Par exemple, si vous avez les versions anglaise et allemandes d’un logo, vous pouvez créer un en-us de clé et une clé fr-fr. Étant donné que tous les fichiers des logos sont stockés dans le même dossier, vous devez fournir les instances du fichier image du logo avec un nom unique pour chaque langue. Par exemple, vous pouvez créer un fichier appelé LogoWithWhiteText_en.png et LogoWithWhiteText_de.png.  
+4.  (Facultatif) Si vous définissez une nouvelle entrée pour un logo, vous pouvez créer plusieurs clés afin de distinguer les versions du logo prévues pour chaque langue. Si vous disposez, par exemple, d'une version anglaise et française du logo, il suffit de créer une clé en-us et une clé fr-fr. Comme tous les fichiers des logos sont stockés dans le même dossier, les différentes instances du fichier d'image spécifiques à chaque langue doivent porter un nom unique. Dans notre exemple, vous pouvez créer un fichier appelé LogoWithWhiteText_en.png et LogoWithWhiteText_de.png.  
   
-5.  Un clic droit **OEM** ou avec le bouton droit de la clé de langue approprié, cliquez sur **New**, puis cliquez sur **valeur de chaîne**.  
+5.  Cliquez avec le bouton droit sur **OEM** ou sur la clé de langue appropriée, cliquez sur **Nouveau**, puis sur **Valeur de chaîne**.  
   
-6.  Caractères logowithwhitetext la chaîne, puis appuyez sur ENTRÉE.  
+6.  Tapez la chaîne de caractères LogoWithWhiteText, puis appuyez sur ENTRÉE.  
   
-7.  Avec le bouton droit de la nouvelle chaîne, puis cliquez sur **modifier**.  
+7.  Cliquez avec le bouton droit sur la nouvelle chaîne, puis cliquez sur **Modifier**.  
   
-8.  Entrez le chemin d’accès qui contient l’image du logo, puis cliquez sur OK.  
+8.  Saisissez le chemin qui contient l'image du logo, puis cliquez sur OK.  
   
 ## <a name="see-also"></a>Voir aussi  
- [Prise en main du kit ADK WindowsServerEssentials](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Prise en main du ADK Windows Server Essentials](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
  [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   

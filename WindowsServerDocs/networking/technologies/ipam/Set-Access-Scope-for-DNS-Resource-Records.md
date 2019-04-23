@@ -1,6 +1,6 @@
 ---
-title: Définir l’étendue d’accès pour les enregistrements de ressource DNS
-description: Cette rubrique fait partie du guide de gestion de la gestion des adresses IP (IPAM) dans Windows Server2016.
+title: Définir l’étendue d’accès pour des enregistrements de ressource DNS
+description: Cette rubrique fait partie du guide de gestion de la gestion des adresses IP (IPAM) dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,19 +13,20 @@ ms.topic: article
 ms.assetid: a96a8752-5678-49c5-b069-d2cce8042a51
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 06c33a633975497e80863cc8d42b14a0f9ac8193
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 2e63c82ef0c58a9b4392ad8b9b1fc896d075ab71
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59882910"
 ---
-# <a name="set-access-scope-for-dns-resource-records"></a>Définir l’étendue d’accès pour les enregistrements de ressource DNS
+# <a name="set-access-scope-for-dns-resource-records"></a>Définir l’étendue d’accès pour des enregistrements de ressource DNS
 
->S’applique à: Windows Server (canal annuel un point-virgule), Windows Server2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour définir l’étendue d’accès pour un enregistrements de ressource DNS à l’aide de la console client IPAM.  
+Vous pouvez utiliser cette rubrique pour définir l’étendue d’accès pour les enregistrements de ressource a DNS à l’aide de la console client IPAM.  
   
-L’appartenance au groupe **administrateurs**, ou équivalente, est la condition minimale requise pour effectuer cette procédure.  
+Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au groupe **Administrateurs** ou à un groupe équivalent.  
   
 ### <a name="to-set-access-scope-for-dns-resource-records"></a>Pour définir l’étendue d’accès pour les enregistrements de ressource DNS  
   
@@ -35,9 +36,9 @@ L’appartenance au groupe **administrateurs**, ou équivalente, est la conditio
   
 3.  Dans le volet d’informations, recherchez et sélectionnez les enregistrements de ressources dont vous souhaitez modifier l’étendue d’accès.  
   
-    ![Sélectionnez les enregistrements de ressource](../../media/Set-Access-Scope-for-DNS-Resource-Records/ipam_RestrictUserToRRControl_02.jpg)  
+    ![Sélectionnez les enregistrements de ressources](../../media/Set-Access-Scope-for-DNS-Resource-Records/ipam_RestrictUserToRRControl_02.jpg)  
   
-4.  Les enregistrements de ressource DNS sélectionnés d’avec le bouton droit, puis cliquez sur **définir l’étendue d’accès**.  
+4.  Cliquez sur les enregistrements de ressources DNS sélectionnés, puis cliquez sur **définir l’étendue d’accès**.  
   
     ![Définir l’étendue d’accès](../../media/Set-Access-Scope-for-DNS-Resource-Records/ipam_RestrictUserToRRControl_03.jpg)  
   
@@ -46,7 +47,7 @@ L’appartenance au groupe **administrateurs**, ou équivalente, est la conditio
     ![Sélectionnez l’étendue d’accès](../../media/Set-Access-Scope-for-DNS-Resource-Records/ipam_RestrictUserToRRControl_04.jpg)  
   
 ## <a name="see-also"></a>Voir aussi  
-[Contrôle d’accès basé sur les rôles](Role-based-Access-Control.md)  
+[Contrôle d’accès en fonction du rôle](Role-based-Access-Control.md)  
 [Gérer IPAM](Manage-IPAM.md)  
   
 

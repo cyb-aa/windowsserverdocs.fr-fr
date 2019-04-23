@@ -1,7 +1,7 @@
 ---
 ms.assetid: 3ecb6e87-17f1-4d38-97d2-9c4d52b7cf39
-title: "Planification de capacité des serveurs Proxy de fédération"
-description: 
+title: Planification de la capacité des serveurs proxy de fédération
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,40 +10,41 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 2e57f34b173c10e9e753c7f3b8dcd88d7bf6742c
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59888900"
 ---
-# <a name="planning-for-federation-server-proxy-capacity"></a>Planification de capacité des serveurs Proxy de fédération
+# <a name="planning-for-federation-server-proxy-capacity"></a>Planification de la capacité des serveurs proxy de fédération
 
->S’applique à: Windows Server2016, Windows Server2012R2, Windows Server2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Planification de capacité pour les serveurs proxy de fédération vous permet d’évaluer:  
+Planification de capacité pour les serveurs proxy de fédération permet d’évaluer :  
   
 -   La configuration matérielle appropriée pour chaque serveur proxy de fédération.  
   
--   Le nombre de serveurs de fédération et les serveurs proxy de fédération pour placer dans chaque organisation.  
+-   Le nombre de serveurs de fédération et les serveurs proxy de fédération à placer dans chaque organisation.  
   
-Serveurs proxy de fédération redirige les jetons de sécurité à partir d’un serveur de fédération protégé dans le réseau d’entreprise aux utilisateurs fédérés. L’objectif du déploiement d’un serveur proxy de fédération consiste à permettre aux utilisateurs externes pour se connecter à un serveur de fédération. Il ne prend pas réellement signature des jetons ou d’écriture dans la base de données de configuration ADFS. Par conséquent, la configuration matérielle requise pour le serveur proxy de fédération est généralement inférieure à la configuration matérielle requise pour un serveur de fédération.  
+Serveurs proxy de fédération redirige les jetons de sécurité à partir d’un serveur de fédération protégé dans le réseau d’entreprise pour les utilisateurs fédérés. L’objectif du déploiement d’un serveur proxy de fédération consiste à permettre aux utilisateurs externes pour se connecter à un serveur de fédération. Il fait le pas signer les jetons ou d’écriture dans la base de données de configuration AD FS. Par conséquent, la configuration matérielle requise pour le serveur proxy de fédération est généralement inférieure à la configuration matérielle requise pour un serveur de fédération.  
   
-Étant donné que chaque demande à un serveur proxy de fédération entraîne une demande à un serveur de fédération ou d’une batterie de serveurs de fédération, planification de capacité pour les serveurs de fédération et les serveurs proxy de fédération doit être effectuée en parallèle.  
+Étant donné que chaque demande adressée à un serveur proxy de fédération entraîne une demande à un serveur de fédération ou de la batterie de serveurs de fédération, la planification de capacité pour les serveurs de fédération et les serveurs proxy de fédération doit être effectuée en parallèle.  
   
-Estimation des connexion-ins pointe par seconde pour le serveur proxy de fédération tenu de comprendre les modèles d’utilisation des utilisateurs fédérés qui se connectent via le serveur proxy de fédération. Dans de nombreux déploiements, les utilisateurs fédérés qui se connectent à l’aide du serveur proxy de fédération sont trouvent sur Internet. Vous pouvez estimer les modules de connexion maximale par seconde en examinant les modèles d’utilisation de ces utilisateurs fédérés sur les applications Web existantes qui sont protégées par ADFS.  
+Estimation de la connexion pointe\-ins par seconde pour le serveur proxy de fédération implique de comprendre les modèles d’utilisation des utilisateurs fédérés qui seront connecteront via le serveur proxy de fédération. Dans de nombreux déploiements, les utilisateurs fédérés qui se connectent à l’aide du serveur proxy de fédération sont situés sur Internet. Vous pouvez estimer la connexion pointe\-ins par seconde en examinant les modèles d’utilisation de ces les utilisateurs sur les applications Web existantes qui seront protégées par AD FS fédérés.  
   
 > [!NOTE]  
-> Pour les déploiements de production, nous vous recommandons d’un minimum de deux serveurs proxys de fédération pour chaque instance de batterie de serveurs de serveur de fédération que vous déployez.  
+> Pour les déploiements de production, nous recommandons un minimum de deux serveurs proxy de fédération pour chaque instance de batterie de serveurs de serveur de fédération déployée.  
   
 ## <a name="estimate-the-number-of-federation-server-proxies-required-for-your-organization"></a>Estimer le nombre de serveurs proxy de fédération nécessaires pour votre organisation  
-Avant que vous pouvez estimer le nombre d’ordinateurs virtuels proxy du serveur de fédération ADFS requis, vous devez d’abord déterminer le nombre total de serveurs de fédération que vous allez déployer dans votre organisation. Pour plus d’informations sur la procédure à suivre, voir [planification de la capacité du serveur de fédération](Planning-for-Federation-Server-Capacity.md).  
+Avant que vous pouvez estimer le nombre de machines de proxy de serveur de fédération AD FS requise, vous devez d’abord déterminer le nombre total de serveurs de fédération que vous allez déployer dans votre organisation. Pour plus d’informations sur la procédure à suivre, consultez [planification de la capacité du serveur de fédération](Planning-for-Federation-Server-Capacity.md).  
   
-Une fois que vous avez décidé du nombre de serveurs de fédération, multipliez ce nombre de serveurs par le pourcentage de l’authentification fédérée entrante demande que vous attendez sont effectués par les utilisateurs externes \ (situés en dehors de l’entreprise Updatable). La valeur de ce calcul fournit avec estimation du nombre de serveurs proxy de fédération qui gère les demandes d’authentification entrantes pour vos utilisateurs externes.  
+Une fois que vous avez décidé du nombre de serveurs de fédération, multiplier ce nombre de serveurs en fonction du pourcentage de l’authentification fédérée entrant demande à laquelle sera établie à partir des utilisateurs externes \(situé en dehors du réseau d’entreprise\). La valeur de ce calcul vous fournira avec le nombre estimé de serveurs proxy de fédération qui gère les demandes d’authentification entrantes pour vos utilisateurs externes.  
   
-Par exemple, si le nombre de serveurs de fédération recommandée est de 3 et que vous pensez que le nombre total de demandes d’authentification qui seront effectuées par les utilisateurs externes sera environ 60% du nombre total de demandes d’authentification fédérée, le calcul est égal 1,8 \ (3 X. 60\) auquel vous pouvez arrondir jusqu'à 2.  Par conséquent, dans ce cas, vous devez déployer deux ordinateurs virtuels federation server proxy pour prendre en compte la charge des demandes d’authentification utilisateur externe pour les serveurs de trois fédération.  
+Par exemple, si le nombre de serveurs de fédération recommandée est 3, et vous attendez à ce que le nombre total de demandes d’authentification qui vont être apportées par les utilisateurs externes sera environ 60 % du nombre total de demandes d’authentification fédérée, vos calcul serait égale à 1.8 \(3 X.60\) dont vous pouvez arrondir jusqu'à 2.  Dans ce cas, vous devrez par conséquent, déployez deux machines de proxy de serveur de fédération pour prendre en compte la charge des demandes d’authentification utilisateur externe pour les serveurs de fédération de trois.  
   
-Lors des tests effectués par l’équipe du produit ADFS, l’utilisation du processeur globale sur chaque serveur proxy de fédération a été détectée est sensiblement inférieure à l’utilisation du processeur qui a été observée sur les serveurs de fédération pour la même batterie de serveurs.  Dans un test, tandis qu’un processeur de serveur de fédération a été indiquant qu’il a été complètement saturé, le processeur pour un serveur proxy de fédération qui fournit les services de proxy pour ce même batterie de serveurs a été observé à 20% d’utilisation uniquement. Par conséquent, nos tests ont révélé que la charge sur le processeur d’un serveur proxy de fédération, qui utilise des caractéristiques matérielles similaires comme indiqué plus haut dans cette section, peut gérer raisonnablement la charge de traitement pour environ trois serveurs de fédération.  
+Dans les tests effectués par l’équipe de produit AD FS, l’utilisation globale du processeur sur chaque serveur proxy de fédération a été trouvée pour être nettement plus faible que l’utilisation du processeur qui a été observé sur les serveurs de fédération pour la même batterie de serveurs.  Dans un seul test, tandis qu’un processeur de serveur de fédération a été indiquant qu’il a été complètement saturé, l’UC pour un serveur proxy de fédération en fournissant des services de proxy pour ce même batterie de serveurs a été observée au seul 20 % d’utilisation. Par conséquent, nos tests ont révélé que la charge sur l’UC d’un serveur proxy de fédération, qui utilise les spécifications matérielles similaires comme indiqué plus haut dans cette section, peut permettre de gérer la charge de traitement pour environ trois serveurs de fédération.  
   
-Toutefois, pour des raisons de tolérance de pannes, nous recommandons un minimum de deux serveurs proxys de fédération pour chaque batterie de serveurs de fédération que vous déployez.  
+Toutefois, à des fins de tolérance de panne, nous recommandons un minimum de deux serveurs proxy de fédération pour chaque batterie de serveurs de fédération que vous déployez.  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception ADFS dans Windows Server2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

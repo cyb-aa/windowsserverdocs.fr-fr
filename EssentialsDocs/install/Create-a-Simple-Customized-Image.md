@@ -1,6 +1,6 @@
 ---
-title: "Créer une Image personnalisée Simple"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Création d’une image personnalisée simple
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,39 +13,40 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: e18ff5ded94127449072d28d00b98e17dbe63c3a
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884610"
 ---
-# <a name="create-a-simple-customized-image"></a>Créer une Image personnalisée Simple
+# <a name="create-a-simple-customized-image"></a>Création d’une image personnalisée simple
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Vous pouvez utiliser la procédure suivante pour créer une image personnalisée simple:  
+Vous pouvez procéder de la façon suivante pour créer une image personnalisée simple :  
   
 #### <a name="to-create-the-image"></a>Pour créer l’image  
   
-1.  Après l’installation du serveur, à la première page de la Configuration initiale, appuyez sur MAJ + F10 pour lancer la fenêtre cmd.  
+1.  Après l'installation du serveur, appuyez à la première page de la configuration initiale sur Maj+F10 pour lancer la fenêtre cmd.  
   
-2.  Créez un fichier SkipIC.txt sous la racine du lecteur système.  
+2.  Créez un fichier SkipIC.txt sous la racine d’un lecteur système.  
   
 3.  Redémarrez le serveur.  
   
-4.  Démarrez le serveur à l’aide d’un disque mémoire flash USB ou un DVD, qui comprend le fichier unattend.xml. Pour plus d’informations sur la création d’un lecteur flash USB, consultez [créer un lecteur Flash de démarrage USB](Create-a-Bootable-USB-Flash-Drive.md).  
+4.  Démarrez le serveur en utilisant un lecteur flash USB ou un DVD comprenant le fichier unattend.xml. Pour plus d'informations sur la création d'un lecteur flash USB démarrable, voir [Création d'un lecteur flash USB démarrable](Create-a-Bootable-USB-Flash-Drive.md).  
   
-5.  Ajout d’un logo logo au tableau de bord. Pour plus d’informations sur l’ajout d’un logo, consultez [Add Branding au tableau de bord, accès Web à distance et Launchpad](Add-Branding-to-the-Dashboard--Remote-Web-Access--and-Launchpad.md).  
+5.  Ajoutez le logo de votre marque dans le Tableau de bord. Pour plus d’informations à ce sujet, voir [Ajout d’un logo au Tableau de bord, à l’Web Accès à distance et au Launchpad](Add-Branding-to-the-Dashboard--Remote-Web-Access--and-Launchpad.md) (peut-être en anglais).  
   
-6.  Créer le fichier OOBE.xml pour afficher des informations personnalisées, telles que le nom de la société, logo et le CLUF. Pour plus d’informations sur le fichier OOBE.xml, voir [créer le Oobe.xml File Including Logo et le CLUF](Create-the-Oobe.xml-File-Including-Logo-and-EULA.md).  
+6.  Créez le fichier OOBE.xml destiné à afficher les informations personnalisées, telles que le nom de la société, le logo et le CLUF. Pour plus d’informations sur le fichier OOBE.xml, consultez [Create the Oobe.xml File Including Logo and EULA](Create-the-Oobe.xml-File-Including-Logo-and-EULA.md).  
   
-7.  Modifier le nom du serveur par défaut si vous ne le définissez pas dans unattend.xml.  
+7.  Modifier le nom du serveur par défaut si vous ne le définissez pas dans le fichier unattend.xml.  
   
-8.  Par défaut, le nom du serveur sera une chaîne de caractères quelconque. Modifier le nom du serveur à une autre chaîne (par exemple, ContosoServer), puis informez vos clients sur le nouveau nom du serveur.  
+8.  Par défaut, le nom de serveur sera une chaîne de caractères quelconque. Modifiez le nom du serveur en une autre chaîne de caractères (comme par exemple ContosoServer), puis informez vos clients du nouveau nom de serveur.  
   
-9. Préparez l’Image pour le déploiement comme décrit dans [préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md).  
+9. Préparez l’image en vue du déploiement comme décrit à la rubrique [Préparation de l’image en vue du déploiement](Preparing-the-Image-for-Deployment.md).  
   
 ## <a name="see-also"></a>Voir aussi  
- [Prise en main du kit ADK WindowsServerEssentials](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Prise en main du ADK Windows Server Essentials](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
  [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   

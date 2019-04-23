@@ -1,64 +1,65 @@
 ---
-title: "Mises à jour des composants des Services de domaine ActiveDirectory"
-description: "Ce document décrit les mises à jour du composant de domaine ActiveDirectory pour Windows Server2012R2"
-author: billmath
-ms.author: billmath
-manager: femila
+title: Mises à jour des composants des services de domaine Active Directory
+description: Ce document décrit les mises à jour du composant AD DS pour Windows Server 2012 R2
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 09/08/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: a3a91034-a4da-4ad7-93f8-0cd2ec3e7824
 ms.technology: identity-adds
-ms.openlocfilehash: 52d3dab542b4250670067e927f42ddf1597fc852
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 300bf7dafe0ef0ede754302f2c0aa8c36a7adbfd
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59889880"
 ---
-# <a name="active-directory-domain-services-component-updates"></a>Mises à jour des composants des Services de domaine ActiveDirectory
+# <a name="active-directory-domain-services-component-updates"></a>Mises à jour des composants des services de domaine Active Directory
 
->S’applique à: Windows Server2016, Windows Server2012R2
+>S'applique à : Windows Server 2016, Windows Server 2012 R2
 
-Ce module présente les composants qui ont des mises à jour mineures dans les Services d’annuaire et les espaces de l’identité.  
+Ce module présente les composants qui ont subi des mises à jour mineures dans les espaces Services d'annuaire et Identité.  
   
-|À propos de l’auteur|  
+|À propos de l'auteur|  
 |--------------------|  
-|**Auteur:**|Justin Turner|  
-|**BIO:**|Justin est un ingénieur Support résolution Senior avec l’équipe des Services d’annuaire basée à Irving, Texas, États-Unis.  Il a créé ou contribué à de nombreux cours de formation et articles de la base de connaissances pour la Knowledgebase Microsoft au cours des 12dernières années. Il enseigne employés de Microsoft et de la nouvelle architecture de produits clients est enseigne MicrosoftCertified Master (MCM), MicrosoftCertified Trainer (MCT) et contient une maîtrise Degré dans les systèmes cognitifs et ordinateur.|  
+|**Auteur :**|Justin Turner|  
+|**Biographie :**|Justin est un ingénieur support résolution senior de l'équipe Services d'annuaire basée à Irving, Texas, États-Unis.  Il a créé ou contribué à de nombreux cours de formation et articles de la Base de connaissances Microsoft au cours des 12 dernières années. Il enseigne les employés de Microsoft et de la nouvelle architecture des produits aux clients, est une charte Microsoft Certified Master (MCM), Microsoft Certified Trainer (MCT) et le maintient une maîtrise degré dans les systèmes cognitifs et ordinateur.|  
 |**Contributeurs**|Ce module de formation inclut des contributions de *Michiko Short*, *Dean Wells*, *Alan Jowett*, *Manu Pushpendran*, *Yashar Bahman*, *Anoosh Saboori*, *Rashmi Jha*, *Justin Hall* et *Herbert Mauerer*|  
-|**Réviseurs**|Un grand merci aux personnes suivantes qui ont leur propre temps de réviser et de commentaires: *Joey Seifert*, *Justin Hall*|  
+|**Réviseurs**|Un grand merci aux personnes suivantes qui ont pris le temps de réviser et émettre des commentaires : *Joey Seifert* et *Justin Hall*|  
   
 > [!NOTE]  
-> Ce contenu est écrit par un ingénieur du support client Microsoft et est destiné aux administrateurs expérimentés et architectes système qui recherchent des explications techniques plus approfondies des fonctionnalités et des solutions Windows Server2012R2 que proposent généralement les rubriques sur TechNet. Toutefois, il n’a pas subi les mêmes passes, afin de la partie du langage peut sembler que moins finalisée que ce qui se trouvent généralement sur TechNet.  
+> Ce contenu est écrit par un ingénieur du support client Microsoft et est destiné aux administrateurs expérimentés et aux architectes système qui recherchent des explications techniques plus approfondies des fonctionnalités et des solutions Windows Server 2012 R2 que n'en proposent généralement les rubriques de TechNet. Toutefois, il n'a pas subi les mêmes passes de correction. De ce fait, une partie du langage peut sembler moins finalisée que le contenu de TechNet.  
   
 ### <a name="what-you-will-learn"></a>Ce que vous allez apprendre  
-Après la fin de ce module, vous serez en mesure de:  
+À la fin de ce module, vous serez en mesure de :  
   
--   Expliquez les mises à jour des composants effectuées dans les domaines technologiques Services d’annuaire et identité dans Windows Server2012R2  
+-   Expliquer les mises à jour des composants effectuées dans les domaines technologiques Services d'annuaire et Identité dans Windows Server 2012 R2  
   
     -   [Unicité des noms SPN et UPN](../../../ad-ds/manage/component-updates/SPN-and-UPN-uniqueness.md)  
   
-    -   [Connexion redémarrage automatique Winlogon sur et #40; aRSO et #41;](../../../ad-ds/manage/component-updates/Winlogon-Automatic-Restart-Sign-On--ARSO-.md)  
+    -   [Redémarrage automatique Sign-On &#40;ARSO&#41;](../../../ad-ds/manage/component-updates/Winlogon-Automatic-Restart-Sign-On--ARSO-.md)  
   
     -   [Attestation de clé TPM](../../../ad-ds/manage/component-updates/TPM-Key-Attestation.md)  
   
-    -   [Applets de commande sauvegarde de l’autorité de certification et de restauration Windows PowerShell](../../../ad-ds/manage/component-updates/CA-Backup-and-Restore-Windows-PowerShell-cmdlets.md)  
+    -   [Applets de commande de sauvegarde et de restauration de l'autorité de certification Windows PowerShell](../../../ad-ds/manage/component-updates/CA-Backup-and-Restore-Windows-PowerShell-cmdlets.md)  
   
     -   [Audit des processus de ligne de commande](../../../ad-ds/manage/component-updates/Command-line-process-auditing.md)  
   
-    -   [Gestion et Protection des informations d’identification](https://technet.microsoft.com/library/dn408190.aspx)  
+    -   [Gestion et protection des informations d'identification](https://technet.microsoft.com/library/dn408190.aspx)  
   
-    -   [Mises à jour du composant Directory Services](../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md)  
+    -   [Mises à jour des composants Services d'annuaire](../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md)  
   
-        -   [Niveaux fonctionnels de domaine et de forêt](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_FL)  
+        -   [Niveaux fonctionnels de domaines et de forêt](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_FL)  
   
         -   [Désapprobation de NTFRS](../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_NTFRS)  
   
-        -   [Modifications de l’optimiseur de requête LDAP](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_LDAPQuery)  
+        -   [Modifications de l'optimiseur de requête LDAP](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_LDAPQuery)  
   
-        -   [Événement1644](../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_1644)  
+        -   [Améliorations de l'événement 1644](../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_1644)  
   
-        -   [Amélioration du débit de réplication ActiveDirectory](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_ADRepl)  
+        -   [Amélioration du débit de réplication Active Directory](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_ADRepl)  
   
 
 

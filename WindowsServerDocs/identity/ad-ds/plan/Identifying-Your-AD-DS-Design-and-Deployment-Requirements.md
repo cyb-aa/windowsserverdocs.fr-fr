@@ -1,31 +1,32 @@
 ---
 ms.assetid: f0398494-773d-4070-aa4e-25b4815b001e
-title: "Identification de votre conception d’ADDS et la configuration requise du déploiement"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: Identification des exigences en matière de conception et de déploiement des services AD DS
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: c0da90e3a4b9f50d01c4d158c93a466467e5af49
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: 160ebf65348aaff0095f359766c65aebd6fdd3c3
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59889540"
 ---
-# <a name="identifying-your-ad-ds-design-and-deployment-requirements"></a>Identification de votre conception d’ADDS et la configuration requise du déploiement
+# <a name="identifying-your-ad-ds-design-and-deployment-requirements"></a>Identification des exigences en matière de conception et de déploiement des services AD DS
 
->S’applique à: Windows Server2016, Windows Server2012R2, Windows Server2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Exécution d’une évaluation de haut niveau de votre environnement actuel et l’identification correcte de vos tâches de déploiement des Services de domaine Active Directory (AD DS) sont essentielle à la réussite de votre stratégie de déploiement des services AD DS.  
+Effectuer une évaluation approfondie de votre environnement actuel et l’identification correcte de vos tâches de déploiement de Services de domaine Active Directory (AD DS) sont essentiel pour la réussite de votre stratégie de déploiement d’AD DS.  
   
-Votre stratégie de déploiement des services AD DS dépend de la configuration de votre réseau existant. Par exemple, si votre organisation exécute actuellement Windows Server 2003, vous pouvez mettre à niveau votre système d’exploitation vers Windows Server 2008. Votre processus de déploiement peut impliquer la restructuration des domaines existants, dans une forêt Active Directory ou entre des forêts Active Directory. Vous devrez peut-être restructurer vos domaines existants après le déploiement d’AD DS Windows Server 2008 ou après les modifications d’organisation ou des acquisitions d’entreprise.  
+Votre stratégie de déploiement d’AD DS varie selon votre configuration réseau existante. Par exemple, si votre organisation exécute actuellement Windows Server 2003, vous pouvez mettre à niveau votre système d’exploitation vers Windows Server 2008. Votre processus de déploiement peut impliquer la restructuration de domaines existantes, dans une forêt Active Directory ou entre des forêts Active Directory. Vous devrez peut-être restructurer vos domaines existants après le déploiement d’AD DS de Windows Server 2008 ou après les modifications organisationnelles ou acquisitions d’entreprise.  
   
--   [Exigences de conception de service d’annuaire ActiveDirectory](../../ad-ds/plan/AD-DS-Design-Requirements.md)  
+-   [Exigences de conception de service d’annuaire Active Directory](../../ad-ds/plan/AD-DS-Design-Requirements.md)  
   
--   [Configuration requise du déploiement ADDS](../../ad-ds/plan/AD-DS-Deployment-Requirements.md)  
+-   [Exigences en matière de déploiement AD DS](../../ad-ds/plan/AD-DS-Deployment-Requirements.md)  
   
 
 

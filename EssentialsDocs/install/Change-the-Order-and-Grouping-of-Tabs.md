@@ -1,6 +1,6 @@
 ---
-title: "Modifier l’ordre et le regroupement des onglets"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Modification de l’ordre et du regroupement des onglets
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,64 +13,65 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 578c5619cfdf076bb2735254494f393d56d35713
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59887760"
 ---
-# <a name="change-the-order-and-grouping-of-tabs"></a>Modifier l’ordre et le regroupement des onglets
+# <a name="change-the-order-and-grouping-of-tabs"></a>Modification de l’ordre et du regroupement des onglets
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Vous pouvez modifier l’ordre des onglets dans le tableau de bord afin que votre onglet est le premier (à gauche) dans la rangée d’onglets. Pour ce faire, vous ajoutez une entrée au Registre. Vous pouvez également changer le regroupement des onglets en ajoutant des entrées dans le Registre. L’ordre des onglets peut être votre onglet principal suivi des onglets intégrés Microsoft, suivi par l’un de vos onglets supplémentaires, puis les onglets tiers.  
+Il est possible de changer l’ordre des onglets dans le Tableau de bord de manière à afficher le vôtre en premier (à gauche) dans la rangée d’onglets. Pour ce faire, il convient d’ajouter une entrée au Registre. Vous pouvez également changer le mode de regroupement des onglets en ajoutant des entrées au Registre. Pourquoi pas, par exemple, présenter votre onglet principal suivi des onglets intégrés Microsoft, puis de vos onglets supplémentaires et enfin des onglets provenant de tierces parties ?  
   
-## <a name="change-the-order-of-the-tabs-in-the-dashboard"></a>Modifier l’ordre des onglets dans le tableau de bord  
- Vous devez ajouter l’identificateur du complément qui affiche votre onglet dans le Registre pour définir l’ordre.  
+## <a name="change-the-order-of-the-tabs-in-the-dashboard"></a>Modification de l’ordre des onglets dans le Tableau de bord  
+ Pour définir l’ordre qui vous intéresse, commencez par ajouter au Registre l’identificateur du complément prévu pour afficher votre onglet.  
   
 #### <a name="to-display-your-tab-first-in-the-list-of-tabs"></a>Pour afficher votre onglet en premier dans la liste des onglets  
   
-1.  Sur l’ordinateur de référence, cliquez sur **Démarrer**, entrez **regedit**, puis appuyez sur **entrée**.  
+1.  Sur l'ordinateur de référence, cliquez sur **Démarrer**, entrez **regedit**, puis appuyez sur **Entrée**.  
   
-2.  Dans le volet gauche, développez **HKEY_LOCAL_MACHINE**, développez **logiciel**, développez **Microsoft**, puis développez **Windows Server**. Si le **OEM** clé n’existe pas, vous devez effectuer les étapes suivantes pour la créer:  
+2.  Dans le volet gauche, développez successivement les entrées **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**et **Windows Server**. Si la clé **OEM** n’existe pas, procédez de la façon suivante pour la créer :  
   
-    1.  Avec le bouton droit **Windows Server**, pointez sur **New**, puis cliquez sur **clé**.  
+    1.  Cliquez avec le bouton droit sur **Windows Server**, pointez sur **Nouveau**, puis cliquez sur **Clé**.  
   
-    2.  Type **OEM** pour le nom de la clé.  
+    2.  Tapez **OEM** comme nom de la clé.  
   
-3.  Avec le bouton droit **OEM**, pointez sur **New**, puis cliquez sur **valeur de chaîne**.  
+3.  Cliquez avec le bouton droit sur **OEM**, pointez sur **Nouveau**, puis cliquez sur **Nom de la valeur**.  
   
-4.  Type **DashboardMainTabID** comme nom de chaîne, puis appuyez sur **entrée**.  
+4.  Entrez **DashboardMainTabID** comme nom de valeur, puis appuyez sur **Entrée**.  
   
-5.  Avec le bouton droit de la nouvelle chaîne dans le volet droit, puis cliquez sur **modifier**.  
+5.  Cliquez avec le bouton droit sur la nouvelle chaîne dans le volet droit, puis cliquez sur **Modifier**.  
   
-6.  Entrez le GUID qui a été défini pour l’onglet de niveau supérieur et appuyez sur **entrée**.  
+6.  Entrez le GUID défini pour l’onglet de niveau supérieur, puis appuyez sur **Entrée**.  
   
-     Pour plus d’informations sur la création et l’identification des onglets de niveau supérieur, voir [créer un onglet de niveau supérieur](https://msdn.microsoft.com/library/gg513957) dans le SDK WindowsServerSolutions.  
+     Pour plus d’informations sur la création et l’identification des onglets de niveau supérieur, voir [Création d’un onglet de niveau supérieur](https://msdn.microsoft.com/library/gg513957) dans le Kit de développement logiciel (SDK) des solutions Windows Server.  
   
-7.  Enregistrer les modifications au Registre.  
+7.  Enregistrez les modifications dans le Registre.  
   
-8.  Vous devez également inclure le GUID de votre onglet principal de niveau supérieur dans la liste des identificateurs pour le regroupement des onglets. Pour ce faire, effectuez les étapes décrites dans **modifier le regroupement des onglets dans le tableau de bord**.  
+8.  Vous devez également inclure le GUID de votre onglet principal de niveau supérieur dans la liste des identificateurs en vue de procéder au regroupement des onglets. Pour ce faire, effectuez les étapes décrites à la rubrique **Modification du regroupement des onglets dans le Tableau de bord**.  
   
-## <a name="change-the-grouping-of-tabs-in-the-dashboard"></a>Modifier le regroupement des onglets dans le tableau de bord  
- Vous pouvez vous assurer que vos onglets sont regroupés et inclus dans la liste des onglets intégrés Microsoft, en ajoutant les identificateurs dans le Registre.  
+## <a name="change-the-grouping-of-tabs-in-the-dashboard"></a>Modification du regroupement des onglets dans le Tableau de bord  
+ Pour vous assurer que vos onglets sont regroupés et qu’ils figurent dans la liste des onglets intégrés Microsoft, ajoutez les identificateurs requis au Registre.  
   
 #### <a name="to-change-the-grouping-of-tabs"></a>Pour modifier le regroupement des onglets  
   
-1.  Si regedit n’est pas ouvert, cliquez sur **Démarrer**, entrez **regedit**, puis appuyez sur **entrée**.  
+1.  Si regedit n'est pas ouvert, cliquez sur **Démarrer**, entrez **regedit**, puis appuyez sur **Entrée**.  
   
-2.  Dans le volet gauche, développez **HKEY_LOCAL_MACHINE**, développez **logiciel**, développez **Microsoft**, puis développez **Windows Server**.  
+2.  Dans le volet gauche, développez successivement les entrées **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**et **Windows Server**.  
   
-3.  Avec le bouton droit **OEM**, pointez sur **New**, puis cliquez sur **clé**.  
+3.  Cliquez avec le bouton droit sur **OEM**, pointez sur **Nouveau**, puis cliquez sur **Clé**.  
   
-4.  Type **DashboardAddins** comme nom de la clé, puis appuyez sur **entrée**.  
+4.  Entrez **DashboardAddins** en guise de nom de clé, puis appuyez sur **Entrée**.  
   
-5.  Avec le bouton droit **DashboardAddins**, pointez sur **New**, puis cliquez sur **valeur de chaîne**.  
+5.  Cliquez avec le bouton droit sur **DashboardAddins**, pointez sur **Nouveau**, puis cliquez sur **Nom de la valeur**.  
   
-6.  Tapez l’identificateur GUID de votre onglet comme nom de chaîne. Une valeur n’est pas nécessaire.  
+6.  Entrez l’identificateur GUID de votre onglet comme nom de valeur. Il est inutile de spécifier une valeur.  
   
-7.  Répétez les étapes5 et 6 pour chacun des onglets et sous-onglets.  
+7.  Répétez les étapes 5 et 6 pour chacun des onglets et sous-onglets.  
   
-8.  Enregistrer les modifications du Registre.  
+8.  Enregistrez les modifications apportées au Registre.  
   
 ## <a name="see-also"></a>Voir aussi  
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   

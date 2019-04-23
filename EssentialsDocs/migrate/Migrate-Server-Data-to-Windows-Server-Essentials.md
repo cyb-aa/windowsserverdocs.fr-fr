@@ -1,6 +1,6 @@
 ---
-title: "Migrer les données de serveur vers Windows Server Essentials"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Migrer les données du serveur vers Windows Server Essentials
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,16 +13,17 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: fdf8e7c696187422ef19a26cf9577aef893824fe
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59883300"
 ---
-# <a name="migrate-server-data-to-windows-server-essentials"></a>Migrer les données de serveur vers Windows Server Essentials
+# <a name="migrate-server-data-to-windows-server-essentials"></a>Migrer les données du serveur vers Windows Server Essentials
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Les guides suivants fournissent des informations sur la migration vers Windows Server Essentials à partir d’une installation existante de Windows Small Business Server ou Windows Server Essentials et incluent des informations sur la préparation et la planification des scénarios de migration de Windows Server Essentials spécifiques.  
+Les guides suivants fournissent des informations sur la migration vers Windows Server Essentials à partir d'une installation existante de Windows Small Business Server ou Windows Server Essentials, ainsi que sur la préparation et la planification de scénarios spécifiques de migration vers Windows Server Essentials.  
   
 ## <a name="migrate-to-windows-server-essentials"></a>Migrer vers Windows Server Essentials  
  Pour éviter tout problème lors de la migration de votre serveur existant vers Windows Server Essentials, lisez le guide de migration avant de commencer la migration.  
@@ -76,17 +77,17 @@ Les guides suivants fournissent des informations sur la migration vers Windows S
   
 ## <a name="end-to-end-solution-guides"></a>Guides de solutions de bout en bout  
   
--    Pour savoir comment centraliser le stockage des données, limiter les autorisations d’accès aux données et sauvegarder vos données à la fois local et dans le cloud, voir [fournir la protection des données dans les petites et moyennes entreprises](https://technet.microsoft.com/library/dn582043.aspx).  
+-    Pour savoir comment centraliser le stockage des données, limiter les autorisations d’accès aux données et sauvegarder vos données à la fois en local et dans le cloud, consultez [Assurer la protection des données dans les petites et moyennes entreprises](https://technet.microsoft.com/library/dn582043.aspx).  
   
--    Pour savoir comment accéder en toute sécurité des données d’entreprise sur n’importe quel appareil connecté à Internet à partir de n’importe quel emplacement, voir [sécuriser l’accès à distance dans les petites et moyennes entreprises](https://technet.microsoft.com/library/dn629457.aspx).  
+-    Pour savoir comment accéder en toute sécurité à des données métier sur tous les appareils connectés à Internet où que vous soyez, consultez [Sécuriser l’accès à distance dans les PME](https://technet.microsoft.com/library/dn629457.aspx).  
   
--    Pour savoir comment collaborer en toute sécurité avec les partenaires et fournisseurs, voir [améliorer la collaboration dans les petites et moyennes entreprises](https://technet.microsoft.com/library/dn747893.aspx).  
+-    Pour savoir comment collaborer en toute sécurité avec les partenaires et fournisseurs, consultez [Améliorer la collaboration dans les PME](https://technet.microsoft.com/library/dn747893.aspx).  
   
 ## <a name="see-also"></a>Voir aussi  
   
--   [Installer WindowsServerEssentials](../install/Install-Windows-Server-Essentials.md)  
+-   [Installer Windows Server Essentials](../install/Install-Windows-Server-Essentials.md)  
   
--   [Gérer WindowsServerEssentials](../manage/Manage-Windows-Server-Essentials.md)  
+-   [Gérer Windows Server Essentials](../manage/Manage-Windows-Server-Essentials.md)  
   
 -   [Utiliser Windows Server Essentials](../use/Use-Windows-Server-Essentials.md)  
   

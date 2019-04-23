@@ -1,6 +1,6 @@
 ---
-title: "Modifier les propriétés du modèle de quota"
-description: "Cet article explique comment modifier les propriétés du modèle de quota pour étendre les modifications aux quotas créés à partir du modèle de quota d’origine"
+title: Modifier les propriétés du modèle de quota
+description: Cet article explique comment modifier les propriétés du modèle de quota pour étendre les modifications aux quotas créés à partir du modèle de quota d’origine
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 0362b30e16dacb354220c770899195240f3e19ee
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59885780"
 ---
 # <a name="edit-quota-template-properties"></a>Modifier les propriétés du modèle de quota
 
-> S’applique à: WindowsServer (canal semi-annuel), WindowsServer2016, WindowsServer2012R2, WindowsServer2012, WindowsServer2008R2
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Lorsque vous modifiez un modèle de quota, vous avez la possibilité d’étendre ces modifications aux quotas qui ont été créés à partir du modèle de quota d’origine. Vous pouvez choisir de modifier uniquement les quotas qui correspondent encore au modèle d’origine ou tous les quotas qui en sont dérivés, quelles que soient les modifications apportées aux quotas depuis leur création. Cette fonctionnalité simplifie le processus de mise à jour des propriétés de vos quotas, puisque toutes les modifications peuvent s’effectuer au même endroit.
 
@@ -33,7 +34,7 @@ Lorsque vous modifiez un modèle de quota, vous avez la possibilité d’étendr
 
 4.  Lorsque vous avez terminé de modifier les propriétés du modèle, cliquez sur **OK**. La boîte de dialogue **Mettre à jour les quotas dérivés du modèle** s'affiche.
 
-5.  Sélectionnez le type de mise à jour à appliquer:
+5.  Sélectionnez le type de mise à jour à appliquer :
 
     -   Si vous avez des quotas qui ont été modifiés depuis leur création à l’aide du modèle d’origine et que vous ne souhaitez pas modifier, sélectionnez **Appliquer le modèle uniquement aux quotas dérivés qui correspondent au modèle d’origine**. Cette option met à jour uniquement les quotas qui n’ont pas été modifiés depuis leur création avec le modèle d’origine.
     -   Si vous souhaitez modifier tous les quotas existants créés à partir du modèle d’origine, sélectionnez **Appliquer le modèle à tous les quotas dérivés**.
@@ -41,9 +42,9 @@ Lorsque vous modifiez un modèle de quota, vous avez la possibilité d’étendr
 
 6.  Cliquez sur **OK**.
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir aussi
 
 -   [Gestion de quota](quota-management.md)
--   [Créer un modèle de quota](create-quota-template.md)
+-   [Créer un modèle de Quota](create-quota-template.md)
 
 
