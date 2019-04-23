@@ -1,5 +1,5 @@
 ---
-title: "Attestation d’intégrité de l’appareil"
+title: Attestation d’intégrité de l’appareil
 H1: na
 ms.custom: na
 ms.reviewer: na
@@ -12,142 +12,143 @@ ms.assetid: 8e7b77a4-1c6a-4c21-8844-0df89b63f68d
 author: brianlic-msft
 ms.date: 10/12/2016
 ms.openlocfilehash: d304ee3456f8db1e5b202c1d9221d1374a5251be
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59831010"
 ---
 # <a name="device-health-attestation"></a>Attestation d’intégrité de l’appareil
 
->S’applique à: Windows Server2016
+>S'applique à : Windows Server 2016
 
-Introduite dans Windows10, version1507 (attestation d’intégrité périphérique) inclut ce qui suit:
+Introduite dans Windows 10 version 1507, l’attestation d’intégrité de l’appareil inclut ce qui suit :
 
--   S’intègre à l’infrastructure de gestion de périphériques mobiles (GPM) de Windows10 conformément aux [normes Open Mobile Alliance (OMA)](http://openmobilealliance.org/).
+-   Elle s’intègre à l’infrastructure de gestion des appareils mobiles Windows 10 conformément aux [normes Open Mobile Alliance (OMA)](http://openmobilealliance.org/).
 
--   Prend en charge les périphériques qui ont une plateforme de Module sécurisée (TPM) configuré dans un format discret ou le microprogramme.
+-   Elle prend en charge les appareils qui ont un module de plateforme sécurisée (TPM) configuré dans un microprogramme ou un format discret.
 
--   Elle permet aux entreprises à élever la sécurité de leur organisation au matériel attestée et surveillée du sécurité, avec un impact minime ou aucun impact sur les coûts d’exploitation.
+-   Elle permet aux entreprises d’élever la sécurité de leur organisation au niveau d’une sécurité attestée et surveillée du matériel, avec un impact minime ou inexistant sur le coût d’exploitation.
 
-À partir de Windows Server2016, vous pouvez maintenant exécuter le service comme rôle serveur au sein de votre organisation. Utilisez cette rubrique pour savoir comment installer et configurer le rôle de serveur d’Attestation d’intégrité de l’appareil.
+À compter de Windows Server 2016, vous pouvez maintenant exécuter le service Attestation d’intégrité de l’appareil en tant que rôle serveur au sein de votre organisation. Utilisez cette rubrique pour savoir comment installer et configurer le rôle serveur Attestation d’intégrité de l’appareil.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
-Vous pouvez utiliser le service pour évaluer l’intégrité des appareils:
+Vous pouvez utiliser le service Attestation d’intégrité de l’appareil pour évaluer l’intégrité des appareils suivants :
   
--   Appareils Windows10 et Windows10Mobile qui prennent en charge le module TPM 1.2 ou 2.0.  
--   Les périphériques qui sont gérés à l’aide d’ActiveDirectory avec accès à Internet, les périphériques qui sont gérés à l’aide d’ActiveDirectory sans accès à Internet, appareils gérés par Azure ActiveDirectory ou un déploiement hybride à l’aide d’ActiveDirectory et Azure ActiveDirectory sur site.
+-   Appareils Windows 10 et Windows 10 Mobile qui prennent en charge TPM 1.2 ou 2.0.  
+-   Appareils locaux gérés à l’aide d’Active Directory avec accès Internet, appareils gérés à l’aide d’Active Directory sans accès Internet, appareils gérés par un Azure Active Directory ou un déploiement hybride qui utilise à la fois Active Directory et Azure Active Directory.
 
 
-### <a name="dha-service"></a>Service de service
+### <a name="dha-service"></a>Service Attestation d’intégrité de l’appareil
 
-Le service valide les journaux TPM et PCR d’un périphérique et puis émet un rapport de service. Microsoft propose le service de trois façons:
+Le service Attestation d’intégrité de l’appareil valide les journaux TPM et PCR d’un appareil, puis émet un rapport d’attestation d’intégrité de l’appareil. Microsoft propose le service Attestation d’intégrité de l’appareil de trois façons :
 
-- **Service cloud de service** service géré par Microsoft A un service qui est libre, géo-équilibrée et optimisé pour l’accès depuis différentes régions du monde.
+- **Service cloud Attestation d’intégrité de l’appareil** : service d’attestation d’intégrité de l’appareil géré par Microsoft qui est gratuit, à charge géo-équilibrée et optimisé pour l’accès depuis différentes régions du monde.
 
-- **Service local service** un nouveau rôle serveur introduit dans Windows Server2016. Il est disponible gratuitement pour les clients qui possèdent une licence Windows Server2016.
+- **Service Attestation d’intégrité de l’appareil local** : nouveau rôle serveur introduit dans Windows Server 2016. Disponible gratuitement pour les clients qui possèdent une licence Windows Server 2016.
 
-- **Service cloud Azure service** un hôte virtuel dans MicrosoftAzure. Pour ce faire, vous devez un hôte virtuel et les licences pour le service local.
+- **Service cloud Attestation d’intégrité de l’appareil Azure** : hôte virtuel dans Microsoft Azure. Pour cela, vous avez besoin d’un hôte virtuel et de licences pour le service local Attestation d’intégrité de l’appareil.
 
-Le service s’intègre aux solutions GPM et fournit les avantages suivants: 
+Le service Attestation d’intégrité de l’appareil s’intègre aux solutions de gestion des appareils mobiles et offre ce qui suit : 
 
--   Il combine les informations qu’ils reçoivent des appareils (par le biais des canaux de communication gestion appareil existant) avec l’état du service
--   Prendre une décision de sécurité plus sûre et fiable, fonction matériel données attestées et protégées
+-   Il combine les informations qu’elles reçoivent des appareils (par le biais des canaux de communication de gestion des appareils existants) avec le rapport d’attestation d’intégrité de l’appareil.
+-   Il permet de prendre une décision en matière de sécurité plus sûre et fiable selon les données attestées et protégées par le matériel.
 
-Voici un exemple qui montre comment vous pouvez utiliser le service pour aider à élever la protection de sécurité pour les ressources de votre organisation.
+Voici un exemple d’utilisation du service Attestation d’intégrité de l’appareil pour élever le niveau de sécurité des ressources de votre organisation.
 
-1. Vous créez une stratégie qui vérifie les configuration/les attributs de démarrage suivantes:
+1. Vous créez une stratégie qui vérifie la configuration/les attributs de démarrage suivants :
   - Démarrage sécurisé
   - BitLocker
-  - ELAM
-2. La solution MDM applique cette stratégie et déclenche une action corrective basée sur les données d’état de service.  Par exemple, elle peut vérifier les éléments suivants:
-  - Le démarrage sécurisé a été activé, l’appareil a chargé le code de confiance qui est authentique et le chargeur de démarrage Windows n’a pas été falsifié.
-  - Démarrage a correctement vérifié la signature numérique du noyau Windows et les composants qui ont été chargés pendant le démarrage de l’appareil de confiance.
-  - Démarrage mesuré a créé une piste d’audit protégée par le module de plateforme sécurisée qui peut être vérifiée à distance.
-  - Désactivation de BitLocker a été activé et a protégé les données lorsque le périphérique a été activé.
-  - ELAM a été activée au dès les premières phases de démarrage et l’exécution de contrôle.
+  - Logiciel anti-programme malveillant à lancement anticipé
+2. La solution de gestion des appareils mobiles applique cette stratégie et déclenche une mesure corrective, selon les données de rapport d’attestation d’intégrité de l’appareil.  Par exemple, elle peut vérifier les points suivants :
+  - Le démarrage sécurisé a été activé, l’appareil a chargé du code de confiance authentique et le chargeur de démarrage Windows n’était pas falsifié.
+  - Le démarrage sécurisé a correctement vérifié la signature numérique du noyau Windows et les composants qui ont été chargés pendant le démarrage de l’appareil.
+  - Le démarrage mesuré a créé une piste d’audit protégée par le module de plateforme sécurisée qui a pu être vérifiée à distance.
+  - BitLocker a été activé et a protégé les données quand l’appareil s’est éteint.
+  - Un logiciel anti-programme malveillant à lancement anticipé a été activé dès les premiers stades du démarrage et il surveille l’exécution.
   
-#### <a name="dha-cloud-service"></a>Service cloud de service
+#### <a name="dha-cloud-service"></a>Service cloud Attestation d’intégrité de l’appareil
 
-Le service cloud offre les avantages suivants:
+Le service cloud Attestation d’intégrité de l’appareil offre les avantages suivants :
 
--   Passe en revue les journaux de démarrage appareil TCG et PCR qu’il reçoit d’un appareil est inscrit avec une solution MDM. 
--   Crée un résistant aux falsifications et la falsification évidents (état Service) qui décrit la manière dont l’appareil démarrée sur la base de données qui sont collectées et protégées par la puce TPM d’un appareil. 
--   Fournit l’état de service pour le serveur GPM qui l’a demandé dans un canal de communication protégé.
+-   Il passe en revue les journaux de démarrage des appareils TCG et PCR qu’il reçoit d’un appareil inscrit avec une solution de gestion des appareils mobiles. 
+-   Il crée un rapport résistant aux falsifications et de mise en évidence des falsifications (rapport d’attestation d’intégrité de l’appareil) qui décrit le mode de démarrage de l’appareil en fonction des données collectées et protégées par la puce du module de plateforme sécurisée (TPM) d’un appareil. 
+-   Il remet le rapport d’attestation d’intégrité de l’appareil au serveur de gestion des appareils mobiles qui l’a demandé dans un canal de communication protégé.
 
-#### <a name="dha-on-premises-service"></a>Service de service local
+#### <a name="dha-on-premises-service"></a>Service local Attestation d’intégrité de l’appareil
 
-Le service local offre toutes les fonctionnalités offertes par le service de service cloud.  Il permet également aux clients:
+Le service local Attestation d’intégrité de l’appareil offre toutes les fonctionnalités offertes par le service cloud Attestation d’intégrité de l’appareil.  Il permet également aux clients de :
 
- - Optimiser les performances en exécutant le service de service dans votre propre centre de données
- - Assurez-vous que l’état de service ne laisse pas votre réseau
+ - optimiser les performances en exécutant le service Attestation d’intégrité de l’appareil dans votre propre centre de données,
+ - vérifier que le rapport d’attestation d’intégrité de l’appareil ne quitte pas votre réseau.
 
-#### <a name="dha-azure-cloud-service"></a>Service cloud Azure service
+#### <a name="dha-azure-cloud-service"></a>Service cloud Attestation d’intégrité de l’appareil Azure
 
-Ce service fournit les mêmes fonctionnalités que le service local, sauf que le service de cloud Azure service s’exécute comme un hôte virtuel dans MicrosoftAzure.
+Ce service fournit les mêmes fonctionnalités que le service local Attestation d’intégrité de l’appareil, si ce n’est que le service de cloud Attestation d’intégrité de l’appareil Azure s’exécute en tant qu’hôte virtuel dans Microsoft Azure.
 
-### <a name="dha-validation-modes"></a>Modes de validation de service
+### <a name="dha-validation-modes"></a>Modes de validation d’attestation d’intégrité de l’appareil
 
-Vous pouvez configurer le service local pour s’exécuter en mode de validation EKCert ou AIKCert. Lorsque le service émet un rapport, il indique s’il a été émis en mode de validation AIKCert ou EKCert. Modes de validation EKCert et AIKCert offrent la même garantie de sécurité tant que la chaîne EKCert de confiance est tenue à jour.
+Vous pouvez configurer le service local Attestation d’intégrité de l’appareil pour qu’il s’exécute en mode de validation EKCert ou AIKCert. Quand le service émet un rapport, il indique s’il a été émis en mode de validation AIKCert ou EKCert. Les modes de validation EKCert et AIKCert offrent la même garantie de sécurité tant que la chaîne EKCert de confiance est tenue à jour.
 
 #### <a name="ekcert-validation-mode"></a>Mode de validation EKCert
 
-Mode de validation EKCert est optimisé pour les périphériques dans les organisations qui ne sont pas connectées à Internet. Effectuez des appareils qui se connectent à un service de service en cours d’exécution en mode de validation EKCert **pas** avoir un accès direct à Internet.
+Le mode de validation EKCert est optimisé pour les appareils utilisés dans les organisations qui ne sont pas connectées à Internet. Les appareils qui se connectent à un service Attestation d’intégrité de l’appareil s’exécutant en mode de validation EKCert n’ont **pas** d’accès direct à Internet.
 
-Lorsque le service s’exécute en mode de validation EKCert, il s’appuie sur une chaîne gérée par l’entreprise de confiance qui a besoin de mise à jour régulièrement (environ 5 et 10fois par an). 
+Quand le service s’exécute en mode de validation EKCert, il s’appuie sur une chaîne d’approbation gérée par l’entreprise devant être mise à jour régulièrement (entre 5 et 10 fois par an). 
 
-Microsoft publie des packages agrégés des racines de confiance et intermédiaires l’autorité de certification pour les fabricants de TPM approuvés (dès qu’elles sont disponibles) dans une archive accessible publiquement dans l’archive .cab. Vous devez télécharger le flux, valider son intégrité et l’installer sur le serveur d’Attestation d’intégrité de l’appareil en cours d’exécution.
+Microsoft publie des packages agrégés d’autorités de certification (AC) racines de confiance et intermédiaires pour les fabricants de TPM approuvés (dès qu’ils sont disponibles) dans une archive accessible publiquement au format .cab. Vous devez télécharger le flux, valider son intégrité et l’installer sur le serveur exécutant le service Attestation d’intégrité de l’appareil.
 
-Exemple d’archive [https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab](https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab).
+Exemple d’archive [ https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab ](https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab).
 
 #### <a name="aikcert-validation-mode"></a>Mode de validation AIKCert
 
-Mode de Validation AIKCert est optimisé pour les environnements d’exploitation qui n’ont pas accès à Internet. Périphériques se connectant à un service de service s’exécutant en mode de validation AIKCert doivent avoir un accès direct à Internet et sont en mesure d’obtenir un certificat AIK auprès de Microsoft. 
+Le mode de Validation AIKCert est optimisé pour les environnements d’exploitation qui ont accès à Internet. Les appareils qui se connectent à un service Attestation d’intégrité de l’appareil s’exécutant en mode de validation AIKCert doivent avoir un accès direct à Internet et être en mesure d’obtenir un certificat AIK auprès de Microsoft. 
 
-## <a name="install-and-configure-the-dha-service-on-windows-server-2016"></a>Installer et configurer le service sur Windows Server2016
+## <a name="install-and-configure-the-dha-service-on-windows-server-2016"></a>Installer et configurer le service Attestation d’intégrité de l’appareil sur Windows Server 2016
 
-Utilisez les sections suivantes pour obtenir le service installé et configuré sur Windows Server2016.
+Utilisez les sections suivantes pour installer et configurer le service Attestation d’intégrité de l’appareil sur Windows Server 2016.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
-Pour configurer et vérifier un service local de service, vous devez:
+Pour configurer et vérifier un service local Attestation d’intégrité de l’appareil, vous avez besoin de ce qui suit :
 
-- Un serveur exécutant Windows Server2016.
-- Génération d’un (ou plusieurs) des périphériques client Windows10 avec un module de plateforme sécurisée (1.2 ou 2.0) qui se trouve dans un état transparent/prêt en cours d’exécution la plus récente de Windows Insider.
-- Décider si vous souhaitez exécuter en mode de validation EKCert ou AIKCert.
-- Les certificats suivants:
-  - **Certificat SSL DHA** un certificat SSL x.509 lié à une racine approuvée d’entreprise avec une clé privée exportable. Ce certificat protège les communications de données de service en transit, notamment le serveur à serveur (service du service et serveur GPM) et serveur pour les communications client (service du service et un appareil Windows10).
-  - **Certificat de signature du service** un certificat x.509 lié à une racine approuvée d’entreprise avec une clé privée exportable. Le service utilise ce certificat pour la signature numérique. 
-  - **Certificat de chiffrement ADH** un certificat x.509 lié à une racine approuvée d’entreprise avec une clé privée exportable. Le service utilise également ce certificat pour le chiffrement. 
+- Un serveur qui exécute Windows Server 2016.
+- Un ou plusieurs appareils clients Windows 10 avec un module de plateforme sécurisée (TPM) (1.2 ou 2.0) qui se trouve dans un état transparent/prêt et qui exécute la build la plus récente de Windows Insider.
+- Déterminez si vous allez exécuter le mode de validation EKCert ou AIKCert.
+- Les certificats suivants :
+  - **Certificat SSL d’attestation d’intégrité de l’appareil** : certificat SSL x.509 lié à une racine approuvée d’entreprise avec une clé privée exportable. Ce certificat protège les communications de données d’attestation d’intégrité de l’appareil en transit, notamment les communications de serveur à serveur (service d’attestation d’intégrité de l’appareil et serveur de gestion des appareils mobiles) et de serveur à client (service d’attestation d’intégrité de l’appareil et appareil Windows 10).
+  - **Certificat de signature d’attestation d’intégrité de l’appareil** : certificat x.509 lié à une racine approuvée d’entreprise avec une clé privée exportable. Le service Attestation d’intégrité de l’appareil utilise ce certificat pour la signature numérique. 
+  - **Certificat de chiffrement d’attestation d’intégrité de l’appareil** : certificat x.509 lié à une racine approuvée d’entreprise avec une clé privée exportable. Le service Attestation d’intégrité de l’appareil utilise également ce certificat pour le chiffrement. 
 
 
-### <a name="install-windows-server-2016"></a>Installez Windows Server2016
+### <a name="install-windows-server-2016"></a>Installer Windows Server 2016
 
-Installez Windows Server2016 à l’aide de votre méthode d’installation par défaut, tels que les Services de déploiement Windows, ou en exécutant le programme d’installation à partir d’un média de démarrage, un lecteur USB ou le système de fichiers local. Si c’est la première fois que vous configurez le service local, vous devez installer Windows Server2016 à l’aide de la **expérience** option d’installation.
+Installez Windows Server 2016 en utilisant la méthode d’installation de votre choix, comme les services de déploiement Windows ou en exécutant le programme d’installation à partir d’un média de démarrage, d’une clé USB ou du système de fichiers local. S’il s’agit de la première fois que vous configurez le service local Attestation d’intégrité de l’appareil, vous devez installer Windows Server 2016 à l’aide de l’option d’installation **Expérience utilisateur**.
 
-### <a name="add-the-device-health-attestation-server-role"></a>Ajouter le rôle de serveur d’Attestation d’intégrité de l’appareil
+### <a name="add-the-device-health-attestation-server-role"></a>Ajouter le rôle serveur Attestation d’intégrité de l’appareil
 
-Vous pouvez installer le rôle de serveur d’Attestation d’intégrité de l’appareil et ses dépendances à l’aide du Gestionnaire de serveur. 
+Vous pouvez installer le rôle serveur Attestation d’intégrité de l’appareil et ses dépendances à l’aide du Gestionnaire de serveur. 
 
-Une fois que vous avez installé Windows Server2016, l’appareil redémarre et ouvre le Gestionnaire de serveur. Si le Gestionnaire de serveur ne démarre pas automatiquement, cliquez sur **Démarrer**, puis cliquez sur **le Gestionnaire de serveur**.
+Une fois que vous avez installé Windows Server 2016, l’appareil redémarre et ouvre le Gestionnaire de serveur. Si le Gestionnaire de serveur ne démarre pas automatiquement, cliquez sur **Démarrer**, puis sur **Gestionnaire de serveur**.
 
-1.  Cliquez sur **ajouter des rôles et fonctionnalités**.
-2.  Sur le **avant de commencer** , cliquez sur **suivant**.
-3.  Sur le **sélectionner le type d’installation**, cliquez sur **installation basée sur un rôle ou une fonctionnalité**, puis cliquez sur **suivant**.
-4.  Sur le **serveur de destination sélectionnez**, cliquez sur **sélectionner un serveur du pool de serveurs**, sélectionnez le serveur, puis cliquez sur **suivant**.
-5.  Sur le **sélectionner des rôles de serveur**, sélectionnez le **Attestation d’intégrité de l’appareil** case à cocher.
-6.  Cliquez sur **ajouter des fonctionnalités** pour installer d’autres requis sur les services de rôle et fonctionnalités.
-7.  Cliquez sur **suivant**.
-8.  Sur le **sélectionner des fonctionnalités** , cliquez sur **suivant**.
-9.  Sur le **rôle de serveur Web (IIS)**, cliquez sur **suivant**.
-10. Sur le **sélectionner les services de rôle**, cliquez sur **suivant**.
-11. Sur le **Service d’Attestation d’intégrité appareil**, cliquez sur **suivant**.
-12. Sur le **confirmer les sélections d’installation** , cliquez sur **installer**.
-13. Une fois l’installation terminée, cliquez sur **fermer**.
+1.  Cliquez sur **Ajouter des rôles et des fonctionnalités**.
+2.  Dans la page **Avant de commencer** , cliquez sur **Suivant**.
+3.  Dans la page **Sélectionner le type d’installation**, cliquez sur **Installation basée sur un rôle ou une fonctionnalité**, puis sur **Suivant**.
+4.  Dans la page **Sélectionner le serveur de destination**, cliquez sur **Sélectionner un serveur du pool de serveurs**, sélectionnez le serveur, puis cliquez sur **Suivant**.
+5.  Dans la page **Sélectionner des rôles de serveurs**, cochez la case **Attestation d’intégrité de l’appareil**.
+6.  Cliquez sur **Ajouter des fonctionnalités** pour installer d’autres services et fonctionnalités de rôle requis.
+7.  Cliquez sur **Suivant**.
+8.  Dans la page **Sélectionner les fonctionnalités** , cliquez sur **Suivant**.
+9.  Dans la page **Rôle de serveur web (IIS)** , cliquez sur **Suivant**.
+10. Dans la page **Sélectionner des services de rôle**, cliquez sur **Suivant**.
+11. Dans la page **Service d’attestation d’intégrité de l’appareil**, cliquez sur **Suivant**.
+12. Dans la page **Confirmer les sélections d’installation** , cliquez sur **Installer**.
+13. Une fois l’installation terminée, cliquez sur **Fermer**.
 
-### <a name="install-the-signing-and-encryption-certificates"></a>Installer les certificats de signature et chiffrement
+### <a name="install-the-signing-and-encryption-certificates"></a>Installer les certificats de signature et de chiffrement
 
-À l’aide du script Windows PowerShell suivant pour installer les certificats de signature et le chiffrement. Pour plus d’informations sur l’empreinte numérique, voir [Comment: récupérez l’empreinte numérique d’un certificat](https://msdn.microsoft.com/library/ms734695.aspx).
+Utilisez le script Windows PowerShell suivant pour installer les certificats de signature et de chiffrement. Pour plus d’informations sur l’empreinte numérique, consultez [Comment : Récupérer l’empreinte numérique d’un certificat](https://msdn.microsoft.com/library/ms734695.aspx).
 
 ```
 $key = Get-ChildItem Cert:\LocalMachine\My | Where-Object {$_.Thumbprint -like "<thumbprint>"}
@@ -159,30 +160,30 @@ icacls $keypath /grant <username>`:R
 #<username>: Username for web service app pool, by default IIS_IUSRS
 ```
 
-### <a name="install-the-trusted-tpm-roots-certificate-package"></a>Installer le package certificat de racines de confiance TPM
+### <a name="install-the-trusted-tpm-roots-certificate-package"></a>Installer le package de certification racine de confiance TPM
 
-Pour installer le package certificat de racines de confiance TPM, vous devez l’extraire, supprimer toutes les chaînes de confiance qui ne sont pas approuvées par votre organisation et puis exécuter setup.cmd.
+Pour installer le package de certification racine de confiance TPM, vous devez l’extraire, supprimer toutes les chaînes de confiance qui ne sont pas approuvées par votre organisation, puis exécuter setup.cmd.
 
-#### <a name="download-the-trusted-tpm-roots-certificate-package"></a>Télécharger le package certificat de racines de confiance TPM
+#### <a name="download-the-trusted-tpm-roots-certificate-package"></a>Télécharger le package de certification racine de confiance TPM
 
-Avant d’installer le package de certification, vous pouvez télécharger la dernière liste de racines de module de plateforme sécurisée approuvés à partir de [https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab](https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab).
+Avant d’installer le package de certification, vous pouvez télécharger la dernière liste de racines fiables de module de plateforme sécurisée à partir de [ https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab ](https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab).
 
-> **Important:** avant d’installer le package, vérifiez qu’elle est signée numériquement par Microsoft.
+> **Important :** Avant d’installer le package, vérifiez qu’il est signé numériquement par Microsoft.
 
-#### <a name="extract-the-trusted-certificate-package"></a>Extrayez le package de certification de confiance
+#### <a name="extract-the-trusted-certificate-package"></a>Extraire le package de certification de confiance
 Extrayez le package de certification de confiance en exécutant les commandes suivantes.
 ```
 mkdir .\TrustedTpm
 expand -F:* .\TrustedTpm.cab .\TrustedTpm
 ```
 
-#### <a name="remove-the-trust-chains-for-tpm-vendors-that-are-not-trusted-by-your-organization-optional"></a>Supprimer les chaînes d’approbation pour les fournisseurs de module de plateforme sécurisée sont *pas* approuvés par votre organisation (facultatif)
+#### <a name="remove-the-trust-chains-for-tpm-vendors-that-are-not-trusted-by-your-organization-optional"></a>Supprimez les chaînes d’approbation pour les fournisseurs TPM *non* approuvés par votre organisation (facultatif).
 
-Supprimer les dossiers pour les chaînes d’approbation de fournisseur de module de plateforme sécurisée qui ne sont pas approuvées par votre organisation.
+Supprimez les dossiers des chaînes d’approbation de fournisseurs TPM ne sont pas approuvées par votre organisation.
 
-> **Remarque:** si vous utilisez le mode de certificat AIK, le dossier Microsoft est nécessaire pour valider les certificats AIK émis de Microsoft.
+> **Remarque :** Si vous utilisez le mode de certificat AIK, le dossier Microsoft est nécessaire pour valider les certificats AIK émis de Microsoft.
 
-#### <a name="install-the-trusted-certificate-package"></a>Installer le package de certification approuvé
+#### <a name="install-the-trusted-certificate-package"></a>Installer le package de certification de confiance
 Installez le package de certification de confiance en exécutant le script d’installation à partir du fichier .cab.
 
 ```
@@ -191,7 +192,7 @@ Installez le package de certification de confiance en exécutant le script d’i
 
 ### <a name="configure-the-device-health-attestation-service"></a>Configurer le service Attestation d’intégrité de l’appareil
 
-Vous pouvez utiliser Windows PowerShell pour configurer le service local.
+Vous pouvez utiliser Windows PowerShell pour configurer le service local Attestation d’intégrité de l’appareil.
 
 ```
 Install-DeviceHealthAttestation -EncryptionCertificateThumbprint <encryption> -SigningCertificateThumbprint <signing> -SslCertificateStoreName My -SslCertificateThumbprint <ssl> -SupportedAuthenticationSchema "<schema>"
@@ -202,9 +203,9 @@ Install-DeviceHealthAttestation -EncryptionCertificateThumbprint <encryption> -S
 #<schema>: Comma-delimited list of supported schemas including AikCertificate, EkCertificate, and AikPub
 ```
 
-### <a name="configure-the-certificate-chain-policy"></a>Configurer la stratégie de chaîne de certificat
+### <a name="configure-the-certificate-chain-policy"></a>Configurer la stratégie de chaînes de certificats
 
-Configurer la stratégie de chaîne de certificat en exécutant le script Windows PowerShell suivant.
+Configurez la stratégie de chaînes de certificats en exécutant le script Windows PowerShell suivant.
 
 ```
 $policy = Get-DHASCertificateChainPolicy
@@ -212,17 +213,17 @@ $policy.RevocationMode = "NoCheck"
 Set-DHASCertificateChainPolicy -CertificateChainPolicy $policy
 ```
 
-## <a name="dha-management-commands"></a>Commandes de gestion de service
+## <a name="dha-management-commands"></a>Commandes de gestion d’attestation d’intégrité de l’appareil
 
-Voici quelques exemples de Windows PowerShell qui peuvent vous aider à gérer le service.
+Voici quelques exemples Windows PowerShell pour vous aider à gérer le service Attestation d’intégrité de l’appareil.
 
-### <a name="configure-the-dha-service-for-the-first-time"></a>Configurer le service pour la première fois
+### <a name="configure-the-dha-service-for-the-first-time"></a>Configurer le service Attestation d’intégrité de l’appareil pour la première fois
 
 ```
 Install-DeviceHealthAttestation -SigningCertificateThumbprint "<HEX>" -EncryptionCertificateThumbprint "<HEX>" -SslCertificateThumbprint "<HEX>" -Force
 ```
 
-### <a name="remove-the-dha-service-configuration"></a>Supprimer la configuration du service service
+### <a name="remove-the-dha-service-configuration"></a>Supprimer la configuration du service Attestation d’intégrité de l’appareil
 
 ```
 Uninstall-DeviceHealthAttestation -RemoveSslBinding -Force
@@ -238,20 +239,20 @@ Get-DHASActiveSigningCertificate
 Set-DHASActiveSigningCertificate -Thumbprint "<hex>" -Force
 ```
 
-> **Remarque:** ce certificat doit être déployé sur le serveur exécutant le service le **LocalMachine\My** magasin de certificats. Lorsque le certificat de signature actif est défini, le certificat de signature actif existant est déplacé vers la liste des certificats de signature inactifs.
+> **Remarque :** Ce certificat doit être déployé sur le serveur exécutant le service le **LocalMachine\My** magasin de certificats. Quand le certificat de signature actif est défini, le certificat de signature actif existant est déplacé vers la liste des certificats de signature inactifs.
 
-### <a name="list-the-inactive-signing-certificates"></a>Liste de certificats de signature inactifs
+### <a name="list-the-inactive-signing-certificates"></a>Répertorier les certificats de signature inactifs
 ```
 Get-DHASInactiveSigningCertificates
 ```
 
-### <a name="remove-any-inactive-signing-certificates"></a>Supprimez tous les certificats de signature inactifs
+### <a name="remove-any-inactive-signing-certificates"></a>Supprimer tous les certificats de signature inactifs
 ```
 Remove-DHASInactiveSigningCertificates -Force
 Remove-DHASInactiveSigningCertificates  -Thumbprint "<hex>" -Force
 ```
 
-> **Remarque:** uniquement *un* certificat inactif (de n’importe quel type) peut exister dans le service à tout moment. Les certificats doivent être supprimés de la liste des certificats inactifs une fois qu’ils ne sont plus nécessaires.
+> **Remarque :** Uniquement *un* certificat inactif (de n’importe quel type) peut-être exister dans le service à tout moment. Les certificats doivent être supprimés de la liste de certificats inactifs une fois qu’ils sont devenus inutiles.
 
 ### <a name="get-the-active-encryption-certificate"></a>Obtenir le certificat de chiffrement actif
 
@@ -265,16 +266,16 @@ Get-DHASActiveEncryptionCertificate
 Set-DHASActiveEncryptionCertificate -Thumbprint "<hex>" -Force
 ```
 
-Le certificat doit être déployé sur le périphérique dans le **LocalMachine\My** magasin de certificats. 
+Le certificat doit être déployé sur l’appareil dans le magasin de certificats **LocalMachine\My**. 
 
-Lorsque le certificat de chiffrement actif est défini, le certificat de chiffrement actif existant est déplacé vers la liste des certificats de chiffrement inactifs.
+Quand le certificat de chiffrement actif est défini, le certificat de chiffrement actif existant est déplacé vers la liste des certificats de chiffrement inactif.
 
 ### <a name="list-the-inactive-encryption-certificates"></a>Répertorier les certificats de chiffrement inactifs
 
 ```
 Get-DHASInactiveEncryptionCertificates
 ```
-### <a name="remove-any-inactive-encryption-certificates"></a>Supprimez tous les certificats de chiffrement inactifs
+### <a name="remove-any-inactive-encryption-certificates"></a>Supprimer tous les certificats de chiffrement inactifs
 
 ```
 Remove-DHASInactiveEncryptionCertificates -Force
@@ -297,11 +298,11 @@ $certificateChainPolicy.UrlRetrievalTimeout = <TimeSpan>
 Set-DHASCertificateChainPolicy = $certificateChainPolicy
 ```
 
-## <a name="dha-service-reporting"></a>Service service reporting
+## <a name="dha-service-reporting"></a>Rapports du service Attestation d’intégrité de l’appareil
 
-Voici une liste des messages qui sont signalés par le service à la solution MDM: 
+Voici la liste des messages qui sont signalés par le service Attestation d’intégrité de l’appareil à la solution de gestion des appareils mobiles : 
 
-- **200** OK HTTP. Le certificat est renvoyé.
-- **400** demande incorrecte. Format de requête non valide, le certificat d’intégrité non valide, signature de certificat ne contient pas une correspondance, objet Blob d’Attestation d’intégrité non valide ou un Blob d’état d’intégrité non valide. La réponse contient également un message, comme décrit par le schéma de réponse, avec un code d’erreur et un message d’erreur qui peut être utilisé pour les tests de diagnostic.
-- **500** erreur interne du serveur. Cela peut se produire s’il existe des problèmes qui empêchent le service d’émission de certificats.
-- **503** la limitation rejette des requêtes pour éviter une surcharge du serveur. 
+- **200** HTTP OK. Le certificat est renvoyé.
+- **400** Requête incorrecte. Format de requête non valide, certificat d’intégrité non valide, la signature de certificat ne correspond pas, objet blob d’attestation d’intégrité non valide ou objet blob d’état d’intégrité non valide. La réponse contient également un message, comme décrit par le schéma de réponse, avec un code d’erreur et un message d’erreur utilisables à des fins de diagnostic.
+- **500** Erreur de serveur interne. Cette erreur peut se produire s’il existe des problèmes qui empêchent le service d’émettre des certificats.
+- **503** La limitation rejette des requêtes pour éviter une surcharge du serveur. 

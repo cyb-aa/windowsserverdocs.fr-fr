@@ -1,39 +1,55 @@
 ---
 ms.assetid: 0f21951c-b1bf-43bb-a329-bbb40c58c876
-title: "Erreur de réplication 1753 il ne sont aucun point de terminaison plus le mappeur de point de terminaison"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: Erreur de réplication 1753 Le mappeur de point final n’a plus de point final disponible
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 0e7412f5edc6c206888551fdc250883b5c0ced3e
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: e429c87a2194ecfaf02c3d6c579eda75293250d4
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59827510"
 ---
-# <a name="replication-error-1753-there-are-no-more-endpoints-available-from-the-endpoint-mapper"></a>Erreur de réplication 1753 il ne sont aucun point de terminaison plus le mappeur de point de terminaison
+# <a name="replication-error-1753-there-are-no-more-endpoints-available-from-the-endpoint-mapper"></a>Erreur de réplication 1753 Le mappeur de point final n’a plus de point final disponible
 
->S’applique à: Windows Server2016, Windows Server2012R2, Windows Server2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
-<developerConceptualDocument xmlns="https://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="https://www.w3.org/1999/xlink" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://ddue.schemas.microsoft.com/authoring/2003/5 http://clixdevr3.blob.core.windows.net/ddueschema/developer.xsd">
-  <introduction>
-    <para>Cette rubrique explique comment résoudre ActiveDirectory replication erreur 8524 de l’opération DSA ne peut pas continuer en raison d’une défaillance de la recherche DNS, les causes et les symptômes.</para>
+<developerConceptualDocument xmlns="https://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="https://www.w3.org/1999/xlink" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://ddue.schemas.microsoft.com/authoring/2003/5 http://clixdevr3.blob.core.windows.net/ddueschema/developer.xsd"> <introduction>
+    <para>Cette rubrique explique les symptômes, causes et résolution Active Directory replication erreur 8524 de l’opération DSA ne peut pas continuer en raison d’un échec de la recherche DNS.</para>
     <list class="bullet">
-      <listItem><para><link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Symptoms">Symptômes</link></para></listItem><listItem><para><link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Cause">Cause</link></para></listItem><listItem><para><link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Resolutions">résolutions</link></para></listItem><listItem><para><link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_MoreInfo">plus d’informations</link></para></listItem>
+      <listItem>
+        <para>
+          <link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Symptoms">Symptômes</link>
+        </para>
+      </listItem> <listItem>
+        <para>
+          <link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Cause">Cause</link>
+        </para>
+      </listItem> <listItem>
+        <para>
+          <link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Resolutions">Résolutions</link>
+        </para>
+      </listItem> <listItem>
+        <para>
+          <link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_MoreInfo">Plus d’informations</link>
+        </para>
+      </listItem>
     </list>
   </introduction>
   <section address="BKMK_Symptoms">
-    <title>Les symptômes</title>
+    <title>Symptômes</title>
     <content>
-      <para>cet article décrit les symptômes, les causes et les étapes de résolution de d’opérations ActiveDirectory qui échouent avec l’erreur Win321753: «Il n’existe aucun point de terminaison plus le mappeur de point de terminaison.» </para>
+      <para>Cet article décrit les symptômes, causes et les étapes de résolution pour les opérations Active Directory qui échouent avec l’erreur Win32 1753 : « Il n’y aucun point de terminaison plus le mappeur de point de terminaison. »</para>
       <list class="ordered">
         <listItem>
-          <para>Rapports DCDIAG que le test de connectivité, test des réplications ActiveDirectory ou KnowsOfRoleHolders a échoué avec l’erreur 1753: «Il n’existe aucun point de terminaison plus le mappeur de point de terminaison.» </para>
+          <para>Rapports DCDIAG le test de connectivité, Active Directory réplications test ou KnowsOfRoleHolders a échoué avec l’erreur 1753 : « Il n’y aucun point de terminaison plus le mappeur de point de terminaison. »</para>
           <code>Testing server: &lt;site&gt;&lt;DC Name&gt;
 Starting test: Connectivity
 * Active Directory LDAP Services Check
@@ -69,7 +85,7 @@ of starting up or shutting down, and is not available.
 Verify machine is not hung during boot.
 </code>
         </listItem>
-<listItem><para>REPADMIN. EXE de rapports que qui tentent de réplication a échoué avec le statut 1753. </para><para>Commandes REPADMIN couramment indiquer l’état 1753 incluent, mais ne sont pas limités à:</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><tbody><tr><TD><list class="bullet"><listItem><para>REPADMIN /REPLSUM</para></listItem><listItem><para>REPADMIN /SHOWREPL</para></listItem></list></TD><TD><list class="bullet"><listItem><para>REPADMIN /SHOWREPS</para></listItem><listItem><para>REPADMIN /SYNCALL</para></listItem></list></TD></tr></tbody></table><para>Exemple de résultat de «REPADMIN /SHOWREPS» représentant la réplication entrante à partir de CONTOSO-DC2 à échouer CONTOSO-DC1 avec l’erreur «accès à la réplication a été refusé» est indiquée ci-dessous:</para><code>Default-First-Site-NameCONTOSO-DC1
+<listItem><para>REPADMIN. EXE signale que cette tentative de réplication a échoué avec l’état 1753.</para><para>REPADMIN commandes qui citent généralement l’état 1753 incluent, mais ne sont pas limités à :</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><tbody><tr><TD><list class="bullet"><listItem><para>REPADMIN /REPLSUM</para></listItem><listItem><para>REPADMIN /SHOWREPL</para></listItem></list></TD><TD><list class="bullet"><listItem><para>REPADMIN /SHOWREPS</para></listItem><listItem><para>REPADMIN /SYNCALL</para></listItem></list></TD></tr></tbody></table><para>Exemple de sortie de « REPADMIN /SHOWREPS » illustrant une réplication entrante à partir de CONTOSO-CD2 à échouer de CONTOSO-CD1 avec l’erreur « accès à la réplication a été refusé » est indiqué ci-dessous :</para><code>Default-First-Site-NameCONTOSO-DC1
 DSA Options: IS_GC 
 Site Options: (none)
 DSA object GUID: b6dc8589-7e00-4a5d-b688-045aef63ec01
@@ -83,73 +99,73 @@ There are no more endpoints available from the endpoint mapper.</codeFeaturedEle
 &lt;#&gt; consecutive failure(s).
 Last success @ &lt;date&gt; &lt;time&gt;.
 
-</code></listItem><listItem><para>le <ui>vérifier la topologie de réplication</ui> commande dans les Services et Sites ActiveDirectory retourne «Il n’existe aucun point de terminaison plus le mappeur de point de terminaison.» </para><para>Avec le bouton droit sur l’objet de connexion à partir d’une contrôleur de domaine source et en choisissant <ui>vérifier la topologie de réplication</ui> échoue avec «Il n’existe aucun point de terminaison plus le mappeur de point de terminaison.» L’écran le message d’erreur est présentée ci-dessous:</para><para>texte du titre de la boîte de dialogue: vérifier la topologie de réplication</para><para>texte du message boîte de dialogue: </para><para>l’erreur suivante s’est produite lors de la tentative de contacter le contrôleur de domaine: aucun point de terminaison plus ne sont disponibles dans le mappeur de point de terminaison. </para></listItem><listItem><para>Le <ui>Répliquer maintenant</ui> commande dans les Services et Sites ActiveDirectory retourne «il n’existe aucun point de terminaison plus le mappeur de point de terminaison.» </para><para>Avec le bouton droit sur l’objet de connexion à partir d’une contrôleur de domaine source et en choisissant <ui>Répliquer maintenant</ui> échoue avec «Il n’existe aucun point de terminaison plus le mappeur de point de terminaison.» L’écran le message d’erreur est présentée ci-dessous:</para><para>texte du titre de la boîte de dialogue: Répliquer maintenant</para><para>texte du message boîte de dialogue: l’erreur suivante s’est produite lors de la tentative de synchroniser le contexte d’attribution de noms &lt;nom de partition de répertoire %&gt; à partir du contrôleur de domaine &lt;contrôleur de domaine Source&gt; au contrôleur de domaine &lt;contrôleur de domaine de Destination&gt;:</para><para>
+</code></listItem><listItem><para>Le <ui>vérifier la topologie de réplication</ui> commande dans les Sites Active Directory et Services renvoie « Il n’y aucun point de terminaison plus le mappeur de point de terminaison. »</para><para>Clic droit sur l’objet de connexion à partir d’une contrôleur de domaine source et en choisissant <ui>vérifier la topologie de réplication</ui> échoue avec « Il n’y aucun point de terminaison plus le mappeur de point de terminaison. » Le visuel le message d’erreur est indiqué ci-dessous :</para><para>Texte du titre de boîte de dialogue : Vérification de la topologie de réplication</para><para>Texte du message de boîte de dialogue : </para><para>L’erreur suivante s’est produite pendant la tentative de contacter le contrôleur de domaine : Aucun point de terminaison plus ne sont disponibles sur l’endpoint mapper.</para></listItem><listItem><para>Le <ui>Répliquer maintenant</ui> commande dans les Sites Active Directory et Services renvoie « il n’y aucun point de terminaison plus le mappeur de point de terminaison. »</para><para>Clic droit sur l’objet de connexion à partir d’une contrôleur de domaine source et en choisissant <ui>Répliquer maintenant</ui> échoue avec « Il n’y aucun point de terminaison plus le mappeur de point de terminaison. » Le visuel le message d’erreur est indiqué ci-dessous :</para><para>Texte du titre de boîte de dialogue : Répliquer maintenant</para><para>Texte du message de boîte de dialogue : L’erreur suivante s’est produite pendant la tentative de synchronisation du contexte d’appellation &lt;nom de partition de répertoire %&gt; à partir du contrôleur de domaine &lt;contrôleur de domaine Source&gt; au contrôleur de domaine &lt;DC de Destination&gt;:</para><para>
 
-Il n’existe aucun point de terminaison plus le mappeur de point de terminaison. </para><para>L’opération ne continuera pas</para></listItem><listItem><para>événements KCC NTDS générales NTDS ou Microsoft-Windows-ActiveDirectory_DomainService avec l’état-2146893022 sont consignés dans le journal Services d’annuaire dans l’Observateur d’événements. </para><para>Événements ActiveDirectory qui couramment indiquer l’état-2146893022 incluent, mais ne sont pas limités à:</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><thead><tr><TD><para>ID d’événement</para></TD><TD><para>Source d’événement</para></TD><TD><para>Chaîne d’événement</para></TD></tr></thead><tbody><tr><TD><para>1655</para></TD><TD><para>NTDS Général</para></TD><TD><para>ActiveDirectory a tenté de communiquer avec le catalogue global suivant et les tentatives ont échoué.</para></TD></tr><tr><TD><para>1925</para></TD><TD><para>KCC NTDS</para></TD><TD><para>Échec de la tentative d’établir un lien de réplication pour la partition d’annuaire accessible en écriture suivante.</para></TD></tr><tr><TD><para>1265</para></TD><TD><para>KCC NTDS</para></TD><TD><para>Échec d’une tentative par le vérificateur de cohérence de connaissances (KCC) pour ajouter un accord de réplication du suivant répertoire source et la partition de contrôleur de domaine.</para></TD></tr></tbody></table></listItem>
+Aucun point de terminaison plus ne sont disponibles sur l’endpoint mapper.</para><para>L’opération ne continuera pas</para></listItem><listItem><para>Événements KCC NTDS générales de NTDS ou Microsoft-Windows-ActiveDirectory_DomainService avec l’état-2146893022 sont enregistrés dans le journal Services d’annuaire dans l’Observateur d’événements.</para><para>Les événements de Active Directory qui citent généralement l’état-2146893022 incluent, mais ne sont pas limités à :</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><thead><tr><TD><para>ID d’événement</para></TD><TD><para>Source de l'événement</para></TD><TD><para>Chaîne d’événement</para></TD></tr></thead><tbody><tr><TD><para>1655</para></TD><TD><para>NTDS Général</para></TD><TD><para>Active Directory a tenté de communiquer avec le catalogue global suivant et les tentatives ont échoué.</para></TD></tr><tr><TD><para>1925</para></TD><TD><para>KCC NTDS</para></TD><TD><para>Échec de la tentative pour établir un lien de réplication pour la partition d’annuaire accessible en écriture suivante.</para></TD></tr><tr><TD><para>1265</para></TD><TD><para>KCC NTDS</para></TD><TD><para>Une tentative par le vérificateur de cohérence des connaissances (KCC) pour ajouter un contrat de réplication pour le répertoire source et la partition contrôleur de domaine suivant a échoué.</para></TD></tr></tbody></table></listItem>
 </list>
     </content>
   </section>
   <section address="BKMK_Cause">
     <title>Cause</title>
     <content>
-      <para>le diagramme ci-dessous illustre le flux de travail RPC à partir de l’inscription de l’application serveur avec le mappeur de point de terminaison RPC (EPM) à l’étape1 pour la transmission de données à partir du client RPC à l’application cliente à l’étape7. </para>
+      <para>Le diagramme ci-dessous illustre le flux de travail RPC commençant par l’inscription de l’application de serveur avec le mappeur de point de terminaison RPC (EPM) à l’étape 1 pour la transmission de données à partir du client RPC à l’application cliente à l’étape 7. </para>
       <para>&lt;ADDS_RPCWorkflow&gt;</para>
-      <para>les étapes1 à 7 carte pour les opérations suivantes:</para>
+      <para>Étapes 1 à 7 de mappage pour les opérations suivantes :</para>
       <list class="ordered">
         <listItem>
-          <para>Application Server enregistre ses points de terminaison avec le mappeur de point de terminaison RPC (EPM) </para>
+          <para>Application de serveur inscrit ses points de terminaison avec le mappeur de point de terminaison RPC (EPM) </para>
         </listItem>
         <listItem>
-          <para>Client effectue un appel RPC (pour un utilisateur, le compte de système d’exploitation ou une application lancé une opération) </para>
+          <para>Client effectue un appel RPC (pour le compte d’un utilisateur, système d’exploitation ou d’application lancé une opération) </para>
         </listItem>
         <listItem>
-          <para>Client côté RPC contacts les ordinateurs cibles EPM et demander pour le point de terminaison terminer l’appel du client </para>
+          <para>Côté client RPC contacte les ordinateurs cibles EPM et demandez du point de terminaison terminer l’appel du client </para>
         </listItem>
         <listItem>
-          <para>EPM de l’ordinateur serveur répond avec un point de terminaison </para>
+          <para>Répond d’EPM de l’ordinateur de serveur avec un point de terminaison </para>
         </listItem>
         <listItem>
-          <para>côté Client RPC contacte l’application serveur </para>
+          <para>Côté client RPC contacte l’application serveur </para>
         </listItem>
         <listItem>
-          <para>application serveur exécute l’appel, retourne le résultat au client RPC </para>
+          <para>Application serveur s’exécute l’appel, retourne le résultat au client RPC </para>
         </listItem>
         <listItem>
-          <para>côté Client RPC passe le résultat à l’application cliente</para>
+          <para>Côté client RPC repasse le résultat à l’application cliente</para>
         </listItem>
       </list>
-      <para>1753 échec est générée par une défaillance entre les étapes #3 et 4 #. Plus précisément, erreur 1753 signifie que le client RPC (contrôleur de domaine de destination) a été en mesure de contacter le serveur RPC (contrôleur de domaine source) sur le port 135, mais le mode protégé amélioré sur le serveur RPC (contrôleur de domaine source) n’a pas pu localiser l’application RPC de vos centres d’intérêt et a renvoyé l’erreur du côté serveur 1753. La présence de l’erreur 1753 indique que le client RPC (contrôleur de domaine de destination) reçoit la réponse d’erreur côté serveur à partir du serveur RPC (source de réplication ActiveDirectory du contrôleur de domaine) sur le réseau. </para>
-      <para>Incluent les causes spécifiques de l’erreur 1753: </para>
+      <para>Échec 1753 sont générées par une défaillance entre les étapes #3 et #4. Plus précisément, erreur 1753 signifie que le client RPC (DC de destination) a été en mesure de contacter le serveur RPC (contrôleur de domaine source) sur le port 135, mais EPM sur le serveur RPC (contrôleur de domaine source) n’a pas pu localiser l’application RPC d’intérêt et a retourné l’erreur du côté serveur 1753. La présence de l’erreur 1753 indique que le client RPC (DC de destination) a reçu la réponse d’erreur côté serveur à partir du serveur RPC (source de réplication AD DC) sur le réseau. </para>
+      <para>Les causes spécifiques de l’erreur 1753 incluent : </para>
       <list class="ordered">
         <listItem>
-          <para>l’application serveur jamais démarrée (autrement dit, étape #1dans le diagramme «plus d’informations» situé au-dessus a été tentée jamais). </para>
+          <para>L’application serveur n’a jamais démarrée (autrement dit, étape 1 dans le diagramme « plus d’informations » situé au-dessus a été tentée jamais).</para>
         </listItem>
         <listItem>
-          <para>L’application server démarré, mais il y a un échec lors de l’initialisation qui l’a empêché de l’inscription avec le mappeur de point de terminaison RPC (autrement dit, étape #1dans le diagramme «plus d’informations» ci-dessus a été tentée mais a échoué). </para>
+          <para>L’application de serveur a démarré, mais un échec s’est produite pendant l’initialisation qui l’a empêché de s’inscrire avec le mappeur de point de terminaison RPC (autrement dit, étape 1 dans le diagramme « plus d’informations » ci-dessus a été tenté mais a échoué).</para>
         </listItem>
         <listItem>
-          <para>L’application server a démarré mais morts par la suite. (autrement dit, étape #1dans le diagramme «plus d’informations» ci-dessus a réussi, mais il a été annulée ultérieurement, car le serveur morts). </para>
+          <para>L’application serveur a démarré mais a été arrêtée par la suite. (par exemple, étape 1 dans le diagramme « plus d’informations » ci-dessus s’est déroulé avec succès, mais il a été annulée ultérieurement, car le serveur a été arrêtée).</para>
         </listItem>
         <listItem>
-          <para>L’application serveur désinscrit manuellement ses points de terminaison (semblables à 3mais intentionnelle. Mais probablement pas inclus par souci d’exhaustivité.) </para>
+          <para>L’application serveur désinscrit manuellement ses points de terminaison (semblables à 3, mais il est intentionnel. Mais probablement pas incluse par souci d’exhaustivité.)</para>
         </listItem>
         <listItem>
-          <para>Client le RPC (contrôleur de domaine de destination) de contacter un serveur RPC différent de celui prévu en raison d’un nom pour l’erreur de mappage IP dans DNS, WINS ou hôte/Lmhosts. </para>
+          <para>Le client RPC (DC de destination) de contacter un autre serveur RPC celui prévu en raison d’un nom de l’erreur de mappage d’adresse IP dans DNS, WINS ou le fichier hôte/Lmhosts.</para>
         </listItem>
       </list>
-      <para>Erreur1753 n’est pas due à: </para>
+      <para>Erreur 1753 n’est pas due à : </para>
       <list class="bullet">
         <listItem>
-          <para>un manque de connectivité réseau entre le client RPC (contrôleur de domaine de destination) et le serveur RPC (contrôleur de domaine source) sur le port 135</para>
+          <para>Un manque de connectivité réseau entre le client RPC (DC de destination) et le serveur RPC (contrôleur de domaine source) sur le port 135</para>
         </listItem>
         <listItem>
-          <para>un manque de connectivité réseau entre le serveur RPC (contrôleur de domaine source) utilisant le port 135 et le client RPC (contrôleur de domaine de destination) via le port éphémère. </para>
+          <para>Un manque de connectivité réseau entre le serveur RPC (contrôleur de domaine source) via le port 135 et le client RPC (DC de destination) via le port éphémère. </para>
         </listItem>
         <listItem>
-          <para>Une non-concordance de mot de passe ou l’impossibilité de déchiffrer un paquet chiffré Kerberos par le contrôleur de domaine source</para>
+          <para>Une incompatibilité de mot de passe ou l’impossibilité de déchiffrer un paquet chiffré Kerberos par le contrôleur de domaine source </para>
         </listItem>
       </list>
-      <para></para>
+      <para> </para>
     </content>
   </section>
   <section address="BKMK_Resolutions">
@@ -158,42 +174,43 @@ Il n’existe aucun point de terminaison plus le mappeur de point de terminaison
       <list class="ordered">
         <listItem>
           <para>
-            <embeddedLabel>Vérifiez que le service d’inscription de son service avec le mappeur de point de terminaison a démarré</embeddedLabel>
+            <embeddedLabel>Vérifiez que le service de l’inscription de son service avec le mappeur de point de terminaison a démarré.</embeddedLabel>
           </para>
-          <para>pour Windows2000 et les contrôleurs de domaine Windows Server2003: Assurez-vous que le contrôleur de domaine source est démarré en mode normal. </para>
-          <para>Pour Windows Server2008 ou Windows Server2008R2: à partir de la console du contrôleur de domaine source, démarrer les Services Gestionnaire (services.msc) et vérifiez que le <embeddedLabel>les Services de domaine ActiveDirectory</embeddedLabel> service est en cours d’exécution. </para>
+          <para>Pour Windows 2000 et les contrôleurs de domaine Windows Server 2003 : Assurez-vous que le contrôleur de domaine source est démarré en mode normal. </para>
+          <para>
+Pour Windows Server 2008 ou Windows Server 2008 R2 : à partir de la console du contrôleur de domaine source, démarrez le Gestionnaire de Services (services.msc) et vérifiez que le <embeddedLabel>Active Directory Domain Services</embeddedLabel> service est en cours d’exécution. </para>
         </listItem>
         <listItem>
           <para>
-            <embeddedLabel>Vérifier que le client RPC (contrôleur de domaine de destination) connecté au serveur RPC prévue (contrôleur de domaine source)</embeddedLabel>
+            <embeddedLabel>Vérifiez que le client RPC (DC de destination) connecté au serveur RPC prévue (contrôleur de domaine source)</embeddedLabel>
           </para>
-          <para>tous les contrôleurs de domaine dans un Registre de forêt ActiveDirectory commun, un contrôleur de domaine CNAME enregistrer dans la zone _msdcs. &lt;domaine racine de forêt&gt; zone DNS, quelle que soit le domaine, ils se trouvent dans la forêt. L’enregistrement CNAME de contrôleur de domaine est dérivé de la <embeddedLabel>objectGUID</embeddedLabel> attribut de l’objet Paramètres NTDS pour chaque contrôleur de domaine. </para>
-          <para>Lorsque vous effectuez des opérations basées sur la réplication, une contrôleur de domaine de destination des requêtes DNS pour l’enregistrement CNAME de contrôleurs de domaine source. L’enregistrement CNAME contient le nom complet d’ordinateur de contrôleur de domaine source qui est utilisé pour dériver de l’adresse IP des contrôleurs de domaine source via une recherche de cache du client DNS, hôte / LMHost fichier recherche, l’hôte A / AAAA enregistrement dans DNS ou WINS. </para>
-          <para>Objets obsolètes Paramètres NTDS et to-IP mappages de nom incorrect - dans les fichiers de DNS, WINS, l’hôte et LMHOST peuvent provoquer le client RPC (contrôleur de domaine de destination) pour se connecter au serveur RPC incorrect (contrôleur de domaine Source). En outre, le mappage to-IP nom incorrect - peut provoquer le client RPC (contrôleur de domaine de destination) pour se connecter à un ordinateur qui n’a pas encore de l’Application de serveur RPC d’intérêt (le rôle d’ActiveDirectory dans le cas présent) est installé. (Exemple: un enregistrement hôte obsolètes pour DC2 contient l’adresse IP de DC3 ou un ordinateur membre). </para>
-          <para>Vérifier correspondant à l’attribut objectGUID pour la source de contrôleur de domaine qui existe dans la destination de copie de contrôleurs de domaine ActiveDirectory le GUID de contrôleur de domaine source stocké dans la source de copie de contrôleurs de domaine d’ActiveDirectory. S’il existe une différence, utilisez repadmin /showobjmeta sur l’objet paramètres ntds pour voir celle correspond à la dernière promotion du contrôleur de domaine source (Conseil: comparer le cachet de date pour date de création de l’objet Paramètres NTDS /showobjmeta par rapport à la dernière date de la promotion dans le fichier dcpromo.log de contrôleurs de domaine source. Vous devrez peut-être utiliser le dernier / créer la date de la DCPROMO.LOG le fichier journal lui-même). Si le GUID d’objet n’est pas identique, la contrôleur de domaine susceptible de destination a un objet Paramètres NTDS obsolète pour le contrôleur de domaine source dont l’enregistrement CNAME fait référence à un enregistrement d’hôte avec un nom incorrect pour le mappage IP. </para>
-          <para>Sur la contrôleur de domaine de destination, exécutez IPCONFIG//ALL afin de déterminer les serveurs DNS à l’aide de la destination du contrôleur de domaine pour la résolution de noms:</para>
+          <para>Tous les contrôleurs de domaine dans une forêt Active Directory commune inscrire un enregistrement CNAME du contrôleur de domaine dans la zone _msdcs. &lt;domaine racine de forêt&gt; zone DNS, quel que soit le quel domaine qu’ils résident dans la forêt. L’enregistrement CNAME du contrôleur de domaine est dérivé le <embeddedLabel>objectGUID</embeddedLabel> attribut de l’objet Paramètres NTDS pour chaque contrôleur de domaine. </para>
+          <para>Lorsque vous effectuez des opérations basées sur la réplication, une contrôleur de domaine de destination demande à DNS l’enregistrement CNAME de contrôleurs de domaine source. L’enregistrement CNAME contient le nom d’ordinateur complet de contrôleur de domaine source qui est utilisé pour dériver l’adresse IP des contrôleurs de domaine source par le biais de recherche dans le cache client DNS, héberger /file LMHost recherche, l’hôte A / AAAA enregistrer dans DNS ou WINS. </para>
+          <para>Périmées objets Paramètres NTDS et des mappages nom-IP incorrectes dans les fichiers DNS, WINS, hôte et LMHOST peuvent entraîner le client RPC (DC de destination) pour se connecter au serveur RPC incorrect (contrôleur de domaine Source). En outre, le mappage de nom IP incorrect peut entraîner le client RPC (DC de destination) pour se connecter à un ordinateur qui n’a pas encore de l’Application de serveur RPC d’intérêt (dans ce cas, le rôle d’Active Directory) est installé. (Exemple : un enregistrement de l’ordinateur hôte périmés pour DC2 contient l’adresse IP de DC3 ou sur un ordinateur membre). </para>
+          <para>Vérifiez que l’attribut objectGUID pour le contrôleur de domaine source qui existe dans la destination de copie des contrôleurs de domaine d’Active Directory correspond à l’objectGUID de contrôleur de domaine source stockée dans la source de copie de contrôleurs de domaine d’Active Directory. S’il existe une incohérence, utilisez repadmin /showobjmeta sur l’objet paramètres ntds pour voir celui qui correspond à la dernière promotion de contrôleur de domaine source (indicateur : comparer les cachets de date pour la date de création de l’objet Paramètres NTDS de /showobjmeta par rapport à la dernière date de promotion dans le fichier dcpromo.log de contrôleurs de domaine source. Vous devrez peut-être utiliser la dernière modification / date de création de la DCPROMO. Fichier journal lui-même). Si l’objet GUID n’est pas identique, le DC susceptible de destination a un objet Paramètres NTDS obsolète pour le contrôleur de domaine source dont l’enregistrement CNAME fait référence à un enregistrement d’hôte avec un nom incorrect pour le mappage IP. </para>
+          <para>Sur le DC de destination, exécutez IPCONFIG /ALL pour déterminer quels serveurs DNS la destination à l’aide de contrôleur de domaine pour la résolution de noms :</para>
           <code>c:&gt;ipconfig /all</code>
-          <para>sur le contrôleur de domaine de destination, exécutez NSLOOKUP sur l’enregistrement CNAME de contrôleur de domaine complet de contrôleurs de domaine source:</para>
+          <para>Sur le DC de destination, exécutez NSLOOKUP sur l’enregistrement CNAME du contrôleur de domaine complet de contrôleurs de domaine source :</para>
           <code>c:&gt;nslookup -type=cname &lt;fully qualified cname of source DC&gt; &lt;destination DCs primary DNS Server IP &gt;
 c:&gt;nslookup -type=cname &lt;fully qualified cname of source DC&gt; &lt;destination DCs secondary DNS Server IP&gt;</code>
-          <para>vérifier que l’adresse IP renvoyée par NSLOOKUP «propriétaire» le nom d’hôte / identité de sécurité de contrôleur de domaine source:</para>
+          <para>Vérifiez que l’adresse IP renvoyée par NSLOOKUP « possède » le nom d’hôte / identité de sécurité de contrôleur de domaine source :</para>
 
           <code>C:&gt;NBTSTAT -A &lt;IP address returned by NSLOOKUP in the step above&gt;</code>
-          <para>ou</para>
-          <para>journal sur la console du contrôleur de domaine source, exécutez le «IPCONFIG» à partir de l’invite de commande et vérifiez que le contrôleur de domaine source est propriétaire de l’adresse IP renvoyée par la commande NSLOOKUP ci-dessus</para>
-          <para>recherchez hôte périmé / en double à des mappages IP dans DNS</para>
+          <para>ou Gestionnaire de configuration</para>
+          <para>Ouvrez une session sur la console du contrôleur de domaine source, exécuter « IPCONFIG » à partir de l’invite de commande et vérifier que le contrôleur de domaine source possède l’adresse IP renvoyée par la commande NSLOOKUP ci-dessus</para>
+          <para>Recherchez un hôte obsolète / en double pour les mappages d’adresses IP dans DNS</para>
           <code>NSLOOKUP -type=hostname &lt;single label hostname of source DC&gt; &lt;primary DNS Server IP on destination DC&gt;
 NSLOOKUP -type=hostname &lt;single label hostname of source DC&gt; &lt;secondary DNS Server IP on destination DC&gt;
 
 NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;primary DNS Server IP on destination DC&gt;
 NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;secondary DNS Server IP on dest. DC&gt;</code>
-<para>si les adresses IP non valides existent dans les enregistrements d’hôte, examiner si le nettoyage DNS est activé et configuré correctement. </para><para>Si les tests ci-dessus ou une trace réseau ne s’affiche une requête de nom renvoyant une adresse IP non valide, tenez compte des entrées obsolètes dans les fichiers de l’ordinateur hôte, les fichiers LMHOSTS et les serveurs WINS. Notez que les serveurs DNS peut également être configurés pour effectuer la résolution de nom de secours WINS. </para>
+<para>S’il existe des adresses IP non valides dans les enregistrements d’hôte, examinez si le nettoyage DNS est activé et correctement configuré. </para><para>Si les tests ci-dessus ou une trace réseau n’affiche pas une requête de nom qui renvoie une adresse IP non valide, envisagez les entrées obsolètes dans les fichiers d’hôte, les fichiers LMHOSTS et les serveurs WINS. Notez que les serveurs DNS peuvent également être configurés pour effectuer une résolution de nom de secours de WINS.</para>
 </listItem>
         <listItem>
           <para>
-            <embeddedLabel>Vérifiez que l’application serveur (ActiveDirectory et al.) est inscrite avec le mappeur de point de terminaison sur le serveur RPC (contrôleur de domaine source)</embeddedLabel>
+            <embeddedLabel>Vérifier que l’application serveur (Active Directory et coll.) a inscrit avec le mappeur de point de terminaison sur le serveur RPC (contrôleur de domaine source)</embeddedLabel>
           </para>
-          <para>ActiveDirectory utilise une combinaison de ports bien connus et inscrits de manière dynamique. Ce tableau répertorie connus ports et protocoles utilisés par les contrôleurs de domaine ActiveDirectory.</para>
+          <para>Active Directory utilise une combinaison de ports bien connus et inscrites dynamiquement. Ce tableau répertorie les ports bien connus et les protocoles utilisés par les contrôleurs de domaine Active Directory.</para>
           <table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11">
             <thead>
               <tr>
@@ -284,7 +301,7 @@ NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;s
               </tr>
               <tr>
                 <TD>
-                  <para>Serveur de catalogue global</para>
+                  <para>Serveur du catalogue global</para>
                 </TD>
                 <TD>
                   <para>3268</para>
@@ -298,7 +315,7 @@ NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;s
               </tr>
               <tr>
                 <TD>
-                  <para>Serveur de catalogue global</para>
+                  <para>Serveur du catalogue global</para>
                 </TD>
                 <TD>
                   <para>3269</para>
@@ -312,12 +329,12 @@ NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;s
               </tr>
             </tbody>
           </table>
-          <para>Les ports connus ne sont pas enregistrés avec le mappeur de point de terminaison. </para>
-          <para>ActiveDirectory et autres applications également inscrire les services qui reçoivent les ports affectés dynamiquement dans la plage de ports éphémères RPC. Ces applications de serveur RPC sont affectées dynamiquement les ports TCP entre 1024 et 5000 sur les ordinateurs Windows2000 et Windows Server2003 et entre 49152 et 65535 plage sur les ordinateurs Windows Server2008 et Windows Server2008R2. Le port RPC utilisé par la réplication peut être codé en dur dans le Registre en utilisant les étapes documentées dans <externalLink><linkText>l’article 224196</linkText><linkUri>https://support.microsoft.com/kb/224196</linkUri></externalLink>. ActiveDirectory continue à s’inscrire avec le mode protégé amélioré lorsque configuré pour utiliser un port codée en dur. </para>
-          <para>Vérifier que l’application serveur RPC d’intérêt s’est inscrit avec le mappeur de point de terminaison RPC sur le serveur RPC (contrôleur de domaine source dans le cas de la réplication ActiveDirectory). </para>
-          <para>Un certain nombre de méthodes pour accomplir cette tâche, mais une consiste à installer et exécuter PORTQRY à partir d’une invite de commandes administrateur privilégié sur la console du contrôleur de domaine à l’aide de la syntaxe de la source: </para>
+          <para>Les ports connus ne sont pas inscrits avec le mappeur de point de terminaison. </para>
+          <para>Active Directory et autres applications également inscrivent les services qui reçoivent des ports affectés dynamiquement dans la plage de ports éphémères de RPC. Ces applications de serveur RPC sont attribuées dynamiquement des ports TCP entre 1024 et 5000 sur les ordinateurs Windows 2000 et Windows Server 2003 et les ports entre 49152 et 65535 plage sur les ordinateurs Windows Server 2008 et Windows Server 2008 R2. Le port RPC utilisé par la réplication peut être codé en dur dans le Registre à l’aide de la procédure décrite dans <externalLink> <linkText>l’article 224196</linkText><linkUri>https://support.microsoft.com/kb/224196</linkUri></externalLink>. Active Directory continue à s’inscrire avec EPM lorsque configuré pour utiliser un port codé en dur. </para>
+          <para>Vérifiez que l’application serveur RPC d’intérêt s’est inscrit avec le mappeur de point de terminaison RPC sur le serveur RPC (contrôleur de domaine source dans le cas de la réplication Active Directory). </para>
+          <para>Il existe plusieurs façons d’accomplir cette tâche, mais une consiste à installer et exécuter PORTQRY à partir d’une invite de commandes administrateur privilégié sur la console de la source de contrôleur de domaine à l’aide de la syntaxe : </para>
           <code>c:\&gt;portquery -n &lt;source DC&gt; -e 135 &gt;file.txt</code>
-          <para>dans la sortie portqry, notez les numéros de port inscrits dynamiquement par le «MS NT Active DRS Interface» (UUID = 351...) pour le <embeddedLabel>protocole ncacn_ip_tcp</embeddedLabel>. L’extrait de code ci-dessous montre un exemple de sortie portquery à partir d’un contrôleur de domaine de Windows Server2008R2 et l’UUID / paire de protocole spécifiquement utilisés par ActiveDirectory mis en surbrillance dans <embeddedLabel>gras</embeddedLabel>: </para>
+          <para>Dans la sortie de portqry, notez les numéros de port enregistrés de manière dynamique par la « MS NT Directory DRS Interface » (UUID =... 351) pour le <embeddedLabel>ncacn_ip_tcp protocole</embeddedLabel>. L’extrait de code ci-dessous illustre une sortie portquery à partir d’un contrôleur de domaine Windows Server 2008 R2 et l’UUID / paire protocole spécifiquement utilisés par Active Directory mis en surbrillance dans <embeddedLabel>gras</embeddedLabel>: </para>
           <code>UUID: e3514235-4b06-11d1-ab04-00c04fc2dcd2 MS NT Directory DRS Interface
 ncacn_np:CONTOSO-DC01[\pipe\lsass] 
 UUID: e3514235-4b06-11d1-ab04-00c04fc2dcd2 MS NT Directory DRS Interface
@@ -331,17 +348,17 @@ ncacn_http:CONTOSO-DC01[6004]</code>
           <para />
         </listItem>
         <listItem>
-          <para>autres manières possible de résoudre cette erreur:</para>
+          <para>Autres méthodes permettant de résoudre cette erreur :</para>
           <list class="ordered">
             <listItem>
-              <para>Vérifiez que le contrôleur de domaine source est démarré en mode normal et que le rôle de système d’exploitation et le contrôleur de domaine sur le contrôleur de domaine source ont entièrement démarré. </para>
+              <para>Vérifiez que le contrôleur de domaine source est démarré en mode normal et que le rôle de système d’exploitation et le contrôleur de domaine sur le contrôleur de domaine source ont entièrement démarré.</para>
             </listItem>
             <listItem>
-              <para>Vérifiez que le Service de domaine ActiveDirectory est en cours d’exécution. Si le service est actuellement arrêté ou n’a pas été configuré avec des valeurs de démarrage par défaut, réinitialisez les valeurs de démarrage par défaut, redémarrez le contrôleur de domaine modifié, puis renouvelez l’opération. </para>
+              <para>Vérifiez que le Service de domaine Active Directory est en cours d’exécution. Si le service est actuellement arrêté ou n’a pas été configuré avec les valeurs de démarrage par défaut, réinitialisez les valeurs de démarrage par défaut, redémarrez le contrôleur de domaine modifié, puis recommencez l’opération.</para>
             </listItem>
             <listItem>
-              <para>Vérifiez que l’état de service et la valeur de démarrage pour le service RPC et de recherche de RPC est correct pour la version du système d’exploitation du Client RPC (contrôleur de domaine de destination) et du serveur RPC (contrôleur de domaine source). Si le service est actuellement arrêté ou n’a pas été configuré avec des valeurs de démarrage par défaut, réinitialisez les valeurs de démarrage par défaut, redémarrez le contrôleur de domaine modifié, puis renouvelez l’opération. </para>
-              <para>En outre, assurez-vous que le contexte de service correspond à des paramètres par défaut répertoriés dans le tableau suivant.</para>
+              <para>Vérifiez que l’état de valeur et le service de démarrage pour le service RPC et le Localisateur RPC est correct pour la version du système d’exploitation du Client RPC (DC de destination) et du serveur RPC (contrôleur de domaine source). Si le service est actuellement arrêté ou n’a pas été configuré avec les valeurs de démarrage par défaut, réinitialisez les valeurs de démarrage par défaut, redémarrez le contrôleur de domaine modifié, puis recommencez l’opération.</para>
+              <para>En outre, assurez-vous que le contexte de service correspond aux paramètres par défaut répertoriés dans le tableau suivant.</para>
               <table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11">
                 <thead>
                   <tr>
@@ -349,10 +366,10 @@ ncacn_http:CONTOSO-DC01[6004]</code>
                       <para>Service</para>
                     </TD>
                     <TD>
-                      <para>État par défaut (type de démarrage) dans Windows Server2003 et versions ultérieures </para>
+                      <para>État par défaut (type de démarrage) dans Windows Server 2003 et versions ultérieures </para>
                     </TD>
                     <TD>
-                      <para>État par défaut (type de démarrage) dans Windows Server2000</para>
+                      <para>État par défaut (type de démarrage) dans Windows Server 2000</para>
                     </TD>
                   </tr>
                 </thead>
@@ -383,18 +400,18 @@ ncacn_http:CONTOSO-DC01[6004]</code>
               </table>
             </listItem>
             <listItem>
-              <para>Vérifiez que la taille de la plage de ports dynamique n’a pas été contrainte. La syntaxe de Windows Server2008 et Windows Server2008R2 NETSH pour énumérer la plage de ports RPC est indiquée ci-dessous:</para>
+              <para>Vérifiez que la taille de la plage de ports dynamiques n’a pas été contraint. La syntaxe de Windows Server 2008 et Windows Server 2008 R2 NETSH pour énumérer la plage de ports RPC est indiquée ci-dessous :</para>
               <code>&gt;netsh int ipv4 show dynamicport tcp
 &gt;netsh int ipv4 show dynamicport udp
 &gt;netsh int ipv6 show dynamicport tcp
 &gt;netsh int ipv6 show dynamicport udp</code>
             </listItem>
             <listItem>
-              <para>vérifier que les définitions de port codée en dur définies dans la base de connaissances 224196 se situent dans la plage de ports dynamiques pour la version du système d’exploitation des contrôleurs de domaine source. </para>
-              <para>Révision <externalLink><linkText>l’article 224196</linkText><linkUri>https://support.microsoft.com/kb/224196</linkUri></externalLink> et assurez-vous que le port codée en dur se trouve dans la plage de ports éphémères pour la version du système d’exploitation du contrôleur de domaine source. </para>
+              <para>Vérifiez que les définitions de port codé en dur définies dans la base de connaissances 224196 tombent dans la plage de ports dynamiques pour la version de système d’exploitation des contrôleurs de domaine source.</para>
+              <para>Révision <externalLink> <linkText>l’article 224196</linkText> <linkUri> https://support.microsoft.com/kb/224196 </linkUri> </externalLink> et vérifiez que le port codé en dur est comprise dans la plage de ports éphémères pour la version de système d’exploitation de la source du contrôleur de domaine.</para>
             </listItem>
             <listItem>
-              <para>Vérifiez que la clé ClientProtocols existe sous HKLM\Software\Microsoft\Rpc et contient les valeurs par 5 défaut suivantes:</para>
+              <para>Vérifiez que la clé ClientProtocols existe sous HKLM\Software\Microsoft\Rpc et contient les valeurs par 5 défaut suivantes :</para>
               <code>ncacn_http REG_SZ rpcrt4.dll
 ncacn_ip_tcp REG_SZ rpcrt4.dll
 <codeFeaturedElement>ncacn_nb_tcp REG_SZ rpcrt4.dll</codeFeaturedElement>
@@ -410,9 +427,9 @@ ncacn_ip_udp REG_SZ rpcrt4.dll</code>
     <title>Plus d’informations</title>
     <content>
       <para>
-        <embeddedLabel>exemple d’un nom incorrect pour IP mappage à l’origine de l’erreur RPC1753 et-2146893022: le nom de principal cible est incorrect</embeddedLabel>
+        <embeddedLabel>Exemple d’un nom incorrect pour l’IP mappage à l’origine de l’erreur RPC 1753 et-2146893022 : le nom du principal cible est incorrect</embeddedLabel>
       </para>
-      <para>le domaine contoso.com se compose de DC1 et DC2 avec adresse IP adresses x.x.1.1 et x.x.1.2. L’ordinateur hôte «A» / enregistrements «AAAA» pour DC2 sont inscrits correctement sur tous les serveurs DNS configurés pour DC1. En outre, le fichier HOSTS sur DC1 contient une entrée de mappage de nom d’hôte complet de DC2s à x.x.1.2 d’adresse IP. Plus tard, les modifications d’adresses IP de DC2 de X.X.1.2 X.X.1.3 et un nouvel ordinateur membre est joint au domaine avec x.x.1.2 d’adresse IP. La réplication ActiveDirectory tentatives déclenchement par le <ui>Répliquer maintenant</ui> commande dans le composant logiciel enfichable Services et Sites ActiveDirectory échoue avec l’erreur 1753, comme illustré dans la trace ci-dessous:</para>
+      <para>Le domaine contoso.com se compose de DC1 et DC2 avec x.x.1.1 d’adresses IP et x.x.1.2. L’hôte « A » / enregistrements « AAAA » pour DC2 sont inscrits correctement sur tous les serveurs DNS configurés pour DC1. En outre, le fichier HOSTS sur DC1 contient une entrée de mappage de nom d’hôte entièrement qualifié de DC2s à x.x.1.2 d’adresse IP. Plus tard, IP adresse change de DC2 de X.X.1.2 en X.X.1.3 et un nouvel ordinateur membre est joint au domaine avec x.x.1.2 d’adresse IP. La réplication Active Directory tentatives déclenchement par le <ui>Répliquer maintenant</ui> commande dans le composant logiciel enfichable Services et Sites Active Directory échoue avec l’erreur 1753, comme indiqué dans la trace ci-dessous :</para>
       <code>F# SRC    DEST    Operation 
 1 x.x.1.1 x.x.1.2 ARP:Request, x.x.1.1 asks for x.x.1.2
 2 x.x.1.2 x.x.1.1 ARP:Response, x.x.1.2 at 00-13-72-28-C8-5E
@@ -426,23 +443,23 @@ ncacn_ip_udp REG_SZ rpcrt4.dll</code>
 <codeFeaturedElement>10</codeFeaturedElement> x.x.1.1 x.x.1.2 EPM:Request: ept_map: NDR, DRSR(DRSR) {E3514235-4B06-11D1-AB04-00C04FC2DCD2} [DCE endpoint resolution(135)]
 <codeFeaturedElement>11</codeFeaturedElement> x.x.1.2 x.x.1.1 EPM:Response: ept_map: 0x16C9A0D6 - EP_S_NOT_REGISTERED
 </code>
-      <para>au cadre <embeddedLabel>10</embeddedLabel>, la contrôleur de domaine de destination interroge le mappeur de point de terminaison de contrôleurs de domaine source sur le port 135 pour la classe de service de réplication ActiveDirectory UUID E351... </para>
-      <para>Dans le cadre <embeddedLabel>11</embeddedLabel>, la source de contrôleur de domaine, dans ce cas, un ordinateur membre qui n’héberge pas encore le rôle de contrôleur de domaine et n’a donc pas inscrit le E351... UUID pour le service de réplication avec ses EPM local répond avec l’erreur symbolique EP_S_NOT_REGISTERED, ce qui correspond à l’erreur décimal 1753, hex 0x6d9 et convivial erreur «aucun point de terminaison plus ne sont disponibles à partir du mappeur de point de terminaison». </para>
-      <para>Plus tard, l’ordinateur membre avec x.x.1.2 d’adresse IP obtient promu en tant que réplica «MayberryDC» dans le domaine contoso.com. Là encore, le <ui>Répliquer maintenant</ui> commande est utilisée pour déclencher la réplication, mais cette fois échoue avec le visuel erreur «le nom du principal cible est incorrect.» L’ordinateur dont la carte réseau est attribuée à l’adresse IP d’adresses x.x.1.2 <placeholder>est</placeholder> un contrôleur de domaine est actuellement démarré en mode normal et a inscrit le E351... le service de réplication UUID avec son mode protégé amélioré local, mais il ne possède pas l’identité de sécurité ou le nom de DC2 et ne pouvez pas déchiffrer la demande Kerberos de DC1 afin de la demande échoue désormais avec l’erreur «le nom du principal cible est incorrect». L’erreur correspond à une erreur décimal-2146893022 / hex erreur 0x80090322. </para>
-      <para>Ces mappages to-IP hôte non valide - peuvent être dû à des entrées obsolètes dans hôte / fichiers lmhost, héberger un / des enregistrements AAAA dans DNS ou WINS. </para>
-      <para>Résumé: cet exemple a échoué car un mappage hôte non valide - to-IP (dans le fichier hôtes dans ce cas) a provoqué la contrôleur de domaine de destination résoudre à une «source» contrôleur de domaine qui n’a pas les Services de domaine ActiveDirectory en cours d’exécution du service (ou même installés dans notre exemple), par conséquent, la réplication SPN n’a pas encore été inscrit et a renvoyé l’erreur 1753 un contrôleur de domaine source. Dans le second cas, un mappage hôte non valide - to-IP (dans le fichier d’hôte) a provoqué la destination du contrôleur de domaine pour se connecter à un contrôleur de domaine qui a enregistré l’E351... réplication SPN, mais cette source avait une identité autre nom d’hôte et de sécurité que le contrôleur de domaine source prévue afin des tentatives a échoué avec l’erreur-2146893022: le nom de principal cible est incorrect.</para>
+      <para>Image <embeddedLabel>10</embeddedLabel>, le DC de destination interroge le mappeur de point de terminaison de contrôleurs de domaine source sur le port 135 pour la classe de service de réplication Active Directory UUID E351... </para>
+      <para>Dans le cadre <embeddedLabel>11</embeddedLabel>, la source de contrôleur de domaine, dans ce cas, un ordinateur membre qui n’héberge pas encore le rôle de contrôleur de domaine et n’a donc pas enregistré la E351... UUID pour le service de réplication avec ses EPM local répond avec l’erreur symbolique EP_S_NOT_REGISTERED qui mappe à l’erreur décimal 1753, d’une erreur hexadécimal 0x6d9 et d’erreur convivial « aucun point de terminaison plus ne sont disponibles dans le mappeur de point de terminaison ».</para>
+      <para>Une version ultérieure, l’ordinateur membre avec x.x.1.2 d’adresse IP est promue en tant que réplica « MayberryDC » dans le domaine contoso.com. Là encore, le <ui>Répliquer maintenant</ui> commande est utilisée pour déclencher la réplication, mais cette fois échoue avec le visuel erreur « le nom de principal cible est incorrect. » L’ordinateur dont la carte réseau est affectée l’adresse IP d’adresses x.x.1.2 <placeholder>est</placeholder> un contrôleur de domaine est actuellement démarré en mode normal et a enregistré le E351... le service de réplication UUID avec son EPM local, mais il ne possède pas l’identité de nom ou la sécurité de DC2 et ne peut pas déchiffrer la requête Kerberos de DC1 la demande échoue désormais avec l’erreur « le nom de principal de cible est incorrect. » L’erreur est mappé à l’erreur décimal-2146893022 / hex erreur 0x80090322. </para>
+      <para>Ces mappages IP de l’hôte non valides peut être dû à des entrées obsolètes dans hôte / fichiers lmhost, héberger un / des enregistrements AAAA dans DNS ou WINS. </para>
+      <para>Résumé : Cet exemple a échoué, car un mappage d’adresse IP hôte non valide (dans le fichier d’hôte dans le cas présent) a provoqué le DC de destination résoudre une « source » contrôleur de domaine qui n’avait pas les Services de domaine Active Directory en cours d’exécution de service (ou même installés d’ailleurs) par conséquent, la réplication Nom principal de service n’a pas encore été inscrit et le contrôleur de domaine source a renvoyé l’erreur 1753. Dans le deuxième cas, un mappage d’adresse IP hôte non valide (dans le fichier hôte) a provoqué la destination du contrôleur de domaine pour se connecter à un contrôleur de domaine qui a inscrit la E351... nom principal de service de réplication, mais cette source avait une autre identité de nom d’hôte et de sécurité que le contrôleur de domaine source prévue afin des tentatives a échoué avec l’erreur-2146893022 : Le nom de principal de cible est incorrect.</para>
     </content>
   </section>
   <relatedTopics>
     <externalLink>
-      <linkText>Résolution des problèmes d’opérations ActiveDirectory qui échouent avec l’erreur 1753: aucun point de terminaison plus ne sont disponibles dans le mappeur de point de terminaison. </linkText>
-      <linkUri>https://support.microsoft.com/kb/2089874</linkUri>
-    </externalLink>
-<externalLink><linkText>erreurs de mappeur de point de terminaison RPC de résolution des problèmes d’article 839880Ko à l’aide des outils de Support Windows Server2003 à partir du CD du produit</linkText><linkUri>https://support.microsoft.com/kb/839880</linkUri></externalLink>
-<externalLink><linkText>Ko article vue d’ensemble du Service832017 et exigences de ports pour le système Windows Server réseau</linkText><linkUri>https://support.microsoft.com/kb/832017/</linkUri></externalLink>
-<externalLink><linkText>trafic de réplication ActiveDirectory limitant Ko article 224196 et de client RPC du trafic à un port spécifique</linkText><linkUri>https://support.microsoft.com/kb/224196/</linkUri></externalLink>
-<externalLink><linkText>Ko article 154596 comment configurer l’allocation de port dynamique RPC avec un pare-feu</linkText><linkUri>https://support.microsoft.com/kb/154596</linkUri></externalLink><externalLink><linkText>RPC fonctionnement</linkText><linkUri>https://msdn.microsoft.com/library/aa373935(VS.85).aspx</linkUri></externalLink><externalLink><linkText>Comment le prépare pour une connexion</linkText><linkUri>https://msdn.microsoft.com/library/aa373938(VS.85).aspx</linkUri></externalLink>
-<externalLink><linkText>comment le Client établit une connexion</linkText><linkUri>https://msdn.microsoft.com/library/aa373937(VS.85).aspx</linkUri></externalLink><externalLink><linkText>enregistrement de l’Interface</linkText><linkUri>https://msdn.microsoft.com/library/aa375357(VS.85).aspx</linkUri></externalLink><externalLink><linkText>disposition le serveur sur le réseau</linkText><linkUri>https://msdn.microsoft.com/library/aa373974(VS.85).aspx</linkUri></externalLink><externalLink><linkText>les points de terminaison inscription</linkText><linkUri>https://msdn.microsoft.com/library/aa375255(VS.85).aspx</linkUri></externalLink><externalLink><linkText>à l’écoute pour les appels Client</linkText><linkUri>https://msdn.microsoft.com/library/aa373966(VS.85).aspx</linkUri></externalLink><externalLink><linkText>comment le Client établit une connexion</linkText><linkUri>https://msdn.microsoft.com/library/aa373937(VS.85).aspx</linkUri></externalLink><externalLink><linkText> ActiveDirectory de restreindre le trafic de réplication et client RPC du trafic à un port spécifique</linkText><linkUri>https://support.microsoft.com/kb/224196</linkUri></externalLink><externalLink><linkText>SPN pour un contrôleur de domaine cible dans ADDS</linkText><linkUri>https://msdn.microsoft.com/library/dd207688(PROT.13).aspx</linkUri></externalLink></relatedTopics>
+      <linkText>Résolution des problèmes d’opérations Active Directory qui échouent avec l’erreur 1753 : Aucun point de terminaison plus ne sont disponibles sur l’endpoint mapper. </linkText> 
+      <linkUri> https://support.microsoft.com/kb/2089874 </linkUri> 
+    </externalLink> 
+<externalLink> <linkText>Ko article 839880 erreurs de mappeur de point de terminaison RPC de résolution des problèmes en utilisant les outils de Support de Windows Server 2003 à partir du CD du produit</linkText> <linkUri> https://support.microsoft.com/kb/839880 </linkUri> </externalLink> 
+<externalLink> <linkText>Ko article 832017 Service vue d’ensemble et ports réseau requis pour le système Windows Server</linkText> <linkUri> https://support.microsoft.com/kb/832017/ </linkUri> </externalLink> 
+<externalLink> <linkText>Ko article 224196 le trafic de réplication de restriction d’Active Directory et le trafic RPC de client à un port spécifique</linkText> <linkUri> https://support.microsoft.com/kb/224196/ </linkUri> </externalLink> 
+<externalLink> <linkText>L’article 154596 comment configurer l’allocation de port dynamique RPC avec un pare-feu</linkText> <linkUri> https://support.microsoft.com/kb/154596 </linkUri> </externalLink> <externalLink> <linkText>Fonctionne RPC</linkText><linkUri>https://msdn.microsoft.com/library/aa373935(VS.85).aspx</linkUri></externalLink><externalLink><linkText>comment le serveur se prépare pour une connexion</linkText> <linkUri> https://msdn.microsoft.com/library/aa373938(VS.85).aspx </linkUri> </externalLink> 
+<externalLink> <linkText>Comment le Client établit une connexion</linkText> <linkUri> https://msdn.microsoft.com/library/aa373937(VS.85).aspx </linkUri> </externalLink> <externalLink> <linkText>L’inscription de l’Interface</linkText><linkUri>https://msdn.microsoft.com/library/aa375357(VS.85).aspx</linkUri></externalLink><externalLink><linkText>faisant du serveur Disponible sur le réseau</linkText><linkUri>https://msdn.microsoft.com/library/aa373974(VS.85).aspx</linkUri></externalLink><externalLink><linkText>l’enregistrement des points de terminaison</linkText> <linkUri> https://msdn.microsoft.com/library/aa375255(VS.85).aspx </linkUri> </externalLink> <externalLink> <linkText>à l’écoute pour les appels clients</linkText> <linkUri> https://msdn.microsoft.com/library/aa373966(VS.85).aspx </linkUri> </externalLink> <externalLink> <linkText>Comment le Client établit une connexion</linkText><linkUri>https://msdn.microsoft.com/library/aa373937(VS.85).aspx</linkUri></externalLink><externalLink><linkText>restriction Active le trafic de réplication de répertoire et client RPC du trafic vers un port spécifique</linkText><linkUri>https://support.microsoft.com/kb/224196</linkUri></externalLink><externalLink><linkText>SPN pour un contrôleur de domaine cible dans SERVICES AD DS</linkText><linkUri>https://msdn.microsoft.com/library/dd207688(PROT.13).aspx</linkUri></externalLink></relatedTopics>
 </developerConceptualDocument>
 
 

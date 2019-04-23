@@ -1,6 +1,6 @@
 ---
-title: En fonction du rôle de gérer le contrôle au Gestionnaire de serveur d’accès
-description: Cette rubrique fait partie du guide de gestion de la gestion des adresses IP (IPAM) dans Windows Server2016.
+title: Gérer le contrôle d’accès en fonction du rôle avec le Gestionnaire de serveur
+description: Cette rubrique fait partie du guide de gestion de la gestion des adresses IP (IPAM) dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,17 +13,18 @@ ms.topic: article
 ms.assetid: 77b6ac92-eaff-46d7-95db-ee6fc96742ed
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 75c7e56b6fb974a8f13e6b737045168fea994c0b
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 4fdefab9cb51e3c521ca7cc68c882632178a5d18
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59827760"
 ---
-# <a name="manage-role-based-access-control-with-server-manager"></a>En fonction du rôle de gérer le contrôle au Gestionnaire de serveur d’accès
+# <a name="manage-role-based-access-control-with-server-manager"></a>Gérer le contrôle d’accès en fonction du rôle avec le Gestionnaire de serveur
 
->S’applique à: Windows Server (canal annuel un point-virgule), Windows Server2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser les rubriques suivantes pour gérer le contrôle d’accès basé sur les rôles à l’aide du Gestionnaire de serveur, qui possède une interface graphique utilisateur.  
+Vous pouvez utiliser les rubriques suivantes pour gérer le contrôle d’accès basé sur les rôles à l’aide du Gestionnaire de serveur, qui dispose d’une interface utilisateur graphique.  
   
 -   [Créer un rôle d’utilisateur pour le contrôle d’accès](../../technologies/ipam/Create-a-User-Role-for-Access-Control.md)  
   
@@ -33,9 +34,9 @@ Vous pouvez utiliser les rubriques suivantes pour gérer le contrôle d’accès
   
 -   [Définir l’étendue d’accès pour les enregistrements de ressource DNS](../../technologies/ipam/Set-Access-Scope-for-DNS-Resource-Records.md)
   
--   [Afficher des rôles et autorisations de rôle](../../technologies/ipam/View-Roles-and-Role-Permissions.md)
+-   [Afficher les rôles et autorisations de rôle](../../technologies/ipam/View-Roles-and-Role-Permissions.md)
   
-Sinon, vous pouvez utiliser Windows PowerShell pour gérer le contrôle d’accès basé sur les rôles IPAM. Pour plus d’informations, voir [gérer Role Based Access Control avec Windows PowerShell](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Windows-PowerShell.md).
+Alternativement, vous pouvez utiliser Windows PowerShell pour gérer le contrôle d’accès basé sur les rôles IPAM. Pour plus d’informations, consultez [gérer Role Based Access Control avec Windows PowerShell](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Windows-PowerShell.md).
   
 ## <a name="see-also"></a>Voir aussi  
 [Gérer IPAM](Manage-IPAM.md)  

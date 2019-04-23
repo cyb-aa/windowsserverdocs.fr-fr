@@ -1,6 +1,6 @@
 ---
-title: "Gérer l’intégration de Service de messagerie dans WindowsServerEssentials"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Gérer l'intégration du service de messagerie dans Windows Server Essentials
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,25 +13,26 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 9333e539ec3f03bb1ef8ac3bac73ae3f9963349b
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59828730"
 ---
-# <a name="manage-email-service-integration-in-windows-server-essentials"></a>Gérer l’intégration de Service de messagerie dans WindowsServerEssentials
+# <a name="manage-email-service-integration-in-windows-server-essentials"></a>Gérer l'intégration du service de messagerie dans Windows Server Essentials
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Utilisez la rubrique suivante pour configurer une solution de messagerie pour votre organisation.  
+La rubrique suivante permet de configurer une solution de messagerie électronique pour votre organisation.  
   
--   [Intégrer un serveur de Exchange local à WindowsServerEssentials](Integrate-an-On-Premises-Exchange-Server-with-Windows-Server-Essentials.md)  
+-   [Intégrer un serveur d’Exchange sur site avec Windows Server Essentials](Integrate-an-On-Premises-Exchange-Server-with-Windows-Server-Essentials.md)  
   
-     Fournit des informations et des instructions de base pour vous aider à configurer et intégrer un serveur local qui exécute Exchange Server avec un serveur qui exécute WindowsServerEssentials.  
+     Fournit des informations et des instructions de base pour vous aider à configurer un serveur local qui exécute Exchange Server et à l'intégrer à un serveur qui exécute Windows Server Essentials.  
   
 ## <a name="see-also"></a>Voir aussi  
   
 -   [Gérer Office 365](Manage-Office-365-in-Windows-Server-Essentials.md)  
   
--   [Guide de démarrage rapide à l’aide de MicrosoftOffice 365](../use/Quick-Start-Guide-to-Using-Microsoft-Office-365-with-Windows-Server-Essentials.md)  
+-   [Guide de démarrage rapide à l’aide de Microsoft Office 365](../use/Quick-Start-Guide-to-Using-Microsoft-Office-365-with-Windows-Server-Essentials.md)  
   
--   [Gérer WindowsServerEssentials](Manage-Windows-Server-Essentials.md)
+-   [Gérer Windows Server Essentials](Manage-Windows-Server-Essentials.md)

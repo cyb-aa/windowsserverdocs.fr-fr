@@ -1,0 +1,42 @@
+---
+title: ftp mkdir
+description: 'Rubrique de commandes de Windows pour ***- '
+ms.custom: na
+ms.prod: windows-server-threshold
+ms.reviewer: na
+ms.suite: na
+ms.technology: manage-windows-commands
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.assetid: 5fac19fb-6835-4011-93cc-ac62f484d5d4 vhorne
+author: coreyp-at-msft
+ms.author: coreyp
+manager: dongill
+ms.date: 10/16/2017
+ms.openlocfilehash: 37568998d6d5870d2c97dbd487c5708b1e1e5a51
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59830240"
+---
+# <a name="ftp-mkdir"></a>ftp: mkdir
+
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+
+Crée un répertoire sur l’ordinateur distant.   
+## <a name="syntax"></a>Syntaxe  
+```  
+mkdir <directory>  
+```  
+### <a name="parameters"></a>Paramètres  
+|Paramètre|Description|  
+|-------|--------|  
+|<directory>|Spécifie le nom du nouveau répertoire distant.|  
+## <a name="BKMK_Examples"></a>Exemples  
+Créez un répertoire appelé **dir1** sur l’ordinateur distant.  
+```  
+mkdir dir1  
+```  
+## <a name="additional-references"></a>Références supplémentaires  
+-   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  

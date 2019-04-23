@@ -1,7 +1,7 @@
 ---
 ms.assetid: 6b38480e-5b1c-49f0-9d46-8cf22f70f0d2
-title: "Configurer l’environnement lab pour ADFS dans Windows Server2012R2"
-description: 
+title: Configurer l’environnement lab pour AD FS dans Windows Server 2012 R2
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,63 +10,64 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 049a1a1b0a419b0194edfe56b356a9f1e8b4b058
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59832320"
 ---
-# <a name="set-up-the-lab-environment-for-ad-fs-in-windows-server-2012-r2"></a>Configurer l’environnement lab pour ADFS dans Windows Server2012R2
+# <a name="set-up-the-lab-environment-for-ad-fs-in-windows-server-2012-r2"></a>Configurer l’environnement lab pour AD FS dans Windows Server 2012 R2
 
->S’applique à: Windows Server2012R2
+>S'applique à : Windows Server 2012 R2
 
-Cette rubrique décrit les étapes pour configurer un environnement de test qui peut être utilisé pour effectuer les procédures des guides de procédure pas à pas suivants:
+Cette rubrique indique les étapes de la configuration d'un environnement de test que vous pouvez utiliser pour effectuer les procédures des guides pas à pas suivants :
 
--   [Procédure pas à pas: Jonction avec un appareil iOS](../../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
+-   [Démonstration : Espace de travail avec un appareil iOS](../../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
 
--   [Procédure pas à pas: Joindre un espace de travail avec un appareil Windows](../../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
+-   [Démonstration : Espace de travail avec un appareil Windows](../../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
 
 
--   [Guide pas à pas: Gérer les risques avec contrôle d’accès conditionnel](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
+-   [Guide pas à pas : Gérer les risques avec contrôle d’accès conditionnel](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
 
--   [Guide de procédure pas à pas: Gérer les risques avec une authentification multifacteur supplémentaire pour les Applications sensibles](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
+-   [Guide pas à pas : Gérer les risques avec une authentification multifacteur supplémentaire pour les Applications sensibles](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 
 > [!NOTE]
-> Nous vous déconseillons d’installer le serveur web et le serveur de fédération sur le même ordinateur.
+> Nous vous déconseillons d'installer le serveur web et le serveur de fédération sur le même ordinateur.
 
-Pour configurer cet environnement de test, procédez comme suit:
+Pour configurer cet environnement de test, effectuez les étapes suivantes :
 
-1.  [Étape1: Configurer le contrôleur de domaine (DC1)](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_1)
+1.  [Étape 1 : Configurer le contrôleur de domaine (DC1)](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_1)
 
-2.  [Étape2: Configurer le serveur de fédération (ADFS1) avec Device Registration Service](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_4)
+2.  [Étape 2 : Configurer le serveur de fédération (ADFS1) avec Device Registration Service](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_4)
 
-3.  [Étape3: Configurer le serveur web (WebServ1) et un exemple d’application basée sur les revendications](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_5)
+3.  [Étape 3 : Configurer le serveur web (WebServ1) et un exemple d’application basée sur les revendications](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_5)
 
-4.  [Étape4: Configurer l’ordinateur client (Client1)](../../ad-fs/deployment/../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_10)
+4.  [Étape 4 : Configurer l’ordinateur client (Client1)](../../ad-fs/deployment/../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_10)
 
-## <a name="BKMK_1"></a>Étape1: Configurer le contrôleur de domaine (DC1)
-Dans le cadre de cet environnement de test, vous pouvez appeler votre domaine ActiveDirectory de racine **contoso.com** et spécifiez **pass@word1**comme mot de passe administrateur.
+## <a name="BKMK_1"></a>Étape 1 : configurer le contrôleur de domaine (DC1)
+Dans le cadre de cet environnement de test, vous pouvez appeler votre domaine racine Active Directory **contoso.com** et spécifiez **pass@word1** en tant que le mot de passe administrateur.
 
--   Installer le service de rôle ADDS et les Services de domaine ActiveDirectory (ADDS) pour que votre ordinateur un contrôleur de domaine dans Windows Server2012R2. Cette action met à niveau votre schéma ADDS dans le cadre de la création du contrôleur de domaine. Pour plus d’informations et des instructions détaillées, voir[Library/hh472162.aspx https://technet.microsoft.com/](https://technet.microsoft.com/library/hh472162.aspx).
+-   Installer le service de rôle AD DS et installer les Services de domaine Active Directory (AD DS) pour que votre ordinateur un contrôleur de domaine dans Windows Server 2012 R2. Cette action met à niveau votre schéma AD DS dans le cadre de la création du contrôleur de domaine. Pour plus d’informations et pour obtenir des instructions détaillées, consultez[https://technet.microsoft.com/library/hh472162.aspx](https://technet.microsoft.com/library/hh472162.aspx).
 
-### <a name="BKMK_2"></a>Créer des comptes de test ActiveDirectory
-Une fois que votre contrôleur de domaine est opérationnel, vous pouvez créer des comptes d’utilisateur de test et le groupe de test dans ce domaine et ajouter le compte d’utilisateur pour le compte de groupe. Vous utilisez ces comptes pour effectuer les procédures des guides de procédure pas à pas qui sont référencés plus haut dans cette rubrique.
+### <a name="BKMK_2"></a>Créer des comptes Active Directory de test
+Une fois que votre contrôleur de domaine est opérationnel, vous pouvez créer un groupe de test, tester des comptes d'utilisateur dans ce domaine et ajouter le compte d'utilisateur au compte de groupe. Vous utilisez ces comptes pour effectuer les procédures des guides pas à pas mentionnés plus haut dans cette rubrique.
 
-Créez les comptes suivants:
+Créez les comptes ci-après :
 
--   Utilisateur: **Robert Hatley** avec les informations d’identification suivantes: nom d’utilisateur: **RobertH** et mot de passe:**P@ssword**
+-   Utilisateur : **Robert Hatley** avec les informations d'identification suivantes : Nom d'utilisateur : **RobertH** et mot de passe : **P@ssword**
 
--   Groupe: **Finance**
+-   Groupe : **Finance**
 
-Pour plus d’informations sur la création des comptes d’utilisateur et groupe dans ActiveDirectory (AD), consultez [https://technet.microsoft.com/library/cc783323%28v.aspx ](https://technet.microsoft.com/library/cc783323%28v=ws.10%29.aspx).
+Pour plus d’informations sur la création des comptes d’utilisateur et groupe dans Active Directory (AD), consultez [ https://technet.microsoft.com/library/cc783323%28v.aspx ](https://technet.microsoft.com/library/cc783323%28v=ws.10%29.aspx).
 
-Ajouter le **Robert Hatley** compte pour le **Finance** groupe. Pour plus d’informations sur l’ajout d’un utilisateur à un groupe dans ActiveDirectory, voir [https://technet.microsoft.com/library/cc737130%28v=ws.10%29.aspx ](https://technet.microsoft.com/library/cc737130%28v=ws.10%29.aspx).
+Ajoutez le compte **Robert Hatley** au groupe **Finance** . Pour plus d’informations sur l’ajout d’un utilisateur à un groupe dans Active Directory, consultez [ https://technet.microsoft.com/library/cc737130%28v=ws.10%29.aspx ](https://technet.microsoft.com/library/cc737130%28v=ws.10%29.aspx).
 
-### <a name="create-a-gmsa-account"></a>Créer un compte de service administré de groupe
-Le groupe compte de Service gérés (GMSA) est requis lors de l’installation d’ActiveDirectory Federation Services (ADFS) et la configuration.
+### <a name="create-a-gmsa-account"></a>Créer un compte de service géré de groupe
+Le groupe compte de Service gérés (GMSA) est nécessaire pendant l’installation de Active Directory Federation Services (ADFS) et de la configuration.
 
-##### <a name="to-create-a-gmsa-account"></a>Pour créer un compte de service administré de groupe
+##### <a name="to-create-a-gmsa-account"></a>Pour créer un compte de service géré de groupe
 
-1.  Ouvrez une fenêtre de commande Windows PowerShell et tapez:
+1.  Ouvrez une fenêtre de commande Windows PowerShell et tapez les commandes suivantes :
 
     ```
     Add-KdsRootKey -EffectiveTime (Get-Date).AddHours(-10)
@@ -74,94 +75,94 @@ Le groupe compte de Service gérés (GMSA) est requis lors de l’installation d
 
     ```
 
-## <a name="BKMK_4"></a>Étape2: Configurer le serveur de fédération (ADFS1) à l’aide de Device Registration Service
-Pour configurer un autre ordinateur virtuel, installez Windows Server2012R2 et connectez-le au domaine **contoso.com**. Configurer l’ordinateur après l’avoir joint au domaine, puis passez à l’installer et configurer le rôle ADFS.
+## <a name="BKMK_4"></a>Étape 2 : configurer le serveur de fédération (ADFS1) avec Device Registration Service
+Pour configurer une autre machine virtuelle, installez Windows Server 2012 R2 et connectez-le au domaine **contoso.com**. Configurer l’ordinateur après avoir joint au domaine et passez à installer et configurer le rôle AD FS.
 
-Pour visionner une vidéo, voir [ActiveDirectory Federation Services série de vidéos procédurales: l’installation d’une batterie de serveurs ADFS ](https://technet.microsoft.com/video/dn469436).
+Pour visionner une vidéo, consultez [Active Directory Federation Services série de vidéos pratiques : L’installation d’une batterie de serveurs ADFS](https://technet.microsoft.com/video/dn469436).
 
 ### <a name="install-a-server-ssl-certificate"></a>Installer un certificat SSL de serveur
-Vous devez installer un certificat Secure Socket Layer (SSL) du serveur sur le serveur ADFS1 dans le magasin de l’ordinateur local. Le certificat doit avoir les attributs suivants:
+Vous devez installer un certificat SSL (Secure Socket Layer) de serveur sur le serveur ADFS1 dans le magasin de l'ordinateur local. Le certificat DOIT posséder les attributs suivants :
 
--   Nom du sujet (CN): adfs1.contoso.com
+-   Nom du sujet (nom commun) : adfs1.contoso.com
 
--   Autre nom d’objet (DNS): adfs1.contoso.com
+-   Autre nom de l'objet (DNS) : adfs1.contoso.com
 
--   Autre nom d’objet (DNS): enterpriseregistration.contoso.com
+-   Autre nom de l'objet (DNS) : enterpriseregistration.contoso.com
 
-Pour plus d’informations sur la configuration des certificats SSL, consultez [configurer SSL/TLS sur un site Web dans le domaine avec une autorité de certification d’entreprise ](https://social.technet.microsoft.com/wiki/contents/articles/12485.configure-ssltls-on-a-web-site-in-the-domain-with-an-enterprise-ca.aspx).
+Pour plus d’informations sur la configuration des certificats SSL, voir [Configurer SSL/TLS sur un site web dans le domaine avec une autorité de certification d’entreprise](https://social.technet.microsoft.com/wiki/contents/articles/12485.configure-ssltls-on-a-web-site-in-the-domain-with-an-enterprise-ca.aspx).
 
-[ActiveDirectory Federation Services série de vidéos procédurales: Mise à jour des certificats ](https://technet.microsoft.com/video/adfs-updating-certificates).
+[Active Directory Federation Services série de vidéos pratiques : La mise à jour des certificats](https://technet.microsoft.com/video/adfs-updating-certificates).
 
-### <a name="install-the-ad-fs-server-role"></a>Installer le rôle de serveur ADFS
+### <a name="install-the-ad-fs-server-role"></a>Installer le rôle serveur AD FS
 
-##### <a name="to-install-the-federation-service-role-service"></a>Pour installer le service de rôle Service de fédération
+##### <a name="to-install-the-federation-service-role-service"></a>Pour installer le service de rôle de service de fédération
 
-1.  Ouvrez une session sur le serveur en utilisant le compte d’administrateur de domaine administrator@contoso.com.
+1.  Connectez-vous au serveur en utilisant le compte d’administrateur de domaine administrator@contoso.com.
 
-2.  Démarrez le Gestionnaire de serveur. Pour démarrer le Gestionnaire de serveur, cliquez sur **le Gestionnaire de serveur** sur les fenêtres **Démarrer** de l’écran, ou cliquez sur **le Gestionnaire de serveur** sur la barre des tâches Windows sur le bureau Windows. Sur le **Quick Start** onglet de la **Bienvenue** vignette sur le **tableau de bord**, cliquez sur **ajouter des rôles et fonctionnalités **. Vous pouvez également cliquer sur **Ajout de rôles et fonctionnalités** sur le **gérer** menu.
+2.  Démarrez le Gestionnaire de serveur. Pour démarrer le Gestionnaire de serveur, cliquez sur **Gestionnaire de serveur** dans l'écran d' **accueil** Windows, ou cliquez sur **Gestionnaire de serveur** dans la barre des tâches Windows sur le Bureau Windows. Sous l'onglet **Démarrage rapide** de la vignette **Bienvenue** sur la page **Tableau de bord** , cliquez sur **Ajouter des rôles et des fonctionnalités**. Vous pouvez également cliquer sur **Ajouter des rôles et fonctionnalités** dans le menu **Gérer** .
 
-3.  Sur le **avant de commencer** , cliquez sur **suivant**.
+3.  Dans la page **Avant de commencer** , cliquez sur **Suivant**.
 
-4.  Sur le **sélectionner le type d’installation**, cliquez sur **installation basée sur un rôle ou une fonctionnalité**, puis cliquez sur **suivant**.
+4.  Dans la page **Sélectionner le type d’installation**, cliquez sur **Installation basée sur un rôle ou une fonctionnalité**, puis sur **Suivant**.
 
-5.  Sur le **serveur de destination sélectionnez**, cliquez sur **sélectionner un serveur du pool de serveurs**, vérifiez que l’ordinateur cible est sélectionné, puis cliquez sur **suivant**.
+5.  Dans la page **Sélectionner le serveur de destination** , cliquez sur **Sélectionner un serveur du pool de serveurs**, vérifiez que l'ordinateur cible est sélectionné, puis cliquez sur **Suivant**.
 
-6.  Sur le **sélectionner des rôles de serveur**, cliquez sur **ActiveDirectory Federation Services**, puis cliquez sur **suivant**.
+6.  Dans la page **Sélectionner des rôles de serveurs** , cliquez sur **Services AD FS (Active Directory Federation Services)**, puis cliquez sur **Suivant**.
 
-7.  Sur le **sélectionner des fonctionnalités** , cliquez sur **suivant**.
+7.  Dans la page **Sélectionner les fonctionnalités** , cliquez sur **Suivant**.
 
-8.  Sur le **Service de fédération ActiveDirectory (ADFS)**, cliquez sur **suivant **.
+8.  Dans la page **Services AD FS (Active Directory Federation Services)** , cliquez sur **Suivant**.
 
-9. Après avoir vérifié les informations sur la **confirmer les sélections d’installation** page, sélectionnez le **redémarrer automatiquement le serveur de destination si nécessaire** case à cocher, puis cliquez sur **installer**.
+9. Après avoir vérifié les informations de la page **Confirmer les sélections d'installation** , cochez la case **Redémarrer automatiquement le serveur de destination, si nécessaire** , puis cliquez sur **Installer**.
 
-10. Sur le **progression de l’Installation** page, vérifiez que tous les éléments installés correctement, puis cliquez sur **fermer**.
+10. Dans la page **Progression de l'installation** , vérifiez que tout a été correctement installé, puis cliquez sur **Fermer**.
 
 ### <a name="configure-the-federation-server"></a>Configurer le serveur de fédération
-L’étape suivante consiste à configurer le serveur de fédération.
+L'étape suivante consiste à configurer le serveur de fédération.
 
 ##### <a name="to-configure-the-federation-server"></a>Pour configurer le serveur de fédération
 
-1.  Dans le Gestionnaire de serveur **tableau de bord**, cliquez sur le **Notifications** indicateur, puis cliquez sur **configurer le service de fédération sur le serveur**.
+1.  Dans la page **Tableau de bord** du Gestionnaire de serveur, cliquez sur le drapeau **Notifications** , puis sur **Configurer le service FS (Federation Service) sur le serveur**.
 
-    Le **Assistant Configuration de Service de fédération ActiveDirectory** s’ouvre.
+    L'**Assistant Configuration des services AD FS (Active Directory Federation Services)** s'ouvre.
 
-2.  Sur le **Bienvenue** page, sélectionnez **créer le premier serveur de fédération dans une batterie de serveurs de fédération**, puis cliquez sur **suivant**.
+2.  Dans la page **Bienvenue**, sélectionnez **Créer le premier serveur de fédération dans une batterie de serveurs de fédération**, puis cliquez sur **Suivant**.
 
-3.  Sur le **se connecter aux services ADDS**, spécifiez un compte doté de droits d’administrateur de domaine pour le **contoso.com** domaine ActiveDirectory que cet ordinateur est joint, puis cliquez sur **suivant **.
+3.  Dans la page **Connexion à AD DS** , spécifiez un compte doté de droits d’administrateur de domaine pour le domaine Active Directory **contoso.com** auquel cet ordinateur est joint, puis cliquez sur **Suivant**.
 
-4.  Sur le **spécifier les propriétés de Service** page, procédez comme suit, puis cliquez sur **suivant**:
+4.  Dans la page **Spécifier les propriétés de service**, effectuez la procédure suivante, puis cliquez sur **Suivant** :
 
-    -   Importez le certificat SSL que vous avez obtenu précédemment. Ce certificat est le certificat d’authentification de service requis. Accédez à l’emplacement de votre certificat SSL.
+    -   Importez le certificat SSL que vous avez obtenu précédemment. Ce certificat est le certificat d'authentification de service requis. Accédez à l'emplacement de votre certificat SSL.
 
-    -   Pour fournir un nom pour votre service de fédération, tapez **adfs1.contoso.com**. Cette valeur est la même valeur que vous avez fournies lorsque vous inscrit un certificat SSL dans les Services de certificats ActiveDirectory (ADCS).
+    -   Pour attribuer un nom à votre service de fédération, tapez **adfs1.contoso.com**. Cette valeur est celle que vous avez fournie quand vous avez inscrit un certificat SSL dans les services de certificats Active Directory (AD CS).
 
-    -   Pour attribuer un nom d’affichage pour votre service de fédération, tapez **Contoso Corporation **.
+    -   Pour attribuer un nom complet à votre service de fédération, tapez **Contoso Corporation**.
 
-5.  Sur le **spécifier un compte de Service** page, sélectionnez **utiliser un compte d’utilisateur de domaine ou compte de Service administré de groupe**, puis spécifiez le compte de service administré de groupe **fsgmsa** que vous avez créé le contrôleur de domaine.
+5.  Dans la page **Spécifier un compte de service** , sélectionnez **Utiliser un compte d’utilisateur de domaine ou de service administré de type groupe existant**, puis spécifiez le compte GMSA **fsgmsa** que vous avez créé en même temps que le contrôleur de domaine.
 
-6.  Sur le **spécifier la base de données de Configuration** page, sélectionnez **créer une base de données sur ce serveur à l’aide de la base de données interne Windows**, puis cliquez sur **suivant **.
+6.  Dans la page **Spécifier une base de données de configuration** , sélectionnez **Créer une base de données sur ce serveur à l'aide de la base de données interne Windows**, puis cliquez sur **Suivant**.
 
-7.  Sur le **examiner les Options** page, vérifiez vos sélections de configuration, puis cliquez sur **suivant**.
+7.  Dans la page **Examiner les options**, vérifiez les choix que vous avez effectués pour la configuration, puis cliquez sur **Suivant**.
 
-8.  Sur le **vérifications des conditions préalables**, vérifiez que toutes les vérifications de la configuration requise ont été correctement effectuées, puis cliquez sur **configurer **.
+8.  Dans la page **Vérifications des conditions préalables**, assurez-vous que toutes les vérifications des conditions préalables ont été correctement effectuées, puis cliquez sur **Configurer**.
 
-9. Sur le **résultats** page, passez en revue les résultats, vérifiez si la configuration a réussi, puis cliquez sur **étapes ultérieures requises pour terminer le déploiement de votre service de fédération **.
+9. Dans la page **Résultats** , passez en revue les résultats, vérifiez si la configuration s'est déroulée correctement, puis cliquez sur **Étapes ultérieures requises pour le déploiement de votre service FS (Federation Service)**.
 
 ### <a name="configure-device-registration-service"></a>Configurer Device Registration Service
-L’étape suivante consiste à configurer Device Registration Service sur le serveur ADFS1. Pour visionner une vidéo, voir [ActiveDirectory Federation Services série de vidéos procédurales: l’activation de Device Registration Service ](https://technet.microsoft.com/video/adfs-how-to-enabling-the-device-registration-service).
+L'étape suivante consiste à configurer Device Registration Service sur le serveur ADFS1. Pour visionner une vidéo, consultez [Active Directory Federation Services série de vidéos pratiques : Activer le Service d’inscription d’appareil](https://technet.microsoft.com/video/adfs-how-to-enabling-the-device-registration-service).
 
-##### <a name="to-configure-device-registration-service-for-windows-server-2012-rtm"></a>Pour configurer Device Registration Service pour Windows Server2012 RTM
+##### <a name="to-configure-device-registration-service-for-windows-server-2012-rtm"></a>Pour configurer Device Registration Service pour Windows Server 2012 RTM
 
 1.  > [!IMPORTANT]
-    > **L’étape suivante s’applique à la version de Windows Server2012R2 RTM.**
+    > **L’étape suivante s’applique à la version RTM de Windows Server 2012 R2.**
 
-    Ouvrez une fenêtre de commande Windows PowerShell et tapez:
+    Ouvrez une fenêtre de commande Windows PowerShell et tapez les commandes suivantes :
 
     ```
     Initialize-ADDeviceRegistration
     ```
 
-    Lorsque vous êtes invité pour un compte de service, tapez **contoso\fsgmsa$**.
+    Quand vous êtes invité à indiquer un compte de service, tapez **contoso\fsgmsa$**.
 
     Exécutez maintenant l’applet de commande Windows PowerShell.
 
@@ -169,103 +170,103 @@ L’étape suivante consiste à configurer Device Registration Service sur le se
     Enable-AdfsDeviceRegistration
     ```
 
-2.  Sur le serveur ADFS1, dans le **gestion ADFS** de la console, accédez à **stratégies d’authentification **. Sélectionnez **modifier l’authentification principale globale **. Activez la case à cocher **activer l’authentification des appareils**, puis cliquez sur **OK **.
+2.  Sur le serveur ADFS1, dans la console **Gestion AD FS** , accédez à **Stratégies d'authentification**. Sélectionnez **Modifier l'authentification principale globale**. Cochez la case **Activer l'authentification des appareils**, puis cliquez sur **OK**.
 
-### <a name="add-host-a-and-alias-cname-resource-records-to-dns"></a>Ajouter l’hôte (A) et les enregistrements de ressource Alias (CNAME) dans DNS
-Sur DC1, vous devez vous assurer que les enregistrements de nom de domaine (DNS) suivants sont créés pour Device Registration Service.
+### <a name="add-host-a-and-alias-cname-resource-records-to-dns"></a>Ajouter les enregistrements de ressource d'hôte (A) et d'alias (CNAME) à DNS
+Sur le contrôleur de domaine DC1, vous devez vous assurer que les enregistrements DNS (Domain Name System) suivants sont créés pour Device Registration Service.
 
-|Entrée|Type|Adresse|
+|Entrée|Type|Address|
 |---------|--------|-----------|
-|adfs1|Hôte (A)|Adresse IP du serveur ADFS|
+|adfs1|Hôte (A)|Adresse IP du serveur AD FS|
 |enterpriseregistration|Alias (CNAME)|adfs1.contoso.com|
 
-Vous pouvez utiliser la procédure suivante pour ajouter un enregistrement de ressource hôte (A) pour les serveurs de noms DNS d’entreprise pour le serveur de fédération et Device Registration Service.
+Vous pouvez utiliser la procédure suivante pour ajouter un enregistrement de ressource d'hôte (A) aux serveurs de noms DNS d'entreprise pour le serveur de fédération et Device Registration Service.
 
-L’appartenance au groupe Administrateurs ou un équivalent est le minimum requis pour effectuer cette procédure. Examinez les informations relatives à l’aide des comptes appropriés et les appartenances de groupe dans le lien hypertexte "https://go.microsoft.com/fwlink/?LinkId=83477" Local et les groupes de domaine par défaut (https://go.microsoft.com/fwlink/p/?LinkId=83477).
+Vous devez au minimum être membre du groupe des administrateurs ou d'un groupe équivalent pour effectuer cette procédure. Examinez les informations relatives à l’aide de comptes appropriés et d’appartenances dans le lien hypertexte « https://go.microsoft.com/fwlink/?LinkId=83477« Local et des groupes de domaine par défaut (https://go.microsoft.com/fwlink/p/?LinkId=83477).
 
-##### <a name="to-add-a-host-a-and-alias-cname-resource-records-to-dns-for-your-federation-server"></a>Pour ajouter un ordinateur hôte (A) et les enregistrements de ressource alias (CNAME) dans DNS pour votre serveur de fédération
+##### <a name="to-add-a-host-a-and-alias-cname-resource-records-to-dns-for-your-federation-server"></a>Pour ajouter des enregistrements de ressource d'hôte (A) et d'alias (CNAME) à DNS pour votre serveur de fédération
 
-1.  Sur DC1, dans le Gestionnaire de serveur, sur le **outils** menu, cliquez sur **DNS** pour ouvrir le composant logiciel enfichable DNS.
+1.  Sur le contrôleur de domaine (DC1), à partir du Gestionnaire de serveur, dans le menu **Outils** , cliquez sur **DNS** pour ouvrir le composant logiciel enfichable DNS.
 
-2.  Dans l’arborescence de la console, développez DC1, **Zones de recherche directe**, avec le bouton droit **contoso.com**, puis cliquez sur **nouvel hôte (A ou AAAA)**.
+2.  Dans l'arborescence de la console, développez DC1, développez **Zones de recherche directes**, cliquez avec le bouton droit sur **contoso.com**, puis cliquez sur **Nouvel hôte (A ou AAAA)**.
 
-3.  Dans **nom,** tapez le nom que vous souhaitez utiliser pour votre batterie ADFS. Pour cette procédure pas à pas, tapez **adfs1**.
+3.  Dans **Nom**, tapez le nom à utiliser pour votre batterie AD FS. Pour cette procédure pas à pas, tapez **adfs1**.
 
-4.  Dans **adresse IP**, tapez l’adresse IP du serveur ADFS1. Cliquez sur **ajouter l’hôte**.
+4.  Dans **Adresse IP**, tapez l'adresse IP du serveur ADFS1. Cliquez sur **Ajouter un hôte**.
 
-5.  Avec le bouton droit **contoso.com**, puis cliquez sur **nouvel Alias (CNAME)**.
+5.  Cliquez avec le bouton droit sur **contoso.com**, puis cliquez sur **Nouvel alias (CNAME)**.
 
-6.  Dans le **nouvel enregistrement de ressource** boîte de dialogue, tapez **enterpriseregistration** dans les **nom d’Alias** zone.
+6.  Dans la boîte de dialogue **Nouvel enregistrement de ressource**, tapez **enterpriseregistration** dans la zone **Nom de l'alias**.
 
-7.  Dans le domaine nom complet (FQDN) de la zone d’ordinateur hôte cible, tapez **adfs1.contoso.com**, puis cliquez sur **OK **.
+7.  Dans la zone Nom de domaine pleinement qualifié (FQDN) pour l'hôte de destination, tapez **adfs1.contoso.com**, puis cliquez sur **OK**.
 
     > [!IMPORTANT]
-    > Dans un déploiement réel, si votre société possède plusieurs suffixes de nom principal (UPN) d’utilisateur, vous devez créer plusieurs un enregistrement CNAME pour chaque suffixe UPN dans DNS.
+    > Dans un déploiement réel, si votre entreprise possède plusieurs suffixes de nom d'utilisateur principal (UPN), vous devez créer un enregistrement CNAME par suffixe UPN dans DNS.
 
-## <a name="BKMK_5"></a>Étape3: Configurer le serveur web (WebServ1) et un exemple d’application basée sur les revendications
-Configurer un ordinateur virtuel (WebServ1) en installant le système d’exploitation Windows Server2012R2 et connectez-le au domaine **contoso.com**. Après que l’avoir joint au domaine, vous pouvez passer à installer et configurer le rôle de serveur Web.
+## <a name="BKMK_5"></a>Étape 3 : configurer le serveur web (WebServ1) et un exemple d'application basée sur les revendications
+Configurer un ordinateur virtuel (WebServ1) en installant le système d’exploitation Windows Server 2012 R2 et connectez-le au domaine **contoso.com**. Après l'avoir joint au domaine, vous pouvez passer à l'installation et à la configuration du rôle de serveur web.
 
-Pour effectuer les procédures qui ont été mentionnés plus haut dans cette rubrique, vous devez disposer d’un exemple d’application qui est sécurisé par votre serveur de fédération (ADFS1).
+Pour effectuer les procédures pas à pas mentionnées plus haut dans cette rubrique, vous devez posséder un exemple d'application sécurisé par votre serveur de fédération (ADFS1).
 
-Vous pouvez télécharger le Kit de développement logiciel WindowsIdentityFoundation ([https://www.microsoft.com/download/details.aspx?id=4451](https://www.microsoft.com/download/details.aspx?id=4451), qui inclut un exemple d’application basée sur les revendications.
+Vous pouvez télécharger le Kit de développement logiciel Windows Identity Foundation ([https://www.microsoft.com/download/details.aspx?id=4451](https://www.microsoft.com/download/details.aspx?id=4451), qui inclut un exemple d’application basée sur les revendications.
 
-Vous devez effectuer les étapes suivantes pour configurer un serveur web avec cet exemple d’application basée sur les revendications.
+Vous devez effectuer les étapes suivantes pour configurer un serveur web avec cet exemple d'application basée sur des revendications.
 
 > [!NOTE]
-> Ces étapes ont été testées sur un serveur web qui exécute le système d’exploitation Windows Server2012R2.
+> Ces étapes ont été testées sur un serveur web qui exécute le système d’exploitation Windows Server 2012 R2.
 
-1.  [Installer le rôle de serveur Web et WindowsIdentityFoundation](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_15)
+1.  [Installer le rôle de serveur Web et Windows Identity Foundation](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_15)
 
-2.  [Installer le Kit de développement de WindowsIdentityFoundation](../../ad-fs/deployment/../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_13)
+2.  [Installer Windows Identity Foundation SDK](../../ad-fs/deployment/../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_13)
 
-3.  [Configurer l’application de revendications dans IIS](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_9)
+3.  [Configurer l'exemple d'application simple basée sur des revendications dans IIS](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_9)
 
 4.  [Créer une approbation de partie de confiance sur votre serveur de fédération](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_11)
 
-### <a name="BKMK_15"></a>Installer le rôle de serveur Web et WindowsIdentityFoundation
+### <a name="BKMK_15"></a>Installer le rôle de serveur Web et Windows Identity Foundation
 
 1.  > [!NOTE]
-    > Vous devez avoir accès au support d’installation Windows Server2012R2.
+    > Vous devez avoir accès au support d’installation de Windows Server 2012 R2.
 
-    Connectez-vous à WebServ1 en utilisant **administrator@contoso.com**et le mot de passe **pass@word1**.
+    Connectez-vous à WebServ1 en utilisant **administrator@contoso.com** et le mot de passe **pass@word1**.
 
-2.  Gestionnaire de serveur, sur le **Quick Start** onglet de la **Bienvenue** vignette sur le **tableau de bord**, cliquez sur **ajouter des rôles et fonctionnalités **. Vous pouvez également cliquer sur **Ajout de rôles et fonctionnalités** sur le **gérer** menu.
+2.  Depuis le Gestionnaire de serveur, sous l'onglet **Démarrage rapide** de la vignette **Bienvenue** sur la page **Tableau de bord**, cliquez sur **Ajouter des rôles et des fonctionnalités**. Vous pouvez également cliquer sur **Ajouter des rôles et fonctionnalités** dans le menu **Gérer** .
 
-3.  Sur le **avant de commencer** , cliquez sur **suivant**.
+3.  Dans la page **Avant de commencer** , cliquez sur **Suivant**.
 
-4.  Sur le **sélectionner le type d’installation**, cliquez sur **installation basée sur un rôle ou une fonctionnalité**, puis cliquez sur **suivant**.
+4.  Dans la page **Sélectionner le type d’installation**, cliquez sur **Installation basée sur un rôle ou une fonctionnalité**, puis sur **Suivant**.
 
-5.  Sur le **serveur de destination sélectionnez**, cliquez sur **sélectionner un serveur du pool de serveurs**, vérifiez que l’ordinateur cible est sélectionné, puis cliquez sur **suivant**.
+5.  Dans la page **Sélectionner le serveur de destination** , cliquez sur **Sélectionner un serveur du pool de serveurs**, vérifiez que l'ordinateur cible est sélectionné, puis cliquez sur **Suivant**.
 
-6.  Sur le **sélectionner des rôles de serveur**, sélectionnez la case à cocher à côté **serveur Web (IIS)**, cliquez sur **ajouter des fonctionnalités**, puis cliquez sur **suivant **.
+6.  Dans la page **Sélectionner des rôles de serveurs**, cochez la case **Serveur Web (IIS)**, cliquez sur **Ajouter des fonctionnalités**, puis cliquez sur **Suivant**.
 
-7.  Sur le **sélectionner des fonctionnalités**, sélectionnez **WindowsIdentityFoundation3.5**, puis cliquez sur **suivant **.
+7.  Dans la page **Sélectionner des fonctionnalités** , sélectionnez **Windows Identity Foundation 3.5**, puis cliquez sur **Suivant**.
 
-8.  Sur le **rôle de serveur Web (IIS)**, cliquez sur **suivant**.
+8.  Dans la page **Rôle de serveur web (IIS)** , cliquez sur **Suivant**.
 
-9. Sur le **sélectionner les services de rôle** page, sélectionnez et développez **développement d’applications **. Sélectionnez **ASP.NET 3.5**, cliquez sur **ajouter des fonctionnalités**, puis cliquez sur **suivant **.
+9. Dans la page **Sélectionner les services de rôle**, sélectionnez et développez **Développement d'applications**. Sélectionnez **ASP.NET 3.5**, cliquez sur **Ajouter des fonctionnalités**, puis cliquez sur **Suivant**.
 
-10. Sur le **confirmer les sélections d’installation**, cliquez sur **spécifier un chemin d’accès source secondaire **. Entrez le chemin d’accès du répertoire Sxs sur lequel se trouve dans le support d’installation de Windows Server2012R2. Par exemple D:\Sources\Sxs. Cliquez sur **OK**, puis cliquez sur **installer **.
+10. Dans la page **Confirmer les sélections d'installation**, cliquez sur **Spécifier un autre chemin d'accès source**. Entrez le chemin d’accès au répertoire Sxs qui se trouve dans le support d’installation de Windows Server 2012 R2. Par exemple, D:\Sources\Sxs. Cliquez sur **OK**, puis sur **Installer**.
 
-### <a name="BKMK_13"></a>Installer le Kit de développement de WindowsIdentityFoundation
+### <a name="BKMK_13"></a>Installer Windows Identity Foundation SDK
 
-1.  Exécutez WindowsIdentityFoundation-SDK-3.5.msi pour installer WindowsIdentityFoundation3.5 de kit de développement logiciel (https://www.microsoft.com/download/details.aspx?id=4451). Choisissez toutes les options par défaut.
+1.  Exécutez WindowsIdentityFoundation-SDK-3.5.msi pour installer le Kit de développement logiciel Windows Identity Foundation 3.5 (https://www.microsoft.com/download/details.aspx?id=4451). Choisissez toutes les options par défaut.
 
 ### <a name="BKMK_9"></a>Configurer l’application de revendications dans IIS
 
-1.  Installer un certificat SSL valide dans le magasin de certificats ordinateur. Le certificat doit contenir le nom de votre serveur web, **webserv1.contoso.com **.
+1.  Installez un certificat SSL valide dans le magasin de certificats de l'ordinateur. Le certificat doit contenir le nom de votre serveur web, **webserv1.contoso.com**.
 
-2.  Copiez le contenu de C:\Program Files (x86) \WindowsIdentityFoundationSDK\v3.5\Samples\Quick Start\Web Application\PassiveRedirectBasedClaimsAwareWebApp à C:\Inetpub\Claimapp.
+2.  Copiez le contenu de C:\Program Files (x86)\Windows Identity Foundation SDK\v3.5\Samples\Quick Start\Web Application\PassiveRedirectBasedClaimsAwareWebApp vers C:\Inetpub\Claimapp.
 
-3.  Modifier le **Default.aspx.cs** de fichiers afin que le filtrage de revendications a lieu. Cette étape est effectuée pour s’assurer que l’application d’exemple affiche toutes les revendications qui sont émises par le serveur de fédération. Procédez comme suit:
+3.  Modifiez le fichier **Default.aspx.cs** de manière à éviter tout filtrage de revendications. Ainsi, l'exemple d'application affiche toutes les revendications émises par le serveur de fédération. Procédez comme suit :
 
     1.  Ouvrez **Default.aspx.cs** dans un éditeur de texte.
 
-    2.  Recherchez dans le fichier pour la deuxième instance de `ExpectedClaims`.
+    2.  Dans le fichier, recherchez la seconde occurrence d’`ExpectedClaims`.
 
-    3.  Commentez la totalité `IF`instruction ainsi que ses accolades. Indiquez les commentaires en tapant «/ /» (sans les guillemets) au début d’une ligne.
+    3.  Commentez la totalité de l’instruction `IF` ainsi que ses accolades. Indiquez les commentaires en tapant « / / » (sans les guillemets) au début d’une ligne.
 
-    4.  Votre `FOREACH`instruction doit maintenant ressembler à cet exemple de code.
+    4.  L’instruction `FOREACH` doit maintenant ressembler à l’exemple de code suivant.
 
         ```
         Foreach (claim claim in claimsIdentity.Claims)
@@ -280,67 +281,67 @@ Vous devez effectuer les étapes suivantes pour configurer un serveur web avec c
 
         ```
 
-    5.  Enregistrez et fermez **Default.aspx.cs **.
+    5.  Enregistrez et fermez le fichier **Default.aspx.cs**.
 
     6.  Ouvrez **web.config** dans un éditeur de texte.
 
-    7.  Supprimez la totalité de `<microsoft.identityModel>`section. Supprimer tout le code depuis `including <microsoft.identityModel>`et des `</microsoft.identityModel>`.
+    7.  Supprimez la totalité de la section `<microsoft.identityModel>` . Supprimez tout le code depuis `including <microsoft.identityModel>` jusqu’à `</microsoft.identityModel>`(compris).
 
-    8.  Enregistrez et fermez **web.config **.
+    8.  Enregistrez et fermez **web.config**.
 
 4.  **Configurer le Gestionnaire des services Internet**
 
-    1.  Ouvrez **Internet Information Services (IIS) Manager **.
+    1.  Ouvrez **Gestionnaire des services Internet (IIS)**.
 
-    2.  Accédez à **Pools d’applications**, avec le bouton droit **DefaultAppPool** pour sélectionner **paramètres avancés **. Définissez **charger le profil utilisateur** à **True**, puis cliquez sur **OK **.
+    2.  Accédez à **Pools d'applications**, cliquez avec le bouton droit sur **DefaultAppPool**, puis sélectionnez **Paramètres avancés**. Définissez **Charger le profil utilisateur** sur **True**, puis cliquez sur **OK**.
 
-    3.  Avec le bouton droit **DefaultAppPool** pour sélectionner **les paramètres de base **. Modifier le **Version CLR .NET** à **CLR .NET v2.0.50727 Version **.
+    3.  Cliquez avec le bouton droit sur **DefaultAppPool**, puis sélectionnez **Paramètres de base**. Définissez **Version CLR .NET** sur **Version CLR .NET v2.0.50727**.
 
-    4.  Avec le bouton droit **site Web par défaut** pour sélectionner **modifier les liaisons **.
+    4.  Cliquez avec le bouton droit sur **Site Web par défaut** , puis sélectionnez **Modifier les liaisons**.
 
-    5.  Ajouter un **HTTPS** au port de liaison **443** avec le certificat SSL que vous avez installés.
+    5.  Ajoutez une liaison **HTTPS** au port **443** avec le certificat SSL que vous avez installé.
 
-    6.  Avec le bouton droit **site Web par défaut** pour sélectionner **ajouter une Application **.
+    6.  Cliquez avec le bouton droit sur **Site Web par défaut**, puis sélectionnez **Ajouter une application**.
 
-    7.  Affectez à l’alias **claimapp** et le chemin d’accès physique **c:\inetpub\claimapp **.
+    7.  Affectez la valeur **claimapp** à l’alias et la valeur **c:\inetpub\claimapp**au chemin physique.
 
-5.  Pour configurer **claimapp** pour travailler avec votre serveur de fédération, procédez comme suit:
+5.  Pour que **claimapp** fonctionne avec votre serveur de fédération, procédez comme suit :
 
-    1.  Exécutez FedUtil.exe qui se trouve dans **C:\Program Files (x86) \WindowsIdentityFoundationSDK\v3.5**.
+    1.  Exécutez FedUtil.exe qui se trouve à l’emplacement suivant : **C:\Program Files (x86)\Windows Identity Foundation SDK\v3.5**.
 
-    2.  Définissez l’emplacement de configuration d’application sur **C:\inetput\claimapp\web.config** et définissez l’URI d’application sur l’URL de votre site, **https://webserv1.contoso.com /claimapp/**. Cliquez sur **suivant**.
+    2.  Définissez l’emplacement de configuration d’application sur **C:\inetput\claimapp\web.config** et définissez l’URI d’application sur l’URL de votre site,  **https://webserv1.contoso.com /claimapp/**. Cliquez sur **Suivant**.
 
-    3.  Sélectionnez **utiliser un STS existant** et accédez à l’URL des métadonnées de votre serveur ADFS **https://adfs1.contoso.com/federationmetadata/2007-06/federationmetadata.xml **. Cliquez sur **suivant**.
+    3.  Sélectionnez **utiliser un STS existant** et accédez à l’URL des métadonnées de votre serveur AD FS **https://adfs1.contoso.com/federationmetadata/2007-06/federationmetadata.xml**. Cliquez sur **Suivant**.
 
-    4.  Sélectionnez **désactiver la validation de chaîne de certificat**, puis cliquez sur **suivant **.
+    4.  Sélectionnez **Désactiver la validation de la chaîne de certificats**, puis cliquez sur **Suivant**.
 
-    5.  Sélectionnez **aucun chiffrement**, puis cliquez sur **suivant **. Sur le **revendications proposées**, cliquez sur **suivant **.
+    5.  Sélectionnez **Aucun chiffrement**, puis cliquez sur **Suivant**. Dans la page **Revendications proposées** , cliquez sur **Suivant**.
 
-    6.  Activez la case à cocher **planifier une tâche à effectuer des mises à jour des métadonnées de WS-Federation quotidiennes **. Cliquez sur **Terminer**.
+    6.  Cochez la case **Planifier une tâche pour effectuer des mises à jour quotidiennes des métadonnées WS-Federation**. Cliquez sur **Terminer**.
 
-    7.  Votre exemple d’application est maintenant configuré. Si vous testez l’URL de l’application **https://webserv1.contoso.com/claimapp**, il doit vous rediriger vers votre serveur de fédération. Le serveur de fédération doit afficher une page d’erreur, car vous n’avez pas encore configuré l’approbation. En d’autres termes, vous n’avez pas sécurisé cette application test avec ADFS.
+    7.  Votre exemple d'application est maintenant configuré. Si vous testez l’URL de l’application **https://webserv1.contoso.com/claimapp**, il doit vous rediriger vers votre serveur de fédération. Le serveur de fédération doit afficher une page d'erreur, car vous n'avez pas encore configuré l'approbation de partie de confiance. En d’autres termes, vous n'avez pas sécurisé cette application test avec AD FS.
 
-Vous devez à présent sécuriser votre exemple d’application qui s’exécute sur votre serveur web avec ADFS. Pour cela, en ajoutant une relation de confiance sur votre serveur de fédération (ADFS1). Pour visionner une vidéo, voir [ActiveDirectory Federation Services série de vidéos procédurales: ajouter une confiance ](https://technet.microsoft.com/video/adfs-how-to-add-a-relying-party-trust).
+Vous devez à présent sécuriser votre exemple d’application qui s’exécute sur votre serveur web avec AD FS. Pour ce faire, vous pouvez ajouter une approbation de partie de confiance à votre serveur de fédération (ADFS1). Pour visionner une vidéo, consultez [Active Directory Federation Services série de vidéos pratiques : Ajouter une partie de confiance](https://technet.microsoft.com/video/adfs-how-to-add-a-relying-party-trust).
 
 ### <a name="BKMK_11"></a>Créer une approbation de partie de confiance sur votre serveur de fédération
 
-1.  Sur votre serveur de fédération (ADFS1), dans le **console Gestion ADFS**, accédez à **approbations de partie de confiance**, puis cliquez sur **ajouter une approbation de partie de confiance **.
+1.  Sur votre serveur de fédération (ADFS1), dans la **console Gestion AD FS**, accédez à **Approbations de partie de confiance**, puis cliquez sur **Ajouter une approbation de partie de confiance**.
 
-2.  Sur le **sélectionner une Source de données**, sélectionnez **importer les données sur la partie de confiance publiées en ligne ou sur un réseau local**, entrez l’URL des métadonnées de **claimapp**, puis cliquez sur **suivant **. Exécutez FedUtil.exe créé un fichier .xml de métadonnées. Il se trouve dans **https://webserv1.contoso.com/claimapp/federationmetadata/2007-06/federationmetadata.xml **.
+2.  Dans la page **Sélectionner une source de données** , sélectionnez **Importer les données, publiées en ligne ou sur un réseau local, concernant la partie de confiance**, entrez l'URL des métadonnées de **claimapp**, puis cliquez sur **Suivant**. Grâce à l'outil FedUtil.exe, vous avez créé un fichier .xml de métadonnées. Il se trouve à **https://webserv1.contoso.com/claimapp/federationmetadata/2007-06/federationmetadata.xml**.
 
-3.  Sur le **spécifier le nom complet**, spécifiez le **nom d’affichage** pour votre confiance **claimapp**, puis cliquez sur **suivant **.
+3.  Dans la page **Entrer le nom complet** , spécifiez le **nom complet** de votre approbation de partie de confiance ( **claimapp**), puis cliquez sur **Suivant**.
 
-4.  Sur le **configurer l’authentification multifacteur maintenant? **page, sélectionnez **je ne souhaite pas spécifier le paramètre de l’authentification multifacteur pour cette approbation de partie de confiance pour l’instant**, puis cliquez sur **suivant **.
+4.  Dans la page **Configurer l'authentification multifacteur maintenant ?** , sélectionnez **Ne pas configurer les paramètres d'authentification multifacteur pour cette approbation de partie de confiance**, puis cliquez sur **Suivant**.
 
-5.  Sur le **choisir les règles d’autorisation d’émission** page, sélectionnez **autoriser tous les utilisateurs à accéder à cette partie de confiance**, puis cliquez sur **suivant **.
+5.  Dans la page **Choisir les règles d'autorisation d'émission**, sélectionnez **Autoriser l'accès de tous les utilisateurs à cette partie de confiance**, puis cliquez sur **Suivant**.
 
-6.  Sur le **prêt à ajouter l’approbation**, cliquez sur **suivant **.
+6.  Dans la page **Prêt à ajouter l'approbation** , cliquez sur **Suivant**.
 
-7.  Sur le **modifier les règles de revendication** boîte de dialogue, cliquez sur **ajouter une règle **.
+7.  Dans la boîte de dialogue **Modifier les règles de revendication**, cliquez sur **Ajouter une règle**.
 
-8.  Sur le **choisir le Type de règle** page, sélectionnez **envoyer des revendications à l’aide d’une règle personnalisée**, puis cliquez sur **suivant **.
+8.  Dans la page **Choisir le type de règle**, sélectionnez **Envoyer les revendications en utilisant une règle personnalisée**, puis cliquez sur **Suivant**.
 
-9. Sur le **configurer une règle de revendication** page, dans le **nom de règle de revendication**, tapez **toutes les revendications **. Dans le **règle personnalisée**, tapez la règle de revendication suivante.
+9. Dans la page **Configurer la règle de revendication** , dans la zone **Nom de la règle de revendication** , tapez **All Claims**. Dans la zone **Règle personnalisée**, tapez la règle de revendication suivante.
 
     ```
     c:[ ]
@@ -348,23 +349,23 @@ Vous devez à présent sécuriser votre exemple d’application qui s’exécute
 
     ```
 
-10. Cliquez sur **Terminer**, puis cliquez sur **OK**.
+10. Cliquez sur **Terminer**, puis sur **OK**.
 
-## <a name="BKMK_10"></a>Étape4: Configurer l’ordinateur client (Client1)
-Configurer un autre ordinateur virtuel et installez Windows8.1. Cet ordinateur virtuel doit être sur le même réseau virtuel que les autres ordinateurs. Cet ordinateur ne doit pas être joint au domaine Contoso.
+## <a name="BKMK_10"></a>Étape 4 : configurer l'ordinateur client (Client1)
+Configurer une autre machine virtuelle et installer Windows 8.1. Cette machine virtuelle doit se trouver sur le même réseau virtuel que les autres machines. Cette machine NE DOIT PAS être jointe au domaine Contoso.
 
-Le client doit approuver le certificat SSL utilisé pour le serveur de fédération (ADFS1), que vous avez configuré dans [étape2: configurer le serveur de fédération (ADFS1) avec Device Registration Service](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_4). Il doit également être en mesure de valider les informations sur la révocation du certificat.
+Le client doit approuver le certificat SSL utilisé pour le serveur de fédération (ADFS1), que vous avez configuré dans [étape 2 : Configurer le serveur de fédération (ADFS1) avec Device Registration Service](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_4). Il doit aussi pouvoir valider les informations sur la révocation du certificat.
 
-Vous devez également configurer et utiliser un compte Microsoft pour vous connecter à Client1.
+Vous devez également configurer un compte Microsoft et l'utiliser pour vous connecter à Client1.
 
 ## <a name="see-also"></a>Voir aussi
 
 
-- [ActiveDirectory Federation Services série de vidéos procédurales: L’installation d’une batterie ADFS](https://technet.microsoft.com/video/dn469436)
-- [ActiveDirectory Federation Services série de vidéos procédurales: Mise à jour des certificats](https://technet.microsoft.com/video/adfs-updating-certificates)
-- [ActiveDirectory Federation Services série de vidéos procédurales: Ajouter une partie de confiance](https://technet.microsoft.com/video/adfs-how-to-add-a-relying-party-trust)
-- [ActiveDirectory Federation Services série de vidéos procédurales: L’activation de Device Registration Service](https://technet.microsoft.com/video/adfs-how-to-enabling-the-device-registration-service)
-- [ActiveDirectory Federation Services série de vidéos procédurales: L’installation du Proxy d’Application Web](https://technet.microsoft.com/video/dn469438)
+- [Active Directory Federation Services série de vidéos pratiques : L’installation d’une batterie de serveurs ADFS](https://technet.microsoft.com/video/dn469436)
+- [Active Directory Federation Services série de vidéos pratiques : La mise à jour des certificats](https://technet.microsoft.com/video/adfs-updating-certificates)
+- [Active Directory Federation Services série de vidéos pratiques : Ajouter une partie de confiance](https://technet.microsoft.com/video/adfs-how-to-add-a-relying-party-trust)
+- [Active Directory Federation Services série de vidéos pratiques : Activer le Service d’inscription d’appareil](https://technet.microsoft.com/video/adfs-how-to-enabling-the-device-registration-service)
+- [Active Directory Federation Services série de vidéos pratiques : Installation du Proxy d’Application Web](https://technet.microsoft.com/video/dn469438)
 
 
 

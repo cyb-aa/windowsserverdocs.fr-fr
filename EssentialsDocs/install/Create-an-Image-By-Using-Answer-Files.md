@@ -1,6 +1,6 @@
 ---
-title: "Créer une Image à l’aide de fichiers de réponses"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Création d’une image à l’aide de fichiers de réponses
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,22 +13,23 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 76d335643202c8596437daf3173891eea5d4fafa
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59828490"
 ---
-# <a name="create-an-image-by-using-answer-files"></a>Créer une Image à l’aide de fichiers de réponses
+# <a name="create-an-image-by-using-answer-files"></a>Création d’une image à l’aide de fichiers de réponses
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Lorsque vous créez une image personnalisée, vous devez tirer parti des fichiers de support qui peut servir à ajouter, modifier ou effectuer le suivi des données, les paramètres et les conditions. Les fichiers de prise en charge suivants peuvent être utilisés dans le processus d’installation:  
+Lorsque vous créez une image personnalisée, tirez parti des fichiers de prise en charge permettant d’ajouter ou de modifier les données, paramètres et conditions d’utilisation ou d’en assurer le suivi. Les fichiers de prise en charge suivants peuvent être utilisés au cours du processus d’installation :  
   
--   [Créer le fichier Oobe.xml, y compris le Logo et le CLUF](Create-the-Oobe.xml-File-Including-Logo-and-EULA.md)  
+-   [Création du fichier Oobe.xml, y compris le Logo et le CLUF](Create-the-Oobe.xml-File-Including-Logo-and-EULA.md)  
   
--   [Créer le fichier Cfg.ini](Create-the-Cfg.ini-File.md)  
+-   [Création du fichier Cfg.ini](Create-the-Cfg.ini-File.md)  
   
--   [Créer le fichier PostIC.cmd pour exécuter les tâches de Configuration initiales](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md)  
+-   [Créer le fichier PostIC.cmd pour exécuter des tâches de Configuration initiales](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md)  
   
 ## <a name="see-also"></a>Voir aussi  
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
