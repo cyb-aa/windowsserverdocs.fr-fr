@@ -6,80 +6,80 @@ ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 02/02/2018
-Keywords: Storage Spaces Direct
+Keywords: Espaces de stockage directs
 ms.localizationpriority: medium
 ms.openlocfilehash: 340999a8f440975d3736277b1a30dddbb942785d
-ms.sourcegitcommit: d31e266130b3b082372f7af4024e6089cb347d74
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "4239236"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59849980"
 ---
-# Historique des performances pour les cartes réseau
+# <a name="performance-history-for-network-adapters"></a>Historique des performances pour les cartes réseau
 
-> S’applique à: Windows Server Insider Preview
+> S'applique à : Présentation de Windows Server Insider
 
-Cette rubrique secondaire de [l’historique des performances pour les espaces de stockage Direct](performance-history.md) décrit en détail l’historique des performances collectées pour les cartes réseau. Historique des performances de carte réseau n’est disponible pour chaque carte réseau physique dans chaque serveur du cluster. Historique de performances à distance un accès Direct à la mémoire (RDMA) est disponible pour chaque carte réseau physique avec RDMA activé.
+Cette sous-rubrique de [l’historique des performances pour les espaces de stockage Direct](performance-history.md) décrit en détail l’historique des performances collecté pour les cartes réseau. Historique des performances de carte réseau est disponible pour chaque carte réseau physique sur chaque serveur dans le cluster. Historique des performances de l’accès Direct à la mémoire (RDMA) à distance est disponible pour chaque carte réseau physique avec RDMA activé.
 
    > [!NOTE]
-   > Historique des performances ne peuvent pas être collectés pour les cartes réseau dans un serveur qui est arrêté. Collection reprend automatiquement lorsque le serveur est à nouveau disponible.
+   > Historique des performances ne peuvent pas être collectées pour les cartes réseau sur un serveur qui est arrêté. Collection reprendra automatiquement lorsque le serveur redevient opérationnel.
 
-## Unités publicitaires et les noms de série
+## <a name="series-names-and-units"></a>Unités et les noms de série
 
-Ces séries sont collectés pour toutes les cartes réseau éligibles:
+Ces séries sont collectées pour chaque carte réseau éligibles :
 
-| Série                               | Unit            |
+| série                               | Unit            |
 |--------------------------------------|-----------------|
-| `netadapter.bandwidth.inbound`       | bits par seconde |
-| `netadapter.bandwidth.outbound`      | bits par seconde |
-| `netadapter.bandwidth.total`         | bits par seconde |
-| `netadapter.bandwidth.rdma.inbound`  | bits par seconde |
-| `netadapter.bandwidth.rdma.outbound` | bits par seconde |
-| `netadapter.bandwidth.rdma.total`    | bits par seconde |
+| `netadapter.bandwidth.inbound`       | Bits par seconde |
+| `netadapter.bandwidth.outbound`      | Bits par seconde |
+| `netadapter.bandwidth.total`         | Bits par seconde |
+| `netadapter.bandwidth.rdma.inbound`  | Bits par seconde |
+| `netadapter.bandwidth.rdma.outbound` | Bits par seconde |
+| `netadapter.bandwidth.rdma.total`    | Bits par seconde |
 
    > [!NOTE]
-   > Historique des performances de carte réseau sont enregistré en **bits** par seconde, pas les octets par seconde. Une carte réseau de 10 GbE peut envoyer et recevoir environ 1 000 000 000 bits = 125,000,000 octets = 1,25 Go par seconde à sa valeur maximale théorique.
+   > Historique des performances de carte réseau sont enregistrée dans **bits** par seconde, et non en octets par seconde. Une carte réseau 10 GbE peut envoyer et recevoir d’environ 1 000 000 000 bits = 125,000,000 octets = 1,25 Go par seconde à son maximum théorique.
 
-## Comment interpréter
+## <a name="how-to-interpret"></a>Comment interpréter
 
-| Série                               | Comment interpréter                                                      |
+| série                               | Comment interpréter                                                      |
 |--------------------------------------|-----------------------------------------------------------------------|
 | `netadapter.bandwidth.inbound`       | Taux de données reçues par la carte réseau.                         |
 | `netadapter.bandwidth.outbound`      | Taux de données envoyées par la carte réseau.                             |
-| `netadapter.bandwidth.total`         | Vitesse totale de données reçus ou envoyés par la carte réseau.           |
-| `netadapter.bandwidth.rdma.inbound`  | Taux de données reçues sur RDMA par la carte réseau.               |
-| `netadapter.bandwidth.rdma.outbound` | Taux de données envoyées au RDMA par la carte réseau.                   |
-| `netadapter.bandwidth.rdma.total`    | Vitesse totale de données reçus ou envoyés sur RDMA par la carte réseau. |
+| `netadapter.bandwidth.total`         | Taux total de données reçus ou envoyés par la carte réseau.           |
+| `netadapter.bandwidth.rdma.inbound`  | Taux de données reçues sur RDMA sur la carte réseau.               |
+| `netadapter.bandwidth.rdma.outbound` | Taux de données envoyées sur RDMA par la carte réseau.                   |
+| `netadapter.bandwidth.rdma.total`    | Taux total de données reçus ou envoyés sur RDMA par la carte réseau. |
 
-## S’ils proviennent d'
+## <a name="where-they-come-from"></a>S’ils proviennent d'
 
-Le `bytes.*` séries sont collectées à partir de la `Network Adapter` compteur de performance défini sur le serveur où est installée la carte réseau, une seule instance par carte réseau.
+Le `bytes.*` série est collectée à partir de la `Network Adapter` compteur de performance définies sur le serveur où la carte réseau est installée, une seule instance par carte réseau.
 
-| Série                           | Compteur de source           |
+| série                           | Compteur de la source           |
 |----------------------------------|--------------------------|
 | `netadapter.bandwidth.inbound`   | 8 × `Bytes Received/sec` |
 | `netadapter.bandwidth.outbound`  | 8 × `Bytes Sent/sec`     |
 | `netadapter.bandwidth.total`     | 8 × `Bytes Total/sec`    |
 
-Le `rdma.*` séries sont collectées à partir de la `RDMA Activity` compteur de performance défini sur le serveur où est installée la carte réseau, une seule instance par la carte réseau avec RDMA activé.
+Le `rdma.*` série est collectée à partir de la `RDMA Activity` compteur de performance définies sur le serveur où la carte réseau est installée, une seule instance par carte réseau avec RDMA activé.
 
-| Série                               | Compteur de source           |
+| série                               | Compteur de la source           |
 |--------------------------------------|--------------------------|
 | `netadapter.bandwidth.rdma.inbound`  | 8 × `Inbound bytes/sec`  |
 | `netadapter.bandwidth.rdma.outbound` | 8 × `Outbound bytes/sec` |
-| `netadapter.bandwidth.rdma.total`    | 8 × *somme ci-dessus*   |
+| `netadapter.bandwidth.rdma.total`    | × 8 *somme des éléments ci-dessus*   |
 
    > [!NOTE]
-   > Compteurs de performance sont mesurées sur l’intervalle entière, ne pas échantillonné. Par exemple, si la carte réseau est inactive pendant 9 secondes, mais les transferts bits 200 dans la deuxième 10, son `netadapter.bandwidth.total` est enregistré en tant que 20 bits par seconde en moyenne pendant cette période de 10 secondes. Cela garantit son historique de performances capture toutes les activités et est robuste au bruit.
+   > Les compteurs sont mesurées sur tout l’intervalle, ont ne pas été échantillonnée. Par exemple, si la carte réseau est inactive pour 9 secondes, mais les transferts bits 200 dans le deuxième de 10, sa `netadapter.bandwidth.total` seront enregistrées comme 20 bits par seconde en moyenne pendant cet intervalle de 10 secondes. Cela garantit son historique des performances capture toutes les activités et sont robuste au bruit.
 
-## Utilisation de PowerShell
+## <a name="usage-in-powershell"></a>Utilisation dans PowerShell
 
-Utilisez l’applet de commande [Get-NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter) :
+Utilisez le [Get-NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter) applet de commande :
 
 ```PowerShell
 Get-NetAdapter <Name> | Get-ClusterPerf
 ```
 
-## Articles associés
+## <a name="see-also"></a>Voir aussi
 
 - [Historique des performances pour les espaces de stockage Direct](performance-history.md)

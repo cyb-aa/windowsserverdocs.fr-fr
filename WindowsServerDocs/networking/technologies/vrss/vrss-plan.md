@@ -1,5 +1,5 @@
 ---
-title: Planifier l’utilisation de vRSS
+title: Planifiez l’utilisation de vRSS
 description: Vous pouvez utiliser cette rubrique pour préparer votre machine virtuelle et l’hôte Hyper-V à l’aide de vRSS dans Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -11,41 +11,41 @@ ms.author: pashort
 author: shortpatti
 ms.date: 09/04/2018
 ms.openlocfilehash: e6558b00e87721d8ab81c84946a14745c4faa812
-ms.sourcegitcommit: e84e328c13a701e8039b16a4824a6e58a6e59b0b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2018
-ms.locfileid: "4133385"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59850440"
 ---
-# Planifier l’utilisation de vRSS
+# <a name="plan-the-use-of-vrss"></a>Planifiez l’utilisation de vRSS
 
->S’applique à: Windows Server (canal semi-annuel), WindowsServer2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Dans Windows Server 2016, vRSS est activé par défaut, mais vous devez préparer votre environnement pour permettre à vRSS fonctionner correctement dans une machine virtuelle \(VM\) ou sur un hôte adaptateur virtuel \(vNIC\). Dans Windows Server 2012 R2, vRSS a été désactivé par défaut.
+Dans Windows Server 2016, vRSS est activé par défaut, mais vous devez préparer votre environnement pour permettre la vRSS fonctionner correctement dans une machine virtuelle \(machine virtuelle\) ou sur une carte virtuelle hôte \(carte réseau virtuelle\). Dans Windows Server 2012 R2, vRSS a été désactivée par défaut.
 
-Lorsque vous planifiez et préparez l’utilisation de vRSS, vérifiez que:
+Lorsque vous planifiez et préparez l’utilisation de vRSS, vérifiez que :
 
-- La carte réseau physique est compatible avec la file d’attente de la Machine virtuelle \(VMQ\) et a au moins une vitesse de liaison de 10 Gbits/s.
-- VMQ est activé sur la carte réseau physique et sur le port de commutateur virtuel Hyper\-V
-- Il n’existe aucune \(SR\-IOV\) la virtualisation de sortie unique Input\ racine configuré pour l’ordinateur virtuel.
-- Association de cartes réseau est correctement configurée.
-- L’ordinateur virtuel a plusieurs processeurs logiques \(LPs\).
+- La carte réseau physique est compatible avec la file d’attente de la Machine virtuelle \(VMQ\) et a une vitesse de liaison de 10 Gbits/s ou plus.
+- VMQ est activé sur la carte réseau physique et sur l’Hyper\-port de commutateur virtuel V
+- Il n’existe aucune entrée de racine unique\-Output Virtualization \(SR\-IOV\) configuré pour la machine virtuelle.
+- Association de cartes réseau est configurée correctement.
+- La machine virtuelle a plusieurs processeurs logiques \(LPs\).
 
 >[!NOTE]
->vRSS est également activée par défaut pour les cartes réseau virtuelles hôtes qui ont RSS activé.
+>vRSS est également activée par défaut pour les cartes réseau virtuelles hôtes qui ont RSS est activé.
 
-Voici des informations supplémentaires, vous devez effectuer ces étapes de préparation.
+Voici des informations supplémentaires, vous devez suivre ces étapes de préparation.
   
-1. **Capacité de l’adaptateur réseau**. Vérifiez que la carte réseau est compatible avec la file d’attente de la Machine virtuelle \(VMQ\) et a une vitesse de liaison de 10 Gbits/s ou plus. Si la vitesse de liaison est inférieure à 10 Gbits/s, le commutateur virtuel Hyper\-V désactive VMQ par défaut, même si elle s’affiche toujours VMQ est activée dans les résultats de la commande Windows PowerShell **Get-NetAdapterVmq**. Une méthode, que vous pouvez utiliser pour vérifier que VMQ est activé ou désactivé consiste à utiliser la commande **Get-NetAdapterVmqQueue**.  Si VMQ est désactivée, les résultats de cette commande montrent qu’il n’existe aucune QueueID affecté à la carte réseau virtuelle hôte ou d’ordinateur virtuel. 
+1. **Capacité de la carte réseau**. Vérifiez que la carte réseau est compatible avec la file d’attente de la Machine virtuelle \(VMQ\) et a une vitesse de liaison de 10 Gbits/s ou plus. Si la vitesse de liaison est inférieure à 10 Gbits/s, le Hyper\-désactive le commutateur virtuel V VMQ par défaut, même si elle s’affiche toujours VMQ comme activé dans les résultats de la commande Windows PowerShell **Get-NetAdapterVmq**. Une méthode, vous pouvez utiliser pour vérifier que les ordinateurs virtuels est activé ou désactivé consiste à utiliser la commande **Get-NetAdapterVmqQueue**.  Si les ordinateurs virtuels est désactivée, les résultats de cette commande indiquent qu’il n’existe aucun QueueID affecté à la carte réseau virtuelle hôte ou de la machine virtuelle. 
   
-2. **Activer VMQ**. Vérifiez que VMQ est activé sur l’ordinateur hôte. vRSS ne fonctionne pas si l’hôte ne prend pas en charge VMQ. Vous pouvez vérifier que VMQ est activée par **Get-VMSwitch** en cours d’exécution et la recherche de la carte réseau qui utilise le commutateur virtuel. Ensuite, exécutez **Get-NetAdapterVmq** et vous assurer que la carte s’affiche dans les résultats et a VMQ activé.
+2. **Activer VMQ**. Vérifiez que la file d’attente d’ordinateurs virtuels est activée sur l’ordinateur hôte. vRSS ne fonctionne pas si l’hôte ne prend pas en charge les ordinateurs virtuels. Vous pouvez vérifier que les ordinateurs virtuels est activée en exécutant **Get-VMSwitch** et recherchez la carte qui utilise le commutateur virtuel. Exécutez ensuite **Get-NetAdapterVmq** et vérifiez que la carte s’affiche dans les résultats avec la file d’attente d’ordinateurs virtuels activée.
   
-3. **Absence de SR\-IOV**. Vérifiez qu’un \(SR\-IOV\) la virtualisation de sortie unique racine Input\ pilote de fonction virtuelle \(VF\) n’est pas associé à l’interface réseau de machine virtuelle. Vous pouvez le vérifier à l’aide de la commande **Get-NetAdapterSriov** . Si un pilote de facteur est chargé, RSS utilise les paramètres de mise à l’échelle à partir de ce pilote au lieu de ceux qui sont configurés par vRSS. Si le pilote de facteur ne prend pas en charge RSS, vRSS est désactivée.
+3. **Absence de SR\-IOV**. Vérifiez qu’une seule racine d’entrée\-Output Virtualization \(SR\-IOV\) fonction virtuelle \(VF\) pilote n’est pas attaché à l’interface réseau de machine virtuelle. Vous pouvez le vérifier à l’aide de la **Get-NetAdapterSriov** commande. Si un pilote de fonction virtuelle est chargé, RSS utilise les paramètres de mise à l’échelle à partir de ce pilote au lieu de ceux configurés par vRSS. Si le pilote de fonction virtuelle ne prend pas en charge RSS, vRSS est désactivé.
   
-4. **Association de Configuration**. Si vous utilisez l’association de cartes réseau, il est important de configurer correctement VMQ pour fonctionner avec les paramètres d’association de cartes. Pour obtenir des informations détaillées sur l’association de cartes de déploiement et de gestion, consultez [l’Association de cartes](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming).
+4. **Configuration d’association de cartes réseau**. Si vous utilisez l’association de cartes réseau, il est important de configurer correctement les ordinateurs virtuels pour travailler avec les paramètres d’association de cartes réseau. Pour obtenir des informations détaillées sur l’association de cartes réseau de déploiement et la gestion, consultez [association de cartes réseau](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming).
 
-5. **Nombre de PL**. Vérifiez que l’ordinateur virtuel a plusieurs processeurs logiques \(LP\). vRSS s’appuie sur RSS dans la machine virtuelle ou sur l’hôte Hyper-V pour équilibrer reçu le trafic sur plusieurs PL pour le traitement en parallèle. Vous pouvez observer PL combien votre machine virtuelle a en exécutant la commande Windows PowerShell **Get-VMProcessor** dans l’hôte. Une fois que vous exécutez la commande, vous pouvez observer l’entrée de la colonne nombre pour le nombre de pl.
+5. **Nombre de LPs**. Vérifiez que la machine virtuelle possède plusieurs processeurs logiques \(LP\). vRSS s’appuie sur RSS dans la machine virtuelle ou sur l’hôte Hyper-V pour équilibrer reçu le trafic vers plusieurs LPs pour un traitement parallèle. Vous pouvez observer combien LPs a de votre machine virtuelle en exécutant la commande Windows PowerShell **Get-VMProcessor** dans l’hôte. Après avoir exécuté la commande, vous pouvez observer l’entrée de la colonne nombre pour le nombre de LPs.
 
-La carte réseau virtuelle hôte dispose toujours d’un accès à tous les processeurs physiques; Pour configurer la carte réseau virtuelle hôte pour utiliser un certain nombre de processeurs, utilisez les paramètres **- BaseProcessorNumber** et **-MaxProcessors** lorsque vous exécutez la commande Windows PowerShell **Set-NetAdapterRss** .
+La carte réseau virtuelle hôte a toujours accès à tous les processeurs physiques ; Pour configurer la carte réseau virtuelle hôte pour utiliser un certain nombre de processeurs, utilisez les paramètres **- BaseProcessorNumber** et **- MaxProcessors** lorsque vous exécutez le **Set-NetAdapterRss** Commande de Windows PowerShell.
 
 ---

@@ -1,29 +1,30 @@
 ---
 ms.assetid: fe05e52c-cbf8-428b-8176-63407991042f
-title: "Gestion avancée de la réplication Active Directory et topologie à l’aide de Windows PowerShell (niveau 200)"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: Gestion avancée de la topologie et de la réplication Active Directory avec Windows PowerShell (Niveau 200)
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 1e05616b4b594ae54fcaa3ec6496c0917ecde38b
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 5454f91394dbdc659db85a675d1c8bfac18b2a86
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59853920"
 ---
-# <a name="advanced-active-directory-replication-and-topology-management-using-windows-powershell-level-200"></a>Gestion avancée de la réplication Active Directory et topologie à l’aide de Windows PowerShell (niveau 200)
+# <a name="advanced-active-directory-replication-and-topology-management-using-windows-powershell-level-200"></a>Gestion avancée de la topologie et de la réplication Active Directory avec Windows PowerShell (Niveau 200)
 
->S’applique à: Windows Server2016, Windows Server2012R2, Windows Server2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Cette rubrique décrit la nouvelle réplication AD DS et les applets de commande de gestion topologie plus en détail et fournit des exemples supplémentaires. Pour obtenir une présentation, voir [Introduction à la réplication Active Directory et gestion à l’aide de Windows PowerShell de topologie & #40; Niveau 100 & #41; ](../../../ad-ds/manage/powershell/Introduction-to-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-100-.md).  
+Cette rubrique décrit plus en détail les applets de commande de gestion de la topologie et de la réplication des services de domaine Active Directory et fournit des exemples supplémentaires. Pour une introduction, consultez [Introduction à la réplication Active Directory et la topologie de gestion à l’aide de Windows PowerShell &#40;niveau 100&#41;](../../../ad-ds/manage/powershell/Introduction-to-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-100-.md).  
   
 1.  [Introduction](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md#BKMK_Intro)  
   
-2.  [La réplication et métadonnées](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md#BKMK_Repl)  
+2.  [Réplication et métadonnées](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md#BKMK_Repl)  
   
 3.  [Get-ADReplicationAttributeMetadata](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md#BKMK_ReplAttrMD)  
   
@@ -33,67 +34,67 @@ Cette rubrique décrit la nouvelle réplication AD DS et les applets de commande
   
 6.  [Get-ADReplicationQueueOperation et Get-ADReplicationUpToDatenessVectorTable](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md#BKMK_ReplQueue)  
   
-7.  [La synchronisation-ADObject](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md#BKMK_Sync)  
+7.  [Sync-ADObject](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md#BKMK_Sync)  
   
 8.  [Topologie](../../../ad-ds/manage/powershell/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md#BKMK_Topo)  
   
 ## <a name="BKMK_Intro"></a>Introduction  
-Windows Server 2012 étend le module Active Directory pour Windows PowerShell avec vingt-cinq nouvelles applets de commande pour gérer la réplication et la topologie de forêt. Avant cette version, vous deviez utiliser générique **\*-AdObject** noms ou appeler des fonctions .NET.  
+Windows Server 2012 étend le module Active Directory pour Windows PowerShell avec vingt-cinq nouvelles applets de commande pour gérer la réplication et la topologie de forêt. Avant cette version, vous deviez utiliser générique  **\*- AdObject** noms ou appeler des fonctions .NET.  
   
-Comme toutes les applets de commande Active Directory Windows PowerShell, cette nouvelle fonctionnalité nécessite l’installation du [Service passerelle de gestion Active Directory](https://www.microsoft.com/download/details.aspx?displaylang=en&id=2852) au moins un contrôleur de domaine (et de préférence, tous les contrôleurs de domaine).  
+Comme les autres applets de commande Active Directory pour Windows PowerShell, cette nouvelle fonctionnalité nécessite l’installation du [Service passerelle de gestion Active Directory](https://www.microsoft.com/download/details.aspx?displaylang=en&id=2852) sur un contrôleur de domaine au moins (et de préférence, sur tous les contrôleurs de domaine).  
   
-Le tableau suivant répertorie les applets de commande de topologie ajoutées au module Active Directory pour Windows PowerShell et de nouvelle réplication.  
+Le tableau suivant répertorie les nouvelles applets de commande de topologie et de réplication qui ont été ajoutées au module Active Directory pour Windows PowerShell.  
   
 |||  
 |-|-|  
 |Applet de commande|Explication|  
-|Get-ADReplicationAttributeMetadata|Retourne les métadonnées de réplication pour un objet d’attribut|  
-|Get-ADReplicationConnection|Retourne des informations sur les objets de connexion de contrôleur de domaine|  
-|Get-ADReplicationFailure|Renvoie le plus récent Échec de réplication pour un contrôleur de domaine|  
-|Get-ADReplicationPartnerMetadata|Retourne la configuration de la réplication d’un contrôleur de domaine|  
-|Get-ADReplicationQueueOperation|Renvoie la liste d’attente de réplication en cours|  
-|Get-ADReplicationSite|Retourne les informations de site|  
-|Get-ADReplicationSiteLink|Retourne les informations de lien de site|  
-|Get-ADReplicationSiteLinkBridge|Retourne les informations de pont lien de site|  
-|Get-ADReplicationSubnet|Retourne les informations de sous-réseau Active Directory|  
-|Get-ADReplicationUpToDatenessVectorTable|Retourne le vecteur jour (utd) pour un contrôleur de domaine|  
-|Get-ADTrust|Renvoie des informations sur une approbation inter-domaines ou inter-forêts|  
-|New-ADReplicationSite|Crée un nouveau site|  
-|Nouvelle ADReplicationSiteLink|Crée un lien de site|  
-|Nouvelle ADReplicationSiteLinkBridge|Crée un pont entre liens|  
-|Nouvelle ADReplicationSubnet|Crée un nouveau sous-réseau Active Directory|  
+|Get-ADReplicationAttributeMetadata|Renvoie des métadonnées de réplication d'attribut pour un objet|  
+|Get-ADReplicationConnection|Retourne les informations sur les objets de connexion du contrôleur de domaine|  
+|Get-ADReplicationFailure|Renvoie l'échec de réplication le plus récent d'un contrôleur de domaine|  
+|Get-ADReplicationPartnerMetadata|Retourne la configuration de réplication d'un contrôleur de domaine|  
+|Get-ADReplicationQueueOperation|Renvoie la liste d'attente actuelle de la réplication|  
+|Get-ADReplicationSite|Retourne les informations sur le site|  
+|Get-ADReplicationSiteLink|Renvoie les informations sur les liens du site|  
+|Get-ADReplicationSiteLinkBridge|Retourne les informations sur le pont lien de sites|  
+|Get-ADReplicationSubnet|Renvoie les informations du sous-réseau Active Directory|  
+|Get-ADReplicationUpToDatenessVectorTable|Retourne le vecteur de mise à jour (UTD) d'un contrôleur de domaine|  
+|Get-ADTrust|Renvoie les informations relatives à l'approbation inter-domaines ou inter-forêts|  
+|New-ADReplicationSite|Crée un site|  
+|New-ADReplicationSiteLink|Crée un lien de sites|  
+|New-ADReplicationSiteLinkBridge|Crée un pont lien de sites|  
+|New-ADReplicationSubnet|Crée un sous-réseau Active Directory|  
 |Remove-ADReplicationSite|Supprime un site|  
 |Remove-ADReplicationSiteLink|Supprime un lien de sites|  
-|Remove-ADReplicationSiteLinkBridge|Supprime un pont entre liens de site|  
+|Remove-ADReplicationSiteLinkBridge|Supprime un pont lien de sites|  
 |Remove-ADReplicationSubnet|Supprime un sous-réseau Active Directory|  
-|Set-ADReplicationConnection|Modifie une connexion|  
+|Set-ADReplicationConnection|Change une connexion|  
 |Set-ADReplicationSite|Modifie un site|  
-|Set-ADReplicationSiteLink|Modifie un lien de sites|  
-|Set-ADReplicationSiteLinkBridge|Modifie un pont entre liens de site|  
-|Set-ADReplicationSubnet|Modifie un sous-réseau Active Directory|  
-|La synchronisation-ADObject|Force la réplication d’un objet unique|  
+|Set-ADReplicationSiteLink|Change un lien de sites|  
+|Set-ADReplicationSiteLinkBridge|Modifie un pont lien de sites|  
+|Set-ADReplicationSubnet|Change un sous-réseau Active Directory|  
+|Sync-ADObject|Force la réplication d'un objet unique|  
   
-La plupart de ces applets de commande ont leur base Repadmin.exe. Autres applets de commande (non répertoriées) gèrent des fonctionnalités comme le contrôle d’accès dynamique et le groupe de comptes de Service administrés.  
+La base de la plupart des applets de commande se trouve dans Repadmin.exe. D'autres applets de commande (non répertoriées) gèrent des fonctionnalités comme le contrôle d'accès dynamique et les comptes de service administrés de groupe.  
   
-Pour obtenir une liste complète de toutes les applets de commande Active Directory Windows PowerShell, exécutez:  
+Pour obtenir la liste complète de toutes les applets de commande Active Directory pour Windows PowerShell, exécutez :  
   
 ```  
 Get-command -module ActiveDirectory  
 ```  
   
-Pour obtenir une liste complète de tous les arguments d’applet de commande Active Directory Windows PowerShell, consultez l’aide. Par exemple:  
+Pour obtenir la liste complète de tous les arguments d'applets de commande Active Directory pour Windows PowerShell, consultez l'aide. Exemple :  
   
 ```  
 Get-help New-ADReplicationSite  
   
 ```  
   
-Utilisez le `Update-Help` applet de commande pour télécharger et installer les fichiers d’aide  
+Utilisez l’applet de commande `Update-Help` pour télécharger et installer les fichiers d’aide  
   
-### <a name="BKMK_Repl"></a>La réplication et métadonnées  
-Repadmin.exe valide l’intégrité et la cohérence de réplication Active Directory. Repadmin.exe offre des options de manipulation simple des données: certains arguments prennent en charge les sorties CSV, par exemple - mais automatisation a généralement exigé une analyse des sorties de fichiers texte. Le module Active Directory pour Windows PowerShell est la première tentative offre une option qui permet un contrôle réel sur les données retournées; avant cette version, vous deviez créer des scripts ou utiliser des outils tiers.  
+### <a name="BKMK_Repl"></a>Réplication et métadonnées  
+Repadmin.exe valide l'état et la cohérence de la réplication Active Directory. Repadmin.exe offre des options de manipulation simple des données (certains arguments prennent par exemple en charge les sorties CSV) mais l'automatisation a généralement exigé une analyse des sorties de fichiers texte. Le module Active Directory pour Windows PowerShell offre pour la première fois la possibilité de contrôler directement les données renvoyées. Auparavant, vous deviez créer des scripts ou utiliser des outils tiers.  
   
-En outre, les applets de commande suivantes implémentent un nouveau jeu de paramètres **cible**, **étendue**, et **EnumerationServer**:  
+De plus, les applets de commande suivantes implémentent un nouveau jeu de paramètres **Target**, **Scope**et **EnumerationServer**:  
   
 -   **Get-ADReplicationFailure**  
   
@@ -101,14 +102,14 @@ En outre, les applets de commande suivantes implémentent un nouveau jeu de para
   
 -   **Get-ADReplicationUpToDatenessVectorTable**  
   
-Le **cible** argument accepte une liste séparée par des virgules de chaînes qui identifient les serveurs cibles, sites, des domaines ou forêts spécifiés par le **étendue** argument. Un astérisque (\ *) est également autorisé et signifie que tous les serveurs de l’étendue spécifiée. Si aucune étendue n’est spécifié, il implique tous les serveurs de la forêt de l’utilisateur actuel. Le **étendue** argument spécifie la latitude de la recherche. Les valeurs acceptables sont **Server**, **Site**, **domaine**, et **forêt**. Le **EnumerationServer** Spécifie le serveur qui énumère la liste des contrôleurs de domaine spécifiés dans **cible** et **étendue**. Il fonctionne comme le **Server** argument et nécessite le serveur spécifié exécute le Service Web Active Directory.  
+L'argument **Target** accepte une liste CSV de chaînes qui identifient les serveurs, sites, domaines ou forêts cibles spécifiés par l'argument **Scope**. Un astérisque (\*) est également autorisé et signifie que tous les serveurs dans l’étendue spécifiée. Si aucune portée n’est spécifiée, il implique tous les serveurs de la forêt de l’utilisateur actuel. L'argument **Scope** spécifie la latitude de la recherche. Les valeurs acceptables sont **Server**, **Site**, **Domain** et **Forest**. L'argument **EnumerationServer** indique le serveur qui énumère la liste des contrôleurs de domaine spécifiés dans **Target** et **Scope**. Il fonctionne comme l'argument **Server** et nécessite que le serveur spécifié exécute les services Web Active Directory.  
   
-Pour introduire les nouvelles applets de commande, ici sont des exemples de scénarios illustrant capacités impossibles Repadmin.exe; Grâce à ces illustrations, les possibilités d’administration deviennent évidentes. Consultez l’aide de l’applet de commande pour des besoins spécifiques.  
+Pour présenter les nouvelles applets de commande, voici quelques exemples de scénarios démontrant ce que repadmin.exe ne peut pas réaliser. Avec ces illustrations, les possibilités d'administration deviennent évidentes. Consultez l'aide sur les applets de commande pour connaître les exigences spécifiques en matière d'utilisation.  
   
 ### <a name="BKMK_ReplAttrMD"></a>Get-ADReplicationAttributeMetadata  
-Cette applet de commande est similaire à **repadmin.exe /showobjmeta**. Il vous permet de retourner les métadonnées de réplication, telles que le changement d’un attribut, le contrôleur de domaine origine, la version informations USN et des données d’attribut. Cette applet de commande est utile pour vérifier où et quand une modification s’est produite.  
+Cette applet de commande est semblable à **repadmin.exe /showobjmeta**. Elle vous permet de renvoyer des métadonnées de réplication, dans des situations telles que le changement d'un attribut, le contrôleur de domaine d'origine, les informations de version et numéro de séquence de mise à jour (USN, Update Sequence Number) et les données d'attribut. Cette applet de commande est utile pour vérifier où et quand le changement s'est produit.  
   
-Contrairement à Repadmin, Windows PowerShell donne flexible recherche et sortie de contrôle. Par exemple, vous pouvez exporter les métadonnées de l’objet Admins du domaine, sous forme de liste lisible:  
+Contrairement à Repadmin, Windows PowerShell permet une recherche et un contrôle de sortie flexible. Par exemple, vous pouvez effectuer la sortie des métadonnées de l'objet Admins du domaine, sous forme de liste lisible :  
   
 ```  
 Get-ADReplicationAttributeMetadata -object "cn=domain admins,cn=users,dc=corp,dc=contoso,dc=com" -server dc1.corp.contoso.com -showalllinkedvalues | format-list  
@@ -117,7 +118,7 @@ Get-ADReplicationAttributeMetadata -object "cn=domain admins,cn=users,dc=corp,dc
   
 ![gestion avancée avec powershell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSGetADReplAttrMd.png)  
   
-Vous pouvez également vous pouvez réorganiser les données comme dans repadmin, dans un tableau:  
+Vous pouvez aussi réorganiser les données en tableau comme dans repadmin :  
   
 ```  
 Get-ADReplicationAttributeMetadata -object "cn=domain admins,cn=users,dc=corp,dc=contoso,dc=com" -server dc1.corp.contoso.com -showalllinkedvalues | format-table -wrap  
@@ -126,7 +127,7 @@ Get-ADReplicationAttributeMetadata -object "cn=domain admins,cn=users,dc=corp,dc
   
 ![gestion avancée avec powershell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSGetADReplAttrMdTable.png)  
   
-Vous pouvez également obtenir des métadonnées pour une classe entière d’objets, par le traitement en pipeline les **Get-Adobject** applet de commande avec un filtre, par exemple, tous les groupes - qui combinent puis avec une date spécifique. Le pipeline est un canal utilisé entre plusieurs applets de commande pour transmettre des données. Pour afficher tous les groupes de modification d’une certaine façon le 13 janvier 2012:  
+Sinon, vous pouvez obtenir les métadonnées pour une classe entière d'objets, en traitant en pipeline l'applet de commande **Get-Adobject** avec un filtre, tel que « tous les groupes », associé à une date spécifique. Le pipeline est un canal utilisé entre plusieurs applets de commande pour transmettre des données. Pour afficher tous les groupes modifiés d'une certaine façon le 13 janvier 2012 :  
   
 ```  
 get-adobject -filter 'objectclass -eq "group"' | Get-ADReplicationAttributeMetadata -server dc1.corp.contoso.com | where-object {$_.lastoriginatingchangetime -like "*1/13/2012*" -and $_.attributename -eq "name"} | format-table object  
@@ -134,9 +135,9 @@ get-adobject -filter 'objectclass -eq "group"' | Get-ADReplicationAttributeMetad
   
 ![gestion avancée avec powershell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSGetADReplAttrMdClass.png)  
   
-Pour plus d’informations sur d’autres opérations Windows PowerShell avec des pipelines, voir [et utilisation des pipelines dans Windows PowerShell](https://technet.microsoft.com/library/ee176927.aspx).  
+Pour plus d’informations sur d’autres opérations Windows PowerShell avec des pipelines, consultez [Définition et utilisation des pipelines dans Windows PowerShell](https://technet.microsoft.com/library/ee176927.aspx).  
   
-Vous pouvez également, pour en savoir chaque groupe qui comporte Tony Wang en tant que membre et le groupe de dernière modification:  
+Vous pouvez aussi rechercher chaque groupe qui comporte le membre Tony Wang et la date à laquelle le groupe a été modifié pour la dernière fois :  
   
 ```  
 get-adobject -filter 'objectclass -eq "group"' | Get-ADReplicationAttributeMetadata -server dc1.corp.contoso.com -showalllinkedvalues | where-object {$_.attributevalue -like "*tony wang*"} | format-table object,LastOriginatingChangeTime,version -auto  
@@ -145,7 +146,7 @@ get-adobject -filter 'objectclass -eq "group"' | Get-ADReplicationAttributeMetad
   
 ![gestion avancée avec powershell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSGetADReplAttrMdFilter.png)  
   
-Sinon, pour rechercher tous les objets faisant autorité restauré à l’aide d’une sauvegarde de l’état système dans le domaine, en fonction de leur version arbitrairement haute:  
+Sinon, pour trouver tous les objets qui ont été restaurés à l'aide d'une sauvegarde de l'état du système dans le domaine, d'après leur version arbitrairement haute :  
   
 ```  
 get-adobject -filter 'objectclass -like "*"' | Get-ADReplicationAttributeMetadata -server dc1.corp.contoso.com | where-object {$_.version -gt "100000" -and $_.attributename -eq "name"} | format-table object,LastOriginatingChangeTime  
@@ -153,16 +154,16 @@ get-adobject -filter 'objectclass -like "*"' | Get-ADReplicationAttributeMetadat
   
 ![gestion avancée avec powershell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSGetADReplAttrMdFilter2.png)  
   
-Vous pouvez également envoyer toutes les métadonnées de l’utilisateur vers un fichier CSV pour le consulter ultérieurement dans Microsoft Excel:  
+Vous pouvez aussi envoyer toutes les métadonnées de l'utilisateur dans un fichier CSV pour le consulter ultérieurement dans Microsoft Excel :  
   
 ```  
 get-adobject -filter 'objectclass -eq "user"' | Get-ADReplicationAttributeMetadata -server dc1.corp.contoso.com -showalllinkedvalues | export-csv allgroupmetadata.csv  
 ```  
   
 ### <a name="BKMK_PartnerMD"></a>Get-ADReplicationPartnerMetadata  
-Cette applet de commande retourne des informations sur la configuration et l’état de réplication d’un contrôleur de domaine, ce qui vous permet de surveiller, créer un inventaire ou résoudre les problèmes. À la différence de Repadmin.exe, à l’aide de Windows PowerShell permet de qu'afficher uniquement les données qui sont importantes pour vous, dans le format souhaité.  
+Cette applet de commande renvoie les informations sur la configuration et l'état de réplication d'un contrôleur de domaine pour surveiller, créer un inventaire ou résoudre un problème. À la différence de Repadmin.exe, Windows PowerShell permet d'afficher uniquement les données que vous considérez importantes, au format souhaité.  
   
-Par exemple, l’état de réplication lisible d’un contrôleur de domaine unique:  
+Par exemple, l'état de réplication lisible d'un contrôleur de domaine unique :  
   
 ```  
 Get-ADReplicationPartnerMetadata -target dc1.corp.contoso.com  
@@ -170,7 +171,7 @@ Get-ADReplicationPartnerMetadata -target dc1.corp.contoso.com
   
 ![gestion avancée avec powershell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSGetADReplPartnerMd.png)  
   
-Vous pouvez également la dernière fois qu’un contrôleur de domaine répliqué entrant et ses partenaires, dans une table de format:  
+Ou la dernière réplication entrante d'un contrôleur de domaine et ses partenaires, dans un tableau :  
   
 ```  
 Get-ADReplicationPartnerMetadata -target dc1.corp.contoso.com | format-table lastreplicationattempt,lastreplicationresult,partner -auto  
@@ -178,7 +179,7 @@ Get-ADReplicationPartnerMetadata -target dc1.corp.contoso.com | format-table las
   
 ![gestion avancée avec powershell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSGetADReplPartnerMdTable.png)  
   
-Vous pouvez également contacter tous les contrôleurs de domaine dans la forêt et afficher tout dont dernière tentative de réplication a échoué pour une raison quelconque:  
+Ou encore, vous pouvez contacter tous les contrôleurs de domaine de la forêt et afficher celui dont la dernière tentative de réplication a échoué pour une raison quelconque :  
   
 ```  
 Get-ADReplicationPartnerMetadata -target * -scope server | where {$_.lastreplicationresult -ne "0"} | ft server,lastreplicationattempt,lastreplicationresult,partner -auto  
@@ -188,9 +189,9 @@ Get-ADReplicationPartnerMetadata -target * -scope server | where {$_.lastreplica
 ![gestion avancée avec powershell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSGetADReplPartnerMdFail.png)  
   
 ### <a name="BKMK_ReplFail"></a>Get-ADReplicationFailure  
-Cette applet de commande peut être utilisé pour renvoie des informations sur les erreurs récentes de réplication. Elle est analogue à **Repadmin.exe /showreplsum**, mais à nouveau, avec beaucoup plus contrôlent grâce à Windows PowerShell.  
+Cette applet de commande peut être utilisée pour renvoyer des informations sur les erreurs récentes de réplication. Elle est analogue à **Repadmin.exe /showreplsum**, mais avec un niveau nettement plus élevé de contrôle grâce à Windows PowerShell.  
   
-Par exemple, vous pouvez revenir échecs les plus récents d’un contrôleur de domaine et les partenaires qu’il n’a pas pu contacter:  
+Par exemple, vous pouvez renvoyer les échecs les plus récents d'un contrôleur de domaine et les partenaires qu'il n'a pas réussi à contacter :  
   
 ```  
 Get-ADReplicationFailure dc1.corp.contoso.com  
@@ -198,7 +199,7 @@ Get-ADReplicationFailure dc1.corp.contoso.com
   
 ![gestion avancée avec powershell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSGetADReplFail.png)  
   
-Vous pouvez également renvoyer un affichage tableau de tous les serveurs dans un site logique Active Directory spécifique, classé pour faciliter la consultation et contenant uniquement les données essentielles:  
+Vous pouvez également renvoyer un affichage sous forme de tableau pour tous les serveurs d'un site logique Active Directory spécifique, classés pour faciliter la consultation et ne contenant que les données essentielles :  
   
 ```  
 Get-ADReplicationFailure -scope site -target default-first-site-name | format-table server,firstfailuretime,failurecount,lasterror,partner -auto  
@@ -208,12 +209,12 @@ Get-ADReplicationFailure -scope site -target default-first-site-name | format-ta
 ![gestion avancée avec powershell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSGetADReplFailScoped.png)  
   
 ### <a name="BKMK_ReplQueue"></a>Get-ADReplicationQueueOperation et Get-ADReplicationUpToDatenessVectorTable  
-Les deux de ces applets de commande renvoient les aspects du contrôleur de domaine «jusqu'à futurs», qui inclut la réplication et les informations de vecteur de version en attente.  
+Ces deux applets de commande renvoient les aspects futurs d'un contrôleur de domaine « de mise à jour », qui comprend des informations de réplication et de vecteur de version en attente.  
   
-### <a name="BKMK_Sync"></a>La synchronisation-ADObject  
-Cette applet de commande ressemble à exécuter **Repadmin.exe /replsingleobject**. Il est très utile lorsque vous apportez des modifications qui nécessitent une réplication hors bande, notamment pour corriger un problème.  
+### <a name="BKMK_Sync"></a>Sync-ADObject  
+Cette applet de commande revient à exécuter **Repadmin.exe /replsingleobject**. Elle s'avère très utile pour apporter des changements qui nécessitent une réplication hors-bande, notamment pour corriger un problème.  
   
-Par exemple, si un utilisateur supprimé le compte d’utilisateur du PDG et restauré avec la Corbeille Active Directory, vous pouvez qu'il répliqués sur tous les contrôleurs de domaine immédiatement. Vous voulez également probablement sans forcer la réplication de tous les autres objets modifications; Après tout, c’est pourquoi vous avez un calendrier de réplication, pour éviter la surcharge des liaisons WAN.  
+Par exemple, si quelqu'un a supprimé le compte d'utilisateur du PDG et l'a restauré avec la Corbeille Active Directory, vous souhaitez certainement qu'il soit immédiatement répliqué sur tous les contrôleurs de domaine sans forcer la réplication de toutes les autres modifications d'objet déjà effectuées. C'est pour cela que vous avez un calendrier de réplication, pour éviter la surcharge des liaisons réseau étendu.  
   
 ```  
 Get-ADDomainController -filter * | foreach {Sync-ADObject -object "cn=tony wang,cn=users,dc=corp,dc=contoso,dc=com" -source dc1 -destination $_.hostname}  
@@ -223,13 +224,13 @@ Get-ADDomainController -filter * | foreach {Sync-ADObject -object "cn=tony wang,
 ![gestion avancée avec powershell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSSyncAD.png)  
   
 ### <a name="BKMK_Topo"></a>Topologie  
-Repadmin.exe est bon de renvoyer des informations sur la topologie de réplication comme des sites, liens de sites, ponts entre liens de site et les connexions, il ne dispose pas d’un ensemble complet d’arguments pour apporter des modifications. En fait, il n’a jamais été intégré, scriptable, utilitaire Windows conçu spécifiquement pour les administrateurs à créer et modifier la topologie AD DS. Comme Active Directory a évolué dans des millions d’environnements de clients, de modifier le besoin en bloc Active Directory des informations logiques apparaît.  
+Repadmin.exe est performant lorsqu'il s'agit de renvoyer des informations sur la topologie de réplication comme des sites, des liens de sites, des ponts liens de sites et des connexions, mais il ne dispose pas d'un ensemble complet d'arguments pour apporter des changements. En réalité, aucun utilitaire Windows intégré, scriptable, n'a été spécifiquement conçu pour des administrateurs en vue de créer et de modifier une topologie AD DS. La modification en bloc des informations logiques Active Directory devient nécessaire, car Active Directory a évolué dans des millions d'environnements de clients.  
   
-Par exemple, après une expansion rapide de nouvelles succursales, associée à la consolidation des autres, vous devrez peut-être une centaine de modifications pour vous en fonction sur des emplacements physiques, les modifications du réseau et les nouvelles exigences de capacité. Au lieu d’utiliser Dssites.msc et Adsiedit.msc pour apporter des modifications, vous pouvez automatiser. Cela est particulièrement intéressante lorsque vous démarrez avec une feuille de calcul des données fournies par vos équipes de réseau et les installations.  
+Par exemple, après une expansion rapide de nouvelles succursales, associée à la consolidation d'autres succursales, vous pouvez être amené à apporter une centaine de modifications en fonction des emplacements physiques, des changements du réseau et des besoins en termes de nouvelle capacité. Au lieu d'utiliser Dssites.msc et Adsiedit.msc pour effectuer ces modifications, vous pouvez les automatiser. Ce changement s'impose alors que vous commencez avec une feuille de calcul de données fournies par votre réseau et les équipes des sites.  
   
-Le **Get-Adreplication\ *** applets de commande retourne des informations sur la topologie de réplication et sont utiles pour traiter en pipeline les **définir-Adreplication\ *** applets de commande en bloc. **Obtenir** applets de commande ne modifient pas les données, elles affichent uniquement les données ou pour Windows PowerShell de créer des objets de session qui peuvent être traités en pipeline vers **définir-Adreplication\ *** applets de commande. Le **New** et **supprimer** applets de commande sont utiles pour créer ou supprimer des objets de la topologie Active Directory.  
+Le **Get-Adreplication\***  applets de commande retourner des informations sur la topologie de réplication et sont utiles pour traiter en pipeline le **Set-Adreplication\***  applets de commande en bloc. **Obtenir** applets de commande ne modifient pas les données, elles affichent uniquement les données ou pour créer de Windows PowerShell session des objets qui peuvent être canalisée en rafale vers **Set-Adreplication\***  applets de commande. Les applets de commande **New** et **Remove** servent à créer et supprimer les objets de topologie Active Directory.  
   
-Par exemple, vous pouvez créer de nouveaux sites à l’aide d’un fichier CSV:  
+Par exemple, vous pouvez créer de nouveaux sites à l'aide d'un fichier CSV :  
   
 ```  
 import-csv -path C:\newsites.csv | new-adreplicationsite  
@@ -239,7 +240,7 @@ import-csv -path C:\newsites.csv | new-adreplicationsite
   
 ![gestion avancée avec powershell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSImportCSV.png)  
   
-Vous pouvez également créer un lien de site entre deux sites existants avec un coût d’intervalle et un site de réplication personnalisée:  
+Vous pouvez également créer un lien de sites entre deux liens existants avec un intervalle de réplication et un coût de site personnalisés :  
   
 ```  
 new-adreplicationsitelink -name "chicago<-->waukegan" -sitesincluded chicago,waukegan -cost 50 -replicationfrequencyinminutes 15  
@@ -247,7 +248,7 @@ new-adreplicationsitelink -name "chicago<-->waukegan" -sitesincluded chicago,wau
   
 ![gestion avancée avec powershell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSNewADReplSite.png)  
   
-Vous pouvez également rechercher tous les sites dans la forêt et remplacer leurs **Options** attributs avec l’indicateur pour activer intersite notification de modifications, afin de répliquer avec une compression:  
+Sinon, vous pouvez rechercher chaque site dans la forêt et remplacer leurs attributs **Options** par le drapeau pour activer la notification de modifications inter-sites, afin de répliquer le plus rapidement possible avec une compression :  
   
 ```  
 get-adreplicationsitelink -filter * | set-adobject -replace @{options=$($_.options -bor 1)}  
@@ -256,9 +257,9 @@ get-adreplicationsitelink -filter * | set-adobject -replace @{options=$($_.optio
 ![gestion avancée avec powershell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSNewADReplSiteLink.gif)  
   
 > [!IMPORTANT]  
-> Définissez **- bor 5** pour désactiver la compression sur les liens de sites.  
+> Définissez **-bor 5** pour désactiver aussi la compression sur ces liens de sites.  
   
-Vous pouvez également rechercher tous les sites affectations manquantes de sous-réseaux, pour rapprocher la liste avec les sous-réseaux réels de ces emplacements:  
+Vous pouvez encore rechercher toutes les affectations manquantes de sous-réseaux de sites, pour rapprocher la liste avec les sous-réseaux réels de ces emplacements :  
   
 ```  
 get-adreplicationsite -filter * -property subnets | where-object {!$_.subnets -eq "*"} | format-table name  
@@ -267,6 +268,6 @@ get-adreplicationsite -filter * -property subnets | where-object {!$_.subnets -e
 ![gestion avancée avec powershell](media/Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-/ADDS_PSNewADReplSiteFiltrer.png)  
   
 ## <a name="see-also"></a>Voir aussi  
-[Introduction à la réplication ActiveDirectory et gestion de la topologie à l’aide de Windows PowerShell et #40; niveau 100 et #41;](../../../ad-ds/manage/powershell/Introduction-to-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-100-.md)  
+[Introduction à la réplication Active Directory et gestion de la topologie à l’aide de Windows PowerShell &#40;niveau 100&#41;](../../../ad-ds/manage/powershell/Introduction-to-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-100-.md)  
   
 

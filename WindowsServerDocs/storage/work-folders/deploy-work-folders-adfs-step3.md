@@ -1,5 +1,5 @@
 ---
-title: "Déployer Dossiers de travail avec ADFS et le proxy d’application Web: Étape3, Configurer Dossiers de travail"
+title: 'Déployer Dossiers de travail avec AD FS et le proxy d’application Web : Étape 3, Configurer Dossiers de travail'
 ms.prod: windows-server-threshold
 ms.technology: storage-work-folders
 ms.topic: article
@@ -9,44 +9,45 @@ author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: 5a43b104-4d02-4d73-a385-da1cfb67e341
 ms.openlocfilehash: 81f30a7a4d50423a68719343fec3032cc6a1602e
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59854710"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>Déployer Dossiers de travail avec ADFS et le proxy d’application Web: étape3, configurer les dossiers de travail
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 3, les dossiers de travail de configuration
 
->S’applique à: WindowsServer (canal semi-annuel), WindowsServer2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
 
-Cette rubrique décrit la troisièmeétape de déploiement Dossiers de travail avec les services de fédération ActiveDirectory (ADFS) et le proxy d’application Web. Les autres étapes de ce processus sont décrites dans les rubriques suivantes:  
+Cette rubrique décrit la troisième étape de déploiement Dossiers de travail avec les services de fédération Active Directory (AD FS) et le proxy d’application Web. Vous pouvez trouver les autres étapes de ce processus dans ces rubriques :  
   
--   [Déployer Dossiers de travail avec ADFS et le proxy d’application Web: vue d’ensemble](deploy-work-folders-adfs-overview.md)  
+-   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Vue d’ensemble](deploy-work-folders-adfs-overview.md)  
   
--   [Déployer Dossiers de travail avec ADFS et le proxy d’application Web: étape1, configurer ADFS](deploy-work-folders-adfs-step1.md)  
+-   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 1, configurer AD FS](deploy-work-folders-adfs-step1.md)  
   
--   [Déployer Dossiers de travail avec ADFS et le proxy d’application Web: Étape2, Tâches post-configuration ADFS](deploy-work-folders-adfs-step2.md)  
+-   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 2, le travail de post-configuration AD FS](deploy-work-folders-adfs-step2.md)  
   
--   [Déployer Dossiers de travail avec ADFS et le proxy d’application Web: Étape4, Configurer le proxy d’application Web](deploy-work-folders-adfs-step4.md)  
+-   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 4 : configurer le Proxy d’Application Web](deploy-work-folders-adfs-step4.md)  
   
--   [Déployer Dossiers de travail avec ADFS et le proxy d’application Web: étape5, configurer les clients](deploy-work-folders-adfs-step5.md)  
+-   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : L’étape 5, configurez les Clients](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
->   Les instructions présentées dans cette section ont été conçues pour un environnement WindowsServer2016. Si vous utilisez Windows Server2012R2, suivez les [instructions pour Windows Server2012R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Les instructions présentées dans cette section ont été conçues pour un environnement Windows Server 2016. Si vous utilisez Windows Server 2012 R2, suivez les [instructions pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Pour configurer Dossiers de travail, procédez comme suit.  
   
 ## <a name="pre-installment-work"></a>Tâche de préinstallation  
-Pour pouvoir installer Dossiers de travail, vous devez disposer d’un serveur joint au domaine et exécutant WindowsServer2016. La configuration réseau du serveur doit être valide.  
+Pour pouvoir installer Dossiers de travail, vous devez disposer d’un serveur joint au domaine et exécutant Windows Server 2016. La configuration réseau du serveur doit être valide.  
   
 Dans l’exemple de test, joignez l’ordinateur qui exécute Dossiers de travail au domaine Contoso et configurez l’interface réseau comme décrit dans les sections suivantes. 
 
 ### <a name="set-the-server-ip-address"></a>Configurer l’adresse IP du serveur  
-Changez l’adresse IP de votre serveur en adresse IP statique. Pour l’exemple de test, utilisez la classeIPA, qui est 192.168.0.170/Masque de sous-réseau: 255.255.0.0/Passerelle par défaut: 192.168.0.1/ServeurDNS préféré: 192.168.0.150 (l’adresseIP de votre contrôleur de domaine). 
+Changez l’adresse IP de votre serveur en adresse IP statique. Pour l’exemple de test, utilisez la classe IP A, qui est 192.168.0.170 / masque de sous-réseau : 255.255.0.0 / passerelle par défaut : 192.168.0.1 / préféré DNS : 192.168.0.150 (l’adresse IP de votre contrôleur de domaine). 
   
 ### <a name="create-the-cname-record-for-work-folders"></a>Créer l’enregistrement CNAME pour Dossiers de travail  
-Pour créer l’enregistrement CNAME pour Dossiers de travail, procédez comme suit:  
+Pour créer l’enregistrement CNAME pour Dossiers de travail, procédez comme suit :  
   
-1.  Sur votre contrôleur de domaine, ouvrez le **GestionnaireDNS**.  
+1.  Sur votre contrôleur de domaine, ouvrez le **Gestionnaire DNS**.  
   
 2.  Développez le dossier Zones de recherche directe, cliquez avec le bouton droit sur votre domaine, puis cliquez sur **Nouvel Alias (CNAME)**.  
   
@@ -58,20 +59,20 @@ Pour créer l’enregistrement CNAME pour Dossiers de travail, procédez comme s
   
 6.  Cliquez sur **OK**.  
   
-Pour effectuer les mêmes étapes via WindowsPowerShell, utilisez la commande suivante. La commande doit être exécutée sur le contrôleur de domaine.  
+Pour effectuer les mêmes étapes via Windows PowerShell, utilisez la commande suivante. La commande doit être exécutée sur le contrôleur de domaine.  
   
 ```powershell  
 Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name workfolders -CName  -HostNameAlias 2016-wf.contoso.com   
 ```  
   
-### <a name="install-the-ad-fs-certificate"></a>Installer le certificat ADFS  
-Installez le certificat ADFS qui a été créé pendant l’installation d’ADFS dans le magasin de certificats de l’ordinateur local, en procédant comme suit:  
+### <a name="install-the-ad-fs-certificate"></a>Installer le certificat AD FS  
+Installez le certificat AD FS qui a été créé pendant l’installation d’AD FS dans le magasin de certificats de l’ordinateur local, en procédant comme suit :  
   
 1.  Cliquez sur **Démarrer**, puis sur **Exécuter**.  
   
 2.  Tapez **MMC**.  
   
-3.  Dans le menu **Fichier**, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**.  
+3.  Dans le menu **Fichier** , cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**.  
   
 4.  Dans la zone **Composants logiciels enfichables disponibles**, cliquez sur **Certificats**, puis sur **Ajouter**. L’assistant Composant logiciel enfichable Certificats démarre.  
   
@@ -85,22 +86,22 @@ Installez le certificat ADFS qui a été créé pendant l’installation d’ADF
   
 9. Cliquez avec le bouton droit sur **Certificats**, cliquez sur **Toutes les tâches**, puis cliquez sur **Importer**.  
   
-10. Accédez au dossier contenant le certificat ADFS et suivez les instructions de l’Assistant pour importer le fichier et le placer dans le magasin de certificats.
+10. Accédez au dossier contenant le certificat AD FS et suivez les instructions de l’Assistant pour importer le fichier et le placer dans le magasin de certificats.
 
 11. Développez le dossier **Racine de la console\Certificats\(Ordinateur local)\Autorités de certification racines de confiance\Certificats**.  
   
 12. Cliquez avec le bouton droit sur **Certificats**, cliquez sur **Toutes les tâches**, puis cliquez sur **Importer**.  
   
-13. Accédez au dossier contenant le certificat ADFS, puis suivez les instructions de l’assistant pour importer le fichier et le placer dans le magasin des autorités de certification racines de confiance.  
+13. Accédez au dossier contenant le certificat AD FS, puis suivez les instructions de l’assistant pour importer le fichier et le placer dans le magasin des autorités de certification racines de confiance.  
   
 ### <a name="create-the-work-folders-self-signed-certificate"></a>Créer le certificat auto-signé Dossiers de travail  
-Pour créer le certificat auto-signé Dossiers de travail, procédez comme suit:  
+Pour créer le certificat auto-signé Dossiers de travail, procédez comme suit :  
   
 1.  Télécharger les scripts fournis dans billet de blog [Deploying Work Folders with AD FS and Web Application Proxy](https://blogs.technet.microsoft.com/filecab/2014/03/03/deploying-work-folders-with-ad-fs-and-web-application-proxy-wap), puis copiez le fichier makecert.ps1 sur l’ordinateur de Dossiers de travail.  
   
 2.  Ouvrez une fenêtre Windows PowerShell avec des privilèges d’administrateur.  
   
-3.  Définissez la stratégie d’exécution sur unrestricted:  
+3.  Définissez la stratégie d’exécution sur unrestricted :  
   
     ```powershell  
     PS C:\temp\scripts> Set-ExecutionPolicy -ExecutionPolicy Unrestricted   
@@ -108,7 +109,7 @@ Pour créer le certificat auto-signé Dossiers de travail, procédez comme suit:
   
 4.  Passez au répertoire où vous avez copié le script.  
   
-5.  Exécutez le script makecert:  
+5.  Exécutez le script makecert :  
   
     ```powershell  
     PS C:\temp\scripts> .\makecert.ps1  
@@ -124,20 +125,20 @@ Pour créer le certificat auto-signé Dossiers de travail, procédez comme suit:
   
 8.  Lorsque vous êtes invité à installer les certificats dans le magasin d’autorités de certification racines de confiance, appuyez sur Y.  
   
-Le certificat Dossiers de travail doit être un certificatSAN avec les valeurs suivantes:  
+Le certificat Dossiers de travail doit être un certificat SAN avec les valeurs suivantes :  
   
 -   **workfolders**.**domaine**  
   
 -   **nom de l’ordinateur**.**domaine**  
   
-Dans l’exemple de test, les valeurs sont:  
+Dans l’exemple de test, les valeurs sont :  
   
 -   **workfolders.contoso.com**  
   
 -   **2016-WF.contoso.com**  
   
 ## <a name="install-work-folders"></a>Installer Dossiers de travail  
-Pour installer le rôle Dossiers de travail, procédez comme suit:  
+Pour installer le rôle Dossiers de travail, procédez comme suit :  
   
 1.  Ouvrez le **Gestionnaire de serveur**, sélectionnez **Ajouter des rôles et des fonctionnalités**, puis cliquez sur **Suivant**.  
   
@@ -154,7 +155,7 @@ Pour installer le rôle Dossiers de travail, procédez comme suit:
 7.  Dans la page **Confirmation**, cliquez sur **Installer**.  
   
 ## <a name="configure-work-folders"></a>Configurer Dossiers de travail  
-Pour configurer Dossiers de travail, procédez comme suit:  
+Pour configurer Dossiers de travail, procédez comme suit :  
   
 1.  Ouvrez le **Gestionnaire de serveur**.  
   
@@ -177,28 +178,28 @@ Pour configurer Dossiers de travail, procédez comme suit:
 9. Dans la page **Confirmation**, cliquez sur **Créer** pour terminer le processus de configuration.  
   
 ## <a name="work-folders-post-configuration-work"></a>Dossiers de travail tâches post-configuration  
-Pour terminer la configuration de Dossiers de travail, effectuez les étapes supplémentaires suivantes:  
+Pour terminer la configuration de Dossiers de travail, effectuez les étapes supplémentaires suivantes :  
   
--   Lier le certificat Dossiers de travail au portSSL  
+-   Lier le certificat Dossiers de travail au port SSL  
   
--   Configurer Dossiers de travail pour utiliser l’authentification ADFS  
+-   Configurer Dossiers de travail pour utiliser l’authentification AD FS  
   
 -   Exporter le certificat Dossiers de travail (si vous utilisez un certificat auto-signé)  
   
 ### <a name="bind-the-certificate"></a>Lier le certificat  
 Dossiers de travail communique uniquement via SSL et doit posséder un certificat auto-signé lié au port, créé au préalable (ou que votre autorité de certification a émis).  
   
-Deuxméthodes sont à votre disposition pour lier le certificat au port via WindowsPowerShell: les applets de commande IIS et netsh.  
+Il existe deux méthodes que vous pouvez utiliser pour lier le certificat vers le port via Windows PowerShell : Applets de commande IIS et netsh.  
   
 #### <a name="bind-the-certificate-by-using-netsh"></a>Lier le certificat à l’aide de netsh  
-Pour utiliser l’utilitaire de script de ligne de commande netsh dans WindowsPowerShell, vous devez diriger la commande vers netsh. L’exemple de script suivant recherche le certificat avec l’objet **workfolders.contoso.com** et les lie au port443 à l’aide de netsh:  
+Pour utiliser l’utilitaire de script de ligne de commande netsh dans Windows PowerShell, vous devez diriger la commande vers netsh. L’exemple de script suivant recherche le certificat avec l’objet **workfolders.contoso.com** et les lie au port 443 à l’aide de netsh :  
   
 ```powershell  
 $subject = "workfolders.contoso.com"   
 Try  
 {  
 #In case there are multiple certificates with the same subject, get the latest version   
-$cert = Get-ChildItem CERT:\LocalMachine\My |where {$_.Subject -match $subject} | sort $_.NotAfter -Descending | select -first 1    
+$cert = Get-ChildItem CERT:\LocalMachine\My |where {$_.Subject -match $subject} | sort $_.NotAfter -Descending | select -first 1    
 $thumbprint = $cert.Thumbprint  
 $Command = "http add sslcert ipport=0.0.0.0:443 certhash=$thumbprint appid={CE66697B-3AA0-49D1-BDBD-A25C8359FD5D} certstorename=MY"  
 $Command | netsh  
@@ -210,13 +211,13 @@ Exit
 }   
 ```  
   
-#### <a name="bind-the-certificate-by-using-iis-cmdlets"></a>Lier le certificat à l’aide des applets de commandeIIS  
+#### <a name="bind-the-certificate-by-using-iis-cmdlets"></a>Lier le certificat à l’aide des applets de commande IIS  
 Vous pouvez également lier le certificat au port à l’aide des applets de commande de gestion IIS, qui sont disponibles si vous avez installé les outils de gestion IIS et les scripts.  
   
 > [!NOTE]  
-> L’installation des outils de gestionIIS n’active pas la version complète des ServicesInternet (IIS). sur l’ordinateur de Dossiers de travail; il active uniquement les applets de commande de gestion. Cette configuration offre un certain nombre d’avantages. Par exemple, si vous recherchez des applets de commande pour fournir la fonctionnalité que vous obtenez de netsh. Lorsque le certificat est lié au port via l’applet de commande New-WebBinding, la liaison n’est en aucun cas pas dépendante d’IIS. Après avoir effectué la liaison, vous pouvez même supprimer la console d’administration Web, et le certificat sera toujours lié au port. Vous pouvez vérifier la liaison via netsh en tapant **netsh http show sslcert**.  
+> L’installation des outils de gestion IIS n’active pas la version complète des Services Internet (IIS). sur l’ordinateur de Dossiers de travail ; il active uniquement les applets de commande de gestion. Cette configuration offre un certain nombre d’avantages. Par exemple, si vous recherchez des applets de commande pour fournir la fonctionnalité que vous obtenez de netsh. Lorsque le certificat est lié au port via l’applet de commande New-WebBinding, la liaison n’est en aucun cas pas dépendante d’IIS. Après avoir effectué la liaison, vous pouvez même supprimer la console d’administration Web, et le certificat sera toujours lié au port. Vous pouvez vérifier la liaison via netsh en tapant **netsh http show sslcert**.  
   
-L’exemple suivant utilise l’applet de commande New-WebBinding pour trouver le certificat avec l’objet **workfolders.contoso.com** et le lier au port443:  
+L’exemple suivant utilise l’applet de commande New-WebBinding pour trouver le certificat avec l’objet **workfolders.contoso.com** et le lier au port 443 :  
   
 ```powershell  
 $subject = "workfolders.contoso.com"  
@@ -238,8 +239,8 @@ Exit
 }   
 ```  
   
-### <a name="set-up-ad-fs-authentication"></a>Configurer l’authentification ADFS  
-Pour configurer Dossiers de travail de manière à utiliser les services ADFS pour l’authentification, procédez comme suit:  
+### <a name="set-up-ad-fs-authentication"></a>Configurer l’authentification AD FS  
+Pour configurer Dossiers de travail de manière à utiliser les services AD FS pour l’authentification, procédez comme suit :  
   
 1.  Ouvrez le **Gestionnaire de serveur**.  
   
@@ -251,18 +252,18 @@ Pour configurer Dossiers de travail de manière à utiliser les services ADFS po
   
     Dans l’exemple de test, l’URL est **https://blueadfs.contoso.com**.  
   
-L’applet de commande permettant d’effectuer la même tâche via WindowsPowerShell est la suivante:  
+L’applet de commande permettant d’effectuer la même tâche via Windows PowerShell est la suivante :  
   
 ```powershell  
 Set-SyncServerSetting -ADFSUrl "https://blueadfs.contoso.com"   
 ```  
   
-Si vous configurez des services ADFS avec des certificats auto-signés, vous pouvez recevoir un message d’erreur indiquant que l’URL du service de fédération est incorrecte, inaccessible, ou qu’une approbation de partie de confiance n’a pas été configurée.  
+Si vous configurez des services AD FS avec des certificats auto-signés, vous pouvez recevoir un message d’erreur indiquant que l’URL du service de fédération est incorrecte, inaccessible, ou qu’une approbation de partie de confiance n’a pas été configurée.  
   
-Cette erreur peut également survenir si le certificatADFS n’est pas installé sur le serveur Dossiers de travail ou si l’enregistrement CNAME pour ADFS n’était pas configuré correctement. Vous devez corriger ces problèmes avant de poursuivre.  
+Cette erreur peut également survenir si le certificat AD FS n’est pas installé sur le serveur Dossiers de travail ou si l’enregistrement CNAME pour AD FS n’était pas configuré correctement. Vous devez corriger ces problèmes avant de poursuivre.  
   
 ### <a name="export-the-work-folders-certificate"></a>Exporter le certificat Dossiers de travail  
-Le certificat Dossiers de travail auto-signé doit être exporté afin que vous puissiez l’installer ultérieurement sur les ordinateurs suivants dans l’environnement de test:  
+Le certificat Dossiers de travail auto-signé doit être exporté afin que vous puissiez l’installer ultérieurement sur les ordinateurs suivants dans l’environnement de test :  
   
 -   Le serveur qui est utilisé pour le proxy d’application Web  
   
@@ -270,11 +271,11 @@ Le certificat Dossiers de travail auto-signé doit être exporté afin que vous 
   
 -   Le client Windows qui n’est pas joint au domaine  
   
-Pour exporter le certificat, suivez les mêmes étapes que vous avez utilisées pour exporter le certificatADFS précédemment, comme décrit dans [Déployer Dossiers de travail avec ADFS et le proxy d’application Web: Étape2, Tâches post-configuration ADFS](deploy-work-folders-adfs-step2.md), Exporter le certificatADFS.  
+Pour exporter le certificat, suivez les mêmes étapes que vous avez utilisé pour exporter le certificat AD FS précédemment, comme décrit dans [déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 2, AD FS post-configuration travail](deploy-work-folders-adfs-step2.md), exportez le certificat AD FS.  
   
-Étape suivante: [Déployer Dossiers de travail avec ADFS et le proxy d’application Web: Étape4, Configurer le proxy d’application Web](deploy-work-folders-adfs-step4.md)  
+Étape suivante : [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 4 : configurer le Proxy d’Application Web](deploy-work-folders-adfs-step4.md)  
   
 ## <a name="see-also"></a>Voir aussi  
-[Vue d’ensemble des Dossiers de travail](Work-Folders-Overview.md)  
+[Vue d’ensemble des dossiers de travail](Work-Folders-Overview.md)  
   
 

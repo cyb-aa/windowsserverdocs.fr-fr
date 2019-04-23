@@ -1,6 +1,6 @@
 ---
-title: "TLS - vue d’ensemble du protocole SSL (SSP Schannel)"
-description: "Sécurité de Windows Server"
+title: Vue d’ensemble TLS/SSL (SSP Schannel)
+description: Sécurité de Windows Server
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,52 +12,46 @@ ms.assetid: 1b7b0432-1bef-4912-8c9a-8989d47a4da9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
-ms.date: 10/12/2016
-ms.openlocfilehash: afd0b70264dba1e720f95e40d3d201c2c5bf1c64
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.date: 05/16/2018
+ms.openlocfilehash: a6571e5e06e07fd62ad4cf39bab322b45c90a9f9
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59848600"
 ---
-# <a name="tls---ssl-schannel-ssp-overview"></a>TLS - vue d’ensemble du protocole SSL (SSP Schannel)
+# <a name="tlsssl-overview-schannel-ssp"></a>Vue d’ensemble TLS/SSL (SSP Schannel)
 
->S’applique à: Windows Server (canal annuel un point-virgule), Windows Server2016
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10
 
-Cette rubrique destinée aux professionnels de l’informatique présente l’implémentation de TLS/SSL dans Windows en utilisant le fournisseur SSP (Security Service Provider) Schannel en décrivant des applications pratiques, les modifications dans l’implémentation par Microsoft et configuration logicielle requise, ainsi que des ressources supplémentaires pour Windows Server2012 et Windows8.
+Cette rubrique destinée aux professionnels de l’informatique présente les implémentations SSL et TLS dans Windows à l’aide du fournisseur de Service de sécurité (SSP) Schannel en décrivant des applications pratiques, des modifications dans l’implémentation de Microsoft et la configuration logicielle requise, ainsi que ressources supplémentaires pour Windows Server 2012 et Windows 8.
 
-**Vouliez-vous dire:**
+## <a name="BKMK_OVER"></a>Description
+Schannel est un fournisseur de service de sécurité qui implémente les protocoles d’authentification standard Internet SSL (Secure Sockets Layer) et TLS (Transport Layer Security).
 
--   [Le package de sécurité Schannel](https://msdn.microsoft.com/library/ms678421.aspx)
+L’interface SSPI (Security Support Provider Interface) est une API utilisée par les systèmes Windows pour exécuter des fonctions relatives à la sécurité, dont notamment l’authentification. L’interface SSPI fonctionne comme une interface commune à plusieurs fournisseurs de services partagés, y compris le SSP. Schannel
 
--   [Canal sécurisé](https://msdn.microsoft.com/library/windows/desktop/aa380123.aspx)
+TLS versions 1.0, 1.1 et 1.2, les versions SSL 2.0 et 3.0, ainsi que la sécurité de couche de Transport de datagramme \(DTLS\) protocol version 1.0 et le Transport de Communications privées \(PCT\) protocole reposent sur chiffrement à clé publique. La suite de protocoles d’authentification Schannel fournit ces protocoles. Tous les protocoles Schannel utilisent un modèle client/serveur.
 
--   [Protocole de sécurité de couche de transport](https://msdn.microsoft.com/library/windows/desktop/aa380516.aspx)
+## <a name="BKMK_APP"></a>Applications
+Lorsque vous administrez un réseau, l’un des problèmes qui se posent concerne la sécurisation des données envoyées entre les applications via un réseau non approuvé. Vous pouvez utiliser les protocoles TLS et SSL pour authentifier les serveurs et les ordinateurs clients, puis utiliser le protocole pour chiffrer les messages entre les parties authentifiées.
 
-## <a name="BKMK_OVER"></a>Description de \(Schannel\) TLS/SSL
-Schannel est un \(SSP\) Security Support Provider qui implémente le \(SSL\) Secure Sockets Layer et Transport Layer Security \(TLS\) protocoles d’authentification standard Internet.
+Par exemple, vous pouvez utiliser TLS/SSL pour :
 
-Le \(SSPI\) Security Support Provider Interface est une API utilisée par les systèmes Windows pour effectuer des fonctions sécurité\, y compris l’authentification. L’interface SSPI fonctionne comme une interface commune à plusieurs \(SSPs\) fournisseurs de sécurité, y compris le SSP. Schannel
-
-Les versions du protocole de Transport Layer Security \(TLS\) 1.0, 1.1 et 1.2, protocole \(SSL\) protocole SSL (Secure Sockets Layer) versions 2.0 et 3.0, \(DTLS\) Datagram Transport Layer Security version1.0 et Private Communications Transport \(PCT\) protocole sont basées sur le chiffrement à clé publique. La suite de protocoles d’authentification de canal de sécurité \(Schannel\) fournit ces protocoles. Tous les protocoles Schannel utilisent un modèle client/serveur.
-
-## <a name="BKMK_APP"></a>Applications pratiques
-Un problème lorsque vous administrez un réseau concerne la sécurisation des données envoyées entre les applications via un réseau non approuvé. Vous pouvez utiliser TLS/SSL pour authentifier les serveurs et les ordinateurs clients, puis utilisez le protocole pour crypter les messages entre les parties authentifiées.
-
-Par exemple, vous pouvez utiliser TLS/SSL pour:
-
--   Transactions sécurisées par SSL\ avec un site Web de commerce e\
-
--   Accès des clients authentifiés à un site Web sécurisé à l’aide de SSL\
-
+-   les transactions sécurisées par SSL avec un site Web de commerce électronique ;
+-   l’accès des clients authentifiés à un site Web sécurisé par SSL ;
 -   Accès à distance
+-   l’accès SQL ;
+-   Courrier électronique
 
--   Accès à SQL
+## <a name="BKMK_SOFT"></a>Configuration requise
+Les protocoles TLS et SSL utilisent un modèle client/serveur et sont basées sur l’authentification par certificat, ce qui nécessite une infrastructure à clé publique.
 
--   Messagerie E\
-
-## <a name="BKMK_SOFT"></a>Configuration logicielle requise
-Le protocole TLS/SSL utilisent un modèle client\server et sont basées sur l’authentification par certificat, ce qui nécessite une Infrastructure à clé publique.
-
-## <a name="BKMK_INSTALL"></a>Informations du Gestionnaire de serveur
+## <a name="BKMK_INSTALL"></a>Informations de gestionnaire de serveur
 Aucune étape de configuration ne sont nécessaires pour implémenter TLS, SSL ou Schannel.
 
+## <a name="see-also"></a>Voir aussi ##
+
+-   [Le package de sécurité Schannel](https://docs.microsoft.com/windows/desktop/com/schannel)
+-   [Canal sécurisé](https://docs.microsoft.com/windows/desktop/SecAuthN/secure-channel)
+-   [Protocole de sécurité de couche de transport](https://docs.microsoft.com/windows/desktop/SecAuthN/transport-layer-security-protocol)

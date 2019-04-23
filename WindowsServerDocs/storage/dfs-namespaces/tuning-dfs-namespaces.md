@@ -1,6 +1,6 @@
 ---
-title: "Réglage des espaces de nomsDFS"
-description: "Cet article explique comment régler ou optimiser des espaces de nomsDFS."
+title: Réglage des espaces de noms DFS
+description: Cet article explique comment régler ou optimiser des espaces de noms DFS.
 ms.date: 6/5/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -8,25 +8,26 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 4614441fc54913ba5a8b547bbf1ad3e8ce7ee69b
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: c11bbf65c3baebebe1e5143a5e694ca752500aca
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59844630"
 ---
-# <a name="tuning-dfs-namespaces"></a>Réglage des espaces de nomsDFS
+# <a name="tuning-dfs-namespaces"></a>Réglage des espaces de noms DFS
 
-> S’applique à: WindowsServer (canal semi-annuel), WindowsServer2016, WindowsServer2012R2, WindowsServer2012, WindowsServer2008R2, WindowsServer2008
+> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
-Après avoir créé un espace de noms et ajouté des dossiers et des cibles, reportez-vous aux sections suivantes pour régler ou optimiser la façon dont l’espace de nomsDFS traite les références et interroge ActiveDirectory DomainServices (ADDS) pour obtenir des données d’espace de noms à jour:
+Après avoir créé un espace de noms et ajout de dossiers et des cibles, consultez les sections suivantes pour régler ou optimiser la manière dont les références de handles de DFS Namespace et les sondages Services de domaine Active Directory (AD DS) pour les données de l’espace de noms mis à jour :
 
--   [Activer l’énumération basée sur l’accès pour un espace denoms](enable-access-based-enumeration-on-a-namespace.md)
--   [Activer ou désactiver les références et la restauration du client](enable-or-disable-referrals-and-client-failback.md)
--   [Modifier la durée de mise encache des références par les clients](change-the-amount-of-time-that-clients-cache-referrals.md)
--   [Définir la méthode de classement des cibles contenues dans les références](set-the-ordering-method-for-targets-in-referrals.md)
--   [Définir la priorité de cible pour remplacer le classement des références](set-target-priority-to-override-referral-ordering.md)
--   [Optimiser l’interrogation des espaces de noms](optimize-namespace-polling.md)
--   [Utilisation d’autorisations héritées avec l’énumération basée sur l’accès](using-inherited-permissions-with-access-based-enumeration.md)
+-   [Activer l’énumération basée sur l’accès à un Namespace](enable-access-based-enumeration-on-a-namespace.md)
+-   [Activer ou désactiver les références et la restauration automatique du Client](enable-or-disable-referrals-and-client-failback.md)
+-   [Modifier la quantité de temps que les références sont mises en Cache par les Clients](change-the-amount-of-time-that-clients-cache-referrals.md)
+-   [Définir la méthode de classement pour les cibles dans les références](set-the-ordering-method-for-targets-in-referrals.md)
+-   [Définir la priorité pour remplacer l’ordre des références](set-target-priority-to-override-referral-ordering.md)
+-   [Optimiser l’interrogation de Namespace](optimize-namespace-polling.md)
+-   [À l’aide d’autorisations héritées avec l’énumération basée sur l’accès](using-inherited-permissions-with-access-based-enumeration.md)
 
 > [!NOTE]
 > Pour rechercher des dossiers ou des cibles de dossier, sélectionnez un espace de noms, cliquez sur l’onglet **Recherche**, saisissez votre chaîne de recherche dans la zone de texte, puis cliquez sur **Rechercher**.

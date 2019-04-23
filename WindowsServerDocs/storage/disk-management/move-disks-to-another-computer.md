@@ -1,6 +1,6 @@
 ---
-title: "Déplacer des disques vers un autre ordinateur"
-description: "Cet article décrit comment déplacer des disques vers un autre ordinateur"
+title: Déplacer des disques vers un autre ordinateur
+description: Cet article décrit comment déplacer des disques vers un autre ordinateur
 ms.date: 10/12/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 6b235ce8e5b936940629d5977a17bbc729efbe82
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59854000"
 ---
 # <a name="move-disks-to-another-computer"></a>Déplacer des disques vers un autre ordinateur
 
-> **S’applique à:** Windows10, Windows8.1, WindowsServer (canal semi-annuel), WindowsServer2016, WindowsServer2012R2, WindowsServer2012
+> **S’applique à :** Windows 10, Windows 8.1, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette section décrit les étapes à suivre pour déplacer des disques vers un autre ordinateur et les considérations associées à cette opération. Il peut être utile d’imprimer cette procédure ou de noter les étapes avant d’essayer de déplacer les disques d’un ordinateur à un autre.
 
@@ -62,7 +63,7 @@ Désinstallez les disques que vous voulez déplacer à l’aide du Gestionnaire 
 3. Cliquez avec le bouton droit sur n’importe quel disque marqué **Étranger**. 
 4. Cliquez sur **Importer des disques étrangers**, puis suivez les instructions affichées à l’écran.
 
-## <a name="additional-considerations"></a>Autres éléments à prendre en considération
+## <a name="additional-considerations"></a>Considérations supplémentaires
 
 -   Lors du déplacement vers un autre ordinateur, les volumes de base reçoivent la lettre de lecteur disponible suivante sur l’ordinateur. 
 -   Les volumes dynamiques conservent la lettre de lecteur qui leur avait été affectée sur l’ordinateur précédent. Si un volume dynamique n’avait pas de lettre de lecteur sur l’ordinateur précédent, aucune lettre de lecteur ne lui affectée lorsqu’il est déplacé vers un autre ordinateur. Si la lettre de lecteur est déjà utilisée sur l’ordinateur sur lequel le volume est déplacé, il reçoit la lettre de lecteur disponible suivante.
@@ -75,4 +76,4 @@ Désinstallez les disques que vous voulez déplacer à l’aide du Gestionnaire 
 
 -   L’outil Gestion des disques décrit la condition des volumes sur les disques avant leur importation. Lisez attentivement ces informations. En cas de problèmes, ces informations vous indiquent ce qu’il adviendra à chaque volume des disques une fois que les disques ont été importés.
 
--   Si vous déplacez un disque de table de partition GUID (GPT) contenant le système d’exploitation Windows vers un ordinateurx86 oux64, vous pouvez accéder aux données, mais vous ne pouvez pas démarrer à partir de ce système d’exploitation.
+-   Si vous déplacez un disque de table de partition GUID (GPT) contenant le système d’exploitation Windows vers un ordinateur x86 ou x64, vous pouvez accéder aux données, mais vous ne pouvez pas démarrer à partir de ce système d’exploitation.

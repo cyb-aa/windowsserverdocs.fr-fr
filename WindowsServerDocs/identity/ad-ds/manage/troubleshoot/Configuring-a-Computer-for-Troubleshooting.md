@@ -1,109 +1,61 @@
 ---
 ms.assetid: 155abe09-6360-4913-8dd9-7392d71ea4e6
-title: "Configuration d’un ordinateur pour la résolution des problèmes"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
-ms.date: 05/31/2017
+title: Configuration d’un ordinateur pour la résolution des problèmes
+description: ''
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 915b8d1133b3bee050f5eedce9e7ac445f833048
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 1acb5f7d309d58ed4a5a3aca6bb89f01c0cbf933
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59854120"
 ---
 # <a name="configuring-a-computer-for-troubleshooting"></a>Configuration d’un ordinateur pour la résolution des problèmes
 
->S’applique à: Windows Server2016, Windows Server2012R2, Windows Server2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
+Avant d’utiliser des techniques de dépannage avancé pour identifier et résoudre les problèmes d’Active Directory, configurer vos ordinateurs pour le dépannage. Vous devez également avoir une connaissance élémentaire de la résolution des problèmes de concepts, procédures et outils.
 
-<developerConceptualDocument xmlns="https://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="https://www.w3.org/1999/xlink" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://ddue.schemas.microsoft.com/authoring/2003/5 http://clixdevr3.blob.core.windows.net/ddueschema/developer.xsd">
-  <introduction>
-    <para>Avant d’utiliser des techniques de dépannage avancé pour identifier et résoudre les problèmes d’ActiveDirectory, configurez vos ordinateurs pour la résolution des problèmes. Vous devez également avoir une compréhension de base <token>nextref_longhorincludes > résolution des problèmes des concepts, des procédures et des outils. </para>
-    <para>Pour plus d’informations sur la surveillance des outils pour Windows Server2008, consultez le Step-by-Step Guide pour l’analyse des performances et la fiabilité dans Windows Server2008 (<externalLink><linkText>https://go.microsoft.com/fwlink/?LinkId=123737</linkText><linkUri>https://go.microsoft.com/fwlink/?LinkId=123737</linkUri></externalLink>).</para>
-  </introduction>
-  <section>
-    <title>Tâches de configuration pour la résolution des problèmes</title>
-    <content>
-      <para>pour configurer votre ordinateur pour le dépannage des Services de domaine ActiveDirectory (ADDS), effectuez les tâches suivantes:</para>
-      <para>
-        <link xlink:href="#BKMK_2">installer Remote Server Administration Tools pour les services ADDS</link>
-      </para>
-      <para>
-        <link xlink:href="#BKMK_3">configurer moniteur de fiabilité et performances</link>
-      </para>
-      <para>
-        <link xlink:href="#BKMK_4">définir les niveaux d’enregistrement</link>
-      </para>
-    </content>
-    <sections>
-      <section address="BKMK_2">
-        <title>Installer les outils d’Administration de serveur distant pour les services ADDS</title>
-        <content>
-          <para>lorsque vous installez les services ADDS pour créer un contrôleur de domaine, les outils d’administration que vous utilisez pour gérer les services ADDS sont installés automatiquement. Si vous souhaitez gérer à distance des contrôleurs de domaine à partir d’un ordinateur qui n’est pas un contrôleur de domaine, vous pouvez installer les outils d’administration sur un serveur membre qui exécute <token>nextref_longhorincludes > ou sur un ordinateur qui exécute WindowsVista avec Service Pack1 (SP1). Sur les serveurs membres qui sont en cours d’exécution <token>nextref_longhorincludes >, vous utilisez la fonctionnalité Outils d’Administration de serveur distant (RSAT) dans le Gestionnaire de serveur pour installer les outils de Services de domaine ActiveDirectory. RSAT remplace les outils de Support de Windows dans Windows Server2003. Vous pouvez également installer les outils de Services de domaine ActiveDirectory sur un ordinateur qui exécute WindowsVista avec Service Pack1 (SP1), téléchargez les outils sur cet ordinateur.</para>
-          <para>pour plus d’informations sur l’installation de serveur distant, consultez <link xlink:href="610ba7d9-51b5-4e14-9232-0510a9091aba">l’installation Remote Server Administration Tools pour les services ADDS</link>.</para>
-        </content>
-      </section>
-      <section address="BKMK_3">
-        <title>Configurer le moniteur de fiabilité et performances</title>
-        <content>
-          <para>Windows Server2008 inclut la fiabilité de Windows et d’un analyseur de performances, ce qui est un composant logiciel enfichable MicrosoftManagement Console (MMC) qui combine les fonctionnalités des outils autonomes précédents, y compris les journaux de performances et les alertes, Server Performance Advisor et le Moniteur système. Ce composant logiciel enfichable fournit une interface graphique utilisateur (GUI) pour personnaliser les ensembles de collecteurs de données et des Sessions de suivi d’événements. </para>
-          <para>moniteur de fiabilité et performances inclut également le moniteur de fiabilité, un composant logiciel enfichable MMC qui effectue le suivi des modifications au système et les compare aux modifications de la stabilité du système, en fournissant un affichage graphique de leur relation. </para>
-        </content>
-      </section>
-      <section address="BKMK_4"> 
-        <title>Définir les niveaux d’enregistrement</title>
-        <content>
-          <para>si les informations que vous recevez dans le journal du Service d’annuaire dans l’Observateur d’événements ne sont pas suffisantes pour la résolution des problèmes, augmentez les niveaux d’enregistrement à l’aide de l’entrée de Registre appropriées dans</para><embeddedLabel>HKEY_LOCAL_MACHINESYSTEMCurrentControlSetServicesNTDSDiagnostics</embeddedLabel>.
-          <para>par défaut, les niveaux d’enregistrement pour toutes les entrées sont définis sur <embeddedLabel>0</embeddedLabel>, qui fournit la quantité minimale d’informations. Le niveau de journalisation la plus élevé est <embeddedLabel>5</embeddedLabel>. Augmenter le niveau d’une entrée entraîne des événements supplémentaires dans le journal des événements Service d’annuaire.</para>
-          <para>vous pouvez utiliser la procédure suivante pour modifier le niveau de journalisation pour une entrée de diagnostic.</para>
-          <alert class="caution">
-            <para>nous recommandons que vous ne modifiez pas directement le Registre à moins qu’aucune autre solution. Modifications du Registre ne sont pas validées par l’Éditeur du Registre ou par Windows avant qu’ils sont appliqués, et par conséquent, des valeurs incorrectes peuvent être stockées. Cela peut entraîner des erreurs irrécupérables dans le système. Si possible, utilisez la stratégie de groupe ou d’autres outils Windows, tels qu’enfichables MMC pour accomplir des tâches, plutôt que de modifier le Registre directement. Si vous devez modifier le Registre, soyez très vigilant.</para>
-          </alert>
-          <para>
-            <embeddedLabel>exigences</embeddedLabel>
-          </para>
-          <list class="bullet">
-            <listItem>
-              <para>l’appartenance au groupe <embeddedLabel>Admins du domaine</embeddedLabel>, ou équivalente, est la condition minimale requise pour effectuer cette procédure. <token>review_detailincludes </para>
-            </listItem>
-            <listItem>
-              <para>outils: Regedit.exe</para>
-            </listItem>
-          </list>
-          <procedure>
-            <title>pour modifier le niveau d’enregistrement d’une entrée du diagnostic</title>
-            <steps class="ordered">
-              <step>
-                <content>
-                  <para>cliquez sur <ui>Démarrer</ui>, cliquez sur <ui>exécuter</ui>, type <userInput>regedit</userInput>, puis cliquez sur <ui>OK</ui>. </para>
-                </content>
-              </step>
-              <step>
-                <content>
-                  <para>naviguer à l’entrée pour lequel vous souhaitez définir la journalisation dans <embeddedLabel>HKEY_LOCAL_MACHINESYSTEMCurrentControlSetServicesNTDSDiagnostics</embeddedLabel>. </para>
-                </content>
-              </step>
-              <step>
-                <content>
-                  <para>double-cliquez sur l’entrée et dans <embeddedLabel>Base</embeddedLabel>, cliquez sur <embeddedLabel>décimal</embeddedLabel>. </para>
-                </content>
-              </step>
-              <step>
-                <content>
-                  <para>dans <embeddedLabel>valeur</embeddedLabel>, tapez un nombre entier compris entre <embeddedLabel>0</embeddedLabel> via <embeddedLabel>5</embeddedLabel>, puis cliquez sur <ui>OK</ui>. </para>
-                </content>
-              </step>
-            </steps>
-          </procedure>
-        </content>
-      </section>
-    </sections>
-  </section>
-  <relatedTopics />
-</developerConceptualDocument>
+Pour plus d’informations sur les outils d’analyse pour Windows Server, consultez le Guide pas à pas pour [analyse des performances et fiabilité dans Windows Server](https://go.microsoft.com/fwlink/?LinkId=123737)
 
+## <a name="configuration-tasks-for-troubleshooting"></a>Tâches de configuration pour la résolution des problèmes
 
+Pour configurer votre ordinateur pour le dépannage des Services de domaine Active Directory (AD DS), procédez comme suit :
+
+### <a name="install-remote-server-administration-tools-for-ad-ds"></a>Installer les outils d’Administration de serveur distant pour AD DS
+
+Lorsque vous installez les services AD DS pour créer un contrôleur de domaine, les outils d’administration que vous utilisez pour gérer les services AD DS sont installés automatiquement. Si vous souhaitez gérer à distance des contrôleurs de domaine à partir d’un ordinateur qui n’est pas un contrôleur de domaine, vous pouvez installer les outils d’Administration de serveur distant (RSAT) sur un serveur membre ou une station de travail qui exécute une version prise en charge de Windows. RSAT remplace les outils de Support Windows à partir de Windows Server 2003.
+
+Pour plus d’informations sur l’installation de serveur distant, consultez l’article [outils d’Administration de serveur distant](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools).
+
+### <a name="configure-reliability-and-performance-monitor"></a>Configurer le moniteur de fiabilité et performances
+
+Windows Server inclut la fiabilité de Windows et l’Analyseur de performances, qui est un composant logiciel enfichable Microsoft Management Console (MMC) qui combine les fonctionnalités d’outils autonomes précédents, y compris les journaux de performances et alertes, Server Performance Advisor, et le Moniteur système. Ce composant logiciel enfichable fournit une interface utilisateur graphique (GUI) pour personnaliser les ensembles de collecteurs de données et des Sessions de suivi d’événements.
+
+Moniteur de fiabilité et performances inclut également Reliability Monitor, un composant logiciel enfichable MMC qui suit les modifications apportées au système et les compare aux modifications dans la stabilité du système, en fournissant une vue graphique de leur relation.
+
+### <a name="set-logging-levels"></a>Définir des niveaux de journalisation
+
+Si les informations que vous recevez dans le journal du Service d’annuaire dans l’Observateur d’événements ne sont pas suffisantes pour la résolution des problèmes, augmenter les niveaux de journalisation à l’aide de l’entrée de Registre appropriées dans **HKEY_LOCAL_ MACHINESYSTEMCurrentControlSetServicesNTDSDiagnostics**.
+
+Par défaut, les niveaux de journalisation pour toutes les entrées sont définies **0**, qui fournit la quantité minimale d’informations. Le niveau de journalisation la plus élevé est **5**. Augmenter le niveau de rechercher une entrée provoque des événements supplémentaires dans le journal des événements Service d’annuaire.
+
+Utilisez la procédure suivante pour modifier le niveau de journalisation pour une entrée de diagnostic. L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition minimale requise pour effectuer cette procédure.
+
+> [!WARNING]
+> Nous vous recommandons de ne pas modifier directement le Registre, sauf s’il n’y a pas d’autre solution. Modifications du Registre ne sont pas validées par l’Éditeur du Registre ou par Windows avant qu’ils sont appliqués, et par conséquent, les valeurs incorrectes peuvent être stockées. Cela peut entraîner des erreurs irrécupérables dans le système. Si possible, utilisez la stratégie de groupe ou d’autres outils Windows, tels que les composants logiciel enfichables MMC, pour accomplir des tâches, plutôt que de modifier le Registre directement. Si vous devez modifier le Registre, soyez très vigilant.
+>
+
+Pour modifier le niveau de journalisation pour une entrée de diagnostic
+
+1. Cliquez sur **Démarrer** > **exécuter** > type **regedit** > cliquez sur **OK**.
+2. Accédez à l’entrée pour laquelle vous souhaitez définir la connexion.
+   * EXEMPLE : HKEY_LOCAL_MACHINESYSTEMCurrentControlSetServicesNTDSDiagnostics
+3. Double-cliquez sur l’entrée, puis, dans **Base**, cliquez sur **décimal**.
+4. Dans **valeur**, tapez un entier compris entre **0** via **5**, puis cliquez sur **OK**.

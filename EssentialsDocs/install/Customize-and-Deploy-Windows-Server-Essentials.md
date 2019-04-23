@@ -1,6 +1,6 @@
 ---
-title: "Personnaliser et déployer WindowsServerEssentials"
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Personnaliser et déployer Windows Server Essentials
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 09/2013/2016
 ms.prod: windows-server-2016-essentials
@@ -13,21 +13,22 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: a02c624efa452b76fc404d58c25b94c310b93628
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59854930"
 ---
-# <a name="customize-and-deploy-windows-server-essentials"></a>Personnaliser et déployer WindowsServerEssentials
+# <a name="customize-and-deploy-windows-server-essentials"></a>Personnaliser et déployer Windows Server Essentials
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
   
- Pour personnaliser et déployer WindowsServerEssentials, utilisez les informations contenues dans le [Kit de déploiement (WindowsWindowsADK) et d’évaluation Windows](https://www.microsoft.com/download/details.aspx?id=39982) et dans [personnaliser et déployer WindowsServerEssentials dans Windows Server2012R2](https://technet.microsoft.com/library/dn293241.aspx).  
+ Pour personnaliser et déployer Windows Server Essentials, utilisez les informations fournies dans le [Kit de déploiement et d’évaluation Windows (Windows ADK)](https://www.microsoft.com/download/details.aspx?id=39982) et dans [Personnaliser et déployer Windows Server Essentials dans Windows Server 2012 R2](https://technet.microsoft.com/library/dn293241.aspx).  
   
 ## <a name="see-also"></a>Voir aussi  
   
 -   [Référence technique des outils de déploiement Windows](https://technet.microsoft.com/library/hh825039.aspx)  
   
--   [Déploiement de Windows avec Windows ADK](https://technet.microsoft.com/library/hh824947.aspx)  
+-   [Déploiement de Windows avec le Windows ADK](https://technet.microsoft.com/library/hh824947.aspx)  
   
--   [WindowsServerEssentials - Kit de déploiement et d’évaluation](Assessment-and-Deployment-Kit-for-Windows-Server-Essentials.md)
+-   [Windows Server Essentials - Kit de déploiement et d’évaluation](Assessment-and-Deployment-Kit-for-Windows-Server-Essentials.md)
