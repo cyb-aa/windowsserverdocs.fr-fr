@@ -1,6 +1,6 @@
 ---
-title: Configurer DirectAccess dans WindowsServerEssentials
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Configurer DirectAccess dans Windows Server Essentials
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,278 +13,279 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: cc336dcd2a5418aa79254108c941a02147112e8f
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
-ms.translationtype: MT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59860680"
 ---
-# <a name="configure-directaccess-in-windows-server-essentials"></a>Configurer DirectAccess dans WindowsServerEssentials
+# <a name="configure-directaccess-in-windows-server-essentials"></a>Configurer DirectAccess dans Windows Server Essentials
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Cette rubrique fournit des instructions pas à pas pour configurer DirectAccess dans WindowsServerEssentials pour activer votre personnel itinérant connecter de façon transparente au réseau s de votre organisation à partir de n’importe quel emplacement distant équipé d’Internet sans établir une connexion réseau privé virtuel (VPN). DirectAccess offre aux utilisateurs itinérants la même expérience de connectivité à l’intérieur et en dehors de leurs ordinateurs Windows8.1, Windows8 et Windows7.  
+Cette rubrique fournit des instructions détaillées pour configurer DirectAccess dans Windows Server Essentials pour permettre à votre personnel mobile connecter de façon transparente au réseau de votre organisation s à partir de n’importe quel emplacement distant équipé d’Internet sans avoir à établir un connexion de réseau privé virtuel (VPN). DirectAccess offre aux utilisateurs itinérants la même expérience de connectivité à l’intérieur et en dehors du Bureau à partir de leurs ordinateurs Windows 8.1, Windows 8 et Windows 7.  
   
- Dans WindowsServerEssentials, si le domaine contient plusieurs serveurs WindowsServerEssentials, DirectAccess doit être configurés sur le contrôleur de domaine.  
+ Dans Windows Server Essentials, si le domaine contient plusieurs serveurs Windows Server Essentials, DirectAccess doit être configurés sur le contrôleur de domaine.  
   
 > [!NOTE]
->  Cette rubrique fournit des instructions pour configurer DirectAccess lorsque votre serveur WindowsServerEssentials est le contrôleur de domaine. Si le serveur WindowsServerEssentials est membre d’un domaine, suivez les instructions pour configurer DirectAccess sur un membre du domaine dans [ajouter DirectAccess à un déploiement de l’accès à distance existants (VPN)](https://technet.microsoft.com/library/jj574220.aspx) à la place.  
+>  Cette rubrique fournit des instructions pour configurer DirectAccess lorsque votre serveur Windows Server Essentials est le contrôleur de domaine. Si le serveur Windows Server Essentials est un membre de domaine, suivez les instructions pour configurer DirectAccess sur un membre du domaine dans [ajouter DirectAccess à un déploiement de l’accès à distance existants (VPN, Virtual Private Network)](https://technet.microsoft.com/library/jj574220.aspx) à la place.  
   
-## <a name="process-overview"></a>Vue d’ensemble du processus  
- Pour configurer DirectAccess dans WindowsServerEssentials, procédez comme suit.  
+## <a name="process-overview"></a>Vue d'ensemble du processus  
+ Pour configurer DirectAccess dans Windows Server Essentials, procédez comme suit.  
   
 > [!IMPORTANT]
->  Avant d’utiliser les procédures décrites dans ce guide pour configurer DirectAccess dans WindowsServerEssentials, vous devez activer VPN sur le serveur. Pour obtenir des instructions, voir [gérer un VPN](Manage-VPN-in-Windows-Server-Essentials.md).  
+>  Avant d’utiliser les procédures décrites dans ce guide pour configurer DirectAccess dans Windows Server Essentials, vous devez activer VPN sur le serveur. Pour obtenir des instructions, consultez [gérer un réseau VPN](Manage-VPN-in-Windows-Server-Essentials.md).  
   
--   [Étape1: Ajouter des outils de gestion de l’accès à distance à votre serveur](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_AddRAM)  
+-   [Étape 1 : Ajouter des outils de gestion des accès à distance à votre serveur](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_AddRAM)  
   
--   [Étape2: Modifiez l’adresse de la carte réseau du serveur à une adresse IP statique](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_AddStaticIP)  
+-   [Étape 2 : Modifier l’adresse de la carte réseau du serveur à une adresse IP statique](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_AddStaticIP)  
   
--   [Étape3: Préparer un certificat et un enregistrement DNS pour le serveur emplacement réseau](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_DNS)  
+-   [Étape 3 : Préparer un certificat et un enregistrement DNS pour le serveur emplacement réseau](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_DNS)  
   
-    -   [Étape3 a: accorder des autorisations maximales aux utilisateurs authentifiés pour le modèle de certificat de serveur s Web](#BKMK_GrantFullPermissions)  
+    -   [Étape 3 a : Accorder des autorisations complètes aux utilisateurs authentifiés pour le serveur Web de modèle de certificat s](#BKMK_GrantFullPermissions)  
   
-    -   [Étape3 b: inscrire un certificat pour le serveur d’emplacement réseau avec un nom commun qui ne peut pas être résolu à partir du réseau externe](#BKMK_EnrollaCertificate)  
+    -   [Étape 3b : Inscrire un certificat pour le serveur d’emplacement réseau avec un nom commun qui ne peut pas être résolu à partir du réseau externe](#BKMK_EnrollaCertificate)  
   
-    -   [Étape3c: ajouter un nouvel hôte sur le serveur DNS et le mapper à l’adresse du serveur WindowsServerEssentials](#BKMK_MapNewHosttoServerAddress)  
+    -   [Étape 3c : Ajouter un nouvel hôte sur le serveur DNS et mappez-le à l’adresse du serveur Windows Server Essentials](#BKMK_MapNewHosttoServerAddress)  
   
--   [Étape4: Créer un groupe de sécurité pour les ordinateurs clients DirectAccess](#BKMK_AddSecurityGroup)  
+-   [Étape 4 : Créer un groupe de sécurité pour les ordinateurs clients DirectAccess](#BKMK_AddSecurityGroup)  
   
--   [Étape5: Activer et configurer DirectAccess](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_EnableConfigureDA)  
+-   [Étape 5 : Activer et configurer DirectAccess](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_EnableConfigureDA)  
   
-    -   [Étape5 a: activer DirectAccess à l’aide de la Console de gestion de l’accès à distance](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_EnableDA)  
+    -   [Étape 5 a : Activer DirectAccess à l’aide de la Console de gestion d’accès à distance](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_EnableDA)  
   
-    -   [Étape5 b: supprimer les IPv6Prefix non valide dans l’objet stratégie de groupe RRAS (WindowsServerEssentials uniquement)](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_RemoveIPv6)  
+    -   [Étape 5 b : Supprimer le IPv6Prefix non valide dans l’objet stratégie de groupe RRAS (Windows Server Essentials uniquement)](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_RemoveIPv6)  
   
-    -   [Étape5c: autoriser les ordinateurs clients exécutant Windows7 entreprise à utiliser DirectAccess](#BKMK_Step4cWindows7Setup)  
+    -   [Étape 5c : Activer les ordinateurs clients qui exécutent Windows 7 entreprise à utiliser DirectAccess](#BKMK_Step4cWindows7Setup)  
   
-    -   [Étape5D: configurer le serveur d’emplacement réseau](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_NLS)  
+    -   [Étape 5D : Configurer le serveur emplacement réseau](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_NLS)  
   
-    -   [Étape5e: ajouter une clé de Registre pour contourner l’autorité de certification quand vous établissez un canal IPsec](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_CA)  
+    -   [Étape 5e : Ajouter une clé de Registre pour contourner l’autorité de certification quand vous établissez un canal IPsec](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_CA)  
   
--   [Étape6: Configurer les paramètres de Table de stratégie de résolution de noms pour le serveur DirectAccess](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_NRPT)  
+-   [Étape 6 : Configurer les paramètres de la Table de stratégie de résolution de noms pour le serveur DirectAccess](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_NRPT)  
   
--   [Étape7: Configurer les règles de pare-feu TCP et UDP pour les objets stratégie de groupe du serveur DirectAccess](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_TCPUDP)  
+-   [Étape 7 : Configurer des règles de pare-feu TCP et UDP pour la stratégie de groupe du serveur DirectAccess](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_TCPUDP)  
   
--   [Étape8: Modifier la configuration DNS64 pour écouter l’interface IP-HTTPS](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_DNS64)  
+-   [Étape 8 : Modifier la configuration DNS64 pour écouter l’interface IP-HTTPS](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_DNS64)  
   
--   [Étape9: Réserver des ports pour le service WinNat](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_ExemptPort)  
+-   [Étape 9 : Réserver des ports pour le service WinNat](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_ExemptPort)  
   
--   [Étape10: Redémarrer le service WinNat](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_WinNAT)  
+-   [Étape 10 : Redémarrez le service WinNat](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_WinNAT)  
   
 > [!NOTE]
->  [Annexe: Installer DirectAccess à l’aide de Windows PowerShell](#BKMK_AppendixBPowerShellScript) fournit un script Windows PowerShell que vous pouvez utiliser pour configurer DirectAccess.  
+>  [Annexe : Configurer DirectAccess à l’aide de Windows PowerShell](#BKMK_AppendixBPowerShellScript) fournit un script Windows PowerShell que vous pouvez utiliser pour effectuer l’installation de DirectAccess.  
   
-##  <a name="BKMK_AddRAM"></a>Étape1: Ajouter des outils de gestion de l’accès à distance à votre serveur  
+##  <a name="BKMK_AddRAM"></a> Étape 1 : Ajouter les outils de gestion de l’accès à distance à votre serveur  
   
 #### <a name="to-add-remote-access-management-tools"></a>Pour ajouter les outils de gestion de l’accès à distance  
   
-1.  Sur le serveur, dans l’angle inférieur gauche de la page de démarrage, cliquez sur le **le Gestionnaire de serveur** icône.  
+1.  Sur le serveur, dans l'angle inférieur gauche de la page de démarrage, cliquez sur l’icône **Gestionnaire de serveur** .  
   
-     Dans WindowsServerEssentials, vous devez rechercher le Gestionnaire de serveur pour l’ouvrir. Sur la page de démarrage, tapez **le Gestionnaire de serveur**, puis cliquez sur **le Gestionnaire de serveur** dans les résultats de recherche. Pour épingler le Gestionnaire de serveur à la page de démarrage, cliquez sur Gestionnaire de serveur dans les résultats de recherche, puis cliquez sur **épingler au menu Démarrer**.  
+     Dans Windows Server Essentials, vous devez rechercher le Gestionnaire de serveur pour l’ouvrir. Dans la page de démarrage, tapez **Server Manager**, puis cliquez sur **Gestionnaire de serveur** dans les résultats de la recherche. Pour épingler le Gestionnaire de serveur à la page de démarrage, cliquez avec le bouton droit sur le Gestionnaire de serveur dans les résultats de la recherche, puis cliquez sur **Épingler à l'écran d'accueil**.  
   
-2.  Si un **contrôle de compte d’utilisateur** message d’avertissement s’affiche, cliquez sur **Oui**.  
+2.  Si un message d’avertissement **Contrôle de compte d’utilisateur** s’affiche, cliquez sur **Oui**.  
   
-3.  Dans le tableau de bord du Gestionnaire de serveur, cliquez sur **gérer**, puis cliquez sur **Ajout de rôles et fonctionnalités**.  
+3.  Dans le tableau de bord du Gestionnaire de serveur, cliquez sur **Gérer**, puis sur **Ajouter des rôles et des fonctionnalités**.  
   
-4.  Dans l’ajout de rôles et fonctionnalités Assistant, procédez comme suit:  
+4.  Dans l'Assistant Ajout de rôles et de fonctionnalités, procédez comme suit :  
   
-    1.  Sur le **Type d’Installation**, cliquez sur **installation basée sur un rôle ou une fonctionnalité**.  
+    1.  Dans la page **Type d’installation** , cliquez sur **Installation basée sur un rôle ou une fonctionnalité**.  
   
-    2.  Sur le **page de sélection du serveur** (ou le **serveur de destination sélectionnez** page dans WindowsServerEssentials), cliquez sur **sélectionner un serveur du pool de serveurs**.  
+    2.  Sur le **page de sélection du serveur** (ou le **server de sélectionner la destination** page dans Windows Server Essentials), cliquez sur **sélectionner un serveur du pool de serveurs**.  
   
-    3.  Sur le **fonctionnalités** page, développez **outils d’Administration de serveur distant (installés)**, développez **outils de gestion de l’accès à distance (installés)**, développez **outils d’Administration de rôles (installés)**, développez **outils de gestion de l’accès à distance**, puis sélectionnez **interface graphique utilisateur de l’accès à distance et outils de ligne de commande**.  
+    3.  Dans la page **Fonctionnalités** , développez successivement **Outils d'administration de serveur distant (installés)**, **Outils de gestion de l'accès à distance (installés)**, **Outils d'administration de rôles (installés)** et **Outils de gestion de l'accès à distance**, puis sélectionnez **Interface GUI de l'accès à distance et outils en ligne de commande**.  
   
-    4.  Suivez les instructions pour terminer l’Assistant.  
+    4.  Suivez les instructions pour exécuter l'Assistant.  
   
-##  <a name="BKMK_AddStaticIP"></a>Étape2: Modifiez l’adresse de la carte réseau du serveur à une adresse IP statique  
- DirectAccess requiert une carte avec une adresse IP statique. Vous devez modifier l’adresse IP de la carte réseau local sur votre serveur.  
+##  <a name="BKMK_AddStaticIP"></a> Étape 2 : Remplacer l’adresse de la carte réseau du serveur par une adresse IP statique  
+ DirectAccess requiert une carte avec une adresse IP statique. Vous devez modifier l’adresse IP de la carte réseau local sur votre serveur.  
   
 #### <a name="to-add-a-static-ip-address"></a>Pour ajouter une adresse IP statique  
   
-1.  Sur la page de démarrage, ouvrez **le panneau de configuration**.  
+1.  Dans la page de démarrage, ouvrez le **Panneau de configuration**.  
   
-2.  Cliquez sur **réseau et Internet**, puis cliquez sur **afficher l’état du réseau et les tâches**.  
+2.  Cliquez sur **Réseau et Internet**, puis sur **Afficher l’état et la gestion du réseau**.  
   
-3.  Dans le volet des tâches de la **Centre réseau et partage**, cliquez sur **modifier les paramètres de carte**.  
+3.  Dans le volet des tâches du **Centre Réseau et partage**, cliquez sur **Modifier les paramètres de la carte**.  
   
-4.  Avec le bouton droit de la carte réseau local, puis cliquez sur **propriétés**.  
+4.  Cliquez avec le bouton droit sur la carte réseau local, puis cliquez sur **Propriétés**.  
   
-5.  Sur le **réseau**, cliquez sur **Internet Protocol Version4 (TCP/IPv4)**, puis cliquez sur **propriétés**.  
+5.  Sous l’onglet **Réseau**, cliquez sur **Protocole Internet version 4 (TCP/IPv4)**, puis sur **Propriétés**.  
   
-6.  Sur le **général**, cliquez sur **utiliser l’adresse IP suivante**, puis tapez l’adresse IP que vous souhaitez utiliser.  
+6.  Sous l’onglet **Général**, cliquez sur **Utiliser l’adresse IP suivante**, puis tapez l’adresse IP à utiliser.  
   
-     Une valeur par défaut pour le masque de sous-réseau s’affiche automatiquement dans le **masque de sous-réseau** zone. Acceptez la valeur par défaut, ou tapez la valeur du masque de sous-réseau que vous souhaitez utiliser.  
+     Une valeur par défaut pour le masque de sous-réseau s’affiche automatiquement dans la zone **Masque de sous-réseau** . Acceptez la valeur par défaut, ou tapez la valeur de masque de sous-réseau que vous voulez utiliser.  
   
-7.  Dans le **passerelle par défaut**, tapez l’adresse IP de votre passerelle par défaut.  
+7.  Dans la zone **Passerelle par défaut** , tapez l’adresse IP de votre passerelle par défaut.  
   
-8.  Dans le **serveur DNS préféré**, tapez l’adresse IP de votre serveur DNS.  
+8.  Dans la zone **Serveur DNS préféré**, tapez l’adresse IP de votre serveur DNS.  
   
     > [!NOTE]
-    >  Utilisez l’adresse IP qui est attribuée à votre carte réseau par DHCP (par exemple, 192.168.X.X) au lieu d’un réseau de bouclage (par exemple, 127.0.0.1). Pour déterminer l’adresse IP attribuée, exécutez **ipconfig** à une invite de commandes.  
+    >  Utilisez l'adresse IP attribuée à votre carte réseau par DHCP (par exemple, 192.168.X.X) au lieu d'un réseau de bouclage (par exemple,127.0.0.1). Pour déterminer l'adresse IP attribuée, exécutez **ipconfig** à une invite de commandes.  
   
-9. Dans le **serveur DNS auxiliaire**, tapez l’adresse IP de votre serveur DNS auxiliaire, le cas échéant.  
+9. Dans la zone **Serveur DNS auxiliaire** , tapez l’adresse IP de votre serveur DNS auxiliaire, le cas échéant.  
   
-10. Cliquez sur **OK**, puis cliquez sur **fermer**.  
+10. Cliquez sur **OK**, puis sur **Fermer**.  
   
 > [!IMPORTANT]
->  Veillez à configurer le routeur pour réacheminer les ports 80 et 443vers la nouvelle adresse IP statique du serveur.  
+>  Assurez-vous de configurer le routeur pour réacheminer les ports 80 et 443 vers la nouvelle adresse IP statique du serveur.  
   
-##  <a name="BKMK_DNS"></a>Étape3: Préparer un certificat et un enregistrement DNS pour le serveur emplacement réseau  
- Pour préparer un certificat et un enregistrement DNS pour le serveur emplacement réseau, effectuez les tâches suivantes:  
+##  <a name="BKMK_DNS"></a> Étape 3 : Préparer un certificat et un enregistrement DNS pour le serveur Emplacement réseau  
+ Pour préparer un certificat et un enregistrement DNS pour le serveur Emplacement réseau, effectuez les tâches suivantes :  
   
--   [Étape3 a: accorder des autorisations maximales aux utilisateurs authentifiés pour le modèle de certificat de serveur s Web](#BKMK_GrantFullPermissions)  
+-   [Étape 3 a : Accorder des autorisations complètes aux utilisateurs authentifiés pour le serveur Web de modèle de certificat s](#BKMK_GrantFullPermissions)  
   
--   [Étape3 b: inscrire un certificat pour le serveur d’emplacement réseau avec un nom commun qui ne peut pas être résolu à partir du réseau externe](#BKMK_EnrollaCertificate)  
+-   [Étape 3b : Inscrire un certificat pour le serveur d’emplacement réseau avec un nom commun qui ne peut pas être résolu à partir du réseau externe](#BKMK_EnrollaCertificate)  
   
--   [Étape3c: ajouter un nouvel hôte sur le serveur DNS et le mapper à l’adresse du serveur WindowsServerEssentials.](#BKMK_MapNewHosttoServerAddress)  
+-   [Étape 3c : Ajouter un nouvel hôte sur le serveur DNS et mappez-le à l’adresse du serveur Windows Server Essentials.](#BKMK_MapNewHosttoServerAddress)  
   
-###  <a name="BKMK_GrantFullPermissions"></a>Étape3 a: accorder des autorisations maximales aux utilisateurs authentifiés pour le modèle de certificat de serveur s Web  
+###  <a name="BKMK_GrantFullPermissions"></a> Étape 3 a : Accorder des autorisations complètes aux utilisateurs authentifiés pour le serveur Web de modèle de certificat s  
  Votre première tâche consiste à accorder des autorisations maximales aux utilisateurs authentifiés pour le modèle de certificat Web server s dans l’autorité de certification.  
   
-####  <a name="BKMK_ToGrantFullPermissions"></a>Pour accorder des autorisations maximales aux utilisateurs authentifiés pour le serveur Web de modèle de certificat s  
+####  <a name="BKMK_ToGrantFullPermissions"></a> Pour accorder des autorisations complètes aux utilisateurs authentifiés pour le serveur Web de modèle de certificat s  
   
-1.  Sur le **Démarrer** page, ouvrez **autorité de Certification**.  
+1.  Dans la page de **démarrage** page, ouvrez **Autorité de certification**.  
   
-2.  Dans l’arborescence de la console, sous **autorité de Certification (Local)**, développez **< servername\ >-autorité de certification**, avec le bouton droit **modèles de certificats**, puis cliquez sur **gérer**.  
+2.  Dans l’arborescence de la console, sous **autorité de Certification (Local)**, développez **< nom_serveur\>-CA**, avec le bouton droit **modèles de certificats**, puis cliquez sur **Gérer**.  
   
-3.  Dans **autorité de Certification (Local)**, avec le bouton droit **serveur Web**, puis cliquez sur **propriétés**.  
+3.  Dans **Autorité de certification (local)**, cliquez avec le bouton droit sur **Serveur web**, puis cliquez sur **Propriétés**.  
   
-4.  Dans les propriétés du serveur Web, sur le **sécurité**, cliquez sur **utilisateurs authentifiés**, sélectionnez **contrôle total**, puis cliquez sur **OK**.  
+4.  Dans les propriétés du serveur web, sous l'onglet **Sécurité**, cliquez sur **Utilisateurs authentifiés**, sélectionnez **Contrôle total**, puis cliquez sur **OK**.  
   
-5.  Redémarrez **Services de certificats ActiveDirectory**. Dans le panneau de configuration, ouvrez **afficher les services locaux**. Dans la liste des services, cliquez sur **ActiveDirectory Certificate Services**, puis cliquez sur **redémarrer**.  
+5.  Redémarrez les **Services de certificats Active Directory**. Dans le panneau de configuration, ouvrez **Afficher les services locaux**. Dans la liste des services, cliquez avec le bouton droit sur **Services de certificats Active Directory**, puis cliquez sur **Redémarrer**.  
   
-###  <a name="BKMK_EnrollaCertificate"></a>Étape3 b: inscrire un certificat pour le serveur d’emplacement réseau avec un nom commun qui ne peut pas être résolu à partir du réseau externe  
- Inscrivez ensuite un certificat pour le serveur d’emplacement réseau avec un nom commun qui ne peut pas être résolu à partir du réseau externe.  
+###  <a name="BKMK_EnrollaCertificate"></a> Étape 3 b : Inscrire un certificat pour le serveur Emplacement réseau avec un nom commun qui ne peut pas être résolu à partir du réseau externe  
+ Inscrivez ensuite un certificat pour le serveur Emplacement réseau avec un nom commun qui ne peut pas être résolu à partir du réseau externe.  
   
-####  <a name="BKMK_ToEnrollaCertificate"></a>Pour inscrire un certificat pour le serveur emplacement réseau  
+####  <a name="BKMK_ToEnrollaCertificate"></a> Pour inscrire un certificat pour le serveur emplacement réseau  
   
-1.  Sur le **Démarrer** page, ouvrez **mmc** (MicrosoftManagement Console).  
+1.  Dans la page de **démarrage**, ouvrez **mmc** (Microsoft Management Console).  
   
-2.  Si un **contrôle de compte d’utilisateur** message d’avertissement s’affiche, cliquez sur **Oui**.  
+2.  Si un message d’avertissement **Contrôle de compte d’utilisateur** s’affiche, cliquez sur **Oui**.  
   
-     La Console MMC (MicrosoftManagement Console) s’ouvre.  
+     La console MMC s'affiche.  
   
-3.  Sur le **fichier** menu, cliquez sur **ajouter ou supprimer les composants logiciels enfichables**.  
+3.  Dans le menu **Fichier** , cliquez sur **Ajouter ou supprimer des composants logiciels enfichables**.  
   
-4.  Dans le **ajouter ou des composants logiciels enfichables à distance**, cliquez sur **certificats**, puis cliquez sur **ajouter**.  
+4.  Dans la zone **Ajouter ou supprimer des composants logiciels enfichables**, cliquez sur **Certificats**, puis sur **Ajouter**.  
   
-5.  Sur le **enfichable Certificats**, cliquez sur **compte d’ordinateur**, puis cliquez sur **suivant**.  
+5.  Dans la page **Composant logiciel enfichable Certificats**, cliquez sur **Un compte d’ordinateur**, puis sur **Suivant**.  
   
-6.  Sur le **sélectionner un ordinateur**, cliquez sur **ordinateur Local**, cliquez sur **Terminer**, puis cliquez sur **OK**.  
+6.  Dans la page **Sélectionner un ordinateur** , cliquez sur **Ordinateur local**, sur **Terminer**, puis sur **OK**.  
   
-7.  Dans l’arborescence de la console, développez **certificats (ordinateur Local)**, développez **personnel**, avec le bouton droit **certificats**, puis, dans **toutes les tâches**, cliquez sur **demander un nouveau certificat**.  
+7.  Dans l'arborescence de la console, développez **Certificats (ordinateur local)**, développez **Personnel**, cliquez avec le bouton droit sur **Certificats**. Ensuite, dans **Toutes les tâches**, cliquez sur **Demander un nouveau certificat**.  
   
-8.  Lorsque l’Assistant Inscription de certificats s’affiche, cliquez sur **suivant**.  
+8.  Quand l'Assistant Inscription de certificats s'affiche, cliquez sur **Suivant**.  
   
-9. Sur le **sélectionner la stratégie d’inscription certificat**, cliquez sur **suivant**.  
+9. Dans la page **Sélectionner la stratégie d'inscription de certificat** , cliquez sur **Suivant**.  
   
-10. Sur le **demander des certificats** page, sélectionnez le **serveur Web** case à cocher, puis cliquez sur **pour inscrire ce certificat nécessite des informations plus**.  
+10. Dans la page **Demander des certificats**, cochez la case **Serveur web**, puis cliquez sur **L'inscription pour obtenir ce certificat nécessite des informations supplémentaires**.  
   
-11. Dans le **propriétés du certificat**, entrez les paramètres suivants pour **nom de l’objet**:  
+11. Dans la zone **Propriétés du certificat**, entrez les paramètres suivants pour **Nom du sujet** :  
   
-    1.  Pour **Type**, sélectionnez **nom commun**.  
+    1.  Pour **Type**, sélectionnez **Nom commun**.  
   
-    2.  Pour **valeur**, tapez le nom du serveur d’emplacement réseau (par exemple, DirectAccess-NLS.contoso.local), puis cliquez sur **ajouter**.  
+    2.  Pour **Valeur**, tapez le nom du serveur Emplacement réseau (par exemple, DirectAccess-NLS.contoso.local), puis cliquez sur **Ajouter**.  
   
-    3.  Cliquez sur **OK**, puis cliquez sur **inscription**.  
+    3.  Cliquez sur **OK**, puis sur **Inscrire**.  
   
-12. Lorsque l’inscription de certificats est terminée, cliquez sur **Terminer**.  
+12. Une fois l'inscription du certificat terminée, cliquez sur **Terminer**.  
   
-###  <a name="BKMK_MapNewHosttoServerAddress"></a>Étape3c: ajouter un nouvel hôte sur le serveur DNS et le mapper à l’adresse du serveur WindowsServerEssentials  
- Pour terminer la configuration DNS, ajoutez un nouvel hôte sur le serveur DNS et le mapper à l’adresse du serveur WindowsServerEssentials.  
+###  <a name="BKMK_MapNewHosttoServerAddress"></a> Étape 3c : Ajouter un nouvel hôte sur le serveur DNS et le mapper à l'adresse du serveur Windows Server Essentials  
+ Pour terminer la configuration de DNS, ajoutez un nouvel hôte sur le serveur DNS et mappez-le à l’adresse du serveur Windows Server Essentials.  
   
-####  <a name="BKMK_ToMapNewHosttoServerAddress"></a>Pour mapper un nouvel hôte à l’adresse du serveur WindowsServerEssentials  
+####  <a name="BKMK_ToMapNewHosttoServerAddress"></a> Pour mapper un nouvel hôte à l’adresse du serveur Windows Server Essentials  
   
-1.  Sur la page de démarrage, ouvrez le Gestionnaire DNS. Pour ouvrir le Gestionnaire DNS, recherchez **dnsmgmt.msc**, puis cliquez sur **dnsmgmt.msc** dans les résultats.  
+1.  Dans la page de démarrage, ouvrez le Gestionnaire DNS. Pour ouvrir le Gestionnaire DNS, recherchez **dnsmgmt.msc**, puis cliquez sur **dnsmgmt.msc** dans les résultats.  
   
-2.  Dans l’arborescence de la console Gestionnaire DNS, développez le serveur local, **Zones de recherche directe**, avec le bouton droit de la zone avec un suffixe de domaine serveur s, puis cliquez sur **nouvel hôte (A ou AAAA)**.  
+2.  Dans l’arborescence de la console Gestionnaire DNS, développez le serveur local, **Zones de recherche directe**, avec le bouton droit de la zone contenant le suffixe de domaine de serveur s, puis cliquez sur **nouvel hôte (A ou AAAA)**.  
   
-3.  Tapez le nom et l’adresse IP du serveur (par exemple, DirectAccess-NLS.contoso.local) et elle est correspondant à l’adresse du serveur (par exemple, 192.168.x.x).  
+3.  Tapez le nom et l’adresse IP du serveur (par exemple, DirectAccess-NLS.contoso.local) et son adresse de serveur correspondante (par exemple, 192.168.x.x).  
   
-4.  Cliquez sur **ajouter un hôte**, cliquez sur **OK**, puis cliquez sur **fait**.  
+4.  Cliquez sur **Ajouter un hôte**, sur **OK**, puis sur **Terminé**.  
   
-##  <a name="BKMK_AddSecurityGroup"></a>Étape4: Créer un groupe de sécurité pour les ordinateurs clients DirectAccess  
- Ensuite, créer un groupe de sécurité à utiliser pour les ordinateurs clients DirectAccess et ajoutez les comptes d’ordinateur au groupe.  
+##  <a name="BKMK_AddSecurityGroup"></a> Étape 4 : Créer un groupe de sécurité pour les ordinateurs clients DirectAccess  
+ Ensuite, créez un groupe de sécurité à utiliser pour les ordinateurs clients DirectAccess et ajoutez les comptes d'ordinateur au groupe.  
   
-#### <a name="to-add-a-security-group-for-client-computers-that-use-directaccess"></a>Pour ajouter un groupe de sécurité pour les ordinateurs clients qui utilisent DirectAccess  
+#### <a name="to-add-a-security-group-for-client-computers-that-use-directaccess"></a>Pour ajouter un groupe de sécurité aux ordinateurs clients qui utilisent DirectAccess  
   
-1.  Dans le tableau de bord du Gestionnaire de serveur, cliquez sur **outils**, puis cliquez sur **ActiveDirectory Users and Computers**.  
+1.  Dans le tableau de bord du Gestionnaire de serveur, cliquez sur **Outils**, puis sur **Utilisateurs et ordinateurs Active Directory**.  
   
     > [!NOTE]
-    >  Si vous ne voyez pas **ActiveDirectory Users and Computers** sur le **outils** menu, vous devez installer la fonctionnalité. Pour installer des utilisateurs ActiveDirectory et des groupes, exécutez l’applet de commande Windows PowerShell suivante en tant qu’administrateur:`Install-WindowsFeature RSAT-ADDS-Tools`. Pour plus d’informations, voir [l’installation ou la suppression du Pack Outils d’Administration à distance serveur](https://technet.microsoft.com/library/cc730825.aspx).  
+    >  Si **Utilisateurs et ordinateurs Active Directory** n'apparaît pas dans le menu **Outils**, vous devez installer la fonctionnalité. Pour installer Utilisateurs et ordinateurs Active Directory, exécutez la cmdlet Windows PowerShell suivante en tant qu’administrateur : `Install-WindowsFeature RSAT-ADDS-Tools`. Pour plus d’informations, consultez la rubrique [Installation ou suppression du Pack des outils d’administration de serveur distant](https://technet.microsoft.com/library/cc730825.aspx).  
   
-2.  Dans l’arborescence de la console, développez le serveur, faites un clic droit **utilisateurs**, cliquez sur **New**, puis cliquez sur **groupe**.  
+2.  Dans l'arborescence de la console, développez le serveur, cliquez avec le bouton droit sur **Utilisateurs**, cliquez sur **Nouveau**, puis cliquez sur **Groupe**.  
   
-3.  Entrez un nom de groupe, l’étendue du groupe et type de groupe (créer un groupe de sécurité), puis cliquez sur **OK**.  
+3.  Entrez un nom de groupe, une étendue de groupe et un type de groupe (créer un groupe de sécurité), puis cliquez sur **OK**.  
   
- Le nouveau groupe de sécurité est ajouté à la **utilisateurs** dossier.  
+ Le nouveau groupe de sécurité est ajouté au dossier **Utilisateurs**.  
   
-#### <a name="to-add-computer-accounts-to-the-security-group"></a>Pour ajouter des comptes d’ordinateur au groupe de sécurité  
+#### <a name="to-add-computer-accounts-to-the-security-group"></a>Pour ajouter des comptes d'ordinateur au groupe de sécurité  
   
-1.  Dans le tableau de bord du Gestionnaire de serveur, cliquez sur **outils**, puis cliquez sur **ActiveDirectory Users and Computers**.  
+1.  Dans le tableau de bord du Gestionnaire de serveur, cliquez sur **Outils**, puis sur **Utilisateurs et ordinateurs Active Directory**.  
   
-2.  Dans l’arborescence de la console, développez le serveur, puis cliquez sur **utilisateurs**.  
+2.  Dans l'arborescence de la console, développez le serveur, puis cliquez sur **Utilisateurs**.  
   
-3.  Dans la liste des comptes d’utilisateurs et groupes de sécurité sur le serveur, le groupe de sécurité que vous avez créé pour DirectAccess avec le bouton droit, puis cliquez sur **propriétés**.  
+3.  Dans la liste des comptes d'utilisateur et des groupes de sécurité sur le serveur, cliquez avec le bouton droit sur le groupe de sécurité que vous avez créé pour DirectAccess, puis cliquez sur **Propriétés**.  
   
-4.  Sur le **membres**, cliquez sur **ajouter**.  
+4.  Sous l'onglet **Membres** , cliquez sur **Ajouter**.  
   
-5.  Dans la boîte de dialogue, tapez les noms des comptes d’ordinateur que vous souhaitez ajouter au groupe, en les séparant par un point-virgule (;). Puis cliquez sur **vérifier les noms**.  
+5.  Dans la boîte de dialogue, tapez les noms des comptes d'ordinateur à ajouter au groupe, en les séparant par un point-virgule (;). Cliquez ensuite sur **Vérifier les noms**.  
   
-6.  Une fois les comptes d’ordinateur sont validés, cliquez sur **OK**. Puis cliquez sur **OK** à nouveau.  
+6.  Une fois les comptes d'ordinateur validés, cliquez sur **OK**. Cliquez à nouveau sur **OK**.  
   
 > [!NOTE]
->  Vous pouvez également utiliser le **membre** onglet dans les propriétés de compte d’ordinateur pour ajouter le compte au groupe de sécurité.  
+>  Vous pouvez également utiliser l'onglet **Membre de** dans les propriétés du compte d'ordinateur pour ajouter le compte au groupe de sécurité.  
   
-##  <a name="BKMK_EnableConfigureDA"></a>Étape5: Activer et configurer DirectAccess  
- Pour activer et configurer DirectAccess dans WindowsServerEssentials, vous devez effectuer les étapes suivantes:  
+##  <a name="BKMK_EnableConfigureDA"></a> Étape 5 : Activer et configurer DirectAccess  
+ Pour activer et configurer DirectAccess dans Windows Server Essentials, vous devez effectuer les étapes suivantes :  
   
--   [Étape5 a: activer DirectAccess à l’aide de la Console de gestion de l’accès à distance](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_EnableDA)  
+-   [Étape 5 a : Activer DirectAccess à l’aide de la Console de gestion d’accès à distance](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_EnableDA)  
   
--   [Étape5 b: supprimer les IPv6Prefix non valide dans l’objet stratégie de groupe RRAS (WindowsServerEssentials uniquement)](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_RemoveIPv6)  
+-   [Étape 5 b : Supprimer le IPv6Prefix non valide dans l’objet stratégie de groupe RRAS (Windows Server Essentials uniquement)](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_RemoveIPv6)  
   
--   [Étape5c: autoriser les ordinateurs clients exécutant Windows7 entreprise à utiliser DirectAccess](#BKMK_Step4cWindows7Setup)  
+-   [Étape 5c : Activer les ordinateurs clients qui exécutent Windows 7 entreprise à utiliser DirectAccess](#BKMK_Step4cWindows7Setup)  
   
--   [Étape5D: configurer le serveur d’emplacement réseau](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_NLS)  
+-   [Étape 5D : Configurer le serveur emplacement réseau](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_NLS)  
   
--   [Étape5e: ajouter une clé de Registre pour contourner l’autorité de certification quand vous établissez un canal IPsec](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_CA)  
+-   [Étape 5e : Ajouter une clé de Registre pour contourner l’autorité de certification quand vous établissez un canal IPsec](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_CA)  
   
-###  <a name="BKMK_EnableDA"></a>Étape5 a: activer DirectAccess à l’aide de la Console de gestion de l’accès à distance  
- Cette section fournit des instructions pas à pas pour activer DirectAccess dans WindowsServerEssentials. Si vous avez configuré pas encore de VPN sur le serveur, vous devez le faire avant de commencer cette procédure. Pour obtenir des instructions, voir [gérer un VPN](Manage-VPN-in-Windows-Server-Essentials.md).  
+###  <a name="BKMK_EnableDA"></a> Étape 5 a : Activer DirectAccess à l'aide de la console de gestion de l'accès à distance  
+ Cette section fournit des instructions détaillées pour activer DirectAccess dans Windows Server Essentials. Si vous n'avez pas encore configuré VPN sur le serveur, vous devez le faire avant de commencer cette procédure. Pour obtenir des instructions, consultez [gérer un réseau VPN](Manage-VPN-in-Windows-Server-Essentials.md).  
   
-##### <a name="to-enable-directaccess-by-using-the-remote-access-management-console"></a>Pour activer DirectAccess à l’aide de la Console de gestion de l’accès à distance  
+##### <a name="to-enable-directaccess-by-using-the-remote-access-management-console"></a>Pour activer DirectAccess à l'aide de la console de gestion de l'accès à distance  
   
-1.  Sur la page de démarrage, ouvrez **gestion de l’accès à distance**.  
+1.  Dans la page de démarrage, ouvrez **Gestion de l'accès à distance**.  
   
-2.  Dans l’Assistant Activation de DirectAccess, procédez comme suit:  
+2.  Dans l’Assistant Activation de DirectAccess, procédez comme suit :  
   
-    1.  Passez en revue **les conditions préalables DirectAccess**, puis cliquez sur **suivant**.  
+    1.  Passez en revue **Conditions requises pour DirectAccess**, puis cliquez sur **Suivant**.  
   
-    2.  Sur le **sélectionner des groupes** onglet, ajoutez le groupe de sécurité que vous avez créé précédemment pour les clients DirectAccess. (Si vous n’avez pas créé le groupe de sécurité, voir [étape4: créer un groupe de sécurité pour le client DirectAccess ordinateurs](#BKMK_AddSecurityGroup) pour obtenir des instructions.)  
+    2.  Sous l'onglet **Sélectionner des groupes**, ajoutez le groupe de sécurité créé précédemment pour les clients DirectAccess. (Si vous n’avez pas créé le groupe de sécurité, consultez [étape 4 : Créer un groupe de sécurité pour le client DirectAccess ordinateurs](#BKMK_AddSecurityGroup) pour obtenir des instructions.)  
   
-    3.  Sur le **sélectionner des groupes**, cliquez sur **activer DirectAccess pour les ordinateurs portables uniquement** si vous souhaitez permettre aux ordinateurs portables à utiliser DirectAccess pour accéder à distance au serveur, puis cliquez sur **suivant**.  
+    3.  Sous l’onglet **Sélectionner des groupes** , cliquez sur **Activer DirectAccess pour les ordinateurs portables uniquement** si vous voulez permettre aux ordinateurs portables d’utiliser DirectAccess pour accéder à distance au serveur, puis cliquez sur **Suivant**.  
   
-    4.  Dans **topologie de réseau**, sélectionnez la topologie du serveur, puis cliquez sur **suivant**.  
+    4.  Dans **Topologie du réseau**, sélectionnez la topologie du serveur, puis cliquez sur **Suivant**.  
   
-    5.  Dans **liste de recherche de suffixes DNS**, ajoutez le suffixe DNS supplémentaire pour les ordinateurs clients, si nécessaire, puis cliquez sur **suivant**.  
+    5.  Dans **Liste de recherche de suffixes DNS**, ajoutez le suffixe DNS supplémentaire pour les ordinateurs clients, si nécessaire, puis cliquez sur **Suivant**.  
   
         > [!NOTE]
-        >  Par défaut, l’Assistant Activation de DirectAccess ajoute déjà le suffixe DNS pour le domaine actuel. Toutefois, vous pouvez ajouter plusieurs si nécessaire.  
+        >  Par défaut, l'Assistant Activation de DirectAccess ajoute déjà le suffixe DNS au domaine actuel. Toutefois, vous pouvez en ajouter d’autres si nécessaire.  
   
-    6.  Passez en revue les objets de stratégie de groupe (GPO) qui seront appliqués et modifiez-les si nécessaire.  
+    6.  Examinez les objets de stratégie de groupe qui seront appliqués et modifiez-les si nécessaire.  
   
-    7.  Cliquez sur **suivant**, puis cliquez sur **Terminer**.  
+    7.  Cliquez sur **Suivant**, puis sur **Terminer**.  
   
-    8.  Redémarrez le service de gestion de l’accès à distance en exécutant la commande Windows PowerShell suivante avec élévation de privilèges:  
+    8.  Redémarrez le service de gestion de l'accès à distance en exécutant la commande Windows PowerShell suivante avec élévation de privilèges :  
   
         ```powershell  
         Restart-Service RaMgmtSvc   
         ```  
   
-###  <a name="BKMK_RemoveIPv6"></a>Étape5 b: supprimer les IPv6Prefix non valide dans l’objet stratégie de groupe RRAS (WindowsServerEssentials uniquement)  
-  Cette section s’applique à un serveur exécutant WindowsServerEssentials.  
+###  <a name="BKMK_RemoveIPv6"></a> Étape 5 b : Supprimer le IPv6Prefix non valide dans l’objet stratégie de groupe RRAS (Windows Server Essentials uniquement)  
+  Cette section s’applique à un serveur exécutant Windows Server Essentials.  
   
- Ouvrez Windows PowerShell en tant qu’administrateur et exécutez les commandes suivantes:  
+ Ouvrez Windows PowerShell en tant qu’administrateur, puis exécutez les commandes suivantes :  
   
 ```powershell  
 gpupdate  
@@ -293,136 +294,136 @@ Remove-GPRegistryValue -Name "DirectAccess Server Settings" -Key $key.Name -Valu
 gpupdate  
 ```  
   
-###  <a name="BKMK_Step4cWindows7Setup"></a>Étape5c: autoriser les ordinateurs clients exécutant Windows7 entreprise à utiliser DirectAccess  
- Si vous avez des ordinateurs clients qui exécutent Windows7 entreprise, effectuez la procédure suivante pour activer DirectAccess à partir de ces ordinateurs.  
+###  <a name="BKMK_Step4cWindows7Setup"></a> Étape 5c : Activer les ordinateurs clients qui exécutent Windows 7 entreprise à utiliser DirectAccess  
+ Si vous avez des ordinateurs clients qui exécutent Windows 7 entreprise, effectuez la procédure suivante pour activer DirectAccess à partir de ces ordinateurs.  
   
-##### <a name="to-enable--windows-7-enterprise-computers-to-use-directaccess"></a>Pour permettre aux ordinateurs Windows7 entreprise à utiliser DirectAccess  
+##### <a name="to-enable--windows-7-enterprise-computers-to-use-directaccess"></a>Pour permettre aux ordinateurs Windows 7 entreprise à utiliser DirectAccess  
   
-1.  Sur la page de démarrage serveur s, ouvrez **gestion de l’accès à distance**.  
+1.  Sur la page de démarrage de serveur s, ouvrez **gestion de l’accès à distance**.  
   
-2.  Dans la Console de gestion de l’accès à distance, cliquez sur **Configuration**. Ensuite, dans le **détails de la configuration** volet, sous **étape2**, cliquez sur **modifier**.  
+2.  Dans la Console de gestion de l'accès à distance, cliquez sur **Configuration**. Ensuite, dans le volet **Détails de la configuration** , sous **Étape 2**, cliquez sur **Modifier**.  
   
-     Assistant d’installation du serveur d’accès à distance s’ouvre.  
+     L'Assistant Installation du serveur d'accès à distance s'ouvre.  
   
-3.  Sur le **authentification** onglet, cliquez sur le certificat d’autorité de certification qui sera le certificat racine approuvé (vous pouvez choisir le certificat d’autorité de certification du serveur WindowsServerEssentials). Cliquez sur **activer Windows7les ordinateurs clients à se connecter via DirectAccess**, puis cliquez sur **suivant**.  
+3.  Sur le **authentification** onglet, cliquez sur le certificat d’autorité de certification qui sera le certificat racine approuvé (vous pouvez choisir le certificat d’autorité de certification du serveur Windows Server Essentials). Cliquez sur **Autoriser les ordinateurs clients Windows 7 à se connecter par le biais de DirectAccess**, puis sur **suivant**.  
   
-4.  Suivez les instructions pour terminer l’Assistant.  
+4.  Suivez les instructions pour exécuter l'Assistant.  
   
 > [!IMPORTANT]
->  Il existe un problème connu pour les ordinateurs Windows7 entreprise qui se connectent via DirectAccess si le serveur WindowsServerEssentials ur1 pas préinstallé. Pour activer les connexions DirectAccess dans cet environnement, vous devez effectuer les étapes supplémentaires suivantes:  
+>  Il existe un problème connu pour les ordinateurs Windows 7 entreprise qui se connectent via DirectAccess si le serveur Windows Server Essentials est livré avec UR1 préinstallé. Pour activer les connexions DirectAccess dans cet environnement, vous devez effectuer les étapes supplémentaires suivantes :  
 >   
->  1.  Installez le correctif décrit dans [l’article de la Base de connaissances Microsoft (Ko) 2796394](https://support.microsoft.com/kb/2796394) sur le serveur WindowsServerEssentials. Redémarrez le serveur.  
-> 2.  Puis installez le correctif décrit dans [l’article de la Base de connaissances Microsoft (Ko) 2615847](https://support.microsoft.com/kb/2615847) sur chaque ordinateur Windows7.  
+>  1.  Installez le correctif décrit dans [article 2796394 de la Base de connaissances Microsoft (KB)](https://support.microsoft.com/kb/2796394) sur le serveur Windows Server Essentials. Redémarrez le serveur.  
+> 2.  Puis installez le correctif décrit dans [article 2615847 de la Base de connaissances Microsoft (KB)](https://support.microsoft.com/kb/2615847) sur chaque ordinateur Windows 7.  
 >   
->      Ce problème a été résolu dans WindowsServerEssentials.  
+>      Ce problème a été résolu dans Windows Server Essentials.  
   
-###  <a name="BKMK_NLS"></a>Étape5D: configurer le serveur d’emplacement réseau  
- Cette section fournit des instructions pas à pas pour configurer les paramètres du serveur emplacement réseau.  
+###  <a name="BKMK_NLS"></a> Étape 5D : Configurer le serveur Emplacement réseau  
+ Cette section fournit des instructions pas à pas pour configurer les paramètres du serveur Emplacement réseau.  
   
 > [!NOTE]
->  Avant de commencer, copiez le contenu du dossier < systemDrive\ > \inetpub\wwwroot dans le dossier de Server\Bin\WebApps\Site\insideoutside \Program Files\Windows < systemDrive\ >. Également copier le fichier default.aspx à partir du dossier de Server\Bin\WebApps\Site \Program Files\Windows < systemDrive\ > au dossier < systemDrive\ > \Program Files\Windows Server\Bin\WebApps\Site\insideoutside.  
+>  Avant de commencer, copiez le contenu de la < lecteur_système\>dossier \inetpub\wwwroot à la < SystemDrive\>\Program Files\Windows Server\Bin\WebApps\Site\insideoutside folder. Copiez également le fichier default.aspx à partir de la < SystemDrive\>\Program Files\Windows server\bin\webapps\site dans le dossier le < SystemDrive\>\Program Files\Windows Server\Bin\WebApps\Site\insideoutside folder.  
   
-##### <a name="to-configure-the-network-location-server"></a>Pour configurer le serveur emplacement réseau  
+##### <a name="to-configure-the-network-location-server"></a>Pour configurer le serveur Emplacement réseau  
   
-1.  Sur la page de démarrage, ouvrez **gestion de l’accès à distance**.  
+1.  Dans la page de démarrage, ouvrez **Gestion de l'accès à distance**.  
   
-2.  Dans la Console de gestion de l’accès à distance, cliquez sur **Configuration**et dans le **configuration de l’accès à distance** décrit en détail dans le volet, **étape3**, cliquez sur **modifier**.  
+2.  Dans la console Gestion de l'accès à distance, cliquez sur **Configuration**, puis dans le volet d'informations **Configuration de l'accès à distance**, dans **Étape 3**, cliquez sur **Modifier**.  
   
-3.  Dans l’Assistant d’installation de serveur accès à distance, sur le **serveur d’emplacement réseau** onglet, sélectionnez **le serveur emplacement réseau est déployé sur le serveur d’accès à distance**, puis sélectionnez le certificat émis précédemment (dans [étape3: préparer un certificat et un enregistrement DNS pour le serveur emplacement réseau](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_DNS)).  
+3.  Dans l’Assistant d’installation de serveur accès à distance, sur le **serveur emplacement réseau** onglet, sélectionnez **le serveur emplacement réseau est déployé sur le serveur d’accès à distance**, puis sélectionnez le certificat qui a été émis précédemment (dans [étape 3 : Préparer un certificat et un enregistrement DNS pour le serveur emplacement réseau](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_DNS)).  
   
-4.  Suivez les instructions pour terminer l’Assistant, puis cliquez sur **Terminer**.  
+4.  Suivez les instructions pour exécuter l’Assistant, puis cliquez sur **Terminer**.  
   
-###  <a name="BKMK_CA"></a>Étape5e: ajouter une clé de Registre pour contourner l’autorité de certification quand vous établissez un canal IPsec  
- L’étape suivante consiste à configurer le serveur pour contourner l’autorité de certification quand un canal IPsec est établi.  
+###  <a name="BKMK_CA"></a> Étape 5e : Ajouter une clé de Registre pour contourner l'autorité de certification quand vous établissez un canal IPsec  
+ L'étape suivante consiste à configurer le serveur pour contourner l'autorité de certification quand un canal IPsec est établi.  
   
-##### <a name="to-add-a-registry-key-to-bypass-the-ca-certification"></a>Pour ajouter une clé de Registre pour contourner l’autorité de certification  
+##### <a name="to-add-a-registry-key-to-bypass-the-ca-certification"></a>Pour ajouter une clé de Registre pour contourner l'autorité de certification  
   
-1.  Sur la page de démarrage, ouvrez **regedit** (l’Éditeur du Registre).  
+1.  Dans la page de démarrage, ouvrez **regedit** (Éditeur du Registre).  
   
-2.  Dans l’Éditeur du Registre, développez **HKEY_LOCAL_MACHINE**, développez **système**, développez **CurrentControlSet**, développez **Services**, puis développez **IKEEXT**.  
+2.  Dans l'Éditeur du Registre, développez successivement **HKEY_LOCAL_MACHINE**, **Système**, **CurrentControlSet**, **Services**, puis **IKEEXT**.  
   
-3.  Sous **IKEEXT**, avec le bouton droit **paramètres**, cliquez sur **New**, puis cliquez sur **DWORD (32bits) valeur**.  
+3.  Sous **IKEEXT**, cliquez avec le bouton droit sur **Paramètres**, cliquez sur **Nouveau**, puis cliquez sur **Valeur DWORD 32 bits**.  
   
 4.  Renommez la valeur nouvellement ajoutée **ikeflags**.  
   
-5.  Double-cliquez sur **ikeflags**, définissez le **Type** à **hexadécimal**, définissez la valeur sur **8000**, puis cliquez sur **OK**.  
+5.  Double-cliquez sur **ikeflags**, définissez le **Hexadécimal** comme **Type**, définissez la valeur sur **8000**, puis cliquez sur **OK**.  
   
 > [!NOTE]
->  Vous pouvez utiliser la commande Windows PowerShell suivante avec élévation de privilèges pour ajouter cette clé de Registre:  
+>  Vous pouvez utiliser la commande Windows PowerShell suivante avec élévation de privilèges pour ajouter cette clé de Registre :  
 >   
 >  `Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\IKEEXT\Parameters -Name ikeflags -Type DWORD -Value 0x8000`  
   
-##  <a name="BKMK_NRPT"></a>Étape6: Configurer les paramètres de Table de stratégie de résolution de noms pour le serveur DirectAccess  
- Cette section fournit des instructions pour modifier les nom résolution stratégie tableau entrées pour les adresses internes (par exemple, les entrées avec un suffixe contoso.local) pour les objets stratégie de groupe client DirectAccess, puis définissez l’adresse de l’interface IP-HTTPS.  
+##  <a name="BKMK_NRPT"></a> Étape 6 : Configurer les paramètres de table de stratégie de résolution des noms pour le serveur DirectAccess  
+ Cette section fournit des instructions pour modifier les entrées de la table de stratégie de résolution des noms pour les adresses internes (par exemple, celles avec un suffixe contoso.local) pour les objets de stratégie de groupe de clients DirectAccess, puis définir l'adresse de l'interface IP-HTTPS.  
   
-#### <a name="to-configure-name-resolution-policy-table-entries"></a>Pour configurer les entrées de Table de stratégie de résolution de noms  
+#### <a name="to-configure-name-resolution-policy-table-entries"></a>Pour configurer les entrées de la table de stratégie de résolution des noms  
   
-1.  Sur la page de démarrage, ouvrez **gestion des stratégies de groupe**.  
+1.  Dans la page de démarrage, ouvrez **Gestion des stratégies de groupe**.  
   
-2.  Dans la console de gestion des stratégies de groupe, cliquez sur la forêt par défaut et le domaine, avec le bouton droit **paramètres des clients DirectAccess**, puis cliquez sur **modifier**.  
+2.  Dans la console Gestion des stratégies de groupe, cliquez sur la forêt et le domaine par défaut, cliquez avec le bouton droit sur **Paramètres du client DirectAccess**, puis cliquez sur **Modifier**.  
   
-3.  Cliquez sur **Configurations d’ordinateur**, cliquez sur **stratégies**, cliquez sur **paramètres Windows**, puis cliquez sur **stratégie de résolution de noms**. Choisissez l’entrée qui a l’espace de noms est identique à votre suffixe DNS, puis cliquez sur **modifier la règle**.  
+3.  Cliquez sur **Configuration ordinateur**, sur **Stratégies**, sur **Paramètres Windows**, puis sur **Stratégie de résolution de noms**. Choisissez l’entrée dont l’espace de noms est identique à votre suffixe DNS, puis cliquez sur **Modifier la règle**.  
   
-4.  Cliquez sur le **paramètres DNS pour DirectAccess** onglet; puis sélectionnez **activer les paramètres DNS pour DirectAccess dans cette règle**. Ajoutez l’adresse IPv6 pour l’interface IP-HTTPS dans la liste des serveurs DNS.  
+4.  Cliquez sur l'onglet **Paramètres DNS pour DirectAccess**, puis sélectionnez **Activer les paramètres DNS pour DirectAccess dans cette règle**. Ajoutez l’adresse IPv6 pour l’interface IP-HTTPS dans la liste de serveurs DNS.  
   
     > [!NOTE]
-    >  Vous pouvez utiliser la commande Windows PowerShell suivante pour obtenir l’adresse IPv6:  
+    >  Vous pouvez utiliser la commande Windows PowerShell suivante pour obtenir l'adresse IPv6 :  
     >   
     >  `(Get-NetIPInterface -InterfaceAlias IPHTTPSInterface | Get-NetIPAddress -PrefixLength 128)[1].IPAddress`  
   
-##  <a name="BKMK_TCPUDP"></a>Étape7: Configurer les règles de pare-feu TCP et UDP pour les objets stratégie de groupe du serveur DirectAccess  
- Cette section comprend des instructions pour configurer des règles de pare-feu TCP et UDP pour la stratégie de groupe du serveur DirectAccess.  
+##  <a name="BKMK_TCPUDP"></a> Étape 7 : Configurer des règles de pare-feu TCP et UDP pour les objets de stratégie de groupe du serveur DirectAccess  
+ Cette section inclut des instructions pas à pas pour configurer des règles de pare-feu TCP et UDP pour les objets de stratégie de groupe du serveur DirectAccess.  
   
 #### <a name="to-configure-firewall-rules"></a>Pour configurer des règles de pare-feu  
   
-1.  Sur la page de démarrage, ouvrez **gestion des stratégies de groupe**.  
+1.  Dans la page de démarrage, ouvrez **Gestion des stratégies de groupe**.  
   
-2.  Dans la console de gestion des stratégies de groupe, cliquez sur la forêt par défaut et le domaine, avec le bouton droit **paramètres du serveur DirectAccess**, puis cliquez sur **modifier**.  
+2.  Dans la console Gestion des stratégies de groupe, cliquez sur la forêt et le domaine par défaut, cliquez avec le bouton droit sur **Paramètres du serveur DirectAccess**, puis cliquez sur **Modifier**.  
   
-3.  Cliquez sur **Configuration ordinateur**, cliquez sur **stratégies**, cliquez sur **paramètres Windows**, cliquez sur **paramètres de sécurité**, cliquez sur **pare-feu Windows avec fonctions avancées de sécurité**, cliquez sur le niveau suivant **pare-feu Windows avec fonctions avancées de sécurité**, puis cliquez sur **règles de trafic entrant**. Avec le bouton droit **nom de domaine serveur (TCP-entrant)**, puis cliquez sur **propriétés**.  
+3.  Cliquez sur **Configuration ordinateur**, sur **Stratégies**, sur **Paramètres Windows**, sur **Paramètres de sécurité**, sur **Pare-feu Windows avec fonctions avancées de sécurité**, sur **Pare-feu Windows avec fonctions avancées de sécurité**(niveau suivant), puis sur **Règles de trafic entrant**. Cliquez avec le bouton droit sur **Serveur de noms de domaine (TCP-Entrant)**, puis cliquez sur **Propriétés**.  
   
-4.  Cliquez sur le **étendue** onglet, puis, dans le **adresse IP locale** liste, ajoutez l’adresse IPv6 de l’interface IP-HTTPS.  
+4.  Cliquez sur l’onglet **Étendue** et, dans la liste **Adresse IP locale** , ajoutez l’adresse IPv6 de l’interface IP-HTTPS.  
   
-5.  Répétez la même procédure pour **serveur de nom de domaine (UDP-entrant)**.  
+5.  Répétez la même procédure pour **Serveur de noms de domaine (UDP-Entrant)**.  
   
-##  <a name="BKMK_DNS64"></a>Étape8: Modifier la configuration DNS64 pour écouter l’interface IP-HTTPS  
+##  <a name="BKMK_DNS64"></a> Étape 8 : Modifier la configuration DNS64 pour écouter l’interface IP-HTTPS  
  Vous devez modifier la configuration DNS64 pour écouter l’interface IP-HTTPS à l’aide de la commande Windows PowerShell suivante.  
   
 ```powershell  
 Set-NetDnsTransitionConfiguration  �AcceptInterface IPHTTPSInterface  
 ```  
   
-##  <a name="BKMK_ExemptPort"></a>Étape9: Réserver des ports pour le service WinNat  
- Utilisez la commande Windows PowerShell suivante pour réserver des ports pour le service WinNat. Remplacez «192.168.1.100» par l’adresse IPv4 réelle de votre serveur WindowsServerEssentials.  
+##  <a name="BKMK_ExemptPort"></a> Étape 9 : Réserver des ports pour le service WinNat  
+ Utilisez la commande Windows PowerShell suivante pour réserver des ports pour le service WinNat. Remplacez « 192.168.1.100 » par l’adresse IPv4 réelle de votre serveur Windows Server Essentials.  
   
 ```powershell  
 Set-NetNatTransitionConfiguration  �IPv4AddressPortPool @("192.168.1.100, 10000-47000")  
 ```  
   
 > [!IMPORTANT]
->  Pour éviter les conflits de port avec les applications, veillez à ce que la plage de ports que vous réservez pour le service WinNat n’inclut pas le port 6602.  
+>  Pour éviter les conflits entre ports et applications, assurez-vous que la plage de ports que vous réservez pour le service WinNat n'inclut pas le port 6602.  
   
-##  <a name="BKMK_WinNAT"></a>Étape10: Redémarrer le service WinNat  
- Redémarrez le service pilote NAT Windows (WinNat) en exécutant la commande Windows PowerShell suivante.  
+##  <a name="BKMK_WinNAT"></a> Étape 10 : Redémarrer le service WinNat  
+ Redémarrez le service Pilote NAT Windows (WinNat) à l'aide de la commande Windows PowerShell suivante.  
   
 ```powershell  
 Restart-Service winnat  
 ```  
   
-##  <a name="BKMK_AppendixBPowerShellScript"></a>Annexe: Installer DirectAccess à l’aide de Windows PowerShell  
+##  <a name="BKMK_AppendixBPowerShellScript"></a> Annexe : Installer DirectAccess à l’aide de Windows PowerShell  
  Cette section décrit comment installer et configurer DirectAccess à l’aide de Windows PowerShell.  
   
 ### <a name="preparation"></a>Préparation  
- Avant de commencer la configuration de votre serveur pour DirectAccess, vous devez procéder comme suit:  
+ Avant de commencer la configuration de votre serveur pour DirectAccess, vous devez procéder comme suit :  
   
-1.  Suivez la procédure décrite dans [étape3: préparer un certificat et un enregistrement DNS pour le serveur emplacement réseau](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_DNS) pour inscrire un certificat nommé **DirectAccess-NLS.contoso.com** (où **contoso.com** est remplacé par le nom de domaine interne réel) et pour ajouter un enregistrement DNS pour le serveur d’emplacement réseau (NLS).  
+1.  Suivez la procédure décrite dans [étape 3 : Préparer un certificat et un enregistrement DNS pour le serveur emplacement réseau](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_DNS) pour inscrire un certificat nommé **DirectAccess-NLS** (où **contoso.com** est remplacé par votre véritable nom de domaine interne) et pour ajouter un enregistrement DNS pour le serveur d’emplacement réseau (NLS).  
   
-2.  Ajouter un groupe de sécurité nommé **DirectAccessClients** dans ActiveDirectory, puis ajoutez les ordinateurs clients pour lesquels vous souhaitez fournir la fonctionnalité DirectAccess. Pour plus d’informations, voir [étape4: créer un groupe de sécurité pour le client DirectAccess ordinateurs](#BKMK_AddSecurityGroup).  
+2.  Ajoutez un groupe de sécurité nommé **DirectAccessClients** dans Active Directory, puis ajoutez les ordinateurs clients pour lesquels vous voulez fournir les fonctionnalités DirectAccess. Pour plus d’informations, consultez [étape 4 : Créer un groupe de sécurité pour le client DirectAccess ordinateurs](#BKMK_AddSecurityGroup).  
   
 ### <a name="commands"></a>Commandes  
   
 > [!IMPORTANT]
->  Dans WindowsServerEssentials, vous n’avez pas besoin de supprimer l’objet stratégie de groupe de préfixe IPv6 inutile. Supprimez la section de code avec l’intitulé suivant:`# [WINDOWS SERVER 2012 ESSENTIALS ONLY] Remove the unnecessary IPv6 prefix GPO`.  
+>  Dans Windows Server Essentials, il est inutile de supprimer l’objet stratégie de groupe de préfixe IPv6 inutile. Supprimez la section de code avec l’intitulé suivant : `# [WINDOWS SERVER 2012 ESSENTIALS ONLY] Remove the unnecessary IPv6 prefix GPO`.  
   
 ```powershell  
 # Add Remote Access role if not installed yet  
@@ -510,4 +511,4 @@ Restart-Service winnat
   
 -   [Gérer l’accès en tout lieu](Manage-Anywhere-Access-in-Windows-Server-Essentials.md)  
   
--   [Gérer WindowsServerEssentials](Manage-Windows-Server-Essentials.md)
+-   [Gérer Windows Server Essentials](Manage-Windows-Server-Essentials.md)

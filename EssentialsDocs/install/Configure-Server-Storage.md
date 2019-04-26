@@ -1,6 +1,6 @@
 ---
-title: Configuration du stockage serveur
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Configuration du stockage du serveur
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,44 +13,45 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 6de485f6fd46464ba707bc0871f60ac2fec5a1db
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
-ms.translationtype: MT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59859980"
 ---
-# <a name="configure-server-storage"></a>Configuration du stockage serveur
+# <a name="configure-server-storage"></a>Configuration du stockage du serveur
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-## <a name="sample-hard-disk-configurations"></a>Exemples de configurations de disque dur  
- Le tableau suivant propose des exemples de configurations de disque dur. Les estimations sont basées sur les fonctionnalités et d’utilisation classiques, mais elles ne répondent pas les problèmes qui affectent les performances optimales. Vous pouvez utiliser n’importe quel type de prise en charge des disques durs pour ces configurations (tel que SATA ou SCSI), selon les préférences et les besoins de votre client.  
+## <a name="sample-hard-disk-configurations"></a>Exemples de configurations de disques durs  
+ Le tableau suivant suggère des exemples de configurations de disques durs. Les estimations sont basées sur des conditions d'utilisation et de fonctionnement normales, mais elles ne répondent pas aux critères de performances optimales. Vous pouvez utiliser tout type de disque dur pris en charge pour ces configurations (tel que SATA ou SCSI), selon les préférences et les besoins de votre client.  
   
 > [!IMPORTANT]
->   WindowsServerEssentials doit être installé en tant que volume C:, et la taille du volume doit être au moins 60Go. Il est recommandé de créer deux partitions sur votre disque de système d’exploitation et de pas utiliser C: (partition système) pour stocker des données d’entreprise.  
+>   Windows Server Essentials doit être installé en tant que volume C:, et la taille du volume doit être au moins 60 Go. Il est recommandé de créer deux partitions sur votre lecteur de système d’exploitation et de ne pas utiliser C: (partition système) pour stocker des données d’entreprise.  
   
 |Niveau serveur|Configuration de disque|  
 |------------------|------------------------|  
-|Entrée|-Deux disques physiques<br /><br /> -Configurés comme un jeu en miroir RAID 1 contenant les éléments suivants:<br /><br /> -C: volume? 60GO<br /><br /> -D: volume? 1000GO|  
-|Moyenne|-Trois disques physiques<br /><br /> -Configuré comme un ensemble de RAID 5 contenant les éléments suivants:<br /><br /> -C: volume? 60GO<br /><br /> -D: volume? 1500GO|  
-|Élevé|-Cinq ou plusieurs disques physiques totales<br /><br /> -Deux des disques dans un jeu en miroir RAID 1 contenant le volume C:? 100GO<br /><br /> -Tous les autres disques un jeu RAID 5 contenant les éléments suivants:<br /><br /> -D: volume? 1500GO<br /><br /> -E: volume? 1500GO|  
+|Entrée|-Deux disques physiques<br /><br /> -Configuré comme un ensemble RAID 1 mise en miroir qui contient les éléments suivants :<br /><br /> -Sur le volume C: ? 60 Go<br /><br /> -D : volume ? 1 000 GO|  
+|Moyen|-Trois disques physiques<br /><br /> -Configuré comme un ensemble RAID 5 qui contient les éléments suivants :<br /><br /> -Sur le volume C: ? 60 Go<br /><br /> -D : volume ? 1 500 GO|  
+|Élevée|-Cinq ou plusieurs disques physiques de total<br /><br /> -Disques deux dans un jeu en miroir RAID 1 contenant le volume C: ? 100 GO<br /><br /> -Toutes les autres disques un ensemble RAID 5 qui contient les éléments suivants :<br /><br /> -D : volume ? 1 500 GO<br /><br /> -E : volume ? 1 500 GO|  
   
- Ces recommandations tiennent compte de la taille du système d’exploitation installé, la taille moyenne des que le serveur utilise le stockage des données et la croissance du stockage pendant la durée de vie prévue des données du serveur. Les volumes peuvent être des partitions sur un seul disque physique ou ils peuvent être placés sur des disques physiques distincts. Étant donné que le serveur stocke des données importantes pour votre client, il est recommandé d’utiliser plusieurs disques physiques et de protéger vos données client à l’aide de matériel RAID ou des espaces de stockage.  
+ Ces recommandations tiennent compte de la taille du système d’exploitation installé, de la taille moyenne du stockage de données que le serveur utilise et de la croissance du stockage de données prévue au cours de la durée de vie du serveur. Les volumes peuvent être des partitions sur un seul disque physique ou ils peuvent être placés sur des disques physiques distincts. Étant donné que le serveur stocke des données importantes pour votre client, il est recommandé d’utiliser plusieurs disques physiques et de vous aider à protéger vos données client à l’aide de matériel RAID ou des espaces de stockage.  
   
-## <a name="configuring-your-server-backup"></a>Configuration de la sauvegarde de votre serveur  
- En plus des disques durs internes sur le serveur, les utilisateurs doivent envisager l’utilisation de disques durs externes USB pour les sauvegardes. Dans l’idéal, le client doit disposer d’au moins deux disques durs externes avec une capacité suffisante pour sauvegarder toutes les données sur le serveur. Si les disques durs externes sont utilisés, le client peut prendre un disque hors site chaque nuit afin de mieux protéger les données.  
+## <a name="configuring-your-server-backup"></a>Configuration de la sauvegarde du serveur  
+ En plus des disques durs internes du serveur, les clients devraient envisager l'utilisation de disques durs externes USB pour les sauvegardes. Dans l'idéal, le client doit disposer d'au moins deux disques durs externes avec une capacité suffisante pour sauvegarder l'ensemble des données sur le serveur. Si l'on utilise des disques durs externes sont utilisés, le client peut emporter chaque nuit un disque hors site afin de mieux protéger les données.  
   
-## <a name="partition-configuration"></a>Configuration de la partition  
- Lors de la Configuration initiale du serveur, un ensemble de dossiers de serveur par défaut qui incluent des dossiers partagés et le dossier de sauvegarde d’ordinateur client sont créés dans la plus grande partition de données sur le disque 0.  
+## <a name="partition-configuration"></a>Configuration de partition  
+ Lors de la configuration initiale du serveur, un ensemble de dossiers serveur par défaut incluant les dossiers partagés et le dossier de sauvegarde de l'ordinateur client ont été créés dans la plus grande partition de données sur le disque 0.  
   
 ## <a name="see-also"></a>Voir aussi  
 
- [Prise en main du kit ADK WindowsServerEssentials](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Prise en main du ADK Windows Server Essentials](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
  [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
  [Test de l’expérience client](Testing-the-Customer-Experience.md)
 
- [Prise en main du kit ADK WindowsServerEssentials](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Prise en main du ADK Windows Server Essentials](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Création et personnalisation de l’Image](../install/Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](../install/Additional-Customizations.md)   
  [Préparation de l’Image pour le déploiement](../install/Preparing-the-Image-for-Deployment.md)   

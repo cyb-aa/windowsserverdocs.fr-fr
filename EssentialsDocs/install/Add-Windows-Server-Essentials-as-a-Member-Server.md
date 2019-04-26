@@ -1,6 +1,6 @@
 ---
-title: Ajouter WindowsServerEssentials en tant que serveur membre
-description: "Décrit comment utiliser WindowsServerEssentials"
+title: Ajouter Windows Server Essentials en tant que serveur membre
+description: Décrit comment utiliser Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,82 +13,83 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 8fb73f8186d3984c9e93f7a6e39cb72a54db1e58
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
-ms.translationtype: MT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59875420"
 ---
-# <a name="add-windows-server-essentials-as-a-member-server"></a>Ajouter WindowsServerEssentials en tant que serveur membre
+# <a name="add-windows-server-essentials-as-a-member-server"></a>Ajouter Windows Server Essentials en tant que serveur membre
 
->S’applique à: Windows Server2016Essentials, Windows Server2012R2 Essentials, Windows Server2012Essentials
+>S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Cette rubrique s’applique à un serveur exécutant Windows Server2012R2 Standard, Windows Server2012R2 Datacenter ou Windows Server2016 avec le rôle expérience WindowsServerEssentials installé. Dans le reste de ce document, le rôle expérience WindowsServerEssentials sera appelé WindowsServerEssentials.  
+Cette rubrique s’applique à un serveur exécutant Windows Server 2012 R2 Standard, Windows Server 2012 R2 Datacenter ou Windows Server 2016 avec le rôle expérience Windows Server Essentials installé. Dans le reste de ce document, le rôle Expérience Windows Server Essentials sera appelé Windows Server Essentials.  
   
 > [!NOTE]
->   WindowsServerEssentials peut uniquement être déployé en tant que contrôleur de domaine. Dans ce document, WindowsServerEssentials n’inclut pas de WindowsServerEssentials.  
+>   Windows Server Essentials peut uniquement être déployé en tant que contrôleur de domaine. Dans ce document, Windows Server Essentials n’inclut pas de Windows Server Essentials.  
   
- WindowsServerEssentials n’a pas besoin être un serveur principal dans un domaine Windows. Vous pouvez ajouter WindowsServerEssentials en tant que serveur membre dans un environnement de domaine ActiveDirectory existant et tirer parti de la protection des données simple, sécuriser l’accès à distance et des fonctionnalités d’intégration cloud offertes. En outre, WindowsServerEssentials peut être déployé dans un environnement ActiveDirectory existant sans avoir à être un contrôleur de domaine. Cela vous permet d’étendre le stockage ou d’utiliser une filiale pour l’administration et de stockage local.  
+ Windows Server Essentials n'a pas besoin d'être un serveur principal dans un domaine Windows. Vous pouvez ajouter Windows Server Essentials en tant que serveur membre dans un environnement de domaine Active Directory existant et tirer parti des fonctionnalités de protection des données simple, de l'accès à distance sécurisé et d'intégration cloud offertes. De plus, Windows Server Essentials peut être déployé dans un environnement Active Directory existant sans être un contrôleur de domaine. Vous pouvez ainsi étendre le stockage ou utiliser une filiale pour l'administration et le stockage local.  
   
- Vous pouvez ajouter WindowsServerEssentials dans les scénarios suivants:  
+ Vous pouvez utiliser Windows Server Essentials dans les scénarios suivants :  
   
--   Ajouter WindowsServerEssentials dans une succursale et le joindre au contrôleur de domaine qui se trouve dans le siège social, dans un emplacement distinct en utilisant les outils natifs. Vous pouvez activer les fonctionnalités BranchCache pour l’utilisation de la bande passante optimale sur ce serveur membre.  
+-   Ajouter Windows Server Essentials dans une succursale et le joindre au contrôleur de domaine situé au siège social, dans un emplacement différent, en utilisant les outils natifs. Vous pouvez activer les fonctionnalités BranchCache pour une utilisation optimale de la bande passante sur ce serveur membre.  
   
--   Ajouter WindowsServerEssentials en tant que serveur membre au sein d’un réseau WindowsServerEssentials afin d’étendre le stockage sur votre réseau en ajoutant des dossiers du serveur supplémentaires sur votre serveur membre.  
+-   Ajouter Windows Server Essentials comme serveur membre au sein d’un réseau Windows Server Essentials pour aider à étendre le stockage sur votre réseau en ajoutant des dossiers du serveur supplémentaires sur votre serveur membre.  
   
--   Ajouter WindowsServerEssentials en tant que serveur membre dans la filiale si votre serveur principal exécutant WindowsServerEssentials est hébergé dans MicrosoftAzure ou hébergé par un hébergeur tiers. Avec WindowsServerEssentials en tant que serveur membre à votre permet de site local office d’optimiser l’utilisation de la bande passante.  
+-   Ajouter Windows Server Essentials en tant que serveur membre dans la filiale si votre serveur principal exécutant Windows Server Essentials est hébergé dans Microsoft Azure ou par un hébergeur tiers. Avec Windows Server Essentials en tant que serveur membre de votre site local, vous pouvez optimiser l'utilisation de la bande passante.  
   
-## <a name="adding-windows-server-essentials-as-a-member-server"></a>Ajout de WindowsServerEssentials en tant que serveur membre  
- Pour ajouter WindowsServerEssentials en tant que serveur membre à un serveur principal exécutant Windows Server2012R2 ou WindowsServerEssentials dans un environnement ActiveDirectory existant, vous devez effectuer les étapes suivantes:  
+## <a name="adding-windows-server-essentials-as-a-member-server"></a>Ajout de Windows Server Essentials en tant que serveur membre  
+ Pour ajouter Windows Server Essentials en tant que serveur membre à un serveur principal exécutant Windows Server 2012 R2 ou Windows Server Essentials dans un environnement Active Directory existant, vous devez effectuer les étapes suivantes :  
   
-1.  Joignez le serveur exécutant WindowsServerEssentials à un groupe de travail.  
+1.  Joindre le serveur exécutant Windows Server Essentials à un groupe de travail.  
   
-2.  Joignez le serveur exécutant WindowsServerEssentials au domaine d’un serveur principal de WindowsServerEssentials.  
+2.  Joignez le serveur exécutant Windows Server Essentials au domaine d’un serveur principal de Windows Server Essentials.  
   
-3.  Configurer l’expérience WindowsServerEssentials à partir du Gestionnaire de serveur.  
+3.  Configurer l’expérience Windows Server Essentials à partir du Gestionnaire de serveur.  
   
-#### <a name="to-join-windows-server-essentials-to-a-workgroup-or-domain"></a>Pour joindre WindowsServerEssentials à un groupe de travail ou un domaine  
+#### <a name="to-join-windows-server-essentials-to-a-workgroup-or-domain"></a>Pour joindre Windows Server Essentials à un domaine ou groupe de travail  
   
-1.  Après avoir terminé l’installation de WindowsServerEssentials sur votre second serveur, fermez l’Assistant Configurer WindowsServerEssentials.  
+1.  Après avoir terminé l'installation de Windows Server Essentials sur votre second serveur, fermez l'Assistant Configuration de Windows Server Essentials.  
   
-2.  Dans le **recherche**, tapez **paramètres système**et dans les résultats de recherche, cliquez sur **afficher les paramètres système avancés**.  
+2.  Dans la zone **Rechercher** , tapez **System Settings**et dans les résultats de la recherche, cliquez sur **Afficher les paramètres système avancés**.  
   
-3.  Dans **propriétés système**, cliquez sur le **nom de l’ordinateur** onglet.  
+3.  Dans **Propriétés système**, cliquez sur l'onglet **Nom de l'ordinateur**.  
   
-4.  Dans **nom de l’ordinateur**, dans le **domaine**, cliquez sur **modification**.  
+4.  Sous **Nom de l'ordinateur**, dans la section **Domaine**, cliquez sur **Modifier**.  
   
-5.  Dans **modification du nom ou du domaine ordinateur**, dans le **membre**, choisissez si vous voulez joindre le serveur exécutant WindowsServerEssentials pour un **groupe de travail** ou à un **domaine**.  
+5.  Dans **modification du nom ou du domaine d’ordinateur**, dans le **membre** , choisissez si vous souhaitez joindre le serveur exécutant Windows Server Essentials pour un **Workgroup** ou à un **Domaine**.  
   
-    -   Pour ajouter le serveur à un groupe de travail, tapez **groupe de travail**, puis cliquez sur **OK**.  
+    -   Pour ajouter le serveur à un groupe de travail, tapez **workgroup**, puis cliquez sur **OK**.  
   
-    -   Pour joindre ce serveur à un domaine ActiveDirectory existant, tapez le nom du domaine, puis cliquez sur **OK**.  
+    -   Pour joindre ce serveur à un domaine Active Directory existant, tapez le nom du domaine, puis cliquez sur **OK**.  
   
 6.  Redémarrez le serveur pour appliquer les modifications.  
   
- Une fois que vous avez joint le serveur à votre domaine de s du serveur principal, vous pouvez continuer à configurer WindowsServerEssentials en exécutant l’Assistant Configurer WindowsServerEssentials à partir du Gestionnaire de serveur.  
+ Une fois que vous avez joint le serveur à votre domaine de s du serveur principal, vous pouvez continuer à configurer Windows Server Essentials en exécutant l’Assistant Configurer Windows Server Essentials à partir du Gestionnaire de serveur.  
   
-#### <a name="to-configure-windows-server-essentials-experience-on-a-member-server"></a>Pour configurer l’expérience WindowsServerEssentials sur un serveur membre  
+#### <a name="to-configure-windows-server-essentials-experience-on-a-member-server"></a>Pour configurer l'Expérience Windows Server Essentials sur un serveur membre  
   
-1.  (Facultatif) Modifier le nom du serveur, si nécessaire.  
+1.  (Facultatif) Modifiez le nom du serveur si nécessaire.  
   
     > [!IMPORTANT]
-    >  Vous ne pouvez pas modifier le nom du serveur après avoir configuré l’expérience WindowsServerEssentials.  
+    >  Vous ne pouvez pas modifier le nom du serveur après avoir configuré l’expérience de Windows Server Essentials.  
   
-2.  Connectez-vous au serveur à l’aide de votre compte d’administrateur de domaine.  
+2.  Connectez-vous au serveur à l'aide de votre compte d'administrateur de domaine.  
   
 3.  Ouvrez le Gestionnaire de serveur.  
   
-4.  Dans la zone de notification d’indicateur dans **le Gestionnaire de serveur**, cliquez sur l’indicateur, puis cliquez sur **configurer WindowsServerEssentials**.  
+4.  Dans la zone de notification d'indicateur dans **Gestionnaire de serveur**, cliquez sur l'indicateur, puis sur **Configurer Windows Server Essentials**.  
   
-5.  Choisissez de configurer le serveur comme serveur membre, puis cliquez sur **suivant**.  
+5.  Choisissez de configurer le serveur comme serveur membre, puis cliquez sur **Suivant**.  
   
-6.  Cliquez sur **configurer** pour commencer la configuration. Le processus de configuration prend environ 10minutes.  
+6.  Cliquez sur **Configurer** pour commencer la configuration. Le processus de configuration prend environ 10 minutes.  
   
-7.  Sur le bureau, cliquez sur l’icône du tableau de bord pour démarrer le serveur du tableau de bord. Sur la page d’accueil, effectuez les **prise en main** les tâches qui sont répertoriés sur le **le programme d’installation** onglet.  
+7.  Sur le Bureau, cliquez sur l'icône du tableau de bord pour démarrer le tableau de bord du serveur. Dans la page d'accueil, suivez les tâches de **prise en main** qui sont répertoriées sous l'onglet **Installation**.  
   
 ## <a name="see-also"></a>Voir aussi  
   
 
--   [Installer WindowsServerEssentials](Install-Windows-Server-Essentials.md)
+-   [Installer Windows Server Essentials](Install-Windows-Server-Essentials.md)
 
--   [Installer WindowsServerEssentials](../install/Install-Windows-Server-Essentials.md)
+-   [Installer Windows Server Essentials](../install/Install-Windows-Server-Essentials.md)
 
