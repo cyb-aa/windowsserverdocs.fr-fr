@@ -1,0 +1,94 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Accès à distance avec VPN Toujours actif (AlwaysOn)
+metadata:
+  document_id: null
+  title: Accès à distance avec VPN Toujours actif (AlwaysOn)
+  description: 'Apprenez-en davantage sur les fonctionnalités, la technologie et le déploiement de VPN Toujours actif (AlwaysOn).'
+  text: 'VPN Toujours actif (AlwaysOn) fournit une solution unique et cohérente pour un accès à distance à tous vos appareils connectés, même les appareils personnels. Avec VPN Toujours actif (AlwaysOn), le type de connexion ne doit pas nécessairement être exclusivement utilisateur ou appareil, mais peut être une combinaison des deux. Par exemple, vous pouvez activer l''authentification de l’appareil pour la gestion d’appareils à distance, puis activer l''authentification utilisateur pour la connectivité aux sites et services internes de la société.'
+  keywords: 'Windows 10, Windows Server, Windows Server 2016, accès à distance, VPN'
+  ms.localizationpriority: high
+  author: shortpatti
+  ms.author: pashort
+  ms.date: 11/05/2018
+  ms.topic: article
+  ms.devlang: na
+sections:
+  - title: Découvrez...
+  - items:
+      - type: markdown
+        text: 'Préparez-vous à déployer l''accès à distance en tant que passerelle RAS VPN en mode dédié pour les connexions VPN point à site, en utilisant l''un des quatre scénarios mentionnés ci-dessous, pour les ordinateurs clients distants exécutant Windows 10.  Si vous utilisez actuellement DirectAccess, nous vous recommandons d''étudier attentivement la fonctionnalité VPN Toujours actif (AlwaysOn) afin de déterminer si elle répond à tous vos besoins en matière d''accès à distance avant de migrer le formulaire DirectAccess vers VPN Toujours actif (AlwaysOn).'
+  - items:
+      - type: list
+        style: cards
+        className: cardsE
+        columns: 3
+        items:
+          - href: \windows-server\remote\remote-access\vpn\always-on-vpn\deploy\always-on-vpn-deploy
+            html: <p>En savoir plus sur le déploiement et la prise en main de VPN Toujours actif (AlwaysOn).</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_get-started.svg'
+            title: Lancez-vous
+          - href: \windows-server\remote\remote-access\vpn\vpn-map-da
+            html: <p>Découvrez les fonctionnalités de VPN Toujours actif (AlwaysOn).</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
+            title: Fonctionnalités et caractéristiques de VPN Toujours actif (AlwaysOn)
+          - href: \windows-server\remote\remote-access\vpn\always-on-vpn\always-on-vpn-enhancements
+            html: '<p>Découvrez les principales améliorations apportées à l’intégration, la sécurité, la connectivité, le contrôle de mise en réseau et la compatibilité.</p>'
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_whats-new.svg'
+            title: Améliorations du VPN Toujours actif (AlwaysOn)
+          - href: \windows-server\remote\remote-access\vpn\always-on-vpn\always-on-vpn-technology-overview
+            html: <p>Découvrez les technologies utilisées dans le déploiement de VPN Toujours actif (AlwaysOn).</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_overview.svg'
+            title: Vue d’ensemble des technologies
+          - href: \windows-server\remote\remote-access\vpn\always-on-vpn\deploy\always-on-vpn-adv-options
+            html: <p>Découvrez les fonctionnalités avancées de VPN que vous pouvez ajouter pour améliorer la sécurité et la disponibilité de votre connexion VPN.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_advanced.svg'
+            title: Allez plus loin avec les fonctionnalités avancées de VPN Toujours actif (AlwaysOn)
+  - title: Lancez-vous...
+    items:
+      - type: paragraph
+        text: Déployez des connexions VPN Toujours actif (AlwaysOn) pour les ordinateurs clients Windows 10 appartenant à un domaine. Vous pouvez également migrer de DirectAccess vers VPN Toujours actif (AlwaysOn) et configurer un accès conditionnel à l'aide d'Azure AD.
+      - type: list
+        style: cards
+        className: cardsE
+        columns: 3
+        items:
+          - href: \windows-server\remote\remote-access\vpn\always-on-vpn\deploy\always-on-vpn-deploy-deployment
+            html: <p>Découvrez ce dont vous avez besoin pour déployer des connexions VPN.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_architecture.svg'
+            title: Scénarios et flux de travail de déploiement
+          - href: \windows-server\remote\remote-access\vpn\always-on-vpn\deploy\always-on-vpn-deploy-planning
+            html: <p>Commencez à planifier et à préparer votre déploiement de VPN Toujours actif (AlwaysOn).</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_guidelines.svg'
+            title: Planifiez le déploiement de VPN Toujours actif (AlwaysOn)
+          - href: \windows-server\remote\remote-access\vpn\always-on-vpn\deploy\vpn-deploy-server-infrastructure
+            html: <p>Commencez à configurer l’infrastructure VPN avec la connectivité VPN client Windows 10.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_setup.svg'
+            title: Déployez l’infrastructure VPN
+          - href: \windows-server\remote\remote-access\vpn\ad-ca-vpn-connectivity-windows10
+            html: <p>Ajustez la manière dont les utilisateurs VPN accèdent à vos ressources à l'aide de l'accès conditionnel Azure AD.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_setup.svg'
+            title: Configurer l’accès conditionnel
+  - items:
+      - type: list
+        style: cards
+        className: cardsL
+        items:
+          - title: Résoudre les problèmes liés au VPN Toujours actif (AlwaysOn)
+            html: |-
+              <p><a class="barLink" href="/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy-troubleshooting#vpnprofileps1-script-issues">Problèmes de script VPN_Profile.ps1</a></p>
+              <p><a class="barLink" href="/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy-troubleshooting#always-on-vpn-client-connection-issues">Problèmes de connexion client VPN Always On</a></p>
+              <p><a class="barLink" href="/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy-troubleshooting#azure-ad-conditional-access-connection-issues">Problèmes de connexion à l’accès conditionnel Azure AD</a></p>
+              <p><a class="barLink" href="/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy-troubleshooting#error-codes">Codes d’erreur</a></p><br>
+              <p><a class="barLink" href="/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy-troubleshooting#logs">Fichiers journaux</a></p></div>
+          - title: Ressources supplémentaires
+            html: "<p><a class=\"barLink\" href=\"https://docs.microsoft.com/windows/access-protection/vpn/vpn-guide\">Guide technique du VPN Windows\_10</a></p>\n<p><a class=\"barLink\" href=\"https://msdn.microsoft.com/windows/hardware/commercialize/customize/mdm/vpnv2-csp\">VPNv2 CSP</a></p>\n<p><a class=\"barLink\" href=\"https://technet.microsoft.com/library/hh831740.aspx\">Vue d'ensemble des services de certificats Active Directory</a></p>\n<p><a class=\"barLink\" href=\"https://technet.microsoft.com/library/cc730705.aspx\">Modèles de certificats</a></p>\n<p><a class=\"barLink\" href=\"https://social.technet.microsoft.com/wiki/contents/articles/2901.public-key-infrastructure-design-guidance.aspx\">Guide de conception de l’infrastructure à clé publique (PKI)</a></p><p></p>\n<p><a class=\"barLink\" href=\"https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx\">Guide étape par étape de AD CS - déploiement d’une hiérarchie PKI à deux couches</a></p>"

@@ -1,0 +1,50 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation de l’infrastructure hyper-convergée
+metadata:
+  document_id: null
+  title: Documentation de l’infrastructure hyper-convergée
+  description: Documentation de l’infrastructure hyper-convergée
+  text: 'Consolidez le calcul, le stockage et la mise en réseau définis par logiciel dans un cluster pour fournir une virtualisation de haute performance, économique et facilement évolutive'
+  keywords: 'Windows Server, Windows Server 2016, hyper-v, sdn, storage spaces direct, wssd'
+  ms.localizationpriority: high
+  author: coreyp-at-msft
+  ms.author: coreyp
+  ms.topic: article
+  ms.devlang: na
+sections:
+  - title: null
+  - items:
+      - type: markdown
+        text: 'Consolidez le calcul, le stockage et la mise en réseau définis par logiciel dans un cluster pour fournir une virtualisation de haute performance, économique et facilement évolutive.'
+  - items:
+      - type: list
+        style: cards
+        className: cardsI
+        columns: 2
+        items:
+          - href: ../virtualization/hyper-v/index.md
+            html: '<p>Virtualise le matériel du serveur, vous permettant d’exécuter des machines virtuelles sur plusieurs serveurs dans un cluster hyper-convergé</p>'
+            image:
+              src: ../media/i-virtualize.svg
+            title: Hyper-V
+          - href: ../storage/storage-spaces/storage-spaces-direct-overview.md
+            html: '<p>Virtualise le matériel de stockage, vous permettant de créer des volumes sur un pool de lecteurs virtualisé réparti sur plusieurs serveurs dans un cluster hyper-convergé.</p>'
+            image:
+              src: ../media/i-store.svg
+            title: Espaces de stockage directs
+          - href: ../failover-clustering/failover-clustering-overview.md
+            html: '<p>Regroupe plusieurs serveurs afin que les charges de travail telles que les machines virtuelles puissent s’exécuter sur n’importe quel serveur du cluster, en équilibrant la charge et en basculant correctement entre les serveurs.</p>'
+            image:
+              src: ../media/i-cluster.svg
+            title: Clustering de basculement
+          - href: 'https://docs.microsoft.com/windows-server/networking/sdn/'
+            html: '<p>Virtualise votre matériel réseau, vous permettant ainsi de créer et de gérer de manière dynamique des réseaux et des stratégies qui soustraient la charge de travail des réseaux physiques sous-jacents.</p>'
+            image:
+              src: ../media/i-network.svg
+            title: Mise en réseau SDN (Software Defined Networking)
+          - href: 'https://www.microsoft.com/cloud-platform/software-defined-datacenter'
+            html: '<p>Associe les technologies de virtualisation et de mise en cluster de Windows Server et les solutions matérielles validées par le partenaire de votre choix, ce qui simplifie l’optimisation des centres de données définis par logiciel.</p>'
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_data-collection.svg'
+            title: Windows Server Software-Defined (WSSD)
