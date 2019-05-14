@@ -10,7 +10,7 @@ ms.author: pashort
 author: shortpatti
 ms.openlocfilehash: 665e411eda834a59c6dbe3581611b9b58bd006f2
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59833570"
@@ -69,9 +69,9 @@ Vous pouvez configurer les paramètres de RRL pour contrôler la façon de répo
   
 -   **Domaines de la liste verte**. Il s’agit d’une liste de domaines à exclure de paramètres de RRL.  
   
--   **Liste blanche sous-réseaux**. Il s’agit d’une liste de sous-réseaux à exclure de paramètres de RRL.  
+-   **Liste verte sous-réseaux**. Il s’agit d’une liste de sous-réseaux à exclure de paramètres de RRL.  
   
--   **Interfaces de serveur de liste blanche**. Il s’agit d’une liste d’interfaces de serveur DNS doit être exclu des paramètres de RRL.  
+-   **Interfaces de serveur de liste verte**. Il s’agit d’une liste d’interfaces de serveur DNS doit être exclu des paramètres de RRL.  
   
 ## <a name="dane-support"></a>Prise en charge DANE
 
