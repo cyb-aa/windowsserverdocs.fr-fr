@@ -11,7 +11,7 @@ ms.assetid: dda9d148-d72f-4bff-aa2a-f2249fa47e4c
 ms.technology: identity-adfs
 ms.openlocfilehash: 05728f04f6fb924cf3793bc843df3832c7c383f7
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59855690"
@@ -75,7 +75,7 @@ Le tableau suivant fournit un exemple de plusieurs - conditions d’expression.
   
 |Description de la condition|Exemple de syntaxe d’une condition|  
 |-------------------------|----------------------------|  
-|Cette règle contient une condition pour vérifier des deux revendications, chacun avec un type de revendication spécifié d’entrée (« http://test/name« et » http://test/email»). Si les deux revendications correspondantes sont présentes dans les revendications d’entrée, la règle copie le nom de la revendication vers le jeu des revendications de sortie.|``` c1: [type  == "http://test/name"] && c2: [type == "http://test/email"] => issue (claim  = c1 );```|  
+|Cette règle contient une condition pour vérifier des deux revendications, chacun avec un type de revendication spécifié d’entrée (« http://test/name«  et  » http://test/email»). Si les deux revendications correspondantes sont présentes dans les revendications d’entrée, la règle copie le nom de la revendication vers le jeu des revendications de sortie.|``` c1: [type  == "http://test/name"] && c2: [type == "http://test/email"] => issue (claim  = c1 );```|  
   
 #### <a name="regular--condition-examples"></a>Standard - exemples de condition  
 Le tableau suivant fournit un exemple d’une expression régulière,-en fonction de condition.  
