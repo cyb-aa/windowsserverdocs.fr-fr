@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 1f22578cc54a22464fe5d9208731fe681be30481
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59832980"
@@ -26,7 +26,7 @@ ms.locfileid: "59832980"
 
 Dans Windows Server, le Gestionnaire de serveur vous permet de gérer le serveur local (si vous exécutez le Gestionnaire de serveur sur Windows Server et non sur un système d’exploitation de clients basés sur Windows) et les serveurs distants qui exécutent Windows Server 2008 et les versions plus récentes de la Windows Système d’exploitation de serveur.
 
-Le **serveur Local** page dans le Gestionnaire de serveur affiche les données de compteur propriétés, événements, service et les performances de serveur et les résultats de Best Practices Analyzer (BPA) pour le serveur local. Les vignettes Événements, Services, BPA et Performances fonctionnent comme dans les pages de rôles et de groupes de serveurs. Pour plus d’informations sur la configuration des données affichées dans ces vignettes, voir [View et Configure Performance, Event, et Service Data et [Run Best Practices Analyzer Scans et Manage Scan Results.
+Le **serveur Local** page dans le Gestionnaire de serveur affiche les données de compteur propriétés, événements, service et les performances de serveur et les résultats de Best Practices Analyzer (BPA) pour le serveur local. Les vignettes Événements, Services, BPA et Performances fonctionnent comme dans les pages de rôles et de groupes de serveurs. Pour plus d’informations sur la configuration des données affichées dans ces vignettes, voir [Afficher et configurer les données de performances, d’événements et de services](view-and-configure-performance-event-and-service-data.md) et [Exécuter des analyses Best Practices Analyzer et gérer les résultats des analyses](run-best-practices-analyzer-scans-and-manage-scan-results.md).
 
 Paramètres et commandes de menu dans les barres d’en-tête de console Gestionnaire de serveur s’appliquent globalement à tous les serveurs dans votre pool de serveurs et vous permettent d’utiliser le Gestionnaire de serveur pour gérer le pool de serveurs entier.
 
@@ -104,7 +104,7 @@ Lorsque les serveurs qui se trouvent dans un cluster sont ajoutés au Gestionnai
 Données affichées dans les pages d’accueil de rôle dans le Gestionnaire de serveur des Services Bureau à distance, de l’adresse IP de gestion et de fichiers et de Services de stockage ne sont pas actualisée automatiquement. Actualiser les données affichées dans ces pages manuellement, en appuyant sur **F5** ou en cliquant sur **Actualiser** dans le Gestionnaire de serveur en-tête de la console lorsque vous vous trouvez sur ces pages.
 
 ### <a name="add-or-remove-roles-or-features"></a>Ajouter ou supprimer des rôles ou des fonctionnalités
-Les commandes qui ouvrent les fonctionnalités Assistant Ajouter des rôles et de supprimer des rôles et fonctionnalités Assistant et vous permettent d’ajoutez ou supprimez des rôles, services de rôle et fonctionnalités aux serveurs dans votre pool de serveurs, se trouvent dans le **gérer** menu du Gestionnaire de serveur console et le **tâches** menu de la **des rôles et fonctionnalités** vignette sur les pages de rôle ou groupe. Pour plus d’informations sur l’ajout ou la suppression de rôles ou de fonctionnalités, voir [Installer ou désinstaller des rôles, des services de rôle ou des fonctionnalités](install-or-uninstall-roles-role-services-or-features.md).
+Les commandes qui ouvrent les fonctionnalités Assistant Ajouter des rôles et de supprimer des rôles et fonctionnalités Assistant et vous permettent d’ajoutez ou supprimez des rôles, services de rôle et fonctionnalités aux serveurs dans votre pool de serveurs, se trouvent dans le **gérer** menu du Gestionnaire de serveur console et le **tâches** menu de la **des rôles et fonctionnalités** vignette sur les pages de rôle ou groupe. Pour plus d’informations sur la façon d’ajouter ou supprimer des rôles ou fonctionnalités, consultez [installer ou désinstaller des rôles, Services de rôle ou fonctionnalités](install-or-uninstall-roles-role-services-or-features.md).
 
 Dans le Gestionnaire de serveur, les données de rôle et fonctionnalité s’affiche dans la langue de base du système, également appelée langue de l’interface graphique utilisateur par défaut du système ou de la langue sélectionnée pendant l’installation du système d’exploitation.
 
