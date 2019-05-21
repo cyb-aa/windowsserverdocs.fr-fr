@@ -11,7 +11,7 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: 77fb8cc6e13cb82e4d07808c3ae77757a4b2de79
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59826780"
@@ -56,7 +56,7 @@ Les propriétés de ressource Impact et Informations d'identification personnell
   
 5.  Cliquez avec le bouton droit sur **Informations d'identification personnelle**, puis cliquez sur **Activer**.  
   
-![guides de solutions](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![guides de solutions](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)****Windows PowerShell équivalente commandes****  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -107,7 +107,7 @@ Une règle de classification de contenu de chaîne analyse un fichier à la rech
   
 13. Sous l'onglet **Type d'évaluation**, cochez la case **Réévaluer les valeurs de propriété existantes**, cliquez sur  **Remplacer la valeur existante**, puis sur **OK**.  
   
-![guides de solutions](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![guides de solutions](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)****Windows PowerShell équivalente commandes****  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -155,7 +155,7 @@ Une règle de classification de contenu d'expression régulière analyse un fich
   
 12. Sous l'onglet **Type d'évaluation**, cochez la case **Réévaluer les valeurs de propriété existantes**, cliquez sur  **Remplacer la valeur existante**, puis sur **OK**.  
   
-![guides de solutions](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![guides de solutions](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)****Windows PowerShell équivalente commandes****  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   

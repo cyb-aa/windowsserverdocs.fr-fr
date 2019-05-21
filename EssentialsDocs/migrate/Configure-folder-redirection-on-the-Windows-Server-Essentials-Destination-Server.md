@@ -14,7 +14,7 @@ ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 7cc1207f36d3a921b49cc3ecd02acf3fe4fa243c
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59827370"
@@ -31,7 +31,7 @@ Effectuez cette tâche si la redirection de dossiers est activée sur le serveur
   
 1.  Sur le serveur de destination, ouvrez l'outil d'administration **Gestion des stratégies de groupe**.  
   
-2.  Dans **Group Policy Management**, développez **forêt : *** Nomdomainedevotreréseau*, développez **domaines**, développez *Nomdomainedevotreréseau* , puis développez **les objets de stratégie de groupe**.  
+2.  Dans **Group Policy Management**, développez **forêt :***Nomdomainedevotreréseau*, développez **domaines**, développez *Nomdomainedevotreréseau* , puis développez **les objets de stratégie de groupe**.  
   
 3.  Cliquez avec le bouton droit sur **Redirection de dossiers de la stratégie de groupe SBS**, puis cliquez sur **Supprimer**.  
   
