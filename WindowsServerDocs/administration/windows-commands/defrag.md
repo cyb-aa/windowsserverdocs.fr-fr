@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 6997e878b2bb7b77a5920ad7398ef7c2301cc8c0
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59813190"
@@ -67,7 +67,7 @@ defrag <volume> [/<Parameter>]*
 -   Un volume doit avoir au moins 15 % espace libre pour **defrag** à défragmenter complètement et correctement. **la défragmentation** utilise cet espace comme zone de tri pour les fragments de fichiers. Si un volume possède moins de 15 % d’espace libre, **defrag** défragmentera que partiellement. Pour augmenter l’espace libre sur un volume, supprimez les fichiers superflus ou déplacez-les vers un autre disque.
 -   Bien que **defrag** est analyser et de défragmenter un volume, il affiche un curseur clignotant. Lorsque **defrag** est terminé d’analyser et de défragmenter le volume, il affiche le rapport d’analyse, le rapport de défragmentation ou les deux rapports et se termine à l’invite de commandes.
 -   Par défaut, **defrag** affiche un résumé des rapports d’analyse et de défragmentation si vous ne spécifiez pas le **/a** ou **/v** paramètres.
--   Vous pouvez envoyer les rapports dans un fichier texte en tapant **> ***FileName.txt*, où *nomfichier.txt* est un nom de fichier que vous spécifiez. Par exemple : `defrag volume /v > FileName.txt`
+-   Vous pouvez envoyer les rapports dans un fichier texte en tapant **>** *FileName.txt*, où *nomfichier.txt* est un nom de fichier que vous spécifiez. Par exemple : `defrag volume /v > FileName.txt`
 -   Pour interrompre le processus de défragmentation en ligne de commande, appuyez sur **CTRL + C**.
 -   En cours d’exécution le **defrag** commande et Défragmenteur de disque s’excluent mutuellement. Si vous utilisez le Défragmenteur de disque pour défragmenter un volume et que vous exécutez le **defrag** commande sur une ligne de commande, le **defrag** Échec d’une commande. À l’inverse, si vous exécutez le **defrag** commande et ouvrir Défragmenteur de disque, les options de défragmentation Défragmenteur de disque ne sont pas disponibles.
 

@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 10/16/2017
 ms.openlocfilehash: b55063c3c5ea41b43573e6322b5efb36d2dad90e
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59828330"
@@ -57,7 +57,7 @@ fsutil resource [stop] <RmRootPathname>
 |setavailable|Spécifie qu’un gestionnaire de ressources transactionnelles sera préférez la disponibilité cohérence.|
 |setconsistent|Spécifie qu’un gestionnaire de ressources transactionnelles préféreront cohérence sur la disponibilité.|
 |setlog|Modifie les caractéristiques d’un gestionnaire de ressources transactionnelles qui est déjà en cours d’exécution.|
-|growth|Spécifie le montant par lequel le journal du Gestionnaire de ressources transactionnel peut atteindre.<br /><br />Le paramètre de croissance peut être spécifié comme suit :<br /><br />-Nombre de conteneurs en utilisant le format : *Conteneurs ***conteneurs**<br />- pourcentage en utilisant le format : *Pourcentage *** %**|
+|growth|Spécifie le montant par lequel le journal du Gestionnaire de ressources transactionnel peut atteindre.<br /><br />Le paramètre de croissance peut être spécifié comme suit :<br /><br />-Nombre de conteneurs en utilisant le format : *Conteneurs***conteneurs**<br />-   pourcentage en utilisant le format : *Pourcentage***%**|
 |<containers>|Spécifie les objets de données qui sont utilisées par le Gestionnaire de ressources transactionnelles.|
 |maxextent|Spécifie le nombre maximal de conteneurs pour le Gestionnaire de ressources transactionnel spécifié.|
 |minextent|Spécifie le nombre minimal de conteneurs pour le Gestionnaire de ressources transactionnel spécifié.|
