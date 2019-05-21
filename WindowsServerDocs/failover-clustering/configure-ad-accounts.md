@@ -6,17 +6,17 @@ ms.technology: storage-failover-clustering
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 2fcc6047a0e85170754d8f05d10f728a4c529049
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 454783a13b834ef705bd896155195750de2b183c
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871960"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64772714"
 ---
 # <a name="configuring-cluster-accounts-in-active-directory"></a>Configuration des comptes de cluster dans Active Directory
 
 
-S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
+S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 
 Dans Windows Server, lorsque vous créez un cluster de basculement et configurez des services en cluster ou des applications, les Assistants de cluster de basculement créent les comptes d’ordinateur Active Directory nécessaires (également appelés objets ordinateur) et leur accorder des autorisations spécifiques. Les Assistants créent un compte d'ordinateur pour le cluster lui-même (ce compte est également appelé objet nom de cluster) et un compte d'ordinateur pour la plupart des types de services et d'applications en cluster, l'exception étant un ordinateur virtuel Hyper-V. Les autorisations pour ces comptes sont définies automatiquement par les Assistants de cluster de basculement. Si les autorisations sont modifiées, elles devront être rechangées pour répondre aux besoins de cluster. Ce guide décrit ces comptes et autorisations Active Directory, fournit des informations générales sur leur importance et décrit les étapes de la configuration et de la gestion des comptes.
       
@@ -113,7 +113,7 @@ Comme décrit dans les trois sections précédentes, certaines conditions doiven
 
 ### <a name="planning-ahead-for-password-resets-and-other-account-maintenance"></a>Planification à l'avance des réinitialisations de mots de passe et d'autres tâches de maintenance des comptes
 
-Les administrateurs de clusters de basculement devront peut-être quelquefois réinitialiser le mot de passe du compte du nom du cluster. Cette action requiert une autorisation spécifique, l'autorisation **Réinitialiser le mot de passe**. Par conséquent, il est conseillé de modifier les autorisations du compte du nom du cluster (en utilisant le composant logiciel enfichable Utilisateurs et ordinateurs Active Directory) pour accorder l'autorisation **Réinitialiser le mot de passe** aux administrateurs du cluster pour le compte du nom du cluster. Pour plus d'informations, consultez [Étapes de la résolution de problèmes de mot de passe liés au compte du nom du cluster](#steps_for_troubleshooting_password_problems_with_the_cluster_name_account), ultérieurement dans ce guide.
+Les administrateurs de clusters de basculement devront peut-être quelquefois réinitialiser le mot de passe du compte du nom du cluster. Cette action requiert une autorisation spécifique, l'autorisation **Réinitialiser le mot de passe**. Par conséquent, il est conseillé de modifier les autorisations du compte du nom du cluster (en utilisant le composant logiciel enfichable Utilisateurs et ordinateurs Active Directory) pour accorder l'autorisation **Réinitialiser le mot de passe** aux administrateurs du cluster pour le compte du nom du cluster. Pour plus d'informations, consultez [Étapes de la résolution de problèmes de mot de passe liés au compte du nom du cluster](#steps-for-troubleshooting-password-problems-with-the-cluster-name-account), ultérieurement dans ce guide.
 
 ## <a name="steps-for-configuring-the-account-for-the-person-who-installs-the-cluster"></a>Étapes de la configuration du compte pour la personne qui installe le cluster
 
@@ -152,7 +152,7 @@ L'appartenance à un groupe minimum obligatoire pour effectuer la procédure sui
           
         Lorsque **Fonctionnalités avancées** est sélectionné, l'onglet **Sécurité** s'affiche dans les propriétés des comptes (objets) dans **Utilisateurs et ordinateurs Active Directory**.  
           
-    3.  Cliquez avec le bouton droit sur le conteneur **Ordinateurs** par défaut ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine, puis cliquez sur **Propriétés**. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers.</b>.  
+    3.  Cliquez avec le bouton droit sur le conteneur **Ordinateurs** par défaut ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine, puis cliquez sur **Propriétés**. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers</b>.  
           
     4.  Sous l’onglet **Sécurité**, cliquez sur **Avancé**.  
           
@@ -174,7 +174,7 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe *
 
 2.  Sur un contrôleur de domaine, cliquez sur **Démarrer**, sur **Outils d'administration**, puis sur **Utilisateurs et ordinateurs Active Directory**. Si la boîte de dialogue **Contrôle de compte d’utilisateur** apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur **Continuer**.
 
-3.  Dans l'arborescence de la console, cliquez avec le bouton droit sur **Ordinateurs** ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers.</b>.
+3.  Dans l'arborescence de la console, cliquez avec le bouton droit sur **Ordinateurs** ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers</b>.
 
 4.  Cliquez sur **Nouveau**, puis sur **Ordinateur**.
 
@@ -226,7 +226,7 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au minimum 
 
 2.  Sur un contrôleur de domaine, cliquez sur **Démarrer**, sur **Outils d'administration**, puis sur **Utilisateurs et ordinateurs Active Directory**. Si la boîte de dialogue **Contrôle de compte d’utilisateur** apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur **Continuer**.
 
-3.  Dans l'arborescence de la console, cliquez avec le bouton droit sur **Ordinateurs** ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers.</b>.
+3.  Dans l'arborescence de la console, cliquez avec le bouton droit sur **Ordinateurs** ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers</b>.
 
 4.  Cliquez sur **Nouveau**, puis sur **Ordinateur**.
 
@@ -287,7 +287,7 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe *
 
 1.  Sur un contrôleur de domaine, cliquez sur **Démarrer**, sur **Outils d'administration**, puis sur **Utilisateurs et ordinateurs Active Directory**. Si la boîte de dialogue **Contrôle de compte d’utilisateur** apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur **Continuer**.
 
-2.  Développez le conteneur **Ordinateurs** par défaut ou le dossier dans lequel le compte du nom du cluster (compte d'ordinateur pour le cluster) se trouve. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers.</b>.
+2.  Développez le conteneur **Ordinateurs** par défaut ou le dossier dans lequel le compte du nom du cluster (compte d'ordinateur pour le cluster) se trouve. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers</b>.
 
 3.  Examinez l'icône pour le compte du nom du cluster. Elle ne doit pas comporter de flèche pointant vers le bas, autrement dit, le compte ne doit pas être désactivé. S'il semble désactivé, cliquez dessus avec le bouton droit et recherchez la commande **Activer le compte**. Si vous voyez la commande, cliquez dessus.
 

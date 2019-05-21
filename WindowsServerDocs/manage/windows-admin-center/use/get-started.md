@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 02/15/2019
-ms.openlocfilehash: 61fdd70e53a49b704e11f71f0e5eb3176c31c378
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: f4fd9f69e75ed80bbdb345b4041c2337c65ec2e6
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876010"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63742571"
 ---
 # <a name="get-started-with-windows-admin-center"></a>Prise en main de Windows Admin Center
 
@@ -64,7 +64,7 @@ Une fois que vous avez terminé l’installation de Windows Admin Center, vous p
 
     ![](../media/launch/addserver2.png)
 
-   **--OU--**  
+   **--OU--**
 
 **Plusieurs serveurs d’importation en bloc**
 
@@ -73,6 +73,18 @@ Une fois que vous avez terminé l’installation de Windows Admin Center, vous p
     ![](../media/launch/import-servers.png)
 
  2. Cliquez sur **Parcourir** et sélectionnez un fichier texte qui contient une virgule ou séparées de la nouvelle ligne, la liste des noms de domaine complets pour les serveurs que vous souhaitez ajouter.
+
+    **--OU--**
+
+**Ajouter des serveurs en recherchant dans Active Directory**
+
+ 1. Sur le **ajouter une connexion serveur** page, choisissez le **recherche Active Directory** onglet.
+
+    ![](../media/launch/search-ad.png)
+
+ 2. Entrez vos critères de recherche et cliquez sur **recherche**. Les caractères génériques (*) sont pris en charge.
+
+ 3. Une fois la recherche terminée - sélectionnez un ou plusieurs des résultats, si vous le souhaitez ajouter des balises, puis cliquez sur **ajouter**.
 
 ## <a name="authenticate-with-the-managed-node"></a>S’authentifier avec le nœud géré ##
 
@@ -142,9 +154,6 @@ Une fois que les balises ont été ajoutées à un ou plusieurs connexions au se
 
 Version préliminaire de Windows Admin Center inclut un module PowerShell pour importer ou exporter votre liste de connexion.
 
->[!IMPORTANT]
->Importation et exportation de connexions avec le module PowerShell est uniquement pris en charge Windows Admin Center est déployé comme un service de passerelle sur Windows Server.
-
 ```powershell
 # Load the module
 Import-Module "$env:ProgramFiles\windows admin center\PowerShell\Modules\ConnectionTools"
@@ -158,7 +167,7 @@ Import-Connection "https://wac.contoso.com" -fileName "WAC-connections.csv"
 
 ### <a name="csv-file-format-for-importing-connections"></a>Format de fichier CSV pour l’importation des connexions
 
-Le format du fichier CSV commence par les trois en-têtes : ```"name","type","tags"```, suivie de chaque connexion sur une nouvelle ligne.
+Le format du fichier CSV démarre avec les en-têtes de quatre ```"name","type","tags","groupId"```, suivie de chaque connexion sur une nouvelle ligne.
 
 **nom** est le nom de domaine complet de la connexion
 
@@ -173,15 +182,17 @@ Le format du fichier CSV commence par les trois en-têtes : ```"name","type","t
 
 **balises** sont séparées par un canal.
 
+**groupId** est utilisé pour les connexions partagées. Utilisez la valeur ```global``` dans cette colonne pour faire une connexion partagée.
+
 ### <a name="example-csv-file-for-importing-connections"></a>Exemple de fichier CSV pour l’importation des connexions
 
 ```
-"name","type","tags"
+"name","type","tags","groupId"
 "myServer.contoso.com","msft.sme.connection-type.server","hyperv"
 "myDesktop.contoso.com","msft.sme.connection-type.windows-client","hyperv"
-"mycluster.contoso.com","msft.sme.connection-type.cluster","legacyCluster|WS2016"
+"teamcluster.contoso.com","msft.sme.connection-type.cluster","legacyCluster|WS2016","global"
 "myHCIcluster.contoso.com,"msft.sme.connection-type.hyper-converged-cluster","myHCIcluster|hyperv|JIT|WS2019"
-"myclusterNode.contoso.com","msft.sme.connection-type.server","legacyCluster|WS2016"
+"teamclusterNode.contoso.com","msft.sme.connection-type.server","legacyCluster|WS2016","global"
 "myHCIclusterNode.contoso.com","msft.sme.connection-type.server","myHCIcluster|hyperv|JIT|WS2019"
 ```
 
@@ -270,7 +281,7 @@ Utilisez le script ci-dessous pour exporter les connexions enregistrées dans [R
    RdgToWacCsv -RDGfilepath "path\to\myRDCManfile.rdg"
    ```
 
-3. Importer le résultat. Fichier CSV dans Windows Admin Center et votre hiérarchie de regroupement de RDCMan seront représenté par des balises dans la liste des connexions. Pour plus d’informations, consultez [utiliser PowerShell pour importer ou exporter vos connexions (avec balises)](#use-powershell-to-import-or-export-your-connections-(with-tags)).
+3. Importer le résultat. Fichier CSV dans Windows Admin Center et votre hiérarchie de regroupement de RDCMan seront représenté par des balises dans la liste des connexions. Pour plus d’informations, consultez [utiliser PowerShell pour importer ou exporter vos connexions (avec balises)](#use-powershell-to-import-or-export-your-connections-with-tags).
 
 ## <a name="view-powershell-scripts-used-in-windows-admin-center"></a>Afficher le script PowerShell utilisés dans Windows Admin Center
 
