@@ -11,7 +11,7 @@ ms.date: 6/24/2017
 description: Comment déployer Dossiers de travail, y compris l’installation du rôle de serveur, la création des partages de synchronisation et la création d’enregistrements DNS.
 ms.openlocfilehash: 1f7a0aa0b7e08a1dd444cd6b488a1ced6ee3d9d7
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59812540"
@@ -110,7 +110,7 @@ Add-WindowsFeature FS-SyncShareService
 
 4.  Dans la fenêtre **Créer un groupe**, dans la section **Groupe**, indiquez les paramètres suivants :
 
-    -   Dans **Nom du groupe**, tapez le nom du groupe de sécurité, par exemple : Utilisateurs Partage de synchronisation RH, ou **Administrateurs de Dossiers de travail**.  
+    -   Dans **Nom du groupe**, tapez le nom du groupe de sécurité, par exemple : **Utilisateurs Partage de synchronisation RH**, ou **Administrateurs de Dossiers de travail**.  
   
     -   Dans **Étendue du groupe**, cliquez sur **Sécurité**, puis sur **Globale**.  
   
@@ -181,7 +181,7 @@ DsAcls $ADGroupPath /I:S /G ""$GroupName":RPWP;msDS-SyncServerUrl;user"
   
     -   **alias utilisateur** crée des dossiers utilisateur sans nom de domaine. Si vous utilisez un partage de fichiers qui est déjà utilisé avec la redirection de dossiers ou une autre solution de données utilisateur, sélectionnez cette convention d’affectation de noms. Vous pouvez éventuellement activer la case à cocher **Synchroniser uniquement le sous-dossier suivant** pour synchroniser uniquement un sous-dossier spécifique, par exemple le dossier Documents.  
   
-    -    **alias@domain utilisateur** crée des dossiers utilisateur avec un nom de domaine. Si vous n’utilisez pas un partage de fichiers qui est déjà utilisé avec la redirection de dossiers ou une autre solution de données utilisateur, sélectionnez cette convention d’affectation de noms pour éliminer les conflits entre noms de dossier lorsque plusieurs utilisateurs du partage ont des alias identiques (ce qui peut se produire si les utilisateurs appartiennent à des domaines différents).  
+    -   **alias@domain utilisateur** crée des dossiers utilisateur avec un nom de domaine. Si vous n’utilisez pas un partage de fichiers qui est déjà utilisé avec la redirection de dossiers ou une autre solution de données utilisateur, sélectionnez cette convention d’affectation de noms pour éliminer les conflits entre noms de dossier lorsque plusieurs utilisateurs du partage ont des alias identiques (ce qui peut se produire si les utilisateurs appartiennent à des domaines différents).  
   
 6.  Dans la page **Entrer le nom du partage de synchronisation**, fournissez un nom et une description pour le partage de synchronisation. Ces informations ne sont pas publiées sur le réseau, mais sont visibles dans le Gestionnaire de serveur et Windows PowerShell pour mieux différencier chacun des partages de synchronisation.  
   
