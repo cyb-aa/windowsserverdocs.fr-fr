@@ -44,7 +44,7 @@ color [[<B>]<F>]
 
 ## <a name="remarks"></a>Notes
 
--   Le tableau suivant répertorie les chiffres hexadécimaux valides que vous pouvez utiliser comme valeurs pour *B* et *F*.   
+-   Le tableau suivant répertorie les chiffres hexadécimaux valides que vous pouvez utiliser comme valeurs pour *B* et *F*.  
     |Value|Color|
     |-----|-----|
     |0|Noir|
