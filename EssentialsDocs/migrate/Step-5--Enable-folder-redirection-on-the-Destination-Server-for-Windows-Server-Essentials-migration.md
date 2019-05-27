@@ -14,7 +14,7 @@ ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 613ff4c80a80ed4f3207cb0c1ead6db12c723e85
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59815380"
@@ -43,7 +43,7 @@ Si la redirection de dossiers est activée sur le serveur source, vous pouvez l�
   
 1.  Sur le serveur de destination, ouvrez l'outil d'administration **Gestion des stratégies de groupe**.  
   
-2.  Dans **Group Policy Management**, développez **forêt : *** Nomdomainedevotreréseau*, développez **domaines**, développez *Nomdomainedevotreréseau* , puis développez **les objets de stratégie de groupe**.  
+2.  Dans **Group Policy Management**, développez **forêt :*** Nomdomainedevotreréseau*, développez **domaines**, développez *Nomdomainedevotreréseau* , puis développez **les objets de stratégie de groupe**.  
   
 3.  Cliquez avec le bouton droit sur la stratégie que vous souhaitez supprimer, puis cliquez sur **Supprimer**.  
   

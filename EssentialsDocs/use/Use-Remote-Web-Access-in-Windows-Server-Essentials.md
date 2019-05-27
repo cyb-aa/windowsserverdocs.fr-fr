@@ -14,7 +14,7 @@ ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: f8cf1b12a8fffe2a6e3389aad518ac96bc136cc9
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59872170"
@@ -314,13 +314,13 @@ ms.locfileid: "59872170"
   
 ##### <a name="to-log-on-to-remote-web-access-from-a-mobile-device"></a>Pour se connecter à l'accès web à distance à partir d'un appareil mobile  
   
-1.  Ouvrez un navigateur Web et le type **https://***< nom_domaine\>***/distant** dans la barre d’adresses.  Assurez-vous que vous incluez le s dans https.  
+1.  Ouvrez un navigateur Web et le type **https://***<nom_domaine\>***/distant** dans la barre d’adresses.  Assurez-vous que vous incluez le s dans https.  
   
 2.  Dans la page d’ouverture de session accès Web à distance, tapez votre nom d’utilisateur et le mot de passe dans les zones de texte, puis cliquez sur la flèche. Vous êtes connecté à la version mobile de l'accès web à distance.  
   
 ##### <a name="to-switch-to-the-desktop-version-of-remote-web-access"></a>Pour passer à la version bureau de l'accès web à distance  
   
-1.  Ouvrez un navigateur Web et le type **https://***< nom_domaine\>***/distant** dans la barre d’adresses.  Assurez-vous que vous incluez le s dans https.  
+1.  Ouvrez un navigateur Web et le type **https://***<nom_domaine\>***/distant** dans la barre d’adresses.  Assurez-vous que vous incluez le s dans https.  
   
 2.  Dans la page d’ouverture de session accès Web à distance, tapez votre nom d’utilisateur et le mot de passe dans les zones de texte, cliquez sur **afficher la version de bureau**, puis cliquez sur la flèche. Vous êtes connecté à la version bureau de l'accès web à distance.  
   
@@ -328,7 +328,7 @@ ms.locfileid: "59872170"
   
 1.  Fermez la session.  
   
-2.  Ouvrez un navigateur Web et le type **https://***< nom_domaine\>***/remote/m** dans la barre d’adresses. Assurez-vous que vous incluez le s dans https.  
+2.  Ouvrez un navigateur Web et le type **https://***<nom_domaine\>***/remote/m** dans la barre d’adresses. Assurez-vous que vous incluez le s dans https.  
   
 3.  La version mobile de l’accès Web à distance s’affiche. Dans la page d’ouverture de session accès Web à distance, tapez votre nom d’utilisateur et le mot de passe dans les zones de texte, puis cliquez sur la flèche. Vous êtes connecté à la version mobile de l’accès Web à distance.  
   

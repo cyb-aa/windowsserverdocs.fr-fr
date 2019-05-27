@@ -15,7 +15,7 @@ ms.author: pashort
 author: shortpatti
 ms.openlocfilehash: 771df80fc3130b5c4c03bf628a95d67b7df04b36
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59888200"
@@ -58,7 +58,7 @@ Notez les recommandations et les contraintes pour le déploiement d’Active Dir
     2.  Si le contrôleur de domaine qui gère un serveur de stratégie de groupe n’est pas disponible, utilisez l’applet de commande Set-DAEntryPointDC PowerShell pour associer un nouveau contrôleur de domaine avec le point d’entrée. Le nouveau contrôleur de domaine doit avoir la stratégie de groupe à jour avant d’exécuter l’applet de commande.  
   
 ## <a name="bkmk_2_2_SG"></a>2.2 planifier des groupes de sécurité  
-Au cours du déploiement d’un seul serveur avec des paramètres avancés, tous les ordinateurs clients l’accès au réseau interne via DirectAccess ont été collectées dans un groupe de sécurité. Dans un déploiement multisite, ce groupe de sécurité est utilisé pour les ordinateurs clients Windows 8 uniquement. Pour un déploiement multisite, les ordinateurs clients Windows 7 seront collectées dans des groupes de sécurité distincts pour chaque point d’entrée dans le déploiement multisite. Par exemple, si vous avez regroupé précédemment tous les ordinateurs clients dans le groupe DA_Clients, vous devez supprimer tous les ordinateurs Windows 7 à partir de ce groupe et les placer dans un groupe de sécurité différents. Par exemple, dans plusieurs sites d’Active Directory, entrée de plusieurs points de topologie, vous créez un groupe de sécurité pour le point d’entrée United States (DA_Clients_US) et l’autre pour le point d’entrée en Europe (DA_Clients_Europe). Placez tous les ordinateurs clients Windows 7 situés dans les adresses suivantes : http://www.Dell.com/service_contracts dans le groupe DA_Clients_US et n’importe quel Europe situé dans le groupe DA_Clients_Europe. Si vous n’avez pas de tous les ordinateurs clients Windows 7, il est inutile de planifier des groupes de sécurité pour les ordinateurs Windows 7.  
+Au cours du déploiement d’un seul serveur avec des paramètres avancés, tous les ordinateurs clients l’accès au réseau interne via DirectAccess ont été collectées dans un groupe de sécurité. Dans un déploiement multisite, ce groupe de sécurité est utilisé pour les ordinateurs clients Windows 8 uniquement. Pour un déploiement multisite, les ordinateurs clients Windows 7 seront collectées dans des groupes de sécurité distincts pour chaque point d’entrée dans le déploiement multisite. Par exemple, si vous avez regroupé précédemment tous les ordinateurs clients dans le groupe DA_Clients, vous devez supprimer tous les ordinateurs Windows 7 à partir de ce groupe et les placer dans un groupe de sécurité différents. Par exemple, dans plusieurs sites d’Active Directory, entrée de plusieurs points de topologie, vous créez un groupe de sécurité pour le point d’entrée United States (DA_Clients_US) et l’autre pour le point d’entrée en Europe (DA_Clients_Europe). Placez tous les ordinateurs clients Windows 7 situés dans les adresses suivantes DA_Clients_US et n’importe quel Europe situé dans le groupe DA_Clients_Europe. Si vous n’avez pas de tous les ordinateurs clients Windows 7, il est inutile de planifier des groupes de sécurité pour les ordinateurs Windows 7.  
   
 Groupes de sécurité requis sont les suivantes :  
   
@@ -116,7 +116,7 @@ Notez les points suivants quand vous utilisez des objets de stratégie de groupe
   
     -   **GPO de serveur**- un serveur de l’objet stratégie de groupe pour chaque point d’entrée (dans le domaine dans lequel se trouve le point d’entrée). Cet objet de stratégie de groupe est appliquée sur chaque serveur d’accès à distance dans le point d’entrée.  
   
-    -   **Client de l’objet de stratégie de groupe (Windows 7)**- un objet stratégie de groupe pour chaque point d’entrée et chaque domaine contenant des ordinateurs clients Windows 7 qui seront connecte à des points d’entrée dans le déploiement multisite. Par exemple Domain1\DA_W7_Clients_GPO_Europe ; Domain2\DA_W7_Clients_GPO_Europe ; Domain1\DA_W7_Clients_GPO_US ; Domain2\DA_W7_Clients_GPO_US. Si aucun ordinateur client de Windows 7 ne se connectent à des points d’entrée, les GPO ne sont pas nécessaires.  
+    -   **Client de l’objet de stratégie de groupe (Windows 7)** - un objet stratégie de groupe pour chaque point d’entrée et chaque domaine contenant des ordinateurs clients Windows 7 qui seront connecte à des points d’entrée dans le déploiement multisite. Par exemple Domain1\DA_W7_Clients_GPO_Europe ; Domain2\DA_W7_Clients_GPO_Europe ; Domain1\DA_W7_Clients_GPO_US ; Domain2\DA_W7_Clients_GPO_US. Si aucun ordinateur client de Windows 7 ne se connectent à des points d’entrée, les GPO ne sont pas nécessaires.  
   
 -   Il n’est pas nécessaire de créer des ordinateurs client de stratégie de groupe pour Windows 8 supplémentaires. Un objet de stratégie de groupe pour chaque domaine contenant des ordinateurs clients a déjà été créé lorsque le serveur d’accès à distance unique a été déployé. Dans un déploiement multisite, ces objets stratégie de groupe client fonctionnera comme les clients de stratégie de groupe pour Windows 8.  
   

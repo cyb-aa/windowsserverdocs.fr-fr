@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 39478e9b7dd8e8c69ed07f5d431486a7ed96b9cb
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59815500"
@@ -721,7 +721,7 @@ dnscmd [<ServerName>] /resetforwarders [<IPaddress> [,<IPaddress>]...] [/ timeou
 Spécifie le serveur DNS pour gérer, représenté par l’adresse IP, nom de domaine complet ou nom d’hôte. Si ce paramètre est omis, le serveur local est utilisé.  
 **<IPaddress>**  
 Répertorie les adresses IP à laquelle le serveur DNS transfère les requêtes non résolues.  
-** / délai d’attente <timeOut>**  
+**/délai d’attente <timeOut>**  
 Définit le nombre de secondes pendant lequel le serveur DNS attend une réponse du redirecteur. Par défaut, cette valeur est de cinq secondes.  
 **/slave|/noslave**  
 Détermine si le serveur DNS exécute ses propres requêtes itératifs si le redirecteur ne parvient pas à résoudre une requête :  
@@ -814,19 +814,19 @@ Spécifie le nom de la zone.
 Spécifie le type de zone à créer. Chaque type de zone a différents paramètres requis :  
 **/dsprimary**  
 Crée une zone intégrée à active directory.  
-** / /file principal <FileName>**  
+**//file principal <FileName>**  
 Crée une zone principale standard et spécifie le nom du fichier qui stockera les informations de zone.  
-** / secondaire <MasterIPaddress> [<MasterIPaddress>...] **  
+**/secondaire <MasterIPaddress> [<MasterIPaddress>...]**  
 Crée une zone secondaire standard.  
-** / stub <MasterIPaddress> [<MasterIPaddress>...] / fichier <FileName>**  
+**/stub <MasterIPaddress> [<MasterIPaddress>...] / fichier <FileName>**  
 Crée une zone de stub de sauvegarde de fichiers.  
-** / dsstub <MasterIPaddress> [<MasterIPaddress>...] **  
+**/dsstub <MasterIPaddress> [<MasterIPaddress>...]**  
 Crée une zone de stub intégrée active directory.  
 ** / redirecteur <MasterIPaddress> [<MasterIPaddress>]... / fichier <FileName>**  
 Spécifie que la zone créée transfère les requêtes non résolues à un autre serveur DNS.  
 **/dsforwarder**  
 Spécifie que la zone intégrée à créé active directory transfère les requêtes non résolues à un autre serveur DNS.  
-** /dp <FQDN> {/ domaine | /enterprise | / hérité} **  
+**/dp <FQDN> {/ domaine | /enterprise | / hérité}**  
 Spécifie la partition d’annuaire sur lequel stocker la zone.  
 **<FQDN>**  
 Spécifie le nom de domaine complet de la partition d’annuaire.  
@@ -876,7 +876,7 @@ Spécifie le nom de la zone.
 **<ZoneExportFile>**  
 Spécifie le nom du fichier à créer. ### Remarques - le **zoneexport** opération crée un fichier d’enregistrements de ressource pour une zone intégrée à active directory pour résoudre des problèmes. Par défaut, cette commande crée le fichier est placé dans le répertoire DNS, qui est, par défaut, le répertoire %systemroot%/System32/Dns. ### Exemple, consultez [exemple 10 : Exporter la liste d’enregistrements de ressource de zone dans un fichier](https://technet.microsoft.com/library/cc784399(v=ws.10).aspx).  
 ### <a name="BKMK_26"></a>dnscmd /zoneinfo  
-Affiche les paramètres de la section du Registre de la zone spécifiée : ** HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNS\Parameters\Zones\\<ZoneName>** ### syntaxe ```  
+Affiche les paramètres de la section du Registre de la zone spécifiée : **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNS\Parameters\Zones\\<ZoneName>** ### syntaxe ```  
 dnscmd [<ServerName>] /zoneinfo <ZoneName> [<Setting>] ```  
 #### Parameters  
 **<ServerName>**  
@@ -884,7 +884,7 @@ Spécifie le serveur DNS pour gérer, représenté par l’adresse IP, nom de do
 **<ZoneName>**  
 Spécifie le nom de la zone.  
 **<Setting>**  
-Vous pouvez spécifier individuellement les paramètres que le **zoneinfo** commande retourne. Si vous ne spécifiez pas un paramètre, tous les paramètres sont retournés. ### Remarques - le **zoneinfo** commande affiche les paramètres de Registre qui sont à la zone DNS au niveau à ** HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNS\Parameters\Zones\\<ZoneName>**. -Pour afficher les paramètres du Registre au niveau du serveur, utilisez le [info](#BKMK_12) commande. -Pour afficher la liste de paramètres que vous pouvez afficher avec cette commande, consultez le [config](#BKMK_3) commande. ### Exemple, consultez [exemple 11 : Affiche le paramètre RefreshInterval à partir du Registre](https://technet.microsoft.com/library/cc784399(v=ws.10).aspx) ou [exemple 12 : Affichage Chronologie de paramètre à partir du Registre](https://technet.microsoft.com/library/cc784399(v=ws.10).aspx).  
+Vous pouvez spécifier individuellement les paramètres que le **zoneinfo** commande retourne. Si vous ne spécifiez pas un paramètre, tous les paramètres sont retournés. ### Remarques - le **zoneinfo** commande affiche les paramètres de Registre qui sont à la zone DNS au niveau à **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNS\Parameters\Zones\\<ZoneName>**. -Pour afficher les paramètres du Registre au niveau du serveur, utilisez le [info](#BKMK_12) commande. -Pour afficher la liste de paramètres que vous pouvez afficher avec cette commande, consultez le [config](#BKMK_3) commande. ### Exemple, consultez [exemple 11 : Affiche le paramètre RefreshInterval à partir du Registre](https://technet.microsoft.com/library/cc784399(v=ws.10).aspx) ou [exemple 12 : Affichage Chronologie de paramètre à partir du Registre](https://technet.microsoft.com/library/cc784399(v=ws.10).aspx).  
 ### <a name="BKMK_27"></a>dnscmd /zonepause  
 Suspend la zone spécifiée, qui ignore ensuite les demandes de requête. ### Syntaxe ```  
 dnscmd [<ServerName>] /zonepause <ZoneName> ```  
@@ -949,7 +949,7 @@ dnscmd [<ServerName>] /zoneresetsecondaries <ZoneName> {/ noxfr | / non sécuris
 Spécifie le serveur DNS pour gérer, représenté par l’adresse IP, nom de domaine complet ou nom d’hôte. Si l’est le paramètre est omis, le serveur local est utilisé.  
 **<ZoneName>**  
 Spécifie le nom de la zone qui auront à ses serveurs secondaires réinitialiser.  
-** / noxfr | / non sécurisés | /securens | /SecureList <SecurityIPaddresses>**  
+**/noxfr | / non sécurisés | /securens | /SecureList <SecurityIPaddresses>**  
 Spécifie si toutes ou une partie des serveurs secondaires demandant une mise à jour seulement obtenir une mise à jour.  
 **/noxfr**  
 Indique qu’aucun transfert de zone n’est autorisés.  
@@ -961,7 +961,7 @@ Spécifie que seul le serveur qui est répertorié dans l’enregistrement de re
 Spécifie que les transferts de zone sont accordées uniquement à la liste des serveurs. Ce paramètre doit être suivi d’une adresse IP ou les adresses qui utilise le serveur maître.  
 **<SecurityIPaddresses>**  
 Répertorie les adresses IP qui reçoivent des transferts de zone à partir du serveur maître. Ce paramètre est utilisé uniquement avec le **/securelist** paramètre.  
-** / nonotify | / notifier | /notifylist <NotifyIPaddresses>**  
+**/nonotify | / notifier | /notifylist <NotifyIPaddresses>**  
 Spécifie qu’une notification de modification est envoyée uniquement à certains serveurs secondaires :  
 **/nonotify**  
 Spécifie qu’aucune notification de modification n’est envoyées aux serveurs secondaires.  
@@ -985,15 +985,15 @@ Identifie la zone sur lequel le type sera modifié.
 Spécifie le type de zone à créer. Chaque type présente les différents paramètres requis :  
 **/dsprimary**  
 Crée une zone intégrée à active directory.  
-** / /file principal <FileName>**  
+**//file principal <FileName>**  
 Crée une zone principale standard.  
-** / secondaire <MasterIPaddress> [,<MasterIPaddress>...] **  
+**/secondaire <MasterIPaddress> [,<MasterIPaddress>...]**  
 Crée une zone secondaire standard.  
-** / stub <MasterIPaddress>[,<MasterIPaddress>...] / fichier <FileName>**  
+**/stub <MasterIPaddress>[,<MasterIPaddress>...] / fichier <FileName>**  
 Crée une zone de stub de sauvegarde de fichiers.  
-** / dsstub <MasterIPaddress>[,<MasterIPaddress>...] **  
+**/dsstub <MasterIPaddress>[,<MasterIPaddress>...]**  
 Crée une zone de stub intégrée active directory.  
-** / redirecteur <MasterIPaddress[,<MasterIPaddress>]... / fichier<FileName>**  
+**/redirecteur <MasterIPaddress[,<MasterIPaddress>]... / fichier<FileName>**  
 Spécifie que la zone créée transfère les requêtes non résolues à un autre serveur DNS.  
 **/dsforwarder**  
 Spécifie que la zone intégrée à créé active directory transfère les requêtes non résolues à un autre serveur DNS.  
