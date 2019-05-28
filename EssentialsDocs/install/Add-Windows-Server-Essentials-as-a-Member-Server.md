@@ -12,12 +12,12 @@ ms.assetid: d09dd82f-f7d2-47ce-862d-fd9869f2021c
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 8fb73f8186d3984c9e93f7a6e39cb72a54db1e58
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 413c1d5d3bec7f002b73e9861aa119d495c5cfb2
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875420"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63717123"
 ---
 # <a name="add-windows-server-essentials-as-a-member-server"></a>Ajouter Windows Server Essentials en tant que serveur membre
 

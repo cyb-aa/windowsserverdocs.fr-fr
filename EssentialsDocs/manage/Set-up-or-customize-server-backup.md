@@ -12,12 +12,12 @@ ms.assetid: 441c2d6c-435a-42cb-90f2-6d680d279d34
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 727dd74e4bddc52f735969f216914b9d76d1f413
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4fb34e05b00c35156a8451ffb0d8b914fcc73cf5
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831930"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63720287"
 ---
 # <a name="set-up-or-customize-server-backup"></a>Configurer ou personnaliser la sauvegarde du serveur
 

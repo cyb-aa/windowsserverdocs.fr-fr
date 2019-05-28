@@ -13,12 +13,12 @@ ms.assetid: 063783cd-d748-489e-b175-46eadc993f7a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 60d2e1fedc018136f5668d55a8afb2e0574d94de
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: da27467efb842368167b7a315056506e99331e8d
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845070"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034597"
 ---
 # <a name="multipoint-services-site-planning"></a>Planification de site MultiPoint Services
 Vous devez envisager l’emplacement où un ou plusieurs ordinateurs exécutant MultiPoint Services et ses stations associées seront déployés.  
@@ -86,11 +86,11 @@ Il n’existe aucune limite de distance physique pour les clients du réseau loc
 ## <a name="using-additional-hubs"></a>À l’aide des hubs supplémentaires  
 Hubs supplémentaires peut être utilisé pour simplifier l’installation. Il existe trois types de concentrateurs qui sont utilisés sur un système MultiPoint Services :  
   
--   [Concentrateurs de station](#Station-hubs)  
+-   [Concentrateurs de station](#station-hubs)  
   
--   [Hubs intermédiaires](#Intermediate-hubs)  
+-   [Hubs intermédiaires](#intermediate-hubs)  
   
--   [Concentrateurs en aval](#Downstream-hubs)  
+-   [Concentrateurs en aval](#downstream-hubs)  
   
 ### <a name="station-hubs"></a>Concentrateurs de station  
 Un concentrateur de station est un concentrateur externe qui a été associé à une station MultiPoint Services. Au minimum, le concentrateur de station aura un clavier branché à celui-ci. Elle peut également avoir des périphériques supplémentaires. Un concentrateur de station peut être un concentrateur USB générique qui est conforme à la norme USB 2.0 ou spécification ultérieure. Concentrateurs de station doivent être alimentés de façon externe si les appareils hautes performances vont des plug-in pour les.  

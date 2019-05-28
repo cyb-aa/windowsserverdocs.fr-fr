@@ -12,12 +12,12 @@ ms.assetid: ed062945-27e9-4572-b1bb-6c8cf1b9c2f4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 34442565b54b089064c1fa19317a24f591e44fda
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 12a9ba285757a37a8fc32a73e52ac3003db80a6d
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868600"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63721024"
 ---
 # <a name="troubleshoot-file-history-in-windows-server-essentials"></a>Résoudre les problèmes d’historique des fichiers dans Windows Server Essentials
 
@@ -89,7 +89,7 @@ ms.locfileid: "59868600"
 -   [Gérer la sauvegarde du Client](../manage/Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md)  
   
 
--   [Prise en charge Windows Server Essentials](Support-Windows-Server-Essentials.md)
+-   [Prendre en charge Windows Server Essentials](Support-Windows-Server-Essentials.md)
 
--   [Prise en charge Windows Server Essentials](../support/Support-Windows-Server-Essentials.md)
+-   [Prendre en charge Windows Server Essentials](../support/Support-Windows-Server-Essentials.md)
 

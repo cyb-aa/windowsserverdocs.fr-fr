@@ -12,12 +12,12 @@ ms.assetid: 27bf6f24-30c4-4935-9b24-069eb43e22f4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e1ebc539928d13b0d34dfe5a0ee57ce6e98088e9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 15d9a10daec0b72eb41092dbd9fa87f989ebedb8
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862350"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63720666"
 ---
 # <a name="restore-or-repair-your-server-running-windows-server-essentials"></a>Restaurer ou réparer votre serveur Windows Server Essentials
 

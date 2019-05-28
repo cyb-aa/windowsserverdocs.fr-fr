@@ -9,16 +9,16 @@ ms.date: 12/05/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0ee22afd6fdec96ab69d915e4730bb834d2ab8ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e9d6161666be89673cff6ef1a975d3205fa4b5c9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855520"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189086"
 ---
 # <a name="join-to-workplace-from-any-device-for-sso-and-seamless-second-factor-authentication-across-company-applications"></a>joindre un espace de travail à partir de n'importe quel appareil en utilisant l'authentification unique et l'authentification de second facteur transparente pour accéder aux applications de l'entreprise
 
->S'applique à : Windows Server 2012 R2
+
 
 L'augmentation rapide du nombre d'appareils grand public et l'accès omniprésent aux informations modifient la façon dont les utilisateurs perçoivent leur technologie. L'utilisation constante de la technologie des informations tout au long de la journée, ainsi que la facilité d'accès aux informations, brouillent les barrières traditionnelles entre la vie professionnelle et la vie familiale. Ces changements sont accompagnés d’une croyance ce personnel sélectionné à la technologie et personnalisé en fonction des planifications, des activités et des personnalités utilisateurs-doit s’étendre à l’espace de travail. Pour prendre en compte le besoin croissant de pouvoir connecter les appareils grand public personnels aux réseaux d’entreprise, nous introduisons les propositions de valeur suivantes :
 
@@ -54,11 +54,11 @@ Dans le cadre de cette solution, vous apprenez à utiliser la jonction d’espac
 
 Cette solution comprend les procédures pas à pas suivantes :
 
-1.  [Démonstration : Espace de travail avec un appareil Windows](../../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
+1.  [Démonstration : Joindre un espace de travail avec un appareil Windows](../../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
 
-2.  [Démonstration : Espace de travail avec un appareil iOS](../../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
+2.  [Démonstration : Joindre un espace de travail avec un appareil iOS](../../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
 
-3.  [Démonstration : Espace de travail avec un appareil Android](../../ad-fs/operations/walkthrough--workplace-join-to-an-android-device.md)
+3.  [Démonstration : Rattacher à l’espace de travail avec un appareil Android](../../ad-fs/operations/walkthrough--workplace-join-to-an-android-device.md)
 
 ## <a name="see-also"></a>Voir aussi
 [Configurer un serveur de fédération avec Device Registration Service](../deployment/configure-a-federation-server-with-device-registration-service.md)

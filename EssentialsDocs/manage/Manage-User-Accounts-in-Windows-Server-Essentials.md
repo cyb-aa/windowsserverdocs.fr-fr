@@ -12,12 +12,12 @@ ms.assetid: 0d115697-532b-48c2-a659-9f889e235326
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 91175836e4453860b17d2655e6a5a831645de410
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 008e614ca7ae202d575d2c3e5976ed3d5544b6ea
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873450"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63720701"
 ---
 # <a name="manage-user-accounts-in-windows-server-essentials"></a>Gérer les comptes d'utilisateur dans Windows Server Essentials
 
@@ -250,7 +250,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
 |Ajouter des comptes en ligne Microsoft|Ajoute des comptes en ligne Microsoft et les associe aux comptes d'utilisateur du réseau local.<br /><br /> Cette tâche s'affiche quand votre serveur est intégré à Microsoft Online Services, comme Office 365.|  
 |Définir la stratégie de mot de passe|Vous permet de changer les valeurs des stratégies de mot de passe de votre réseau.|  
 |Importer des comptes en ligne Microsoft|Effectue une importation en bloc des comptes de Microsoft Online Services vers le réseau local.<br /><br /> Cette tâche s'affiche quand votre serveur est intégré à Microsoft Online Services, comme Office 365.|  
-|Refresh|Actualise l'onglet Utilisateurs.<br /><br /> Cette tâche s’applique à Windows Server Essentials.|  
+|Actualiser|Actualise l'onglet Utilisateurs.<br /><br /> Cette tâche s’applique à Windows Server Essentials.|  
 |Changer les paramètres de l'historique des fichiers|Vous permet de changer les paramètres de l'historique des fichiers, par exemple la fréquence de la sauvegarde ou sa durée.<br /><br /> Cette tâche s’applique à Windows Server Essentials.|  
 |Exporter toutes les connexions à distance|Crée un fichier au format .CSV de toutes les connexions à distance vers le serveur au cours des 30 derniers jours.|  
   
@@ -381,7 +381,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 4.  Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **supprimer le compte d’utilisateur**. L'Assistant Suppression d'un compte d'utilisateur s'affiche.  
   
-5.  Dans la page **Voulez-vous conserver les fichiers ?**, assurez-vous que la case **Supprimer les fichiers inclus dans les sauvegardes Historique des fichiers et le dossier redirigé pour ce compte d'utilisateur** n'est pas cochée, puis cliquez sur **Suivant**.  
+5.  Dans la page **Voulez-vous conserver les fichiers ?** , assurez-vous que la case **Supprimer les fichiers inclus dans les sauvegardes Historique des fichiers et le dossier redirigé pour ce compte d'utilisateur** n'est pas cochée, puis cliquez sur **Suivant**.  
   
      Une page de confirmation s'affiche pour vous avertir que vous supprimez le compte mais que les fichiers sont conservés.  
   
@@ -420,7 +420,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  Pour synchroniser le mot de passe DSRM sur un contrôleur de domaine avec le compte de s administrateur réseau actuel, tapez :  
   
-     **la synchronisation à partir du compte de domaine** *< compte_administrateur_réseau_actuel >*, puis appuyez sur ENTRÉE.  
+     **la synchronisation à partir du compte de domaine** *< compte_administrateur_réseau_actuel >* , puis appuyez sur ENTRÉE.  
   
  Comme vous allez changer régulièrement le mot de passe du compte d'administrateur réseau, nous vous recommandons de créer une tâche planifiée pour synchroniser automatiquement et quotidiennement le mot de passe DSRM au mot de passe d'administrateur réseau. Cela permet de garantir que le mot de passe DSRM est toujours identique au mot de passe actif de l'administrateur réseau.  
   
@@ -499,7 +499,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
     2.  Sous l'onglet **Accès en tout lieu** :  
   
-        1.  Pour autoriser un utilisateur à se connecter au serveur à l'aide d'un réseau VPN, cochez la case **Autoriser le Réseau privé virtuel (VPN)**.  
+        1.  Pour autoriser un utilisateur à se connecter au serveur à l'aide d'un réseau VPN, cochez la case **Autoriser le Réseau privé virtuel (VPN)** .  
   
         2.  Pour autoriser un utilisateur à se connecter au serveur à l'aide de l'accès web à distance, cochez la case **Autoriser l'accès web à distance et l'accès aux applications de services Web**.  
   
@@ -523,7 +523,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
     3.  Sous l'onglet **Accès en tout lieu** :  
   
-        1.  Pour autoriser un utilisateur à se connecter au serveur à l'aide d'un réseau VPN, cochez la case **Autoriser le Réseau privé virtuel (VPN)**.  
+        1.  Pour autoriser un utilisateur à se connecter au serveur à l'aide d'un réseau VPN, cochez la case **Autoriser le Réseau privé virtuel (VPN)** .  
   
         2.  Pour autoriser un utilisateur à se connecter au serveur à l'aide de l'accès web à distance, cochez la case **Autoriser l'accès web à distance et l'accès aux applications de services Web**.  
   
@@ -565,7 +565,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 5.  Dans le **< compte d’utilisateur\> propriétés**, cliquez sur le **accès en tout lieu** onglet.  
   
-6.  Sous l'onglet **Accès en tout lieu**, pour autoriser un utilisateur à se connecter au serveur à l'aide d'un réseau VPN, cochez la case **Autoriser le Réseau privé virtuel (VPN)**.  
+6.  Sous l'onglet **Accès en tout lieu**, pour autoriser un utilisateur à se connecter au serveur à l'aide d'un réseau VPN, cochez la case **Autoriser le Réseau privé virtuel (VPN)** .  
   
 7.  Cliquez sur **Appliquer**, puis sur **OK**.  
   

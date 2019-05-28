@@ -12,12 +12,12 @@ ms.assetid: f5fe1088-ebe7-4799-a47d-075b0048dea1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 288d62a3fe4d9073ba2c0e3fdff385d8317f20d4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d740b71a2c3b9ed8ddb0ecfae6da2cf7d4f689a5
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815110"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63720413"
 ---
 # <a name="manage-devices-in-windows-server-essentials"></a>Gérer des appareils dans Windows Server Essentials
 
