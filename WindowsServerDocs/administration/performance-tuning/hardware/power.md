@@ -7,22 +7,22 @@ ms.topic: article
 ms.author: Qizha;TristanB
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 5261c856a0a29f9f58526e4f9580a16bbed5be56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5fe91888188796c96d5da80e8f9bd3ed627b9d43
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874300"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564739"
 ---
 # <a name="server-hardware-power-considerations"></a>Considérations sur le serveur matériel Power
 
 Il est important de reconnaître l’importance croissante de l’efficacité énergétique dans les environnements de centres de données et entreprise. Performances élevées et faible énergie utilisation sont souvent des objectifs contradictoires, mais en sélectionnant soigneusement les composants serveur, vous pouvez obtenir l’équilibre correct entre eux. Les sections suivantes répertorient les instructions pour les fonctionnalités des composants matériels de serveur et les caractéristiques de l’alimentation.
 
-## <a name="processor-recommendations"></a>Recommandations de processeur
+## <a name="processor-recommendations"></a>Recommandations concernant le processeur
 
 Fréquence, la tension de fonctionnement, taille du cache et technologie de traitement affecte la consommation d’énergie de processeurs. Les processeurs ont une conception thermique de point de contrôle d’accès (TDP) qui donne une indication de base de consommation d’énergie par rapport à d’autres modèles.
 
-En règle générale, opter pour le processeur TDP la plus basse qui répond à vos objectifs de performances. En outre, des générations plus récente de processeurs sont généralement plus efficace d’énergie, et ils risquent d’exposer plusieurs États d’alimentation pour les algorithmes de gestion d’alimentation de Windows, ce qui permet une meilleure gestion de l’alimentation à tous les niveaux de performances. Ou ils peuvent utiliser certains de la nouvelle « coopérative ? techniques de gestion d’alimentation développés par Microsoft en partenariat avec les fabricants de matériel.
+En règle générale, opter pour le processeur TDP la plus basse qui répond à vos objectifs de performances. En outre, des générations plus récente de processeurs sont généralement plus efficace d’énergie, et ils risquent d’exposer plusieurs États d’alimentation pour les algorithmes de gestion d’alimentation de Windows, ce qui permet une meilleure gestion de l’alimentation à tous les niveaux de performances. Ou ils peuvent utiliser certaines techniques de gestion d’alimentation « coopérative » nouvelle développés par Microsoft en partenariat avec les fabricants de matériel.
 
 Pour plus d’informations sur les techniques de gestion d’alimentation coopérative, consultez la section nommée Collaborative contrôle de performances de processeur dans le [Advanced Configuration and Power Interface Specification](http://www.uefi.org/sites/default/files/resources/ACPI_5_1release.pdf).
 
@@ -36,7 +36,7 @@ Mémoire de faible puissance est désormais disponible, mais vous devez prendre 
 ## <a name="disks-recommendations"></a>Recommandations de disques
 VITESSE est élevée, la consommation d’énergie accrue. Lecteurs SSD sont plus efficaces d’énergie que les disques de rotation. En outre, les lecteurs de 2,5 pouces nécessitent généralement moins d’énergie que les disques de 3,5 pouces.
 
-## <a name="network-and-storage-adapter-recommendations"></a>Réseau et des recommandations de carte de stockage
+## <a name="network-and-storage-adapter-recommendations"></a>Recommandations concernant les adaptateurs réseau et du stockage
 Certains adaptateurs de diminuer la consommation d’énergie pendant les périodes d’inactivité. Il s’agit d’une considération importante pour les cartes réseau de 10 Go et les liens de stockage de bande passante élevée (du 4 au 8 Go). Ces appareils peuvent consommer de grandes quantités d’énergie.
 
 
@@ -65,10 +65,10 @@ La terminologie de processeur utilisée tout au long de cette rubrique reflète 
 -   Standard
 -   processeur logique
 
-![terminologie de processeur](../media/perftune-guide-figure-1.png)
+![Terminologie de processeur](../media/perftune-guide-figure-1.png)
 
 ## <a name="see-also"></a>Voir aussi
 - [Les considérations sur les performances du matériel serveur](index.md)
-- [Alimentation et réglage des performances](power/power-performance-tuning.md)
-- [Paramétrage de la gestion de l’alimentation de processeur](power/processor-power-management-tuning.md)
-- [Recommandé des paramètres de Plan à charge équilibrée](power/recommended-balanced-plan-parameters.md)
+- [Réglage de la puissance et des performances](power/power-performance-tuning.md)
+- [Réglage de la gestion de la puissance du processeur](power/processor-power-management-tuning.md)
+- [Paramètres de planification équilibrée recommandés](power/recommended-balanced-plan-parameters.md)

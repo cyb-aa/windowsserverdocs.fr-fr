@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: fb31cff44cac6bd66f9aa5b7234ff3fd3b215ccf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9b0d339df588c784f8fe46f7dd0e6ce2975d0c48
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876300"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034652"
 ---
 # <a name="network-file-system-overview"></a>Vue d’ensemble du système de gestion de fichiers en réseau
 
@@ -51,7 +51,7 @@ Fonctionnalités nouvelles et modifiées dans le système de fichiers réseau in
 
 |Fonctionnalité/fonction|Nouveauté ou mise à jour|Description|
 |---|---|---|
-|[NFS version 4.1](#nfs-version-4.1)|Nouveau|Sécurité accrue, performances et l’interopérabilité par rapport à NFS version 3.|
+|[NFS version 4.1](#nfs-version-41)|Nouveau|Sécurité accrue, performances et l’interopérabilité par rapport à NFS version 3.|
 |[Infrastructure NFS](#nfs-infrastructure)|Mise à jour terminée|Améliore le déploiement et la facilité de gestion et accroît la sécurité.|
 |[Disponibilité continue de NFS version 3](#nfs-version-3-continuous-availability)|Mise à jour terminée|Améliore la disponibilité continue sur les clients NFS version 3.|
 |[Améliorations de déploiement et la facilité de gestion](#deployment-and-manageability-improvements)|Mise à jour terminée|Vous permet de facilement déployer et gérer des NFS avec les nouvelles applets de commande Windows PowerShell et un nouveau fournisseur WMI.|

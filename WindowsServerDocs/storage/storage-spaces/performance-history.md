@@ -8,16 +8,16 @@ author: cosmosdarwin
 ms.date: 09/07/2018
 Keywords: Espaces de stockage directs
 ms.localizationpriority: medium
-ms.openlocfilehash: 828a3265c9770bab0158067c4f856866d03e3d42
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1916d2d5e4d1fc846bec19826437b200afe36f42
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870860"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64772214"
 ---
 # <a name="performance-history-for-storage-spaces-direct"></a>Historique des performances pour les espaces de stockage Direct
 
-> S'applique à : Windows Server 2019
+> S’applique à : Windows Server 2019
 
 Historique des performances sont une nouvelle fonctionnalité qui donne [espaces de stockage Direct](storage-spaces-direct-overview.md) aux administrateurs un accès facile aux mesures historiques de calcul, de mémoire, de réseau et de stockage entre les serveurs hôtes, disques, volumes, les machines virtuelles et bien plus encore. Historique des performances sont collectées automatiquement et stockées sur le cluster pendant un an.
 
@@ -153,7 +153,7 @@ Peu de temps après les espaces de stockage Direct est activé, un volume de Go 
 
 Le volume est soutenu par des espaces de stockage et utilise simple, en miroir bidirectionnel, ou une résilience en miroir triple, selon le nombre de nœuds du cluster. Il est réparé une fois que les défaillances de disque ou serveur comme tout autre volume dans les espaces de stockage Direct.
 
-Le volume utilise ReFS mais n’est pas partagé Volume Cluster (CSV), afin qu’il apparaisse uniquement sur le nœud propriétaire de groupe de clusters. Outre soient créés automatiquement, il n’existe rien de spécial à ce volume : vous pouvez voir, le parcourir, redimensionner ou supprimez-le (non recommandé). En cas de problème, consultez [dépannage](#troubleshooting). 
+Le volume utilise ReFS mais n’est pas partagé Volume Cluster (CSV), afin qu’il apparaisse uniquement sur le nœud propriétaire de groupe de clusters. Outre soient créés automatiquement, il n’existe rien de spécial à ce volume : vous pouvez voir, le parcourir, redimensionner ou supprimez-le (non recommandé). En cas de problème, consultez [dépannage](#troubleshooting).
 
 ### <a name="object-discovery-and-data-collection"></a>Collection de données et de détection d’objets
 
@@ -163,7 +163,7 @@ Collection est gérée par le Service de contrôle d’intégrité, qui est haut
 
 ### <a name="handling-measurement-gaps"></a>Gestion des intervalles de mesure
 
-Lorsque les mesures sont fusionnées dans la série moins granulaires qui s’étendent sur plus de temps, comme décrit dans [délais](#Timeframes), périodes de données manquantes sont exclus. Par exemple, si le serveur est arrêté pendant 30 minutes, puis en exécutant à 50 % du processeur au cours des 30 prochaines minutes, le `ClusterNode.Cpu.Usage` moyenne pour l’heure est correctement enregistrée en tant que 50 % (pas de 25 %).
+Lorsque les mesures sont fusionnées dans la série moins granulaires qui s’étendent sur plus de temps, comme décrit dans [délais](#timeframes), périodes de données manquantes sont exclus. Par exemple, si le serveur est arrêté pendant 30 minutes, puis en exécutant à 50 % du processeur au cours des 30 prochaines minutes, le `ClusterNode.Cpu.Usage` moyenne pour l’heure est correctement enregistrée en tant que 50 % (pas de 25 %).
 
 ### <a name="extensibility-and-customization"></a>Extensibilité et personnalisation
 

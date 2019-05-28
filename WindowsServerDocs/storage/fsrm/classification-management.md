@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 13323cd380c9df5185a7989721ec2574ea880d4f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d7ea1f6f5d99ef1b55e919af3b8ebe391486ed50
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814790"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475899"
 ---
 # <a name="classification-management"></a>Gestion de la classification
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Les propriétés de classification servent à catégoriser les fichiers et permettent de sélectionner les fichiers pour des tâches de gestion de fichiers planifiées.
 
@@ -25,8 +25,8 @@ Il existe de nombreuses façons de classifier un fichier. L'une d'elles consiste
 
 Cette section comprend les rubriques suivantes :
 
--   [Créer une propriété de Classification](create-classification-property.md)
--   [Créer une règle de Classification automatique](create-automatic-classification-rule.md)
+-   [Créer une propriété de classification](create-classification-property.md)
+-   [Créer une règle de classification automatique](create-automatic-classification-rule.md)
 
 
 > [!Note]
@@ -35,4 +35,4 @@ Cette section comprend les rubriques suivantes :
 
 ## <a name="see-also"></a>Voir aussi
 
-[Options de paramètre File Server Resource Manager](setting-file-server-resource-manager-options.md)
+[Définition des options du Gestionnaire de ressources du serveur de fichiers](setting-file-server-resource-manager-options.md)

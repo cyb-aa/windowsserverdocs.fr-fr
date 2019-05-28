@@ -7,21 +7,27 @@ ms.topic: article
 author: wmgries
 manager: klaasl
 ms.author: wgries
-ms.date: 09/15/2016
-ms.openlocfilehash: 4a69221548d9defff5a45413ccfe824f9788755a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.date: 04/17/2019
+ms.openlocfilehash: 44a08443312d4e48b8fa518755e2a9b7aa50643c
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876450"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476082"
 ---
 # <a name="whats-new-in-data-deduplication"></a>Nouveautés de la déduplication des données
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
-La [déduplication des données](overview.md) dans Windows Server 2016 a été optimisée pour être hautement performante, flexible et facile à gérer à l’échelle du cloud privé. Pour en savoir plus sur la pile de stockage à définition logicielle dans Windows Server 2016, voir [Nouveautés du stockage dans Windows Server 2016](../whats-new-in-storage.md).
+[La déduplication des données](overview.md) dans Windows Server a été optimisé pour être hautement performante, flexible et facile à gérer à l’échelle du cloud privé. Pour plus d’informations sur la pile de stockage défini par logiciel dans Windows Server, consultez [What ' s New in stockage dans Windows Server](../whats-new-in-storage.md).
 
-La déduplication des données présente les améliorations suivantes dans Windows Server 2016 :
+La déduplication des données présente les améliorations suivantes dans Windows Server 2019 :
+
+| Fonctionnalité | Nouveauté ou mise à jour | Description |
+|---------------|----------------|-------------|
+| ReFS prend en charge  | Nouveau            | Store jusqu'à 10 fois plus de données sur le même volume avec déduplication et compression pour le système de fichiers ReFS. (Il a [un simple clic](https://www.youtube.com/watch?v=PRibTacyKko&feature=youtu.be) pour allumer avec Windows Admin Center.) Le magasin de blocs de taille variable avec la compression facultatif optimise le taux d’économies, tandis que l’architecture de post-traitement multithread conserve impact sur les performances minimal. Prend en charge de volumes pouvant atteindre 64 To et sera dédupliquer les 4 premiers To de chaque fichier.|
+
+La déduplication des données présente les améliorations suivantes à compter de Windows Server 2016 :
 
 | Fonctionnalité | Nouveauté ou mise à jour | Description |
 |---------------|----------------|-------------|

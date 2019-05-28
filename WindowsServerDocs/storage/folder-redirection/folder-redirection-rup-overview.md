@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e3cf32cd718b906f16fc09901284d8520177df8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ad44ba4bbe0b31f423a4ae4593e349571d838de2
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824280"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475920"
 ---
 # <a name="folder-redirection-offline-files-and-roaming-user-profiles-overview"></a>Vue d’ensemble de la redirection de dossiers, des fichiers hors connexion et des profils utilisateurs itinérants
 
->S’applique à : Windows 10, Windows 8, Windows 8.1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016
+>S’applique à : Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2
 
 Cette rubrique traite de la Redirection de dossiers, fichiers hors connexion (mise en cache côté client ou CSC) et les technologies les profils utilisateur itinérants (parfois appelé RUP), y compris les fonctionnalités nouvelles et où trouver des informations supplémentaires.
 
@@ -76,7 +76,7 @@ Pour plus d'informations, voir [Enable the Always Offline Mode to Provide Faster
 Avec la synchronisation prenant en charge les coûts, Windows désactive la synchronisation en arrière-plan lorsque l’utilisateur utilise une connexion réseau limitée, telle qu’un réseau mobile 4G, et si l’abonné est près ou au-delà de la limite de bande passante ou itinérant sur le réseau d’un autre fournisseur.
 
 >[!NOTE]
->Connexions réseau limitées possèdent en général des latences réseau de parcours circulaire plus lentes que la valeur de latence de 35 millisecondes par défaut pour la transition en mode hors connexion (connexion lente) dans Windows 8, Windows Server 2012 et Windows Server 2016. Par conséquent, ces connexions effectuent en général une transition automatique vers le mode Hors connexion (connexion lente).
+>Connexions réseau limitées possèdent en général des latences réseau de parcours circulaire plus lentes que la valeur de latence de 35 millisecondes par défaut pour la transition en mode hors connexion (connexion lente) dans Windows 8, Windows Server 2019, Windows Server 2016 et Windows Server 2012. Par conséquent, ces connexions effectuent en général une transition automatique vers le mode Hors connexion (connexion lente).
 
 ### <a name="what-value-does-cost-aware-synchronization-add"></a>Quels avantages synchronisation prenant en charge pour un coût procure-t-elle ?
 
@@ -123,7 +123,7 @@ La redirection de dossiers, les fichiers hors connexion et les profils utilisate
 Pour désigner les ordinateurs principaux, votre environnement doit répondre aux exigences suivantes :
 
 - Le schéma des Services de domaine Active Directory (AD DS) doit être mis à jour pour inclure des conditions générales de schéma Windows Server 2012 (installation d’un Windows Server 2012 ou un contrôleur de domaine ultérieur automatiquement des mises à jour le schéma). Pour plus d’informations sur la mise à niveau le schéma AD DS, consultez [mise à niveau des contrôleurs de domaine vers Windows Server 2016](../../identity/ad-ds/deploy/upgrade-domain-controllers.md).
-- Les ordinateurs clients doivent exécuter Windows 10, Windows 8.1, Windows 8, Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 et être joints au domaine Active Directory que vous gérez.
+- Les ordinateurs clients doivent exécuter Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 et être joints au domaine Active Directory que vous gérez.
 
 ## <a name="more-information"></a>Informations supplémentaires
 

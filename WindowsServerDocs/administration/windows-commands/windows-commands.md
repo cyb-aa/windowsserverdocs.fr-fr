@@ -13,12 +13,12 @@ ms.author: coreyp
 manager: dongill
 ms.date: 05/22/2018
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 4cc9bc5c288eb063f333fa598dbb3511f7be5966
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5c8df2abd826df2745e10ed773ef50d6cf45c60b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820470"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192689"
 ---
 # <a name="windows-commands"></a>Commandes Windows
 
@@ -28,34 +28,32 @@ Cet ensemble de la documentation décrit les commandes de Windows que vous pouve
 
 Pour trouver des informations sur une commande spécifique, dans le menu suivant A-Z, cliquez sur la lettre qui commence par la commande, puis cliquez sur le nom de commande.
 
-[UN](#BKMK_a) |
-[B](#BKMK_b) | 
-[C](#BKMK_c) | 
-[D](#BKMK_d) | 
-[E](#BKMK_e)  | 
- [F](#BKMK_f) | 
-[G](#BKMK_g) | 
-[H](#BKMK_h) | 
-[JE](#BKMK_i)  |
- [J](#BKMK_j) | 
-[K](#BKMK_k) | 
-[L](#BKMK_l) | 
-[M](#BKMK_m) | 
-[N](#BKMK_n)  | 
- [O](#BKMK_o) | 
-[P](#BKMK_p) | 
-[Q](#BKMK_q) | 
-[R](#BKMK_r)  | 
- [S](#BKMK_s) | 
-[T](#BKMK_t) | 
-[U](#BKMK_u) | 
-[V](#BKMK_v)  | 
- [W](#BKMK_w) | 
-[X](#BKMK_x) | 
-[Y](#BKMK_y) | 
-[Z](#BKMK_z)
+[UN](#a) |
+[B](#b) | 
+[C](#c) | 
+[D](#d) | 
+[E](#e)  | 
+ [F](#f) | 
+[G](#g) | 
+[H](#h) | 
+[JE](#i)  |
+ [J](#j) | 
+[K](#k) | 
+[L](#l) | 
+[M](#m) | 
+[N](#n)  | 
+ [O](#o) | 
+[P](#p) | 
+[Q](#q) | 
+[R](#r)  | 
+ [S](#s) | 
+[T](#t) | 
+[U](#u) | 
+[V](#v)  | 
+ [W](#w) | 
+[X](#x) | Y | Z
 
-## <a name="BKMK_PREREQ"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Les informations contenues dans ce fichier PDF s’applique à :
 
 -   Windows Server 2019
@@ -68,7 +66,7 @@ Les informations contenues dans ce fichier PDF s’applique à :
 -   Windows 10
 -   Windows 8.1
 
-### <a name="BKMK_OVR"></a>Vue d’ensemble du shell de commande
+### <a name="command-shell-overview"></a>Vue d’ensemble du shell de commande
 L’interface de commande a été le premier shell intégré à Windows pour automatiser les tâches de routine, telles que la gestion des comptes utilisateur ou les sauvegardes nocturnes, avec les fichiers de commandes (.bat). Avec Windows Script Host, vous pouvez exécuter des scripts plus sophistiqués dans l’interface de commande. Pour plus d’informations, consultez [cscript](cscript.md) ou [wscript](wscript.md). Vous pouvez effectuer des opérations plus efficacement à l’aide de scripts que vous pouvez le faire à l’aide de l’interface utilisateur. Scripts acceptent toutes les commandes qui sont disponibles en ligne de commande.
 
 Windows a deux interfaces de commande : L’interface de commande et [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6). Chaque shell est un logiciel qui fournit une communication directe entre vous et le système d’exploitation ou l’application, en fournissant un environnement pour automatiser les opérations informatiques.
@@ -89,37 +87,35 @@ Le plus robuste et à jour Windows automation, nous recommandons à l’aide de 
 > 
 > Pour définir le **reg_DWOrd** , utilisez la valeur hexadécimale d’un caractère de contrôle pour une fonction particulière (par exemple, **0 9** est onglet et **0 08** est le retour arrière). Paramètres spécifiés par l’utilisateur sont prioritaires sur les paramètres de l’ordinateur, et les options de ligne de commande sont prioritaires sur les paramètres du Registre.
 
-## <a name="BKMK_CmdRef"></a>Référence de ligne de commande A à Z
+## <a name="command-line-reference-a-z"></a>Référence de ligne de commande A à Z
 Pour trouver des informations sur une commande spécifique de Windows, dans le menu suivant A-Z, cliquez sur la lettre qui commence par la commande, puis cliquez sur le nom de commande.
 
-[UN](#BKMK_a) |
-[B](#BKMK_b) | 
-[C](#BKMK_c) | 
-[D](#BKMK_d) | 
-[E](#BKMK_e)  | 
- [F](#BKMK_f) | 
-[G](#BKMK_g) | 
-[H](#BKMK_h) | 
-[JE](#BKMK_i)  |
- [J](#BKMK_j) | 
-[K](#BKMK_k) | 
-[L](#BKMK_l) | 
-[M](#BKMK_m) | 
-[N](#BKMK_n)  | 
- [O](#BKMK_o) | 
-[P](#BKMK_p) | 
-[Q](#BKMK_q) | 
-[R](#BKMK_r)  | 
- [S](#BKMK_s) | 
-[T](#BKMK_t) | 
-[U](#BKMK_u) | 
-[V](#BKMK_v)  | 
- [W](#BKMK_w) | 
-[X](#BKMK_x) | 
-[Y](#BKMK_y) | 
-[Z](#BKMK_z)
+[UN](#a) |
+[B](#b) | 
+[C](#c) | 
+[D](#d) | 
+[E](#e)  | 
+ [F](#f) | 
+[G](#g) | 
+[H](#h) | 
+[JE](#i)  |
+ [J](#j) | 
+[K](#k) | 
+[L](#l) | 
+[M](#m) | 
+[N](#n)  | 
+ [O](#o) | 
+[P](#p) | 
+[Q](#q) | 
+[R](#r)  | 
+ [S](#s) | 
+[T](#t) | 
+[U](#u) | 
+[V](#v)  | 
+ [W](#w) | 
+[X](#x) | Y | Z)
 
-### <a name="BKMK_a"></a>A
+### <a name="a"></a>A
 -   [append](append.md)
 -   [arp](arp.md)
 -   [assoc](assoc.md)
@@ -131,71 +127,71 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 -   [autoconv](autoconv.md)
 -   [autofmt](autofmt.md)
 
-### <a name="BKMK_b"></a>B
+### <a name="b"></a>B
 -   [bcdboot](bcdboot.md)
 -   [bcdedit](bcdedit.md)
 -   [bdehdcfg](bdehdcfg.md)
 -   [bitsadmin](bitsadmin.md)
-  -   [Bitsadmin addfile](bitsadmin-addfile.md)
+  -   [bitsadmin addfile](bitsadmin-addfile.md)
   -   [bitsadmin addfileset](bitsadmin-addfileset.md)
-  -   [Bitsadmin addfilewithranges](bitsadmin-addfilewithranges.md)
-  -   [Bitsadmin Annuler](bitsadmin-cancel.md)
-  -   [Bitsadmin terminée](bitsadmin-complete.md)
-  -   [Bitsadmin créer](bitsadmin-create.md)
-  -   [Bitsadmin getaclflags](bitsadmin-getaclflags.md)
+  -   [bitsadmin addfilewithranges](bitsadmin-addfilewithranges.md)
+  -   [bitsadmin cancel](bitsadmin-cancel.md)
+  -   [bitsadmin complete](bitsadmin-complete.md)
+  -   [bitsadmin create](bitsadmin-create.md)
+  -   [bitsadmin getaclflags](bitsadmin-getaclflags.md)
   -   [bitsadmin getbytestotal](bitsadmin-getbytestotal.md)
   -   [bitsadmin getbytestransferred](bitsadmin-getbytestransferred.md)
-  -   [Bitsadmin getcompletiontime](bitsadmin-getcompletiontime.md)
-  -   [Bitsadmin getcreationtime](bitsadmin-getcreationtime.md)
+  -   [bitsadmin getcompletiontime](bitsadmin-getcompletiontime.md)
+  -   [bitsadmin getcreationtime](bitsadmin-getcreationtime.md)
   -   [bitsadmin getdescription](bitsadmin-getdescription.md)
-  -   [Bitsadmin getdisplayname](bitsadmin-getdisplayname.md)
-  -   [Bitsadmin geterror](bitsadmin-geterror.md)
-  -   [Bitsadmin geterrorcount](bitsadmin-geterrorcount.md)
-  -   [Bitsadmin getfilestotal](bitsadmin-getfilestotal.md)
-  -   [Bitsadmin getfilestransferred](bitsadmin-getfilestransferred.md)
+  -   [bitsadmin getdisplayname](bitsadmin-getdisplayname.md)
+  -   [bitsadmin geterror](bitsadmin-geterror.md)
+  -   [bitsadmin geterrorcount](bitsadmin-geterrorcount.md)
+  -   [bitsadmin getfilestotal](bitsadmin-getfilestotal.md)
+  -   [bitsadmin getfilestransferred](bitsadmin-getfilestransferred.md)
   -   [bitsadmin getminretrydelay](bitsadmin-getminretrydelay.md)
-  -   [Bitsadmin getmodificationtime](bitsadmin-getmodificationtime.md)
-  -   [Bitsadmin getnoprogresstimeout](bitsadmin-getnoprogresstimeout.md)
-  -   [Bitsadmin getnotifycmdline](bitsadmin-getnotifycmdline.md)
-  -   [Bitsadmin getnotifyflags](bitsadmin-getnotifyflags.md)
-  -   [Bitsadmin getnotifyinterface](bitsadmin-getnotifyinterface.md)
-  -   [Bitsadmin getowner](bitsadmin-getowner.md)
+  -   [bitsadmin getmodificationtime](bitsadmin-getmodificationtime.md)
+  -   [bitsadmin getnoprogresstimeout](bitsadmin-getnoprogresstimeout.md)
+  -   [bitsadmin getnotifycmdline](bitsadmin-getnotifycmdline.md)
+  -   [bitsadmin getnotifyflags](bitsadmin-getnotifyflags.md)
+  -   [bitsadmin getnotifyinterface](bitsadmin-getnotifyinterface.md)
+  -   [bitsadmin getowner](bitsadmin-getowner.md)
   -   [priorité de get bitsadmin](bitsadmin-getpriority.md)
   -   [bitsadmin getproxybypasslist](bitsadmin-getproxybypasslist.md)
   -   [bitsadmin getproxylist](bitsadmin-getproxylist.md)
-  -   [Bitsadmin getproxyusage](bitsadmin-getproxyusage.md)
+  -   [bitsadmin getproxyusage](bitsadmin-getproxyusage.md)
   -   [bitsadmin getreplydata](bitsadmin-getreplydata.md)
-  -   [Bitsadmin getreplyfilename](bitsadmin-getreplyfilename.md)
-  -   [Bitsadmin getreplyprogress](bitsadmin-getreplyprogress.md)
-  -   [Bitsadmin getstate](bitsadmin-getstate.md)
-  -   [Bitsadmin gettype](bitsadmin-gettype.md)
-  -   [Bitsadmin aide](bitsadmin-help.md)
-  -   [Bitsadmin info](bitsadmin-info.md)
-  -   [liste de bitsadmin](bitsadmin-list.md)
-  -   [Bitsadmin listfiles](bitsadmin-listfiles.md)
-  -   [Moniteur de bitsadmin](bitsadmin-monitor.md)
-  -   [Bitsadmin nowrap](bitsadmin-nowrap.md)
-  -   [Bitsadmin rawreturn](bitsadmin-rawreturn.md)
-  -   [Bitsadmin removecredentials](bitsadmin-removecredentials.md)
-  -   [Bitsadmin replaceremoteprefix](bitsadmin-replaceremoteprefix.md)
-  -   [Bitsadmin réinitialisation](bitsadmin-reset.md)
-  -   [Bitsadmin resume](bitsadmin-resume.md)
-  -   [Bitsadmin setaclflag](bitsadmin-setaclflag.md)
-  -   [Bitsadmin setcredentials](bitsadmin-setcredentials.md)
-  -   [Bitsadmin setdescription](bitsadmin-setdescription.md)
-  -   [Bitsadmin setdisplayname](bitsadmin-setdisplayname.md)
-  -   [Bitsadmin setminretrydelay](bitsadmin-setminretrydelay.md)
-  -   [Bitsadmin setnoprogresstimeout](bitsadmin-setnoprogresstimeout.md)
-  -   [Bitsadmin setnotifycmdline](bitsadmin-setnotifycmdline.md)
-  -   [Bitsadmin setnotifyflags](bitsadmin-setnotifyflags.md)
-  -   [Bitsadmin setpriority](bitsadmin-setpriority.md)
-  -   [Bitsadmin setproxysettings](bitsadmin-setproxysettings.md)
-  -   [Bitsadmin setreplyfilename](bitsadmin-setreplyfilename.md)
-  -   [suspendre bitsadmin](bitsadmin-suspend.md)
-  -   [Bitsadmin takeownership](bitsadmin-takeownership.md)
+  -   [bitsadmin getreplyfilename](bitsadmin-getreplyfilename.md)
+  -   [bitsadmin getreplyprogress](bitsadmin-getreplyprogress.md)
+  -   [bitsadmin getstate](bitsadmin-getstate.md)
+  -   [bitsadmin gettype](bitsadmin-gettype.md)
+  -   [bitsadmin help](bitsadmin-help.md)
+  -   [bitsadmin info](bitsadmin-info.md)
+  -   [bitsadmin list](bitsadmin-list.md)
+  -   [bitsadmin listfiles](bitsadmin-listfiles.md)
+  -   [bitsadmin monitor](bitsadmin-monitor.md)
+  -   [bitsadmin nowrap](bitsadmin-nowrap.md)
+  -   [bitsadmin rawreturn](bitsadmin-rawreturn.md)
+  -   [bitsadmin removecredentials](bitsadmin-removecredentials.md)
+  -   [bitsadmin replaceremoteprefix](bitsadmin-replaceremoteprefix.md)
+  -   [bitsadmin reset](bitsadmin-reset.md)
+  -   [bitsadmin resume](bitsadmin-resume.md)
+  -   [bitsadmin setaclflag](bitsadmin-setaclflag.md)
+  -   [bitsadmin setcredentials](bitsadmin-setcredentials.md)
+  -   [bitsadmin setdescription](bitsadmin-setdescription.md)
+  -   [bitsadmin setdisplayname](bitsadmin-setdisplayname.md)
+  -   [bitsadmin setminretrydelay](bitsadmin-setminretrydelay.md)
+  -   [bitsadmin setnoprogresstimeout](bitsadmin-setnoprogresstimeout.md)
+  -   [bitsadmin setnotifycmdline](bitsadmin-setnotifycmdline.md)
+  -   [bitsadmin setnotifyflags](bitsadmin-setnotifyflags.md)
+  -   [bitsadmin setpriority](bitsadmin-setpriority.md)
+  -   [bitsadmin setproxysettings](bitsadmin-setproxysettings.md)
+  -   [bitsadmin setreplyfilename](bitsadmin-setreplyfilename.md)
+  -   [bitsadmin suspend](bitsadmin-suspend.md)
+  -   [bitsadmin takeownership](bitsadmin-takeownership.md)
   -   [Bitsadmin transfert](bitsadmin-transfer.md)
-  -   [Bitsadmin util](bitsadmin-util.md)
-  -   [retour à la ligne bitsadmin](bitsadmin-wrap.md)
+  -   [bitsadmin util](bitsadmin-util.md)
+  -   [bitsadmin wrap](bitsadmin-wrap.md)
 -   [bootcfg](bootcfg.md)
   -   [bootcfg addsw](bootcfg-addsw.md)
   -   [bootcfg copy](bootcfg-copy.md)
@@ -210,16 +206,16 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
   -   [bootcfg timeout](bootcfg-timeout.md)
 -   [break](break_1.md)
 
-### <a name="BKMK_c"></a>C
+### <a name="c"></a>C
 -   [cacls](cacls_1.md)
 -   [call](call.md)
 -   [cd](cd.md)
 -   [certreq](certreq_1.md)
 -   [certutil](certutil.md)
 -   [change](change.md)
-  -   [changer d’ouverture de session](change-logon.md)
-  -   [modifier le port](change-port.md)
-  -   [modifier l’utilisateur](change-user.md)
+  -   [change logon](change-logon.md)
+  -   [change port](change-port.md)
+  -   [change user](change-user.md)
 -   [chcp](chcp.md)
 -   [chdir](chdir_1.md)
 -   [chglogon](chglogon.md)
@@ -242,7 +238,7 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 -   [cprofile](cprofile.md)
 -   [cscript](cscript.md)
 
-### <a name="BKMK_d"></a>D
+### <a name="d"></a>D
 -   [date](date.md)
 -   [dcgpofix](dcgpofix.md)
 -   [defrag](defrag.md)
@@ -261,7 +257,7 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 -   [doskey](doskey.md)
 -   [driverquery](driverquery.md)
 
-### <a name="BKMK_e"></a>E
+### <a name="e"></a>E
 -   [echo](echo.md)
 -   [edit](edit.md)
 -   [endlocal](endlocal.md)
@@ -274,7 +270,7 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 -   [expand](expand.md)
 -   [extract](extract.md)
 
-### <a name="BKMK_f"></a>F
+### <a name="f"></a>F
 -   [fc](fc.md)
 -   [find](find.md)
 -   [findstr](findstr.md)
@@ -287,18 +283,18 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 -   [freedisk](freedisk.md)
 -   [fsutil](fsutil.md)
   -   [fsutil 8dot3name](fsutil-8dot3name.md) 
-  -   [comportement de fsutil](fsutil-behavior.md) 
-  -   [fichier de fsutil](fsutil-file.md)
+  -   [fsutil behavior](fsutil-behavior.md) 
+  -   [fsutil file](fsutil-file.md)
   -   [fsutil fsinfo](fsutil-fsinfo.md)
   -   [fsutil hardlink](fsutil-hardlink.md)
   -   [fsutil objectid](fsutil-objectid.md)
   -   [fsutil quota](fsutil-quota.md)
-  -   [réparation de fsutil](fsutil-repair.md)
+  -   [fsutil repair](fsutil-repair.md)
   -   [fsutil reparsepoint](fsutil-reparsepoint.md)
-  -   [ressources de fsutil](fsutil-resource.md)
+  -   [fsutil resource](fsutil-resource.md)
   -   [fsutil sparse](fsutil-sparse.md)
-  -   [la hiérarchisation fsutil](fsutil-tiering.md)
-  -   [transaction de fsutil](fsutil-transaction.md)
+  -   [fsutil tiering](fsutil-tiering.md)
+  -   [fsutil transaction](fsutil-transaction.md)
   -   [fsutil usn](fsutil-usn.md)
   -   [fsutil volume](fsutil-volume.md)
   -   [fsutil wim](fsutil-wim.md)
@@ -306,7 +302,7 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 -   [ftype](ftype.md)
 -   [fveupdate](fveupdate.md)
 
-### <a name="BKMK_g"></a>G
+### <a name="g"></a>G
 -   [getmac](getmac.md)
 -   [gettype](gettype.md)
 -   [goto](goto.md)
@@ -315,12 +311,12 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 -   [gpupdate](gpupdate.md)
 -   [graftabl](graftabl.md)
 
-### <a name="BKMK_h"></a>H
+### <a name="h"></a>H
 -   [help](help.md)
 -   [helpctr](helpctr.md)
 -   [hostname](hostname.md)
 
-### <a name="BKMK_i"></a>I
+### <a name="i"></a>I
 -   [icacls](icacls.md)
 -   [if](if.md)
 -   [inuse](inuse.md)
@@ -328,10 +324,10 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 -   [ipxroute](ipxroute.md)
 -   [irftp](irftp.md)
 
-### <a name="BKMK_j"></a>J
+### <a name="j"></a>J
 -   [jetpack](jetpack.md)
 
-### <a name="BKMK_k"></a>K
+### <a name="k"></a>K
 -   [klist](klist.md)
 -   [ksetup](ksetup.md)
   -   [ksetup:setrealm](ksetup-setrealm.md)
@@ -359,21 +355,21 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 -   [ktmutil](ktmutil.md)
 -   [ktpass](ktpass.md)
 
-### <a name="BKMK_l"></a>L
+### <a name="l"></a>L
 -   [label](label.md)
 -   [lodctr](lodctr.md)
 -   [logman](logman.md)
-  -   [créer de logman](logman-create.md)
-  -   [requête de logman](logman-query.md)
+  -   [logman create](logman-create.md)
+  -   [logman query](logman-query.md)
   -   [logman start & 124 ; arrêter](logman-start-stop.md)
   -   [logman delete](logman-delete.md)
-  -   [mise à jour de logman](logman-update.md)
+  -   [logman update](logman-update.md)
   -   [Logman import & 124 ; exportation](logman-import-export.md)
 -   [logoff](logoff.md)
 -   [lpq](lpq.md)
 -   [lpr](lpr.md)
 
-### <a name="BKMK_m"></a>M
+### <a name="m"></a>M
 -   [macfile](macfile.md)
 -   [makecab](makecab.md)
 -   [manage-bde](manage-bde.md)
@@ -401,7 +397,7 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 -   [mklink](mklink.md)
 -   [mmc](mmc.md)
 -   [mode](mode.md)
--   [plus](more.md)
+-   [more](more.md)
 -   [mount](mount.md)
 -   [mountvol](mountvol.md)
 -   [move](move.md)
@@ -414,12 +410,12 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 -   [msinfo32](msinfo32.md)
 -   [mstsc](mstsc.md)
 
-### <a name="BKMK_n"></a>N
+### <a name="n"></a>N
 -   [nbtstat](nbtstat.md)
 -   [netcfg](netcfg.md)
 -   [netsh](netsh.md)
 -   [netstat](netstat.md)
--   [Impression de NET](net-print.md)
+-   [Net print](net-print.md)
 -   [nfsadmin](nfsadmin.md)
 -   [nfsshare](nfsshare.md)
 -   [nfsstat](nfsstat.md)
@@ -433,30 +429,30 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
   -   [nslookup root](nslookup-root.md)
   -   [nslookup server](nslookup-server.md)
   -   [nslookup set](nslookup-set.md)
-  -   [nslookup définir tout](nslookup-set-all.md)
-  -   [nslookup set, classe](nslookup-set-class.md)
+  -   [nslookup set all](nslookup-set-all.md)
+  -   [nslookup set class](nslookup-set-class.md)
   -   [nslookup set d2](nslookup-set-d2.md)
-  -   [débogage de jeu de Nslookup](nslookup-set-debug.md)
-  -   [domaine de jeu de Nslookup](nslookup-set-domain.md)
-  -   [nslookup définie le port](nslookup-set-port.md)
+  -   [nslookup set debug](nslookup-set-debug.md)
+  -   [nslookup set domain](nslookup-set-domain.md)
+  -   [nslookup set port](nslookup-set-port.md)
   -   [nslookup set querytype](nslookup-set-querytype.md)
   -   [nslookup set recurse](nslookup-set-recurse.md)
-  -   [nouvelle tentative de jeu de Nslookup](nslookup-set-retry.md)
-  -   [racine du jeu de Nslookup](nslookup-set-root.md)
-  -   [recherche de jeu de Nslookup](nslookup-set-search.md)
+  -   [nslookup set retry](nslookup-set-retry.md)
+  -   [nslookup set root](nslookup-set-root.md)
+  -   [nslookup set search](nslookup-set-search.md)
   -   [nslookup set srchlist](nslookup-set-srchlist.md)
-  -   [délai d’expiration du jeu de Nslookup](nslookup-set-timeout.md)
-  -   [définie le type de Nslookup](nslookup-set-type.md)
+  -   [nslookup set timeout](nslookup-set-timeout.md)
+  -   [nslookup set type](nslookup-set-type.md)
   -   [nslookup set vc](nslookup-set-vc.md)
-  -   [vue de Nslookup](nslookup-view.md)
+  -   [nslookup view](nslookup-view.md)
 -   [ntbackup](ntbackup.md)
 -   [ntcmdprompt](ntcmdprompt.md)
 -   [ntfrsutl](ntfrsutl.md)
 
-### <a name="BKMK_o"></a>O
+### <a name="o"></a>O
 -   [openfiles](openfiles.md)
 
-### <a name="BKMK_p"></a>P
+### <a name="p"></a>P
 -   [pagefileconfig](pagefileconfig.md)
 -   [path](path.md)
 -   [pathping](pathping.md)
@@ -482,14 +478,14 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 -   [pushd](pushd.md)
 -   [pushprinterconnections](pushprinterconnections.md)
 
-### <a name="BKMK_q"></a>Q
+### <a name="q"></a>Q
 -   [qappsrv](qappsrv.md)
 -   [qprocess](qprocess.md)
 -   [requête](query.md)
 -   [quser](quser.md)
 -   [qwinsta](qwinsta.md)
 
-### <a name="BKMK_r"></a>R
+### <a name="r"></a>R
 -   [rcp](rcp.md)
 -   [rd](rd.md)
 -   [rdpsign](rdpsign.md)
@@ -514,7 +510,7 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 -   [rename](rename.md)
 -   [repair-bde](repair-bde.md)
 -   [replace](replace.md)
--   [Réinitialiser la session](reset-session.md)
+-   [reset session](reset-session.md)
 -   [rexec](rexec.md)
 -   [risetup](risetup.md)
 -   [rmdir](rmdir.md)
@@ -526,7 +522,7 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 -   [rundll32](rundll32.md)
 -   [rwinsta](rwinsta.md)
 
-### <a name="BKMK_s"></a>S
+### <a name="s"></a>S
 -   [schtasks](schtasks.md)
 -   [scwcmd](Scwcmd.md)
   -   [scwcmd: analyze](scwcmd-analyze.md)
@@ -560,7 +556,7 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 -   [sysocmgr](sysocmgr.md)
 -   [systeminfo](systeminfo.md)
 
-### <a name="BKMK_t"></a>T
+### <a name="t"></a>T
 -   [takeown](takeown.md)
 -   [tapicfg](tapicfg.md)
 -   [taskkill](taskkill.md)
@@ -585,17 +581,17 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 -   [typeperf](typeperf.md)
 -   [tzutil](tzutil.md)
 
-### <a name="BKMK_u"></a>U
+### <a name="u"></a>U
 -   [unlodctr](unlodctr_1.md)
 
-### <a name="BKMK_v"></a>V
+### <a name="v"></a>V
 -   [ver](ver.md)
 -   [verifier](verifier.md)
 -   [verify](verify_1.md)
 -   [vol](vol.md)
 -   [vssadmin](vssadmin.md)- 
 
-### <a name="BKMK_w"></a>W
+### <a name="w"></a>W
 -   [waitfor](waitfor.md)
 -   [wbadmin](wbadmin.md)
   -   [Activer la sauvegarde WBADMIN](wbadmin-enable-backup.md)
@@ -626,5 +622,5 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 -   [wmic](wmic.md)
 -   [wscript](wscript.md)
 
-### <a name="BKMK_x"></a>X
+### <a name="x"></a>X
 -   [xcopy](xcopy.md)

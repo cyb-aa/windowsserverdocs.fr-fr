@@ -11,18 +11,34 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 02/22/2019
+ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2746127c15753ac8f4f6067eef068fe97b425829
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 15218af2f084e9c998d89250aace1d763d03b42a
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844550"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976326"
 ---
 # <a name="whats-new-for-the-remote-desktop-web-client"></a>Nouveautés pour le client web de bureau à distance ?
 
 Nous mettre à jour régulièrement le [client web de bureau à distance](remote-desktop-web-client.md), en ajoutant de nouvelles fonctionnalités et résolution des problèmes. Découvrez les dernières mises à jour ci-dessous.
+
+   >[!NOTE]
+    >Nous avons modifié le système de contrôle de version pour le client web. Depuis la version 1.0.18.0, toutes les versions de publication client web contiendra numéros (au format « W.x.y.z »). Numéros de version pour le client web de bureau à distance se termine toujours par un 0 (par exemple, W.X.Y.0). Chaque version de client de bureau virtuel Windows web change le dernier chiffre jusqu'à ce que la version du client web Bureau à distance suivante (par exemple, 1.0.18.1).
+
+## <a name="updates-for-version-10180"></a>Mises à jour pour la version 1.0.18.0
+*Date de publication : 5/14/2019*
+
+- Configuration de la méthode de lancement de ressource ajoutée dans l’onglet Paramètres, permettant aux utilisateurs d’ouvrir des ressources dans le navigateur ou télécharger un fichier .rdp à gérer avec un autre client. Ce paramètre peut être configuré par votre administrateur. Détails concernant les configurations de l’administrateur pour cette fonctionnalité se trouve dans le [documentation d’installation de client web](remote-desktop-web-client-admin.md).
+- Couleur fixe problèmes, l’activation de rendu plus vives des couleurs dans votre session à distance.
+- Messages d’erreur révisée liés aux erreurs de flux de ressources à distance. 
+- Prise en charge plusieurs raccourcis office, telles que collage spécial (Ctrl + Alt + V).
+- Raccourci clavier ajouté aux utilisateurs d’appeler la clé de Windows dans la session à distance (Alt + F3)
+- Message d’erreur de mise à jour pour les utilisateurs qui tentent de s’authentifier à l’aide d’un mot de passe expiré.
+- Flux actualisé l’interface utilisateur sur la page de toutes les ressources.
+- Les dialogues qui se chevauchent résolus qui se sont produites pendant la session se reconnecter.
+- Dimensionnement d’icône de ressource distante fixe dans la barre des tâches de la ressource. 
 
 ## <a name="updates-for-version-1011"></a>Mises à jour pour la version 1.0.11
 *Date de publication : 2/22/2019*

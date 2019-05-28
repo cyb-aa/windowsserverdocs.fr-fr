@@ -7,18 +7,18 @@ ms.topic: article
 author: RobHindman
 ms.author: robhind
 ms.date: 09/15/2016
-ms.openlocfilehash: 45d8364adf9d3db24a8e6d8f7bc91178ce7d1551
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1b9271ceac99ac9b21cbfac902ba133d66815df4
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881130"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476114"
 ---
 # <a name="simplified-smb-multichannel-and-multi-nic-cluster-networks"></a>Réseaux de clusters à plusieurs cartes réseau et SMB Multichannel simplifiés
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server 2016
 
-Simplifié SMB Multichannel et Multi -<abbr title="carte d’Interface réseau">Carte réseau</abbr> réseaux de Cluster est une nouvelle fonctionnalité dans Windows Server 2016 qui permet l’utilisation de plusieurs cartes réseau sur le même sous-réseau de réseau de cluster et active automatiquement SMB Multichannel.  
+Simplifié SMB Multichannel et Multi -<abbr title="carte d’Interface réseau">Carte réseau</abbr> réseaux de Cluster est une fonctionnalité qui permet d’utiliser plusieurs cartes réseau sur le même sous-réseau de réseau de cluster et active automatiquement SMB Multichannel.
 
 Les réseaux de Cluster de plusieurs cartes réseau et SMB Multichannel simplifiés offre les avantages suivants :  
 - Le Clustering de basculement reconnaît automatiquement toutes les cartes réseau sur les nœuds qui sont à l’aide de la même commutateur / même sous-réseau - aucune configuration supplémentaire requise.  
@@ -31,7 +31,7 @@ Les réseaux de Cluster de plusieurs cartes réseau et SMB Multichannel simplifi
 -   Plusieurs cartes réseau par serveur, à l’aide du même commutateur / sous-réseau.  
 
 ## <a name="how-to-take-advantage-of-multi-nic-clusters-networks-and-simplified-smb-multichannel"></a>Tirer parti de plusieurs cartes réseau de clusters réseaux et SMB multichannel simplifiés  
-Cette section décrit comment tirer parti des nouveaux réseaux de clusters de plusieurs cartes réseau et des fonctionnalités multicanaux SMB simplifiées dans Windows Server 2016.  
+Cette section décrit comment tirer parti des nouveaux réseaux de clusters de plusieurs cartes réseau et des fonctionnalités multicanaux SMB simplifiées.  
 
 ### <a name="use-at-least-two-networks-for-failover-clustering"></a>Utilisez au moins deux réseaux pour le Clustering de basculement   
 Bien que cela soit rare, commutateurs réseau peuvent échouer, il est toujours recommandé d’utiliser au moins deux réseaux pour le Clustering de basculement. Tous les réseaux qui sont trouvent sont utilisés pour les pulsations de cluster. Évitez d’utiliser un réseau unique pour votre Cluster de basculement afin d’éviter un point de défaillance unique. Dans l’idéal, il doit y être plusieurs chemins de communication physique entre les nœuds du cluster et aucun point de défaillance unique.  
@@ -58,7 +58,7 @@ Lorsque vous utilisez plusieurs réseaux privés (cluster uniquement), vérifiez
 **Figure 4 : Configuration de la ressource adresse IPv6 du lien Local (fe80) automatique**  
 
 ## <a name="throughput-and-fault-tolerance"></a>Débit et une tolérance de panne  
-Windows Server 2016 automatiquement détecte les fonctionnalités de la carte réseau et tentera d’utiliser chaque carte réseau dans la configuration possible le plus rapide. Cartes réseau qui est associées, cartes réseau à l’aide de RSS et cartes réseau avec la fonction RDMA peut être utilisé. Le tableau ci-dessous récapitule les compromis lors de l’utilisation de ces technologies. Débit maximal est atteint lors de l’utilisation de plusieurs cartes de réseau compatibles RDMA. Pour plus d’informations, consultez [les principes fondamentaux de SMB Mutlichannel](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/).
+Windows Server 2019 et Windows Server 2016 automatiquement détectent les fonctionnalités de la carte réseau et tenteront d’utiliser chaque carte réseau dans la configuration possible le plus rapide. Cartes réseau qui est associées, cartes réseau à l’aide de RSS et cartes réseau avec la fonction RDMA peut être utilisé. Le tableau ci-dessous récapitule les compromis lors de l’utilisation de ces technologies. Débit maximal est atteint lors de l’utilisation de plusieurs cartes de réseau compatibles RDMA. Pour plus d’informations, consultez [les principes fondamentaux de SMB Mutlichannel](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/).
 
 ![Obtenir une illustration de débit et tolérance de panne pour différentes configurations de carte réseau](media/Simplified-SMB-Multichannel-and-Multi-NIC-Cluster-Networks/Clustering_MulitNIC_Fig5.png)  
 **Figure 5 : Débit et tolérance de panne pour divers conifigurations de carte réseau**   

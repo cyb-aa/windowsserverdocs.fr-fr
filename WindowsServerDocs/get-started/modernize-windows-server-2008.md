@@ -10,12 +10,12 @@ ms.date: 07/12/2018
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.openlocfilehash: 4127eab613abb429a200f513a11b944e05da0f76
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9d8a8cae62a9be3384c09009dbad52e06623adb0
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851340"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222911"
 ---
 # <a name="upgrade-windows-server-2008-and-windows-server-2008-r2"></a>Mise à niveau de Windows Server 2008 et de Windows Server 2008 R2
 
@@ -42,12 +42,11 @@ Vous pouvez faire migrer vos serveurs locaux de Windows Server 2008 et Windows 
 - Grâce à la migration de SQL Server vers Azure Managed Instance ou des ordinateurs virtuels, vous bénéficiez de trois ans de mises à jour critiques de sécurité de plus pour Windows Server 2008 R2 ou 2008, inclus sans frais supplémentaires. 
 - Tirez parti des licences existantes SQL Server et Windows Server pour réaliser des économies de cloud exceptionnelles sur Azure.
 
-<a href="uploading-specialized-WS08-image-to-azure.md"><img src="media/WS08-image-banner-small.png"></a>
+[![Démarrer la migration vers Azure avec une image spécialisée](./media/WS08-image-banner-small.png)](uploading-specialized-WS08-image-to-azure.md)
 
 Pour commencer la migration, voir [Charger une image Windows Server 2008/2008 R2 spécialisée dans Azure](uploading-specialized-WS08-image-to-azure.md).
 
 Pour vous aider à comprendre comment analyser les ressources informatiques existantes, évaluer ce que vous possédez, identifiez les avantages de la migration de services et d'applications spécifiques dans le cloud ou de la conservation de charges de travail en local et de la mise à niveau vers la dernière version de Windows Server, voir [Guide de migration pour Windows Server](https://go.microsoft.com/fwlink/?linkid=872689).
-
 
 ## <a name="upgrade-sql-server-20082008-r2-in-parallel-with-your-windows-servers"></a>Mettre à niveau SQL Server 2008/2008 R2 en parallèle avec vos serveurs Windows
 

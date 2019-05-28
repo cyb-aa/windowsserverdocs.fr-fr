@@ -8,22 +8,22 @@ manager: dongill
 author: JasonGerend
 ms.author: jgerend
 ms.date: 10/18/2018
-ms.openlocfilehash: b4fa59aa62acba5c89f20c191da2c3c1b776b1ca
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3c0792347aaa70fe80d346cc51cbc44b73c42f39
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884750"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476022"
 ---
 # <a name="whats-new-in-failover-clustering"></a>Nouveautés du clustering de basculement
 
-> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
+> S’applique à : Windows Server 2019, Windows Server 2016
 
-Cette rubrique décrit les fonctionnalités nouvelles et modifiées dans le basculement de Clustering pour Windows Server 2019, Windows Server 2016, et libère de canal semi-annuel de serveur Windows.
+Cette rubrique décrit les fonctionnalités nouvelles et modifiées dans le Clustering de basculement pour Windows Server 2019 et Windows Server 2016.
 
 ## <a name="whats-new-in-windows-server-2019"></a>Nouveautés de Windows Server 2019
 
-- **Ensembles de cluster**
+- **Jeux de clusters**
 
     Ensembles de cluster permettent d’augmenter le nombre de serveurs dans une solution unique défini par logiciel Centre de données (SDDC) au-delà des limites d’un cluster en cours. Cela est accompli en regroupant plusieurs clusters dans un ensemble de cluster--un regroupement faiblement couplés de plusieurs clusters de basculement : calcul, stockage et hyperconvergés.
     Avec des jeux de cluster, vous pouvez déplacer des machines virtuelles en ligne (migration dynamique) entre les clusters au sein du cluster défini.

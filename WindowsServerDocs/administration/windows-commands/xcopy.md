@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: 54697b1c967d3e21583977418383d5a372e6f5d4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5001e070b63fe88da50a5219f129855606e7a2e5
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859400"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192710"
 ---
 # <a name="xcopy"></a>xcopy
 
@@ -57,12 +57,12 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/k|Copie les fichiers et conserve l’attribut en lecture seule sur *Destination* fichiers s’il est présent sur le *Source* fichiers. Par défaut, **xcopy** supprime l’attribut en lecture seule.|
 |/r|Copie les fichiers en lecture seule.|
 |/h|Copie les fichiers cachés et les attributs de fichier système. Par défaut, **xcopy** ne pas copie masquée ou fichiers système|
-|/a|Copie uniquement *Source* ensemble d’attributs de fichiers de fichiers qui ont leur archivage. **/a** ne modifie pas l’attribut de fichier d’archive du fichier source. Pour plus d’informations sur la définition de l’attribut de fichier d’archive à l’aide de **attrib**, consultez [références supplémentaires](xcopy.md#BKMK_addref).|
-|/m|Copies *Source* ensemble d’attributs de fichiers de fichiers qui ont leur archivage. Contrairement aux **/a**, **/m** désactive l’attribut archive dans les fichiers qui sont spécifiés dans la source. Pour plus d’informations sur la définition de l’attribut de fichier d’archive à l’aide de **attrib**, consultez [références supplémentaires](xcopy.md#BKMK_addref).|
+|/a|Copie uniquement *Source* ensemble d’attributs de fichiers de fichiers qui ont leur archivage. **/a** ne modifie pas l’attribut de fichier d’archive du fichier source. Pour plus d’informations sur la définition de l’attribut de fichier d’archive à l’aide de **attrib**, consultez [références supplémentaires](#additional-references).|
+|/m|Copies *Source* ensemble d’attributs de fichiers de fichiers qui ont leur archivage. Contrairement aux **/a**, **/m** désactive l’attribut archive dans les fichiers qui sont spécifiés dans la source. Pour plus d’informations sur la définition de l’attribut de fichier d’archive à l’aide de **attrib**, consultez [références supplémentaires](#additional-references).|
 |/n|Crée des copies en utilisant le fichier court NTFS ou les noms de répertoires. **/n** est requis lorsque vous copiez des fichiers ou répertoires à partir d’un volume NTFS vers un volume FAT ou lors de la matière grasse fichier système d’affectation de noms 8.3 (autrement dit,) est requis sur le *Destination* système de fichiers. Le *Destination* système de fichiers peut être FAT ou NTFS.|
 |/o|Copie les fichiers la propriété et accès discrétionnaire (DACL) informations.|
 |/x|Copie les fichiers des paramètres d’audit et informations de liste (SACL) de contrôle d’accès système (implique **/o**).|
-|/exclude:FileName1[+[FileName2][+[FileName3]( \)]|Spécifie une liste de fichiers. Au moins un fichier doit être spécifié. Chaque fichier contient des chaînes de recherche avec chaque chaîne sur une ligne distincte dans le fichier.</br>Lors d’une des chaînes correspond à n’importe quelle partie du chemin d’accès absolu du fichier à copier, ce fichier sera excuded d’être copiés. Par exemple, en spécifiant la chaîne **obj** exclut tous les fichiers sous le répertoire **obj** ou tous les fichiers portant le **.obj** extension.|
+|/exclude:FileName1[+[FileName2][+[FileName3]( \)]|Spécifie une liste de fichiers. Au moins un fichier doit être spécifié. Chaque fichier contient des chaînes de recherche avec chaque chaîne sur une ligne distincte dans le fichier.</br>Lors d’une des chaînes correspond à n’importe quelle partie du chemin d’accès absolu du fichier à copier, ce fichier ne sont copiées. Par exemple, en spécifiant la chaîne **obj** exclut tous les fichiers sous le répertoire **obj** ou tous les fichiers portant le **.obj** extension.|
 |/y|Supprime l’invite pour confirmer que vous souhaitez remplacer un fichier de destination existant.|
 |/-y|Vous invite à confirmer que vous souhaitez remplacer un fichier de destination existant.|
 |/z|Copie sur un réseau en mode de redémarrage.|
@@ -98,13 +98,13 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
     Vous pouvez supprimer ce message à l’aide de la **/i** option de ligne de commande, ce qui entraîne **xcopy** de supposer que la destination est un répertoire, si la source est plus d’un fichier ou un répertoire.
 -   À l’aide de la **xcopy** commande pour définir l’attribut d’archivage pour *Destination* fichiers
 
-    Le **xcopy** commande crée des fichiers avec l’attribut archive, si cet attribut n’a pas dans le fichier source. Pour plus d’informations sur les attributs de fichier et **attrib**, consultez [références supplémentaires](xcopy.md#BKMK_addref).
+    Le **xcopy** commande crée des fichiers avec l’attribut archive, si cet attribut n’a pas dans le fichier source. Pour plus d’informations sur les attributs de fichier et **attrib**, consultez [références supplémentaires](#additional-references).
 -   Comparaison **xcopy** et **diskcopy**
 
     Si vous avez un disque qui contient les fichiers dans les sous-répertoires et que vous souhaitez copier sur un disque qui a un format différent, utilisez la **xcopy** commande au lieu de **diskcopy**. Étant donné que le **diskcopy** commande copie les disques piste par piste, vos disques source et de destination doivent avoir le même format. Le **xcopy** commande n’a pas cette exigence. Utilisez **xcopy** , sauf si vous avez besoin d’une copie d’image de disque complet.
 -   Codes de sortie pour **xcopy**
 
-    Pour traiter les codes de sortie retournés par **xcopy**, utilisez le **ErrorLevel** paramètre sur le **si** ligne de commande dans un programme de traitement par lots. Pour obtenir un exemple d’un programme de traitement par lots qui traite de sortie à l’aide de codes **si**, consultez [références supplémentaires](xcopy.md#BKMK_addref). Le tableau suivant répertorie chaque code de sortie et une description.  
+    Pour traiter les codes de sortie retournés par **xcopy**, utilisez le **ErrorLevel** paramètre sur le **si** ligne de commande dans un programme de traitement par lots. Pour obtenir un exemple d’un programme de traitement par lots qui traite de sortie à l’aide de codes **si**, consultez [références supplémentaires](#additional-references). Le tableau suivant répertorie chaque code de sortie et une description.  
     |Code de sortie|Description|
     |---------|-----------|
     |0|Fichiers ont été copiés sans erreur.|
@@ -182,7 +182,7 @@ rem  3 File(s) copied
 ```
 Dans l’exemple précédent, cette valeur de paramètre source particulier **.\\ table des matières\*.yml** copier le 3 fichiers même si son chemin de deux accès caractères **.\\**  ont été supprimés. Toutefois, aucun fichier ne sont copiés si le caractère générique astérisque a peut-être été retiré le paramètre source, rendant simplement **.\\ TOC.yml**.
 
-#### <a name="BKMK_addref"></a>Références supplémentaires
+#### <a name="additional-references"></a>Références supplémentaires
 
 -   [Copier](copy.md)
 -   [Déplacer](move.md)
@@ -190,4 +190,4 @@ Dans l’exemple précédent, cette valeur de paramètre source particulier **.\
 -   [Attrib](attrib.md)
 -   [Diskcopy](diskcopy.md)
 -   [If](if.md)
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

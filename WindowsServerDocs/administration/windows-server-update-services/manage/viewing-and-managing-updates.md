@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cd517be0de3ba6ca97ca11f4bbe8f59111a01216
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2ffc6680239fa468b058b74f9acf26d22f2b65f
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870950"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222612"
 ---
 # <a name="viewing-and-managing-updates"></a>Affichage et gestion des mises à jour
 
@@ -127,7 +127,7 @@ Mises à jour sont utilisés pour la mise à jour ou en fournissant un remplacem
 
 -   Fichiers de mises à jour : Les fichiers réels requis pour installer une mise à jour sur un ordinateur.
 
-Lorsque les mises à jour sont synchronisées sur votre serveur WSUS, les fichiers de mise à jour et les métadonnées sont stockés à deux endroits différents. Les métadonnées sont stockées dans la base de données WSUS. Fichiers de mise à jour peuvent être stockés sur votre serveur WSUS ou sur des serveurs de Microsoft Update, en fonction de la manière dont vous avez configuré vos options de synchronisation. Si vous choisissez de stocker les fichiers de mise à jour sur les serveurs Microsoft Update, seules les métadonnées sont téléchargée au moment de la synchronisation ; vous approuvez les mises à jour via la console WSUS et les ordinateurs clients obtiennent les fichiers de mise à jour directement à partir de Microsoft Update au moment de l’installation. Pour plus d’informations sur les options de stockage des mises à jour, consultez la section [1.3. Choisir une stratégie de stockage WSUS](../plan/plan-your-wsus-deployment.md#BKMK_1.3.) de l’étape 1 : Préparer votre déploiement de WSUS, dans le guide de déploiement de WSUS.
+Lorsque les mises à jour sont synchronisées sur votre serveur WSUS, les fichiers de mise à jour et les métadonnées sont stockés à deux endroits différents. Les métadonnées sont stockées dans la base de données WSUS. Fichiers de mise à jour peuvent être stockés sur votre serveur WSUS ou sur des serveurs de Microsoft Update, en fonction de la manière dont vous avez configuré vos options de synchronisation. Si vous choisissez de stocker les fichiers de mise à jour sur les serveurs Microsoft Update, seules les métadonnées sont téléchargée au moment de la synchronisation ; vous approuvez les mises à jour via la console WSUS et les ordinateurs clients obtiennent les fichiers de mise à jour directement à partir de Microsoft Update au moment de l’installation. Pour plus d’informations sur les options de stockage des mises à jour, consultez la section [1.3. Choisir une stratégie de stockage WSUS](../plan/plan-your-wsus-deployment.md#13-choose-a-wsus-storage-strategy) de l’étape 1 : Préparer votre déploiement de WSUS, dans le guide de déploiement de WSUS.
 
 Vous devez configurer et exécuter des synchronisations, ajout d’ordinateurs et des groupes d’ordinateurs et le déploiement des mises à jour régulièrement. La liste suivante donne des exemples de tâches générales que vous pouvez entreprendre dans la mise à jour des ordinateurs avec WSUS.
 

@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: f168292b-0dbc-44b9-965f-d480e5134a0c
-ms.openlocfilehash: fa8b2b15ff411a59b28308a329d7ca2341ef0886
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b2c771a83824318f889c955f6194bcb062761f3
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871940"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976797"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 5, les Clients de configuration
 
@@ -52,7 +52,7 @@ Pour installer les certificats, procédez comme suit :
   
 5.  Sélectionnez **Un compte d’ordinateur**, puis cliquez sur **Suivant**.  
   
-6.  Sélectionnez **Ordinateur local (l’ordinateur sur lequel cette console s’exécute)**, puis cliquez sur **Terminer**.  
+6.  Sélectionnez **Ordinateur local (l’ordinateur sur lequel cette console s’exécute)** , puis cliquez sur **Terminer**.  
   
 7.  Cliquez sur **OK**.  
   
@@ -79,7 +79,7 @@ Pour configurer les dossiers de travail sur l’ordinateur client, procédez com
   
 2.  Cliquez sur **Configurer Dossiers de travail**.  
   
-3.  Sur le **Entrez votre adresse e-mail professionnelle** , entrez l’adresse de messagerie de l’utilisateur (par exemple, user@contoso.com) ou l’URL de dossiers de travail (dans l’exemple de test, https://workfolders.contoso.com), puis cliquez sur **suivant**.  
+3.  Sur le **Entrez votre adresse e-mail professionnelle** , entrez l’adresse de messagerie de l’utilisateur (par exemple, user@contoso.com) ou l’URL de dossiers de travail (dans l’exemple de test, https :\//workfolders.contoso.com), puis cliquez sur  **Suivant**.  
   
 4.  Si l’utilisateur est connecté au réseau d’entreprise, l’authentification est effectuée par l’authentification intégrée de Windows. Si l’utilisateur n’est pas connecté au réseau d’entreprise, l’authentification est effectuée par AD FS (OAuth) et on invitera l’utilisateur à fournir des informations d’identification. Entrez vos informations d’utilisation, puis cliquez sur **OK**.  
   

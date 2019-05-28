@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 02/15/2019
-ms.openlocfilehash: f4fd9f69e75ed80bbdb345b4041c2337c65ec2e6
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: ff1f949c764473a63eafa25346949d710699dbd1
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63742571"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222719"
 ---
 # <a name="get-started-with-windows-admin-center"></a>Prise en main de Windows Admin Center
 
@@ -114,7 +114,7 @@ Vous pouvez appliquer les informations d’identification pour toutes les connex
 
 **Solution de mot de passe administrateur local (LAP)**
 
-Si votre environnement utilise [LAPS](https://technet.microsoft.com/mt227395.aspx), vous pouvez utiliser les informations d’identification LAPS pour s’authentifier avec le nœud géré. **Si vous utilisez ce scénario, veuillez** [fournir des commentaires](http://aka.ms/WACFeedback).
+Si votre environnement utilise [LAPS](https://technet.microsoft.com/mt227395.aspx)et que vous avez Windows Admin Center est installé sur votre PC Windows 10, vous pouvez utiliser les informations d’identification LAPS pour s’authentifier avec le nœud géré. **Si vous utilisez ce scénario, veuillez** [fournir des commentaires](http://aka.ms/WACFeedback).
 
 ## <a name="using-tags-to-organize-your-connections"></a>À l’aide de balises pour organiser vos connexions
 

@@ -3,22 +3,20 @@ ms.assetid: 8e7015bc-c489-4ec7-8b6e-3ece90f72317
 title: Configurer des stratégies d’authentification
 description: ''
 author: billmath
-ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 7faffb7ccbb4b0ea3c65329d18f915d7dafcd46f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.author: billmath
+ms.openlocfilehash: 9345f995af2f256dddcbcbd7d05c4bf6170b563e
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861790"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189859"
 ---
 # <a name="configure-authentication-policies"></a>Configurer des stratégies d’authentification
-
->S'applique à : Windows Server 2012 R2
 
 Dans AD FS, dans Windows Server 2012 R2, à la fois le contrôle d’accès et le mécanisme d’authentification ont été améliorés avec plusieurs facteurs qui comprennent les données utilisateur, appareil, emplacement et l’authentification. Ces améliorations vous permettent, via l’interface utilisateur ou via Windows PowerShell, pour gérer le risque d’octroi d’autorisations d’accès aux services AD FS\-sécurisé d’applications via plusieurs\-facteur de contrôle d’accès et multi\-l’authentification multifacteur qui reposent sur l’appartenance au identité ou du groupe d’utilisateurs, emplacement réseau, données de l’appareil qui sont l’espace de travail\-joint, et l’état de l’authentification lorsque plusieurs\-authentification multifacteur \(MFA\) a été effectuée.  
   
@@ -27,7 +25,7 @@ Pour plus d’informations sur l’authentification Multifacteur et multi\-facto
 
 -   [Rejoindre un espace de travail à partir de n’importe quel appareil pour l’authentification unique et transparente du facteur d’authentification entre les Applications d’entreprise](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
 
--   [Gérer les risques avec contrôle d’accès conditionnel](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md)
+-   [Gérer les risques avec le contrôle d’accès conditionnel](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md)
 
 -   [Gérer les risques avec une authentification multifacteur supplémentaire pour les Applications sensibles](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 

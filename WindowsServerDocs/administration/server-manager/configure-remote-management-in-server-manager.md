@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4a66fe7a274756de9bed9f6b14f5b9e491e5b623
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 63d90d52b55357b5de823f2ca5e0a9fa2a3468e6
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819580"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222991"
 ---
 # <a name="configure-remote-management-in-server-manager"></a>Configurer la gestion à distance dans le Gestionnaire de serveur
 
@@ -38,35 +38,35 @@ Pour gérer les serveurs qui exécutent des versions de Windows Server antérieu
 
 Pour plus d’informations sur l’ajout de serveurs qui se trouvent dans des groupes de travail pour gérer ou gérer des serveurs distants à partir d’un ordinateur de groupe de travail qui exécute le Gestionnaire de serveur, consultez [ajouter des serveurs au Gestionnaire de serveur](add-servers-to-server-manager.md).
 
-## <a name="BKMK_remote"></a>L’activation ou désactivation de la gestion à distance
+## <a name="enabling-or-disabling-remote-management"></a>Activation ou désactivation de l’administration à distance
 Dans Windows Server 2016, la gestion à distance est activée par défaut. Avant de vous connecter à un ordinateur qui exécute Windows Server 2016 à distance à l’aide du Gestionnaire de serveur, gestion à distance du Gestionnaire de serveur doit être activée sur l’ordinateur de destination si elle a été désactivée. Les procédures fournies dans cette section décrivent la manière de désactiver l’administration à distance et la manière de la réactiver si elle a été désactivée. Dans la console Gestionnaire de serveur, l’état de gestion à distance pour le serveur local est affiché dans le **propriétés** zone de la **serveur Local** page.
 
 Les comptes d’administrateur local autres que le compte Administrateur intégré n’ont peut-être pas les droits requis pour gérer un serveur à distance, même si l’administration à distance est activée. Le contrôle de compte utilisateur (UAC) distant **LocalAccountTokenFilterPolicy** paramètre de Registre doit être configuré pour autoriser les comptes locaux du groupe administrateurs autres que le compte administrateur intégré pour gérer à distance le serveur.
 
-Dans Windows Server 2016, le Gestionnaire de serveur s’appuie sur la gestion à distance de Windows (WinRM) et Distributed component Object model (DCOM) pour les communications distantes. Les paramètres qui sont contrôlés par le **configurer la gestion à distance** boîte de dialogue affectent uniquement les parties du Gestionnaire de serveur et de Windows PowerShell qui utilisent WinRM pour les communications à distance. Elles n’affectent pas les parties du Gestionnaire de serveur qui utilisent le modèle DCOM pour les communications distantes. Par exemple, le Gestionnaire de serveur utilise WinRM pour communiquer avec des serveurs distants qui exécutent Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012, mais utilise DCOM pour communiquer avec les serveurs qui exécutent Windows Server 2008 et Windows Server 2008 R2 mais n’ont pas la [Windows Management Framework 4.0](https://go.microsoft.com/fwlink/?LinkId=293881) ou [Windows Management Framework 3.0](https://go.microsoft.com/fwlink/p/?LinkID=229019) mises à jour appliquées. Microsoft Management Console (mmc) et autres outils de gestion hérités utilisent le modèle DCOM. Pour plus d’informations sur la façon de modifier ces paramètres, consultez [pour configurer mmc ou autres tâches de gestion à distance d’outil via DCOM](#BKMK_dcom) dans cette rubrique.
+Dans Windows Server 2016, le Gestionnaire de serveur s’appuie sur la gestion à distance de Windows (WinRM) et Distributed component Object model (DCOM) pour les communications distantes. Les paramètres qui sont contrôlés par le **configurer la gestion à distance** boîte de dialogue affectent uniquement les parties du Gestionnaire de serveur et de Windows PowerShell qui utilisent WinRM pour les communications à distance. Elles n’affectent pas les parties du Gestionnaire de serveur qui utilisent le modèle DCOM pour les communications distantes. Par exemple, le Gestionnaire de serveur utilise WinRM pour communiquer avec des serveurs distants qui exécutent Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012, mais utilise DCOM pour communiquer avec les serveurs qui exécutent Windows Server 2008 et Windows Server 2008 R2 mais n’ont pas la [Windows Management Framework 4.0](https://go.microsoft.com/fwlink/?LinkId=293881) ou [Windows Management Framework 3.0](https://go.microsoft.com/fwlink/p/?LinkID=229019) mises à jour appliquées. Microsoft Management Console (mmc) et autres outils de gestion hérités utilisent le modèle DCOM. Pour plus d’informations sur la façon de modifier ces paramètres, consultez [pour configurer mmc ou autres tâches de gestion à distance d’outil via DCOM](#to-configure-mmc-or-other-tool-remote-management-over-dcom) dans cette rubrique.
 
 > [!NOTE]
 > Les procédures de cette section ne peuvent être réalisées que sur des ordinateurs qui exécutent Windows Server. Impossible d’activer ou de désactiver la gestion à distance sur un ordinateur qui exécute Windows 10 à l’aide de ces procédures, car le système d’exploitation client ne peuvent pas être géré à l’aide du Gestionnaire de serveur.
 
 -   Pour activer l’administration à distance via WinRM, sélectionnez l’une des procédures suivantes :
 
-    -   [Pour activer la gestion à distance du Gestionnaire de serveur à l’aide de l’interface Windows](#BKMK_windows)
+    -   [Pour activer la gestion à distance du Gestionnaire de serveur à l’aide de l’interface Windows](#to-enable-server-manager-remote-management-by-using-the-windows-interface)
 
-    -   [Pour activer la gestion à distance du Gestionnaire de serveur à l’aide de Windows PowerShell](#BKMK_ps)
+    -   [Pour activer la gestion à distance du Gestionnaire de serveur à l’aide de Windows PowerShell](#to-enable-server-manager-remote-management-by-using-windows-powershell)
 
-    -   [Pour activer la gestion à distance du Gestionnaire de serveur à l’aide de la ligne de commande](#BKMK_cmdline)
+    -   [Pour activer la gestion à distance du Gestionnaire de serveur à l’aide de la ligne de commande](#to-enable-server-manager-remote-management-by-using-the-command-line)
 
-    -   [Pour activer la gestion à distance Server Manager et Windows PowerShell sur des versions antérieures de Windows Server](#BKMK_old)
+    -   [Pour activer la gestion à distance Server Manager et Windows PowerShell sur des versions antérieures de Windows Server](#to-enable-server-manager-and-windows-powershell-remote-management-on-earlier-releases-of-windows-server)
 
 -   Pour désactiver la gestion à distance WinRM et le Gestionnaire de serveur, sélectionnez une des procédures suivantes.
 
-    -   [Pour désactiver la gestion à distance à l’aide de stratégie de groupe](#BKMK_disableGP)
+    -   [Pour désactiver la gestion à distance à l’aide de stratégie de groupe](#to-disable-remote-management-by-using-group-policy)
 
-    -   [Pour désactiver la gestion à distance à l’aide d’un fichier de réponses lors de l’installation sans assistance](#BKMK_unattend)
+    -   [Pour désactiver la gestion à distance à l’aide d’un fichier de réponses lors de l’installation sans assistance](#to-disable-remote-management-by-using-an-answer-file-during-unattended-installation)
 
--   Pour configurer l’administration à distance via le modèle DCOM, voir [Configurer l’administration à distance via le modèle DCOM](#BKMK_dcom).
+-   Pour configurer l’administration à distance via le modèle DCOM, voir [Configurer l’administration à distance via le modèle DCOM](#to-configure-mmc-or-other-tool-remote-management-over-dcom).
 
-### <a name="BKMK_windows"></a>Pour activer la gestion à distance du Gestionnaire de serveur à l’aide de l’interface Windows
+### <a name="to-enable-server-manager-remote-management-by-using-the-windows-interface"></a>Activer l’administration à distance via le Gestionnaire de serveur à l’aide de l’interface Windows
 
 1.  > [!NOTE]
     > Les paramètres qui sont contrôlés par le **configurer la gestion à distance** boîte de dialogue n’affectent pas les parties du Gestionnaire de serveur qui utilisent le modèle DCOM pour les communications distantes.
@@ -81,7 +81,7 @@ Dans Windows Server 2016, le Gestionnaire de serveur s’appuie sur la gestion �
 
     -   Pour permettre à cet ordinateur de gestion à distance en utilisant le Gestionnaire de serveur ou de Windows PowerShell, sélectionnez **activer la gestion à distance de ce serveur à partir d’autres ordinateurs**.
 
-### <a name="BKMK_ps"></a>Pour activer la gestion à distance du Gestionnaire de serveur à l’aide de Windows PowerShell
+### <a name="to-enable-server-manager-remote-management-by-using-windows-powershell"></a>Activer l’administration à distance via le Gestionnaire de serveur à l’aide de Windows PowerShell
 
 1.  Sur l’ordinateur que vous souhaitez gérer à distance, effectuez l’une des opérations suivantes pour ouvrir une session Windows PowerShell avec des droits utilisateur élevés.
 
@@ -93,7 +93,7 @@ Dans Windows Server 2016, le Gestionnaire de serveur s’appuie sur la gestion �
 
     **Configure-SMremoting.exe -enable**
 
-### <a name="BKMK_cmdline"></a>Pour activer la gestion à distance du Gestionnaire de serveur à l’aide de la ligne de commande
+### <a name="to-enable-server-manager-remote-management-by-using-the-command-line"></a>Activer l’administration à distance via le Gestionnaire de serveur dans la ligne de commande
 
 1.  Sur l’ordinateur que vous voulez gérer à distance, ouvrez une session d’invite de commandes avec des droits d’utilisateur élevés. Pour ce faire, sur le **Démarrer** , tapez **cmd**, avec le bouton droit le **invite de commandes** vignette lorsqu’elle est affichée dans le **applications** résultats, et Cliquez sur la barre des applications **exécuter en tant qu’administrateur**.
 
@@ -109,17 +109,17 @@ Dans Windows Server 2016, le Gestionnaire de serveur s’appuie sur la gestion �
 
     -   Pour afficher le paramètre actuel de la gestion à distance, tapez **SMremoting.exe-configurer-obtenir**, puis appuyez sur ENTRÉE.
 
-### <a name="BKMK_old"></a>Pour activer la gestion à distance Server Manager et Windows PowerShell sur des versions antérieures de Windows Server
+### <a name="to-enable-server-manager-and-windows-powershell-remote-management-on-earlier-releases-of-windows-server"></a>Activer l’administration à distance via le Gestionnaire de serveur et Windows PowerShell dans des versions antérieures de Windows Server
 
 -   Faites une des actions suivantes :
 
-    -   Pour activer la gestion à distance sur des serveurs qui exécutent Windows Server 2012, consultez [pour activer la gestion à distance du Gestionnaire de serveur à l’aide de l’interface Windows](#BKMK_windows) dans cette rubrique.
+    -   Pour activer la gestion à distance sur des serveurs qui exécutent Windows Server 2012, consultez [pour activer la gestion à distance du Gestionnaire de serveur à l’aide de l’interface Windows](#to-enable-server-manager-remote-management-by-using-the-windows-interface) dans cette rubrique.
 
     -   Pour activer la gestion à distance sur les serveurs qui exécutent Windows Server 2008 R2, consultez [gestion à distance avec le Gestionnaire de serveur](https://go.microsoft.com/fwlink/?LinkID=137378) dans l’aide de Windows Server 2008 R2.
 
     -   Pour activer la gestion à distance sur des serveurs qui exécutent Windows Server 2008, consultez [activer et utiliser des commandes à distance dans Windows PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=242565).
 
-### <a name="BKMK_dcom"></a>Pour configurer mmc ou autres tâches de gestion à distance d’outil via DCOM
+### <a name="to-configure-mmc-or-other-tool-remote-management-over-dcom"></a>Pour configurer mmc ou autres tâches de gestion à distance d’outil via DCOM
 
 1.  Procédez de l’une des manières suivantes pour ouvrir le composant logiciel enfichable Pare-feu Windows avec fonctions avancées de sécurité.
 
@@ -143,7 +143,7 @@ Dans Windows Server 2016, le Gestionnaire de serveur s’appuie sur la gestion �
 
 5.  Fermez le composant logiciel enfichable Pare-feu Windows avec fonctions avancées de sécurité.
 
-### <a name="BKMK_disableGP"></a>Pour désactiver la gestion à distance à l’aide de stratégie de groupe
+### <a name="to-disable-remote-management-by-using-group-policy"></a>Pour désactiver la gestion à distance à l’aide d’une stratégie de groupe
 
 1.  Effectuez l’une des opérations suivantes pour ouvrir l’éditeur de stratégie de groupe locale.
 
@@ -157,7 +157,7 @@ Dans Windows Server 2016, le Gestionnaire de serveur s’appuie sur la gestion �
 
 4.  Dans la boîte de dialogue pour le paramètre de stratégie **Autoriser la gestion des services à distance via WinRM** , sélectionnez **Désactivé** pour désactiver la gestion à distance. Cliquez sur **OK** pour enregistrer les modifications et fermer la boîte de dialogue du paramètre de stratégie.
 
-### <a name="BKMK_unattend"></a>Pour désactiver la gestion à distance à l’aide d’un fichier de réponses lors de l’installation sans assistance
+### <a name="to-disable-remote-management-by-using-an-answer-file-during-unattended-installation"></a>Pour désactiver la gestion à distance à l’aide d’un fichier de réponses au cours d’une installation sans assistance
 
 1.  créer un fichier de réponses d’installation sans assistance pour les installations de Windows Server 2016 à l’aide de Windows System Image Manager (Windows SIM). Pour plus d’informations sur la façon de créer un fichier de réponses et d’utiliser Windows SIM, consultez [What ' s Windows System Image Manager ?](https://technet.microsoft.com/library/cc766347.aspx) et [pas à pas : Déploiement de Windows de base pour les professionnels de l’informatique](https://technet.microsoft.com/library/dd349348.aspx).
 
@@ -166,7 +166,7 @@ Dans Windows Server 2016, le Gestionnaire de serveur s’appuie sur la gestion �
 3.  Pour désactiver la gestion à distance du Gestionnaire de serveur par défaut sur tous les serveurs auxquels vous souhaitez appliquer le fichier de réponses, affectez **Microsoft-Windows-Web-Services-for-Management-Core \EnableServerremoteManagement** à **False** .
 
     > [!NOTE]
-    > Ce paramètre désactive la gestion à distance dans le cadre du processus de configuration du système d’exploitation. Configuration de ce paramètre n’empêche pas un administrateur d’activer la gestion à distance du Gestionnaire de serveur sur un serveur après l’installation du système d’exploitation. Les administrateurs peuvent activer la gestion à distance à nouveau à l’aide des étapes dans le Gestionnaire de serveur [pour configurer la gestion à distance du Gestionnaire de serveur à l’aide de l’interface Windows](#BKMK_windows) ou [pour activer la gestion à distance du Gestionnaire de serveur à l’aide de Windows PowerShell](#BKMK_ps) dans cette rubrique.
+    > Ce paramètre désactive la gestion à distance dans le cadre du processus de configuration du système d’exploitation. Configuration de ce paramètre n’empêche pas un administrateur d’activer la gestion à distance du Gestionnaire de serveur sur un serveur après l’installation du système d’exploitation. Les administrateurs peuvent activer la gestion à distance à nouveau à l’aide des étapes dans le Gestionnaire de serveur [pour configurer la gestion à distance du Gestionnaire de serveur à l’aide de l’interface Windows](#to-enable-server-manager-remote-management-by-using-the-windows-interface) ou [pour activer la gestion à distance du Gestionnaire de serveur à l’aide de Windows PowerShell](#to-enable-server-manager-remote-management-by-using-windows-powershell) dans cette rubrique.
     > 
     > Si vous désactivez la gestion à distance par défaut dans le cadre d’une installation sans assistance et que vous n’activez pas la gestion à distance sur le serveur après l’installation, les serveurs auxquels ce fichier de réponses est appliqué ne peut pas être entièrement gérés à l’aide du Gestionnaire de serveur. Les serveurs qui exécutent Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 (et pour lesquels la gestion à distance désactivée par défaut) génèrent des erreurs d’état de la facilité de gestion dans la console du Gestionnaire de serveur après leur ajout au serveur du Gestionnaire de serveur pool.
 
@@ -188,7 +188,7 @@ Le numéro de port par défaut pour les communications de WinRM avec un ordinate
 Pour plus d’informations sur la configuration des paramètres de l’écouteur WinRM, à l’invite de commandes, tapez **winrm help config**, puis appuyez sur ENTRÉE.
 
 ## <a name="see-also"></a>Voir aussi
-[ajouter des serveurs au Gestionnaire de serveur](add-servers-to-server-manager.md)
+[Ajouter des serveurs au Gestionnaire de serveur](add-servers-to-server-manager.md)
 [Windows PowerShell : about_remote_Troubleshooting sur le TechCenter Windows Server](https://technet.microsoft.com/library/dd347642.aspx)
 [Description du contrôle de compte utilisateur](https://support.microsoft.com/kb/951016)
 

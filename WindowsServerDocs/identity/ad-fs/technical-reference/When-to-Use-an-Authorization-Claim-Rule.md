@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d566113a7579805c8ae9b558a145878557de0958
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6b852a580bdc0ea02643d478dc51b5cbcd2eac4b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872330"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188309"
 ---
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="when-to-use-an-authorization-claim-rule"></a>Quand utiliser une règle de revendication d’autorisation
 Vous pouvez utiliser cette règle dans Active Directory Federation Services \(AD FS\) lorsque vous devez prendre un type de revendication entrante, puis appliquer une action qui détermine si un utilisateur sera autorisé ou refusé l’accès en fonction de la valeur que vous avez Spécifiez dans la règle. Lorsque vous utilisez cette règle, vous transmettez ou transformez les revendications qui correspondent à la logique de règle suivante, en fonction des options que vous configurez dans la règle :  
   

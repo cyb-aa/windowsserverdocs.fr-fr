@@ -13,12 +13,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 47d90c32f705157af60b1d8ca38122b3c6363c0f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 28f6393d57daaa04c15aa7c56dacc2c4d65dc2a3
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866780"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976740"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1709"></a>Fonctionnalités supprimées ou dont le remplacement est prévu à compter de Windows Server, version 1709
 
@@ -29,7 +29,7 @@ Voici la liste des fonctionnalités de Windows Server, version 1709 qui ont é
 ## <a name="features-removed-from-windows-server-version-1709"></a>Fonctionnalités supprimées de Windows Server, version 1709
 Windows Server, version 1709 contient les fonctionnalités déjà présentes dans Windows Server 2016. Toutefois, cette version propose des options d’installation différentes de celles de Windows Server 2016 :
 
-- En tant que version de canal semi-annuel, Windows Server, version 1709 propose uniquement l’option d’installation minimale. Pour plus d’informations, voir [Présentation du canal semi-annuel de Windows Server](semi-annual-channel-overview.md).
+- En tant que version de canal semi-annuel, Windows Server, version 1709 propose uniquement l’option d’installation minimale. Pour plus d’informations, consultez [comparaison des canaux de maintenance](..\get-started-19\servicing-channels-19.md).
 - À compter de cette version, Nano Server n’est plus disponible en tant que système d’exploitation hôte pouvant être installé. Nano Server est désormais disponible en tant que système d’exploitation de conteneur. Voir [Modifications apportées à Nano Server dans Windows Server, version 1709](nano-in-semi-annual-channel.md).
 - À compter de cette version, blocs SMB (Server Message) version 1 n’est plus installé par défaut. Pour plus d’informations, consultez [SMBv1 n’est pas installé par défaut dans Windows 10 Fall Creators Update et Windows Server, version 1709 et versions ultérieures](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows).
 

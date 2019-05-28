@@ -8,16 +8,16 @@ author: bhattacharyaz
 manager: eldenc
 ms.author: subhatt
 ms.date: 09/19/2016
-ms.openlocfilehash: 8b8ecee16c778ed26953be325fb88748fc458176
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 125dd7421cc1876c07983016498a9689d8a507ac
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867750"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475989"
 ---
 # <a name="virtual-machine-load-balancing-overview"></a>Vue d’ensemble de l’équilibrage de la Machine virtuelle
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server 2016
 
 Un aspect clé pour les déploiements de cloud privé est les dépenses d’investissement (<abbr title="dépenses d’investissement">Dépenses d’investissement</abbr>) obligé de passer en production. Il est très courant pour intégrer la redondance pour les déploiements de cloud privé pour éviter le dépassement de capacité pendant les pics de trafic en production, mais cela augmente <abbr title="dépenses d’investissement">Dépenses d’investissement</abbr>. Le besoin de redondance est piloté par les clouds privés déséquilibrées où certains nœuds hébergent plus de Machines virtuelles (<abbr title="machines virtuelles">Machines virtuelles</abbr>) et d’autres sont sous-utilisées (par exemple, un serveur qui vient d’être redémarré).
 
@@ -25,7 +25,7 @@ Un aspect clé pour les déploiements de cloud privé est les dépenses d’inve
 > [!VIDEO https://channel9.msdn.com/Blogs/windowsserver/Virtual-Machine-Load-Balancing-in-Windows-Server-2016/player]
 
 ## <a id="what-is-vm-load-balancing"></a>Quelle est l’équilibrage de la Machine virtuelle ?
-<abbr title="machine virtuelle">Machine virtuelle</abbr> l’équilibrage de charge est une nouvelle fonctionnalité de l’emploi dans Windows Server 2016 qui vous permet d’optimiser l’utilisation de nœuds dans un Cluster de basculement. Il identifie les nœuds sollicités et ré-distribue <abbr title="machines virtuelles">Machines virtuelles</abbr> à partir de ces nœuds pour les nœuds sous validée. Certains aspects marquants de cette fonctionnalité sont les suivantes :
+<abbr title="machine virtuelle">Machine virtuelle</abbr> équilibrage de charge est une fonctionnalité d’origine dans Windows Server 2019 et Windows Server 2016 qui vous permet d’optimiser l’utilisation de nœuds dans un Cluster de basculement. Il identifie les nœuds sollicités et ré-distribue <abbr title="machines virtuelles">Machines virtuelles</abbr> à partir de ces nœuds pour les nœuds sous validée. Certains aspects marquants de cette fonctionnalité sont les suivantes :
 
 * *C’est une solution sans interruption de service*: <abbr title="Machines virtuelles">Machines virtuelles</abbr> sont migrés vers les nœuds inactifs.
 * *Intégration transparente avec votre environnement de cluster existant*: Stratégies de défaillance tels qu’anti-affinité, les domaines d’erreur et les propriétaires possibles sont respectées.

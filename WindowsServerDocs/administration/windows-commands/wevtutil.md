@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e6d57f95379fce80bec9cb5e8445b28f887123c8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 55a76d58ba7a473881dade55c4f00052c9764ae9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826730"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192704"
 ---
 # <a name="wevtutil"></a>wevtutil
 
@@ -49,8 +49,8 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 |{sl \| set-log} \<Logname > [/ e:\<activé >] [/ i :\<Isolation >] [/ noms de fichiers longs :\<Logpath >] [/ rt :\<rétention >] [/ ab :\<automatique >] [/ ms :\< MaxSize >] [/ l:\<niveau >] [/ k :\<mots clés >] [/ autorité de certification :\<canal >] [/ c:\<Config >]|Modifie la configuration du journal spécifié.|
 |{ep \| enum-publishers}|Affiche les éditeurs d’événements sur l’ordinateur local.|
 |{gp \| get-publisher} \<Publishername > [/ ge :\<métadonnées >] [/ gm :\<Message >] [/ f:\<Format >]]|Affiche les informations de configuration pour l’éditeur d’événements spécifié.|
-|{im \| install-manifest} \<manifeste >|Installe les journaux et éditeurs d’événements à partir d’un manifeste. Pour plus d’informations sur les manifestes d’événements et à l’aide de ce paramètre, consultez le Kit de développement du journal des événements Windows sur le site Web de Microsoft Developers Network (MSDN) (https://msdn.microsoft.com).|
-|{um \| manifeste désinstaller} \<manifeste >|Désinstalle tous les journaux et éditeurs d’un manifeste. Pour plus d’informations sur les manifestes d’événements et à l’aide de ce paramètre, consultez le Kit de développement du journal des événements Windows sur le site Web de Microsoft Developers Network (MSDN) (https://msdn.microsoft.com).|
+|{im \| install-manifest} \<manifeste >|Installe les journaux et éditeurs d’événements à partir d’un manifeste. Pour plus d’informations sur les manifestes d’événements et à l’aide de ce paramètre, consultez le Kit de développement du journal des événements Windows sur le site Web de Microsoft Developers Network (MSDN) ([https://msdn.microsoft.com](https://msdn.microsoft.com)).|
+|{um \| manifeste désinstaller} \<manifeste >|Désinstalle tous les journaux et éditeurs d’un manifeste. Pour plus d’informations sur les manifestes d’événements et à l’aide de ce paramètre, consultez le Kit de développement du journal des événements Windows sur le site Web de Microsoft Developers Network (MSDN) ([https://msdn.microsoft.com](https://msdn.microsoft.com)).|
 |{qe \| événements de requête} \<chemin > [/ lf :\<Logfile >] [/ sq :\<Structquery >] [/ q :\<requête >] [/ bm :\<signet >] [/ sbm :\<Savebm >] [/ Bureau à distance :\< Direction >] [/ f:\<Format >] [/ l:\<paramètres régionaux >] [/ c:\<nombre >] [/ e:\<élément >]|Lit les événements à partir d’un journal des événements à partir d’un fichier journal, ou à l’aide d’une requête structurée. Par défaut, vous fournissez un nom de journal pour \<chemin d’accès >. Toutefois, si vous utilisez le **/lf** option, puis \<chemin d’accès > doit être un chemin d’accès dans un fichier journal. Si vous utilisez le **/sq** paramètre, \<chemin d’accès > doit être un chemin d’accès à un fichier qui contient une requête structurée.|
 |{gli \| get-loginfo} \<Logname > [/ lf :\<Logfile >]|Affiche les informations d’état sur un journal des événements ou le fichier journal. Si le **/lf** option est utilisée, \<Logname > est un chemin d’accès dans un fichier journal. Vous pouvez exécuter **wevtutil el** pour obtenir une liste de noms de journaux.|
 |{epl \| -journal d’exportation} \<chemin d’accès > \<Exportfile > [/ lf :\<Logfile >] [/ sq :\<Structquery >] [/ q :\<requête >] [/ oriser :\<remplacer >]|Exporte des événements à partir d’un journal des événements à partir d’un fichier journal, ou à l’aide d’une requête structurée dans le fichier spécifié. Par défaut, vous fournissez un nom de journal pour \<chemin d’accès >. Toutefois, si vous utilisez le **/lf** option, puis \<chemin d’accès > doit être un chemin d’accès dans un fichier journal. Si vous utilisez le **/sq** option, \<chemin d’accès > doit être un chemin d’accès à un fichier qui contient une requête structurée. \<Exportfile > est un chemin d’accès au fichier où les événements exportés seront stockés.|
@@ -70,7 +70,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 |/ ms :\<MaxSize >|Définit la taille maximale du journal en octets. La taille minimale du journal est 1 048 576 octets (1 024 Ko) et les fichiers journaux sont toujours des multiples de 64 Ko, donc la valeur que vous entrez sera arrondie en conséquence.|
 |/ l:\<niveau >|Définit le filtre au niveau du journal. \<Niveau > peut être toute valeur de niveau valide. Cette option s’applique uniquement aux journaux à une session dédiée. Vous pouvez supprimer un filtre au niveau en définissant <Level> sur 0.|
 |/ k:\<mots clés >|Spécifie le filtre de mots clés du journal. \<Mots clés > peut être n’importe quel masque de mot clé de 64 bits valide. Cette option s’applique uniquement aux journaux à une session dédiée.|
-|/CA :\<canal >|Définit l’autorisation d’accès pour un journal des événements. \<Canal > est un descripteur de sécurité qui utilise la définition de langage SDDL (Security Descriptor). Pour plus d’informations sur le format SDDL, consultez le site Web de Microsoft Developers Network (MSDN) (https://msdn.microsoft.com).|
+|/CA :\<canal >|Définit l’autorisation d’accès pour un journal des événements. \<Canal > est un descripteur de sécurité qui utilise la définition de langage SDDL (Security Descriptor). Pour plus d’informations sur le format SDDL, consultez le site Web de Microsoft Developers Network (MSDN) ([https://msdn.microsoft.com](https://msdn.microsoft.com)).|
 |/ c:\<Config >|Spécifie le chemin d’accès à un fichier de configuration. Cette option fait que les propriétés du journal à lire à partir du fichier de configuration défini dans \<Config >. Si vous utilisez cette option, vous ne devez pas spécifier un <Logname> paramètre. Le nom du journal sera lue dans le fichier de configuration.|
 |/GE :\<métadonnées >|Obtient les informations de métadonnées pour les événements qui peuvent être déclenchés par ce serveur de publication. \<Métadonnées > peut être true ou false.|
 |/GM :\<message >|Affiche le message réel au lieu de l’ID du message numérique. \<Message > peut être true ou false.|
@@ -155,4 +155,4 @@ wevtutil cl Application /bu:C:\admin\backups\a10306.evtx
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5d11a2d149ec1d83facd4aea64019bbb963ec70e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: acd3b4bb0342dfb8dc651ce7c31e85f1e77a2569
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840680"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222969"
 ---
 # <a name="dir"></a>dir
 
@@ -26,7 +26,7 @@ ms.locfileid: "59840680"
 
 Affiche une liste de fichiers et les sous-répertoires d’un répertoire. Si utilisée sans paramètres, **dir** affiche le nom de volume et le numéro de série, suivi d’une liste de répertoires et fichiers sur le disque (y compris leurs noms et la date et l’heure de dernière modification chacun) le disque. Pour les fichiers, **dir** affiche l’extension de nom et la taille en octets. **Dir** affiche également le nombre total de fichiers et répertoires répertoriés, leur taille cumulée et l’espace libre (en octets) restant sur le disque.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -59,7 +59,7 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 ## <a name="remarks"></a>Notes
 
 -   Pour utiliser plusieurs *FileName* paramètres, séparez chaque nom de fichier par un espace, une virgule ou un point-virgule.
--   Vous pouvez utiliser des caractères génériques (**&#42;** ou **?**), pour représenter un ou plusieurs caractères d’un nom de fichier et pour afficher un sous-ensemble de fichiers ou sous-répertoires.
+-   Vous pouvez utiliser des caractères génériques (**&#42;** ou **?** ), pour représenter un ou plusieurs caractères d’un nom de fichier et pour afficher un sous-ensemble de fichiers ou sous-répertoires.
 
     **Astérisque (\*) :** Utiliser l’astérisque comme un remplacement pour n’importe quelle chaîne de caractères, par exemple :  
     -   **dir \*.txt** répertorie tous les fichiers dans le répertoire actif avec des extensions qui commencent avec .txt, par exemple .txt, .txt1, .txt_old.
@@ -90,10 +90,10 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
     Si vous spécifiez plusieurs *SortOrder* valeur, **dir** trie les noms de fichiers par le premier critère, puis par le deuxième et ainsi de suite. Par exemple, si vous utilisez **/o** avec la **e** et **-s** valeurs pour *SortOrder* (à l’aide **/o:e-s**ou **OE**), **dir** trie les noms des répertoires et des fichiers par extension, par le plus grand et affiche ensuite le résultat final. Le tri alphabétique par extension entraîne des noms de fichiers sans extensions s’affichent en premier, puis les noms de répertoire et les noms de fichiers avec des extensions.
 -   À l’aide de canaux et des symboles de redirection
 
-    Lorsque vous utilisez le symbole de redirection (**>**) pour envoyer **dir** dans un fichier ou un canal de sortie (**|**) pour envoyer **dir**de sortie vers une autre commande, utilisez **/a :-d** et **/b** pour répertorier uniquement les noms de fichiers. Vous pouvez utiliser *FileName* avec **/b** et **/s** pour spécifier que **dir** consiste à rechercher le répertoire actif et ses sous-répertoires pour tous les fichiers noms qui correspondent à *FileName*. **Dir** répertorie une seule recherche nommez-le la lettre de lecteur, répertoire, nom de fichier, nom et extension de fichier (un chemin d’accès par ligne), pour chaque fichier. Avant d’utiliser un canal pour envoyer **dir** la sortie vers une autre commande, vous devez définir le TEMP variable d’environnement dans le fichier Autoexec.nt.
+    Lorsque vous utilisez le symbole de redirection ( **>** ) pour envoyer **dir** dans un fichier ou un canal de sortie ( **|** ) pour envoyer **dir**de sortie vers une autre commande, utilisez **/a :-d** et **/b** pour répertorier uniquement les noms de fichiers. Vous pouvez utiliser *FileName* avec **/b** et **/s** pour spécifier que **dir** consiste à rechercher le répertoire actif et ses sous-répertoires pour tous les fichiers noms qui correspondent à *FileName*. **Dir** répertorie une seule recherche nommez-le la lettre de lecteur, répertoire, nom de fichier, nom et extension de fichier (un chemin d’accès par ligne), pour chaque fichier. Avant d’utiliser un canal pour envoyer **dir** la sortie vers une autre commande, vous devez définir le TEMP variable d’environnement dans le fichier Autoexec.nt.
 -   Le **dir** commande, avec des paramètres différents, est disponible à partir de la Console de récupération.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="examples"></a>Exemples
 
 Pour afficher tous les répertoires un après l’autre, dans l’ordre alphabétique, en format large et après chaque écran, assurez-vous que le répertoire racine est le répertoire actif et tapez :
 ```
@@ -127,4 +127,4 @@ dir c:\*.txt /w/o/s/p
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

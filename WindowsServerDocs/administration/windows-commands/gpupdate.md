@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 61131d2bf253c66d93408bc66b78d1dca2502087
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d358c47bd278cf11c4bab6887302bf6d053529ec
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840590"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192659"
 ---
 # <a name="gpupdate"></a>gpupdate
 
 
 
-Met à jour les paramètres de stratégie de groupe. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Met à jour les paramètres de stratégie de groupe. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -48,7 +48,7 @@ gpupdate [/target:{Computer | User}] [/force] [/wait:<VALUE>] [/logoff] [/boot] 
 
 -   Le **gpupdate** commande est disponible dans Windows Server 2008 R2, Windows Server 2008, Windows 7 Édition intégrale, Windows 7 Professionnel, Windows Vista Édition intégrale, Windows Vista Enterprise et Windows Vista Professionnel.
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="examples"></a>Exemples
 
 Forcer une mise à jour d’arrière-plan de tous les paramètres de stratégie de groupe, qu’elles ont changé.
 ```
@@ -58,4 +58,4 @@ gpupdate /force
 #### <a name="additional-references"></a>Références supplémentaires
 
 -   [TechCenter stratégie de groupe](https://go.microsoft.com/fwlink/?LinkID=145531)
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

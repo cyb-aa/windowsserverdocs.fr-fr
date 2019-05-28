@@ -1,6 +1,6 @@
 ---
 title: créer un cluster de basculement
-description: Comment créer un cluster de basculement pour Windows Server 2012 R2, Windows Server 2012 et Windows Server 2016.
+description: Comment créer un cluster de basculement pour Windows Server 2012 R2, Windows Server 2012, Windows Server 2016 et Windows Server 2019.
 ms.prod: windows-server-threshold
 ms.topic: article
 author: JasonGerend
@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 11/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: f919e69488c4f2272ddd07e535ba4e2248ddf79c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4122375a48cae17e5f3ebcd7e9f3ce1fad28a105
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843290"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222493"
 ---
 # <a name="create-a-failover-cluster"></a>créer un cluster de basculement
 
->S’applique à : Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
+>S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 Cette rubrique montre comment créer un cluster de basculement à l'aide du composant logiciel enfichable Gestionnaire du cluster de basculement ou de Windows PowerShell. Elle s'appuie sur un déploiement classique dans lequel les objets ordinateur du cluster et ses rôles en cluster associés sont créés dans les services de domaine Active Directory (AD DS). Si vous déployez un cluster d’espaces de stockage Direct, reportez-vous à la place [déployer des espaces de stockage Direct](../storage/storage-spaces/deploy-storage-spaces-direct.md).
 
@@ -89,7 +89,7 @@ Avant de créer le cluster de basculement, nous vous recommandons vivement de va
 2. Dans le **Gestionnaire du Cluster de basculement** volet, sous **gestion**, sélectionnez **valider la Configuration**.
 3. Sur le **avant de commencer** page, sélectionnez **suivant**.
 4. Sur le **sélectionner des serveurs ou un Cluster** page, dans le **entrer le nom du** zone, entrez le nom NetBIOS ou le nom de domaine complet d’un serveur que vous souhaitez ajouter en tant qu’un nœud de cluster de basculement et sélectionnez **Ajouter**. Répétez cette étape pour chaque serveur à ajouter. Pour ajouter plusieurs serveurs à la fois, séparez les noms d’une virgule ou d’un point-virgule. Par exemple, entrez les noms au format *server1.contoso.com, server2.contoso.com*. Lorsque vous avez terminé, sélectionnez **suivant**.
-5. Sur le **Options de test** page, sélectionnez **exécuter tous les tests (recommandés)**, puis sélectionnez **suivant**.
+5. Sur le **Options de test** page, sélectionnez **exécuter tous les tests (recommandés)** , puis sélectionnez **suivant**.
 6. Sur le **Confirmation** page, sélectionnez **suivant**.
 
     La page de validation affiche l'état des tests en cours d'exécution.
@@ -152,72 +152,24 @@ Voici comment créer un rôle en cluster :
     
     Le tableau suivant présente les rôles en cluster que vous pouvez configurer dans l'Assistant Haute disponibilité, ainsi que le rôle serveur associé ou la fonctionnalité que vous devez installer comme condition préalable.
     
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Rôle en cluster</th>
-    <th>Rôle ou fonctionnalité prérequis</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>Serveur d'espace de noms DFS</td>
-    <td>Espaces de noms DFS (partie du rôle de serveur de fichiers)</td>
-    </tr>
-    <tr class="even">
-    <td>Serveur DHCP</td>
-    <td>Rôle de serveur DHCP</td>
-    </tr>
-    <tr class="odd">
-    <td>Coordinateur de transactions distribuées (DTC)</td>
-    <td>Aucune</td>
-    </tr>
-    <tr class="even">
-    <td>Serveur de fichiers</td>
-    <td>Rôle de serveur de fichiers</td>
-    </tr>
-    <tr class="odd">
-    <td>Application générique</td>
-    <td>Non applicable</td>
-    </tr>
-    <tr class="even">
-    <td>Script générique</td>
-    <td>Non applicable</td>
-    </tr>
-    <tr class="odd">
-    <td>Service générique</td>
-    <td>Non applicable</td>
-    </tr>
-    <tr class="even">
-    <td>Service Broker de réplication Hyper-V</td>
-    <td>Rôle Hyper-V</td>
-    </tr>
-    <tr class="odd">
-    <td>iSCSI Target Server</td>
-    <td>Serveur cible iSCSI (partie du rôle de serveur de fichiers)</td>
-    </tr>
-    <tr class="even">
-    <td>Serveur iSNS</td>
-    <td>Fonctionnalité Service serveur iSNS</td>
-    </tr>
-    <tr class="odd">
-    <td>Message Queuing</td>
-    <td>Fonctionnalité Services Message Queuing</td>
-    </tr>
-    <tr class="even">
-    <td>Autre serveur</td>
-    <td>Aucune</td>
-    </tr>
-    <tr class="odd">
-    <td>Ordinateur virtuel</td>
-    <td>Rôle Hyper-V</td>
-    </tr>
-    <tr class="even">
-    <td>Serveur WINS</td>
-    <td>Fonctionnalité Serveur WINS</td>
-    </tr>
-    </tbody>
-    </table>
+
+|Rôle en cluster  |Rôle ou fonctionnalité prérequis  |
+|---------|---------|
+|Serveur de Namespace     |   Espaces de noms (partie du rôle de serveur de fichiers)       |
+|Serveur d'espace de noms DFS     |  Rôle de serveur DHCP       |
+|Coordinateur de transactions distribuées (DTC)     | Aucune        |
+|Serveur de fichiers     |  Rôle de serveur de fichiers       |
+|Application générique     |  Non applicable       |
+|Script générique     |   Non applicable      |
+|Service générique     |   Non applicable      |
+|Service Broker de réplication Hyper-V     |   Rôle Hyper-V      |
+|iSCSI Target Server     |    Serveur cible iSCSI (partie du rôle de serveur de fichiers)     |
+|Serveur iSNS     |  Fonctionnalité Service serveur iSNS       |
+|Message Queuing     |  Fonctionnalité Services Message Queuing       |
+|Autre serveur     |  Aucune       |
+|Ordinateur virtuel     |  Rôle Hyper-V       |
+|Serveur WINS     |   Fonctionnalité Serveur WINS      |
+
 2. Dans le Gestionnaire de Cluster de basculement, développez le nom du cluster, cliquez sur **rôles**, puis sélectionnez **configurer un rôle**.
 3. Suivez les étapes de l'Assistant Haute disponibilité pour créer le rôle en cluster.
 4. Pour vérifier que le rôle en cluster a été créé, dans le volet **Rôles**, assurez-vous que l'état du rôle est **Exécution en cours**. Le volet Rôles indique aussi le nœud propriétaire. Pour tester le basculement, cliquez sur le rôle, pointez sur **déplacer**, puis sélectionnez **sélectionner un nœud**. Dans le **déplacer le rôle en cluster** boîte de dialogue, sélectionnez le nœud de cluster souhaité, puis **OK**. Dans la colonne **Nœud propriétaire** , vérifiez que le nœud propriétaire a changé.
@@ -271,6 +223,6 @@ Pour obtenir des exemples d’ajout de rôles en cluster, voir les rubriques [Ad
   - [Serveur de fichiers de montée en puissance pour les données d’Application](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831349(v%3dws.11)>)
   - [Déployer un Cluster détaché d’annuaire Active](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11))
   - [À l’aide du Clustering invité pour la haute disponibilité](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn440540(v%3dws.11)>)
-  - [La mise à jour adaptée aux clusters](cluster-aware-updating.md)
+  - [ Mise à jour adaptée aux clusters](cluster-aware-updating.md)
   - [Nouveau Cluster](https://docs.microsoft.com/powershell/module/failoverclusters/new-cluster?view=win10-ps)
   - [Cluster de test](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps)

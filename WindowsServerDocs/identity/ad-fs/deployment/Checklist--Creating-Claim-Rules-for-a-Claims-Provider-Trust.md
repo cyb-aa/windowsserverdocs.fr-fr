@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 6b0ece3274b0e0a2a0d5e18e3c0ebf10ded67ebe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 708919691f88cc49d1f2bd74d8f4255e1a854353
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848210"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192390"
 ---
 # <a name="checklist-creating-claim-rules-for-a-claims-provider-trust"></a>Liste de vérification : Création de règles de revendication pour un fournisseur de revendications d’approbation
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette liste comprend les tâches de planification, conception, et les règles de revendication déploiement qui sont associés à un fournisseur de revendications d’approbation dans Active Directory Federation Services \(AD FS\).  
   

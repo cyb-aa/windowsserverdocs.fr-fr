@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 8a94e0724d6fd2a04e2fbfc22b3054b49d87f440
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ac9f9b95ad6226a8e3b7012e317899f1d48c60c9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826150"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192468"
 ---
 # <a name="add-a-token-signing-certificate"></a>Ajouter un certificat de signature de jetons
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Serveurs de fédération dans Active Directory Federation Services \(AD FS\) nécessitent le jeton\-certificats de signature pour empêcher les attaquants de modifier ou de contrefaçon des jetons de sécurité dans une tentative d’accès non autorisé ressources fédérées. Chaque jeton\-certificat de signature contient des clés privées de chiffrement et des clés publiques qui sont utilisés pour signer numériquement \(au moyen de la clé privée\) un jeton de sécurité. Plus tard, une fois que ces clés sont reçues par un serveur de fédération du partenaire, ils valident l’authenticité \(au moyen de la clé publique\) du jeton de sécurité chiffré.  
   
@@ -42,6 +41,6 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 ## <a name="additional-references"></a>Références supplémentaires  
 [Liste de vérification : Configuration d’un serveur de fédération](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[Configuration requise des certificats pour les serveurs de fédération](https://technet.microsoft.com/library/dd807040.aspx)  
+[Certificats requis pour les serveurs de fédération](https://technet.microsoft.com/library/dd807040.aspx)  
   
 

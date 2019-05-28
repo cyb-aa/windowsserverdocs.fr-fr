@@ -13,16 +13,16 @@ author: haley-rowland
 ms.author: elizapo
 ms.date: 06/14/2017
 manager: dongill
-ms.openlocfilehash: 7d895b1098c4d8cdf162c77f35209b7308872d60
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 2d12062f302c28a8124e0aa49af7f441e77ffe33
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849960"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222792"
 ---
 # <a name="create-a-geo-redundant-multi-data-center-rds-deployment-for-disaster-recovery"></a>Créer un centre de géo-redondant, donnée multi déploiement des services Bureau à distance pour la récupération d’urgence
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Vous pouvez activer la récupération d’urgence pour votre déploiement des Services Bureau à distance en exploitant plusieurs centres de données dans Azure. Contrairement à un déploiement services Bureau à distance hautement disponible standard (comme indiqué dans le [architecture des Services Bureau à distance](desktop-hosting-logical-architecture.md)), qui utilise des centres de données dans une seule région Azure (par exemple, Europe de l’ouest), un déploiement de plusieurs centres de données utilise des données centres dans plusieurs emplacements géographiques, accroître la disponibilité de votre déploiement : un Azure centre de données peuvent être indisponibles, mais il est peu probable que plusieurs régions seraient s’arrêtent en même temps. En déployant une architecture de services Bureau à distance géo-redondant, vous pouvez activer le basculement en cas de défaillance catastrophique d’une région entière.
 
@@ -44,7 +44,7 @@ En comparaison, voici l’architecture pour un déploiement qui utilise plusieur
 
 ![Un déploiement services Bureau à distance qui utilise plusieurs régions Azure](media/rds-ha-multi-region.png)
 
-Tout le déploiement des services Bureau à distance est répliqué dans une seconde région Azure pour créer un déploiement géo-redondant. Cette architecture utilise un modèle actif / passif, où un seul déploiement de services Bureau à distance est en cours d’exécution à la fois. Une connexion de réseau virtuel à réseau virtuel permet les deux environnements de communiquer entre eux. Les déploiements de services Bureau à distance sont basés sur un seul domaine Active Directory forêt / et les serveurs AD répliquent entre les deux déploiements, les utilisateurs de signification peuvent se connecter à un déploiement en utilisant les informations d’identification. Paramètres utilisateur et données stockées dans des disques de profil utilisateur (UPD) sont stockées sur un serveur de fichiers de cluster à deux nœuds espaces de stockage Direct (S2D)-montée en puissance (parallèle SOFS). Un deuxième cluster S2D identique est déployé dans la seconde région (passive), et le réplica de stockage est utilisé pour répliquer les profils utilisateur à partir de l’actif au déploiement passif. Azure Traffic Manager est utilisé pour diriger automatiquement les utilisateurs finaux à quelle que soit la déploiement est actuellement actif - à partir de la perspective de l’utilisateur final, ils accéder au déploiement à l’aide d’une URL unique et ne sont pas conscients de la région dans laquelle ils finissent par utiliser.
+Tout le déploiement des services Bureau à distance est répliqué dans une seconde région Azure pour créer un déploiement géo-redondant. Cette architecture utilise un modèle actif / passif, où un seul déploiement de services Bureau à distance est en cours d’exécution à la fois. Une connexion de réseau virtuel à réseau virtuel permet les deux environnements de communiquer entre eux. Les déploiements de services Bureau à distance sont basés sur un seul domaine Active Directory forêt / et les serveurs AD répliquent entre les deux déploiements, les utilisateurs de signification peuvent se connecter à un déploiement en utilisant les informations d’identification. Paramètres utilisateur et données stockées dans des disques de profil utilisateur (UPD) sont stockées sur un serveur de fichiers de cluster à deux nœuds montée espaces de stockage Direct (SOFS). Un deuxième cluster d’espaces de stockage Direct identique est déployé dans la seconde région (passive), et le réplica de stockage est utilisé pour répliquer les profils utilisateur à partir de l’actif au déploiement passif. Azure Traffic Manager est utilisé pour diriger automatiquement les utilisateurs finaux à quelle que soit la déploiement est actuellement actif - à partir de la perspective de l’utilisateur final, ils accéder au déploiement à l’aide d’une URL unique et ne sont pas conscients de la région dans laquelle ils finissent par utiliser.
 
 
 Vous *pourrait* créer un déploiement services Bureau à distance non hautement disponible dans chaque région, mais si même une seule machine virtuelle est redémarrée dans une région, un basculement se produit, ce qui augmente les probabilités de basculement qui se produisent avec associé impacts sur les performances.
@@ -74,8 +74,8 @@ Dans Azure pour créer un déploiement de RDS géo-redondant plusieurs centres d
 
    > [!NOTE]
    > Vous pouvez configurer le stockage manuellement (au lieu d’utiliser le script PowerShell et le modèle) : 
-   >1. Déployer un [SOFS S2D de 2 nœuds](rds-storage-spaces-direct-deployment.md) dans le groupe de ressources A pour stocker vos disques de profil utilisateur (UPD).
-   >2. Déploiement d’un serveur SOFS S2D identique dans RG B : veillez à utiliser la même quantité de stockage dans chaque cluster.
+   >1. Déployer un [SOFS directe des espaces de stockage deux nœuds](rds-storage-spaces-direct-deployment.md) dans le groupe de ressources A pour stocker vos disques de profil utilisateur (UPD).
+   >2. Déploiement d’un deuxième, identiques stockage sofs avec espaces Direct dans RG B : veillez à utiliser la même quantité de stockage dans chaque cluster.
    >3. Configurer [le réplica de stockage avec la réplication asynchrone](../../storage/storage-replica/cluster-to-cluster-storage-replication.md) entre les deux.
 
 ### <a name="enable-upds"></a>Activer les UPD
@@ -85,7 +85,7 @@ Vous souhaitez en savoir plus sur la gestion de la réplication ? Découvrez [C
 
 Pour activer les UPD sur les deux déploiements, procédez comme suit :
 
-1. Exécutez le [applet de commande Set-RDSessionCollectionConfiguration](https://technet.microsoft.com/itpro/powershell/windows/remote-desktop/set-rdsessioncollectionconfiguration) pour activer les disques de profil utilisateur pour le déploiement (actif) principal - fournir un chemin d’accès au partage de fichiers sur le volume source (que vous avez créé à l’étape 7 dans les étapes de déploiement).
+1. Exécutez le [applet de commande Set-RDSessionCollectionConfiguration](https://docs.microsoft.com/powershell/module/remotedesktop/set-rdsessioncollectionconfiguration) pour activer les disques de profil utilisateur pour le déploiement (actif) principal - fournir un chemin d’accès au partage de fichiers sur le volume source (que vous avez créé à l’étape 7 dans les étapes de déploiement).
 2. Inverser la direction de réplica de stockage afin que le volume de destination devient le volume source (cela monte le volume et le rend accessible par le déploiement secondaire). Vous pouvez exécuter **Set-SRPartnership** applet de commande pour ce faire. Exemple :
 
    ```powershell
@@ -105,10 +105,10 @@ Créer un [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overvie
 
 Notez que Traffic Manager nécessite des points de terminaison à retourner 200 OK en réponse à une demande GET pour être marqué comme « sain ». L’objet d’adresse IP publique créée à partir des modèles de services Bureau à distance fonctionnera, mais n’ajoutez pas d’un addenda de chemin d’accès. Au lieu de cela, vous pouvez donner aux utilisateurs finaux l’URL de Traffic Manager avec « / RDWeb » est ajouté, par exemple : ```http://deployment.trafficmanager.net/RDWeb```
 
-En déployant Azure Traffic Manager avec la méthode de routage de priorité, vous empêcher les utilisateurs finaux d’accéder à du déploiement passif alors que le déploiement actif est fonctionnel. Si les utilisateurs finaux accéder au déploiement passif et la direction de réplica de stockage n’a pas été basculée pour le basculement, la connexion de l’utilisateur se bloque que le déploiement tente et ne parvient pas à accéder au partage de fichiers sur le cluster S2D passif - finalement le déploiement sera renoncer et donner l’utilisateur un profil temporaire.  
+En déployant Azure Traffic Manager avec la méthode de routage de priorité, vous empêcher les utilisateurs finaux d’accéder à du déploiement passif alors que le déploiement actif est fonctionnel. Si les utilisateurs finaux accéder au déploiement passif et la direction de réplica de stockage n’a pas été basculée pour le basculement, la connexion de l’utilisateur se bloque que le déploiement tente et ne parvient pas à accéder au partage de fichiers sur le cluster d’espaces de stockage Direct passif - finalement le déploiement sera renoncer et donner à l’utilisateur un profil temporaire.  
 
 ### <a name="deallocate-vms-to-save-resources"></a>Libérer les machines virtuelles pour économiser les ressources 
-Après avoir configuré les deux déploiements, vous pouvez éventuellement arrêter et libérer de l’infrastructure de services Bureau à distance et des machines virtuelles RDSH pour réduire les coûts sur ces machines virtuelles secondaire. Le machines virtuelles du serveur SOFS de S2D et AD doive rester toujours en cours d’exécution dans le déploiement de base de données secondaire/passif pour activer la synchronisation de compte et profil utilisateur.  
+Après avoir configuré les deux déploiements, vous pouvez éventuellement arrêter et libérer de l’infrastructure de services Bureau à distance et des machines virtuelles RDSH pour réduire les coûts sur ces machines virtuelles secondaire. Le machines virtuelles du serveur SOFS directe des espaces de stockage et AD doive rester toujours en cours d’exécution dans le déploiement de base de données secondaire/passif pour activer la synchronisation de compte et profil utilisateur.  
 
 En cas de basculement, vous devez démarrer les machines virtuelles libérées. Cette configuration de déploiement présente l’avantage d’être un coût inférieur, mais au détriment du temps de basculement. Si une défaillance irrémédiable se produit dans le déploiement actif, vous devrez démarrer manuellement le déploiement passif, ou vous aurez besoin d’un script d’automatisation pour détecter la défaillance et de démarrer le déploiement passif automatiquement. Dans les deux cas, il peut prendre plusieurs minutes pour obtenir le déploiement passif en cours d’exécution et disponible pour les utilisateurs à se connecter, ce qui entraîne un temps d’arrêt pour le service. Ce temps d’arrêt dépend de la quantité de temps il prend pour démarrer l’infrastructure des services Bureau à distance et RDSH machines virtuelles (généralement 2 à 4 minutes, si les machines virtuelles sont démarrées en parallèle plutôt qu’en série) et le temps de mettre le cluster passif en ligne (qui dépend de la taille du cluster généralement 2 à 4 minutes pour un cluster à 2 nœuds avec 2 disques par nœud). 
 
@@ -123,7 +123,7 @@ Quand vous mettez à jour vos images RDSH pour fournir des mises à jour logicie
 
 ## <a name="failover"></a>Basculement
 
-Dans le cas le déploiement actif / passif, basculement, vous devez démarrer les machines virtuelles du déploiement secondaire. Procéder manuellement ou avec un script d’automatisation. En cas de basculement catastrophique du serveur SOFS S2D, modifier la direction de partenariat de réplica de stockage, afin que le volume de destination devient le volume source. Exemple :
+Dans le cas le déploiement actif / passif, basculement, vous devez démarrer les machines virtuelles du déploiement secondaire. Procéder manuellement ou avec un script d’automatisation. En cas de basculement catastrophique de le sofs avec Direct des espaces de stockage, modifier la direction de partenariat de réplica de stockage, afin que le volume de destination devient le volume source. Exemple :
 
    ```powershell
    Set-SRPartnership -NewSourceComputerName "cluster-b-s2d-c" -SourceRGName "cluster-b-s2d-c" -DestinationComputerName "cluster-a-s2d-c" -DestinationRGName "cluster-a-s2d-c"

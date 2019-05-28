@@ -11,12 +11,12 @@ ms.assetid: fdc8063c-47ce-4448-b445-d7ff9894dc17
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: e7c43a1b9173d347a3b6d6e1f8bd9127c62bd081
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2668f9fa21c8efbad455d82c7e110ff89b729187
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880220"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222870"
 ---
 # <a name="create-a-virtual-switch-for-hyper-v-virtual-machines"></a>Créer un commutateur virtuel pour les ordinateurs virtuels Hyper-V
 
@@ -24,9 +24,9 @@ ms.locfileid: "59880220"
   
 Un commutateur virtuel permet de machines virtuelles créées sur les ordinateurs hôtes Hyper-V pour communiquer avec d’autres ordinateurs. Vous pouvez créer un commutateur virtuel lorsque vous installez le rôle Hyper-V sur Windows Server. Pour créer des commutateurs virtuels supplémentaires, utilisez le Gestionnaire Hyper-V ou Windows PowerShell. Pour en savoir plus sur les commutateurs virtuels, consultez [commutateur virtuel Hyper-V](../../hyper-v-virtual-switch/Hyper-V-Virtual-Switch.md).  
   
-Mise en réseau de machine virtuelle peut être un sujet complexe. Et il existe plusieurs nouvelles fonctionnalités de commutateur virtuel que vous pouvez utiliser comme [SET Switch Embedded Teaming ()](../../hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md#bkmk_sswitchembedded). Mais la mise en réseau de base est assez facile à faire. Cette rubrique couvre juste assez pour que vous pouvez créer des machines virtuelles en réseau dans Hyper-V. Pour en savoir plus sur la façon dont vous pouvez configurer votre infrastructure réseau, passez en revue la [réseau](../../../networking/Networking.md) documentation.   
+Mise en réseau de machine virtuelle peut être un sujet complexe. Et il existe plusieurs nouvelles fonctionnalités de commutateur virtuel que vous pouvez utiliser comme [SET Switch Embedded Teaming ()](../../hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md#switch-embedded-teaming-set). Mais la mise en réseau de base est assez facile à faire. Cette rubrique couvre juste assez pour que vous pouvez créer des machines virtuelles en réseau dans Hyper-V. Pour en savoir plus sur la façon dont vous pouvez configurer votre infrastructure réseau, passez en revue la [réseau](../../../networking/Networking.md) documentation.   
   
-## <a name="BKMK_HyperVMan"></a>Créer un commutateur virtuel à l’aide du Gestionnaire Hyper-V  
+## <a name="create-a-virtual-switch-by-using-hyper-v-manager"></a>Créer un commutateur virtuel à l’aide du Gestionnaire Hyper-V  
   
 1.  Ouvrez le Gestionnaire Hyper-V, sélectionnez le nom d’ordinateur hôte Hyper-V.  
   
@@ -65,7 +65,7 @@ Mise en réseau de machine virtuelle peut être un sujet complexe. Et il existe 
   
     ![Capture d’écran montrant le message « Modifications en attente risquent de perturber la connectivité réseau »](../media/Hyper-V-NewVSwitch-DisruptNetwork.png)  
   
-## <a name="BKMK_WPS"></a>Créer un commutateur virtuel à l’aide de Windows PowerShell  
+## <a name="create-a-virtual-switch-by-using-windows-powershell"></a>Créer un commutateur virtuel à l’aide de Windows PowerShell  
   
 1.  Sur le Bureau Windows, cliquez sur le bouton Démarrer et tapez une partie du nom **Windows PowerShell**.  
   
@@ -99,7 +99,7 @@ Pour les scripts Windows PowerShell plus avancées qui couvrent les fonctionnali
 
   
 ## <a name="next-step"></a>Étape suivante  
-[Créer une machine virtuelle dans Hyper-V](Create-a-virtual-machine-in-Hyper-V.md)  
+[Créer une machine virtuelle avec Hyper-V](Create-a-virtual-machine-in-Hyper-V.md)  
   
 
 

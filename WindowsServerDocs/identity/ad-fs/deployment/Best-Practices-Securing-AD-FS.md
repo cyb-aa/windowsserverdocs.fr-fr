@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 38de2bca413ce7f8aeda2af4392f9a616641b189
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 958bf8455d03ddc04395fafe83e70a49c7659c96
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873070"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192444"
 ---
 ## <a name="best-practices-for-securing-active-directory-federation-services"></a>Meilleures pratiques pour la sécurisation d’Active Directory Federation Services
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ce document fournit les meilleures pratiques pour la planification sécurisée et le déploiement d’Active Directory Federation Services (ADFS) et de Proxy d’Application Web.  Il contient des informations sur les comportements par défaut de ces composants et les recommandations pour les configurations de sécurité supplémentaire pour une organisation de cas d’usage spécifiques en matière de sécurité.
 
@@ -39,7 +38,7 @@ Le schéma ci-dessous décrit les ports de pare-feu doivent être activés entre
 ### <a name="azure-ad-connect-and-federation-serverswap"></a>Azure AD Connect et serveurs de fédération/WAP
 Ce tableau décrit les ports et protocoles requis pour la communication entre le serveur Azure AD Connect et les serveurs de fédération/WAP.  
 
-Protocole |Ports |Description
+Protocol |Ports |Description
 --------- | --------- |---------
 HTTP|80 (TCP/UDP)|Utilisé pour télécharger les listes CRL (listes de certificats) pour vérifier les certificats SSL.
 HTTPS|443(TCP/UDP)|Utilisé pour synchroniser avec Azure AD.
@@ -48,14 +47,14 @@ WinRM|5985| Écouteur WinRM
 ### <a name="wap-and-federation-servers"></a>WAP et les serveurs de fédération
 Ce tableau décrit les ports et protocoles requis pour la communication entre les serveurs de fédération et les serveurs WAP.
 
-Protocole |Ports |Description
+Protocol |Ports |Description
 --------- | --------- |---------
 HTTPS|443(TCP/UDP)|Utilisé pour l’authentification.
 
 ### <a name="wap-and-users"></a>WAP et utilisateurs
 Ce tableau décrit les ports et protocoles requis pour la communication entre les utilisateurs et les serveurs WAP.
 
-Protocole |Ports |Description
+Protocol |Ports |Description
 --------- | --------- |--------- |
 HTTPS|443(TCP/UDP)|Utilisé pour l’authentification des appareils.
 TCP|49443 (TCP)|Utilisé pour l’authentification par certificat.

@@ -13,16 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 966ac7f70984dff6d26265e07a26a6eebcde9fb6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7d9b99dbe7e26190e87c5dfc9de29980b9cb2f43
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874390"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192588"
 ---
 # <a name="cmd"></a>Cmd
-
-
 
 Démarre une nouvelle instance de l’interpréteur de commandes Cmd.exe. Si utilisée sans paramètres, **cmd** affiche les informations de copyright et la version du système d’exploitation.
 
@@ -104,6 +102,7 @@ Le tableau suivant répertorie les chiffres hexadécimaux valides que vous pouve
 
 > [!CAUTION]
 > Une modification incorrecte du Registre peut endommager gravement votre système. Avant toute modification du registre, il est conseillé de sauvegarder toutes les données importantes de votre ordinateur.
+
 -   Activation et désactivation des extensions de commande
 
     Les extensions de commande sont activées par défaut dans Windows XP. Vous pouvez les désactiver pour un processus particulier à l’aide de **/e : off**. Vous pouvez activer ou désactiver les extensions pour tous les **cmd** des options de ligne de commande sur une session d’ordinateur ou l’utilisateur en définissant les éléments suivants **REG_DWORD** valeurs :
@@ -114,34 +113,35 @@ Le tableau suivant répertorie les chiffres hexadécimaux valides que vous pouve
 
     Définir le **REG_DWORD** valeur soit **0 × 1** (activé) ou **0 × 0** (désactivé) dans le Registre à l’aide de Regedit.exe. Paramètres spécifiés par l’utilisateur sont prioritaires sur les paramètres de l’ordinateur, et les options de ligne de commande sont prioritaires sur les paramètres du Registre.
 
->     [!CAUTION]
->     Incorrectly editing the registry may severely damage your system. Before making changes to the registry, you should back up any valued data on the computer.
+> [!CAUTION]
+> Une modification incorrecte du Registre peut endommager gravement votre système. Avant toute modification du registre, il est conseillé de sauvegarder toutes les données importantes de votre ordinateur.
 
     When you enable command extensions, the following commands are affected:  
-    -   **assoc**
-    -   **call**
-    -   **chdir (cd)**
-    -   **color**
-    -   **del (erase)**
-    -   **endlocal**
-    -   **for**
-    -   **ftype**
-    -   **goto**
-    -   **if**
-    -   **mkdir (md)**
-    -   **popd**
-    -   **prompt**
-    -   **pushd**
-    -   **set**
-    -   **setlocal**
-    -   **shift**
-    -   **start** (also includes changes to external command processes)
+    -  **assoc**
+    -  **call**
+    -  **chdir (cd)**
+    -  **color**
+    -  **del (erase)**
+    -  **endlocal**
+    -  **for**
+    -  **ftype**
+    -  **goto**
+    -  **if**
+    -  **mkdir (md)**
+    -  **popd**
+    -  **prompt**
+    -  **pushd**
+    -  **set**
+    -  **setlocal**
+    -  **shift**
+    -  **start** (also includes changes to external command processes)
+
 -   L’activation d’expansion de variables d’environnement retardées
 
     Si vous activez l’expansion de variables d’environnement retardées, vous pouvez utiliser le caractère point d’exclamation de remplacer la valeur d’une variable d’environnement au moment de l’exécution.
 -   L’activation de saisie semi-automatique du nom de fichier et répertoire
 
-    Saisie semi-automatique du nom de fichier et répertoire n’est pas activée par défaut. Vous pouvez activer ou désactiver la saisie semi-automatique du nom de fichier pour un processus particulier de la **cmd** avec **/f:**{**sur**|**hors**}. Vous pouvez activer ou désactiver la saisie semi-automatique du nom fichier et répertoire pour tous les processus de le **cmd** commande sur un ordinateur ou pour une ouverture de session utilisateur en définissant les éléments suivants **REG_DWORD** valeurs :
+    Saisie semi-automatique du nom de fichier et répertoire n’est pas activée par défaut. Vous pouvez activer ou désactiver la saisie semi-automatique du nom de fichier pour un processus particulier de la **cmd** avec **/f:** {**sur**|**hors**}. Vous pouvez activer ou désactiver la saisie semi-automatique du nom fichier et répertoire pour tous les processus de le **cmd** commande sur un ordinateur ou pour une ouverture de session utilisateur en définissant les éléments suivants **REG_DWORD** valeurs :
 
     **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\CompletionChar\REG_DWORD**
 
@@ -170,4 +170,4 @@ Si vous traitez la terminaison des noms de répertoires et de fichiers à partir
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

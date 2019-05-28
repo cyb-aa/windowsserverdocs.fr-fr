@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 98fd5d50645ad454204dcf9dabf58e97c246ab1a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7bdf30a4f721568add4e7902245da2a803b72db1
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853990"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475867"
 ---
 # <a name="enable-optimized-moves-of-redirected-folders"></a>Activer optimisé déplace des dossiers redirigés
 
->S’applique à : Windows 10, Windows 8, Windows 8.1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016
+>S’applique à : Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server (canal semi-annuel)
 
 Cette rubrique décrit comment effectuer un déplacement optimisé des dossiers redirigés (Redirection de dossiers) à un partage de fichiers. Si vous activez ce paramètre de stratégie, lorsqu’un administrateur déplace le partage de fichiers hébergeant les dossiers redirigés et met à jour le chemin d’accès cible des dossiers redirigés dans Stratégie de groupe, le contenu mis en cache a simplement été renommé dans le cache de fichiers hors connexion local sans les retards ou perte de données pour l’utilisateur.
 
@@ -28,7 +28,7 @@ Auparavant, les administrateurs peuvent modifier le chemin d’accès cible des 
 Déplacement optimisé présente les exigences suivantes :
 
 - La Redirection de dossiers doit être configuré. Pour plus d’informations, consultez [déployer la Redirection de dossiers avec les fichiers hors connexion](deploy-folder-redirection.md).
-- Ordinateurs clients doivent exécuter Windows 10, Windows 8.1, Windows 8, Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012.
+- Ordinateurs clients doivent exécuter Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 ou Windows Server (canal semi-annuel).
 
 ## <a name="step-1-enable-optimized-move-in-group-policy"></a>Étape 1 : Activer le déplacement optimisé dans Stratégie de groupe
 
@@ -75,5 +75,5 @@ Lorsque le déplacement de partage de fichiers qui contient les utilisateurs des
 ## <a name="more-information"></a>Informations supplémentaires
 
 * [Déployer la Redirection de dossiers des fichiers hors connexion](deploy-folder-redirection.md)
-* [Déployer les profils utilisateur itinérants](deploy-roaming-user-profiles.md)
+* [Déployer des profils utilisateur itinérants](deploy-roaming-user-profiles.md)
 * [Vue d’ensemble de la Redirection de dossiers, fichiers hors connexion et les profils utilisateur itinérants](folder-redirection-rup-overview.md)

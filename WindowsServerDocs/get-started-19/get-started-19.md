@@ -10,190 +10,23 @@ ms.topic: landing-page
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5604edf201213f8758b697dc683717f312941e0f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a36a9a4dfbb26c24047a937c6cb0434ba724d649
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878330"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192598"
 ---
 # <a name="get-started-with-windows-server-2019"></a>Prise en main Windows Server 2019
 
 >S'applique à : Windows Server 2019
 
+|       |       |
+|   -   |   -   |
+| ![Nouveautés](../media/i-whats-new.svg) | [**Nouveautés ?**  <br>Savoir quelles sont les nouveautés dans Windows Server 2019](whats-new-19.md)|
 
-<hr />
-<ul class="cardsF panelContent">
-<li>
- <a href="whats-new-19.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage">
-                                                <img src="../media/i-whats-new.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Quelles sont les nouveautés ?</h3>
-                                            <p>Découvrez quelles sont les nouveautés dans Windows Server 2019</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                          </a>
-                        </li>
-</ul>
-<hr />
-<ul class="cardsF panelContent">
-<li>
-      <a href="servicing-channels-19.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../media/i-get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Canaux de maintenance</h3>
-                        <p>Mieux planifier votre déploiement et mise à jour corrective de planifications par comprendre que la différence entre nos maintenance canal LTSB (Long Term) et le canal semi-annuel (SAC) libère.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li><hr /><li>
-        <a href="install-upgrade-migrate-19.md">
-          <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                             <img src="../media/i-get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Installer | Mettre à niveau | Migrer</h3>
-                        <p>Vous pouvez déplacer de plusieurs façons pour Windows Server 2019. Si vous qui vient d’être l’installation, la mise à niveau sur place ou migrez les applications et les rôles de serveur, découvrez la meilleure approche ici.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-       </a>
-    </li><hr />
-<li>
-        <a href="rel-notes-19.md">
-          <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                             <img src="../media/i-get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Notes de publication</h3>
-                        <p>Problèmes pouvant s’avérer particulièrement graves si vous ne les évitez ou ne les contournez pas.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-       </a>
-     </li><hr />
-<li>
-      <a href="sys-reqs-19.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                             <img src="../media/i-get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Configuration requise</h3>
-                        <p>La configuration matérielle minimale requise pour installer et exécuter Windows Server 2019.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-       </a>
-    </li><hr />
-<li>
-      <a href="activation-19.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                             <img src="../media/i-get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Activation</h3>
-                        <p>Informations de base sur l’activation de Windows Server 2019, lui-même et d’autres systèmes d’exploitation, à l’aide de Windows Server 2019.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li><hr />
-<li>
-      <a href="app-compat-19.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                             <img src="../media/i-get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Compatibilité des applications Microsoft Server et de Windows Server 2019</h3>
-                        <p>Si vous voulez obtenir SQL fonctionne sur Windows Server 2019 ou rechercher des étapes pour exécuter Exchange ? Cette rubrique fournit des liens vers la documentation pour les applications compatibles Microsoft.</p>                    </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li><hr />
-<li>
-      <a href="install-fod-19.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                             <img src="../media/i-get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Fonctionnalités à la demande</h3>
-                        <p>Fonctionnalités à la demande (FODs) sont des packages de fonctionnalités de Windows Server qui peuvent être ajoutés à tout moment. </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li><hr />
-<li>
-      <a href="editions-comparison-19.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                             <img src="../media/i-get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Comparaison des éditions Standard / Datacenter</h3>
-                        <p>Windows Server éditions Standard et centre de données ont des fonctionnalités différentes. Découvrez celle qui vous avez besoin.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </a>
-    </li>
-</ul>
+|       |        |        |     |       |        |
+|   -   |   -    |   -    |  -  |  -    |   -    |
+| ![Canaux de maintenance](../media/i-get-started.svg)  | [**Canaux de maintenance**<br>mieux planifier votre déploiement et mise à jour corrective de planifications par comprendre la différence entre nos maintenance canal LTSB (Long Term) et le canal semi-annuel (SAC) libère.](servicing-channels-19.md)  | ![Migrer de la mise à niveau de l’installation](../media/i-get-started.svg) | [**Installation, mise à niveau, migration** <br>vous pouvez passer à Windows Server 2019 de plusieurs façons. Si vous qui vient d’être l’installation, la mise à niveau sur place ou migrez les applications et les rôles de serveur, découvrez la meilleure approche ici.](install-upgrade-migrate-19.md)  | ![Notes de publication](../media/i-get-started.svg) |[**Notes de publication**<br>problèmes pouvant entraîner des problèmes graves si vous ne les évitez ou les contourner.](rel-notes-19.md)   |
+| ![Configuration requise](../media/i-get-started.svg) | [**Configuration système requise**<br>la configuration matérielle minimale requise pour installer et exécuter Windows Server 2019.](sys-reqs-19.md) |  ![Activation](../media/i-get-started.svg)|[**L’activation**<br>des informations de base sur l’activation de Windows Server 2019, lui-même et d’autres systèmes d’exploitation, à l’aide de Windows Server 2019.](activation-19.md)  |  ![Compatibilité des applications](../media/i-get-started.svg)|[**Compatibilité des applications Microsoft Server et de Windows Server 2019**<br>pour obtenir SQL fonctionne sur Windows Server 2019 ou de rechercher les étapes pour exécuter Exchange ? Cette rubrique fournit des liens vers la documentation pour les applications compatibles Microsoft.](app-compat-19.md) |
+| ![Fonctionnalités à la demande <](../media/i-get-started.svg) | [**Fonctionnalités à la demande**<br>fonctionnalités à la demande (FODs) sont des packages de fonctionnalités de Windows Server qui peuvent être ajoutés à tout moment.](install-fod-19.md) |  ![Standard / comparaison des éditions de centre de données](../media/i-get-started.svg) | [**Standard / comparaison des éditions de centre de données**<br>Windows Server éditions Standard et centre de données ont des fonctionnalités différentes. Découvrez celle qui vous avez besoin.](editions-comparison-19.md) |

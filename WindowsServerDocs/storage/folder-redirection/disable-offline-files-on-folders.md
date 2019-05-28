@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: adc93906cb7ff958fc1db7b00abdc557623e764e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b006742c9256c357d9aff3fb1b765dbed087383a
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834200"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475881"
 ---
 # <a name="disable-offline-files-on-individual-redirected-folders"></a>Désactiver les fichiers hors connexion sur des dossiers redirigés individuels
 
->S’applique à : Windows 10, Windows 8, Windows 8.1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016
+>S’applique à : Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2, Windows (canal semi-annuel)
 
 Cette rubrique décrit comment désactiver la mise en cache des fichiers hors connexion sur des dossiers individuels qui sont redirigées vers les partages réseau à l’aide de la Redirection de dossiers. Cela permet de spécifier les dossiers à exclure de la mise en cache localement, ce qui réduit le cache de fichiers hors connexion, taille et le temps nécessaire pour synchroniser des fichiers hors connexion.
 
@@ -29,7 +29,7 @@ Cette rubrique décrit comment désactiver la mise en cache des fichiers hors co
 Pour désactiver la mise en cache des fichiers hors connexion des dossiers redirigés spécifiques, votre environnement doit respecter les conditions préalables suivantes.
 
 - Un domaine de Services de domaine Active Directory (AD DS), avec les ordinateurs clients joints au domaine. Il n’existe aucune exigences de niveau fonctionnel de forêt ou domaine ou les spécifications de schéma.
-- Ordinateurs clients exécutant Windows 10, Windows 8.1, Windows 8, Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012.
+- Ordinateurs clients exécutant Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 ou Windows (canal semi-annuel).
 - Un ordinateur avec la gestion des stratégies de groupe installée.
 
 ## <a name="disabling-offline-files-on-individual-redirected-folders"></a>La désactivation de la fonctionnalité fichiers hors connexion sur des dossiers redirigés

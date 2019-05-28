@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c0d750fd139865daa92319c1d1926dc5d36669b2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 62215aa802e2509be5305aef53069ae9643562f1
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885770"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476098"
 ---
 # <a name="storage-reports-management"></a>Gestion des rapports de stockage
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Sur le nœud **Gestion des rapports de stockage** du composant logiciel enfichable Microsoft<sup>®</sup> Management Console (MMC) Gestionnaire de ressources du serveur de fichiers, vous pouvez effectuer les tâches suivantes :
 
@@ -42,6 +42,6 @@ Cette section comprend les rubriques suivantes :
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Options de paramètre File Server Resource Manager](setting-file-server-resource-manager-options.md)
+-   [Définition des options du Gestionnaire de ressources du serveur de fichiers](setting-file-server-resource-manager-options.md)
 
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 32d356b3ae70b7b15f23a40247e73b4b8f61c3db
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 18ba3517f6533a85fe7cb24f24a7f4ffdfad6991
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822370"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222981"
 ---
 # <a name="install-or-uninstall-roles-role-services-or-features"></a>Installer ou désinstaller des rôles, des services de rôle ou des fonctionnalités
 
@@ -35,19 +35,19 @@ Pour plus d’informations sur ce que sont les rôles, services de rôle et fonc
   
 Cette rubrique contient les sections suivantes.  
   
--   [Installer des rôles, services de rôle et fonctionnalités à l’aide de l’ajouter Assistant rôles et fonctionnalités](#BKMK_installarfw)  
+-   [Installer des rôles, services de rôle et fonctionnalités à l’aide de l’ajouter Assistant rôles et fonctionnalités](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard)  
   
--   [Installer des rôles, des services de rôle et des fonctionnalités à l’aide des applets de commande Windows PowerShell](#BKMK_installwps)  
+-   [Installer des rôles, des services de rôle et des fonctionnalités à l’aide des applets de commande Windows PowerShell](#install-roles-role-services-and-features-by-using-windows-powershell-cmdlets)  
   
--   [Supprimer des rôles, services de rôle et fonctionnalités à l’aide de la supprimer Assistant rôles et fonctionnalités](#BKMK_removerrfw)  
+-   [Supprimer des rôles, services de rôle et fonctionnalités à l’aide de la supprimer Assistant rôles et fonctionnalités](#remove-roles-role-services-and-features-by-using-the-remove-roles-and-features-wizard)  
   
--   [Supprimer des rôles, des services de rôle et des fonctionnalités à l’aide des applets de commande Windows PowerShell](#BKMK_removewps)  
+-   [Supprimer des rôles, des services de rôle et des fonctionnalités à l’aide des applets de commande Windows PowerShell](#remove-roles-role-services-and-features-by-using-windows-powershell-cmdlets)  
   
--   [Installer des rôles et des fonctionnalités sur plusieurs serveurs à l’aide d’un script Windows PowerShell](#BKMK_batch)  
+-   [Installer des rôles et des fonctionnalités sur plusieurs serveurs à l’aide d’un script Windows PowerShell](#install-roles-and-features-on-multiple-servers-by-running-a-windows-powershell-script)  
   
--   [Installer le .NET Framework 3.5 et d’autres fonctionnalités à la demande](#BKMK_FoD)  
+-   [Installer le .NET Framework 3.5 et d’autres fonctionnalités à la demande](#install-net-framework-35-and-other-features-on-demand)  
   
-## <a name="BKMK_installarfw"></a>Installer des rôles, services de rôle et fonctionnalités à l’aide de l’ajouter Assistant rôles et fonctionnalités  
+## <a name="install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard"></a>Installer des rôles, services de rôle et fonctionnalités à l’aide de l’ajouter Assistant rôles et fonctionnalités  
 Dans une session de l’Assistant de fonctionnalités et d’ajouter des rôles, vous pouvez installer des rôles, services de rôle et fonctionnalités sur le serveur local, un serveur distant qui a été ajouté au Gestionnaire de serveur ou un disque dur virtuel hors connexion. Pour plus d’informations sur l’ajout d’un serveur au Gestionnaire de serveur à gérer, consultez [ajouter des serveurs au Gestionnaire de serveur](add-servers-to-server-manager.md).  
   
 > [!NOTE]  
@@ -72,7 +72,7 @@ Dans une session de l’Assistant de fonctionnalités et d’ajouter des rôles,
     > [!NOTE]  
     > Pour installer des rôles et des fonctionnalités sur des disques durs virtuels hors connexion, les disques durs virtuels hors connexion cibles doivent répondre aux exigences suivantes.  
     >   
-    > -   Ils doivent être équipés de la version de Windows Server qui correspond à la version du Gestionnaire de serveur vous sont en cours d’exécution. Consultez la note au début de [installer des rôles, services de rôle et fonctionnalités à l’aide de l’ajouter des rôles et fonctionnalités Assistant](#BKMK_installarfw).  
+    > -   Ils doivent être équipés de la version de Windows Server qui correspond à la version du Gestionnaire de serveur vous sont en cours d’exécution. Consultez la note au début de [installer des rôles, services de rôle et fonctionnalités à l’aide de l’ajouter des rôles et fonctionnalités Assistant](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).  
     > -   Ils ne peuvent pas posséder plus d’un volume ou d’une partition système.  
     > -   Le dossier réseau partagé dans lequel le disque dur virtuel hors connexion est stocké doit accorder les droits d’accès suivants au compte d’ordinateur (ou système local) du serveur que vous avez sélectionné pour le montage du disque dur virtuel. L’accès au compte d’utilisateur uniquement ne suffit pas. Le partage peut accorder les autorisations **Lire** et **Écrire** au groupe **Tout le monde** pour autoriser l’accès au disque dur virtuel, mais pour des raisons de sécurité, cela n’est pas recommandé.  
     >   
@@ -95,7 +95,7 @@ Dans une session de l’Assistant de fonctionnalités et d’ajouter des rôles,
   
 8.  Après avoir cliqué sur **installer**, le **progression de l’Installation** page affiche la progression de l’installation, les résultats et les messages tels que des avertissements, échecs ou étapes de configuration post-installation obligatoire pour les rôles ou fonctionnalités que vous avez installé. Dans Windows Server 2012 et versions ultérieures de Windows Server, vous pouvez fermer l’ajouter des rôles et l’Assistant fonctionnalités pendant l’installation est toujours en cours et afficher les résultats installation ou d’autres messages dans la **Notifications** zone en haut de la console Gestionnaire de serveur. Cliquez sur le **Notifications** icône d’indicateur pour afficher plus de détails sur les installations ou autres tâches que vous effectuez dans le Gestionnaire de serveur.  
   
-## <a name="BKMK_installwps"></a>Installer des rôles, services de rôle et fonctionnalités à l’aide des applets de commande Windows PowerShell  
+## <a name="install-roles-role-services-and-features-by-using-windows-powershell-cmdlets"></a>Installer des rôles, des services de rôle et des fonctionnalités à l’aide des applets de commande Windows PowerShell  
 Les applets de commande de déploiement de gestionnaire de serveur pour Windows PowerShell fonctionnent de la même façon à l’interface graphique utilisateur, Assistant Ajout de rôles et fonctionnalités et supprimer des rôles et fonctionnalités Assistant, avec toutefois une différence importante. Dans Windows PowerShell, contrairement à dans Ajouter des rôles et de l’Assistant de fonctionnalités, outils de gestion et des composants logiciels enfichables pour un rôle ne sont pas inclus par défaut. Pour inclure les outils de gestion dans le cadre de l’installation d’un rôle, ajoutez le paramètre `IncludeManagementTools` à l’applet de commande. Si vous installez des rôles et fonctionnalités sur un serveur qui exécute l’option d’installation Server Core de Windows Server 2012 ou versions ultérieures, vous pouvez ajouter les outils de gestion d’un rôle à une installation, mais enfichables et outils de gestion basée sur une interface graphique utilisateur ne peut pas être installés. sur les serveurs qui exécutent l’option d’installation Server Core de Windows Server. Uniquement de la ligne de commande et les outils de gestion de Windows PowerShell peuvent être installés sur l’option d’installation Server Core.  
   
 #### <a name="to-install-roles-and-features-by-using-the-install-windowsfeature-cmdlet"></a>Pour installer des rôles et des fonctionnalités à l’aide de l’applet de commande Install-WindowsFeature  
@@ -109,7 +109,7 @@ Les applets de commande de déploiement de gestionnaire de serveur pour Windows 
   
     -   Sur le Windows **Démarrer** écran, cliquez sur la vignette pour Windows PowerShell et cliquez sur la barre des applications **exécuter en tant qu’administrateur**.  
   
-2.  Tapez **Get-WindowsFeature**, puis appuyez sur **Entrée** pour afficher une liste de rôles et fonctionnalités installés et disponibles sur le serveur local. Si l’ordinateur local n’est pas un serveur, ou si vous souhaitez des informations sur un serveur distant, exécutez **Get-WindowsFeature - computerName <***Nom_Ordinateur***>**, dans lequel  *Nom_Ordinateur* représente le nom d’un ordinateur distant qui exécute Windows Server 2016. Les résultats de l’applet de commande contiennent les noms de commande des rôles et fonctionnalités que vous ajoutez à votre applet de commande à l’étape 4.  
+2.  Tapez **Get-WindowsFeature**, puis appuyez sur **Entrée** pour afficher une liste de rôles et fonctionnalités installés et disponibles sur le serveur local. Si l’ordinateur local n’est pas un serveur, ou si vous souhaitez des informations sur un serveur distant, exécutez **Get-WindowsFeature - computerName <***Nom_Ordinateur***>** , dans lequel  *Nom_Ordinateur* représente le nom d’un ordinateur distant qui exécute Windows Server 2016. Les résultats de l’applet de commande contiennent les noms de commande des rôles et fonctionnalités que vous ajoutez à votre applet de commande à l’étape 4.  
   
     > [!NOTE]  
     > Dans Windows PowerShell 3.0 et versions ultérieures de Windows PowerShell, il n’est pas nécessaire d’importer le module d’applet de commande Gestionnaire de serveur dans la session Windows PowerShell avant d’exécuter les applets de commande qui font partie du module. Un module est automatiquement importé la première fois que vous exécutez une applet de commande qui fait partie du module. En outre, les applets de commande Windows PowerShell, ni les noms de fonctionnalités utilisés avec les applets de commande respectent la casse.  
@@ -129,7 +129,7 @@ Les applets de commande de déploiement de gestionnaire de serveur pour Windows 
     >   
     > Pour installer des rôles et des fonctionnalités sur des disques durs virtuels hors connexion, les disques durs virtuels hors connexion cibles doivent répondre aux exigences suivantes.  
     >   
-    > -   Ils doivent être équipés de la version de Windows Server qui correspond à la version du Gestionnaire de serveur vous sont en cours d’exécution. Consultez la note au début de [installer des rôles, services de rôle et fonctionnalités à l’aide de l’ajouter des rôles et fonctionnalités Assistant](#BKMK_installarfw).  
+    > -   Ils doivent être équipés de la version de Windows Server qui correspond à la version du Gestionnaire de serveur vous sont en cours d’exécution. Consultez la note au début de [installer des rôles, services de rôle et fonctionnalités à l’aide de l’ajouter des rôles et fonctionnalités Assistant](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).  
     > -   Ils ne peuvent pas posséder plus d’un volume ou d’une partition système.  
     > -   Le dossier réseau partagé dans lequel le disque dur virtuel hors connexion est stocké doit accorder les droits d’accès suivants au compte d’ordinateur (ou système local) du serveur que vous avez sélectionné pour le montage du disque dur virtuel. L’accès au compte d’utilisateur uniquement ne suffit pas. Le partage peut accorder les autorisations **Lire** et **Écrire** au groupe **Tout le monde** pour autoriser l’accès au disque dur virtuel, mais pour des raisons de sécurité, cela n’est pas recommandé.  
     >   
@@ -148,7 +148,7 @@ Les applets de commande de déploiement de gestionnaire de serveur pour Windows 
   
 5.  Lors de l’installation terminée, vérifiez-la en ouvrant le **tous les serveurs** page Gestionnaire de serveur, en sélectionnant un serveur sur lequel vous avez installé des rôles et fonctionnalités, puis en affichant le **des rôles et fonctionnalités** vignette sur la page pour le serveur sélectionné. Vous pouvez également exécuter la `Get-WindowsFeature` applet de commande ciblée sur le serveur sélectionné (Get-WindowsFeature - computerName <*Nom_Ordinateur*>) pour afficher la liste des rôles et fonctionnalités installés sur le serveur.  
   
-## <a name="BKMK_removerrfw"></a>supprimer des rôles, services de rôle et fonctionnalités à l’aide de la supprimer Assistant rôles et fonctionnalités  
+## <a name="remove-roles-role-services-and-features-by-using-the-remove-roles-and-features-wizard"></a>Supprimer des rôles, services de rôle et fonctionnalités à l’aide de la supprimer Assistant rôles et fonctionnalités  
 Vous devez être connecté à un serveur en tant qu’administrateur pour désinstaller des rôles, services de rôle et fonctionnalités. Si vous êtes connecté à l’ordinateur local avec un compte sans droits d’administrateur sur votre serveur cible de désinstallation, cliquez avec le bouton droit sur le serveur cible dans la vignette **Serveurs**, puis cliquez sur **Gérer en tant que** pour préciser un compte doté de droits d’administrateur. Le serveur sur lequel vous voulez monter un disque dur virtuel hors connexion doit être ajouté au Gestionnaire de serveur et vous devez avoir des droits d’administrateur sur le serveur.  
   
 #### <a name="to-remove-roles-and-features-by-using-the-remove-roles-and-features-wizard"></a>Pour supprimer des rôles et fonctionnalités à l’aide de la supprimer Assistant rôles et fonctionnalités  
@@ -186,7 +186,7 @@ Vous devez être connecté à un serveur en tant qu’administrateur pour désin
   
 7.  Après avoir cliqué sur **supprimer**, le **progression de la suppression** page affiche la progression de la suppression, les résultats et les messages tels que des avertissements, échecs ou étapes de configuration de post-suppression qui sont requises, telles que redémarrer le serveur de destination. Dans Windows Server 2012 et versions ultérieures de Windows Server, vous pouvez fermer la supprimer Assistant rôles et fonctionnalités alors que la suppression est encore dans la progression et affichent les résultats de la suppression ou d’autres messages dans la **Notifications** zone en haut de la Console du Gestionnaire de serveur. Cliquez sur le **Notifications** indicateur pour afficher plus de détails sur les suppressions ou autres tâches que vous effectuez dans le Gestionnaire de serveur.  
   
-## <a name="BKMK_removewps"></a>supprimer des rôles, services de rôle et fonctionnalités à l’aide des applets de commande Windows PowerShell  
+## <a name="remove-roles-role-services-and-features-by-using-windows-powershell-cmdlets"></a>Supprimer des rôles, des services de rôle et des fonctionnalités à l’aide des applets de commande Windows PowerShell  
 Les applets de commande de déploiement de gestionnaire de serveur pour Windows PowerShell fonctionnent de la même façon à l’interface graphique utilisateur Supprimer Assistant rôles et fonctionnalités, avec une différence importante près. Dans Windows PowerShell, contrairement à dans la supprimer les rôles et fonctionnalités Assistant, outils de gestion et des composants logiciels enfichables pour un rôle ne sont pas supprimés par défaut. Pour supprimer les outils de gestion dans le cadre de la suppression d’un rôle, ajoutez le paramètre `IncludeManagementTools` à l’applet de commande. Si vous désinstallez des rôles et fonctionnalités à partir d’un serveur qui exécute l’option d’installation Server Core de Windows Server 2012 ou une version ultérieure de Windows Server, cette supprime du paramètre de ligne de commande et les outils de gestion de Windows PowerShell pour le texte spécifié rôles et fonctionnalités.  
   
 #### <a name="to-remove-roles-and-features-by-using-the-uninstall-windowsfeature-cmdlet"></a>Pour supprimer des rôles et des fonctionnalités à l’aide de l’applet de commande Uninstall-WindowsFeature  
@@ -200,7 +200,7 @@ Les applets de commande de déploiement de gestionnaire de serveur pour Windows 
   
     -   Sur le Windows **Démarrer** écran, cliquez sur la vignette de Windows PowerShell et cliquez sur la barre des applications **exécuter en tant qu’administrateur**.  
   
-2.  Tapez **Get-WindowsFeature**, puis appuyez sur **Entrée** pour afficher une liste de rôles et fonctionnalités installés et disponibles sur le serveur local. Si l’ordinateur local n’est pas un serveur, ou si vous souhaitez des informations sur un serveur distant, exécutez **Get-WindowsFeature - computerName <***Nom_Ordinateur***>**, dans lequel  *Nom_Ordinateur* représente le nom d’un ordinateur distant qui exécute Windows Server 2016. Les résultats de l’applet de commande contiennent les noms de commande des rôles et fonctionnalités que vous ajoutez à votre applet de commande à l’étape 4.  
+2.  Tapez **Get-WindowsFeature**, puis appuyez sur **Entrée** pour afficher une liste de rôles et fonctionnalités installés et disponibles sur le serveur local. Si l’ordinateur local n’est pas un serveur, ou si vous souhaitez des informations sur un serveur distant, exécutez **Get-WindowsFeature - computerName <***Nom_Ordinateur***>** , dans lequel  *Nom_Ordinateur* représente le nom d’un ordinateur distant qui exécute Windows Server 2016. Les résultats de l’applet de commande contiennent les noms de commande des rôles et fonctionnalités que vous ajoutez à votre applet de commande à l’étape 4.  
   
     > [!NOTE]  
     > Dans Windows PowerShell 3.0 et versions ultérieures de Windows PowerShell, il n’est pas nécessaire d’importer le module d’applet de commande Gestionnaire de serveur dans la session Windows PowerShell avant d’exécuter les applets de commande qui font partie du module. Un module est automatiquement importé la première fois que vous exécutez une applet de commande qui fait partie du module. En outre, les applets de commande Windows PowerShell, ni les noms de fonctionnalités utilisés avec les applets de commande respectent la casse.  
@@ -235,7 +235,7 @@ Les applets de commande de déploiement de gestionnaire de serveur pour Windows 
   
 5.  Lors de la désinstallation terminée, vérifiez que les rôles et fonctionnalités sont supprimées en ouvrant le **tous les serveurs** page Gestionnaire de serveur, en sélectionnant le serveur à partir duquel vous avez supprimé des rôles et fonctionnalités, puis en affichant le **rôles et Fonctionnalités** vignette sur la page pour le serveur sélectionné. Vous pouvez également exécuter la `Get-WindowsFeature` applet de commande ciblée sur le serveur sélectionné (Get-WindowsFeature - computerName <*Nom_Ordinateur*>) pour afficher la liste des rôles et fonctionnalités installés sur le serveur.  
   
-## <a name="BKMK_batch"></a>Installer des rôles et fonctionnalités sur plusieurs serveurs en exécutant un script Windows PowerShell  
+## <a name="install-roles-and-features-on-multiple-servers-by-running-a-windows-powershell-script"></a>Installer des rôles et des fonctionnalités sur plusieurs serveurs à l’aide d’un script Windows PowerShell  
 Bien que vous ne pouvez pas utiliser les fonctionnalités Assistant Ajouter des rôles pour installer des rôles, services de rôle et fonctionnalités sur plusieurs serveurs cibles dans une session d’Assistant unique, vous pouvez utiliser un script Windows PowerShell pour installer des rôles, services de rôle et fonctionnalités sur plusieurs cibles serveurs que vous gérez à l’aide du Gestionnaire de serveur. Le script que vous utilisez pour effectuer le déploiement par lots, en tant que ce processus est appelé, pointe vers un fichier de configuration XML que vous pouvez aisément créer par l’Assistant de fonctionnalités et ajouter des rôles, puis en cliquant sur **exporter les paramètres de configuration** après progressé dans l’Assistant pour le **confirmer les sélections d’installation** page Ajouter des rôles et de l’Assistant les fonctionnalités.  
   
 > [!IMPORTANT]  
@@ -294,18 +294,18 @@ Bien que vous ne pouvez pas utiliser les fonctionnalités Assistant Ajouter des 
   
 5.  Lors de l’installation terminée, vérifiez-la en ouvrant le **tous les serveurs** page Gestionnaire de serveur, en sélectionnant un serveur sur lequel vous avez installé des rôles et fonctionnalités, puis en affichant le **des rôles et fonctionnalités** vignette sur la page pour le serveur sélectionné. Vous pouvez également exécuter la `Get-WindowsFeature` applet de commande ciblée sur un serveur spécifique (`Get-WindowsFeature -computerName` <*Nom_Ordinateur*>) pour afficher la liste des rôles et fonctionnalités installés sur le serveur.  
   
-## <a name="BKMK_FoD"></a>Installer .NET Framework 3.5 et autres fonctionnalités à la demande  
+## <a name="install-net-framework-35-and-other-features-on-demand"></a>Installer le .NET Framework 3.5 et d’autres fonctionnalités à la demande  
 à partir de Windows Server 2012 et Windows 8, les fichiers de fonctionnalités pour .NET Framework 3.5 (qui inclut le .NET Framework 2.0 et .NET Framework 3.0) ne sont pas disponibles sur l’ordinateur local par défaut. Les fichiers ont été supprimés. Les fichiers de fonctionnalités qui ont été supprimés dans une configuration Fonctionnalités à la demande, ainsi que les fichiers de fonctionnalités pour le .NET Framework 3.5, sont disponibles par le biais de Windows Update. Par défaut, si les fichiers de fonctionnalités ne sont pas disponibles sur le serveur de destination qui exécute Windows Server 2012 ou versions ultérieures, le processus d’installation recherche les fichiers manquants en se connectant à Windows Update. Vous pouvez remplacer le comportement par défaut en configurant un paramètre de stratégie de groupe ou en spécifiant un chemin d’accès de l’autre source pendant l’installation, que vous effectuiez une installation à l’aide de l’ajouter des rôles et fonctionnalités Assistant GUI ou une ligne de commande.  
   
 Vous pouvez installer le .NET Framework 3.5 en effectuant l’une des opérations suivantes :  
   
--   Utilisez [Pour installer le .NET Framework 3.5 à l’aide de l’applet de commande Install-WindowsFeature](#BKMK_dotnetcmdlet) pour ajouter le paramètre `Source` et spécifiez une source à partir de laquelle obtenir les fichiers de fonctionnalités .NET Framework 3.5. Si vous n’ajoutez pas le paramètre `Source`, le processus d’installation détermine d’abord si un chemin d’accès aux fichiers de fonctionnalités a été spécifié par des paramètres de stratégie de groupe et, si aucun chemin d’accès n’est trouvé, il recherche les fonctionnalités manquantes à l’aide de Windows Update.  
+-   Utilisez [Pour installer le .NET Framework 3.5 à l’aide de l’applet de commande Install-WindowsFeature](#to-install-net-framework-35-by-running-the-install-windowsfeature-cmdlet) pour ajouter le paramètre `Source` et spécifiez une source à partir de laquelle obtenir les fichiers de fonctionnalités .NET Framework 3.5. Si vous n’ajoutez pas le paramètre `Source`, le processus d’installation détermine d’abord si un chemin d’accès aux fichiers de fonctionnalités a été spécifié par des paramètres de stratégie de groupe et, si aucun chemin d’accès n’est trouvé, il recherche les fonctionnalités manquantes à l’aide de Windows Update.  
   
--   Utilisez [pour installer .NET Framework 3.5 à l’aide de l’ajouter des rôles et fonctionnalités Assistant](#BKMK_arfw) pour spécifier un autre fichier emplacement source sur le **confirmer les options d’installation** page Ajouter des rôles et de l’Assistant les fonctionnalités.  
+-   Utilisez [pour installer .NET Framework 3.5 à l’aide de l’ajouter des rôles et fonctionnalités Assistant](#to-install-net-framework-35-by-using-the-add-roles-and-features-wizard) pour spécifier un autre fichier emplacement source sur le **confirmer les options d’installation** page Ajouter des rôles et de l’Assistant les fonctionnalités.  
   
--   Appliquez la procédure [Pour installer le .NET Framework 3.5 à l’aide de DISM](#BKMK_dism) pour obtenir des fichiers à partir de Windows Update par défaut ou en spécifiant un chemin d’accès source vers le support d’installation.  
+-   Appliquez la procédure [Pour installer le .NET Framework 3.5 à l’aide de DISM](#to-install-net-framework-35-by-using-dism) pour obtenir des fichiers à partir de Windows Update par défaut ou en spécifiant un chemin d’accès source vers le support d’installation.  
   
-[Configurez d’autres sources pour les fichiers de fonctionnalités dans la stratégie de groupe](#BKMK_configgp) pour le .NET Framework 3.5 ou d’autres fonctionnalités, si les fichiers de fonctionnalités sont introuvables sur l’ordinateur local.  
+[Configurez d’autres sources pour les fichiers de fonctionnalités dans la stratégie de groupe](#configure-alternate-sources-for-feature-files-in-group-policy) pour le .NET Framework 3.5 ou d’autres fonctionnalités, si les fichiers de fonctionnalités sont introuvables sur l’ordinateur local.  
   
 > [!IMPORTANT]  
 > Lors de l’installation des fichiers de fonctionnalités à partir d’une source distante, le chemin d’accès source ou partage de fichiers doit accorder des autorisations de **Lecture** au groupe **Tout le monde** (non recommandé pour des raisons de sécurité) ou au compte d’ordinateur (système local) du serveur de destination ; l’accord d’un accès au compte d’utilisateur n’est pas suffisant.  
@@ -314,7 +314,7 @@ Vous pouvez installer le .NET Framework 3.5 en effectuant l’une des opération
 >   
 > Lorsque vous installez des rôles, services de rôle et fonctionnalités sur un serveur physique en cours d’exécution, vous pouvez spécifier un fichier WIM en tant que fonctionnalité autre fichier source. Le chemin d’accès source d’un fichier WIM doit adopter le format suivant, avec **WIM** comme préfixe et l’index dans lequel les fichiers de fonctionnalités sont situés en guise de suffixe : **WIM:e:\sources\install.wim:4**. Toutefois, vous ne pouvez pas utiliser un fichier WIM directement en tant que source pour l’installation des rôles, services de rôle et fonctionnalités sur un disque dur virtuel hors connexion ; Vous devez soit monter le disque dur virtuel hors connexion et pointez sur son chemin d’accès de montage pour les fichiers sources, ou vous devez pointer vers un dossier qui contient une copie du contenu du fichier WIM.  
   
-### <a name="BKMK_dotnetcmdlet"></a>Pour installer .NET Framework 3.5 en exécutant l’applet de commande Install-WindowsFeature  
+### <a name="to-install-net-framework-35-by-running-the-install-windowsfeature-cmdlet"></a>Pour installer le .NET Framework 3.5 à l’aide de l’applet de commande Install-WindowsFeature  
   
 1.  Effectuez une des opérations suivantes pour ouvrir une session Windows PowerShell avec des droits utilisateur élevés.  
   
@@ -335,7 +335,7 @@ Vous pouvez installer le .NET Framework 3.5 en effectuant l’une des opération
   
     Si vous voulez que la commande utilise Windows Update comme source pour les fichiers de fonctionnalités manquants ou si une source par défaut a déjà été configurée par la stratégie de groupe, il est inutile d’ajouter le paramètre `Source` , à moins que vous ne souhaitiez spécifier une source différente.  
   
-### <a name="BKMK_arfw"></a>Pour installer .NET Framework 3.5 à l’aide de l’ajouter Assistant rôles et fonctionnalités  
+### <a name="to-install-net-framework-35-by-using-the-add-roles-and-features-wizard"></a>Pour installer .NET Framework 3.5 à l’aide de l’ajouter Assistant rôles et fonctionnalités  
   
 1.  Sur le **gérer** menu dans le Gestionnaire de serveur, cliquez sur **ajouter des rôles et fonctionnalités**.  
   
@@ -357,7 +357,7 @@ Vous pouvez installer le .NET Framework 3.5 en effectuant l’une des opération
   
 6.  Cliquez sur **OK**, puis sur **Installer**.  
   
-### <a name="BKMK_dism"></a>Pour installer .NET Framework 3.5 à l’aide de DISM  
+### <a name="to-install-net-framework-35-by-using-dism"></a>Pour installer le .NET Framework 3.5 à l’aide de DISM  
   
 1.  Effectuez une des opérations suivantes pour ouvrir une session Windows PowerShell avec des droits utilisateur élevés.  
   
@@ -387,7 +387,7 @@ Vous pouvez installer le .NET Framework 3.5 en effectuant l’une des opération
     > [!NOTE]  
     > La DISM respecte la casse.  
   
-### <a name="BKMK_configgp"></a>Configurer d’autres sources pour les fichiers de la fonctionnalité stratégie de groupe  
+### <a name="configure-alternate-sources-for-feature-files-in-group-policy"></a>Configurer d’autres sources pour les fichiers de fonctionnalités dans la stratégie de groupe  
 Le paramètre de stratégie de groupe décrit dans cette section spécifie les emplacements sources autorisés pour les fichiers du .NET Framework 3.5 et d’autres fichiers de fonctionnalités qui ont été supprimés dans le cadre d’une configuration Fonctionnalités à la demande. Le paramètre de stratégie **spécifier les paramètres pour l’installation des composants facultatifs et la réparation de composants** se trouve dans le **ordinateur Configuration ordinateur\Modèles d’administration\Système** dossier dans la stratégie de groupe Éditeur de stratégie de groupe locale ou de la Console de gestion.  
   
 > [!NOTE]  
@@ -403,13 +403,13 @@ Le paramètre de stratégie de groupe décrit dans cette section spécifie les e
   
 3.  Dans la zone de texte **Autre chemin d’accès au fichier source** dans la zone **Options**, spécifiez un chemin d’accès complet à un dossier partagé ou un fichier WIM. Pour spécifier un fichier WIM comme autre emplacement de fichier source, ajoutez le préfixe **WIM:** au chemin d’accès et ajoutez l’index de l’image à utiliser dans le fichier WMI comme suffixe. Voici quelques exemples de valeurs que vous pouvez spécifier.  
   
-    -   chemin d’accès à un dossier partagé : **\\\\***nom_serveur***\share\\*** nom_dossier*  
+    -   chemin d’accès à un dossier partagé : * *\\\\***nom_serveur***\share\\*** nom_dossier*  
   
     -   chemin d’accès à un fichier WIM, dans lequel **3** représente l’index de l’image dans lequel sont trouvent les fichiers de fonctionnalités :  **WIM :\\\\***nom_serveur***\share\install.wim:3**  
   
 4.  Si vous ne souhaitez pas que les ordinateurs contrôlés par ce paramètre de stratégie pour rechercher les fichiers manquants dans la mise à jour de Windows, sélectionnez **jamais tente de télécharger la charge utile à partir de Windows Update**.  
   
-5.  Si les ordinateurs contrôlés par ce paramètre de stratégie reçoivent généralement des mises à jour par le biais des services WSUS, mais que vous préférez passer par Windows Update plutôt que par les services WSUS pour rechercher les fichiers manquants, sélectionnez **Contacter Windows Update directement pour télécharger le contenu de réparation au lieu de Windows Server Update Services (WSUS)**.  
+5.  Si les ordinateurs contrôlés par ce paramètre de stratégie reçoivent généralement des mises à jour par le biais des services WSUS, mais que vous préférez passer par Windows Update plutôt que par les services WSUS pour rechercher les fichiers manquants, sélectionnez **Contacter Windows Update directement pour télécharger le contenu de réparation au lieu de Windows Server Update Services (WSUS)** .  
   
 6.  Cliquez sur **OK** une fois que vous avez terminé de modifier ce paramètre de stratégie, puis fermez l’Éditeur de stratégie de groupe.  
   

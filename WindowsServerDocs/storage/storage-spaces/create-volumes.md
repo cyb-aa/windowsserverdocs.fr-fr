@@ -1,29 +1,98 @@
 ---
-ms.assetid: a9f229eb-bef4-4231-97d0-0899e17cef32
 title: Création de volumes dans les espaces de stockage direct
+description: Comment créer des volumes dans Storage Spaces Direct using Windows Admin Center et PowerShell.
 ms.prod: windows-server-threshold
-ms.author: cosdar
-ms.manager: eldenc
-ms.technology: storage-spaces
-ms.topic: article
+ms.reviewer: cosmosdarwin
 author: cosmosdarwin
-ms.date: 01/11/2017
-ms.localizationpriority: medium
-ms.openlocfilehash: 277a676d8e53a7847d54039aab6607be8e5a78c5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.author: cosdar
+manager: eldenc
+ms.technology: storage-spaces
+ms.date: 05/09/2019
+ms.openlocfilehash: d7c842a9b393f67c482dadeaa4090627887a67a3
+ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823610"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65613215"
 ---
 # <a name="creating-volumes-in-storage-spaces-direct"></a>Création de volumes dans les espaces de stockage direct
 
->S'applique à : Windows Server 2016
+>S’applique à : Windows Server 2019, Windows Server 2016
 
-Cette rubrique explique comment créer des volumes dans les espaces de stockage direct à l’aide de PowerShell ou du Gestionnaire du cluster de basculement.
+Cette rubrique décrit comment créer des volumes sur un cluster d’espaces de stockage Direct à l’aide de Windows Admin Center, de PowerShell ou de gestionnaire du Cluster de basculement.
 
    >[!TIP]
    >  Si vous ne l'avez pas encore fait, consultez d'abord [Planification des volumes dans les espaces de stockage direct](plan-volumes.md).
+
+## <a name="create-a-three-way-mirror-volume"></a>Créer un volume en miroir triple
+
+Pour créer un volume en miroir triple dans Windows Admin Center : 
+
+1. Dans Windows Admin Center, se connecter à un cluster d’espaces de stockage Direct, puis sélectionnez **Volumes** à partir de la **outils** volet.
+2. Dans la page de Volumes, sélectionnez le **inventaire** onglet, puis sélectionnez **créer volume**.
+3. Dans le **créer volume** volet, entrez un nom pour le volume, puis laissez **résilience** comme **triple**.
+4. Dans **taille sur le disque dur**, spécifiez la taille du volume. Par exemple, 5 To (téraoctets).
+5. Sélectionnez **Créer**.
+
+Selon la taille, la création du volume peut prendre quelques minutes. Notifications dans l’angle supérieur droit vous permettra de savoir quand le volume est créé. Le nouveau volume apparaît dans la liste d’inventaire.
+
+Regardez une courte vidéo sur la création d’un volume en miroir triple.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/o66etKq70N8]
+
+## <a name="create-a-mirror-accelerated-parity-volume"></a>Créer un volume de parité avec accélération miroir
+
+Parité avec accélération miroir réduit l’encombrement du volume sur le disque dur. Par exemple, un volume en miroir triple signifie que pour chaque 10 téraoctets de taille, vous devez 30 téraoctets en tant que l’encombrement. Pour réduire la surcharge de l’encombrement, créer un volume avec parité accélérée de miroir. Cela réduit l’encombrement 30 téraoctets à plusieurs téraoctets simplement 22, même avec seulement 4 serveurs, par la mise en miroir de 20 pour cent plus actifs de données et à l’aide de parité, ce qui est plus efficace pour stocker le reste d’espace. Vous pouvez ajuster le ratio de parité et de serveur miroir afin de rendre les performances par rapport à des compromis de capacité qui convient à votre charge de travail. Par exemple, le miroir parité et 10 pour cent de 90 pour cent génère moins performances mais simplifie encore davantage l’encombrement.
+
+Pour créer un volume avec miroir accéléré la parité dans Windows Admin Center :
+
+1. Dans Windows Admin Center, se connecter à un cluster d’espaces de stockage Direct, puis sélectionnez **Volumes** à partir de la **outils** volet.
+2. Dans la page de Volumes, sélectionnez le **inventaire** onglet, puis sélectionnez **créer volume**.
+3. Dans le **créer volume** volet, entrez un nom pour le volume.
+4. Dans **résilience**, sélectionnez **parité avec accélération miroir**.
+5. Dans **pourcentage de parité**, sélectionnez le pourcentage de parité.
+6. Sélectionnez **Créer**.
+
+Regardez une courte vidéo sur la création d’un volume de parité accélérée de miroir.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/R72QHudqWpE]
+
+## <a name="open-volume-and-add-files"></a>Ouvrez le volume et ajouter des fichiers
+
+Pour ouvrir un volume et ajouter des fichiers sur le volume dans Windows Admin Center :
+
+1. Dans Windows Admin Center, se connecter à un cluster d’espaces de stockage Direct, puis sélectionnez **Volumes** à partir de la **outils** volet.
+2. Dans la page de Volumes, sélectionnez le **inventaire** onglet.
+2. Dans la liste des volumes, sélectionnez le nom du volume que vous souhaitez ouvrir.
+
+    Dans la page de détails de volume, vous pouvez voir le chemin d’accès au volume.
+
+4. En haut de la page, sélectionnez **Open**. Cette opération lance l’outil de fichiers dans Windows Admin Center.
+5. Naviguez jusqu'à l’emplacement du volume. Ici, vous pouvez parcourir les fichiers dans le volume.
+6. Sélectionnez **télécharger**, puis sélectionnez un fichier à charger.
+7. Utilisez le navigateur **retour** bouton revenir en arrière dans le volet d’outils de Windows Admin Center.
+
+Regardez une courte vidéo sur la façon d’ouvrir un volume et ajouter des fichiers.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/j59z7ulohs4]
+
+## <a name="turn-on-deduplication-and-compression"></a>Activer la déduplication et compression
+
+Déduplication et compression est géré par volume. Déduplication et compression utilise un modèle de post-traitement, ce qui signifie que vous ne verrez pas économies jusqu'à ce qu’elle s’exécute. Lorsque cela arrive, elle fonctionne sur tous les fichiers, y compris ceux qui figuraient déjà à partir de.
+
+1. Dans Windows Admin Center, se connecter à un cluster d’espaces de stockage Direct, puis sélectionnez **Volumes** à partir de la **outils** volet.
+2. Dans la page de Volumes, sélectionnez le **inventaire** onglet.
+3. Dans la liste des volumes, sélectionnez le nom du volume que vous souhaitez gérer.
+4. Dans la page de détails de volume, cliquez sur le commutateur intitulé **déduplication et compression**.
+5. Dans le volet de la déduplication activer, sélectionnez le mode de la déduplication.
+
+    Au lieu de paramètres complexes, Windows Admin Center vous permet de choisir entre les profils prêtes à l’emploi pour différentes charges de travail. Si vous n’êtes pas sûr, utilisez le paramètre par défaut.
+
+6. Sélectionnez **Activer**.
+
+Regardez une courte vidéo sur la façon d’activer la déduplication et compression.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/PRibTacyKko]
 
 ## <a name="create-volumes-using-powershell"></a>Créer des volumes à l’aide de PowerShell
 
@@ -82,7 +151,7 @@ New-Volume -FriendlyName "Volume4" -FileSystem CSVFS_ReFS -StoragePoolFriendlyNa
 
 ## <a name="create-volumes-using-failover-cluster-manager"></a>Créer des volumes à l’aide du Gestionnaire du cluster de basculement
 
-Vous pouvez également créer des volumes à l’aide de l'*Assistant Nouveau disque virtuel (espaces de stockage direct)*, suivi de l'*Assistant Nouveau volume* à partir du Gestionnaire du cluster de basculement, bien que ce flux de travail implique de nombreuses autres étapes manuelles et n’est pas recommandé.
+Vous pouvez également créer des volumes à l’aide de l'*Assistant Nouveau disque virtuel (espaces de stockage direct)* , suivi de l'*Assistant Nouveau volume* à partir du Gestionnaire du cluster de basculement, bien que ce flux de travail implique de nombreuses autres étapes manuelles et n’est pas recommandé.
 
 Ce processus comprend trois étapes principales :
 
@@ -120,3 +189,5 @@ C’est terminé ! Si nécessaire, répétez la procédure pour créer plusieur
 
 - [Vue d’ensemble Direct des espaces de stockage](storage-spaces-direct-overview.md)
 - [Planification des volumes dans les espaces de stockage Direct](plan-volumes.md)
+- [Extension des volumes dans les espaces de stockage Direct](resize-volumes.md)
+- [Suppression des volumes dans les espaces de stockage Direct](delete-volumes.md)

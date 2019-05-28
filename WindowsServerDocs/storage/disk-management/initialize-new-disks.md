@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 61c8eb2321ee2a282345aba01c6d04a128f0448c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e009780d83220b528ba7dac6e2561be36e662f71
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819390"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192762"
 ---
 # <a name="initialize-new-disks"></a>Initialiser les nouveaux disques
 
@@ -22,17 +22,23 @@ ms.locfileid: "59819390"
 Si vous ajoutez un nouveau disque à votre PC, et il n’apparaît pas dans l’Explorateur de fichiers, vous devrez peut-être [ajouter une lettre de lecteur](change-a-drive-letter.md), ou initialiser celui-ci avant de l’utiliser. Vous pouvez initialiser uniquement un lecteur qui n’est pas encore mis en forme. Initialisation d’un disque efface toutes les données et le prépare pour une utilisation par Windows, après quoi vous pouvez mettre en forme et stocker des fichiers.
 
 > [!WARNING]
-> Si votre disque a déjà des fichiers qui vous intéressent, ne l’initialiser, vous allez perdre tous les fichiers. Au lieu de cela, nous recommandons le disque de résolution des problèmes pour voir si vous pouvez lire les fichiers - consultez [l’état d’un disque n’est pas initialisé ou le disque est manquant entièrement](troubleshooting-disk-management.md#disk-not-initialized).
+> Si votre disque a déjà des fichiers qui vous intéressent, ne l’initialiser, vous allez perdre tous les fichiers. Au lieu de cela, nous recommandons le disque de résolution des problèmes pour voir si vous pouvez lire les fichiers - consultez [l’état d’un disque n’est pas initialisé ou le disque est manquant entièrement](troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing).
 
 ## <a name="to-initialize-new-disks"></a>Pour initialiser les nouveaux disques
 
 Voici comment initialiser un nouveau disque à l’aide de la gestion des disques. Si vous préférez utiliser PowerShell, utilisez le [initialize-disk](https://docs.microsoft.com/powershell/module/storage/initialize-disk) applet de commande à la place.
 
-1. Ouvrez Gestion des disques avec les autorisations d’administrateur. <br>Pour ce faire, dans la zone de recherche dans la barre des tâches, tapez **gestion des disques**, sélectionnez et maintenez (ou avec le bouton droit) **gestion des disques**, puis sélectionnez **exécuter en tant qu’administrateur**  >  **Oui**. Si vous ne pouvez pas l’ouvrir en tant qu’administrateur, tapez **gestion de l’ordinateur** au lieu de cela, puis accédez à **stockage** > **gestion des disques**.
-1. Dans Gestion des disques, cliquez sur le disque que vous souhaitez initialiser, puis cliquez sur **initialiser le disque** (illustré ici). Si le disque est répertorié en tant que *hors connexion*, tout d’abord faites un clic droit et sélectionnez **Online**.<br>Notez que certains lecteurs USB n’ont pas l’option à initialiser, ils simplement obtient mis en forme et un [lettre de lecteur](change-a-drive-letter.md).
+1. Ouvrez Gestion des disques avec les autorisations d’administrateur. 
+ 
+    Pour ce faire, dans la zone de recherche dans la barre des tâches, tapez **gestion des disques**, sélectionnez et maintenez (ou avec le bouton droit) **gestion des disques**, puis sélectionnez **exécuter en tant qu’administrateur**  >  **Oui**. Si vous ne pouvez pas l’ouvrir en tant qu’administrateur, tapez **gestion de l’ordinateur** au lieu de cela, puis accédez à **stockage** > **gestion des disques**.
+1. Dans Gestion des disques, cliquez sur le disque que vous souhaitez initialiser, puis cliquez sur **initialiser le disque** (illustré ici). Si le disque est répertorié en tant que *hors connexion*, tout d’abord faites un clic droit et sélectionnez **Online**.
+
+     Notez que certains lecteurs USB n’ont pas l’option à initialiser, ils simplement obtient mis en forme et un [lettre de lecteur](change-a-drive-letter.md).
 
     ![Gestion des disques montrant un disque non formaté avec le menu de raccourci d’initialiser le disque s’affiché](media\uninitialized-disk.PNG)
-2. Dans le **initialiser le disque** boîte de dialogue (illustré ici), de vérification pour vous assurer que le disque correct est sélectionné, puis cliquez sur **OK** pour accepter le style de partition par défaut. Si vous avez besoin de modifier le style des partition (MBR ou GPT) consultez [sur le style de partition - GPT et MBR](#about-partition-styles-GPT-and-MBR).<br>L’état du disque passe brièvement à **initialisation** puis au **Online** état. Si l’initialisation échoue pour une raison quelconque, consultez [l’état d’un disque n’est pas initialisé ou le disque est manquant entièrement](troubleshooting-disk-management.md#disk-not-initialized).
+2. Dans le **initialiser le disque** boîte de dialogue (illustré ici), de vérification pour vous assurer que le disque correct est sélectionné, puis cliquez sur **OK** pour accepter le style de partition par défaut. Si vous avez besoin de modifier le style des partition (MBR ou GPT) consultez [sur les styles de partition - GPT et MBR](#about-partition-styles---gpt-and-mbr).
+
+     L’état du disque passe brièvement à **initialisation** puis au **Online** état. Si l’initialisation échoue pour une raison quelconque, consultez [l’état d’un disque n’est pas initialisé ou le disque est manquant entièrement](troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing).
 
     ![La boîte de dialogue initialiser le disque avec le style de partition GPT sélectionné](media\initialize-disk.PNG)
 

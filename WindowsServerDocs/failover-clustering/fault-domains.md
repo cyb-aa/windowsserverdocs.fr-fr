@@ -8,23 +8,41 @@ ms.technology: storage-failover-clustering
 ms.topic: article
 author: cosmosdarwin
 ms.date: 09/16/2016
-ms.openlocfilehash: f5c64bb8f8b7d4b8d13c76c4e94cfcf52ee32c30
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 18b7a932cc8a22c356fde89baa316c0532ebc374
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821470"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476003"
 ---
-# <a name="fault-domain-awareness-in-windows-server-2016"></a>Reconnaissance des domaines d’erreur dans Windows Server 2016
+# <a name="fault-domain-awareness"></a>Reconnaissance des domaines d'erreur
 
-> S’applique à : Windows Server 2016
+> S’applique à : Windows Server 2019 et Windows Server 2016
 
 Le clustering de basculement permet à plusieurs serveurs de travailler ensemble pour fournir une haute disponibilité, autrement dit, pour fournir une tolérance de panne aux nœuds. Mais les entreprises d’aujourd'hui exigent une disponibilité toujours plus grande à partir de leur infrastructure. Pour obtenir un temps d’activité de type cloud, une protection contre des circonstances même très improbables comme une rupture de châssis, un dysfonctionnement de rack ou une catastrophe naturelle doit être mise en place. C’est pourquoi le Clustering de basculement dans Windows Server 2016 introduit des châssis en rack et site une tolérance de panne ainsi.
+
+## <a name="fault-domain-awareness"></a>Reconnaissance des domaines d'erreur
 
 Les domaines d’erreur et la tolérance de panne sont des concepts étroitement liés. Un domaine d’erreur est un ensemble de composants matériels qui partagent un point de défaillance unique. Pour obtenir une tolérance de panne à un certain niveau, vous avez besoin de plusieurs domaines d’erreur à ce niveau. Par exemple, pour obtenir une tolérance de panne au niveau des racks, vos serveurs et vos données doivent être distribués sur plusieurs racks.
 
 Cette brève vidéo présente une vue d’ensemble des domaines d’erreur dans Windows Server 2016 :  
 [![Cliquez sur cette image pour regarder une vue d’ensemble des domaines d’erreur dans Windows Server 2016](media/Fault-Domains-in-Windows-Server-2016/Part-1-Fault-Domains-Overview.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-1-Overview)
+
+### <a name="fault-domain-awareness-in-windows-server-2019"></a>Reconnaissance des domaines d’erreur dans Windows Server 2019
+
+Reconnaissance des domaines d’erreur est disponible dans Windows Server 2019, mais il est désactivé par défaut et doit être activé via le Registre Windows.
+
+Pour activer la reconnaissance des domaines d’erreur dans Windows Server 2019, accédez au Registre Windows et définissez (Get-Cluster). Clé de Registre AutoAssignNodeSite sur 1.
+
+```Registry
+    (Get-Cluster).AutoAssignNodeSite=1
+```
+
+Pour désactiver la reconnaissance des domaines d’erreur dans Windows 2019, accédez au Registre Windows et définissez (Get-Cluster). Clé de Registre AutoAssignNodeSite sur 0.
+
+```Registry
+    (Get-Cluster).AutoAssignNodeSite=0
+```
 
 ## <a name="benefits"></a>Avantages
 - **Espaces de stockage, y compris les espaces de stockage Direct, utilise des domaines d’erreur pour optimiser la sécurité des données.**  
@@ -103,7 +121,7 @@ Remove-ClusterFaultDomain -Name "Rack A"
 ```
 
 ### <a name="defining-fault-domains-with-xml-markup"></a>Définition des domaines d’erreur avec le balisage XML
-Vous pouvez spécifier des domaines d’erreur en utilisant une syntaxe inspirée du langage XML. Nous vous recommandons d’utiliser votre éditeur de texte favori, tel que Visual Studio Code (disponible gratuitement *[ici](https://code.visualstudio.com/)*) ou le Bloc-notes, pour créer un document XML que vous pouvez enregistrer et réutiliser.  
+Vous pouvez spécifier des domaines d’erreur en utilisant une syntaxe inspirée du langage XML. Nous vous recommandons d’utiliser votre éditeur de texte favori, tel que Visual Studio Code (disponible gratuitement *[ici](https://code.visualstudio.com/)* ) ou le Bloc-notes, pour créer un document XML que vous pouvez enregistrer et réutiliser.  
 
 Cette courte vidéo montre l’utilisation du balisage XML pour spécifier des domaines d’erreur.
 
@@ -176,5 +194,6 @@ Vous pouvez fournir facultatif **emplacement** ou **Description** métadonnées 
 [![Cliquez pour afficher une courte vidéo de démonstration de la valeur de l’ajout de descripteurs d’emplacement aux domaines d’erreur](media/Fault-Domains-in-Windows-Server-2016/part-4-location-description.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-4-Location-Description)
 
 ## <a name="see-also"></a>Voir aussi  
--   [Windows Server 2016](../get-started/windows-server-2016.md)  
--   [Espaces de stockage Direct dans Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md) 
+- [Prise en main de Windows Server 2019](https://docs.microsoft.com/windows-server/get-started-19/get-started-19)  
+- [Prise en main Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/server-basics)  
+-   [Vue d’ensemble des espaces de stockage Direct](../storage/storage-spaces/storage-spaces-direct-overview.md) 

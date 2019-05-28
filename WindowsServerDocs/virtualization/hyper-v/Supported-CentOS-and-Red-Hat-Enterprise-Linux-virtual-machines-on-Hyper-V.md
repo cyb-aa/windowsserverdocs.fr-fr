@@ -10,12 +10,12 @@ ms.assetid: 4bf8783d-dee5-4b3e-8cce-2b11b117c189
 author: danihalfin
 ms.author: daniha
 ms.date: 12/20/2017
-ms.openlocfilehash: 6bf15e5bfff4b875c4debd3c682bbdccd81a7bb6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6c9ed85c2249a4671e52eb7d512298a75f53b309
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869430"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222672"
 ---
 # <a name="supported-centos-and-red-hat-enterprise-linux-virtual-machines-on-hyper-v"></a>Prise en charge de CentOS et les machines virtuelles de Red Hat Enterprise Linux sur Hyper-V
 
@@ -55,9 +55,9 @@ Cette série a uniquement les noyaux de 64 bits.
 |**Fonctionnalité**|**Version de Windows Server**|**7.5-7.6**|**7.3-7.4**|**7.0-7.2**|**7.5-7.6**|**7.4**|**7.3**|**7.2**|**7.1**|**7.0**|
 |-|-|-|-|-|-|-|-|-|-|-|
 |**Disponibilité**||[LIS 4.2](https://www.microsoft.com/download/details.aspx?id=55106)|[LIS 4.2](https://www.microsoft.com/download/details.aspx?id=55106)|[LIS 4.2](https://www.microsoft.com/download/details.aspx?id=55106)|Intégré|Intégré|Intégré|Intégré|Intégré|Intégré||
-|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Heure précise de Windows Server 2016|2019, 2016|&#10004;|&#10004;|||||||
-|**[Mise en réseau](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Networking)**|||||||
+|**[Mise en réseau](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**|||||||
 |Trames Jumbo|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Un marquage VLAN et trunking|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Migration dynamique|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
@@ -65,28 +65,28 @@ Cette série a uniquement les noyaux de 64 bits.
 |vRSS|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |Segmentation de TCP et les déchargements de somme de contrôle|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |SR-IOV|2019, 2016|&#10004;|&#10004;||&#10004;|&#10004;|&#10004;|||
-|**[Stockage](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Storage)**||||
+|**[Stockage](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||||
 |Redimensionnement VHDX|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Fibre Channel virtuel|2019, 2016, 2012 R2|&#10004; Note 3|&#10004; Note 3|&#10004; Note 3|&#10004; Note 3|&#10004; Note 3|&#10004; Note 3|&#10004; Note 3|&#10004; Note 3|&#10004; Note 3|
 |Sauvegarde de machine virtuelle active|2019, 2016, 2012 R2|&#10004; Note 5|&#10004; Note 5|&#10004; Note 5|&#10004; Note 4,5|&#10004; Note 4, 5|&#10004; Note 4, 5|&#10004; Note 4, 5|&#10004; Note 4, 5|&#10004; Note 4, 5|
 |Prise en charge de TRIM|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|||
 |SCSI WWN|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|||||
-|**[Mémoire](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Memory)**||||
+|**[Mémoire](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**||||
 |Prise en charge PAE du noyau|2019, 2016, 2012 R2, 2012, 2008 R2|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Configuration de l’écart MMIO|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Mémoire dynamique - ajout à chaud|2019, 2016, 2012 R2, 2012|&#10004; Note 8, 9, 10|&#10004; Note 8, 9, 10|&#10004; Note 8, 9, 10|&#10004; Note 9, 10|&#10004; Note 9, 10|&#10004; Note 9, 10|&#10004; Note 9, 10|&#10004; Note 9, 10|&#10004; Note 8, 9, 10|
 |Mémoire dynamique - augmentation de la capacité|2019, 2016, 2012 R2, 2012|&#10004; Note 8, 9, 10|&#10004; Note 8, 9, 10|&#10004; Note 8, 9, 10|&#10004; Note 9, 10|&#10004; Note 9, 10|&#10004; Note 9, 10|&#10004; Note 9, 10|&#10004; Note 9, 10|&#10004; Note 8, 9, 10|
 |Redimensionnement de la mémoire du runtime|2019, 2016|&#10004;|&#10004;|&#10004;|||||||
-|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Video)**||||
+|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**||||
 |Périphérique vidéo spécifique à Hyper-V|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|**[Divers](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Misc)**||||
+|**[Divers](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**||||
 |Paire clé-valeur|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Interruption non masquable|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Copie des fichiers d’hôte à invité|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |commande de lsvmbus|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|||||||
 |Sockets Hyper-V|2019, 2016|&#10004;|&#10004;|&#10004;|||||||
 |La norme PCI Passthrough/DDA|2019, 2016|&#10004;|&#10004;||&#10004;|&#10004;|&#10004;||||
-|**[Ordinateurs virtuels de génération 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_gen2)**|||||
+|**[Ordinateurs virtuels de génération 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**|||||
 |Démarrage à l’aide d’UEFI|2019, 2016, 2012 R2|&#10004;Remarque 14|&#10004;Remarque 14|&#10004;Remarque 14|&#10004;Remarque 14|&#10004;Remarque 14|&#10004;Remarque 14|&#10004;Remarque 14|&#10004;Remarque 14|&#10004;Remarque 14|
 |Démarrage sécurisé|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 
@@ -97,9 +97,9 @@ Le noyau 32 bits pour cette série est PAE est activé. Il n’existe aucune pri
 |**Fonctionnalité**|**Version de Windows Server**|**6.4-6.10**|**6.0-6.3**|**6.10, 6.9, 6.8**|**6.6, 6.7**|**6.5**|**6.4**|
 |-|-|-|-|-|-|-|-|
 |**Disponibilité**||[LIS 4.2](https://www.microsoft.com/download/details.aspx?id=55106)|[LIS 4.2](https://www.microsoft.com/download/details.aspx?id=55106)|Intégré|Intégré|Intégré|Intégré|
-|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Heure précise de Windows Server 2016|2019, 2016||||||
-|**[Mise en réseau](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Networking)**|
+|**[Mise en réseau](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**|
 |Trames Jumbo|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Un marquage VLAN et trunking|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004; Note 1|&#10004; Note 1|&#10004; Note 1|&#10004; Note 1|&#10004; Note 1|&#10004; Note 1|
 |Migration dynamique|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
@@ -107,28 +107,28 @@ Le noyau 32 bits pour cette série est PAE est activé. Il n’existe aucune pri
 |vRSS|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|||
 |Segmentation de TCP et les déchargements de somme de contrôle|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|||
 |SR-IOV|2019, 2016|||||||
-|**[Stockage](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Storage)**|
+|**[Stockage](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**|
 |Redimensionnement VHDX|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |Fibre Channel virtuel|2019, 2016, 2012 R2|&#10004; Note 3|&#10004; Note 3|&#10004; Note 3|&#10004; Note 3|&#10004; Note 3||
 |Sauvegarde de machine virtuelle active|2019, 2016, 2012 R2|&#10004; Note 5|&#10004; Note 5|&#10004; Note 4, 5|&#10004; Note 4, 5|&#10004; Note 4, 5, 6|&#10004; Note 4, 5, 6|
 |Prise en charge de TRIM|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;||||
 |SCSI WWN|2019, 2016, 2012 R2|&#10004;|&#10004;|||||
-|**[Mémoire](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Memory)**|
+|**[Mémoire](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**|
 |Prise en charge PAE du noyau|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Configuration de l’écart MMIO|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Mémoire dynamique - ajout à chaud|2019, 2016, 2012 R2, 2012|&#10004; Note 7, 9, 10|&#10004; Note 7, 9, 10|&#10004; Note 7, 9, 10|&#10004; Note 7, 8, 9, 10|&#10004; Note 7, 8, 9, 10||
 |Mémoire dynamique - augmentation de la capacité|2019, 2016, 2012 R2, 2012|&#10004; Note 7, 9, 10|&#10004; Note 7, 9, 10|&#10004; Note 7, 9, 10|&#10004; Note 7, 9, 10|&#10004; Note 7, 9, 10|&#10004; Note 7, 9, 10, 11|
 |Redimensionnement de la mémoire du runtime|2019, 2016|||||||
-|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Video)**|
+|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**|
 |Périphérique vidéo spécifique à Hyper-V|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
-|**[Divers](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Misc)**|
+|**[Divers](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**|
 |Paire clé-valeur|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;Remarque 12|&#10004;Remarque 12|&#10004; Note 12, 13|&#10004; Note 12, 13|
 |Interruption non masquable|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Copie des fichiers d’hôte à invité|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|||
 |commande de lsvmbus|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;||||||
 |Sockets Hyper-V|2019, 2016|&#10004;|&#10004;|||||
 |La norme PCI Passthrough/DDA|2019, 2016|||||||
-|**[Ordinateurs virtuels de génération 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_gen2)**|
+|**[Ordinateurs virtuels de génération 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**|
 |Démarrage à l’aide d’UEFI|2012 R2|||||||
 ||2019, 2016|&#10004;Remarque 14|&#10004;Remarque 14|&#10004;Remarque 14||||
 |Démarrage sécurisé|2019, 2016||||||
@@ -140,9 +140,9 @@ Cette série a un prise en charge 32 bits PAE du noyau disponible. Il n’existe
 |**Fonctionnalité**|**Version de Windows Server**|5.2 -5.11|**5.2-5.11**|**5.9 - 5.11**|
 |-|-|-|-|-|
 |**Disponibilité**||[LIS 4.2](https://www.microsoft.com/download/details.aspx?id=55106)|[LIS 4.1](https://www.microsoft.com/download/details.aspx?id=51612)|Intégré|
-|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
+|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
 |Heure précise de Windows Server 2016|2019, 2016||||
-|**[Mise en réseau](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Networking)**|
+|**[Mise en réseau](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**|
 |Trames Jumbo|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
 |Un marquage VLAN et trunking|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004; Note 1|&#10004; Note 1|&#10004; Note 1|
 |Migration dynamique|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
@@ -150,28 +150,28 @@ Cette série a un prise en charge 32 bits PAE du noyau disponible. Il n’existe
 |vRSS|2019, 2016, 2012 R2||||
 |Segmentation de TCP et les déchargements de somme de contrôle|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;||
 |SR-IOV|2019, 2016||||||
-|**[Stockage](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Storage)**|
+|**[Stockage](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**|
 |Redimensionnement VHDX|2019, 2016, 2012 R2|&#10004;|&#10004;||
 |Fibre Channel virtuel|2019, 2016, 2012 R2|&#10004; Note 3|&#10004; Note 3||
 |Sauvegarde de machine virtuelle active|2019, 2016, 2012 R2|&#10004; Note 5, 15|&#10004; Note 5|&#10004; Note 4, 5, 6|
 |Prise en charge de TRIM|2019, 2016, 2012 R2||||
 |SCSI WWN|2019, 2016, 2012 R2||||
-|**[Mémoire](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Memory)**|
+|**[Mémoire](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**|
 |Prise en charge PAE du noyau|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
 |Configuration de l’écart MMIO|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|
 |Mémoire dynamique - ajout à chaud|2019, 2016, 2012 R2, 2012||||
 |Mémoire dynamique - augmentation de la capacité|2019, 2016, 2012 R2, 2012|&#10004; Note 7, 9, 10, 11|&#10004; Note 7, 9, 10, 11||
 |Redimensionnement de la mémoire du runtime|2019, 2016||||
-|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Video)**|
+|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**|
 |Périphérique vidéo spécifique à Hyper-V|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;||
-|**[Divers](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Misc)**|
+|**[Divers](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**|
 |Paire clé-valeur|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;||
 |Interruption non masquable|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|
 |Copie des fichiers d’hôte à invité|2019, 2016, 2012 R2|&#10004;|&#10004;||
 |commande de lsvmbus|2019, 2016, 2012 R2, 2012, 2008 R2||||
 |Sockets Hyper-V|2019, 2016||||
 |La norme PCI Passthrough/DDA|2019, 2016||||||
-|**[Ordinateurs virtuels de génération 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_gen2)**|
+|**[Ordinateurs virtuels de génération 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**|
 |Démarrage à l’aide d’UEFI|2019, 2016, 2012 R2||||
 |Démarrage sécurisé|2019, 2016||||
 
@@ -230,7 +230,7 @@ Voir aussi
 
 * [Set-VMFirmware](https://technet.microsoft.com/library/dn464287.aspx)
 
-* [Prise en charge des machines virtuelles Debian sur Hyper-V](Supported-Debian-virtual-machines-on-Hyper-V.md)
+* [Machines virtuelles Debian prises en charge sur Hyper-V](Supported-Debian-virtual-machines-on-Hyper-V.md)
 
 * [Machines virtuelles Oracle Linux prises en charge sur Hyper-V](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md)
 

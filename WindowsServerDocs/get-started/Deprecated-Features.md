@@ -1,33 +1,32 @@
 ---
 title: Fonctionnalités supprimées ou déconseillées dans Windows Server 2016
-description: Fonctionnalités supprimées ou dont la suppression est prévue dans les prochaines versions.
-ms.custom: na
+description: Liste des fonctions et fonctionnalités dans Windows Server 2016 qui ont été supprimées du produit dans la version actuelle ou qui vont potentielles dans les versions ultérieures (déconseillées). Ce produit s’adresse aux professionnels de l’informatique qui mettent à jour des systèmes d’exploitation dans un environnement commercial.
 ms.prod: windows-server-threshold
-ms.reviewer: na
-ms.suite: na
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 05/21/2019
 ms.assetid: 5d10c5f9-ebac-49a0-b808-c0b1702e0437
-author: jaimeo
-ms.author: jaimeo
+author: jasongerend
+ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 20178a3be14c076623f647fa139e013528de9a69
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 83855cf7e4fa86a932298dd15735dc5bf7277dfb
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858160"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976604"
 ---
 # <a name="features-removed-or-deprecated-in--windows-server-2016"></a>Fonctionnalités supprimées ou déconseillées dans Windows Server 2016
 
->S'applique à : Windows Server 2016
+>S’applique à : Windows Server 2016
 
-Voici la liste des fonctionnalités de Windows Server 2016 qui ont été supprimées de la version actuelle du produit ou qui vont l’être dans les versions ultérieures (déconseillées). Ce produit s’adresse aux professionnels de l’informatique qui mettent à jour des systèmes d’exploitation dans un environnement commercial. Cette liste peut faire l’objet de modifications dans des versions ultérieures. Il est donc possible que certaines fonctionnalités déconseillées n’y figurent plus. Pour plus d’informations sur une fonctionnalité spécifique et la fonctionnalité qui la remplace, voir la documentation de la fonctionnalité.  
+Voici la liste des fonctionnalités de Windows Server 2016 qui ont été supprimées de la version actuelle du produit ou qui vont l’être dans les versions ultérieures (déconseillées). Ce produit s’adresse aux professionnels de l’informatique qui mettent à jour des systèmes d’exploitation dans un environnement commercial. Cette liste peut faire l’objet de modifications dans des versions ultérieures. Il est donc possible que certaines fonctionnalités déconseillées n’y figurent plus. Pour plus d’informations sur une fonctionnalité spécifique et la fonctionnalité qui la remplace, voir la documentation de la fonctionnalité.
 
-## <a name="features-removed-from-windows-server-2016"></a>Fonctionnalités supprimées de Windows Server 2016 
+Pour plus d’informations sur ce qui a été supprimé ou déconseillé dans les versions plus récentes, consultez [fonctionnalités supprimées ou planifié pour le remplacement à partir de Windows Server 2019](../get-started-19/removed-features-19.md).
+
+## <a name="features-removed-from-windows-server-2016"></a>Fonctionnalités supprimées de Windows Server 2016
+
 Les fonctionnalités suivantes ont été supprimées de cette version de Windows Server 2016. À moins que vous n’utilisiez une autre méthode, les applications, le code et les modes d’utilisation qui dépendent de ces fonctionnalités ne seront pas opérationnels dans cette version.  
 
 > [!NOTE]  

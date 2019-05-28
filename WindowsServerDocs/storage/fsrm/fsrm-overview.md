@@ -8,16 +8,16 @@ ms.topic: article
 author: jasongerend
 ms.date: 5/14/2018
 description: File Server Resource Manager (FSRM) est un outil qui vous permet de gérer et classer les données sur un serveur de fichiers Windows Server.
-ms.openlocfilehash: 107d08f247fc56720ccc3d11a3db88c77377257c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8488c7418ac03be53db7164678fad353bc7c637d
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870720"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476124"
 ---
 # <a name="file-server-resource-manager-fsrm-overview"></a>Vue d’ensemble du Gestionnaire de ressources du serveur de fichiers
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server (canal semi-annuel), 
 
 Le Gestionnaire de ressources du serveur de fichiers (FSRM) est un service de rôle de Windows Server qui permet de gérer et de classer les données stockées sur des serveurs de fichiers. Vous pouvez utiliser File Server Resource Manager pour classifier les fichiers, effectuer des tâches en fonction de ces classifications, définir des quotas sur les dossiers et créer des rapports de surveillance de l’utilisation de stockage automatiquement.
 
@@ -72,7 +72,7 @@ Pour éviter les File Server Resource Manager à partir de la création d’un j
 3. Ouvrez l’Éditeur du Registre, par exemple, en tapant `regedit` dans la même session PowerShell.
 4. Accédez à la clé suivante : **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SrmSvc\Settings**
 5. Si vous le souhaitez à ignorer modifier la création du journal pour l’ensemble du serveur (ignorez cette étape si vous souhaitez désactiver uniquement sur des volumes spécifiques) :
-    1. Cliquez sur le **paramètres** clé, puis sélectionnez **New** > **valeur DWORD (32 bits)**. 
+    1. Cliquez sur le **paramètres** clé, puis sélectionnez **New** > **valeur DWORD (32 bits)** . 
     1. Nommez la valeur `SkipUSNCreationForSystem`.
     1. Définissez la valeur sur **1** (en hexadécimal).
 6. Si vous le souhaitez ignorer la création du journal de modification pour des volumes spécifiques :

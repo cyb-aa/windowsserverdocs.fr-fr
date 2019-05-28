@@ -1,23 +1,26 @@
 ---
-title: Réplica du stockage de cluster à cluster dans la même région dans Azure
-description: Réplication de stockage de cluster à Cluster au sein de la même région dans Azure
+title: Cluster à cluster réplica de stockage dans la même région dans Azure
+description: Cluster à cluster de réplication du stockage dans la même région dans Azure
 keywords: Le réplica de stockage, le Gestionnaire de serveur, Windows Server, Azure, Cluster, la même région
 author: arduppal
 ms.author: arduppal
-ms.date: 12/19/2017
+ms.date: 04/26/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 8dbfab96404f5c98b9861476c0bc654af1bda775
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4371192d44878d3c953374b8d307b4d5612869f5
+ms.sourcegitcommit: 7e54a1bcd31cd2c6b18fd1f21b03f5cfb6165bf3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829140"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65461977"
 ---
-# <a name="cluster-to-cluster-storage-replica-within-the-same-region-in-azure"></a>Réplica du stockage de cluster à cluster dans la même région dans Azure
-Vous pouvez configurer des réplicas de stockage de Cluster à Cluster au sein de la même région dans Azure. Dans les exemples ci-dessous, nous utilisons un cluster à deux nœuds, mais le réplica de stockage de Cluster à Cluster n’est pas limité à un cluster à deux nœuds. L’illustration ci-dessous est un cluster à deux nœuds d’espace de stockage Direct qui peut communiquer entre eux, sont dans le même domaine et dans la même région.
+# <a name="cluster-to-cluster-storage-replica-within-the-same-region-in-azure"></a>Cluster à cluster réplica de stockage dans la même région dans Azure
+
+> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
+
+Vous pouvez configurer la réplication de stockage de cluster à cluster au sein de la même région dans Azure. Dans les exemples ci-dessous, nous utilisons un cluster à deux nœuds, mais le réplica de stockage de cluster à cluster n’est pas limité à un cluster à deux nœuds. L’illustration ci-dessous est un cluster à deux nœuds d’espace de stockage Direct qui peut communiquer entre eux, sont dans le même domaine et dans la même région.
 
 Regardez les vidéos ci-dessous pour obtenir une présentation complète du processus.
 
@@ -57,10 +60,10 @@ Deuxième partie
     
 9. La création des clusters (**SRAZC1**, **SRAZC2**). Voici les commandes PowerShell pour notre exemple
 ```PowerShell
-    New-Cluster -Name SRAZC1 -Node az2az1,az2az2 – StaticAddress 10.3.0.100
+    New-Cluster -Name SRAZC1 -Node az2az1,az2az2 –StaticAddress 10.3.0.100
 ```
 ```PowerShell
-    New-Cluster -Name SRAZC2 -Node az2az3,az2az4 – StaticAddress 10.3.0.101
+    New-Cluster -Name SRAZC2 -Node az2az3,az2az4 –StaticAddress 10.3.0.101
 ```
 10. Activer les espaces de stockage direct
 ```PowerShell

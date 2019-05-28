@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 8af76edbdb5fc2aa5768811f01c563aab1a89fc6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f6aba72c329ba380f9617f484c4cf754fbcbb363
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849600"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192729"
 ---
 # <a name="convert-an-mbr-disk-into-a-gpt-disk"></a>Convertir un disque MBR en disque GPT
 
@@ -23,15 +23,11 @@ Les disques d’enregistrement de démarrage principal (MBR) utilisent la table 
 
 Vous pouvez convertir un disque MBR en disque GPT si le disque est vide et ne contient pas de partitions ou de volumes.
 
-
 > [!NOTE]
 > Avant de convertir un disque, sauvegardez toutes les données sur ce dernier et fermez tous les programmes qui sont l’accès au disque.
 
-
 > [!NOTE]
 > Vous devez au moins être membre du groupe **Opérateurs de sauvegarde** ou **Administrateurs** pour effectuer ces étapes.
-
-<a id="BKMK_WINUI"></a>
 
 ## <a name="converting-using-the-windows-interface"></a>Conversion à l’aide de l’interface Windows
 
@@ -40,8 +36,6 @@ Vous pouvez convertir un disque MBR en disque GPT si le disque est vide et ne co
 2.  Si le disque contient des partitions ou des volumes, cliquez avec le bouton droit sur chaque élément, puis cliquez sur **Supprimer la partition** ou **Supprimer le volume**.
 
 3.  Cliquez avec le bouton droit sur le disque MBR à convertir en disque GPT, puis cliquez sur **Convertir en disque GPT**.
-
-<a id="BKMK_CMD"></a>
 
 ## <a name="converting-using-a-command-line"></a>Conversion à l’aide d’une ligne de commande
 
@@ -64,14 +58,12 @@ Utilisez les étapes suivantes pour convertir un disque MBR vide à un disque GP
 
 7.  À l’invite **DISKPART**, tapez `convert gpt`.
 
-<br />
-
 | Value  | Description  |
 | ----- | ----|
-| <p>**disque de la liste**</p> | <p>Affiche une liste des disques ainsi que des informations les concernant, notamment leur taille, la quantité d’espace libre disponible, s’il s’agit d’un disque de base ou d’un disque dynamique et si le disque utilise le style de partition d’enregistrement de démarrage principal (MBR) ou de table de partition GUID (GPT). Le disque marqué d’un astérisque (*) est celui sur lequel se trouve le focus.</p> |
-| <p>**Sélectionnez le disque** <em>numéro_disque</em></p> | <p>Sélectionne le disque spécifié, où <em>numéro_de_disque</em> est le numéro du disque et place le focus sur celui-ci.</p> |
-| <p>**clean**</p> | <p>Supprime toutes les partitions ou tous les volumes du disque sur lequel se trouve le focus.</p>  |
-| <p>**Convertir gpt**</p>| <p>Convertit un disque de base vide avec le style de partition d’enregistrement de démarrage principal (MBR) en disque de base avec le style de partition de table de partition GUID (GPT).</p> |
+| **disque de la liste** | Affiche une liste des disques ainsi que des informations les concernant, notamment leur taille, la quantité d’espace libre disponible, s’il s’agit d’un disque de base ou d’un disque dynamique et si le disque utilise le style de partition d’enregistrement de démarrage principal (MBR) ou de table de partition GUID (GPT). Le disque marqué d’un astérisque (*) est celui sur lequel se trouve le focus. |
+| **Sélectionnez le disque** *numéro_disque* | Sélectionne le disque spécifié, où *numéro_de_disque* est le numéro du disque et place le focus sur celui-ci. |
+| **clean** | Supprime toutes les partitions ou tous les volumes du disque sur lequel se trouve le focus.  |
+| **Convertir gpt**| Convertit un disque de base vide avec le style de partition d’enregistrement de démarrage principal (MBR) en disque de base avec le style de partition de table de partition GUID (GPT). |
 
 ## <a name="see-also"></a>Voir aussi
 

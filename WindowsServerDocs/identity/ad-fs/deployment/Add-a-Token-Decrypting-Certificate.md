@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 0eba51521e7ef88542bccf93d92d2e783d800b5e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cf89972120f3f0effa3eb1cf0fee6d29dbc8ed4e
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842210"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192485"
 ---
 # <a name="add-a-token-decrypting-certificate"></a>Ajouter un certificat de déchiffrement de jeton
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Serveurs de fédération utilisent un jeton\-certificat de déchiffrement lorsqu’un serveur de fédération tiers partie de confiance doit déchiffrer les jetons sont émis avec un ancien après un nouveau certificat est défini en tant que le certificat de déchiffrement principal. Active Directory Federation Services \(AD FS\) utilise Secure Sockets Layer \(SSL\) certificat pour Internet Information Services \(IIS\) en tant que le déchiffrement par défaut certificat.  
   
@@ -42,6 +40,6 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 ## <a name="additional-references"></a>Références supplémentaires  
 [Liste de vérification : Configuration d’un serveur de fédération](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[Configuration requise des certificats pour les serveurs de fédération](https://technet.microsoft.com/library/dd807040.aspx)  
+[Certificats requis pour les serveurs de fédération](https://technet.microsoft.com/library/dd807040.aspx)  
   
 

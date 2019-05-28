@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble d’un serveur de fichiers avec montée en puissance parallèle pour les données d’application
-description: Vue d’ensemble de la fonctionnalité de serveur de fichiers avec montée en puissance pour Windows Server R2 201, Windows Server 2012 et Windows Server 2016.
+description: Vue d’ensemble de la fonctionnalité de serveur de fichiers avec montée en puissance pour Windows Server 201 R2 et Windows Server 2012.
 ms.prod: windows-server-threshold
 ms.topic: article
 author: JasonGerend
@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 04e25e9c69062611d9d14c220614f148ac5de770
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3e6d67eee496d19b216a4366af51ab5736229cf0
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884770"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476151"
 ---
 # <a name="scale-out-file-server-for-application-data-overview"></a>Vue d’ensemble d’un serveur de fichiers avec montée en puissance parallèle pour les données d’application
 
->S’applique à : Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
+>S’applique à : Windows Server 2012 R2, Windows Server 2012
 
 Le serveur de fichiers avec montée en puissance parallèle est une fonctionnalité conçue pour fournir des partages de fichiers avec montée en puissance parallèle disponibles de manière continue pour le stockage des applications de serveur basées sur des fichiers. Les partages de fichiers avec montée en puissance parallèle permettent de partager le même dossier à partir de plusieurs nœuds d’un même cluster. Ce scénario se concentre sur la façon de planifier et de déployer des serveur de fichiers avec montée en puissance parallèle.
 
@@ -46,14 +46,14 @@ Les rubriques suivantes sont disponibles pour vous aider à déployer un serveur
 - [Plan pour le serveur de fichiers avec montée en puissance](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134258(v%3dws.11)>)
 
   - [Étape 1 : Planifier le stockage dans le serveur de fichiers avec montée en puissance](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134181%28v%3dws.11%29>)
-  - [Étape 2 : Plan for Networking in Scale-Out File Server](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134253%28v%3dws.11%29>)
+  - [Étape 2 : Plan for Networking in Scale-Out File Server](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134253%28v%3dws.11%29>)
 
 - [Déployer le serveur de fichiers avec montée en puissance](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831359%28v%3dws.11%29>)
 
   - [Étape 1 : Installez les composants requis pour le serveur de fichiers avec montée en puissance](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831478%28v%3dws.11%29>)
-  - [Étape 2 : Configurer le serveur de fichiers avec montée en puissance](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831718%28v%3dws.11%29>)
-  - [Étape 3 : Configurer Hyper-V pour utiliser le serveur de fichiers avec montée en puissance](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831463%28v%3dws.11%29>)
-  - [Étape 4 : Configurer Microsoft SQL Server pour utiliser le serveur de fichiers avec montée en puissance](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831815%28v%3dws.11%29>)
+  - [Étape 2 : Configurer le serveur de fichiers avec montée en puissance](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831718%28v%3dws.11%29>)
+  - [Étape 3 : Configurer Hyper-V pour utiliser le serveur de fichiers avec montée en puissance](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831463%28v%3dws.11%29>)
+  - [Étape 4 : Configurer Microsoft SQL Server pour utiliser le serveur de fichiers avec montée en puissance](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831815%28v%3dws.11%29>)
 
 ## <a name="when-to-use-scale-out-file-server"></a>Quand utiliser un serveur de fichiers avec montée en puissance parallèle
 

@@ -9,16 +9,16 @@ ms.date: 10/02/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: abcff8632bc8a3a75af4eee30c3aed046ca0ccc9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9bae831da9d247c423c2874a5928b7f811ef65dc
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877340"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188710"
 ---
 # <a name="managing-ssl-certificates-in-ad-fs-and-wap-in-windows-server-2016"></a>Gestion des certificats SSL dans AD FS et WAP 2016 dans Windows Server 2016
 
->S'applique à : Windows Server 2016
+
 
 Cet article décrit comment déployer un nouveau certificat SSL sur vos serveurs AD FS et WAP.
 
@@ -125,5 +125,5 @@ Install-WebApplicationProxy -FederationServiceTrustCredential $cred -Certificate
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires  
-* [AD FS prend en charge pour la liaison de l’autre nom d’hôte pour l’authentification par certificat](../operations/AD-FS-support-for-alternate-hostname-binding-for-certificate-authentication.md)
+* [Prise en charge AD FS de la liaison de l’autre nom d’hôte pour l’authentification par certificat](../operations/AD-FS-support-for-alternate-hostname-binding-for-certificate-authentication.md)
 * [AD FS et la propriété KeySpec informations de certificat](../technical-reference/AD-FS-and-KeySpec-Property.md)

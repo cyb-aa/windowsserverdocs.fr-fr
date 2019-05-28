@@ -12,12 +12,12 @@ ms.assetid: 2fe8e35c-69f9-40b3-a270-22e2402510d8
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 2716ffb7ce8f74d7c729565064de91e0598d0753
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cb62a460c09fdb2874bcc051176a05e88cee19e7
+ms.sourcegitcommit: 7cb939320fa2613b7582163a19727d7b77debe4b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884680"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621281"
 ---
 # <a name="create-a-bootable-usb-flash-drive"></a>Création d'un lecteur flash de démarrage USB
 
@@ -33,7 +33,7 @@ Vous pouvez créer un lecteur flash USB à utiliser pour déployer Windows Serve
   
 -   [Restaurer un système complet à partir d’une sauvegarde d’ordinateur client existante](../manage/restore-a-full-system-from-an-existing-client-computer-backup.md)  
   
--   [Restaurer ou réparer votre serveur exécutant Windows Server Essentials](../manage/restore-or-repair-your-server-running-windows-server-essentials.md)  
+-   [Restaurer ou réparer votre serveur Windows Server Essentials](../manage/restore-or-repair-your-server-running-windows-server-essentials.md)  
 
   
 ### <a name="to-create-a-bootable-usb-flash-drive"></a>Pour créer un lecteur flash USB de démarrage  
@@ -50,9 +50,9 @@ Vous pouvez créer un lecteur flash USB à utiliser pour déployer Windows Serve
   
 6.  Tapez `clean`, puis cliquez sur ENTRER. Cette commande supprime toutes les données du lecteur flash USB.  
   
-7.  Pour créer une nouvelle partition principale sur le lecteur flash USB, tapez `create part pri`, puis cliquez sur ENTRER.  
+7.  Pour créer une nouvelle partition principale sur le lecteur flash USB, tapez `create partition primary`, puis cliquez sur ENTRER.  
   
-8.  Pour sélectionner la partition que vous venez de créer, tapez `select part 1`, puis cliquez sur ENTRER.  
+8.  Pour sélectionner la partition que vous venez de créer, tapez `select partition 1`, puis cliquez sur ENTRER.  
   
 9. Pour formater la partition, tapez `format fs=ntfs quick`, puis cliquez sur ENTRER.  
   
@@ -71,12 +71,12 @@ Vous pouvez créer un lecteur flash USB à utiliser pour déployer Windows Serve
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
  [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](Testing-the-Customer-Experience.md)   
+ [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)   
 
  [Prise en main du ADK Windows Server Essentials](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Création et personnalisation de l’Image](../install/Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](../install/Additional-Customizations.md)   
  [Préparation de l’Image pour le déploiement](../install/Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](../install/Testing-the-Customer-Experience.md)   
+ [Test de l’expérience utilisateur](../install/Testing-the-Customer-Experience.md)   
 
  [Comment pouvons-nous vous aider ?](https://windows.microsoft.com/windows/support)

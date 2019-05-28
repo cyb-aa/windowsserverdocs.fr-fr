@@ -7,12 +7,12 @@ ms.assetid: 424b8090-0692-49a6-9dc4-3c0e77d74b80
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: 2dc9a612fa9760a6ca5f05efe1c287fd0872a1d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 05888ce57b5b922fc330d9deab430d329fede69b
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861250"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222533"
 ---
 # <a name="troubleshooting-the-host-guardian-service"></a>Résolution des problèmes du Service Guardian hôte
 
@@ -93,7 +93,7 @@ Pour des informations précises se rapportant à votre appareil si vous avez d�
 Série/marque HSM      | Suggestion
 ----------------------|-------------
 Gemalto SafeNet       | Vérifiez que la propriété de l’utilisation de clé dans le fichier de demande de certificat est définie à 0xa0, ce qui permet le certificat à utiliser pour la signature et chiffrement. En outre, vous devez accorder au compte de service administré de groupe *lire* accès à la clé privée à l’aide de l’outil Gestionnaire de certificats local (voir les étapes ci-dessus).
-NShield de Thales        | Vérifiez que chaque nœud SGH a accès au monde de sécurité contenant les clés de signature et le chiffrement. Vous n’avez pas besoin configurer les autorisations de service administré de groupe spécifique.
+nCipher nShield        | Vérifiez que chaque nœud SGH a accès au monde de sécurité contenant les clés de signature et le chiffrement. Vous n’avez pas besoin configurer les autorisations de service administré de groupe spécifique.
 Utimaco CryptoServers | Vérifiez que la propriété de l’utilisation de clé dans le fichier de demande de certificat est définie à 0 x 13, autorisant le certificat à utiliser pour le chiffrement, le déchiffrement et la signature.
 
 ### <a name="certificate-requests"></a>Demandes de certificat

@@ -13,12 +13,12 @@ ms.assetid: b9552054-4eb9-48db-a6ce-f36ae55addcd
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 6d31cde5252cd7f7e8d286d6f8886f779d17735d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b76019232be5091440c3e0cf5ad85569cbe0d4dc
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875810"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034483"
 ---
 # <a name="add-a-virtual-gateway-to-a-tenant-virtual-network"></a>Ajouter une passerelle virtuelle à un réseau virtuel locataire 
 
@@ -100,7 +100,7 @@ Les exemples de scripts Windows PowerShell et les commandes de cette rubrique mo
 4. Créer une connexion VPN de site à site avec IPsec, GRE, ou de couche 3 (L3) transfert.  
 
    >[!TIP]
-   >Si vous le souhaitez, vous pouvez combiner toutes les étapes précédentes et configurer une passerelle virtuelle locataire tous les trois options de connexion.  Pour plus d’informations, consultez [configurer une passerelle avec tous les types de connexion (IPsec, GRE, L3) et BGP](#configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp).
+   >Si vous le souhaitez, vous pouvez combiner toutes les étapes précédentes et configurer une passerelle virtuelle locataire tous les trois options de connexion.  Pour plus d’informations, consultez [configurer une passerelle avec tous les types de connexion (IPsec, GRE, L3) et BGP](#optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp).
   
    **Connexion de réseau de site à site VPN IPsec**
   

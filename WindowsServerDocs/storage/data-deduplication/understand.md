@@ -8,16 +8,16 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
-ms.openlocfilehash: cb17329fb0556a25bc49c2fdb6b16f878aa34194
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 37ce7d7b50fc7b8dde3e11d47c2cfcaf358b00e0
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839380"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476198"
 ---
 # <a name="understanding-data-deduplication"></a>Présentation de la déduplication des données
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+> S’applique à :  Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
 Ce document décrit le fonctionnement de la [déduplication des données](overview.md).
 

@@ -10,12 +10,12 @@ ms.topic: article
 author: adagashe
 ms.date: 01/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 24890b191db8bc6934132857e830d4f77c394b02
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 66d4796a6ffb453f6edb5fed20dba29b70f7ec4b
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879970"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476107"
 ---
 # <a name="understanding-cluster-and-pool-quorum"></a>Quorum de cluster et pool de présentation
 
@@ -27,7 +27,7 @@ Quorum est conçu pour éviter *« split brain »* des scénarios qui peuvent 
 
 Quorum détermine le nombre d’échecs que le cluster peut soutenir tout en restant en ligne. Quorum est conçu pour gérer le scénario lorsqu’il existe un problème de communication entre des sous-ensembles de nœuds de cluster, afin que plusieurs serveurs n’essayez pas d’héberger un groupe de ressources simultanément et d’écriture sur le même disque en même temps. En ayant ce concept de quorum, le cluster force le service de cluster à arrêter dans un des sous-ensembles de nœuds pour vous assurer qu’il n'existe qu’un seul véritable propriétaire d’un groupe de ressources particulier. Une fois que les nœuds qui ont été arrêtés peuvent là aussi communiquer avec le groupe principal de nœuds, ils seront automatiquement rejoindre le cluster de leur service de cluster.
 
-Dans Windows Server 2016, il existe deux composants du système qui possèdent leurs propres mécanismes de quorum :
+Dans Windows Server 2019 et Windows Server 2016, il existe deux composants du système qui possèdent leurs propres mécanismes de quorum :
 
 - <strong>Quorum du cluster</strong>: Cela fonctionne au niveau du cluster (par exemple, vous pouvez perdre des nœuds et le cluster reste opérationnelle)
 - <strong>Pool Quorum</strong>: Cela fonctionne au niveau du pool lorsque les espaces de stockage Direct est activé (par exemple, vous pouvez perdre des nœuds et des disques et le pool de rester opérationnel). Pools de stockage ont été conçus pour être utilisé dans les scénarios de cluster et non-cluster, c’est pourquoi ils ont un mécanisme de quorum différents.

@@ -13,12 +13,12 @@ ms.assetid: 63f08b5b-c735-41f4-b6c8-411eff85a4ab
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: befd784f4a2179c121992057e298d4ea9068c11b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0aa81ef3633adf27a25b45b3b7c00082d83bf0bb
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862080"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034624"
 ---
 # <a name="create-windows-10-enterprise-virtual-desktops-for-stations"></a>Créer des bureaux virtuels Windows 10 Entreprise pour les stations
 Cette configuration facultative dans MultiPoint Services est conçue pour les situations où une application essentielle nécessite sa propre instance d’un système d’exploitation de client pour chaque utilisateur. Exemples : applications qui ne peut pas être installées sur Windows Server et les applications qui s’exécuteront pas plusieurs instances sur le même ordinateur hôte.  
@@ -44,13 +44,13 @@ Pour vous préparer à créer des bureaux virtuels station, vérifiez que vos Se
 ## <a name="procedures"></a>Procédures  
 Utilisez les procédures suivantes pour :  
   
--   [Créer un modèle pour les bureaux virtuels](#a-namebkmkcreateatemplateacreate-a-template-for-virtual-desktops)  
+-   [Créer un modèle pour les bureaux virtuels](#create-a-template-for-virtual-desktops)  
   
--   [Créer des bureaux virtuels à partir du modèle](#BKMK_CreateVirtualDesktopsfromTemplate)  
+-   [Créer des bureaux virtuels à partir du modèle](#create-virtual-machine-desktops-from-the-template)  
   
--   [Copier un modèle de bureau virtuel existant](#BKMK_CopyExiistingVirtualDesktopTemplate)  
+-   [Copier un modèle de bureau virtuel existant](#copy-an-existing-virtual-desktop-template)  
   
-### <a name="BKMK_CreateaTemplate"></a>Créer un modèle pour les bureaux virtuels  
+### <a name="create-a-template-for-virtual-desktops"></a>Créer un modèle pour les bureaux virtuels  
 Avant de pouvoir créer un modèle pour vos bureaux virtuels, vous devez activer la fonctionnalité de bureau virtuel dans MultiPoint Server.  
   
 ##### <a name="to-enable-the-virtual-desktop-feature"></a>Pour activer la fonctionnalité de bureau virtuel  
@@ -98,7 +98,7 @@ L’étape suivante consiste à configurer le modèle avec le logiciel et le par
 4.  Sélectionnez le modèle que vous souhaitez personnaliser, cliquez sur **personnaliser modèle**, puis cliquez sur **OK**.  
   
     > [!NOTE]  
-    > Seuls les modèles qui n’ont pas été utilisés pour créer des stations de bureaux virtuels sont disponibles. Si vous souhaitez mettre à jour un modèle qui est déjà en cours d’utilisation, vous devez créer une copie du modèle à l’aide de la **importer le modèle** tâche, décrite plus loin, dans [copier un modèle de bureau virtuel existant](#BKMK_CopyExiistingVirtualDesktopTemplate).  
+    > Seuls les modèles qui n’ont pas été utilisés pour créer des stations de bureaux virtuels sont disponibles. Si vous souhaitez mettre à jour un modèle qui est déjà en cours d’utilisation, vous devez créer une copie du modèle à l’aide de la **importer le modèle** tâche, décrite plus loin, dans [copier un modèle de bureau virtuel existant](#copy-an-existing-virtual-desktop-template).  
   
     Le modèle s’ouvre dans Hyper-V **machine virtuelle se connecter** fenêtre et ouverture de session automatique est effectuée à l’aide du compte administrateur intégré.  
   
@@ -111,7 +111,7 @@ L’étape suivante consiste à configurer le modèle avec le logiciel et le par
   
 6.  Une fois que vous avez terminé la configuration de votre système, double-cliquez sur le **CompleteCustomization** raccourci sur le bureau de l’administrateur pour exécuter Sysprep et arrêtez ensuite le modèle. Au cours de personnalisation, l’outil Sysprep supprime toutes les informations système uniques pour préparer l’installation de Windows pour l’image.  
   
-### <a name="BKMK_CreateVirtualDesktopsfromTemplate"></a>Créer des postes de travail de machine virtuelle à partir du modèle  
+### <a name="create-virtual-machine-desktops-from-the-template"></a>Créer des postes de travail de machine virtuelle à partir du modèle  
 Avec votre modèle de bureau virtuel configuré comme vous le souhaitez vos postes de travail soit, vous êtes prêt à commencer à créer des bureaux virtuels. Un bureau virtuel est créé pour chaque station est attachée à l’ordinateur MultiPoint Server. La prochaine fois qu’un utilisateur ouvre une session sur une station, ils verront le bureau virtuel au lieu du bureau basé sur session qui a été affiché avant.  
   
 > [!NOTE]  
@@ -141,7 +141,7 @@ Lorsque la tâche se termine, chaque station locale se connecte à un bureau vir
 > [!NOTE]  
 > Si un compte d’utilisateur est connecté à une des stations locales, vous devez déconnecter la session pour obtenir la station pour se connecter à un des bureaux virtuels station nouvellement créé.  
   
-### <a name="BKMK_CopyExiistingVirtualDesktopTemplate"></a>Copier un modèle de bureau virtuel existant  
+### <a name="copy-an-existing-virtual-desktop-template"></a>Copier un modèle de bureau virtuel existant  
 Utilisez la procédure suivante pour créer une copie d’un modèle de bureau virtuel existant que vous pouvez personnaliser et utiliser. Il se peut que cela peut être utile dans les situations suivantes :  
   
 -   Pour copier un modèle de référence à partir d’un partage réseau sur un ordinateur hôte de MultiPoint Server afin que les stations de bureaux virtuels peuvent être créées à partir du modèle principal.  

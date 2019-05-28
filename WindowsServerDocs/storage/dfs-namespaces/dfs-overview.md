@@ -2,22 +2,22 @@
 title: Vue d’ensemble des espaces de noms DFS
 ms.prod: windows-server-threshold
 ms.author: jgerend
-ms.manager: brianlic
+ms.manager: daveba
 ms.technology: storage
 ms.topic: article
 author: jasongerend
-ms.date: 10/15/2018
+ms.date: 05/09/2019
 description: Cette rubrique décrit la fonctionnalité Espaces de noms DFS qui est un service de rôle de Windows Server. Elle permet de grouper des dossiers partagés qui se trouvent sur des serveurs différents en un ou plusieurs espaces de noms logiquement structurés.
-ms.openlocfilehash: 0f80e5a25254513702c25ce895a28c4cb1e0f2b4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 33b5a36c9f13179286a95735621272f79983231c
+ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844250"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65613186"
 ---
 # <a name="dfs-namespaces-overview"></a>Vue d’ensemble des espaces de noms DFS
 
-> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, Windows Server (canal semi-annuel)
 
 La fonctionnalité Espaces de noms DFS est un service de rôle de Windows Server. Elle permet de grouper des dossiers partagés qui se trouvent sur des serveurs différents en un ou plusieurs espaces de noms logiquement structurés. Cela permet de donner aux utilisateurs une représentation virtuelle des dossiers partagés, dans laquelle un seul chemin d’accès conduit à des fichiers situés sur plusieurs serveurs, comme illustré dans la figure suivante :
 
@@ -42,11 +42,12 @@ Un serveur d’espace de noms est un contrôleur de domaine ou un serveur membre
 
 Les serveurs qui exécutent les systèmes d’exploitation suivants peuvent héberger plusieurs espaces de noms basés sur un domaine en plus d’un espace de noms autonome. 
 
-- Windows Server (canal semi-annuel)
+- Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2 Datacenter/entreprise
+- Windows Server 2008 R2 Datacenter et Enterprise Edition
+- Windows Server (canal semi-annuel)
 
 Les serveurs qui exécutent les systèmes d’exploitation suivants peuvent héberger un espace de noms autonome :
 
@@ -123,7 +124,7 @@ Pour plus d’informations connexes, voir les ressources suivantes.
 |------------------|----------------|
 |**Évaluation du produit**|[Quelles sont les nouveautés dans les espaces de noms DFS et réplication DFS dans Windows Server](https://technet.microsoft.com/library/dn281957(v=ws.11).aspx)|
 |**Déploiement**|[Considérations d’extensibilité Namespace DFS](http://blogs.technet.com/b/filecab/archive/2012/08/26/dfs-namespace-scalability-considerations.aspx)|
-|**Opérations**|[Espaces de noms DFS : Forum aux Questions](https://technet.microsoft.com/library/ee404780.aspx)|
+|**Opérations**|[Espaces de noms DFS : Forum Aux Questions](https://technet.microsoft.com/library/ee404780.aspx)|
 |**Ressources de la communauté**|[Les Services de fichiers et le forum TechNet sur le stockage](https://social.technet.microsoft.com/forums/winserverfiles/threads/)|
 |**Protocoles**|[Protocoles dans Windows Server des Services de fichiers](https://msdn.microsoft.com/en-us/library/cc239318.aspx) (déconseillée)|
 |**Technologies connexes**| [Clustering de basculement](../../failover-clustering/failover-clustering-overview.md)|

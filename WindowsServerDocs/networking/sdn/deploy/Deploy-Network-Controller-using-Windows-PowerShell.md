@@ -13,12 +13,12 @@ ms.assetid: 2448d381-55aa-4c14-997a-202c537c6727
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 31c1579dc840f6f4eb805ac4e10f51192a6b4c99
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d671d044896ae9e71edad8302f06f2a21fe50772
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816190"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034552"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Déployer le contrôleur de réseau à l’aide de Windows PowerShell
 
@@ -31,19 +31,19 @@ Cette rubrique fournit des instructions sur l’utilisation de Windows PowerShel
 
 Cette rubrique contient les sections suivantes.
 
-- [Installer le rôle de serveur de contrôleur de réseau](#bkmk_role)
+- [Installer le rôle de serveur de contrôleur de réseau](#install-the-network-controller-server-role)
 
-- [Configurer le cluster de contrôleur de réseau](#bkmk_configure)
+- [Configurer le cluster de contrôleur de réseau](#configure-the-network-controller-cluster)
 
-- [Configurer l’application de contrôleur de réseau](#bkmk_app)
+- [Configurer l’application de contrôleur de réseau](#configure-the-network-controller-application)
 
-- [Validation de déploiement de contrôleur de réseau](#bkmk_validation)
+- [Validation de déploiement de contrôleur de réseau](#network-controller-deployment-validation)
 
-- [Commandes Windows PowerShell supplémentaires pour le contrôleur de réseau](#bkmk_ps)
+- [Commandes Windows PowerShell supplémentaires pour le contrôleur de réseau](#additional-windows-powershell-commands-for-network-controller)
 
-- [Exemple de script de configuration contrôleur de réseau](#bkmk_script)
+- [Exemple de script de configuration contrôleur de réseau](#sample-network-controller-configuration-script)
 
-- [Étapes de post-déploiement pour les déploiements de Non-Kerberos](#bkmk_nonkerb)
+- [Étapes de post-déploiement pour les déploiements de Non-Kerberos](#post-deployment-steps-for-non-kerberos-deployments)
 
 ## <a name="install-the-network-controller-server-role"></a>Installer le rôle de serveur de contrôleur de réseau
 

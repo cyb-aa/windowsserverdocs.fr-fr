@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 4706372b06d0554196b692c3ddcda145dee5bae5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6eb6f2acd420ae657a5c1b698e9733751378552
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848170"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476083"
 ---
 # <a name="failover-clustering-hardware-requirements-and-storage-options"></a>Configuration matérielle requise clustering avec basculement et options de stockage
 
-S’applique à : Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
+S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous avez besoin du matériel suivant pour créer un cluster de basculement. Pour être pris en charge par Microsoft, tout le matériel doit être certifié pour la version de Windows Server que vous exécutez, et la solution de cluster de basculement complète doit réussir tous les tests de l'Assistant Validation d'une configuration. Pour plus d'informations sur la validation d'un cluster de basculement, voir [Valider le matériel pour un cluster de basculement](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134244(v%3dws.11)>).
 

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 83383d3e1c75c7a6e6c8b42c010a17ceebf51e88
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ec111954bbe39a3089072f41778990546b6287e5
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848110"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191292"
 ---
 # <a name="identifying-your-ad-fs-deployment-goals"></a>Identification de vos objectifs de déploiement d'AD FS
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 L’identification correcte de votre Active Directory Federation Services \(AD FS\) objectifs de déploiement est essentielle pour la réussite de votre projet de conception AD FS. Selon la taille de votre organisation et le niveau d’implication à fournir pour les technologies de l’information \(informatique\) auxiliaire dans toutes les organisations partenaires, de former une équipe de projet capable de clairement articuler réel\-des problèmes de déploiement mondial dans un énoncé de vision. Assurez-vous que les membres de cette équipe comprennent la direction dans laquelle votre projet de déploiement doit afin d’atteindre vos objectifs de déploiement AD FS.  
   
@@ -32,5 +30,5 @@ Le tableau suivant répertorie les tâches pour articuler, affiner et documenter
 |Mapper un objectif ou une combinaison quelconque des objectifs de déploiement AD FS prédéfinies à une conception AD FS existante|-   [Mappage de vos objectifs de déploiement pour une conception AD FS](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md)|  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
 

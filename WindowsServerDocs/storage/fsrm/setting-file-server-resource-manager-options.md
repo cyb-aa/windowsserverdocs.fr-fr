@@ -8,24 +8,24 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: f8b29235540957265062dded4cd39da1eb35ae31
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2a3915d3d6d69b0c7a0a63da4622ddcb091d60a6
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813620"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476137"
 ---
 # <a name="setting-file-server-resource-manager-options"></a>Définition des options du Gestionnaire de ressources du serveur de fichiers
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Les options générales du Gestionnaire de ressources du serveur de fichiers peuvent être définies dans la boîte de dialogue **Options du Gestionnaire de ressources du serveur de fichiers**. Ces paramètres sont utilisés dans tous les nœuds, et certains d'entre eux peuvent être modifiées lorsque vous utilisez des quotas, des filtres de fichiers, ou générez des rapports de stockage.
 
 Cette section comprend les rubriques suivantes :
 
 -   [Configurer des Notifications par courrier électronique](configure-email-notifications.md)
--   [Configurer des limites de Notification](configure-notification-limits.md)
+-   [Configurer les limites de notification](configure-notification-limits.md)
 -   [Configurer les rapports de stockage](configure-storage-reports.md)
--   [Configurer la vérification du filtrage de fichier](configure-file-screen-audit.md)
+-   [Configurer la vérification du filtrage de fichiers](configure-file-screen-audit.md)
 
 

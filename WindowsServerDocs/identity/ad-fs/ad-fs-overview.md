@@ -9,26 +9,26 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3ab72145dbe6daf518edac4e01fa28c2b64c38a6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1dd204ec930cb69d7117fc240b5384fa928d7626
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874350"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192523"
 ---
-# <a name="ad-fs-2016-overview"></a>Vue d’ensemble de AD FS 2016
+# <a name="ad-fs-overview"></a>Vue d’ensemble des services AD FS
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ce document contient une liste de toutes les vues d’ensemble de documentation pour AD FS pour Windows Server 2016. Cela inclut les éléments suivants :
+
+Ce document contient une liste de toutes les vues d’ensemble de la documentation AD FS pour Windows Server. Cela inclut les éléments suivants :
   
   
   
 * [Quelles sont les nouveautés dans AD FS pour Windows Server 2019](../ad-fs/overview/whats-new-active-directory-federation-services-windows-server.md)  
   
-* [Scénarios AD FS pour les développeurs](../ad-fs/overview/AD-FS-Scenarios-for-Developers.md) 
+* [Scénarios AD FS pour les développeurs](../ad-fs/overview/AD-FS-Scenarios-for-Developers.md) 
 
-* [Exigences en matière de AD FS 2016](../ad-fs/overview/AD-FS-2016-Requirements.md)
+* [Configuration AD FS requise](../ad-fs/overview/AD-FS-2016-Requirements.md)
 
 * [FORUM AUX QUESTIONS SUR AD FS](../ad-fs/overview/AD-FS-FAQ.md)
 

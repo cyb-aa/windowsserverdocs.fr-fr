@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 01/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 21f99362205e0a6aa90ebd26cef8f3a779bdc1dc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6641ba08323aeffa680e59c8e0bc5fcfa9757fd
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836490"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222440"
 ---
 # <a name="configure-and-manage-quorum"></a>Configurer et gérer le quorum
 
@@ -31,57 +31,20 @@ Le modèle de quorum dans Windows Server est flexible. Si vous avez besoin modif
 
 Le tableau suivant présente les trois options de configuration de quorum disponibles dans l'Assistant Configuration de quorum du cluster.
 
-<table>
-<thead>
-<tr class="header">
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Utiliser les paramètres standard</td>
-<td>Le cluster attribue automatiquement un vote à chaque nœud et gère de façon dynamique les votes des nœuds. Si cette option est adaptée à votre cluster et si un stockage partagé de cluster est disponible, le cluster sélectionne un témoin de disque. Cette option est recommandée dans la plupart des cas, car le logiciel de cluster choisit automatiquement une configuration de quorum et de témoin qui assure à votre cluster le plus haut niveau de disponibilité.</td>
-</tr>
-<tr class="even">
-<td>Ajouter ou changer le témoin de quorum</td>
-<td>Vous pouvez ajouter, modifier ou supprimer une ressource de témoin. Vous pouvez configurer un partage de fichiers ou un témoin de disque. Le cluster attribue automatiquement un vote à chaque nœud et gère de façon dynamique les votes des nœuds.</td>
-</tr>
-<tr class="odd">
-<td>Configuration de quorum et sélection de témoin avancées</td>
-<td>Vous ne devez sélectionner cette option que si la configuration du quorum est assortie de contraintes liées à l'application ou au site. Vous pouvez modifier le témoin du quorum, ajouter ou retirer des votes aux nœuds et choisir si le cluster doit gérer les votes des nœuds de façon dynamique. Par défaut, les votes sont attribués à tous les nœuds, et les votes des nœuds sont gérés de façon dynamique.</td>
-</tr>
-</tbody>
-</table>
+|Option  |Description  |
+|---------|---------|
+|Utiliser les paramètres standard     |  Le cluster attribue automatiquement un vote à chaque nœud et gère de façon dynamique les votes des nœuds. Si cette option est adaptée à votre cluster et si un stockage partagé de cluster est disponible, le cluster sélectionne un témoin de disque. Cette option est recommandée dans la plupart des cas, car le logiciel de cluster choisit automatiquement une configuration de quorum et de témoin qui assure à votre cluster le plus haut niveau de disponibilité.       |
+|Ajouter ou changer le témoin de quorum     |   Vous pouvez ajouter, modifier ou supprimer une ressource de témoin. Vous pouvez configurer un partage de fichiers ou un témoin de disque. Le cluster attribue automatiquement un vote à chaque nœud et gère de façon dynamique les votes des nœuds.      |
+|Configuration de quorum et sélection de témoin avancées     | Vous ne devez sélectionner cette option que si la configuration du quorum est assortie de contraintes liées à l'application ou au site. Vous pouvez modifier le témoin du quorum, ajouter ou retirer des votes aux nœuds et choisir si le cluster doit gérer les votes des nœuds de façon dynamique. Par défaut, les votes sont attribués à tous les nœuds, et les votes des nœuds sont gérés de façon dynamique.        |
 
 Selon l'option de configuration de quorum que vous choisissez et vos paramètres spécifiques, le cluster est configuré dans l'un des modes de quorum suivants :
 
-<table>
-<thead>
-<tr class="header">
-<th>Mode</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Nœud majoritaire (sans témoin)</td>
-<td>Seuls les nœuds disposent d'un vote. Aucun témoin de quorum n'est configuré. Le quorum de cluster correspond à la majorité des nœuds votants parmi les membres actifs du cluster.</td>
-</tr>
-<tr class="even">
-<td>Nœud majoritaire avec témoin (disque ou partage de fichiers)</td>
-<td>Les nœuds disposent d'un vote. Par ailleurs, un témoin de quorum dispose d'un vote. Le quorum de cluster correspond à la majorité des nœuds votants parmi les membres actifs du cluster, plus le vote d'un témoin.<br />
-<br />
-Un témoin de quorum peut être un témoin de disque désigné ou un témoin de partage de fichiers désigné.</td>
-</tr>
-<tr class="odd">
-<td>Pas de majorité (témoin de disque uniquement)</td>
-<td>Aucun nœud ne dispose d'un vote. Seul un témoin de disque dispose d'un vote. Le quorum du cluster est déterminé par l'état du témoin de disque.<br />
-<br />
-Le cluster a le quorum si un nœud est disponible et s'il communique avec un disque spécifique du stockage du cluster. En général, ce mode n'est pas recommandé et il est préférable de ne pas le sélectionner, car il créé un point de défaillance unique pour le cluster.</td>
-</tr>
-</tbody>
-</table>
+
+|Mode  |Description  |
+|---------|---------|
+|Nœud majoritaire (sans témoin)     |   Seuls les nœuds disposent d'un vote. Aucun témoin de quorum n'est configuré. Le quorum de cluster correspond à la majorité des nœuds votants parmi les membres actifs du cluster.      |
+|Nœud majoritaire avec témoin (disque ou partage de fichiers)     |   Les nœuds disposent d'un vote. Par ailleurs, un témoin de quorum dispose d'un vote. Le quorum de cluster correspond à la majorité des nœuds votants parmi les membres actifs du cluster, plus le vote d'un témoin. Un témoin de quorum peut être un témoin de disque désigné ou un témoin de partage de fichiers désigné. 
+|Pas de majorité (témoin de disque uniquement)     | Aucun nœud ne dispose d'un vote. Seul un témoin de disque dispose d'un vote. <br>Le quorum du cluster est déterminé par l'état du témoin de disque. En général, ce mode n'est pas recommandé et il est préférable de ne pas le sélectionner, car il créé un point de défaillance unique pour le cluster.       |
 
 Les sous-sections suivantes vous donnera plus d’informations sur les paramètres de configuration de quorum avancée.
 
@@ -93,59 +56,12 @@ Si tous les nœuds peuvent voir le disque, il est généralement conseillé d'ut
 
 Le tableau suivant fournit des informations et des considérations supplémentaires sur les types de témoin de quorum.
 
-<table>
-<thead>
-<tr class="header">
-<th>Type de témoin</th>
-<th>Description</th>
-<th>Conditions requises et recommandations</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Témoin de disque</td>
-<td>- Numéro d’unité logique dédié qui stocke une copie de la base de données de cluster<br />
-- Plus utiles pour les clusters avec un stockage partagé (non répliqué)</td>
-<td>- Taille du numéro d’unité logique doit être au moins 512 Mo<br />
-- Doit être dédié à l’utilisation du cluster et non affecté à un rôle en cluster<br />
-- Doit être inclus dans les tests de validation de stockage en cluster pass et de stockage<br />
-- Ne peut pas être un disque qui est un Volume de partagé de Cluster (CSV)<br />
-- Disque de base avec un seul volume<br />
-- N’a pas besoin d’avoir une lettre de lecteur<br />
-- Peut être formaté en NTFS ou ReFS<br />
-- Peut éventuellement être configuré avec un RAID matériel pour une tolérance de panne<br />
-- Doivent être exclus des sauvegardes et des analyses antivirus<br />
-- Un témoin de disque n’est pas pris en charge avec les espaces de stockage Direct</td>
-</tr>
-<tr class="even">
-<td>Témoin de partage de fichiers</td>
-<td>- Partage de fichiers SMB qui est configuré sur un serveur de fichiers exécutant Windows Server<br />
-- Ne pas stocker une copie de la base de données de cluster<br />
-- Gère les informations uniquement dans un fichier witness.log<br />
-- Plus utiles pour les clusters multisites avec un stockage répliqué</td>
-<td>- Doit avoir un minimum de 5 Mo d’espace libre<br />
-- Doit être dédié au seul cluster et pas utilisé pour stocker les données utilisateur ou des applications<br />
-- Doivent avoir les autorisations en écriture activées pour l’objet ordinateur pour le nom du cluster<br />
-<br />
-Les autres considérations qui suivent s'appliquent à un serveur de fichiers hébergeant le témoin de partage de fichiers :<br />
-<br />
-- Un seul serveur de fichiers peut être configuré avec des témoins de partage de fichiers pour plusieurs clusters.<br />
-- Le serveur de fichiers doit être sur un site distinct de la charge de travail du cluster. Chaque site de cluster dispose ainsi des mêmes chances de survie en cas de perte de communication réseau entre les sites. Si le serveur de fichiers sur trouve sur le même site, ce dernier devient le site principal et il est le seul à pouvoir accéder au partage de fichiers.<br />
-- Le serveur de fichiers peut s’exécuter sur une machine virtuelle si l’ordinateur virtuel n’est pas hébergé sur le même cluster qui utilise le témoin de partage de fichiers.<br />
-- Pour la haute disponibilité, le serveur de fichiers peut être configuré sur un cluster de basculement distinct.</td>
-</tr>
 
-<tr class-"odd">
-<td>Témoin de cloud</td>
-<td>- Un fichier de témoin stocké dans le stockage blob Azure<br>
--Recommandé lorsque tous les serveurs du cluster possèdent une connexion Internet fiable.</td>
-<td>Consultez <a href="https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness">déployer un témoin cloud</a>.</td>
-<td>
-</td>
-</tr>
-
-</tbody>
-</table>
+|Type de témoin  |Description  |Conditions requises et recommandations  |
+|---------|---------|---------|
+|Témoin de disque     |  <ul><li> Numéro d'unité logique dédié stockant une copie de la base de données de cluster</li><li> Particulièrement utile aux clusters dotés d'un stockage partagé (non répliqué)</li>       |  <ul><li>Le numéro d'unité logique doit avoir une taille minimale de 512 Mo</li><li> Son utilisation doit être dédiée au cluster et il ne doit pas être affecté à un rôle en cluster</li><li> Doit être inclus dans un stockage en cluster et réussir les tests de validation de stockage</li><li> Disque différent d'un volume partagé de cluster</li><li> Disque de base doté d'un seul volume</li><li> Ne nécessite pas de lettre de lecteur</li><li> Peut être formaté en NTFS ou ReFS</li><li> Peut éventuellement être configuré avec un RAID matériel à des fins de tolérance de panne</li><li> Doit être exclu des sauvegardes et des analyses antivirus</li><li> Un témoin de disque n’est pas pris en charge avec les espaces de stockage Direct</li>|
+|Témoin de partage de fichiers     | <ul><li>Partage de fichiers SMB configuré sur un serveur de fichiers exécutant Windows Server</li><li> Ne stocke pas de copie de la base de données de cluster</li><li> Consigne les informations de cluster dans un fichier witness.log uniquement</li><li> Essentiellement utile pour les clusters multisites dotés d'un stockage répliqué </li>       |  <ul><li>Doit disposer au minimum de 5 Mo d'espace libre</li><li> Doit être dédié au seul cluster et ne pas être utilisé pour stocker des données d'utilisateurs ou d'applications</li><li> Doit avoir les autorisations en écriture activées pour l'objet ordinateur correspondant au nom du cluster</li></ul><br>Les autres considérations qui suivent s'appliquent à un serveur de fichiers hébergeant le témoin de partage de fichiers :<ul><li>Il est possible de configurer un seul serveur de fichiers avec des témoins de partage de fichiers pour plusieurs clusters.</li><li> Le serveur de fichiers doit se trouver sur un site distinct de la charge de travail de cluster. Chaque site de cluster dispose ainsi des mêmes chances de survie en cas de perte de communication réseau entre les sites. Si le serveur de fichiers sur trouve sur le même site, ce dernier devient le site principal et il est le seul à pouvoir accéder au partage de fichiers.</li><li> Le serveur de fichiers peut s'exécuter sur un ordinateur virtuel si celui-ci n'est pas hébergé sur le cluster qui utilise le témoin de partage de fichiers.</li><li> Pour bénéficier d'un haut niveau de disponibilité, le serveur de fichiers peut être configuré sur un cluster de basculement distinct. </li>      |
+|Témoin de cloud     |  <ul><li>Un fichier de témoin stocké dans le stockage blob Azure</li><li> Recommandé lorsque tous les serveurs du cluster possèdent une connexion Internet fiable.</li>      |  Consultez [déployer un témoin cloud](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).       |
 
 ### <a name="node-vote-assignment"></a>Attribution de votes aux nœuds
 
@@ -212,7 +128,7 @@ L'appartenance au groupe **Administrateurs** local sur chaque serveur en cluster
 
 1. Dans le Gestionnaire du cluster de basculement, sélectionnez ou spécifiez le cluster que vous voulez modifier.
 2. Avec le cluster sélectionné, sous **Actions**, sélectionnez **autres Actions**, puis sélectionnez **configurer les paramètres de Cluster Quorum**. L'Assistant Configuration de quorum du cluster s'affiche à l'écran. Sélectionnez **Suivant**.
-3. Dans la page **Sélectionner l'option de configuration du quorum**, sélectionnez l'une des trois options de configuration et effectuez les étapes correspondant à cette option. Avant de configurer les paramètres de quorum, vous pouvez passer en revue vos choix. Pour plus d’informations sur les options, consultez [vue d’ensemble du quorum dans un cluster de basculement](#overview-of-the-quorum-in-a-failover-cluster), plus haut dans cette rubrique.
+3. Dans la page **Sélectionner l'option de configuration du quorum**, sélectionnez l'une des trois options de configuration et effectuez les étapes correspondant à cette option. Avant de configurer les paramètres de quorum, vous pouvez passer en revue vos choix. Pour plus d’informations sur les options, consultez [quorum de présentation](#understanding-quorum), plus haut dans cette rubrique.
 
     - Pour permettre au cluster de réinitialiser automatiquement les paramètres de quorum optimaux pour votre configuration actuelle du cluster, sélectionnez **utiliser les paramètres standard** , puis terminez l’Assistant.
     - Pour ajouter ou modifier le témoin de quorum, sélectionnez **ajouter ou modifier le témoin de quorum**, puis terminez les étapes suivantes. Pour obtenir des informations et des considérations sur la configuration d'un témoin de quorum, voir [Configuration d'un témoin](#witness-configuration) plus haut dans cette rubrique.
@@ -366,36 +282,14 @@ Dans cette configuration, le cluster se compose de plusieurs sites capables d'h�
 
 Le tableau suivant résume les éléments à prendre en considération et les recommandations pour cette configuration.
 
-<table>
-<thead>
-<tr class="header">
-<th>Élément</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Nombre de votes de nœud par site</td>
-<td>Doit être égal</td>
-</tr>
-<tr class="even">
-<td>Attribution de votes aux nœuds</td>
-<td>Le vote ne doit pas être retiré à des nœuds, car tous les nœuds ont la même importance</td>
-</tr>
-<tr class="odd">
-<td>Gestion de quorum dynamique</td>
-<td>Activation souhaitable</td>
-</tr>
-<tr class="even">
-<td>Configuration d'un témoin</td>
-<td>Configuration d'un témoin de partage de fichiers recommandée sur un site distinct des sites de cluster</td>
-</tr>
-<tr class="odd">
-<td>Charges de travail</td>
-<td>Possibilité de configurer des charges de travail sur n'importe quel site</td>
-</tr>
-</tbody>
-</table>
+
+|Élément  |Description  |
+|---------|---------|
+|Nombre de votes de nœud par site     | Doit être égal       |
+|Attribution de votes aux nœuds     |  Le vote ne doit pas être retiré à des nœuds, car tous les nœuds ont la même importance       |
+|Gestion de quorum dynamique     |   Activation souhaitable      |
+|Configuration d'un témoin     |  Configuration d'un témoin de partage de fichiers recommandée sur un site distinct des sites de cluster       |
+|Charges de travail     |  Possibilité de configurer des charges de travail sur n'importe quel site       |
 
 #### <a name="additional-considerations-for-automatic-failover"></a>Considérations supplémentaires pour le basculement automatique
 
@@ -407,39 +301,13 @@ Dans cette configuration, le cluster se compose d'un site principal, *SiteA*, et
 
 Le tableau suivant résume les éléments à prendre en considération et les recommandations pour cette configuration.
 
-<table>
-<thead>
-<tr class="header">
-<th>Élément</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Nombre de votes de nœud par site</td>
-<td>Variable</td>
-</tr>
-<tr class="even">
-<td>Attribution de votes aux nœuds</td>
-<td>- Les votes de nœud ne doit pas être supprimé à partir des nœuds sur le site principal, <em>SiteA</em><br />
-- Les votes de nœud doivent être retirés aux nœuds sur le site de sauvegarde, <em>SiteB</em><br />
-- Si une panne de longue durée se produit sur <em>SiteA</em>, votes doivent être attribués aux nœuds de <em>SiteB</em> pour permettre d’atteindre le quorum sur le site dans le cadre de la récupération</td>
-</tr>
-<tr class="odd">
-<td>Gestion de quorum dynamique</td>
-<td>Activation souhaitable</td>
-</tr>
-<tr class="even">
-<td>Configuration d'un témoin</td>
-<td>- Configurer un témoin, s’il existe un nombre pair de nœuds à <em>SiteA</em><br />
-- Si un témoin est nécessaire, configurez un témoin de partage de fichiers ou un témoin de disque qui est accessible uniquement aux nœuds de <em>SiteA</em> (parfois appelé un témoin de disque asymétrique)</td>
-</tr>
-<tr class="odd">
-<td>Charges de travail</td>
-<td>Utilisez des propriétaires favoris pour maintenir les charges de travail en exécution sur les nœuds de <em>SiteA</em></td>
-</tr>
-</tbody>
-</table>
+
+|Élément  |Description  |
+|---------|---------|
+|Nombre de votes de nœud par site     |  <ul><li> Les votes ne doivent pas être retirés aux nœuds du site principal, **SiteA**</li><li>Les votes doivent être retirés aux nœuds du site de sauvegarde, **SiteB**</li><li>Si une panne de longue durée se produit sur **SiteA**, les votes doivent être attribués aux nœuds de **SiteB** pour permettre au site d'atteindre le quorum dans le cadre de la récupération</li>       |
+|Gestion de quorum dynamique     |  Activation souhaitable       |
+|Configuration d'un témoin     |  <ul><li>Configuration d'un témoin nécessaire si **SiteA** a un nombre de nœuds pair</li><li>Si un témoin est nécessaire, configurez un témoin de partage de fichiers ou un témoin de disque accessible uniquement aux nœuds de **SiteA** (parfois appelé « témoin de disque asymétrique »)</li>       |
+|Charges de travail     |  Utilisez des propriétaires favoris pour maintenir les charges de travail en exécution sur les nœuds de **SiteA**       |
 
 #### <a name="additional-considerations-for-manual-failover"></a>Considérations supplémentaires pour le basculement manuel
 

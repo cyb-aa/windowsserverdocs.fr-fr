@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 52a08ae7eaee81c00985d5334f9abeaa84e30879
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 05fcaf402347d16bf8c28528d402664ae5f99165
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814160"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476049"
 ---
 # <a name="file-screening-management"></a>Gestion du filtrage de fichiers
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Sur le nœud **Gestion du filtrage de fichiers** du composant logiciel enfichable MMC Gestionnaire de ressources du serveur de fichiers, vous pouvez effectuer les tâches suivantes :
 
@@ -34,15 +34,15 @@ Cette section comprend les rubriques suivantes :
 
 -   [Définir des groupes de fichiers pour le filtrage](define-file-groups-for-screening.md)
 -   [Créer un filtre de fichiers](create-file-screen.md)
--   [Créer une Exception de filtre de fichier](create-file-screen-exception.md)
--   [Créer un modèle d’écran de fichier](create-file-screen-template.md)
--   [Modifier les propriétés de modèle de filtre de fichier](edit-file-screen-template-properties.md)
+-   [Créer une exception au filtre de fichiers](create-file-screen-exception.md)
+-   [Créer un modèle de filtre de fichiers](create-file-screen-template.md)
+-   [Modifier les propriétés du modèle de filtre de fichiers](edit-file-screen-template-properties.md)
 
 > [!Note]
 > Pour définir des notifications par courrier électronique et certaines fonctionnalités de création de rapports, vous devez d’abord configurer les options générales du Gestionnaire de ressources du serveur de fichiers.
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Options de paramètre File Server Resource Manager](setting-file-server-resource-manager-options.md)
+-   [Définition des options du Gestionnaire de ressources du serveur de fichiers](setting-file-server-resource-manager-options.md)
 
 

@@ -1,22 +1,22 @@
 ---
-title: Cluster AntiAffinity
+title: Affinité de cluster
 ms.prod: windows-server-threshold
 ms.manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
 ms.date: 03/07/2019
-description: Cet article décrit les niveaux de AntiAffinity de Cluster de basculement
-ms.openlocfilehash: 0e7511aa4305e09a1e895a4f8f4ec120079733b7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+description: Cet article décrit les niveaux d’affinité et antiAffinity de cluster de basculement
+ms.openlocfilehash: a38d53f6aed1ca634d41822f4486779f6d279ec0
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857200"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476044"
 ---
 # <a name="cluster-affinity"></a>Affinité de cluster
 
-> S'applique à : Windows Server 2019, Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server 2016
 
 Un cluster de basculement peut contenir de nombreux rôles qui peuvent déplacer entre les nœuds et à exécuter.  Il est parfois quand les certains rôles (par exemple, les machines virtuelles, groupes de ressources, etc.) ne doivent pas s’exécuter sur le même nœud.  Cela peut être dû à la consommation des ressources, utilisation de la mémoire, etc.  Par exemple, il existe deux machines virtuelles qui sont beaucoup de ressources processeur et mémoire et si les deux machines virtuelles sont en cours d’exécution sur le même nœud, moins le des machines virtuelles peut avoir des problèmes d’impact sur les performances.  Cet article explique les niveaux antiaffinity et comment vous pouvez les utiliser de cluster.
 

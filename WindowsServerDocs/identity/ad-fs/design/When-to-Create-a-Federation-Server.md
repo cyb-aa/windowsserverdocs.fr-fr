@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 8013764b88a1061cfcaa3a507466c111bfd59aad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7e61c734780baa1482670af3f24697c10345b292
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864810"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190590"
 ---
 # <a name="when-to-create-a-federation-server"></a>Quand créer un serveur de fédération
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Lorsque vous créez un serveurdans de fédération Active Directory Federation Services \(AD FS\), vous fournissez un moyen par lequel votre organisation peut :  
   
@@ -38,9 +36,9 @@ Lorsqu’un serveur de fédération est placé dans le réseau d’entreprise du
 ## <a name="determine-which-ad-fs-design-to-deploy"></a>Déterminer la conception AD FS à déployer  
 Vous créez des serveurs de fédération dans votre organisation chaque fois que vous souhaitez déployer une des conceptions AD FS suivantes :  
   
--   [Conception SSO de Web](Web-SSO-Design.md)  
+-   [Conception SSO web](Web-SSO-Design.md)  
   
--   [Conception SSO de Web fédéré](Federated-Web-SSO-Design.md)  
+-   [Conception SSO de web fédéré](Federated-Web-SSO-Design.md)  
   
 Si nécessaire, une organisation qui déploie une conception SSO de Web fédéré peut configurer un serveur de fédération unique afin qu’elle agisse dans les deux le rôle de partenaire de compte et le rôle du partenaire ressource. Dans ce cas, le serveur de fédération peut produire Security Assertion Markup Language \(SAML\) des jetons, basés sur les comptes d’utilisateur dans sa propre organisation ou rediriger les demandes de jeton à l’organisation, selon où se trouvent les comptes d’utilisateurs .  
   
@@ -79,5 +77,5 @@ Pour obtenir des informations plus détaillées sur le fonctionnement de chacune
 Pour plus d’informations sur la configuration de toutes les conditions préalables nécessaires au déploiement d’un serveur de fédération, consultez [liste de vérification : Configuration d’un serveur de fédération](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md).  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
 

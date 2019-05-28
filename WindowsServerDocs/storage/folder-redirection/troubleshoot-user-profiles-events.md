@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 6099dac7d77e37b761785b4f58b6106472e5ba1e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f30bfcd531731e3a0d14350536ddf418c50f3ea0
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827950"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475947"
 ---
 # <a name="troubleshoot-user-profiles-with-events"></a>Résoudre les problèmes de profils utilisateur présentant des événements
 
->S’applique à : Windows 10, Windows 8, Windows 8.1, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016.
+>S’applique à : Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 et Windows Server (canal semi-annuel).
 
 Cette rubrique explique comment résoudre les problèmes de chargement et déchargement des profils utilisateur à l’aide des journaux de suivi et des événements. Les sections suivantes décrivent comment utiliser les trois journaux des événements qui enregistrent les informations de profil utilisateur.
 
@@ -58,7 +58,7 @@ Voici comment activer et afficher les analytiques et les journaux de débogage 
 1. Dans le **Actions** volet de l’Observateur d’événements, sélectionnez **vue**, puis sélectionnez **afficher les journaux d’analyse et de débogage**.
 2. Accédez à **journaux des Applications et Services**, puis **Microsoft**, puis **Windows**, puis **Service de profil utilisateur**, puis  **Diagnostic**.
 3. Sélectionnez **activer le journal** , puis sélectionnez **Oui**. Ainsi, le journal de Diagnostic, ce qui démarre la journalisation.
-4. Si vous avez besoin des informations encore plus détaillées, consultez [étape 4 : Création et le décodage d’une trace](#step-4:-creating-and-decoding-a-trace) pour plus d’informations sur la création d’un journal des traces.
+4. Si vous avez besoin des informations encore plus détaillées, consultez [étape 4 : Création et le décodage d’une trace](#step-4-creating-and-decoding-a-trace) pour plus d’informations sur la création d’un journal des traces.
 5. Lorsque vous avez terminé de résoudre le problème, accédez à la **Diagnostic** journal, sélectionnez **désactiver le journal**, sélectionnez **vue** puis désactivez le **afficher Analyse et déboguer les journaux** case à cocher pour masquer les analyse et la journalisation du débogage.
 
 ## <a name="step-4-creating-and-decoding-a-trace"></a>Étape 4 : Création et le décodage d’une trace
@@ -93,4 +93,4 @@ Voici comment créer et décoder une trace pour le Service de profil utilisateur
 
 ## <a name="more-information"></a>Informations supplémentaires
 
-* [Déployer les profils utilisateur itinérants](deploy-roaming-user-profiles.md)
+* [Déployer des profils utilisateur itinérants](deploy-roaming-user-profiles.md)

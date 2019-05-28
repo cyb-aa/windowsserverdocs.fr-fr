@@ -4,25 +4,30 @@ description: Vue d’ensemble des nouvelles fonctionnalités de Windows Server 2
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
 ms.localizationpriority: high
-ms.openlocfilehash: 4c454fc397b662e313d5cfb7ed02a83dc7059207
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.date: 05/21/2019
+ms.openlocfilehash: af887c0e1c66a017ee091fb2cab2dc61fa9ac1dc
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871840"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976553"
 ---
 # <a name="whats-new-in-windows-server-2019"></a>Nouveautés de Windows Server 2019
 
-Cette rubrique décrit certaines des nouvelles fonctionnalités de Windows Server 2019. Windows Server 2019 repose sur la base solide de Windows Server 2016 et offre de nombreuses innovations en matière sur quatre principaux thèmes : Cloud hybride, la sécurité, plateforme d’Application et Infrastructure Hyper-convergée (HCL). Pour découvrir les nouveautés de Windows Server, version 1809, reportez-vous à la section [Nouveautés de Windows Server, version 1809](../get-started/whats-new-in-windows-server-1809.md).
+> S’applique à : Windows Server 2019
+
+Cette rubrique décrit certaines des nouvelles fonctionnalités de Windows Server 2019. Windows Server 2019 repose sur la base solide de Windows Server 2016 et offre de nombreuses innovations en matière sur quatre principaux thèmes : Cloud hybride, la sécurité, plateforme d’Application et Infrastructure Hyper-convergée (HCL).
+
+Pour savoir quelles sont les nouveautés dans les versions de canal semi-annuel de serveur Windows, consultez [What ' s New in Windows Server](../get-started/whats-new-in-windows-server.md). 
 
 ## <a name="general"></a>Général
 
 ### <a name="desktop-experience"></a>Expérience utilisateur
 
-Étant donné que Windows Server 2019 est une version de canal de maintenance à long terme (LTSC), il inclut l'<b>expérience utilisateur</b>. (Il n’est pas inclus dans Windows Server, version 1709, Windows Server, version 1803 ou Windows Server, version 1809, étant donné que le canal semi-annuel \(la console SAC\) versions n’incluent pas la fonctionnalité expérience utilisateur par défaut ; ils sont strictement Server Image de conteneur Core et Nano Server libère.) Comme avec Windows Server 2016, lors de l’installation du système d’exploitation vous pouvez choisir entre les installations Server Core ou de serveur avec les installations de la fonctionnalité expérience utilisateur.
+Étant donné que Windows Server 2019 est une version de canal de maintenance à long terme (LTSC), il inclut l'<b>expérience utilisateur</b>. (Canal semi-annuel \(la console SAC\) versions n’incluent pas la fonctionnalité expérience utilisateur par défaut ; ils sont strictement Server Core et libère de l’image de conteneur Nano Server.) Comme avec Windows Server 2016, lors de l’installation du système d’exploitation vous pouvez choisir entre les installations Server Core ou de serveur avec les installations de la fonctionnalité expérience utilisateur.
 
 ### <a name="system-insights"></a>Insights système
 
@@ -132,7 +137,7 @@ Voici quelles sont les nouveautés dans le réplica de stockage. Pour plus d’i
 
 Voici une liste des nouveautés du Clustering de basculement. Pour plus d’informations, consultez la section [Nouveautés du clustering de basculement](../failover-clustering/whats-new-in-failover-clustering.md).
 
-- **Ensembles de cluster**
+- **Jeux de clusters**
 - **Clusters prenant en charge Azure**
 - **Migration de cluster de domaines**
 - **Témoin USB**
@@ -148,7 +153,7 @@ Voici une liste des nouveautés du Clustering de basculement. Pour plus d’info
 
 Il est désormais possible d'exécuter des conteneurs Windows et Linux sur le même hôte de conteneurs à l'aide du même démon docker. Cela permet d'avoir un environnement d'hôte de conteneurs hétérogène tout en fournissant davantage de flexibilité aux développeurs d'applications.
 
-### <a name="building-support-for-kubernetes"></a>Prise en charge de Kubernetes
+### <a name="built-in-support-for-kubernetes"></a>Prise en charge intégrée pour Kubernetes
 
 Windows Server 2019 poursuit les améliorations apportées aux capacités de calcul, de réseau et de stockage à partir des versions de canal semestrielles nécessaires pour prendre en charge Kubernetes sur Windows. Plus de détails sont disponibles dans les prochaines versions de Kubernetes.
 

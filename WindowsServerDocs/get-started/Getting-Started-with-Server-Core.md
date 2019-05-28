@@ -1,25 +1,22 @@
 ---
 title: Installation minimale de Windows Server
 description: Comment obtenir et installer une installation Server Core sur Windows Server 2019, Windows Server 2016 ou Windows Server (canal semi-annuel).
-ms.custom: na
 ms.prod: windows-server-threshold
-ms.reviewer: na
-ms.suite: na
-ms.date: 1/04/2019
+ms.date: 05/21/2019
 ms.technology: server-general
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2d22818c-fbb7-487a-bb82-81ef0a3f7ede
-author: jaimeo
-ms.author: jaimeo
+author: jasongerend
+ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: d99cd0b028d08d5c3247541ce3a868676b60693d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6f685ce29088b56bb243d21315787ab90e6863a4
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869020"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976719"
 ---
 # <a name="install-server-core"></a>Installation minimale de Windows Server
 
@@ -35,7 +32,7 @@ Lorsque vous installez Windows Server pour la première fois, vous avez les opti
 -   Windows Server Datacenter
 -   Windows Server Datacenter avec Expérience de bureau
 
-Lorsque vous installez Windows Server (canal semi-annuel), y compris les versions 1709, 1803 et 1809, vous disposez des options d’installation suivantes :
+Lorsque vous installez Windows Server (canal semi-annuel), vous disposez des options d’installation suivantes :
 
 -   Windows Server Standard 
 -   Windows Server Datacenter
@@ -74,10 +71,10 @@ Avec l’option d’installation minimale, l’interface utilisateur standard (c
 - Services WSUS (Windows Server Update Services)
 - Serveur AD RMS (Active Directory Rights Management Server)
 - Serveur de routage et d’accès à distance et les sous-rôles suivants :
-- Service Broker pour les connexions des services Bureau à distance
-- Licences
-- Virtualisation
-- Services d'activation en volume
+   - Service Broker pour les connexions des services Bureau à distance
+   - Licences
+   - Virtualisation
+   - Services d'activation en volume
 
 Pour les rôles ne figurant ne pas Server Core, consultez [rôles, Services de rôle et fonctionnalités pas dans Windows Server - Server Core](../administration/server-core/server-core-removed-roles.md).
 
@@ -88,13 +85,12 @@ Pour les étapes d’installation générale et les options pour Windows Server 
 ## <a name="installing-on-windows-server-semi-annual-channel"></a>Installation sur Windows Server (canal semi-annuel)
 
 Étapes d’installation de Windows Server (canal semi-annuel) sont les mêmes que pour l’installation des versions précédentes de Windows Server (à partir d’un. Image ISO), avec les exceptions suivantes :
+
 - Les mises à niveau à partir de versions antérieures de Windows Server vers Windows Server, version 1709 ne sont pas prises en charge. Une nouvelle installation est toujours nécessaire.
    Cela signifie que lorsque vous exécutez setup.exe à partir du bureau d’un ordinateur Windows, l’expérience d’installation n’autorise pas l’option de mise à niveau (il est grisé).
 - Il n’existe aucune version d’évaluation pour Windows Server (canal semi-annuel)
 - Il n’existe pas de version OEM ou commerciale. Windows Server (canal semi-annuel) peut uniquement être sous licence Software Assurance ou la fidélité des programmes.
 
-Pour obtenir Windows Server, version 1709, voir [Présentation de Windows Server, version 1709](get-started-with-1709.md).
+Pour plus d’informations sur le canal semi-annuel, consultez [comparaison des canaux de maintenance](../get-started-19/servicing-channels-19.md).
 
-Pour obtenir Windows Server version 1803, consultez [présentation de Windows Server, version 1803](get-started-with-1803.md).
-
-Pour voir quelles sont les nouveautés dans Windows Server, version 1809, consultez [What ' s New in Windows Server version 1809](whats-new-in-windows-server-1809.md)
+Pour voir quelles sont les nouveautés dans Windows Server semi-annuel canal, consultez [What ' s New in Windows Server](whats-new-in-windows-server.md)

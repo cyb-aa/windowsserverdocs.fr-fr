@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 1ae755b9c41d66ce5f907f600be17547398acc1a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c42cffec0ddc1ae480ae67982147e9f186f0e50a
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839580"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222865"
 ---
 # <a name="convert-a-gpt-disk-into-an-mbr-disk"></a>Convertir un disque GPT en disque MBR
 
@@ -29,8 +29,6 @@ Vous pouvez convertir un disque GPT en disque MBR si le disque est vide et ne co
 > [!NOTE]
 > Vous devez au moins être membre du groupe **Opérateurs de sauvegarde** ou **Administrateurs** pour effectuer ces étapes.
 
-<a id="BKMK_WINUI"></a>
-
 ## <a name="converting-using-the-windows-interface"></a>Conversion à l’aide de l’interface Windows
 
 1.  Sauvegardez ou déplacez tous les volumes du disque GPT de base à convertir en disque MBR.
@@ -38,8 +36,6 @@ Vous pouvez convertir un disque GPT en disque MBR si le disque est vide et ne co
 2.  Si le disque contient des partitions ou des volumes, cliquez avec le bouton droit sur chaque élément, puis cliquez sur **Supprimer le volume**.
 
 3.  Cliquez avec le bouton droit sur le disque GPT que vous souhaitez convertir en disque MBR, puis cliquez sur **Convertir en disque MBR**.
-
-<a id="BKMK_CMD"></a>
 
 ## <a name="converting-using-a-command-line"></a>Conversion à l’aide d’une ligne de commande
 

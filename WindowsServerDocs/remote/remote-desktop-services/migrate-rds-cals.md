@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 91bdedce-6145-469f-b72e-7e113c4391e9
 author: christianmontoya
 manager: scottman
-ms.openlocfilehash: cb30c703adb7e3a791e41caab4561300faa8fcd3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3b809d4d624f21eaeae5a66277db683c95c79bdd
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845020"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034444"
 ---
 # <a name="migrate-your-remote-desktop-services-client-access-licenses-rds-cals"></a>Migrer vos licences d’accès client aux services Bureau à distance
 
@@ -27,12 +27,12 @@ Vous avez trois options pour migrer vos licences d’accès client services Bure
 2. À l’aide d’un navigateur web : Cette méthode permet la migration lorsque le serveur qui exécute l’outil Gestionnaire de licences bureau à distance n’a pas de connectivité internet, mais l’administrateur possède une connexion internet sur un appareil distinct. L’URL pour la méthode de migration Web s’affiche dans l’Assistant Gestion des licences d’accès client RDS. 
 3. À l’aide d’un téléphone : Cette méthode permet à l’administrateur terminer le processus de migration par téléphone avec un représentant Microsoft. Le numéro de téléphone est déterminé par la pays/la région que vous avez choisi dans l’Assistant Activation du serveur s’affiche dans l’Assistant Gestion des licences d’accès client RDS.
 
-Dans cet article, le [méthode de migration établir RDS CAL](#establish-RDS-CAL-migration-method) met en évidence les étapes générales communes sur n’importe quelle méthode de migration RDS CAL, tandis que [migrer les licences](#migrate-RDS-CALs) met en évidence les étapes spécifiques à chaque migration méthode.
+Dans cet article, le [méthode de migration établir RDS CAL](#establish-rds-cal-migration-method) met en évidence les étapes générales communes sur n’importe quelle méthode de migration RDS CAL, tandis que [migrer les licences](#migrate-rds-cals) met en évidence les étapes spécifiques à chaque migration méthode.
 
 Quelle que soit la méthode de migration, vous devez, au minimum, être membre du groupe Administrateurs local pour effectuer les étapes de migration.
 
-
 ## <a name="establish-rds-cal-migration-method"></a>Établir la méthode de migration des licences d’accès client RDS
+
 1. Sur le serveur de licences, ouvrez **Gestionnaire de licences bureau à distance**. (Cliquez sur **Démarrer > Outils d’administration**. Entrez le **Services Bureau à distance** directory et lancement **Gestionnaire de licences bureau à distance**.)
 2. Vérifiez que la méthode de connexion pour le serveur de licences bureau à distance : cliquez sur le serveur de licences auquel vous souhaitez migrer les licences d’accès client RDS, puis cliquez sur **propriétés**. Sur le **méthode de connexion** , vérifiez le **méthode de connexion** -vous pouvez le modifier dans le menu déroulant. Cliquez sur **OK**.
 3. Cliquez sur le serveur de licences auquel vous souhaitez migrer les licences d’accès client RDS, puis cliquez sur **gérer les licences d’accès client RDS**.
@@ -54,12 +54,14 @@ Quelle que soit la méthode de migration, vous devez, au minimum, être membre d
 L’étape suivante consiste à migrer les licences d’accès client - utilisez les informations ci-dessous pour terminer l’Assistant. Notez que ce que vous voyez dans l’Assistant dépend de la méthode de connexion que vous avez identifiée à l’étape 2 ci-dessus.
 
 ## <a name="migrate-rds-cals"></a>Migrer des licences d’accès client RDS
+
 Il existe trois mécanismes pour migrer des licences vers le serveur de licences de destination ; Poursuivez les étapes correspondant à la **méthode de connexion** vérifié à l’étape 2 :
-  - [Méthode de connexion automatique](#Automatic-connection-method)
-  - [À l’aide d’un navigateur web](#Using-a-web-browser)
-  - [À l’aide d’un téléphone](#Using-a-telephone)
+  - [Méthode de connexion automatique](#automatic-connection-method)
+  - [À l’aide d’un navigateur web](#using-a-web-browser)
+  - [À l’aide d’un téléphone](#using-a-telephone)
 
 ### <a name="automatic-connection-method"></a>Méthode de connexion automatique
+
 1. Sur le **programme de licence** page, sélectionnez le programme par le biais duquel vous avez acheté vos CAL RDS, puis cliquez sur **suivant**.
 2. Entrez les informations requises (généralement un code de licence ou un numéro de contrat, selon le **programme de licence**), puis cliquez sur **suivant**. Consultez la documentation fournie lorsque vous avez acheté vos CAL de services Bureau à distance.
 4. Sélectionnez la version appropriée du produit, le type de licence et la quantité de licences pour votre environnement en fonction de votre contrat d’achat de RDS CAL, puis cliquez sur **suivant**.

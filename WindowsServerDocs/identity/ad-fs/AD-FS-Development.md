@@ -9,20 +9,21 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 5638db30f1f2dc149ef9254d2f89e3fed33ea052
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 984ba6993f63aa5bf22a25e4276f6d1b5e7d14ab
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857180"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192546"
 ---
 # <a name="ad-fs-development"></a>Développement des services AD FS
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ce document contient une liste de toutes les procédures de documentation pour AD FS pour Windows Server 2016. Cela inclut les éléments suivants :  
+Ce document contient une liste de toutes les procédures pas à pas de documentation pour le développement d’AD FS. Cela inclut les éléments suivants :  
   
  
+
+- [Créer des Plug-ins avec un modèle d’évaluation des risques 2019 AD FS](../ad-fs/development/ad-fs-risk-assessment-model.md)
   
 * [Créer une application web à l’aide d’OpenID Connect avec AD FS 2016](../ad-fs/development/Enabling-OpenId-Connect-with-AD-FS.md)  
 
@@ -41,6 +42,7 @@ Ce document contient une liste de toutes les procédures de documentation pour A
 - [Délégation d’identité avec AD FS](../ad-fs/development/ad-fs-identity-delegation.md)
 
 - [Déconnexion unique pour OpenID Connect avec AD FS 2016](../ad-fs/development/ad-fs-logout-openid-connect.md)
+
 
 
 

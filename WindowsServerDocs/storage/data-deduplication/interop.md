@@ -8,18 +8,21 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/16/2016
-ms.openlocfilehash: 2a28be1bdd22915182cbdbb2726ab9d37422e889
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9453811b0f76b249c245990293ba82cf5a6e0867
+ms.sourcegitcommit: 29ad32b9dea298a7fe81dcc33d2a42d383018e82
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834430"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65624628"
 ---
 # <a name="data-deduplication-interoperability"></a>Interopérabilité de la déduplication des données
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2019
 
 ## <a id="supported"></a>Prise en charge
+
+### <a id="supported-ReFS"></a>ReFS
+La déduplication des données sont prise en charge à compter de Windows Server 2019. 
 
 ### <a id="supported-clusters"></a>Clustering de basculement
 
@@ -76,8 +79,6 @@ La Sauvegarde Windows Server peut sauvegarder un volume optimisé en l’état (
     ```
 
 ## <a id="unsupported"></a>Non pris en charge
-### <a id="unsupported-refs"></a>ReFS
-Windows Server 2016 ne prend pas en charge la déduplication des données sur des volumes au format ReFS. [Votez pour cet élément pour Windows Server vNext sur Windows Server Storage UserVoice](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/7962813-support-deduplication-on-refs).
 
 ### <a id="unsupported-windows-client"></a>Windows 10 (système d’exploitation client)
 La déduplication des données n’est pas prise en charge sur Windows 10. Il existe plusieurs billets de blog connus dans la communauté Windows décrivant comment supprimer les fichiers binaires de Windows Server 2016 et les installer sur Windows 10, mais ce scénario n’a pas été validé dans le cadre du développement de la déduplication des données. [Votez pour cet élément pour Windows 10 sur Windows Server Storage UserVoice](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/9011008-add-deduplication-support-to-client-os).

@@ -5,26 +5,27 @@ ms.prod: windows-server-threshold
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
+ms.manager: daveba
 ms.technology: storage-failover-clustering
-ms.date: 04/25/2018
+ms.date: 05/09/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 111969b074b33764dbbf72bfb24ad606f8314e41
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 151f02572d7595776539af163831b4a7a060c1c7
+ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869720"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65613168"
 ---
 # <a name="prestage-cluster-computer-objects-in-active-directory-domain-services"></a>Prédéfinir des objets d’ordinateur de cluster dans les Services de domaine Active Directory
 
->S’applique à : Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
+>S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique montre comment prédéfinir des objets ordinateur du cluster dans les services de domaine Active Directory (AD DS). Vous pouvez utiliser cette procédure pour permettre à un utilisateur ou un groupe de créer un cluster de basculement lorsqu’il n’a pas l’autorisation de créer des objets ordinateur dans AD DS.
 
 Lorsque vous créez un cluster de basculement à l’aide de l’Assistant Création d’un cluster ou de Windows PowerShell, vous devez indiquer un nom pour le cluster. Si vous disposez d’autorisations suffisantes lorsque vous créez le cluster, le processus de création du cluster crée automatiquement un objet ordinateur dans AD DS qui correspond au nom du cluster. Cet objet est appelé *objet nom de cluster* . À l’aide de l’objet nom de cluster, les objets ordinateur virtuel sont automatiquement créés lorsque vous configurez des rôles en cluster qui utilisent des points d’accès client. Par exemple, si vous créez un serveur de fichiers à haut niveau de disponibilité avec un point d’accès client nommé *FileServer1*, l’objet nom de cluster crée un objet ordinateur virtuel correspondant dans AD DS.
 
 >[!NOTE]
->Dans Windows Server 2012 R2, il est possible de créer un cluster détaché d’Active Directory, où aucun objet nom de cluster ni d’un objet ordinateur virtuel n’est créés dans les services AD DS. Cela s’adresse à des types spécifiques de déploiements de cluster. Pour plus d’informations, voir [Déployer un cluster détaché d’Active Directory](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v%3dws.11)>).
+>Il est possible de créer un cluster détaché d’Active Directory, où aucun objet nom de cluster ni d’un objet ordinateur virtuel n’est créés dans les services AD DS. Cela s’adresse à des types spécifiques de déploiements de cluster. Pour plus d’informations, voir [Déployer un cluster détaché d’Active Directory](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v%3dws.11)>).
 
 Pour créer automatiquement l’objet nom de cluster, l’utilisateur qui crée le cluster de basculement doit disposer de l’autorisation de **création d’objets ordinateur** sur l’unité d’organisation ou le conteneur où se trouvent les serveurs qui constitueront le cluster. Pour permettre à un utilisateur ou un groupe de créer un cluster sans avoir cette autorisation, un utilisateur avec les autorisations appropriées dans AD DS (en général un administrateur de domaine) peut prédéfinir l’objet nom de cluster dans AD DS. L’administrateur de domaine peut ainsi mieux contrôler la convention d’affectation des noms utilisée pour le cluster ainsi que l’unité d’organisation dans laquelle les objets de cluster sont créés.
 
@@ -95,7 +96,7 @@ Si vous avez prédéfini l’objet nom de cluster dans AD DS, vous pouvez procé
 >[!NOTE]
 >L’appartenance au groupe **Admins du domaine**, ou à un groupe équivalent, est la condition minimale requise pour effectuer les étapes relatives à cette option.
 
-- Option 2 : [Préparer un objet ordinateur virtuel pour un rôle en cluster](#prestage-a-vco-for-the-clustered-role). Utilisez cette option s’il est nécessaire de prédéfinir des comptes pour les rôles en cluster en raison des exigences de votre organisation. Par exemple, il peut être souhaitable de contrôler la convention d’affectation des noms ou les rôles en cluster qui sont créés.
+- Option 2 : [Préparer un objet ordinateur virtuel pour un rôle en cluster](#prestage-a-vco-for-a-clustered-role). Utilisez cette option s’il est nécessaire de prédéfinir des comptes pour les rôles en cluster en raison des exigences de votre organisation. Par exemple, il peut être souhaitable de contrôler la convention d’affectation des noms ou les rôles en cluster qui sont créés.
 
 >[!NOTE]
 >L’appartenance au groupe **Opérateurs de compte** est la condition minimale requise pour effectuer les étapes relatives à cette option.
@@ -103,7 +104,7 @@ Si vous avez prédéfini l’objet nom de cluster dans AD DS, vous pouvez procé
 ### <a name="grant-the-cno-permissions-to-the-ou"></a>Accorder les autorisations de l’objet nom de cluster à l’unité d’organisation
 
 1. Dans Utilisateurs et ordinateurs Active Directory, dans le menu **Affichage** , vérifiez que l’option **Fonctionnalités avancées** est sélectionnée.
-2. Avec le bouton droit de l’unité d’organisation où vous avez créé le CNO dans [étape 1 : Préparer le CNO dans AD DS](#step-1:-prestage-the-CNO-in-ad-ds), puis sélectionnez **propriétés**.
+2. Avec le bouton droit de l’unité d’organisation où vous avez créé le CNO dans [étape 1 : Préparer le CNO dans AD DS](#step-1-prestage-the-cno-in-ad-ds), puis sélectionnez **propriétés**.
 3. Sur le **sécurité** onglet, sélectionnez **avancé**.
 4. Dans le **paramètres de sécurité avancés** boîte de dialogue, sélectionnez **ajouter**.
 5. Regard **Principal**, sélectionnez **sélectionner un principal**.
@@ -138,3 +139,4 @@ Un administrateur sur le cluster de basculement peut maintenant créer le rôle 
 ## <a name="more-information"></a>Informations supplémentaires
 
 - [Clustering de basculement](failover-clustering.md)
+- [Configurer des comptes de cluster dans Active Directory](configure-ad-accounts.md)

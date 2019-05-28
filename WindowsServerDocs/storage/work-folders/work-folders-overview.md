@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: jgerend
 ms.date: 6/11/2017
 description: 'Vue d’ensemble de Dossiers de travail : rôle de serveur dans Windows Server qui fournit un moyen cohérent pour les utilisateurs d’accéder aux fichiers de travail à partir des PC et appareils.'
-ms.openlocfilehash: dd32b84e6442ec55414da27ea94ef16eeab769eb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3e3c86efb2f781dc88cac6851ea22f19c6ae812
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890480"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222854"
 ---
 # <a name="work-folders-overview"></a>Vue d’ensemble de Dossiers de travail
 
@@ -24,18 +24,18 @@ Cette rubrique concerne Dossiers de travail, un service de rôle pour les serveu
   
 Si vous avez besoin pour télécharger ou utiliser des dossiers de travail sur Windows 10, Windows 7 ou un appareil Android ou iOS, consultez les rubriques suivantes :
 
--   [Dossiers de travail pour Windows 10](https://support.microsoft.com/help/12370/windows-10-work-folders)
--   [Dossiers de travail pour Windows 7 (téléchargement 64 bits)](https://www.microsoft.com/download/details.aspx?id=42558)
--   [Dossiers de travail pour Windows 7 (téléchargement de 32 bits)](https://www.microsoft.com/download/details.aspx?id=42559)
+- [Dossiers de travail pour Windows 10](https://support.microsoft.com/help/12370/windows-10-work-folders)
+- [Dossiers de travail pour Windows 7 (téléchargement 64 bits)](https://www.microsoft.com/download/details.aspx?id=42558)
+- [Dossiers de travail pour Windows 7 (téléchargement de 32 bits)](https://www.microsoft.com/download/details.aspx?id=42559)
 - [Dossiers de travail pour iOS](https://itunes.apple.com/app/work-folders/id950878067)
 - [Dossiers de travail pour Android](https://play.google.com/store/apps/details?id=com.microsoft.workfolders)
 
-##  <a name="BKMK_OVER"></a> Description du rôle  
+## <a name="role-description"></a>Description de rôle  
  Les dossiers de travail permettent aux utilisateurs de stocker les fichiers de travail et d’y accéder sur leurs ordinateurs et appareils personnels (un concept souvent appelé « BYOD », ou « Apportez votre propre appareil »), en plus des PC de l’entreprise. Les utilisateurs bénéficient ainsi d’un emplacement pratique pour stocker les fichiers de travail et y accéder en tout lieu. Les organisations gardent la mainmise sur les données d’entreprise en stockant les fichiers sur des serveurs de fichiers gérés de manière centralisée et en spécifiant éventuellement des stratégies de périphérique utilisateur (par exemple, mots de passe de chiffrement et d’écran de verrouillage).  
   
  Dossiers de travail peut être déployé avec des déploiements existants des dossiers Redirection de dossiers, Fichiers hors connexion et de base. Dossiers de travail stocke les fichiers de l’utilisateur dans un dossier sur le serveur appelé *partage de synchronisation*. Vous pouvez spécifier un dossier qui contient déjà des données utilisateur, ce qui vous permet d’adopter Dossiers de travail sans migrer de serveurs ni de données et sans supprimer immédiatement votre solution existante.  
   
-##  <a name="BKMK_APP"></a> Applications pratiques  
+## <a name="practical-applications"></a>Cas pratiques  
  Les administrateurs peuvent utiliser Dossiers de travail pour fournir aux utilisateurs un accès à leurs fichiers de travail, tout en conservant le stockage centralisé et en contrôlant les données de l’organisation. Exemples de certains cas pratiques spécifiques pour Dossiers de travail :  
   
 -   Fournir un point d’accès unique aux fichiers de travail à partir des appareils et ordinateurs personnels et professionnels d’un utilisateur  
@@ -50,7 +50,8 @@ Si vous avez besoin pour télécharger ou utiliser des dossiers de travail sur W
   
 -   Utiliser le clustering de basculement avec Dossiers de travail pour fournir une solution à haute disponibilité  
   
-##  <a name="BKMK_NEW"></a> Fonctionnalités importantes  
+## <a name="important-functionality"></a>Fonctionnalités importantes
+
  Dossiers de travail comprend les fonctionnalités suivantes.  
   
 |Fonctionnalité|Disponibilité|Description|  
@@ -60,7 +61,8 @@ Si vous avez besoin pour télécharger ou utiliser des dossiers de travail sur W
 |Intégration de Dossiers de travail à Windows|Windows 10<br /><br /> Windows 8.1<br /><br /> Windows RT 8.1<br /><br /> Windows 7 (téléchargement requis)|Dossiers de travail offre les fonctionnalités suivantes sur les ordinateurs Windows :<br /><br /> -   Un élément Panneau de configuration, qui configure et surveille Dossiers de travail<br />-   L’intégration de l’Explorateur de fichiers, qui permet d’accéder facilement aux fichiers de Dossiers de travail<br />-   Un moteur de synchronisation qui transfère les fichiers vers et depuis un serveur de fichiers central lors de l’optimisation des performances système et de l'autonomie de la batterie|  
 |Application Dossiers de travail pour les appareils|Android<br /><br /> Apple iPhone et iPad®|Application qui permet aux appareils populaires d'accéder aux fichiers dans Dossiers de travail|  
   
-##  <a name="BKMK_New"></a> Fonctionnalités nouvelles et modifiées  
+## <a name="new-and-changed-functionality"></a>Fonctionnalités nouvelles et modifiées
+  
  Le tableau suivant décrit certaines des principales modifications apportées à Dossiers de travail.  
   
 |Fonctionnalité/fonction|Nouveauté ou mise à jour ?|Description|  
@@ -70,7 +72,7 @@ Si vous avez besoin pour télécharger ou utiliser des dossiers de travail sur W
 |Intégré dans la Protection des informations Windows (WIP)|Ajouté à Windows 10, version 1607|Si un administrateur déploie WIP, Dossiers de travail peut appliquer la protection des données en chiffrant les données sur le PC. Le chiffrement utilise une clé associée à l’ID de l’entreprise, qui peut être réinitialisée à distance à l’aide d’un package de gestion des appareils mobiles pris en charge comme Microsoft Intune.|  
 |Intégration de Microsoft Office|Ajouté à Windows 10, version 1511|Dans Windows 8.1. vous pouvez accéder à Dossiers de travail depuis les applications Office en cliquant ou en appuyant sur Ce PC, puis en accédant à l’emplacement Dossiers de travail sur votre PC. Dans Windows 10, vous pouvez accéder encore plus facilement à Dossiers de travail en l’ajoutant à la liste des emplacements affichés par Office lors de l'enregistrement ou de l'ouverture de fichiers. Pour plus d’informations, voir [Dossiers de travail dans Windows 10](https://windows.microsoft.com/windows-10/work-folders-in-windows-10) et [Résolution des problèmes en utilisant Dossiers de travail comme emplacement dans Microsoft Office](https://social.technet.microsoft.com/wiki/contents/articles/32881.troubleshooting-using-work-folders-as-a-place-in-microsoft-office.aspx).|  
   
-##  <a name="BKMK_SOFT"></a> Configuration logicielle requise  
+## <a name="software-requirements"></a>Configuration logicielle requise
 
 La fonctionnalité Dossiers de travail présente la configuration logicielle requise suivante pour les serveurs de fichiers et votre infrastructure réseau :  
   
@@ -126,7 +128,7 @@ La fonctionnalité Dossiers de travail présente la configuration logicielle req
   
 -   La fonctionnalité Dossiers de travail ne prend pas en charge la restauration de l’état des ordinateurs virtuels clients. Effectuez plutôt des opérations de sauvegarde et de restauration à partir de l’ordinateur virtuel client en utilisant Sauvegarde d’image système ou une autre application de sauvegarde.  
   
-##  <a name="BKMK_Comparison"></a> Dossiers de travail par rapport à d’autres technologies de synchronisation  
+## <a name="work-folders-compared-to-other-sync-technologies"></a>Comparaison de Dossiers de travail et d’autres technologies de synchronisation  
 
 Le tableau suivant décrit la position des différentes technologies de synchronisation Microsoft et quand les utiliser.  
   
@@ -141,7 +143,7 @@ Le tableau suivant décrit la position des différentes technologies de synchron
 > [!NOTE]
 >  Outre les technologies de synchronisation répertoriées dans le tableau précédent, Microsoft propose d'autres technologies de réplication, notamment la réplication DFS, qui est conçue pour la réplication de serveur à serveur et BranchCache, qui est conçu comme une technologie d’accélération WAN de succursale. Pour plus d'informations, voir [Vue d’ensemble des espaces de noms DFS et de la réplication DFS](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx) et [Présentation de BranchCache](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx)  
   
-##  <a name="BKMK_INSTALL"></a> Informations de gestionnaire de serveur  
+## <a name="server-manager-information"></a>Informations sur le Gestionnaire de serveur  
 
 Dossiers de travail fait partie du rôle Services de fichiers et de stockage. Vous pouvez installer Dossiers de travail à l’aide de l’Assistant Ajout de rôles et de fonctionnalités ou l'applet de commande `Install-WindowsFeature`. Les deux méthodes exécutent les tâches suivantes :  
   
@@ -151,12 +153,13 @@ Dossiers de travail fait partie du rôle Services de fichiers et de stockage. Vo
   
 -   Installation du module SyncShare Windows PowerShell pour gérer Dossiers de travail sur le serveur  
   
-##  <a name="BKMK_Azure"></a> Interopérabilité avec les machines virtuelles Windows Azure  
+## <a name="interoperability-with-windows-azure-virtual-machines"></a>Interopérabilité avec les machines virtuelles Microsoft Azure
+
  Vous pouvez exécuter ce service de rôle Windows Server sur une machine virtuelle dans Microsoft Azure. Ce scénario a été testé avec Windows Server 2012 R2 et Windows Server 2016.  
   
 Pour en savoir plus sur la prise en main des machines virtuelles Microsoft Azure, visitez le [site web Microsoft Azure](http://www.windowsazure.com/documentation/services/virtual-machines).  
   
-##  <a name="BKMK_LINKS"></a> Voir aussi  
+## <a name="see-also"></a>Voir aussi  
  Pour plus d’informations connexes, voir les ressources suivantes.  
   
 |Type de contenu|Références|  

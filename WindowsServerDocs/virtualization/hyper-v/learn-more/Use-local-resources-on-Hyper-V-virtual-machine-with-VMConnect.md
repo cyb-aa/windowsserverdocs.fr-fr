@@ -11,12 +11,12 @@ ms.assetid: 18eface5-7518-4c6b-9282-93e2e3e87492
 author: KBDAzure
 ms.author: kathyDav
 ms.date: 12/06/2016
-ms.openlocfilehash: 196a32d57877662ccd73647835e16af9348135c8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a7e465313c68ee793715aba045cc56a2ca5fd1de
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845290"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222839"
 ---
 # <a name="use-local-resources-on-hyper-v-virtual-machine-with-vmconnect"></a>Utiliser des ressources locales sur un ordinateur virtuel Hyper-V avec VMConnect
 
@@ -24,11 +24,11 @@ ms.locfileid: "59845290"
 
 Connexion à une Machine virtuelle (VMConnect) vous permet d’utiliser des ressources locales d’un ordinateur dans une machine virtuelle, comme un amovible lecteur flash USB ou une imprimante. Mode de session étendu vous permet également de redimensionner la fenêtre VMConnect. Cet article vous montre comment configurer l’hôte et ensuite donner l’accès de machine virtuelle à une ressource locale.
 
-Mode de session étendu et tapez le texte du Presse-papiers sont disponibles uniquement pour les machines virtuelles qui exécutent les systèmes d’exploitation Windows récents. \(Consultez [conditions d’utilisation des ressources locales](#BKMK_NEW), ci-dessous.\) 
+Mode de session étendu et tapez le texte du Presse-papiers sont disponibles uniquement pour les machines virtuelles qui exécutent les systèmes d’exploitation Windows récents. \(Consultez [conditions d’utilisation des ressources locales](#requirements-for-using-local-resources), ci-dessous.\) 
 
 Pour les machines virtuelles qui s’exécutent Ubuntu, consultez [modification Ubuntu résolution de l’écran dans une machine virtuelle Hyper-V](https://blogs.msdn.microsoft.com/virtual_pc_guy/2014/09/19/changing-ubuntu-screen-resolution-in-a-hyper-v-vm/). 
   
-## <a name="BKMK_OVER"></a>Activer le mode de session étendu sur un ordinateur hôte Hyper-V  
+## <a name="turn-on-enhanced-session-mode-on-a-hyper-v-host"></a>Activer le mode de session étendu sur un ordinateur hôte Hyper-V  
 Si votre hôte Hyper-V exécute Windows 10 ou Windows 8.1, mode de session étendu est activée par défaut, vous pouvez donc ignorer cette étape et passer à la section suivante. Mais si votre hôte exécute Windows Server 2016 ou Windows Server 2012 R2, à faire en premier. 
   
 Activer le mode de session étendu :
@@ -61,7 +61,7 @@ Activer le mode de session étendu :
   
 ## <a name="choose-a-local-resource"></a>Choisissez une ressource locale
 
-Les ressources locales incluent des imprimantes, le Presse-papiers et un lecteur local sur l’ordinateur où vous exécutez VMConnect. Pour plus d’informations, consultez [conditions d’utilisation des ressources locales](#BKMK_NEW), ci-dessous.  
+Les ressources locales incluent des imprimantes, le Presse-papiers et un lecteur local sur l’ordinateur où vous exécutez VMConnect. Pour plus d’informations, consultez [conditions d’utilisation des ressources locales](#requirements-for-using-local-resources), ci-dessous.  
   
 Pour choisir une ressource locale :
   
@@ -97,7 +97,7 @@ Vous pouvez facilement modifier vos paramètres de connexion pour VMConnect en e
   
 `VMConnect.exe <ServerName> <VMName> /edit`  
   
-## <a name="BKMK_NEW"></a>Configuration requise pour utiliser les ressources locales
+## <a name="requirements-for-using-local-resources"></a>Configuration requise pour utiliser les ressources locales
 
 Pour être en mesure d’utiliser des ressources locales d’un ordinateur sur une machine virtuelle :  
   
@@ -125,7 +125,7 @@ Si l’ordinateur exécutant VMConnect et la machine virtuelle à la fois la con
   
 -   Périphériques Plug-and-Play pris en charge  
   
-## <a name="BKMK_APP"></a>Pourquoi utiliser des ressources locales d’un ordinateur ?
+## <a name="why-use-a-computers-local-resources"></a>Pourquoi utiliser des ressources locales d’un ordinateur ?
 Il se peut que vous souhaitiez utiliser les ressources locales d’un ordinateur à :  
   
 -   résoudre les problèmes d'un ordinateur virtuel sans connexion réseau à l'ordinateur virtuel ;  

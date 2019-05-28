@@ -6,18 +6,18 @@ ms.author: nedpyle
 ms.technology: storage-replica
 ms.topic: get-started-article
 author: nedpyle
-ms.date: 3/29/2018
+ms.date: 4/26/2019
 ms.assetid: e9b18e14-e692-458a-a39f-d5b569ae76c5
-ms.openlocfilehash: a921701747c5e21a2c7f135826f7d754c8f7d773
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e8b437a1a4ba3e5c10d6709e23efb306a077a21b
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866710"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64773532"
 ---
 # <a name="storage-replica-overview"></a>Vue d’ensemble du réplica de stockage
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
 Le réplica de stockage est la technologie de Windows Server qui permet une réplication de volumes entre des serveurs ou des clusters en cas de récupération d’urgence. Il vous permet également de créer des clusters de basculement étendus qui englobent deux sites, tout en maintenant l’ensemble des nœuds synchronisés.
 
@@ -25,7 +25,6 @@ Le réplica de stockage prend en charge la réplication synchrone et asynchrone�
 
 * La **réplication synchrone** permet la mise en miroir des données dans des sites en réseau à faible latence avec des volumes cohérents en cas d’incident, ce qui garantit l’absence de perte de données au niveau du système de fichiers en cas de panne.
 * La **réplication asynchrone** assure la mise en miroir des données entre des sites situés hors des zones métropolitaines sur des liaisons de réseau à latence élevée, mais sans garantie que les deux sites aient des copies identiques des données au moment de la panne.
-
 
 ## <a name="why-use-storage-replica"></a>Pourquoi utiliser le réplica de stockage ?
 
@@ -39,7 +38,7 @@ Le réplica de stockage prend également en charge la réplication asynchrone po
 
 ## <a name="BKMK_SRSupportedScenarios"></a>Configurations prises en charge
 
-En utilisant ce guide et Windows Server 2016 Datacenter, vous pouvez déployer la réplication du stockage dans un cluster étendu, de cluster à cluster ainsi que de serveur à serveur (consultez les figures 1 à 3).
+Vous pouvez déployer le réplica de stockage dans un cluster étendu, entre le cluster à cluster et dans les configurations de serveur à serveur (voir les Figures 1 à 3).
 
 Un **cluster étendu** permet la configuration des ordinateurs et du stockage dans un seul cluster, où certains nœuds partagent un ensemble de stockage asymétrique et d’autres nœuds en partagent un autre, puis effectuent une réplication synchrone ou asynchrone avec reconnaissance des sites. Ce scénario peut utiliser des espaces de stockage avec un stockage SAS partagé, un réseau SAN et des numéros d’unité logique connectés par iSCSI. Il est géré avec PowerShell et l’outil graphique Gestionnaire du cluster de basculement, et permet le basculement automatisé de la charge de travail.  
 
@@ -68,7 +67,7 @@ La configuration de **serveur à serveur** autorise la réplication synchrone et
 
 * **Déploiement et gestion simples**. Le réplica de stockage est spécialement conçu pour être simple d’utilisation. La création d’un partenariat de réplication entre deux serveurs peut utiliser le Windows Admin Center. Le déploiement de clusters étendus utilise un Assistant intuitif de l’outil familier Gestionnaire du cluster de basculement.   
 
-* **Invité et hôte**. Toutes les fonctions du réplica de stockage sont exposées à la fois dans les déploiements basés sur l’invité et sur l’hôte virtualisés. Cela signifie que les invités peuvent répliquer leurs volumes de données même s’ils sont exécutés sur des plateformes de virtualisation autres que Windows ou dans des clouds publics, tant qu’ils utilisent Windows Server 2016 Datacenter dans l’invité.  
+* **Invité et hôte**. Toutes les fonctions du réplica de stockage sont exposées à la fois dans les déploiements basés sur l’invité et sur l’hôte virtualisés. Cela signifie que les invités peuvent répliquer leurs volumes de données même si en cours d’exécution sur les plateformes de virtualisation de non Windows ou dans des clouds publics, tant à l’aide de Windows Server dans l’invité.  
 
 * **SMB3**. Le réplica de stockage utilise la technologie mature et reconnue de SMB3, commercialisée pour la première fois dans Windows Server 2012. Cela signifie que toutes les caractéristiques avancées de SMB (telles que la prise en charge de Multichannel et SMB Direct sur les cartes réseau RoCE, iWARP et RDMA InfiniBand) sont disponibles pour le réplica de stockage.   
 
@@ -84,16 +83,16 @@ La configuration de **serveur à serveur** autorise la réplication synchrone et
 
 * **Allocation dynamique**. L’allocation dynamique des appareils SAN et des espaces de stockage est prise en charge afin de fournir des temps de réplication initiale presque instantanés dans de nombreuses situations.  
 
-Windows Server 2016 implémente les fonctionnalités suivantes dans le réplica de stockage :  
+Le réplica de stockage inclut les fonctionnalités suivantes :  
 
 |Fonctionnalité|Détails|  
 |-----------|-----------|  
-|Type|Basé sur l’hôte|  
+|type|Basé sur l’hôte|  
 |Synchrone|Oui|  
 |Asynchrone|Oui|  
 |Indépendante du matériel de stockage|Oui|  
 |Unité de réplication|Volume (partition)|  
-|Création du cluster étendu Windows Server|Oui|  
+|Windows Server étirer la création du cluster|Oui|  
 |Réplication de serveur à serveur|Oui|  
 |Réplication de cluster à cluster|Oui|  
 |Transport|SMB3|  
@@ -112,11 +111,16 @@ Windows Server 2016 implémente les fonctionnalités suivantes dans le réplica
 
 ## <a name="BKMK_SR3"></a> Conditions préalables de réplica de stockage  
 
-* Forêt des services de domaine Active Directory.  
-* Espaces de stockage avec JBOD SAS, espaces de stockage direct, SAN Fibre Channel, VHDX partagé, cible iSCSI ou stockage SAS/SCSI/SATA local. Disque SSD ou plus rapide recommandé pour les lecteurs de journaux de réplication. Microsoft recommande que le stockage de journaux soit plus rapide que le stockage de données. Les volumes de journaux ne doivent jamais être utilisés pour d’autres charges de travail. 
-* Au moins une connexion Ethernet/TCP sur chaque serveur pour la réplication synchrone, mais de préférence RDMA.   
-* Au moins 2Go de RAM et deux cœurs par serveur.  
-* Un réseau entre les serveurs, avec une bande passante suffisante pour contenir votre charge d’écriture d’E/S et une latence d’opération complète d’au maximum 5 ms pour la réplication synchrone. La réplication asynchrone ne présente pas de recommandation en matière de latence.  
+* Forêt des services de domaine Active Directory.
+* Espaces de stockage avec JBOD SAS, espaces de stockage direct, SAN Fibre Channel, VHDX partagé, cible iSCSI ou stockage SAS/SCSI/SATA local. Disque SSD ou plus rapide recommandé pour les lecteurs de journaux de réplication. Microsoft recommande que le stockage de journaux soit plus rapide que le stockage de données. Les volumes de journaux ne doivent jamais être utilisés pour d’autres charges de travail.
+* Au moins une connexion Ethernet/TCP sur chaque serveur pour la réplication synchrone, mais de préférence RDMA.
+* Au moins 2Go de RAM et deux cœurs par serveur.
+* Un réseau entre les serveurs, avec une bande passante suffisante pour contenir votre charge d’écriture d’E/S et une latence d’opération complète d’au maximum 5 ms pour la réplication synchrone. La réplication asynchrone ne présente pas de recommandation en matière de latence.
+* Windows Server, Datacenter Edition ou Windows Server, Édition Standard. Réplica de stockage s’exécutant sur Windows Server, Édition Standard, présente les limitations suivantes :
+
+  * Vous devez utiliser Windows Server 2019 ou version ultérieure
+  * Le réplica de stockage réplique un volume unique au lieu d’un nombre illimité de volumes.
+  * Volumes peuvent avoir une taille de 2 To au lieu d’une taille illimitée.
 
 ##  <a name="BKMK_SR4"> </a> En arrière-plan  
 Cette section fournit des informations sur les termes généraux liés au secteur d’activité, la réplication synchrone et asynchrone, ainsi que les principaux comportements.
@@ -152,13 +156,13 @@ Avec son objectif de point de récupération supérieur à zéro, la réplicatio
 
 -   Le volume de destination n’est pas accessible lors de la réplication dans Windows Server 2016. Quand vous configurez la réplication, le volume de destination est démonté, ce qui le rend inaccessible à toute lecture ou écriture par les utilisateurs. Sa lettre de lecteur peut être visible dans des interfaces standard comme l’Explorateur de fichiers, mais aucune application ne peut accéder au volume lui-même. Les technologies de réplication au niveau du bloc sont incompatibles avec l’autorisation d’accès au système de fichiers monté de la cible de destination dans un volume. NTFS et ReFS ne prennent pas en charge les utilisateurs qui écrivent des données dans le volume tandis que les blocs changent en dessous. 
 
-Dans Windows Server, version 1709 la **Test de basculement** applet de commande a été ajoutée. Présent prend en charge le montage temporairement un instantané en lecture-écriture du volume de destination pour les sauvegardes, des tests, etc. Consultez https://aka.ms/srfaq pour plus d’informations.
+Dans Windows Server 2019 (et Windows Server, version 1709) le **Test de basculement** applet de commande a été ajoutée. Présent prend en charge le montage temporairement un instantané en lecture-écriture du volume de destination pour les sauvegardes, des tests, etc. Consultez https://aka.ms/srfaq pour plus d’informations.
 
 -   L’implémentation Microsoft de la réplication asynchrone est différente de la plupart. La plupart des implémentations du secteur d’activité de la réplication asynchrone s’appuie sur la réplication basée sur un instantané, où les transferts différentiels réguliers passent sur l’autre nœud et fusionnent. La réplication asynchrone du réplica de stockage fonctionne exactement comme la réplication synchrone, sauf qu’elle supprime la nécessité d’un accusé de réception synchrone sérialisé à partir de la destination. Cela signifie que le réplica de stockage a théoriquement un objectif de point de récupération inférieur, car la réplication est permanente. Toutefois, cela signifie également qu’il repose sur la garantie de cohérence d’application interne au lieu d’utiliser des instantanés pour forcer la cohérence dans les fichiers d’application. Le réplica de stockage garantit la cohérence d’incident dans tous les modes de réplication  
 
 -   De nombreux clients utilisent la réplication DFS comme solution de récupération d’urgence, même si elle est souvent peu pratique pour ce scénario. Incapable de répliquer les fichiers ouverts, elle est conçue pour minimiser l’utilisation de la bande passante au détriment des performances, ce qui conduit à des deltas de point de récupération importants. Le réplica de stockage peut vous permettre de retirer la réplication DFS de certains types de tâche de récupération d’urgence.  
 
--   Le réplica de stockage n’est pas une sauvegarde. Certains environnements informatiques déploient des systèmes de réplication en tant que solutions de sauvegarde, en raison de leurs options de perte nulle de données par rapport aux sauvegardes quotidiennes. Le réplica de stockage réplique toutes les modifications dans tous les blocs de données sur le volume, quel que soit le type de modification. Si un utilisateur supprime toutes les données d’un volume, le réplica de stockage réplique la suppression instantanément sur l’autre volume, supprimant définitivement les données depuis les deux serveurs. N’utilisez pas le réplica de stockage en remplacement d’une solution de sauvegarde jusqu’à une date et une heure données.  
+-   Réplica de stockage n’est pas une solution de sauvegarde. Certains environnements informatiques déploient des systèmes de réplication en tant que solutions de sauvegarde, en raison de leurs options de perte nulle de données par rapport aux sauvegardes quotidiennes. Le réplica de stockage réplique toutes les modifications dans tous les blocs de données sur le volume, quel que soit le type de modification. Si un utilisateur supprime toutes les données d’un volume, le réplica de stockage réplique la suppression instantanément sur l’autre volume, supprimant définitivement les données depuis les deux serveurs. N’utilisez pas le réplica de stockage en remplacement d’une solution de sauvegarde jusqu’à une date et une heure données.  
 
 -   Le réplica de stockage n’est pas identique au réplica Hyper-V ni aux groupes de disponibilité AlwaysOn Microsoft SQL. Le réplica de stockage est un moteur indépendant du stockage à usage général. Par définition, il ne peut pas adapter son comportement de façon aussi idéale que la réplication au niveau de l’application. Cela peut entraîner des lacunes de fonctionnalités spécifiques qui vous encouragent à déployer ou conserver des technologies de réplication d’application particulières.  
 
@@ -184,7 +188,7 @@ Pour obtenir la liste des nouvelles fonctionnalités de réplica de stockage dan
 - [Réplication de Cluster étendu à l’aide d’un stockage partagé](stretch-cluster-replication-using-shared-storage.md)  
 - [Réplication du stockage de serveur à serveur](server-to-server-storage-replication.md)  
 - [Réplication du stockage de cluster à Cluster](cluster-to-cluster-storage-replication.md)  
-- [Réplica de stockage : Problèmes connus](storage-replica-known-issues.md)  
-- [Réplica de stockage : Forum aux Questions](storage-replica-frequently-asked-questions.md)  
+- [Réplica de stockage : Problèmes connus](storage-replica-known-issues.md)  
+- [Réplica de stockage : Forum Aux Questions](storage-replica-frequently-asked-questions.md)  
 - [Espaces de stockage Direct dans Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)
 - [Windows IT Pro prise en charge](https://www.microsoft.com/itpro/windows/support)

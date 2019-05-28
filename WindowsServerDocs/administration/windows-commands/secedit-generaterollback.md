@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d7a55ddc3caea1002ab51ce4f992b36673ea312b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3229e6ccb07c925a900b298a8332c5e48cefefe7
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825640"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564669"
 ---
 # <a name="seceditgeneraterollback"></a>secedit:generaterollback
 
@@ -44,11 +44,11 @@ Secedit /generaterollback /db <database file name> /cfg <configuration file name
 
 ## <a name="remarks"></a>Notes
 
-Si le chemin d’accès du fichier journal n’est pas fourni, le fichier journal par défaut, (*systemroot*\Users \*UserAccount*\My Documents\Security\Logs\*DatabaseName*.log) est utilisé.
+Si le chemin d’accès du fichier journal n’est pas fourni, le fichier journal par défaut, (*systemroot*\Users \*UserAccount *\My Documents\Security\Logs\*DatabaseName*.log) est utilisé.
 
 À partir de Windows Server 2008, `Secedit /refreshpolicy` a été remplacé par `gpupdate`. Pour plus d’informations sur l’actualisation des paramètres de sécurité, consultez [Gpupdate](gpupdate.md).
 
-L’état de l’exécution réussie de cette commande « la tâche est terminée avec succès. ? journaux et uniquement les incompatibilités entre le modèle de sécurité et la configuration de stratégie de sécurité. Il répertorie ces incompatibilités dans le scesrv.log.
+L’exécution réussie de cette commande indique « la tâche est terminée avec succès ». journaux et uniquement les incompatibilités entre le modèle de sécurité et la configuration de stratégie de sécurité. Il répertorie ces incompatibilités dans le scesrv.log.
 
 Si un modèle de restauration existant est spécifié, cette commande remplace. Vous pouvez créer un nouveau modèle de restauration avec cette commande. Aucuns paramètres supplémentaires ne sont nécessaires pour des conditions.
 
@@ -62,4 +62,4 @@ Secedit /generaterollback /db C:\Security\FY11\SecDbContoso.sdb /cfg sectmplcont
 #### <a name="additional-references"></a>Références supplémentaires
 
 -   [Secedit](secedit.md)
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

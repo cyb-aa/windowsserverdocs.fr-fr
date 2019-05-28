@@ -6,18 +6,18 @@ ms.author: nedpyle
 ms.technology: storage-replica
 ms.topic: get-started-article
 author: nedpyle
-ms.date: 10/26/2016
+ms.date: 04/26/2019
 ms.assetid: 6c5b9431-ede3-4438-8cf5-a0091a8633b0
-ms.openlocfilehash: 18c3c694e1d2e21a7068877ba22786862824bea6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fc49674d518756424acc02bd5b830c361c7400df
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888370"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64772427"
 ---
 # <a name="stretch-cluster-replication-using-shared-storage"></a>Réplication de cluster étendu à l’aide d’un stockage partagé
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
 Dans cet exemple d’évaluation, vous allez configurer ces ordinateurs et leur stockage dans un seul cluster étendu, où deux nœuds partagent un ensemble de stockage et deux nœuds en partagent un autre. La réplication garde ensuite les deux ensembles de stockage en miroir dans le cluster pour permettre un basculement immédiat. Ces nœuds et leur stockage doivent se trouver sur des sites physiques distincts, même si cela n’est pas obligatoire. Les procédures sont distinctes pour créer des clusters Hyper-V et de serveur de fichiers en tant qu’exemples de scénarios.  
 
@@ -40,7 +40,7 @@ Cette procédure pas à pas utilise l’environnement suivant comme exemple :
 
 ## <a name="prerequisites"></a>Prérequis  
 -   Forêt de services de domaine Active Directory (exécution de Windows Server 2016 non nécessaire).  
--   Au moins deux serveurs sur lesquels Windows Server 2016 édition Datacenter est installé. Prend en charge un cluster de 64 nœuds au maximum.  
+-   2-64 les serveurs exécutant Windows Server 2019 ou Windows Server 2016 Datacenter Edition. Si vous exécutez Windows Server 2019, vous pouvez utiliser à la place de Standard Edition si vous effectuez une réplication OK un seul volume jusqu'à 2 To. 
 -   Deux ensembles de stockage partagé avec JBOD SAS (comme pour les espaces de stockage), SAN Fibre Channel, VHDX partagé ou cible iSCSI. Le stockage doit contenir un mélange de disques SSD et HDD, et doit prendre en charge la réservation persistante. Vous mettrez chaque ensemble de stockage à la disposition de deux des serveurs uniquement (asymétrique).  
 -   Chaque ensemble de stockage doit autoriser la création d’au moins deux disques virtuels, un pour les données répliquées et un autre pour les journaux. Le stockage physique doit avoir la même taille de secteur sur tous les disques de données. Le stockage physique doit avoir la même taille de secteur sur tous les disques de journal.  
 -   Au moins une connexion 1GbE sur chaque serveur pour la réplication synchrone, mais de préférence RDMA.   
@@ -53,7 +53,7 @@ La plupart de ces exigences peuvent être déterminées à l’aide de l’apple
 
 ## <a name="provision-operating-system-features-roles-storage-and-network"></a>Configurer le système d’exploitation, les fonctionnalités, les rôles, le stockage et le réseau  
 
-1.  Installez Windows Server 2016 Datacenter Edition sur tous les nœuds serveur. Ne choisissez pas la version Standard Edition si elle est disponible, car elle ne contient pas les réplicas de stockage. Les modes d’installation Expérience utilisateur Windows Server, Windows Server principal et Windows Server Nano sont tous pris en charge.  
+1.  Installez Windows Server sur tous les nœuds de serveur, à l’aide de Server Core ou serveur avec les options d’installation expérience utilisateur.  
     > [!IMPORTANT]
     > À partir de ce stade, connectez-vous toujours en tant qu’utilisateur de domaine membre du groupe Administrateurs intégré sur tous les serveurs. Pensez toujours à élever vos invites CMD et PowerShell à l’avenir lors de l’exécution sur une installation de serveur graphique ou sur un ordinateur Windows10.
 
@@ -92,7 +92,7 @@ La plupart de ces exigences peuvent être déterminées à l’aide de l’apple
 
         ```  
 
-        Pour plus d’informations sur ces étapes, voir [Installer ou désinstaller des rôles, services de rôle ou fonctionnalités](https://technet.microsoft.com/library/hh831809.aspx).  
+        Pour plus d’informations sur ces étapes, voir [Installer ou désinstaller des rôles, services de rôle ou fonctionnalités](../../administration/server-manager/install-or-uninstall-roles-role-services-or-features.md).  
 
 
 8. Configurez le stockage comme suit :  
@@ -114,13 +114,13 @@ La plupart de ces exigences peuvent être déterminées à l’aide de l’apple
 
         1.  Vérifiez que chaque ensemble de nœuds de serveur associés peut voir uniquement les boîtiers de stockage de ce site (autrement dit, un stockage asymétrique) et que les connexions SAS sont correctement configurées.  
 
-        2.  Configurez le stockage à l’aide d’espaces de stockage en suivant les **étapes1 à3** indiquées dans [Déployer des espaces de stockage sur un serveur autonome](https://technet.microsoft.com/library/jj822938.aspx) à l’aide de Windows PowerShell ou du Gestionnaire de serveur.  
+        2.  Configurez le stockage à l’aide d’espaces de stockage en suivant les **étapes1 à3** indiquées dans [Déployer des espaces de stockage sur un serveur autonome](../storage-spaces/deploy-standalone-storage-spaces.md) à l’aide de Windows PowerShell ou du Gestionnaire de serveur.  
 
     -   **Pour le stockage iSCSI :**  
 
         1.  Vérifiez que chaque ensemble de nœuds de serveur associés peut voir uniquement les boîtiers de stockage de ce site (autrement dit, un stockage asymétrique). Vous devez utiliser plusieurs cartes réseau si vous utilisez iSCSI.  
 
-        2.  Configurez le stockage à l’aide de la documentation de votre fournisseur. Si vous utilisez le ciblage iSCSI basé sur Windows, voir [Stockage par blocs de cibles iSCSI, procédure](https://technet.microsoft.com/library/hh848268.aspx).  
+        2.  Configurez le stockage à l’aide de la documentation de votre fournisseur. Si vous utilisez le ciblage iSCSI basé sur Windows, voir [Stockage par blocs de cibles iSCSI, procédure](../iscsi/iscsi-target-server.md).  
 
     -   **Pour le stockage SAN Fibre Channel :**  
 
@@ -139,7 +139,7 @@ Après avoir configuré vos nœuds de serveur, l’étape suivante consiste à c
 >[!NOTE]
 > Ignorez cette section et passez à la section [Configurer un cluster Serveur de fichiers pour une utilisation générale](#BKMK_FileServer) si vous souhaitez créer un cluster de serveurs de fichiers et non un cluster Hyper-V.  
 
-Vous allez maintenant créer un cluster de basculement normal. Après la configuration, la validation et le test, vous allez l’étirer à l’aide d’un réplica de stockage. Vous pouvez effectuer toutes les étapes ci-dessous sur les nœuds de cluster directement ou à partir d’un ordinateur de gestion distant qui contient les outils d’administration de serveur distant de Windows Server2016.  
+Vous allez maintenant créer un cluster de basculement normal. Après la configuration, la validation et le test, vous allez l’étirer à l’aide d’un réplica de stockage. Vous pouvez effectuer toutes les étapes ci-dessous sur les nœuds de cluster directement ou à partir d’un ordinateur de gestion à distance qui contient les outils d’Administration de serveur à distance Windows Server.  
 
 #### <a name="graphical-method"></a>Méthode graphique  
 
@@ -150,15 +150,15 @@ Vous allez maintenant créer un cluster de basculement normal. Après la configu
     > [!NOTE]  
     > Vous devez vous attendre à des erreurs de stockage suite à la validation du cluster, en raison de l’utilisation du stockage asymétrique.  
 
-3.  Créez le cluster de calcul Hyper-V. Vérifiez que le nom du cluster comporte au maximum 15 caractères. L’exemple utilisé ci-dessous est SR-SRVCLUS. Si vous comptez les nœuds résident dans des sous-réseaux différents, vous devez créer une adresse IP pour le nom du Cluster pour chaque sous-réseau et utiliser la dépendance « Ou ».  Plus d’informations, consultez [configuration des adresses IP et les dépendances pour les Clusters de sous-réseaux multiples – partie III](https://blogs.msdn.microsoft.com/clustering/2011/08/31/configuring-ip-addresses-and-dependencies-for-multi-subnet-clusters-part-iii/).  
+3.  Créez le cluster de calcul Hyper-V. Vérifiez que le nom du cluster comporte au maximum 15 caractères. L’exemple utilisé ci-dessous est SR-SRVCLUS. Si vous comptez les nœuds résident dans des sous-réseaux différents, vous devez créer une adresse IP pour le nom du Cluster pour chaque sous-réseau et utiliser la dépendance « Ou ».  Plus d’informations, consultez [configuration des adresses IP et les dépendances pour les Clusters de sous-réseaux multiples – partie III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).  
 
 4.  Configurez un témoin de partage de fichiers ou un témoin de cloud pour fournir un quorum en cas de perte du site.  
 
     > [!NOTE]  
-    > Windows Server 2016 inclut désormais une option de témoin cloud (Azure). Vous pouvez choisir cette option de quorum au lieu du témoin de partage de fichiers.  
+    > WIndows Server inclut désormais une option pour le Cloud (Azure)-témoin. Vous pouvez choisir cette option de quorum au lieu du témoin de partage de fichiers.  
 
     > [!WARNING]  
-    > Pour plus d’informations sur la configuration de quorum, voir [Configurer et gérer le quorum dans un cluster de basculement Windows Server2012](https://technet.microsoft.com/library/jj612870.aspx). Pour plus d’informations sur l’applet de commande `Set-ClusterQuorum`, consultez la page [Set-ClusterQuorum](https://technet.microsoft.com/library/hh847275.aspx).  
+    > Pour plus d’informations sur la configuration de quorum, voir [Configurer et gérer le quorum dans un cluster de basculement Windows Server2012](https://technet.microsoft.com/library/jj612870.aspx). Pour plus d’informations sur l’applet de commande `Set-ClusterQuorum`, consultez la page [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).  
 
 5.  Passez en revue [Recommandations de réseau pour un cluster Hyper-V dans Windows Server 2012](https://technet.microsoft.com/library/dn550728.aspx) et vérifiez que vous avez configuré de façon optimale la mise en réseau de cluster.  
 
@@ -172,14 +172,14 @@ Vous allez maintenant créer un cluster de basculement normal. Après la configu
 
 9. Démarrez Windows PowerShell et utilisez l’applet de commande `Test-SRTopology` pour déterminer si vous répondez à toutes les conditions des réplicas de stockage.  
 
-    Par exemple, pour valider deux des nœuds de cluster étendu proposés ayant chacun un volume **D:** et **E:**, et exécuter le test pendant 30 minutes :
+    Par exemple, pour valider deux des nœuds de cluster étendu proposés ayant chacun un volume **D:** et **E:** , et exécuter le test pendant 30 minutes :
     1. Déplacez la totalité du stockage disponible sur **SR-SRV01**.
     2. Cliquez sur **Créer un rôle vide** dans la section **Rôles** du Gestionnaire du cluster de basculement.
     3. Ajoutez le stockage en ligne à ce rôle vide nommé **Nouveau rôle**.
     4. Déplacez la totalité du stockage disponible sur **SR-SRV03**.
     5. Cliquez sur **Créer un rôle vide** dans la section **Rôles** du Gestionnaire du cluster de basculement.
     6. Déplacez le **Nouveau rôle (2)** vide sur **SR-SRV03**.
-    7. Ajoutez le stockage en ligne à ce rôle vide nommé **Nouveau rôle (2)**.
+    7. Ajoutez le stockage en ligne à ce rôle vide nommé **Nouveau rôle (2)** .
     8. Vous avez maintenant monté tout votre stockage avec des lettres de lecteur et pouvez évaluer le cluster avec `Test-SRTopology`.
 
         Exemple :
@@ -242,12 +242,13 @@ Vous allez maintenant créer un cluster de basculement normal. Après la configu
     > [!NOTE]
     >  Vous devez vous attendre à des erreurs de stockage suite à la validation du cluster, en raison de l’utilisation du stockage asymétrique.  
 
-2.  Créez le cluster de calcul Hyper-V (vous devez spécifier votre propre adresseIP statique que le cluster utilisera). Vérifiez que le nom du cluster comporte au maximum 15 caractères.  Si les nœuds se trouvent dans des sous-réseaux différents, qu’une adresse IP pour le site supplémentaire doit être créée à l’aide de la dépendance « Ou ». Plus d’informations, consultez [configuration des adresses IP et les dépendances pour les Clusters de sous-réseaux multiples – partie III](https://blogs.msdn.microsoft.com/clustering/2011/08/31/configuring-ip-addresses-and-dependencies-for-multi-subnet-clusters-part-iii/).
+2.  Créez le cluster de calcul Hyper-V (vous devez spécifier votre propre adresseIP statique que le cluster utilisera). Vérifiez que le nom du cluster comporte au maximum 15 caractères.  Si les nœuds se trouvent dans des sous-réseaux différents, qu’une adresse IP pour le site supplémentaire doit être créée à l’aide de la dépendance « Ou ». Plus d’informations, consultez [configuration des adresses IP et les dépendances pour les Clusters de sous-réseaux multiples – partie III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).
 ```PowerShell  
 New-Cluster -Name SR-SRVCLUS -Node SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04 -StaticAddress <your IP here>  
 Add-ClusterResource -Name NewIPAddress -ResourceType “IP Address” -Group “Cluster Group”
 Set-ClusterResourceDependency -Resource “Cluster Name” -Dependency “[Cluster IP Address] or [NewIPAddress]”
 ```  
+
 3.  Configurez un témoin de partage de fichiers ou un témoin de cloud (Azure) dans le cluster qui pointe vers un partage hébergé sur le contrôleur de domaine ou un autre serveur indépendant. Exemple :  
 
     ```PowerShell  
@@ -255,9 +256,9 @@ Set-ClusterResourceDependency -Resource “Cluster Name” -Dependency “[Clust
     ```  
 
     > [!NOTE]
-    > Windows Server 2016 inclut désormais une option de témoin cloud (Azure). Vous pouvez choisir cette option de quorum au lieu du témoin de partage de fichiers.  
+    > WIndows Server inclut désormais une option pour le Cloud (Azure)-témoin. Vous pouvez choisir cette option de quorum au lieu du témoin de partage de fichiers.  
     
-    Pour plus d’informations sur la configuration de quorum, voir [Configurer et gérer le quorum dans un cluster de basculement Windows Server2012](https://technet.microsoft.com/library/jj612870.aspx). Pour plus d’informations sur l’applet de commande `Set-ClusterQuorum`, consultez la page [Set-ClusterQuorum](https://technet.microsoft.com/library/hh847275.aspx).  
+    Pour plus d’informations sur la configuration de quorum, voir [Configurer et gérer le quorum dans un cluster de basculement Windows Server2012](https://technet.microsoft.com/library/jj612870.aspx). Pour plus d’informations sur l’applet de commande `Set-ClusterQuorum`, consultez la page [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).  
 
 4.  Passez en revue [Recommandations de réseau pour un cluster Hyper-V dans Windows Server 2012](https://technet.microsoft.com/library/dn550728.aspx) et vérifiez que vous avez configuré de façon optimale la mise en réseau de cluster.  
 
@@ -304,7 +305,7 @@ Set-ClusterResourceDependency -Resource “Cluster Name” -Dependency “[Clust
 >[!NOTE]
 > Ignorez cette section si vous avez déjà configuré un cluster de basculement Hyper-V comme décrit dans [Configurer un cluster de basculement Hyper-V](#BKMK_HyperV).  
 
-Vous allez maintenant créer un cluster de basculement normal. Après la configuration, la validation et le test, vous allez l’étirer à l’aide d’un réplica de stockage. Vous pouvez effectuer toutes les étapes ci-dessous sur les nœuds de cluster directement ou à partir d’un ordinateur de gestion distant qui contient les outils d’administration de serveur distant de Windows Server2016.  
+Vous allez maintenant créer un cluster de basculement normal. Après la configuration, la validation et le test, vous allez l’étirer à l’aide d’un réplica de stockage. Vous pouvez effectuer toutes les étapes ci-dessous sur les nœuds de cluster directement ou à partir d’un ordinateur de gestion à distance qui contient les outils d’Administration de serveur à distance Windows Server.  
 
 #### <a name="graphical-method"></a>Méthode graphique  
 
@@ -313,13 +314,13 @@ Vous allez maintenant créer un cluster de basculement normal. Après la configu
 2.  Validez le cluster proposé et analysez les résultats pour vérifier que vous pouvez continuer.  
     >[!NOTE]
     >Vous devez vous attendre à des erreurs de stockage suite à la validation du cluster, en raison de l’utilisation du stockage asymétrique.   
-3. Créez le cluster de stockage Serveur de fichiers pour une utilisation générale. Vérifiez que le nom du cluster comporte au maximum 15 caractères. L’exemple utilisé ci-dessous est SR-SRVCLUS.  Si vous comptez les nœuds résident dans des sous-réseaux différents, vous devez créer une adresse IP pour le nom du Cluster pour chaque sous-réseau et utiliser la dépendance « Ou ».  Plus d’informations, consultez [configuration des adresses IP et les dépendances pour les Clusters de sous-réseaux multiples – partie III](https://blogs.msdn.microsoft.com/clustering/2011/08/31/configuring-ip-addresses-and-dependencies-for-multi-subnet-clusters-part-iii/).  
+3. Créez le cluster de stockage Serveur de fichiers pour une utilisation générale. Vérifiez que le nom du cluster comporte au maximum 15 caractères. L’exemple utilisé ci-dessous est SR-SRVCLUS.  Si vous comptez les nœuds résident dans des sous-réseaux différents, vous devez créer une adresse IP pour le nom du Cluster pour chaque sous-réseau et utiliser la dépendance « Ou ».  Plus d’informations, consultez [configuration des adresses IP et les dépendances pour les Clusters de sous-réseaux multiples – partie III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).  
 
 4.  Configurez un témoin de partage de fichiers ou un témoin de cloud pour fournir un quorum en cas de perte du site.  
     >[!NOTE]
-    > Windows Server 2016 inclut désormais une option de témoin cloud (Azure). Vous pouvez choisir cette option de quorum au lieu du témoin de partage de fichiers.                                                                                                                                                                             
+    > WIndows Server inclut désormais une option pour le Cloud (Azure)-témoin. Vous pouvez choisir cette option de quorum au lieu du témoin de partage de fichiers.                                                                                                                                                                             
     >[!NOTE]
-    >  Pour plus d’informations sur la configuration de quorum, voir [Configurer et gérer le quorum dans un cluster de basculement Windows Server2012](https://technet.microsoft.com/library/jj612870.aspx). Pour plus d’informations sur l’applet de commande Set-ClusterQuorum, voir [Set-ClusterQuorum](https://technet.microsoft.com/library/hh847275.aspx). 
+    >  Pour plus d’informations sur la configuration de quorum, voir [Configurer et gérer le quorum dans un cluster de basculement Windows Server2012](https://technet.microsoft.com/library/jj612870.aspx). Pour plus d’informations sur l’applet de commande Set-ClusterQuorum, voir [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum). 
 
 5.  Si vous créez un cluster étendu à deux nœuds, vous devez ajouter tout le stockage avant de continuer. Pour ce faire, ouvrez une session PowerShell avec des autorisations administratives sur les nœuds de cluster et exécutez la commande suivante : `Get-ClusterAvailableDisk -All | Add-ClusterDisk`.
 
@@ -365,33 +366,40 @@ Vous allez maintenant créer un cluster de basculement normal. Après la configu
 
 16.  (Facultatif) Configurez la mise en réseau de cluster et Active Directory pour un basculement plus rapide du site DNS. Vous pouvez utiliser des réseaux VLAN étirés, des périphériques d’abstraction de réseau, le TTL du DNS abaissé et d’autres techniques courantes.  
 
-    Pour plus d’informations, consultez la session Microsoft Ignite : [Stretching Failover Clusters and Using Storage Replica in Windows Server vNext](http://channel9.msdn.com/events/ignite/2015/brk3487) (Extension des clusters de basculement et utilisation de réplicas de stockage dans Windows Server vNext) et le billet de blog [Enable Change Notifications between Sites - How and Why?](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx) (Permettre les notifications de modification entre les sites : comment et pourquoi ?).    
+Pour plus d’informations, consultez la session Microsoft Ignite : [Stretching Failover Clusters and Using Storage Replica in Windows Server vNext](http://channel9.msdn.com/events/ignite/2015/brk3487) (Extension des clusters de basculement et utilisation de réplicas de stockage dans Windows Server vNext) et le billet de blog [Enable Change Notifications between Sites - How and Why?](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx) (Permettre les notifications de modification entre les sites : comment et pourquoi ?).    
 
-#### <a name="powershell-method"></a>Méthode PowerShell  
+#### <a name="powershell-method"></a>Méthode PowerShell
+
 1. Testez le cluster proposé et analysez les résultats pour vous assurer que vous pouvez continuer:    
 
-        Test-Cluster SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04  
+    ```PowerShell
+    Test-Cluster SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04
+    ```
 
     > [!NOTE]
     >  Vous devez vous attendre à des erreurs de stockage suite à la validation du cluster, en raison de l’utilisation du stockage asymétrique.   
 
-2.  Créez le cluster de calcul Hyper-V (vous devez spécifier votre propre adresseIP statique que le cluster utilisera). Vérifiez que le nom du cluster comporte au maximum 15 caractères.  Si les nœuds se trouvent dans des sous-réseaux différents, qu’une adresse IP pour le site supplémentaire doit être créée à l’aide de la dépendance « Ou ». Plus d’informations, consultez [configuration des adresses IP et les dépendances pour les Clusters de sous-réseaux multiples – partie III](https://blogs.msdn.microsoft.com/clustering/2011/08/31/configuring-ip-addresses-and-dependencies-for-multi-subnet-clusters-part-iii/).  
+2.  Créez le cluster de calcul Hyper-V (vous devez spécifier votre propre adresseIP statique que le cluster utilisera). Vérifiez que le nom du cluster comporte au maximum 15 caractères.  Si les nœuds se trouvent dans des sous-réseaux différents, qu’une adresse IP pour le site supplémentaire doit être créée à l’aide de la dépendance « Ou ». Plus d’informations, consultez [configuration des adresses IP et les dépendances pour les Clusters de sous-réseaux multiples – partie III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).  
 
-        New-Cluster -Name SR-SRVCLUS -Node SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04 -StaticAddress <your IP here> 
+    ```PowerShell
+    New-Cluster -Name SR-SRVCLUS -Node SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04 -StaticAddress <your IP here> 
 
-        Add-ClusterResource -Name NewIPAddress -ResourceType “IP Address” -Group “Cluster Group”
+    Add-ClusterResource -Name NewIPAddress -ResourceType “IP Address” -Group “Cluster Group”
 
-        Set-ClusterResourceDependency -Resource “Cluster Name” -Dependency “[Cluster IP Address] or [NewIPAddress]”
+    Set-ClusterResourceDependency -Resource “Cluster Name” -Dependency “[Cluster IP Address] or [NewIPAddress]”
+    ```
 
 
 3. Configurez un témoin de partage de fichiers ou un témoin de cloud (Azure) dans le cluster qui pointe vers un partage hébergé sur le contrôleur de domaine ou un autre serveur indépendant. Exemple :  
 
-       Set-ClusterQuorum -FileShareWitness \\someserver\someshare  
+    ```PowerShell
+    Set-ClusterQuorum -FileShareWitness \\someserver\someshare
+    ```
 
     >[!NOTE]
-    > Windows Server 2016 inclut désormais une option de témoin cloud (Azure). Vous pouvez choisir cette option de quorum au lieu du témoin de partage de fichiers.  
+    > Windows Server inclut désormais une option de témoin de cloud à l’aide d’Azure. Vous pouvez choisir cette option de quorum au lieu du témoin de partage de fichiers.  
 
-   Pour plus d’informations sur la configuration de quorum, voir [Configurer et gérer le quorum dans un cluster de basculement Windows Server2012](https://technet.microsoft.com/library/jj612870.aspx). Pour plus d’informations sur l’applet de commande Set-ClusterQuorum, voir [Set-ClusterQuorum](https://technet.microsoft.com/library/hh847275.aspx).   
+   Pour plus d’informations sur la configuration de quorum, consultez le [quorum de cluster et pool compréhension](../storage-spaces/understand-quorum.md). Pour plus d’informations sur l’applet de commande Set-ClusterQuorum, voir [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).
 
 4.  Si vous créez un cluster étendu à deux nœuds, vous devez ajouter tout le stockage avant de continuer. Pour ce faire, ouvrez une session PowerShell avec des autorisations administratives sur les nœuds de cluster et exécutez la commande suivante : `Get-ClusterAvailableDisk -All | Add-ClusterDisk`.
 
@@ -399,16 +407,16 @@ Vous allez maintenant créer un cluster de basculement normal. Après la configu
 
 5. Vérifiez que vous avez configuré de façon optimale la mise en réseau de cluster.  
 
-6.  Configurez un rôle de serveur de fichiers. Exemple :   
+6.  Configurez un rôle de serveur de fichiers. Exemple :
 
-        ```PowerShell  
-        Get-ClusterResource  
-        Add-ClusterFileServerRole -Name SR-CLU-FS2 -Storage "Cluster Disk 4"  
+    ```PowerShell  
+    Get-ClusterResource  
+    Add-ClusterFileServerRole -Name SR-CLU-FS2 -Storage "Cluster Disk 4"  
 
-        MD e:\share01  
+    MD e:\share01  
 
-        New-SmbShare -Name Share01 -Path f:\share01 -ContinuouslyAvailable $false  
-        ```
+    New-SmbShare -Name Share01 -Path f:\share01 -ContinuouslyAvailable $false  
+    ```
 
 7. Configurez la reconnaissance des sites de cluster étendu pour que les serveurs SR-SRV01 et SR-SRV02 figurent dans le site Redmond, SR-SRV03 et SR-SRV04 dans le site Bellevue, et que Redmond soit préféré pour la propriété des nœuds du stockage source et des machines virtuelles :  
 
@@ -430,7 +438,7 @@ Vous allez maintenant créer un cluster de basculement normal. Après la configu
     Pour plus d’informations, consultez la session Microsoft Ignite : [Stretching Failover Clusters and Using Storage Replica in Windows Server vNext](http://channel9.msdn.com/events/ignite/2015/brk3487) (Extension des clusters de basculement et utilisation de réplicas de stockage dans Windows Server vNext) et le billet de blog [Enable Change Notifications between Sites - How and Why?](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx) (Permettre les notifications de modification entre les sites : comment et pourquoi ?).
 
 ### <a name="configure-a-stretch-cluster"></a>Configurer un cluster étendu  
-Vous allez maintenant configurer le cluster étendu à l’aide du Gestionnaire du cluster de basculement ou de Windows PowerShell. Vous pouvez effectuer toutes les étapes ci-dessous sur les nœuds de cluster directement ou à partir d’un ordinateur de gestion distant qui contient les outils d’administration de serveur distant de Windows Server2016.  
+Vous allez maintenant configurer le cluster étendu à l’aide du Gestionnaire du cluster de basculement ou de Windows PowerShell. Vous pouvez effectuer toutes les étapes ci-dessous sur les nœuds de cluster directement ou à partir d’un ordinateur de gestion à distance qui contient les outils d’Administration de serveur à distance Windows Server.  
 
 #### <a name="failover-cluster-manager-method"></a>Méthode du Gestionnaire du cluster de basculement  
 
@@ -622,7 +630,7 @@ Si vous répliquez une charge de travail de ressource de disque physique comme S
     ```  
 
 ### <a name="manage-stretched-cluster-replication"></a>Gérer la réplication de cluster étendu  
-Vous allez maintenant gérer et faire fonctionner votre cluster étendu. Vous pouvez effectuer toutes les étapes ci-dessous sur les nœuds de cluster directement ou à partir d’un ordinateur de gestion distant qui contient les outils d’administration de serveur distant de Windows Server2016.  
+Vous allez maintenant gérer et faire fonctionner votre cluster étendu. Vous pouvez effectuer toutes les étapes ci-dessous sur les nœuds de cluster directement ou à partir d’un ordinateur de gestion à distance qui contient les outils d’Administration de serveur à distance Windows Server.  
 
 #### <a name="graphical-tools-method"></a>Méthode des outils graphiques  
 
@@ -658,7 +666,7 @@ Vous allez maintenant gérer et faire fonctionner votre cluster étendu. Vous po
         > [!NOTE]
         > Le réplica de stockage démonte les volumes de destination. Cela est normal.  
 
-4.  Pour modifier la taille du journal par défaut de 8Go dans Windows Server2016, cliquez avec le bouton droit sur les disques de journal source et de destination, cliquez sur l’onglet **Journal de réplication**, puis modifiez la taille des deux disques pour les faire correspondre.  
+4.  Pour modifier la taille du journal par défaut de 8 Go, avec le bouton droit de la source et la destination des disques de journal, cliquez sur le **journal de réplication** onglet, puis modifiez la taille des deux disques pour faire correspondre.  
 
     > [!NOTE]  
     > La taille du journal par défaut est de 8 Go. En fonction des résultats de l’applet de commande `Test-SRTopology`, vous pouvez décider d’utiliser `-LogSizeInBytes` avec une valeur supérieure ou inférieure.  
@@ -737,7 +745,7 @@ Vous allez maintenant gérer et faire fonctionner votre cluster étendu. Vous po
 
     -   \Statistiques du réplica du système de stockage(*)\Nombre de messages envoyés  
 
-    Pour plus d’informations sur les compteurs de performances dans Windows PowerShell, consultez [Get-Counter](https://technet.microsoft.com/library/hh849685.aspx).  
+    Pour plus d’informations sur les compteurs de performances dans Windows PowerShell, consultez [Get-Counter](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Diagnostics/Get-Counter).  
 
 3.  Pour modifier la source et la destination de réplication au sein du cluster étendu, utilisez les méthodes suivantes:  
 
@@ -762,7 +770,7 @@ Vous allez maintenant gérer et faire fonctionner votre cluster étendu. Vous po
         > [!NOTE]  
         > Le réplica de stockage démonte les volumes de destination. Cela est normal.  
 
-4.  Pour modifier la taille du journal par défaut de 8Go dans Windows Server2016, utilisez **Set-SRGroup** sur les groupes de réplicas de stockage source et cible.   Par exemple, pour définir une taille de 2Go pour tous les journaux:  
+4.  Pour modifier la taille du journal à partir de la valeur par défaut de 8 Go, utilisez **Set-SRGroup** sur les groupes de réplicas de stockage source et de destination.   Par exemple, pour définir une taille de 2Go pour tous les journaux:  
 
     ```PowerShell  
     Get-SRGroup | Set-SRGroup -LogSizeInBytes 2GB  
@@ -788,8 +796,8 @@ Vous allez maintenant gérer et faire fonctionner votre cluster étendu. Vous po
 - [Vue d’ensemble du réplica de stockage](storage-replica-overview.md)  
 - [Réplication du stockage de serveur à serveur](server-to-server-storage-replication.md)  
 - [Réplication du stockage de cluster à Cluster](cluster-to-cluster-storage-replication.md)  
-- [Réplica de stockage : Problèmes connus](storage-replica-known-issues.md) 
-- [Réplica de stockage : Forum aux Questions](storage-replica-frequently-asked-questions.md)  
+- [Réplica de stockage : Problèmes connus](storage-replica-known-issues.md) 
+- [Réplica de stockage : Forum Aux Questions](storage-replica-frequently-asked-questions.md)  
 
 ## <a name="see-also"></a>Voir aussi  
 - [Windows Server 2016](../../get-started/windows-server-2016.md)  

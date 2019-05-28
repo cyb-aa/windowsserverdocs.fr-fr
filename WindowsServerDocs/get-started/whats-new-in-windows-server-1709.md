@@ -7,25 +7,25 @@ ms.topic: article
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
-ms.openlocfilehash: 1d63721dde484756e67b68bcff078257c130ae36
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 32ce591a8b50c6e35c3fde4fedb177b6d76fccdd
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825490"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976729"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Nouveautés de Windows Server, version 1709
 
 >S'applique à : Windows Server (canal semi-annuel)
 
-<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Le contenu de cette section décrit les nouveautés et les modifications de Windows Server, version 1709. Les nouvelles fonctionnalités et modifications répertoriées ici sont celles qui sont susceptibles d'avoir l'impact le plus important quand vous utilisez cette version. Voir également [Windows Server, version 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
+<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Pour en savoir plus sur les dernières fonctionnalités dans Windows, consultez [What ' s New in Windows Server](whats-new-in-windows-server.md). Le contenu de cette section décrit les nouveautés et les modifications de Windows Server, version 1709. Les nouvelles fonctionnalités et modifications répertoriées ici sont celles qui sont susceptibles d'avoir l'impact le plus important quand vous utilisez cette version. Voir également [Windows Server, version 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
    
 
 ## <a name="new-cadence-of-releases"></a>Nouvelle cadence de versions
 
 À compter de cette version, il existe deux façons de recevoir les mises à jour des fonctionnalités Windows Server :
 - **À long terme (LTSC) de canal de maintenance**: Il s’agit d’entreprise comme d’habitude à l’aide de 5 ans de support standard et 5 ans de support étendu. Vous avez la possibilité dֹ’effectuer une mise à niveau vers la version suivante du canal de maintenance à long terme tous les 2 à 3 ans, comme cela est le cas depuis 20 ans.
-- **Canal semi-annuel (SAC)**: Ceci est un avantage de Software Assurance et est entièrement pris en charge en production. La différence réside dans le fait qu’il est pris en charge pendant 18 mois et qu’une nouvelle version est disponible tous les six mois.
+- **Canal semi-annuel (SAC)** : Ceci est un avantage de Software Assurance et est entièrement pris en charge en production. La différence réside dans le fait qu’il est pris en charge pendant 18 mois et qu’une nouvelle version est disponible tous les six mois.
 
 Les canaux de distribution sont résumés dans le tableau suivant.
 
@@ -36,7 +36,7 @@ Les canaux de distribution sont résumés dans le tableau suivant.
 | Disponibilité  | Software Assurance ou Azure (hébergement dans le cloud)  | Tous les canaux |
 | Convention d’affectation de noms  | Windows Server, version AAMM  | Windows Server AAAA |
 
-Pour plus d’informations, voir la [Présentation du canal semi-annuel de Windows Server](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview).
+Pour plus d’informations, consultez [comparaison des canaux de maintenance](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview).
 
 ## <a name="application-containers-and-micro-services"></a>Conteneurs d’applications et micro-services
 
@@ -66,11 +66,11 @@ La **prise en charge de la mémoire de classe stockage pour les ordinateurs virt
 
 La **mémoire persistante virtualisée (vPMEM)** est activée en créant un fichier VHD (.vhdpmem) sur un volume à accès direct sur un hôte, en ajoutant un contrôleur vPMEM à un ordinateur virtuel, puis en ajoutant le périphérique créé (.vhdpmem) à un ordinateur virtuel. L’utilisation de fichiers vhdpmem sur des volumes à accès direct sur un hôte pour sauvegarder la mémoire persistante virtualisée (vPMEM) offre une plus grande flexibilité d’allocation et tire parti d’un modèle de gestion familier pour l’ajout de disques à des ordinateurs virtuels.
 
-**Stockage de conteneur : il s’agit de volumes de données persistantes sur des volumes partagés de cluster (CSV)**. Dans Windows Server, version 1709, ainsi que dans Windows Server 2016 disposant des dernières mises à jour, nous avons ajouté la prise en charge de l’accès par des conteneurs à des volumes de données persistantes situés sur des volumes partagés de cluster, y compris des volumes partagés de cluster dans les espaces de stockage direct. Ainsi, le conteneur d’applications dispose d’un accès persistant au volume, quel que soit le nœud de cluster sur lequel s’exécute l’instance de conteneur. Pour plus d’informations, voir le billet de blog [Container Storage Support with Cluster Shared Volumes (CSV), Storage Spaces Direct (S2D), SMB Global Mapping](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
+**Stockage de conteneur : il s’agit de volumes de données persistantes sur des volumes partagés de cluster (CSV)** . Dans Windows Server, version 1709, ainsi que dans Windows Server 2016 disposant des dernières mises à jour, nous avons ajouté la prise en charge de l’accès par des conteneurs à des volumes de données persistantes situés sur des volumes partagés de cluster, y compris des volumes partagés de cluster dans les espaces de stockage direct. Ainsi, le conteneur d’applications dispose d’un accès persistant au volume, quel que soit le nœud de cluster sur lequel s’exécute l’instance de conteneur. Pour plus d’informations, voir le billet de blog [Container Storage Support with Cluster Shared Volumes (CSV), Storage Spaces Direct (S2D), SMB Global Mapping](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
 
 **Stockage de conteneur : il s’agit de volumes de données persistants avec le mappage global SMB**. Dans Windows Server, version 1709, nous avons ajouté la prise en charge du mappage d’un partage de fichiers SMB à une lettre de lecteur à l’intérieur d’un conteneur. Ce mappage est appelé mappage global SMB. Ce lecteur mappé est ensuite accessible à tous les utilisateurs sur le serveur local afin que les E/S de conteneur sur le volume de données puissent transiter via le lecteur monté pour accéder au partage de fichiers sous-jacent. Pour plus d’informations, voir le billet de blog [Container Storage Support with Cluster Shared Volumes (CSV), Storage Spaces Direct (S2D), SMB Global Mapping](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
 
-**Format de fichier de configuration d’ordinateur virtuel (mis à jour)**. Un fichier supplémentaire (.vmgs) a été ajouté pour les ordinateurs virtuels dont la version de configuration est 8.2 ou ultérieure. VMGS signifie « VM guest state » (état d’ordinateur virtuel invité) et est un nouveau fichier interne qui inclut l’état de l’appareil, lequel faisait précédemment partie du fichier d’état du runtime de l’ordinateur virtuel.
+**Format de fichier de configuration d’ordinateur virtuel (mis à jour)** . Un fichier supplémentaire (.vmgs) a été ajouté pour les ordinateurs virtuels dont la version de configuration est 8.2 ou ultérieure. VMGS signifie « VM guest state » (état d’ordinateur virtuel invité) et est un nouveau fichier interne qui inclut l’état de l’appareil, lequel faisait précédemment partie du fichier d’état du runtime de l’ordinateur virtuel.
 
 ## <a name="security-and-assurance"></a>Sécurité et assurance
 
@@ -115,7 +115,7 @@ De **nouvelles fonctionnalités de Docker** sont disponibles. Pour plus d’info
 **Windows Networking à parité avec Linux pour Kubernetes**: Windows est désormais identiques à celles de Linux en termes de mise en réseau. Les clients peuvent déployer des clusters Kubernetes sur des systèmes d’exploitation mixtes dans n’importe quel environnement (Azure, environnement local ou piles de cloud tiers) avec la même primitives et topologies de réseau que celles prises en charge sur Linux, sans avoir besoin de solutions de contournement ni d’extensions de commutateur.
 
 **Pile de réseau Core**: Plusieurs fonctionnalités de la pile de réseau de base sont améliorées. Pour plus d’informations sur ces fonctionnalités, voir le billet de blog [Core Network Stack Features in the Creators Update for Windows 10](https://blogs.technet.microsoft.com/networking/2017/07/13/core-network-stack-features-in-the-creators-update-for-windows-10/).
-- **TCP Fast Open (TFO)**: Prise en charge de TFO a été ajoutée pour optimiser le processus de négociation 3 voies TCP. TFO établit un cookie TFO sécurisé dans la première connexion à l’aide d’une connexion en 3 temps standard.  Les connexions suivantes au même serveur utilisent le cookie TFO au lieu d’une connexion en 3 temps pour se connecter avec un temps de réponse complet nul.
+- **TCP Fast Open (TFO)** : Prise en charge de TFO a été ajoutée pour optimiser le processus de négociation 3 voies TCP. TFO établit un cookie TFO sécurisé dans la première connexion à l’aide d’une connexion en 3 temps standard.  Les connexions suivantes au même serveur utilisent le cookie TFO au lieu d’une connexion en 3 temps pour se connecter avec un temps de réponse complet nul.
 - **CUBIQUE**: Expérimental Windows implémentation native cubique, un algorithme de contrôle de congestion TCP est disponible. Les commandes suivantes activent ou désactivent CUBIC, respectivement.
 
     ```
@@ -140,10 +140,10 @@ De **nouvelles fonctionnalités de Docker** sont disponibles. Pour plus d’info
     ```
 
     - **ISATAP et 6to4**: Comme une étape vers la désapprobation futures, la mise à jour Creators ont ces technologies désactivées par défaut.
-- **Détection des passerelles inactives (DGD)**: L’algorithme DGD passe automatiquement les connexions sur vers une autre passerelle lors de la passerelle est inaccessible. Dans cette version, l’algorithme a été amélioré afin de revérifier régulièrement l’environnement réseau.
+- **Détection des passerelles inactives (DGD)** : L’algorithme DGD passe automatiquement les connexions sur vers une autre passerelle lors de la passerelle est inaccessible. Dans cette version, l’algorithme a été amélioré afin de revérifier régulièrement l’environnement réseau.
 - [Test-NetConnection](https://technet.microsoft.com/itpro/powershell/windows/nettcpip/test-netconnection) est une applet de commande intégrée dans Windows PowerShell qui effectue différents diagnostics du réseau.  Dans cette version, nous avons amélioré l’applet de commande afin de fournir des informations détaillées à la fois sur la sélection de l’itinéraire et sur la sélection de l’adresse source.
 
-**Mise en réseau logicielle**
+**Mise en réseau SDN (Software Defined Networking)**
 
 - Le **chiffrement de réseau virtuel** est une nouvelle fonctionnalité qui permet de chiffrer le trafic réseau virtuel entre les ordinateurs virtuels qui communiquent entre eux au sein de sous-réseaux marqués comme ayant le « Chiffrement activé ». Cette fonctionnalité utilise le protocole DTLS (Datagram Transport Layer Security) sur le sous-réseau virtuel pour chiffrer les paquets.  DTLS offre une protection contre les écoutes clandestines, l’altération et la falsification par toute personne ayant accès au réseau physique.
  

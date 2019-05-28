@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: e63aa5d53f01fbff3029c6896556d92c9c99aa50
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4ede63ab08d204c29555b28ae3a73795291c321c
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857680"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222489"
 ---
 # <a name="managing-wsus-client-computers-and-wsus-computer-groups"></a>Gestion des ordinateurs clients WSUS et des groupes d’ordinateurs WSUS
 
@@ -29,10 +29,10 @@ Le nœud des ordinateurs est un point d’accès central dans la console d’adm
 ## <a name="managing-client-computers"></a>Gestion des ordinateurs clients
 En sélectionnant un des groupes d’ordinateurs dans le **ordinateurs** nœud sous **Options** entraîne les ordinateurs de ce groupe à afficher dans le volet détails. Si un ordinateur est affecté à plusieurs groupes, il apparaît dans les listes des deux groupes. Si vous sélectionnez un ordinateur dans la liste, vous pouvez voir ses propriétés, qui incluent des informations générales sur l’ordinateur et l’état des mises à jour, telles que l’installation ou l’état de la détection d’une mise à jour pour un ordinateur particulier. Vous pouvez filtrer la liste des ordinateurs sous un groupe d’ordinateurs donné par état. La valeur par défaut montre uniquement les ordinateurs pour les mises à jour sont nécessaires ou qui ont eu des échecs d’installation ; Toutefois, vous pouvez filtrer l’affichage par n’importe quel état. Cliquez sur **Actualiser** après avoir modifié le filtre d’état.
 
-Vous pouvez également gérer des groupes d’ordinateurs dans la page ordinateurs, ce qui inclut la création des groupes et en leur attribuant des ordinateurs. Pour plus d’informations sur la gestion des groupes d’ordinateurs, consultez Gestion des groupes d’ordinateurs dans la prochaine section de ce guide et [1.5. Planifier des groupes d’ordinateurs WSUS](../plan/plan-your-wsus-deployment.md#BKMK_1.5) à l’étape 1 : Préparer votre déploiement de WSUS du guide de déploiement de WSUS.
+Vous pouvez également gérer des groupes d’ordinateurs dans la page ordinateurs, ce qui inclut la création des groupes et en leur attribuant des ordinateurs. Pour plus d’informations sur la gestion des groupes d’ordinateurs, consultez Gestion des groupes d’ordinateurs dans la prochaine section de ce guide et [1.5. Planifier des groupes d’ordinateurs WSUS](../plan/plan-your-wsus-deployment.md#15-plan-wsus-computer-groups) à l’étape 1 : Préparer votre déploiement de WSUS du guide de déploiement de WSUS.
 
 > [!NOTE]
-> Vous devez d’abord configurer des ordinateurs clients contactent le serveur WSUS avant de pouvoir les gérer à partir de ce serveur. Jusqu'à ce que vous effectuez cette tâche, votre serveur WSUS ne reconnaîtra pas vos ordinateurs clients et ils seront affichera pas dans la liste dans la page ordinateurs. Pour plus d’informations sur la configuration des ordinateurs clients, consultez [1.5. Planifier des groupes d’ordinateurs WSUS](../plan/plan-your-wsus-deployment.md#BKMK_1.5) de l’étape 1 : Préparer votre déploiement de WSUS et l’étape 3 : Configurer WSUS, dans le guide de déploiement de WSUS.
+> Vous devez d’abord configurer des ordinateurs clients contactent le serveur WSUS avant de pouvoir les gérer à partir de ce serveur. Jusqu'à ce que vous effectuez cette tâche, votre serveur WSUS ne reconnaîtra pas vos ordinateurs clients et ils seront affichera pas dans la liste dans la page ordinateurs. Pour plus d’informations sur la configuration des ordinateurs clients, consultez [1.5. Planifier des groupes d’ordinateurs WSUS](../plan/plan-your-wsus-deployment.md#15-plan-wsus-computer-groups) de l’étape 1 : Préparer votre déploiement de WSUS et l’étape 3 : Configurer WSUS, dans le guide de déploiement de WSUS.
 
 ## <a name="controlling-when-wsus-client-computers-install-updates"></a>Contrôle lorsque les ordinateurs clients WSUS installer les mises à jour
 Il existe deux méthodes pour contrôler quand les ordinateurs clients WSUS installent les mises à jour :
@@ -55,6 +55,6 @@ Dans la mesure où les ordinateurs peuvent être affectés à plusieurs groupes,
 Vous pouvez affecter les ordinateurs à des groupes d’ordinateurs en adoptant l’une des deux méthodes, à savoir le ciblage côté serveur ou le ciblage côté client. Avec le ciblage côté serveur, vous déplacez manuellement un ou plusieurs ordinateurs clients à un groupe d’ordinateurs à la fois. Avec le ciblage côté client, vous utilisez la stratégie de groupe ou modifiez les paramètres du Registre sur les ordinateurs clients afin d’activer ces ordinateurs pour qu’ils soient automatiquement ajoutés dans les groupes d’ordinateurs précédemment créés. Ce processus peut être scripté et déployé sur de nombreux ordinateurs à la fois. Vous devez spécifier la méthode de ciblage que vous utiliserez sur le serveur WSUS en sélectionnant une des deux options sur la **ordinateurs** section de la **Options** page.
 
 > [!NOTE]
-> Si un serveur WSUS est exécuté en mode Réplica, il n’est pas possible de créer des groupes d’ordinateurs sur ce serveur. Tous les groupes d’ordinateurs nécessaires pour les clients du serveur réplica doivent être créés sur le serveur WSUS qui est la racine de l’arborescence du serveur WSUS. Pour plus d’informations sur le mode réplica, consultez [mode réplica de WSUS en cours d’exécution](running-wsus-replica-mode.md) et pour plus d’informations sur le ciblage de côté serveur et côté client, consultez la section [1.5. Planifier des groupes d’ordinateurs WSUS](../plan/plan-your-wsus-deployment.md#BKMK_1.5) de l’étape 1 : Préparer votre déploiement de WSUS dans le guide de déploiement de WSUS.
+> Si un serveur WSUS est exécuté en mode Réplica, il n’est pas possible de créer des groupes d’ordinateurs sur ce serveur. Tous les groupes d’ordinateurs nécessaires pour les clients du serveur réplica doivent être créés sur le serveur WSUS qui est la racine de l’arborescence du serveur WSUS. Pour plus d’informations sur le mode réplica, consultez [mode réplica de WSUS en cours d’exécution](running-wsus-replica-mode.md) et pour plus d’informations sur le ciblage de côté serveur et côté client, consultez la section [1.5. Planifier des groupes d’ordinateurs WSUS](../plan/plan-your-wsus-deployment.md#15-plan-wsus-computer-groups) de l’étape 1 : Préparer votre déploiement de WSUS dans le guide de déploiement de WSUS.
 
 

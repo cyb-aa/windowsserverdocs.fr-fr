@@ -11,19 +11,19 @@ ms.assetid: 02e31413-6140-4723-a8d6-46c7f667792d
 author: KBDAzure
 ms.author: kathydav
 ms.date: 12/05/2016
-ms.openlocfilehash: 48319e057da9c815a77349bba34996f89973d85a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3c88ef5ee700bb3906746402bf6cc8916976800
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850500"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192768"
 ---
 # <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?
 
 >S'applique à : Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
-> [!WARNING]
-> Si vous prévoyez de télécharger jamais un Windows virtual machines virtuelles en local vers Microsoft Azure, **génération 1 uniquement des machines virtuelles** qui se trouvent dans le format de fichier de disque dur virtuel et que vous disposez d’un disque de taille fixe sont pris en charge. Pour plus d’informations sur le téléchargement d’un disque dur virtuel Windows ou un VHDX, consultez [préparer un disque dur virtuel Windows à charger sur Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> [!NOTE]
+> Si vous prévoyez de jamais télécharger Windows machines virtuelles (VM) en local à Microsoft Azure, de génération 1 et de machines virtuelles de génération 2 dans le format de fichier de disque dur virtuel et que vous avez un disque de taille fixe sont pris en charge. Consultez [machines virtuelles de génération 2 sur Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) pour en savoir plus sur les fonctionnalités de génération 2 prise en charge sur Azure. Pour plus d’informations sur le téléchargement d’un disque dur virtuel Windows ou un VHDX, consultez [préparer un disque dur virtuel Windows à charger sur Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 Votre choix pour créer une génération 1 ou un ordinateur virtuel de génération 2 dépend de système d’exploitation invité que vous souhaitez installer et de la méthode de démarrage que vous souhaitez utiliser pour déployer l’ordinateur virtuel. Nous vous recommandons de créer une machine virtuelle de génération 2 pour tirer parti des fonctionnalités comme le démarrage sécurisé, sauf si une des instructions suivantes est remplie :  
 

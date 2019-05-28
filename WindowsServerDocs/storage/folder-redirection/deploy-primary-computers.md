@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7b3c87597e07102d00fc068b7ecd5744e4ba366f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 39b790f39a2bf9c6334eb2176aa2e5f2e0196c0c
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854010"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475965"
 ---
 # <a name="deploy-primary-computers-for-folder-redirection-and-roaming-user-profiles"></a>Déployer des ordinateurs principaux pour la Redirection de dossiers et profils utilisateur itinérants
 
->S’applique à : Windows 10, Windows 8, Windows 8.1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016
+>S’applique à : Windows 10, Windows 8, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2
 
 Cette rubrique décrit comment activer la prise en charge de l’ordinateur principal et de désigner les ordinateurs principaux pour les utilisateurs. Cela vous permet de contrôler quels ordinateurs utilisent la Redirection de dossiers et profils utilisateur itinérants.
 
@@ -31,7 +31,7 @@ Cette rubrique décrit comment activer la prise en charge de l’ordinateur prin
 Prise en charge de l’ordinateur principal nécessite la configuration suivante :
 
 - Le schéma des Services de domaine Active Directory (AD DS) doit être mis à jour pour inclure les ajouts de schéma Windows Server 2012 (installation d’un contrôleur de domaine de Windows Server 2012 automatiquement des mises à jour le schéma). Pour plus d’informations sur la mise à jour le schéma AD DS, consultez [intégration d’Adprep.exe](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh472161(v=ws.11)#adprepexe-integration>) et [exécution d’Adprep.exe](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd464018(v=ws.10)>).
-- Ordinateurs clients doivent exécuter Windows 10, Windows 8.1, Windows 8, Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012.
+- Ordinateurs clients doivent exécuter Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012.
 
 >[!TIP]
 >Bien que la prise en charge de l’ordinateur principal nécessite la Redirection de dossiers et/ou les profils utilisateur itinérants, si vous déployez ces technologies pour la première fois, il est préférable de configurer la prise en charge de l’ordinateur principal avant d’activer la stratégie de groupe qui configurent la Redirection de dossiers et Les profils utilisateur itinérants. Cela évite que des données utilisateur soient copiées sur des ordinateurs non principaux avant que la prise en charge des ordinateurs principaux soit activée. Pour plus d’informations de configuration, consultez [déployer la Redirection de dossiers](deploy-folder-redirection.md) et [déployer les profils utilisateur itinérants](deploy-roaming-user-profiles.md).
@@ -115,6 +115,6 @@ Voici comment tester les fonctionnalités de l’ordinateur principal :
 ## <a name="more-information"></a>Informations supplémentaires
 
 - [Déployer la Redirection de dossiers des fichiers hors connexion](deploy-folder-redirection.md)
-- [Déployer les profils utilisateur itinérants](deploy-roaming-user-profiles.md)
+- [Déployer des profils utilisateur itinérants](deploy-roaming-user-profiles.md)
 - [Vue d’ensemble de la Redirection de dossiers, fichiers hors connexion et les profils utilisateur itinérants](folder-redirection-rup-overview.md)
 - [Examiner un peu plus en détail ordinateurs principaux de Windows 8](https://blogs.technet.com/b/askds/archive/2012/10/23/digging-a-little-deeper-into-windows-8-primary-computer.aspx)

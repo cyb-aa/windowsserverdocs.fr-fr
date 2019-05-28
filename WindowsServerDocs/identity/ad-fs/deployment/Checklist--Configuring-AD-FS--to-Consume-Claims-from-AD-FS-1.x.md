@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: fe99487d3a770547af36f69722b442d0e2cbb8b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 41a71ff49d211d294768c0e4a55692ced3f2d844
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828290"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192450"
 ---
 # <a name="checklist-configuring-ad-fs--to-consume-claims-from-ad-fs-1x"></a>Liste de vérification : Configurer AD FS pour utiliser les revendications à partir d’AD FS 1.x
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
   
 ## <a name="checklist-configuring-ad-fs-to-consume-claims-from-adfs1x"></a>Liste de vérification : Configurer AD FS pour utiliser les revendications à partir d’AD FS 1.x  
 Cette liste comprend les tâches qui sont nécessaires à la configuration de votre Active Directory Federation Services \(AD FS\) Service de fédération dans Windows Server 2012 d’utiliser les revendications qui sont envoyées par an AD FS 1. *x* Service de fédération.  

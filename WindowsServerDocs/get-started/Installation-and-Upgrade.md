@@ -1,29 +1,27 @@
 ---
 title: Installation et mise à niveau de Windows Server
-description: ''
-ms.custom: na
+description: Comment installer, mettre à niveau ou migrer vers une version plus récente de Windows Server.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.date: 07/12/2018
+ms.date: 05/14/2019
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 98f876bd-63ff-4c3a-95d4-a8dd8d0d119c
-author: jaimeo
-ms.author: jaimeo
+author: jasongerend
+ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: c3b9070fc6cb9227ccfa445e23983d9e91fe5c82
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f859253188c46d3e34e7a6ae504bf3eeafbae75c
+ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859190"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65613174"
 ---
-# <a name="windows-server-installation-and-upgrade"></a>Installation et mise à niveau de Windows Server
+# <a name="windows-server-installation-and-upgrade"></a>Mise à niveau et installation de Windows Server
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+
+Vous recherchez Windows Server 2019 ? Consultez [installer, mettre à niveau ou migrer vers Windows Server 2019](../get-started-19/install-upgrade-migrate-19.md).
 
 > [!IMPORTANT]
 > Le support étendu de Windows Server 2008 R2 et de Windows Server 2008 prend fin en janvier 2020. [En savoir plus sur vos options de mise à niveau](#upgrading-from-windows-server-2008-r2-or-windows-server-2008).
@@ -31,13 +29,14 @@ ms.locfileid: "59859190"
 Il est peut-être temps de passer à une version plus récente de Windows Server. Selon la version que exécutez actuellement, vous disposez de nombreuses options de mise à niveau.
 
 ## <a name="installation"></a>Installation
+
 Si vous souhaitez effectuer une mise à niveau vers une version plus récente de Windows Server sur le même matériel, une procédure infaillible consiste à effectuer une **nouvelle installation**, où vous installez simplement la dernière version du système d’exploitation directement sur l’ancienne version, sur le même matériel, en supprimant ainsi le système d’exploitation précédent. Cette procédure est la plus simple, mais vous devez commencer par sauvegarder vos données et il vous faudra ensuite réinstaller vos applications. Vous devez prendre en compte plusieurs éléments, notamment la configuration système requise. Par conséquent, veillez à consulter les informations relatives à [Windows Server 2016](https://go.microsoft.com/fwlink/?LinkID=825558), [Windows Server 2012 R2](https://technet.microsoft.com/library/dn303418), et [Windows Server 2012](https://technet.microsoft.com/library/jj134246.aspx).
 
 La mise à niveau d’une version précommerciale (par exemple, Windows Server 2016 Technical Preview) vers la version finale (Windows Server 2016) requiert toujours une nouvelle installation.
 
 ## <a name="migration-recommended-for-windows-server-2016"></a>Migration (recommandée pour Windows Server 2016)
 
-La documentation relative à la migration de Windows Server vous aide à migrer un rôle ou une fonctionnalité à la fois d’un ordinateur source qui exécute Windows Server vers un autre ordinateur cible qui exécute la même version ou une version plus récente de Windows Server. À ces fins, la migration est définie comme étant le déplacement d’un rôle ou d’une fonctionnalité et des données associées vers un autre ordinateur, et non pas la mise à niveau de la fonctionnalité sur le même ordinateur. Il s’agit de la méthode recommandée pour déplacer votre charge de travail existante et les données associées vers une version plus récente de Windows Server. Pour commencer, vérifiez le [tableau sur la mise à niveau et la migration des rôles serveur](https://go.microsoft.com/fwlink/?LinkId=828595) pour Windows Server 2016.
+Documentation de migration de Windows Server vous permet de migrer un rôle ou une fonctionnalité à la fois à partir d’un ordinateur source qui exécute Windows Server vers un autre ordinateur de destination qui exécute Windows Server, le même réseau ou une version plus récente. À ces fins, la migration est définie comme étant le déplacement d’un rôle ou d’une fonctionnalité et des données associées vers un autre ordinateur, et non pas la mise à niveau de la fonctionnalité sur le même ordinateur. Il s’agit de la méthode recommandée pour déplacer votre charge de travail existante et les données associées vers une version plus récente de Windows Server. Pour commencer, consultez le [matrice de mise à niveau et migration de rôle de serveur](https://go.microsoft.com/fwlink/?LinkId=828595) pour Windows Server.
 
 ## <a name="cluster-os-rolling-upgrade"></a>Mise à niveau propagée du système d’exploitation de cluster
 La mise à niveau propagée de système d’exploitation de cluster est une nouvelle fonctionnalité de Windows Server2016 qui permet à un administrateur de mettre à niveau le système d’exploitation des nœuds de cluster Windows Server2016R2 vers Windows Server2012, sans arrêter les charges de travail du serveur de fichiers avec montée en puissance parallèle ou Hyper-V. Cette fonctionnalité élimine les temps d’arrêt susceptibles d’affecter les contrats de niveau de service. Cette nouvelle fonctionnalité est décrite plus en détail dans l’article [Mise à niveau propagée de système d’exploitation de cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade).
@@ -139,7 +138,7 @@ Vous pouvez convertir la version d’évaluation de Windows Server 2012 Stand
 
 Comme décrit dans [mise à niveau de Windows Server 2008 et Windows Server 2008 R2](modernize-windows-server-2008.md), la prise en charge étendue pour Windows Server 2008 R2/Windows Server 2008 se termine de janvier de 2020. Pour vous assurer aucun écart dans prise en charge, vous devez mettre à niveau vers une version prise en charge de Windows Server ou de réhébergement dans Azure en migrant vers [spécialisé des machines virtuelles de Windows Server 2008 R2](uploading-specialized-WS08-image-to-azure.md). Découvrez le [Guide de Migration de Windows Server](https://go.microsoft.com/fwlink/?linkid=872689) pour des informations et des considérations pour la planification de votre migration/mise à niveau.
 
-Pour les serveurs locaux, il n’existe aucun chemin de mise à niveau directe à partir de Windows Server 2008 R2 vers Windows Server 2016 ou version ultérieure. Au lieu de cela, tout d’abord mettre à niveau vers Windows Server 2012 R2, puis [mise à niveau vers Windows Server 2016](#Upgrading-to-Windows-Server-2016).
+Pour les serveurs locaux, il n’existe aucun chemin de mise à niveau directe à partir de Windows Server 2008 R2 vers Windows Server 2016 ou version ultérieure. Au lieu de cela, tout d’abord mettre à niveau vers Windows Server 2012 R2, puis [mise à niveau vers Windows Server 2016](#upgrading-to-windows-server-2016).
 
 Lors de la planification de votre mise à niveau, tenez compte des instructions suivantes pour l’étape intermédiaire de la mise à niveau vers Windows Server 2012 R2.
 

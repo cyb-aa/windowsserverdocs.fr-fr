@@ -8,16 +8,15 @@ ms.date: 06/28/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: b8ff87a1043b589e83faa875467ddced536291b5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 01ef992554a1e0961d8d795e9baa7730a1a1d682
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867510"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189890"
 ---
 # <a name="ad-fs-and-banned-ip-addresses"></a>AD FS et des adresses IP interdites
 
->S'applique à : Windows Server 2016
 
 En juin 2018, AD FS sur Windows Server 2016 introduit **interdites** avec les services AD FS juin 2018 mises à jour.  Cette mise à jour vous permet de configurer un ensemble d’adresses IP dans le monde entier dans AD FS, afin que les demandes provenant de ces adresses IP, ou qui ont ces adresses IP le **x-forwarded-for** ou **x-ms-transférés-client-ip** en-têtes, sera bloqué par AD FS.
 

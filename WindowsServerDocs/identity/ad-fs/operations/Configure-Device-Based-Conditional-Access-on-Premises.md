@@ -9,16 +9,15 @@ ms.date: 08/11/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fa96fbeed1445b1add2e5de3aad45ad369a6cafa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0df290248f049b3f8a823e902cefa860fa074091
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847220"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189855"
 ---
 # <a name="configure-on-premises-conditional-access-using-registered-devices"></a>Configurer On-Premises l’accès conditionnel à l’aide d’appareils inscrits
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2  
 
 Le document suivant vous guide dans l’installation et configuration de l’accès conditionnel en local avec les appareils inscrits.
 
@@ -155,7 +154,7 @@ La commande ci-dessus crée les objets suivants pour l’écriture différée d�
 - Conteneur et objet Device Registration Service sous Configuration --> Services --> Configuration de l’inscription de l’appareil  
 
 ### <a name="enable-device-write-back-in-azure-ad-connect"></a>Activer l’écriture différée d’appareils dans Azure AD Connect  
-Si ce n’est pas déjà fait, activez l’écriture différée d’appareils dans Azure AD Connect en exécutant l’Assistant une deuxième fois, puis en sélectionnant **« Personnalisation des options de synchronisation »**. Cochez ensuite la case correspondant à l’écriture différée d'appareils, puis sélectionnez la forêt dans laquelle vous avez exécuté les applets de commande ci-dessus  
+Si ce n’est pas déjà fait, activez l’écriture différée d’appareils dans Azure AD Connect en exécutant l’Assistant une deuxième fois, puis en sélectionnant **« Personnalisation des options de synchronisation »** . Cochez ensuite la case correspondant à l’écriture différée d'appareils, puis sélectionnez la forêt dans laquelle vous avez exécuté les applets de commande ci-dessus  
 
 ### <a name="configure-device-authentication-in-ad-fs"></a>Configurer l’authentification des appareils dans AD FS  
 À l’aide d’une fenêtre de commande PowerShell avec élévation de privilèges, configurez la stratégie AD FS en exécutant la commande suivante  

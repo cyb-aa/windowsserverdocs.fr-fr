@@ -6,22 +6,22 @@ ms.author: nedpyle
 ms.technology: storage-replica
 ms.topic: get-started-article
 author: nedpyle
-ms.date: 12/19/2018
+ms.date: 04/26/2019
 ms.assetid: 12bc8e11-d63c-4aef-8129-f92324b2bf1b
-ms.openlocfilehash: 0e010f0319b46e04cf9aa15cde9552af1191ab22
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e832dce3eed7d0e5103254fb48683726b82af2e6
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824710"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475933"
 ---
 # <a name="frequently-asked-questions-about-storage-replica"></a>Forum Aux Questions sur le réplica de stockage
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
 Cette rubrique contient des réponses aux questions fréquemment posées sur le réplica de stockage.
 
-## <a name="FAQ1"></a> Le réplica de stockage est pris en charge sur Azure ?  
+## <a name="FAQ1"></a> Le réplica de stockage est pris en charge sur Azure ?
 Oui. Vous pouvez utiliser les scénarios suivants avec Azure :
 
 1. Réplication de serveur à serveur dans Azure (synchrone ou asynchrone entre les machines virtuelles IaaS dans un ou deux domaines d’erreur de centre de données ou asynchrone entre deux régions distinctes)
@@ -29,12 +29,12 @@ Oui. Vous pouvez utiliser les scénarios suivants avec Azure :
 3. Réplication de cluster à cluster à l’intérieur de Azure (synchrone ou asynchrone entre les machines virtuelles IaaS dans un ou deux domaines d’erreur de centre de données ou asynchrone entre deux régions distinctes)
 4. Réplication asynchrone de cluster à cluster entre Azure et en local (à l’aide de VPN ou Azure ExpressRoute)
 
-Vous trouverez des notes supplémentaires sur le clustering invité dans Azure à : [Déploiement de Clusters invités de machine virtuelle IaaS dans Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/).
+Vous trouverez des notes supplémentaires sur le clustering invité dans Azure à : [Déploiement de Clusters invités de machine virtuelle IaaS dans Microsoft Azure](https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126).
 
 Remarques importantes :
 
 1. Azure ne prend pas en charge le clustering, invité VHDX partagé afin de machines virtuelles de Cluster de basculement Windows doit utiliser les cibles iSCSI pour le clustering de réservation classique disque persistant de stockage partagé ou espaces de stockage Direct.
-2. Il existe des modèles Azure Resource Manager pour le clustering de réplica de stockage basé sur les espaces de stockage Direct à [créer un cluster SOFS espaces de stockage Direct (S2D) avec le réplica de stockage pour la récupération d’urgence dans les régions Azure](https://aka.ms/azure-storage-replica-cluster).  
+2. Il existe des modèles Azure Resource Manager pour le clustering de réplica de stockage basé sur les espaces de stockage Direct à [créer un espaces de stockage Direct des Clusters SOFS avec le réplica de stockage de récupération d’urgence dans les régions Azure](https://aka.ms/azure-storage-replica-cluster).  
 3. Cluster à la communication RPC de cluster dans Azure (requis par l’API de cluster pour accorder l’accès entre le cluster) requiert la configuration de l’accès réseau pour le CNO. Vous devez autoriser le port TCP 135 et la plage dynamique au-dessus du port TCP 49152. Référence [construction Windows Server Failover Cluster sur la machine virtuelle Azure IAAS – partie 2 de réseau et la création de](https://blogs.technet.microsoft.com/askcore/2015/06/24/building-windows-server-failover-cluster-on-azure-iaas-vm-part-2-network-and-creation/).  
 4. Il est possible d’utiliser des clusters invités de deux nœuds, où chaque nœud est à l’aide de bouclage iSCSI pour un cluster asymétrique répliqué par le réplica de stockage. Mais cela aura probablement des performances très médiocres et doit être utilisé uniquement pour le test ou de charges de travail très limités.  
 
@@ -80,7 +80,7 @@ Pour configurer des contraintes de réseau sur un cluster étendu :
     Set-SRNetworkConstraint -SourceComputerName sr-srv01 -SourceRGName group1 -SourceNWInterface "Cluster Network 1","Cluster Network 2" -DestinationComputerName sr-srv03 -DestinationRGName group2 -DestinationNWInterface "Cluster Network 1","Cluster Network 2"  
 
 ## <a name="FAQ4"></a> Puis-je configurer une réplication un-à-plusieurs ou transitive (de A à B à C) ?  
-Pas dans Windows Server 2016. Cette version prend uniquement en charge la réplication un-à-un d’un serveur, cluster ou nœud de cluster étendu. Cela peut changer dans une version ultérieure. Vous pouvez bien sûr configurer la réplication entre différents serveurs d’une paire de volumes spécifique, dans les deux sens. Par exemple, le serveur 1 peut répliquer son volume D sur le serveur 2 et son volume E à partir du serveur 3.
+Non, le réplica de stockage prend en charge la réplication uniquement à celui d’un serveur, le cluster ou le nœud de cluster étendu. Cela peut changer dans une version ultérieure. Vous pouvez bien sûr configurer la réplication entre différents serveurs d’une paire de volumes spécifique, dans les deux sens. Par exemple, le serveur 1 peut répliquer son volume D sur le serveur 2 et son volume E à partir du serveur 3.
 
 ## <a name="FAQ5"></a> Puis-je augmenter ou réduire les volumes répliqués par le réplica de stockage ?  
 Vous pouvez développer (augmenter) des volumes, mais pas les réduire. Par défaut, le réplica de stockage empêche les administrateurs de développer les volumes répliqués ; utilisez l'option `Set-SRGroup -AllowVolumeResize $TRUE` sur le groupe source avant le redimensionnement. Exemple :
@@ -90,9 +90,9 @@ Vous pouvez développer (augmenter) des volumes, mais pas les réduire. Par déf
 3. Utiliser sur l’ordinateur source : `Set-SRGroup -Name YourRG -AllowVolumeResize $FALSE` 
 
 ## <a name="FAQ6"></a>Puis-je mettre en ligne un volume de destination pour l’accès en lecture seule ?  
-Pas dans Windows Server 2016 RTM, également appelé version « RS1 ». Le réplica de stockage démonte le volume de destination au début de la réplication. 
+Pas dans Windows Server 2016. Le réplica de stockage démonte le volume de destination au début de la réplication. 
 
-Toutefois, dans Windows Server, version 1709, il est désormais possible de monter le stockage de destination ; cette fonctionnalité est appelée « Test de basculement ». Pour ce faire, vous devez disposer d’un volume au format NTFS ou ReFS inutilisé qui ne réplique pas sur la destination actuellement. Ensuite, vous pouvez monter une capture instantanée du stockage répliqué temporairement à des fins de test ou de sauvegarde. 
+Toutefois, dans Windows Server 2019 et canal semi-annuel de Windows Server depuis la version, 1709, l’option de montage du stockage de destination est désormais possible : cette fonctionnalité est appelée « Basculement de Test ». Pour ce faire, vous devez disposer d’un volume au format NTFS ou ReFS inutilisé qui ne réplique pas sur la destination actuellement. Ensuite, vous pouvez monter une capture instantanée du stockage répliqué temporairement à des fins de test ou de sauvegarde. 
 
 Par exemple, pour créer un test de basculement dans lequel vous répliquez un volume « D : » dans le groupe de réplication « RG2 » sur le serveur de destination « SRV2 », avec un lecteur « T : » sur SRV2 qui n’est pas répliqué :
 
@@ -107,7 +107,7 @@ Pour supprimer l’instantané de test de basculement et supprimer les modificat
 Vous devez uniquement utiliser la fonctionnalité de test de basculement pour des opérations temporaires à court terme. Elle n’est pas destinée à être utilisée à long terme. Lors de l’utilisation, la réplication continue sur le volume de destination réel. 
 
 ## <a name="FAQ7"></a> Puis-je configurer le serveur de fichiers avec montée en puissance (SOFS) dans un cluster étendu ?  
-Bien que techniquement possible, cette configuration n’est pas recommandée dans Windows Server 2016, en raison du manque de reconnaissance des sites dans les nœuds de calcul qui contactent le serveur de fichiers avec montée en puissance parallèle. Si vous utilisez distance campus de mise en réseau, où les temps de latence sont généralement inférieure à la milliseconde, cette configuration fonctionne généralement sans problème.   
+Techniquement possible, cette configuration n’est pas recommandée en raison du manque de reconnaissance des sites dans les nœuds de calcul contactent le serveur SOFS. Si vous utilisez distance campus de mise en réseau, où les temps de latence sont généralement inférieure à la milliseconde, cette configuration fonctionne généralement sans problème.   
 
 Si vous configurez une réplication de cluster à cluster, le réplica de stockage prend entièrement en charge les serveurs de fichiers avec montée en puissance parallèle, notamment l’utilisation des espaces de stockage direct, lors de la réplication entre deux clusters.  
 
@@ -117,7 +117,7 @@ Non. Vous pouvez répliquer avec CSV ou de réservation de disque persistant (di
 Si vous configurez une réplication de cluster à cluster, le réplica de stockage prend entièrement en charge les serveurs de fichiers avec montée en puissance parallèle, notamment l’utilisation des espaces de stockage direct, lors de la réplication entre deux clusters.  
 
 ## <a name="FAQ8"></a>Configurer les espaces de stockage Direct dans un cluster étendu avec le réplica de stockage ?  
-Cette configuration n’est pas prise en charge dans Windows Server 2016.  Cela peut changer dans une version ultérieure. Si vous configurez une réplication de cluster à cluster, le réplica de stockage prend entièrement en charge les serveurs de fichiers avec montée en puissance parallèle et les serveurs Hyper-V, notamment l’utilisation des espaces de stockage direct.  
+Cette configuration n’est pas pris en charge dans Windows Server. Cela peut changer dans une version ultérieure. Si vous configurez une réplication de cluster à cluster, le réplica de stockage prend entièrement en charge les serveurs de fichiers avec montée en puissance parallèle et les serveurs Hyper-V, notamment l’utilisation des espaces de stockage direct.  
 
 ## <a name="FAQ9"></a>Comment configurer la réplication asynchrone ?  
 
@@ -126,10 +126,10 @@ Spécifiez `New-SRPartnership -ReplicationMode` et indiquez l’argument **Async
 ## <a name="FAQ10"></a>Comment empêcher le basculement automatique d’un cluster étendu ?  
 Pour empêcher le basculement automatique, vous pouvez utiliser PowerShell pour configurer `Get-ClusterNode -Name "NodeName").NodeWeight=0`. Cette action supprime le vote sur chaque nœud dans le site de récupération d’urgence. Vous pouvez ensuite utiliser `Start-ClusterNode -PreventQuorum` sur les nœuds dans le site principal et `Start-ClusterNode -ForceQuorum` sur les nœuds dans le site de récupération d’urgence pour forcer le basculement. Il n’existe aucune option graphique pour empêcher le basculement automatique et cette action n’est en outre pas recommandée.  
 
-## <a name="FAQ11"></a>Comment désactiver la résilience de machine virtuelle ?  
+## <a name="FAQ11"></a>Comment désactiver la résilience de machine virtuelle ?
 Pour éviter que la fonctionnalité de résilience de machine virtuelle Hyper-V à partir d’en cours d’exécution et par conséquent suspension des machines virtuelles au lieu de les basculer vers le site de récupération d’urgence, exécutez `(Get-Cluster).ResiliencyDefaultPeriod=0`  
 
-## <a name="FAQ12"></a> Comment puis-je réduire le temps pour la synchronisation initiale ?  
+## <a name="FAQ12"></a> Comment puis-je réduire le temps pour la synchronisation initiale ?
 
 Vous pouvez utiliser un stockage alloué dynamiquement comme moyen d’accélérer les durées de synchronisation initiale. Le réplica de stockage recherche et utilise automatiquement le stockage alloué dynamiquement, notamment les espaces de stockage non cluster, les disques dynamiques Hyper-V et les LUN SAN.  
 
@@ -139,11 +139,9 @@ Vous pouvez également utiliser des volumes de données amorcés pour réduire l
 2. Instantané de la restauration ou restauration basée sur un instantané de sauvegarde - en restaurant un instantané en fonction du volume sur le volume de destination, il doit y avoir grande différence dans la disposition de bloc. Il s’agit de la méthode la plus efficace suivante comme les blocs sont susceptibles de correspondre à grâce aux clichés instantanés de volume en cours des images miroirs.
 3. Les fichiers copiés - création d’un volume de destination n’a jamais été utilisée et l’exécution d’une arborescence /MIR robocopy complète copier des données, sont susceptibles d’être des correspondances de bloc. L’Explorateur de fichiers Windows ou la copie d’une partie de l’arborescence ne crée pas de correspondances de bloc. Copie manuelle de fichiers est la méthode la moins efficace de l’amorçage.
 
-
-
 ## <a name="FAQ13"></a> Puis-je déléguer des utilisateurs pour gérer la réplication ?  
 
-Vous pouvez utiliser l’applet de commande `Grant-SRDelegation` dans Windows Server 2016. Cela vous permet de définir des utilisateurs spécifiques dans des scénarios de réplication de serveur à serveur, de cluster à cluster et de cluster étendu comme ayant les autorisations de créer, modifier ou supprimer la réplication, sans être membres du groupe Administrateurs local. Exemple :  
+Vous pouvez utiliser le `Grant-SRDelegation` applet de commande. Cela vous permet de définir des utilisateurs spécifiques dans des scénarios de réplication de serveur à serveur, de cluster à cluster et de cluster étendu comme ayant les autorisations de créer, modifier ou supprimer la réplication, sans être membres du groupe Administrateurs local. Exemple :  
 
     Grant-SRDelegation -UserName contso\tonywang  
 
@@ -158,7 +156,7 @@ Ensuite, après avoir basculé le sens de la réplication ou supprimé la répli
 
     vssadmin list shadows
      vssadmin revert shadow /shadow={shadown copy ID GUID listed previously}
-Vous pouvez également prévoir une exécution régulière de cet outil à l’aide d’une tâche planifiée. Pour plus d’informations sur l’utilisation de VSS, voir [Vssadmin](https://technet.microsoft.com/library/cc754968.aspx). Il est inutile et sans intérêt de sauvegarder les volumes de journaux. Une telle tentative sera ignorée par VSS.
+Vous pouvez également prévoir une exécution régulière de cet outil à l’aide d’une tâche planifiée. Pour plus d’informations sur l’utilisation de VSS, voir [Vssadmin](../../administration/windows-commands/vssadmin.md). Il est inutile et sans intérêt de sauvegarder les volumes de journaux. Une telle tentative sera ignorée par VSS.
 L’utilisation de la sauvegarde Windows Server, de la sauvegarde Microsoft Azure, de Microsoft DPM, d’un autre instantané, de VSS, de la machine virtuelle ou des technologies basées sur des fichiers est prise en charge par le réplica de stockage tant que ces outils fonctionnent au niveau de la couche du volume. Le réplica de stockage ne prend pas en charge la sauvegarde et la restauration basées sur des blocs.
 
 ## <a name="FAQ14"></a> Puis-je configurer la réplication pour restreindre l’utilisation de la bande passante ?
@@ -204,13 +202,13 @@ Vous pouvez obtenir des recommandations de dimensionnement du journal en exécut
 Le disque de données à partir du cluster Source doit être sauvegardé. Les disques de journal de réplica de stockage ne doivent pas être sauvegardées dans la mesure où une sauvegarde peut entrer en conflit avec les opérations de réplica de stockage.
 
 ## <a name="FAQ16"></a> Pourquoi choisir un cluster étendu par rapport à cluster à cluster par rapport à la topologie de serveur à serveur ?  
-Le réplica de stockage est disponible en trois configurations principales : cluster étendu, cluster à cluster et serveur à serveur. Chaque configuration présente différents avantages.
+Le réplica de stockage est proposé en trois configurations principales : cluster, cluster à cluster et serveur à serveur pour stretch. Chaque configuration présente différents avantages.
 
 La topologie de cluster étendu est idéale pour les charges de travail nécessitant un basculement automatique avec orchestration, par exemple, des clusters de cloud privé Hyper-V et une instance de cluster de basculement (FCI) SQL Server. Elle présente également une interface graphique intégrée utilisant le Gestionnaire du cluster de basculement. Elle utilise l'architecture de stockage partagé en cluster asymétrique classique des espaces de stockage, SAN, iSCSI et RAID via la réservation persistante. Vous pouvez l'exécuter avec seulement 2 nœuds.
 
 La topologie de cluster à cluster utilise deux clusters distincts. Elle est idéale pour les administrateurs qui veulent un basculement manuel, en particulier lorsque le deuxième site est configuré pour la récupération d’urgence et non pour l'utilisation quotidienne. L'orchestration est manuelle. Contrairement à un cluster étendu, espaces de stockage Direct peut servir dans cette configuration (avec les mises en garde - consultez le Forum aux questions sur le réplica de stockage et la documentation du cluster à cluster). Vous pouvez l'exécuter avec seulement quatre nœuds. 
 
-La topologie de serveur à serveur convient parfaitement aux clients qui utilisent du matériel non compatible avec les clusters. Elle requiert une orchestration et un basculement manuels. Elle est parfaite pour les déploiements peu coûteux entre des filiales et des centres de données centralisés, en particulier lorsque vous utilisez la réplication asynchrone. Cette configuration peut souvent remplacer des instances de serveurs de fichiers protégés par DFSR utilisées dans les scénarios de récupération d’urgence à maître unique.
+La topologie de serveur à serveur convient parfaitement aux clients qui utilisent du matériel non compatible avec les clusters. Elle requiert une orchestration et un basculement manuels. Il est idéal pour les déploiements peu coûteux entre les succursales et centres de données, en particulier lorsque vous utilisez la réplication asynchrone. Cette configuration peut souvent remplacer des instances de serveurs de fichiers protégés par DFSR utilisées dans les scénarios de récupération d’urgence à maître unique.
 
 Dans tous les cas, ces topologies fonctionnent aussi bien sur du matériel physique que sur des ordinateurs virtuels. Dans le cas de machines virtuelles, l’hyperviseur sous-jacent ne nécessite pas obligatoirement Hyper-V ; il peut s'agir de VMware, KVM, Xen, etc.
 
@@ -222,6 +220,12 @@ Oui, les données Deduplcation est pris en charge avec le réplica de stockage. 
 
 Bien que vous devez *installer* la déduplication des données sur les serveurs source et de destination (consultez [installation et l’activation de la déduplication des données](../data-deduplication/install-enable.md)), il est important pas à *activer*La déduplication des données sur le serveur de destination. Réplica de stockage permet des écritures uniquement sur le serveur source. Étant donné que la déduplication des données effectue des écritures sur le volume, il doit s’exécuter uniquement sur le serveur source. 
 
+## <a name="FAQ19"></a> Puis-je répliquer entre Windows Server 2019 et Windows Server 2016 ?
+
+Malheureusement, nous ne prennent en charge Création d’un *nouveau* partenariat entre Windows Server 2019 et Windows Server 2016. Vous pouvez mettre à niveau en toute sécurité un serveur ou un cluster exécutant Windows Server 2016 pour Windows Server 2019 et tout *existant* partenariats continueront à fonctionner.
+
+Toutefois, pour obtenir les meilleures performances de réplication de Windows Server 2019, tous les membres du partenariat doivent exécuter Windows Server 2019 et vous devez supprimer les partenariats et associés des groupes de réplication et les recréez avec les données de départ (soit Lorsque vous créez le partenariat dans Windows Admin Center ou avec l’applet de commande New-SRPartnership).
+
 ## <a name="FAQ17"></a> Comment signaler un problème avec le réplica de stockage ou de ce guide ?  
 Pour obtenir une assistance technique sur le réplica de stockage, publiez un message sur les [forums Microsoft TechNet](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=WinServerPreview). Vous pouvez également envoyer un e-mail à l’adresse srfeed@microsoft.com pour toute question sur le réplica de stockage ou tout problème lié à cette documentation. Le https://windowsserver.uservoice.com site est préféré pour les demandes de modification de conception, car il permet à vos clients fournir des commentaires et support pour vos idées.
 
@@ -232,8 +236,8 @@ Pour obtenir une assistance technique sur le réplica de stockage, publiez un me
 - [Réplication de Cluster étendu à l’aide d’un stockage partagé](stretch-cluster-replication-using-shared-storage.md)  
 - [Réplication du stockage de serveur à serveur](server-to-server-storage-replication.md)  
 - [Réplication du stockage de cluster à Cluster](cluster-to-cluster-storage-replication.md)  
-- [Réplica de stockage : Problèmes connus](storage-replica-known-issues.md)  
+- [Réplica de stockage : Problèmes connus](storage-replica-known-issues.md)  
 
 ## <a name="see-also"></a>Voir aussi  
 - [Vue d’ensemble du stockage](../storage.md)  
-- [Espaces de stockage Direct dans Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  
+- [Espaces de stockage direct](../storage-spaces/storage-spaces-direct-overview.md)  
