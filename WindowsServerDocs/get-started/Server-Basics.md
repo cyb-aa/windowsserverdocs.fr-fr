@@ -10,12 +10,12 @@ ms.topic: article
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 5c1c64336af9c72b97539d2ded750ee4414fccb7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 71b56a0bc4f53879ebaf3610f60dded39484375b
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868180"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222351"
 ---
 # <a name="get-started-with-windows-server-2016"></a>Prise en main de Windows Server2016
 
@@ -24,7 +24,7 @@ ms.locfileid: "59868180"
 >[!TIP]
 > Vous recherchez des informations sur des versions plus anciennes de Windows Server ? Consultez nos autres [bibliothèques Windows Server](/previous-versions/windows/) sur docs.microsoft.com. Vous pouvez également [rechercher dans ce site](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) des informations spécifiques.
 
-<img src="../media/landing-icons/getstarted.png" style='float:left; padding:.5em;' alt="Icon showing a box with a checkmark"> Cette collection contient des informations détaillées qui vous aideront à déterminer si vous êtes prêt à passer à Windows Server 2016. Une fois que vous aurez vérifié la configuration système requise, les options de mise à niveau et d’autres informations sur le passage à Windows Server 2016, vous serez prêt à revenir au hub [Windows Server 2016](Windows-Server-2016.md) principal et à procéder à l’installation de l’édition répondant le mieux à vos besoins avec l’option d’installation la plus appropriée. 
+![Icône affichant une zone avec une coche](../media/landing-icons/getstarted.png) cette collection contient des informations détaillées pour vous aider à déterminer si vous êtes prêt à passer à Windows Server 2016. Une fois que vous aurez vérifié la configuration système requise, les options de mise à niveau et d’autres informations sur le passage à Windows Server 2016, vous serez prêt à revenir au hub [Windows Server 2016](Windows-Server-2016.md) principal et à procéder à l’installation de l’édition répondant le mieux à vos besoins avec l’option d’installation la plus appropriée. 
 
 >[!Note]
 > Pour télécharger Windows Server 2016, voir [Windows Server - Évaluations](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016).
@@ -33,7 +33,7 @@ ms.locfileid: "59868180"
 ## <a name="system-requirementssystem-requirementsmd"></a>[Configuration requise](system-requirements.md)
 Découvrez la configuration matérielle minimale requise pour installer et exécuter Windows Server 2016.
 
-## <a name="release-notes-important-issues-in-windows-serverwindows-server-2016-ga-release-notesmd"></a>[Notes de publication : Problèmes importants dans Windows Server](Windows-Server-2016-GA-Release-Notes.md)
+## <a name="release-notes-important-issues-in-windows-serverwindows-server-2016-ga-release-notesmd"></a>[Notes de publication : Problèmes importants dans Windows Server](Windows-Server-2016-GA-Release-Notes.md)
 Problèmes pouvant s’avérer particulièrement graves si vous ne les évitez ou ne les contournez pas.
 
 ## <a name="recommendations-for-moving-to-windows-server-2016recommendations-moving-to-server2016md"></a>[Recommandations pour le passage à Windows Server 2016](Recommendations-moving-to-Server2016.md)
