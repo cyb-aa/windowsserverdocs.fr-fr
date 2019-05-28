@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 930b6f8034f17d8902104419042f944b82e90b4f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b69277cdedd697605f57aa4cf7214f5b65bb2e81
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814930"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188467"
 ---
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="the-role-of-the-claims-engine"></a>Rôle du moteur de revendications
 À son niveau le plus élevé, le moteur de revendications dans Active Directory Federation Services \(AD FS\) est une règle\-en fonction du moteur est dédié au service et de traitement des demandes de revendication pour le Service de fédération. Le moteur de revendications est la seule entité du service de fédération qui est chargée de l’exécution de chacun des ensembles de règles sur toutes les relations d’approbation fédérée que vous avez configurées, ainsi que de la transmission du résultat de sortie au pipeline de revendications.  
   

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 74701cbaa403611b081942f016b21db1c0b3ff70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2776cc29b8c9ede884a6b304cd541f700f516ca
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845460"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191259"
 ---
 # <a name="name-resolution-requirements-for-federation-servers"></a>Exigences relatives à la résolution de noms pour les serveurs de fédération
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Lorsque les ordinateurs clients sur le réseau d’entreprise essaient d’accéder à une application ou un service Web qui est protégé par Active Directory Federation Services \(AD FS\), ils doivent s’authentifier tout d’abord à un serveur de fédération. Une méthode d’authentification consiste à avoir les clients du réseau d’entreprise à accéder à un serveur de fédération local via l’authentification intégrée Windows.  
   
@@ -37,4 +35,4 @@ Pour plus d’informations sur la configuration des serveurs proxy de fédérati
   
 
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

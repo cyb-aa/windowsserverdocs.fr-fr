@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 498b399818fb8c9e463f9990fa13c87648c0a33d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2d15f680f28c54da75100a03f7b85e880442d9be
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822150"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191739"
 ---
-# <a name="ad-fs-design-guide-in-windows-server-2012-r2"></a>Guide de conception AD FS dans Windows Server 2012 R2
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2
+# <a name="ad-fs-design-guide-in-windows-server"></a>Guide de conception AD FS dans Windows Server 
 
 Active Directory Federation Services \(AD FS\) fournit la fédération des identités simplifiées et sécurisées et l’authentification unique Web\-sur \(SSO\) fonctionnalités pour les utilisateurs finaux qui souhaitent accéder aux applications dans un AD FS\-sécurisé d’entreprise, dans les organisations partenaires de fédération ou dans le cloud.  
   
@@ -31,14 +29,14 @@ Ce guide fournit des recommandations pour vous aider à planifier un nouveau dé
   
 ## <a name="in-this-guide"></a>Dans ce guide  
   
--   [Identifier vos objectifs de déploiement AD FS](Identify-Your-AD-FS-Deployment-Goals.md)  
+-   [Identifier vos objectifs de déploiement d’AD FS](Identify-Your-AD-FS-Deployment-Goals.md)  
   
--   [Planifier votre topologie de déploiement AD FS](Plan-Your-AD-FS-Deployment-Topology.md)  
+-   [Planifier votre topologie de déploiement d’AD FS](Plan-Your-AD-FS-Deployment-Topology.md)  
   
--   [Exigences en matière de AD FS](AD-FS-Requirements.md)  
+-   [Configuration AD FS requise](AD-FS-Requirements.md)  
   
   
 ## <a name="see-also"></a>Voir aussi  
-[Conception AD FS](../../ad-fs/AD-FS-Design.md)  
+[Conception des services AD FS](../../ad-fs/AD-FS-Design.md)  
   
 

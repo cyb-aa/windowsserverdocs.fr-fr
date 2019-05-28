@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e9762e4bc50a1c2b862999af5269a0da376ec9a1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 00ea4f9f868b9c82c2a0859be971db26394251a3
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887610"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189351"
 ---
 # <a name="create-a-rule-to-send-ldap-attributes-as-claims"></a>Créer une règle pour envoyer les attributs LDAP en tant que revendications
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 À l’aide de l’option Envoyer les attributs LDAP en tant que modèle de règle de revendications dans Active Directory Federation Services \(AD FS\), vous pouvez créer une règle qui sélectionne les attributs à partir d’un protocole Lightweight Directory Access \(LDAP\)magasin d’attributs, tels qu’Active Directory, à envoyer en tant que revendications à la partie de confiance. Par exemple, vous pouvez utiliser ce modèle de règle pour créer un envoyer les attributs LDAP comme les règles de revendication qui extrait les valeurs d’attribut pour les utilisateurs authentifiés à partir de la **displayName** et **telephoneNumber** Active Répertoire des attributs, puis envoyez ces valeurs en tant que deux revendications sortantes.  
   
@@ -106,14 +105,14 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 8.  Dans le **modifier les règles de revendication** boîte de dialogue, cliquez sur **OK** pour enregistrer la règle.  
 
 ## <a name="additional-references"></a>Références supplémentaires 
-[Configurer des règles de revendication](Configure-Claim-Rules.md)  
+[Configurer les règles de revendication](Configure-Claim-Rules.md)  
  
-[Liste de vérification : Création de règles de revendication pour une partie de confiance](https://technet.microsoft.com/library/ee913578.aspx)  
+[Liste de vérification : création de règles de revendication pour une approbation de partie de confiance](https://technet.microsoft.com/library/ee913578.aspx)  
 
-[Liste de vérification : Création de règles de revendication pour un fournisseur de revendications d’approbation](https://technet.microsoft.com/library/ee913564.aspx)  
+[Liste de vérification : création de règles de revendication pour une approbation de fournisseur de revendications](https://technet.microsoft.com/library/ee913564.aspx)  
   
 [Quand utiliser une règle de revendication d’autorisation](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
-[Le rôle de revendications](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
+[Rôle des revendications](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Le rôle de règles de revendication](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md)  
+[Rôle des règles de revendication](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md)  

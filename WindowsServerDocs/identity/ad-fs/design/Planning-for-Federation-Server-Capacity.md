@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 618dc9419be965dedaaf7dc946da436a5001f121
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 569bea74fe7750eaf2b410a552876e0862b1e24b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839630"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191094"
 ---
 # <a name="planning-for-federation-server-capacity"></a>Planification de la capacité des serveurs de fédération
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Planification de capacité pour les serveurs de fédération permet d’évaluer :  
   
@@ -56,7 +54,7 @@ Dans le but de rationaliser le processus pour les serveurs de fédération de pl
 > Le nombre de serveurs de fédération qui vous recommande de cette feuille de calcul est basé sur les spécifications matérielles et réseau que l’équipe de produit AD FS utilisée pendant le test. Par conséquent, le nombre de serveurs de fédération qui vous recommande de la feuille de calcul doit être compris dans ce contexte.  Pour plus d’informations sur les spécifications utilisées pendant le test, consultez la rubrique intitulée [planification de la capacité de serveur AD FS](Planning-for-AD-FS-Server-Capacity.md).  
   
 ### <a name="using-the-ad-fs-capacity-planning-sizing-spreadsheet"></a>À l’aide de la planification de la feuille de calcul sur la capacité AD FS  
-Lorsque vous utilisez cette feuille de calcul, vous devez sélectionner une valeur \(soit **40 %**, **60 %**, ou **80 %** \) que représente le mieux le pourcentage de Nombre total d’utilisateurs que vous prévoyez d’envoyer des demandes d’authentification à vos serveurs de fédération pendant les pics d’utilisation.  
+Lorsque vous utilisez cette feuille de calcul, vous devez sélectionner une valeur \(soit **40 %** , **60 %** , ou **80 %** \) que représente le mieux le pourcentage de Nombre total d’utilisateurs que vous prévoyez d’envoyer des demandes d’authentification à vos serveurs de fédération pendant les pics d’utilisation.  
   
 Ensuite, vous devez sélectionner une valeur \(soit **1 minute**, **15 minutes**, ou **1 heure** \) que représente la durée pendant laquelle vous attendez le mieux la période d’utilisation de pointe pour durer. Par exemple, vous pourrez estimer 40 % comme valeur pour le nombre total d’utilisateurs qui permettra de vous connecter dans un délai de 15 minutes, ou qui permettra de vous connecter 60 % des utilisateurs dans un délai de 1 heure. Ensemble, ces valeurs définissent le profil de charge maximale par lequel votre recommandation de dimensionnement sera calculée.  
   
@@ -75,7 +73,7 @@ Vous pouvez utiliser les étapes suivantes pour chaque instance de batterie de s
   
 1.  Téléchargez et ouvrez le [AD FS planification dimensionnement feuille de calcul capacité pour Windows Server 2012 R2](https://adfsdocs.blob.core.windows.net/adfs/ADFSCapacityPlanning.xlsx) ou [AD FS planification dimensionnement feuille de calcul capacité pour Windows Server 2016](https://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx).
   
-2.  Dans la cellule à droite de la **durant la période de l’utilisation de système de pointe, j’attends ce pourcentage de mes utilisateurs s’authentifient** de cellule, cliquez sur la cellule de la liste déroulante\-flèches de direction pour sélectionner l’utilisation de vos logiciels et matériels le niveau, soit **40 %**, **60 %** ou **80 %** pour le déploiement.  
+2.  Dans la cellule à droite de la **durant la période de l’utilisation de système de pointe, j’attends ce pourcentage de mes utilisateurs s’authentifient** de cellule, cliquez sur la cellule de la liste déroulante\-flèches de direction pour sélectionner l’utilisation de vos logiciels et matériels le niveau, soit **40 %** , **60 %** ou **80 %** pour le déploiement.  
   
 3.  Dans la cellule à droite de la **au sein de la période de temps suivante** de cellule, cliquez sur la cellule de la liste déroulante\-flèches de direction pour sélectionner soit **1 minute**, **les15minutes**, ou **1 heure** pour sélectionner la durée de la charge maximale.  
   
@@ -95,4 +93,4 @@ Vous pouvez utiliser les étapes suivantes pour chaque instance de batterie de s
 > La valeur qui sera calculée automatiquement dans la cellule à droite de la cellule intitulée **nombre Total de serveurs de fédération recommandé** en bas de la feuille de calcul contient une formule qui ajoutera un tampon de 20 % supplémentaires pour le somme totale de toutes les valeurs dans chacune des lignes individuelles qui la précède. La formule ajoutée à la **nombre Total de serveurs de fédération recommandé** génère de cellule dans cette mémoire tampon à votre total de serveurs de fédération déployé pour le rendre très peu probable que la charge globale sur la batterie de serveurs atteindra jamais le nombre recommandé son point de saturation.  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

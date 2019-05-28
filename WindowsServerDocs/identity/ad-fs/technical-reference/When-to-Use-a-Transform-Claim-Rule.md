@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: c7b7ea2c8d9a08a4cbf6c89c2de2482043efe25b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5ed8ee500582e0e687a2b52e83d99fc3cb8f147f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885560"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188343"
 ---
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="when-to-use-a-transform-claim-rule"></a>Quand utiliser une règle de revendication de transformation
 Vous pouvez utiliser cette règle dans Active Directory Federation Services \(AD FS\) lorsque vous devez mapper un type de revendication entrante à un type de revendication sortante, puis appliquer une action qui détermine quelle sortie en fonction des valeurs qui provient de la revendication entrante. Lorsque vous utilisez cette règle, vous transmettez ou transformez les revendications qui correspondent à la logique de règle suivante, en fonction des options que vous configurez dans la règle, comme décrit dans le tableau suivant :  
   

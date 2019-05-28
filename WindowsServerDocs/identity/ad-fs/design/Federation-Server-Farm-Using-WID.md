@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 41c2179cbd8bf2c6032f233335099b512c02f880
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 067461b90ed5ce03d9470a450917dcbb93cf653a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832500"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191312"
 ---
 # <a name="federation-server-farm-using-wid"></a>Batterie de serveurs de fédération utilisant la base de données interne Windows
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 La topologie par défaut pour les Services de fédération Active Directory \(AD FS\) est une batterie de serveurs de fédération, à l’aide de la base de données interne Windows \(WID\). Dans cette topologie, AD FS utilise WID comme magasin pour la base de données de configuration AD FS pour tous les serveurs de fédération qui sont joints à la batterie. La batterie réplique et maintient les données du service de fédération de la base de données de configuration à travers chaque serveur de la batterie. AD FS dans Windows Server 2012 R2 permet aux entreprises avec 100 ou moins de confiance pour configurer les batteries de serveurs de fédération avec WID jusqu'à 30 serveurs.  
   
@@ -80,7 +78,7 @@ L’hôte NLB peut utiliser les paramètres qui sont définis dans ce cluster NL
 Pour plus d’informations sur comment configurer votre environnement réseau pour une utilisation avec les serveurs de fédération, consultez la section Name Resolution Requirements dans [configuration AD FS requise](AD-FS-Requirements.md).  
   
 ## <a name="see-also"></a>Voir aussi  
-[Planifier votre topologie de déploiement AD FS](Plan-Your-AD-FS-Deployment-Topology.md)  
-[Guide de conception AD FS dans Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
+[Planifier votre topologie de déploiement d’AD FS](Plan-Your-AD-FS-Deployment-Topology.md)  
+[Guide de conception AD FS dans Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   
 

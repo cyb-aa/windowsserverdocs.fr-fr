@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 129cd83be4cd8302bd170ba87aad58c50f636006
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f1d38e23d7f1671f729b03b7e6f8000471d2e9f9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815850"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188647"
 ---
 # <a name="determine-the-type-of-claim-rule-template-to-use"></a>Déterminer le type de modèle de règle de revendication à utiliser
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 Une partie importante de la conception d’un Active Directory Federation Services \(AD FS\) infrastructure consiste à déterminer l’ensemble complet de règles de revendication, et vous devez utiliser pour créer des modèles de règle de revendication les correspondants, pour chaque partenaire qui fera partie de la fédération avec votre organisation. Créer des règles à l’aide de modèles de règle de revendication dans le composant logiciel enfichable Gestion AD FS\-dans.  
   

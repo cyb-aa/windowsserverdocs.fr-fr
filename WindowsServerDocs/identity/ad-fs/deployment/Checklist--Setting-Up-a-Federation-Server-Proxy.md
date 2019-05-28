@@ -8,16 +8,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 57951787b1ac7694cacca170b376087a60e34543
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c8cd5cbe2ce0c7985a56f8444edfa7c71ee17c2d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844050"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192348"
 ---
 # <a name="checklist-setting-up-a-federation-server-proxy"></a>Liste de vérification : configuration d'un serveur de fédération proxy
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette liste comprend les tâches de déploiement pour la préparation d’un serveur exécutant Windows Server® 2012 pour le rôle du serveur proxy de fédération dans Active Directory Federation Services \(AD FS\).  
   

@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: b4ec08182e2523b0fcb16088ec9c1d094a5923fe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4a13332cd7cf6361824f05ead4568a45211cc70a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836530"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191018"
 ---
 # <a name="provide-users-in-another-organization-access-to-your-claims-aware-applications-and-services"></a>Fournir aux utilisateurs d’une autre organisation un accès à vos applications et services prenant en charge les revendications
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Lorsque vous êtes un administrateur de l’organisation partenaire de ressource dans Active Directory Federation Services \(AD FS\) et avoir un objectif de déploiement pour fournir un accès fédéré aux utilisateurs d’une autre organisation \(le organisation partenaire de compte\) en un cas de réclamation\-application prenant en charge ou un site Web\-en fonction de service qui se trouve dans votre organisation \(l’organisation partenaire ressource\):  
   
@@ -49,4 +48,4 @@ L’illustration suivante montre chacun des composants requis pour cet objectif 
 ![l’accès à vos revendications](media/75358b16-2a6f-4e16-9cc4-b0e614480305.gif)  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

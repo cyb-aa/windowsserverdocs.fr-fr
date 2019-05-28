@@ -9,16 +9,15 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 615faf4153949aa4ad989f017068d1809fca26b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5bc43717f37fb3b14ac7f384a061ee64c734222d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820870"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189658"
 ---
 # <a name="configuring-alternate-login-id"></a>Configuration des ID de connexion alternatif
 
->S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 ## <a name="what-is-alternate-login-id"></a>Nouveautés d’ID de connexion alternatif ?
 Dans la plupart des scénarios, les utilisateurs utiliser leur UPN (nom d’utilisateur Principal) pour vous connecter à leurs comptes. Toutefois, dans certains environnements en raison des stratégies d’entreprise ou les dépendances de line-of-business application en local, les utilisateurs peuvent utiliser une autre forme de la connexion. 
@@ -39,7 +38,7 @@ Dans les scénarios mentionnés ci-dessus, autre ID avec AD FS permet aux utilis
 ## <a name="end-user-experience-with-alternate-login-id"></a>Utilisateur final avec l’ID de connexion de substitution
 L’expérience utilisateur varie en fonction de la méthode d’authentification utilisée avec l’id de connexion de substitution.  Actuellement là trois façons différentes dans lesquels à l’aide des id de connexion de substitution peut être effectuée.  Celles-ci sont les suivantes :
 
-- **Authentification standard (hérité)**-utilise le protocole d’authentification de base.
+- **Authentification standard (hérité)** -utilise le protocole d’authentification de base.
 - **L’authentification moderne** -apporte basée sur Active Directory Authentication Library ADAL connectez-vous aux applications. Ainsi, les fonctionnalités de connexion telles que l’authentification multifacteur (MFA), basée sur SAML des fournisseurs d’identité tiers avec les applications clientes Office, carte à puce et authentification par certificat.
 - **L’authentification moderne hybride** - fournit tous les avantages de l’authentification moderne et fournit aux utilisateurs la possibilité d’accéder aux applications locales à l’aide des jetons d’autorisation obtenus à partir du cloud.
 
@@ -127,18 +126,19 @@ Configuration de votre annuaire pour l’authentification unique avec l’id alt
 
 Avec une configuration supplémentaire, l’expérience utilisateur est sensiblement améliorée, et vous pouvez obtenir près de zéro invites pour l’authentification des utilisateurs de l’id de l’autre dans votre organisation.
 
-##### <a name="step-1-update-to-required-office-version"></a>Étape 1. Mettre à jour vers la version d’office requise
-Version d’Office 1712 (ne build aucun 8827.2148) et versions ultérieures ont mis à jour la logique d’authentification pour gérer le scénario de l’id de l’autre. Pour tirer parti de la nouvelle logique, les ordinateurs clients doivent être mis à jour vers la version d’office 1712 (ne build aucun 8827.2148) et versions ultérieures.
+##### <a name="step-1-update-to-required-office-version"></a>Étape 1. Mettre à jour vers la version d’Office requise
+Version d’Office 1712 (ne build aucun 8827.2148) et versions ultérieures ont mis à jour la logique d’authentification pour gérer le scénario de l’id de l’autre. Pour tirer parti de la nouvelle logique, les ordinateurs clients doivent être mis à jour vers la version d’Office 1712 (ne build aucun 8827.2148) et versions ultérieures.
 
-##### <a name="step-2-configure-registry-for-impacted-users-using-group-policy"></a>Étape 2. Configurez le Registre pour les utilisateurs affectés à l’aide de la stratégie de groupe
+##### <a name="step-2-update-to-required-windows-version"></a>Étape 2. Mettre à jour vers la version de Windows requise
+Windows version 1709 et versions ultérieures ont mis à jour la logique d’authentification pour gérer le scénario de l’id de l’autre. Pour tirer parti de la nouvelle logique, les ordinateurs clients doivent être mis à jour pour Windows version 1709 et versions ultérieures.
+
+##### <a name="step-3-configure-registry-for-impacted-users-using-group-policy"></a>Étape 3. Configurez le Registre pour les utilisateurs affectés à l’aide de la stratégie de groupe
 Les applications office s’appuient sur les informations envoyées par l’administrateur d’annuaire pour identifier l’environnement de l’id de l’autre. Les clés de Registre suivantes doivent être configurés pour aider les applications office à authentifier l’utilisateur avec l’id de l’autre sans afficher les invites supplémentaires
 
 |Clé de Registre à ajouter|Valeur, type et nom de clé de Registre de données|Windows 7/8|Windows 10|Description|
 |-----|-----|-----|-----|-----|
 |HKEY_CURRENT_USER\Software\Microsoft\AuthN|DomainHint</br>REG_SZ</br>contoso.com|Obligatoire|Obligatoire|La valeur de cette clé de Registre est un nom de domaine personnalisé vérifié dans le client de l’organisation. Par exemple, Contoso corp peut fournir une valeur de Contoso.com dans cette clé de Registre si Contoso.com est un des noms de domaine personnalisé vérifié dans le locataire Contoso.onmicrosoft.com.|
 HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Common\Identity|EnableAlternateIdSupport</br>REG_DWORD</br>1|Requis pour Outlook 2016 ProPlus|Requis pour Outlook 2016 ProPlus|La valeur de cette clé de Registre peut être 1 / 0 pour indiquer à l’application Outlook si elle doit s’engager à la logique d’authentification alternatif-id améliorée.|
-HKEY_CURRENT_USER\SOFTWARE\Microsoft\Office\16.0\Common\Identity|DisableADALatopWAMOverride</br>REG_DWORD</br>1|Non applicable|Obligatoire.|Cela garantit qu’Office n’utilise pas WAM alt-id n’est pas pris en charge par WAM.|
-HKEY_CURRENT_USER\SOFTWARE\Microsoft\Office\16.0\Common\Identity|DisableAADWAM</br>REG_DWORD</br>1|Non applicable|Obligatoire.|Cela garantit qu’Office n’utilise pas WAM alt-id n’est pas pris en charge par WAM.|
 HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\contoso.com\sts|&#42;</br>REG_DWORD</br>1|Obligatoire|Obligatoire|Cette clé de Registre peut être utilisé pour définir le STS comme une Zone de confiance dans les paramètres d’internet. Déploiement d’ADFS standard recommande d’y ajouter l’espace de noms ADFS pour la Zone Intranet Local pour Internet Explorer|
 
 ## <a name="new-authentication-flow-after-additional-configuration"></a>Nouveau flux d’authentification après une configuration supplémentaire

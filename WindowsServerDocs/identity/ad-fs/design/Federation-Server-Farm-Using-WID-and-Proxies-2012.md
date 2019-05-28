@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4bd815daccdd72a8c612b9b728ce12378c1926e7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 19e73e43a863ec60fbc9da09b24173220bb331ed
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817620"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191358"
 ---
 # <a name="federation-server-farm-using-wid-and-proxies"></a>Batterie de serveurs de fédération utilisant la base de données interne Windows et des proxys
-
->S'applique à : Windows Server 2012
 
 Cette topologie de déploiement d’Active Directory Federation Services \(AD FS\) est identique à la batterie de serveurs de fédération avec base de données interne Windows \(WID\) topologie, mais il ajoute des serveurs proxy de fédération pour le réseau de périmètre pour prendre en charge des utilisateurs externes. Les serveurs proxy de fédération rediriger les demandes d’authentification client provenant de l’extérieur de votre réseau d’entreprise à la batterie de serveurs de fédération.  
   
@@ -51,4 +49,4 @@ L’illustration suivante montre la batterie de serveurs de fédération existan
 Pour plus d’informations sur la configuration de votre environnement réseau pour une utilisation avec les serveurs de fédération ou de serveurs proxy de fédération, consultez [Name Resolution Requirements for Federation Servers](Name-Resolution-Requirements-for-Federation-Servers.md) ou [nom Configuration de la résolution pour les serveurs proxy de fédération](Name-Resolution-Requirements-for-Federation-Server-Proxies.md).  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
