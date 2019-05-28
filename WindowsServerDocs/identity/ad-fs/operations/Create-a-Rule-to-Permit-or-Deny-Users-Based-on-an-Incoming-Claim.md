@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 167e43d49c08d0e39549bf46888118f985e3876d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 72fe425b040f83a217a144976265c7754830c91b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863770"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189502"
 ---
 # <a name="create-a-rule-to-permit-or-deny-users-based-on-an-incoming-claim"></a>Créer une règle pour autoriser ou refuser des utilisateurs en fonction d’une demande entrante 
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 Dans Windows Server 2016, vous pouvez utiliser un **stratégie de contrôle d’accès** pour créer une règle qui autorise ou refuse les utilisateurs basés sur une revendication entrante.  Dans Windows Server 2012 R2, à l’aide de la **autoriser ou refuser les utilisateurs en fonction d’une revendication entrante** le modèle de règle dans Active Directory Federation Services \(AD FS\), vous pouvez créer une règle d’autorisation qui accordera ou refuser l’accès de l’utilisateur à la partie de confiance selon le type et la valeur d’une revendication entrante. 
 
@@ -115,12 +114,12 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 8.  Dans le **modifier les règles de revendication** boîte de dialogue, cliquez sur **OK** pour enregistrer la règle.  
 
 ## <a name="additional-references"></a>Références supplémentaires 
-[Configurer des règles de revendication](Configure-Claim-Rules.md)  
+[Configurer les règles de revendication](Configure-Claim-Rules.md)  
  
-[Liste de vérification : Création de règles de revendication pour une partie de confiance](https://technet.microsoft.com/library/ee913578.aspx)  
+[Liste de vérification : création de règles de revendication pour une approbation de partie de confiance](https://technet.microsoft.com/library/ee913578.aspx)  
   
 [Quand utiliser une règle de revendication d’autorisation](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
-[Le rôle de revendications](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
+[Rôle des revendications](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Le rôle de règles de revendication](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md)  
+[Rôle des règles de revendication](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md)  

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 2f4fc63c6ff7c1254fda630a8f34188d8fedc8e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e20b4960faac0ef40ad68271fa907394344e9c47
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825040"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034424"
 ---
 # <a name="add-the-rd-connection-broker-server-to-the-deployment-and-configure-high-availability"></a>Ajouter le serveur du service Broker pour les connexions Bureau à distance au déploiement et configurer la haute disponibilité
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Vous pouvez déployer un cluster de Broker de connexion Bureau à distance (RD Connection Broker) pour améliorer la disponibilité et la mise à l’échelle de votre infrastructure de Services Bureau à distance. 
 
@@ -37,7 +37,7 @@ Configurer une base de données pour le service Broker de connexion. Vous pouvez
     1. Dans le portail Azure, cliquez sur **Parcourir > groupes de ressources** et cliquez sur le groupe de ressources pour le déploiement.   
     2. Sélectionnez la base de données SQL que vous venez de créer (par exemple, DB1-CB).   
     3. Cliquez sur **Paramètres > Propriétés > Afficher les chaînes de connexion de base de données**.   
-    4. Copiez la chaîne de connexion pour **ODBC (inclut Node.js)**, qui doit ressembler à ceci :   
+    4. Copiez la chaîne de connexion pour **ODBC (inclut Node.js)** , qui doit ressembler à ceci :   
       
         Driver={SQL Server Native Client 13.0};Server=tcp:cb-sqls1.database.windows.net,1433;Database=CB-DB1;Uid=sqladmin@contoso;Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;   
   
@@ -62,7 +62,7 @@ Configurer une base de données pour le service Broker de connexion. Vous pouvez
 
 ## <a name="step-2-configure-load-balancing-on-the-rd-connection-brokers"></a>Étape 2 : Configurer l’équilibrage de charge sur les agents de la connexion Bureau à distance 
 
-Si vous utilisez l’infrastructure Azure, vous pouvez créer un [équilibreur de charge Azure](#create-a-load-balancer); si non, vous pouvez définir jusqu'à [tourniquet DNS](#configure-dns-round--robin). 
+Si vous utilisez l’infrastructure Azure, vous pouvez créer un [équilibreur de charge Azure](#create-a-load-balancer); si non, vous pouvez définir jusqu'à [tourniquet DNS](#configure-dns-round-robin).
 
 ### <a name="create-a-load-balancer"></a>Créer un équilibreur de charge  
 1. Créer un équilibreur de charge Azure   
@@ -88,9 +88,9 @@ Si vous utilisez l’infrastructure Azure, vous pouvez créer un [équilibreur d
       1. Se connecter à la machine virtuelle du serveur RDM (par exemple, Contoso-CB1). Découvrez le [préparer la machine virtuelle Broker de connexion Bureau à distance](Prepare-the-RD-Connection-Broker-VM-for-Remote-Desktop.md) article pour savoir comment vous connectez à la machine virtuelle.   
       2. Dans le Gestionnaire de serveur, cliquez sur **Outils > DNS**.   
       3. Dans le volet gauche, développez **DNS**, cliquez sur l’ordinateur DNS **Zones de recherche directe**, puis cliquez sur votre nom de domaine (par exemple, Contoso.com). (Il peut prendre quelques secondes pour traiter la requête au serveur DNS pour les informations.)  
-      4. Cliquez sur **Action > nouvel hôte (A ou AAAA)**.   
+      4. Cliquez sur **Action > nouvel hôte (A ou AAAA)** .   
       9. Entrez le nom (par exemple, hacb) et l’adresse IP spécifiée précédemment (par exemple, 10.0.0.32).   
-  
+
 ### <a name="configure-dns-round-robin"></a>Configurer le tourniquet DNS  
   
 Les étapes suivantes sont une alternative à la création d’un équilibreur de charge interne Azure.   
@@ -99,7 +99,7 @@ Les étapes suivantes sont une alternative à la création d’un équilibreur d
 2. Créer des enregistrements DNS :   
       1. Dans le Gestionnaire de serveur, cliquez sur **Outils > DNS**.   
       2. Dans le volet gauche, développez **DNS**, cliquez sur l’ordinateur DNS **Zones de recherche directe**, puis cliquez sur votre nom de domaine (par exemple, Contoso.com). (Il peut prendre quelques secondes pour traiter la requête au serveur DNS pour les informations.)  
-      3. Cliquez sur **Action** et **nouvel hôte (A ou AAAA)**.   
+      3. Cliquez sur **Action** et **nouvel hôte (A ou AAAA)** .   
       4. Entrez le **nom DNS** pour le service Broker pour les connexions Bureau à distance de cluster (par exemple, hacb), puis entrez le **adresse IP** de la première Broker pour les connexions Bureau à distance.   
       5. Répétez les étapes 3 et 4 pour chaque agent de connexion Bureau à distance supplémentaires, fournissant chaque adresse IP unique pour chaque enregistrement.
 

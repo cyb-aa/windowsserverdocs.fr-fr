@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 7d215c80c03236df9479aff8046981741dfc83e2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b027bff4645203c44e228f11c651b767fa4502e0
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838150"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192058"
 ---
 # <a name="manually-configure-a-service-account-for-a-federation-server-farm"></a>Configurer manuellement un compte de service pour une batterie de serveurs de fédération
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Si vous envisagez de configurer un environnement de batterie de serveurs de fédération dans Active Directory Federation Services \(AD FS\), vous devez créer et configurer un compte de service dédié dans les Services de domaine Active Directory \(AD DS\) où résidera la batterie de serveurs. Configurez ensuite chaque serveur de fédération de la batterie pour qu'il utilise ce compte. Lorsque vous souhaitez autoriser les ordinateurs client sur le réseau d’entreprise pour s’authentifier auprès des serveurs de fédération dans une batterie de serveurs AD FS à l’aide de l’authentification intégrée de Windows, vous devez effectuer les tâches suivantes dans votre organisation.  
 

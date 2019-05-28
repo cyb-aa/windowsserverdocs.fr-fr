@@ -8,16 +8,15 @@ ms.date: 09/19/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2b11454427a65e37604b430a63b5ed745f4a2bb1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 946e99448d13bf6782c10bce5a0b8566da4deb17
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864450"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190377"
 ---
 # <a name="ad-fs-paginated-sign-in"></a>AD FS paginé connectez-vous
 
->S'applique à : Windows Server 2019
 
 Pour AD FS 2019, nous avons remanié l’interface utilisateur de connexion.  À présent, l’authentification dans AD FS aura le même aspect d’Azure AD.  Cela fournit aux utilisateurs une expérience plus cohérente connectez-vous, incorporant un flux utilisateur centrée et paginés. 
 
@@ -60,4 +59,4 @@ Les options de personnalisation sera toujours applicables pour AD FS 2019. Voici
 
 • Pour ceux qui ne souhaitez pas mettre à niveau leurs serveurs à AD FS 2019 mais souhaitez toujours que la nouvelle conception : [À l’aide d’un thème Web de l’expérience utilisateur de Azure AD dans Active Directory Federation Services](azure-ux-web-theme-in-ad-fs.md)
 
-• Un emplacement central pour la personnalisation : [Personnalisation utilisateur AD FS sign-in](ad-fs-user-sign-in-customization.md)
+• Un emplacement central pour la personnalisation : [Personnalisation de la connexion utilisateur AD FS](ad-fs-user-sign-in-customization.md)

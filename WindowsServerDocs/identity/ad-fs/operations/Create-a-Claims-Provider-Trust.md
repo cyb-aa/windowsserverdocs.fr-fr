@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fbc8bb63435211a92cb7fc6aa05b1413aef939c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1c47986cda3f091033274aa2c59a656ec861a98f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854230"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189713"
 ---
 # <a name="create-a-claims-provider-trust"></a>Créer une approbation de fournisseur de revendications
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 Pour ajouter une nouvelle approbation de fournisseur de revendications à l’aide du composant logiciel enfichable Gestion AD FS\-manuellement et à configurer les paramètres, effectuez la procédure suivante sur un serveur de fédération du partenaire ressource dans l’organisation partenaire ressource.  
   
@@ -84,7 +82,7 @@ Pour ajouter une nouvelle approbation de fournisseur de revendications, le compo
 ## <a name="additional-references"></a>Références supplémentaires  
 [Liste de vérification : Configuration de l’organisation partenaire de ressource](../../ad-fs/deployment/Checklist--Configuring-the-Resource-Partner-Organization.md)  
   
-[Liste de vérification : Création de règles de revendication pour un fournisseur de revendications d’approbation](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Claims-Provider-Trust.md)  
+[Liste de vérification : création de règles de revendication pour une approbation de fournisseur de revendications](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Claims-Provider-Trust.md)  
   
 ## <a name="see-also"></a>Voir aussi  
 [Opérations d’AD FS](../../ad-fs/AD-FS-2016-Operations.md) 

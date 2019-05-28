@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 05a2dd88057b64675bbc3bd30724d1eda0880c44
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5af00db05c572a45811eea49b832a054a9e0e492
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860660"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188250"
 ---
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="when-to-use-a-send-ldap-attributes-as-claims-rule"></a>Quand utiliser une règle Envoyer les attributs LDAP en tant que revendications
 Vous pouvez utiliser cette règle dans Active Directory Federation Services \(AD FS\) lorsque vous souhaitez émettre des revendications sortantes contenant réel Lightweight Directory Access Protocol \(LDAP\) valeurs d’attribut qui existent dans un attribut stocker, puis associez un type de revendication à chacun des attributs LDAP. Pour plus d’informations sur les magasins d’attributs, consultez [The Role of Attribute Stores](The-Role-of-Attribute-Stores.md).  
   

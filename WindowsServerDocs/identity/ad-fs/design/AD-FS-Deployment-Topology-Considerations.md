@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: bbd3ec26e5fb0ce9857f2c9e5321300fb835b303
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c5a3c85d40baee137ecdf7a1a5507b25361cac6d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834590"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191771"
 ---
 # <a name="ad-fs-deployment-topology-considerations"></a>Considérations sur la topologie du déploiement d'AD FS
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique décrit les considérations importantes pour vous aider à planifier et concevoir les Services de fédération Active Directory \(AD FS\) topologie de déploiement à utiliser dans votre environnement de production. Cette rubrique est un point de départ pour examiner et évaluer les aspects qui influent sur les fonctionnalités ou capacités disponibles après le déploiement d’AD FS. Par exemple, en fonction de la base de données type que vous choisissez de stocker la base de données de configuration AD FS finalement déterminera si vous pouvez implémenter certaines Security Assertion Markup Language \(SAML\) fonctionnalités qui nécessitent SQL Serveur.  
   
@@ -31,16 +29,16 @@ Fonctionnalités d’AD FS
   
 |Fonctionnalité|Prise en charge par la base de données interne Windows ?|Prise en charge par SQL Server ?|Pour en savoir plus sur cette fonctionnalité|  
 |-----------|---------------------|----------------------------|---------------------------------------|  
-|Déploiement d'une batterie de serveurs de fédération|Oui, avec une limite de 30 serveurs de fédération pour chaque batterie de serveurs|Oui. Vous pouvez déployer un nombre illimité de serveurs de fédération dans une batterie.|[Déterminer votre topologie de déploiement AD FS](Determine-Your-AD-FS-Deployment-Topology.md)|  
-|Résolution d’artefacts SAML **Remarque :** Cette fonctionnalité n'est pas nécessaire pour les scénarios Microsoft Online Services, Microsoft Office 365, Microsoft Exchange ou Microsoft Office SharePoint.|Non|Oui|[Le rôle de la base de données de Configuration AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Meilleures pratiques pour sécuriser la planification et déploiement d’AD FS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
-|SAML\/WS\-détection de relecture de jetons de fédération|Non|Oui|[Le rôle de la base de données de Configuration AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Meilleures pratiques pour sécuriser la planification et déploiement d’AD FS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
+|Déploiement d'une batterie de serveurs de fédération|Oui, avec une limite de 30 serveurs de fédération pour chaque batterie de serveurs|Oui. Vous pouvez déployer un nombre illimité de serveurs de fédération dans une batterie.|[Déterminer votre topologie de déploiement d’AD FS](Determine-Your-AD-FS-Deployment-Topology.md)|  
+|Résolution d’artefacts SAML **Remarque :** Cette fonctionnalité n'est pas nécessaire pour les scénarios Microsoft Online Services, Microsoft Office 365, Microsoft Exchange ou Microsoft Office SharePoint.|Non|Oui|[Rôle de la base de données de configuration AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Meilleures pratiques pour sécuriser la planification et le déploiement d’AD FS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
+|SAML\/WS\-détection de relecture de jetons de fédération|Non|Oui|[Rôle de la base de données de configuration AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Meilleures pratiques pour sécuriser la planification et le déploiement d’AD FS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
   
 Fonctionnalités de base de données  
   
 |Fonctionnalité|Prise en charge par la base de données interne Windows ?|Prise en charge par SQL Server ?|Pour en savoir plus sur cette fonctionnalité|  
 |-----------|---------------------|----------------------------|---------------------------------------|  
-|Redondance de base de données à l’aide d’extraire la réplication, où un ou plusieurs serveurs hébergeant une lecture\-seule copie des modifications de requête de base de données qui sont effectuées sur un serveur source qui héberge une lecture\/écrire la copie de la base de données|Oui|Non|[Le rôle de la base de données de Configuration AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)|  
-|Redondance de base de données à l’aide de haute\-des solutions de disponibilité, telles que le basculement de clustering ou de mise en miroir \(au niveau de la couche base de données uniquement\) **Remarque :** Toutes les topologies de déploiement d’AD FS prend en charge le clustering au niveau de la couche de service AD FS.|Non|Oui|[Le rôle de la base de données de Configuration AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Vue d’ensemble des Solutions de haute disponibilité](https://go.microsoft.com/fwlink/?LinkId=179853)|  
+|Redondance de base de données à l’aide d’extraire la réplication, où un ou plusieurs serveurs hébergeant une lecture\-seule copie des modifications de requête de base de données qui sont effectuées sur un serveur source qui héberge une lecture\/écrire la copie de la base de données|Oui|Non|[Rôle de la base de données de configuration AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)|  
+|Redondance de base de données à l’aide de haute\-des solutions de disponibilité, telles que le basculement de clustering ou de mise en miroir \(au niveau de la couche base de données uniquement\) **Remarque :** Toutes les topologies de déploiement d’AD FS prend en charge le clustering au niveau de la couche de service AD FS.|Non|Oui|[Rôle de la base de données de configuration AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Vue d’ensemble des Solutions de haute disponibilité](https://go.microsoft.com/fwlink/?LinkId=179853)|  
   
 ### <a name="sql-server-considerations"></a>Considérations concernant SQL Server  
 Vous devez prendre en compte les facteurs suivants si vous choisissez SQL Server comme base de données de configuration pour le déploiement d'AD FS.  
@@ -66,4 +64,4 @@ Outre les serveurs de fédération que vous allez déployer, et selon la façon 
 -   Équilibrage de charge réseau \(NLB\)  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

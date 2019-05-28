@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 32b8e3cc133ce95872881115608bb8cfb17b2427
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7d046c720c5c6250b6efa03e068aa66e2a6bbe3d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816010"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192297"
 ---
 # <a name="configure-name-resolution-for-a-federation-server-proxy-in-a-dns-zone-that-serves-only-the-perimeter-network"></a>Configurer la résolution de noms pour un serveur proxy de fédération dans une zone DNS desservant uniquement le réseau de périmètre
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Pour que la résolution de noms fonctionne correctement pour un serveur de fédération dans un Active Directory Federation Services \(AD FS\) scénario dans quel système de nom de domaine un ou plusieurs \(DNS\) zones servent uniquement du périmètre réseau, ce qui suit les tâches doivent être effectuées :  
   
@@ -58,7 +57,7 @@ Pour mener à bien cette procédure, il faut appartenir au groupe **Administrate
   
 1.  Sur un serveur DNS pour le réseau de périmètre, ouvrez le composant logiciel enfichable DNS\-dans. Cliquez sur **Démarrer**, pointez sur **outils d’administration**, puis cliquez sur **DNS**.  
   
-2.  Dans l’arborescence de la console, avec le bouton droit\-cliquez sur la zone de recherche directe applicable, puis cliquez sur **nouvel hôte \(A ou AAAA\)**.  
+2.  Dans l’arborescence de la console, avec le bouton droit\-cliquez sur la zone de recherche directe applicable, puis cliquez sur **nouvel hôte \(A ou AAAA\)** .  
   
 3.  Dans **nom**, tapez uniquement le nom d’ordinateur du serveur de fédération. Par exemple, pour le nom de domaine pleinement qualifié \(FQDN\) fs.fabrikam.com, tapez **fs**.  
   
@@ -67,8 +66,8 @@ Pour mener à bien cette procédure, il faut appartenir au groupe **Administrate
 5.  Cliquez sur **Ajouter un hôte**.  
   
 ## <a name="additional-references"></a>Références supplémentaires  
-[Liste de vérification : Configuration d’un serveur Proxy de fédération](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Liste de vérification : configuration d’un serveur de fédération proxy](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
-[Name Resolution Requirements for Federation Server Proxies](https://technet.microsoft.com/library/dd807055.aspx)  
+[Exigences relatives à la résolution de noms pour les serveurs proxy de fédération](https://technet.microsoft.com/library/dd807055.aspx)  
   
 

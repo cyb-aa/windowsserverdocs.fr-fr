@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3e555d1003878e12320cb8557bd205ac24e1bbb3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6be56c25cc6f639f73842f57cdf48a6339dccf9c
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882440"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191852"
 ---
 # <a name="windows-server-2012-ad-fs-deployment-guide"></a>Guide de déploiement des services AD FS Windows Server 2012
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous pouvez utiliser Active Directory® Federation Services \(AD FS\) avec le système d’exploitation Windows Server® 2012 pour créer une solution de gestion d’identité fédérée qui étend distribuée d’identification, l’authentification, et services d’autorisation sur le Web\-des applications basées sur au-delà des limites de plate-forme et d’organisation. En déployant les services AD FS, vous pouvez étendre les fonctionnalités de gestion d'identités existantes de votre organisation à Internet.  
   
@@ -60,20 +59,20 @@ Ce guide ne contient pas :
   
 ## <a name="in-this-guide"></a>Dans ce guide  
   
--   [Planification du déploiement d’AD FS](Planning-to-Deploy-AD-FS.md)  
+-   [Planification du déploiement d’AD FS](Planning-to-Deploy-AD-FS.md)  
   
--   [Conception du Plan de mise en œuvre des services AD FS](Implementing-Your-AD-FS-Design-Plan.md)  
+-   [Implémentation de votre plan de conception AD FS](Implementing-Your-AD-FS-Design-Plan.md)  
   
--   [Liste de vérification : Implémentation d’une conception SSO de Web](Checklist--Implementing-a-Web-SSO-Design.md)  
+-   [Liste de vérification : implémentation d’une conception SSO de web](Checklist--Implementing-a-Web-SSO-Design.md)  
   
--   [Liste de vérification : Implémentation d’une conception SSO Web fédéré](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  
+-   [Liste de vérification : implémentation d’une conception SSO de web fédéré](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  
   
 -   [Configuration des organisations partenaires](Configuring-Partner-Organizations.md)  
   
--   [Configuration des règles de revendication](Configuring-Claim-Rules.md)  
+-   [Configuration de règles de revendication](Configuring-Claim-Rules.md)  
   
 -   [Déploiement de serveurs de fédération](Deploying-Federation-Servers.md)  
   
--   [Déploiement des serveurs proxy de fédération](Deploying-Federation-Server-Proxies.md)  
+-   [Déploiement de serveurs proxy de fédération](Deploying-Federation-Server-Proxies.md)  
   
--   [Interopérabilité avec AD FS 1.x](Interoperating-with-AD-FS-1.x.md)  
+-   [Interaction avec AD FS 1.x](Interoperating-with-AD-FS-1.x.md)  

@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 730411ed7efbb9cf0db3d7e94a486cec4c363849
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bec3ebf1bd12b260dbbb245a6a905277ff0d749f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860410"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188541"
 ---
- >S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="the-role-of-attribute-stores"></a>Rôle des magasins d'attributs
 Active Directory Federation Services utilise le terme « magasins d’attributs » pour faire référence aux répertoires ou bases de données utilisés par une organisation pour stocker ses comptes d’utilisateur et leurs valeurs d’attribut associées. Une fois qu’il est configuré dans une organisation de fournisseur d’identité, AD FS récupère ces valeurs d’attribut à partir du magasin et crée des revendications basées sur ces informations afin qu’une application Web ou le service est hébergé dans une organisation partie de confiance puisse faire approprié les décisions d’autorisation chaque fois qu’un utilisateur fédéré \(un utilisateur dont le compte est stocké dans l’organisation du fournisseur identité\) tente d’accéder à l’application ou le service.  
   

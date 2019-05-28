@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: bd15df5360a50e417881d83319344dbdf48f35fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2af1bfc295469d43e59593d69d4ba88f476e427
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829640"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034142"
 ---
 # <a name="ad-forest-recovery---windows-server-2003-recovery"></a>Récupération de forêt AD - récupération de Windows Server 2003
 
@@ -22,9 +22,9 @@ ms.locfileid: "59829640"
 
 Cette rubrique inclut des procédures de récupération de forêt pour les contrôleurs de domaine (DC) qui exécutent Windows Server 2003. Le processus général de récupération de forêt n’est pas différent avec les contrôleurs de domaine Windows Server 2003, mais des procédures spécifiques peuvent varier en raison de différents outils. Par exemple, Ntdsutil.exe peut être utilisé pour sauvegarder et restaurer des contrôleurs de domaine qui exécutent des contrôleurs de domaine Windows Server 2003, tandis que la sauvegarde Windows Server ou Wbadmin.exe est utilisé pour les contrôleurs de domaine qui exécutent Windows Server 2008 ou version ultérieure.  
   
-- [Sauvegarde des données d’état du système](#Backing-up-the-System-State-data)  
-- [Effectuez une restauration ne faisant pas autoritée](#Performing-a-nonauthoritative restore)  
-- [Installer et configurer le service serveur DNS](#Install-and-configure-the-DNS-Server-service)  
+- [Sauvegarde des données d’état du système](#backing-up-the-system-state-data)  
+- [Effectuez une restauration ne faisant pas autoritée](#performing-a-nonauthoritative-restore)  
+- [Installer et configurer le service serveur DNS](#install-and-configure-the-dns-server-service)
 
 ## <a name="backing-up-the-system-state-data"></a>Sauvegarde des données d’état du système
 Utilisez la procédure suivante pour sauvegarder les données d’état du système, ainsi que toutes les autres données que vous avez sélectionné pour l’opération de sauvegarde actuelle, d’un contrôleur de domaine qui exécute Windows Server 2003. Windows Server 2003 inclut l’outil Ntbackup, qui vous permet de sauvegarder les données d’état du système.  
@@ -57,7 +57,7 @@ Pour gagner du temps requis pour réinstaller le logiciel, déterminez si les ap
 ### <a name="to-perform-a-nonauthoritative-restore"></a>Pour effectuer une restauration ne faisant pas autoritée
   
 1. Une fois que vous démarrez le contrôleur de domaine, appuyez sur F8 pour redémarrer l’ordinateur en Mode restauration des Services d’annuaire (DSRM).  
-2. Sélectionnez **Mode restauration des Services d’annuaire (contrôleurs de domaine Windows)**.  
+2. Sélectionnez **Mode restauration des Services d’annuaire (contrôleurs de domaine Windows)** .  
 3. Sélectionnez le système d’exploitation que vous souhaitez démarrer en mode de restauration.  
 4. Ouvrez une session en tant qu’administrateur (vous pouvez uniquement utiliser un compte d’ordinateur local, aucune option d’ouverture de session de domaine est disponible).  
 5. À l’invite de commandes, tapez **ntbackup**, puis appuyez sur ENTRÉE.  
@@ -119,12 +119,12 @@ Si le contrôleur de domaine que vous avez restauré à partir de la sauvegarde 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Récupération de forêt AD - conditions préalables](AD-Forest-Recovery-Prerequisties.md)  
+- [Récupération de la forêt Active Directory : conditions préalables](AD-Forest-Recovery-Prerequisties.md)  
 - [Récupération de forêt AD - concevoir un plan de récupération personnalisée-forêt](AD-Forest-Recovery-Devising-a-Plan.md)  
 - [Récupération de forêt AD - identifier le problème](AD-Forest-Recovery-Identify-the-Problem.md)
 - [Récupération de forêt AD - déterminer comment récupérer](AD-Forest-Recovery-Determine-how-to-Recover.md)
 - [Récupération de forêt AD - effectuer une récupération initiale](AD-Forest-Recovery-Perform-initial-recovery.md)  
-- [Récupération de forêt AD - procédures](AD-Forest-Recovery-Procedures.md)  
+- [Récupération de la forêt Active Directory : procédures](AD-Forest-Recovery-Procedures.md)  
 - [Récupération de forêt AD - Forum aux Questions](AD-Forest-Recovery-FAQ.md)  
 - [Récupération de forêt AD - récupération d’un domaine unique au sein d’une forêt Multidomain](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
 - [Récupération de forêt AD - récupération de forêt avec les contrôleurs de domaine Windows Server 2003](AD-Forest-Recovery-Windows-Server-2003.md) 

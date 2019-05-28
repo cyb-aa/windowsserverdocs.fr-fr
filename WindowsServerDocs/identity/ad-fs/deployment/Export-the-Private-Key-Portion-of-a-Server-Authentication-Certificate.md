@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: c968f0702d56b56d0a80459e5cf0c9e658c56741
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c3a39f9d51ed8243118522ae37bc7d205a7ea416
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857190"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192141"
 ---
 # <a name="export-the-private-key-portion-of-a-server-authentication-certificate"></a>Exporter la partie clé privée d'un certificat d'authentification serveur
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Chaque serveur de fédération dans un Active Directory Federation Services \(AD FS\) batterie de serveurs doit avoir accès à la clé privée du certificat d’authentification serveur. Si vous implémentez une batterie de serveurs de fédération ou de serveurs Web, vous devez disposer d’un certificat d’authentification unique. Ce certificat doit être émis par une autorité de certification d’entreprise \(autorité de certification\), et il doit avoir une clé privée exportable. La clé privée du certificat d'authentification serveur doit être exportable pour être mise à la disposition de tous les serveurs de la batterie.  
   
@@ -57,10 +55,10 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 ## <a name="additional-references"></a>Références supplémentaires  
 [Liste de vérification : Configuration d’un serveur de fédération](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[Liste de vérification : Configuration d’un serveur Proxy de fédération](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Liste de vérification : configuration d’un serveur de fédération proxy](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
-[Configuration requise des certificats pour les serveurs de fédération](https://technet.microsoft.com/library/dd807040.aspx)  
+[Certificats requis pour les serveurs de fédération](https://technet.microsoft.com/library/dd807040.aspx)  
   
-[Configuration requise des certificats pour les serveurs proxy de fédération](https://technet.microsoft.com/library/dd807054.aspx)  
+[Certificats requis pour les serveurs proxy de fédération](https://technet.microsoft.com/library/dd807054.aspx)  
   
 

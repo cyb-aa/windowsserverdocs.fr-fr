@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 4900d8621b94a514a07bba55b2f7f3df5dd36353
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 26b0ae4f331607d83c6b94a2655ddc9eded8a356
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814620"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191866"
 ---
 # <a name="verify-that-a-federation-server-proxy-is-operational"></a>Vérifier qu’un serveur proxy de fédération est opérationnel
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous pouvez utiliser la procédure suivante pour vérifier que le serveur proxy de fédération peut communiquer avec le Service de fédération dans Active Directory Federation Services \(AD FS\). Vous exécutez cette procédure après avoir exécuté le **Assistant Configuration Proxy du serveur de fédération AD FS** pour configurer l’ordinateur pour exécuter le rôle de proxy de serveur de fédération. Pour plus d’informations sur l’exécution de cet Assistant, consultez [configurer un ordinateur pour le rôle de Proxy de serveur de fédération](Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
   
@@ -40,6 +39,6 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
     Si le serveur proxy de fédération est correctement configuré, vous voyez un nouvel événement dans le journal des applications de l’Observateur d’événements, avec l’événement ID 198. Cet événement vérifie que le service de proxy de serveur de fédération a été démarré avec succès et est désormais en ligne.  
   
 ## <a name="additional-references"></a>Références supplémentaires  
-[Liste de vérification : Configuration d’un serveur Proxy de fédération](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Liste de vérification : configuration d’un serveur de fédération proxy](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 

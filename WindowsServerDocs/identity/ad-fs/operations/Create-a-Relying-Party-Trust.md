@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 14e1cc732ed60b7f05a9a4a9aac9037c48b702f2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 42df338ee5a5aecb3cf32f91a2b1aedae1210164
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879920"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189510"
 ---
 # <a name="create-a-relying-party-trust"></a>Créer une partie de confiance
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 Le document suivant fournit des informations sur la création manuelle d’une partie de confiance et à l’aide des métadonnées de fédération.
   
@@ -81,7 +80,7 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 3.  Sur le **Bienvenue** page, choisissez **prenant en charge des revendications** et cliquez sur **Démarrer**.  
 ![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
   
-4.  Sur le **sélectionner une Source de données** , cliquez sur **importer les données sur la partie de confiance publiées en ligne ou sur un réseau local*. Dans **Adresse des métadonnées de fédération (nom d’hôte ou URL)**, tapez l’URL de métadonnées de fédération ou le nom d’hôte du partenaire, puis cliquez sur **Suivant**.  
+4.  Sur le **sélectionner une Source de données** , cliquez sur **importer les données sur la partie de confiance publiées en ligne ou sur un réseau local*. Dans **Adresse des métadonnées de fédération (nom d’hôte ou URL)** , tapez l’URL de métadonnées de fédération ou le nom d’hôte du partenaire, puis cliquez sur **Suivant**.  
 ![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust12.PNG) 
 
 5.  Dans la page spécifier le nom complet, tapez un nom dans **surnom**, sous Notes tapez une description pour cette partie de confiance, puis cliquez sur **suivant**.

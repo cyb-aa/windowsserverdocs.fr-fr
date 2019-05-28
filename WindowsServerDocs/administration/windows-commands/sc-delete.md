@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b60127cf957a30d147c9992c74c01e37e5b8bf89
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 68af5f118b2cc9d7941abddccd2a1bc7fde4c6d0
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871920"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222936"
 ---
 # <a name="sc-delete"></a>Suppression de SC
 
@@ -26,7 +26,7 @@ ms.locfileid: "59871920"
 
 Supprime une sous-clé de service à partir du Registre. Si le service est en cours d’exécution ou si un autre processus a un handle ouvert pour le service, le service est marqué pour suppression.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -46,7 +46,7 @@ sc [<ServerName>] delete [<ServiceName>]
 
 Utilisez **Ajout / Suppression de programmes** sur **le panneau de configuration** pour supprimer DHCP, DNS ou autres services de système d’exploitation intégré. Notez que **Ajout / Suppression de programmes** uniquement ne supprimera pas la sous-clé de Registre pour le service, mais il sera également désinstaller le service et supprimez tous les raccourcis à celui-ci.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="examples"></a>Exemples
 
 Pour supprimer la sous-clé service **NewServ** à partir du Registre sur l’ordinateur local, tapez :
 ```
@@ -55,4 +55,4 @@ sc delete newserv
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

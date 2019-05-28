@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 13ce514dc5f3f70217a26c898cde6fe24d4967c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d2f597994aa74f453903e09f7d3eefd83f26faba
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847380"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192272"
 ---
 # <a name="configure-a-federation-server"></a>Configurer un serveur de fédération
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 Après avoir installé les Services de fédération Active Directory \(AD FS\) service de rôle sur votre ordinateur, vous êtes prêt à configurer cet ordinateur pour qu’il devienne un serveur de fédération. Vous pouvez effectuer l’une des opérations suivantes :  
   
@@ -118,7 +116,7 @@ Vous pouvez créer une nouvelle batterie de serveurs de fédération à l’aide
         Install-AdfsFarm -CertificateThumbprint <certificate_thumbprint> -FederationServiceName <federation_service_name> -ServiceAccountCredential $fscred  
         ```  
   
-        Pour obtenir la valeur de **< certificat\_empreinte >**, exécutez `dir Cert:\LocalMachine\My`, puis sélectionnez l’empreinte numérique de votre certificat SSL. La valeur de **< fédération\_service\_nom >** est le nom de votre service de fédération, par exemple, fs.contoso.com.  
+        Pour obtenir la valeur de **< certificat\_empreinte >** , exécutez `dir Cert:\LocalMachine\My`, puis sélectionnez l’empreinte numérique de votre certificat SSL. La valeur de **< fédération\_service\_nom >** est le nom de votre service de fédération, par exemple, fs.contoso.com.  
   
         > [!NOTE]  
         > Si ce n’est pas la première fois que vous exécutez cette commande, ajoutez le `OverwriteConfiguration` paramètre.  
@@ -221,7 +219,7 @@ Vous pouvez ajouter un serveur de fédération à une batterie existante à l’
   
 ## <a name="see-also"></a>Voir aussi 
 
-[Déploiement d’AD FS](../../ad-fs/AD-FS-Deployment.md)  
+[Déploiement d’AD FS](../../ad-fs/AD-FS-Deployment.md)  
 
 [Guide de déploiement de Windows Server 2012 R2 AD FS](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
  

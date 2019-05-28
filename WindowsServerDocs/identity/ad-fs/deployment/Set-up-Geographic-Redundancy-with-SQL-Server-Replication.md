@@ -9,16 +9,15 @@ ms.prod: windows-server-threshold
 ms.technology: active-directory-federation-services
 ms.author: billmath
 ms.assetId: 7b9f9a4f-888c-4358-bacd-3237661b1935
-ms.openlocfilehash: 0ab10e61135a26b62605ed8e0a76ab6e53fdc82c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cf3d7513dd02bdb578bffd2f3ef8bdb29d8f983d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824290"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192168"
 ---
 # <a name="setup-geographic-redundancy-with-sql-server-replication"></a>Le programme d’installation à la redondance géographique avec la réplication SQL Server
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 > [!IMPORTANT]  
 > Si vous souhaitez créer une batterie de serveurs AD FS et utiliser SQL Server pour stocker vos données de configuration, vous pouvez utiliser SQL Server 2008 ou version ultérieure.

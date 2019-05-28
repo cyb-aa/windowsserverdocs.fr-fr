@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1b8344594c9fc477ed8424c716ec8d7f7fd91ef3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 29d50a4d1855e609b6ac9ee627256201074a5033
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852800"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190724"
 ---
 # <a name="web-sso-design"></a>Conception SSO Web
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dans l’unique Web\-connexion\-sur \(SSO\) conception dans Active Directory Federation Services \(AD FS\), les utilisateurs doivent s’authentifier qu’une seule fois pour accéder à plusieurs services AD FS\- applications sécurisées ou des services. Dans cette conception, tous les utilisateurs sont externes et en l’absence d’organisation partenaire, il n’existe aucune approbation de fédération. En général, vous déployez cette conception lorsque vous souhaitez fournir un accès consommateur ou un client individuel à un ou plusieurs AD FS sécurisée services ou applications via Internet, comme indiqué dans l’illustration suivante.  
   
@@ -33,4 +31,4 @@ Cette conception correspond à l’objectif de déploiement de [Provide Your Act
 Pour obtenir la liste détaillée des tâches que vous pouvez utiliser pour planifier et déployer votre conception SSO de Web, consultez [liste de vérification : Implémentation d’une conception SSO de Web](../../ad-fs/deployment/Checklist--Implementing-a-Web-SSO-Design.md).  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

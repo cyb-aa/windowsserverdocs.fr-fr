@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 05f8b8991e664a84c3f2b3200de4068af8d1476a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bef2cac726b1c4ea9b30f9a2086e3a2670339228
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846610"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189831"
 ---
 # <a name="configure-ad-fs-to-authenticate-users-stored-in-ldap-directories"></a>Configuration d'AD FS pour authentifier les utilisateurs stockées dans des annuaires LDAP
-
->S'applique à : Windows Server 2016
 
 La rubrique suivante décrit la configuration requise pour activer votre infrastructure AD FS authentifier les utilisateurs dont les identités sont stockées dans les répertoires compatibles v3 Lightweight Directory Access Protocol (LDAP).
 

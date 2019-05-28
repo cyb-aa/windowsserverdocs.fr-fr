@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 369c0e9e7ab1ef25baee1c35379cc66b886f20d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ce301f6320ed3347b1ee802f57c2b2ebd4394970
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827100"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191641"
 ---
 # <a name="certificate-requirements-for-federation-servers"></a>Certificats requis pour les serveurs de fédération
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dans les Services de fédération Active Directory \(AD FS\) conception, différents certificats doivent être utilisés pour sécuriser les communications et faciliter les authentifications utilisateur entre les clients Internet et les serveurs de fédération. Chaque serveur de fédération doit posséder un certificat de communication de service et un jeton\-avant de pouvoir participer aux communications AD FS le certificat de signature. Le tableau suivant décrit les types de certificats qui sont associés au serveur de fédération.  
   
@@ -55,4 +53,4 @@ Suivant vos contraintes en termes de sécurité et de budget, déterminez attent
 Si des listes de révocation de certificats sont associées à l'un des certificats que vous utilisez, le serveur détenant le certificat configuré doit pouvoir contacter le serveur qui distribue les listes de révocation de certificats.  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

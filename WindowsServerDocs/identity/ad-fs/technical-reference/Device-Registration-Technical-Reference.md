@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fac6437e9b6c3893064769a8279c2cf96cbc47d6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2e373f45088105a7ac9ca5cb43fbebc6452ccb9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833780"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188582"
 ---
->S'applique à : Windows Server 2016, Windows Server 2012 R2
-
 # <a name="device-registration-technical-reference"></a>Informations techniques de référence sur l’inscription de l’appareil
 Le Service Device Registration \(DRS\) est un nouveau service Windows qui est inclus avec le rôle de Service de fédération Active Directory sur Windows Server 2012 R2.  Le service DRS doit être installé et configuré sur tous les serveurs de fédération dans votre batterie AD FS.  Pour plus d’informations sur le déploiement DRS, voir [Configurer un serveur de fédération avec Device Registration Service](https://technet.microsoft.com/library/dn486831.aspx).  
   
@@ -25,7 +23,7 @@ Le Service Device Registration \(DRS\) est un nouveau service Windows qui est in
 Les objets Active Directory suivants sont créés dans le cadre du service DRS.  
   
 ### <a name="device-registration-configuration"></a>Configuration de l’inscription de l’appareil  
-La configuration de l’inscription de l’appareil est stockée dans le contexte d’appellation de configuration de la forêt Active Directory. \(Par exemple, **CN\=Device Registration Configuration, CN\=Services, < configuration\-d’affectation de noms\-contexte >**\). Cet objet est créé lorsque la forêt Active Directory est paraphée pour l’inscription de l’appareil.  
+La configuration de l’inscription de l’appareil est stockée dans le contexte d’appellation de configuration de la forêt Active Directory. \(Par exemple, **CN\=Device Registration Configuration, CN\=Services, < configuration\-d’affectation de noms\-contexte >** \). Cet objet est créé lorsque la forêt Active Directory est paraphée pour l’inscription de l’appareil.  
   
 La configuration de l’inscription de l’appareil inclut les éléments suivants :  
   
@@ -40,7 +38,7 @@ La configuration de l’inscription de l’appareil inclut les éléments suivan
 ### <a name="registered-devices-container"></a>Conteneur d’appareils inscrits  
 Le conteneur d’objet périphérique est créé sous l’un des domaines de la forêt Active Directory.  Ce conteneur d’objet contient tous les objets périphériques pour la forêt Active Directory.  
   
-Par défaut, le conteneur est créé dans le même domaine que les services AD FS.  \(Par exemple, **CN\=RegisteredDevices, DC\=< par défaut\-d’affectation de noms\-contexte >**\). Cet objet est créé lors de la forêt Active Directory est paraphée pour l’inscription.  
+Par défaut, le conteneur est créé dans le même domaine que les services AD FS.  \(Par exemple, **CN\=RegisteredDevices, DC\=< par défaut\-d’affectation de noms\-contexte >** \). Cet objet est créé lors de la forêt Active Directory est paraphée pour l’inscription.  
   
 ### <a name="registered-devices"></a>Appareils inscrits  
 Les objets périphériques sont de nouveaux objets légers dans Active Directory.  Ils sont utilisés pour représenter la relation entre un utilisateur, un périphérique et la société.  Les objets périphériques utilisent un certificat signé par AD FS pour ancrer l’appareil physique à l’objet périphérique logique dans Active Directory.  

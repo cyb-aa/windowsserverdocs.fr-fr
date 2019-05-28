@@ -7,12 +7,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: b6ad1f1f8573fc380e999e5ec2091cea8ebb8aa1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d761e4532a5be92d43e09904e9df8f2aa61b6bb8
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820360"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63738462"
 ---
 # <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB : Fichiers et imprimantes partage de ports doivent être ouverts
 
@@ -69,7 +69,7 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 
 2.  Dans le volet gauche, cliquez sur **paramètres avancés**, dans l’arborescence de la console, cliquez sur **règles de trafic entrant**.
 
-3.  Sous **règles de trafic entrant**, recherchez les règles **partage de fichiers et imprimantes (NB-Session-entrée)** et **partage de fichiers et imprimantes (SMB-entrée)**.
+3.  Sous **règles de trafic entrant**, recherchez les règles **partage de fichiers et imprimantes (NB-Session-entrée)** et **partage de fichiers et imprimantes (SMB-entrée)** .
 
 4.  Pour chaque règle, avec le bouton droit de la règle, puis cliquez sur **activer la règle**.
 

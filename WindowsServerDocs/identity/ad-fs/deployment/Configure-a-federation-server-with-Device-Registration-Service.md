@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 511a039afd47cf7570fffdcaf17842e0eccc5683
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f1367f03ea8a9ba96bfe4bae1c324deff92576f0
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843060"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192256"
 ---
 # <a name="configure-a-federation-server-with-device-registration-service"></a>Configurer un serveur de fédération avec Device Registration Service
-
->S'applique à : Windows Server 2012 R2
 
 Vous pouvez activer le Service Device Registration \(DRS\) sur votre serveur de fédération après avoir terminé les procédures de [étape 4 : Configurer un serveur de fédération](https://technet.microsoft.com/library/dn303424.aspx). Le Service Device Registration fournit un mécanisme de l’intégration pour transparente l’authentification multifacteur, l’authentification unique persistante\-sur \(SSO\)et l’accès conditionnel à des consommateurs qui requièrent l’accès à l’entreprise ressources. Pour plus d’informations sur DRS, consultez [rejoindre un espace de travail à partir de n’importe quel appareil pour l’authentification unique et transparente deuxième facteur Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)  
   
@@ -78,7 +76,7 @@ Transparente authentification de second facteur est une amélioration dans AD FS
   
 ## <a name="see-also"></a>Voir aussi 
 
-[Déploiement d’AD FS](../../ad-fs/AD-FS-Deployment.md)  
+[Déploiement d’AD FS](../../ad-fs/AD-FS-Deployment.md)  
 
 [Guide de déploiement de Windows Server 2012 R2 AD FS](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
  

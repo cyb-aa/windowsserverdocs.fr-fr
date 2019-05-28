@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f287261ce6cb56e40385ef4de922045153819a23
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7a1082b873f65a9f98b25425a392b2c62de8ca22
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877560"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191014"
 ---
 # <a name="planning-for-interoperability-with-ad-fs-1x"></a>Planification de l’interopérabilité avec AD FS 1.x
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Active Directory Federation Services \(AD FS\) des serveurs de fédération exécutant Windows Server® 2012 peuvent interagir avec les deux an AD FS 1.0 \(installé avec Windows Server 2003 R2\) fédération et un Service AD FS 1.1 \(installé avec Windows Server 2008 ou Windows Server 2008 R2\) Service de fédération. Toutes les combinaisons d’interopérabilité suivantes sont pris en charge :  
   
@@ -49,4 +47,4 @@ Une seule revendication d’identificateur de nom ID dans le format approprié d
 > An AD FS 1. *x* Service de fédération peut interpréter les types de revendications entrantes uniquement qui commencent par l’identificateur de ressource uniforme \(URI\) de http://schemas.xmlsoap.org/claims/.  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

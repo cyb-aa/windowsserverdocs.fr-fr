@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f46675ff4c471af743fd8782c1e3036e7c546256
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cdd0b32b50f676007a6cc922bc15b95bb61323be
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839340"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189674"
 ---
 # <a name="create-a-non-claims-aware-relying-party-trust"></a>Créer une Non-Claims-Aware partie de confiance
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 Dans le composant logiciel enfichable Gestion AD FS\-dans, non\-revendications\-prenant en charge les approbations de partie de confiance sont des objets qui sont créés pour représenter l’approbation entre le service de fédération et un seul site web\-application qui n’est pas basée sur revendications\-prenant en charge et qui est accessible via le Proxy d’Application Web.  
   

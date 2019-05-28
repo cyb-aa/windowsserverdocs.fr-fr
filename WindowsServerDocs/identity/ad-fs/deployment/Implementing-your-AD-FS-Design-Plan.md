@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 31c2e048c3c125d0ea60610b049501151d7aa823
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6150b52030734c57b345aea731302650bcbddbfd
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830780"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192129"
 ---
 # <a name="implementing-your-ad-fs-design-plan"></a>Implémentation de votre plan de conception AD FS
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Les conditions environnementales suivantes et les exigences sont des facteurs importants dans l’implémentation de votre Active Directory Federation Services \(AD FS\) plan de conception :  
   
@@ -39,6 +37,6 @@ L’étape suivante de l’implémentation de votre conception consiste à déte
   
 Utilisez les listes de contrôle parent suivantes dans cette section du guide pour vous familiariser avec les tâches de déploiement pour l’implémentation de conception AD FS par défaut de votre organisation :  
   
--   [Liste de vérification : Implémentation d’une conception SSO de Web](Checklist--Implementing-a-Web-SSO-Design.md)  
+-   [Liste de vérification : implémentation d’une conception SSO de web](Checklist--Implementing-a-Web-SSO-Design.md)  
   
--   [Liste de vérification : Implémentation d’une conception SSO Web fédéré](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  
+-   [Liste de vérification : implémentation d’une conception SSO de web fédéré](Checklist--Implementing-a-Federated-Web-SSO-Design.md)  
