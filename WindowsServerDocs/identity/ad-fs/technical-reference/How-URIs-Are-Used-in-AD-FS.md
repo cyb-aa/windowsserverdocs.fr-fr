@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 305bf0cece742c961604dacda7e27b8eac8065e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 677d3136305cbddd29f2fd782be33ae1e824d096
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812220"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188549"
 ---
->S'applique à : Windows Server 2016, Windows Server 2012 R2
-
 # <a name="how-uris-are-used-in-ad-fs"></a>Utilisation des URI dans AD FS
 Un identificateur de ressource uniforme \(URI\) est une chaîne de caractères qui est utilisée comme identificateur unique.  Dans ADFS, les URI sont utilisés pour identifier des adresses de réseau partenaire et des objets de configuration.  Lorsqu’il est utilisé pour identifier les adresses de réseaux partenaires, l’URI est toujours une URL.  Lorsqu’il est utilisé pour identifier des objets de configuration, l’URI peut être un URN ou une URL.  Pour en savoir plus sur les URI, voir [RFC 2396](https://go.microsoft.com/fwlink/?LinkId=48289) et [RFC 3986](https://go.microsoft.com/fwlink/?LinkId=90453).  
   
@@ -63,7 +61,7 @@ Par exemple, si l’identificateur de tiers de confiance dans la base de donnée
   
 Le tableau suivant fournit des exemples supplémentaires.  
   
-|Identificateur de partie de confiance de la base de données de configuration AD FS|Identificateur de partie de confiance du message de demande|L’identificateur de demande correspond-il à l’identificateur de configuration ?|Raison|  
+|Identificateur de partie de confiance de la base de données de configuration AD FS|Identificateur de partie de confiance du message de demande|L’identificateur de demande correspond-il à l’identificateur de configuration ?|Reason|  
 |------------------------------------------------------------|-----------------------------------------------|------------------------------------------------------------|----------|  
 |http :\/\/contoso.com|http :\/\/contoso.com|TRUE|Correspondance exacte|  
 |http:\/\/contoso.com\/|http :\/\/contoso.com|TRUE|Les barres obliques finales sont ignorées.|  

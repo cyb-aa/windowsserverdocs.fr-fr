@@ -9,21 +9,19 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 9b66bed99cbc2ac2cdf116579adaea282c45fabe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cd8febf9eff300b1a83d22828874b4a577b8af36
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876390"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192317"
 ---
 # <a name="configure-corporate-dns-for-the-federation-service-and-drs"></a>Configurer le système DNS d’entreprise pour le service de fédération et DRS
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2
   
 ## <a name="step-6-add-a-host-a-and-alias-cname-resource-record-to-corporate-dns-for-the-federation-service-and-drs"></a>Étape 6 : Ajouter un hôte \(A\) et Alias \(CNAME\) enregistrement de ressource au DNS d’entreprise pour le Service de fédération et DRS  
 Vous devez ajouter les enregistrements de ressource suivants au système de nom de domaine d’entreprise \(DNS\) pour votre service de fédération et le Service d’inscription de périphérique que vous avez configuré dans les étapes précédentes.  
   
-|Entrée|Type|Address|  
+|Entrée|type|Address|  
 |---------|--------|-----------|  
 |fédération\_service\_nom|Hôte \(A\)|Adresse IP du serveur AD FS ou l’adresse IP de l’équilibreur de charge est configuré devant votre batterie de serveurs AD FS|  
 |enterpriseregistration|Alias \(CNAME\)|federation\_server\_name.contoso.com|  
@@ -36,13 +34,13 @@ L’appartenance au **administrateurs**, ou équivalente, est la configuration m
   
 1.  Sur vous contrôleur de domaine dans le Gestionnaire de serveur, sur le **outils** menu, cliquez sur **DNS** pour ouvrir le composant logiciel enfichable DNS\-dans.  
   
-2.  Dans l’arborescence de la console, développez le **domaine\_contrôleur\_nom** nœud, développez **Zones de recherche directe**, à droite\-cliquez sur **domaine\_nom**, puis cliquez sur **nouvel hôte \(A ou AAAA\)**.  
+2.  Dans l’arborescence de la console, développez le **domaine\_contrôleur\_nom** nœud, développez **Zones de recherche directe**, à droite\-cliquez sur **domaine\_nom**, puis cliquez sur **nouvel hôte \(A ou AAAA\)** .  
   
 3.  Dans le **nom** , tapez le nom à utiliser pour votre batterie de serveurs AD FS.  
   
 4.  Dans la zone **adresse IP**, saisissez l’adresse IP de votre serveur de fédération. Cliquez sur **Ajouter un hôte**.  
   
-5.  Droite\-cliquez sur le **domaine\_nom** nœud, puis cliquez sur **nouvel Alias \(CNAME\)**.  
+5.  Droite\-cliquez sur le **domaine\_nom** nœud, puis cliquez sur **nouvel Alias \(CNAME\)** .  
   
 6.  Dans la boîte de dialogue **Nouvel enregistrement de ressource**, tapez **enterpriseregistration** dans la zone **Nom de l'alias**.  
   
@@ -53,7 +51,7 @@ L’appartenance au **administrateurs**, ou équivalente, est la configuration m
   
 ## <a name="see-also"></a>Voir aussi 
 
-[Déploiement d’AD FS](../../ad-fs/AD-FS-Deployment.md)  
+[Déploiement d’AD FS](../../ad-fs/AD-FS-Deployment.md)  
 
 [Guide de déploiement de Windows Server 2012 R2 AD FS](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
  

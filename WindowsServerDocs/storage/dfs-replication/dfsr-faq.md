@@ -6,17 +6,17 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: f1d77b6640bc0d6a5832a5a19c80d9d0af5d2b00
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3782667e54f5e6b52c07645704b95fc9e7409a27
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832660"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476072"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>Réplication DFS : Forum Aux Questions (FAQ)
 
 
-Mise à jour : 9 octobre 2013
+Mise à jour : 30 avril 2019
 
 S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
@@ -631,7 +631,7 @@ Si vous utilisez Windows Server 2008 ou Windows Server 2003 R2, vous pouvez simu
 
 ### <a name="is-there-a-way-to-force-a-complete-replication-of-all-files-including-unchanged-files"></a>Existe-t-il un moyen de forcer une réplication complète de tous les fichiers, y compris les fichiers inchangés ?
 
-Non. Si la réplication DFS considère les fichiers identiques, il ne réplique les. Si les fichiers modifiés n’ont pas été répliquées, la réplication DFS vont être répliqués automatiquement en cas de configuré pour ce faire. Pour remplacer le calendrier configuré, utilisez la méthode WMI **ForceReplicate()**. Toutefois, il s’agit uniquement remplacer une planification, et il n’impose pas de réplication de fichiers identiques ou non.
+Non. Si la réplication DFS considère les fichiers identiques, il ne réplique les. Si les fichiers modifiés n’ont pas été répliquées, la réplication DFS vont être répliqués automatiquement en cas de configuré pour ce faire. Pour remplacer le calendrier configuré, utilisez la méthode WMI **ForceReplicate()** . Toutefois, il s’agit uniquement remplacer une planification, et il n’impose pas de réplication de fichiers identiques ou non.
 
 ### <a name="what-happens-if-the-primary-member-suffers-a-database-loss-during-initial-replication"></a>Que se passe-t-il si le membre principal subit une perte de la base de données pendant la réplication initiale ?
 
@@ -730,7 +730,7 @@ Si n’importe quelle partie du fichier est déjà en cours de transmission, la 
 <tr class="header">
 <th>Date</th>
 <th>Description</th>
-<th>Raison</th>
+<th>Reason</th>
 </tr>
 </thead>
 <tbody>

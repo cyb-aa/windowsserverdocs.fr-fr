@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4f55eaacec8ee0eb41e1980f1aa15c6256f8b979
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4148614ba35ce29f567edb08b94e115d3f9152e9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818730"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189099"
 ---
 # <a name="improved-interoperability-with-saml-20"></a>Interopérabilité améliorée avec SAML 2.0
 
->S'applique à : Windows Server 2016
+
 
   
 AD FS dans Windows Server 2016 contient SAML protocole prise en charge supplémentaire, notamment la prise en charge pour l’importation des approbations en fonction des métadonnées qui contient plusieurs entités.  Cela vous permet de configurer AD FS pour participer confédérations de l’industrie telles que la fédération InCommon et d’autres implémentations conformes à l’eGov 2.0 standard.   

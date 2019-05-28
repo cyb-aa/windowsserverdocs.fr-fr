@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: febcd6ab0744a7fddd024e1f0afdb93711e8939a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6effaf7c2d197c08b4930e09c3ada96462b17d6f
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829540"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476192"
 ---
 # <a name="quota-management"></a>Gestion de quota
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Sur le nœud **Gestion de quota** du composant logiciel enfichable Microsoft<sup>®</sup> Management Console (MMC) Gestionnaire de ressources du serveur de fichiers, vous pouvez effectuer les tâches suivantes :
 
@@ -33,17 +33,17 @@ Vous pouvez par exemple :
 
 Cette section comprend les rubriques suivantes :
 
--   [Créer un Quota](create-quota.md)
--   [Créer une fonction automatique d’un quota](create-auto-apply-quota.md)
+-   [Créer un quota](create-quota.md)
+-   [Créer un quota automatique](create-auto-apply-quota.md)
 -   [Créer un modèle de Quota](create-quota-template.md)
--   [Modifier les propriétés de modèle de Quota](edit-quota-template-properties.md)
--   [Modifier automatiquement appliquer des propriétés de Quota](edit-auto-apply-quota-properties.md)
+-   [Modifier les propriétés du modèle de quota](edit-quota-template-properties.md)
+-   [Modifier les propriétés de quota automatique](edit-auto-apply-quota-properties.md)
 
 > [!Note]
 > Pour définir des notifications par courrier électronique et des fonctionnalités de création de rapports, vous devez d’abord configurer les options générales du Gestionnaire de ressources du serveur de fichiers.
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Options de paramètre File Server Resource Manager](setting-file-server-resource-manager-options.md)
+-   [Définition des options du Gestionnaire de ressources du serveur de fichiers](setting-file-server-resource-manager-options.md)
 
 

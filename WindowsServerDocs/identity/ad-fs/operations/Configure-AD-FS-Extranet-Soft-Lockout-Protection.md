@@ -9,16 +9,14 @@ ms.date: 02/01/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 37b8c4b9b07e3111fce1bfc0a9aae10c8754bb3a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6612c05e664b50c5a50b10b712b91715cc85d230
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884630"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189879"
 ---
 # <a name="configure-ad-fs-extranet-lockout-protection"></a>Configurer la Protection par verrouillage Extranet AD FS
-
->S'applique à : Windows Server 2012 R2
 
 Dans AD FS sur Windows Server 2012 R2, nous avons introduit une fonctionnalité de sécurité appelée verrouillage Extranet.  Avec cette fonctionnalité, AD FS est « arrêter » authentifier le compte d’utilisateur « malveillants » à partir d’à l’extérieur pour une période donnée.  Cela empêche vos comptes d’utilisateur de leur compte est verrouillé dans Active Directory.  Outre la protection de vos utilisateurs à partir d’un verrouillage de compte AD, le verrouillage extranet AD FS protège également contre le mot de passe par force brute deviner les attaques
 
@@ -95,7 +93,7 @@ Il existe un problème connu où le compte d’utilisateur AD ne peut pas authen
 
 ## <a name="additional-references"></a>Références supplémentaires  
 - [Meilleures pratiques pour la sécurisation d’Active Directory Federation Services](../../ad-fs/deployment/best-practices-securing-ad-fs.md)
-- [Déléguer l’accès d’applet de commande Powershell AD FS pour les utilisateurs Non administrateurs](delegate-ad-fs-pshell-access.md)
+- [Déléguer l’accès aux applets de commande Powershell AD FS aux utilisateurs non-administrateurs](delegate-ad-fs-pshell-access.md)
 - [Set-AdfsProperties](https://technet.microsoft.com/itpro/powershell/windows/adfs/set-adfsproperties)
 
 [Opérations d’AD FS](../../ad-fs/AD-FS-2016-Operations.md)

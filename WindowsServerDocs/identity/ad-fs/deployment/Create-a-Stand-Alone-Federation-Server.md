@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: fd075c5b7d1bfce89cc27c4917a016e7e5037ce5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b70b0b048f66f9a8ba19cd7990dde57e0655ae4
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888290"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192231"
 ---
 # <a name="create-a-stand-alone-federation-server"></a>Créer un serveur de fédération autonome
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Une fois que vous installez le service de rôle Service de fédération et configurez les certificats requis sur un ordinateur, vous êtes prêt à configurer l’ordinateur pour qu’il devienne un serveur de fédération. Vous pouvez utiliser la procédure suivante pour configurer l’ordinateur de devenir un socle\-serveur de fédération autonome. L’opération de création d’un support\-serveur de fédération autonome crée également un Service de fédération. Vous créez un serveur de fédération avec l’Assistant Configuration du serveur de fédération AD FS.  
   

@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 1245b88a42b80218b5557dc89f2b97b5d0059d44
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 25ed17d964f12c2f497ccde443dad9f8bc253b20
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852540"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034675"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>Machines virtuelles protégées pour les locataires - création des données de protection pour définir une machine virtuelle protégée
 
@@ -35,7 +35,7 @@ Pour vous préparer à créer un fichier de données de protection, procédez co
 
 Vous pouvez ensuite créer le fichier de données de protection :
 
-- [Créer un fichier de données de protection et ajoutez les gardiens](#create-a-shielding-data-file-and-add-guardians)
+- [Créer un fichier de données de protection et ajoutez les gardiens](#create-a-shielding-data-file-and-add-guardians-using-the-shielding-data-file-wizard)
 
 
 ## <a name="obtain-a-certificate-for-remote-desktop-connection"></a>Obtenir un certificat pour la connexion Bureau à distance
@@ -211,7 +211,7 @@ Cette commande crée une paire de certificats de signature et chiffrement dans l
 Vous devrez les certificats de propriétaire et leurs clés privées correspondantes pour unshield une machine virtuelle, par conséquent, vérifiez ces certificats sont sauvegardés et protégés contre le vol.
 Un pirate ayant accès aux certificats propriétaire peut les utiliser pour démarrer votre machine virtuelle protégée ou modifier sa configuration de sécurité.
 
-Si vous avez besoin importer des informations de surveillance à partir d’une structure protégée, où vous souhaitez exécuter votre machine virtuelle (votre centre de données principal, centres de données de sauvegarde, etc.), exécutez la commande suivante pour chaque [fichier de métadonnées récupérées à partir de vos infrastructures protégées ](#Select-trusted-fabrics).
+Si vous avez besoin importer des informations de surveillance à partir d’une structure protégée, où vous souhaitez exécuter votre machine virtuelle (votre centre de données principal, centres de données de sauvegarde, etc.), exécutez la commande suivante pour chaque [fichier de métadonnées récupérées à partir de vos infrastructures protégées ](#select-trusted-fabrics).
 
 ```powershell
 Import-HgsGuardian -Name 'EAST-US Datacenter' -Path '.\EastUSGuardian.xml'
@@ -220,7 +220,7 @@ Import-HgsGuardian -Name 'EAST-US Datacenter' -Path '.\EastUSGuardian.xml'
 > [!TIP]
 > Si vous avez utilisé des certificats auto-signés ou les certificats inscrits avec SGH arrivées à expiration, vous devrez peut-être utiliser le `-AllowUntrustedRoot` et/ou `-AllowExpired` indicateurs avec la commande Import-HgsGuardian pour contourner les contrôles de sécurité.
 
-Vous devrez également [obtenir un catalogue de signatures de volume](#Get-the-volume-signature-catalog-file) pour chaque disque de modèle que vous souhaitez utiliser avec ce fichier de données de protection et un [fichier de réponses de données de protection](#Create-an-answer-file) pour permettre au système d’exploitation terminer son spécialisation automatiquement des tâches.
+Vous devrez également [obtenir un catalogue de signatures de volume](#get-the-volume-signature-catalog-file) pour chaque disque de modèle que vous souhaitez utiliser avec ce fichier de données de protection et un [fichier de réponses de données de protection](#create-an-answer-file) pour permettre au système d’exploitation terminer son spécialisation automatiquement des tâches.
 Enfin, décidez si votre machine virtuelle doit être entièrement protégées ou simplement compatibles avec vTPM.
 Utilisez `-Policy Shielded` pour une machine virtuelle entièrement protégée ou `-Policy EncryptionSupported` pour un vTPM activé la machine virtuelle qui autorise les connexions de console de base et PowerShell Direct.
 
@@ -243,4 +243,4 @@ Consultez la documentation de l’applet de commande pour [New-ShieldingDataFile
 ## <a name="see-also"></a>Voir aussi
 
 - [Déployer des machines virtuelles protégées](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
-- [Structure protégée et machines virtuelles protégées](guarded-fabric-and-shielded-vms-top-node.md)
+- [Structure protégée et machines virtuelles dotées d’une protection maximale](guarded-fabric-and-shielded-vms-top-node.md)

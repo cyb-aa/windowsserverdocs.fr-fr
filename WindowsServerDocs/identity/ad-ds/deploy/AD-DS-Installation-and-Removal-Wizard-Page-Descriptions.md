@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 52e4b215c406eeae11dbab41e367f6ce4cd83507
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b4df753a1635a0935e70a76278b097d2f9f70142
+ms.sourcegitcommit: b190fac4bfa5599751a60d3fc3b4c4a64dd9afd7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849250"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66009101"
 ---
 # <a name="ad-ds-installation-and-removal-wizard-page-descriptions"></a>Descriptions des pages des Assistants Installation et Suppression des services de domaine Active Directory
 
@@ -61,7 +61,7 @@ Les options suivantes apparaissent lorsque vous créez une forêt.
   
 -   Lorsque vous créez une forêt, vous devez spécifier le nom du domaine racine de forêt. Le nom de domaine de racine de forêt ne peut pas être en une partie (par exemple, il doit être « contoso.com » au lieu de « contoso »). Il doit respecter les conventions d’affectation des noms des domaines DNS. Vous pouvez spécifier un nom de domaine international. Pour plus d’informations sur les conventions d’affectation des noms de domaine DNS, voir l’[article 909264 de la Base de connaissances Microsoft](https://support.microsoft.com/kb/909264).  
   
--   Ne créez pas de forêts Active Directory portant le même nom que votre nom DNS externe. Par exemple, si votre URL DNS Internet est http://contoso.com, vous devez choisir un autre nom pour votre forêt interne éviter les problèmes de compatibilité future. Ce nom doit être unique et faire l’objet d’une utilisation peu probable en termes de trafic Web, comme corp.contoso.com.  
+-   Ne créez pas de forêts Active Directory portant le même nom que votre nom DNS externe. Par exemple, si votre URL DNS Internet est http : \/ /contoso.com, vous devez choisir un autre nom pour votre forêt interne éviter les problèmes de compatibilité future. Ce nom doit être unique et faire l’objet d’une utilisation peu probable en termes de trafic Web, comme corp.contoso.com.  
   
 -   Vous devez être membre du groupe Administrateurs sur le serveur sur lequel vous voulez créer une forêt.  
   

@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 5076a686b5d0b9a539f6cad8594aaf84dccc3edb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7891f1d0b96df84e8ac4f3eb670f30350d3c194c
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887060"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188442"
 ---
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="the-role-of-the-claims-pipeline"></a>Rôle du pipeline de revendications
 Le pipeline de revendications dans Active Directory Federation Services \(AD FS\) représente le chemin d’accès que les revendications doivent respecter via le Service de fédération avant qu’ils peuvent être émises. Le Service de fédération gère la toute fin\-à\-fin du processus de flux des revendications dans les différentes étapes du pipeline de revendications, qui inclut également le traitement des règles de revendication par le moteur de règles de revendication.  
   

@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: e429c87a2194ecfaf02c3d6c579eda75293250d4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a280d540d09c6fdcb7846d1cf545856869be1152
+ms.sourcegitcommit: b190fac4bfa5599751a60d3fc3b4c4a64dd9afd7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827510"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66008963"
 ---
 # <a name="replication-error-1753-there-are-no-more-endpoints-available-from-the-endpoint-mapper"></a>Erreur de réplication 1753 Le mappeur de point final n’a plus de point final disponible
 
@@ -194,9 +194,8 @@ Pour Windows Server 2008 ou Windows Server 2008 R2 : à partir de la console du
           <code>c:&gt;nslookup -type=cname &lt;fully qualified cname of source DC&gt; &lt;destination DCs primary DNS Server IP &gt;
 c:&gt;nslookup -type=cname &lt;fully qualified cname of source DC&gt; &lt;destination DCs secondary DNS Server IP&gt;</code>
           <para>Vérifiez que l’adresse IP renvoyée par NSLOOKUP « possède » le nom d’hôte / identité de sécurité de contrôleur de domaine source :</para>
-
           <code>C:&gt;NBTSTAT -A &lt;IP address returned by NSLOOKUP in the step above&gt;</code>
-          <para>ou Gestionnaire de configuration</para>
+          <para>ou</para>
           <para>Ouvrez une session sur la console du contrôleur de domaine source, exécuter « IPCONFIG » à partir de l’invite de commande et vérifier que le contrôleur de domaine source possède l’adresse IP renvoyée par la commande NSLOOKUP ci-dessus</para>
           <para>Recherchez un hôte obsolète / en double pour les mappages d’adresses IP dans DNS</para>
           <code>NSLOOKUP -type=hostname &lt;single label hostname of source DC&gt; &lt;primary DNS Server IP on destination DC&gt;

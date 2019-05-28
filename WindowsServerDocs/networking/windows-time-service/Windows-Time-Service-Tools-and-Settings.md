@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: 7cf3b3f2bb9a2c9f95c50aa6a7b7690f89cdd0af
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7426c3ede013905ba65a659baead928d3e2bbadf
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840660"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034563"
 ---
 # <a name="windows-time-service-tools-and-settings"></a>Paramètres et outils du service de temps Windows
 >S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10 ou version ultérieure
@@ -70,7 +70,7 @@ Les tableaux suivants décrivent les paramètres qui sont utilisés avec W32tm.e
 ---  
 Pour plus d’informations sur **W32tm.exe**, consultez le centre d’aide et Support dans Windows XP, Windows Vista, Windows 7, Windows Server 2003, Windows Server 2003 R2, Windows Server 2008 et Windows Server 2008 R2.  
   
-## <a name="windows-time-service-registry-entries"></a>Entrées de Registre du Service de temps Windows  
+## <a name="windows-time-service-registry-entries"></a>Entrées de Registre du Service de temps Windows
 Les entrées de Registre suivantes sont associées avec le service de temps de Windows.  
   
 Ces informations sont fournies en tant que référence pour une utilisation dans la résolution des problèmes ou de vérifier que les paramètres requis sont appliquées. Il est recommandé que vous ne modifiez pas directement le Registre, sauf si il n’existe aucune alternative. Modifications du Registre ne sont pas validées par l’Éditeur du Registre ou par Windows avant qu’ils sont appliqués, et par conséquent, les valeurs incorrectes peuvent être stockées. Cela peut entraîner des erreurs irrécupérables dans le système.  
@@ -86,11 +86,11 @@ Nombre d’entrées de Registre pour le service de temps de Windows est les mêm
 
   
 Il existe plusieurs clés de Registre à cet emplacement de Registre. Les paramètres d’heure de Windows sont stockées dans les valeurs dans l’ensemble de ces clés :
-* [Paramètres](#Parameters)
-* [Config](#Configuration)
-* [NtpClient](#NtpClient)
-* [NtpServer](#NtpServer)
-  
+
+* [Paramètres](#hklmsystemcurrentcontrolsetservicesw32timeparameters)
+* [Config](#hklmsystemcurrentcontrolsetservicesw32timeconfig)
+* [NtpClient](#hklmsystemcurrentcontrolsetservicesw32timetimeprovidersntpclient)
+* [NtpServer](#hklmsystemcurrentcontrolsetservicesw32timetimeprovidersntpserver)
 
 Plusieurs des valeurs dans la section W32Time du Registre sont utilisés en interne par W32Time pour stocker des informations. Ces valeurs ne doivent pas être modifiées manuellement à tout moment. Ne modifiez pas les paramètres dans cette section, sauf si vous êtes familiarisé avec le paramètre et que vous êtes certain que la nouvelle valeur fonctionne comme prévu. Les entrées de Registre suivantes se trouvent sous :
 
@@ -114,10 +114,9 @@ Certains des paramètres sont stockés dans des battements d’horloge dans le R
   
 -   1 ms = 10 000 battements d’horloge sur un système Windows, comme décrit dans [DateTime.Ticks Property](https://docs.microsoft.com/dotnet/api/system.datetime.ticks?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_Ticks).  
   
-Par exemple, 5 minutes deviendrait 5 * 60\*1000\*10000 = 3000000000 battements d’horloge. 
+Par exemple, 5 minutes deviendrait 5\*60\*1000\*10000 = 3000000000 battements d’horloge. 
 
 Toutes les versions incluent Windows 7, Windows 8, Windows 10, Windows Server 2008 et Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016.  Certaines entrées sont uniquement disponibles sur les versions de Windows plus récentes.
-
 
 #### <a name="hklmsystemcurrentcontrolsetservicesw32timeparameters"></a>HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters
 
@@ -127,7 +126,7 @@ Toutes les versions incluent Windows 7, Windows 8, Windows 10, Windows Server 20
 |NtpServer|Tous|Entrée spécifie une liste délimitée par des homologues à partir de laquelle un ordinateur obtient des horodatages, consistant en un ou plusieurs noms DNS ou adresses IP par ligne. Chaque nom DNS ou l’adresse IP doit être unique. Ordinateurs connectés à un domaine doivent synchroniser avec une source de temps plus fiable, tels que l’horloge de temps américain officiel.  <ul><li>0 x 01 SpecialInterval </li><li>0x02 UseAsFallbackOnly</li><li>0 x 04 SymmetricActive - pour plus d’informations sur ce mode, consultez [serveur de temps Windows : 3.3 les modes de fonctionnement](https://go.microsoft.com/fwlink/?LinkId=208012).</li><li>0 x 08 client</li></ul><br />Il n’existe aucune valeur par défaut pour cette entrée de Registre sur les membres du domaine. La valeur par défaut sur les clients et serveurs autonomes est time.windows.com,0x1.<br /><br />Remarque: Pour plus d’informations sur les serveurs NTP disponibles, consultez [l’article de la Base de connaissances Microsoft 262680 - une liste des serveurs de temps de protocole SNTP (Simple Network Time Protocol) qui sont disponibles sur Internet](https://go.microsoft.com/fwlink/?LinkId=186067)|
 |ServiceDll|Tous|Entrée est conservée par W32Time. Il contient des données réservé qui sont utilisées par le système d’exploitation Windows, et les modifications apportées à ce paramètre peuvent entraîner des résultats imprévisibles. L’emplacement par défaut pour cette DLL sur les serveurs et de clients autonomes et les membres du domaine est % windir%\System32\W32Time.dll.  |
 |ServiceMain|Tous|Entrée est conservée par W32Time. Il contient des données réservé qui sont utilisées par le système d’exploitation Windows, et les modifications apportées à ce paramètre peuvent entraîner des résultats imprévisibles. La valeur par défaut sur les membres du domaine est SvchostEntry_W32Time. La valeur par défaut sur les clients et serveurs autonomes est SvchostEntry_W32Time.  "|
-|Type|Tous|Entrée indique laquelle homologues pour accepter la synchronisation à partir de :  <ul><li>**NoSync**. Le service de temps ne synchronise pas avec d’autres sources.</li><li>**NTP.** Le service de temps synchronise à partir des serveurs spécifiés dans le **NtpServer**. entrée de Registre.</li><li>**NT5DS**. Le service de temps synchronise à partir de la hiérarchie de domaine.  </li><li>**AllSync**. Le service de temps utilise les mécanismes de synchronisation disponibles.  </li></ul>La valeur par défaut sur les membres du domaine est **NT5DS**. La valeur par défaut sur les clients et serveurs autonomes est **NTP**.   |
+|type|Tous|Entrée indique laquelle homologues pour accepter la synchronisation à partir de :  <ul><li>**NoSync**. Le service de temps ne synchronise pas avec d’autres sources.</li><li>**NTP.** Le service de temps synchronise à partir des serveurs spécifiés dans le **NtpServer**. entrée de Registre.</li><li>**NT5DS**. Le service de temps synchronise à partir de la hiérarchie de domaine.  </li><li>**AllSync**. Le service de temps utilise les mécanismes de synchronisation disponibles.  </li></ul>La valeur par défaut sur les membres du domaine est **NT5DS**. La valeur par défaut sur les clients et serveurs autonomes est **NTP**.   |
 ---
 #### <a name="hklmsystemcurrentcontrolsetservicesw32timeconfig"></a>HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Config
 
@@ -140,7 +139,7 @@ Toutes les versions incluent Windows 7, Windows 8, Windows 10, Windows Server 20
 |LargePhaseOffset|Tous|Entrée spécifie qu’une durée décalage supérieure ou égale à cette valeur dans les 10<sup>-7</sup> secondes est considéré comme un pic. Une interruption du réseau comme une grande quantité de trafic peut provoquer un pic. Un pic sera ignoré, sauf si elle persiste pendant une longue période de temps. La valeur par défaut sur les membres du domaine est 50000000. La valeur par défaut sur les clients et serveurs autonomes est 50000000.  |
 |LastClockRate|Tous|Entrée est conservée par W32Time. Il contient des données réservé qui sont utilisées par le système d’exploitation Windows, et les modifications apportées à ce paramètre peuvent entraîner des résultats imprévisibles. La valeur par défaut sur les membres du domaine est 156250. La valeur par défaut sur les clients et serveurs autonomes est 156250.  |
 |LocalClockDispersion|Tous|Entrée contrôle la dispersion (en secondes) que vous devez considérer lorsque le seul moment où la source est l’horloge CMOS intégré. La valeur par défaut sur les membres du domaine est 10. La valeur par défaut sur les clients et serveurs autonomes est 10.|
-|MaxAllowedPhaseOffset|Tous|Entrée spécifie le décalage maximal (en secondes) pendant laquelle W32Time essaie d’ajuster l’horloge de l’ordinateur à l’aide de la fréquence d’horloge. Lorsque le décalage est supérieur à ce taux, W32Time définit directement l’horloge de l’ordinateur. La valeur par défaut pour les membres du domaine est 300. La valeur par défaut pour les clients et serveurs autonomes est 1.  [Voir ci-dessous pour plus d’informations](#MaxAllowedPhaseOffset).|
+|MaxAllowedPhaseOffset|Tous|Entrée spécifie le décalage maximal (en secondes) pendant laquelle W32Time essaie d’ajuster l’horloge de l’ordinateur à l’aide de la fréquence d’horloge. Lorsque le décalage est supérieur à ce taux, W32Time définit directement l’horloge de l’ordinateur. La valeur par défaut pour les membres du domaine est 300. La valeur par défaut pour les clients et serveurs autonomes est 1.  [Voir ci-dessous pour plus d’informations](#maxallowedphaseoffset-information).|
 |MaxClockRate|Tous|Entrée est conservée par W32Time. Il contient des données réservé qui sont utilisées par le système d’exploitation Windows, et les modifications apportées à ce paramètre peuvent entraîner des résultats imprévisibles. La valeur par défaut pour les membres du domaine est 155860. La valeur par défaut pour les clients et serveurs autonomes est 155860.  |
 |MaxNegPhaseCorrection|Tous|Entrée spécifie la plus grande correction de temps négatif en quelques secondes que le service effectue. Si le service détermine qu’une modification supérieure est nécessaire, il consigne un événement à la place. Cas particulier : 0xFFFFFFFF signifie toujours faire une correction de temps. La valeur par défaut pour les membres du domaine est 0xFFFFFFFF. La valeur par défaut pour les clients et serveurs autonomes est 54 000 (15 heures).  |
 |MaxPollInterval|Tous|Entrée spécifie l’intervalle le plus grand, en secondes de log2, autorisée pour l’intervalle d’interrogation du système. Notez que pendant un système doit interroger en fonction de l’intervalle planifié, un fournisseur peut refuser produire des exemples de la demande. La valeur par défaut pour les contrôleurs de domaine est 10. La valeur par défaut pour les membres du domaine est 15. La valeur par défaut pour les clients et serveurs autonomes est 15.  |
@@ -209,7 +208,7 @@ W32tm /query /status /verbose
 ClockRate: 0.0156000s  
 ```  
   
-SystemclockRate est la vitesse de l’horloge sur le système. À l’aide de 156000 secondes par exemple, le SystemclockRate serait être = 0.0156000 * 1000 \* 10000 = 156000 battements d’horloge.  
+SystemclockRate est la vitesse de l’horloge sur le système. À l’aide de 156000 secondes par exemple, le SystemclockRate serait être = 0.0156000 \* 1000 \* 10000 = 156000 battements d’horloge.  
   
 MaxAllowedPhaseOffset est également en secondes. Pour convertir en battements d’horloge, multipliez MaxAllowedPhaseOffset * 1000\*10000.  
   
@@ -297,7 +296,7 @@ Vous pouvez trouver la stratégie de groupe de paramètres utilisés pour config
 > [!WARNING]  
 > Certaines des valeurs prédéfinies qui sont configurés dans le fichier de modèle d’administration système (System.adm) pour les paramètres d’objet de stratégie de groupe diffèrent des entrées de Registre par défaut correspondantes. Si vous envisagez d’utiliser un objet de stratégie de groupe pour configurer les paramètres d’heure de Windows, n’oubliez pas que vous passez en revue [les valeurs de présélection pour les paramètres de stratégie de groupe de service de temps de Windows sont différentes dans les entrées de Registre de service Windows temps correspondantes dans Windows Server 2003 ](https://go.microsoft.com/fwlink/?LinkId=186066). Ce problème s’applique à Windows Server 2008 R2, Windows Server 2008, Windows Server 2003 R2 et Windows Server 2003.  
   
-Le tableau suivant répertorie les paramètres de stratégie de groupe globaux qui sont associés avec le service de temps de Windows et la valeur prédéfinie associée à chaque paramètre. Pour plus d’informations sur chaque paramètre, consultez les entrées de Registre correspondantes dans «[entrées de Registre du Service de temps Windows](#w2k3tr_times_tools_uhlp)» plus haut dans ce sujet. Les paramètres suivants sont contenus dans un seul GPO appelé **les paramètres de Configuration globaux**.  
+Le tableau suivant répertorie les paramètres de stratégie de groupe globaux qui sont associés avec le service de temps de Windows et la valeur prédéfinie associée à chaque paramètre. Pour plus d’informations sur chaque paramètre, consultez les entrées de Registre correspondantes dans [entrées de Registre du Service de temps Windows](#windows-time-service-registry-entries) plus haut dans ce sujet. Les paramètres suivants sont contenus dans un seul GPO appelé **les paramètres de Configuration globaux**.  
   
 **Paramètres de stratégie de groupe global associés à des temps de Windows**  
   
@@ -319,14 +318,14 @@ Le tableau suivant répertorie les paramètres de stratégie de groupe globaux q
 |SpikeWatchPeriod|90|  
 |UpdateInterval|100|  
   
-Le tableau suivant répertorie les paramètres disponibles pour le **configurer Windows NTP Client** GPO et les valeurs prédéfinies qui sont associées avec le service de temps de Windows. Pour plus d’informations sur chaque paramètre, consultez les entrées de Registre correspondantes dans «[entrées de Registre du Service de temps Windows](#w2k3tr_times_tools_uhlp)» plus haut dans ce sujet.  
+Le tableau suivant répertorie les paramètres disponibles pour le **configurer Windows NTP Client** GPO et les valeurs prédéfinies qui sont associées avec le service de temps de Windows. Pour plus d’informations sur chaque paramètre, consultez les entrées de Registre correspondantes dans [entrées de Registre du Service de temps Windows](#windows-time-service-registry-entries) plus haut dans ce sujet.  
   
 **Paramètres de stratégie de groupe du Client NTP associés aux temps de Windows**  
   
 |Paramètre de stratégie de groupe|Valeur par défaut|  
 |------------------------|-----------------|  
 |NtpServer|time.windows.com,0x1|  
-|Type|Options par défaut :<br /><br />-   **NTP.** Utiliser sur les ordinateurs qui ne sont pas joints à un domaine.<br />-   **NT5DS.** Utiliser sur les ordinateurs qui sont joints à un domaine.|  
+|type|Options par défaut :<br /><br />-   **NTP.** Utiliser sur les ordinateurs qui ne sont pas joints à un domaine.<br />-   **NT5DS.** Utiliser sur les ordinateurs qui sont joints à un domaine.|  
 |CrossSiteSyncFlags|2|  
 |ResolvePeerBackoffMinutes|15|  
 |ResolvePeerBackoffMaxTimes|7|  

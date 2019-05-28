@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: aa205c46bf67dc25a55232b799bdd39fee4ac3c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 09f26e256793d30936496f7a936550acb7b20025
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812210"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188354"
 ---
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="when-to-use-a-pass-through-or-filter-claim-rule"></a>Quand utiliser un transfert direct ou filtrer la règle de revendication
 Vous pouvez utiliser cette règle dans Active Directory Federation Services \(AD FS\) lorsque vous devez prendre un type de revendication entrante spécifique, puis appliquer une action qui détermine quelle sortie en fonction des valeurs dans la revendication entrante. Lorsque vous utilisez cette règle, vous passez ou filtrez les revendications qui correspondent à la logique de règle dans le tableau ci-dessous, en fonction des options que vous configurez dans la règle.  
   
@@ -117,7 +115,7 @@ Un filtre peut être appliqué à une ou plusieurs des propriétés de chaque re
   
 |Propriété de revendication|Description|  
 |------------------|---------------|  
-|Type|Le type de revendication \(généralement représenté sous la forme d’un Uri\) reflète un accord implicite entre partenaires dans une fédération sur quelles informations sont transmises dans la revendication. Par exemple, les revendications de type http :\/\/schemas.xmlsoap.org\/ws\/2005\/05\/identité\/revendications\/emailaddress contiendra le e\-adresse de l’utilisateur de messagerie.|  
+|type|Le type de revendication \(généralement représenté sous la forme d’un Uri\) reflète un accord implicite entre partenaires dans une fédération sur quelles informations sont transmises dans la revendication. Par exemple, les revendications de type http :\/\/schemas.xmlsoap.org\/ws\/2005\/05\/identité\/revendications\/emailaddress contiendra le e\-adresse de l’utilisateur de messagerie.|  
 |Value|Valeur de la revendication. Par exemple, une revendication de type http :\/\/schemas.xmlsoap.org\/ws\/2005\/05\/identité\/revendications\/emailaddress peut avoir une valeur de johndoe@fabrikam.com|  
 |ValueType|Le type de valeur représente la façon dont les informations contenues dans la valeur de la revendication doivent être interprétées. En général, le type de valeur est définie sur http :\/\/www.w3.org\/2001\/XMLSchema\#chaîne, mais la valeur de revendication peut contenir des données de Base64Binary encodé \(, par exemple, une image \) ou une date, valeur booléenne et ainsi de suite.|  
 |Émetteur|L’émetteur représente la partie qui a émis pour la dernière fois des revendications relatives à l’utilisateur. Si les revendications sont obtenues sur un serveur de fédération du fournisseur de revendications, l’émetteur de toutes les revendications va être associé à « Autorité locale ». Si les revendications ont été reçues par un serveur de fédération du fournisseur de fédération, l’émetteur des revendications va être configuré comme l’identifiant du fournisseur de revendications qui a signé le jeton. Par conséquent, lors du traitement des règles sur les revendications en provenance du fournisseur de revendications, l’émetteur de toutes les revendications va être associé à la même valeur. Lorsque vous créez des règles pour une partie de confiance, la propriété de l’émetteur peut être utilisée pour distinguer les revendications issues des différents fournisseurs de revendications.|  

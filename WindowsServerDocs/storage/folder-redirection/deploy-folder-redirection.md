@@ -8,23 +8,23 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 33942db34314e0ff60b24d4b9c8e5e33b4ca92fd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2bb15d5ae29da6c9dbcd6b58af280026d06febc8
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831570"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222746"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>Déployer la Redirection de dossiers des fichiers hors connexion
 
->S’applique à : Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Vista
+>S’applique à : Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Vista, Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel), Windows Server 2012, Windows Server 2012 R2, Windows Server 2008 R2
 
 Cette rubrique décrit comment utiliser Windows Server pour déployer la Redirection de dossiers avec les fichiers hors connexion sur les ordinateurs clients Windows.
 
 Pour obtenir la liste des modifications récentes apportées à ce sujet, consultez [l’historique des modifications](#change-history).
 
 >[!IMPORTANT]
->En raison des modifications de sécurité apportées dans [MS16-072](https://support.microsoft.com/en-us/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016), nous avons mis à jour [étape 3 : Créer un objet de stratégie de groupe pour la Redirection de dossiers](#step-3:-create-a-gpo-for-folder-redirection) de cette rubrique afin que Windows peuvent correctement appliquer la stratégie de Redirection de dossiers (et pas rétablir les dossiers redirigés sur PC affectés).
+>En raison des modifications de sécurité apportées dans [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016), nous avons mis à jour [étape 3 : Créer un objet de stratégie de groupe pour la Redirection de dossiers](#step-3-create-a-gpo-for-folder-redirection) de cette rubrique afin que Windows peuvent correctement appliquer la stratégie de Redirection de dossiers (et pas rétablir les dossiers redirigés sur PC affectés).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -37,7 +37,7 @@ La Redirection de dossiers nécessite un ordinateur x64 64 ou x86 ; Il n’est 
 La Redirection de dossiers présente la configuration logicielle requise suivante :
 
 - Pour administrer la Redirection de dossiers, vous devez être connecté en tant que membre du groupe de sécurité Administrateurs du domaine, le groupe de sécurité administrateurs d’entreprise ou le groupe de sécurité de groupe Propriétaires créateurs de la stratégie.
-- Les ordinateurs clients doivent exécuter Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008.
+- Les ordinateurs clients doivent exécuter Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008.
 - Les ordinateurs clients doivent être joints aux services de domaine Active Directory (AD DS) que vous gérez.
 - Un ordinateur sur lequel la gestion des stratégies de groupe et le Centre d'administration Active Directory sont installés doit être disponible.
 - Un serveur de fichiers doit être disponible pour héberger les dossiers redirigés.
@@ -70,13 +70,13 @@ Si vous n’avez pas déjà d’un partage de fichiers des dossiers redirigés, 
 >[!NOTE]
 >Certaines fonctionnalités peuvent être différentes ou non disponibles si vous créez le partage de fichiers sur un serveur exécutant une autre version de Windows Server.
 
-Voici comment créer un partage de fichiers sur Windows Server 2012 et Windows Server 2016 :
+Voici comment créer un partage de fichiers sur Windows Server 2019, Windows Server 2016 et Windows Server 2012 :
 
 1. Dans le volet de navigation de gestionnaire de serveur, sélectionnez **File and Storage Services**, puis sélectionnez **partages** pour afficher la page partages.
 2. Dans le **partages** vignette, sélectionnez **tâches**, puis sélectionnez **nouveau partage**. L'Assistant Nouveau partage s'affiche.
 3. Sur le **sélectionner un profil** , sélectionnez **partage SMB – rapide**. Si vous avez File Server Resource Manager est installé et que vous utilisez les propriétés de gestion de dossier, sélectionnez à la place **partage SMB - avancé**.
 4. Dans la page **Emplacement du partage** , sélectionnez le serveur et le volume sur lesquels vous voulez créer le partage.
-5. Sur le **nom du partage** page, tapez un nom pour le partage (par exemple, **utilisateurs$**) dans le **nom de partage** boîte.
+5. Sur le **nom du partage** page, tapez un nom pour le partage (par exemple, **utilisateurs$** ) dans le **nom de partage** boîte.
     >[!TIP]
     >Lors de la création du partage, masquez-le en plaçant un caractère ```$``` après le nom du partage. Cela permet de masquer le partage dans les navigateurs informels.
 6. Sur le **autres paramètres** page, désactivez la case à cocher de la disponibilité continue d’activer, le cas échéant et sélectionnez éventuellement le **activer l’énumération basée sur l’accès** et **chiffrer l’accès aux données** cases à cocher.
@@ -93,50 +93,15 @@ Voici comment créer un partage de fichiers sur Windows Server 2012 et Windows S
 
 ### <a name="required-permissions-for-the-file-share-hosting-redirected-folders"></a>Les autorisations requises pour le fichier de partagent les dossiers redirigés d’hébergement
 
-<table>
-<tbody>
-<tr class="odd">
-<td>Compte d’utilisateur</td>
-<td>Accès</td>
-<td>S'applique à</td>
-</tr>
-<tr class="even">
-<td>System</td>
-<td>Contrôle total</td>
-<td>Ce dossier, ses sous-dossiers et ses fichiers</td>
-</tr>
-<tr class="odd">
-<td>Administrateurs</td>
-<td>Contrôle total</td>
-<td>Ce dossier uniquement</td>
-</tr>
-<tr class="even">
-<td>Propriétaire créateur</td>
-<td>Contrôle total</td>
-<td>Sous-dossiers et fichiers uniquement</td>
-</tr>
-<tr class="odd">
-<td>Groupe de sécurité des utilisateurs qui doivent placer des données sur le partage (utilisateurs de la Redirection de dossier)</td>
-<td>Liste des dossiers/lecture de données<sup>1</sup><br />
-<br />
-Création de dossier/ajout de données<sup>1</sup><br />
-<br />
-Lire les attributs<sup>1</sup><br />
-<br />
-Lecture des attributs étendus<sup>1</sup><br />
-<br />
-Autorisations de lecture<sup>1</sup></td>
-<td>Ce dossier uniquement</td>
-</tr>
-<tr class="even">
-<td>Autres groupes et comptes</td>
-<td>Aucun (supprimer)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
 
-1 Autorisations avancées
+|Compte d’utilisateur  |Accès  |S'applique à  |
+|---------|---------|---------|
+| Compte d’utilisateur | Accès | S'applique à |
+|System     | Contrôle total        |    Ce dossier, ses sous-dossiers et ses fichiers     |
+|Administrateurs     | Contrôle total       | Ce dossier uniquement        |
+|Propriétaire créateur     |   Contrôle total      |   Sous-dossiers et fichiers uniquement      |
+|Groupe de sécurité des utilisateurs qui doivent placer des données sur le partage (utilisateurs de la Redirection de dossier)     |   Liste du dossier / lecture de données *(les autorisations avancées)* <br /><br />Créer des dossiers / Ajout de données *(les autorisations avancées)* <br /><br />Lire les attributs *(les autorisations avancées)* <br /><br />Lecture des attributs étendus *(les autorisations avancées)* <br /><br />Autorisations de lecture *(les autorisations avancées)*      |  Ce dossier uniquement       |
+|Autres groupes et comptes     |  Aucun (supprimer)       |         |
 
 ## <a name="step-3-create-a-gpo-for-folder-redirection"></a>Étape 3 : Créer un objet de stratégie de groupe pour la Redirection de dossiers
 
@@ -225,9 +190,9 @@ Voici comment tester la Redirection de dossiers :
 
 Le tableau suivant récapitule certaines des modifications les plus importantes apportées à cette rubrique.
 
-|Date|Description|Raison|
+|Date|Description|Reason|
 |---|---|---|
-|18 janvier 2017|Ajouté une étape pour [étape 3 : Créer un objet de stratégie de groupe pour la Redirection de dossiers](#step-3:-create-a-gpo-for-folder-redirection) pour déléguer des autorisations en lecture aux utilisateurs authentifiés, qui est désormais nécessaire en raison d’une mise à jour de sécurité de stratégie de groupe.|Commentaires des clients.|
+|18 janvier 2017|Ajouté une étape pour [étape 3 : Créer un objet de stratégie de groupe pour la Redirection de dossiers](#step-3-create-a-gpo-for-folder-redirection) pour déléguer des autorisations en lecture aux utilisateurs authentifiés, qui est désormais nécessaire en raison d’une mise à jour de sécurité de stratégie de groupe.|Commentaires des clients.|
 
 ## <a name="more-information"></a>Informations supplémentaires
 

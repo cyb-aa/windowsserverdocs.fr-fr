@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 101cab68d7c79bb107f1d6ef73900d9a4475b6ea
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c690f81620f97622a2f068b07c36e0a6c59e90d4
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861300"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190340"
 ---
 # <a name="access-control-policies-in-windows-server-2016-ad-fs"></a>Stratégies de contrôle d’accès dans AD FS Windows Server 2016
-
->S'applique à : Windows Server 2016
 
   
 ## <a name="access-control-policy-templates-in-ad-fs"></a>Modèles de stratégie de contrôle de l’accès dans AD FS  
@@ -55,9 +53,9 @@ Si un administrateur sélectionne plusieurs conditions, elles sont de **AND** re
 |**Règlement**|**Règles de stratégie**|
 | --- | --- |  
 |MFA obligatoire pour l’accès extranet<br /><br />Tous les utilisateurs sont autorisés.|**Règle #1**<br /><br />à partir de **extranet**<br /><br />et avec l’authentification Multifacteur<br /><br />Autoriser<br /><br />**Rule#2**<br /><br />from **intranet**<br /><br />Autoriser|  
-|Accès externe ne sont pas autorisées à l’exception non FTE<br /><br />Accès à l’intranet pour FTE sur un appareil joint à un espace de travail sont autorisés.|**Règle #1**<br /><br />À partir de **extranet**<br /><br />et à partir de **non FTE** groupe<br /><br />Autoriser<br /><br />**Règle #2**<br /><br />from **intranet**<br /><br />et à partir de **rattaché** appareil<br /><br />et à partir de **FTE** groupe<br /><br />Autoriser|  
+|Accès externe ne sont pas autorisées à l’exception non FTE<br /><br />Accès à l’intranet pour FTE sur un appareil joint à un espace de travail sont autorisés.|**Règle #1**<br /><br />à partir de **extranet**<br /><br />et à partir de **non FTE** groupe<br /><br />Autoriser<br /><br />**Règle #2**<br /><br />from **intranet**<br /><br />et à partir de **rattaché** appareil<br /><br />et à partir de **FTE** groupe<br /><br />Autoriser|  
 |MFA obligatoire pour l’accès extranet à l’exception de « service admin »<br /><br />Tous les utilisateurs sont autorisés à accéder|**Règle #1**<br /><br />à partir de **extranet**<br /><br />et avec l’authentification Multifacteur<br /><br />Autoriser<br /><br />À l’exception **groupe d’administration de service**<br /><br />**Règle #2**<br /><br />Toujours<br /><br />Autoriser|  
-|APPAREIL joint à un lieu de travail non - accès à partir d’extranet exige l’authentification Multifacteur<br /><br />Autoriser l’infrastructure AD pour l’accès intranet et extranet|**Règle #1**<br /><br />from **intranet**<br /><br />Et à partir de **AD Fabric** groupe<br /><br />Autoriser<br /><br />**Règle #2**<br /><br />à partir de **extranet**<br /><br />et à partir de **non-rattaché** appareil<br /><br />et à partir de **AD Fabric** groupe<br /><br />et avec l’authentification Multifacteur<br /><br />Autoriser<br /><br />**Règle #3**<br /><br />à partir de **extranet**<br /><br />et à partir de **rattaché** appareil<br /><br />et à partir de **AD Fabric** groupe<br /><br />Autoriser|  
+|APPAREIL joint à un lieu de travail non - accès à partir d’extranet exige l’authentification Multifacteur<br /><br />Autoriser l’infrastructure AD pour l’accès intranet et extranet|**Règle #1**<br /><br />from **intranet**<br /><br />Et à partir de **AD Fabric** groupe<br /><br />Autoriser<br /><br />**Règle #2**<br /><br />à partir de **extranet**<br /><br />et à partir de **non-rattaché** appareil<br /><br />Et à partir de **AD Fabric** groupe<br /><br />et avec l’authentification Multifacteur<br /><br />Autoriser<br /><br />**Règle #3**<br /><br />à partir de **extranet**<br /><br />et à partir de **rattaché** appareil<br /><br />Et à partir de **AD Fabric** groupe<br /><br />Autoriser|  
   
 ## <a name="parameterized-policy-template-vs-non-parameterized-policy-template"></a>Modèle de stratégie non paramétrées stratégie paramétrable modèle vs  
 Stratégies de contrôle d’accès peuvent être  

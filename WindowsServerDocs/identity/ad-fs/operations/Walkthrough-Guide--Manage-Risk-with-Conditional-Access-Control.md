@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 11d2d567f9264dca53a3426263a172649d7d7c11
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f034c2eeafe9d52569e8181bbbb2e582b1059d51
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826650"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188858"
 ---
 # <a name="walkthrough-guide-manage-risk-with-conditional-access-control"></a>Guide pas à pas : Gérer les risques avec le contrôle d’accès conditionnel
 
->S'applique à : Windows Server 2012 R2
+
 
 
 ## <a name="about-this-guide"></a>À propos de ce guide
@@ -28,11 +28,11 @@ Cette procédure pas à pas comporte les sections suivantes :
 
 -   [Étape 1 : Configuration de l’environnement de laboratoire](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_1)
 
--   [Étape 2 : Vérifier le mécanisme de contrôle d’accès AD FS par défaut](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_2)
+-   [Étape 2 : Vérifier le mécanisme de contrôle d’accès AD FS par défaut](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_2)
 
--   [Étape 3 : Configurer la stratégie de contrôle d’accès conditionnel basé sur les données utilisateur](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_3)
+-   [Étape 3 : Configurer la stratégie de contrôle d’accès conditionnel basé sur les données utilisateur](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_3)
 
--   [Étape 4 : Vérifier le mécanisme de contrôle d’accès conditionnel](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_4)
+-   [Étape 4 : Vérifier le mécanisme de contrôle d’accès conditionnel](../../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md#BKMK_4)
 
 ## <a name="BKMK_1"></a>Étape 1 : Configuration de l’environnement lab
 Afin de mener à bien cette procédure pas à pas, vous avez besoin d’un environnement constitué des composants suivants :

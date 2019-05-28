@@ -13,16 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 07/25/2018
-ms.openlocfilehash: c4218331f716dc530e01f28a295cebd83c0e6616
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a10b3d3877e9511164d298bcc1dab11540e6f596
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818110"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188198"
 ---
 # <a name="robocopy"></a>robocopy
-
-
 
 Copie des données de fichier.
 
@@ -38,7 +36,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |---------|-----------|
 |\<Source>|Spécifie le chemin d’accès au répertoire source.|
 |\<Destination>|Spécifie le chemin d’accès au répertoire de destination.|
-|\<File>|Spécifie l’ou les fichiers à copier. Vous pouvez utiliser des caractères génériques (**&#42;** ou **?**), si vous le souhaitez. Si le **fichier** paramètre n’est pas spécifié, **\*.\*** est utilisé comme valeur par défaut.|
+|\<File>|Spécifie l’ou les fichiers à copier. Vous pouvez utiliser des caractères génériques (**&#42;** ou **?** ), si vous le souhaitez. Si le **fichier** paramètre n’est pas spécifié, **\*.\*** est utilisé comme valeur par défaut.|
 |\<Options>|Spécifie les options à utiliser avec le **robocopy** commande.|
 
 ### <a name="copy-options"></a>Options de copie
@@ -46,7 +44,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |Option|Description|
 |------|-----------|
 |/s|Sous-répertoires de copies. Notez que cette option exclut les répertoires vides.|
-|/e|Sous-répertoires de copies. Notez que cette option inclut les répertoires vides. Pour plus d’informations, consultez [notes](#BKMK_remarks).|
+|/e|Sous-répertoires de copies. Notez que cette option inclut les répertoires vides. Pour plus d’informations, consultez [notes](#remarks).|
 |/Lev :\<N >|Copie uniquement la partie supérieure *N* niveaux de l’arborescence du répertoire source.|
 |/z|Copie les fichiers en mode de redémarrage.|
 |/b|Copie les fichiers en mode de sauvegarde.|
@@ -59,8 +57,8 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/NOCOPY|Ne copie aucune information de fichier (utile avec **/purge**).|
 |/secfix|Sécurité des fichiers de correctifs sur tous les fichiers, même celles ignoré.|
 |/timfix|Temps de fichiers de correctifs sur tous les fichiers, même celles ignoré.|
-|/ Purge|Supprime les fichiers de destination et de répertoires qui n’existent plus dans la source. Pour plus d’informations, consultez [notes](#BKMK_remarks).|
-|/mir|Reflète une arborescence de répertoires (équivalent à **/e** plus **/purge**). Pour plus d’informations, consultez [notes](#BKMK_remarks).|
+|/ Purge|Supprime les fichiers de destination et de répertoires qui n’existent plus dans la source. Pour plus d’informations, consultez [notes](#remarks).|
+|/mir|Reflète une arborescence de répertoires (équivalent à **/e** plus **/purge**). Pour plus d’informations, consultez [notes](#remarks).|
 |/mov|Déplace les fichiers et les supprime de la source une fois qu’ils sont copiés.|
 |/ Move|Déplace les fichiers et répertoires et les supprime de la source une fois qu’ils sont copiés.|
 |/ a + : [RASHCNET]|Ajoute les attributs spécifiés pour les fichiers copiés.|
@@ -74,10 +72,15 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/rh:hhmm-hhmm|Spécifie le temps d’exécution lorsque les nouvelles copies peuvent être démarrés.|
 |/pf|Vérifications exécutées fois sur une base par fichier (et pas par pass).|
 |/IPG:n|Spécifie l’intervalle entre les paquets pour libérer de la bande passante sur les lignes lentes.|
-|/sl|Suit le lien symbolique et copie de la cible.|
+|/sl|Ne pas suivre les liens symboliques et au lieu de cela créer une copie du lien.|
 
 > [!IMPORTANT]
-> Lorsque vous utilisez le **/SECFIX** copier option, spécifiez le type d’informations de sécurité à copier également l’une de ces options de copie supplémentaire :</br>> -   **/COPYALL**</br>&GT;- **/COPY:O**</br>&GT;- **/COPY:S**</br>&GT;- **/COPY:U**</br>> -   **/SEC**
+> Lorsque vous utilisez le **/SECFIX** copier option, spécifiez le type d’informations de sécurité à copier également l’une de ces options de copie supplémentaire :
+>- **/COPYALL**
+>- **/COPY:O**
+>- **/COPY:S**
+>- **/COPY:U**
+>- **/SEC**
 
 ### <a name="file-selection-options"></a>Options de sélection de fichier
 
@@ -87,7 +90,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/m|Copie uniquement les fichiers pour lesquels le **Archive** attribut est défini et réinitialise le **Archive** attribut.|
 |/IA : [RASHCNETO]|Inclut uniquement les fichiers pour lequel un des attributs spécifiés sont défini.|
 |/XA : [RASHCNETO]|Exclut les fichiers pour lequel un des attributs spécifiés sont défini.|
-|/xf \<FileName>[ ...]|Exclut les fichiers qui correspondent aux noms spécifiés ou des chemins d’accès. Notez que *FileName* peut inclure des caractères génériques (**&#42;** et **?**).|
+|/xf \<FileName>[ ...]|Exclut les fichiers qui correspondent aux noms spécifiés ou des chemins d’accès. Notez que *FileName* peut inclure des caractères génériques (**&#42;** et **?** ).|
 |/XD \<répertoire > [...]|Exclut les répertoires qui correspondent aux noms spécifiés et aux chemins d’accès.|
 |/xc|Exclut les fichiers modifiés.|
 |/xn|Exclut les fichiers les plus récents.|
@@ -168,7 +171,7 @@ Value | Description
 > [!NOTE]
 > Toute valeur supérieure à 8 indique qu’il existe au moins un échec pendant l’opération de copie.
 
-### <a name="BKMK_remarks"></a>Remarques
+### <a name="remarks"></a>Notes
 
 -   Le **/mir** option est équivalente à la **/e** plus **/purge** options avec une petite différence de comportement :  
     -   Avec le **/e** plus **/purge** options, si le répertoire de destination existe, les paramètres de sécurité de répertoire de destination ne sont pas remplacés.
@@ -176,4 +179,4 @@ Value | Description
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

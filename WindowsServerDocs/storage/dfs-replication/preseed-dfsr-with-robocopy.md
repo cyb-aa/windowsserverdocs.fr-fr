@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: a7a14b1a1e0f91002b201869e4c68187ffaf3f8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eaec563157a77fd4e782842a81e5b59e49a5ea09
+ms.sourcegitcommit: 7cb939320fa2613b7582163a19727d7b77debe4b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865080"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621300"
 ---
 # <a name="use-robocopy-to-preseed-files-for-dfs-replication"></a>Utilisez Robocopy pour prédéfini de fichiers pour la réplication DFS
 
@@ -28,9 +28,9 @@ L’utilitaire de ligne de commande Robocopy (copie de fichier robuste) est incl
 
 Pour utiliser Robocopy pour prédéfini de fichiers pour la réplication DFS, procédez comme suit :
 
-1. [Téléchargez et installez la dernière version de Robocopy.](#step-1:-download-and-install-the-latest-version-of-robocopy)
-2. [Stabilisez les fichiers qui seront répliqués.](#step-2:-stabilize-files-that-will-be-replicated)
-3. [Copier les fichiers répliqués vers le serveur de destination.](#step-3:-copy-the-replicated-files-to-the-destination-server)
+1. [Téléchargez et installez la dernière version de Robocopy.](#step-1-download-and-install-the-latest-version-of-robocopy)
+2. [Stabilisez les fichiers qui seront répliqués.](#step-2-stabilize-files-that-will-be-replicated)
+3. [Copier les fichiers répliqués vers le serveur de destination.](#step-3-copy-the-replicated-files-to-the-destination-server)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -38,7 +38,7 @@ Comme un preseed n’implique pas directement de la réplication DFS, il vous su
 
 - Vous avez besoin d’un compte qui est membre du groupe Administrateurs local sur les serveurs source et de destination.
 
-- Installer la version la plus récente de Robocopy sur le serveur que vous utiliserez pour copier les fichiers, le serveur source ou le serveur de destination ; Vous devez installer la version la plus récente pour la version de système d’exploitation. Pour obtenir des instructions, consultez [étape 2 : Stabiliser les fichiers qui seront répliqués](#step-2:-stabilize-files-that-will-be-replicated). À moins que vous sont un preseed des fichiers à partir d’un serveur exécutant Windows Server 2003 R2, vous pouvez exécuter Robocopy sur le serveur source ou de destination. Le serveur de destination, ce qui suit généralement la plus récente version de système d’exploitation, vous donne accès à la version la plus récente de Robocopy.
+- Installer la version la plus récente de Robocopy sur le serveur que vous utiliserez pour copier les fichiers, le serveur source ou le serveur de destination ; Vous devez installer la version la plus récente pour la version de système d’exploitation. Pour obtenir des instructions, consultez [étape 2 : Stabiliser les fichiers qui seront répliqués](#step-2-stabilize-files-that-will-be-replicated). À moins que vous sont un preseed des fichiers à partir d’un serveur exécutant Windows Server 2003 R2, vous pouvez exécuter Robocopy sur le serveur source ou de destination. Le serveur de destination, ce qui suit généralement la plus récente version de système d’exploitation, vous donne accès à la version la plus récente de Robocopy.
 
 - Assurez-vous que l’espace de stockage suffisant est disponible sur le lecteur de destination. Ne créez pas un dossier sur le chemin d’accès que vous souhaitez copier vers : Robocopy doit créer le dossier racine.
     
@@ -63,7 +63,7 @@ Vous pouvez également rechercher et installer le dernier correctif pour un syst
     
     ```robocopy.exe kbqfe "<operating system version>"```
     
-    Par exemple, entrez **robocopy.exe kbqfe « Windows Server 2008 R2 »**.
+    Par exemple, entrez **robocopy.exe kbqfe « Windows Server 2008 R2 »** .
 
 3. Recherchez et téléchargez le correctif avec le numéro d’ID la plus élevé (autrement dit, la dernière version).
 
@@ -105,7 +105,7 @@ Après la réduction des verrous sur les fichiers qui seront répliqués, vous p
     |«\<destination répliquées de chemin d’accès du dossier\>»|Spécifie le chemin d’accès au dossier qui stockera les fichiers preseeded.<br><br>Le dossier de destination ne doit pas déjà exister sur le serveur de destination. Pour obtenir les hachages de fichier correspondant, Robocopy doit créer le dossier racine lorsqu’il preseeds les fichiers.|
     |/e|Copie les sous-répertoires et leurs fichiers, mais aussi les sous-répertoires vides.|
     |/b|Copie les fichiers en mode de sauvegarde.|
-    |/copyal|Copie toutes les informations de fichier, y compris les données, attributs, horodatages, la liste de contrôle d’accès NTFS (ACL), les informations relatives au propriétaire et informations d’audit.|
+    |/copyall|Copie toutes les informations de fichier, y compris les données, attributs, horodatages, la liste de contrôle d’accès NTFS (ACL), les informations relatives au propriétaire et informations d’audit.|
     |/r:6|Retente l’opération six fois lorsqu’une erreur se produit.|
     |/w:5|Attend 5 secondes entre chaque tentative.|
     |MT:64|Copie les 64 fichiers simultanément.|

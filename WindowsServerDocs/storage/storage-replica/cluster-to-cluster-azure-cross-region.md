@@ -9,14 +9,17 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 41f435c3d537cbfd204dfa869d750b22200deb33
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d9999f786639ff4aa303ed34ade14849cda8feec
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891130"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475912"
 ---
 # <a name="cluster-to-cluster-storage-replica-cross-region-in-azure"></a>Réplica du stockage de cluster à cluster entre régions dans Azure
+
+> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
+
 Vous pouvez configurer des réplicas de stockage de Cluster à Cluster pour les applications entre les régions dans Azure. Dans les exemples ci-dessous, nous utilisons un cluster à deux nœuds, mais le réplica de stockage de Cluster à Cluster n’est pas limité à un cluster à deux nœuds. L’illustration ci-dessous est un cluster à deux nœuds d’espace de stockage Direct qui peut communiquer entre eux, est dans le même domaine et est entre les régions.
 
 Regardez la vidéo ci-dessous pour obtenir une présentation complète du processus.
@@ -31,7 +34,7 @@ Regardez la vidéo ci-dessous pour obtenir une présentation complète du proces
 
     Par exemple, **SR-AZ2AZ** dans **ouest des États-Unis 2** et **SR-AZCROSS** dans **ouest des États-Unis**, comme indiqué ci-dessus.
 
-2. Créez deux [à haute disponibilité](https://ms.portal.azure.com/#create/Microsoft.AvailabilitySet-ARM), une dans chaque groupe de ressources pour chaque cluster
+2. Créez deux [à haute disponibilité](https://ms.portal.azure.com/#create/Microsoft.AvailabilitySet-ARM), une dans chaque groupe de ressources pour chaque cluster.
     - Groupe à haute disponibilité (**az2azAS1**) dans (**SR-AZ2AZ**)
     - Groupe à haute disponibilité (**azcross-AS**) dans (**SR-AZCROSS**)
 
@@ -41,7 +44,7 @@ Regardez la vidéo ci-dessous pour obtenir une présentation complète du proces
 
 4. Créez deux groupes de sécurité réseau
    - Créer le [groupe de sécurité réseau](https://ms.portal.azure.com/#create/Microsoft.NetworkSecurityGroup-ARM) (**az2az-NSG**) dans le premier groupe de ressources (**SR-AZ2AZ**).
-   - Créer le [groupe de sécurité réseau](https://ms.portal.azure.com/#create/Microsoft.NetworkSecurityGroup-ARM) (**azcross-NSG**) du deuxième groupe de ressources (**SR-AZCROSS**). 
+   - Créer le [groupe de sécurité réseau](https://ms.portal.azure.com/#create/Microsoft.NetworkSecurityGroup-ARM) (**azcross-NSG**) du deuxième groupe de ressources (**SR-AZCROSS**).
 
    Ajouter une règle de sécurité de trafic entrant pour RDP:3389 aux deux groupes de sécurité réseau. Vous pouvez choisir de supprimer cette règle une fois que vous avez terminé votre installation.
 
@@ -72,10 +75,10 @@ Regardez la vidéo ci-dessous pour obtenir une présentation complète du proces
 
    Voici les commandes PowerShell pour l’exemple
    ```powershell
-      New-Cluster -Name SRAZC1 -Node az2az1,az2az2 – StaticAddress 10.3.0.100
+      New-Cluster -Name SRAZC1 -Node az2az1,az2az2 –StaticAddress 10.3.0.100
    ```
    ```powershell
-      New-Cluster -Name SRAZCross -Node azcross1,azcross2 – StaticAddress 10.0.0.10
+      New-Cluster -Name SRAZCross -Node azcross1,azcross2 –StaticAddress 10.0.0.10
    ```
 
 7. Activer les espaces de stockage direct.
@@ -172,7 +175,7 @@ Accorder l’accès à partir d’un cluster à un autre cluster dans les deux s
    ```powershell
      Grant-SRAccess -ComputerName az2az1 -Cluster SRAZCross
    ```
-Si vous utilisez Windows Server 2016, puis également exécuter cette commande :
+Si vous utilisez Windows Server 2016, également exécuter cette commande :
 
    ```powershell
      Grant-SRAccess -ComputerName azcross1 -Cluster SRAZC1

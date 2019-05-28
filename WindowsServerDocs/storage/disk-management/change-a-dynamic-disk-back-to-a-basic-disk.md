@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: d018b417aeba21e2b1303fd9e72b58b4e2fc334f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e7655ca78868d40d354b5260fa99fcfa3a21d0de
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836050"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192749"
 ---
 # <a name="change-a-dynamic-disk-back-to-a-basic-disk"></a>Convertir un disque dynamique en disque de base
 
@@ -26,22 +26,20 @@ Cette rubrique décrit comment supprimer le contenu d’un disque dynamique et l
 
 ## <a name="changing-a-dynamic-disk-back-to-a-basic-disk"></a>Reconversion d’un disque dynamique en disque de base
 
--   [À l’aide de l’interface Windows](#BKMK_WINUI)
--   [À l’aide d’une ligne de commande](#BKMK_CMD)
+-   [À l’aide de l’interface Windows](#to-change-a-dynamic-disk-back-to-a-basic-disk-using-the-windows-interface)
+-   [À l’aide d’une ligne de commande](#to-change-a-dynamic-disk-back-to-a-basic-disk-using-a-command-line)
 
 > [!NOTE]
 > Vous devez au moins être membre du groupe **Opérateurs de sauvegarde** ou **Administrateurs** pour effectuer ces étapes.
 
-<a href="" id="BKMK_WINUI"></a>
 #### <a name="to-change-a-dynamic-disk-back-to-a-basic-disk-using-the-windows-interface"></a>Pour reconvertir un disque dynamique en disque de base à l’aide de l’interface Windows
+
 1.  Sauvegardez tous les volumes du disque dynamique que vous souhaitez reconvertir en disque de base.
 
 2.  Dans Gestion des disques, cliquez avec le bouton droit sur chaque volume du disque dynamique à convertir en disque de base, puis cliquez sur **Supprimer le volume** pour chaque volume du disque.
 
 3.  Lorsque tous les volumes du disque ont été supprimés, cliquez avec le bouton droit sur le disque, puis cliquez sur **Convertir en disque de base**.
 
-
-<a href="" id="BKMK_CMD"></a>
 #### <a name="to-change-a-dynamic-disk-back-to-a-basic-disk-using-a-command-line"></a>Pour reconvertir un disque dynamique en disque de base à l’aide d’une ligne de commande
 
 1.  Sauvegardez tous les volumes du disque dynamique que vous souhaitez reconvertir en disque de base.

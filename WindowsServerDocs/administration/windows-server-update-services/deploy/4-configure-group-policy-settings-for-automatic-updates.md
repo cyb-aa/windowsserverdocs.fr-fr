@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 08cc0b31aa123aadd57a0ea5ddbbeb96bffc3d6e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 69b433ee3e0f57398db1e7814d2de24df7dd1696
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880100"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222921"
 ---
 # <a name="step-4-configure-group-policy-settings-for-automatic-updates"></a>Étape 4 : Configurer les paramètres de stratégie de groupe pour les mises à jour automatiques
 
@@ -27,69 +27,69 @@ Dans un environnement active directory, vous pouvez utiliser la stratégie de gr
 
 Cette rubrique contient deux sections principales :
 
-[Paramètres Stratégie de groupe pour les mises à jour du client WSUS](4-configure-group-policy-settings-for-automatic-updates.md#BKMK_PolSettings), qui fournit des recommandations et comportement des détails sur les paramètres de mise à jour de Windows et le Planificateur de Maintenance de la stratégie de groupe qui contrôlent comment les clients WSUS peuvent interagir avec la mise à jour de Windows Pour obtenir les mises à jour automatiques.
+[Paramètres Stratégie de groupe pour les mises à jour du client WSUS](#group-policy-settings-for-wsus-client-updates), qui fournit des recommandations et comportement des détails sur les paramètres de mise à jour de Windows et le Planificateur de Maintenance de la stratégie de groupe qui contrôlent comment les clients WSUS peuvent interagir avec la mise à jour de Windows Pour obtenir les mises à jour automatiques.
 
-[Obtenir des informations supplémentaires](4-configure-group-policy-settings-for-automatic-updates.md#BKMK_Supplemental) contient les sections suivantes :
+[Obtenir des informations supplémentaires](#supplemental-information) contient les sections suivantes :
 
--   [Les paramètres de mise à jour de Windows dans la stratégie de groupe de l’accès à](4-configure-group-policy-settings-for-automatic-updates.md#BKMK_OpenGPO), qui fournit des indications générales sur l’utilisation de l’éditeur de gestion de stratégie de groupe et d’informations sur l’accès aux extensions de stratégie de Services de mise à jour et les paramètres de planificateur de Maintenance dans Stratégie de groupe.
+-   [Les paramètres de mise à jour de Windows dans la stratégie de groupe de l’accès à](#accessing-the-windows-update-settings-in-group-policy), qui fournit des indications générales sur l’utilisation de l’éditeur de gestion de stratégie de groupe et d’informations sur l’accès aux extensions de stratégie de Services de mise à jour et les paramètres de planificateur de Maintenance dans Stratégie de groupe.
 
--   [Modifications au serveur WSUS pertinents pour ce guide](4-configure-group-policy-settings-for-automatic-updates.md#BKMK_changes): pour les administrateurs familiarisés avec WSUS 3.2 et versions antérieures, cette section donne un bref résumé des principales différences entre la version actuelle et passée de WSUS pertinents pour ce guide.
+-   [Modifications au serveur WSUS pertinents pour ce guide](#changes-to-wsus-relevant-to-this-guide): pour les administrateurs familiarisés avec WSUS 3.2 et versions antérieures, cette section donne un bref résumé des principales différences entre la version actuelle et passée de WSUS pertinents pour ce guide.
 
--   [Termes et définitions](4-configure-group-policy-settings-for-automatic-updates.md#BKMK_Terms): définitions pour différents termes se rapportant aux services WSUS et mise à jour qui sont utilisés dans ce guide.
+-   [Termes et définitions](#terms-and-definitions): définitions pour différents termes se rapportant aux services WSUS et mise à jour qui sont utilisés dans ce guide.
 
-## <a name="BKMK_PolSettings"></a>Paramètres de stratégie de groupe pour les mises à jour du client WSUS
+## <a name="group-policy-settings-for-wsus-client-updates"></a>Paramètres de stratégie de groupe pour les mises à jour du client WSUS
 Cette section fournit des informations sur trois extensions de stratégie de groupe. Dans ces extensions, vous trouverez les paramètres que vous pouvez utiliser pour configurer comment les clients WSUS peuvent interagir avec la mise à jour de Windows pour recevoir des mises à jour automatiques.
 
--   [Configuration d’ordinateur &gt; les paramètres de stratégie de mise à jour de Windows](#BKMK_computerPol)
+-   [Configuration d’ordinateur &gt; les paramètres de stratégie de mise à jour de Windows](#computer-configuration--windows-update-policy-settings)
 
--   [Configuration d’ordinateur &gt; les paramètres de stratégie du Planificateur de Maintenance](#BKMK_MtncScheduler)
+-   [Configuration d’ordinateur &gt; les paramètres de stratégie du Planificateur de Maintenance](#computer-configuration--maintenance-scheduler-policy-settings)
 
--   [Configuration de l’utilisateur &gt; les paramètres de stratégie de mise à jour de Windows](#BKMK_UserPol)
+-   [Configuration de l’utilisateur &gt; les paramètres de stratégie de mise à jour de Windows](#user-configuration--windows-update-policy-settings)
 
 > [!NOTE]
-> Cette rubrique suppose que vous avez déjà utiliserez et que vous êtes familiarisé avec la stratégie de groupe. Si vous n’êtes pas familiarisé avec la stratégie de groupe, il est recommandé que vous passez en revue les informations contenues dans le [des informations supplémentaires](#BKMK_Supplemental) section de ce document avant de tenter de configurer les paramètres de stratégie pour WSUS.
+> Cette rubrique suppose que vous avez déjà utiliserez et que vous êtes familiarisé avec la stratégie de groupe. Si vous n’êtes pas familiarisé avec la stratégie de groupe, il est recommandé que vous passez en revue les informations contenues dans le [des informations supplémentaires](#supplemental-information) section de ce document avant de tenter de configurer les paramètres de stratégie pour WSUS.
 
-### <a name="BKMK_computerPol"></a>Configuration ordinateur > Paramètres de stratégie de mise à jour de Windows
+### <a name="computer-configuration--windows-update-policy-settings"></a>Configuration ordinateur > Paramètres de stratégie de mise à jour de Windows
 Cette section fournit des détails sur les paramètres de stratégie ordinateur suivants :
 
--   [Autoriser l’installation immédiate des mises à jour automatiques](#BKMK_comp1)
+-   [Autoriser l’installation immédiate des mises à jour automatiques](#allow-automatic-updates-immediate-installation)
 
--   [Autoriser des non-administrateurs à recevoir des notifications de mise à jour](#BKMK_comp2)
+-   [Autoriser des non-administrateurs à recevoir des notifications de mise à jour](#allow-non-administrators-to-receive-update-notifications)
 
--   [Autoriser les mises à jour signées à partir d’un emplacement de service de mise à jour Microsoft de l’intranet](#BKMK_comp3)
+-   [Autoriser les mises à jour signées à partir d’un emplacement de service de mise à jour Microsoft de l’intranet](#allow-signed-updates-from-an-intranet-microsoft-update-service-location)
 
--   [Fréquence de détection automatique des mises à jour](#BKMK_comp4)
+-   [Fréquence de détection automatique des mises à jour](#automatic-updates-detection-frequency)
 
--   [Configurer les mises à jour automatiques](#BKMK_comp5)
+-   [Configurer les mises à jour automatiques](#configure-automatic-updates)
 
--   [Délai de redémarrage pour les installations planifiées](#BKMK_comp6)
+-   [Délai de redémarrage pour les installations planifiées](#delay-restart-for-scheduled-installations)
 
--   [Option par défaut « Installer les mises à jour et arrêter » dans la boîte de dialogue Arrêter bas Windows ne s’ajustent pas](#BKMK_comp7)
+-   [Option par défaut « Installer les mises à jour et arrêter » dans la boîte de dialogue Arrêter bas Windows ne s’ajustent pas](#do-not-adjust-default-option-to-install-updates-and-shut-down-in-shut-down-windows-dialog)
 
--   [Ne pas afficher l’option « Installer les mises à jour et éteindre » dans la boîte de dialogue Arrêter bas Windows](#BKMK_comp8)
+-   [Ne pas afficher l’option « Installer les mises à jour et éteindre » dans la boîte de dialogue Arrêter bas Windows](#do-not-display-install-updates-and-shut-down-option-in-shut-down-windows-dialog)
 
--   [Autoriser le ciblage côté client](#BKMK_comp9)
+-   [Autoriser le ciblage côté client](#enable-client-side-targeting)
 
--   [L’activation de Windows mise à jour de gestion de l’alimentation sortir de veille automatiquement l’ordinateur pour installer les mises à jour planifiées](#BKMK_comp10)
+-   [L’activation de Windows mise à jour de gestion de l’alimentation sortir de veille automatiquement l’ordinateur pour installer les mises à jour planifiées](#enabling-windows-update-power-management-to-automatically-wake-up-the-computer-to-install-scheduled-updates)
 
--   [Pas de redémarrage automatique avec des utilisateurs connectés pour automatique planifiée met à jour des installations](#BKMK_comp11)
+-   [Pas de redémarrage automatique avec des utilisateurs connectés pour automatique planifiée met à jour des installations](#no-auto-restart-with-logged-on-users-for-scheduled-automatic-updates-installations)
 
--   [Redemander un redémarrage avec les installations planifiées](#BKMK_comp12)
+-   [Redemander un redémarrage avec les installations planifiées](#re-prompt-for-restart-with-scheduled-installations)
 
--   [Replanifier les installations planifiées des mises à jour automatiques](#BKMK_comp13)
+-   [Replanifier les installations planifiées des mises à jour automatiques](#reschedule-automatic-updates-scheduled-installations)
 
--   [Spécifier l’emplacement intranet du service de mise à jour Microsoft](#BKMK_comp14)
+-   [Spécifier l’emplacement intranet du service de mise à jour Microsoft](#specify-intranet-microsoft-update-service-location)
 
--   [Activer les mises à jour recommandées par le biais de mises à jour automatiques](#BKMK_comp15)
+-   [Activer les mises à jour recommandées par le biais de mises à jour automatiques](#turn-on-recommended-updates-via-automatic-updates)
 
--   [Activer les Notifications de logiciel](#BKMK_comp16)
+-   [Activer les Notifications de logiciel](#turn-on-software-notifications)
 
 Dans le GPME, les stratégies de mise à jour de Windows pour la configuration basée sur l’ordinateur sont situés dans le chemin d’accès : *PolicyName* > **Configuration ordinateur** > **stratégies** > **modèles d’administration**  >  **Les composants Windows** > **mise à jour Windows**.
 
 > [!NOTE]
 > Par défaut, ces paramètres ne sont pas configurés.
 
-#### <a name="BKMK_comp1"></a>Autoriser l’installation immédiate des mises à jour automatiques
+#### <a name="allow-automatic-updates-immediate-installation"></a>Autoriser l’installation immédiate des mises à jour automatiques
 Spécifie si les mises à jour automatiques installe automatiquement les mises à jour sans interruption des services de Windows ou redémarrez Windows.
 
 |Pris en charge :|À l’exclusion :|
@@ -108,7 +108,7 @@ Spécifie si les mises à jour automatiques installe automatiquement les mises �
 
 **Options :** Il n’existe aucune option pour ce paramètre.
 
-#### <a name="BKMK_comp2"></a>Autoriser des non-administrateurs à recevoir des notifications de mise à jour
+#### <a name="allow-non-administrators-to-receive-update-notifications"></a>Autoriser des non-administrateurs à recevoir des notifications de mise à jour
 Spécifie si les utilisateurs non-administrateurs doit recevoir des notifications de mise à jour en fonction du paramètre de stratégie de configurer des mises à jour automatique.
 
 |Pris en charge :|À l’exclusion :|
@@ -130,7 +130,7 @@ Spécifie si les utilisateurs non-administrateurs doit recevoir des notification
 
 **Options :** Il n’existe aucune option pour ce paramètre.
 
-#### <a name="BKMK_comp3"></a>Autoriser les mises à jour signées à partir d’un emplacement de service de mise à jour Microsoft de l’intranet
+#### <a name="allow-signed-updates-from-an-intranet-microsoft-update-service-location"></a>Autoriser les mises à jour signées d'un emplacement intranet du service de mise à jour Microsoft
 Spécifie si les mises à jour automatiques accepte les mises à jour qui sont signées par des entités autres que Microsoft lors de la mise à jour se trouve sur un emplacement intranet du service de mise à jour Microsoft.
 
 |Pris en charge :|À l’exclusion :|
@@ -173,7 +173,7 @@ Spécifie si une horloge de redémarrage commence toujours immédiatement après
 
 **Options :** si ce paramètre est activé, vous pouvez spécifier la quantité de temps qui doit s’écouler après l’installent des mises à jour avant un redémarrage forcé se produit.
 
-#### <a name="BKMK_comp4"></a>Fréquence de détection automatique des mises à jour
+#### <a name="automatic-updates-detection-frequency"></a>Fréquence de détection des mises à jour automatiques
 Spécifie la durée en heures pendant laquelle Windows attendra avant de vérifier la disponibilité de nouvelles mises à jour. La durée exacte est déterminée en utilisant ce nombre d’heures moins un pourcentage compris entre zéro et vingt pour-cent du nombre d’heures spécifié. Par exemple, si cette stratégie est utilisée pour spécifier une fréquence de détection de 20 heures, tous les clients auxquels cette stratégie est appliquée vérifiera les mises à jour n’importe où entre 16 et 20 heures.
 
 |Pris en charge :|À l’exclusion :|
@@ -197,7 +197,7 @@ Spécifie la durée en heures pendant laquelle Windows attendra avant de vérifi
 
 **Options :** si ce paramètre est activé, vous pouvez spécifier l’intervalle de temps (en heures), mise à jour de Windows attend avant de vérifier les mises à jour.
 
-#### <a name="BKMK_comp5"></a>Configurer les mises à jour automatiques
+#### <a name="configure-automatic-updates"></a>Configurer les mises à jour automatiques
 Spécifie spécifier si les mises à jour automatiques sont activées sur cet ordinateur.
 
 |Pris en charge :|À l’exclusion :|
@@ -212,10 +212,10 @@ Pour utiliser ce paramètre, sélectionnez **activé**, puis dans **Options** so
 |-|-|
 |**État de paramètre de stratégie**|**Behavior**|
 |**Non configuré**|Spécifie que l’utilisation de mises à jour automatiques n’est pas spécifiée au niveau de la stratégie de groupe. Toutefois, un administrateur de l’ordinateur peut toujours configurer des mises à jour automatiques dans le panneau de configuration.|
-|**Activé**|Spécifie que Windows reconnaît lorsque l’ordinateur est en ligne et utilise sa connexion Internet pour rechercher des mises à jour de Windows pour les mises à jour disponibles.<br /><br />Lorsque l’option est activée, les administrateurs locaux pourront pour utiliser le panneau de configuration de mise à jour de Windows pour sélectionner une option de configuration de leur choix. Toutefois, les administrateurs locaux ne pourrez pas désactiver la configuration pour les mises à jour automatiques.<br /><br />-   **2 - notification de téléchargement et notification des installations**<br />    Lors de la mise à jour de Windows recherche les mises à jour qui s’appliquent à l’ordinateur, les utilisateurs seront informés que les mises à jour sont prêtes pour le téléchargement. Les utilisateurs peuvent exécuter puis mise à jour de Windows pour télécharger et installer les mises à jour disponibles.<br />-   **3 - téléchargement automatique et notification des installations** (paramètre par défaut)<br />    Mise à jour de Windows recherche les mises à jour applicables et les télécharge en arrière-plan ; l’utilisateur n’est pas notifié ou interrompu au cours du processus. Lorsque les téléchargements sont terminés, les utilisateurs sont avertis qu’il n’y a prêts à installer les mises à jour. Les utilisateurs peuvent exécuter puis mise à jour de Windows pour installer les mises à jour téléchargées.<br />-   **4 - téléchargement automatique et planification des installations**<br />    Vous pouvez spécifier la planification en utilisant les options de ce paramètre de stratégie de groupe. Si aucune planification n’est spécifiée, le calendrier par défaut pour toutes les installations seront tous les jours à 3 h 00. Si les mises à jour nécessitent un redémarrage pour terminer l’installation, Windows redémarre automatiquement l’ordinateur. (si un utilisateur est connecté à l’ordinateur lorsque Windows est prêt à redémarrer, l’utilisateur sera être informé et la possibilité de retarder le redémarrage.) **Remarque :** à partir de Windows 8, vous pouvez définir des mises à jour à installer lors de la maintenance automatique au lieu d’utiliser une planification spécifique liée à la mise à jour de Windows. Maintenance automatique installera les mises à jour lorsque l’ordinateur n’est pas en cours d’utilisation et éviter d’installer les mises à jour lorsque l’ordinateur fonctionne sur batterie. Si la maintenance automatique ne peut pas installer les mises à jour dans les jours, mise à jour de Windows Installer les mises à jour immédiatement. Les utilisateurs seront ensuite être avertis d’un redémarrage en attente. Un redémarrage en attente a lieu uniquement s’il n’existe aucun risque de perte accidentelle de données.    Vous pouvez spécifier des options de planification dans les paramètres du Planificateur de Maintenance GPME, qui sont trouvent dans le chemin d’accès, *PolicyName* > **ordinateur Configuration**  >  **Stratégies** > **modèles d’administration** > **les composants Windows** > **Maintenance Planificateur** > **limite de l’Activation de la Maintenance automatique**. Consultez la section de cette référence intitulée : [Paramètres du Planificateur de maintenance](#BKMK_MtncScheduler), pour les détails des paramètres.    **5 - autoriser l’administrateur local à choisir les paramètres**<br />-Spécifie si les administrateurs locaux sont autorisés à utiliser le panneau de configuration mises à jour automatiques pour sélectionner une option de configuration de leur choix, par exemple, si les administrateurs locaux peuvent choisir une heure d’installation planifiée.<br />    Les administrateurs locaux ne seront pas autorisés à désactiver la configuration des mises à jour automatiques.|
+|**Activé**|Spécifie que Windows reconnaît lorsque l’ordinateur est en ligne et utilise sa connexion Internet pour rechercher des mises à jour de Windows pour les mises à jour disponibles.<br /><br />Lorsque l’option est activée, les administrateurs locaux pourront pour utiliser le panneau de configuration de mise à jour de Windows pour sélectionner une option de configuration de leur choix. Toutefois, les administrateurs locaux ne pourrez pas désactiver la configuration pour les mises à jour automatiques.<br /><br />-   **2 - notification de téléchargement et notification des installations**<br />    Lors de la mise à jour de Windows recherche les mises à jour qui s’appliquent à l’ordinateur, les utilisateurs seront informés que les mises à jour sont prêtes pour le téléchargement. Les utilisateurs peuvent exécuter puis mise à jour de Windows pour télécharger et installer les mises à jour disponibles.<br />-   **3 - téléchargement automatique et notification des installations** (paramètre par défaut)<br />    Mise à jour de Windows recherche les mises à jour applicables et les télécharge en arrière-plan ; l’utilisateur n’est pas notifié ou interrompu au cours du processus. Lorsque les téléchargements sont terminés, les utilisateurs sont avertis qu’il n’y a prêts à installer les mises à jour. Les utilisateurs peuvent exécuter puis mise à jour de Windows pour installer les mises à jour téléchargées.<br />-   **4 - téléchargement automatique et planification des installations**<br />    Vous pouvez spécifier la planification en utilisant les options de ce paramètre de stratégie de groupe. Si aucune planification n’est spécifiée, le calendrier par défaut pour toutes les installations seront tous les jours à 3 h 00. Si les mises à jour nécessitent un redémarrage pour terminer l’installation, Windows redémarre automatiquement l’ordinateur. (si un utilisateur est connecté à l’ordinateur lorsque Windows est prêt à redémarrer, l’utilisateur sera être informé et la possibilité de retarder le redémarrage.) **Remarque :** à partir de Windows 8, vous pouvez définir des mises à jour à installer lors de la maintenance automatique au lieu d’utiliser une planification spécifique liée à la mise à jour de Windows. Maintenance automatique installera les mises à jour lorsque l’ordinateur n’est pas en cours d’utilisation et éviter d’installer les mises à jour lorsque l’ordinateur fonctionne sur batterie. Si la maintenance automatique ne peut pas installer les mises à jour dans les jours, mise à jour de Windows Installer les mises à jour immédiatement. Les utilisateurs seront ensuite être avertis d’un redémarrage en attente. Un redémarrage en attente a lieu uniquement s’il n’existe aucun risque de perte accidentelle de données.    Vous pouvez spécifier des options de planification dans les paramètres du Planificateur de Maintenance GPME, qui sont trouvent dans le chemin d’accès, *PolicyName* > **ordinateur Configuration**  >  **Stratégies** > **modèles d’administration** > **les composants Windows** > **Maintenance Planificateur** > **limite de l’Activation de la Maintenance automatique**. Consultez la section de cette référence intitulée : [Paramètres du Planificateur de maintenance](#computer-configuration--maintenance-scheduler-policy-settings), pour les détails des paramètres.    **5 - autoriser l’administrateur local à choisir les paramètres**<br />-Spécifie si les administrateurs locaux sont autorisés à utiliser le panneau de configuration mises à jour automatiques pour sélectionner une option de configuration de leur choix, par exemple, si les administrateurs locaux peuvent choisir une heure d’installation planifiée.<br />    Les administrateurs locaux ne seront pas autorisés à désactiver la configuration des mises à jour automatiques.|
 |**Désactivé**|Spécifie que les mises à jour du client sont disponibles à partir du service de mise à jour Windows publique doivent être téléchargés à partir d’Internet manuellement et installés.|
 
-#### <a name="BKMK_comp6"></a>Délai de redémarrage pour les installations planifiées
+#### <a name="delay-restart-for-scheduled-installations"></a>Délai de redémarrage pour les installations planifiées
 Spécifie la durée de qu'attente avant de procéder à un redémarrage planifié mises à jour automatiques.
 
 |Pris en charge :|À l’exclusion :|
@@ -234,7 +234,7 @@ Spécifie la durée de qu'attente avant de procéder à un redémarrage planifi�
 
 **Options :** si ce paramètre est activé, vous pouvez utiliser cette option pour spécifier la quantité de temps (en minutes) des mises à jour automatiques attend avant de procéder à un redémarrage planifié.
 
-#### <a name="BKMK_comp7"></a>Option par défaut « Installer les mises à jour et arrêter » dans la boîte de dialogue Arrêter bas Windows ne s’ajustent pas
+#### <a name="do-not-adjust-default-option-to-install-updates-and-shut-down-in-shut-down-windows-dialog"></a>Option par défaut pour installer les mises à jour et arrêter dans la boîte de dialogue Arrêter bas Windows ne s’ajustent pas
 Ce paramètre de stratégie vous permet de spécifier si le **installer les mises à jour et arrêter** option est autorisée en tant que le choix par défaut dans le **arrêté bas Windows** boîte de dialogue.
 
 |Pris en charge :|À l’exclusion :|
@@ -274,7 +274,7 @@ L’activation de cette stratégie désactive la fonctionnalité permettant de r
 
 **Options :** Il n’existe aucune option pour ce paramètre.
 
-#### <a name="BKMK_comp8"></a>Ne pas afficher l’option « Installer les mises à jour et éteindre » dans la boîte de dialogue Arrêter bas Windows
+#### <a name="do-not-display-install-updates-and-shut-down-option-in-shut-down-windows-dialog"></a>Ne pas afficher les mises à jour de l’installation et l’option Arrêter dans la boîte de dialogue Arrêter bas Windows
 Spécifie si le **installer les mises à jour et arrêter** option est affichée dans le **arrêté bas Windows** boîte de dialogue.
 
 |Pris en charge :|À l’exclusion :|
@@ -290,7 +290,7 @@ Spécifie si le **installer les mises à jour et arrêter** option est affichée
 
 **Options :** Il n’existe aucune option pour ce paramètre.
 
-#### <a name="BKMK_comp9"></a>Autoriser le ciblage côté client
+#### <a name="enable-client-side-targeting"></a>Activer le ciblage côté client
 Spécifie le nom du groupe cible ou les noms qui sont configurés dans la console WSUS qui doivent recevoir des mises à jour à partir de WSUS.
 
 |Pris en charge :|À l’exclusion :|
@@ -312,7 +312,7 @@ Spécifie le nom du groupe cible ou les noms qui sont configurés dans la consol
 
 **Options :** Utilisez cet espace pour spécifier un ou plusieurs noms de groupe cible.
 
-#### <a name="BKMK_comp10"></a>L’activation de Windows mise à jour de gestion de l’alimentation sortir de veille automatiquement l’ordinateur pour installer les mises à jour planifiées
+#### <a name="enabling-windows-update-power-management-to-automatically-wake-up-the-computer-to-install-scheduled-updates"></a>L’activation de Windows mise à jour de gestion de l’alimentation sortir de veille automatiquement l’ordinateur pour installer les mises à jour planifiées
 Spécifie si Windows Update utilise les fonctionnalités de gestion de l’alimentation Windows ou des Options d’alimentation pour sortir de veille automatiquement l’ordinateur à partir de la mise en veille prolongée s’il existe des mises à jour de l’installation planifiées.
 
 L’ordinateur sera sortir de veille automatiquement uniquement si la mise à jour de Windows est configuré pour installer les mises à jour automatiquement. Si l’ordinateur est en veille prolongée lors de l’heure d’installation planifiée se produit et il existe des mises à jour à appliquer, mise à jour de Windows utilise les fonctionnalités de gestion de l’alimentation Windows ou des Options d’alimentation pour sortir de veille automatiquement l’ordinateur pour installer les mises à jour. Mettre à jour de Windows sera également sortir les ordinateurs et d’installer une mise à jour si l’échéance d’installation se produit.
@@ -332,7 +332,7 @@ L’ordinateur ne sera pas sortir sauf s’il existe des mises à jour à instal
 
 **Options :** Il n’existe aucune option pour ce paramètre.
 
-#### <a name="BKMK_comp11"></a>Pas de redémarrage automatique avec des utilisateurs connectés pour automatique planifiée met à jour des installations
+#### <a name="no-auto-restart-with-logged-on-users-for-scheduled-automatic-updates-installations"></a>Pas de redémarrage automatique avec des utilisateurs connectés pour les installations planifiées de mises à jour automatiques
 Indique que pour effectuer une installation planifiée, mises à jour automatiques attend le redémarrage par tout utilisateur qui n’est connecté, au lieu de provoquer l’ordinateur à redémarrer automatiquement l’ordinateur.
 
 |Pris en charge :|À l’exclusion :|
@@ -351,7 +351,7 @@ Indique que pour effectuer une installation planifiée, mises à jour automatiqu
 
 **Options :** Il n’existe aucune option pour ce paramètre.
 
-#### <a name="BKMK_comp12"></a>Redemander un redémarrage avec les installations planifiées
+#### <a name="re-prompt-for-restart-with-scheduled-installations"></a>Redemander un redémarrage avec les installations planifiées
 Spécifie la quantité de temps pour les mises à jour automatiques à attendre avant de redemander redémarrage planifié.
 
 |Pris en charge :|À l’exclusion :|
@@ -373,7 +373,7 @@ Spécifie la quantité de temps pour les mises à jour automatiques à attendre 
 
 **Options :** Lorsque l’option est activée, vous pouvez utiliser cette option de paramètre pour spécifier (en minutes) de la durée de temps qui doit s’écouler avant que les utilisateurs sont invités à nouveau sur un redémarrage planifié.
 
-#### <a name="BKMK_comp13"></a>Replanifier les installations planifiées des mises à jour automatiques
+#### <a name="reschedule-automatic-updates-scheduled-installations"></a>Replanifier les installations planifiées des mises à jour automatiques
 Spécifie la quantité de temps pour les mises à jour automatiques d’attente après un démarrage de l’ordinateur, avant de procéder à une installation planifiée qui a été manquée précédemment.
 
 Si l’état est défini sur **pas configuré**, une installation planifiée manquée se produira une minute après l’ordinateur suivant démarré.
@@ -394,7 +394,7 @@ Si l’état est défini sur **pas configuré**, une installation planifiée man
 
 **Options :** Lorsque ce paramètre de stratégie est activé, vous pouvez l’utiliser pour spécifier un nombre de minutes après le prochain démarrage de l’ordinateur, qu’une installation planifiée ne prenait pas place plus haut se produit.
 
-#### <a name="BKMK_comp14"></a>Spécifier l’emplacement intranet du service de mise à jour Microsoft
+#### <a name="specify-intranet-microsoft-update-service-location"></a>Spécifier l’emplacement intranet du service de mise à jour Microsoft
 Spécifie un serveur intranet qui héberge les mises à jour provenant de Microsoft Update. Vous pouvez ensuite utiliser WSUS pour mettre à jour automatiquement les ordinateurs sur votre réseau.
 
 |Pris en charge :|À l’exclusion :|
@@ -425,7 +425,7 @@ Pour utiliser ce paramètre, vous devez définir deux valeurs de nom de serveur�
 |Configurer le service intranet de mise à jour pour la détection des mises à jour|http://wsus01:8530|
 |Configurer le serveur intranet de statistiques|http://IntranetUpd01|
 
-#### <a name="BKMK_comp15"></a>Activer les mises à jour recommandées par le biais de mises à jour automatiques
+#### <a name="turn-on-recommended-updates-via-automatic-updates"></a>Activer les mises à jour recommandées par le biais de mises à jour automatiques
 Spécifie si les mises à jour automatiques fournira IMPORTANT et mises à jour recommandées à partir de WSUS.
 
 |Pris en charge :|À l’exclusion :|
@@ -441,7 +441,7 @@ Spécifie si les mises à jour automatiques fournira IMPORTANT et mises à jour 
 
 **Options :** Il n’existe aucune option pour ce paramètre.
 
-#### <a name="BKMK_comp16"></a>Activer les Notifications de logiciel
+#### <a name="turn-on-software-notifications"></a>Activer les Notifications de logiciel
 Ce paramètre de stratégie vous permet de contrôler si les utilisateurs voient des messages de notification améliorée détaillées sur le logiciel complet à partir du service Microsoft Update. Messages de notification améliorée transmettent la valeur et promouvoir l’installation et l’utilisation du logiciel facultatif. Ce paramètre de stratégie est conçu pour une utilisation dans des environnements mal gérés dans laquelle vous autorisez l’accès de l’utilisateur final au service Microsoft Update.
 
 Si vous n’utilisez pas le service Microsoft Update, le paramètre de stratégie « Logiciel Notifications » n’a aucun effet.
@@ -464,16 +464,16 @@ Si le paramètre de stratégie « Configurer les mises à jour automatique » 
 
 **Options :** Il n’existe aucune option pour ce paramètre.
 
-### <a name="BKMK_MtncScheduler"></a>Configuration d’ordinateur > Paramètres de stratégie du Planificateur de Maintenance
+### <a name="computer-configuration--maintenance-scheduler-policy-settings"></a>Configuration d’ordinateur > Paramètres de stratégie du Planificateur de Maintenance
 Dans le paramètre configurer les mises à jour automatiques, vous avez sélectionné l’option **4 - téléchargement automatique et planification des installations**, vous pouvez spécifier les paramètres du Planificateur de Maintenance dans la console GPMC pour les ordinateurs exécutant Windows 8 et RT. Windows de planification Si vous n’avez pas sélectionné l’option 4 dans le paramètre « Configurer les mises à jour automatique », il est inutile de configurer ces paramètres à des fins de mises à jour automatiques. Paramètres du Planificateur de maintenance sont situés dans le chemin d’accès : *PolicyName* > **ordinateur Configuration** > **stratégies** > **modèles d’administration**  >  **Les composants Windows** > **Planificateur de Maintenance**. L’extension du Planificateur de Maintenance de la stratégie de groupe contient les paramètres suivants :
 
--   [Limite de l’Activation de la Maintenance automatique](#BKMK_comp5a)
+-   [Limite de l’Activation de la Maintenance automatique](#automatic-maintenance-activation-boundary)
 
--   [Délai aléatoire de Maintenance automatique](#BKMK_comp5b)
+-   [Délai aléatoire de Maintenance automatique](#automatic-maintenance-random-delay)
 
--   [Stratégie de réactivation automatique](#BKMK_comp5c)
+-   [Stratégie de réactivation automatique](#automatic-wakeup-policy)
 
-#### <a name="BKMK_comp5a"></a>Limite de l’Activation de la Maintenance automatique
+#### <a name="automatic-maintenance-activation-boundary"></a>Limite de l’activation de la maintenance automatique
 Cette stratégie vous permet de configurer le paramètre « Limite de l’activation de la Maintenance automatique ».
 
 La limite de l’activation de maintenance est l’heure planifiée quotidienne au niveau duquel commence la Maintenance automatique.
@@ -492,7 +492,7 @@ La limite de l’activation de maintenance est l’heure planifiée quotidienne 
 |**Activé**|L’activation de ce paramètre de stratégie remplace toute valeur par défaut ou modifié des paramètres configurés sur les ordinateurs clients dans **le panneau de configuration** > **centre de maintenance**  >   **Maintenance automatique** (ou dans certaines versions de client, **Maintenance**).|
 |**Désactivé**|Si vous définissez ce paramètre de stratégie sur **désactivé**, l’heure quotidienne planifiée comme spécifié dans le **centre de maintenance** > **Maintenance automatique**, dans le contrôle Panneau de configuration s’applique.|
 
-#### <a name="BKMK_comp5b"></a>Délai aléatoire de Maintenance automatique
+#### <a name="automatic-maintenance-random-delay"></a>Délai aléatoire de Maintenance automatique
 Ce paramètre de stratégie vous permet de configurer le délai aléatoire de Maintenance automatique d’activation.
 
 Le délai aléatoire de maintenance est la quantité de temps jusqu’auquel la Maintenance automatique retardera à partir de sa limite d’activation. Ce paramètre est utile pour les machines virtuelles où maintenance aléatoire peut être une exigence de performance.
@@ -513,7 +513,7 @@ Par défaut, lorsque l’option est activée, le délai aléatoire de maintenanc
 |**Activé**|Maintenance automatique retardera à partir de sa limite de l’activation par jusqu'à la quantité de temps spécifiée.|
 |**Désactivé**|Aucun délai aléatoire n’est appliqué à la Maintenance automatique.|
 
-#### <a name="BKMK_comp5c"></a>Stratégie de réactivation automatique
+#### <a name="automatic-wakeup-policy"></a>Stratégie de réactivation automatique
 Ce paramètre de stratégie vous permet de configurer la stratégie de réactivation Maintenance automatique.
 
 La stratégie de réactivation maintenance Spécifie si la Maintenance automatique une demande de mise en éveil à distance à l’ordinateur d’exploitation pour une maintenance quotidienne planifiée.
@@ -535,14 +535,14 @@ La stratégie de réactivation maintenance Spécifie si la Maintenance automatiq
 |**Activé**|Si vous activez ce paramètre de stratégie, la Maintenance automatique tente de définir une stratégie de réactivation du système d’exploitation et d’effectuer une demande de réactivation pour l’heure planifiée quotidienne, si nécessaire.|
 |**Désactivé**|Si vous désactivez ce paramètre de stratégie, éveil définition comme spécifié dans le **centre de maintenance** > **Maintenance automatique** le panneau de configuration s’applique.|
 
-### <a name="BKMK_UserPol"></a>Configuration de l’utilisateur > Paramètres de stratégie de mise à jour de Windows
+### <a name="user-configuration--windows-update-policy-settings"></a>Configuration de l’utilisateur > Paramètres de stratégie de mise à jour de Windows
 Cette section fournit des détails sur les paramètres de stratégie utilisateur suivants :
 
--   [Ne pas afficher d’option « Installer les mises à jour et arrêter » dans la boîte de dialogue d’arrêt vers le bas Windows](#BKMK_Client1)
+-   [Ne pas afficher d’option « Installer les mises à jour et arrêter » dans la boîte de dialogue d’arrêt vers le bas Windows](#do-not-display-install-updates-and-shut-down-option-in-shut-down-windows-dialog)
 
--   [Ne pas modifier l’option par défaut « Installer les mises à jour et arrêter » dans la boîte de dialogue d’arrêt vers le bas Windows](#BKMK_Client2)
+-   [Ne pas modifier l’option par défaut « Installer les mises à jour et arrêter » dans la boîte de dialogue d’arrêt vers le bas Windows](#do-not-adjust-default-option-to-install-updates-and-shut-down-in-shut-down-windows-dialog)
 
--   [supprimer l’accès pour utiliser toutes les fonctionnalités de mise à jour de Windows](#BKMK_Client3)
+-   [supprimer l’accès pour utiliser toutes les fonctionnalités de mise à jour de Windows](#remove-access-to-use-all-windows-update-features)
 
 Dans la console GPMC, les paramètres utilisateur pour les mises à jour automatique d’ordinateurs sont situés dans le chemin d’accès : *PolicyName* > **Configuration utilisateur** > **stratégies** > **modèles d’administration**  >  **Les composants Windows** > **mise à jour Windows**. Les paramètres sont répertoriés dans le même ordre, telles qu’elles apparaissent dans la Configuration d’ordinateur et les extensions de Configuration de l’utilisateur dans la stratégie de groupe, lorsque la **paramètres** onglet de la stratégie de mise à jour de Windows est sélectionné pour trier les paramètres par ordre alphabétique.
 
@@ -552,7 +552,7 @@ Dans la console GPMC, les paramètres utilisateur pour les mises à jour automat
 > [!TIP]
 > pour chacun de ces paramètres, vous pouvez utiliser les étapes suivantes pour activer, désactiver ou naviguer entre les paramètres :
 
-#### <a name="BKMK_Client1"></a>Ne pas afficher d’option « Installer les mises à jour et arrêter » dans la boîte de dialogue d’arrêt vers le bas Windows
+#### <a name="do-not-display-install-updates-and-shut-down-option-in-shut-down-windows-dialog-box"></a>Ne pas afficher d’option « Installer les mises à jour et arrêter » dans la boîte de dialogue d’arrêt vers le bas Windows
 Spécifie si le **installer les mises à jour et arrêter** option est affichée dans le **arrêté bas Windows** boîte de dialogue.
 
 |Pris en charge :|À l’exclusion :|
@@ -568,7 +568,7 @@ Spécifie si le **installer les mises à jour et arrêter** option est affichée
 
 **Options :** Il n’existe aucune option pour ce paramètre.
 
-#### <a name="BKMK_Client2"></a>Ne pas modifier l’option par défaut « Installer les mises à jour et arrêter » dans la boîte de dialogue d’arrêt vers le bas Windows
+#### <a name="do-not-adjust-default-option-to-install-updates-and-shut-down-in-shut-down-windows-dialog-box"></a>Ne pas modifier l’option par défaut « Installer les mises à jour et arrêter » dans la boîte de dialogue d’arrêt vers le bas Windows
 Spécifie si le **installer les mises à jour et arrêter** option est autorisée en tant que le choix par défaut dans le **arrêté bas Windows** boîte de dialogue.
 
 |Pris en charge :|À l’exclusion :|
@@ -586,8 +586,8 @@ Spécifie si le **installer les mises à jour et arrêter** option est autorisé
 |**Désactivé**|Spécifie si le **installer les mises à jour et arrêter** option n’est pas l’option par défaut dans le **arrêté bas Windows** boîte de dialogue si les mises à jour sont disponibles pour l’installation au moment où l’utilisateur sélectionne l’arrêt Option enfoncée pour arrêter l’ordinateur.|
 
 **Options :** Il n’existe aucune option pour ce paramètre.
-
-#### <a name="BKMK_Client3"></a>Supprimer l’accès pour utiliser toutes les fonctionnalités de mise à jour de Windows
+    
+#### <a name="remove-access-to-use-all-windows-update-features"></a>Supprimer l’accès à l’utilisation de toutes les fonctionnalités Windows Update
 Ce paramètre vous permet de supprimer l’accès client WSUS à Windows Update.
 
 |Pris en charge :|À l’exclusion :|
@@ -603,10 +603,10 @@ Ce paramètre vous permet de supprimer l’accès client WSUS à Windows Update.
 
 **Options :** Consultez **activé** dans la table pour ce paramètre.
 
-## <a name="BKMK_Supplemental"></a>Obtenir des informations supplémentaires
+## <a name="supplemental-information"></a>Informations supplémentaires
 Cette section fournit plus d’informations sur l’utilisation d’ouverture et enregistrement des paramètres WSUS dans les stratégies de groupe et les définitions des termes utilisés dans ce guide. Pour les administrateurs familiarisés avec les versions précédentes de WSUS (WSUS 3.2 et versions antérieures), il est une table qui résume brièvement les différences entre les versions WSUS.
 
-### <a name="BKMK_OpenGPO"></a>Accès aux paramètres de mise à jour de Windows dans la stratégie de groupe
+### <a name="accessing-the-windows-update-settings-in-group-policy"></a>Accès aux paramètres de mise à jour de Windows dans la stratégie de groupe
 La procédure qui suit décrit comment ouvrir la console GPMC sur votre contrôleur de domaine. Puis, la procédure décrit comment ouvrir un existant au niveau du domaine objet (stratégie de groupe) pour la modifier, ou créer un GPO au niveau du domaine et pour ouvrir pour modification.
 
 > [!NOTE]
@@ -668,7 +668,7 @@ Pour plus d’informations sur la stratégie de groupe, consultez [Group Policy 
 
     -   Pour ignorer toutes les modifications non enregistrées et fermer la boîte de dialogue, cliquez sur **Annuler**.
 
-### <a name="BKMK_changes"></a>Modifications apportées au serveur WSUS pertinents pour ce guide
+### <a name="changes-to-wsus-relevant-to-this-guide"></a>Modifications apportées au serveur WSUS pertinents pour ce guide
 Le tableau suivant récapitule les principales différences entre les versions actuelles et passées de WSUS qui s’appliquent à ce guide.
 
 |Versions de Windows Server et WSUS|Description|
@@ -676,7 +676,7 @@ Le tableau suivant récapitule les principales différences entre les versions a
 | Windows Server 2012 R2 avec WSUS 6.0 et versions ultérieures|à compter de Windows Server 2012, le rôle serveur WSUS est intégré au système d’exploitation et les paramètres de stratégie de groupe associés pour les clients WSUS sont, par défaut, inclus dans la stratégie de groupe.|
 | Windows Server 2008 (et les versions antérieures de Windows Server) avec WSUS 3.2 et versions antérieures|Dans Windows Server 2008 (et versions antérieures de Windows Server) à l’aide de WSUS versions 3.2 (et versions antérieures), les paramètres de stratégie de groupe qui régissent les clients WSUS ne sont pas inclus dans ces systèmes d’exploitation de Windows Server. Les paramètres de stratégie sont dans le modèle d’administration WSUS, **wuau.adm**. Dans ces versions de serveur, le modèle d’administration WSUS doit d’abord être ajouté dans la Console de gestion des stratégies de groupe (GPMC) avant de pouvoir configurer les paramètres du client WSUS.|
 
-### <a name="BKMK_Terms"></a>Termes et définitions
+### <a name="terms-and-definitions"></a>Termes et définitions
 Voici une liste des termes utilisés dans ce guide.
 
 |Terme|Définition|

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1310792158995608e8f477b6df9d6cf7c0284571
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c6aa91956f4a90b32b82e6c970e68b3164c732f0
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822250"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191710"
 ---
 # <a name="ad-fs-requirements"></a>Configuration AD FS requise
-
->S'applique à : Windows Server 2012 R2
 
 Voici les différentes exigences que vous devez vous conformer lors du déploiement d’AD FS :  
   
@@ -348,6 +346,6 @@ Le tableau suivant fournit des informations de prise en charge de chiffrement su
 L’administrateur qui effectue l’installation et la configuration initiale des services AD FS doit avoir des autorisations d’administrateur de domaine dans le domaine local \(en d’autres termes, le domaine auquel le serveur de fédération est joint à.\)  
   
 ## <a name="see-also"></a>Voir aussi  
-[Guide de conception AD FS dans Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
+[Guide de conception AD FS dans Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: 26aad48db4a5f0a593dfcb29160031a0c9f3dc75
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9c5272ba0a5ff7c0a30f61631bb6c8dac6552ef0
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886860"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192609"
 ---
 # <a name="chkdsk"></a>CHKDSK
 
@@ -35,7 +35,7 @@ Vérifie le système de fichiers et les métadonnées de système de fichiers d�
 > [!IMPORTANT]
 > **Remarque :** CHKDSK peut être utilisé uniquement pour les disques locaux. La commande ne peut pas être utilisée par une lettre de lecteur local qui a été redirigée sur le réseau.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#examples).
 
 ##<a name="syntax"></a>Syntaxe
 
@@ -60,7 +60,7 @@ chkdsk [<Volume>[[<Path>]<FileName>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<Size>]
 |/b|NTFS uniquement : Efface la liste de clusters défectueux sur le volume et analysera tous les clusters alloués et gratuits pour les erreurs. **/b** inclut les fonctionnalités de **/r**. Utilisez ce paramètre après la création d’images d’un volume sur un nouveau lecteur de disque dur.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-##<a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes
 
 -   Contrôles de volume est ignoré
 
@@ -114,7 +114,7 @@ chkdsk [<Volume>[[<Path>]<FileName>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<Size>]
 -   Le **chkdsk** commande, avec des paramètres différents, est disponible à partir de la Console de récupération.
 -   Sur les serveurs qui sont rarement redémarrés, il pouvez que vous souhaitez utiliser le **chkntfs** ou **requête dirty fsutil** commandes pour déterminer si le volume's erroné bit est déjà définissent avant l’exécution de chkdsk.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="examples"></a>Exemples
 
 Si vous souhaitez vérifier le disque dans le lecteur D et demander à Windows de corriger les erreurs, tapez :
 ```
@@ -131,4 +131,4 @@ chkdsk *.*
 **CHKDSK** affiche un rapport d’état et répertorie ensuite les fichiers qui correspondent aux spécifications de fichiers qui contiennent des blocs non contigus.
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

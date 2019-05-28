@@ -4,16 +4,16 @@ description: Problèmes connus et dépannage prise en charge du Service de Migra
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 02/27/2019
+ms.date: 05/14/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: f5fefab2c1b7ba8b62ffd6734217eab9a13ae95e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e1cfd2b0ea3bc4d7802cb4a6d2a8c1493d5511a1
+ms.sourcegitcommit: 0099873d69bd23495d275d7bcb464594de09ee3c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888870"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65699698"
 ---
 # <a name="storage-migration-service-known-issues"></a>Service de Migration de stockage problèmes connus
 
@@ -54,7 +54,7 @@ Ce problème est dû à une erreur de code dans Windows Server 2019. Le problèm
 
 Pour contourner ce problème, installez le Service de Migration de stockage sur un ordinateur Windows Server 2019 qui n’est pas la destination de migration souhaité, puis se connecter à ce serveur avec Windows Admin Center et effectuer la migration.
 
-Nous avons l’intention de résoudre ce problème dans une version ultérieure de Windows Server. Ouvrez une demande de support via [Support Microsoft](https://support.microsoft.com) pour demander un rétroporter de ce correctif soit créé.
+Nous avons résolu ce problème dans une version ultérieure de Windows Server. Ouvrez une demande de support via [Support Microsoft](https://support.microsoft.com) pour demander un rétroporter de ce correctif soit créé.
 
 ## <a name="storage-migration-service-isnt-included-in-windows-server-2019-evaluation-edition"></a>Service de Migration de stockage n’est pas inclus dans l’édition d’évaluation de Windows Server 2019
 
@@ -72,7 +72,7 @@ Lorsque vous utilisez Windows Admin Center ou PowerShell pour télécharger l’
 
  >   Journal de transfert, vérifiez que le partage de fichiers est autorisé dans votre pare-feu. : Cette opération de demande envoyée à NET.TCP://localhost : 28940/sms/service/1/transfert n’a pas reçu de réponse dans le délai imparti (00 : 01:00). Le temps alloué à cette opération peut avoir fait partie d’un délai d’expiration plus long. Cela peut être, car le service traite toujours l’opération ou le service n’a pas pu envoyer un message de réponse. Veuillez, envisagez d’augmenter le délai d’expiration de l’opération (en castant le canal/proxy vers IContextChannel et en définissant la propriété OperationTimeout) et vous assurer que le service est en mesure de se connecter au client.
 
-Ce problème est dû à un très grand nombre de fichiers transférés qui ne peuvent pas être filtrées dans le délai d’une minute par défaut autorisé par le Service de MIgration de stockage. 
+Ce problème est dû à un très grand nombre de fichiers transférés qui ne peuvent pas être filtrées dans le délai d’une minute par défaut autorisé par le Service de Migration de stockage. 
 
 Pour contourner ce problème :
 
@@ -103,14 +103,82 @@ Nous avons l’intention de modifier ce comportement dans une version ultérieur
 
 ## <a name="cutover-fails-when-migrating-between-networks"></a>Le basculement échoue lors de la migration entre les réseaux
 
-Lorsque vous migrez vers une machine virtuelle de destination en cours d’exécution dans un autre réseau que la source, par exemple une instance Azure IaaS, le basculement échoue lorsque la source utilisait une adresse IP statique. 
+Lorsque vous migrez vers un ordinateur de destination en cours d’exécution dans un autre réseau que la source, par exemple une instance Azure IaaS, le basculement échoue lorsque la source utilisait une adresse IP statique. 
 
 Ce comportement est normal, afin d’éviter les problèmes de connectivité après la migration à partir des utilisateurs, des applications et des scripts pour se connecter via l’adresse IP. Lorsque l’adresse IP est déplacée à partir de l’ancien ordinateur source vers la nouvelle cible de destination, il ne correspondra pas les nouvelles informations de sous-réseau de réseau et de peut-être DNS et de WINS.
 
 Pour contourner ce problème, effectuez une migration vers un ordinateur sur le même réseau. Déplacer cet ordinateur vers un nouveau réseau, puis réaffecter ses informations IP. Par exemple, si une migration vers Azure IaaS, tout d’abord migrer vers une machine virtuelle locale, puis utiliser Azure Migrate pour déplacer la machine virtuelle vers Azure.  
 
-Nous avons résolu ce problème dans une version ultérieure de Windows Server 2019. Nous allons permettent à présent vous permettent de spécifier des migrations qui ne pas modifier les paramètres de réseau du serveur de destination. Nous pouvons publier une mise à jour vers la version existante de Windows Server 2019 dans le cadre du cycle de mise à jour mensuel normal. 
+Nous avons résolu ce problème dans une version ultérieure de Windows Admin Center. Nous allons permettent à présent vous permettent de spécifier des migrations qui ne pas modifier les paramètres de réseau du serveur de destination. L’extension de mise à jour s’afficheront ici lors de la publication. 
 
+## <a name="validation-warnings-for-destination-proxy-and-credential-administrative-privileges"></a>Avertissements de validation pour les privilèges d’administration de destination proxy et les informations d’identification
+
+Lors de la validation d’une tâche de transfert, vous consultez les avertissements suivants :
+
+ > **Les informations d’identification a des privilèges d’administrateur.**
+ > Avertissement : Action n’est pas disponible à distance.
+ > **Le proxy de destination est inscrit.**
+ > Avertissement : Le proxy de destination n’a pas été trouvé.
+
+Si vous n’avez pas installé le service de Proxy de Service de Migration de stockage sur l’ordinateur de destination Windows Server 2019, ou l’ordinateur de destination est Windows Server 2016 ou Windows Server 2012 R2, ce comportement est normal. Nous vous recommandons de migrer vers un ordinateur Windows Server 2019 avec le proxy est installé pour les performances de transfert considérablement améliorées.  
+
+## <a name="certain-files-do-not-inventory-or-transfer-error-5-access-is-denied"></a>Certains fichiers ne pas d’inventaire ou de transfert, l’erreur 5 « accès refusé »
+
+Lors de l’inventaire ou de transfert de fichiers à partir de la source vers les ordinateurs de destination, les fichiers à partir de laquelle un utilisateur a supprimé les autorisations du groupe administrateurs ne pas migrer. Examen du débogage de Proxy du Service de stockage Migration montre :
+
+  Nom du journal :      Source de Microsoft-Windows-StorageMigrationService-Proxy/Debug :        Date de Microsoft-Windows-StorageMigrationService-Proxy :          26/2/2019 ID d’événement 9 h 00:04 :      Catégorie de tâche 10000 : Aucun niveau :         Erreur mots-clés :      
+  Utilisateur :          Ordinateur de SERVICE de réseau : Description de le srv1.contoso.com :
+
+  Erreur de transfert 02/26/2019-09:00:04.860 [erreur] pour \\srv1.contoso.com\public\indy.png : (5) l’accès est refusé.
+Trace de la pile : Au Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.OpenFile (String fileName, DesiredAccess desiredAccess, ShareMode shareMode, CreationDisposition creationDisposition, FlagsAndAttributes flagsAndAttributes) à Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetTargetFile (chemin d’accès de la chaîne) à Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetTargetFile (fichier FileInfo) à Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.InitializeSourceFileInfo() à Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.Transfer() à Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.TryTransfer() [d:\os\src\base\dms\proxy\transfer\transferproxy\FileTransfer.cs::TryTransfer::55]
+
+
+Ce problème est dû à une erreur de code dans le Service de Migration de stockage où le privilège de sauvegarde a été appelé pas. 
+
+Pour résoudre ce problème, installez [mise à jour de Windows le 2 avril 2019 — KB4490481 (17763.404 de Build du système d’exploitation)](https://support.microsoft.com/help/4490481/windows-10-update-kb4490481) sur l’ordinateur orchestrator et de l’ordinateur de destination, si le service de proxy est installé il. Assurez-vous que le compte d’utilisateur de migration source est un administrateur local sur l’ordinateur source et l’orchestrateur de Service de Migration de stockage. Assurez-vous que le compte d’utilisateur de migration destination est un administrateur local sur l’ordinateur de destination et l’orchestrateur de Service de Migration de stockage. 
+
+## <a name="dfsr-hashes-mismatch-when-using-storage-migration-service-to-preseed-data"></a>Incompatibilité de hachages DFSR lors de l’utilisation du Service de Migration de stockage à prédéfini données
+
+Lorsque vous utilisez le Service de Migration de stockage pour transférer des fichiers vers une nouvelle destination, puis en configurant la réplication DFS (DFSR) pour répliquer ces données avec un serveur existant de DFSR via presseded réplication DFSR base de données ou le clonage, tous les fichiers experiemce un hachage incompatibilité et sont ré-répliquées. Les flux de données, flux de sécurité, des tailles et attributs apparaissent à mettre en correspondance parfaitement après l’utilisation de SMS pour les transférer. L’examen de le, les fichiers avec ICACLS ou le journal de débogage de clonage de la base de données DFSR révèle :
+
+Fichier source :
+
+  icacls d:\test\Source :
+
+  icacls d:\test\thatcher.png /save out.txt /t thatcher.png D:AI(A;;FA;;;BA)(A;;0x1200a9;;;DD)(A;;0x1301bf;;;DU)(A;ID;FA;;;BA)(A;ID;FA;;;SY)(A;ID;0x1200a9;;;BU)
+
+Fichier de destination :
+
+  icacls d:\test\thatcher.png/enregistrer out.txt /t thatcher.png D:AI(A;; FA ; ; BA) (A ; 0 x1301bf ; ; D U) (A ; 0 x1200a9 ; ; D (D) (A ; ID ; FA ; ; BA) (A ; ID ; FA ; ; SY) (A ; ID ; 0X1200A9 ; ; BU)**S:PAINO_ACCESS_CONTROL**
+
+Journal de débogage DFSR :
+
+  Enregistrement de l’incompatibilité de DBClone::IDTableImportUpdate DBCL 4045 [avertissement] 3948 20190308 10:18:53.116 a été trouvé. 
+
+  Hachage d’ACL local : 1BCDFE03-A18BCE01-D1AE9859-23A0A5F6 LastWriteTime:20190308 18:09:44.876 FileSizeLow:1131654 FileSizeHigh:0 Attributs : 32 
+
+  Cloner le hachage de l’ACL :**DDC4FCE4-DDF329C4-977CED6D-F4D72A5B** LastWriteTime:20190308 18:09:44.876 FileSizeLow:1131654 FileSizeHigh:0 Attributs : 32 
+
+Ce problème est dû à une erreur de code dans une bibliothèque utilisée par le Service de Migration de stockage pour définir l’audit de sécurité ACL (SACL). Une liste SACL non null est involontairement définie lorsque la liste SACL était vide, DFSR pour identifier correctement une incompatibilité de hachage de début. 
+
+Pour contourner ce problème, passez à l’aide de Robocopy pour [DFSR préamorçage et les opérations de clonage de la base de données DFSR](../dfs-replication/preseed-dfsr-with-robocopy.md) plutôt qu’au Service de Migration de stockage. Nous étudions actuellement ce problème et que vous avez l’intention résoudre ce problème dans une version plus récente de Windows Server et éventuellement une rétroportée mise à jour de Windows. 
+
+## <a name="error-404-when-downloading-csv-logs"></a>Journaux d’erreur 404 lors du téléchargement CSV
+
+Lorsque vous tentez de télécharger les journaux de transfert ou une erreur à la fin d’une opération de transfert, erreur :
+
+  $jobname : Journal de transfert : erreur ajax 404
+
+Cette erreur est attendue si vous n’avez pas activé la règle de pare-feu « Partage de fichiers et imprimantes (SMB-In) » sur le serveur orchestrator. Téléchargements de fichiers Windows Admin Center nécessitent le port TCP/445 (SMB) sur des ordinateurs connectés.  
+
+## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transfering-from-windows-server-2008-r2"></a>Erreur » n’a pas pu transférer le stockage sur des points de terminaison » lorsque lors du transfert à partir de Windows Server 2008 R2
+
+Lorsque vous tentez de transférer des données à partir d’un ordinateur source de Windows Server 2008 R2, aucune trasnfers de données et que vous l’erreur :  
+
+  N’a pas pu transférer le stockage sur des points de terminaison.
+0x9044
+
+Cette erreur est attendue si votre ordinateur Windows Server 2008 R2 n’est pas entièrement corrigé avec toutes les critiques et importantes mises à jour Windows Update. Quel que soit le Service de Migration de stockage, nous recommandons toujours mise à jour corrective d’un ordinateur Windows Server 2008 R2 pour des raisons de sécurité, car ce système d’exploitation ne contient pas les améliorations de sécurité des versions plus récentes de Windows Server.
 
 ## <a name="see-also"></a>Voir aussi
 

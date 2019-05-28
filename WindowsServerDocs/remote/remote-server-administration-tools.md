@@ -12,12 +12,12 @@ ms.assetid: d54a1f5e-af68-497e-99be-97775769a7a7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dansimp
-ms.openlocfilehash: cc4b0eb51b477ec175040b46c9563f81955c0be3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 748010e80cf2b54926ca226a7af8c49f1aa16800
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846210"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192642"
 ---
 # <a name="remote-server-administration-tools"></a>Outils d’administration de serveur distant
 
@@ -103,7 +103,7 @@ Si vous avez une version de Windows 10 avant l’octobre 2018 (1809) de mettre �
 
 3.  Cliquez sur **Afficher les mises à jour installées**.
 
-4.  Cliquez avec le bouton droit sur **Mise à jour pour Microsoft Windows (KB2693643)**, puis cliquez sur **Désinstaller**.
+4.  Cliquez avec le bouton droit sur **Mise à jour pour Microsoft Windows (KB2693643)** , puis cliquez sur **Désinstaller**.
 
 5.  Quand vous devez indiquer si vous voulez vraiment désinstaller la mise à jour, cliquez sur **Oui**.
 S
@@ -196,5 +196,3 @@ Bien qu’ils ne sont pas répertoriés dans la console du Gestionnaire de serve
 ## <a name="see-also"></a>Voir aussi
 >- [Outils d’Administration de serveur distant pour Windows 10](https://go.microsoft.com/fwlink/?LinkID=404281)
 >- [Outils d’Administration de serveur distant (RSAT) pour Windows Vista, Windows 7, Windows 8, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2](https://go.microsoft.com/fwlink/p/?LinkID=221055)
-
-

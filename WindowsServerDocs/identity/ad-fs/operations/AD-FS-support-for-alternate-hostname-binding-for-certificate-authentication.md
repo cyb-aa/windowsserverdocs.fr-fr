@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 553ff059693c7b0c0e6f0364d82c1adbca661097
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3e3d1e5d86afbef2fdabd211047f513d31a40300
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887250"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190323"
 ---
 # <a name="ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication"></a>Prise en charge ADFS de la liaison de l’autre nom d’hôte pour l’authentification par certificat
-
->S'applique à : Windows Server 2016
 
 Sur de nombreux réseaux, les stratégies de pare-feu local ne permettent pas le trafic via des ports non standards comme 49443. Ceci est devenu un problème lorsque vous tentez d’effectuer l’authentification par certificat avec AD FS avant d’AD FS dans Windows Server 2016. Il s’agit, car vous ne pouvez pas avoir des liaisons différentes pour l’authentification des appareils et d’authentification des certificats utilisateur sur le même hôte. Le port par défaut 443 est lié à recevoir des certificats de l’appareil et ne peut pas être modifié pour prendre en charge la liaison de plusieurs dans le même canal. Les résultats ont été que l’authentification de carte à puce ne fonctionne pas et les utilisateurs ont été pas conscients de ce qui est arrivé dans la mesure où il n’existe aucune indication de ce qui s’est vraiment passé.  
   

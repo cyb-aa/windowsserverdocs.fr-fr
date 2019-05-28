@@ -9,23 +9,25 @@ ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ecf3cb5703a90976dce15abbd0c9fdd1d4aa24ec
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 48099ad15465b885ccaf562bcf94b4bafdeff388
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812630"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64772621"
 ---
 # <a name="troubleshoot-storage-spaces-direct"></a>Résoudre les espaces de stockage Direct
+
+> S’applique à : Windows Server 2019, Windows Server 2016
 
 Utilisez les informations suivantes pour résoudre les problèmes de votre déploiement d’espaces de stockage Direct.
 
 En règle générale, vous démarrez avec les étapes suivantes :
 
-1. Confirmer que la marque/modèle de disque SSD est certifié pour Windows Server 2016 à l’aide du catalogue Windows Server. Vérifiez auprès des fournisseurs que les lecteurs sont pris en charge pour les espaces de stockage Direct.
+1. Confirmer que la marque/modèle de disque SSD est certifié pour Windows Server 2016 et Windows Server 2019 à l’aide du catalogue Windows Server. Vérifiez auprès des fournisseurs que les lecteurs sont pris en charge pour les espaces de stockage Direct.
 2. Inspecter le stockage pour tous les lecteurs défectueux. Utilisez le logiciel de gestion de stockage pour vérifier l’état des disques. Si tous les lecteurs sont défectueux, demandez à votre fournisseur. 
 3. Mettre à jour le stockage et le microprogramme de lecteur, si nécessaire.
-   Vérifiez que les dernières mises à jour Windows sont installés sur tous les nœuds. Vous pouvez obtenir les dernières mises à jour pour Windows Server 2016 à partir de [ https://aka.ms/update2016 ](https://aka.ms/update2016).
+   Vérifiez que les dernières mises à jour Windows sont installés sur tous les nœuds. Vous pouvez obtenir les dernières mises à jour pour Windows Server 2016 à partir de [l’historique de mise à jour de Windows 10 et Windows Server 2016](https://aka.ms/update2016) et pour Windows Server 2019 à partir de [l’historique de mise à jour de Windows 10 et Windows Server 2019](https://support.microsoft.com/help/4464619).
 4. Mettre à jour des microprogrammes et les pilotes de carte réseau.
 5. Exécuter la validation de cluster et passez en revue la section espace de stockage Direct, vérifiez les lecteurs qui seront utilisés pour le cache sont signalées correctement et qu’aucune erreur.
 
@@ -195,7 +197,8 @@ Pour plus d’informations, consultez [intégrité résolution des espaces de st
     
 ## <a name="event-5120-with-statusiotimeout-c00000b5"></a>Événement 5120 avec STATUS_IO_TIMEOUT c00000b5 
 
->[! Important} pour réduire le risque de ces symptômes lors de l’application de la mise à jour avec le correctif, il est recommandé d’utiliser la procédure de Mode de Maintenance de stockage ci-dessous pour installer le [18 octobre 2018, la mise à jour cumulative pour Windows Server 2016 ](https://support.microsoft.com/help/4462928) ou une version ultérieure, lorsque les nœuds actuellement installé une mise à jour cumulative Windows Server 2016 à qui a été publiée à partir de [le 8 mai 2018](https://support.microsoft.com/help/4103723) à [9 octobre 2018](https://support.microsoft.com/help/KB4462917).
+> [!Important]
+> **Pour Windows Server 2016 :** Pour réduire le risque de ces symptômes lors de l’application de la mise à jour avec le correctif, il est recommandé d’utiliser la procédure de Mode de Maintenance de stockage ci-dessous pour installer le [18 octobre 2018, la mise à jour cumulative pour Windows Server 2016](https://support.microsoft.com/help/4462928)ou une version ultérieure, lorsque les nœuds actuellement installé une mise à jour cumulative Windows Server 2016 à qui a été publiée à partir de [le 8 mai 2018](https://support.microsoft.com/help/4103723) à [9 octobre 2018](https://support.microsoft.com/help/KB4462917).
 
 Vous pouvez obtenir l’événement 5120 avec STATUS_IO_TIMEOUT c00000b5 après le redémarrage d’un nœud sur Windows Server 2016 avec mise à jour cumulative qui ont été publiés à partir de [8 mai 2018 Ko 4103723](https://support.microsoft.com/help/4103723) à [le 9 octobre 2018 Ko 4462917](https://support.microsoft.com/help/4462917)installé.
 
@@ -217,11 +220,7 @@ Event ID: 1135
 Description: Cluster node 'NODENAME'was removed from the active failover cluster membership. The Cluster service on this node may have stopped. This could also be due to the node having lost communication with other active nodes in the failover cluster. Run the Validate a Configuration wizard to check your network configuration. If the condition persists, check for hardware or software errors related to the network adapters on this node. Also check for failures in any other network components to which the node is connected such as hubs, switches, or bridges.
 ```
 
-Une modification a été introduite dans la mise à jour cumulative 8 mai 2018, pour ajouter gère résilientes SMB pour les espaces de stockage Direct intra-cluster réseau les sessions SMB. Cela a été fait pour améliorer la résilience aux défaillances réseau temporaires et améliorer la façon dont RoCE gère la congestion du réseau.
-
-Ces améliorations augmenté par inadvertance des délais d’expiration lorsque les connexions SMB essaient de vous reconnecter et attend de délai d’attente lorsqu’un nœud est redémarré. Ces problèmes peuvent affecter un système est en situation de stress. Pendant les temps d’arrêt non planifié, interruptions d’e/s de jusqu'à 60 secondes également ont été observées pendant que le système en attente pour les connexions à un délai d’attente.
-
-Pour résoudre ce problème, installez le [18 octobre 2018, la mise à jour cumulative pour Windows Server 2016](https://support.microsoft.com/help/4462928) ou une version ultérieure.
+Un changement introduit dans le 8 mai 2018 vers Windows Server 2016, ce qui était une mise à jour cumulative pour ajouter gère résilientes SMB pour les espaces de stockage Direct intra-cluster réseau les sessions SMB. Cela a été fait pour améliorer la résilience aux défaillances réseau temporaires et améliorer la façon dont RoCE gère la congestion du réseau. Ces améliorations augmenté par inadvertance des délais d’expiration lorsque les connexions SMB essaient de vous reconnecter et attend de délai d’attente lorsqu’un nœud est redémarré. Ces problèmes peuvent affecter un système est en situation de stress. Pendant les temps d’arrêt non planifié, interruptions d’e/s de jusqu'à 60 secondes également ont été observées pendant que le système en attente pour les connexions à un délai d’attente. Pour résoudre ce problème, installez le [18 octobre 2018, la mise à jour cumulative pour Windows Server 2016](https://support.microsoft.com/help/4462928) ou une version ultérieure.
 
 *Remarque* cette mise à jour aligne les délais d’attente CSV avec des délais d’expiration de connexion SMB pour résoudre ce problème. Il n’implémente pas les modifications pour désactiver la génération dynamique de vidage mentionnée dans la section solution de contournement.
     
@@ -455,4 +454,4 @@ Nous avons identifié un problème critique qui affecte certains utilisateurs d�
 >[!NOTE]
 > Les fabricants OEM individuels peuvent avoir des périphériques qui sont basées sur la famille Intel P3x00 de périphériques NVMe avec des chaînes de version du microprogramme unique. Pour plus d’informations de la dernière version du microprogramme, contactez votre fabricant OEM.
 
-Si vous utilisez le matériel dans votre déploiement en fonction de la famille Intel P3x00 de périphériques NVMe, nous vous recommandons d’appliquer immédiatement le dernier microprogramme disponible (au moins 8 de version de Maintenance). Cela [article du Support Microsoft](https://support.microsoft.com/en-us/help/4052341/slow-performance-or-lost-communication-io-error-detached-or-no-redunda) fournit des informations supplémentaires sur ce problème. 
+Si vous utilisez le matériel dans votre déploiement en fonction de la famille Intel P3x00 de périphériques NVMe, nous vous recommandons d’appliquer immédiatement le dernier microprogramme disponible (au moins 8 de version de Maintenance). Cela [article du Support Microsoft](https://support.microsoft.com/help/4052341/slow-performance-or-lost-communication-io-error-detached-or-no-redunda) fournit des informations supplémentaires sur ce problème. 

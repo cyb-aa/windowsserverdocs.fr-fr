@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 709bb8ae7135126b53ce426c981ee16705234cd9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9d36bb79dd1b71bc435ba9a9af9977e886d58d61
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862530"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190234"
 ---
 # <a name="ad-fs-user-sign-in-customization"></a>Personnalisation de la connexion utilisateur AD FS
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 AD FS fournit un certain nombre d’options pour les administrateurs de personnaliser et d’adapter l’expérience utilisateur final pour répondre à leurs besoins.  La page suivante sera utilisée comme un emplacement central pour la personnalisation.  Vous pouvez utiliser le tableau ci-dessous pour trouver rapidement votre option de personnalisation.
 

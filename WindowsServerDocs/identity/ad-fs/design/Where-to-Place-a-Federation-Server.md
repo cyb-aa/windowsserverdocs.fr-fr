@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 376cec7f3a4fb1f988ac5d458b05220c7b9de970
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b883126f60950c0015b3a21e2ca5abc251b25b84
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857690"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190459"
 ---
 # <a name="where-to-place-a-federation-server"></a>Où placer un serveur de fédération
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Comme les raisons de sécurité, place les Services de fédération Active Directory \(AD FS\)devant un pare-feu, les serveurs de fédération et les connecter à votre réseau d’entreprise pour empêcher l’exposition à partir d’Internet. Ceci est important, car les serveurs de fédération sont autorisés à octroyer des jetons de sécurité. Par conséquent, ils doivent avoir le même niveau de protection qu’un contrôleur de domaine. Si un serveur de fédération est compromis, un utilisateur malveillant a la possibilité d’émettre des jetons d’accès complet à toutes les applications Web et aux serveurs de fédération qui sont protégés par Active Directory Federation Services \(AD FS\) dans toutes les ressources organisations partenaires.  
   
@@ -40,4 +38,4 @@ En outre, l’intranet\-accessible sur le serveur pare-feu, tel qu’un serveur 
 Pour plus d'informations sur la configuration de la publication de serveur dans un réseau de périmètre, consultez [Where to Place a Federation Server Proxy](Where-to-Place-a-Federation-Server-Proxy.md). Pour plus d’informations sur la configuration d’ISA Server pour publier un serveur, consultez [créer une règle de publication Web sécurisée](https://go.microsoft.com/fwlink/?LinkId=75182).  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

@@ -4,21 +4,21 @@ description: Clés nécessaires pour activer les produits Windows à partir d’
 ms.prod: windows-server-threshold
 ms.mktglfcycl: manage
 ms.sitesec: library
-author: jaimeo
+author: jasongerend
+ms.author: jgerend
 ms.localizationpriority: medium
-ms.date: 10/02/2018
-ms.tgt_pltfrm: na
+ms.date: 05/21/2019
 ms.topic: get-started-article
-ms.openlocfilehash: 57ce4c4d7623c2a424efbdf0ff117ede8fad726b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2aac6db7bb9e118d672190c95f0d73294474f75
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847030"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976527"
 ---
 # <a name="kms-client-setup-keys"></a>Clés d’installation du client KMS
 
->S'applique à : Windows Server 2019, canal semi-annuel de serveur Windows, Windows Server 2016, Windows 10
+>S’applique à : Windows Server 2019, canal semi-annuel de serveur Windows, Windows Server 2016, Windows 10
 
 Les ordinateurs qui exécutent des éditions de licence en volume de Windows Server, Windows 10, Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7, Windows Server 2008 R2, Windows Vista et Windows Server 2008 sont, par défaut, des clients KMS sans aucune configuration supplémentaire requise.
 
@@ -29,9 +29,9 @@ Les ordinateurs qui exécutent des éditions de licence en volume de Windows Se
 
 Si vous convertissez un ordinateur depuis un hôte KMS, une clé d’activation multiple (MAK) ou une version commerciale de Windows en un client KMS, installez la clé d’installation applicable (GVLK) à partir des tableaux suivants. Pour installer une clé d’installation de client, ouvrez une invite de commandes d’administration sur le client, tapez **slmgr /ipk \<clé d’installation\>**  , puis appuyez sur **entrée**.
 
-| Si vous souhaitez...                                                                                                                                                                                          | …utilisez ces ressources                                                                                                         |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| Activer Windows en dehors d’un scénario d’activation en volume (essayer d’activer une version commerciale de Windows), **ces clés ne fonctionneront pas**.                                                     | Utilisez ces liens pour les versions commerciales de Windows :                                                                              |
+| Si vous souhaitez...    | …utilisez ces ressources   |
+|--------------------|------------------------|
+| Activer Windows en dehors d’un scénario d’activation en volume (essayer d’activer une version commerciale de Windows), **ces clés ne fonctionneront pas**. | Utilisez ces liens pour les versions commerciales de Windows : |
 | Corriger cette erreur que vous obtenez lorsque vous essayez d’activer une Windows 8.1, Windows Server 2012 R2 ou un système plus récent : “Erreur : 0xC004F050 Le service de gestion de licences a signalé que la clé de produit n'est pas valide… | [Installer cette mise à jour](https://support.microsoft.com/en-us/help/3172614/july-2016-update-rollup-for-windows-8-1-and-windows-server-2012-r2) sur l’hôte KMS s’il exécute Windows 8.1, Windows Server 2012 R2, Windows 8 ou Windows Server 2012. |
 
 -   [Obtenir Windows 10](https://www.microsoft.com/en-us/windows/get-windows-10)
@@ -43,15 +43,14 @@ Si vous convertissez un ordinateur depuis un hôte KMS, une clé d’activation 
 
 >   Si vous exécutez Windows Server 2008 R2 ou Windows 7, recherchez une mise à jour permettant d’utiliser ces derniers comme hôtes KMS pour les clients Windows 10.
 
-
 ## <a name="windows-server-semi-annual-channel-versions"></a>Versions du canal semi-annuel de serveur Windows
 
-### <a name="windows-server-version-1809"></a>Windows Server, version 1809
-| Édition du système d’exploitation       | Clé d’installation du client KMS          |
-|--------------------------------|-------------------------------|
-| Windows Server Datacenter | 6NMRW-2C8FM-D24W7-TQWMY-CWH2D  | 
-| Windows Server Standard | N2KJX-J94YW-TQVFB-DG9YT-724CC  |
+### <a name="windows-server-version-1903-and-windows-server-version-1809"></a>Windows Server, version 1903 et Windows Server, version 1809
 
+| Édition du système d’exploitation  | Clé d’installation du client KMS          |
+|---------------------------|-------------------------------|
+| Windows Server Datacenter | 6NMRW-2C8FM-D24W7-TQWMY-CWH2D |
+| Windows Server Standard   | N2KJX-J94YW-TQVFB-DG9YT-724CC |
 
 ### <a name="windows-server-version-1803"></a>Windows Server, version 1803
 

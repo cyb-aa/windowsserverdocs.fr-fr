@@ -10,12 +10,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/24/2018
-ms.openlocfilehash: 73fd1d83d82da1694d90a2b3cf3f39717536606b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e4da87e5a2a4cd80e748a05596da3f23b5ac85f
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822120"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222905"
 ---
 # <a name="plan-your-wsus-deployment"></a>Planifier votre déploiement WSUS
 
@@ -25,15 +25,15 @@ La première étape du déploiement de WSUS (Windows Server Update Services) con
 
 |Tâche|Description|
 |----|--------|
-|[1.1. Configuration système requise et considérations relatives à la révision](plan-your-wsus-deployment.md#BKMK_1.1)|Passez en revue la liste des considérations et la configuration requise pour vous assurer de disposer de tous les matériels et logiciels nécessaires pour déployer WSUS.|
-|[1.2. Choisissez un scénario de déploiement de WSUS](plan-your-wsus-deployment.md#BKMK_1.2)|Choisissez le scénario de déploiement de WSUS à utiliser.|
-|[1.3. Choisir une stratégie de stockage WSUS](plan-your-wsus-deployment.md#BKMK_1.3.)|Choisissez la stratégie de stockage WSUS la mieux adaptée à votre déploiement.|
-|[1.4. Choisissez les que langues de mise à jour WSUS](plan-your-wsus-deployment.md#BKMK_1.4.)|Choisissez les langues de mise à jour WSUS à installer.|
-|[1.5. Planifier des groupes d’ordinateurs WSUS](plan-your-wsus-deployment.md#BKMK_1.5)|Planifiez l’approche des groupes d’ordinateurs WSUS à utiliser pour votre déploiement.|
-|[1.6. Planifier les considérations sur les performances WSUS : Service de transfert Intelligent en arrière-plan](plan-your-wsus-deployment.md#BKMK_1.6.)|Planifiez une conception WSUS pour des performances optimisées.|
-|[1.7. Planifier les paramètres de mises à jour automatiques](plan-your-wsus-deployment.md#BKMK_1.7.)|Planifiez la configuration des paramètres des Mises à jour automatiques pour votre scénario.|
+|[1.1. Configuration système requise et considérations relatives à la révision](#11-review-considerations-and-system-requirements)|Passez en revue la liste des considérations et la configuration requise pour vous assurer de disposer de tous les matériels et logiciels nécessaires pour déployer WSUS.|
+|[1.2. Choisissez un scénario de déploiement de WSUS](#12-choose-a-wsus-deployment-scenario)|Choisissez le scénario de déploiement de WSUS à utiliser.|
+|[1.3. Choisir une stratégie de stockage WSUS](#13-choose-a-wsus-storage-strategy)|Choisissez la stratégie de stockage WSUS la mieux adaptée à votre déploiement.|
+|[1.4. Choisissez les que langues de mise à jour WSUS](#14-choose-wsus-update-languages)|Choisissez les langues de mise à jour WSUS à installer.|
+|[1.5. Planifier des groupes d’ordinateurs WSUS](#15-plan-wsus-computer-groups)|Planifiez l’approche des groupes d’ordinateurs WSUS à utiliser pour votre déploiement.|
+|[1.6. Planifier les considérations sur les performances WSUS : Service de transfert Intelligent en arrière-plan](#16-plan-wsus-performance-considerations)|Planifiez une conception WSUS pour des performances optimisées.|
+|[1.7. Planifier les paramètres de mises à jour automatiques](#17-plan-automatic-updates-settings)|Planifiez la configuration des paramètres des Mises à jour automatiques pour votre scénario.|
 
-## <a name="BKMK_1.1"></a>1.1. Passer en revue les considérations initiales et la configuration requise
+## <a name="11-review-considerations-and-system-requirements"></a>1.1. Passer en revue les considérations initiales et la configuration requise
 
 ### <a name="system-requirements"></a>Configuration système
 
@@ -108,7 +108,7 @@ Configurer des ordinateurs clients (y compris les serveurs) pour mettre à jour 
 
     Individuellement obtenu la fonctionnalité sur les packages à la demande peut être installée à l’aide de [les options de ligne de commande DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-operating-system-package-servicing-command-line-options).
 
-### <a name="BKM_1.1.1."></a>Configuration requise de base de données WSUS
+### <a name="wsus-database-requirements"></a>Base de données WSUS requise
 WSUS requiert l’une des bases de données suivantes :
 
 -   Base de données interne Windows
@@ -144,7 +144,7 @@ Vous pouvez installer le rôle WSUS sur un ordinateur distinct du serveur de bas
 
 4.  Le serveur WSUS et le serveur de base de données doivent se trouver dans le même fuseau horaire ou être synchronisés avec la même source de temps d’universel coordonné (heure de Greenwich).
 
-## <a name="BKMK_1.2"></a>1.2. Choisir le scénario de déploiement de WSUS
+## <a name="12-choose-a-wsus-deployment-scenario"></a>1.2. Choisir le scénario de déploiement de WSUS
 Cette section décrit les fonctionnalités de base de tous les déploiements de WSUS. Utilisez cette section pour vous familiariser avec un déploiement simple impliquant un seul serveur WSUS ainsi qu’avec des scénarios plus complexes, tels qu’une hiérarchie de serveurs WSUS ou un serveur WSUS sur un segment de réseau isolé.
 
 ### <a name="simple-wsus-deployment"></a>Déploiement de WSUS simple
@@ -196,7 +196,7 @@ Vous pouvez exploiter la fonctionnalité de filiale de Windows pour optimiser le
 2.  Dans les filiales avec des connexions à bande passante faible au bureau central, mais avec des connexions à bande passante élevée à Internet, la fonctionnalité de filiale peut également être utilisée. Dans ce cas, vous pouvez configurer des serveurs WSUS en aval pour qu’ils obtiennent des informations sur les mises à jour à installer du serveur WSUS central, mais qu’ils téléchargent les mises à jour à partir de Microsoft Update.
 
 ### <a name="network-load-balancing"></a>Équilibrage de la charge réseau
-L’équilibrage de la charge réseau augmente la fiabilité et les performances de votre réseau WSUS. Vous pouvez configurer plusieurs serveurs WSUS qui partagent un cluster de basculement en cours d’exécution QL Server tels que SQL Server 2008 R2 SP1. Dans cette configuration, vous devez utiliser une installation de SQL Server complète, et non l’installation de la base de données interne Windows qui est fournie par WSUS, et le rôle de base de données doit être installé sur tous les serveurs frontaux WSUS. Vous pouvez également faire en sorte que tous les serveurs WSUS utilisent un système de fichiers distribués (DFS) pour stocker leur contenu.
+L’équilibrage de la charge réseau augmente la fiabilité et les performances de votre réseau WSUS. Vous pouvez configurer plusieurs serveurs WSUS qui partagent un cluster de basculement exécutant SQL Server tels que SQL Server 2008 R2 SP1. Dans cette configuration, vous devez utiliser une installation de SQL Server complète, et non l’installation de la base de données interne Windows qui est fournie par WSUS, et le rôle de base de données doit être installé sur tous les serveurs frontaux WSUS. Vous pouvez également faire en sorte que tous les serveurs WSUS utilisent un système de fichiers distribués (DFS) pour stocker leur contenu.
 
 **Le programme d’installation WSUS pour NLB :** contrairement au programme d’installation WSUS 3.2 pour NLB, aucun appel d’installation spéciales et les paramètres ne sont ne sont plus requis pour configurer WSUS pour NLB. Vous devez uniquement installer chaque serveur WSUS, en tenant compte des considérations suivantes.
 
@@ -209,7 +209,7 @@ L’équilibrage de la charge réseau augmente la fiabilité et les performances
 ### <a name="wsus-deployment-with-roaming-client-computers"></a>Déploiement de WSUS avec des ordinateurs clients itinérants
 Si le réseau comprend des utilisateurs mobiles qui se connectent au réseau à partir de différents emplacements, vous pouvez configurer WSUS pour permettre aux utilisateurs itinérants de mettre à jour leurs ordinateurs clients à partir du serveur WSUS qui leur est le plus proche géographiquement. Par exemple, vous pourrez déployer un serveur WSUS chaque région et utiliser un sous-réseau DNS différent pour chaque région. Tous les ordinateurs clients pourraient être redirigés vers le même serveur WSUS, ce qui résout chaque sous-réseau au serveur WSUS physique le plus proche.
 
-## <a name="BKMK_1.3."></a>1.3. Choisir la stratégie de stockage WSUS
+## <a name="13-choose-a-wsus-storage-strategy"></a>1.3. Choisir la stratégie de stockage WSUS
 WSUS (Windows Server Update Services) utilise deux types de systèmes de stockage : une base de données pour stocker les métadonnées de configuration WSUS et de mise à jour, et un système de fichiers local facultatif pour stocker les fichiers de mise à jour. Avant d’installer WSUS, vous devez décider du mode d’implémentation du stockage.
 
 Les mises à jour sont constituées de deux parties : les métadonnées qui décrivent la mise à jour et les fichiers requis pour installer la mise à jour. Les métadonnées de mise à jour sont généralement beaucoup plus petites que la mise à jour réelle et elles sont stockées dans la base de données WSUS. Les fichiers de mise à jour sont stockés sur un serveur WSUS local ou sur un serveur Web Microsoft Update.
@@ -236,7 +236,7 @@ SQL Server, SQL Server Express et la base de données interne Windows fournissen
 Par défaut, l’Assistant Installation crée et utilise une base de données interne Windows nommée SUSDB.mdf. Cette base de données est située dans le dossier %windir%\wid\data\, où %windir% est le lecteur local sur lequel le logiciel du serveur WSUS est installé.
 
 > [!NOTE]
-> Base de données interne de Windows (WID) a été introduit dans Windows Server 2012.
+> Base de données interne de Windows (WID) a été introduite dans Windows Server 2008.
 
 WSUS prend en charge l’authentification Windows uniquement pour la base de données. Vous ne pouvez pas utiliser l’authentification SQL Server avec WSUS. Si vous utilisez la base de données interne Windows pour la base de données WSUS, le programme d’installation de WSUS crée une instance de SQL Server nommée server\Microsoft##WID, où server est le nom de l’ordinateur. Avec l’une ou l’autre des options de la base de données, le programme d’installation de WSUS crée une base de données nommée SUSDB. Le nom de cette base de données ne peut pas être configuré.
 
@@ -273,12 +273,12 @@ Le stockage en local des fichiers de mise à jour est l’option par défaut lor
 
 Cette option nécessite que le serveur dispose de suffisamment d’espace disque pour stocker toutes les mises à jour requises. au minimum, WSUS requiert 20 Go stocker les mises à jour localement ; Toutefois, nous recommandons 30 Go en fonction des variables testées.
 
-#### <a name="remote-storage-on-microsoft-update-servers"></a>stockage à distance sur les serveurs Microsoft Update
+#### <a name="remote-storage-on-microsoft-update-servers"></a>Stockage étendu sur les serveurs Microsoft Update
 Vous pouvez stocker les mises à jour à distance sur les serveurs Microsoft Update. Cette option est utile si la plupart des ordinateurs clients se connectent au serveur WSUS via une connexion de réseau étendu lente, mais qu’ils se connectent à Internet via une connexion à bande passante élevée.
 
 Dans ce cas, le serveur WSUS racine se synchronise avec Microsoft Update et reçoit les métadonnées de mise à jour. Après que vous avez approuvé les mises à jour, les ordinateurs clients téléchargent les mises à jour approuvées à partir des serveurs Microsoft Update.
 
-## <a name="BKMK_1.4."></a>1.4. Choisir les langues de mise à jour WSUS
+## <a name="14-choose-wsus-update-languages"></a>1.4. Choisir les langues de mise à jour WSUS
 Lorsque vous déployez une hiérarchie de serveurs WSUS, vous devez identifier les mises à jour des langues requises dans toute l’organisation. Vous devez configurer le serveur WSUS racine pour télécharger les mises à jour dans toutes les langues utilisées dans toute l’organisation.
 
 Par exemple, le siège social peut nécessiter les mises à jour des langues anglaise et française, mais une filiale a besoin des mises à jour des langues anglaise, française et allemande, et une autre a besoin des mises à jour des langues anglaise et espagnole. Dans ce cas, vous configurez le serveur WSUS racine pour télécharger les mises à jour en anglais, français, allemand et espagnol. Vous configurez ensuite le serveur WSUS de la première filiale pour télécharger les mises à jour en anglais, français et allemand uniquement, puis celui de la deuxième filiale pour télécharger les mises à jour en anglais et espagnol uniquement.
@@ -314,7 +314,7 @@ Le choix de langues pour un serveur en amont n’est pas le même que le choix d
 
 #### <a name="to-choose-update-languages-for-a-downstream-server"></a>Pour choisir les langues de mise à jour d’un serveur en aval
 
-1.  Si le serveur en amont a été configuré pour télécharger les fichiers de mise à jour dans un sous-ensemble de langues : Dans l’Assistant Configuration WSUS, cliquez sur **Télécharger les mises à jour dans les langues suivantes (seules les langues marquées d’un astérisque sont prises en charge par le serveur en amont)**, puis sélectionnez les langues pour lesquelles vous souhaitez effectuer les mises à jour.
+1.  Si le serveur en amont a été configuré pour télécharger les fichiers de mise à jour dans un sous-ensemble de langues : Dans l’Assistant Configuration WSUS, cliquez sur **Télécharger les mises à jour dans les langues suivantes (seules les langues marquées d’un astérisque sont prises en charge par le serveur en amont)** , puis sélectionnez les langues pour lesquelles vous souhaitez effectuer les mises à jour.
 
 > [!NOTE]
 > Vous devez effectuer cette opération même si vous voulez que le serveur en aval puisse télécharger les mêmes langues que le serveur en amont.
@@ -326,7 +326,7 @@ Le choix de langues pour un serveur en amont n’est pas le même que le choix d
 >
 > La modification des options de langue uniquement sur le serveur en amont peut entraîner une incohérence entre le nombre de mises à jour approuvées sur le serveur central et le nombre de mises à jour approuvées sur les serveurs de réplication.
 
-## <a name="BKMK_1.5"></a>1.5. Planifier les groupes d’ordinateurs WSUS
+## <a name="15-plan-wsus-computer-groups"></a>1.5. Planifier les groupes d’ordinateurs WSUS
 WSUS vous permet de cibler les mises à jour vers des groupes d’ordinateurs clients afin que vous puissiez vous assurer que des ordinateurs spécifiques obtiennent toujours les mises à jour adéquates au moment le plus approprié. Par exemple, si tous les ordinateurs d’un service (tel que l’équipe Comptabilité) ont une configuration spécifique, vous pouvez configurer un groupe pour cette équipe, décider des mises à jour dont leurs ordinateurs ont besoin et l’heure à laquelle elles doivent être installées, puis utiliser les rapports WSUS pour évaluer les mises à jour pour l’équipe.
 
 > [!NOTE]
@@ -344,7 +344,7 @@ Vous pouvez affecter les ordinateurs à des groupes d’ordinateurs en adoptant 
 
 -   **Ciblage côté client** : Vous utilisez la stratégie de groupe ou modifiez les paramètres du Registre sur les ordinateurs clients pour permettre à ces ordinateurs d’être automatiquement ajoutés aux groupes d’ordinateurs précédemment créés.
 
-### <a name="conflict-resolution"></a>Résolution des conflits
+### <a name="conflict-resolution"></a>Résolution de conflits
 Le serveur applique les règles suivantes pour résoudre les conflits et déterminer l’action résultante sur les clients :
 
 1.  Priority
@@ -353,7 +353,7 @@ Le serveur applique les règles suivantes pour résoudre les conflits et déterm
 
 3.  Échéance
 
-#### <a name="BKMK_Priority"></a>Priorité
+#### <a name="priority"></a>Priority
 Les actions associées au groupe présentant la priorité la plus élevée remplacent les actions des autres groupes. Plus un groupe apparaît profondément dans la hiérarchie des groupes, plus sa priorité est élevée. La priorité est attribuée uniquement en fonction de la profondeur. Toutes les branches ont la même priorité. Par exemple, le niveau deux du groupe sous la branche Bureaux a une priorité supérieure à celle du niveau un du groupe sous la branche Serveurs.
 
 Dans l’exemple de texte suivant du volet hiérarchie de console de Services de mise à jour, pour un serveur WSUS nommé WSUS-01, groupes d’ordinateurs nommés ordinateurs de bureau et serveur ont été ajoutées à la valeur par défaut **tous les ordinateurs** groupe. Les ordinateurs de bureau et les groupes de serveurs sont au même niveau hiérarchique.
@@ -390,14 +390,14 @@ Dans l’exemple de texte suivant du volet hiérarchie de console de Services de
 
 Dans cet exemple, les deux niveaux de groupe sous la branche ordinateurs de bureau (bureaux-L2) a une priorité plus élevée que le niveau d’un groupe sous la branche serveurs (serveurs-L1). En conséquence, pour un ordinateur qui appartient aux deux groupes Bureaux-L2 et Serveurs-L1, toutes les actions pour le groupe Bureaux-L2 ont priorité sur les actions spécifiées pour le groupe Serveurs-L1.
 
-#### <a name="BKMK_Install"></a>Priorité de l’installation et désinstallation
+#### <a name="priority-of-install-and-uninstall"></a>Priorité d’installation et de désinstallation
 Les actions d’installation remplacent les actions de désinstallation. Les installations obligatoires remplacent les installations facultatives (ces dernières sont uniquement disponibles via l’API et la modification d’une approbation pour une mise à jour à l’aide la console d’administration WSUS supprime toutes les approbations facultatives).
 
-#### <a name="BKMK_Deadline"></a>Priorité des échéances
+#### <a name="priority-of-deadlines"></a>Priorité des échéances
 Les actions qui ont une échéance remplacent celles qui n’en ont pas.  Les actions dont les échéances sont plus proches remplacent celles qui sont plus lointaines.
 
-## <a name="BKMK_1.6."></a>1.6. Planifier les considérations sur les performances WSUS
-Il existe quelques domaines que vous devez soigneusement planifier avant de déployer WSUS pour obtenir des performances optimisées. Les principaux domaines sont les suivants :
+## <a name="16-plan-wsus-performance-considerations"></a>1.6. Planifier les considérations sur les performances WSUS
+Il existe certaines zones que vous devez soigneusement planifier avant de déployer WSUS afin que vous pouvez obtenir des performances optimisées. Les principaux domaines sont les suivants :
 
 -   Configuration du réseau
 
@@ -411,26 +411,26 @@ Il existe quelques domaines que vous devez soigneusement planifier avant de dép
 
 -   Service de transfert intelligent en arrière-plan (BITS)
 
-### <a name="BKMK_1.6.Network"></a>Programme d’installation réseau
+### <a name="network-setup"></a>Configuration du réseau
 Pour optimiser les performances sur les réseaux WSUS, tenez compte des suggestions suivantes :
 
 1.  Configurez les réseaux WSUS dans une topologie Hub and Spoke plutôt que dans une topologie hiérarchique.
 
 2.  Utilisez le tri de masques réseau DNS pour les ordinateurs clients itinérants et configurez les ordinateurs clients itinérants pour obtenir des mises à jour à partir du serveur WSUS local.
 
-### <a name="BKMK_1.6.Deferred"></a>Téléchargement différé
+### <a name="deferred-download"></a>Téléchargement différé
 Vous pouvez approuver des mises à jour et télécharger les métadonnées de mise à jour avant de télécharger les fichiers de mise à jour : cette méthode est appelée *téléchargement différé*. Lorsque vous différez des téléchargements, une mise à jour n’est téléchargée qu’après avoir été approuvée. Nous vous conseillons de différer les téléchargements, car cela permet d’optimiser l’espace disque et la bande passante du réseau.
 
 Dans une hiérarchie de serveurs WSUS, WSUS configure automatiquement tous les serveurs en aval pour qu’ils utilisent le paramètre de téléchargement différé du serveur WSUS racine. Vous pouvez modifier ce paramètre par défaut. Par exemple, vous pouvez configurer un serveur en amont pour effectuer des synchronisations immédiates et complètes, puis configurer un serveur en aval pour différer les téléchargements.
 
 Si vous déployez une hiérarchie de serveurs WSUS connectés, nous vous conseillons de ne pas imbriquer profondément les serveurs. Si vous activez les téléchargements différés et un serveur en aval demande une mise à jour qui n’est pas approuvé sur le serveur en amont, la demande du serveur en aval force un téléchargement sur le serveur en amont. Le serveur en aval télécharge ensuite la mise à jour lors d’une synchronisation ultérieure. Dans une hiérarchie profonde de serveurs WSUS, des retards peuvent se produire lorsque les mises à jour dont demandées, téléchargées, puis transmises par la hiérarchie de serveurs. Par défaut, les téléchargements différés sont activés lorsque vous stockez des mises à jour en local. Vous pouvez modifier cette option manuellement.
 
-### <a name="BKMK_1.6.Filters"></a>Filtres
+### <a name="filters"></a>Filtres
 WSUS vous permet de filtrer les synchronisations des mises à jour par langue, produit et classification. Dans une hiérarchie de serveurs WSUS, WSUS configure automatiquement tous les serveurs en aval pour qu’ils utilisent les options de filtrage des mises à jour qui sont sélectionnées sur le serveur WSUS racine. Vous pouvez reconfigurer les serveurs de téléchargement pour recevoir uniquement un sous-ensemble des langues.
 
 Par défaut, les produits à mettre à jour sont Windows et Office, et les classifications par défaut sont Mises à jour critiques, Mises à jour de sécurité et Mises à jour de définitions. Pour économiser l’espace disque et la bande passante, nous vous conseillons de vous limiter aux langues que vous utilisez vraiment.
 
-### <a name="BKMK_1.6.Installation"></a>Installation
+### <a name="installation"></a>Installation
 Les mises à jour sont généralement constituées de nouvelles versions de fichiers qui existent déjà sur l’ordinateur qui est mis à jour. Sur un niveau binaire, il est possible que ces fichiers existants ne soient pas très différents des versions mises à jour. La fonctionnalité des fichiers d’installation rapide identifie les octets exacts entre les versions, crée et distribue des mises à jour de ces différences uniquement, puis fusionne le fichier existant avec les octets mis à jour.
 
 Cette fonctionnalité est parfois appelée « remise delta », car elle télécharge uniquement le delta (différence) entre deux versions d’un fichier. Les fichiers d’installation rapide sont plus volumineux que les mises à jour distribuées aux ordinateurs clients, car ils contiennent toutes les versions possibles de chaque fichier à mettre à jour.
@@ -439,19 +439,19 @@ Vous pouvez utiliser les fichiers d’installation rapide pour limiter la bande 
 
 Les mises à jour ne sont pas toutes appropriées pour une distribution à l’aide de fichiers d’installation rapide. Si vous sélectionnez cette option, vous obtenez des fichiers d’installation rapide pour toutes les mises à jour. Si vous ne stockez pas les mises à jour localement, l’agent Windows Update décidera de télécharger les fichiers d’installation rapide ou les distributions de mise à jour du fichier complet.
 
-### <a name="BKMK_1.6.LargeUpdates"></a>Déploiement de mises à jour importantes
+### <a name="large-update-deployment"></a>Déploiements de mises à jour importantes
 Lorsque vous déployez des mises à jour importantes (par exemple, des Service Packs), vous pouvez éviter de saturer le réseau en utilisant les pratiques suivantes :
 
-1.  Utilisez la limitation de bande passante du service de transfert intelligent en arrière-plan (BITS). Les limitations de bande passante du service BITS peuvent être contrôlées selon le créneau horaire, mais elles s’appliquent à toutes les applications qui utilisent le service BITS. Pour savoir comment contrôler la limitation BITS, voir [Stratégies de groupe](https://msdn.microsoft.com/library/windows/desktop/aa362844(v=vs.85).aspx)
+1.  Utilisez la limitation de bande passante du service de transfert intelligent en arrière-plan (BITS). Les limitations de bande passante du service BITS peuvent être contrôlées selon le créneau horaire, mais elles s’appliquent à toutes les applications qui utilisent le service BITS. Pour savoir comment contrôler la limitation BITS, consultez [stratégies de groupe](https://msdn.microsoft.com/library/windows/desktop/aa362844(v=vs.85).aspx).
 
 2.  Utilisez la limitation de bande passante des services Internet Information Services pour limiter la bande passante à un ou plusieurs services Web.
 
 3.  Utilisez des groupes d’ordinateurs pour contrôler le lancement. Un ordinateur client s’identifie en tant que membre d’un groupe d’ordinateurs particulier lorsqu’il envoie des informations au serveur WSUS. Le serveur WSUS utilise ces informations pour déterminer les mises à jour à déployer sur cet ordinateur. Vous pouvez configurer plusieurs groupes d’ordinateurs et approuver de manière séquentielle les téléchargements de Service Packs volumineux pour un sous-ensemble de ces groupes.
 
-### <a name="BKMK_1.6.BITS"></a>Service de transfert Intelligent en arrière-plan
+### <a name="background-intelligent-transfer-service"></a>Service de transfert intelligent en arrière-plan (BITS)
 WSUS utilise le protocole du service de transfert intelligent en arrière-plan (BITS) pour toutes ses tâches de transfert de fichiers. Cela comprend les téléchargements vers les ordinateurs clients et les synchronisations du serveur. Le service BITS permet aux programmes de télécharger des fichiers en utilisant la bande passante de rechange. Le service BITS gère les transferts de fichiers par le biais de déconnexions du réseau et de redémarrages de l’ordinateur. Pour plus d'informations, consultez : [Service de transfert intelligent en arrière-plan (BITS)](https://msdn.microsoft.com/library/bb968799.aspx).
 
-## <a name="BKMK_1.7."></a>1.7. Planifier les paramètres des Mises à jour automatiques
+## <a name="17-plan-automatic-updates-settings"></a>1.7. Planifier les paramètres des Mises à jour automatiques
 Vous pouvez spécifier une date limite pour approuver les mises à jour sur le serveur WSUS. La date limite oblige les ordinateurs clients à installer la mise à jour à une heure spécifique, mais il existe différentes situations, selon si la date limite a expiré, si la file d’attente comprend d’autres mises à jour que l’ordinateur doit installer et si la mise à jour (ou une autre mise à jour de la file d’attente) requiert un redémarrage.
 
 Par défaut, les Mises à jour automatiques interrogent le serveur WSUS au sujet des mises à jour approuvées toutes les 22 heures moins un décalage aléatoire. Si de nouvelles mises à jour doivent être installées, elles sont téléchargées. Vous pouvez définir une valeur comprise entre 1 et 22 heures pour le délai entre chaque cycle de détection.

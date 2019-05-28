@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 9c75cd4ccbafefdda83cba4551fd6b9af63c4822
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 47c4913a09fb38c20752bdbc2a9e17ad0af93e01
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817400"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192383"
 ---
 # <a name="checklist-creating-claim-rules-for-a-relying-party-trust"></a>Liste de vérification : Création de règles de revendication pour une partie de confiance
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette liste comprend les tâches qui sont nécessaires pour la planification, conception, et déployer des règles qui sont associés à une partie de confiance dans les Services de fédération Active Directory de revendication \(AD FS\).  
   

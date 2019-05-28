@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 67b122353ca9dff3a4df6cbfac56b16bed52b539
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: df1afc77afffd9b737965215a5c9d96f278c8129
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848080"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191668"
 ---
 # <a name="best-practices-for-secure-planning-and-deployment-of-ad-fs"></a>Meilleures pratiques pour sécuriser la planification et le déploiement d'AD FS
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique fournit des informations de meilleures pratiques pour vous aider à planifier et d’évaluer la sécurité lorsque vous concevez votre déploiement Active Directory Federation Services (ADFS). Cette rubrique est un point de départ pour examiner et évaluer les aspects qui influent sur la sécurité globale de votre utilisation des services AD FS. Les informations qu'elle contient complètent et étendent vos meilleures pratiques en matière de planification de la sécurité et de conception.  
   
@@ -146,4 +145,4 @@ Les méthodes conseillées en matière de sécurité sont spécifiques à l’ut
     Pour améliorer l'isolation des services et des données, vous pouvez créer des procédures stockées pour toutes les commandes de recherche dans le magasin d'attributs. Vous pouvez créer un rôle de base de données auquel vous accordez ensuite l'autorisation d'exécuter les procédures stockées. Affectez l’identité du service AD FS Windows à ce rôle de base de données. Le service AD FS Windows ne doit pas être en mesure d’exécuter aucune instruction SQL, autres que les procédures stockées appropriées qui sont utilisés pour la recherche de l’attribut. Le verrouillage de l'accès à la base de données SQL Server de cette manière réduit le risque d'une attaque par élévation de privilège.  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

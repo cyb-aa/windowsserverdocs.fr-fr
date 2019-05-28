@@ -13,23 +13,23 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8750094e7357a3aefa307d24abd1470fbf8d2a71
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 7cf99a9124f78189de223018608d9864e51d7897
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867170"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564690"
 ---
 # <a name="manage-bde-wipefreespace"></a>gérer-bde : WipeFreeSpace
 
 
 
-Effacer le contenu de l’espace libre sur le volume de suppression de tous les fragments de données peuvent avoir existé dans l’espace. Exécution de cette commande sur un volume qui a été chiffré à l’aide de le « espace utilisé uniquement ? méthode de chiffrement fournit le même niveau de protection en tant que la « Full Volume Encryption ? méthode de chiffrement. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Effacer le contenu de l’espace libre sur le volume de suppression de tous les fragments de données peuvent avoir existé dans l’espace. Cette commande en cours d’exécution sur un volume qui a été chiffré à l’aide de la méthode de chiffrement « Que l’espace utilisé » fournit le même niveau de protection en tant que la méthode de chiffrement « Full Volume Encryption ». Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntaxe
 
 ```
-manage-bde –WipeFreeSpace|-w [<Drive>] [-Cancel] [-computername <Name>] [{-?|/?}] [{-help|-h}]
+manage-bde -WipeFreeSpace|-w [<Drive>] [-Cancel] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
 
 ### <a name="parameters"></a>Paramètres
@@ -49,12 +49,12 @@ L’exemple suivant illustre l’utilisation de la **-w** commande pour créer r
 ```
 manage-bde -w C:
 ```
-L’exemple suivant illustre l’utilisation de la **-w** commande avec le **– Annuler** paramètre pour annuler la réinitialisation de l’espace libre sur le lecteur C.
+L’exemple suivant illustre l’utilisation de la **-w** commande avec le **-Annuler** paramètre pour annuler la réinitialisation de l’espace libre sur le lecteur C.
 ```
 manage-bde -w -Cancel C:
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Manage-bde](manage-bde.md)

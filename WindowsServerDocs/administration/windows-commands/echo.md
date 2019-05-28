@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: afb4b10a0d347367780dbaf19b764f2cabd480d9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eb5c9650b95703f1316e6f5f179b910d22574f68
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819540"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222967"
 ---
 # <a name="echo"></a>echo
 
@@ -26,7 +26,7 @@ ms.locfileid: "59819540"
 
 Affiche des messages ou Active ou désactive l’écho des commandes. Si utilisée sans paramètres, **echo** affiche le paramètre actuel.
 
-Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
+Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -49,9 +49,9 @@ echo [on | off]
 -   Lorsque **echo** est désactivée, l’invite de commandes n’apparaît pas dans la fenêtre d’invite de commandes. Pour afficher l’invite de commandes, tapez **écho.**
 -   Si utilisé dans un fichier de commandes, **écho** et **echo désactivé** n’affectent pas le paramètre à l’invite de commandes.
 -   Pour éviter d’afficher une commande particulière dans un fichier de commandes, insérez un signe arobase (@) devant la commande. Pour éviter l’écho de toutes les commandes dans un fichier de commandes, vous devez inclure le **echo désactivé** commande au début du fichier.
--   Pour afficher une barre verticale (**|**) ou le caractère de redirection (**<** ou **>**) lorsque vous utilisez **echo**, utilisez un accent circonflexe (^) immédiatement avant le caractère de canal ou de la redirection (par exemple, **^|**, **^>**, ou **^<**). Pour afficher un accent circonflexe, tapez deux signes successivement (**^^**).
+-   Pour afficher une barre verticale ( **|** ) ou le caractère de redirection (**<** ou **>**) lorsque vous utilisez **echo**, utilisez un accent circonflexe (^) immédiatement avant le caractère de canal ou de la redirection (par exemple, **^|**, **^>**, ou **^<**). Pour afficher un accent circonflexe, tapez deux signes successivement ( **^^** ).
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="examples"></a>Exemples
 
 Pour afficher les cours **echo** paramètre, tapez :
 ```
@@ -106,4 +106,4 @@ File3.txt
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

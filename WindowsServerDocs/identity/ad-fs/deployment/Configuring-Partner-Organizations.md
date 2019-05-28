@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 5494f3bd8d012bf1ecc240439ff880d1bb52c280
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3d7389ce806a5e3aebf4fe166b10e5262df0be8a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875180"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192236"
 ---
 # <a name="configuring-partner-organizations"></a>Configuration des organisations partenaires
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Pour déployer une nouvelle organisation partenaire dans Active Directory Federation Services \(AD FS\), effectuez les tâches dans le [liste de vérification : Configuration de l’organisation partenaire de ressource](Checklist--Configuring-the-Resource-Partner-Organization.md) ou [liste de vérification : Configuration de l’organisation partenaire de compte](Checklist--Configuring-the-Account-Partner-Organization.md), en fonction de votre conception AD FS.  
   

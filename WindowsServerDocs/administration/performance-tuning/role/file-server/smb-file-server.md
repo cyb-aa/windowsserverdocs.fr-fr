@@ -7,12 +7,12 @@ ms.topic: article
 author: phstee
 ms.author: NedPyle; Danlo; DKruse
 ms.date: 4/14/2017
-ms.openlocfilehash: 93718cf13f28cde8f25b35b42ce20ca75c6fa13c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 337716792a4bb3cf730b723df3abe1029631426b
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832060"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222501"
 ---
 # <a name="performance-tuning-for-smb-file-servers"></a>Réglage des performances pour les serveurs de fichiers SMB
 
@@ -106,10 +106,8 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
     Les valeurs par défaut sont 512 et 8192, respectivement. Ces paramètres permettent au serveur limiter la simultanéité d’opération de client dynamiquement dans les limites spécifiées. Certains clients peuvent obtenir un débit plus élevé avec les limites de concurrence plus élevées, par exemple, la copie de fichiers sur des liaisons à large bande passante, latence élevée.
     
     >[!TIP]
-    > Avant Windows 10 et Server 2016, le nombre de crédits octroyées au client dynamiquement variée Smb2CreditsMin et Smb2CreditsMax selon un algorithme qui a tenté de déterminer le nombre optimal de crédits pour accorder en fonction de crédit et la latence du réseau utilisation. Dans Windows 10 et Server 2016, le serveur SMB a été modifié pour accorder des crédits à la demande jusqu’au nombre maximal configuré de crédits sans condition. Dans le cadre de cette modification, le crédit mécanisme, ce qui réduit la taille de fenêtre de crédit de chaque connexion lorsque le serveur est soumis à une sollicitation de la mémoire, de limitation a été supprimé. Événement d’insuffisance de mémoire du noyau qui a déclenché la limitation est signalé uniquement lorsque le serveur est par conséquent, un mémoire insuffisante (< quelques Mo) à être inutile. Étant donné que le serveur n’est plus réduit que crédit windows le paramètre Smb2CreditsMin n’est plus nécessaire et est désormais ignoré.
+    > Avant Windows 10 et Windows Server 2016, le nombre de crédits octroyées au client variait dynamiquement Smb2CreditsMin et Smb2CreditsMax selon un algorithme qui a tenté de déterminer le nombre optimal de crédits pour accorder en fonction de la latence du réseau et l’utilisation de crédit. Dans Windows 10 et Windows Server 2016, le serveur SMB a été modifié pour accorder des crédits à la demande jusqu’au nombre maximal configuré de crédits sans condition. Dans le cadre de cette modification, le crédit mécanisme, ce qui réduit la taille de fenêtre de crédit de chaque connexion lorsque le serveur est soumis à une sollicitation de la mémoire, de limitation a été supprimé. Événement d’insuffisance de mémoire du noyau qui a déclenché la limitation est signalé uniquement lorsque le serveur est par conséquent, un mémoire insuffisante (< quelques Mo) à être inutile. Étant donné que le serveur n’est plus réduit que crédit windows le paramètre Smb2CreditsMin n’est plus nécessaire et est désormais ignoré.
 
-
-    >[!TIP]
     > Vous pouvez surveiller les partages de clients SMB\\crédit entrave/s pour voir s’il existe des problèmes avec des crédits.
 
 - **AdditionalCriticalWorkerThreads**
@@ -134,7 +132,8 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
     >[!TIP]
     > Indique la valeur devant être augmentée est si les files d’attente de travail SMB2 progressent très volumineux (compteur de performances « serveur files d’attente\\longueur de file d’attente\\SMB2 non bloquant \*' est supérieure à environ 100).
 
-     
+    >[!Note]
+    >Dans Windows 10 et Windows Server 2016, MaxThreadsPerQueue n’est pas disponible. Le nombre de threads pour un pool de threads sera « 20 * le nombre de processeurs dans un nœud NUMA ».  
 
 -   **AsynchronousCredits**
 
@@ -146,7 +145,7 @@ Le REG suivant\_les paramètres de Registre DWORD peuvent affecter les performan
 
 ### <a name="smb-server-tuning-example"></a>Exemple de paramétrage de serveur SMB
 
-Les paramètres suivants peuvent optimiser un ordinateur pour des performances de serveur de fichiers dans de nombreux cas. Les paramètres ne sont pas optimales ou appropriés sur tous les ordinateurs. Vous devez évaluer l’impact des paramètres individuels avant de les appliquer.
+Les paramètres suivants peuvent optimiser un ordinateur pour des performances de serveur de fichiers dans de nombreux cas. Les paramètres ne sont pas optimaux ni appropriés sur tous les ordinateurs. Vous devez évaluer l’impact de ces paramètres spécifiques avant de les appliquer.
 
 | Paramètre                       | Value | Par défaut |
 |---------------------------------|-------|---------|

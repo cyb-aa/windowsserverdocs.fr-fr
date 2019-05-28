@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: f5bd0ad05bdc2573a5ea0abbe165de2d3e7f5c8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 00f29c70628f2869e9f3aeffd0d08032bce5aeda
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857700"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034185"
 ---
 # <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Utiliser des Volumes partagés de Cluster dans un cluster de basculement
 
->S’applique à : Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
+>S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2
 
 Les volumes partagés de cluster permettent à plusieurs nœuds au sein d'un cluster de basculement d'avoir simultanément accès en lecture-écriture à un même numéro d'unité logique (disque) approvisionné en tant que volume NTFS. (Dans Windows Server 2012 R2, le disque peut être approvisionné en tant que NTFS ou Resilient File System (ReFS).) Avec les volumes partagés de cluster, les rôles en cluster peuvent basculer rapidement d'un nœud vers un autre sans qu'il soit nécessaire de modifier la propriété du lecteur, ni de démonter et remonter un volume. Les volumes partagés de cluster peuvent aussi contribuer à simplifier la gestion d'un nombre potentiellement important de numéros d'unités logiques dans un cluster de basculement.
 
@@ -55,7 +55,7 @@ Au moment de configurer les réseaux qui prennent en charge les volumes partagé
     >Dans Windows Server 2012 R2, il existe plusieurs instances de service de serveur par nœud de cluster de basculement. Il y a l'instance par défaut chargée de traiter le trafic entrant en provenance des clients SMB qui accèdent à des partages de fichiers normaux et une deuxième instance de volume partagé de cluster qui traite uniquement le trafic de volume partagé de cluster entre les nœuds. De même, si le service Serveur se dégrade sur un nœud, la propriété du volume partagé de cluster est transférée à un autre nœud.
 
     Le protocole SMB 3.0 intègre les fonctionnalités SMB Multichannel et SMB Direct, qui permettent au trafic de volume partagé de cluster d'être transmis sur plusieurs réseaux dans le cluster et d'exploiter les cartes réseau prenant en charge l'accès direct à la mémoire à distance (RDMA). Par défaut, SMB Multichannel est utilisé pour le trafic de volume partagé de cluster. Pour plus d'informations, voir [Vue d'ensemble du protocole SMB (Server Message Block)](../storage/file-server/file-server-smb-overview.md).
-  - **Filtre de performance de carte virtuelle de cluster de basculement Microsoft**. Ce paramètre améliore l'aptitude des nœuds à rediriger les E/S quand cela s'avère nécessaire pour accéder à un volume partagé de cluster, par exemple, quand une panne de connectivité empêche un nœud de se connecter directement au disque du volume partagé de cluster. Pour plus d’informations, consultez [sur la synchronisation et la redirection d’e/s dans la communication de CSV](#about-i/o-synchronization-and-i/o-redirection-in-csv-communication) plus loin dans cette rubrique.
+  - **Filtre de performance de carte virtuelle de cluster de basculement Microsoft**. Ce paramètre améliore l'aptitude des nœuds à rediriger les E/S quand cela s'avère nécessaire pour accéder à un volume partagé de cluster, par exemple, quand une panne de connectivité empêche un nœud de se connecter directement au disque du volume partagé de cluster. Pour plus d’informations, consultez [sur la synchronisation et la redirection d’e/s dans la communication de CSV](#about-io-synchronization-and-io-redirection-in-csv-communication) plus loin dans cette rubrique.
 - **Définition des priorités concernant les réseaux de cluster**. Nous déconseillons généralement de modifier les préférences configurées au niveau du cluster pour les réseaux.
 - **Configuration des sous-réseaux IP**. Aucune configuration de sous-réseau spécifique n'est nécessaire pour les nœuds d'un réseau qui utilise des volumes partagés de cluster. Les volumes partagés de cluster peuvent prendre en charge les clusters constitués de plusieurs sous-réseaux.
 - **Qualité de service (QoS) basée sur la stratégie**. Dans le cadre d'une utilisation de volumes partagés de cluster, nous vous recommandons de configurer une stratégie de priorité QoS et une stratégie de bande passante minimale pour le trafic réseau dirigé vers chaque nœud. Pour plus d’informations, consultez [qualité de Service (QoS)](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831679(v%3dws.11)>).
@@ -144,7 +144,7 @@ Au moment de planifier la configuration du stockage pour un cluster de basculeme
 
   - Une organisation déploie des ordinateurs virtuels destinés à prendre en charge une infrastructure VDI, dont la charge de travail est relativement faible. Le cluster utilise un stockage à hautes performances. Après consultation du fournisseur de stockage, l'administrateur du cluster décide de placer un nombre relativement important d'ordinateurs virtuels par volume partagé de cluster.
   - Une autre organisation déploie un grand nombre d'ordinateurs virtuels destinés à prendre en charge une application de base de données fortement sollicitée, dont la charge de travail est plus importante. Le cluster utilise un stockage moins performant. Après consultation du fournisseur de stockage, l'administrateur du cluster décide de placer un nombre relativement faible d'ordinateurs virtuels par volume partagé de cluster.
-- Au moment de planifier la configuration du stockage pour un ordinateur virtuel déterminé, réfléchissez aux caractéristiques que doit présenter le disque pour permettre à l'ordinateur virtuel de prendre en charge le service, l'application ou le rôle qui lui est imparti. L'analyse de ces besoins vous évitera une contention de disque, qui risque de se traduire par des performances médiocres. La configuration du stockage pour l'ordinateur virtuel doit être très proche ce celle que vous utiliseriez pour un serveur physique exécutant un service, une application ou un rôle analogue. Pour plus d’informations, consultez [les fichiers de disposition de numéros d’unités logiques, des volumes et des VHD](#arrangement-of-luns,-volumes,-and-vhd-files) plus haut dans cette rubrique.
+- Au moment de planifier la configuration du stockage pour un ordinateur virtuel déterminé, réfléchissez aux caractéristiques que doit présenter le disque pour permettre à l'ordinateur virtuel de prendre en charge le service, l'application ou le rôle qui lui est imparti. L'analyse de ces besoins vous évitera une contention de disque, qui risque de se traduire par des performances médiocres. La configuration du stockage pour l'ordinateur virtuel doit être très proche ce celle que vous utiliseriez pour un serveur physique exécutant un service, une application ou un rôle analogue. Pour plus d’informations, consultez [les fichiers de disposition de numéros d’unités logiques, des volumes et des VHD](#arrangement-of-luns-volumes-and-vhd-files) plus haut dans cette rubrique.
 
     Vous pouvez aussi limiter les risques de contention de disque en prévoyant un stockage constitué d'un grand nombre de disques durs physiques indépendants. Choisissez votre matériel de stockage en conséquence et consultez votre fournisseur pour optimiser les performances de votre stockage.
 - Selon les charges de travail de votre cluster et leurs besoins en opérations d'E/S, vous pouvez envisager de configurer seulement un pourcentage d'ordinateurs virtuels ayant accès à chaque numéro d'unité logique, tandis que les autres n'auront pas de connectivité et seront dédiés aux opérations de calcul.

@@ -5,34 +5,30 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.date: 01/05/2017
+ms.date: 05/21/2019
 ms.technology: server-general
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2827f332-44d4-4785-8b13-98429087dcc7
-author: jaimeo
-ms.author: jaimeo
+author: jasongerend
+ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: b504c3396200502a09467ae97a36f9de613e4820
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8d36961558066197a54f42d27a3560d653bd81f2
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830330"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976634"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Nouveautés de Windows Server2016
 
->S'applique à : Windows Server 2016
+>S’applique à : Windows Server 2016
 
-<img src="media/whats-new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">Le contenu de cette section décrit les nouveautés et les modifications de Windows Server&reg; 2016. Les nouvelles fonctionnalités et modifications répertoriées ici sont celles qui sont susceptibles d'avoir l'impact le plus important quand vous utilisez cette version.  
-   
-<br>
-<br>
-<br>
-<br>
-<br>
-## <a name="computevirtualizationvirtualizationmd"></a>[Compute](../virtualization/virtualization.md)  
+<img src="media/whats-new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">Pour en savoir plus sur les dernières fonctionnalités dans Windows, consultez [What ' s New in Windows Server](whats-new-in-windows-server.md). Le contenu de cette section décrit les nouveautés et les modifications de Windows Server&reg; 2016. Les nouvelles fonctionnalités et modifications répertoriées ici sont celles qui sont susceptibles d'avoir l'impact le plus important quand vous utilisez cette version.  
+
+## <a name="computevirtualizationvirtualizationmd"></a>[Compute](../virtualization/virtualization.md)
+
 Le domaine de virtualisation contient des fonctionnalités et produits de virtualisation que les professionnels de l’informatique peuvent utiliser pour la conception, le déploiement et la maintenance de Windows Server.  
 
 ### <a name="general"></a>Général  
@@ -117,7 +113,7 @@ La fenêtre de congestion initiale par défaut a été augmentée de 4 à 10 e
 
 Pour améliorer le comportement de TCP en cas de récupération suite à une perte de paquets, nous avons implémenté TCP TLP (Tail Loss Probe) et RACK (Recent Acknowledgement). TLP permet de convertir des délais de retransmission en récupérations rapides, et RACK réduit le temps nécessaire à une récupération rapide pour retransmettre un paquet perdu. 
 
-## <a name="security-and-assurancesecuritysecurity-and-assurancemd"></a>[Sécurité et Assurance](../security/Security-and-Assurance.md)  
+## <a name="security-and-assurancesecuritysecurity-and-assurancemd"></a>[Sécurité et assurance](../security/Security-and-Assurance.md)  
 Contient des fonctionnalités et solutions de sécurité pour professionnels en informatique à déployer dans votre environnement de centre de données et cloud. Pour plus d’informations générales sur la sécurité dans Windows Server 2016, consultez [Sécurité et assurance](../security/Security-and-Assurance.md).  
 
 ### <a name="just-enough-administration"></a>Administration suffisante  
@@ -208,5 +204,5 @@ Trois nouvelles fonctionnalités ont été ajoutées dans Microsoft Windows 10
 
 
 ## <a name="see-also"></a>Voir aussi  
--   [Notes de publication : Problèmes importants dans Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)  
+-   [Notes de publication : problèmes importants sur Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)  
 
