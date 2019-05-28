@@ -8,12 +8,12 @@ ms.assetid: 1575cc7c-62a7-4add-8f78-e5d93effe93f
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3912bb6048a06a4656b5b27ccec8f8fb3f5b114b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: daed746fe798ae253956d0977827d0e205bb8b3e
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847410"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034577"
 ---
 # <a name="manage-data-center-bridging-dcb"></a>Gérer Data Center Bridging (DCB)
 
@@ -39,7 +39,7 @@ Les configurations de trafic classe, le PFC et application d’affectation de pr
 2. Activez DCB sur les cartes réseau. Consultez [activer et afficher les paramètres de DCB sur les cartes réseau](#bkmk_enabledcb).
 
 >[!NOTE]
->Si vous souhaitez configurer DCB à partir d’un commutateur via DCBX, consultez [les paramètres DCBX](#BKMK_DCBX_Settings)
+>Si vous souhaitez configurer DCB à partir d’un commutateur via DCBX, consultez [les paramètres DCBX](#dcb-configuration-on-network-adapters).
 
 Le bit de prêt DCBX est décrite dans la spécification de DCB. Si le bit disposé sur un appareil est défini sur true, l’appareil est prêt à accepter les configurations à partir d’un appareil à distance via DCBX. Si le bit disposé sur un appareil est défini sur false, l’appareil rejette toutes les tentatives de configuration à partir d’appareils à distance et appliquer uniquement les configurations locales.
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 87b10952c6a851b5536a1589b994b265e8699f59
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 94be02aa25867845436b83d052c4990ff9212975
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826400"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564683"
 ---
 # <a name="writer"></a>enregistreur
 
@@ -47,11 +47,11 @@ Pour vérifier un writer en spécifiant son GUID (par exemple, 4dc3bdd4-ab48-4d0
 ```
 writer verify {4dc3bdd4-ab48-4d07-adb0-3bee2926fd7f}
 ```
-Pour exclure un writer portant le nom « enregistreur de système ? Type :
+Pour exclure un writer portant le nom « System Writer », tapez :
 ```
 writer exclude "System Writer"
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

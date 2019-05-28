@@ -8,18 +8,18 @@ ms.date: 07/10/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4d0ff53b9118db1dd6ba5af94b3e627bf1597e0c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b5658676d08318d88ddee44a0589db5873b4660b
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889020"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034290"
 ---
 # <a name="prepare-to-migrate-the-ad-fs-20-federation-server-to-ad-fs-on-windows-server-2012-r2"></a>Préparer la migration du serveur AD FS 2.0 de fédération AD FS sur Windows Server 2012 R2
 
 Ce document décrit comment migrer un AD FS 2.0 ou une batterie de serveurs de fédération Windows Server 2012 à une batterie de serveurs Windows Server 2012 R2 AD FS.  Les étapes peuvent être utilisés avec les batteries de serveurs AD FS qui utilisent WID ou SQL Server comme base de données sous-jacente.  
   
--   [Plan du processus de migration](prepare-migrate-ad-fs-server-r2.md#migrate-process-outline)  
+-   [Plan du processus de migration](prepare-migrate-ad-fs-server-r2.md#migration-process-outline)  
   
 -   [Nouvelles fonctionnalités AD FS dans Windows Server 2012 R2](prepare-migrate-ad-fs-server-r2.md#new-ad-fs-functionality-in-windows-server-2012-r2)  
   
@@ -29,7 +29,8 @@ Ce document décrit comment migrer un AD FS 2.0 ou une batterie de serveurs de f
   
 -   [Autres considérations et tâches de migration](prepare-migrate-ad-fs-server-r2.md#other-migration-tasks-and-considerations)  
   
-##  <a name="migration-process-outline"></a>Plan du processus de migration  
+##  <a name="migration-process-outline"></a>Plan du processus de migration
+
  Pour mener à bien la migration de votre batterie de serveurs de fédération AD FS vers Windows Server 2012 R2, vous devez effectuer les tâches suivantes :  
   
 1.  Exportez, enregistrez et sauvegardez les données de configuration suivantes dans votre batterie AD FS existante. Pour obtenir des instructions détaillées sur l’exécution de ces tâches, voir [Migration du serveur de fédération AD FS](migrate-ad-fs-fed-server-r2.md).  

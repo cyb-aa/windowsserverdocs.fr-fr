@@ -7,12 +7,12 @@ ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: f51ffae5ed8f91cca386eb209e7a1d8cc664ceeb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b19512a6f34e13469433aba6051f1232824beb0e
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817350"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034156"
 ---
 # <a name="patch-a-server-core-installation"></a>Corriger une installation Server Core
 
@@ -20,7 +20,7 @@ ms.locfileid: "59817350"
 
 Vous pouvez appliquer un correctif un serveur exécutant l’installation Server Core de plusieurs manières :
 
-- **À l’aide de Windows Update automatiquement ou avec Windows Server Update Services (WSUS)**. À l’aide de Windows Update, automatiquement ou avec des outils de ligne de commande ou Windows Server Update Services (WSUS), vous pouvez service serveurs exécutant une installation Server Core.
+- **À l’aide de Windows Update automatiquement ou avec Windows Server Update Services (WSUS)** . À l’aide de Windows Update, automatiquement ou avec des outils de ligne de commande ou Windows Server Update Services (WSUS), vous pouvez service serveurs exécutant une installation Server Core.
 
 - **Manuellement**. Même dans les organisations qui n’utilisent pas Windows update ou WSUS, vous pouvez appliquer des mises à jour manuellement.
 
@@ -66,7 +66,7 @@ Pour forcer Windows Update à détecter et installer immédiatement les mises à
 Wuauclt /detectnow 
 ```
 
-Selon les mises à jour installées, vous pouvez être amené à redémarrer l’ordinateur, même si le système ne vous le demande pas. Pour déterminer si le processus d’installation est terminée, utilisez le Gestionnaire des tâches pour vérifier que le **Wuauclt** ou **installateur approuvé** processus ne sont pas en cours d’exécution. Vous pouvez également utiliser les méthodes dans [afficher les mises à jour installées sur votre serveur Server Core](#view-the-updates-installed-on-your-Server-Core-server) pour vérifier la liste des mises à jour installées.
+Selon les mises à jour installées, vous pouvez être amené à redémarrer l’ordinateur, même si le système ne vous le demande pas. Pour déterminer si le processus d’installation est terminée, utilisez le Gestionnaire des tâches pour vérifier que le **Wuauclt** ou **installateur approuvé** processus ne sont pas en cours d’exécution. Vous pouvez également utiliser les méthodes dans [afficher les mises à jour installées sur votre serveur Server Core](#view-the-updates-installed-on-your-server-core-server) pour vérifier la liste des mises à jour installées.
 
 ## <a name="patch-the-server-with-wsus"></a>Appliquer le correctif avec WSUS 
 

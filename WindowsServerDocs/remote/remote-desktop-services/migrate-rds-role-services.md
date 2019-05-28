@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 9b1fa833-4325-48a8-bf34-46265f40c001
 author: christianmontoya
 manager: scottman
-ms.openlocfilehash: 73beb1539420f4b4aad818ffe0b0bdaabe901748
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 63037dd7e32320b6e640396e20344e5678ed91dd
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870260"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034433"
 ---
 # <a name="migrate-your-remote-desktop-services-deployment-to-windows-server-2016"></a>Migrer votre déploiement de Services Bureau à distance vers Windows Server 2016
 
@@ -28,8 +28,8 @@ Migration d’un déploiement Services Bureau à distance est prise en charge à
 
 Pour plus d’informations sur la mise à niveau et la configuration requise, consultez [mise à niveau de vos déploiements de Services Bureau à distance vers Windows Server 2016](upgrade-to-rds-2016.md).
 
-Utilisez les étapes suivantes pour migrer votre déploiement des Services Bureau à distance : 
-- [Migrer les serveurs de service Broker pour les connexions Bureau à distance](#migrate-rd-connection-broker-servers) 
+Utilisez les étapes suivantes pour migrer votre déploiement des Services Bureau à distance :
+- [Migrer les serveurs de service Broker pour les connexions Bureau à distance](#migrate-rd-connection-broker-servers)
 - [Migrer les collections de sessions](#migrate-session-collections)
 - [Migrer les collections de bureaux virtuels](#migrate-virtual-desktop-collections)
 - [Migrer des serveurs d’accès Web de bureau à distance](#migrate-rd-web-access-servers)
@@ -54,7 +54,7 @@ Ceci est la première et la plus importante pour la migration : migration de vo
 
 Suivez ces étapes pour migrer une collection de sessions dans Windows Server 2012 R2 vers une collection de sessions dans Windows Server 2016.
 > [!IMPORTANT] 
-> Migrer des collections de sessions uniquement après avoir effectué l’étape précédente, [serveurs de migrer RD Connection Broker](#Migrate-RD-Connection-Broker-servers).
+> Migrer des collections de sessions uniquement après avoir effectué l’étape précédente, [serveurs de migrer RD Connection Broker](#migrate-rd-connection-broker-servers).
 
 1. [Mise à niveau de la collection de sessions](Upgrade-to-RDSH-2016.md) à partir de Windows Server 2012 R2 vers Windows Server 2016.
 2. Ajoutez le nouveau serveur hôte de Session Bureau à distance exécutant Windows Server 2016 à la collection de sessions.
@@ -69,7 +69,7 @@ Suivez ces étapes pour migrer une collection de sessions dans Windows Server 20
 Suivez ces étapes pour migrer une collection de bureaux virtuels à partir d’un serveur source exécutant Windows Server 2012 R2 vers un serveur de destination exécutant Windows Server 2016.
 
 > [!IMPORTANT] 
-> Migrer des collections de bureaux virtuels uniquement après avoir effectué l’étape précédente, [serveurs de migrer RD Connection Broker](#Migrate-RD-Connection-Broker-servers).
+> Migrer des collections de bureaux virtuels uniquement après avoir effectué l’étape précédente, [serveurs de migrer RD Connection Broker](#migrate-rd-connection-broker-servers).
 
 1. [Mise à niveau de la collection de bureaux virtuels](Upgrade-to-RDVH-2016.md) à partir du serveur exécutant Windows Server 2012 R2 vers Windows Server 2016.
 2. Ajouter les nouveaux serveurs hôte de virtualisation Bureau à distance de Windows Server 2016 à la collection de bureaux virtuels.
@@ -85,14 +85,14 @@ Suivez ces étapes pour migrer une collection de bureaux virtuels à partir d’
 Suivez ces étapes pour migrer des serveurs d’accès Web de bureau à distance :
 - Joindre les serveurs de destination exécutant Windows Server 2016 pour le déploiement des Services Bureau à distance et d’installer le rôle Web de bureau à distance
 - Utilisez [outil IIS Web Deploy](https://www.iis.net/) pour migrer les paramètres de site Web Bureau à distance à partir des serveurs d’accès Web de bureau à distance en cours pour les serveurs de destination exécutant Windows Server 2016.
-- [Migrer des certificats](#Migrate-certificates) pour les serveurs de destination exécutant Windows Server 2016.
+- [Migrer des certificats](#migrate-certificates) pour les serveurs de destination exécutant Windows Server 2016.
 - Supprimez les serveurs source du déploiement des Services Bureau à distance  
 
 ## <a name="migrate-rdgateway-servers"></a>Migrer les serveurs de passerelle Bureau à distance
 Suivez ces étapes pour migrer les serveurs de passerelle Bureau à distance :
 - Joindre les serveurs de destination exécutant Windows Server 2016 pour le déploiement des Services Bureau à distance et d’installer le rôle de passerelle Bureau à distance
 - Utilisez [outil IIS Web Deploy](https://www.iis.net/) pour migrer les paramètres de point de terminaison de passerelle Bureau à distance à partir des serveurs de passerelle Bureau à distance en cours pour les serveurs de destination exécutant Windows Server 2016.
-- [Migrer des certificats](#Migrate-certificates) pour les serveurs de destination exécutant Windows Server 2016.
+- [Migrer des certificats](#migrate-certificates) pour les serveurs de destination exécutant Windows Server 2016.
 - Supprimez les serveurs source le déploiement des Services Bureau à distance  
 
 ## <a name="migrate-rdlicensing-servers"></a>Migrer les serveurs de licences des services Bureau à distance

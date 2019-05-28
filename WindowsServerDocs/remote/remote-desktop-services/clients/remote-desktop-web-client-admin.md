@@ -8,12 +8,12 @@ ms.date: 11/2/2018
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 2cb819a7f91646c61b84c3ee70550af6033ba340
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bf10f7f7444967247e51065bc6138fc0afd5ed1a
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865970"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976780"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Configurer le client web de Bureau à distance pour vos utilisateurs
 
@@ -248,7 +248,36 @@ Si le serveur hôte de Session Bureau à distance est différent du serveur Bure
     > [!NOTE]
     > Si l’hôte de Session Bureau à distance et le serveur du service Broker de bureau à distance partagent le même ordinateur, définissez uniquement le certificat de serveur Bureau à distance. Si le serveur hôte de Session Bureau à distance et Bureau à distance Broker utilise des ordinateurs différents, les deux doivent être configurés avec les certificats uniques.
 
-* Le **nom SAN (Subject Alternative)** pour chaque certificat doit être définie sur l’ordinateur **nom de domaine complet (FQDN)**. Le **nom commun (CN)** doit correspondre le réseau SAN pour chaque certificat.
+* Le **nom SAN (Subject Alternative)** pour chaque certificat doit être définie sur l’ordinateur **nom de domaine complet (FQDN)** . Le **nom commun (CN)** doit correspondre le réseau SAN pour chaque certificat.
+
+## <a name="how-to-pre-configure-settings-for-remote-desktop-web-client-users"></a>Comment préconfigurer les paramètres pour les utilisateurs de clients web Bureau à distance
+Cette section vous indique comment utiliser PowerShell pour configurer les paramètres pour votre déploiement de client web Bureau à distance. Ces applets de commande PowerShell contrôlent la capacité d’un utilisateur pour modifier les paramètres selon les problèmes de sécurité de votre organisation ou prévu de flux de travail. Les paramètres suivants se trouvent toutes dans le **paramètres** panneau latéral du client web. 
+
+### <a name="suppress-telemetry"></a>Supprimer les données de télémétrie
+Par défaut, les utilisateurs peuvent choisir d’activer ou désactiver la collecte des données de télémétrie sont envoyées à Microsoft. Pour plus d’informations sur les données de télémétrie Microsoft collecte, reportez-vous à notre déclaration de confidentialité via le lien dans le **sur** panneau latéral.
+
+En tant qu’administrateur, vous pouvez choisir de supprimer la collection de données de télémétrie pour votre déploiement à l’aide de l’applet de commande PowerShell suivante :
+
+   ```PowerShell
+    Set-RDWebClientDeploymentSetting -SuppressTelemetry $true
+   ```
+
+Par défaut, l’utilisateur peut sélectionner pour activer ou désactiver la télémétrie. Valeur booléenne **$false** correspondra le comportement du client par défaut. Valeur booléenne **$true** désactive la télémétrie et limite l’utilisateur à partir de l’activation de la télémétrie.
+
+### <a name="remote-resource-launch-method"></a>Méthode de lancement de ressource distante
+Par défaut, les utilisateurs peuvent choisir lancer des ressources distantes (1) dans le navigateur ou (2) en téléchargeant un fichier .rdp à gérer avec un autre client installé sur leur ordinateur. En tant qu’administrateur, vous pouvez choisir de restreindre la méthode de lancement des ressources à distance pour votre déploiement avec la commande Powershell suivante :
+
+   ```PowerShell
+    Set-RDWebClientDeploymentSetting -LaunchResourceInBrowser ($true|$false)
+   ```
+ Par défaut, l’utilisateur peut sélectionner une méthode de lancement. Valeur booléenne **$true** forcera l’utilisateur de lancer des ressources dans le navigateur. Valeur booléenne **$false** forcera l’utilisateur de lancer des ressources en téléchargeant un fichier .rdp à gérer avec un client RDP installé localement.
+
+### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>Réinitialiser les configurations RDWebClientDeploymentSetting par défaut
+Pour réinitialiser tous les paramètres du client au niveau du déploiement web pour les configurations par défaut, exécutez l’applet de commande PowerShell suivante :
+
+   ```PowerShell
+    Reset-RDWebClientDeploymentSetting 
+   ```
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 

@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 831ca8266c3ec18ffb83227dcb2d39b3f953ad1a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b1586c8c63e46452075b4106c944670395734142
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838050"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034402"
 ---
 # <a name="smb-security-enhancements"></a>Améliorations en matière de sécurité SMB
 
@@ -73,7 +73,7 @@ Par défaut, lorsque le chiffrement SMB est activé pour un partage de fichiers 
 Set-SmbServerConfiguration –RejectUnencryptedAccess $false
 ```
 
-La fonctionnalité de négociation de dialecte sécurisé décrite dans la section suivante empêche une attaque man-in-the-middle de rétrogradation d’une connexion entre SMB 3.0 et SMB 2.0 (ce qui utiliserait un accès non chiffré). Toutefois, il n’empêche pas une mise à niveau à SMB 1.0, ce qui entraînerait également un accès non chiffré. Pour garantir que les clients SMB 3.0 utilisent toujours le chiffrement SMB pour accéder aux partages chiffrés, vous devez désactiver le serveur SMB 1.0. (Pour obtenir des instructions, consultez la section [la désactivation de SMB 1.0](#disabling-smb-1.0).) Si le **– RejectUnencryptedAccess** paramètre conserve sa valeur par défaut **$true**, uniquement chiffrement prenant en charge SMB 3.0 les clients sont autorisés à accéder aux partages de fichiers (les clients SMB 1.0 peut également être rejetées).
+La fonctionnalité de négociation de dialecte sécurisé décrite dans la section suivante empêche une attaque man-in-the-middle de rétrogradation d’une connexion entre SMB 3.0 et SMB 2.0 (ce qui utiliserait un accès non chiffré). Toutefois, il n’empêche pas une mise à niveau à SMB 1.0, ce qui entraînerait également un accès non chiffré. Pour garantir que les clients SMB 3.0 utilisent toujours le chiffrement SMB pour accéder aux partages chiffrés, vous devez désactiver le serveur SMB 1.0. (Pour obtenir des instructions, consultez la section [la désactivation de SMB 1.0](#disabling-smb-10).) Si le **– RejectUnencryptedAccess** paramètre conserve sa valeur par défaut **$true**, uniquement chiffrement prenant en charge SMB 3.0 les clients sont autorisés à accéder aux partages de fichiers (les clients SMB 1.0 peut également être rejetées).
 
 >[!NOTE]
 >* Le chiffrement SMB utilise la norme AES (Advanced Encryption)-algorithme CCM pour chiffrer et déchiffrer les données. AES-CCM fournit également la validation d’intégrité des données (signature) pour les partages de fichiers chiffrés, indépendamment des paramètres de signature SMB. Si vous souhaitez activer la signature sans chiffrement SMB, vous pouvez continuer à le faire. Pour plus d’informations, consultez [les principes fondamentaux de la signature SMB](https://blogs.technet.microsoft.com/josebda/2010/12/01/the-basics-of-smb-signing-covering-both-smb1-and-smb2/).
@@ -84,7 +84,7 @@ La fonctionnalité de négociation de dialecte sécurisé décrite dans la secti
 
 ## <a name="secure-dialect-negotiation"></a>Négociation de dialecte sécurisé
 
-SMB 3.0 est capable de détecter les attaques man-in-the-middle visant à rétrograder le protocole SMB 2.0 ou SMB 3.0 ou les fonctionnalités que le client et le serveur négocient. Lorsqu’une telle attaque est détectée par le client ou le serveur, la connexion est déconnectée et ID d’événement 1005 est consigné dans le journal des événements Microsoft-Windows-SmbServer/Operational. Sécuriser le dialecte négociation ne peut pas détecter ou prévenir les versions antérieures de SMB 2.0 ou 3.0 à SMB 1.0. Pour cette raison et pour tirer parti de toutes les fonctionnalités de chiffrement SMB, nous vous recommandons vivement de désactiver le serveur SMB 1.0. Pour plus d’informations, consultez [la désactivation de SMB 1.0](#disabling-smb-1.0).
+SMB 3.0 est capable de détecter les attaques man-in-the-middle visant à rétrograder le protocole SMB 2.0 ou SMB 3.0 ou les fonctionnalités que le client et le serveur négocient. Lorsqu’une telle attaque est détectée par le client ou le serveur, la connexion est déconnectée et ID d’événement 1005 est consigné dans le journal des événements Microsoft-Windows-SmbServer/Operational. Sécuriser le dialecte négociation ne peut pas détecter ou prévenir les versions antérieures de SMB 2.0 ou 3.0 à SMB 1.0. Pour cette raison et pour tirer parti de toutes les fonctionnalités de chiffrement SMB, nous vous recommandons vivement de désactiver le serveur SMB 1.0. Pour plus d’informations, consultez [la désactivation de SMB 1.0](#disabling-smb-10).
 
 La fonctionnalité de négociation de dialecte sécurisé qui est décrite dans la section suivante empêche une attaque man-in-the-middle de rétrogradation d’une connexion entre SMB 3 et SMB 2 (ce qui utiliserait un accès non chiffré) ; Toutefois, il n’empêche pas les baisses de SMB 1, ce qui entraînerait également un accès non chiffré. Pour plus d’informations sur les problèmes potentiels de précédemment non Windows implémentations de SMB, consultez le [Base de connaissances Microsoft](http://support.microsoft.com/kb/2686098).
 
