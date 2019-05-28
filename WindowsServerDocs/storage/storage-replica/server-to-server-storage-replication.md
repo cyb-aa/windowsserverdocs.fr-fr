@@ -7,18 +7,18 @@ ms.author: nedpyle
 ms.technology: storage-replica
 ms.topic: get-started-article
 author: nedpyle
-ms.date: 06/04/2018
+ms.date: 04/26/2019
 ms.assetid: 61881b52-ee6a-4c8e-85d3-702ab8a2bd8c
-ms.openlocfilehash: 620d339a505da77649d65537abc92f301760d40d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd0a160213e69e59194e1f775040c12769f1eb5e
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821290"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64772491"
 ---
 # <a name="server-to-server-storage-replication-with-storage-replica"></a>Réplication du stockage de serveur à serveur réplica de stockage
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
 
 Vous pouvez utiliser le réplica de stockage pour configurer la synchronisation des données de deux serveurs, afin que chacune possède une copie identique du même volume. Cette rubrique fournit des informations générales sur cette configuration de réplication de serveur à serveur, ainsi que sur la configuration et la gestion de l’environnement.
 
@@ -31,7 +31,7 @@ Voici une vidéo de présentation de l’utilisation de réplica de stockage dan
 ## <a name="prerequisites"></a>Prérequis  
 
 * Forêt de Services de domaine Directory active (n’a pas besoin pour exécuter Windows Server 2016).  
-* Deux serveurs sur lesquels Windows Server 2016 édition Datacenter est installé.  
+* Deux serveurs exécutant Windows Server 2019 ou Windows Server 2016 Datacenter Edition. Si vous exécutez Windows Server 2019, vous pouvez utiliser à la place de Standard Edition si vous effectuez une réplication OK un seul volume jusqu'à 2 To.  
 * Deux ensembles de stockage, utilisant des JBOD SAS, un réseau SAN Fibre Channel, une cible iSCSI ou un stockage SCSI/SATA local. Le stockage doit contenir un mélange de disques durs HDD et SSD. Nous allons rendre chaque ensemble de stockage disponible uniquement pour chacun des serveurs, sans aucun accès partagé.  
 * Chaque ensemble de stockage doit autoriser la création d’au moins deux disques virtuels, un pour les données répliquées et un autre pour les journaux. Le stockage physique doit avoir la même taille de secteur sur tous les disques de données. Le stockage physique doit avoir la même taille de secteur sur tous les disques de journal.  
 * Au moins une connexion Ethernet/TCP sur chaque serveur pour la réplication synchrone, mais de préférence RDMA.   
@@ -52,7 +52,7 @@ Pour utiliser le réplica de stockage et de Windows Admin Center ensemble, vous 
 
 | System                        | Système d’exploitation                                            | Requis pour     |
 |-------------------------------|-------------------------------------------------------------|------------------|
-| Deux serveurs <br>(toute combinaison de matériel sur site, les machines virtuelles et les machines virtuelles, y compris les machines virtuelles Azure cloud)| Édition Datacenter de Windows Server (canal semi-annuel) ou Windows Server 2016 | Réplica de stockage  |
+| Deux serveurs <br>(toute combinaison de matériel sur site, les machines virtuelles et les machines virtuelles, y compris les machines virtuelles Azure cloud)| Windows Server 2019, Windows Server 2016 ou Windows Server (canal semi-annuel) | Réplica de stockage  |
 | Un PC                     | Windows 10                                                  | Windows Admin Center |
 
 > [!NOTE]
@@ -86,7 +86,7 @@ Si vous utilisez Windows Admin Center pour gérer un réplica de stockage, proc�
 
 ## <a name="provision-os"></a>Étape 2 : Configurer le système d’exploitation, les fonctionnalités, les rôles, le stockage et le réseau
 
-1.  Installez Windows Server 2016 sur les deux nœuds de serveur avec un type d’installation de Windows Server 2016 Datacenter **(Expérience utilisateur)**. Ne choisissez pas Standard Edition si elle est disponible, car il ne contient pas le réplica de stockage.
+1.  Installation de Windows Server sur les deux nœuds de serveur avec un type d’installation de Windows Server **(expérience)** . 
  
     Pour utiliser une machine virtuelle Azure connectée à votre réseau via un circuit ExpressRoute, consultez [Ajout d’une machine virtuelle Azure connectée à votre réseau via ExpressRoute](#add-azure-vm-expressroute).
 
@@ -129,7 +129,7 @@ Si vous utilisez Windows Admin Center pour gérer un réplica de stockage, proc�
         $Servers | ForEach { Install-WindowsFeature -ComputerName $_ -Name Storage-Replica,FS-FileServer -IncludeManagementTools -restart }  
         ```  
 
-        Pour plus d’informations sur ces étapes, voir [Installer ou désinstaller des rôles, services de rôle ou fonctionnalités](http://technet.microsoft.co/library/hh831809.aspx).  
+        Pour plus d’informations sur ces étapes, voir [Installer ou désinstaller des rôles, services de rôle ou fonctionnalités](../../administration/server-manager/install-or-uninstall-roles-role-services-or-features.md).  
 
 8.  Configurez le stockage comme suit :  
 
@@ -155,7 +155,7 @@ Si vous utilisez Windows Admin Center pour gérer un réplica de stockage, proc�
 
         1.  Assurez-vous que chaque cluster peut voir uniquement les boîtiers de stockage de ce site. Vous devez utiliser plusieurs cartes réseau si vous utilisez iSCSI.    
 
-        2.  Configurez le stockage à l’aide de la documentation de votre fournisseur. Si vous utilisez le ciblage iSCSI basé sur Windows, voir [Stockage par blocs de cibles iSCSI, procédure](https://technet.microsoft.com/library/hh848268.aspx).  
+        2.  Configurez le stockage à l’aide de la documentation de votre fournisseur. Si vous utilisez le ciblage iSCSI basé sur Windows, voir [Stockage par blocs de cibles iSCSI, procédure](../iscsi/iscsi-target-server.md).  
 
     - **Pour le stockage SAN Fibre Channel :**  
 
@@ -210,7 +210,7 @@ Si vous utilisez Windows Admin Center pour gérer un réplica de stockage, proc�
 
 ### <a name="using-windows-powershell"></a>Utilisation de Windows PowerShell
 
-Vous allez maintenant configurer la réplication de serveur à serveur à l’aide de Windows PowerShell. Vous devez effectuer toutes les étapes ci-dessous sur les nœuds directement ou sur un ordinateur d’administration distant contenant les outils d’administration de serveur distant de Windows Server 2016.  
+Vous allez maintenant configurer la réplication de serveur à serveur à l’aide de Windows PowerShell. Vous devez effectuer toutes les étapes ci-dessous sur les nœuds directement ou à partir d’un ordinateur de gestion à distance qui contient les outils d’Administration de serveur à distance Windows Server.  
 
 1. Veillez à utiliser une console Powershell avec élévation de privilèges en tant qu’administrateur.  
 2. Configurez la réplication de serveur à serveur, en spécifiant les disques de la source et de la destination, les journaux de la source et de la destination, les nœuds de la source et de la destination, et la taille du journal.  
@@ -314,7 +314,7 @@ Vous allez maintenant configurer la réplication de serveur à serveur à l’ai
 
 ## <a name="step-4-manage-replication"></a>Étape 4 : Gérer la réplication
 
-Maintenant, vous allez gérer et faire fonctionner votre infrastructure répliquée de serveur à serveur. Vous pouvez effectuer toutes les étapes ci-dessous sur les nœuds directement ou sur un ordinateur d’administration distant contenant les outils d’administration de serveur distant de Windows Server 2016.  
+Maintenant, vous allez gérer et faire fonctionner votre infrastructure répliquée de serveur à serveur. Vous pouvez effectuer toutes les étapes ci-dessous sur les nœuds directement ou à partir d’un ordinateur de gestion à distance qui contient les outils d’Administration de serveur à distance Windows Server.  
 
 1.  Utilisez `Get-SRPartnership` et `Get-SRGroup` pour déterminer la source et la destination actuelles de la réplication et leur état.  
 
@@ -372,7 +372,7 @@ Maintenant, vous allez gérer et faire fonctionner votre infrastructure répliqu
 
     -   \Statistiques du réplica du système de stockage(*)\Nombre de messages envoyés  
 
-    Pour plus d’informations sur les compteurs de performances dans Windows PowerShell, consultez [Get-Counter](https://technet.microsoft.com/library/hh849685.aspx).  
+    Pour plus d’informations sur les compteurs de performances dans Windows PowerShell, consultez [Get-Counter](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Diagnostics/Get-Counter).  
 
 3.  Pour déplacer la direction de réplication d’un site, utilisez l’applet de commande `Set-SRPartnership`.  
 
@@ -381,7 +381,7 @@ Maintenant, vous allez gérer et faire fonctionner votre infrastructure répliqu
     ```  
 
     > [!WARNING]  
-    > Windows Server 2016 empêche le basculement de rôle lorsque la synchronisation initiale est en cours, ce qui peut entraîner une perte de données si vous déclenchez un basculement avant la fin de la réplication initiale. Ne pas forcer les directions de basculement jusqu'à ce que la synchronisation initiale est terminée.  
+    > Windows Server empêche le basculement de rôle lorsque la synchronisation initiale est en cours, elle peut entraîner une perte de données si vous essayez de basculer avant d’autoriser la réplication initiale. Ne pas forcer les directions de basculement jusqu'à ce que la synchronisation initiale est terminée.  
 
     Vérifiez les journaux d’événements pour voir la direction du changement de réplication et la survenue du mode de récupération, puis rapprochez. Les E/S d’écriture peuvent alors écrire sur le stockage du nouveau serveur source. Modifier la direction de réplication bloquera les E/S d’écriture sur l’ordinateur source précédent.  
 
@@ -410,7 +410,7 @@ Le réplica de stockage ne présente aucune de ces limitations. Il en a, toutefo
 Si ces limitations ne sont pas rédhibitoires, le réplica de stockage vous permet de remplacer les serveurs de réplication DFS par cette technologie plus récente.   
 Le processus est généralement le suivant :  
 
-1.  Installez Windows Server 2016 sur deux serveurs et configurez votre stockage. Cela peut impliquer la mise à niveau d’un ensemble existant de serveurs ou une nouvelle installation.  
+1.  Installez Windows Server sur deux serveurs et configurez votre stockage. Cela peut impliquer la mise à niveau d’un ensemble existant de serveurs ou une nouvelle installation.  
 2.  Assurez-vous que toutes les données à répliquer existent sur un ou plusieurs volumes de données et non sur le lecteur C:.   
 a.  Vous pouvez également amorcer les données sur l’autre serveur pour gagner du temps, à l’aide d’une sauvegarde ou de copies de fichiers, ainsi qu’utiliser le stockage alloué dynamiquement. Faire correspondre parfaitement la sécurité de type métadonnées est inutile, contrairement à la réplication DFS.  
 3.  Partager les données sur votre serveur source et rendez-le accessible via un espace de noms DFS. Ceci est important pour vous assurer que les utilisateurs peuvent toujours y accéder si le nom du serveur est remplacé par un nom situé dans un site d’incident.  
@@ -440,7 +440,7 @@ b.  Nous recommandons fortement l’activation de clichés instantanés de volum
 1. [Créer une machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) avec les paramètres suivants (illustrés à la Figure 5) :
     - **Adresse IP publique**: Aucune
     - **Réseau virtuel**: Sélectionnez le réseau virtuel que vous avez noté du groupe de ressources ajouté avec le circuit.
-    - **Groupe de sécurité réseau (pare-feu)**: Sélectionnez le groupe de sécurité réseau que vous avez créé précédemment.
+    - **Groupe de sécurité réseau (pare-feu)** : Sélectionnez le groupe de sécurité réseau que vous avez créé précédemment.
     ![Créer la machine virtuelle affichant les paramètres du réseau ExpressRoute](media/Server-to-Server-Storage-Replication/azure-vm-express-route.png)
     **Figure 5 : Création d’une machine virtuelle tout en sélectionnant les paramètres du réseau ExpressRoute**
 1. Une fois que la machine virtuelle est créée, consultez [étape 2 : Configurer le système d’exploitation, fonctionnalités, rôles, stockage et réseau](#provision-os).
@@ -450,6 +450,6 @@ b.  Nous recommandons fortement l’activation de clichés instantanés de volum
 - [Vue d’ensemble du réplica de stockage](storage-replica-overview.md)  
 - [Réplication de Cluster étendu à l’aide d’un stockage partagé](stretch-cluster-replication-using-shared-storage.md)  
 - [Réplication du stockage de cluster à Cluster](cluster-to-cluster-storage-replication.md)
-- [Réplica de stockage : Problèmes connus](storage-replica-known-issues.md)  
-- [Réplica de stockage : Forum aux Questions](storage-replica-frequently-asked-questions.md)
+- [Réplica de stockage : Problèmes connus](storage-replica-known-issues.md)  
+- [Réplica de stockage : Forum Aux Questions](storage-replica-frequently-asked-questions.md)
 - [Espaces de stockage Direct dans Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  

@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: fe113eb7fe5cb096ff1e94150b929682d137b24b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8e05043d029636ddeb3a24349897ac61a713b2a7
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871950"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034110"
 ---
 # <a name="perform-initial-recovery"></a>Effectuer une récupération initiale  
 
@@ -22,9 +22,9 @@ ms.locfileid: "59871950"
 
 Cette section comprend les étapes suivantes :  
 
-- [Restaurer le premier contrôleur de domaine accessible en écriture dans chaque domaine](#Restore-the-first-writeable-domain-controller-in-each-domain)  
-- [Se reconnecter chaque contrôleur de domaine accessible en écriture restauré au réseau](#Reconnect-each-restored-writeable-domain-controller-to-a-common-network)  
-- [Ajouter le catalogue global à un contrôleur de domaine dans le domaine racine de forêt](#Add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain)  
+- [Restaurer le premier contrôleur de domaine accessible en écriture dans chaque domaine](#restore-the-first-writeable-domain-controller-in-each-domain)  
+- [Se reconnecter chaque contrôleur de domaine accessible en écriture restauré au réseau](#reconnect-each-restored-writeable-domain-controller-to-a-common-network)  
+- [Ajouter le catalogue global à un contrôleur de domaine dans le domaine racine de forêt](#add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain)  
 
 ## <a name="restore-the-first-writeable-domain-controller-in-each-domain"></a>Restaurer le premier contrôleur de domaine accessible en écriture dans chaque domaine  
 
@@ -151,12 +151,12 @@ Pour plus d’informations, consultez [Ajout du catalogue global](AD-Forest-Reco
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Récupération de forêt AD - conditions préalables](AD-Forest-Recovery-Prerequisties.md)  
+- [Récupération de la forêt Active Directory : conditions préalables](AD-Forest-Recovery-Prerequisties.md)  
 - [Récupération de forêt AD - concevoir un plan de récupération personnalisée-forêt](AD-Forest-Recovery-Devising-a-Plan.md)  
 - [Récupération de forêt AD - identifier le problème](AD-Forest-Recovery-Identify-the-Problem.md)
 - [Récupération de forêt AD - déterminer comment récupérer](AD-Forest-Recovery-Determine-how-to-Recover.md)
 - [Récupération de forêt AD - effectuer une récupération initiale](AD-Forest-Recovery-Perform-initial-recovery.md)  
-- [Récupération de forêt AD - procédures](AD-Forest-Recovery-Procedures.md)  
+- [Récupération de la forêt Active Directory : procédures](AD-Forest-Recovery-Procedures.md)  
 - [Récupération de forêt AD - Forum aux Questions](AD-Forest-Recovery-FAQ.md)  
 - [Récupération de forêt AD - récupération d’un domaine unique au sein d’une forêt Multidomain](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
 - [Récupération de forêt AD - récupération de forêt avec les contrôleurs de domaine Windows Server 2003](AD-Forest-Recovery-Windows-Server-2003.md)  
