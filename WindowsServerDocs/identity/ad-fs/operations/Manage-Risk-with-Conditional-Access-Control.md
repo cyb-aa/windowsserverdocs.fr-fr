@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e2ad7d1467abd6d69077b515b8c69a65f7e70f19
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2c399467a8bb70e723a86618aa37fc54425f4e7d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865590"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189046"
 ---
 # <a name="manage-risk-with-conditional-access-control"></a>Gérer les risques avec le contrôle d’accès conditionnel
 
->S'applique à : Windows Server 2012 R2
+
 
 
 -   [Contrôle de clé concepts-accès conditionnel dans AD FS](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md#BKMK_1)
@@ -106,7 +106,7 @@ Le tableau suivant inclut tous les types de revendications disponibles dans AD F
 |Autre nom de l’objet|L’un des autres noms du certificat.|
 |Numéro de série|Numéro de série du certificat.|
 |Algorithme de signature|Algorithme utilisé pour créer la signature d’un certificat.|
-|Objet|Sujet du certificat.|
+|Subject|Sujet du certificat.|
 |Identificateur de la clé du sujet|Identificateur de la clé du sujet du certificat.|
 |Nom de sujet|Nom unique du sujet d’un certificat.|
 |Nom du modèle V2|Nom du modèle de certificat version 2 utilisé lors de l’émission ou du renouvellement d’un certificat. Il s’agit d’une valeur spécifique à Microsoft.|

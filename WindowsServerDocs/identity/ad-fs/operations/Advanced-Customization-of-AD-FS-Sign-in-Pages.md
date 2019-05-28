@@ -9,16 +9,15 @@ ms.date: 01/16/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: ef30df61c28eb8302c94cf756ba8c8a7b5849520
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 73ff3fc6df872edd29735ee96c0918144250d5f1
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850770"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190040"
 ---
 # <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>Personnalisation d’AD FS Sign-in Pages avancée
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2
   
 ## <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>Personnalisation de l’authentification AD FS avancée\-dans les Pages  
 AD FS dans Windows Server 2012 R2 fournit intégré\-prise en charge pour la personnalisation de la connexion\-dans l’expérience. Pour la plupart de ces scénarios, intégrées\-dans Windows PowerShell, applets de commande sont tout ce qui est requis.  Il est recommandé d’utiliser intégrée\-dans les commandes Windows PowerShell pour personnaliser les éléments standards pour AD FS signer\-expérience autant que possible.  Consultez [AD FS sign-in personnalisation de l’utilisateur](AD-FS-user-sign-in-customization.md) pour plus d’informations.  

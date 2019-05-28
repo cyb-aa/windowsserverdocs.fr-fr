@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1198d8b76f2ecdad728e2de6ce7a5c0d053f779f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e91306ecd8ef08dd6af9173ead314a39dd5d2eff
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868930"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189131"
 ---
 # <a name="home-realm-discovery-customization"></a>Personnalisation de la découverte de domaine d’accueil
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 Lorsque le client AD FS demande tout d’abord une ressource, le serveur de fédération de ressources n’a aucune information sur le domaine du client. Le serveur de fédération de ressources répond au client AD FS avec un **découverte du domaine Client** page, où l’utilisateur sélectionne le domaine d’accueil dans une liste. Les valeurs de la liste proviennent de la propriété des noms complets dans les approbations de fournisseur de revendications. Utiliser les applets de commande Windows PowerShell suivante pour modifier et personnaliser l’expérience de découverte AD FS d’accueil.  
   

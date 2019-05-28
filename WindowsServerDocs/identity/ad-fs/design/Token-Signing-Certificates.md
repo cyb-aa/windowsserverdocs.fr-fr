@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a047b94906cf703bb934c93f517b8874af91e092
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9db69cfb2eb42af90b392433a6e05eaab9978160
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864060"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190809"
 ---
 # <a name="token-signing-certificates"></a>Certificat de signature de jetons
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Serveurs de fédération nécessitent le jeton\-certificats de signature pour empêcher les attaquants de modifier ou de contrefaçon des jetons de sécurité dans une tentative d’accéder aux ressources fédérés. Privé\/appariements de clé publique est utilisée avec le jeton\-certificats de signature sont le mécanisme de validation plus importantes de n’importe quel partenariat fédérée, car ces clés vérifier qu’un jeton de sécurité a été émis par un partenaire valid serveur de fédération et que le jeton n’a pas été modifié pendant le transit.  
   
@@ -75,4 +73,4 @@ Pour plus d’informations sur l’installation d’un certificat à partir d’
 Pour plus d’informations sur l’installation d’un libre-service\-signature de certificat, consultez [IIS 7.0 : Créer un\-signé le certificat de serveur dans IIS 7.0](https://go.microsoft.com/fwlink/?LinkID=108271).  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

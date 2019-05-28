@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 50f50cd4e096b107a2b58ac05328ff8ed413f2dc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: be20996d1df3898b8ff23422759e810a4b333b3d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860270"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189536"
 ---
 # <a name="create-a-rule-to-pass-through-or-filter-an-incoming-claim"></a>Créer une règle pour passer ou filtrer une revendication entrante
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 À l’aide de la passer ou filtrer un modèle de règle de revendication entrante dans Active Directory Federation Services \(AD FS\), vous pouvez passer toutes les revendications entrantes avec un type de revendication sélectionné. Vous pouvez également filtrer les valeurs des revendications entrantes avec un type de revendication sélectionné. Par exemple, vous pouvez utiliser ce modèle de règle pour créer une règle qui envoie toutes les revendications de groupe entrantes. Vous pouvez également utiliser cette règle pour envoyer uniquement nom d’utilisateur principal \(UPN\) les revendications qui se terminent par @fabrikam.  
   
@@ -130,11 +128,11 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 
   
 ## <a name="additional-references"></a>Références supplémentaires  
-[Configurer des règles de revendication](Configure-Claim-Rules.md)  
+[Configurer les règles de revendication](Configure-Claim-Rules.md)  
   
 [Quand utiliser un passthrough ou filtrer la règle de revendication](../../ad-fs/technical-reference/When-to-Use-a-Pass-Through-or-Filter-Claim-Rule.md)  
   
-[Le rôle de revendications](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
+[Rôle des revendications](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Le rôle de règles de revendication](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md)  
+[Rôle des règles de revendication](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md)  
   

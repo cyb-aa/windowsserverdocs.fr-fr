@@ -9,16 +9,15 @@ ms.date: 10/25/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3d622686a3cc34316f0cf5187839785195c2f104
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2f6e4abb4255281be85b7fa928566f681bcf2de2
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880230"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188360"
 ---
 # <a name="auditing-enhancements-to-ad-fs-in-windows-server-2016"></a>Améliorations de l’audit apportées à AD FS dans Windows Server 2016
 
->S'applique à : Windows Server 2016
 
 Actuellement, dans AD FS pour Windows Server 2012 R2 il sont nombreux événements d’audit générés pour une seule requête et les informations pertinentes sur un journal dans ou les activités d’émission de jeton soient absent (dans certaines versions d’AD FS) ou répartie sur plusieurs événements d’audit. Par défaut, les services AD FS, les événements d’audit sont désactivées en raison de leur nature détaillée.  
     Avec la version des services AD FS dans Windows Server 2016, l’audit est devenue plus simple et moins détaillé.  

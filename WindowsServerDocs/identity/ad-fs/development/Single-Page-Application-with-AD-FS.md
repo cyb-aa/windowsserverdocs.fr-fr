@@ -1,5 +1,5 @@
 ---
-title: Créer une application web à page unique à l’aide d’OAuth et la bibliothèque ADAL. JS avec AD FS 2016
+title: Créer une application web à page unique à l’aide d’OAuth et la bibliothèque ADAL. JS avec AD FS 2016 ou version ultérieure
 description: Une procédure pas à pas qui fournit des instructions pour l’authentification auprès d’AD FS à l’aide de la bibliothèque ADAL pour JavaScript sécurisation une AngularJS en fonction d’application à page unique
 author: billmath
 ms.author: billmath
@@ -8,16 +8,14 @@ ms.date: 06/12/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: 78ab9f5d7c3e75650a4efb171d3b9281c56c63d3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1292c7e6cd1dec6926516880c34fe60fb97a9ec8
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865300"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190500"
 ---
-# <a name="build-a-single-page-web-application-using-oauth-and-adaljs-with-ad-fs-2016"></a>Créer une application web à page unique à l’aide d’OAuth et la bibliothèque ADAL. JS avec AD FS 2016
-
->S'applique à : Windows Server 2016
+# <a name="build-a-single-page-web-application-using-oauth-and-adaljs-with-ad-fs-2016-or-later"></a>Créer une application web à page unique à l’aide d’OAuth et la bibliothèque ADAL. JS avec AD FS 2016 ou version ultérieure
 
 Cette procédure pas à pas fournit des instructions pour l’authentification auprès d’AD FS à l’aide de la bibliothèque ADAL pour JavaScript sécurisation une AngularJS en fonction d’application à page unique, implémentée avec un serveur principal d’API Web ASP.NET.
 
@@ -26,7 +24,7 @@ Dans ce scénario, quand l’utilisateur se connecte, le code JavaScript frontal
 >AVERTISSEMENT : L’exemple que vous pouvez générer ici est à titre éducatif uniquement. Ces instructions concernent l’implémentation la plus simple, plus minimale possible d’exposer les éléments requis du modèle. L’exemple ne peut pas inclure tous les aspects de la gestion des erreurs et autres concernent les fonctionnalités.
 
 >[!NOTE]
->Cette procédure pas à pas concerne **uniquement** pour le serveur AD FS 2016 et versions ultérieures 
+>Cette procédure pas à pas concerne **uniquement** pour le serveur AD FS 2016 et versions ultérieur 
 
 ## <a name="overview"></a>Vue d'ensemble
 Dans cet exemple, nous allons créer un flux d’authentification dans lequel un client d’application monopage authentifiera dans AD FS pour sécuriser l’accès aux ressources sur le serveur principal WebAPI. Voici le flux d’authentification globale
@@ -52,8 +50,8 @@ Vous pouvez utiliser si vous le souhaitez, seuls deux machines. Une pour le cont
 
 Comment configurer le contrôleur de domaine et d’AD FS n’entre pas dans la portée de cet article. Pour des informations supplémentaires sur le déploiement, consultez :
 
-- [Déploiement d’AD DS](../../ad-ds/deploy/AD-DS-Deployment.md) 
-- [Déploiement d’AD FS](../AD-FS-Deployment.md)
+- [Déploiement AD DS](../../ad-ds/deploy/AD-DS-Deployment.md) 
+- [Déploiement d’AD FS](../AD-FS-Deployment.md)
 
 
 
@@ -157,7 +155,7 @@ Modifiez l’appsettings comme indiqué ci-dessous :
 ## <a name="running-the-solution"></a>Exécution de la solution
 Nettoyer la solution, régénérez la solution et l’exécuter. Si vous souhaitez afficher les traces détaillées, lancez Fiddler et activer le déchiffrement HTTPS.
 
-Le navigateur se charge de l’application SPA et s’affiche l’écran suivant :
+Le navigateur (utilisez le navigateur Chrome) chargera le SPA et s’affiche l’écran suivant :
 
 ![Inscrire le client](media/Single-Page-Application-with-AD-FS/singleapp3.PNG)
 
@@ -174,4 +172,4 @@ Vous pourrez maintenant appeler l’API pour ajouter des éléments de liste de 
 ![Fiddler](media/Single-Page-Application-with-AD-FS/singleapp6.PNG)
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Développement de AD FS](../../ad-fs/AD-FS-Development.md)  
+[Développement des services AD FS](../../ad-fs/AD-FS-Development.md)  

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4bde30f694c6490962edaa0c3fe1543e74ba7fd7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9cc40920d366c973ace06a0b6d438a1c2d84b03e
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842980"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190510"
 ---
 # <a name="where-to-place-a-federation-server-proxy"></a>Où installer un serveur proxy de fédération
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous pouvez placer des Services de fédération Active Directory \(AD FS\)proxys serveur de fédération dans un réseau de périmètre pour fournir une couche de protection contre les utilisateurs malveillants pouvant provenir d’Internet. Les serveurs proxy de fédération sont parfaits pour l’environnement de réseau de périmètre, car ils n’ont pas accès aux clés privées utilisées pour créer des jetons. Toutefois, serveurs proxy de fédération peut router efficacement des demandes entrantes vers les serveurs de fédération qui sont autorisés à produire ces jetons.  
   
@@ -53,4 +51,4 @@ Pour faciliter des communications sécurisées AD FS, vous devez configurer ISA 
 > Le serveur de fédération ou le serveur proxy de fédération requiert que la connexion sécurisée par SSL pour protéger le contenu du jeton de sécurité.  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

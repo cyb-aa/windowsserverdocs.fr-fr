@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1711e7d7de871c9ae9b1b7ea7b21f6e75ae15220
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2b5c7228094305759344d5094cffa7f24a0da7a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868470"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190024"
 ---
 # <a name="change-the-company-name-on-the-ad-fs-sign-in-page"></a>Modifier le nom de la société sur la page de connexion AD FS
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2
  
 Pour modifier le nom de la société qui s’affiche sur le signe\-dans la page, utilisez l’applet de commande Windows PowerShell suivante et la syntaxe. Par défaut, cette valeur est tirée du nom complet du service de fédération que vous avez entré pendant l'installation.  
 

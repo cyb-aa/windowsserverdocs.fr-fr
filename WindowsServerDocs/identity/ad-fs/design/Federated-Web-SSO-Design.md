@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: b85f49ac0556bf9b3542a23514d7fcbf82d2d88e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f7454279f234f65136b9fe6649a6e96ea53e5d51
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865140"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191509"
 ---
 # <a name="federated-web-sso-design"></a>Conception SSO de Web fédéré
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 L’unique Web fédérée\-connexion\-sur \(SSO\) conception dans Active Directory Federation Services \(AD FS\) implique des communications sécurisées qui s’étend sur plusieurs pare-feux, périmètre réseaux et le nom\-serveurs de résolution, en plus de l’infrastructure de routage Internet.  
   
@@ -37,15 +35,15 @@ Dans cette conception SSO de Web fédéré, deux serveurs de fédération \(un d
   
 Dans cet exemple, Fabrikam est le fournisseur d’identité ou de compte. La partie consacrée à Fabrikam de la conception SSO de Web fédéré utilise l’objectif de déploiement AD FS suivant :  
   
--   [Fournir l’accès aux utilisateurs de votre Active Directory pour les Applications et Services d’autres organisations](Provide-Your-Active-Directory-Users-Access-to-the-Applications-and-Services-of-Other-Organizations.md)  
+-   [Fournir à vos utilisateurs Active Directory un accès aux applications et services d’autres organisations](Provide-Your-Active-Directory-Users-Access-to-the-Applications-and-Services-of-Other-Organizations.md)  
   
 Contoso est le fournisseur de ressources. La partie de Contoso de la conception SSO de Web fédéré atteint les objectifs de déploiement AD FS suivants :  
   
--   [Fournir aux utilisateurs d’une autre organisation un accès à vos Services et Applications prenant en charge les revendications](Provide-Users-in-Another-Organization-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
+-   [Fournir aux utilisateurs d’une autre organisation un accès à vos applications et services prenant en charge les revendications](Provide-Users-in-Another-Organization-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
   
--   [Fournir l’accès aux utilisateurs de votre Active Directory pour vos Services et Applications prenant en charge les revendications](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
+-   [Fournir à vos utilisateurs Active Directory un accès à vos applications et services prenant en charge les revendications](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
   
 Pour obtenir la liste détaillée des tâches que vous pouvez utiliser pour planifier et déployer la conception SSO de Web fédéré, consultez [liste de vérification : Implémentation d’une conception SSO Web fédéré](../../ad-fs/deployment/Checklist--Implementing-a-Federated-Web-SSO-Design.md).  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

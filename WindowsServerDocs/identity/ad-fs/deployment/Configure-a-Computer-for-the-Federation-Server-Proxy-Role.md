@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 2a89bab2fd1af1a1d7234da29f2025b4b12d6774
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b01e2ae567155cd3d53d6d7972bfd0b9ec0cf51b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861800"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192281"
 ---
 # <a name="configure-a-computer-for-the-federation-server-proxy-role"></a>Configurer un ordinateur pour le rôle de serveur proxy de fédération
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Après avoir configuré un ordinateur avec les certificats requis et que vous avez installé le service de rôle Proxy du Service de fédération, vous êtes prêt à configurer l’ordinateur pour qu’il devienne un serveur proxy de fédération. Vous pouvez utiliser la procédure suivante pour que l’ordinateur tienne le rôle de serveur proxy de fédération.  
   
@@ -102,6 +100,6 @@ Par défaut, le service de proxy de serveur de fédération est configuré pour 
     Les commandes précédentes doivent être exécutées sur le serveur de fédération et les ordinateurs de proxy de serveur de fédération.  
   
 ## <a name="additional-references"></a>Références supplémentaires  
-[Liste de vérification : Configuration d’un serveur Proxy de fédération](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Liste de vérification : configuration d’un serveur de fédération proxy](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 

@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 7bc890c744de5cd86d4e8b0418e75512518f656c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: da91a3e8c34c86f7fd03ca875b3800fdb6001750
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880940"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192115"
 ---
 # <a name="import-a-server-authentication-certificate-to-the-default-web-site"></a>Importer un certificat d'authentification serveur sur le site web par défaut
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Après avoir obtenu un serveur de certificat d’authentification auprès d’une autorité de certification \(autorité de certification\), vous devez installer manuellement ce certificat sur le Site Web par défaut pour chaque serveur de fédération ou le serveur proxy de fédération dans une batterie de serveurs.  
   
@@ -50,11 +48,11 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 ## <a name="additional-references"></a>Références supplémentaires  
 [Liste de vérification : Configuration d’un serveur de fédération](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[Liste de vérification : Configuration d’un serveur Proxy de fédération](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Liste de vérification : configuration d’un serveur de fédération proxy](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
-[Configuration requise des certificats pour les serveurs de fédération](https://technet.microsoft.com/library/dd807040.aspx)  
+[Certificats requis pour les serveurs de fédération](https://technet.microsoft.com/library/dd807040.aspx)  
   
-[Configuration requise des certificats pour les serveurs proxy de fédération](https://technet.microsoft.com/library/dd807054.aspx)  
+[Certificats requis pour les serveurs proxy de fédération](https://technet.microsoft.com/library/dd807054.aspx)  
    
   
 

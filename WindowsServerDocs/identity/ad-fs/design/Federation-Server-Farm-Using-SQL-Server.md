@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e26b7cac971f472bc8b5e48e3dc8cd2592dc22ce
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 585d0195b096056ba769f4e9a08d5c4d2156b96a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814780"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191452"
 ---
 # <a name="federation-server-farm-using-sql-server"></a>Batterie de serveurs de fédération utilisant SQL Server
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 Cette topologie pour Active Directory Federation Services \(AD FS\) diffère de la batterie de serveurs de fédération à l’aide de la base de données interne Windows \(WID\) topologie de déploiement qui elle ne réplique pas les données à chaque serveur de fédération dans la batterie de serveurs. Au lieu de cela, tous les serveurs de fédération dans la batterie de serveurs peuvent lire et écrire des données dans une base de données commune qui est stocké sur un serveur exécutant Microsoft SQL Server qui se trouve dans le réseau d’entreprise.  
   
@@ -162,7 +160,7 @@ Le diagramme suivant illustre un géographiquement redondant batteries de serveu
 Pour obtenir des instructions plus détaillées sur la façon de configurer AD FS à utiliser une réplication de fusion SQL Server, consultez [le programme d’installation à la redondance géographique avec la réplication SQL Server](https://technet.microsoft.com/library/dn632406.aspx).  
   
 ## <a name="see-also"></a>Voir aussi  
-[Planifier votre topologie de déploiement AD FS](Plan-Your-AD-FS-Deployment-Topology.md)  
-[Guide de conception AD FS dans Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
+[Planifier votre topologie de déploiement d’AD FS](Plan-Your-AD-FS-Deployment-Topology.md)  
+[Guide de conception AD FS dans Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   
 

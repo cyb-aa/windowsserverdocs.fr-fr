@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: bb4e5f88f3d62511b185a2b4317416169717c860
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f0f3d8c70a41d512e7cd33282524bc401ce84600
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851400"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191430"
 ---
 # <a name="federation-server-farm-using-wid"></a>Batterie de serveurs de fédération utilisant la base de données interne Windows
-
->S'applique à : Windows Server 2012
 
 La topologie par défaut pour les Services de fédération Active Directory \(AD FS\) est une batterie de serveurs de fédération, à l’aide de la base de données interne Windows \(WID\), qui se compose de cinq serveurs de fédération qui héberge votre Service de fédération de l’organisation. Dans cette topologie, AD FS utilise WID comme magasin pour la base de données de configuration AD FS pour tous les serveurs de fédération qui sont joints à la batterie. La batterie réplique et maintient les données du service de fédération de la base de données de configuration à travers chaque serveur de la batterie.  
   
@@ -75,4 +73,4 @@ L’hôte NLB peut utiliser les paramètres qui sont définis dans ce cluster NL
 Pour plus d’informations sur comment configurer votre environnement réseau pour une utilisation avec les serveurs de fédération, consultez [Name Resolution Requirements for Federation Servers](Name-Resolution-Requirements-for-Federation-Servers.md) dans le Guide de conception AD FS.  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

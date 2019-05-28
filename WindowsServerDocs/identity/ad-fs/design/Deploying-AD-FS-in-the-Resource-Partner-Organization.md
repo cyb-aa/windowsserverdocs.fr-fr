@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4a556c07e7d6e0bec4c947ea9d1a75eef9964cef
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: acdecd4afd9c55bdbd71cea9e01f3b3024870ced
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877600"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191519"
 ---
 # <a name="deploying-ad-fs-in-the-resource-partner-organization"></a>Déploiement des services de fédération Active Directory (AD FS) dans l’organisation partenaire de ressource
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 L’organisation du partenaire de ressource dans Active Directory Federation Services \(AD FS\) représente l’organisation dont les serveurs Web peuvent être protégés par une ressource\-serveur de fédération de côté. Le serveur de fédération du partenaire de ressource utilise les jetons de sécurité qui sont produites par le partenaire de compte pour fournir des revendications aux serveurs Web qui sont trouvent dans le partenaire de ressource.  
   
@@ -28,12 +26,12 @@ Pour plus d’informations sur comment installer et configurer une organisation 
   
 ## <a name="in-this-section"></a>Dans cette section  
   
--   [Passez en revue le rôle du serveur de fédération du partenaire de ressource](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md)  
+-   [Passer en revue le rôle du serveur de fédération du partenaire de ressource](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md)  
   
--   [Passez en revue le rôle de serveur Proxy de fédération du partenaire de ressource](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md)  
+-   [Passer en revue le rôle du serveur proxy de fédération du partenaire de ressource](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md)  
   
--   [Déterminez votre stratégie d’Application fédérée dans le partenaire de ressource](Determine-Your-Federated-Application-Strategy-in-the-Resource-Partner.md)  
+-   [Déterminer votre stratégie d’application fédérée dans le partenaire de ressource](Determine-Your-Federated-Application-Strategy-in-the-Resource-Partner.md)  
   
 
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

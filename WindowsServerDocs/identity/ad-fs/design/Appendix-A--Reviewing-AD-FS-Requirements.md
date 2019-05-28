@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d5cfb5de77843eebfc152b9c79ac55bab1fa7727
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5e90df713f08dd387a2438b34839d16efe6e470f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818170"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191694"
 ---
 # <a name="appendix-a-reviewing-ad-fs-requirements"></a>Annexe A : examen de la configuration requise pour AD FS
-
->S'applique à : Windows Server 2012
 
 Afin que les partenaires organisationnels dans votre déploiement Active Directory Federation Services (ADFS) puissent collaborer efficacement, vous devez tout d’abord vous assurer que votre infrastructure de réseau d’entreprise est configurée pour prendre en charge la configuration requise pour AD FS pour les comptes, nom résolution et certificats. AD FS présente les conditions requises suivantes :  
   
@@ -182,4 +180,4 @@ L’authentification de carte à puce utilise le protocole Kerberos pour s’aut
 Si la procédure d'authentification le nécessite, vous pouvez également configurer AD FS de manière à créer une revendication qui indique la façon dont l'utilisateur a été authentifié. Une partie de confiance peut ensuite utiliser cette revendication pour prendre une décision d'autorisation.  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

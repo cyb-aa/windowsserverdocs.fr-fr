@@ -9,16 +9,15 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d5c2d84c263517a4c81622ca02538796ccd9da71
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2d819ea036029fbe7cfde9ad5a445db6b2b42c96
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817500"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189698"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Configuration d’AD FS pour l’authentification de certificat utilisateur
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 AD FS peut être configurée pour x509 à l’aide d’un des modes d’authentification des certificats utilisateur décrit dans [cet article](ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md). Cette fonctionnalité peut être utilisée [avec Azure Active Directory](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/) ou sur sa propre pour activer les clients et appareils mis en service avec des certificats d’utilisateur pour l’accès AD FS ressources à partir de l’intranet ou l’extranet.
 
@@ -43,7 +42,7 @@ Pour plus d’informations sur cette configuration pour Chrome, reportez-vous à
 
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
-- Si les demandes d’authentification de certificat échouent avec un HTTP 204 « pas de contenu à partir de https://certauth.fs.contoso.com« réponse, vérifiez que la racine et les certificats d’autorité de certification intermédiaires sont installés, respectivement, à la racine approuvée d’autorité de certification et de l’autorité de certification intermédiaire magasins sur l’ensemble de certificats serveurs de fédération.
+- Si les demandes d’authentification de certificat échouent avec un HTTP 204 « aucun contenu à partir de https :\//certauth.fs.contoso.com « réponse, vérifiez que la racine et les certificats d’autorité de certification intermédiaires sont installés, respectivement, à l’autorité de certification racine approuvée et certificat d’autorité de certification intermédiaire stocke sur tous les serveurs de fédération.
 - Si des demandes de certificat d’authentification échouent pour une raison inconnue, exporter le certificat client vers un fichier .cer et exécutez la commande 
 
 `certutil -f -urlfetch -verify certificatefilename.cer`

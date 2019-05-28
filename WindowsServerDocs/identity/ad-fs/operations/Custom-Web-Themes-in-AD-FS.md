@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 300c9fda84285ddfc52a4f47ea0198deb6fd33ef
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2bce52a5704706ad72799d00879e2f4e48f9d703
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882290"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189248"
 ---
 # <a name="custom-web-themes-in-ad-fs"></a>Thèmes Web personnalisés dans AD FS 
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 Le thème qui est livré out\-de\-le\-est appelée par défaut. Vous pouvez exporter le thème par défaut de manière à démarrer rapidement. Vous pouvez personnaliser l'apparence et le comportement, notamment la disposition par le biais du fichier .css, importer et appliquer ce nouveau thème, puis utiliser l'apparence et le comportement personnalisés. L'utilisation du fichier .css facilite par ailleurs la collaboration avec vos concepteurs web.  
   

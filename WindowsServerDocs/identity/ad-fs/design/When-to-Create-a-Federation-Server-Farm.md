@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2e7c991cf87bc0e6914e158f0878bcadbede3c22
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 91a0122198639bf75e9e43e9da9edf68dd0453d9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816230"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190679"
 ---
 # <a name="when-to-create-a-federation-server-farm"></a>Création d’une batterie de serveurs de fédération
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Envisagez de créer une batterie de serveurs de fédération dans Active Directory Federation Services \(AD FS\) lorsque vous avez un déploiement AD FS plus volumineux et que vous souhaitez fournir une tolérance de panne, la charge\-équilibrage ou l’évolutivité pour votre Service de fédération de l’organisation. Le fait de créer deux ou plusieurs serveurs de fédération dans le même réseau, configurer chacun d’eux à utiliser le même Service de fédération et ajout de jeton de la clé publique de chaque serveur\-certificats de signature pour le composant logiciel enfichable Gestion AD FS\-dans Crée une batterie de serveurs de fédération.  
   
@@ -55,4 +53,4 @@ Le tableau suivant décrit les tâches qui doivent être effectuées afin que ch
 |Pointer vers la même instance de SQL Server|Si la base de données de configuration AD FS est stockée dans une base de données SQL, le nouveau serveur de fédération doit pointer vers la même instance de SQL Server qui est utilisée par d’autres serveurs de fédération dans la batterie de serveurs afin que le nouveau serveur puisse intégrer dans la batterie de serveurs.|  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

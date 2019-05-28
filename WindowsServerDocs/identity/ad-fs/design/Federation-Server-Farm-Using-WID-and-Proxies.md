@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e372f066fc82b9857d438234b491732a177e24fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d49ae34d83d4a0b912bd92dbb9de16e18cc5b7ff
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860390"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191340"
 ---
 # <a name="federation-server-farm-using-wid-and-proxies"></a>Batterie de serveurs de fédération utilisant la base de données interne Windows et des proxys
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 Cette topologie de déploiement d’Active Directory Federation Services \(AD FS\) est identique à la batterie de serveurs de fédération avec base de données interne Windows \(WID\) topologie, mais il ajoute des ordinateurs de proxy pour le réseau de périmètre pour prendre en charge des utilisateurs externes. Ces proxies rediriger les demandes d’authentification client provenant de l’extérieur de votre réseau d’entreprise à la batterie de serveurs de fédération. Dans les versions précédentes d’AD FS, ces proxys ont été appelées serveurs proxy de fédération.  
   
@@ -66,7 +64,7 @@ L’illustration suivante montre la batterie de serveurs de fédération existan
 Pour plus d’informations sur la configuration de votre environnement réseau pour une utilisation avec les serveurs de fédération ou de proxys d’application web, consultez « Exigences de résolution de nom » section [configuration AD FS requise](AD-FS-Requirements.md) et [planifier le Web Infrastructure du Proxy d’application (WAP)](https://technet.microsoft.com/library/dn383648.aspx).  
   
 ## <a name="see-also"></a>Voir aussi  
-[Planifier votre topologie de déploiement AD FS](Plan-Your-AD-FS-Deployment-Topology.md)  
-[Guide de conception AD FS dans Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
+[Planifier votre topologie de déploiement d’AD FS](Plan-Your-AD-FS-Deployment-Topology.md)  
+[Guide de conception AD FS dans Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   
 

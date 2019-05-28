@@ -9,23 +9,22 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 39c735e9dde0fd60c7eb9ccfe0af890bdc5a5950
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c8e72f1075b984506f9f992cd45cf853b50bddeb
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838320"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191921"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Mise à niveau vers AD FS dans Windows Server 2016 à l'aide d'une base de données WID
 
->S'applique à : Windows Server 2019, Windows Server 2016
 
 
-## <a name="upgrading-a-windows-server-2012-r2-or-2016-ad-fs-farm-to-windows-server-2019"></a>La mise à niveau un serveur Windows Server 2012 R2 ou 2016 batterie de serveurs ADFS pour Windows Server 2019 
+## <a name="upgrading-a-windows-server-2012-r2-or-2016-ad-fs-farm-to-windows-server-2019"></a>La mise à niveau un serveur Windows Server 2012 R2 ou 2016 batterie de serveurs ADFS pour Windows Server 2019
 Le document suivant décrit comment mettre à niveau votre batterie AD FS à AD FS dans Windows Server 2019 lorsque vous utilisez une base de données WID.  
 
 ### <a name="ad-fs-farm-behavior-levels-fbl"></a>Niveaux de comportement AD FS de batterie de serveurs (FBL)  
-Dans AD FS pour Windows Server 2016, le niveau de comportement de la batterie (FBL) a été introduit. Il s’agit de batterie de serveurs à l’échelle du paramètre qui détermine que la batterie de serveurs fonctionnalités AD FS peut utiliser. 
+Dans AD FS pour Windows Server 2016, le niveau de comportement de la batterie (FBL) a été introduit. Il s’agit de batterie de serveurs à l’échelle du paramètre qui détermine que la batterie de serveurs fonctionnalités AD FS peut utiliser.
 
 Le tableau suivant répertorie les valeurs FBL par version de Windows Server :
 | Version de Windows Server  | FBL | AD FS Configuration Database Name |
@@ -59,7 +58,7 @@ Le reste de l’est le document décrit les étapes pour l’ajout d’un serveu
 
 ##### <a name="to-upgrade-your-ad-fs-farm-to-windows-server-2019-farm-behavior-level"></a>Pour mettre à niveau votre batterie AD FS pour le niveau de comportement de batterie de serveurs Windows Server 2019  
 
-1.  À l’aide du Gestionnaire de serveur, installez le rôle Services de fédération Active Directory sur le 2019 de serveur Windows 
+1.  À l’aide du Gestionnaire de serveur, installez le rôle Services de fédération Active Directory sur le 2019 de serveur Windows
 
 2.  À l’aide de l’Assistant de Configuration AD FS, de joindre le nouveau serveur Windows Server 2019 pour la batterie de serveurs AD FS existante.  
 
@@ -77,45 +76,56 @@ Le reste de l’est le document décrit les étapes pour l’ajout d’un serveu
 
     ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_5.png)  
 
-6.  Sur chaque Proxy d’Application Web, reconfigurez le proxy d’application Web en exécutant la commande PowerShell suivante dans une fenêtre avec élévation de privilèges :  
-```powershell
-$trustcred = Get-Credential -Message "Enter Domain Administrator credentials"
-Install-WebApplicationProxy -CertificateThumbprint {SSLCert} -fsname fsname -FederationServiceTrustCredential $trustcred  
-```
-
-7.  Ouvrez Gestion AD FS maintenant sur le serveur de fédération Windows Server 2016. Notez que maintenant toutes les fonctionnalités d’administration apparaissent, car le rôle principal a été transféré à ce serveur.  
+6.  Ouvrez Gestion AD FS maintenant sur le serveur de fédération Windows Server 2016. Notez que maintenant toutes les fonctionnalités d’administration apparaissent, car le rôle principal a été transféré à ce serveur.  
 
     ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_6.png)  
 
-8.  Si vous mettez à niveau une batterie de serveurs AD FS 2012 R2 à 2016 ou 2019, la mise à niveau de la batterie de serveurs requiert le schéma Active Directory soit au moins le niveau 85.  Pour mettre à niveau le schéma, le support d’installation avec le Windows Server 2016, ouvrez une invite de commandes et accédez au répertoire de support\adprep. Exécutez la commande suivante :  `adprep /forestprep`
+7.  Si vous mettez à niveau une batterie de serveurs AD FS 2012 R2 à 2016 ou 2019, la mise à niveau de la batterie de serveurs requiert le schéma Active Directory soit au moins le niveau 85.  Pour mettre à niveau le schéma, le support d’installation avec le Windows Server 2016, ouvrez une invite de commandes et accédez au répertoire de support\adprep. Exécutez la commande suivante :  `adprep /forestprep`
 
     ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_7.png)  
 
     Une fois que l’exécution se termine `adprep/domainprep`
     >[!NOTE]
-    >Avant d’exécuter l’étape suivante, assurez-vous de que Windows Server est en cours en exécutant la mise à jour Windows à partir des paramètres. Continuez ce processus jusqu’à ce qu’il n’y ait plus de mises à jour nécessaires. 
-    > 
-    
+    >Avant d’exécuter l’étape suivante, assurez-vous de que Windows Server est en cours en exécutant la mise à jour Windows à partir des paramètres. Continuez ce processus jusqu’à ce qu’il n’y ait plus de mises à jour nécessaires.
+    >
+
     ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_8.png)  
 
-9. Maintenant disponible sur le serveur Windows Server 2016, ouvrez PowerShell et exécutez l’applet de commande suivante :
+8. Maintenant disponible sur le serveur Windows Server 2016, ouvrez PowerShell et exécutez l’applet de commande suivante :
     >[!NOTE]
     > Tous les serveurs de 2012 R2 doivent être supprimés de la batterie avant d’exécuter l’étape suivante.
- 
+
     `Invoke-AdfsFarmBehaviorLevelRaise`  
 
     ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_9.png)  
 
-10. Lorsque vous y êtes invité, tapez O. Ceci lancera augmentation du niveau. Une fois cette opération terminée vous avez correctement déclenché la FBL.  
+9. Lorsque vous y êtes invité, tapez O. Ceci lancera augmentation du niveau. Une fois cette opération terminée vous avez correctement déclenché la FBL.  
 
     ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_10.png)  
 
-11. Maintenant, si vous accédez à gestion AD FS, vous verrez que les nouvelles fonctionnalités ont été ajoutées pour la dernière version d’AD FS 
+10. Maintenant, si vous accédez à gestion AD FS, vous verrez que les nouvelles fonctionnalités ont été ajoutées pour la dernière version d’AD FS
 
     ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_12.png)  
 
-13. De même, vous pouvez utiliser l’applet de commande PowerShell : `Get-AdfsFarmInformation` pour vous montrer le FBL actuel.  
+11. De même, vous pouvez utiliser l’applet de commande PowerShell : `Get-AdfsFarmInformation` pour vous montrer le FBL actuel.  
 
     ![mettre à niveau](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_13.png)  
-    
 
+12. Pour mettre à niveau les serveurs WAP au niveau plus récent, sur chaque Proxy d’Application Web, reconfigurez le proxy d’application Web en exécutant la commande PowerShell suivante dans une fenêtre avec élévation de privilèges :  
+    ```powershell
+    $trustcred = Get-Credential -Message "Enter Domain Administrator credentials"
+    Install-WebApplicationProxy -CertificateThumbprint {SSLCert} -fsname fsname -FederationServiceTrustCredential $trustcred  
+    ```
+    Supprimer les anciens serveurs du cluster et conserver uniquement les serveurs WAP exécutent la dernière version de serveur, qui ont été reconfigurés ci-dessus, en exécutant l’applet de commande Powershell suivante.
+    ```powershell
+    Set-WebApplicationProxyConfiguration -ConnectedServersName WAPServerName1, WAPServerName2
+    ```
+    Vérifiez la configuration de proxy d’application Web en exécutant la commmandlet Get-WebApplicationProxyConfiguration. Le ConnectedServersName reflète le serveur à exécuter à partir de la commande précédente.
+    ```powershell
+    Get-WebApplicationProxyConfiguration
+    ```
+    Pour mettre à niveau la ConfigurationVersion des serveurs WAP, exécutez la commande Powershell suivante.
+    ```powershell
+    Set-WebApplicationProxyConfiguration -UpgradeConfigurationVersion
+    ```
+    Cela va terminer la mise à niveau des serveurs WAP.

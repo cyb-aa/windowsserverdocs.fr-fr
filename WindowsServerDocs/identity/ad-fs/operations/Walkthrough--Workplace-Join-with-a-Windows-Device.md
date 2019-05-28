@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fd222eb47982591e051594e8a572443b65c0357f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8b3b2934e7aa177e873e19d77530b2d796ccd521
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864000"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188898"
 ---
 # <a name="walkthrough-workplace-join-with-a-windows-device"></a>Démonstration : joindre un espace de travail avec un appareil Windows
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 Cette rubrique montre comment utiliser la jonction d'espace de travail pour connecter votre appareil Windows à votre espace de travail et comment accéder à une application web à l'aide de l'authentification unique. Vous devez effectuer les étapes décrites dans le [configurer l’environnement lab pour AD FS dans Windows Server 2012 R2](../deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md) section avant de suivre cette procédure.
 
@@ -84,7 +82,7 @@ Dans cette partie de la démonstration, vous accédez à une application web d'e
 ## <a name="see-also"></a>Voir aussi
 [Rejoindre un espace de travail à partir de n’importe quel appareil pour l’authentification unique et transparente deuxième facteur Authentication Across Company Applications](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
 [configurer l’environnement lab pour AD FS dans Windows Server 2012 R2](../deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md) 
- [ Procédure pas à pas : Espace de travail avec un appareil iOS](Walkthrough--Workplace-Join-with-an-iOS-Device.md)
+ [ Procédure pas à pas : Joindre un espace de travail avec un appareil iOS](Walkthrough--Workplace-Join-with-an-iOS-Device.md)
 
 
 

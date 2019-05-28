@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: df35348cb51a9021f4aaa2fc6516cb119bdb8b8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 542d7a24e29b52dd3fa0d7ea6a9b2d27fb620d8d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849430"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188504"
 ---
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="the-role-of-claims"></a>Rôle des revendications
 Dans les revendications\-modèle d’identité basé sur, revendications jouent un rôle essentiel dans le processus de fédération, ils constituent le composant clé par lequel le résultat de toutes les applications Web\-basé sur les demandes d’authentification et d’autorisation sont déterminées. Ce modèle permet aux organisations de partager de manière sécurisée l'identité numérique et les droits d'accès , ou *revendications*, hors de l'entreprise de façon normalisée.  
   

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a0fff975b9cb278e59686323d2bd72e641597573
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 66c8bae2fbccca2bf618e46ffd3ccc05cb52f911
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863950"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191504"
 ---
 # <a name="federation-server-farm-using-sql-server"></a>Batterie de serveurs de fédération utilisant SQL Server
-
->S'applique à : Windows Server 2012
 
 Cette topologie pour Active Directory Federation Services \(AD FS\) diffère de la batterie de serveurs de fédération à l’aide de la base de données interne Windows \(WID\) topologie de déploiement qui elle ne réplique pas les données à chaque serveur de fédération dans la batterie de serveurs. Au lieu de cela, tous les serveurs de fédération dans la batterie de serveurs peuvent lire et écrire des données dans une base de données commune qui est stocké sur un serveur exécutant Microsoft SQL Server qui se trouve dans le réseau d’entreprise.  
   
@@ -65,4 +63,4 @@ L’illustration suivante montre comment la société fictive Contoso Pharmaceut
 Pour plus d’informations sur la configuration de votre environnement réseau pour une utilisation avec les serveurs de fédération ou de serveurs proxy de fédération, consultez [Name Resolution Requirements for Federation Servers](Name-Resolution-Requirements-for-Federation-Servers.md) ou [nom Configuration de la résolution pour les serveurs proxy de fédération](Name-Resolution-Requirements-for-Federation-Server-Proxies.md).  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

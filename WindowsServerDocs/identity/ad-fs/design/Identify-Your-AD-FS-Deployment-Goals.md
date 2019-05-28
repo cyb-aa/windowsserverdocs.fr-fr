@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f618add4c4803142b3bd7278908834a412f30999
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2b881553431be873ed9883da67a7989527d7d288
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862570"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191266"
 ---
 # <a name="identify-your-ad-fs-deployment-goals"></a>Identifier vos objectifs de déploiement d’AD FS
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 L’identification correcte de votre Active Directory Federation Services \(AD FS\) objectifs de déploiement est essentielle pour la réussite de votre projet de conception AD FS. Hiérarchisez et, éventuellement, combinez vos objectifs de déploiement afin que vous pouvez concevoir et déployer AD FS à l’aide d’une approche itérative. Vous pouvez tirer parti d’existant, documentés et prédéfinis des objectifs de déploiement AD FS qui sont pertinents pour les conceptions AD FS et de développement une solution à votre situation.  
   
@@ -93,6 +91,6 @@ Voici les nouvelles fonctionnalités d’AD FS dans Windows Server® 2012 R2 qui
 -   Choix de l’authentification utilisateur lorsque plusieurs fournisseurs d’authentification sont disponibles.  
   
 ## <a name="see-also"></a>Voir aussi  
-[Guide de conception AD FS dans Windows Server 2012 R2](../../ad-fs/design/AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
+[Guide de conception AD FS dans Windows Server 2012 R2](../../ad-fs/design/AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   
 

@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 05f1ea6830237813e6fd2bd6a172f467e8d81065
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c0f8dca425f644952c36a289ec72651f6383e846
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839080"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192188"
 ---
 # <a name="deploying-a-federation-server-farm"></a>Déploiement d’une batterie de serveurs de fédération
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 Pour déployer une batterie de serveurs de fédération, effectuez les tâches de cette liste de vérification dans l’ordre. Lorsqu’un lien de référence vous redirige vers une rubrique conceptuelle, retournez dans cette liste de vérification une fois que vous avez consulté la rubrique conceptuelle afin de pouvoir effectuer les tâches restantes.  
   
@@ -38,7 +37,7 @@ Pour déployer une batterie de serveurs de fédération, effectuez les tâches d
   
 
 ## <a name="see-also"></a>Voir aussi  
-[Déploiement d’AD FS](../../ad-fs/AD-FS-Deployment.md)  
+[Déploiement d’AD FS](../../ad-fs/AD-FS-Deployment.md)  
 
 [Guide de déploiement de Windows Server 2012 R2 AD FS](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
   

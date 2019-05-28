@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 484dd08edef85b91e777f8963f175a6172c75430
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0191c822ec068c5486a1b0d5da4c1ae2ee9e4d31
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847390"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191098"
 ---
 # <a name="planning-for-ad-fs-server-capacity"></a>Planification de la capacité des serveurs AD FS
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
 > [!NOTE]  
@@ -36,9 +35,9 @@ Avant de poursuivre la lecture de ce contenu consacré à la planification de la
   
 |Tâche recommandée|Description|Référence|  
 |--------------------|---------------|-------------|  
-|Comprendre la configuration requise pour le déploiement de serveurs de fédération AD FS et des serveurs proxy de fédération|Passez en revue les configurations matérielles et logicielles requises qui ont leur importance pour le déploiement d'un serveur de fédération et de serveurs proxy de fédération.|[Annexe a : Examen des exigences en matière de AD FS](Appendix-A--Reviewing-AD-FS-Requirements.md)|  
-|Sélectionnez le type de base de données de configuration AD FS que vous allez déployer dans votre organisation|Avant de commencer à l’aide des données de planification de capacité dans cette section, vous devez d’abord déterminer quelle configuration AD FS que vous allez déployer, de type base de données interne Windows de base de données \(WID\) ou un langage de requête structuré \(SQL\) base de données.|[The Role of the AD FS Configuration Database](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md);<br /><br />[Considérations sur la topologie déploiement AD FS](AD-FS-Deployment-Topology-Considerations.md)|  
-|Déterminer le type de topologie à utiliser en fonction de la base de données de configuration AD FS sélectionnée|Après avoir choisi le type de base de données de configuration AD FS à utiliser dans votre déploiement, vous devez déterminer la topologie de déploiement qui convient le mieux là où vous devrez placer des serveurs de fédération et des serveurs proxy de fédération au sein de votre environnement de production.|[Déterminer votre topologie de déploiement AD FS](Determine-Your-AD-FS-Deployment-Topology.md)|  
+|Comprendre la configuration requise pour le déploiement de serveurs de fédération AD FS et des serveurs proxy de fédération|Passez en revue les configurations matérielles et logicielles requises qui ont leur importance pour le déploiement d'un serveur de fédération et de serveurs proxy de fédération.|[Annexe A : examen de la configuration requise pour AD FS](Appendix-A--Reviewing-AD-FS-Requirements.md)|  
+|Sélectionnez le type de base de données de configuration AD FS que vous allez déployer dans votre organisation|Avant de commencer à l’aide des données de planification de capacité dans cette section, vous devez d’abord déterminer quelle configuration AD FS que vous allez déployer, de type base de données interne Windows de base de données \(WID\) ou un langage de requête structuré \(SQL\) base de données.|[The Role of the AD FS Configuration Database](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md);<br /><br />[Considérations sur la topologie du déploiement d’AD FS](AD-FS-Deployment-Topology-Considerations.md)|  
+|Déterminer le type de topologie à utiliser en fonction de la base de données de configuration AD FS sélectionnée|Après avoir choisi le type de base de données de configuration AD FS à utiliser dans votre déploiement, vous devez déterminer la topologie de déploiement qui convient le mieux là où vous devrez placer des serveurs de fédération et des serveurs proxy de fédération au sein de votre environnement de production.|[Déterminer votre topologie de déploiement d’AD FS](Determine-Your-AD-FS-Deployment-Topology.md)|  
 |Comprendre les clés AD FS liées planification de capacité termes du contrat|Passez en revue les définitions des termes utilisés tout au long de la capacité AD FS présentation de la planification de planification de capacité courants.|Consulter la section intitulée [AD FS capacity planning terms](Planning-for-AD-FS-Server-Capacity.md#bk_terms) dans cette rubrique|  
   
 Après avoir consulté le contenu du tableau précédent, vous pouvez effectuer les tâches préalables indiquées dans le tableau ci-après.  
@@ -98,9 +97,9 @@ En règle générale, les composants matériels qui influent sur les performance
 ## <a name="continue-reading-more-about-ad-fs-capacity-planning"></a>Sources d'informations supplémentaires sur la planification de la capacité AD FS  
 Une fois que vous avez terminé les tâches préalables requises et que vous êtes familiarisé avec la terminologie et la configuration matérielle requise, vous pouvez utiliser la planification de la capacité supplémentaire suivante pour vous aider à déterminer le nombre recommandé de serveurs AD FS requis pour votre déploiement :  
   
--   [Planification de la capacité de serveur de fédération](Planning-for-Federation-Server-Capacity.md)  
+-   [Planification de la capacité des serveurs de fédération](Planning-for-Federation-Server-Capacity.md)  
   
--   [Planification de la capacité de Proxy de serveur de fédération](Planning-for-Federation-Server-Proxy-Capacity.md)  
+-   [Planification de la capacité des serveurs proxy de fédération](Planning-for-Federation-Server-Proxy-Capacity.md)  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

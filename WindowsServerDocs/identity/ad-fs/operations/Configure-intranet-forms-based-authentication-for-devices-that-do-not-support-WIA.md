@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: cddc5d890114dec7e0053b16701db6f03c3cbbdf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c79524a011336d676fa2e80936e1254a8d2dd6b2
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889850"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189689"
 ---
 # <a name="configuring-intranet-forms-based-authentication-for-devices-that-do-not-support-wia"></a>Configuration de l’authentification basée sur les formulaires intranet pour les appareils qui ne prennent pas en charge WIA
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 Par défaut, l’authentification intégrée de Windows (WIA) est activé dans Active Directory Federation Services (ADFS) dans Windows Server 2012 R2 pour les demandes d’authentification qui se produisent au sein du réseau interne de l’entreprise (intranet) pour toute application qui utilise un navigateur pour son authentification. Par exemple, il peuvent être basée sur navigateur les applications qui utilisent WS-Federation ou SAML protocoles et des applications riches qui utilisent le protocole OAuth. WIA offre aux utilisateurs finaux d’ouverture de session transparente pour les applications sans avoir à entrer manuellement leurs informations d’identification. Toutefois, certains appareils et navigateurs ne peuvent pas prendre en charge WIA et ainsi échoueront les demandes d’authentification à partir de ces appareils. En outre, l’expérience sur certains navigateurs negotiate, NTLM n’est pas souhaitable. L’approche recommandée consiste à utiliser l’authentification basée sur les formulaires pour ces appareils et les navigateurs.
 

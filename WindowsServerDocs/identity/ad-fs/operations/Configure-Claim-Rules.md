@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f9e0509e2f870fd0edc7f0c6a241d789945e7ccb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d0dd8528e5fbd6829b313a3e6bc47f5a17f6a12f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829410"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189719"
 ---
 # <a name="configure-claim-rules"></a>Configurer les règles de revendication
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 Dans un revendications\-modèle d’identité basé sur, la fonction d’Active Directory Federation Services \(AD FS\) federation services consiste à émettre un jeton qui contient un ensemble de revendications. Règles de revendications régissent les décisions en ce qui concerne les revendications AD FS émet. Les règles de revendication et toutes les données de configuration de serveur sont stockées dans la base de données de configuration AD FS.  
   
@@ -30,11 +28,11 @@ Les rubriques suivantes vous aidera à créer les règles qui traitera les servi
   
 -   [Créer une règle pour autoriser tous les utilisateurs](Create-a-Rule-to-Permit-All-Users.md)  
   
--   [Créer une règle pour autoriser ou refuser des utilisateurs en fonction d’une revendication entrante](Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim.md)  
+-   [Créer une règle pour autoriser ou refuser des utilisateurs en fonction d’une demande entrante](Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim.md)  
   
 -   [Créer une règle pour envoyer les attributs LDAP en tant que revendications](Create-a-Rule-to-Send-LDAP-Attributes-as-Claims.md)  
   
--   [Créer une règle Envoyer l’appartenance au groupe en tant que revendication](Create-a-Rule-to-Send-Group-Membership-as-a-Claim.md)  
+-   [Créer une règle pour envoyer l’appartenance à un groupe en tant que revendication](Create-a-Rule-to-Send-Group-Membership-as-a-Claim.md)  
   
 -   [Créer une règle pour transformer une revendication entrante](Create-a-Rule-to-Transform-an-Incoming-Claim.md)  
   

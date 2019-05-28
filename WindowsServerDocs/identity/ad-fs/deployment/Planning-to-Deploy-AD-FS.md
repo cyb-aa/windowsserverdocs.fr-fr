@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: ca9e53d7d98f3ae5e6b7b329e52d4979e8c10215
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1459cade5071374ca39d453b9915a68e4bcfe539
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831690"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192039"
 ---
 # <a name="planning-to-deploy-ad-fs"></a>Planification du déploiement d’AD FS
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
 Une fois que vous collectez des informations relatives à votre environnement et vous décidez sur un Active Directory Federation Services \(AD FS\) conception en suivant les instructions dans le [Guide de conception AD FS dans Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx), Vous pouvez commencer à planifier le déploiement de la conception d’AD FS de votre organisation. Avec la conception terminée et les informations contenues dans cette rubrique, vous pouvez déterminer les tâches à effectuer pour déployer AD FS dans votre organisation.  
@@ -28,11 +26,11 @@ Si l’équipe de conception AD FS d’origine de la construction de conception 
   
 -   La stratégie de l'équipe de conception pour déterminer la meilleure topologie physique pour la sélection élective des serveurs de fédération dans votre réseau d'entreprise ou de périmètre. L’équipe de déploiement peut consulter la documentation sur ce sujet en consultant les rubriques suivantes dans le Guide de conception AD FS :  
   
-    -   [Le rôle de la base de données de Configuration AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)  
+    -   [Rôle de la base de données de configuration AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)  
   
-    -   [Planification du Placement de serveur de fédération](https://technet.microsoft.com/library/dd807069.aspx)  
+    -   [Planification de la sélection élective du serveur de fédération](https://technet.microsoft.com/library/dd807069.aspx)  
   
-    -   [Planification du Placement des serveurs Proxy de fédération](https://technet.microsoft.com/library/dd807130.aspx)  
+    -   [Planification de la sélection élective du serveur proxy de fédération](https://technet.microsoft.com/library/dd807130.aspx)  
   
     L'équipe de conception peut déléguer les tâches de sélection élective du serveur de fédération ou du serveur proxy de fédération à l'équipe de déploiement. L'équipe de déploiement est ensuite chargée de la documentation et de l'implémentation de la topologie physique des serveurs.  
   

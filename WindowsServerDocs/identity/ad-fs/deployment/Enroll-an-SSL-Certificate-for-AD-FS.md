@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 12f544ad0d037c4ae7a9789238186b7ded311bdf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e80927f2670614d2949f4e67cc158319f05c5fa0
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825240"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192154"
 ---
 # <a name="enroll-an-ssl-certificate-for-ad-fs"></a>Inscrire un certificat SSL pour AD FS
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 Active Directory Federation Services \(AD FS\) nécessite un certificat pour le protocole SSL (Secure Socket Layer) \(SSL\) authentification serveur sur chaque serveur de fédération dans votre batterie de serveurs de fédération. Le même certificat peut être utilisé sur chaque serveur de fédération dans une batterie de serveurs. Le certificat et sa clé privée doivent être disponibles. Par exemple, si le certificat et sa clé privée se trouvent dans un fichier .pfx, vous pouvez importer le fichier directement dans l’Assistant Configuration des services AD FS (Active Directory Federation Services). Ce certificat SSL doit contenir les éléments suivants :  
   
@@ -33,7 +31,7 @@ Active Directory Federation Services \(AD FS\) nécessite un certificat pour le 
 > Si votre organisation utilise plusieurs suffixes UPN, et que vous prévoyez d’activer le service DRS, le certificat SSL doit contenir une entrée d’autre nom de l’objet pour chaque suffixe.  
   
 ## <a name="see-also"></a>Voir aussi
-[Déploiement d’AD FS](../../ad-fs/AD-FS-Deployment.md)  
+[Déploiement d’AD FS](../../ad-fs/AD-FS-Deployment.md)  
 
 [Guide de déploiement de Windows Server 2012 R2 AD FS](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
  

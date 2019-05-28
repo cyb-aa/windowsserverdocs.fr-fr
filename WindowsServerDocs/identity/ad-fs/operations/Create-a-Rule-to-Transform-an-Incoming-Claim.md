@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e982b7608f7602268657ceae74f641bbaaaec939
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6bd107aca6c6f33cdf5f88e5b48a52fdea8d2086
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816680"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189345"
 ---
 # <a name="create-a-rule-to-transform-an-incoming-claim"></a>Créer une règle pour transformer une revendication entrante
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 À l’aide de la **transformer une revendication entrante** le modèle de règle dans Active Directory Federation Services \(AD FS\), vous pouvez sélectionner une revendication entrante, modifiez son type de revendication et modifier sa valeur de revendication. Par exemple, vous pouvez utiliser ce modèle de règle pour créer une règle qui envoie une revendication de rôle avec la même valeur de revendication d’une revendication de groupe entrante. Vous pouvez également utiliser cette règle pour envoyer un groupe de revendication avec une valeur de revendication de l’acheteur lorsqu’il existe une revendication de groupe entrante avec la valeur administrateurs, ou vous pouvez envoyer seulement nom d’utilisateur principal \(UPN\) les revendications qui se terminent par @fabrikam.  
   
@@ -136,14 +135,14 @@ L’appartenance au **administrateurs**, ou équivalente, sur l’ordinateur loc
 8.  Dans le **modifier les règles de revendication** boîte de dialogue, cliquez sur **OK** pour enregistrer la règle.  
 
 ## <a name="additional-references"></a>Références supplémentaires 
-[Configurer des règles de revendication](Configure-Claim-Rules.md)  
+[Configurer les règles de revendication](Configure-Claim-Rules.md)  
  
-[Liste de vérification : Création de règles de revendication pour une partie de confiance](https://technet.microsoft.com/library/ee913578.aspx)  
+[Liste de vérification : création de règles de revendication pour une approbation de partie de confiance](https://technet.microsoft.com/library/ee913578.aspx)  
 
-[Liste de vérification : Création de règles de revendication pour un fournisseur de revendications d’approbation](https://technet.microsoft.com/library/ee913564.aspx)  
+[Liste de vérification : création de règles de revendication pour une approbation de fournisseur de revendications](https://technet.microsoft.com/library/ee913564.aspx)  
   
 [Quand utiliser une règle de revendication d’autorisation](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
-[Le rôle de revendications](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
+[Rôle des revendications](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Le rôle de règles de revendication](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 
+[Rôle des règles de revendication](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 

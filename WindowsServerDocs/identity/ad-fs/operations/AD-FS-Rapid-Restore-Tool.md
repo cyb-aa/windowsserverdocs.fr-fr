@@ -5,20 +5,18 @@ description: ''
 author: billmath
 ms.author: billmath
 manager: femila
-ms.date: 09/19/2018
+ms.date: 04/01/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6fb023529ac8857f7c2eb35586be497f0c809a51
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: a831154a8b1e84f5ed879375980882e208c33d73
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874170"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190350"
 ---
 # <a name="ad-fs-rapid-restore-tool"></a>Outil de restauration rapide ADFS
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2
 
 ## <a name="overview"></a>Vue d'ensemble
 AD FS est rendue hautement disponible dès aujourd'hui en configurant une batterie de serveurs AD FS. Certaines organisations aimerions un moyen d’avoir un seul serveur de déploiement AD FS, éliminant le besoin de plusieurs serveurs AD FS et équilibrage de l’infrastructure, tout en conservant certaines assurance de service peut être restauré rapidement s’il existe un problème.
@@ -215,6 +213,16 @@ Chaque fois qu’une sauvegarde ou une restauration est exécutée, un fichier j
 > Lorsque effectuez une restauration que peut créer un fichier PostRestore_Instructions contenant une vue d’ensemble des fournisseurs d’authentification supplémentaires, attribut stocke et approbations de fournisseur de revendications local doit être installé manuellement avant de démarrer le service AD FS.
 
 ## <a name="version-release-history"></a>Historique des versions
+
+### <a name="version-10810"></a>Version : 1.0.81.0
+Mise en production : Avril 2019
+
+**Résolution des problèmes :**
+
+
+- Correctifs de bogues pour la sauvegarde de certificat et de restauration
+- Informations de suivi supplémentaires dans le fichier journal
+
 
 ### <a name="version-10750"></a>Version : 1.0.75.0
 Mise en production : Août 2018

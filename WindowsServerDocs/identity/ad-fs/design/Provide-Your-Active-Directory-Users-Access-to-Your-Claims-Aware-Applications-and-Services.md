@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f6fb37c16c20915c0051e3a24cdb0c147ae92d9c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8c3db2873e1c7a0fa217ba37b9439cc38dfafc36
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835870"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190998"
 ---
 # <a name="provide-your-active-directory-users-access-to-your-claims-aware-applications-and-services"></a>Fournir à vos utilisateurs Active Directory un accès à vos applications et services prenant en charge les revendications
-
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Lorsque vous êtes un administrateur de l’organisation partenaire de compte dans un Active Directory Federation Services \(AD FS\) déploiement et que vous avez un objectif de déploiement pour fournir unique\-connexion\-sur \( L’authentification unique\) accès pour les employés du réseau d’entreprise à vos ressources hébergées :  
   
@@ -58,4 +56,4 @@ L’illustration suivante montre chacun des composants requis pour cet objectif 
 ![l’accès à vos revendications](media/31394ea8-fecb-4372-ac3f-cc3cf566ffc9.gif)  
   
 ## <a name="see-also"></a>Voir aussi
-[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

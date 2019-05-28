@@ -9,16 +9,15 @@ ms.prod: windows-server-threshold
 ms.assetid: 70f279bf-aea1-4f4f-9ab3-e9157233e267
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 59b761e69da5b1c1e27fea71b32447b19d2b83c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8ada2ae5c9fcdb77f35200581848041f222ed7f3
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812080"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191963"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-with-sql-server"></a>La mise à niveau vers AD FS dans Windows Server 2016 avec SQL Server
 
->S'applique à : Windows Server 2016
 
 
 ## <a name="moving-from-a-windows-server-2012-r2-ad-fs-farm-to-a-windows-server-2016-ad-fs-farm"></a>Déplacement d’une batterie de serveurs Windows Server 2012 R2 AD FS vers une batterie de serveurs Windows Server 2016 AD FS  
@@ -44,7 +43,7 @@ Le reste de l’est le document décrit les étapes pour ajouter un serveur de f
 
 Diagramme architectural suivant explique le programme d’installation a été utilisé pour valider et enregistrer les étapes ci-dessous.
 
-![Architecture](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/arch.png) 
+![Architecture](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/arch.png)
 
 
 #### <a name="join-the-windows-2016-ad-fs-server-to-the-ad-fs-farm"></a>Joindre le serveur Windows 2016 AD FS à la batterie de serveurs AD FS
@@ -58,18 +57,18 @@ Diagramme architectural suivant explique le programme d’installation a été u
 ![Rejoindre la batterie de serveurs](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure3.png)
 5.  Sur le **spécifier le certificat SSL** écran, spécifiez le certificat, puis cliquez sur **suivant**.
 ![Rejoindre la batterie de serveurs](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure4.png)
-6.  Sur le **spécifier un compte de Service** écran, spécifiez le compte de service, puis cliquez sur **suivant**. 
-7.  Sur le **passez en revue les Options** écran, passez en revue les options, puis cliquez sur **suivant**. 
+6.  Sur le **spécifier un compte de Service** écran, spécifiez le compte de service, puis cliquez sur **suivant**.
+7.  Sur le **passez en revue les Options** écran, passez en revue les options, puis cliquez sur **suivant**.
 8.  Sur le **vérifie des conditions préalables** , assurez-vous que toutes les vérifications des conditions préalables ont réussi et que vous cliquez sur **configurer**.
 9.  Sur le **résultats** écran, vérifiez ce serveur a été correctement configuré, puis cliquez sur **fermer**.
- 
-   
+
+
 #### <a name="remove-the-windows-server-2012-r2-ad-fs-server"></a>Supprimer le serveur Windows Server 2012 R2 AD FS
 
 >[!NOTE]
 >Vous n’avez pas besoin de définir le serveur AD FS principal à l’aide de Set-AdfsSyncProperties-rôle lors de l’utilisation de SQL en tant que la base de données.  Il s’agit, car tous les nœuds sont considérés comme principales dans cette configuration.
 
-1.  Sur le serveur Windows Server 2012 R2 AD FS en cours d’utilisation du Gestionnaire de serveur **supprimer des rôles et fonctionnalités** sous **gérer**. 
+1.  Sur le serveur Windows Server 2012 R2 AD FS en cours d’utilisation du Gestionnaire de serveur **supprimer des rôles et fonctionnalités** sous **gérer**.
 ![Supprimer le serveur](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/remove1.png)
 2.  Dans l'écran **Avant de commencer** , cliquez sur **Suivant**.
 3.  Sur le **sélection du serveur** écran, cliquez sur **suivant**.
@@ -78,12 +77,12 @@ Diagramme architectural suivant explique le programme d’installation a été u
 5.  Sur le **fonctionnalités** écran, cliquez sur **suivant**.
 6.  Sur le **Confirmation** écran, cliquez sur **supprimer**.
 7.  Une fois cette opération terminée, redémarrez le serveur.
-     
+
 #### <a name="raise-the-farm-behavior-level-fbl"></a>Augmenter le niveau de comportement de la batterie de serveurs (FBL)
 Avant cette étape, vous devez vous assurer que forestprep et domainprep ont été exécutés sur votre environnement Active Directory et qu’Active Directory a le schéma Windows Server 2016.  Ce document démarrer avec un contrôleur de domaine Windows 2016 et ne nécessitait pas en cours d’exécution ces, car ils ont été exécutés lors de l’installation AD.
 
 >[!NOTE]
->Avant de commencer le processus ci-dessous, assurez-vous de que Windows Server 2016 est en cours en exécutant la mise à jour Windows à partir des paramètres.  Continuez ce processus jusqu’à ce qu’il n’y ait plus de mises à jour nécessaires. 
+>Avant de commencer le processus ci-dessous, assurez-vous de que Windows Server 2016 est en cours en exécutant la mise à jour Windows à partir des paramètres.  Continuez ce processus jusqu’à ce qu’il n’y ait plus de mises à jour nécessaires.
 
 1. Maintenant disponible sur le serveur Windows Server 2016, ouvrez PowerShell et exécutez la commande suivante : **$cred = Get-Credential** puis appuyez sur ENTRÉE.
 2. Entrez les informations d’identification disposant des privilèges d’administrateur sur le serveur SQL Server.
@@ -93,3 +92,24 @@ Avant cette étape, vous devez vous assurer que forestprep et domainprep ont ét
 3. Maintenant, si vous accédez à gestion AD FS, vous verrez les nouveaux nœuds qui ont été ajoutés pour AD FS dans Windows Server 2016  
 4. De même, vous pouvez utiliser l’applet de commande PowerShell :  Get-AdfsFarmInformation pour vous montrer le FBL actuel.  
 ![Terminer la mise à jour](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/finish2.png)
+
+#### <a name="upgrade-the-configuration-version-of-existing-wap-servers"></a>Mise à niveau la Version de Configuration des serveurs WAP existants
+1. Sur chaque Proxy d’Application Web, reconfigurez le proxy d’application Web en exécutant la commande PowerShell suivante dans une fenêtre avec élévation de privilèges :  
+    ```powershell
+    $trustcred = Get-Credential -Message "Enter Domain Administrator credentials"
+    Install-WebApplicationProxy -CertificateThumbprint {SSLCert} -fsname fsname -FederationServiceTrustCredential $trustcred  
+    ```
+2. Supprimer les anciens serveurs du cluster et conserver uniquement les serveurs WAP exécutent la dernière version de serveur, qui ont été reconfigurés ci-dessus, en exécutant l’applet de commande Powershell suivante.
+    ```powershell
+    Set-WebApplicationProxyConfiguration -ConnectedServersName WAPServerName1, WAPServerName2
+    ```
+3. Vérifiez la configuration de proxy d’application Web en exécutant la commmandlet Get-WebApplicationProxyConfiguration. Le ConnectedServersName reflète le serveur à exécuter à partir de la commande précédente.
+    ```powershell
+    Get-WebApplicationProxyConfiguration
+    ```
+4. Pour mettre à niveau la ConfigurationVersion des serveurs WAP, exécutez la commande Powershell suivante.
+    ```powershell
+    Set-WebApplicationProxyConfiguration -UpgradeConfigurationVersion
+    ```
+5. Vérifiez que la ConfigurationVersion a été mis à niveau avec la commande Powershell de Get-WebApplicationProxyConfiguration.
+    

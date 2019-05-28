@@ -5,20 +5,19 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
+ms.date: 04/12/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: e23d02fd8da96392f44874ad6ea4d6c40e2be940
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 3208c20e8bf9f4cfab4340aa33b24175bbc72dda
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828200"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188328"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
 >S'applique à : Windows Admin Center, version préliminaire de Windows Admin Center
-
-Bienvenue sur Windows Admin Center !
 
 **Windows Admin Center** (baptisé **projet Honolulu**) est une évolution des outils de gestion de l’emploi de Windows Server ; il est un volet unique qui consolide tous les aspects de la gestion des serveurs locaux et distants. Comme il s'agit d'une expérience de gestion basée sur un navigateur et déployée localement, il n'est pas obligatoire de disposer d'Azure et d'une connexion Internet. Windows Admin Center vous offre un contrôle total sur tous les aspects de votre déploiement, notamment les réseaux privés qui ne sont pas connectés à Internet.
 
@@ -58,7 +57,6 @@ Vous pouvez installer et exécuter Windows Admin Center dans votre environnement
             <ul>
             <li><a href="plan/installation-options.md">Quel type d’installation vous convient ?</a>
             <li><a href="plan/user-access-options.md">Options d’accès utilisateur</a>
-            <li><a href="plan/azure-integration-options.md">Quelles options d’intégration d’Azure sont ?</a>
             <br>
             </ul>
         </td>
@@ -78,8 +76,6 @@ Vous pouvez installer et exécuter Windows Admin Center dans votre environnement
             <li><a href="configure/settings.md">Paramètres Windows Admin Center</a>
             <li><a href="configure/user-access-control.md">Autorisations et contrôle d’accès utilisateur</a>
             <li><a href="configure/using-extensions.md">Extensions</a>
-            <li><a href="configure/azure-integration.md">Intégrer avec Azure</a>
-            <li><a href="configure/manage-azure-vms.md">Gérer des machines virtuelles Azure avec Windows Admin Center</a>
             </ul>
         </td>
     </tr>
@@ -92,13 +88,29 @@ Vous pouvez installer et exécuter Windows Admin Center dans votre environnement
             <li><a href="use/manage-hyper-converged.md">Gérer l’infrastructure Hyper-convergée</a>
             <li><a href="use/manage-failover-clusters.md">Gérer les clusters de basculement</a>
             <li><a href="use/manage-virtual-machines.md">Gérer des machines virtuelles</a>
-            <li><a href="use/azure-services.md">Tirer parti des services Azure</a>
-            <li><a href="use/troubleshooting.md">Étapes de dépannage courantes</a>
             <li><a href="use/logging.md">Journalisation</a>
-            <li><a href="use/known-issues.md">Problèmes connus</a>
             </ul>
         </td>
         <td style="vertical-align: top;">
+            <h3>Se connecter à Azure</h3>
+            <ul>
+            <li><a href="azure/index.md">Services Azure hybrides</a></li>
+            <li><a href="azure/azure-integration.md">Connecter Windows Admin Center à Azure</a></li>
+            <li><a href="azure/deploy-wac-in-azure.md">Déployer Windows Admin Center dans Azure</a></li>
+            <li><a href="azure/manage-azure-vms.md">Gérer les machines virtuelles Azure avec Windows Admin Center</a></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+            <td style="vertical-align: top;">
+            <h3>Support</h3>
+            <ul>
+            <li><a href="support/index.md">Stratégie de prise en charge</a>
+            <li><a href="support/troubleshooting.md">Étapes de dépannage courantes</a>
+            <li><a href="support/known-issues.md">Problèmes connus</a>
+            </ul>
+        </td>
+            <td style="vertical-align: top;">
             <h3>Étendre</h3>
             <ul>
             <li><a href="extend/extensibility-overview.md">Vue d’ensemble des extensions</a>
@@ -116,7 +128,9 @@ Vous pouvez installer et exécuter Windows Admin Center dans votre environnement
 
 Découvrez nos toutes dernières fonctionnalités :
 
-- Version [1902] (https://aka.ms/wac1902) ajouté une liste de connexions partagées et des améliorations à la gestion de réseau (SDN) software-defined, y compris les nouveaux outils SDN pour gérer les ACL, les connexions de passerelle et les réseaux logiques.
+- Version [1904](https://aka.ms/wac1904) est la toute dernière version de la disponibilité générale qui présente l’outil Azure Hybrid Services et apporte les fonctionnalités qui étaient présentes dans la version préliminaire pour le canal de la disponibilité générale.
+- Version [1903](https://aka.ms/wac1903) apporte des notifications par courrier électronique à partir d’Azure Monitor, la possibilité d’ajouter des connexions de serveur ou votre PC à partir d’Active Directory et de nouveaux outils pour gérer Active Directory, DHCP et DNS.
+- Version [1902](https://aka.ms/wac1902) ajouté une liste de connexions partagées et des améliorations à la gestion de réseau (SDN) software-defined, y compris les nouveaux outils SDN pour gérer les ACL, les connexions de passerelle et les réseaux logiques.
 - Version [1812](https://aka.ms/wac1812) ajoute un thème foncé (dans la version d’évaluation), les paramètres de configuration de l’alimentation, des informations BMC et la prise en charge de PowerShell pour gérer les [extensions](./configure/using-extensions.md#manage-extensions-with-powershell) et les [connexions](./use/get-started.md#use-powershell-to-import-or-export-your-connections-with-tags).
 - Version [1809.5](https://aka.ms/wac1809.5) est une mise à jour cumulative de GA qui inclut différentes améliorations de qualité et fonctionnelles, ainsi que des résolutions de bogues dans toute la plateforme et quelques nouvelles fonctionnalités dans la solution de gestion d’infrastructure hyperconvergée.
 - Version [1809](https://cloudblogs.microsoft.com/windowsserver/2018/09/20/windows-admin-center-1809-and-sdk-now-generally-available/) était une version GA qui affiche les fonctionnalités qui étaient auparavant en préversion dans le canal GA.
@@ -133,6 +147,6 @@ Découvrez nos toutes dernières fonctionnalités :
 
 ## <a name="stay-updated"></a>Restez informé
 
-<a target="_blank" class="mscom-link twitter-follow-link" title="Suivez-nous sur Twitter" aria-label="Follow us on Twitter" data-info="Twitter" href="https://twitter.com/servermgmt"><picture><source srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR" media="(min-width:0)"><img srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR" alt="Follow us on Twitter" src="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR"></picture></a>
- | 
-<a target="_blank" class="mscom-link blogs-follow-link" title="Lisez nos Blogs" aria-label="Visit our Blogs" data-info="Blogs" href="https://blogs.technet.microsoft.com/servermanagement/"><picture><source srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw" media="(min-width:0)"><img srcset="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw" alt="Follow us on Blogs" src="//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw"></picture></a>
+![ ](//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOolR)[Suivez-nous sur Twitter](https://twitter.com/servermgmt)
+
+![ ](//img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REOtyw)[Lisez nos Blogs](https://blogs.technet.microsoft.com/servermanagement/)
