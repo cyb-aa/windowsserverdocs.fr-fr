@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 1893c0d2689657a5213b2d59e8d83cea0fc3a0db
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 0aa359644f5e9bf85f4e013e6571276716ed0218
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63722726"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266613"
 ---
 # <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>Hôtes de virtualisation des services Bureau à distance de réglage des performances
 
@@ -40,14 +40,14 @@ Lorsque cela est approprié, utilisez la déduplication de disque et la mise en 
 
 Introduite dans Windows Server 2012 R2, la déduplication des données prend en charge l’optimisation des fichiers ouverts. Pour pouvoir utiliser des machines virtuelles s’exécutant sur un volume dédupliqué, les fichiers de machine virtuelle doivent être stockés sur un hôte distinct à partir de l’hôte Hyper-V. Si Hyper-V et la déduplication s’exécutent sur le même ordinateur, les deux fonctionnalités seront sont en concurrence pour les ressources système et un impact négatif sur les performances globales.
 
-Le volume doit également être configuré pour utiliser le « Virtual Desktop Infrastructure (VDI) ? type d’optimisation de la déduplication. Vous pouvez le configurer à l’aide du Gestionnaire de serveur (**File and Storage Services**  - &gt; **Volumes**  - &gt; **paramètres de déduplication**) ou de commande à l’aide de la commande Windows PowerShell suivante :
+Le volume doit également être configuré pour utiliser le type d’optimisation de la déduplication « Virtual Desktop Infrastructure (VDI) ». Vous pouvez le configurer à l’aide du Gestionnaire de serveur (**File and Storage Services**  - &gt; **Volumes**  - &gt; **paramètres de déduplication**) ou de commande à l’aide de la commande Windows PowerShell suivante :
 
 ``` syntax
 Enable-DedupVolume <volume> -UsageType HyperV
 ```
 
-**Remarque**    optimisation de la déduplication des données des fichiers ouverts est prise en charge uniquement pour les scénarios VDI avec Hyper-V à l’aide du stockage distant sur SMB 3.0.
-
+> [!Note]
+> Optimisation de la déduplication des données de fichiers ouverts est prise en charge uniquement pour les scénarios VDI avec Hyper-V à l’aide du stockage distant sur SMB 3.0.
 
 ### <a name="memory"></a>Mémoire
 

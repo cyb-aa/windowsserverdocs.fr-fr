@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 4ca50ea8-6987-4081-acd5-5bf9ead62acd
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d8568defaf0b282c264b2e6fa80c6eab4f9a3c39
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 34f6ec2b50e38042a7530e94915ed6d29d5f76a6
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865160"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266795"
 ---
 # <a name="step-1-plan-directaccess-infrastructure"></a>Étape 1 Plan l’Infrastructure DirectAccess
 
@@ -37,7 +37,7 @@ La première étape de la planification d'un déploiement de base de l'accès à
   
 Vous pouvez effectuer les tâches de planification dans l'ordre qui vous convient.  
   
-## <a name="bkmk_1_1_Network_svr_top_settings"></a>Planifier la topologie de réseau et de paramètres  
+## <a name="plan-network-topology-and-settings"></a>Planifier la topologie et les paramètres réseau  
   
 ### <a name="plan-network-adapters-and-ip-addressing"></a>Planifier les cartes réseau et l'adressage IP  
   
@@ -57,7 +57,7 @@ Vous pouvez effectuer les tâches de planification dans l'ordre qui vous convien
   
 3.  Configurez les cartes et l'adressage requis selon le tableau suivant. Pour les déploiements derrière un périphérique NAT à l’aide d’une seule carte réseau, configurez vos adresses IP en utilisant uniquement la colonne « carte réseau interne ».  
   
-    ||Carte réseau externe|Carte réseau interne<sup>1</sup>|Exigences en matière de routage|  
+    ||Carte réseau externe|Carte réseau interne|Exigences en matière de routage|  
     |-|--------------|--------------------|------------|  
     |Internet IPv4 et intranet IPv4|Configurez ce qui suit :<br /><br />-Une adresse IPv4 statique avec les masques de sous-réseau approprié.<br />-Une passerelle par défaut adresse IPv4 de votre pare-feu Internet ou d’un routeur de fournisseur de services Internet local.|Configurez ce qui suit :<br /><br />-Adresse intranet IPv4 avec le masque de sous-réseau approprié.<br />-Un suffixe DNS spécifique à la connexion de votre espace de noms intranet. Vous devez également configurer le serveur DNS sur l'interface interne.<br />-Ne configurez pas de passerelle par défaut sur toutes les interfaces intranet.|Pour configurer le serveur d'accès à distance afin d'atteindre tous les sous-réseaux du réseau IPv4 interne, procédez comme suit :<br /><br />1.  Répertoriez les espaces d'adressage IPv4 pour tous les emplacements sur votre intranet.<br />2.  Utilisez les commandes **route add -p** ou **netsh interface ipv4 add route** pour ajouter les espaces d'adressage IPv4 en tant qu'itinéraires statiques dans la table de routage IPv4 du serveur d'accès à distance.|  
     |Internet IPv6 et intranet IPv6|Configurez ce qui suit :<br /><br />-Utilisez la configuration d’adresse automatique fournie par votre fournisseur de services Internet.<br />-Utilisez le **acheminer impression** commande pour vous assurer que l’itinéraire IPv6 par défaut qui pointe vers le routeur ISP existe dans la table de routage IPv6.<br />-Déterminer si les fournisseur de services Internet et les routeurs intranet utilisent les préférences de routeur par défaut décrit dans RFC 4191 et à l’aide d’une préférence par défaut plus élevée que vos routeurs intranet locaux. Si vous avez répondu par l'affirmative dans les deux cas, aucune autre configuration n'est requise pour l'itinéraire par défaut. Une préférence plus élevée pour le routeur ISP permet de s'assurer que l'itinéraire IPv6 par défaut actif du serveur d'accès à distance pointe vers Internet IPv6.<br /><br />Étant donné que le serveur d'accès à distance est un routeur IPv6, si vous disposez d'une infrastructure IPv6 native, l'interface Internet peut également atteindre les contrôleurs de domaine sur l'intranet. Dans ce cas, ajoutez des filtres de paquets au contrôleur de domaine dans le réseau de périmètre pour empêcher la connectivité IPv6 de l'interface Internet du serveur d'accès à distance|Configurez ce qui suit :<br /><br />-Si vous n’utilisez pas les niveaux de préférence par défaut, configurez vos interfaces intranet avec la **netsh interface ipv6 définir InterfaceIndex ignoredefaultroutes = activé** commande. Cette commande vérifie que les itinéraires par défaut supplémentaires qui pointent vers les routeurs intranet ne seront pas ajoutés à la table de routage IPv6. Vous pouvez obtenir l'information InterfaceIndex de vos interfaces intranet dans l'affichage de la commande netsh interface show interface.|Si vous avez un intranet IPv6, procédez comme suit pour configurer le serveur d'accès à distance afin d'atteindre tous les emplacements IPv6 :<br /><br />1.  Répertoriez les espaces d'adressage IPv6 pour tous les emplacements sur votre intranet.<br />2.  Utilisez la commande **netsh interface ipv6 add route** pour ajouter les espaces d'adressage IPv6 en tant qu'itinéraires statiques dans la table de routage IPv6 du serveur d'accès à distance|  
@@ -90,7 +90,7 @@ Lorsque vous utilisez des pare-feu supplémentaires, appliquez les exceptions de
   
 -   TCP/UDP pour tout le trafic IPv4/IPv6  
   
-### <a name="bkmk_1_2_CAs_and_certs"></a>Planifier la configuration requise des certificats  
+### <a name="plan-certificate-requirements"></a>Planifier les exigences en matière de certificats  
 En matière de certificats, les exigences pour IPsec incluent un certificat d'ordinateur utilisé par les ordinateurs clients DirectAccess pour établir la connexion IPsec entre le client et le serveur d'accès à distance, ainsi qu'un certificat d'ordinateur utilisé par les serveurs d'accès à distance pour établir des connexions IPsec avec les clients DirectAccess. L’utilisation de ces certificats IPsec n’est pas obligatoire pour DirectAccess dans Windows Server 2012. L'Assistant Activation de DirectAccess configure le serveur d'accès à distance en tant que proxy Kerberos pour effectuer l'authentification IPsec sans exiger de certificats.  
   
 1.  **Serveur IP-HTTPS** -lorsque vous configurez l’accès à distance, le serveur d’accès à distance est automatiquement configuré pour agir en tant qu’écouteur web IP-HTTPS. Le site IP-HTTPS requiert un certificat de site web. Les ordinateurs clients doivent être en mesure de contacter le site de la liste de révocation de certificats correspondant. L'Assistant Activation de DirectAccess essaie d'utiliser le certificat VPN SSTP. Si SSTP n'est pas configuré, il vérifie si un certificat pour IP-HTTPS est présent dans le magasin personnel de la machine. Si aucun certificat n'est disponible, il en crée automatiquement un qui est auto-signé.  
@@ -105,7 +105,7 @@ Les exigences de certification de ces deux cas de figure sont résumées dans le
 ||Autorité de certification interne-vous pouvez utiliser une autorité de certification interne pour émettre le certificat IP-HTTPS ; Toutefois, il se peut que vous devez vous assurer que le point de distribution CRL est disponible en externe.|Auto-signé certificat - vous pouvez utiliser un certificat auto-signé pour le site Web serveur emplacement réseau ; Toutefois, vous ne pouvez pas utiliser un certificat auto-signé dans des déploiements multisites.|  
 ||Auto-signé certificat - vous pouvez utiliser un certificat auto-signé pour le serveur IP-HTTPS ; Toutefois, il se peut que vous devez vous assurer que le point de distribution CRL est disponible en externe. Un certificat auto-signé n'est pas utilisable dans un déploiement multisite.||  
   
-#### <a name="bkmk_website_cert_IPHTTPS"></a>Planifier des certificats pour IP-HTTPS  
+#### <a name="plan-certificates-for-ip-https"></a>Planifier des certificats pour IP-HTTPS  
 Le serveur d'accès à distance joue le rôle d'écouteur IP-HTTPS, et vous devez installer manuellement un certificat de site web HTTPS sur le serveur. Notez les points suivants quand vous effectuez la planification :  
   
 -   Il est recommandé d'utiliser une autorité de certification publique, afin que les listes de révocation de certificats soient rapidement disponibles.  
@@ -174,7 +174,7 @@ Dans un déploiement de l'accès à distance, DNS est requis pour ce qui suit :
   
 -   Pour les clients DirectAccess, vous devez utiliser un serveur DNS exécutant Windows Server 2003, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 ou n’importe quel serveur DNS qui prend en charge IPv6.  
   
-### <a name="bkmk_1_6_AD"></a>Planifier Active Directory  
+### <a name="plan-active-directory"></a>Planifier Active Directory  
 Accès à distance utilise Active Directory et les objets de stratégie de groupe Active Directory comme suit :  
   
 -   **Authentification** -Active Directory est utilisé pour l’authentification. Le tunnel intranet utilise l'authentification Kerberos pour que l'utilisateur accède aux ressources internes.  
@@ -207,7 +207,7 @@ Quand vous planifiez Active Directory pour un déploiement de l'accès à distan
 > -   Le serveur d'accès à distance ne peut pas être un contrôleur de domaine.  
 > -   Le contrôleur de domaine Active Directory utilisé pour l'accès à distance ne doit pas être accessible à partir de la carte Internet externe du serveur d'accès à distance (la carte ne doit pas figurer dans le profil de domaine du Pare-feu Windows).  
   
-### <a name="bkmk_1_7_GPOs"></a>Objets de stratégie de groupe de plan  
+### <a name="plan-group-policy-objects"></a>Planifier les objets de stratégie de groupe  
 Les paramètres DirectAccess configurés quand vous configurez l'accès à distance sont rassemblés dans des objets de stratégie de groupe. Trois objets de stratégie de groupe différents sont renseignés avec les paramètres DirectAccess, puis distribués comme suit :  
   
 -   **Le client DirectAccess GPO** -cet objet de stratégie de groupe contient des paramètres de client, y compris les paramètres de technologie de transition IPv6, des entrées NRPT et des pare-feu de Windows avec des règles de sécurité de connexion de fonctions avancées de sécurité. L'objet de stratégie de groupe est appliqué aux groupes de sécurité spécifiés pour les ordinateurs clients.  

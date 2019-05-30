@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9032988c65581ea602451d224f40719b932ab7f5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 79f95c88c49d384f8a13b8808c63a0dc00de53cb
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821690"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266628"
 ---
 # <a name="ldap-considerations-in-adds-performance-tuning"></a>Considérations relatives à LDAP de réglage des performances d’AD DS
 
@@ -49,7 +49,7 @@ L’indexation des attributs est utile lorsque vous recherchez des objets qui on
 
     -   **NTDS\\latence des requêtes** – c’est soumis à la durée pendant laquelle la demande prend au processus. Active Directory arrive à expiration demandes après 120 secondes (valeur par défaut), toutefois, la majorité doit s’exécuter beaucoup plus rapidement et requêtes extrêmement longues doivent obtenir masqué dans le nombre global. Recherchez les modifications dans cette ligne de base, plutôt que les seuils absolus.
 
-        **Remarque**    ici les valeurs élevées peuvent également être des indicateurs de retards dans « proxy ? demandes vers d’autres domaines et les vérifications de révocation de certificats.
+        > [!Note]   Les valeurs élevées ici peuvent également être des indicateurs de retards dans « proxy » pour les requêtes à d’autres domaines et les vérifications de révocation de certificats.
 
 
     -   **NTDS\\délai de file d’attente estimé** : cela doit idéalement être proche de 0 pour des performances optimales car cela signifie que les demandes ne passent aucun temps d’attente d’être traitées.
@@ -64,7 +64,7 @@ Ces scénarios peuvent être détectés à l’aide d’un ou plusieurs des appr
 
 -   [Microsoft Server Performance Advisor](../../../server-performance-advisor/microsoft-server-performance-advisor.md) Pack conseiller d’Active Directory
 
--   Recherches à l’aide de n’importe quel filtre outre » (objectClass =\*) ? qui utilisent l’Index d’ancêtres.
+-   Recherches à l’aide de n’importe quel filtre outre » (objectClass =\*) » qui utilisent l’Index d’ancêtres.
 
 ### <a name="other-index-considerations"></a>Autres considérations relatives aux index
 
@@ -102,6 +102,6 @@ Pour plus d’informations, consultez les rubriques suivantes :
 ## <a name="see-also"></a>Voir aussi
 - [Les serveurs Active Directory de réglage des performances](index.md)
 - [Considérations matérielles](hardware-considerations.md)
-- [Positionnement correct de contrôleurs de domaine et les considérations de site](site-definition-considerations.md)
-- [Résolution des problèmes de performances d’AD DS](troubleshoot.md) 
-- [Planification de capacité pour les Services de domaine Active Directory](https://go.microsoft.com/fwlink/?LinkId=324566)
+- [Positionnement correct des contrôleurs de domaine et considérations relatives au site](site-definition-considerations.md)
+- [Résoudre les problèmes de performances d’AD DS](troubleshoot.md) 
+- [Planification de la capacité pour les services de domaine Active Directory](https://go.microsoft.com/fwlink/?LinkId=324566)

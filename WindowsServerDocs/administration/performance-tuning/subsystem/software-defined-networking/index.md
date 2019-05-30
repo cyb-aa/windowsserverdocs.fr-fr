@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: grcusanz; AnPaul
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: dfb8d997c6e04381e5be0ba2c3a7ca27a851df50
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0e173039c45faa100a434b69a9faa736ff7c9b53
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891320"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034133"
 ---
 # <a name="performance-tuning-software-defined-networks"></a>Réglage des performances des réseaux à définition logicielle
 
@@ -30,7 +30,7 @@ Pour que le trafic des machines virtuelles soit adapté de façon efficace et ju
 
 ## <a name="hyper-v-host-networking"></a>Mise en réseau d’hôte Hyper-V
 
-Les instructions fournies dans la section [Hyper-V network I/O performance (Performances d’E/S du réseau Hyper-V)](#netio) du guide [Performance Tuning for Hyper-V Servers (Réglage des performances des serveurs Hyper-V)](../../role/remote-desktop/session-hosts.md) sont applicables lorsque SDN est utilisé, mais cette section présente des instructions supplémentaires qui doivent être respectées pour garantir des performances optimales lors de l’utilisation de SDN.
+Les instructions fournies dans la section « Performances E/S du réseau Hyper-V » du guide [Optimisation des performances pour les serveurs Hyper-V](../../role/remote-desktop/session-hosts.md) sont applicables lorsque le SDN est utilisé. Toutefois, cette section présente des instructions supplémentaires qui doivent être respectées pour garantir des performances optimales lors de l’utilisation du SDN.
 
 ### <a name="physical-network-adapter-nic-teaming"></a>Appairage de cartes réseau physiques
 

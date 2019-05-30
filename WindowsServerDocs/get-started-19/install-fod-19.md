@@ -9,13 +9,13 @@ author: jasongerend
 ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.date: 05/24/2019
-ms.openlocfilehash: c9af38720df79918bed3404995e81a7f93a10744
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.date: 05/29/2019
+ms.openlocfilehash: e76b7862549814d5453717c40cec45e341141d7a
+ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222894"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66308601"
 ---
 # <a name="server-core-app-compatibility-feature-on-demand-fod"></a>Fonctionnalité à la demande (FOD) de compatibilité des applications Server Core
 
@@ -156,7 +156,7 @@ Le DOM de compatibilité d’application peut uniquement être installé sur Ser
 1. Téléchargez les fichiers image Windows Server et serveur DOM ISO dans un dossier local sur un ordinateur Windows.
 
    - Si vous avez une licence en volume, vous pouvez télécharger les fichiers image Windows Server et serveur DOM ISO à partir de la [Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx).
-   - Le fichier image ISO de DOM de serveur est également disponible sur le [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-windows-server) ou sur le [portail Visual Studio](https://visualstudio.microsoft.com) pour les abonnés.
+   - Le fichier image ISO de DOM de serveur est également disponible pour les versions de canal de maintenance à long terme sur le [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-windows-server) ou sur le [portail Visual Studio](https://visualstudio.microsoft.com) pour les abonnés.
 
 2. Ouvrez une session PowerShell en tant qu’administrateur et utilisez ensuite les commandes suivantes pour monter les fichiers image en tant que lecteurs :
 

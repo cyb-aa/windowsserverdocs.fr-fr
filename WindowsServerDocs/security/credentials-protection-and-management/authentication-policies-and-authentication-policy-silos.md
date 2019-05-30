@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 460837c79c0e0d2c48331ddaaffcd118fd16ebc1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 55dd38c966fea8448231b06cde9c1dd63b024197
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870610"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266771"
 ---
 # <a name="authentication-policies-and-authentication-policy-silos"></a>Stratégies d'authentification et silos de stratégies d'authentification
 
@@ -88,7 +88,7 @@ Le type de compte Active Directory détermine le rôle de l’appelant comme l�
 
 Les stratégies prévues pour les objets Active Directory relatifs aux utilisateurs, ordinateurs et services sont définies par le schéma présenté dans le tableau ci-dessous.
 
-|Type|Nom d’affichage|Description|
+|type|Nom d’affichage|Description|
 |----|--------|--------|
 |Stratégie|Stratégie d'authentification|Une instance de cette classe définit les comportements associés aux stratégies d'authentification pour les principaux affectés.|
 |Stratégie|Stratégies d'authentification|Un conteneur de cette classe peut obtenir des objets de stratégie d'authentification.|
@@ -230,7 +230,7 @@ Le tableau ci-dessous décrit les événements associés au groupe de sécurité
 
 Les événements sont enregistrés dans le journal Journaux des applications et des services, dans **Microsoft\Windows\Authentication**.
 
-Pour connaître les étapes de dépannage qui utilisent ces événements, voir [Dépanner les stratégies d'authentification](how-to-configure-protected-accounts.md#BKMK_TroubleshootAuthnPolicies) et [Dépanner les événements associés aux Utilisateurs protégés](how-to-configure-protected-accounts.md#BKMK_TrubleshootingEvents).
+Pour connaître les étapes de dépannage qui utilisent ces événements, voir [Dépanner les stratégies d'authentification](how-to-configure-protected-accounts.md#troubleshoot-authentication-policies) et [Dépanner les événements associés aux Utilisateurs protégés](how-to-configure-protected-accounts.md#troubleshoot-events-related-to-protected-users).
 
 |ID d'événement et journal|Description|
 |----------|--------|
@@ -245,6 +245,6 @@ Pour connaître les étapes de dépannage qui utilisent ces événements, voir [
 
 [Gestion et protection des informations d'identification](credentials-protection-and-management.md)
 
-[Groupe de sécurité utilisateurs protégés](protected-users-security-group.md)
+[Groupe de sécurité Utilisateurs protégés](protected-users-security-group.md)
 
 

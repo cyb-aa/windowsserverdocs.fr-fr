@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/31/2018
-ms.openlocfilehash: 4b9deb4fc7fbfccf569250e965274009764054f7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a98e1a876c972b0f146ff37aff0a77399b684e99
+ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849330"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66308558"
 ---
 # <a name="bitsadmin-examples"></a>exemples de bitsadmin
 
@@ -28,7 +28,7 @@ Les exemples suivants montrent comment utiliser le `bitsadmin` outil pour effect
 
 Le **/transfert** commutateur est un raccourci pour effectuer les tâches répertoriées ci-dessous. Ce commutateur crée la tâche ajoute les fichiers au travail, Active le travail dans la file d’attente de transfert et termine la tâche. BITSAdmin continue d’afficher des informations sur la progression dans la fenêtre MS-DOS jusqu'à ce que le transfert se termine ou une erreur se produit.
 
-**Bitsadmin /transfer myDownloadJob /download /priority normal https://downloadsrv/10mb.zip c:\\10mb.zip**
+**Bitsadmin /transfer myDownloadJob /download /priority normal `https://downloadsrv/10mb.zip c:\\10mb.zip`**
 
 ## <a name="create-a-download-job"></a>Créer une tâche de téléchargement
 

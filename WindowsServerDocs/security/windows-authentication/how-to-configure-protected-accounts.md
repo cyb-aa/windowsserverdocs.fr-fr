@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 5dab9ff9924d8afe05bd6b033ca513172d9aaeff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 28296b588c87bddb0364b9c3e10ad443870dc52f
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829500"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266825"
 ---
 # <a name="how-to-configure-protected-accounts"></a>Comment configurer des comptes protégés
 
@@ -25,11 +25,11 @@ ms.locfileid: "59829500"
 
 Par le biais d'attaques PtH (Pass-the-Hash), une personne malveillante peut s'authentifier sur un service ou un serveur distant à l'aide du hachage NTLM sous-jacent du mot de passe d'un utilisateur (ou d'autres dérivés d'informations d'identification). Microsoft a précédemment [publié des conseils](https://www.microsoft.com/download/details.aspx?id=36036) pour prévenir les attaques PtH.  Windows Server 2012 R2 inclut de nouvelles fonctionnalités pour aider à atténuer ce type d’attaques. Pour plus d’informations sur d’autres fonctionnalités de sécurité permettant de se prémunir contre le vol d’informations d’identification, consultez [Gestion et protection des informations d’identification](https://technet.microsoft.com/library/dn408190.aspx). Cette rubrique décrit comment configurer les nouvelles fonctionnalités suivantes :  
   
--   [Utilisateurs protégés](how-to-configure-protected-accounts.md#BKMK_AddtoProtectedUsers)  
+-   [Utilisateurs protégés](#protected-users)  
   
--   [Stratégies d’authentification](how-to-configure-protected-accounts.md#BKMK_CreateAuthNPolicies)  
+-   [Stratégies d’authentification](#authentication-policies)  
   
--   [Silos de stratégies](how-to-configure-protected-accounts.md#BKMK_CreateAuthNPolicySilos)  
+-   [Silos de stratégies](#authentication-policy-silos)  
   
 Windows 8.1 et Windows Server 2012 R2 présentent d'autres fonctionnalités de prévention contre le vol d'informations d'identification. Elles sont abordées dans les rubriques suivantes :  
   
@@ -37,7 +37,7 @@ Windows 8.1 et Windows Server 2012 R2 présentent d'autres fonctionnalités de p
   
 -   [LSA Protection](https://technet.microsoft.com/library/dn408187)  
   
-## <a name="BKMK_AddtoProtectedUsers"></a>Utilisateurs protégés  
+## <a name="protected-users"></a>Utilisateurs protégés  
 Il s'agit d'un nouveau groupe de sécurité global auquel vous pouvez ajouter des nouveaux utilisateurs ou des utilisateurs existants. Les appareils Windows 8.1 et Windows Server 2012 R2 hôtes se comportent différemment avec les membres de ce groupe pour fournir une meilleure protection contre le vol d’informations d’identification. Pour un membre du groupe, un appareil Windows 8.1 ou un hôte Windows Server 2012 R2 ne met pas en cache les informations d’identification qui ne sont pas pris en charge pour les utilisateurs protégés. Membres de ce groupe ne sont pas protégés supplémentaires s’ils sont connectés à un appareil qui exécute une version de Windows antérieure à Windows 8.1.  
   
 Groupe de membres d’utilisateurs protégés qui sont signés-on sur des appareils Windows 8.1 et les hôtes Windows Server 2012 R2 peuvent *n’est plus* utiliser :  
@@ -62,7 +62,7 @@ Si le niveau fonctionnel du domaine est Windows Server 2012 R2, les membres du g
   
 -   renouveler les tickets TGT utilisateur au-delà de la durée de vie initiale de 4 heures.  
   
-Pour ajouter des utilisateurs au groupe, vous pouvez utiliser [outils d’interface utilisateur](https://technet.microsoft.com/library/cc753515.aspx) telles que Active Directory Administrative Center (ADAC) ou Active Directory utilisateurs et ordinateurs ou un outil de ligne de commande tel que [groupe Dsmod](https://technet.microsoft.com/library/cc732423.aspx), ou le Windows PowerShell[Add-ADGroupMember](https://technet.microsoft.com/library/ee617210.aspx) applet de commande. Les comptes de services et d'ordinateurs *ne doivent pas* être membres du groupe Utilisateurs protégés. L'appartenance à ces comptes n'offre pas de protection locale car le mot de passe ou le certificat est toujours disponible sur l'hôte.  
+Pour ajouter des utilisateurs au groupe, vous pouvez utiliser [outils d’interface utilisateur](https://technet.microsoft.com/library/cc753515.aspx) telles que Active Directory Administrative Center (ADAC) ou Active Directory utilisateurs et ordinateurs ou un outil de ligne de commande tel que [groupe Dsmod](https://technet.microsoft.com/library/cc732423.aspx), ou le Windows PowerShell [Add-ADGroupMember](https://technet.microsoft.com/library/ee617210.aspx) applet de commande. Les comptes de services et d'ordinateurs *ne doivent pas* être membres du groupe Utilisateurs protégés. L'appartenance à ces comptes n'offre pas de protection locale car le mot de passe ou le certificat est toujours disponible sur l'hôte.  
   
 > [!WARNING]  
 > Les restrictions d'authentification n'offrent pas de solutions de contournement, ce qui veut dire que les membres des groupes dotés de privilèges élevés tels que les groupes Administrateurs d'entreprise ou Admins du domaine sont soumis aux mêmes restrictions que les autres membres du groupe Utilisateurs protégés. Si tous les membres de ces groupes sont ajoutés au groupe Utilisateurs protégés, tous ces comptes peuvent être verrouillés. Vous ne devez jamais ajouter des comptes dotés de privilèges élevés au groupe Utilisateurs protégés avant d'avoir testé les éventuelles répercussions en détail.  
@@ -75,14 +75,14 @@ Les membres du groupe Utilisateurs protégés doivent être capables d'effectuer
   
 -   **Mot de passe de modification** pour chaque utilisateur avant d’ajouter le compte à utilisateurs protégés groupe ou vérifier que le mot de passe a été modifié récemment sur un contrôleur de domaine qui exécute Windows Server 2008 ou version ultérieure.  
   
-### <a name="BKMK_Prereq"></a>Configuration requise pour utiliser des comptes protégés  
+### <a name="requirements-for-using-protected-accounts"></a>Conditions requises pour utiliser des comptes protégés  
 Ces derniers doivent respecter les conditions de déploiements requises suivantes :  
   
 -   Pour fournir des restrictions côté client pour les utilisateurs protégés, les ordinateurs hôtes doivent exécuter Windows 8.1 ou Windows Server 2012 R2. Un utilisateur doit uniquement s'authentifier avec un compte qui est membre d'un groupe Utilisateurs protégés. Dans ce cas, le groupe utilisateurs protégés peut être créé par [transférer le rôle d’émulateur de contrôleur principal de domaine](https://technet.microsoft.com/library/cc816944(v=ws.10).aspx) à un contrôleur de domaine qui exécute Windows Server 2012 R2. Une fois l'objet de groupe répliqué sur d'autres contrôleurs de domaine, le rôle de l'émulateur PDC peut être hébergé sur un contrôleur de domaine qui exécute une version antérieure de Windows Server.  
   
 -   Pour fournir des restrictions côté contrôleur de domaine pour les utilisateurs protégés, c'est-à-dire pour limiter l’utilisation de l’authentification NTLM, et d’autres restrictions, le niveau fonctionnel du domaine doit être Windows Server 2012 R2. Pour plus d’informations sur les niveaux fonctionnels, consultez [Présentation des niveaux fonctionnels des services de domaine Active Directory (AD DS)](../../identity/ad-ds/active-directory-functional-levels.md).  
   
-### <a name="BKMK_TrubleshootingEvents"></a>Résoudre les problèmes des événements liés aux utilisateurs protégés  
+### <a name="troubleshoot-events-related-to-protected-users"></a>Résoudre des problèmes liés aux événements concernant les utilisateurs protégés  
 Cette section aborde de nouveaux journaux qui permettent de résoudre des problèmes liés à des événements concernant les utilisateurs protégés. Elle décrit également comment les utilisateurs protégés peuvent répercuter les modifications pour résoudre les problèmes d'expiration de tickets TGT ou de délégation.  
   
 #### <a name="new-logs-for-protected-users"></a>Nouveaux journaux pour les utilisateurs protégés  
@@ -106,13 +106,13 @@ Auparavant, en cas d'échec d'une technologie utilisant la délégation Kerberos
   
 ![Capture d’écran montrant où aller ** compte est sensible et ne peut pas être délégué ** élément d’interface utilisateur](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_TshootDelegation.gif)  
   
-### <a name="BKMK_AuditAuthNattempts"></a>Auditer les tentatives d’authentification  
+### <a name="audit-authentication-attempts"></a>Vérifier les tentatives d'authentification  
 Pour vérifier les tentatives d'authentification spécifiquement pour les membres du groupe **Utilisateurs protégés**, vous pouvez continuer à collecter les événements de vérification du journal de sécurité ou rassembler les données dans les journaux d'administration opérationnels. Pour plus d’informations sur ces événements, consultez [Stratégies d’authentification et silos de stratégies d’authentification](https://technet.microsoft.com/library/dn486813.aspx).  
   
-### <a name="BKMK_ProvidePUdcProtections"></a>Fournir les protections côté contrôleur de domaine pour les services et les ordinateurs  
+### <a name="provide-dc-side-protections-for-services-and-computers"></a>Fournir les protections côté contrôleur de domaine pour les services et les ordinateurs  
 Les comptes de services et d'ordinateurs ne doivent pas être membres du groupe **Utilisateurs protégés**. Cette section décrit les protections basées sur le contrôleur de domaine qui peuvent être offertes pour ces comptes :  
   
--   rejet de l'authentification NTLM : configurable uniquement via les [stratégies du bloc NTLM](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx) ;  
+-   rejet de l'authentification NTLM : Configurable uniquement via [stratégies du bloc NTLM](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx).  
   
 -   rejet de la norme DES (Data Encryption Standard) dans la pré-authentification Kerberos :  Les contrôleurs de domaine Windows Server 2012 R2 n’acceptent pas DES comptes d’ordinateur, sauf si elles sont configurées pour DES uniquement, car chaque version de Windows publiée avec Kerberos prend également en charge RC4.  
   
@@ -127,7 +127,7 @@ Les comptes de services et d'ordinateurs ne doivent pas être membres du groupe 
   
     ![Capture d’écran montrant où restreindre un compte](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_TshootDelegation.gif)  
   
-## <a name="BKMK_CreateAuthNPolicies"></a>Stratégies d’authentification  
+## <a name="authentication-policies"></a>Stratégie d'authentification  
 Il s'agit d'un nouveau conteneur des services de domaine Active Directory (AD DS) comprenant les objets de la stratégie d'authentification. Les stratégies d'authentification peuvent spécifier les paramètres qui permettent de prévenir l'exposition au vol d'informations d'identification, tels que la restriction de la durée de vie TGT des comptes ou l'ajout d'autres conditions associées aux revendications.  
   
 Dans Windows Server 2012, le contrôle d’accès dynamique a introduit une classe d’objet de portée de la forêt Active Directory appelée stratégie d’accès centralisée pour fournir un moyen simple de configurer des serveurs de fichiers dans une organisation. Dans Windows Server 2012 R2, une nouvelle classe d’objet appelée stratégie d’authentification (objectClass msDS-AuthNPolicies) peut être utilisée pour appliquer la configuration de l’authentification aux classes de compte dans les domaines Windows Server 2012 R2. Les classes de compte Active Directory sont les suivantes :  
@@ -155,7 +155,7 @@ L’échange TGS est où le ticket TGT du compte est utilisé pour créer un aut
   
 L'échange AP a généralement lieu quand des données se trouvent à l'intérieur du protocole d'application et n'est pas affecté par des stratégies d'authentification.  
   
-Pour plus d’informations, consultez [Kerberos Version 5 authentification fonctionnement du protocole] (https://technet.microsoft.com/library/cc772815(v=WS.10.aspx.  
+Pour plus d’informations, consultez [Fonctionnement du protocole d’authentification Kerberos version 5](https://technet.microsoft.com/library/cc772815(v=WS.10.aspx)).  
   
 ### <a name="overview"></a>Vue d'ensemble  
 Les stratégies d'authentification complètent le groupe Utilisateurs protégés en fournissant un moyen d'appliquer des restrictions configurables aux comptes et en imposant des restrictions aux comptes de services et d'ordinateurs. Elles entrent en vigueur pendant l'échange AS ou l'échange TGS.  
@@ -172,7 +172,7 @@ Vous pouvez restreindre les demandes de ticket de service via un échange de ser
   
 -   les conditions de contrôle d'accès que le client (utilisateur, service, ordinateur) ou l'appareil d'où émane l'échange TGS doit respecter.  
   
-### <a name="BKMK_ReqForAuthnPolicies"></a>Configuration requise pour utiliser des stratégies d’authentification  
+### <a name="requirements-for-using-authentication-policies"></a>Conditions requises pour utiliser des stratégies d'authentification  
   
 |Stratégie|Configuration requise|  
 |-----|--------|  
@@ -329,7 +329,7 @@ Vous pouvez configurer les durées de vie TGT sans configurer le contrôle d'acc
   
 ![Capture d’écran montrant comment utiliser la stratégie de groupe ou l’éditeur de stratégie de groupe locale pour activer ** prise en charge de client Kerberos des revendications, l’authentification composée et le blindage Kerberos **](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_KerbClientDACSupport.gif)  
   
-### <a name="BKMK_TroubleshootAuthnPolicies"></a>Résoudre les problèmes de stratégies d’authentification  
+### <a name="troubleshoot-authentication-policies"></a>Résoudre les problèmes des stratégies d'authentification  
   
 #### <a name="determine-the-accounts-that-are-directly-assigned-an-authentication-policy"></a>Déterminer les comptes auxquels est directement affectée une stratégie d'authentification  
 La section des comptes de la stratégie d'authentification illustre les comptes qui ont directement appliqué la stratégie.  
@@ -339,7 +339,7 @@ La section des comptes de la stratégie d'authentification illustre les comptes 
 #### <a name="use-the-authentication-policy-failures---domain-controller-administrative-log"></a>Utiliser les échecs de stratégie d’authentification - journal d’administration du contrôleur de domaine  
 Un nouveau **échecs de stratégie d’authentification : contrôleur de domaine** journal d’administration sous **journaux des Applications et Services** > **Microsoft**  >  **Windows** > **authentification** a été créé pour faciliter la détection d’échecs liés aux stratégies d’authentification. Le journal est désactivé par défaut. Pour l'activer, cliquez avec le bouton droit sur le nom du journal, puis cliquez sur **Activer le journal**. Le contenu des nouveaux événements est très semblable à celui des événements d'audit du ticket de service et de ticket TGT Kerberos. Pour plus d’informations sur ces événements, consultez [Stratégies d’authentification et silos de stratégies d’authentification](https://technet.microsoft.com/library/dn486813.aspx).  
   
-### <a name="BKMK_ManageAuthnPoliciesUsingPSH"></a>Gérer les stratégies d’authentification à l’aide de Windows PowerShell  
+### <a name="manage-authentication-policies-by-using-windows-powershell"></a>Gérer les stratégies d'authentification à l'aide de Windows PowerShell  
 Cette commande crée une stratégie d’authentification nommée **TestAuthenticationPolicy**. Le paramètre **UserAllowedToAuthenticateFrom** spécifie les appareils à partir desquels les utilisateurs peuvent s'authentifier par une chaîne SDDL dans le fichier « someFile.txt ».  
   
 ```  
@@ -371,7 +371,7 @@ Cette commande utilise l’applet de commande **Get-ADAuthenticationPolicy** ave
 PS C:\> Get-ADAuthenticationPolicy -Filter 'Enforce -eq $false' | Remove-ADAuthenticationPolicy  
 ```  
   
-## <a name="BKMK_CreateAuthNPolicySilos"></a>Silos de stratégies  
+## <a name="authentication-policy-silos"></a>Silos de stratégies d'authentification  
 Il s'agit d'un nouveau conteneur (objectClass msDS-AuthNPolicySilos) des services de domaine Active Directory (AD DS) pour les comptes d'utilisateur, d'ordinateur et de service. Ces silos permettent de protéger des comptes à valeur élevée. Toutes les organisations doivent protéger les membres des groupes Administrateurs d'entreprise, Admins de domaine et Administrateurs de schéma car ces comptes peuvent être utilisés par une personne malveillante pour accéder n'importe où dans la forêt, mais d'autres comptes ont également besoin d'une protection.  
   
 Certaines organisations isolent les charges de travail en créant des comptes qui leur sont uniques et en appliquant des paramètres de stratégie de groupe pour limiter l'ouverture de session interactive locale et distante et les privilèges d'administration. Les silos de stratégies d'authentification complètent ce travail en créant un moyen de définir une relation entre les comptes d'utilisateur, d'ordinateur et de service administrés. Ces comptes n'appartiennent qu'à un seul silo. Vous pouvez configurer la stratégie d'authentification pour chaque type de compte pour contrôler :  
@@ -429,7 +429,7 @@ Vous pouvez créer un silo de stratégies d’authentification à l’aide de ce
   
     ![Dans ** Afficher nom **, tapez un nom pour le silo. Dans ** autorisé comptes **, cliquez sur ** Ajouter **, tapez les noms des comptes, puis cliquez sur ** OK **](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_NewAuthNPolicySiloDisplayName.gif)  
   
-### <a name="BKMK_ManageAuthnSilosUsingPSH"></a>Gérer les silos de stratégies à l’aide de Windows PowerShell  
+### <a name="manage-authentication-policy-silos-by-using-windows-powershell"></a>Gérer les silos de stratégies d'authentification à l'aide de Windows PowerShell  
 Cette commande crée un objet de silo de stratégies d'authentification et l'applique.  
   
 ```  

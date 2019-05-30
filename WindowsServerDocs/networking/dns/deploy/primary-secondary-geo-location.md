@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: a9ee7a56-f062-474f-a61c-9387ff260929
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b11064e6b3bd2590d5712afdb7afc69de1ed83f4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6869ee5f39f1719a3c71025207ef9ffe740492ff
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889700"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266789"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-secondary-deployments"></a>Utiliser une stratégie DNS pour la gestion du trafic basée sur la géolocalisation avec des déploiements principaux/secondaires
 
@@ -28,7 +28,7 @@ Les serveurs secondaires utilisent les protocoles de transfert de zone transfert
 >[!NOTE]
 >Pour plus d’informations sur AXFR, consultez la Internet Engineering Task Force (IETF) [demande de commentaires 5936](https://tools.ietf.org/rfc/rfc5936.txt). Pour plus d’informations sur IXFR, consultez la Internet Engineering Task Force (IETF) [demande de commentaires 1995](https://tools.ietf.org/html/rfc1995).  
   
-## <a name="bkmk_example"></a>Emplacement géographique principal-secondaire en fonction d’exemple de gestion de trafic  
+## <a name="primary-secondary-geo-location-based-traffic-management-example"></a>Emplacement géographique principal-secondaire en fonction d’exemple de gestion de trafic  
 Voici un exemple de comment vous pouvez utiliser une stratégie DNS dans un déploiement de principaux / secondaires pour atteindre la redirection du trafic en fonction de l’emplacement physique du client qui effectue une requête DNS.  
   
 Cet exemple utilise deux entreprises fictives - Contoso Cloud Services, qui offre web et domaine qui héberge des solutions ; et Woodgrove Food Services, qui fournit des services de distribution de produits alimentaires dans plusieurs villes du monde, et qui a un site Web nommé woodgrove.com.  
@@ -45,14 +45,14 @@ L’illustration suivante représente ce scénario.
   
 ![Emplacement géographique principal-secondaire en fonction d’exemple de gestion de trafic](../../media/Dns-Policy_PS1/dns_policy_primarysecondary1.jpg)  
    
-## <a name="bkmk_works"></a>Comment fonctionne le système principal-secondaire DNS
+## <a name="how-the-dns-primary-secondary-system-works"></a>Comment fonctionne le système principal-secondaire DNS
 
 Lorsque vous déployez gestion emplacement géographique en fonction du trafic dans un déploiement de DNS principal-secondaire, il est important de comprendre comment normale à une zone principale-secondaire transferts se produisent avant de découvrir des transferts de zone étendue au niveau. Les sections suivantes fournissent des informations sur la zone et les transferts de zone étendue au niveau.  
   
-- [Transferts de zone dans un déploiement de principaux / secondaires DNS](#bkmk_zone)  
-- [Transferts de niveau zone étendue dans un déploiement de principaux / secondaires DNS](#bkmk_scope)  
+- [Transferts de zone dans un déploiement de principaux / secondaires DNS](#zone-transfers-in-a-dns-primary-secondary-deployment)  
+- [Transferts de niveau zone étendue dans un déploiement de principaux / secondaires DNS](#zone-scope-level-transfers-in-a-dns-primary-secondary-deployment)  
   
-### <a name="bkmk_zone"></a>Transferts de zone dans un déploiement de principaux / secondaires DNS
+### <a name="zone-transfers-in-a-dns-primary-secondary-deployment"></a>Transferts de zone dans un déploiement de principaux / secondaires DNS
 
 Vous pouvez créer un déploiement de principaux / secondaires DNS et synchroniser des zones en procédant comme suit.  
 1. Lorsque vous installez DNS, la zone principale est créée sur le serveur DNS principal.  
@@ -62,7 +62,7 @@ Vous pouvez créer un déploiement de principaux / secondaires DNS et synchronis
 5. Si nécessaire, les serveurs principaux envoient des notifications pour les serveurs secondaires sur les mises à jour de la zone.  
 6. Serveurs secondaires effectuer une demande de transfert de zone incrémentiel (IXFR). Pour cette raison, les serveurs secondaires sont synchronisées avec le serveur principal.   
   
-### <a name="bkmk_scope"></a>Transferts de niveau zone étendue dans un déploiement de principaux / secondaires DNS
+### <a name="zone-scope-level-transfers-in-a-dns-primary-secondary-deployment"></a>Transferts de niveau zone étendue dans un déploiement de principaux / secondaires DNS
 
 Le scénario de gestion du trafic requiert des étapes supplémentaires pour partitionner les zones étendues de zone différente. Pour cette raison, les étapes supplémentaires sont nécessaires pour transférer les données dans des étendues de la zone pour les serveurs secondaires et pour transférer des stratégies et les sous-réseaux du Client DNS vers les serveurs secondaires.   
   
@@ -78,7 +78,7 @@ Après ce processus, le serveur principal gère une liste de bases de données s
   
 Pour toute mise à jour supplémentaire dans une étendue de la zone, une notification de IXFR est envoyée aux serveurs secondaires, avec le même enregistrement de ressource OPT. L’étendue de la zone reçoit cette notification effectue la demande IXFR contenant ce RR OPT et le même processus comme décrit ci-dessus suit.  
   
-## <a name="bkmk_config"></a>Comment configurer une stratégie DNS pour gestion du trafic en fonction des emplacement géographique principal-secondaire
+## <a name="how-to-configure-dns-policy-for-primary-secondary-geo-location-based-traffic-management"></a>Comment configurer une stratégie DNS pour gestion du trafic en fonction des emplacement géographique principal-secondaire
 
 Avant de commencer, assurez-vous que vous avez effectué toutes les étapes décrites dans la rubrique [utiliser une stratégie DNS pour l’emplacement géographique en fonction de la gestion du trafic avec des serveurs principaux](../../dns/deploy/Scenario--Use-DNS-Policy-for-Geo-Location-Based-Traffic-Management-with-Primary-Servers.md), et votre serveur DNS principal est configuré avec les zones, étendues de la zone, le Client DNS Des sous-réseaux et une stratégie DNS.  
   
@@ -87,11 +87,11 @@ Avant de commencer, assurez-vous que vous avez effectué toutes les étapes déc
   
 Pour configurer une stratégie DNS pour les réponses aux requêtes principaux / secondaires emplacement géographique en fonction, vous devez effectuer les étapes suivantes.  
   
-- [Créer les Zones de la base de données secondaire](#bkmk_secondary)  
-- [Configurer les paramètres de transfert de Zone sur la Zone principale](#bkmk_zonexfer)  
-- [Copie les sous-réseaux du Client DNS](#bkmk_client)  
-- [Créer des étendues de la Zone sur le serveur secondaire](#bkmk_zonescopes)  
-- [Configurer une stratégie DNS](#bkmk_dnspolicy)  
+- [Créer les Zones de la base de données secondaire](#create-the-secondary-zones)  
+- [Configurer les paramètres de transfert de Zone sur la Zone principale](#configure-the-zone-transfer-settings-on-the-primary-zone)  
+- [Copie les sous-réseaux du Client DNS](#copy-the-dns-client-subnets)  
+- [Créer des étendues de la Zone sur le serveur secondaire](#create-the-zone-scopes-on-the-secondary-server)  
+- [Configurer une stratégie DNS](#configure-dns-policy)  
   
 Les sections suivantes fournissent des instructions de configuration détaillées.  
   
@@ -99,7 +99,7 @@ Les sections suivantes fournissent des instructions de configuration détaillée
 >Les sections suivantes incluent des exemples de commandes Windows PowerShell qui contiennent des exemples de valeurs de paramètres. Veillez à remplacer les exemples de valeurs dans ces commandes avec les valeurs appropriées pour votre déploiement avant d’exécuter ces commandes.  
 ><br>L’appartenance au **DnsAdmins**, ou équivalent, est requis pour effectuer les procédures suivantes.  
   
-### <a name="bkmk_secondary"></a>Créer les Zones de la base de données secondaire
+### <a name="create-the-secondary-zones"></a>Créer les Zones de la base de données secondaire
 
 Vous pouvez créer la copie secondaire de la zone que vous souhaitez répliquer vers SecondaryServer1 et SecondaryServer2 (en supposant que les applets de commande sont en cours d’exécution à distance à partir d’un client de gestion unique).   
   
@@ -115,7 +115,7 @@ Vous pouvez utiliser les commandes Windows PowerShell suivantes pour créer des 
 
 Pour plus d’informations, consultez [Add-DnsServerSecondaryZone](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserversecondaryzone?view=win10-ps).  
   
-### <a name="bkmk_zonexfer"></a>Configurer les paramètres de transfert de Zone sur la Zone principale
+### <a name="configure-the-zone-transfer-settings-on-the-primary-zone"></a>Configurer les paramètres de transfert de Zone sur la Zone principale
 
 Vous devez configurer les paramètres de zone principale afin que :
 
@@ -134,7 +134,7 @@ Vous pouvez utiliser les commandes Windows PowerShell suivantes pour configurer 
 Pour plus d’informations, consultez [ensemble afin d’illustrer](https://docs.microsoft.com/powershell/module/dnsserver/set-dnsserverprimaryzone?view=win10-ps).  
   
   
-### <a name="bkmk_client"></a>Copie les sous-réseaux du Client DNS
+### <a name="copy-the-dns-client-subnets"></a>Copie les sous-réseaux du Client DNS
 
 Vous devez copier les sous-réseaux du Client DNS à partir du serveur principal pour les serveurs secondaires.
   
@@ -148,7 +148,7 @@ Vous pouvez utiliser les commandes Windows PowerShell suivantes pour copier les 
 
 Pour plus d’informations, consultez [Add-DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).  
   
-### <a name="bkmk_zonescopes"></a>Créer des étendues de la Zone sur le serveur secondaire
+### <a name="create-the-zone-scopes-on-the-secondary-server"></a>Créer des étendues de la Zone sur le serveur secondaire
 
 Vous devez créer les étendues de la zone sur les serveurs secondaires. Dans DNS, les étendues de zone également démarrer demande cela est le serveur principal. Avec toute modification sur les étendues de la zone sur le serveur principal, une notification qui contient les informations d’étendue de zone est envoyée aux serveurs secondaires. Les serveurs secondaires peuvent ensuite à jour leurs étendues de zone avec modification incrémentielle.  
   
@@ -165,7 +165,7 @@ Vous pouvez utiliser les commandes Windows PowerShell suivantes pour créer des 
   
 Pour plus d’informations, consultez [Add-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).  
   
-### <a name="bkmk_dnspolicy"></a>Configurer une stratégie DNS
+### <a name="configure-dns-policy"></a>Configurer une stratégie DNS
 
 Une fois que vous avez créé les sous-réseaux, les partitions (étendues de zone) et que vous avez ajouté des enregistrements, vous devez créer des stratégies qui connectent les sous-réseaux et les partitions, afin que lorsqu’une requête provient d’une source dans un des sous-réseaux de client DNS, la réponse de requête est retournée à partir de l’étendue correcte de la zone. Aucune stratégie n’est requis pour le mappage de l’étendue de la zone par défaut.  
   

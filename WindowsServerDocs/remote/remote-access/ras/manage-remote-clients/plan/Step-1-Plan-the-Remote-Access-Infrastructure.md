@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: a1ce7af5-f3fe-4fc9-82e8-926800e37bc1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7f008dbdb49692e4901ebd03310710b2fbf4bd71
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8fa5886d31ea9e8969b02551b49ae744415fca80
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844420"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266738"
 ---
 # <a name="step-1-plan-the-remote-access-infrastructure"></a>Étape 1 planifier l’Infrastructure d’accès à distance
 
@@ -30,16 +30,16 @@ Cette rubrique décrit les étapes de planification d’une infrastructure que v
   
 |Tâche|Description|  
 |----|--------|  
-|[Planifier les paramètres de serveur et de la topologie réseau](#BKMK_Network)|Décidez où placer le serveur d’accès à distance (à la périphérie ou derrière un pare-feu ou un périphérique de traduction d’adresses réseau (NAT)) et planifiez l’adressage IP et le routage.|  
-|[Planifier la configuration requise du pare-feu](#BKMK_Firewall)|Planifiez l'autorisation de l'accès à distance via des pare-feu de périmètre.|  
-|[Planifier la configuration requise des certificats](#bkmk_12CAsandcerts)|Décidez si vous utilisez le protocole Kerberos ou des certificats pour l’authentification du client et planifier des certificats de votre site Web.<br /><br />IP-HTTPS est un protocole de transition utilisé par les clients DirectAccess pour transférer le trafic IPv6 via des réseaux IPv4. Décider s’il faut authentifier IP-HTTPS pour le serveur à l’aide d’un certificat émis par une autorité de certification (CA), ou à l’aide d’un certificat auto-signé émis automatiquement par le serveur d’accès à distance.|  
-|[Planifier la configuration DNS requise](#BKMK_DNS)|Planifier les paramètres de système DNS (Domain Name) pour le serveur accès à distance, les serveurs d’infrastructure, les options de résolution de nom local et les connectivité client.| 
-|[Planifier la configuration du serveur emplacement réseau](#BKMK_Location)|Décidez où placer le site de serveur d’emplacement réseau dans votre organisation (sur le serveur d’accès à distance ou un autre serveur), et la planification de la configuration requise des certificats si le serveur emplacement réseau se trouvera sur le serveur d’accès à distance. **Remarque :** Les clients DirectAccess utilisent le serveur Emplacement réseau pour déterminer s'ils se trouvent sur le réseau interne.|  
-|[Planifier les configurations de serveurs d’administration](#BKMK_Management)|Planifiez les serveurs d’administration (tels que les serveurs de mise à jour) utilisés lors de l’administration à distance des clients. **Remarque :** Les administrateurs peuvent administrer à distance les ordinateurs clients DirectAccess situés en dehors du réseau d’entreprise à l’aide d’Internet.|  
-|[Planifier la configuration requise d’Active Directory](#BKMK_ActiveDirectory)|Planifiez vos contrôleurs de domaine, vos exigences d’Active Directory, l’authentification du client et plusieurs structure de domaine.|  
-|[Planifier la création d’objets de stratégie de groupe](#BKMK_GPOs)|Décidez quels objets stratégie de groupe sont requis dans votre organisation et comment créer et modifier les objets de stratégie de groupe.|  
+|[Planifier les paramètres de serveur et de la topologie réseau](#plan-network-topology-and-settings)|Décidez où placer le serveur d’accès à distance (à la périphérie ou derrière un pare-feu ou un périphérique de traduction d’adresses réseau (NAT)) et planifiez l’adressage IP et le routage.|  
+|[Planifier la configuration requise du pare-feu](#plan-firewall-requirements)|Planifiez l'autorisation de l'accès à distance via des pare-feu de périmètre.|  
+|[Planifier la configuration requise des certificats](#plan-certificate-requirements)|Décidez si vous utilisez le protocole Kerberos ou des certificats pour l’authentification du client et planifier des certificats de votre site Web.<br /><br />IP-HTTPS est un protocole de transition utilisé par les clients DirectAccess pour transférer le trafic IPv6 via des réseaux IPv4. Décider s’il faut authentifier IP-HTTPS pour le serveur à l’aide d’un certificat émis par une autorité de certification (CA), ou à l’aide d’un certificat auto-signé émis automatiquement par le serveur d’accès à distance.|  
+|[Planifier la configuration DNS requise](#plan-dns-requirements)|Planifier les paramètres de système DNS (Domain Name) pour le serveur accès à distance, les serveurs d’infrastructure, les options de résolution de nom local et les connectivité client.| 
+|[Planifier la configuration du serveur emplacement réseau](#plan-the-network-location-server-configuration)|Décidez où placer le site de serveur d’emplacement réseau dans votre organisation (sur le serveur d’accès à distance ou un autre serveur), et la planification de la configuration requise des certificats si le serveur emplacement réseau se trouvera sur le serveur d’accès à distance. **Remarque :** Les clients DirectAccess utilisent le serveur Emplacement réseau pour déterminer s'ils se trouvent sur le réseau interne.|  
+|[Planifier les configurations de serveurs d’administration](#plan-management-servers-configuration)|Planifiez les serveurs d’administration (tels que les serveurs de mise à jour) utilisés lors de l’administration à distance des clients. **Remarque :** Les administrateurs peuvent administrer à distance les ordinateurs clients DirectAccess situés en dehors du réseau d’entreprise à l’aide d’Internet.|  
+|[Planifier la configuration requise d’Active Directory](#plan-active-directory-requirements)|Planifiez vos contrôleurs de domaine, vos exigences d’Active Directory, l’authentification du client et plusieurs structure de domaine.|  
+|[Planifier la création d’objets de stratégie de groupe](#plan-group-policy-object-creation)|Décidez quels objets stratégie de groupe sont requis dans votre organisation et comment créer et modifier les objets de stratégie de groupe.|  
   
-## <a name="BKMK_Network"></a>Planifier la topologie de réseau et de paramètres  
+## <a name="plan-network-topology-and-settings"></a>Planifier la topologie et les paramètres réseau  
 Lorsque vous planifiez votre réseau, vous devez prendre en compte la topologie de carte réseau, les paramètres pour l’adressage IP et la configuration requise pour ISATAP.  
   
 ### <a name="plan-network-adapters-and-ip-addressing"></a>Planifier les cartes réseau et l'adressage IP  
@@ -86,7 +86,7 @@ ISATAP est requis pour la gestion à distance de DirectAccessclients, afin que l
 > [!IMPORTANT]  
 > Assurez-vous que vous n’avez pas les adresses IP publiques sur l’interface interne du serveur DirectAccess. Si vous avez l’adresse IP publique sur l’interface interne, la connectivité via ISATAP peut échouer.  
   
-### <a name="BKMK_Firewall"></a>Planifier la configuration requise du pare-feu  
+### <a name="plan-firewall-requirements"></a>Planifier la configuration requise pour le pare-feu  
 Si le serveur d'accès à distance se trouve derrière un pare-feu de périmètre, les exceptions suivantes sont requises pour le trafic d'accès à distance quand le serveur d'accès à distance est sur Internet IPv4 :  
   
 -   Pour IP-HTTPS : Port de destination TCP (Control Protocol) de transmission 443 et le port TCP source 443 sortant.  
@@ -121,7 +121,7 @@ Lorsque vous utilisez des pare-feu supplémentaires, appliquez les exceptions de
   
 -   Pour Teredo : ICMP pour tout le trafic IPv4/IPv6  
   
-### <a name="bkmk_12CAsandcerts"></a>Planifier la configuration requise des certificats  
+### <a name="plan-certificate-requirements"></a>Planifier les exigences en matière de certificats  
 Il existe trois scénarios qui nécessitent des certificats lorsque vous déployez un seul serveur d’accès à distance.  
   
 -   **L’authentification IPsec**: Configuration requise des certificats pour IPsec inclure un certificat d’ordinateur qui est utilisé par les ordinateurs clients DirectAccess lorsqu’ils établissent la connexion IPsec avec le serveur d’accès à distance et un certificat d’ordinateur qui est utilisé par les serveurs d’accès à distance pour établir Connexions IPsec avec les clients DirectAccess.  
@@ -183,7 +183,7 @@ Considérez les éléments suivants lorsque vous planifiez le site de serveur d�
 > [!NOTE]  
 > Assurez-vous que les certificats de serveur d’emplacement réseau et IP-HTTPS ont un nom de sujet. Si le certificat utilise un autre nom, il ne sera pas accepté par l’Assistant accès à distance.  
   
-#### <a name="BKMK_DNS"></a>Planifier la configuration DNS requise  
+#### <a name="plan-dns-requirements"></a>Planifier la configuration DNS requise  
 Cette section explique la configuration DNS requise pour les clients et serveurs dans un déploiement de l’accès à distance.  
   
 ##### <a name="directaccess-client-requests"></a>Demandes des clients DirectAccess  
@@ -227,7 +227,7 @@ L'accès à distance crée une sonde web par défaut utilisée par les ordinateu
   
 Vous pouvez créer d’autres vérificateurs de connectivité à l’aide d’autres adresses web via HTTP ou PING. Pour chaque vérificateur de connectivité, une entrée DNS doit exister.  
   
-##### <a name="BKMK_DNSServer"></a>Configuration requise du serveur DNS  
+##### <a name="dns-server-requirements"></a>Configuration requise du serveur DNS  
   
 -   Pour les clients DirectAccess, vous devez utiliser un serveur DNS exécutant Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, Windows Server 2003 ou n’importe quel serveur DNS qui prend en charge IPv6.  
   
@@ -235,7 +235,7 @@ Vous pouvez créer d’autres vérificateurs de connectivité à l’aide d’au
   
 -   Le nom de domaine complet pour vos points de distribution CRL doit pouvoir être résolu à l’aide de serveurs DNS Internet. Par exemple, si URL https://crl.contoso.com/crld/corp-DC1-CA.crl est dans le **Points de Distribution CRL** champ du certificat IP-HTTPS du serveur d’accès à distance, vous devez vous assurer que le nom de domaine complet crld.contoso.com ne peut être résolu à l’aide de serveurs DNS Internet.  
   
-#### <a name="BKMK_NameResolution"></a>Plan de résolution de noms locale  
+#### <a name="plan-for-local-name-resolution"></a>Plan de résolution de noms locale  
 Considérez les éléments suivants lors de la planification pour la résolution de noms locale :  
   
 ##### <a name="nrpt"></a>NRPT  
@@ -281,11 +281,11 @@ Lorsque le service Client DNS effectue la résolution de noms locale pour les no
   
 -   **Utiliser la résolution de noms locale si le nom n’existe pas dans DNS**: Cette option est la plus sécurisée car le client DirectAccess exécute uniquement la résolution de noms locale pour les noms de serveur qui ne peuvent pas être résolus par les serveurs DNS intranet. Si les serveurs DNS intranet sont accessibles, les noms des serveurs intranet sont résolus. S'ils ne sont pas accessibles ou que d'autres types d'erreurs DNS surviennent, les noms de serveur intranet ne seront pas révélés sur le sous-réseau via la résolution de noms locale.  
   
--   **Utiliser la résolution de noms locale si le nom n’existe pas dans DNS ou de serveurs DNS ne sont pas accessibles lorsque l’ordinateur client est sur un réseau privé (recommandé)**: Cette option est recommandée car elle autorise l'utilisation de la résolution de noms locale sur un réseau privé uniquement lorsque les serveurs DNS intranet sont inaccessibles.  
+-   **Utiliser la résolution de noms locale si le nom n’existe pas dans DNS ou de serveurs DNS ne sont pas accessibles lorsque l’ordinateur client est sur un réseau privé (recommandé)** : Cette option est recommandée car elle autorise l'utilisation de la résolution de noms locale sur un réseau privé uniquement lorsque les serveurs DNS intranet sont inaccessibles.  
   
--   **Utiliser la résolution de noms locale pour tout type d’erreur de résolution DNS (moins sécurisé)**: Il s'agit de l'option la moins sécurisée car les noms de serveurs réseau intranet peuvent être révélés au sous-réseau local via la résolution de noms locale.  
+-   **Utiliser la résolution de noms locale pour tout type d’erreur de résolution DNS (moins sécurisé)** : Il s'agit de l'option la moins sécurisée car les noms de serveurs réseau intranet peuvent être révélés au sous-réseau local via la résolution de noms locale.  
   
-#### <a name="BKMK_Location"></a>Planifier la configuration du serveur emplacement réseau  
+#### <a name="plan-the-network-location-server-configuration"></a>Planifier la configuration du serveur emplacement réseau  
 Le serveur Emplacement réseau est un site web utilisé pour détecter si les clients DirectAccess se trouvent dans le réseau d'entreprise. Les clients du réseau d’entreprise n’utilisent pas de DirectAccess pour accéder aux ressources internes ; mais au lieu de cela, ils se connectent directement.  
   
 Le site de serveur d’emplacement réseau peut être hébergé sur le serveur d’accès à distance ou sur un autre serveur dans votre organisation. Si vous hébergez le serveur d’emplacement réseau sur le serveur d’accès à distance, le site Web est créé automatiquement lorsque vous déployez l’accès à distance. Si vous hébergez le serveur d’emplacement réseau sur un autre serveur exécutant un système d’exploitation de Windows, il se peut que vous devez vous assurer que les Internet Information Services (IIS) est installé sur ce serveur, et que le site Web est créé. Accès à distance ne configure pas les paramètres sur le serveur emplacement réseau.  
@@ -318,7 +318,7 @@ Lorsque vous obtenez le certificat de site Web à utiliser pour le serveur empla
 ##### <a name="plan-dns-for-the-network-location-server"></a>Planifier DNS pour le serveur emplacement réseau  
 Les clients DirectAccess essaient d'atteindre le serveur Emplacement réseau pour déterminer s'ils se situent sur le réseau interne. Les clients qui se trouvent sur le réseau interne doivent être en mesure de résoudre le nom du serveur d'emplacement réseau, mais il est impératif de les empêcher de le faire quand ils se situent sur Internet. Pour le garantir, le nom de domaine complet (FQDN) du serveur d'emplacement réseau est, par défaut, ajouté en tant que règle d'exemption à la NRPT.  
   
-### <a name="BKMK_Management"></a>Planifier la configuration des serveurs d’administration  
+### <a name="plan-management-servers-configuration"></a>Planifier la configuration des serveurs d’administration  
 Les clients DirectAccess lancent des communications avec les serveurs d’administration qui fournissent des services tels que Windows Update et mises à jour antivirus. Clients DirectAccess utilisent également le protocole Kerberos pour s’authentifier auprès des contrôleurs de domaine avant qu’ils accèdent au réseau interne. Au cours de l'administration distante des clients DirectAccess, les serveurs d'administration communiquent avec les ordinateurs clients pour exécuter des fonctions d'administration telles que l'évaluation de l'inventaire logiciel et matériel. L'accès à distance peut détecter automatiquement certains serveurs d'administration, dont notamment :  
   
 -   Contrôleurs de domaine : La détection automatique des contrôleurs de domaine est effectuée pour les domaines contenant des ordinateurs clients et pour tous les domaines dans la même forêt que le serveur d’accès à distance.  
@@ -333,7 +333,7 @@ Contrôleurs de domaine et System Center Configuration Manager de serveurs sont 
   
 -   Serveurs d’administration qui établissent des connexions aux clients DirectAccess doivent prendre entièrement en charge IPv6, au moyen d’une adresse IPv6 native ou à l’aide d’une adresse attribuée par ISATAP.  
   
-### <a name="BKMK_ActiveDirectory"></a>Planifier la configuration requise d’Active Directory  
+### <a name="plan-active-directory-requirements"></a>Planifier la configuration requise d’Active Directory  
 Accès à distance utilise Active Directory comme suit :  
   
 -   **Authentification**: Le tunnel d’infrastructure utilise l’authentification NTLMv2 pour le compte d’ordinateur qui se connecte au serveur d’accès à distance, et le compte doit être dans un domaine Active Directory. Le tunnel intranet utilise l’authentification Kerberos pour l’utilisateur pour créer le tunnel intranet.  
@@ -380,7 +380,7 @@ Cette authentification est automatique si les domaines se trouvent dans la même
   
 Si possible, common suffixes de noms de domaine doivent être ajoutés à la table NRPT pendant le déploiement de l’accès à distance. Par exemple, si vous possédez deux domaines, domain1.corp.contoso.com et domain2.corp.contoso.com, au lieu d'ajouter deux entrées dans la table NRPT, vous pouvez ajouter une entrée de suffixe DNS commun, où le suffixe de nom de domaine est corp.contoso.com. Cela se produit automatiquement pour les domaines dans la même racine. Les domaines qui ne sont pas dans la même racine doivent être ajoutés manuellement.  
   
-### <a name="BKMK_GPOs"></a>Planifier la création d’objets de stratégie de groupe  
+### <a name="plan-group-policy-object-creation"></a>Planifier la création d’objets de stratégie de groupe  
 Lorsque vous configurez l’accès à distance, les paramètres DirectAccess sont rassemblés dans des objets de stratégie de groupe (GPO). Deux objets de stratégie de groupe sont renseignés avec les paramètres DirectAccess, et ils sont distribués comme suit :  
   
 -   **Le client DirectAccess GPO**: Cet objet de stratégie de groupe contient des paramètres de client, y compris les paramètres de technologie de transition IPv6, des entrées NRPT et des règles de sécurité de connexion pour le pare-feu Windows avec fonctions avancées de sécurité. Il est appliqué aux groupes de sécurité spécifiés pour les ordinateurs clients.  

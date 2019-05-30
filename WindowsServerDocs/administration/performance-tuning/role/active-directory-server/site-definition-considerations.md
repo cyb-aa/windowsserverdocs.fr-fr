@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 0e5c5f8b7cf5c028fbfa5d72c4bc1218565d4087
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e1652e45f51500ceeb0026b8892fbe9c54ff38f3
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814020"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266636"
 ---
 # <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>Positionnement correct de contrôleurs de domaine et les considérations de site
 
@@ -64,7 +64,7 @@ Approbation scénarios correspondent à une zone qui a été de façon cohérent
 
     -   Utilisez DnsAvoidRegisterRecords pour éliminer les contrôleurs de domaine mal l’exécution ou à latence élevée, telles que celles dans les sites de satellite, de la publicité pour les localisateurs génériques. Pour plus d’informations, consultez [comment optimiser l’emplacement d’un contrôleur de domaine ou d’un catalogue global qui réside en dehors d’un site du client](https://support.microsoft.com/kb/306602).
 
-        **Remarque**    il existe une limite pratique d’environ 50 au nombre de contrôleurs de domaine que le client peut consommer. Ces valeurs doivent être le plus de capacité optimale de site et la plus élevée des contrôleurs de domaine.
+        > [!Note]   Il existe une limite pratique d’environ 50 au nombre de contrôleurs de domaine que le client peut consommer. Ces valeurs doivent être le plus de capacité optimale de site et la plus élevée des contrôleurs de domaine.
 
          
 
@@ -79,6 +79,6 @@ Pour tous les scénarios de confiance, les informations d’identification sont 
 ## <a name="see-also"></a>Voir aussi
 - [Les serveurs Active Directory de réglage des performances](index.md)
 - [Considérations matérielles](hardware-considerations.md)
-- [Considérations relatives à LDAP](ldap-considerations.md)
-- [Résolution des problèmes de performances d’AD DS](troubleshoot.md) 
-- [Planification de capacité pour les Services de domaine Active Directory](https://go.microsoft.com/fwlink/?LinkId=324566)
+- [Considérations relatives au protocole LDAP](ldap-considerations.md)
+- [Résoudre les problèmes de performances d’AD DS](troubleshoot.md) 
+- [Planification de la capacité pour les services de domaine Active Directory](https://go.microsoft.com/fwlink/?LinkId=324566)

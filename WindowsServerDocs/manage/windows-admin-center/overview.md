@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 04/12/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 3208c20e8bf9f4cfab4340aa33b24175bbc72dda
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: ee3c4ba5d6c3dc911ab318ade9a46b279317496f
+ms.sourcegitcommit: 39ab8041d166e6817a95417d6aa30bc7abeeef54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188328"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66260254"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -128,6 +128,7 @@ Vous pouvez installer et exécuter Windows Admin Center dans votre environnement
 
 Découvrez nos toutes dernières fonctionnalités :
 
+- Version 1904.1 - Maintenance mise à jour pour améliorer la stabilité des plug-ins de la passerelle.
 - Version [1904](https://aka.ms/wac1904) est la toute dernière version de la disponibilité générale qui présente l’outil Azure Hybrid Services et apporte les fonctionnalités qui étaient présentes dans la version préliminaire pour le canal de la disponibilité générale.
 - Version [1903](https://aka.ms/wac1903) apporte des notifications par courrier électronique à partir d’Azure Monitor, la possibilité d’ajouter des connexions de serveur ou votre PC à partir d’Active Directory et de nouveaux outils pour gérer Active Directory, DHCP et DNS.
 - Version [1902](https://aka.ms/wac1902) ajouté une liste de connexions partagées et des améliorations à la gestion de réseau (SDN) software-defined, y compris les nouveaux outils SDN pour gérer les ACL, les connexions de passerelle et les réseaux logiques.

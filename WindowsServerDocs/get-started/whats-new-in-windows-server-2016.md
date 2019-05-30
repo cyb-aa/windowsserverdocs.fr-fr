@@ -14,18 +14,18 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 8d36961558066197a54f42d27a3560d653bd81f2
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 8526d86c03f895d5bc8e0776aa958c627e78dfd9
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976634"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266803"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Nouveautés de Windows Server2016
 
 >S’applique à : Windows Server 2016
 
-<img src="media/whats-new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">Pour en savoir plus sur les dernières fonctionnalités dans Windows, consultez [What ' s New in Windows Server](whats-new-in-windows-server.md). Le contenu de cette section décrit les nouveautés et les modifications de Windows Server&reg; 2016. Les nouvelles fonctionnalités et modifications répertoriées ici sont celles qui sont susceptibles d'avoir l'impact le plus important quand vous utilisez cette version.  
+![Icône indiquant un type de journal](media/whats-new.png) pour en savoir plus sur les dernières fonctionnalités dans Windows, consultez [What ' s New in Windows Server](whats-new-in-windows-server.md). Le contenu de cette section décrit les nouveautés et les modifications de Windows Server&reg; 2016. Les nouvelles fonctionnalités et modifications répertoriées ici sont celles qui sont susceptibles d'avoir l'impact le plus important quand vous utilisez cette version.
 
 ## <a name="computevirtualizationvirtualizationmd"></a>[Compute](../virtualization/virtualization.md)
 

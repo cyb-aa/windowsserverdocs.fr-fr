@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1c47986cda3f091033274aa2c59a656ec861a98f
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 909be9e4bbcd12b00fd60ff061b1f4e2ede34546
+ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189713"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66308540"
 ---
 # <a name="create-a-claims-provider-trust"></a>Créer une approbation de fournisseur de revendications
 
@@ -57,7 +57,7 @@ L’appartenance au **administrateurs**, ou équivalente, sur l’ordinateur loc
 Pour ajouter une nouvelle approbation de fournisseur de revendications, le composant logiciel enfichable Gestion AD FS, en important automatiquement les données de configuration relatives au partenaire à partir des métadonnées de fédération du partenaire a publiées sur un réseau local ou à Internet, d’effectuer la procédure suivante sur un serveur de fédération dans l’organisation partenaire ressource.
 
 >[!NOTE]
->Même si elle a longtemps été courant d’utiliser des certificats avec des noms d’hôte non qualifié tel que https://myserver, ces certificats n’ont aucune valeur de sécurité et peut permettre à un pirate d’emprunter l’identité d’un Service de fédération qui publie des métadonnées de fédération. Par conséquent, lors de l’interrogation des métadonnées de fédération, vous devez uniquement utiliser un nom de domaine complet comme https://myserver.contoso.com.
+>Même si elle a longtemps été courant d’utiliser des certificats avec des noms d’hôte non qualifié tel que https :\//myserver, ces certificats n’ont aucune valeur de sécurité et peut permettre à un pirate d’emprunter l’identité d’un Service de fédération qui publie la fédération métadonnées. Par conséquent, lors de l’interrogation des métadonnées de fédération, vous devez uniquement utiliser un nom de domaine complet comme `https://myserver.contoso.com`.
 
 1.  Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion AD FS**.  
   

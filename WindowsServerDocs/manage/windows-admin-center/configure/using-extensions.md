@@ -7,12 +7,12 @@ author: daniellee-msft
 ms.author: jol
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 6091edd7aa7f790f6029ca6b6ae402bf1b7e61ca
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: c775dd5a3011115bbb031c0b9e4e24a8911d378e
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877020"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63748408"
 ---
 # <a name="install-and-manage-extensions"></a>Installer et gérer des Extensions
 
@@ -85,9 +85,6 @@ $feedUrlBase = "https://aka.ms/sme-extension-feed"
 >S'applique à : Windows Admin Center, version préliminaire de Windows Admin Center
 
 Version préliminaire de Windows Admin Center inclut un module PowerShell pour gérer vos extensions de passerelle.
-
->[!IMPORTANT]
->La gestion des extensions de passerelle avec le module PowerShell sont uniquement pris en charge Windows Admin Center est déployé comme un service de passerelle sur Windows Server.
 
 ```powershell
 # Add the module to the current session

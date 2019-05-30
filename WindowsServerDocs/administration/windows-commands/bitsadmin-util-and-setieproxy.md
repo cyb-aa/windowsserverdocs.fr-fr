@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d4f6ab2e52284895d2e7918364c24bbb69f2b1c9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 81bb333e2bb776bc75789b52ab41d7ef64016f51
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853510"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266468"
 ---
 # <a name="bitsadmin-util-and-setieproxy"></a>SETIEPROXY et bitsadmin util
 
@@ -47,7 +47,7 @@ Chaque appel à l’aide de ce commutateur remplace l’utilisation spécifiée 
 > [!IMPORTANT]
 > Vous devez exécuter cette commande à partir d’une invite de commandes avec élévation de privilèges pour qu’elle se termine avec succès.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="examples"></a>Exemples
 
 L’exemple suivant définit l’utilisation de proxy pour le compte de SERVICE réseau.
 
@@ -64,4 +64,4 @@ bitsadmin /util /setieproxy localsystem MANUAL_PROXY proxy1:80 ""
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

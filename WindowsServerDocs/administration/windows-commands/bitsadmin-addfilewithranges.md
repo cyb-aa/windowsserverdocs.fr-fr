@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 69b402195f90977aa63299c1a2a550ba310a4513
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 081e5caeb7fb458b367f035b9995929de84a5528
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832340"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266567"
 ---
 # <a name="bitsadmin-addfilewithranges"></a>bitsadmin addfilewithranges
 
@@ -41,14 +41,14 @@ bitsadmin /AddFileWithRanges <Job> <RemoteURL> <LocalName> <RangeList>
 
 ## <a name="more-information"></a>Plus d’informations
 
--   Le jeton **eof** est une valeur de longueur valide dans les paires de décalage et la longueur dans le  *\<RangeList >*. Il indique au service pour lire à la fin du fichier spécifié.
+-   Le jeton **eof** est une valeur de longueur valide dans les paires de décalage et la longueur dans le  *\<RangeList >* . Il indique au service pour lire à la fin du fichier spécifié.
 -   Notez que AddFileWithRanges échoue avec le code d’erreur 0x8020002c lors d’une plage de longueur nulle est spécifiée, ainsi que d’une autre plage avec le même décalage, telles que : C:\bits > bitsadmin /addfilewithranges j2 http://bitsdc/dload/1k.zip c:\1k.zip 100:0, 100:5
 
     Message d’erreur : Impossible d’ajouter le fichier au travail - 0x8020002c. La liste de plages d’octets contient des plages qui se chevauchent, qui ne sont pas pris en charge.
 
     Solution de contournement : ne spécifiez pas du tout d’abord la plage de longueur nulle. Par exemple : bitsadmin /addfilewithranges j2 http://bitsdc/dload/1k.zip c:\1k.zip 100:5, 100:0.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="examples"></a>Exemples
 
 L’exemple suivant indique les BITS pour transférer des 100 octets à partir de l’offset 0, 100 octets de décalage 2000 et les octets restants à partir d’un décalage 5000 à la fin du fichier.
 ```
@@ -57,4 +57,4 @@ C:\>bitsadmin /addfilewithranges http://downloadsrv/10mb.zip c:\10mb.zip "0:100,
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

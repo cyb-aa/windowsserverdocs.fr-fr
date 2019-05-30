@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: cc9f02b9-8ddd-4cae-b397-a832996144dd
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4ad399e62e1aa76b76b6109e28845b2615efa0fe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fb940effaae7989dec397e539b64160c87828d5a
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882280"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266705"
 ---
 # <a name="step-2-plan-the-remote-access-deployment"></a>Étape 2 planifier le déploiement de l’accès à distance
 
@@ -31,11 +31,11 @@ Une fois que vous envisagez de l’infrastructure que vous souhaitez utiliser po
   
 |Tâche|Description|  
 |----|--------|  
-|[Planifier une stratégie de déploiement client](#bkmk_21client)|Identifiez les ordinateurs gérés qui seront configurés en tant que clients DirectAccess.|  
-|[Planifier une stratégie de déploiement de serveur accès à distance](#bkmk_22server)|Planifiez le déploiement du serveur d'accès à distance.|  
-|[Planifier les configurations de serveurs d’infrastructure](#bkmk_23Infservers)|Planifier les serveurs d’infrastructure dans votre déploiement de l’accès à distance, y compris le serveur emplacement réseau DirectAccess, les serveurs DNS et les serveurs d’administration DirectAccess.|  
+|[Planifier une stratégie de déploiement client](#plan-a-client-deployment-strategy)|Identifiez les ordinateurs gérés qui seront configurés en tant que clients DirectAccess.|  
+|[Planifier une stratégie de déploiement de serveur accès à distance](#plan-a-remote-access-server-deployment-strategy)|Planifiez le déploiement du serveur d'accès à distance.|  
+|[Planifier les configurations de serveurs d’infrastructure](#plan-the-infrastructure-servers-configurations)|Planifier les serveurs d’infrastructure dans votre déploiement de l’accès à distance, y compris le serveur emplacement réseau DirectAccess, les serveurs DNS et les serveurs d’administration DirectAccess.|  
   
-## <a name="bkmk_21client"></a>Planifier une stratégie de déploiement client  
+## <a name="plan-a-client-deployment-strategy"></a>Planifier une stratégie de déploiement client  
 Vous devez prendre trois décisions lors de la planification du déploiement de vos clients :  
   
 1.  DirectAccess sera-t-il disponible sur les ordinateurs portables uniquement, ou à tous les ordinateurs dans un groupe de sécurité spécifié ?  
@@ -70,7 +70,7 @@ Vous devez prendre trois décisions lors de la planification du déploiement de 
   
         Les clients requièrent un moyen de résolution de noms localement. Si vous autorisez les clients DirectAccess à utiliser la résolution de noms locale, les utilisateurs finaux peuvent utiliser les serveurs DNS locaux pour résoudre les noms. Lorsque les utilisateurs finaux choisir d’utiliser des serveurs DNS locaux pour la résolution de noms, DirectAccess n’envoie pas de demandes de résolution de noms d’étiquette unique vers le serveur DNS d’entreprise interne. Il utilise la résolution de nom local à la place (en utilisant le lien-Local Multicast LLMNR (Name Resolution) et NetBios sur les protocoles TCP/IP).  
   
-## <a name="bkmk_22server"></a>Planifier une stratégie de déploiement de serveur accès à distance  
+## <a name="plan-a-remote-access-server-deployment-strategy"></a>Planifier une stratégie de déploiement de serveur accès à distance  
 Les décisions que vous devez prendre lorsque vous planifiez de déployer votre serveur d’accès à distance sont les suivantes :  
   
 -   **Topologie de réseau**  
@@ -110,7 +110,7 @@ Les décisions que vous devez prendre lorsque vous planifiez de déployer votre 
   
     Avant de configurer l’accès à distance, décidez si vous vous apprêtez à fournir l’accès VPN à des clients distants. Vous devez fournir l’accès VPN si vous avez des ordinateurs clients dans votre organisation qui ne prennent pas en charge la connectivité DirectAccess (par exemple, ils ne sont pas gérés ou ils exécutent un système d’exploitation pour lequel DirectAccess n’est pas pris en charge). Assistant d’installation du serveur d’accès à distance vous permet de configurer la façon dont les adresses IP sont affectées (à l’aide de DHCP ou à partir d’un pool d’adresses statiques) et la manière dont les clients VPN sont authentifiés (en utilisant Active Directory ou un serveur RADIUS).  
   
-## <a name="bkmk_23Infservers"></a>Planifier les configurations de serveurs d’infrastructure  
+## <a name="plan-the-infrastructure-servers-configurations"></a>Planifier les configurations de serveurs d’infrastructure  
 Accès à distance requiert trois types de serveurs d’infrastructure :  
   
 -   **Serveur d’emplacement réseau**  
@@ -119,9 +119,9 @@ Accès à distance requiert trois types de serveurs d’infrastructure :
   
 -   **Serveurs d’administration** 
   
-## <a name="BKMK_Links"></a>Voir aussi  
+## <a name="see-also"></a>Voir aussi  
   
--   [Étape 1 : Planifier l’Infrastructure d’accès à distance](Step-1-Plan-the-Remote-Access-Infrastructure.md)  
+-   [Étape 1 : Planifier l’infrastructure d’accès à distance](Step-1-Plan-the-Remote-Access-Infrastructure.md)  
   
 
 
