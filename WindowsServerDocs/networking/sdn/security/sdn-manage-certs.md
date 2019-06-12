@@ -9,12 +9,12 @@ ms.assetid: c4e2f6c7-0364-4bf8-bb66-9af59c0bbd74
 ms.author: pashort
 author: shortpatti
 ms.date: 08/22/2018
-ms.openlocfilehash: 618c2c4da60decc94f84c2a40cd4d2aa80d5f26b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d29a98e24b475c38fee61972bf9efbd5a2528974
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827570"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446260"
 ---
 # <a name="manage-certificates-for-software-defined-networking"></a>Gérer des certificats pour Sdn
 
@@ -128,13 +128,13 @@ Vous pouvez utiliser le composant logiciel enfichable Certificats pour demander 
 **Les utilisateurs** ou local **administrateurs** est l’appartenance de groupe minimale requise pour effectuer cette procédure.
 
 1. Ouvrez le composant logiciel enfichable Certificats pour un ordinateur.
-2. Dans l’arborescence de la console, cliquez sur **certificats \(ordinateur Local\)**. Sélectionnez le **personnel** magasin de certificats.
-3. Sur le **Action** menu, pointez sur ** toutes les tâches **, puis cliquez sur **demander un nouveau certificat** pour démarrer l’Assistant Inscription de certificats. Cliquez sur **Suivant**.
+2. Dans l’arborescence de la console, cliquez sur **certificats \(ordinateur Local\)** . Sélectionnez le **personnel** magasin de certificats.
+3. Sur le **Action** menu, pointez sur ** toutes les tâches<strong>, puis cliquez sur ** Demander un nouveau certificat</strong> pour démarrer l’Assistant Inscription de certificats. Cliquez sur **Suivant**.
 4. Sélectionnez le **configuré par votre administrateur** stratégie d’inscription de certificat et cliquez sur **suivant**.
 5. Sélectionnez le **stratégie de l’inscription Active Directory** \(basé sur le modèle de l’autorité de certification que vous avez configuré dans la section précédente\).
 6. Développez le **détails** section et configurer les éléments suivants.
-    1. Vérifiez que **utilisation de la clé** comprend à la fois ** Signature numérique ** et **chiffrage de clés**.
-    2. Vérifiez que **stratégies d’Application** comprend à la fois **l’authentification du serveur** \(1.3.6.1.5.5.7.3.1\) et **l’authentification du Client** \(1.3.6.1.5.5.7.3.2\).
+   1. Vérifiez que **utilisation de la clé** comprend à la fois <strong>Signature numérique ** et ** chiffrage de clés</strong>.
+   2. Vérifiez que **stratégies d’Application** comprend à la fois **l’authentification du serveur** \(1.3.6.1.5.5.7.3.1\) et **l’authentification du Client** \(1.3.6.1.5.5.7.3.2\).
 7. Cliquez sur **Propriétés**.
 8. Sur le **sujet** sous l’onglet **nom de l’objet**, dans **Type**, sélectionnez **nom commun**. Dans valeur, spécifiez **point de terminaison REST de contrôleur de réseau**.
 9. Cliquez sur **Appliquer**, puis sur **OK**.

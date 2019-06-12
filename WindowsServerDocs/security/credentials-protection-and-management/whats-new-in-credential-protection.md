@@ -13,12 +13,12 @@ author: gitmichiko
 ms.author: michikos
 manager: dongill
 ms.date: 03/06/2017
-ms.openlocfilehash: ec41e85949cb61c8130d8765b4786eefe39ebd0b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 475b6a0b24b811008ee213c1604d98d9aa9eb092
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855590"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447035"
 ---
 # <a name="whats-new-in-credential-protection"></a>Nouveautés de la Protection des informations d’identification
 
@@ -49,7 +49,7 @@ Protections de domaine nécessitent un domaine Active Directory.
 
 Depuis Windows 10 version 1507 et Windows Server 2016, si un appareil joint au domaine est en mesure d’enregistrer sa clé publique lié avec un contrôleur de domaine (DC) Windows Server 2016, puis l’appareil peut s’authentifier avec la clé publique à l’aide de Kerberos PKINIT authentification à un contrôleur de domaine Windows Server 2016.
 
-À compter de Windows Server 2016, KDC prennent en charge l’authentification à l’aide d’approbation de clés Kerberos.  
+À compter de Windows Server 2016, KDC prennent en charge l’authentification à l’aide d’approbation de clés Kerberos.  
 
 [En savoir plus sur la prise en charge de la clé publique pour les appareils joints au domaine et approbation de clés Kerberos](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication).
 
@@ -63,7 +63,7 @@ Depuis Windows 10, version 1507 et Windows Server 2016, les clients Kerberos va 
 
 ### <a name="rolling-public-key-only-users-ntlm-secrets"></a>Propagée publique clé uniquement NTLM secrets des utilisateurs
 
-À compter de niveau fonctionnel du domaine Windows Server 2016 (niveau fonctionnel du domaine), contrôleurs de domaine peuvent prendre en charge roulement des secrets NTLM publique clé uniquement d’un utilisateur. Cette fonctionnalité est disponible dans DFLs inférieur.
+À compter de niveau fonctionnel du domaine Windows Server 2016 (niveau fonctionnel du domaine), contrôleurs de domaine peuvent prendre en charge roulement des secrets NTLM publique clé uniquement d’un utilisateur. Cette fonctionnalité est disponible dans DFLs inférieur.
 
 > [!WARNING] 
 > Ajout d’un contrôleur de domaine à un domaine avec propagées secrets NTLM est activées avant que le contrôleur de domaine a été mis à jour au moins 8 novembre 2016 de maintenance s’exécute le risque du contrôleur de domaine se bloque. 
@@ -73,7 +73,7 @@ Configuration : Pour de nouveaux domaines, cette fonctionnalité est activée p
 1. À partir du centre d’administration Active Directory, cliquez sur le domaine dans le volet gauche et sélectionnez **propriétés**.
 
     ![Propriétés de domaine](../media/Credentials-Protection-And-Management/domain-properties.png)
-    
+
 2. Sélectionnez **activer le déploiement des secrets NTLM arrivant à expiration lors de l’inscription, pour les utilisateurs qui sont nécessaires pour utiliser Microsoft Passport ou carte à puce pour l’ouverture de session interactive**.
 
     ![Secrets NTLM Autoroll arrivant à expiration](../media/Credentials-Protection-And-Management/autoroll-ntlm.png)

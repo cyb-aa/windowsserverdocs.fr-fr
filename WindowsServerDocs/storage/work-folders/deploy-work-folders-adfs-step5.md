@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: f168292b-0dbc-44b9-965f-d480e5134a0c
-ms.openlocfilehash: 4b2c771a83824318f889c955f6194bcb062761f3
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 44e3ab06ac29d770ad47b43db5eba06f0eb08a60
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976797"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447796"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 5, les Clients de configuration
 
@@ -75,21 +75,21 @@ Pour installer les certificats, procédez comme suit :
 ### <a name="configure-work-folders-on-the-client"></a>Configurer des dossiers de travail sur le client  
 Pour configurer les dossiers de travail sur l’ordinateur client, procédez comme suit :  
   
-1.  Sur l’ordinateur client, ouvrez le **Panneau de configuration** et cliquez sur **Dossiers de travail**.  
+1. Sur l’ordinateur client, ouvrez le **Panneau de configuration** et cliquez sur **Dossiers de travail**.  
   
-2.  Cliquez sur **Configurer Dossiers de travail**.  
+2. Cliquez sur **Configurer Dossiers de travail**.  
   
-3.  Sur le **Entrez votre adresse e-mail professionnelle** , entrez l’adresse de messagerie de l’utilisateur (par exemple, user@contoso.com) ou l’URL de dossiers de travail (dans l’exemple de test, https :\//workfolders.contoso.com), puis cliquez sur  **Suivant**.  
+3. Sur le **Entrez votre adresse e-mail professionnelle** , entrez l’adresse de messagerie de l’utilisateur (par exemple, user@contoso.com) ou l’URL de dossiers de travail (dans l’exemple de test, https :\//workfolders.contoso.com), puis cliquez sur  **Suivant**.  
   
-4.  Si l’utilisateur est connecté au réseau d’entreprise, l’authentification est effectuée par l’authentification intégrée de Windows. Si l’utilisateur n’est pas connecté au réseau d’entreprise, l’authentification est effectuée par AD FS (OAuth) et on invitera l’utilisateur à fournir des informations d’identification. Entrez vos informations d’utilisation, puis cliquez sur **OK**.  
+4. Si l’utilisateur est connecté au réseau d’entreprise, l’authentification est effectuée par l’authentification intégrée de Windows. Si l’utilisateur n’est pas connecté au réseau d’entreprise, l’authentification est effectuée par AD FS (OAuth) et on invitera l’utilisateur à fournir des informations d’identification. Entrez vos informations d’utilisation, puis cliquez sur **OK**.  
   
-5.  Une fois que vous êtes authentifié, la page **Présentation des dossiers de travail** s’affiche, où vous pouvez éventuellement modifier l’emplacement du répertoire des dossiers de travail. Cliquez sur **Suivant**.  
+5. Une fois que vous êtes authentifié, la page **Présentation des dossiers de travail** s’affiche, où vous pouvez éventuellement modifier l’emplacement du répertoire des dossiers de travail. Cliquez sur **Suivant**.  
   
-6.  La page **Stratégies de sécurité** répertorie les stratégies de sécurité que vous avez configurées pour les dossiers de travail. Cliquez sur **Suivant**.  
+6. La page **Stratégies de sécurité** répertorie les stratégies de sécurité que vous avez configurées pour les dossiers de travail. Cliquez sur **Suivant**.  
   
-7.  Un message s’affiche indiquant que les dossiers de travail ont démarré leur synchronisation avec votre PC. Cliquez sur **Fermer**.  
+7. Un message s’affiche indiquant que les dossiers de travail ont démarré leur synchronisation avec votre PC. Cliquez sur **Fermer**.  
   
-8.  La page **Gérer les dossiers de travail** affiche la quantité d’espace disponible sur le serveur, l’état de la synchronisation et ainsi de suite. Si nécessaire, vous pouvez entrer vos informations d’identification à nouveau ici. Fermez la fenêtre.  
+8. La page **Gérer les dossiers de travail** affiche la quantité d’espace disponible sur le serveur, l’état de la synchronisation et ainsi de suite. Si nécessaire, vous pouvez entrer vos informations d’identification à nouveau ici. Fermez la fenêtre.  
   
 9. Votre dossier de dossiers de travail s’ouvre automatiquement. Vous pouvez ajouter du contenu à ce dossier pour le synchroniser entre vos appareils.  
   

@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: beb94475-b21f-46a9-ac51-bf2bb28ca94e
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 468854d6e03bbc2abee3b9fce7f7960c7c25cfd3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2a38e5682b03cdb37ff88332317122b6addd000c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879710"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446870"
 ---
 # <a name="monitor-connected-remote-clients-for-activity-and-status"></a>Analyser l'activité et l'état des clients distants connectés
 
@@ -41,7 +41,7 @@ Vous pouvez utiliser la console de gestion sur le serveur d’accès à distance
   
 4.  Vous verrez la liste des utilisateurs qui sont connectés au serveur d’accès à distance et détaillée des statistiques les concernant. Cliquez sur la première ligne dans la liste qui correspond à un client. Lorsque vous sélectionnez une ligne, l’activité de l’utilisateur distant est indiquée dans le volet de visualisation.  
   
-![Windows PowerShell](../../../media/Monitor-connected-remote-clients-for-activity-and-status/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![Windows PowerShell](../../../media/Monitor-connected-remote-clients-for-activity-and-status/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -55,7 +55,7 @@ Statistiques de l’utilisateur peuvent être filtrés selon les critères séle
 |-------|-----|  
 |Nom d'utilisateur|Nom de l’utilisateur ou alias de l’utilisateur distant. Caractères génériques peuvent être utilisés pour sélectionner un groupe d’utilisateurs, tel que contoso\\* ou \*\administrator.|  
 |Hostname|Nom du compte d’ordinateur de l’utilisateur distant. Une adresse IPv4 ou IPv6 peut également être spécifiée.|  
-|Type|DirectAccess ou VPN. Si DirectAccess est sélectionné, tous les utilisateurs distants qui sont connectés à l’aide de DirectAccess sont répertoriés. Si VPN est sélectionné, tous les utilisateurs distants qui sont connectés à l’aide de VPN sont répertoriés.|  
+|type|DirectAccess ou VPN. Si DirectAccess est sélectionné, tous les utilisateurs distants qui sont connectés à l’aide de DirectAccess sont répertoriés. Si VPN est sélectionné, tous les utilisateurs distants qui sont connectés à l’aide de VPN sont répertoriés.|  
 |Adresse FAI|Adresse IPv4 ou IPv6 de l’utilisateur distant.|  
 |Adresse IPv4|L’adresse IPv4 interne du tunnel qui se connectent de l’utilisateur distant au réseau d’entreprise.|  
 |Adresse IPv6|Adresse IPv6 interne du tunnel connectant l’utilisateur distant au réseau d’entreprise.|  

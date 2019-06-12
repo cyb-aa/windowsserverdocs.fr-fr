@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 75dd5fa5860101f80179d9c602b1d919e7caacbc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 88b3cbbbd52a965fd0a0de3c164e8dbc1f90d053
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831520"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437523"
 ---
 # <a name="logoff"></a>fermeture de session
 
@@ -35,33 +35,35 @@ Pour obtenir des exemples montrant comment utiliser cette commande, consultez [e
 logoff [<SessionName> | <SessionID>] [/server:<ServerName>] [/v]
 ```
 ## <a name="parameters"></a>Paramètres
-|Paramètre|Description|
-|-------|--------|
-|<SessionName>|Spécifie le nom de la session.|
-|<SessionID>|Spécifie l’ID numérique qui identifie la session sur le serveur.|
-|/server:<ServerName>|Spécifie le serveur hôte de Session Bureau à distance qui contient la session dont vous souhaitez déconnecter l’utilisateur. Si non spécifié, le serveur sur lequel vous êtes actuellement connecté est utilisé.|
-|/v|Affiche des informations sur les actions en cours d’exécution.|
-|/?|Affiche l'aide à l'invite de commandes.|
+
+|      Paramètre       |                                                                             Description                                                                              |
+|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    <SessionName>     |                                                                  Spécifie le nom de la session.                                                                  |
+|     <SessionID>      |                                                 Spécifie l’ID numérique qui identifie la session sur le serveur.                                                 |
+| /server:<ServerName> | Spécifie le serveur hôte de Session Bureau à distance qui contient la session dont vous souhaitez déconnecter l’utilisateur. Si non spécifié, le serveur sur lequel vous êtes actuellement connecté est utilisé. |
+|          /v          |                                                       Affiche des informations sur les actions en cours d’exécution.                                                        |
+|          /?          |                                                                 Affiche l'aide à l'invite de commandes.                                                                 |
+
 ## <a name="remarks"></a>Notes
--   Vous pouvez toujours vous déconnecter de la session à laquelle vous êtes actuellement connecté. Toutefois, vous devez déconnecter les utilisateurs d’autres sessions de l’autorisation contrôle total.
--   Déconnexion d’un utilisateur à partir d’une session sans avertissement peut entraîner une perte de données lors de la session. Vous devez envoyer un message à l’utilisateur à l’aide de la **msg** commande pour avertir l’utilisateur avant d’effectuer cette action.
--   Si <*SessionID*> ou <*SessionName*> n’est pas spécifié, **fermeture de session** se déconnecte l’utilisateur de la session active. Si vous spécifiez <*SessionName*>, il doit être active.
--   Lorsque vous vous déconnectez un utilisateur, tous les processus s’arrêtent et la session est supprimée à partir du serveur.
--   Vous ne pouvez pas déconnecter un utilisateur à partir de la session de console.
-## <a name="BKMK_examples"></a>Exemples
--   Pour déconnecter un utilisateur à partir de la session active, tapez :
-    ```
-    logoff
-    ```
--   Pour déconnecter un utilisateur à partir d’une session en utilisant l’ID de session, par exemple la session 12, tapez :
-    ```
-    logoff 12
-    ```
--   Pour déconnecter un utilisateur à partir d’une session en utilisant le nom de la session et le serveur, par exemple session TERM04 sur Server1, tapez :
-    ```
-    logoff TERM04 /server:Server1
-    ```
-    
+- Vous pouvez toujours vous déconnecter de la session à laquelle vous êtes actuellement connecté. Toutefois, vous devez déconnecter les utilisateurs d’autres sessions de l’autorisation contrôle total.
+- Déconnexion d’un utilisateur à partir d’une session sans avertissement peut entraîner une perte de données lors de la session. Vous devez envoyer un message à l’utilisateur à l’aide de la **msg** commande pour avertir l’utilisateur avant d’effectuer cette action.
+- Si <*SessionID*> ou <*SessionName*> n’est pas spécifié, **fermeture de session** se déconnecte l’utilisateur de la session active. Si vous spécifiez <*SessionName*>, il doit être active.
+- Lorsque vous vous déconnectez un utilisateur, tous les processus s’arrêtent et la session est supprimée à partir du serveur.
+- Vous ne pouvez pas déconnecter un utilisateur à partir de la session de console.
+  ## <a name="BKMK_examples"></a>Exemples
+- Pour déconnecter un utilisateur à partir de la session active, tapez :
+  ```
+  logoff
+  ```
+- Pour déconnecter un utilisateur à partir d’une session en utilisant l’ID de session, par exemple la session 12, tapez :
+  ```
+  logoff 12
+  ```
+- Pour déconnecter un utilisateur à partir d’une session en utilisant le nom de la session et le serveur, par exemple session TERM04 sur Server1, tapez :
+  ```
+  logoff TERM04 /server:Server1
+  ```
+
 #### <a name="additional-references"></a>Références supplémentaires
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Services Bureau à distance &#40;Services Terminal Server&#41; référence de la commande](remote-desktop-services-terminal-services-command-reference.md)

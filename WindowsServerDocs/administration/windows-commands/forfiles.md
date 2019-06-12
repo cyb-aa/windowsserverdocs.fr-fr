@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: 127f715620321354792d46f024ee12a06925d866
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d5ac95b795d1c5a59f8917bf851ab08fb4d7c1e7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881310"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439182"
 ---
 # <a name="forfiles"></a>forfiles
 
@@ -37,14 +37,14 @@ forfiles [/p <Path>] [/m <SearchMask>] [/s] [/c "<Command>"] [/d [{+|-}][{<Date>
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|/p \<Path>|Spécifie le chemin d’accès à partir duquel commencer la recherche. Par défaut, la recherche commence dans le répertoire de travail actuel.|
-|/m \<SearchMask>|Recherche des fichiers selon le masque de recherche spécifié. Le masque de recherche par défaut est **\*.\***.|
-|/s|Indique le **forfiles** commande à rechercher dans les sous-répertoires de manière récursive.|
-|/c «\<commande > »|Exécute la commande spécifiée sur chaque fichier. Chaînes de commande doivent être entourés de guillemets. La commande par défaut est **« cmd /c echo @file»**.|
-|/d&nbsp;[{+\|-}]&#8288;[{\<Date>\|&#8288;\<Days>}]|Sélectionne les fichiers avec une date de dernière modification dans l’intervalle de temps spécifié.</br>-Sélectionne les fichiers avec une date de dernière modification postérieure ou égale à (**+**) ou antérieure ou égale à (**-**) la date spécifiée, où *Date* est au format MM/jj/aaaa.</br>-Sélectionne les fichiers avec une date de dernière modification postérieure ou égale à (**+**) la date actuelle ainsi que le nombre de jours spécifié, ou antérieure ou égale à (**-**) la date actuelle moins le nombre de jours spécifié.</br>-Les valeurs valides pour *jours* inclure un nombre quelconque de la plage 0 – 32 768. Si aucune connexion n’est spécifiée, **+** est utilisé par défaut.|
-|/?|Affiche l'aide à l'invite de commandes.|
+|                     Paramètre                      |                                                                                                                                                                                                                                                                                                    Description                                                                                                                                                                                                                                                                                                     |
+|----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                     /p \<Path>                     |                                                                                                                                                                                                                                                 Spécifie le chemin d’accès à partir duquel commencer la recherche. Par défaut, la recherche commence dans le répertoire de travail actuel.                                                                                                                                                                                                                                                  |
+|                  /m \<SearchMask>                  |                                                                                                                                                                                                                                                           Recherche des fichiers selon le masque de recherche spécifié. Le masque de recherche par défaut est **\*.\\** \*.                                                                                                                                                                                                                                                           |
+|                         /s                         |                                                                                                                                                                                                                                                                   Indique le **forfiles** commande à rechercher dans les sous-répertoires de manière récursive.                                                                                                                                                                                                                                                                    |
+|                  /c «\<commande > »                   |                                                                                                                                                                                                                                  Exécute la commande spécifiée sur chaque fichier. Chaînes de commande doivent être entourés de guillemets. La commande par défaut est **« cmd /c echo @file»** .                                                                                                                                                                                                                                   |
+| /d&nbsp;[{+\|-}]&#8288;[{\<Date>\|&#8288;\<Days>}] | Sélectionne les fichiers avec une date de dernière modification dans l’intervalle de temps spécifié.</br>-Sélectionne les fichiers avec une date de dernière modification postérieure ou égale à ( **+** ) ou antérieure ou égale à ( **-** ) la date spécifiée, où *Date* est au format MM/jj/aaaa.</br>-Sélectionne les fichiers avec une date de dernière modification postérieure ou égale à ( **+** ) la date actuelle ainsi que le nombre de jours spécifié, ou antérieure ou égale à ( **-** ) la date actuelle moins le nombre de jours spécifié.</br>-Les valeurs valides pour *jours* inclure un nombre quelconque de la plage 0 – 32 768. Si aucune connexion n’est spécifiée, **+** est utilisé par défaut. |
+|                         /?                         |                                                                                                                                                                                                                                                                                        Affiche l'aide à l'invite de commandes.                                                                                                                                                                                                                                                                                        |
 
 ## <a name="remarks"></a>Notes
 
@@ -97,4 +97,4 @@ forfiles /s /m *.* /c "cmd /c echo The extension of @file is 0x09@ext"
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

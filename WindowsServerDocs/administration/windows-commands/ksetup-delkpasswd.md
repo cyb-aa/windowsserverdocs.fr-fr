@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e487389e0f27f58aacaea2b81d573dc9a965e42f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a1c701707f736fe51a1f4af70a2571e63025f281
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889080"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438045"
 ---
 # <a name="ksetupdelkpasswd"></a>ksetup:delkpasswd
 
@@ -30,10 +30,12 @@ Supprime un serveur de mot de passe Kerberos (Kpasswd) pour un domaine. Pour obt
 ksetup /delkpasswd <RealmName> <KpasswdName>
 ```
 ### <a name="parameters"></a>Paramètres
-|Paramètre|Description|
-|-------|--------|
-|<RealmName>|Le nom de domaine est indiqué comme un nom DNS en majuscules, telles que CORP. CONTOSO.COM et est répertorié en tant que la valeur par défaut domaine ou du domaine Kerberos = quand **ksetup** est exécuté.|
-|<KpasswdName>|Le nom de contrôleur de domaine Kerberos à utiliser en tant que le serveur de mot de passe Kerberos est établi comme un nom de domaine complet, non-respect de la casse, comme mitkdc.contoso.com. Si le nom de contrôleur de domaine Kerberos est omis, DNS peut être utilisé pour localiser le KDC.|
+
+|   Paramètre   |                                                                                                   Description                                                                                                   |
+|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  <RealmName>  |                                Le nom de domaine est indiqué comme un nom DNS en majuscules, telles que CORP. CONTOSO.COM et est répertorié en tant que la valeur par défaut domaine ou du domaine Kerberos = quand **ksetup** est exécuté.                                |
+| <KpasswdName> | Le nom de contrôleur de domaine Kerberos à utiliser en tant que le serveur de mot de passe Kerberos est établi comme un nom de domaine complet, non-respect de la casse, comme mitkdc.contoso.com. Si le nom de contrôleur de domaine Kerberos est omis, DNS peut être utilisé pour localiser le KDC. |
+
 ## <a name="remarks"></a>Notes
 Exécutez la commande **ksetup** pour vérifier le nom de contrôleur de domaine Kerberos. Si **kpasswd =** n’apparaît pas dans la sortie, puis le mappage n’a pas été configuré. Plusieurs mappages apparaît, si définie.
 ## <a name="BKMK_Examples"></a>Exemples
@@ -45,4 +47,4 @@ Pour vérifier que la commande a fonctionné comme prévu, exécutez **ksetup** 
 ## <a name="additional-references"></a>Références supplémentaires
 -   [ksetup](ksetup.md)
 -   [ksetup:delkpasswd](ksetup-delkpasswd.md)
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

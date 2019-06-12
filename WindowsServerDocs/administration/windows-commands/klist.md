@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3b3d0591f9feb12782d0c77b6c786cfe17656ab2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d0b77aed5970c74181ba03da5e57e9b230313a15
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831160"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438112"
 ---
 # <a name="klist"></a>klist
 
@@ -120,53 +120,52 @@ Les paramètres s’affichent les informations suivantes :
 
 ## <a name="BKMK_Examples"></a>Exemples
 
-1.  Lorsque vous analysez un 27 d’ID d’événement lors du traitement de demander un un service d’accord de tickets (TGS) pour le serveur cible, le compte n’avait pas de clé appropriée pour générer un ticket Kerberos. Vous pouvez utiliser Klist pour interroger le cache de ticket Kerberos pour déterminer si les tickets sont manquants, si le serveur cible ou le compte est erroné ou si le type de chiffrement n’est pas pris en charge.  
-    ```
-    klist 
-    ```  
-    ```
-    klist –li 0x3e7
-    ```  
-2.  Lorsque vous diagnostiquez les erreurs et vous souhaitez connaître les spécificités de chaque ticket-granting-ticket qui est mis en cache sur l’ordinateur pour une ouverture de session, vous pouvez utiliser Klist pour afficher les informations de ticket TGT.  
-    ```
-    klist tgt
-    ```  
-3.  Si vous ne parvenez pas à établir une connexion et de diagnostic peut prendre trop de temps, vous pouvez vider le cache de ticket Kerberos, déconnectez-vous et puis rouvrez une session.  
-    ```
-    klist purge
-    ```  
-    ```
-    klist purge –li 0x3e7
-    ```  
-4.  Lorsque vous souhaitez diagnostiquer une ouverture de session pour un utilisateur ou un service, vous pouvez utiliser la commande suivante pour rechercher le numéro de session qui est utilisé dans d’autres commandes Klist.  
-    ```
-    klist sessions
-    ```  
-5.  Lorsque vous souhaitez identifier le problème de délégation Kerberos contrainte, vous pouvez utiliser la commande suivante pour rechercher la dernière erreur qui s’est produite.  
-    ```
-    klist kcd_cache
-    ```  
-6.  Lorsque vous souhaitez identifier si un utilisateur ou un service peut obtenir un ticket à un serveur, vous pouvez utiliser cette commande pour demander un ticket pour un nom principal de service spécifique.  
-    ```
-    klist get host/%computername%
-    ```  
-7.  Lors du diagnostic des problèmes de réplication entre les contrôleurs de domaine, vous devez en général, l’ordinateur client pour cibler un contrôleur de domaine spécifique. Dans ce cas, vous pouvez utiliser la commande suivante pour cibler l’ordinateur client à ce contrôleur de domaine spécifique.  
-    ```
-    klist add_bind CONTOSO KDC.CONTOSO.COM
-    
-    ```  
-    ```
-    klist add_bind CONTOSO.COM KDC.CONTOSO.COM
-    ```  
-8.  Pour interroger les contrôleurs de domaine de cet ordinateur récemment contacté, vous pouvez utiliser la commande suivante.  
-    ```
-    klist query_bind
-    ```  
-9.  Lorsque vous souhaitez Kerberos pour redécouvrir les contrôleurs de domaine, vous pouvez utiliser la commande suivante. Cette commande peut également être utilisée pour vider le cache avant de créer de nouvelles liaisons de contrôleur de domaine avec klist add_bind.  
-    ```
-    klist purge_bind
-    ```
+1. Lorsque vous analysez un 27 d’ID d’événement lors du traitement de demander un un service d’accord de tickets (TGS) pour le serveur cible, le compte n’avait pas de clé appropriée pour générer un ticket Kerberos. Vous pouvez utiliser Klist pour interroger le cache de ticket Kerberos pour déterminer si les tickets sont manquants, si le serveur cible ou le compte est erroné ou si le type de chiffrement n’est pas pris en charge.  
+   ```
+   klist 
+   ```  
+   ```
+   klist –li 0x3e7
+   ```  
+2. Lorsque vous diagnostiquez les erreurs et vous souhaitez connaître les spécificités de chaque ticket-granting-ticket qui est mis en cache sur l’ordinateur pour une ouverture de session, vous pouvez utiliser Klist pour afficher les informations de ticket TGT.  
+   ```
+   klist tgt
+   ```  
+3. Si vous ne parvenez pas à établir une connexion et de diagnostic peut prendre trop de temps, vous pouvez vider le cache de ticket Kerberos, déconnectez-vous et puis rouvrez une session.  
+   ```
+   klist purge
+   ```  
+   ```
+   klist purge –li 0x3e7
+   ```  
+4. Lorsque vous souhaitez diagnostiquer une ouverture de session pour un utilisateur ou un service, vous pouvez utiliser la commande suivante pour rechercher le numéro de session qui est utilisé dans d’autres commandes Klist.  
+   ```
+   klist sessions
+   ```  
+5. Lorsque vous souhaitez identifier le problème de délégation Kerberos contrainte, vous pouvez utiliser la commande suivante pour rechercher la dernière erreur qui s’est produite.  
+   ```
+   klist kcd_cache
+   ```  
+6. Lorsque vous souhaitez identifier si un utilisateur ou un service peut obtenir un ticket à un serveur, vous pouvez utiliser cette commande pour demander un ticket pour un nom principal de service spécifique.  
+   ```
+   klist get host/%computername%
+   ```  
+7. Lors du diagnostic des problèmes de réplication entre les contrôleurs de domaine, vous devez en général, l’ordinateur client pour cibler un contrôleur de domaine spécifique. Dans ce cas, vous pouvez utiliser la commande suivante pour cibler l’ordinateur client à ce contrôleur de domaine spécifique.  
+   ```
+   klist add_bind CONTOSO KDC.CONTOSO.COM
+   ```  
+   ```
+   klist add_bind CONTOSO.COM KDC.CONTOSO.COM
+   ```  
+8. Pour interroger les contrôleurs de domaine de cet ordinateur récemment contacté, vous pouvez utiliser la commande suivante.  
+   ```
+   klist query_bind
+   ```  
+9. Lorsque vous souhaitez Kerberos pour redécouvrir les contrôleurs de domaine, vous pouvez utiliser la commande suivante. Cette commande peut également être utilisée pour vider le cache avant de créer de nouvelles liaisons de contrôleur de domaine avec klist add_bind.  
+   ```
+   klist purge_bind
+   ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

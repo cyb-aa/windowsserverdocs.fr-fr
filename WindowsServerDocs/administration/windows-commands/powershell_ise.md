@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 03c765b276a2e61247661e132dd49434b444530c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a5619396e29b446dbc6804ece7444f355dae4c0a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817280"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436301"
 ---
 # <a name="powershellise"></a>PowerShell_ise
 
@@ -33,27 +33,27 @@ Le **PowerShell_ISE.exe** outil démarre une session Windows PowerShell ISE. Lor
 ## <a name="using-powershelliseexe"></a>À l’aide de PowerShell_ISE.exe
 
 Vous pouvez utiliser **PowerShell_ISE.exe** pour commencer et se terminer une session Windows PowerShell comme suit :
--   Pour démarrer une session Windows PowerShell ISE, dans une fenêtre d’invite de commandes, dans Windows PowerShell, ou dans le menu Démarrer, tapez :  
-    ```
-    PowerShell_Ise
-    ```  
--   Pour ouvrir un script (.ps1), module de script (.psm1), le manifeste de module (.psd1), fichier XML ou tout autre fichier pris en charge dans Windows PowerShell ISE, utilisez le format de commande suivant :  
-    ```
-    PowerShell_Ise <FilePath>
-    ```  
-    Dans Windows PowerShell 3.0, vous pouvez utiliser le paramètre facultatif **fichier** paramètre comme suit :  
-    ```
-    PowerShell_Ise -File <FilePath>
-    ```  
--   Pour démarrer une session Windows PowerShell ISE sans votre profil Windows PowerShell, utilisez le **NoProfile** paramètre. (Le **NoProfile** paramètre est introduit dans Windows PowerShell 3.0.)  
-    ```
-    PowerShell_Ise -NoProfile
-    ```  
--   Pour voir les **PowerShell_ISE.exe** aide dans une fenêtre d’invite de commandes, utilisez le format de la commande suivante :  
-    ```
-    PowerShell_Ise -help, -?, /?
-    ```  
-Pour obtenir la liste complète de la **PowerShell_ISE.exe** des paramètres de ligne de commande, consultez [about_PowerShell_Ise.exe](https://go.microsoft.com/fwlink/?LinkId=256512).
+- Pour démarrer une session Windows PowerShell ISE, dans une fenêtre d’invite de commandes, dans Windows PowerShell, ou dans le menu Démarrer, tapez :  
+  ```
+  PowerShell_Ise
+  ```  
+- Pour ouvrir un script (.ps1), module de script (.psm1), le manifeste de module (.psd1), fichier XML ou tout autre fichier pris en charge dans Windows PowerShell ISE, utilisez le format de commande suivant :  
+  ```
+  PowerShell_Ise <FilePath>
+  ```  
+  Dans Windows PowerShell 3.0, vous pouvez utiliser le paramètre facultatif **fichier** paramètre comme suit :  
+  ```
+  PowerShell_Ise -File <FilePath>
+  ```  
+- Pour démarrer une session Windows PowerShell ISE sans votre profil Windows PowerShell, utilisez le **NoProfile** paramètre. (Le **NoProfile** paramètre est introduit dans Windows PowerShell 3.0.)  
+  ```
+  PowerShell_Ise -NoProfile
+  ```  
+- Pour voir les **PowerShell_ISE.exe** aide dans une fenêtre d’invite de commandes, utilisez le format de la commande suivante :  
+  ```
+  PowerShell_Ise -help, -?, /?
+  ```  
+  Pour obtenir la liste complète de la **PowerShell_ISE.exe** des paramètres de ligne de commande, consultez [about_PowerShell_Ise.exe](https://go.microsoft.com/fwlink/?LinkId=256512).
 
 ## <a name="start-windows-powershell-ise-in-other-ways"></a>Démarrez Windows PowerShell ISE par d’autres moyens
 

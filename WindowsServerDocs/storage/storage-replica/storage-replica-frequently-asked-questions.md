@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 12bc8e11-d63c-4aef-8129-f92324b2bf1b
-ms.openlocfilehash: e832dce3eed7d0e5103254fb48683726b82af2e6
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: d03407292a797b1cd511937ba40fc0fa373f5dc0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65475933"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447573"
 ---
 # <a name="frequently-asked-questions-about-storage-replica"></a>Forum Aux Questions sur le réplica de stockage
 
@@ -227,7 +227,7 @@ Malheureusement, nous ne prennent en charge Création d’un *nouveau* partenari
 Toutefois, pour obtenir les meilleures performances de réplication de Windows Server 2019, tous les membres du partenariat doivent exécuter Windows Server 2019 et vous devez supprimer les partenariats et associés des groupes de réplication et les recréez avec les données de départ (soit Lorsque vous créez le partenariat dans Windows Admin Center ou avec l’applet de commande New-SRPartnership).
 
 ## <a name="FAQ17"></a> Comment signaler un problème avec le réplica de stockage ou de ce guide ?  
-Pour obtenir une assistance technique sur le réplica de stockage, publiez un message sur les [forums Microsoft TechNet](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=WinServerPreview). Vous pouvez également envoyer un e-mail à l’adresse srfeed@microsoft.com pour toute question sur le réplica de stockage ou tout problème lié à cette documentation. Le https://windowsserver.uservoice.com site est préféré pour les demandes de modification de conception, car il permet à vos clients fournir des commentaires et support pour vos idées.
+Pour obtenir une assistance technique sur le réplica de stockage, publiez un message sur les [forums Microsoft TechNet](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=WinServerPreview). Vous pouvez également envoyer un e-mail à l’adresse srfeed@microsoft.com pour toute question sur le réplica de stockage ou tout problème lié à cette documentation. Le <https://windowsserver.uservoice.com> site est préféré pour les demandes de modification de conception, car il permet à vos clients fournir des commentaires et support pour vos idées.
 
 
 

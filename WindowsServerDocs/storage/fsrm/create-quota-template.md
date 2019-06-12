@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: f74382c4a5e2c0a8636edbd4f9cfe2227cd6334a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 236b5cb198a13441a087ad6dbfeef9a416e07e61
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875870"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445987"
 ---
 # <a name="create-a-quota-template"></a>Créer un modèle de quota
 
@@ -55,44 +55,44 @@ Par exemple, vous pouvez configurer des seuils pour envoyer un message électron
 
 **Pour configurer les notifications qui généreront des File Server Resource Manager à un seuil de quota**
 
-1.  Dans la boîte de dialogue **Créer un modèle de quota**, sous **Seuils de notification**, cliquez sur **Ajouter**. La boîte de dialogue **Ajouter un seuil** s’affiche.
+1. Dans la boîte de dialogue **Créer un modèle de quota**, sous **Seuils de notification**, cliquez sur **Ajouter**. La boîte de dialogue **Ajouter un seuil** s’affiche.
 
-2.  Pour définir un pourcentage de la limite de quota qui générera une notification :
+2. Pour définir un pourcentage de la limite de quota qui générera une notification :
 
-    Dans la zone de texte **Générer des notifications lorsque l’utilisation atteint (%)**, entrez un pourcentage de la limite de quota pour le seuil de notification. (Le pourcentage par défaut pour le premier seuil de notification est 85 pour cent.)
+   Dans la zone de texte **Générer des notifications lorsque l’utilisation atteint (%)** , entrez un pourcentage de la limite de quota pour le seuil de notification. (Le pourcentage par défaut du premier seuil de notification est de 85 %.)
 
-3.  Pour configurer les notifications par courrier électronique :
+3. Pour configurer les notifications par courrier électronique :
 
-    Sous l'onglet **Message électronique**, définissez les options suivantes :
+   Sous l'onglet **Message électronique**, définissez les options suivantes :
 
-    -   Pour avertir les administrateurs qu’un seuil a été atteint, cochez la case **Envoyer un courrier électronique aux administrateurs suivants**, puis entrez les noms des comptes d’administration qui recevront les notifications. Utilisez le format *account@domain* et séparez les différents comptes par des points-virgules.
-    -   Pour envoyer un courrier électronique à la personne ayant enregistré le fichier qui atteint le seuil de quota, cochez la case **Envoyer un message à l'utilisateur qui dépasse le seuil**.
-    -   Pour configurer le message, modifiez le contenu par défaut de la ligne d'objet et du corps du message. Le texte entre crochets insère les informations de variables sur l’événement de quota qui a provoqué la notification. Par exemple, le **\[propriétaire de la Source d’e/s\]** variable insère le nom de l’utilisateur qui a enregistré le fichier qui atteint le seuil de quota. Pour insérer d'autres variables dans le texte, cliquez sur **Insérer une variable**.
-    -   Pour configurer des en-têtes supplémentaires (notamment De, Cc, Cci et Répondre), cliquez sur **Autres en-têtes de courrier électronique**.
+   - Pour avertir les administrateurs qu’un seuil a été atteint, cochez la case **Envoyer un courrier électronique aux administrateurs suivants**, puis entrez les noms des comptes d’administration qui recevront les notifications. Utilisez le format <em>account@domain</em> et séparez les différents comptes par des points-virgules.
+   - Pour envoyer un courrier électronique à la personne ayant enregistré le fichier qui atteint le seuil de quota, cochez la case **Envoyer un message à l'utilisateur qui dépasse le seuil**.
+   - Pour configurer le message, modifiez le contenu par défaut de la ligne d'objet et du corps du message. Le texte entre crochets insère les informations de variables sur l’événement de quota qui a provoqué la notification. Par exemple, le **\[propriétaire de la Source d’e/s\]** variable insère le nom de l’utilisateur qui a enregistré le fichier qui atteint le seuil de quota. Pour insérer d'autres variables dans le texte, cliquez sur **Insérer une variable**.
+   - Pour configurer des en-têtes supplémentaires (notamment De, Cc, Cci et Répondre), cliquez sur **Autres en-têtes de courrier électronique**.
 
-4.  Pour consigner un événement :
+4. Pour consigner un événement :
 
-    Sous l'onglet **Journal des événements**, cochez la case **Envoyer un avertissement au journal des événements**, puis modifiez l’entrée de journal par défaut.
+   Sous l'onglet **Journal des événements**, cochez la case **Envoyer un avertissement au journal des événements**, puis modifiez l’entrée de journal par défaut.
 
-5.  Pour exécuter une commande ou un script :
+5. Pour exécuter une commande ou un script :
 
-    Sous l'onglet **Commande**, cochez la case **Exécuter cette commande ou ce script**. Puis tapez la commande, ou cliquez sur **Parcourir** pour rechercher l’emplacement où le script est stocké. Vous pouvez également entrer des arguments de commande, sélectionner un répertoire de travail pour la commande ou le script, ou modifier le paramètre de sécurité de la commande.
+   Sous l'onglet **Commande**, cochez la case **Exécuter cette commande ou ce script**. Puis tapez la commande, ou cliquez sur **Parcourir** pour rechercher l’emplacement où le script est stocké. Vous pouvez également entrer des arguments de commande, sélectionner un répertoire de travail pour la commande ou le script, ou modifier le paramètre de sécurité de la commande.
 
-6.  Pour générer un ou plusieurs rapports de stockage :
+6. Pour générer un ou plusieurs rapports de stockage :
 
-    Sous l'onglet **Rapport**, cochez la case **Générer les rapports**, puis sélectionnez les rapports à générer. (Vous pouvez choisir un ou plusieurs destinataires de messagerie administrative pour le rapport ou envoyer le rapport à l’utilisateur qui a atteint le seuil.)
+   Sous l'onglet **Rapport**, cochez la case **Générer les rapports**, puis sélectionnez les rapports à générer. (Vous pouvez choisir un ou plusieurs destinataires de messagerie administrative pour le rapport ou envoyer le rapport à l’utilisateur qui a atteint le seuil.)
 
-    Le rapport est enregistré à l’emplacement par défaut des rapports d’incidents. Vous pouvez modifier cet emplacement dans la boîte de dialogue **Options du Gestionnaire de ressources du serveur de fichiers**.
+   Le rapport est enregistré à l’emplacement par défaut des rapports d’incidents. Vous pouvez modifier cet emplacement dans la boîte de dialogue **Options du Gestionnaire de ressources du serveur de fichiers**.
 
-7.  Cliquez sur **OK** pour enregistrer vos seuils de notification.
+7. Cliquez sur **OK** pour enregistrer vos seuils de notification.
 
-8.  Répétez ces étapes si vous souhaitez configurer d'autres seuils de notification pour le modèle de quota.
+8. Répétez ces étapes si vous souhaitez configurer d'autres seuils de notification pour le modèle de quota.
 
 ## <a name="see-also"></a>Voir aussi
 
 -   [Gestion de quota](quota-management.md)
--    [Options de paramètre File Server Resource Manager](setting-file-server-resource-manager-options.md)
--   [Modifier les propriétés de modèle de Quota](edit-quota-template-properties.md)
--   [Outils de ligne de commande](command-line-tools.md)
+-    [Définition des options du Gestionnaire de ressources du serveur de fichiers](setting-file-server-resource-manager-options.md)
+-   [Modifier les propriétés du modèle de quota](edit-quota-template-properties.md)
+-   [Outils en ligne de commande](command-line-tools.md)
 
 

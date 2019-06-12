@@ -12,14 +12,14 @@ ms.assetid: 07d0c4c6-3e92-4969-82b8-105e46ab8d97
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c60e5f73c88a225fbd1067992894f9d20da745ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a99698519524c3b5050dc534d61921560522528c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860480"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433871"
 ---
-#<a name="support-for-larger-deployments"></a>Prise en charge des déploiements plus importants
+# <a name="support-for-larger-deployments"></a>Prise en charge des déploiements plus importants
 
 >S'applique à : WindowsServer2016 Essentials
 
@@ -34,7 +34,7 @@ Windows Server Essentials prend désormais en charge les déploiements plus impo
 - possibilité de spécifier un contrôleur de domaine désigné
 - prise en charge jusqu'à 500 utilisateurs et 500 appareils
 
-##<a name="support-for-multiple-domains"></a>Prise en charge de domaines multiples
+## <a name="support-for-multiple-domains"></a>Prise en charge de domaines multiples
 
 Serveur de Windows 2012 R2 Essentials prend en charge qu’un seul domaine par serveur, ce qui est requis, et le serveur Essentials doit être la racine de la forêt. Pendant un domaine et une forêt sont toujours nécessaires, le rôle expérience Windows Server 2016 Essentials peut désormais être déployé sur Windows Server 2016 Standard ou centre de données pour prendre en charge de plusieurs domaines.
 
@@ -42,7 +42,7 @@ Serveur de Windows 2012 R2 Essentials prend en charge qu’un seul domaine par s
 
  Windows Server Essentials 2012 R2 bloque tous les services qui tirent parti d’Azure Active Directory, telles qu’Office 365, où plusieurs contrôleurs de domaine est déployé. La raison est que la synchronisation de compte et mot de passe entre les contrôleurs de domaine locaux et Azure Active Directory peut entraîner aux informations d’identification de compte avec les mots de passe qui ne sont pas synchronisés. Cette limitation a été supprimée dans Windows Server 2016 Essentials.
 
-##<a name="ability-to-specify-a-designated-domain-controller"></a>possibilité de spécifier un contrôleur de domaine désigné
+## <a name="ability-to-specify-a-designated-domain-controller"></a>possibilité de spécifier un contrôleur de domaine désigné
 
 Vous pouvez maintenant choisir un contrôleur de domaine désigné qui sera améliorer les temps de récupération des objets de domaine Active Directory, ainsi que coordonner la synchronisation de la modification du compte entre autres contrôleurs de domaine dans le domaine.
 
@@ -50,7 +50,7 @@ Désigné du contrôleur de domaine par défaut sera le même serveur qui exécu
 
 ![Une capture d’écran montrant les paramètres du Panneau de commande au premier plan et le tableau de bord Windows Server Essentials en arrière-plan. La page de contrôleur de domaine désigné du Panneau de paramètres est actuellement sélectionnée.](media/larger-deployments-1.PNG)
 
-##<a name="support-for-500-users-and-500-devices"></a>Prise en charge de 500 utilisateurs et 500 appareils
+## <a name="support-for-500-users-and-500-devices"></a>Prise en charge de 500 utilisateurs et 500 appareils
 -------------------------------------
 
 Le nombre maximal d’utilisateurs pris en charge et d’appareils dans Windows Server 2012 R2 Essentials est 25 et 50, respectivement. Avec l’introduction du rôle serveur expérience Windows Server Essentials, cette limite a été augmentée à 100 utilisateurs et 200 appareils.
@@ -66,4 +66,4 @@ Une capture d’écran illustrant l’utilisation de la fonctionnalité de reche
 
 <a name="see-also"></a>Voir aussi
 --------
-[Prise en main Windows Server Essentials](get-started.md)
+[Prise en main de Windows Server Essentials](get-started.md)

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 735377e809b51a9b69962b4233d4c748eb8cf30a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9ef14c647534c92a97abdcc9ee8df50c64a72e5f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856860"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438788"
 ---
 # <a name="ftp-cd"></a>ftp: cd
 
@@ -30,9 +30,11 @@ change le répertoire de travail sur l’ordinateur distant.
 cd <remotedirectory>  
 ```  
 ### <a name="parameters"></a>Paramètres  
-|Paramètre|Description|  
-|-------|--------|  
-|<remotedirectory>|Spécifie le répertoire sur l’ordinateur distant auquel vous souhaitez modifier.|  
+
+|     Paramètre     |                                 Description                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| <remotedirectory> | Spécifie le répertoire sur l’ordinateur distant auquel vous souhaitez modifier. |
+
 ## <a name="BKMK_Examples"></a>Exemples  
 Accédez au répertoire sur l’ordinateur distant à **Docs**.  
 ```  
@@ -43,4 +45,4 @@ Accédez au répertoire sur l’ordinateur distant à **vidéos peuvent**.
 cd  May Videos  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

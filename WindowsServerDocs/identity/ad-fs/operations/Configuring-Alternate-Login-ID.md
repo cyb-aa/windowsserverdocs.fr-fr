@@ -9,12 +9,12 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 5bc43717f37fb3b14ac7f384a061ee64c734222d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 75ab011ed4931af3d5a03a38b3f7a7f0cfecbe3d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189658"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444909"
 ---
 # <a name="configuring-alternate-login-id"></a>Configuration des ID de connexion alternatif
 
@@ -31,9 +31,9 @@ Active Directory Federation Services (ADFS) permet aux applications fédérées 
 
 ## <a name="alternate-id-in-azure-ad"></a>Id secondaire dans Azure AD
 Une organisation peut avoir à utiliser un autre ID dans les scénarios suivants :
-1.  Le nom de domaine local est non routable, par ex. Contoso.local et par conséquent, le nom d’utilisateur principal par défaut est non routable (jdoe@contoso.local). UPN existant ne sont pas modifiables en raison des dépendances des applications locales ou des stratégies d’entreprise. Azure AD et Office 365 nécessitent tous les suffixes de domaine associés au répertoire Azure AD pour être entièrement internet routable. 
-2.  L’UPN local n’est pas identique à l’adresse e-mail utilisateur et pour vous connecter à Office 365, les utilisateurs utiliser adresse de messagerie et UPN ne peut pas être utilisé en raison de contraintes organisationnelles.
-Dans les scénarios mentionnés ci-dessus, autre ID avec AD FS permet aux utilisateurs pour se connecter à Azure AD sans modifier vos UPN locaux. 
+1. Le nom de domaine local est non routable, par ex. Contoso.local et par conséquent, le nom d’utilisateur principal par défaut est non routable (jdoe@contoso.local). UPN existant ne sont pas modifiables en raison des dépendances des applications locales ou des stratégies d’entreprise. Azure AD et Office 365 nécessitent tous les suffixes de domaine associés au répertoire Azure AD pour être entièrement internet routable. 
+2. L’UPN local n’est pas identique à l’adresse e-mail utilisateur et pour vous connecter à Office 365, les utilisateurs utiliser adresse de messagerie et UPN ne peut pas être utilisé en raison de contraintes organisationnelles.
+   Dans les scénarios mentionnés ci-dessus, autre ID avec AD FS permet aux utilisateurs pour se connecter à Azure AD sans modifier vos UPN locaux. 
 
 ## <a name="end-user-experience-with-alternate-login-id"></a>Utilisateur final avec l’ID de connexion de substitution
 L’expérience utilisateur varie en fonction de la méthode d’authentification utilisée avec l’id de connexion de substitution.  Actuellement là trois façons différentes dans lesquels à l’aide des id de connexion de substitution peut être effectuée.  Celles-ci sont les suivantes :
@@ -81,7 +81,7 @@ Dans l’exemple suivant, vous activez fonctionnalités des ID de connexion de s
 Set-AdfsClaimsProviderTrust -TargetIdentifier "AD AUTHORITY" -AlternateLoginID mail -LookupForests contoso.com,fabrikam.com
 ```
 
-3.  Pour désactiver cette fonctionnalité, définissez la valeur pour les deux paramètres avoir la valeur null.
+3. Pour désactiver cette fonctionnalité, définissez la valeur pour les deux paramètres avoir la valeur null.
 
 ``` powershell
 Set-AdfsClaimsProviderTrust -TargetIdentifier "AD AUTHORITY" -AlternateLoginID $NULL -LookupForests $NULL
@@ -155,6 +155,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 ## <a name="applications-and-user-experience-after-the-additional-configuration"></a>Applications et une expérience utilisateur après la configuration supplémentaire
 
 ### <a name="non-exchange-and-skype-for-business-clients"></a>Non-Exchange et Skype pour les Clients d’entreprise
+
 |Client|Instruction de prise en charge|Notes|
 | ----- | -----|-----|
 |Microsoft Teams|Prise en charge|<li>Microsoft Teams prend en charge AD FS (SAML-P, WS-Fed, WS-Trust et OAuth) et l’authentification moderne.</li><li> Core Microsoft Teams telles que des fonctionnalités de canaux, les conversations et les fichiers ne fonctionne pas avec l’ID de connexion de substitution.</li><li>applications tierces 1er et 3e doivent être surveillées séparément par le client. Il s’agit, car chaque application possède ses propres protocoles d’authentification prise en charge.</li>|     
@@ -173,7 +174,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 |Outlook Web Access|Prise en charge|Prise en charge|
 |Applications mobiles d’Outlook pour Android, IOS et Windows Phone|Prise en charge|Prise en charge|
 |Skype for Business / Lync|Prise en charge, sans invite supplémentaire|Prise en charge (sauf indication contraire), mais il existe un risque de confusion de l’utilisateur.</br></br>Sur les clients mobiles, un Id secondaire est pris en charge uniquement si adresse SIP = adresse de messagerie = ID secondaire.</br></br> Les utilisateurs devront peut-être connectez-vous à deux reprises pour le Skype pour Business desktop client, tout d’abord à l’aide de l’UPN local, puis en utilisant l’ID secondaire. (Notez que l’adresse « connexion » est en réalité l’adresse SIP qui ne peut pas être identique à « nom d’utilisateur », mais est souvent). Lorsque tout d’abord invité à entrer un nom d’utilisateur, l’utilisateur doit entrer l’UPN, même si elle est incorrectement rempli au préalable avec l’adresse ID secondaire ou SIP. Une fois que l’utilisateur clique sur se connecter à l’aide de l’UPN, l’utilisateur nom invite réapparaît, cette fois prérempli avec l’UPN. Cette fois, l’utilisateur doit le remplacer par l’autre ID et cliquez sur se connecter terminer le processus de connexion. Sur les clients mobiles, les utilisateurs doivent entrer l’ID d’utilisateur local dans la page Avancé, à l’aide du style de SAM (DOMAINE\nom_utilisateur), non format UPN.</br></br>Après la connexion réussie, Skype entreprise ou Lync « Exchange doit vos informations d’identification », en revanche, si vous devez fournir les informations d’identification qui sont valides pour où se trouve la boîte aux lettres. Si la boîte aux lettres se trouve dans le cloud, que vous devez fournir l’ID secondaire. Si la boîte aux lettres est en local, vous devez fournir l’UPN en local.| 
- 
+
 ## <a name="additional-details--considerations"></a>Considérations sur les & détails supplémentaires
 
 -   La fonctionnalité d’ID de connexion de substitution est disponible pour les environnements fédérés avec AD FS déployé.  Il n’est pas pris en charge dans les scénarios suivants :
@@ -211,12 +212,12 @@ Voici les différents cas d’erreur et impact correspondant sur l’expérience
 
 
 
-**Cas d’erreur**|**Impact sur l’expérience de connexion**|**Événement**|
----------|---------|---------
-Impossible d’obtenir une valeur de SAMAccountName pour l’objet utilisateur|Échec de connexion|ID d’événement 364 avec le message d’exception MSIS8012 : Impossible de trouver le samAccountName de l’utilisateur : '{0}'.|
-L’attribut CanonicalName n’est pas accessible|Échec de connexion|ID d’événement 364 avec le message d’exception MSIS8013 : CanonicalName : '{0}» de l’utilisateur : «{1}» est dans un format incorrect.|
-Plusieurs objets utilisateur sont trouvent dans une forêts|Échec de connexion|ID d’événement 364 avec le message d’exception MSIS8015 : Trouvé plusieurs comptes d’utilisateur avec l’identité «{0}« dans la forêt »{1}» avec des identités : {2}|
-Plusieurs objets utilisateur sont trouvent dans plusieurs forêts|Échec de connexion|ID d’événement 364 avec le message d’exception MSIS8014 : Trouvé plusieurs comptes d’utilisateur avec l’identité «{0}» dans les forêts : {1}|
+|                       **Cas d’erreur**                        | **Impact sur l’expérience de connexion** |                                                              **Événement**                                                              |
+|--------------------------------------------------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| Impossible d’obtenir une valeur de SAMAccountName pour l’objet utilisateur |          Échec de connexion           |                  ID d’événement 364 avec le message d’exception MSIS8012 : Impossible de trouver le samAccountName de l’utilisateur : '{0}'.                   |
+|        L’attribut CanonicalName n’est pas accessible         |          Échec de connexion           |               ID d’événement 364 avec le message d’exception MSIS8013 : CanonicalName : '{0}» de l’utilisateur : «{1}» est dans un format incorrect.                |
+|        Plusieurs objets utilisateur sont trouvent dans une forêts        |          Échec de connexion           | ID d’événement 364 avec le message d’exception MSIS8015 : Trouvé plusieurs comptes d’utilisateur avec l’identité «{0}« dans la forêt »{1}» avec des identités : {2} |
+|   Plusieurs objets utilisateur sont trouvent dans plusieurs forêts    |          Échec de connexion           |           ID d’événement 364 avec le message d’exception MSIS8014 : Trouvé plusieurs comptes d’utilisateur avec l’identité «{0}» dans les forêts : {1}            |
 
 ## <a name="see-also"></a>Voir aussi
 [Opérations d’AD FS](../../ad-fs/AD-FS-2016-Operations.md)

@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: d46ede6f-1a21-414d-b8c3-6b5c87344b9d
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5bb28ff6131c371e4b2f668fd20ec0a6133a0099
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: db0318f1306102bf19c82012f57e78ce2852d288
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860000"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446617"
 ---
 # <a name="step-4-install-and-configure-rsa-and-edge1"></a>ÉTAPE 4 installer et configurer RSA et EDGE1
 
@@ -66,7 +66,7 @@ Vous allez effectuer les étapes suivantes pour configurer le déploiement de RS
   
 2.  Dans **connexions réseau**, avec le bouton droit **connexion au réseau Local**, puis cliquez sur **propriétés**.  
   
-3.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)**, puis sur **Propriétés**.  
+3.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
 4.  Cliquez sur **Utiliser l’adresse IP suivante**. Dans la zone **Adresse IP**, tapez **10.0.0.5**. Dans la zone **Masque de sous-réseau**, tapez **255.255.255.0**. Dans **passerelle par défaut**, type **10.0.0.2**. Cliquez sur **utiliser l’adresse de serveur DNS suivante**, dans **serveur DNS préféré**, type **10.0.0.1**.  
   
@@ -180,11 +180,11 @@ Vous allez effectuer les étapes suivantes pour configurer le déploiement de RS
   
     3.  Sous le **numéro de série** en-tête cliquez sur le premier numéro indiqué, puis cliquez sur **affecter**.  
   
-    4.  Cliquez sur le jeton attribué, puis cliquez sur **modifier**. Dans le **gestion du code confidentiel SecurID** section pour **exigence d’authentification utilisateur**, sélectionnez **ne nécessitent pas de code confidentiel (uniquement le code de jeton)**.  
+    4.  Cliquez sur le jeton attribué, puis cliquez sur **modifier**. Dans le **gestion du code confidentiel SecurID** section pour **exigence d’authentification utilisateur**, sélectionnez **ne nécessitent pas de code confidentiel (uniquement le code de jeton)** .  
   
     5.  Cliquez sur **enregistrer et distribuer le jeton**.  
   
-    6.  Sur le **distribuer les logiciels jeton** page dans le **notions de base** , cliquez sur **fichier de jeton du problème (SDTID)**.  
+    6.  Sur le **distribuer les logiciels jeton** page dans le **notions de base** , cliquez sur **fichier de jeton du problème (SDTID)** .  
   
     7.  Sur le **distribuer les logiciels jeton** page dans le **Options du fichier de jeton** section, désactivez le **activer la protection contre la copie** case à cocher. Cliquez sur **aucun mot de passe** et **suivant**.  
   
@@ -194,7 +194,7 @@ Vous allez effectuer les étapes suivantes pour configurer le déploiement de RS
   
 8.  Configurer le Gestionnaire d’authentification en tant que serveur RADIUS.  
   
-    1.  Sur le double-clic RSA ordinateur Bureau **« RSA Security Operations Console »**.  
+    1.  Sur le double-clic RSA ordinateur Bureau **« RSA Security Operations Console »** .  
   
     2.  Si la sécurité avertissement de certificat / l’alerte de sécurité s’affiche, cliquez sur **poursuivre sur ce site Web** ou cliquez sur **Oui** pour continuer et ajouter ce site aux sites approuvés si nécessaire.  
   
@@ -208,7 +208,7 @@ Vous allez effectuer les étapes suivantes pour configurer le déploiement de RS
   
     7.  Vérifiez que le message **'serveur RADIUS a été configuré'** s’affiche. Cliquez sur **Terminé**. Fermer le **RSA Operations Console**.  
   
-    8.  Revenez à la **« Console de sécurité RSA »**.  
+    8.  Revenez à la **« Console de sécurité RSA »** .  
   
     9. Sur le **RADIUS** onglet, cliquez sur **serveurs RADIUS**. Vérifiez que rsa.corp.contoso.com est répertorié.  
   
@@ -294,23 +294,23 @@ Utilisez cette procédure pour configurer EDGE1 pour effectuer l’authentificat
   
 #### <a name="configure-the-rsa-authentication-agent"></a>Configurer l’Agent d’authentification RSA  
   
-1.  Sur EDGE1 ouvrez l’Explorateur Windows et créez le dossier C:\RSA fichiers. Accédez au support d’Installation d’ACE RSA.  
+1. Sur EDGE1 ouvrez l’Explorateur Windows et créez le dossier C:\RSA fichiers. Accédez au support d’Installation d’ACE RSA.  
   
-2.  Copie les fichiers agent_nsload.exe, AM_Config.zip et EDGE1_NodeSecret.zip à partir du support RSA pour les fichiers C:\RSA.  
+2. Copie les fichiers agent_nsload.exe, AM_Config.zip et EDGE1_NodeSecret.zip à partir du support RSA pour les fichiers C:\RSA.  
   
-3.  Extrayez le contenu des fichiers zip aux emplacements suivants :  
+3. Extrayez le contenu des fichiers zip aux emplacements suivants :  
   
-    1.  C:\Windows\system32\  
+   1.  C:\Windows\system32\  
   
-    2.  C:\Windows\SysWOW64\  
+   2.  C:\Windows\SysWOW64\  
   
-4.  Copiez agent_nsload.exe à C:\Windows\SysWOW64\\.  
+4. Copiez agent_nsload.exe à C:\Windows\SysWOW64\\.  
   
-5.  Ouvrez une invite de commandes avec élévation de privilèges et accédez à C:\Windows\SysWOW64.  
+5. Ouvrez une invite de commandes avec élévation de privilèges et accédez à C:\Windows\SysWOW64.  
   
-6.  Type **agent_nsload.exe -f nodesecret.rec -p <password>**  où <password> est le mot de passe fort que vous avez créé lors de la configuration initiale de RSA. Appuyez sur Entrée.  
+6. Type **agent_nsload.exe -f nodesecret.rec -p <password>**  où <password> est le mot de passe fort que vous avez créé lors de la configuration initiale de RSA. Appuyez sur Entrée.  
   
-7.  Copy C:\Windows\SysWOW64\securid to C:\Windows\System32.  
+7. Copy C:\Windows\SysWOW64\securid to C:\Windows\System32.  
   
 ## <a name="configOTP"></a>Configurer EDGE1 à prise en charge l’authentification OTP  
 Utilisez cette procédure pour configurer OTP pour DirectAccess et vérifiez la configuration.  

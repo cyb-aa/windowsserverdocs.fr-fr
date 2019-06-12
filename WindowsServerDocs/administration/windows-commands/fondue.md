@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 09708c239b5399f3284c42877970443cc2605cbe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bcbbbf80f25f77d1feb83f358401e4d14da3d354
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817150"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439223"
 ---
 # <a name="fondue"></a>fondue
 
@@ -30,11 +30,13 @@ Active les fonctionnalités facultatives de Windows en téléchargeant les fichi
 fondue.exe /enable-feature:<feature_name> [/caller-name:<program_name>] [/hide-ux:{all | rebootRequest}]
 ```
 ### <a name="parameters"></a>Paramètres
-|Paramètre|Description|
-|-------|--------|
-|Enable : <*nom_fonctionnalité*>|Spécifie le nom de la fonctionnalité facultative de Windows que vous souhaitez activer. Vous ne pouvez activer une fonctionnalité par ligne de commande. Pour activer plusieurs fonctionnalités, utilisez fondue.exe pour chaque fonctionnalité.|
-|/caller-Name : <*nom_programme*>|Spécifie le nom de programme ou processus lorsque vous appelez fondue.exe à partir d’un fichier de script ou lot. Vous pouvez utiliser cette option pour ajouter le nom du programme pour le rapport SQM s’il existe une erreur.|
-|/hide-ux:{all &#124; rebootRequest}|Utilisez **tous les** pour masquer tous les messages à l’utilisateur, y compris les demandes de progression et l’autorisation pour accéder à Windows Update. Si l’autorisation est requise, l’opération échoue.<br /><br />Utilisez **rebootRequest** pour masquer uniquement les messages de l’utilisateur demandant l’autorisation de redémarrer l’ordinateur. Utilisez cette option si vous avez un script de contrôles des demandes de redémarrage.|
+
+|              Paramètre              |                                                                                                                                                                     Description                                                                                                                                                                     |
+|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  Enable : <*nom_fonctionnalité*>   |                                                                               Spécifie le nom de la fonctionnalité facultative de Windows que vous souhaitez activer. Vous ne pouvez activer une fonctionnalité par ligne de commande. Pour activer plusieurs fonctionnalités, utilisez fondue.exe pour chaque fonctionnalité.                                                                                |
+|    /caller-Name : <*nom_programme*>    |                                                                                 Spécifie le nom de programme ou processus lorsque vous appelez fondue.exe à partir d’un fichier de script ou lot. Vous pouvez utiliser cette option pour ajouter le nom du programme pour le rapport SQM s’il existe une erreur.                                                                                 |
+| /hide-ux:{all &#124; rebootRequest} | Utilisez **tous les** pour masquer tous les messages à l’utilisateur, y compris les demandes de progression et l’autorisation pour accéder à Windows Update. Si l’autorisation est requise, l’opération échoue.<br /><br />Utilisez **rebootRequest** pour masquer uniquement les messages de l’utilisateur demandant l’autorisation de redémarrer l’ordinateur. Utilisez cette option si vous avez un script de contrôles des demandes de redémarrage. |
+
 ## <a name="BKMK_Examples"></a>Exemples
 Pour activer Microsoft .NET Framework 3.5, tapez :
 ```
@@ -45,6 +47,6 @@ Pour activer Microsoft .NET Framework 3.5, ajouter le nom du programme à l’é
 fondue.exe /enable-feature:NETFX3 /caller-name:Admin.bat /hide-ux:all
 ```
 ## <a name="additional-references"></a>Références supplémentaires
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
-## <a name="see-also"></a>Voir aussi
-[Considérations relatives au déploiement de Microsoft .NET Framework 3.5](https://go.microsoft.com/fwlink/?LinkId=248869)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+  ## <a name="see-also"></a>Voir aussi
+  [Considérations relatives au déploiement de Microsoft .NET Framework 3.5](https://go.microsoft.com/fwlink/?LinkId=248869)

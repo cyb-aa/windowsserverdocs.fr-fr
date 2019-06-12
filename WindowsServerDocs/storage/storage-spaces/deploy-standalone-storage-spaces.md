@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-spaces
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7090657a0936aed0f4b2e79007f69d7b082b0b8f
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: f9b5d2b0d5acfcbde52131c29704e38d835d048e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63750651"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447550"
 ---
 # <a name="deploy-storage-spaces-on-a-stand-alone-server"></a>Déployer des espaces de stockage sur un serveur autonome
 
@@ -150,16 +150,16 @@ Vous devez ensuite créer un ou plusieurs disques virtuels à partir du pool de 
 
 8. Sur le **spécifier le type d’approvisionnement** page, sélectionnez une des options suivantes, puis sélectionnez **suivant**.
     
-      - **Dynamique**
+   - **Dynamique**
         
-        Avec l'allocation dynamique, l'espace est alloué en fonction des besoins. L'utilisation du stockage disponible est ainsi optimisée. Toutefois, comme cela vous permet d'allouer le stockage de façon excessive, vous devez soigneusement surveiller la quantité d'espace disque disponible.
+     Avec l'allocation dynamique, l'espace est alloué en fonction des besoins. L'utilisation du stockage disponible est ainsi optimisée. Toutefois, comme cela vous permet d'allouer le stockage de façon excessive, vous devez soigneusement surveiller la quantité d'espace disque disponible.
     
-      - **fixe**
+   - **fixe**
         
-        Avec l'allocation fixe, la capacité de stockage est allouée immédiatement, au moment de la création d'un disque virtuel. Par conséquent, l'allocation fixe utilise une quantité d'espace du pool de stockage égale à la taille du disque virtuel.
+     Avec l'allocation fixe, la capacité de stockage est allouée immédiatement, au moment de la création d'un disque virtuel. Par conséquent, l'allocation fixe utilise une quantité d'espace du pool de stockage égale à la taille du disque virtuel.
     
-    >[!TIP]
-    >Avec les espaces de stockage, vous pouvez créer à la fois des disques virtuels à allocation dynamique et fixe dans le même pool de stockage. Par exemple, vous pouvez utiliser un disque virtuel à allocation dynamique pour héberger une base de données et un disque virtuel à allocation fixe pour héberger les fichiers journaux associés.
+     >[!TIP]
+     >Avec les espaces de stockage, vous pouvez créer à la fois des disques virtuels à allocation dynamique et fixe dans le même pool de stockage. Par exemple, vous pouvez utiliser un disque virtuel à allocation dynamique pour héberger une base de données et un disque virtuel à allocation fixe pour héberger les fichiers journaux associés.
 
 9. Dans la page **Spécifier la taille du disque virtuel**, procédez comme suit :
     

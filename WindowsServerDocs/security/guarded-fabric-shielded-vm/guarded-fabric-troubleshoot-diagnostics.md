@@ -7,12 +7,12 @@ ms.assetid: 07691d5b-046c-45ea-8570-a0a85c3f2d22
 manager: dongill
 author: huu
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: c102fa0503e6aac279235e1243b55e0e3cf81e1d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0fb257f693cc27c0bc6dd18fc89e8dc6328ee638
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812410"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447343"
 ---
 # <a name="troubleshooting-using-the-guarded-fabric-diagnostic-tool"></a>Résolution des problèmes à l’aide de l’outil de Diagnostic de structure protégée
 
@@ -156,9 +156,9 @@ Avant d’effectuer le diagnostic manuel, vous devez vérifier les administrateu
 
 1. Demande qui s’exécutent chaque administrateur de l’hôte `Get-HgsTrace` spécifiant un connu `-Path` et la liste des diagnostics que vous avez l’intention d’exécuter sur les traces qui en résulte.  Exemple :
 
- ```PowerShell
- Get-HgsTrace -Path C:\Traces -Diagnostic Networking,BestPractices
- ```
+   ```PowerShell
+   Get-HgsTrace -Path C:\Traces -Diagnostic Networking,BestPractices
+   ```
 2. Demande que chaque administrateur de l’hôte le dossier traces obtenu du package et l’envoyer à vous.  Ce processus peut être piloté par courrier électronique, par le biais de partages de fichiers, ou tout autre mécanisme basé sur les stratégies d’exploitation et les procédures établies par votre organisation.
 
 3. Fusionner toutes les traces reçues dans un dossier unique, avec aucun autre contenu ou dossiers.
@@ -181,9 +181,9 @@ Avant d’effectuer le diagnostic manuel, vous devez vérifier les administrateu
 
 4. Exécuter des tests de diagnostic, en fournissant le chemin d’accès au dossier trace assemblé sur le `-Path` paramètre et en spécifiant le `-RunDiagnostics` commutateur, ainsi que les diagnostics pour lequel vous demande vos administrateurs pour recueillir des traces.  Diagnostics supposera qu’il ne peut pas accéder aux hôtes ont été trouvés dans le chemin d’accès et par conséquent essaye d’utiliser uniquement les traces collectées au préalable.  Si les traces sont manquants ou endommagés, diagnostics échoue uniquement les tests affectés et se poursuivent normalement.  Exemple :
 
- ```PowerShell
- Get-HgsTrace -RunDiagnostics -Diagnostic Networking,BestPractices -Path ".\FabricTraces"
- ```
+   ```PowerShell
+   Get-HgsTrace -RunDiagnostics -Diagnostic Networking,BestPractices -Path ".\FabricTraces"
+   ```
 
 ### <a name="mixing-saved-traces-with-additional-targets"></a>Mélange des Traces enregistrées avec des cibles supplémentaires
 

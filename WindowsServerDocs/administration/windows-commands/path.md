@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 65ccaf23b0e19319383952f3a1ca436aaf4d06fd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a637abc91dd3342afb3a2723d1b3a835be149122
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856460"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436321"
 ---
 # <a name="path"></a>path
 
@@ -37,12 +37,12 @@ path ;
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|[\<Drive>:]<Path>|Spécifie le lecteur et le répertoire à définir dans le chemin d’accès de la commande.|
-|;|Sépare les répertoires dans le chemin d’accès de la commande. Si utilisée sans les autres paramètres, **;** efface les chemins d’accès de commande existantes à partir de la variable d’environnement PATH et dirige Cmd.exe de rechercher uniquement dans le répertoire actif.|
-|CHEMIN D’ACCÈS %|Ajoute le chemin d’accès de la commande à l’ensemble existant de répertoires répertoriés dans la variable d’environnement PATH.|
-|/?|Affiche l'aide à l'invite de commandes.|
+|     Paramètre     |                                                                                                     Description                                                                                                      |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [\<Drive>:]<Path> |                                                                            Spécifie le lecteur et le répertoire à définir dans le chemin d’accès de la commande.                                                                             |
+|         ;         | Sépare les répertoires dans le chemin d’accès de la commande. Si utilisée sans les autres paramètres, **;** efface les chemins d’accès de commande existantes à partir de la variable d’environnement PATH et dirige Cmd.exe de rechercher uniquement dans le répertoire actif. |
+|      CHEMIN D’ACCÈS %       |                                                         Ajoute le chemin d’accès de la commande à l’ensemble existant de répertoires répertoriés dans la variable d’environnement PATH.                                                         |
+|        /?         |                                                                                         Affiche l'aide à l'invite de commandes.                                                                                         |
 
 ## <a name="remarks"></a>Notes
 
@@ -62,4 +62,4 @@ Pour rechercher les chemins d’accès C:\User\Taxes, B:\User\Invest et B:\Bin p
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,23 +1,23 @@
 ---
 title: Résolution des problèmes de la Gestion des disques
 description: Cet article explique comment résoudre les problèmes liés à l’outil Gestion des disques
-ms.date: 12/22/2017
+ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c234828706d999fe049626a2fd98db70e612766f
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 4d9448cc642ef522fa129dcfe97e2286f16bad1b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192742"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812533"
 ---
 # <a name="troubleshooting-disk-management"></a>Résolution des problèmes de la Gestion des disques
 
-> **S’applique à :** Windows 10, Windows 8.1, Windows 7, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **S’applique à :** Windows 10, Windows 8.1, Windows 7, Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique répertorie quelques uns des problèmes courants que vous pouvez rencontrer lors de l’utilisation de l’outil Gestion des disques.
 
@@ -26,7 +26,7 @@ Cette rubrique répertorie quelques uns des problèmes courants que vous pouvez 
 
 ## <a name="a-disks-status-is-not-initialized-or-the-disk-is-missing"></a>État d’un disque n’est pas initialisé ou le disque est manquant
 
-![Gestion des disques montrant un disque inconnu qui doit être initialisé.](media\uninitialized-disk.PNG)
+![Gestion des disques montrant un disque inconnu qui doit être initialisé.](media/uninitialized-disk.PNG)
 
 **Cause :** Si vous avez un disque qui n’apparaît pas dans l’Explorateur de fichiers et est répertorié dans la gestion des disques en tant que *pas initialisé*, cela peut signifier que le disque n’a pas une signature de disque valide. En fait, cela signifie que le disque n’a jamais été initialisé et formaté, ou la mise en forme du lecteur a été endommagée d’une certaine manière. 
 
@@ -39,24 +39,25 @@ Il existe un ensemble de raisons pour un disque peut être manquant ou ne parvie
 1. Examinez le disque dans Disk Management. S’il apparaît *hors connexion* comme indiqué ici, essayez dessus et en sélectionnant **Online**.
 
     ![Disque indiqué comme étant hors connexion](media/offline-disk.png)
-1. Si le disque s’affiche dans la gestion des disques en tant que *Online*, et a une partition principale est répertoriée en tant que *sain*, comme illustré ici, qui est un bon signe.
+2. Si le disque s’affiche dans la gestion des disques en tant que *Online*, et a une partition principale est répertoriée en tant que *sain*, comme illustré ici, qui est un bon signe.
 
     ![Disque indiqué comme en ligne avec un volume sain](media/healthy-volume.png)
     - Si la partition a un système de fichiers, mais aucune lettre de lecteur (par exemple, E:), consultez [modifier une lettre de lecteur](change-a-drive-letter.md) pour ajouter une lettre de lecteur manuellement.
     - Si elle n’a pas un système de fichiers (NTFS, ReFS, FAT32 ou exFAT) et que vous savez que le disque est vide, cliquez sur la partition, puis sélectionnez **Format**. Mise en forme d’un disque efface toutes les données qu’il contient, donc vous ne le faites pas cela si vous tentez de récupérer des fichiers à partir du disque - au lieu de cela, passez à l’étape suivante.
-1. Si vous avez un externe du disque, débranchez le disque, branchez-le dans et puis **Action** > **relancer l’analyse des disques**. 
-2. Arrêter votre PC, mettre hors tension de votre disque dur externe (s’il est un disque externe avec un cordon d’alimentation), puis rallumez votre PC et le disque.
+3. Si vous avez un externe du disque, débranchez le disque, branchez-le dans et puis **Action** > **relancer l’analyse des disques**. 
+4. Arrêter votre PC, mettre hors tension de votre disque dur externe (s’il est un disque externe avec un cordon d’alimentation), puis rallumez votre PC et le disque.
     Pour désactiver votre PC dans Windows 10, sélectionnez le bouton Démarrer, sélectionnez le bouton d’alimentation, puis **arrêter**.
-1. Branchez le disque sur un autre port USB qui se trouve directement sur votre PC (pas sur un concentrateur).
+5. Branchez le disque sur un autre port USB qui se trouve directement sur votre PC (pas sur un concentrateur).
     Parfois les disques USB n’obtenir suffisamment de puissance à partir de certains ports ou d’autres problèmes avec des ports particuliers. Cela est particulièrement courant avec les concentrateurs USB, mais parfois, il existe des différences entre les ports sur un PC, donc essayer quelques ports différents si vous les avez.
-1. Essayez un câble différent.
+6. Essayez un câble différent.
     Il peut sembler étrange, mais échouer beaucoup les câbles, par conséquent, essayez d’utiliser un câble différent pour brancher le disque. Si vous avez un disque interne dans un PC de bureau, vous devrez probablement arrêter votre ordinateur avant de passer des câbles - consultez le manuel de votre PC pour plus d’informations.
-1. Vérifiez le Gestionnaire de périphériques pour les problèmes.
+7. Vérifiez le Gestionnaire de périphériques pour les problèmes.
     Appuyez et maintenez (ou avec le bouton droit) le bouton Démarrer, puis sélectionnez le Gestionnaire de périphériques dans le menu contextuel. Recherchez tous les appareils avec un point d’exclamation à côté ou d’autres problèmes, double-cliquez sur l’appareil et lisez son état.
 
     Voici une liste de [codes d’erreur dans le Gestionnaire de périphériques](https://support.microsoft.com/help/310123/error-codes-in-device-manager-in-windows), mais une approche est parfois fonctionne avec le bouton droit de l’appareil problématique, sélectionnez **désinstallation appareil**, puis **Action**  >  **Rechercher les modifications de matériel**.
-    ![Gestionnaire de périphériques affiche un périphérique USB inconnu](media\device-manager.PNG)
-1. Branchez le disque sur un autre PC.
+
+    ![Gestionnaire de périphériques affiche un périphérique USB inconnu](media/device-manager.PNG)
+8. Branchez le disque sur un autre PC.
     
     Si le disque ne fonctionne pas sur un autre PC, il est un bon signe qu’il y a quelque chose de mauvais passe sur le disque et pas sur votre PC. Aucun amusants, que nous savons. Certaines étapes supplémentaires que vous pouvez essayer dans [erreur du lecteur USB externe « Vous devez initialiser le disque avant que le Gestionnaire de disque logique peut y accéder »](https://social.technet.microsoft.com/Forums/windows/en-US/2b069948-82e9-49ef-bbb7-e44ec7bfebdb/forum-faq-external-usb-drive-error-you-must-initialize-the-disk-before-logical-disk-manager-can?forum=w7itprohardware), mais il peut être le temps à rechercher et demander de l’aide à la [delaCommunautéMicrosoft](https://answers.microsoft.com/en-us/windows) de site, ou contactez le fabricant de votre disque.
 
@@ -64,9 +65,9 @@ Il existe un ensemble de raisons pour un disque peut être manquant ou ne parvie
 
 > [!IMPORTANT]
 > Disques échouent assez souvent, il est donc important de sauvegarder régulièrement les fichiers qui que vous intéressent. Si vous avez un disque parfois n’apparaît pas, ou génère des erreurs, considérer ceci comme un rappel pour vérifier vos méthodes de sauvegarde. Il est OK si vous êtes un peu en retard, nous avons tous été là. La meilleure solution de sauvegarde étant celui que vous utilisez, nous vous encourageons à en trouver un qui fonctionne pour vous et gardez-le.
-
+> 
 > [!TIP]
-Pour plus d’informations sur l’utilisation des applications intégrées à Windows pour les fichiers de sauvegarde sur un lecteur externe tel qu’un lecteur USB, consultez [sauvegarder et restaurer vos fichiers](https://support.microsoft.com/help/17143/windows-10-back-up-your-files). Vous pouvez également enregistrer des fichiers dans OneDrive de Microsoft, qui synchronise les fichiers à partir de votre PC vers le cloud. Si votre disque dur tombe en panne, vous serez toujours en mesure d’obtenir les fichiers que vous stockez dans OneDrive à partir de OneDrive.com. Pour plus d’informations, consultez [OneDrive sur votre PC](https://support.microsoft.com/help/17184/windows-10-onedrive).
+> Pour plus d’informations sur l’utilisation des applications intégrées à Windows pour les fichiers de sauvegarde sur un lecteur externe tel qu’un lecteur USB, consultez [sauvegarder et restaurer vos fichiers](https://support.microsoft.com/help/17143/windows-10-back-up-your-files). Vous pouvez également enregistrer des fichiers dans OneDrive de Microsoft, qui synchronise les fichiers à partir de votre PC vers le cloud. Si votre disque dur tombe en panne, vous serez toujours en mesure d’obtenir les fichiers que vous stockez dans OneDrive à partir de OneDrive.com. Pour plus d’informations, consultez [OneDrive sur votre PC](https://support.microsoft.com/help/17184/windows-10-onedrive).
 
 ## <a name="a-basic-or-dynamic-disks-status-is-unreadable"></a>L’état d’un disque de base ou dynamique est illisible
 
@@ -177,10 +178,8 @@ Lorsque l’état du volume est **Sain (courant un risque)** , l’état d’un 
 2. Pour gérer les disques sur des ordinateurs distants qui prennent pas en charge le service VDS, vous devez configurer le pare-feu Windows Defender sur l’ordinateur local (sur lequel vous exécutez Gestion des disques) et sur l’ordinateur distant.
 3. Sur l’ordinateur local, configurez le pare-feu Windows Defender pour activer l’exception de gestion des volumes à distance.
 
-
 > [!NOTE]
 > L’exception de gestion des volumes à distance inclut les exceptions pour Vds.exe, Vdsldr.exe et le port TCP 135.
 
-
- > [!NOTE]
- > Les connexions à distance dans les groupes de travail ne sont pas prises en charge. L’ordinateur local et l’ordinateur distant doivent tous les deux être membres d’un domaine.
+> [!NOTE]
+> Les connexions à distance dans les groupes de travail ne sont pas prises en charge. L’ordinateur local et l’ordinateur distant doivent tous les deux être membres d’un domaine.

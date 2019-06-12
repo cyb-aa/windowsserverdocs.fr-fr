@@ -11,12 +11,12 @@ ms.assetid: 95ea5f7c-25c6-494b-8ffd-2a77f631ee94
 author: shirgall
 ms.author: shirgall
 ms.date: 11/19/2018
-ms.openlocfilehash: b58193ec570cf0d94b6c95018b8c00c813331986
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 662541658fe6e7b99e66fe31344450e0a1cbd201
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222640"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447828"
 ---
 # <a name="supported-ubuntu-virtual-machines-on-hyper-v"></a>Machines virtuelles Ubuntu prises en charge sur Hyper-V
 
@@ -91,7 +91,6 @@ Le plan de distribution de fonctionnalité suivant indique les fonctionnalités 
    ```bash
    # apt-get update
    # apt-get install linux-azure
-
    ```
 
    12.04 n’a pas d’un noyau virtuel distinct. Pour installer le noyau Enablement générique sur 12.04, exécutez les commandes suivantes en tant que racine (ou sudo) :
@@ -99,7 +98,6 @@ Le plan de distribution de fonctionnalité suivant indique les fonctionnalités 
    ```bash
    # apt-get update
    # apt-get install linux-generic-lts-trusty
-
    ```
 
    Sur Ubuntu 12.04 les démons Hyper-V suivants sont dans un package installé séparément :
@@ -112,7 +110,6 @@ Le plan de distribution de fonctionnalité suivant indique les fonctionnalités 
 
    ```bash
    # apt-get install hv-kvp-daemon-init linux-tools-lts-trusty linux-cloud-tools-generic-lts-trusty
-
    ```
 
    Chaque fois que le noyau est mis à jour, la machine virtuelle doit être redémarrée pour l’utiliser.
@@ -124,7 +121,6 @@ Le plan de distribution de fonctionnalité suivant indique les fonctionnalités 
    ```bash
    # apt-get update
    # apt-get install linux-azure
-
    ```
 
    Chaque fois que le noyau est mis à jour, la machine virtuelle doit être redémarrée pour l’utiliser.
@@ -143,42 +139,37 @@ Le plan de distribution de fonctionnalité suivant indique les fonctionnalités 
 
 11. Sur Windows Server 2012 R2, les machines virtuelles de génération 2 ont le démarrage sécurisé est activé par défaut et certains Linux de machines virtuelles ne démarre pas, sauf si l’option de démarrage sécurisé est désactivée. Vous pouvez désactiver le démarrage sécurisé dans le **microprogramme** section des paramètres de la machine virtuelle dans **Gestionnaire Hyper-V** ou vous pouvez le désactiver à l’aide de Powershell :
 
-   ```Powershell
-   Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
-
-   ```
+    ```Powershell
+    Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
+    ```
 
 12. Avant de tenter de copier le disque dur virtuel d’une machine virtuelle de disque dur virtuel de génération 2 pour créer des machines virtuelles de génération 2, procédez comme suit :
 
-   1. Connectez-vous à la machine virtuelle de génération 2.
+    1. Connectez-vous à la machine virtuelle de génération 2.
 
-   2. Basculez vers le répertoire EFI de démarrage :
+    2. Basculez vers le répertoire EFI de démarrage :
 
-      ```bash
-      # cd /boot/efi/EFI
+       ```bash
+       # cd /boot/efi/EFI
+       ```
 
-      ```
+    3. Copiez le répertoire d’ubuntu dans vers un répertoire nommé démarrage :
 
-   3. Copiez le répertoire d’ubuntu dans vers un répertoire nommé démarrage :
+       ```bash
+       # sudo cp -r ubuntu/ boot
+       ```
 
-      ```bash
-      # sudo cp -r ubuntu/ boot
+    4. Accédez au répertoire dans le répertoire de démarrage nouvellement créée :
 
-      ```
+       ```bash
+       # cd boot
+       ```
 
-   4. Accédez au répertoire dans le répertoire de démarrage nouvellement créée :
+    5. Renommez le fichier shimx64.efi :
 
-      ```bash
-      # cd boot
-
-      ```
-
-   5. Renommez le fichier shimx64.efi :
-
-      ```bash
-      # sudo mv shimx64.efi bootx64.efi
-
-      ```
+       ```bash
+       # sudo mv shimx64.efi bootx64.efi
+       ```
 
 ## <a name="see-also"></a>Voir aussi
 

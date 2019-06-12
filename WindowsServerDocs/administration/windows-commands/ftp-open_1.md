@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: da7926914e2cbdbb4909093d90c33025ae5cd695
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 45de8b3c210fe0925ac3cc43c41d3e092d5dfe16
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882470"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438507"
 ---
 # <a name="ftp-open1"></a>FTP : open_1
 
@@ -30,10 +30,12 @@ Se connecte au serveur ftp spécifié.
 open <computer> [<Port>]  
 ```  
 ### <a name="parameters"></a>Paramètres  
-|Paramètre|Description|  
-|-------|--------|  
-|<computer>|Spécifie l’ordinateur distant auquel vous essayez de vous connecter.|  
-|[<Port>]|Spécifie un numéro de port TCP à utiliser pour se connecter à un serveur ftp. Par défaut, le port TCP 21 est utilisé.|  
+
+| Paramètre  |                                           Description                                            |
+|------------|--------------------------------------------------------------------------------------------------|
+| <computer> |                Spécifie l’ordinateur distant auquel vous essayez de vous connecter.                 |
+|  [<Port>]  | Spécifie un numéro de port TCP à utiliser pour se connecter à un serveur ftp. Par défaut, le port TCP 21 est utilisé. |
+
 ## <a name="remarks"></a>Notes  
 Vous pouvez utiliser un nom d’ordinateur ou adresse IP (auquel cas un serveur DNS ou le fichier Hosts doit être disponible) pour spécifier **ordinateur**.  
 ## <a name="BKMK_Examples"></a>Exemples  
@@ -46,4 +48,4 @@ Se connecter au serveur ftp sur **FTP.Microsoft.com** qui est à l’écoute sur
 open ftp.microsoft.com 755  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

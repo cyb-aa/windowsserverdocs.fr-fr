@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0a76ea6ede1237b05a7f7dd95fdb9f7c1560a922
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 13eb4e45b3fdc17fd48fa9793abaaf05925b56a2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858250"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436962"
 ---
 # <a name="nslookup-finger-command"></a>nslookup finger Command
 
@@ -34,12 +34,12 @@ finger [<UserName>] [{[>] <FileName>|[>>] <FileName>}]
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|\<UserName>|Spécifie le nom de l’utilisateur à rechercher.|
-|\<FileName>|Spécifie un nom de fichier dans lequel enregistrer la sortie. Vous pouvez utiliser le signe supérieur à (>) et double supérieur (>>) caractères pour rediriger la sortie de la manière habituelle.|
-|{aide | ?}|Affiche un résumé de **nslookup** sous-commandes.|
+|  Paramètre  |                                                                               Description                                                                               |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| \<UserName> |                                                               Spécifie le nom de l’utilisateur à rechercher.                                                                |
+| \<FileName> | Spécifie un nom de fichier dans lequel enregistrer la sortie. Vous pouvez utiliser le signe supérieur à (>) et double supérieur (>>) caractères pour rediriger la sortie de la manière habituelle. |
+|    {aide    |                                                                                   ?}                                                                                    |
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

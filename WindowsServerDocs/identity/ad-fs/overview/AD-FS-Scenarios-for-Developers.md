@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3a3156eefc4af52fb7daefb618c689b78fef5efc
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: fb1bc5776ea4d24f274c79563d9e346b104de6d9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188820"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444223"
 ---
 # <a name="ad-fs-scenarios-for-developers"></a>Scénarios AD FS pour les développeurs
 
@@ -115,20 +115,20 @@ Ce scénario permet à l’utilisateur d’une application cliente native pour a
 1.  L’application cliente native lance le flux avec un appel à la bibliothèque ADAL.  Cela déclenche un basée sur un navigateur HTTP GET pour les services AD FS d’Autoriser le point de terminaison :  
   
 **Demande d’autorisation :**  
-TÉLÉCHARGER https://fs.contoso.com/adfs/oauth2/authorize?  
+TÉLÉCHARGER <https://fs.contoso.com/adfs/oauth2/authorize?>  
   
 Paramètre|Value  
 ---------|---------  
 response_type|« code »  
-ressource|ID de fournisseur de ressources (identificateur) de l’API Web dans le groupe d’applications  
+resource|ID de fournisseur de ressources (identificateur) de l’API Web dans le groupe d’applications  
 client_id|Id client de l’application native dans le groupe d’applications  
 redirect_uri|URI de redirection de l’application native dans le groupe d’applications  
   
 **Réponse de demande d’autorisation :**  
 Si l’utilisateur n’a pas été signé avant que l’utilisateur est invité à entrer des informations d’identification.    
-AD FS répond en retournant un code d’autorisation en tant que le paramètre « code » dans le composant de requête du redirect_uri.  Exemple : HTTP/1.1 302 détection d’emplacement :  **http://redirect_uri:80/?code=&lt; code&gt;.**  
+AD FS répond en retournant un code d’autorisation en tant que le paramètre « code » dans le composant de requête du redirect_uri.  Exemple : HTTP/1.1 302 trouvé l’emplacement :  **<http://redirect_uri:80/?code=&lt;code&gt>;.**  
   
-2.  Le client natif envoie ensuite le code, ainsi que les paramètres suivants, au point de terminaison de jeton AD FS :  
+2. Le client natif envoie ensuite le code, ainsi que les paramètres suivants, au point de terminaison de jeton AD FS :  
   
 **Demande de jeton :**  
 POST https://fs.contoso.com/adfs/oauth2/token  
@@ -137,14 +137,14 @@ Paramètre|Value
 ---------|---------  
 grant_type|"authorization_code" 
 code|code d’autorisation à partir de 1  
-ressource|ID de fournisseur de ressources (identificateur) de l’API Web dans le groupe d’applications  
+resource|ID de fournisseur de ressources (identificateur) de l’API Web dans le groupe d’applications  
 client_id|Id client de l’application native dans le groupe d’applications  
 redirect_uri|URI de redirection de l’application native dans le groupe d’applications  
   
 **Réponse de demande de jeton :**  
 AD FS répond avec HTTP 200 avec le jeton d’accès, jeton d’actualisation et le jeton id_token dans le corps.  
   
-3.  L’application native puis envoie la partie du jeton d’accès de la réponse ci-dessus en tant que l’en-tête d’autorisation dans la requête HTTP à l’API web.  
+3. L’application native puis envoie la partie du jeton d’accès de la réponse ci-dessus en tant que l’en-tête d’autorisation dans la requête HTTP à l’API web.  
   
 ### <a name="single-sign-on-behavior"></a>Comportement de l’authentification unique  
 Suivantes du client demande au sein de 1 heure (par défaut) le jeton d’accès seront encore valides dans le cache, et une nouvelle demande ne déclenche pas tout le trafic vers AD FS.  Le jeton d’accès est automatiquement extraite à partir du cache par la bibliothèque ADAL.  
@@ -157,7 +157,7 @@ POST https://fs.contoso.com/adfs/oauth2/token
 Paramètre|Value|
 ---------|---------
 grant_type|"refresh_token"|
-ressource|ID de fournisseur de ressources (identificateur) de l’API Web dans le groupe d’applications|
+resource|ID de fournisseur de ressources (identificateur) de l’API Web dans le groupe d’applications|
 client_id|Id client de l’application native dans le groupe d’applications
 refresh_token|le jeton d’actualisation émis par AD FS en réponse à la demande de jeton initiale
 
@@ -177,40 +177,40 @@ Ce scénario est semblable à celle ci-dessus dans qu’il existe une demande d�
   
 ![Description du flux du protocole](media/ADFS_DEV_4.png)  
   
-1.  Le lance d’application Web une autorisation demande via le navigateur, qui envoie une requête HTTP GET pour les services AD FS autorise le point de terminaison  
-**Demande d’autorisation**:  
-TÉLÉCHARGER https://fs.contoso.com/adfs/oauth2/authorize?  
+1. Le lance d’application Web une autorisation demande via le navigateur, qui envoie une requête HTTP GET pour les services AD FS autorise le point de terminaison  
+   **Demande d’autorisation**:  
+   TÉLÉCHARGER <https://fs.contoso.com/adfs/oauth2/authorize?>  
   
 Paramètre|Value  
 ---------|---------  
 response_type|« code »  
-ressource|ID de fournisseur de ressources (identificateur) de l’API Web dans le groupe d’applications  
+resource|ID de fournisseur de ressources (identificateur) de l’API Web dans le groupe d’applications  
 client_id|Id client de l’application native dans le groupe d’applications  
 redirect_uri|URI de redirection de l’application web (application serveur) dans le groupe d’applications  
   
 Réponse de demande d’autorisation :  
 Si l’utilisateur n’a pas été signé avant que l’utilisateur est invité à entrer des informations d’identification.  
-AD FS répond en retournant un code d’autorisation en tant que le paramètre « code » dans le composant de requête du redirect_uri, par exemple : HTTP/1.1 302 détection d’emplacement : https://webapp.contoso.com/?code=&lt; code&gt;.  
+AD FS répond en retournant un code d’autorisation en tant que le paramètre « code » dans le composant de requête du redirect_uri, par exemple : HTTP/1.1 302 trouvé l’emplacement : <https://webapp.contoso.com/?code=&lt;code&gt>;.  
   
-2.  À la suite la 302 ci-dessus, le navigateur démarre une opération HTTP GET à l’application web, par exemple : OBTENIR http://redirect_uri:80/?code=&lt; code&gt;.   
+2. À la suite la 302 ci-dessus, le navigateur démarre une opération HTTP GET à l’application web, par exemple : GET <http://redirect_uri:80/?code=&lt;code&gt>;.   
   
-3.  À ce stade l’application web, ayant reçu le code, lance une demande d’AD FS point de terminaison token, envoyer les éléments suivants  
-**Demande de jeton :**  
-POST https://fs.contoso.com/adfs/oauth2/token  
+3. À ce stade l’application web, ayant reçu le code, lance une demande d’AD FS point de terminaison token, envoyer les éléments suivants  
+   **Demande de jeton :**  
+   POST https://fs.contoso.com/adfs/oauth2/token  
   
 Paramètre|Value  
 ---------|---------  
 grant_type|"authorization_code"  
 code|code d’autorisation à partir de 2 ci-dessus  
-ressource|ID de fournisseur de ressources (identificateur) de l’API Web dans le groupe d’applications  
+resource|ID de fournisseur de ressources (identificateur) de l’API Web dans le groupe d’applications  
 client_id|Id de client de l’application web (application serveur) dans le groupe d’applications  
 redirect_uri|URI de redirection de l’application web (application serveur) dans le groupe d’applications  
 client_secret|Clé secrète de l’application web (application serveur) dans le groupe d’applications. **Remarque : Informations d’identification du client n’a pas besoin être un client_secret.  AD FS prend en charge la possibilité d’utiliser également des certificats ou l’authentification intégrée de Windows.**  
   
 **Réponse de demande de jeton :**  
 AD FS répond avec HTTP 200 avec le jeton d’accès, jeton d’actualisation et le jeton id_token dans le corps.  
-revendications  
-4.  Le web application puis soit consomme la partie du jeton d’accès de la réponse ci-dessus (dans le cas dans lequel l’application web elle-même héberge la ressource), ou envoie sous forme de l’en-tête d’autorisation dans la requête HTTP à l’API web.  
+claims  
+4. Le web application puis soit consomme la partie du jeton d’accès de la réponse ci-dessus (dans le cas dans lequel l’application web elle-même héberge la ressource), ou envoie sous forme de l’en-tête d’autorisation dans la requête HTTP à l’API web.  
   
 #### <a name="single-sign-on-behavior"></a>Comportement de l’authentification unique  
 Bien que le jeton d’accès sera toujours valid pendant 1 heure (par défaut) dans le cache du client, vous pouvez penser que la deuxième demande fonctionnera comme dans le scénario de client natif ci-dessus - qu’une nouvelle demande ne déclenche pas tout le trafic aux services AD FS comme le jeton d’accès sera automatiquement être extraites à partir du cache par la bibliothèque ADAL.  Toutefois, il est possible que l’application web peut envoyer d’autorisation distincte et demandes de jeton, l’ancienne base de données via des liens URL distinctes, comme dans notre exemple.  
@@ -227,7 +227,7 @@ POST https://fs.contoso.com/adfs/oauth2/token
 Paramètre|Value  
 ---------|---------  
 grant_type|"refresh_token"  
-ressource|ID de fournisseur de ressources (identificateur) de l’API Web dans le groupe d’applications  
+resource|ID de fournisseur de ressources (identificateur) de l’API Web dans le groupe d’applications  
 client_id|Id de client de l’application web (application serveur) dans le groupe d’applications  
 refresh_token|Actualiser le jeton émis par AD FS en réponse à la demande de jeton initiale  
 client_secret|Secret de l’application web (application serveur) dans le groupe d’applications  
@@ -245,13 +245,13 @@ Ce scénario est semblable à celle ci-dessus dans qui il est une demande d’au
 1.  Le lance d’application Web une autorisation demande via le navigateur, qui envoie une requête HTTP GET pour les services AD FS autorise le point de terminaison  
   
 **Demande d’autorisation :**  
-TÉLÉCHARGER https://fs.contoso.com/adfs/oauth2/authorize?  
+TÉLÉCHARGER <https://fs.contoso.com/adfs/oauth2/authorize?>  
   
 Paramètre|Value  
 ---------|---------  
 response_type|"code+id_token"  
 response_mode|"form_post"  
-ressource|ID de fournisseur de ressources (identificateur) de l’API Web dans le groupe d’applications  
+resource|ID de fournisseur de ressources (identificateur) de l’API Web dans le groupe d’applications  
 client_id|Id de client de l’application web (application serveur) dans le groupe d’applications  
 redirect_uri|URI de redirection de l’application web (application serveur) dans le groupe d’applications  
   
@@ -260,9 +260,9 @@ Si l’utilisateur n’a pas été signé avant que l’utilisateur est invité 
 AD FS répond avec un HTTP 200 et le formulaire contenant le ci-dessous comme masqué éléments :  
 * code : le code d’autorisation  
 * id_token : un jeton Web JSON contenant des revendications qui décrivent l’authentification utilisateur  
-2.  Le formulaire publie automatiquement à l’URI de redirection de l’application web, en envoyant le code et le paramètre id_token à l’application web.  
+* Le formulaire publie automatiquement à l’URI de redirection de l’application web, en envoyant le code et le paramètre id_token à l’application web.  
   
-3.  À ce stade l’application web, ayant reçu le code, lance une demande d’AD FS point de terminaison token, envoyer les éléments suivants  
+3. À ce stade l’application web, ayant reçu le code, lance une demande d’AD FS point de terminaison token, envoyer les éléments suivants  
   
 **Demande de jeton :**  
 POST https://fs.contoso.com/adfs/oauth2/token
@@ -273,7 +273,7 @@ Paramètre|Value
 ---------|---------  
 grant_type|"authorization_code"  
 code|code d’autorisation à partir du haut  
-ressource|ID de fournisseur de ressources (identificateur) de l’API Web dans le groupe d’applications  
+resource|ID de fournisseur de ressources (identificateur) de l’API Web dans le groupe d’applications  
 client_id|Id de client de l’application web (application serveur) dans le groupe d’applications  
 redirect_uri|URI de redirection de l’application web (application serveur) dans le groupe d’applications  
 client_secret|Secret de l’application web (application serveur) dans le groupe d’applications  
@@ -281,7 +281,7 @@ client_secret|Secret de l’application web (application serveur) dans le groupe
 **Réponse de demande de jeton :**  
 AD FS répond avec HTTP 200 avec le jeton d’accès, jeton d’actualisation et le jeton id_token dans le corps.  
   
-4.  Le web application puis soit consomme la partie du jeton d’accès de la réponse ci-dessus (dans le cas dans lequel l’application web elle-même héberge la ressource), ou envoie sous forme de l’en-tête d’autorisation dans la requête HTTP à l’API web.  
+4. Le web application puis soit consomme la partie du jeton d’accès de la réponse ci-dessus (dans le cas dans lequel l’application web elle-même héberge la ressource), ou envoie sous forme de l’en-tête d’autorisation dans la requête HTTP à l’API web.  
   
 #### <a name="single-sign-on-behavior"></a>Comportement de l’authentification unique  
 La comportement de l’authentification unique est la même que pour le flux de client confidentiel Oauth 2.0 ci-dessus.  

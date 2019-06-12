@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3945311873dff763a8e9e8cdd3f766c1ed4580b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ccd1a347f9ac51fc98c963dedb1c0ab3fcd27d41
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837530"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439589"
 ---
 # <a name="diskcomp"></a>diskcomp
 
@@ -42,69 +42,70 @@ diskcomp [<Drive1>: [<Drive2>:]]
 
 ## <a name="remarks"></a>Notes
 
--   À l’aide de disques
+- À l’aide de disques
 
-    Le **diskcomp** commande fonctionne uniquement avec les disquettes. Vous ne pouvez pas utiliser **diskcomp** avec un disque dur. Si vous spécifiez un lecteur de disque dur *lecteur1* ou *lecteur2*, **diskcomp** affiche le message d’erreur suivant :  
-    ```
-    Invalid drive specification
-    Specified drive does not exist
-    or is nonremovable
-    ```  
--   Comparaison de disques
+  Le **diskcomp** commande fonctionne uniquement avec les disquettes. Vous ne pouvez pas utiliser **diskcomp** avec un disque dur. Si vous spécifiez un lecteur de disque dur *lecteur1* ou *lecteur2*, **diskcomp** affiche le message d’erreur suivant :  
+  ```
+  Invalid drive specification
+  Specified drive does not exist
+  or is nonremovable
+  ```  
+- Comparaison de disques
 
-    Si toutes les pistes sur les deux disques comparés sont les mêmes, **diskcomp** affiche le message suivant :  
-    ```
-    Compare OK
-    ```  
-    Si les pistes ne sont pas identiques, **diskcomp** affiche un message semblable au suivant :  
-    ```
-    Compare error on
-    side 1, track 2
-    ```  
-    Lorsque **diskcomp** une fois la comparaison, il affiche le message suivant :  
-    ```
-    Compare another diskette (Y/N)?
-    ```  
-    Si vous appuyez sur O, **diskcomp** vous invite à insérer le disque de la comparaison suivante. Si vous appuyez sur N, **diskcomp** arrête la comparaison.
+  Si toutes les pistes sur les deux disques comparés sont les mêmes, **diskcomp** affiche le message suivant :  
+  ```
+  Compare OK
+  ```  
+  Si les pistes ne sont pas identiques, **diskcomp** affiche un message semblable au suivant :  
+  ```
+  Compare error on
+  side 1, track 2
+  ```  
+  Lorsque **diskcomp** une fois la comparaison, il affiche le message suivant :  
+  ```
+  Compare another diskette (Y/N)?
+  ```  
+  Si vous appuyez sur O, **diskcomp** vous invite à insérer le disque de la comparaison suivante. Si vous appuyez sur N, **diskcomp** arrête la comparaison.
 
-    Lorsque **diskcomp** rend la comparaison, il ignore le nombre de volume d’un disque.
--   En omettant les paramètres de lecteur
+  Lorsque **diskcomp** rend la comparaison, il ignore le nombre de volume d’un disque.
+- En omettant les paramètres de lecteur
 
-    Si vous omettez le *lecteur2* paramètre, **diskcomp** utilise le lecteur actuel pour *lecteur2*. Si vous omettez les deux paramètres de lecteur, **diskcomp** utilise le lecteur en cours pour les deux. Si le lecteur actuel est identique à *lecteur1*, **diskcomp** vous invite à permuter des disques en fonction des besoins.
--   À l’aide d’un lecteur
+  Si vous omettez le *lecteur2* paramètre, **diskcomp** utilise le lecteur actuel pour *lecteur2*. Si vous omettez les deux paramètres de lecteur, **diskcomp** utilise le lecteur en cours pour les deux. Si le lecteur actuel est identique à *lecteur1*, **diskcomp** vous invite à permuter des disques en fonction des besoins.
+- À l’aide d’un lecteur
 
-    Si vous spécifiez le même lecteur de disquette pour *lecteur1* et *lecteur2*, **diskcomp** les compare à l’aide d’un seul lecteur et vous invite à insérer les disques en fonction des besoins. Vous devrez peut-être permuter les disques de plusieurs fois, en fonction de la capacité des disques et la quantité de mémoire disponible.
--   Comparaison des différents types de disques
+  Si vous spécifiez le même lecteur de disquette pour *lecteur1* et *lecteur2*, **diskcomp** les compare à l’aide d’un seul lecteur et vous invite à insérer les disques en fonction des besoins. Vous devrez peut-être permuter les disques de plusieurs fois, en fonction de la capacité des disques et la quantité de mémoire disponible.
+- Comparaison des différents types de disques
 
-    **Diskcomp** ne peut pas comparer un disque recto avec un disque recto-verso, ni un disque à haute densité avec un disque double densité. Si le disque dans *lecteur1* n’est pas du même type que le disque dans *lecteur2*, **diskcomp** affiche le message suivant :  
-    ```
-    Drive types or diskette types not compatible
-    ```  
--   À l’aide de **diskcomp** avec les réseaux et des lecteurs redirigés
+  **Diskcomp** ne peut pas comparer un disque recto avec un disque recto-verso, ni un disque à haute densité avec un disque double densité. Si le disque dans *lecteur1* n’est pas du même type que le disque dans *lecteur2*, **diskcomp** affiche le message suivant :  
+  ```
+  Drive types or diskette types not compatible
+  ```  
+- À l’aide de **diskcomp** avec les réseaux et des lecteurs redirigés
 
-    **Diskcomp** ne fonctionne pas sur un lecteur réseau ou sur un lecteur créé par le **subst** commande. Si vous essayez d’utiliser **diskcomp** avec un lecteur d’une de ces types, **diskcomp** affiche le message d’erreur suivant :  
-    ```
-    Invalid drive specification
-    ```  
--   Comparaison d’un disque d’origine avec une copie
+  **Diskcomp** ne fonctionne pas sur un lecteur réseau ou sur un lecteur créé par le **subst** commande. Si vous essayez d’utiliser **diskcomp** avec un lecteur d’une de ces types, **diskcomp** affiche le message d’erreur suivant :  
+  ```
+  Invalid drive specification
+  ```  
+- Comparaison d’un disque d’origine avec une copie
 
-    Lorsque vous utilisez **diskcomp** avec un disque que vous avez apportées à l’aide de **copie**, **diskcomp** peut afficher un message semblable au suivant :  
-    ```
-    Compare error on 
-    side 0, track 0
-    ```  
-    Ce type d’erreur peut se produire même si les fichiers sur les disques sont identiques. Bien que **copie** les doublons d’informations, il ne pas nécessairement le placer dans le même emplacement sur le disque de destination.
--   Présentation de **diskcomp** les codes de sortie
+  Lorsque vous utilisez **diskcomp** avec un disque que vous avez apportées à l’aide de **copie**, **diskcomp** peut afficher un message semblable au suivant :  
+  ```
+  Compare error on 
+  side 0, track 0
+  ```  
+  Ce type d’erreur peut se produire même si les fichiers sur les disques sont identiques. Bien que **copie** les doublons d’informations, il ne pas nécessairement le placer dans le même emplacement sur le disque de destination.
+- Présentation de **diskcomp** les codes de sortie
 
-    Le tableau suivant décrit chaque code de sortie.  
-    |Code de sortie|Description|
-    |---------|-----------|
-    |0|Les disques sont identiques|
-    |1|Différences ont été trouvées.|
-    |3|Erreur matérielle s’est produite|
-    |4|Erreur d’initialisation s’est produite|
+  Le tableau suivant décrit chaque code de sortie.  
 
-    Pour traiter des codes de sortie qui sont retournés par **diskcomp**, vous pouvez utiliser la variable d’environnement ERRORLEVEL sur le **si** ligne de commande dans un programme de traitement par lots.
+  |Code de sortie|Description|
+  |---------|-----------|
+  |0|Les disques sont identiques|
+  |1|Différences ont été trouvées.|
+  |3|Erreur matérielle s’est produite|
+  |4|Erreur d’initialisation s’est produite|
+
+  Pour traiter des codes de sortie qui sont retournés par **diskcomp**, vous pouvez utiliser la variable d’environnement ERRORLEVEL sur le **si** ligne de commande dans un programme de traitement par lots.
 
 ## <a name="BKMK_examples"></a>Exemples
 
@@ -143,4 +144,4 @@ goto exit
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

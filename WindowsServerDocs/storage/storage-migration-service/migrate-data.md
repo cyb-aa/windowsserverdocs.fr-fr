@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 966f25eb0bd43513b3c544fb3dc97115ed668b28
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 856eb7c2c2dfe0e0e3300fcf826e75b56258dc1b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872750"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447648"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Service de Migration de stockage permet de migrer un serveur
 
@@ -55,18 +55,18 @@ Dans cette étape, vous spécifiez les serveurs à migrer et puis les analyser p
 
 Dans cette étape vous transférer des données après la spécification de son emplacement sur le serveur de destination.
 
- 1. Sur le **transférer des données** > **Entrez les informations d’identification** page, tapez les informations d’identification d’administrateur qui fonctionnent sur les serveurs de destination que vous souhaitez migrer vers, puis sélectionnez **suivant**.
- 1. Sur le **ajouter un périphérique de destination et les mappages** page, le premier serveur source est répertorié. Tapez le nom du serveur auquel vous souhaitez migrer, puis sélectionnez **rechercher sur l’appareil**.
- 1. Mapper les volumes source aux volumes de destination, désactivez la **Include** case à cocher pour tous les partages vous souhaitez transférer (y compris les partages administratifs situés dans le dossier du système Windows), puis sélectionnez **suivant** .
-    ![Capture d’écran montrant un serveur source et ses volumes et les partages et où ils amèneront transférés sur la destination](media/migrate/transfer.png) **Figure 3 : Un serveur source et où son stockage est transféré vers**
- 1. Ajouter des mappages pour des serveurs source et un serveur de destination, puis sélectionnez **suivant**.
- 1. Si vous le souhaitez ajuster les paramètres de transfert, puis sélectionnez **suivant**.
- 1. Sélectionnez **Validate** , puis sélectionnez **suivant**.
- 1. Sélectionnez **démarrer Transfert** pour démarrer le transfert de données.<br>La première fois que vous transférez, nous passerons tous les fichiers existants dans une destination à un dossier de sauvegarde. Sur les transferts suivants, par défaut, nous allons actualiser la destination sans sauvegardant en premier. <br>En outre, Service de Migration de stockage est suffisamment intelligent pour gérer avec chevauchement des partages, nous ne copier les mêmes dossiers que deux fois dans la même tâche.
- 1. Une fois le transfert terminé, consultez le serveur de destination pour vous assurer que tous les éléments transférés correctement. Sélectionnez **journal des erreurs** si vous souhaitez télécharger un journal de tous les fichiers qui n’a pas de transfert.
+1. Sur le **transférer des données** > **Entrez les informations d’identification** page, tapez les informations d’identification d’administrateur qui fonctionnent sur les serveurs de destination que vous souhaitez migrer vers, puis sélectionnez **suivant**.
+2. Sur le **ajouter un périphérique de destination et les mappages** page, le premier serveur source est répertorié. Tapez le nom du serveur auquel vous souhaitez migrer, puis sélectionnez **rechercher sur l’appareil**.
+3. Mapper les volumes source aux volumes de destination, désactivez la **Include** case à cocher pour tous les partages vous souhaitez transférer (y compris les partages administratifs situés dans le dossier du système Windows), puis sélectionnez **suivant** .
+   ![Capture d’écran montrant un serveur source et ses volumes et les partages et où ils amèneront transférés sur la destination](media/migrate/transfer.png) **Figure 3 : Un serveur source et où son stockage est transféré vers**
+4. Ajouter des mappages pour des serveurs source et un serveur de destination, puis sélectionnez **suivant**.
+5. Si vous le souhaitez ajuster les paramètres de transfert, puis sélectionnez **suivant**.
+6. Sélectionnez **Validate** , puis sélectionnez **suivant**.
+7. Sélectionnez **démarrer Transfert** pour démarrer le transfert de données.<br>La première fois que vous transférez, nous passerons tous les fichiers existants dans une destination à un dossier de sauvegarde. Sur les transferts suivants, par défaut, nous allons actualiser la destination sans sauvegardant en premier. <br>En outre, Service de Migration de stockage est suffisamment intelligent pour gérer avec chevauchement des partages, nous ne copier les mêmes dossiers que deux fois dans la même tâche.
+8. Une fois le transfert terminé, consultez le serveur de destination pour vous assurer que tous les éléments transférés correctement. Sélectionnez **journal des erreurs** si vous souhaitez télécharger un journal de tous les fichiers qui n’a pas de transfert.
 
-  > [!NOTE]
-  > Si vous souhaitez conserver une piste d’audit des transferts d’ou que vous comptez exécuter plus d’un transfert d’un travail, cliquez sur **journal de transfert** pour enregistrer une copie de volume partagé de cluster. Chaque transfert ultérieur remplace les informations de base de données d’une exécution précédente. 
+   > [!NOTE]
+   > Si vous souhaitez conserver une piste d’audit des transferts d’ou que vous comptez exécuter plus d’un transfert d’un travail, cliquez sur **journal de transfert** pour enregistrer une copie de volume partagé de cluster. Chaque transfert ultérieur remplace les informations de base de données d’une exécution précédente. 
 
 À ce stade, vous avez trois options :
 

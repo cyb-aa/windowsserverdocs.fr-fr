@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 17c050a3504e763488a34bd19faad80558847965
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b6f89c1e3b0d36f14dbd55f9e6994c788305b30d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868820"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437185"
 ---
 # <a name="mstsc"></a>mstsc
 
@@ -37,19 +37,20 @@ mstsc.exe /migrate
 ```
 
 ## <a name="parameters"></a>Paramètres
-|Paramètre|Description|
-|-------|--------|
-|<Connection File>|Spécifie le nom d’un fichier .rdp pour la connexion.|
-|/ v: < server [ :<Port>]|Spécifie l’ordinateur distant et, éventuellement, le numéro de port auquel vous souhaitez vous connecter.|
-|/admin|Vous connecte à une session pour administrer le serveur.|
-|/f|démarre la connexion Bureau à distance en mode plein écran.|
-|/w:<Width>|Spécifie la largeur de la fenêtre du Bureau à distance.|
-|/h:<Height>|Spécifie la hauteur de la fenêtre du Bureau à distance.|
-|/public|Exécute le Bureau à distance en mode public. En mode public, les bitmaps et les mots de passe ne sont pas mises en cache.|
-|/span|Correspond à la largeur du Bureau à distance et la hauteur du bureau virtuel local, la répartition sur plusieurs moniteurs si nécessaire.|
-|/Edit <Connection File>|Ouvre le fichier .rdp spécifié pour la modification.|
-|/migrate|Migre les fichiers de connexion qui ont été créés avec le Gestionnaire de connexions Client aux nouveaux fichiers de connexion .rdp.|
-|/?|Affiche l'aide à l'invite de commandes.|
+
+|        Paramètre        |                                                         Description                                                         |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+|    <Connection File>    |                                   Spécifie le nom d’un fichier .rdp pour la connexion.                                    |
+|   / v: < server [ :<Port>]   |                Spécifie l’ordinateur distant et, éventuellement, le numéro de port auquel vous souhaitez vous connecter.                 |
+|         /admin          |                                   Vous connecte à une session pour administrer le serveur.                                   |
+|           /f            |                                    démarre la connexion Bureau à distance en mode plein écran.                                    |
+|       /w:<Width>        |                                      Spécifie la largeur de la fenêtre du Bureau à distance.                                      |
+|       /h:<Height>       |                                     Spécifie la hauteur de la fenêtre du Bureau à distance.                                      |
+|         /public         |                  Exécute le Bureau à distance en mode public. En mode public, les bitmaps et les mots de passe ne sont pas mises en cache.                  |
+|          /span          | Correspond à la largeur du Bureau à distance et la hauteur du bureau virtuel local, la répartition sur plusieurs moniteurs si nécessaire. |
+| /Edit <Connection File> |                                         Ouvre le fichier .rdp spécifié pour la modification.                                          |
+|        /migrate         |       Migre les fichiers de connexion qui ont été créés avec le Gestionnaire de connexions Client aux nouveaux fichiers de connexion .rdp.       |
+|           /?            |                                            Affiche l'aide à l'invite de commandes.                                             |
 
 ## <a name="remarks"></a>Notes
 -   Default.RDP est stocké pour chaque utilisateur dans un fichier masqué dans le dossier Documents de l’utilisateur. Utilisateur créé les fichiers .rdp sont enregistrées par défaut dans le dossier Documents de l’utilisateur, mais elles peuvent être enregistrées n’importe où.
@@ -64,7 +65,7 @@ mstsc.exe /migrate
     ```
     mstsc /edit filename.rdp
     ```
-    
+
 #### <a name="additional-references"></a>Références supplémentaires
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Services Bureau à distance &#40;Services Terminal Server&#41; référence de la commande](remote-desktop-services-terminal-services-command-reference.md)

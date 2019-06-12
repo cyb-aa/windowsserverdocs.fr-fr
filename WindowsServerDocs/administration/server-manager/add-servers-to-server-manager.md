@@ -14,12 +14,12 @@ ms.author: coreyp
 manager: dongill
 ms.localizationpriority: medium
 ms.date: 02/01/2018
-ms.openlocfilehash: a663e7dbb3ee84c09fc14ba23a50e6de16c4c7b5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a47ecbc0c7359438ed60ed34c94adf0096b14967
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840690"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435451"
 ---
 # <a name="add-servers-to-server-manager"></a>Ajouter des serveurs au Gestionnaire de serveur
 
@@ -31,9 +31,9 @@ Cette rubrique explique comment ajouter des serveurs au pool de serveurs du Gest
 
 > [!NOTE]
 > Dans nos tests, le Gestionnaire de serveur dans Windows Server 2012 et les versions ultérieures de Windows Server permet de gérer jusqu’à 100 serveurs qui sont configurés avec une charge de travail classique. Le nombre de serveurs que vous pouvez gérer en utilisant une console du Gestionnaire de serveur unique peut varier en fonction de la quantité de données que vous demandez aux serveurs gérés ainsi que des ressources matérielles et réseau disponibles pour l’ordinateur exécutant le Gestionnaire de serveur. Lorsque la quantité de données à afficher est sur le point d’atteindre la capacité des ressources de cet ordinateur, vous pouvez être confronté à des réactions lentes du Gestionnaire de serveur ainsi qu’à des retards dans la réalisation des actualisations. Pour augmenter le nombre de serveurs que vous pouvez gérer à l’aide du Gestionnaire de serveur, nous vous conseillons de limiter la quantité de données d’événement que le Gestionnaire de serveur obtient de vos serveurs gérés en utilisant les paramètres de la boîte de dialogue **Configurer les données d’événement**. Configurer les données d’événement peut être ouverte à partir du menu **Tâches** dans la vignette **Événements** . Si vous devez gérer un très grand nombre de serveurs dans votre organisation, nous vous recommandons d’évaluer des produits de la [suite Microsoft System Center](https://go.microsoft.com/fwlink/p/?LinkId=239437).
->
+> 
 > Le Gestionnaire de serveur peut recevoir uniquement des informations sur l’état en ligne ou hors connexion en provenance de serveurs exécutant Windows Server 2003. Vous pouvez utiliser le Gestionnaire de serveur pour effectuer des tâches de gestion sur les serveurs qui exécutent Windows Server 2008 R2 ou Windows Server 2008, mais vous ne pouvez pas ajouter de rôles ni de fonctionnalités aux serveurs qui exécutent Windows Server 2008 R2, Windows Server 2008 ou Windows Server 2003.
-
+> 
 > Le Gestionnaire de serveur ne peut pas être utilisé pour gérer une version plus récente du système d’exploitation Windows Server. Le Gestionnaire de serveur en cours d'exécution sur Windows Server 2012 R2, Windows Server 2012, Windows 8.1 ou Windows 8 ne peut pas être utilisé pour gérer les serveurs qui exécutent Windows Server 2016.
 
 Cette rubrique contient les sections suivantes.

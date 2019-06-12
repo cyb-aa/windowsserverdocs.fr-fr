@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: d6ff5b22-7695-4fee-b1bd-6c9dce5bd0e8
 author: lizap
 manager: scottman
-ms.openlocfilehash: 7cf7fdf3510fcaaa955bd0031fb3564fe4372472
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: af5d5ce89561c89d8468627e20dfdb6f35eca5ef
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875800"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447112"
 ---
 # <a name="which-graphics-virtualization-technology-is-right-for-you"></a>Quelle technologie de virtualisation de graphiques vous convient ?
 
@@ -43,12 +43,12 @@ Pour plus d’informations sur DDA, visitez [planifier le déploiement d’attri
 ## <a name="remotefx-vgpu"></a>RemoteFX vGPU 
 Processeur graphique virtuel RemoteFX est une technologie de virtualisation de graphiques qui permet à la puissance de traitement d’un GPU être réparties sur différents systèmes de d’exploitation invité pour activer les scénarios de travailleur de connaissances (consultez le premier graphique ci-dessus). Des améliorations dans Windows Server 2016 autoriser d’autres améliorations pour les scénarios de rafale GPU, par exemple pour le concepteur des applications et visualisation de données. Autres améliorations des fonctionnalités sont les suivantes :
 
--   Prise en charge des invités de génération 2 machines virtuelles, Windows Server 2016 invité machines virtuelles et les hôtes Hyper-V de Windows Client.
-   >[!NOTE] 
-   > Hôte de Session Bureau à distance n’est pas pris en charge sur un invité de Windows Server 2016 machine virtuelle ; 1 seule session peut être hébergée par un ordinateur virtuel invité de Windows Server 2016.
+- Prise en charge des invités de génération 2 machines virtuelles, Windows Server 2016 invité machines virtuelles et les hôtes Hyper-V de Windows Client.
+  >[!NOTE] 
+  > Hôte de Session Bureau à distance n’est pas pris en charge sur un invité de Windows Server 2016 machine virtuelle ; 1 seule session peut être hébergée par un ordinateur virtuel invité de Windows Server 2016.
 
--   Compatibilité des applications améliorée et la stabilité.
--   Machine virtuelle se connecter Mode de Session étendu, ce qui permet la redirection USB et Presse-papiers via la machine virtuelle se connecter à une machine virtuelle prenant en charge pour les vGPU RemoteFX.
+- Compatibilité des applications améliorée et la stabilité.
+- Machine virtuelle se connecter Mode de Session étendu, ce qui permet la redirection USB et Presse-papiers via la machine virtuelle se connecter à une machine virtuelle prenant en charge pour les vGPU RemoteFX.
 
 Pour plus d’informations, consultez [définir créer et configurer des vGPU RemoteFX pour les Services Bureau à distance](rds-remotefx-vgpu.md).
 

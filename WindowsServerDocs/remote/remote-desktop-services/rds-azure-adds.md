@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: christianmontoya
 ms.localizationpriority: medium
-ms.openlocfilehash: e60cf70f1f91ad87046bedf024fe9afc459075b6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8b1baf642ffa3c8e8a0a2cfc70d2f49b58f208b3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860510"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446584"
 ---
 # <a name="integrate-azure-ad-domain-services-with-your-rds-deployment"></a>Intégrer Azure AD Domain Services avec votre déploiement des Services Bureau à distance
 
@@ -51,26 +51,26 @@ Utilisez les étapes suivantes pour déployer Azure AD DS et RDS.
 2. Configuration de RDS. Vous pouvez utiliser un modèle Azure ou déployer manuellement des services Bureau à distance.
    - Utilisez le [Existing AD modèle](https://azure.microsoft.com/resources/templates/rds-deployment-existing-ad/). Veillez à personnaliser les éléments suivants :
    
-      - **Paramètres**
-         - **Groupe de ressources**: Utilisez le groupe de ressources dans lequel vous souhaitez créer les ressources de services Bureau à distance.
+     - **Paramètres**
+       - **Groupe de ressources**: Utilisez le groupe de ressources dans lequel vous souhaitez créer les ressources de services Bureau à distance.
          > [!NOTE] 
          > Actuellement, cette valeur doit être le même groupe de ressources où se trouve le réseau virtuel Azure resource manager.
 
-         - **Préfixe d’étiquette DNS**: Entrez l’URL que vous souhaitez que les utilisateurs à utiliser pour accéder à Web du Bureau à distance.
-         - **Nom de domaine AD**: Entrez le nom complet de votre instance Azure AD, par exemple, « contoso.onmicrosoft.com » ou « contoso.com ».
-         - **Nom du réseau virtuel AD** et **nom du sous-réseau Ad**: Entrez les mêmes valeurs que vous avez utilisé lorsque vous avez créé le réseau virtuel Azure resource manager. Il s’agit du sous-réseau auquel les ressources des services Bureau à distance se connectera.
-         - **Nom d’utilisateur administrateur** et **mot de passe administrateur**: Entrez les informations d’identification pour un utilisateur d’administrateur est un membre de la **AAD DC Administrators** groupe dans Azure AD.
+       - **Préfixe d’étiquette DNS**: Entrez l’URL que vous souhaitez que les utilisateurs à utiliser pour accéder à Web du Bureau à distance.
+       - **Nom de domaine AD**: Entrez le nom complet de votre instance Azure AD, par exemple, « contoso.onmicrosoft.com » ou « contoso.com ».
+       - **Nom du réseau virtuel AD** et **nom du sous-réseau Ad**: Entrez les mêmes valeurs que vous avez utilisé lorsque vous avez créé le réseau virtuel Azure resource manager. Il s’agit du sous-réseau auquel les ressources des services Bureau à distance se connectera.
+       - **Nom d’utilisateur administrateur** et **mot de passe administrateur**: Entrez les informations d’identification pour un utilisateur d’administrateur est un membre de la **AAD DC Administrators** groupe dans Azure AD.
    
-      - **modèle**
-         - Supprimer toutes les propriétés de **dnsServers**: après avoir sélectionné **modifier un modèle de** à partir de la page de modèle de démarrage rapide Azure, recherchez « dnsServers » et supprimez la propriété. 
+     - **modèle**
+        - Supprimer toutes les propriétés de **dnsServers**: après avoir sélectionné **modifier un modèle de** à partir de la page de modèle de démarrage rapide Azure, recherchez « dnsServers » et supprimez la propriété. 
 
-            Par exemple, avant de supprimer le **dnsServers** propriété :
+           Par exemple, avant de supprimer le **dnsServers** propriété :
       
-            ![Modèle de démarrage rapide Azure avec une propriété dnsSettings](media/rds-remove-dnssettings-before.png)
+           ![Modèle de démarrage rapide Azure avec une propriété dnsSettings](media/rds-remove-dnssettings-before.png)
 
-            Et Voici le fichier même après la suppression de la propriété :
+           Et Voici le fichier même après la suppression de la propriété :
 
-            ![Modèle de démarrage rapide Azure avec une propriété dnsSettings supprimée](media/rds-remove-dnssettings-after.png)
+           ![Modèle de démarrage rapide Azure avec une propriété dnsSettings supprimée](media/rds-remove-dnssettings-after.png)
    
    - [Déployer manuellement des services Bureau à distance](rds-deploy-infrastructure.md). 
 

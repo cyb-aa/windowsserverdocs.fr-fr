@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 023bd81b93106a091fb9f26d97cf7eda75f0f633
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6c26d42410e5466950ede4f9aa059e315030588
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888460"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435028"
 ---
 # <a name="autochk"></a>autochk
 
@@ -35,12 +35,12 @@ S’exécute lorsque l’ordinateur est démarré et les versions antérieures �
 
 > -   [!WARNING]
 >     Le **Autochk** outil de ligne de commande ne peut pas être exécuté directement à partir de la ligne de commande. Au lieu de cela, utilisez le **Chkntfs** outil de ligne de commande pour configurer la manière dont vous souhaitez **Autochk** à exécuter au démarrage.
--   Vous pouvez utiliser **Chkntfs** avec la **/x** paramètre pour empêcher **Autochk** de s’exécuter sur un volume spécifique ou plusieurs volumes.
--   Utilisez le **Chkntfs.exe** outil de ligne de commande avec le **/t** paramètre pour modifier le délai de Autochk à partir de 0 seconde à 3 jours (à 259 200 secondes). Toutefois, un long délai signifie que l’ordinateur ne démarre pas tant que le temps écoulé ou jusqu'à ce que vous appuyez sur une touche pour annuler **Autochk**.
+> -   Vous pouvez utiliser **Chkntfs** avec la **/x** paramètre pour empêcher **Autochk** de s’exécuter sur un volume spécifique ou plusieurs volumes.
+> -   Utilisez le **Chkntfs.exe** outil de ligne de commande avec le **/t** paramètre pour modifier le délai de Autochk à partir de 0 seconde à 3 jours (à 259 200 secondes). Toutefois, un long délai signifie que l’ordinateur ne démarre pas tant que le temps écoulé ou jusqu'à ce que vous appuyez sur une touche pour annuler **Autochk**.
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 [Chkdsk](chkdsk.md)
 

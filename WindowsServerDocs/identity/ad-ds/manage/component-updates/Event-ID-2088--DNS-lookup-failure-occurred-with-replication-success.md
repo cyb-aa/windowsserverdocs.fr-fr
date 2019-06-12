@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: cc090fa749a601e53b4347cce43245f22badc8ae
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e0c5e838290a8ebf33f0f7891dc10f8b00e5bcba
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840710"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442654"
 ---
 # <a name="event-id-2088-dns-lookup-failure-occurred-with-replication-success"></a>ID d’événement 2088 : Échec de la recherche DNS s’est produite avec la réplication
 
@@ -58,7 +58,7 @@ Action de l’utilisateur :
 
 2) Vérifiez que le contrôleur de domaine source est en cours d’exécution Active Directory et est accessible sur le réseau en tapant « net view \\ &lt;nom de contrôleur de domaine source&gt;» ou « ping &lt;nom de contrôleur de domaine source&gt;». 
 
-3) Vérifiez que le contrôleur de domaine source utilise un serveur DNS valide pour les services DNS et qu’enregistrement d’hôte et l’enregistrement CNAME du contrôleur de domaine source l'enregistrement sont correctement inscrit, à l’aide de la version améliorée du DNS de DCDIAG. EXE disponible sur https://www.microsoft.com/dns 
+3) Vérifiez que le contrôleur de domaine source utilise un serveur DNS valide pour les services DNS et qu’enregistrement d’hôte et l’enregistrement CNAME du contrôleur de domaine source l'enregistrement sont correctement inscrit, à l’aide de la version améliorée du DNS de DCDIAG. EXE disponible sur <https://www.microsoft.com/dns> 
 
 DCDiag/test : DNS 
 
@@ -66,7 +66,7 @@ DCDiag/test : DNS
 
 DCDiag/test : DNS 
 
-5) Pour une analyse plus approfondie des échecs d’erreur DNS consultez 824449 de la base de connaissances : https://support.microsoft.com/?kbid=824449 
+5) Pour une analyse plus approfondie des échecs d’erreur DNS consultez 824449 de la base de connaissances : <https://support.microsoft.com/?kbid=824449> 
 
 Données supplémentaires Valeur d'erreur : 11004 le nom demandé est valide, mais aucune donnée du type demandé a été trouvée.</code> </introduction>
   <section>
@@ -78,7 +78,7 @@ Données supplémentaires Valeur d'erreur : 11004 le nom demandé est valide, m
   <section>
     <title>Résolution</title>
     <content>
-      <para>Procéder au test de DNS comme décrit dans «<link xlink:href="85b1d179-f53e-4f95-b0b8-5b1c096a8076">ID d’événement 2087 : Échec de la recherche DNS a provoqué l’échec des réplications</link>. »</para>
+      <para>Procéder au test de DNS comme décrit dans &quot; <link xlink:href="85b1d179-f53e-4f95-b0b8-5b1c096a8076">ID d’événement 2087 : Échec de la recherche DNS a provoqué l’échec des réplications</link>.&quot;</para>
     </content>
   </section>
   <relatedTopics />

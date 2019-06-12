@@ -10,12 +10,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: f859253188c46d3e34e7a6ae504bf3eeafbae75c
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.openlocfilehash: 140f67a9dab5cf1f10cdb0c5c51a031a0dfb9dd3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613174"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443550"
 ---
 # <a name="windows-server-installation-and-upgrade"></a>Mise à niveau et installation de Windows Server
 
@@ -46,10 +46,10 @@ Dans certaines versions de systèmes d’exploitation, vous pouvez convertir une
 
 ## <a name="upgrade"></a>Mettre à niveau/Mise à niveau
 Si vous souhaitez conserver le même matériel et tous les rôles serveur que vous avez configurés sans aplatir le serveur, la **mise à niveau** est une option et il existe de nombreuses façons de procéder. Lors de la mise à niveau standard, vous évoluez d’un ancien système d’exploitation vers une version plus récente, en conservant vos paramètres, rôles serveur et données inchangés. Par exemple, si votre serveur exécute Windows Server 2012 R2, vous pouvez le mettre à niveau vers Windows Server 2016. Toutefois, il n’existe pas de chemin de mise à niveau vers toutes les versions plus récentes pour certains systèmes d’exploitation plus anciens.
- 
+ 
 >[!NOTE]
 >La mise à niveau convient le mieux aux machines virtuelles qui ne nécessitent pas de pilotes de matériel OEM spécifiques pour que l’opération réussisse.
- 
+ 
 Vous pouvez effectuer une mise à niveau à partir d’une version d’évaluation du système d’exploitation vers une version commercialisée, d’une version commercialisée plus ancienne vers une version plus récente ou, dans certains cas, d’une édition de licence en volume du système d’exploitation vers une version commercialisée ordinaire.
 
 Avant de commencer une mise à niveau, passez en revue les tableaux de cette page pour vérifier comment effectuer la mise à niveau souhaitée à partir de votre configuration actuelle.
@@ -58,14 +58,14 @@ Pour plus d’informations sur les différences entre les options d’installati
 
 >[!NOTE]
 >Chaque fois que vous migrez ou effectuez une mise à niveau vers une version de Windows Server, vous devez passer en revue et comprendre la [politique de support](https://support.microsoft.com/lifecycle) et le cycle de vie de cette version et planifier la procédure en conséquence. Vous pouvez [rechercher les informations de cycle de vie](https://support.microsoft.com/lifecycle) pour la version de Windows Server qui vous intéresse.
- 
- 
+ 
+ 
 ## <a name="upgrading-to-windows-server-2016"></a>Mise à niveau vers Windows Server 2016
 Pour plus d’informations, y compris les réserves importantes et les restrictions applicables à la mise à niveau, la conversion de licence entre éditions de Windows Server 2016 et la conversion de versions d’évaluation vers une version commerciale, consultez [Options de mise à niveau et de conversion pour Windows Server 2016](https://go.microsoft.com/fwlink/?LinkId=828602).
- 
+ 
 >[!NOTE]
 >Remarque: Les mises à niveau qui passent d’une installation minimale à une installation Serveur avec Expérience utilisateur (et vice versa) ne sont pas prises en charge. Si le système d’exploitation plus ancien à partir duquel vous effectuez la mise à niveau ou la conversion est une installation minimale, le résultat sera toujours une installation minimale du système d’exploitation plus récent.
- 
+ 
 Tableau de référence rapide des chemins de mise à niveau pris en charge pour des anciennes versions commerciales de Windows Server vers des versions commerciales de Windows Server 2016 :
 
 
@@ -81,7 +81,7 @@ Tableau de référence rapide des chemins de mise à niveau pris en charge pour 
 |Windows Storage Server 2012 Workgroup|Windows Storage Server 2016 Workgroup|
 |Windows Storage Server 2012 R2 Standard|Windows Storage Server 2016 Standard|
 |Windows Storage Server 2012 R2 Workgroup|Windows Storage Server 2016 Workgroup|
- 
+ 
 ### <a name="license-conversion"></a>Conversion de licence
 Vous pouvez convertir Windows Server 2016 Standard (version commerciale) vers Windows Server 2016 Datacenter (version commerciale).
 
@@ -90,7 +90,7 @@ Vous pouvez convertir Windows Server 2016 Essentials (version commerciale) ve
 Vous pouvez convertir la version d’évaluation de Windows Server 2016 Standard vers Windows Server 2016 Standard (version commerciale) ou Datacenter (version commerciale).
 
 Vous pouvez convertir la version d’évaluation de Windows Server 2016 Datacenter vers Windows Server 2016 Datacenter (version commerciale).
- 
+ 
 ## <a name="upgrading-to-windows-server-2012-r2"></a>Mise à niveau vers Windows Server 2012 R2
 Pour plus d’informations, y compris les réserves importantes et les restrictions applicables à la mise à niveau, la conversion de licence entre éditions de Windows Server 2012 R2 et la conversion de versions d’évaluation vers une version commerciale, consultez [Options de mise à niveau pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx).
 
@@ -115,7 +115,7 @@ Vous pouvez convertir la version d’évaluation de Windows Server 2012 Stand
 
 ## <a name="upgrading-to-windows-server-2012"></a>Mise à niveau vers Windows Server 2012
 Pour plus d’informations, y compris les réserves importantes et les limitations applicables à la mise à niveau et la conversion de versions d’évaluation vers une version commerciale, consultez [Versions d’évaluation et options de mise à niveau pour Windows Server 2012](https://technet.microsoft.com/library/jj574204.aspx).
- 
+ 
 Tableau de référence rapide des chemins de mise à niveau pris en charge pour des anciennes versions commerciales de Windows Server vers des versions commerciales de Windows Server 2012 :
 
 |Si votre ordinateur fonctionne sous :|Vous pouvez effectuer une mise à niveau vers ces éditions :|

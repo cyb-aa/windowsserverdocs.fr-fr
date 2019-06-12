@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 76a263c82ebc42de4cc6d136f9a814c3a678666b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b1bc4e45ed2a2b06c72318e0999988ed8f016c40
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878390"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438968"
 ---
 # <a name="fsutil-sparse"></a>fsutil sparse
 >S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
@@ -34,15 +34,15 @@ fsutil sparse [setrange] <FileName> <BeginningOffset> <Length>
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|-------------|---------------|
-|queryflag|Fragmentation.|
-|queryrange|Analyse un fichier et recherche de plages qui contiennent des données différent de zéro.|
-|setflag|Marque le fichier indiqué comme étant fragmenté.|
-|SetRange|Remplit une plage spécifiée d’un fichier avec des zéros.|
-|<FileName>|Spécifie le chemin d’accès complet au fichier, y compris le nom de fichier et l’extension, par exemple C:\documents\filename.txt.|
-|<BeginningOffset>|Spécifie l’offset dans le fichier à marquer comme étant incomplet.|
-|<Length>|Spécifie la longueur de la région dans le fichier à marquer comme partiellement alloué (en octets).|
+|     Paramètre     |                                                    Description                                                    |
+|-------------------|-------------------------------------------------------------------------------------------------------------------|
+|     queryflag     |                                                  Fragmentation.                                                  |
+|    queryrange     |                        Analyse un fichier et recherche de plages qui contiennent des données différent de zéro.                        |
+|      setflag      |                                        Marque le fichier indiqué comme étant fragmenté.                                        |
+|     SetRange      |                                   Remplit une plage spécifiée d’un fichier avec des zéros.                                   |
+|    <FileName>     | Spécifie le chemin d’accès complet au fichier, y compris le nom de fichier et l’extension, par exemple C:\documents\filename.txt. |
+| <BeginningOffset> |                              Spécifie l’offset dans le fichier à marquer comme étant incomplet.                              |
+|     <Length>      |                 Spécifie la longueur de la région dans le fichier à marquer comme partiellement alloué (en octets).                 |
 
 ## <a name="remarks"></a>Notes
 
@@ -62,7 +62,7 @@ fsutil sparse setflag c:\temp\sample.txt
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
-[Clé de la syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
+[Clé de syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
 
 [Fsutil](Fsutil.md)
 

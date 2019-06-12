@@ -7,18 +7,18 @@ ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
-ms.openlocfilehash: c48979440ab7c5cfa86aa1287b354a1e43692f48
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1644a61c87953e465895e23c3c8454bae7f3a056
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867440"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443386"
 ---
 # <a name="express-updates-for-windows-server-2016-re-enabled-for-november-2018-update"></a>Express mises à jour pour Windows Server 2016 est réactivée pour novembre 2018 mettre à jour
 
->Par Joel Frauenheim
-
->S'applique à : Windows Server 2016
+> Par Joel Frauenheim
+> 
+> S'applique à : Windows Server 2016
 
 En commençant avec 13 novembre 2018 mardi mise à jour, Windows sera à nouveau publier les mises à jour Express pour Windows Server 2016. Mises à jour rapides pour Windows Server 2016 s’est arrêté dans mi-année 2017 dès lors qu’un problème significatif a été trouvé qui conservé les mises à jour de s’installer correctement. Bien que le problème a été résolu en novembre 2017, l’équipe de mise à jour a eu une méthode plus classique pour publier les packages Express pour vous assurer de la plupart des clients aurait la mise à jour le 14 novembre 2017 ([Ko 4048953](https://support.microsoft.com/help/4048953/windows-10-update-kb4048953)) installé sur leur serveur environnements et ne pas concernées par le problème.
 

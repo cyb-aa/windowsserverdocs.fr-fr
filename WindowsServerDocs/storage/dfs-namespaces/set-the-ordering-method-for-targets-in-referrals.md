@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 06e7aa1309b453da649537d5ae9b22acce830530
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 52568944a98bed7960b37335b2e3cbbde61479ca
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816860"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447203"
 ---
 # <a name="set-the-ordering-method-for-targets-in-referrals"></a>Définir la méthode de classement des cibles contenues dans les références
 
@@ -36,9 +36,9 @@ Utilisez la procédure suivante pour définir la méthode de classement sur la r
 
 > [!NOTE]
 > Pour utiliser Windows PowerShell afin de définir la méthode de classement des cibles dans les références de racines d’espaces de noms, utilisez l’applet de commande [Set-DfsnRoot](https://technet.microsoft.com/library/jj884281.aspx) avec l’un des paramètres suivants :
-   -   **EnableSiteCosting** Spécifie la méthode de classement **Moindre coût**
-   -   **EnableInsiteReferrals** Spécifie la méthode de classement **Exclure les cibles en dehors du site du client**
-   -   Si vous omettez l’un de ces paramètres, la méthode de classement des références **Ordre aléatoire** est spécifiée. 
+>    -   **EnableSiteCosting** Spécifie la méthode de classement **Moindre coût**
+>    -   **EnableInsiteReferrals** Spécifie la méthode de classement **Exclure les cibles en dehors du site du client**
+>    -   Si vous omettez l’un de ces paramètres, la méthode de classement des références **Ordre aléatoire** est spécifiée. 
 
 Le module DFSN Windows PowerShell a été introduit dans Windows Server 2012.
    
@@ -91,5 +91,5 @@ Dans cette méthode, les références contiennent uniquement les cibles situées
 
 ## <a name="see-also"></a>Voir aussi 
 
--   [Réglage des espaces de noms DFS](tuning-dfs-namespaces.md)
--   [Déléguer des autorisations de gestion pour les espaces de noms DFS](delegate-management-permissions-for-dfs-namespaces.md)
+-   [Optimisation des espaces de noms DFS](tuning-dfs-namespaces.md)
+-   [Déléguer les autorisations de gestion pour les espaces de noms DFS](delegate-management-permissions-for-dfs-namespaces.md)

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aa2ebda6c8fb9670fcf1330376d0171258188b25
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 47eb780631da766f49c0ca2cac8ef90007a95c7e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827820"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436710"
 ---
 # <a name="nslookup-set-port"></a>nslookup set port
 
@@ -34,11 +34,11 @@ set port=<Port>
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|\<Port>|Spécifie la nouvelle valeur pour le port de serveur de nom DNS de TCP/UDP par défaut. Le port par défaut est 53.|
-|{aide | ?}|Affiche un résumé de **nslookup** sous-commandes.|
+| Paramètre |                                          Description                                          |
+|-----------|-----------------------------------------------------------------------------------------------|
+|  \<Port>  | Spécifie la nouvelle valeur pour le port de serveur de nom DNS de TCP/UDP par défaut. Le port par défaut est 53. |
+|   {aide   |                                              ?}                                               |
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

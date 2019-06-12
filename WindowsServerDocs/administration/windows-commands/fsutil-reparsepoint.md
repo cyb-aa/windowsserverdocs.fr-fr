@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 940131a02a5cd3a6122022cf9b0dff3281d1dabf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f66f09fa608fec10d7126e516f9cf2dd8a19bbfb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847940"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438994"
 ---
 # <a name="fsutil-reparsepoint"></a>fsutil reparsepoint
 >S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7, Windows 2008, Windows Vista
@@ -32,11 +32,11 @@ fsutil reparsepoint [delete] <FileName>
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|-------------|---------------|
-|requête|Récupère les données de point d’analyse sont associées au fichier ou répertoire identifié par le handle spécifié.|
-|supprimer|Supprime un point d’analyse du fichier ou du répertoire qui est identifié par le handle spécifié, mais ne supprime pas le fichier ou répertoire.|
-|<FileName>|Spécifie le chemin d’accès complet au fichier, y compris le nom de fichier et l’extension, par exemple C:\documents\filename.txt.|
+| Paramètre  |                                                                Description                                                                |
+|------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+|   requête    |            Récupère les données de point d’analyse sont associées au fichier ou répertoire identifié par le handle spécifié.             |
+|   supprimer   | Supprime un point d’analyse du fichier ou du répertoire qui est identifié par le handle spécifié, mais ne supprime pas le fichier ou répertoire. |
+| <FileName> |             Spécifie le chemin d’accès complet au fichier, y compris le nom de fichier et l’extension, par exemple C:\documents\filename.txt.             |
 
 ## <a name="remarks"></a>Notes
 
@@ -60,7 +60,7 @@ fsutil reparsepoint delete c:\server
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
-[Clé de la syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
+[Clé de syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
 
 [Fsutil](Fsutil.md)
 

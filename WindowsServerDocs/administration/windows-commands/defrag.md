@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6997e878b2bb7b77a5920ad7398ef7c2301cc8c0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 6b5f6231273fb9fe9a99a1cd1bf72dbd0bad71af
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813190"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433914"
 ---
 # <a name="defrag"></a>defrag
 
@@ -35,6 +35,7 @@ defrag <volumes> | /C | /E <volumes> /X [/H] [/M [n]| [/U] [/V]]
 defrag <volume> [/<Parameter>]*
 ```
 ## <a name="parameters"></a>Paramètres
+
 |Paramètre|Description|
 |-------|--------|
 |`<volume>`|Spécifie le chemin lecteur du point de montage ou de lettre du volume à être défragmenté ou analysées.|
@@ -56,20 +57,20 @@ defrag <volume> [/<Parameter>]*
 |?|Affiche ces informations d’aide.|
 
 ## <a name="remarks"></a>Notes
--   Vous ne peuvent pas défragmenter des types de volumes de système de fichiers ou de lecteurs :
-    -   Vous ne pouvez pas défragmenter des volumes que le système de fichiers a verrouillé.
-    -   Vous ne pouvez pas défragmenter des volumes que le système de fichiers a marqués comme modifié, qui indique un endommagement possible. Vous devez exécuter **chkdsk** sur un volume douteux avant de pouvoir défragmenter. Vous pouvez déterminer si un volume est modifié à l’aide de la **fsutil** incorrectes de commande de requête. Pour plus d’informations sur **chkdsk** et **fsutil** modifiées, consultez [références supplémentaires](defrag.md#BKMK_additionalRef).
-    -   Vous ne peuvent pas défragmenter les lecteurs réseau.
-    -   Vous ne pouvez pas défragmenter les lecteurs.
-    -   Vous ne pouvez pas défragmenter des volumes de système de fichiers qui ne sont pas **NTFS**, **ReFS**, **Fat** ou **Fat32**.
--   Avec Windows Server 2008 R2, Windows Server 2008 et Windows Vista, vous pouvez planifier pour défragmenter un volume. Toutefois, vous ne pouvez pas planifier de défragmenter un lecteur SSD (Solid State) ou un volume situé sur un disque dur virtuel (VHD) qui réside sur un disque SSD.
--   Pour effectuer cette procédure, vous devez être membre du groupe Administrateurs sur l’ordinateur local, ou l’autorité appropriée doit vous avoir été déléguée. Si l'ordinateur est joint à un domaine, les membres du groupe Admins du domaine peuvent être en mesure d'effectuer cette procédure. En tant qu’une sécurité optimale, envisagez d’utiliser **exécuter en tant que** pour effectuer cette procédure.
--   Un volume doit avoir au moins 15 % espace libre pour **defrag** à défragmenter complètement et correctement. **la défragmentation** utilise cet espace comme zone de tri pour les fragments de fichiers. Si un volume possède moins de 15 % d’espace libre, **defrag** défragmentera que partiellement. Pour augmenter l’espace libre sur un volume, supprimez les fichiers superflus ou déplacez-les vers un autre disque.
--   Bien que **defrag** est analyser et de défragmenter un volume, il affiche un curseur clignotant. Lorsque **defrag** est terminé d’analyser et de défragmenter le volume, il affiche le rapport d’analyse, le rapport de défragmentation ou les deux rapports et se termine à l’invite de commandes.
--   Par défaut, **defrag** affiche un résumé des rapports d’analyse et de défragmentation si vous ne spécifiez pas le **/a** ou **/v** paramètres.
--   Vous pouvez envoyer les rapports dans un fichier texte en tapant **>** *FileName.txt*, où *nomfichier.txt* est un nom de fichier que vous spécifiez. Par exemple : `defrag volume /v > FileName.txt`
--   Pour interrompre le processus de défragmentation en ligne de commande, appuyez sur **CTRL + C**.
--   En cours d’exécution le **defrag** commande et Défragmenteur de disque s’excluent mutuellement. Si vous utilisez le Défragmenteur de disque pour défragmenter un volume et que vous exécutez le **defrag** commande sur une ligne de commande, le **defrag** Échec d’une commande. À l’inverse, si vous exécutez le **defrag** commande et ouvrir Défragmenteur de disque, les options de défragmentation Défragmenteur de disque ne sont pas disponibles.
+- Vous ne peuvent pas défragmenter des types de volumes de système de fichiers ou de lecteurs :
+  -   Vous ne pouvez pas défragmenter des volumes que le système de fichiers a verrouillé.
+  -   Vous ne pouvez pas défragmenter des volumes que le système de fichiers a marqués comme modifié, qui indique un endommagement possible. Vous devez exécuter **chkdsk** sur un volume douteux avant de pouvoir défragmenter. Vous pouvez déterminer si un volume est modifié à l’aide de la **fsutil** incorrectes de commande de requête. Pour plus d’informations sur **chkdsk** et **fsutil** modifiées, consultez [références supplémentaires](defrag.md#BKMK_additionalRef).
+  -   Vous ne peuvent pas défragmenter les lecteurs réseau.
+  -   Vous ne pouvez pas défragmenter les lecteurs.
+  -   Vous ne pouvez pas défragmenter des volumes de système de fichiers qui ne sont pas **NTFS**, **ReFS**, **Fat** ou **Fat32**.
+- Avec Windows Server 2008 R2, Windows Server 2008 et Windows Vista, vous pouvez planifier pour défragmenter un volume. Toutefois, vous ne pouvez pas planifier de défragmenter un lecteur SSD (Solid State) ou un volume situé sur un disque dur virtuel (VHD) qui réside sur un disque SSD.
+- Pour effectuer cette procédure, vous devez être membre du groupe Administrateurs sur l’ordinateur local, ou l’autorité appropriée doit vous avoir été déléguée. Si l'ordinateur est joint à un domaine, les membres du groupe Admins du domaine peuvent être en mesure d'effectuer cette procédure. En tant qu’une sécurité optimale, envisagez d’utiliser **exécuter en tant que** pour effectuer cette procédure.
+- Un volume doit avoir au moins 15 % espace libre pour **defrag** à défragmenter complètement et correctement. **la défragmentation** utilise cet espace comme zone de tri pour les fragments de fichiers. Si un volume possède moins de 15 % d’espace libre, **defrag** défragmentera que partiellement. Pour augmenter l’espace libre sur un volume, supprimez les fichiers superflus ou déplacez-les vers un autre disque.
+- Bien que **defrag** est analyser et de défragmenter un volume, il affiche un curseur clignotant. Lorsque **defrag** est terminé d’analyser et de défragmenter le volume, il affiche le rapport d’analyse, le rapport de défragmentation ou les deux rapports et se termine à l’invite de commandes.
+- Par défaut, **defrag** affiche un résumé des rapports d’analyse et de défragmentation si vous ne spécifiez pas le **/a** ou **/v** paramètres.
+- Vous pouvez envoyer les rapports dans un fichier texte en tapant **>** <em>nomfichier.txt</em>, où *nomfichier.txt* est un nom de fichier que vous spécifiez. Par exemple : `defrag volume /v > FileName.txt`
+- Pour interrompre le processus de défragmentation en ligne de commande, appuyez sur **CTRL + C**.
+- En cours d’exécution le **defrag** commande et Défragmenteur de disque s’excluent mutuellement. Si vous utilisez le Défragmenteur de disque pour défragmenter un volume et que vous exécutez le **defrag** commande sur une ligne de commande, le **defrag** Échec d’une commande. À l’inverse, si vous exécutez le **defrag** commande et ouvrir Défragmenteur de disque, les options de défragmentation Défragmenteur de disque ne sont pas disponibles.
 
 ## <a name="BKMK_examples"></a>Exemples
 Pour défragmenter le volume sur le lecteur C tout en offrant des cours et une sortie détaillée, tapez :
@@ -105,4 +106,4 @@ La défragmentation de tâche planifiée s’exécute comme une tâche de mainte
 -   [chkdsk](chkdsk.md)
 -   [fsutil](fsutil.md)
 -   [fsutil dirty](fsutil-dirty.md)
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

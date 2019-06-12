@@ -9,12 +9,12 @@ ms.manager: daveba
 ms.technology: storage-failover-clustering
 ms.date: 05/09/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 151f02572d7595776539af163831b4a7a060c1c7
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.openlocfilehash: fa240ba5fedd98f16639dd19fb8f22c10bfdd9ac
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613168"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442458"
 ---
 # <a name="prestage-cluster-computer-objects-in-active-directory-domain-services"></a>Prédéfinir des objets d’ordinateur de cluster dans les Services de domaine Active Directory
 
@@ -48,14 +48,14 @@ Nous vous recommandons, à titre de meilleure pratique, de créer une unité d�
 3. Dans l’arborescence de la console, cliquez sur l’unité d’organisation où vous souhaitez créer le CNO, pointez sur **New**, puis sélectionnez **ordinateur**.
 4. Dans le **nom de l’ordinateur** , entrez le nom qui sera utilisé pour le cluster de basculement, puis sélectionnez **OK**.
 
-  >[!NOTE]
-  >Il s’agit du nom de cluster que l’utilisateur qui crée le cluster indique dans la page **Point d’accès pour l’administration du cluster** dans l’Assistant Création d’un cluster ou en tant que valeur du paramètre *–Name* pour l’applet de commande Windows PowerShell **New-Cluster** .
+   >[!NOTE]
+   >Il s’agit du nom de cluster que l’utilisateur qui crée le cluster indique dans la page **Point d’accès pour l’administration du cluster** dans l’Assistant Création d’un cluster ou en tant que valeur du paramètre *–Name* pour l’applet de commande Windows PowerShell **New-Cluster** .
 
 5. Comme meilleure pratique, cliquez sur le compte d’ordinateur que vous venez de créer, sélectionnez **propriétés**, puis sélectionnez le **objet** onglet. Sur le **objet** onglet, sélectionnez le **protéger l’objet des suppressions accidentelles** case à cocher, puis sélectionnez **OK**.
 6. Cliquez sur le compte d’ordinateur que vous venez de créée, puis sélectionnez **désactiver le compte**. Sélectionnez **Oui** pour confirmer, puis sélectionnez **OK**.
 
-  >[!NOTE]
-  >Vous devez désactiver le compte afin que, lors de la création du cluster, le processus de création du cluster puisse confirmer que le compte n’est actuellement pas utilisé par un cluster ou ordinateur existant dans le domaine.
+   >[!NOTE]
+   >Vous devez désactiver le compte afin que, lors de la création du cluster, le processus de création du cluster puisse confirmer que le compte n’est actuellement pas utilisé par un cluster ou ordinateur existant dans le domaine.
 
 ![Objet nom de cluster désactivé dans l’exemple d’unité d’organisation Clusters](media/prestage-cluster-adds/disabled-cno-in-the-example-clusters-ou.png)
 
@@ -75,9 +75,9 @@ Voici comment accorder des autorisations d’utilisateur pour créer le cluster�
 4. Dans le **sélectionnez utilisateurs, ordinateurs ou groupes** boîte de dialogue, spécifiez le compte d’utilisateur ou le groupe que vous souhaitez accorder des autorisations, puis sélectionnez **OK**.
 5. Sélectionnez le compte d’utilisateur ou le groupe qui vous venez d’ajouter puis, en regard de **Contrôle total**, activez la case à cocher **Autoriser**.
   
-  ![Octroi du contrôle total à l’utilisateur ou au groupe qui va créer le cluster](media/prestage-cluster-adds/granting-full-control-to-the-user-create-the-cluster.png)
+   ![Octroi du contrôle total à l’utilisateur ou au groupe qui va créer le cluster](media/prestage-cluster-adds/granting-full-control-to-the-user-create-the-cluster.png)
   
-  **Figure 2. Accorder un contrôle total à l’utilisateur ou le groupe qui va créer le cluster**
+   **Figure 2. Accorder un contrôle total à l’utilisateur ou le groupe qui va créer le cluster**
 6. Sélectionnez **OK**.
 
 Après avoir effectué cette étape, l’utilisateur auquel vous avez accordé les autorisations peut créer le cluster de basculement. Toutefois, si l’objet nom de cluster est situé dans une unité d’organisation, l’utilisateur ne peut pas créer des rôles en cluster qui nécessitent un point d’accès client tant que vous n’avez pas effectué l’étape 3.
@@ -113,9 +113,9 @@ Si vous avez prédéfini l’objet nom de cluster dans AD DS, vous pouvez procé
 8. Dans la boîte de dialogue **Entrée d’autorisation** , vérifiez que la liste **Type** a la valeur **Autoriser**et que la liste **S’applique à** a la valeur **cet objet et tous ceux descendants**.
 9. Sous **Autorisations**, activez la case à cocher **Créer Objets ordinateur** .
 
-  ![Octroi de l’autorisation de création d’objets ordinateur à l’objet nom de cluster](media/prestage-cluster-adds/granting-create-computer-objects-permission-to-the-cno.png)
+   ![Octroi de l’autorisation de création d’objets ordinateur à l’objet nom de cluster](media/prestage-cluster-adds/granting-create-computer-objects-permission-to-the-cno.png)
 
-  **Figure 3. L’octroi de l’autorisation d’objets de créer un ordinateur pour le CNO**
+   **Figure 3. L’octroi de l’autorisation d’objets de créer un ordinateur pour le CNO**
 10. Sélectionnez **OK** jusqu'à ce que vous reveniez aux utilisateurs Active Directory et les ordinateurs d’un composant logiciel enfichable.
 
 Un administrateur sur le cluster de basculement peut maintenant créer des rôles en cluster avec des points d’accès client, puis mettre les ressources en ligne.

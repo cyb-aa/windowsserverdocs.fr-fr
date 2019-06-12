@@ -12,12 +12,12 @@ ms.assetid: 51d94b67-8b9b-4159-80dd-f652d73a43cb
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 3c48d2abb7fd8431f40f76f8eece5c4142be4c75
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 11372589528fcc78e0053bc7002449b53cb3181d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846550"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436042"
 ---
 # <a name="troubleshoot-your-firewall-in-windows-server-essentials"></a>Résoudre les problèmes liés à votre pare-feu dans Windows Server Essentials
  
@@ -27,13 +27,13 @@ ms.locfileid: "59846550"
   
 ### <a name="to-run-the-repair-anywhere-access-wizard"></a>Pour exécuter l’Assistant Réparer l’Accès en tout lieu  
   
-1.  Ouvrez le tableau de bord.  
+1. Ouvrez le tableau de bord.  
   
-2.  Cliquez sur **Paramètres**, sur l’onglet **Accès en tout lieu** , puis sur **Réparer**.  
+2. Cliquez sur **Paramètres**, sur l’onglet **Accès en tout lieu** , puis sur **Réparer**.  
   
-3.  Suivez les instructions de l’Assistant Réparer l’Accès en tout lieu.  
+3. Suivez les instructions de l’Assistant Réparer l’Accès en tout lieu.  
   
- Si vous utilisez une configuration de réseau avancée ou utilisez un pare-feu non-Microsoft, vous devrez peut-être ouvrir des ports supplémentaires sur le pare-feu. Les ports dans le tableau suivant sont enregistrés auprès de l’Internet Assigned Numbers Authority (IANA).  
+   Si vous utilisez une configuration de réseau avancée ou utilisez un pare-feu non-Microsoft, vous devrez peut-être ouvrir des ports supplémentaires sur le pare-feu. Les ports dans le tableau suivant sont enregistrés auprès de l’Internet Assigned Numbers Authority (IANA).  
   
 |Numéro de port|Description|  
 |-----------------|-----------------|  
@@ -54,7 +54,7 @@ ms.locfileid: "59846550"
 -   [Gérer Windows Server Essentials](../manage/Manage-Windows-Server-Essentials.md)  
   
 
--   [Prise en charge Windows Server Essentials](Support-Windows-Server-Essentials.md)
+-   [Prendre en charge Windows Server Essentials](Support-Windows-Server-Essentials.md)
 
--   [Prise en charge Windows Server Essentials](../support/Support-Windows-Server-Essentials.md)
+-   [Prendre en charge Windows Server Essentials](../support/Support-Windows-Server-Essentials.md)
 

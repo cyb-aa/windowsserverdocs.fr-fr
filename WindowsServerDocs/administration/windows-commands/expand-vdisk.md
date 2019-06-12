@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cf8fd0b05ca5baeeee4fadd670adb3169130d04e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8019ce62d6cf38c7430a789f68749444ac91ad48
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837400"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439442"
 ---
 # <a name="expand-vdisk"></a>Développez vdisk
 
@@ -27,25 +27,27 @@ ms.locfileid: "59837400"
 développe un disque dur virtuel (VHD) à la taille que vous spécifiez.
 > [!NOTE]
 > Cette commande est uniquement applicable à Windows 7 et Windows Server 2008 R2.
-## <a name="syntax"></a>Syntaxe
-```
-expand vdisk maximum=<n>
-```
-## <a name="parameters"></a>Paramètres
-|Paramètre|Description|
-|-------|--------|
-|maximum=<n>|Spécifie la nouvelle taille du disque dur virtuel en mégaoctets (Mo).|
-## <a name="remarks"></a>Notes
--   Un disque dur virtuel doit être sélectionné et détaché pour cette opération réussisse. Utilisez le **sélectionnez vdisk** commande pour sélectionner un volume et déplacer le focus vers elle.
-## <a name="BKMK_Examples"></a>Exemples
-Pour développer le disque dur virtuel sélectionné de 20 Go, tapez :
-```
-expand vdisk maximum=20000
-```
-## <a name="additional-references"></a>Références supplémentaires
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
--   [attach vdisk](attach-vdisk.md)
--   [compact vdisk](compact-vdisk.md)
+> ## <a name="syntax"></a>Syntaxe
+> ```
+> expand vdisk maximum=<n>
+> ```
+> ## <a name="parameters"></a>Paramètres
+> 
+> |  Paramètre  |                      Description                      |
+> |-------------|-------------------------------------------------------|
+> | maximum=<n> | Spécifie la nouvelle taille du disque dur virtuel en mégaoctets (Mo). |
+> 
+> ## <a name="remarks"></a>Notes
+> - Un disque dur virtuel doit être sélectionné et détaché pour cette opération réussisse. Utilisez le **sélectionnez vdisk** commande pour sélectionner un volume et déplacer le focus vers elle.
+>   ## <a name="BKMK_Examples"></a>Exemples
+>   Pour développer le disque dur virtuel sélectionné de 20 Go, tapez :
+>   ```
+>   expand vdisk maximum=20000
+>   ```
+>   ## <a name="additional-references"></a>Références supplémentaires
+> - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+> - [attach vdisk](attach-vdisk.md)
+> - [compact vdisk](compact-vdisk.md)
 
 -   [Détacher vdisk](detach-vdisk.md)
 -   [detail vdisk](detail-vdisk.md)

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b0ebf9896621268c384ea8129d32c985028054d9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 98f42324dbd4c6b3add3333cf4687d1613b1f700
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890730"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441424"
 ---
 # <a name="select-volume"></a>select volume
 
@@ -36,10 +36,10 @@ select volume={<n>|<d>}
   
 ## <a name="parameters"></a>Paramètres  
   
-|Paramètre|Description|  
-|-------|--------|  
-|<n>|Le numéro du volume à recevoir le focus. Vous pouvez afficher les nombres pour tous les volumes sur le disque actuellement sélectionné à l’aide de la **liste volume** commande DiskPart.|  
-|<d>|La lettre ou le montage point chemin de lecteur du volume à recevoir le focus.|  
+| Paramètre |                                                                               Description                                                                                |
+|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    <n>    | Le numéro du volume à recevoir le focus. Vous pouvez afficher les nombres pour tous les volumes sur le disque actuellement sélectionné à l’aide de la **liste volume** commande DiskPart. |
+|    <d>    |                                                 La lettre ou le montage point chemin de lecteur du volume à recevoir le focus.                                                 |
   
 ## <a name="remarks"></a>Notes  
   
@@ -77,7 +77,7 @@ select volume
 ```  
   
 #### <a name="additional-references"></a>Références supplémentaires  
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
   
 
   

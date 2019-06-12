@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: dddf694aaceab93bd102456dbe86df17a001cb01
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9a668a39990b79862b99c2c7d9aeaf6540fa376d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879880"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447371"
 ---
 # <a name="review-prerequisites-for-the-host-guardian-service"></a>Passez en revue les conditions préalables pour le Service Guardian hôte
 
@@ -32,7 +32,7 @@ Cette rubrique traite des conditions préalables SGH et les premières étapes p
 
 -   **Rôles de serveur**: Service Guardian hôte et prenant en charge les rôles de serveur.
 
--   **Configuration des autorisations/des privilèges pour le domaine de fabric (hôte)**: Vous devez configurer la redirection DNS entre le domaine de fabric (hôte) et le service SGH. 
+-   **Configuration des autorisations/des privilèges pour le domaine de fabric (hôte)** : Vous devez configurer la redirection DNS entre le domaine de fabric (hôte) et le service SGH. 
     
 ## <a name="upgrading-hgs"></a>La mise à niveau SGH
 
@@ -40,5 +40,5 @@ Si vous avez déjà déployé le service SGH et que vous souhaitez mettre à niv
 
 ## <a name="next-step"></a>Étape suivante
 
->[!div class="nextstepaction"]
-[Obtenir des certificats pour SGH](guarded-fabric-obtain-certs.md)
+> [!div class="nextstepaction"]
+> [Obtenir des certificats pour SGH](guarded-fabric-obtain-certs.md)

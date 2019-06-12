@@ -9,12 +9,12 @@ ms.assetid: ''
 ms.author: pashort
 author: shortpatti
 ms.date: 08/08/2018
-ms.openlocfilehash: 58596387d79f3f212a472f00c2785bacc278e855
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: aab4ec7c69ec5b52eae926cd1065d777415b1124
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821910"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446211"
 ---
 # <a name="virtual-network-peering"></a>Homologation de réseau virtuel
 
@@ -36,20 +36,20 @@ Avantages de l’homologation de réseau virtuel :
 
 Homologation de réseaux virtuels a quelques exigences et contraintes :
 
--   Réseaux virtuels homologués doivent :
+- Réseaux virtuels homologués doivent :
 
-    -   Avoir sans chevauchement des espaces d’adressage IP
+  -   Avoir sans chevauchement des espaces d’adressage IP
 
-    -   Être gérés par le même contrôleur de réseau
+  -   Être gérés par le même contrôleur de réseau
 
--   Une fois que vous homologuer un réseau virtuel avec un autre réseau virtuel, vous ne pouvez pas ajouter ou supprimer des plages d’adresses dans l’espace d’adressage.
+- Une fois que vous homologuer un réseau virtuel avec un autre réseau virtuel, vous ne pouvez pas ajouter ou supprimer des plages d’adresses dans l’espace d’adressage.
 
-   >[!TIP]
-   >Si vous avez besoin ajouter des plages d’adresses :<ol><li>Supprimer l’homologation.</li><li>Ajouter l’espace d’adressage.</li><li>Ajouter à nouveau l’homologation.</li></ol>
+  >[!TIP]
+  >Si vous avez besoin ajouter des plages d’adresses :<ol><li>Supprimer l’homologation.</li><li>Ajouter l’espace d’adressage.</li><li>Ajouter à nouveau l’homologation.</li></ol>
 
--   Étant donné que l’homologation se fait entre deux réseaux virtuels, il n’existe aucune relation transitive entre homologations. Par exemple, si vous homologuer virtualNetworkA avec virtualNetworkB et virtualNetworkB avec virtualNetworkC, puis virtualNetworkA ne pas obtenir homologué avec virtualNetworkC.
+- Étant donné que l’homologation se fait entre deux réseaux virtuels, il n’existe aucune relation transitive entre homologations. Par exemple, si vous homologuer virtualNetworkA avec virtualNetworkB et virtualNetworkB avec virtualNetworkC, puis virtualNetworkA ne pas obtenir homologué avec virtualNetworkC.
 
-    [image ici]
+  [image ici]
 
 ## <a name="connectivity"></a>Connectivité
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 63d72a45c33da099c5936d625b27aa71ef002280
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 876d8332e778aa0b3049354a21fbe01adb883729
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857660"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436649"
 ---
 # <a name="nslookup-set-retry"></a>nslookup set retry
 
@@ -30,12 +30,14 @@ Définit le nombre de tentatives.
 set retry=<Number>
 ```
 ## <a name="parameters"></a>Paramètres
-|Paramètre|Description|
-|-------|--------|
-|<Number>|Spécifie la nouvelle valeur pour le nombre de tentatives. Le nombre de nouvelles tentatives par défaut est 4.|
-|{aide &#124; ?}|Affiche un résumé de **nslookup** sous-commandes.|
+
+|    Paramètre    |                                      Description                                       |
+|-----------------|----------------------------------------------------------------------------------------|
+|    <Number>     | Spécifie la nouvelle valeur pour le nombre de tentatives. Le nombre de nouvelles tentatives par défaut est 4. |
+| {aide &#124; ?} |                 Affiche un résumé de **nslookup** sous-commandes.                  |
+
 ## <a name="remarks"></a>Notes
--   Une réponse à une demande n’est pas reçue dans un certain laps de temps, le délai d’attente est doublé et la demande est renvoyée. La valeur de nouvelle tentative contrôle le nombre de fois où une demande est renvoyée avant d’abandonner. Vous pouvez modifier le délai d’attente avec le **définir le délai d’attente** sous-commande.
-## <a name="additional-references"></a>Références supplémentaires
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-[nslookup définie le délai d’expiration](nslookup-set-timeout.md)
+- Une réponse à une demande n’est pas reçue dans un certain laps de temps, le délai d’attente est doublé et la demande est renvoyée. La valeur de nouvelle tentative contrôle le nombre de fois où une demande est renvoyée avant d’abandonner. Vous pouvez modifier le délai d’attente avec le **définir le délai d’attente** sous-commande.
+  ## <a name="additional-references"></a>Références supplémentaires
+  [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+  [nslookup définie le délai d’expiration](nslookup-set-timeout.md)

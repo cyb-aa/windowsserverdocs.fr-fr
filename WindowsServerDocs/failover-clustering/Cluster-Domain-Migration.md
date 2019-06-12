@@ -8,16 +8,16 @@ author: johnmarlin-msft
 ms.date: 01/18/2019
 description: Cet article décrit le déplacement d’un cluster Windows Server 2019 d’un domaine vers un autre
 ms.localizationpriority: medium
-ms.openlocfilehash: bcfd458c94d33820f434cde3313dc069fc42ffd9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1054de942e807f00586903683faeaf695ec2f033
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875940"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452930"
 ---
 # <a name="failover-cluster-domain-migration"></a>Migration de domaine de Cluster de basculement
 
-> S'applique à : Windows Server 2019, Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server 2016
 
 Cette rubrique fournit qu'une vue d’ensemble pour le déplacement de basculement Windows Server clusters à partir d’un domaine vers un autre.
 
@@ -46,7 +46,7 @@ Pour effectuer ce déplacement, il existe deux options.
 
 La première option implique la destruction du cluster et la reconstruction dans le nouveau domaine.
 
-![Détruire et recréer](media\Cross-Domain-Cluster-Migration\Cross-Cluster-Domain-Migration-1.gif)
+![Détruire et recréer](media/Cross-Domain-Cluster-Migration/Cross-Cluster-Domain-Migration-1.gif)
 
 Comme le montre l’animation, cette option est destructive avec les étapes en cours :
 
@@ -56,7 +56,7 @@ Comme le montre l’animation, cette option est destructive avec les étapes en 
 
 La deuxième option est moins destructrice, mais nécessite un matériel supplémentaire, car un nouveau cluster a besoin être généré dans le nouveau domaine.  Une fois que le cluster est dans le nouveau domaine, exécutez l’Assistant de Migration de Cluster pour migrer les ressources. Notez que cela ne migrer des données - vous devrez utiliser un autre outil pour migrer des données, tel que [Service de Migration de stockage](../storage/storage-migration-service/overview.md)(une fois que la prise en charge de cluster est ajouté).
 
-![Créer et migrer](media\Cross-Domain-Cluster-Migration\Cross-Cluster-Domain-Migration-2.gif)
+![Créer et migrer](media/Cross-Domain-Cluster-Migration/Cross-Cluster-Domain-Migration-2.gif)
 
 Comme le montre l’animation, cette option n’est pas destructif mais nécessite un matériel différent ou un nœud du cluster existant qu’a été supprimé.
 
@@ -76,7 +76,7 @@ Déplacement d’un cluster d’un domaine est un processus simple. Pour ce fair
 
 Le processus pour y parvenir consiste à modifier le cluster à partir d’un domaine vers un groupe de travail et retour vers le nouveau domaine.  La nécessité de supprimer un cluster, de reconstruire un cluster, d’installer des applications, etc. n’est pas obligatoire. Par exemple, elle ressemblerait à ceci :
 
-![Migrer](media\Cross-Domain-Cluster-Migration\Cross-Cluster-Domain-Migration-3.gif)
+![Migrer](media/Cross-Domain-Cluster-Migration/Cross-Cluster-Domain-Migration-3.gif)
 
 ## <a name="migrating-a-cluster-to-a-new-domain"></a>Migration d’un cluster vers un nouveau domaine
 

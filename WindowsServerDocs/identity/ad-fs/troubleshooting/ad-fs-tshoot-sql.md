@@ -8,12 +8,12 @@ ms.date: 01/12/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a4b7a568200bee7c2696c57f1dd964dd4e84ec21
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b09094b6e305bc85b38e94d11fbc8845d555437
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820260"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443934"
 ---
 # <a name="ad-fs-troubleshooting---sql-connectivity"></a>Résolution des problèmes d’AD FS - connectivité SQL
 AD FS offre la possibilité d’utiliser SQL Server distant pour les données de la batterie de serveurs AD FS.  Vous verrez des problèmes si les serveurs AD FS dans votre batterie de serveurs ne peuvent pas communiquer avec les serveurs principaux SQL Server.  Le document suivant fournit certaines étapes de base pour tester la communication avec les serveurs principaux.
@@ -44,7 +44,7 @@ Un fichier UDL ou un fichier UDL est en fait un fichier texte qui contient la ch
 ## <a name="use-sql-server-management-studio-to-test-connectivity"></a>Utilisez SQL Server Management Studio pour tester la connectivité
 Vous pouvez également [télécharger](https://go.microsoft.com/fwlink/?linkid=864329) et installation de SSMS pour tester la connectivité de base de données.
 
-###<a name="to-test-connectivity-with-ssms"></a>Pour tester la connectivité avec SSMS
+### <a name="to-test-connectivity-with-ssms"></a>Pour tester la connectivité avec SSMS
 1. Téléchargez et installez SQL Server Management Studio.
 ![Installer](media/ad-fs-tshoot-sql/sql5.png)
 1. Ouvrez SSMS, entrez le nom du serveur.  La source de données à partir du haut.
@@ -55,4 +55,4 @@ Vous pouvez également [télécharger](https://go.microsoft.com/fwlink/?linkid=8
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Résolution des problèmes de AD FS](ad-fs-tshoot-overview.md)
+- [Résolution des problèmes AD FS](ad-fs-tshoot-overview.md)

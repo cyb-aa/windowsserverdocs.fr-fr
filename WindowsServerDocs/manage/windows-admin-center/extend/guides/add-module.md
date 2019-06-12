@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: e6978ce20a7c6da8addb217de8d30f733b40d261
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d8d901097eb280679a388ff66161e3514befcd13
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834400"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452653"
 ---
 # <a name="add-a-module-to-a-tool-extension"></a>Ajouter un module à une extension d'outil
 
@@ -23,7 +23,7 @@ Dans cet article, nous allons ajouter un module vide à une extension de l’out
 
 ## <a name="prepare-your-environment"></a>Préparer votre environnement
 
-Si vous n’avez pas déjà, suivez les instructions de développer un [outil](..\develop-tool.md) (ou [solution](..\develop-solution.md)) extension pour préparer votre environnement et de créer une extension de l’outil vide.
+Si vous n’avez pas déjà, suivez les instructions de développer un [outil](../develop-tool.md) (ou [solution](../develop-solution.md)) extension pour préparer votre environnement et de créer une extension de l’outil vide.
 
 ## <a name="use-the-angular-cli-to-create-a-module-and-component"></a>Utiliser l’interface CLI Angular pour créer un module (et le composant)
 
@@ -181,4 +181,4 @@ Voici un exemple de chemin d’accès de mise à jour par défaut :
 
 ## <a name="build-and-side-load-your-extension"></a>Génération et côté chargent votre extension
 
-Vous avez maintenant ajouté un module à votre extension.  Ensuite, vous pouvez [générer et côté charge](..\develop-tool.md#build-and-side-load-your-extension) votre extension dans Windows Admin Center pour afficher les résultats.
+Vous avez maintenant ajouté un module à votre extension.  Ensuite, vous pouvez [générer et côté charge](../develop-tool.md#build-and-side-load-your-extension) votre extension dans Windows Admin Center pour afficher les résultats.

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 798317f3921cd0e5ff12b69b972e2ea423fa6b3f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 28961ccf0ae04b52586728f9c68a9b2ca3e69b1d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816730"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438770"
 ---
 # <a name="ftp-get"></a>FTP : obtenir
 
@@ -30,10 +30,12 @@ Copie un fichier distant sur l’ordinateur local en utilisant le mode de transf
 get <remoteFile> [<LocalFile>]  
 ```  
 ### <a name="parameters"></a>Paramètres  
-|Paramètre|Description|  
-|-------|--------|  
-|<remoteFile>|Spécifie le fichier distant à copier.|  
-|[<LocalFile>]|Spécifie le nom du fichier à utiliser sur l’ordinateur local. Si *LocalFile* n’est pas spécifié, le fichier porte le *Fichier_distant* nom.|  
+
+|   Paramètre   |                                                              Description                                                               |
+|---------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| <remoteFile>  |                                                   Spécifie le fichier distant à copier.                                                   |
+| [<LocalFile>] | Spécifie le nom du fichier à utiliser sur l’ordinateur local. Si *LocalFile* n’est pas spécifié, le fichier porte le *Fichier_distant* nom. |
+
 ## <a name="remarks"></a>Notes  
 Le **obtenir** commande est identique à la **recv** commande.  
 ## <a name="BKMK_Examples"></a>Exemples  
@@ -48,4 +50,4 @@ Get test.txt test1.txt
 ## <a name="additional-references"></a>Références supplémentaires  
 -   [ftp: ascii](ftp-ascii.md)  
 -   [ftp: binary](ftp-binary.md)  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

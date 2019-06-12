@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6dea364b1afe385d03b0519538ff7bbd6bb9df28
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d0c68fbbf3ea776bbf6cd49fc4fa446d5dd46542
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883250"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437910"
 ---
 # <a name="label"></a>label
 
@@ -45,19 +45,19 @@ label [/mp] [<Volume>] [<Label>]
 
 ## <a name="remarks"></a>Notes
 
--   Windows affiche le nom de volume et le numéro de série (le cas échéant) dans le cadre de la liste des répertoires.
--   Une étiquette de volume NTFS peut être jusqu'à 32 caractères, y compris les espaces. Étiquettes de volume NTFS conservent et affichent le cas a été utilisé lors de la création de l’étiquette.
--   Si vous ne spécifiez pas une valeur pour le **étiquette** paramètre, le **étiquette** commande affiche une sortie au format suivant :  
-    ```
-    Volume in drive C: xxxxxxxxxxx 
-    Volume Serial Number is xxxx-xxxx 
-    Volume label (32 characters, ENTER for none)?
-    ```  
-    Vous pouvez taper une nouvelle étiquette de volume, ou appuyez sur ENTRÉE pour conserver l’étiquette actuelle. Si vous appuyez sur entrée et le volume a une étiquette, le **étiquette** commande vous invite avec le message suivant :  
-    ```
-    Delete current volume label (Y/N)?
-    ```  
-    Appuyez sur o pour supprimer l’étiquette, ou appuyez sur N pour conserver l’étiquette.
+- Windows affiche le nom de volume et le numéro de série (le cas échéant) dans le cadre de la liste des répertoires.
+- Une étiquette de volume NTFS peut être jusqu'à 32 caractères, y compris les espaces. Étiquettes de volume NTFS conservent et affichent le cas a été utilisé lors de la création de l’étiquette.
+- Si vous ne spécifiez pas une valeur pour le **étiquette** paramètre, le **étiquette** commande affiche une sortie au format suivant :  
+  ```
+  Volume in drive C: xxxxxxxxxxx 
+  Volume Serial Number is xxxx-xxxx 
+  Volume label (32 characters, ENTER for none)?
+  ```  
+  Vous pouvez taper une nouvelle étiquette de volume, ou appuyez sur ENTRÉE pour conserver l’étiquette actuelle. Si vous appuyez sur entrée et le volume a une étiquette, le **étiquette** commande vous invite avec le message suivant :  
+  ```
+  Delete current volume label (Y/N)?
+  ```  
+  Appuyez sur o pour supprimer l’étiquette, ou appuyez sur N pour conserver l’étiquette.
 
 ## <a name="BKMK_examples"></a>Exemples
 
@@ -66,22 +66,22 @@ Pour étiqueter un disque dans le lecteur A qui contient des informations sur le
 label a:sales-july
 ```
 Pour supprimer l’étiquette actuelle pour le lecteur C, procédez comme suit :
-1.  À l’invite de commandes, tapez :  
-    ```
-    Label
-    ```  
-    Sortie similaire à ce qui suit doit s’afficher :  
-    ```
-    Volume in drive C: is Main Disk
-    Volume Serial Number is 6789-ABCD
-    Volume label (32 characters, ENTER for none)?
-    ```  
-2.  Appuyez sur ENTRÉE. L’invite suivante doit s’afficher :  
-    ```
-    Delete current volume label (Y/N)?
-    ```  
-3.  Appuyez sur o pour supprimer l’étiquette actuelle.
+1. À l’invite de commandes, tapez :  
+   ```
+   Label
+   ```  
+   Sortie similaire à ce qui suit doit s’afficher :  
+   ```
+   Volume in drive C: is Main Disk
+   Volume Serial Number is 6789-ABCD
+   Volume label (32 characters, ENTER for none)?
+   ```  
+2. Appuyez sur ENTRÉE. L’invite suivante doit s’afficher :  
+   ```
+   Delete current volume label (Y/N)?
+   ```  
+3. Appuyez sur o pour supprimer l’étiquette actuelle.
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

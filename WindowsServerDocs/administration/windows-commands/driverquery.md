@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6436ea47e3ec5c7c9ceee9fd50d052dba4a49724
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 88a59f9da9927bb923418695bc760303c0fb00b0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861170"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439478"
 ---
 # <a name="driverquery"></a>driverquery
 
@@ -36,16 +36,16 @@ driverquery [/s <System> [/u [<Domain>\]<Username> [/p <Password>]]] [/fo {table
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|/s \<système >|Spécifie le nom ou l’adresse IP d’un ordinateur distant. N’utilisez pas de barres obliques inverses. La valeur par défaut est l'ordinateur local.|
-|/u [\<domaine >\]<Username>|Exécute la commande avec les informations d’identification du compte d’utilisateur comme spécifié par *utilisateur* ou *domaine*\*utilisateur *. Par défaut, **/s** utilise les informations d’identification de l’utilisateur actuellement connecté à l’ordinateur qui émet la commande. **/u** ne peut pas être utilisé, sauf si **/s** est spécifié.|
-|/p \<mot de passe >|Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** paramètre. **/p** ne peut pas être utilisé, sauf si **/u** est spécifié.|
-|/FO {table | list | csv}|Spécifie le format pour afficher les informations du pilote. Les valeurs valides sont **table**, **liste**, et **csv**. Le format par défaut pour la sortie est **table**.|
-|/nh|Omet la ligne d’en-tête à partir des informations affichées sur les pilotes. Non valide si le **/fo** paramètre est défini sur **liste**.|
-|/v|Affiche la sortie détaillée. **/v** n’est pas valide pour les pilotes signés.|
-|/si|Fournit des informations sur les pilotes signés.|
-|/?|Affiche l'aide à l'invite de commandes.|
+|         Paramètre         |                                                                                                                                         Description                                                                                                                                          |
+|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|       /s \<système >        |                                                                                      Spécifie le nom ou l’adresse IP d’un ordinateur distant. N’utilisez pas de barres obliques inverses. La valeur par défaut est l'ordinateur local.                                                                                       |
+| /u [\<domaine >\]<Username> | Exécute la commande avec les informations d’identification du compte d’utilisateur comme spécifié par *utilisateur* ou *domaine*\*utilisateur<em>. Par défaut, \* \*/s</em> \* utilise les informations d’identification de l’utilisateur actuellement connecté à l’ordinateur qui émet la commande. **/u** ne peut pas être utilisé, sauf si **/s** est spécifié. |
+|      /p \<mot de passe >       |                                                                           Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** paramètre. **/p** ne peut pas être utilisé, sauf si **/u** est spécifié.                                                                            |
+|        /FO {table         |                                                                                                                                             list                                                                                                                                             |
+|            /nh            |                                                                                      Omet la ligne d’en-tête à partir des informations affichées sur les pilotes. Non valide si le **/fo** paramètre est défini sur **liste**.                                                                                      |
+|            /v             |                                                                                                               Affiche la sortie détaillée. **/v** n’est pas valide pour les pilotes signés.                                                                                                               |
+|            /si            |                                                                                                                          Fournit des informations sur les pilotes signés.                                                                                                                          |
+|            /?             |                                                                                                                             Affiche l'aide à l'invite de commandes.                                                                                                                             |
 
 ## <a name="BKMK_examples"></a>Exemples
 
@@ -72,4 +72,4 @@ driverquery /s server1 /u maindom\user1 /p p@ssw3d
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

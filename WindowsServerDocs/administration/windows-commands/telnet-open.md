@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a87c4bac000a63af806705e9371a79d7370a34c1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 186664a75978f589a9a26047c72b9db74dd2dc4d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838240"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441119"
 ---
 # <a name="telnet-open"></a>Telnet : ouvrir
 
@@ -30,14 +30,16 @@ Se connecte à un serveur telnet.
 o[pen] <hostname> [<Port>]  
 ```  
 ### <a name="parameters"></a>Paramètres  
-|Paramètre|Description|  
-|-------|--------|  
-|<hostname>|Spécifie le nom de l’ordinateur ou l’adresse IP.|  
-|[<Port>]|Spécifie le port TCP qui écoute sur le serveur telnet. La valeur par défaut est le port TCP 23.|  
+
+| Paramètre  |                                        Description                                         |
+|------------|--------------------------------------------------------------------------------------------|
+| <hostname> |                         Spécifie le nom de l’ordinateur ou l’adresse IP.                         |
+|  [<Port>]  | Spécifie le port TCP qui écoute sur le serveur telnet. La valeur par défaut est le port TCP 23. |
+
 ## <a name="BKMK_Examples"></a>Exemples  
 Se connecter à un serveur telnet à telnet.microsoft.com.  
 ```  
 o telnet.microsoft.com  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

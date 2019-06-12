@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0b1aaf9eadfd9c51048ad41106ce6532f6f9588b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1f468bfc384673818dc53be303f82cd4803cb2eb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865880"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438494"
 ---
 # <a name="ftp-quote"></a>FTP : devis
 
@@ -30,9 +30,11 @@ Transmet textuellement des arguments au serveur ftp distant. Un code de réponse
 quote <Argument>[ ]  
 ```  
 ### <a name="parameters"></a>Paramètres  
-|Paramètre|Description|  
-|-------|--------|  
-|<Argument>|Spécifie l’argument à envoyer au serveur ftp.|  
+
+| Paramètre  |                    Description                    |
+|------------|---------------------------------------------------|
+| <Argument> | Spécifie l’argument à envoyer au serveur ftp. |
+
 ## <a name="remarks"></a>Notes  
 Le **devis** commande est identique à la **littéral** commande.  
 ## <a name="BKMK_Examples"></a>Exemples  
@@ -42,4 +44,4 @@ quote quit
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
 -   [ftp: literal_1](ftp-literal_1.md)  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

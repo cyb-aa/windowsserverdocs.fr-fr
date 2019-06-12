@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 84047c690006bf727bc12855576960bbf67d1617
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6fdf070a733392d89bafe5bed5a1bf23d8e24d57
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857930"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439352"
 ---
 # <a name="extend"></a>extend
 
@@ -37,12 +37,12 @@ extend filesystem [noerr]
   
 ## <a name="parameters"></a>Paramètres  
   
-|Paramètre|Description|  
-|-------|--------|  
-|size\=<n>|Spécifie la quantité d’espace en mégaoctets \(Mo\) à ajouter au volume actuel ou de la partition. Si aucune taille n’est donnée, tout l’espace libre contiguë qui est disponible sur le disque est utilisé.|  
-|Disque\=<n>|Spécifie le disque sur lequel le volume ou une partition est étendue. Si aucun disque n’est spécifié, le volume ou la partition est étendue sur le disque en cours.|  
-|système de fichiers|étend le système de fichiers du volume qui a le focus. Pour une utilisation uniquement sur des disques où le système de fichiers n’a été pas étendu avec le volume.|  
-|NOERR|Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.|  
+| Paramètre  |                                                                                             Description                                                                                              |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| size\=<n>  |      Spécifie la quantité d’espace en mégaoctets \(Mo\) à ajouter au volume actuel ou de la partition. Si aucune taille n’est donnée, tout l’espace libre contiguë qui est disponible sur le disque est utilisé.       |
+| Disque\=<n>  |                          Spécifie le disque sur lequel le volume ou une partition est étendue. Si aucun disque n’est spécifié, le volume ou la partition est étendue sur le disque en cours.                          |
+| système de fichiers |                                   étend le système de fichiers du volume qui a le focus. Pour une utilisation uniquement sur des disques où le système de fichiers n’a été pas étendu avec le volume.                                    |
+|   NOERR    | Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart. |
   
 ## <a name="remarks"></a>Notes  
   
@@ -72,7 +72,7 @@ extend filesystem
 ```  
   
 #### <a name="additional-references"></a>Références supplémentaires  
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
   
 
   

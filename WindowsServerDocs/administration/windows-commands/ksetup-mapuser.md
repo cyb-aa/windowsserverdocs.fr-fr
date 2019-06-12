@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2828f92b20cafcb571c81c8ceae28c741fbe025a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5bc68fe9e8f4cbb9869cb74e4eb20a3400eb56ad
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872860"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437961"
 ---
 # <a name="ksetupmapuser"></a>ksetup:mapuser
 
@@ -34,10 +34,10 @@ ksetup /mapuser <Principal> <Account>
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|\<Principal>|Le nom de domaine complet de n’importe quel principal ; par exemple, mike@corp.CONTOSO.COM.|
-|\<Compte >|N’importe quel nom de groupe compte ou de sécurité qui existe sur cet ordinateur, telles que les invités, les utilisateurs de domaine ou administrateur.|
+|  Paramètre   |                                                   Description                                                   |
+|--------------|-----------------------------------------------------------------------------------------------------------------|
+| \<Principal> |              Le nom de domaine complet de n’importe quel principal ; par exemple, mike@corp.CONTOSO.COM.              |
+|  \<Compte >  | N’importe quel nom de groupe compte ou de sécurité qui existe sur cet ordinateur, telles que les invités, les utilisateurs de domaine ou administrateur. |
 
 ## <a name="remarks"></a>Notes
 
@@ -72,5 +72,5 @@ ksetup /mapuser * *
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Ksetup](ksetup.md)

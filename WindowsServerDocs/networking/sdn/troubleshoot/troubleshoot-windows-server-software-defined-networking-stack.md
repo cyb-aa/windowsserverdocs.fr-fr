@@ -9,12 +9,12 @@ ms.assetid: 9be83ed2-9e62-49e8-88e7-f52d3449aac5
 ms.author: pashort
 author: JMesser81
 ms.date: 08/14/2018
-ms.openlocfilehash: b6d4ff37186e66bec54794f8d6c9fd8a83e23e7d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eeb0c335e4afd3c6835a04421a15073aeab6cdc6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845390"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446241"
 ---
 # <a name="troubleshoot-the-windows-server-software-defined-networking-stack"></a>Résoudre les problèmes de la pile de mise en réseau SDN (Software Defined Networking) dans Windows Server
 
@@ -34,17 +34,17 @@ La plupart des erreurs peuvent être classés dans un petit ensemble de classes�
 * **Erreur dans l’application de la stratégie**  
      Stratégie à partir du contrôleur de réseau n’a pas été remis à un hôte Hyper-V, et / considérablement retardé ou non à jour sur tous les hôtes Hyper-V (par exemple, après une Migration dynamique).  
 * **Bogue de logiciels ou les dérives de configuration**  
- Problèmes de chemin d’accès de données résultant dans les paquets ignorés.  
+  Problèmes de chemin d’accès de données résultant dans les paquets ignorés.  
 
 * **Erreur externe lié au matériel de carte réseau / pilotes ou la sous-couche réseau fabric**  
- Dysfonctionnement déchargements de tâche (par exemple, VMQ) ou de structure de réseau de sous-couche mal configuré (par exemple, MTU)   
+  Dysfonctionnement déchargements de tâche (par exemple, VMQ) ou de structure de réseau de sous-couche mal configuré (par exemple, MTU)   
 
- Ce guide de dépannage examine chacune de ces catégories d’erreur et recommande les meilleures pratiques et des outils de diagnostic disponibles pour identifier et résoudre l’erreur.  
+  Ce guide de dépannage examine chacune de ces catégories d’erreur et recommande les meilleures pratiques et des outils de diagnostic disponibles pour identifier et résoudre l’erreur.  
 
 ## <a name="diagnostic-tools"></a>Outils de diagnostic  
 
 Avant d’aborder la résolution des problèmes des flux de travail pour chacun de ces types d’erreurs, nous allons examiner les outils de diagnostic.   
-  
+
 Pour utiliser les outils de diagnostic de contrôleur de réseau (chemin de contrôle), vous devez tout d’abord installer la fonctionnalité de RSAT-NetworkController et importer le ``NetworkControllerDiagnostics`` module :  
 
 ```  
@@ -53,7 +53,7 @@ Import-Module NetworkControllerDiagnostics
 ```  
 
 Pour utiliser les outils de diagnostic HNV Diagnostics (chemin de données), vous devez importer le ``HNVDiagnostics`` module :
-  
+
 ```  
 # Assumes RSAT-NetworkController feature has already been installed
 Import-Module hnvdiagnostics   
@@ -63,12 +63,12 @@ Import-Module hnvdiagnostics
 Ces applets de commande sont documentées sur TechNet dans le [rubrique d’applet de commande de diagnostic de contrôleur de réseau](https://docs.microsoft.com/powershell/module/networkcontrollerdiagnostics/). Ils permettent d’identifier les problèmes de cohérence de stratégie de réseau dans le contrôle-chemin d’accès entre les nœuds du contrôleur de réseau et entre le contrôleur de réseau et les Agents d’hôte NC en cours d’exécution sur les ordinateurs hôtes Hyper-V.
 
  Le _Debug-ServiceFabricNodeStatus_ et _Get-NetworkControllerReplica_ applets de commande doit être exécutée à partir d’une des machines virtuelles de nœud de contrôleur de réseau. Tous les autres applets de commande de Diagnostic de contrôleur de réseau peuvent être exécutés à partir de n’importe quel hôte dispose d’une connectivité au contrôleur de réseau et qui est dans un groupe de sécurité de gestion du contrôleur réseau (Kerberos) accès au certificat X.509 permettant de gérer le contrôleur de réseau. 
-   
+
 ### <a name="hyper-v-host-diagnostics"></a>Diagnostics de l’hôte Hyper-V  
 Ces applets de commande sont documentées sur TechNet dans le [rubrique d’applet de commande de diagnostic de la virtualisation de réseau Hyper-V (HNV)](https://docs.microsoft.com/powershell/module/hnvdiagnostics/). Ils aident à identifier des problèmes dans le chemin de données entre les machines virtuelles de locataire (est/ouest) et le trafic en entrée via une adresse IP virtuelle SLB (Nord/Sud). 
 
 Le _Debug-VirtualMachineQueueOperation_, _Get-CustomerRoute_, _Get-PACAMapping_, _Get-ProviderAddress_, _Get-VMNetworkAdapterPortId_, _Get-VMSwitchExternalPortId_, et _Test-EncapOverheadSettings_ sont tous les tests locaux qui peuvent être exécutées à partir de n’importe quel hôte Hyper-V. Les autres applets de commande appeler des tests de chemin d’accès de données via le contrôleur de réseau et par conséquent ont besoin d’accéder au contrôleur de réseau en tant que descried ci-dessus.
- 
+
 ### <a name="github"></a>GitHub
 Le [référentiel de GitHub Microsoft/SDN](https://github.com/microsoft/sdn) a un nombre d’exemples de scripts et les workflows qui appuient sur ces applets de commande d’origine. En particulier, les scripts de diagnostics figurent dans le [Diagnostics](https://github.com/Microsoft/sdn/diagnostics) dossier. Aidez-nous à contribuer à ces scripts en soumettant des requêtes d’extraction.
 
@@ -98,7 +98,6 @@ Fetching ResourceType:     networkInterfaces
 Fetching ResourceType:     virtualGateways
 Fetching ResourceType:     loadbalancerMuxes
 Fetching ResourceType:     Gateways
-
 ```
 
 Vous trouverez ci-dessous un exemple de message d’état de Configuration :
@@ -121,7 +120,7 @@ Message:          Host is not Connected.
 
 Le tableau ci-dessous répertorie les codes d’erreur, les messages et les actions de suivi à entreprendre en fonction de l’état de configuration observé.
 
-  
+
 | **Code**| **Message**| **Action**|  
 |--------|-----------|----------|  
 | Inconnu| Erreur inconnue| |  
@@ -215,7 +214,7 @@ ReplicaStatus : Ready
 
 ```
 Vérifiez que l’état de réplica est prêt pour chaque service.
- 
+
 #### <a name="check-for-corresponding-hostids-and-certificates-between-network-controller-and-each-hyper-v-host"></a>Recherchez les identifiants d’hôte correspondante et les certificats entre le contrôleur de réseau et chaque hôte Hyper-V 
 Sur un ordinateur hôte Hyper-V, exécutez les commandes suivantes pour vérifier que l’identifiant d’hôte correspond à l’Id d’Instance d’une ressource de serveur sur le contrôleur de réseau
 
@@ -238,7 +237,7 @@ Properties       : Microsoft.Windows.NetworkController.ServerProperties
 *Mise à jour* si SDNExpress à l’aide de scripts ou un déploiement manuel, mettre à jour la clé HostId dans le Registre pour faire correspondre l’Id d’Instance de la ressource de serveur. Redémarrez l’Agent de hôte du contrôleur de réseau sur l’hôte Hyper-V (serveur physique) si l’aide de VMM, supprimez le serveur Hyper-V à partir de VMM et supprimer la clé de Registre HostId. Puis, ajoutez de nouveau le serveur via VMM.
 
 
-Vérifiez que les empreintes numériques des certificats X.509 utilisés par l’hôte Hyper-V (le nom d’hôte sera le nom du sujet du certificat) pour la communication (SouthBound) entre l’hôte Hyper-V (service de contrôleur de réseau hôte Agent) et les nœuds de contrôleur de réseau sont les mêmes. Vérifiez également que nom du sujet du certificat du reste du contrôleur de réseau *CN =<FQDN or IP>*.
+Vérifiez que les empreintes numériques des certificats X.509 utilisés par l’hôte Hyper-V (le nom d’hôte sera le nom du sujet du certificat) pour la communication (SouthBound) entre l’hôte Hyper-V (service de contrôleur de réseau hôte Agent) et les nœuds de contrôleur de réseau sont les mêmes. Vérifiez également que nom du sujet du certificat du reste du contrôleur de réseau *CN =<FQDN or IP>* .
 
 ```  
 # On Hyper-V Host
@@ -272,7 +271,7 @@ Vous pouvez également vérifier les paramètres suivants de chaque certificat d
 - Approuvé par l’autorité racine  
 
 *Mise à jour* si plusieurs certificats ont le même nom d’objet sur l’ordinateur hôte Hyper-V, l’Agent hôte du contrôleur de réseau choisit de manière aléatoire un à présenter au contrôleur de réseau. Cela peut ne pas correspondre à l’empreinte numérique de la ressource serveur connue pour le contrôleur de réseau. Dans ce cas, supprimez un des certificats avec le même nom d’objet sur l’ordinateur hôte Hyper-V et puis redémarrez le service de l’Agent hôte du contrôleur réseau. Si une connexion toujours pas possible, supprimez l’autre certificat portant le même nom de sujet sur l’ordinateur hôte Hyper-V et la ressource de serveur correspondante dans VMM. Ensuite, recréer la ressource de serveur dans VMM qui génère un nouveau certificat X.509 et installez-le sur l’ordinateur hôte Hyper-V.
-  
+
 
 #### <a name="check-the-slb-configuration-state"></a>Vérifier l’état de Configuration SLB
 Vous pouvez déterminer l’état de Configuration SLB en tant que partie de la sortie vers l’applet de commande Debug-NetworkController. Cette applet de commande génère également l’ensemble actuel des ressources du contrôleur de réseau dans les fichiers JSON, toutes les configurations IP à partir de chaque hôte Hyper-V (serveur) et stratégie de réseau local à partir des tables de base de données de l’Agent hôte. 
@@ -305,7 +304,7 @@ Ce fichier JSON peut être divisé selon les sections suivantes :
    * Cette section répertorie MUX itinéraires - une seule valeur pour chaque SLB/Mux déployée contenant toutes les annonces d’itinéraire pour ce mux particulier.
  * Client
    * VipConsolidatedState - cette section répertorie l’état de connectivité pour chaque adresse IP virtuelle de locataire, y compris le préfixe d’itinéraire publié, hôte Hyper-V et les points de terminaison DIP.
-    
+
 > [!NOTE]
 > État de SLB peuvent être vérifié directement à l’aide la [DumpSlbRestState](https://github.com/Microsoft/SDN/blob/master/Diagnostics/DumpSlbRestState.ps1) script disponible sur le [dépôt Microsoft SDN GitHub](https://github.com/microsoft/sdn). 
 
@@ -486,9 +485,8 @@ ComputerName         : SA18N30-2
 IsDeleted            : False
 
 <snip> ...
-
 ```
- 
+
 #### <a name="check-mtu-and-jumbo-frame-support-on-hnv-provider-logical-network"></a>Vérifier la prise en charge MTU et trame étendue sur le réseau logique de fournisseur HNV
 
 Un autre problème courant dans le réseau logique de fournisseur HNV est que les ports de réseau physique et/ou de la carte Ethernet n’ont pas une taille MTU suffisamment grande configurée pour gérer la surcharge liée à partir de l’encapsulation VXLAN (ou NVGRE). 
@@ -527,7 +525,6 @@ Physical Nic  <NIC> Ethernet Adapter #2 can support SDN traffic. Encapoverhead v
 Cannot send jumbo packets to the destination. Physical switch ports may not be configured to support jumbo packets.
 
 # TODO: Success Results aftering updating MTU on physical switch ports
-
 ```
 
 *Mise à jour*
@@ -550,7 +547,6 @@ CA IP Address CA MAC Address    Virtual Subnet ID PA IP Address
 10.254.254.1  40-1D-D8-B7-1C-06              4115 10.10.182.66
 192.168.1.1   40-1D-D8-B7-1C-06              4114 10.10.182.66
 192.168.1.4   00-1D-D8-B7-1C-05              4114 10.10.182.66
-
 ```
 >[!NOTE]
 > Si les mappages de CA-PA voulus ne sont pas générés pour un client donné de machine virtuelle, consultez les ressources VM NIC et la Configuration IP sur le contrôleur de réseau à l’aide de la _Get-NetworkControllerNetworkInterface_ applet de commande. En outre, vérifiez les connexions établies entre les nœuds de contrôleur de réseau hôte Agent et le contrôleur de réseau.
@@ -600,10 +596,10 @@ Informations de routage PA :
 
     Local PA IP: 10.10.182.66
     Remote PA IP: 10.10.182.65
- 
+
  <snip> ...
 
-4.  [Tenant] Vérifiez qu’il n’existe aucune stratégie de pare-feu distribué spécifié sur le sous-réseau virtuel ou les interfaces de réseau de machine virtuelle qui bloqueraient le trafic.    
+4. [Tenant] Vérifiez qu’il n’existe aucune stratégie de pare-feu distribué spécifié sur le sous-réseau virtuel ou les interfaces de réseau de machine virtuelle qui bloqueraient le trafic.    
 
 Interroger l’API REST de contrôleur de réseau trouvé dans l’environnement de démonstration à sa18n30nc dans le domaine sa18.nttest.microsoft.com.
 
@@ -624,7 +620,7 @@ Interroger l’API REST de contrôleur de réseau trouvé dans l’environnement
 Les sections suivantes fournissent des informations sur les diagnostics avancés, journalisation et de suivi.
 
 ### <a name="network-controller-centralized-logging"></a>Contrôleur de réseau centralisée de journalisation 
- 
+
 Le contrôleur de réseau peut automatiquement collecter les journaux de débogueur et les stocker dans un emplacement centralisé. Collecte de journaux peut être activée lorsque vous déployez le contrôleur de réseau pour la première fois ou à tout moment ultérieurement. Les journaux sont collectés à partir du contrôleur de réseau et les éléments gérés par le contrôleur de réseau du réseau : héberger des machines, les équilibreurs de charge logiciel (SLB) et les ordinateurs de passerelle. 
 
 Ces journaux incluent les journaux de débogage pour le cluster de contrôleur de réseau, l’application de contrôleur de réseau, les journaux de passerelle, SLB, un réseau virtuel et le pare-feu distribué. Chaque fois qu’une nouvelle hôte/passerelle/SLB est ajoutée au contrôleur de réseau, la journalisation est démarrée sur ces ordinateurs. De même, lorsqu’une hôte/de SLB/la passerelle est supprimée à partir du contrôleur de réseau, la connexion est arrêtée sur ces ordinateurs.

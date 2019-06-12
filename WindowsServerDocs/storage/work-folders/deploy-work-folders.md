@@ -9,12 +9,12 @@ manager: dongill
 ms.author: jgerend
 ms.date: 6/24/2017
 description: Comment déployer Dossiers de travail, y compris l’installation du rôle de serveur, la création des partages de synchronisation et la création d’enregistrements DNS.
-ms.openlocfilehash: 1f7a0aa0b7e08a1dd444cd6b488a1ced6ee3d9d7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 1ed26c9949fa3f4b53b9f650ca5a3649d5261d65
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812540"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447853"
 ---
 # <a name="deploying-work-folders"></a>Déploiement de Dossiers de travail
 
@@ -36,17 +36,17 @@ Cette rubrique présente les étapes requises pour déployer Dossiers de travail
 ## <a name="step-1-obtain-ssl-certificates"></a>Étape 1 : obtenir des certificats SSL  
  Dossiers de travail utilise le protocole HTTPS pour synchroniser en toute sécurité des fichiers entre les clients Dossiers de travail et le serveur Dossiers de travail. Les critères requis pour les certificats SSL utilisés par Dossiers de travail sont les suivants :  
   
--   Le certificat doit être délivré par une autorité de certification approuvée. Pour la plupart des implémentations de Dossiers de travail, une autorité de certification publiquement approuvée est conseillée dans la mesure où les certificats seront utilisés par des appareils basés sur Internet et n’appartenant pas à un domaine.  
+- Le certificat doit être délivré par une autorité de certification approuvée. Pour la plupart des implémentations de Dossiers de travail, une autorité de certification publiquement approuvée est conseillée dans la mesure où les certificats seront utilisés par des appareils basés sur Internet et n’appartenant pas à un domaine.  
   
--   Le certificat doit être valide.  
+- Le certificat doit être valide.  
   
--   La clé privée du certificat doit pouvoir être exportée (car vous devrez installer le certificat sur plusieurs serveurs).  
+- La clé privée du certificat doit pouvoir être exportée (car vous devrez installer le certificat sur plusieurs serveurs).  
   
--   Le nom du sujet du certificat doit contenir l’URL de Dossiers de travail publique utilisée pour la détection du service Dossiers de travail depuis Internet (elle doit se présenter au format `workfolders.`*<nom_domaine>*).  
+- Le nom du sujet du certificat doit contenir l’URL de Dossiers de travail publique utilisée pour la détection du service Dossiers de travail depuis Internet (elle doit se présenter au format `workfolders.` *<nom_domaine>* ).  
   
--   Les autres noms de sujet doivent être présents sur le certificat qui répertorie le nom de chaque serveur de synchronisation utilisé.
+- Les autres noms de sujet doivent être présents sur le certificat qui répertorie le nom de chaque serveur de synchronisation utilisé.
 
- Le blog Gestion des certificats de Dossiers de travail [blog](https://blogs.technet.microsoft.com/filecab/2013/08/09/work-folders-certificate-management/) fournit des informations supplémentaires sur l’utilisation de certificats avec Dossiers de travail.
+  Le blog Gestion des certificats de Dossiers de travail [blog](https://blogs.technet.microsoft.com/filecab/2013/08/09/work-folders-certificate-management/) fournit des informations supplémentaires sur l’utilisation de certificats avec Dossiers de travail.
   
 ## <a name="step-2-create-dns-records"></a>Étape 2 : créer des enregistrements DNS  
  Pour permettre aux utilisateurs d’effectuer la synchronisation sur Internet, vous devez créer un enregistrement d’hôte (A) dans le DNS public pour autoriser les clients Internet à résoudre votre URL de Dossiers de travail. Cet enregistrement DNS doit être résolu en interface externe du serveur proxy inverse.  
@@ -96,9 +96,9 @@ Add-WindowsFeature FS-SyncShareService
 
 - Un groupe pour tous les administrateurs de Dossiers de travail afin qu’ils puissent modifier un attribut sur chaque objet utilisateur qui lie l’utilisateur au serveur de synchronisation approprié (si vous comptez utiliser plusieurs serveurs de synchronisation)
 
- Les groupes doivent suivre une convention d’affectation de noms standard et ne doivent être utilisés que pour Dossiers de travail afin d’éviter des conflits éventuels avec d’autres exigences de sécurité.
+  Les groupes doivent suivre une convention d’affectation de noms standard et ne doivent être utilisés que pour Dossiers de travail afin d’éviter des conflits éventuels avec d’autres exigences de sécurité.
 
- Pour créer les groupes de sécurité appropriés, utilisez la procédure suivante plusieurs fois, une fois pour chaque partage de synchronisation et une fois pour créer éventuellement un groupe pour les administrateurs des serveurs de fichiers.
+  Pour créer les groupes de sécurité appropriés, utilisez la procédure suivante plusieurs fois, une fois pour chaque partage de synchronisation et une fois pour créer éventuellement un groupe pour les administrateurs des serveurs de fichiers.
 
 #### <a name="to-create-security-groups-for-work-folders"></a>Pour créer des groupes de sécurité pour Dossiers de travail
 
@@ -141,7 +141,7 @@ Set-ADGroup -Add:@{'Member'=$Members} -Identity:$GroupName -Server:$DC
   
 2.  Dans le menu **Outils**, cliquez sur **Utilisateurs et ordinateurs Active Directory**. Le composant Utilisateurs et ordinateurs Active Directory s’affiche.  
   
-3.  Cliquez avec le bouton droit sur l’unité d’organisation sous laquelle figurent tous les objets utilisateur pour Dossiers de travail (si les utilisateurs sont stockés dans plusieurs unités d’organisation ou domaines, cliquez avec le bouton droit sur le conteneur commun à tous les utilisateurs), puis cliquez sur **Délégation de contrôle…**. L’Assistant Délégation de contrôle s’affiche.  
+3.  Cliquez avec le bouton droit sur l’unité d’organisation sous laquelle figurent tous les objets utilisateur pour Dossiers de travail (si les utilisateurs sont stockés dans plusieurs unités d’organisation ou domaines, cliquez avec le bouton droit sur le conteneur commun à tous les utilisateurs), puis cliquez sur **Délégation de contrôle…** . L’Assistant Délégation de contrôle s’affiche.  
   
 4.  Dans la page **Utilisateurs ou groupes**, cliquez sur **Ajouter...** Puis, spécifiez le groupe que vous avez créé pour les administrateurs de Dossiers de travail (par exemple, **Administrateurs de Dossiers de travail**).  
   
@@ -166,38 +166,38 @@ DsAcls $ADGroupPath /I:S /G ""$GroupName":RPWP;msDS-SyncServerUrl;user"
 ## <a name="step-7-create-sync-shares-for-user-data"></a>Étape 7 : créer des partages de synchronisation pour les données utilisateur  
  À ce stade, vous êtes prêt à désigner un dossier sur le serveur de synchronisation pour stocker les fichiers des utilisateurs. Ce dossier est appelé partage de synchronisation et vous pouvez procéder comme suit pour en créer un.  
   
-1.  Si vous ne disposez pas déjà d’un volume NTFS avec de l’espace libre pour le partage de synchronisation et les fichiers utilisateur qu’il contiendra, créez un volume et formatez-le avec le système de fichiers NTFS.  
+1. Si vous ne disposez pas déjà d’un volume NTFS avec de l’espace libre pour le partage de synchronisation et les fichiers utilisateur qu’il contiendra, créez un volume et formatez-le avec le système de fichiers NTFS.  
   
-2.  Dans le Gestionnaire de serveur, cliquez sur **Services de fichiers et de stockage**, puis sur **Dossiers de travail**.  
+2. Dans le Gestionnaire de serveur, cliquez sur **Services de fichiers et de stockage**, puis sur **Dossiers de travail**.  
   
-3.  Une liste de tous les partages de synchronisation existants est visible en haut du volet d’informations. Pour créer un partage de synchronisation, dans le menu **Tâches**, choisissez **Nouveau partage de synchronisation…**. L’Assistant Nouveau partage de synchronisation s’affiche.  
+3. Une liste de tous les partages de synchronisation existants est visible en haut du volet d’informations. Pour créer un partage de synchronisation, dans le menu **Tâches**, choisissez **Nouveau partage de synchronisation…** . L’Assistant Nouveau partage de synchronisation s’affiche.  
   
-4.  Dans la page **Sélectionner le serveur et le chemin d’accès**, indiquez l’emplacement où stocker le partage de synchronisation. Si vous disposez déjà d’un partage de fichiers créé pour ces données utilisateur, vous pouvez choisir ce partage. Vous pouvez aussi créer un dossier.  
+4. Dans la page **Sélectionner le serveur et le chemin d’accès**, indiquez l’emplacement où stocker le partage de synchronisation. Si vous disposez déjà d’un partage de fichiers créé pour ces données utilisateur, vous pouvez choisir ce partage. Vous pouvez aussi créer un dossier.  
   
-    > [!NOTE]
-    >  Par défaut, les partages de synchronisation ne sont pas directement accessibles via un partage de fichiers (sauf si vous choisissez un partage de fichiers existant). Si vous voulez rendre un partage de synchronisation accessible via un partage de fichiers, utilisez la vignette **Partages** du Gestionnaire de serveur ou l’applet de commande [New-SmbShare](https://technet.microsoft.com/library/jj635722.aspx) pour créer un partage de fichiers, de préférence avec l’énumération basée sur l’accès activée.  
+   > [!NOTE]
+   >  Par défaut, les partages de synchronisation ne sont pas directement accessibles via un partage de fichiers (sauf si vous choisissez un partage de fichiers existant). Si vous voulez rendre un partage de synchronisation accessible via un partage de fichiers, utilisez la vignette **Partages** du Gestionnaire de serveur ou l’applet de commande [New-SmbShare](https://technet.microsoft.com/library/jj635722.aspx) pour créer un partage de fichiers, de préférence avec l’énumération basée sur l’accès activée.  
   
-5.  Dans la page **Spécifier la structure des dossiers utilisateur**, choisissez une convention d’affectation de noms pour les dossiers utilisateur dans le partage de synchronisation. Deux options sont disponibles :  
+5. Dans la page **Spécifier la structure des dossiers utilisateur**, choisissez une convention d’affectation de noms pour les dossiers utilisateur dans le partage de synchronisation. Deux options sont disponibles :  
   
-    -   **alias utilisateur** crée des dossiers utilisateur sans nom de domaine. Si vous utilisez un partage de fichiers qui est déjà utilisé avec la redirection de dossiers ou une autre solution de données utilisateur, sélectionnez cette convention d’affectation de noms. Vous pouvez éventuellement activer la case à cocher **Synchroniser uniquement le sous-dossier suivant** pour synchroniser uniquement un sous-dossier spécifique, par exemple le dossier Documents.  
+   - **alias utilisateur** crée des dossiers utilisateur sans nom de domaine. Si vous utilisez un partage de fichiers qui est déjà utilisé avec la redirection de dossiers ou une autre solution de données utilisateur, sélectionnez cette convention d’affectation de noms. Vous pouvez éventuellement activer la case à cocher **Synchroniser uniquement le sous-dossier suivant** pour synchroniser uniquement un sous-dossier spécifique, par exemple le dossier Documents.  
   
-    -   **alias@domain utilisateur** crée des dossiers utilisateur avec un nom de domaine. Si vous n’utilisez pas un partage de fichiers qui est déjà utilisé avec la redirection de dossiers ou une autre solution de données utilisateur, sélectionnez cette convention d’affectation de noms pour éliminer les conflits entre noms de dossier lorsque plusieurs utilisateurs du partage ont des alias identiques (ce qui peut se produire si les utilisateurs appartiennent à des domaines différents).  
+   - <strong>alias@domain utilisateur</strong> crée des dossiers utilisateur avec un nom de domaine. Si vous n’utilisez pas un partage de fichiers qui est déjà utilisé avec la redirection de dossiers ou une autre solution de données utilisateur, sélectionnez cette convention d’affectation de noms pour éliminer les conflits entre noms de dossier lorsque plusieurs utilisateurs du partage ont des alias identiques (ce qui peut se produire si les utilisateurs appartiennent à des domaines différents).  
   
-6.  Dans la page **Entrer le nom du partage de synchronisation**, fournissez un nom et une description pour le partage de synchronisation. Ces informations ne sont pas publiées sur le réseau, mais sont visibles dans le Gestionnaire de serveur et Windows PowerShell pour mieux différencier chacun des partages de synchronisation.  
+6. Dans la page **Entrer le nom du partage de synchronisation**, fournissez un nom et une description pour le partage de synchronisation. Ces informations ne sont pas publiées sur le réseau, mais sont visibles dans le Gestionnaire de serveur et Windows PowerShell pour mieux différencier chacun des partages de synchronisation.  
   
-7.  Dans la page **Accorder aux groupes l’accès à la synchronisation**, indiquez le groupe que vous avez créé et qui répertorie les utilisateurs autorisés à employer ce partage de synchronisation.  
+7. Dans la page **Accorder aux groupes l’accès à la synchronisation**, indiquez le groupe que vous avez créé et qui répertorie les utilisateurs autorisés à employer ce partage de synchronisation.  
   
-    > [!IMPORTANT]
-    >  Pour améliorer les performances et renforcer la sécurité, accordez l’accès à des groupes et non à des utilisateurs individuels et soyez le plus spécifique possible, en évitant des groupes génériques comme Utilisateurs authentifiés et Utilisateurs du domaine. En accordant l’accès à des groupes avec un grand nombre d’utilisateurs, vous augmentez le temps nécessaire à Dossiers de travail pour interroger les services de domaine Active Directory. Si vous disposez d’un grand nombre d’utilisateurs, créez plusieurs partages de synchronisation pour répartir la charge.  
+   > [!IMPORTANT]
+   >  Pour améliorer les performances et renforcer la sécurité, accordez l’accès à des groupes et non à des utilisateurs individuels et soyez le plus spécifique possible, en évitant des groupes génériques comme Utilisateurs authentifiés et Utilisateurs du domaine. En accordant l’accès à des groupes avec un grand nombre d’utilisateurs, vous augmentez le temps nécessaire à Dossiers de travail pour interroger les services de domaine Active Directory. Si vous disposez d’un grand nombre d’utilisateurs, créez plusieurs partages de synchronisation pour répartir la charge.  
   
-8.  Dans la page **Spécifier la stratégie de périphériques**, indiquez s’il convient de demander des restrictions de sécurité sur les PC et appareils clients. Deux stratégies de périphériques peuvent être sélectionnées individuellement :  
+8. Dans la page **Spécifier la stratégie de périphériques**, indiquez s’il convient de demander des restrictions de sécurité sur les PC et appareils clients. Deux stratégies de périphériques peuvent être sélectionnées individuellement :  
   
-    -   **Chiffrer Dossiers de travail** : demande le chiffrement de Dossiers de travail sur les PC et appareils clients  
+   -   **Chiffrer Dossiers de travail** : demande le chiffrement de Dossiers de travail sur les PC et appareils clients  
   
-    -   **Verrouiller automatiquement l’écran et exiger un mot de passe** : demande le verrouillage automatique des écrans des PC et appareils clients après 15 minutes, un mot de passe de six caractères ou plus pour déverrouiller l’écran et l’activation du mode de verrouillage d’un appareil après 10 tentatives échouées  
+   -   **Verrouiller automatiquement l’écran et exiger un mot de passe** : demande le verrouillage automatique des écrans des PC et appareils clients après 15 minutes, un mot de passe de six caractères ou plus pour déverrouiller l’écran et l’activation du mode de verrouillage d’un appareil après 10 tentatives échouées  
   
-        > [!IMPORTANT]
-        >  Pour appliquer les stratégies de mot de passe pour les PC Windows 7 et pour les personnes autres que les administrateurs sur les PC appartenant à un domaine, utilisez les stratégies de mot de passe de stratégie de groupe pour les domaines des ordinateurs et excluez ces domaines des stratégies de mot de passe de Dossiers de travail. Vous pouvez exclure les domaines en utilisant l’applet de commande [Set-Syncshare -PasswordAutoExcludeDomain](https://technet.microsoft.com/library/dn296649\(v=wps.630\).aspx) après la création du partage de synchronisation. Pour plus d'informations sur la définition des stratégies de mot de passe de stratégie de groupe, voir [Stratégie de mot de passe](https://technet.microsoft.com/library/hh994572(v=ws.11).aspx).  
+       > [!IMPORTANT]
+       >  Pour appliquer les stratégies de mot de passe pour les PC Windows 7 et pour les personnes autres que les administrateurs sur les PC appartenant à un domaine, utilisez les stratégies de mot de passe de stratégie de groupe pour les domaines des ordinateurs et excluez ces domaines des stratégies de mot de passe de Dossiers de travail. Vous pouvez exclure les domaines en utilisant l’applet de commande [Set-Syncshare -PasswordAutoExcludeDomain](https://technet.microsoft.com/library/dn296649\(v=wps.630\).aspx) après la création du partage de synchronisation. Pour plus d'informations sur la définition des stratégies de mot de passe de stratégie de groupe, voir [Stratégie de mot de passe](https://technet.microsoft.com/library/hh994572(v=ws.11).aspx).  
   
 9. Passez en revue vos sélections et terminez l’exécution de l’Assistant pour créer le partage de synchronisation.
 
@@ -251,7 +251,7 @@ L’exemple ci-dessus crée un partage de synchronisation nommé *Partage01* ave
 6.  Dans la zone **Valeur à ajouter**, tapez l’URL du serveur de synchronisation avec lequel cet utilisateur doit se synchroniser, cliquez sur **Ajouter**, sur **OK**, puis une nouvelle fois sur **OK**.  
   
     > [!NOTE]
-    >  L’URL du serveur de synchronisation est simplement `https://` ou `http://` (selon si vous souhaitez une connexion sécurisée) suivi du nom de domaine complet du serveur de synchronisation. Par exemple, **https://sync1.contoso.com**.
+    >  L’URL du serveur de synchronisation est simplement `https://` ou `http://` (selon si vous souhaitez une connexion sécurisée) suivi du nom de domaine complet du serveur de synchronisation. Par exemple, **https://sync1.contoso.com** .
 
 Pour remplir l’attribut pour plusieurs utilisateurs, utilisez Active Directory PowerShell. Voici un exemple qui remplit l’attribut pour tous les membres du groupe *Utilisateurs Partage de synchronisation RH*, décrit à l’étape 5.
   
@@ -276,15 +276,15 @@ Pour configurer l’accès à Dossiers de travail à l’aide du proxy d’appli
 
 Si vous disposez d’un grand nombre de PC appartenant à un domaine sur lesquels vous voulez déployer Dossiers de travail, vous pouvez utiliser une stratégie de groupe pour effectuer les tâches de configuration des PC clients suivantes :  
   
--   Indiquer le serveur de synchronisation avec lequel les utilisateurs doivent effectuer la synchronisation  
+- Indiquer le serveur de synchronisation avec lequel les utilisateurs doivent effectuer la synchronisation  
   
--   Forcer la configuration automatique de Dossiers de travail, en utilisant les paramètres par défaut (passez en revue la discussion sur la stratégie de groupe dans [Conception d’une implémentation de Dossiers de travail](plan-work-folders.md) avant d’effectuer cette opération)  
+- Forcer la configuration automatique de Dossiers de travail, en utilisant les paramètres par défaut (passez en revue la discussion sur la stratégie de groupe dans [Conception d’une implémentation de Dossiers de travail](plan-work-folders.md) avant d’effectuer cette opération)  
   
- Pour contrôler ces paramètres, créez un objet de stratégie de groupe pour Dossiers de travail, puis configurez les paramètres de stratégie de groupe suivants selon les besoins :  
+  Pour contrôler ces paramètres, créez un objet de stratégie de groupe pour Dossiers de travail, puis configurez les paramètres de stratégie de groupe suivants selon les besoins :  
   
--   Paramètre de stratégie « Spécifier les paramètres de Dossiers de travail » dans Configuration utilisateur\Stratégies\Modèles d’administration\Composants Windows\Dossiers de travail  
+- Paramètre de stratégie « Spécifier les paramètres de Dossiers de travail » dans Configuration utilisateur\Stratégies\Modèles d’administration\Composants Windows\Dossiers de travail  
   
--   Paramètre de stratégie « Forcer la configuration automatique pour tous les utilisateurs » dans Configuration ordinateur\Stratégies\Modèles d’administration\Composants Windows\Dossiers de travail  
+- Paramètre de stratégie « Forcer la configuration automatique pour tous les utilisateurs » dans Configuration ordinateur\Stratégies\Modèles d’administration\Composants Windows\Dossiers de travail  
   
 > [!NOTE]
 >  Ces paramètres de stratégie ne sont disponibles que lors de la modification de la stratégie de groupe à partir d'un ordinateur exécutant la gestion des stratégies de groupe sur Windows 8.1, Windows Server 2012 R2 ou versions ultérieures. Ce paramètre n’est pas disponible dans les versions de la gestion des stratégies de groupe de systèmes d’exploitation antérieurs. Ces paramètres de stratégie s’appliquent aux PC Windows 7 sur lesquels l'application [Dossiers de travail pour Windows 7](http://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) a été installée.  

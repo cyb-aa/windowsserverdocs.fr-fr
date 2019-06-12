@@ -5,12 +5,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c647e8a335aac924067d92dcb41ab4d17e0cceef
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c27dd0602c5993fd84e6956c2f50f6e2bfec8691
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884860"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435471"
 ---
 # <a name="server-performance-advisor-pack-development-guide"></a>Guide de développement de packs Server Performance Advisor
 
@@ -55,7 +55,7 @@ Un pack de l’Assistant inclut les éléments suivants :
 
 ### <a name="advisor-pack-workflow"></a>Flux de travail de pack Advisor
 
-![flux de travail de pack Advisor](../media/server-performance-advisor/spa-dev-guide-workflow.png)
+![Flux de travail de pack Advisor](../media/server-performance-advisor/spa-dev-guide-workflow.png)
 
 Dans ce diagramme de flux, les cercles verts représentent les packs d’advisor. Tous les autres cercles représentent les phases qui sont en cours d’exécution en cours de l’infrastructure d’application à page unique. SPA utilise un pack de l’Assistant pour collecter des données, importer les données dans la base de données, initialiser l’environnement d’exécution et exécuter des scripts SQL.
 
@@ -276,7 +276,8 @@ KeytypeId | smallint non NULL | Id de type interne
 Value | Nvarchar(4000) NOT NULL | Toutes les valeurs
 
 Le **KeytypeID** colonne peut avoir un des types suivants :
-ID | Type
+
+ID | type
 --- | ---
 1 | Chaîne
 2 | expandString
@@ -363,7 +364,7 @@ Le **intervalle** attribut est un paramètre global requis pour tous les compteu
 
 Dans l’exemple précédent, compteur \\PhysicalDisk (\*)\\moy. Disque s/transfert doivent être interrogée à chaque seconde.
 
-Il peut y avoir deux instances : **\_Total** et **0 C: D:**, et la sortie peut se présenter comme suit :
+Il peut y avoir deux instances : **\_Total** et **0 C: D:** , et la sortie peut se présenter comme suit :
 
 Horodatage | CategoryName | CounterName | Valeur de l’instance de _Total | Valeur de l’instance du lecteur C: 0 D:
 ---- | ---- | ---- | ---- | ----
@@ -449,7 +450,7 @@ Voici un exemple d’une règle simple de s :
 
 ``` syntax
 <advisorPack>
-   
+
   <reportDefinition>
     <thresholds>
       <threshold  />
@@ -589,7 +590,7 @@ Le groupe suivant de la valeur unique possède un attribut, **section**, et il p
 
 Un groupe de valeurs unique et une table de valeurs de liste contiennent différents types de données, tels que chaîne, int et float. Étant donné que ces valeurs sont stockées dans la base de données SQL Server, vous pouvez définir un type de données SQL pour chaque propriété de données. Toutefois, il est beaucoup plus compliquée de définition d’un type de données SQL. Vous devez spécifier la longueur ou la précision, qui peut-être être sujette à modification.
 
-Pour définir les types de données logiques, vous pouvez utiliser le premier enfant de  **&lt;ReportDefinition est /&gt;**, c'est-à-dire dans laquelle vous pouvez définir un mappage de type de données SQL et votre type de logique.
+Pour définir les types de données logiques, vous pouvez utiliser le premier enfant de  **&lt;ReportDefinition est /&gt;** , c'est-à-dire dans laquelle vous pouvez définir un mappage de type de données SQL et votre type de logique.
 
 L’exemple suivant définit deux types de données. Un est **chaîne** et l’autre est **companyCode**.
 
@@ -610,7 +611,7 @@ Un nom de type de données peut être n’importe quelle chaîne valide. Voici u
 
 * date
 
-* DateHeure
+* datetime
 
 * datetime2
 
@@ -668,7 +669,7 @@ Une valeur unique doit avoir un attribut de nom unique global. Dans cet exemple,
 
 Vous pouvez ne définir plusieurs groupes de valeur unique, aucun deux noms de valeur unique peuvent être le même, même si elles se trouvent dans différents groupes. Le nom de valeur unique est utilisé par le rapport de script SQL pour définir la valeur en conséquence.
 
-Vous pouvez définir un type de données pour chaque valeur unique. L’entrée autorisée pour **type** est défini dans  **&lt;datatype /&gt;**. Le rapport final pourrait ressembler à ceci :
+Vous pouvez définir un type de données pour chaque valeur unique. L’entrée autorisée pour **type** est défini dans  **&lt;datatype /&gt;** . Le rapport final pourrait ressembler à ceci :
 
 **Facts**
 
@@ -702,7 +703,7 @@ L’interface utilisateur fictif de l’état final peut se présenter comme sui
 
 **Informations de carte réseau physique**
 
-ID | Nom | Type | Vitesse (Mbits/s) | Adresse MAC
+ID | Nom | type | Vitesse (Mbits/s) | Adresse MAC
 --- | --- | --- | --- | ---
  | <br> | | |
  | | | |
@@ -941,7 +942,7 @@ DECLARE @freediskSize FLOat
 exec dbo.GetThreshold N freediskSize , @freediskSize output
 
 if (@freediskSizeInGB < @freediskSize)
- 
+
 ```
 
 ### <a name="set-or-remove-the-single-value"></a>Définir ou supprimer la valeur unique
@@ -1033,7 +1034,7 @@ INSERT INTO #NetworkAdapterInformation (
   MACaddress
 )
 VALUES (
-   
+
 )
 ```
 
@@ -1091,7 +1092,7 @@ La console SPA permettre s’exécuter dans deux modes, Debug ou Release. Mode d
 
     **Remarque** vous pouvez également appuyer sur F11 pour avancer dans l’instruction précédente et le débogage.
 
-     
+
 
 En cours d’exécution \[dbo\].\[ DebugReportScript\] retourne plusieurs jeux de résultats, y compris :
 
@@ -1109,9 +1110,9 @@ En cours d’exécution \[dbo\].\[ DebugReportScript\] retourne plusieurs jeux d
 
 ### <a name="naming-convention-and-styles"></a>Styles et la convention d’affectation de noms
 
-Pascal casse | Casse mixte | majuscules
---- | ---- | ---
-<ul><li>Noms dans ProvisionMetadata.xml</li><li>Procédures stockées</li><li>Fonctions</li><li>Noms de vues</li><li>Noms de tables temporaires</li></ul> | <ul><li>Noms de paramètres</li><li>Variables locales</li></ul> | Utilisation pour tous les mots-clés réservés SQL
+|                                                                 Pascal casse                                                                 |                       Casse mixte                        |             majuscules             |
+|-----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|-----------------------------------|
+| <ul><li>Noms dans ProvisionMetadata.xml</li><li>Procédures stockées</li><li>Fonctions</li><li>Noms de vues</li><li>Noms de tables temporaires</li></ul> | <ul><li>Noms de paramètres</li><li>Variables locales</li></ul> | Utilisation pour tous les mots-clés réservés SQL |
 
 ### <a name="other-recommendations"></a>Autres recommandations
 
@@ -1143,13 +1144,13 @@ L’exemple suivant montre le flux de travail pour l’exécution de deux packs 
 
 L’ensemble de collecteurs de données de fusion est uniquement pour collecter les compteurs de performances et de sources de données ETW. Les règles de fusion suivantes s’appliquent :
 
-1.  SPA prend la durée la plus importante en tant que la nouvelle durée.
+1. SPA prend la durée la plus importante en tant que la nouvelle durée.
 
-2.  S’il existe des conflits de fusion, les règles suivantes sont appliquent :
+2. S’il existe des conflits de fusion, les règles suivantes sont appliquent :
 
-    1.  Prendre le plus petit intervalle en tant que le nouvel intervalle.
+   1. Prendre le plus petit intervalle en tant que le nouvel intervalle.
 
-    2.  Prendre le jeu super des compteurs de performance. Par exemple, avec **processus (\*)\\% temps processeur** et **processus (\*)\\\*,\\processus (\*)\\ \***  retourne plus de données, de sorte que **processus (\*)\\% temps processeur** et **processus (\*)\\ \***  est supprimé de l’ensemble de collecteurs de données fusionnées.
+   2. Prendre le jeu super des compteurs de performance. Par exemple, avec **processus (\*)\\% temps processeur** et **processus (\*)\\\*,\\processus (\*)\\ \\** * retourne plus de données, de sorte que **processus (\*)\\% temps processeur** et **processus (\*)\\ \\** * est supprimé de l’ensemble de collecteurs de données fusionnées.
 
 ### <a name="collect-dynamic-data"></a>Collecter des données dynamiques
 
@@ -1169,7 +1170,7 @@ Elle retourne une liste d’objets de carte réseau. Chaque objet possède une p
 ROOT\*ISatAP\0001
 PCI\VEN_8086&DEV_4238&SUBSYS_11118086&REV_35\4&372A6B86&0&00E4
 ROOT\*IPHTTPS\0000
- 
+
 ```
 
 Pour rechercher le **FriendlyName** valeur, ouvrez l’Éditeur du Registre et accédez au paramètre de Registre en combinant **HKEY\_LOCAL\_MACHINE\\système\\ CurrentControlSet\\Enum\\**  avec chaque ligne dans l’exemple précédent. , par exemple : **Clé HKEY\_LOCAL\_MACHINE\\système\\CurrentControlSet\\Enum\\ racine\\\*IPHTTPS\\0000**.
@@ -1188,7 +1189,7 @@ Pour traduire les étapes précédentes dans les métadonnées de fourniture de 
 </managementpaths>
 ```
 
-Dans cet exemple, vous allez tout d’abord ajouter une requête WMI sous managementpaths et définir le nom de clé **NetworkAdapter**. Ensuite, vous ajoutez une clé de Registre et faire référence à **NetworkAdapter** en utilisant la syntaxe, **$(NetworkAdapter.PNPDeviceID)**.
+Dans cet exemple, vous allez tout d’abord ajouter une requête WMI sous managementpaths et définir le nom de clé **NetworkAdapter**. Ensuite, vous ajoutez une clé de Registre et faire référence à **NetworkAdapter** en utilisant la syntaxe, **$(NetworkAdapter.PNPDeviceID)** .
 
 Le tableau suivant définit si un collecteur de données de SPA prend en charge les données dynamiques et s’il peut être référencé par d’autres collecteurs de données :
 
@@ -1216,7 +1217,7 @@ Et un exemple de WMI :
 <path name="wmi">Root\Cimv2:select PNPDeviceID FROM Win32_NetworkAdapter</path>
 ```
 
-Pour définir un collecteur de données dépendants, la syntaxe suivante est utilisée : $(*{name}*.*attribut {}*).
+Pour définir un collecteur de données dépendants, la syntaxe suivante est utilisée : $( *{name}* .*attribut {}* ).
 
 *{name}*  et *{attribut}* sont des espaces réservés.
 
@@ -1311,7 +1312,7 @@ Ici, s comment définir ETW dans un fichier ProvisionMetadata.xml :
 
 Les attributs de fournisseur suivants sont disponibles à utiliser pour la collecte ETW :
 
-Attribut | Type | Description
+Attribut | type | Description
 --- | --- | ---
 GUID | GUID | GUID du fournisseur
 session | chaîne | Nom de la session ETW (facultatif, requis uniquement pour les événements de noyau)
