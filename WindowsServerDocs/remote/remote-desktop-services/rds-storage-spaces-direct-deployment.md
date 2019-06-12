@@ -13,16 +13,16 @@ author: haley-rowland
 ms.author: harowl
 ms.date: 07/17/2018
 manager: scottman
-ms.openlocfilehash: 8af3a389ec726bbb5ebd62db57d9b3a9861ac63f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 792c9320f6976a4fc7f2ccd235f66daa0cb19b19
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890960"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805190"
 ---
 # <a name="deploy-a-two-node-storage-spaces-direct-scale-out-file-server-for-upd-storage-in-azure"></a>Déployer un serveur de fichiers de montée en puissance espaces de stockage Direct de deux nœuds pour le stockage UPD dans Azure
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Services Bureau à distance (RDS) nécessite un serveur de fichiers joints au domaine pour les disques de profil utilisateur (UPD). Pour déployer un serveur de fichiers de montée en puissance joints au domaine de haute disponibilité (SOFS) dans Azure, utiliser les espaces de stockage Direct avec Windows Server 2016. Si vous n’êtes pas familiarisé avec les UPD ou des Services Bureau à distance, consultez [Bienvenue aux Services Bureau à distance](welcome-to-rds.md).
 
@@ -66,7 +66,7 @@ Utilisez les étapes suivantes pour créer un contrôleur de domaine (nous avons
       - Utiliser un réseau virtuel généré automatiquement.
       - Suivez les étapes pour installer les services AD DS.
 5. Configurer les nœuds de cluster de serveurs de fichiers. Vous pouvez le faire en déployant le [cluster Windows Server 2016 stockage sofs avec espaces Direct modèle Azure](https://azure.microsoft.com/resources/templates/301-storage-spaces-direct/) ou en suivant les étapes 6 à 11 pour déployer manuellement.
-5. Pour configurer manuellement les nœuds de cluster de serveurs de fichiers :
+6. Pour configurer manuellement les nœuds de cluster de serveurs de fichiers :
    1. Créer le premier nœud : 
       1. Créer une machine virtuelle à l’aide de l’image Windows Server 2016. (Cliquez sur **Nouveau > Machines virtuelles > Windows Server 2016.** Sélectionnez **Resource Manager**, puis cliquez sur **créer**.)
       2. Définissez la configuration de base comme suit :
@@ -80,59 +80,59 @@ Utilisez les étapes suivantes pour créer un contrôleur de domaine (nous avons
    2. Créez le second nœud. Répétez l’étape précédente avec les modifications suivantes :
       - Nom : my-fsn2
       - Haute disponibilité : sélectionnez que la groupe à haute disponibilité vous créé ci-dessus.  
-6. [Attacher des disques de données](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-attach-disk-portal/) au nœud de cluster des machines virtuelles en fonction de votre utilisateur a besoin (comme indiqué dans le tableau ci-dessus). Une fois que les données des disques sont créés et attachés à la machine virtuelle, définissez **héberger la mise en cache** à **aucun**.
-7. Définir des adresses IP pour toutes les machines virtuelles à **statique**. 
+7. [Attacher des disques de données](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-attach-disk-portal/) au nœud de cluster des machines virtuelles en fonction de votre utilisateur a besoin (comme indiqué dans le tableau ci-dessus). Une fois que les données des disques sont créés et attachés à la machine virtuelle, définissez **héberger la mise en cache** à **aucun**.
+8. Définir des adresses IP pour toutes les machines virtuelles à **statique**. 
    1. Dans le groupe de ressources, sélectionnez une machine virtuelle, puis cliquez sur **interfaces réseau** (sous **paramètres**). Sélectionnez l’interface réseau répertoriée, puis cliquez sur **Configurations IP**. Sélectionnez la configuration IP répertoriées, sélectionnez **statique**, puis cliquez sur **enregistrer**.
    2. Notez le domaine contrôleur (my-dc pour notre exemple) adresse IP privée (10.x.x.x).
-8. Définir l’adresse du serveur DNS principal sur les cartes réseau du nœud de cluster des machines virtuelles au serveur mon contrôleur de domaine. Sélectionnez la machine virtuelle, puis cliquez sur **Interfaces réseau > serveurs DNS > DNS personnalisé**. Entrez l’adresse IP privée que vous avez notée ci-dessus, puis cliquez sur **enregistrer**.
-9. Créer un [compte de stockage Azure pour être votre témoin de cloud](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). (Si vous utilisez les instructions liées, arrêter quand vous accédez à « Configuration Cloud témoin avec basculement Cluster Manager interface graphique utilisateur » ; nous allons faire cette étape ci-dessous).
-10. Configurer le serveur de fichiers espaces de stockage Direct. Se connecter à un machine virtuelle du nœud et exécutez les applets de commande Windows PowerShell suivante.
-   1. Installer la fonctionnalité de Clustering de basculement et la fonctionnalité de serveur de fichiers sur le nœud de cluster de serveur de deux fichiers machines virtuelles :
+9. Définir l’adresse du serveur DNS principal sur les cartes réseau du nœud de cluster des machines virtuelles au serveur mon contrôleur de domaine. Sélectionnez la machine virtuelle, puis cliquez sur **Interfaces réseau > serveurs DNS > DNS personnalisé**. Entrez l’adresse IP privée que vous avez notée ci-dessus, puis cliquez sur **enregistrer**.
+10. Créer un [compte de stockage Azure pour être votre témoin de cloud](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). (Si vous utilisez les instructions liées, arrêter quand vous accédez à « Configuration Cloud témoin avec basculement Cluster Manager interface graphique utilisateur » ; nous allons faire cette étape ci-dessous).
+11. Configurer le serveur de fichiers espaces de stockage Direct. Se connecter à un machine virtuelle du nœud et exécutez les applets de commande Windows PowerShell suivante.
+    1. Installer la fonctionnalité de Clustering de basculement et la fonctionnalité de serveur de fichiers sur le nœud de cluster de serveur de deux fichiers machines virtuelles :
 
-      ```powershell
-      $nodes = ("my-fsn1", "my-fsn2")
-      icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools} 
-      icm $nodes {Install-WindowsFeature FS-FileServer} 
-      ```
-   2. Valider des machines virtuelles de nœud de cluster et créer le cluster SOFS à 2 nœuds :
+       ```powershell
+       $nodes = ("my-fsn1", "my-fsn2")
+       icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools} 
+       icm $nodes {Install-WindowsFeature FS-FileServer} 
+       ```
+    2. Valider des machines virtuelles de nœud de cluster et créer le cluster SOFS à 2 nœuds :
 
-      ```powershell
-      Test-Cluster -node $nodes
-      New-Cluster -Name MY-CL1 -Node $nodes –NoStorage –StaticAddress [new address within your addr space]
-      ``` 
-   3. Configurer le témoin de cloud. Utilisez votre témoin compte accès et le nom clé de stockage cloud.
+       ```powershell
+       Test-Cluster -node $nodes
+       New-Cluster -Name MY-CL1 -Node $nodes –NoStorage –StaticAddress [new address within your addr space]
+       ``` 
+    3. Configurer le témoin de cloud. Utilisez votre témoin compte accès et le nom clé de stockage cloud.
 
-      ```powershell
-      Set-ClusterQuorum –CloudWitness –AccountName <StorageAccountName> -AccessKey <StorageAccountAccessKey> 
-      ```
-   4. Activer les espaces de stockage Direct.
+       ```powershell
+       Set-ClusterQuorum –CloudWitness –AccountName <StorageAccountName> -AccessKey <StorageAccountAccessKey> 
+       ```
+    4. Activer les espaces de stockage Direct.
 
-      ```powershell
-      Enable-ClusterS2D 
-      ```
+       ```powershell
+       Enable-ClusterS2D 
+       ```
       
-   5. Créer un volume de disque virtuel.
+    5. Créer un volume de disque virtuel.
 
-      ```powershell
-      New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 120GB 
-      ```
-      Pour afficher des informations sur le volume partagé de cluster sur le cluster SOFS, exécutez l’applet de commande suivante :
+       ```powershell
+       New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 120GB 
+       ```
+       Pour afficher des informations sur le volume partagé de cluster sur le cluster SOFS, exécutez l’applet de commande suivante :
 
-      ```powershell
-      Get-ClusterSharedVolume
-      ```
+       ```powershell
+       Get-ClusterSharedVolume
+       ```
    
-   6. Créer le serveur de fichiers de montée en puissance (parallèle SOFS) :
+    6. Créer le serveur de fichiers de montée en puissance (parallèle SOFS) :
 
-      ```powershell
-      Add-ClusterScaleOutFileServerRole -Name my-sofs1 -Cluster MY-CL1
-      ```
+       ```powershell
+       Add-ClusterScaleOutFileServerRole -Name my-sofs1 -Cluster MY-CL1
+       ```
 
-   7. Créer un nouveau partage de fichiers SMB sur le cluster SOFS.
+    7. Créer un nouveau partage de fichiers SMB sur le cluster SOFS.
 
-      ```powershell
-      New-Item -Path C:\ClusterStorage\Volume1\Data -ItemType Directory
-      New-SmbShare -Name UpdStorage -Path C:\ClusterStorage\Volume1\Data
-      ```
+       ```powershell
+       New-Item -Path C:\ClusterStorage\Volume1\Data -ItemType Directory
+       New-SmbShare -Name UpdStorage -Path C:\ClusterStorage\Volume1\Data
+       ```
 
-Vous disposez maintenant d’un partage à &#92;\my-sofs1\UpdStorage, que vous pouvez utiliser pour le stockage UPD lorsque vous [activer UPD](https://social.technet.microsoft.com/wiki/contents/articles/15304.installing-and-configuring-user-profile-disks-upd-in-windows-server-2012.aspx) pour vos utilisateurs. 
+Vous disposez maintenant d’un partage à `\\my-sofs1\UpdStorage`, que vous pouvez utiliser pour le stockage UPD lorsque vous [activer UPD](https://social.technet.microsoft.com/wiki/contents/articles/15304.installing-and-configuring-user-profile-disks-upd-in-windows-server-2012.aspx) pour vos utilisateurs. 

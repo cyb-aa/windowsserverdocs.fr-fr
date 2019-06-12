@@ -12,12 +12,12 @@ ms.assetid: f5861ae9-77cb-4d37-b4c5-8f0757213385
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 929c7506c78667646e429c4f28df7e5642c575ab
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93f5bdb615adf56b81a1c4c93f802f6da4e48c1b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841150"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432612"
 ---
 # <a name="prepare-your-source-server-for-windows-server-essentials-migration1"></a>Préparer votre serveur Source pour Windows Server Essentials migration1
 
@@ -89,20 +89,20 @@ Effectuez les étapes préliminaires suivantes afin de vous assurer que les para
   
 ###### <a name="to-use-the-windows-server-solutions-bpa-to-analyze-your-source-server"></a>Pour utiliser l'outil BPA des solutions Windows Server afin d'analyser votre serveur source  
   
-1.  Téléchargez et installez [Windows Server Solutions Best Practices Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=15556) à partir du Centre de téléchargement Microsoft.  
+1. Téléchargez et installez [Windows Server Solutions Best Practices Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=15556) à partir du Centre de téléchargement Microsoft.  
   
-2.  Une fois le téléchargement terminé, cliquez sur **Démarrer**, pointez sur **Tous les programmes**, puis cliquez sur **Outil Best Practices Analyzer SBS**.  
+2. Une fois le téléchargement terminé, cliquez sur **Démarrer**, pointez sur **Tous les programmes**, puis cliquez sur **Outil Best Practices Analyzer SBS**.  
   
-    > [!NOTE]
-    >  Recherchez les mises à jour avant d’analyser le serveur.  
+   > [!NOTE]
+   >  Recherchez les mises à jour avant d’analyser le serveur.  
   
-3.  Dans le volet de navigation, cliquez sur **Démarrer une analyse**.  
+3. Dans le volet de navigation, cliquez sur **Démarrer une analyse**.  
   
-4.  Dans le volet d'informations, tapez le libellé de l'analyse, puis cliquez sur **Démarrer l'analyse**. Le libellé d’analyse correspond au nom du rapport d’analyse (**SBS BPA Scan 1Jul2012**, par exemple).  
+4. Dans le volet d'informations, tapez le libellé de l'analyse, puis cliquez sur **Démarrer l'analyse**. Le libellé d’analyse correspond au nom du rapport d’analyse (**SBS BPA Scan 1Jul2012**, par exemple).  
   
-5.  Une fois l’analyse terminée, cliquez sur **Afficher un rapport de cette analyse Best Practices**.  
+5. Une fois l’analyse terminée, cliquez sur **Afficher un rapport de cette analyse Best Practices**.  
   
- Une fois la collecte d'informations sur la configuration du serveur effectuée, l'outil BPA des solutions Windows Server vérifie que les informations sont correctes et présente ensuite aux administrateurs la liste des informations et des problèmes classés par niveau de gravité. La liste décrit chaque problème et fournit une recommandation ou une solution possible. Trois types de rapports sont disponibles :  
+   Une fois la collecte d'informations sur la configuration du serveur effectuée, l'outil BPA des solutions Windows Server vérifie que les informations sont correctes et présente ensuite aux administrateurs la liste des informations et des problèmes classés par niveau de gravité. La liste décrit chaque problème et fournit une recommandation ou une solution possible. Trois types de rapports sont disponibles :  
   
 |Type de rapport|Description|  
 |-----------------|-----------------|  
@@ -140,25 +140,25 @@ Effectuez les étapes préliminaires suivantes afin de vous assurer que les para
   
 ##### <a name="to-verify-that-you-have-the-appropriate-permissions-to-run-the-tool-on-the-source-server"></a>Pour vérifier que vous disposez des autorisations appropriées pour exécuter l'outil sur le serveur source  
   
-1.  Sur le serveur source, cliquez sur **Démarrer**, **Outils d’administration**, puis sur **Utilisateurs et ordinateurs Active Directory**.  
+1. Sur le serveur source, cliquez sur **Démarrer**, **Outils d’administration**, puis sur **Utilisateurs et ordinateurs Active Directory**.  
   
-2.  Dans l'arborescence de la console, développez votre domaine, puis cliquez sur **Utilisateurs**.  
+2. Dans l'arborescence de la console, développez votre domaine, puis cliquez sur **Utilisateurs**.  
   
-3.  Cliquez avec le bouton droit de la souris sur le compte d’administrateur que vous utilisez pour la migration, puis cliquez sur **Propriétés**.  
+3. Cliquez avec le bouton droit de la souris sur le compte d’administrateur que vous utilisez pour la migration, puis cliquez sur **Propriétés**.  
   
-4.  Cliquez sur l’onglet **Membre de**, puis vérifiez que les groupes Administrateurs d’entreprise, Administrateurs du schéma et Admins du domaine sont répertoriés dans la zone de texte **Membre de**.  
+4. Cliquez sur l’onglet **Membre de**, puis vérifiez que les groupes Administrateurs d’entreprise, Administrateurs du schéma et Admins du domaine sont répertoriés dans la zone de texte **Membre de**.  
   
-5.  Si les groupes ne sont pas répertoriés, cliquez sur **Ajouter**, puis ajoutez chaque groupe qui n’est pas répertorié.  
+5. Si les groupes ne sont pas répertoriés, cliquez sur **Ajouter**, puis ajoutez chaque groupe qui n’est pas répertorié.  
   
-    > [!NOTE]
-    >  -   Il se peut que vous receviez une notification d'erreur d'autorisation d'accès si le service Netlogon n'est pas démarré.  
-    > -   Vous devez vous déconnecter du serveur et vous reconnecter pour que les modifications prennent effet.  
+   > [!NOTE]
+   > - Il se peut que vous receviez une notification d'erreur d'autorisation d'accès si le service Netlogon n'est pas démarré.  
+   >   -   Vous devez vous déconnecter du serveur et vous reconnecter pour que les modifications prennent effet.  
   
-     Vous pouvez utiliser la dernière version de l'Agent de mise à jour automatique Windows Update pour vous assurer que le processus de mise à jour du serveur fonctionne correctement.  
+    Vous pouvez utiliser la dernière version de l'Agent de mise à jour automatique Windows Update pour vous assurer que le processus de mise à jour du serveur fonctionne correctement.  
   
- Vous pouvez utiliser la dernière version de l'Agent de mise à jour automatique Windows Update pour vous assurer que le processus de mise à jour du serveur fonctionne correctement.  
+   Vous pouvez utiliser la dernière version de l'Agent de mise à jour automatique Windows Update pour vous assurer que le processus de mise à jour du serveur fonctionne correctement.  
   
- Vous pouvez installer l’Agent Windows Update sur le serveur Source, vous devez d’abord installer Windows PowerShell 2.0 et Microsoft Baseline Configuration Analyzer 2.0.  
+   Vous pouvez installer l’Agent Windows Update sur le serveur Source, vous devez d’abord installer Windows PowerShell 2.0 et Microsoft Baseline Configuration Analyzer 2.0.  
   
 -   Pour télécharger et installer Windows PowerShell 2.0, consultez [article 968929](https://go.microsoft.com/fwlink/p/?LinkId=241483) dans la Base de connaissances Microsoft.  
   
@@ -168,34 +168,34 @@ Effectuez les étapes préliminaires suivantes afin de vous assurer que les para
   
 ##### <a name="to-install-and-run-the-migration-preparation-tool-on-the-source-server"></a>Pour installer et exécuter l'outil de préparation de la migration sur le serveur source.  
   
-1.  Insérez le DVD 1 de Windows Server Essentials dans le lecteur de DVD sur le serveur Source.  
+1. Insérez le DVD 1 de Windows Server Essentials dans le lecteur de DVD sur le serveur Source.  
   
-2.  Ouvrez l'Explorateur Windows, accédez au dossier **\support\tools** du DVD, puis double-cliquez sur le fichier **sourcetool.msi**.  
+2. Ouvrez l'Explorateur Windows, accédez au dossier **\support\tools** du DVD, puis double-cliquez sur le fichier **sourcetool.msi**.  
   
-    > [!NOTE]
-    >  -   Si l'outil de préparation de la migration est déjà installé sur le serveur, exécutez-le à partir du menu **Démarrer**.  
-    > -   Afin de vous assurer d'obtenir le meilleur environnement de migration possible, il est recommandé de toujours choisir d’installer la mise à jour la plus récente.  
+   > [!NOTE]
+   > - Si l'outil de préparation de la migration est déjà installé sur le serveur, exécutez-le à partir du menu **Démarrer**.  
+   >   -   Afin de vous assurer d'obtenir le meilleur environnement de migration possible, il est recommandé de toujours choisir d’installer la mise à jour la plus récente.  
   
-     L’Assistant installe l’outil de préparation de la migration sur le serveur source. Lorsque l’installation est terminée, l’outil de préparation de la migration s’exécute automatiquement et installe les dernières mises à jour.  
+    L’Assistant installe l’outil de préparation de la migration sur le serveur source. Lorsque l’installation est terminée, l’outil de préparation de la migration s’exécute automatiquement et installe les dernières mises à jour.  
   
-3.  Dans l'Outil de préparation de la migration, sélectionnez **J'ai une sauvegarde et suis prêt à continuer**, puis cliquez sur **Suivant**.  
+3. Dans l'Outil de préparation de la migration, sélectionnez **J'ai une sauvegarde et suis prêt à continuer**, puis cliquez sur **Suivant**.  
   
-    > [!WARNING]
-    >  Si vous recevez un message d’erreur relatif à l’installation d’un correctif, consultez la méthode 2 : Renommer le dossier Catroot2 dans [article 822798](https://go.microsoft.com/FWLink/p/?LinkID=118672) dans la Base de connaissances Microsoft.  
+   > [!WARNING]
+   >  Si vous recevez un message d’erreur relatif à l’installation d’un correctif, consultez la méthode 2 : Renommer le dossier Catroot2 dans [article 822798](https://go.microsoft.com/FWLink/p/?LinkID=118672) dans la Base de connaissances Microsoft.  
   
-     L'outil de préparation de la migration prépare le domaine source pour la migration en étendant le schéma Active Directory. Une fois la tâche terminée, cliquez sur **Suivant** pour continuer.  
+    L'outil de préparation de la migration prépare le domaine source pour la migration en étendant le schéma Active Directory. Une fois la tâche terminée, cliquez sur **Suivant** pour continuer.  
   
-4.  Une fois la préparation du domaine source effectuée, l'outil de préparation de la migration analyse le serveur source afin d'identifier deux types de problèmes potentiels.  
+4. Une fois la préparation du domaine source effectuée, l'outil de préparation de la migration analyse le serveur source afin d'identifier deux types de problèmes potentiels.  
   
-    -   **Erreurs** problèmes trouvés sur le serveur Source qui peuvent bloquer la migration ou provoquer son échec. Suivez les instructions figurant dans le message d'erreur afin de corriger les erreurs, puis cliquez sur **Relancer l'analyse**.  
+   - **Erreurs** problèmes trouvés sur le serveur Source qui peuvent bloquer la migration ou provoquer son échec. Suivez les instructions figurant dans le message d'erreur afin de corriger les erreurs, puis cliquez sur **Relancer l'analyse**.  
   
-    -   **Avertissements** problèmes trouvés sur le serveur Source qui peut provoquer des problèmes fonctionnels pendant la migration. Il est fortement recommandé de suivre les instructions figurant dans le message d'erreur afin de résoudre les problèmes avant la migration.  
+   - **Avertissements** problèmes trouvés sur le serveur Source qui peut provoquer des problèmes fonctionnels pendant la migration. Il est fortement recommandé de suivre les instructions figurant dans le message d'erreur afin de résoudre les problèmes avant la migration.  
   
      Une fois tous les problèmes reconnus et corrigés, cliquez sur **Suivant**.  
   
-5.  Dans l'outil de préparation de la migration, cliquez sur **Terminer**.  
+5. Dans l'outil de préparation de la migration, cliquez sur **Terminer**.  
   
-6.  Lorsque l’outil de préparation de Migration se termine, vous pouvez être invité à redémarrer le serveur Source avant de commencer la migration vers Windows Server Essentials.  
+6. Lorsque l’outil de préparation de Migration se termine, vous pouvez être invité à redémarrer le serveur Source avant de commencer la migration vers Windows Server Essentials.  
   
 > [!NOTE]
 >  Vous devez effectuer une exécution réussie de l’outil de préparation de Migration sur le serveur Source dans les deux semaines suivant l’installation de Windows Server Essentials sur le serveur de Destination. Sinon, l’installation de Windows Server Essentials sur le serveur de Destination sera bloquée. Si tel est le cas, vous devez exécuter de nouveau l'outil de préparation de la migration sur le serveur source.  

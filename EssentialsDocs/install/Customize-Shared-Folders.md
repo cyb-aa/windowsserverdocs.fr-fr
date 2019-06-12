@@ -12,12 +12,12 @@ ms.assetid: 47bc4986-14eb-4a29-9930-83a25704a3a0
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 552a76ba9c2ff385f1ff09d4869eaeb6613027a7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d8f52cbe76204bb00cb15c3093f69daf3d8abb6e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823470"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433534"
 ---
 # <a name="customize-shared-folders"></a>Personnalisation des dossiers partagés
 
@@ -25,33 +25,33 @@ ms.locfileid: "59823470"
 
 Les dossiers du serveur sont créés par défaut sur la plus grande partition de données sur le disque 0. Les partenaires peuvent personnaliser l'emplacement et spécifier des dossiers de serveurs supplémentaires en suivant les étapes suivantes :  
   
-1.  À l'aide d'une configuration de partition personnalisée, créer l'image d'usine, puis créer une nouvelle clé de registre de stockage avant d'utiliser sysprep. Au cours de la configuration initiale (IC), la tâche de stockage IC vérifie cette clé de registre. Si elle existe, les dossiers du serveur sont créés par défaut dans le répertoire C:\ServerFolders.  
+1. À l'aide d'une configuration de partition personnalisée, créer l'image d'usine, puis créer une nouvelle clé de registre de stockage avant d'utiliser sysprep. Au cours de la configuration initiale (IC), la tâche de stockage IC vérifie cette clé de registre. Si elle existe, les dossiers du serveur sont créés par défaut dans le répertoire C:\ServerFolders.  
   
-    #### <a name="to-create-a-new-storage-registry-key"></a>Pour créer une nouvelle clé de registre de stockage  
+   #### <a name="to-create-a-new-storage-registry-key"></a>Pour créer une nouvelle clé de registre de stockage  
   
-    1.  Sur le serveur, déplacez votre souris sur le coin supérieur droit de l’écran, puis cliquez sur **Rechercher**.  
+   1.  Sur le serveur, déplacez votre souris sur le coin supérieur droit de l’écran, puis cliquez sur **Rechercher**.  
   
-    2.  Dans la zone de recherche, tapez **regedit**, puis cliquez sur l’application **Regedit** .  
+   2.  Dans la zone de recherche, tapez **regedit**, puis cliquez sur l’application **Regedit** .  
   
-    3.  Dans le volet de navigation, développez **HKEY_LOCAL_MACHINE**, développez **SOFTWARE**, puis développez **Microsoft**.  
+   3.  Dans le volet de navigation, développez **HKEY_LOCAL_MACHINE**, développez **SOFTWARE**, puis développez **Microsoft**.  
   
-    4.  Faites un clic droit sur **Windows Server**, cliquez sur **Nouveau**, puis cliquez sur **Clé**.  
+   4.  Faites un clic droit sur **Windows Server**, cliquez sur **Nouveau**, puis cliquez sur **Clé**.  
   
-    5.  Nommez la Clé **Stockage**.  
+   5.  Nommez la Clé **Stockage**.  
   
-    6.  Dans le volet de navigation, faites un clic droit sur la nouvelle clé de registre de stockage, cliquez sur **Nouveau**, puis cliquez sur **Valeur DWORD (32-bit)**.  
+   6.  Dans le volet de navigation, faites un clic droit sur la nouvelle clé de registre de stockage, cliquez sur **Nouveau**, puis cliquez sur **Valeur DWORD (32-bit)** .  
   
-    7.  Nommez la chaîne **CreateFoldersOnSystem**.  
+   7.  Nommez la chaîne **CreateFoldersOnSystem**.  
   
-    8.  Faites un clic droit **CreateFoldersOnSystem**, puis cliquez sur **Modifier**. La boîte de dialogue **Modification de la chaîne** s’affiche.  
+   8.  Faites un clic droit **CreateFoldersOnSystem**, puis cliquez sur **Modifier**. La boîte de dialogue **Modification de la chaîne** s’affiche.  
   
-    9. Attribuez à cette nouvelle clé la valeur **1**, puis cliquez sur **OK**.  
+   9. Attribuez à cette nouvelle clé la valeur **1**, puis cliquez sur **OK**.  
   
-2.  Utilisez le script PostIC.cmd pour déplacer les dossiers à un emplacement différent ou pour créer des dossiers supplémentaires. Consultez l'exemple suivant : [Exemple 1 : Créer un dossier personnalisé et déplacer les dossiers par défaut vers un nouvel emplacement de PostIC.cmd à l’aide de Windows PowerShell](Customize-Shared-Folders.md#BKMK_Example1).  
+2. Utilisez le script PostIC.cmd pour déplacer les dossiers à un emplacement différent ou pour créer des dossiers supplémentaires. Consultez l'exemple suivant : [Exemple 1 : Créer un dossier personnalisé et déplacer les dossiers par défaut vers un nouvel emplacement de PostIC.cmd à l’aide de Windows PowerShell](Customize-Shared-Folders.md#BKMK_Example1).  
   
-3.  Utilisez le SDK Windows Server Solutions pour déplacer les dossiers à un emplacement différent ou pour créer des dossiers supplémentaires. Consultez l'exemple suivant : [Exemple 2 : Créer un dossier personnalisé et déplacer un dossier existant à l’aide du SDK Windows Server Solutions](Customize-Shared-Folders.md#BKMK_Example2).  
+3. Utilisez le SDK Windows Server Solutions pour déplacer les dossiers à un emplacement différent ou pour créer des dossiers supplémentaires. Consultez l'exemple suivant : [Exemple 2 : Créer un dossier personnalisé et déplacer un dossier existant à l’aide du SDK Windows Server Solutions](Customize-Shared-Folders.md#BKMK_Example2).  
   
- Il est possible que des partenaires laissent les dossiers de données sur le disque C. Ceci permet à l'utilisateur final ou au revendeur de déterminer la structure des dossiers de données sur les lecteurs de données.  
+   Il est possible que des partenaires laissent les dossiers de données sur le disque C. Ceci permet à l'utilisateur final ou au revendeur de déterminer la structure des dossiers de données sur les lecteurs de données.  
   
 ###  <a name="BKMK_Example1"></a> Exemple 1 : créer un dossier personnalisé et déplacer les dossiers par défaut vers un nouvel emplacement de PostIC.cmd à l’aide de Windows PowerShell  
   
@@ -147,4 +147,4 @@ static void Main(string[] args)
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
  [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](Testing-the-Customer-Experience.md)
+ [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)

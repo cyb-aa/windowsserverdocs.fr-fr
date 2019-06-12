@@ -12,12 +12,12 @@ ms.assetid: 8a7b3cc1-21bb-4344-8110-f5d5959b370d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f8f99a2051e114b3c890f1cdac23aebf58689980
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5d7dac41ba6d6f73b0d3d65d3481fe45ff99a6bc
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884650"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433610"
 ---
 # <a name="create-the-oobexml-file-including-logo-and-eula"></a>Créer le fichier OOBE.xml, y compris le logo et le CLUF
 
@@ -29,41 +29,41 @@ Vous avez la possibilité d'ajouter votre propre Contrat de Licence Utilisateur 
   
 #### <a name="to-add-your-company-eula-and-logo"></a>Pour ajouter le CLUF et le logo de votre société  
   
-1.  Ouvrez le fichier Oobe.xml dans un éditeur de texte, tel que le Bloc-notes.  
+1. Ouvrez le fichier Oobe.xml dans un éditeur de texte, tel que le Bloc-notes.  
   
-2.  Dans le < logopath\>< / logopath\> balises, entrez le chemin d’accès absolu à votre fichier de logo. Choisissez un logo au format .png (Portable Network Graphics) 32 bits de 240 x 100 pixels.  
+2. Dans le < logopath\>< / logopath\> balises, entrez le chemin d’accès absolu à votre fichier de logo. Choisissez un logo au format .png (Portable Network Graphics) 32 bits de 240 x 100 pixels.  
   
-3.  Dans le < eulafilename\>< / eulafilename\> balises, entrez le chemin d’accès absolu au fichier du CLUF. Optez pour un fichier au format .rtf.  
+3. Dans le < eulafilename\>< / eulafilename\> balises, entrez le chemin d’accès absolu au fichier du CLUF. Optez pour un fichier au format .rtf.  
   
-4.  Dans le < nom\>< / nom\> balises, entrez le nom de votre société.  
+4. Dans le < nom\>< / nom\> balises, entrez le nom de votre société.  
   
-     L'exemple suivant illustre les balises d'un fichier Oobe.xml :  
+    L'exemple suivant illustre les balises d'un fichier Oobe.xml :  
   
-    ```  
+   ```  
   
-    <FirstExperience>  
-       <oobe>  
-          <oem>  
-             <name>Fabrikam</name>  
-             <logopath>c:\fabrikam\fabrikam.png</logopath>  
-             <eulafilename>c:\fabrikam\fabrikam_eula.rtf</eulafilename>  
-          </oem>  
-       </oobe>  
-    </FirstExperience>  
+   <FirstExperience>  
+      <oobe>  
+         <oem>  
+            <name>Fabrikam</name>  
+            <logopath>c:\fabrikam\fabrikam.png</logopath>  
+            <eulafilename>c:\fabrikam\fabrikam_eula.rtf</eulafilename>  
+         </oem>  
+      </oobe>  
+   </FirstExperience>  
   
-    ```  
+   ```  
   
-5.  Enregistrez le fichier.  
+5. Enregistrez le fichier.  
   
-6.  Placez le fichier Oobe.xml à l'un des emplacements suivants :  
+6. Placez le fichier Oobe.xml à l'un des emplacements suivants :  
   
-    |Emplacement Oobe.XML|Critère de détermination de l'emplacement|  
-    |-----------------------|----------------------------------------|  
-    |%windir%\System32\Oobe\Info\|le serveur est prévu dans un pays/région unique et un système de langue unique.|  
-    |%windir%\system32\oobe\info\default\\<language\>|Le serveur est prévu pour fonctionner dans une seule région/pays et sur un système multilingue.|  
-    |%windir%\System32\Oobe\Info\\< pays/région > \ et %windir%\system32\oobe\info\\< pays/région >\\< langage\>\|le serveur est prévu pour plus d’un pays / paramètres de région et les besoin de personnalisations sur une base par pays/région, chacun avec une seule langue. Où < pays/région > est la version en notation décimale de l’identificateur d’emplacement géographique (GeoID) du pays ou région où le serveur est déployé, et < langue\> est la version en notation décimale de l’identificateur de paramètres régionaux (LCID).|  
+   |Emplacement Oobe.XML|Critère de détermination de l'emplacement|  
+   |-----------------------|----------------------------------------|  
+   |%windir%\System32\Oobe\Info\|le serveur est prévu dans un pays/région unique et un système de langue unique.|  
+   |%windir%\system32\oobe\info\default\\<language\>|Le serveur est prévu pour fonctionner dans une seule région/pays et sur un système multilingue.|  
+   |%windir%\System32\Oobe\Info\\< pays/région > \ et %windir%\system32\oobe\info\\< pays/région >\\< langage\>\|le serveur est prévu pour plus d’un pays / paramètres de région et les besoin de personnalisations sur une base par pays/région, chacun avec une seule langue. Où < pays/région > est la version en notation décimale de l’identificateur d’emplacement géographique (GeoID) du pays ou région où le serveur est déployé, et < langue\> est la version en notation décimale de l’identificateur de paramètres régionaux (LCID).|  
   
- Si vous disposez d'un logo d'entreprise alternatif avec un texte blanc, la qualité d'affichage sera meilleure pendant la configuration car l'arrière-plan est bleu.  Vous pouvez spécifier ce logo en option en définissant une clé de registre et une valeur.  
+   Si vous disposez d'un logo d'entreprise alternatif avec un texte blanc, la qualité d'affichage sera meilleure pendant la configuration car l'arrière-plan est bleu.  Vous pouvez spécifier ce logo en option en définissant une clé de registre et une valeur.  
   
 #### <a name="to-specify-a-company-logo-by-setting-the-oem-registry-key"></a>Pour spécifier un logo d'entreprise en définissant la clé de registre OEM  
   
@@ -92,4 +92,4 @@ Vous avez la possibilité d'ajouter votre propre Contrat de Licence Utilisateur 
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
  [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](Testing-the-Customer-Experience.md)
+ [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)

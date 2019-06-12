@@ -9,12 +9,12 @@ ms.date: 08/17/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f3719277c80eae2bf2a4d923146920d17546601d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 97e1fa441c5fe4fb7d23743387392732663326de
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188731"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501588"
 ---
 # <a name="ad-fs-single-sign-on-settings"></a>AD FS Single Sign-On Settings
 
@@ -56,7 +56,7 @@ Activer/désactiver l’authentification unique persistante | ```` Set-AdfsPrope
 
 
 ## <a name="ad-fs-2016---single-sign-on-and-authenticated-devices"></a>AD FS 2016 - Single Sign-On et appareils authentifiés
-AD FS 2016 modifie le PSSO lorsque le demandeur est l’authentification à partir d’un appareil inscrit augmenter jusqu'à 90 jours maximum, mais nécessitant une authenticvation dans un délai de 14 jours (fenêtre de l’utilisation de périphérique).
+AD FS 2016 modifie le PSSO lorsque le demandeur est l’authentification à partir d’un appareil inscrit augmenter jusqu'à 90 jours maximum, mais nécessitant une authentification dans un délai de 14 jours (fenêtre de l’utilisation de périphérique).
 Après avoir entré les informations d’identification pour la première fois, par défaut les utilisateurs d’appareils inscrits obtiennent single Sign-On pour une période maximale de 90 jours, ils utilisent l’appareil pour accéder aux ressources AD FS au moins une fois tous les 14 jours.  S’ils attendent 15 jours après avoir entré les informations d’identification, les utilisateurs seront invités à nouveau pour les informations d’identification.  
 
 Authentification unique persistante est activée par défaut. Si elle est désactivée, aucun cookie PSSO ne sera écrit. |  
@@ -103,23 +103,23 @@ Il est important de noter que, tout en fournissant des périodes relativement lo
 ## <a name="psso-revocation"></a>Révocation PSSO  
  Pour protéger la sécurité, AD FS rejette tout cookie persistant de l’authentification unique précédemment émis lorsque les conditions suivantes sont remplies. Cela nécessitera l’utilisateur à fournir leurs informations d’identification pour s’authentifier avec AD FS à nouveau. 
   
--   Le mot de passe utilisateur modifications  
+- Le mot de passe utilisateur modifications  
   
--   Paramètre de l’authentification unique persistante est désactivé dans AD FS  
+- Paramètre de l’authentification unique persistante est désactivé dans AD FS  
   
--   Appareil est désactivé par l’administrateur dans le cas de perte ou de vol  
+- Appareil est désactivé par l’administrateur dans le cas de perte ou de vol  
   
--   AD FS reçoit un cookie persistant de l’authentification unique qui est émis pour un utilisateur inscrit, mais l’utilisateur ou de l’appareil n’est pas inscrit plus  
+- AD FS reçoit un cookie persistant de l’authentification unique qui est émis pour un utilisateur inscrit, mais l’utilisateur ou de l’appareil n’est pas inscrit plus  
   
--   AD FS reçoit un cookie persistant de l’authentification unique pour un utilisateur inscrit, mais l’utilisateur inscrit à nouveau  
+- AD FS reçoit un cookie persistant de l’authentification unique pour un utilisateur inscrit, mais l’utilisateur inscrit à nouveau  
   
--   AD FS reçoit un cookie persistant de l’authentification unique qui est émis à la suite de « maintenir la connexion » mais « maintenir la connexion » paramètre est désactivé dans AD FS  
+- AD FS reçoit un cookie persistant de l’authentification unique qui est émis à la suite de « maintenir la connexion » mais « maintenir la connexion » paramètre est désactivé dans AD FS  
   
--   AD FS reçoit un cookie persistant de l’authentification unique qui est émis pour un utilisateur inscrit mais le certificat de l’appareil est manquante ou modifiée lors de l’authentification  
+- AD FS reçoit un cookie persistant de l’authentification unique qui est émis pour un utilisateur inscrit mais le certificat de l’appareil est manquante ou modifiée lors de l’authentification  
   
--   Administrateur de AD FS a défini une heure de coupure pour l’authentification unique persistante. Lorsque cela est configuré, AD FS rejette tout cookie persistant de l’authentification unique émis avant cette date  
+- Administrateur de AD FS a défini une heure de coupure pour l’authentification unique persistante. Lorsque cela est configuré, AD FS rejette tout cookie persistant de l’authentification unique émis avant cette date  
   
- Pour définir l’heure de coupure, exécutez l’applet de commande PowerShell suivante :  
+  Pour définir l’heure de coupure, exécutez l’applet de commande PowerShell suivante :  
   
 
 ``` powershell
@@ -163,7 +163,7 @@ Résumé :
     <th>OUI</th>
   </tr>
  <tr align="center">
-    <td>L’authentification unique = > définir le jeton d’actualisation = ></td>
+    <td>L’authentification unique =&gt;définir un jeton d’actualisation =&gt;</td>
     <td>8 heures</td>
     <td>N/A</td>
     <td>N/A</td>
@@ -174,7 +174,7 @@ Résumé :
   </tr>
 
  <tr align="center">
-    <td>PSSO = > définir le jeton d’actualisation = ></td>
+    <td>PSSO =&gt;définir un jeton d’actualisation =&gt;</td>
     <td>N/A</td>
     <td>24 heures</td>
     <td>7 derniers jours</td>

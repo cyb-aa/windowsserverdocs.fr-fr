@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: fe6fb196c996d4d95c6b58d1ab77591602e143d9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6f3907426fd1124c5ed0a411a155490a2a537239
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868420"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719681"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2016"></a>Mettre à niveau des contrôleurs de domaine vers Windows Server 2016
 
@@ -24,17 +24,17 @@ Cette rubrique fournit des informations générales sur les Services de domaine 
 ## <a name="pre-requisites"></a>Conditions préalables
 La méthode recommandée pour mettre à niveau un domaine consiste à promouvoir des contrôleurs de domaine qui exécutent des versions plus récentes de Windows Server et rétrograder les contrôleurs de domaine plus anciens en fonction des besoins. Cette méthode est préférable à la mise à niveau du système d’exploitation d’un contrôleur de domaine existant. Cette liste couvre les étapes générales à suivre avant de promouvoir un contrôleur de domaine qui exécute une version plus récente de Windows Server : 
 
-1.  Vérifiez que le serveur cible répond à la configuration requise. 
-2.  Vérifiez la compatibilité des applications. 
-3.  Passez en revue les recommandations pour le passage à Windows Server 2016 
-4.  Vérifiez les paramètres de sécurité Pour plus d’informations, consultez [fonctionnalités déconseillées et modifications de comportement associées aux services AD DS dans Windows Server 2016](../../../get-started\deprecated-features.md). 
-5.  Vérifiez la connectivité au serveur cible à partir de l’ordinateur sur lequel vous envisagez d’exécuter l’installation. 
-6.  Vérifiez la disponibilité des rôles de maître d’opérations nécessaires : 
-    - Pour installer le premier contrôleur de domaine qui exécute Windows Server 2016 dans une forêt et un domaine existant, l’ordinateur où vous exécutez l’installation nécessite une connectivité vers le **contrôleur de schéma** afin d’exécuter adprep /forestprep et au maître d’infrastructure Pour exécuter la commande adprep /domainprep. 
-    - Pour installer le premier contrôleur de domaine dans un domaine où le schéma de la forêt est déjà étendu, seule une connectivité au maître d’infrastructure est requise. 
-    - Pour installer ou supprimer un domaine dans une forêt existante, vous avez besoin de connectivité à la **maître d’attribution de noms de domaine**. 
-    - Installation de n’importe quel contrôleur de domaine requiert également une connectivité le **maître RID.** 
-    - Si vous installez le premier contrôleur de domaine en lecture seule dans une forêt existante, vous avez besoin d’une connectivité au maître d’infrastructure pour chaque partition d’annuaire d’applications, également désignée sous le nom de contexte de nommage (autre que celui d’un domaine). 
+1. Vérifiez que le serveur cible répond à la configuration requise. 
+2. Vérifiez la compatibilité des applications. 
+3. Passez en revue les recommandations pour le passage à Windows Server 2016 
+4. Vérifiez les paramètres de sécurité Pour plus d’informations, consultez [fonctionnalités déconseillées et modifications de comportement associées aux services AD DS dans Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/get-started/deprecated-features). 
+5. Vérifiez la connectivité au serveur cible à partir de l’ordinateur sur lequel vous envisagez d’exécuter l’installation. 
+6. Vérifiez la disponibilité des rôles de maître d’opérations nécessaires : 
+   - Pour installer le premier contrôleur de domaine qui exécute Windows Server 2016 dans une forêt et un domaine existant, l’ordinateur où vous exécutez l’installation nécessite une connectivité vers le **contrôleur de schéma** afin d’exécuter adprep /forestprep et au maître d’infrastructure Pour exécuter la commande adprep /domainprep. 
+   - Pour installer le premier contrôleur de domaine dans un domaine où le schéma de la forêt est déjà étendu, seule une connectivité au maître d’infrastructure est requise. 
+   - Pour installer ou supprimer un domaine dans une forêt existante, vous avez besoin de connectivité à la **maître d’attribution de noms de domaine**. 
+   - Installation de n’importe quel contrôleur de domaine requiert également une connectivité le **maître RID.** 
+   - Si vous installez le premier contrôleur de domaine en lecture seule dans une forêt existante, vous avez besoin d’une connectivité au maître d’infrastructure pour chaque partition d’annuaire d’applications, également désignée sous le nom de contexte de nommage (autre que celui d’un domaine). 
 
 ### <a name="installation-steps-and-required-administrative-levels"></a>Étapes d’installation et les niveaux d’administration requis
 Le tableau suivant fournit un résumé de la procédure de mise à niveau et les spécifications d’autorisation d’effectuer ces étapes
@@ -123,35 +123,35 @@ Voici un exemple simple de mise à niveau de la forêt Contoso à partir de Wind
 
 ![Mettre à niveau/Mise à niveau](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade1.png)
 
-1.  Joindre le nouveau Windows Server 2016 à votre forêt. Redémarrez lorsque vous y êtes invité. 
-![Mise à niveau](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade2.png)
-2.  Connectez-vous à la nouvelle fonctionnalité Windows Server 2016 avec un compte d’administrateur de domaine.
-3.  Dans **le Gestionnaire de serveur**, sous **Ajout de rôles et fonctionnalités**, installer **Active Directory Domain Services** sur le nouveau Windows Server 2016. Adprep s’exécute automatiquement sur la forêt de R2 2012 et le domaine.
-![Mise à niveau](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade3.png) 
-4.  Dans **le Gestionnaire de serveur**et cliquez sur le triangle jaune dans la liste déroulante, cliquez sur **promouvoir le serveur sur un contrôleur de domaine**. 
-![Mise à niveau](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade4.png)
-5.  Sur le **Configuration de déploiement** s’affiche, sélectionnez **ajouter un contrôleur de domaine à une forêt existante** et cliquez sur Suivant. 
-![Mise à niveau](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade5.png)
-6.  Sur le **options du contrôleur de domaine** écran, entrez le **en Mode de restauration des Services annuaire (DSRM)** mot de passe et cliquez sur Suivant. 
-7.  Pour le reste des écrans, cliquez sur **suivant**. 
-8.  Sur le **vérification** , cliquez sur **installer**. Une fois le redémarrage terminé vous peut se reconnecter.
-9.  Sur le serveur Windows Server 2012 R2, dans **le Gestionnaire de serveur**, sous Outils, sélectionnez **Module Active Directory pour Windows PowerShell**. 
-![Mise à niveau](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade6.png)
+1. Joindre le nouveau Windows Server 2016 à votre forêt. Redémarrez lorsque vous y êtes invité. 
+   ![Mise à niveau](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade2.png)
+2. Connectez-vous à la nouvelle fonctionnalité Windows Server 2016 avec un compte d’administrateur de domaine.
+3. Dans **le Gestionnaire de serveur**, sous **Ajout de rôles et fonctionnalités**, installer **Active Directory Domain Services** sur le nouveau Windows Server 2016. Adprep s’exécute automatiquement sur la forêt de R2 2012 et le domaine.
+   ![Mise à niveau](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade3.png) 
+4. Dans **le Gestionnaire de serveur**et cliquez sur le triangle jaune dans la liste déroulante, cliquez sur **promouvoir le serveur sur un contrôleur de domaine**. 
+   ![Mise à niveau](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade4.png)
+5. Sur le **Configuration de déploiement** s’affiche, sélectionnez **ajouter un contrôleur de domaine à une forêt existante** et cliquez sur Suivant. 
+   ![Mise à niveau](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade5.png)
+6. Sur le **options du contrôleur de domaine** écran, entrez le **en Mode de restauration des Services annuaire (DSRM)** mot de passe et cliquez sur Suivant. 
+7. Pour le reste des écrans, cliquez sur **suivant**. 
+8. Sur le **vérification** , cliquez sur **installer**. Une fois le redémarrage terminé vous peut se reconnecter.
+9. Sur le serveur Windows Server 2012 R2, dans **le Gestionnaire de serveur**, sous Outils, sélectionnez **Module Active Directory pour Windows PowerShell**. 
+   ![Mise à niveau](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade6.png)
 10. Dans windows PowerShell utilisez l’ADDirectoryServerOperationMasterRole de déplacement pour déplacer les rôles FSMO. Vous pouvez tapez le nom de chaque OperationMasterRole - ou utiliser des nombres pour spécifier les rôles. Pour plus d’informations, consultez [ADDirectoryServerOperationMasterRole de déplacement](https://technet.microsoft.com/library/hh852302.aspx)
 
-   ``` powershell
-   Move-ADDirectoryServerOperationMasterRole -Identity "DC-W2K16" -OperationMasterRole 0,1,2,3,4
-   ```
+    ``` powershell
+    Move-ADDirectoryServerOperationMasterRole -Identity "DC-W2K16" -OperationMasterRole 0,1,2,3,4
+    ```
 
-   ![Mettre à niveau/Mise à niveau](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade7.png)</br>
+    ![Mettre à niveau/Mise à niveau](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade7.png)</br>
 11. Vérifiez les rôles ont été déplacés en accédant au serveur Windows Server 2016, en **le Gestionnaire de serveur**, sous **outils**, sélectionnez **Module Active Directory pour Windows PowerShell**. Utilisez le `Get-ADDomain` et `Get-ADForest` applets de commande pour afficher les détenteurs du rôle FSMO.
-![Upgrade](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade8.png)
-![Upgrade](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade9.png)
+    ![Upgrade](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade8.png)
+    ![Upgrade](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade9.png)
 12. Rétrograder et supprimer le contrôleur de domaine Windows Server 2012 R2. Pour plus d’informations sur la rétrogradation d’un contrôleur de domaine, consultez [la rétrogradation des contrôleurs de domaine et de domaines](../../ad-ds/deploy/Demoting-Domain-Controllers-and-Domains--Level-200-.md)
 13. Une fois que le serveur est rétrogradé et supprimé, vous pouvez augmenter les niveaux fonctionnels de domaine vers Windows Server 2016 fonctionnel de forêt.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
--   [Nouveautés dans le domaine Active Directory Services Installation et la suppression](../../ad-ds/deploy/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal.md)  
+-   [Nouveautés relatives à l’installation et à la suppression d’Active Directory Domain Services](../../ad-ds/deploy/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal.md)  
 -   [Installer les Services de domaine Active Directory &#40;niveau 100&#41;](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md)     
 -   [Niveaux fonctionnels de Windows Server 2016](../../ad-ds/Windows-Server-2016-Functional-Levels.md)  

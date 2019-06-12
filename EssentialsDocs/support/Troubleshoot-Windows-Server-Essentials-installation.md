@@ -12,12 +12,12 @@ ms.assetid: ecf19216-7aac-4aca-839a-342ac28f5329
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 293b392203269a65efffcefb3744bedc659f71c9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4756d3735fd710930e0eb124b7b5c58c50078d9e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862020"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432424"
 ---
 # <a name="troubleshoot-windows-server-essentials-installation"></a>Résoudre les problèmes d’installation de Windows Server Essentials
 
@@ -79,26 +79,26 @@ Cette rubrique fournit des solutions aux problèmes qui se produisent lors de l�
   
 ##### <a name="to-manually-install-a-storage-controller-driver"></a>Pour installer manuellement un pilote de contrôleur de stockage  
   
-1.  Recherchez les pilotes pour votre contrôleur de stockage. Ceux-ci sont fournis par le fabricant du matériel, et ils peuvent également être disponibles sur le site web du fabricant.  
+1. Recherchez les pilotes pour votre contrôleur de stockage. Ceux-ci sont fournis par le fabricant du matériel, et ils peuvent également être disponibles sur le site web du fabricant.  
   
-2.  Créez un dossier appelé PILOTES sur une disquette ou un lecteur flash USB, puis copiez les pilotes dans le dossier.  
+2. Créez un dossier appelé PILOTES sur une disquette ou un lecteur flash USB, puis copiez les pilotes dans le dossier.  
   
-3.  Connectez la disquette ou le lecteur flash USB comportant les pilotes à l’ordinateur.  
+3. Connectez la disquette ou le lecteur flash USB comportant les pilotes à l’ordinateur.  
   
-4.  Démarrez l’ordinateur à partir du DVD Windows Server Essentials.  
+4. Démarrez l’ordinateur à partir du DVD Windows Server Essentials.  
   
-     Si des pilotes de contrôleur de stockage sont manquants, la boîte de dialogue Erreur d’installation de Windows Server Essentials s’affiche.  
+    Si des pilotes de contrôleur de stockage sont manquants, la boîte de dialogue Erreur d’installation de Windows Server Essentials s’affiche.  
   
-5.  Dans la boîte de dialogue Erreur d’installation de Windows Server Essentials, cliquez sur **Oui** pour charger les pilotes de stockage supplémentaire.  
+5. Dans la boîte de dialogue Erreur d’installation de Windows Server Essentials, cliquez sur **Oui** pour charger les pilotes de stockage supplémentaire.  
   
-6.  À l’invite **Veuillez sélectionner le fichier .inf de votre pilote** , accédez au fichier .inf du dossier PILOTES sur votre disquette ou lecteur flash USB, sélectionnez le fichier, cliquez avec le bouton droit sur le nom de fichier, puis cliquez sur **Ouvrir**. Cette opération charge le pilote.  
+6. À l’invite **Veuillez sélectionner le fichier .inf de votre pilote** , accédez au fichier .inf du dossier PILOTES sur votre disquette ou lecteur flash USB, sélectionnez le fichier, cliquez avec le bouton droit sur le nom de fichier, puis cliquez sur **Ouvrir**. Cette opération charge le pilote.  
   
-    > [!NOTE]
-    >  Avant de tenter de charger le fichier, vérifiez que l’extension du nom du fichier (.inf) est en minuscules. Cette opération respecte la casse et un fichier de pilote ne se charge pas si l’extension du nom du fichier est en majuscules.  
+   > [!NOTE]
+   >  Avant de tenter de charger le fichier, vérifiez que l’extension du nom du fichier (.inf) est en minuscules. Cette opération respecte la casse et un fichier de pilote ne se charge pas si l’extension du nom du fichier est en majuscules.  
   
-7.  À l’invite, cliquez sur **Oui** pour rendre le pilote de stockage disponible pendant la phase en mode texte du programme d’installation.  
+7. À l’invite, cliquez sur **Oui** pour rendre le pilote de stockage disponible pendant la phase en mode texte du programme d’installation.  
   
- Le programme d’installation doit se poursuivre normalement.  
+   Le programme d’installation doit se poursuivre normalement.  
   
 ###  <a name="BKMK_AddingNICdrivers"></a> Ajout de pilotes pour les cartes réseau  
  Si une carte réseau sur l’ordinateur n’est pas pris en charge par Windows Server Essentials, votre serveur n’aura pas de connectivité réseau une fois l’installation terminée, et vous ne serez pas en mesure de connecter des ordinateurs à votre serveur.  

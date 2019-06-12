@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 75474bd37f425388f01986ca32073107ee4fed99
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bcc06a3ccc4e95fa43a7f8f0ef7d110fd427f5a0
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830690"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501651"
 ---
 # <a name="active-directory-administrative-tier-model"></a>Modèle de niveau administratif Active Directory
 
@@ -330,11 +330,11 @@ Les administrateurs qui prennent en charge des systèmes et utilisateurs distant
 Vérifiez que les pratiques suivantes sont appliquées pour ce scénario :
 
 - **Support de serveur distant** : lors de l’accès à distance à un serveur, les administrateurs de niveau 0 doivent suivre ces recommandations :
-   - **Option principale (outil)**  : Outils de contrôle à distance qui utilisent des ouvertures de session réseau (type 3). Pour plus d’informations, voir [Outils d’administration et types d’ouverture de session](http://aka.ms/admintoolsecurity).
-   - **Option principale (interactive)**  : Utilisez une session en mode RestrictedAdmin ou Standard du protocole RDP à partir d’une station de travail administrative avec un compte de domaine.
+  - **Option principale (outil)**  : Outils de contrôle à distance qui utilisent des ouvertures de session réseau (type 3). Pour plus d’informations, voir [Outils d’administration et types d’ouverture de session](http://aka.ms/admintoolsecurity).
+  - **Option principale (interactive)**  : Utilisez une session en mode RestrictedAdmin ou Standard du protocole RDP à partir d’une station de travail administrative avec un compte de domaine.
 
-   > [!NOTE]
-   > Si vous disposez d’une solution de gestion des privilèges de niveau 0, ajoutez « qui utilise des autorisations obtenues juste-à-temps à partir d’une solution de gestion de l’accès privilégié ».
+    > [!NOTE]
+    > Si vous disposez d’une solution de gestion des privilèges de niveau 0, ajoutez « qui utilise des autorisations obtenues juste-à-temps à partir d’une solution de gestion de l’accès privilégié ».
 
 - **Support de serveur physique** : Quand ils se trouvent physiquement dans une console de serveur ou une console de machine virtuelle (outils Hyper-V ou VMWare), ces comptes ne font pas l’objet de restrictions quant à l’utilisation d’outils d’administration spécifiques. Seules les restrictions générales liées aux tâches d’utilisateur standard comme l’e-mail et la navigation sur l’Internet ouvert s’appliquent.
 
@@ -436,10 +436,10 @@ Pour toute utilisation des comptes d’accès d’urgence :
 - Seuls les administrateurs de domaine autorisés peuvent accéder aux comptes d’accès d’urgence avec des privilèges administratifs de domaine.
 - Les comptes d’accès d’urgence peuvent être utilisés uniquement sur des contrôleurs de domaine et d’autres hôtes de niveau 0.
 - Ces comptes doivent uniquement être utilisés pour :
-   - résoudre et corriger les problèmes techniques qui empêchent l’utilisation des comptes d’administration appropriés,
-   - effectuer des tâches rares, comme :
-      - l’administration du schéma,
-      - Tâches de forêt qui nécessitent des privilèges d’administrateur d’entreprise
+  - résoudre et corriger les problèmes techniques qui empêchent l’utilisation des comptes d’administration appropriés,
+  - effectuer des tâches rares, comme :
+    - l’administration du schéma,
+    - Tâches de forêt qui nécessitent des privilèges d’administrateur d’entreprise
 
       > [!NOTE]
       > Gestion de la topologie, notamment la gestion de site et un sous-réseau Active Directory est déléguée pour limiter l’utilisation de ces privilèges.
@@ -555,7 +555,7 @@ Les organisations doivent contrôler et surveiller l’appartenance dans tous le
 - Opérateurs de serveur
 - Contrôleurs de domaine
 - Contrôleurs de domaine en lecture seule
-- Groupe Propriétaires créateurs de stratégie
+- Propriétaires créateurs de la stratégie de groupe
 - Opérateurs de chiffrement
 - Utilisateurs du modèle COM distribué
 - Autres groupes délégués - les groupes personnalisés qui peuvent être créés par votre organisation pour gérer les opérations d’annuaire pouvant aussi disposer des accès de niveau 0 effectif.

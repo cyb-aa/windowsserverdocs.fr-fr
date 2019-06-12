@@ -7,14 +7,14 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.date: 03/25/2019
+ms.date: 06/04/2019
 description: Rubriques nouvelles et mises à jour dans la documentation du stockage en local pour Windows Server pour les professionnels de l’informatique.
-ms.openlocfilehash: fa3da6e14c36fecfa48c3688a36518babb257920
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 3245e6bc5320cc0ffae01817a8f7b9caeaa6c685
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192676"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501486"
 ---
 # <a name="change-history-for-storage-topics-in-windows-server"></a>Historique des modifications des rubriques de stockage dans Windows Server
 
@@ -22,7 +22,13 @@ ms.locfileid: "66192676"
 
 Cette rubrique répertorie les rubriques nouvelles et mises à jour de la [stockage](storage.md) documentation de Windows Server.
 
-> Si vous avez besoin d’historique de mise à jour pour Windows Server, consultez [l’historique de mise à jour de Windows 10 et Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
+> Si vous avez besoin d’historique de mise à jour pour Windows Server, consultez [l’historique de mise à jour de Windows 10 et Windows Server 2019](https://support.microsoft.com/help/4464619) ou [l’historique de mise à jour de Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
+
+## <a name="june-2019"></a>Juin 2019
+
+| Rubrique nouvelle ou modifiée                                        | Description|
+| ---                                                         | ---           |
+| [FAQ sur Service de Migration de stockage](storage-migration-service/faq.md#consolidate-servers) | Ajouté des informations de l’optimisation de performances. |
 
 ## <a name="may-2019"></a>Mai 2019
 
@@ -36,7 +42,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la [stock
 
 |Rubrique nouvelle ou modifiée                                        |Description|
 |---                                                         |---           |
-|[Moniteur avec Azure Monitor](storage-spaces/configure-azure-monitor.md)| Nouveau|
+|[Superviser avec Azure Monitor](storage-spaces/configure-azure-monitor.md)| Nouveau|
 |[Mise à niveau d’un cluster d’espaces de stockage direct vers Windows Server 2019](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)| Nouveau        |
 |[Réplication DFS](dfs-replication/dfsr-overview.md)        | Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770278(v%3dws.11)) bibliothèque|
 
@@ -105,7 +111,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la [stock
 |[Déployer des espaces de stockage sur un serveur autonome](storage-spaces/deploy-standalone-storage-spaces.md)|Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) bibliothèque.|
 |[Vue d’ensemble NTFS](file-server/ntfs-overview.md)|Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) bibliothèque.|
 |[Utiliser Robocopy pour prédéfinir les fichiers pour la réplication DFS](dfs-replication/preseed-dfsr-with-robocopy.md)|Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) bibliothèque.|
-|[Vssadmin - outil de ligne de commande de Versions précédentes](..\administration\windows-commands\vssadmin.md)|Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) bibliothèque.|
+|[Vssadmin - outil de ligne de commande de Versions précédentes](../administration/windows-commands/vssadmin.md)|Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) bibliothèque.|
 |[Vue d’ensemble de la file Server Resource Manager](fsrm/fsrm-overview.md)| Ajout d’informations sur un nouveau paramètre de Registre dans Windows Server 2016, version 1803.|
 |[Réplication du stockage de serveur à serveur](storage-replica/server-to-server-storage-replication.md)|Ajout d’informations sur l’utilisation de Windows Admin Center.|
 |[Problèmes connus de réplica de stockage](storage-replica/storage-replica-known-issues.md)|Ajout d'une nouvelle information.|
@@ -195,13 +201,13 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la [stock
 
 ## <a name="may-2017"></a>Mai 2017
 
-|Rubrique nouvelle ou modifiée|Description|
-|---|---|
-|[Vue d’ensemble de la déduplication des données](data-deduplication/overview.md) et <br>[Installer la déduplication des données](data-deduplication/install-enable.md)|Mise à jour de la configuration système requise pour inclure une nouvelle mise à jour logicielle. |
-|[Déploiement de Dossiers de travail](work-folders/deploy-work-folders.md)|Ajout d’informations sur la prise en charge du proxy d’application Azure AD et mise à jour des étapes nécessaires.|
-|[Déploiement d’espaces de stockage Direct](storage-spaces/deploy-storage-spaces-direct.md)|Ajout de l’étape 1.3 avec les fonctionnalités requises et correction d'un paramètre obsolète dans Enable-NetAdapterQos.||[Vue d’ensemble du réplica de stockage](storage-replica/storage-replica-overview.md) (et autres rubriques relatives au réplica de stockage)|Ajout de la recommandation d'utiliser un stockage rapide exclusif pour les journaux de réplica de stockage.|
-|[Questions fréquentes sur le réplica de stockage](storage-replica/storage-replica-frequently-asked-questions.md)|Ajout d’informations sur le choix entre les différentes topologies de réplication.|
-|[Configuration matérielle directe des espaces de stockage](storage-spaces/storage-spaces-direct-hardware-requirements.md)|Modification des exigences d'endurance du lecteur pour les périphériques cache.|
+|                                                           Rubrique nouvelle ou modifiée                                                           |                                          Description                                           |
+|------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| [Vue d’ensemble de la déduplication des données](data-deduplication/overview.md) et <br>[Installer la déduplication des données](data-deduplication/install-enable.md) |              Mise à jour de la configuration système requise pour inclure une nouvelle mise à jour logicielle.               |
+|                                      [Déploiement de Dossiers de travail](work-folders/deploy-work-folders.md)                                       |         Ajout d’informations sur la prise en charge du proxy d’application Azure AD et mise à jour des étapes nécessaires.          |
+|                            [Déploiement d’espaces de stockage Direct](storage-spaces/deploy-storage-spaces-direct.md)                             | Ajout de l’étape 1.3 avec les fonctionnalités requises et correction d'un paramètre obsolète dans Enable-NetAdapterQos. |
+|               [Questions fréquentes sur le réplica de stockage](storage-replica/storage-replica-frequently-asked-questions.md)                |             Ajout d’informations sur le choix entre les différentes topologies de réplication.              |
+|               [Configuration matérielle directe des espaces de stockage](storage-spaces/storage-spaces-direct-hardware-requirements.md)               |                    Modification des exigences d'endurance du lecteur pour les périphériques cache.                     |
 
 ## <a name="april-2017"></a>Avril 2017
 

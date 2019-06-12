@@ -5,15 +5,15 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 09/18/2018
+ms.date: 06/06/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 883fba96fcb71cb1c6e8162c1564d66924c4e24d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b79e832ee45990d18baf4c211ab68b907134ceb7
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885650"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811836"
 ---
 # <a name="create-a-connection-provider-for-a-solution-extension"></a>Créer un fournisseur de connexion pour une extension de la solution
 
@@ -83,19 +83,17 @@ Un point d’entrée de type « connnectionProvider » indique à l’interpr�
 | description | Entrez une brève description du point d’entrée. |
 | connectionType | Représente le type de connexion qui charge le fournisseur. La valeur entrée ici sera également être utilisée dans le point d’entrée de Solution pour spécifier que la Solution peut charger ces connexions. La valeur entrée ici sera également servir dans les points d’entrée outil pour indiquer que l’outil est compatible avec ce type. Cette valeur entrée ici sera également utilisée dans l’objet de connexion qui est soumis à l’appel RPC appeler sur la « fenêtre Ajouter », à l’étape de mise en œuvre de couche application. |
 | connectionTypeName | Utilisé dans la table de connexions pour représenter une connexion qui utilise le fournisseur de connexions. Il est censé être le nom au pluriel du type. |
-| connectionTypeUrlName | Utilisé lors de la création de l’URL pour représenter la Solution chargée, une fois que Windows Admin Center s’est connecté à une instance. Cette entrée est utilisée après les connexions et avant la cible. Dans cet exemple, « connectionexample » est dans lequel cette valeur apparaît dans l’URL : http://localhost:6516/solutionexample/connections/connectionexample/con-fake1.corp.contoso.com |
-| connectionTypeDefaultSolution | Représente le composant par défaut qui doit être chargé par le fournisseur de connexion. Cette valeur est une combinaison de : [a] le nom du package d’extension défini en haut du manifeste ; [b] point d’Exclamation ( !) ; [c] le nom de point de Solution.    Pour un projet avec le nom « msft.sme.mySample-extension » et un point d’entrée de Solution avec l’exemple « nom », cette valeur doit être « msft.sme.solutionExample-extension ! exemple ». |
-| connectionTypeDefaultTool | Représente la valeur par défaut outil qui doit être chargé sur une connexion réussie. Cette valeur de propriété se compose de deux parties, similaires à la connectionTypeDefaultSolution. Cette valeur est une combinaison de : [a] le nom du package d’extension défini en haut du manifeste ; [b] point d’Exclamation ( !) ; [c] le nom outil de point d’entrée pour l’outil qui doit être chargé initialement. Pour un projet avec le nom « msft.sme.solutionExample-extension » et un point d’entrée de Solution avec l’exemple « nom », cette valeur doit être « msft.sme.solutionExample-extension ! exemple ». |
+| connectionTypeUrlName | Utilisé lors de la création de l’URL pour représenter la Solution chargée, une fois que Windows Admin Center s’est connecté à une instance. Cette entrée est utilisée après les connexions et avant la cible. Dans cet exemple, « connectionexample » est dans lequel cette valeur apparaît dans l’URL : `http://localhost:6516/solutionexample/connections/connectionexample/con-fake1.corp.contoso.com` |
+| connectionTypeDefaultSolution | Représente le composant par défaut qui doit être chargé par le fournisseur de connexion. Cette valeur est une combinaison de : <br>[a] le nom du package d’extension défini en haut du manifeste ; <br>[b] point d’Exclamation ( !) ; <br>[c] le nom de point de Solution.    <br>Pour un projet avec le nom « msft.sme.mySample-extension » et un point d’entrée de Solution avec l’exemple « nom », cette valeur doit être « msft.sme.solutionExample-extension ! exemple ». |
+| connectionTypeDefaultTool | Représente la valeur par défaut outil qui doit être chargé sur une connexion réussie. Cette valeur de propriété se compose de deux parties, similaires à la connectionTypeDefaultSolution. Cette valeur est une combinaison de : <br>[a] le nom du package d’extension défini en haut du manifeste ; <br>[b] point d’Exclamation ( !) ; <br>[c] le nom outil de point d’entrée pour l’outil qui doit être chargé initialement. <br>Pour un projet avec le nom « msft.sme.solutionExample-extension » et un point d’entrée de Solution avec l’exemple « nom », cette valeur doit être « msft.sme.solutionExample-extension ! exemple ». |
 | connectionStatusProvider | Consultez la section « Définir fournisseur d’état de connexion » |
 
 ## <a name="define-connection-status-provider"></a>Définir le fournisseur d’état de connexion
 
 Fournisseur d’état de connexion est le mécanisme par lequel une cible est validée pour être en ligne et disponibles, en faisant en sorte que l’utilisateur connecté est autorisé à accéder à la cible. Il existe actuellement deux types de fournisseurs d’état de connexion :  PowerShell et RelativeGatewayUrl.
 
-*   Fournisseur d’état de connexion de PowerShell
-    *   Détermine si une cible est en ligne et accessible avec un script PowerShell. Le résultat doit être retourné dans un objet avec une seule propriété « état », défini ci-dessous.
-*   Fournisseur d’état de connexion de RelativeGatewayUrl
-    *   Détermine si une cible est en ligne et accessible par un appel rest. Le résultat doit être retourné dans un objet avec une seule propriété « état », défini ci-dessous.
+*   <strong>Fournisseur d’état de connexion de PowerShell</strong> -détermine si une cible est en ligne et accessible avec un script PowerShell. Le résultat doit être retourné dans un objet avec une seule propriété « état », défini ci-dessous.
+*   <strong>Fournisseur d’état de connexion de RelativeGatewayUrl</strong> -détermine si une cible est en ligne et accessible par un appel rest. Le résultat doit être retourné dans un objet avec une seule propriété « état », défini ci-dessous.
 
 ### <a name="define-status"></a>Définir l’état
 
@@ -113,25 +111,22 @@ Fournisseurs d’état de connexion sont requises pour retourner un objet avec u
 
 Propriétés de l’état :
 
-* Etiquette
-    * Une étiquette qui décrit le type de retour d’état. Notez les valeurs d’étiquette peuvent être mappés dans le runtime. Consultez l’entrée ci-dessous pour mapper des valeurs dans le runtime.
+* <strong>Étiquette</strong> - une étiquette décrivant le type de retour d’état. Notez les valeurs d’étiquette peuvent être mappés dans le runtime. Consultez l’entrée ci-dessous pour mapper des valeurs dans le runtime.
 
-* Type
-    * Le type de retour de l’état. Type a des valeurs d’énumération suivantes. Pour n’importe quelle valeur 2 ou ultérieur, la plateforme n’est pas naviguer vers l’objet connecté, et une erreur s’affichera dans l’interface utilisateur.
+* <strong>Type</strong> -type de retour de l’état. Type a des valeurs d’énumération suivantes. Pour n’importe quelle valeur 2 ou ultérieur, la plateforme n’est pas naviguer vers l’objet connecté, et une erreur s’affichera dans l’interface utilisateur.
 
-Types :
+   Types :
 
-| Value | Description |
-| ----- | ----------- |
-| 0 | La licence |
-| 1 | Warning |
-| 2 | Non autorisé |
-| 3 | Erreur |
-| 4 | Fatal |
-| 5 | Inconnu |
+  | Value | Description |
+  | ----- | ----------- |
+  | 0 | La licence |
+  | 1 | Warning |
+  | 2 | Non autorisé |
+  | 3 | Erreur |
+  | 4 | Fatal |
+  | 5 | Inconnu |
 
-* Détails
-    * Type de retour décrivant l’état des détails supplémentaires.
+* <strong>Détails</strong> - décrivant le type de retour d’état des détails supplémentaires.
 
 ### <a name="powershell-connection-status-provider-script"></a>Script du fournisseur d’état de connexion de PowerShell
 
@@ -139,7 +134,7 @@ Le script PowerShell de fournisseur de statut de connexion détermine si une cib
 
 Exemple de script PowerShell :
 
-``` ts
+```PowerShell
 ## Get-My-Status ##
 
 function Get-Status()

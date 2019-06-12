@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 5426ea929037e59d2105fb2b3b06d4ebfdb7a577
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 6d651670976fca65ee517672c81dc6cebc42fff8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192286"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442483"
 ---
 # <a name="configure-performance-monitoring"></a>Configurer la surveillance des performances
   
@@ -23,25 +23,25 @@ AD FS comprend ses propres compteurs de performance dédiés pour vous aider à 
   
 #### <a name="to-configure-performance-monitoring-for-ad-fs-using-performance-monitor"></a>Pour configurer la surveillance des performances pour AD FS à l’aide de l’Analyseur de performances  
   
-1.  Sur le **Démarrer** , tapez **Analyseur de performances**, puis appuyez sur ENTRÉE.  
+1. Sur le **Démarrer** , tapez **Analyseur de performances**, puis appuyez sur ENTRÉE.  
   
-2.  Dans l’arborescence de la console, développez **des ensembles de collecteurs de données**, à droite\-cliquez sur **défini par l’utilisateur**, pointez sur **New**, puis cliquez sur **ensemble de collecteurs de données** .  
+2. Dans l’arborescence de la console, développez **des ensembles de collecteurs de données**, à droite\-cliquez sur **défini par l’utilisateur**, pointez sur **New**, puis cliquez sur **ensemble de collecteurs de données** .  
   
-    L’Assistant créer un nouvel ensemble de collecteurs de données s’affiche.  
+   L’Assistant créer un nouvel ensemble de collecteurs de données s’affiche.  
   
-3.  Dans **créer nouvel ensemble de collecteurs données**, pour **nom** tapez un nom pour le nouvel ensemble de collecteurs de données \(tels que « Performances AD FS »\), cliquez sur **créer manuellement \( Advanced\)** , puis cliquez sur **suivant**.  
+3. Dans **créer nouvel ensemble de collecteurs données**, pour **nom** tapez un nom pour le nouvel ensemble de collecteurs de données \(tels que « Performances AD FS »\), cliquez sur **créer manuellement \( Advanced\)** , puis cliquez sur **suivant**.  
   
-4.  Pour le type de données à inclure, vérifiez que **créer des journaux de données** est sélectionnée, puis cliquez sur les cases à cocher pour les types de données suivants : **Compteur de performances**, **données de trace d’événements**, **les informations de configuration système**.  
+4. Pour le type de données à inclure, vérifiez que **créer des journaux de données** est sélectionnée, puis cliquez sur les cases à cocher pour les types de données suivants : **Compteur de performances**, **données de trace d’événements**, **les informations de configuration système**.  
   
-5.  Pour les compteurs de performances, développez **AD FS** dans le **compteurs disponibles** liste, puis cliquez sur **ajouter**.  
+5. Pour les compteurs de performances, développez **AD FS** dans le **compteurs disponibles** liste, puis cliquez sur **ajouter**.  
   
-    Les compteurs de performances AD FS doivent apparaître dans le **ajouté compteurs** liste.  
+   Les compteurs de performances AD FS doivent apparaître dans le **ajouté compteurs** liste.  
   
-6.  Lorsque vous êtes invité à ajouter des fournisseurs de suivi d’événements, cliquez sur **ajouter**, sélectionnez **événements AD FS** et **suivi AD FS** à partir de la liste des fournisseurs.  
+6. Lorsque vous êtes invité à ajouter des fournisseurs de suivi d’événements, cliquez sur **ajouter**, sélectionnez **événements AD FS** et **suivi AD FS** à partir de la liste des fournisseurs.  
   
-7.  Lorsque vous êtes invité à ajouter les clés de Registre à analyser, cliquez sur **suivant**.  
+7. Lorsque vous êtes invité à ajouter les clés de Registre à analyser, cliquez sur **suivant**.  
   
-8.  Lorsque vous êtes invité à spécifier l’emplacement pour enregistrer les données de performances, vous pouvez accepter l’emplacement par défaut \( * *% lecteur_système %\\PerfLogs\\administrateur\\*** <dedonnées\_collecteur\_définir >* , puis cliquez sur **suivant**.  
+8. Lorsque vous êtes invité à spécifier l’emplacement pour enregistrer les données de performances, vous pouvez accepter l’emplacement par défaut \( * *% lecteur_système %\\PerfLogs\\administrateur\\*** <dedonnées\_collecteur\_définir >* , puis cliquez sur **suivant**.  
   
 9. Lorsque vous êtes invité à créer l’ensemble de collecteurs de données, sélectionnez **enregistrer et fermer**, puis cliquez sur **Terminer**.  
   
@@ -55,7 +55,7 @@ AD FS comprend ses propres compteurs de performance dédiés pour vous aider à 
   
     -   Pour mettre fin à une capture de données de performances afin que vous puissiez afficher le dernier rapport, avec le bouton droit\-cliquez sur l’ensemble de collecteurs de données que vous avez ajouté \(tels que « Performances AD FS »\), puis cliquez sur **arrêter**.  
   
-    Le dernier rapport est ajouté et numéroté automatiquement \(en commençant à 000001\) sous le **rapport\\défini par utilisateur ***\\< données\_collecteur\_définir >* nœud dans l’arborescence de la console.  
+    Le dernier rapport est ajouté et numéroté automatiquement \(en commençant à 000001\) sous le **rapport\\défini par l’utilisateur**<em>\\< données\_collecteur \_définir ></em> nœud dans l’arborescence de la console.  
   
 ## <a name="ad-fs-performance-counters"></a>Compteurs de performances AD FS  
 Le tableau suivant répertorie les compteurs de performances AD FS et décrit la façon dont elles sont utiles pour la surveillance de l’activité est liée à un serveur de fédération ou un serveur proxy de fédération.  

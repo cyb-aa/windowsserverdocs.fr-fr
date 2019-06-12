@@ -11,12 +11,12 @@ ms.topic: article
 ms.assetid: 8e7b77a4-1c6a-4c21-8844-0df89b63f68d
 author: brianlic-msft
 ms.date: 10/12/2016
-ms.openlocfilehash: d304ee3456f8db1e5b202c1d9221d1374a5251be
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7c2d7113847cc44f18c5234502b58becde1dcb9f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831010"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446510"
 ---
 # <a name="device-health-attestation"></a>Attestation d’intégrité de l’appareil
 
@@ -58,15 +58,15 @@ Le service Attestation d’intégrité de l’appareil s’intègre aux solution
 Voici un exemple d’utilisation du service Attestation d’intégrité de l’appareil pour élever le niveau de sécurité des ressources de votre organisation.
 
 1. Vous créez une stratégie qui vérifie la configuration/les attributs de démarrage suivants :
-  - Démarrage sécurisé
-  - BitLocker
-  - Logiciel anti-programme malveillant à lancement anticipé
+   - Démarrage sécurisé
+   - BitLocker
+   - Logiciel anti-programme malveillant à lancement anticipé
 2. La solution de gestion des appareils mobiles applique cette stratégie et déclenche une mesure corrective, selon les données de rapport d’attestation d’intégrité de l’appareil.  Par exemple, elle peut vérifier les points suivants :
-  - Le démarrage sécurisé a été activé, l’appareil a chargé du code de confiance authentique et le chargeur de démarrage Windows n’était pas falsifié.
-  - Le démarrage sécurisé a correctement vérifié la signature numérique du noyau Windows et les composants qui ont été chargés pendant le démarrage de l’appareil.
-  - Le démarrage mesuré a créé une piste d’audit protégée par le module de plateforme sécurisée qui a pu être vérifiée à distance.
-  - BitLocker a été activé et a protégé les données quand l’appareil s’est éteint.
-  - Un logiciel anti-programme malveillant à lancement anticipé a été activé dès les premiers stades du démarrage et il surveille l’exécution.
+   - Le démarrage sécurisé a été activé, l’appareil a chargé du code de confiance authentique et le chargeur de démarrage Windows n’était pas falsifié.
+   - Le démarrage sécurisé a correctement vérifié la signature numérique du noyau Windows et les composants qui ont été chargés pendant le démarrage de l’appareil.
+   - Le démarrage mesuré a créé une piste d’audit protégée par le module de plateforme sécurisée qui a pu être vérifiée à distance.
+   - BitLocker a été activé et a protégé les données quand l’appareil s’est éteint.
+   - Un logiciel anti-programme malveillant à lancement anticipé a été activé dès les premiers stades du démarrage et il surveille l’exécution.
   
 #### <a name="dha-cloud-service"></a>Service cloud Attestation d’intégrité de l’appareil
 

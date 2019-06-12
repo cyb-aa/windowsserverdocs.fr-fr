@@ -11,12 +11,12 @@ ms.assetid: 897f2454-5aee-445c-a63e-f386f514a0f6
 author: jasongerend
 ms.author: jgerend
 ms.date: 05/22/2019
-ms.openlocfilehash: 1d19b3dc7000a4bf5558f351ce67ce7406b3d5d8
-ms.sourcegitcommit: b190fac4bfa5599751a60d3fc3b4c4a64dd9afd7
+ms.openlocfilehash: 160adc0e838cb732ba792cbdd7fd9fa200c68794
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66009076"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810509"
 ---
 # <a name="upgrade-virtual-machine-version-in-hyper-v-on-windows-10-or-windows-server"></a>Mise à niveau de version de la machine virtuelle dans Hyper-V sur Windows 10 ou Windows Server
 
@@ -53,7 +53,7 @@ Pour mettre à niveau la version de configuration de machine virtuelle à l’ai
 Update-VMVersion <vmname>
 ```
 
-## <a name="BKMK_SupportedConfigVersions"></a>Versions de configuration de machine virtuelle prises en charge
+## <a name="supported-virtual-machine-configuration-versions"></a>Versions de configuration de machine virtuelle prises en charge
 
 Exécutez l’applet de commande PowerShell [Get-VMHostSupportedVersion](https://docs.microsoft.com/powershell/module/hyper-v/get-vmhostsupportedversion) pour voir quelles versions de configuration de machine virtuelle prend en charge de votre hôte Hyper-V. Lorsque vous créez une machine virtuelle, il est créé avec la version de configuration par défaut. Pour découvrir les nouveautés de la valeur par défaut, exécutez la commande suivante.
 

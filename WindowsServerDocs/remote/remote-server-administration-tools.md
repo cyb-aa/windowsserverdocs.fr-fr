@@ -12,16 +12,16 @@ ms.assetid: d54a1f5e-af68-497e-99be-97775769a7a7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dansimp
-ms.openlocfilehash: 748010e80cf2b54926ca226a7af8c49f1aa16800
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 30ca0a1e8a2f17f54a8f05d7270bf9512be7a8dc
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192642"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805186"
 ---
 # <a name="remote-server-administration-tools"></a>Outils d’administration de serveur distant
 
->S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique prend en charge à distance Server Administration Tools pour Windows 10.
 
@@ -97,30 +97,30 @@ Si vous avez une version de Windows 10 avant l’octobre 2018 (1809) de mettre �
 
 ##### <a name="to-uninstall-remote-server-administration-tools-for-windows-10-after-rsat-package-install"></a>Pour désinstaller les outils d’Administration de serveur distant pour Windows 10 (après l’installation du package RSAT)
 
-1.  Sur le Bureau, cliquez sur **Démarrer**, **Toutes les applications**, **Système Windows**, puis sur **Panneau de configuration**.
+1. Sur le Bureau, cliquez sur **Démarrer**, **Toutes les applications**, **Système Windows**, puis sur **Panneau de configuration**.
 
-2.  Sous **Programmes**, cliquez sur **Désinstaller un programme**.
+2. Sous **Programmes**, cliquez sur **Désinstaller un programme**.
 
-3.  Cliquez sur **Afficher les mises à jour installées**.
+3. Cliquez sur **Afficher les mises à jour installées**.
 
-4.  Cliquez avec le bouton droit sur **Mise à jour pour Microsoft Windows (KB2693643)** , puis cliquez sur **Désinstaller**.
+4. Cliquez avec le bouton droit sur **Mise à jour pour Microsoft Windows (KB2693643)** , puis cliquez sur **Désinstaller**.
 
-5.  Quand vous devez indiquer si vous voulez vraiment désinstaller la mise à jour, cliquez sur **Oui**.
-S
-##### <a name="to-turn-off-specific-tools-after-rsat-package-install"></a>Pour désactiver les outils spécifiques (après l’installation du package RSAT)
+5. Quand vous devez indiquer si vous voulez vraiment désinstaller la mise à jour, cliquez sur **Oui**.
+   S
+   ##### <a name="to-turn-off-specific-tools-after-rsat-package-install"></a>Pour désactiver les outils spécifiques (après l’installation du package RSAT)
 
-1.  Sur le Bureau, cliquez sur **Démarrer**, **Toutes les applications**, **Système Windows**, puis sur **Panneau de configuration**.
+6. Sur le Bureau, cliquez sur **Démarrer**, **Toutes les applications**, **Système Windows**, puis sur **Panneau de configuration**.
 
-2.  Cliquez sur **Programmes**, puis dans **Programmes et fonctionnalités**, cliquez sur **Activer ou désactiver les fonctionnalités Windows**.
+7. Cliquez sur **Programmes**, puis dans **Programmes et fonctionnalités**, cliquez sur **Activer ou désactiver les fonctionnalités Windows**.
 
-3.  Dans la boîte de dialogue **Fonctionnalités de Windows**, développez **Outils d’administration de serveur distant**, puis développez soit **Outils d’administration de rôles**, soit **Outils d’administration de fonctionnalités**.
+8. Dans la boîte de dialogue **Fonctionnalités de Windows**, développez **Outils d’administration de serveur distant**, puis développez soit **Outils d’administration de rôles**, soit **Outils d’administration de fonctionnalités**.
 
-4.  Désactivez les cases à cocher des outils que vous souhaitez désactiver.
+9. Désactivez les cases à cocher des outils que vous souhaitez désactiver.
 
-    > [!NOTE]
-    > Si vous désactiver le Gestionnaire de serveur, l’ordinateur doit être redémarré et outils qui étaient accessibles depuis le **outils** menu du Gestionnaire de serveur doit être ouvert à partir de la **outils d’administration** dossier.
+   > [!NOTE]
+   > Si vous désactiver le Gestionnaire de serveur, l’ordinateur doit être redémarré et outils qui étaient accessibles depuis le **outils** menu du Gestionnaire de serveur doit être ouvert à partir de la **outils d’administration** dossier.
 
-5.  Quand vous avez terminé de désactiver les outils que vous ne voulez pas utilisez, cliquez sur **OK**.
+10. Quand vous avez terminé de désactiver les outils que vous ne voulez pas utilisez, cliquez sur **OK**.
 
 ### <a name="run-remote-server-administration-tools"></a>Exécuter les Outils d’administration de serveur distant
 
@@ -158,7 +158,7 @@ Bien qu’ils ne sont pas répertoriés dans la console du Gestionnaire de serve
 ### <a name="issue-rsat-fod-installation-fails-with-error-code-0x800f0954"></a>**Problème**: Installation de RSAT FOD échoue avec le code d’erreur 0x800f0954
 
 > **Impact**: FODs RSAT sur Windows 10 1809 (mise à jour octobre 2018) dans des environnements WSUS/SCCM
-
+> 
 > **Résolution**: Pour installer FODs sur un PC joint à un domaine qui reçoit les mises à jour via WSUS ou SCCM, vous devez modifier un paramètre de stratégie de groupe pour activer le téléchargement FODs directement à partir de Windows Update ou un partage local. Pour plus d’informations et pour obtenir des instructions sur la façon de modifier ce paramètre, consultez [comment rendre les fonctionnalités sur la demande et des modules linguistiques disponibles lorsque vous utilisez WSUS/SCCM](https://docs.microsoft.com/windows/deployment/update/fod-and-lang-packs).
 
 ---
@@ -166,7 +166,7 @@ Bien qu’ils ne sont pas répertoriés dans la console du Gestionnaire de serve
 ### <a name="issue-rsat-fod-installation-via-settings-app-does-not-show-statusprogress"></a>**Problème**: Installation RSAT FOD via l’application paramètres n’affiche pas la progression de l’état /
 
 > **Impact**: FODs RSAT sur Windows 10 1809 (mise à jour d’octobre 2018)
-
+> 
 > **Résolution**: Pour afficher la progression de l’installation, cliquez sur le **retour** bouton pour afficher l’état sur le **gestion des fonctionnalités facultatives** page.
 
 ---
@@ -174,7 +174,7 @@ Bien qu’ils ne sont pas répertoriés dans la console du Gestionnaire de serve
 ### <a name="issue-rsat-fod-uninstallation-via-settings-app-may-fail"></a>**Problème**: La désinstallation de RSAT FOD via l’application paramètres peut échouer.
 
 > **Impact**: FODs RSAT sur Windows 10 1809 (mise à jour d’octobre 2018)
-
+> 
 > **Résolution**: Dans certains cas, les échecs de désinstallation sont en raison de la nécessité de désinstaller manuellement les dépendances. Plus précisément, si l’outil de serveur distant A est requis par l’outil RSAT B, puis en choisissant désinstaller un outil RSAT échoue si RSAT outil B est toujours installé. Dans ce cas, désinstallez d’abord l’outil RSAT B et puis désinstallez RSAT, outil A. Afficher la liste des FODs RSAT, notamment les dépendances.
 
 ---
@@ -182,7 +182,7 @@ Bien qu’ils ne sont pas répertoriés dans la console du Gestionnaire de serve
 ### <a name="issue-rsat-fod-uninstallation-appears-to-succeed-but-the-tool-is-still-installed"></a>**Problème**: La désinstallation de RSAT FOD semblera avoir réussi, mais l’outil est toujours installé
 
 > **Impact**: FODs RSAT sur Windows 10 1809 (mise à jour d’octobre 2018)
-
+> 
 > **Résolution**: Redémarrage de l’ordinateur va terminer la suppression de l’outil.
 
 ---
@@ -190,7 +190,7 @@ Bien qu’ils ne sont pas répertoriés dans la console du Gestionnaire de serve
 ### <a name="issue-rsat-missing-after-windows-10-upgrade"></a>**Problème**: RSAT manquants après une mise à niveau Windows 10
 
 > **Impact**: N’importe quel serveur distant. Installation du package MSU (avant RSAT FODs) pas automatiquement réinstallée
-
+> 
 > **Résolution**: Une installation de serveur distant ne peut pas être persistante entre les mises à niveau du système d’exploitation en raison du serveur distant. MSU distribué sous la forme d’un package de mise à jour de Windows. Installez RSAT à nouveau après la mise à niveau Windows 10. Notez que cette limitation est une des raisons pourquoi nous sommes passés à FODs en commençant par Windows 10 1809. FODs RSAT qui sont installées persistera futures mises à niveau de version Windows 10.
 
 ## <a name="see-also"></a>Voir aussi

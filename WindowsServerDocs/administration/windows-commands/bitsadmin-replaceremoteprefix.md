@@ -13,16 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 848c57736c3530e296cffb970237149b4634de67
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 25c0f997ea0b9f97051baa291bdf87c84b6b1cbb
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266513"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811299"
 ---
 # <a name="bitsadmin-replaceremoteprefix"></a>bitsadmin replaceremoteprefix
-
-
 
 Tous les fichiers dans le travail à distance dont l’URL commence par *OldPrefix* sont modifiés pour utiliser *NewPrefix*.
 
@@ -43,6 +41,7 @@ bitsadmin /ReplaceRemotePrefix <Job> <OldPrefix> <NewPrefix
 ## <a name="examples"></a>Exemples
 
 L’exemple suivant modifie tous les fichiers de travail nommé *myDownloadJob* dont la propriété URL distante commence par *http://stageserver* à *http://prodserver* .
+
 ```
 C:\>bitsadmin /ReplaceRemotePrefix myDownloadJob http://stageserver http://prodserver
 ```

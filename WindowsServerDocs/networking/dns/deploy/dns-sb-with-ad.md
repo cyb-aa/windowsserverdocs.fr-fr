@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: f9533204-ad7e-4e49-81c1-559324a16aeb
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7a5761cafff0a4bf148958a7f14aeaf311075b2e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 66931d2196b741e469cb726929f7b58985b8d0cd
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839780"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812152"
 ---
 # <a name="use-dns-policy-for-split-brain-dns-in-active-directory"></a>Utiliser une stratégie DNS pour un déploiement DNS Split-Brain dans Active Directory
 
@@ -25,7 +25,7 @@ Dans Windows Server 2016, la prise en charge des stratégies DNS est étendu à 
 
 Auparavant, ce scénario nécessitait que les administrateurs DNS maintiennent deux serveurs DNS différents, chaque fournissant des services à chaque ensemble d’utilisateurs, internes et externes. Si seulement quelques enregistrements à l’intérieur de la zone ont été divisées\-brained ou les deux instances de la zone (interne et externe) ont été déléguées au même domaine parent, c’est devenu une énigme de gestion.
 
->[!NOTE]
+> [!NOTE]
 > - Déploiements de DNS sont fractionnées\-du cerveau lorsqu’il existe deux versions d’une zone unique, une version pour les utilisateurs internes sur l’intranet de l’organisation et une version pour les utilisateurs externes – qui sont en règle générale, les utilisateurs sur Internet.
 > - La rubrique [utiliser une stratégie DNS pour le déploiement de DNS Split-Brain](split-brain-DNS-deployment.md) explique comment vous pouvez utiliser des stratégies DNS et des étendues de zone pour déployer un fractionnement\-système DNS sur un seul serveur DNS de Windows Server 2016 du cerveau.
 
@@ -124,8 +124,8 @@ Vous pouvez utiliser la commande suivante pour ajouter des enregistrements pour 
     
     Add-DnsServerResourceRecord -ZoneName "contoso.com" -A -Name "www.career" -IPv4Address "10.0.0.39”
 
->[!NOTE]
->Le **– ZonePortée** paramètre n’est pas inclus lorsque l’enregistrement est ajouté à l’étendue de la zone par défaut. Cette action est la même que l’ajout d’enregistrements à une zone normale.
+> [!NOTE]
+> Le **– ZonePortée** paramètre n’est pas inclus lorsque l’enregistrement est ajouté à l’étendue de la zone par défaut. Cette action est la même que l’ajout d’enregistrements à une zone normale.
 
 Pour plus d’informations, consultez [Add-DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
@@ -133,18 +133,18 @@ Pour plus d’informations, consultez [Add-DnsServerResourceRecord](https://docs
 
 Une fois que vous avez identifié les interfaces de serveur pour le réseau externe et le réseau interne et que vous avez créé les étendues de zone, vous devez créer des stratégies DNS qui se connectent les étendues de zone internes et externes.
 
->[!NOTE]
->Cet exemple utilise l’interface du serveur \(le paramètre - ServerInterface dans l’exemple de commande ci-dessous\) comme critère pour faire la distinction entre les clients internes et externes. Une autre méthode permettant de faire la distinction entre les clients internes et externes est à l’aide de sous-réseaux du client comme un critère. Si vous pouvez identifier les sous-réseaux auxquels appartiennent les clients internes, vous pouvez configurer une stratégie DNS pour différencier en fonction de sous-réseau du client. Pour plus d’informations sur la façon de configurer la gestion du trafic à l’aide de critères de sous-réseau client, consultez [utiliser une stratégie DNS pour l’emplacement géographique en fonction de la gestion du trafic avec des serveurs principaux](primary-geo-location.md).
+> [!NOTE]
+> Cet exemple utilise l’interface du serveur \(le paramètre - ServerInterface dans l’exemple de commande ci-dessous\) comme critère pour faire la distinction entre les clients internes et externes. Une autre méthode permettant de faire la distinction entre les clients internes et externes est à l’aide de sous-réseaux du client comme un critère. Si vous pouvez identifier les sous-réseaux auxquels appartiennent les clients internes, vous pouvez configurer une stratégie DNS pour différencier en fonction de sous-réseau du client. Pour plus d’informations sur la façon de configurer la gestion du trafic à l’aide de critères de sous-réseau client, consultez [utiliser une stratégie DNS pour l’emplacement géographique en fonction de la gestion du trafic avec des serveurs principaux](primary-geo-location.md).
 
 Après avoir configuré des stratégies, lorsqu’une requête DNS est reçue sur l’interface publique, la réponse est retournée à partir de la portée externe de la zone. 
 
->[!NOTE]
->Aucune stratégie n’est requis pour le mappage de l’étendue de la zone interne par défaut. 
+> [!NOTE]
+> Aucune stratégie n’est requis pour le mappage de l’étendue de la zone interne par défaut. 
 
     Add-DnsServerQueryResolutionPolicy -Name "SplitBrainZonePolicy" -Action ALLOW -ServerInterface "eq,208.84.0.53" -ZoneScope "external,1" -ZoneName contoso.com
 
->[!NOTE]
->208.84.0.53 est l’adresse IP sur l’interface de réseau public.
+> [!NOTE]
+> 208.84.0.53 est l’adresse IP sur l’interface de réseau public.
 
 Pour plus d’informations, consultez [Add-DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
 

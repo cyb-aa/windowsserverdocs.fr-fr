@@ -6,14 +6,14 @@ ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage-failover-clustering
-ms.date: 11/05/2018
+ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 4122375a48cae17e5f3ebcd7e9f3ce1fad28a105
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: b36f707edc08a4a8b2bc55a87c9db168e19a5487
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222493"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810980"
 ---
 # <a name="create-a-failover-cluster"></a>créer un cluster de basculement
 
@@ -25,13 +25,13 @@ Vous pouvez également déployer un cluster détaché d’Active Directory. Cett
 
 #### <a name="checklist-create-a-failover-cluster"></a>Liste de vérification : créer un cluster de basculement
 
-|État|Tâche|Référence|
-|:---:|---|---|
-|☐|Vérifier les conditions préalables|[Vérifier les conditions préalables](#verify-the-prerequisites)|
-|☐|Installer la fonctionnalité de clustering de basculement sur chaque serveur à ajouter comme nœud de cluster|[Installer la fonctionnalité Clustering avec basculement](#install-the-failover-clustering-feature)|
-|☐|Exécuter l'Assistant Validation de cluster pour valider la configuration|[Valider la configuration](#validate-the-configuration)|
-|☐|Exécuter l'Assistant Création d'un cluster pour créer le cluster de basculement|[Créer le cluster de basculement](#create-the-failover-cluster)|
-|☐|Créer des rôles en cluster pour héberger des charges de travail de cluster|[Créer des rôles en cluster](#create-clustered-roles)|
+| État | Tâche | Référence |
+| ---    | ---  | ---       |
+| ☐    | Vérifier les conditions préalables | [Vérifier les conditions préalables](#verify-the-prerequisites) |
+| ☐    | Installer la fonctionnalité de clustering de basculement sur chaque serveur à ajouter comme nœud de cluster | [Installer la fonctionnalité Clustering avec basculement](#install-the-failover-clustering-feature) |
+| ☐    | Exécuter l'Assistant Validation de cluster pour valider la configuration | [Valider la configuration](#validate-the-configuration) |
+| ☐ | Exécuter l'Assistant Création d'un cluster pour créer le cluster de basculement | [Créer le cluster de basculement](#create-the-failover-cluster) |
+| ☐ | Créer des rôles en cluster pour héberger des charges de travail de cluster | [Créer des rôles en cluster](#create-clustered-roles) |
 
 ## <a name="verify-the-prerequisites"></a>Vérifier les conditions préalables
 
@@ -50,8 +50,8 @@ Par ailleurs, vérifiez les conditions requises en matière de comptes :
     - L'utilisateur qui crée le cluster dispose de l'autorisation de **création d'objets ordinateur** sur l'UO ou le conteneur où résident les serveurs qui constitueront le cluster.
     - Si l'utilisateur ne dispose pas de l'autorisation de **création d'objets ordinateur** , demandez à un administrateur de domaine de prédéfinir un objet ordinateur de cluster pour le cluster. Pour plus d'informations, voir [Prestage Cluster Computer Objects in Active Directory Domain Services](prestage-cluster-adds.md).
 
->[!NOTE]
->Cette exigence ne s’applique pas si vous souhaitez créer un cluster détaché d’Active Directory dans Windows Server 2012 R2. Pour plus d’informations, voir [Déployer un cluster détaché d’Active Directory](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11)).
+> [!NOTE]
+> Cette exigence ne s’applique pas si vous souhaitez créer un cluster détaché d’Active Directory dans Windows Server 2012 R2. Pour plus d’informations, voir [Déployer un cluster détaché d’Active Directory](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11)).
 
 ## <a name="install-the-failover-clustering-feature"></a>Installer la fonctionnalité de clustering de basculement
 
@@ -73,22 +73,22 @@ Vous devez installer la fonctionnalité de clustering de basculement sur chaque 
 10. Lorsque l’installation est terminée, sélectionnez **fermer**.
 11. Répétez cette procédure sur chaque serveur à ajouter comme nœud de cluster.
 
->[!NOTE]
->Après avoir installé la fonctionnalité de clustering de basculement, nous vous recommandons d'appliquer les dernières mises à jour de Windows Update. En outre, pour un cluster de basculement Windows Server 2012, passez en revue la [correctifs et mises à jour pour les clusters de basculement Windows Server 2012 recommandés](https://support.microsoft.com/help/2784261/recommended-hotfixes-and-updates-for-windows-server-2012-based-failove) Support Microsoft l’article et installer les mises à jour qui s’appliquent.
+> [!NOTE]
+> Après avoir installé la fonctionnalité de clustering de basculement, nous vous recommandons d'appliquer les dernières mises à jour de Windows Update. En outre, pour un cluster de basculement Windows Server 2012, passez en revue la [correctifs et mises à jour pour les clusters de basculement Windows Server 2012 recommandés](https://support.microsoft.com/help/2784261/recommended-hotfixes-and-updates-for-windows-server-2012-based-failove) Support Microsoft l’article et installer les mises à jour qui s’appliquent.
 
 ## <a name="validate-the-configuration"></a>Valider la configuration
 
 Avant de créer le cluster de basculement, nous vous recommandons vivement de valider la configuration en vérifiant que les paramètres matériels et logiciels sont compatibles avec le clustering de basculement. Microsoft ne prend en charge une solution de cluster que si elle réussit tous les tests de validation et si tous les composants matériels sont certifiés pour la version de Windows Server exécutée sur les nœuds de cluster.
 
->[!NOTE]
->Pour exécuter tous les tests, vous devez disposer d'au moins deux nœuds. Si vous n'en avez qu'un, la plupart des tests de stockage importants ne s'exécuteront pas.
+> [!NOTE]
+> Pour exécuter tous les tests, vous devez disposer d'au moins deux nœuds. Si vous n'en avez qu'un, la plupart des tests de stockage importants ne s'exécuteront pas.
 
 ### <a name="run-cluster-validation-tests"></a>Exécuter des tests de validation de cluster
 
 1. Sur un ordinateur doté des outils de gestion du cluster de basculement installés à partir des outils d'administration de serveur distant, ou sur un serveur sur lequel vous avez installé la fonctionnalité de clustering de basculement, démarrez le Gestionnaire du cluster de basculement. Pour ce faire, sur un serveur, démarrez le Gestionnaire de serveur, puis, dans le **outils** menu, sélectionnez **Gestionnaire du Cluster de basculement**.
 2. Dans le **Gestionnaire du Cluster de basculement** volet, sous **gestion**, sélectionnez **valider la Configuration**.
 3. Sur le **avant de commencer** page, sélectionnez **suivant**.
-4. Sur le **sélectionner des serveurs ou un Cluster** page, dans le **entrer le nom du** zone, entrez le nom NetBIOS ou le nom de domaine complet d’un serveur que vous souhaitez ajouter en tant qu’un nœud de cluster de basculement et sélectionnez **Ajouter**. Répétez cette étape pour chaque serveur à ajouter. Pour ajouter plusieurs serveurs à la fois, séparez les noms d’une virgule ou d’un point-virgule. Par exemple, entrez les noms au format *server1.contoso.com, server2.contoso.com*. Lorsque vous avez terminé, sélectionnez **suivant**.
+4. Sur le **sélectionner des serveurs ou un Cluster** page, dans le **entrer le nom du** zone, entrez le nom NetBIOS ou le nom de domaine complet d’un serveur que vous souhaitez ajouter en tant qu’un nœud de cluster de basculement et sélectionnez **Ajouter**. Répétez cette étape pour chaque serveur à ajouter. Pour ajouter plusieurs serveurs à la fois, séparez les noms d’une virgule ou d’un point-virgule. Par exemple, entrez les noms au format `server1.contoso.com, server2.contoso.com`. Lorsque vous avez terminé, sélectionnez **suivant**.
 5. Sur le **Options de test** page, sélectionnez **exécuter tous les tests (recommandés)** , puis sélectionnez **suivant**.
 6. Sur le **Confirmation** page, sélectionnez **suivant**.
 
@@ -98,8 +98,8 @@ Avant de créer le cluster de basculement, nous vous recommandons vivement de va
       - Si les résultats indiquent que les tests ont réussi et la configuration est adaptée au clustering, et que vous souhaitez créer le cluster immédiatement, assurez-vous que le **créer le cluster maintenant en utilisant les nœuds validés** vérifier zone est sélectionnée, puis sélectionnez **Terminer**. Ensuite, passez à l'étape 4 de la procédure [Créer le cluster de basculement](#create-the-failover-cluster).
       - Si les résultats indiquent la présence d’avertissements ou échecs, sélectionnez **afficher le rapport** pour afficher les détails et de déterminer quels problèmes doivent être corrigées. Notez qu'un avertissement dans le cadre d'un test de validation indique que l'aspect en question du cluster de basculement peut être pris en charge, mais qu'il n'est peut-être pas conforme aux meilleures pratiques.
         
-        >[!NOTE]
-        >Si vous recevez un avertissement pour le test Valider la réservation persistante des espaces de stockage, voir le billet de blog qui explique qu’ [un avertissement de validation du cluster de basculement Windows indique que vos disques ne prennent pas en charge les réservations persistantes pour les espaces de stockage](https://blogs.msdn.microsoft.com/clustering/2013/05/24/validate-storage-spaces-persistent-reservation-test-results-with-warning/) pour plus d’informations.
+        > [!NOTE]
+        > Si vous recevez un avertissement pour le test Valider la réservation persistante des espaces de stockage, voir le billet de blog qui explique qu’ [un avertissement de validation du cluster de basculement Windows indique que vos disques ne prennent pas en charge les réservations persistantes pour les espaces de stockage](https://blogs.msdn.microsoft.com/clustering/2013/05/24/validate-storage-spaces-persistent-reservation-test-results-with-warning/) pour plus d’informations.
 
 Pour plus d’informations sur les tests de validation matériels, voir [Validate Hardware for a Failover Cluster](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134244(v%3dws.11)>).
 
@@ -115,8 +115,8 @@ Pour effectuer cette étape, assurez-vous que le compte d'utilisateur avec leque
 4. Sur le **avant de commencer** page, sélectionnez **suivant**.
 5. Si le **sélectionner des serveurs** page s’affiche, dans le **entrer le nom du** zone, entrez le nom NetBIOS ou le nom de domaine complet d’un serveur que vous souhaitez ajouter en tant qu’un nœud de cluster de basculement et sélectionnez **Ajouter**. Répétez cette étape pour chaque serveur à ajouter. Pour ajouter plusieurs serveurs à la fois, séparez les noms d’une virgule ou d’un point-virgule. Par exemple, entrez les noms au format *server1.contoso.com; server2.contoso.com*. Lorsque vous avez terminé, sélectionnez **suivant**.
     
-    >[!NOTE]
-    >Si vous avez choisi de créer le cluster immédiatement après l’exécution de la validation le [configuration validation procédure](#validate-the-configuration), vous ne verrez pas le **sélectionner des serveurs** page. Les nœuds qui ont été validés sont ajoutés automatiquement à l'Assistant Création d'un cluster, si bien que vous n'avez pas besoin de les entrer à nouveau.
+    > [!NOTE]
+    > Si vous avez choisi de créer le cluster immédiatement après l’exécution de la validation le [configuration validation procédure](#validate-the-configuration), vous ne verrez pas le **sélectionner des serveurs** page. Les nœuds qui ont été validés sont ajoutés automatiquement à l'Assistant Création d'un cluster, si bien que vous n'avez pas besoin de les entrer à nouveau.
 6. Si vous avez passé l'étape de validation antérieure, la page **Avertissement de validation** s'affiche. Nous vous recommandons vivement d'exécuter la validation du cluster. Microsoft assure uniquement la prise en charge des clusters qui ont réussi tous les tests de validation. Pour exécuter les tests de validation, sélectionnez **Oui**, puis sélectionnez **suivant**. Terminez l’Assistant Validation d’une Configuration comme décrit dans [valider la configuration](#validate-the-configuration).
 7. Dans la page **Point d'accès pour l'administration du cluster**, procédez comme suit :
     
@@ -151,24 +151,23 @@ Voici comment créer un rôle en cluster :
 1. Utilisez le Gestionnaire de serveur ou Windows PowerShell pour installer le rôle ou la fonctionnalité nécessaire à un rôle en cluster sur chaque nœud de cluster de basculement. Par exemple, si vous voulez créer un serveur de fichiers en cluster, installez le rôle de serveur de fichiers sur tous les nœuds du cluster.
     
     Le tableau suivant présente les rôles en cluster que vous pouvez configurer dans l'Assistant Haute disponibilité, ainsi que le rôle serveur associé ou la fonctionnalité que vous devez installer comme condition préalable.
-    
 
-|Rôle en cluster  |Rôle ou fonctionnalité prérequis  |
-|---------|---------|
-|Serveur de Namespace     |   Espaces de noms (partie du rôle de serveur de fichiers)       |
-|Serveur d'espace de noms DFS     |  Rôle de serveur DHCP       |
-|Coordinateur de transactions distribuées (DTC)     | Aucune        |
-|Serveur de fichiers     |  Rôle de serveur de fichiers       |
-|Application générique     |  Non applicable       |
-|Script générique     |   Non applicable      |
-|Service générique     |   Non applicable      |
-|Service Broker de réplication Hyper-V     |   Rôle Hyper-V      |
-|iSCSI Target Server     |    Serveur cible iSCSI (partie du rôle de serveur de fichiers)     |
-|Serveur iSNS     |  Fonctionnalité Service serveur iSNS       |
-|Message Queuing     |  Fonctionnalité Services Message Queuing       |
-|Autre serveur     |  Aucune       |
-|Ordinateur virtuel     |  Rôle Hyper-V       |
-|Serveur WINS     |   Fonctionnalité Serveur WINS      |
+   | Rôle en cluster  | Rôle ou fonctionnalité prérequis  |
+   | ---------       | ---------                    |
+   | Serveur de Namespace     |   Espaces de noms (partie du rôle de serveur de fichiers)       |
+   | Serveur d'espace de noms DFS     |  Rôle de serveur DHCP       |
+   | Coordinateur de transactions distribuées (DTC)     | Aucune        |
+   | Serveur de fichiers     |  Rôle de serveur de fichiers       |
+   | Application générique     |  Non applicable       |
+   | Script générique     |   Non applicable      |
+   | Service générique     |   Non applicable      |
+   | Service Broker de réplication Hyper-V     |   Rôle Hyper-V      |
+   | iSCSI Target Server     |    Serveur cible iSCSI (partie du rôle de serveur de fichiers)     |
+   | Serveur iSNS     |  Fonctionnalité Service serveur iSNS       |
+   | Message Queuing     |  Fonctionnalité Services Message Queuing       |
+   | Autre serveur     |  Aucune       |
+   | Ordinateur virtuel     |  Rôle Hyper-V       |
+   | Serveur WINS     |   Fonctionnalité Serveur WINS      |
 
 2. Dans le Gestionnaire de Cluster de basculement, développez le nom du cluster, cliquez sur **rôles**, puis sélectionnez **configurer un rôle**.
 3. Suivez les étapes de l'Assistant Haute disponibilité pour créer le rôle en cluster.
@@ -178,8 +177,8 @@ Voici comment créer un rôle en cluster :
 
 Les applets de commande Windows PowerShell suivantes effectuer les mêmes fonctions que les procédures précédentes de cette rubrique. Entrez chaque applet de commande sur une seule ligne, même si elles tiennent sur plusieurs lignes du fait de contraintes de mise en forme.
 
->[!NOTE]
->Vous devez utiliser Windows PowerShell pour créer un cluster détaché d’Active Directory dans Windows Server 2012 R2. Pour plus d’informations sur la syntaxe, voir [Deploy an Active Directory-Detached Cluster](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11)).
+> [!NOTE]
+> Vous devez utiliser Windows PowerShell pour créer un cluster détaché d’Active Directory dans Windows Server 2012 R2. Pour plus d’informations sur la syntaxe, voir [Deploy an Active Directory-Detached Cluster](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11)).
 
 L'exemple suivant installe la fonctionnalité de clustering de basculement.
 
@@ -193,8 +192,8 @@ L'exemple suivant exécute tous les tests de validation de cluster sur les ordin
 Test-Cluster –Node Server1, Server2
 ```
 
->[!NOTE]
->Le **Test-Cluster** applet de commande renvoie les résultats vers un fichier journal dans le répertoire de travail actuel. Exemple : C:\Users\<nom d’utilisateur > \AppData\Local\Temp.
+> [!NOTE]
+> Le **Test-Cluster** applet de commande renvoie les résultats vers un fichier journal dans le répertoire de travail actuel. Exemple : C:\Users\<nom d’utilisateur > \AppData\Local\Temp.
 
 L'exemple suivant crée un cluster de basculement nommé *MyCluster* avec les nœuds *Server1* et *Server2*, attribue l'adresse IP statique *192.168.1.12*, puis ajoute la totalité du stockage disponible au cluster de basculement.
 

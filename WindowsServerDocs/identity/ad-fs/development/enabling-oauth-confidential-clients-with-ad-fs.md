@@ -9,12 +9,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 220b0b72734d1456e3cf877ebc2ff267a7dd56ad
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 167f74522172790d8f5b3fc1dea46d0b7059cd20
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190649"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501680"
 ---
 # <a name="build-a-server-side-application-using-oauth-confidential-clients-with-ad-fs-2016-or-later"></a>Générer un côté serveur, application à l’aide de clients confidentiels OAuth avec AD FS 2016 ou version ultérieur
 
@@ -83,7 +83,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
 #### <a name="to-upgrade-the-database-file"></a>Pour mettre à niveau le fichier de base de données  
 
-1.  Ouvrez le projet dans Visual Studio, il y aura un message vous indiquant que l’application requiert SQL Server 2102 Express, ou vous devez mettre à niveau la base de données.  Cliquez sur Ok.  
+1.  Ouvrez le projet dans Visual Studio, il y aura un message vous indiquant que l’application a besoin de SQL Server 2012 Express, ou vous devez mettre à niveau la base de données.  Cliquez sur Ok.  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_12.PNG)  
 
@@ -226,25 +226,25 @@ Dans cette section, nous allons tester la solution de client confidentiel.  Util
 
 #### <a name="testing-the-confidential-client-solution"></a>Test de la solution de client confidentiel  
 
-1.  En haut de Visual Studio, assurez-vous que Internet Explorer est activée, puis cliquez sur la flèche verte.  
+1. En haut de Visual Studio, assurez-vous que Internet Explorer est activée, puis cliquez sur la flèche verte.  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_36.png)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_36.png)  
 
-2.  Une fois la page ASP.Net s’affiche, cliquez sur **inscrire** sur en haut à droite de la page.  Entrez un nom d’utilisateur et le mot de passe, puis activez **inscrire** bouton.  Cela crée un compte local dans la base de données SQL.  
+2. Une fois la page ASP.Net s’affiche, cliquez sur **inscrire** sur en haut à droite de la page.  Entrez un nom d’utilisateur et le mot de passe, puis activez **inscrire** bouton.  Cela crée un compte local dans la base de données SQL.  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_31.PNG)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_31.PNG)  
 
-4.  Notez que, le site ASP.NET indique à présent Hello abby@contoso.com!.  Cliquez sur **profil**.  
+3. Notez que, le site ASP.NET indique à présent Hello abby@contoso.com!.  Cliquez sur **profil**.  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_32.PNG)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_32.PNG)  
 
-5.  Cela permet d’afficher une page sans les informations et indique que nous devons cliquez ici pour vous connecter.  Cliquez sur **ici**.  
+4. Cela permet d’afficher une page sans les informations et indique que nous devons cliquez ici pour vous connecter.  Cliquez sur **ici**.  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_33.PNG)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_33.PNG)  
 
-6.  Vous devez maintenant se connecter à AD FS.  
+5. Vous devez maintenant se connecter à AD FS.  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_35.PNG)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_35.PNG)  
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Développement des services AD FS](../../ad-fs/AD-FS-Development.md)  

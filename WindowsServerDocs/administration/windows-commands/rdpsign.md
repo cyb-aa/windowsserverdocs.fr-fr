@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 648b179f5b2feb8a7585c815aee47804e3bf1532
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9e35d3a3e85ed046fb658bbf5a97ab5fc5eec6d3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882270"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442011"
 ---
 # <a name="rdpsign"></a>rdpsign
 
@@ -36,6 +36,7 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 ```
 
 ## <a name="parameters"></a>Paramètres
+
 |Paramètre|Description|
 |-------|--------|
 |/sha1 \<hash>|Spécifie l’empreinte, qui est le hachage Secure Hash Algorithm 1 (SHA1) du certificat de signature qui est inclus dans le magasin de certificats.|
@@ -55,20 +56,20 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 -   Si les fichiers .rdp ne peut pas être lues ou écrites dans, l’outil continue au fichier suivant si plusieurs fichiers sont spécifiés.
 
 ## <a name="BKMK_examples"></a>Exemples
--   Pour signer un fichier .rdp qui est nommé File1.rdp, accédez au dossier où vous avez enregistré le fichier .rdp, puis tapez la commande suivante :
-    ```
-    rdpsign /sha1 hash file1.rdp
-    ```
-    > [!NOTE]
-    > Le *hachage* valeur représente l’empreinte de certificat SHA1, sans espaces.
--   Pour tester si la signature numérique elle aboutit pour un fichier .rdp sans réellement ouvrir le fichier de session, tapez la commande suivante :
-    ```
-    rdpsign /sha1 hash /l file1.rdp
-    ```
--   Pour signer les fichiers .rdp multiples, séparez les noms de fichiers à l’aide d’espaces. Par exemple, pour signer les fichiers .rdp plusieurs sont nommés File1.rdp, File2.rdp et File3.rdp, tapez la commande suivante :
-    ```
-    rdpsign /sha1 hash file1.rdp file2.rdp file3.rdp
-    ```
-## <a name="see-also"></a>Voir aussi
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
-[des Services Bureau à distance &#40;Services Terminal Server&#41; référence de la commande](remote-desktop-services-terminal-services-command-reference.md)
+- Pour signer un fichier .rdp qui est nommé File1.rdp, accédez au dossier où vous avez enregistré le fichier .rdp, puis tapez la commande suivante :
+  ```
+  rdpsign /sha1 hash file1.rdp
+  ```
+  > [!NOTE]
+  > Le *hachage* valeur représente l’empreinte de certificat SHA1, sans espaces.
+- Pour tester si la signature numérique elle aboutit pour un fichier .rdp sans réellement ouvrir le fichier de session, tapez la commande suivante :
+  ```
+  rdpsign /sha1 hash /l file1.rdp
+  ```
+- Pour signer les fichiers .rdp multiples, séparez les noms de fichiers à l’aide d’espaces. Par exemple, pour signer les fichiers .rdp plusieurs sont nommés File1.rdp, File2.rdp et File3.rdp, tapez la commande suivante :
+  ```
+  rdpsign /sha1 hash file1.rdp file2.rdp file3.rdp
+  ```
+  ## <a name="see-also"></a>Voir aussi
+  [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+  [des Services Bureau à distance &#40;Services Terminal Server&#41; référence de la commande](remote-desktop-services-terminal-services-command-reference.md)

@@ -1,23 +1,23 @@
 ---
 title: Vue d’ensemble de Gestion des disques
 description: Gestion des disques est un utilitaire système dans Windows qui vous permet d’effectuer des tâches de stockage avancées, telles que l’initialisation d’un nouveau lecteur, l’extension des volumes, réduction des partitions et modification des lettres de lecteur.
-ms.date: 4/2/2018
+ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 2a467c64a3e0ff38b5165b9e001fc2deb2d92148
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a3885ae6b09ad431fd1ea5e4c593e02c7bb274d9
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819280"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812545"
 ---
 # <a name="overview-of-disk-management"></a>Vue d’ensemble de Gestion des disques
 
-> **S’applique à :** Windows 10, Windows 8.1, Windows 7, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **S’applique à :** Windows 10, Windows 8.1, Windows 7, Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Gestion des disques est un utilitaire système dans Windows qui vous permet d’effectuer des tâches de stockage avancées. Voici quelques-unes des choses que Gestion des disques est valable pour :
 
@@ -51,9 +51,9 @@ Bien que la gestion des disques peut afficher la partition système EFI et la pa
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Gestion des disques](manage-disks.md)
+- [Gérer les disques](manage-disks.md)
 - [Gérer les volumes de base](manage-basic-volumes.md)
-- [Résolution des problèmes de gestion des disques](troubleshooting-disk-management.md)
+- [Résolution des problèmes de la Gestion des disques](troubleshooting-disk-management.md)
 - [Options de récupération dans Windows 10](https://support.microsoft.com/help/12415/windows-10-recovery-options)
 - [Rechercher des fichiers perdus après la mise à jour vers Windows 10](https://support.microsoft.com/help/12386/windows-10-find-lost-files-after-update)
 - [Sauvegarder et restaurer vos fichiers](https://support.microsoft.com/help/17143/windows-10-back-up-your-files)

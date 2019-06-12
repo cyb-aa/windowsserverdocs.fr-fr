@@ -11,18 +11,27 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 05/06/2019
+ms.date: 06/05/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: e2b79a1f914bdbc971299493ca00680e2504fbd3
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 7730790495babf4a70fb5a70ce93464faa86f1e3
+ms.sourcegitcommit: 1102e91571c88c7a1a2e021a6c53af1def7bb0a4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476028"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66736529"
 ---
 # <a name="whats-new-for-the-remote-desktop-client-on-android"></a>Nouveautés du client de bureau à distance sur Android
 
 Nous mettre à jour régulièrement le [client Bureau à distance pour Android](remote-desktop-android.md), en ajoutant de nouvelles fonctionnalités et résolution des problèmes. Découvrez les dernières mises à jour ci-dessous.
+
+## <a name="updates-for-version-8171"></a>Mises à jour pour la version 8.1.71
+
+*Date de publication : 06/05/2019*
+
+- Suppression de la prise en charge des versions d’Android 4.0.3 et 4.0.4.
+- Correction d’un problème où des ressources distantes du même nom n’affichait pas correctement.
+- Mise à jour de l’icône d’application.
+- Améliorations et correctifs de bogues mineurs.
 
 ## <a name="updates-for-version-8170"></a>Mises à jour pour la version 8.1.70
 

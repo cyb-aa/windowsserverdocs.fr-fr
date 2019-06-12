@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 324da8de153a5487c9d71872cd154928cc24c285
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9122c5c0fa8c42b0ccfc77ceb3f2d337b44ee5dc
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848820"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441562"
 ---
 # <a name="seceditanalyze"></a>secedit:analyze
 
@@ -46,7 +46,7 @@ Secedit /analyze /db <database file name> [/cfg <configuration file name>] [/ove
 
 Les résultats d’analyse sont stockés dans une zone séparée de la base de données et peuvent être affichés dans la Configuration de la sécurité et le composant logiciel enfichable analyse à la console MMC.
 
-Si le chemin d’accès du fichier journal n’est pas fourni, le fichier journal par défaut, (*systemroot*\Documents and Settings\*UserAccount*\My Documents\Security\Logs\*DatabaseName*. ouvrir une session) est utilisée.
+Si le chemin d’accès du fichier journal n’est pas fourni, le fichier journal par défaut, (*systemroot*\Documents and Settings\*UserAccount<em>\My Documents\Security\Logs\*DatabaseName</em>. ouvrir une session) est utilisée.
 
 Dans Windows Server 2008, `Secedit /refreshpolicy` a été remplacé par `gpupdate`. Pour plus d’informations sur l’actualisation des paramètres de sécurité, consultez [Gpupdate](gpupdate.md).
 
@@ -64,4 +64,4 @@ Secedit /analyze /db C:\Security\FY11\SecDbContoso.sdb /cfg SecContoso.inf /over
 #### <a name="additional-references"></a>Références supplémentaires
 
 -   [Secedit](secedit.md)
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -9,12 +9,12 @@ ms.prod: windows-server-hyper-v
 ms.technology: virtualization
 ms.localizationpriority: low
 ms.assetid: 6cb13f84-cb50-4e60-a685-54f67c9146be
-ms.openlocfilehash: 7af6d68b02367d349580eacb27405c6f37e97ff8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c0c2f85fbbeca9e8ac5d40bbcb71f286fabfb65c
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871990"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501670"
 ---
 # <a name="managing-hyper-v-hypervisor-scheduler-types"></a>La gestion des types de planificateur d’hyperviseur Hyper-V
 
@@ -169,6 +169,7 @@ Où `type` est une des :
 
 * Classique
 * Standard
+* Racine
 
 Le système doit être redémarré pour toutes les modifications vers le type de planificateur hyperviseur entrent en vigueur.
 

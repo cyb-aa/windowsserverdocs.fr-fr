@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
-ms.openlocfilehash: 194a418fe6b33e312a3f2529e82d50d76cd15f4c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8ac4f8e7cd0aed5a81e89672354622dd81afce2a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842480"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446179"
 ---
 # <a name="netsh-interface-portproxy-commands"></a>Commandes Netsh interface portproxy
 
@@ -84,13 +84,13 @@ add v4tov4 listenport= {Integer | ServiceName} [[connectaddress=] {IPv4Address |
 ### <a name="parameters"></a>Paramètres
 
 
-| | |
-|-----|--------|----------|
-| **listenport**     | Spécifie le port IPv4, par numéro de port ou le service name, sur lequel écouter.                                                                                                                      | Obligatoire |
-| **connectaddress** | Spécifie l’adresse IPv4 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |          |
-| **connectport**    | Spécifie le port IPv4, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.              |          |
-| **listenaddress**  | Spécifie l’adresse IPv4 à écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |          |
-| **protocol**       | Spécifie le protocole à utiliser.                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           Spécifie le port IPv4, par numéro de port ou le service name, sur lequel écouter.                                                            |
+| **connectaddress** | Spécifie l’adresse IPv4 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
+|  **connectport**   |       Spécifie le port IPv4, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.        |
+| **listenaddress**  | Spécifie l’adresse IPv4 à écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
+|    **protocol**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
 
 ## <a name="add-v4tov6"></a>add v4tov6
 
@@ -104,13 +104,13 @@ add v4tov6 listenport= {Integer | ServiceName} [[connectaddress=] {IPv6Address |
 
 ### <a name="parameters"></a>Paramètres
 
-|   |   |
-|-----------|-------------|----------|
-| **listenport**     | Spécifie le port IPv4, par numéro de port ou le service name, sur lequel écouter.       | Obligatoire |
-| **connectaddress** | Spécifie l’adresse IPv6 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |          |
-| **connectport**    | Spécifie le port IPv6, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.              |          |
-| **listenaddress**  | Spécifie l’adresse IPv4 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |          |
-| **protocol**       | Spécifie le protocole à utiliser.                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           Spécifie le port IPv4, par numéro de port ou le service name, sur lequel écouter.                                                            |
+| **connectaddress** | Spécifie l’adresse IPv6 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
+|  **connectport**   |       Spécifie le port IPv6, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.        |
+| **listenaddress**  | Spécifie l’adresse IPv4 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |
+|    **protocol**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
 
 ## <a name="add-v6tov4"></a>add v6tov4
 
@@ -124,13 +124,13 @@ add v6tov4 listenport= {Integer | ServiceName} [[connectaddress=] {IPv4Address |
 
 ### <a name="parameters"></a>Paramètres
 
-|   |   |
-|------------|-------------|----------|
-| **listenport**     | Spécifie le port IPv6, par numéro de port ou le service name, sur lequel écouter.              | Obligatoire |
-| **connectaddress** | Spécifie l’adresse IPv4 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |          |
-| **connectport**    | Spécifie le port IPv4, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.              |          |
-| **listenaddress**  | Spécifie l’adresse IPv6 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |          |
-| **protocol**       | Spécifie le protocole à utiliser.      |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           Spécifie le port IPv6, par numéro de port ou le service name, sur lequel écouter.                                                            |
+| **connectaddress** | Spécifie l’adresse IPv4 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
+|  **connectport**   |       Spécifie le port IPv4, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.        |
+| **listenaddress**  | Spécifie l’adresse IPv6 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |
+|    **protocol**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
 
 ## <a name="add-v6tov6"></a>add v6tov6
 
@@ -144,13 +144,13 @@ add v6tov6 listenport= {Integer | ServiceName} [[connectaddress=] {IPv6Address |
 
 ### <a name="parameters"></a>Paramètres
 
-|   |   |
-|-------------|------------------|----------|
-| **listenport**     | Spécifie le port IPv6, par numéro de port ou le service name, sur lequel écouter.       | Obligatoire |
-| **connectaddress** | Spécifie l’adresse IPv6 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |          |
-| **connectport**    | Spécifie le port IPv6, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.              |          |
-| **listenaddress**  | Spécifie l’adresse IPv6 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |          |
-| **protocol**       | Spécifie le protocole à utiliser.                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           Spécifie le port IPv6, par numéro de port ou le service name, sur lequel écouter.                                                            |
+| **connectaddress** | Spécifie l’adresse IPv6 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
+|  **connectport**   |       Spécifie le port IPv6, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.        |
+| **listenaddress**  | Spécifie l’adresse IPv6 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |
+|    **protocol**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
 
 ## <a name="delete-v4tov4"></a>delete v4tov4
 
@@ -164,11 +164,11 @@ delete v4tov4 listenport= {Integer | ServiceName} [[listenaddress=] {IPv4Address
 
 ### <a name="parameters"></a>Paramètres
 
-|   |   |
-|-------------------|----------------------------------------------------------------------------------------------------------|----------|
-| **listenport**    | Spécifie le port IPv4 à supprimer.                                                                       | Obligatoire |
-| **listenaddress** | Spécifie l’adresse IPv4 à supprimer. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |          |
-| **protocol**      | Spécifie le protocole à utiliser.                                                                           |          |
+|                   |                                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------------|
+|  **listenport**   |                                    Spécifie le port IPv4 à supprimer.                                    |
+| **listenaddress** | Spécifie l’adresse IPv4 à supprimer. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
+|   **protocol**    |                                      Spécifie le protocole à utiliser.                                      |
 
 ## <a name="delete-v4tov6"></a>delete v4tov6
 
@@ -182,11 +182,11 @@ delete v4tov6 listenport= {Integer | ServiceName} [[listenaddress=] {IPv4Address
 
 ### <a name="parameters"></a>Paramètres
 
-|   |   |
-|-------------------|----------------------------------------------------------------------------------------------------------|----------|
-| **listenport**    | Spécifie le port IPv4 à supprimer.                                                                       | Obligatoire |
-| **listenaddress** | Spécifie l’adresse IPv4 à supprimer. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |          |
-| **protocol**      | Spécifie le protocole à utiliser.                                                                           |          |
+|                   |                                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------------|
+|  **listenport**   |                                    Spécifie le port IPv4 à supprimer.                                    |
+| **listenaddress** | Spécifie l’adresse IPv4 à supprimer. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
+|   **protocol**    |                                      Spécifie le protocole à utiliser.                                      |
 
 ## <a name="delete-v6tov4"></a>delete v6tov4
 
@@ -200,11 +200,11 @@ delete v6tov4 listenport= {Integer | ServiceName} [[listenaddress=] {IPv6Address
 
 ### <a name="parameters"></a>Paramètres
 
-|   |   |
-|-------------------|----------------------------------------------------------------------------------------------------------|----------|
-| **listenport**    | Spécifie le port IPv6 à supprimer.                                                                       | Obligatoire |
-| **listenaddress** | Spécifie l’adresse IPv6 à supprimer. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |          |
-| **protocol**      | Spécifie le protocole à utiliser.                                                                           |          |
+|                   |                                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------------|
+|  **listenport**   |                                    Spécifie le port IPv6 à supprimer.                                    |
+| **listenaddress** | Spécifie l’adresse IPv6 à supprimer. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
+|   **protocol**    |                                      Spécifie le protocole à utiliser.                                      |
 
 ## <a name="delete-v6tov6"></a>delete v6tov6
 
@@ -218,11 +218,11 @@ delete v6tov6 listenport= {Integer | ServiceName} [[listenaddress=] {IPv6Address
 
 ### <a name="parameters"></a>Paramètres
 
-|   |   |
-|-------------------|----------------------------------------------------------------------------------------------------------|----------|
-| **listenport**    | Spécifie le port IPv6 à supprimer.                                                                       | Obligatoire |
-| **listenaddress** | Spécifie l’adresse IPv6 à supprimer. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |          |
-| **protocol**      | Spécifie le protocole à utiliser.                                                                           |          |
+|                   |                                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------------|
+|  **listenport**   |                                    Spécifie le port IPv6 à supprimer.                                    |
+| **listenaddress** | Spécifie l’adresse IPv6 à supprimer. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
+|   **protocol**    |                                      Spécifie le protocole à utiliser.                                      |
 
 ## <a name="reset"></a>Réinitialiser
 
@@ -244,13 +244,13 @@ set v4tov4 listenport= {Integer | ServiceName} [[connectaddress=] {IPv4Address |
 
 ### <a name="parameters"></a>Paramètres
 
-|   |   |
-|--------------------|---------------------------|----------|
-| **listenport**     | Spécifie le port IPv4, par numéro de port ou le service name, sur lequel écouter.     | Obligatoire |
-| **connectaddress** | Spécifie l’adresse IPv4 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |          |
-| **connectport**    | Spécifie le port IPv4, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.              |          |
-| **listenaddress**  | Spécifie l’adresse IPv4 à écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |          |
-| **protocol**       | Spécifie le protocole à utiliser.                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           Spécifie le port IPv4, par numéro de port ou le service name, sur lequel écouter.                                                            |
+| **connectaddress** | Spécifie l’adresse IPv4 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
+|  **connectport**   |       Spécifie le port IPv4, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.        |
+| **listenaddress**  | Spécifie l’adresse IPv4 à écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
+|    **protocol**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
 
 ## <a name="set-v4tov6"></a>ensemble v4tov6
 
@@ -264,13 +264,13 @@ set v4tov6 listenport= {Integer | ServiceName} [[connectaddress=] {IPv6Address |
 
 ### <a name="parameters"></a>Paramètres
 
-|   |   |
-|--------------------|---------------------|----------|
-| **listenport**     | Spécifie le port IPv4, par numéro de port ou le service name, sur lequel écouter.     | Obligatoire |
-| **connectaddress** | Spécifie l’adresse IPv6 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |          |
-| **connectport**    | Spécifie le port IPv6, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.              |          |
-| **listenaddress**  | Spécifie l’adresse IPv4 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |          |
-| **protocol**       | Spécifie le protocole à utiliser.                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           Spécifie le port IPv4, par numéro de port ou le service name, sur lequel écouter.                                                            |
+| **connectaddress** | Spécifie l’adresse IPv6 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
+|  **connectport**   |       Spécifie le port IPv6, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.        |
+| **listenaddress**  | Spécifie l’adresse IPv4 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |
+|    **protocol**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
 
 ## <a name="set-v6tov4"></a>set v6tov4
 
@@ -284,13 +284,13 @@ set v6tov4 listenport= {Integer | ServiceName} [[connectaddress=] {IPv4Address |
 
 ### <a name="parameters"></a>Paramètres
 
-|   |   |
-|--------------------|----------------------|----------|
-| **listenport**     | Spécifie le port IPv6, par numéro de port ou le service name, sur lequel écouter.      | Obligatoire |
-| **connectaddress** | Spécifie l’adresse IPv4 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |          |
-| **connectport**    | Spécifie le port IPv4, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.              |          |
-| **listenaddress**  | Spécifie l’adresse IPv6 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |          |
-| **protocol**       | Spécifie le protocole à utiliser.                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           Spécifie le port IPv6, par numéro de port ou le service name, sur lequel écouter.                                                            |
+| **connectaddress** | Spécifie l’adresse IPv4 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local. |
+|  **connectport**   |       Spécifie le port IPv4, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.        |
+| **listenaddress**  | Spécifie l’adresse IPv6 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |
+|    **protocol**    |                                                                                  Spécifie le protocole à utiliser.                                                                                   |
 
 ## <a name="set-v6tov6"></a>ensemble v6tov6
 
@@ -304,13 +304,13 @@ set v6tov6 listenport= {Integer | ServiceName} [[connectaddress=] {IPv6Address |
 
 ### <a name="parameters"></a>Paramètres
 
-|   |   |
-|--------------------|-------------------------|----------|
-| **listenport**     | Spécifie le port IPv6, par numéro de port ou le service name, sur lequel écouter.   | Obligatoire |
-| **connectaddress** | Spécifie l’adresse IPv6 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |          |
-| **connectport**    | Spécifie le port IPv6, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.               |          |
-| **listenaddress**  | Spécifie l’adresse IPv6 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si vous ne spécifiez pas une adresse, la valeur par défaut est l’ordinateur local. |          |
-| **protocol**       | Spécifie le protocole à utiliser.                                                                                                                                                                     |          |
+|                    |                                                                                                                                                                                                    |
+|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                            Spécifie le port IPv6, par numéro de port ou le service name, sur lequel écouter.                                                            |
+| **connectaddress** | Spécifie l’adresse IPv6 à laquelle se connecter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si une adresse n’est pas spécifiée, la valeur par défaut est l’ordinateur local.  |
+|  **connectport**   |        Spécifie le port IPv6, par numéro de port ou le service de nom, à laquelle se connecter. Si **connectport** n’est pas spécifié, la valeur par défaut est la valeur de **listenport** sur l’ordinateur local.        |
+| **listenaddress**  | Spécifie l’adresse IPv6 sur lequel écouter. Les valeurs acceptables sont l’adresse IP, nom d’ordinateur NetBIOS ou nom DNS de l’ordinateur. Si vous ne spécifiez pas une adresse, la valeur par défaut est l’ordinateur local. |
+|    **protocol**    |                                                                                   Spécifie le protocole à utiliser.                                                                                   |
 
 ## <a name="show-all"></a>afficher tous
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e381316372e68d2a43203b8fc90a243af5f40b02
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5fdfaaf1af2b74fe15530095700005a422b64986
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869210"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719626"
 ---
 # <a name="setting-up-update-synchronizations"></a>Configuration des synchronisations de mise à jour
 
@@ -60,18 +60,6 @@ Votre serveur WSUS télécharge les mises à jour basées sur les langues que vo
 
 ### <a name="synchronizing-updates-from-the-microsoft-update-catalog"></a>Synchronisation des mises à jour à partir du catalogue Microsoft Update
 Pour plus d’informations sur la synchronisation des mises à jour à partir du site du catalogue Microsoft Update, consultez : [WSUS et le Site du catalogue](wsus-and-the-catalog-site.md).
-
-### <a name="synchronizing-device-updates-by-inventory-inventory-based-synchronization"></a>Synchronisation des mises à jour de l’appareil par l’inventaire (synchronisation basée sur l’inventaire)
-Certaines catégories de produits et classifications (par exemple, les pilotes) contiennent un très grand nombre de mises à jour et il est conseillé de ne pas synchroniser ces catégories entières sur votre serveur WSUS. Cela peut entraîner des problèmes de performances et les défis de la maintenance continue. Le système d’inventaire WSUS collecte des informations d’identification non des appareils clients et utilise ces informations d’inventaire pour récupérer juste assez métadonnées de mise à jour à partir de Microsoft Update. Ce mécanisme est à peu près équivalent à WSUS recherche dans le catalogue de mise à jour Microsoft automatiquement, l’importation uniquement les mises à jour pour les appareils qui sont détectés sur des appareils gérés.
-
-L’activation de cette fonctionnalité d’inventaire est la seule façon pour obtenir certains microprogramme des appareils et des jeux maintenance basée sur un modèle qui n’est pas publiées dans le catalogue Microsoft Update.
-
-Mises à jour synchronisées de cette manière sont révisées et approuvés comme n’importe quel autre mise à jour, et sont également susceptibles d’être les mêmes règles d’approbation automatique, le remplacement et d’expiration et de tout autre comportement associés à des mises à jour traditionnels.
-
-WSUS effectue un filtrage côté serveur lorsque les clients demandent certaines microprogramme et du pilote mises à jour, y compris les mises à jour qui ont été importés par l’inventaire. Par conséquent, un ordinateur client ou un appareil reçoit métadonnées et detectoids pour les pilotes et mises à jour de pilote uniquement pour les périphériques connectés en fait sur cet appareil. Ce comportement réduit le temps d’analyse client et réduit les données transférées entre le client et le serveur WSUS.
-
-> [!NOTE]
-> Lors de la synchronisation basé sur l’inventaire est activée, WSUS maintient l’inventaire des appareils sur une base par appareil ; uniquement un résumé cumul (dédupliquée liste d’ID) est vraisemblablement être envoyé au serveur WSUS en amont. Serveurs WSUS en amont ne reçoivent pas d’informations sur les appareils qui sont associés à quels ordinateurs, le nombre d’instances d’un appareil donné et ne figurent pas dans votre hiérarchie WSUS. En général, ce cumul résumé ne peut pas être utilisé pour vous identifier ou de nombre de périphériques sur un réseau géré par WSUS.
 
 ## <a name="configuring-proxy-server-settings"></a>Configuration des paramètres de serveur Proxy
 Vous pouvez configurer votre serveur WSUS pour utiliser un serveur proxy lors de la synchronisation avec un serveur en amont ou de Microsoft Update. Ce paramètre s’applique uniquement lorsque votre serveur WSUS s’exécute des synchronisations. Par défaut votre serveur WSUS tente de se connecter directement au serveur en amont ou Microsoft Update.

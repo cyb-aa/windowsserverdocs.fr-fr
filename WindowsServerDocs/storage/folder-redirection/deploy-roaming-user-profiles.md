@@ -6,14 +6,14 @@ ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
-ms.date: 07/09/2018
+ms.date: 06/07/2019
 ms.author: jgerend
-ms.openlocfilehash: c662b8c44e3603ec972e06f3fb0ddbd55e1af904
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: e6e2e32ff9aeb1b3bcfc8fed9027c7e92e13b118
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192720"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812488"
 ---
 # <a name="deploying-roaming-user-profiles"></a>Déploiement de profils utilisateur itinérants
 
@@ -23,8 +23,8 @@ Cette rubrique explique comment utiliser Windows Server pour déployer [les prof
 
 Pour obtenir la liste des modifications récentes apportées à ce sujet, consultez le [l’historique des modifications](#change-history) section de cette rubrique.
 
->[!IMPORTANT]
->En raison des modifications de sécurité apportées dans [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14%2c-2016), nous avons mis à jour [étape 4 : Si vous le souhaitez créer un objet de stratégie de groupe pour les profils utilisateur itinérants](#step-4-optionally-create-a-gpo-for-roaming-user-profiles) dans cette rubrique afin que Windows peuvent correctement appliquer la stratégie de profils utilisateur itinérants (et pas revenir à des stratégies locales sur les PC affectés).
+> [!IMPORTANT]
+> En raison des modifications de sécurité apportées dans [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14%2c-2016), nous avons mis à jour [étape 4 : Si vous le souhaitez créer un objet de stratégie de groupe pour les profils utilisateur itinérants](#step-4-optionally-create-a-gpo-for-roaming-user-profiles) dans cette rubrique afin que Windows peuvent correctement appliquer la stratégie de profils utilisateur itinérants (et pas revenir à des stratégies locales sur les PC affectés).
 
 > [!IMPORTANT]
 >  Personnalisations de l’utilisateur au démarrage est perdue après une mise à niveau in situ de système d’exploitation dans la configuration suivante :
@@ -77,14 +77,15 @@ Pour apporter ces modifications, procédez comme suit.
 
     - Windows 8.1 ou Windows Server 2012 R2 : installer la mise à jour logicielle décrite dans l’article [2887595](http://support.microsoft.com/kb/2887595) dans la Base de connaissances Microsoft (lorsqu’il est publié).
     - Windows 8 ou Windows Server 2012 : installez la mise à jour logicielle décrite dans l’article [2887239](http://support.microsoft.com/kb/2887239) de la Base de connaissances Microsoft.
+
 2. Sur tous les ordinateurs exécutant Windows 8.1, Windows 8, Windows Server 2012 R2 ou Windows Server 2012 sur lequel vous allez utiliser les profils utilisateur itinérants, utilisez l’Éditeur du Registre ou la valeur DWORD de clé de stratégie de groupe pour créer le Registre suivant et configurez-le pour `1`. Pour plus d’informations sur la création de clés de Registre à l’aide d’une stratégie de groupe, voir [Configurer un élément de Registre](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753092(v=ws.11)>).
 
-    ```PowerShell
+    ```
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ProfSvc\Parameters\UseProfilePathExtensionVersion
     ```
 
-    >[!WARNING]
-    >Une modification incorrecte du Registre peut endommager gravement votre système. Avant toute modification du registre, il est conseillé de sauvegarder toutes les données importantes de votre ordinateur.
+    > [!WARNING]
+    > Une modification incorrecte du Registre peut endommager gravement votre système. Avant toute modification du registre, il est conseillé de sauvegarder toutes les données importantes de votre ordinateur.
 3. Redémarrez les ordinateurs.
 
 ## <a name="step-2-create-a-roaming-user-profiles-security-group"></a>Étape 2 : Créer des groupes de sécurité de profils utilisateur itinérants
@@ -103,6 +104,7 @@ Voici comment créer un groupe de sécurité pour les profils utilisateur itiné
 
     - Dans **Nom du groupe**, tapez le nom du groupe de sécurité, par exemple : **Profils utilisateur itinérants et ordinateurs**.
     - Dans **étendue du groupe**, sélectionnez **sécurité**, puis sélectionnez **Global**.
+
 5. Dans le **membres** section, sélectionnez **ajouter**. La boîte de dialogue Sélectionnez Utilisateurs, Contacts, Ordinateurs ou Groupes s’affiche.
 6. Si vous souhaitez inclure des comptes d’ordinateur dans le groupe de sécurité, sélectionnez **Types d’objets**, sélectionnez le **ordinateurs** case à cocher, puis sélectionnez **OK**.
 7. Tapez les noms des utilisateurs, groupes et/ou ordinateurs auxquels vous souhaitez déployer les profils utilisateur itinérants, sélectionnez **OK**, puis sélectionnez **OK** à nouveau.
@@ -111,8 +113,8 @@ Voici comment créer un groupe de sécurité pour les profils utilisateur itiné
 
 Si vous n’avez pas déjà un partage de fichiers distincts pour l’itinérance profils utilisateur (indépendants de tous les partages des dossiers redirigés afin d’empêcher la mise en cache involontaire du dossier des profils itinérants), procédez comme suit pour créer un partage de fichiers sur un serveur exécutant Windows Serveur.
 
->[!NOTE]
->Certaines fonctionnalités peuvent différer ou ne pas être disponibles selon la version de Windows Server que vous utilisez.
+> [!NOTE]
+> Certaines fonctionnalités peuvent différer ou ne pas être disponibles selon la version de Windows Server que vous utilisez.
 
 Voici comment créer un partage de fichiers sur Windows Server :
 
@@ -122,14 +124,15 @@ Voici comment créer un partage de fichiers sur Windows Server :
 4. Dans la page **Emplacement du partage** , sélectionnez le serveur et le volume sur lesquels vous voulez créer le partage.
 5. Dans la page **Nom du partage**, tapez un nom pour le partage (par exemple, **Profil utilisateur$** ) dans la zone **Nom du partage**.
 
-    >[!TIP]
-    >Lors de la création du partage, masquez-le en plaçant un caractère ```$``` après le nom du partage. Cela masque le partage dans les navigateurs informels.
+    > [!TIP]
+    > Lors de la création du partage, masquez-le en plaçant un caractère ```$``` après le nom du partage. Cela masque le partage dans les navigateurs informels.
+
 6. Dans la page **Autres paramètres**, décochez la case **Activer la disponibilité continue**, si celle-ci est présente. Vous pouvez cocher les cases **Activer l’énumération basée sur l’accès** et **Chiffrer l’accès aux données**.
 7. Sur le **autorisations** page, sélectionnez **personnaliser les autorisations...** . La boîte de dialogue Paramètres de sécurité avancés s'affiche.
 8. Sélectionnez **désactiver l’héritage**, puis sélectionnez **convertir les autorisations héritées en autorisations explicites sur cet objet**.
 9. Définir les autorisations comme décrit dans [des autorisations requises pour le fichier de partagent qui héberge les profils utilisateur itinérants](#required-permissions-for-the-file-share-hosting-roaming-user-profiles) et affichées dans la capture d’écran suivante, supprimez des autorisations pour les groupes et comptes et en ajoutant spéciaux autorisations pour le groupe de profils utilisateur itinérants et ordinateurs que vous avez créé à l’étape 1.
     
-    ![Fenêtre Paramètres de sécurité montrant les autorisations comme décrit dans le tableau 1 avancée](media\advanced-security-user-profiles.jpg)
+    ![Fenêtre Paramètres de sécurité montrant les autorisations comme décrit dans le tableau 1 avancée](media/advanced-security-user-profiles.jpg)
     
     **Figure 1** Définition des autorisations pour le partage de profils utilisateur itinérants
 10. Si vous choisissez le profil **Partage SMB - Avancé** , dans la page **Propriétés de gestion** , sélectionnez la valeur Utilisation du dossier **Fichiers utilisateur** .
@@ -138,9 +141,8 @@ Voici comment créer un partage de fichiers sur Windows Server :
 
 ### <a name="required-permissions-for-the-file-share-hosting-roaming-user-profiles"></a>Autorisations requises pour les fichier partage hébergement les profils utilisateur itinérants
 
-|       |       |       |
-|   -   |   -   |   -   |
 | Compte d’utilisateur | Accès | S'applique à |
+|   -   |   -   |   -   |
 |   System    |  Contrôle total     |  Ce dossier, ses sous-dossiers et ses fichiers     |
 |  Administrateurs     |  Contrôle total     |  Ce dossier uniquement     |
 |  Propriétaire créateur     |  Contrôle total     |  Sous-dossiers et fichiers uniquement     |
@@ -172,8 +174,8 @@ Voici comment créer un objet de stratégie de groupe pour les profils utilisate
 
 Si vous déployez les profils utilisateur itinérants sur des comptes d'utilisateur, procédez comme suit pour spécifier les profils utilisateur itinérants pour des comptes d'utilisateur dans les services de domaine Active Directory. Si vous déployez les profils utilisateur itinérants sur des ordinateurs, comme c’est généralement pour les Services Bureau à distance ou les déploiements de bureaux virtuels, au lieu de cela, utilisez la procédure décrite dans [étape 6 : Configurer éventuellement les profils utilisateur itinérants sur les ordinateurs](#step-6-optionally-set-up-roaming-user-profiles-on-computers).
 
->[!NOTE]
->Si vous configurez les profils utilisateur itinérants sur des comptes d'utilisateur à l'aide d'Active Directory et sur des ordinateurs à l'aide d'une stratégie de groupe, le paramètre de stratégie basé sur l'ordinateur est prioritaire.
+> [!NOTE]
+> Si vous configurez les profils utilisateur itinérants sur des comptes d'utilisateur à l'aide d'Active Directory et sur des ordinateurs à l'aide d'une stratégie de groupe, le paramètre de stratégie basé sur l'ordinateur est prioritaire.
 
 Voici comment configurer les profils utilisateur itinérants sur les comptes d’utilisateur :
 
@@ -186,10 +188,10 @@ Voici comment configurer les profils utilisateur itinérants sur les comptes d�
     Pour spécifier un profil utilisateur itinérant obligatoire, spécifiez le chemin d’accès au fichier NTuser.man précédemment créé, par exemple, `fs1.corp.contoso.comUser Profiles$default`. Pour plus d’informations, consultez [créer des profils d’utilisateur obligatoire](https://docs.microsoft.com/windows/client-management/mandatory-user-profile).
 4. Sélectionnez **OK**.
 
->[!NOTE]
->Par défaut, le déploiement de toutes les applications Windows® Runtime (du Windows Store) est autorisé lors de l'utilisation des profils utilisateur itinérants. Toutefois, lorsque vous utilisez un profil spécial, les applications ne sont pas déployées par défaut. Les profils spéciaux sont des profils utilisateur où les modifications sont supprimées lorsque l'utilisateur se déconnecte :
-><br><br>Pour supprimer des restrictions sur le déploiement d’applications pour des profils spéciaux, activez le paramètre de stratégie **Allow deployment operations in special profiles** (situé dans Configuration de l’ordinateur\Stratégies\Modèles d’administration\Composants Windows\Déploiement de packages d’application). Toutefois, les applications déployées de ce scénario laisseront stockées sur l'ordinateur certaines données qui risquent de s'accumuler si, par exemple, il y a des centaines d'utilisateurs sur un seul et même ordinateur. Pour nettoyer les applications, recherchez ou développez un outil qui utilise le [CleanupPackageForUserAsync](https://msdn.microsoft.com/library/windows/apps/windows.management.deployment.packagemanager.cleanuppackageforuserasync.aspx) API pour nettoyer les packages d’application pour les utilisateurs qui n’ont plus un profil sur l’ordinateur.
-><br><br>Pour obtenir des informations générales supplémentaires sur les applications du Windows Store, voir [Gestion de l’accès client au Windows Store](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh832040(v=ws.11)>).
+> [!NOTE]
+> Par défaut, le déploiement de toutes les applications Windows® Runtime (du Windows Store) est autorisé lors de l'utilisation des profils utilisateur itinérants. Toutefois, lorsque vous utilisez un profil spécial, les applications ne sont pas déployées par défaut. Les profils spéciaux sont des profils utilisateur où les modifications sont supprimées lorsque l'utilisateur se déconnecte :
+> <br><br>Pour supprimer des restrictions sur le déploiement d’applications pour des profils spéciaux, activez le paramètre de stratégie **Allow deployment operations in special profiles** (situé dans Configuration de l’ordinateur\Stratégies\Modèles d’administration\Composants Windows\Déploiement de packages d’application). Toutefois, les applications déployées de ce scénario laisseront stockées sur l'ordinateur certaines données qui risquent de s'accumuler si, par exemple, il y a des centaines d'utilisateurs sur un seul et même ordinateur. Pour nettoyer les applications, recherchez ou développez un outil qui utilise le [CleanupPackageForUserAsync](https://msdn.microsoft.com/library/windows/apps/windows.management.deployment.packagemanager.cleanuppackageforuserasync.aspx) API pour nettoyer les packages d’application pour les utilisateurs qui n’ont plus un profil sur l’ordinateur.
+> <br><br>Pour obtenir des informations générales supplémentaires sur les applications du Windows Store, voir [Gestion de l’accès client au Windows Store](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh832040(v=ws.11)>).
 
 ## <a name="step-6-optionally-set-up-roaming-user-profiles-on-computers"></a>Étape 6 : Configurer éventuellement les profils utilisateur itinérants sur des ordinateurs
 
@@ -197,8 +199,8 @@ Si vous déployez les profils utilisateur itinérants sur des ordinateurs, comme
 
 Vous pouvez utiliser la stratégie de groupe pour appliquer les profils utilisateur itinérants aux ordinateurs exécutant Windows 8.1, Windows 8, Windows 7, Windows Vista, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008.
 
->[!NOTE]
->Si vous configurez les profils utilisateur itinérants sur des ordinateurs à l'aide d'une stratégie de groupe et sur des comptes d'utilisateur à l'aide d'Active Directory, le paramètre de stratégie basé sur l'ordinateur est prioritaire.
+> [!NOTE]
+> Si vous configurez les profils utilisateur itinérants sur des ordinateurs à l'aide d'une stratégie de groupe et sur des comptes d'utilisateur à l'aide d'Active Directory, le paramètre de stratégie basé sur l'ordinateur est prioritaire.
 
 Voici comment configurer les profils utilisateur itinérants sur des ordinateurs :
 
@@ -229,14 +231,14 @@ Pour spécifier une mise en page de démarrage, procédez comme suit :
 3. Utilisez la stratégie de groupe pour appliquer la mise en page de démarrage personnalisée à l’objet GPO que vous avez créé pour les profils utilisateur itinérants. Pour ce faire, consultez [utilisez stratégie de groupe pour appliquer une mise en page de démarrage personnalisée dans un domaine](https://docs.microsoft.com/windows/configuration/customize-windows-10-start-screens-by-using-group-policy#bkmk-domaingpodeployment).
 4. Utilisez la stratégie de groupe pour définir la valeur de Registre suivante sur votre PC Windows 10. Pour ce faire, consultez [configurer un élément de Registre](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753092(v=ws.11)>).
 
-| **Action** | **Mise à jour** |
-|------------|------------|
-|Hive|**HKEY_LOCAL_MACHINE**|
-|Chemin de clé|**Software\Microsoft\Windows\CurrentVersion\Explorer**|
-|Nom de valeur|**SpecialRoamingOverrideAllowed**|
-|Type de valeur|**REG_DWORD**|
-|Données de la valeur|**1** (ou **0** pour désactiver)|
-|Base|**Décimal**|
+| **Action**   | **Mise à jour**                  |
+| ------------ | ------------                |
+| Hive         | **HKEY_LOCAL_MACHINE**      |
+| Chemin de clé     | **Software\Microsoft\Windows\CurrentVersion\Explorer** |
+| Nom de valeur   | **SpecialRoamingOverrideAllowed** |
+| Type de valeur   | **REG_DWORD**               |
+| Données de la valeur   | **1** (ou **0** pour désactiver) |
+| Base         | **Décimal**                 |
 
 5. (Facultatif) Activer les optimisations de première ouverture de session rendre la connexion plus rapide pour les utilisateurs. Pour ce faire, consultez [appliquer des stratégies pour améliorer les temps de connexion](https://docs.microsoft.com/windows/client-management/mandatory-user-profile#apply-policies-to-improve-sign-in-time).
 6. (Facultatif) Réduisent davantage de temps de connexion en supprimant les applications inutiles de l’image de base Windows 10 que vous utilisez pour déployer les PC clients. 2019 de serveur Windows et Windows Server 2016 est inutile d’applications préconfigurées, donc vous pouvez ignorer cette étape sur les images de serveur.
@@ -285,18 +287,18 @@ Voici comment tester les profils utilisateur itinérants :
 
 ## <a name="appendix-a-checklist-for-deploying-roaming-user-profiles"></a>Annexe A : Liste de vérification du déploiement des profils utilisateur itinérants
 
-|État|Action|
-|:---:|---|
-|☐<br>☐<br>☐<br>☐<br>☐|1. Préparer le domaine<br>-Joindre des ordinateurs au domaine<br>-Activer l’utilisation de versions de profil distinctes<br>-Créer des comptes d’utilisateur<br>-(Facultatif) déployer la Redirection de dossiers|
-|☐<br><br><br>|2. Créer un groupe de sécurité pour les profils utilisateur itinérants<br>-Nom du groupe :<br>-Membres :|
-|☐<br><br>|3. Créer un partage de fichiers pour les profils utilisateur itinérants<br>-Nom de partage de fichiers :|
-|☐<br><br>|4. Créer un objet de stratégie de groupe pour les profils utilisateur itinérants<br>-Nom de l’objet stratégie de groupe :|
-|☐|5. Configurer les paramètres de stratégie des profils utilisateur itinérants|
-|☐<br>☐<br>☐|6. Activer les profils utilisateur itinérants<br>-Activée dans AD DS sur des comptes d’utilisateur ?<br>-Activé dans la stratégie de groupe sur les comptes d’ordinateur ?<br>|
-|☐|7. (Facultatif) Spécifier une disposition de début obligatoire pour les PC Windows 10|
-|☐<br>☐<br><br>☐<br><br>☐|8. (Facultatif) Activer la prise en charge de l’ordinateur principal<br>-Désigner les ordinateurs principaux pour les utilisateurs<br>-Location de mappages utilisateurs et ordinateurs principaux :<br>-Prise en charge des ordinateurs principaux (facultatif) activer la Redirection de dossiers<br>-Basées sur ordinateur ou utilisateur ?<br>-(Facultatif) activer la prise en charge des ordinateurs principaux pour les profils utilisateur itinérants|
-|☐|9. Activer les objets de stratégie de groupe des profils utilisateur itinérants|
-|☐|10. Tester les profils utilisateur itinérants|
+| État                     | Action                                                |
+| ---                        | ------                                                |
+| ☐<br>☐<br>☐<br>☐<br>☐   | 1. Préparer le domaine<br>-Joindre des ordinateurs au domaine<br>-Activer l’utilisation de versions de profil distinctes<br>-Créer des comptes d’utilisateur<br>-(Facultatif) déployer la Redirection de dossiers |
+| ☐<br><br><br>             | 2. Créer un groupe de sécurité pour les profils utilisateur itinérants<br>-Nom du groupe :<br>-Membres : |
+| ☐<br><br>                 | 3. Créer un partage de fichiers pour les profils utilisateur itinérants<br>-Nom de partage de fichiers : |
+| ☐<br><br>                 | 4. Créer un objet de stratégie de groupe pour les profils utilisateur itinérants<br>-Nom de l’objet stratégie de groupe :|
+| ☐                         | 5. Configurer les paramètres de stratégie des profils utilisateur itinérants    |
+| ☐<br>☐<br>☐              | 6. Activer les profils utilisateur itinérants<br>-Activée dans AD DS sur des comptes d’utilisateur ?<br>-Activé dans la stratégie de groupe sur les comptes d’ordinateur ?<br> |
+| ☐                         | 7. (Facultatif) Spécifier une disposition de début obligatoire pour les PC Windows 10 |
+| ☐<br>☐<br><br>☐<br><br>☐ | 8. (Facultatif) Activer la prise en charge de l’ordinateur principal<br>-Désigner les ordinateurs principaux pour les utilisateurs<br>-Location de mappages utilisateurs et ordinateurs principaux :<br>-Prise en charge des ordinateurs principaux (facultatif) activer la Redirection de dossiers<br>-Basées sur ordinateur ou utilisateur ?<br>-(Facultatif) activer la prise en charge des ordinateurs principaux pour les profils utilisateur itinérants |
+| ☐                        | 9. Activer les objets de stratégie de groupe des profils utilisateur itinérants                |
+| ☐                        | 10. Tester les profils utilisateur itinérants                         |
 
 ## <a name="appendix-b-profile-version-reference-information"></a>Annexe B : Informations de référence sur les versions de profil
 
@@ -304,53 +306,53 @@ Chaque profil possède une version de profil qui correspond à peu près à la v
 
 Le tableau suivant répertorie l'emplacement des profils utilisateur itinérants sur différentes versions de Windows.
 
-|Version du système d'exploitation|Emplacement des profils utilisateur itinérants|
-|---|---|
-|Windows XP et Windows Server 2003|```\\<servername>\<fileshare>\<username>```|
-|Windows Vista et Windows Server 2008|```\\<servername>\<fileshare>\<username>.V2```|
-|Windows 7 et Windows Server 2008 R2|```\\<servername>\<fileshare>\<username>.V2```|
-|Windows 8 et Windows Server 2012|```\\<servername>\<fileshare>\<username>.V3``` (une fois que la clé de Registre et de mise à jour logiciel sont appliqués)<br>```\\<servername>\<fileshare>\<username>.V2``` (avant le logiciel de clé de Registre et de mise à jour sont appliquées)|
-|Windows 8.1 et Windows Server 2012 R2|```\\<servername>\<fileshare>\<username>.V4``` (une fois que la clé de Registre et de mise à jour logiciel sont appliqués)<br>```\\<servername>\<fileshare>\<username>.V2``` (avant le logiciel de clé de Registre et de mise à jour sont appliquées)|
-|Windows 10|```\\<servername>\<fileshare>\<username>.V5```|
-|Windows 10, version 1703 et version 1607|```\\<servername>\<fileshare>\<username>.V6```|
+| Version du système d'exploitation | Emplacement des profils utilisateur itinérants |
+| --- | --- |
+| Windows XP et Windows Server 2003 | ```\\<servername>\<fileshare>\<username>``` |
+| Windows Vista et Windows Server 2008 | ```\\<servername>\<fileshare>\<username>.V2``` |
+| Windows 7 et Windows Server 2008 R2 | ```\\<servername>\<fileshare>\<username>.V2``` |
+| Windows 8 et Windows Server 2012 | ```\\<servername>\<fileshare>\<username>.V3``` (une fois que la clé de Registre et de mise à jour logiciel sont appliqués)<br>```\\<servername>\<fileshare>\<username>.V2``` (avant le logiciel de clé de Registre et de mise à jour sont appliquées) |
+| Windows 8.1 et Windows Server 2012 R2 | ```\\<servername>\<fileshare>\<username>.V4``` (une fois que la clé de Registre et de mise à jour logiciel sont appliqués)<br>```\\<servername>\<fileshare>\<username>.V2``` (avant le logiciel de clé de Registre et de mise à jour sont appliquées) |
+| Windows 10 | ```\\<servername>\<fileshare>\<username>.V5``` |
+| Windows 10, version 1703 et version 1607 | ```\\<servername>\<fileshare>\<username>.V6``` |
 
 ## <a name="appendix-c-working-around-reset-start-menu-layouts-after-upgrades"></a>Annexe c : Travail réinitialiser environ mises en page du menu Démarrer après mise à niveau
 
 Voici quelques méthodes permettant de contourner les dispositions de menu Démarrer réinitialisées après une mise à niveau sur place :
 
- - Si seul un utilisateur utilise jamais le périphérique et l’administrateur informatique utilise une stratégie de déploiement de système d’exploitation gérée tel que SCCM qu’ils peuvent les opérations suivantes :
+- Si seul un utilisateur utilise jamais le périphérique et l’administrateur informatique utilise une stratégie de déploiement de système d’exploitation gérée tel que SCCM qu’ils peuvent les opérations suivantes :
     
-    1. Exporter la disposition du menu Démarrer avec Export-Startlayout avant la mise à niveau 
-    2. Importer la disposition du menu Démarrer avec Import-StartLayout après OOBE mais avant que l’utilisateur se connecte  
+  1. Exporter la disposition du menu Démarrer avec Export-Startlayout avant la mise à niveau 
+  2. Importer la disposition du menu Démarrer avec Import-StartLayout après OOBE mais avant que l’utilisateur se connecte  
  
-    > [!NOTE] 
-    > L’importation d’un StartLayout modifie le profil utilisateur par défaut. Tous les profils utilisateur créés après que l’importation s’est produite obtiendra la disposition de début importée.
+     > [!NOTE] 
+     > L’importation d’un StartLayout modifie le profil utilisateur par défaut. Tous les profils utilisateur créés après que l’importation s’est produite obtiendra la disposition de début importée.
  
- - Administrateurs informatiques peuvent choisir de gérer la mise en page de démarrage avec la stratégie de groupe. La stratégie de groupe fournit une solution de gestion centralisée pour appliquer une mise en page Démarrer standardisé aux utilisateurs. Il existe 2 modes aux modes d’à l’aide de la stratégie de groupe pour la gestion de début. Verrouillage complet et partiel verrouillage. Le scénario complet de verrouillage empêche l’utilisateur d’apporter des modifications à la mise en page de démarrage. Le scénario de verrouillage partielle permet à utilisateur apporter des modifications à une zone spécifique du début. Pour plus d’informations, consultez [personnaliser et exportation mise en page de démarrage](https://docs.microsoft.com/windows/configuration/customize-and-export-start-layout).
+- Administrateurs informatiques peuvent choisir de gérer la mise en page de démarrage avec la stratégie de groupe. La stratégie de groupe fournit une solution de gestion centralisée pour appliquer une mise en page Démarrer standardisé aux utilisateurs. Il existe 2 modes aux modes d’à l’aide de la stratégie de groupe pour la gestion de début. Verrouillage complet et partiel verrouillage. Le scénario complet de verrouillage empêche l’utilisateur d’apporter des modifications à la mise en page de démarrage. Le scénario de verrouillage partielle permet à utilisateur apporter des modifications à une zone spécifique du début. Pour plus d’informations, consultez [personnaliser et exportation mise en page de démarrage](https://docs.microsoft.com/windows/configuration/customize-and-export-start-layout).
         
-    > [!NOTE]
-    > Modification dans le scénario de verrouillage partielle toujours seront perdues pendant la mise à niveau.
+   > [!NOTE]
+   > Modification dans le scénario de verrouillage partielle toujours seront perdues pendant la mise à niveau.
 
- -  Laisser le début de réinitialisation de la disposition se produisent et permettre aux utilisateurs finaux reconfigurer le début. Un e-mail de notification ou autres notification peut être envoyée aux utilisateurs finaux d’attendre leurs mises en page de démarrage doivent être réinitialisées une fois que le système d’exploitation mise à niveau vers un impact réduit. 
+- Laisser le début de réinitialisation de la disposition se produisent et permettre aux utilisateurs finaux reconfigurer le début. Un e-mail de notification ou autres notification peut être envoyée aux utilisateurs finaux d’attendre leurs mises en page de démarrage doivent être réinitialisées une fois que le système d’exploitation mise à niveau vers un impact réduit. 
 
 # <a name="change-history"></a>Historique des modifications
 
 Le tableau suivant récapitule certaines des modifications les plus importantes apportées à cette rubrique.
 
-|Date|Description |Reason|
-|--- |---         |---   |
-|1er mai 2019|Ajout des mises à jour pour 2019|
-|10 avril 2018|Ajout de discussion de lorsque les personnalisations utilisateur début sont perdues après une mise à niveau in situ de système d’exploitation|Problème connu de légende.|
-|13 mars 2018 |Mise à jour pour Windows Server 2016 | Déplacé hors de la bibliothèque de Versions précédentes et mis à jour pour la version actuelle de Windows Server.|
-|13 avril 2017|Ajouté des informations de profil pour Windows 10, version 1703 et de clarifier le fonctionnement de l’itinérance travail de versions de profil lors de la mise à niveau des systèmes d’exploitation, consultez [considérations sur l’utilisation de profils utilisateur itinérants sur plusieurs versions de Windows](#considerations-when-using-roaming-user-profiles-on-multiple-versions-of-windows).|Commentaires des clients.|
-|14 mars 2017|Ajout de l’étape facultatif permettant de spécifier une disposition de début obligatoire pour les PC Windows 10 dans [annexe a : Liste de vérification pour le déploiement de profils utilisateur itinérants](#appendix-a-checklist-for-deploying-roaming-user-profiles).|Modifications des fonctionnalités dans la dernière mise à jour de Windows.|
-|23 janvier 2017|Ajouté une étape pour [étape 4 : Si vous le souhaitez créer un objet de stratégie de groupe pour les profils utilisateur itinérants](#step-4-optionally-create-a-gpo-for-roaming-user-profiles) à déléguer des autorisations en lecture aux utilisateurs authentifiés, qui est désormais nécessaire en raison d’une mise à jour de sécurité de stratégie de groupe.|Modifications de la sécurité pour le traitement de la stratégie de groupe.|
-|29 décembre 2016|Ajout d’un lien dans [étape 8 : Activer le GPO de profils utilisateur itinérants](#step-8-enable-the-roaming-user-profiles-gpo) pour faciliter l’obtention des informations sur la façon de définir la stratégie de groupe pour les ordinateurs principaux. Correction également quelques références aux incorrect des étapes 5 et 6 ayant les numéros.|Commentaires des clients.|
-|Le 5 décembre 2016|Ajout d’informations sur les expliquant les paramètres du menu Démarrer une itinérance du problème.|Commentaires des clients.|
-|6 juillet 2016|Ajouter des suffixes de versions de profil Windows 10 dans [annexe b : Informations de référence de version de profil](#appendix-b-profile-version-reference-information). Supprimer également Windows XP et Windows Server 2003 à partir de la liste des systèmes d’exploitation pris en charge.|Mises à jour pour les nouvelles versions de Windows et suppression d’informations sur les versions de Windows qui ne sont plus prises en charge.|
-|7 juillet 2015|Ajout d’une exigence et d’une étape pour désactiver la disponibilité continue lors de l’utilisation d’un serveur de fichiers en cluster.|Les partages de fichiers en cluster offrent de meilleures performances pour les écritures de petite taille (dont l’utilisation est courante avec les profils utilisateurs itinérants) lorsque la disponibilité en continu est désactivée.|
-|19 mars 2014|En majuscules des suffixes de versions de profil (. V2. V3. V4) dans [annexe b : Informations de référence de version de profil](#appendix-b-profile-version-reference-information).|Bien que Windows respecte la casse, si vous utilisez NFS avec le partage de fichiers, il est important de disposer de la casse (majuscule) correcte pour le suffixe du profil.|
-|9 octobre 2013|Révisé pour Windows Server 2012 R2 et Windows 8.1, clarifier les choses et ajouté le [considérations sur l’utilisation de profils utilisateur itinérants sur plusieurs versions de Windows](#considerations-when-using-roaming-user-profiles-on-multiple-versions-of-windows) et [annexe b : Informations de référence de version de profil](#appendix-b-profile-version-reference-information) sections.|Mises à jour pour la nouvelle version ; commentaires des clients.|
+| Date | Description |Reason|
+| --- | ---         | ---   |
+| 1er mai 2019 | Ajout des mises à jour pour Windows Server 2019 |
+| 10 avril 2018 | Ajout de discussion de lorsque les personnalisations utilisateur début sont perdues après une mise à niveau in situ de système d’exploitation|Problème connu de légende. |
+| 13 mars 2018 | Mise à jour pour Windows Server 2016 | Déplacé hors de la bibliothèque de Versions précédentes et mis à jour pour la version actuelle de Windows Server. |
+| 13 avril 2017 | Ajouté des informations de profil pour Windows 10, version 1703 et de clarifier le fonctionnement de l’itinérance travail de versions de profil lors de la mise à niveau des systèmes d’exploitation, consultez [considérations sur l’utilisation de profils utilisateur itinérants sur plusieurs versions de Windows](#considerations-when-using-roaming-user-profiles-on-multiple-versions-of-windows). | Commentaires des clients. |
+| 14 mars 2017 | Ajout de l’étape facultatif permettant de spécifier une disposition de début obligatoire pour les PC Windows 10 dans [annexe a : Liste de vérification pour le déploiement de profils utilisateur itinérants](#appendix-a-checklist-for-deploying-roaming-user-profiles). |Modifications des fonctionnalités dans la dernière mise à jour de Windows. |
+| 23 janvier 2017 | Ajouté une étape pour [étape 4 : Si vous le souhaitez créer un objet de stratégie de groupe pour les profils utilisateur itinérants](#step-4-optionally-create-a-gpo-for-roaming-user-profiles) à déléguer des autorisations en lecture aux utilisateurs authentifiés, qui est désormais nécessaire en raison d’une mise à jour de sécurité de stratégie de groupe.|Modifications de la sécurité pour le traitement de la stratégie de groupe. |
+| 29 décembre 2016 | Ajout d’un lien dans [étape 8 : Activer le GPO de profils utilisateur itinérants](#step-8-enable-the-roaming-user-profiles-gpo) pour faciliter l’obtention des informations sur la façon de définir la stratégie de groupe pour les ordinateurs principaux. Correction également quelques références aux incorrect des étapes 5 et 6 ayant les numéros.|Commentaires des clients. |
+| Le 5 décembre 2016 | Ajout d’informations sur les expliquant les paramètres du menu Démarrer une itinérance du problème. | Commentaires des clients. |
+| 6 juillet 2016 | Ajouter des suffixes de versions de profil Windows 10 dans [annexe b : Informations de référence de version de profil](#appendix-b-profile-version-reference-information). Supprimer également Windows XP et Windows Server 2003 à partir de la liste des systèmes d’exploitation pris en charge. | Mises à jour pour les nouvelles versions de Windows et suppression d’informations sur les versions de Windows qui ne sont plus prises en charge. |
+| 7 juillet 2015 | Ajout d’une exigence et d’une étape pour désactiver la disponibilité continue lors de l’utilisation d’un serveur de fichiers en cluster. | Les partages de fichiers en cluster offrent de meilleures performances pour les écritures de petite taille (dont l’utilisation est courante avec les profils utilisateurs itinérants) lorsque la disponibilité en continu est désactivée. |
+| 19 mars 2014 | En majuscules des suffixes de versions de profil (. V2. V3. V4) dans [annexe b : Informations de référence de version de profil](#appendix-b-profile-version-reference-information). | Bien que Windows respecte la casse, si vous utilisez NFS avec le partage de fichiers, il est important de disposer de la casse (majuscule) correcte pour le suffixe du profil. |
+| 9 octobre 2013 | Révisé pour Windows Server 2012 R2 et Windows 8.1, clarifier les choses et ajouté le [considérations sur l’utilisation de profils utilisateur itinérants sur plusieurs versions de Windows](#considerations-when-using-roaming-user-profiles-on-multiple-versions-of-windows) et [annexe b : Informations de référence de version de profil](#appendix-b-profile-version-reference-information) sections. | Mises à jour pour la nouvelle version ; commentaires des clients. |
 
 ## <a name="more-information"></a>Informations supplémentaires
 

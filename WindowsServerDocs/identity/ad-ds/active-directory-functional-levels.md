@@ -11,12 +11,12 @@ ms.prod: windows-server-threshold
 ms.custom: it-pro
 ms.reviewer: maheshu
 ms.technology: identity-adds
-ms.openlocfilehash: ea56c718394d145a36145d32e5769661a62efd56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: cb9b5b9448f364760c3d2a7e43edd01a5a9f7f9d
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841000"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719663"
 ---
 # <a name="forest-and-domain-functional-levels"></a>Niveaux fonctionnels de forêt et du domaine
 
@@ -34,7 +34,7 @@ Au plus élevés niveaux fonctionnels de domaine et à Windows Server 2008, la r
 
 Il n’existe aucune nouvelle forêt ou les niveaux fonctionnels de domaine ajoutées dans cette version.
 
-La configuration minimale requise pour ajouter un contrôleur de domaine Windows Server 2019 est un niveau fonctionnel de Windows Server 2008 R2.
+La configuration minimale requise pour ajouter un contrôleur de domaine Windows Server 2019 est un niveau fonctionnel de Windows Server 2008. Le domaine doit également utiliser DFS-R en tant que le moteur pour répliquer SYSVOL.
 
 ## <a name="windows-server-2016"></a>Windows Server 2016
 
@@ -139,25 +139,27 @@ Prise en charge du système d’exploitation du contrôleur de domaine :
 ### <a name="windows-server-2008-domain-functional-level-features"></a>Fonctionnalités au niveau fonctionnelles du domaine Windows Server 2008
 
 * Tous de la valeur par défaut AD DS les fonctionnalités, toutes les fonctionnalités à partir du niveau fonctionnel du domaine Windows Server 2003, et les fonctionnalités suivantes sont disponibles :
-   * Support de réplication distribués DFS (File System) pour le Volume du système Windows Server 2003 (SYSVOL)
-      * Prise en charge de la réplication DFS fournit une réplication plus fiable et granulaire du contenu de SYSVOL.
-        [!NOTE]>
-        >À compter de Windows Server 2012 R2, Service de réplication de fichiers (FRS) est déconseillée. Un nouveau domaine est créé sur un contrôleur de domaine qui s’exécute au moins Windows Server 2012 R2 doit être définie sur le niveau fonctionnel de domaine Windows Server 2008 ou version ultérieure.
+  * Support de réplication distribués DFS (File System) pour le Volume du système Windows Server 2003 (SYSVOL)
+    * Prise en charge de la réplication DFS fournit une réplication plus fiable et granulaire du contenu de SYSVOL.
 
-   * Basés sur domaine espaces de noms DFS en cours d’exécution en Mode Windows Server 2008, qui inclut la prise en charge de l’énumération basée sur l’accès et une meilleure évolutivité. Espaces de noms basés sur le domaine en mode Windows Server 2008 requièrent également la forêt à utiliser le niveau fonctionnel de forêt Windows Server 2003. Pour plus d’informations, consultez [choisir un Type de Namespace](https://go.microsoft.com/fwlink/?LinkId=180400).
-   * Advanced Encryption Standard (AES 128 et AES 256) prise en charge le protocole Kerberos. Dans l’ordre pour les tickets TGT doit être émis à l’aide d’AES, le niveau fonctionnel du domaine doit être Windows Server 2008 ou version ultérieure et le mot de passe de domaine doit être modifiée. 
-      * Pour plus d’informations, consultez [améliorations liées à Kerberos](https://technet.microsoft.com/library/cc749438(ws.10).aspx).
-        [!NOTE]>
-        >Erreurs d’authentification peuvent se produire sur un contrôleur de domaine après le déclenchement de niveau fonctionnel du domaine vers Windows Server 2008 ou version ultérieure si le contrôleur de domaine a déjà répliqué la modification du niveau fonctionnel du domaine, mais le mot de passe krbtgt n’a pas encore actualisé. Dans ce cas, un redémarrage du service KDC sur le contrôleur de domaine déclenche une actualisation en mémoire du nouveau mot de passe krbtgt et résoudre les erreurs d’authentification associées.
+      > [!NOTE]
+      > À compter de Windows Server 2012 R2, Service de réplication de fichiers (FRS) est déconseillée. Un nouveau domaine est créé sur un contrôleur de domaine qui s’exécute au moins Windows Server 2012 R2 doit être définie sur le niveau fonctionnel de domaine Windows Server 2008 ou version ultérieure.
 
-   * [Dernière ouverture de session Interactive](https://go.microsoft.com/fwlink/?LinkId=180387) informations affichent les informations suivantes :
-      * Le nombre total de tentatives de connexion à un serveur Windows Server 2008 joints au domaine ou une station de travail Windows Vista
-      * Le nombre total de tentatives de connexion après une ouverture de session pour un serveur Windows Server 2008 ou une station de travail Windows Vista
-      * L’heure de la dernière tentative d’ouverture de session ayant échoué à un serveur Windows Server 2008 ou une station de travail Windows Vista
-      * L’heure de la dernière ouverture de session réussie tentative sur un serveur Windows Server 2008 ou une station de travail Windows Vista
-   * Stratégies de mot de passe affinées permettent de spécifier des stratégies de verrouillage de compte et mot de passe pour les utilisateurs et groupes de sécurité globaux dans un domaine. Pour plus d’informations, consultez [Guide pas à pas pour la Configuration de stratégie de verrouillage de compte et de mot de passe affinées](https://go.microsoft.com/fwlink/?LinkID=91477).
-   * Bureaux virtuels personnels
-      * Pour utiliser les fonctionnalités fournies par l’onglet Bureau virtuel personnel dans la boîte de dialogue Propriétés du compte utilisateur dans Active Directory Users and Computers, votre schéma AD DS doit être étendu pour Windows Server 2008 R2 (version de l’objet schéma = 47). Pour plus d’informations, consultez [déploiement de bureaux virtuels personnels à l’aide de RemoteApp et Guide pas à pas de connexion Bureau](https://go.microsoft.com/fwlink/?LinkId=183552).
+  * Basés sur domaine espaces de noms DFS en cours d’exécution en Mode Windows Server 2008, qui inclut la prise en charge de l’énumération basée sur l’accès et une meilleure évolutivité. Espaces de noms basés sur le domaine en mode Windows Server 2008 requièrent également la forêt à utiliser le niveau fonctionnel de forêt Windows Server 2003. Pour plus d’informations, consultez [choisir un Type de Namespace](https://go.microsoft.com/fwlink/?LinkId=180400).
+  * Advanced Encryption Standard (AES 128 et AES 256) prise en charge le protocole Kerberos. Dans l’ordre pour les tickets TGT doit être émis à l’aide d’AES, le niveau fonctionnel du domaine doit être Windows Server 2008 ou version ultérieure et le mot de passe de domaine doit être modifiée. 
+    * Pour plus d’informations, consultez [améliorations liées à Kerberos](https://technet.microsoft.com/library/cc749438(ws.10).aspx).
+
+      > [!NOTE]
+      >Erreurs d’authentification peuvent se produire sur un contrôleur de domaine après le déclenchement de niveau fonctionnel du domaine vers Windows Server 2008 ou version ultérieure si le contrôleur de domaine a déjà répliqué la modification du niveau fonctionnel du domaine, mais le mot de passe krbtgt n’a pas encore actualisé. Dans ce cas, un redémarrage du service KDC sur le contrôleur de domaine déclenche une actualisation en mémoire du nouveau mot de passe krbtgt et résoudre les erreurs d’authentification associées.
+
+  * [Dernière ouverture de session Interactive](https://go.microsoft.com/fwlink/?LinkId=180387) informations affichent les informations suivantes :
+     * Le nombre total de tentatives de connexion à un serveur Windows Server 2008 joints au domaine ou une station de travail Windows Vista
+     * Le nombre total de tentatives de connexion après une ouverture de session pour un serveur Windows Server 2008 ou une station de travail Windows Vista
+     * L’heure de la dernière tentative d’ouverture de session ayant échoué à un serveur Windows Server 2008 ou une station de travail Windows Vista
+     * L’heure de la dernière ouverture de session réussie tentative sur un serveur Windows Server 2008 ou une station de travail Windows Vista
+  * Stratégies de mot de passe affinées permettent de spécifier des stratégies de verrouillage de compte et mot de passe pour les utilisateurs et groupes de sécurité globaux dans un domaine. Pour plus d’informations, consultez [Guide pas à pas pour la Configuration de stratégie de verrouillage de compte et de mot de passe affinées](https://go.microsoft.com/fwlink/?LinkID=91477).
+  * Bureaux virtuels personnels
+     * Pour utiliser les fonctionnalités fournies par l’onglet Bureau virtuel personnel dans la boîte de dialogue Propriétés du compte utilisateur dans Active Directory Users and Computers, votre schéma AD DS doit être étendu pour Windows Server 2008 R2 (version de l’objet schéma = 47). Pour plus d’informations, consultez [déploiement de bureaux virtuels personnels à l’aide de RemoteApp et Guide pas à pas de connexion Bureau](https://go.microsoft.com/fwlink/?LinkId=183552).
 
 ## <a name="windows-server-2003"></a>Windows Server 2003
 

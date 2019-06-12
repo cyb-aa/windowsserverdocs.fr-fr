@@ -9,16 +9,18 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: c8e72f1075b984506f9f992cd45cf853b50bddeb
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 6f3cdc34ee03fab1a8fb1d42ebed2d2f76e2618d
+ms.sourcegitcommit: ccc802338b163abdad2e53b55f39addcfea04603
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191921"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687406"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Mise à niveau vers AD FS dans Windows Server 2016 à l'aide d'une base de données WID
 
 
+> [!NOTE]  
+> Commencer une mise à niveau avec un intervalle de temps définitif complété. Il n’est pas recommandé de conserver les AD FS dans un état en mode mixte pendant une période prolongée, laissant AD FS dans un état en mode mixte peut entraîner des problèmes avec la batterie de serveurs.
 
 ## <a name="upgrading-a-windows-server-2012-r2-or-2016-ad-fs-farm-to-windows-server-2019"></a>La mise à niveau un serveur Windows Server 2012 R2 ou 2016 batterie de serveurs ADFS pour Windows Server 2019
 Le document suivant décrit comment mettre à niveau votre batterie AD FS à AD FS dans Windows Server 2019 lorsque vous utilisez une base de données WID.  
@@ -27,6 +29,7 @@ Le document suivant décrit comment mettre à niveau votre batterie AD FS à AD 
 Dans AD FS pour Windows Server 2016, le niveau de comportement de la batterie (FBL) a été introduit. Il s’agit de batterie de serveurs à l’échelle du paramètre qui détermine que la batterie de serveurs fonctionnalités AD FS peut utiliser.
 
 Le tableau suivant répertorie les valeurs FBL par version de Windows Server :
+
 | Version de Windows Server  | FBL | AD FS Configuration Database Name |
 | ------------- | ------------- | ------------- |
 | 2012 R2  | 1  | AdfsConfiguration |

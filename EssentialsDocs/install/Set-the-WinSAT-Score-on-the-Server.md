@@ -12,12 +12,12 @@ ms.assetid: 911dc494-0f8f-4723-93d6-2106f914b906
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 77866acccac13ac48da8779700c8654f2c7f3277
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e5ce037c7a8c802419cd980fc0272c4f687c6a6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819950"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433453"
 ---
 # <a name="set-the-winsat-score-on-the-server"></a>Définition du score WinSAT sur le serveur
 
@@ -30,19 +30,19 @@ Vous devez définir le score WinSAT du processeur pour un serveur qui exécute l
   
 #### <a name="to-obtain-the-winsat-cpu-score"></a>Pour obtenir le score du processeur lors de l’évaluation WinSAT  
   
-1.  Copier le Resources\WinServerSAT\\* dans le support ADK sur l’ordinateur de référence.  
+1. Copier le Resources\WinServerSAT\\* dans le support ADK sur l’ordinateur de référence.  
   
-2.  Sur l’ordinateur de référence, ouvrez une fenêtre d’invite de commandes avec élévation de privilèges.  
+2. Sur l’ordinateur de référence, ouvrez une fenêtre d’invite de commandes avec élévation de privilèges.  
   
-3.  Si le dossier %ProgramFiles%\Windows Server\Bin\OEM n'existe pas, entrez la commande suivante et appuyez sur Entrée.  
+3. Si le dossier %ProgramFiles%\Windows Server\Bin\OEM n'existe pas, entrez la commande suivante et appuyez sur Entrée.  
   
-     **mkdir "%ProgramFiles%\Windows Server\Bin\OEM"**  
+    **mkdir "%ProgramFiles%\Windows Server\Bin\OEM"**  
   
-4.  Entrez la commande suivante et appuyez sur Entrée.  
+4. Entrez la commande suivante et appuyez sur Entrée.  
   
-     **WinServerSAT.exe "%ProgramFiles%\Windows Server\Bin\OEM\WinServerSAT.xml"**  
+    **WinServerSAT.exe "%ProgramFiles%\Windows Server\Bin\OEM\WinServerSAT.xml"**  
   
- L'exemple suivant montre les contenus XML du fichier WinServerSAT.xml créé.  
+   L'exemple suivant montre les contenus XML du fichier WinServerSAT.xml créé.  
   
 ```  
   

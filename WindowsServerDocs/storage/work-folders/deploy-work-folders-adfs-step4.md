@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 6/242017
 ms.assetid: 4a11ede0-b000-4188-8190-790971504e17
-ms.openlocfilehash: 1f452fd1e2f054c449660eb0ee12642fefe4da8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4cbf85f8413353801f048f253859c9f3ef9c7691
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865050"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812560"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-4-set-up-web-application-proxy"></a>Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 4, configurez le Proxy d’Application Web
 
@@ -32,7 +32,7 @@ Cette rubrique décrit la quatrième étape du déploiement de Dossiers de trav
 -   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : L’étape 5, configurez les Clients](deploy-work-folders-adfs-step5.md)  
 
 > [!NOTE]
->   Les instructions présentées dans cette section ont été conçues pour un environnement Windows Server 2016. Si vous utilisez Windows Server 2012 R2, suivez les [instructions pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Les instructions présentées dans cette section concernent un environnement Windows Server 2019 ou Windows Server 2016. Si vous utilisez Windows Server 2012 R2, suivez les [instructions pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Pour configurer le proxy d’application Web pour l’utiliser avec Dossiers de travail, utilisez les procédures suivantes.  
   
@@ -53,7 +53,7 @@ Pour installer les certificats, procédez comme suit :
   
 5.  Sélectionnez **Un compte d’ordinateur**, puis cliquez sur **Suivant**.  
   
-6.  Sélectionnez **Ordinateur local (l’ordinateur sur lequel cette console s’exécute)**, puis cliquez sur **Terminer**.  
+6.  Sélectionnez **Ordinateur local (l’ordinateur sur lequel cette console s’exécute)** , puis cliquez sur **Terminer**.  
   
 7.  Cliquez sur **OK**.  
   
@@ -108,47 +108,47 @@ Pour configurer le proxy d’application Web, procédez comme suit :
 ## <a name="publish-the-work-folders-web-application"></a>Publier l’application web Dossiers de travail  
 L’étape suivante consiste à publier une application web qui rendra Dossiers de travail disponibles pour les clients. Pour publier l’application web Dossiers de travail, procédez comme suit :  
   
-1.  Ouvrez **Gestionnaire de serveur**, puis dans le menu **Outils**, cliquez sur **Gestion de l’accès à distance** pour ouvrir la Console de gestion de l’accès à distance.  
+1. Ouvrez **Gestionnaire de serveur**, puis dans le menu **Outils**, cliquez sur **Gestion de l’accès à distance** pour ouvrir la Console de gestion de l’accès à distance.  
   
-2.  Sous **Configuration**, cliquez sur **Proxy d’application Web**.  
+2. Sous **Configuration**, cliquez sur **Proxy d’application Web**.  
   
-3.  Sous **Tâches**, cliquez sur **Publier**. L’Assistant Publication d’une nouvelle application s’ouvre.  
+3. Sous **Tâches**, cliquez sur **Publier**. L’Assistant Publication d’une nouvelle application s’ouvre.  
   
-4.  Dans la page Bienvenue, cliquez sur **Suivant**.  
+4. Dans la page Bienvenue, cliquez sur **Suivant**.  
   
-5.  Dans la page **Pré-authentification**, sélectionnez **Services de fédération Active Directory (AD FS)**, puis cliquez sur **Suivant**.  
+5. Dans la page **Pré-authentification**, sélectionnez **Services de fédération Active Directory (AD FS)** , puis cliquez sur **Suivant**.  
   
-6.  Dans la page **Support Clients**, sélectionnez **OAuth2**, puis cliquez sur **Suivant**.
+6. Dans la page **Support Clients**, sélectionnez **OAuth2**, puis cliquez sur **Suivant**.
 
-7.  Dans la page **Partie de confiance**, sélectionnez **Dossiers de travail**, puis cliquez sur **Suivant**. Cette liste est publiée sur le proxy d’application Web à partir des services AD FS.  
+7. Dans la page **Partie de confiance**, sélectionnez **Dossiers de travail**, puis cliquez sur **Suivant**. Cette liste est publiée sur le proxy d’application Web à partir des services AD FS.  
   
-8.  Dans la page **Paramètres de publication**, entrez les éléments suivants, puis cliquez sur **Suivant** :  
+8. Dans la page **Paramètres de publication**, entrez les éléments suivants, puis cliquez sur **Suivant** :  
   
-    -   Le nom que vous souhaitez utiliser pour l’application web  
+   -   Le nom que vous souhaitez utiliser pour l’application web  
   
-    -   L’URL externe pour Dossiers de travail  
+   -   L’URL externe pour Dossiers de travail  
   
-    -   Le nom du certificat Dossiers de travail  
+   -   Le nom du certificat Dossiers de travail  
   
-    -   L’URL de serveur principal pour Dossiers de travail  
+   -   L’URL de serveur principal pour Dossiers de travail  
   
-    Par défaut, l’URL de serveur principal est identique à l’URL externe.  
+   Par défaut, l’URL de serveur principal est identique à l’URL externe.  
   
-    Dans l’exemple de test, utilisez ces valeurs :  
+   Dans l’exemple de test, utilisez ces valeurs :  
   
-    Nom : **WorkFolders**  
+   Nom : **WorkFolders**  
   
-    URL externe : **https://workfolders.contoso.com**  
+   URL externe : **https://workfolders.contoso.com**  
   
-    Certificat externe : **Le certificat de dossiers de travail que vous avez installé précédemment**  
+   Certificat externe : **Le certificat de dossiers de travail que vous avez installé précédemment**  
   
-    URL du serveur principal : **https://workfolders.contoso.com**  
+   URL du serveur principal : **https://workfolders.contoso.com**  
   
-9.  La page de confirmation indique la commande Windows PowerShell qui s’exécutera pour publier l’application. Cliquez sur **Publier**.  
+9. La page de confirmation indique la commande Windows PowerShell qui s’exécutera pour publier l’application. Cliquez sur **Publier**.  
   
 10. Dans la page **Résultats**, vous devez voir que l’application a été correctement publiée.
-   >[!NOTE]
-   > Si vous avez plusieurs serveurs Dossiers de travail, vous devez publier une application web Dossiers de travail pour chaque serveur Dossiers de travail (Répétez les étapes 1 à 10).  
+    >[!NOTE]
+    > Si vous avez plusieurs serveurs Dossiers de travail, vous devez publier une application web Dossiers de travail pour chaque serveur Dossiers de travail (Répétez les étapes 1 à 10).  
   
 Étape suivante : [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : L’étape 5, configurez les Clients](deploy-work-folders-adfs-step5.md)  
   

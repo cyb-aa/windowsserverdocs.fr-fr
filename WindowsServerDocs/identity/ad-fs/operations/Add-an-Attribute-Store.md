@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 103ee707c88f4e88b231a833f739cf75b6503e18
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 8d3027c419e85d1aec4b3b0308926a86bb37620d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190101"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445092"
 ---
 # <a name="add-an-attribute-store"></a>Ajouter un magasin d'attributs
 
@@ -33,20 +33,20 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 
 ![ajouter le magasin d’attributs](media/Add-an-Attribute-Store/addstore1.PNG)
   
-3.  Dans le **ajouter un magasin d’attributs** boîte de dialogue zone, configurez les propriétés suivantes pour le magasin d’attributs que vous souhaitez ajouter :  
+3. Dans le **ajouter un magasin d’attributs** boîte de dialogue zone, configurez les propriétés suivantes pour le magasin d’attributs que vous souhaitez ajouter :  
   
-    -   Dans **nom d’affichage**, tapez le nom que vous souhaitez utiliser pour identifier le magasin d’attributs.  
+   -   Dans **nom d’affichage**, tapez le nom que vous souhaitez utiliser pour identifier le magasin d’attributs.  
   
-    -   Dans **type de magasin d’attribut**, sélectionnez un type de magasin d’attribut prises en charge, à savoir **Active Directory**, **LDAP**, ou **SQL**.  
+   -   Dans **type de magasin d’attribut**, sélectionnez un type de magasin d’attribut prises en charge, à savoir **Active Directory**, **LDAP**, ou **SQL**.  
   
-    -   Dans **chaîne de connexion**, si vous avez sélectionné soit Lightweight Directory Access Protocol \(LDAP\) magasin ou un langage de requête structuré \(SQL\) stocker, entrez la chaîne que vous avez utilisé pour établir une connexion au magasin d’attributs. Pour les magasins d’attributs Active Directory, aucune chaîne de connexion n’est nécessaire ; Par conséquent, ce champ est désactivé.  
+   -   Dans **chaîne de connexion**, si vous avez sélectionné soit Lightweight Directory Access Protocol \(LDAP\) magasin ou un langage de requête structuré \(SQL\) stocker, entrez la chaîne que vous avez utilisé pour établir une connexion au magasin d’attributs. Pour les magasins d’attributs Active Directory, aucune chaîne de connexion n’est nécessaire ; Par conséquent, ce champ est désactivé.  
   
-        > [!NOTE]  
-        > Par défaut, AD FS crée automatiquement un magasin d'attributs Active Directory.  
+       > [!NOTE]  
+       > Par défaut, AD FS crée automatiquement un magasin d'attributs Active Directory.  
  
 ![ajouter le magasin d’attributs](media/Add-an-Attribute-Store/addstore2.PNG) 
 
-4.  Cliquez sur **OK**.  
+4. Cliquez sur **OK**.  
   
 ## <a name="additional-references"></a>Références supplémentaires  
 

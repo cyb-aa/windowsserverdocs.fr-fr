@@ -12,12 +12,12 @@ ms.assetid: e95cf219-46a4-4041-bd81-0c4c2a0622cf
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cdad118c30fbf303b55ec7ea25bbe3e209c016db
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 48fa18d5baf7d4b48b14cbda5a513c487920d70a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870160"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433475"
 ---
 # <a name="install-and-configure-windows-server-essentials"></a>Installer et configurer Windows Server Essentials
 
@@ -34,11 +34,11 @@ ms.locfileid: "59870160"
 
 1.  [Étape 1 : Installer le système d’exploitation Windows Server Essentials](Install-and-Configure-Windows-Server-Essentials.md#BKMK_ManualInstallation) dans cette étape, vous installez le système d’exploitation sur votre serveur.  
   
-2.  [Étape 2 : Configurer le système d’exploitation Windows Server Essentials](Install-and-Configure-Windows-Server-Essentials.md#BKMK_Step2Configure) dans cette étape, vous terminez l’installation en fournissant des informations sur votre entreprise, les paramètres de domaine et les administrateur réseau. L'information est utilisée pour préparer le serveur à être utilisé.  
+2.  [Étape 2 : Configurer le système d’exploitation Windows Server Essentials](Install-and-Configure-Windows-Server-Essentials.md#BKMK_Step2Configure) dans cette étape, vous terminez l’installation en fournissant des informations sur votre entreprise, les paramètres de domaine et les administrateur réseau. L'information est utilisée pour préparer le serveur à être utilisé.  
 
 1.  [Étape 1 : Installer le système d’exploitation Windows Server Essentials](../install/Install-and-Configure-Windows-Server-Essentials.md#BKMK_ManualInstallation) dans cette étape, vous installez le système d’exploitation sur votre serveur.  
   
-2.  [Étape 2 : Configurer le système d’exploitation Windows Server Essentials](../install/Install-and-Configure-Windows-Server-Essentials.md#BKMK_Step2Configure) dans cette étape, vous terminez l’installation en fournissant des informations sur votre entreprise, les paramètres de domaine et les administrateur réseau. L'information est utilisée pour préparer le serveur à être utilisé.  
+2.  [Étape 2 : Configurer le système d’exploitation Windows Server Essentials](../install/Install-and-Configure-Windows-Server-Essentials.md#BKMK_Step2Configure) dans cette étape, vous terminez l’installation en fournissant des informations sur votre entreprise, les paramètres de domaine et les administrateur réseau. L'information est utilisée pour préparer le serveur à être utilisé.  
 
   
 ###  <a name="BKMK_ManualInstallation"></a> Étape 1 : Installer le système d’exploitation Windows Server Essentials  
@@ -53,34 +53,34 @@ ms.locfileid: "59870160"
   
 ##### <a name="to-install-the-operating-system"></a>Pour installer le système d'exploitation  
   
-1.  Connectez votre ordinateur à votre réseau avec un câble réseau.  
+1. Connectez votre ordinateur à votre réseau avec un câble réseau.  
   
-    > [!IMPORTANT]
-    >  Ne déconnectez pas votre ordinateur du réseau pendant l'installation. Dans le cas contraire, l'installation pourrait échouer.  
+   > [!IMPORTANT]
+   >  Ne déconnectez pas votre ordinateur du réseau pendant l'installation. Dans le cas contraire, l'installation pourrait échouer.  
   
-2.  Mettez votre ordinateur sous tension, puis insérez le DVD de Windows Server Essentials dans le lecteur de DVD.  
+2. Mettez votre ordinateur sous tension, puis insérez le DVD de Windows Server Essentials dans le lecteur de DVD.  
   
-     Si vous exécutez une installation sans assistance, connectez le support amovible (comme une disquette ou un disque mémoire flash USB) contenant vos fichiers de réponse. Selon les contenus de vos fichiers de réponse, il se peut que vous ne puissiez pas voir tous les écrans d'installation, voire même aucun.  
+    Si vous exécutez une installation sans assistance, connectez le support amovible (comme une disquette ou un disque mémoire flash USB) contenant vos fichiers de réponse. Selon les contenus de vos fichiers de réponse, il se peut que vous ne puissiez pas voir tous les écrans d'installation, voire même aucun.  
   
-3.  Redémarrez votre ordinateur. Appuyez sur une touche lorsque le message **Appuyez sur une touche pour lancer depuis le CD ou le DVD** s'affiche.  
+3. Redémarrez votre ordinateur. Appuyez sur une touche lorsque le message **Appuyez sur une touche pour lancer depuis le CD ou le DVD** s'affiche.  
   
-    > [!NOTE]
-    >  Si votre ordinateur ne démarre pas depuis le DVD, assurez-vous que le lecteur de CD-ROM apparaît en première place dans la séquence de démarrage du BIOS. Pour plus d'informations sur la séquence de démarrage du BIOS, voir la documentation du fabricant de l'ordinateur.  
+   > [!NOTE]
+   >  Si votre ordinateur ne démarre pas depuis le DVD, assurez-vous que le lecteur de CD-ROM apparaît en première place dans la séquence de démarrage du BIOS. Pour plus d'informations sur la séquence de démarrage du BIOS, voir la documentation du fabricant de l'ordinateur.  
   
-4.  Sélectionnez la **Langue** à installer, le **Format de l'heure et de la monnaie**et le **Clavier ou méthode d’entrée**, puis cliquez sur **Suivant**.  
+4. Sélectionnez la **Langue** à installer, le **Format de l'heure et de la monnaie**et le **Clavier ou méthode d’entrée**, puis cliquez sur **Suivant**.  
   
-5.  Cliquez sur **Installer maintenant**.  
+5. Cliquez sur **Installer maintenant**.  
   
-6.  Entrez la clé de produit sous **Entrez votre clé de produit**.  
+6. Entrez la clé de produit sous **Entrez votre clé de produit**.  
   
-7.  Lisez les **Termes du contrat de licence**. Pour les accepter, sélectionnez la case à cocher **J'accepte les termes du contrat de licence**, puis cliquez sur **Suivant**.  
+7. Lisez les **Termes du contrat de licence**. Pour les accepter, sélectionnez la case à cocher **J'accepte les termes du contrat de licence**, puis cliquez sur **Suivant**.  
   
-    > [!NOTE]
-    >  Si vous ne les acceptez pas, l'installation s'arrête.  
+   > [!NOTE]
+   >  Si vous ne les acceptez pas, l'installation s'arrête.  
   
-8.  Dans **quel type d’installation souhaitez-vous ?**, cliquez sur **personnalisé : Installer Windows uniquement (Avancé)**  
+8. Dans **quel type d’installation souhaitez-vous ?** , cliquez sur **personnalisé : Installer Windows uniquement (Avancé)**  
   
-9. Sous **Où souhaitez-vous installer Windows ?**, sélectionnez le disque dur sur lequel vous souhaitez installer le système d'exploitation Windows. Vérifiez que tous vos disques durs internes sont disponibles pour l'installation.  
+9. Sous **Où souhaitez-vous installer Windows ?** , sélectionnez le disque dur sur lequel vous souhaitez installer le système d'exploitation Windows. Vérifiez que tous vos disques durs internes sont disponibles pour l'installation.  
   
     > [!IMPORTANT]
     >   Windows Server Essentials doit être installé en tant que volume C:, et la taille du volume doit être au moins 60 Go. Il est recommandé de créer deux partitions sur votre lecteur de système d’exploitation et de ne pas utiliser C: (partition système) pour stocker des données d’entreprise.  
@@ -90,27 +90,27 @@ ms.locfileid: "59870160"
   
      Si vous devez supprimer et/ou créer des partitions, suivez les étapes suivantes :  
   
-    1.  Pour supprimer une partition, sélectionnez la partition, cliquez sur **Options de lecteurs (avancées)**, puis cliquez sur **Supprimer**. Après la suppression de la partition système, créez une nouvelle partition en suivant les instructions de l'étape **b** ou de l'étape **c**.  
+    1.  Pour supprimer une partition, sélectionnez la partition, cliquez sur **Options de lecteurs (avancées)** , puis cliquez sur **Supprimer**. Après la suppression de la partition système, créez une nouvelle partition en suivant les instructions de l'étape **b** ou de l'étape **c**.  
   
         > [!NOTE]
-        >  Une fois que vous aurez cliqué sur **Options de lecteurs (avancées)**, cette option n'apparaîtra plus. Dans ce cas, ignorez la partie de l'étape concernant les options de lecteurs.  
+        >  Une fois que vous aurez cliqué sur **Options de lecteurs (avancées)** , cette option n'apparaîtra plus. Dans ce cas, ignorez la partie de l'étape concernant les options de lecteurs.  
   
-    2.  Pour créer une partition depuis un espace non partitionné, cliquez sur le disque dur que vous souhaitez partitionner, cliquez sur **Options de lecteurs (avancées)**, puis sur **Nouveau**, et entrez la taille de la partition à créer dans la zone de texte **Taille**. Par exemple, si la taille de partition recommandée est de 120 Go, entrez **122880**, puis cliquez sur **Appliquer**. Une fois la partition créée, cliquez sur **Suivant**. La partition est formatée avant que l'installation ne continue.  
+    2.  Pour créer une partition depuis un espace non partitionné, cliquez sur le disque dur que vous souhaitez partitionner, cliquez sur **Options de lecteurs (avancées)** , puis sur **Nouveau**, et entrez la taille de la partition à créer dans la zone de texte **Taille**. Par exemple, si la taille de partition recommandée est de 120 Go, entrez **122880**, puis cliquez sur **Appliquer**. Une fois la partition créée, cliquez sur **Suivant**. La partition est formatée avant que l'installation ne continue.  
   
-    3.  Pour créer une partition utilisant tout l'espace non partitionné, cliquez sur le disque dur que vous souhaitez partitionner, cliquez sur **Options de lecteurs (avancées)**, puis sur **Nouveau**, et enfin sur **Appliquer** pour accepter la taille de la partition par défaut. Une fois la partition créée, cliquez sur **Suivant**. La partition est formatée avant que l'installation ne continue.  
+    3.  Pour créer une partition utilisant tout l'espace non partitionné, cliquez sur le disque dur que vous souhaitez partitionner, cliquez sur **Options de lecteurs (avancées)** , puis sur **Nouveau**, et enfin sur **Appliquer** pour accepter la taille de la partition par défaut. Une fois la partition créée, cliquez sur **Suivant**. La partition est formatée avant que l'installation ne continue.  
   
         > [!IMPORTANT]
         >  Vous ne pourrez plus déplacer le système d'exploitation vers une autre partition une fois cette étape terminée.  
   
- Pendant l'installation, des fichiers temporaires sont copiés vers un dossier d'installation sur votre ordinateur. Cette procédure dure environ 30 minutes. Une fois le système d’exploitation Windows Server Essentials est installé, votre ordinateur redémarre. Maintenant, vous êtes prêt à configurer le système d’exploitation Windows Server Essentials.  
+   Pendant l'installation, des fichiers temporaires sont copiés vers un dossier d'installation sur votre ordinateur. Cette procédure dure environ 30 minutes. Une fois le système d’exploitation Windows Server Essentials est installé, votre ordinateur redémarre. Maintenant, vous êtes prêt à configurer le système d’exploitation Windows Server Essentials.  
   
 ###  <a name="BKMK_Step2Configure"></a> Étape 2 : Configurer le système d’exploitation Windows Server Essentials  
   
 > [!IMPORTANT]
 >  Si vous effectuez une migration depuis une version précédente de Windows Small Business Server vers Windows Server Essentials, vous devez suivre un processus différent. Pour plus d'informations sur les installations de migration, consultez les rubriques suivantes :  
->   
->  -   [Migrer à partir de Windows SBS 2003](../migrate/Migrate-Windows-Small-Business-Server-2003-to-Windows-Server-Essentials.md)  
-> -   [Migrer à partir de Windows SBS 2008](../migrate/Migrate-Windows-Small-Business-Server-2008-to-Windows-Server-Essentials.md)  
+> 
+> - [Migrer à partir de Windows SBS 2003](../migrate/Migrate-Windows-Small-Business-Server-2003-to-Windows-Server-Essentials.md)  
+>   -   [Migrer à partir de Windows SBS 2008](../migrate/Migrate-Windows-Small-Business-Server-2008-to-Windows-Server-Essentials.md)  
   
  Pendant cette phase de l'installation, vous êtes invité à répondre à quelques questions concernant votre organisation. Ces informations sont utilisées pour la configuration du système d'exploitation.  
   

@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: de1af9712b54c977c591953c68eec506c80d3cdd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5666943138070cfa8cfe62f1ba932c2793daa003
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822000"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501603"
 ---
 # <a name="ad-fs-password-attack-protection"></a>Protection contre les attaques de mot de passe FS de AD
 
@@ -29,23 +29,22 @@ Il existe 2 types d’attaques de mot de passe courants. Mot de passe pulvérisa
 ### <a name="password-spray-attack"></a>Attaque de pulvérisation de mot de passe
 Dans une attaque par pulvérisation de mot de passe, ces mauvais acteurs va tenter les mots de passe courants sur de nombreux comptes différents et les services pour accéder à n’importe quel il peut trouver des ressources protégé par mot de passe. Généralement Cela englobe les nombreux différentes organisations et les fournisseurs d’identité. Par exemple, une personne malveillante utilisera un kit de ressources généralement disponible pour énumérer tous les utilisateurs dans plusieurs organisations et essayez « P@$$w0rd » et « Password1 » par rapport à tous ces comptes. Pour vous donner l’idée, une attaque pourrait ressembler à :
 
-|Utilisateur cible|Cible de mot de passe|
-|-----|-----|-----|
-|User1@org1.com|Password1|
-|User2@org1.com|Password1|
-|User1@org2.com|Password1|
-|User2@org2.com|Password1|
-|…|…|
-|User1@org1.com|P@$$w0rd|
-|User2@org1.com|P@$$w0rd|
-|User1@org2.com|P@$$w0rd|
-|User2@org2.com|P@$$w0rd|
+
+|  Utilisateur cible   | Cible de mot de passe |
+|----------------|-----------------|
+| User1@org1.com |    Password1    |
+| User2@org1.com |    Password1    |
+| User1@org2.com |    Password1    |
+| User2@org2.com |    Password1    |
+|       …        |        …        |
+| User1@org1.com |    P@$$w0rd     |
+| User2@org1.com |    P@$$w0rd     |
+| User1@org2.com |    P@$$w0rd     |
+| User2@org2.com |    P@$$w0rd     |
 
 Ce modèle d’attaque échappe à la plupart des techniques de détection, car à partir du point de vue d’un utilisateur individuel ou d’entreprise, l’attaque ressemble simplement à une connexion ayant échouée isolée.
 
 Pour les attaquants, c’est un jeu de nombres : ils savent qu’il n’y a certains mots de passe ici sont très courantes.  L’attaquant obtiendra quelques réussites pour tous les milliers comptes attaqués, et c’est suffisant pour être efficace. Ils utilisent les comptes pour obtenir des données à partir des e-mails, collecter des informations de contact et envoyer des liens de phishing ou développez simplement le groupe de cibles de pulvérisation de mot de passe. Les pirates ne vous souciez beaucoup qui sont les cibles initiales, juste qu’ils disposent de succès qui peuvent tirer parti.
-
-Ils utilisent les comptes pour obtenir des données à partir des e-mails, collecter des informations de contact et envoyer des liens de phishing ou développez simplement le groupe de cibles de pulvérisation de mot de passe. Les pirates ne vous souciez beaucoup qui sont les cibles initiales, juste qu’ils disposent de succès qui peuvent tirer parti.
 
 Mais, en prenant quelques étapes pour configurer les services AD FS et réseau correctement, les points de terminaison AD FS peuvent être sécurisés contre les attaques de ce type. Cet article couvre des 3 domaines qui doivent être configurés correctement pour vous aider à sécuriser contre ces attaques.
 
@@ -55,7 +54,7 @@ Dans ce type d’attaque, un attaquant va tenter de plusieurs tentatives de mot 
 Ce type d’attaque peut également entraîner des modèles de déni de service. Cela peut être au niveau du service où AD FS ne peut pas traiter un grand nombre de requêtes en raison d’un nombre insuffisant de serveurs ou peut être à un niveau de l’utilisateur où un utilisateur est verrouillé à leur compte.  
 
 ## <a name="securing-ad-fs-against-password-attacks"></a>Sécurisation d’AD FS contre les attaques de mot de passe 
- 
+
 Mais, en prenant quelques étapes pour configurer les services AD FS et réseau correctement, les points de terminaison AD FS peuvent être sécurisées par rapport à ces types d’attaques. Cet article couvre des 3 domaines qui doivent être configurés correctement pour vous aider à sécuriser contre ces attaques. 
 
 
@@ -70,11 +69,11 @@ Mais, en prenant quelques étapes pour configurer les services AD FS et réseau 
 
 2. Surveiller et bloquer des adresses IP suspectes 
     - Si vous avez Azure AD Premium, implémenter Connect Health pour AD FS et utilisez le [rapport d’adresse IP risquée](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs#risky-ip-report-public-preview) notifications qu’il fournit.
-        
+
         a. Gestionnaire de licences n’est pas pour tous les utilisateurs et nécessite 25 licences/ADFS/WAP du serveur qui peut être facile pour un client.
-    
+
         b. Vous pouvez commencer à étudier l’adresse IP qui génèrent le grand nombre d’échecs de connexion
-    
+
         c. Vous devrez activer l’audit sur vos serveurs AD FS.
 
 3.  Bloquer l’adresse IP suspecte.  Cela bloque potentiellement des attaques de déni de service.
@@ -97,20 +96,20 @@ Mais, en prenant quelques étapes pour configurer les services AD FS et réseau 
 
     b. Vous devez utiliser Outlook 2013 (avec les derniers correctifs CU) ou Outlook 2016.
 
-6.  Activer l’authentification Multifacteur pour tous les accès extranet. Ce vous offre plus de protection pour l’accès extranet.
+6. Activer l’authentification Multifacteur pour tous les accès extranet. Ce vous offre plus de protection pour l’accès extranet.
 
-    a.  Si vous avez Azure AD premium, utilisez [des stratégies d’accès conditionnel Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) pour contrôler cela.  Cela est préférable à l’application des règles au niveau AD FS.  Il s’agit, car les applications clientes modernes sont appliquées de manière plus fréquente.  Cela se produit, sur Azure AD, lorsque vous demandez un nouveau jeton d’accès (généralement toutes les heures) à l’aide d’un jeton d’actualisation.  
+   a.  Si vous avez Azure AD premium, utilisez [des stratégies d’accès conditionnel Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) pour contrôler cela.  Cela est préférable à l’application des règles au niveau AD FS.  Il s’agit, car les applications clientes modernes sont appliquées de manière plus fréquente.  Cela se produit, sur Azure AD, lorsque vous demandez un nouveau jeton d’accès (généralement toutes les heures) à l’aide d’un jeton d’actualisation.  
 
-    b.  Si vous n’avez Azure AD premium ou d’autres applications sur AD FS que vous autorisez internet après accès, mettre en œuvre MFA (peut également Azure MFA sur AD FS 2016) et effectuez un [stratégie globale de MFA](../../ad-fs/operations/configure-authentication-policies.md#to-configure-multi-factor-authentication-globally) pour tous les accès extranet.
- 
+   b.  Si vous n’avez Azure AD premium ou d’autres applications sur AD FS que vous autorisez internet après accès, mettre en œuvre MFA (peut également Azure MFA sur AD FS 2016) et effectuez un [stratégie globale de MFA](../../ad-fs/operations/configure-authentication-policies.md#to-configure-multi-factor-authentication-globally) pour tous les accès extranet.
+
 ## <a name="level-3-move-to-password-less-for-extranet-access"></a>Niveau 3 : Déplacement au mot de passe moins pour l’accès extranet
 
 7. Déplacez vers Windows 10 et utilisez [Hello For Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 8. Pour d’autres périphériques, si vous utilisez AD FS 2016, que vous pouvez utiliser [Azure MFA OTP](../../ad-fs/operations/configure-ad-fs-and-azure-mfa.md) en tant que le premier facteur et mot de passe comme facteur 2nd. 
 
-9.  Pour les appareils mobiles, si vous autorisez uniquement les périphériques gérés MDM, vous pouvez utiliser [certificats](../../ad-fs/operations/configure-user-certificate-authentication.md) pour vous connecter l’utilisateur. 
- 
+9. Pour les appareils mobiles, si vous autorisez uniquement les périphériques gérés MDM, vous pouvez utiliser [certificats](../../ad-fs/operations/configure-user-certificate-authentication.md) pour vous connecter l’utilisateur. 
+
 ## <a name="urgent-handling"></a>Gestion d’urgence
 
 Si l’environnement AD FS sous attaque active, les étapes suivantes doivent être implémentés au plus tôt :

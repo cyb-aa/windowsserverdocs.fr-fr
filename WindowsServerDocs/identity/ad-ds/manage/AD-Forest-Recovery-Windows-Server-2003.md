@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: e2af1bfc295469d43e59593d69d4ba88f476e427
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: 1a9db8b4cdfbb4cc7d7edc2a17a3e747943fb073
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034142"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442802"
 ---
 # <a name="ad-forest-recovery---windows-server-2003-recovery"></a>Récupération de forêt AD - récupération de Windows Server 2003
 
@@ -112,10 +112,10 @@ Si le contrôleur de domaine que vous avez restauré à partir de la sauvegarde 
 
 10. Tapez la commande suivante et appuyez sur ENTRÉE :  
 
-   **Net start netlogon**
+    **Net start netlogon**
 
-   > [!NOTE]
-   > Connexion réseau enregistre les enregistrements de ressources du localisateur de contrôleur de domaine DNS pour ce contrôleur de domaine. Si vous installez le service serveur DNS sur un serveur dans le domaine enfant, il se peut que ce contrôleur de domaine ne sera pas capable d’inscrire ses enregistrements immédiatement. Il s’agit, car il est actuellement isolé dans le cadre du processus de récupération et son serveur DNS principal est le serveur DNS de racine de forêt. Configurer cet ordinateur avec la même adresse IP qu’elle avait avant le sinistre afin d’éviter les échecs de recherche de service de contrôleur de domaine.
+    > [!NOTE]
+    > Connexion réseau enregistre les enregistrements de ressources du localisateur de contrôleur de domaine DNS pour ce contrôleur de domaine. Si vous installez le service serveur DNS sur un serveur dans le domaine enfant, il se peut que ce contrôleur de domaine ne sera pas capable d’inscrire ses enregistrements immédiatement. Il s’agit, car il est actuellement isolé dans le cadre du processus de récupération et son serveur DNS principal est le serveur DNS de racine de forêt. Configurer cet ordinateur avec la même adresse IP qu’elle avait avant le sinistre afin d’éviter les échecs de recherche de service de contrôleur de domaine.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

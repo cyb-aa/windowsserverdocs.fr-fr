@@ -8,12 +8,12 @@ ms.date: 07/10/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 18ce084ec7d1b602dfca913372d6a0e279671a6e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a2eb6c670e704564bed49486b8950dab96da8a80
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867410"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444571"
 ---
 # <a name="migrate-the-active-directory-federation-services-proxy-server-to-windows-server-2012-r2"></a>Migrer le serveur de Proxy Active Directory Federation Services vers Windows Server 2012 R2
 
@@ -26,15 +26,15 @@ Si vous souhaitez configurer AD FS dans une batterie de serveurs migré de Windo
   
 Pour planifier le déploiement de proxy d’application Web, vous pouvez passer en revue les informations des rubriques suivantes :  
   
--   [Planifier l’Infrastructure de Proxy d’Application Web](https://technet.microsoft.com/library/dn383648.aspx)  
+- [Planifier l’Infrastructure de Proxy d’Application Web](https://technet.microsoft.com/library/dn383648.aspx)  
   
--   [Planifier le serveur de Proxy d’Application Web](https://technet.microsoft.com/library/dn383647.aspx)  
+- [Planifier le serveur de Proxy d’Application Web](https://technet.microsoft.com/library/dn383647.aspx)  
   
- Pour déployer le proxy d’application Web, vous pouvez suivre les procédures des rubriques suivantes :  
+  Pour déployer le proxy d’application Web, vous pouvez suivre les procédures des rubriques suivantes :  
   
--   [Configurer l’Infrastructure de Proxy d’Application Web](https://technet.microsoft.com/library/dn383644.aspx)  
+- [Configurer l’Infrastructure de Proxy d’Application Web](https://technet.microsoft.com/library/dn383644.aspx)  
   
--   [Installer et configurer le serveur de Proxy d’Application Web](https://technet.microsoft.com/library/dn383662.aspx)  
+- [Installer et configurer le serveur de Proxy d’Application Web](https://technet.microsoft.com/library/dn383662.aspx)  
   
 ## <a name="next-steps"></a>Étapes suivantes
  [Migrer des Services de rôle Active Directory Federation Services vers Windows Server 2012 R2](migrate-ad-fs-service-role-to-windows-server-r2.md)   

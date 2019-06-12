@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: e45d1abb545ad46e654c811a0347c589bd12adf0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e95671718616fc7c81977434e83a227c858fca17
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863240"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811422"
 ---
 # <a name="performance-tuning-remote-desktop-session-hosts"></a>Hôtes de Session Bureau à distance de réglage des performances
 
@@ -21,13 +21,13 @@ Cette rubrique explique comment choisir le matériel de l’hôte de Session Bur
 
 **Dans cette rubrique :**
 
--   [Sélection du matériel approprié pour les performances](#hw)
+-   [Sélection du matériel approprié pour les performances](#selecting-the-proper-hardware-for-performance)
 
--   [Paramétrage des applications pour l’hôte de Session Bureau à distance](#apps)
+-   [Paramétrage des applications pour l’hôte de Session Bureau à distance](#tuning-applications-for-remote-desktop-session-host)
 
--   [Hôte de Session Bureau à distance, réglage des paramètres](#host)
+-   [Hôte de Session Bureau à distance, réglage des paramètres](#remote-desktop-session-host-tuning-parameters)
 
-## <a href="" id="hw"></a>Sélection du matériel approprié pour les performances
+## <a name="selecting-the-proper-hardware-for-performance"></a>Sélection du matériel approprié pour favoriser la performance
 
 
 Pour un déploiement de serveur hôte de Session Bureau à distance, le choix du matériel est régi par l’ensemble de l’application et la façon dont les utilisateurs les utiliser. Les facteurs clés qui affectent le nombre d’utilisateurs et leur expérience sont le processeur, mémoire, disque et graphiques. Cette section contient des indications supplémentaires qui sont spécifiques aux serveurs hôtes de Session Bureau à distance et est principalement liée à l’environnement multi-utilisateur, des serveurs hôtes de Session Bureau à distance.
@@ -72,7 +72,7 @@ L’utilisation du réseau pour un serveur hôte de Session Bureau à distance i
 
     Le volume et le profil de trafic réseau est spécifique à chaque déploiement.
 
-## <a href="" id="apps"></a>Paramétrage des applications pour l’hôte de Session Bureau à distance
+## <a name="tuning-applications-for-remote-desktop-session-host"></a>Paramétrage des applications pour l’hôte de Session Bureau à distance
 
 
 La majeure partie de l’utilisation du processeur sur un serveur hôte de Session Bureau à distance est piloté par les applications. Applications de bureau sont généralement optimisées vers réactivité dans le but de réduire au minimum la durée d’une application de répondre à une demande de l’utilisateur. Toutefois, dans un environnement de serveur, il est également important réduire la quantité totale de l’utilisation du processeur qui est nécessaire pour effectuer une action pour éviter de pénaliser les autres sessions.
@@ -111,7 +111,7 @@ Pour la consommation de mémoire, vous devez envisager les éléments suivants 
 
     Dans la mesure du possible, appliquer des techniques similaires à d’autres moteurs d’exécution similaire.
 
-## <a href="" id="host"></a>Hôte de Session Bureau à distance, réglage des paramètres
+## <a name="remote-desktop-session-host-tuning-parameters"></a>Hôte de Session Bureau à distance, réglage des paramètres
 
 
 ### <a name="page-file"></a>Fichier d’échange

@@ -12,12 +12,12 @@ ms.assetid: d3642575-b3ee-4488-b654-5bf9d3b8c935
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: af4725fd3b1861c847434e3ed62c3da030689fb5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: fda0b5a227fe25b4e8780915089e97ee48620383
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853470"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432437"
 ---
 # <a name="troubleshoot-remote-web-access-connectivity-in-windows-server-essentials"></a>Dépanner la connectivité d’accès web à distance dans Windows Server Essentials
  
@@ -37,46 +37,46 @@ ms.locfileid: "59853470"
 ## <a name="possible-fixes"></a>Solutions possibles  
  Les actions suivantes peuvent résoudre ces problèmes :  
   
--   Vérifiez que le routeur est activé et fonctionne correctement.  
+- Vérifiez que le routeur est activé et fonctionne correctement.  
   
--   Assurez-vous que le serveur est connecté directement au routeur ou qu’il est connecté à un commutateur connecté au routeur.  
+- Assurez-vous que le serveur est connecté directement au routeur ou qu’il est connecté à un commutateur connecté au routeur.  
   
--   Vérifiez que le périphérique large bande qui se connecte à votre fournisseur de services Internet est activé, fonctionne correctement, et que le routeur est connecté au périphérique large bande.  
+- Vérifiez que le périphérique large bande qui se connecte à votre fournisseur de services Internet est activé, fonctionne correctement, et que le routeur est connecté au périphérique large bande.  
   
--   Activez le paramètre UPnP du routeur. Connectez-vous à la page web de configuration du routeur pour activer le paramètre UPnP. Pour plus d’informations sur la connexion au routeur et sur l’activation du paramètre UPnP, consultez la documentation de votre routeur. Une fois que vous activez le paramètre UPnP, exécutez l’activer sur Web Assistant accès à distance pour configurer votre routeur.  
+- Activez le paramètre UPnP du routeur. Connectez-vous à la page web de configuration du routeur pour activer le paramètre UPnP. Pour plus d’informations sur la connexion au routeur et sur l’activation du paramètre UPnP, consultez la documentation de votre routeur. Une fois que vous activez le paramètre UPnP, exécutez l’activer sur Web Assistant accès à distance pour configurer votre routeur.  
   
--   Si le routeur ne prend pas entièrement en charge la norme UPnP, il ne peut pas être configuré automatiquement. Vous devez configurer manuellement le routeur ou acheter un routeur qui prend en charge la norme UPnP.  
+- Si le routeur ne prend pas entièrement en charge la norme UPnP, il ne peut pas être configuré automatiquement. Vous devez configurer manuellement le routeur ou acheter un routeur qui prend en charge la norme UPnP.  
   
-     Pour configurer manuellement le routeur, effectuez les tâches suivantes :  
+   Pour configurer manuellement le routeur, effectuez les tâches suivantes :  
   
-    -   Créez la réservation d’adresse IP de votre serveur Windows Server Essentials.  
+  - Créez la réservation d’adresse IP de votre serveur Windows Server Essentials.  
   
-         Avant de configurer manuellement le routeur pour transférer les ports requis à Windows Server Essentials, vous devez configurer une réservation DHCP (Dynamic Host Configuration Protocol) pour le serveur qui exécute Windows Server Essentials sur le routeur. Cette étape garantit que l’adresse IP vers laquelle vous comptez transférer les ports ne change pas.  
+     Avant de configurer manuellement le routeur pour transférer les ports requis à Windows Server Essentials, vous devez configurer une réservation DHCP (Dynamic Host Configuration Protocol) pour le serveur qui exécute Windows Server Essentials sur le routeur. Cette étape garantit que l’adresse IP vers laquelle vous comptez transférer les ports ne change pas.  
   
-         Pour plus d’informations sur la façon de configurer manuellement une réservation DHCP pour votre serveur sur votre routeur, consultez la documentation de s fabricant de votre routeur.  
+     Pour plus d’informations sur la façon de configurer manuellement une réservation DHCP pour votre serveur sur votre routeur, consultez la documentation du fabricant de votre routeur.  
   
-    -   Configurez le transfert de ports sur votre routeur pour les ports suivants :  
+  - Configurez le transfert de ports sur votre routeur pour les ports suivants :  
   
-        |Service ou protocole|Port|  
-        |-------------------------|----------|  
-        |HTTP|TCP 80|  
-        |HTTPS|TCP 443|  
+    |Service ou protocole|Port|  
+    |-------------------------|----------|  
+    |HTTP|TCP 80|  
+    |HTTPS|TCP 443|  
   
-     Pour plus d’informations sur la façon de configurer manuellement le réacheminement de port sur votre routeur, consultez la documentation du fabricant s.  
+    Pour plus d’informations sur la façon de configurer manuellement le réacheminement de port sur votre routeur, consultez la documentation du fabricant.  
   
-     Une page classique de configuration d’un routeur inclut un tableau semblable au suivant.  
+    Une page classique de configuration d’un routeur inclut un tableau semblable au suivant.  
   
-    > [!NOTE]
-    >  Dans ce tableau, l’adresse IP de l’ordinateur qui exécute Windows Server Essentials est 192.168.0.100. Vous devez déterminer l’adresse IP de votre ordinateur et remplacez cette adresse par l’adresse IP affichée dans le tableau.  
+  > [!NOTE]
+  >  Dans ce tableau, l’adresse IP de l’ordinateur qui exécute Windows Server Essentials est 192.168.0.100. Vous devez déterminer l’adresse IP de votre ordinateur et remplacez cette adresse par l’adresse IP affichée dans le tableau.  
   
-    |Adresse IP|Protocole (TCP/UDP)|Planification|Filtre d’entrée|  
-    |----------------|---------------------------|--------------|--------------------|  
-    |192.168.0.100|TCP 80|Always|Autoriser tout|  
-    |192.168.0.100|TCP 443|Always|Autoriser tout|  
+  |Adresse IP|Protocole (TCP/UDP)|Planification|Filtre d’entrée|  
+  |----------------|---------------------------|--------------|--------------------|  
+  |192.168.0.100|TCP 80|Always|Autoriser tout|  
+  |192.168.0.100|TCP 443|Always|Autoriser tout|  
   
-     Après avoir configuré manuellement votre routeur, exécutez l’activer sur Web Assistant accès à distance, en sélectionnant le **ignorer la configuration du routeur** option sur le **mise en route** page.  
+   Après avoir configuré manuellement votre routeur, exécutez l’activer sur Web Assistant accès à distance, en sélectionnant le **ignorer la configuration du routeur** option sur le **mise en route** page.  
   
--   Achetez un nouveau routeur si le vôtre ne prend pas entièrement en charge la norme UPnP.  
+- Achetez un nouveau routeur si le vôtre ne prend pas entièrement en charge la norme UPnP.  
   
 > [!TIP]
 >  Assurez-vous que le dernier microprogramme BIOS est installé sur le routeur. Vous pouvez souvent mettre à jour le microprogramme BIOS du routeur à partir de la page web de configuration du routeur. Pour plus d’informations, consultez la documentation de votre routeur. Après la mise à jour du routeur, exécutez l’Assistant Configurer l’Accès en tout lieu.  
@@ -92,7 +92,7 @@ ms.locfileid: "59853470"
 -   [Gérer Windows Server Essentials](../manage/Manage-Windows-Server-Essentials.md)  
   
 
--   [Prise en charge Windows Server Essentials](Support-Windows-Server-Essentials.md)
+-   [Prendre en charge Windows Server Essentials](Support-Windows-Server-Essentials.md)
 
--   [Prise en charge Windows Server Essentials](../support/Support-Windows-Server-Essentials.md)
+-   [Prendre en charge Windows Server Essentials](../support/Support-Windows-Server-Essentials.md)
 

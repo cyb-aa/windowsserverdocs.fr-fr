@@ -12,12 +12,12 @@ ms.assetid: ae89c46a-0afd-4858-9150-ec97650f45a4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e98d661ac71697bc0e38b6a25fe2f9d2b0b7254f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1a60a9e7fd958d447b4770431a69546f0ad6f229
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860170"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433346"
 ---
 # <a name="manage-applications-in-windows-server-essentials"></a>Gérer des applications dans Windows Server Essentials
 
@@ -32,21 +32,21 @@ ms.locfileid: "59860170"
 ##  <a name="BKMK_1"></a> Tâches de gestion d’application dans le tableau de bord  
  La page de gestion **Applications** du tableau de bord fournit :  
   
--   la liste des compléments installés, qui indique :  
+- la liste des compléments installés, qui indique :  
   
-    -   le nom du complément ou du service en ligne ;  
+  -   le nom du complément ou du service en ligne ;  
   
-    -   l'état de mise à jour du complément ;  
+  -   l'état de mise à jour du complément ;  
   
-    -   l'état de l'abonnement du complément ;  
+  -   l'état de l'abonnement du complément ;  
   
-    -   le nom de la société ou de l'éditeur qui propose ce complément ;  
+  -   le nom de la société ou de l'éditeur qui propose ce complément ;  
   
--   un volet des tâches qui inclut un ensemble de tâches permettant de gérer un complément sélectionné ;  
+- un volet des tâches qui inclut un ensemble de tâches permettant de gérer un complément sélectionné ;  
   
--   la liste des compléments pouvant être téléchargés et installés à partir de Microsoft Pinpoint.  
+- la liste des compléments pouvant être téléchargés et installés à partir de Microsoft Pinpoint.  
   
- Le tableau ci-dessous décrit les différentes tâches de gestion de complément disponibles dans le tableau de bord du serveur. Certaines de ces tâches sont spécifiques au complément et s'affichent uniquement quand vous sélectionnez un complément dans la liste.  
+  Le tableau ci-dessous décrit les différentes tâches de gestion de complément disponibles dans le tableau de bord du serveur. Certaines de ces tâches sont spécifiques au complément et s'affichent uniquement quand vous sélectionnez un complément dans la liste.  
   
 |Nom de la tâche|Description|  
 |---------------|-----------------|  

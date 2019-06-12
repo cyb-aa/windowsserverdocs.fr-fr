@@ -12,12 +12,12 @@ ms.assetid: 198d16cb-3d07-4706-be89-ad14a5f7dc47
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 9c240320d990652a4669499d99c1fc3eba9e06fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4dd32d57f6f36bdbf94c763fe0cbd1f37ff990b8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883590"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433112"
 ---
 # <a name="overview-of-the-launchpad-in-windows-server-essentials"></a>Vue d'ensemble du Launchpad dans Windows Server Essentials
 
@@ -29,20 +29,20 @@ Launchpad de Windows Server Essentials est une petite application qui est instal
   
  Les systèmes d'exploitation Windows suivants prennent en charge l'utilisation de Launchpad via Windows Server Essentials :  
   
--   **Windows 8**: Toutes les éditions.  
+- **Windows 8**: Toutes les éditions.  
   
--   **Windows 7**: Toutes les éditions.  
--   **Windows 10**: Toutes les éditions. 
+- **Windows 7**: Toutes les éditions.  
+- **Windows 10**: Toutes les éditions. 
   
- Les systèmes d'exploitation suivants ne prennent pas en charge l'utilisation de Launchpad via Windows Server Essentials :  
+  Les systèmes d'exploitation suivants ne prennent pas en charge l'utilisation de Launchpad via Windows Server Essentials :  
   
--   **Serveurs supplémentaires** : Vous ne pouvez pas exécuter Launchpad de Windows Server Essentials sur des ordinateurs supplémentaires dotés d'un système d'exploitation Windows Server.  
+- **Serveurs supplémentaires** : Vous ne pouvez pas exécuter Launchpad de Windows Server Essentials sur des ordinateurs supplémentaires dotés d'un système d'exploitation Windows Server.  
   
- Dans cette rubrique :  
+  Dans cette rubrique :  
   
--   [Utiliser Launchpad](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Launchpad)  
+- [Utiliser Launchpad](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Launchpad)  
   
--   [Utiliser Launchpad avec un ordinateur Mac](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Mac)  
+- [Utiliser Launchpad avec un ordinateur Mac](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Mac)  
   
 ##  <a name="BKMK_Launchpad"></a> Utiliser Launchpad  
  Les liens et informations ci-après sont disponibles sur Launchpad de Windows Server Essentials.  
@@ -50,13 +50,13 @@ Launchpad de Windows Server Essentials est une petite application qui est instal
 ### <a name="backup"></a>Secours  
  Cliquez sur **Sauvegarder** pour ouvrir les **Propriétés de la sauvegarde** de l'ordinateur. Dans la page **Propriétés de la sauvegarde** , vous pouvez :  
   
--   démarrer ou arrêter une sauvegarde ;  
+- démarrer ou arrêter une sauvegarde ;  
   
--   afficher l'état et les détails de la dernière sauvegarde ;  
+- afficher l'état et les détails de la dernière sauvegarde ;  
   
--   spécifier le mode de gestion de l'alimentation de l'ordinateur durant l'exécution de la sauvegarde.  
+- spécifier le mode de gestion de l'alimentation de l'ordinateur durant l'exécution de la sauvegarde.  
   
- Pour plus d’informations sur l’utilisation de Launchpad pour sauvegarder votre ordinateur, consultez [gérer la sauvegarde Client](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md).  
+  Pour plus d’informations sur l’utilisation de Launchpad pour sauvegarder votre ordinateur, consultez [gérer la sauvegarde Client](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md).  
   
 ### <a name="remote-web-access"></a>Accès web à distance  
  Cliquez sur **Accès web à distance** pour ouvrir le navigateur web sur le site d'accès web à distance. Le site d'accès web à distance vous permet de vous connecter à d'autres ordinateurs et d'accéder à certaines ressources réseau à partir de votre bureau ou depuis n'importe quel emplacement distant, à l'aide d'un ordinateur disposant d'une connexion Internet. Pour plus d’informations sur l’accès Web à distance, consultez [gérer l’accès Web à distance](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md).  

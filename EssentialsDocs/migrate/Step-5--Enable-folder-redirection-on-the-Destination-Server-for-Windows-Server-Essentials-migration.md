@@ -12,12 +12,12 @@ ms.assetid: d3925f80-552d-431f-b2a6-2af202e50ca4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 613ff4c80a80ed4f3207cb0c1ead6db12c723e85
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 98b1a7adc23fca15c06ae9588d52bc9bcd532252
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815380"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432606"
 ---
 # <a name="step-5-enable-folder-redirection-on-the-destination-server-for-windows-server-essentials-migration"></a>Étape 5 : Activer la redirection de dossiers sur la migration du serveur de Destination pour Windows Server Essentials
 
@@ -41,17 +41,17 @@ Si la redirection de dossiers est activée sur le serveur source, vous pouvez l�
   
 ### <a name="to-delete-the-old-folder-redirection-group-policy-setting"></a>Pour supprimer l'ancien paramètre de stratégie de groupe de redirection de dossiers  
   
-1.  Sur le serveur de destination, ouvrez l'outil d'administration **Gestion des stratégies de groupe**.  
+1. Sur le serveur de destination, ouvrez l'outil d'administration **Gestion des stratégies de groupe**.  
   
-2.  Dans **Group Policy Management**, développez **forêt :*** Nomdomainedevotreréseau*, développez **domaines**, développez *Nomdomainedevotreréseau* , puis développez **les objets de stratégie de groupe**.  
+2. Dans **Gestion des stratégies de groupe**, développez **Forêt :** <em>NomDomaineDeVotreRéseau</em>, développez **Domaines**, développez *NomDomaineDeVotreRéseau*, puis **Objets de stratégie de groupe**.  
   
-3.  Cliquez avec le bouton droit sur la stratégie que vous souhaitez supprimer, puis cliquez sur **Supprimer**.  
+3. Cliquez avec le bouton droit sur la stratégie que vous souhaitez supprimer, puis cliquez sur **Supprimer**.  
   
-4.  Lisez l'avertissement, puis cliquez sur **Oui**.  
+4. Lisez l'avertissement, puis cliquez sur **Oui**.  
   
-5.  Fermez **Gestion des stratégies de groupe**.  
+5. Fermez **Gestion des stratégies de groupe**.  
   
- Pour appliquer la modification apportée à la redirection de dossiers, les utilisateurs réseau doivent fermer la session de leur ordinateur, puis en rouvrir une. Cela garantit le transfert de tous les dossiers redirigés vers le serveur de destination.  
+   Pour appliquer la modification apportée à la redirection de dossiers, les utilisateurs réseau doivent fermer la session de leur ordinateur, puis en rouvrir une. Cela garantit le transfert de tous les dossiers redirigés vers le serveur de destination.  
   
 ## <a name="next-steps"></a>Étapes suivantes  
  Vous avez activé la redirection de dossiers sur le serveur de destination. Passez maintenant à [étape 6 : Rétrograder et supprimer le serveur Source du nouveau réseau Windows Server Essentials](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md).  

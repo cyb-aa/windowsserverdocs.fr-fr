@@ -12,12 +12,12 @@ ms.assetid: cdfa9504-9881-4265-b308-c7ee8721bfaa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1a67cda9e4b04e8d861232b48f45915fb2b460d1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0240abfff58baedd79ab038af93b107dbb898eb2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836410"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432942"
 ---
 # <a name="join-computers-to-the-new-windows-server-essentials-server1"></a>Joindre des ordinateurs à la nouvelle server1 Windows Server Essentials
 
@@ -31,7 +31,7 @@ ms.locfileid: "59836410"
   
  Le processus de connexion d'un ordinateur client au serveur est le même pour les ordinateurs appartenant ou non à un domaine.  
   
--   Accédez à **http://***destination-servername***/ se connecter** et installez le logiciel Connecteur Windows Server comme s’il s’agissait d’un nouvel ordinateur.  
+- Accédez à **http://** <em>destination-servername</em> **/connect** et installez le logiciel Connecteur Windows Server comme s’il s’agissait d’un nouvel ordinateur.  
   
 > [!NOTE]
 >  Le logiciel Connecteur Windows Server ne prend pas en charge les ordinateurs qui exécutent Windows XP ou Windows Vista. Si vous utilisez des ordinateurs exécutant Windows XP ou Windows Vista qui sont déjà membres du domaine, vous pouvez ignorer cette étape.  

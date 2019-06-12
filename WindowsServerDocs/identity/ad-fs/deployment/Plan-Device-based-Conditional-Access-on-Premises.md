@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: ffd7131f7f3772ab47b62c9755008fe3b1c4b274
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 3a78334f64d9e51515757b01f2d788bf87f67a35
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192069"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501605"
 ---
 # <a name="plan-device-based-conditional-access-on-premises"></a>Planifier l’accès conditionnel local basé sur un périphérique
 
@@ -30,7 +30,7 @@ AD FS fournit le composant de site sur des stratégies d’accès conditionnel d
 ### <a name="types-of-registered-devices"></a>Types d’appareils inscrits  
 Il existe trois types d’appareils inscrits, tous sont représentés en tant qu’objets d’appareil dans Azure AD et peuvent être utilisées pour l’accès conditionnel avec AD FS en local également.  
 
-| |Ajouter un travail ou scolaire  |Joindre Azure AD  |Jointure Domian Windows 10    
+| |Ajouter un travail ou scolaire  |Joindre Azure AD  |Jonction de domaine 10 de Windows    
 | --- | --- |--- | --- |
 |Description    |  Les utilisateurs d’ajouter leur travail compte scolaire ou pour leur appareil BYOD interactivement.  **Remarque :** Ajouter le compte professionnel ou scolaire est le remplacement pour la jonction dans Windows 8/8.1       | Les utilisateurs joindre leurs appareils de travail de Windows 10 à Azure AD.|Les appareils Windows 10 joints à un domaine s’inscrivent automatiquement auprès d’Azure AD.|           
 |Comment les utilisateurs se connecter à l’appareil     |  Aucun compte de connexion à Windows en tant que le compte professionnel ou scolaire.  Connexion à l’aide d’un compte Microsoft.       |   Connectez-vous à Windows en tant que le compte (Professionnel ou scolaire) qui inscrit l’appareil.      |     Connexion à l’aide de compte Active Directory.|      

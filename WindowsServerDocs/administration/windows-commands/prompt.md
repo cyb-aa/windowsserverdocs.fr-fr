@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 320e12fd30deda30ccc0da1ad6e5bea6f9a19d8a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5ef487ce9799c1f09660cdfcd6fba71336fc4d9a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818440"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442140"
 ---
 # <a name="prompt"></a>prompt
 
 
 
-Modifie l’invite de commandes Cmd.exe. Si utilisée sans paramètres, **invite** réinitialise l’invite de commandes pour le paramètre par défaut, qui est la lettre de lecteur en cours et le répertoire suivi par le symbole supérieur à (**>**).
+Modifie l’invite de commandes Cmd.exe. Si utilisée sans paramètres, **invite** réinitialise l’invite de commandes pour le paramètre par défaut, qui est la lettre de lecteur en cours et le répertoire suivi par le symbole supérieur à ( **>** ).
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -46,31 +46,32 @@ prompt [<Text>]
 Vous pouvez personnaliser l’invite de commandes pour afficher le texte de que votre choix, y compris des informations telles que le nom du répertoire actif, l’heure et date et le numéro de version de Microsoft Windows.
 
 Le tableau suivant répertorie les combinaisons de caractères que vous pouvez inclure à la place ou en plus, un ou plusieurs chaînes de caractères dans le *texte* paramètre. La liste comprend une brève description du texte ou des informations de chaque combinaison de caractères ajoute à l’invite de commandes.  
-|Caractère|Description|
-|---------|-----------|
-|$q|= (signe égal)|
-|$$|$ (signe dollar)|
-|$t|Heure actuelle|
-|$d|Date actuelle|
-|$p|Chemin d’accès et le lecteur en cours|
-|$v|Numéro de version de Windows|
-|$n|Lecteur en cours|
-|$g|> (signe supérieur à)|
-|$l|< (signe inférieur à)|
-|$b|| (pipe)|
-|$_|ENTREZ-SAUT DE LIGNE|
-|$e|Code d’échappement ANSI (code 27)|
-|$h|Retour arrière (pour supprimer un caractère qui a été écrite dans la ligne de commande)|
-|$un|& (esperluette)|
-|$c|((parenthèse de gauche)|
-|$f|) (parenthèse droite)|
-|$s|espace|
+
+| Caractère |                                 Description                                 |
+|-----------|-----------------------------------------------------------------------------|
+|    $q     |                               = (signe égal)                                |
+|    $$     |                               $ (signe dollar)                               |
+|    $t     |                                Heure actuelle                                 |
+|    $d     |                                Date actuelle                                 |
+|    $p     |                           Chemin d’accès et le lecteur en cours                            |
+|    $v     |                           Numéro de version de Windows                            |
+|    $n     |                                Lecteur en cours                                |
+|    $g     |                            > (signe supérieur à)                            |
+|    $l     |                             < (signe inférieur à)                              |
+|    $b     |                                                                             |
+|    $_     |                               ENTREZ-SAUT DE LIGNE                                |
+|    $e     |                         Code d’échappement ANSI (code 27)                          |
+|    $h     | Retour arrière (pour supprimer un caractère qui a été écrite dans la ligne de commande) |
+|    $un     |                                & (esperluette)                                |
+|    $c     |                            ((parenthèse de gauche)                             |
+|    $f     |                            ) (parenthèse droite)                            |
+|    $s     |                                    espace                                    |
 
 Lorsque les extensions de commande sont activées (autrement dit, la valeur par défaut) le **invite** commande prend en charge les caractères de mise en forme suivants :  
 
 |Caractère|Description|
 |---------|-----------|
-|$+|Signe de zéro ou plusieurs (**+**) caractères, selon la profondeur de la **pushd** pile de répertoire (un seul caractère pour chaque niveau envoyée).|
+|$+|Signe de zéro ou plusieurs ( **+** ) caractères, selon la profondeur de la **pushd** pile de répertoire (un seul caractère pour chaque niveau envoyée).|
 |$m|Le nom distant associé à la lettre de lecteur actuelle ou une chaîne vide si le lecteur n’est pas un lecteur réseau.|
 
 Si vous incluez le **$p** caractère dans le paramètre de texte, le disque est lu une fois que vous entrez chaque commande (pour déterminer le lecteur actuel et le chemin d’accès). Cela peut prendre du temps, en particulier pour les lecteurs de disquette.
@@ -97,4 +98,4 @@ prompt $p$g
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

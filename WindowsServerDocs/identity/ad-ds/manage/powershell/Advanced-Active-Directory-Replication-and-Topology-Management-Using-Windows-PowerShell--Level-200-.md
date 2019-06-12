@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 5454f91394dbdc659db85a675d1c8bfac18b2a86
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d56bc89189c3b17367549aeb076633a6ea0e1007
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853920"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442740"
 ---
 # <a name="advanced-active-directory-replication-and-topology-management-using-windows-powershell-level-200"></a>Gestion avancée de la topologie et de la réplication Active Directory avec Windows PowerShell (Niveau 200)
 
@@ -228,7 +228,7 @@ Repadmin.exe est performant lorsqu'il s'agit de renvoyer des informations sur la
   
 Par exemple, après une expansion rapide de nouvelles succursales, associée à la consolidation d'autres succursales, vous pouvez être amené à apporter une centaine de modifications en fonction des emplacements physiques, des changements du réseau et des besoins en termes de nouvelle capacité. Au lieu d'utiliser Dssites.msc et Adsiedit.msc pour effectuer ces modifications, vous pouvez les automatiser. Ce changement s'impose alors que vous commencez avec une feuille de calcul de données fournies par votre réseau et les équipes des sites.  
   
-Le **Get-Adreplication\***  applets de commande retourner des informations sur la topologie de réplication et sont utiles pour traiter en pipeline le **Set-Adreplication\***  applets de commande en bloc. **Obtenir** applets de commande ne modifient pas les données, elles affichent uniquement les données ou pour créer de Windows PowerShell session des objets qui peuvent être canalisée en rafale vers **Set-Adreplication\***  applets de commande. Les applets de commande **New** et **Remove** servent à créer et supprimer les objets de topologie Active Directory.  
+Le **Get-Adreplication\\** * applets de commande retourner des informations sur la topologie de réplication et sont utiles pour traiter en pipeline le **Set-Adreplication\\** * applets de commande en bloc. **Obtenir** applets de commande ne modifient pas les données, elles affichent uniquement les données ou pour créer de Windows PowerShell session des objets qui peuvent être canalisée en rafale vers **Set-Adreplication\\** * applets de commande. Les applets de commande **New** et **Remove** servent à créer et supprimer les objets de topologie Active Directory.  
   
 Par exemple, vous pouvez créer de nouveaux sites à l'aide d'un fichier CSV :  
   

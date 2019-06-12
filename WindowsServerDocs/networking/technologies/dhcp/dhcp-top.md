@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 0ff29ef3-c458-4432-9065-e50a7de5b4b9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 08b07e902486ae633b30949270e15f8bf94afaaf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7828d75d58ff328e826cb685899a76347ce56953
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857490"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812203"
 ---
 # <a name="dynamic-host-configuration-protocol-dhcp"></a>Protocole DHCP (Dynamic Host Configuration Protocol)
 
@@ -21,11 +21,11 @@ ms.locfileid: "59857490"
 
 Vous pouvez utiliser cette rubrique pour une vue d’ensemble du protocole DHCP dans Windows Server 2016.
 
->[!NOTE]
->Outre cette rubrique, la documentation de DHCP suivante est disponible.
+> [!NOTE]
+> Outre cette rubrique, la documentation de DHCP suivante est disponible.
 >
->- [Quelles sont les nouveautés dans DHCP](What-s-New-in-DHCP.md)
->- [Déployer DHCP à l’aide de Windows PowerShell](dhcp-deploy-wps.md)
+> - [Quelles sont les nouveautés dans DHCP](What-s-New-in-DHCP.md)
+> - [Déployer DHCP à l’aide de Windows PowerShell](dhcp-deploy-wps.md)
 
 Configuration de protocole DHCP (Dynamic Host) est un protocole client/serveur qui fournit automatiquement un hôte IP (Internet Protocol) avec son adresse IP et d’autres informations de configuration connexes telles que la passerelle par défaut et le masque de sous-réseau. RFC 2131 et 2132 définissent le protocole DHCP en tant qu’un Internet Engineering Task Force (IETF) standard basé sur protocole Bootstrap (BOOTP), un protocole avec lequel DHCP partage de nombreux détails d’implémentation. DHCP permet aux hôtes d’obtenir des informations de configuration TCP/IP requises à partir d’un serveur DHCP.
 

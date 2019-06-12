@@ -12,12 +12,12 @@ ms.assetid: c7da0f6c-9732-4784-9c28-7dad72c4071d
 4author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ac547f97b48e4cd0ebf87e0935cadc2c539b4d0b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2bbc7bf7af71c671153bf7ba3356ddc08dcc38b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855000"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433632"
 ---
 # <a name="create-a-server-recovery-dvd-for-multi-language-support"></a>Création d’un DVD de récupération de serveur prenant en charge plusieurs langues
 
@@ -30,20 +30,20 @@ ms.locfileid: "59855000"
   
  La configuration s’effectue en deux phases : l’environnement de préinstallation Windows (Windows PE) et la configuration initiale. Par défaut, la page de sélection de la langue de la configuration initiale ne sera pas affichée.  
   
--   Pour une installation OEM administrée à distance ou un scénario de préinstallation OEM, vous devez ajouter une clé de registre en utilisant la commande suivante pour afficher la page de sélection de la langue de la configuration initiale.  
+- Pour une installation OEM administrée à distance ou un scénario de préinstallation OEM, vous devez ajouter une clé de registre en utilisant la commande suivante pour afficher la page de sélection de la langue de la configuration initiale.  
   
-    ```  
-    %systemroot%\system32\reg.exe add "HKLM\Software\microsoft\windows server\setup" /v ShowPreinstallPages /t REG_SZ /d true /f  
-    ```  
+  ```  
+  %systemroot%\system32\reg.exe add "HKLM\Software\microsoft\windows server\setup" /v ShowPreinstallPages /t REG_SZ /d true /f  
+  ```  
   
-    > [!IMPORTANT]
-    >  Lorqu’un OEM crée une image en laboratoire, il doit obligatoirement choisir l’ **anglais** pendant la phase Windows PE de l’installation.  
+  > [!IMPORTANT]
+  >  Lorqu’un OEM crée une image en laboratoire, il doit obligatoirement choisir l’ **anglais** pendant la phase Windows PE de l’installation.  
   
--   Dans le cas d’un kit d’option revendeur (ROK), les clients reçoivent un DVD et éventuellement du matériel. Le client doit être en mesure de sélectionner la langue pendant l'installation de Windows PE, et la page de sélection de la langue n’est plus affichée pendant la configuration initiale.  
+- Dans le cas d’un kit d’option revendeur (ROK), les clients reçoivent un DVD et éventuellement du matériel. Le client doit être en mesure de sélectionner la langue pendant l'installation de Windows PE, et la page de sélection de la langue n’est plus affichée pendant la configuration initiale.  
   
- Vous pouvez choisir de livrer un seul DVD double couche contenant plusieurs langues.  
+  Vous pouvez choisir de livrer un seul DVD double couche contenant plusieurs langues.  
   
- Cette section explique comment ajouter un soutien linguistique à l'installation de Windows. Le principal outil de personnalisation de Windows PE 3.0 est la gestion et maintenance des images de déploiement (DISM), un outil de ligne de commande. Cette solution permet les scénarios suivants :  
+  Cette section explique comment ajouter un soutien linguistique à l'installation de Windows. Le principal outil de personnalisation de Windows PE 3.0 est la gestion et maintenance des images de déploiement (DISM), un outil de ligne de commande. Cette solution permet les scénarios suivants :  
   
 1.  Création d'installations multilingue  
   
@@ -112,10 +112,10 @@ ms.locfileid: "59855000"
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
  [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](Testing-the-Customer-Experience.md)
+ [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)
 
  [Création et personnalisation de l’Image](../install/Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](../install/Additional-Customizations.md)   
  [Préparation de l’Image pour le déploiement](../install/Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](../install/Testing-the-Customer-Experience.md)
+ [Test de l’expérience utilisateur](../install/Testing-the-Customer-Experience.md)
 

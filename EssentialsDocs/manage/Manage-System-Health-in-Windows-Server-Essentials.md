@@ -12,12 +12,12 @@ ms.assetid: 3043f83b-389c-4f37-a1ff-85afe99314fa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 91635a58c64fbf74d3b0139be7c9c36365487319
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: d9002a1530e114f490ddf1cfb0e5706ddec52431
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842050"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433155"
 ---
 # <a name="manage-system-health-in-windows-server-essentials"></a>Gérer l'intégrité du système dans Windows Server Essentials
 
@@ -28,7 +28,7 @@ ms.locfileid: "59842050"
 > [!NOTE]
 >  Dans Windows Server Essentials et Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, les alertes d’intégrité pour le serveur et les ordinateurs clients dans le réseau ne sont plus affichées dans l’Afficheur des alertes, mais au lieu de cela, peuvent être affichés sur le  **Rapports d’intégrité** onglet de la **accueil** page.  
   
- Windows Server Essentials surveille activement chaque ordinateur qui est connecté au serveur et avertit l’administrateur pour les problèmes liés à l’intégrité du système s, y compris les mises à jour critiques, manque de protection contre les programmes malveillants, les définitions de virus obsolètes sur le client les ordinateurs et autres problèmes importants qui nécessitent une action. Ces problèmes sont affichés sous forme d’alertes dans l’Afficheur des alertes, ce qui peut être lancé depuis le serveur s tableau de bord ou de l’ordinateur client s Launchpad dans Windows Server Essentials, ou sur le **rapports d’intégrité** onglet dans Windows Server Essentials. Par défaut, les alertes sont actualisées toutes les 30 minutes, mais vous pouvez connaître l'état de votre réseau à tout moment en cliquant sur **Actualiser** dans l'Afficheur des alertes ou sous l'onglet **Rapports d'intégrité**.  
+ Windows Server Essentials surveille activement chaque ordinateur qui est connecté au serveur et avertit l’administrateur pour les problèmes liés à l’intégrité du système, y compris les mises à jour critiques, manque de protection contre les programmes malveillants, les définitions de virus obsolètes sur le client les ordinateurs et autres problèmes importants qui nécessitent une action. Ces problèmes sont affichés sous forme d’alertes dans l’Afficheur des alertes, qui peut être lancé à partir du tableau de bord du serveur ou de Launchpad l’ordinateur client dans Windows Server Essentials, ou sur le **rapports d’intégrité** onglet dans Windows Server Essentials. Par défaut, les alertes sont actualisées toutes les 30 minutes, mais vous pouvez connaître l'état de votre réseau à tout moment en cliquant sur **Actualiser** dans l'Afficheur des alertes ou sous l'onglet **Rapports d'intégrité**.  
   
  Les rubriques suivantes vous aideront à comprendre, afficher et répondre aux alertes dans l'Afficheur des alertes et fournissent également des instructions pour configurer votre serveur de sorte de recevoir des notifications d'alerte par courrier électronique :  
   
@@ -56,7 +56,7 @@ ms.locfileid: "59842050"
 > [!NOTE]
 >  **Windows Server Essentials :** Vous pouvez télécharger le complément de rapport d’intégrité pour Windows Server Essentials à partir de la [Microsoft Download Center](https://go.microsoft.com/fwlink/p/?LinkId=266342).  
 >   
->  **Windows Server Essentials :** Par défaut, le complément de rapport d’intégrité est intégré à Windows Server Essentials ou Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, et les rapports d’intégrité sont affichés sous le **rapports d’intégrité** onglet du tableau de bord s **accueil** page.  
+>  **Windows Server Essentials :** Par défaut, le complément de rapport d’intégrité est intégré à Windows Server Essentials ou Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, et les rapports d’intégrité sont affichés sous le **rapports d’intégrité** onglet du tableau de bord **accueil** page.  
   
 ###  <a name="BKMK_Generate"></a> Générer un rapport à la demande ou selon planification  
  Après avoir installé le complément de rapport d'intégrité et redémarré le Tableau de bord, un nouvel onglet, **Rapports** est ajouté au Tableau de bord. Vous pouvez générer un rapport d'intégrité à la demande à tout moment en cliquant sur la tâche **Générer un rapport d'intégrité** sous l'onglet **Rapports** .  
@@ -68,21 +68,21 @@ ms.locfileid: "59842050"
 ###  <a name="BKMK_Customize"></a> Personnaliser le contenu du rapport  
  Le rapport d'intégrité contient les éléments suivants :  
   
--   **Alertes critiques et avertissements** Conformes aux alertes critiques et avertissements qui apparaissent dans l'Afficheur des alertes du Tableau de bord. Les alertes d'informations ne sont pas incluses dans le rapport d'intégrité.  
+- **Alertes critiques et avertissements** Conformes aux alertes critiques et avertissements qui apparaissent dans l'Afficheur des alertes du Tableau de bord. Les alertes d'informations ne sont pas incluses dans le rapport d'intégrité.  
   
--   **Erreurs critiques dans les journaux des événements** Les applications et les journaux de service sont analysés et les erreurs qui ont été consignées au cours des dernières 24 heures s'afficheront dans la section **Détails** du rapport.  
+- **Erreurs critiques dans les journaux des événements** Les applications et les journaux de service sont analysés et les erreurs qui ont été consignées au cours des dernières 24 heures s'afficheront dans la section **Détails** du rapport.  
   
--   **Sauvegarde du serveur** Les informations sur la dernière sauvegarde du serveur sont présentées dans la section **Détails** du rapport.  
+- **Sauvegarde du serveur** Les informations sur la dernière sauvegarde du serveur sont présentées dans la section **Détails** du rapport.  
   
--   **Services à démarrage automatique ne fonctionnant pas** Au moment où le rapport est généré, si un service à démarrage automatique ne fonctionne pas, les informations sur ce service apparaissent dans la section **Détails** du rapport.  
+- **Services à démarrage automatique ne fonctionnant pas** Au moment où le rapport est généré, si un service à démarrage automatique ne fonctionne pas, les informations sur ce service apparaissent dans la section **Détails** du rapport.  
   
--   **Mises à jour** Vous pouvez consulter l'état de mise à jour du serveur et de tous les ordinateurs clients dans la section **Détails**.  
+- **Mises à jour** Vous pouvez consulter l'état de mise à jour du serveur et de tous les ordinateurs clients dans la section **Détails**.  
   
--   **Stockage** La liste des lecteurs et leur capacité est présentée dans la section **Détails** .  
+- **Stockage** La liste des lecteurs et leur capacité est présentée dans la section **Détails** .  
   
- Dans le rapport d'intégrité, consultez d'abord le **Résumé**puis, pour les éléments signalés par une icône d'erreur rouge ou une icône d'avertissement jaune, cliquez sur le lien **Détails** sur la même ligne pour afficher les détails concernant l'élément.  
+  Dans le rapport d'intégrité, consultez d'abord le **Résumé**puis, pour les éléments signalés par une icône d'erreur rouge ou une icône d'avertissement jaune, cliquez sur le lien **Détails** sur la même ligne pour afficher les détails concernant l'élément.  
   
- Si vous n'êtes pas intéressés par certains des points de données qui sont inclus dans le rapport par défaut, vous pouvez personnaliser le contenu du rapport en cliquant sur **Personnaliser les paramètres du rapport d'intégrité** dans le volet des tâches, puis sur l'onglet **Contenu**. Désactivez les cases à cocher pour le contenu de ne pas inclure dans le rapport. Par exemple, si vous avez votre propre plan de sauvegarde du serveur et ne pas vouloir voir les avertissements concernant les sauvegardes de serveur, vous pourrez exclure des sauvegardes de serveur du rapport en désactivant le **sauvegarde Server** case à cocher.  
+  Si vous n'êtes pas intéressés par certains des points de données qui sont inclus dans le rapport par défaut, vous pouvez personnaliser le contenu du rapport en cliquant sur **Personnaliser les paramètres du rapport d'intégrité** dans le volet des tâches, puis sur l'onglet **Contenu**. Désactivez les cases à cocher pour le contenu que vous ne souhaitez pas voir apparaître dans le rapport. Par exemple, si vous avez votre propre plan de sauvegarde du serveur et que vous ne souhaitez pas voir les avertissements concernant les sauvegardes de serveur, vous pourrez exclure des sauvegardes de serveur du rapport en désactivant le **sauvegarde Server** case à cocher.  
   
 ###  <a name="BKMK_emailreport"></a> Le rapport de messagerie  
  Ouvrir une session de Tableau de bord pour lire des rapports n'est pas toujours pratique pour certains administrateurs, en particulier s'ils ont plusieurs serveurs à gérer. Avec la fonctionnalité de messagerie activée, dès qu'un rapport est généré, un courrier électronique est envoyé à une liste d'adresses de messagerie spécifiée avec le contenu du rapport. L'administrateur peut facilement consulter ce rapport depuis n'importe quel périphérique ou application client et vérifier que le serveur fonctionne de manière optimale.  
@@ -140,13 +140,13 @@ ms.locfileid: "59842050"
   
 ##### <a name="to-ignore-an-alert"></a>Pour ignorer une alerte  
   
-1.  À partir de l'ordinateur qui est connecté au serveur Windows Server Essentials, ouvrez le Launchpad.  
+1. À partir de l'ordinateur qui est connecté au serveur Windows Server Essentials, ouvrez le Launchpad.  
   
-2.  Dans le Launchpad, cliquez sur l'une des icônes d'alerte affichées (critique, avertissement et information). L'Afficheur des alertes s'ouvre.  
+2. Dans le Launchpad, cliquez sur l'une des icônes d'alerte affichées (critique, avertissement et information). L'Afficheur des alertes s'ouvre.  
   
-3.  Dans l'Afficheur des alertes, sélectionnez l'alerte que vous voulez ignorer, puis dans la section **Tâches**, cliquez sur **Ignorer l'alerte**.  
+3. Dans l'Afficheur des alertes, sélectionnez l'alerte que vous voulez ignorer, puis dans la section **Tâches**, cliquez sur **Ignorer l'alerte**.  
   
- Pour répondre à une alerte désactivée, vous devez d'abord activer l'alerte.  
+   Pour répondre à une alerte désactivée, vous devez d'abord activer l'alerte.  
   
 ###  <a name="BKMK_5"></a> Activer une alerte  
  Vous pouvez activer une alerte que vous avez choisi d'ignorer précédemment. Une fois que l'alerte est activée, vous pouvez la résoudre ou la supprimer selon les besoins. Une alerte apparaît désactivée quand elle est marquée comme devant être ignorée. Lorsque vous activez une alerte précédemment désactivée, elle devient active et se réintègre à l'évaluation d'intégrité globale des ordinateurs.  
@@ -276,7 +276,7 @@ ms.locfileid: "59842050"
   
 4.  Dans la fenêtre **Paramètres SMTP**, procédez comme suit :  
   
-    1.  Pour **Adresse de l'expéditeur**, tapez l'adresse de messagerie que vous souhaitez utiliser pour envoyer le courrier électronique à partir des alertes. Cette adresse de messagerie s’affichera en tant que l’adresse d’expéditeur s dans la notification d’alerte.  
+    1.  Pour **Adresse de l'expéditeur**, tapez l'adresse de messagerie que vous souhaitez utiliser pour envoyer le courrier électronique à partir des alertes. Cette adresse de messagerie s’affichera en tant qu’adresse de l’expéditeur dans la notification d’alerte.  
   
     2.  Pour **Nom du serveur SMTP**, dans la zone de texte **Adresse de l'expéditeur**, tapez le nom du serveur SMTP que vous avez spécifié à l'étape 4a. (Consultez le tableau 1 pour une liste de certains noms de serveur SMTP).  
   
@@ -309,7 +309,7 @@ ms.locfileid: "59842050"
  Cette section explique comment configurer les paramètres SMTP pour votre serveur afin de recevoir des rapports d'intégrité par courrier électronique.  
   
 > [!NOTE]
->  Par défaut, le complément de rapport d’intégrité est intégré à Windows Server Essentials ou Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, et les rapports d’intégrité sont affichés sous le **rapports d’intégrité** onglet du tableau de bord s **accueil** page.  
+>  Par défaut, le complément de rapport d’intégrité est intégré à Windows Server Essentials ou Windows Server 2012 R2 avec le rôle expérience Windows Server Essentials installé, et les rapports d’intégrité sont affichés sous le **rapports d’intégrité** onglet du tableau de bord **accueil** page.  
   
 ##### <a name="to-set-up-email-notification-for-health-reports"></a>Pour configurer la notification des alertes par courrier électronique  
   
@@ -321,7 +321,7 @@ ms.locfileid: "59842050"
   
 4.  Dans l'onglet **Planifier et envoyer par courrier électronique** , dans la section **Courrier électronique** , procédez comme suit :  
   
-    1.  Cliquez sur **Activer**, puis tapez l'adresse de messagerie que vous souhaitez utiliser pour envoyer les rapports d'intégrité. Cette adresse de messagerie s’affichera en tant que l’adresse d’expéditeur s dans les rapports d’intégrité qui sont envoyées par e-mail.  
+    1.  Cliquez sur **Activer**, puis tapez l'adresse de messagerie que vous souhaitez utiliser pour envoyer les rapports d'intégrité. Cette adresse de messagerie s’affichera en tant qu’adresse de l’expéditeur dans les rapports d’intégrité qui sont envoyées par e-mail.  
   
         1.  Pour **Nom du serveur SMTP**, tapez le nom du serveur SMTP. (Consultez le tableau 1 pour une liste de certains noms de serveur SMTP).  
   
@@ -348,7 +348,7 @@ ms.locfileid: "59842050"
     |smtp.comcast.net|Oui|Non|587|Fournir une adresse de messagerie complète avec le nom de domaine et le mot de passe pour l'authentification.|  
     |smtp.mail.yahoo.com|Non|Oui|25|Fournir uniquement l'adresse de messagerie sans nom de domaine pour le nom d'utilisateur.|  
   
-6.  Dans **Personnaliser les paramètres du rapport d'intégrité**, pour **Envoyer automatiquement le rapport d'intégrité aux destinataires de courrier électronique suivants :**, tapez les adresses de messagerie des personnes dont vous souhaitez recevoir les rapports d'intégrité par courrier électronique. Séparez chaque adresse de messagerie par un point-virgule (;).  
+6.  Dans **Personnaliser les paramètres du rapport d'intégrité**, pour **Envoyer automatiquement le rapport d'intégrité aux destinataires de courrier électronique suivants :** , tapez les adresses de messagerie des personnes dont vous souhaitez recevoir les rapports d'intégrité par courrier électronique. Séparez chaque adresse de messagerie par un point-virgule (;).  
   
 7.  Pour vérifier que vous avez correctement configuré les paramètres de votre serveur SMTP de sorte d'envoyer les rapports d'intégrité par courrier électronique, dans l'onglet Rapport d'intégrité du Tableau de bord, sélectionnez un rapport, puis cliquez sur **Envoyer le rapport d'intégrité par courrier électronique** dans le volet des tâches.  
   

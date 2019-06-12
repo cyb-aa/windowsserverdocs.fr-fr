@@ -8,24 +8,24 @@ author: johnmarlin-msft
 ms.date: 01/30/2019
 description: Cet article décrit le scénario de jeux de Cluster
 ms.localizationpriority: medium
-ms.openlocfilehash: 2deeb6968f910e80bacb2354ad2e575060a7797a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 349b69835ae68c626e886cad30f4d5a89d358372
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833950"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719708"
 ---
 # <a name="cluster-sets"></a>Jeux de clusters
 
-> S'applique à : Génération de Windows Server Insider Preview 17650 et versions ultérieure
+> S’applique à : Windows Server 2019
 
-Ensembles de cluster est la nouvelle technologie de montée en puissance de cloud dans cette version préliminaire qui augmente le nombre de nœuds de cluster dans un seul cloud logiciel défini Data Center (SDDC) Privilégiant par ordre de grandeur. Un ensemble de cluster est un regroupement faiblement couplés de plusieurs Clusters de basculement : calcul, le stockage ou hyperconvergé. Cluster à haute technologie permet fluidité de machine virtuelle sur des clusters membre au sein d’un ensemble de cluster et un espace de noms de stockage unifié sur l’ensemble pour prendre en charge la fluidité de machine virtuelle. 
+Ensembles de cluster est la nouvelle technologie de montée en puissance de cloud dans la version de Windows Server 2019 qui augmente le nombre de nœuds de cluster dans un seul cloud logiciel défini Data Center (SDDC) Privilégiant par ordre de grandeur. Un ensemble de cluster est un regroupement faiblement couplés de plusieurs Clusters de basculement : calcul, le stockage ou hyperconvergé. Cluster à haute technologie permet fluidité de machine virtuelle sur des clusters membre au sein d’un ensemble de cluster et un espace de noms de stockage unifié sur l’ensemble pour prendre en charge la fluidité de machine virtuelle.
 
-Alors que la préservation gestion du Cluster de basculement existante des expériences sur des clusters de membre, une instance de cluster offre en outre des principaux cas d’usage dans la gestion du cycle de vie à l’agrégat. Ce Guide d’évaluation de Windows Server version préliminaire scénario fournit les informations nécessaires en arrière-plan, ainsi que des instructions pas à pas pour évaluer la technologie de jeux de cluster à l’aide de PowerShell. 
+Alors que la préservation gestion du Cluster de basculement existante des expériences sur des clusters de membre, une instance de cluster offre en outre des principaux cas d’usage dans la gestion du cycle de vie à l’agrégat. Ce Guide d’évaluation de Windows Server 2019 scénario fournit les informations nécessaires en arrière-plan, ainsi que des instructions pas à pas pour évaluer la technologie de jeux de cluster à l’aide de PowerShell.
 
 ## <a name="technology-introduction"></a>Présentation de technologie
 
-Technologie de jeux de cluster est développée pour répondre aux demandes des clients spécifiques d’exploitation de clouds de logiciels définie par centre de données (SDDC) à grande échelle. Proposition de valeur de jeux de cluster dans cette version préliminaire peut-être être résumée comme suit :  
+Technologie de jeux de cluster est développée pour répondre aux demandes des clients spécifiques d’exploitation de clouds de logiciels définie par centre de données (SDDC) à grande échelle. Proposition de valeur de jeux de cluster peut être résumée comme suit :  
 
 - Augmenter considérablement l’échelle du cloud SDDC pris en charge pour l’exécution de machines virtuelles hautement disponibles en combinant plusieurs clusters plus petits dans une seule infrastructure de grande taille, même tout en conservant de la limite de pannes logicielles à un seul cluster
 - Gérer l’intégralité de cycle de vie du Cluster de basculement, y compris l’intégration et la mise hors service des clusters, sans affecter la disponibilité de machine virtuelle de locataire, par le biais de migration avec fluidité les machines virtuelles dans cette structure volumineux
@@ -35,7 +35,7 @@ Technologie de jeux de cluster est développée pour répondre aux demandes des 
 
 À partir d’une vue de haut niveau, il s’agit de quel cluster jeux peuvent ressembler.
 
-![Cluster définit la vue de solution](media\Cluster-sets-Overview\Cluster-sets-solution-View.png)
+![Cluster définit la vue de solution](media/Cluster-sets-Overview/Cluster-sets-solution-View.png)
 
 Ce qui suit fournit un résumé rapide de chacun des éléments dans l’image ci-dessus :
 
@@ -49,7 +49,7 @@ Un cluster de membre dans un ensemble de cluster est généralement un cluster h
 
 **Cluster de définie la référence de l’espace de noms SOFS**
 
-Une référence d’espace de noms cluster ensemble (Cluster définir Namespace) SOFS est un serveur de fichiers de montée en puissance dans laquelle chaque partage SMB sur le serveur SOFS Cluster définir Namespace est un partage de référence – de type 'SimpleReferral' nouvellement introduite dans cette version préliminaire.  Cette référence permet d’accéder à la cible de partage SMB hébergée sur le cluster de membre SOFS clients de Server Message Block (SMB). Le jeu de clusters référence d’espace de noms SOFS est un mécanisme de redirection de légers et par conséquent, n’est pas inclus dans le chemin d’accès d’e/s. Les références de SMB sont mis en cache permanente sur chacun des nœuds client et l’espace de noms de jeux de cluster met dynamiquement à jour automatiquement ces références en fonction des besoins.
+Une référence d’espace de noms cluster ensemble (Cluster définir Namespace) SOFS est un serveur de fichiers de montée en puissance dans laquelle chaque partage SMB sur le serveur SOFS Cluster définir Namespace est un partage de référence – de type « SimpleReferral » qui vient d’être introduite dans Windows Server 2019. Cette référence permet d’accéder à la cible de partage SMB hébergée sur le cluster de membre SOFS clients de Server Message Block (SMB). Le jeu de clusters référence d’espace de noms SOFS est un mécanisme de redirection de légers et par conséquent, n’est pas inclus dans le chemin d’accès d’e/s. Les références de SMB sont mis en cache permanente sur chacun des nœuds client et l’espace de noms de jeux de cluster met dynamiquement à jour automatiquement ces références en fonction des besoins.
 
 **Ensemble principal de cluster**
 
@@ -100,7 +100,7 @@ Dans Windows Server 2019, il est appelé serveur de fichiers avec montée en pui
 
 Les considérations suivantes s’appliquent à un rôle d’Infrastructure SOFS :
 
-1.  Il peut y avoir qu’un seul rôle de cluster SOFS de l’Infrastructure sur un Cluster de basculement. Rôle d’infrastructure SOFS est créée en spécifiant le «**-Infrastructure**» changez le paramètre à la **Add-ClusterScaleOutFileServerRole** applet de commande.  Exemple :
+1.  Il peut y avoir qu’un seul rôle de cluster SOFS de l’Infrastructure sur un Cluster de basculement. Rôle d’infrastructure SOFS est créée en spécifiant le « **-Infrastructure**» changez le paramètre à la **Add-ClusterScaleOutFileServerRole** applet de commande.  Exemple :
 
         Add-ClusterScaleoutFileServerRole -Name "my_infra_sofs_name" -Infrastructure
 
@@ -112,7 +112,7 @@ Une fois un ensemble de cluster est créé, l’espace de noms de jeu de cluster
 
 Au moment où un cluster de membre est ajouté à un ensemble de cluster, l’administrateur spécifie le nom d’un serveur SOFS Infrastructure sur ce cluster s’il en existe déjà. Si le serveur d’Infrastructure SOFS n’existe pas, un nouveau rôle d’Infrastructure SOFS sur le nouveau cluster de membre est créé par cette opération. Si un rôle d’Infrastructure SOFS existe déjà sur le cluster de membre, l’opération d’ajout implicitement renomme le nom spécifié en fonction des besoins. Les serveurs SMB singleton existants, ni les rôles de serveur SOFS - Infrastructure sur le membre clusters sont laissés inutilisés par l’ensemble du cluster. 
 
-Au moment de l’ensemble du cluster est créé, l’administrateur a la possibilité d’utiliser un objet d’ordinateur Active Directory existante en tant que l’espace de noms racine sur le cluster de gestion. Opérations de création de jeu de cluster créer le rôle de cluster SOFS de l’Infrastructure sur le cluster de gestion ou renomme le rôle d’Infrastructure SOFS existant juste comme décrit précédemment pour les clusters de membre. Le serveur d’Infrastructure SOFS sur le cluster de gestion est utilisé comme référence de l’espace de noms (Cluster définir Namespace) SOFS le cluster. Cela signifie simplement que chaque partage SMB sur le cluster définie d’espace de noms que SOFS est un partage de référence – de type 'SimpleReferral' - nouvellement introduit dans cette version préliminaire.  Cette référence permet à SMB aux clients d’accéder à la cible de partage SMB hébergé sur le cluster SOFS de membre. Le jeu de clusters référence d’espace de noms SOFS est un mécanisme de redirection de légers et par conséquent, n’est pas inclus dans le chemin d’accès d’e/s. Les références de SMB sont mis en cache permanente sur chacun des nœuds client et l’espace de noms de jeux de cluster met dynamiquement à jour automatiquement ces références en fonction des besoins
+Au moment de l’ensemble du cluster est créé, l’administrateur a la possibilité d’utiliser un objet d’ordinateur Active Directory existante en tant que l’espace de noms racine sur le cluster de gestion. Opérations de création de jeu de cluster créer le rôle de cluster SOFS de l’Infrastructure sur le cluster de gestion ou renomme le rôle d’Infrastructure SOFS existant juste comme décrit précédemment pour les clusters de membre. Le serveur d’Infrastructure SOFS sur le cluster de gestion est utilisé comme référence de l’espace de noms (Cluster définir Namespace) SOFS le cluster. Cela signifie simplement que chaque partage SMB sur le cluster définie d’espace de noms que SOFS est un partage de référence – de type « SimpleReferral » - qui vient d’être introduite dans Windows Server 2019.  Cette référence permet à SMB aux clients d’accéder à la cible de partage SMB hébergé sur le cluster SOFS de membre. Le jeu de clusters référence d’espace de noms SOFS est un mécanisme de redirection de légers et par conséquent, n’est pas inclus dans le chemin d’accès d’e/s. Les références de SMB sont mis en cache permanente sur chacun des nœuds client et l’espace de noms de jeux de cluster met dynamiquement à jour automatiquement ces références en fonction des besoins
 
 ## <a name="creating-a-cluster-set"></a>Création d’un ensemble de Cluster
 
@@ -120,7 +120,7 @@ Au moment de l’ensemble du cluster est créé, l’administrateur a la possibi
 
 Lorsque la valeur de la création d’un cluster, vous les prérequis suivants sont recommandés :
 
-1. Configurer un client de gestion qui exécute la dernière version de Windows Server Insider.
+1. Configurer un client de gestion exécutant Windows Server 2019.
 2. Installer les outils de Cluster de basculement sur ce serveur d’administration.
 3. Créer des membres du cluster (au moins deux clusters au moins deux Volumes partagés de Cluster sur chaque cluster)
 4. Créer un cluster de gestion (physique ou invité) qui rapproche les clusters de membre.  Cette approche garantit que les ensembles de Cluster plan de gestion continue d’être disponibles malgré les échecs de cluster de membres possibles.
@@ -258,7 +258,11 @@ Live Migration d’un ordinateur virtuel entre des clusters d’ensemble de clus
 2. migrer dynamiquement l’ordinateur virtuel à un nœud de membre d’un autre cluster.
 3. Ajoutez la machine virtuelle dans le cluster comme un nouveau rôle de machine virtuelle.
 
-Avec des jeux de Cluster, ces étapes ne sont pas nécessaires et qu’une seule commande est nécessaire.  Par exemple, je souhaite déplacer une machine virtuelle de Cluster défini à partir de CLUSTER1 à NODE2-CL3 sur CLUSTER3.  La commande serait :
+Avec des jeux de Cluster, ces étapes ne sont pas nécessaires et qu’une seule commande est nécessaire.  Tout d’abord, vous devez définir tous les réseaux doivent être disponibles pour la migration avec la commande :
+
+    Set-VMHost -UseAnyNetworkMigration $true
+
+Par exemple, je souhaite déplacer une machine virtuelle de Cluster défini à partir de CLUSTER1 à NODE2-CL3 sur CLUSTER3.  La commande serait :
 
         Move-ClusterSetVM -CimSession CSMASTER -VMName CSVM1 -Node NODE2-CL3
 
@@ -327,7 +331,7 @@ Par exemple, la commande pour supprimer le cluster CLUSTER1 à partir de jeux de
 **Question :** Puis-je gérer mon Cluster définie par le biais de System Center Virtual Machine Manager ? <br>
 **Réponse :** System Center Virtual Machine Manager ne prend pas en charge les ensembles de Cluster <br><br> **Question :** Peuvent Windows Server 2012 R2 ou 2016 clusters coexister dans le même ensemble de cluster ? <br>
 **Question :** Puis-je migrer des charges de travail hors tension de Windows Server 2012 R2 ou 2016 clusters en demandant simplement ces clusters joindre le même ensemble de Cluster ? <br>
-**Réponse :** Ensembles de cluster est une nouvelle technologie introduite dans Windows Server Preview builds, par conséquent, par conséquent, n’existe pas dans les versions précédentes. Clusters basée sur le système d’exploitation de bas niveau ne peut pas joindre un ensemble de cluster. Toutefois, technologie de mises à niveau propagée de système d’exploitation de Cluster doit fournir la fonctionnalité de migration que vous cherchez en mettant à niveau ces clusters pour Windows Server 2019.
+**Réponse :** Ensembles de cluster est une nouvelle technologie introduite dans Windows Server 2019, par conséquent, en tant que tel, il n’existe pas dans les versions précédentes. Clusters basée sur le système d’exploitation de bas niveau ne peut pas joindre un ensemble de cluster. Toutefois, technologie de mises à niveau propagée de système d’exploitation de Cluster doit fournir la fonctionnalité de migration que vous cherchez en mettant à niveau ces clusters pour Windows Server 2019.
 
 **Question :** Pouvant ensembles de Cluster me permettre de mettre à l’échelle de stockage ou de calcul (seul) ? <br>
 **Réponse :** Oui, en ajoutant simplement un espace de stockage Direct ou cluster Hyper-V traditionnel. Avec des jeux de cluster, il est une simple modification du taux de calcul-stockage même dans un ensemble de cluster hyperconvergé.
@@ -360,7 +364,7 @@ Par exemple, la commande pour supprimer le cluster CLUSTER1 à partir de jeux de
 **Réponse :** Tous les clusters de membre doivent être dans la même forêt Active Directory.
 
 **Question :** Le nombre de nœuds ou de clusters peut être partie d’un cluster unique définie ? <br>
-**Réponse :** Dans la version préliminaire, les ensembles de cluster été testés et pris en charge jusqu'à 64 nœuds totale du cluster. Toutefois, cluster définit les échelles de l’architecture des limites beaucoup plus volumineux et n’est pas quelque chose qui est codé en dur pour une limite. Veuillez informer Microsoft si plus grande échelle est essentiel pour vous et comment vous souhaitez les utiliser.
+**Réponse :** Ensembles de cluster dans Windows Server 2019, testé et pris en charge jusqu'à 64 nœuds totale du cluster. Toutefois, cluster définit les échelles de l’architecture des limites beaucoup plus volumineux et n’est pas quelque chose qui est codé en dur pour une limite. Veuillez informer Microsoft si plus grande échelle est essentiel pour vous et comment vous souhaitez les utiliser.
 
 **Question :** Tous les clusters d’espaces de stockage Direct dans un ensemble de cluster constitueront un seul pool de stockage ? <br>
 **Réponse :** Non. Technologie Direct des espaces de stockage fonctionne toujours dans un seul cluster et non entre les clusters de membre dans un ensemble de cluster.
@@ -372,4 +376,4 @@ Par exemple, la commande pour supprimer le cluster CLUSTER1 à partir de jeux de
 **Réponse :** Non. Espace de noms de cluster ensemble offre un espace de noms de référence de superposition au sein d’un ensemble de cluster – conceptuellement comme distribuées fichier système espaces de noms (DFSN). Et contrairement DFSN, toutes les métadonnées de référence espace de noms ensemble cluster sont rempli automatiquement et la mise à jour automatique sur tous les nœuds sans aucune intervention de l’administrateur, il n’est presque aucune surcharge de performances dans le chemin d’accès de stockage. 
 
 **Question :** Comment puis-je sauvegarder des métadonnées du jeu de cluster ? <br>
-**Réponse :** Ce guide est identique à celui du Cluster de basculement. La sauvegarde d’état système sauvegarde l’état du cluster.  Via la sauvegarde de Windows Server, vous pouvez effectuer des restaurations de simplement d’un nœud cluster de base de données (qui ne doit jamais être nécessaire en raison d’un ensemble de la logique d’auto-adaptation nous avons) ou effectuer une restauration faisant autorité pour restaurer la base de données de l’ensemble du cluster sur tous les nœuds. Dans le cas d’ensembles de cluster, Microsoft vous recommande de procéder à ce type d’une restauration faisant autorité tout d’abord le cluster de membre, puis sur le cluster de gestion si nécessaire. 
+**Réponse :** Ce guide est identique à celui du Cluster de basculement. La sauvegarde d’état système sauvegarde l’état du cluster.  Via la sauvegarde de Windows Server, vous pouvez effectuer des restaurations de simplement d’un nœud cluster de base de données (qui ne doit jamais être nécessaire en raison d’un ensemble de la logique d’auto-adaptation nous avons) ou effectuer une restauration faisant autorité pour restaurer la base de données de l’ensemble du cluster sur tous les nœuds. Dans le cas d’ensembles de cluster, Microsoft vous recommande de procéder à ce type d’une restauration faisant autorité tout d’abord le cluster de membre, puis sur le cluster de gestion si nécessaire.

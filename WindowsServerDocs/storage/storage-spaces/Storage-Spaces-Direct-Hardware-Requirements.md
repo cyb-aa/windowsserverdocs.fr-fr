@@ -7,22 +7,22 @@ ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
-ms.date: 04/12/2018
+ms.date: 06/04/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 84d10ab3e25500720dd13e2ba057dc3c5bf05a6f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2031afada302c0f73621a75f572c8547620db16
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849320"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501658"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Configuration matérielle requise pour les espaces de stockage direct
 
-> S’applique à : Windows Server 2016, Windows Server Insider Preview
+> S’applique à : Windows Server 2019, Windows Server 2016
 
 Cette rubrique décrit la configuration matérielle minimale requise pour les espaces de stockage Direct.
 
-Pour la production, Microsoft vous recommande ces [défini par le logiciel Windows Server](https://microsoft.com/wssd) matérielle/logicielle offre à partir de nos partenaires, qui incluent des outils de déploiement et de procédures. Elles sont conçues, assemblées et validés par rapport à notre architecture de référence pour garantir la compatibilité et la fiabilité, afin de vous être opérationnel rapidement opérationnel. En savoir plus sur [ https://microsoft.com/wssd ](https://microsoft.com/wssd).
+Pour la production, Microsoft recommande d’achat d’une solution matérielle/logicielle validé à partir de nos partenaires, les incluant les outils de déploiement et de procédures. Ces solutions sont conçues, assemblées et validées par rapport à notre architecture de référence pour garantir la compatibilité et la fiabilité, afin de vous être opérationnel rapidement opérationnel. Pour les solutions Windows Server 2019, visitez le [site Web de solutions Azure Stack HCL](https://azure.microsoft.com/overview/azure-stack/hci). Pour les solutions Windows Server 2016, en savoir plus sur [défini par le logiciel Windows Server](https://microsoft.com/wssd).
 
 ![logos de nos partenaires logicielle Windows Server](media/hardware-requirements/wssd-partners.png)
 
@@ -79,25 +79,27 @@ Espaces de stockage Direct fonctionne avec DAS SATA, SAS ou NVMe des lecteurs so
 - 512n, émulation de 512 octets et 4K natif lecteurs sont toutes prises en charge
 - Disques SSD doivent fournir [protection contre la perte d’alimentation](https://blogs.technet.microsoft.com/filecab/2016/11/18/dont-do-it-consumer-ssd/)
 - Même nombre et types de lecteurs dans chaque serveur – consultez [considérations relatives à la symétrie de lecteur](drive-symmetry-considerations.md)
+- Les appareils de cache doivent être 32 Go ou plus
+- Lorsque vous utilisez des dispositifs de mémoire persistante en tant que périphériques cache, vous devez utiliser des appareils de capacité, ou SSD NVMe (vous ne pouvez pas utiliser des disques durs)
 - NVMe pilote est l’emploi de Microsoft ou NVMe pilote mis à jour.
 - Recommandé : Nombre de lecteurs de capacité est un multiple entier du nombre de lecteurs de cache
 - Recommandé : Lecteurs de cache doivent avoir la résistance de l’écriture élevée : au moins 3 lecteur écritures par jour (DWPD) ou au moins 4 téraoctets écrits (TBW) par jour – consultez [lecteur de présentation écrit par jour (DWPD), téraoctets écrite (TBW) et la valeur minimale recommandée pour le stockage Espaces Direct](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
 
 Voici comment les lecteurs peuvent être connectés pour les espaces de stockage Direct :
 
-1. Attachement direct des disques SATA
-2. Lecteurs NVMe connectés directement
-3. Adaptateur de bus hôte (HBA) SAS avec des disques SAS
-4. Adaptateur de bus hôte (HBA) SAS avec des disques SATA
-5. **NON PRIS EN CHARGE :** RAID SAN (Fibre Channel, iSCSI, FCoE) ou cartes contrôleurs de stockage. Cartes de bus hôte (HBA) doivent implémenter le mode Pass-Through simple.
+- Attachement direct des disques SATA
+- Lecteurs NVMe connectés directement
+- Adaptateur de bus hôte (HBA) SAS avec des disques SAS
+- Adaptateur de bus hôte (HBA) SAS avec des disques SATA
+- **NON PRIS EN CHARGE :** RAID SAN (Fibre Channel, iSCSI, FCoE) ou cartes contrôleurs de stockage. Cartes de bus hôte (HBA) doivent implémenter le mode Pass-Through simple.
 
 ![interconnexions de diagramme de disque pris en charge](media/hardware-requirements/drive-interconnect-support-1.png)
 
 Les lecteurs peuvent être internes au serveur, ou dans un boîtier externe qui est connecté à un seul serveur. Services SES (SCSI Enclosure) est requis pour l’identification et de mappage d’emplacement. Chaque boîtier externe doit présenter un identificateur unique (ID Unique).
 
-1. Lecteurs internes au serveur
-2. Les disques dans un boîtier externe « JBOD ( ») connecté à un seul serveur
-3. **NON PRIS EN CHARGE :** Les boîtiers SAS partagés connecté à plusieurs serveurs ou de toute forme de chemins d’accès multiples d’e/s (MPIO) où les lecteurs sont accessibles par plusieurs chemins d’accès.
+- Lecteurs internes au serveur
+- Les disques dans un boîtier externe « JBOD ( ») connecté à un seul serveur
+- **NON PRIS EN CHARGE :** Les boîtiers SAS partagés connecté à plusieurs serveurs ou de toute forme de chemins d’accès multiples d’e/s (MPIO) où les lecteurs sont accessibles par plusieurs chemins d’accès.
 
 ![interconnexions de diagramme de disque pris en charge](media/hardware-requirements/drive-interconnect-support-2.png)
 
@@ -108,8 +110,10 @@ Les lecteurs peuvent être internes au serveur, ou dans un boîtier externe qui 
 
 | Types de disques présents   | Nombre minimal requis |
 |-----------------------|-------------------------|
+| Toute la mémoire persistante (même modèle) | mémoire persistante 4 |
 | Tous NVMe (même modèle) | 4 NVMe                  |
 | Tous SSD (même modèle)  | 4 SSD                   |
+| Mémoire persistante + NVMe ou SSD | mémoire persistante 2 + 4 NVMe ou SSD |
 | NVMe + SSD            | 2 NVMe + 4 SSD          |
 | NVMe + HDD            | 2 NVMe + 4 HDD          |
 | SSD + HDD             | 2 SSD + 4 HDD           |
@@ -120,5 +124,7 @@ Les lecteurs peuvent être internes au serveur, ou dans un boîtier externe qui 
 
 ### <a name="maximum-capacity"></a>Capacité maximale
 
-- Recommandé : Capacité de stockage brut maximale 100 téraoctets (To) par serveur
-- 1 pétaoctet (1 000 To) brut capacité maximale du pool de stockage
+| Maximums                | Windows Server 2019  | Windows Server 2016  |
+| ---                     | ---------            | ---------            |
+| Capacité brute par serveur | 100 TO               | 100 TO               |
+| Capacité du pool           | 4 GO (4 000 TO)      | 1 PO                 |

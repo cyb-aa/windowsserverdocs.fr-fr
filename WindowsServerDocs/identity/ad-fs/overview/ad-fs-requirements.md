@@ -9,12 +9,12 @@ ms.date: 03/06/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 235030ea913f2fe1860efaa00bdb4641ac56750d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: e62032533b15ec3d93896d242273612faafdca58
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188681"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444104"
 ---
 # <a name="ad-fs-requirements"></a>Configuration AD FS requise
 
@@ -191,16 +191,16 @@ Le tableau suivant fournit un résumé du nombre de serveurs AD FS est pris en c
 ## <a name="BKMK_6"></a>Configuration requise du navigateur  
 Lors de l’authentification AD FS est effectuée via un navigateur ou un contrôle de navigateur, votre navigateur doit être conforme aux exigences suivantes :  
   
--   JavaScript doit être activé.  
+- JavaScript doit être activé.  
   
--   Pour l’authentification unique, le navigateur client doit être configuré pour autoriser les cookies  
+- Pour l’authentification unique, le navigateur client doit être configuré pour autoriser les cookies  
   
--   Indication du nom du serveur \(SNI\) doivent être pris en charge  
+- Indication du nom du serveur \(SNI\) doivent être pris en charge  
   
--   Utilisateur certificate & appareil l’authentification par certificat, le navigateur doit prendre en charge l’authentification de certificat du client SSL  
+- Utilisateur certificate & appareil l’authentification par certificat, le navigateur doit prendre en charge l’authentification de certificat du client SSL  
 
--   Pour l’authentification transparente à l’aide de l’authentification Windows intégrée, le nom de service de fédération (tel que https :\/\/fs.contoso.com) doit être configuré dans la zone intranet local ou sites de confiance.
-## <a name="BKMK_7"></a>Configuration réseau requise  
+- Pour l’authentification transparente à l’aide de l’authentification Windows intégrée, le nom de service de fédération (tel que https :\/\/fs.contoso.com) doit être configuré dans la zone intranet local ou sites de confiance.
+  ## <a name="BKMK_7"></a>Configuration réseau requise  
  
 **Configuration requise du pare-feu**  
   
@@ -210,7 +210,7 @@ En outre, si l’authentification du certificat utilisateur client \(authentific
 
 Pour plus d’informations sur le port hybride exigences consultez [hybride identité Ports et protocoles](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports). 
 
-Pour plus d’informations, consultez [meilleures pratiques pour la sécurisation d’Active Directory Federation Services](..\deployment\Best-Practices-Securing-AD-FS.md)
+Pour plus d’informations, consultez [meilleures pratiques pour la sécurisation d’Active Directory Federation Services](../deployment/Best-Practices-Securing-AD-FS.md)
   
 **Configuration DNS requise**  
   

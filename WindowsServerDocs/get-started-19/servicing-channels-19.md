@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: 625d71edd00ce404cee9525e06a2237d8be4cfcb
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: dee19cd5a30b7d913a7faeeaa38368cee8a91895
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976461"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442296"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Canaux de maintenance de Windows Server : LTSC et la console SAC
 
@@ -52,14 +52,15 @@ Voici les principales différences à prendre en compte :
 
 Le tableau suivant résume les principales différences entre les canaux :
 
-|  | Canal de maintenance à long terme (Windows Server 2019) |Canal semi-annuel (Windows Server) |
-| ------------------- | ------------------------------------ | ------------------------------------------------- |
-|Scénarios recommandés | Serveurs de fichiers à usage général, charges de travail Microsoft et non-Microsoft, applications traditionnelles, rôles d’infrastructure, centre de données défini par logiciel et infrastructure hyperconvergée | Scénarios d'applications en conteneur, d'hôtes de conteneur et d'application bénéficiant d'une innovation plus rapide |
-| Nouvelles versions | Tous les 2 à 3 ans |Tous les 6 mois |
-| Support |5 ans de support standard plus 5 ans de support étendu | 18 mois |
-| Éditions | Toutes les éditions disponibles de Windows Server | Éditions Standard et Datacenter |
-| Qui peut l'utiliser | Tous les clients par le biais de tous les canaux | Clients Software Assurance et cloud uniquement |
-| Options d’installation | Server Core et Serveur avec Expérience utilisateur | Server Core pour hôte et image de conteneur et image du conteneur Nano Server |                |
+
+|                       |                                                              Canal de maintenance à long terme (Windows Server 2019)                                                               |                                   Canal semi-annuel (Windows Server)                                   |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| Scénarios recommandés | Serveurs de fichiers à usage général, charges de travail Microsoft et non-Microsoft, applications traditionnelles, rôles d’infrastructure, centre de données défini par logiciel et infrastructure hyperconvergée | Scénarios d'applications en conteneur, d'hôtes de conteneur et d'application bénéficiant d'une innovation plus rapide |
+|     Nouvelles versions      |                                                                               Tous les 2 à 3 ans                                                                                |                                              Tous les 6 mois                                              |
+|        Support        |                                                       5 ans de support standard plus 5 ans de support étendu                                                        |                                                18 mois                                                 |
+|       Éditions        |                                                                    Toutes les éditions disponibles de Windows Server                                                                     |                                     Éditions Standard et Datacenter                                     |
+|      Qui peut l'utiliser      |                                                                      Tous les clients par le biais de tous les canaux                                                                      |                               Clients Software Assurance et cloud uniquement                                |
+| Options d’installation  |                                                                Server Core et Serveur avec Expérience utilisateur                                                                |                 Server Core pour hôte et image de conteneur et image du conteneur Nano Server                 |
 
 ## <a name="device-compatibility"></a>Compatibilité des appareils
 

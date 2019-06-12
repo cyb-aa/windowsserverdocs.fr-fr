@@ -8,12 +8,12 @@ author: JasonGerend
 manager: dougkim
 ms.author: jgerend
 ms.date: 09/11/2018
-ms.openlocfilehash: 9514392da133911c900f68fc8f1be260b6c91138
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d912047ab0e3136c6dc05064f3a28aaaafd36c79
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873030"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447723"
 ---
 # <a name="iscsi-target-server-scalability-limits"></a>iSCSI limites d’extensibilité du serveur cible
 
@@ -73,7 +73,7 @@ Cette rubrique fournit des limites du serveur cible Microsoft iSCSI pris en char
 <td><p>Monté localement des disques virtuels ou des captures instantanées par dispositif de stockage</p></td>
 <td><p>32</p></td>
 <td><p>Oui</p></td>
-<td><p>Les disques virtuels montés localement n’offrent pas toutes les fonctionnalités spécifiques à iSCSI et sont obsolètes. pour plus d’informations, consultez <a href="https://technet.microsoft.com/library/dn303411.aspx">fonctionnalités supprimées ou déconseillées dans Windows Server 2012 R2</a>.</p></td>
+<td><p>Monté localement don de disques virtuels&#39;offre t toutes les fonctionnalités spécifiques à iSCSI et sont obsolètes. pour plus d’informations, consultez <a href="https://technet.microsoft.com/library/dn303411.aspx">fonctionnalités supprimées ou déconseillées dans Windows Server 2012 R2</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -105,7 +105,7 @@ Cette rubrique fournit des limites du serveur cible Microsoft iSCSI pris en char
 <tr class="even">
 <td><p>Plusieurs nœuds actifs du cluster</p></td>
 <td><p>Prise en charge</p></td>
-<td> 
+<td> 
 <p>N/A</p></td>
 <td><p>Chaque nœud actif du cluster de basculement possède une instance en cluster du serveur cible iSCSI différents avec d’autres nœuds agissant en tant que nœuds propriétaires possibles.</p></td>
 </tr>
@@ -205,8 +205,7 @@ Cette rubrique fournit des limites du serveur cible Microsoft iSCSI pris en char
 <tr class="odd">
 <td><p>déchargement iSCSI</p></td>
 <td><p>Non pris en charge</p></td>
-<td>              
-<p>N/A</p></td>
+<td><br/><p>N/A</p></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -249,7 +248,7 @@ Cette rubrique fournit des limites du serveur cible Microsoft iSCSI pris en char
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>À partir d’un initiateur iSCSI convertir le disque virtuel à partir d’un disque de base en disque dynamique </p></td>
+<td><p>À partir d’un initiateur iSCSI convertir le disque virtuel à partir d’un disque de base en disque dynamique </p></td>
 <td><p>Oui</p></td>
 <td><p>Non</p></td>
 <td></td>
@@ -264,7 +263,7 @@ Cette rubrique fournit des limites du serveur cible Microsoft iSCSI pris en char
 <tr class="odd">
 <td><p>Taille minimale de format de disque dur virtuel</p></td>
 <td><p>.vhdx: 3 Mo</p>
-<p>.vhd: 8 Mo</p></td>
+<p>.vhd: 8 MO</p></td>
 <td><p>Oui</p></td>
 <td><p>S’applique à tous les types de disque dur virtuel pris en charge : parent, de différenciation et fixe.</p></td>
 </tr>
@@ -312,7 +311,7 @@ Cette rubrique fournit des limites du serveur cible Microsoft iSCSI pris en char
 <td><p>.vhdx: Oui</p>
 <p>.vhd: Oui (non sur Windows Server 2012)</p></td>
 <td><p>Oui</p></td>
-<td><p>Annuler le mappage n’est pas pris en charge.</p></td>
+<td><p>Annuler le mappage de n&#39;t pris en charge.</p></td>
 </tr>
 <tr class="odd">
 <td><p>exFAT/FAT/FAT32 (qui héberge le volume de disque dur virtuel)</p></td>
@@ -348,7 +347,7 @@ Cette rubrique fournit des limites du serveur cible Microsoft iSCSI pris en char
 <td><p>Allocation dynamique</p></td>
 <td><p>Non</p></td>
 <td><p>N/A</p></td>
-<td><p>Disques durs virtuels dynamiques sont pris en charge, mais Unmap n’est pas pris en charge.</p></td>
+<td><p>Disques durs virtuels dynamiques sont pris en charge, mais annulez n&#39;t pris en charge.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Réduction d’unité logique</p></td>
@@ -542,9 +541,9 @@ Nous avons également testé les initiateurs iSCSI suivant effectuant un démarr
 
 La liste suivante propose des ressources supplémentaires sur le serveur cible iSCSI et les technologies connexes.
 
-  - [vue d’ensemble de stockage de bloc cible iSCSI](iscsi-target-server.md)
+- [vue d’ensemble de stockage de bloc cible iSCSI](iscsi-target-server.md)
 
-  - [vue d’ensemble du démarrage de cible iSCSI](iscsi-boot-overview.md)
+- [vue d’ensemble du démarrage de cible iSCSI](iscsi-boot-overview.md)
 
-  - [Stockage dans Windows Server](..\storage.md)
+- [Stockage dans Windows Server](../storage.md)
 

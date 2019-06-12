@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 6510f8b21186b856eb489c1add0674b8984b0e56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5a0991c76ba890bb94b0dcf258df6207ed228e72
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857090"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441793"
 ---
 # <a name="reset-session"></a>reset session
 
@@ -36,6 +36,7 @@ reset session {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 ```  
 
 ## <a name="parameters"></a>Paramètres  
+
 |Paramètre|Description|  
 |-------|--------|  
 |\<SessionName>|Spécifie le nom de la session que vous souhaitez réinitialiser. Pour déterminer le nom de la session, utilisez le **interroger session** commande.|  
@@ -51,15 +52,15 @@ reset session {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 -   Le **/server** paramètre est obligatoire uniquement si vous utilisez **réinitialiser la session** à partir d’un serveur distant.  
 
 ## <a name="BKMK_examples"></a>Exemples  
--   Pour réinitialiser la session rdp-tcp #6, tapez :  
-    ```  
-    reset session rdp-tcp#6  
-    ```  
--   Pour réinitialiser la session qui utilise l’ID de session 3, tapez :  
-    ```  
-    reset session 3  
-    ```  
+- Pour réinitialiser la session rdp-tcp #6, tapez :  
+  ```  
+  reset session rdp-tcp#6  
+  ```  
+- Pour réinitialiser la session qui utilise l’ID de session 3, tapez :  
+  ```  
+  reset session 3  
+  ```  
 
 #### <a name="additional-references"></a>Références supplémentaires  
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
 [Services Bureau à distance &#40;Services Terminal Server&#41; référence de la commande](remote-desktop-services-terminal-services-command-reference.md)  

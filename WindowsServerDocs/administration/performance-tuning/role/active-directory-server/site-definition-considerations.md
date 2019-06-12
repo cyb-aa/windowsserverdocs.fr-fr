@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: e1652e45f51500ceeb0026b8892fbe9c54ff38f3
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 9861703e5ae88dcaec5e76d9fab426b928d0cb9a
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266636"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811495"
 ---
 # <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>Positionnement correct de contrôleurs de domaine et les considérations de site
 
@@ -64,11 +64,11 @@ Approbation scénarios correspondent à une zone qui a été de façon cohérent
 
     -   Utilisez DnsAvoidRegisterRecords pour éliminer les contrôleurs de domaine mal l’exécution ou à latence élevée, telles que celles dans les sites de satellite, de la publicité pour les localisateurs génériques. Pour plus d’informations, consultez [comment optimiser l’emplacement d’un contrôleur de domaine ou d’un catalogue global qui réside en dehors d’un site du client](https://support.microsoft.com/kb/306602).
 
-        > [!Note]   Il existe une limite pratique d’environ 50 au nombre de contrôleurs de domaine que le client peut consommer. Ces valeurs doivent être le plus de capacité optimale de site et la plus élevée des contrôleurs de domaine.
+        > [!NOTE]
+        > Il existe une limite pratique d’environ 50 au nombre de contrôleurs de domaine que le client peut consommer. Ces valeurs doivent être le plus de capacité optimale de site et la plus élevée des contrôleurs de domaine.
 
-         
-
-    -   Envisagez de placer les contrôleurs de domaine à partir de domaines approuvés et approbations dans le même emplacement physique.
+    
+    -  Envisagez de placer les contrôleurs de domaine à partir de domaines approuvés et approbations dans le même emplacement physique.
 
 Pour tous les scénarios de confiance, les informations d’identification sont acheminées en fonction du domaine spécifié dans les demandes d’authentification. Cela vaut également pour les requêtes aux LookupAccountName et LsaLookupNames (ainsi que d’autres, elles sont simplement les plus couramment utilisés) API. Lorsque les paramètres de domaine de ces API sont transmis à une valeur NULL, le contrôleur de domaine tente de trouver le nom du compte spécifié dans chaque domaine de confiance.
 

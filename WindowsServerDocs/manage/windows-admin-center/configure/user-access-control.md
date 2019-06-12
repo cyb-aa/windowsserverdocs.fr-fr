@@ -5,23 +5,23 @@ ms.technology: manage
 ms.topic: article
 author: haley-rowland
 ms.author: harowl
-ms.date: 03/19/2019
+ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: b19657f4ce1a1a2cfb94f7234f07805ba0abd42c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 96d09b25ddb2f473fb4fe22c0cf716bfcf8becaa
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850570"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811928"
 ---
 # <a name="configure-user-access-control-and-permissions"></a>Configurer les autorisations et contrôle d’accès utilisateur
 
->S'applique à : Windows Admin Center, version préliminaire de Windows Admin Center
+> S’applique à : Windows Admin Center, version préliminaire de Windows Admin Center
 
 Si vous n’avez pas déjà, vous familiariser avec la [options de contrôle d’accès utilisateur dans Windows Admin Center](../plan/user-access-options.md)
 
->[!NOTE]
+> [!NOTE]
 > L’accès en fonction de groupe dans Windows Admin Center n’est pas pris en charge dans les environnements de groupe de travail ou entre des domaines non approuvés.
 
 ## <a name="gateway-access-role-definitions"></a>Définitions de rôle de passerelle accès
@@ -41,7 +41,7 @@ Par défaut, les groupes d’ordinateurs locaux ou Active Directory sont utilis�
 
 Sur le **utilisateurs** onglet, vous pouvez contrôler qui peut accéder à Windows Admin Center en tant qu’un utilisateur de la passerelle. Par défaut, et si vous ne spécifiez pas un groupe de sécurité, tout utilisateur qui accède à l’URL de la passerelle a accès. Une fois que vous ajoutez un ou plusieurs groupes de sécurité à la liste des utilisateurs, l’accès est limité aux membres de ces groupes.
 
-Si vous n’utilisez pas un domaine Active Directory dans votre environnement, l’accès est contrôlé par le ```Users``` et ```Administrators``` des groupes locaux sur l’ordinateur de passerelle Windows Admin Center.
+Si vous n’utilisez pas un domaine Active Directory dans votre environnement, l’accès est contrôlé par le `Users` et `Administrators` des groupes locaux sur l’ordinateur de passerelle Windows Admin Center.
 
 ### <a name="smartcard-authentication"></a>Authentification par carte à puce
 
@@ -143,6 +143,7 @@ Configuration de RBAC comporte 2 étapes : l’activation de la prise en charge
 
 Le modèle de déploiement de machine unique est idéal pour les environnements simples avec peu d’ordinateurs à gérer.
 Configuration d’un ordinateur prenant en charge le contrôle d’accès en fonction du rôle entraîne les modifications suivantes :
+
 -   Les modules PowerShell avec les fonctions requises par Windows Admin Center seront installés sur votre lecteur système, sous `C:\Program Files\WindowsPowerShell\Modules`. Tous les modules démarrera avec **Microsoft.Sme**
 -   Desired State Configuration exécutera une configuration à usage unique pour configurer un point de terminaison Just Enough Administration sur l’ordinateur nommé **Microsoft.Sme.PowerShell**. Ce point de terminaison définit les 3 rôles utilisés par Windows Admin Center et s’exécute en tant qu’un administrateur local temporaire lorsqu’un utilisateur se connecte à ce dernier.
 -   3 nouveaux groupes locaux seront créés pour contrôler quels utilisateurs sont affectés accès à quels rôles :
@@ -191,6 +192,7 @@ Invoke-RestMethod -Uri "https://localhost:6516/api/nodes/all/features/jea/endpoi
 ```
 
 Lorsque vous développez l’archive zip, vous verrez la structure de dossiers suivante :
+
 - InstallJeaFeatures.ps1
 - JustEnoughAdministration (répertoire)
 - Modules (répertoire)
@@ -198,6 +200,7 @@ Lorsque vous développez l’archive zip, vous verrez la structure de dossiers s
     - WindowsAdminCenter.Jea (directory)
 
 Pour configurer la prise en charge pour le contrôle d’accès en fonction du rôle sur un nœud, vous devez effectuer les actions suivantes :
+
 1.  Copiez la JustEnoughAdministration, Microsoft.SME. \*et les modules WindowsAdminCenter.Jea dans le répertoire de module PowerShell sur l’ordinateur cible. En règle générale, il se trouve dans `C:\Program Files\WindowsPowerShell\Modules`.
 2.  Mise à jour **InstallJeaFeature.ps1** fichier pour correspondre à la configuration souhaitée pour le point de terminaison RBAC.
 3.  Exécutez InstallJeaFeature.ps1 pour compiler la ressource DSC.

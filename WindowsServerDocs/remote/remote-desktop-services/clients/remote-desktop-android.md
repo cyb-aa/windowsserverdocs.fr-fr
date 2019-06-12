@@ -14,16 +14,16 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 41f8b511453143bb6239de6cdb369ebe8a307aec
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: b4b188eb8148b2f4e5c6672b07884af8fdcd0c60
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885850"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446744"
 ---
 # <a name="get-started-with-remote-desktop-on-android"></a>Bien démarrer avec le Bureau à distance sur Android
 
->S'applique à : Windows 10, Windows 8.1, Windows Server 2012 R2, Windows Server 2016
+>S’applique à : Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 Vous pouvez utiliser le client Bureau à distance pour Android pour travailler avec les ordinateurs de bureau et les applications Windows directement à partir de votre appareil Android.
 
@@ -49,24 +49,24 @@ Suivez ces étapes pour bien démarrer avec le Bureau à distance sur votre appa
 
 Pour créer une connexion Bureau à distance :
 
-1. Dans, appuyez sur le centre de connexion **+**, puis appuyez sur **Desktop**.
+1. Dans, appuyez sur le centre de connexion **+** , puis appuyez sur **Desktop**.
 2. Entrez les informations suivantes pour l’ordinateur que vous souhaitez vous connecter :
-  - **Nom du PC** – le nom de l’ordinateur. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez également ajouter des informations de port pour le nom du PC (par exemple, **MyDesktop:3389** ou **10.0.0.1:3389**).
-  - **Nom d’utilisateur** – le nom d’utilisateur à utiliser pour accéder à l’ordinateur distant. Vous pouvez utiliser les formats suivants : *user_name*, *domaine\nom_utilisateur*, ou *user_name@domain.com*. Vous pouvez également spécifier s’il faut demander un nom d’utilisateur et mot de passe.
+   - **Nom du PC** – le nom de l’ordinateur. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez également ajouter des informations de port pour le nom du PC (par exemple, **MyDesktop:3389** ou **10.0.0.1:3389**).
+   - **Nom d’utilisateur** – le nom d’utilisateur à utiliser pour accéder à l’ordinateur distant. Vous pouvez utiliser les formats suivants : *user_name*, *domaine\nom_utilisateur*, ou <em>user_name@domain.com</em>. Vous pouvez également spécifier s’il faut demander un nom d’utilisateur et mot de passe.
 3. Vous pouvez également définir des options supplémentaires suivantes :
-  - **Nom convivial** – un nom facile à mémoriser pour le PC que vous vous connectez à. Vous pouvez utiliser n’importe quelle chaîne, mais si vous ne spécifiez pas un nom convivial, le nom du PC s’affiche.
-  - **Passerelle** – passerelle le Bureau à distance que vous souhaitez utiliser pour se connecter à des bureaux virtuels, des programmes RemoteApp et des ordinateurs de bureau basés sur des sessions sur un réseau d’entreprise interne. Obtenir les informations sur la passerelle de votre administrateur système.
+   - **Nom convivial** – un nom facile à mémoriser pour le PC que vous vous connectez à. Vous pouvez utiliser n’importe quelle chaîne, mais si vous ne spécifiez pas un nom convivial, le nom du PC s’affiche.
+   - **Passerelle** – passerelle le Bureau à distance que vous souhaitez utiliser pour se connecter à des bureaux virtuels, des programmes RemoteApp et des ordinateurs de bureau basés sur des sessions sur un réseau d’entreprise interne. Obtenir les informations sur la passerelle de votre administrateur système.
     Vous avez besoin pour configurer une passerelle des services Bureau à distance ?
-  - **Son** – sélectionnez l’appareil à utiliser pour l’audio pendant votre session à distance. Vous pouvez choisir de lire un son sur les appareils locaux, le périphérique distant, ou pas du tout.
-  - **Personnaliser la résolution d’affichage** -définir une résolution personnalisée pour une connexion en activant ce paramètre. Quand désactiver la résolution est appliqué que vous avez définis dans les paramètres globaux de l’application.
-  - **Permuter les boutons de la souris** – Utilisez cette option pour échanger des fonctions du bouton gauche de la souris pour le bouton droit de la souris. (Cela est particulièrement utile si l’ordinateur distant est configuré pour un utilisateur gaucher mais que vous utilisez une souris droite.)
-  - **Se connecter à la session d’administration** -Utilisez cette option pour vous connecter à une session de console pour administrer un serveur Windows.
-  - **Rediriger vers le stockage local** – votre stockage local est monté comme un système de fichiers à distance sur un ordinateur distant.
+   - **Son** – sélectionnez l’appareil à utiliser pour l’audio pendant votre session à distance. Vous pouvez choisir de lire un son sur les appareils locaux, le périphérique distant, ou pas du tout.
+   - **Personnaliser la résolution d’affichage** -définir une résolution personnalisée pour une connexion en activant ce paramètre. Quand désactiver la résolution est appliqué que vous avez définis dans les paramètres globaux de l’application.
+   - **Permuter les boutons de la souris** – Utilisez cette option pour échanger des fonctions du bouton gauche de la souris pour le bouton droit de la souris. (Cela est particulièrement utile si l’ordinateur distant est configuré pour un utilisateur gaucher mais que vous utilisez une souris droite.)
+   - **Se connecter à la session d’administration** -Utilisez cette option pour vous connecter à une session de console pour administrer un serveur Windows.
+   - **Rediriger vers le stockage local** – votre stockage local est monté comme un système de fichiers à distance sur un ordinateur distant.
 4. Appuyez sur **enregistrer**.
 
-Vous avez besoin pour modifier ces paramètres ? Appuyez sur le menu de dépassement de capacité (**...** ) en regard du nom du bureau et puis appuyez sur **modifier**.
+Vous avez besoin pour modifier ces paramètres ? Appuyez sur le menu de dépassement de capacité ( **...** ) en regard du nom du bureau et puis appuyez sur **modifier**.
 
-Voulez-vous supprimer la connexion ? Là encore, appuyez sur le menu de dépassement de capacité (**...** ), puis appuyez sur **supprimer**.
+Voulez-vous supprimer la connexion ? Là encore, appuyez sur le menu de dépassement de capacité ( **...** ), puis appuyez sur **supprimer**.
 
 >[!TIP]
 > Si vous obtenez l’erreur 0xf07 un mot de passe incorrect (« nous n’avons pas pu se connecter à l’ordinateur distant, car le mot de passe associé au compte d’utilisateur a expiré »), modifier votre mot de passe et réessayez.
@@ -76,7 +76,7 @@ Ressources distantes sont des programmes RemoteApp, bureaux basés sur session e
 
 Pour ajouter une ressource distante :
 
-1. Dans l’écran de centre de connexion, appuyez sur **+**, puis appuyez sur **le flux de ressources à distance**. 
+1. Dans l’écran de centre de connexion, appuyez sur **+** , puis appuyez sur **le flux de ressources à distance**. 
 2. Entrez les informations pour la ressource distante :
    - **Adresse e-mail ou URL** -l’URL du serveur d’accès Web de bureau à distance. Vous pouvez également entrer votre compte de messagerie d’entreprise dans ce champ : cela indique au client pour rechercher le serveur d’accès Web Bureau à distance associé à votre adresse de messagerie.
    - **Nom d’utilisateur** -nom d’utilisateur à utiliser pour le serveur d’accès Web de bureau à distance que vous vous connectez à.
@@ -88,7 +88,7 @@ Les ressources à distance seront affichera dans le centre de connexion.
 
 Pour supprimer les ressources distantes :
 
-1. Dans le centre de connexion, appuyez sur le menu de dépassement de capacité (**...** ) en regard de la ressource distante.
+1. Dans le centre de connexion, appuyez sur le menu de dépassement de capacité ( **...** ) en regard de la ressource distante.
 2. Appuyez sur **supprimer**.
 3. Confirmer la suppression.
 
@@ -115,8 +115,8 @@ Pour configurer une nouvelle passerelle :
 
 1. Dans le centre de connexion, appuyez sur **Paramètres > passerelles**. Appuyez sur **+** pour ajouter une nouvelle passerelle.
 2. Entrez les informations suivantes :
-  - **Nom du serveur** – le nom de l’ordinateur que vous souhaitez utiliser en tant que passerelle. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez également ajouter des informations de port au nom du serveur (par exemple : **RDGateway:443** ou **10.0.0.1:443**).
-  - **Nom d’utilisateur** -le nom d’utilisateur et le mot de passe à utiliser pour la passerelle Bureau à distance, vous êtes connecté. Vous pouvez également sélectionner **utiliser le compte d’utilisateur du bureau** à utiliser les informations d’identification que celles utilisées pour la connexion Bureau à distance.
+   - **Nom du serveur** – le nom de l’ordinateur que vous souhaitez utiliser en tant que passerelle. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez également ajouter des informations de port au nom du serveur (par exemple : **RDGateway:443** ou **10.0.0.1:443**).
+   - **Nom d’utilisateur** -le nom d’utilisateur et le mot de passe à utiliser pour la passerelle Bureau à distance, vous êtes connecté. Vous pouvez également sélectionner **utiliser le compte d’utilisateur du bureau** à utiliser les informations d’identification que celles utilisées pour la connexion Bureau à distance.
 
 ## <a name="manage-your-user-accounts"></a>Gérer vos comptes d’utilisateur
 
@@ -153,13 +153,13 @@ Vous pouvez définir les paramètres globaux suivants dans votre client Android�
 - **Pincer pour zoomer** -vous permet d’utiliser des gestes de pincement pour zoomer. Si l’application que vous utilisez le Bureau à distance prend en charge l’interaction tactile multipoint (introduite dans Windows 8), activer ce paramètre **hors**.
 - **Aide pour améliorer le Bureau à distance** -envoie des données anonymes à Microsoft. Nous utilisons ces données pour améliorer le client. Vous pouvez en savoir plus sur la façon dont nous utilisons ces données anonymes, privées, consultez le [déclaration de confidentialité de Client Bureau à distance](https://www.microsoft.com/privacystatement/RemoteApp/Default.aspx). Par défaut, ce paramètre est **sur**.
 - **Afficher** -il existe deux paramètres globaux de votre affichage :
-   - **Orientation** -définit la préférence d’orientation (paysage ou portrait) pour votre session. 
-   >[!NOTE]
-   > Si vous vous connectez à un PC exécutant Windows 8 ou une version antérieure de Windows, la session n’évolutive pas correctement. Votre meilleure solution consiste à déconnecter de l’ordinateur, puis vous reconnecter à l’orientation que vous souhaitez utiliser. Une meilleure option consiste à mettre à niveau le PC au moins Windows 8.1.
+  - **Orientation** -définit la préférence d’orientation (paysage ou portrait) pour votre session. 
+    >[!NOTE]
+    > Si vous vous connectez à un PC exécutant Windows 8 ou une version antérieure de Windows, la session n’évolutive pas correctement. Votre meilleure solution consiste à déconnecter de l’ordinateur, puis vous reconnecter à l’orientation que vous souhaitez utiliser. Une meilleure option consiste à mettre à niveau le PC au moins Windows 8.1.
 
-   - **Résolution** -définit la résolution que vous souhaitez utiliser pour les connexions Bureau dans le monde entier. Si vous avez déjà défini une résolution personnalisée pour une application individuelle ou la connexion, qui ne change pas ce paramètre.
-   >[!NOTE]
-   >Lorsque vous modifiez un des paramètres d’affichage, ils s’appliquent uniquement aux nouvelles connexions à partir de ce point sur. Pour voir la modification dans une session, vous êtes déjà connecté pour vous déconnecter, puis connectez-vous à nouveau.
+  - **Résolution** -définit la résolution que vous souhaitez utiliser pour les connexions Bureau dans le monde entier. Si vous avez déjà défini une résolution personnalisée pour une application individuelle ou la connexion, qui ne change pas ce paramètre.
+    >[!NOTE]
+    >Lorsque vous modifiez un des paramètres d’affichage, ils s’appliquent uniquement aux nouvelles connexions à partir de ce point sur. Pour voir la modification dans une session, vous êtes déjà connecté pour vous déconnecter, puis connectez-vous à nouveau.
 
 ### <a name="connection-bar"></a>Barre de connexion
 

@@ -12,12 +12,12 @@ ms.assetid: fda5628c-ad23-49de-8d94-430a4f253802
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1b78432ca92028bc96b2cbfc9fa40196f61e8bf8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dded002df4ed0bbd70c549a8841b769a77f2fd6a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833700"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433548"
 ---
 # <a name="hosted-windows-server-essentials"></a>Windows Server Essentials hébergé
 
@@ -45,89 +45,89 @@ Ce document inclut des informations spécifiques aux hébergeurs souhaitant dép
   
  Tenez compte des points suivants :  
   
-1.  Vous devez ignorer la configuration initiale (IC) en ajoutant un fichier SkipIC.txt à la racine de chaque lecteur. Après avoir installé le serveur, et avant la configuration initiale, appuyez sur Maj+F10 pour lancer la fenêtre cmd et créer un fichier SkipIC.txt sous le lecteur C:/. Une fois la personnalisation terminée, vous devez vous rappeler de supprimer le fichier SkipIC.txt.  
+1. Vous devez ignorer la configuration initiale (IC) en ajoutant un fichier SkipIC.txt à la racine de chaque lecteur. Après avoir installé le serveur, et avant la configuration initiale, appuyez sur Maj+F10 pour lancer la fenêtre cmd et créer un fichier SkipIC.txt sous le lecteur C:/. Une fois la personnalisation terminée, vous devez vous rappeler de supprimer le fichier SkipIC.txt.  
   
-2.  Si vous avez besoin déployer Windows Server Essentials sur un disque inférieur à 90 Go, vous devez ajouter une clé de Registre avant sysprep :  
+2. Si vous avez besoin déployer Windows Server Essentials sur un disque inférieur à 90 Go, vous devez ajouter une clé de Registre avant sysprep :  
   
-    ```  
-    %systemroot%\system32\reg.exe add "HKLM\Software\microsoft\windows server\setup" /v HWRequirementChecks /t REG_DWORD /d 0 /f  
-    ```  
+   ```  
+   %systemroot%\system32\reg.exe add "HKLM\Software\microsoft\windows server\setup" /v HWRequirementChecks /t REG_DWORD /d 0 /f  
+   ```  
   
- Après sysprep, vous pouvez utiliser l'image de disque préparée avec sysprep, ou la retransférer dans le fichier Install.wim pour une nouvelle mise en œuvre ultérieure.  
+   Après sysprep, vous pouvez utiliser l'image de disque préparée avec sysprep, ou la retransférer dans le fichier Install.wim pour une nouvelle mise en œuvre ultérieure.  
   
- Si vous utilisez le Virtual Machine Manager, vous pouvez créer un modèle en utilisant l'instance en cours d'exécution. La création d'un modèle prépare l'instance avec sysprep et éteint le serveur. Une fois qu'elle est stockée dans votre bibliothèque, vous pouvez utiliser l'instance au cas par cas.  
+   Si vous utilisez le Virtual Machine Manager, vous pouvez créer un modèle en utilisant l'instance en cours d'exécution. La création d'un modèle prépare l'instance avec sysprep et éteint le serveur. Une fois qu'elle est stockée dans votre bibliothèque, vous pouvez utiliser l'instance au cas par cas.  
   
 ##  <a name="BKMK_automatedeployment"></a> Comment automatiser le déploiement ?  
  Une fois que vous avez obtenu l'image personnalisée, vous pouvez effectuer le déploiement avec votre propre image. Pour effectuer une installation en partie sans assistance, vous devez fournir/déployer le fichier unattend.xml pour la configuration de WinPE. Pour effectuer une installation entièrement sans assistance, vous devez également fournir le fichier cfg.ini pour la Configuration initiale de Windows Server Essentials.  
   
-1.  Effectuer uniquement une configuration sans assistance de WinPE. Cela automatisera uniquement la configuration de WinPE et arrêtera la configuration avant la configuration initiale, afin de permettre aux utilisateurs de fournir eux-mêmes des informations sur la société, le domaine et l'administrateur pour la session de serveur via RDP. Pour ce faire :  
+1. Effectuer uniquement une configuration sans assistance de WinPE. Cela automatisera uniquement la configuration de WinPE et arrêtera la configuration avant la configuration initiale, afin de permettre aux utilisateurs de fournir eux-mêmes des informations sur la société, le domaine et l'administrateur pour la session de serveur via RDP. Pour ce faire :  
   
-    1.  Fournissez le fichier unattend.xml Windows. Suivez le [Windows 8.1 ADK](https://go.microsoft.com/fwlink/?LinkId=248694) pour générer le fichier et fournir toutes les informations nécessaires, y compris le nom du serveur, les clés de produit et mot de passe administrateur. Dans la section Microsoft-Windows-Setup du fichier unattend.xml, fournissez les informations comme indiqué ci-dessous.  
+   1.  Fournissez le fichier unattend.xml Windows. Suivez le [Windows 8.1 ADK](https://go.microsoft.com/fwlink/?LinkId=248694) pour générer le fichier et fournir toutes les informations nécessaires, y compris le nom du serveur, les clés de produit et mot de passe administrateur. Dans la section Microsoft-Windows-Setup du fichier unattend.xml, fournissez les informations comme indiqué ci-dessous.  
   
-        ```  
-        <InstallFrom>  
-                 <MetaData>  
-                     <Key>IMAGE/WINDOWS/EDITIONID</Key>  
-                     <Value>ServerSolution</Value>  
-                 </MetaData>  
-                 <MetaData>  
-                     <Key>IMAGE/WINDOWS/INSTALLATIONTYPE</Key>  
-                     <Value>Server</Value>  
-                 </MetaData>  
-           </InstallFrom>  
-        ```  
+       ```  
+       <InstallFrom>  
+                <MetaData>  
+                    <Key>IMAGE/WINDOWS/EDITIONID</Key>  
+                    <Value>ServerSolution</Value>  
+                </MetaData>  
+                <MetaData>  
+                    <Key>IMAGE/WINDOWS/INSTALLATIONTYPE</Key>  
+                    <Value>Server</Value>  
+                </MetaData>  
+          </InstallFrom>  
+       ```  
   
-    2.  Le port RDP 3389 doit être ouvert sur une adresse IP publique afin que le client peut utiliser administrateur et le mot de passe spécifié dans le fichier unattend.xml pour le protocole RDP sur le serveur pour terminer la Configuration initiale.  
+   2.  Le port RDP 3389 doit être ouvert sur une adresse IP publique afin que le client peut utiliser administrateur et le mot de passe spécifié dans le fichier unattend.xml pour le protocole RDP sur le serveur pour terminer la Configuration initiale.  
   
-    > [!NOTE]
-    >  Si vous ne modifiez pas le mot de passe par défaut, l'installation du serveur s'arrêtera sur un écran vous demandant de saisir un mot de passe.**Remarque** Les utilisateurs finaux doivent utiliser le compte d'administrateur par défaut pour se connecter au serveur et exécuter la configuration initiale.  
+   > [!NOTE]
+   >  Si vous ne modifiez pas le mot de passe par défaut, l'installation du serveur s'arrêtera sur un écran vous demandant de saisir un mot de passe.**Remarque** Les utilisateurs finaux doivent utiliser le compte d'administrateur par défaut pour se connecter au serveur et exécuter la configuration initiale.  
   
- Si vous utilisez le Virtual Machine Manager, vous pouvez spécifier le mot de passe de l'administrateur dans la console lorsque vous créez une nouvelle instance à partir du modèle.  
+   Si vous utilisez le Virtual Machine Manager, vous pouvez spécifier le mot de passe de l'administrateur dans la console lorsque vous créez une nouvelle instance à partir du modèle.  
   
-1.  Exécutez une configuration sans assistance complète, y compris la configuration initiale sans assistance. Pour ce faire :  
+2. Exécutez une configuration sans assistance complète, y compris la configuration initiale sans assistance. Pour ce faire :  
   
-    1.  Fournissez le fichier unattend.xml comme vous l'avez-fait ci-dessus si le déploiement démarre depuis la configuration de WinPE.  
+   1.  Fournissez le fichier unattend.xml comme vous l'avez-fait ci-dessus si le déploiement démarre depuis la configuration de WinPE.  
   
-    2.  Reportez-vous à la section ADK de Windows Server Essentials, [créer le fichier Cfg.ini](https://technet.microsoft.com/library/jj200150), afin de générer le fichier cfg.ini.  
+   2.  Reportez-vous à la section ADK de Windows Server Essentials, [créer le fichier Cfg.ini](https://technet.microsoft.com/library/jj200150), afin de générer le fichier cfg.ini.  
   
-    3.  Fournissez les informations nécessaires dans [InitialConfiguration].  
+   3.  Fournissez les informations nécessaires dans [InitialConfiguration].  
   
-        ```  
-        WebDomainName=yourdomainname  
-        TrustedCertFileName=c:\cert\a.pfx  
-        TrustedCertPassword=Enteryourpassword  
-        EnableVPN=true  
-        EnableRWA=true  
-        ; Provide all information so that after setup is complete, your customer can use your domain name to visit the server directly with the admin/user information you provide in the [InitialConfiguration] section.  
+       ```  
+       WebDomainName=yourdomainname  
+       TrustedCertFileName=c:\cert\a.pfx  
+       TrustedCertPassword=Enteryourpassword  
+       EnableVPN=true  
+       EnableRWA=true  
+       ; Provide all information so that after setup is complete, your customer can use your domain name to visit the server directly with the admin/user information you provide in the [InitialConfiguration] section.  
   
-        VpnIPv4StartAddress=<IPV4Address>  
-        VpnIPv4EndAddress=<IPV4Address>  
-        VpnBaseIPv6Address=<IPV6Address>  
-        VpnIPv6PrefixLength=<number>  
-        ; Provide this information. IPv4StartAddress and IPv4Endaddress are required so that your VPN client can acquire valid IP through this range.  
+       VpnIPv4StartAddress=<IPV4Address>  
+       VpnIPv4EndAddress=<IPV4Address>  
+       VpnBaseIPv6Address=<IPV6Address>  
+       VpnIPv6PrefixLength=<number>  
+       ; Provide this information. IPv4StartAddress and IPv4Endaddress are required so that your VPN client can acquire valid IP through this range.  
   
-        IPv4DNSForwarder=<IPV4Address,IPV4Address,Â¦>  
-        IPv6DNSForwarder=<IPV6Address,IPV6Address,Â¦>  
-        ; Provide this information as needed according to your network environment settings.  
-        ```  
+       IPv4DNSForwarder=<IPV4Address,IPV4Address,Â¦>  
+       IPv6DNSForwarder=<IPV6Address,IPV6Address,Â¦>  
+       ; Provide this information as needed according to your network environment settings.  
+       ```  
   
-    4.  Fournissez les informations nécessaires dans [PostOSInstall].  
+   4.  Fournissez les informations nécessaires dans [PostOSInstall].  
   
-        ```  
-        IsHosted=true   
-        ; Must have, this will prevent Initial Configure webpage available for other computers under same subnet.  
+       ```  
+       IsHosted=true   
+       ; Must have, this will prevent Initial Configure webpage available for other computers under same subnet.  
   
-        StaticIPv4Address=<IPV4Address>  
-        StaticIPv4Gateway=<IPV4Address>  
-        StaticIPv6Address=<IPV6Address>  
-        StaticIPv6SubnetPrefixLength=<number>  
-        StaticIPv6Gateway=<IPV6Address>  
-        ; All these are optional if you have DHCP Server Service on the subnet, otherwise provide static IP here.  
-        ```  
+       StaticIPv4Address=<IPV4Address>  
+       StaticIPv4Gateway=<IPV4Address>  
+       StaticIPv6Address=<IPV6Address>  
+       StaticIPv6SubnetPrefixLength=<number>  
+       StaticIPv6Gateway=<IPV6Address>  
+       ; All these are optional if you have DHCP Server Service on the subnet, otherwise provide static IP here.  
+       ```  
   
-    5.  Si vous fournissez le paramètre WebDomainName, assurez-vous que l’enregistrement DNS est également mis à jour pour pointer vers l’adresse IP publique de s de serveur.  
+   5.  Si vous fournissez le paramètre WebDomainName, assurez-vous que l’enregistrement DNS est également mis à jour pour pointer vers l’adresse IP publique de s de serveur.  
   
-    6.  Si vous n'avez pas fourni les informations du WebDomainName ci-dessus, assurez-vous que le port 3389 est ouvert afin que les utilisateurs puissent utiliser le RDP pour se connecter au serveur et terminer les configurations du VPN.  
+   6.  Si vous n'avez pas fourni les informations du WebDomainName ci-dessus, assurez-vous que le port 3389 est ouvert afin que les utilisateurs puissent utiliser le RDP pour se connecter au serveur et terminer les configurations du VPN.  
   
 > [!NOTE]
 >  Assurez-vous que le paramètre de fuseau horaire du serveur hôte de la machine virtuelle et de la machine virtuelle Windows Server Essentials est le même. Dans le cas contraire, vous pourriez rencontrer différentes erreurs (un échec de la configuration initiale du à des tâches nécessitant un certificat peut se produire, le certificat peut ne pas être valable avant quelques heures après l'installation, les informations concernant le périphérique peuvent ne pas être mises à jour correctement, etc.).  
@@ -140,61 +140,61 @@ Ce document inclut des informations spécifiques aux hébergeurs souhaitant dép
  L'activation du VPN peut être effectuée pendant le déploiement sans assistance via notre script Windows PowerShell, ou elle peut être configurée à l'aide de notre Assistant après la configuration initiale.  
   
 
--   Pour plus d’informations sur l’activation du VPN pendant le déploiement sans assistance, consultez [How do I automate the deployment?](Hosted-Windows-Server-Essentials.md#BKMK_automatedeployment) dans le présent document.  
+- Pour plus d’informations sur l’activation du VPN pendant le déploiement sans assistance, consultez [How do I automate the deployment?](Hosted-Windows-Server-Essentials.md#BKMK_automatedeployment) dans le présent document.  
 
--   Pour plus d’informations sur l’activation du VPN pendant le déploiement sans assistance, consultez [How do I automate the deployment?](../install/Hosted-Windows-Server-Essentials.md#BKMK_automatedeployment) dans le présent document.  
+- Pour plus d’informations sur l’activation du VPN pendant le déploiement sans assistance, consultez [How do I automate the deployment?](../install/Hosted-Windows-Server-Essentials.md#BKMK_automatedeployment) dans le présent document.  
 
   
--   Pour activer le VPN via Windows PowerShell, exécutez la cmdlet suivante avec une autorisation d'administrateur et fournissez toutes les informations nécessaires.  
+- Pour activer le VPN via Windows PowerShell, exécutez la cmdlet suivante avec une autorisation d'administrateur et fournissez toutes les informations nécessaires.  
   
-    ```  
-    ##  
-    ## To configure external domain and SSL certificate (if not yet done in unattended Initial Configuration).  
-    ##  
+  ```  
+  ##  
+  ## To configure external domain and SSL certificate (if not yet done in unattended Initial Configuration).  
+  ##  
   
-    $myExternalDomainName = 'remote.contoso.com';   ## corresponds to A or AAAA DNS record(s) that can be resolved on Internet and routed to the server  
-    $mySslCertificateFile = 'C:\ssl.pfx';   ## full path to SSL certificate file  
-    $mySslCertificatePassword = ConvertTo-SecureString '******';   ## password for private key of the SSL certificate  
-    $skipCertificateVerification = $true;   ## whether or not, skip verification for the SSL certificate  
+  $myExternalDomainName = 'remote.contoso.com';   ## corresponds to A or AAAA DNS record(s) that can be resolved on Internet and routed to the server  
+  $mySslCertificateFile = 'C:\ssl.pfx';   ## full path to SSL certificate file  
+  $mySslCertificatePassword = ConvertTo-SecureString '******';   ## password for private key of the SSL certificate  
+  $skipCertificateVerification = $true;   ## whether or not, skip verification for the SSL certificate  
   
-    Add-Type -AssemblyName 'Wssg.Web.DomainManagerObjectModel';  
-    [Microsoft.WindowsServerSolutions.RemoteAccess.Domains.DomainConfigurationHelper]::SetDomainNameAndCertificate($myExternalDomainName,$mySslCertificateFile,$mySslCertificatePassword,$skipCertificateVerification);  
-    ##  
-    ## To install VPN with static IPv4 pool (and allow all existing users to establish VPN).  
-    ##  
+  Add-Type -AssemblyName 'Wssg.Web.DomainManagerObjectModel';  
+  [Microsoft.WindowsServerSolutions.RemoteAccess.Domains.DomainConfigurationHelper]::SetDomainNameAndCertificate($myExternalDomainName,$mySslCertificateFile,$mySslCertificatePassword,$skipCertificateVerification);  
+  ##  
+  ## To install VPN with static IPv4 pool (and allow all existing users to establish VPN).  
+  ##  
   
-    Install-WssVpnServer -IPv4AddressRange ('192.168.0.160','192.168.0.240') -ApplyToExistingUsers;  
-    ```  
+  Install-WssVpnServer -IPv4AddressRange ('192.168.0.160','192.168.0.240') -ApplyToExistingUsers;  
+  ```  
   
- Si vous ne pouvez pas fournir une connexion VPN avant d'effectuer la livraison aux clients, le serveur aux clients, assurez-vous que le port serveur 3389 est accessible via Internet afin que les utilisateurs finaux puissent utiliser le RDP pour se connecter au serveur et effectuer eux-mêmes la configuration.  
+  Si vous ne pouvez pas fournir une connexion VPN avant d'effectuer la livraison aux clients, le serveur aux clients, assurez-vous que le port serveur 3389 est accessible via Internet afin que les utilisateurs finaux puissent utiliser le RDP pour se connecter au serveur et effectuer eux-mêmes la configuration.  
   
- Voici les deux topologies de mise en réseau typiques côté serveur et la manière dont le VPN / l'accès web à distance peut être configuré :  
+  Voici les deux topologies de mise en réseau typiques côté serveur et la manière dont le VPN / l'accès web à distance peut être configuré :  
   
--   Topologie 1 (préférée)  
+- Topologie 1 (préférée)  
   
-    -   Un serveur dans un réseau virtuel séparé dans un périphérique NAT.  
+  -   Un serveur dans un réseau virtuel séparé dans un périphérique NAT.  
   
-    -   Le service DHCP est activé dans le réseau virtuel, ou une adresse IP statique est affectée au serveur.  
+  -   Le service DHCP est activé dans le réseau virtuel, ou une adresse IP statique est affectée au serveur.  
   
-    -   Le port de serveur 443 est accessible depuis le port IP public 443.  
+  -   Le port de serveur 443 est accessible depuis le port IP public 443.  
   
-    -   Le relais VPN est autorisé pour le port 443.  
+  -   Le relais VPN est autorisé pour le port 443.  
   
-    -   Le pool d’adresses VPN IPv4 doit se trouver dans le même sous-réseau d'adresses de serveur.  
+  -   Le pool d’adresses VPN IPv4 doit se trouver dans le même sous-réseau d'adresses de serveur.  
   
-    -   Une adresse IP statique doit être affectée à tout second serveur dans le même sous-réseau, mais pas dans le VPN.  
+  -   Une adresse IP statique doit être affectée à tout second serveur dans le même sous-réseau, mais pas dans le VPN.  
   
--   Topologie 2 :  
+- Topologie 2 :  
   
-    -   Le serveur dispose d'une adresse IP privée.  
+  -   Le serveur dispose d'une adresse IP privée.  
   
-    -   Le port 443 sur le serveur est accessible à partir d’un port de s adresse IP public 443.  
+  -   Le port 443 sur le serveur est accessible à partir d’un port de s adresse IP public 443.  
   
-    -   Le relais VPN est autorisé pour le port 443.  
+  -   Le relais VPN est autorisé pour le port 443.  
   
-    -   Le pool d’adresses VPN IPv4 se trouve dans une autre plage de l'adresse de serveur.  
+  -   Le pool d’adresses VPN IPv4 se trouve dans une autre plage de l'adresse de serveur.  
   
- Les scénarios incluant un second serveur ne sont pas pris en charge avec la topologie 2.  
+  Les scénarios incluant un second serveur ne sont pas pris en charge avec la topologie 2.  
   
 ## <a name="how-do-i-perform-common-tasks-via-windows-powershell"></a>Comment exécuter des tâches communes via Windows PowerShell ?  
  **Activer l’accès Web à distance**  
@@ -308,11 +308,11 @@ $Add-WssFolder -Name "MyTestFolder" -Path "C:\ServerFolders\MyTestFolder"
   
  **La sauvegarde locale** vous permet d'exécuter régulièrement une sauvegarde incrémentielle au niveau du bloc sur un disque distinct. En tant qu’hébergeur, vous pouvez attacher un disque virtuel à la machine virtuelle Windows Server Essentials et configurer la sauvegarde de serveur pour ce disque virtuel. Le disque virtuel doit se trouver sur un disque physique différent de la machine virtuelle Windows Server Essentials.  
   
--   Si vous avez un autre mécanisme pour sauvegarder la machine virtuelle Windows Server Essentials, et vous ne souhaitez pas que votre utilisateur puisse voir la fonctionnalité de sauvegarde de serveur native de Windows Server Essentials, vous pouvez le désactiver et supprimer toute l’interface utilisateur de Windows Server Essentials Tableau de bord. Pour plus d’informations, reportez-vous à la section de personnaliser la sauvegarde du serveur de la [document d’ADK](https://go.microsoft.com/fwlink/p/?LinkID=249124).  
+- Si vous avez un autre mécanisme pour sauvegarder la machine virtuelle Windows Server Essentials, et vous ne souhaitez pas que votre utilisateur puisse voir la fonctionnalité de sauvegarde de serveur native de Windows Server Essentials, vous pouvez le désactiver et supprimer toute l’interface utilisateur de Windows Server Essentials Tableau de bord. Pour plus d’informations, reportez-vous à la section de personnaliser la sauvegarde du serveur de la [document d’ADK](https://go.microsoft.com/fwlink/p/?LinkID=249124).  
   
- **La sauvegarde externe** vous permet de sauvegarder périodiquement les données de serveur dans un service de nuage. Vous pouvez télécharger et installer le Microsoft Azure sauvegarde Integration Module for Windows Server Essentials pour tirer parti de la sauvegarde Azure fourni par Microsoft.  
+  **La sauvegarde externe** vous permet de sauvegarder périodiquement les données de serveur dans un service de nuage. Vous pouvez télécharger et installer le Microsoft Azure sauvegarde Integration Module for Windows Server Essentials pour tirer parti de la sauvegarde Azure fourni par Microsoft.  
   
- Si vous ou vos utilisateurs préférez un autre service de nuage, vous devez :  
+  Si vous ou vos utilisateurs préférez un autre service de nuage, vous devez :  
   
 1.  Mettre à jour l’interface utilisateur du tableau de bord Windows Server Essentials pour qu’elle fournisse un lien vers votre service cloud préféré, au lieu de la valeur par défaut de sauvegarde Azure. Pour plus d’informations, consultez la section « Personnaliser l’image » de la [documentation sur le Kit de déploiement et d’évaluation](https://go.microsoft.com/fwlink/p/?LinkID=249124).  
   
@@ -328,17 +328,17 @@ $Add-WssFolder -Name "MyTestFolder" -Path "C:\ServerFolders\MyTestFolder"
   
  Voici certains points à prendre en compte lors de la sauvegarde complète du client :  
   
--   Performance : il se peut que la sauvegarde initiale du serveur nécessite du temps en raison du volume de données à charger.  
+- Performance : il se peut que la sauvegarde initiale du serveur nécessite du temps en raison du volume de données à charger.  
   
--   Stabilité : la connexion Internet n'est parfois pas stable côté client. La sauvegarde du client est conçue pour pouvoir être reprise, et le point de contrôle par défaut est 40 Go (la base de données du client créera un point de contrôle chaque fois qu'un volume de données de 40 Go sera sauvegardé). Vous pouvez modifier cette valeur et la réduire si vous pensez que la connexion Internet n'est pas fiable.  
+- Stabilité : la connexion Internet n'est parfois pas stable côté client. La sauvegarde du client est conçue pour pouvoir être reprise, et le point de contrôle par défaut est 40 Go (la base de données du client créera un point de contrôle chaque fois qu'un volume de données de 40 Go sera sauvegardé). Vous pouvez modifier cette valeur et la réduire si vous pensez que la connexion Internet n'est pas fiable.  
   
-    -   Pour activer une tâche de point de contrôle, définissez la clé de registre HKLM\Software\Microsoft\Windows Server\Backup\GetCheckPointJobs sur 1 sur le serveur.  
+  -   Pour activer une tâche de point de contrôle, définissez la clé de registre HKLM\Software\Microsoft\Windows Server\Backup\GetCheckPointJobs sur 1 sur le serveur.  
   
-    -   Pour modifier le seuil de point de contrôle, modifiez la valeur par défaut (40 Go) de HKLM\Software\Microsoft\Windows Server\Backup\CheckPointThreshold sur le client.  
+  -   Pour modifier le seuil de point de contrôle, modifiez la valeur par défaut (40 Go) de HKLM\Software\Microsoft\Windows Server\Backup\CheckPointThreshold sur le client.  
   
--   Restauration du client à froid : l'environnement de préinstallation de Windows ne prenant pas en charge une connexion VPN, la restauration du client à froid n'est pas prise en charge.  
+- Restauration du client à froid : l'environnement de préinstallation de Windows ne prenant pas en charge une connexion VPN, la restauration du client à froid n'est pas prise en charge.  
   
- **Historique des fichiers** est une fonctionnalité de Windows 8.1 pour la sauvegarde des données de profil (bibliothèques, bureau, Contacts, Favoris) dans un partage réseau. Dans Windows Server Essentials, nous autorisons une gestion centralisée du paramètre de l’historique des fichiers de tous les clients Windows 8.1 joint à Windows Server Essentials. Les données de sauvegarde sont stockées sur le serveur Windows Server Essentials. Vous pouvez désactiver cette fonctionnalité en suivant les étapes de la créer la section du fichier Cfg.ini de la [document d’ADK](https://technet.microsoft.com/library/jj200150).  
+  **Historique des fichiers** est une fonctionnalité de Windows 8.1 pour la sauvegarde des données de profil (bibliothèques, bureau, Contacts, Favoris) dans un partage réseau. Dans Windows Server Essentials, nous autorisons une gestion centralisée du paramètre de l’historique des fichiers de tous les clients Windows 8.1 joint à Windows Server Essentials. Les données de sauvegarde sont stockées sur le serveur Windows Server Essentials. Vous pouvez désactiver cette fonctionnalité en suivant les étapes de la créer la section du fichier Cfg.ini de la [document d’ADK](https://technet.microsoft.com/library/jj200150).  
   
 ### <a name="storage-management"></a>Gestion du stockage  
  La [nouvelle fonctionnalité Espaces de stockage](https://technet.microsoft.com/library/hh831739.aspx) vous permet d'agréger la capacité de stockage physique de différents disques durs, d'ajouter dynamiquement des disques durs et de créer des volumes de données avec des niveaux de résilience spécifiques. Vous pouvez également attacher un disque iSCSI à Windows Server Essentials pour développer son stockage.  
@@ -348,61 +348,61 @@ $Add-WssFolder -Name "MyTestFolder" -Path "C:\ServerFolders\MyTestFolder"
   
  **Déploiement de serveur**  
   
--   Déployer un serveur Windows Server Essentials dans votre environnement de laboratoire.  
+- Déployer un serveur Windows Server Essentials dans votre environnement de laboratoire.  
   
--   Personnaliser l'image Windows Server 2012 Essentials en fonction des besoins.  
+- Personnaliser l'image Windows Server 2012 Essentials en fonction des besoins.  
   
--   Automatiser le déploiement de Windows Server Essentials avec le fichier sans assistance et cfg.ini.  
+- Automatiser le déploiement de Windows Server Essentials avec le fichier sans assistance et cfg.ini.  
   
--   Migrer en local Windows SBS vers Windows Server Essentials hébergé.  
+- Migrer en local Windows SBS vers Windows Server Essentials hébergé.  
   
--   Mise à niveau à partir de Windows Server Essentials vers Windows Server 2012.  
+- Mise à niveau à partir de Windows Server Essentials vers Windows Server 2012.  
   
- **Configuration du serveur**  
+  **Configuration du serveur**  
   
--   Configuration de l'Accès en tout lieu (VPN, accès web à distance, DirectAccess).  
+- Configuration de l'Accès en tout lieu (VPN, accès web à distance, DirectAccess).  
   
--   Configuration du stockage et du dossier de serveur.  
+- Configuration du stockage et du dossier de serveur.  
   
--   Configuration de la sauvegarde du serveur, de la sauvegarde en ligne, de la sauvegarde du client et de l'historique des fichiers (le cas échéant).  
+- Configuration de la sauvegarde du serveur, de la sauvegarde en ligne, de la sauvegarde du client et de l'historique des fichiers (le cas échéant).  
   
--   Configurer gérer les espaces de stockage (le cas échéant).  
+- Configurer gérer les espaces de stockage (le cas échéant).  
   
--   Configuration de l'intégration d'une solution de messagerie (Office 365, Exchange hébergé, etc.) (le cas échéant).  
+- Configuration de l'intégration d'une solution de messagerie (Office 365, Exchange hébergé, etc.) (le cas échéant).  
   
--   Configuration du serveur multimédia (le cas échéant).  
+- Configuration du serveur multimédia (le cas échéant).  
   
- **Gestion de serveur**  
+  **Gestion de serveur**  
   
--   Gestion des utilisateurs.  
+- Gestion des utilisateurs.  
   
--   Configuration et réception d'une notification des alertes par courrier électronique.  
+- Configuration et réception d'une notification des alertes par courrier électronique.  
   
--   Exécution de BPA en cas d'erreur/d'avertissement.  
+- Exécution de BPA en cas d'erreur/d'avertissement.  
   
--   Configuration du pack d'analyse System Center.  
+- Configuration du pack d'analyse System Center.  
   
--   Configuration de la récupération du serveur en cas de corruption.  
+- Configuration de la récupération du serveur en cas de corruption.  
   
- **Expérience client**  
+  **Expérience client**  
   
--   Déploiement du client via Internet (ordinateur personnel ou Mac OS).  
+- Déploiement du client via Internet (ordinateur personnel ou Mac OS).  
   
--   Utilisation du Launchpad sur le client pour accéder au dossier partagé.  
+- Utilisation du Launchpad sur le client pour accéder au dossier partagé.  
   
--   Accès à des ressources du serveur via l'Accès à distance depuis différents périphériques (ordinateur personnel, téléphone, tablette).  
+- Accès à des ressources du serveur via l'Accès à distance depuis différents périphériques (ordinateur personnel, téléphone, tablette).  
   
--   Application Mon Serveur pour Windows Phone.  
+- Application Mon Serveur pour Windows Phone.  
   
--   Historique des fichiers, sauvegarde et restauration du client (pas de récupération complète), redirection de dossiers (le cas échéant).  
+- Historique des fichiers, sauvegarde et restauration du client (pas de récupération complète), redirection de dossiers (le cas échéant).  
   
--   Utilisation de l'intégration d'une messagerie (le cas échéant).  
+- Utilisation de l'intégration d'une messagerie (le cas échéant).  
   
 ## <a name="where-can-i-get-more-support"></a>Où obtenir un support supplémentaire ?  
  Vous pouvez obtenir une documentation sur le Kit de développement logiciel et le Kit de déploiement et d’évaluation depuis le lien ci-dessous :  
   
--   [SDK](https://go.microsoft.com/fwlink/p/?LinkID=248648)  
+- [SDK](https://go.microsoft.com/fwlink/p/?LinkID=248648)  
   
--   [ADK](https://go.microsoft.com/fwlink/p/?LinkID=249124)  
+- [ADK](https://go.microsoft.com/fwlink/p/?LinkID=249124)  
   
- Vous pouvez signaler un problème à l'équipe en charge via Connect. Pour générer des journaux, compressez le dossier sur le serveur et les clients associés au serveur : C:\ProgramData\Microsoft\Windows Server\Logs.
+  Vous pouvez signaler un problème à l'équipe en charge via Connect. Pour générer des journaux, compressez le dossier sur le serveur et les clients associés au serveur : C:\ProgramData\Microsoft\Windows Server\Logs.

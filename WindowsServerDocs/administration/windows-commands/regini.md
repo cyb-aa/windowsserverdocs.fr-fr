@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 292dfe5755a10a91f2b8bcffaa6412ccda6c6f8a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3f8454572b662c9327aeb4783c5e9651ad2022b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867630"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441889"
 ---
 # <a name="regini"></a>regini
 
@@ -35,6 +35,7 @@ regini [-m \\machinename | -h hivefile hiveroot][-i n] [-o outputWidth][-b] text
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Description |
+
 |-m \<\\\\ComputerName>|Spécifie le nom de l’ordinateur distant avec un Registre qui doit être modifié. Utilisez le format  **\\ \\Nom_Ordinateur**.|
 |---------------------|-|
 |-h \<hivefile Racine_Ruche >|Spécifie la ruche du Registre local à modifier. Vous devez spécifier le nom du fichier ruche et la racine de la ruche dans le format **hivefile Racine_Ruche**.|
@@ -52,4 +53,4 @@ Les instructions suivantes s’appliquent principalement pour le contenu des fic
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

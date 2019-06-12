@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fdd31a8b7c2c6ef87d1d22d901b5c6ca69b5c70d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: f3f84a5c18589d38606825ee064cfb729003a05d
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188716"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719684"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS, Forum aux Questions (FAQ)
 
@@ -120,7 +120,7 @@ La durée de vie du jeton d’actualisation sera la durée de vie du jeton qui A
 Vous pouvez utiliser id_token personnalisé pour ajouter des informations pertinentes dans le paramètre id_token lui-même. Pour plus d’informations, consultez l’article [personnaliser des revendications à émettre dans id_token](../development/Custom-Id-Tokens-in-AD-FS.md).
 
 ### <a name="how-to-issue-json-blobs-inside-jwt-tokens"></a>Comment émettre des objets BLOB json à l’intérieur des jetons JWT ?
-Un type de valeur spéciale (« http://www.w3.org/2001/XMLSchema#json») et de la séquence d’échappement character(\x22) pour que cela a été ajoutée dans AD FS 2016. Consultez l’exemple ci-dessous pour la règle d’émission et de la sortie finale à partir du jeton d’accès.
+Un type de valeur spéciale («<http://www.w3.org/2001/XMLSchema#json>») et de la séquence d’échappement character(\x22) pour que cela a été ajoutée dans AD FS 2016. Consultez l’exemple ci-dessous pour la règle d’émission et de la sortie finale à partir du jeton d’accès.
 
 Exemple de règle d’émission :
 
@@ -171,13 +171,13 @@ Utilisez les instructions suivantes en ce qui concerne le certificat SSL de prox
 Pour plus d’informations sur la façon de configurer l’invite = connexion, consultez [Active Directory Federation Services invite = prise en charge du paramètre de connexion](../operations/AD-FS-Prompt-Login.md).
 
 ### <a name="how-can-i-change-the-ad-fs-service-account"></a>Comment puis-je modifier le compte de service AD FS ?
-Pour modifier le compte de service AD FS, suivez les instructions à l’aide de la boîte à outils AD FS [Powershell Module de compte de Service](https://github.com/Microsoft/adfsToolbox/tree/master/serviceAccountModule). 
+Pour modifier le compte de service AD FS, suivez les instructions à l’aide de la boîte à outils AD FS [Powershell Module de compte de Service](https://github.com/Microsoft/adfsToolbox/tree/master/serviceAccountModule).
 
 ### <a name="how-can-i-configure-browsers-to-use-windows-integrated-authentication-wia-with-ad-fs"></a>Comment puis-je configurer des navigateurs d’utiliser l’authentification intégrée de Windows (WIA) avec AD FS ?
 
 Pour plus d’informations sur la configuration des navigateurs, consultez [configurer des navigateurs pour utiliser l’authentification intégrée de Windows (WIA) avec AD FS](../operations/Configure-AD-FS-Browser-WIA.md).
 
-### <a name="can-i-trun-off-browserssoenabled"></a>Faire trun off BrowserSsoEnabled ?
+### <a name="can-i-turn-off-browserssoenabled"></a>Puis-je désactiver BrowserSsoEnabled ?
 Si vous n’avez des stratégies de contrôle d’accès en fonction de l’appareil sur AD FS ou Windows Hello pour l’inscription de certificat d’entreprise à l’aide d’ADFS ; Vous pouvez désactiver BrowserSsoEnabled. BrowserSsoEnabled permet à ADFS collecter un PRT (jeton d’actualisation principal) à partir du client qui contient des informations sur l’appareil. Sans cet appareil, l’authentification d’ADFS ne fonctionne pas sur les appareils Windows 10.
 
 ### <a name="how-long-are-ad-fs-tokens-valid"></a>Quelle sont la durée valide les jetons AD FS ?
@@ -295,3 +295,8 @@ Effectuez la mise à jour sur le reste de AD FS et les serveurs WAP de manière 
 
 ### <a name="is-adfs-supported-when-web-application-proxy-wap-servers-are-behind-azure-web-application-firewallwaf"></a>ADFS en charge lorsque les serveurs Proxy d’Application Web (WAP) sont trouvent derrière des Firewall(WAF) d’Application Azure Web ?
 AD FS et des serveurs d’Application Web prend en charge n’importe quel pare-feu qui n’effectue pas d’un arrêt SSL sur le point de terminaison. En outre, les serveurs AD FS/WAP ont intégré des mécanismes pour éviter les attaques web courantes telles que des scripts, de proxy AD FS intersites et répondent à toutes les exigences définies par le [protocole de MS-ADFSPIP](https://msdn.microsoft.com/library/dn392811.aspx).
+
+### <a name="i-am-seeing-an-event-441-a-token-with-a-bad-token-binding-key-was-found-what-should-i-do-to-resolve-this"></a>Je vois un « événement 441 : Un jeton avec une clé de liaison de jeton incorrect a été trouvé. » Que dois-je faire pour résoudre ce problème ?
+Dans AD FS 2016, la liaison de jeton est automatiquement activé et entraîne plusieurs problèmes connus avec les scénarios de proxy et la fédération les résultats de cette erreur. Pour résoudre ce problème, exécutez la commande Powershell suivante et supprimer la prise en charge de la liaison de jeton.
+
+`Set-AdfsProperties -IgnoreTokenBinding $true`

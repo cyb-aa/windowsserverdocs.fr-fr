@@ -12,12 +12,12 @@ ms.assetid: 9378bffa-487c-43ca-9ec3-7e7864d2dd9a
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6906c1dafc6d4131e07c008b9db47ebebe9b7770
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 87ec5218455672cbfd2bc1d77244fd263b91362c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864690"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433300"
 ---
 # <a name="manage-digital-media-in-windows-server-essentials"></a>Gérer les supports numériques dans Windows Server Essentials
 
@@ -85,25 +85,25 @@ Les rubriques suivantes abordent les fonctions de diffusion multimédia en conti
   
  Lorsque vous activez le serveur multimédia, le contenu que vous partagez dans les bibliothèques multimédias sera disponible sur les périphériques de votre réseau qui sont capables de recevoir des contenus multimédias diffusés en continu depuis votre serveur. Vous pouvez diffuser la plupart des types de fichiers multimédias. Certains des types de fichiers les plus communs que vous pouvez diffuser sont les suivants :  
   
--   Formats Windows Media (.asf, .wma, .wmv, .wm)  
+- Formats Windows Media (.asf, .wma, .wmv, .wm)  
   
--   Audio Visual Interleave (.avi)  
+- Audio Visual Interleave (.avi)  
   
--   Moving Pictures Experts Group (.mpeg, .mpg, .mp3)  
+- Moving Pictures Experts Group (.mpeg, .mpg, .mp3)  
   
--   Audio pour Windows (.wav)  
+- Audio pour Windows (.wav)  
   
--   Piste CD Audio (.cda)  
+- Piste CD Audio (.cda)  
   
- Pour lire un fichier, il vous suffit de rechercher une chanson, une vidéo ou une image dans un dossier partagé, puis de double-cliquer sur le fichier pour diffuser et lire le contenu depuis le serveur sur votre ordinateur. Pour plus d’informations sur la façon de rechercher et lire les fichiers multimédias numériques qui sont stockés sur le serveur, consultez [Play Digital Media](../use/Play-Digital-Media-in-Windows-Server-Essentials.md).  
+  Pour lire un fichier, il vous suffit de rechercher une chanson, une vidéo ou une image dans un dossier partagé, puis de double-cliquer sur le fichier pour diffuser et lire le contenu depuis le serveur sur votre ordinateur. Pour plus d’informations sur la façon de rechercher et lire les fichiers multimédias numériques qui sont stockés sur le serveur, consultez [Play Digital Media](../use/Play-Digital-Media-in-Windows-Server-Essentials.md).  
   
- Pour diffuser vos contenus multimédias, il vous faut le matériel suivant :  
+  Pour diffuser vos contenus multimédias, il vous faut le matériel suivant :  
   
--   Un réseau privé câblé ou sans fil  
+- Un réseau privé câblé ou sans fil  
   
--   Un autre ordinateur sur votre réseau ou un périphérique appelé récepteur multimédia numérique (parfois appelé lecteur multimédia numérique en réseau). Récepteurs multimédias numériques sont des périphériques matériels connectés à votre réseau câblé ou sans fil que vous pouvez contrôler à l’aide de votre ordinateur ? même si votre ordinateur est dans une autre pièce.  
+- Un autre ordinateur sur votre réseau ou un périphérique appelé récepteur multimédia numérique (parfois appelé lecteur multimédia numérique en réseau). Récepteurs multimédias numériques sont des périphériques matériels connectés à votre réseau câblé ou sans fil que vous pouvez contrôler à l’aide de votre ordinateur ? même si votre ordinateur est dans une autre pièce.  
   
- Pour plus d’informations, consultez [activer ou désactiver la diffusion multimédia](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_4).  
+  Pour plus d’informations, consultez [activer ou désactiver la diffusion multimédia](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_4).  
   
 ##  <a name="BKMK_4"></a> Activer ou désactiver la diffusion multimédia  
  Vous pouvez partager la musique, des vidéos et des images à partir de Windows Server Essentials en diffusant les fichiers vers tout récepteur de médias numériques pris en charge (DMR) tels que les ordinateurs, téléphones mobiles, téléviseurs, récepteurs numériques, les extendeurs pour Windows Media Center (y compris Xbox 360) et autres appareils personnels électroniques.  
@@ -115,21 +115,21 @@ Les rubriques suivantes abordent les fonctions de diffusion multimédia en conti
   
 ####  <a name="BKMK_2.5"></a> Pour activer ou désactiver la diffusion multimédia  
   
-1.  Ouvrez le tableau de bord Windows Server Essentials.  
+1. Ouvrez le tableau de bord Windows Server Essentials.  
   
-2.  Cliquez sur **Paramètres**, sur **Multimédia**, puis effectuez une des opérations suivantes :  
+2. Cliquez sur **Paramètres**, sur **Multimédia**, puis effectuez une des opérations suivantes :  
   
-    -   Cliquez sur **Activer** pour commencer à partager tous les fichiers qui sont stockés dans la bibliothèque multimédia du serveur.  
+   -   Cliquez sur **Activer** pour commencer à partager tous les fichiers qui sont stockés dans la bibliothèque multimédia du serveur.  
   
-    -   Cliquez sur **Désactiver** pour cesser de partager tous les fichiers qui sont stockés dans la bibliothèque multimédia du serveur.  
+   -   Cliquez sur **Désactiver** pour cesser de partager tous les fichiers qui sont stockés dans la bibliothèque multimédia du serveur.  
   
-3.  Si vous voulez partager des dossiers supplémentaires de la bibliothèque multimédia, cliquez sur **Personnaliser**, puis sélectionnez **Oui** pour chaque dossier partagé que vous souhaitez inclure dans la bibliothèque multimédia.  
+3. Si vous voulez partager des dossiers supplémentaires de la bibliothèque multimédia, cliquez sur **Personnaliser**, puis sélectionnez **Oui** pour chaque dossier partagé que vous souhaitez inclure dans la bibliothèque multimédia.  
   
-4.  Cliquez sur **OK** pour enregistrer vos modifications.  
+4. Cliquez sur **OK** pour enregistrer vos modifications.  
   
- Pour plus d’informations sur les types de médias numériques pris en charge par le Lecteur Windows Media, consultez la rubrique [Types de fichiers pris en charge par le Lecteur Windows Media](https://support.microsoft.com/kb/316992).  
+   Pour plus d’informations sur les types de médias numériques pris en charge par le Lecteur Windows Media, consultez la rubrique [Types de fichiers pris en charge par le Lecteur Windows Media](https://support.microsoft.com/kb/316992).  
   
- Pour plus d'informations, voir [Allow or restrict access to a media library on the server](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_6).  
+   Pour plus d'informations, voir [Allow or restrict access to a media library on the server](Manage-Digital-Media-in-Windows-Server-Essentials.md#BKMK_6).  
   
 ##  <a name="BKMK_5"></a> Ajouter des fichiers multimédias numériques sur le serveur  
  L’administrateur du serveur peut ajouter des médias numériques à des dossiers partagés dans la bibliothèque multimédia en accédant directement au serveur, ou en utilisant le site accès Web à distance pour vous connecter au tableau de bord. Autres utilisateurs peuvent ajouter des fichiers multimédias au serveur à l’aide de la **dossiers partagés** connexion sur le Launchpad, en utilisant le site accès Web à distance, ou à l’aide de l’application My Server pour Windows Phone. Pour plus d’informations sur la lecture de médias, consultez [Play Digital Media](../use/Play-Digital-Media-in-Windows-Server-Essentials.md).  
@@ -151,7 +151,7 @@ Les rubriques suivantes abordent les fonctions de diffusion multimédia en conti
   
 ##  <a name="BKMK_6"></a> Autoriser ou restreindre l’accès à une bibliothèque multimédia sur le serveur  
   
--   Lorsque vous activez le partage de médias, vous créez quatre dossiers prédéfinis : Musique, Images, Vidéos et TV enregistrée. Si l'un de ces dossiers existe déjà sur le serveur, le dossier existant est réutilisé comme dossier partagé pour le partage de fichiers multimédias. Toutes les les dossier s support utilisateur et contenu autorisations existantes sont conservées, et ils sont partagés avec tous les utilisateurs du réseau.  
+-   Lorsque vous activez le partage de médias, vous créez quatre dossiers prédéfinis : Musique, Images, Vidéos et TV enregistrée. Si l'un de ces dossiers existe déjà sur le serveur, le dossier existant est réutilisé comme dossier partagé pour le partage de fichiers multimédias. Tous les existants du dossier media contenu et des autorisations utilisateur sont conservées, et ils sont partagés avec tous les utilisateurs du réseau.  
   
 -   Avant d'activer le partage de la bibliothèque multimédia pour un dossier partagé, vous devez savoir que ce paramétrage a priorité sur tout autre type d'accès de compte d'utilisateur que vous définissez pour le dossier partagé. Par exemple, si vous activez le partage de bibliothèque multimédia pour le dossier partagé **Photos** et que vous définissez le dossier partagé **Photos** en **Aucun accès** pour un compte d'utilisateur nommé Bobby. Bobby peut continuer à lire en diffusion continue les contenus multimédias du dossier partagé **Vidéos** sur n'importe quel lecteur multimédia ou DMR pris en charge. Si vous avez des contenus multimédias numériques que vous ne souhaitez pas diffuser de cette manière, stockez-les dans un dossier sur lequel le partage de bibliothèque multimédia n'est pas activé.  
   
@@ -204,21 +204,21 @@ Les rubriques suivantes abordent les fonctions de diffusion multimédia en conti
   
  Le format et la vitesse de transmission choisis pour le transcodage dépendent largement des performances du processeur du serveur. Les performances du processeur font partie de l'Indice de performance Windows. Pour déterminer les performances de votre serveur, effectuez l'une des opérations suivantes :  
   
--   Sur un ordinateur réseau exécutant Windows 7 ou Windows 8 qui possède le même processeur que votre serveur, accédez à la **le panneau de configuration**, cliquez sur **informations sur les performances et outils**, puis passez en revue les informations sur le **Taux et améliorer les performances de votre ordinateur s** page.  
+- Sur un ordinateur réseau exécutant Windows 7 ou Windows 8 qui possède le même processeur que votre serveur, accédez à la **le panneau de configuration**, cliquez sur **informations sur les performances et outils**, puis passez en revue les informations sur le **Taux et améliorer les performances de votre ordinateur** page.  
   
--   Contactez le fabricant du processeur.  
+- Contactez le fabricant du processeur.  
   
- Pour une expérience utilisateur optimale, choisissez une qualité de diffusion vidéo appropriée au processeur de votre serveur. Le serveur ajuste automatiquement la vitesse de transmission à l'un de ces paramètres :  
+  Pour une expérience utilisateur optimale, choisissez une qualité de diffusion vidéo appropriée au processeur de votre serveur. Le serveur ajuste automatiquement la vitesse de transmission à l'un de ces paramètres :  
   
--   **Faible** si le score du processeur est inférieur à 3.6.  
+- **Faible** si le score du processeur est inférieur à 3.6.  
   
--   **Moyenne** si le score du processeur est compris entre 3.6 et 4.2.  
+- **Moyenne** si le score du processeur est compris entre 3.6 et 4.2.  
   
--   **Élevée** si le score du processeur est compris entre 4.2 et 6.0.  
+- **Élevée** si le score du processeur est compris entre 4.2 et 6.0.  
   
--   **Meilleure** si le score du processeur est supérieur à 6.0.  
+- **Meilleure** si le score du processeur est supérieur à 6.0.  
   
- Si vous choisissez une résolution de diffusion vidéo qui nécessite plus de puissance de traitement que votre serveur, vous pouvez rencontrer mises en mémoire tampon et des arrêts de lecture pendant la diffusion à partir du serveur.  
+  Si vous choisissez une résolution de diffusion vidéo qui nécessite plus de puissance de traitement que votre serveur, vous pouvez rencontrer mises en mémoire tampon et des arrêts de lecture pendant la diffusion à partir du serveur.  
   
 > [!NOTE]
 >  Pour diffuser une vidéo en haute définition via l'accès web à distance, vous devez disposer d'un processeur dont le score est d'au moins 6.0.  

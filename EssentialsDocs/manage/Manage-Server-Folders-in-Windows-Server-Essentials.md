@@ -12,12 +12,12 @@ ms.assetid: 090cf1b8-7b9b-48b9-ae85-b98477b8d7cc
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e1f3640f21b95acafa850b2204cd52f9c0f324e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0c46d19f4f172786e0ffe7f3b9dd7ac1d8f4fcf0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859330"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433206"
 ---
 # <a name="manage-server-folders-in-windows-server-essentials"></a>Gérer les dossiers serveur dans Windows Server Essentials
 
@@ -42,23 +42,23 @@ ms.locfileid: "59859330"
 ##  <a name="BKMK_2"></a> Gérer les dossiers de serveur à l’aide du tableau de bord  
  Windows Server Essentials vous permet d'effectuer des tâches d'administration courantes à l'aide du tableau de bord. La page **Dossiers du serveur** du tableau de bord fournit les éléments suivants :  
   
--   Liste de dossiers serveur, qui indique les éléments suivants :  
+- Liste de dossiers serveur, qui indique les éléments suivants :  
   
-    -   nom du dossier ;  
+  -   nom du dossier ;  
   
-    -   description du dossier ;  
+  -   description du dossier ;  
   
-    -   emplacement du dossier ;  
+  -   emplacement du dossier ;  
   
-    -   quantité d'espace libre disponible à l'emplacement du dossier ;  
+  -   quantité d'espace libre disponible à l'emplacement du dossier ;  
   
-    -   brèves informations d'état sur les tâches en cours d'exécution pour le dossier. Le champ **État** est vide si le dossier est sain, et si aucune tâche n'est en cours d'exécution.  
+  -   brèves informations d'état sur les tâches en cours d'exécution pour le dossier. Le champ **État** est vide si le dossier est sain, et si aucune tâche n'est en cours d'exécution.  
   
--   Volet d'informations qui fournit parfois des indications supplémentaires sur un dossier sélectionné.  
+- Volet d'informations qui fournit parfois des indications supplémentaires sur un dossier sélectionné.  
   
--   Volet des tâches qui inclut un ensemble de tâches d'administration relatives aux dossiers.  
+- Volet des tâches qui inclut un ensemble de tâches d'administration relatives aux dossiers.  
   
- Le tableau suivant décrit les différentes tâches de dossier serveur disponibles dans le tableau de bord Windows Server Essentials. La plupart des tâches sont spécifiques aux dossiers. Elles ne sont visibles que si vous sélectionnez un dossier dans la liste.  
+  Le tableau suivant décrit les différentes tâches de dossier serveur disponibles dans le tableau de bord Windows Server Essentials. La plupart des tâches sont spécifiques aux dossiers. Elles ne sont visibles que si vous sélectionnez un dossier dans la liste.  
   
 ### <a name="server-folder-tasks-on-the-dashboard"></a>Tâches de dossier serveur dans le tableau de bord  
   
@@ -77,13 +77,13 @@ ms.locfileid: "59859330"
   
  L'utilisation de dossiers serveur pour stocker vos fichiers vous permet d'effectuer les tâches suivantes :  
   
--   sauvegarder le dossier serveur à l'aide de la fonctionnalité de sauvegarde et restauration du serveur en prévision d'une défaillance totale du serveur ;  
+- sauvegarder le dossier serveur à l'aide de la fonctionnalité de sauvegarde et restauration du serveur en prévision d'une défaillance totale du serveur ;  
   
--   accéder aux fichiers stockés sur le dossier serveur depuis n'importe quel emplacement à l'aide d'un navigateur Internet via l'accès web à distance, ou via les applications Mon serveur pour Windows Phone et Windows 8 ;  
+- accéder aux fichiers stockés sur le dossier serveur depuis n'importe quel emplacement à l'aide d'un navigateur Internet via l'accès web à distance, ou via les applications Mon serveur pour Windows Phone et Windows 8 ;  
   
--   accéder au nouveau dossier serveur à partir de n'importe quel ordinateur client.  
+- accéder au nouveau dossier serveur à partir de n'importe quel ordinateur client.  
   
- Vous pouvez gérer l'accès aux dossiers serveur sur le serveur à l'aide des tâches situées sous l'onglet **Dossiers du serveur** du tableau de bord. Le tableau suivant répertorie les dossiers serveur créés par défaut quand vous installez Windows Server Essentials ou que vous activez la diffusion multimédia en continu sur votre serveur.  
+  Vous pouvez gérer l'accès aux dossiers serveur sur le serveur à l'aide des tâches situées sous l'onglet **Dossiers du serveur** du tableau de bord. Le tableau suivant répertorie les dossiers serveur créés par défaut quand vous installez Windows Server Essentials ou que vous activez la diffusion multimédia en continu sur votre serveur.  
   
 |Nom du dossier serveur|Description|  
 |------------------------|-----------------|  
@@ -188,43 +188,43 @@ ms.locfileid: "59859330"
   
  Vous pouvez **déplacer un dossier serveur** qui se trouve sur le serveur principal exécutant Windows Server Essentials, et qui s'affiche sous l'onglet **Dossiers du serveur** du tableau de bord vers un autre disque dur, en cas de besoin, à l'aide de l'Assistant Déplacement d'un dossier. Vous pouvez déplacer un dossier serveur vers un autre disque dur dans les situations suivantes :  
   
--   Le disque dur de données n'a plus suffisamment d'espace pour stocker les données.  
+- Le disque dur de données n'a plus suffisamment d'espace pour stocker les données.  
   
--   Vous souhaitez changer l'emplacement de stockage par défaut. Pour aller plus vite, déplacez le dossier serveur tant qu'il ne contient pas de données.  
+- Vous souhaitez changer l'emplacement de stockage par défaut. Pour aller plus vite, déplacez le dossier serveur tant qu'il ne contient pas de données.  
   
--   Vous souhaitez supprimer le disque dur existant sans perdre les dossiers serveur situés sur ce dernier.  
+- Vous souhaitez supprimer le disque dur existant sans perdre les dossiers serveur situés sur ce dernier.  
   
- Avant de déplacer le dossier, vérifiez les points suivants :  
+  Avant de déplacer le dossier, vérifiez les points suivants :  
   
--   Vérifiez que vous avez sauvegardé votre serveur.  
+- Vérifiez que vous avez sauvegardé votre serveur.  
   
--   Assurez-vous que toutes les sauvegardes de clients sont à l'arrêt, si vous prévoyez de déplacer le dossier Sauvegardes d'ordinateurs client. Durant le déplacement du dossier Sauvegardes d'ordinateurs client, le serveur ne peut pas sauvegarder les ordinateurs clients tant que le déplacement du dossier n'est pas fini.  
+- Assurez-vous que toutes les sauvegardes de clients sont à l'arrêt, si vous prévoyez de déplacer le dossier Sauvegardes d'ordinateurs client. Durant le déplacement du dossier Sauvegardes d'ordinateurs client, le serveur ne peut pas sauvegarder les ordinateurs clients tant que le déplacement du dossier n'est pas fini.  
   
--   Assurez-vous que le serveur n'effectue pas d'opérations système critiques. Il est recommandé d'achever les mises à jour ou les sauvegardes en cours d'exécution avant de démarrer un déplacement de dossier. Sinon, le processus risque de durer plus longtemps.  
+- Assurez-vous que le serveur n'effectue pas d'opérations système critiques. Il est recommandé d'achever les mises à jour ou les sauvegardes en cours d'exécution avant de démarrer un déplacement de dossier. Sinon, le processus risque de durer plus longtemps.  
   
--   Aucun des fichiers du dossier à déplacer n'est en cours d'utilisation. Vous ne pouvez pas accéder au dossier serveur pendant son déplacement.  
+- Aucun des fichiers du dossier à déplacer n'est en cours d'utilisation. Vous ne pouvez pas accéder au dossier serveur pendant son déplacement.  
   
- Le déplacement d'un dossier du système de fichiers NTFS vers ReFS n'est pas pris en charge, si les fichiers des dossiers serveur implémentent les technologies suivantes :  
+  Le déplacement d'un dossier du système de fichiers NTFS vers ReFS n'est pas pris en charge, si les fichiers des dossiers serveur implémentent les technologies suivantes :  
   
--   autres flux de données ;  
+- autres flux de données ;  
   
--   ID d’objet  
+- ID d’objet  
   
--   noms courts (noms au format 8.3) ;  
+- noms courts (noms au format 8.3) ;  
   
--   compression ;  
+- compression ;  
   
--   chiffrement EFS ;  
+- chiffrement EFS ;  
   
--   Transactional NTFS, TxF (introduit avec Windows Vista) ;  
+- Transactional NTFS, TxF (introduit avec Windows Vista) ;  
   
--   Fichiers partiellement alloués  
+- Fichiers partiellement alloués  
   
--   Liens physiques  
+- Liens physiques  
   
--   attributs étendus ;  
+- attributs étendus ;  
   
--   quotas.  
+- quotas.  
   
 ###  <a name="BKMK_6"></a> Où ajouter ou déplacer un dossier serveur  
  En règle générale, ajoutez ou déplacez les dossiers serveur sur des disques durs disposant de la quantité maximale d'espace libre. Si possible, évitez d'ajouter ou de déplacer un dossier partagé sur le lecteur système (par exemple C:), car il risque d'empiéter sur l'espace disque nécessaire au système d'exploitation et à ses mises à jour. En outre, évitez d'ajouter ou de déplacer les dossiers serveur sur un disque dur externe, car ces derniers peuvent être facilement déconnectés, ce qui vous empêcherait d'accéder à vos fichiers. À la place, nous vous recommandons de créer le dossier sur un lecteur interne.  
@@ -254,17 +254,17 @@ ms.locfileid: "59859330"
   
 ##### <a name="to-add-a-server-folder"></a>Pour ajouter un dossier serveur  
   
-1.  Ouvrez le tableau de bord.  
+1. Ouvrez le tableau de bord.  
   
-2.  Cliquez sur **STOCKAGE**, puis sur **Dossiers du serveur**.  
+2. Cliquez sur **STOCKAGE**, puis sur **Dossiers du serveur**.  
   
-3.  Dans **Tâches de dossier serveur**, cliquez sur **Ajouter un dossier**. Cela permet de lancer l'Assistant Ajout d'un dossier.  
+3. Dans **Tâches de dossier serveur**, cliquez sur **Ajouter un dossier**. Cela permet de lancer l'Assistant Ajout d'un dossier.  
   
-4.  Suivez les instructions pour exécuter l'Assistant.  
+4. Suivez les instructions pour exécuter l'Assistant.  
   
-    > [!NOTE]
-    >  -   Si vous recherchez un dossier particulier à l'aide du bouton Parcourir pour spécifier l'emplacement du dossier serveur, le dossier auquel vous avez accédé est ajouté en tant que dossier serveur.  
-    > -   Vous pouvez définir les dossiers serveur accessibles via l'accès web à distance. Pour plus d'informations, voir [Manage access to server folders](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_1).  
+   > [!NOTE]
+   > - Si vous recherchez un dossier particulier à l'aide du bouton Parcourir pour spécifier l'emplacement du dossier serveur, le dossier auquel vous avez accédé est ajouté en tant que dossier serveur.  
+   >   -   Vous pouvez définir les dossiers serveur accessibles via l'accès web à distance. Pour plus d'informations, voir [Manage access to server folders](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_1).  
   
 ##### <a name="to-move-a-server-folder"></a>Pour déplacer un dossier serveur  
   
@@ -294,13 +294,13 @@ ms.locfileid: "59859330"
 ##  <a name="BKMK_Shadow"></a> Comprendre les clichés instantanés  
  À l'aide des clichés instantanés du serveur, les utilisateurs peuvent afficher les fichiers et les dossiers partagés tels qu'ils existaient à une date et heure spécifiques. L'accès aux versions précédentes des fichiers, ou clichés instantanés, est utile, car cela permet aux utilisateurs d'effectuer les tâches suivantes :  
   
-1.  **Récupérer des fichiers accidentellement supprimés**. Si vous supprimez accidentellement un fichier, vous pouvez ouvrir une version précédente de ce dernier, et la copier dans un emplacement sûr.  
+1. **Récupérer des fichiers accidentellement supprimés**. Si vous supprimez accidentellement un fichier, vous pouvez ouvrir une version précédente de ce dernier, et la copier dans un emplacement sûr.  
   
-2.  **Récupérer un fichier accidentellement remplacé**. Si vous remplacez accidentellement un fichier, vous pouvez récupérer une version précédente de ce dernier. (Le nombre de versions dépend du nombre d'instantanés que vous avez créés.)  
+2. **Récupérer un fichier accidentellement remplacé**. Si vous remplacez accidentellement un fichier, vous pouvez récupérer une version précédente de ce dernier. (Le nombre de versions dépend du nombre d'instantanés que vous avez créés.)  
   
-3.  **Comparer différentes versions d'un fichier en cours de travail**. Vous pouvez utiliser les versions précédentes d'un fichier pour vérifier les changements qui se sont produits entre les versions.  
+3. **Comparer différentes versions d'un fichier en cours de travail**. Vous pouvez utiliser les versions précédentes d'un fichier pour vérifier les changements qui se sont produits entre les versions.  
   
- Pour utiliser les clichés instantanés, sur un ordinateur client, cliquez sur un dossier serveur partagé, puis sélectionnez **Restaurer les versions précédentes**.  
+   Pour utiliser les clichés instantanés, sur un ordinateur client, cliquez sur un dossier serveur partagé, puis sélectionnez **Restaurer les versions précédentes**.  
   
 ## <a name="see-also"></a>Voir aussi  
   

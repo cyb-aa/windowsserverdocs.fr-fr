@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3229e6ccb07c925a900b298a8332c5e48cefefe7
-ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.openlocfilehash: aa655d80c2698430827ad814c2b476e526529323
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65564669"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441552"
 ---
 # <a name="seceditgeneraterollback"></a>secedit:generaterollback
 
@@ -44,7 +44,7 @@ Secedit /generaterollback /db <database file name> /cfg <configuration file name
 
 ## <a name="remarks"></a>Notes
 
-Si le chemin d’accès du fichier journal n’est pas fourni, le fichier journal par défaut, (*systemroot*\Users \*UserAccount *\My Documents\Security\Logs\*DatabaseName*.log) est utilisé.
+Si le chemin d’accès du fichier journal n’est pas fourni, le fichier journal par défaut, (*systemroot*\Users \*UserAccount<em>\My Documents\Security\Logs\*DatabaseName</em>.log) est utilisé.
 
 À partir de Windows Server 2008, `Secedit /refreshpolicy` a été remplacé par `gpupdate`. Pour plus d’informations sur l’actualisation des paramètres de sécurité, consultez [Gpupdate](gpupdate.md).
 

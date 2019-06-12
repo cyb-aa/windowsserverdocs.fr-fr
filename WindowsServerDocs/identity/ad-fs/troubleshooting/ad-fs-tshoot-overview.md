@@ -8,12 +8,12 @@ ms.date: 01/12/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 60ecf94b72e58aed4d3718b19f6007cdad1c9578
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6410d510085d1772ca6d8ced47226e00239a1a02
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840950"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443901"
 ---
 # <a name="troubleshooting-ad-fs"></a>Résolution des problèmes liés aux services ADFS (Active Directory Federation Services)
 AD FS possède un grand nombre d’éléments mobiles, touche plusieurs choses et comporte de nombreuses dépendances différents.  Bien entendu, cela peut donner lieu à différents problèmes.  Ce document est conçu pour vous aider à démarrer sur la résolution de ces problèmes.  Ce document vous présente les zones classiques que vous devez vous concentrer sur l’activation de fonctionnalités pour des informations supplémentaires et des outils différents qui peuvent être utilisées pour dépister les problèmes.  
@@ -27,7 +27,7 @@ Avant de vous plongez dans la résolution des problèmes approfondie, il existe 
 - **Configuration DNS** -vous pouvez résoudre le nom du service de fédération ?  Cela devrait résoudre à l’adresse IP de soit l’équilibreur de charge ou l’adresse IP d’un des serveurs AD FS dans votre batterie de serveurs.  Pour plus d’informations, consultez [AD FS résolution des problèmes - DNS](ad-fs-tshoot-dns.md).
 - **Points de terminaison AD FS** -vous pouvez parcourir aux points de terminaison AD FS ?  En accédant à cela, vous pouvez déterminer si votre serveur de web AD FS répond aux demandes.  Si vous pouvez accéder à ce fichier, vous savez que AD FS traite les demandes sur le port 443 parfaitement.  Pour plus d’informations, consultez [AD FS résolution des problèmes - points de terminaison](ad-fs-tshoot-endpoints.md).
 - **Authentification unique initiée par le fournisseur d’identité On** -se connecter et s’authentifier via la page authentification Idp-Initiated ?  Vous devez vous assurer que cette page a été activée parce qu’elle est désactivée par défaut.  Utilisez `Set-AdfsProperties -EnableIdPInitiatedSignOn $true` pour activer la page.  Si vous pouvez vous connecter et s’authentifier vous savez que les services ADFS fonctionnent dans cette zone.  Pour plus d’informations, consultez [AD FS résolution des problèmes - SignOn](ad-fs-tshoot-initiatedsignon.md).
-##  <a name="common-troubleshooting-areas"></a>Zones de résolution des problèmes courants
+  ##  <a name="common-troubleshooting-areas"></a>Zones de résolution des problèmes courants
 
 |Nom|Description|
 |-----|-----|

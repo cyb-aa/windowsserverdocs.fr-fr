@@ -12,12 +12,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic-msft
 ms.date: 02/28/2019
-ms.openlocfilehash: 0d618d465ee45245e98fbc6aa58b32b974be08e8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 32068319aae7545675e126eed6e1ab4c914bcbcf
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880880"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812636"
 ---
 # <a name="transport-layer-security-tls-registry-settings"></a>Paramètres de Registre Layer Security (TLS) de transport
 
@@ -25,9 +25,13 @@ ms.locfileid: "59880880"
 
 Cette rubrique de référence pour les professionnels de l’informatique contient des informations de paramètre de Registre pris en charge pour l’implémentation Windows du protocole Transport Layer Security (TLS) et le protocole Secure Sockets Layer (SSL) via la prise en charge de sécurité Schannel Fournisseur (SSP). Les sous-clés de Registre et les entrées traitées dans cette rubrique vous aident à administrez et dépanner le SSP Schannel, en particulier les protocoles TLS et SSL. 
 
->[!Caution]
->Ces informations sont fournies à titre de référence et peuvent être utilisées dans le cadre de la résolution de problèmes ou de la vérification de l’application des paramètres requis. Nous vous recommandons de ne pas modifier directement le Registre, sauf s’il n’y a pas d’autre solution.
->Les modifications apportées au Registre ne sont pas validées par l’Éditeur du Registre ni par le système d’exploitation Windows avant d’être appliquées. Par conséquent, des valeurs incorrectes peuvent être stockées et cela peut générer des erreurs irrécupérables dans le système. Si possible, plutôt que de modifier le Registre directement, utilisez la stratégie de groupe ou d’autres outils Windows tels que la console MMC (Microsoft Management) pour exécuter des opérations. Si vous devez modifier le Registre, soyez très vigilant. 
+> [!CAUTION]
+> Ces informations sont fournies à titre de référence et peuvent être utilisées dans le cadre de la résolution de problèmes ou de la vérification de l’application des paramètres requis.
+> Nous vous recommandons de ne pas modifier directement le Registre, sauf s’il n’y a pas d’autre solution.
+> Les modifications apportées au Registre ne sont pas validées par l’Éditeur du Registre ni par le système d’exploitation Windows avant d’être appliquées.
+> Par conséquent, des valeurs incorrectes peuvent être stockées et cela peut générer des erreurs irrécupérables dans le système.
+> Si possible, plutôt que de modifier le Registre directement, utilisez la stratégie de groupe ou d’autres outils Windows tels que la console MMC (Microsoft Management) pour exécuter des opérations.
+> Si vous devez modifier le Registre, soyez très vigilant.
 
 ## <a name="certificatemappingmethods"></a>CertificateMappingMethods 
 
@@ -57,7 +61,7 @@ Chiffrement TLS/SSL doit être contrôlé en configurant l’ordre des suites de
 
 Pour plus d’informations sur l’ordre de suites de chiffrement par défaut qui sont utilisés par le SSP Schannel, consultez [Suites de chiffrement dans TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx). 
 
-##<a name="ciphersuites"></a>Suites de chiffrement
+## <a name="ciphersuites"></a>Suites de chiffrement
 
 Configuration des suites de chiffrement TLS/SSL doit être effectuée à l’aide de la stratégie de groupe, gestion des appareils mobiles ou PowerShell, consultez [configuration ordre des suites de chiffrement TLS](manage-tls.md#configuring-tls-cipher-suite-order) pour plus d’informations.
 
@@ -100,8 +104,8 @@ Pour désactiver, définissez la valeur DWORD sur 0 :
 
 "EnableOcspStaplingForSni"=dword:00000000
 
->[!NOTE] 
->L’activation de cette clé de Registre a un impact potentiel sur les performances.
+> [!NOTE] 
+> L’activation de cette clé de Registre a un impact potentiel sur les performances.
 
 ## <a name="fipsalgorithmpolicy"></a>FIPSAlgorithmPolicy
 
@@ -207,7 +211,7 @@ Par défaut, cette entrée n’existe pas dans le Registre.
 
 Comportement d’envoyer la liste des émetteurs approuvés par défaut
 
-| Version de Windows | Temps |
+| Version de Windows | Time |
 |-----------------|------|
 | Windows Server 2012 et Windows 8 et versions ultérieures | FALSE |
 | Windows Server 2008 R2 et Windows 7 et versions antérieures | TRUE |

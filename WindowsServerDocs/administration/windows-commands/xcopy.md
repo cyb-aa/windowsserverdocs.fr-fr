@@ -13,20 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: 5001e070b63fe88da50a5219f129855606e7a2e5
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 6448c4c5940d286931f6d64ad51970bf577a28fd
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192710"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811026"
 ---
 # <a name="xcopy"></a>xcopy
 
+Copie les fichiers et répertoires, y compris les sous-répertoires.
 
-
-Copie les fichiers et répertoires, y compris les sous-répertoires
-
-Pour obtenir des exemples montrant comment utiliser cette commande, consultez [exemples](xcopy.md#BKMK_examples)
+Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -72,80 +70,105 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 
 ## <a name="remarks"></a>Notes
 
--   À l’aide de **/z**
+- À l’aide de **/z**
 
-    Si vous perdez la connexion pendant la phase de copie (par exemple, si le serveur de mise hors connexion interrompt la connexion), il reprend une fois que vous rétablissez la connexion. **/z** affiche également le pourcentage de l’opération de copie pour chaque fichier.
--   À l’aide de **/y** dans la variable d’environnement COPYCMD.
+  Si vous perdez la connexion pendant la phase de copie (par exemple, si le serveur de mise hors connexion interrompt la connexion), il reprend une fois que vous rétablissez la connexion. **/z** affiche également le pourcentage de l’opération de copie pour chaque fichier.
 
-    Vous pouvez utiliser **/y** dans la variable d’environnement COPYCMD. Vous pouvez remplacer cette commande à l’aide de **/-y** sur la ligne de commande. Par défaut, vous êtes invité à remplacer.
--   Copie de fichiers cryptés
+- À l’aide de **/y** dans la variable d’environnement COPYCMD.
 
-    Copie de fichiers cryptés vers un volume qui ne prend pas en charge les résultats d’EFS dans une erreur. Tout d’abord de déchiffrer les fichiers ou copiez les fichiers sur un volume qui ne prend pas en charge le système EFS.
--   Ajout de fichiers
+  Vous pouvez utiliser **/y** dans la variable d’environnement COPYCMD. Vous pouvez remplacer cette commande à l’aide de **/-y** sur la ligne de commande. Par défaut, vous êtes invité à remplacer.
 
-    Pour ajouter des fichiers, spécifiez un seul fichier de destination, mais plusieurs fichiers sources (autrement dit, en utilisant des caractères génériques ou fichier1 + fichier2 + fichier3).
--   Valeur par défaut pour *Destination*
+- Copie de fichiers cryptés
 
-    Si vous omettez *Destination*, le **xcopy** commande copie les fichiers dans le répertoire actif.
--   Spécifiant si *Destination* est un fichier ou répertoire
+  Copie de fichiers cryptés vers un volume qui ne prend pas en charge les résultats d’EFS dans une erreur. Tout d’abord de déchiffrer les fichiers ou copiez les fichiers sur un volume qui ne prend pas en charge le système EFS.
 
-    Si *Destination* ne contient pas un répertoire existant et ne se termine pas par une barre oblique inverse (\), le message suivant apparaît :  
-    ```
-    Does <Destination> specify a file name or directory name on the target(F = file, D = directory)?
-    ```  
-    Si vous souhaitez que l’ou les fichiers à copier dans un fichier, appuyez sur F. Appuyez sur D si vous souhaitez que l’ou les fichiers à copier dans un répertoire.
+- Ajout de fichiers
 
-    Vous pouvez supprimer ce message à l’aide de la **/i** option de ligne de commande, ce qui entraîne **xcopy** de supposer que la destination est un répertoire, si la source est plus d’un fichier ou un répertoire.
--   À l’aide de la **xcopy** commande pour définir l’attribut d’archivage pour *Destination* fichiers
+  Pour ajouter des fichiers, spécifiez un seul fichier de destination, mais plusieurs fichiers sources (autrement dit, en utilisant des caractères génériques ou fichier1 + fichier2 + fichier3).
 
-    Le **xcopy** commande crée des fichiers avec l’attribut archive, si cet attribut n’a pas dans le fichier source. Pour plus d’informations sur les attributs de fichier et **attrib**, consultez [références supplémentaires](#additional-references).
--   Comparaison **xcopy** et **diskcopy**
+- Valeur par défaut pour *Destination*
 
-    Si vous avez un disque qui contient les fichiers dans les sous-répertoires et que vous souhaitez copier sur un disque qui a un format différent, utilisez la **xcopy** commande au lieu de **diskcopy**. Étant donné que le **diskcopy** commande copie les disques piste par piste, vos disques source et de destination doivent avoir le même format. Le **xcopy** commande n’a pas cette exigence. Utilisez **xcopy** , sauf si vous avez besoin d’une copie d’image de disque complet.
--   Codes de sortie pour **xcopy**
+  Si vous omettez *Destination*, le **xcopy** commande copie les fichiers dans le répertoire actif.
 
-    Pour traiter les codes de sortie retournés par **xcopy**, utilisez le **ErrorLevel** paramètre sur le **si** ligne de commande dans un programme de traitement par lots. Pour obtenir un exemple d’un programme de traitement par lots qui traite de sortie à l’aide de codes **si**, consultez [références supplémentaires](#additional-references). Le tableau suivant répertorie chaque code de sortie et une description.  
-    |Code de sortie|Description|
-    |---------|-----------|
-    |0|Fichiers ont été copiés sans erreur.|
-    |1|Il n’existe aucun fichier à copier.|
-    |2|L’utilisateur a appuyé sur CTRL + C pour arrêter **xcopy**.|
-    |4|Erreur d’initialisation s’est produite. Il n’est pas suffisamment de mémoire ou l’espace disque, ou que vous avez entré un nom de lecteur ou une syntaxe non valide sur la ligne de commande.|
-    |5|Erreur d’écriture disque s’est produite.|
+- Spécifiant si *Destination* est un fichier ou répertoire
 
-## <a name="BKMK_examples"></a>Exemples
+  Si *Destination* ne contient pas un répertoire existant et ne se termine pas par une barre oblique inverse (\), le message suivant apparaît :
+  
+  ```
+  Does <Destination> specify a file name or directory name on the target(F = file, D = directory)?
+  ```  
+  
+Si vous souhaitez que l’ou les fichiers à copier dans un fichier, appuyez sur F. Appuyez sur D si vous souhaitez que l’ou les fichiers à copier dans un répertoire.
+
+  Vous pouvez supprimer ce message à l’aide de la **/i** option de ligne de commande, ce qui entraîne **xcopy** de supposer que la destination est un répertoire, si la source est plus d’un fichier ou un répertoire.
+- À l’aide de la **xcopy** commande pour définir l’attribut d’archivage pour *Destination* fichiers
+
+  Le **xcopy** commande crée des fichiers avec l’attribut archive, si cet attribut n’a pas dans le fichier source. Pour plus d’informations sur les attributs de fichier et **attrib**, consultez [références supplémentaires](#additional-references).
+
+- Comparaison **xcopy** et **diskcopy**
+
+  Si vous avez un disque qui contient les fichiers dans les sous-répertoires et que vous souhaitez copier sur un disque qui a un format différent, utilisez la **xcopy** commande au lieu de **diskcopy**. Étant donné que le **diskcopy** commande copie les disques piste par piste, vos disques source et de destination doivent avoir le même format. Le **xcopy** commande n’a pas cette exigence. Utilisez **xcopy** , sauf si vous avez besoin d’une copie d’image de disque complet.
+
+- Codes de sortie pour **xcopy**
+
+  Pour traiter les codes de sortie retournés par **xcopy**, utilisez le **ErrorLevel** paramètre sur le **si** ligne de commande dans un programme de traitement par lots. Pour obtenir un exemple d’un programme de traitement par lots qui traite de sortie à l’aide de codes **si**, consultez [références supplémentaires](#additional-references). Le tableau suivant répertorie chaque code de sortie et une description.  
+
+  |Code de sortie|Description|
+  |---------|-----------|
+  |0|Fichiers ont été copiés sans erreur.|
+  |1|Il n’existe aucun fichier à copier.|
+  |2|L’utilisateur a appuyé sur CTRL + C pour arrêter **xcopy**.|
+  |4|Erreur d’initialisation s’est produite. Il n’est pas suffisamment de mémoire ou l’espace disque, ou que vous avez entré un nom de lecteur ou une syntaxe non valide sur la ligne de commande.|
+  |5|Erreur d’écriture disque s’est produite.|
+
+## <a name="examples"></a>Exemples
 
 **1.** Pour copier tous les fichiers et sous-répertoires (y compris tous les sous-répertoires vides) à partir du lecteur A lecteur B, tapez :
+
 ```
 xcopy a: b: /s /e 
 ```
-**2.** Pour inclure n’importe quel système ou les fichiers masqués dans l’exemple précédent, ajoutez le **/h** une option de ligne de commande comme suit :
+
+**2.** Pour inclure n’importe quel système ou les fichiers masqués dans l’exemple précédent, ajoutez le<strong>/h</strong> une option de ligne de commande comme suit :
+
 ```
 xcopy a: b: /s /e /h
 ```
+
 **3.** Pour mettre à jour des fichiers dans le répertoire \Reports avec les fichiers dans le répertoire \Rawdata qui ont été modifiés depuis le 29 décembre 1993, tapez :
+
 ```
 xcopy \rawdata \reports /d:12-29-1993
 ```
+
 **4.** Pour mettre à jour tous les fichiers qui existent dans \Reports dans l’exemple précédent, quelle que soit la date, tapez :
+
 ```
 xcopy \rawdata \reports /u
 ```
+
 **5.** Pour obtenir une liste des fichiers doit être copié par la commande précédente (autrement dit, sans copier réellement les fichiers), type :
+
 ```
 xcopy \rawdata \reports /d:12-29-1993 /l > xcopy.out
 ```
+
 Le fichier xcopy.out répertorie chaque fichier doit être copié.
 
 **6.** Pour copier le répertoire \Customer et tous les sous-répertoires dans le répertoire \\ \\Public\Address sur réseau lecteur H:, conserver l’attribut en lecture seule et être invité lorsqu’un nouveau fichier est créé sur le lecteur H:, tapez :
+
 ```
 xcopy \customer h:\public\address /s /e /k /p
 ```
+
 **7.** Pour émettre la commande précédente, vérifiez que **xcopy** crée le répertoire de \Address s’il n’existe pas et supprimer le message qui s’affiche lorsque vous créez un nouveau répertoire, ajoutez le **/i** de ligne de commande option comme suit :
+
 ```
 xcopy \customer h:\public\address /s /e /k /p /i
 ```
+
 **8.** Vous pouvez créer un programme de traitement par lots pour effectuer **xcopy** opérations et l’utilisation du lot **si** commande pour traiter le code de sortie si une erreur se produit. Par exemple, le programme de commandes suivant utilise des paramètres remplaçables pour la **xcopy** paramètres source et destination :
+
 ```
 @echo off
 rem COPYIT.BAT transfers all files in all subdirectories of
@@ -164,13 +187,17 @@ echo You pressed CTRL+C to end the copy operation.
 goto exit
 :exit 
 ```
+
 Pour utiliser le programme de traitement par lots précédent pour copier tous les fichiers dans le répertoire C:\Prgmcode et ses sous-répertoires lecteur B, tapez :
+
 ```
 copyit c:\prgmcode b:
 ```
+
 Substituts d’interpréteur de commande **C:\Prgmcode** pour *%1* et **b :** pour *%2*, puis utilise **xcopy**avec la **/e** et **/s** des options de ligne de commande. Si **xcopy** rencontre une erreur, le programme lit le code de sortie et passe à l’étiquette indiquée dans approprié **IF ERRORLEVEL** instruction, puis affiche le message approprié et quitte le programme de traitement par lots.
 
 **9.** Cet exemple montre comment tous le non vide répertoires, ainsi que les fichiers dont le nom correspondent au modèle donné avec le symbole astérisque.
+
 ```
 xcopy .\toc*.yml ..\..\Copy-To\ /S /Y
 
@@ -180,6 +207,7 @@ rem  .\d1\d12\toc.yml
 rem  .\d2\toc.yml
 rem  3 File(s) copied
 ```
+
 Dans l’exemple précédent, cette valeur de paramètre source particulier **.\\ table des matières\*.yml** copier le 3 fichiers même si son chemin de deux accès caractères **.\\**  ont été supprimés. Toutefois, aucun fichier ne sont copiés si le caractère générique astérisque a peut-être été retiré le paramètre source, rendant simplement **.\\ TOC.yml**.
 
 #### <a name="additional-references"></a>Références supplémentaires

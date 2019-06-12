@@ -12,12 +12,12 @@ ms.assetid: e143df43-e227-4629-a4ab-9f70d9bf6e84
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e5a8db44f80c333d589e0c1664174c394701f90d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fa6ab8e2108e569b7cef6bfbf0d20af4fa31016d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835680"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432571"
 ---
 # <a name="step-4-move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Étape 4 : Déplacer les paramètres et données vers le serveur de destination pour la migration vers Windows Server Essentials
 
@@ -46,41 +46,41 @@ Cette section fournit des informations sur la migration des paramètres et donn�
   
 #### <a name="to-copy-data-from-the-source-server-to-the-destination-server"></a>Pour copier les données du serveur source vers le serveur de destination  
   
-1.  Connectez-vous au serveur de destination en tant qu'administrateur de domaine, puis ouvrez une fenêtre d'invite de commandes ou une invite de commandes Windows PowerShell.  
+1. Connectez-vous au serveur de destination en tant qu'administrateur de domaine, puis ouvrez une fenêtre d'invite de commandes ou une invite de commandes Windows PowerShell.  
   
-2.  Si vous utilisez la fenêtre d'invite de commandes, tapez la commande suivante et appuyez sur ENTRÉE :  
+2. Si vous utilisez la fenêtre d'invite de commandes, tapez la commande suivante et appuyez sur ENTRÉE :  
   
-    `robocopy \\<SourceServerName>\<SharedSourceFolderName> "<PathOfTheDestination>\<SharedDestinationFolderName>" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`
+   `robocopy \\<SourceServerName>\<SharedSourceFolderName> "<PathOfTheDestination>\<SharedDestinationFolderName>" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`
   
-     Où :  
+    Où :  
   
-    -   \<Nom_serveur_source\> est le nom du serveur Source  
+   - \<Nom_serveur_source\> est le nom du serveur Source  
   
-    -   \<Nomdossiersourcepartagé\> est le nom du dossier partagé sur le serveur Source  
+   - \<Nomdossiersourcepartagé\> est le nom du dossier partagé sur le serveur Source  
   
-    -   \<PathOfTheDestination\> est le chemin d’accès absolu où vous souhaitez déplacer le dossier  
+   - \<PathOfTheDestination\> est le chemin d’accès absolu où vous souhaitez déplacer le dossier  
   
-    -   \<Nomdossierdestinationpartagé\> est le dossier sur le serveur de Destination vers lequel les données seront copiées  
+   - \<Nomdossierdestinationpartagé\> est le dossier sur le serveur de Destination vers lequel les données seront copiées  
   
      Par exemple,  `robocopy \\sourceserver\MyData "d:\ServerFolders\MyData" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`.  
   
-3.  Si vous utilisez Windows PowerShell, tapez la commande suivante et appuyez sur ENTRÉE.  
+3. Si vous utilisez Windows PowerShell, tapez la commande suivante et appuyez sur ENTRÉE.  
   
-     `Add-Wssfolder  Path \ -Name  -KeepPermission`  
+    `Add-Wssfolder  Path \ -Name  -KeepPermission`  
   
-4.  Répétez ce processus pour chaque dossier partagé que vous migrez depuis le serveur source.  
+4. Répétez ce processus pour chaque dossier partagé que vous migrez depuis le serveur source.  
   
 ##  <a name="BKMK_Network"></a> Configurer le réseau  
   
 #### <a name="to-configure-the-network"></a>Pour configurer le réseau  
   
-1.  Sur le serveur de destination, ouvrez le tableau de bord.  
+1. Sur le serveur de destination, ouvrez le tableau de bord.  
   
-2.  Dans la page **Accueil** du tableau de bord, cliquez sur **Configuration**, sur **Configurer l'Accès en tout lieu**, puis choisissez l'option **Cliquez pour configurer l'Accès en tout lieu** .  
+2. Dans la page **Accueil** du tableau de bord, cliquez sur **Configuration**, sur **Configurer l'Accès en tout lieu**, puis choisissez l'option **Cliquez pour configurer l'Accès en tout lieu** .  
   
-3.  L'Assistant Configuration de l'Accès en tout lieu s'affiche. Suivez les instructions de l'Assistant pour configurer votre routeur et les noms de domaine.  
+3. L'Assistant Configuration de l'Accès en tout lieu s'affiche. Suivez les instructions de l'Assistant pour configurer votre routeur et les noms de domaine.  
   
- Si votre routeur ne prend pas en charge l'infrastructure UPnP, ou si l'infrastructure UPnP est désactivée, une icône d'avertissement jaune peut apparaître en regard du nom du routeur. Vérifiez que les ports suivants sont ouverts et qu'ils sont dirigés vers l'adresse IP du serveur de destination :  
+   Si votre routeur ne prend pas en charge l'infrastructure UPnP, ou si l'infrastructure UPnP est désactivée, une icône d'avertissement jaune peut apparaître en regard du nom du routeur. Vérifiez que les ports suivants sont ouverts et qu'ils sont dirigés vers l'adresse IP du serveur de destination :  
   
 -   Port 80 : Trafic Web HTTP  
   

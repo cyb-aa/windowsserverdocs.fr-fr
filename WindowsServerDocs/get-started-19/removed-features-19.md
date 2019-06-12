@@ -13,12 +13,12 @@ ms.author: jgerend
 manager: jasgro
 ms.date: 05/21/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 820dfed8a0a58d3ccc64023325c373b761461ba8
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 597da91aa40d9af4526b5358a88128b52d040645
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65976522"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501443"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-windows-server-2019"></a>Fonctionnalités supprimées ou planifié pour le remplacement à partir de Windows Server 2019
 
@@ -54,5 +54,5 @@ Si vous avez des commentaires à propos de la proposition de suppression de cert
 | Console de gestion de Module de plateforme approuvée|Les informations précédemment disponibles dans la console de gestion du module de plateforme sécurisée sont désormais disponibles sur le [ **sécurité des appareils** ](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-security-center/wdsc-device-security) page dans le [Windows Defender Security Center](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-security-center/windows-defender-security-center). |
 | Mode d’attestation hôte Service Guardian Active Directory|Nous développons ne sont plus du mode d’attestation de répertoire Active du Service Guardian hôte : au lieu de cela, nous avons ajouté un nouveau mode d’attestation, [héberger l’attestation de clé](../security/guarded-fabric-shielded-vm/guarded-fabric-create-host-key.md), qui est beaucoup plus simple et tout aussi aussi compatible que Active Directory en attestation.  Ce nouveau mode fournit des fonctionnalités équivalentes avec une expérience d’installation, une gestion plus simple et moins dépendances d’infrastructure que l’attestation Active Directory. L’attestation de clé hôte n’a aucune autre configuration matérielle requise au-delà de quelles d’attestation d’Active Directory requis, donc tous les systèmes existants restent compatibles avec le nouveau mode. Consultez [déployer des hôtes service Guardian](../security/guarded-fabric-shielded-vm/guarded-fabric-configure-hgs-with-authorized-hyper-v-hosts.md) pour plus d’informations sur les options d’attestation. |
 | Service de OneSync|Le service OneSync synchronise les données pour les applications de messagerie, le calendrier et personnes. Nous avons ajouté un moteur de synchronisation à l’application Outlook qui fournit la synchronisation même. |
-| Prise en charge des API de la Compression différentielle à distance|Prise en charge des API de la Compression différentielle à distance activé la synchronisation des données avec une source distante à l’aide de technologies de compression qui réduit la quantité de données envoyées sur le réseau. Cette prise en charge n’est pas actuellement utilisé par tous les produits Microsoft. |
+| Prise en charge des API de la Compression différentielle à distance|Prise en charge des API de la Compression différentielle à distance activé la synchronisation des données avec une source distante à l’aide de technologies de compression qui réduit la quantité de données envoyées sur le réseau. |
 | Extension de commutateur WFP filtre léger|L’extension de commutateur de filtre léger WFP permet aux développeurs de créer [extensions du commutateur virtuel Hyper-V de filtrage des paquets de réseau simple](https://docs.microsoft.com/en-us/windows-hardware/drivers/network/using-virtual-switch-filtering). Vous pouvez obtenir les mêmes fonctionnalités en créant une extension de filtrage complète. Par conséquent, nous allons supprimer cette extension à l’avenir. |

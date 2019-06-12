@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 29183c62830cbe9e26cce4e0ce4543b554f0ed65
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d089af3562467aa1c222b17d9a1ad69d9c1b5008
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837310"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810588"
 ---
 # <a name="system-requirements"></a>Configuration système
 
@@ -27,10 +27,8 @@ ms.locfileid: "59837310"
 
 Cette rubrique décrit la configuration minimale requise pour exécuter Windows Server&reg; 2016 ou Windows Server, version 1709.
 
-
-> [!Note]  
+> [!NOTE]  
 > Dans cette version, les nouvelles installations sont recommandées.  
->   
 
 > [!NOTE]  
 > Si, au moment de l’installation, vous choisissez l’option d’installation minimale, vous devez savoir qu’aucun composant de l’interface graphique utilisateur n’est installé et que vous ne serez pas en mesure de les installer ni de les désinstaller avec le Gestionnaire de serveur. Si vous avez besoin de fonctionnalités de l’interface graphique utilisateur, choisissez l’option Serveur avec Expérience utilisateur quand vous installez Windows Server 2016. Pour plus d’informations, voir [Installer Nano Server](Getting-Started-with-Nano-Server.md)  
@@ -79,13 +77,13 @@ L’espace disque requis **minimal** approximatif pour la partition système est
 
 **Minimum** : 32 Go  
 
-   > [!NOTE]  
-    > Gardez à l’esprit que 32 Go doivent être considérés comme une valeur *minimale absolue* pour une installation réussie. Cette valeur permet une installation minimale de Windows Server 2016, avec le rôle serveur Services Web (IIS). Un serveur en mode d’installation minimale nécessite environ 4 Go d’espace disque de moins que le même serveur en mode Serveur avec une interface graphique utilisateur. 
-    >   
-    > La partition système aura besoin d’espace supplémentaire dans chacun des cas suivants :  
-    >   
-    > -   Si vous installez le système sur un réseau.  
-    > -   Les ordinateurs disposant de plus de 16 Go de RAM peuvent avoir besoin d’un espace disque supplémentaire pour les fichiers de pagination, de mise en veille prolongée et d’image mémoire.  
+> [!NOTE]
+> Gardez à l’esprit que 32 Go doivent être considérés comme une valeur *minimale absolue* pour une installation réussie. Cette valeur permet une installation minimale de Windows Server 2016, avec le rôle serveur Services Web (IIS). Un serveur en mode d’installation minimale nécessite environ 4 Go d’espace disque de moins que le même serveur en mode Serveur avec une interface graphique utilisateur. 
+> 
+> La partition système aura besoin d’espace supplémentaire dans chacun des cas suivants :  
+> 
+> -   Si vous installez le système sur un réseau.  
+> -   Les ordinateurs disposant de plus de 16 Go de RAM peuvent avoir besoin d’un espace disque supplémentaire pour les fichiers de pagination, de mise en veille prolongée et d’image mémoire.  
 
 ## <a name="network-adapter-requirements"></a>Conditions requises pour les cartes réseau  
 
@@ -97,8 +95,6 @@ Les cartes réseau utilisées avec cette version doivent inclure les fonctionnal
 - Prend en charge l’environnement PXE (Preboot Execution Environment).  
 
 Une carte réseau qui prend en charge le débogage réseau (KDNet) est utile, mais ne constitue pas une condition minimale requise.   
-
-
 
 ## <a name="other-requirements"></a>Autres conditions requises pour la configuration  
 Les ordinateurs exécutant cette version doivent également disposer des éléments suivants :  
@@ -117,13 +113,13 @@ Les éléments suivants ne sont pas strictement obligatoires, mais sont nécessa
 
 -   Accès Internet (frais possibles)  
 
->[!NOTE]  
+> [!NOTE]  
 > Une puce de module de plateforme sécurisée n’est pas strictement nécessaire pour installer cette version, même si elle est requise pour pouvoir utiliser certaines fonctionnalités telles que le chiffrement de lecteur BitLocker. Si votre ordinateur utilise le module de plateforme sécurisée, il doit répondre à ces exigences :  
 >  
->- Les modules de plateforme sécurisée matériels doivent implémenter la version 2.0 de la spécification de module de plateforme sécurisée.  
->- Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent avoir un certificat EK préconfiguré pour le module de plateforme sécurisée par le fournisseur de matériel ou capable d’être récupéré par l’appareil pendant le premier démarrage.  
->- Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent être livrés avec des banques de registre de configuration de plateforme (PCR) SHA-256 et implémenter les PCR 0 à 23 pour SHA-256. Il est acceptable de livrer des modules de plateforme sécurisée avec une seule banque PCR commutable qui peut être utilisée pour les deux mesures SHA-1 et SHA-256.  
->- Une option UEFI pour désactiver le module de plateforme sécurisée n’est pas obligatoire.  
+> - Les modules de plateforme sécurisée matériels doivent implémenter la version 2.0 de la spécification de module de plateforme sécurisée.  
+> - Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent avoir un certificat EK préconfiguré pour le module de plateforme sécurisée par le fournisseur de matériel ou capable d’être récupéré par l’appareil pendant le premier démarrage.  
+> - Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent être livrés avec des banques de registre de configuration de plateforme (PCR) SHA-256 et implémenter les PCR 0 à 23 pour SHA-256. Il est acceptable de livrer des modules de plateforme sécurisée avec une seule banque PCR commutable qui peut être utilisée pour les deux mesures SHA-1 et SHA-256.  
+> - Une option UEFI pour désactiver le module de plateforme sécurisée n’est pas obligatoire.  
 
 ## <a name="installation-of-nano-server"></a>Installation de Nano Server  
 Pour obtenir des instructions détaillées sur l’installation de Windows Server 2016 en tant que serveur Nano Server, voir [Installer Nano Server](Getting-Started-with-Nano-Server.md).
@@ -131,5 +127,5 @@ Pour obtenir des instructions détaillées sur l’installation de Windows Serve
 ## <a name="additional-resources"></a>Ressources complémentaires
 - [Configuration requise du processeur Windows](https://docs.microsoft.com/windows-hardware/design/minimum/windows-processor-requirements)
 - [Comparaison des éditions Standard et Datacenter de Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/2016-edition-comparison)
-- [Requise pour Windows 10 ](https://www.microsoft.com/windows/windows-10-specifications#system-specifications)
+- [Requise pour Windows 10](https://www.microsoft.com/windows/windows-10-specifications#system-specifications)
 - [Télécharger la fiche technique de gestion des licences Windows Server 2016](http://download.microsoft.com/download/7/2/9/7290EA05-DC56-4BED-9400-138C5701F174/WS2016LicensingDatasheet.pdf)

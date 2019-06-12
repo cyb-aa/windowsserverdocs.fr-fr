@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 4/26/2019
 ms.assetid: e9b18e14-e692-458a-a39f-d5b569ae76c5
-ms.openlocfilehash: e8b437a1a4ba3e5c10d6709e23efb306a077a21b
-ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.openlocfilehash: 1897b57e1f4cf05d222732278835483791f1109b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64773532"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812643"
 ---
 # <a name="storage-replica-overview"></a>Vue d’ensemble du réplica de stockage
 
@@ -85,31 +85,31 @@ La configuration de **serveur à serveur** autorise la réplication synchrone et
 
 Le réplica de stockage inclut les fonctionnalités suivantes :  
 
-|Fonctionnalité|Détails|  
-|-----------|-----------|  
-|type|Basé sur l’hôte|  
-|Synchrone|Oui|  
-|Asynchrone|Oui|  
-|Indépendante du matériel de stockage|Oui|  
-|Unité de réplication|Volume (partition)|  
-|Windows Server étirer la création du cluster|Oui|  
-|Réplication de serveur à serveur|Oui|  
-|Réplication de cluster à cluster|Oui|  
-|Transport|SMB3|  
-|Network (Réseau)|TCP/IP ou RDMA|
-|Prise en charge de la contrainte de réseau|Oui|  
-|RDMA*|iWARP, InfiniBand, RoCE v2|  
-|Configuration requise du pare-feu du port réseau de réplication|Port IANA unique (TCP 445 ou 5445)|  
-|Multipath/Multichannel|Oui (SMB3)|  
-|Prise en charge Kerberos|Oui (SMB3)|  
-|Chiffrement simultané et signature|Oui (SMB3)|  
-|Basculements par volume autorisés|Oui|
-|Prise en charge du stockage alloué dynamiquement|Oui|
-|Interface utilisateur de gestion intégrée|PowerShell, Gestionnaire du cluster de basculement|  
+| Fonctionnalité | Détails |
+| ----------- | ----------- |  
+| type | Basé sur l’hôte |
+| Synchrone | Oui |
+| Asynchrone | Oui |
+| Indépendante du matériel de stockage | Oui |
+| Unité de réplication | Volume (partition) |
+| Windows Server étirer la création du cluster | Oui |
+| Réplication de serveur à serveur | Oui |
+| Réplication de cluster à cluster | Oui |
+| Transport | SMB3 |
+| Network (Réseau) | TCP/IP ou RDMA |
+| Prise en charge de la contrainte de réseau | Oui |
+| RDMA* | iWARP, InfiniBand, RoCE v2 |
+| Configuration requise du pare-feu du port réseau de réplication | Port IANA unique (TCP 445 ou 5445) |
+| Multipath/Multichannel | Oui (SMB3) |
+| Prise en charge Kerberos | Oui (SMB3) |
+| Chiffrement simultané et signature|Oui (SMB3) |
+| Basculements par volume autorisés | Oui |
+| Prise en charge du stockage alloué dynamiquement | Oui |
+| Interface utilisateur de gestion intégrée | PowerShell, Gestionnaire du cluster de basculement |
 
 *Peut nécessiter un câblage et un équipement supplémentaires sur le long terme.  
 
-## <a name="BKMK_SR3"></a> Conditions préalables de réplica de stockage  
+## <a name="BKMK_SR3"></a> Conditions préalables de réplica de stockage
 
 * Forêt des services de domaine Active Directory.
 * Espaces de stockage avec JBOD SAS, espaces de stockage direct, SAN Fibre Channel, VHDX partagé, cible iSCSI ou stockage SAS/SCSI/SATA local. Disque SSD ou plus rapide recommandé pour les lecteurs de journaux de réplication. Microsoft recommande que le stockage de journaux soit plus rapide que le stockage de données. Les volumes de journaux ne doivent jamais être utilisés pour d’autres charges de travail.
@@ -122,33 +122,37 @@ Le réplica de stockage inclut les fonctionnalités suivantes :
   * Le réplica de stockage réplique un volume unique au lieu d’un nombre illimité de volumes.
   * Volumes peuvent avoir une taille de 2 To au lieu d’une taille illimitée.
 
-##  <a name="BKMK_SR4"> </a> En arrière-plan  
+##  <a name="BKMK_SR4"> </a> En arrière-plan
+
 Cette section fournit des informations sur les termes généraux liés au secteur d’activité, la réplication synchrone et asynchrone, ainsi que les principaux comportements.
 
-### <a name="high-level-industry-terms"></a>Termes du contrat de l’industrie de haut niveau  
+### <a name="high-level-industry-terms"></a>Termes du contrat de l’industrie de haut niveau
+
 La récupération d’urgence fait référence à un plan d’urgence pour la récupération suite à des catastrophes survenues sur un site afin que l’activité puisse continuer. La récupération d’urgence des données indique plusieurs copies des données de production à un emplacement physique distinct, par exemple un cluster étendu, où la moitié des nœuds se trouve sur un site et l’autre moitié sur un autre. La préparation aux situations d’urgence fait référence à un plan d’urgence pour déplacer à titre préventif les charges de travail vers un autre emplacement avant un incident annoncé, par exemple un ouragan.  
 
 Les contrats de niveau de service définissent la disponibilité des applications d’une entreprise et leur tolérance en matière de temps d’arrêt et de perte des données pendant les interruptions planifiées et non planifiées. L’objectif de délai de récupération définit la durée pendant laquelle l’entreprise peut tolérer une inaccessibilité totale des données. L’objectif de point de récupération définit la quantité de données que l’entreprise peut se permettre de perdre.  
 
-### <a name="synchronous-replication"></a>Réplication synchrone  
+### <a name="synchronous-replication"></a>Réplication synchrone
+
 La réplication synchrone garantit que l’application écrit les données à deux emplacements à la fois avant la fin des E/S. Cette réplication convient mieux aux données stratégiques, car elle nécessite des investissements liés au réseau et au stockage, et présente le risque de dégradation des performances d’application.  
 
 Quand les écritures d’application se produisent sur la copie des données source, le stockage d’origine n’accuse pas immédiatement réception des E/S. Au lieu de cela, ces modifications de données sont répliquées sur la copie de destination distante et renvoient un accusé de réception. Ce n’est qu’à ce moment-là que l’application reçoit l’accusé de réception des E/S. Cela garantit une synchronisation constante du site distant avec le site source, tout en étendant les E/S de stockage sur le réseau. En cas d’une défaillance du site source, les applications peuvent basculer vers le site distant et reprendre leurs opérations avec l’assurance de ne perdre aucune donnée.  
 
-|Mode|Diagramme|Étapes|  
-|--------|-----------|---------|  
-|**Synchrone**<br /><br />Aucune perte de données<br /><br />Objectif de point de récupération|![Diagramme montrant comment le réplica de stockage écrit des données dans la réplication synchrone](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png)|1.  L’application écrit des données<br />2.  Les données du journal sont écrites et les données sont répliquées sur le site distant<br />3.  Les données du journal sont écrites sur le site distant<br />4.  Accusé de réception du site distant<br />5.  Réception de l’écriture d’application confirmée<br /><br />t & t1 : Données vidées sur le volume, journaux toujours écrits en|  
+| Mode | Diagramme | Étapes |
+| -------- | ----------- | --------- |
+| **Synchrone**<br /><br />Aucune perte de données<br /><br />Objectif de point de récupération | ![Diagramme montrant comment le réplica de stockage écrit des données dans la réplication synchrone](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  L’application écrit des données<br />2.  Les données du journal sont écrites et les données sont répliquées sur le site distant<br />3.  Les données du journal sont écrites sur le site distant<br />4.  Accusé de réception du site distant<br />5.  Réception de l’écriture d’application confirmée<br /><br />t & t1 : Données vidées sur le volume, journaux toujours écrits en |
 
-### <a name="asynchronous-replication"></a>Réplication asynchrone  
+### <a name="asynchronous-replication"></a>Réplication asynchrone
+
 À l’inverse, la réplication asynchrone signifie que, quand l’application écrit des données, ces données sont répliquées sur le site distant sans garantie de recevoir un accusé de réception immédiatement. Ce mode permet de répondre plus rapidement à l’application et propose une solution de récupération d’urgence qui fonctionne géographiquement.  
 
 Quand l’application écrit des données, le moteur de réplication capture l’écriture et confirme immédiatement réception à l’application. Les données capturées sont ensuite répliquées vers l’emplacement distant. Le nœud distant traite la copie des données et renvoie tardivement un accusé de réception à la copie source. Étant donné que les performances de la réplication ne sont plus dans le chemin d’accès E/S de l’application, la réactivité et la distance du site distant sont des facteurs moins importants. Il existe un risque de perte de données si la source de données est perdue et que la copie de destination des données était toujours en mémoire tampon sans quitter la source.  
 
 Avec son objectif de point de récupération supérieur à zéro, la réplication asynchrone est moins adaptée pour les solutions de haute disponibilité telles que les clusters de basculement, car elles sont conçues pour un fonctionnement continu avec redondance et sans perte de données.  
 
-|Mode|Diagramme|Étapes|  
-|--------|-----------|---------|  
-|**Asynchrone**<br /><br />Pratiquement aucune perte de données<br /><br />(dépend de plusieurs facteurs)<br /><br />Objectif de point de récupération|![Diagramme montrant comment le réplica de stockage écrit des données dans la réplication asynchrone](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  L’application écrit des données<br />2.  Données du journal écrites<br />3.  Réception de l’écriture d’application confirmée<br />4.  Données répliquées sur le site distant<br />5.  Données du journal écrites sur le site distant<br />6.  Accusé de réception du site distant<br /><br />t & t1 : Données vidées sur le volume, journaux toujours écrits en|  
+| Mode | Diagramme | Étapes |
+| -------- | ----------- | --------- |
+| **Asynchrone**<br /><br />Pratiquement aucune perte de données<br /><br />(dépend de plusieurs facteurs)<br /><br />Objectif de point de récupération | ![Diagramme montrant comment le réplica de stockage écrit des données dans la réplication asynchrone](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  L’application écrit des données<br />2.  Données du journal écrites<br />3.  Réception de l’écriture d’application confirmée<br />4.  Données répliquées sur le site distant<br />5.  Données du journal écrites sur le site distant<br />6.  Accusé de réception du site distant<br /><br />t & t1 : Données vidées sur le volume, journaux toujours écrits en |
 
 ### <a name="key-evaluation-points-and-behaviors"></a>Comportements et les points clés d’évaluation  
 
@@ -156,7 +160,7 @@ Avec son objectif de point de récupération supérieur à zéro, la réplicatio
 
 -   Le volume de destination n’est pas accessible lors de la réplication dans Windows Server 2016. Quand vous configurez la réplication, le volume de destination est démonté, ce qui le rend inaccessible à toute lecture ou écriture par les utilisateurs. Sa lettre de lecteur peut être visible dans des interfaces standard comme l’Explorateur de fichiers, mais aucune application ne peut accéder au volume lui-même. Les technologies de réplication au niveau du bloc sont incompatibles avec l’autorisation d’accès au système de fichiers monté de la cible de destination dans un volume. NTFS et ReFS ne prennent pas en charge les utilisateurs qui écrivent des données dans le volume tandis que les blocs changent en dessous. 
 
-Dans Windows Server 2019 (et Windows Server, version 1709) le **Test de basculement** applet de commande a été ajoutée. Présent prend en charge le montage temporairement un instantané en lecture-écriture du volume de destination pour les sauvegardes, des tests, etc. Consultez https://aka.ms/srfaq pour plus d’informations.
+Le **Test de basculement** applet de commande ont été lancées dans Windows Server, version 1709 et a également été incluse dans Windows Server 2019. Présent prend en charge le montage temporairement un instantané en lecture-écriture du volume de destination pour les sauvegardes, des tests, etc. Consultez https://aka.ms/srfaq pour plus d’informations.
 
 -   L’implémentation Microsoft de la réplication asynchrone est différente de la plupart. La plupart des implémentations du secteur d’activité de la réplication asynchrone s’appuie sur la réplication basée sur un instantané, où les transferts différentiels réguliers passent sur l’autre nœud et fusionnent. La réplication asynchrone du réplica de stockage fonctionne exactement comme la réplication synchrone, sauf qu’elle supprime la nécessité d’un accusé de réception synchrone sérialisé à partir de la destination. Cela signifie que le réplica de stockage a théoriquement un objectif de point de récupération inférieur, car la réplication est permanente. Toutefois, cela signifie également qu’il repose sur la garantie de cohérence d’application interne au lieu d’utiliser des instantanés pour forcer la cohérence dans les fichiers d’application. Le réplica de stockage garantit la cohérence d’incident dans tous les modes de réplication  
 
@@ -185,6 +189,7 @@ Ce guide utilise souvent les termes suivants :
 Pour obtenir la liste des nouvelles fonctionnalités de réplica de stockage dans Windows Server 2019, consultez [quelles sont les nouveautés dans le stockage](../whats-new-in-storage.md#storage-replica2019)
 
 ## <a name="see-also"></a>Voir aussi
+
 - [Réplication de Cluster étendu à l’aide d’un stockage partagé](stretch-cluster-replication-using-shared-storage.md)  
 - [Réplication du stockage de serveur à serveur](server-to-server-storage-replication.md)  
 - [Réplication du stockage de cluster à Cluster](cluster-to-cluster-storage-replication.md)  

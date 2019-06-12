@@ -12,12 +12,12 @@ ms.assetid: 2e6ff6e4-8d68-4d49-9e38-8088bc8bf95e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d4c547c2fec8e2b11e5c1d9bde46e55e91c9d6fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c2345726a17a074fc7022c8c4dc9b2443e9ad384
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884620"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433642"
 ---
 # <a name="automate-installation-of-add-ins-during-setup"></a>Automatiser l’installation des compléments lors de la phase d’installation
 
@@ -69,13 +69,13 @@ C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q
   
  Une étape de désinstallation personnalisée peut être utilisée dans l’un des cas suivants :  
   
--   Remplacer la boîte de dialogue de confirmation intégrée.  
+- Remplacer la boîte de dialogue de confirmation intégrée.  
   
--   Remplir des boîtes de dialogue personnalisées avant la désinstallation.  
+- Remplir des boîtes de dialogue personnalisées avant la désinstallation.  
   
--   Exécuter certaines tâches avant la désinstallation.  
+- Exécuter certaines tâches avant la désinstallation.  
   
- Pour mettre en œuvre une étape de désinstallation, ajoutez les contenus suivants au fichier addin.xml (directement sous Package) :  
+  Pour mettre en œuvre une étape de désinstallation, ajoutez les contenus suivants au fichier addin.xml (directement sous Package) :  
   
 ```  
 <Package xmlns="https://schemas.microsoft.com/WindowsServerSolutions/2010/03/Addins" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">  
@@ -103,22 +103,22 @@ C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q
   
  Le fichier exécutable peut exécuter les tâche suivantes pendant cette phase :  
   
--   Afficher certaines boîtes de dialogue pour l’interaction entre utilisateurs.  
+- Afficher certaines boîtes de dialogue pour l’interaction entre utilisateurs.  
   
--   Exécuter certaines tâches en arrière-plan.  
+- Exécuter certaines tâches en arrière-plan.  
   
- Le code de sortie de ce fichier exécutable détermine comment le processus de désinstallation progresse :  
+  Le code de sortie de ce fichier exécutable détermine comment le processus de désinstallation progresse :  
   
--   0 : le processus de désinstallation continue sans remplir la boîte de dialogue de configuration intégrée, comme l'utilisateur l'a déjà confirmé. (cette approche peut être utilisée pour remplacer la boîte de confirmation intégrée) ;  
+- 0 : le processus de désinstallation continue sans remplir la boîte de dialogue de configuration intégrée, comme l'utilisateur l'a déjà confirmé. (cette approche peut être utilisée pour remplacer la boîte de confirmation intégrée) ;  
   
--   1 : le processus de désinstallation est annulé, et, enfin, un message annulé est affiché pour l'utilisateur. Rien n'est modifié ;  
+- 1 : le processus de désinstallation est annulé, et, enfin, un message annulé est affiché pour l'utilisateur. Rien n'est modifié ;  
   
--   Autre : le processus de désinstallation continue avec la boîte de dialogue de confirmation intégrée, tout comme l'étape de désinstallation personnalisée n'est pas présente.  
+- Autre : le processus de désinstallation continue avec la boîte de dialogue de confirmation intégrée, tout comme l'étape de désinstallation personnalisée n'est pas présente.  
   
- Tout échec de l'invocation du fichier exécutable provoquera le même comportement si le fichier exécutable renvoie un code autre que 0 ou 1.  
+  Tout échec de l'invocation du fichier exécutable provoquera le même comportement si le fichier exécutable renvoie un code autre que 0 ou 1.  
   
 ## <a name="see-also"></a>Voir aussi  
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
  [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](Testing-the-Customer-Experience.md)
+ [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)

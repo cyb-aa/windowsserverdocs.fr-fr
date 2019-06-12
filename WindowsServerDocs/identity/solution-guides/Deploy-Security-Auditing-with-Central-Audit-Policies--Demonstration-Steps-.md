@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: ac2b1643ed151e94c3815abca9a57eb3706c845a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b14ded98c4f1a340349119bd9f5f42e3a1bf9434
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871130"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445744"
 ---
 # <a name="deploy-security-auditing-with-central-audit-policies-demonstration-steps"></a>Déployer l’audit de sécurité avec les stratégies d’audit centralisées (étapes de démonstration)
 
@@ -34,21 +34,21 @@ Au cours de cette étape, vous configurez la stratégie d’accès global aux ob
   
 #### <a name="to-configure-a-global-object-access-policy"></a>Pour configurer une stratégie d’audit d’accès global aux objets  
   
-1.  Connectez-vous au contrôleur de domaine DC1 en tant que Contoso\Administrateur avec le mot de passe **pass@word1**.  
+1. Connectez-vous au contrôleur de domaine DC1 en tant que Contoso\Administrateur avec le mot de passe <strong>pass@word1</strong>.  
   
-2.  Dans le Gestionnaire de serveur, pointez sur **Outils**, puis cliquez sur **Gestion de stratégie de groupe**.  
+2. Dans le Gestionnaire de serveur, pointez sur **Outils**, puis cliquez sur **Gestion de stratégie de groupe**.  
   
-3.  Dans l’arborescence de la console, double-cliquez sur **Domaines**, sur **contoso.com**, cliquez sur **Contoso**, puis double-cliquez sur **Serveurs de fichiers**.  
+3. Dans l’arborescence de la console, double-cliquez sur **Domaines**, sur **contoso.com**, cliquez sur **Contoso**, puis double-cliquez sur **Serveurs de fichiers**.  
   
-4.  Cliquez avec le bouton droit sur **FlexibleAccessGPO**, puis sur **Modifier**.  
+4. Cliquez avec le bouton droit sur **FlexibleAccessGPO**, puis sur **Modifier**.  
   
-5.  Double-cliquez sur **Configuration ordinateur**, sur **Stratégies**, puis sur **Paramètres Windows**.  
+5. Double-cliquez sur **Configuration ordinateur**, sur **Stratégies**, puis sur **Paramètres Windows**.  
   
-6.  Double-cliquez sur **Paramètres de sécurité**, sur **Configuration avancée de la stratégie d’audit**, puis sur **Stratégies d’audit**.  
+6. Double-cliquez sur **Paramètres de sécurité**, sur **Configuration avancée de la stratégie d’audit**, puis sur **Stratégies d’audit**.  
   
-7.  Double-cliquez sur **Accès à l’objet**, puis sur **Auditer le système de fichiers**.  
+7. Double-cliquez sur **Accès à l’objet**, puis sur **Auditer le système de fichiers**.  
   
-8.  Activez successivement les cases à cocher **Configurer les événements d’audit suivants**, **Succès**, **Échec**, puis cliquez sur **OK**.  
+8. Activez successivement les cases à cocher **Configurer les événements d’audit suivants**, **Succès**, **Échec**, puis cliquez sur **OK**.  
   
 9. Dans le volet de navigation, double-cliquez sur **Audit de l’accès global aux objets**, puis sur **Système de fichiers**.  
   
@@ -70,14 +70,14 @@ Au cours de cette étape, vous mettez à jour les paramètres de stratégie de g
   
 #### <a name="to-update-group-policy-settings"></a>Pour mettre à jour les paramètres Stratégie de groupe  
   
-1.  Connectez-vous au serveur de fichiers fichier1 en tant que Contoso\Administrateur avec le mot de passe **pass@word1**.  
+1. Connectez-vous au serveur de fichiers fichier1 en tant que Contoso\Administrateur avec le mot de passe <strong>pass@word1</strong>.  
   
-2.  Appuyez sur la touche Windows + R, tapez **cmd** pour ouvrir une fenêtre d’invite de commandes.  
+2. Appuyez sur la touche Windows + R, tapez **cmd** pour ouvrir une fenêtre d’invite de commandes.  
   
-    > [!NOTE]  
-    > Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
+   > [!NOTE]  
+   > Si la boîte de dialogue **Contrôle de compte d'utilisateur** s'affiche, vérifiez que l'action affichée est celle que vous voulez, puis cliquez sur **Oui**.  
   
-3.  Tapez **gpupdate /force** et appuyez sur Entrée.  
+3. Tapez **gpupdate /force** et appuyez sur Entrée.  
   
 ## <a name="BKMK_3"></a>Vérifier que la stratégie d’accès objet global a été appliquée.  
 Une fois les paramètres Stratégie de groupe appliqués, vérifiez que les paramètres de stratégie d’audit ont été appliqués correctement.  
@@ -93,9 +93,9 @@ Une fois les paramètres Stratégie de groupe appliqués, vérifiez que les para
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Scénario : Audit d’accès aux fichiers](Scenario--File-Access-Auditing.md)  
+-   [Scénario : audit d’accès aux fichiers](Scenario--File-Access-Auditing.md)  
   
--   [Fichier planifier l’audit d’accès](Plan-for-File-Access-Auditing.md)  
+-   [Planifier l’audit d’accès aux fichiers](Plan-for-File-Access-Auditing.md)  
   
 -   [Contrôle d’accès dynamique : Vue d’ensemble du scénario](Dynamic-Access-Control--Scenario-Overview.md)  
   

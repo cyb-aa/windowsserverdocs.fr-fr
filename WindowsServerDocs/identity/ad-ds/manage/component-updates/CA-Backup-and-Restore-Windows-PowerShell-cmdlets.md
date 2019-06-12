@@ -9,20 +9,20 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: a4bbeeedfb40e789a799103f9a29a848a2b32324
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6055d9b694f72a6a874acdcb5135fde61bcf0d76
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877350"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442750"
 ---
 # <a name="ca-backup-and-restore-windows-powershell-cmdlets"></a>Applets de commande sauvegarde de l’autorité de certification et de restauration Windows PowerShell
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
->
-**Auteur**: Justin Turner, ingénieur Support résolution Senior auprès du groupe Windows  
-  
-> [!NOTE]  
+> S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> 
+> **Auteur**: Justin Turner, ingénieur Support résolution Senior auprès du groupe Windows  
+> 
+> [!NOTE]
 > Ce contenu est écrit par un ingénieur du support client Microsoft et est destiné aux administrateurs expérimentés et aux architectes système qui recherchent des explications techniques plus approfondies des fonctionnalités et des solutions Windows Server 2012 R2 que n'en proposent généralement les rubriques de TechNet. Toutefois, il n'a pas subi les mêmes passes de correction. De ce fait, une partie du langage peut sembler moins finalisée que le contenu de TechNet.  
   
 ## <a name="overview"></a>Vue d'ensemble  

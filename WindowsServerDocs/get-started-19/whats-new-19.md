@@ -7,13 +7,13 @@ ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
-ms.date: 05/21/2019
-ms.openlocfilehash: af887c0e1c66a017ee091fb2cab2dc61fa9ac1dc
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.date: 06/04/2019
+ms.openlocfilehash: 7110fe78982fec616174a93514d86fb2e1cf9fa5
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976553"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810763"
 ---
 # <a name="whats-new-in-windows-server-2019"></a>Nouveautés de Windows Server 2019
 
@@ -21,9 +21,17 @@ ms.locfileid: "65976553"
 
 Cette rubrique décrit certaines des nouvelles fonctionnalités de Windows Server 2019. Windows Server 2019 repose sur la base solide de Windows Server 2016 et offre de nombreuses innovations en matière sur quatre principaux thèmes : Cloud hybride, la sécurité, plateforme d’Application et Infrastructure Hyper-convergée (HCL).
 
-Pour savoir quelles sont les nouveautés dans les versions de canal semi-annuel de serveur Windows, consultez [What ' s New in Windows Server](../get-started/whats-new-in-windows-server.md). 
+Pour savoir quelles sont les nouveautés dans les versions de canal semi-annuel de serveur Windows, consultez [What ' s New in Windows Server](../get-started/whats-new-in-windows-server.md).
 
 ## <a name="general"></a>Général
+
+### <a name="windows-admin-center"></a>Windows Admin Center
+
+Windows Admin Center est une application basée sur navigateur, déployée localement pour la gestion des serveurs, des clusters, de l'infrastructure hyperconvergée et des PC Windows 10. Il est fourni sans coût supplémentaire au-delà de Windows et est prêt à être utilisé en production.
+
+Vous pouvez installer Windows Admin Center sur Windows Server 2019 ainsi que Windows 10 et versions antérieures de Windows et Windows Server et l’utiliser pour gérer les serveurs et les clusters exécutant Windows Server 2008 R2 et versions ultérieures.
+
+Pour plus d’informations, consultez [Windows Admin Center](../manage/windows-admin-center/understand/windows-admin-center.md).
 
 ### <a name="desktop-experience"></a>Expérience utilisateur
 
@@ -60,8 +68,6 @@ Les capteurs profonds de plate-forme et les actions de réponse d'ATP exposent d
 -   [L'accès contrôlé aux dossiers](https://cloudblogs.microsoft.com/microsoftsecure/2017/10/23/stopping-ransomware-where-it-counts-protecting-your-data-with-controlled-folder-access/?ocid=cx-blog-mmpc?source=mmpc) protège les données sensibles contre les rançongiciels en empêchant les processus non approuvés d'accéder à vos dossiers protégés.
 
 -   [Exploit Protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-exploit-guard/exploit-protection-exploit-guard) est un ensemble de mesures d'atténuation des attaques de vulnérabilité (remplaçant EMET) qui peuvent être facilement configurées pour protéger votre système et vos applications.
-
-
 
 [Contrôle d'application Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control) (également connu sous le nom de stratégie d'intégrité du code (CI)) a été publié dans Windows Server 2016.
 Les commentaires client ont indiqué qu'il s'agissait d'un excellent concept, mais difficile à déployer.
@@ -111,7 +117,7 @@ Le Service de migration du stockage est une nouvelle technologie qui facilite la
 
 ### <a name="storage-spaces-direct"></a>Espaces de stockage directs
 
-Voici une liste des nouveautés introduites dans les espaces de stockage directs. Pour plus d’informations, consultez [Nouveautés d’espaces de stockage Direct](../storage/whats-new-in-storage.md#storage-spaces-direct).
+Voici une liste des nouveautés introduites dans les espaces de stockage directs. Pour plus d’informations, consultez [Nouveautés d’espaces de stockage Direct](../storage/whats-new-in-storage.md#storage-spaces-direct). Consultez également [Azure Stack HCL](https://docs.microsoft.com/azure-stack/operator/azure-stack-hci-overview) pour plus d’informations sur l’acquisition validés en systèmes d’espaces de stockage Direct.
 
 - **Déduplication et compression des volumes ReFS**
 - **Prise en charge native de la mémoire persistante**

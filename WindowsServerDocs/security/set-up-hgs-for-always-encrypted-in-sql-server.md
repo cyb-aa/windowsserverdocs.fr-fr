@@ -7,12 +7,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 11/03/2018
-ms.openlocfilehash: 2f800dfa01077287f8200dd8abea0be899776683
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 70f6f8c2db742361deecaa216b053d8b1d057a3d
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866690"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812603"
 ---
 # <a name="setting-up-the-host-guardian-service-for-always-encrypted-with-secure-enclaves-in-sql-server"></a>Configuration du Service Guardian hôte pour Always Encrypted avec enclaves sécurisés dans SQL Server 
 
@@ -39,8 +39,8 @@ Cette section aborde les conditions requises pour les machines SGH et hôte.
 
 - 1-3 : serveurs pour exécuter le service SGH. 
 
-  >[!NOTE]
-  >Seulement 1 serveur SGH est requis pour un environnement de test ou de préproduction.
+  > [!NOTE]
+  > Seulement 1 serveur SGH est requis pour un environnement de test ou de préproduction.
 
   Ces serveurs doivent être soigneusement protégés dans la mesure où elles contrôlent les ordinateurs peuvent s’exécuter vos instances de SQL Server à l’aide d’Always Encrypted avec enclaves sécurisés. 
   Il est recommandé que différents administrateurs gèrent le cluster de SGH et que vous exécutez le service SGH sur du matériel physique isolé du reste de votre infrastructure, ou dans les abonnements Azure ou les structures de virtualisation distinct.
@@ -110,11 +110,13 @@ Exécutez toutes les commandes suivantes dans une session PowerShell avec élév
    Pour le HgsServiceName, spécifiez le réseau de neurones profond que vous avez choisi.
 
    Pour le mode de module de plateforme sécurisée :
+
    ```powershell
    Initialize-HgsAttestation -HgsServiceName 'hgs' -TrustTpm
    ```
 
    Pour le mode de clé hôte :
+
    ```powershell
    Initialize-HgsAttestation -HgsServiceName 'hgs' -TrustHostKey 
    ```
@@ -148,13 +150,13 @@ Pour ajouter des nœuds au cluster, exécutez les commandes suivantes dans une s
 
 Par défaut, lorsque vous initialisez un serveur SGH il configurera les sites web IIS pour les communications HTTP uniquement.
 
->[!NOTE]
->Configuration HTTPS à l’aide d’un certificat de serveur SGH bien connu et approuvé est nécessaire pour empêcher les attaques man-in-the-middle et est par conséquent conseillé pour les déploiements de production.
+> [!NOTE]
+> Configuration HTTPS à l’aide d’un certificat de serveur SGH bien connu et approuvé est nécessaire pour empêcher les attaques man-in-the-middle et est par conséquent conseillé pour les déploiements de production.
 
 [!INCLUDE [Configure HTTPS](../../includes/configure-hgs-for-https.md)] 
 
->[!NOTE]
->Pour Always Encrypted avec enclaves sécurisés, le certificat SSL doit être approuvé sur les deux ordinateurs hôtes qui exécutent SQL Server et les machines qui exécutent des applications de client de base de données doivent contacter SGH. 
+> [!NOTE]
+> Pour Always Encrypted avec enclaves sécurisés, le certificat SSL doit être approuvé sur les deux ordinateurs hôtes qui exécutent SQL Server et les machines qui exécutent des applications de client de base de données doivent contacter SGH. 
 
 ## <a name="collect-attestation-info-from-the-host-machines"></a>Collecter des informations de l’attestation à partir des ordinateurs hôtes
 
@@ -197,6 +199,7 @@ Si vous utilisez le mode de module de plateforme sécurisée, exécutez les comm
    ```powershell
    Get-ComputerInfo -Property DeviceGuard* 
    ```
+
 5. Collecter l’identificateur de module de plateforme sécurisée et de la ligne de base :
 
    ```powershell 
@@ -216,6 +219,7 @@ Si vous utilisez le mode de module de plateforme sécurisée, exécutez les comm
    Add-HgsAttestationTpmPolicy -Name ServerA-Baseline -Path C:\temp\TpmBaseline-ServerA.tcglog 
    Add-HgsAttestationCiPolicy -Name AllowMicrosoft-Audit -Path C:\temp\AllowMicrosoft-Audit.bin 
    ```
+
 9. Votre premier serveur est maintenant prêt à attester ! 
    Sur l’ordinateur hôte, exécutez la commande suivante pour lui indiquer où d’attester (modifier que le nom DNS à celle de votre cluster SGH, en général, vous utiliserez le nom du Service HGS associée au nom de domaine SGH). 
    Si vous recevez une erreur HostUnreachable, garantir la résoudre un test ping sur les noms DNS de vos serveurs SGH. 
@@ -231,8 +235,8 @@ Si vous utilisez le mode de module de plateforme sécurisée, exécutez les comm
 
 ### <a name="collecting-host-keys"></a>Collecte des clés d’hôte 
 
->[!NOTE] 
->L’attestation de clé hôte est recommandée uniquement pour une utilisation dans des environnements de test. L’attestation TPM fournit les garanties plus fortes qu’enclaves VBS traiter vos données sensibles sur SQL Server sont en cours d’exécution du code fiable et les ordinateurs sont configurés avec les paramètres de sécurité recommandée. 
+> [!NOTE] 
+> L’attestation de clé hôte est recommandée uniquement pour une utilisation dans des environnements de test. L’attestation TPM fournit les garanties plus fortes qu’enclaves VBS traiter vos données sensibles sur SQL Server sont en cours d’exécution du code fiable et les ordinateurs sont configurés avec les paramètres de sécurité recommandée. 
 
 Si vous avez choisi de configurer le service SGH en mode de l’attestation de clé d’hôte, vous devrez générer et de collecter les clés à partir de chaque ordinateur hôte et de les enregistrer avec le Service Guardian hôte. 
 

@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f034c2eeafe9d52569e8181bbbb2e582b1059d51
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 7e6e1c97ccc903ca3aff558354941e6a84d3fb79
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188858"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444732"
 ---
 # <a name="walkthrough-guide-manage-risk-with-conditional-access-control"></a>Guide pas à pas : Gérer les risques avec le contrôle d’accès conditionnel
 
@@ -57,7 +57,7 @@ Au cours de cette étape, vous allez vérifier le mécanisme de contrôle d’ac
 
 #### <a name="to-verify-the-default-ad-fs-access-control-mechanism"></a>Pour vérifier le mécanisme de contrôle d’accès AD FS par défaut
 
-1.  Sur votre ordinateur client, ouvrez une fenêtre de navigateur et accédez à votre exemple d’application : **https://webserv1.contoso.com/claimapp**.
+1.  Sur votre ordinateur client, ouvrez une fenêtre de navigateur et accédez à votre exemple d’application : **https://webserv1.contoso.com/claimapp** .
 
     Cette action redirige automatiquement la demande vers le serveur de fédération et vous êtes invité à vous connecter avec un nom d’utilisateur et un mot de passe.
 
@@ -97,14 +97,18 @@ Vous pouvez effectuer cette tâche à l’aide de la console de gestion AD FS ou
 1.  Sur votre serveur de fédération, ouvrez la fenêtre de commande Windows PowerShell et exécutez la commande suivante :
 
 
-    `$rp = Get-AdfsRelyingPartyTrust -Name claimapp`
+~~~
+`$rp = Get-AdfsRelyingPartyTrust -Name claimapp`
+~~~
 
 
-2.  Dans la même fenêtre de commande Windows PowerShell, exécutez la commande suivante :
+2. Dans la même fenêtre de commande Windows PowerShell, exécutez la commande suivante :
 
 
-    `$GroupAuthzRule = '@RuleTemplate = "Authorization" @RuleName = "Foo" c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "^(?i)<group_SID>$"] =>issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");'
-    Set-AdfsRelyingPartyTrust -TargetRelyingParty $rp -IssuanceAuthorizationRules $GroupAuthzRule`
+~~~
+`$GroupAuthzRule = '@RuleTemplate = "Authorization" @RuleName = "Foo" c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "^(?i)<group_SID>$"] =>issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");'
+Set-AdfsRelyingPartyTrust -TargetRelyingParty $rp -IssuanceAuthorizationRules $GroupAuthzRule`
+~~~
 
 > [!NOTE]
 > Veillez à remplacer <group_SID> par la valeur du SID de votre groupe **Finance** Active Directory.

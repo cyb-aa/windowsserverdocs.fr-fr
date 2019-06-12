@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 02/15/2019
-ms.openlocfilehash: ff1f949c764473a63eafa25346949d710699dbd1
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: bd35e439ee3c76af1306bbbd712d754dd79f555f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222719"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446092"
 ---
 # <a name="get-started-with-windows-admin-center"></a>Prise en main de Windows Admin Center
 
@@ -52,17 +52,17 @@ Une fois que vous avez terminé l’installation de Windows Admin Center, vous p
 
  **Ajouter un seul serveur ou un cluster comme un nœud géré**
 
- 1. Cliquez sur **+ ajouter** sous **toutes les connexions**.
+1. Cliquez sur **+ ajouter** sous **toutes les connexions**.
 
-    ![](../media/launch/addserver0.png)
+   ![](../media/launch/addserver0.png)
 
- 2. Choisissez cette option pour ajouter une connexion de serveur, Cluster de basculement ou Hyper-Converged Cluster :
+2. Choisissez cette option pour ajouter une connexion de serveur, Cluster de basculement ou Hyper-Converged Cluster :
     
-    ![](../media/launch/addserver1.png)
+   ![](../media/launch/addserver1.png)
 
- 3. Tapez le nom du serveur ou du cluster pour gérer et cliquez sur **envoyer**. Le serveur ou le cluster sera ajouté à votre liste des connexions dans la page Vue d’ensemble.
+3. Tapez le nom du serveur ou du cluster pour gérer et cliquez sur **envoyer**. Le serveur ou le cluster sera ajouté à votre liste des connexions dans la page Vue d’ensemble.
 
-    ![](../media/launch/addserver2.png)
+   ![](../media/launch/addserver2.png)
 
    **--OU--**
 
@@ -96,7 +96,7 @@ Vous pouvez utiliser vos informations d’identification Windows actuelles pour 
 
 **L’authentification unique lors du déploiement en tant que Service sur Windows Server**
 
-Si vous avez installé Windows Admin Center sur Windows Server, une configuration supplémentaire est requise pour l’authentification unique.  [Configurer votre environnement pour la délégation](..\configure\user-access-control.md)
+Si vous avez installé Windows Admin Center sur Windows Server, une configuration supplémentaire est requise pour l’authentification unique.  [Configurer votre environnement pour la délégation](../configure/user-access-control.md)
 
 **--OU--**
 

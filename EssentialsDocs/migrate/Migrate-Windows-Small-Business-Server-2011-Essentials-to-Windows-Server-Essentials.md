@@ -12,12 +12,12 @@ ms.assetid: 32fc90d8-31c5-4c7e-9fe3-483cf3c35f78
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 5d65429e31e43aa15d1631878ae7e1486e9fd60f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8f41efde192ea039a6ee9c7f9f3a4b49bedf4f48
+ms.sourcegitcommit: 9a4ab3a0d00b06ff16173aed616624c857589459
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835150"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66826992"
 ---
 # <a name="migrate-windows-small-business-server-2011-essentials-to-windows-server-essentials"></a>Migrer Windows Small Business Server 2011 Essentials vers Windows Server Essentials
 
@@ -27,11 +27,11 @@ Ce guide décrit comment migrer un domaine Windows Small Business Server 2011 Es
   
 > [!NOTE]
 >  Pour éviter tout problème pendant la migration, l’équipe de développement de produit Windows Server Essentials vous conseille vivement de lire ce document avant de commencer la migration.  
-  
+> 
 > [!NOTE]
-
+> 
 >  Pour migrer des données de votre serveur vers la dernière version de Windows Server Essentials, consultez [migrer vers Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).  
-
+> 
 >  Pour migrer des données de votre serveur vers la dernière version de Windows Server Essentials, consultez [migrer vers Windows Server Essentials](../migrate/Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).  
 
   
@@ -53,7 +53,7 @@ Ce guide décrit comment migrer un domaine Windows Small Business Server 2011 Es
   
 3.  [Joindre des ordinateurs au nouveau serveur Windows Server Essentials](Join-computers-to-the-new-Windows-Server-Essentials-server.md).  Cette section traite de jonction des ordinateurs clients vers le nouveau serveur Windows Server Essentials et de mise à jour des paramètres de stratégie de groupe.  
   
-4.  [Déplacer les paramètres de SBS 2011 Essentials et des données vers le serveur de Destination](Move-Windows-SBS-2011-Essentials-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  Cette section fournit des informations sur la migration des paramètres et données à partir du serveur source.  
+4.  [Déplacer les paramètres de SBS 2011 Essentials et des données vers le serveur de Destination](Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md).  Cette section fournit des informations sur la migration des paramètres et données à partir du serveur source.  
   
 5.  [Activer la redirection de dossiers sur le serveur de Destination Windows Server Essentials](Enable-folder-redirection-on-the-Windows-Server-Essentials-Destination-Server.md).  Si la redirection de dossiers est activée sur le serveur source, vous pouvez l’activer sur le serveur de destination, puis supprimer l’ancien paramètre Stratégie de groupe de redirection de dossier.  
   
@@ -69,7 +69,7 @@ Ce guide décrit comment migrer un domaine Windows Small Business Server 2011 Es
   
 3.  [Joindre des ordinateurs au nouveau serveur Windows Server Essentials](../migrate/Join-computers-to-the-new-Windows-Server-Essentials-server.md).  Cette section traite de jonction des ordinateurs clients vers le nouveau serveur Windows Server Essentials et de mise à jour des paramètres de stratégie de groupe.  
   
-4.  [Déplacer les paramètres de SBS 2011 Essentials et des données vers le serveur de Destination](../migrate/Move-Windows-SBS-2011-Essentials-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  Cette section fournit des informations sur la migration des paramètres et données à partir du serveur source.  
+4.  [Déplacer les paramètres de SBS 2011 Essentials et des données vers le serveur de Destination](../migrate/Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md).  Cette section fournit des informations sur la migration des paramètres et données à partir du serveur source.  
   
 5.  [Activer la redirection de dossiers sur le serveur de Destination Windows Server Essentials](../migrate/Enable-folder-redirection-on-the-Windows-Server-Essentials-Destination-Server.md).  Si la redirection de dossiers est activée sur le serveur source, vous pouvez l’activer sur le serveur de destination, puis supprimer l’ancien paramètre Stratégie de groupe de redirection de dossier.  
   

@@ -14,20 +14,20 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ec1b0a17c578f2d8ac55d1704af6b267b6bb8e5c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e6f91aa02cd0f19d480c24309be5797c273b0f2e
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865930"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66804952"
 ---
 # <a name="frequently-asked-questions-about-the-remote-desktop-clients"></a>Forum aux questions sur les clients Bureau à distance
 
->S'applique à : Windows 10, Windows 8.1, Windows Server 2012 R2, Windows Server 2016
+>S’applique à : Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 Maintenant que vous avez configuré le client Bureau à distance sur votre appareil (Android, Mac, iOS ou Windows), vous pouvez avoir des questions. Vous trouverez ici les réponses aux questions plus fréquemment posées sur les clients Bureau à distance. 
 
-- [Configuration de](#Setting-up)
+- [Configuration de](#setting-up)
 - [Connexions, la passerelle et les réseaux](#connection-gateway-and-networks)
 - [client Web](#web-client)
 - [Moniteurs, audio et la souris](#monitors-audio-and-mouse)
@@ -81,18 +81,20 @@ Voici quelques solutions possibles aux problèmes courants que vous pouvez renco
 - **Il existe un problème avec le réseau.** Assurez-vous que vous disposez de connexion internet. 
 - **Le port du Bureau à distance peut être bloqué par un pare-feu.** Si vous utilisez des pare-feu de Windows, procédez comme suit :
 
-   1. Ouvrez le pare-feu Windows. 
-   2. Cliquez sur **autoriser une application ou une fonctionnalité via le pare-feu de Windows**. 
-   3. Cliquez sur **modifier les paramètres**. Vous pouvez être invité pour un mot de passe administrateur ou à confirmer votre choix.
-   4. Sous **applications et fonctionnalités autorisées**, sélectionnez **Bureau à distance**, puis appuyez ou cliquez sur **OK**.
+  1. Ouvrez le pare-feu Windows. 
+  2. Cliquez sur **autoriser une application ou une fonctionnalité via le pare-feu de Windows**. 
+  3. Cliquez sur **modifier les paramètres**. Vous pouvez être invité pour un mot de passe administrateur ou à confirmer votre choix.
+  4. Sous **applications et fonctionnalités autorisées**, sélectionnez **Bureau à distance**, puis appuyez ou cliquez sur **OK**.
 
-   Si vous utilisez un autre pare-feu, assurez-vous que le port Bureau à distance (généralement 3389) est ouvert.
+     Si vous utilisez un autre pare-feu, assurez-vous que le port Bureau à distance (généralement 3389) est ouvert.
 - **Connexions à distance ne peuvent pas être configurées sur un ordinateur distant.** Pour résoudre ce problème, faites défiler vers le sauvegarder vers [comment configurer un PC de bureau à distance ?](#how-do-i-set-up-a-pc-for-remote-desktop) question dans cette rubrique.
 - **Le PC à distance peut autoriser uniquement les PC qui ont configuré l’authentification au niveau du réseau pour vous connecter.** 
 - **Le PC à distance peut être désactivé.** Vous ne peut pas se connecter à un PC est éteint, en veille ou en veille prolongée, par conséquent, vérifiez que les paramètres de mise en veille et veille prolongée sur un ordinateur distant sont la valeur **jamais** (mise en veille prolongée n’est pas disponible sur tous les PC.).
 
 ### <a name="why-cant-i-find-or-connect-to-my-pc"></a>Pourquoi ne puis-je pas trouver ou se connecter à mon PC ?
+
 Vérifiez les points suivants :
+
 - Est l’ordinateur et en éveil ?
 - N’a entré l’adresse IP ou le nom correct ?
 
@@ -105,9 +107,11 @@ Vérifiez les points suivants :
    > Windows XP Édition familiale, Windows Media Center Edition, Windows Vista Édition familiale et Windows 7 Édition familiale ou Starter ne sont pas pris en charge sans 3e logiciels tiers.
 
 ### <a name="why-cant-i-sign-in-to-a-remote-pc"></a>Pourquoi ne puis-je pas me connecter à un ordinateur distant ?
+
 Si vous voyez l’écran de connexion de l’ordinateur distant, mais vous ne pouvez pas vous connecter, vous ne pouvez pas ont été ajoutées pour le groupe utilisateurs du Bureau à distance ou à un groupe disposant des droits d’administrateur sur un ordinateur distant. Demandez à votre administrateur système pour effectuer cette opération pour vous.
 
 ### <a name="which-connection-methods-are-supported-for-company-networks"></a>Les méthodes de connexion sont prises en charge pour les réseaux d’entreprise ?
+
 Si vous souhaitez accéder à votre bureau d’office à partir de votre réseau d’entreprise, votre entreprise doit vous fournir un moyen d’accès à distance. Le Client Bureau à distance prend actuellement en charge les éléments suivants :
 
 - Passerelle de serveur Terminal Server ou de la passerelle des services Bureau à distance
@@ -124,9 +128,11 @@ Autres points à vérifier :
 - **VPN est mal configuré.** Un serveur VPN mal configuré peut être la raison pour laquelle les connexions VPN a fonctionné ou a cessé de fonctionner après un certain temps de jamais. Vérifiez que test avec iOS navigateur web de l’appareil ou d’un PC ou Mac sur le réseau même si cela se produit.
 
 ### <a name="how-can-i-test-if-vpn-is-working-properly"></a>Comment puis-je tester si VPN fonctionne correctement ?
+
 Vérifiez que le VPN est activé sur votre appareil. Vous pouvez tester votre connexion VPN en accédant à une page Web sur votre réseau interne ou à l’aide d’un service web qui est uniquement disponible via le VPN.
 
 ### <a name="how-do-i-configure-l2tp-or-pptp-vpn-connections"></a>Comment configurer les connexions L2TP ou PPTP VPN ?
+
 Si vous utilisez L2TP ou PPTP dans votre réseau privé virtuel, veillez à définir **envoyer tout le trafic** à **ON** dans la configuration du VPN.
 
 ## <a name="web-client"></a>client Web

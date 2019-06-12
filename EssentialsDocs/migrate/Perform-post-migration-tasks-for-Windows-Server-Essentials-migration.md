@@ -12,12 +12,12 @@ ms.assetid: f2d236a4-0d62-4961-9d1f-332054e06f6d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 535a547ded55cb4afc0942259eadf5222a815274
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93d07938435ab1ce7686b1960974696582a2924c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821020"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432662"
 ---
 # <a name="perform-post-migration-tasks-for-windows-server-essentials-migration1"></a>Effectuer des tâches de post-migration pour migration1 de Windows Server Essentials
 
@@ -105,21 +105,21 @@ Les tâches suivantes vous aident à terminer la configuration de votre serveur 
   
 #### <a name="to-give-the-built-in-administrators-group-the-right-to-log-on-as-a-batch-job"></a>Pour donner au groupe Administrateurs intégré le droit d'ouvrir une session en tant que tâche  
   
-1.  Sur le serveur de destination, ouvrez l'outil d'administration **Gestion des stratégies de groupe**.  
+1. Sur le serveur de destination, ouvrez l'outil d'administration **Gestion des stratégies de groupe**.  
   
-2.  Dans le **Group Policy Management** arborescence de la Console, développez **forêt :** *< nom_serveur\>*, développez domaines, puis développez votre serveur.  
+2. Dans le **Group Policy Management** arborescence de la Console, développez **forêt :** *< nom_serveur\>* , développez domaines, puis développez votre serveur.  
   
-3.  Développez **Contrôleurs de domaine**, cliquez avec le bouton droit sur **Stratégie Contrôleurs de domaine par défaut**, puis cliquez sur **Modifier**.  
+3. Développez **Contrôleurs de domaine**, cliquez avec le bouton droit sur **Stratégie Contrôleurs de domaine par défaut**, puis cliquez sur **Modifier**.  
   
-4.  Dans **éditeur de gestion de stratégie de groupe**, cliquez sur **stratégie des contrôleurs de domaine par défaut ***< nom_serveur\>*** stratégie**, puis développez  **Configuration de l’ordinateur**.  
+4. Dans **éditeur de gestion de stratégie de groupe**, cliquez sur **stratégie des contrôleurs de domaine par défaut**<em>< nom_serveur\></em>**stratégie**, puis développez **Configuration ordinateur**.  
   
-5.  Développez **Stratégies**, **Paramètres Windows**, puis **Paramètres de sécurité**.  
+5. Développez **Stratégies**, **Paramètres Windows**, puis **Paramètres de sécurité**.  
   
-6.  Dans l'arborescence **Paramètres de sécurité**, développez **Stratégies locales**, puis cliquez sur **Attribution des droits utilisateur**.  
+6. Dans l'arborescence **Paramètres de sécurité**, développez **Stratégies locales**, puis cliquez sur **Attribution des droits utilisateur**.  
   
-7.  Dans le volet de résultats, cliquez avec le bouton droit sur **Ouvrir une session en tant que tâche**, puis cliquez sur Propriétés.  
+7. Dans le volet de résultats, cliquez avec le bouton droit sur **Ouvrir une session en tant que tâche**, puis cliquez sur Propriétés.  
   
-8.  Dans la page **Propriétés**, cliquez sur **Ajouter un utilisateur ou un groupe**.  
+8. Dans la page **Propriétés**, cliquez sur **Ajouter un utilisateur ou un groupe**.  
   
 9. Dans la boîte de dialogue **Ajouter un utilisateur ou un groupe**, cliquez sur **Parcourir**.  
   
@@ -132,9 +132,9 @@ Les tâches suivantes vous aident à terminer la configuration de votre serveur 
 
 -   [Migrer à partir de Windows SBS 2003](Migrate-Windows-Small-Business-Server-2003-to-Windows-Server-Essentials.md)  
   
--   [Migrer des données de serveur vers Windows Server Essentials](Migrate-Server-Data-to-Windows-Server-Essentials.md)
+-   [Migrer les données du serveur vers Windows Server Essentials](Migrate-Server-Data-to-Windows-Server-Essentials.md)
 
 -   [Migrer à partir de Windows SBS 2003](../migrate/Migrate-Windows-Small-Business-Server-2003-to-Windows-Server-Essentials.md)  
   
--   [Migrer des données de serveur vers Windows Server Essentials](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)
+-   [Migrer les données du serveur vers Windows Server Essentials](../migrate/Migrate-Server-Data-to-Windows-Server-Essentials.md)
 

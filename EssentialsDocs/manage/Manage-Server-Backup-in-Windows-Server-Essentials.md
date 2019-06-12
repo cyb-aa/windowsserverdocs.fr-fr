@@ -12,12 +12,12 @@ ms.assetid: 0302d070-c58a-40f2-b56d-7e7842813d02
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 2b0cd926b15d65e5cd4c784681c40df29b18a48f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7e40a4675cf77d55a3047b41e0ab852fd7cd9de9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890140"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433215"
 ---
 # <a name="manage-server-backup-in-windows-server-essentials"></a>Gérer la sauvegarde du serveur dans Windows Server Essentials
 
@@ -48,7 +48,7 @@ ms.locfileid: "59890140"
   
 1.  Contactez le ou les propriétaires des fichiers ou des dossiers, puis notez les dates et heures auxquelles ils les ont ajoutés ou modifiés. Utilisez ces dates et heures comme point de départ.  
   
-2.  Dans la page **Choisir une option de restauration** de l'Assistant Restauration de fichiers ou de dossiers, cliquez sur **Restaurer à partir d'une sauvegarde sélectionnée (avancé)**.  
+2.  Dans la page **Choisir une option de restauration** de l'Assistant Restauration de fichiers ou de dossiers, cliquez sur **Restaurer à partir d'une sauvegarde sélectionnée (avancé)** .  
   
 3.  Selon que vous souhaitez restaurer une version plus ancienne ou plus récente des fichiers ou des dossiers, sélectionnez la sauvegarde qui convient le mieux aux dates et heures notées à l'étape 1.  
   
@@ -75,17 +75,17 @@ ms.locfileid: "59890140"
   
 #### <a name="to-use-remote-web-access-to-manage-your-server"></a>Pour utiliser l'accès web à distance pour gérer votre serveur  
   
-1.  Ouvrez un navigateur web.  
+1. Ouvrez un navigateur web.  
   
-2.  Dans la zone d'adresse, tapez le nom du domaine Windows Server Essentials.  
+2. Dans la zone d'adresse, tapez le nom du domaine Windows Server Essentials.  
   
-3.  Quand vous y êtes invité, entrez votre nom d'utilisateur et votre mot de passe.  
+3. Quand vous y êtes invité, entrez votre nom d'utilisateur et votre mot de passe.  
   
-4.  Lorsque vous cliquez sur le nom du serveur Web l’accès à distance, la page d’ouverture de session pour le tableau de bord s’affiche.  
+4. Lorsque vous cliquez sur le nom du serveur Web l’accès à distance, la page d’ouverture de session pour le tableau de bord s’affiche.  
   
-5.  Connectez-vous au tableau de bord en tant qu'administrateur, puis cliquez sur **Périphériques**.  
+5. Connectez-vous au tableau de bord en tant qu'administrateur, puis cliquez sur **Périphériques**.  
   
- Pour plus d’informations sur l’accès Web à distance, consultez [vue d’ensemble de l’accès Web à distance](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Overview).  
+   Pour plus d’informations sur l’accès Web à distance, consultez [vue d’ensemble de l’accès Web à distance](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Overview).  
   
 ##  <a name="BKMK_4"></a> Désactiver la sauvegarde du serveur  
  Nous vous conseillons de protéger automatiquement votre serveur et ses données en planifiant des sauvegardes quotidiennes. Il est recommandé de mettre en place un plan de sauvegarde quotidien, car la plupart des organisations ne peuvent pas se permettre de perdre plusieurs jours de données.  
@@ -138,12 +138,12 @@ ms.locfileid: "59890140"
   
 > [!NOTE]
 >  Dans l'installation par défaut de Windows Server Essentials, le serveur est configuré pour effectuer automatiquement une défragmentation une fois par semaine. Si vous utilisez un logiciel de création d'images qui n'est pas fourni par Microsoft, la taille de vos sauvegardes peut être supérieure à la normale. S'il est inutile de défragmenter régulièrement le serveur, vous pouvez suivre ces étapes pour désactiver la planification de la défragmentation :  
->   
->  1.  Appuyez sur la touche Windows + W pour ouvrir **Rechercher**.  
-> 2.  Dans la zone de texte Rechercher, tapez **Defragment**.  
-> 3.  Dans la section de résultats, cliquez sur **Défragmenter et optimiser les lecteurs**.  
-> 4.  Dans la page **Optimiser les lecteurs**, sélectionnez un lecteur, puis cliquez sur **Modifier les paramètres**.  
-> 5.  Dans la fenêtre **Planification de l'optimisation** , décochez la case **Exécution planifiée (recommandé)** , puis cliquez sur **OK** pour enregistrer les modifications.  
+> 
+> 1. Appuyez sur la touche Windows + W pour ouvrir **Rechercher**.  
+>    2. Dans la zone de texte Rechercher, tapez **Defragment**.  
+>    3. Dans la section de résultats, cliquez sur **Défragmenter et optimiser les lecteurs**.  
+>    4. Dans la page **Optimiser les lecteurs**, sélectionnez un lecteur, puis cliquez sur **Modifier les paramètres**.  
+>    5. Dans la fenêtre **Planification de l'optimisation** , décochez la case **Exécution planifiée (recommandé)** , puis cliquez sur **OK** pour enregistrer les modifications.  
   
 ### <a name="items-to-be-backed-up"></a>Éléments à sauvegarder  
  Par défaut, tous les fichiers et dossiers du système d'exploitation sont sélectionnés pour la sauvegarde. Vous pouvez sauvegarder tous les disques durs, fichiers et dossiers situés sur le serveur, ou sélectionner uniquement certains disques durs, fichiers ou dossiers à sauvegarder. Pour ajouter ou supprimer des éléments à sauvegarder, effectuez l'une des opérations suivantes :  

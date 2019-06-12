@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: cc9f02b9-8ddd-4cae-b397-a832996144dd
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fb940effaae7989dec397e539b64160c87828d5a
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 7aec08a19759c98150cf7518643f634947c5133d
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266705"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66804999"
 ---
 # <a name="step-2-plan-the-remote-access-deployment"></a>Étape 2 planifier le déploiement de l’accès à distance
 
@@ -56,7 +56,7 @@ Vous devez prendre trois décisions lors de la planification du déploiement de 
   
     -   **Vérificateurs de connectivité**  
   
-        Une sonde web par défaut est créée et elle est utilisée par les clients pour valider la connectivité au réseau interne. Le nom par défaut est https://directaccess-WebProbeHost.<domain_name>. Ce nom doit être enregistré manuellement dans DNS. Vous pouvez créer d’autres vérificateurs de connectivité qui utilisent d’autres adresses web via HTTP ou PING. Pour chaque vérificateur de connectivité, une entrée DNS doit exister.  
+        Une sonde web par défaut est créée et elle est utilisée par les clients pour valider la connectivité au réseau interne. Le nom par défaut est `https://directaccess-WebProbeHost.<domain_name>`. Ce nom doit être enregistré manuellement dans DNS. Vous pouvez créer d’autres vérificateurs de connectivité qui utilisent d’autres adresses web via HTTP ou PING. Pour chaque vérificateur de connectivité, une entrée DNS doit exister.  
   
     -   **Aider à adresse électronique du support**  
   

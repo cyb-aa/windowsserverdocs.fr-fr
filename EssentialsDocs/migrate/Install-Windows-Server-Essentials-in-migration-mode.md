@@ -12,12 +12,12 @@ ms.assetid: fd7196ac-cfa6-46a5-ba77-6962b47a825e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 808a4b1e120fa559d603b34ad006b18de6b94378
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 74c40cc0f06d73a922a3d7fb819f7e71b47ac088
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847690"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432967"
 ---
 # <a name="install-windows-server-essentials-in-migration-mode1"></a>Installer Windows Server Essentials en mode de migration 1
 
@@ -47,25 +47,25 @@ Vous pouvez avoir qu’un seul serveur sur votre réseau qui exécute Windows Se
   
 #### <a name="to-install-windows-server-essentials-on-the-destination-server"></a>Pour installer Windows Server Essentials sur le serveur de Destination  
   
-1.  Activer le serveur de Destination et insérez le DVD1 de Windows Server Essentials dans le lecteur de DVD. Si un message s'affiche vous demandant si vous voulez démarrer à partir d'un CD ou DVD, appuyez sur une touche pour confirmer.  
+1. Activer le serveur de Destination et insérez le DVD1 de Windows Server Essentials dans le lecteur de DVD. Si un message s'affiche vous demandant si vous voulez démarrer à partir d'un CD ou DVD, appuyez sur une touche pour confirmer.  
   
-    > [!NOTE]
-    >  Si le serveur de Destination prend en charge le démarrage à partir d’un lecteur flash USB, vous pouvez utiliser la **outil de téléchargement de Windows 7 USB/DVD** pour créer un lecteur Flash USB démarrable à partir du fichier ISO Windows Server Essentials. L’utilisation d’un disque mémoire USB peut considérablement accélérer le processus d’installation, car les disques mémoire lisent les données beaucoup plus vite que les lecteurs de DVD-ROM. Après avoir créé un disque mémoire USB de démarrage, vous pouvez ajouter un fichier de réponses au disque mémoire. Vous pouvez [télécharger l’outil de téléchargement USB/DVD de Windows 7](https://go.microsoft.com/fwlink/p/?LinkId=248282) disponible gratuitement sur le site Web Microsoft Store.  
+   > [!NOTE]
+   >  Si le serveur de Destination prend en charge le démarrage à partir d’un lecteur flash USB, vous pouvez utiliser la **outil de téléchargement de Windows 7 USB/DVD** pour créer un lecteur Flash USB démarrable à partir du fichier ISO Windows Server Essentials. L’utilisation d’un disque mémoire USB peut considérablement accélérer le processus d’installation, car les disques mémoire lisent les données beaucoup plus vite que les lecteurs de DVD-ROM. Après avoir créé un disque mémoire USB de démarrage, vous pouvez ajouter un fichier de réponses au disque mémoire. Vous pouvez [télécharger l’outil de téléchargement USB/DVD de Windows 7](https://go.microsoft.com/fwlink/p/?LinkId=248282) disponible gratuitement sur le site Web Microsoft Store.  
   
-    > [!NOTE]
-    >  Si le serveur de destination ne démarre pas à partir du DVD, redémarrez l'ordinateur et vérifiez la configuration du BIOS pour vous assurer que **DVD-ROM** s'affiche en premier dans la séquence de démarrage. Pour plus d'informations sur la modification de la séquence de démarrage dans la configuration du BIOS, consultez la documentation du fabricant de votre matériel.  
+   > [!NOTE]
+   >  Si le serveur de destination ne démarre pas à partir du DVD, redémarrez l'ordinateur et vérifiez la configuration du BIOS pour vous assurer que **DVD-ROM** s'affiche en premier dans la séquence de démarrage. Pour plus d'informations sur la modification de la séquence de démarrage dans la configuration du BIOS, consultez la documentation du fabricant de votre matériel.  
   
-2.  Cliquez sur **Nouvelle installation**.  
+2. Cliquez sur **Nouvelle installation**.  
   
-3.  Si un disque dur interne n'est pas affiché dans la liste, cliquez sur **Charger des pilotes** et installez le pilote nécessaire avant de continuer.  
+3. Si un disque dur interne n'est pas affiché dans la liste, cliquez sur **Charger des pilotes** et installez le pilote nécessaire avant de continuer.  
   
-4.  Cochez la case qui vérifie que tous les fichiers et dossiers de votre disque dur principal seront supprimés, puis cliquez sur **Installer**.  
+4. Cochez la case qui vérifie que tous les fichiers et dossiers de votre disque dur principal seront supprimés, puis cliquez sur **Installer**.  
   
-5.  Dans la page **Choisir le mode d'installation du serveur**, cliquez sur **Migration du serveur**, puis fournissez les informations de migration requises.  
+5. Dans la page **Choisir le mode d'installation du serveur**, cliquez sur **Migration du serveur**, puis fournissez les informations de migration requises.  
   
-6.  Quand le message **Votre serveur a correctement migré** s'affiche, cliquez sur **Fermer**.  
+6. Quand le message **Votre serveur a correctement migré** s'affiche, cliquez sur **Fermer**.  
   
- Une fois l'installation terminée, vous êtes automatiquement connecté avec le compte d'administrateur et le mot de passe que vous avez fournis dans le fichier de réponses de migration.  
+   Une fois l'installation terminée, vous êtes automatiquement connecté avec le compte d'administrateur et le mot de passe que vous avez fournis dans le fichier de réponses de migration.  
   
 > [!NOTE]
 >  Pour déverrouiller le bureau pendant l’installation de Windows Server Essentials, utilisez le compte administrateur intégré et laissez le mot de passe vide.  

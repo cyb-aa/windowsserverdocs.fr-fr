@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 1164767a80b4d7dd24152bc34eda5d88834c1bdb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 30843fe94ac7a4dc60092adcede60120bc9e627f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854820"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441759"
 ---
 # <a name="routews2008"></a>route_ws2008
 
@@ -46,12 +46,12 @@ route [/f] [/p] [<Command> [<Destination>] [mask <Netmask>] [<Gateway>] [metric 
 |/?|Affiche l'aide à l'invite de commandes.|  
 
 ## <a name="remarks"></a>Notes  
--   Les valeurs élevées dans le **métrique** colonne de la table de routage sont le résultat de l’autorisation de TCP/IP déterminer automatiquement la métrique des itinéraires dans la table de routage basé sur la configuration d’adresse IP, masque de sous-réseau et passerelle par défaut pour chaque interface LAN. Détermination automatique de la métrique de l’interface, activée par défaut, détermine la vitesse de chaque interface et ajuste les métriques d’itinéraires pour chaque interface afin que l’interface la plus rapide crée l’itinéraire avec la métrique la plus faible. Pour supprimer les métriques de grande taille, désactivez le calcul automatique de la métrique de l’interface à partir des propriétés avancées du protocole TCP/IP pour chaque connexion de réseau local.  
--   Noms peuvent être utilisés pour *Destination* si une entrée appropriée existe dans le fichier de réseaux locaux stocké dans le **systemroot\System32\Drivers\\**etc. dossier. Noms peuvent être utilisés pour le *passerelle* tant qu’ils peuvent être résolues en une adresse IP via des techniques de résolution de nom hôte standard telles que les requêtes du système DNS (Domain Name), utilisez du fichier Hosts local stocké dans le  **systemroot\system32\drivers\\**dossier etc et la résolution de nom NetBIOS.  
--   Si la commande est **imprimer** ou **supprimer**, le *passerelle* paramètre peut être omis et des caractères génériques peuvent être utilisés pour la destination et la passerelle. Le *Destination* valeur peut être une valeur générique spécifiée par un astérisque (*). Si la destination spécifiée contient un astérisque (\*) ou un point d’interrogation ( ?), il est traité comme un caractère générique et seuls les itinéraires de destination correspondants sont imprimés ou supprimés. L’astérisque correspond à n’importe quelle chaîne, et le point d’interrogation correspond à n’importe quel caractère unique. Par exemple, 10. \*.1, 192.168. \*, 127. \*, et \*224\* sont tous valides utilise du caractère générique astérisque.  
--   À l’aide d’une combinaison non valide d’une valeur de masque de sous-réseau et de destination affiche un « itinéraire : masque réseau adresse de passerelle incorrecte » message d’erreur. Ce message d’erreur s’affiche lorsque la destination contient un ou plusieurs bits définis sur 1 dans les emplacements de bits où le bit de masque de sous-réseau correspondant est défini sur 0. Pour tester cette condition, exprimez la destination et masque de sous-réseau à l’aide de la notation binaire. Le masque de sous-réseau en notation binaire se compose d’une série de bits 1, représentant la partie adresse de réseau de la destination et une série de bits 0, qui représente la partie hôte de destination. Vérification pour déterminer s’il existe dans la destination des bits qui sont définis sur 1 pour la partie de la destination est l’adresse d’hôte (tel que défini par le masque de sous-réseau).  
--   Le **/p** paramètre est uniquement pris en charge sur la commande de l’itinéraire pour Windows NT 4.0, Windows 2000, Windows Millennium edition, Windows XP et Windows Server 2003. Ce paramètre n’est pas pris en charge par le **itinéraire** commande pour Windows 95 ou Windows 98.  
--   Cette commande est disponible uniquement si le protocole TCP/IP (Internet Protocol) est installé en tant que composant dans les propriétés d’une carte réseau dans Connexions réseau.  
+- Les valeurs élevées dans le **métrique** colonne de la table de routage sont le résultat de l’autorisation de TCP/IP déterminer automatiquement la métrique des itinéraires dans la table de routage basé sur la configuration d’adresse IP, masque de sous-réseau et passerelle par défaut pour chaque interface LAN. Détermination automatique de la métrique de l’interface, activée par défaut, détermine la vitesse de chaque interface et ajuste les métriques d’itinéraires pour chaque interface afin que l’interface la plus rapide crée l’itinéraire avec la métrique la plus faible. Pour supprimer les métriques de grande taille, désactivez le calcul automatique de la métrique de l’interface à partir des propriétés avancées du protocole TCP/IP pour chaque connexion de réseau local.  
+- Noms peuvent être utilisés pour *Destination* si une entrée appropriée existe dans le fichier de réseaux locaux stocké dans le <strong>systemroot\System32\Drivers\\</strong>etc. dossier. Noms peuvent être utilisés pour le *passerelle* tant qu’ils peuvent être résolues en une adresse IP via des techniques de résolution de nom hôte standard telles que les requêtes du système DNS (Domain Name), utilisez du fichier Hosts local stocké dans le  <strong>systemroot\system32\drivers\\</strong>dossier etc et la résolution de nom NetBIOS.  
+- Si la commande est **imprimer** ou **supprimer**, le *passerelle* paramètre peut être omis et des caractères génériques peuvent être utilisés pour la destination et la passerelle. Le *Destination* valeur peut être une valeur générique spécifiée par un astérisque (*). Si la destination spécifiée contient un astérisque (\*) ou un point d’interrogation ( ?), il est traité comme un caractère générique et seuls les itinéraires de destination correspondants sont imprimés ou supprimés. L’astérisque correspond à n’importe quelle chaîne, et le point d’interrogation correspond à n’importe quel caractère unique. Par exemple, 10. \*.1, 192.168. \*, 127. \*, et \*224\* sont tous valides utilise du caractère générique astérisque.  
+- À l’aide d’une combinaison non valide d’une valeur de masque de sous-réseau et de destination affiche un « itinéraire : masque réseau adresse de passerelle incorrecte » message d’erreur. Ce message d’erreur s’affiche lorsque la destination contient un ou plusieurs bits définis sur 1 dans les emplacements de bits où le bit de masque de sous-réseau correspondant est défini sur 0. Pour tester cette condition, exprimez la destination et masque de sous-réseau à l’aide de la notation binaire. Le masque de sous-réseau en notation binaire se compose d’une série de bits 1, représentant la partie adresse de réseau de la destination et une série de bits 0, qui représente la partie hôte de destination. Vérification pour déterminer s’il existe dans la destination des bits qui sont définis sur 1 pour la partie de la destination est l’adresse d’hôte (tel que défini par le masque de sous-réseau).  
+- Le **/p** paramètre est uniquement pris en charge sur la commande de l’itinéraire pour Windows NT 4.0, Windows 2000, Windows Millennium edition, Windows XP et Windows Server 2003. Ce paramètre n’est pas pris en charge par le **itinéraire** commande pour Windows 95 ou Windows 98.  
+- Cette commande est disponible uniquement si le protocole TCP/IP (Internet Protocol) est installé en tant que composant dans les propriétés d’une carte réseau dans Connexions réseau.  
 
 ## <a name="BKMK_Examples"></a>Exemples  
 Pour afficher tout le contenu de la table de routage IP, tapez :  
@@ -96,4 +96,4 @@ route change 10.41.0.0 mask 255.255.0.0 10.27.0.25
 ```  
 
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

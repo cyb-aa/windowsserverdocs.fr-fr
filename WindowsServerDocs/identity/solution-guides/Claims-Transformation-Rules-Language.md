@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 4a6b378bc4aef180ebedd260008febaa2f2a76ae
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a1f5c724d041a9f64c3b2697a8b5acd17a2a7bd9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856210"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445812"
 ---
 # <a name="claims-transformation-rules-language"></a>Langage de règles de Transformation de revendications
 
@@ -225,75 +225,75 @@ Règles de transformation des revendications sont analysées par un analyseur pe
   
 Cette section illustre quelques exemples de règles qui sont écrites avec une syntaxe incorrecte et la syntaxe correspondante erreurs générées par l’analyseur.  
   
-1.  Exemple :  
+1. Exemple :  
   
-    ```  
-    c1;[]=>Issue(claim=c1);  
-    ```  
+   ```  
+   c1;[]=>Issue(claim=c1);  
+   ```  
   
-    Cet exemple comprend un point-virgule utilisée de manière incorrecte à la place d’un signe deux-points.   
-    **Message d’erreur :**  
-    *POLICY0002 : N’a pas pu analyser les données de stratégie.*  
-    *Numéro de ligne : 1, numéro de colonne : 2, erreur jeton : ;. Line: 'c1;[]=>Issue(claim=c1);'.*  
-    *Erreur d’analyse : ' POLICY0030 : Erreur de syntaxe inattendue ';', l’une des suivantes attendue : ' :'.'*  
+   Cet exemple comprend un point-virgule utilisée de manière incorrecte à la place d’un signe deux-points.   
+   **Message d’erreur :**  
+   *POLICY0002 : N’a pas pu analyser les données de stratégie.*  
+   *Numéro de ligne : 1, numéro de colonne : 2, erreur jeton : ;. Line: 'c1;[]=>Issue(claim=c1);'.*  
+   *Erreur d’analyse : ' POLICY0030 : Erreur de syntaxe inattendue ';', l’une des suivantes attendue : ' :'.'*  
   
-2.  Exemple :  
+2. Exemple :  
   
-    ```  
-    c1:[]=>Issue(claim=c2);  
-    ```  
+   ```  
+   c1:[]=>Issue(claim=c2);  
+   ```  
   
-    Dans cet exemple, la balise de l’identificateur dans l’instruction d’émission de copie n’est pas définie.   
-    **Message d’erreur**:   
-    *POLICY0011 : Aucune condition dans la règle de revendication correspond à la balise de la condition spécifiée dans le CopyIssuanceStatement : « c2 ».*  
+   Dans cet exemple, la balise de l’identificateur dans l’instruction d’émission de copie n’est pas définie.   
+   **Message d’erreur**:   
+   *POLICY0011 : Aucune condition dans la règle de revendication correspond à la balise de la condition spécifiée dans le CopyIssuanceStatement : « c2 ».*  
   
-3.  Exemple :  
+3. Exemple :  
   
-    ```  
-    c1:[type=="x1", value=="1", valuetype=="bool"]=>Issue(claim=c1)  
-    ```  
+   ```  
+   c1:[type=="x1", value=="1", valuetype=="bool"]=>Issue(claim=c1)  
+   ```  
   
-    « bool » n’est pas un Terminal dans le langage, et il n’est pas un type de valeur valide. Les terminaux valides sont répertoriées dans le message d’erreur suivant.   
-    **Message d’erreur :**  
-    *POLICY0002 : N’a pas pu analyser les données de stratégie.*  
-    Numéro de ligne : 1, numéro de colonne : 39, jeton d’erreur : « bool ». Line: 'c1:[type=="x1", value=="1",valuetype=="bool"]=>Issue(claim=c1);'.   
-    *Erreur d’analyse : ' POLICY0030 : Erreur de syntaxe, inattendue 'STRING', sauf pour un des éléments suivants : 'INT64_TYPE' 'UINT64_TYPE' 'STRING_TYPE' 'BOOLEAN_TYPE' 'IDENTIFIER'*  
+   « bool » n’est pas un Terminal dans le langage, et il n’est pas un type de valeur valide. Les terminaux valides sont répertoriées dans le message d’erreur suivant.   
+   **Message d’erreur :**  
+   *POLICY0002 : N’a pas pu analyser les données de stratégie.*  
+   Numéro de ligne : 1, numéro de colonne : 39, jeton d’erreur : « bool ». Line: 'c1:[type=="x1", value=="1",valuetype=="bool"]=>Issue(claim=c1);'.   
+   *Erreur d’analyse : ' POLICY0030 : Erreur de syntaxe, inattendue 'STRING', sauf pour un des éléments suivants : 'INT64_TYPE' 'UINT64_TYPE' 'STRING_TYPE' 'BOOLEAN_TYPE' 'IDENTIFIER'*  
   
-4.  Exemple :  
+4. Exemple :  
   
-    ```  
-    c1:[type=="x1", value==1, valuetype=="boolean"]=>Issue(claim=c1);  
-    ```  
+   ```  
+   c1:[type=="x1", value==1, valuetype=="boolean"]=>Issue(claim=c1);  
+   ```  
   
-    Le chiffre **1** dans cet exemple n’est pas un jeton valide dans la langue, et cette utilisation n’est pas autorisée dans une condition de correspondance. Il doit être encadré de guillemets doubles pour sous forme de chaîne.   
-    **Message d’erreur :**  
-    *POLICY0002 : N’a pas pu analyser les données de stratégie.*  
-    *Numéro de ligne : 1, numéro de colonne : 23, erreur jeton : 1. Line: 'c1:[type=="x1", value==1, valuetype=="bool"]=>Issue(claim=c1);'.**Parser error: ' POLICY0029 : Entrée inattendue.*  
+   Le chiffre **1** dans cet exemple n’est pas un jeton valide dans la langue, et cette utilisation n’est pas autorisée dans une condition de correspondance. Il doit être encadré de guillemets doubles pour sous forme de chaîne.   
+   **Message d’erreur :**  
+   *POLICY0002 : N’a pas pu analyser les données de stratégie.*  
+   *Numéro de ligne : 1, numéro de colonne : 23, erreur jeton : 1. Line: 'c1:[type=="x1", value==1, valuetype=="bool"]=>Issue(claim=c1);'.* <em>Parser error: ' POLICY0029 : Entrée inattendue.</em>  
   
-5.  Exemple :  
+5. Exemple :  
   
-    ```  
-    c1:[type == "x1", value == "1", valuetype == "boolean"] =>   
+   ```  
+   c1:[type == "x1", value == "1", valuetype == "boolean"] =>   
   
-         Issue(type = c1.type, value="0", valuetype == "boolean");  
-    ```  
+        Issue(type = c1.type, value="0", valuetype == "boolean");  
+   ```  
   
-    Cet exemple utilise un double signe égal (==) au lieu d’un seul signe égal (=).   
-    **Message d’erreur :**  
-    *POLICY0002 : N’a pas pu analyser les données de stratégie.*  
-    *Numéro de ligne : 1, numéro de colonne : 91, jeton d’erreur : ==. Line: 'c1:[type=="x1", value=="1",*  
-    *valuetype=="boolean"]=>Issue(type=c1.type, value="0", valuetype=="boolean");'.*  
-    *Erreur d’analyse : ' POLICY0030 : Erreur de syntaxe, inattendue '==', sauf pour un des éléments suivants : '='*  
+   Cet exemple utilise un double signe égal (==) au lieu d’un seul signe égal (=).   
+   **Message d’erreur :**  
+   *POLICY0002 : N’a pas pu analyser les données de stratégie.*  
+   *Numéro de ligne : 1, numéro de colonne : 91, jeton d’erreur : ==. Line: 'c1:[type=="x1", value=="1",*  
+   *valuetype=="boolean"]=>Issue(type=c1.type, value="0", valuetype=="boolean");'.*  
+   *Erreur d’analyse : ' POLICY0030 : Erreur de syntaxe, inattendue '==', sauf pour un des éléments suivants : '='*  
   
-6.  Exemple :  
+6. Exemple :  
   
-    ```  
-    c1:[type=="x1", value=="boolean", valuetype=="string"] =>   
+   ```  
+   c1:[type=="x1", value=="boolean", valuetype=="string"] =>   
   
-          Issue(type=c1.type, value=c1.value, valuetype = "string");  
-    ```  
+         Issue(type=c1.type, value=c1.value, valuetype = "string");  
+   ```  
   
-    Cet exemple est syntaxiquement et sémantiquement correct. Toutefois, l’utilisation de « boolean » comme valeur de chaîne est liée à confusion, et il doit être évitée. Comme mentionné précédemment, à l’aide de terminaux de langage comme valeurs de revendications doivent être évitées si possible.  
+   Cet exemple est syntaxiquement et sémantiquement correct. Toutefois, l’utilisation de « boolean » comme valeur de chaîne est liée à confusion, et il doit être évitée. Comme mentionné précédemment, à l’aide de terminaux de langage comme valeurs de revendications doivent être évitées si possible.  
   
 ## <a name="BKMK_LT"></a>Terminaux de langage  
 Le tableau suivant répertorie l’ensemble complet des chaînes de terminal et les terminaux de langage associé sont utilisés dans le langage de règles de transformation de revendications. Ces définitions utilisent des chaînes UTF-16 non-respect de la casse.  

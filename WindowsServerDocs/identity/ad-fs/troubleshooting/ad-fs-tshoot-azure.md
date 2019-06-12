@@ -8,12 +8,12 @@ ms.date: 03/01/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6f85c447ac0816c46e07145dbe9a491a29e17c0f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 228ef34ab25276c1cf98f9b2b64e997390023c87
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846470"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444009"
 ---
 # <a name="ad-fs-troubleshooting---azure-ad"></a>Résolution des problèmes d’AD FS - Azure AD
 Avec l’essor du cloud, un grand nombre d’entreprises ont choisi d’utiliser Azure AD pour leurs applications et services divers.  Fédération avec Azure AD sont devenus une pratique standard avec de nombreuses organisations.  Ce document aborde certains aspects de résolution des problèmes qui surviennent avec cette fédération.  Plusieurs des rubriques dans le document de dépannage général se rapportent toujours à la fédération avec Azure afin de ce document se concentrera sur les spécificités juste avec Azure AD et l’interaction d’AD FS.
@@ -31,11 +31,11 @@ Si la redirection n’a pas eu lieu qu'il y a quelques éléments que vous souha
 
 ![](media/ad-fs-tshoot-azure/azure2.png)
 
-   2.  Assurez-vous que votre domaine personnalisé est vérifié en cliquant sur le domaine en regard de la fédération dans le portail Azure.
-![](media/ad-fs-tshoot-azure/azure3.png)
+1. Assurez-vous que votre domaine personnalisé est vérifié en cliquant sur le domaine en regard de la fédération dans le portail Azure.
+   ![](media/ad-fs-tshoot-azure/azure3.png)
 
-   3. Enfin, vous souhaitez vérifier [DNS](ad-fs-tshoot-dns.md) et assurez-vous que vos serveurs AD FS ou les serveurs WAP sont résout à partir d’internet.  Vérifiez que cela résout et que vous êtes en mesure d’y accéder.
-   4. Vous pouvez également utiliser l’applet de commande PowerShell `Get-AzureADDomain` pour obtenir ces informations également.
+2. Enfin, vous souhaitez vérifier [DNS](ad-fs-tshoot-dns.md) et assurez-vous que vos serveurs AD FS ou les serveurs WAP sont résout à partir d’internet.  Vérifiez que cela résout et que vous êtes en mesure d’y accéder.
+3. Vous pouvez également utiliser l’applet de commande PowerShell `Get-AzureADDomain` pour obtenir ces informations également.
 
 ![](media/ad-fs-tshoot-azure/azure6.png)
 
@@ -48,14 +48,14 @@ Pour appliquer une méthode d’authentification, utilisez une des méthodes sui
 - Pour WS-Federation, utilisez une chaîne de requête WAUTH pour forcer une méthode d’authentification recommandée.
 
 - Pour SAML2.0, utilisez ce qui suit :
-```
-<saml:AuthnContext>
-<saml:AuthnContextClassRef>
-urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
-</saml:AuthnContextClassRef>
-</saml:AuthnContext>
-```
-Lorsque la méthode d’authentification appliquée est envoyée avec une valeur incorrecte, ou si cette méthode d’authentification n’est pas pris en charge sur AD FS ou STS, vous recevez un message d’erreur avant que vous êtes authentifié.
+  ```
+  <saml:AuthnContext>
+  <saml:AuthnContextClassRef>
+  urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+  </saml:AuthnContextClassRef>
+  </saml:AuthnContext>
+  ```
+  Lorsque la méthode d’authentification appliquée est envoyée avec une valeur incorrecte, ou si cette méthode d’authentification n’est pas pris en charge sur AD FS ou STS, vous recevez un message d’erreur avant que vous êtes authentifié.
 
 |Méthode d’authentification voulue|wauth URI|
 |-----|-----|
@@ -145,4 +145,4 @@ Voici une liste rapide des éléments à vérifier si vous rencontrez des probl�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Résolution des problèmes de AD FS](ad-fs-tshoot-overview.md)
+- [Résolution des problèmes AD FS](ad-fs-tshoot-overview.md)

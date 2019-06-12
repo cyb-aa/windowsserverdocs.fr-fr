@@ -11,12 +11,12 @@ ms.assetid: bc4a4971-f727-40cd-91f5-2ee6d24b54cb
 author: KBDAzure
 ms.author: kathydav
 ms.date: 9/30/2016
-ms.openlocfilehash: 55114821b5ac2f1cc028c662217f4bee6980c923
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 97fb1b9003705ba8ad26c2b3e71eda34e88642ee
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845200"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812615"
 ---
 # <a name="system-requirements-for-hyper-v-on-windows-server"></a>Configuration système requise pour Hyper-V sur Windows Server
 
@@ -44,7 +44,7 @@ Quel que soit les fonctionnalités de Hyper-V que vous souhaitez utiliser, vous 
 
   - La prévention de l’exécution des données par le matériel doit être disponible et activée. Pour les systèmes Intel, il s’agit du bit XD (execute disable bit). Pour les systèmes AMD, ceci est le bit NX (aucun bit de non-exécution).
 
-## <a name="bkmk_CheckReq"></a>Comment vérifier la configuration requise pour Hyper-V
+## <a name="how-to-check-for-hyper-v-requirements"></a>Comment vérifier la configuration requise pour Hyper-V
 
 Ouvrez Windows PowerShell ou d’une invite de commandes et tapez :
 

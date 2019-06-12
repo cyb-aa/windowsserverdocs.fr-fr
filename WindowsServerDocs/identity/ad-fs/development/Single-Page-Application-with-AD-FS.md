@@ -4,16 +4,16 @@ description: Une procédure pas à pas qui fournit des instructions pour l’aut
 author: billmath
 ms.author: billmath
 manager: mtillman
-ms.date: 06/12/2018
+ms.date: 06/13/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: 24a9caba7a2745973d7c69c3bd7bc42717e7a06c
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: f8a8d6b81f63a691954eecf02dba4e33215a462a
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266686"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811748"
 ---
 # <a name="build-a-single-page-web-application-using-oauth-and-adaljs-with-ad-fs-2016-or-later"></a>Créer une application web à page unique à l’aide d’OAuth et la bibliothèque ADAL. JS avec AD FS 2016 ou version ultérieure
 
@@ -21,7 +21,8 @@ Cette procédure pas à pas fournit des instructions pour l’authentification a
 
 Dans ce scénario, quand l’utilisateur se connecte, le code JavaScript frontal utilise [Active Directory Authentication Library pour JavaScript (la bibliothèque ADAL. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) et l’octroi d’autorisation implicite pour obtenir un jeton d’ID (id_token) d’Azure AD. Le jeton est mis en cache et le client l’attache à la demande en tant que le jeton du porteur lors d’appels à son API Web principale, qui est sécurisé à l’aide de l’intergiciel (middleware) OWIN.
 
->AVERTISSEMENT : L’exemple que vous pouvez générer ici est à titre éducatif uniquement. Ces instructions concernent l’implémentation la plus simple, plus minimale possible d’exposer les éléments requis du modèle. L’exemple ne peut pas inclure tous les aspects de la gestion des erreurs et autres concernent les fonctionnalités.
+>[!IMPORTANT]
+>L’exemple que vous pouvez générer ici est à titre éducatif uniquement. Ces instructions concernent l’implémentation la plus simple, plus minimale possible d’exposer les éléments requis du modèle. L’exemple ne peut pas inclure tous les aspects de la gestion des erreurs et autres concernent les fonctionnalités.
 
 >[!NOTE]
 >Cette procédure pas à pas concerne **uniquement** pour le serveur AD FS 2016 et versions ultérieur 
@@ -50,7 +51,7 @@ Vous pouvez utiliser si vous le souhaitez, seuls deux machines. Une pour le cont
 
 Comment configurer le contrôleur de domaine et d’AD FS n’entre pas dans la portée de cet article. Pour des informations supplémentaires sur le déploiement, consultez :
 
-- [Déploiement AD DS](../../ad-ds/deploy/AD-DS-Deployment.md) 
+- [Déploiement AD DS](../../ad-ds/deploy/AD-DS-Deployment.md)
 - [Déploiement d’AD FS](../AD-FS-Deployment.md)
 
 
@@ -109,14 +110,14 @@ Ouvrez le **app.js** du fichier et changer la **adalProvider.init** définition 
         $httpProvider
         );
 
-|Configuration|Description
-|--------|--------
-|instance|URL de votre STS, par exemple, https://fs.contoso.com/
-|tenant|Conserver en tant que « adfs »
-|clientID|C’est l’ID de client que vous avez spécifié lors de la configuration du client public pour votre application à page unique
+|Configuration|Description|
+|--------|--------|
+|instance|URL de votre STS, par exemple, https://fs.contoso.com/|
+|tenant|Conserver en tant que « adfs »|
+|clientID|C’est l’ID de client que vous avez spécifié lors de la configuration du client public pour votre application à page unique|
 
 ## <a name="configure-webapi-to-use-ad-fs"></a>Configurer les API Web pour utiliser AD FS
-Ouvrez le **Startup.Auth.cs** dans l’exemple de fichier et ajoutez le code suivant au début : 
+Ouvrez le **Startup.Auth.cs** dans l’exemple de fichier et ajoutez le code suivant au début :
 
     using System.IdentityModel.Tokens;
 
@@ -143,11 +144,11 @@ et ajoutez :
     }
     );
 
-|Paramètre|Description
-|--------|--------
-|ValidAudience|Cela permet de configurer la valeur de « audience » qui sera vérifiée par rapport à dans le jeton
-|ValidIssuer|Cela permet de configurer la valeur de ' émetteur qui sera vérifié par rapport à dans le jeton
-|MetadataEndpoint|Ce paramètre pointe vers les informations de métadonnées de votre STS
+|Paramètre|Description|
+|--------|--------|
+|ValidAudience|Cela permet de configurer la valeur de « audience » qui sera vérifiée par rapport à dans le jeton|
+|ValidIssuer|Cela permet de configurer la valeur de ' émetteur qui sera vérifié par rapport à dans le jeton|
+|MetadataEndpoint|Ce paramètre pointe vers les informations de métadonnées de votre STS|
 
 ## <a name="add-application-configuration-for-ad-fs"></a>Ajouter la configuration de l’application pour AD FS
 Modifiez l’appsettings comme indiqué ci-dessous :

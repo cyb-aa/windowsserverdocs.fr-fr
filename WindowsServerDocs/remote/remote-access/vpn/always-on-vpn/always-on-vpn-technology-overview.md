@@ -8,18 +8,19 @@ ms.date: 11/05/2018
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: fd3f7c6ca8555e270aabf04bbee6800ed284080c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 65a575b24ea3c70ad7eedd95fe287d955ccaeea6
+ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821260"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749676"
 ---
 # <a name="always-on-vpn-technology-overview"></a>Vue d’ensemble de la technologie VPN Always On
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-&#171;  [**Précédent :** En savoir plus sur les améliorations de VPN Always On](always-on-vpn-enhancements.md)<br>
-&#187;  [**prochain :** En savoir plus sur les fonctionnalités avancées de VPN Always On](deploy/always-on-vpn-adv-options.md)
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
+
+- [**Précédent :** En savoir plus sur les améliorations de VPN Always On](always-on-vpn-enhancements.md)
+- [**prochain :** En savoir plus sur les fonctionnalités avancées de VPN Always On](deploy/always-on-vpn-adv-options.md)
 
 Pour ce déploiement, vous devez installer un nouveau serveur d’accès à distance qui exécute Windows Server 2016, mais aussi modifier une partie de votre infrastructure existante pour le déploiement.
 
@@ -33,7 +34,7 @@ Le processus de connexion décrit dans cette illustration se compose des étapes
 
 2. À l’aide de l’adresse IP renvoyée par le système DNS, le client VPN envoie une demande de connexion à la passerelle VPN.
 
-3. La passerelle VPN est également configurée comme un Remote Authentication Dial-In User Service \(RADIUS\) Client ; le Client RADIUS VPN envoie la demande de connexion au serveur NPS organisation / d’entreprise pour le traitement de demande de connexion.
+3. La passerelle VPN est également configurée comme un Client d’authentification Dial-In Service RADIUS (Remote User) ; le Client RADIUS VPN envoie la demande de connexion sur le serveur NPS organisation / d’entreprise pour le traitement de demande de connexion.
 
 4. Le serveur NPS traite la demande de connexion, notamment l’autorisation et l’authentification et détermine s’il faut autoriser ou refuser la demande de connexion.
 
@@ -52,11 +53,8 @@ Les zones système DNS (Domain Name) internes et externes sont nécessaires, ce 
 
 En savoir plus sur [système DNS (Domain Name)](../../../../networking/dns/dns-top.md) ou [Guide du réseau](../../../../networking/core-network-guide/core-network-guide.md).
 
-
-
-
->[!NOTE] 
->Autres DNS conçoit, tels que DNS « split brain » (en utilisant le même nom de domaine interne et externe dans les zones DNS distinctes) ou non liée interne et des domaines externes (par exemple, contoso.local et contoso.com) sont également possibles. Pour plus d’informations sur le déploiement de DNS « split brain », consultez [utiliser une stratégie DNS pour le déploiement de DNS SplitBrain/](../../../../networking/dns/deploy/split-brain-DNS-deployment.md).
+>[!NOTE]
+>Autres DNS conçoit, tels que DNS « split brain » (en utilisant le même nom de domaine interne et externe dans les zones DNS distinctes) ou non liée interne et des domaines externes (par exemple, contoso.local et contoso.com) sont également possibles. Pour plus d’informations sur le déploiement de DNS « split brain », consultez [utiliser une stratégie DNS pour le déploiement de DNS Split-Brain](../../../../networking/dns/deploy/split-brain-DNS-deployment.md).
 
 ## <a name="firewalls"></a>Pare-feu
 
@@ -70,11 +68,9 @@ Dans Windows Server 2016, le rôle de serveur d’accès à distance est conçu 
 
 IKEv2 est décrite dans la Internet Engineering Task Force demande de commentaires 7296 de protocole de tunnel VPN. Le principal avantage de IKEv2 est qu’il tolère les interruptions de la connexion réseau sous-jacente. Par exemple, si la connexion est perdue temporairement ou si un utilisateur déplace un ordinateur client à partir d’un réseau à un autre, IKEv2 restaure automatiquement la connexion VPN lorsque la connexion réseau est rétablie, tout cela sans intervention de l’utilisateur.
 
-À l’aide de passerelle RAS, vous pouvez déployer des connexions VPN pour fournir aux utilisateurs finaux un accès à distance au réseau et les ressources de votre organisation. Déploiement de VPN Always On tient à jour une connexion persistante entre les clients et le réseau de votre organisation chaque fois que les ordinateurs distants sont connectés à Internet. Avec cette passerelle, vous pouvez également créer une connexion VPN de site à site entre deux serveurs situés à différents emplacements, comme entre votre bureau principal et une filiale et utiliser la traduction d’adresses réseau \(NAT\) afin que les utilisateurs à l’intérieur de la réseau permettre accéder à des ressources externes, tels qu’Internet. En outre, passerelle RAS prend en charge le protocole BGP (Border Gateway), qui fournit des services de routage dynamiques lorsque vos sites distants ont également des passerelles de périmètre qui prennent en charge le protocole BGP.
+À l’aide de passerelle RAS, vous pouvez déployer des connexions VPN pour fournir aux utilisateurs finaux un accès à distance au réseau et les ressources de votre organisation. Déploiement de VPN Always On tient à jour une connexion persistante entre les clients et le réseau de votre organisation chaque fois que les ordinateurs distants sont connectés à Internet. Avec cette passerelle, vous pouvez également créer une connexion VPN de site à site entre deux serveurs situés à différents emplacements, comme entre votre bureau principal et une filiale et utiliser la traduction d’adresses réseau (NAT) afin que les utilisateurs au sein du réseau peuvent accéder externe ressources, tels qu’Internet. En outre, passerelle RAS prend en charge le protocole BGP (Border Gateway), qui fournit des services de routage dynamiques lorsque vos sites distants ont également des passerelles de périmètre qui prennent en charge le protocole BGP.
 
 Vous pouvez gérer les passerelles d’accès à distance (RAS) à l’aide des commandes Windows PowerShell et la distant accès Console (MMC).
-
-
 
 ## <a name="network-policy-server-nps"></a>Serveur NPS (Network Policy Server)
 
@@ -84,7 +80,6 @@ Vous devez également configurer les stratégies réseau utilisées par NPS pour
 
 Pour plus d’informations, consultez [serveur NPS (Network Policy Server)](../../../../networking/technologies/nps/nps-top.md).
 
-
 ## <a name="active-directory-certificate-services"></a>Services de certificats Active Directory
 
 Le serveur de l’autorité de Certification (CA) est une autorité de certification qui exécute les Services de certificat Active Directory. La configuration de VPN nécessite une basée sur Active Directory infrastructure à clé publique (PKI).
@@ -93,23 +88,23 @@ Les organisations peuvent utiliser AD CS pour améliorer la sécurité en liant 
 
 À la fin du déploiement, vous allez configurer les modèles de certificat suivants sur l’autorité de certification.
 
--   Le modèle de certificat authentification de l’utilisateur
+- Le modèle de certificat authentification de l’utilisateur
 
--   Le modèle de certificat d’authentification du serveur VPN
+- Le modèle de certificat d’authentification du serveur VPN
 
--   Le modèle de certificat d’authentification du serveur NPS
+- Le modèle de certificat d’authentification du serveur NPS
 
 ### <a name="certificate-templates"></a>Modèles de certificats
 
 Modèles de certificats peuvent considérablement simplifier la tâche d’administration d’une autorité de certification (CA) en vous permettant d’émettre des certificats qui sont préconfigurés pour les tâches sélectionnées. Le composant logiciel enfichable MMC des modèles de certificat permet de vous permettent d’effectuer les tâches suivantes.
 
--   Afficher les propriétés de chaque modèle de certificat.
+- Afficher les propriétés de chaque modèle de certificat.
 
--   Copier et modifier des modèles de certificats.
+- Copier et modifier des modèles de certificats.
 
--   Contrôler les utilisateurs et ordinateurs peuvent lire des modèles et s’inscrire aux certificats.
+- Contrôler les utilisateurs et ordinateurs peuvent lire des modèles et s’inscrire aux certificats.
 
--   Effectuer d’autres tâches d’administration relatives aux modèles de certificats.
+- Effectuer d’autres tâches d’administration relatives aux modèles de certificats.
 
 Modèles de certificats font partie intégrante d’une autorité de certification d’entreprise (CA). Ils sont un élément important de la stratégie de certificat pour un environnement, qui est l’ensemble de règles et des formats pour l’inscription de certificats, l’utilisation et gestion.
 
@@ -121,11 +116,11 @@ Ce guide de déploiement fournit des instructions sur l’utilisation des Servic
 
 Lorsque vous utilisez des certificats de serveur numériques pour l’authentification entre les ordinateurs de votre réseau, les certificats fournissent :
 
-1.  Confidentialité grâce au cryptage.
+1. Confidentialité grâce au cryptage.
 
-2.  Intégrité via des signatures numériques.
+2. Intégrité via des signatures numériques.
 
-3.  Authentification en associant des clés de certificat avec un compte utilisateur, ordinateur ou un périphérique sur un réseau d’ordinateurs.
+3. Authentification en associant des clés de certificat avec un compte utilisateur, ordinateur ou un périphérique sur un réseau d’ordinateurs.
 
 Pour plus d’informations, consultez [AD CS étape Guide pas à pas : À deux niveaux d’un déploiement de la hiérarchie PKI](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx).
 
@@ -135,17 +130,15 @@ Les services AD DS fournissent une base de données distribuée qui stocke et g�
 
 Services AD DS contiennent les comptes d’utilisateur, les comptes d’ordinateurs et les propriétés du compte qui sont requises par Extensible authentification PEAP (Protected Protocol) pour authentifier les informations d’identification utilisateur et pour évaluer d’autorisation des demandes de connexion VPN. Pour plus d’informations sur le déploiement des services AD DS, consultez Windows Server 2016 [Guide du réseau](../../../../networking/core-network-guide/Core-Network-Guide.md).
 
-
-
 À la fin de la procédure décrite dans ce déploiement, vous allez configurer les éléments suivants sur le contrôleur de domaine.
 
--   Activer l’inscription automatique de certificat dans la stratégie de groupe pour les ordinateurs et utilisateurs
+- Activer l’inscription automatique de certificat dans la stratégie de groupe pour les ordinateurs et utilisateurs
 
--   Créer le groupe d’utilisateurs VPN
+- Créer le groupe d’utilisateurs VPN
 
--   Créer le groupe de serveurs VPN
+- Créer le groupe de serveurs VPN
 
--   Créer le groupe de serveurs NPS
+- Créer le groupe de serveurs NPS
 
 ### <a name="active-directory-users-and-computers"></a>Utilisateurs et ordinateurs Active Directory
 
@@ -155,14 +148,11 @@ Comptes d’utilisateur dans Active Directory Users and Computers ont des propri
 
 Pour plus d’informations, consultez [configurer NPS aux propriétés d’ignorer le compte utilisateur](../../../../networking/technologies/nps/nps-np-configure.md#configure-nps-to-ignore-user-account-dial-in-properties).
 
-
-
 ### <a name="group-policy-management"></a>Gestion des stratégies de groupe
 
 Gestion des stratégies de groupe permet de gestion des modifications et la configuration basée sur le répertoire des paramètres utilisateur et ordinateur, y compris les informations de sécurité et d’utilisateur. Stratégie de groupe vous permet de définir des configurations pour des groupes d’utilisateurs et ordinateurs.
 
 Avec la stratégie de groupe, vous pouvez spécifier des paramètres pour les entrées de Registre, sécurité, installation de logiciels, des scripts, la redirection de dossiers, les services d’installation à distance et maintenance de Internet Explorer. Les paramètres de stratégie de groupe que vous créez sont contenus dans un objet de stratégie de groupe (GPO). En associant un objet de stratégie de groupe à des conteneurs de système Active Directory sélectionnés, sites, domaines et unités d’organisation, vous pouvez appliquer des paramètres de l’objet de stratégie de groupe aux utilisateurs et ordinateurs dans ces conteneurs Active Directory. Pour gérer les objets de stratégie de groupe dans une entreprise, vous pouvez utiliser le groupe de stratégie de gestion éditeur Console MMC (Microsoft Management).
-
 
 ## <a name="windows-10-vpn-clients"></a>Clients VPN Windows 10
 
@@ -173,16 +163,15 @@ Le client VPN Windows 10 est hautement configurable et offre de nombreuses optio
 
 Tableau 1. Fonctionnalités VPN et les Configurations décrites dans ce déploiement
 
-| **Fonctionnalité VPN** | **Configuration de scénario de déploiement**         |
+| Fonctionnalité VPN     |     Configuration de scénario de déploiement         |
 |-----------------|-----------------------------------------------|
-| Type de connexion | IKEv2 natif                                  |
-| Routage         | Le tunneling fractionné                               |
-| Résolution de noms | Liste d’informations de nom de domaine et le suffixe DNS   |
-| Déclenchement      | Détection de réseau Always On et approuvé       |
+| Type de connexion |                 IKEv2 natif                  |
+|     Routage     |                Le tunneling fractionné                |
+| Résolution de noms |  Liste d’informations de nom de domaine et le suffixe DNS  |
+|   Déclenchement    |    Détection de réseau Always On et approuvé    |
 | Authentification  | PEAP-TLS avec des certificats utilisateur protégé par le module de plateforme sécurisée |
----
 
->[!NOTE] 
+>[!NOTE]
 >PEAP-TLS et le module de plateforme sécurisée sont « Protected Extensible Authentication Protocol avec Transport Layer Security » et « Module de plateforme sécurisée », respectivement.
 
 ### <a name="vpnv2-csp-nodes"></a>VPNv2 CSP nœuds
@@ -195,18 +184,14 @@ Toutefois, vous ne pouvez pas configurer certains nœuds CSP directement par le 
 
 Windows 10 offre de nombreux fournisseurs de services cloud, mais ce déploiement se concentre sur l’utilisation de la VPNv2 CSP pour configurer le client VPN. Le VPNv2 CSP permet de configurer chaque paramètre de profil VPN dans Windows 10 via un unique nœud CSP. Également contenue dans le VPNv2 CSP est un nœud appelé *ProfileXML*, qui vous permet de configurer tous les paramètres dans un seul nœud plutôt qu’individuellement. Pour plus d’informations sur ProfileXML, consultez la section « Vue d’ensemble ProfileXML » plus loin dans ce déploiement. Pour plus d’informations sur chaque nœud VPNv2 CSP, consultez le [VPNv2 CSP](https://msdn.microsoft.com/windows/hardware/commercialize/customize/mdm/vpnv2-csp).
 
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [En savoir plus sur certaines des fonctionnalités avancées VPN Always On](deploy/always-on-vpn-adv-options.md)
 
 - [Commencer à planifier votre déploiement VPN Always On](deploy/always-on-vpn-deploy-deployment.md)
 
-
----
-
 ## <a name="related-topics"></a>Rubriques connexes
+
 - [Prise en charge du logiciel Microsoft server pour machines virtuelles Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines): Cet article décrit la politique de support pour l’exécution de logiciels serveur Microsoft dans l’environnement de machine virtuelle Microsoft Azure (infrastructure-as-a-service).
 
 - [Accès à distance](../../Remote-Access.md): Cette rubrique fournit une vue d’ensemble du rôle de serveur d’accès à distance dans Windows Server 2016.
@@ -215,7 +200,7 @@ Windows 10 offre de nombreux fournisseurs de services cloud, mais ce déploiemen
 
 - [Guide du réseau](../../../../networking/core-network-guide/Core-Network-Guide.md): Ce guide fournit des instructions sur la façon de planifier et déployer les composants centraux requis pour un réseau pleinement fonctionnel et un nouveau domaine Active Directory dans une nouvelle forêt.
 
-- [Domain Name System (DNS)](../../../../networking/dns/dns-top.md): Cette rubrique fournit une vue d’ensemble de systèmes DNS (Domain Name). Dans Windows Server 2016, DNS est un rôle de serveur que vous pouvez installer à l’aide des commandes de gestionnaire de serveur ou Windows PowerShell. Si vous installez une nouvelle forêt Active Directory et le même domaine, DNS est automatiquement installé avec Active Directory que le serveur de Catalogue Global pour la forêt et le domaine. 
+- [Domain Name System (DNS)](../../../../networking/dns/dns-top.md): Cette rubrique fournit une vue d’ensemble de systèmes DNS (Domain Name). Dans Windows Server 2016, DNS est un rôle de serveur que vous pouvez installer à l’aide des commandes de gestionnaire de serveur ou Windows PowerShell. Si vous installez une nouvelle forêt Active Directory et le même domaine, DNS est automatiquement installé avec Active Directory que le serveur de Catalogue Global pour la forêt et le domaine.
 
 - [Vue d’ensemble de Services de certificats Active Directory](https://technet.microsoft.com/library/hh831740.aspx): Ce document fournit une vue d’ensemble des Services de certificats Active Directory (AD CS) dans Windows Server® 2012. Les services AD CS correspondent au rôle serveur qui vous permet de générer une infrastructure à clé publique (PKI) et de fournir un chiffrement à clé publique, des certificats numériques et des fonctions de signature numérique pour votre organisation.
 
@@ -223,6 +208,4 @@ Windows 10 offre de nombreux fournisseurs de services cloud, mais ce déploiemen
 
 - [Guide détaillé de AD CS : À deux niveaux d’un déploiement de la hiérarchie PKI](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx): Ce guide pas à pas décrit les étapes nécessaires pour configurer une configuration de base des Services de certificats Active Directory® (AD CS) dans un environnement de laboratoire. Les services AD CS dans Windows Server® 2008 R2 fournit des services personnalisables pour créer et gérer des certificats de clé publiques utilisés dans les systèmes de sécurité logiciels employant des technologies de clé publique.
 
-- [Network Policy Server (NPS)](../../../../networking/technologies/nps/nps-top.md): Cette rubrique fournit une vue d’ensemble du serveur de stratégie réseau dans Windows Server 2016. Un serveur NPS \(Network Policy Server\) vous permet de créer et d’appliquer des stratégies d’accès réseau valides pour toute l’organisation, qui régissent les demandes d’authentification et l’autorisation des demandes de connexion. 
-
----
+- [Network Policy Server (NPS)](../../../../networking/technologies/nps/nps-top.md): Cette rubrique fournit une vue d’ensemble du serveur de stratégie réseau dans Windows Server 2016. Un serveur NPS \(Network Policy Server\) vous permet de créer et d’appliquer des stratégies d’accès réseau valides pour toute l’organisation, qui régissent les demandes d’authentification et l’autorisation des demandes de connexion.

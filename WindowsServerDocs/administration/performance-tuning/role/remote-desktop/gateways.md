@@ -7,23 +7,23 @@ ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 70b27d45acbfb046d52271a50ca7deffb226b8d0
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: f3ac020b3137621f6b2535c973ab7759443e1535
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266726"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811426"
 ---
 # <a name="performance-tuning-remote-desktop-gateways"></a>Les passerelles de bureau à distance de réglage des performances
 
-> [!Note]
+> [!NOTE]
 > Dans Windows 8 et Windows Server 2012 R2 +, la passerelle des services Bureau à distance (passerelle RD) prend en charge TCP, UDP et les transports RPC hérités. La plupart des données suivantes est ce qui concerne le transport RPC hérité. Si le transport RPC hérité n’est pas utilisé, cette section n’est pas applicable.
 
 Cette rubrique décrit les paramètres liés aux performances d’améliorer les performances d’un déploiement de client et les réglages qui s’appuient sur des modèles d’utilisation réseau du client.
 
 Fondamentalement, passerelle Bureau à distance effectue le paquet de nombreuses opérations entre les instances de la connexion Bureau à distance et les instances de serveur hôte de Session Bureau à distance dans le réseau du client de transfert.
 
-> [!Note]
+> [!NOTE]
 > Les paramètres suivants s’appliquent au transport RPC uniquement.
 
 Internet Information Services (IIS) et passerelle Bureau à distance exportent les paramètres de Registre suivants pour aider à améliorer les performances du système dans la passerelle Bureau à distance.
@@ -68,7 +68,6 @@ Les paramètres suivants peuvent vous aider à régler les appels de procédure 
 
 ## <a name="monitoring-and-data-collection"></a>Collecte de données et de surveillance
 
-
 La liste suivante des compteurs de performance est considéré comme un ensemble de compteurs de base lorsque vous surveillez l’utilisation des ressources sur la passerelle Bureau à distance :
 
 -   \\Passerelle de Service Terminal Server\\\*
@@ -107,6 +106,6 @@ Les compteurs de performances suivants sont appliquent uniquement aux ancien tra
 
 -   \\W3SVC\_W3WP\\\* RPC
 
-**Remarque**    le cas échéant, ajoutez le \\IPv6\\ \* et \\TCPv6\\ \* objets. ReplaceThisText
+> [!NOTE]
+> Le cas échéant, ajoutez le \\IPv6\\ \* et \\TCPv6\\ \* objets. ReplaceThisText
 
- 

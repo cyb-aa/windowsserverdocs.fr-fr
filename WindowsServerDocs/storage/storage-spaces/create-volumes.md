@@ -7,22 +7,22 @@ author: cosmosdarwin
 ms.author: cosdar
 manager: eldenc
 ms.technology: storage-spaces
-ms.date: 05/09/2019
-ms.openlocfilehash: d7c842a9b393f67c482dadeaa4090627887a67a3
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.date: 06/06/2019
+ms.openlocfilehash: 85eca06a5d8c103851596055099876cb53a902ad
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613215"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810556"
 ---
 # <a name="creating-volumes-in-storage-spaces-direct"></a>Création de volumes dans les espaces de stockage direct
 
->S’applique à : Windows Server 2019, Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server 2016
 
 Cette rubrique décrit comment créer des volumes sur un cluster d’espaces de stockage Direct à l’aide de Windows Admin Center, de PowerShell ou de gestionnaire du Cluster de basculement.
 
-   >[!TIP]
-   >  Si vous ne l'avez pas encore fait, consultez d'abord [Planification des volumes dans les espaces de stockage direct](plan-volumes.md).
+> [!TIP]
+> Si vous ne l'avez pas encore fait, consultez d'abord [Planification des volumes dans les espaces de stockage direct](plan-volumes.md).
 
 ## <a name="create-a-three-way-mirror-volume"></a>Créer un volume en miroir triple
 
@@ -105,14 +105,14 @@ L'applet de commande **New-Volume** inclut quatre paramètres que vous devez tou
 - **StoragePoolFriendlyName :** Le nom de votre espace de stockage du pool, par exemple *« S2D sur ClusterName »*
 - **Taille :** La taille du volume, par exemple *« 10 To »*
 
-   >[!NOTE]
-   >  Windows, y compris PowerShell, calcule à l'aide de nombres binaires (base-2), tandis que les lecteurs sont souvent étiquetés à l’aide de nombres décimaux (base-10). Cela explique pourquoi un lecteur d'une capacité égale à « un téraoctet » (soit 1 000 000 000 000 octets) affiche une capacité d'environ « 909 Go » dans Windows. Ce comportement est normal. Lors de la création de volumes à l’aide de **New-Volume**, vous devez spécifier le paramètre **Size** à l'aide de nombres binaires (base-2). Par exemple, si vous spécifiez « 909 Go » ou « 0,909495 To », le volume créé sera d'environ 1 000 000 000 000 octets.
+   > [!NOTE]
+   > Windows, y compris PowerShell, calcule à l'aide de nombres binaires (base-2), tandis que les lecteurs sont souvent étiquetés à l’aide de nombres décimaux (base-10). Cela explique pourquoi un lecteur d'une capacité égale à « un téraoctet » (soit 1 000 000 000 000 octets) affiche une capacité d'environ « 909 Go » dans Windows. Ce comportement est normal. Lors de la création de volumes à l’aide de **New-Volume**, vous devez spécifier le paramètre **Size** à l'aide de nombres binaires (base-2). Par exemple, si vous spécifiez « 909 Go » ou « 0,909495 To », le volume créé sera d'environ 1 000 000 000 000 octets.
 
 ### <a name="example-with-2-or-3-servers"></a>Exemple : Avec les serveurs de 2 ou 3
 
 Pour plus de simplicité, si votre déploiement possède uniquement deux serveurs, les espaces de stockage direct utiliseront automatiquement une mise en miroir double pour la résilience. Si votre déploiement possède uniquement trois serveurs, ils utiliseront automatiquement la mise en miroir triple.
 
-```
+```PowerShell
 New-Volume -FriendlyName "Volume1" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB
 ```
 
@@ -124,7 +124,7 @@ Si vous possédez quatre serveurs ou plus, vous pouvez utiliser le paramètre fa
 
 Dans l’exemple suivant, *« Volume2 »* utilise la mise en miroir triple et *« Volume3 »* utilise la double parité (souvent appelée « codage d’effacement »).
 
-```
+```PowerShell
 New-Volume -FriendlyName "Volume2" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB -ResiliencySettingName Mirror
 New-Volume -FriendlyName "Volume3" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB -ResiliencySettingName Parity
 ```
@@ -137,7 +137,7 @@ Pour vous aider à créer des volumes de ce type, les espaces de stockage direct
 
 Vous pouvez les afficher en exécutant l'applet de commande **Get-StorageTier**.
 
-```
+```PowerShell
 Get-StorageTier | Select FriendlyName, ResiliencySettingName, PhysicalDiskRedundancy
 ```
 
@@ -145,7 +145,7 @@ Get-StorageTier | Select FriendlyName, ResiliencySettingName, PhysicalDiskRedund
 
 Pour créer des volumes à plusieurs niveaux de stockage, référencez ces modèles de niveau à l'aide des paramètres **StorageTierFriendlyNames** et **StorageTierSizes** de l'applet de commande **New-Volume**. Par exemple, l’applet de commande suivant crée un volume qui mélange la mise en miroir triple et la double parité dans des proportions 30 : 70.
 
-```
+```PowerShell
 New-Volume -FriendlyName "Volume4" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -StorageTierFriendlyNames Performance, Capacity -StorageTierSizes 300GB, 700GB
 ```
 

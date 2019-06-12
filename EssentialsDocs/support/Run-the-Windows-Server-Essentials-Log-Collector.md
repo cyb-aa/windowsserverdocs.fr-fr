@@ -12,12 +12,12 @@ ms.assetid: 0d340223-fa24-4c75-ba8e-b654feb120ab
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6b49fee7ca4a19d5a501cf96c1ce356f8242c81f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5654f28aeda3c231376ed888a8aa04bc0cf3d000
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830920"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432488"
 ---
 # <a name="run-the-windows-server-essentials-log-collector"></a>Exécuter Windows Server Essentials Log Collector
 Vous pouvez exécuter Windows Server Essentials Log Collector à partir du serveur ou sur un ordinateur sur le réseau. Si vous exécutez Log Collector à partir du serveur, vous pouvez uniquement collecter les journaux du serveur. Si vous exécutez Log Collector à partir d'un ordinateur réseau, vous pouvez choisir de collecter les journaux du serveur en plus de ceux de cet ordinateur.  
@@ -26,20 +26,20 @@ Vous pouvez exécuter Windows Server Essentials Log Collector à partir du serve
   
 #### <a name="to-run-the-log-collector-on-the-server-by-using-the-wizard"></a>Pour exécuter Log Collector sur le serveur à l'aide de l'Assistant  
   
-1.  Sur le **Démarrer** page du serveur, cliquez sur **Windows Server Essentials Log Collector**.  
+1. Sur le **Démarrer** page du serveur, cliquez sur **Windows Server Essentials Log Collector**.  
   
-    > [!NOTE]
-    >  -   Si le programme Log Collector n’apparaît pas sur le **Démarrer** page, accédez à **%system%\Program Files (x86) \Windows Server Essentials Log Collector**, puis double-cliquez sur **LogCollector** .  
-    > -   Si vous n'êtes pas connecté au serveur avec des privilèges d'administration, Log Collector vous invite à entrer vos informations d'identification.  
+   > [!NOTE]
+   > - Si le programme Log Collector n’apparaît pas sur le **Démarrer** page, accédez à **%system%\Program Files (x86) \Windows Server Essentials Log Collector**, puis double-cliquez sur **LogCollector** .  
+   >   -   Si vous n'êtes pas connecté au serveur avec des privilèges d'administration, Log Collector vous invite à entrer vos informations d'identification.  
   
-2.  Quand vous êtes invité à un emplacement enregistrer les fichiers journaux seront collectés, vous pouvez choisir l’emplacement par défaut,  **\\ \\< nom_serveur\>\logs**, ou spécifiez un autre emplacement. Pour accepter l'emplacement par défaut, cliquez sur **Suivant**. Pour modifier l'emplacement, cliquez sur **Parcourir**, accédez au dossier dans lequel vous souhaitez enregistrer les fichiers journaux, puis cliquez sur **Enregistrer**.  
+2. Quand vous êtes invité à un emplacement enregistrer les fichiers journaux seront collectés, vous pouvez choisir l’emplacement par défaut,  **\\ \\< nom_serveur\>\logs**, ou spécifiez un autre emplacement. Pour accepter l'emplacement par défaut, cliquez sur **Suivant**. Pour modifier l'emplacement, cliquez sur **Parcourir**, accédez au dossier dans lequel vous souhaitez enregistrer les fichiers journaux, puis cliquez sur **Enregistrer**.  
   
-    > [!NOTE]
-    >  Vous n'avez pas besoin de fournir les noms des fichiers journaux. Log Collector désigne la collection de fichiers zip en concaténant le nom d’ordinateur et l’horodatage du fichier.  
+   > [!NOTE]
+   >  Vous n'avez pas besoin de fournir les noms des fichiers journaux. Log Collector désigne la collection de fichiers zip en concaténant le nom d’ordinateur et l’horodatage du fichier.  
   
-3.  Une barre de progression s'affiche pendant la collecte des journaux.  
+3. Une barre de progression s'affiche pendant la collecte des journaux.  
   
-4.  Pour afficher le contenu du fichier de collecte des journaux, cochez la case **Ouvrir l'emplacement du fichier dans lequel les journaux ont été enregistrés**, puis cliquez sur **Fermer** pour fermer l'Assistant et ouvrir le fichier de collecte des journaux.  
+4. Pour afficher le contenu du fichier de collecte des journaux, cochez la case **Ouvrir l'emplacement du fichier dans lequel les journaux ont été enregistrés**, puis cliquez sur **Fermer** pour fermer l'Assistant et ouvrir le fichier de collecte des journaux.  
   
 #### <a name="to-run-the-log-collector-on-a-network-computer-by-using-the-wizard"></a>Pour exécuter Log Collector sur un ordinateur réseau à l'aide de l'Assistant  
   
@@ -52,7 +52,7 @@ Vous pouvez exécuter Windows Server Essentials Log Collector à partir du serve
   
     1.  Cochez la case **Fichiers journaux du serveur** pour collecter les fichiers journaux sur le serveur.  
   
-    2.  La case **Fichiers journaux de l'ordinateur client (cet ordinateur)** est cochée par défaut, ce qui signifie que Log Collector collecte les journaux de l'ordinateur réseau. Si vous souhaitez uniquement collecter des journaux du serveur, décochez la case **Fichiers journaux de l'ordinateur client (cet ordinateur)**.  
+    2.  La case **Fichiers journaux de l'ordinateur client (cet ordinateur)** est cochée par défaut, ce qui signifie que Log Collector collecte les journaux de l'ordinateur réseau. Si vous souhaitez uniquement collecter des journaux du serveur, décochez la case **Fichiers journaux de l'ordinateur client (cet ordinateur)** .  
   
     3.  Cliquez sur **Suivant**.  
   

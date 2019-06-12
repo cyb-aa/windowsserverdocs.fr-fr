@@ -13,16 +13,16 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/07/2016
 manager: dongill
-ms.openlocfilehash: 50cbabf377e5b01c44360d776b9ff999826303c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5ca2a29b0287dbd940afeb4404a85f1d978447f9
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814870"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805111"
 ---
 # <a name="remote-desktop-services---multi-factor-authentication"></a>Services Bureau à distance - multi-Factor Authentication
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Tirez parti d’Active Directory avec l’authentification multifacteur pour appliquer la protection de sécurité élevée de vos ressources d’entreprise.
 
@@ -31,4 +31,4 @@ Pour vos utilisateurs finaux de se connecter à leurs ordinateurs de bureau et l
 - Lors de la connexion à la passerelle Bureau à distance pour un accès sécurisé à distance, recevoir un SMS ou une application mobile demande MFA
 - Authentifier et vous connecter à leurs ressources correctement !
 
-Pour plus d’informations sur le processus de configuration, consultez [intégrer votre infrastructure de passerelle Bureau à distance à l’aide de l’extension de serveur NPS (Network Policy Server) et Azure AD ](https://docs.microsoft.com/azure/multi-factor-authentication/nps-extension-remote-desktop-gateway).
+Pour plus d’informations sur le processus de configuration, consultez [intégrer votre infrastructure de passerelle Bureau à distance à l’aide de l’extension de serveur NPS (Network Policy Server) et Azure AD](https://docs.microsoft.com/azure/multi-factor-authentication/nps-extension-remote-desktop-gateway).

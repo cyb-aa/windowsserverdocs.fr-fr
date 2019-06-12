@@ -7,12 +7,12 @@ ms.assetid: eecb002e-6ae5-4075-9a83-2bbcee2a891c
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: ed3a3d4c5d0e55126f4dae8ecaf0ba1f32e46317
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dab27e71e42970507f321271edda90f6d161c691
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820220"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447392"
 ---
 # <a name="managing-the-host-guardian-service"></a>Gérer le Service Guardian hôte
 
@@ -221,7 +221,7 @@ La sauvegarde des SGH état du serveur n’inclut pas le nom de votre cluster SG
 Ces paramètres sont importants pour la cohérence mais non essentielle pour obtenir votre cluster SGH en ligne après un sinistre.
 
 Pour capturer le nom du service SGH, exécutez `Get-HgsServer` et notez le nom plat dans les URL de Protection de clé et de l’Attestation.
-Par exemple, si l’URL d’Attestation est « http://hgs.contoso.com/Attestation», « sgh » est le nom du service SGH.
+Par exemple, si l’URL d’Attestation est «<http://hgs.contoso.com/Attestation>», « sgh » est le nom du service SGH.
 
 Le domaine Active Directory utilisé par SGH doit être géré comme tout autre domaine Active Directory.
 Lorsque vous restaurez SGH après un sinistre, vous pas nécessairement devrez recréer les objets spécifiques qui sont présents dans le domaine actuel.
@@ -702,10 +702,10 @@ Pour chaque machine virtuelle protégée, procédez comme suit :
 10. Copie le KP mis à jour à l’infrastructure d’hébergement
 11. Appliquer le KP à la machine virtuelle d’origine :
 
-    ```powershell
-    $updatedKP = Get-Content -Path .\updatedVM001.kp
-    Set-VMKeyProtector -VMName VM001 -KeyProtector $updatedKP
-    ```
+   ```powershell
+   $updatedKP = Get-Content -Path .\updatedVM001.kp
+   Set-VMKeyProtector -VMName VM001 -KeyProtector $updatedKP
+   ```
 12. Enfin, démarrez la machine virtuelle et vous assurer qu’il s’exécute avec succès.
 
 > [!NOTE]
@@ -718,10 +718,10 @@ Une fois que toutes les machines virtuelles ont été mis à jour pour autoriser
 
 14. Désactiver chaque certificat en exécutant les commandes suivantes :  
 
-    ```powershell
-    Set-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint <Thumbprint> -IsEnabled $false
-    Set-HgsKeyProtectionCertificate -CertificateType Encryption -Thumbprint <Thumbprint> -IsEnabled $false
-    ```
+   ```powershell
+   Set-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint <Thumbprint> -IsEnabled $false
+   Set-HgsKeyProtectionCertificate -CertificateType Encryption -Thumbprint <Thumbprint> -IsEnabled $false
+   ```
 
 15. Après avoir vérifié que les machines virtuelles sont toujours en mesure de commencer par les certificats désactivés, supprimez les certificats SGH en exécutant les commandes suivantes :
 

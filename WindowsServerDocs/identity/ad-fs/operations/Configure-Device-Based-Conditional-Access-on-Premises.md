@@ -9,12 +9,12 @@ ms.date: 08/11/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0df290248f049b3f8a823e902cefa860fa074091
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: bcb6c415aae33b9742d7a7080ec169ca947098b9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189855"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444998"
 ---
 # <a name="configure-on-premises-conditional-access-using-registered-devices"></a>Configurer On-Premises l’accès conditionnel à l’aide d’appareils inscrits
 
@@ -92,11 +92,11 @@ Si votre batterie de serveurs AD FS n’est pas déjà configurée pour l’aut
 
 ![Inscription de l’appareil](media/Configure-Device-Based-Conditional-Access-on-Premises/device2.png)
   
-2.  Sur votre serveur principal AD FS, vérifiez vous êtes connecté en tant qu’utilisateur de domaine Active Directory avec des privilèges d’administrateur d’entreprise (EA) et ouvrez une invite powershell avec élévation de privilèges.  Ensuite, exécutez les commandes PowerShell suivantes :  
+2. Sur votre serveur principal AD FS, vérifiez vous êtes connecté en tant qu’utilisateur de domaine Active Directory avec des privilèges d’administrateur d’entreprise (EA) et ouvrez une invite powershell avec élévation de privilèges.  Ensuite, exécutez les commandes PowerShell suivantes :  
     
-    `Import-module activedirectory`  
-    `PS C:\> Initialize-ADDeviceRegistration -ServiceAccountName "<your service account>" ` 
-3.  Dans la fenêtre contextuelle, appuyez sur Oui.
+   `Import-module activedirectory`  
+   `PS C:\> Initialize-ADDeviceRegistration -ServiceAccountName "<your service account>" ` 
+3. Dans la fenêtre contextuelle, appuyez sur Oui.
 
 >Remarque: Si votre service AD FS est configuré pour utiliser un compte service administré de groupe (GMSA), entrez le nom du compte au format « domaine\nom_compte$ ».
 
@@ -111,7 +111,7 @@ Le PSH ci-dessus crée les objets suivants :
 
 ![Inscription de l’appareil](media/Configure-Device-Based-Conditional-Access-on-Premises/device4.png)  
 
-4.  Une fois cette étape effectuée, vous verrez un message d'opération terminée correctement.
+4. Une fois cette étape effectuée, vous verrez un message d'opération terminée correctement.
 
 ![Inscription de l’appareil](media/Configure-Device-Based-Conditional-Access-on-Premises/device5.png) 
 
@@ -131,9 +131,9 @@ Si vous envisagez d’utiliser une jonction de domaine Windows 10 (avec l’ins
 
 ![Inscription de l’appareil](media/Configure-Device-Based-Conditional-Access-on-Premises/device7.png) 
 
-3.  Exécutez la commande PowerShell suivante 
+3. Exécutez la commande PowerShell suivante 
 
-    `PS C:>Initialize-ADSyncDomainJoinedComputerSync -AdConnectorAccount [AD connector account name] -AzureADCredentials $aadAdminCred ` 
+   `PS C:>Initialize-ADSyncDomainJoinedComputerSync -AdConnectorAccount [AD connector account name] -AzureADCredentials $aadAdminCred ` 
 
 où [AD connector account name] est le nom du compte que vous avez configuré dans Azure AD Connect lors de l’ajout de votre annuaire AD DS local.
   
@@ -180,7 +180,7 @@ Si ce n’est pas déjà fait, activez l’écriture différée d’appareils da
 - objet de type serviceConnectionpoint at CN=&lt;guid&gt;, CN=Device Registration
 
 - Configuration,CN=Services,CN=Configuration,DC=&lt;domaine&gt;  
- - accès en lecture/écriture au nom de compte de connecteur AD spécifié sur le nouvel objet</br></br> 
+  - accès en lecture/écriture au nom de compte de connecteur AD spécifié sur le nouvel objet</br></br> 
 
 
 - objet de type msDS-DeviceRegistrationServiceContainer à CN = Services d’inscription de l’appareil, CN = Device Registration Configuration, CN = Services, CN = Configuration, DC = & ltdomain >  

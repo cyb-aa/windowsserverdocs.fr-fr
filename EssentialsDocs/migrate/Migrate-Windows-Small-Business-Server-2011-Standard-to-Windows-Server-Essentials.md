@@ -12,12 +12,12 @@ ms.assetid: c8325f87-fd79-471b-bf70-3f052692c383
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 5ee0dd816354cb5acc31305de39062e558af1146
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e16026b897a24c15e7a0506fe9e64c688bf363b6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842760"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432802"
 ---
 # <a name="migrate-windows-small-business-server-2011-standard-to-windows-server-essentials"></a>Migrer Windows Small Business Server 2011 Standard vers Windows Server Essentials
 
@@ -27,11 +27,11 @@ Ce guide décrit comment migrer un domaine Windows Small Business Server 2011 St
   
 > [!NOTE]
 >  Pour éviter tout problème pendant la migration, l’équipe de développement de produit Windows Server Essentials vous conseille vivement de lire ce document avant de commencer la migration.  
-  
+> 
 > [!NOTE]
-
+> 
 >  Pour migrer des données de votre serveur vers la dernière version de Windows Server Essentials, consultez [migrer vers Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).  
-
+> 
 >  Pour migrer des données de votre serveur vers la dernière version de Windows Server Essentials, consultez [migrer vers Windows Server Essentials](../migrate/Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).  
 
   

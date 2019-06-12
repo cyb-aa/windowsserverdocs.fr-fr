@@ -9,16 +9,16 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 10/08/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 227906685d77c31587c66d1c292f20ca94775058
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d16a9ddea96760b41c6cd2e4239b9bb51c8b3b38
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881050"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501637"
 ---
 # <a name="choosing-drives-for-storage-spaces-direct"></a>Choix des disques pour les espaces de stockage direct
 
->S'applique à : Windows Server 2016
+>S’applique à : 2019 Windows, Windows Server 2016
 
 Cette rubrique vous apporte des conseils pour le choix de disques adaptés pour les [espaces de stockage direct](storage-spaces-direct-overview.md), répondant par ailleurs à vos exigences en matière de performances et de capacité.
 
@@ -116,7 +116,7 @@ Le cache doit être calibré pour contenir la plage de travail de vos applicatio
 
 Nous recommandons de limiter la capacité de stockage totale par serveur à environ 100 téraoctets (To). Plus la capacité de stockage par serveur est élevée, plus il faut de temps pour resynchroniser les données après un arrêt ou un redémarrage (par exemple, pour appliquer des mises à jour logicielles).
 
-Actuellement, la taille maximale par pool de stockage est de 1 pétaoctets (Po), soit 1 000 téraoctets (To).
+La taille maximale actuelle par pool de stockage est 4 se mesure en pétaoctets (po) (4 000 To) pour Windows Server 2019 ou 1 pétaoctet pour Windows Server 2016.
 
 ## <a name="see-also"></a>Voir aussi
 
@@ -124,4 +124,4 @@ Actuellement, la taille maximale par pool de stockage est de 1 pétaoctets (Po)
 - [Comprendre le cache dans les espaces de stockage Direct](understand-the-cache.md)
 - [Configuration matérielle directe des espaces de stockage](storage-spaces-direct-hardware-requirements.md)
 - [Planification des volumes dans les espaces de stockage Direct](plan-volumes.md)
-- [Efficacité de stockage et la tolérance d’erreur](storage-spaces-fault-tolerance.md)
+- [Tolérance de panne et efficacité du stockage](storage-spaces-fault-tolerance.md)

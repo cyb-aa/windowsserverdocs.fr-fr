@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 10/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: e8c5da1960d0e3129b5520e65c2d5ecf45eef778
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a54ffd3d5596ba8c71deab668e4952da445ca12e
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886950"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66804940"
 ---
 # <a name="get-started-with-remote-desktop-on-mac"></a>Bien démarrer avec le Bureau à distance sur Mac
 
@@ -27,7 +27,7 @@ ms.locfileid: "59886950"
 
 Vous pouvez utiliser le client Bureau à distance pour Mac pour travailler avec les applications Windows, les ressources et les postes de travail à partir de votre ordinateur Mac. Utilisez les informations suivantes pour commencer et extraire le [FAQ](remote-desktop-client-faq.md) si vous avez des questions.
 
->[!Note]
+>[!NOTE]
 > - Curieux de savoir les nouvelles versions du client Mac OS ? Découvrez [quelles sont les nouveautés pour Bureau à distance sur Mac ?](mac-whatsnew.md)
 > - Le client Mac s’exécute sur les ordinateurs exécutant Mac OS 10.10 et versions ultérieures.
 > - Les informations contenues dans cet article s’applique principalement à la version complète du client Mac - la version disponible dans l’App Store Mac. Testez les nouvelles fonctionnalités en téléchargeant notre application de la version préliminaire ici : [notes de mise à jour du client bêta](https://go.microsoft.com/fwlink/?LinkID=619698&clcid=0x409).
@@ -47,17 +47,17 @@ Si vous avez déjà le client, vous pouvez vérifier les mises à jour pour vous
 ## <a name="add-a-remote-desktop-connection"></a>Ajouter une connexion Bureau à distance
 Pour créer une connexion Bureau à distance :
 
-1. Dans le centre de connexion, cliquez sur **+**, puis cliquez sur **Desktop**.
+1. Dans le centre de connexion, cliquez sur **+** , puis cliquez sur **Desktop**.
 2. Entrez les informations suivantes :
    - **Nom du PC** -le nom de l’ordinateur.
       - Cela peut être un nom d’ordinateur Windows (trouvée dans le **système** paramètres), un nom de domaine ou une adresse IP.
       - Vous pouvez également ajouter les informations de port à la fin de ce nom, comme *MyDesktop:3389*.
    - **Compte d’utilisateur** -ajouter le compte d’utilisateur vous permet d’accéder à l’ordinateur distant.
-      - Pour Active Directory (AD) joints à des ordinateurs ou des comptes locaux, utilisez une de ces formats : *user_name*, *domaine\nom_utilisateur*, ou *user_name@domain.com*.
-      - Pour Azure Active Directory (AAD) joint à un ordinateurs, utilisez une de ces formats : *AzureAD\user_name* ou *AzureAD\user_name@domain.com*.
-      - Vous pouvez également choisir s’il faut exiger un mot de passe.
-      - Lors de la gestion de plusieurs comptes d’utilisateur portant le même nom d’utilisateur, définissez un nom convivial pour différencier les comptes.
-      - Gérer vos comptes d’utilisateur enregistré dans les préférences de l’application. 
+     - Pour Active Directory (AD) joints à des ordinateurs ou des comptes locaux, utilisez une de ces formats : *user_name*, *domaine\nom_utilisateur*, ou <em>user_name@domain.com</em>.
+     - Pour Azure Active Directory (AAD) joint à un ordinateurs, utilisez une de ces formats : *AzureAD\user_name* ou <em>AzureAD\user_name@domain.com</em>.
+     - Vous pouvez également choisir s’il faut exiger un mot de passe.
+     - Lors de la gestion de plusieurs comptes d’utilisateur portant le même nom d’utilisateur, définissez un nom convivial pour différencier les comptes.
+     - Gérer vos comptes d’utilisateur enregistré dans les préférences de l’application. 
 
 3. Vous pouvez également définir ces paramètres facultatifs pour la connexion :
    - Définissez un nom convivial 
@@ -82,7 +82,7 @@ Vous pouvez exporter une définition de la connexion Bureau à distance et l’u
 
 Utilisez les étapes suivantes pour importer un bureau à distance. Fichier RDP.
 
-1. Dans la barre de menus, cliquez sur **fichier > importation**.
+1. Dans la barre de menus, cliquez sur **fichier** > **importation**.
 2. Accédez à la. Fichier RDP.
 3. Cliquez sur **Ouvrir**.
 
@@ -94,7 +94,7 @@ Ressources distantes sont des programmes RemoteApp, bureaux basés sur session e
 
 Pour ajouter une ressource distante :
 
-1. Dans, cliquez sur le centre de connexion **+**, puis cliquez sur **ajouter des ressources à distance**. 
+1. Dans, cliquez sur le centre de connexion **+** , puis cliquez sur **ajouter des ressources à distance**. 
 2. Entrez les informations pour la ressource distante :
    - **URL du flux** -l’URL du serveur d’accès Web de bureau à distance. Vous pouvez également entrer votre compte de messagerie d’entreprise dans ce champ : cela indique au client pour rechercher le serveur d’accès Web Bureau à distance associé à votre adresse de messagerie.
    - **Nom d’utilisateur** -nom d’utilisateur à utiliser pour le serveur d’accès Web de bureau à distance que vous vous connectez à.
@@ -113,8 +113,8 @@ Pour configurer une passerelle dans les préférences :
 
 1. Dans le centre de connexion, cliquez sur **Préférences > passerelles**. 
 2. Cliquez sur le **+** bouton en bas de la table, entrez les informations suivantes :
-  - **Nom du serveur** – le nom de l’ordinateur que vous souhaitez utiliser en tant que passerelle. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez également ajouter des informations de port au nom du serveur (par exemple : **RDGateway:443** ou **10.0.0.1:443**).
-  - **Nom d’utilisateur** -le nom d’utilisateur et le mot de passe à utiliser pour la passerelle Bureau à distance que vous êtes connecté. Vous pouvez également sélectionner **utiliser les informations d’identification de connexion** à utiliser le même nom d’utilisateur et le mot de passe que ceux utilisés pour la connexion Bureau à distance.
+   - **Nom du serveur** – le nom de l’ordinateur que vous souhaitez utiliser en tant que passerelle. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez également ajouter des informations de port au nom du serveur (par exemple : **RDGateway:443** ou **10.0.0.1:443**).
+   - **Nom d’utilisateur** -le nom d’utilisateur et le mot de passe à utiliser pour la passerelle Bureau à distance que vous êtes connecté. Vous pouvez également sélectionner **utiliser les informations d’identification de connexion** à utiliser le même nom d’utilisateur et le mot de passe que ceux utilisés pour la connexion Bureau à distance.
 
 
 ## <a name="manage-your-user-accounts"></a>Gérer vos comptes d’utilisateur
@@ -136,10 +136,10 @@ Vous pouvez spécifier la résolution d’affichage pour la session Bureau à di
 
 1. Dans le centre de connexion, cliquez sur **préférences**.
 2. Cliquez sur **résolution**. 
-3. Cliquez sur **+**.
+3. Cliquez sur **+** .
 4. Entrez une hauteur de résolution et une largeur, puis cliquez sur **OK.**
 
-Pour supprimer la résolution, sélectionnez-le, puis cliquez sur **-**.
+Pour supprimer la résolution, sélectionnez-le, puis cliquez sur **-** .
 
 **Affiche des espaces distincts** si vous exécutez Mac OS X 10.9 et désactivé **affiche des espaces distincts** dans Mavericks (**Préférences système > Centre de contrôle**), vous devez configurer Ce paramètre dans le client Bureau à distance à l’aide de la même option.
 

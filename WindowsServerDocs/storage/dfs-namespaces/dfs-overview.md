@@ -6,14 +6,14 @@ ms.manager: daveba
 ms.technology: storage
 ms.topic: article
 author: jasongerend
-ms.date: 05/09/2019
+ms.date: 06/07/2019
 description: Cette rubrique décrit la fonctionnalité Espaces de noms DFS qui est un service de rôle de Windows Server. Elle permet de grouper des dossiers partagés qui se trouvent sur des serveurs différents en un ou plusieurs espaces de noms logiquement structurés.
-ms.openlocfilehash: 33b5a36c9f13179286a95735621272f79983231c
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.openlocfilehash: b16d8145d766cbb9b12feaaa2e5e9443813a69f2
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613186"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812581"
 ---
 # <a name="dfs-namespaces-overview"></a>Vue d’ensemble des espaces de noms DFS
 
@@ -55,11 +55,11 @@ Les serveurs qui exécutent les systèmes d’exploitation suivants peuvent héb
 
 Le tableau suivant décrit les autres facteurs à prendre en compte lors du choix des serveurs pour héberger un espace de noms.
 
-|Serveur hébergeant des espaces de noms autonomes|Serveur hébergeant des espaces de noms basés sur un domaine|
-|---|---|
-|Doit contenir un volume NTFS pour héberger l’espace de noms.|Doit contenir un volume NTFS pour héberger l’espace de noms.|
-|Peut être un serveur membre ou un contrôleur de domaine.|Doit être un serveur membre ou un contrôleur de domaine dans le domaine où l’espace de noms est configuré. (Cette condition s’applique à chaque serveur d’espace de noms qui héberge un espace de noms basé sur un domaine donné.)|
-|Peut être hébergé par un cluster de basculement pour accroître la disponibilité de l’espace de noms.|L’espace de noms ne peut pas être une ressource en cluster dans un cluster de basculement. Toutefois, vous pouvez trouver l’espace de noms sur un serveur qui fonctionne également comme un nœud dans un cluster de basculement si vous configurez l’espace de noms pour utiliser uniquement les ressources locales sur le serveur.|
+| Serveur hébergeant des espaces de noms autonomes | Serveur hébergeant des espaces de noms basés sur un domaine |
+| ---                                   |        ---                                |
+| Doit contenir un volume NTFS pour héberger l’espace de noms.|Doit contenir un volume NTFS pour héberger l’espace de noms. |
+| Peut être un serveur membre ou un contrôleur de domaine.|Doit être un serveur membre ou un contrôleur de domaine dans le domaine où l’espace de noms est configuré. (Cette condition s’applique à chaque serveur d’espace de noms qui héberge un espace de noms basé sur un domaine donné.) |
+| Peut être hébergé par un cluster de basculement pour accroître la disponibilité de l’espace de noms.|L’espace de noms ne peut pas être une ressource en cluster dans un cluster de basculement. Toutefois, vous pouvez trouver l’espace de noms sur un serveur qui fonctionne également comme un nœud dans un cluster de basculement si vous configurez l’espace de noms pour utiliser uniquement les ressources locales sur le serveur. |
 
 ## <a name="installing-dfs-namespaces"></a>Installation des espaces de noms DFS
 
@@ -89,10 +89,10 @@ Ouvrez une session Windows PowerShell avec des droits utilisateur élevés et ta
 Install-WindowsFeature <name>
 ```
 
-|Service de rôle ou fonctionnalité|Nom|
-|---|---|
-|Espaces de noms DFS|`FS-DFS-Namespace`|
-|Outils de gestion DFS|`RSAT-DFS-Mgmt-Con`|
+| Service de rôle ou fonctionnalité | Nom |
+| ----------------------- | ---- |
+| Espaces de noms DFS          | `FS-DFS-Namespace` |
+| Outils de gestion DFS    | `RSAT-DFS-Mgmt-Con` |
 
 Par exemple, pour installer l’option Outils du système de fichiers DFS de la fonctionnalité Outils d’administration de serveur distant, tapez la commande suivante :
 
@@ -120,12 +120,12 @@ Pour en savoir plus sur la prise en main des machines virtuelles Azure, voir [Do
 
 Pour plus d’informations connexes, voir les ressources suivantes.
 
-|Type de contenu|Références|
-|------------------|----------------|
-|**Évaluation du produit**|[Quelles sont les nouveautés dans les espaces de noms DFS et réplication DFS dans Windows Server](https://technet.microsoft.com/library/dn281957(v=ws.11).aspx)|
-|**Déploiement**|[Considérations d’extensibilité Namespace DFS](http://blogs.technet.com/b/filecab/archive/2012/08/26/dfs-namespace-scalability-considerations.aspx)|
-|**Opérations**|[Espaces de noms DFS : Forum Aux Questions](https://technet.microsoft.com/library/ee404780.aspx)|
-|**Ressources de la communauté**|[Les Services de fichiers et le forum TechNet sur le stockage](https://social.technet.microsoft.com/forums/winserverfiles/threads/)|
-|**Protocoles**|[Protocoles dans Windows Server des Services de fichiers](https://msdn.microsoft.com/en-us/library/cc239318.aspx) (déconseillée)|
-|**Technologies connexes**| [Clustering de basculement](../../failover-clustering/failover-clustering-overview.md)|
-|**Support technique**|[Windows IT Pro prise en charge](https://www.microsoft.com/itpro/windows/support)|
+| Type de contenu        | Références |
+| ------------------  | ----------------|
+| **Évaluation du produit** | [Quelles sont les nouveautés dans les espaces de noms DFS et réplication DFS dans Windows Server](https://technet.microsoft.com/library/dn281957(v=ws.11).aspx) |
+| **Déploiement**    | [Considérations d’extensibilité Namespace DFS](http://blogs.technet.com/b/filecab/archive/2012/08/26/dfs-namespace-scalability-considerations.aspx) |
+| **Opérations**    | [Espaces de noms DFS : Forum Aux Questions](https://technet.microsoft.com/library/ee404780.aspx) |
+| **Ressources de la communauté** | [Les Services de fichiers et le forum TechNet sur le stockage](https://social.technet.microsoft.com/forums/winserverfiles/threads/) |
+| **Protocoles**        | [Protocoles dans Windows Server des Services de fichiers](https://msdn.microsoft.com/en-us/library/cc239318.aspx) (déconseillée) |
+| **Technologies connexes** | [Clustering de basculement](../../failover-clustering/failover-clustering-overview.md)|
+| **Support technique** | [Windows IT Pro prise en charge](https://www.microsoft.com/itpro/windows/support)|

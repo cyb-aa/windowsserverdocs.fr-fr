@@ -8,12 +8,12 @@ ms.prod: windows-server-threshold
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 80c7155224502379e2e9618ceb38709c5051a6b7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 19a87df7c4f165d3b0e6c5add4bc40ff97cc87cb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857840"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446463"
 ---
 # <a name="capolicyinf-syntax"></a>Syntaxe CAPolicy.inf
 >   S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
@@ -206,53 +206,53 @@ Avant d’installer les services AD CS, vous configurez le fichier CAPolicy.inf 
 
 **Condition préalable :** Vous devez être membre du groupe Administrateurs.
 
-1.  Sur l’ordinateur où vous envisagez d’installer les services AD CS, ouvrez Windows PowerShell, tapez **le bloc-notes c:\CAPolicy.inf** et appuyez sur ENTRÉE.
+1. Sur l’ordinateur où vous envisagez d’installer les services AD CS, ouvrez Windows PowerShell, tapez **le bloc-notes c:\CAPolicy.inf** et appuyez sur ENTRÉE.
 
-2.  À l’invite de création de fichier, cliquez sur **Oui**.
+2. À l’invite de création de fichier, cliquez sur **Oui**.
 
-3.  Entrez le code suivant comme contenu du fichier :
+3. Entrez le code suivant comme contenu du fichier :
    ```
    [Version]  
-    Signature="$Windows NT$"  
-    [PolicyStatementExtension]  
-    Policies=InternalPolicy  
-    [InternalPolicy]  
-    OID=1.2.3.4.1455.67.89.5  
-    Notice="Legal Policy Statement"  
-    URL=https://pki.corp.contoso.com/pki/cps.txt  
-    [Certsrv_Server]  
-    RenewalKeyLength=2048  
-    RenewalValidityPeriod=Years  
-    RenewalValidityPeriodUnits=5  
-    CRLPeriod=weeks  
-    CRLPeriodUnits=1  
-    LoadDefaultTemplates=0  
-    AlternateSignatureAlgorithm=1  
-    [CRLDistributionPoint]  
-    [AuthorityInformationAccess]
+   Signature="$Windows NT$"  
+   [PolicyStatementExtension]  
+   Policies=InternalPolicy  
+   [InternalPolicy]  
+   OID=1.2.3.4.1455.67.89.5  
+   Notice="Legal Policy Statement"  
+   URL=https://pki.corp.contoso.com/pki/cps.txt  
+   [Certsrv_Server]  
+   RenewalKeyLength=2048  
+   RenewalValidityPeriod=Years  
+   RenewalValidityPeriodUnits=5  
+   CRLPeriod=weeks  
+   CRLPeriodUnits=1  
+   LoadDefaultTemplates=0  
+   AlternateSignatureAlgorithm=1  
+   [CRLDistributionPoint]  
+   [AuthorityInformationAccess]
    ```
-1.  Cliquez sur **fichier**, puis cliquez sur **Enregistrer sous**.
+4. Cliquez sur **fichier**, puis cliquez sur **Enregistrer sous**.
 
-2.  Accédez au dossier % SystemRoot%.
+5. Accédez au dossier % SystemRoot%.
 
-3.  Vérifiez les éléments suivants :
+6. Vérifiez les éléments suivants :
 
-    -   **Nom de fichier** a la valeur **CAPolicy.inf**
+   -   **Nom de fichier** a la valeur **CAPolicy.inf**
 
-    -   **Type** a la valeur **Tous les fichiers**
+   -   **Type** a la valeur **Tous les fichiers**
 
-    -   **Codage** a la valeur **ANSI**
+   -   **Codage** a la valeur **ANSI**
 
-4.  Cliquez sur **Enregistrer**.
+7. Cliquez sur **Enregistrer**.
 
-5.  Lorsque vous êtes invité à remplacer le fichier, cliquez sur **Oui**.
+8. Lorsque vous êtes invité à remplacer le fichier, cliquez sur **Oui**.
 
-    ![Enregistrer en tant qu’emplacement pour le fichier CAPolicy.inf](../../../media/Prepare-the-CAPolicy-inf-File/001-SaveCAPolicyORCA1.gif)
+   ![Enregistrer en tant qu’emplacement pour le fichier CAPolicy.inf](../../../media/Prepare-the-CAPolicy-inf-File/001-SaveCAPolicyORCA1.gif)
 
-    >   [!CAUTION]  
-    >   Veillez à enregistrer le fichier CAPolicy.inf avec l’extension inf. Si vous ne tapez pas spécifiquement **.inf** à la fin du nom de fichier et que vous ne sélectionnez pas les options comme décrit, le fichier est enregistré au format texte et n’est pas utilisé durant l’installation de l’autorité de certification.
+   > [!CAUTION]
+   >   Veillez à enregistrer le fichier CAPolicy.inf avec l’extension inf. Si vous ne tapez pas spécifiquement **.inf** à la fin du nom de fichier et que vous ne sélectionnez pas les options comme décrit, le fichier est enregistré au format texte et n’est pas utilisé durant l’installation de l’autorité de certification.
 
-6.  Fermez le Bloc-notes.
+9. Fermez le Bloc-notes.
 
->   [!IMPORTANT]  
+> [!IMPORTANT]
 >   Dans le fichier CAPolicy.inf, vous pouvez voir une ligne spécifiant l’URL https://pki.corp.contoso.com/pki/cps.txt. La section de stratégie interne du fichier CAPolicy.inf est juste affichée en tant qu’exemple de spécification de l’emplacement d’une déclaration de mise en œuvre des certificats. Dans ce guide, vous n’êtes pas invité à créer l’instruction de pratique de certificat (CPS).

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: 82a42cd219e41330fe4215124c21e799a41e412c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d97ec0efee86165f82bdf99a316d24d9c39ec958
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853140"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810719"
 ---
 # <a name="system-requirements"></a>Configuration système
 
@@ -27,6 +27,7 @@ ms.locfileid: "59853140"
 Cette rubrique décrit la configuration minimale requise pour exécuter Windows Server&reg; 2019.
 
 ## <a name="review-system-requirements"></a>Passer en revue la configuration système requise  
+
 Configuration système requise estimée Windows Server 2019 sont les suivantes : Si votre ordinateur ne possède pas la configuration minimale requise, vous ne pourrez pas installer ce produit correctement. La configuration requise réelle varie en fonction de la configuration de votre système et des applications et fonctionnalités que vous installez.
 
 Sauf indication contraire, cette configuration minimale requise s’applique à toutes les options d’installation (installation minimale, Serveur avec Expérience utilisateur et Nano Server) et aux éditions Standard et Datacenter.  
@@ -34,8 +35,8 @@ Sauf indication contraire, cette configuration minimale requise s’applique à 
 > [!IMPORTANT]  
 > Il serait irréaliste d’indiquer une configuration système requise « recommandée » susceptible d’être généralement applicable étant donné le nombre important des divers déploiements possibles. Consultez la documentation relative à chaque rôle de serveur que vous comptez déployer pour obtenir davantage de détails sur les besoins en ressource des rôles de serveur particuliers. Pour obtenir les meilleurs résultats, procédez à des déploiements tests afin de déterminer la configuration requise appropriée pour vos propres scénarios de déploiement.  
 
-
 ## <a name="processor"></a>Processeur  
+
 Les performances du processeur dépendent non seulement de la fréquence d’horloge du processeur, mais également du nombre de cœurs de processeur et de la taille du cache de processeur. La configuration requise en matière de processeur pour ce produit est la suivante :  
 
 **Minimum** :  
@@ -69,13 +70,13 @@ L’espace disque requis **minimal** approximatif pour la partition système est
 
 **Minimum** : 32 Go  
 
-   > [!NOTE]  
-    > Gardez à l’esprit que 32 Go doivent être considérés comme une valeur *minimale absolue* pour une installation réussie. Cette valeur minimale doit vous permettre d’installer Windows Server 2019 en mode Server Core, avec le rôle de serveur Web Services (IIS). Un serveur en mode d’installation minimale nécessite environ 4 Go d’espace disque de moins que le même serveur en mode Serveur avec une interface graphique utilisateur. 
-    >   
-    > La partition système aura besoin d’espace supplémentaire dans chacun des cas suivants :  
-    >   
-    > -   Si vous installez le système sur un réseau.  
-    > -   Les ordinateurs disposant de plus de 16 Go de RAM peuvent avoir besoin d’un espace disque supplémentaire pour les fichiers de pagination, de mise en veille prolongée et d’image mémoire.  
+> [!NOTE]
+> Gardez à l’esprit que 32 Go doivent être considérés comme une valeur *minimale absolue* pour une installation réussie. Cette valeur minimale doit vous permettre d’installer Windows Server 2019 en mode Server Core, avec le rôle de serveur Web Services (IIS). Un serveur en mode d’installation minimale nécessite environ 4 Go d’espace disque de moins que le même serveur en mode Serveur avec une interface graphique utilisateur. 
+> 
+> La partition système aura besoin d’espace supplémentaire dans chacun des cas suivants :  
+> 
+> -   Si vous installez le système sur un réseau.  
+> -   Les ordinateurs disposant de plus de 16 Go de RAM peuvent avoir besoin d’un espace disque supplémentaire pour les fichiers de pagination, de mise en veille prolongée et d’image mémoire.  
 
 ## <a name="network-adapter-requirements"></a>Conditions requises pour les cartes réseau  
 
@@ -88,8 +89,6 @@ Les cartes réseau utilisées avec cette version doivent inclure les fonctionnal
 Une carte réseau qui prend en charge le débogage réseau (KDNet) est utile, mais ne constitue pas une condition minimale requise.   
 
 Une carte réseau que prend en charge l’environnement d’exécution de prédémarrage (PXE) est utile, mais pas une configuration minimale requise.
-
-
 
 ## <a name="other-requirements"></a>Autres conditions requises pour la configuration  
 Les ordinateurs exécutant cette version doivent également disposer des éléments suivants :  
@@ -107,10 +106,10 @@ Les éléments suivants ne sont pas strictement obligatoires, mais sont nécessa
 
 -   Accès Internet (frais possibles)  
 
->[!NOTE]  
+> [!NOTE]  
 > Une puce de module de plateforme sécurisée n’est pas strictement nécessaire pour installer cette version, même si elle est requise pour pouvoir utiliser certaines fonctionnalités telles que le chiffrement de lecteur BitLocker. Si votre ordinateur utilise le module de plateforme sécurisée, il doit répondre à ces exigences :  
 >  
->- Les modules de plateforme sécurisée matériels doivent implémenter la version 2.0 de la spécification de module de plateforme sécurisée.  
->- Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent avoir un certificat EK préconfiguré pour le module de plateforme sécurisée par le fournisseur de matériel ou capable d’être récupéré par l’appareil pendant le premier démarrage.  
->- Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent être livrés avec des banques de registre de configuration de plateforme (PCR) SHA-256 et implémenter les PCR 0 à 23 pour SHA-256. Il est acceptable de livrer des modules de plateforme sécurisée avec une seule banque PCR commutable qui peut être utilisée pour les deux mesures SHA-1 et SHA-256.  
->- Une option UEFI pour désactiver le module de plateforme sécurisée n’est pas obligatoire.  
+> - Les modules de plateforme sécurisée matériels doivent implémenter la version 2.0 de la spécification de module de plateforme sécurisée.  
+> - Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent avoir un certificat EK préconfiguré pour le module de plateforme sécurisée par le fournisseur de matériel ou capable d’être récupéré par l’appareil pendant le premier démarrage.  
+> - Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent être livrés avec des banques de registre de configuration de plateforme (PCR) SHA-256 et implémenter les PCR 0 à 23 pour SHA-256. Il est acceptable de livrer des modules de plateforme sécurisée avec une seule banque PCR commutable qui peut être utilisée pour les deux mesures SHA-1 et SHA-256.  
+> - Une option UEFI pour désactiver le module de plateforme sécurisée n’est pas obligatoire.  

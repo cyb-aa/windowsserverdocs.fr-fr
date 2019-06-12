@@ -8,12 +8,12 @@ ms.prod: windows-server-threshold
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 84e4b2fe0b59820b9e51229335f3539bcbeeec90
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1774d235703bd75d810f2649cb8ed3f2f92622d5
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860740"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811593"
 ---
 # <a name="install-the-certification-authority"></a>Installer l’autorité de certification
 
@@ -38,8 +38,8 @@ Pour être autorisé à effectuer cette procédure, vous devez faire partie du g
   
 ### <a name="to-install-active-directory-certificate-services"></a>Pour installer les services de certificats Active Directory  
 
->[!TIP]
->Si vous souhaitez utiliser Windows PowerShell pour installer les Services de certificats Active Directory, consultez [Install-AdcsCertificationAuthority](https://docs.microsoft.com/powershell/module/adcsdeployment/install-adcscertificationauthority?view=win10-ps) pour les applets de commande et les paramètres facultatifs.
+> [!TIP]
+> Si vous souhaitez utiliser Windows PowerShell pour installer les Services de certificats Active Directory, consultez [Install-AdcsCertificationAuthority](https://docs.microsoft.com/powershell/module/adcsdeployment/install-adcscertificationauthority?view=win10-ps) pour les applets de commande et les paramètres facultatifs.
   
 1.  Ouvrez une session en tant que membre du groupe Administrateurs de l'entreprise et du groupe Admins du domaine du domaine racine.  
   

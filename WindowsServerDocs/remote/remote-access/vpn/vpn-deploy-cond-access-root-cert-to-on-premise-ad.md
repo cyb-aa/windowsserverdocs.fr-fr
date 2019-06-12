@@ -15,23 +15,23 @@ ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 210540846f5d62dfc74a2e629a6b7675ccf9894d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4aaad98cd04c9b07bdea848294e10d9bcb602064
+ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837370"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749550"
 ---
 # <a name="step-74-deploy-conditional-access-root-certificates-to-on-premises-ad"></a>Étape 7.4. Déployer des certificats racine de l’accès conditionnel en local AD
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
 Dans cette étape, vous déployez le certificat racine de l’accès conditionnel en tant que certificat racine approuvé pour l’authentification VPN sur votre réseau local AD.
 
-&#171;  [**Précédent :** Étape 7.3. Configurer la stratégie d’accès conditionnel](vpn-config-conditional-access-policy.md)<br>
-&#187;[ **Suivant :** Étape 7.5. Créer OMA-DM en fonction des profils de VPNv2 pour les appareils Windows 10](vpn-create-oma-dm-based-vpnv2-profiles.md)
+- [**Précédent :** Étape 7.3. Configurer la stratégie d’accès conditionnel](vpn-config-conditional-access-policy.md)
+- [**prochain :** Étape 7.5. Créer des profils VPNv2 basés sur OMA-DM sur les appareils Windows 10](vpn-create-oma-dm-based-vpnv2-profiles.md)
 
-1. Sur le **connectivité VPN** , cliquez sur **télécharger le certificat**. 
+1. Sur le **connectivité VPN** page, sélectionnez **télécharger le certificat**. 
    
     ![Télécharger le certificat pour l’accès conditionnel](../../media/Always-On-Vpn/06.png)
 
@@ -56,16 +56,17 @@ Dans cette étape, vous déployez le certificat racine de l’accès conditionne
     >[!NOTE]
     >Par défaut le **outils de gestion d’autorité de certificat** sont des serveurs d’autorité de certification installés. Ils peuvent être installés sur d’autres serveurs membres dans le cadre de la **outils d’Administration de rôles** dans le Gestionnaire de serveur.
 
-    b.  Sur le serveur VPN, dans le menu Démarrer, tapez **pkiview.msc** pour ouvrir la boîte de dialogue PKI d’entreprise.
+    b.  Sur le serveur VPN, dans le menu Démarrer, entrez **pkiview.msc** pour ouvrir la boîte de dialogue PKI d’entreprise.
 
-    c.  Dans le menu Démarrer, tapez **pkiview.msc** pour ouvrir la boîte de dialogue PKI d’entreprise.
+    c.  Dans le menu Démarrer, entrez **pkiview.msc** pour ouvrir la boîte de dialogue PKI d’entreprise.
 
     d.  Avec le bouton droit **PKI d’entreprise** et sélectionnez **gérer Active Directory conteneurs**.
 
-    d.  Vérifiez que chaque certificat de génération 1 d’autorité de certification racine Microsoft VPN est présent sous :<ul><li>NTAuthCertificates</li><li>Conteneur AIA</li><li>Conteneur autorités de certificat</li></ul>
+    d.  Vérifiez que chaque certificat de génération 1 d’autorité de certification racine Microsoft VPN est présent sous :
+      - NTAuthCertificates
+      - Conteneur AIA
+      - Conteneur autorités de certificat
 
-    
-## <a name="next-step"></a>Étape suivante
-[Étape 7.5. Créer OMA-DM en fonction des profils de VPNv2 pour les appareils Windows 10](vpn-create-oma-dm-based-vpnv2-profiles.md): Dans cette étape, vous pouvez créer OMA-DM profils VPNv2 à l’aide d’Intune pour déployer une stratégie de Configuration de l’appareil VPN. Si vous souhaitez SCCM ou un PowerShell Script pour créer des profils de VPNv2, consultez [paramètres VPNv2 CSP](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) pour plus d’informations.
+## <a name="next-steps"></a>Étapes suivantes
 
----
+[Étape 7.5. Créer OMA-DM en fonction des profils de VPNv2 pour les appareils Windows 10](vpn-create-oma-dm-based-vpnv2-profiles.md): Dans cette étape, vous pouvez créer OMA-DM profils VPNv2 à l’aide d’Intune pour déployer une stratégie de Configuration de l’appareil VPN. Si vous souhaitez SCCM ou un PowerShell Script pour créer des profils de VPNv2, consultez [paramètres VPNv2 CSP](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) pour plus d’informations.

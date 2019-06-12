@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: df1afc77afffd9b737965215a5c9d96f278c8129
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 4a2fb188bd0a46ebd54ae068e8e4eeb63788aaa0
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191668"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501581"
 ---
 # <a name="best-practices-for-secure-planning-and-deployment-of-ad-fs"></a>Meilleures pratiques pour sécuriser la planification et le déploiement d'AD FS
 
@@ -23,7 +23,12 @@ Cette rubrique fournit des informations de meilleures pratiques pour vous aider 
   
 ## <a name="core-security-best-practices-for-ad-fs"></a>Meilleures pratiques principales en matière de sécurité pour AD FS  
 Principales meilleures pratiques suivantes sont communes à toutes les installations AD FS où vous souhaitez améliorer ou étendre la sécurité de votre conception ou de déploiement :  
-  
+
+-   **Sécuriser AD FS comme un système de « Niveau 0 »** 
+
+    AD FS est fondamentalement un système d’authentification.  Par conséquent, elle doit être traitée comme un système de « Niveau 0 » comme autre système d’identité sur votre réseau.  [Microsoft Docs](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) a plus d’informations sur le modèle de niveau d’administration Active Directory. 
+
+
 -   **Utilisez l’Assistant de Configuration de sécurité à appliquer les meilleures pratiques de sécurité spécifiques à AD FS aux serveurs de fédération et les ordinateurs de proxy de serveur de fédération**  
   
     L’Assistant de Configuration de sécurité (SCW) est un outil préinstallé sur tous les Windows Server 2008, Windows Server 2008 R2 et les ordinateurs Windows Server 2012. Vous pouvez l'utiliser pour appliquer des meilleures pratiques de sécurité qui permettent de réduire la surface d'attaque d'un serveur, en fonction des rôles serveurs que vous installez.  

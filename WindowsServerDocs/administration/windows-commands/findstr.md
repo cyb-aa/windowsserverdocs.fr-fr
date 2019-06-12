@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ea306127be9497c21a5b8efa9fd3f0fa2433014c
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 8d080420d250deee9bef701272e936d33733a9d6
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192670"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811198"
 ---
 # <a name="findstr"></a>findstr
 
@@ -60,65 +60,84 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
 
 ## <a name="remarks"></a>Notes
 
--   Tous les **findstr** doivent précéder les options de ligne de commande *chaînes* et *FileName* dans la chaîne de commande.
--   Expressions régulières utilisent les caractères littéraux et les métacaractères pour rechercher des modèles de texte, plutôt que des chaînes exactes de caractères. Un caractère littéral est un caractère qui n’a pas de signification particulière dans la syntaxe d’expression régulière, elle correspond à une occurrence de ce caractère. Par exemple, des lettres et nombres sont des caractères littéraux. Un métacaractère est un symbole avec une signification spéciale (opérateur ou séparateur) dans la syntaxe d’expression régulière.
+- Tous les **findstr** doivent précéder les options de ligne de commande *chaînes* et *FileName* dans la chaîne de commande.
+- Expressions régulières utilisent les caractères littéraux et les métacaractères pour rechercher des modèles de texte, plutôt que des chaînes exactes de caractères. Un caractère littéral est un caractère qui n’a pas de signification particulière dans la syntaxe d’expression régulière, elle correspond à une occurrence de ce caractère. Par exemple, des lettres et nombres sont des caractères littéraux. Un métacaractère est un symbole avec une signification spéciale (opérateur ou séparateur) dans la syntaxe d’expression régulière.
 
-    Le tableau suivant répertorie les métacaractères qui **findstr** accepte.  
-    |Caractère de remplacement|Value|
-    |-------------|-----|
-    |.|Générique : n’importe quel caractère|
-    |*|Répétez : zéro ou plusieurs occurrences de la classe ou le caractère précédent|
-    |^|Position de ligne : à compter de la ligne|
-    |$|Position de ligne : fin de la ligne|
-    |[class]|Classe de caractères : tout caractère dans un jeu|
-    |[^class]|Classe inverse : tout caractère non dans un ensemble|
-    |[x-y]|Plage : tous les caractères dans la plage spécifiée|
-    |\x|D’échappement : utilisation de littéral un métacaractère x|
-    |\\<string|Position dans le mot : à compter du mot|
-    |Chaîne\>|Position dans le mot : fin du mot|
+  Le tableau suivant répertorie les métacaractères qui **findstr** accepte.  
 
-    Les caractères spéciaux dans la syntaxe d’expression régulière ont le plus de puissance quand vous les utilisez ensemble. Par exemple, utilisez la combinaison suivante du caractère générique (.) et répétez le caractère (*) pour faire correspondre n’importe quelle chaîne de caractères :  
-    ```
-    .*
-    ```  
-    Utilisez l’expression suivante dans le cadre d’une expression plus longue pour correspondre à n’importe quelle chaîne commençant par « b » et se terminant par « ing » :  
-    ```
-    b.*ing
-    ```
+  |Caractère de remplacement|Value|
+  |-------------|-----|
+  |.|Générique : n’importe quel caractère|
+  |*|Répétez : zéro ou plusieurs occurrences de la classe ou le caractère précédent|
+  |^|Position de ligne : à compter de la ligne|
+  |$|Position de ligne : fin de la ligne|
+  |[class]|Classe de caractères : tout caractère dans un jeu|
+  |[^class]|Classe inverse : tout caractère non dans un ensemble|
+  |[x-y]|Plage : tous les caractères dans la plage spécifiée|
+  |\x|D’échappement : utilisation de littéral un métacaractère x|
+  |\\<string|Position dans le mot : à compter du mot|
+  |Chaîne\>|Position dans le mot : fin du mot|
+
+  Les caractères spéciaux dans la syntaxe d’expression régulière ont le plus de puissance quand vous les utilisez ensemble. Par exemple, utilisez la combinaison suivante du caractère générique (.) et répétez le caractère (*) pour faire correspondre n’importe quelle chaîne de caractères :
+
+  ```
+  .*
+  ``` 
+
+  Utilisez l’expression suivante dans le cadre d’une expression plus longue pour correspondre à n’importe quelle chaîne commençant par « b » et se terminant par « ing » : 
+
+  ```
+  b.*ing
+  ```
 
 ## <a name="examples"></a>Exemples
 
 Utilisez des espaces pour séparer plusieurs chaînes de recherche, sauf si l’argument est préfixé avec **/c**.
 
 Pour rechercher « hello » ou « there » dans le fichier x.y, tapez :
+
 ```
 findstr "hello there" x.y 
 ```
+
 Pour rechercher « Bonjour » dans le fichier x.y, tapez :
+
 ```
 findstr /c:"hello there" x.y 
 ```
+
 Pour trouver toutes les occurrences du mot « Windows » (avec une initiale majuscule W) dans le fichier devis.txt, tapez :
+
 ```
 findstr Windows proposal.txt 
 ```
+
 Pour rechercher tous les fichiers dans le répertoire actif et tous les sous-répertoires contenant le mot Windows, quelle que soit la casse des lettres, tapez :
+
 ```
 findstr /s /i Windows *.* 
 ```
+
 Pour trouver toutes les occurrences des lignes qui commencent par « FOR » et sont précédées par zéro ou plusieurs espaces (comme dans une boucle de programme d’ordinateur) et pour afficher le numéro de ligne où chaque occurrence est trouvée, tapez :
+
 ```
 findstr /b /n /r /c:"^ *FOR" *.bas 
 ```
+
 Pour rechercher plusieurs chaînes dans un ensemble de fichiers, créez un fichier texte qui contient chaque critère de recherche sur une ligne distincte. Vous pouvez également répertorier les fichiers que vous souhaitez effectuer une recherche dans un fichier texte. Par exemple, pour utiliser les critères de recherche dans le fichier Stringlist.txt, rechercher les fichiers indiqués dans Filelist.txt, puis stocker les résultats dans le fichier Result.fin, tapez :
+
 ```
 findstr /g:stringlist.txt /f:filelist.txt > results.out 
 ```
+
 Pour répertorier tous les fichiers contenant le mot « ordinateur » dans le répertoire actif et tous les sous-répertoires, indépendamment de la casse, tapez :
+
 ```
 findstr /s /i /m "\<computer\>" *.*
 ```
+
 Pour répertorier tous les fichiers contenant le mot « ordinateur » et tous les mots qui commencent par « comp », (par exemple, « compliment » et « participer »), type :
+
 ```
 findstr /s /i /m "\<comp.*" *.*
 ```

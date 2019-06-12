@@ -14,24 +14,24 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: eb2e5be2ed19fe7cd64f6c6bd64ca9afafd93bff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cf67a1c9675191936a6150bb950c59e6f99b54ad
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812310"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810696"
 ---
 # <a name="install-server-with-desktop-experience"></a>Installation avec Expérience utilisateur
 > S'applique à : Windows Server 2016
   
 
-Quand vous installez Windows Server 2016 à l’aide de l’Assistant Installation, vous pouvez choisir entre **Windows Server 2016** et **Windows Server (Serveur avec Expérience utilisateur)**. L’option Serveur avec Expérience utilisateur est l’équivalent Windows Server 2016 de l’option d’installation complète disponible dans Windows Server 2012 R2 avec la fonctionnalité Expérience utilisateur installée. Si vous n’effectuez pas de choix dans l’Assistant Installation, **Windows Server 2016** est installé ; il s’agit de l’option d’**installation minimale** (Server Core).
+Quand vous installez Windows Server 2016 à l’aide de l’Assistant Installation, vous pouvez choisir entre **Windows Server 2016** et **Windows Server (Serveur avec Expérience utilisateur)** . L’option Serveur avec Expérience utilisateur est l’équivalent Windows Server 2016 de l’option d’installation complète disponible dans Windows Server 2012 R2 avec la fonctionnalité Expérience utilisateur installée. Si vous n’effectuez pas de choix dans l’Assistant Installation, **Windows Server 2016** est installé ; il s’agit de l’option d’**installation minimale** (Server Core).
 
 L’option Serveur avec Expérience utilisateur permet d’installer l’interface utilisateur standard et tous les outils, y compris les fonctionnalités d’expérience client nécessitant une installation distincte dans Windows Server2012 R2. Les rôles serveur et les fonctionnalités sont installés à l’aide du Gestionnaire de serveur ou d’autres méthodes. Cette option nécessite plus d’espace disque que l’option d’installation minimale et présente des besoins en maintenance plus élevés. Nous vous recommandons donc de choisir l’installation minimale si vous n’avez pas besoin d’utiliser les éléments d’interface utilisateur et les outils de gestion graphiques que l’option Serveur avec Expérience utilisateur fournit en plus. Si vous pensez pouvoir vous passer des éléments supplémentaires, voir [Installation minimale de Windows Server](Getting-Started-with-Server-Core.md). Pour bénéficier d’une option encore plus allégée, voir [Installer Nano Server](Getting-Started-with-Nano-Server.md).
 
->[!NOTE]
+> [!NOTE]
 >
->À la différence des versions précédentes de Windows Server, vous ne pouvez pas basculer entre l’installation minimale et l’installation avec Expérience utilisateur après l’installation. Si vous procédez à l’installation avec Expérience utilisateur et décidez ultérieurement d’utiliser l’installation minimale, vous devez procéder à une nouvelle installation.
+> À la différence des versions précédentes de Windows Server, vous ne pouvez pas basculer entre l’installation minimale et l’installation avec Expérience utilisateur après l’installation. Si vous procédez à l’installation avec Expérience utilisateur et décidez ultérieurement d’utiliser l’installation minimale, vous devez procéder à une nouvelle installation.
 
 **Interface utilisateur :** interface utilisateur graphique standard (interpréteur de commandes graphique de serveur). L’interpréteur de commandes graphique de serveur inclut le nouvel interpréteur de Windows 10. Les fonctionnalités Windows spécifiques installées par défaut avec cette option sont User-Interfaces-Infra, Server-GUI-Shell, Server-GUI-Mgmt-Infra, InkAndHandwritingServices, ServerMediaFoundation et Expérience utilisateur. Bien que ces fonctionnalités apparaissent bien dans le Gestionnaire de serveur dans cette version, leur désinstallation n’est pas prise en charge et elles ne seront pas disponibles dans les futures versions.
 

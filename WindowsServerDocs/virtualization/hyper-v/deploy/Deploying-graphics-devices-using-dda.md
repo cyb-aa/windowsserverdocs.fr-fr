@@ -9,12 +9,12 @@ ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.assetid: 67a01889-fa36-4bc6-841d-363d76df6a66
-ms.openlocfilehash: 9e9a36df39c7bd7a96cc8c5681e83bf263ee5f8e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6c528535fd34f57957a37992843933d4cd9f8824
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833870"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447872"
 ---
 # <a name="deploy-graphics-devices-using-discrete-device-assignment"></a>Déployer des périphériques de graphiques à l’aide d’attribution discrète d’appareil
 
@@ -42,19 +42,19 @@ Set-VM -Name VMName -AutomaticStopAction TurnOff
 
 Certains matériels fonctionne mieux si la machine virtuelle dans configuré d’une certaine manière.  Pour plus d’informations sur ou non, vous devez les configurations suivantes pour votre matériel, veuillez contacter le fournisseur de matériel. Vous trouverez des détails supplémentaires sur [planifier pour les appareils de déploiement à l’aide d’affectation d’appareils discrètes](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md) et sur ce [billet de blog.](https://blogs.technet.microsoft.com/virtualization/2015/11/23/discrete-device-assignment-gpus/)
 
-1.  Activer la combinaison d’écriture sur l’UC
-```
-Set-VM -GuestControlledCacheTypes $true -VMName VMName
-```
-2.  Configurer l’espace MMIO 32 bits
-```
-Set-VM -LowMemoryMappedIoSpace 3Gb -VMName VMName
-```
-3.  Configurer supérieur à 32 bits MMIO espace
-```
-Set-VM -HighMemoryMappedIoSpace 33280Mb -VMName VMName
-```
-Notez les valeurs d’espace MMIO ci-dessus sont des valeurs raisonnables à définir pour l’expérimentation avec une seule unité GPU.  Si après le démarrage de la machine virtuelle, l’appareil signale une erreur liée à des ressources insuffisantes, vous devrez probablement modifier ces valeurs.  En outre, si vous affectez plusieurs GPU, vous devrez augmenter ces valeurs ainsi.
+1. Activer la combinaison d’écriture sur l’UC
+   ```
+   Set-VM -GuestControlledCacheTypes $true -VMName VMName
+   ```
+2. Configurer l’espace MMIO 32 bits
+   ```
+   Set-VM -LowMemoryMappedIoSpace 3Gb -VMName VMName
+   ```
+3. Configurer supérieur à 32 bits MMIO espace
+   ```
+   Set-VM -HighMemoryMappedIoSpace 33280Mb -VMName VMName
+   ```
+   Notez les valeurs d’espace MMIO ci-dessus sont des valeurs raisonnables à définir pour l’expérimentation avec une seule unité GPU.  Si après le démarrage de la machine virtuelle, l’appareil signale une erreur liée à des ressources insuffisantes, vous devrez probablement modifier ces valeurs.  En outre, si vous affectez plusieurs GPU, vous devrez augmenter ces valeurs ainsi.
 
 ## <a name="dismount-the-device-from-the-host-partition"></a>Démonter l’appareil à partir de la Partition hôte
 ### <a name="optional---install-the-partitioning-driver"></a>Facultatif : installez le pilote de partitionnement
@@ -69,14 +69,14 @@ En utilisant le Gestionnaire de périphériques ou de PowerShell, assurez-vous d
 
 ### <a name="dismount-the-device"></a>Démonter l’appareil
 Selon si le fournisseur a fourni un pilote d’atténuation, vous soit devrez utiliser le «-force » option ou non.
--   Si un pilote d’atténuation a été installé.
-```
-Dismount-VMHostAssignableDevice -LocationPath $locationPath
-```
--   Si un pilote d’atténuation n’a pas été installé.
-```
-Dismount-VMHostAssignableDevice -force -LocationPath $locationPath
-```
+- Si un pilote d’atténuation a été installé.
+  ```
+  Dismount-VMHostAssignableDevice -LocationPath $locationPath
+  ```
+- Si un pilote d’atténuation n’a pas été installé.
+  ```
+  Dismount-VMHostAssignableDevice -force -LocationPath $locationPath
+  ```
 
 ## <a name="assigning-the-device-to-the-guest-vm"></a>Affectation de l’appareil à la machine virtuelle invitée
 L’étape finale consiste à indiquer à Hyper-V qu’une machine virtuelle doit avoir accès à l’appareil.  Outre le chemin d’accès d’emplacement identifié précédemment, vous devez connaître le nom de la machine virtuelle.

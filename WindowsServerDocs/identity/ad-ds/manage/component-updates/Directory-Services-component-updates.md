@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: f3e0553b1919a7f9129d47616d0ffb66b6ff48f8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fe27b61abe196a2148ced18806be904ebd555fcc
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874440"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442894"
 ---
 # <a name="directory-services-component-updates"></a>Mises à jour du composant Directory Services
 
@@ -161,12 +161,12 @@ Le paramètre - DomainMode et le Install-ADDSForest ou les applets de commande I
 ### <a name="overview"></a>Vue d'ensemble  
 L’algorithme d’optimiseur de requête LDAP a été réévaluée et optimisée.  Le résultat est l’amélioration des performances dans l’efficacité des recherches LDAP et la durée de recherche LDAP de requêtes complexes.  
   
-> [!NOTE]  
-> **Le développeur :** améliorations dans les performances des recherches grâce aux améliorations apportées dans le mappage à partir de LDAP de requête à la requête du moteur ESE.  Au-delà d’un certain niveau de complexité des filtres LDAP empêchent la sélection d’index optimisé, ce qui entraîne des performances considérablement réduites (1 000 x ou plus). Ce changement modifie la façon dans lequel nous sélectionnons des indices pour les requêtes LDAP afin d’éviter ce problème.  
-  
-> [!NOTE]  
+> [!NOTE]
+> <strong>Le développeur :</strong>améliorations dans les performances des recherches grâce aux améliorations apportées dans le mappage à partir de LDAP de requête à la requête du moteur ESE.  Au-delà d’un certain niveau de complexité des filtres LDAP empêchent la sélection d’index optimisé, ce qui entraîne des performances considérablement réduites (1 000 x ou plus). Ce changement modifie la façon dans lequel nous sélectionnons des indices pour les requêtes LDAP afin d’éviter ce problème.  
+> 
+> [!NOTE]
 > Un remaniement complet de l’algorithme optimiseur de requête LDAP, ce qui entraîne :  
->   
+> 
 > -   Temps de recherche plus rapides  
 > -   Gains d’efficacité autorisent les DC à aller plus loin  
 > -   Moins d’appels au support technique relatives aux performances d’Active Directory émet  

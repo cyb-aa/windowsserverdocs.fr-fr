@@ -12,12 +12,12 @@ ms.assetid: f70a79de-9c56-4496-89b5-20a1bff2293e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c2cc603f5e0303ada245956a524151393c538b27
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2322fa3f4617e8a8450aaf7fd5ead702574bf759
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881570"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433131"
 ---
 # <a name="overview-of-the-dashboard-in-windows-server-essentials"></a>Vue d'ensemble du tableau de bord dans Windows Server Essentials
 
@@ -25,39 +25,39 @@ ms.locfileid: "59881570"
  
  Windows Server Essentials et Windows Server 2012 R2 Standard avec le rôle Expérience Windows Server Essentials activé incluent un tableau de bord d'administration, lequel simplifie les tâches de gestion de vos serveur et réseau Windows Server Essentials. À l'aide du tableau de bord Windows Server Essentials, vous pouvez :  
   
--   terminer la configuration de votre serveur ;  
+- terminer la configuration de votre serveur ;  
   
--   accéder et effectuer des tâches d'administration courantes ;  
+- accéder et effectuer des tâches d'administration courantes ;  
   
--   afficher les alertes du serveur et prendre des mesures en conséquence ;  
+- afficher les alertes du serveur et prendre des mesures en conséquence ;  
   
--   configurer et modifier les paramètres du serveur ;  
+- configurer et modifier les paramètres du serveur ;  
   
--   rechercher des rubriques d'aide sur le web et y accéder ;  
+- rechercher des rubriques d'aide sur le web et y accéder ;  
   
--   accéder aux ressources de la communauté sur le web ;  
+- accéder aux ressources de la communauté sur le web ;  
   
--   gérer les comptes d'utilisateur ;  
+- gérer les comptes d'utilisateur ;  
   
--   gérer les périphériques et les sauvegardes ;  
+- gérer les périphériques et les sauvegardes ;  
   
--   gérer l'accès et les paramètres pour les disques durs et les dossiers de serveur ;  
+- gérer l'accès et les paramètres pour les disques durs et les dossiers de serveur ;  
   
--   afficher et gérer les applications complémentaires ;  
+- afficher et gérer les applications complémentaires ;  
   
--   intégrer Microsoft Online Services.  
+- intégrer Microsoft Online Services.  
   
- Cette rubrique inclut :  
+  Cette rubrique inclut :  
   
--   [Fonctionnalités de base du tableau de bord](#BKMK_Design)  
+- [Fonctionnalités de base du tableau de bord](#BKMK_Design)  
   
--   [Fonctionnalités de la page d’accueil du tableau de bord](#BKMK_Home)  
+- [Fonctionnalités de la page d’accueil du tableau de bord](#BKMK_Home)  
   
--   [Sections d’administration du tableau de bord](#BKMK_Features)  
+- [Sections d’administration du tableau de bord](#BKMK_Features)  
   
--   [Accès du tableau de bord Windows Server Essentials](#BKMK_AccessDb)  
+- [Accès du tableau de bord Windows Server Essentials](#BKMK_AccessDb)  
   
--   [Utiliser le mode sans échec](#BKMK_UseSafeMode)  
+- [Utiliser le mode sans échec](#BKMK_UseSafeMode)  
   
 ##  <a name="BKMK_Design"></a> Fonctionnalités de base du tableau de bord  
  Le tableau de bord Windows Server Essentials vous permet d'accéder rapidement aux informations clés et aux fonctionnalités de gestion de votre serveur. Le tableau de bord inclut plusieurs sections. Le tableau suivant décrit les sections.  

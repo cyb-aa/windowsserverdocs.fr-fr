@@ -9,15 +9,18 @@ ms.prod: windows-server-threshold
 ms.assetid: 70f279bf-aea1-4f4f-9ab3-e9157233e267
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 8ada2ae5c9fcdb77f35200581848041f222ed7f3
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 0a3db2a095d1a31f55bd1c8bfc5bf3c9f6bb65b8
+ms.sourcegitcommit: ccc802338b163abdad2e53b55f39addcfea04603
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191963"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687396"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-with-sql-server"></a>La mise à niveau vers AD FS dans Windows Server 2016 avec SQL Server
 
+
+> [!NOTE]  
+> Commencer une mise à niveau avec un intervalle de temps définitif complété. Il n’est pas recommandé de conserver les AD FS dans un état en mode mixte pendant une période prolongée, laissant AD FS dans un état en mode mixte peut entraîner des problèmes avec la batterie de serveurs.
 
 
 ## <a name="moving-from-a-windows-server-2012-r2-ad-fs-farm-to-a-windows-server-2016-ad-fs-farm"></a>Déplacement d’une batterie de serveurs Windows Server 2012 R2 AD FS vers une batterie de serveurs Windows Server 2016 AD FS  
@@ -112,4 +115,3 @@ Avant cette étape, vous devez vous assurer que forestprep et domainprep ont ét
     Set-WebApplicationProxyConfiguration -UpgradeConfigurationVersion
     ```
 5. Vérifiez que la ConfigurationVersion a été mis à niveau avec la commande Powershell de Get-WebApplicationProxyConfiguration.
-    

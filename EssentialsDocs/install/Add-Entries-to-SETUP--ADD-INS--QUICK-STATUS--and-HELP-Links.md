@@ -12,12 +12,12 @@ ms.assetid: c0a8f10d-fd85-4c8d-b9bb-176cb1db1f46
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6d3303f2c6d84932ad9d5dee8a547cd478447732
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f0a66d0d36a3012369a9bc26c513dad069235ad8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864390"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433796"
 ---
 # <a name="add-entries-to-setup-add-ins-quick-status-and-help-links"></a>Ajout d’entrées pour les listes CONFIGURATION, COMPLÉMENTS, ÉTAT RAPIDE et des liens vers l'AIDE
 
@@ -33,111 +33,111 @@ Vous pouvez ajouter des tâches aux listes **CONFIGURATION**, **COMPLÉMENTS**, 
   
 ##### <a name="to-define-the-tasks-and-links"></a>Pour définir les tâches et les liens  
   
-1.  Ouvrez Visual Studio 2010 (ou une version ultérieure) en tant qu’administrateur en cliquant avec le bouton droit sur le programme dans le menu Démarrer, puis en sélectionnant **Exécuter en tant qu’administrateur**.  
+1. Ouvrez Visual Studio 2010 (ou une version ultérieure) en tant qu’administrateur en cliquant avec le bouton droit sur le programme dans le menu Démarrer, puis en sélectionnant **Exécuter en tant qu’administrateur**.  
   
-2.  Cliquez sur **Fichier**, sur **Nouveau**, puis sur **Projet**.  
+2. Cliquez sur **Fichier**, sur **Nouveau**, puis sur **Projet**.  
   
-3.  Dans le volet **Modèles** , cliquez sur **Bibliothèque de classes**, entrez **OEMHomePageContent** dans le champ **Nom** , puis cliquez sur **OK**.  
+3. Dans le volet **Modèles** , cliquez sur **Bibliothèque de classes**, entrez **OEMHomePageContent** dans le champ **Nom** , puis cliquez sur **OK**.  
   
-4.  Supprimez le fichier Class1.cs.  
+4. Supprimez le fichier Class1.cs.  
   
-5.  Cliquez avec le bouton droit sur le nouveau projet, cliquez sur **Ajouter**, puis sur **Nouvel élément**.  
+5. Cliquez avec le bouton droit sur le nouveau projet, cliquez sur **Ajouter**, puis sur **Nouvel élément**.  
   
-6.  Dans le volet **Modèles** , cliquez sur **Fichier XML**, entrez **OEMHomePageContent.home** dans le champ **Nom** , puis cliquez sur **Ajouter**.  
+6. Dans le volet **Modèles** , cliquez sur **Fichier XML**, entrez **OEMHomePageContent.home** dans le champ **Nom** , puis cliquez sur **Ajouter**.  
   
-    > [!NOTE]
-    >  Si le fichier XML est installé sans fichier de ressources, il doit être avoir pour nom OEMHomePageContent.home. S’il est exclu dans une assembly, le nom du fichier peut être quelconque tant que son extension est .home.  
+   > [!NOTE]
+   >  Si le fichier XML est installé sans fichier de ressources, il doit être avoir pour nom OEMHomePageContent.home. S’il est exclu dans une assembly, le nom du fichier peut être quelconque tant que son extension est .home.  
   
-7.  Ajoutez le code XML suivant dans le fichier OEMHomePageContent.home :  
+7. Ajoutez le code XML suivant dans le fichier OEMHomePageContent.home :  
   
-    ```  
+   ```  
   
-    <Tasks version=?2.0? xmlns=?https://schemas.microsoft.com/WindowsServerSolutions/2010/01/Dashboard>  
-       <SetupMyServerTasks>  
-          <Task name="MyTask"  
-             description="MyTaskDescription"  
-             id="GUID">  
-                  <Action   
-                  name=?MyAction1Name?   
-                  image=?IconForAction1?  
-                  type=?TaskType?  
-                  exelocation=?ActionExeLocation? />  
-                  <Action   
-                  name=?MyAction2Name?   
-                  image=?IconForAction2?  
-                  type=?TaskType?  
-                  exelocation=?ActionExeLocation? />  
-                   ¦  
-           </Task>  
-                   ¦  
-        </SetupMyServerTasks>  
-    <MailServiceTasks>  
-         <!-- Same schema as in œSetupMyServerTasks? but the tasks are shown in œConnect to Email Service? category. -->  
-    </MailServiceTasks>  
-    <LineOfBusinessTasks>  
-         <!-- Same schema as in œSetupMyServerTasks? but the tasks are shown in œAdd-ins? category. -->  
+   <Tasks version=?2.0? xmlns=?https://schemas.microsoft.com/WindowsServerSolutions/2010/01/Dashboard>  
+      <SetupMyServerTasks>  
+         <Task name="MyTask"  
+            description="MyTaskDescription"  
+            id="GUID">  
+                 <Action   
+                 name=?MyAction1Name?   
+                 image=?IconForAction1?  
+                 type=?TaskType?  
+                 exelocation=?ActionExeLocation? />  
+                 <Action   
+                 name=?MyAction2Name?   
+                 image=?IconForAction2?  
+                 type=?TaskType?  
+                 exelocation=?ActionExeLocation? />  
+                  ¦  
+          </Task>  
+                  ¦  
+       </SetupMyServerTasks>  
+   <MailServiceTasks>  
+        <!-- Same schema as in œSetupMyServerTasks? but the tasks are shown in œConnect to Email Service? category. -->  
+   </MailServiceTasks>  
+   <LineOfBusinessTasks>  
+        <!-- Same schema as in œSetupMyServerTasks? but the tasks are shown in œAdd-ins? category. -->  
   
-    <GetQuickStatusTasks>  
-          <Task name="MyQuickStatusTask1"  
-             description="MyQuickStatusTask1Desc   "  
-             id="GUID"  
-             assembly="AssemblyName of quick status query implementation"  
-             class="ClassName of quick status query implementation"           
-             replaceid="GUID"/>  
-               <!--  Same schema as Actions in œSetupMyServerTasks? -->   
-             </Task>  
-    </GetQuickStatusTasks>  
-       <Links>  
-          <Link  
-             ID=?GUID?  
-             Title="Displayed text of the link"  
-             Description="A very short description"  
-             ShellExecPath="Path to the application or URL"/>  
-       </Links>  
-    </Tasks>  
-    ```  
+   <GetQuickStatusTasks>  
+         <Task name="MyQuickStatusTask1"  
+            description="MyQuickStatusTask1Desc   "  
+            id="GUID"  
+            assembly="AssemblyName of quick status query implementation"  
+            class="ClassName of quick status query implementation"           
+            replaceid="GUID"/>  
+              <!--  Same schema as Actions in œSetupMyServerTasks? -->   
+            </Task>  
+   </GetQuickStatusTasks>  
+      <Links>  
+         <Link  
+            ID=?GUID?  
+            Title="Displayed text of the link"  
+            Description="A very short description"  
+            ShellExecPath="Path to the application or URL"/>  
+      </Links>  
+   </Tasks>  
+   ```  
   
-     Où :  
+    Où :  
   
-    |Attribut|Description|  
-    |---------------|-----------------|  
-    |Name (Task)|Nom d'affichage de la tâche dans la liste. Si vous créez un fichier de ressources incorporé, la valeur de cet attribut correspond à la ressource de chaîne.|  
-    |description (Task)|Description de la tâche. Si vous créez un fichier de ressources incorporé, la valeur de cet attribut correspond à la ressource de chaîne.|  
-    |id (Task)|Identificateur de la tâche. Cet identificateur doit être un GUID. Il est nécessaire de prévoir un nouveau GUID pour une tâche **exe**, mais s'il s'agit d'une tâche **globale**, il suffit d'utiliser le GUID créé lors de la définition de la tâche pour le volet des tâches du sous-onglet. Pour plus d’informations sur la création d’un GUID, consultez [Créer un GUID (guidgen.exe)](https://go.microsoft.com/fwlink/?LinkId=116098).|  
-    |image|Ce champ sera ignoré.|  
-    |Name (Action)|Affiche le nom de la tâche.|  
-    |Type (Action)|Décrit le type de tâche. La tâche peut être l’une des tâches suivantes : tâche **globale** , **exe**ou URL. La tâche **globale** correspond à celle que vous avez générée lors de la définition des tâches pour le volet des tâches du sous-onglet. Pour plus d’informations sur la création d’une tâche globale qui peut être utilisée dans le volet de tâches du sous-onglet et les listes tâches de mise en route ou tâches courantes de la page d’accueil, consultez œCreating les classes de prise en charge ? dans Comment : Créer un sous-onglet ? de la [Windows Server Solutions SDK](https://go.microsoft.com/fwlink/?LinkID=248648). Une tâche **exe** permet d'exécuter des applications à partir des listes Tâches de mise en route ou Tâches courantes.|  
-    |exelocation|Chemin d'accès à l'application associée à la tâche. Cet attribut s'applique uniquement aux tâches **exe**.|  
-    |replaceid|Identificateur de la tâche remplacée par cette tâche.|  
-    |assembly|L’AssemblyName de l’assembly qui fournit la classe afin de mettre en œuvre une requête de l’état rapide. L’assembly doit se trouver dans Program files\ windows server\bin\\.|  
-    |classe|Le nom de la classe met en œuvre la requête de l’état rapide. La classe doit mettre en œuvre l’interface **ITaskStatusQuery**.|  
-    |Title (link)|Texte affiché en guise de lien. Si vous créez un fichier de ressources incorporé, la valeur de cet attribut correspond à la ressource de chaîne.|  
-    |Description (link)|Description de la destination du lien. Si vous créez un fichier de ressources incorporé, la valeur de cet attribut correspond à la ressource de chaîne.|  
-    |ShellExecPath|Chemin d'accès à l'application ou adresse URL.<br /><br /> **Remarque :** Les variables d'environnement sont acceptées dans l'attribut ShellExecPath.|  
+   |Attribut|Description|  
+   |---------------|-----------------|  
+   |Name (Task)|Nom d'affichage de la tâche dans la liste. Si vous créez un fichier de ressources incorporé, la valeur de cet attribut correspond à la ressource de chaîne.|  
+   |description (Task)|Description de la tâche. Si vous créez un fichier de ressources incorporé, la valeur de cet attribut correspond à la ressource de chaîne.|  
+   |id (Task)|Identificateur de la tâche. Cet identificateur doit être un GUID. Il est nécessaire de prévoir un nouveau GUID pour une tâche **exe**, mais s'il s'agit d'une tâche **globale**, il suffit d'utiliser le GUID créé lors de la définition de la tâche pour le volet des tâches du sous-onglet. Pour plus d’informations sur la création d’un GUID, consultez [Créer un GUID (guidgen.exe)](https://go.microsoft.com/fwlink/?LinkId=116098).|  
+   |image|Ce champ sera ignoré.|  
+   |Name (Action)|Affiche le nom de la tâche.|  
+   |Type (Action)|Décrit le type de tâche. La tâche peut être l’une des tâches suivantes : tâche **globale** , **exe**ou URL. La tâche **globale** correspond à celle que vous avez générée lors de la définition des tâches pour le volet des tâches du sous-onglet. Pour plus d’informations sur la création d’une tâche globale qui peut être utilisée dans le volet de tâches du sous-onglet et les listes tâches de mise en route ou tâches courantes de la page d’accueil, consultez œCreating les classes de prise en charge ? dans Comment : Créer un sous-onglet ? de la [Windows Server Solutions SDK](https://go.microsoft.com/fwlink/?LinkID=248648). Une tâche **exe** permet d'exécuter des applications à partir des listes Tâches de mise en route ou Tâches courantes.|  
+   |exelocation|Chemin d'accès à l'application associée à la tâche. Cet attribut s'applique uniquement aux tâches **exe**.|  
+   |replaceid|Identificateur de la tâche remplacée par cette tâche.|  
+   |assembly|L’AssemblyName de l’assembly qui fournit la classe afin de mettre en œuvre une requête de l’état rapide. L’assembly doit se trouver dans Program files\ windows server\bin\\.|  
+   |classe|Le nom de la classe met en œuvre la requête de l’état rapide. La classe doit mettre en œuvre l’interface **ITaskStatusQuery**.|  
+   |Title (link)|Texte affiché en guise de lien. Si vous créez un fichier de ressources incorporé, la valeur de cet attribut correspond à la ressource de chaîne.|  
+   |Description (link)|Description de la destination du lien. Si vous créez un fichier de ressources incorporé, la valeur de cet attribut correspond à la ressource de chaîne.|  
+   |ShellExecPath|Chemin d'accès à l'application ou adresse URL.<br /><br /> **Remarque :** Les variables d'environnement sont acceptées dans l'attribut ShellExecPath.|  
   
-     L'exemple de code suivant montre comment définir un lien vers une application :  
+    L'exemple de code suivant montre comment définir un lien vers une application :  
   
-    ```  
-    <Links>  
-       <Link Title="Calc" Description="Launches Calc" ShellExecPath="%windir%\system32\calc.exe" />  
-    </Links>  
-    ```  
+   ```  
+   <Links>  
+      <Link Title="Calc" Description="Launches Calc" ShellExecPath="%windir%\system32\calc.exe" />  
+   </Links>  
+   ```  
   
-     L'exemple de code suivant montre comment définir un lien vers une page Web :  
+    L'exemple de code suivant montre comment définir un lien vers une page Web :  
   
-    ```  
-    <Links>  
-       <Link Title="Browser" Description="Open browser" ShellExecPath="http://www.adventureworks.com/" />  
-    </Links>  
-    ```  
+   ```  
+   <Links>  
+      <Link Title="Browser" Description="Open browser" ShellExecPath="http://www.adventureworks.com/" />  
+   </Links>  
+   ```  
   
-8.  Changez les valeurs d'attribut pour représenter votre tâche ou votre lien.  
+8. Changez les valeurs d'attribut pour représenter votre tâche ou votre lien.  
   
 9. Dans l’ **Explorateur de solutions**, cliquez avec le bouton droit sur **OEMHomePageContent.home**, puis cliquez sur **Propriétés**.  Dans le volet **Propriétés**, sous **Action de génération**, sélectionnez **Ressource incorporée**.  
   
 10. Enregistrez le fichier OEMHomePageContent.home.  
   
- Pour savoir comment mettre en œuvre une requête de l’état rapide, consultez les documents et exemples fournis dans le [SDK Windows Server Solutions](https://go.microsoft.com/fwlink/?LinkID=248648).  
+    Pour savoir comment mettre en œuvre une requête de l’état rapide, consultez les documents et exemples fournis dans le [SDK Windows Server Solutions](https://go.microsoft.com/fwlink/?LinkID=248648).  
   
 #### <a name="change-the-status-of-a-setupadd-ins-task"></a>Modification de l'état d'une tâche CONFIGURATION/COMPLÉMENTS  
  L'état des tâches référencées dans les listes CONFIGURATION et COMPLÉMENTS peuvent être basculées entre Complété (configuré pour les compléments) et Non complété (pas configuré pour les compléments).  
@@ -217,4 +217,4 @@ Vous pouvez ajouter des tâches aux listes **CONFIGURATION**, **COMPLÉMENTS**, 
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
  [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](Testing-the-Customer-Experience.md)
+ [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)

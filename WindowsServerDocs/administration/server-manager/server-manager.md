@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c59fa78f6485f21a048c6a4f37a00b4a49e9adab
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3f3abeec3d4ecbe5e80d08a99a00b43a408c4ac
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831670"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811288"
 ---
 # <a name="server-manager"></a>Gestionnaire de serveur
 
@@ -30,23 +30,23 @@ Dans nos tests, le Gestionnaire de serveur dans Windows Server 2016, Windows Ser
 
 Cette rubrique et ses sous-rubriques fournissent des informations sur l’utilisation des fonctionnalités dans la console du Gestionnaire de serveur. Cette rubrique contient les sections suivantes.
 
--   [Passez en revue les considérations initiales et la configuration système requise](#BKMK_1.1)
+-   [Passez en revue les considérations initiales et la configuration système requise](#review-initial-considerations-and-system-requirements)
 
--   [Tâches que vous pouvez effectuer dans le Gestionnaire de serveur](#BKMK_tasks)
+-   [Tâches que vous pouvez effectuer dans le Gestionnaire de serveur](#tasks-that-you-can-perform-in-server-manager)
 
--   [Démarrez le Gestionnaire de serveur](#BKMK_start)
+-   [Démarrez le Gestionnaire de serveur](#start-server-manager)
 
--   [Redémarrer les serveurs distants](#BKMK_restart)
+-   [Redémarrer les serveurs distants](#restart-remote-servers)
 
--   [Exporter les paramètres du Gestionnaire de serveur à d’autres ordinateurs](#BKMK_export)
+-   [Exporter les paramètres du Gestionnaire de serveur à d’autres ordinateurs](#export-server-manager-settings-to-other-computers)
 
-## <a name="BKMK_1.1"></a>Passez en revue les considérations initiales et la configuration système requise
+## <a name="review-initial-considerations-and-system-requirements"></a>Passer en revue les considérations initiales et la configuration requise
 Les sections suivantes répertorient certaines considérations initiales que vous devez passer en revue, ainsi que les configurations matérielle et logicielle pour le Gestionnaire de serveur.
 
 ### <a name="hardware-requirements"></a>Configuration matérielle requise
 Le Gestionnaire de serveur est installé par défaut avec toutes les éditions de Windows Server 2016. Aucune autre configuration matérielle requise n’existe pour le Gestionnaire de serveur.
 
-### <a name="BKMK_softconfig"></a>Configuration logicielle et la configuration requise
+### <a name="software-and-configuration-requirements"></a>Configuration logicielle requise et conditions de configuration
 Le Gestionnaire de serveur est installé par défaut avec toutes les éditions de Windows Server 2016. Vous pouvez utiliser le Gestionnaire de serveur dans Windows Server 2016 pour gérer [options d’installation Server Core](https://go.microsoft.com/fwlink/p/?LinkID=241573) de Windows Server 2016, Windows Server 2012 et Windows Server 2008 R2 qui sont en cours d’exécution sur des ordinateurs distants. Le Gestionnaire de serveur s’exécute sur l’option d’installation Server Core de Windows Server 2016.
 
 Le Gestionnaire de serveur s’exécute dans l’Interface graphique serveur minimale ; Autrement dit, lorsque la fonctionnalité interpréteur de commandes graphique de serveur n’est pas installée. La fonctionnalité d’interpréteur de commandes graphique de serveur n’est pas installée par défaut sur Windows Server 2016. Si vous n’exécutez pas interpréteur de commandes graphique, le Gestionnaire de serveur de console du s’exécute, mais certaines applications ou certains outils disponibles à partir de la console ne sont pas disponibles. Navigateurs Internet ne peut pas s’exécuter sans l’interpréteur de commandes graphique de serveur, c’est le cas pages Web et des applications telles que HTML help (par exemple, l’aide mmc F1) ne peut pas être ouvert. Vous ne pouvez pas ouvrir les boîtes de dialogue pour la configuration de la mise à jour automatique de Windows et des commentaires lors de l’interpréteur de commandes graphique de serveur n’est pas installé ; commandes qui ouvrent ces boîtes de dialogue dans la console du Gestionnaire de serveur sont redirigées pour exécuter **sconfig.cmd**.
@@ -64,9 +64,9 @@ La console du Gestionnaire de serveur est incluse avec [outils d’Administratio
 
 |Système d’exploitation de gestionnaire de serveur Source|Ciblé sur Windows Server 2016|Ciblé sur Windows Server 2012 R2 |Ciblé sur Windows Server 2012 |Ciblé sur Windows Server 2008 R2 ou Windows Server 2008 |Ciblé sur Windows Server 2003|
 |-------------------------------|--------------------------------------------|---------------------------------------|------------------------------------|-----------------------------------------------------------------------|------------------|
-|Windows 10 ou Windows Server 2016|Prise en charge complète|Prise en charge complète|Prise en charge complète|Une fois [la configuration logicielle requise et les conditions de configuration](#BKMK_softconfig) satisfaites, la plupart des tâches de gestion peuvent être effectuées, mais pas l’installation ni la désinstallation de rôles ou de fonctionnalités|Non pris en charge|
-|Windows 8.1 ou Windows Server 2012 R2 |Non pris en charge|Prise en charge complète|Prise en charge complète|Une fois [la configuration logicielle requise et les conditions de configuration](#BKMK_softconfig) satisfaites, la plupart des tâches de gestion peuvent être effectuées, mais pas l’installation ni la désinstallation de rôles ou de fonctionnalités|Prise en charge limitée ; états en ligne et hors connexion uniquement|
-|Windows 8 ou Windows Server 2012 |Non pris en charge|Non pris en charge|Prise en charge complète|Une fois [la configuration logicielle requise et les conditions de configuration](#BKMK_softconfig) satisfaites, la plupart des tâches de gestion peuvent être effectuées, mais pas l’installation ni la désinstallation de rôles ou de fonctionnalités|Prise en charge limitée ; états en ligne et hors connexion uniquement|
+|Windows 10 ou Windows Server 2016|Prise en charge complète|Prise en charge complète|Prise en charge complète|Une fois [la configuration logicielle requise et les conditions de configuration](#software-and-configuration-requirements) satisfaites, la plupart des tâches de gestion peuvent être effectuées, mais pas l’installation ni la désinstallation de rôles ou de fonctionnalités|Non pris en charge|
+|Windows 8.1 ou Windows Server 2012 R2 |Non pris en charge|Prise en charge complète|Prise en charge complète|Une fois [la configuration logicielle requise et les conditions de configuration](#software-and-configuration-requirements) satisfaites, la plupart des tâches de gestion peuvent être effectuées, mais pas l’installation ni la désinstallation de rôles ou de fonctionnalités|Prise en charge limitée ; états en ligne et hors connexion uniquement|
+|Windows 8 ou Windows Server 2012 |Non pris en charge|Non pris en charge|Prise en charge complète|Une fois [la configuration logicielle requise et les conditions de configuration](#software-and-configuration-requirements) satisfaites, la plupart des tâches de gestion peuvent être effectuées, mais pas l’installation ni la désinstallation de rôles ou de fonctionnalités|Prise en charge limitée ; états en ligne et hors connexion uniquement|
 
 ###### <a name="to-start-server-manager-on-a-client-computer"></a>Pour démarrer le Gestionnaire de serveur sur un ordinateur client
 
@@ -85,7 +85,7 @@ Pour plus d’informations sur l’exécution à distance Server Administration 
 
 Pour effectuer des tâches de gestion sur des serveurs distants à l’aide du Gestionnaire de serveur, des serveurs distants que vous souhaitez gérer doivent être configurés pour autoriser la gestion à distance à l’aide de Server Manager et Windows PowerShell. Si la gestion à distance a été désactivée sur Windows Server 2012 R2 ou Windows Server 2012, et que vous souhaitez réactiver, procédez comme suit.
 
-##### <a name="BKMK_windows"></a>Pour configurer la gestion à distance du Gestionnaire de serveur sur Windows Server 2012 R2 ou Windows Server 2012 à l’aide de l’interface Windows
+##### <a name="to-configure-server-manager-remote-management-on--windows-server-2012-r2--or--windows-server-2012--by-using-the-windows-interface"></a>Pour configurer la gestion à distance du Gestionnaire de serveur sur Windows Server 2012 R2 ou Windows Server 2012 à l’aide de l’interface Windows
 
 1.  > [!NOTE]
     > Les paramètres qui sont contrôlés par le **configurer la gestion à distance** boîte de dialogue n’affectent pas les parties du Gestionnaire de serveur qui utilisent le modèle DCOM pour les communications distantes.
@@ -104,7 +104,7 @@ Pour effectuer des tâches de gestion sur des serveurs distants à l’aide du G
 
     -   Pour permettre à cet ordinateur de gestion à distance en utilisant le Gestionnaire de serveur ou de Windows PowerShell, sélectionnez **activer la gestion à distance de ce serveur à partir d’autres ordinateurs**.
 
-##### <a name="BKMK_ps"></a>Pour activer la gestion à distance du Gestionnaire de serveur sur Windows Server 2012 R2 ou Windows Server 2012 à l’aide de Windows PowerShell
+##### <a name="to-enable-server-manager-remote-management-on--windows-server-2012-r2--or--windows-server-2012--by-using-windows-powershell"></a>Pour activer la gestion à distance du Gestionnaire de serveur sur Windows Server 2012 R2 ou Windows Server 2012 à l’aide de Windows PowerShell
 
 1.  Effectuez l’une des opérations suivantes :
 
@@ -129,7 +129,7 @@ Pour effectuer des tâches de gestion sur des serveurs distants à l’aide du G
 
     -   Pour activer la gestion à distance sur des serveurs qui exécutent Windows Server 2008, consultez [activer et utiliser des commandes à distance dans Windows PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=242565).
 
-## <a name="BKMK_tasks"></a>Tâches que vous pouvez effectuer dans le Gestionnaire de serveur
+## <a name="tasks-that-you-can-perform-in-server-manager"></a>Tâches que vous pouvez effectuer dans le Gestionnaire de serveur
 Server Manager rend plus efficace l’administration des serveurs en permettant aux administrateurs d’effectuer des tâches dans le tableau suivant à l’aide d’un seul outil. Dans Windows Server 2012 R2 et Windows Server 2012, les utilisateurs standards d’un serveur et membres du groupe administrateurs peuvent effectuer des tâches de gestion dans le Gestionnaire de serveur, mais par défaut, les utilisateurs standard ne peuvent pas effectuer certaines tâches, comme indiqué dans le tableau suivant.
 
 Les administrateurs peuvent utiliser deux applets de commande Windows PowerShell dans le module d’applet de commande Gestionnaire de serveur, [Enable-ServerManagerStandardUserremoting](https://technet.microsoft.com/library/jj205470.aspx) et [Disable-ServerManagerStandardUserremoting](https://technet.microsoft.com/library/jj205468.aspx), à contrôler l’accès utilisateur standard à d’autres données. Le **Enable-ServerManagerStandardUserremoting** applet de commande peut fournir un ou plusieurs utilisateurs standard, non-administrateurs accès aux événements, service, compteur de performances et les données d’inventaire de rôles et de fonctionnalités.
@@ -155,7 +155,7 @@ Les administrateurs peuvent utiliser deux applets de commande Windows PowerShell
 > [!NOTE]
 > Gestionnaire de serveur ne peut pas être utilisé pour ajouter des rôles et des fonctionnalités pour les serveurs qui exécutent Windows Server 2008 R2 ou Windows Server 2008.
 
-## <a name="BKMK_start"></a>Démarrez le Gestionnaire de serveur
+## <a name="start-server-manager"></a>Démarrez le Gestionnaire de serveur
 Le Gestionnaire de serveur démarre automatiquement par défaut sur les serveurs qui exécutent Windows Server 2016 lorsqu’un membre du groupe Administrateurs ouvre une session sur un serveur. Si vous fermez le Gestionnaire de serveur, le redémarrage de l’une des manières suivantes. Cette section présente également les étapes pour modifier le comportement par défaut et pour empêcher le Gestionnaire de serveur de démarrer automatiquement.
 
 #### <a name="to-start-server-manager-from-the-start-screen"></a>Pour démarrer le Gestionnaire de serveur à partir de l’écran d’accueil
@@ -174,7 +174,7 @@ Le Gestionnaire de serveur démarre automatiquement par défaut sur les serveurs
 
 3.  Vous pouvez également empêcher le Gestionnaire de serveur de démarrer automatiquement en activant le paramètre de stratégie de groupe, **ne pas démarrer le Gestionnaire de serveur automatiquement à l’ouverture de session**. Le chemin d’accès à ce paramètre de stratégie, dans la console de l’éditeur de stratégie de groupe locale, est un ordinateur Configuration ordinateur\Modèles d’Administration\système\gestionnaire.
 
-## <a name="BKMK_restart"></a>Redémarrer les serveurs distants
+## <a name="restart-remote-servers"></a>Redémarrer les serveurs distants
 Vous pouvez redémarrer un serveur distant à partir de la **serveurs** vignette d’une page de rôle ou un groupe dans le Gestionnaire de serveur.
 
 > [!IMPORTANT]
@@ -190,7 +190,7 @@ Vous pouvez redémarrer un serveur distant à partir de la **serveurs** vignette
 
 3.  Cliquez avec le bouton droit sur les serveurs sélectionnés, puis cliquez sur **Redémarrer le serveur**.
 
-## <a name="BKMK_export"></a>Exporter les paramètres du Gestionnaire de serveur à d’autres ordinateurs
+## <a name="export-server-manager-settings-to-other-computers"></a>Exporter les paramètres du Gestionnaire de serveur vers d’autres ordinateurs
 Dans le Gestionnaire de serveur, la liste des serveurs gérés, modifications apportées aux paramètres de console de gestionnaire de serveur et des groupes personnalisés que vous avez créés sont stockés dans les deux fichiers suivants. Vous pouvez réutiliser ces paramètres sur d’autres ordinateurs qui exécutent la même version du Gestionnaire de serveur (ou Windows 10 avec les outils d’Administration de serveur distant installé). Outils d’Administration de serveur distant doit être en cours d’exécution sur les ordinateurs client Windows pour exporter les paramètres du Gestionnaire de serveur à ces ordinateurs.
 
 -   %*appdata*%\Microsoft\Windows\ServerManager\Serverlist.xml

@@ -6,14 +6,14 @@ ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage-failover-clustering
-ms.date: 04/05/2018
+ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 00f29c70628f2869e9f3aeffd0d08032bce5aeda
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: b41ebd0bb822875a3114de4a849ea3ec5decee11
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034185"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810883"
 ---
 # <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Utiliser des Volumes partagés de Cluster dans un cluster de basculement
 
@@ -26,15 +26,15 @@ ILS proposent un système de fichiers en cluster à usage général, qui est en 
 - fichiers de disque dur virtuel (VHD) en cluster pour les ordinateurs virtuels Hyper-V en cluster ;
 - partages de fichiers avec montée en puissance parallèle pour stocker les données d'application pour le rôle en cluster de serveur de fichiers avec montée en puissance parallèle. Les données d'application dans le cadre de ce rôle peuvent consister notamment dans des fichiers d'ordinateur virtuel Hyper-V ou des données Microsoft SQL Server. (Sachez que ReFS n'est pas pris en charge pour un serveur de fichiers avec montée en puissance parallèle.) Pour plus d’informations sur le serveur de fichiers avec montée en puissance, consultez [Scale-Out File Server pour les données d’Application](sofs-overview.md).
 
->[!NOTE]
->Les volumes partagés de cluster ne prennent pas en charge la charge de travail en cluster de Microsoft SQL Server dans SQL Server 2012 et les versions antérieures de SQL Server.
+> [!NOTE]
+> Volumes partagés de cluster ne prennent pas en charge la charge de travail en cluster Microsoft SQL Server dans SQL Server 2012 et versions antérieures de SQL Server.
 
 Dans Windows Server 2012, CSV fonctionnalités ont été considérablement améliorées. Par exemple, les dépendances vis-à-vis des services de domaine Active Directory ont été éliminées. Les améliorations fonctionnelles apportées à **chkdsk**sont désormais prises en charge, tout comme l’interopérabilité avec les applications antivirus et de sauvegarde et l’intégration avec les fonctionnalités de stockage générales, telles que les volumes chiffrés par BitLocker et les espaces de stockage. Pour une vue d’ensemble des fonctionnalités de volume partagé de cluster qui a été introduite dans Windows Server 2012, consultez [Nouveautés du clustering avec basculement dans Windows Server 2012 \[redirigé\]](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
 
 Windows Server 2012 R2 introduit des fonctionnalités supplémentaires, tels que CSV la propriété distribuée, capacité de résilience accrue grâce à la disponibilité du service de serveur, une plus grande flexibilité quantité de mémoire physique que vous pouvez allouer au cache de volume partagé de cluster, mieux concerne et interopérabilité améliorée avec notamment la prise en charge de ReFS et de la déduplication. Pour plus d’informations, consultez [What ' s New in Clustering de basculement](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
 
->[!NOTE]
->Pour plus d’informations sur l’utilisation de la déduplication de données sur un volume partagé de cluster dans le cadre de scénarios d’infrastructure VDI (Virtual Desktop Infrastructure), consultez les billets de blog [Deploying Data Deduplication for VDI storage in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/deploying-data-deduplication-for-vdi-storage-in-windows-server-2012-r2.aspx) et [Extending Data Deduplication to new workloads in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/extending-data-deduplication-to-new-workloads-in-windows-server-2012-r2.aspx).
+> [!NOTE]
+> Pour plus d’informations sur l’utilisation de la déduplication de données sur un volume partagé de cluster dans le cadre de scénarios d’infrastructure VDI (Virtual Desktop Infrastructure), consultez les billets de blog [Deploying Data Deduplication for VDI storage in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/deploying-data-deduplication-for-vdi-storage-in-windows-server-2012-r2.aspx) et [Extending Data Deduplication to new workloads in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/extending-data-deduplication-to-new-workloads-in-windows-server-2012-r2.aspx).
 
 ## <a name="review-requirements-and-considerations-for-using-csv-in-a-failover-cluster"></a>Configuration requise et éléments à prendre en considération pour l'utilisation de volumes partagés de cluster dans un cluster de basculement
 
@@ -81,7 +81,7 @@ Le serveur utilise l'un des modes de redirection d'E/S suivants, qui varie selon
 
 Dans Windows Server 2012 R2, vous pouvez afficher l’état d’un volume partagé de cluster nœud par nœud. Par exemple, vous pouvez voir si les E/S sont directes ou redirigées ou si le volume partagé de cluster est indisponible. Si un volume partagé de cluster est en mode E/S redirigé, vous pouvez aussi en voir la raison. Utilisez l’applet de commande Windows PowerShell **Get-ClusterSharedVolumeState** pour afficher ces informations.
 
->[!NOTE]
+> [!NOTE]
 > * Dans Windows Server 2012, en raison d’améliorations dans la conception de volume partagé de cluster, ceux-ci réalisent davantage d’opérations en mode d’e/s direct que dans Windows Server 2008 R2.
 > * Grâce à l'intégration des volumes partagés de cluster aux fonctionnalités du protocole SMB 3.0, telles que SMB Multichannel et SMB Direct, le trafic d'E/S redirigé peut être diffusé sur plusieurs réseaux de cluster.
 > * Vous devez prévoir sur vos réseaux de cluster une possible augmentation du trafic réseau vers le nœud coordinateur lors de la redirection des E/S.
@@ -116,8 +116,8 @@ Pour utiliser des volumes partagés de cluster, vos nœuds doivent répondre aux
 
 Cette section répertorie les considérations et recommandations pour l’utilisation de volume partagé de cluster dans un cluster de basculement exécutant Windows Server 2012 R2 ou Windows Server 2012 de planification.
 
->[!IMPORTANT]
->Interrogez votre fournisseur de stockage pour savoir comment configurer votre unité de stockage spécifique pour les volumes partagés de cluster. Si les recommandations émanant du fournisseur de stockage sont différentes des informations contenues dans cette rubrique, suivez les recommandations du fournisseur de stockage.
+> [!IMPORTANT]
+> Interrogez votre fournisseur de stockage pour savoir comment configurer votre unité de stockage spécifique pour les volumes partagés de cluster. Si les recommandations émanant du fournisseur de stockage sont différentes des informations contenues dans cette rubrique, suivez les recommandations du fournisseur de stockage.
 
 ### <a name="arrangement-of-luns-volumes-and-vhd-files"></a>Organisation des numéros d'unités logiques, des volumes et des fichiers VHD
 
@@ -198,31 +198,14 @@ Le cache de volume partagé de cluster assure une mise en cache au niveau du blo
 >[!NOTE]
 >Nous vous recommandons d'activer le cache de volume partagé de cluster pour tous les déploiements en cluster d'Hyper-V et de serveurs de fichiers avec montée en puissance parallèle en cluster.
 
-Par défaut dans Windows Server 2012, le cache de volume partagé de cluster est désactivé. Dans Windows Server 2012 R2, il est activé par défaut. Cependant, vous devez toujours allouer la taille du cache de bloc à réserver.
+Par défaut dans Windows Server 2012, le cache de volume partagé de cluster est désactivé. Dans Windows Server 2012 R2 et versions ultérieures, il est activé par défaut. Cependant, vous devez toujours allouer la taille du cache de bloc à réserver.
 
 Le tableau suivant décrit les deux paramètres de configuration qui contrôlent le cache de volume partagé de cluster.
 
-<table>
-<thead>
-<tr class="header">
-<th>Nom de propriété dans Windows Server 2012 R2</th>
-<th>Nom de propriété dans Windows Server 2012</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>BlockCacheSize</strong></td>
-<td><strong>SharedVolumeBlockCacheSizeInMB</strong></td>
-<td>Cette propriété de cluster courante permet de définir la quantité de mémoire (en mégaoctets) à réserver pour le cache de volume partagé de cluster sur chaque nœud du cluster. Par exemple, si la valeur définie est 512, la mémoire système réservée sur chaque nœud est de 512 Mo. (Dans de nombreux clusters 512 Mo est la valeur recommandée). Le paramètre par défaut est 0 (pour désactivé).</td>
-</tr>
-<tr class="even">
-<td><strong>EnableBlockCache</strong></td>
-<td><strong>CsvEnableBlockCache</strong></td>
-<td>Propriété privée de la ressource Disque physique de cluster. Elle permet d'activer le cache de volume partagé de cluster sur un disque individuel ajouté au volume partagé de cluster. Dans Windows Server 2012, le paramètre par défaut est 0 (pour désactivé). Pour activer le cache de volume partagé de cluster sur un disque, définissez la valeur 1. Par défaut, dans Windows Server 2012 R2, ce paramètre est activé.</td>
-</tr>
-</tbody>
-</table>
+| Windows Server 2012 R2 et versions ultérieures |  Windows Server 2012                 | Description |
+| -------------------------------- | ------------------------------------ | ----------- |
+| BlockCacheSize                   | SharedVolumeBlockCacheSizeInMB       | Cette propriété de cluster courante permet de définir la quantité de mémoire (en mégaoctets) à réserver pour le cache de volume partagé de cluster sur chaque nœud du cluster. Par exemple, si la valeur définie est 512, la mémoire système réservée sur chaque nœud est de 512 Mo. (Dans de nombreux clusters 512 Mo est la valeur recommandée). Le paramètre par défaut est 0 (pour désactivé). |
+| EnableBlockCache                 | CsvEnableBlockCache                  | Propriété privée de la ressource Disque physique de cluster. Elle permet d'activer le cache de volume partagé de cluster sur un disque individuel ajouté au volume partagé de cluster. Dans Windows Server 2012, le paramètre par défaut est 0 (pour désactivé). Pour activer le cache de volume partagé de cluster sur un disque, définissez la valeur 1. Par défaut, dans Windows Server 2012 R2, ce paramètre est activé. |
 
 Vous pouvez analyser le cache de volume partagé de cluster dans l'Analyseur de performances en ajoutant les compteurs sous **Cache de volume partagé de cluster**.
 
@@ -231,7 +214,7 @@ Vous pouvez analyser le cache de volume partagé de cluster dans l'Analyseur de 
 1. Démarrez Windows PowerShell en tant qu’administrateur.
 2. Pour définir un cache de *512* Mo à réserver sur chaque nœud, tapez ce qui suit :
 
-    - Pour Windows Server 2012 R2 :
+    - Pour Windows Server 2012 R2 et versions ultérieures :
 
         ```PowerShell
         (Get-Cluster).BlockCacheSize = 512  
@@ -249,14 +232,14 @@ Vous pouvez analyser le cache de volume partagé de cluster dans l'Analyseur de 
     ```
 
 >[!NOTE]
-> * Dans Windows Server 2012, vous pouvez allouer seulement 20 % de la RAM physique au cache de volume partagé de cluster. Dans Windows Server 2012 R2, vous pouvez allouer jusqu'à 80 %. Comme les serveurs de fichiers avec montée en puissance parallèle ne sont généralement pas limités en mémoire, vous pouvez obtenir des gains de performances importants en utilisant la mémoire supplémentaire pour le cache de volume partagé de cluster.
-> * Pour éviter les conflits de ressources, vous devez redémarrer chaque nœud du cluster après avoir modifié la mémoire est allouée au cache de volume partagé de cluster. Dans Windows Server 2012 R2, un redémarrage n’est plus nécessaire.
-> * Après avoir activé ou désactivé le cache de volume partagé de cluster sur un disque individuel, pour que le paramètre prenne effet, vous devez mettre la ressource Disque physique hors connexion, puis la remettre en ligne. (Par défaut, dans Windows Server 2012 R2, il est activé.) 
+> * Dans Windows Server 2012, vous pouvez allouer seulement 20 % de la RAM physique au cache de volume partagé de cluster. Dans Windows Server 2012 R2 et versions ultérieures, vous pouvez allouer jusqu'à 80 %. Comme les serveurs de fichiers avec montée en puissance parallèle ne sont généralement pas limités en mémoire, vous pouvez obtenir des gains de performances importants en utilisant la mémoire supplémentaire pour le cache de volume partagé de cluster.
+> * Pour éviter les conflits de ressources, vous devez redémarrer chaque nœud du cluster après avoir modifié la mémoire est allouée au cache de volume partagé de cluster. Dans Windows Server 2012 R2 et versions ultérieures, un redémarrage n’est plus nécessaire.
+> * Après avoir activé ou désactivé le cache de volume partagé de cluster sur un disque individuel, pour que le paramètre prenne effet, vous devez mettre la ressource Disque physique hors connexion, puis la remettre en ligne. (Par défaut, dans Windows Server 2012 R2 et versions ultérieures, il est activé.) 
 > * Pour plus d’informations sur le cache de volume partagé de cluster contenant des informations sur les compteurs de performances, consultez le billet de blog [How to Enable CSV Cache](https://blogs.msdn.microsoft.com/clustering/2013/07/19/how-to-enable-csv-cache/).
 
-## <a name="back-up-csv"></a>Sauvegarder des volumes partagés de cluster
+## <a name="backing-up-csvs"></a>Sauvegarde des volumes partagés de cluster
 
-Il existe plusieurs méthodes de sauvegarde des informations stockées dans les volumes partagés d'un cluster de basculement. Vous pouvez utiliser une application de sauvegarde Microsoft ou une application non fournie par Microsoft. En règle générale, les volumes partagés de cluster n'imposent pas de conditions de sauvegarde particulières en dehors de celles liées au stockage en cluster formaté en NTFS ou ReFS. De même, les sauvegardes de volumes partagés de cluster ne perturbent pas les autres opérations de stockage de volume partagé de cluster.
+Il existe plusieurs méthodes pour sauvegarder les informations qui sont stockées sur des volumes partagés de cluster dans un cluster de basculement. Vous pouvez utiliser une application de sauvegarde Microsoft ou une application non fournie par Microsoft. En règle générale, les volumes partagés de cluster n'imposent pas de conditions de sauvegarde particulières en dehors de celles liées au stockage en cluster formaté en NTFS ou ReFS. De même, les sauvegardes de volumes partagés de cluster ne perturbent pas les autres opérations de stockage de volume partagé de cluster.
 
 Au moment de choisir une application de sauvegarde et un programme de sauvegarde, voici les éléments dont vous devez tenir compte :
 
@@ -266,11 +249,11 @@ Au moment de choisir une application de sauvegarde et un programme de sauvegarde
 - CSV prend en charge les demandeurs de sauvegarde qui exécutent la sauvegarde de Windows Server 2012 R2, la sauvegarde de Windows Server 2012 ou la sauvegarde de Windows Server 2008 R2. Cependant, la Sauvegarde Windows Server n'offre généralement qu'une solution de sauvegarde de base qui n'est pas nécessairement adaptée aux organisations dotées de clusters volumineux. La Sauvegarde Windows Server ne prend pas en charge la sauvegarde d'ordinateurs virtuels cohérente du point de vue des applications sur les volumes partagés de cluster. Elle ne prend en charge que la sauvegarde au niveau du volume cohérente du point de vue des incidents. (Si vous restaurez une sauvegarde cohérente du point de vue des incidents, l'ordinateur virtuel se retrouvera dans le même état qui était le sien s'il s'est bloqué au moment précis où la sauvegarde a été effectuée.) La sauvegarde d'un ordinateur virtuel basé sur un volume partagé de cluster aboutira, mais un événement d'erreur sera consigné indiquant que cette opération n'est pas prise en charge.
 - Vous aurez peut-être besoin d'informations d'identification d'administrateur au moment de sauvegarde un cluster de basculement.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 >Veillez à examiner attentivement le type de données sauvegardées et restaurées par votre application de sauvegarde, les fonctionnalités de volume partagé de cluster qu'elle prend en charge, ainsi que les besoins en ressources de l'application sur chaque nœud du cluster.
 
->[!WARNING]
->Si vous devez restaurer les données de sauvegarde sur un volume partagé de cluster, tenez compte des capacités et des limitations de l'application de sauvegarde pour conserver et restaurer des données cohérentes du point de vue des applications dans les nœuds du cluster. Par exemple, avec certaines applications, si le volume partagé de cluster est restauré sur un nœud différent de celui sur lequel le volume partagé de cluster a été sauvegardé, vous risquez par mégarde de remplacer des données importantes concernant l'état des applications sur le nœud où la restauration a eu lieu.
+> [!WARNING]
+> Si vous devez restaurer les données de sauvegarde sur un volume partagé de cluster, tenez compte des capacités et des limitations de l'application de sauvegarde pour conserver et restaurer des données cohérentes du point de vue des applications dans les nœuds du cluster. Par exemple, avec certaines applications, si le volume partagé de cluster est restauré sur un nœud différent de celui sur lequel le volume partagé de cluster a été sauvegardé, vous risquez par mégarde de remplacer des données importantes concernant l'état des applications sur le nœud où la restauration a eu lieu.
 
 ## <a name="more-information"></a>Informations supplémentaires
 

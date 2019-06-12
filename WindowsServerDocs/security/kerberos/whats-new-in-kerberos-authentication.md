@@ -8,12 +8,12 @@ manager: alanth
 author: justinha
 ms.technology: security-authentication
 ms.date: 11/09/2016
-ms.openlocfilehash: 7b046490c606cdf9e1436f503bf46a9cd4280ea9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 90107bd49268f232fd6d532c304c2fdd050bcbf5
+ms.sourcegitcommit: c6acac3622e5d34714ca5c569805931681f98779
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831090"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391503"
 ---
 # <a name="whats-new-in-kerberos-authentication"></a>What's New in Kerberos Authentication
 
@@ -50,6 +50,8 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Paramete
 Pour configurer la prise en charge des noms d’hôte des adresses IP dans les noms principaux de service, créez une entrée TryIPSPN. Par défaut, cette entrée n’existe pas dans le Registre. Une fois que vous avez créé l’entrée, remplacez la valeur DWORD par 1. Si ne pas configuré, les noms d’hôte des adresses IP ne sont pas tentées.
 
 Si le SPN est inscrit dans Active Directory, l’authentification réussit avec Kerberos. 
+
+Pour plus d’informations, consultez le document [configuration de Kerberos pour les adresses IP](configuring-kerberos-over-ip.md).
 
 ## <a name="kdc-support-for-key-trust-account-mapping"></a>Prise en charge pour le mappage de compte de confiance de clé
 

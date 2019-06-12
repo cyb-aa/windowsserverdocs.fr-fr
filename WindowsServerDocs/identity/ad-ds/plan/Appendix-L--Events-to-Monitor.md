@@ -9,12 +9,12 @@ ms.date: 07/30/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 0b937debf2d9156c50f3c0ae51fdab8bd2a2bf2d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c245c5a6b2165385096f32713a92916236cdddfb
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863480"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719693"
 ---
 # <a name="appendix-l-events-to-monitor"></a>Annexe l : événements à analyser
 
@@ -174,7 +174,7 @@ Une importance potentielle élevée signifie qu’une occurrence de l’événem
 |4707|611|Faible|Une relation d’approbation à un domaine a été supprimée.|  
 |4709|N/A|Faible|Services IPsec a été démarré.|  
 |4710|N/A|Faible|Services IPsec a été désactivé.|  
-|4711|N/A|Faible|Peut contenir l’un des éléments suivants : Moteur PAStore a appliqué la copie mise en cache localement de la stratégie IPsec de stockage Active Directory sur l’ordinateur. Moteur PAStore a appliqué la stratégie IPsec de stockage Active Directory sur l’ordinateur. Moteur PAStore a appliqué la stratégie IPsec de stockage du Registre local sur l’ordinateur. Le moteur PAStore Impossible d’appliquer la copie mise en cache localement de la stratégie IPsec de stockage Active Directory sur l’ordinateur. Le moteur PAStore Impossible d’appliquer la stratégie IPsec de stockage Active Directory sur l’ordinateur. Le moteur PAStore Impossible d’appliquer la stratégie IPsec de stockage de Registre local sur l’ordinateur. Le moteur PAStore Impossible d’appliquer certaines règles de la stratégie IPsec active sur l’ordinateur. Le moteur PAStore Échec du chargement de stockage de répertoire stratégie IPsec sur l’ordinateur. Moteur PAStore a chargé le stockage de répertoire stratégie IPsec sur l’ordinateur. Le moteur PAStore Échec du chargement de la stratégie IPsec sur l’ordinateur de stockage local. Moteur PAStore a chargé la stratégie IPsec sur l’ordinateur de stockage local. Le moteur PAStore interrogée concernant les modifications apportées à la stratégie IPsec active et a détecté aucune modification.|  
+|4711|N/A|Faible|Peut contenir l’un des éléments suivants : Moteur PAStore a appliqué la copie mise en cache localement de la stratégie IPsec de stockage Active Directory sur l’ordinateur. Moteur PAStore a appliqué la stratégie IPsec de stockage Active Directory sur l’ordinateur. Moteur PAStore a appliqué la stratégie IPsec de stockage du Registre local sur l’ordinateur. Le moteur PAStore Impossible d’appliquer la copie mise en cache localement de la stratégie IPsec de stockage Active Directory sur l’ordinateur. Le moteur PAStore Impossible d’appliquer la stratégie IPsec de stockage Active Directory sur l’ordinateur. Le moteur PAStore Impossible d’appliquer la stratégie IPsec de stockage de Registre local sur l’ordinateur. Le moteur PAStore Impossible d’appliquer certaines règles de la stratégie IPsec active sur l’ordinateur. Le moteur PAStore Échec du chargement de stockage de répertoire stratégie IPsec sur l’ordinateur. Moteur PAStore a chargé le stockage de répertoire stratégie IPsec sur l’ordinateur. Le moteur PAStore Échec du chargement de la stratégie IPsec sur l’ordinateur de stockage local. Moteur PAStore a chargé la stratégie IPsec sur l’ordinateur de stockage local. Le moteur PAStore interrogée concernant les modifications apportées à la stratégie IPsec active et a détecté aucune modification. |  
 |4712|N/A|Faible|Services IPsec a rencontré un problème potentiellement sérieux.|  
 |4717|621|Faible|Accès au système de sécurité a été accordé à un compte.|  
 |4718|622|Faible|Accès au système de sécurité a été supprimé à partir d’un compte.|  

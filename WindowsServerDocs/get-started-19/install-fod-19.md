@@ -9,13 +9,13 @@ author: jasongerend
 ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.date: 05/29/2019
-ms.openlocfilehash: e76b7862549814d5453717c40cec45e341141d7a
-ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
+ms.date: 06/07/2019
+ms.openlocfilehash: 747258601aa05885d209aacde6947eb7b05e8121
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66308601"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810796"
 ---
 # <a name="server-core-app-compatibility-feature-on-demand-fod"></a>Fonctionnalité à la demande (FOD) de compatibilité des applications Server Core
 
@@ -64,7 +64,7 @@ Composants de système d’exploitation qui sont disponibles comme partie du DOM
 
         -   Pour exécuter le Gestionnaire du Cluster de basculement, entrez **cluadmin** à l’invite de commandes.
 
-Les serveurs exécutant Windows Server, version 1903 et versions ultérieure prennent également en charge les composants suivants :
+Les serveurs exécutant Windows Server, version 1903 et versions ultérieure prennent également en charge les composants suivants (lorsque vous utilisez la même version du DOM de compatibilité d’application) :
 
 - Gestionnaire Hyper-V (virtmgmt.msc)
 - Planificateur de tâches (taskschd.msc)
@@ -104,7 +104,7 @@ Le DOM de compatibilité d’application peut uniquement être installé sur Ser
 
 8. Une fois la barre de progression terminée, redémarrez le système d’exploitation.
 
- Pour plus d’informations sur les commandes DISM, consultez [utiliser DISM dans Windows PowerShell](https://docs.microsoft.com/windows-hardware/manufacture/desktop/use-dism-in-windows-powershell-s14)
+   Pour plus d’informations sur les commandes DISM, consultez [utiliser DISM dans Windows PowerShell](https://docs.microsoft.com/windows-hardware/manufacture/desktop/use-dism-in-windows-powershell-s14)
 
 ## <a name="to-optionally-add-internet-explorer-11-to-server-core-after-adding-the-server-core-app-compatibility-fod"></a>Pour ajouter éventuellement Internet Explorer 11 pour Server Core (après avoir ajouté le DOM de compatibilité Application Server Core)
 
@@ -148,8 +148,8 @@ Le DOM de compatibilité d’application peut uniquement être installé sur Ser
 
 - Comme un point général de conseils, lors de l’installation d’applications sur le serveur de base (avec ou sans ces packages facultatifs) il est parfois nécessaire d’utiliser des instructions et des options d’installation sans assistance. 
     
- - Par exemple, SQL Server Management Studio pour SQL Server 2016 et SQL Server 2017 peut être installé sur Server Core et est entièrement fonctionnelle lorsque le DOM de compatibilité d’application est présent.  Consultez, [installer SQL Server à partir de l’invite de commandes](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-from-the-command-prompt?view=sql-server-2017).
- - Si SQL Server Management Studio n’est pas souhaité, il est inutile d’installer Server Core application compatibilité DOM.  Consultez, [installer SQL Server sur Server Core](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-on-server-core?view=sql-server-2017).
+  - Par exemple, SQL Server Management Studio pour SQL Server 2016 et SQL Server 2017 peut être installé sur Server Core et est entièrement fonctionnelle lorsque le DOM de compatibilité d’application est présent.  Consultez, [installer SQL Server à partir de l’invite de commandes](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-from-the-command-prompt?view=sql-server-2017).
+  - Si SQL Server Management Studio n’est pas souhaité, il est inutile d’installer Server Core application compatibilité DOM.  Consultez, [installer SQL Server sur Server Core](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-on-server-core?view=sql-server-2017).
 
 ## <a name="a-idadd-capabilities-adding-capabilities-and-optional-packages-to-an-offline-wim-server-core-image"></a><a id="add-capabilities"> Ajout de fonctionnalités et des packages facultatifs à une image WIM Server Core hors connexion
 

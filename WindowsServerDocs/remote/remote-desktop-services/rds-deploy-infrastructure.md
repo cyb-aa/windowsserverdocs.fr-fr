@@ -13,16 +13,16 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: acfdd99fa67e218f58fe650de5607f2a5ba97bf8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5b9ce1bb87a7a2ad8819235edc412fd095bc2985
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833830"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805133"
 ---
 # <a name="deploy-your-remote-desktop-environment"></a>Déployer un environnement des services Bureau à distance
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Utilisez les étapes suivantes pour déployer les serveurs Bureau à distance dans votre environnement. Vous pouvez installer les rôles de serveur sur les ordinateurs physiques ou des machines virtuelles, selon que vous créez un local, basé sur le cloud ou environnement hybride. 
 
@@ -30,11 +30,11 @@ Si vous utilisez des machines virtuelles pour tous les serveurs des Services Bur
   
   
 1.  Ajoutez tous les serveurs que vous allez utiliser pour les Services Bureau à distance au Gestionnaire de serveur :  
-    1.  Dans le Gestionnaire de serveur, cliquez sur **gérer > ajouter des serveurs**.  
+    1.  Dans le Gestionnaire de serveur, cliquez sur **gérer** > **ajouter des serveurs**.  
     2.  Cliquez sur **Rechercher**.  
     3.  Cliquez sur chaque serveur dans le déploiement (par exemple, Contoso-Cb1 WebGw1 de Contoso et Sh1 de Contoso) et cliquez sur **OK**.  
 2.  Créer un déploiement basé sur session pour déployer les composants des Services Bureau à distance :  
-    1.  Dans le Gestionnaire de serveur, cliquez sur **gérer > ajouter des rôles et fonctionnalités**.  
+    1.  Dans le Gestionnaire de serveur, cliquez sur **gérer** > **Ajout de rôles et fonctionnalités**.  
     2.  Cliquez sur **installation des Services Bureau à distance**, **déploiement Standard**, et **déploiement de postes de travail basé sur Session**.  
     3.  Sélectionnez les serveurs appropriés pour le serveur de service Broker pour les connexions Bureau à distance, le serveur d’accès Web de bureau à distance et le serveur hôte de Session Bureau à distance (par exemple, Contoso-Cb1, Contoso-WebGw1, Contoso-SH1, respectivement).  
     4.  Sélectionnez **redémarrer automatiquement le serveur de destination si nécessaire**, puis cliquez sur **déployer**.  

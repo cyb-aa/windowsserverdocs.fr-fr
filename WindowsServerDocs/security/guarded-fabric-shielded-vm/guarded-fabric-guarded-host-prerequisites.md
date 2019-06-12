@@ -7,12 +7,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 5f2c3ec4b2c434ea945d86c4b1593e2e416a5123
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 40c0f6df31061268b1e1ef8c15b0a02b0f50b0de
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819230"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447477"
 ---
 # <a name="prerequisites-for-guarded-hosts"></a>Conditions préalables pour les hôtes service Guardian
 
@@ -45,15 +45,15 @@ Hôtes service Guardian à l’aide du mode de module de plateforme sécurisée 
 > La fonctionnalité de Support de Hyper-V Guardian hôte active basés sur la virtualisation de protection de l’intégrité du code qui peut-être être incompatible avec certains appareils. Nous vous recommandons vivement de tester cette configuration dans votre laboratoire avant d’activer cette fonctionnalité. Dans le cas contraire, cela risque d’entraîner des échecs inattendus pouvant aller jusqu'à la perte de données ou un écran bleu d’erreur (également appelé erreur d’arrêt). Pour plus d’informations, consultez [matériel Compatible avec la protection sur la virtualisation Windows Server de l’intégrité du Code](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).
 
 **Étape suivante :** 
->[!div class="nextstepaction"]
-[Capturer les informations de module de plateforme sécurisée](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md)
+> [!div class="nextstepaction"]
+> [Capturer les informations de module de plateforme sécurisée](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md)
 
 ## <a name="host-key-attestation"></a>Attestation de clé hôte
 
 Les hôtes service Guardian à l’aide de l’attestation de clé hôte doivent respecter les conditions préalables suivantes :
 
 - **Matériel**: N’importe quel serveur capable d’exécuter le début de Hyper-V avec Windows Server 2019
-- **Système d’exploitation**: Windows Server 2019 Datacenter edition
+- **Système d’exploitation**: Windows Server 2019 Datacenter Edition
 - **Rôle et fonctionnalités**: Rôle Hyper-V et la fonctionnalité de Support de Hyper-V Guardian hôte 
 
 L’hôte peut être jointe à un domaine ou un groupe de travail. 
@@ -61,8 +61,8 @@ L’hôte peut être jointe à un domaine ou un groupe de travail.
 Pour l’attestation de clé hôte, SGH doit être Windows Server 2019 en cours d’exécution et d’exploitation avec l’attestation de v2. Pour plus d’informations, consultez [conditions préalables SGH](guarded-fabric-prepare-for-hgs.md#prerequisites). 
 
 **Étape suivante :** 
->[!div class="nextstepaction"]
-[Créer une paire de clés](guarded-fabric-create-host-key.md)
+> [!div class="nextstepaction"]
+> [Créer une paire de clés](guarded-fabric-create-host-key.md)
 
 ## <a name="admin-trusted-attestation"></a>Attestation approuvée par l’administrateur
 
@@ -84,5 +84,5 @@ Hôtes Hyper-V doivent respecter les conditions préalables suivantes pour le mo
 > La fonctionnalité de Support de Hyper-V Guardian hôte active basés sur la virtualisation de protection de l’intégrité du code qui peut-être être incompatible avec certains appareils. Nous vous recommandons vivement de tester cette configuration dans votre laboratoire avant d’activer cette fonctionnalité. Dans le cas contraire, cela risque d’entraîner des échecs inattendus pouvant aller jusqu'à la perte de données ou un écran bleu d’erreur (également appelé erreur d’arrêt). Pour plus d’informations, consultez [matériel Compatible avec la protection d’intégrité du Code basé sur la virtualisation Windows Server 2016](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).
 
 **Étape suivante :** 
->[!div class="nextstepaction"]
-[Placer les hôtes service Guardian dans un groupe de sécurité](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md)
+> [!div class="nextstepaction"]
+> [Placer les hôtes service Guardian dans un groupe de sécurité](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md)

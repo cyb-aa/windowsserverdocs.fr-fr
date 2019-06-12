@@ -12,12 +12,12 @@ ms.assetid: 270e0aac-dc42-46f3-a20b-a68ffbded06d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cf0c062b92c687f5f7b33b419eafdca2dd3bbbfc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8c3ba4746211690ad52f775b8bdc1ccf9b6c74b7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828510"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433718"
 ---
 # <a name="add-health-alerts"></a>Ajout d’alertes d’intégrité
 
@@ -32,13 +32,13 @@ Un complément d’intégrité fournit les définitions des alertes, assure les 
   
 #### <a name="to-install-the-xml-files-on-the-server"></a>Pour installer les fichiers XML sur le serveur  
   
-1.  Dans le dossier **%ProgramFiles%\Windows Server\Bin\Feature Definitions** , créez un dossier appelé **MyHealthAddIn**. Vous pourriez évidemment lui donner tout autre nom. Nous vous suggérons, cependant, de choisir un nom de dossier identique au nom de la fonctionnalité.  
+1. Dans le dossier **%ProgramFiles%\Windows Server\Bin\Feature Definitions** , créez un dossier appelé **MyHealthAddIn**. Vous pourriez évidemment lui donner tout autre nom. Nous vous suggérons, cependant, de choisir un nom de dossier identique au nom de la fonctionnalité.  
   
-2.  Copiez les fichiers Definition.xml et Definition.xml.config dans le nouveau dossier.  
+2. Copiez les fichiers Definition.xml et Definition.xml.config dans le nouveau dossier.  
   
-3.  Si vous avez prévu des fichiers binaires pour des conditions ou des actions, pensez également à copier ces fichiers dans **%ProgramFiles%\Windows Server\Bin**.  
+3. Si vous avez prévu des fichiers binaires pour des conditions ou des actions, pensez également à copier ces fichiers dans **%ProgramFiles%\Windows Server\Bin**.  
   
- Les ordinateurs clients lancent, toutes les 6 heures, une tâche planifiée ayant pour fonction de transférer les fichiers XML vers l’emplacement approprié. Vous pouvez effectuer une synchronisation forcée entre l’ordinateur client et le serveur en exécutant la tâche en mode manuel.  
+   Les ordinateurs clients lancent, toutes les 6 heures, une tâche planifiée ayant pour fonction de transférer les fichiers XML vers l’emplacement approprié. Vous pouvez effectuer une synchronisation forcée entre l’ordinateur client et le serveur en exécutant la tâche en mode manuel.  
   
 #### <a name="to-install-the-xml-files-on-the-client-computer"></a>Pour installer les fichiers XML sur l’ordinateur client  
   
@@ -53,4 +53,4 @@ Un complément d’intégrité fournit les définitions des alertes, assure les 
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
  [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](Testing-the-Customer-Experience.md)
+ [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)

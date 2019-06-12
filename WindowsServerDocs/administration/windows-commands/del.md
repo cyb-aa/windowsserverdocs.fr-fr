@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a1c2756e53d9f047160ddd037b3868e47d6e3181
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b10da1a6035155d525a516f35f83a25209e90075
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822990"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433889"
 ---
 # <a name="del"></a>del
 
@@ -51,29 +51,29 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 
 > [!CAUTION]
 > Si vous utilisez **del** pour supprimer un fichier à partir de votre disque, vous ne pouvez pas le récupérer.
--   Si vous utilisez **/p**, **del** affiche le nom d’un fichier et envoie le message suivant :
+> -   Si vous utilisez **/p**, **del** affiche le nom d’un fichier et envoie le message suivant :
 
     `FileName, Delete (Y/N)?`
 
-    Pour confirmer la suppression, appuyez sur Y. Pour annuler la suppression et l’affichage le prochain nom de fichier (autrement dit, si vous avez spécifié un groupe de fichiers), appuyez sur N. Pour arrêter la **del** de commande, appuyez sur CTRL + C.
--   Si vous désactivez les extensions de commande, **/s** affiche les noms de tous les fichiers qui n’ont pas été trouvés au lieu d’afficher les noms des fichiers qui sont en cours de suppression (autrement dit, le comportement est inversé).
--   Si vous spécifiez un dossier dans *noms*, tous les fichiers dans le dossier sont supprimés. Par exemple, la commande suivante supprime tous les fichiers du dossier \Work :  
-    ```
-    del \work
-    ```  
--   Vous pouvez utiliser des caractères génériques (**&#42;** et **?**) pour supprimer plusieurs fichiers à la fois. Toutefois, pour éviter de supprimer des fichiers par inadvertance, vous devez utiliser des caractères génériques avec précaution avec le **del** commande. Par exemple, si vous tapez la commande suivante :  
-    ```
-    del *.*
-    ```  
-    Le **del** commande affiche l’invite suivante :
+    To confirm the deletion, press Y. To cancel the deletion and display the next file name (that is, if you specified a group of files), press N. To stop the **del** command, press CTRL+C.
+- Si vous désactivez les extensions de commande, **/s** affiche les noms de tous les fichiers qui n’ont pas été trouvés au lieu d’afficher les noms des fichiers qui sont en cours de suppression (autrement dit, le comportement est inversé).
+- Si vous spécifiez un dossier dans *noms*, tous les fichiers dans le dossier sont supprimés. Par exemple, la commande suivante supprime tous les fichiers du dossier \Work :  
+  ```
+  del \work
+  ```  
+- Vous pouvez utiliser des caractères génériques ( **&#42;** et **?** ) pour supprimer plusieurs fichiers à la fois. Toutefois, pour éviter de supprimer des fichiers par inadvertance, vous devez utiliser des caractères génériques avec précaution avec le **del** commande. Par exemple, si vous tapez la commande suivante :  
+  ```
+  del *.*
+  ```  
+  Le **del** commande affiche l’invite suivante :
 
-    `Are you sure (Y/N)?`
+  `Are you sure (Y/N)?`
 
-    Pour supprimer tous les fichiers dans le répertoire actif, appuyez sur o et appuyez sur ENTRÉE. Pour annuler la suppression, appuyez sur N puis appuyez sur ENTRÉE.
+  Pour supprimer tous les fichiers dans le répertoire actif, appuyez sur o et appuyez sur ENTRÉE. Pour annuler la suppression, appuyez sur N puis appuyez sur ENTRÉE.
 
 > [!NOTE]
 > Avant d’utiliser des caractères génériques avec la **del** de commande, utilisez les mêmes caractères génériques avec la **dir** commande pour répertorier tous les fichiers qui seront supprimés.
--   Le **del** commande, avec des paramètres différents, est disponible à partir de la Console de récupération.
+> -   Le **del** commande, avec des paramètres différents, est disponible à partir de la Console de récupération.
 
 ## <a name="BKMK_examples"></a>Exemples
 
@@ -84,7 +84,7 @@ del c:\test\*.*
 ```
 Pour supprimer tous les fichiers portant l’extension de nom de fichier .bat à partir du répertoire actuel, tapez :
 ```
-del *.bak
+del *.bat
 ```
 Pour supprimer tous les fichiers en lecture seule dans le répertoire actif, tapez :
 ```
@@ -93,4 +93,4 @@ del /a:r *.*
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

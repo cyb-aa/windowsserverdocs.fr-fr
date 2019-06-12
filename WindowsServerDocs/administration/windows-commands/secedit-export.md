@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f9d6268777d0791dbc0cdca2d4318399378698b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 398d2fa47f2418aec910569c2eb85aec408ad482
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813490"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441591"
 ---
 # <a name="seceditexport"></a>Secedit:export
 
@@ -30,7 +30,6 @@ Exporte les paramètres de sécurité stockées dans une base de données config
 
 ```
 Secedit /export /db <database file name> [/mergedpolicy] /cfg <configuration file name> [/areas [securitypolicy | group_mgmt | user_rights | regkeys | filestore | services]] [/log <log file name>] [/quiet]
-
 ```
 
 ### <a name="parameters"></a>Paramètres
@@ -48,7 +47,7 @@ Secedit /export /db <database file name> [/mergedpolicy] /cfg <configuration fil
 
 Vous pouvez utiliser cette commande pour sauvegarder vos stratégies de sécurité sur un ordinateur local en plus de l’importation des paramètres vers un autre ordinateur.
 
-Si le chemin d’accès du fichier journal n’est pas fourni, le fichier journal par défaut, (*systemroot*\Documents and Settings\*UserAccount*\My Documents\Security\Logs\*DatabaseName*. ouvrir une session) est utilisée.
+Si le chemin d’accès du fichier journal n’est pas fourni, le fichier journal par défaut, (*systemroot*\Documents and Settings\*UserAccount<em>\My Documents\Security\Logs\*DatabaseName</em>. ouvrir une session) est utilisée.
 
 Dans Windows Server 2008, `Secedit /refreshpolicy` a été remplacé par `gpupdate`. Pour plus d’informations sur l’actualisation des paramètres de sécurité, consultez [Gpupdate](gpupdate.md).
 
@@ -67,4 +66,4 @@ Secedit /import /db C:\Security\FY12\SecDbContoso.sdb /cfg SecContoso.inf /log C
 
 -   [Secedit:import](secedit-import.md)
 -   [Secedit](secedit.md)
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

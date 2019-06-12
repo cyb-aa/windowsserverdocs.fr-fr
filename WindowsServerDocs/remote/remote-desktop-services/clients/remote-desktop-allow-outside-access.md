@@ -13,16 +13,16 @@ manager: dongill
 ms.author: elizapo
 ms.date: 04/04/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: d77c362d9d06b70ad0747002ed8853a39e05b7ff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9e90a2faa14b65bc766c7d7ec47d5e815658c06e
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888150"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805059"
 ---
 # <a name="remote-desktop---allow-access-to-your-pc-from-outside-your-pcs-network"></a>Bureau à distance - autoriser l’accès à votre PC à partir de réseau de votre PC
 
->S'applique à : Windows 10, Windows Server 2016
+>S’applique à : Windows 10, Windows Server 2016
 
 Lorsque vous vous connectez à votre PC à l’aide d’un client Bureau à distance, vous créez une connexion peer-to-peer. Cela signifie que vous avez besoin d’un accès direct à l’ordinateur (parfois appelé « l’hôte »). Si vous avez besoin pour vous connecter à votre PC à partir en dehors du réseau de que votre ordinateur est en cours d’exécution, vous devez activer cet accès. Vous disposez de deux options : utiliser le réacheminement de port ou configurez un VPN.
 

@@ -12,12 +12,12 @@ ms.assetid: 95a9f593-fad7-4335-bd4d-c7bb8c033efb
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 37d59d500a2de1e2b98c848e7484ae13639d09b7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: c0357c1a2dc0bebee11355d1e2d1faa2dc80d06a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890720"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433292"
 ---
 # <a name="manage-online-backup-in-windows-server-essentials"></a>Gérer la sauvegarde en ligne dans Windows Server Essentials
 
@@ -25,23 +25,23 @@ ms.locfileid: "59890720"
   
  Après l’intégration avec Microsoft Azure Backup, le **sauvegarde en ligne** page de gestion s’affiche dans le tableau de bord Windows Server Essentials. La page **Sauvegarde en ligne** vous permet d'effectuer des tâches d'administration courantes. Les fonctionnalités de la page de sauvegarde en ligne incluent :  
   
--   Les pages de sous-section suivantes :  
+- Les pages de sous-section suivantes :  
   
-    -   **Sauvegarde en ligne** Une fois le serveur inscrit pour la sauvegarde en ligne, cette section affiche l'état actuel de la sauvegarde, du stockage et des informations de compte.  
+  -   **Sauvegarde en ligne** Une fois le serveur inscrit pour la sauvegarde en ligne, cette section affiche l'état actuel de la sauvegarde, du stockage et des informations de compte.  
   
-    -   **Dossiers protégés** cette section répertorie tous les dossiers partagés et tous les dossiers de l’historique des fichiers sur le serveur et tous les dossiers que vous avez choisi de sauvegarder dans Azure. La liste inclut le nom de dossier, le chemin d'accès du dossier et le statut de chaque dossier partagé.  
+  -   **Dossiers protégés** cette section répertorie tous les dossiers partagés et tous les dossiers de l’historique des fichiers sur le serveur et tous les dossiers que vous avez choisi de sauvegarder dans Azure. La liste inclut le nom de dossier, le chemin d'accès du dossier et le statut de chaque dossier partagé.  
   
-    -   **Historique de sauvegarde** Cette section affiche la liste des sauvegardes en ligne récentes. La liste comprend le type de l'opération ainsi que l'heure et le statut de chaque sauvegarde.  
+  -   **Historique de sauvegarde** Cette section affiche la liste des sauvegardes en ligne récentes. La liste comprend le type de l'opération ainsi que l'heure et le statut de chaque sauvegarde.  
   
--   Un volet d'informations contenant des informations supplémentaires sur une opération de sauvegarde ou de restauration sélectionnée.  
+- Un volet d'informations contenant des informations supplémentaires sur une opération de sauvegarde ou de restauration sélectionnée.  
   
--   Le volet des tâches qui inclut un ensemble de tâches d'administration que vous pouvez effectuer.  
+- Le volet des tâches qui inclut un ensemble de tâches d'administration que vous pouvez effectuer.  
   
- Au titre de meilleure pratique, vous devez sauvegarder les données d'entreprise et d'utilisateur les plus importantes. Par exemple, vous sauvegardez les dossiers de serveur qui contiennent des fichiers de données critiques. Vous devez également sauvegarder l'historique des fichiers pour les ordinateurs du réseau qui contiennent des informations critiques.  
+  Au titre de meilleure pratique, vous devez sauvegarder les données d'entreprise et d'utilisateur les plus importantes. Par exemple, vous sauvegardez les dossiers de serveur qui contiennent des fichiers de données critiques. Vous devez également sauvegarder l'historique des fichiers pour les ordinateurs du réseau qui contiennent des informations critiques.  
   
- Lorsque vous choisissez des données à sauvegarder en ligne, songez également à la fréquence des sauvegardes et à la stratégie de rétention que vous souhaitez mettre en œuvre. Pensez ensuite en revue votre budget et déterminez la quantité de stockage dont vous pouvez disposer. Trouvez le juste équilibre entre le coût, le volume de stockage et vos besoins, puis configurez la sauvegarde en ligne pour protéger vos données importantes autant que possible. Pour des informations de tarification, consultez les [détails de la tarification d’Azure Backup](https://azure.microsoft.com/pricing/details/backup/).  
+  Lorsque vous choisissez des données à sauvegarder en ligne, songez également à la fréquence des sauvegardes et à la stratégie de rétention que vous souhaitez mettre en œuvre. Pensez ensuite en revue votre budget et déterminez la quantité de stockage dont vous pouvez disposer. Trouvez le juste équilibre entre le coût, le volume de stockage et vos besoins, puis configurez la sauvegarde en ligne pour protéger vos données importantes autant que possible. Pour des informations de tarification, consultez les [détails de la tarification d’Azure Backup](https://azure.microsoft.com/pricing/details/backup/).  
   
- Les sections suivantes décrivent différentes tâches de sauvegarde en ligne qui peuvent apparaître dans le tableau de bord Windows Server Essentials.  
+  Les sections suivantes décrivent différentes tâches de sauvegarde en ligne qui peuvent apparaître dans le tableau de bord Windows Server Essentials.  
   
 ## <a name="online-backup-tasks-in-the-dashboard"></a>Tâches de sauvegarde en ligne dans le tableau de bord  
   
@@ -65,41 +65,41 @@ ms.locfileid: "59890720"
   
 ##### <a name="to-upload-a-certificate-to-use-with-the-azure-backup-service"></a>Pour télécharger un certificat à utiliser avec le service de Sauvegarde Azure  
   
-1.  Ouvrez une session sur le tableau de bord Windows Server Essentials avec un compte d'administrateur.  
+1. Ouvrez une session sur le tableau de bord Windows Server Essentials avec un compte d'administrateur.  
   
-2.  Dans la page **Accueil** du Tableau de bord, cliquez sur **SAUVEGARDE EN LIGNE**.  
+2. Dans la page **Accueil** du Tableau de bord, cliquez sur **SAUVEGARDE EN LIGNE**.  
   
-3.  Dans la zone **SAUVEGARDE EN LIGNE**, cliquez sur **Télécharger le certificat dans le coffre de Sauvegarde Azure**.  
+3. Dans la zone **SAUVEGARDE EN LIGNE**, cliquez sur **Télécharger le certificat dans le coffre de Sauvegarde Azure**.  
   
-     Cela ouvre **Recovery Services** dans le portail de gestion Azure. Si t ne vous déjà connecté à Azure, vous devez vous connecter en utilisant votre compte Microsoft.  
+    Cela ouvre **Recovery Services** dans le portail de gestion Azure. Si vous n’êtes pas déjà connecté à Azure, vous devez vous connecter en utilisant votre compte Microsoft.  
   
-4.  Cliquez sur le nom du coffre de sauvegarde que vous utiliserez pour les sauvegardes en ligne pour ouvrir la page de **démarrage rapide** du coffre de sauvegarde.  
+4. Cliquez sur le nom du coffre de sauvegarde que vous utiliserez pour les sauvegardes en ligne pour ouvrir la page de **démarrage rapide** du coffre de sauvegarde.  
   
-5.  Cliquez sur **Gérer le certificat**.  
+5. Cliquez sur **Gérer le certificat**.  
   
-6.  Dans la boîte de dialogue **Gérer le certificat** , collez le chemin d'accès du certificat public généré par Windows Server Essentials. Pour obtenir le chemin d'accès du certificat public, procédez comme suit :  
+6. Dans la boîte de dialogue **Gérer le certificat** , collez le chemin d'accès du certificat public généré par Windows Server Essentials. Pour obtenir le chemin d'accès du certificat public, procédez comme suit :  
   
-    1.  Dans le tableau de bord Windows Server Essentials, cliquez sur l'onglet **Sauvegarde en ligne**.  
+   1.  Dans le tableau de bord Windows Server Essentials, cliquez sur l'onglet **Sauvegarde en ligne**.  
   
-    2.  Dans la page **Sauvegarde en ligne** , copiez le chemin d'accès du certificat généré.  
+   2.  Dans la page **Sauvegarde en ligne** , copiez le chemin d'accès du certificat généré.  
   
-    3.  Basculez vers le portail de gestion Azure, puis, dans le **gérer le certificat** boîte de dialogue, collez le chemin d’accès pour télécharger le certificat public généré.  
+   3.  Basculez vers le portail de gestion Azure, puis, dans le **gérer le certificat** boîte de dialogue, collez le chemin d’accès pour télécharger le certificat public généré.  
   
-    > [!NOTE]
-    >  Vous pouvez également utiliser votre propre certificat public. Pour savoir quel certificat est requis, dans la page **Démarrage rapide** , cliquez sur le lien **Obtenir le certificat** .  
+   > [!NOTE]
+   >  Vous pouvez également utiliser votre propre certificat public. Pour savoir quel certificat est requis, dans la page **Démarrage rapide** , cliquez sur le lien **Obtenir le certificat** .  
   
-    > [!NOTE]
-    >   Azure requiert un certificat x.509 v2 avec une clé publique. Pour plus d’informations, consultez [Gérer les certificats de coffre](https://msdn.microsoft.com/library/azure/dn169036.aspx).  
+   > [!NOTE]
+   >   Azure requiert un certificat x.509 v2 avec une clé publique. Pour plus d’informations, consultez [Gérer les certificats de coffre](https://msdn.microsoft.com/library/azure/dn169036.aspx).  
   
-7.  Après avoir sélectionné le certificat, cliquez sur **OK** (coche).  
+7. Après avoir sélectionné le certificat, cliquez sur **OK** (coche).  
   
-8.  Vous êtes renvoyé à la page **Démarrage rapide**. Cliquez sur **Tableau de bord**, et vérifiez que le certificat a été téléchargé correctement. Une fois que le certificat a été téléchargé correctement, le tableau de bord affiche l'empreinte numérique et la date d'expiration du certificat.  
+8. Vous êtes renvoyé à la page **Démarrage rapide**. Cliquez sur **Tableau de bord**, et vérifiez que le certificat a été téléchargé correctement. Une fois que le certificat a été téléchargé correctement, le tableau de bord affiche l'empreinte numérique et la date d'expiration du certificat.  
   
- Après avoir effectué cette procédure, procédez comme suit :  
+   Après avoir effectué cette procédure, procédez comme suit :  
   
-1.  Inscrire le serveur auprès du Service de sauvegarde Azure. Pour plus d'informations, voir [Register this server for backup](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_5).  
+9. Inscrire le serveur auprès du Service de sauvegarde Azure. Pour plus d'informations, voir [Register this server for backup](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_5).  
   
-2.  Configurez la sauvegarde en ligne du serveur. Pour plus d'informations, voir [Configurer la sauvegarde en ligne](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_2).  
+10. Configurez la sauvegarde en ligne du serveur. Pour plus d'informations, voir [Configurer la sauvegarde en ligne](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_2).  
   
 ###  <a name="BKMK_2"></a> Configurer la sauvegarde en ligne  
  Après avoir inscrit le serveur avec la sauvegarde Azure, vous pouvez configurer les paramètres de sauvegarde en ligne dans Windows Server Essentials.  
@@ -250,15 +250,15 @@ ms.locfileid: "59890720"
   
 ##### <a name="to-change-the-online-backup-policy"></a>Pour modifier la stratégie de sauvegarde en ligne  
   
-1.  Ouvrez une session dans le tableau de bord en tant qu'administrateur.  
+1. Ouvrez une session dans le tableau de bord en tant qu'administrateur.  
   
-2.  Dans la barre de navigation, cliquez sur **Sauvegarde en ligne**.  
+2. Dans la barre de navigation, cliquez sur **Sauvegarde en ligne**.  
   
-3.  Dans le volet **Tâches de sauvegarde en ligne** , cliquez sur **Configurer la sauvegarde en ligne**.  
+3. Dans le volet **Tâches de sauvegarde en ligne** , cliquez sur **Configurer la sauvegarde en ligne**.  
   
-4.  Suivez les instructions de l'Assistant pour personnaliser la stratégie de sauvegarde en ligne.  
+4. Suivez les instructions de l'Assistant pour personnaliser la stratégie de sauvegarde en ligne.  
   
- Pour plus d'informations sur les paramètres que vous pouvez personnaliser, voir [Configurer la sauvegarde en ligne](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_2).  
+   Pour plus d'informations sur les paramètres que vous pouvez personnaliser, voir [Configurer la sauvegarde en ligne](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_2).  
   
 ###  <a name="BKMK_8"></a> Afficher l’utilisation de stockage de sauvegarde en ligne  
   
@@ -274,23 +274,23 @@ ms.locfileid: "59890720"
   
 ##### <a name="to-include-a-new-folder-in-the-online-backup-policy"></a>Pour inclure un nouveau dossier dans la stratégie de sauvegarde en ligne  
   
-1.  Ouvrez une session dans le tableau de bord en tant qu'administrateur.  
+1. Ouvrez une session dans le tableau de bord en tant qu'administrateur.  
   
-2.  Dans la barre de navigation, cliquez sur **Sauvegarde en ligne**.  
+2. Dans la barre de navigation, cliquez sur **Sauvegarde en ligne**.  
   
-3.  Dans le volet **Tâches de sauvegarde en ligne** , cliquez sur **Configurer la sauvegarde en ligne**.  
+3. Dans le volet **Tâches de sauvegarde en ligne** , cliquez sur **Configurer la sauvegarde en ligne**.  
   
-4.  Dans la page **Modifier ou supprimer la stratégie de sauvegarde**, cliquez sur **Personnaliser la stratégie de sauvegarde en ligne**.  
+4. Dans la page **Modifier ou supprimer la stratégie de sauvegarde**, cliquez sur **Personnaliser la stratégie de sauvegarde en ligne**.  
   
-5.  Dans la page **Configurer la sauvegarde en ligne** , si le dossier que vous souhaitez inclure n'apparaît pas dans la liste, cliquez sur **Ajouter des dossiers**.  
+5. Dans la page **Configurer la sauvegarde en ligne** , si le dossier que vous souhaitez inclure n'apparaît pas dans la liste, cliquez sur **Ajouter des dossiers**.  
   
-6.  Dans la fenêtre **Ajouter des dossiers**, recherchez et sélectionnez le dossier que vous voulez inclure dans la sauvegarde en ligne, puis cliquez sur **OK**.  
+6. Dans la fenêtre **Ajouter des dossiers**, recherchez et sélectionnez le dossier que vous voulez inclure dans la sauvegarde en ligne, puis cliquez sur **OK**.  
   
-7.  Dans la page **Configurer la sauvegarde en ligne**, sélectionnez les autres dossiers à inclure en fonction des besoins, puis cliquez sur **Suivant**.  
+7. Dans la page **Configurer la sauvegarde en ligne**, sélectionnez les autres dossiers à inclure en fonction des besoins, puis cliquez sur **Suivant**.  
   
-8.  Suivez les instructions de l'Assistant pour finaliser la personnalisation de la stratégie de sauvegarde en ligne.  
+8. Suivez les instructions de l'Assistant pour finaliser la personnalisation de la stratégie de sauvegarde en ligne.  
   
- Pour plus d'informations sur les autres paramètres que vous pouvez personnaliser, voir [Configurer la sauvegarde en ligne](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_2).  
+   Pour plus d'informations sur les autres paramètres que vous pouvez personnaliser, voir [Configurer la sauvegarde en ligne](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_2).  
   
 ###  <a name="BKMK_10"></a> Supprimer ou exclure des sauvegardes de l’historique des fichiers de la stratégie de sauvegarde en ligne  
   
@@ -336,17 +336,17 @@ ms.locfileid: "59890720"
   
 ##### <a name="to-view-online-backup-alerts-in-the-alert-viewer"></a>Pour afficher des alertes de sauvegarde en ligne dans l'Afficheur des alertes  
   
-1.  Ouvrez le tableau de bord.  
+1. Ouvrez le tableau de bord.  
   
-2.  Faites une des actions suivantes :  
+2. Faites une des actions suivantes :  
   
-      Windows Server Essentials : Dans le volet de navigation, cliquez sur l’icône d’alertes \(peut être critique, avertissement ou information\). L'Afficheur des alertes s'ouvre.  
+     Windows Server Essentials : Dans le volet de navigation, cliquez sur l’icône d’alertes \(peut être critique, avertissement ou information\). L'Afficheur des alertes s'ouvre.  
   
-      Windows Server Essentials : Dans la page **Accueil**, cliquez sur l'onglet **Surveillance de l'intégrité**.  
+     Windows Server Essentials : Dans la page **Accueil**, cliquez sur l'onglet **Surveillance de l'intégrité**.  
   
-3.  Passez en revue la liste des alertes pour les problèmes liés à la sauvegarde Azure.  
+3. Passez en revue la liste des alertes pour les problèmes liés à la sauvegarde Azure.  
   
- Pour plus d’informations sur l’utilisation de l’onglet Afficheur des alertes ou analyse du fonctionnement pour gérer les alertes, consultez [Manage System Health](Manage-System-Health-in-Windows-Server-Essentials.md).  
+   Pour plus d’informations sur l’utilisation de l’onglet Afficheur des alertes ou analyse du fonctionnement pour gérer les alertes, consultez [Manage System Health](Manage-System-Health-in-Windows-Server-Essentials.md).  
   
 ###  <a name="BKMK_15"></a> Rétablir les paramètres par défaut la sauvegarde en ligne  
  Windows Server Essentials fournit un Assistant qui vous permet de configurer les paramètres de sauvegarde en ligne. Si vous souhaitez restaurer les paramètres par défaut, exécutez la tâche **Configurer la sauvegarde en ligne**, puis choisissez l'option **Supprimer la stratégie de sauvegarde en ligne**. Ensuite, exécutez à nouveau la tâche **Configurer la sauvegarde en ligne** . Vos données précédemment téléchargées restent inchangées.  
@@ -376,7 +376,7 @@ ms.locfileid: "59890720"
   
      Si vous avez déjà un abonnement Azure, cliquez sur **Portal** dans le coin supérieur droit de la page web pour accéder au portail de gestion Azure.  
   
-5.  Dans la page de portail de gestion Azure, vous verrez **Recovery Services** dans le volet gauche. S où vous allez gérer la sauvegarde des coffres ce magasin vos sauvegardes en ligne de Windows Server Essentials.  
+5.  Dans la page de portail de gestion Azure, vous verrez **Recovery Services** dans le volet gauche. Voilà où vous prévoyez de gérer les coffres de sauvegarde qui stockent vos sauvegardes en ligne de Windows Server Essentials.  
   
 ####  <a name="BKMK_Createabackupvaulttostoreonlinebackups"></a> Créer un coffre de sauvegarde pour stocker les sauvegardes en ligne  
   
@@ -396,30 +396,30 @@ ms.locfileid: "59890720"
   
 ####  <a name="BKMK_InstalltheWindowsAzureBackupAddIn"></a> Installer le complément sauvegarde Azure sur le serveur  
   
-1.  Connectez-vous à votre serveur à l'aide d'un compte d'administrateur, puis exécutez le fichier **OnlineBackupAddin.wssx** que vous avez téléchargé à l'étape précédente.  
+1. Connectez-vous à votre serveur à l'aide d'un compte d'administrateur, puis exécutez le fichier **OnlineBackupAddin.wssx** que vous avez téléchargé à l'étape précédente.  
   
-2.  Les **termes du contrat de licence logiciel** sont affichés. Si vous acceptez les termes et conditions, cliquez sur **Accepter** pour continuer l'installation.  
+2. Les **termes du contrat de licence logiciel** sont affichés. Si vous acceptez les termes et conditions, cliquez sur **Accepter** pour continuer l'installation.  
   
-3.  Dans la page **Installer le complément** , cliquez sur **Installer le complément**.  
+3. Dans la page **Installer le complément** , cliquez sur **Installer le complément**.  
   
-    > [!NOTE]
-    >  Vous pouvez être invité à redémarrer le serveur pour installer tout logiciel requis.  
+   > [!NOTE]
+   >  Vous pouvez être invité à redémarrer le serveur pour installer tout logiciel requis.  
   
-     La page **Installation** est affichée. Un indicateur de progression s'affiche au démarrage de l'installation pour en suivre la progression. Une fois l’installation terminée, vous recevrez un message que le complément, sauvegarde Azure a été installé avec succès.  
+    La page **Installation** est affichée. Un indicateur de progression s'affiche au démarrage de l'installation pour en suivre la progression. Une fois l’installation terminée, vous recevrez un message que le complément, sauvegarde Azure a été installé avec succès.  
   
-4.  Cliquez sur **Terminer**.  
+4. Cliquez sur **Terminer**.  
   
-5.  Fermez et rouvrez le tableau de bord.  
+5. Fermez et rouvrez le tableau de bord.  
   
-     Un nouvel onglet **Sauvegarde en ligne**, est ajouté au tableau de bord. Dans cet onglet, vous pouvez inscrire votre serveur, configurer les paramètres de sauvegarde et ouvrir **Recovery Services** dans le portail de gestion pour gérer les coffres de sauvegarde pour vos serveurs.  
+    Un nouvel onglet **Sauvegarde en ligne**, est ajouté au tableau de bord. Dans cet onglet, vous pouvez inscrire votre serveur, configurer les paramètres de sauvegarde et ouvrir **Recovery Services** dans le portail de gestion pour gérer les coffres de sauvegarde pour vos serveurs.  
   
- Après avoir effectué cette procédure, procédez comme suit :  
+   Après avoir effectué cette procédure, procédez comme suit :  
   
-1.  Dans Windows Server Essentials, télécharger un certificat à utiliser pour les sauvegardes en ligne. Pour plus d'informations, voir [Upload a certificate to the Azure Backup vault](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_1).  
+6. Dans Windows Server Essentials, télécharger un certificat à utiliser pour les sauvegardes en ligne. Pour plus d'informations, voir [Upload a certificate to the Azure Backup vault](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_1).  
   
-2.  Inscrire le serveur auprès du coffre de sauvegarde Azure. Pour plus d'informations, voir [Register this server for backup](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_5).  
+7. Inscrire le serveur auprès du coffre de sauvegarde Azure. Pour plus d'informations, voir [Register this server for backup](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_5).  
   
-3.  Configurez la sauvegarde en ligne du serveur. Pour plus d'informations, voir [Configurer la sauvegarde en ligne](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_2).  
+8. Configurez la sauvegarde en ligne du serveur. Pour plus d'informations, voir [Configurer la sauvegarde en ligne](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_2).  
   
 ###  <a name="BKMK_17"></a> Intégrer la sauvegarde Azure avec Windows Server Essentials  
  Le module d’intégration sauvegarde Microsoft Azure est une nouvelle fonctionnalité de Windows Server Essentials qui vous permet de chiffrer et sauvegarder les fichiers et dossiers à partir de votre serveur à un système de stockage hébergé dans Azure fourni par Microsoft. En utilisant sauvegarde Azure pour chiffrer et sauvegarder les données sur le serveur, vous pouvez aider à éviter la perte catastrophique de données critiques en raison d’incendie, inondation, vol ou tout autre catastrophe. Lorsque vous utilisez Azure Backup pour sauvegarder les données de serveur, les informations sont chiffrées à l’aide de votre phrase secrète avant d’être téléchargée vers un centre de données sécurisé sur Internet. Pour accéder aux données à partir d'une sauvegarde en ligne, vous devez disposer d'un serveur authentifié par un certificat et fournir votre phrase secrète.  
@@ -446,7 +446,7 @@ ms.locfileid: "59890720"
 |------------|-----------------|  
 |**Nom du dossier :**|Le nom du dossier qui est inclus dans la sauvegarde en ligne.<br /><br /> Pour ajouter ou exclure un dossier, exécutez la tâche **Configurer la sauvegarde en ligne** .|  
 |**Chemin du dossier :**|L'emplacement du dossier.|  
-|**Statut :**|Il existe trois types de statut **protégé**, **non protégés**, et **inconnu**.|  
+|**Statut :**|Il existe trois types d’état - **protégé**, **non protégés**, et **inconnu**.|  
   
 ###  <a name="BKMK_19"></a> Historique de sauvegarde en ligne dans Windows Server Essentials  
  La sous-section **Historique de sauvegarde** de la section Sauvegarde en ligne du tableau de bord affiche une liste des sauvegardes en ligne récentes. Vous pouvez utiliser les sauvegardes réussies pour restaurer des fichiers et dossiers. Le tableau suivant décrit les informations qui figurent dans la liste.  
@@ -455,7 +455,7 @@ ms.locfileid: "59890720"
 |------------|-----------------|  
 |**Opération :**|Il existe deux types d'opérations - **Sauvegarde** et **Restauration**.|  
 |**Heure :**|Il s'agit de l'heure enregistrée de l'état le plus récent.|  
-|**Statut :**|Il existe cinq types d’état **réussite**, **en cours d’exécution**, **Canceled**, **avertissement**, et **échec**.|  
+|**Statut :**|Il existe cinq types d’état - **réussite**, **en cours d’exécution**, **Canceled**, **avertissement**, et **échec**.|  
   
 ## <a name="see-also"></a>Voir aussi  
   

@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 796ee001e20cff5587c5409f7571d223ff7900a8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 299cf420b44e4a15985d00489edf84784316540d
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857940"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810575"
 ---
 # <a name="upgrade-and-conversion-options-for-windows-server-2016"></a>Options de mise à niveau et de conversion pour Windows Server 2016
 
@@ -109,7 +109,8 @@ Si le serveur exécute une version d’évaluation de Windows Server 2016 Stand
 
 Pour la version d’évaluation de Windows Server2016 Standard, vous pouvez également passer à la version commercialisée de Windows Server2016 Datacenter en une étape à l’aide de cette même commande et de la clé de produit appropriée.
 
-> Pour plus d’informations sur Dism.exe, voir [DISM Command-line options](https://go.microsoft.com/fwlink/?LinkId=192466) (Options de ligne de commande DISM).
+> [!TIP] 
+> Pour plus d’informations sur Dism.exe, voir [les options de ligne de commande DISM](https://go.microsoft.com/fwlink/?LinkId=192466).
 
 ## <a name="converting-a-current-retail-edition-to-a-different-current-retail-edition"></a>Conversion d’une version commercialisée actuelle en une autre version commercialisée actuelle
 
@@ -125,7 +126,3 @@ Pour Windows Server 2016 Standard, vous pouvez convertir le système Windows Ser
 Pour ce faire, à partir d’une invite de commandes avec élévation de privilèges, exécutez : **slmgr /ipk \<clé\>**
 
 (Remplacez \<clé\> par la clé de produit de licence en volume, commercialisé ou OEM appropriée.)
-
-
- 
-

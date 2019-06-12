@@ -8,30 +8,30 @@ ms.date: 09/19/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 946e99448d13bf6782c10bce5a0b8566da4deb17
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: c528b9c4e944849b7ed9a2fc5213a7b263be70c7
+ms.sourcegitcommit: ccc802338b163abdad2e53b55f39addcfea04603
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190377"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687380"
 ---
 # <a name="ad-fs-paginated-sign-in"></a>AD FS paginé connectez-vous
 
 
-Pour AD FS 2019, nous avons remanié l’interface utilisateur de connexion.  À présent, l’authentification dans AD FS aura le même aspect d’Azure AD.  Cela fournit aux utilisateurs une expérience plus cohérente connectez-vous, incorporant un flux utilisateur centrée et paginés. 
+Pour AD FS dans Windows Server 2019, nous avons remanié l’interface utilisateur de connexion.  À présent, l’authentification dans AD FS aura le même aspect d’Azure AD.  Cela fournit aux utilisateurs une expérience plus cohérente connectez-vous, incorporant un flux utilisateur centrée et paginés.
 
 ## <a name="whats-changing"></a>Quels sont les changements
-Dans AD FS 2012 R2 et 2016, votre écran de connexion ressemblait quelque chose comme ceci :
+AD FS dans Windows Server 2012 R2 et 2016, votre écran de connexion effectue la recherche de quelque chose comme ceci :
 
 ![oldsignin](media/AD-FS-paginated-sign-in/signin1.png)
 
 Nous progressions en dehors de l’affichage d’un formulaire unique situé sur le côté droit de l’écran.
 
-Dans AD FS 2019, voici les modifications de conception importantes que vous verrez :
+Dans AD FS dans Windows Server 2019, voici les modifications de conception importantes que vous verrez :
 
 
 - **Un centré à l’interface utilisateur**. L’interface utilisateur de connexion existait déjà, sur le côté droit de l’écran, comme indiqué ci-dessus. Nous avons déplacé le début de l’interface utilisateur et le Centre pour moderniser l’expérience.
-- **La pagination**. Au lieu de vous fournir un formulaire long à remplir, nous avons incorporé un flux qui vous guident à travers l’expérience de connexion détaillée. Nos données de télémétrie montrent qu’avec cette approche, nos clients ont plus connexion réussie. Il nous fournit également plus de souplesse pour incorporer des différentes méthodes d’authentification, tel que l’authentification par facteur de téléphone. 
+- **La pagination**. Au lieu de vous fournir un formulaire long à remplir, nous avons incorporé un flux qui vous guident à travers l’expérience de connexion détaillée. Nos données de télémétrie montrent qu’avec cette approche, nos clients ont plus connexion réussie. Il nous fournit également plus de souplesse pour incorporer des différentes méthodes d’authentification, tel que l’authentification par facteur de téléphone.
 
 ![newsignin](media/AD-FS-paginated-sign-in/signin2.png)
 
@@ -43,19 +43,24 @@ Dans la deuxième page, s’affiche avec les options d’authentification, confi
 
 ![newsignin](media/AD-FS-paginated-sign-in/signin4.png)
 
-Dans la troisième page, vous devrez entrer votre mot de passe (en supposant que vous avez sélectionné « Password » comme option de l’authentification). 
+Dans la troisième page, vous devrez entrer votre mot de passe (en supposant que vous avez sélectionné « Password » comme option de l’authentification).
 
 ## <a name="how-to-get-the-new-experience"></a>Comment obtenir la nouvelle expérience
-Si vous êtes un nouveau client à AD FS, vous recevrez la nouvelle conception par défaut. Toutefois, si vous êtes un client existant avec AD FS 2012 R2 ou 2016, il existe plusieurs étapes, que vous devrez prendre pour recevoir la nouvelle conception : 
 
-1. Mettre à niveau vos serveurs AD FS 2019. 
-2.  Activer votre FBL à 2019.
-3.  Activer la nouvelle expérience de connexion.
-- Autoriser la nouvelle connexion à l’aide de PowerShell. Dans PowerShell, exécutez la commande suivante pour activer la pagination : ``Set-AdfsGlobalAuthenticationPolicy -EnablePaginatedAuthenticationPages $true``
-- Autoriser l’authentification externe en tant que principal, via PowerShell ou via le Gestionnaire de serveur AD FS. Dans PowerShell, exécutez la commande suivante pour autoriser l’authentification externe en tant que principal : ``Set-AdfsGlobalAuthenticationPolicy -AllowAdditionalAuthenticationAsPrimary $true``
+### <a name="new-installation-of-ad-fs"></a>Nouvelle installation d’AD FS
+Si vous êtes un nouveau client à AD FS, vous recevrez la nouvelle conception par défaut.
+
+### <a name="upgrading-a-farm"></a>La mise à niveau une batterie de serveurs
+Si vous êtes un client existant AD FS 2012 R2 ou 2016, il existe deux manières de recevoir la nouvelle conception après la mise à niveau des serveurs à AD FS 2019 et l’activation de la FBL à 2019.
+
+- Autoriser la nouvelle connexion à l’aide de Powershell. Exécutez la commande suivante pour activer la pagination : ``Set-AdfsGlobalAuthenticationPolicy -EnablePaginatedAuthenticationPages $true``
+
+ - Activer l’authentification externe en tant que principal, via Powershell ou via le Gestionnaire de serveur AD FS. La nouvelle connexion paginée pages obtiendront lorsque cette fonctionnalité est activée.
+Si vous êtes un nouveau client à AD FS, vous recevrez la nouvelle conception par défaut. Toutefois, si vous êtes un client existant avec AD FS 2012 R2 ou 2016, il existe plusieurs étapes, que vous devrez prendre pour recevoir la nouvelle conception : ``Set-AdfsGlobalAuthenticationPolicy -AllowAdditionalAuthenticationAsPrimary $true``
 
 ## <a name="customization"></a>Personnalisation
-Les options de personnalisation sera toujours applicables pour AD FS 2019. Voici quelques liens vers d’autres documents de référence. 
+Les options de personnalisation sera toujours applicables pour AD FS 2019.
+Voici quelques liens vers d’autres documents de référence.
 
 • Pour ceux qui ne souhaitez pas mettre à niveau leurs serveurs à AD FS 2019 mais souhaitez toujours que la nouvelle conception : [À l’aide d’un thème Web de l’expérience utilisateur de Azure AD dans Active Directory Federation Services](azure-ux-web-theme-in-ad-fs.md)
 

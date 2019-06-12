@@ -9,12 +9,12 @@ ms.prod: windows-server-threshold
 ms.technology: active-directory-federation-services
 ms.author: billmath
 ms.assetId: 7b9f9a4f-888c-4358-bacd-3237661b1935
-ms.openlocfilehash: cf3d7513dd02bdb578bffd2f3ef8bdb29d8f983d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 00880d06835fad08538f634fdf2868146fc23b1a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192168"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442921"
 ---
 # <a name="setup-geographic-redundancy-with-sql-server-replication"></a>Le programme d’installation à la redondance géographique avec la réplication SQL Server
 
@@ -29,120 +29,120 @@ Installez et configurez une batterie de serveurs SQL. Pour plus d’informations
   
 ## <a name="create-the-second-replica-sql-server-for-geo-redundancy"></a>Créez le deuxième \(réplica\) SQL Server pour géo\-redondance  
   
-1.  Installer SQL Server \(pour plus d’informations, consultez [ https://technet.microsoft.com/evalcenter/hh225126.aspx ](https://technet.microsoft.com/evalcenter/hh225126.aspx). Copiez les fichiers de script CreateDB.sql et SetPermissions.sql résultant vers le serveur SQL de réplica.  
+1. Installer SQL Server \(pour plus d’informations, consultez [ https://technet.microsoft.com/evalcenter/hh225126.aspx ](https://technet.microsoft.com/evalcenter/hh225126.aspx). Copiez les fichiers de script CreateDB.sql et SetPermissions.sql résultant vers le serveur SQL de réplica.  
   
-2.  Vérifiez le service SQL Server Agent est en cours d’exécution et configuré pour démarrer automatiquement  
+2. Vérifiez le service SQL Server Agent est en cours d’exécution et configuré pour démarrer automatiquement  
   
-3.  Exécutez **exporter\-AdfsDeploymentSQLScript** sur le nœud principal AD FS pour créer des fichiers CreateDB.sql et SetPermissions.sql.  Par exemple :`PS:\>Export-AdfsDeploymentSQLScript -DestinationFolder . –ServiceAccountName CONTOSO\gmsa1$`.  
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql2.png)
+3. Exécutez **exporter\-AdfsDeploymentSQLScript** sur le nœud principal AD FS pour créer des fichiers CreateDB.sql et SetPermissions.sql.  Par exemple :`PS:\>Export-AdfsDeploymentSQLScript -DestinationFolder . –ServiceAccountName CONTOSO\gmsa1$`.  
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql2.png)
   
-4.  Copiez les scripts à votre serveur secondaire.  Ouvrez le script CreateDB.sql dans **SQL Management Studio** et cliquez sur **Execute**.
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql4.png)
+4. Copiez les scripts à votre serveur secondaire.  Ouvrez le script CreateDB.sql dans **SQL Management Studio** et cliquez sur **Execute**.
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql4.png)
 
 5. Ouvrez le script SetPermissions.sql dans **SQL Management Studio** et cliquez sur **Execute**.
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql6.png) 
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql6.png) 
 
    
 
->[!NOTE]
->Vous pouvez également utiliser la commande suivante dans la ligne de commande. 
->
+> [!NOTE]
+> Vous pouvez également utiliser la commande suivante dans la ligne de commande. 
+> 
 >    `c:\>sqlcmd –i CreateDB.sql`  
->  
+> 
 >    `c:\>sqlcmd –i SetPermissions.sql` 
 > 
-## <a name="create-publisher-settings-on-the-initial-sql-server"></a>Créer des paramètres de serveur de publication sur le serveur SQL initiale  
+> ## <a name="create-publisher-settings-on-the-initial-sql-server"></a>Créer des paramètres de serveur de publication sur le serveur SQL initiale  
   
-1.  À partir de SQL Server Management studio, sous **réplication**, avec le bouton droit cliquez sur **Publications locales** et choisissez **nouvelle Publication... ** 
- ![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql7.png) </br>  
+1. À partir de SQL Server Management studio, sous **réplication**, avec le bouton droit cliquez sur **Publications locales** et choisissez **nouvelle Publication... ** 
+    ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql7.png) </br>  
 
-2.  Dans l’écran de l’Assistant Nouvelle Publication cliquez **suivant**.</br>
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql8.png) </br> 
+2. Dans l’écran de l’Assistant Nouvelle Publication cliquez **suivant**.</br>
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql8.png) </br> 
   
-3.  Sur **distributeur** page, choisissez le serveur local en tant que serveur de distribution, puis cliquez sur **suivant**.  
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql9.png) </br>   
+3. Sur **distributeur** page, choisissez le serveur local en tant que serveur de distribution, puis cliquez sur **suivant**.  
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql9.png) </br>   
 
-4.  Sur le **instantané** dossier, entrez \\\SQL1\repldata à la place de dossier par défaut. \(REMARQUE : Vous devrez peut-être créer ce partage vous-même\).  
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql10.png) </br>   
+4. Sur le **instantané** dossier, entrez \\\SQL1\repldata à la place de dossier par défaut. \(REMARQUE : Vous devrez peut-être créer ce partage vous-même\).  
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql10.png) </br>   
   
-5.  Choisissez **AdfsConfigurationV3** comme la base de données de publication et cliquez sur **suivant**.  
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql11.png) </br>
+5. Choisissez **AdfsConfigurationV3** comme la base de données de publication et cliquez sur **suivant**.  
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql11.png) </br>
   
-6.  Sur **Type de Publication**, choisissez **publication de fusion** et cliquez sur **suivant**.  
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql12.png) </br>
+6. Sur **Type de Publication**, choisissez **publication de fusion** et cliquez sur **suivant**.  
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql12.png) </br>
   
-7.  Sur **Types d’abonnés**, choisissez **SQL Server 2008 ou version ultérieure** et cliquez sur **suivant**.  
- ![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql13.png) </br> 
+7. Sur **Types d’abonnés**, choisissez **SQL Server 2008 ou version ultérieure** et cliquez sur **suivant**.  
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql13.png) </br> 
 
-8.  Sur le **Articles** page Sélectionnez **Tables** nœud pour sélectionner toutes les tables, puis **Annuler\-vérifier SyncProperties** table \(celle-ci ne doit pas être répliquée\)</br>
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql14.png) </br>    
+8. Sur le **Articles** page Sélectionnez **Tables** nœud pour sélectionner toutes les tables, puis **Annuler\-vérifier SyncProperties** table \(celle-ci ne doit pas être répliquée\)</br>
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql14.png) </br>    
   
-9.  Sur le **Articles** page, sélectionnez **fonctions utilisateur** nœud pour sélectionner toutes les fonctions de définies par l’utilisateur sur **suivant**...  
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql15.png) </br>    
+9. Sur le **Articles** page, sélectionnez **fonctions utilisateur** nœud pour sélectionner toutes les fonctions de définies par l’utilisateur sur **suivant**...  
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql15.png) </br>    
 
 10. Sur le **problèmes liés aux articles** page, cliquez sur **suivant**.  
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql16.png) </br>   
+    ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql16.png) </br>   
 
 11. Sur le **filtrer les lignes de Table** , cliquez sur **suivant**.  
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql17.png) </br>   
+    ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql17.png) </br>   
 12. Sur le **Agent d’instantané** , choisissez les valeurs par défaut d’immédiat et 14 jours, cliquez sur **suivant**.  
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql18.png) </br>   
-Vous devrez peut-être créer un compte de domaine de l’agent SQL. Utilisez les étapes de [connexion SQL de configurer pour le compte de domaine CONTOSO\\sqlagent](Set-up-Geographic-Redundancy-with-SQL-Server-Replication.md#sqlagent) pour créer une connexion SQL pour ce nouvel utilisateur Active Directory et affecter des autorisations spécifiques.  
+    ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql18.png) </br>   
+    Vous devrez peut-être créer un compte de domaine de l’agent SQL. Utilisez les étapes de [connexion SQL de configurer pour le compte de domaine CONTOSO\\sqlagent](Set-up-Geographic-Redundancy-with-SQL-Server-Replication.md#sqlagent) pour créer une connexion SQL pour ce nouvel utilisateur Active Directory et affecter des autorisations spécifiques.  
   
 13. Sur le **sécurité de l’Agent** , cliquez sur **paramètres de sécurité** et entrez le nom d’utilisateur\/mot de passe d’un compte de domaine \(pas un compte GMSA\) créé pour l’agent SQL et Cliquez sur **OK**.  Cliquez sur **Suivant**.  
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql19.png) </br>  
+    ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql19.png) </br>  
 
 14. Sur le **Actions de l’Assistant** , cliquez sur **suivant**.   
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql20.png) </br>
+    ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql20.png) </br>
 
 15. Sur le **terminer l’Assistant** page, entrez un nom pour votre publication, cliquez sur **Terminer**. 
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql21.png) </br>  
+    ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql21.png) </br>  
 
 16. Une fois que la publication est créée, vous devez voir l’état de réussite.  Cliquez sur **Fermer**.
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql22.png) </br>  
+    ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql22.png) </br>  
 
 17. Nouveau dans SQL Server Management Studio, cliquez sur la nouvelle Publication et cliquez sur **lancer le moniteur de réplication**.  
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql23.png) </br> 
+    ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql23.png) </br> 
   
 ## <a name="create-subscription-settings-on-the-replica-sql-server"></a>Créer des paramètres d’abonnement sur le réplica SQL Server  
 Assurez-vous que vous avez créé les paramètres de serveur de publication sur le serveur SQL initiale comme décrit ci-dessus et puis effectuez la procédure suivante :  
   
-1.  Sur le réplica SQL Server, à partir de SQL Server Management studio, sous **réplication**, avec le bouton droit cliquez sur **abonnements locaux** et choisissez **nouvel abonnement...** . ![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql24.png) </br>  
+1. Sur le réplica SQL Server, à partir de SQL Server Management studio, sous **réplication**, avec le bouton droit cliquez sur **abonnements locaux** et choisissez **nouvel abonnement...** . ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql24.png) </br>  
 
-2.  Sur le **Assistant Nouvel abonnement** , cliquez sur **suivant**.
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql25.png) </br>   
+2. Sur le **Assistant Nouvel abonnement** , cliquez sur **suivant**.
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql25.png) </br>   
   
-3.  Sur le **Publication** , sélectionnez le serveur de publication à partir de la liste déroulante.  Développez **AdfsConfigurationV3** et sélectionnez le nom de la publication créée ci-dessus, puis cliquez sur **suivant**.  
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql26.png) </br> 
+3. Sur le **Publication** , sélectionnez le serveur de publication à partir de la liste déroulante.  Développez **AdfsConfigurationV3** et sélectionnez le nom de la publication créée ci-dessus, puis cliquez sur **suivant**.  
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql26.png) </br> 
   
-4.  Sur le **emplacement de l’Agent de fusion** page, sélectionnez **exécuter chaque agent sur son abonné \(abonnements par extraction\)**  \(la valeur par défaut\) et cliquez sur  **Suivant**.  
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql27.png) </br> En même temps que le Type d’abonnement ci-dessous, ce contrôle détermine la logique de résolution de conflit. \(Pour plus d’informations, consultez [détecter et résoudre les conflits de réplication de fusion](https://technet.microsoft.com/library/ms151191.aspx). </br>
+4. Sur le **emplacement de l’Agent de fusion** page, sélectionnez **exécuter chaque agent sur son abonné \(abonnements par extraction\)**  \(la valeur par défaut\) et cliquez sur  **Suivant**.  
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql27.png) </br> En même temps que le Type d’abonnement ci-dessous, ce contrôle détermine la logique de résolution de conflit. \(Pour plus d’informations, consultez [détecter et résoudre les conflits de réplication de fusion](https://technet.microsoft.com/library/ms151191.aspx). </br>
  
-5.  Sur le **abonnés** page, sélectionnez **AdfsConfigurationV3** comme la base de données abonné et cliquez sur **suivant**.  
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql28.png) </br> 
+5. Sur le **abonnés** page, sélectionnez **AdfsConfigurationV3** comme la base de données abonné et cliquez sur **suivant**.  
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql28.png) </br> 
   
-6.  Sur le **sécurité de l’Agent de fusion** , cliquez sur **...**  et entrez le nom d’utilisateur et le mot de passe d’un compte de domaine \(pas un compte GMSA\) créé pour l’agent SQL à l’aide de la boîte de points de suspension et cliquez sur **suivant**.
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql30.png) </br> 
+6. Sur le **sécurité de l’Agent de fusion** , cliquez sur **...**  et entrez le nom d’utilisateur et le mot de passe d’un compte de domaine \(pas un compte GMSA\) créé pour l’agent SQL à l’aide de la boîte de points de suspension et cliquez sur **suivant**.
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql30.png) </br> 
   
-7.  Sur **calendrier de synchronisation**, choisissez **exécuter en continu** et cliquez sur **suivant**. 
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql31.png) </br> 
+7. Sur **calendrier de synchronisation**, choisissez **exécuter en continu** et cliquez sur **suivant**. 
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql31.png) </br> 
  
-8.  Sur **initialiser les abonnements**, cliquez sur **suivant**.  
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql32.png) </br> 
+8. Sur **initialiser les abonnements**, cliquez sur **suivant**.  
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql32.png) </br> 
   
-9.  Sur **Type d’abonnement**, choisissez **Client** et cliquez sur **suivant**.  
+9. Sur **Type d’abonnement**, choisissez **Client** et cliquez sur **suivant**.  
   
-    Implications sont documentées [ici](https://technet.microsoft.com/library/ms151191.aspx) et [ici](https://technet.microsoft.com/library/ms151170.aspx).  En fait, nous prenons la résolution de conflit « première pour l’éditeur gagne » simple et nous n’avez pas besoin de republier vers d’autres abonnés.  
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql33.png) </br>
+   Implications sont documentées [ici](https://technet.microsoft.com/library/ms151191.aspx) et [ici](https://technet.microsoft.com/library/ms151170.aspx).  En fait, nous prenons la résolution de conflit « première pour l’éditeur gagne » simple et nous n’avez pas besoin de republier vers d’autres abonnés.  
+   ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql33.png) </br>
    
 10. Sur le **Actions de l’Assistant** , vérifiez **créer l’abonnement** est activée et cliquez sur **suivant**. 
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql34.png) </br>
+    ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql34.png) </br>
 
 11. Sur le **terminer l’Assistant** , cliquez sur **Terminer**. 
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql35.png) </br>
+    ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql35.png) </br>
 
 12. Une fois que l’abonnement a terminé le processus de création, vous devez voir la réussite. Cliquez sur **Fermer**. 
-![Configurer une redondance géographique](media\Set-up-Geographic-Redundancy-with-SQL-Server-Replication\sql36.png) </br>
+    ![Configurer une redondance géographique](media/Set-up-Geographic-Redundancy-with-SQL-Server-Replication/sql36.png) </br>
   
 ## <a name="verify-the-process-of-initialization-and-replication"></a>Vérifiez que le processus d’initialisation et de réplication  
   

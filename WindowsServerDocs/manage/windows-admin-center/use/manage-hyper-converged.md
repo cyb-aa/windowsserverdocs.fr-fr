@@ -5,15 +5,15 @@ ms.technology: manage
 ms.topic: article
 author: daniellee-msft
 ms.author: jol
-ms.date: 02/11/2019
+ms.date: 03/01/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 4d849120d2daaa40cb797cc5e7d4c23c74da5bb7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: fe00072932d9c7f283ebd887a5292ac9a9d0e37f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874260"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446033"
 ---
 # <a name="manage-hyper-converged-infrastructure-with-windows-admin-center"></a>Gérer l’Infrastructure Hyper-convergée avec Windows Admin Center
 
@@ -21,7 +21,7 @@ ms.locfileid: "59874260"
 
 ## <a name="what-is-hyper-converged-infrastructure"></a>Qu’est Hyper-Converged Infrastructure
 
-Infrastructure Hyper-convergée consolide calcul défini par logiciel, de stockage et de mise en réseau dans un cluster à hautes performances, économique, de fournir et de virtualisation très évolutive. Cette fonctionnalité a été introduite dans Windows Server 2016 avec [espaces de stockage Direct](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) et [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server).
+Infrastructure Hyper-convergée consolide calcul défini par logiciel, de stockage et de mise en réseau dans un cluster à hautes performances, économique, de fournir et de virtualisation très évolutive. Cette fonctionnalité a été introduite dans Windows Server 2016 avec [espaces de stockage Direct](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview), [Sdn](https://docs.microsoft.com/en-us/windows-server/networking/sdn/software-defined-networking) et [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server).
 
 > [!Tip]
 > Cherchez à acquérir Hyper-Converged Infrastructure ? Microsoft recommande ces [défini par le logiciel Windows Server](https://microsoft.com/wssd) solutions proposées par nos partenaires. Elles sont conçues, assemblées et validés par rapport à notre architecture de référence pour garantir la compatibilité et la fiabilité, afin de vous être opérationnel rapidement opérationnel.
@@ -31,7 +31,7 @@ Infrastructure Hyper-convergée consolide calcul défini par logiciel, de stocka
 
 ## <a name="what-is-windows-admin-center"></a>Qu'est-ce que Windows Admin Center ?
 
-[Windows Admin Center](../understand/windows-admin-center.md) est l’outil de gestion de la nouvelle génération pour Windows Server, le successeur d’outils « dans « l’emploi traditionnels tels que le Gestionnaire de serveur. C’est gratuit et peut être installé et utilisé sans connexion Internet. Vous pouvez utiliser Windows Admin Center pour gérer et surveiller l’Infrastructure Hyper-Converged exécutant Windows Server 2016 ou une version d’évaluation de Insider de Windows Server 2019.
+[Windows Admin Center](../understand/windows-admin-center.md) est l’outil de gestion de la nouvelle génération pour Windows Server, le successeur d’outils « dans « l’emploi traditionnels tels que le Gestionnaire de serveur. C’est gratuit et peut être installé et utilisé sans connexion Internet. Vous pouvez utiliser Windows Admin Center pour gérer et surveiller l’Infrastructure Hyper-Converged exécutant Windows Server 2016 ou Windows Server 2019.
 
 ![Tableau de bord de cluster hyperconvergé](../media/manage-hyper-converged/hci-dashboard-v1809.png)
 
@@ -42,13 +42,13 @@ Principales caractéristiques de Windows Admin Center pour l’Infrastructure de
 - **Unifiée unique-volet-de-verre de calcul, stockage et bientôt mise en réseau.** Afficher vos machines virtuelles, les serveurs hôtes, volumes, disques, etc. au sein d’une expérience spécialisée, cohérente et interconnectée.
 - **Créez et gérez des ordinateurs virtuels Hyper-V et les espaces de stockage.** Les workflows radicalement simples pour créer, ouvrir, redimensionner et supprimer des volumes ; créer, Démarrer, se connecter à et déplacer des machines virtuelles ; et bien plus encore.
 - **Puissante analyse à l’échelle du cluster.** Le tableau de bord graphiques mémoire et l’utilisation du processeur, la capacité de stockage, e/s, le débit et latence en temps réel, sur chaque serveur dans le cluster, avec l’effacement des alertes lorsque quelque chose ne convient pas.
-- **Prise en charge de Software Defined Networking (SDN). (Nouveautés de la version préliminaire de Windows Admin Center)**  Gérer et surveiller les réseaux virtuels, sous-réseaux, connectent des machines virtuelles aux réseaux virtuels et surveiller l’infrastructure SDN.
+- **Prise en charge de Software Defined Networking (SDN).** Gérer et surveiller les réseaux virtuels, sous-réseaux, connecter des machines virtuelles à des réseaux virtuels et surveiller l’infrastructure SDN.
 
 Windows Admin Center pour l’Infrastructure de Hyper-Converged est activement développé par Microsoft. Il reçoit des mises à jour fréquentes qui améliorent les fonctionnalités existantes et ajoutent de nouvelles fonctionnalités.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-Pour gérer votre cluster en tant qu’Infrastructure Hyper-Converged dans Windows Admin Center, il doit exécuter Windows Server 2016 ou une version d’évaluation de Windows Server 2019, et disposer Hyper-V et espaces de stockage Direct.
+Pour gérer votre cluster en tant qu’Infrastructure Hyper-Converged dans Windows Admin Center, il doit exécuter Windows Server 2016 ou Windows Server 2019, et disposer Hyper-V et espaces de stockage Direct. Si vous le souhaitez, il peut également disposer de Software-Defined Networking activée et gérée par le biais de Windows Admin Center.
 
 > [!Tip]
 > Windows Admin Center offre également une expérience de gestion générale pour n’importe quel cluster prenant en charge des charges de travail, disponible pour Windows Server 2012 et versions ultérieures. Si cela semble être un meilleur choix lorsque vous ajoutez votre cluster à Windows Admin Center, sélectionnez [ **Cluster de basculement** ](manage-failover-clusters.md) au lieu de **Hyper-Converged Cluster**.
@@ -67,14 +67,9 @@ Windows Admin Center pour l’Infrastructure de Hyper-Converged dépend de la ge
 > [!Tip]
 > Vous devez uniquement exécuter une seule fois, de l’applet de commande sur n’importe quel serveur dans le cluster. Vous pouvez exécuter localement dans Windows PowerShell ou utilisez Credential Security Service Provider (CredSSP) pour l’exécuter à distance. Selon votre configuration, vous ne serez peut-être pas en mesure d’exécuter cette applet de commande dans Windows Admin Center.
 
-> [!Important]
-> Pour les déploiements dans les paramètres régionaux non anglais, il existe un problème connu dans la version 1804 de Windows Admin Center qui empêche le tableau de bord de chargement (première fois uniquement). La solution de contournement consiste à exécuter `Add-ClusterResource -Name 'SDDC Management' -Group 'Cluster Group' -ResourceType 'SDDC Management'` en remplaçant *« Groupe de clusters »* avec le nom localisé, par exemple, *« Cluster du groupe »* en Français. Ce problème sera résolu dans la prochaine mise à jour.
->
-> **MISE À JOUR :** Ce problème est maintenant résolu dans Windows Admin Center préversion 1806.
-
 ### <a name="prepare-your-windows-server-2019-cluster-for-windows-admin-center"></a>Préparer votre cluster Windows Server 2019 pour Windows Admin Center
 
-Si votre cluster exécute une version d’évaluation de Insider de Windows Server 2019, les étapes ci-dessus ne sont pas nécessaires. Ajoutez simplement le cluster vers Windows Admin Center comme décrit dans la section suivante, et vous êtes fin prêt ! [Télécharger la dernière version de la version préliminaire de Windows Server 2019](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver).
+Si votre cluster exécute Windows Server 2019, les étapes ci-dessus ne sont pas nécessaires. Ajoutez simplement le cluster vers Windows Admin Center comme décrit dans la section suivante, et vous êtes fin prêt !
 
 ### <a name="configure-software-defined-networking-optional"></a>Configurer Software-Defined Networking (facultatif) ###
 
@@ -84,9 +79,9 @@ Vous pouvez configurer votre Infrastructure Hyper-Converged exécutant Windows S
 2. Télécharger tous les fichiers sous SDN Express à partir d’et dossier [ https://github.com/Microsoft/SDN/tree/master/SDNExpress ](https://github.com/Microsoft/SDN/tree/master/SDNExpress).
 3. Préparer une autre machine virtuelle à l’aide de la console de déploiement. Cette machine virtuelle doit être en mesure d’accéder aux hôtes SDN. En outre, la machine virtuelle doit être avoir l’outil RSAT Hyper-V installé.
 4. Copier tout ce dont vous avez téléchargé pour SDN Express à la console de déploiement machine virtuelle. Et partager ce **SDNExpress** dossier. Vérifiez que chaque hôte peut accéder à la **SDNExpress** dossier partagé, tel que défini dans la ligne de fichier de configuration 8 :
-```
+   ```
     \\$env:Computername\SDNExpress
-```
+   ```
 5. Copiez le disque dur virtuel du système d’exploitation pour le **images** dossier sous le **SDNExpress** dossier sur la machine virtuelle de la console de déploiement.
 6. Modifier la configuration de SDN Express avec votre configuration de l’environnement. Terminer les deux étapes suivantes après avoir modifié la configuration de SDN Express en fonction des informations de votre environnement.
 7. Exécutez la commande PowerShell avec des privilèges d’administrateur pour déployer SDN :
@@ -138,9 +133,9 @@ Le cluster sera ajouté à votre liste de connexions. Cliquez dessus pour lancer
 
 ## <a name="frequently-asked-questions"></a>Forum Aux Questions
 
-### <a name="are-there-differences-between-managing-windows-server-2016-and-windows-server-2019-insider-preview"></a>Existe-t-il des différences entre la gestion de Windows Server 2016 et Windows Server 2019 Insider Preview ?
+### <a name="are-there-differences-between-managing-windows-server-2016-and-windows-server-2019"></a>Existe-t-il des différences entre la gestion de Windows Server 2016 et Windows Server 2019 ?
 
-Oui. Windows Admin Center pour Hyper-Converged Infrastructure reçoit des mises à jour fréquentes qui améliorent l’expérience de Windows Server 2016 et Windows Server 2019 Insider Preview. Toutefois, certaines nouvelles fonctionnalités sont uniquement disponibles pour Insider Preview – par exemple, le bouton bascule pour la déduplication et compression.
+Oui. Windows Admin Center pour Hyper-Converged Infrastructure reçoit des mises à jour fréquentes qui améliorent l’expérience de Windows Server 2016 et Windows Server 2019. Toutefois, certaines nouvelles fonctionnalités sont uniquement disponibles pour Windows Server 2019 – par exemple, le bouton bascule pour la déduplication et compression.
 
 ### <a name="can-i-use-windows-admin-center-to-manage-storage-spaces-direct-for-other-use-cases-not-hyper-converged-such-as-converged-scale-out-file-server-sofs-or-microsoft-sql-server"></a>Puis-je utiliser Windows Admin Center pour gérer les espaces de stockage Direct pour les autres cas (ne pas hyperconvergé), tels que convergé serveur de fichiers avec montée en puissance (parallèle SoFS) ou Microsoft SQL Server ?
 
@@ -152,7 +147,7 @@ En règle générale, le terme « hyperconvergé » fait référence à l’ex
 
 - Le **connexion au Cluster de basculement** est le successeur de l’application de bureau du Gestionnaire du Cluster de basculement. Il fournit une expérience de gestion familiers, à usage général pour n’importe quel cluster prenant en charge des charges de travail, y compris Microsoft SQL Server. Il est disponible pour Windows Server 2012 et versions ultérieures.
 
-- Le **connexion Hyper-Converged Cluster** est une toute nouvelle expérience adaptée aux espaces de stockage Direct et Hyper-V. Il comprend le Tableau de bord et met en évidence les graphiques et les alertes de surveillance. Il est disponible pour Windows Server 2016 et preview builds de Windows Server 2019.
+- Le **connexion Hyper-Converged Cluster** est une toute nouvelle expérience adaptée aux espaces de stockage Direct et Hyper-V. Il comprend le Tableau de bord et met en évidence les graphiques et les alertes de surveillance. Il est disponible pour Windows Server 2016 et Windows Server 2019.
 
 ### <a name="why-do-i-need-the-latest-cumulative-update-for-windows-server-2016"></a>Pourquoi dois-je la dernière mise à jour cumulative pour Windows Server 2016 ?
 
@@ -294,6 +289,6 @@ C’est une affaire de vos commentaires ! L’avantage le plus important de mis
 ### <a name="see-also"></a>Voir aussi
 
 - [Windows Admin Center](../understand/windows-admin-center.md)
-- [Espaces de stockage Direct](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
+- [Espaces de stockage direct](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
 - [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server)
-- [Mise en réseau logicielle](https://docs.microsoft.com/windows-server/networking/sdn/software-defined-networking)
+- [Mise en réseau SDN (Software Defined Networking)](https://docs.microsoft.com/windows-server/networking/sdn/software-defined-networking)

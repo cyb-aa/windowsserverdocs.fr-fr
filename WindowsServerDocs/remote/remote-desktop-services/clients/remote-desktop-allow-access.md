@@ -14,16 +14,16 @@ manager: dongill
 ms.author: elizapo
 ms.date: 06/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: af41304e08f19ca155f6fd13c9258e9a8f20c163
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d03dcd307696aea55ab6a1569ab907635994772a
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817010"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66804991"
 ---
 # <a name="remote-desktop---allow-access-to-your-pc"></a>Bureau à distance - autoriser l’accès à votre PC
 
->S'applique à : Windows 10, Windows 8.1, Windows Server 2012 R2, Windows Server 2016
+>S’applique à : Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 Vous pouvez utiliser le Bureau à distance pour vous connecter à et contrôler votre PC à partir d’un périphérique distant en utilisant un [client Bureau à distance Microsoft](remote-desktop-clients.md) (disponible pour Windows, iOS, macOS et Android). Lorsque vous autorisez les connexions à distance à votre PC, vous pouvez utiliser un autre appareil pour vous connecter à votre PC et avoir accès à l’ensemble de vos applications, les fichiers et les ressources réseau comme si vous étiez assis à votre bureau.  
 
@@ -64,7 +64,7 @@ N’oubliez pas que lorsque vous activez l’accès Bureau à distance, vous acc
 Vous devez vous assurer que chaque compte qui a accès à votre PC est configuré avec un mot de passe fort.
 
 ## <a name="why-allow-connections-only-with-network-level-authentication"></a>Pourquoi autoriser les connexions uniquement avec l’authentification au niveau du réseau ? 
- 
-Si vous souhaitez restreindre l’accès à votre PC, choisissez d’autoriser l’accès uniquement avec réseau au niveau de l’authentification (NLA). Lorsque vous activez cette option, les utilisateurs doivent s’authentifier auprès du réseau avant de se connecter à votre PC. Autoriser les connexions uniquement sur les ordinateurs exécutant Bureau à distance avec authentification NLA est une méthode d’authentification plus sécurisée qui peut aider à protéger votre ordinateur contre les logiciels et les utilisateurs malveillants. Pour en savoir plus sur l’authentification NLA et Bureau à distance, consultez [configurer l’authentification pour les connexions des services Bureau à distance](https://technet.microsoft.com/library/cc732713(v=ws.11).aspx). 
+
+Si vous souhaitez restreindre l’accès à votre PC, choisissez d’autoriser l’accès uniquement avec réseau au niveau de l’authentification (NLA). Lorsque vous activez cette option, les utilisateurs doivent s’authentifier auprès du réseau avant de se connecter à votre PC. Autoriser les connexions uniquement sur les ordinateurs exécutant Bureau à distance avec authentification NLA est une méthode d’authentification plus sécurisée qui peut aider à protéger votre ordinateur contre les logiciels et les utilisateurs malveillants. Pour en savoir plus sur l’authentification NLA et Bureau à distance, consultez [configurer l’authentification pour les connexions des services Bureau à distance](https://technet.microsoft.com/library/cc732713(v=ws.11).aspx).
 
 Si à distance, vous vous connectez à un PC sur votre réseau domestique à partir en dehors de ce réseau, ne sélectionnez pas cette option.

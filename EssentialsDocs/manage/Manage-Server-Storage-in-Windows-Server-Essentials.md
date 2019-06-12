@@ -12,12 +12,12 @@ ms.assetid: 1836682e-c7bb-4dd5-a2b5-6ff032693574
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e0f65dfd25afbd584764d33904ba82e4da4c5443
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 38843a511548cd11c154dd5c130a0b2da88b59eb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842450"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433228"
 ---
 # <a name="manage-server-storage-in-windows-server-essentials"></a>Gérer le stockage serveur dans Windows Server Essentials
 
@@ -44,19 +44,19 @@ ms.locfileid: "59842450"
 ##  <a name="BKMK_1"></a> Gérer les disques durs à l’aide du tableau de bord  
  Windows Server Essentials vous permet de gérer tous les disques durs connectés au serveur via le tableau de bord. Sous l’onglet **Stockage** du tableau de bord, **Disques durs** répertorie tous les disques durs disponibles sur le serveur pour le stockage des données et les sauvegardes du serveur. Le serveur contrôle l’espace disponible sur chaque disque dur et affiche une alerte si l’espace disponible sur le disque est bas. L’onglet **Disques durs** affiche les informations suivantes :  
   
--   Le nom de chaque disque dur  
+- Le nom de chaque disque dur  
   
--   La capacité de chaque disque dur  
+- La capacité de chaque disque dur  
   
--   La quantité d’espace utilisé sur chaque disque dur  
+- La quantité d’espace utilisé sur chaque disque dur  
   
--   La quantité d’espace disponible sur chaque disque dur  
+- La quantité d’espace disponible sur chaque disque dur  
   
--   L’état de chaque disque dur : si cet état est vide, le disque dur fonctionne correctement.  
+- L’état de chaque disque dur : si cet état est vide, le disque dur fonctionne correctement.  
   
--   Le volet de détails, qui affiche toutes les informations de la pile de stockage (pool de stockage, espace de stockage et disque dur) si le disque dur sélectionné se trouve sur un espace de stockage (au lieu d’un disque physique)  
+- Le volet de détails, qui affiche toutes les informations de la pile de stockage (pool de stockage, espace de stockage et disque dur) si le disque dur sélectionné se trouve sur un espace de stockage (au lieu d’un disque physique)  
   
- Le tableau suivant répertorie les tâches de gestion de disque dur qui sont disponibles dans le tableau de bord, ainsi que leur description. Certaines tâches ne sont affichées que lorsqu’un disque dur est sélectionné.  
+  Le tableau suivant répertorie les tâches de gestion de disque dur qui sont disponibles dans le tableau de bord, ainsi que leur description. Certaines tâches ne sont affichées que lorsqu’un disque dur est sélectionné.  
   
 ### <a name="available-hard-drive-management-tasks"></a>Tâches de gestion de disque dur disponibles  
   
@@ -118,7 +118,7 @@ ms.locfileid: "59842450"
   
 2.  Formater le disque dur et le configurer pour la sauvegarde du serveur. Si vous choisissez cette option, l’Assistant Configurer la sauvegarde du serveur se lance, et il vous guide dans la configuration de la sauvegarde du serveur.  
   
-3.  Si t stockage espace n’existe pas, utilisez le nouveau disque dur pour créer un espace de stockage. Vous devez disposer d’au moins deux disques durs pour créer un espace de stockage.  
+3.  Si un espace de stockage n’existe pas, utilisez le nouveau disque dur pour créer un espace de stockage. Vous devez disposer d’au moins deux disques durs pour créer un espace de stockage.  
   
 4.  Si l’espace de stockage existe déjà, utilisez le nouveau disque dur pour augmenter la capacité du pool de stockage. Cette option n’est affichée que si un espace de stockage a été créé sur le serveur. Si vous choisissez cette option, l’Assistant ajoute ce nouveau disque dur au pool de stockage.  
   
@@ -136,41 +136,41 @@ ms.locfileid: "59842450"
   
 ##### <a name="to-store-server-folders"></a>Pour stocker des dossiers du serveur  
   
-1.  Ouvrez le tableau de bord.  
+1. Ouvrez le tableau de bord.  
   
-2.  Cliquez sur l’onglet **STOCKAGE** , puis sur **Dossiers de serveur**.  
+2. Cliquez sur l’onglet **STOCKAGE** , puis sur **Dossiers de serveur**.  
   
-3.  Dans le volet **Tâches de dossiers de serveur** , effectuez l’une des opérations suivantes :  
+3. Dans le volet **Tâches de dossiers de serveur** , effectuez l’une des opérations suivantes :  
   
-    1.  Pour ajouter un dossier serveur, cliquez sur **Ajouter un dossier**.  
+   1.  Pour ajouter un dossier serveur, cliquez sur **Ajouter un dossier**.  
   
-    2.  Pour déplacer un dossier de serveur, sélectionnez le dossier que vous voulez déplacer vers le nouveau disque dur, puis cliquez sur **Déplacer un dossier**.  
+   2.  Pour déplacer un dossier de serveur, sélectionnez le dossier que vous voulez déplacer vers le nouveau disque dur, puis cliquez sur **Déplacer un dossier**.  
   
-    > [!NOTE]
-    >  Si vous accédez au disque dur et que vous le sélectionnez comme emplacement de dossier de serveur sans créer de dossiers, le message d’erreur suivant s’affiche : **Un répertoire racine (tel que C:\\, D:\\) ne peut pas être ajouté comme un dossier de serveur. Créer un nouveau dossier ou sélectionnez-en un existant sous le répertoire racine et puis recommencez l’opération**. Pour résoudre cette erreur, créez un dossier sur le disque dur que vous venez d’ajouter, puis sélectionnez le nouveau dossier comme emplacement de stockage des dossiers du serveur.  
+   > [!NOTE]
+   >  Si vous accédez au disque dur et que vous le sélectionnez comme emplacement de dossier de serveur sans créer de dossiers, le message d’erreur suivant s’affiche : **Un répertoire racine (tel que C:\\, D:\\) ne peut pas être ajouté comme un dossier de serveur. Créer un nouveau dossier ou sélectionnez-en un existant sous le répertoire racine et puis recommencez l’opération**. Pour résoudre cette erreur, créez un dossier sur le disque dur que vous venez d’ajouter, puis sélectionnez le nouveau dossier comme emplacement de stockage des dossiers du serveur.  
   
-4.  Suivez les instructions pour terminer l’Assistant.  
+4. Suivez les instructions pour terminer l’Assistant.  
   
- Pour plus d’informations sur le déplacement des dossiers du serveur, consultez [Add or move a server folder](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).  
+   Pour plus d’informations sur le déplacement des dossiers du serveur, consultez [Add or move a server folder](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).  
   
 ###  <a name="BKMK_4b"></a> Utiliser le nouveau disque dur pour stocker les sauvegardes de serveur  
  Vous pouvez utiliser le disque dur nouvellement ajouté pour stocker les sauvegardes du serveur.  
   
 ##### <a name="to-store-server-backups"></a>Pour stocker les sauvegardes du serveur  
   
-1.  Ouvrez le tableau de bord.  
+1. Ouvrez le tableau de bord.  
   
-2.  Cliquez sur l’onglet **Périphériques** , sélectionnez le serveur dans la liste, puis dans le volet des tâches, effectuez l’une des opérations suivantes :  
+2. Cliquez sur l’onglet **Périphériques** , sélectionnez le serveur dans la liste, puis dans le volet des tâches, effectuez l’une des opérations suivantes :  
   
-    1.  Si la sauvegarde du serveur n’est pas configurée sur le serveur, cliquez sur **Configurer la sauvegarde du serveur**.  
+   1. Si la sauvegarde du serveur n’est pas configurée sur le serveur, cliquez sur **Configurer la sauvegarde du serveur**.  
   
-    2.  Si la sauvegarde du serveur est configurée sur le serveur, cliquez sur **Personnaliser la sauvegarde du serveur**.  
+   2. Si la sauvegarde du serveur est configurée sur le serveur, cliquez sur **Personnaliser la sauvegarde du serveur**.  
   
-     L’Assistant Configurer la sauvegarde du serveur s’affiche.  
+      L’Assistant Configurer la sauvegarde du serveur s’affiche.  
   
-3.  Dans la page **Sélectionner la destination de sauvegarde**, sélectionnez le nouveau disque dur comme destination de sauvegarde.  
+3. Dans la page **Sélectionner la destination de sauvegarde**, sélectionnez le nouveau disque dur comme destination de sauvegarde.  
   
-4.  Suivez les instructions pour terminer l’Assistant.  
+4. Suivez les instructions pour terminer l’Assistant.  
   
 ###  <a name="BKMK_4c"></a> Utiliser le nouveau disque dur pour augmenter la capacité du pool de stockage  
  Si la capacité de votre pool de stockage est insuffisante, vous recevez une alerte indiquant que vous pouvez augmenter la capacité du pool de stockage en ajoutant un nouveau disque à l’aide de l’Assistant Augmenter la capacité d’un pool de stockage.  
@@ -191,7 +191,7 @@ ms.locfileid: "59842450"
 5.  Suivez les instructions pour terminer l’Assistant.  
   
 ##  <a name="BKMK_5"></a> Vue d’ensemble des espaces de stockage  
- Les espaces de stockage vous permettent de regrouper des disques pour constituer un espace de stockage. Vous pouvez ensuite utiliser la capacité du pool pour créer des espaces de stockage. Les espaces de stockage sont des lecteurs virtuels qui s’affichent sous l’onglet **Disques durs** du tableau de bord. Vous pouvez utiliser des espaces de stockage comme tout autre lecteur, par conséquent, il très facile de travailler avec des fichiers dessus. Lorsque la capacité du pool diminue, vous pouvez créer de plus grands espaces de stockage et ajouter des disques au pool de stockage. Si vous avez deux ou plusieurs disques dans le pool de stockage, vous pouvez créer des espaces de stockage avec un miroir bidirectionnel ne seront pas affecté par une défaillance du lecteur ?, voire la défaillance de deux disques ? si vous créez un espace de stockage en miroir triple.  
+ Les espaces de stockage vous permettent de regrouper des disques pour constituer un espace de stockage. Vous pouvez ensuite utiliser la capacité du pool pour créer des espaces de stockage. Les espaces de stockage sont des lecteurs virtuels qui s’affichent sous l’onglet **Disques durs** du tableau de bord. Vous pouvez utiliser des espaces de stockage comme tout autre lecteur, il est facile de travailler avec des fichiers sur les. Lorsque la capacité du pool diminue, vous pouvez créer de plus grands espaces de stockage et ajouter des disques au pool de stockage. Si vous avez deux ou plusieurs disques dans le pool de stockage, vous pouvez créer des espaces de stockage avec un miroir bidirectionnel ne seront pas affecté par une défaillance du lecteur ?, voire la défaillance de deux disques ? si vous créez un espace de stockage en miroir triple.  
   
  Pour créer un espace de stockage, il vous suffit d’un ou plusieurs disques supplémentaires sur le lecteur sur lequel Windows est installé. Ces lecteurs peuvent être des disques durs internes ou externes, ou encore des disques SSD. Vous pouvez utiliser différents types de lecteurs avec les espaces de stockage, par exemple USB, SATA et SAS.  
   
@@ -212,29 +212,29 @@ ms.locfileid: "59842450"
   
 #### <a name="to-create-a-storage-space-in-windows-server-essentials"></a>Pour créer un espace de stockage dans Windows Server Essentials  
   
-1.  Ajoutez ou connectez tous les lecteurs que vous voulez regrouper dans les espaces de stockage au serveur Windows Server Essentials.  
+1. Ajoutez ou connectez tous les lecteurs que vous voulez regrouper dans les espaces de stockage au serveur Windows Server Essentials.  
   
-2.  Dans le tableau de bord, cliquez sur **avancé : Gérer les espaces de stockage**.  
+2. Dans le tableau de bord, cliquez sur **avancé : Gérer les espaces de stockage**.  
   
-3.  Cliquez sur **Créer un nouveau pool et un nouvel espace de stockage**.  
+3. Cliquez sur **Créer un nouveau pool et un nouvel espace de stockage**.  
   
-4.  Sélectionnez les disques que vous souhaitez ajouter au nouvel espace de stockage, puis cliquez sur **Créer le pool**.  
+4. Sélectionnez les disques que vous souhaitez ajouter au nouvel espace de stockage, puis cliquez sur **Créer le pool**.  
   
-5.  Affectez un nom et une lettre au lecteur, puis choisissez une disposition. Les options **Miroir double**, **Miroir triple** et **Parité** peuvent aider à protéger les fichiers de l’espace de stockage d’une panne de disque.  
+5. Affectez un nom et une lettre au lecteur, puis choisissez une disposition. Les options **Miroir double**, **Miroir triple** et **Parité** peuvent aider à protéger les fichiers de l’espace de stockage d’une panne de disque.  
   
-6.  Entrez la taille maximale que l’espace de stockage peut atteindre, puis cliquez sur **Créer un espace de stockage**.  
+6. Entrez la taille maximale que l’espace de stockage peut atteindre, puis cliquez sur **Créer un espace de stockage**.  
   
- Dans Windows Server Essentials, vous pouvez créer un espace de stockage en miroir double à l’aide de la créer un Assistant d’espace de stockage à du tableau de bord.  
+   Dans Windows Server Essentials, vous pouvez créer un espace de stockage en miroir double à l’aide de la créer un Assistant d’espace de stockage à du tableau de bord.  
   
 #### <a name="to-create-a-storage-space-in-windows-server-essentials"></a>Pour créer un espace de stockage dans Windows Server Essentials  
   
-1.  Ajoutez ou connectez tous les lecteurs que vous voulez regrouper dans les espaces de stockage au serveur Windows Server Essentials.  
+1. Ajoutez ou connectez tous les lecteurs que vous voulez regrouper dans les espaces de stockage au serveur Windows Server Essentials.  
   
-2.  Dans le tableau de bord, cliquez sur l’onglet **Gérer les espaces de stockage**. L’Assistant Créer un espace de stockage s’affiche.  
+2. Dans le tableau de bord, cliquez sur l’onglet **Gérer les espaces de stockage**. L’Assistant Créer un espace de stockage s’affiche.  
   
-3.  Suivez les instructions pour exécuter l'Assistant.  
+3. Suivez les instructions pour exécuter l'Assistant.  
   
- Pour plus d’informations sur l’augmentation de la capacité du pool de stockage, consultez [Use the new hard drive to increase storage pool capacity](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c).  
+   Pour plus d’informations sur l’augmentation de la capacité du pool de stockage, consultez [Use the new hard drive to increase storage pool capacity](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c).  
   
 ## <a name="see-also"></a>Voir aussi  
   

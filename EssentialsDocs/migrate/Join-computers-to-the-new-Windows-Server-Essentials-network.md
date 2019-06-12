@@ -12,12 +12,12 @@ ms.assetid: d94de050-3300-4323-a5ea-c824cb9cecc9
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c6abc11ba2ce8a9f1d32c6a884db6332586de78b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 62f31f859ed3fd0f77baf37d3467d4702b24ad95
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822640"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432917"
 ---
 # <a name="join-computers-to-the-new-windows-server-essentials-network1"></a>Joindre des ordinateurs à la nouvelle network1 de Windows Server Essentials
 
@@ -27,13 +27,13 @@ ms.locfileid: "59822640"
  L’étape suivante du processus de migration consiste à joindre des ordinateurs clients au nouveau réseau Windows Server Essentials et mettre à jour les paramètres de stratégie de groupe.  
   
 ### <a name="domain-joined-client-computers"></a>Ordinateurs clients appartenant à un domaine  
- Accédez à **http://***destination-servername***/ se connecter** et installez le logiciel Connecteur Windows Server comme s’il s’agissait d’un nouvel ordinateur. Le processus d'installation est le même pour les ordinateurs clients appartenant ou non à un domaine.  
+ Accédez à **http://** <em>destination-servername</em> **/connect** et installez le logiciel Connecteur Windows Server comme s’il s’agissait d’un nouvel ordinateur. Le processus d'installation est le même pour les ordinateurs clients appartenant ou non à un domaine.  
   
 > [!NOTE]
 >  Le logiciel Connecteur Windows Server ne prend pas en charge les ordinateurs qui exécutent Windows XP ou Windows Vista. Si vous utilisez des ordinateurs exécutant Windows XP ou Windows Vista qui sont déjà membres du domaine, vous pouvez ignorer cette étape.  
   
 ### <a name="non-domain-joined-client-computers"></a>Ordinateurs clients n'appartenant pas au domaine  
- Accédez à **http://***destination-servername***/ se connecter** et installez le logiciel Connecteur Windows Server comme s’il s’agissait d’un nouvel ordinateur. Le processus d'installation est le même pour les ordinateurs clients appartenant ou non à un domaine.  
+ Accédez à **http://** <em>destination-servername</em> **/connect** et installez le logiciel Connecteur Windows Server comme s’il s’agissait d’un nouvel ordinateur. Le processus d'installation est le même pour les ordinateurs clients appartenant ou non à un domaine.  
   
 > [!NOTE]
 >  Le logiciel Connecteur Windows Server ne prend pas en charge les ordinateurs qui exécutent Windows XP ou Windows Vista. Si vous utilisez des ordinateurs exécutant Windows XP ou Windows Vista qui sont déjà membres du domaine, vous pouvez ignorer cette étape.  

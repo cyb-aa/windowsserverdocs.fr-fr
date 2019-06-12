@@ -12,12 +12,12 @@ ms.assetid: 47e498a6-1b71-47de-88f6-8c13c221d108
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cfc4d1ce461e1e1cbb9b99970355c4dc7241911b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: c78a2a2d950c8542bcf56005eb340ec78619acdb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869690"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433090"
 ---
 # <a name="restore-a-full-system-from-an-existing-client-computer-backup"></a>Restaurer un système complet à partir d’une sauvegarde d’ordinateur client existante
 
@@ -128,11 +128,11 @@ ms.locfileid: "59869690"
   
 > [!NOTE]
 >   Windows Server Essentials ne prend pas en charge les scénarios de restauration suivants :  
->   
->  -   Restaurer un disque de démarrage principal (MBR) à un Extensible Firmware Interface UEFI (Unified) en fonction ordinateur.  
-> -   Restauration d'une sauvegarde UEFI/GPT dans un système BIOS.  
->   
->  Si vous restaurez des données selon l'un de ces scénarios, vous ne serez pas en mesure de lancer le système. De plus, il se peut que vous ne puissiez pas utiliser des disques durs dont la taille dépasse deux téraoctets.  
+> 
+> - Restaurer un disque de démarrage principal (MBR) à un ordinateur basé sur une Unified Extensible Firmware Interface UEFI.  
+>   -   Restauration d'une sauvegarde UEFI/GPT dans un système BIOS.  
+> 
+>   Si vous restaurez des données selon l'un de ces scénarios, vous ne serez pas en mesure de lancer le système. De plus, il se peut que vous ne puissiez pas utiliser des disques durs dont la taille dépasse deux téraoctets.  
   
  **Conditions préalables :**  
   
@@ -149,46 +149,46 @@ ms.locfileid: "59869690"
   
 #### <a name="to-use-the-full-system-restore-wizard"></a>Pour utiliser l'Assistant Restauration complète du système  
   
-1.  Faites une des actions suivantes :  
+1. Faites une des actions suivantes :  
   
-    -   Windows Server Essentials : Allumez l'ordinateur client à restaurer, insérez le support de restauration, puis éteignez l'ordinateur.  
+   -   Windows Server Essentials : Allumez l'ordinateur client à restaurer, insérez le support de restauration, puis éteignez l'ordinateur.  
   
-         Remettez l'ordinateur sous tension et appuyez sur la touche de fonction appropriée (touche F) au cours du test POST (Power On Self Test, autotest de mise sous tension) pour accéder au menu du périphérique d'amorçage. Sélectionnez votre lecteur de CD/DVD-ROM dans ce menu. Cela a pour effet d'ouvrir le Gestionnaire de démarrage Windows.  
+        Remettez l'ordinateur sous tension et appuyez sur la touche de fonction appropriée (touche F) au cours du test POST (Power On Self Test, autotest de mise sous tension) pour accéder au menu du périphérique d'amorçage. Sélectionnez votre lecteur de CD/DVD-ROM dans ce menu. Cela a pour effet d'ouvrir le Gestionnaire de démarrage Windows.  
   
-    -   Windows Server Essentials : Si vous utilisez le service de restauration de client, redémarrez l'ordinateur à l'aide de l'option **Démarrer à partir du réseau**. Sinon, démarrez l'ordinateur à l'aide de la clé USB.  
+   -   Windows Server Essentials : Si vous utilisez le service de restauration de client, redémarrez l'ordinateur à l'aide de l'option **Démarrer à partir du réseau**. Sinon, démarrez l'ordinateur à l'aide de la clé USB.  
   
-         Redémarrez à nouveau l'ordinateur, puis pendant l'autotest de mise sous tension (POST), appuyez sur la touche de fonction appropriée pour accéder au menu du périphérique de démarrage, puis sélectionnez **Démarrer à partir du réseau** (ou vous pouvez choisir de démarrer à partir de la clé USB). Cela a pour effet d'ouvrir le Gestionnaire de démarrage Windows.  
+        Redémarrez à nouveau l'ordinateur, puis pendant l'autotest de mise sous tension (POST), appuyez sur la touche de fonction appropriée pour accéder au menu du périphérique de démarrage, puis sélectionnez **Démarrer à partir du réseau** (ou vous pouvez choisir de démarrer à partir de la clé USB). Cela a pour effet d'ouvrir le Gestionnaire de démarrage Windows.  
   
-    > [!NOTE]
-    >  Reportez-vous à la documentation fournie par le fabricant de votre ordinateur pour connaître la touche de fonction donnant accès au menu du périphérique d'amorçage.  
+   > [!NOTE]
+   >  Reportez-vous à la documentation fournie par le fabricant de votre ordinateur pour connaître la touche de fonction donnant accès au menu du périphérique d'amorçage.  
   
-2.  Le support de restauration de l'ordinateur contient des options de démarrage 32 bits (x86) et 64 bits (x64). Le Gestionnaire de démarrage Windows offre, par conséquent, le choix entre deux options : **Restauration complète du système (x86)** ou **Restauration complète du système (x64)**. Si les pilotes de l'ordinateur sont au format 32 bits, choisissez la première option (x86) ; s'ils sont au format 64 bits, choisissez la deuxième option (x64). Les fichiers Windows sont alors chargés et l'Assistant Restauration complète du système lance une vérification pour s'assurer que tous les pilotes matériels sont disponibles.  
+2. Le support de restauration de l'ordinateur contient des options de démarrage 32 bits (x86) et 64 bits (x64). Le Gestionnaire de démarrage Windows offre, par conséquent, le choix entre deux options : **Restauration complète du système (x86)** ou **Restauration complète du système (x64)** . Si les pilotes de l'ordinateur sont au format 32 bits, choisissez la première option (x86) ; s'ils sont au format 64 bits, choisissez la deuxième option (x64). Les fichiers Windows sont alors chargés et l'Assistant Restauration complète du système lance une vérification pour s'assurer que tous les pilotes matériels sont disponibles.  
   
-3.  Dans la fenêtre **Assistant Restauration complète du système**, choisissez votre langue par défaut, puis cliquez sur la flèche.  
+3. Dans la fenêtre **Assistant Restauration complète du système**, choisissez votre langue par défaut, puis cliquez sur la flèche.  
   
-4.  Choisissez le **Format d’heure et monétaire** et le **Clavier ou méthode d’entrée** pour cet ordinateur. Cliquez sur **Continuer**.  
+4. Choisissez le **Format d’heure et monétaire** et le **Clavier ou méthode d’entrée** pour cet ordinateur. Cliquez sur **Continuer**.  
   
-5.  Si les pilotes sont absents, le message que le processus de restauration ne peut pas vérifier les pilotes s’affiche. Cliquez sur **Fermer**, puis cliquez sur **Charger les pilotes** dans la boîte de dialogue Bienvenue.  
+5. Si les pilotes sont absents, le message que le processus de restauration ne peut pas vérifier les pilotes s’affiche. Cliquez sur **Fermer**, puis cliquez sur **Charger les pilotes** dans la boîte de dialogue Bienvenue.  
   
-    1.  Dans la boîte de dialogue **Détecter le matériel**, clquez sur **Installer les pilotes**.  
+   1.  Dans la boîte de dialogue **Détecter le matériel**, clquez sur **Installer les pilotes**.  
   
-    2.  Insérez le lecteur flash USB contenant les pilotes matériels, puis cliquez sur **Analyser** dans la boîte de dialogue **Installer les pilotes**.  
+   2.  Insérez le lecteur flash USB contenant les pilotes matériels, puis cliquez sur **Analyser** dans la boîte de dialogue **Installer les pilotes**.  
   
-    3.  Dans la boîte de dialogue **Installer les pilotes**, cliquez sur **OK** une fois les pilotes localisés.  
+   3.  Dans la boîte de dialogue **Installer les pilotes**, cliquez sur **OK** une fois les pilotes localisés.  
   
-    4.  Dans la boîte de dialogue **Détecter le matériel** , cliquez sur **Continuer**.  
+   4.  Dans la boîte de dialogue **Détecter le matériel** , cliquez sur **Continuer**.  
   
-6.  Si tous les pilotes ont été identifiés à l'issue de l'analyse initiale ou si tous les pilotes essentiels sont installés, cliquez dans la fenêtre **Restauration complète du système** sur **Continuer**.  
+6. Si tous les pilotes ont été identifiés à l'issue de l'analyse initiale ou si tous les pilotes essentiels sont installés, cliquez dans la fenêtre **Restauration complète du système** sur **Continuer**.  
   
-7.  Dans la page **Bienvenue dans l'Assistant Restauration complète du système**, cliquez sur **Suivant**.  
+7. Dans la page **Bienvenue dans l'Assistant Restauration complète du système**, cliquez sur **Suivant**.  
   
-8.  L'assistant recherche, à présent, votre serveur.  
+8. L'assistant recherche, à présent, votre serveur.  
   
-    1.  S'il ne parvient pas à le localiser, vous pouvez soit relancer la recherche, soit entrer l'adresse IP du serveur.  
+   1.  S'il ne parvient pas à le localiser, vous pouvez soit relancer la recherche, soit entrer l'adresse IP du serveur.  
   
-    2.  Si plusieurs serveurs ont été détectés, vous êtes invité à en sélectionner un.  
+   2.  Si plusieurs serveurs ont été détectés, vous êtes invité à en sélectionner un.  
   
-    3.  Si votre serveur se trouve, le **ouvrir une session sur < Nom_de_votre_serveur\>**  page s’affiche.  
+   3.  Si votre serveur se trouve, le **ouvrir une session sur < Nom_de_votre_serveur\>**  page s’affiche.  
   
 9. Sur le **ouvrir une session sur < Nom_de_votre_serveur\>**  , tapez *< Compte_administrateur\>*  dans le **nom d’utilisateur** zone de texte et le mot de passe dans le **mot de passe** zone de texte, puis cliquez sur **suivant**.  
   
@@ -214,55 +214,55 @@ ms.locfileid: "59869690"
     > [!NOTE]
     >  Cette page ne s'affiche pas si le partitionnement automatique n'est pas pris en charge.  
   
-    1.  **Laisser l'Assistant effectuer une restauration complète de l'ordinateur (recommandé)**. Cette option rétablit l'ordinateur dans l'état où il était juste avant la date et l'heure de la sauvegarde que vous venez de choisir. Si vous choisissez cette option, passez directement à l'étape 15.  
+    1.  **Laisser l'Assistant effectuer une restauration complète de l'ordinateur (recommandé)** . Cette option rétablit l'ordinateur dans l'état où il était juste avant la date et l'heure de la sauvegarde que vous venez de choisir. Si vous choisissez cette option, passez directement à l'étape 15.  
   
-    2.  **Je vais sélectionner les volumes à restaurer (avancé)**. Cette option permet de désigner les volumes que vous avez l'intention de restaurer et d'indiquer l'emplacement de destination. Vous pouvez également créer des partitions sur le disque dur.  
+    2.  **Je vais sélectionner les volumes à restaurer (avancé)** . Cette option permet de désigner les volumes que vous avez l'intention de restaurer et d'indiquer l'emplacement de destination. Vous pouvez également créer des partitions sur le disque dur.  
   
 15. Faites votre choix dans la page **Sélectionner les volumes à restaurer** .  
   
     > [!NOTE]
     >  Cette page est affichée si l'ordinateur source de la restauration ou si le lecteur de destination de la restauration a un espace de stockage inférieur à celui du lecteur source de la sauvegarde.  
   
-    1.  L'assistant tente de faire correspondre les volumes source et de destination. Vérifiez que le mappage par défaut est correct.  
+    1. L'assistant tente de faire correspondre les volumes source et de destination. Vérifiez que le mappage par défaut est correct.  
   
-        1.  Pour désélectionner un volume, cliquez sur la flèche du menu déroulant du volume en question, puis cliquez sur **Aucun**.  
+       1.  Pour désélectionner un volume, cliquez sur la flèche du menu déroulant du volume en question, puis cliquez sur **Aucun**.  
   
-        2.  Lorsque vous avez terminé votre sélection, cliquez sur **Suivant**.  
+       2.  Lorsque vous avez terminé votre sélection, cliquez sur **Suivant**.  
   
-    2.  Si le volume source et le volume de destination ont la même capacité ou si le volume source est plus petit que le volume de destination, ils sont séparés par une flèche de couleur verte. La croix rouge signale, en revanche, un problème d'incompatibilité (le volume source a une capacité supérieure à celle du volume de destination).  
+    2. Si le volume source et le volume de destination ont la même capacité ou si le volume source est plus petit que le volume de destination, ils sont séparés par une flèche de couleur verte. La croix rouge signale, en revanche, un problème d'incompatibilité (le volume source a une capacité supérieure à celle du volume de destination).  
   
-        > [!NOTE]
-        >  Une croix rouge peut également apparaître dans les cas suivants :  
-        >   
-        >  -   La taille de secteurs de disque du volume source volume ne correspond pas à la taille de secteurs de disque du volume de destination. Cela peut se produire si vous remplacez le disque physique avec un disque possédant une taille de secteurs différente ou si vous configurez des espaces de stockage (pouvant avoir des tailles de secteur différentes de celles du disque physique).  
-        > -   Vous avez atteint le nombre limite de clusters. Pour restaurer le volume source vers le volume de destination, vous devez formater le volume de destination avec la même taille du cluster que celle du volume source. Si la taille du volume de destination est trop importante, et si la taille du cluster est trop petite, il se peut que vous atteigniez le nombre limite de clusters.  
+       > [!NOTE]
+       >  Une croix rouge peut également apparaître dans les cas suivants :  
+       > 
+       > - La taille de secteurs de disque du volume source volume ne correspond pas à la taille de secteurs de disque du volume de destination. Cela peut se produire si vous remplacez le disque physique avec un disque possédant une taille de secteurs différente ou si vous configurez des espaces de stockage (pouvant avoir des tailles de secteur différentes de celles du disque physique).  
+       >   -   Vous avez atteint le nombre limite de clusters. Pour restaurer le volume source vers le volume de destination, vous devez formater le volume de destination avec la même taille du cluster que celle du volume source. Si la taille du volume de destination est trop importante, et si la taille du cluster est trop petite, il se peut que vous atteigniez le nombre limite de clusters.  
   
-        1.  Cliquez sur **Exécuter le Gestionnaire de disques (avancé)** et créez un volume de la même taille que le volume réservé au système.  
+       1. Cliquez sur **Exécuter le Gestionnaire de disques (avancé)** et créez un volume de la même taille que le volume réservé au système.  
   
-            > [!NOTE]
-            >  Si un ordinateur client est Extensible Firmware Interface UEFI (Unified) en fonction, vous devez utiliser le **diskpart** outil permettant d’initialiser le disque du système. Pour ce faire, ouvrez une fenêtre de commande (appuyez sur Ctrl+Alt+Maj pendant 5 secondes dans l'environnement WinPE), exécutez **diskpart.exe**, puis exécutez les commandes Diskpart suivantes :  
-            >   
-            >  1.  **DISKPART > disque de la liste**  
-            > 2.  **DISKPART > select disk #** *< disque\>*  
-            > 3.  **DISKPART > Nettoyer**  
-            > 4.  **DISKPART > Convertir gpt**  
-            > 5.  **DISKPART > créez une partition efi taille =** *100* (où *100* est un exemple de taille de partition en Mo, doit être le même que la partition d’origine)  
-            > 6.  **DISKPART > créez une partition msr taille =** *128* (où *128* est un exemple de taille de partition en Mo, doit être le même que la partition d’origine)  
-            > 7.  **DISKPART > Quitter**  
+          > [!NOTE]
+          >  Si un ordinateur client est basée sur une Unified Extensible Firmware Interface UEFI, vous devez utiliser le **diskpart** outil permettant d’initialiser le disque du système. Pour ce faire, ouvrez une fenêtre de commande (appuyez sur Ctrl+Alt+Maj pendant 5 secondes dans l'environnement WinPE), exécutez **diskpart.exe**, puis exécutez les commandes Diskpart suivantes :  
+          > 
+          > 1. **DISKPART > disque de la liste**  
+          >    2. **DISKPART > select disk #** *< disque\>*  
+          >    3. **DISKPART > Nettoyer**  
+          >    4. **DISKPART > Convertir gpt**  
+          >    5. **DISKPART > créez une partition efi taille =** *100* (où *100* est un exemple de taille de partition en Mo, doit être le même que la partition d’origine)  
+          >    6. **DISKPART > créez une partition msr taille =** *128* (où *128* est un exemple de taille de partition en Mo, doit être le même que la partition d’origine)  
+          >    7. **DISKPART > Quitter**  
   
-        2.  *(Facultatif)* Sélectionnez l'option **Ne pas attribuer de lettre de lecteur ni de chemin d'accès de lecteur**.  
+       2. *(Facultatif)* Sélectionnez l'option **Ne pas attribuer de lettre de lecteur ni de chemin d'accès de lecteur**.  
   
-        3.  Formatez le volume au format **NTFS**.  
+       3. Formatez le volume au format **NTFS**.  
   
-        4.  Une fois le formatage terminé, cliquez avec le bouton droit sur le nouveau volume système, puis cliquez sur **Marquer la partition comme active**.  
+       4. Une fois le formatage terminé, cliquez avec le bouton droit sur le nouveau volume système, puis cliquez sur **Marquer la partition comme active**.  
   
-        5.  Pour faire correspondre des volumes supplémentaires aux autres volumes de la sauvegarde, recommencez les étapes *ii* à *iv* pour créer et activer les volumes, puis fermez le **Gestion des disques**.  
+       5. Pour faire correspondre des volumes supplémentaires aux autres volumes de la sauvegarde, recommencez les étapes *ii* à *iv* pour créer et activer les volumes, puis fermez le **Gestion des disques**.  
   
-        6.  A la page **Sélectionner les volumes à restaurer** , mappez le volume réservé à la source de la restauration au volume de même capacité créé à l'étape *v*.  
+       6. A la page **Sélectionner les volumes à restaurer** , mappez le volume réservé à la source de la restauration au volume de même capacité créé à l'étape *v*.  
   
-        7.  Mappez tous les autres volumes source aux volumes de destination correspondants.  
+       7. Mappez tous les autres volumes source aux volumes de destination correspondants.  
   
-        8.  Cliquez sur **Suivant** pour poursuivre la restauration.  
+       8. Cliquez sur **Suivant** pour poursuivre la restauration.  
   
 16. A la page **Confirmer les volumes à restaurer** , examinez les détails des mappages, puis cliquez sur **Suivant**. Si vous avez besoin d'effectuer des modifications, cliquez sur **Retour**, puis répétez l'étape 14.  
   
@@ -274,30 +274,30 @@ ms.locfileid: "59869690"
     >  Si le chiffrement de lecteur BitLocker était activé sur l'ordinateur avant que ne débute la restauration, vous devez activer BitLocker manuellement après le redémarrage de l'ordinateur.  
   
 ##  <a name="BKMK_FindDrivers"></a> Où puis-je trouver les pilotes à mon matériel ?  
- Selon que l'ordinateur de destination a déjà fait ou non l'objet d'une restauration, le support de restauration risque de ne pas contenir l'ensemble des pilotes de stockage et de carte réseau nécessaires au redémarrage de votre ordinateur restauré. Vous devez déterminer quels pilotes sont manquants, rechercher ces pilotes sur un support existant ou sur le site Web de s fabricant, copiez-les sur un lecteur flash, puis les copier à partir du lecteur flash vers le nouveau ou ordinateur restauré lorsque vous exécutez l’Assistant Restauration complète du système.  
+ Selon que l'ordinateur de destination a déjà fait ou non l'objet d'une restauration, le support de restauration risque de ne pas contenir l'ensemble des pilotes de stockage et de carte réseau nécessaires au redémarrage de votre ordinateur restauré. Vous devez déterminer quels pilotes sont manquants, rechercher ces pilotes sur un support existant ou sur le site Web du fabricant, copiez-les sur un lecteur flash, puis les copier à partir du lecteur flash vers le nouveau ou ordinateur restauré lorsque vous exécutez l’Assistant Restauration complète du système.  
   
  Lors de la sauvegarde d'un ordinateur, les pilotes installés sur cet ordinateur sont intégrés à la sauvegarde. Si votre support de restauration ne contient pas tous les pilotes dont vous avez besoin, vous pouvez ouvrir une sauvegarde de cet ordinateur et copier les pilotes sur un lecteur flash USB.  
   
 #### <a name="to-copy-drivers-from-a-backup-to-a-usb-flash-drive"></a>Pour copier des pilotes à partir d'une sauvegarde sur un lecteur flash USB  
   
-1.  Sur un autre ordinateur, ouvrez le Tableau de bord.  
+1. Sur un autre ordinateur, ouvrez le Tableau de bord.  
   
-2.  Cliquez sur **Périphériques**, puis cliquez sur l'ordinateur pour lequel vous avez besoin de pilotes.  
+2. Cliquez sur **Périphériques**, puis cliquez sur l'ordinateur pour lequel vous avez besoin de pilotes.  
   
-3.  Cliquez sur **Restaurer des fichiers ou des dossiers de l'ordinateur**. L'Assistant Restauration de fichiers ou de dossiers s'ouvre.  
+3. Cliquez sur **Restaurer des fichiers ou des dossiers de l'ordinateur**. L'Assistant Restauration de fichiers ou de dossiers s'ouvre.  
   
-4.  Cliquez sur la dernière sauvegarde réussie, puis cliquez sur **Suivant**.  
+4. Cliquez sur la dernière sauvegarde réussie, puis cliquez sur **Suivant**.  
   
-5.  Cliquez sur un volume pour l'ouvrir, puis cliquez sur **Suivant**. Une fenêtre affiche la liste des fichiers et des dossiers contenus dans la sauvegarde.  
+5. Cliquez sur un volume pour l'ouvrir, puis cliquez sur **Suivant**. Une fenêtre affiche la liste des fichiers et des dossiers contenus dans la sauvegarde.  
   
-6.  Insérez votre lecteur flash USB dans un connecteur USB de l'ordinateur, puis copiez le dossier Pilotes pour la restauration complète du système sur votre lecteur flash USB.  
+6. Insérez votre lecteur flash USB dans un connecteur USB de l'ordinateur, puis copiez le dossier Pilotes pour la restauration complète du système sur votre lecteur flash USB.  
   
-    > [!NOTE]
-    >  Vous devrez éventuellement cliquer sur **Dossier parent** pour atteindre la racine du volume système.  
+   > [!NOTE]
+   >  Vous devrez éventuellement cliquer sur **Dossier parent** pour atteindre la racine du volume système.  
   
-7.  Retirez le lecteur flash USB, puis insérez-le dans l'ordinateur à restaurer.  
+7. Retirez le lecteur flash USB, puis insérez-le dans l'ordinateur à restaurer.  
   
- Vous pouvez vous servir du lecteur flash USB pour installer les pilotes de votre ordinateur lors de sa restauration. L'Assistant Restauration de fichiers ou de dossiers vérifie automatiquement la présence de pilotes supplémentaires sur ce lecteur flash USB lorsque vous exécutez l'Assistant Restauration complète du système. Le pilote de la carte réseau et les pilotes des périphériques de stockage sont généralement ceux dont vous aurez le plus besoin.  
+   Vous pouvez vous servir du lecteur flash USB pour installer les pilotes de votre ordinateur lors de sa restauration. L'Assistant Restauration de fichiers ou de dossiers vérifie automatiquement la présence de pilotes supplémentaires sur ce lecteur flash USB lorsque vous exécutez l'Assistant Restauration complète du système. Le pilote de la carte réseau et les pilotes des périphériques de stockage sont généralement ceux dont vous aurez le plus besoin.  
   
 ## <a name="see-also"></a>Voir aussi  
   

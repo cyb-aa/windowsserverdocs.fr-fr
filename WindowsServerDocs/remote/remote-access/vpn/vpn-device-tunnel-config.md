@@ -9,16 +9,16 @@ ms.assetid: 158b7a62-2c52-448b-9467-c00d5018f65b
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: 005721873ad3a0df942bc9e23eba13728965ccba
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 989216f90e78689b464240cff957bab1d9c1229b
+ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864550"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749570"
 ---
 # <a name="configure-vpn-device-tunnels-in-windows-10"></a>Configurer des tunnels de périphérique VPN dans Windows 10
 
->S'applique à : Windows 10 version 1709
+>S’applique à : Windows 10 version 1709
 
 VPN Always On vous donne la possibilité de créer un profil VPN dédié pour le périphérique ou ordinateur. Les connexions VPN Always On incluent deux types de tunnels : 
 
@@ -92,22 +92,23 @@ Voici le profileXML VPN exemple.
 Selon les besoins de chaque scénario de déploiement spécifique, une autre fonctionnalité VPN peut être configurée avec le tunnel de l’appareil est [détection de réseau approuvé](https://social.technet.microsoft.com/wiki/contents/articles/38546.new-features-for-vpn-in-windows-10-and-windows-server-2016.aspx#Trusted_Network_Detection).
 
 ```
- <!-- inside/outside detection --> 
-  <TrustedNetworkDetection>corp.contoso.com</TrustedNetworkDetection> 
+ <!-- inside/outside detection -->
+  <TrustedNetworkDetection>corp.contoso.com</TrustedNetworkDetection>
 ```
 
 ## <a name="deployment-and-testing"></a>Déploiement et le test
 
-Vous pouvez configurer des tunnels de périphérique en utilisant un script Windows PowerShell et à l’aide de l’Instrumentation de gestion Windows \(WMI\) pont. Le tunnel de périphérique VPN Always On doit être configuré dans le contexte de la **système LOCAL** compte. Pour ce faire, il sera nécessaire d’utiliser [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec), l’un de le [PsTools](https://docs.microsoft.com/sysinternals/downloads/pstools) inclus dans le [Sysinternals](https://docs.microsoft.com/sysinternals/) suite d’utilitaires.
+Vous pouvez configurer des tunnels de périphérique en utilisant un script Windows PowerShell et à l’aide de la passerelle de Windows Management Instrumentation (WMI). Le tunnel de périphérique VPN Always On doit être configuré dans le contexte de la **système LOCAL** compte. Pour ce faire, il sera nécessaire d’utiliser [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec), l’un de le [PsTools](https://docs.microsoft.com/sysinternals/downloads/pstools) inclus dans le [Sysinternals](https://docs.microsoft.com/sysinternals/) suite d’utilitaires.
 
-Pour obtenir des instructions sur la façon de déployer une par appareil `(.\Device)` et un par utilisateur `(.\User)` Profiler, consultez [PowerShell à l’aide de scripts avec le fournisseur de pont WMI](https://docs.microsoft.com/windows/client-management/mdm/using-powershell-scripting-with-the-wmi-bridge-provider). 
+Pour obtenir des instructions sur la façon de déployer une par appareil `(.\Device)` et un par utilisateur `(.\User)` Profiler, consultez [PowerShell à l’aide de scripts avec le fournisseur de pont WMI](https://docs.microsoft.com/windows/client-management/mdm/using-powershell-scripting-with-the-wmi-bridge-provider).
 
 Exécutez la commande Windows PowerShell suivante pour vérifier que vous avez déployé un profil d’appareil :
 
-    `Get-VpnConnection -AllUserConnection`
+  ```powershell
+  Get-VpnConnection -AllUserConnection
+  ```
 
 La sortie affiche une liste de l’appareil\-larges profils VPN déployés sur l’appareil.
-
 
 ### <a name="example-windows-powershell-script"></a>Exemple de Script Windows PowerShell
 
@@ -170,15 +171,15 @@ Voici des ressources supplémentaires pour aider à votre déploiement de VPN.
 
 ### <a name="vpn-client-configuration-resources"></a>Ressources de configuration de client VPN
 
-Il s’agit de ressources de configuration de client VPN.
+Ressources de configuration de client VPN sont les suivantes :
 
 - [Comment créer des profils VPN dans System Center Configuration Manager](https://docs.microsoft.com/sccm/protect/deploy-use/create-vpn-profiles)
 - [Configurer les clients Windows 10 toujours sur les connexions VPN](always-on-vpn/deploy/vpn-deploy-client-vpn-connections.md)
 - [Options de profil VPN](https://docs.microsoft.com/windows/access-protection/vpn/vpn-profile-options)
 
-### <a name="remote-access-server-ras-gateway-resources"></a>Serveur d’accès à distance \(RAS\) ressources de passerelle
+### <a name="remote-access-server-gateway-resources"></a>Ressources de passerelle de serveur d’accès à distance
 
-Voici les ressources de passerelle RAS.
+Ressources de passerelle de serveur d’accès distant (RAS) sont les suivantes :
 
 - [Configurer RRAS avec un certificat d’authentification d’ordinateur](https://technet.microsoft.com/library/dd458982.aspx)
 - [Résolution des problèmes de connexions VPN IKEv2](https://technet.microsoft.com/library/dd941612.aspx)
@@ -187,4 +188,3 @@ Voici les ressources de passerelle RAS.
 >[!IMPORTANT]
 >Lorsque vous utilisez le Tunnel de l’appareil avec une passerelle RAS de Microsoft, vous devez configurer le serveur RRAS pour prendre en charge l’authentification de certificat IKEv2 machine en activant le **autoriser l’authentification de certificat ordinateur pour IKEv2** méthode d’authentification comme décrit [ici](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee922682%28v=ws.10%29). Une fois que ce paramètre est activé, il est fortement recommandé que le **Set-VpnAuthProtocol** applet de commande PowerShell avec le **RootCertificateNameToAccept** paramètre facultatif, est utilisé pour vous assurer que Connexions RRAS IKEv2 sont uniquement autorisées pour les certificats de client VPN qui sont liés à une défini explicitement interne/privée autorité de Certification racine. Vous pouvez également le **Trusted Root Certification Authorities** store sur le serveur RRAS doit être modifié pour garantir qu’elle ne contient pas les autorités de certification publique, comme indiqué [ici](https://blogs.technet.microsoft.com/rrasblog/2009/06/10/what-type-of-certificate-to-install-on-the-vpn-server/). Méthodes similaires serez peut-être amené à prendre en compte pour les autres passerelles VPN.
 
----

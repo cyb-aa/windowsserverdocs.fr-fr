@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9f4a8c51e7add429aab326804af698fed7007999
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 83bb010af4bfbf38ce41001d6a6001d5a3996090
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887220"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441920"
 ---
 # <a name="reg-compare"></a>comparaison de reg
 
@@ -36,19 +36,19 @@ reg compare <KeyName1> <KeyName2> [{/v ValueName | /ve}] [{/oa | /od | /os | on}
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|\<KeyName1>|Spécifie le chemin d’accès complet de la première sous-clé à comparer. Pour spécifier un ordinateur distant, incluez le nom d’ordinateur (au format \\ \\ComputerName\) dans le cadre de la *KeyName*. En omettant \\ \\ComputerName\, l’opération par défaut sur l’ordinateur local. Le *KeyName* doit inclure une clé racine valide. Les clés racine valide pour l’ordinateur local sont : HKLM, HKCU, HKCR, HKU et HKCC. Si un ordinateur distant est spécifié, les clés racines valides sont : HKLM et HKU.|
-|\<KeyName2>|Spécifie le chemin d’accès complet de la deuxième sous-clé à comparer. Pour spécifier un ordinateur distant, incluez le nom d’ordinateur (au format \\ \\ComputerName\) dans le cadre de la *KeyName*. En omettant \\ \\ComputerName\, l’opération par défaut sur l’ordinateur local. En spécifiant uniquement le nom d’ordinateur dans *Nom_de_clé2* , l’opération à utiliser le chemin d’accès à la sous-clé spécifiée dans *Nomclé1*. Le *KeyName* doit inclure une clé racine valide. Les clés racine valide pour l’ordinateur local sont : HKLM, HKCU, HKCR, HKU et HKCC. Si un ordinateur distant est spécifié, les clés racines valides sont : HKLM et HKU.|
-|/v \<ValueName>|Spécifie le nom de la valeur à comparer sous la sous-clé.|
-|/ve|Spécifie que seules les écritures ayant un nom de valeur NULL doivent être comparées.|
-|[{/oa | /od | /os | on}]|Spécifie comment afficher les résultats de l’opération de comparaison. La valeur par défaut est **/od**. Consultez les options ci-dessous.|
-|/oa|Spécifie que toutes les différences et les correspondances sont affichées. Par défaut, seules les différences sont répertoriées.|
-|/od|Spécifie que les seules différences sont affichées. Il s’agit du comportement par défaut.|
-|/os|Indique que seuls les résultats sont affichés. Par défaut, seules les différences sont répertoriées.|
-|/On|Spécifie que rien ne s’affiche. Par défaut, seules les différences sont répertoriées.|
-|/s|Compare de manière récursive toutes les sous-clés et entrées.|
-|/?|Affiche l’aide de **reg compare** à l’invite de commandes.|
+|    Paramètre    |                                                                                                                                                                                                                                                                                          Description                                                                                                                                                                                                                                                                                           |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   \<KeyName1>   |                                                               Spécifie le chemin d’accès complet de la première sous-clé à comparer. Pour spécifier un ordinateur distant, incluez le nom d’ordinateur (au format \\ \\ComputerName\) dans le cadre de la *KeyName*. En omettant \\ \\ComputerName\, l’opération par défaut sur l’ordinateur local. Le *KeyName* doit inclure une clé racine valide. Les clés racine valide pour l’ordinateur local sont : HKLM, HKCU, HKCR, HKU et HKCC. Si un ordinateur distant est spécifié, les clés racines valides sont : HKLM et HKU.                                                                |
+|   \<KeyName2>   | Spécifie le chemin d’accès complet de la deuxième sous-clé à comparer. Pour spécifier un ordinateur distant, incluez le nom d’ordinateur (au format \\ \\ComputerName\) dans le cadre de la *KeyName*. En omettant \\ \\ComputerName\, l’opération par défaut sur l’ordinateur local. En spécifiant uniquement le nom d’ordinateur dans *Nom_de_clé2* , l’opération à utiliser le chemin d’accès à la sous-clé spécifiée dans *Nomclé1*. Le *KeyName* doit inclure une clé racine valide. Les clés racine valide pour l’ordinateur local sont : HKLM, HKCU, HKCR, HKU et HKCC. Si un ordinateur distant est spécifié, les clés racines valides sont : HKLM et HKU. |
+| /v \<ValueName> |                                                                                                                                                                                                                                                                     Spécifie le nom de la valeur à comparer sous la sous-clé.                                                                                                                                                                                                                                                                      |
+|       /ve       |                                                                                                                                                                                                                                                         Spécifie que seules les écritures ayant un nom de valeur NULL doivent être comparées.                                                                                                                                                                                                                                                         |
+|      [{/oa      |                                                                                                                                                                                                                                                                                              /od                                                                                                                                                                                                                                                                                               |
+|       /oa       |                                                                                                                                                                                                                                             Spécifie que toutes les différences et les correspondances sont affichées. Par défaut, seules les différences sont répertoriées.                                                                                                                                                                                                                                             |
+|       /od       |                                                                                                                                                                                                                                                          Spécifie que les seules différences sont affichées. Il s’agit du comportement par défaut.                                                                                                                                                                                                                                                          |
+|       /os       |                                                                                                                                                                                                                                                    Indique que seuls les résultats sont affichés. Par défaut, seules les différences sont répertoriées.                                                                                                                                                                                                                                                     |
+|       /On       |                                                                                                                                                                                                                                                       Spécifie que rien ne s’affiche. Par défaut, seules les différences sont répertoriées.                                                                                                                                                                                                                                                        |
+|       /s        |                                                                                                                                                                                                                                                                         Compare de manière récursive toutes les sous-clés et entrées.                                                                                                                                                                                                                                                                          |
+|       /?        |                                                                                                                                                                                                                                                                    Affiche l’aide de **reg compare** à l’invite de commandes.                                                                                                                                                                                                                                                                    |
 
 ## <a name="remarks"></a>Notes
 
@@ -84,4 +84,4 @@ COMPARAISON de REG \\ \\ZODIAC\HKLM\Software\MyCo \\ \\. /s
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
