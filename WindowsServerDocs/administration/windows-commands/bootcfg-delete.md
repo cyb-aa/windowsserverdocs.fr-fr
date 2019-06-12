@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0605e8dfaaf1631da02ac320aa8748d7a34f3fed
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 37f30a181402fe8a74148b42398641af3c4846b9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840400"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434765"
 ---
 # <a name="bootcfg-delete"></a>bootcfg delete
 
@@ -31,13 +31,15 @@ Supprime une entrée de système d’exploitation dans la section [operating sys
 bootcfg /delete [/s <computer> [/u <Domain>\<User> /p <Password>]] [/id <OSEntryLineNum>]
 ```
 ## <a name="parameters"></a>Paramètres
-|Terme|Définition|
-|----|-------|
-|/s <computer>|Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.|
-|/u <Domain>\\<User>|Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User>ou <Domain> \\ <User>. La valeur par défaut est les autorisations de l’utilisateur actuellement connecté sur l’ordinateur exécutant la commande.|
-|/p <Password>|Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** paramètre.|
-|/id <OSEntryLineNum>|Spécifie le numéro de ligne d’entrée système d’exploitation dans la section [operating systems] du fichier Boot.ini à supprimer. La première ligne après l’en-tête de section de la section [operating systems] est 1.|
-|/?|Affiche l'aide à l'invite de commandes.|
+
+|         Terme         |                                                                                             Définition                                                                                              |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    /s <computer>     |                                         Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.                                          |
+| /u <Domain>\\<User>  | Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User>ou <Domain> \\ <User>. La valeur par défaut est les autorisations de l’utilisateur actuellement connecté sur l’ordinateur exécutant la commande. |
+|    /p <Password>     |                                                        Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** paramètre.                                                        |
+| /id <OSEntryLineNum> |        Spécifie le numéro de ligne d’entrée système d’exploitation dans la section [operating systems] du fichier Boot.ini à supprimer. La première ligne après l’en-tête de section de la section [operating systems] est 1.        |
+|          /?          |                                                                                Affiche l'aide à l'invite de commandes.                                                                                 |
+
 ## <a name="BKMK_examples"></a>Exemples
 Les exemples suivants montrent comment vous pouvez utiliser la **bootcfg /delete**commande :
 ```
@@ -45,4 +47,4 @@ bootcfg /delete /id 1
 bootcfg /delete /s srvmain /u maindom\hiropln /p p@ssW23 /id 3
 ```
 #### <a name="additional-references"></a>Références supplémentaires
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

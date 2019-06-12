@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 095cd2ad799857b789943b4f477aa9e6a8c3ae50
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 506072251b77362f3dc35faa0c976f396f7f6034
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815180"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435483"
 ---
 # <a name="manage-software-inventory-logging"></a>Gérer la journalisation de l'inventaire logiciel
 
@@ -121,7 +121,7 @@ Collection quotidienne de journalisation de l’inventaire logiciel et de transf
 ## <a name="configuring-software-inventory-logging"></a>Configuration de la journalisation de l’inventaire logiciel  
 Il existe trois étapes de configuration de la journalisation de l’inventaire logiciel pour transmettre des données à un serveur d’agrégation dans le temps :  
   
-1.  Utilisez **Set-SilLogging – TargetUri** pour spécifier l’adresse web de votre serveur d’agrégation (elle doit commencer par « https:// ?).  
+1.  Utilisez **Set-SilLogging – TargetUri** pour spécifier l’adresse web de votre serveur d’agrégation (elle doit commencer par « https:// »).  
   
 2.  Utilisez **Set-SilLogging –CertificateThumbprint** pour spécifier le hachage d’empreinte de votre certificat SSL valide à utiliser pour authentifier les transmissions de données vers votre serveur d’agrégation (celui-ci devra être configuré pour accepter le hachage).  
   
@@ -140,17 +140,17 @@ Si un administrateur a démarré la journalisation de l’inventaire logiciel, l
 ## <a name="BKMK_Step3"></a>Affichage des données de journalisation de l’inventaire logiciel  
 Outres les applets de commande PowerShell décrites dans la section précédente, six autres applets de commande peuvent être utilisées pour collecter des données de journalisation de l’inventaire logiciel :  
   
--   **[Get-SilComputer](https://technet.microsoft.com/library/dn283392.aspx)**: affiche les valeurs à un moment donné pour des données relatives à un serveur et un système d’exploitation spécifiques, ainsi que le nom de domaine complet ou le nom de l’hôte physique, si disponible.  
+-   **[Get-SilComputer](https://technet.microsoft.com/library/dn283392.aspx)** : affiche les valeurs à un moment donné pour des données relatives à un serveur et un système d’exploitation spécifiques, ainsi que le nom de domaine complet ou le nom de l’hôte physique, si disponible.  
   
--   **[Get-SilComputerIdentity (KB 3000850)](https://technet.microsoft.com/library/dn858074.aspx)**: affiche les identificateurs utilisés par SIL pour des serveurs individuels.  
+-   **[Get-SilComputerIdentity (KB 3000850)](https://technet.microsoft.com/library/dn858074.aspx)** : affiche les identificateurs utilisés par SIL pour des serveurs individuels.  
   
--   **[Get-SilData](https://technet.microsoft.com/library/dn283388.aspx)**: affiche une collection à un moment donné de toutes les données de journalisation de l’inventaire logiciel.  
+-   **[Get-SilData](https://technet.microsoft.com/library/dn283388.aspx)** : affiche une collection à un moment donné de toutes les données de journalisation de l’inventaire logiciel.  
   
--   **[Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx)**: affiche l’identité à un moment donné de tous les logiciels installés sur l’ordinateur.  
+-   **[Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx)** : affiche l’identité à un moment donné de tous les logiciels installés sur l’ordinateur.  
   
--   **[Get-SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx)**: affiche le nombre total de demandes de périphérique client et de demandes d’utilisateur client uniques au serveur à partir de deux jours antérieurs.  
+-   **[Get-SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx)** : affiche le nombre total de demandes de périphérique client et de demandes d’utilisateur client uniques au serveur à partir de deux jours antérieurs.  
   
--   **[Get-SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx)**: affiche la liste à un moment donné de toutes les mises à jour de Windows installées sur l’ordinateur.  
+-   **[Get-SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx)** : affiche la liste à un moment donné de toutes les mises à jour de Windows installées sur l’ordinateur.  
   
 Un scénario typique d’utilisation d’applets de commande de la journalisation de l’inventaire logiciel consisterait en un administrateur qui interrogerait la journalisation de l’inventaire logiciel à un moment donné de la collection de toutes les données de journalisation de l’inventaire logiciel à l’aide de [Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx).  
   
@@ -206,13 +206,13 @@ La journalisation de l’inventaire logiciel n’est pas destinée à être un c
   
 #### <a name="to-delete-data-logged-by-software-inventory-logging"></a>Pour supprimer les données consignées par la journalisation de l’inventaire logiciel  
   
-1.  Dans PowerShell, arrêtez la journalisation de l’inventaire logiciel avec la commande **[Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)** .  
+1. Dans PowerShell, arrêtez la journalisation de l’inventaire logiciel avec la commande **[Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)** .  
   
-2.  Ouvrez l’Explorateur Windows.  
+2. Ouvrez l’Explorateur Windows.  
   
-3.  Go to **\Windows\System32\Logfiles\SIL\**  
+3. Accédez à **\Windows\System32\Logfiles\SIL\\**  
   
-4.  Supprimez tous les fichiers de ce dossier.  
+4. Supprimez tous les fichiers de ce dossier.  
   
 ## <a name="BKMK_Step5"></a>Sauvegarde et restauration des données consignées par la journalisation de l’inventaire logiciel  
 La journalisation de l’inventaire logiciel stocke temporairement les collections de données effectuées toutes les heures si le transfert sur le réseau échoue. Les fichiers journaux sont stockés dans le répertoire \Windows\System32\LogFiles\SIL\. Les sauvegardes des données de journalisation de l’inventaire logiciel peuvent être effectuées avec vos sauvegardes planifiées du serveur.  
@@ -237,9 +237,9 @@ Toutes les données stockées localement sur un serveur Windows (se produit uniq
   
 -   Lorsque vous utilisez [Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) - TimeOfDay pour définir le moment auquel la journalisation SIL s’exécute, vous devez spécifier une date et une heure. La date du calendrier est définie et la journalisation n’a pas lieu tant que la date n’est pas atteinte, en heure locale du système.  
   
--   Lorsque vous utilisez [Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx), ou [Get-SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx), « InstallDate ? affichera toujours 12:00:00 AM, une valeur sans signification.  
+-   Lorsque vous utilisez [Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx), ou [Get-SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx), « InstallDate » affichera toujours les 12:00:00 AM, une valeur sans signification.  
   
--   Lorsque vous utilisez [Get-SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx), « SampleDate ? affichera toujours 11:59:00 PM, une valeur sans signification.  La date est la donnée pertinente pour ces requêtes d’applet de commande.  
+-   Lorsque vous utilisez [Get-SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx), « SampleDate » affichera toujours 11:59:00 PM, une valeur sans signification.  La date est la donnée pertinente pour ces requêtes d’applet de commande.  
   
 ## <a name="BKMK_Step10"></a>Activation et configuration de journalisation dans un disque dur virtuel monté de l’inventaire logiciel  
 La journalisation de l’inventaire logiciel prend également en charge la configuration et l’activation sur des ordinateurs virtuels hors connexion. Les utilisations pratiques couvrent les paramètres « d’image gold » pour déploiement à grande échelle entre les centres de données, ainsi que la configuration des images des utilisateurs finaux allant d’un site à un déploiement de cloud.  
@@ -256,11 +256,11 @@ Pour prendre en charge ces utilisations, la journalisation de l’inventaire log
   
 Pour modifier ces valeurs sur un disque dur virtuel hors connexion (système d’exploitation de l’ordinateur inactif), un disque dur virtuel doit tout d’abord être monté, et ensuite les commandes suivantes peuvent être utilisées pour apporter des modifications :  
   
--   [charge de reg](https://technet.microsoft.com/library/cc742053.aspx)  
+-   [Reg load](https://technet.microsoft.com/library/cc742053.aspx)  
   
 -   [Reg delete](https://technet.microsoft.com/library/cc742145.aspx)  
   
--   [Ajout de reg](https://technet.microsoft.com/library/cc742162.aspx)  
+-   [Reg add](https://technet.microsoft.com/library/cc742162.aspx)  
   
 -   [Reg unload](https://technet.microsoft.com/library/cc742043.aspx)  
   
@@ -297,7 +297,7 @@ Voici deux exemples de démarrage de machine virtuelle avec la journalisation SI
   
 ## <a name="see-also"></a>Voir aussi  
 [Bien démarrer avec le logiciel de journalisation de l’inventaire](get-started-with-software-inventory-logging.md)  
-[Software Inventory Logging Aggregator](software-inventory-logging-aggregator.md)  
+[Agrégateur de journalisation de l’inventaire logiciel](software-inventory-logging-aggregator.md)  
 [Applets de commande journalisation de l’inventaire logiciel dans Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx)  
 [Import-BinaryMiLog](https://technet.microsoft.com/library/dn262592.aspx)  
 [Export-BinaryMiLog](https://technet.microsoft.com/library/dn262591.aspx)  

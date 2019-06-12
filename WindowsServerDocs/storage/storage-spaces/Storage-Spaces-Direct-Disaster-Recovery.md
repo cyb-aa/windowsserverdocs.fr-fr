@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 03/29/2018
 description: Cet article décrit les scénarios disponibles dès aujourd'hui pour la récupération d’urgence de Microsoft HCI (espaces de stockage Direct)
 ms.localizationpriority: medium
-ms.openlocfilehash: 32bbf02ca78d5c6a2147162768c984d0e0b27e36
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c844c56c3a1717658bcdb970e78d45b5cdda861c
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879590"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453121"
 ---
 # <a name="disaster-recovery-with-storage-spaces-direct"></a>Récupération d’urgence avec les espaces de stockage Direct
 
@@ -41,7 +41,7 @@ Une fonctionnalité importante du réplica de stockage est qu’il peut être ex
 
 Dans ce scénario, il existe deux clusters indépendants distincts. Pour configurer le réplica de stockage entre HCL, vous pouvez suivre les étapes décrites dans [réplication de stockage de Cluster à cluster](../storage-replica/cluster-to-cluster-storage-replication.md).
 
-![Diagramme de la réplication de stockage](media\storage-spaces-direct-disaster-recovery\Disaster-Recovery-Figure1.png)
+![Diagramme de la réplication de stockage](media/storage-spaces-direct-disaster-recovery/Disaster-Recovery-Figure1.png)
 
 Les considérations suivantes s’appliquent lors du déploiement de réplica de stockage. 
 
@@ -56,7 +56,7 @@ Le réplica de stockage peut être utilisé si vous avez des machines virtuelles
 
 [Réplica Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica) fournit la réplication au niveau des machines virtuelles pour la récupération d’urgence sur des infrastructures hyperconvergé. Ce que peut faire le réplica Hyper-V est à prendre une machine virtuelle et la réplique sur un site secondaire ou sur Azure (réplica). Puis à partir du site secondaire, réplica Hyper-V peut répliquer la machine virtuelle à un tiers (réplica étendu).
 
-![Diagramme de la réplication Hyper-V](media\storage-spaces-direct-disaster-recovery\Disaster-Recovery-Figure2.png)
+![Diagramme de la réplication Hyper-V](media/storage-spaces-direct-disaster-recovery/Disaster-Recovery-Figure2.png)
 
 Avec le réplica Hyper-V, la réplication est pris en charge par Hyper-V. Lorsque vous activez tout d’abord une machine virtuelle pour la réplication, il existe trois options pour la façon dont vous souhaitez la copie initiale pour être envoyées pour les clusters de réplica correspondant.
 

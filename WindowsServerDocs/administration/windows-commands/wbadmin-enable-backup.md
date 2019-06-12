@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6fd0bea5da83ca9351d5ea1028c94392bdb40422
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 08a9754b6bb11c50e21ba0d30543761be1866326
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845540"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440252"
 ---
 # <a name="wbadmin-enable-backup"></a>Activer la sauvegarde WBADMIN
 
@@ -76,7 +76,6 @@ wbadmin enable backup
 [-password:<Password>]
 [-quiet] 
 [-allowDeleteOldBackups]
-
 ```
 
 ## <a name="parameters"></a>Paramètres
@@ -109,28 +108,28 @@ Pour afficher la valeur d’identificateur de disque pour vos disques, tapez **w
 Les exemples suivants montrent comment la **wbadmin activer la sauvegarde** commande peut être utilisée dans différents scénarios de sauvegarde :
 
 Scénario #1
--   Planifier des sauvegardes de disques durs e:, d:\mountpoint, et \\ \\? \Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
--   Enregistrer les fichiers sur le disque DiskID
--   Exécuter des sauvegardes tous les jours à 9 h 00 et 18 h 00.
-```
-wbadmin enable backup -addtarget:DiskID -schedule:09:00,18:00 -include:e:,d:\mountpoint,\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
-```
-Scénario #2
--   Planifier des sauvegardes du dossier d:\documents à l’emplacement réseau \\ \\backupshare\backup1
--   Utilisez les informations d’identification réseau pour l’administrateur de sauvegarde Aaren Ekelund (aekel), qui est membre du domaine CONTOSOEAST pour authentifier l’accès au partage réseau. Mot de passe de Aaren *$3 hM 9 ^ 5lp*.
--   Exécuter des sauvegardes tous les jours à 12 h 00 et 7 h 00.
-```
-wbadmin enable backup –addtarget:\\backupshare\backup1 –include: d:\documents –user:CONTOSOEAST\aekel –password:$3hM9^5lp –schedule:00:00,19:00
-```
-Scénario #3
--   Planifier des sauvegardes de volume des d:\documents t: et de dossier pour le lecteur h:, mais exclure le dossier d:\documents\~tmp
--   Effectuer une sauvegarde complète à l’aide du Service de cliché instantané de Volume.
--   Exécution de sauvegardes quotidiennement à 1 h 00
-```
-wbadmin enable backup –addtarget:H: –include T:,D:\documents –exclude D:\documents\~tmp –vssfull –schedule:01:00
-```
+- Planifier des sauvegardes de disques durs e:, d:\mountpoint, et \\ \\? \Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
+- Enregistrer les fichiers sur le disque DiskID
+- Exécuter des sauvegardes tous les jours à 9 h 00 et 18 h 00.
+  ```
+  wbadmin enable backup -addtarget:DiskID -schedule:09:00,18:00 -include:e:,d:\mountpoint,\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
+  ```
+  Scénario #2
+- Planifier des sauvegardes du dossier d:\documents à l’emplacement réseau \\ \\backupshare\backup1
+- Utilisez les informations d’identification réseau pour l’administrateur de sauvegarde Aaren Ekelund (aekel), qui est membre du domaine CONTOSOEAST pour authentifier l’accès au partage réseau. Mot de passe de Aaren *$3 hM 9 ^ 5lp*.
+- Exécuter des sauvegardes tous les jours à 12 h 00 et 7 h 00.
+  ```
+  wbadmin enable backup –addtarget:\\backupshare\backup1 –include: d:\documents –user:CONTOSOEAST\aekel –password:$3hM9^5lp –schedule:00:00,19:00
+  ```
+  Scénario #3
+- Planifier des sauvegardes de volume des d:\documents t: et de dossier pour le lecteur h:, mais exclure le dossier d:\documents\~tmp
+- Effectuer une sauvegarde complète à l’aide du Service de cliché instantané de Volume.
+- Exécution de sauvegardes quotidiennement à 1 h 00
+  ```
+  wbadmin enable backup –addtarget:H: –include T:,D:\documents –exclude D:\documents\~tmp –vssfull –schedule:01:00
+  ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

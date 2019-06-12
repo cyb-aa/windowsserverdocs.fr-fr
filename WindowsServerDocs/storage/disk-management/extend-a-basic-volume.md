@@ -1,32 +1,29 @@
 ---
 title: Étendre un volume de base
 description: Cet article décrit comment ajouter de l’espace sur les partitions principales et les lecteurs logiques afin d’étendre un volume de base
-ms.date: 10/12/2017
+ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c20e2da3e629743ab4d4d4cf1da16a6e69093ecf
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 4cad773746ae64a2244178be83e4d59c7c44b6a7
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192582"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812437"
 ---
 # <a name="extend-a-basic-volume"></a>Étendre un volume de base
 
-> **S’applique à :** Windows 10, Windows 8.1, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **S’applique à :** Windows 10, Windows 8.1, Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous pouvez ajouter davantage d’espace à des partitions principales et des lecteurs logiques existants en les étendant dans un espace non alloué adjacent sur le même disque. Pour étendre un volume de base, celui-ci doit être brut (non formaté avec un système de fichiers) ou formaté avec le système de fichiers NTFS. Vous pouvez étendre un lecteur logique dans un espace libre contigu dans la partition étendue qui le contient. Si vous étendez un lecteur logique au-delà de l’espace libre disponible dans la partition étendue, la partition étendue s’agrandit pour contenir le lecteur logique.
 
 Pour les lecteurs logiques et les volumes système ou de démarrage, vous pouvez étendre le volume dans un espace contigu uniquement et ce, uniquement si le disque peut être mis à niveau vers un disque dynamique. Pour les autres volumes, vous pouvez étendre le volume dans un espace non contigu, mais vous devrez convertir le disque en disque dynamique.
 
 ## <a name="extending-a-basic-volume"></a>Extension d’un volume de base
-
--   [À l’aide de l’interface Windows](#to-extend-a-basic-volume-using-the-windows-interface)
--   [À l’aide d’une ligne de commande](#to-extend-a-basic-volume-using-a-command-line)
 
 #### <a name="to-extend-a-basic-volume-using-the-windows-interface"></a>Pour étendre un volume de base à l’aide de l’interface Windows
 
@@ -48,10 +45,10 @@ Pour les lecteurs logiques et les volumes système ou de démarrage, vous pouvez
 
 | Value | Description |
 | --- | --- |
-| <p>**volume de la liste**</p> | <p>Affiche une liste des volumes de base et dynamiques sur tous les disques.</p> |
-| <p>**Sélectionnez le volume**</p> | <p>Sélectionne le volume spécifié, où <em>numéro_de_volume</em> est le numéro du volume et place le focus sur celui-ci. Si aucun volume n’est spécifié, la commande **select** répertorie le volume actuel avec le focus. Vous pouvez spécifier le volume par numéro, lettre de lecteur ou chemin d’accès de dossier de point de montage. Sur un disque de base, la sélection d’un volume positionne également le focus sur la partition correspondante.</p> |
-| <p>**extend**</p> | <p><ul><li>Étend le volume sur lequel se trouve le focus dans l’espace non alloué contigu suivant. Pour les volumes de base, l’espace non alloué doit se trouver sur le même disque que la partition avec le focus et doit également suivre (être de décalage de secteur supérieur à) celle-ci. Un volume simple ou fractionné dynamique peut être étendu dans n’importe quel espace vide sur n’importe quel disque dynamique. À l’aide de cette commande, vous pouvez étendre un volume existant dans l’espace qui vient d’être créé.</p></li ><p><li>Si la partition a déjà été formatée avec le système de fichiers NTFS, le système de fichiers est automatiquement étendu de manière à occuper la plus grande partition. Cela n’entraîne aucune perte de données. Si la partition a déjà été formatée avec un format de système de fichiers autre que NTFS, la commande échoue et la partition n’est pas modifiée.</p></li></ul>|
-| <p>**size=** <em>size</em></p> | <p>La quantité d’espace, en mégaoctets (Mo), à ajouter à la partition actuelle. Si vous ne spécifiez pas de taille, le disque est étendu de manière à occuper tout l’espace non alloué contigu.</p> |
+| **volume de la liste** | Affiche une liste des volumes de base et dynamiques sur tous les disques. |
+| **Sélectionnez le volume** | Sélectionne le volume spécifié, où <em>numéro_de_volume</em> est le numéro du volume et place le focus sur celui-ci. Si aucun volume n’est spécifié, la commande **select** répertorie le volume actuel avec le focus. Vous pouvez spécifier le volume par numéro, lettre de lecteur ou chemin d’accès de dossier de point de montage. Sur un disque de base, la sélection d’un volume positionne également le focus sur la partition correspondante. |
+| **extend** | <ul><li>Étend le volume sur lequel se trouve le focus dans l’espace non alloué contigu suivant. Pour les volumes de base, l’espace non alloué doit se trouver sur le même disque que la partition avec le focus et doit également suivre (être de décalage de secteur supérieur à) celle-ci. Un volume simple ou fractionné dynamique peut être étendu dans n’importe quel espace vide sur n’importe quel disque dynamique. À l’aide de cette commande, vous pouvez étendre un volume existant dans l’espace qui vient d’être créé.</li ><li>Si la partition a déjà été formatée avec le système de fichiers NTFS, le système de fichiers est automatiquement étendu de manière à occuper la plus grande partition. Cela n’entraîne aucune perte de données. Si la partition a déjà été formatée avec un format de système de fichiers autre que NTFS, la commande échoue et la partition n’est pas modifiée.</li></ul> |
+| **size=** <em>size</em> | La quantité d’espace, en mégaoctets (Mo), à ajouter à la partition actuelle. Si vous ne spécifiez pas de taille, le disque est étendu de manière à occuper tout l’espace non alloué contigu. |
 
 ## <a name="additional-considerations"></a>Considérations supplémentaires
 

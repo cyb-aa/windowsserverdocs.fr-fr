@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a565a1d5fa1bc3ff57d1578fb54cfa4553e3bb26
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7ebd65fb56114bff9e6ae4b6a76376561c686dfa
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818870"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439566"
 ---
 # <a name="diskraid"></a>diskraid
 
@@ -95,7 +95,7 @@ Spécifie le numéro LUN à ajouter en tant qu’un bre à l’unité logique ac
 > [!CAUTION]
 > Toutes les données sur le LUN ajouté comme un bre seront supprimées.
 
-**tpgroup tportal=***n*
+**tpgroup tportal=** <em>n</em>
 
 Spécifie le nombre de portail cible iSCSI à ajouter au groupe de portail cible iSCSI actuellement sélectionné.
 
@@ -742,7 +742,7 @@ Spécifie le type de connexion à effectuer : **manuelle**, **persistant**, ou 
 
 **persistant** - automatiquement utilisent la même connexion lorsque l’ordinateur est redémarré.
 
-**démarrage** -(cette option est pour le développement futur et n’est pas utilisée actuellement *.*)
+**démarrage** -(cette option est pour le développement futur et n’est pas utilisée actuellement<em>.</em>)
 
 **chap**
 

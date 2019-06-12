@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: d268dc57-78f8-47ba-9a7a-a607e8b9225c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a5f28c317f1d58fd1889fb55d345463dc8a62999
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b95e39af63e284d0147335faabfb740c0dd175bc
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816420"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812295"
 ---
 # <a name="export-an-nps-configuration-for-import-on-another-server"></a>Exporter une Configuration de serveur NPS pour l’importation sur un autre serveur
 
@@ -26,13 +26,13 @@ Pour exporter la configuration NPS, utilisez un des outils suivants :
 - Dans Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012, vous pouvez utiliser l’outil Netsh ou vous pouvez utiliser Windows PowerShell.
 - Dans Windows Server 2008 R2 et Windows Server 2008, utilisez Netsh.
 
->[!IMPORTANT]
->N’utilisez pas cette procédure si la base de données du serveur NPS source a un numéro de version supérieur au numéro de version de la base de données de serveur NPS de destination. Vous pouvez afficher le numéro de version de la base de données de serveur NPS à partir de l’affichage de la **netsh nps Afficher config** commande.
+> [!IMPORTANT]
+> N’utilisez pas cette procédure si la base de données du serveur NPS source a un numéro de version supérieur au numéro de version de la base de données de serveur NPS de destination. Vous pouvez afficher le numéro de version de la base de données de serveur NPS à partir de l’affichage de la **netsh nps Afficher config** commande.
 
 Étant donné que les configurations de serveur NPS ne sont pas chiffrées dans le fichier XML exporté, envoi sur un réseau peut poser un risque de sécurité, par conséquent, prendre des précautions lorsque vous déplacez le fichier XML à partir du serveur source vers les serveurs de destination. Par exemple, ajouter le fichier à un fichier d’archive protégé de mot de passe chiffré, avant de déplacer le fichier. En outre, stockez le fichier dans un emplacement sécurisé pour empêcher les utilisateurs malveillants d’y accéder.
 
->[!NOTE]
->Si la journalisation SQL Server est configurée sur la serveur NPS source, les paramètres de journalisation de SQL Server ne sont pas exportés dans le fichier XML. Après avoir importé le fichier sur un autre serveur NPS, vous devez configurer manuellement la journalisation SQL Server.
+> [!NOTE]
+> Si la journalisation SQL Server est configurée sur la serveur NPS source, les paramètres de journalisation de SQL Server ne sont pas exportés dans le fichier XML. Après avoir importé le fichier sur un autre serveur NPS, vous devez configurer manuellement la journalisation SQL Server.
 
 ## <a name="export-and-import-the-nps-configuration-by-using-windows-powershell"></a>Exporter et importer la configuration NPS à l’aide de Windows PowerShell
 
@@ -80,8 +80,8 @@ Vous pouvez utiliser Network Shell \(Netsh\) pour exporter la configuration NPS 
 
 Lorsque le **netsh nps importer** commande est exécutée, le serveur NPS est automatiquement actualisé avec les paramètres de configuration mis à jour. Vous n’avez pas besoin d’arrêter le serveur NPS sur l’ordinateur de destination pour exécuter le **netsh nps importer** cependant si la console NPS ou le composant logiciel enfichable MMC NPS est ouverte pendant l’importation de la configuration, modifications apportées à la configuration du serveur ne sont pas visibles jusqu'à ce que de la commande vous actualisez l’affichage. 
 
->[!NOTE]
->Lorsque vous utilisez le **exportation netsh nps** commande, vous devez fournir le paramètre de commande **exportPSK** avec la valeur **Oui**. Ce paramètre et la valeur de déclarer explicitement que vous comprenez que vous exportez la configuration NPS, et que le fichier XML exporté contienne non chiffrés secrets partagés pour les clients RADIUS et les membres de groupes de serveurs RADIUS distants.
+> [!NOTE]
+> Lorsque vous utilisez le **exportation netsh nps** commande, vous devez fournir le paramètre de commande **exportPSK** avec la valeur **Oui**. Ce paramètre et la valeur de déclarer explicitement que vous comprenez que vous exportez la configuration NPS, et que le fichier XML exporté contienne non chiffrés secrets partagés pour les clients RADIUS et les membres de groupes de serveurs RADIUS distants.
 
 **Informations d’identification administratives**
 
@@ -93,13 +93,13 @@ Pour effectuer cette procédure, vous devez être membre du groupe Administrateu
 
 2. À la **netsh** invite, tapez **nps**, puis appuyez sur ENTRÉE. 
 
-3. À la **netsh nps** invite, tapez **exporter filename =**»*path\file.xml*» **exportPSK = YES**, où *chemin d’accès* est l’emplacement du dossier où vous souhaitez enregistrer le fichier de configuration de serveur NPS et *fichier* est le nom du fichier XML que vous souhaitez enregistrer. Appuyez sur Entrée. 
+3. À la **netsh nps** invite, tapez **exporter filename =** »*path\file.xml*» **exportPSK = YES**, où *chemin d’accès* est l’emplacement du dossier où vous souhaitez enregistrer le fichier de configuration de serveur NPS et *fichier* est le nom du fichier XML que vous souhaitez enregistrer. Appuyez sur Entrée. 
 
 Il stocke les paramètres de configuration \(y compris les paramètres de Registre\) dans un fichier XML. Le chemin d’accès peut être relatif ou absolu, ou il peut être une Convention d’affectation de noms universelle \(UNC\) chemin d’accès. Une fois que vous appuyez sur entrée, un message apparaît et indique si l’exportation de fichier a réussi.
 
 4. Copiez le fichier que vous avez créé pour la serveur NPS de destination.
 
-5. À une invite de commandes sur le serveur NPS de destination, tapez **netsh nps importer filename =**»*path\file.xml*», puis appuyez sur ENTRÉE. Un message apparaît et indique si l’importation à partir du fichier XML a réussi.
+5. À une invite de commandes sur le serveur NPS de destination, tapez **netsh nps importer filename =** »*path\file.xml*», puis appuyez sur ENTRÉE. Un message apparaît et indique si l’importation à partir du fichier XML a réussi.
 
 Pour plus d’informations sur netsh, consultez [Network Shell (Netsh)](../netsh/netsh.md).
 

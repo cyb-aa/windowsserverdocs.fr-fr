@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: c925c7eb-6880-411f-8e59-bd0f57cc5fc3
 author: lizap
 manager: dongill
-ms.openlocfilehash: 894ea8b134ae5b871a2978e3f72e683c12346fe5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8571c2220f804a27e4e1a6b744e8e15e38bd53a3
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850200"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453086"
 ---
 # <a name="supported-configurations-for-remote-desktop-services-in-windows-server-2016"></a>Configurations prises en charge pour les Services Bureau à distance dans Windows Server 2016
 
@@ -90,7 +90,7 @@ Services Bureau à distance de Windows Server 2016 prend en charge deux expérie
  - Dans l’application (application de bureau à distance sur Windows, iOS, Android et Mac)
  - SSO de web
  
-À l’aide de l’application de bureau à distance, vous pouvez stocker des informations d’identification dans le cadre des informations de connexion ([Mac](clients\remote-desktop-mac.md)) ou dans le cadre des comptes gérés ([iOS](clients\remote-desktop-ios.md#manage-your-user-accounts), [Android](clients\remote-desktop-android.md#manage-your-user-accounts), Windows) en toute sécurité par le biais de mécanismes propres à chaque système d’exploitation.
+À l’aide de l’application de bureau à distance, vous pouvez stocker des informations d’identification dans le cadre des informations de connexion ([Mac](clients/remote-desktop-mac.md)) ou dans le cadre des comptes gérés ([iOS](clients/remote-desktop-ios.md#manage-your-user-accounts), [Android](clients/remote-desktop-android.md#manage-your-user-accounts), Windows) en toute sécurité par le biais de mécanismes propres à chaque système d’exploitation.
 
 Pour vous connecter à des bureaux et RemoteApps avec l’authentification unique via le client Connexion Bureau à distance de boîte de réception sur Windows, vous devez vous connecter à la page Web du Bureau à distance via Internet Explorer. Les options de configuration suivantes sont requises sur le côté serveur. Aucune autre configuration n’est pris en charge pour l’authentification unique Web :
 

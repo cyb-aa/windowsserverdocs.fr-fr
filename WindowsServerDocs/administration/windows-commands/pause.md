@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 109d162e8d5c4bdd59871a21f16b6f568df4fbd6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e5805fcc14d6874d95ba90537d72b560229ba99b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861660"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436310"
 ---
 # <a name="pause"></a>pause
 
@@ -44,16 +44,16 @@ pause
 
 ## <a name="remarks"></a>Notes
 
--   Lorsque vous exécutez le **suspendre** commande, le message suivant apparaît :  
-    ```
-    Press any key to continue . . .
-    ```  
--   Si vous appuyez sur CTRL + C pour arrêter un programme, le message suivant apparaît :  
-    ```
-    Terminate batch job (Y/N)?
-    ```  
-    Si vous appuyez sur O (pour Oui) en réponse à ce message, le programme de traitement par lots prend fin et le contrôle retourne au système d’exploitation.
--   Vous pouvez insérer le **suspendre** commande avant une section du fichier de commandes que vous souhaiterez peut-être pas traiter. Lorsque **suspendre** interrompt le traitement du programme de traitement par lots, vous pouvez appuyer sur CTRL + C et appuyez sur Y pour arrêter le programme.
+- Lorsque vous exécutez le **suspendre** commande, le message suivant apparaît :  
+  ```
+  Press any key to continue . . .
+  ```  
+- Si vous appuyez sur CTRL + C pour arrêter un programme, le message suivant apparaît :  
+  ```
+  Terminate batch job (Y/N)?
+  ```  
+  Si vous appuyez sur O (pour Oui) en réponse à ce message, le programme de traitement par lots prend fin et le contrôle retourne au système d’exploitation.
+- Vous pouvez insérer le **suspendre** commande avant une section du fichier de commandes que vous souhaiterez peut-être pas traiter. Lorsque **suspendre** interrompt le traitement du programme de traitement par lots, vous pouvez appuyer sur CTRL + C et appuyez sur Y pour arrêter le programme.
 
 ## <a name="BKMK_examples"></a>Exemples
 
@@ -70,4 +70,4 @@ Dans cet exemple, tous les fichiers sur le disque dans le lecteur A sont copiés
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

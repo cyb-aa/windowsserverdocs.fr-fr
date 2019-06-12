@@ -12,12 +12,12 @@ ms.assetid: c6985518-b42d-4cfb-9761-eaa75306b6d7
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d003c6a45159548f7e34d86ca242f74868659d2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ba5c0de9d8689c63c95ea3410a74fc9a7289aeab
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877990"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435991"
 ---
 # <a name="use-the-windows-server-essentials-log-collector"></a>Utiliser Windows Server Essentials Log Collector
 
@@ -28,9 +28,9 @@ Lorsque vous dépannez les problèmes de l’ordinateur, un représentant du sup
  Log Collector copie les journaux des programmes, les journaux de l'observateur d'événements et d'autres informations relatives à votre environnement dans un fichier zip unique à un emplacement spécifié. Vous pouvez exécuter Log Collector directement à partir du serveur ou d'un ordinateur réseau quelconque, ou bien à l'aide d'une connexion à distance aux ordinateurs.  
   
 > [!NOTE]
->  -   Log Collector n'analyse pas les problèmes réseau et n'apporte aucune modification aux serveurs ou ordinateurs sur le réseau. Pour plus d'informations sur la résolution des problèmes réseau, voir la documentation d'aide accompagnant votre produit serveur.  
-> -   Dans ce guide, les ordinateurs sur votre réseau, à l’exception de votre serveur, sont appelés ordinateurs réseau.  
-> -   [Télécharger le package d’installation de Windows Server Essentials Log Collector](https://go.microsoft.com/fwlink/?LinkID=266341).  
+> - Log Collector n'analyse pas les problèmes réseau et n'apporte aucune modification aux serveurs ou ordinateurs sur le réseau. Pour plus d'informations sur la résolution des problèmes réseau, voir la documentation d'aide accompagnant votre produit serveur.  
+>   -   Dans ce guide, les ordinateurs sur votre réseau, à l’exception de votre serveur, sont appelés ordinateurs réseau.  
+>   -   [Télécharger le package d’installation de Windows Server Essentials Log Collector](https://go.microsoft.com/fwlink/?LinkID=266341).  
   
  Pour installer et exécuter Log Collector, effectuez les étapes répertoriées dans les rubriques suivantes :  
   

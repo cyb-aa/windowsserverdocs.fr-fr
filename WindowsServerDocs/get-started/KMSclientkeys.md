@@ -9,12 +9,12 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 05/21/2019
 ms.topic: get-started-article
-ms.openlocfilehash: e2aac6db7bb9e118d672190c95f0d73294474f75
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: c0d85da8a51a43acd7765957b34220829a43b086
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976527"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810704"
 ---
 # <a name="kms-client-setup-keys"></a>Clés d’installation du client KMS
 
@@ -22,7 +22,7 @@ ms.locfileid: "65976527"
 
 Les ordinateurs qui exécutent des éditions de licence en volume de Windows Server, Windows 10, Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7, Windows Server 2008 R2, Windows Vista et Windows Server 2008 sont, par défaut, des clients KMS sans aucune configuration supplémentaire requise.
 
->[!NOTE]
+> [!NOTE]
 > Dans les tableaux qui suivent, « LTSC » est l’acronyme « Long-Term Servicing Channel », tandis que « LTSB » désigne le « long-Term Servicing Branch. » 
 
 **Pour utiliser les clés répertoriées ici (qui sont Gvlk), vous devez disposer d’un hôte KMS en cours d’exécution dans votre déploiement.** Si vous n’avez pas encore configuré d’hôte KMS, voir [Deploy KMS Activation](https://technet.microsoft.com/library/dn502531(v=ws.11).aspx) pour connaître la procédure de configuration à suivre.

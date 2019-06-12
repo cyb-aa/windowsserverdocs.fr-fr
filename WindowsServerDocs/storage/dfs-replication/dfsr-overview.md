@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 17fa97e28d099806c9280e42dd900e8d6c708641
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd381c04b02889a7f2e7b8992ff6050d1b0f078a
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850240"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453061"
 ---
 # <a name="dfs-replication-overview"></a>Vue d’ensemble de la réplication DFS
 
@@ -25,7 +25,7 @@ Pour plus d’informations sur la réplication SYSVOL à l’aide de la réplica
 
 Pour utiliser la réplication DFS, vous devez créer des groupes de réplication et ajouter des dossiers répliqués vers les groupes. Groupes de réplication, les dossiers répliqués et les membres sont illustrés dans la figure suivante.
 
-![Un groupe de réplication contenant une connexion entre deux membres, ayant chacune des deux des dossiers répliqués](media\dfsr-overview.gif)
+![Un groupe de réplication contenant une connexion entre deux membres, ayant chacune des deux des dossiers répliqués](media/dfsr-overview.gif)
 
 Cette illustration montre qu’un groupe de réplication est un ensemble de serveurs, connu en tant que membres, qui participe à la réplication d’un ou plusieurs dossiers répliqués. Un dossier répliqué est un dossier qui reste synchronisé sur chaque membre. Dans la figure, il existe deux dossiers répliqués : Projets et des propositions. Les données que les modifications apportées dans chaque dossier répliqué, les modifications sont répliquées sur les connexions entre les membres du groupe de réplication. Les connexions entre tous les membres constituent la topologie de réplication.
 Création de plusieurs dossiers répliqués dans un groupe de réplication unique simplifie le processus de déploiement des dossiers répliqués, car la topologie, la planification et la limitation pour le groupe de réplication de bande passante sont appliquées à chaque dossier répliqué. Pour déployer des dossiers répliqués supplémentaires, vous pouvez utiliser Dfsradmin.exe ou un, suivez les instructions de l’Assistant pour définir le chemin d’accès local et les autorisations pour le nouveau dossier répliqué.

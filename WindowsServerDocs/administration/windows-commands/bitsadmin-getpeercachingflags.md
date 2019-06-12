@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: eabcc5cacdcc5f7f4de7178b5afeff2acc89d7a8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 28f248bab3e3cc3f5c7dd4f5f878f0b6d776029b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862810"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434925"
 ---
-#<a name="bitsadmin-getpeercachingflags"></a>Bitsadmin getpeercachingflags
+# <a name="bitsadmin-getpeercachingflags"></a>Bitsadmin getpeercachingflags
 
 >S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -46,6 +46,6 @@ C:\>bitsadmin /GetPeerCachingFlags myJob
 ```
 
 ## <a name="additional-references"></a>Références supplémentaires
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 

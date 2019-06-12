@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: fd99058036a5b8041e4c65ca120c6a7e68b2df8d
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: ce4cbdc291d98a180ee6f5b597d322620fa1b19f
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976647"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453170"
 ---
 # <a name="storage-migration-service-overview"></a>Vue d’ensemble du Service de Migration de stockage
 
@@ -32,7 +32,7 @@ Utiliser le Service de Migration de stockage, car vous avez un serveur (ou un gr
 - Si vous le souhaitez contrôler l’identité des serveurs source (également appelé Couper sur) afin que les utilisateurs et des applications sans avoir à modifier quoi que ce soit pour accéder aux données existantes
 - Gérer un ou plusieurs des migrations à partir de l’interface utilisateur de Windows Admin Center
 
-![Diagramme montrant les fichiers de migration de Service de Migration de stockage & configuration à partir des serveurs sources à des serveurs de destination, les machines virtuelles Azure ou Azure File Sync.](media\overview\storage-migration-service-diagram.png)
+![Diagramme montrant les fichiers de migration de Service de Migration de stockage & configuration à partir des serveurs sources à des serveurs de destination, les machines virtuelles Azure ou Azure File Sync.](media/overview/storage-migration-service-diagram.png)
 
 **Figure 1 : Sources de Service de Migration de stockage et des destinations**
 

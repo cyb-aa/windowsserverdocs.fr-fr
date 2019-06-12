@@ -8,16 +8,16 @@ author: johnmarlin-msft
 ms.date: 01/24/2019
 description: Témoins de partage de fichiers vous permettent d’utiliser un partage de fichiers vote de quorum du cluster. Cette rubrique décrit les témoins de partage de fichiers et les nouvelles fonctionnalités, notamment l’utilisation d’un lecteur USB connecté à un routeur en tant qu’un témoin de partage de fichiers.
 ms.localizationpriority: medium
-ms.openlocfilehash: 1888142f96208800a0417c9caeea89e8a0472e88
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 47371be946c08cac2f271138d701922fc340a89d
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831750"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453043"
 ---
 # <a name="deploy-a-file-share-witness"></a>Déployer un témoin de partage de fichiers
 
-> S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Un témoin de partage de fichiers est un partage SMB qui utilise de Cluster de basculement comme un vote dans le quorum du cluster. Cette rubrique fournit une vue d’ensemble de la technologie et les nouvelles fonctionnalités de Windows Server 2019, y compris à l’aide d’un lecteur USB connecté à un routeur en tant qu’un témoin de partage de fichiers.
 
@@ -61,26 +61,26 @@ Autres remarques :
 
 À [Microsoft Ignite 2018](https://azure.microsoft.com/ignite/), [DataOn stockage](http://www.dataonstorage.com/) avait un Cluster à espaces de stockage Direct dans leur zone plein écran.  Ce cluster a été connecté à un [NetGear](https://www.netgear.com) semblable à celle-ci de témoin de partage de Nighthawk X4S Wi-Fi routeur à l’aide du port USB en tant que fichier.
 
-![NetGear témoin](media\File-Share-Witness\FSW1.png)
+![NetGear témoin](media/File-Share-Witness/FSW1.png)
 
 Les étapes de création d’un témoin de partage de fichiers à l’aide d’un périphérique USB sur ce routeur particulier sont répertoriées ci-dessous.  Notez que les étapes sur d’autres routeurs et les appliances NAS peuvent varier et doivent être effectuées à l’aide du fournisseur fourni directions.
 
 
 1. Ouvrez une session dans le routeur avec le périphérique USB connecté.
 
-   ![Interface de NetGear](media\File-Share-Witness\FSW2.png)
+   ![Interface de NetGear](media/File-Share-Witness/FSW2.png)
 
 2. Dans la liste des options, sélectionnez ReadySHARE qui est où les partages peuvent être créés.
 
-   ![NetGear ReadySHARE](media\File-Share-Witness\FSW3.png)
+   ![NetGear ReadySHARE](media/File-Share-Witness/FSW3.png)
 
 3. Pour un témoin de partage de fichiers, un partage de base est tout ce qui est nécessaire.  En sélectionnant le bouton Modifier s’affiche une boîte de dialogue où le partage peut être créé sur le périphérique USB.
 
-   ![Interface de partage de NetGear](media\File-Share-Witness\FSW4.png)
+   ![Interface de partage de NetGear](media/File-Share-Witness/FSW4.png)
 
 4. Une fois que vous sélectionnez le bouton Appliquer, le partage est créé et peut être consulté dans la liste.
 
-   ![Partages NetGear](media\File-Share-Witness\FSW5.png)
+   ![Partages NetGear](media/File-Share-Witness/FSW5.png)
 
 5. Une fois que le partage a été créé, création le témoin de partage de fichier pour le Cluster s’effectue avec PowerShell.
 

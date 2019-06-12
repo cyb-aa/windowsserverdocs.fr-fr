@@ -8,16 +8,16 @@ author: johnmarlin-msft
 ms.date: 02/28/2019
 description: Cet article décrit la mise à niveau un Cluster de basculement de 2 nœuds avec le même matériel
 ms.localizationpriority: medium
-ms.openlocfilehash: 0bfeb05c8cbc205745dc16bc7ef04052481668ea
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 77cde9e64fda385facd91d86483f4d7f749f30a1
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854830"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453053"
 ---
 # <a name="upgrading-failover-clusters-on-the-same-hardware"></a>La mise à niveau des Clusters de basculement sur le même matériel
 
-> S'applique à : Windows Server 2019, Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server 2016
 
 Un cluster de basculement est un groupe d'ordinateurs indépendants qui travaillent conjointement pour accroître la disponibilité des applications et des services. Les serveurs en cluster (appelés « nœuds ») sont connectés par des câbles physiques et par des logiciels. En cas de défaillance de l'un des nœuds, un autre prend sa place pour fournir le service (processus appelé « basculement »), garantissant ainsi des interruptions minimales de service pour les utilisateurs.
 
@@ -29,7 +29,7 @@ La mise à niveau le système d’exploitation sur un basculement existant clust
 
 Avant toute mise à niveau de votre cluster de basculement, veuillez consulter la [centre de mise à niveau Windows](https://www.microsoft.com/upgradecenter).  Lorsque vous mettez à niveau une serveur Windows sur place, vous passer d’une version de système d’exploitation existant à une version plus récente, tout en restant sur le même matériel. Windows Server peut être mis à niveau sur place au moins et parfois deux versions vers l’avant. Par exemple, le Windows Server 2012 R2 et Windows Server 2016 peuvent être mis à niveau sur place vers Windows Server 2019.  Également n’oubliez pas que le [Assistant de Migration de Cluster](https://blogs.msdn.microsoft.com/clustering/2012/06/25/how-to-move-highly-available-clustered-vms-to-windows-server-2012-with-the-cluster-migration-wizard/) peut être utilisé, mais est uniquement pris en charge jusqu'à deux versions précédent. Le graphique suivant montre les chemins de mise à niveau pour Windows Server. Flèches pointant vers le bas représentent le chemin d’accès de mise à niveau pris en charge déplacement à partir de versions antérieures jusqu'à Windows Server 2019.
 
-![Diagramme de mise à niveau sur place](media\In-Place-Upgrade\In-Place-Upgrade-1.png)
+![Diagramme de mise à niveau sur place](media/In-Place-Upgrade/In-Place-Upgrade-1.png)
 
 Les étapes suivantes sont un exemple de l’impression à partir d’un serveur de cluster de basculement Windows Server 2012 et Windows Server 2019 utilisant le même matériel.  
 
@@ -41,11 +41,11 @@ Dans l’exemple ci-dessous, le nom du cluster de basculement est le CLUSTER et 
 
 1. Dans le Gestionnaire de Cluster de basculement, vider toutes les ressources à partir de NODE1 pour NODE2 en droit de la souris en cliquant sur le nœud et en sélectionnant **Pause** et **vider les rôles**.  Ou bien, vous pouvez utiliser la commande PowerShell [SUSPEND-CLUSTERNODE](https://docs.microsoft.com/powershell/module/failoverclusters/suspend-clusternode).
 
-    ![Drainage de nœud](media\In-Place-Upgrade\In-Place-Upgrade-2.png)
+    ![Drainage de nœud](media/In-Place-Upgrade/In-Place-Upgrade-2.png)
 
 2. Supprimez NODE1 du cluster en droit de la souris en cliquant sur le nœud et en sélectionnant **autres Actions** et **supprimer**.  Ou bien, vous pouvez utiliser la commande PowerShell [REMOVE-CLUSTERNODE](https://docs.microsoft.com/powershell/module/failoverclusters/remove-clusternode).
 
-    ![Drainage de nœud](media\In-Place-Upgrade\In-Place-Upgrade-3.png)
+    ![Drainage de nœud](media/In-Place-Upgrade/In-Place-Upgrade-3.png)
 
 3. Par précaution, détachez NODE1 à partir du stockage que vous utilisez.  Dans certains cas, déconnecter les câbles de stockage à partir de la machine est suffisante.  Vérifiez auprès de votre fournisseur de stockage pour les étapes de détachement approprié si nécessaire.  En fonction de votre stockage, cela peut être pas nécessaire.
 
@@ -53,11 +53,11 @@ Dans l’exemple ci-dessous, le nom du cluster de basculement est le CLUSTER et 
 
 5. Créer un cluster appelé CLUSTER1 avec NODE1.  Ouvrez le Gestionnaire du Cluster de basculement et dans le **gestion** volet, choisissez **création d’un Cluster** et suivez les instructions de l’Assistant.
 
-    ![Drainage de nœud](media\In-Place-Upgrade\In-Place-Upgrade-4.png)
+    ![Drainage de nœud](media/In-Place-Upgrade/In-Place-Upgrade-4.png)
 
 6. Une fois que le Cluster est créé, les rôles seront doivent être migrés à partir du cluster d’origine vers ce nouveau cluster.  Sur le nouveau cluster, avec le bouton droit de la souris sur le nom de cluster (CLUSTER1) et en sélectionnant **autres Actions** et **copier les rôles de Cluster**.  Suivre la procédure dans l’Assistant pour migrer les rôles.
 
-    ![Drainage de nœud](media\In-Place-Upgrade\In-Place-Upgrade-5.png)
+    ![Drainage de nœud](media/In-Place-Upgrade/In-Place-Upgrade-5.png)
 
 7.  Une fois que toutes les ressources ont été migrés, hors tension, NODE2 (cluster d’origine) et déconnectez le stockage afin de ne provoquent ne pas toute interférence.  Connecter le stockage à NODE1.  Une fois connecté, tous les mettre toutes les ressources en ligne et assurez-vous qu’ils fonctionnent comme le devrait.
 
@@ -75,7 +75,7 @@ Une fois que vous avez vérifié que tout fonctionne comme il le devrait, NODE2 
 
    c. Lorsque vous choisissez OK ou appliquer, vous verrez le menu contextuel de la boîte de dialogue ci-dessous.
 
-    ![Drainage de nœud](media\In-Place-Upgrade\In-Place-Upgrade-6.png)
+    ![Drainage de nœud](media/In-Place-Upgrade/In-Place-Upgrade-6.png)
 
     d. Le Service de Cluster est arrêté et doit être redémarré pour terminer le changement de nom.
 

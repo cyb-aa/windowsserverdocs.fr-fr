@@ -1,25 +1,25 @@
 ---
 title: Réduire un volume de base
 description: Cet article explique comment réduire un volume de base
-ms.date: 10/12/2017
+ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e54632b78fd67a65b51147323565130881d8d81b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9073632a656f512bdb49ebe4eeefd4cd5f4eaadf
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885330"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812532"
 ---
 # <a name="shrink-a-basic-volume"></a>Réduire un volume de base
 
-> **S’applique à :** Windows 10, Windows 8.1, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **S’applique à :** Windows 10, Windows 8.1, Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Vous pouvez diminuer l’espace utilisé par les partitions principales et les lecteurs logiques en les réduisant dans un espace contigu et adjacent sur le même disque. Par exemple, si vous estimez avoir besoin d’une partition supplémentaire mais que vous n’avez pas d’autre disque, vous pouvez réduire la partition existante à la fin du volume pour créer un nouvel espace non alloué qui servira par la suite à créer la nouvelle partition. L’opération de réduction peut être bloquée par la présence de certains types de fichiers. Pour plus d’informations, voir [Autres éléments à prendre en considération](#addcon). 
+Vous pouvez diminuer l’espace utilisé par les partitions principales et les lecteurs logiques en les réduisant dans un espace contigu et adjacent sur le même disque. Par exemple, si vous estimez avoir besoin d’une partition supplémentaire mais que vous n’avez pas d’autre disque, vous pouvez réduire la partition existante à la fin du volume pour créer un nouvel espace non alloué qui servira par la suite à créer la nouvelle partition. L’opération de réduction peut être bloquée par la présence de certains types de fichiers. Pour plus d’informations, consultez [considérations supplémentaires](#additional-considerations) 
 
 Lorsque vous réduisez une partition, tous les fichiers ordinaires sont automatiquement déplacés pour créer le nouvel espace non alloué sur le disque. Il est inutile de reformater le disque pour réduire la partition.
 
@@ -28,13 +28,9 @@ Lorsque vous réduisez une partition, tous les fichiers ordinaires sont automati
 
 ## <a name="shrinking-a-basic-volume"></a>Réduction d’un volume de base
 
--   [À l’aide de l’interface Windows](#BKMK_WINUI)
--   [À l’aide d’une ligne de commande](#BKMK_CMD)
-
 > [!NOTE]
 > Vous devez au moins être membre du groupe **Opérateurs de sauvegarde** ou **Administrateurs** pour effectuer ces étapes.
 
-<a id="BKMK_WINUI"></a>
 #### <a name="to-shrink-a-basic-volume-using-the-windows-interface"></a>Pour réduire un volume de base à l’aide de l’interface Windows
 
 1.  Dans le Gestionnaire de disque, cliquez avec le bouton droit sur le volume que vous souhaitez réduire.
@@ -43,12 +39,10 @@ Lorsque vous réduisez une partition, tous les fichiers ordinaires sont automati
 
 3.  Suivez les instructions à l’écran.
 
-<br />
 
 > [!NOTE]
 > Vous pouvez uniquement réduire les volumes de base n’ayant pas de système de fichiers ou utilisant le système de fichiers NTFS.
 
-<a id="BKMK_CMD"></a>
 #### <a name="to-shrink-a-basic-volume-using-a-command-line"></a>Pour réduire un volume de base à l’aide d’une ligne de commande
 
 1.  Ouvrez une invite de commande et tapez `diskpart`.
@@ -59,17 +53,13 @@ Lorsque vous réduisez une partition, tous les fichiers ordinaires sont automati
 
 4.  À l’invite **DISKPART**, tapez `shrink [desired=<desiredsize>] [minimum=<minimumsize>]`. Réduit le volume sélectionné à la valeur *desiredsize* (taille requise) en mégaoctets (Mo) si possible, ou *minimumsize* (taille minimale) si la valeur *desiredsize* est trop importante.
 
-<br />
-
-| Value | Description|
-|---|---|
-| <p>**volume de la liste**</p> | <p>Affiche une liste des volumes de base et dynamiques sur tous les disques.</p>|
-| <p>**Sélectionnez le volume**</p> | <p>Sélectionne le volume spécifié, où <em>numéro_de_volume</em> est le numéro du volume et place le focus sur celui-ci. Si aucun volume n’est spécifié, la commande **select** répertorie le volume actuel avec le focus. Vous pouvez spécifier le volume par numéro, lettre de lecteur ou chemin d’accès de dossier de point de montage. Sur un disque de base, la sélection d’un volume positionne également le focus sur la partition correspondante.</p> |
-| <p>**shrink**</p> | <p>Réduit le volume sur lequel se trouve le focus pour créer un espace non alloué. Cela n’entraîne aucune perte de données. Si la partition inclut les fichiers ne pouvant être déplacés (par exemple, le fichier de pagination ou la zone de stockage de clichés instantanés), le volume est réduit jusqu’à la position des fichiers non déplaçables. |
-| <p>**desired=** <em>desiredsize</em></p> | <p>La quantité d’espace, en mégaoctets (Mo), à récupérer pour la partition actuelle.</p> |
-| <p>**minimum=** <em>minimumsize</em></p> | <p>La quantité d’espace minimale, en mégaoctets (Mo), à récupérer pour la partition actuelle. Si vous ne spécifiez pas une taille requise ou minimale, la commande récupère la quantité maximale d’espace possible.</p> 
-
-<a id="addcon"></a>
+| Value             | Description |
+| ---               | ----------- |
+| **volume de la liste** | Affiche une liste des volumes de base et dynamiques sur tous les disques. |
+| **Sélectionnez le volume** | Sélectionne le volume spécifié, où <em>numéro_de_volume</em> est le numéro du volume et place le focus sur celui-ci. Si aucun volume n’est spécifié, la commande **select** répertorie le volume actuel avec le focus. Vous pouvez spécifier le volume par numéro, lettre de lecteur ou chemin d’accès de dossier de point de montage. Sur un disque de base, la sélection d’un volume positionne également le focus sur la partition correspondante. |
+| **shrink** | Réduit le volume sur lequel se trouve le focus pour créer un espace non alloué. Cela n’entraîne aucune perte de données. Si la partition inclut les fichiers ne pouvant être déplacés (par exemple, le fichier de pagination ou la zone de stockage de clichés instantanés), le volume est réduit jusqu’à la position des fichiers non déplaçables. |
+| **desired=** <em>desiredsize</em> | La quantité d’espace, en mégaoctets (Mo), à récupérer pour la partition actuelle. |
+| **minimum=** <em>minimumsize</em> | La quantité d’espace minimale, en mégaoctets (Mo), à récupérer pour la partition actuelle. Si vous ne spécifiez pas une taille requise ou minimale, la commande récupère la quantité maximale d’espace possible. |
 
 ## <a name="additional-considerations"></a>Considérations supplémentaires
 

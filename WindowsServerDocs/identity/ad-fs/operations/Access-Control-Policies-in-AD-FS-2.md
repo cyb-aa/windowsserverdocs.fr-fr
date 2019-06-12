@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 216af933aee643ee56feff71c59d9ecc2e62998c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 036d6d0543687e7f82caf3dfd2c3bb0b4a981181
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842990"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445052"
 ---
 # <a name="client-access-control-policies-in-ad-fs-20"></a>Stratégies de contrôle d’accès client dans AD FS 2.0
 Une stratégie d’accès client dans Active Directory Federation Services 2.0 permettre de restreindre ou accorder l’accès des utilisateurs aux ressources.  Ce document décrit comment activer des stratégies d’accès client dans AD FS 2.0 et comment configurer des scénarios les plus courants.
@@ -52,11 +52,13 @@ Sur l’approbation de fournisseur de revendications Active Directory, créez un
     `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`
 
 
-    `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`
+~~~
+`https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`
 
-    `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`
+`https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`
 
-    `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`
+`https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`
+~~~
 
 ### <a name="step-3-update-the-microsoft-office-365-identity-platform-relying-party-trust"></a>Étape 3 : Mettre à jour de la plateforme d’identité Microsoft Office 365 de confiance
 
@@ -160,16 +162,16 @@ L’exemple suivant permet d’accéder à partir de clients internes en fonctio
 
 ### <a name="descriptions-of-the-claim-rule-language-syntax-used-in-the-above-scenarios"></a>Descriptions de la syntaxe de langage de règle de revendication utilisée dans les scénarios ci-dessus
 
-|Description|Syntaxe de langage de règle de revendication|
-|-----|-----| 
-|Règle de FS Active Directory par défaut pour autoriser l’accès à tous les utilisateurs. Cette règle doit déjà exister dans la plateforme d’identité Microsoft Office 365 confiance liste des règles d’autorisation d’émission.|=> issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");| 
-|Ajout de cette clause pour une nouvelle règle personnalisée spécifie que la demande provient d’un serveur proxy de fédération (par exemple, elle a l’en-tête x-ms-proxy)
-Il est recommandé que toutes les règles incluent cela.|exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"])| 
-|Utilisé pour établir que la demande provient d’un client avec une adresse IP dans la plage acceptable définie.|N’existe pas ([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip», valeur = ~ « regex d’adresse ip publique fourni par le client »])| 
-|Cette clause est utilisée pour spécifier que si l’application en cours d’accès n’est pas Microsoft.Exchange.ActiveSync la demande doit être refusée.|NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value=="Microsoft.Exchange.ActiveSync"])| 
-|Cette règle permet de déterminer si l’appel a été via un navigateur Web et ne sera pas possible.|NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value == "/adfs/ls/"])| 
-|Cette règle stipule que les seuls utilisateurs dans un groupe Active Directory particulier (basé sur la valeur du SID) doivent être refusés. Ajout de pas à cette instruction signifie qu'un groupe d’utilisateurs sera autorisé, indépendamment de l’emplacement.|existe ([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid», valeur = ~ « {groupe valeur SID de groupe d’Active Directory autorisée} »])| 
-|Il s’agit d’une clause requise pour émettre une instruction deny lorsque toutes les conditions précédentes sont remplies.|=> issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");|
+|                                                                                                   Description                                                                                                   |                                                                     Syntaxe de langage de règle de revendication                                                                     |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|              Règle de FS Active Directory par défaut pour autoriser l’accès à tous les utilisateurs. Cette règle doit déjà exister dans la plateforme d’identité Microsoft Office 365 confiance liste des règles d’autorisation d’émission.              |                                  => issue(Type = "<https://schemas.microsoft.com/authorization/claims/permit>", Value = "true");                                   |
+|                               Ajout de cette clause pour une nouvelle règle personnalisée spécifie que la demande provient d’un serveur proxy de fédération (par exemple, elle a l’en-tête x-ms-proxy)                                |                                                                                                                                                                    |
+|                                                                                 Il est recommandé que toutes les règles incluent cela.                                                                                  |                                    exists([Type == "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy>"])                                    |
+|                                                         Utilisé pour établir que la demande provient d’un client avec une adresse IP dans la plage acceptable définie.                                                         | N’existe pas ([Type == "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip>», valeur = ~ « regex d’adresse ip publique fourni par le client »]) |
+|                                    Cette clause est utilisée pour spécifier que si l’application en cours d’accès n’est pas Microsoft.Exchange.ActiveSync la demande doit être refusée.                                     |       NOT exists([Type == "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application>", Value=="Microsoft.Exchange.ActiveSync"])        |
+|                                                      Cette règle permet de déterminer si l’appel a été via un navigateur Web et ne sera pas possible.                                                      |              NOT exists([Type == "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path>", Value == "/adfs/ls/"])               |
+| Cette règle stipule que les seuls utilisateurs dans un groupe Active Directory particulier (basé sur la valeur du SID) doivent être refusés. Ajout de pas à cette instruction signifie qu'un groupe d’utilisateurs sera autorisé, indépendamment de l’emplacement. |             existe ([Type == "<https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid>», valeur = ~ « {groupe valeur SID de groupe d’Active Directory autorisée} »])              |
+|                                                                Il s’agit d’une clause requise pour émettre une instruction deny lorsque toutes les conditions précédentes sont remplies.                                                                 |                                   => issue(Type = "<https://schemas.microsoft.com/authorization/claims/deny>", Value = "true");                                    |
 
 ### <a name="building-the-ip-address-range-expression"></a>Création de l’expression de plage d’adresses IP
 
@@ -271,4 +273,4 @@ Une fois que vous avez activé le traçage, utilisez la syntaxe de ligne de comm
 
 ## <a name="related"></a>Liens apparentés
 Pour plus d’informations sur les nouveaux types de revendication, consultez [Types de revendications AD FS](AD-FS-Claims-Types.md).
- 
+

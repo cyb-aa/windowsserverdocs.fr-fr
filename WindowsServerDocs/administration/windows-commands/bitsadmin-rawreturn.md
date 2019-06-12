@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 80eef106452a45ac4f071446ec8d427b757c443d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e12c8e621021d35ac618b4592515fe38c36be0e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817020"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434893"
 ---
 # <a name="bitsadmin-rawreturn"></a>bitsadmin rawreturn
 
@@ -34,7 +34,7 @@ bitsadmin /RawReturn
 
 Caractères de saut de ligne de bandes et mise en forme à partir de la sortie.
 
-En règle générale, vous utilisez cette commande conjointement avec la **créer** et **obtenir\***  commutateurs pour recevoir uniquement la valeur. Vous devez spécifier ce commutateur avant les autres commutateurs.
+En règle générale, vous utilisez cette commande conjointement avec la **créer** et **obtenir\\** * commutateurs pour recevoir uniquement la valeur. Vous devez spécifier ce commutateur avant les autres commutateurs.
 
 ## <a name="BKMK_examples"></a>Exemples
 
@@ -45,4 +45,4 @@ C:\>bitsadmin /RawReturn /GetState myDownloadJob
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

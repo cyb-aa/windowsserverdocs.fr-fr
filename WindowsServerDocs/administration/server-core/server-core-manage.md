@@ -7,12 +7,12 @@ ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: 6836e5db36727294d215f7f98e0faeede55a612a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 761bfc681d7e39059884977cd99997ea9996268b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869300"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811353"
 ---
 # <a name="manage-a-server-core-server"></a>Gérer un serveur Server Core
  
@@ -61,15 +61,17 @@ Pour utiliser un composant logiciel enfichable MMC pour gérer un serveur Server
 Pour utiliser un composant logiciel enfichable MMC pour gérer un serveur Server Core est *pas* un membre de domaine : 
 
 1. Établir les autres informations d’identification à utiliser pour se connecter à l’ordinateur Server Core en tapant la commande suivante à une invite de commandes sur l’ordinateur distant :
+1. 
    ```
    cmdkey /add:<ServerName> /user:<UserName> /pass:<password>
    ```
+
    Si vous souhaitez être invité à entrer un mot de passe, omettez la **/passer** option.
 
 2. Lorsque vous y êtes invité, tapez le mot de passe pour le nom d’utilisateur que vous avez spécifié.
    Si le pare-feu sur le serveur de Server Core n’est pas déjà configuré pour autoriser les composants logiciel enfichables MMC pour vous connecter, suivez les étapes ci-dessous pour configurer le pare-feu Windows pour autoriser le composant logiciel enfichable MMC. Puis passez à l’étape 3.
 3. Sur un autre ordinateur, démarrez un composant logiciel enfichable MMC, tel que **gestion de l’ordinateur**.
-4. Dans le volet gauche, cliquez sur le composant logiciel enfichable, puis cliquez sur **se connecter à un autre ordinateur**. (Par exemple, dans l’exemple de gestion de l’ordinateur, droit **gestion de l’ordinateur (Local)**.)
+4. Dans le volet gauche, cliquez sur le composant logiciel enfichable, puis cliquez sur **se connecter à un autre ordinateur**. (Par exemple, dans l’exemple de gestion de l’ordinateur, droit **gestion de l’ordinateur (Local)** .)
 5. Dans **un autre ordinateur**, tapez le nom d’ordinateur du serveur Server Core, puis cliquez sur **OK**. Vous pouvez maintenant utiliser le composant logiciel enfichable MMC pour administrer le serveur en mode d’installation minimale comme vous le feriez sur n’importe quel autre ordinateur exécutant un système d’exploitation Windows Server.
 
 ### <a name="to-configure-windows-firewall-to-allow-mmc-snap-ins-to-connect"></a>Pour configurer le Pare-feu Windows afin d’autoriser la connexion de composants logiciels enfichables MMC
@@ -120,14 +122,17 @@ Cette commande configure le mode Bureau à distance pour administration afin d�
 Pour ajouter un matériel à un serveur Server Core, suivez les instructions fournies par le fournisseur de matériel pour installer un nouveau matériel. 
 
 Si le matériel n’est pas plug-and-play, vous devez installer manuellement le pilote. Pour ce faire, copiez les fichiers de pilote dans un emplacement temporaire sur le serveur et puis exécutez la commande suivante :
+
 ```
 pnputil –i –a <driverinf>
 ```
+
 Où *driverinf* est le nom de fichier du fichier .inf du pilote.
 
 Si vous y êtes invité, redémarrez l’ordinateur.
 
 Pour voir quels pilotes sont installés, exécutez la commande suivante : 
+
 ```
 sc query type= driver
 ```
@@ -135,7 +140,8 @@ sc query type= driver
 > [!NOTE] 
 > N’oubliez pas d’inclure l’espace après le signe égal pour que la commande s’exécute correctement.
 
-Pour désactiver un pilote de périphérique, exécutez la commande suivante : 
+Pour désactiver un pilote de périphérique, exécutez la commande suivante :
+
 ```
 sc delete <service_name>
 ```

@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 7cf1dcec1bc8e187b6db789c5402ca8119ca8b6c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: da3850b75a0e069f9153d3c66baef9f00b67d61c
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850760"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452589"
 ---
 # <a name="add-an-iframe-to-a-tool-extension"></a>Ajouter un élément iFrame à une extension d'outil
 
@@ -23,7 +23,7 @@ Dans cet article, nous allons ajouter un iFrame avec une extension de l’outil 
 
 ## <a name="prepare-your-environment"></a>Préparer votre environnement ##
 
-Si vous n’avez pas déjà, suivez les instructions de [développer une extension de l’outil](..\develop-tool.md) pour préparer votre environnement et créer un nouveau, vide l’extension de l’outil.
+Si vous n’avez pas déjà, suivez les instructions de [développer une extension de l’outil](../develop-tool.md) pour préparer votre environnement et créer un nouveau, vide l’extension de l’outil.
 
 ## <a name="add-a-module-to-your-project"></a>Ajouter un module à votre projet ##
 
@@ -47,7 +47,7 @@ Ajoutez le contenu suivant au fichier html :
 </div>
 ```
 
-Voilà, vous avez ajouté un iFrame à votre extension.  Ensuite, vous pouvez [générer et côté charge](..\develop-tool.md#build-and-side-load-your-extension) votre extension dans Windows Admin Center pour afficher les résultats.
+Voilà, vous avez ajouté un iFrame à votre extension.  Ensuite, vous pouvez [générer et côté charge](../develop-tool.md#build-and-side-load-your-extension) votre extension dans Windows Admin Center pour afficher les résultats.
 
 > [!Note]
 > Paramètres de stratégie de sécurité (CSP) de contenu peut empêcher certains sites de rendu dans un iFrame dans Windows Admin Center. Vous pouvez en savoir plus à ce sujet [ici](https://content-security-policy.com/). 

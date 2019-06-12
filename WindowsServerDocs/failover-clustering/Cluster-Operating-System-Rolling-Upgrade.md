@@ -7,16 +7,16 @@ ms.assetid: 6e102c1f-df26-4eaa-bc7a-d0d55d3b82d5
 author: jasongerend
 ms.author: jgerend
 ms.date: 03/27/2018
-ms.openlocfilehash: 60dacf63f1a355b961f84169060dbd7122a6fd32
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f56c036768de7c1afcf3327135a7ff7d7a690a8b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842730"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440140"
 ---
 # <a name="cluster-operating-system-rolling-upgrade"></a>Mise à niveau propagée du système d’exploitation de cluster
 
-> S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server 2016
 
 Niveau propagée de cluster du système d’exploitation permet à un administrateur mettre à niveau le système d’exploitation des nœuds du cluster sans arrêter les charges de travail du serveur de fichiers avec montée en puissance parallèle ni Hyper-V. Avec cette fonctionnalité, les pénalités de temps d’arrêt sur les contrats de niveau de service peuvent être évitées.
 
@@ -226,12 +226,12 @@ Mise à niveau propagée du système d’exploitation des cluster comprend les �
         ![Capture d’écran montrant la sortie de l’applet de commande Get-VMHostSupportedVersion](media/Cluster-Operating-System-Rolling-Upgrade/Clustering_GetVMHostSupportVersion.png)  
         **Figure 21 : Afficher les versions de configuration de machine virtuelle Hyper-V pris en charge par l’hôte**  
 
-   3.  Sur chaque nœud d’hôte Hyper-V dans le cluster, les versions de configuration de machine virtuelle Hyper-V peuvent être mis à niveau par planifier une fenêtre de maintenance brève avec des utilisateurs, sauvegarde, la désactivation de machines virtuelles et en cours d’exécution le [ `Update-VMVersion` ](https://docs.microsoft.com/powershell/module/hyper-v/Update-VMVersion?view=win10-ps) (voir la section de l’applet de commande Figure 22). Cela mettre à jour la version de la machine virtuelle et activer les nouvelles fonctionnalités de Hyper-V, éliminant la nécessité pour les futures mises à jour de composant d’intégration Hyper-V (IC). Cette applet de commande peut être exécuté à partir du nœud Hyper-V qui héberge la machine virtuelle, ou le `-ComputerName` paramètre peut être utilisé pour mettre à jour la Version de la machine virtuelle à distance. Dans cet exemple, ici nous mettre à niveau la version de configuration de VM1 5.0 vers 7.0 pour tirer parti des nombreuses nouvelles fonctionnalités d’Hyper-V associé à cette version de configuration de machine virtuelle telles que les points de contrôle de Production (sauvegardes cohérentes) et la machine virtuelle binaire fichier de configuration.  
+   3. Sur chaque nœud d’hôte Hyper-V dans le cluster, les versions de configuration de machine virtuelle Hyper-V peuvent être mis à niveau par planifier une fenêtre de maintenance brève avec des utilisateurs, sauvegarde, la désactivation de machines virtuelles et en cours d’exécution le [ `Update-VMVersion` ](https://docs.microsoft.com/powershell/module/hyper-v/Update-VMVersion?view=win10-ps) (voir la section de l’applet de commande Figure 22). Cela mettre à jour la version de la machine virtuelle et activer les nouvelles fonctionnalités de Hyper-V, éliminant la nécessité pour les futures mises à jour de composant d’intégration Hyper-V (IC). Cette applet de commande peut être exécuté à partir du nœud Hyper-V qui héberge la machine virtuelle, ou le `-ComputerName` paramètre peut être utilisé pour mettre à jour la Version de la machine virtuelle à distance. Dans cet exemple, ici nous mettre à niveau la version de configuration de VM1 5.0 vers 7.0 pour tirer parti des nombreuses nouvelles fonctionnalités d’Hyper-V associé à cette version de configuration de machine virtuelle telles que les points de contrôle de Production (sauvegardes cohérentes) et la machine virtuelle binaire fichier de configuration.  
 
-        ![Capture d’écran montrant l’applet de commande Update-VMVersion en action](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_StopVM.png)  
-        **Figure 22 : La mise à niveau une version de la machine virtuelle à l’aide de l’applet de commande PowerShell de mise à jour-VMVersion**  
+       ![Capture d’écran montrant l’applet de commande Update-VMVersion en action](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_StopVM.png)  
+       **Figure 22 : La mise à niveau une version de la machine virtuelle à l’aide de l’applet de commande PowerShell de mise à jour-VMVersion**  
 
-4.  Pools de stockage peuvent être mis à niveau à l’aide de la [mise à jour-StoragePool](https://docs.microsoft.com/powershell/module/storage/Update-StoragePool?view=win10-ps) applet de commande PowerShell - il s’agit d’une opération en ligne.  
+6. Pools de stockage peuvent être mis à niveau à l’aide de la [mise à jour-StoragePool](https://docs.microsoft.com/powershell/module/storage/Update-StoragePool?view=win10-ps) applet de commande PowerShell - il s’agit d’une opération en ligne.  
 
 Bien que nous ciblons les scénarios de Cloud privé, en particulier Hyper-V et les clusters de serveur de fichiers avec montée en puissance, qui peuvent être mis à niveau sans temps d’arrêt, le processus de niveau propagée de Cluster du système d’exploitation peuvent être utilisés pour tous les rôles de cluster.  
 
@@ -278,6 +278,6 @@ Bien que nous ciblons les scénarios de Cloud privé, en particulier Hyper-V et 
     Oui, vous pouvez automatiser le processus de niveau propagée de Cluster du système d’exploitation à l’aide de VMM dans System Center 2016.  
 
 ## <a name="see-also"></a>Voir aussi  
--   [Notes de publication : Problèmes importants dans Windows Server 2016](../get-started/Release-Notes--Important-Issues-in-Windows-Server-2016-Technical-Preview.md)  
--   [Quelles sont les nouveautés dans Windows Server 2016](../get-started/What-s-New-in-windows-server-2016.md)  
+-   [Notes de publication : problèmes importants sur Windows Server 2016](../get-started/Release-Notes--Important-Issues-in-Windows-Server-2016-Technical-Preview.md)  
+-   [Nouveautés de Windows Server 2016](../get-started/What-s-New-in-windows-server-2016.md)  
 -   [Nouveautés du Clustering de basculement dans Windows Server](whats-new-in-failover-clustering.md)  

@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: c9b2e9201d58472286b42a9c89a36423f40d143d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 348ebf5b99de7f582a3edf57b0a190f87f1c4a5b
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834510"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452599"
 ---
 # <a name="use-a-custom-gateway-plugin-in-your-tool-extension"></a>Utiliser un plug-in de passerelle personnalisé dans votre extension d'outil
 
@@ -23,7 +23,7 @@ Dans cet article, nous allons utiliser un plug-in de passerelle personnalisée d
 
 ## <a name="prepare-your-environment"></a>Préparer votre environnement ##
 
-Si vous n’avez pas déjà, suivez les instructions de [développer une extension de l’outil](..\develop-tool.md) pour préparer votre environnement et créer un nouveau, vide l’extension de l’outil.
+Si vous n’avez pas déjà, suivez les instructions de [développer une extension de l’outil](../develop-tool.md) pour préparer votre environnement et créer un nouveau, vide l’extension de l’outil.
 
 ## <a name="add-a-module-to-your-project"></a>Ajouter un module à votre projet ##
 
@@ -62,6 +62,9 @@ export class PluginService {
 ```
 
 Modifier les références à ```Sample Uno``` et ```Sample%20Uno``` à votre nom de la fonctionnalité comme il convient.
+
+[!WARNING]
+> Il est recommandé que la génération dans ```this.appContextService.node``` est utilisée pour appeler une API qui est définie dans votre plug-in de passerelle personnalisée. Cela garantit que si elles sont nécessaires à l’intérieur de votre plug-in de passerelle qu’ils soient traités correctement.
 
 ### <a name="modify-modulets"></a>Modifier le module.TS
 
@@ -142,4 +145,4 @@ Ajoutez le contenu suivant au fichier html :
 
 ## <a name="build-and-side-load-your-extension"></a>Génération et côté chargent votre extension
 
-Vous êtes maintenant prêt à [générer et côté charge](..\develop-tool.md#build-and-side-load-your-extension) votre extension dans Windows Admin Center.
+Vous êtes maintenant prêt à [générer et côté charge](../develop-tool.md#build-and-side-load-your-extension) votre extension dans Windows Admin Center.

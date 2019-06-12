@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6b347581773a086d525bb005edeca2efa31e1848
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d3af60aed6c8305e410c6ebfba3cf2e006034ad7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886050"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434153"
 ---
 # <a name="create-partition-logical"></a>créer une partition logique
 
@@ -36,12 +36,12 @@ create partition logical [size=<n>] [offset=<n>] [align=<n>] [noerr]
   
 ## <a name="parameters"></a>Paramètres  
   
-|Paramètre|Description|  
-|-------|--------|  
-|size\=<n>|Spécifie la taille de la partition logique en mégaoctets \(Mo\), qui doit être inférieur à la partition étendue. Si aucune taille n’est donnée, la partition se poursuit jusqu'à ce que l’espace libre dans la partition étendue.|  
-|offset\=<n>|Spécifie le décalage en kilo-octets \(Ko\), à laquelle la partition est créée. L’arrondi de manière à remplir complètement la taille de cylindre est utilisé. Si aucun décalage n’est fourni, la partition est placée dans la première étendue de disque qui est assez grande pour le contenir. La partition est au moins aussi longue en octets que le nombre spécifié par **taille\=<n>**. Si vous spécifiez une taille pour la partition logique, il doit être inférieure à la partition étendue.|  
-|align\=<n>|Aligne toutes les étendues de volume ou une partition à la limite d’alignement le plus proche. Généralement utilisé avec le matériel RAID numéro d’unité logique \(LUN\) tableaux pour améliorer les performances.  <n> est le nombre de kilo-octets \(Ko\) à partir du début du disque à la limite d’alignement le plus proche.|  
-|NOERR|Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.|  
+|  Paramètre  |                                                                                                                                                                                                                       Description                                                                                                                                                                                                                        |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  size\=<n>  |                                                                                                              Spécifie la taille de la partition logique en mégaoctets \(Mo\), qui doit être inférieur à la partition étendue. Si aucune taille n’est donnée, la partition se poursuit jusqu'à ce que l’espace libre dans la partition étendue.                                                                                                               |
+| offset\=<n> | Spécifie le décalage en kilo-octets \(Ko\), à laquelle la partition est créée. L’arrondi de manière à remplir complètement la taille de cylindre est utilisé. Si aucun décalage n’est fourni, la partition est placée dans la première étendue de disque qui est assez grande pour le contenir. La partition est au moins aussi longue en octets que le nombre spécifié par **taille\=<n>** . Si vous spécifiez une taille pour la partition logique, il doit être inférieure à la partition étendue. |
+| align\=<n>  |                                                                                     Aligne toutes les étendues de volume ou une partition à la limite d’alignement le plus proche. Généralement utilisé avec le matériel RAID numéro d’unité logique \(LUN\) tableaux pour améliorer les performances.  <n> est le nombre de kilo-octets \(Ko\) à partir du début du disque à la limite d’alignement le plus proche.                                                                                      |
+|    NOERR    |                                                                                                                           Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.                                                                                                                           |
   
 ## <a name="remarks"></a>Notes  
   
@@ -59,7 +59,7 @@ create partition logical size=1000
 ```  
   
 #### <a name="additional-references"></a>Références supplémentaires  
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
   
 
   

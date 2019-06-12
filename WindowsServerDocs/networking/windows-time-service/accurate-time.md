@@ -8,12 +8,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: ea4d957ee68f14f4568d3cefe664736585e50cce
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b68e6b915d029e53d47c6cffe214ec6e11bba6ea
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864010"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812383"
 ---
 # <a name="accurate-time-for-windows-server-2016"></a>Heure précise pour Windows Server 2016
 
@@ -21,8 +21,8 @@ ms.locfileid: "59864010"
 
 Le service de temps de Windows est un composant qui utilise un modèle de plug-in pour les fournisseurs de synchronisation de temps client et serveur.  Il existe deux fournisseurs de client intégré de Windows, et des plug-ins tiers sont disponibles. Utilise un seul fournisseur [NTP (RFC 1305)](https://tools.ietf.org/html/rfc1305) ou [MS-NTP](https://msdn.microsoft.com/library/cc246877.aspx) pour synchroniser l’heure système locale à un serveur de référence conformes NTP et/ou MS-NTP. L’autre fournisseur est pour Hyper-V et synchronise les machines virtuelles (VM) à l’hôte Hyper-V.  Lorsque plusieurs fournisseurs existent, Windows sera choisir le meilleur fournisseur à l’aide de niveau de la couche tout d’abord, suivie de délai de racine, dispersion de racine et enfin temps décalage.
 
->[!NOTE]
->Pour une présentation rapide du service de temps de Windows, examinons ce [vidéo de présentation de haut niveau](https://aka.ms/WS2016TimeVideo).
+> [!NOTE]
+> Pour une présentation rapide du service de temps de Windows, examinons ce [vidéo de présentation de haut niveau](https://aka.ms/WS2016TimeVideo).
 
 <!-- Not sure what to do with the following -->
 Dans cette rubrique, nous abordons... Ces rubriques qui sont liés à l’activation de l’heure précise : 
@@ -31,13 +31,11 @@ Dans cette rubrique, nous abordons... Ces rubriques qui sont liés à l’activa
 - Mesures
 - Meilleures pratiques
 
->[!IMPORTANT]
->Un addenda référencé par l’article Windows 2016 précise temps peut être téléchargé [ici](https://windocs.blob.core.windows.net/windocs/WindowsTimeSyncAccuracy_Addendum.pdf).  Ce document fournit plus d’informations sur nos méthodes de test et de mesure.
+> [!IMPORTANT]
+> Un addenda référencé par l’article Windows 2016 précise temps peut être téléchargé [ici](https://windocs.blob.core.windows.net/windocs/WindowsTimeSyncAccuracy_Addendum.pdf).  Ce document fournit plus d’informations sur nos méthodes de test et de mesure.
 
-
-
->[!NOTE] 
->Le modèle de plug-in de fournisseur de temps windows est [documentée sur TechNet](https://msdn.microsoft.com/library/windows/desktop/ms725475%28v=vs.85%29.aspx).
+> [!NOTE] 
+> Le modèle de plug-in de fournisseur de temps windows est [documentée sur TechNet](https://msdn.microsoft.com/library/windows/desktop/ms725475%28v=vs.85%29.aspx).
 
 ## <a name="domain-hierarchy"></a>Hiérarchie de domaine
 Configurations de domaine et autonome fonctionnent différemment.
@@ -60,7 +58,6 @@ Dans tous les cas pour une heure précise, il existe trois facteurs essentiels 
 1. **Solid Source horloge** -l’horloge de la source dans votre domaine doit être stable et précis. Cela signifie généralement l’installation d’un périphérique GPS ou qui pointe vers une source de niveau 1, en tenant compte de #3. L’analogie atteint, si vous avez deux bateaux sur l’eau et que vous tentez de mesurer l’altitude d’un par rapport à l’autre, votre analyse de précision est préférable si la croisière source, c’est très stable et pas de déplacement. En va de même pour le moment, et si l’horloge de votre source n’est pas stable, la chaîne entière des horloges synchronisées est affectée, puis agrandie à chaque étape. Il doit également être accessible, car les interruptions dans la connexion interfèrent avec synchronisation date / heure. Et enfin, il doit être sécurisé. Si l’heure de référence n’est pas correctement conservées ou exploité par un tiers potentiellement malveillant, vous pouvez exposer votre domaine à des attaques de temporel.
 2. **Horloge client stable** -un horloges client stable garantit que la dérive naturelle de l’oscillateur est containable.  NTP utilise plusieurs exemples à partir de plusieurs serveurs NTP potentiellement à la condition et la discipline de l’horloge de votre ordinateur local.  Il n’étape pas les modifications de temps, mais au lieu de cela ralentit ou accélère l’horloge locale afin que vous approcher de l’heure précise rapidement et à restez précises entre les demandes NTP.  Toutefois, si les oscillateur de l’horloge d’ordinateur client ne sont pas stable, des fluctuations plus entre ajustements peuvent se produire et les algorithmes que Windows utilise pour la condition de l’horloge ne fonctionnent pas avec précision.  Dans certains cas, les mises à jour du microprogramme peuvent être nécessaire pour une heure précise.
 3. **Communication NTP symétrique** -il est essentiel que la connexion pour la communication de NTP est symétrique.  NTP utilise des calculs pour ajuster l’heure qui supposent que le correctif logiciel de réseau est symétrique.  Si le chemin d’accès le paquet NTP prend accédant au serveur prend un temps pour retourner différents, la précision est affectée.  Par exemple, le chemin d’accès peut changer en raison de modifications dans la topologie de réseau ou les paquets soient acheminés via les appareils qui ont des vitesses d’interface différente.
-
 
 Pour les appareils de l’alimentation par batterie, mobiles et portable, vous devez prendre en compte différentes stratégies.  Conformément à notre recommandation, maintenant l’heure exacte nécessite l’horloge à être disciplinés une fois par seconde, ce qui correspond à la fréquence de mise à jour d’horloge. Ces paramètres consommera plus de puissance de batterie que prévu et peut interférer avec l’économie d’énergie modes disponibles dans Windows pour ces appareils. Appareils de l’alimentation par batterie ont également certains modes d’alimentation qui empêche toutes les applications en cours d’exécution, qui interfère avec possibilité de W32time discipline de l’horloge et tenir à jour heure précise. En outre, les horloges des appareils mobiles peut-être pas très précis pour commencer.  Conditions ambiantes affectent la précision de l’horloge et un appareil mobile peut déplacer à partir d’une condition ambiante à l’autre qui peut-être interférer avec sa capacité à conserver un temps avec précision.  Par conséquent, Microsoft ne recommande pas de configurer les périphériques portables alimenté par batterie avec les paramètres de haute précision. 
 

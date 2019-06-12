@@ -6,25 +6,25 @@ ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
-ms.date: 07/09/2018
+ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2bb15d5ae29da6c9dbcd6b58af280026d06febc8
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 4b6c58f0f33b45052e038a9af941297a294d17b2
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222746"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812510"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>Déployer la Redirection de dossiers des fichiers hors connexion
 
->S’applique à : Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Vista, Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel), Windows Server 2012, Windows Server 2012 R2, Windows Server 2008 R2
+>S’applique à : Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Vista, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2, Windows Server 2008 R2, Windows Server (canal semi-annuel)
 
 Cette rubrique décrit comment utiliser Windows Server pour déployer la Redirection de dossiers avec les fichiers hors connexion sur les ordinateurs clients Windows.
 
 Pour obtenir la liste des modifications récentes apportées à ce sujet, consultez [l’historique des modifications](#change-history).
 
->[!IMPORTANT]
->En raison des modifications de sécurité apportées dans [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016), nous avons mis à jour [étape 3 : Créer un objet de stratégie de groupe pour la Redirection de dossiers](#step-3-create-a-gpo-for-folder-redirection) de cette rubrique afin que Windows peuvent correctement appliquer la stratégie de Redirection de dossiers (et pas rétablir les dossiers redirigés sur PC affectés).
+> [!IMPORTANT]
+> En raison des modifications de sécurité apportées dans [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016), nous avons mis à jour [étape 3 : Créer un objet de stratégie de groupe pour la Redirection de dossiers](#step-3-create-a-gpo-for-folder-redirection) de cette rubrique afin que Windows peuvent correctement appliquer la stratégie de Redirection de dossiers (et pas rétablir les dossiers redirigés sur PC affectés).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -45,8 +45,8 @@ La Redirection de dossiers présente la configuration logicielle requise suivant
     - Si le partage de fichiers utilise la réplication DFS pour répliquer le contenu avec un autre serveur, les utilisateurs doivent pouvoir accéder uniquement au serveur source pour éviter que les utilisateurs effectuent des modifications en conflit sur différents serveurs.
     - Lorsque vous utilisez un partage de fichiers en cluster, désactivez la disponibilité continue sur le partage de fichiers afin d’éviter les problèmes de performances avec la Redirection de dossiers et fichiers hors connexion. En outre, les fichiers hors connexion ne peut pas passer en mode hors connexion pour 3-6 minutes après qu’un utilisateur perd l’accès à un partage de fichiers disponibles en permanence, ce qui peut nuire aux utilisateurs qui n’utilisent pas le mode toujours hors connexion des fichiers hors connexion.
 
->[!NOTE]
->Certaines fonctionnalités plus récentes dans la Redirection de dossiers ont ordinateur client supplémentaires et des spécifications de schéma Active Directory. Pour plus d’informations, consultez [déployer des ordinateurs principaux](deploy-primary-computers.md), [désactiver la fonctionnalité fichiers hors connexion sur les dossiers](disable-offline-files-on-folders.md), [activer le mode toujours hors connexion](enable-always-offline.md), et [activer optimisé le déplacement du dossier ](enable-optimized-moving.md).
+> [!NOTE]
+> Certaines fonctionnalités plus récentes dans la Redirection de dossiers ont ordinateur client supplémentaires et des spécifications de schéma Active Directory. Pour plus d’informations, consultez [déployer des ordinateurs principaux](deploy-primary-computers.md), [désactiver la fonctionnalité fichiers hors connexion sur les dossiers](disable-offline-files-on-folders.md), [activer le mode toujours hors connexion](enable-always-offline.md), et [activer optimisé le déplacement du dossier ](enable-optimized-moving.md).
 
 ## <a name="step-1-create-a-folder-redirection-security-group"></a>Étape 1 : Créer un groupe de sécurité de la redirection de dossiers
 
@@ -67,8 +67,8 @@ Voici comment créer un groupe de sécurité pour la Redirection de dossiers :
 
 Si vous n’avez pas déjà d’un partage de fichiers des dossiers redirigés, procédez comme suit pour créer un partage de fichiers sur un serveur exécutant Windows Server 2012.
 
->[!NOTE]
->Certaines fonctionnalités peuvent être différentes ou non disponibles si vous créez le partage de fichiers sur un serveur exécutant une autre version de Windows Server.
+> [!NOTE]
+> Certaines fonctionnalités peuvent être différentes ou non disponibles si vous créez le partage de fichiers sur un serveur exécutant une autre version de Windows Server.
 
 Voici comment créer un partage de fichiers sur Windows Server 2019, Windows Server 2016 et Windows Server 2012 :
 
@@ -93,15 +93,14 @@ Voici comment créer un partage de fichiers sur Windows Server 2019, Windows Ser
 
 ### <a name="required-permissions-for-the-file-share-hosting-redirected-folders"></a>Les autorisations requises pour le fichier de partagent les dossiers redirigés d’hébergement
 
-
-|Compte d’utilisateur  |Accès  |S'applique à  |
-|---------|---------|---------|
+| Compte d’utilisateur  | Accès  | S'applique à  |
+| --------- | --------- | --------- |
 | Compte d’utilisateur | Accès | S'applique à |
-|System     | Contrôle total        |    Ce dossier, ses sous-dossiers et ses fichiers     |
-|Administrateurs     | Contrôle total       | Ce dossier uniquement        |
-|Propriétaire créateur     |   Contrôle total      |   Sous-dossiers et fichiers uniquement      |
-|Groupe de sécurité des utilisateurs qui doivent placer des données sur le partage (utilisateurs de la Redirection de dossier)     |   Liste du dossier / lecture de données *(les autorisations avancées)* <br /><br />Créer des dossiers / Ajout de données *(les autorisations avancées)* <br /><br />Lire les attributs *(les autorisations avancées)* <br /><br />Lecture des attributs étendus *(les autorisations avancées)* <br /><br />Autorisations de lecture *(les autorisations avancées)*      |  Ce dossier uniquement       |
-|Autres groupes et comptes     |  Aucun (supprimer)       |         |
+| System     | Contrôle total        |    Ce dossier, ses sous-dossiers et ses fichiers     |
+| Administrateurs     | Contrôle total       | Ce dossier uniquement        |
+| Propriétaire créateur     |   Contrôle total      |   Sous-dossiers et fichiers uniquement      |
+| Groupe de sécurité des utilisateurs qui doivent placer des données sur le partage (utilisateurs de la Redirection de dossier)     |   Liste du dossier / lecture de données *(les autorisations avancées)* <br /><br />Créer des dossiers / Ajout de données *(les autorisations avancées)* <br /><br />Lire les attributs *(les autorisations avancées)* <br /><br />Lecture des attributs étendus *(les autorisations avancées)* <br /><br />Autorisations de lecture *(les autorisations avancées)*      |  Ce dossier uniquement       |
+| Autres groupes et comptes     |  Aucun (supprimer)       |         |
 
 ## <a name="step-3-create-a-gpo-for-folder-redirection"></a>Étape 3 : Créer un objet de stratégie de groupe pour la Redirection de dossiers
 
@@ -121,15 +120,15 @@ Voici comment créer un objet de stratégie de groupe pour la Redirection de dos
     
     Cette étape est nécessaire en raison des modifications de sécurité apportées dans [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016).
 
->[!IMPORTANT]
->En raison des modifications de sécurité apportées dans [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016), vous devez maintenant donner les autorisations de lecture de délégué de groupe utilisateurs authentifiés pour le GPO de la Redirection de dossier : sinon l’objet de stratégie de groupe ne sont pas appliqué aux utilisateurs, ou si elle est déjà appliquée, l’objet de stratégie de groupe est supprimé, la redirection de dossiers sur le PC local. Pour plus d’informations, consultez [déploiement de groupe de stratégie de sécurité mise à jour MS16-072](https://blogs.technet.microsoft.com/askds/2016/06/22/deploying-group-policy-security-update-ms16-072-kb3163622/).
+> [!IMPORTANT]
+> En raison des modifications de sécurité apportées dans [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016), vous devez maintenant donner les autorisations de lecture de délégué de groupe utilisateurs authentifiés pour le GPO de la Redirection de dossier : sinon l’objet de stratégie de groupe ne sont pas appliqué aux utilisateurs, ou si elle est déjà appliquée, l’objet de stratégie de groupe est supprimé, la redirection de dossiers sur le PC local. Pour plus d’informations, consultez [déploiement de groupe de stratégie de sécurité mise à jour MS16-072](https://blogs.technet.microsoft.com/askds/2016/06/22/deploying-group-policy-security-update-ms16-072-kb3163622/).
 
 ## <a name="step-4-configure-folder-redirection-with-offline-files"></a>Étape 4 : Configurer la redirection de dossiers avec les fichiers hors connexion
 
 Après avoir créé un objet de stratégie de groupe pour les paramètres de la Redirection de dossiers, modifiez les paramètres de stratégie de groupe pour activer et configurer la Redirection de dossiers, comme indiqué dans la procédure suivante.
 
->[!NOTE]
->Fichiers hors connexion est activée par défaut pour les dossiers redirigés sur les ordinateurs clients Windows et est désactivée sur les ordinateurs exécutant Windows Server, sauf modification par l’utilisateur. Pour utiliser la stratégie de groupe pour contrôler si les fichiers hors connexion est activée, utilisez le **autoriser ou interdire l’utilisation de la fonctionnalité fichiers hors connexion** paramètre de stratégie.
+> [!NOTE]
+> Fichiers hors connexion est activée par défaut pour les dossiers redirigés sur les ordinateurs clients Windows et est désactivée sur les ordinateurs exécutant Windows Server, sauf modification par l’utilisateur. Pour utiliser la stratégie de groupe pour contrôler si les fichiers hors connexion est activée, utilisez le **autoriser ou interdire l’utilisation de la fonctionnalité fichiers hors connexion** paramètre de stratégie.
 > Pour plus d’informations sur certaines des autres paramètres de stratégie de groupe de fichiers hors connexion, consultez [activer Advanced hors connexion fichiers fonctionnalité](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn270369(v%3dws.11)>), et [configuration de la stratégie de groupe pour les fichiers hors connexion](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc759721(v%3dws.10)>).
 
 Voici comment configurer la Redirection de dossiers dans la stratégie de groupe :
@@ -141,6 +140,7 @@ Voici comment configurer la Redirection de dossiers dans la stratégie de groupe
 
     > [!NOTE]
     > Pour appliquer la Redirection de dossiers pour les ordinateurs clients exécutant Windows XP ou Windows Server 2003, sélectionnez le **paramètres** onglet et sélectionnez le **également appliquer la stratégie de redirection à Windows 2000, Windows 2000 Server, Windows XP, et Systèmes d’exploitation Windows Server 2003** case à cocher.
+
 5. Dans le **emplacement du dossier cible** section, sélectionnez **créer un dossier pour chaque utilisateur sous le chemin d’accès racine** puis, dans le **chemin d’accès racine** , tapez le chemin d’accès pour le stockage de partage de fichier redirection de dossiers, par exemple :  **\\ \\fs1.corp.contoso.com\\utilisateurs$**
 6. Sélectionnez le **paramètres** onglet, puis, dans le **suppression de la stratégie** section, vous pouvez également sélectionner **rediriger le dossier vers l’emplacement du profil utilisateur local lorsque la stratégie est supprimée** (ce paramètre peut aider à rendre la Redirection de dossiers se comportent plus prévisible pour les utilisateurs et adminisitrators).
 7. Sélectionnez **OK**, puis sélectionnez **Oui** dans la boîte de dialogue d’avertissement.
@@ -149,8 +149,8 @@ Voici comment configurer la Redirection de dossiers dans la stratégie de groupe
 
 Une fois que vous avez terminé la configuration des paramètres de stratégie de groupe de Redirection de dossiers, l’étape suivante consiste à activer l’objet de stratégie de groupe, autorisant à appliquer aux utilisateurs concernés.
 
->[!TIP]
->Si vous envisagez d'implémenter la prise en charge des ordinateurs principaux ou d'autres paramètres de stratégie, faites-le maintenant, avant d'activer l'objet de stratégie de groupe. Cela évite que des données utilisateur soient copiées sur des ordinateurs non principaux avant que la prise en charge des ordinateurs principaux soit activée.
+> [!TIP]
+> Si vous envisagez d'implémenter la prise en charge des ordinateurs principaux ou d'autres paramètres de stratégie, faites-le maintenant, avant d'activer l'objet de stratégie de groupe. Cela évite que des données utilisateur soient copiées sur des ordinateurs non principaux avant que la prise en charge des ordinateurs principaux soit activée.
 
 Voici comment activer le GPO de la Redirection de dossier :
 
@@ -175,24 +175,24 @@ Voici comment tester la Redirection de dossiers :
 
 ## <a name="appendix-a-checklist-for-deploying-folder-redirection"></a>Annexe A : Liste de vérification pour le déploiement de la Redirection de dossiers
 
-|État|Action|
-|:---:|---|
-|☐<br>☐<br>☐|1. Préparer le domaine<br>-Joindre des ordinateurs au domaine<br>-Créer des comptes d’utilisateur|
-|☐<br><br><br>|2. Créer un groupe de sécurité pour la Redirection de dossiers<br>-Nom du groupe :<br>-Membres :|
-|☐<br><br>|3. Créer un partage de fichiers des dossiers redirigés<br>-Nom de partage de fichiers :|
-|☐<br><br>|4. Créer un objet de stratégie de groupe pour la Redirection de dossiers<br>-Nom de l’objet stratégie de groupe :|
-|☐<br><br>☐<br>☐<br>☐<br>☐<br>☐|5. Configurer les paramètres de stratégie de Redirection de dossiers et fichiers hors connexion<br>-Redirection de dossiers :<br>-Windows 2000, Windows XP et prenant en charge de Windows Server 2003 ?<br>-Fichiers hors connexion activées ? (activé par défaut sur les ordinateurs clients Windows)<br>-Mode toujours hors connexion est activé ?<br>-Synchronisation des fichiers en arrière-plan activée ?<br>-Optimisé le déplacement des dossiers redirigés activé ?|
-|☐<br><br>☐<br><br>☐<br>☐|6. (Facultatif) Activer la prise en charge de l’ordinateur principal<br>-Basées sur ordinateur ou utilisateur ?<br>-Désigner les ordinateurs principaux pour les utilisateurs<br>-Location de mappages utilisateurs et ordinateurs principaux :<br>-Prise en charge des ordinateurs principaux (facultatif) activer la Redirection de dossiers<br>-(Facultatif) activer la prise en charge des ordinateurs principaux pour les profils utilisateur itinérants|
-|☐|7. Activer la Redirection de dossier GPO|
-|☐|8. Tester la Redirection de dossiers|
+| État           | Action |
+| ---              | ---    |
+| ☐<br>☐<br>☐    | 1. Préparer le domaine<br>-Joindre des ordinateurs au domaine<br>-Créer des comptes d’utilisateur |
+| ☐<br><br><br>   | 2. Créer un groupe de sécurité pour la Redirection de dossiers<br>-Nom du groupe :<br>-Membres : |
+| ☐<br><br>       | 3. Créer un partage de fichiers des dossiers redirigés<br>-Nom de partage de fichiers : |
+| ☐<br><br>       | 4. Créer un objet de stratégie de groupe pour la Redirection de dossiers<br>-Nom de l’objet stratégie de groupe : |
+| ☐<br><br>☐<br>☐<br>☐<br>☐<br>☐ | 5. Configurer les paramètres de stratégie de Redirection de dossiers et fichiers hors connexion<br>-Redirection de dossiers :<br>-Windows 2000, Windows XP et prenant en charge de Windows Server 2003 ?<br>-Fichiers hors connexion activées ? (activé par défaut sur les ordinateurs clients Windows)<br>-Mode toujours hors connexion est activé ?<br>-Synchronisation des fichiers en arrière-plan activée ?<br>-Optimisé le déplacement des dossiers redirigés activé ? |
+| ☐<br><br>☐<br><br>☐<br>☐ | 6. (Facultatif) Activer la prise en charge de l’ordinateur principal<br>-Basées sur ordinateur ou utilisateur ?<br>-Désigner les ordinateurs principaux pour les utilisateurs<br>-Location de mappages utilisateurs et ordinateurs principaux :<br>-Prise en charge des ordinateurs principaux (facultatif) activer la Redirection de dossiers<br>-(Facultatif) activer la prise en charge des ordinateurs principaux pour les profils utilisateur itinérants |
+| ☐         | 7. Activer la Redirection de dossier GPO |
+| ☐         | 8. Tester la Redirection de dossiers |
 
 ## <a name="change-history"></a>Historique des modifications
 
 Le tableau suivant récapitule certaines des modifications les plus importantes apportées à cette rubrique.
 
-|Date|Description|Reason|
-|---|---|---|
-|18 janvier 2017|Ajouté une étape pour [étape 3 : Créer un objet de stratégie de groupe pour la Redirection de dossiers](#step-3-create-a-gpo-for-folder-redirection) pour déléguer des autorisations en lecture aux utilisateurs authentifiés, qui est désormais nécessaire en raison d’une mise à jour de sécurité de stratégie de groupe.|Commentaires des clients.|
+| Date | Description | Reason|
+| --- | --- | --- |
+| 18 janvier 2017 | Ajouté une étape pour [étape 3 : Créer un objet de stratégie de groupe pour la Redirection de dossiers](#step-3-create-a-gpo-for-folder-redirection) pour déléguer des autorisations en lecture aux utilisateurs authentifiés, qui est désormais nécessaire en raison d’une mise à jour de sécurité de stratégie de groupe. | Retour d'expérience du client |
 
 ## <a name="more-information"></a>Informations supplémentaires
 

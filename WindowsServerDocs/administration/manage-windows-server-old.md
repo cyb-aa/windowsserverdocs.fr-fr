@@ -8,12 +8,12 @@ author: lizap
 ms.author: elizapo
 ms.date: 03/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 4faadb811927626c26a5b01e2ce0598d40792b68
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7ae87b12997aa3cb3ae3fe290c9243995b30d6b0
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846760"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452818"
 ---
 # <a name="manage-windows-server"></a>Gérer Windows Server
 
@@ -118,5 +118,5 @@ Windows PowerShell est un interpréteur de ligne de commande et un langage de sc
 Les outils de ligne de commande Windows sont utilisés pour effectuer des tâches d’administration dans Windows. Vous pouvez utiliser la référence des commandes pour vous familiariser avec les outils de ligne de commande, pour en savoir plus sur le shell de commande et automatiser les tâches en ligne de commande à l’aide de fichiers de commandes ou d’outils de script.
 
 ## <a name="windows-server-insider-preview"></a>Présentation de Windows Server Insider
-### <a name="system-insightsmanagesystem-insightsoverviewmd"></a>[Informations système](..\manage\system-insights\overview.md)
+### <a name="system-insightsmanagesystem-insightsoverviewmd"></a>[Insights système](../manage/system-insights/overview.md)
 Insights système est une nouvelle fonctionnalité qui prend en charge les analyses prédictives en mode natif dans Windows Server. Ces fonctionnalités de prévision analysent en local les données du système Windows Server, telles que des compteurs de performance ou les événements ETW, pour aider les administrateurs informatiques à détecter de manière proactive et à résoudre les comportements problématiques dans leurs déploiements. 

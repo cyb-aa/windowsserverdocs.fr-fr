@@ -12,12 +12,12 @@ ms.assetid: e45b3d89-c057-4c70-a627-86fb06dd22aa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 9b0d11be08840ecedabab6fd4e96f5d453ea4857
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 52ec9bf1caa4cb4c7ed661eec1448f3f2a4be980
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848190"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436051"
 ---
 # <a name="troubleshoot-connecting-computers-to-the-server-in-windows-server-essentials"></a>Résolution des problèmes de connexion d'ordinateurs au serveur dans Windows Server Essentials
 
@@ -165,7 +165,7 @@ ms.locfileid: "59848190"
   
  Cela peut se produire si la date et l’heure de l’ordinateur connecté ne sont pas synchronisées avec celles du serveur.  Windows Server Essentials et Windows Server Essentials utilisent le service de synchronisation de temps pour synchroniser la date et l’heure des ordinateurs en cours d’exécution dans un Windows Server Essentials ou le réseau de Windows Server Essentials. Il s’agit d’une opération cruciale, car le protocole d’authentification par défaut utilise l’heure du serveur dans le cadre du processus d’authentification. Par exemple, si l’horloge sur un ordinateur client n’est pas synchronisé avec la date et l’heure, Windows Server Essentials ou l’authentification Windows Server Essentials peut faussement interpréter une demande d’ouverture de session en tant qu’une tentative d’intrusion et refuser l’accès à l’utilisateur.  
   
- Cela peut se produire si la mémoire disponible du serveur s est inférieur à 5 %.  
+ Cela peut se produire si la mémoire du serveur libre est inférieur à 5 %.  
   
  Cela peut se produire si vous disposez déjà d’une connexion VPN à Windows Server Essentials et que vous essayez de configurer le logiciel Connecteur hors site à l’aide d’une adresse de domaine.  
   
@@ -179,17 +179,17 @@ ms.locfileid: "59848190"
   
 #### <a name="to-change-the-date-and-time-on-the-client-computer"></a>Pour modifier la date et l’heure sur l’ordinateur client  
   
-1.  Dans la page Démarrer de l’ordinateur client, ouvrez le **Panneau de configuration**.  
+1. Dans la page Démarrer de l’ordinateur client, ouvrez le **Panneau de configuration**.  
   
-2.  Dans le Panneau de configuration, cliquez sur **Horloge, langue et région**, puis sur **Date et heure**.  
+2. Dans le Panneau de configuration, cliquez sur **Horloge, langue et région**, puis sur **Date et heure**.  
   
-3.  Cliquez sur **Modifier la date et l’heure**, définissez la date et l’heure adéquates, puis cliquez sur **OK**.  
+3. Cliquez sur **Modifier la date et l’heure**, définissez la date et l’heure adéquates, puis cliquez sur **OK**.  
   
-4.  Cliquez sur **OK**, puis fermez le Panneau de configuration.  
+4. Cliquez sur **OK**, puis fermez le Panneau de configuration.  
   
-5.  Réessayez de connecter l’ordinateur client au serveur. Pour obtenir des instructions, consultez Connecter des ordinateurs au serveur.  
+5. Réessayez de connecter l’ordinateur client au serveur. Pour obtenir des instructions, consultez Connecter des ordinateurs au serveur.  
   
- Si vous ne pouvez toujours pas connecter l’ordinateur client au serveur, assurez-vous que la date et l’heure du serveur sont correctes. Si elles sont erronées, modifiez-les.  
+   Si vous ne pouvez toujours pas connecter l’ordinateur client au serveur, assurez-vous que la date et l’heure du serveur sont correctes. Si elles sont erronées, modifiez-les.  
   
 #### <a name="to-change-the-date-and-time-on-the-server"></a>Pour modifier la date et l’heure du serveur  
   
@@ -225,7 +225,7 @@ ms.locfileid: "59848190"
   
 1.  Sur la page **Démarrer** du serveur, ouvrez **Outils d’administration**.  
   
-     Dans **Outils d’administration**, cliquez avec le bouton droit sur **Gestionnaire des services Internet (IIS)**, puis cliquez sur **Ouvrir**.  
+     Dans **Outils d’administration**, cliquez avec le bouton droit sur **Gestionnaire des services Internet (IIS)** , puis cliquez sur **Ouvrir**.  
   
 2.  Dans le volet de navigation, cliquez sur **Service Web de certificat WSS**.  
   

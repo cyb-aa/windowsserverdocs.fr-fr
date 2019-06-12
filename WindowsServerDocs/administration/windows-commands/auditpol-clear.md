@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 453579589f3fd3cc2c9fa835b50bfb59e33bc3dc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 86b56386ba9bed2486cdf8cdbb4486fcec6c6265
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872580"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435150"
 ---
 # <a name="auditpol-clear"></a>AuditPol clair
 
@@ -31,10 +31,12 @@ Supprime la stratégie d’audit par utilisateur pour tous les utilisateurs, les
 auditpol /clear [/y]
 ```
 ## <a name="parameters"></a>Paramètres
-|Paramètre|Description|
-|-------|--------|
-|/y|Supprime l’invite pour confirmer si tous les paramètres de stratégie d’audit doivent être effacés.|
-|/?|Affiche l'aide à l'invite de commandes.|
+
+| Paramètre |                                   Description                                    |
+|-----------|----------------------------------------------------------------------------------|
+|    /y     | Supprime l’invite pour confirmer si tous les paramètres de stratégie d’audit doivent être effacés. |
+|    /?     |                       Affiche l'aide à l'invite de commandes.                       |
+
 ## <a name="remarks"></a>Notes
 pour les opérations d’effacement pour les stratégies d’utilisateur et système, vous devez avoir écrire ou jeu d’autorisations de contrôle total sur cet objet dans le descripteur de sécurité. Vous pouvez également effectuer l’opération d’effacement par possédant le **gérer le journal d’audit et de sécurité** droit d’utilisateur (SeSecurityPrivilege). Toutefois, ce droit permet un accès supplémentaire qui n’est pas nécessaire d’effectuer l’opération d’effacement.
 ## <a name="BKMK_examples"></a>Exemples
@@ -48,5 +50,5 @@ auditpol /clear /y
 ```
 > [!NOTE]
 > L’exemple précédent est utile lorsque vous utilisez un script pour effectuer cette opération.
-#### <a name="additional-references"></a>Références supplémentaires
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+> #### <a name="additional-references"></a>Références supplémentaires
+> [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

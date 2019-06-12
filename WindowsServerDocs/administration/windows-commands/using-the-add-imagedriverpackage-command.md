@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dc675ac202f87703074f78c45b1f264f6105c324
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 38d6c032f347f9945701f17b9289f3e3ff474031
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843740"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440624"
 ---
 # <a name="using-the-add-imagedriverpackage-command"></a>À l’aide de la commande add-ImageDriverPackage
 
@@ -33,15 +33,17 @@ wdsutil /add-ImageDriverPackage [/Server:<Server name>media:<Image namemediatype
 [/Filename:<File name>] {/DriverPackage:<Package Name> | /PackageId:<ID>}
 ```
 ## <a name="parameters"></a>Paramètres
-|Paramètre|Description|
-|-------|--------|
-|[/ Server :<Server name>|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom de domaine complet. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
-média :<Image name>|Spécifie le nom de l’image à ajouter au pilote.|
-mediatype:Boot|Spécifie le type d’image à ajouter au pilote. Packages de pilotes peuvent uniquement être ajoutés aux images de démarrage.|
-|/ Architecture : {x86 &#124; ia64 &#124; x64}|Spécifie l’architecture de l’image de démarrage. Comme il est possible d’avoir le même nom d’image pour les images de démarrage dans différentes architectures, vous devez spécifier l’architecture pour garantir que l’image correcte est utilisée.|
-|/ Filename :<File name>]|Spécifie le nom du fichier. Si l’image ne peut pas être identifié de manière unique par son nom, le nom de fichier doit être spécifié.|
-|[/DriverPackage:<Name>|Spécifie le nom du package de pilotes à ajouter à l’image.|
-|[/PackageId:<ID>]|Spécifie l’ID de Services de déploiement Windows du package de pilotes. Vous devez spécifier cette option si le package de pilotes ne peut pas être identifié de manière unique par son nom. Pour rechercher l’ID de Package, cliquez sur le groupe de pilotes se trouve le package (ou le **tous les Packages** nœud), cliquez sur le package, puis cliquez sur **propriétés**. L’ID de Package est répertorié dans le **général** onglet. Par exemple : {DD098D20-1850-4fc8-8E35-EA24A1BEFF5E}.|
+
+|                 Paramètre                  |                                                                                                                                                                                                            Description                                                                                                                                                                                                             |
+|--------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|           [/ Server :<Server name>           |                                                                                                                                               Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom de domaine complet. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.                                                                                                                                                |
+|             média :<Image name>             |                                                                                                                                                                                       Spécifie le nom de l’image à ajouter au pilote.                                                                                                                                                                                        |
+|               mediatype:Boot               |                                                                                                                                                                Spécifie le type d’image à ajouter au pilote. Packages de pilotes peuvent uniquement être ajoutés aux images de démarrage.                                                                                                                                                                 |
+| / Architecture : {x86 &#124; ia64 &#124; x64} |                                                                                                       Spécifie l’architecture de l’image de démarrage. Comme il est possible d’avoir le même nom d’image pour les images de démarrage dans différentes architectures, vous devez spécifier l’architecture pour garantir que l’image correcte est utilisée.                                                                                                        |
+|           / Filename :<File name>]           |                                                                                                                                                        Spécifie le nom du fichier. Si l’image ne peut pas être identifié de manière unique par son nom, le nom de fichier doit être spécifié.                                                                                                                                                        |
+|           [/DriverPackage:<Name>           |                                                                                                                                                                                   Spécifie le nom du package de pilotes à ajouter à l’image.                                                                                                                                                                                    |
+|             [/PackageId:<ID>]              | Spécifie l’ID de Services de déploiement Windows du package de pilotes. Vous devez spécifier cette option si le package de pilotes ne peut pas être identifié de manière unique par son nom. Pour rechercher l’ID de Package, cliquez sur le groupe de pilotes se trouve le package (ou le **tous les Packages** nœud), cliquez sur le package, puis cliquez sur **propriétés**. L’ID de Package est répertorié dans le **général** onglet. Par exemple : {DD098D20-1850-4fc8-8E35-EA24A1BEFF5E}. |
+
 ## <a name="BKMK_examples"></a>Exemples
 Pour ajouter un package de pilotes à une image de démarrage, tapez une des opérations suivantes :
 ```

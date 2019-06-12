@@ -9,16 +9,16 @@ ms.topic: article
 author: vpetter
 ms.date: 03/27/2018
 ms.localizationpriority: ''
-ms.openlocfilehash: 55167d0f4c838af5f6f79432ede2dd45eac848a5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6e301b8c46041f107739bbcdb09c2eb0c8252ebb
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853860"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452905"
 ---
 # <a name="troubleshooting-a-failover-cluster-using-windows-error-reporting"></a>Résolution des problèmes d’un Cluster de basculement à l’aide du rapport d’erreurs Windows 
 
-> S’applique à : Windows Server 2016, Windows Server
+> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server
 
 Windows Error Reporting (WER) est une infrastructure flexible de commentaires en fonction des événements conçue pour aider les administrateurs avancés ou recueillir des informations sur les problèmes matériels et logiciels Windows peut détecter, de la prise en charge de la couche 3 signalent les informations à Microsoft, et fournir aux utilisateurs avec les solutions disponibles. Cela [référence](https://docs.microsoft.com/powershell/module/windowserrorreporting/) fournit des descriptions et la syntaxe pour toutes les applets de commande WindowsErrorReporting.
 
@@ -317,15 +317,15 @@ Voici un exemple de sortie :
 
 Message Analyzer vous permet de capturer, afficher et analyser le trafic de messagerie de protocole. Il vous permet également de suivre et d’évaluer des événements système et autres messages à partir des composants de Windows. Vous pouvez télécharger [Microsoft Message Analyzer à partir d’ici](https://www.microsoft.com/download/details.aspx?id=44226). Lorsque vous chargez les journaux dans Message Analyzer, vous verrez les fournisseurs et les messages via les canaux de journal suivante.
 
-![Chargement des journaux dans Message Analyzer](media\troubleshooting-using-WER-reports\loading-logs-into-message-analyzer.png)
+![Chargement des journaux dans Message Analyzer](media/troubleshooting-using-WER-reports/loading-logs-into-message-analyzer.png)
 
 Vous pouvez également regrouper par les fournisseurs pour obtenir la vue suivante :
 
-![Regroupés par les fournisseurs de journaux](media\troubleshooting-using-WER-reports\logs-grouped-by-providers.png)
+![Regroupés par les fournisseurs de journaux](media/troubleshooting-using-WER-reports/logs-grouped-by-providers.png)
 
-Pour identifier la raison pour laquelle le disque a échoué, accédez aux événements sous **clustering avec basculement/Diagnostic** et **clustering avec basculement/DiagnosticVerbose**. Puis exécutez la requête suivante : **EventLog.EventData["LogString »] contient le « Disque de Cluster 10 »**.  Cela donnera vous donner la sortie suivante :
+Pour identifier la raison pour laquelle le disque a échoué, accédez aux événements sous **clustering avec basculement/Diagnostic** et **clustering avec basculement/DiagnosticVerbose**. Puis exécutez la requête suivante : **EventLog.EventData["LogString »] contient le « Disque de Cluster 10 »** .  Cela donnera vous donner la sortie suivante :
 
-![Sortie de requête de journal en cours d’exécution](media\troubleshooting-using-WER-reports\output-of-running-log-query.png)
+![Sortie de requête de journal en cours d’exécution](media/troubleshooting-using-WER-reports/output-of-running-log-query.png)
 
 
 ### <a name="physical-disk-timed-out"></a>Disque physique a expiré
@@ -423,7 +423,7 @@ La liste des services et des processus que nous collectons dans un fichier de vi
 
 Pour identifier la raison pour laquelle le blocage s’est produit, ouvrez les fichiers dum. Puis exécutez la requête suivante : **EventLog.EventData["LogString »] contient le « Disque de Cluster 10 »** Cela donnera vous donner la sortie suivante :
 
-![Sortie de requête de journal en cours d’exécution 2](media\troubleshooting-using-WER-reports\output-of-running-log-query-2.png)
+![Sortie de requête de journal en cours d’exécution 2](media/troubleshooting-using-WER-reports/output-of-running-log-query-2.png)
 
 Nous pouvons le cross-examine avec le thread à partir de la **memory.hdmp** fichier :
 

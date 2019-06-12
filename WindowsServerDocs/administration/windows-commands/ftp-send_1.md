@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3dca11f0d534eb875a71fa2c39cdd4dc674ad788
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 39423aff3c64f41c4fc0f8998484e6dcc38f822e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862120"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438438"
 ---
 # <a name="ftp-send1"></a>ftp: send_1
 
@@ -30,21 +30,23 @@ Copie un fichier local à l’ordinateur distant en utilisant le mode de transfe
 send <LocalFile> [<remoteFile>]  
 ```  
 ### <a name="parameters"></a>Paramètres  
-|Paramètre|Description|  
-|-------|--------|  
-|<LocalFile>|Spécifie le fichier local à copier.|  
-|<remoteFile>|Spécifie le nom à utiliser sur l’ordinateur distant.|  
+
+|  Paramètre   |                    Description                    |
+|--------------|---------------------------------------------------|
+| <LocalFile>  |         Spécifie le fichier local à copier.         |
+| <remoteFile> | Spécifie le nom à utiliser sur l’ordinateur distant. |
+
 ## <a name="remarks"></a>Notes  
--   Le **envoyer** commande est identique à la **put** commande.  
--   Si *Fichier_distant* n’est pas spécifié, le fichier porte le *LocalFile* nom.  
-## <a name="BKMK_Examples"></a>Exemples  
-Copiez le fichier local **test.txt** et nommez-le **test1.txt** sur l’ordinateur distant.  
-```  
-send test.txt test1.txt  
-```  
-Copiez le fichier local **program.exe** à l’ordinateur distant.  
-```  
-send program.exe  
-```  
-## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+- Le **envoyer** commande est identique à la **put** commande.  
+- Si *Fichier_distant* n’est pas spécifié, le fichier porte le *LocalFile* nom.  
+  ## <a name="BKMK_Examples"></a>Exemples  
+  Copiez le fichier local **test.txt** et nommez-le **test1.txt** sur l’ordinateur distant.  
+  ```  
+  send test.txt test1.txt  
+  ```  
+  Copiez le fichier local **program.exe** à l’ordinateur distant.  
+  ```  
+  send program.exe  
+  ```  
+  ## <a name="additional-references"></a>Références supplémentaires  
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

@@ -7,16 +7,16 @@ ms.topic: article
 author: johnmarlin-msft
 ms.date: 02/01/2019
 description: Cet article décrit la création d’un cluster de serveurs de fichiers à deux nœuds
-ms.openlocfilehash: fbfde60f60df64514a6a0f514cbabd005544af84
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9f50470b379bd0ab05834eb3c5a35be0f5e9e93a
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846410"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452998"
 ---
 # <a name="deploying-a-two-node-clustered-file-server"></a>Déploiement d’un serveur de fichiers en cluster à deux nœuds
 
-> S'applique à : Windows Server 2019, Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server 2016
 
 Un cluster de basculement est un groupe d'ordinateurs indépendants qui travaillent conjointement pour accroître la disponibilité des applications et des services. Les serveurs en cluster (appelés « nœuds ») sont connectés par des câbles physiques et par des logiciels. En cas de défaillance de l'un des nœuds, un autre prend sa place pour fournir le service (processus appelé « basculement »), garantissant ainsi des interruptions minimales de service pour les utilisateurs.
 
@@ -28,11 +28,11 @@ Les serveurs dans un cluster de basculement peuvent fonctionner dans divers rôl
 
 En règle générale, un cluster de basculement inclut une unité de stockage connectée physiquement à tous les serveurs du cluster, même si tout volume donné dans le stockage n'est accessible qu'à un serveur à la fois. Le diagramme suivant montre un cluster de basculement à deux nœuds connecté à une unité de stockage.
 
-![Cluster à deux nœuds](media\Cluster-File-Server\Cluster-FS-Overview.png)
+![Cluster à deux nœuds](media/Cluster-File-Server/Cluster-FS-Overview.png)
 
 Les volumes de stockage ou numéros d'unités logiques exposés aux nœuds d'un cluster ne doivent pas être exposés à d'autres serveurs, y compris les serveurs d'un autre cluster. Le diagramme suivant illustre ce point.
 
-![Numéros d’unités logiques de stockage](media\Cluster-File-Server\Cluster-FS-LUNs.png)
+![Numéros d’unités logiques de stockage](media/Cluster-File-Server/Cluster-FS-LUNs.png)
 
 Notez que pour une disponibilité maximale des serveurs, il est important de suivre les meilleures pratiques en matière de gestion de serveurs, par exemple à travers la gestion soigneuse de l'environnement physique des serveurs, le test des modifications des logiciels avant leur implémentation complète, ainsi que le suivi attentif des mises à jour logicielles et des modifications de configuration sur tous les serveurs en cluster.
 
@@ -167,7 +167,7 @@ Dans cette étape, la fonctionnalité cluster fichier le rôle et le basculement
 
 1. Ouvrez **le Gestionnaire de serveur** et, sous la **gérer** liste déroulante, sélectionnez **Ajout de rôles et fonctionnalités**.
 
-   ![Ajouter la fonctionnalité](media\Cluster-File-Server\Cluster-FS-Add-Feature.png)
+   ![Ajouter la fonctionnalité](media/Cluster-File-Server/Cluster-FS-Add-Feature.png)
 
 2. Si le **avant de commencer** fenêtre s’ouvre, choisissez **suivant**.
 
@@ -177,11 +177,11 @@ Dans cette étape, la fonctionnalité cluster fichier le rôle et le basculement
 
 5. Pour le rôle de serveur, dans la liste des rôles, ouvrez **Services de fichiers**, sélectionnez **serveur de fichiers**, et **suivant**.
 
-   ![Ajouter un rôle](media\Cluster-File-Server\Cluster-FS-Add-FS-Role-1.png)
+   ![Ajouter un rôle](media/Cluster-File-Server/Cluster-FS-Add-FS-Role-1.png)
 
 6. Pour les fonctionnalités, à partir de la liste des fonctionnalités, sélectionnez **le Clustering de basculement**.  Affiche une boîte de dialogue contextuelle qui répertorie les outils d’administration également en cours d’installation.  Tout conserver sélectionné, choisissez **ajouter des fonctionnalités** et **suivant**.
 
-   ![Ajouter la fonctionnalité](media\Cluster-File-Server\Cluster-FS-Add-WSFC-1.png)
+   ![Ajouter la fonctionnalité](media/Cluster-File-Server/Cluster-FS-Add-WSFC-1.png)
 
 7. Dans la page de Confirmation, sélectionnez Installer.
 
@@ -191,7 +191,7 @@ Dans cette étape, la fonctionnalité cluster fichier le rôle et le basculement
 
 #### <a name="using-powershell"></a>À l'aide de PowerShell
 
-1. Ouvrez une session PowerShell d’administration en double-cliquant sur le bouton Démarrer, puis en sélectionnant **Windows PowerShell (Admin)**.
+1. Ouvrez une session PowerShell d’administration en double-cliquant sur le bouton Démarrer, puis en sélectionnant **Windows PowerShell (Admin)** .
 2. Pour installer le rôle de serveur de fichiers, exécutez la commande :
 
     ```PowerShell
@@ -233,7 +233,7 @@ Avant de créer un cluster, il est fortement recommandé de valider votre config
 
 4. Dans le **sélectionner des serveurs ou un Cluster** fenêtre, ajouter dans les noms des deux ordinateurs qui seront les nœuds du cluster.  Par exemple, si les noms sont NODE1 et NODE2, entrez le nom et sélectionnez **ajouter**.  Vous pouvez également choisir le **Parcourir** bouton pour rechercher les noms Active Directory.  Une fois que les deux sont répertoriés sous **serveurs sélectionnés**, choisissez **suivant**.
 
-5. Dans le **Options de test** fenêtre, sélectionnez **exécuter tous les tests (recommandés)**, et **suivant**.
+5. Dans le **Options de test** fenêtre, sélectionnez **exécuter tous les tests (recommandés)** , et **suivant**.
 
 6. Sur le **Confirmation** page, il vous donnera la liste de tous les tests, il vérifie.  Choisissez **suivant** et les tests commencera.
 
@@ -245,7 +245,7 @@ Avant de créer un cluster, il est fortement recommandé de valider votre config
 
 #### <a name="using-powershell"></a>À l'aide de PowerShell
 
-1. Ouvrez une session PowerShell d’administration en double-cliquant sur le bouton Démarrer, puis en sélectionnant **Windows PowerShell (Admin)**.
+1. Ouvrez une session PowerShell d’administration en double-cliquant sur le bouton Démarrer, puis en sélectionnant **Windows PowerShell (Admin)** .
 
 2. Pour valider les ordinateurs (par exemple, les noms d’ordinateur en cours de NODE1 et NODE2) pour le Clustering de basculement, exécutez la commande :
 
@@ -283,7 +283,7 @@ Ce qui suit crée un cluster de machines et de la configuration que vous avez.
 
 #### <a name="using-powershell"></a>À l'aide de PowerShell
 
-1. Ouvrez une session PowerShell d’administration en double-cliquant sur le bouton Démarrer, puis en sélectionnant **Windows PowerShell (Admin)**.
+1. Ouvrez une session PowerShell d’administration en double-cliquant sur le bouton Démarrer, puis en sélectionnant **Windows PowerShell (Admin)** .
 
 2. Exécutez la commande suivante pour créer le cluster si vous utilisez des adresses IP statiques.  Par exemple, les noms d’ordinateurs sont NODE1 et NODE2, le nom du cluster sera le CLUSTER et l’adresse IP sera 1.1.1.1.
 
@@ -315,7 +315,7 @@ Pour configurer un cluster de basculement de serveur de fichiers, suivez les ét
 
 7. Pour le Type de serveur de fichiers, sélectionnez **serveur de fichiers pour une utilisation générale** et **suivant**.<br>Pour plus d’informations sur le serveur de fichiers avec montée en puissance, consultez [vue d’ensemble du serveur de fichiers avec montée en puissance](sofs-overview.md).
 
-   ![Type de serveur de fichiers](media\Cluster-File-Server\Cluster-FS-File-Server-Type.png)
+   ![Type de serveur de fichiers](media/Cluster-File-Server/Cluster-FS-File-Server-Type.png)
 
 8. Dans le **Point d’accès Client** fenêtre, entrez le nom du serveur de fichiers que vous souhaitez utiliser.  Veuillez noter que cela n’est pas le nom du cluster.  Il s’agit de la connectivité de partage de fichier.  Par exemple, si je souhaite me connecter à \\SERVER, le nom d’entrée est serveur.
 

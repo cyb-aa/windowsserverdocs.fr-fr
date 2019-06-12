@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 78594c0445ae482e49d47b3b67bb867e53866017
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7de5e6dc6d205b7e6749d38ac822e31a78788c6e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867950"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435210"
 ---
 # <a name="auditpol-backup"></a>sauvegarde de l’outil Auditpol
 
@@ -31,10 +31,12 @@ Sauvegarde système auditer les paramètres de stratégie, les paramètres de st
 auditpol /backup /file:<filename>
 ```
 ## <a name="parameters"></a>Paramètres
-|Paramètre|Description|
-|-------|--------|
-|/file|Spécifie le nom du fichier auquel la stratégie d’audit sera sauvegardée.|
-|/?|Affiche l'aide à l'invite de commandes.|
+
+| Paramètre |                                 Description                                 |
+|-----------|-----------------------------------------------------------------------------|
+|   /file   | Spécifie le nom du fichier auquel la stratégie d’audit sera sauvegardée. |
+|    /?     |                    Affiche l'aide à l'invite de commandes.                     |
+
 ## <a name="remarks"></a>Notes
 pour les opérations de sauvegarde pour les stratégies d’utilisateur et système, vous devez avoir écrire ou jeu d’autorisations de contrôle total sur cet objet dans le descripteur de sécurité. Vous pouvez également effectuer des opérations de sauvegarde en utilisant le **gérer le journal d’audit et de sécurité** droit d’utilisateur (SeSecurityPrivilege). Toutefois, ce droit permet un accès supplémentaire qui n’est pas nécessaire d’effectuer l’opération de liste.
 ## <a name="BKMK_examples"></a>Exemples
@@ -44,6 +46,6 @@ auditpol /backup /file:C:\auditpolicy.csv
 ```
 > [!NOTE]
 > Si aucun lecteur n’est spécifié, le répertoire actif est utilisé.
-#### <a name="additional-references"></a>Références supplémentaires
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-[auditpol restauration](auditpol-restore.md)
+> #### <a name="additional-references"></a>Références supplémentaires
+> [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+> [auditpol restauration](auditpol-restore.md)

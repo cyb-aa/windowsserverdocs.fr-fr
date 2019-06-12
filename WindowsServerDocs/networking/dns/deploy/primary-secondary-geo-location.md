@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: a9ee7a56-f062-474f-a61c-9387ff260929
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6869ee5f39f1719a3c71025207ef9ffe740492ff
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: cf66a306c7f023852cec93d6458e74a99c46c831
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266789"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812103"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-secondary-deployments"></a>Utiliser une stratégie DNS pour la gestion du trafic basée sur la géolocalisation avec des déploiements principaux/secondaires
 
@@ -25,8 +25,8 @@ Le scénario précédent, [utiliser une stratégie DNS pour l’emplacement géo
   
 Les serveurs secondaires utilisent les protocoles de transfert de zone transfert faisant autorité (AXFR) et transfert de Zone incrémentiel (IXFR) pour demander et recevoir des mises à jour de la zone qui incluent de nouvelles modifications aux zones sur les serveurs DNS principales.   
   
->[!NOTE]
->Pour plus d’informations sur AXFR, consultez la Internet Engineering Task Force (IETF) [demande de commentaires 5936](https://tools.ietf.org/rfc/rfc5936.txt). Pour plus d’informations sur IXFR, consultez la Internet Engineering Task Force (IETF) [demande de commentaires 1995](https://tools.ietf.org/html/rfc1995).  
+> [!NOTE]
+> Pour plus d’informations sur AXFR, consultez la Internet Engineering Task Force (IETF) [demande de commentaires 5936](https://tools.ietf.org/rfc/rfc5936.txt). Pour plus d’informations sur IXFR, consultez la Internet Engineering Task Force (IETF) [demande de commentaires 1995](https://tools.ietf.org/html/rfc1995).  
   
 ## <a name="primary-secondary-geo-location-based-traffic-management-example"></a>Emplacement géographique principal-secondaire en fonction d’exemple de gestion de trafic  
 Voici un exemple de comment vous pouvez utiliser une stratégie DNS dans un déploiement de principaux / secondaires pour atteindre la redirection du trafic en fonction de l’emplacement physique du client qui effectue une requête DNS.  
@@ -82,7 +82,7 @@ Pour toute mise à jour supplémentaire dans une étendue de la zone, une notifi
 
 Avant de commencer, assurez-vous que vous avez effectué toutes les étapes décrites dans la rubrique [utiliser une stratégie DNS pour l’emplacement géographique en fonction de la gestion du trafic avec des serveurs principaux](../../dns/deploy/Scenario--Use-DNS-Policy-for-Geo-Location-Based-Traffic-Management-with-Primary-Servers.md), et votre serveur DNS principal est configuré avec les zones, étendues de la zone, le Client DNS Des sous-réseaux et une stratégie DNS.  
   
->[!NOTE]
+> [!NOTE]
 > Les instructions de cette rubrique pour copier les sous-réseaux du Client DNS, les étendues de zone et les stratégies DNS à partir de serveurs principaux DNS vers des serveurs DNS secondaires sont pour votre configuration initiale de DNS et la validation. À l’avenir vous souhaiterez peut-être modifier les sous-réseaux du Client DNS, les étendues de zone et les paramètres de stratégies sur le serveur principal. Dans ce cas, vous pouvez créer des scripts d’automatisation afin de conserver les serveurs secondaires synchronisés avec le serveur principal.  
   
 Pour configurer une stratégie DNS pour les réponses aux requêtes principaux / secondaires emplacement géographique en fonction, vous devez effectuer les étapes suivantes.  
@@ -95,9 +95,10 @@ Pour configurer une stratégie DNS pour les réponses aux requêtes principaux /
   
 Les sections suivantes fournissent des instructions de configuration détaillées.  
   
->[!IMPORTANT]
->Les sections suivantes incluent des exemples de commandes Windows PowerShell qui contiennent des exemples de valeurs de paramètres. Veillez à remplacer les exemples de valeurs dans ces commandes avec les valeurs appropriées pour votre déploiement avant d’exécuter ces commandes.  
-><br>L’appartenance au **DnsAdmins**, ou équivalent, est requis pour effectuer les procédures suivantes.  
+> [!IMPORTANT]
+> Les sections suivantes incluent des exemples de commandes Windows PowerShell qui contiennent des exemples de valeurs de paramètres. Veillez à remplacer les exemples de valeurs dans ces commandes avec les valeurs appropriées pour votre déploiement avant d’exécuter ces commandes.  
+> 
+> L’appartenance au **DnsAdmins**, ou équivalent, est requis pour effectuer les procédures suivantes.  
   
 ### <a name="create-the-secondary-zones"></a>Créer les Zones de la base de données secondaire
 
@@ -124,8 +125,8 @@ Vous devez configurer les paramètres de zone principale afin que :
   
 Vous pouvez utiliser les commandes Windows PowerShell suivantes pour configurer les paramètres de transfert de zone sur la zone principale.
   
->[!NOTE]
->Dans la commande suivante, le paramètre **-notifier** Spécifie que le serveur principal envoie des notifications concernant les mises à jour à la liste de sélection de bases de données secondaires.  
+> [!NOTE]
+> Dans la commande suivante, le paramètre **-notifier** Spécifie que le serveur principal envoie des notifications concernant les mises à jour à la liste de sélection de bases de données secondaires.  
   
     
     Set-DnsServerPrimaryZone -Name "woodgrove.com" -Notify Notify -SecondaryServers "10.0.0.2,10.0.0.3" -SecureSecondaries TransferToSecureServers -ComputerName PrimaryServer  
@@ -160,8 +161,8 @@ Vous pouvez utiliser les commandes Windows PowerShell suivantes pour créer des 
     Get-DnsServerZoneScope -ZoneName "woodgrove.com" -ComputerName PrimaryServer|Add-DnsServerZoneScope -ZoneName "woodgrove.com" -ComputerName SecondaryServer2 -ErrorAction Ignore  
   
 
->[!NOTE]
->Dans ces exemples de commandes, le **- ErrorAction ignorer** paramètre n’est inclus, car une étendue de la zone par défaut existe sur chaque zone. L’étendue de la zone par défaut ne peut pas être créé ou supprimé. Traitement en pipeline entraîne une tentative de création de cette étendue et l’opération échoue. Vous pouvez également créer les étendues de la zone non définie par défaut sur deux zones secondaires.  
+> [!NOTE]
+> Dans ces exemples de commandes, le **- ErrorAction ignorer** paramètre n’est inclus, car une étendue de la zone par défaut existe sur chaque zone. L’étendue de la zone par défaut ne peut pas être créé ou supprimé. Traitement en pipeline entraîne une tentative de création de cette étendue et l’opération échoue. Vous pouvez également créer les étendues de la zone non définie par défaut sur deux zones secondaires.  
   
 Pour plus d’informations, consultez [Add-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).  
   

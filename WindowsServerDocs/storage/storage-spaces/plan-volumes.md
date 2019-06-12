@@ -9,16 +9,16 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 01/10/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: e2d9e6828584f4027aa32cec26572c2290098ab6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c68444be5662480293cee630970d5eb76b52268a
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830100"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453193"
 ---
 # <a name="planning-volumes-in-storage-spaces-direct"></a>Planification des volumes dans les espaces de stockage direct
 
-> S'applique à : Windows Server 2016, Windows Server 2019
+> S’applique à : Windows Server 2019, Windows Server 2016
 
 Cette rubrique fournit des recommandations sur la manière de planifier vos volumes dans les espaces de stockage direct de manière à répondre aux besoins de vos charges de travail en matière de performances et de capacités, y compris en ce qui concerne le choix de leur système de fichiers, de leur type de résilience et de leur taille.
 
@@ -31,7 +31,7 @@ Les volumes sont des banques de données dans lesquelles vous placez les fichier
 
 ![what-are-volumes](media/plan-volumes/what-are-volumes.png)
 
-Tous les volumes sont accessibles simultanément à l'ensemble des serveurs du cluster. Une fois créés, ils s'affichent à l'emplacement **C:\ClusterStorage\** sur tous les serveurs.
+Tous les volumes sont accessibles simultanément à l'ensemble des serveurs du cluster. Une fois créé, ils apparaissent au **C:\ClusterStorage\\**  sur tous les serveurs.
 
 ![csv-folder-screenshot](media/plan-volumes/csv-folder-screenshot.png)
 
@@ -87,9 +87,9 @@ Le choix du type de résilience à utiliser dépend des besoins de votre charge 
 
 | **Type de résilience**| **Efficacité de la capacité**| **Vitesse**| **Charges de travail**
 |--------------------|--------------------------------|--------------------------------|--------------------------
-| **Miroir**         | ![Affichage de l’efficacité de stockage 33 %](media\plan-volumes\3-way-mirror-storage-efficiency.png)<br>Miroir triple : 33% <br>Deux-way-mise en miroir : 50%     |![Affichage des performances 100 %](media\plan-volumes\three-way-mirror-perf.png)<br> Meilleures performances  | Charges de travail virtualisées<br> Bases de données<br>Autres charges de travail hautes performances |
-| **Parité avec accélération miroir** |![Affichage d’environ 50 % de l’efficacité du stockage](media\plan-volumes\mirror-accelerated-parity-storage-efficiency.png)<br> Varie selon la proportion de mise en miroir et parité | ![Affichage d’environ 20 % des performances](media\plan-volumes\mirror-accelerated-parity-perf.png)<br>Beaucoup plus lent que mettre en miroir, mais jusqu'à deux fois plus vite avec double parité<br> Meilleur pour les lectures et écritures séquentielles de grande taille | Archivage et sauvegarde<br> Infrastructure de bureau virtuel     |
-| **Double parité**               | ![Affichage d’environ 80 % de l’efficacité du stockage](media\plan-volumes\dual-parity-storage-efficiency.png)<br>4 serveurs : 50% <br>16 serveurs : jusqu'à 80 % | ![Affichage d’environ 10 % des performances](media\plan-volumes\dual-parity-perf.png)<br>Latence d’e/s la plus élevée et l’utilisation du processeur sur les écritures<br> Meilleur pour les lectures et écritures séquentielles de grande taille | Archivage et sauvegarde<br> Infrastructure de bureau virtuel  |
+| **Miroir**         | ![Affichage de l’efficacité de stockage 33 %](media/plan-volumes/3-way-mirror-storage-efficiency.png)<br>Miroir triple : 33% <br>Deux-way-mise en miroir : 50%     |![Affichage des performances 100 %](media/plan-volumes/three-way-mirror-perf.png)<br> Meilleures performances  | Charges de travail virtualisées<br> Bases de données<br>Autres charges de travail hautes performances |
+| **Parité accélérée grâce à la mise en miroir** |![Affichage d’environ 50 % de l’efficacité du stockage](media/plan-volumes/mirror-accelerated-parity-storage-efficiency.png)<br> Varie selon la proportion de mise en miroir et parité | ![Affichage d’environ 20 % des performances](media/plan-volumes/mirror-accelerated-parity-perf.png)<br>Beaucoup plus lent que mettre en miroir, mais jusqu'à deux fois plus vite avec double parité<br> Meilleur pour les lectures et écritures séquentielles de grande taille | Archivage et sauvegarde<br> Infrastructure de bureau virtuel     |
+| **Double parité**               | ![Affichage d’environ 80 % de l’efficacité du stockage](media/plan-volumes/dual-parity-storage-efficiency.png)<br>4 serveurs : 50% <br>16 serveurs : jusqu'à 80 % | ![Affichage d’environ 10 % des performances](media/plan-volumes/dual-parity-perf.png)<br>Latence d’e/s la plus élevée et l’utilisation du processeur sur les écritures<br> Meilleur pour les lectures et écritures séquentielles de grande taille | Archivage et sauvegarde<br> Infrastructure de bureau virtuel  |
 
 #### <a name="when-performance-matters-most"></a>Lorsque la performance est le critère principal
 
@@ -199,4 +199,4 @@ Voir [Création de volumes dans les espaces de stockage direct](create-volumes.m
 
 - [Vue d’ensemble Direct des espaces de stockage](storage-spaces-direct-overview.md)
 - [Choix des lecteurs pour les espaces de stockage Direct](choosing-drives.md)
-- [Efficacité de stockage et la tolérance d’erreur](storage-spaces-fault-tolerance.md)
+- [Tolérance de panne et efficacité du stockage](storage-spaces-fault-tolerance.md)

@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6bd107aca6c6f33cdf5f88e5b48a52fdea8d2086
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: a29406880481f0e4e257105e94bc1a33ee661164
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189345"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444443"
 ---
 # <a name="create-a-rule-to-transform-an-incoming-claim"></a>Créer une règle pour transformer une revendication entrante
 
@@ -130,9 +130,9 @@ L’appartenance au **administrateurs**, ou équivalente, sur l’ordinateur loc
 >   
 > Pour plus d’informations sur les scénarios de contrôle d’accès dynamique, consultez [dynamique plan du contenu contrôle accès](../../solution-guides/dynamic-access-control--scenario-overview.md) ou [à l’aide de revendications AD DS avec AD FS](https://technet.microsoft.com/library/hh831504.aspx).  
   
-7.  Cliquez sur **Terminer**.  
+7. Cliquez sur **Terminer**.  
   
-8.  Dans le **modifier les règles de revendication** boîte de dialogue, cliquez sur **OK** pour enregistrer la règle.  
+8. Dans le **modifier les règles de revendication** boîte de dialogue, cliquez sur **OK** pour enregistrer la règle.  
 
 ## <a name="additional-references"></a>Références supplémentaires 
 [Configurer les règles de revendication](Configure-Claim-Rules.md)  

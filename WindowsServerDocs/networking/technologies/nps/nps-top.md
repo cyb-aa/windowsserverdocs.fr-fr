@@ -9,12 +9,12 @@ ms.assetid: 9c7a67e0-0953-479c-8736-ccb356230bde
 ms.author: pashort
 author: shortpatti
 ms.date: 06/20/2018
-ms.openlocfilehash: 0439c0f45a604f6b3ef90369f5fe77a59568d9d7
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 515012a21ba6e90abe2c4db2150fd1feaad06677
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222586"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812365"
 ---
 # <a name="network-policy-server-nps"></a>Serveur NPS (Network Policy Server)
 
@@ -22,8 +22,8 @@ ms.locfileid: "66222586"
 
 Vous pouvez utiliser cette rubrique pour une vue d’ensemble du serveur de stratégie réseau dans Windows Server 2016 et Windows Server 2019. NPS est installé lorsque vous installez la stratégie de réseau et la fonctionnalité des Services d’accès (NPAS) dans Windows Server 2016 et Server 2019.
 
->[!NOTE]
->Outre cette rubrique, la documentation suivante sur le serveur NPS est disponible.
+> [!NOTE]
+> Outre cette rubrique, la documentation suivante sur le serveur NPS est disponible.
 > - [Network Policy Server Best Practices](nps-best-practices.md)
 > - [Mise en route avec le serveur NPS](nps-getstart-top.md)
 > - [Planifier le serveur NPS](nps-plan-top.md)
@@ -44,8 +44,8 @@ NPS vous permet de configurer et gérer l’authentification d’accès réseau,
     - [Configurer des stratégies de demande de connexion](nps-crp-configure.md)
 - **Gestion des comptes RADIUS**. Vous pouvez configurer NPS pour consigner les événements dans un fichier journal local ou à une instance locale ou distante de Microsoft SQL Server. Pour plus d’informations, consultez [journalisation NPS](#nps-logging).
 
->[!IMPORTANT]
->Protection d’accès réseau \(NAP\), Health Registration Authority \(HRA\)et Host Credential Authorization Protocol \(HCAP\) ont été dépréciées dans Windows Server 2012 R2 et ne sont pas disponibles dans Windows Server 2016. Si vous avez un déploiement de NAP à l’aide de systèmes d’exploitation antérieurs à Windows Server 2016, vous ne pouvez pas migrer votre déploiement NAP vers Windows Server 2016.
+> [!IMPORTANT]
+> Protection d’accès réseau \(NAP\), Health Registration Authority \(HRA\)et Host Credential Authorization Protocol \(HCAP\) ont été dépréciées dans Windows Server 2012 R2 et ne sont pas disponibles dans Windows Server 2016. Si vous avez un déploiement de NAP à l’aide de systèmes d’exploitation antérieurs à Windows Server 2016, vous ne pouvez pas migrer votre déploiement NAP vers Windows Server 2016.
 
 Vous pouvez configurer NPS avec n’importe quelle combinaison de ces fonctionnalités. Par exemple, vous pouvez configurer un serveur NPS comme serveur RADIUS pour les connexions VPN et également en tant que proxy RADIUS pour transférer des demandes de connexion aux membres du groupe de serveurs RADIUS distants pour l’authentification et autorisation dans un autre domaine.
 
@@ -57,8 +57,8 @@ NPS fournit une fonctionnalité différente selon l’édition de Windows Server
 
 Avec le serveur NPS dans Windows Server 2016 Standard ou Datacenter, vous pouvez configurer un nombre illimité de clients RADIUS et les groupes de serveurs RADIUS distants. En outre, vous pouvez configurer des clients RADIUS en spécifiant une plage d'adresses IP.
 
->[!NOTE]
->La fonctionnalité de stratégie de réseau WIndows Services et d’accès n’est pas disponible sur les systèmes installés avec une option d’installation Server Core.
+> [!NOTE]
+> La fonctionnalité de stratégie de réseau WIndows Services et d’accès n’est pas disponible sur les systèmes installés avec une option d’installation Server Core.
 
 Les sections suivantes fournissent des informations plus détaillées sur le serveur NPS comme serveur RADIUS et proxy.
 
@@ -70,15 +70,15 @@ Vous pouvez utiliser NPS en tant que serveur RADIUS, proxy RADIUS ou les deux.
 
 NPS est l’implémentation Microsoft de la norme RADIUS spécifiée par l’Internet Engineering Task Force \(IETF\) dans les RFC 2865 et 2866. Comme un serveur RADIUS, NPS effectue l’authentification de connexion centralisée, de d’autorisation et de comptabilité pour nombreux types d’accès réseau, notamment le commutateur sans fil, authentification, accès à distance et de réseau privé virtuel \(VPN\) à distance accès et les connexions de routeur à routeur.
 
->[!NOTE]
->Pour plus d’informations sur le déploiement de NPS comme serveur RADIUS, consultez [déployer un serveur de stratégie réseau](nps-deploy.md).
+> [!NOTE]
+> Pour plus d’informations sur le déploiement de NPS comme serveur RADIUS, consultez [déployer un serveur de stratégie réseau](nps-deploy.md).
 
 NPS permet d’utiliser un ensemble hétérogène de sans fil, commutateur, accès à distance ou les appareils VPN. Vous pouvez utiliser le serveur NPS avec le service d’accès à distance, qui est disponible dans Windows Server 2016.
 
 NPS utilise un Active Directory Domain Services \(AD DS\) la base de données de domaine ou les comptes d’utilisateur de gestionnaire de comptes de sécurité (SAM) local pour authentifier les informations d’identification de l’utilisateur pour les tentatives de connexion. Lorsqu’un serveur exécutant NPS est un membre d’un domaine AD DS, NPS utilise le service d’annuaire en tant que sa base de données de compte d’utilisateur et fait partie d’une solution d’authentification unique. Le même jeu d’informations d’identification est utilisé pour le contrôle d’accès réseau \(authentifier et autoriser l’accès à un réseau\) et se connecter à un domaine AD DS.
 
->[!NOTE]
->NPS utilise les propriétés d’accès à distance des stratégies de réseau et de compte d’utilisateur à autoriser une connexion.
+> [!NOTE]
+> NPS utilise les propriétés d’accès à distance des stratégies de réseau et de compte d’utilisateur à autoriser une connexion.
 
 Fournisseurs de services Internet \(ISP\) et les organisations qui assurent un accès réseau ont le défi accru de la gestion de tous les types d’accès réseau à partir d’un point unique d’administration, quel que soit le type d’accès réseau matériel. La norme RADIUS prend en charge cette fonctionnalité dans les environnements homogènes ou hétérogènes. RADIUS est un protocole client-serveur qui permet de dispositifs d’accès réseau (utilisé en tant que clients RADIUS) pour envoyer les demandes à un serveur RADIUS.
 
@@ -116,7 +116,6 @@ Vous pouvez utiliser NPS en tant que proxy RADIUS lorsque :
 L’illustration suivante montre NPS en tant que proxy RADIUS entre les clients RADIUS et serveurs RADIUS.
 
 ![NPS en tant que Proxy RADIUS](../../media/Nps-Proxy/Nps-Proxy.jpg)
-
 
 Avec le serveur NPS, les organisations peuvent également sous-traiter infrastructure d’accès à distance à un fournisseur de services tout en contrôlant l’authentification utilisateur, l’autorisation et comptabilité.
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 83175d8529d9204c6b6d969a3db2aee2775bd0c4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0bec8cf64a3c7f261c792a07da603cba4366e1a7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852380"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436428"
 ---
 # <a name="openfiles"></a>openfiles
 
@@ -43,16 +43,16 @@ openfiles /disconnect [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]]
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|/s \<système >|Spécifie le système distant pour se connecter à (par nom ou adresse IP). N’utilisez pas de barres obliques inverses. Si vous n’utilisez pas le **/s** option, la commande est exécutée sur l’ordinateur local par défaut. Ce paramètre s’applique à tous les fichiers et dossiers qui sont spécifiés dans la commande.|
-|/u [\<domaine >\]<UserName>|Exécute la commande en utilisant les autorisations du compte d’utilisateur spécifié. Si vous n’utilisez pas le **/u** option, le système d’autorisations sont utilisées par défaut.|
-|/p [\<Password>]|Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** option. Si vous n’utilisez pas le **/p** option, une invite de mot de passe s’affiche lorsque la commande est exécutée.|
-|/id \<OpenFileID>|Déconnecte les fichiers ouverts par l’ID de fichier spécifié. Le caractère générique (**&#42;**) peut être utilisé avec ce paramètre.</br>Remarque: Vous pouvez utiliser la **openfiles /query** commande pour rechercher l’ID de fichier.|
-|/a \<AccessedBy>|Déconnecte tous les fichiers ouverts associés avec le nom d’utilisateur spécifié dans le *AccessedBy* paramètre. Le caractère générique (**&#42;**) peut être utilisé avec ce paramètre.|
-|/ o {lire \| écrire \| en lecture/écriture}|Déconnecte tous les fichiers ouverts avec la valeur de mode ouvert spécifié. Les valeurs valides sont en lecture, écriture ou lecture/écriture. Le caractère générique (**&#42;**) peut être utilisé avec ce paramètre.|
-|/op \<OpenFile>|Déconnecte toutes les connexions de fichiers ouverts sont créées par un nom d’ouvrir un fichier spécifique. Le caractère générique (**&#42;**) peut être utilisé avec ce paramètre.|
-|/?|Affiche l'aide à l'invite de commandes.|
+|            Paramètre             |                                                                                                                                 Description                                                                                                                                  |
+|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|           /s \<système >           | Spécifie le système distant pour se connecter à (par nom ou adresse IP). N’utilisez pas de barres obliques inverses. Si vous n’utilisez pas le **/s** option, la commande est exécutée sur l’ordinateur local par défaut. Ce paramètre s’applique à tous les fichiers et dossiers qui sont spécifiés dans la commande. |
+|    /u [\<domaine >\]<UserName>     |                                                          Exécute la commande en utilisant les autorisations du compte d’utilisateur spécifié. Si vous n’utilisez pas le **/u** option, le système d’autorisations sont utilisées par défaut.                                                           |
+|         /p [\<Password>]         |                                               Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** option. Si vous n’utilisez pas le **/p** option, une invite de mot de passe s’affiche lorsque la commande est exécutée.                                                |
+|        /id \<OpenFileID>         |                                       Déconnecte les fichiers ouverts par l’ID de fichier spécifié. Le caractère générique ( **&#42;** ) peut être utilisé avec ce paramètre.</br>Remarque: Vous pouvez utiliser la **openfiles /query** commande pour rechercher l’ID de fichier.                                       |
+|         /a \<AccessedBy>         |                                                Déconnecte tous les fichiers ouverts associés avec le nom d’utilisateur spécifié dans le *AccessedBy* paramètre. Le caractère générique ( **&#42;** ) peut être utilisé avec ce paramètre.                                                 |
+| / o {lire \| écrire \| en lecture/écriture} |                                               Déconnecte tous les fichiers ouverts avec la valeur de mode ouvert spécifié. Les valeurs valides sont en lecture, écriture ou lecture/écriture. Le caractère générique ( **&#42;** ) peut être utilisé avec ce paramètre.                                                |
+|         /op \<OpenFile>          |                                                           Déconnecte toutes les connexions de fichiers ouverts sont créées par un nom d’ouvrir un fichier spécifique. Le caractère générique ( **&#42;** ) peut être utilisé avec ce paramètre.                                                           |
+|                /?                |                                                                                                                     Affiche l'aide à l'invite de commandes.                                                                                                                     |
 
 ### <a name="examples"></a>Exemples
 
@@ -89,15 +89,15 @@ openfiles /query [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]] [/fo
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|/s \<système >|Spécifie le système distant pour se connecter à (par nom ou adresse IP). N’utilisez pas de barres obliques inverses. Si vous n’utilisez pas le **/s** option, la commande est exécutée sur l’ordinateur local par défaut. Ce paramètre s’applique à tous les fichiers et dossiers qui sont spécifiés dans la commande.|
-|/u [\<domaine >\]<UserName>|Exécute la commande en utilisant les autorisations du compte d’utilisateur spécifié. Si vous n’utilisez pas le **/u** option, le système d’autorisations sont utilisées par défaut.|
-|/p [\<Password>]|Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** option. Si vous n’utilisez pas le **/p** option, une invite de mot de passe s’affiche lorsque la commande est exécutée.|
-|[/fo {TABLE \| liste \| CSV}]|Affiche la sortie au format spécifié. Les valeurs valides pour *Format* sont :</br>TABLE :  Affiche la sortie dans une table.</br>LISTE : Affiche la sortie dans une liste.</br>CSV : Affiche la sortie au format de valeurs séparées par des virgules.|
-|/nh|Supprime l’en-tête de colonne dans la sortie. Valide uniquement lorsque le **/fo** paramètre est défini sur **TABLE** ou **CSV**.|
-|/v|Spécifie que les informations détaillées affichées dans la sortie.|
-|/?|Affiche l'aide à l'invite de commandes.|
+|          Paramètre           |                                                                                                                                 Description                                                                                                                                  |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         /s \<système >         | Spécifie le système distant pour se connecter à (par nom ou adresse IP). N’utilisez pas de barres obliques inverses. Si vous n’utilisez pas le **/s** option, la commande est exécutée sur l’ordinateur local par défaut. Ce paramètre s’applique à tous les fichiers et dossiers qui sont spécifiés dans la commande. |
+|  /u [\<domaine >\]<UserName>   |                                                          Exécute la commande en utilisant les autorisations du compte d’utilisateur spécifié. Si vous n’utilisez pas le **/u** option, le système d’autorisations sont utilisées par défaut.                                                           |
+|       /p [\<Password>]       |                                               Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** option. Si vous n’utilisez pas le **/p** option, une invite de mot de passe s’affiche lorsque la commande est exécutée.                                                |
+| [/fo {TABLE \| liste \| CSV}] |                             Affiche la sortie au format spécifié. Les valeurs valides pour *Format* sont :</br>TABLE :  Affiche la sortie dans une table.</br>LISTE : Affiche la sortie dans une liste.</br>CSV : Affiche la sortie au format de valeurs séparées par des virgules.                              |
+|             /nh              |                                                                                Supprime l’en-tête de colonne dans la sortie. Valide uniquement lorsque le **/fo** paramètre est défini sur **TABLE** ou **CSV**.                                                                                 |
+|              /v              |                                                                                                       Spécifie que les informations détaillées affichées dans la sortie.                                                                                                        |
+|              /?              |                                                                                                                     Affiche l'aide à l'invite de commandes.                                                                                                                     |
 
 ### <a name="examples"></a>Exemples
 
@@ -169,4 +169,4 @@ openfiles /local off
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

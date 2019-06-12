@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7cced9a930b63baa79b4addb429c562c38d6da01
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 298df36b856cba97ec19126f77456785e5eb6f50
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843880"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810928"
 ---
 # <a name="wsus-and-the-catalog-site"></a>WSUS et le Site du catalogue
 
@@ -64,7 +64,7 @@ Administrateurs WSUS peuvent envisager de restreindre l’accès aux correctifs 
 
     -   Sélectionnez **l’authentification Windows** et cliquez sur **activer** dans le **Actions** volet de droite.
 
-2.  Créer un groupe de cible WSUS pour les ordinateurs qui nécessitent le correctif logiciel et les ajouter au groupe. Pour plus d’informations sur les ordinateurs et les groupes, consultez [ordinateurs la gestion des clients WSUS et les groupes d’ordinateurs WSUS](managing-wsus-client-computers-and-wsus-computer-groups.md) dans ce guide et la section [3.3. Configurer des groupes d’ordinateurs WSUS](../deploy/2-configure-wsus.md#BKMK_ConfigcomputerGroups) de l’étape 3 : Configurer WSUS, dans le guide de déploiement de WSUS.
+2.  Créer un groupe de cible WSUS pour les ordinateurs qui nécessitent le correctif logiciel et les ajouter au groupe. Pour plus d’informations sur les ordinateurs et les groupes, consultez [ordinateurs la gestion des clients WSUS et les groupes d’ordinateurs WSUS](managing-wsus-client-computers-and-wsus-computer-groups.md) dans ce guide et la section [3.3. Configurer des groupes d’ordinateurs WSUS](../deploy/2-configure-wsus.md#23-configure-wsus-computer-groups) de l’étape 3 : Configurer WSUS, dans le guide de déploiement de WSUS.
 
 3.  Téléchargez les fichiers pour le correctif logiciel.
 

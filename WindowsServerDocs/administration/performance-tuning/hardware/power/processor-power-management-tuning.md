@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Qizha;TristanB
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 8a2ef4fd39554446aaac686e142ad24f53b4efaa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 9b8af89992f01712e16d0ef503c8cbbac915df1d
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863050"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811587"
 ---
 # <a name="processor-power-management-ppm-tuning-for-the-windows-server-balanced-power-plan"></a>Processeur gestion de l’alimentation (PPM) de Windows Server à charge équilibrée alimentation de paramétrage
 
@@ -20,7 +20,7 @@ ms.locfileid: "59863050"
 
 Si vous exécutez un système de serveur qui a les caractéristiques des charges de travail considérablement différent ou performances en matière de puissance que ces charges de travail, vous souhaiterez peut-être prendre en compte le réglage des paramètres d’alimentation par défaut (par exemple, créer un mode d’alimentation personnalisé). Une source d’informations de paramétrage utiles est la [considérations sur le serveur matériel Power](../power.md). Alternativement, vous pouvez décider que le **hautes performances** de l’alimentation est le bon choix pour votre environnement, reconnaissant que prendra probablement une quantité importante d’énergie d’accès en échange d’un niveau de réactivité accrue.
 
->[!Important]
+> [!IMPORTANT]
 > Vous devez tirer parti les stratégies d’alimentation qui sont inclus avec Windows Server, sauf si vous avez besoin pour créer un personnalisé et avoir une très bonne compréhension que vos résultats peuvent varier selon les caractéristiques de votre charge de travail spécifique.
 
 ## <a name="windows-processor-power-tuning-methodology"></a>Méthodologie de réglage de puissance Windows processeur
@@ -28,7 +28,7 @@ Si vous exécutez un système de serveur qui a les caractéristiques des charges
 
 ### <a name="tested-workloads"></a>Charges de travail testés
 
-Charges de travail sont sélectionnés pour couvrir un ensemble de meilleur effort de « typical ? Charges de travail de Windows Server. Évidemment, ce jeu n’est pas destiné à être représentative de l’éventail complet des environnements de serveurs du monde réel.
+Charges de travail sont sélectionnés pour couvrir un ensemble de meilleur effort des charges de travail de Windows Server « typical ». Évidemment, ce jeu n’est pas destiné à être représentative de l’éventail complet des environnements de serveurs du monde réel.
 
 Le réglage dans chaque stratégie d’alimentation est piloté par les cinq charges de travail suivantes :
 
@@ -60,12 +60,12 @@ Pour chaque version de Windows, les serveurs de production plus récente sont ut
 
 Étant donné que la plupart des serveurs sont vendus avec des sockets de processeur de 1 à 4, et étant donné que les serveurs de montée en charge sont moins susceptibles d’avoir une préoccupation essentielle de l’efficacité énergétique, les tests de l’optimisation du plan d’alimentation sont principalement exécutés sur des systèmes 2 et 4 sockets. La quantité de RAM, disque et les ressources réseau pour chaque test sont choisis pour autoriser chaque système de s’exécuter jusqu'à sa capacité maximale, tout en prenant en compte les restrictions de coût qui seraient normalement en place pour les environnements de serveur du monde réel, telles que de conserver le configurations raisonnables.
 
->[!Important]
+> [!IMPORTANT]
 > Bien que le système peut exécuter sa charge de pointe, nous optimisons généralement pour les niveaux de charge inférieurs, étant donné que les serveurs qui s’exécutent de manière cohérente à leurs niveaux de charge de pointe serait bien avisés d’utiliser le **hautes performances** gestion de l’alimentation, sauf si l’énergie l’efficacité est une priorité élevée.
 
-### <a name="metrics"></a>Mesures
+### <a name="metrics"></a>metrics
 
-Toutes ces bancs d’essai testés utilisent débit en tant que les mesures de performance. Temps de réponse est considéré comme une exigence de contrat SLA pour ces charges de travail (à l’exception de SAP, où il est une mesure principale). Par exemple, un banc d’essai est considéré comme « valide ? Si la moyenne ou le temps de réponse maximal est inférieur à une certaine valeur.
+Toutes ces bancs d’essai testés utilisent débit en tant que les mesures de performance. Temps de réponse est considéré comme une exigence de contrat SLA pour ces charges de travail (à l’exception de SAP, où il est une mesure principale). Par exemple, une exécution de banc d’essai est considéré comme « valide » si la moyenne ou le temps de réponse maximal est inférieur à une certaine valeur.
 
 Par conséquent, le PPM également l’analyse du paramétrage utilise débit comme ses mesures de performance.  Niveau le plus élevé de charge (100 % processeur), notre objectif est que le débit ne diminuent pas plus que quelques pourcents en raison des optimisations de gestion d’alimentation. Mais la considération principale est d’optimiser l’efficacité énergétique (tel que défini ci-dessous) à des niveaux de charge moyenne et basse.
 
@@ -73,7 +73,7 @@ Par conséquent, le PPM également l’analyse du paramétrage utilise débit co
 
 Les cœurs de processeur en cours d’exécution à une fréquence inférieure réduit la consommation d’énergie. Toutefois, basses fréquences de réduire le débit en général et augmentent le temps de réponse. Pour le **équilibré** gestion de l’alimentation, il existe un compromis entre intentionnelle de réactivité et efficacité énergétique. Les tests de charge de travail SAP, ainsi que le temps de réponse SLA sur les autres charges de travail, assurez-vous que l’augmentation de temps de réponse ne dépasse pas certain seuil (% 5 par exemple) pour ces charges de travail spécifiques.
 
->[!Note]
+> [!NOTE]
 > Si la charge de travail utilise le temps de réponse en tant que les mesures de performance, le système doit vous passez à la **hautes performances** de l’alimentation ou de modification **équilibré** de l’alimentation comme suggéré dans [ Recommandé de paramètres de Plan d’alimentation à charge équilibrée pour le temps de réponse rapide](recommended-balanced-plan-parameters.md).
 
 ### <a name="tuning-results"></a>Résultats du paramétrage
@@ -98,20 +98,20 @@ En raison du nombre et la complexité des paramètres, cela peut être une tâch
 
 -   **Temps de diminuer de performances de processeur** – plus grandes valeurs diminuent plus progressivement les performances pendant les périodes d’inactivité
 
--   **Stratégie d’augmentation des performances processeur** – la valeur « simple ? stratégie ralentit la réponse de performances à l’activité accrue et maintenue ; le « Rocket ? stratégie réagit rapidement à une activité accrue
+-   **Stratégie d’augmenter la Performance processeur** – la stratégie « Single » ralentit la réponse de performances à l’activité accrue et maintenue ; la stratégie de fusée » à » réagit rapidement, pour une activité
 
--   **Stratégie de baisse de performances de processeur** – la valeur « simple ? stratégie plus diminue perf passe périodes d’inactivité plus ; le « Rocket ? stratégie supprime power très rapidement lors de la saisie d’une période d’inactivité
+-   **Stratégie de diminuer de performances de processeur** – la stratégie « Single » plus diminue perf passe périodes d’inactivité plus ; en de la stratégie « Rocket » supprime power très rapidement lors de la saisie d’une période d’inactivité
 
 >[!Important]
 > Avant de commencer les expériences, vous devez d’abord comprendre vos charges de travail, ce qui vous aideront à bien choisir de paramètre PPM et réduire les efforts de réglage.
 
 ### <a name="understand-high-level-performance-and-power-requirements"></a>Comprendre les performances de haut niveau et de consommation
 
-Si votre charge de travail est « en temps réel ? (par exemple, vulnérable aux problèmes ou autres visible par l’utilisateur a un impact sur) ou d’exigence réactivité très précise (par exemple, courtage), et si la consommation d’énergie n’est pas un critère principal pour votre environnement, vous devriez probablement simplement passer à la **Hautes performances** de l’alimentation. Sinon, vous devez comprendre les exigences de temps de réponse de vos charges de travail et ensuite le paramétrer les paramètres PPM pour une meilleure efficacité possibles de l’alimentation qui toujours répond à ces exigences.
+Si votre charge de travail est « en temps réel » (par exemple, vulnérable aux problèmes ou autres visible par l’utilisateur a un impact sur) ou d’exigence réactivité très précise (par exemple, courtage), et si la consommation d’énergie n’est pas un critère principal pour votre environnement, vous devrez probablement Basculez simplement vers le **hautes performances** de l’alimentation. Sinon, vous devez comprendre les exigences de temps de réponse de vos charges de travail et ensuite le paramétrer les paramètres PPM pour une meilleure efficacité possibles de l’alimentation qui toujours répond à ces exigences.
 
 ### <a name="understand-underlying-workload-characteristics"></a>Comprendre les caractéristiques de charge de travail sous-jacent
 
-Vous devez connaître vos charges de travail et les jeux de paramètres d’expérience pour le paramétrage de la conception. Par exemple, si les fréquences des cœurs de processeur doivent être très dès fast (vous avez peut-être une charge de travail en rafale avec des périodes d’inactivité importantes, mais vous avez besoin de réactivité très rapide lorsqu’une nouvelle transaction arrive), puis les performances de processeur augmenter la stratégie peut-être être définie sur « rocket ? (qui, comme son nom l’indique, enverra la fréquence de cœur de processeur à sa valeur maximale et non pas intéressées sur une période de temps).
+Vous devez connaître vos charges de travail et les jeux de paramètres d’expérience pour le paramétrage de la conception. Par exemple, si les fréquences des cœurs de processeur doivent être très dès fast (vous avez peut-être une charge de travail en rafale avec des périodes d’inactivité importantes, mais vous avez besoin de réactivité très rapide lorsqu’une nouvelle transaction arrive), puis les performances de processeur augmenter la stratégie peut-être être définie sur « rocket » (qui, comme son nom l’indique, enverra la fréquence de cœur de processeur à sa valeur maximale et non pas intéressées sur une période de temps).
 
 Si votre charge de travail est très en rafale, l’intervalle de vérification PPM peut être réduite pour rendre la fréquence du processeur de démarrer l’exécution pas à pas plus tôt après l’arrivée d’une rafale. Si votre charge de travail n’a pas d’accès concurrentiel de threads élevé, puis l’immobilisation de cœur peut être activée pour forcer la charge de travail à exécuter sur un plus petit nombre de cœurs, ce qui pourrait également potentiellement améliorer les taux d’accès au cache de processeur.
 
@@ -127,7 +127,7 @@ C’est pourquoi Windows fournit un **équilibré** gestion de l’alimentation 
 
 ## <a name="see-also"></a>Voir aussi
 - [Les considérations sur les performances du matériel serveur](../index.md)
-- [Considérations sur le serveur matériel Power](../power.md)
-- [Alimentation et réglage des performances](power-performance-tuning.md)
-- [Paramétrage de la gestion de l’alimentation de processeur](processor-power-management-tuning.md)
-- [Recommandé des paramètres de Plan à charge équilibrée](recommended-balanced-plan-parameters.md)
+- [Considérations relatives à la puissance du matériel du serveur](../power.md)
+- [Réglage de la puissance et des performances](power-performance-tuning.md)
+- [Réglage de la gestion de la puissance du processeur](processor-power-management-tuning.md)
+- [Paramètres de planification équilibrée recommandés](recommended-balanced-plan-parameters.md)

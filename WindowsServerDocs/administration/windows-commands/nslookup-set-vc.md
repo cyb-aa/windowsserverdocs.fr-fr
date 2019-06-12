@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bdbfe48397620dd11719c02facc5d5c9d6c6fe50
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3b70cd343ce0ff2c6b4dfd61750882939153b795
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853490"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436762"
 ---
 # <a name="nslookup-set-vc"></a>nslookup set vc
 
@@ -34,12 +34,12 @@ set [no]vc
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|**novc**|Spécifie à ne jamais utiliser un circuit virtuel lors de l’envoi de demandes au serveur. La valeur par défaut est **novc**.|
-|**vc**|Spécifie pour toujours utiliser un circuit virtuel lors de l’envoi de demandes au serveur.|
-|{aide | ?}|Affiche un résumé de **nslookup** sous-commandes.|
+| Paramètre |                                              Description                                               |
+|-----------|--------------------------------------------------------------------------------------------------------|
+| **novc**  | Spécifie à ne jamais utiliser un circuit virtuel lors de l’envoi de demandes au serveur. La valeur par défaut est **novc**. |
+|  **vc**   |             Spécifie pour toujours utiliser un circuit virtuel lors de l’envoi de demandes au serveur.             |
+|   {aide   |                                                   ?}                                                   |
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

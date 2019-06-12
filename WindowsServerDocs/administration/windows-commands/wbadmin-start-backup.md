@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 09b2ffabcea414dd4717a2ffa1f6e860a17f3653
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2ac602506960b92333750e7a37692c44c92aae22
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871700"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440273"
 ---
 # <a name="wbadmin-start-backup"></a>Démarrer la sauvegarde WBADMIN
 
@@ -87,27 +87,27 @@ Wbadmin start backup
 Les exemples suivants montrent comment la **wbadmin start sauvegarde** commande peut être utilisée dans différents scénarios de sauvegarde :
 
 Scénario #1
--   Créer une sauvegarde de volumes e:, d:\mountpoint, et \\ \\? \Volume{cc566d14-4410-11d9-9d93-806e6f6e6963}
--   La sauvegarde vers un volume f:
-```
-wbadmin start backup -backupTarget:f: -include:e:,d:\mountpoint,\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
-```
-Scénario #2
--   Effectuer une sauvegarde ponctuelle des *f:\folder1* et *h:\folder2* au volume *d:*.
--   Sauvegarde l’état du système
--   Effectuez une sauvegarde de copie afin que la sauvegarde différentielle normalement planifiée n’est pas affectée.
-```
-wbadmin start backup –backupTarget:d: -include:g\folder1,h:\folder2 –systemstate -vsscopy
-```
-Scénario #3
--   Effectuer une sauvegarde ponctuelle des *d:\folder1* qui doivent être sauvegardées de manière non récursive.
--   Le dossier à l’emplacement réseau de sauvegarde  *\\ \\backupshare\backup1*
--   Restreindre l’accès à la sauvegarde aux membres de la **administrateurs** ou **opérateurs de sauvegarde** groupe.
-```
-wbadmin start backup –backupTarget: \\backupshare\backup1 -noinheritacl -nonrecurseinclude:d:\folder1
-```
+- Créer une sauvegarde de volumes e:, d:\mountpoint, et \\ \\? \Volume{cc566d14-4410-11d9-9d93-806e6f6e6963}
+- La sauvegarde vers un volume f:
+  ```
+  wbadmin start backup -backupTarget:f: -include:e:,d:\mountpoint,\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
+  ```
+  Scénario #2
+- Effectuer une sauvegarde ponctuelle des *f:\folder1* et *h:\folder2* au volume *d:* .
+- Sauvegarde l’état du système
+- Effectuez une sauvegarde de copie afin que la sauvegarde différentielle normalement planifiée n’est pas affectée.
+  ```
+  wbadmin start backup –backupTarget:d: -include:g\folder1,h:\folder2 –systemstate -vsscopy
+  ```
+  Scénario #3
+- Effectuer une sauvegarde ponctuelle des *d:\folder1* qui doivent être sauvegardées de manière non récursive.
+- Le dossier à l’emplacement réseau de sauvegarde  *\\ \\backupshare\backup1*
+- Restreindre l’accès à la sauvegarde aux membres de la **administrateurs** ou **opérateurs de sauvegarde** groupe.
+  ```
+  wbadmin start backup –backupTarget: \\backupshare\backup1 -noinheritacl -nonrecurseinclude:d:\folder1
+  ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

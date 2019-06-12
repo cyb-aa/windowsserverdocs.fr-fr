@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 7aa09636f8c23678f003bfa5ebf8be164e7fc683
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 53b72459d497ac5d079336c2a00ba65634b2e3a6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879520"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436337"
 ---
 # <a name="pnpunattend"></a>pnpunattend
 
@@ -43,12 +43,12 @@ PnPUnattend.exe auditSystem [/help] [/?] [/h] [/s] [/L]
 
 Préparation préliminaire est nécessaire. Avant d’utiliser cette commande, vous devez effectuer les tâches suivantes :
 
-1.  Créez un répertoire pour les pilotes que vous souhaitez installer. Par exemple, créez un dossier à **C:\Drivers\Video** pour les pilotes de carte vidéo.
-2.  Téléchargez et extrayez le package de pilotes pour votre appareil. Copiez le contenu du sous-dossier contenant le fichier INF pour votre version du système d’exploitation et tous les sous-dossiers dans le dossier vidéo que vous avez créé. Par exemple, copiez les fichiers de pilote vidéo à C:\Drivers\Video.
-3.  Ajouter une variable de chemin d’accès d’environnement système dans le dossier que vous avez créé dans l’étape 1, par exemple, **C:\Drivers\Video**.
-4.  Créez la clé de Registre suivante, puis pour le **Chemins_de_pilotes** clé que vous créez, définissez le **données de la valeur** à **1**.
--   Pour Windows® 7 parcourir le chemin d’accès du Registre : **HKEY_LOCAL_Machine\Software\Microsoft\Windows NT\CurrentVersion\**, puis créez les clés : **UnattendSettings\PnPUnattend\DriverPaths\**
--   Pour Windows Vista, naviguez jusqu'à l’emplacement de Registre : **HK_LM\Software\Microsoft\Windows NT\CurrentVersion\**, puis créez les clés = **\UnattendSettings\PnPUnattend\DriverPaths** .
+1. Créez un répertoire pour les pilotes que vous souhaitez installer. Par exemple, créez un dossier à **C:\Drivers\Video** pour les pilotes de carte vidéo.
+2. Téléchargez et extrayez le package de pilotes pour votre appareil. Copiez le contenu du sous-dossier contenant le fichier INF pour votre version du système d’exploitation et tous les sous-dossiers dans le dossier vidéo que vous avez créé. Par exemple, copiez les fichiers de pilote vidéo à C:\Drivers\Video.
+3. Ajouter une variable de chemin d’accès d’environnement système dans le dossier que vous avez créé dans l’étape 1, par exemple, **C:\Drivers\Video**.
+4. Créez la clé de Registre suivante, puis pour le **Chemins_de_pilotes** clé que vous créez, définissez le **données de la valeur** à **1**.
+5. Pour Windows® 7 parcourir le chemin d’accès du Registre : **HKEY_LOCAL_Machine\Software\Microsoft\Windows NT\CurrentVersion\\** , puis créez les clés : **UnattendSettings\PnPUnattend\DriverPaths\\**
+6. Pour Windows Vista, naviguez jusqu'à l’emplacement de Registre : **HK_LM\Software\Microsoft\Windows NT\CurrentVersion\\** , puis créez les clés = **\UnattendSettings\PnPUnattend\DriverPaths**.
 
 ## <a name="examples"></a>Exemples
 
@@ -60,4 +60,4 @@ pnpunattend auditsystem /s /l
 
 ## <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

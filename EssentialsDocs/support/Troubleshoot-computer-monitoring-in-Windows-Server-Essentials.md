@@ -12,12 +12,12 @@ ms.assetid: f1e6b377-4a24-4d28-9b25-05910914826b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 72fe309e0e7ce6d7227cce8b7f2c5dbf018eb4a1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1adf8ae2dd8763d0bc5a514609bb2470de6acde4
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813090"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436072"
 ---
 # <a name="troubleshoot-computer-monitoring-in-windows-server-essentials"></a>Résoudre les problèmes d’analyse de l’ordinateur dans Windows Server Essentials
 
@@ -36,13 +36,13 @@ Cette rubrique fournit des solutions aux problèmes rencontrés pendant la surve
   
  **Cause** Cette erreur peut se produire en raison de l'un des problèmes suivants dans les paramètres de notifications d'alerte :  
   
--   nom de serveur SMTP ou un numéro de port incorrect ;  
+- nom de serveur SMTP ou un numéro de port incorrect ;  
   
--   spécification incorrecte que le serveur SMTP nécessite une connexion unique SSL (Secure Sockets Layer) ;  
+- spécification incorrecte que le serveur SMTP nécessite une connexion unique SSL (Secure Sockets Layer) ;  
   
--   entrée d'informations d'identification erronées sur le serveur SMTP qui nécessite une authentification.  
+- entrée d'informations d'identification erronées sur le serveur SMTP qui nécessite une authentification.  
   
- **Solutions** Corrigez les erreurs dans vos paramètres de notification de courrier électronique.  
+  **Solutions** Corrigez les erreurs dans vos paramètres de notification de courrier électronique.  
   
 ##### <a name="to-identify-issues-in-your-email-notification-settings"></a>Pour identifier les problèmes dans vos paramètres de notification de messagerie  
   
@@ -53,7 +53,7 @@ Cette rubrique fournit des solutions aux problèmes rencontrés pendant la surve
      %ProgramData%\Microsoft\Windows Server\Logs\SharedServiceHost-AlertServiceConfig.log  
   
     > [!TIP]
-    >  Pour afficher le dossier ProgramData, les éléments masqués doivent être affichés. Si vous ne pas voir le dossier ProgramData, sur le ruban s **vue** sous l’onglet le **afficher/masquer** groupe, sélectionnez le **éléments masqués** zone de texte.  
+    >  Pour afficher le dossier ProgramData, les éléments masqués doivent être affichés. Si vous ne voyez pas le dossier ProgramData, dans le ruban **vue** sous l’onglet le **afficher/masquer** groupe, sélectionnez le **éléments masqués** zone de texte.  
   
 ##### <a name="to-update-your-email-notification-setup-for-alerts"></a>Pour mettre à jour vos paramètres de notification par courrier électronique pour les alertes  
   

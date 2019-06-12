@@ -5,21 +5,21 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 04/12/2019
+ms.date: 06/07/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: ee3c4ba5d6c3dc911ab318ade9a46b279317496f
-ms.sourcegitcommit: 39ab8041d166e6817a95417d6aa30bc7abeeef54
+ms.openlocfilehash: 2314e336cbf9ad44b07f3f94d7a866b48b5e9bff
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66260254"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811807"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
->S'applique à : Windows Admin Center, version préliminaire de Windows Admin Center
+> S’applique à : Windows Admin Center, version préliminaire de Windows Admin Center
 
-**Windows Admin Center** (baptisé **projet Honolulu**) est une évolution des outils de gestion de l’emploi de Windows Server ; il est un volet unique qui consolide tous les aspects de la gestion des serveurs locaux et distants. Comme il s'agit d'une expérience de gestion basée sur un navigateur et déployée localement, il n'est pas obligatoire de disposer d'Azure et d'une connexion Internet. Windows Admin Center vous offre un contrôle total sur tous les aspects de votre déploiement, notamment les réseaux privés qui ne sont pas connectés à Internet.
+**Windows Admin Center** (anciennement baptisé **projet Honolulu**) est une évolution des outils de gestion de l’emploi de Windows Server ; il est un volet unique qui consolide tous les aspects de la gestion des serveurs locaux et distants. Comme il s'agit d'une expérience de gestion basée sur un navigateur et déployée localement, il n'est pas obligatoire de disposer d'Azure et d'une connexion Internet. Windows Admin Center vous offre un contrôle total sur tous les aspects de votre déploiement, notamment les réseaux privés qui ne sont pas connectés à Internet.
 
 ## <a name="introduction"></a>Introduction
 
@@ -75,6 +75,7 @@ Vous pouvez installer et exécuter Windows Admin Center dans votre environnement
             <ul>
             <li><a href="configure/settings.md">Paramètres Windows Admin Center</a>
             <li><a href="configure/user-access-control.md">Autorisations et contrôle d’accès utilisateur</a>
+            <li><a href="configure/shared-connections.md">Connexions partagées</a>
             <li><a href="configure/using-extensions.md">Extensions</a>
             </ul>
         </td>

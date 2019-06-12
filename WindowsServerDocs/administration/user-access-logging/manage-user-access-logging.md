@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d65a40e229fe4b0a1b27db496523dfe7a9419752
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 03bad9864f81cf75be13b4ca391fdcbc5f9dcb5c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886790"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435349"
 ---
 # <a name="manage-user-access-logging"></a>Gérer la journalisation des accès utilisateur
 
@@ -195,7 +195,7 @@ Le premier jour de l’année, la journalisation des accès utilisateur cré un 
   
 2.  Appuyez sur les touches Windows + R et tapez **cmd** pour ouvrir une fenêtre d’invite de commandes.  
   
-3.  Ajoutez la valeur de Registre :  **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\WMI\AutoLogger\Sum\PollingInterval (REG_DWORD)**.  
+3.  Ajoutez la valeur de Registre :  **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\WMI\AutoLogger\Sum\PollingInterval (REG_DWORD)** .  
   
     > [!WARNING]  
     > Une modification incorrecte du Registre peut endommager gravement votre système. Avant d’apporter des modifications au Registre, il est conseillé de sauvegarder les données importantes stockées sur l’ordinateur.  
@@ -211,13 +211,13 @@ La journalisation des accès utilisateur n’a pas pour vocation d’être un co
   
 #### <a name="to-delete-data-logged-by-ual"></a>Pour supprimer les données consignées par la journalisation des accès utilisateur  
   
-1.  Arrêtez le service de journalisation des accès utilisateur.  
+1. Arrêtez le service de journalisation des accès utilisateur.  
   
-2.  Ouvrez l’Explorateur Windows.  
+2. Ouvrez l’Explorateur Windows.  
   
-3.  Go to **\Windows\System32\Logfiles\SUM\**.  
+3. Accédez à **\Windows\System32\Logfiles\SUM\\** .  
   
-4.  Supprimez tous les fichiers de ce dossier.  
+4. Supprimez tous les fichiers de ce dossier.  
   
 ## <a name="managing-ual-in-high-volume-environments"></a>Gestion de la journalisation des accès utilisateur dans des environnements de grand volume  
 Cette section décrit ce à quoi un administrateur peut s’attendre lorsque la journalisation des accès utilisateur est utilisée sur un serveur à grand volume client :  

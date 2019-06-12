@@ -1,33 +1,36 @@
 ---
 title: Quel type d’installation vous convient
-description: Quel type d’installation vous convient Windows Admin Center (projet Honolulu). Installer sur un cluster de basculement pour une haute disponibilité et la résilience.
+description: Cette rubrique décrit les différentes options d’installation pour Windows Admin Center, y compris l’installation sur un PC Windows 10 ou un serveur Windows pour une utilisation par plusieurs administrateurs.
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: fae0305e454cdd10109219c6182ff612f539e9c9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.date: 06/07/2019
+ms.openlocfilehash: 9b26ce28d8b3f74c26adab87e68b9985f2be5361
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868010"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811815"
 ---
 # <a name="what-type-of-installation-is-right-for-you"></a>Quel type d’installation vous convient ?
 
 >S'applique à : Windows Admin Center, version préliminaire de Windows Admin Center
 
+Cette rubrique décrit les différentes options d’installation pour Windows Admin Center, y compris l’installation sur un PC Windows 10 ou un serveur Windows pour une utilisation par plusieurs administrateurs. Pour installer Windows Admin Center sur une machine virtuelle dans Azure, consultez [déployer Windows Admin Center dans Azure](../azure/deploy-wac-in-azure.md).
+
 ## <a name="supported-operating-systems-installation"></a>Systèmes d’exploitation pris en charge : Installation
 
 Vous pouvez **installer** Windows Admin Center sur les systèmes d’exploitation Windows suivants :
 
-| **Version** | **Mode d’installation** |
-|-------------|-----------------------|
-|Windows 10, version 1709 ou ultérieure | Mode bureau |
-|Canal semi-annuel Windows Server | Mode passerelle |
-|Windows Server 2016 | Mode passerelle |
-|Windows Server 2019 | Mode passerelle |
+| **Version**  | **Mode d’installation** |
+| -------------| -----------------------|
+| Windows 10, version 1709 ou ultérieure | Mode bureau |
+| Canal semi-annuel Windows Server | Mode passerelle |
+| Windows Server 2016 | Mode passerelle |
+| Windows Server 2019 | Mode passerelle |
 
 **Mode bureau :** Lancez à partir du Menu Démarrer et se connecter à la passerelle Windows Admin Center depuis le même ordinateur que celui sur lequel il est installé (par exemple, `https://localhost:6516`)
 
@@ -44,8 +47,8 @@ Vous pouvez **installer** Windows Admin Center sur les systèmes d’exploitatio
 
 Vous pouvez **gérer** systèmes d’exploitation Windows suivants à l’aide de Windows Admin Center :
 
-| Version | Gérer *nœud* via *Gestionnaire de serveur* | Gérer *cluster* via *Gestionnaire du Cluster de basculement* | Gérer *HCL* via *Gestionnaire du Cluster de HCL*|
-|-------------------------|---------------|-----|------------------------|
+| Version | Gérer *nœud* via *Gestionnaire de serveur* | Gérer *cluster* via *Gestionnaire du Cluster de basculement* | Gérer *HCL* via *Gestionnaire du Cluster de HCL* |
+| ------------------------- |--------------- | ----- | ------------------------ |
 | Windows 10, version 1709 ou ultérieure | Oui (via la gestion de l’ordinateur) | N/A | N/A |
 | Canal semi-annuel Windows Server | Oui | Oui | N/A |
 | Windows Server 2019 | Oui | Oui | Oui |
@@ -58,15 +61,16 @@ Vous pouvez **gérer** systèmes d’exploitation Windows suivants à l’aide d
 
 > [!NOTE]
 > Windows Admin Center requiert des fonctionnalités de PowerShell qui ne sont pas incluses dans Windows Server 2008 R2, 2012 et 2012 R2. Si vous allez gérer avec Windows Admin Center, vous devrez installer Windows Management Framework (WMF) version 5.1 ou ultérieur sur ces serveurs.
-
->Saisissez `$PSVersiontable` dans PowerShell pour vérifier que WMF est installé, et que sa version est 5.1 ou ultérieure. 
-
->Si WMF n’est pas installé, vous pouvez [télécharger WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616).
+> 
+> Saisissez `$PSVersiontable` dans PowerShell pour vérifier que WMF est installé, et que sa version est 5.1 ou ultérieure. 
+> 
+> Si WMF n’est pas installé, vous pouvez [télécharger WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616).
 
 ## <a name="deployment-options"></a>Options de déploiement
 
 | ![img](../media/deployment-options/W10.png) | ![img](../media/deployment-options/gateway.png) | ![img](../media/deployment-options/node.png) | ![img](../media/deployment-options/HA.png) |
-|---|---|---|---|
+| --------------------------------------------- | ------------------------------------------------- |----------------------------------------------|-------------------------------------------- |
+|                                             |                                                 |                                              |                                            |
 
 | Client local | Serveur de passerelle | Serveur géré | Cluster de basculement |
 | --- | --- | --- | --- |

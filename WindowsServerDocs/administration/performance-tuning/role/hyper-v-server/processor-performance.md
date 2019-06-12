@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 2a49fdaba89a01c8daf6483f72dbc88daa91452b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f16ee9cff9c244a8c579e008bced1e90b1a20673
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843240"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435592"
 ---
 # <a name="hyper-v-processor-performance"></a>Performances du processeur de Hyper-V
 
@@ -69,20 +69,20 @@ Les fonctionnalités de topologie NUMA virtuelle et de mémoire dynamique ne peu
 
 Pour plus d’informations sur la topologie NUMA virtuelle, consultez [Hyper-V Virtual NUMA Overview](https://technet.microsoft.com/library/dn282282.aspx).
 
-##<a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir aussi
 
 -   [Terminologie Hyper-V](terminology.md)
 
 -   [Architecture Hyper-V](architecture.md)
 
--   [Configuration de serveur Hyper-V](configuration.md)
+-   [Configuration du serveur Hyper-V](configuration.md)
 
 -   [Performances de la mémoire Hyper-V](memory-performance.md)
 
--   [Stockage Hyper-V les performances d’e/s](storage-io-performance.md)
+-   [Performances E/S du stockage Hyper-V](storage-io-performance.md)
 
--   [Réseau de Hyper-V les performances d’e/s](network-io-performance.md)
+-   [Performances E/S du réseau Hyper-V](network-io-performance.md)
 
 -   [Détecter les goulots d’étranglement dans un environnement virtualisé](detecting-virtualized-environment-bottlenecks.md)
 
--   [Machines virtuelles Linux](linux-virtual-machine-considerations.md)
+-   [Ordinateurs virtuels Linux](linux-virtual-machine-considerations.md)

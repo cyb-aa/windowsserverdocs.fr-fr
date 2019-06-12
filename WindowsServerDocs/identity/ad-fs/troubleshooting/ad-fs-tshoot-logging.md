@@ -8,12 +8,12 @@ ms.date: 02/21/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 20e2d0747b98e7c7728230d0768506261f5b0d50
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1acc00ca376c48f7fb34214cef3a92961d355ae4
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825120"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444024"
 ---
 # <a name="ad-fs-troubleshooting---events-and-logging"></a>Résolution des problèmes d’AD FS - événements et la journalisation
 AD FS fournit deux journaux principales qui peuvent être utilisées dans la résolution des problèmes.  Celles-ci sont les suivantes :
@@ -89,18 +89,21 @@ Le tableau ci-dessous décrit les types de base d’événements.
 L’audit de sécurité du compte de service AD FS peut parfois aider à le dépistage des problèmes de mises à jour du mot de passe, journalisation de demande/réponse, les en-têtes de concordances de requête et résultats de l’inscription d’appareil.  L’audit du compte de service AD FS est désactivé par défaut.
 
 ### <a name="to-enable-security-auditing"></a>Pour activer l’audit de sécurité
-1.       Cliquez sur Démarrer, pointez sur **programmes**, pointez sur **outils d’administration**, puis cliquez sur **stratégie de sécurité locale**.
-2.       Accédez au dossier **Paramètres de sécurité\Stratégies locales\Gestion des droits utilisateur**, puis double-cliquez sur **Générer des audits de sécurité**.
-3.       Sur le **paramètre de sécurité locale** , vérifiez que le compte de service AD FS est répertorié. Si elle n’est pas présente, cliquez sur Ajouter un utilisateur ou groupe et ajoutez-le à la liste, puis cliquez sur OK.
-4.       Ouvrez une invite de commandes avec élévation de privilèges et exécutez la commande suivante pour activer l’audit auditpol.exe /set/SubCategory : « Application générée » /failure:enable /success:enable 5.       Fermer **stratégie de sécurité locale**, puis ouvrez le composant logiciel enfichable Gestion AD FS.
- 
+1. Cliquez sur Démarrer, pointez sur **programmes**, pointez sur **outils d’administration**, puis cliquez sur **stratégie de sécurité locale**.
+2. Accédez au dossier **Paramètres de sécurité\Stratégies locales\Gestion des droits utilisateur**, puis double-cliquez sur **Générer des audits de sécurité**.
+3. Sur le **paramètre de sécurité locale** , vérifiez que le compte de service AD FS est répertorié. Si elle n’est pas présente, cliquez sur Ajouter un utilisateur ou groupe et ajoutez-le à la liste, puis cliquez sur OK.
+4. Ouvrez une invite de commandes avec élévation de privilèges et exécutez la commande suivante pour activer l’audit auditpol.exe /set/SubCategory : « Application générée » les /success:enable /failure:enable
+5. Fermer **stratégie de sécurité locale**, puis ouvrez le composant logiciel enfichable Gestion AD FS.
+ 
 Pour ouvrir le composant logiciel enfichable Gestion AD FS, cliquez sur Démarrer, pointez sur Programmes, pointez sur Outils d’administration, puis cliquez sur gestion AD FS.
- 
-6.       Dans le volet Actions, cliquez sur Modifier les propriétés de Service fédération 7.       Dans la boîte de dialogue Propriétés du Service de fédération, cliquez sur l’onglet d’événements. 8.       Sélectionnez le **audits des succès** et **audits des échecs** cases à cocher.
-9.       Cliquez sur OK.
+ 
+6. Dans le volet Actions, cliquez sur Modifier les propriétés de Service de fédération
+7. Dans la boîte de dialogue Propriétés du Service de fédération, cliquez sur l’onglet d’événements.
+8. Sélectionnez le **audits des succès** et **audits des échecs** cases à cocher.
+9. Cliquez sur OK.
 
 ![améliorations d’audit](media/ad-fs-tshoot-logging/event4.PNG)  
- 
+ 
 >[!NOTE]
 >Les instructions ci-dessus sont utilisées uniquement lorsque ADFS se trouve sur un serveur membre autonome.  Si AD FS est en cours d’exécution sur un contrôleur de domaine, au lieu de la stratégie de sécurité locale, utilisez la **stratégie des contrôleurs de domaine par défaut** situé dans **contrôleurs de gestion/forêt/domaines/domaines de stratégie de groupe**.  Cliquez sur Modifier et accédez à **ordinateur Configuration\Policies\Windows Settings\Security Settings\Local Policies\User Rights Management**
 
@@ -155,4 +158,4 @@ L’événement d’ID d’appelant enregistre également l’ID d’activité a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Résolution des problèmes de AD FS](ad-fs-tshoot-overview.md)
+- [Résolution des problèmes AD FS](ad-fs-tshoot-overview.md)

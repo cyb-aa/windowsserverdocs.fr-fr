@@ -7,12 +7,12 @@ ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: bd22378ec7ce5a1ff4e39546246e6e85ca859c45
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 235df6f681de51a12f82b9fad019dd2db45fd486
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828840"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435550"
 ---
 # <a name="configure-memory-dump-files-for-server-core-installation"></a>Configurer les fichiers de vidage de mémoire pour l’installation de Server Core
 
@@ -39,7 +39,7 @@ Vous n’êtes pas obligé d’avoir le fichier d’échange sur la partition o�
 3. Cliquez sur **Modifier > Nouveau > valeur de chaîne**.
 4. Nommez la nouvelle valeur **DedicatedDumpFile**, puis appuyez sur ENTRÉE.
 5. Avec le bouton droit **DedicatedDumpFile**, puis cliquez sur **modifier**.
-6. Dans **données de la valeur** type  **\<lecteur\>:\\\<Dedicateddumpfile.sys\>**, puis cliquez sur **OK**.
+6. Dans **données de la valeur** type  **\<lecteur\>:\\\<Dedicateddumpfile.sys\>** , puis cliquez sur **OK**.
 
    >[!NOTE] 
    > Remplacez \<lecteur\> avec un lecteur qui dispose de suffisamment de disque de l’espace du fichier d’échange, puis remplacez \<Dedicateddumpfile.dmp\> avec le chemin d’accès complet au fichier dédié.
@@ -49,8 +49,8 @@ Vous n’êtes pas obligé d’avoir le fichier d’échange sur la partition o�
 9. Avec le bouton droit **DumpFileSize**, puis cliquez sur **modifier**.
 10. Dans **Edit DWORD Value**, sous **Base**, cliquez sur **décimal**.
 11. Dans **données de la valeur**, tapez la valeur appropriée, puis cliquez sur **OK**.
-   >[!NOTE]
-   > La taille du fichier de vidage est en mégaoctets (Mo).
+    >[!NOTE]
+    > La taille du fichier de vidage est en mégaoctets (Mo).
 12. Quittez l’Éditeur du Registre.
 
 Après avoir déterminé l’emplacement de la partition de l’image mémoire, configurez le chemin d’accès de destination pour le fichier d’échange. Pour afficher le chemin d’accès de destination actuel pour le fichier d’échange, exécutez la commande suivante :
@@ -146,7 +146,7 @@ Pour vérifier les paramètres de fichier de page actuels, exécutez une des com
    wmic.exe pagefile
    ```
 
-   ou Gestionnaire de configuration
+   ou
 
    ```
    wmic.exe pagefile list /format:list

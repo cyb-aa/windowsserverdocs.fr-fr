@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 79288fe90d037659f5e3934f1925dd8b7c21ad7f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3fa9ba46418c3ed3b7999a734b4c0df40dce5027
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873430"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434175"
 ---
 # <a name="create-partition-msr"></a>créer la partition msr
 
@@ -39,11 +39,11 @@ create partition msr [size=<n>] [offset=<n>] [noerr]
   
 ## <a name="parameters"></a>Paramètres  
   
-|Paramètre|Description|  
-|-------|--------|  
-|size\=<n>|La taille de la partition en mégaoctets \(Mo\). La partition est au moins aussi longue en octets que le nombre spécifié par <n>. Si aucune taille n’est donnée, la partition se poursuit jusqu'à ce que l’espace libre dans la région actuelle.|  
-|offset\=<n>|Spécifie le décalage en kilo-octets \(Ko\), à laquelle la partition est créée. Le décalage arrondit à remplir entièrement le donner la taille de secteur est utilisée. Si aucun décalage n’est fourni, la partition est placée dans la première étendue de disque qui est assez grande pour le contenir.|  
-|NOERR|Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.|  
+|  Paramètre  |                                                                                                                         Description                                                                                                                         |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  size\=<n>  |               La taille de la partition en mégaoctets \(Mo\). La partition est au moins aussi longue en octets que le nombre spécifié par <n>. Si aucune taille n’est donnée, la partition se poursuit jusqu'à ce que l’espace libre dans la région actuelle.               |
+| offset\=<n> | Spécifie le décalage en kilo-octets \(Ko\), à laquelle la partition est créée. Le décalage arrondit à remplir entièrement le donner la taille de secteur est utilisée. Si aucun décalage n’est fourni, la partition est placée dans la première étendue de disque qui est assez grande pour le contenir. |
+|    NOERR    |                            Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.                             |
   
 ## <a name="remarks"></a>Notes  
   
@@ -63,7 +63,7 @@ create partition msr size=1000
 ```  
   
 #### <a name="additional-references"></a>Références supplémentaires  
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
   
 
   

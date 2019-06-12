@@ -9,12 +9,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: 67c3471a726df354e0faa9e3aced491c4084e9e3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9e4131c28a18a50f3312e5e0201a0ed9529d4555
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864340"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812399"
 ---
 # <a name="how-the-windows-time-service-works"></a>Fonctionnement du service de temps Windows
 
@@ -22,13 +22,13 @@ ms.locfileid: "59864340"
 
 **Dans cette section**  
   
--   [Architecture du Service de temps Windows](#w2k3tr_times_how_rrfo)  
+-   [Architecture du Service de temps Windows](#windows-time-service-architecture)  
   
--   [Protocoles de temps de Service de temps Windows](#w2k3tr_times_how_ekoc)  
+-   [Protocoles de temps de Service de temps Windows](#windows-time-service-time-protocols)  
   
--   [Processus de Service et Interactions de temps Windows](#w2k3tr_times_how_izcr)  
+-   [Processus de Service et Interactions de temps Windows](#windows-time-service-processes-and-interactions)  
   
--   [Ports réseau utilisés par le Service de temps Windows](#w2k3tr_times_how_ydum)  
+-   [Ports réseau utilisés par le Service de temps Windows](#network-ports-used-by-windows-time-service)  
   
 > [!NOTE]  
 > Cette rubrique explique comment le service de temps de Windows (W32Time) fonctionne uniquement. Pour plus d’informations sur la configuration du service de temps de Windows, consultez [configuration des systèmes de haute précision](configuring-systems-for-high-accuracy.md).
@@ -57,7 +57,7 @@ Le degré auquel les temps d’un ordinateur sont exacte est appelé une couche.
   
 Lorsque le Gestionnaire de W32Time reçoit des échantillons de temps, elle utilise des algorithmes spéciales dans NTP pour déterminer lequel des échantillons de temps est la plus appropriée pour une utilisation. Le service de temps utilise également un autre ensemble d’algorithmes pour déterminer lequel des sources de temps configuré est le plus précis. Lorsque le service de temps a déterminé les exemples de temps est préférable, en fonction des critères ci-dessus, il ajuste la vitesse d’horloge locale pour lui permettre de converger vers l’heure correcte. Si la différence de temps entre l’horloge locale et l’exemple de temps précise sélectionné (également appelé l’heure décalage) est trop grande pour corriger en réglant la fréquence d’horloge locale, le service de temps définit l’horloge locale sur l’heure correcte. Cet ajustement de la fréquence d’horloge ou le changement d’heure horloge direct est connu en tant que discipline d’horloge.  
   
-## <a name="w2k3tr_times_how_rrfo"></a>Architecture du Service de temps Windows  
+## <a name="windows-time-service-architecture"></a>Architecture du service de temps Windows  
 Le service de temps de Windows est constitué des composants suivants :  
   
 -   Gestionnaire de contrôle des services  
@@ -88,7 +88,7 @@ Le processus de synchronisation de temps implique les étapes suivantes :
   
 Si un ordinateur a été désigné comme un serveur de temps, il peut envoyer la fois une session sur n’importe quel ordinateur demande de synchronisation de l’heure à tout moment dans ce processus.  
   
-## <a name="w2k3tr_times_how_ekoc"></a>Protocoles de temps de Service de temps Windows  
+## <a name="windows-time-service-time-protocols"></a>Protocoles de temps de Service de temps Windows  
 
 Protocoles de temps déterminent quelle précision deux ordinateurs horloges sont synchronisées. Un protocole de temps est chargé de déterminer les meilleures informations de temps disponible et converger les horloges pour vous assurer que les temps de cohérence est maintenue sur des systèmes séparés.  
   
@@ -144,7 +144,7 @@ Le service de temps de Windows peut interagir avec les ordinateurs exécutant Wi
   
 Windows NT 4.0 utilise un mécanisme plus simple pour la synchronisation de temps que le service de temps de Windows utilise. Par conséquent, pour garantir la synchronisation date / heure précises de votre réseau, il est recommandé de mettre à niveau des contrôleurs de domaine Windows NT 4.0 vers Windows 2000 ou Windows Server 2003.  
   
-## <a name="w2k3tr_times_how_izcr"></a>Processus de Service et Interactions de temps Windows  
+## <a name="windows-time-service-processes-and-interactions"></a>Processus de Service et Interactions de temps Windows  
 
 Le service de temps de Windows est conçu pour synchroniser les horloges des ordinateurs sur un réseau. Le processus de synchronisation de l’heure réseau, également appelé convergence de temps, se produit tout au long d’un réseau en tant que chaque heure d’accède à l’ordinateur à partir d’un serveur de temps plus précis. Convergence de temps implique un processus par lequel un serveur faisant autorité fournit l’heure actuelle sur les ordinateurs clients sous la forme de paquets NTP. Les informations contenues dans un paquet indiquent si un ajustement doit être effectué à l’heure actuelle de l’ordinateur afin qu’elles soient synchronisées avec le serveur plus précis.  
   
@@ -252,7 +252,7 @@ Le seul moment où les serveurs qui sont approuvés par les clients, même si el
 ### <a name="disabling-the-windows-time-service"></a>La désactivation du Service de temps Windows  
 Le service de temps de Windows (W32Time) peut être complètement désactivé. Si vous choisissez d’implémenter un produit de synchronisation de temps tiers qui utilise le protocole NTP, vous devez désactiver le service de temps de Windows. Il s’agit, car tous les serveurs NTP ont besoin d’accéder au port de protocole UDP (User Datagram) 123, et tant que le service de temps de Windows est en cours d’exécution sur le système d’exploitation Windows Server 2003, le port 123 reste réservé par heure de Windows.  
   
-## <a name="w2k3tr_times_how_ydum"></a>Ports réseau utilisés par le Service de temps Windows  
+## <a name="network-ports-used-by-windows-time-service"></a>Ports réseau utilisés par le Service de temps Windows  
 Le service de temps de Windows communique sur un réseau pour identifier les sources de temps fiable, obtenir des informations de temps et fournissent des informations de temps à d’autres ordinateurs. Il effectue cette communication tel que défini par le protocole NTP et SNTP RFC.  
   
 **Affectations de port pour le Service de temps Windows**  

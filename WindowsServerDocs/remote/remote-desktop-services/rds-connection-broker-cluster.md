@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: e20b4960faac0ef40ad68271fa907394344e9c47
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: b1e5726e3976527278b11f105007a32548da0bc4
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034424"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805152"
 ---
 # <a name="add-the-rd-connection-broker-server-to-the-deployment-and-configure-high-availability"></a>Ajouter le serveur du service Broker pour les connexions Bureau à distance au déploiement et configurer la haute disponibilité
 
@@ -27,7 +27,7 @@ Vous pouvez déployer un cluster de Broker de connexion Bureau à distance (RD C
 
 ## <a name="pre-requisites"></a>Conditions préalables
 
-Configurer un serveur d’agir comme un deuxième agent de connexion Bureau à distance - cela peut être un serveur physique ou une machine virtuelle.
+Configurer un serveur d’agir comme un deuxième agent de connexion Bureau à distance, cela peut être un serveur physique ou une machine virtuelle.
 
 Configurer une base de données pour le service Broker de connexion. Vous pouvez utiliser [base de données SQL Azure](https://azure.microsoft.com/documentation/articles/sql-database-get-started/#create-a-new-aure-sql-database) instance ou SQL Server dans votre environnement local. Nous parlons à l’aide de SQL Azure ci-dessous, mais les étapes s’appliquent toujours à SQL Server. Vous devez rechercher la chaîne de connexion pour la base de données et vérifiez que vous disposez du pilote ODBC.
 
@@ -36,21 +36,23 @@ Configurer une base de données pour le service Broker de connexion. Vous pouvez
 1. Rechercher la chaîne de connexion pour la base de données que vous avez créé, vous avez besoin à la fois pour identifier la version du pilote ODBC vous avez besoin et versions ultérieures, lorsque vous configurez la connexion répartiteur proprement dit (étape 3), donc enregistrez la chaîne un endroit où vous pouvez le référencer facilement. Voici comment vous recherchez la chaîne de connexion SQL Azure :  
     1. Dans le portail Azure, cliquez sur **Parcourir > groupes de ressources** et cliquez sur le groupe de ressources pour le déploiement.   
     2. Sélectionnez la base de données SQL que vous venez de créer (par exemple, DB1-CB).   
-    3. Cliquez sur **Paramètres > Propriétés > Afficher les chaînes de connexion de base de données**.   
+    3. Cliquez sur **paramètres** > **propriétés** > **afficher les chaînes de connexion de base de données**.   
     4. Copiez la chaîne de connexion pour **ODBC (inclut Node.js)** , qui doit ressembler à ceci :   
       
-        Driver={SQL Server Native Client 13.0};Server=tcp:cb-sqls1.database.windows.net,1433;Database=CB-DB1;Uid=sqladmin@contoso;Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;   
+        ```
+        Driver={SQL Server Native Client 13.0};Server=tcp:cb-sqls1.database.windows.net,1433;Database=CB-DB1;Uid=sqladmin@contoso;Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
+        ```
   
     5. Remplacez « your_password_here » par le mot de passe réel. Vous allez utiliser cette chaîne entière, avec votre mot de passe fourni lors de la connexion à la base de données. 
 2. Installer le pilote ODBC sur le nouvel agent de connexion : 
    1. Si vous utilisez une machine virtuelle pour l’agent de connexion, créez une adresse IP publique pour la première Broker pour les connexions Bureau à distance. (Vous devez uniquement si la machine virtuelle de RDM n’a pas déjà une adresse IP publique pour permettre les connexions RDP).
-       1. Dans le portail Azure, cliquez sur **Parcourir > groupes de ressources**et cliquez sur le groupe de ressources pour le déploiement, puis cliquez sur la première machine virtuelle de service Broker pour les connexions Bureau à distance (par exemple, Contoso-Cb1).
+       1. Dans le portail Azure, cliquez sur **Parcourir** > **groupes de ressources**, cliquez sur le groupe de ressources pour le déploiement, puis cliquez sur la première machine virtuelle de service Broker pour les connexions Bureau à distance (par exemple, Contoso-Cb1).
        2. Cliquez sur **Paramètres > interfaces réseau**, puis cliquez sur l’interface réseau correspondante.
        3. Cliquez sur **Paramètres > adresse IP**.
        4. Pour **adresse IP publique**, sélectionnez **activé**, puis cliquez sur **adresse IP**.
        5. Si vous avez une adresse IP publique existante à utiliser, sélectionnez-le dans la liste. Sinon, cliquez sur **créer**, entrez un nom, puis cliquez sur **OK** , puis **enregistrer**.
    2. Se connecter à la première Broker pour les connexions Bureau à distance :
-       1. Dans le portail Azure, cliquez sur **Parcourir > groupes de ressources**et cliquez sur le groupe de ressources pour le déploiement, puis cliquez sur la première machine virtuelle de service Broker pour les connexions Bureau à distance (par exemple, Contoso-Cb1).
+       1. Dans le portail Azure, cliquez sur **Parcourir** > **groupes de ressources**, cliquez sur le groupe de ressources pour le déploiement, puis cliquez sur la première machine virtuelle de service Broker pour les connexions Bureau à distance (par exemple, Contoso-Cb1).
        2. Cliquez sur **Connect > Ouvrez** pour ouvrir le client Bureau à distance.
        3. Dans le client, cliquez sur **Connect**, puis cliquez sur **utiliser un autre compte d’utilisateur**. Entrez le nom d’utilisateur et le mot de passe pour un compte d’administrateur de domaine.
        4. Cliquez sur **Oui** lorsque l’avertissement concernant le certificat.

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 06/05/2018
-ms.openlocfilehash: e2366133c4699f43731c9a4e8a7a8238fc83031d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1f5253700f2932b2afa725163121e64ea4c1748d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815250"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434578"
 ---
 # <a name="call"></a>appel
 
@@ -39,21 +39,21 @@ call [Drive:][Path]<FileName> [<BatchParameters>] [:<Label> [<Arguments>]]
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|[\<Drive>:][<Path>]<FileName>|Spécifie l’emplacement et le nom du programme de traitement par lots que vous souhaitez appeler. Le *FileName* paramètre est obligatoire et doit avoir une extension .bat ou .cmd.|
-|\<BatchParameters>|Spécifie les informations de ligne de commande requises par le programme de traitement par lots.|
-|:\<Label>|Spécifie l’étiquette que vous souhaitez un contrôle de programme de traitement par lots pour accéder à.|
-|\<Arguments>|Spécifie les informations de ligne de commande à passer à la nouvelle instance du programme de traitement par lots, en commençant à *: étiquette.*|
-|/?|Affiche l'aide à l'invite de commandes.|
+|           Paramètre           |                                                                         Description                                                                          |
+|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [\<Drive>:][<Path>]<FileName> | Spécifie l’emplacement et le nom du programme de traitement par lots que vous souhaitez appeler. Le *FileName* paramètre est obligatoire et doit avoir une extension .bat ou .cmd. |
+|      \<BatchParameters>       |                                            Spécifie les informations de ligne de commande requises par le programme de traitement par lots.                                             |
+|           :\<Label>           |                                            Spécifie l’étiquette que vous souhaitez un contrôle de programme de traitement par lots pour accéder à.                                             |
+|         \<Arguments>          |                     Spécifie les informations de ligne de commande à passer à la nouvelle instance du programme de traitement par lots, en commençant à *: étiquette.*                     |
+|              /?               |                                                             Affiche l'aide à l'invite de commandes.                                                             |
 
 ## <a name="batch-parameters"></a>Paramètres de lot
 
-Les références d’argument de script batch (**%0**, **%1**,...) sont répertoriés dans les tableaux suivants.
+Les références d’argument de script batch ( **%0**, **%1**,...) sont répertoriés dans les tableaux suivants.
 
-**%*** dans un lot script fait référence à tous les arguments (par exemple, **%1**, **%2**, **%3**...)
+**%** * dans un lot script fait référence à tous les arguments (par exemple, **%1**, **%2**, **%3**...)
 
-Vous pouvez utiliser les syntaxes facultatives suivantes en tant que substitutions pour les paramètres de traitement par lots (**%n**) :
+Vous pouvez utiliser les syntaxes facultatives suivantes en tant que substitutions pour les paramètres de traitement par lots ( **%n**) :
 
 |Paramètre de lot|Description|
 |---------------|-----------|
@@ -78,19 +78,19 @@ Le tableau suivant montre comment vous pouvez combiner des modificateurs avec le
 |%~dp$PATH:1|Recherche les répertoires énumérés dans la variable d’environnement PATH pour **%1**, puis développe à la lettre de lecteur et le chemin d’accès du premier répertoire trouvé.|
 |%~ftza1|Se développe **%1** pour afficher la sortie similaire à la **dir** commande.|
 
-Dans les exemples ci-dessus, **%1** et chemin d’accès peut être remplacé par d’autres valeurs valides. Le **%~** syntaxe se termine par un numéro d’argument valide. Le **%~** modificateurs ne peut pas être utilisés avec **% \***.
+Dans les exemples ci-dessus, **%1** et chemin d’accès peut être remplacé par d’autres valeurs valides. Le <strong>%~</strong> syntaxe se termine par un numéro d’argument valide. Le <strong>%~</strong> modificateurs ne peut pas être utilisés avec ** %\\***.
 
 ## <a name="remarks"></a>Notes
 
 -   À l’aide des paramètres de lot
 
-    Paramètres de lot peuvent contenir toutes les informations que vous pouvez passer à un programme de commandes, y compris les options de ligne de commande, les noms de fichiers, les paramètres de lot **%0** via **%9**et les variables (par exemple, **(en bauds) %**).
+    Paramètres de lot peuvent contenir toutes les informations que vous pouvez passer à un programme de commandes, y compris les options de ligne de commande, les noms de fichiers, les paramètres de lot **%0** via **%9**et les variables (par exemple, **(en bauds) %** ).
 -   À l’aide de la *étiquette* paramètre
 
     À l’aide de **appeler** avec la *étiquette* paramètre, vous créez un nouveau contexte de fichier de commandes et passer le contrôle à l’instruction après l’étiquette spécifiée. La première fois que la fin du fichier de commandes (autrement dit, après le passage à l’étiquette), contrôle retourne à l’instruction après le **appeler** instruction. La deuxième fois que la fin du fichier de commandes, le script de lot est terminé.
 -   À l’aide de canaux et des symboles de redirection
 
-    N’utilisez pas de canaux (**|**) et les symboles de redirection (**<** ou **>**) avec **appeler**.
+    N’utilisez pas de canaux ( **|** ) et les symboles de redirection ( **<** ou **>** ) avec **appeler**.
 -   Appel récursif
 
     Vous pouvez créer un programme de traitement par lots qui s’appelle elle-même. Toutefois, vous devez fournir une condition de sortie. Sinon, les programmes de traitement par lots parent et enfant peuvent exécuter indéfiniment une boucle.
@@ -113,4 +113,4 @@ call checknew %1 %2
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

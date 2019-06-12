@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1365373097cf7280c4475514107a940f46e65893
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1c8af4beb83b789be1456d5556a0aa07749590fb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840070"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438723"
 ---
 # <a name="ftp-delete"></a>ftp: delete
 
@@ -30,13 +30,15 @@ Supprime les fichiers sur des ordinateurs distants.
 delete <remoteFile>  
 ```  
 ### <a name="parameters"></a>Paramètres  
-|Paramètre|Description|  
-|-------|--------|  
-|<remoteFile>|Spécifie le fichier à supprimer.|  
+
+|  Paramètre   |          Description          |
+|--------------|-------------------------------|
+| <remoteFile> | Spécifie le fichier à supprimer. |
+
 ## <a name="BKMK_Examples"></a>Exemples  
 supprimer le fichier test.txt sur l’ordinateur distant.  
 ```  
 delete test.txt  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

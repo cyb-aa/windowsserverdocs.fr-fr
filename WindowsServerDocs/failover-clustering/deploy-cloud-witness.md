@@ -9,16 +9,16 @@ ms.topic: article
 author: JasonGerend
 ms.date: 01/18/2019
 description: Comment utiliser Microsoft Azure pour héberger le témoin d’un Cluster de basculement Windows Server dans le cloud - également appelé comment déployer un témoin Cloud.
-ms.openlocfilehash: f7e1c84e54f08044a772f06e591588c1add33026
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 64fd39a37c63d24f8fc0eb4f45c8a7e9f6089013
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857980"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439781"
 ---
 # <a name="deploy-a-cloud-witness-for-a-failover-cluster"></a>Déployer un témoin de cloud pour un cluster de basculement
 
-> S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
+> S’applique à : Windows Server 2019, Windows Server 2016
 
 Témoin de cloud est un type de témoin de quorum de Cluster de basculement qui utilise Microsoft Azure pour fournir un vote du quorum de cluster. Cette rubrique fournit une vue d’ensemble de la fonctionnalité de témoin de Cloud, les scénarios pris en charge et des instructions sur la façon de configurer un témoin cloud pour un Cluster de basculement.
 
@@ -134,14 +134,14 @@ Configuration d’un témoin cloud est très bien intégrée dans l’Assistant 
     **Figure 8. Sélectionner le témoin de Quorum**  
 
 5. Sur le **configurer le témoin de Cloud** page, entrez les informations suivantes :  
-    1. (Paramètre obligatoire) Nom du compte de stockage Azure.  
-    2. (Paramètre obligatoire) Clé d’accès correspondant au compte de stockage.  
-        1. Lorsque vous créez pour la première fois, utilisez la clé d’accès primaire (voir figure 5)  
-        2. Lors de la rotation de la clé d’accès primaire, utilisez la clé d’accès secondaire (voir figure 5)  
-    3. (Paramètre facultatif) Si vous envisagez d’utiliser un point de terminaison de service Azure différentes (par exemple, le service Microsoft Azure en Chine), puis mettez à jour le nom de serveur de point de terminaison.  
+   1. (Paramètre obligatoire) Nom du compte de stockage Azure.  
+   2. (Paramètre obligatoire) Clé d’accès correspondant au compte de stockage.  
+       1. Lorsque vous créez pour la première fois, utilisez la clé d’accès primaire (voir figure 5)  
+       2. Lors de la rotation de la clé d’accès primaire, utilisez la clé d’accès secondaire (voir figure 5)  
+   3. (Paramètre facultatif) Si vous envisagez d’utiliser un point de terminaison de service Azure différentes (par exemple, le service Microsoft Azure en Chine), puis mettez à jour le nom de serveur de point de terminaison.  
 
-    ![Instantané du volet de configuration Cloud Witness dans l’Assistant Quorum du Cluster](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_10.png)  
-    **Figure 9 : Configurez pas votre témoin de Cloud**
+      ![Instantané du volet de configuration Cloud Witness dans l’Assistant Quorum du Cluster](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_10.png)  
+      **Figure 9 : Configurez pas votre témoin de Cloud**
 
 6. Après la configuration d’un témoin de Cloud, vous pouvez afficher la ressource témoin nouvellement créé dans le Gestionnaire du Cluster de basculement-composant logiciel enfichable (voir figure 10).
 

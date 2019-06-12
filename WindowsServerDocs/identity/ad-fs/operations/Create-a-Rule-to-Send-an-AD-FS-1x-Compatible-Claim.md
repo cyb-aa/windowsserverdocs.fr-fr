@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: c87b76224d1ac5dbe3befc837fad8879d0b9a1ef
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: bda071be6668710361205643125fc8ad44246012
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189397"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453026"
 ---
 # <a name="create-a-rule-to-send-an-ad-fs-1x-compatible-claim"></a>Créer une règle pour envoyer une revendication Compatible de AD FS 1.x
 
@@ -42,9 +42,6 @@ Selon les besoins de votre organisation, utilisez une des procédures suivantes 
   
 > [!NOTE]  
 > Pour cette règle de fonctionner comme prévu, assurez-vous que la partie de confiance ou approbation de fournisseur de revendications dans lequel vous créez cette règle a été configurée pour utiliser le **profil ADFS 1.0 et 1.1**. 
-
-
-
 
 ## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-pass-through-or-filter-an-incoming-claim-rule-template-on-a-relying-party-trust-in-windows-server-2016"></a>Pour créer une règle pour émettre un AD FS 1. *x* ID de nom de revendication à l’aide de la passer ou filtrer un modèle de règle de revendication entrante sur une confiance dans Windows Server 2016 
 
@@ -125,11 +122,10 @@ Selon les besoins de votre organisation, utilisez une des procédures suivantes 
     -   **Transmettre uniquement les valeurs de revendication qui correspondent à une valeur de suffixe d’adresse de messagerie spécifique**  
   
     -   **Transmettre uniquement les valeurs de revendication qui commencent par une valeur spécifique**  
-![Créer la règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs3.PNG)   
+![Créer la règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs3.PNG)
 
 10. Cliquez sur **Terminer**, puis cliquez sur **OK** pour enregistrer la règle.  
 
-  
 
 ## <a name="to-create-a-rule-to-transform-an-incoming-claim-on-a-relying-party-trust-in-windows-server-2016"></a>Pour créer une règle pour transformer une revendication entrante sur une confiance dans Windows Server 2016 
 
@@ -139,13 +135,13 @@ Selon les besoins de votre organisation, utilisez une des procédures suivantes 
 ![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
   
 3.  Droite\-cliquez sur l’approbation sélectionnée, puis cliquez sur **modifier la stratégie d’émission de revendication**.
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
+![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)
   
 4.  Dans le **modifier la stratégie d’émission de revendication** boîte de dialogue **règles de transformation d’émission** cliquez sur **ajouter une règle** pour démarrer l’Assistant règle. 
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule11.PNG)    
+![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule11.PNG)
 
 5.  Sur le **sélectionner le modèle de règle** page sous **modèle de règle de revendication**, sélectionnez **transformer une revendication entrante** dans la liste, puis cliquez sur **suivant**.  
-![Créer la règle](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform3.PNG)      
+![Créer la règle](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform3.PNG)
 
 6.  Sur le **configurer la règle** page, tapez un nom de règle de revendication.  
   
@@ -168,7 +164,7 @@ Selon les besoins de votre organisation, utilisez une des procédures suivantes 
     -   **Remplacer une valeur de revendication entrante avec une valeur de revendication sortante**  
   
     -   **Remplacez e entrant\-avec une nouvelle e des revendications de suffixe de messagerie\-suffixe de messagerie**  
-![Créer la règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)    
+![Créer la règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)
 
 11. Cliquez sur **Terminer**, puis cliquez sur **OK** pour enregistrer la règle.  
 
@@ -273,7 +269,7 @@ Selon les besoins de votre organisation, utilisez une des procédures suivantes 
     -   **Transmettre uniquement les valeurs de revendication qui correspondent à une valeur de suffixe d’adresse de messagerie spécifique**  
   
     -   **Transmettre uniquement les valeurs de revendication qui commencent par une valeur spécifique**  
-![Créer la règle](media/\Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs1.PNG)   
+![Créer la règle](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs1.PNG)
 
 10. Cliquez sur **Terminer**, puis cliquez sur **OK** pour enregistrer la règle.  
 

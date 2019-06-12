@@ -14,12 +14,12 @@ ms.assetid: abded6f3-5708-4e35-9a9e-890e81924fec
 ms.author: pashort
 author: shortpatti
 ms.date: 09/10/2018
-ms.openlocfilehash: 367de10e8c77490ff27be81ddc05239f931ad1f4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cf58956ead8e8a47b8ec6d189bf23e5c576d5f15
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860470"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812183"
 ---
 # <a name="nic-teaming"></a>Association de cartes réseau
 
@@ -27,8 +27,8 @@ ms.locfileid: "59860470"
 
 Dans cette rubrique, nous vous donner une vue d’ensemble de l’association de carte d’Interface réseau (NIC) dans Windows Server 2016. Association de cartes réseau vous permet de regrouper entre 1 et 32 de cartes réseau Ethernet physiques dans un ou plusieurs adaptateurs de réseau virtuel basé sur le logiciel. Ces cartes réseau virtuelles fournissent des performances élevées et une tolérance de panne importante en cas de défaillance de la carte réseau.  
   
->[!IMPORTANT]
->Vous devez installer des cartes réseau de l’association de cartes réseau dans le même ordinateur hôte physique. 
+> [!IMPORTANT]
+> Vous devez installer des cartes réseau de l’association de cartes réseau dans le même ordinateur hôte physique. 
 
 > [!TIP]  
 > Une association de cartes réseau qui contient une seule carte réseau ne peut pas fournir l’équilibrage de charge et le basculement. Toutefois, avec une carte réseau, vous pouvez utiliser association de cartes réseau pour séparer le trafic réseau lorsque vous utilisez également des réseaux locaux virtuels (VLAN).  
@@ -63,7 +63,7 @@ Vous ne pouvez pas placer les cartes réseau suivantes dans une association de c
 ## <a name="compatibility"></a>Compatibilité  
 Association de cartes réseau est compatible avec toutes les technologies de mise en réseau dans Windows Server 2016 avec les exceptions suivantes.  
   
--   **La virtualisation d’e/s de racine unique (SR-IOV)**. Dans le SR-IOV, les données sont fournies directement à la carte réseau sans passer par la pile réseau (dans le système d’exploitation hôte, dans le cas de virtualisation). Par conséquent, il n’est pas possible pour l’association de cartes réseau inspecter ou rediriger les données vers un autre chemin dans l’équipe.  
+-   **La virtualisation d’e/s de racine unique (SR-IOV)** . Dans le SR-IOV, les données sont fournies directement à la carte réseau sans passer par la pile réseau (dans le système d’exploitation hôte, dans le cas de virtualisation). Par conséquent, il n’est pas possible pour l’association de cartes réseau inspecter ou rediriger les données vers un autre chemin dans l’équipe.  
   
 -   **Qualité de Service (QoS) de hôte natif**. Lorsque vous définissez des stratégies de QoS sur natif ou le système hôte et ces stratégies d’appel de limitations de bande passante minimale, le débit global d’une association de cartes réseau est inférieure à celle qu’elle serait sans les stratégies de la bande passante en place.  
   

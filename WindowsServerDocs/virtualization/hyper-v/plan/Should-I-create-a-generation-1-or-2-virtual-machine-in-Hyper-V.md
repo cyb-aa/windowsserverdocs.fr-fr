@@ -11,12 +11,12 @@ ms.assetid: 02e31413-6140-4723-a8d6-46c7f667792d
 author: KBDAzure
 ms.author: kathydav
 ms.date: 12/05/2016
-ms.openlocfilehash: e3c88ef5ee700bb3906746402bf6cc8916976800
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 95ececde8a1b8c591ea2baf367a93f63ee55a6e3
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192768"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811988"
 ---
 # <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?
 
@@ -35,25 +35,25 @@ Pour plus d’informations sur quelles sont les fonctionnalités disponibles ave
 
 Vous ne pouvez pas modifier la génération d’une machine virtuelle une fois que vous l’avez créé. Par conséquent, nous recommandons que vous passez en revue les considérations ici, mais aussi choisissez le système d’exploitation, méthode de démarrage et fonctionnalités que vous souhaitez utiliser avant de choisir une génération.  
 
-## <a name="BKMK_OS"></a>Quels systèmes d’exploitation invités sont pris en charge ?
+## <a name="which-guest-operating-systems-are-supported"></a>Quels systèmes d’exploitation invités sont pris en charge ?
 
 Ordinateurs virtuels de génération 1 prennent en charge la plupart des systèmes d’exploitation invités. Ordinateurs virtuels de génération 2 prennent en charge plus les versions 64 bits de Windows et des versions plus récentes des systèmes d’exploitation Linux et FreeBSD. Utilisez les sections suivantes pour la génération d’ordinateur virtuel prend en charge le système d’exploitation invité à installer.  
 
-- [Prise en charge du système d’exploitation Windows invité](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_Windows)  
+- [Prise en charge du système d’exploitation Windows invité](#windows-guest-operating-system-support)  
 
-- [CentOS et prise en charge du système d’exploitation Red Hat Enterprise Linux invité](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_CentOS)  
+- [CentOS et prise en charge du système d’exploitation Red Hat Enterprise Linux invité](#centos-and-red-hat-enterprise-linux-guest-operating-system-support)  
 
-- [Prise en charge du système d’exploitation invité Debian](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_Debian)  
+- [Prise en charge du système d’exploitation invité Debian](#debian-guest-operating-system-support)  
 
-- [Prise en charge du système d’exploitation FreeBSD invité](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_FreeBSD)  
+- [Prise en charge du système d’exploitation FreeBSD invité](#freebsd-guest-operating-system-support)  
 
-- [Prise en charge du système d’exploitation invité Linux Oracle](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_Oracle)  
+- [Prise en charge du système d’exploitation invité Linux Oracle](#oracle-linux-guest-operating-system-support)  
 
-- [Prise en charge du système d’exploitation SUSE invité](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_SUSE)  
+- [Prise en charge du système d’exploitation SUSE invité](#suse-guest-operating-system-support)  
 
-- [Prise en charge du système d’exploitation Ubuntu invité](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_Ubuntu)  
+- [Prise en charge du système d’exploitation Ubuntu invité](#ubuntu-guest-operating-system-support)  
 
-### <a name="BKMK_Windows"></a>Prise en charge du système d’exploitation Windows invité
+### <a name="windows-guest-operating-system-support"></a>Prise en charge du système d’exploitation Windows invité
 
 Le tableau suivant présente les versions 64 bits de Windows vous pouvez utiliser comme système d’exploitation invité pour la génération 1 et les ordinateurs virtuels de génération 2.  
 
@@ -79,7 +79,7 @@ Le tableau suivant présente les versions 32 bits de Windows vous pouvez utilise
 |Windows 8|&#10004;| &#10006;|  
 |Windows 7|&#10004;| &#10006;|  
 
-### <a name="BKMK_CentOS"></a>CentOS et prise en charge du système d’exploitation Red Hat Enterprise Linux invité
+### <a name="centos-and-red-hat-enterprise-linux-guest-operating-system-support"></a>CentOS et prise en charge du système d’exploitation Red Hat Enterprise Linux invité
 
 Le tableau suivant indique les versions de Red Hat Enterprise Linux \(RHEL\) et CentOS vous pouvez utiliser comme système d’exploitation invité pour la génération 1 et les ordinateurs virtuels de génération 2.
 
@@ -91,7 +91,7 @@ Le tableau suivant indique les versions de Red Hat Enterprise Linux \(RHEL\) et 
 
 Pour plus d’informations, consultez [CentOS et Red Hat Enterprise Linux ordinateurs virtuels sur Hyper-V](../Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md).  
 
-### <a name="BKMK_Debian"></a>Prise en charge du système d’exploitation invité Debian  
+### <a name="debian-guest-operating-system-support"></a>Prise en charge du système d’exploitation invité Debian  
 
 Le tableau suivant présente les versions de Debian vous pouvez utiliser comme système d’exploitation invité pour la génération 1 et les ordinateurs virtuels de génération 2.
 
@@ -102,7 +102,7 @@ Le tableau suivant présente les versions de Debian vous pouvez utiliser comme s
 
 Pour plus d’informations, consultez [des machines virtuelles Debian sur Hyper-V](../Supported-Debian-virtual-machines-on-Hyper-V.md).  
 
-### <a name="BKMK_FreeBSD"></a>Prise en charge du système d’exploitation FreeBSD invité
+### <a name="freebsd-guest-operating-system-support"></a>Prise en charge du système d’exploitation FreeBSD invité
 
 Le tableau suivant présente les versions de FreeBSD vous pouvez utiliser comme système d’exploitation invité pour la génération 1 et les ordinateurs virtuels de génération 2.  
 
@@ -114,7 +114,7 @@ Le tableau suivant présente les versions de FreeBSD vous pouvez utiliser comme 
 
 Pour plus d’informations, consultez [machines virtuelles de FreeBSD sur Hyper-V](../Supported-FreeBSD-virtual-machines-on-Hyper-V.md).  
 
-### <a name="BKMK_Oracle"></a>Prise en charge du système d’exploitation invité Linux Oracle  
+### <a name="oracle-linux-guest-operating-system-support"></a>Prise en charge du système d’exploitation invité Linux Oracle  
 
 Le tableau suivant présente les versions de la série de noyau Compatible Red Hat vous pouvez utiliser comme système d’exploitation invité pour la génération 1 et les ordinateurs virtuels de génération 2.  
 
@@ -133,7 +133,7 @@ Le tableau suivant présente les versions de Unbreakable Enterprise Kernel vous 
 
 Pour plus d’informations, consultez [les machines virtuelles Oracle Linux sur Hyper-V](../Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md).  
 
-### <a name="BKMK_SUSE"></a>Prise en charge du système d’exploitation SUSE invité
+### <a name="suse-guest-operating-system-support"></a>Prise en charge du système d’exploitation SUSE invité
 
 Le tableau suivant présente les versions de SUSE vous pouvez utiliser comme système d’exploitation invité pour la génération 1 et les ordinateurs virtuels de génération 2.
 
@@ -145,7 +145,7 @@ Le tableau suivant présente les versions de SUSE vous pouvez utiliser comme sys
 
 Pour plus d’informations, consultez [des machines virtuelles SUSE sur Hyper-V](../Supported-SUSE-virtual-machines-on-Hyper-V.md).  
 
-### <a name="BKMK_Ubuntu"></a>Prise en charge du système d’exploitation Ubuntu invité
+### <a name="ubuntu-guest-operating-system-support"></a>Prise en charge du système d’exploitation Ubuntu invité
 
 Le tableau suivant présente les versions d’Ubuntu vous pouvez utiliser comme système d’exploitation invité pour la génération 1 et les ordinateurs virtuels de génération 2.
 
@@ -156,7 +156,7 @@ Le tableau suivant présente les versions d’Ubuntu vous pouvez utiliser comme 
 
 Pour plus d’informations, consultez [de machines virtuelles Ubuntu sur Hyper-V](../Supported-Ubuntu-virtual-machines-on-Hyper-V.md).  
 
-## <a name="BKMK_Boot"></a>Comment puis-je démarrer la machine virtuelle ?
+## <a name="how-can-i-boot-the-virtual-machine"></a>Comment puis-je démarrer la machine virtuelle ?
 
 Le tableau suivant présente le méthodes sont prises en charge par la génération 1 et les ordinateurs virtuels de génération 2 de démarrage.  
 
@@ -168,7 +168,7 @@ Le tableau suivant présente le méthodes sont prises en charge par la générat
 |Démarrer à partir du disque dur virtuel de contrôleur IDE (. Disque dur virtuel) ou de DVD virtuel (. ISO)|&#10004;| &#10006;|  
 |Démarrer à partir du lecteur de disquette (. VFD)|&#10004;| &#10006;|  
 
-## <a name="BKMK_Advantages"></a>Quels sont les avantages de l’utilisation d’ordinateurs virtuels de génération 2 ?
+## <a name="what-are-the-advantages-of-using-generation-2-virtual-machines"></a>Quels sont les avantages de l’utilisation d’ordinateurs virtuels de génération 2 ?
 
 Voici quelques-uns des avantages que vous obtenez lorsque vous utilisez une machine virtuelle de génération 2 :  
 - **Démarrage sécurisé** il s’agit d’une fonctionnalité qui vérifie le chargeur de démarrage est signé par une autorité approuvée dans la base de données UEFI pour aider à empêcher l’exécution au moment du démarrage microprogrammes, systèmes d’exploitation ou pilotes UEFI. Le démarrage sécurisé est activé par défaut pour les ordinateurs virtuels de génération 2. Si vous avez besoin exécuter un système d’exploitation invité qui n’est pas pris en charge par le démarrage sécurisé, vous pouvez le désactiver après la création de la machine virtuelle.  Pour plus d'informations, voir [Démarrage sécurisé](https://technet.microsoft.com/library/dn486875.aspx).  
@@ -177,9 +177,9 @@ Voici quelques-uns des avantages que vous obtenez lorsque vous utilisez une mach
 
 - **Plus grand volume de démarrage** le volume de démarrage maximale pour les machines virtuelles de génération 2 est de 64 To. Cela correspond à la taille de disque maximal pris en charge par un. VHDX. Pour les machines virtuelles de génération 1, le volume de démarrage maximale est de 2 To pour un. VHDX et 2 040 Go pour un. DISQUE DUR VIRTUEL. Pour plus d’informations, consultez [Hyper-V Virtual Hard Disk Format Overview](https://technet.microsoft.com/library/hh831446.aspx).  
 
- Vous pouvez également voir une légère amélioration des durées d’installation et de démarrage des machines virtuelles avec des machines virtuelles de génération 2.
+  Vous pouvez également voir une légère amélioration des durées d’installation et de démarrage des machines virtuelles avec des machines virtuelles de génération 2.
 
-## <a name="BKMK_DeviceCompare"></a> Quelle est la différence dans la prise en charge de l’appareil ?
+## <a name="whats-the-difference-in-device-support"></a>Quelle est la différence dans la prise en charge de l’appareil ?
 
 Le tableau suivant compare les appareils disponibles entre la génération 1 et les ordinateurs virtuels de génération 2.  
 
@@ -200,7 +200,7 @@ Le tableau suivant compare les appareils disponibles entre la génération 1 et 
 |Minuteur d'intervalle programmable (PIT)|Plus nécessaire|N/A|  
 |Super périphérique d'E/S|Plus nécessaire|N/A|  
 
-## <a name="BKMK_More"></a> Plus d’informations sur les ordinateurs virtuels de génération 2
+## <a name="more-about-generation-2-virtual-machines"></a>Plus d’informations sur les ordinateurs virtuels de génération 2
 
 Voici quelques conseils supplémentaires sur l’utilisation d’ordinateurs virtuels de génération 2.
 
@@ -230,7 +230,7 @@ Par défaut, les ordinateurs virtuels de génération 2 utilisent IPv4. Pour uti
 Set-VMFirmware -VMName TestVM -IPProtocolPreference IPv6  
 ```  
 
-## <a name="BKMK_Debug"></a>Ajouter un port COM pour le débogage du noyau
+## <a name="add-a-com-port-for-kernel-debugging"></a>Ajouter un port COM pour le débogage du noyau
 
 Les ports COM ne sont pas disponibles dans les ordinateurs virtuels de génération 2 jusqu'à ce que vous les ajoutez. Vous pouvez le faire avec Windows PowerShell ou Windows Management Instrumentation (WMI). Ces étapes vous montrent comment le faire avec Windows PowerShell.
 

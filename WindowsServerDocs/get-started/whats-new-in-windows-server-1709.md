@@ -7,19 +7,23 @@ ms.topic: article
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
-ms.openlocfilehash: 32ce591a8b50c6e35c3fde4fedb177b6d76fccdd
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.date: 06/03/2019
+ms.openlocfilehash: e17a636c5bf06d194abd1bfe9b6d20970773e993
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976729"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501401"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Nouveautés de Windows Server, version 1709
 
 >S'applique à : Windows Server (canal semi-annuel)
 
 <img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Pour en savoir plus sur les dernières fonctionnalités dans Windows, consultez [What ' s New in Windows Server](whats-new-in-windows-server.md). Le contenu de cette section décrit les nouveautés et les modifications de Windows Server, version 1709. Les nouvelles fonctionnalités et modifications répertoriées ici sont celles qui sont susceptibles d'avoir l'impact le plus important quand vous utilisez cette version. Voir également [Windows Server, version 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
-   
+
+> [!IMPORTANT]
+> Windows Server, version 1709 est la prise en charge à compter du 9 avril 2019.
+
 
 ## <a name="new-cadence-of-releases"></a>Nouvelle cadence de versions
 
@@ -126,20 +130,20 @@ De **nouvelles fonctionnalités de Docker** sont disponibles. Pour plus d’info
 - **Réglage automatique de fenêtre de réception**: Logique de réglage automatique TCP calcule le paramètre « fenêtre de réception » d’une connexion TCP.  Les connexions rapides ou avec un long délai d’attente requièrent cet algorithme pour obtenir des caractéristiques de performances optimales.  Dans cette version, l’algorithme a été modifié de façon à utiliser une fonction intermédiaire pour converger sur la valeur de fenêtre de réception maximale pour une connexion donnée.
 - **Statistiques TCP API**: Introduit une nouvelle API appelée SIO_TCP_INFO.  SIO_TCP_INFO permet aux développeurs de rechercher des informations détaillées sur des connexions TCP individuelles à l’aide d’une option de socket.
 - **IPv6**: Il existe plusieurs améliorations de IPv6 dans cette version.
-    - **RFC 6106** prennent en charge : 6106 RFC qui autorise une configuration DNS par le biais des annonces de routeur (RAs). Vous pouvez utiliser la commande suivante pour activer ou désactiver la prise en charge de RFC 6106 :
+  - **RFC 6106** prennent en charge : 6106 RFC qui autorise une configuration DNS par le biais des annonces de routeur (RAs). Vous pouvez utiliser la commande suivante pour activer ou désactiver la prise en charge de RFC 6106 :
 
     ```
     netsh int ipv6 set interface <ifindex> rabaseddnsconfig=<enabled | disabled>
     ```
 
-    - **Flux des étiquettes**: À partir de la mise à jour Creators, sortantes TCP et UDP des paquets via IPv6 sont ce champ la valeur est un hachage du 5-tuple (Src IP, IP de l’heure d’été, Src Port, Port de destination).  Cela rendra plus efficaces les centres de données IPv6 uniquement effectuant l’équilibrage de charge ou la classification de flux. Pour activer les étiquettes de flux :
+  - **Flux des étiquettes**: À partir de la mise à jour Creators, sortantes TCP et UDP des paquets via IPv6 sont ce champ la valeur est un hachage du 5-tuple (Src IP, IP de l’heure d’été, Src Port, Port de destination).  Cela rendra plus efficaces les centres de données IPv6 uniquement effectuant l’équilibrage de charge ou la classification de flux. Pour activer les étiquettes de flux :
 
     ```
     netsh int ipv6 set flowlabel=[disabled|enabled] (enabled by default)
     netsh int ipv6 set global flowlabel=<enabled | disabled>
     ```
 
-    - **ISATAP et 6to4**: Comme une étape vers la désapprobation futures, la mise à jour Creators ont ces technologies désactivées par défaut.
+  - **ISATAP et 6to4**: Comme une étape vers la désapprobation futures, la mise à jour Creators ont ces technologies désactivées par défaut.
 - **Détection des passerelles inactives (DGD)** : L’algorithme DGD passe automatiquement les connexions sur vers une autre passerelle lors de la passerelle est inaccessible. Dans cette version, l’algorithme a été amélioré afin de revérifier régulièrement l’environnement réseau.
 - [Test-NetConnection](https://technet.microsoft.com/itpro/powershell/windows/nettcpip/test-netconnection) est une applet de commande intégrée dans Windows PowerShell qui effectue différents diagnostics du réseau.  Dans cette version, nous avons amélioré l’applet de commande afin de fournir des informations détaillées à la fois sur la sélection de l’itinéraire et sur la sélection de l’adresse source.
 

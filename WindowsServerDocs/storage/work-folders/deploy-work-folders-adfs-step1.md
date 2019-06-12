@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 10/18/2018
 ms.assetid: 938cdda2-f17e-4964-9218-f5868fd96735
-ms.openlocfilehash: a26b784c18049ee473a191abc7bfa0a5d253d15e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4f4119e893b215bd9f6d713bc5a17218b751c3d3
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883030"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812686"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-1-set-up-ad-fs"></a>Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 1, la configuration AD FS
 
@@ -32,7 +32,7 @@ Cette rubrique décrit la première étape du déploiement de Dossiers de travai
 -   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : L’étape 5, configurez les Clients](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
->   Les instructions présentées dans cette section ont été conçues pour un environnement Windows Server 2016. Si vous utilisez Windows Server 2012 R2, suivez les [instructions pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Les instructions présentées dans cette section concernent un environnement Windows Server 2019 ou Windows Server 2016. Si vous utilisez Windows Server 2012 R2, suivez les [instructions pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Pour configurer AD FS pour l’utiliser avec Dossiers de travail, utilisez les procédures suivantes.  
   
@@ -111,9 +111,9 @@ Pour installer les services AD FS, procédez comme suit :
   
 1.  Ouvrez une session sur la machine physique ou virtuelle sur laquelle vous envisagez d’installer les services AD FS, ouvrez le **Gestionnaire de serveur** et démarrez l’Assistant Ajout de rôles et de fonctionnalités.  
   
-2.  Dans la page **Rôles de serveur**, sélectionnez le rôle **Services de fédération Active Directory (AD FS)**, puis cliquez sur **Suivant**.  
+2.  Dans la page **Rôles de serveur**, sélectionnez le rôle **Services de fédération Active Directory (AD FS)** , puis cliquez sur **Suivant**.  
   
-3.  Dans la page **Services de fédération Active Directory (AD FS)**, vous verrez un message indiquant que le rôle Proxy d’application Web ne peut pas être installé sur le même ordinateur que les services AD FS. Cliquez sur **Suivant**.  
+3.  Dans la page **Services de fédération Active Directory (AD FS)** , vous verrez un message indiquant que le rôle Proxy d’application Web ne peut pas être installé sur le même ordinateur que les services AD FS. Cliquez sur **Suivant**.  
   
 4.  Cliquez sur **Installer** dans la page de confirmation.  
   

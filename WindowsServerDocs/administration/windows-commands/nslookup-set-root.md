@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 63bdd16263c64f823530119754c31de24e395159
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 38cd5a2e9878a8e43393befc5cbd4fc47c65ec53
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820790"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436605"
 ---
 # <a name="nslookup-set-root"></a>nslookup set root
 
@@ -30,12 +30,14 @@ modifie le nom du serveur racine utilisé pour les requêtes.
 set root=<RootServer>
 ```
 ## <a name="parameters"></a>Paramètres
-|Paramètre|Description|
-|-------|--------|
-|<RootServer>|Spécifie le nouveau nom pour le serveur racine. La valeur par défaut est ns.nic.ddn.mil.|
-|{aide &#124; ?}|Affiche un résumé de **nslookup** sous-commandes.|
+
+|    Paramètre    |                                   Description                                    |
+|-----------------|----------------------------------------------------------------------------------|
+|  <RootServer>   | Spécifie le nouveau nom pour le serveur racine. La valeur par défaut est ns.nic.ddn.mil. |
+| {aide &#124; ?} |              Affiche un résumé de **nslookup** sous-commandes.               |
+
 ## <a name="remarks"></a>Notes
--   Le **racine du jeu** sous-commande affecte le **racine** sous-commande.
-## <a name="additional-references"></a>Références supplémentaires
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-[racine de nslookup](nslookup-root.md)
+- Le **racine du jeu** sous-commande affecte le **racine** sous-commande.
+  ## <a name="additional-references"></a>Références supplémentaires
+  [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+  [racine de nslookup](nslookup-root.md)

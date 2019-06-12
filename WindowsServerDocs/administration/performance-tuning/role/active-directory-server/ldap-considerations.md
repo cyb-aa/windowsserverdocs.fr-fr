@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 79f95c88c49d384f8a13b8808c63a0dc00de53cb
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 7ac9453159fe97dc15ecbb2ab858214664a2a197
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266628"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811526"
 ---
 # <a name="ldap-considerations-in-adds-performance-tuning"></a>Considérations relatives à LDAP de réglage des performances d’AD DS
 
->[!Important]
+> [!IMPORTANT]
 > Voici un résumé des recommandations essentielles et considérations pour optimiser le matériel de serveur pour les charges de travail Active Directory décrites plus en détail dans le [planification de la capacité pour les Services de domaine Active Directory](https://go.microsoft.com/fwlink/?LinkId=324566) article. Les lecteurs sont vivement encouragés à consulter [planification de la capacité pour les Services de domaine Active Directory](https://go.microsoft.com/fwlink/?LinkId=324566) pour une meilleure compréhension technique et les implications de ces recommandations.
 
 ## <a name="verify-ldap-queries"></a>Vérifier les requêtes LDAP
@@ -45,14 +45,14 @@ L’indexation des attributs est utile lorsque vous recherchez des objets qui on
 
 -   Une requête est trop de temps et ne se termine pas dans un délai acceptable pour le client en raison d’un manque de couvrant les indices.
 
--   Grands volumes de requêtes avec des durées importantes sont à l’origine de la consommation et l’insuffisance des Threads de LDAP ATQ. Surveiller les compteurs de performances suivants :
+- Grands volumes de requêtes avec des durées importantes sont à l’origine de la consommation et l’insuffisance des Threads de LDAP ATQ. Surveiller les compteurs de performances suivants :
 
-    -   **NTDS\\latence des requêtes** – c’est soumis à la durée pendant laquelle la demande prend au processus. Active Directory arrive à expiration demandes après 120 secondes (valeur par défaut), toutefois, la majorité doit s’exécuter beaucoup plus rapidement et requêtes extrêmement longues doivent obtenir masqué dans le nombre global. Recherchez les modifications dans cette ligne de base, plutôt que les seuils absolus.
+    - **NTDS\\latence des requêtes** – c’est soumis à la durée pendant laquelle la demande prend au processus. Active Directory arrive à expiration demandes après 120 secondes (valeur par défaut), toutefois, la majorité doit s’exécuter beaucoup plus rapidement et requêtes extrêmement longues doivent obtenir masqué dans le nombre global. Recherchez les modifications dans cette ligne de base, plutôt que les seuils absolus.
 
-        > [!Note]   Les valeurs élevées ici peuvent également être des indicateurs de retards dans « proxy » pour les requêtes à d’autres domaines et les vérifications de révocation de certificats.
+        > [!NOTE]
+        > Les valeurs élevées ici peuvent également être des indicateurs de retards dans « proxy » pour les requêtes à d’autres domaines et les vérifications de révocation de certificats.
 
-
-    -   **NTDS\\délai de file d’attente estimé** : cela doit idéalement être proche de 0 pour des performances optimales car cela signifie que les demandes ne passent aucun temps d’attente d’être traitées.
+    - **NTDS\\délai de file d’attente estimé** : cela doit idéalement être proche de 0 pour des performances optimales car cela signifie que les demandes ne passent aucun temps d’attente d’être traitées.
 
 Ces scénarios peuvent être détectés à l’aide d’un ou plusieurs des approches suivantes :
 
@@ -98,8 +98,8 @@ Pour plus d’informations, consultez les rubriques suivantes :
 
 -   [Attributs indexés](https://msdn.microsoft.com/library/windows/desktop/ms677112.aspx)
 
-
 ## <a name="see-also"></a>Voir aussi
+
 - [Les serveurs Active Directory de réglage des performances](index.md)
 - [Considérations matérielles](hardware-considerations.md)
 - [Positionnement correct des contrôleurs de domaine et considérations relatives au site](site-definition-considerations.md)

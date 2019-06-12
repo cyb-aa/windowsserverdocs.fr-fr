@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cde0e9786f72823f446202f1c87ad8e9e181d29c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0b76d16bdc9099d78e35d8714397d61b9af0f389
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848200"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437318"
 ---
 # <a name="mode"></a>mode
 
@@ -44,21 +44,21 @@ mode com<M>[:] [baud=<B>] [parity=<P>] [data=<D>] [stop=<S>] [to={on|off}] [xon=
 
 ### <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|Com\<M > [ ::]|Spécifie le numéro de port de communication Prncnfg.vbshronous asynchrones.|
-|baud=\<B>|Spécifie la vitesse de transmission en bits par seconde. Le tableau suivant répertorie les abréviations valides pour *B* et leurs tarifs associés.</br>-   **11** = 110 baud</br>-   **15** = 150 baud</br>-   **30** = 300 baud</br>-   **60** = 600 baud</br>-   **12** = 1200 baud</br>-   **24** = 2400 baud</br>-   **48** = 4800 baud</br>-   **96** = 9600 baud</br>-   **19** = 19 200 bauds|
-|parité =\<P >|Spécifie comment le système utilise le bit de parité pour rechercher les erreurs de transmission. Le tableau suivant répertorie les valeurs valides pour *P*. La valeur par défaut est **e**. Tous les ordinateurs ne prennent en charge les valeurs **m** et **s**.</br>-   **n** = none</br>-   **e** = even</br>-   **o** = odd</br>-   **m** = marque</br>-   **s** = space|
-|data=\<D>|Spécifie le nombre de bits de données dans un caractère. Les valeurs valides pour **d** se trouvent dans la plage de 5 à 8. La valeur par défaut est 7. Tous les ordinateurs ne prennent en charge les valeurs 5 et 6.|
-|stop=\<S>|Spécifie le nombre de bits d’arrêt qui définissent la fin d’un caractère : 1, 1,5 ou 2. Si la vitesse de transmission est 110, la valeur par défaut est 2. Sinon, la valeur par défaut est 1. Tous les ordinateurs ne prennent en charge la valeur 1,5.|
-|to={on | off}|Spécifie si le traitement de délai d’attente infini est activé ou désactivé. La valeur par défaut est désactivé.|
-|xon={on | off}|Spécifie si le protocole xon / xoff pour le contrôle de flux de données est activé ou désactivé.|
-|odsr={on | off}|Spécifie si le protocole de sortie qui utilise le circuit prêt DSR (Data Set) est activée ou désactivée.|
-|PTOM = {on | off}|Spécifie si le protocole de sortie qui utilise le circuit à envoyer CTS (Clear) est activé ou désactivé.|
-|dtr={on | le | hs}|Spécifie si le circuit prêt DTR (Data Terminal) est activée ou désactivée pour la négociation.|
-|rts={on | le | hs | tg}|Spécifie si le circuit de demande à envoyer (RTS) est activé, désactivé, protocole ou bascule.|
-|idsr={on | off}|Spécifie si le niveau de sensibilité DSR circuit est activé ou désactivé.|
-|/?|Affiche l'aide à l'invite de commandes.|
+|  Paramètre  |                                                                                                                                                                                     Description                                                                                                                                                                                     |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Com\<M > [ ::]  |                                                                                                                                                      Spécifie le numéro de port de communication Prncnfg.vbshronous asynchrones.                                                                                                                                                      |
+|  baud=\<B>  | Spécifie la vitesse de transmission en bits par seconde. Le tableau suivant répertorie les abréviations valides pour *B* et leurs tarifs associés.</br>-   **11** = 110 baud</br>-   **15** = 150 baud</br>-   **30** = 300 baud</br>-   **60** = 600 baud</br>-   **12** = 1200 baud</br>-   **24** = 2400 baud</br>-   **48** = 4800 baud</br>-   **96** = 9600 baud</br>-   **19** = 19 200 bauds |
+| parité =\<P > |                              Spécifie comment le système utilise le bit de parité pour rechercher les erreurs de transmission. Le tableau suivant répertorie les valeurs valides pour *P*. La valeur par défaut est **e**. Tous les ordinateurs ne prennent en charge les valeurs **m** et **s**.</br>-   **n** = none</br>-   **e** = even</br>-   **o** = odd</br>-   **m** = marque</br>-   **s** = space                              |
+|  data=\<D>  |                                                                                                    Spécifie le nombre de bits de données dans un caractère. Les valeurs valides pour **d** se trouvent dans la plage de 5 à 8. La valeur par défaut est 7. Tous les ordinateurs ne prennent en charge les valeurs 5 et 6.                                                                                                     |
+|  stop=\<S>  |                                                                                  Spécifie le nombre de bits d’arrêt qui définissent la fin d’un caractère : 1, 1,5 ou 2. Si la vitesse de transmission est 110, la valeur par défaut est 2. Sinon, la valeur par défaut est 1. Tous les ordinateurs ne prennent en charge la valeur 1,5.                                                                                   |
+|   to={on    |                                                                                                                                                                                        off}                                                                                                                                                                                         |
+|   xon={on   |                                                                                                                                                                                        off}                                                                                                                                                                                         |
+|  odsr={on   |                                                                                                                                                                                        off}                                                                                                                                                                                         |
+|  PTOM = {on   |                                                                                                                                                                                        off}                                                                                                                                                                                         |
+|   dtr={on   |                                                                                                                                                                                         le                                                                                                                                                                                         |
+|   rts={on   |                                                                                                                                                                                         le                                                                                                                                                                                         |
+|  idsr={on   |                                                                                                                                                                                        off}                                                                                                                                                                                         |
+|     /?      |                                                                                                                                                                        Affiche l'aide à l'invite de commandes.                                                                                                                                                                         |
 
 ## <a name="BKMK_2"></a>Pour afficher l’état de tous les périphériques ou d’un appareil unique
 
@@ -171,14 +171,14 @@ mode con[:] [rate=<R> delay=<D>]
 
 ### <a name="remarks"></a>Notes
 
--   La vitesse de répétition est la vitesse à laquelle un caractère se répète lorsque vous maintenez la touche enfoncée pour ce caractère. La vitesse de répétition a deux composants, la vitesse et le délai. Certains claviers ne reconnaissent pas cette commande.
--   À l’aide de **taux = *** R*
+- La vitesse de répétition est la vitesse à laquelle un caractère se répète lorsque vous maintenez la touche enfoncée pour ce caractère. La vitesse de répétition a deux composants, la vitesse et le délai. Certains claviers ne reconnaissent pas cette commande.
+- À l’aide de **taux =** <em>R</em>
 
-    Les valeurs valides sont compris entre 1 et 32. Ces valeurs sont égales à environ 2 à 30 caractères par seconde. La valeur par défaut est 20 pour les claviers compatibles IBM AT et 21 pour les claviers compatibles IBM PS/2. Si vous définissez la fréquence, vous devez également définir le délai.
--   À l’aide de **délai**=*D*
+  Les valeurs valides sont compris entre 1 et 32. Ces valeurs sont égales à environ 2 à 30 caractères par seconde. La valeur par défaut est 20 pour les claviers compatibles IBM AT et 21 pour les claviers compatibles IBM PS/2. Si vous définissez la fréquence, vous devez également définir le délai.
+- À l’aide de **délai**=*D*
 
-    Les valeurs valides pour *D* sont 1, 2, 3 et 4 (représentant 0,25, 0,50, 0,75 et 1 seconde). La valeur par défaut est 2. Si vous définissez le délai, vous devez également définir le taux.
+  Les valeurs valides pour *D* sont 1, 2, 3 et 4 (représentant 0,25, 0,50, 0,75 et 1 seconde). La valeur par défaut est 2. Si vous définissez le délai, vous devez également définir le taux.
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -7,15 +7,15 @@ ms.technology: storage-spaces
 ms.topic: get-started-article
 ms.assetid: 20fee213-8ba5-4cd3-87a6-e77359e82bc0
 author: stevenek
-ms.date: 8/16/2018
+ms.date: 06/07/2019
 description: Obtenir des instructions détaillées pour déployer le stockage à définition logicielle avec les espaces de stockage Direct dans Windows Server en tant qu’infrastructure hyperconvergé ou convergé infrastructure (également appelé désagrégé).
 ms.localizationpriority: medium
-ms.openlocfilehash: 55cfa0e066506d7174f9e5b1e61cc0aa290706d7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a4159c85be23025ef57084b47dcc77d4f749888f
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865410"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812357"
 ---
 # <a name="deploy-storage-spaces-direct"></a>Déployer des espaces de stockage direct
 
@@ -24,7 +24,7 @@ ms.locfileid: "59865410"
 Cette rubrique fournit des instructions détaillées pour déployer [espaces de stockage Direct](storage-spaces-direct-overview.md).
 
 > [!Tip]
-> Cherchez à acquérir Hyper-Converged Infrastructure ? Microsoft recommande ces [défini par le logiciel Windows Server](https://microsoft.com/wssd) solutions proposées par nos partenaires. Elles sont conçues, assemblées et validés par rapport à notre architecture de référence pour garantir la compatibilité et la fiabilité, afin de vous être opérationnel rapidement opérationnel.
+> Cherchez à acquérir Hyper-Converged Infrastructure ? Microsoft vous recommande d’acheter une solution matérielle/logicielle validé à partir de nos partenaires, qui incluent des procédures et des outils de déploiement. Ces solutions sont conçues, assemblées et validées par rapport à notre architecture de référence pour garantir la compatibilité et la fiabilité, afin de vous être opérationnel rapidement opérationnel. Pour les solutions Windows Server 2019, visitez le [site Web de solutions Azure Stack HCL](https://azure.microsoft.com/overview/azure-stack/hci). Pour les solutions Windows Server 2016, en savoir plus sur [défini par le logiciel Windows Server](https://microsoft.com/wssd).
 
 > [!Tip]
 > Vous pouvez utiliser des machines virtuelles de Hyper-V, y compris dans Microsoft Azure, à [évaluer les espaces de stockage Direct sans matériel](storage-spaces-direct-in-vm.md). Vous pouvez également passer en revue les pratiques [scripts de déploiement de laboratoire rapide de Windows Server](https://aka.ms/wslab), que nous utilisons à des fins de formation.
@@ -51,7 +51,7 @@ Collectez les informations suivantes :
 
 La première étape consiste à installer Windows Server sur chaque serveur qui figurera dans le cluster. Espaces de stockage Direct nécessite Windows Server 2016 Datacenter Edition. Vous pouvez utiliser l’option d’installation Server Core ou le serveur avec expérience utilisateur.
 
-Lorsque vous installez Windows Server à l’aide de l’Assistant installation, vous pouvez choisir entre *Windows Server* (qui fait référence à Server Core) et *Windows Server (serveur avec expérience utilisateur)*, ce qui équivaut à de la *complète* option d’installation disponible dans Windows Server 2012 R2. Si vous ne choisissez pas, vous obtiendrez l’option d’installation Server Core. Pour plus d’informations, consultez [Options d’Installation pour Windows Server 2016](../../get-started/Windows-Server-2016.md).
+Lorsque vous installez Windows Server à l’aide de l’Assistant installation, vous pouvez choisir entre *Windows Server* (qui fait référence à Server Core) et *Windows Server (serveur avec expérience utilisateur)* , ce qui équivaut à de la *complète* option d’installation disponible dans Windows Server 2012 R2. Si vous ne choisissez pas, vous obtiendrez l’option d’installation Server Core. Pour plus d’informations, consultez [Options d’Installation pour Windows Server 2016](../../get-started/Windows-Server-2016.md).
 
 ### <a name="step-12-connect-to-the-servers"></a>Étape 1.2 : Se connecter aux serveurs
 
@@ -297,15 +297,15 @@ L’étape suivante de la configuration des services de cluster pour votre serve
 
 #### <a name="to-create-a-scale-out-file-server-role-by-using-server-manager"></a>Pour créer un rôle de serveur de fichiers avec montée en puissance à l’aide du Gestionnaire de serveur
 
-1.  Dans le Gestionnaire de Cluster de basculement, sélectionnez le cluster, accédez à **rôles**, puis cliquez sur **configurer un rôle...** .<br>L’Assistant haute disponibilité s’affiche.
-2.  Sur le **sélectionner un rôle** , cliquez sur **serveur de fichiers**.
-3.  Sur le **Type de serveur de fichiers** , cliquez sur **Scale-Out File Server pour les données d’application**.
-4.  Sur le **Point d’accès Client** , tapez un nom pour le serveur de fichiers de montée en puissance.
-5.  Vérifiez que le rôle a été correctement configuré en accédant à **rôles** et confirme que le **état** colonne affiche **en cours d’exécution** en regard du rôle de serveur de fichiers en cluster que vous avez créé, comme indiqué dans la Figure 1.
+1. Dans le Gestionnaire de Cluster de basculement, sélectionnez le cluster, accédez à **rôles**, puis cliquez sur **configurer un rôle...** .<br>L’Assistant haute disponibilité s’affiche.
+2. Sur le **sélectionner un rôle** , cliquez sur **serveur de fichiers**.
+3. Sur le **Type de serveur de fichiers** , cliquez sur **Scale-Out File Server pour les données d’application**.
+4. Sur le **Point d’accès Client** , tapez un nom pour le serveur de fichiers de montée en puissance.
+5. Vérifiez que le rôle a été correctement configuré en accédant à **rôles** et confirme que le **état** colonne affiche **en cours d’exécution** en regard du rôle de serveur de fichiers en cluster que vous avez créé, comme indiqué dans la Figure 1.
 
-    ![Capture d’écran du Gestionnaire de Cluster de basculement affiche le serveur de fichiers de montée en puissance](media\Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016\SOFS_in_FCM.png "Gestionnaire du Cluster de basculement affiche le serveur de fichiers de montée en puissance")
+   ![Capture d’écran du Gestionnaire de Cluster de basculement affiche le serveur de fichiers de montée en puissance](media/Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016/SOFS_in_FCM.png "Gestionnaire du Cluster de basculement affiche le serveur de fichiers de montée en puissance")
 
-     **Figure 1** Gestionnaire du Cluster de basculement affiche le serveur de fichiers de montée en puissance avec l’état en cours d’exécution
+    **Figure 1** Gestionnaire du Cluster de basculement affiche le serveur de fichiers de montée en puissance avec l’état en cours d’exécution
 
 > [!NOTE]
 >  Après avoir créé le rôle en cluster, il peut y avoir un réseau des retards de propagation qui peuvent vous empêcher de créer des partages de fichiers dessus pendant quelques minutes, ou potentiellement longue.  

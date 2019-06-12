@@ -12,12 +12,12 @@ ms.assetid: 47ea21a0-5e05-4b4b-8fa4-338c82601276
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f8cf1b12a8fffe2a6e3389aad518ac96bc136cc9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: b78d6abbaf287fc56336ff8d16127ce249b97519
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872170"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435911"
 ---
 # <a name="use-remote-web-access-in-windows-server-essentials"></a>Utiliser l'accès web à distance dans Windows Server Essentials
 
@@ -139,21 +139,21 @@ ms.locfileid: "59872170"
   
 ###### <a name="to-upload-files"></a>Pour télécharger des fichiers  
   
-1.  Dans l'accès web à distance, cliquez sur l'onglet **Dossiers partagés**, puis cliquez sur un lien de dossier partagé. Une liste des fichiers et des dossiers dans ce dossier partagé s'affiche.  
+1. Dans l'accès web à distance, cliquez sur l'onglet **Dossiers partagés**, puis cliquez sur un lien de dossier partagé. Une liste des fichiers et des dossiers dans ce dossier partagé s'affiche.  
   
-2.  Dans la liste des fichiers et dossiers du dossier partagé, cliquez sur le dossier où vous voulez télécharger le fichier, puis cliquez sur **Télécharger**.  
+2. Dans la liste des fichiers et dossiers du dossier partagé, cliquez sur le dossier où vous voulez télécharger le fichier, puis cliquez sur **Télécharger**.  
   
-3.  Si l'outil de téléchargement standard n'est pas déjà chargé, cliquez sur **Utiliser la méthode de téléchargement standard**.  
+3. Si l'outil de téléchargement standard n'est pas déjà chargé, cliquez sur **Utiliser la méthode de téléchargement standard**.  
   
-4.  Cliquez sur **Parcourir**  pour rechercher un fichier sur votre ordinateur.  
+4. Cliquez sur **Parcourir**  pour rechercher un fichier sur votre ordinateur.  
   
-5.  Parcourez les dossiers de votre ordinateur jusqu'au fichier que vous souhaitez télécharger, puis cliquez sur **Ouvrir**.  
+5. Parcourez les dossiers de votre ordinateur jusqu'au fichier que vous souhaitez télécharger, puis cliquez sur **Ouvrir**.  
   
-6.  Répétez les étapes 2 et 3 pour chaque fichier à télécharger.  
+6. Répétez les étapes 2 et 3 pour chaque fichier à télécharger.  
   
-7.  Lorsque vous avez ajouté tous les fichiers que vous souhaitez télécharger, cliquez sur **Télécharger**.  
+7. Lorsque vous avez ajouté tous les fichiers que vous souhaitez télécharger, cliquez sur **Télécharger**.  
   
- L'outil de téléchargement simplifié de fichiers simplifie le processus de téléchargement des fichiers sur votre serveur exécutant Windows Server Essentials. Vous pouvez ajouter autant de fichiers que vous voulez dans l'outil de téléchargement simplifié par glissement-déplacement, puis les télécharger dans les dossiers partagés sur le serveur.  
+   L'outil de téléchargement simplifié de fichiers simplifie le processus de téléchargement des fichiers sur votre serveur exécutant Windows Server Essentials. Vous pouvez ajouter autant de fichiers que vous voulez dans l'outil de téléchargement simplifié par glissement-déplacement, puis les télécharger dans les dossiers partagés sur le serveur.  
   
 > [!NOTE]
 >  Le téléchargement de plusieurs fichiers est pris en charge en mode natif dans les navigateurs web qui sont compatibles avec HTML5. Cet outil est nécessaire uniquement lorsque le navigateur web ne prend pas en charge HTML5.  
@@ -178,39 +178,39 @@ ms.locfileid: "59872170"
   
 ###### <a name="to-download-a-single-file"></a>Pour télécharger un seul fichier  
   
-1.  Dans l'accès web à distance, cliquez sur l'onglet **Dossiers partagés**, puis cliquez sur un lien de dossier partagé. Une liste des fichiers et des dossiers dans ce dossier partagé s'affiche.  
+1. Dans l'accès web à distance, cliquez sur l'onglet **Dossiers partagés**, puis cliquez sur un lien de dossier partagé. Une liste des fichiers et des dossiers dans ce dossier partagé s'affiche.  
   
-2.  Dans la liste de fichiers du dossier partagé, cochez sur la case à cocher en regard du fichier que vous voulez télécharger sur votre ordinateur personnel.  
+2. Dans la liste de fichiers du dossier partagé, cochez sur la case à cocher en regard du fichier que vous voulez télécharger sur votre ordinateur personnel.  
   
-3.  Cliquez sur **Télécharger** pour commencer le téléchargement.  
+3. Cliquez sur **Télécharger** pour commencer le téléchargement.  
   
-4.  Dans la boîte de dialogue **Téléchargement de fichier** , cliquez sur **Enregistrer** pour enregistrer le fichier sur votre ordinateur.  
+4. Dans la boîte de dialogue **Téléchargement de fichier** , cliquez sur **Enregistrer** pour enregistrer le fichier sur votre ordinateur.  
   
-5.  Dans la boîte de dialogue **Enregistrer sous**, sélectionnez l'emplacement d'enregistrement du fichier, puis cliquez sur **Enregistrer**. Un fichier unique n'est pas compressé avant d'être téléchargé.  
+5. Dans la boîte de dialogue **Enregistrer sous**, sélectionnez l'emplacement d'enregistrement du fichier, puis cliquez sur **Enregistrer**. Un fichier unique n'est pas compressé avant d'être téléchargé.  
   
- Il existe deux options pour le téléchargement de plusieurs fichiers ou dossiers. Choisissez l'option qui correspond à vos besoins :  
+   Il existe deux options pour le téléchargement de plusieurs fichiers ou dossiers. Choisissez l'option qui correspond à vos besoins :  
   
 > [!NOTE]
 >  Ces options sont disponibles uniquement lorsque vous téléchargez plusieurs fichiers ou dossiers sur votre ordinateur.  
   
--   **Fichier exécutable à extraction automatique (.exe)**  
+- **Fichier exécutable à extraction automatique (.exe)**  
   
-    > [!NOTE]
-    >   Cette section s’applique à un serveur exécutant Windows Server Essentials.  
+  > [!NOTE]
+  >   Cette section s’applique à un serveur exécutant Windows Server Essentials.  
   
-     Un fichier exécutable à extraction automatique est un fichier que vous pouvez télécharger qui associe le programme (exécutable) de décompression et les fichiers compressés. Lorsque vous exécutez le programme exécutable, il décompresse automatiquement les fichiers compressés (à extraction automatique). Il s'agit d'une méthode courante de distribution des données compressées qui permet de ne pas se préoccuper de savoir si le destinataire dispose de l'utilitaire de décompression approprié.  
+   Un fichier exécutable à extraction automatique est un fichier que vous pouvez télécharger qui associe le programme (exécutable) de décompression et les fichiers compressés. Lorsque vous exécutez le programme exécutable, il décompresse automatiquement les fichiers compressés (à extraction automatique). Il s'agit d'une méthode courante de distribution des données compressées qui permet de ne pas se préoccuper de savoir si le destinataire dispose de l'utilitaire de décompression approprié.  
   
-    > [!NOTE]
-    >  Cette option prend en charge les caractères Unicode.  
+  > [!NOTE]
+  >  Cette option prend en charge les caractères Unicode.  
   
--   **Dossier Windows compressé (.zip)**  
+- **Dossier Windows compressé (.zip)**  
   
-     La compression d'un fichier crée une version compressée du fichier qui est plus petite que le fichier d'origine. La version du fichier compressée a une extension de nom de fichier .zip. Les types de fichiers dont la taille se réduit le plus à la compression sont les fichiers à contenu textuel, comme les fichiers .txt, .doc, .xls et les fichiers graphiques qui utilisent des types de fichier non compressés comme .bmp. Certains fichiers graphiques, tels que les fichiers .jpg et .gif, utilisent déjà la compression et la taille du fichier est très peu réduite par la compression. Ainsi, la taille d'un document Word qui contient un grand nombre de graphiques n'est pas autant réduite que celle d'un document qui contient principalement du texte.  
+   La compression d'un fichier crée une version compressée du fichier qui est plus petite que le fichier d'origine. La version du fichier compressée a une extension de nom de fichier .zip. Les types de fichiers dont la taille se réduit le plus à la compression sont les fichiers à contenu textuel, comme les fichiers .txt, .doc, .xls et les fichiers graphiques qui utilisent des types de fichier non compressés comme .bmp. Certains fichiers graphiques, tels que les fichiers .jpg et .gif, utilisent déjà la compression et la taille du fichier est très peu réduite par la compression. Ainsi, la taille d'un document Word qui contient un grand nombre de graphiques n'est pas autant réduite que celle d'un document qui contient principalement du texte.  
   
-    > [!NOTE]
-    >  Cette option fournit la prise en charge limitée des noms de fichier internationaux dans Windows Server Essentials.  
+  > [!NOTE]
+  >  Cette option fournit la prise en charge limitée des noms de fichier internationaux dans Windows Server Essentials.  
   
- Avant le début de téléchargement, le fichier exe ou zip est créé. En fonction du nombre de fichiers et de la taille totale des fichiers à télécharger, cela peut prendre plusieurs minutes. Une fois le fichier de téléchargement créé, le téléchargement du fichier se produit en arrière-plan. Cela vous permet de continuer à travailler pendant le processus de téléchargement.  
+  Avant le début de téléchargement, le fichier exe ou zip est créé. En fonction du nombre de fichiers et de la taille totale des fichiers à télécharger, cela peut prendre plusieurs minutes. Une fois le fichier de téléchargement créé, le téléchargement du fichier se produit en arrière-plan. Cela vous permet de continuer à travailler pendant le processus de téléchargement.  
   
 ###### <a name="to-download-multiple-files-or-folders"></a>Pour télécharger plusieurs fichiers ou dossiers  
   
@@ -326,13 +326,13 @@ ms.locfileid: "59872170"
   
 ##### <a name="to-return-to-the-mobile-version-of-remote-web-access"></a>Pour revenir à la version mobile de l'accès web à distance  
   
-1.  Fermez la session.  
+1. Fermez la session.  
   
-2.  Ouvrez un navigateur Web et le type **https://***<nom_domaine\>***/remote/m** dans la barre d’adresses. Assurez-vous que vous incluez le s dans https.  
+2. Ouvrez un navigateur Web et le type **https://***<nom_domaine\>***/remote/m** dans la barre d’adresses. Assurez-vous que vous incluez le s dans https.  
   
-3.  La version mobile de l’accès Web à distance s’affiche. Dans la page d’ouverture de session accès Web à distance, tapez votre nom d’utilisateur et le mot de passe dans les zones de texte, puis cliquez sur la flèche. Vous êtes connecté à la version mobile de l’accès Web à distance.  
+3. La version mobile de l’accès Web à distance s’affiche. Dans la page d’ouverture de session accès Web à distance, tapez votre nom d’utilisateur et le mot de passe dans les zones de texte, puis cliquez sur la flèche. Vous êtes connecté à la version mobile de l’accès Web à distance.  
   
- Vous pouvez rechercher des fichiers et des dossiers dans les dossiers partagés sur le serveur.  
+   Vous pouvez rechercher des fichiers et des dossiers dans les dossiers partagés sur le serveur.  
   
 ###  <a name="BKMK_9"></a> Prise en charge des navigateurs Web pour les appareils mobiles  
  Les navigateurs web pris en charge pour les appareils mobiles incluent les suivants :  
