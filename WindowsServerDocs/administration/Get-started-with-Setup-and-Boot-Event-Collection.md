@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.assetid: fc239aec-e719-47ea-92fc-d82a7247b3f8
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: 781ed17fb07d2aecd4bb0b7bc672056096ab8060
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e94659c62db574dc8779c8246d471ab401414ddb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837060"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435806"
 ---
 # <a name="get-started-with-setup-and-boot-event-collection"></a>Prise en main de la collecte d’événements de configuration et de démarrage
 
@@ -150,7 +150,7 @@ Si l’ordinateur cible possède plusieurs cartes réseau, le pilote KDNET chois
   
 1.  Sur l’ordinateur cible, ouvrez le Gestionnaire de périphériques, développez **Cartes réseau**, recherchez la carte réseau que vous souhaitez utiliser et cliquez dessus avec le bouton droit.  
   
-2.  Dans le menu qui s’ouvre, cliquez sur **propriétés**, puis cliquez sur le **détails** onglet. Développez le menu dans le **propriété** champ, faites défiler jusque **informations d’emplacement** (la liste n’est probablement pas dans l’ordre alphabétique), puis cliquez dessus. La valeur sera une chaîne au format **bus PCI X, appareil, Y, Z (fonction)**. Prenez note de X.Y.Z ; Voici les paramètres bus que vous avez besoin pour la commande suivante.  
+2.  Dans le menu qui s’ouvre, cliquez sur **propriétés**, puis cliquez sur le **détails** onglet. Développez le menu dans le **propriété** champ, faites défiler jusque **informations d’emplacement** (la liste n’est probablement pas dans l’ordre alphabétique), puis cliquez dessus. La valeur sera une chaîne au format **bus PCI X, appareil, Y, Z (fonction)** . Prenez note de X.Y.Z ; Voici les paramètres bus que vous avez besoin pour la commande suivante.  
   
 3.  Exécutez l’une des commandes suivantes :  
   
@@ -311,7 +311,7 @@ Vous trouverez le journal du service collecteur proprement dit (c'est-à-dire di
   
 ||Erreur|Description de l’erreur|Symptôme|Problème potentiel|  
 |-|---------|---------------------|-----------|---------------------|  
-|Dism.exe|87|L’option du nom de la fonctionnalité n’est pas reconnue dans ce contexte||-   Cela peut se produire si le nom de la fonctionnalité a été mal orthographié. Vérifiez que vous l'avez correctement orthographié et réessayez.<br />-   Vérifiez que cette fonctionnalité est disponible sur la version du système d’exploitation que vous utilisez. Dans Windows PowerShell, exécutez **dism /online /get-features &#124; ?{$_ -match "boot"}**. Si aucune correspondance n’est renvoyée, vous exécutez probablement une version qui ne prend pas en charge cette fonctionnalité.|  
+|Dism.exe|87|L’option du nom de la fonctionnalité n’est pas reconnue dans ce contexte||-   Cela peut se produire si le nom de la fonctionnalité a été mal orthographié. Vérifiez que vous l'avez correctement orthographié et réessayez.<br />-   Vérifiez que cette fonctionnalité est disponible sur la version du système d’exploitation que vous utilisez. Dans Windows PowerShell, exécutez **dism /online /get-features &#124; ?{$_ -match "boot"}** . Si aucune correspondance n’est renvoyée, vous exécutez probablement une version qui ne prend pas en charge cette fonctionnalité.|  
 |Dism.exe|0x800f080c|Fonctionnalité \<nom > est inconnu.||Comme ci-dessus|  
   
 ### <a name="troubleshooting-the-collector"></a>Résolution des problèmes du collecteur  
@@ -335,23 +335,23 @@ Au niveau débogage, il peut être utile d’écrire le journal dans un fichier 
       
  **Une approche conseillée pour la résolution des problèmes du collecteur :**  
    
- 1. Tout d’abord, vérifiez que le collecteur a reçu la connexion de la cible (il crée le fichier uniquement lorsque la cible commence à envoyer les messages) avec   
-```  
-Get-SbecForwarding  
-```  
-Si une connexion à cette cible est retournée, le problème vient peut être des paramètres du Journal automatique. Si rien n'est renvoyé, le problème vient d’abord de la connexion KDNET. Pour diagnostiquer les problèmes de connexion KDNET, essayez de vérifier la connexion aux deux extrémités (autrement dit, le collecteur et la cible).  
+1. Tout d’abord, vérifiez que le collecteur a reçu la connexion de la cible (il crée le fichier uniquement lorsque la cible commence à envoyer les messages) avec   
+   ```  
+   Get-SbecForwarding  
+   ```  
+   Si une connexion à cette cible est retournée, le problème vient peut être des paramètres du Journal automatique. Si rien n'est renvoyé, le problème vient d’abord de la connexion KDNET. Pour diagnostiquer les problèmes de connexion KDNET, essayez de vérifier la connexion aux deux extrémités (autrement dit, le collecteur et la cible).  
   
 2. Pour afficher les diagnostics étendus à partir du collecteur, l’ajouter à la \<collecteur > élément du fichier de configuration :  
-\<collector ... minlog="verbose">  
-Cela activera les messages sur tous les paquets reçus.  
+   \<collector ... minlog="verbose">  
+   Cela activera les messages sur tous les paquets reçus.  
 3. Vérifiez si des paquets sont reçus. Si vous le souhaitez, vous pouvez écrire le journal en mode détaillé directement dans un fichier plutôt que via ETW. Pour ce faire, ajoutez cette option pour le \<collecteur > élément du fichier de configuration :  
-\<collector ... minlog="verbose" log="c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt">  
+   \<collector ... minlog="verbose" log="c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt">  
       
 4. Vérifiez si des messages sur les paquets reçus se trouvent dans les journaux des événements. Vérifiez si des paquets sont reçus. Si les paquets sont reçus mais sont incorrects, vérifiez les messages d’événements pour plus d’informations.  
 5. À partir du côté cible, KDNET écrit des informations de diagnostic dans le Registre. Consulter   
-**HKLM\SYSTEM\CurrentControlSet\Services\kdnet** si des messages s'y trouvent.  
-  KdInitStatus (DWORD) = 0 en cas de réussite et affiche un code d’erreur en cas d’erreur  
-  KdInitErrorString = explication de l’erreur (contient également des messages d’information s'il n'y a aucune erreur)  
+   **HKLM\SYSTEM\CurrentControlSet\Services\kdnet** si des messages s'y trouvent.  
+   KdInitStatus (DWORD) = 0 en cas de réussite et affiche un code d’erreur en cas d’erreur  
+   KdInitErrorString = explication de l’erreur (contient également des messages d’information s'il n'y a aucune erreur)  
   
 6. Exécutez Ipconfig.exe sur la cible et vérifiez le nom du périphérique qu'il indique. Si KDNET s'est chargé correctement, le nom du périphérique doit ressembler à « kdnic » au lieu du nom de la carte du fournisseur d’origine.  
 7. Vérifiez si DHCP est configuré pour la cible. KDNET nécessite absolument DHCP.  

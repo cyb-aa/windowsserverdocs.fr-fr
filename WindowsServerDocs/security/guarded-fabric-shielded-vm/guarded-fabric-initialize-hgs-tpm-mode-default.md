@@ -7,12 +7,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 6d4232b0b248aba8b64f31ac28db1480c14db53d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2fb970cdc215df06dd9dee2e20b5466d7e42dcb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863870"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447414"
 ---
 # <a name="initialize-the-hgs-cluster-using-tpm-mode-in-a-new-dedicated-forest-default"></a>Initialiser le cluster SGH à l’aide du mode de module de plateforme sécurisée dans une nouvelle forêt dédiée (par défaut)
 
@@ -45,6 +45,6 @@ ms.locfileid: "59863870"
 
 ## <a name="next-step"></a>Étape suivante
 
->[!div class="nextstepaction"]
-[Installer les certificats racine de module de plateforme sécurisée](guarded-fabric-install-trusted-tpm-root-certificates.md)
+> [!div class="nextstepaction"]
+> [Installer des certificats racine TPM](guarded-fabric-install-trusted-tpm-root-certificates.md)
   

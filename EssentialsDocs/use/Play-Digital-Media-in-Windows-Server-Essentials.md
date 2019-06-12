@@ -12,12 +12,12 @@ ms.assetid: 5f570492-ee21-471b-92c1-3fd9bfb84f55
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 8228d0b17a58858ed893181ddceb465715ffdeb5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f38d234768d40903615145954f1215546119344a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874100"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435938"
 ---
 # <a name="play-digital-media-in-windows-server-essentials"></a>Lire des médias numériques dans Windows Server Essentials
 
@@ -190,25 +190,25 @@ Les éléments multimédias numériques font référence à des contenus audio, 
   
 #### <a name="to-play-shared-media-files-when-you-are-away-from-the-network"></a>Pour lire les fichiers multimédias partagés lorsque vous êtes déconnecté du réseau  
   
-1.  Ouvrez un navigateur Internet.  
+1. Ouvrez un navigateur Internet.  
   
-2.  Accédez à votre site de l'accès web à distance. Type **https://<YourDomainName\>/distant** dans la barre d’adresses du navigateur Internet, puis appuyez sur ENTRÉE.  
+2. Accédez à votre site de l'accès web à distance. Type **https://<YourDomainName\>/distant** dans la barre d’adresses du navigateur Internet, puis appuyez sur ENTRÉE.  
   
-    > [!NOTE]
-    >  *< nom_domaine\>*  est un espace réservé. Il sera un nom unique à votre serveur, et l’adresse que vous tapez ressemblera à **https://contoso.com/remote**. Si vous ne connaissez pas le nom de votre domaine, demandez à l'administrateur qui a choisi le nom de domaine lorsque la fonctionnalité d'accès à distance a été définie sur le serveur. Pour plus d'informations, voir [Activer l'accès web à distance](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_TurnOnRWA).  
+   > [!NOTE]
+   >  *< nom_domaine\>*  est un espace réservé. Il sera un nom unique à votre serveur, et l’adresse que vous tapez ressemblera à **https://contoso.com/remote** . Si vous ne connaissez pas le nom de votre domaine, demandez à l'administrateur qui a choisi le nom de domaine lorsque la fonctionnalité d'accès à distance a été définie sur le serveur. Pour plus d'informations, voir [Activer l'accès web à distance](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_TurnOnRWA).  
   
-3.  Dans la page de connexion de l'accès web à distance, tapez votre nom de compte d'utilisateur et un mot de passe, puis cliquez sur la flèche.  
+3. Dans la page de connexion de l'accès web à distance, tapez votre nom de compte d'utilisateur et un mot de passe, puis cliquez sur la flèche.  
   
-4.  Utilisez la méthode de votre choix pour rechercher le fichier multimédia que vous souhaitez lire.  
+4. Utilisez la méthode de votre choix pour rechercher le fichier multimédia que vous souhaitez lire.  
   
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   >  Pour plus d’informations sur les différentes méthodes de recherche, consultez [rechercher et exécuter des fichiers multimédias sur Windows Server Essentials à partir d’un ordinateur ou un lecteur multimédia numérique sur le réseau](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2.1).  
+   > 
+   >  Pour plus d’informations sur les différentes méthodes de recherche, consultez [rechercher et exécuter des fichiers multimédias sur Windows Server Essentials à partir d’un ordinateur ou un lecteur multimédia numérique sur le réseau](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2.1).  
 
-    >  Pour plus d’informations sur les différentes méthodes de recherche, consultez [rechercher et exécuter des fichiers multimédias sur Windows Server Essentials à partir d’un ordinateur ou un lecteur multimédia numérique sur le réseau](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2.1).  
-
-    >  Pour plus d’informations sur les différentes méthodes de recherche, consultez [rechercher et exécuter des fichiers multimédias sur Windows Server Essentials à partir d’un ordinateur ou un lecteur multimédia numérique sur le réseau](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2.1).  
-
   
-5.  Lorsqu'il s'affiche, cliquez sur le nom du fichier multimédia pour le lire.  
+5. Lorsqu'il s'affiche, cliquez sur le nom du fichier multimédia pour le lire.  
   
 ##  <a name="BKMK_4"></a> Ajouter des fichiers multimédias numériques sur le serveur  
 
@@ -241,21 +241,21 @@ Les éléments multimédias numériques font référence à des contenus audio, 
   
  Choisissez l'option qui correspond à vos besoins pour les téléchargements :  
   
--   **Fichier ZIP compressé (.zip)**  
+- **Fichier ZIP compressé (.zip)**  
   
-     La compression d'un fichier crée une version compressée du fichier qui est plus petite que le fichier d'origine. La version du fichier compressée a une extension de nom de fichier .zip. Les types de fichiers dont la taille se réduit le plus à la compression sont les fichiers à contenu textuel (comme les fichiers .txt, .doc et .xls) et les fichiers graphiques qui utilisent des types de fichier non compressés (comme .bmp). Certains fichiers graphiques, tels que les fichiers .jpg et .gif, utilisent déjà la compression et la taille du fichier est très peu réduite par la compression. Ainsi, la taille d'un document Word qui contient un grand nombre de graphiques n'est pas autant réduite que celle d'un document qui contient principalement du texte.  
+   La compression d'un fichier crée une version compressée du fichier qui est plus petite que le fichier d'origine. La version du fichier compressée a une extension de nom de fichier .zip. Les types de fichiers dont la taille se réduit le plus à la compression sont les fichiers à contenu textuel (comme les fichiers .txt, .doc et .xls) et les fichiers graphiques qui utilisent des types de fichier non compressés (comme .bmp). Certains fichiers graphiques, tels que les fichiers .jpg et .gif, utilisent déjà la compression et la taille du fichier est très peu réduite par la compression. Ainsi, la taille d'un document Word qui contient un grand nombre de graphiques n'est pas autant réduite que celle d'un document qui contient principalement du texte.  
   
-    > [!NOTE]
-    >  Cette option fournit une prise en charge limitée des noms de fichier internationaux.  
+  > [!NOTE]
+  >  Cette option fournit une prise en charge limitée des noms de fichier internationaux.  
   
--   **Fichier exécutable à extraction automatique (.exe)**  
+- **Fichier exécutable à extraction automatique (.exe)**  
   
-     Un fichier exécutable à extraction automatique est un fichier que vous pouvez télécharger qui associe le programme (exécutable) de décompression et les fichiers compressés. Lorsque vous exécutez le programme exécutable, il décompresse automatiquement les fichiers compressés. Il s'agit d'une méthode courante de distribution des données compressées qui permet de ne pas se préoccuper de savoir si le destinataire dispose de l'utilitaire de décompression approprié.  
+   Un fichier exécutable à extraction automatique est un fichier que vous pouvez télécharger qui associe le programme (exécutable) de décompression et les fichiers compressés. Lorsque vous exécutez le programme exécutable, il décompresse automatiquement les fichiers compressés. Il s'agit d'une méthode courante de distribution des données compressées qui permet de ne pas se préoccuper de savoir si le destinataire dispose de l'utilitaire de décompression approprié.  
   
-    > [!NOTE]
-    >  Cette option prend en charge les caractères Unicode.  
+  > [!NOTE]
+  >  Cette option prend en charge les caractères Unicode.  
   
- Avant le début de téléchargement, le fichier .exe ou .zip est créé. En fonction du nombre de fichiers et de la taille totale des fichiers à télécharger, cela peut prendre plusieurs minutes. Une fois le fichier de téléchargement créé, le téléchargement du fichier se produit en arrière-plan. Cela vous permet de continuer à travailler pendant le processus de téléchargement.  
+  Avant le début de téléchargement, le fichier .exe ou .zip est créé. En fonction du nombre de fichiers et de la taille totale des fichiers à télécharger, cela peut prendre plusieurs minutes. Une fois le fichier de téléchargement créé, le téléchargement du fichier se produit en arrière-plan. Cela vous permet de continuer à travailler pendant le processus de téléchargement.  
   
 ##  <a name="BKMK_6"></a> OUTIL téléchargement facile  
  L’outil téléchargement facile simplifie le processus de téléchargement de fichiers sur votre serveur Windows Server Essentials. Vous pouvez ajouter autant de fichiers que vous souhaitez à l’outil de téléchargement simplifié de fichiers, puis de les charger dans les dossiers partagés sur le serveur Windows Server Essentials dans un lot unique. Pour plus d’informations, consultez le billet de blog [Présentation du partage de fichiers d’accès web à distance](http://blogs.technet.com/b/sbs/archive/2012/04/19/understanding-remote-web-access-file-sharing.aspx).  

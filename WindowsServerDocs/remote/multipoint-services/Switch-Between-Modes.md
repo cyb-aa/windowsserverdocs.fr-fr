@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 77700eb5f82ea36cd484e80bd59b9296e1290177
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a9c00d65ad1c59e91f4011ab932bf9f921957c59
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851170"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446148"
 ---
 # <a name="switch-between-modes"></a>Changer de mode
 Le gestionnaire multiPoint inclut les modes suivants pour vous aider à effectuer différents types de gestion du système MultiPoint Services :  
@@ -27,9 +27,9 @@ Le gestionnaire multiPoint inclut les modes suivants pour vous aider à effectue
   
 -   *Mode console*: Lorsque le système MultiPoint Services est en mode console, vous pouvez installer et mettre à jour des logiciels et des pilotes ou effectuer d’autres tâches de maintenance. Lorsque le système est en mode Console, aucune *station* n’est disponible pour une utilisation par d’autres utilisateurs de l’ordinateur. Ces stations ne sont pas affichées dans le gestionnaire MultiPoint. Tous les moniteurs connectés directement au serveur sont traités comme affichages de cet ordinateur.   
   
-> [!NOTE]  
+> [!NOTE]
 > Vous pouvez mettre en œuvre et démarrer le système en mode Console en modifiant la valeur par défaut dans les paramètres du serveur.  
-## <a name="to-switch-from-station-mode-to-console-mode"></a>Pour basculer du mode Station en mode Console  
+> ## <a name="to-switch-from-station-mode-to-console-mode"></a>Pour basculer du mode Station en mode Console  
   
 1.  Ouvrez le gestionnaire MultiPoint en mode station, puis cliquez sur le **accueil** onglet.  
   
@@ -46,4 +46,4 @@ Le gestionnaire multiPoint inclut les modes suivants pour vous aider à effectue
 3.  Sous *nom de l’ordinateur* **tâches**, cliquez sur **passer en mode station**. L’ordinateur redémarre et toutes les stations sont disponibles.  
   
 ## <a name="see-also"></a>Voir aussi  
-[Gérer des tâches système à l’aide du gestionnaire MultiPoint](Manage-System-Tasks-Using-MultiPoint-Manager.md)
+[Gérer des tâches système à l’aide du Gestionnaire MultiPoint](Manage-System-Tasks-Using-MultiPoint-Manager.md)

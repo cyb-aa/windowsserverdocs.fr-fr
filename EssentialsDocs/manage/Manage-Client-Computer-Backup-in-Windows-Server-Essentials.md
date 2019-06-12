@@ -12,12 +12,12 @@ ms.assetid: 1b4776e8-9504-4b98-ae80-11da797d9819
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d184c97e47f04b9d7434aaeb0d328761bcfac1c0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 4249273c42e07fea980af3e97ae59b31db243e56
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839270"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433338"
 ---
 # <a name="manage-client-computer-backup-in-windows-server-essentials"></a>Gérer la sauvegarde des ordinateurs clients dans Windows Server Essentials
 
@@ -109,7 +109,7 @@ ms.locfileid: "59839270"
 4.  Cliquez sur **Fermer** quand la sauvegarde est configurée pour l'ordinateur.  
   
 ### <a name="critical-system-files"></a>Fichiers système critiques  
- Quand vous installez le système d'exploitation Windows, le programme d'installation crée des dossiers sur votre lecteur système, où il place les fichiers nécessaires au démarrage et à l'exécution du système. Les fichiers système critiques incluent les fichiers ayant les extensions .dll, .exe, .ocx et .sys. Certains de ces fichiers sont des polices True Type. En outre, les fichiers d’état système, par exemple le Registre de s système, sont requis pour le système d’exploitation s’exécute correctement.  
+ Quand vous installez le système d'exploitation Windows, le programme d'installation crée des dossiers sur votre lecteur système, où il place les fichiers nécessaires au démarrage et à l'exécution du système. Les fichiers système critiques incluent les fichiers ayant les extensions .dll, .exe, .ocx et .sys. Certains de ces fichiers sont des polices True Type. En outre, les fichiers d’état système, telles que le Registre du système, sont requis pour le système d’exploitation s’exécute correctement.  
   
 ### <a name="find-the-file-you-are-looking-for"></a>Rechercher le fichier souhaité  
  Vous pouvez restaurer tous les dossiers d'un ordinateur, plusieurs fichiers et dossiers, ou un seul fichier ou dossier à partir d'une sauvegarde existante.  
@@ -119,17 +119,17 @@ ms.locfileid: "59839270"
 ### <a name="why-am-i-unable-to-select-some-items"></a>Pourquoi ne puis-je pas sélectionner certains éléments ?  
  La case à cocher du menu de sélection de la page **Sélectionner les éléments à sauvegarder** peut indiquer un état différent pour chaque dossier. Quand la case est :  
   
--   **cochée**, le dossier associé et son contenu sont sélectionnés pour la sauvegarde.  
+- **cochée**, le dossier associé et son contenu sont sélectionnés pour la sauvegarde.  
   
--   **décochée**, le dossier associé et son contenu sont exclus de la sauvegarde.  
+- **décochée**, le dossier associé et son contenu sont exclus de la sauvegarde.  
   
--   **de couleur unie**, le dossier associé est sélectionné pour la sauvegarde, mais un ou plusieurs éléments du dossier sont exclus de la sauvegarde.  
+- **de couleur unie**, le dossier associé est sélectionné pour la sauvegarde, mais un ou plusieurs éléments du dossier sont exclus de la sauvegarde.  
   
- Si vous ne pouvez pas sélectionner un dossier spécifique :  
+  Si vous ne pouvez pas sélectionner un dossier spécifique :  
   
--   Le volume est éventuellement configuré pour la sauvegarde, mais il est peut-être hors connexion. Cela est courant pour les lecteurs USB amovibles. Les volumes hors connexion sont affichés en gris.  
+- Le volume est éventuellement configuré pour la sauvegarde, mais il est peut-être hors connexion. Cela est courant pour les lecteurs USB amovibles. Les volumes hors connexion sont affichés en gris.  
   
--   Vous pouvez uniquement sauvegarder les données d'un lecteur local formaté selon le système de fichiers NTFS. Les lecteurs formatés selon le système de fichiers FAT (y compris FAT32) ou ReFS n'apparaissent pas dans la liste des lecteurs à sauvegarder.  
+- Vous pouvez uniquement sauvegarder les données d'un lecteur local formaté selon le système de fichiers NTFS. Les lecteurs formatés selon le système de fichiers FAT (y compris FAT32) ou ReFS n'apparaissent pas dans la liste des lecteurs à sauvegarder.  
   
 > [!IMPORTANT]
 >  Le service de cliché instantané de volumes (VSS, Volume Shadow Copy Service) ne prend pas en charge la création d'un cliché instantané d'un volume virtuel et du volume hôte dans le même jeu d'instantanés. VSS prend en charge la création de clichés instantanés de volumes sur un disque dur virtuel (VHD), si la sauvegarde du volume virtuel est nécessaire. Pour plus d’informations, consultez [Maintenance et sauvegarde des disques durs virtuels](https://go.microsoft.com/fwlink/p/?LinkId=256577).  
@@ -265,30 +265,30 @@ ms.locfileid: "59839270"
   
 #### <a name="to-disable-backup-for-a-computer"></a>Pour désactiver la sauvegarde d'un ordinateur  
   
-1.  Ouvrez le **Tableau de bord**.  
+1. Ouvrez le **Tableau de bord**.  
   
-2.  Cliquez sur l'onglet **Périphériques**.  
+2. Cliquez sur l'onglet **Périphériques**.  
   
-3.  Cliquez sur le nom d'un ordinateur dont vous souhaitez désactiver les sauvegardes.  
+3. Cliquez sur le nom d'un ordinateur dont vous souhaitez désactiver les sauvegardes.  
   
-4.  Dans le volet Tâches, cliquez sur **Personnaliser la sauvegarde pour l'ordinateur**. L'Assistant Personnalisation de la sauvegarde s'affiche.  
+4. Dans le volet Tâches, cliquez sur **Personnaliser la sauvegarde pour l'ordinateur**. L'Assistant Personnalisation de la sauvegarde s'affiche.  
   
-5.  Cliquez sur **Désactiver la sauvegarde pour cet ordinateur**, puis indiquez si vous souhaitez conserver ou supprimer les fichiers de sauvegarde existants.  
+5. Cliquez sur **Désactiver la sauvegarde pour cet ordinateur**, puis indiquez si vous souhaitez conserver ou supprimer les fichiers de sauvegarde existants.  
   
-6.  Cliquez sur **Enregistrer les modifications**, puis sur **Fermer**.  
+6. Cliquez sur **Enregistrer les modifications**, puis sur **Fermer**.  
   
- Pour plus d’informations sur la réactivation de la sauvegarde pour un ordinateur, consultez [Set up backup for a client computer](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md#BKMK_3).  
+   Pour plus d’informations sur la réactivation de la sauvegarde pour un ordinateur, consultez [Set up backup for a client computer](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md#BKMK_3).  
   
 ##  <a name="BKMK_10"></a> Exécuter la tâche de nettoyage de sauvegarde  
  La tâche de nettoyage des sauvegardes d'ordinateurs clients est planifiée pour s'exécuter à 11 h 59 tous les samedis, une fois que toutes les sauvegardes ont été effectuées. La tâche de nettoyage supprime les sauvegardes de la base de données de sauvegarde des ordinateurs clients en fonction de la stratégie de rétention de sauvegarde. Les paramètres par défaut de la stratégie de rétention de sauvegarde sont les suivants :  
   
--   Nombre de jours pendant lesquels les sauvegardes quotidiennes sont conservées : 5 jours  
+- Nombre de jours pendant lesquels les sauvegardes quotidiennes sont conservées : 5 jours  
   
--   Nombre de semaines pendant lesquelles la dernière sauvegarde de la semaine est conservée : 4 semaines  
+- Nombre de semaines pendant lesquelles la dernière sauvegarde de la semaine est conservée : 4 semaines  
   
--   Nombre de mois pendant lesquels la dernière sauvegarde du mois est conservée : 6 mois  
+- Nombre de mois pendant lesquels la dernière sauvegarde du mois est conservée : 6 mois  
   
- Pour plus d'informations sur le changement de la stratégie de rétention de sauvegarde, voir [Changer la stratégie de rétention des sauvegardes d'ordinateurs](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md#BKMK_5).  
+  Pour plus d'informations sur le changement de la stratégie de rétention de sauvegarde, voir [Changer la stratégie de rétention des sauvegardes d'ordinateurs](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md#BKMK_5).  
   
 #### <a name="to-run-the-client-backup-database-cleanup-task"></a>Pour exécuter la tâche de nettoyage de la base de données de sauvegarde des clients  
   

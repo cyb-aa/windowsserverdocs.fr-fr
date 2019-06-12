@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: faec70ac-88c0-4b0a-85c7-f0fe21e28257
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: beecef692b2ac01e6cb6c36892fec16e55b08209
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f3b2eb55c11348c3abcb1ef9e234cd19ba727758
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835170"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446590"
 ---
 # <a name="step-2-configure-the-multisite-infrastructure"></a>Étape 2 configurer l’Infrastructure Multisite
 
@@ -61,7 +61,7 @@ Pour plus d’informations, consultez [Ajout d’un Site à la forêt](https://t
   
 8.  Fermez les Sites et Services Active Directory.  
   
-![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -129,13 +129,13 @@ Pour plus d’informations, consultez [installation d’un contrôleur de domain
             > [!NOTE]  
             > Si vous sélectionnez l’option d’installation du serveur DNS, vous pouvez recevoir un message indiquant qu’une délégation DNS pour le serveur DNS ne peut pas être créée et que vous devez créer manuellement une délégation DNS au serveur DNS pour garantir la résolution de noms fiable. Si vous installez un contrôleur de domaine supplémentaire dans le domaine racine de forêt ou un domaine racine d’arborescence, vous n’êtes pas obligé de créer la délégation DNS. Dans ce cas, cliquez sur **Oui** et ignorez le message.  
   
-        -   **Catalogue global (GC)**« cette option est sélectionnée par défaut. Elle ajoute les partitions d’annuaire en lecture seule de catalogue global au contrôleur de domaine, et elle active la fonctionnalité de recherche dans le catalogue global.  
+        -   **Catalogue global (GC)** « cette option est sélectionnée par défaut. Elle ajoute les partitions d’annuaire en lecture seule de catalogue global au contrôleur de domaine, et elle active la fonctionnalité de recherche dans le catalogue global.  
   
-        -   **Le contrôleur de domaine en lecture seule (RODC)**« cette option n’est pas sélectionnée par défaut. Rend le contrôleur de domaine supplémentaires en lecture seule ; Autrement dit, il est le contrôleur de domaine un RODC.  
+        -   **Le contrôleur de domaine en lecture seule (RODC)** « cette option n’est pas sélectionnée par défaut. Rend le contrôleur de domaine supplémentaires en lecture seule ; Autrement dit, il est le contrôleur de domaine un RODC.  
   
     2.  Dans **nom du Site**, sélectionnez un site dans la liste.  
   
-    3.  Sous **tapez le mot de passe du Mode de restauration des Services annuaire (DSRM)**, dans **mot de passe** et **confirmer le mot de passe**, tapez un mot de passe fort à deux reprises, puis cliquez sur  **Suivant**. Ce mot de passe doit être utilisé pour démarrer les services AD DS en mode DSRM pour les tâches qui doivent être effectuées en mode hors connexion.  
+    3.  Sous **tapez le mot de passe du Mode de restauration des Services annuaire (DSRM)** , dans **mot de passe** et **confirmer le mot de passe**, tapez un mot de passe fort à deux reprises, puis cliquez sur  **Suivant**. Ce mot de passe doit être utilisé pour démarrer les services AD DS en mode DSRM pour les tâches qui doivent être effectuées en mode hors connexion.  
   
 10. Sur le **Options DNS** page, sélectionnez le **délégation DNS de mettre à jour** case à cocher si vous souhaitez mettre à jour la délégation DNS pendant l’installation du rôle, puis cliquez sur **suivant**.  
   
@@ -170,7 +170,7 @@ Un déploiement multisite requiert un groupe de sécurité supplémentaires pour
   
 8.  Répétez cette procédure pour créer un groupe de sécurité pour chaque point d’entrée en fonction des besoins.  
   
-![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -301,7 +301,7 @@ Informations d’association de contrôleur de domaine sont stockées dans le Re
     ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssocFinal.png)  
   
 ### <a name="ConfigDistOptimization"></a>Optimisation de la distribution de configuration  
-Pour apporter des modifications de configuration, les modifications sont appliquées uniquement une fois que le serveur de stratégie de groupe se propagent vers les serveurs d’accès à distance. Pour réduire le temps de distribution de configuration, l’accès à distance sélectionne automatiquement un contrôleur de domaine accessible en écriture qui est un lien hypertexte « https://technet.microsoft.com/library/cc978016.aspx» le plus proche pour le serveur d’accès à distance lors de la création de son serveur de stratégie de groupe.  
+Pour apporter des modifications de configuration, les modifications sont appliquées uniquement une fois que le serveur de stratégie de groupe se propagent vers les serveurs d’accès à distance. Pour réduire le temps de distribution de configuration, l’accès à distance sélectionne automatiquement un contrôleur de domaine accessible en écriture qui est un lien hypertexte «<https://technet.microsoft.com/library/cc978016.aspx>» le plus proche pour le serveur d’accès à distance lors de la création de son serveur de stratégie de groupe.  
   
 Dans certains scénarios, il peut être nécessaire de modifier manuellement le contrôleur de domaine qui gère un serveur de stratégie de groupe afin d’optimiser les temps de distribution de configuration :  
   
@@ -335,6 +335,6 @@ Pour optimiser le temps de distribution de configuration, effectuez l’une des 
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Étape 3 : Configurer le déploiement multisite](Step-3-Configure-the-Multisite-Deployment.md)  
+-   [Étape 3 : Configurer le déploiement multisite](Step-3-Configure-the-Multisite-Deployment.md)  
 -   [Étape 1 : Implémenter un seul serveur de déploiement de l’accès à distance](Step-1-Implement-a-Single-Server-Remote-Access-Deployment.md)  
 

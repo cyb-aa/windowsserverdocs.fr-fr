@@ -10,12 +10,12 @@ ms.date: 07/11/2018
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.openlocfilehash: af98a219a4a5aa708df9c648f1b245a21e95f016
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 425197d3462762c60a7371fc6ca529ad1b70e7ef
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827810"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443372"
 ---
 # <a name="upload-a-windows-server-20082008-r2-specialized-image-to-azure"></a>Charger une image système Windows Server 2008/2008 R2 spécialisée dans Azure 
 
@@ -29,17 +29,17 @@ Avant de charger une image système, effectuez les modifications suivantes :
 - Téléchargez et installez Windows Server 2008 Service Pack 2 (SP2) si vous ne l’avez pas déjà installé sur votre image système.
 
 - Configurez les paramètres du Bureau à distance (RDP).
-   1. Accédez à **Panneau de configuration** > **Paramètres système**.   
-   2. Dans le menu de gauche, sélectionnez **Paramètres distants**.
+  1. Accédez à **Panneau de configuration** > **Paramètres système**.   
+  2. Dans le menu de gauche, sélectionnez **Paramètres distants**.
 
-   ![Capture d’écran des paramètres système, avec « Paramètres distants » en surbrillance.](media/1a_remote_settings.png)
+     ![Capture d’écran des paramètres système, avec « Paramètres distants » en surbrillance.](media/1a_remote_settings.png)
 
-   3. Sélectionnez l’onglet **Distant** dans les Propriétés système.   
+  3. Sélectionnez l’onglet **Distant** dans les Propriétés système.   
 
-   ![Capture d’écran de l’onglet distant dans les propriétés système.](media/2c_sysprops.png)
+     ![Capture d’écran de l’onglet distant dans les propriétés système.](media/2c_sysprops.png)
 
-   4. Sélectionnez Autoriser la connexion des ordinateurs exécutant n'importe quelle version de Bureau à distance (moins sûr).   
-   5. Cliquez sur **Appliquer**, puis sur **OK**.
+  4. Sélectionnez Autoriser la connexion des ordinateurs exécutant n'importe quelle version de Bureau à distance (moins sûr).   
+  5. Cliquez sur **Appliquer**, puis sur **OK**.
 - Configurez les paramètres du Pare-feu Windows.   
    1. À l’invite de commandes en mode Administrateur, entrez « **wf.msc** » pour les paramètres de Pare-feu Windows et sécurité avancée.   
    2. Triez les résultats par **Ports**, sélectionnez **port 3389**.   
@@ -96,7 +96,7 @@ Dans cette section, vous déployez le disque dur virtuel de l’image dans Azure
      b. Entrez un nom pour le disque. Sélectionnez l’abonnement que vous souhaitez utiliser, définissez la région et choisissez le type de compte.   
      c. Pour Type de source, sélectionnez stockage. Accédez à l’emplacement du disque dur virtuel blob créé à l’aide du script.  
      d. Sélectionnez le type de système d’exploitation Windows et la taille (par défaut : 1023).   
-     e. Cliquez sur **Create (Créer)**.   
+     e. Cliquez sur **Create (Créer)** .   
 
 7.  Accédez au disque créé et cliquez sur **Créer une machine virtuelle**.   
      a. Donnez un nom à la machine virtuelle.   
@@ -105,7 +105,7 @@ Dans cette section, vous déployez le disque dur virtuel de l’image dans Azure
      d. Sélectionnez une interface réseau dans la page Paramètres. Vérifiez que l’interface réseau présente la règle spécifiée suivante :
  
         PORT:3389 Protocol: TCP Action: Allow Priority: 1000 Name: ‘RDP-Rule’.   
-     e. Cliquez sur **Create (Créer)**.
+     e. Cliquez sur **Create (Créer)** .
 
 
 

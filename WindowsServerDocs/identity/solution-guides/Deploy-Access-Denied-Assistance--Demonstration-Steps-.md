@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 5201441ba884fe4658b917919e60c7d20530341b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 441dad92611e1a4a1135bd15bbcdfd05f38c1be3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835580"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445818"
 ---
 # <a name="deploy-access-denied-assistance-demonstration-steps"></a>Déployer l’assistance en cas d’accès refusé (étapes de démonstration)
 
@@ -26,9 +26,9 @@ Cette rubrique explique comment configurer l'assistance en cas d'accès refusé 
   
 -   [Étape 1 : Configurer l’assistance en cas d’accès refusé](Deploy-Access-Denied-Assistance--Demonstration-Steps-.md#BKMK_1)  
   
--   [Étape 2 : Configurer les paramètres de notification de courrier électronique](Deploy-Access-Denied-Assistance--Demonstration-Steps-.md#BKMK_2)  
+-   [Étape 2 : Configurer les paramètres de notification de courrier électronique](Deploy-Access-Denied-Assistance--Demonstration-Steps-.md#BKMK_2)  
   
--   [Étape 3 : Vérifiez qu’assistance en cas d’accès refusé est configurée correctement](Deploy-Access-Denied-Assistance--Demonstration-Steps-.md#BKMK_3)  
+-   [Étape 3 : Vérifiez qu’assistance en cas d’accès refusé est configurée correctement](Deploy-Access-Denied-Assistance--Demonstration-Steps-.md#BKMK_3)  
   
 > [!NOTE]  
 > Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).  
@@ -70,7 +70,7 @@ Vous pouvez configurer l'assistance en cas d'accès refusé pour le domaine à l
   
     3.  Conservez les autres paramètres par défaut.  
   
-![guides de solutions](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![guides de solutions](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -94,7 +94,7 @@ Vous pouvez aussi configurer l'assistance en cas d'accès refusé individuelleme
   
 1.  Ouvrez le Gestionnaire de ressources du serveur de fichiers. Dans le Gestionnaire de serveur, cliquez sur **Outils**, puis sur **Gestionnaire de ressources du serveur de fichiers**.  
   
-2.  Cliquez avec le bouton droit sur **Gestionnaire de ressources du serveur de fichiers (local)**, puis cliquez sur **Configurer les options**.  
+2.  Cliquez avec le bouton droit sur **Gestionnaire de ressources du serveur de fichiers (local)** , puis cliquez sur **Configurer les options**.  
   
 3.  Cliquez sur l'onglet **Assistance en cas d'accès refusé**.  
   
@@ -118,7 +118,7 @@ Vous pouvez aussi configurer l'assistance en cas d'accès refusé individuelleme
   
 8.  Cliquez sur **OK**.  
   
-![guides de solutions](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![guides de solutions](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
   
@@ -142,7 +142,7 @@ Après avoir configuré l'assistance en cas d'accès refusé, vous devez l'activ
   
 5.  Cliquez sur **Activé**, puis sur **OK**.  
   
-![guides de solutions](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![guides de solutions](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme. 
   
@@ -159,7 +159,7 @@ Vous pouvez aussi spécifier un message d'accès refusé distinct pour chaque do
   
 1.  Ouvrez le Gestionnaire de ressources du serveur de fichiers. Dans le Gestionnaire de serveur, cliquez sur **Outils**, puis sur **Gestionnaire de ressources du serveur de fichiers**.  
   
-2.  Développez **Gestionnaire de ressources du serveur de fichiers (local)**, puis cliquez sur **Gestion de la classification**.  
+2.  Développez **Gestionnaire de ressources du serveur de fichiers (local)** , puis cliquez sur **Gestion de la classification**.  
   
 3.  Cliquez avec le bouton droit sur **Propriétés de classification**, puis cliquez sur **Définir les propriétés de gestion des dossiers**.  
   
@@ -181,7 +181,7 @@ Vous pouvez aussi spécifier un message d'accès refusé distinct pour chaque do
   
 7.  Cliquez sur **OK**, puis sur **Fermer**.  
   
-![guides de solutions](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![guides de solutions](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme. 
   
@@ -196,7 +196,7 @@ Vous devez configurer les paramètres de notification par courrier électronique
   
 1.  Ouvrez le Gestionnaire de ressources du serveur de fichiers. Dans le Gestionnaire de serveur, cliquez sur **Outils**, puis sur **Gestionnaire de ressources du serveur de fichiers**.  
   
-2.  Cliquez avec le bouton droit sur **Gestionnaire de ressources du serveur de fichiers (local)**, puis cliquez sur **Configurer les options**.  
+2.  Cliquez avec le bouton droit sur **Gestionnaire de ressources du serveur de fichiers (local)** , puis cliquez sur **Configurer les options**.  
   
 3.  Cliquez sur l'onglet **Notifications par courrier électronique** .  
   
@@ -210,7 +210,7 @@ Vous devez configurer les paramètres de notification par courrier électronique
   
 6.  Cliquez sur **OK**.  
   
-![guides de solutions](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![guides de solutions](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
   
@@ -226,7 +226,7 @@ Vous pouvez vérifier que l’assistance en cas d’accès refusé est correctem
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Scénario : Access-Denied Assistance](Scenario--Access-Denied-Assistance.md)  
+-   [Scénario : assistance en cas d’accès refusé](Scenario--Access-Denied-Assistance.md)  
   
 -   [Plan pour Access-Denied Assistance](assetId:///b169f0a4-8b97-4da8-ae4a-c8f1986d19e1)  
   

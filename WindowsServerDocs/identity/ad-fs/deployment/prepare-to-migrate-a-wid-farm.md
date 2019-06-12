@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4985a8d16614bd12bce991e196d105464d37634d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a0e4bb77003ab24e0e31268509fb8667a671bea6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845060"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445533"
 ---
 # <a name="prepare-to-migrate-an-ad-fs-20-wid-farm"></a>Préparer la migration d’une batterie de serveurs WID AD FS 2.0  
  Pour préparer la migration des serveurs de fédération 2.0 AD FS qui appartiennent à une batterie de serveurs de base de données interne de Windows (WID) vers Windows Server 2012, vous devez exporter et sauvegarder les données de configuration AD FS à partir de ces serveurs.  
@@ -22,9 +22,9 @@ ms.locfileid: "59845060"
   
 -   [Étape 1 : - exporter les paramètres de service](#step-1-export-service-settings)  
   
--   [Étape 2 : Sauvegarder des magasins d’attributs personnalisés](#step-2-back-up-custom-attribute-stores)  
+-   [Étape 2 : Sauvegarder des magasins d’attributs personnalisés](#step-2-back-up-custom-attribute-stores)  
   
--   [Étape 3 : Sauvegarder les personnalisations de page Web](#step-3-back-up-webpage-customizations)  
+-   [Étape 3 : Sauvegarder les personnalisations de page Web](#step-3-back-up-webpage-customizations)  
   
 ## <a name="step-1-export-service-settings"></a>Étape 1 : exporter les paramètres de service  
  Pour exporter les paramètres de service, effectuez la procédure suivante :  
@@ -38,14 +38,14 @@ ms.locfileid: "59845060"
 >   
 >  Cette étape est facultative, car ce certificat est stocké dans le magasin de certificats personnels sur l'ordinateur local et est préservé pendant la mise à niveau du système d'exploitation.  
   
-2.  Outre les certificats auto-signés, exportez les clés et les certificats de signature de jetons, de chiffrement de jetons ou de communication de service qui ne sont pas générés de manière interne.  
+2. Outre les certificats auto-signés, exportez les clés et les certificats de signature de jetons, de chiffrement de jetons ou de communication de service qui ne sont pas générés de manière interne.  
   
 Vous pouvez afficher tous les certificats en cours d'utilisation sur votre serveur à l'aide de Windows PowerShell. Ouvrez Windows PowerShell et exécutez la commande suivante pour ajouter les applets de commande AD FS à votre session Windows PowerShell : `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Puis exécutez la commande suivante pour afficher tous les certificats qui sont en cours d’utilisation sur votre serveur `PSH:>Get-ADFSCertificate`. La sortie de cette commande comprend les valeurs StoreLocation et StoreName, qui spécifient l'emplacement du magasin de chaque certificat.  Vous pouvez ensuite suivre les instructions indiquées dans la rubrique [Exporter la partie clé privée d'un certificat d'authentification serveur](Export-the-Private-Key-Portion-of-a-Server-Authentication-Certificate.md) pour exporter chaque certificat et sa clé privée dans un fichier .pfx.  
   
 > [!NOTE]
 >  Cette étape est facultative, car tous les certificats externes sont préservés pendant la mise à niveau du système d'exploitation.  
   
-3.  Enregistrez l’identité du compte de service AD FS 2.0 de fédération et le mot de passe de ce compte.  
+3. Enregistrez l’identité du compte de service AD FS 2.0 de fédération et le mot de passe de ce compte.  
   
 Pour rechercher la valeur d’identité, examinez le **session en tant que** colonne de **AD FS 2.0 Windows Service** dans le **Services** console et enregistrez la valeur manuellement.  
   
@@ -60,4 +60,4 @@ Pour rechercher la valeur d’identité, examinez le **session en tant que** col
  [Préparer la migration du serveur Proxy pour AD FS 2.0 de fédération](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Migrer le serveur AD FS 2.0 de fédération](migrate-the-ad-fs-fed-server.md)   
  [Migrer le serveur Proxy AD FS 2.0 de fédération](migrate-the-ad-fs-2-fed-server-proxy.md)   
- [Migrer les Agents de 1.1 Web AD FS](migrate-the-ad-fs-web-agent.md)
+ [Migrer les agents web AD FS 1.1](migrate-the-ad-fs-web-agent.md)

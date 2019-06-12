@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6c7a9e95ebd36209d5729f81b7eae9e2660b3606
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3f934d8c65da939fb60c564b375699f411b7c9ac
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890690"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440834"
 ---
 # <a name="using-the-add-alldriverpackages-subcommand"></a>À l’aide de la sous-commande add-AllDriverPackages
 
@@ -34,12 +34,12 @@ WDSUTIL /Add-AllDriverPackages /FolderPath:<Folder Path> [/Server:<Server name>]
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|/ FolderPath :\<chemin d’accès de dossier >|Spécifie le chemin d’accès complet au dossier qui contient les fichiers .inf pour les packages de pilotes.|
-|[/ Server :\<nom du serveur >]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom de domaine complet. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
-|[/ Architecture : {x86 | ia64 | x64}]|Spécifie l’architecture des packages de pilotes à ajouter. Packages de pilotes pour les autres architectures sont ignorés.|
-|[/ DriverGroup :\<nom du groupe >]|Spécifie le nom du groupe pilote à laquelle les packages doivent être ajoutés.|
+|          Paramètre           |                                                              Description                                                              |
+|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+|  / FolderPath :\<chemin d’accès de dossier >  |                      Spécifie le chemin d’accès complet au dossier qui contient les fichiers .inf pour les packages de pilotes.                      |
+|   [/ Server :\<nom du serveur >]   | Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom de domaine complet. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé. |
+|     [/ Architecture : {x86      |                                                                 ia64                                                                  |
+| [/ DriverGroup :\<nom du groupe >] |                             Spécifie le nom du groupe pilote à laquelle les packages doivent être ajoutés.                             |
 
 ## <a name="BKMK_examples"></a>Exemples
 
@@ -53,6 +53,6 @@ WDSUTIL /Add-AllDriverPackages /FolderPath:"C:\Temp\Drivers\Printers" /DriverGro
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 [Add-WdsDriverPackage](https://technet.microsoft.com/library/dn283440.aspx)

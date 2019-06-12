@@ -14,12 +14,12 @@ ms.assetid: fdee02ec-3a7e-473e-9784-2889dc1b6dbb
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: d39dc6a4dcf5dca8186b0599fb479ed5ae684e0f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a6af3cbd038e97d889269b83d72c77c50680e513
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856250"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446171"
 ---
 # <a name="troubleshooting-nic-teaming"></a>Résolution des problèmes d’association de cartes réseau
 
@@ -44,7 +44,7 @@ Selon la configuration, association de cartes réseau peuvent envoyer des paquet
 
 Une raison courante pour une association de cartes réseau échec est que l’interface de l’équipe est désactivée et dans de nombreux cas, par inadvertance lors de l’exécution d’une séquence de commandes.  Cette séquence particulière de commandes n’active pas toutes la NetAdapters désactivée, car la désactivation de tous les membres physiques sous-jacent de cartes réseau supprime l’interface d’équipe de carte réseau. 
 
-Dans ce cas, l’interface d’équipe de carte réseau n’affiche plus dans Get-NetAdapter et pour cette raison, **Enable-NetAdapter \***  n’active pas l’association de cartes réseau. Le **Enable-NetAdapter \***  commande est le cas, toutefois, activer le membre cartes réseau, qui recrée l’interface d’équipe puis (après un bref instant). L’interface de l’équipe reste dans l’état « désactivé » jusqu'à ce que réactivée, autorisant le trafic réseau commencer à circuler. 
+Dans ce cas, l’interface d’équipe de carte réseau n’affiche plus dans Get-NetAdapter et pour cette raison, **Enable-NetAdapter \\** * n’active pas l’association de cartes réseau. Le **Enable-NetAdapter \\** * commande est le cas, toutefois, activer le membre cartes réseau, qui recrée l’interface d’équipe puis (après un bref instant). L’interface de l’équipe reste dans l’état « désactivé » jusqu'à ce que réactivée, autorisant le trafic réseau commencer à circuler. 
 
 La séquence de commandes Windows PowerShell suivante peut désactiver l’interface de l’équipe par inadvertance :  
   

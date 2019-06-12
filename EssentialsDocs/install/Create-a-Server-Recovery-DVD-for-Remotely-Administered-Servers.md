@@ -12,12 +12,12 @@ ms.assetid: 6141fa69-5952-4e3c-a868-40ef3f4badd2
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 7bfe1686ac84962cdb4ab1cde8d6ca5226cb9d44
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 999887f09c27c1df481cb5e46579942424a2847b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844350"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433622"
 ---
 # <a name="create-a-server-recovery-dvd-for-remotely-administered-servers"></a>Créer un DVD de récupération de serveur pour les serveurs gérés à distance
 
@@ -83,11 +83,11 @@ ms.locfileid: "59844350"
 ####  <a name="BKMK_Collecting"></a> Étape 2 : Recueillir les images de paramétrage usine et des fichiers XML  
  Pour rétablir les paramètres par défaut d’un serveur, les deux images suivantes doivent être capturées :  
   
--   L'image du lecteur système  
+- L'image du lecteur système  
   
--   La partition réservée du système  
+- La partition réservée du système  
   
- Un outil a été prévu spécialement pour capturer ces images : GenDiskXML.exe. GenDiskXML.exe collecte également un fichier nommé disk.xml, utilisé par le processus de récupération pour recréer la configuration du disque.  
+  Un outil a été prévu spécialement pour capturer ces images : GenDiskXML.exe. GenDiskXML.exe collecte également un fichier nommé disk.xml, utilisé par le processus de récupération pour recréer la configuration du disque.  
   
 1.  Après avoir exécuté Sysprep, redémarrez le système en utilisant une version 64 bits quelconque de Windows PE.  
   
@@ -117,29 +117,29 @@ ms.locfileid: "59844350"
 > [!NOTE]
 >  Les noms de fichiers énumérés doivent correspondre exactement.  
   
-1.  La page de l'assistant propose un lien pour une l'aide supplémentaire. Si ce fichier .chm existe, il remplacera le lien FWLink de l’aide en ligne. Le fichier d'aide est situé au :  
+1. La page de l'assistant propose un lien pour une l'aide supplémentaire. Si ce fichier .chm existe, il remplacera le lien FWLink de l’aide en ligne. Le fichier d'aide est situé au :  
   
-     < Racine_dvd\>\\$OEM$ \Customization\\< nom de culture\>\RestartHelp.chm  
+    < Racine_dvd\>\\$OEM$ \Customization\\< nom de culture\>\RestartHelp.chm  
   
-2.  Ce fichier contient le texte que le client voit sur la page de l'assistant. Il doit décrire comment démarrer le serveur en mode de récupération. Ce texte est placé dans une zone qu’il est possible de faire défiler.  
+2. Ce fichier contient le texte que le client voit sur la page de l'assistant. Il doit décrire comment démarrer le serveur en mode de récupération. Ce texte est placé dans une zone qu’il est possible de faire défiler.  
   
-     Le fichier suivant, destiné à remplacer l’image de l’assistant, porte essentiellement sur la personnalisation. Il doit s’agir d’un fichier .png. Pour éviter qu’il soit recadré au moment de son affichage dans l’assistant, veillez à ce que sa taille ne dépasse pas 256 pixels x 256 pixels.  
+    Le fichier suivant, destiné à remplacer l’image de l’assistant, porte essentiellement sur la personnalisation. Il doit s’agir d’un fichier .png. Pour éviter qu’il soit recadré au moment de son affichage dans l’assistant, veillez à ce que sa taille ne dépasse pas 256 pixels x 256 pixels.  
   
-     < Racine_dvd\>\\$OEM$ \Customization\\< nom de culture\>\RestartInstructions.rtf  
+    < Racine_dvd\>\\$OEM$ \Customization\\< nom de culture\>\RestartInstructions.rtf  
   
-3.  < Racine_dvd\>\\$OEM$ \Customization\\< nom de culture\>\ServerImage.png  
+3. < Racine_dvd\>\\$OEM$ \Customization\\< nom de culture\>\ServerImage.png  
   
- Lors de la conversion du DVD de récupération du serveur en vue de prendre en charge plusieurs langues, prenez soin de respecter les consignes suivantes :  
+   Lors de la conversion du DVD de récupération du serveur en vue de prendre en charge plusieurs langues, prenez soin de respecter les consignes suivantes :  
   
-1.  Préservez toujours le dossier en-us. Si le programme de récupération du serveur ne trouve pas les fichiers spécifiques à la culture correspondant à l’ordinateur client sur lequel il est exécuté, il repasse automatiquement en mode en-US.  
+4. Préservez toujours le dossier en-us. Si le programme de récupération du serveur ne trouve pas les fichiers spécifiques à la culture correspondant à l’ordinateur client sur lequel il est exécuté, il repasse automatiquement en mode en-US.  
   
-2.  Dans chaque dossier de culture que vous créez, ajoutez les trois fichiers de personnalisation (.png, .chm et .rtf).  
+5. Dans chaque dossier de culture que vous créez, ajoutez les trois fichiers de personnalisation (.png, .chm et .rtf).  
   
-3.  Copiez les deux dossiers de culture à partir de modules linguistiques\\< CultureName\>\Server récupération à la racine du DVD de récupération de serveur. Exemple : les dossiers ES et ES-ES sont copiés à la racine du DVD pour prendre en charge l’espagnol.  
+6. Copiez les deux dossiers de culture à partir de modules linguistiques\\< CultureName\>\Server récupération à la racine du DVD de récupération de serveur. Exemple : les dossiers ES et ES-ES sont copiés à la racine du DVD pour prendre en charge l’espagnol.  
   
-4.  Finalisez le fichier ISO.  
+7. Finalisez le fichier ISO.  
   
- Les noms de la culture prise en charge incluent :  
+   Les noms de la culture prise en charge incluent :  
 
 |-|-|  
 |- cs-CZ<br /><br /> - de-DE<br /><br /> -en-US<br /><br /> -es-ES<br /><br /> -fr-FR<br /><br /> - hu-HU<br /><br /> -it-IT<br /><br /> -ja-JP<br /><br /> -ko-KR<br /><br /> - nl-NL|- pl-PL<br /><br /> -pt-BR<br /><br /> -pt-PT<br /><br /> -ru-RU<br /><br /> -sv-SE<br /><br /> -tr-TR<br /><br /> - zh-CN<br /><br /> - zh-HK<br /><br /> - zh-TW
@@ -172,4 +172,4 @@ ms.locfileid: "59844350"
  [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
  [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
- [Test de l’expérience client](Testing-the-Customer-Experience.md)
+ [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)

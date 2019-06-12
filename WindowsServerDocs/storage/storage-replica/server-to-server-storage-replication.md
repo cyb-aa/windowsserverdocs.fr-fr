@@ -9,12 +9,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 61881b52-ee6a-4c8e-85d3-702ab8a2bd8c
-ms.openlocfilehash: dd0a160213e69e59194e1f775040c12769f1eb5e
-ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.openlocfilehash: 844c9d1b0fef9fc49a699bbe09bcb28657d31b2a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64772491"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447624"
 ---
 # <a name="server-to-server-storage-replication-with-storage-replica"></a>Réplication du stockage de serveur à serveur réplica de stockage
 
@@ -201,7 +201,7 @@ Si vous utilisez Windows Admin Center pour gérer un réplica de stockage, proc�
 3. Sélectionnez **le réplica de stockage** dans le volet d’outils.
 4. Sélectionnez **New** pour créer un nouveau partenariat.
 5. Fournissez les détails du partenariat, puis sélectionnez **créer**. <br>
-![L’écran Nouveau partenariat indiquant les détails de partenariat, par exemple une taille de journal de 8 Go.](media\Storage-Replica-UI\Honolulu_SR_Create_Partnership.png)
+   ![L’écran Nouveau partenariat indiquant les détails de partenariat, par exemple une taille de journal de 8 Go.](media/Storage-Replica-UI/Honolulu_SR_Create_Partnership.png)
 
     **Figure 3 : Création d’un nouveau partenariat**
 
@@ -410,23 +410,23 @@ Le réplica de stockage ne présente aucune de ces limitations. Il en a, toutefo
 Si ces limitations ne sont pas rédhibitoires, le réplica de stockage vous permet de remplacer les serveurs de réplication DFS par cette technologie plus récente.   
 Le processus est généralement le suivant :  
 
-1.  Installez Windows Server sur deux serveurs et configurez votre stockage. Cela peut impliquer la mise à niveau d’un ensemble existant de serveurs ou une nouvelle installation.  
-2.  Assurez-vous que toutes les données à répliquer existent sur un ou plusieurs volumes de données et non sur le lecteur C:.   
-a.  Vous pouvez également amorcer les données sur l’autre serveur pour gagner du temps, à l’aide d’une sauvegarde ou de copies de fichiers, ainsi qu’utiliser le stockage alloué dynamiquement. Faire correspondre parfaitement la sécurité de type métadonnées est inutile, contrairement à la réplication DFS.  
-3.  Partager les données sur votre serveur source et rendez-le accessible via un espace de noms DFS. Ceci est important pour vous assurer que les utilisateurs peuvent toujours y accéder si le nom du serveur est remplacé par un nom situé dans un site d’incident.  
-a.  Vous pouvez créer des partages correspondants sur le serveur de destination, qui sont indisponibles en temps de fonctionnement normal.   
-b.  Ne pas ajouter le serveur de destination à l’espace de noms d’espaces de noms DFS ou si vous le faites, assurez-vous que toutes ses cibles de dossier sont désactivées.  
-4.  Activez la réplication du réplica de stockage et procédez à la synchronisation initiale. La réplication peut être synchrone ou asynchrone.   
-a.  Toutefois, une réplication synchrone est recommandée pour garantir la cohérence des données d’E/S sur le serveur de destination.   
-b.  Nous recommandons fortement l’activation de clichés instantanés de volume et des captures instantanées régulières avec VSSADMIN ou d’autres outils de votre choix. Ainsi, les applications vident bien leurs fichiers de données sur le disque de manière cohérente. En cas d’incident, vous pouvez récupérer des fichiers à partir des captures instantanées sur le serveur de destination qui peuvent avoir été partiellement répliquées de manière asynchrone. Les captures instantanées sont répliquées de concert avec les fichiers.  
-5.  Agissez normalement jusqu’à ce qu’un incident se produise.  
-6.  Faites basculer le serveur de destination pour qu’il devienne la nouvelle source, qui expose ses volumes répliqués aux utilisateurs.  
-7.  Si vous utilisez la réplication synchrone, aucune restauration des données n’est nécessaire, sauf si l’utilisateur utilisait une application qui écrivait des données sans protéger la transaction (quelle que soit la réplication) lors de la perte du serveur source. Si vous utilisez la réplication asynchrone, le besoin d’un montage de capture instantanée VSS est plus élevé, mais envisagez d’utiliser VSS dans tous les cas pour des captures instantanées cohérentes d’application.  
-8.  Ajoutez le serveur et ses partages comme une cible de dossier d’espaces de noms DFS.   
-9.  Les utilisateurs peuvent ensuite accéder à leurs données.  
+1. Installez Windows Server sur deux serveurs et configurez votre stockage. Cela peut impliquer la mise à niveau d’un ensemble existant de serveurs ou une nouvelle installation.  
+2. Assurez-vous que toutes les données à répliquer existent sur un ou plusieurs volumes de données et non sur le lecteur C:.   
+   a.  Vous pouvez également amorcer les données sur l’autre serveur pour gagner du temps, à l’aide d’une sauvegarde ou de copies de fichiers, ainsi qu’utiliser le stockage alloué dynamiquement. Faire correspondre parfaitement la sécurité de type métadonnées est inutile, contrairement à la réplication DFS.  
+3. Partager les données sur votre serveur source et rendez-le accessible via un espace de noms DFS. Ceci est important pour vous assurer que les utilisateurs peuvent toujours y accéder si le nom du serveur est remplacé par un nom situé dans un site d’incident.  
+   a.  Vous pouvez créer des partages correspondants sur le serveur de destination, qui sont indisponibles en temps de fonctionnement normal.   
+   b.  Ne pas ajouter le serveur de destination à l’espace de noms d’espaces de noms DFS ou si vous le faites, assurez-vous que toutes ses cibles de dossier sont désactivées.  
+4. Activez la réplication du réplica de stockage et procédez à la synchronisation initiale. La réplication peut être synchrone ou asynchrone.   
+   a.  Toutefois, une réplication synchrone est recommandée pour garantir la cohérence des données d’E/S sur le serveur de destination.   
+   b.  Nous recommandons fortement l’activation de clichés instantanés de volume et des captures instantanées régulières avec VSSADMIN ou d’autres outils de votre choix. Ainsi, les applications vident bien leurs fichiers de données sur le disque de manière cohérente. En cas d’incident, vous pouvez récupérer des fichiers à partir des captures instantanées sur le serveur de destination qui peuvent avoir été partiellement répliquées de manière asynchrone. Les captures instantanées sont répliquées de concert avec les fichiers.  
+5. Agissez normalement jusqu’à ce qu’un incident se produise.  
+6. Faites basculer le serveur de destination pour qu’il devienne la nouvelle source, qui expose ses volumes répliqués aux utilisateurs.  
+7. Si vous utilisez la réplication synchrone, aucune restauration des données n’est nécessaire, sauf si l’utilisateur utilisait une application qui écrivait des données sans protéger la transaction (quelle que soit la réplication) lors de la perte du serveur source. Si vous utilisez la réplication asynchrone, le besoin d’un montage de capture instantanée VSS est plus élevé, mais envisagez d’utiliser VSS dans tous les cas pour des captures instantanées cohérentes d’application.  
+8. Ajoutez le serveur et ses partages comme une cible de dossier d’espaces de noms DFS.   
+9. Les utilisateurs peuvent ensuite accéder à leurs données.  
 
- > [!NOTE]
- > La planification de la récupération d’urgence est un sujet complexe qui nécessite de donner une attention particulière aux détails. La création de Runbook et les performances des exercices de basculement en direct annuels sont fortement recommandées. En cas d’incident réel, le chaos règne et le personnel expérimenté peut être en permanence indisponible.  
+   > [!NOTE]
+   > La planification de la récupération d’urgence est un sujet complexe qui nécessite de donner une attention particulière aux détails. La création de Runbook et les performances des exercices de basculement en direct annuels sont fortement recommandées. En cas d’incident réel, le chaos règne et le personnel expérimenté peut être en permanence indisponible.  
 
 ## <a name="add-azure-vm-expressroute"></a>Ajout d’une machine virtuelle Azure connectée à votre réseau via ExpressRoute
 

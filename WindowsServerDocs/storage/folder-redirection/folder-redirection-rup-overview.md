@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ad44ba4bbe0b31f423a4ae4593e349571d838de2
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 89506d0f7445f0df230945f45a31d4f58390c5c1
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65475920"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812421"
 ---
 # <a name="folder-redirection-offline-files-and-roaming-user-profiles-overview"></a>Vue d’ensemble de la redirection de dossiers, des fichiers hors connexion et des profils utilisateurs itinérants
 
@@ -46,11 +46,11 @@ Les administrateurs peuvent utiliser la redirection de dossiers, les fichiers ho
 
 Le tableau ci-dessous décrit quelques-unes des principales modifications apportées aux fonctionnalités de redirection de dossiers, fichiers hors connexion et profils utilisateurs itinérants, disponibles dans cette version.
 
-|Fonctionnalité/fonction|Nouveauté ou mise à jour ?|Description|
-|---|---|---|
-|Mode Toujours hors connexion|Nouveau|Assure un accès plus rapide aux fichiers et une utilisation réduite de la bande passante en travaillant toujours hors connexion, même lors d’une connexion via une connexion réseau haut débit.|
-|Synchronisation prenant en charge les coûts|Nouveau|Aide les utilisateurs à éviter des coûts élevés d’utilisation de données de synchronisation lors de l’utilisation de connexions limitées dotées de limites d’utilisation ou lors d’une itinérance sur le réseau d’un autre fournisseur.|
-|Prise en charge des ordinateurs principaux|Nouveau|Permet de limiter l’utilisation de la redirection de dossiers et/ou des profils utilisateurs itinérants aux ordinateurs principaux d’un utilisateur.|
+| Fonctionnalité/fonction | Nouveauté ou mise à jour ? | Description |
+| --- | --- | --- |
+| Mode Toujours hors connexion | Nouveau | Assure un accès plus rapide aux fichiers et une utilisation réduite de la bande passante en travaillant toujours hors connexion, même lors d’une connexion via une connexion réseau haut débit. |
+| Synchronisation prenant en charge les coûts | Nouveau | Aide les utilisateurs à éviter des coûts élevés d’utilisation de données de synchronisation lors de l’utilisation de connexions limitées dotées de limites d’utilisation ou lors d’une itinérance sur le réseau d’un autre fournisseur. |
+| Prise en charge des ordinateurs principaux | Nouveau | Permet de limiter l’utilisation de la redirection de dossiers et/ou des profils utilisateurs itinérants aux ordinateurs principaux d’un utilisateur. |
 
 ## <a name="always-offline-mode"></a>Mode Toujours hors connexion
 
@@ -75,8 +75,8 @@ Pour plus d'informations, voir [Enable the Always Offline Mode to Provide Faster
 
 Avec la synchronisation prenant en charge les coûts, Windows désactive la synchronisation en arrière-plan lorsque l’utilisateur utilise une connexion réseau limitée, telle qu’un réseau mobile 4G, et si l’abonné est près ou au-delà de la limite de bande passante ou itinérant sur le réseau d’un autre fournisseur.
 
->[!NOTE]
->Connexions réseau limitées possèdent en général des latences réseau de parcours circulaire plus lentes que la valeur de latence de 35 millisecondes par défaut pour la transition en mode hors connexion (connexion lente) dans Windows 8, Windows Server 2019, Windows Server 2016 et Windows Server 2012. Par conséquent, ces connexions effectuent en général une transition automatique vers le mode Hors connexion (connexion lente).
+> [!NOTE]
+> Connexions réseau limitées possèdent en général des latences réseau de parcours circulaire plus lentes que la valeur de latence de 35 millisecondes par défaut pour la transition en mode hors connexion (connexion lente) dans Windows 8, Windows Server 2019, Windows Server 2016 et Windows Server 2012. Par conséquent, ces connexions effectuent en général une transition automatique vers le mode Hors connexion (connexion lente).
 
 ### <a name="what-value-does-cost-aware-synchronization-add"></a>Quels avantages synchronisation prenant en charge pour un coût procure-t-elle ?
 
@@ -129,10 +129,10 @@ Pour désigner les ordinateurs principaux, votre environnement doit répondre au
 
 Pour plus d’informations connexes, voir les ressources suivantes.
 
-|Type de contenu|Références|
-|---|---|
-|Évaluation du produit|[Prise en charge des travailleurs de l’Information avec les Services de fichiers fiable et de stockage](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831495(v%3dws.11)>)<br>[Quelles sont les nouveautés dans les fichiers hors connexion](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff183315(v=ws.10)>) (Windows 7 et Windows Server 2008 R2)<br>[Quelles sont les nouveautés des fichiers hors connexion pour Windows Vista](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749449(v=ws.10)>)<br>[Modifications apportées aux fichiers hors connexion dans Windows Vista](<https://technet.microsoft.com/library/2007.11.offline.aspx>) (Magazine TechNet)|
-|Déploiement|[Déployer la Redirection de dossiers, fichiers hors connexion et les profils utilisateur itinérants](deploy-folder-redirection.md)<br>[Implémentation d’une Solution de centralisation des données de l’utilisateur final : La Redirection de dossiers et de Validation de la technologie fichiers hors connexion et de déploiement](http://download.microsoft.com/download/3/0/1/3019A3DA-2F41-4F2D-BBC9-A6D24C4C68C4/Implementing%20an%20End-User%20Data%20Centralization%20Solution.docx)<br>[La gestion itinérance Guide de déploiement de données utilisateur](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc766489(v=ws.10)>)<br>[Guide pas à pas de la configuration des nouvelles fonctionnalités Fichiers hors connexion pour les ordinateurs Windows 7](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff633429(v=ws.10)>)<br>[À l’aide de la Redirection de dossiers](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753996(v=ws.11)>)<br>[Implémentation de la Redirection de dossiers](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc737434(v=ws.10)>) (Windows Server 2003)|
-|Outils et paramètres|[Fichiers hors connexion sur MSDN](https://msdn.microsoft.com/library/cc296092.aspx)<br>[Référence de stratégie de groupe de fichiers hors connexion](https://msdn.microsoft.com/library/ms878937.aspx) (Windows 2000)|
-|Ressources de la communauté|[Forum sur le stockage et les Services de fichiers](https://social.technet.microsoft.com/forums/windowsserver/home?forum=winserverfiles)<br>[Hey, Scripting Guy ! Comment puis-je travailler avec la fonctionnalité fichiers hors connexion dans Windows ?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>)<br>[Hey, Scripting Guy ! Comment puis-je activer et désactiver la fonctionnalité fichiers hors connexion ?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>)|
-Technologies associées|[Identité et accès dans Windows Server](../../identity/identity-and-access.md)<br>[Stockage dans Windows Server](../storage.md)<br>[Gestion d’accès et le serveur à distance](../../remote/index.md)|
+| Type de contenu | Références |
+| --- | --- |
+| Évaluation du produit | [Prise en charge des travailleurs de l’Information avec les Services de fichiers fiable et de stockage](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831495(v%3dws.11)>)<br>[Quelles sont les nouveautés dans les fichiers hors connexion](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff183315(v=ws.10)>) (Windows 7 et Windows Server 2008 R2)<br>[Quelles sont les nouveautés des fichiers hors connexion pour Windows Vista](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749449(v=ws.10)>)<br>[Modifications apportées aux fichiers hors connexion dans Windows Vista](<https://technet.microsoft.com/library/2007.11.offline.aspx>) (Magazine TechNet) |
+| Déploiement | [Déployer la Redirection de dossiers, fichiers hors connexion et les profils utilisateur itinérants](deploy-folder-redirection.md)<br>[Implémentation d’une Solution de centralisation des données de l’utilisateur final : La Redirection de dossiers et de Validation de la technologie fichiers hors connexion et de déploiement](http://download.microsoft.com/download/3/0/1/3019A3DA-2F41-4F2D-BBC9-A6D24C4C68C4/Implementing%20an%20End-User%20Data%20Centralization%20Solution.docx)<br>[La gestion itinérance Guide de déploiement de données utilisateur](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc766489(v=ws.10)>)<br>[Guide pas à pas de la configuration des nouvelles fonctionnalités Fichiers hors connexion pour les ordinateurs Windows 7](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff633429(v=ws.10)>)<br>[À l’aide de la Redirection de dossiers](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753996(v=ws.11)>)<br>[Implémentation de la Redirection de dossiers](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc737434(v=ws.10)>) (Windows Server 2003) |
+| Outils et paramètres | [Fichiers hors connexion sur MSDN](https://msdn.microsoft.com/library/cc296092.aspx)<br>[Référence de stratégie de groupe de fichiers hors connexion](https://msdn.microsoft.com/library/ms878937.aspx) (Windows 2000) |
+| Ressources de la communauté | [Forum sur le stockage et les Services de fichiers](https://social.technet.microsoft.com/forums/windowsserver/home?forum=winserverfiles)<br>[Hey, Scripting Guy ! Comment puis-je travailler avec la fonctionnalité fichiers hors connexion dans Windows ?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>)<br>[Hey, Scripting Guy ! Comment puis-je activer et désactiver la fonctionnalité fichiers hors connexion ?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>) |
+| Technologies associées|[Identité et accès dans Windows Server](../../identity/identity-and-access.md)<br>[Stockage dans Windows Server](../storage.md)<br>[Gestion d’accès et le serveur à distance](../../remote/index.md) |

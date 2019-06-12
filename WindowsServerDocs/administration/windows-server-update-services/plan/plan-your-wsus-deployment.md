@@ -10,12 +10,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/24/2018
-ms.openlocfilehash: 4e4da87e5a2a4cd80e748a05596da3f23b5ac85f
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: a568324ba69b13c7016f4715d3c37f991ae4c1ad
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222905"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439724"
 ---
 # <a name="plan-your-wsus-deployment"></a>Planifier votre déploiement WSUS
 
@@ -94,19 +94,19 @@ Au cours du processus d’installation, WSUS installera les éléments suivants 
 
 Configurer des ordinateurs clients (y compris les serveurs) pour mettre à jour à l’aide de WSUS entraîne les limitations suivantes :
 
-1.  Les rôles de serveur qui ont eu leur charge utile supprimée à l’aide des fonctionnalités à la demande ne peuvent pas être installés à la demande à partir de Microsoft Update. Vous devez fournir une source d’installation au moment où que vous essayez d’installer ces rôles de serveur, ou configurer une source pour les fonctionnalités à la demande dans la stratégie de groupe.
+1. Les rôles de serveur qui ont eu leur charge utile supprimée à l’aide des fonctionnalités à la demande ne peuvent pas être installés à la demande à partir de Microsoft Update. Vous devez fournir une source d’installation au moment où que vous essayez d’installer ces rôles de serveur, ou configurer une source pour les fonctionnalités à la demande dans la stratégie de groupe.
 
-2.  Les éditions Client Windows ne seront pas en mesure d’installer .NET 3.5 à la demande à partir du web. Les mêmes considérations que pour les rôles de serveur s’appliquent à .NET 3.5.
+2. Les éditions Client Windows ne seront pas en mesure d’installer .NET 3.5 à la demande à partir du web. Les mêmes considérations que pour les rôles de serveur s’appliquent à .NET 3.5.
 
-    > [!NOTE]
-    > Configuration de des fonctionnalités sur la source d’installation à la demande n’implique pas WSUS. Pour plus d’informations sur comment configurer les fonctionnalités, voir [Configurer des fonctionnalités à la demande dans Windows Server](https://technet.microsoft.com/library/jj127275.aspx).
+   > [!NOTE]
+   > Configuration de des fonctionnalités sur la source d’installation à la demande n’implique pas WSUS. Pour plus d’informations sur comment configurer les fonctionnalités, voir [Configurer des fonctionnalités à la demande dans Windows Server](https://technet.microsoft.com/library/jj127275.aspx).
 
 3. Appareils d’entreprise exécutant Windows 10, version 1709 ou version 1803, Impossible d’installer toutes les fonctionnalités à la demande directement à partir de WSUS. Pour installer des fonctionnalités à la demande, [créer un fichier de fonctionnalité (magasin côte à côte)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127275%28v=ws.11%29#create-a-feature-file-or-side-by-side-store) ou obtenir la fonctionnalité sur le package à la demande à partir d’une des sources suivantes :
-    - [Volume Licensing Service Center](https://www.microsoft.com/licensing/servicecenter) (VLSC) - l’accès avec licence en volume est requis
-    - Portail de l’OEM - accès aux OEM est requis
-    - Téléchargement MSDN - abonnement MSDN est requis
+   - [Volume Licensing Service Center](https://www.microsoft.com/licensing/servicecenter) (VLSC) - l’accès avec licence en volume est requis
+   - Portail de l’OEM - accès aux OEM est requis
+   - Téléchargement MSDN - abonnement MSDN est requis
 
-    Individuellement obtenu la fonctionnalité sur les packages à la demande peut être installée à l’aide de [les options de ligne de commande DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-operating-system-package-servicing-command-line-options).
+     Individuellement obtenu la fonctionnalité sur les packages à la demande peut être installée à l’aide de [les options de ligne de commande DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-operating-system-package-servicing-command-line-options).
 
 ### <a name="wsus-database-requirements"></a>Base de données WSUS requise
 WSUS requiert l’une des bases de données suivantes :
@@ -319,7 +319,7 @@ Le choix de langues pour un serveur en amont n’est pas le même que le choix d
 > [!NOTE]
 > Vous devez effectuer cette opération même si vous voulez que le serveur en aval puisse télécharger les mêmes langues que le serveur en amont.
 
-2.  Si le serveur en amont a été configuré pour télécharger les fichiers de mise à jour dans toutes les langues : Dans l’Assistant Configuration WSUS, cliquez sur **Télécharger les mises à jour dans toutes les langues prises en charge par le serveur en amont**.
+2. Si le serveur en amont a été configuré pour télécharger les fichiers de mise à jour dans toutes les langues : Dans l’Assistant Configuration WSUS, cliquez sur **Télécharger les mises à jour dans toutes les langues prises en charge par le serveur en amont**.
 
 > [!NOTE]
 > Vous devez effectuer cette opération même si vous voulez que le serveur en aval puisse télécharger les mêmes langues que le serveur en amont. Ce paramètre permet au serveur en amont de télécharger les mises à jour dans toutes les langues, y compris celles qui n’étaient pas initialement configurées pour le serveur en amont. Si vous ajoutez des langues sur le serveur en amont, vous devez copier les nouvelles mises à jour sur ses serveurs de réplication.

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 940b0931671d5f3c2137fafe4ae73b7cecd0160e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1e4b9cde10e11558aaa95edda94921144dac1f86
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821190"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441800"
 ---
 # <a name="repair"></a>Réparation
 
@@ -36,11 +36,11 @@ repair disk=<n> [align=<n>] [noerr]
   
 ## <a name="parameters"></a>Paramètres  
   
-|Paramètre|Description|  
-|-------|--------|  
-|Disque\=<n>|Spécifie le disque dynamique qui remplacera la région de disque défectueux.|  
-|align\=<n>|Aligne toutes les étendues de volume ou une partition à la limite d’alignement le plus proche. *n* est le nombre de kilo-octets \(Ko\) à partir du début du disque à la limite d’alignement le plus proche.|  
-|NOERR|Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.|  
+| Paramètre  |                                                                                             Description                                                                                              |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Disque\=<n>  |                                                                 Spécifie le disque dynamique qui remplacera la région de disque défectueux.                                                                 |
+| align\=<n> |          Aligne toutes les étendues de volume ou une partition à la limite d’alignement le plus proche. *n* est le nombre de kilo-octets \(Ko\) à partir du début du disque à la limite d’alignement le plus proche.           |
+|   NOERR    | Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart. |
   
 ## <a name="remarks"></a>Notes  
   
@@ -56,7 +56,7 @@ repair disk=4
 ```  
   
 #### <a name="additional-references"></a>Références supplémentaires  
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
   
 
   

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b4639ff780687ad7a69ddba5374a722a15b06542
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b13a2fe573ffc81fa5c85d8fd28e9ab13ca4342
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848260"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439342"
 ---
 # <a name="find"></a>find
 
@@ -36,16 +36,16 @@ find [/v] [/c] [/n] [/i] [/off[line]] "<String>" [[<Drive>:][<Path>]<FileName>[.
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|/v|Affiche toutes les lignes qui ne contiennent pas le texte spécifié \<chaîne >.|
-|/c|Compte les lignes qui contiennent le texte spécifié \<chaîne > et affiche le total.|
-|/n|Fait précéder chaque ligne avec le numéro de ligne du fichier.|
-|/i|Spécifie que la recherche ne respecte pas la casse.|
-|[/off[line]]|N’ignore pas les fichiers qui ont l’attribut hors connexion.|
-|«\<Chaîne > »|Obligatoire. Spécifie le groupe de caractères (entre guillemets) que vous souhaitez rechercher.|
-|[\<Drive>:][<Path>]<FileName>|Spécifie l’emplacement et le nom du fichier dans laquelle rechercher la chaîne spécifiée.|
-|/?|Affiche l'aide à l'invite de commandes.|
+|           Paramètre           |                                              Description                                               |
+|-------------------------------|--------------------------------------------------------------------------------------------------------|
+|              /v               |                    Affiche toutes les lignes qui ne contiennent pas le texte spécifié \<chaîne >.                     |
+|              /c               |              Compte les lignes qui contiennent le texte spécifié \<chaîne > et affiche le total.              |
+|              /n               |                            Fait précéder chaque ligne avec le numéro de ligne du fichier.                             |
+|              /i               |                            Spécifie que la recherche ne respecte pas la casse.                            |
+|         [/off[line]]          |                        N’ignore pas les fichiers qui ont l’attribut hors connexion.                        |
+|          «\<Chaîne > »          | Obligatoire. Spécifie le groupe de caractères (entre guillemets) que vous souhaitez rechercher. |
+| [\<Drive>:][<Path>]<FileName> |        Spécifie l’emplacement et le nom du fichier dans laquelle rechercher la chaîne spécifiée.        |
+|              /?               |                                  Affiche l'aide à l'invite de commandes.                                  |
 
 ## <a name="remarks"></a>Notes
 
@@ -62,7 +62,7 @@ find [/v] [/c] [/n] [/i] [/off[line]] "<String>" [[<Drive>:][<Path>]<FileName>[.
     Vous pouvez taper les paramètres et les options de ligne de commande pour le **trouver** dans n’importe quel ordre.
 -   À l’aide de caractères génériques
 
-    Vous ne pouvez pas utiliser des caractères génériques (**&#42;** et **?**) dans les noms de fichiers ou les extensions que vous spécifiez avec la **trouver** commande. Pour rechercher une chaîne dans un ensemble de fichiers que vous spécifiez avec des caractères génériques, vous pouvez utiliser la **trouver** commande au sein d’un **pour** commande.
+    Vous ne pouvez pas utiliser des caractères génériques ( **&#42;** et **?** ) dans les noms de fichiers ou les extensions que vous spécifiez avec la **trouver** commande. Pour rechercher une chaîne dans un ensemble de fichiers que vous spécifiez avec des caractères génériques, vous pouvez utiliser la **trouver** commande au sein d’un **pour** commande.
 -   À l’aide de **/v** ou **/n** avec **/c**
 
     Si vous utilisez **/c** et **/v** dans la même ligne de commande **trouver** affiche le nombre de lignes qui ne contiennent pas la chaîne spécifiée. Si vous spécifiez **/c** et **/n** dans la même ligne de commande **trouver** ignore **/n**.
@@ -92,4 +92,4 @@ dir c:\ /s /b | find "CPU"
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

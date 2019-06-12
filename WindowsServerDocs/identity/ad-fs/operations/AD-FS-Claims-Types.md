@@ -9,18 +9,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1e37aded450555d293806d1ed8903a51e3df9424
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0ffa4273a2c776a16f3ea0ce77d1b3a528481468
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839140"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445158"
 ---
-#<a name="client-access-policy-claim-types-in-ad-fs"></a>Stratégie d’accès client Types de revendications dans ADFS
+# <a name="client-access-policy-claim-types-in-ad-fs"></a>Stratégie d’accès client Types de revendications dans ADFS
 
 Pour fournir des informations de contexte de requête supplémentaires, les stratégies d’accès Client utiliser les types de revendication suivants, AD FS génère à partir des informations d’en-tête de demande pour le traitement.  Pour plus d’informations, consultez [le rôle du moteur de revendications](../technical-reference/the-role-of-the-claims-engine.md).
 
-##<a name="x-ms-forwarded-client-ip"></a>X-MS-Forwarded-Client-IP
+## <a name="x-ms-forwarded-client-ip"></a>X-MS-Forwarded-Client-IP
 
 Type de revendication : `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`
 
@@ -32,8 +32,8 @@ Cette revendication AD FS représente une « meilleure tentative » permettant
     >! [Remarque] L’adresse IP d’un client sur le réseau d’entreprise s’affiche comme adresse IP externe d’interface de passerelle ou proxy sortant de l’organisation.
 
 - Une ou plusieurs adresses IP
-    - Si Exchange Online ne peut pas déterminer l’adresse IP du client qui se connecte, il définit la valeur basée sur la valeur de l’en-tête x-forwarded-for, un en-tête non standard qui peut être inclus dans basées sur demande et est pris en charge par nombreux clients, les équilibreurs de charge, et proxys sur le marché.
-    - Plusieurs adresses IP indiquant l’adresse IP du client et l’adresse de chaque proxy qui a transmis la demande doivent être séparés par une virgule.
+  - Si Exchange Online ne peut pas déterminer l’adresse IP du client qui se connecte, il définit la valeur basée sur la valeur de l’en-tête x-forwarded-for, un en-tête non standard qui peut être inclus dans basées sur demande et est pris en charge par nombreux clients, les équilibreurs de charge, et proxys sur le marché.
+  - Plusieurs adresses IP indiquant l’adresse IP du client et l’adresse de chaque proxy qui a transmis la demande doivent être séparés par une virgule.
 
     >! [Remarque] Les adresses IP liées à l’infrastructure Exchange Online ne seront pas présents dans la liste.
 

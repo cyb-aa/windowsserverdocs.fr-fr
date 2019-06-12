@@ -11,12 +11,12 @@ ms.assetid: 0c66f1c8-2606-43a3-b4cc-166acaaf2d2a
 author: shirgall
 ms.author: kathydav
 ms.date: 01/09/2017
-ms.openlocfilehash: 1a8efb4a991169258d6a11999513ce97d98130eb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6320ceb86093146592a54ab34b013f334f43ddb4
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816950"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447777"
 ---
 # <a name="best-practices-for-running-freebsd-on-hyper-v"></a>Meilleures pratiques pour l’exécution de FreeBSD sur Hyper-V
 
@@ -70,11 +70,10 @@ Lors du démarrage, les nœuds de l’appareil sont créés que de nouveaux appa
    # Device                Mountpoint      FStype  Options         Dump    Pass#
    /dev/label/rootfs       /               ufs     rw              1       1
    /dev/label/swap         none            swap    sw              0       0
-
    ```
 
-4.  Le système peut maintenant être redémarré. Si tout s’est bien passé, il s’allumera normalement et montage s’affichera :
-   
+4. Le système peut maintenant être redémarré. Si tout s’est bien passé, il s’allumera normalement et montage s’affichera :
+
    ```
    # mount
    /dev/label/rootfs on / (ufs, local, journaled soft-updates)

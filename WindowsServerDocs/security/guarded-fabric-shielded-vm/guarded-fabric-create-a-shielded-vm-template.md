@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/29/2019
-ms.openlocfilehash: e00322186ea34784048366bf17881af742cb4444
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d9f07d2e6e93d4f8d198c2fc3b62c28c940bdefb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853690"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447511"
 ---
 # <a name="create-a-windows-shielded-vm-template-disk"></a>Créer un disque de modèle de machine virtuelle protégé Windows
 
@@ -27,7 +27,7 @@ Pour comprendre comment cette rubrique s’intègre dans le processus de déploi
 
 Tout d’abord préparer un disque de système d’exploitation que vous exécuterez ensuite via l’Assistant Création de disque protégé du modèle. Ce disque sera utilisé en tant que le disque du système d’exploitation sur des machines virtuelles de votre client. Vous pouvez utiliser les outils existants pour créer ce disque, telles que Microsoft Desktop Image Service Manager (DISM), ou configurer une machine virtuelle avec un VHDX vide et installer manuellement le système d’exploitation sur ce disque. Lorsque vous configurez le disque, il doit respecter les conditions suivantes qui sont spécifiques à la génération 2 et/ou machines virtuelles protégées : 
 
-| Configuration requise pour le VHDX | Raison |
+| Configuration requise pour le VHDX | Reason |
 |-----------|----|
 |Doit être un disque de Table de Partition GUID (GPT) | Nécessaire pour les machines virtuelles de génération 2 prendre en charge d’UEFI|
 |Type de disque doit être **base** par opposition à **dynamique**. <br>Remarque: Cela vaut pour le type de disque logique, pas dans la « taille dynamique » fonctionnalité VHDX pris en charge par Hyper-V. | BitLocker ne prend pas en charge les disques dynamiques.|
@@ -163,10 +163,10 @@ Save-VolumeSignatureCatalog -TemplateDiskPath 'C:\temp\MyLinuxTemplate.vhdx' -Vo
 
 ## <a name="next-step"></a>Étape suivante
 
->[!div class="nextstepaction"]
-[Créer un fichier de données de protection](guarded-fabric-tenant-creates-shielding-data.md)
+> [!div class="nextstepaction"]
+> [Créer un fichier de données de protection](guarded-fabric-tenant-creates-shielding-data.md)
 
 ## <a name="see-also"></a>Voir aussi
 
 - [Hébergement des étapes de configuration de fournisseur de service pour les hôtes service Guardian et des machines virtuelles protégées](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
-- [Structure protégée et machines virtuelles protégées](guarded-fabric-and-shielded-vms-top-node.md)
+- [Structure protégée et machines virtuelles dotées d’une protection maximale](guarded-fabric-and-shielded-vms-top-node.md)

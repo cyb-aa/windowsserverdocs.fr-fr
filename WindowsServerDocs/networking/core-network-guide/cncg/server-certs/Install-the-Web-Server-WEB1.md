@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: f51c9e38-98bb-49c1-9d39-427d07021499
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ef4f10a6ac1998850758f2c9db86bfd950c1ad70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 15da16094a47a2492dc9054e0671c3709fe23362
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833280"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446453"
 ---
 # <a name="install-the-web-server-web1"></a>Installer le serveur Web WEB1
 
@@ -40,8 +40,8 @@ Pour réaliser cette procédure, vous devez être membre du groupe **Administrat
 **Remarque**   
 Le **avant de commencer** page d’ajout de rôles et fonctionnalités Assistant s’affiche pas si vous avez précédemment exécuté l’ajout de rôles et fonctionnalités Assistant et que vous avez sélectionné **ignorer cette page par défaut** à ce moment-là.  
 
-3.  Dans la page **Type d’installation** , cliquez sur **Suivant**.  
-4.  Sur le **sélection du serveur** , cliquez sur **suivant**.  
-5.  Sur le **rôles serveur** page, sélectionnez **serveur Web (IIS)**, puis cliquez sur **suivant**.  
-6.  Cliquez sur **Suivant** plusieurs fois afin d’accepter tous les paramètres par défaut du serveur Web, puis cliquez sur **Installer**.  
-7.  Vérifiez que toutes les installations ont réussi, puis cliquez sur **Fermer**.
+3. Dans la page **Type d’installation** , cliquez sur **Suivant**.  
+4. Sur le **sélection du serveur** , cliquez sur **suivant**.  
+5. Sur le **rôles serveur** page, sélectionnez **serveur Web (IIS)** , puis cliquez sur **suivant**.  
+6. Cliquez sur **Suivant** plusieurs fois afin d’accepter tous les paramètres par défaut du serveur Web, puis cliquez sur **Installer**.  
+7. Vérifiez que toutes les installations ont réussi, puis cliquez sur **Fermer**.

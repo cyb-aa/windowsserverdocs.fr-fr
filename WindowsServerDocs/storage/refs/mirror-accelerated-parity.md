@@ -8,12 +8,12 @@ ms.topic: article
 author: gawatu
 ms.date: 10/17/2018
 ms.assetid: ''
-ms.openlocfilehash: ba7454f58255ba7a66624a5c59b062da9f871063
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0f4fb73941c5d6667d3c13356b6f29178d73788f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865940"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447682"
 ---
 # <a name="mirror-accelerated-parity"></a>Parité accélérée grâce à la mise en miroir
 
@@ -100,12 +100,12 @@ La compression ReFS résout ces problèmes de performances en libérant de l’e
 ### <a name="performance-counters"></a>Compteurs de performances
 
 ReFS gère des compteurs de performance afin de vous aider à évaluer les performances de la parité accélérée grâce à la mise en miroir. 
--   Comme décrit ci-avant dans la section « Écritures dans l’espace de parité », ReFS écrira directement les données dans l’espace de parité s’il ne peut pas trouver d’espace libre en miroir. En règle générale, cela se produit lorsque le niveau en miroir se remplit plus rapidement que ReFS ne peut effectuer la rotation de données vers l’espace de parité. En d’autres termes, lorsque la rotation ReFS n’arrive pas à suivre le taux d’ingestion. Les compteurs de performances ci-dessous identifient les cas où ReFS écrit directement dans l’espace de parité :
-```
-ReFS\Data allocations slow tier/sec
-ReFS\Metadata allocations slow tier/sec
-```
--   Si ces compteurs indiquent une valeur non nulle, cela indique que ReFS n’effectue pas assez vite la rotation des données depuis l’espace en miroir. Pour résoudre ce problème, vous pouvez soit modifier l’intensité de la rotation, soit augmenter la taille du niveau en miroir.
+- Comme décrit ci-avant dans la section « Écritures dans l’espace de parité », ReFS écrira directement les données dans l’espace de parité s’il ne peut pas trouver d’espace libre en miroir. En règle générale, cela se produit lorsque le niveau en miroir se remplit plus rapidement que ReFS ne peut effectuer la rotation de données vers l’espace de parité. En d’autres termes, lorsque la rotation ReFS n’arrive pas à suivre le taux d’ingestion. Les compteurs de performances ci-dessous identifient les cas où ReFS écrit directement dans l’espace de parité :
+  ```
+  ReFS\Data allocations slow tier/sec
+  ReFS\Metadata allocations slow tier/sec
+  ```
+- Si ces compteurs indiquent une valeur non nulle, cela indique que ReFS n’effectue pas assez vite la rotation des données depuis l’espace en miroir. Pour résoudre ce problème, vous pouvez soit modifier l’intensité de la rotation, soit augmenter la taille du niveau en miroir.
 
 ### <a name="rotation-aggressiveness"></a>Intensité de rotation
 

@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 93cee5b8e3611a264119947103d22d9aa3b9a56b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 66e36a349fc6bd38a77ccf4f00d380788ea4b422
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834390"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445954"
 ---
 # <a name="develop-a-gateway-plugin"></a>Développer un plug-in de passerelle
 
@@ -69,7 +69,7 @@ Une fois que le processus d’administration de Windows redémarre, vous pourrez
 
 ### <a name="optional-attach-to-plugin-for-debugging"></a>Facultatif : Attacher au plug-in pour le débogage
 
-Dans Visual Studio 2017, dans le menu Déboguer, sélectionnez « Attacher au processus ». Dans la fenêtre suivante, faites défiler la liste processus disponibles et sélectionnez SMEDesktop.exe, puis cliquez sur « Joindre ». Une fois le débogueur démarre, vous pouvez placer un point d’arrêt dans votre code de fonctionnalité et d’un exercice puis par le biais du format d’URL ci-dessus. Pour notre exemple de projet (nom de la fonctionnalité : « Exemple Uno ») l’URL est : « http://localhost:6516/api/nodes/fake-server.my.domain.com/features/Sample%20Uno»
+Dans Visual Studio 2017, dans le menu Déboguer, sélectionnez « Attacher au processus ». Dans la fenêtre suivante, faites défiler la liste processus disponibles et sélectionnez SMEDesktop.exe, puis cliquez sur « Joindre ». Une fois le débogueur démarre, vous pouvez placer un point d’arrêt dans votre code de fonctionnalité et d’un exercice puis par le biais du format d’URL ci-dessus. Pour notre exemple de projet (nom de la fonctionnalité : « Exemple Uno ») l’URL est : «<http://localhost:6516/api/nodes/fake-server.my.domain.com/features/Sample%20Uno>»
 
 ## <a name="create-a-tool-extension-with-the-windows-admin-center-cli"></a>Créer une extension de l’outil avec l’interface CLI de Windows Admin Center ##
 
@@ -104,8 +104,8 @@ Une fois cette opération terminée, vous avez configuré tous les éléments qu
 
 Maintenant que vous avez créé une extension avec l’interface CLI de Windows Admin Center, vous êtes prêt à vous connecter votre extension de l’outil pour votre plug-in passerelle personnalisée, procédez comme suit :
 
-- Ajouter un [module vide](guides\add-module.md)
-- Utilisez votre [plug-in de la passerelle personnalisée](guides\use-custom-gateway-plugin.md) dans votre extension de l’outil
+- Ajouter un [module vide](guides/add-module.md)
+- Utilisez votre [plug-in de la passerelle personnalisée](guides/use-custom-gateway-plugin.md) dans votre extension de l’outil
  
 ## <a name="build-and-side-load-your-extension"></a>Génération et côté chargent votre extension
 

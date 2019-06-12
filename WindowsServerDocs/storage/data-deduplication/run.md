@@ -8,12 +8,12 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
-ms.openlocfilehash: 0421faaa910a1d679d809b88c0b4d2c94ba694b3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2e2e4975c4ab9ebb7ec68834f380255292426393
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852470"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447226"
 ---
 # <a name="running-data-deduplication"></a>Exécution de la déduplication des données
 
@@ -49,10 +49,10 @@ Start-DedupJob -Type Optimization -Volume <Your-Volume-Here> -Memory 100 -Cores 
 
 Un taux d’optimisation qui tend vers le bas indique un échec du [travail d’optimisation](understand.md#job-info-optimization), qui peut signifier que le travail d’optimisation ne parvient pas à suivre le rythme des modifications (ou l’activité). Vous pouvez vérifier le taux d’optimisation à l’aide de l’applet de commande PowerShell [`Get-DedupStatus`](https://technet.microsoft.com/library/hh848437.aspx).
 
-> [!Important]  
+> [!Important]
 > `Get-DedupStatus` comporte deux champs qui sont pertinents pour le taux d’optimisation : `OptimizedFilesSavingsRate` et `SavingsRate`. Ce sont les deux valeurs importantes à suivre, mais chacune a une signification unique.
-- `OptimizedFilesSavingsRate` s’applique uniquement aux fichiers qui sont « stratégie » pour l’optimisation (`space used by optimized files after optimization / logical size of optimized files`).
-- `SavingsRate` s’applique à la totalité du volume (`space used by optimized files after optimization / total logical size of the optimization`).
+> - `OptimizedFilesSavingsRate` s’applique uniquement aux fichiers qui sont « stratégie » pour l’optimisation (`space used by optimized files after optimization / logical size of optimized files`).
+> - `SavingsRate` s’applique à la totalité du volume (`space used by optimized files after optimization / total logical size of the optimization`).
 
 ## <a id="disabling-dedup"></a>La désactivation de la déduplication des données
 Pour désactiver la déduplication des données, exécutez le [travail d’annulation de l’optimisation](understand.md#job-info-unoptimization). Pour annuler l’optimisation du volume, exécutez la commande suivante :

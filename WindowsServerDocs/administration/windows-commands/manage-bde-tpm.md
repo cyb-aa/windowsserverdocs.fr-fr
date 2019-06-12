@@ -13,43 +13,45 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f2b8390d49257c3c6acd9ed4fd45773e5a65aac4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0d41c846034ad421d0da81bda57acbcd419c1ae1
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840580"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437390"
 ---
 # <a name="manage-bde-tpm"></a>gérer-bde : module de plateforme sécurisée
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
+> S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> 
 > [!IMPORTANT]
-> Cette commande n’est pas pris en charge pour une utilisation sur les ordinateurs exécutant Windows 8, Windows Server 2012 ou des systèmes d’exploitation ultérieurs. Pour ces ordinateurs, vous pouvez utiliser la [applets de commande de gestion du module de plateforme sécurisée pour Windows PowerShell](https://technet.microsoft.com/library/jj603116.aspx).
-Si vous utilisez cette commande sur l’ordinateur qui exécute Windows 7 ou Windows Server 2008, vous pouvez toujours configurer Trusted Platform Module (TPM l’ordinateur) à l’aide de cette commande. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
-## <a name="syntax"></a>Syntaxe
-```
-manage-bde -tpm [-turnon] [-takeownership <OwnerPassword>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
-```
-### <a name="parameters"></a>Paramètres
-|Paramètre|Description|
-|-------|--------|
-|-Activer|Active et Active le module TPM, le mot de passe du propriétaire TPM à définir. Vous pouvez également utiliser **-t** comme une version abrégée de cette commande.|
-|-takeownership|Prend possession du module TPM en définissant un mot de passe de propriétaire. Vous pouvez également utiliser **-o** comme une version abrégée de cette commande.|
-|<OwnerPassword>|Représente le mot de passe de propriétaire que vous spécifiez pour le module de plateforme sécurisée.|
-|-computername|Spécifie que bde.exe gérer permet de modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **- cn** comme une version abrégée de cette commande.|
-|<Name>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|
-|-? ou /?|Affiche un résumé aide à l’invite de commandes.|
-|-help ou-h|Affiche une aide à l’invite de commande complète.|
-## <a name="BKMK_Examples"></a>Exemples
-L’exemple suivant illustre l’utilisation de la **- tpm** commande pour activer le TPM.
-```
-manage-bde  tpm -turnon
-```
-L’exemple suivant illustre l’utilisation de la ** commande tpm ** pour prendre possession du module TPM et de définir le mot de passe de propriétaire sur 0wnerP@ss.
-```
-manage-bde  tpm  takeownership 0wnerP@ss
-```
-## <a name="additional-references"></a>Références supplémentaires
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
--   [manage-bde](manage-bde.md)
+> Cette commande n’est pas pris en charge pour une utilisation sur les ordinateurs exécutant Windows 8, Windows Server 2012 ou des systèmes d’exploitation ultérieurs. Pour ces ordinateurs, vous pouvez utiliser la [applets de commande de gestion du module de plateforme sécurisée pour Windows PowerShell](https://docs.microsoft.com/en-us/powershell/module/trustedplatformmodule/).
+> Si vous utilisez cette commande sur l’ordinateur qui exécute Windows 7 ou Windows Server 2008, vous pouvez toujours configurer Trusted Platform Module (TPM l’ordinateur) à l’aide de cette commande. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+> ## <a name="syntax"></a>Syntaxe
+> ```
+> manage-bde -tpm [-turnon] [-takeownership <OwnerPassword>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
+> ```
+> ### <a name="parameters"></a>Paramètres
+> 
+> |    Paramètre    |                                                                              Description                                                                               |
+> |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> |     -Activer     |              Active et Active le module TPM, le mot de passe du propriétaire TPM à définir. Vous pouvez également utiliser **-t** comme une version abrégée de cette commande.              |
+> | -takeownership  |                      Prend possession du module TPM en définissant un mot de passe de propriétaire. Vous pouvez également utiliser **-o** comme une version abrégée de cette commande.                       |
+> | <OwnerPassword> |                                                      Représente le mot de passe de propriétaire que vous spécifiez pour le module de plateforme sécurisée.                                                       |
+> |  -computername  | Spécifie que bde.exe gérer permet de modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **- cn** comme une version abrégée de cette commande. |
+> |     <Name>      |    Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.     |
+> |    -? ou /?     |                                                               Affiche un résumé aide à l’invite de commandes.                                                               |
+> |   -help ou-h   |                                                             Affiche une aide à l’invite de commande complète.                                                              |
+> 
+> ## <a name="BKMK_Examples"></a>Exemples
+> L’exemple suivant illustre l’utilisation de la **- tpm** commande pour activer le TPM.
+> ```
+> manage-bde  tpm -turnon
+> ```
+> L’exemple suivant illustre l’utilisation de la **tpm** commande pour prendre possession du module TPM et de définir le mot de passe de propriétaire sur 0wnerP@ss.
+> ```
+> manage-bde  tpm  takeownership 0wnerP@ss
+> ```
+> ## <a name="additional-references"></a>Références supplémentaires
+> -   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+> -   [manage-bde](manage-bde.md)

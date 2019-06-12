@@ -7,12 +7,12 @@ author: daniellee-msft
 ms.author: jol
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: c775dd5a3011115bbb031c0b9e4e24a8911d378e
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 9038fd480ed105aed3949b0c48dffc7eab94f970
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63748408"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445892"
 ---
 # <a name="install-and-manage-extensions"></a>Installer et gérer des Extensions
 
@@ -58,7 +58,7 @@ Si Windows Admin Center est installé sur un ordinateur qui n’est pas connect�
 
 1. Sur un autre ordinateur qui dispose d’une connectivité internet, ouvrez un navigateur web et accédez à l’URL suivante : [https://msft-sme.myget.org/gallery/windows-admin-center-feed](https://msft-sme.myget.org/gallery/windows-admin-center-feed) 
 
-  * Vous devrez peut-être créer un compte sur msft-sme.myget.org et de connexion pour afficher les packages d’extension.
+   * Vous devrez peut-être créer un compte sur msft-sme.myget.org et de connexion pour afficher les packages d’extension.
 
 2. Cliquez sur le nom du package que vous souhaitez installer pour afficher la page Détails du package.
 3. Cliquez sur le **télécharger** lien dans le volet de droite de la page de détails du package et de télécharger le fichier .nupkg pour l’extension.

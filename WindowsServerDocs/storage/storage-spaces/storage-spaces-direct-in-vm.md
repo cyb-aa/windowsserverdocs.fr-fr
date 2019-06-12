@@ -9,12 +9,12 @@ author: eldenchristensen
 ms.date: 10/25/2017
 description: Comment déployer des espaces de stockage Direct dans un cluster invité de machine virtuelle, par exemple, dans Microsoft Azure.
 ms.localizationpriority: medium
-ms.openlocfilehash: a741475d09ab7f7ab29f158ef55378ca9a37beac
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b99e750b78654df48ad3b412269511d047e3057c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841020"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447812"
 ---
 # <a name="using-storage-spaces-direct-in-guest-virtual-machine-clusters"></a>À l’aide d’espaces de stockage Direct dans les clusters invités de machine virtuelle
 
@@ -81,4 +81,4 @@ Les considérations suivantes s’appliquent lors du déploiement d’espaces de
 
 [Autres modèles de machine virtuelle Azure Iaas pour déployer des espaces de stockage Direct, des vidéos et des guides étape par étape](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/).
 
-[Vue d’ensemble de diriger les espaces de stockage supplémentaires] (https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
+[Vue d’ensemble des espaces de stockage supplémentaire Direct](https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview)

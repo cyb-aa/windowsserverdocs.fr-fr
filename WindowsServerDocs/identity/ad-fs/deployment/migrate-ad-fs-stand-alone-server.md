@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 10371349fe19be92fb997c9c28f19def0ecad7e9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5526afa758a142e30b9a238b4c7204cacebb1812
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851930"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444554"
 ---
 # <a name="migrate-a-stand-alone-ad-fs-federation-server-or-a-single-node-ad-fs-farm"></a>Migrer un serveur de fédération AD FS autonome ou une batterie de serveurs AD FS à nœud unique  
 Ce document fournit des informations détaillées sur la migration d’un serveur autonome de AD FS 2.0 support vers Windows Server 2012.
@@ -29,7 +29,7 @@ Utilisez la procédure suivante pour migrer les services AD FS 2.0 server vers W
 > [!IMPORTANT]
 >  En tant que le résultat de la mise à niveau du système d’exploitation, la configuration AD FS sur ce serveur est perdue et le rôle de serveur 2.0 AD FS est supprimé. Le rôle de serveur AD FS de Windows Server 2012 est installé à la place, mais il n’est pas configuré. Vous devez manuellement créer la configuration AD FS d’origine et restaurer les paramètres AD FS restants pour terminer la migration de serveur de fédération.  
   
-3.  Créez la configuration AD FS d’origine. Vous pouvez créer la configuration AD FS d’origine à l’aide d’une des méthodes suivantes :  
+3. Créez la configuration AD FS d’origine. Vous pouvez créer la configuration AD FS d’origine à l’aide d’une des méthodes suivantes :  
   
 -   Utilisez le **Assistant Configuration du serveur de fédération AD FS** pour créer un nouveau serveur de fédération. Pour plus d'informations, consultez [Créer le premier serveur de fédération dans une batterie de serveurs de fédération](Create-the-First-Federation-Server-in-a-Federation-Server-Farm.md).  
   
@@ -52,14 +52,14 @@ Dans l'Assistant, utilisez comme suit les informations que vous avez collectées
   
 Voici un exemple montrant comment utiliser Windows PowerShell pour créer la configuration AD FS d’origine sur un serveur de fédération dans une batterie de serveurs SQL Server à nœud unique.  Ouvrez le module Windows PowerShell et exécutez la commande suivante : `$fscredential = Get-Credential`. Entrez le nom et le mot de passe du compte de service que vous avez enregistré pendant la préparation de la migration de votre batterie de SQL Server. Puis exécutez la commande suivante : `C:\PS> Add-AdfsFarmNode -ServiceAccountCredential $fscredential -SQLConnectionString "Data Source=<Data Source>;Integrated Security=True"` où `Data Source` est la valeur de source de données dans la valeur de chaîne de connexion de magasin de stratégies dans le fichier suivant : `%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config`.  
   
-4.  Restaurez les paramètres de service AD FS restants et les relations d'approbation. Il s'agit d'une étape manuelle pendant laquelle vous pouvez utiliser les fichiers que vous avez exportés et les valeurs que vous avez collectées pendant la préparation de la migration AD FS. Pour obtenir des instructions détaillées, consultez « Restauration de la configuration restante de la batterie AD FS ».  
+4. Restaurez les paramètres de service AD FS restants et les relations d'approbation. Il s'agit d'une étape manuelle pendant laquelle vous pouvez utiliser les fichiers que vous avez exportés et les valeurs que vous avez collectées pendant la préparation de la migration AD FS. Pour obtenir des instructions détaillées, consultez « Restauration de la configuration restante de la batterie AD FS ».  
   
 > [!NOTE]
 >  Cette étape n'est nécessaire que si vous migrez un serveur de fédération autonome ou une batterie à nœud unique utilisant la base de données interne Windows.  Si le serveur de fédération utilise une base de données SQL Server comme magasin de configuration, les paramètres de service et les relations d'approbation sont conservés dans la base de données.  
   
-5.  Mettre à jour vos pages Web AD FS. Il s'agit d'une étape manuelle. Si vous avez sauvegardé vos pages Web AD FS personnalisées pendant la préparation de la migration, utiliser vos données de sauvegarde pour remplacer les pages Web AD FS qui ont été créés par défaut dans le **%systemdrive%\inetpub\adfs\ls** répertoire comme résultat de la configuration AD FS sur Windows Server 2012.  
+5. Mettre à jour vos pages Web AD FS. Il s'agit d'une étape manuelle. Si vous avez sauvegardé vos pages Web AD FS personnalisées pendant la préparation de la migration, utiliser vos données de sauvegarde pour remplacer les pages Web AD FS qui ont été créés par défaut dans le **%systemdrive%\inetpub\adfs\ls** répertoire comme résultat de la configuration AD FS sur Windows Server 2012.  
   
-6.  Restaurez toutes les personnalisations AD FS restantes, telles que les magasins d'attributs personnalisés.  
+6. Restaurez toutes les personnalisations AD FS restantes, telles que les magasins d'attributs personnalisés.  
   
 ## <a name="restoring-the-remaining-ad-fs-farm-configuration"></a>Restauration de la Configuration de batterie de serveurs FS AD restante  
   
@@ -91,7 +91,7 @@ Pour modifier les certificats de signature de jetons ou de déchiffrement de jet
  [Préparer la migration du serveur Proxy pour AD FS 2.0 de fédération](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Migrer le serveur AD FS 2.0 de fédération](migrate-the-ad-fs-fed-server.md)   
  [Migrer le serveur Proxy AD FS 2.0 de fédération](migrate-the-ad-fs-2-fed-server-proxy.md)   
- [Migrer les Agents de 1.1 Web AD FS](migrate-the-ad-fs-web-agent.md)
+ [Migrer les agents web AD FS 1.1](migrate-the-ad-fs-web-agent.md)
 
 
 

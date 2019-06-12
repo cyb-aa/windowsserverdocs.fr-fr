@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4cad6607e13d2657433e4e78ce8e65beff73aa9d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d237f4d6d3562e3787efe28ca98f9dc553d74898
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857510"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440754"
 ---
 # <a name="uniqueid"></a>uniqueid
 
@@ -37,10 +37,10 @@ uniqueid disk [id={<dword> | <GUID>}] [noerr]
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|id={\<dword> | <GUID>}|Pour les disques MBR, spécifie une valeur (DWORD) de quatre octets au format hexadécimal pour la signature.</br>Pour les disques GPT, spécifie un GUID pour l’identificateur.|
-|NOERR|Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.|
+|  Paramètre   |                                                                                             Description                                                                                              |
+|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id={\<dword> |                                                                                               <GUID>}                                                                                                |
+|    NOERR     | Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart. |
 
 ## <a name="remarks"></a>Notes
 

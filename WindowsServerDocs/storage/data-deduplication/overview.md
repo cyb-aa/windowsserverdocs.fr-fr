@@ -8,12 +8,12 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 05/09/2017
-ms.openlocfilehash: 4376dbb2c172a82c4ab64dc63acefbc37457110f
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: bf346844337740f7585070ff78de4e7f61f25624
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476041"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447261"
 ---
 # <a name="data-deduplication-overview"></a>Vue d’ensemble de la déduplication des données
 
@@ -69,7 +69,7 @@ Les serveurs VDI, comme les <a href="https://technet.microsoft.com/library/cc725
                     <li><b>Accès à distance</b>: Accessibles aux utilisateurs des applications d’entreprise à partir d’appareils tels que les ordinateurs domestiques, bornes, le matériel de faible puissance alimenté et systèmes d’exploitation autres que Windows.</li>
                     <li><b>Accès aux filiales</b>: Déploiements VDI peuvent fournir de meilleures performances d’application pour la branche des employés de bureau qui doivent accéder aux magasins de données centralisés. Les applications gourmandes en données ne disposent parfois pas de protocoles client/serveur optimisés pour les connexions lentes.</li>
                 </ul>
-Les déploiements VDI conviennent parfaitement à la déduplication des données, car les disques durs virtuels qui pilotent les postes de travail à distance pour les utilisateurs sont globalement identiques. De plus, la déduplication des données peut être utile face à aux *tempêtes VDI de démarrage*, à savoir la chute des performances de stockage au moment où un grand nombre d’utilisateurs se connectent simultanément à leur ordinateur en début de journée.
+Les déploiements VDI conviennent parfaitement à la déduplication des données, car les disques durs virtuels qui pilotent les postes de travail à distance pour les utilisateurs sont globalement identiques. De plus, la déduplication des données peut être utile face à aux <em>tempêtes VDI de démarrage</em>, à savoir la chute des performances de stockage au moment où un grand nombre d’utilisateurs se connectent simultanément à leur ordinateur en début de journée.
             </td>
         </tr>
         <tr>
@@ -83,7 +83,7 @@ Les applications de sauvegarde, telles que <a href="https://technet.microsoft.co
             <td style="text-align:center;min-width:150px;vertical-align:center;"><img src="media/overview-other.png" alt="Illustration of other workloads" /></td>
             <td style="vertical-align:top">
                 <b>Autres charges de travail</b><br />
-                [D’autres charges de travail peuvent également convenir parfaitement à la déduplication des données](install-enable.md#enable-dedup-candidate-workloads).
+                <a href="install-enable.md#enable-dedup-candidate-workloads" data-raw-source="[Other workloads may also be excellent candidates for Data Deduplication](install-enable.md#enable-dedup-candidate-workloads)">D’autres charges de travail peuvent également convenir parfaitement à la déduplication des données</a>.
             </td>
         </tr>
     </tbody>

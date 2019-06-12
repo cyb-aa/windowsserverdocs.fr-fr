@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: 8e05043d029636ddeb3a24349897ac61a713b2a7
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: 9883d337520c3920f8638ddfe5f6bd393e31fd2f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034110"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442862"
 ---
 # <a name="perform-initial-recovery"></a>Effectuer une récupération initiale  
 
@@ -126,7 +126,7 @@ Après la validation, joindre les contrôleurs de domaine pour le réseau de pro
 
 - Pour corriger la résolution de noms, créer des enregistrements de délégation DNS et configurer les indications de racine et de transfert DNS en fonction des besoins. Exécutez **repadmin /replsum** pour vérifier la réplication entre contrôleurs de domaine. 
 - Si le contrôleur de domaine restauré n’est pas des partenaires de réplication directe, récupération de la réplication sera beaucoup plus rapide en créant des objets de connexion temporaire entre eux. 
-- Pour valider le nettoyage des métadonnées, exécutez **Repadmin /viewlist \***  pour obtenir la liste de tous les contrôleurs de domaine dans la forêt. Exécutez **Nltest /DCList :** *< domaine\>*  pour obtenir la liste de tous les contrôleurs de domaine dans le domaine. 
+- Pour valider le nettoyage des métadonnées, exécutez **Repadmin /viewlist \\** * pour obtenir la liste de tous les contrôleurs de domaine dans la forêt. Exécutez **Nltest /DCList :** *< domaine\>*  pour obtenir la liste de tous les contrôleurs de domaine dans le domaine. 
 - Pour vérifier l’intégrité du contrôleur de domaine et DNS, exécutez DCDiag /v pour signaler des erreurs sur tous les contrôleurs de domaine dans la forêt. 
 
 ## <a name="add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain"></a>Ajouter le catalogue global à un contrôleur de domaine dans le domaine racine de forêt

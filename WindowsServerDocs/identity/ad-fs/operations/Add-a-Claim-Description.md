@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 454d261aa520778a6129ac9809f53894937b036a
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 1023ca7da02d2a1f6af42f68892dc4c5c8f1a2bf
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190142"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444368"
 ---
 # <a name="add-a-claim-description"></a>Ajouter une description de revendication
 
@@ -31,27 +31,29 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 
 1. Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion AD FS**. 
 
-2.  Développez **Service** et sur le bouton droit sur **ajouter une Description de revendication**.
-![add claim description](media\Add-a-Claim-Description\claimdesc1.png)
+2. Développez **Service** et sur le bouton droit sur **ajouter une Description de revendication**.
+   ![add claim description](media/Add-a-Claim-Description/claimdesc1.png)
 
-3.  Sur l’ajout d’un Description de revendication boîte de dialogue **nom d’affichage**, tapez un nom unique qui identifie le groupe ou du rôle de cette revendication.
+3. Sur l’ajout d’un Description de revendication boîte de dialogue **nom d’affichage**, tapez un nom unique qui identifie le groupe ou du rôle de cette revendication.
 
-4.  Ajouter un **nom abrégé**.
+4. Ajouter un **nom abrégé**.
 
-5.  Dans **revendication d’identificateur**, tapez un URI qui est associé avec le groupe ou du rôle de la revendication que vous souhaitez utiliser.
+5. Dans **revendication d’identificateur**, tapez un URI qui est associé avec le groupe ou du rôle de la revendication que vous souhaitez utiliser.
 
-6.  Sous **Description**, tapez le texte qui décrit le mieux l’objectif de cette revendication.
+6. Sous **Description**, tapez le texte qui décrit le mieux l’objectif de cette revendication.
 
-7.  Selon les besoins de votre organisation, sélectionnez une des cases à cocher suivantes, si nécessaire, pour publier cette revendication dans les métadonnées de fédération :
+7. Selon les besoins de votre organisation, sélectionnez une des cases à cocher suivantes, si nécessaire, pour publier cette revendication dans les métadonnées de fédération :
 
 
-    - Pour publier cette revendication partenaires prenant en charge que ce serveur peut recevoir cette revendication, cliquez sur **publier cette revendication dans les métadonnées de fédération en tant que type de revendication ce Service de fédération peut accepter**.
-    - Pour publier cette revendication partenaires prenant en charge que ce serveur peut émettre cette revendication, cliquez sur **publier cette revendication dans les métadonnées de fédération comme un type de revendication que ce Service de fédération peut envoyer**.
+~~~
+- To publish this claim to make partners aware that this server can accept this claim, click **Publish this claim in federation metadata as a claim type that this Federation Service can accept**.
+- To publish this claim to make partners aware that this server can issue this claim, click **Publish this claim in federation metadata as a claim type that this Federation Service can send**.
+~~~
 
-8.  Cliquez sur **OK**.
+8. Cliquez sur **OK**.
 
-![Ajouter une description de revendication](media\Add-a-Claim-Description\claimdesc2.png)
+![Ajouter une description de revendication](media/Add-a-Claim-Description/claimdesc2.png)
 
-  
+
 ## <a name="see-also"></a>Voir aussi  
 [Opérations d’AD FS](../../ad-fs/AD-FS-2016-Operations.md) 

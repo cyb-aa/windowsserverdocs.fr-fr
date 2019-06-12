@@ -9,12 +9,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: d16447425b86fef979732c4785db27d1542116b8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d3b5f3eee338128fb424c28e7280bb7f543c9f58
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840170"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443000"
 ---
 # <a name="introduction-to-active-directory-administrative-center-enhancements-level-100"></a>Introduction to Active Directory Administrative Center Enhancements (Level 100)
 
@@ -56,9 +56,9 @@ Si vous prévoyez d’activer la Corbeille Active Directory dans Windows Server,
 Dans les étapes suivantes, vous allez utiliser ADAC pour effectuer les tâches suivantes de la Corbeille Active Directory dans Windows Server 2012 :
 
 - [Étape 1 : Augmenter le niveau fonctionnel de forêt](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_raise_ffl)
-- [Étape 2 : Activer la Corbeille](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_enable_recycle_bin)
-- [Étape 3 : Créer des utilisateurs de test, de groupe et d’unité d’organisation](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_test_env)
-- [Étape 4 : Restaurer des objets supprimés](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_restore_del_obj)
+- [Étape 2 : Activer la Corbeille](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_enable_recycle_bin)
+- [Étape 3 : Créer des utilisateurs de test, de groupe et d’unité d’organisation](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_test_env)
+- [Étape 4 : Restaurer des objets supprimés](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_restore_del_obj)
 
 > [!NOTE]
 > Pour effectuer les étapes suivantes, vous devez appartenir au groupe Administrateurs de l’entreprise ou posséder des autorisations équivalentes.
@@ -75,7 +75,7 @@ Dans cette étape, vous allez augmenter le niveau fonctionnel de la forêt. Vous
 
 3. Cliquez sur le domaine cible dans le volet de navigation gauche et, dans le volet **Tâches** , cliquez sur **Augmenter le niveau fonctionnel de la forêt**. Sélectionnez un niveau fonctionnel de forêt qui est au moins Windows Server 2008 R2 ou version ultérieure, puis **OK**.
 
-![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***
+![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -99,7 +99,7 @@ Dans cette étape, vous allez activer la corbeille pour restaurer des objets sup
 
 4. Appuyez sur F5 pour actualiser le Centre d’administration Active Directory.
 
-![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***
+![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -142,7 +142,7 @@ Dans les procédures suivantes, vous allez créer deux utilisateurs test. Vous c
 5. Cliquez sur **group1**, puis, sous le volet **Tâches** , cliquez sur **Propriétés**.
 6. Cliquez sur **Membres**et sur **Ajouter**, tapez **test1;test2**, puis cliquez sur **OK**.
 
-![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***
+![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -159,7 +159,7 @@ Add-ADGroupMember -Identity group1 -Member test1
 
    - **NameOU1**
 
-![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***
+![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -167,7 +167,6 @@ L'applet ou les applets de commande Windows PowerShell suivantes remplissent la 
 1..2 | ForEach-Object {New-ADUser -SamAccountName test$_ -Name "test$_" -Path "DC=fabrikam,DC=com" -AccountPassword (ConvertTo-SecureString -AsPlainText "p@ssword1" -Force) -Enabled $true}
 New-ADGroup -Name "group1" -SamAccountName group1 -GroupCategory Security -GroupScope Global -DisplayName "group1"
 New-ADOrganizationalUnit -Name OU1 -Path "DC=fabrikam,DC=com"
-
 ```
 
 ### <a name="bkmk_restore_del_obj"></a>Étape 4 : restaurer les objets supprimés
@@ -182,7 +181,7 @@ Dans les procédures suivantes, vous allez restaurer des objets supprimés à pa
 
 3. Sélectionnez les utilisateurs **test1** et **test2**, cliquez sur **Supprimer** dans le volet **Tâches** , puis cliquez sur **Oui** pour confirmer la suppression.
 
-    ![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***
+    ![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***
 
     L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -199,7 +198,7 @@ Dans les procédures suivantes, vous allez restaurer des objets supprimés à pa
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
-![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***
+![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***
 
 ```powershell
 Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADObject
@@ -219,7 +218,7 @@ Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADOb
 
 6. Pour confirmer que les objets ont été restaurés sur **OU1**, accédez au domaine cible, double-cliquez sur **OU1** et vérifiez que les comptes d’utilisateurs sont répertoriés.
 
-![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***
+![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -253,9 +252,9 @@ Si vous envisagez d’utiliser des stratégies de mot de passe affinées dans Wi
 Dans les étapes suivantes, vous utiliserez le Centre d’administration Active Directory pour effectuer les tâches suivantes relatives aux stratégies de mot de passe affinées :
 
 - [Étape 1 : Augmenter le niveau fonctionnel de domaine](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_raise_dfl)
-- [Étape 2 : Créer des utilisateurs de test, de groupe et d’unité d’organisation](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk2_test_fgpp)
-- [Étape 3 : Créer une nouvelle stratégie de mot de passe affinées](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp)
-- [Étape 4 : Afficher un jeu de stratégies pour un utilisateur résultant](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_view_resultant_fgpp)
+- [Étape 2 : Créer des utilisateurs de test, de groupe et d’unité d’organisation](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk2_test_fgpp)
+- [Étape 3 : Créer une nouvelle stratégie de mot de passe affinées](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp)
+- [Étape 4 : Afficher un jeu de stratégies pour un utilisateur résultant](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_view_resultant_fgpp)
 - [Étape 5 : Modifier une stratégie de mot de passe affinées](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_edit_fgpp)
 - [Étape 6 : Supprimer une stratégie de mot de passe affinées](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_delete_fgpp)
 
@@ -274,7 +273,7 @@ Dans la procédure suivante, vous allez augmenter le niveau fonctionnel du domai
 
 3. Cliquez sur le domaine cible dans le volet de navigation gauche et, dans le volet **Tâches** , cliquez sur **Augmenter le niveau fonctionnel du domaine**. Sélectionnez un niveau fonctionnel de forêt qui est au moins Windows Server 2008 ou version ultérieure, puis cliquez sur **OK**.
 
-![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***
+![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -284,7 +283,7 @@ Set-ADDomainMode -Identity contoso.com -DomainMode 3
 
 #### <a name="bkmk2_test_fgpp"></a>Étape 2 : créer des utilisateurs, un groupe et une unité d’organisation de test
 
-Pour créer les utilisateurs de test et le groupe requis pour cette étape, suivez les procédures situés ici : [Étape 3 : Créer des utilisateurs de test, de groupe et d’unité d’organisation](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_test_env) (vous n’avez pas besoin créer l’unité d’organisation pour illustrer une stratégie de mot de passe affinée).
+Pour créer les utilisateurs de test et le groupe requis pour cette étape, suivez les procédures situés ici : [Étape 3 : Créer des utilisateurs de test, de groupe et d’unité d’organisation](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_test_env) (vous n’avez pas besoin créer l’unité d’organisation pour illustrer une stratégie de mot de passe affinée).
 
 #### <a name="bkmk_create_fgpp"></a>Étape 3 : créer une nouvelle stratégie de mot de passe affinée
 
@@ -310,7 +309,7 @@ Dans la procédure décrite ci-dessous, vous allez créer une nouvelle stratégi
 
 6. Cliquez sur **OK** pour soumettre la création.
 
-![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***
+![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -335,7 +334,7 @@ Dans la procédure suivante, vous allez consulter les paramètres de mot de pass
 
 5. Examinez la stratégie des paramètres de mot de passe, puis cliquez sur **Annuler**.
 
-![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***
+![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -361,7 +360,7 @@ Dans la procédure suivante, vous allez modifier la stratégie de mot de passe a
 
 6. Cliquez sur **OK**.
 
-![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***
+![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -377,7 +376,7 @@ Set-ADFineGrainedPasswordPolicy TestPswd -PasswordHistoryCount:"30"
 
 2. Cliquez sur **Gérer**, sur **Ajouter des nœuds de navigation**, puis sélectionnez le domaine cible approprié dans la boîte de dialogue **Ajouter des nœuds de navigation** et cliquez sur **OK**.
 
-3. Dans le volet de navigation du Centre d’administration Active Directory, développez **Système** , puis cliquez sur **Classe d’objets PSC (Password Settings Container)**.
+3. Dans le volet de navigation du Centre d’administration Active Directory, développez **Système** , puis cliquez sur **Classe d’objets PSC (Password Settings Container)** .
 
 4. Sélectionnez la stratégie de mot de passe affinée que vous avez créé dans [étape 3 : Créer une nouvelle stratégie de mot de passe affinées](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp) et dans le **tâches** volet, cliquez sur **propriétés**.
 
@@ -387,7 +386,7 @@ Set-ADFineGrainedPasswordPolicy TestPswd -PasswordHistoryCount:"30"
 
 7. Cliquez sur **OK** dans la boîte de dialogue de confirmation.
 
-![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***
+![Introduction au centre d’administration d’AD](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 

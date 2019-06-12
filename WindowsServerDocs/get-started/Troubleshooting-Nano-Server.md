@@ -12,12 +12,12 @@ ms.assetid: e427c66f-9571-4b8c-b65d-e7370d91544d
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 0f5d3e352cd022853a1602c67c3aaf2530cfc696
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e832d35f1ae3bbdba256b3531a22f93b69cadbb3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813640"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443395"
 ---
 # <a name="troubleshooting-nano-server"></a>Résolution des problèmes de Nano Server
 
@@ -36,15 +36,15 @@ Lorsque vous démarrez Nano Server dans une machine virtuelle ou sur un ordinate
   
 -   Utilisez les touches de direction pour faire défiler l’écran.  
   
--   Utilisez la touche TAB pour vous déplacer jusqu’à n’importe quel texte qui commence par **>**, puis appuyez sur ENTRÉE pour effectuer la sélection.  
+-   Utilisez la touche TAB pour vous déplacer jusqu’à n’importe quel texte qui commence par **>** , puis appuyez sur ENTRÉE pour effectuer la sélection.  
   
 -   Pour revenir à l’écran ou à la page précédente, appuyez sur Échap. Si vous appuyez sur Échap alors que vous vous trouvez dans la page d’accueil, votre session sera fermée.  
   
 -   Certains écrans affichent des fonctionnalités supplémentaires à la dernière ligne. Par exemple, si vous explorez une carte réseau, vous pouvez la désactiver à l’aide de la touche F4.  
   
 La console de récupération vous permet d’afficher et de configurer les cartes réseau et les paramètres TCP/IP, ainsi que les règles de pare-feu.
-> [!NOTE]  
-    > La console de récupération ne prend en charge que les fonctions de base du clavier. Les voyants du clavier, le pavé numérique et les touches de changement de la disposition du clavier, comme Verr. maj. et Verr. num., ne sont pas pris en charge. Seuls les claviers et le jeu de caractères anglais sont pris en charge.
+> [!NOTE]
+> La console de récupération ne prend en charge que les fonctions de base du clavier. Les voyants du clavier, le pavé numérique et les touches de changement de la disposition du clavier, comme Verr. maj. et Verr. num., ne sont pas pris en charge. Seuls les claviers et le jeu de caractères anglais sont pris en charge.
 
 ## <a name="accessing-nano-server-over-a-serial-port-with-emergency-management-services"></a>Accès à Nano Server via un port série avec les services de gestion d’urgence  
 Les services de gestion d’urgence (EMS) vous permettent d’effectuer des opérations de dépannage de base, de consulter l’état du réseau et d’ouvrir des sessions de console (y compris CMD/PowerShell) en utilisant un émulateur de terminal via un port série. Grâce à cette méthode, vous n’avez pas besoin de recourir à un clavier et à un moniteur pour résoudre les problèmes d’un serveur. Pour plus d’informations sur EMS, consultez [Informations techniques de référence sur les services de gestion d’urgence](https://technet.microsoft.com/library/cc784411(v=ws.10).aspx).

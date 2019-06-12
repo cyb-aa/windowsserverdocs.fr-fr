@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 38582706dfa5db2b5069415b81dafc533c8a89b9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a5ed2ef8b1d0238a3608dabdd165a255855a304d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822100"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440871"
 ---
 # <a name="tsecimp"></a>tsecimp
 
@@ -68,102 +68,101 @@ tsecimp /d
         Pour chaque **ligne** élément, vous pouvez définir le **supprimer** attribut. Si vous définissez cet attribut, l’utilisateur n’est plus affectée cet appareil de la ligne. Si cet attribut n’est pas défini, l’utilisateur accède à ce périphérique de ligne. Aucune erreur n’est générée si le périphérique de ligne n’est pas disponible à l’utilisateur.
 
 ## <a name="examples"></a>Exemples
--   Les segments de code XML exemples suivants illustrent l’utilisation correcte des éléments définis ci-dessus.  
-    -   Le code suivant supprime tous les périphériques de ligne affectés à Utilisateur1.  
-        ```
-        <UserList>
-          <User NoMerge="1">
-            <DomainUser>domain1\user1</DomainUser>
-          </User>
-        </UserList>
-        ```  
-    -   Le code suivant supprime tous les périphériques de ligne affectés à Utilisateur1 avant d’affecter une ligne avec l’adresse 99999. User1 n’aura aucun autre périphérique de lignes affectées, quelle que soit si des périphériques de ligne ont été attribués précédemment.  
-        ```
-        <UserList>
-          <User NoMerge="1">
-            <DomainUser>domain1\user1</DomainUser>
-            <FriendlyName>User1</FriendlyName>
-            <LineList>
-              <Line>
-                <Address>99999</Address>
-              </Line>
-            </LineList>
-          </User>
-        </UserList>
-        
-        ```  
-    -   Le code suivant ajoute un périphérique de ligne pour User1 sans supprimer les périphériques de la ligne précédemment affectés.  
-        ```
-        <UserList>
-          <User>
-            <DomainUser>domain1\user1</DomainUser>
-            <FriendlyName>User1</FriendlyName>
-            <LineList>
-              <Line>
-                <Address>99999</Address>
-              </Line>
-            </LineList>
-          </User>
-        </UserList>
-        
-        ```  
-    -   Le code suivant ajoute l’adresse de ligne 99999 et supprime l’adresse de ligne 88888 contre tout accès utilisateur1.  
-        ```
-        <UserList>
-          <User>
-            <DomainUser>domain1\user1</DomainUser>
-            <FriendlyName>User1</FriendlyName>
-            <LineList>
-              <Line>
-                <Address>99999</Address>
-              </Line>
-              <Line Remove="1">
-                <Address>88888</Address>
-              </Line>
-            </LineList>
-          </User>
-        </UserList>
-        
-        ```  
-    -   Le code suivant ajoute le périphérique permanent 1000 et supprime la ligne 88888 contre tout accès utilisateur1.  
-        ```
-        <UserList>
-          <User>
-            <DomainUser>domain1\user1</DomainUser>
-            <FriendlyName>User1</FriendlyName>
-            <LineList>
-              <Line>
-                <PermanentID>1000</PermanentID>
-              </Line>
-              <Line Remove="1">
-                <Address>88888</Address>
-              </Line>
-            </LineList>
-          </User>
-        </UserList>
-        
-        
-        ```  
--   L’exemple de sortie suivant s’affiche après le **/d** option de ligne de commande est spécifiée pour afficher la configuration de l’interface TAPI actuelle. Pour chaque fournisseur de téléphonie, les périphériques de ligne associés sont répertoriés, ainsi que les adresses et les utilisateurs associés à chaque périphérique de ligne.  
+- Les segments de code XML exemples suivants illustrent l’utilisation correcte des éléments définis ci-dessus.  
+  - Le code suivant supprime tous les périphériques de ligne affectés à Utilisateur1.  
+    ```
+    <UserList>
+      <User NoMerge="1">
+        <DomainUser>domain1\user1</DomainUser>
+      </User>
+    </UserList>
+    ```  
+  - Le code suivant supprime tous les périphériques de ligne affectés à Utilisateur1 avant d’affecter une ligne avec l’adresse 99999. User1 n’aura aucun autre périphérique de lignes affectées, quelle que soit si des périphériques de ligne ont été attribués précédemment.  
+    ```
+    <UserList>
+      <User NoMerge="1">
+        <DomainUser>domain1\user1</DomainUser>
+        <FriendlyName>User1</FriendlyName>
+        <LineList>
+          <Line>
+            <Address>99999</Address>
+          </Line>
+        </LineList>
+      </User>
+    </UserList>
+    ```  
+  - Le code suivant ajoute un périphérique de ligne pour User1 sans supprimer les périphériques de la ligne précédemment affectés.  
+    ```
+    <UserList>
+      <User>
+        <DomainUser>domain1\user1</DomainUser>
+        <FriendlyName>User1</FriendlyName>
+        <LineList>
+          <Line>
+            <Address>99999</Address>
+          </Line>
+        </LineList>
+      </User>
+    </UserList>
+    ```  
+  - Le code suivant ajoute l’adresse de ligne 99999 et supprime l’adresse de ligne 88888 contre tout accès utilisateur1.  
+    ```
+    <UserList>
+      <User>
+        <DomainUser>domain1\user1</DomainUser>
+        <FriendlyName>User1</FriendlyName>
+        <LineList>
+          <Line>
+            <Address>99999</Address>
+          </Line>
+          <Line Remove="1">
+            <Address>88888</Address>
+          </Line>
+        </LineList>
+      </User>
+    </UserList>
+    ```  
+  - Le code suivant ajoute le périphérique permanent 1000 et supprime la ligne 88888 contre tout accès utilisateur1.  
+    ```
+    <UserList>
+      <User>
+        <DomainUser>domain1\user1</DomainUser>
+        <FriendlyName>User1</FriendlyName>
+        <LineList>
+          <Line>
+            <PermanentID>1000</PermanentID>
+          </Line>
+          <Line Remove="1">
+            <Address>88888</Address>
+          </Line>
+        </LineList>
+      </User>
+    </UserList>
+
+
+~~~
+    ```  
+~~~
+-   The following sample output appears after the **/d** command-line option is specified to display the current TAPI configuration. For each telephony provider, the associated line devices are listed, as well as the addresses and users associated with each line device.  
     ```
     NDIS Proxy TAPI Service Provider
             Line: "WAN Miniport (L2TP)"
                     Permanent ID: 12345678910
-    
+
     NDIS Proxy TAPI Service Provider
             Line: "LPT1DOMAIN1\User1"
                     Permanent ID: 12345678910
-    
+
     Microsoft H.323 Telephony Service Provider
             Line: "H323 Line"
                     Permanent ID: 123456
                     Addresses:
                             BLDG1-TAPI32
-    
+
     ```
 
-#### <a name="additional-references"></a>Références supplémentaires
+#### Additional references
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Command-Line Syntax Key](command-line-syntax-key.md)
 
-[Vue d’ensemble du shell de commande](https://technet.microsoft.com/library/cc737438(v=ws.10).aspx)
+[Command shell overview](https://technet.microsoft.com/library/cc737438(v=ws.10).aspx)

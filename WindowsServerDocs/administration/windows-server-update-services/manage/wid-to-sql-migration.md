@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dougkim
 ms.date: 07/25/2018
-ms.openlocfilehash: ed6f695947fc17d2e96b5282b3a67a221bb0140d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9015bbc54a4c4bda0f691b79dbb7d3ba8ddbc4a1
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858030"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439893"
 ---
 >S’applique à : Windows Server 2012, Windows Server 2012 R2, Windows Server 2016
 
@@ -55,8 +55,8 @@ Procédez comme suit pour migrer la base de données WSUS (SUSDB) à partir d’
 
 > [!IMPORTANT]
 > Ces étapes montrent comment détacher la base de données WSUS (SUSDB) à partir de l’instance de base de données interne Windows à l’aide de la **sqlcmd** utilitaire. Pour plus d’informations sur la **sqlcmd** utilitaire, consultez [utilitaire sqlcmd](https://go.microsoft.com/fwlink/?LinkId=81183).
-1. Ouvrez une invite de commandes avec élévation de privilèges
-2. Exécutez la commande SQL suivante pour détacher la base de données WSUS (SUSDB) à partir de l’instance de base de données interne Windows à l’aide de la **sqlcmd** utilitaire :
+> 1. Ouvrez une invite de commandes avec élévation de privilèges
+> 2. Exécutez la commande SQL suivante pour détacher la base de données WSUS (SUSDB) à partir de l’instance de base de données interne Windows à l’aide de la **sqlcmd** utilitaire :
 
 ```batchfile
         sqlcmd -S \\.\pipe\Microsoft##WID\tsql\query
@@ -70,7 +70,7 @@ Procédez comme suit pour migrer la base de données WSUS (SUSDB) à partir d’
 
 ### <a name="copy-the-susdb-files-to-the-sql-server"></a>Copiez les fichiers SUSDB à SQL Server
 
-1. Copie **SUSDB.mdf** et **SUSDB\_log.ldf** à partir du dossier de données WID (**% lecteur_système %**\** Windows\WID\Data **) pour les données d’Instance SQL Dossier.
+1. Copie **SUSDB.mdf** et **SUSDB\_log.ldf** à partir du dossier de données WID ( **% lecteur_système %** \** Windows\WID\Data **) pour les données d’Instance SQL Dossier.
 
 > [!TIP]
 > Par exemple, si votre dossier de l’Instance SQL est **C:\Program Files\Microsoft SQL Server\MSSQL12. MSSQLSERVER\MSSQL**, et le dossier de données de WID **C:\Windows\WID\Data,** copiez les fichiers SUSDB du **C:\Windows\WID\Data** à **C:\Program Files\Microsoft SQL Server \MSSQL12. MSSQLSERVER\MSSQL\Data**
@@ -111,7 +111,7 @@ Après avoir attaché le SUSDB, vérifiez que **NT AUTHORITY\NETWORK SERVICE** a
 Le **NT AUTHORITY\NETWORK SERVICE** compte doit être répertorié. Si elle n’est pas le cas, vous devez l’ajouter en ajoutant le nouveau nom de connexion.
 
 > [!IMPORTANT]
-> Si l’Instance SQL se trouve sur un autre ordinateur à partir de WSUS, le compte d’ordinateur du serveur WSUS doit être répertorié dans le format **[FQDN]\\[WSUSComputerName] $**.  Si non, les étapes ci-dessous peuvent être utilisés pour l’ajouter, en remplaçant **NT AUTHORITY\NETWORK SERVICE** avec un compte d’ordinateur du serveur WSUS (**[FQDN]\\[WSUSComputerName] $**) il s’agirait ***outre*** l’octroi des droits à **NT AUTHORITY\NETWORK SERVICE**
+> Si l’Instance SQL se trouve sur un autre ordinateur à partir de WSUS, le compte d’ordinateur du serveur WSUS doit être répertorié dans le format **[FQDN]\\[WSUSComputerName] $** .  Si non, les étapes ci-dessous peuvent être utilisés pour l’ajouter, en remplaçant **NT AUTHORITY\NETWORK SERVICE** avec un compte d’ordinateur du serveur WSUS ( **[FQDN]\\[WSUSComputerName] $** ) il s’agirait ***outre*** l’octroi des droits à **NT AUTHORITY\NETWORK SERVICE**
 
 ##### <a name="adding-nt-authoritynetwork-service-and-granting-it-rights"></a>Ajout de NT AUTHORITY\NETWORK SERVICE et lui accorder des droits
 
@@ -150,7 +150,7 @@ Le **NT AUTHORITY\NETWORK SERVICE** compte doit être répertorié.
     > ![image11](images/image11.png)
 
 4. Sur le **mappage de l’utilisateur** page, sélectionnez le **SUSDB** de base de données sous **« Utilisateurs mappés à cette connexion. »**
-5. Vérifiez **webservice** sous le **« appartenance au rôle de la base de données : SUSDB »**: ![image12](images/image12.png)
+5. Vérifiez **webservice** sous le **« appartenance au rôle de la base de données : SUSDB »** : ![image12](images/image12.png)
 6. Cliquez sur **OK** pour enregistrer les paramètres.
     > [!NOTE]
     > Vous devrez peut-être redémarrer le Service SQL pour que les modifications prennent effet.
@@ -162,7 +162,7 @@ Le **NT AUTHORITY\NETWORK SERVICE** compte doit être répertorié.
 
 1. Cliquez sur **Démarrer**, puis sur **Exécuter**. Tapez **regedit**, puis cliquez sur **OK**.
 2. Recherchez la clé suivante : **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\UpdateServices\Server\Setup\SqlServerName**
-3. Dans le **valeur** zone de texte, tapez **[nomserveur]\\[NOM_INSTANCE]**, puis cliquez sur **OK**. Si le nom d’instance est l’instance par défaut, tapez **[nomserveur]**.
+3. Dans le **valeur** zone de texte, tapez **[nomserveur]\\[NOM_INSTANCE]** , puis cliquez sur **OK**. Si le nom d’instance est l’instance par défaut, tapez **[nomserveur]** .
 4. Recherchez la clé suivante : **Rôle de Services\Server\Setup\Installed HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Update Services\UpdateServices-WidDatabase** ![image13](images/image13.png)
 5. Renommer la clé à **UpdateServices-base de données** ![image41](images/image14.png)
 
@@ -184,7 +184,7 @@ Le **NT AUTHORITY\NETWORK SERVICE** compte doit être répertorié.
 ## <a name="uninstalling-the-wid-role-not-recommended"></a>Désinstallation du rôle WID (non recommandé)
 
 > [!WARNING]
-> Suppression du rôle WID supprime également un dossier de base de données (**%SystemDrive%\Program Files\Update Services\Database**) qui contient les scripts requis par WSUSUtil.exe pour les tâches de post-installation. Si vous choisissez de désinstaller le rôle WID, assurez-vous que vous sauvegardez la **%SystemDrive%\Program Files\Update Services\Database** dossier au préalable.
+> Suppression du rôle WID supprime également un dossier de base de données ( **%SystemDrive%\Program Files\Update Services\Database**) qui contient les scripts requis par WSUSUtil.exe pour les tâches de post-installation. Si vous choisissez de désinstaller le rôle WID, assurez-vous que vous sauvegardez la **%SystemDrive%\Program Files\Update Services\Database** dossier au préalable.
 
 À l’aide de PowerShell :
 

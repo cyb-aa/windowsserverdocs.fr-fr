@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 8684926beb0f0c911ac384970d15ba7d25f84079
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: ddf6a816e417c2eddff090df8dba841a894a3255
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65475931"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447673"
 ---
 # <a name="enable-always-offline-mode-for-faster-access-to-files"></a>Activer le mode toujours hors connexion pour un accès plus rapide aux fichiers
 
@@ -44,7 +44,7 @@ Pour activer le mode toujours hors connexion, utilisez la stratégie de groupe p
 6. Sélectionnez **Activé**.
 7. Dans le **Options** boîte, sélectionnez **afficher**. Le **fenêtre d’afficher le contenu** s’affiche.
 8. Dans le **nom de la valeur** , spécifiez le partage de fichiers pour lequel vous souhaitez activer le mode toujours hors connexion.
-9. Pour activer le mode toujours hors connexion sur tous les partages de fichiers, entrez **\***.
+9. Pour activer le mode toujours hors connexion sur tous les partages de fichiers, entrez **\\***.
 10. Dans le **valeur** , entrez **latence = 1** pour définir le seuil de latence à une milliseconde, puis sélectionnez **OK**.
 
 >[!NOTE]

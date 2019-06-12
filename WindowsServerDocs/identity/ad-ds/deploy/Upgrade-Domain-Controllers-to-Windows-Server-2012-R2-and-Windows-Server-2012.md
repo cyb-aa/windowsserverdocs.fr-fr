@@ -9,12 +9,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: e3b44dbc1c869680db91f5e9732a50504d80e7b8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6dda30bd15bedab8ea5ca8ca2e9597e1cc196e43
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877500"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443052"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2012-r2-and-windows-server-2012"></a>Mettre à niveau des contrôleurs de domaine vers Windows Server 2012 R2 et Windows Server 2012
 
@@ -76,7 +76,7 @@ Le tableau suivant récapitule les nouvelles fonctionnalités pour les services 
 |-----------|---------------|  
 |[Workplace Join](https://technet.microsoft.com/library/dn280945.aspx)|Permet aux travailleurs de l'information d'établir une connexion entre leurs appareils personnels et leur entreprise pour accéder aux ressources et services de celle-ci.|  
 |[Proxy d’Application Web](https://technet.microsoft.com/library/dn280942.aspx)|Fournit l'accès à une application web à l'aide d'un nouveau service de rôle Accès à distance.|  
-|[Active Directory Federation Services](https://technet.microsoft.com/library/hh831502.aspx)|Les services AD FS ont simplifié le déploiement et apporté des améliorations pour permettre aux utilisateurs d'accéder aux ressources à partir des appareils personnels et aider les services informatiques à gérer le contrôle d'accès.|  
+|[Services de fédération Active Directory (AD FS)](https://technet.microsoft.com/library/hh831502.aspx)|Les services AD FS ont simplifié le déploiement et apporté des améliorations pour permettre aux utilisateurs d'accéder aux ressources à partir des appareils personnels et aider les services informatiques à gérer le contrôle d'accès.|  
 |[Unicité des noms SPN et UPN](https://technet.microsoft.com/library/dn535779.aspx)|Les contrôleurs de domaine exécutant Windows Server 2012 R2 bloquent la création de noms de principal du service (SPN) et de noms d'utilisateurs principaux (UPN) en double.|  
 |[Connexion de redémarrage automatique Winlogon](https://technet.microsoft.com/library/dn535772.aspx)|Permet aux applications d'écran de verrouillage d'être redémarrées et disponibles sur les appareils Windows 8.1.|  
 |[Attestation de clé TPM](https://technet.microsoft.com/library/dn581921.aspx)|Permet aux autorités de certification d'attester par chiffrement dans un certificat émis que la clé privée du demandeur de certificat est réellement protégée par un module de plateforme sécurisée (TPM).|  
@@ -150,8 +150,8 @@ Il existe quelques modifications associées aux services de domaine Active Direc
    - Il n'existe qu'une seule version d'Adprep.exe et elle peut être exécutée en fonction des besoins sur des serveurs 64 bits qui exécutent Windows Server 2008 ou version ultérieure. Elle peut être exécutée à distance, et doit l’être si ce rôle de maître d’opérations ciblé est hébergé sur un système d’exploitation 32 bits ou Windows Server 2003.  
 - **Désapprobation de Dcpromo.exe**
    - Dcpromo est déconseillé, même dans Windows Server 2012 uniquement, il peut toujours être exécuté avec un fichier de réponses ou des paramètres de ligne de commande pour donner aux organisations le temps de convertir l’automatisation existante vers les nouvelles options d’installation de Windows PowerShell.  
--   **LMHash est désactivé sur les comptes d’utilisateur**
-   - Les paramètres par défaut sécurisés dans les modèles de sécurité de Windows Server 2008, Windows Server 2008 R2 et Windows Server 2012 activent la stratégie NoLMHash qui est désactivée dans les modèles de sécurité des contrôleurs de domaine Windows 2000 et Windows Server 2003. Désactivez la stratégie NoLMHash pour les clients dépendant de LMHash en fonction des besoins, en suivant les étapes de l’article [946405](https://support.microsoft.com/kb/946405) de la Base de connaissances.  
+- **LMHash est désactivé sur les comptes d’utilisateur**
+  - Les paramètres par défaut sécurisés dans les modèles de sécurité de Windows Server 2008, Windows Server 2008 R2 et Windows Server 2012 activent la stratégie NoLMHash qui est désactivée dans les modèles de sécurité des contrôleurs de domaine Windows 2000 et Windows Server 2003. Désactivez la stratégie NoLMHash pour les clients dépendant de LMHash en fonction des besoins, en suivant les étapes de l’article [946405](https://support.microsoft.com/kb/946405) de la Base de connaissances.  
 
 À compter de Windows Server 2008, les contrôleurs de domaine ont également les paramètres par défaut sécurisés suivants, comparés aux contrôleurs de domaine qui exécutent Windows Server 2003 ou Windows 2000.
 

@@ -11,12 +11,12 @@ ms.technology: compute-hyper-v
 ms.assetid: 444e1496-9e5a-41cf-bfbc-306e2ed8e00a
 audience: IT Pros
 ms.reviewer: kathydav
-ms.openlocfilehash: 61f2450857cbeaffd7f75f7b259e9f9de06ba5c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a5a6f79d362b9058ca29d979457a1dcdfc0c9f82
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870400"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445693"
 ---
 # <a name="create-hyper-v-vhd-set-files"></a>Créer des fichiers de disque dur virtuel d’Hyper-V a
 Fichiers de disque dur virtuel défini sont un nouveau modèle de disque virtuel partagé pour les clusters invités dans Windows Server 2016. Fichiers de disque dur virtuel défini prennent en charge le redimensionnement en ligne des disques virtuels partagés, prennent en charge la réplication Hyper-V et peuvent être inclus dans les points de contrôle cohérents au niveau applicatif. 
@@ -45,20 +45,20 @@ PS c:\>New-VHD -Path c:\base.vhds -SizeBytes 10GB
 
 Migration d’un VHDX partagé existant vers un VHD nécessite la mise hors connexion de la machine virtuelle. Voici le processus recommandé à l’aide de Windows PowerShell :
 
-1.  Supprimer le VHDX à partir de la machine virtuelle. Par exemple, exécutez : 
-  ``` PowerShell
-  PS c:\>Remove-VMHardDiskDrive existing.vhdx
-  ```
+1. Supprimer le VHDX à partir de la machine virtuelle. Par exemple, exécutez : 
+   ``` PowerShell
+   PS c:\>Remove-VMHardDiskDrive existing.vhdx
+   ```
   
-2.  Convertir le disque VHDX en un VHD. Par exemple, exécutez :
-  ``` PowerShell
-  PS c:\>Convert-VHD existing.vhdx new.vhds
-  ```
+2. Convertir le disque VHDX en un VHD. Par exemple, exécutez :
+   ``` PowerShell
+   PS c:\>Convert-VHD existing.vhdx new.vhds
+   ```
   
-3.  Ajoutez les disques durs virtuels à la machine virtuelle. Par exemple, exécutez :
-  ``` PowerShell
-  PS c:\>Add-VMHardDiskDrive new.vhds
-  ```
+3. Ajoutez les disques durs virtuels à la machine virtuelle. Par exemple, exécutez :
+   ``` PowerShell
+   PS c:\>Add-VMHardDiskDrive new.vhds
+   ```
   
 
 

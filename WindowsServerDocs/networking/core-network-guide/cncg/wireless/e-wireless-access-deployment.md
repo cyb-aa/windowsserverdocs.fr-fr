@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 4b66f517-b17d-408c-828f-a3793086bc1f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7042a501e69a69b613979229ce2e4a9d2c3e0915
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b2e237cee6eac6be809add37a2ac29fdf1c92118
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889680"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446495"
 ---
 # <a name="wireless-access-deployment"></a>Déploiement de l’accès sans fil
 
@@ -64,7 +64,7 @@ Cette procédure énumère des éléments couramment configurés sur un point d�
 
 - **Chiffrement**. Spécifiez WPA2\-Enterprise \(préféré\) ou WPA\-Enterprise et soit AES \(préféré\) ou code de chiffrement TKIP, selon les versions prises en charge par votre cartes réseau des ordinateurs client sans fil.
 
-- **Sans fil d’adresse IP du point d’accès \(statique\)**. Sur chaque point d’accès, configurez une adresse IP statique unique qui se trouve dans la plage d’exclusion de l’étendue DHCP pour le sous-réseau. À l’aide d’une adresse qui est exclue d’attribution par DHCP empêche le serveur DHCP à partir de l’affectation de la même adresse IP à un ordinateur ou un autre appareil.
+- **Sans fil d’adresse IP du point d’accès \(statique\)** . Sur chaque point d’accès, configurez une adresse IP statique unique qui se trouve dans la plage d’exclusion de l’étendue DHCP pour le sous-réseau. À l’aide d’une adresse qui est exclue d’attribution par DHCP empêche le serveur DHCP à partir de l’affectation de la même adresse IP à un ordinateur ou un autre appareil.
 
 - **Masque de sous-réseau**. Configurez cette option pour faire correspondre les paramètres de masque de sous-réseau du réseau local auquel vous êtes connecté au point d’accès sans fil.  
 
@@ -79,7 +79,7 @@ Cette procédure énumère des éléments couramment configurés sur un point d�
 
 - **Adresse IP du serveur RADIUS**. Tapez l’adresse IP du serveur exécutant NPS.
 
-- **Le port UDP\(s\)**. Par défaut, NPS utilise les ports UDP 1812 et 1645 pour les messages d’authentification et ports UDP 1813 et 1646 pour les messages de comptabilité. Il est recommandé que vous utilisez ces mêmes ports UDP sur vos points d’accès, mais si vous avez une raison valable d’utiliser des ports différents, vérifiez que vous non seulement configurez les points d’accès avec les nouveaux numéros de port mais également reconfigurez tous vos NPSs à utiliser les mêmes numéros de port comme les points d’accès. Si les points d’accès et les NPSs ne sont pas configurés avec les mêmes ports UDP, NPS ne peut pas recevoir ou traiter les demandes de connexion à partir de points d’accès, et toutes les tentatives de connexion sans fil sur le réseau échoue.
+- **Le port UDP\(s\)** . Par défaut, NPS utilise les ports UDP 1812 et 1645 pour les messages d’authentification et ports UDP 1813 et 1646 pour les messages de comptabilité. Il est recommandé que vous utilisez ces mêmes ports UDP sur vos points d’accès, mais si vous avez une raison valable d’utiliser des ports différents, vérifiez que vous non seulement configurez les points d’accès avec les nouveaux numéros de port mais également reconfigurez tous vos NPSs à utiliser les mêmes numéros de port comme les points d’accès. Si les points d’accès et les NPSs ne sont pas configurés avec les mêmes ports UDP, NPS ne peut pas recevoir ou traiter les demandes de connexion à partir de points d’accès, et toutes les tentatives de connexion sans fil sur le réseau échoue.
 
 - **VSAs**. Certains points d’accès sans fil nécessitent fournisseur\-des attributs spécifiques \(VSA\) pour fournir des fonctionnalités de point d’accès complet sans fil. VSA est ajoutés dans la stratégie de réseau NPS.
 
@@ -246,7 +246,7 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
 
 4. Dans le**propriétés du nouveau profil** boîte de dialogue le **connexion** sous l’onglet le **nom du profil** , tapez un nouveau nom pour le profil. Par exemple, tapez **profil Example.com WLAN pour Windows 10**.
 
-5. Dans **nom réseau\(s\) \(SSID\)**, tapez le SSID qui correspond à l’identificateur SSID sur vos points d’accès sans fil, puis cliquez sur **ajouter**.
+5. Dans **nom réseau\(s\) \(SSID\)** , tapez le SSID qui correspond à l’identificateur SSID sur vos points d’accès sans fil, puis cliquez sur **ajouter**.
 
     Si votre déploiement utilise plusieurs identificateurs SSID et que chaque point d'accès sans fil utilise les mêmes paramètres de sécurité sans fil, répétez cette étape pour ajouter l'identificateur SSID pour chaque point d'accès sans fil auquel vous voulez appliquer ce profil.
 
@@ -280,7 +280,7 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
     > [!NOTE]  
     > Les paramètres des options **authentification** et **chiffrement** doit correspondre les paramètres configurés sur vos points d’accès sans fil. Les paramètres par défaut **Mode d’authentification**, **Nbre max. d’échecs d’authentification**, et **mettre en Cache les informations utilisateur pour les futures connexions à ce réseau** sont suffisant pour les déploiements sans fil standard.  
 
-12. Dans **sélectionner une méthode d’authentification réseau**, sélectionnez **EAP protégé \(PEAP\)**, puis cliquez sur **propriétés**. Le **propriétés EAP protégées** boîte de dialogue s’ouvre.
+12. Dans **sélectionner une méthode d’authentification réseau**, sélectionnez **EAP protégé \(PEAP\)** , puis cliquez sur **propriétés**. Le **propriétés EAP protégées** boîte de dialogue s’ouvre.
 
 13. Dans **propriétés EAP protégées**, vérifiez que **vérifier l’identité du serveur en validant le certificat** est sélectionné.
 
@@ -289,7 +289,7 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
     > [!NOTE]  
     > Ce paramètre limite aux seules autorités de certification sélectionnées les autorités de certification racines auxquelles les clients font confiance. Si aucune autorités de certification racine de confiance n’est sélectionnée, les clients font confiance que tous les racines répertoriés dans leur magasin de certificats Autorités de Certification racine des autorités de certification.  
 
-15. Dans le **sélectionner la méthode d’authentification** , sélectionnez **mot de passe sécurisé \(EAP\-MS\-CHAP v2\)**.
+15. Dans le **sélectionner la méthode d’authentification** , sélectionnez **mot de passe sécurisé \(EAP\-MS\-CHAP v2\)** .
 
 16. Cliquez sur **configurer**. Dans le **propriétés EAP MSCHAPv2** boîte de dialogue, vérifiez **utiliser automatiquement mon nom d’ouverture de session Windows et le mot de passe \(et éventuellement le domaine\)**  est sélectionnée, puis cliquez sur  **OK**.
 
@@ -299,9 +299,9 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
 
 19. Pour spécifier que l’identité de l’utilisateur est masquée dans la première phase d’authentification, sélectionnez **activer la protection de la confidentialité**et dans la zone de texte, tapez un nom d’identité anonyme, ou laissez la zone de texte vide.
 
-    >[!NOTES]
-    >- La stratégie de serveur NPS pour 802.1 X sans fil doit être créée à l’aide de NPS **stratégie de demande de connexion**. Si la stratégie de serveur NPS est créée à l’aide de NPS **stratégie réseau**, confidentialité de l’identité ne fonctionnera pas.
-    >- Confidentialité de l’identité EAP est assurée par certaines méthodes EAP, le cas vide ou une identité anonyme \(diffère de l’identité réelle\) est envoyé en réponse à la demande d’identité EAP. PEAP envoie l’identité lors de l’authentification à deux reprises. Dans la première phase, l’identité est envoyée en texte brut, et cette identité est utilisée pour le routage, pas pour l’authentification du client. L’identité réelle, utilisé pour l’authentification, est envoyé au cours de la deuxième phase de l’authentification, le tunnel sécurisé est établi dans la première phase. Si **activer la protection de la confidentialité** case à cocher est activée, le nom d’utilisateur est remplacée par l’entrée spécifiée dans la zone de texte. Par exemple, supposons que **activer la protection de la confidentialité** est sélectionné et l’alias de confidentialité identité **anonyme** est spécifié dans la zone de texte. Pour un utilisateur avec un alias de l’identité réelle **jdoe@example.com**, l’identité envoyée dans la première phase d’authentification sera modifiée en **anonymous@example.com**. La partie domaine de l’identité de phase 1er n’est pas modifiée car il est utilisé pour le routage.  
+    > [!NOTES]
+    > - La stratégie de serveur NPS pour 802.1 X sans fil doit être créée à l’aide de NPS **stratégie de demande de connexion**. Si la stratégie de serveur NPS est créée à l’aide de NPS **stratégie réseau**, confidentialité de l’identité ne fonctionnera pas.
+    > - Confidentialité de l’identité EAP est assurée par certaines méthodes EAP, le cas vide ou une identité anonyme \(diffère de l’identité réelle\) est envoyé en réponse à la demande d’identité EAP. PEAP envoie l’identité lors de l’authentification à deux reprises. Dans la première phase, l’identité est envoyée en texte brut, et cette identité est utilisée pour le routage, pas pour l’authentification du client. L’identité réelle, utilisé pour l’authentification, est envoyé au cours de la deuxième phase de l’authentification, le tunnel sécurisé est établi dans la première phase. Si **activer la protection de la confidentialité** case à cocher est activée, le nom d’utilisateur est remplacée par l’entrée spécifiée dans la zone de texte. Par exemple, supposons que **activer la protection de la confidentialité** est sélectionné et l’alias de confidentialité identité **anonyme** est spécifié dans la zone de texte. Pour un utilisateur avec un alias de l’identité réelle <strong>jdoe@example.com</strong>, l’identité envoyée dans la première phase d’authentification sera modifiée en <strong>anonymous@example.com</strong>. La partie domaine de l’identité de phase 1er n’est pas modifiée car il est utilisé pour le routage.  
 
 20. Cliquez sur **OK** pour fermer la **propriétés EAP protégées** boîte de dialogue.
 21. Cliquez sur **OK** pour fermer la **sécurité** onglet.
@@ -405,12 +405,12 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
 
 1. Sur le serveur NPS, dans **le Gestionnaire de serveur**, cliquez sur **outils**, puis cliquez sur **Network Policy Server**. Le serveur NPS aligner\-dans s’ouvre.
 
-2. Droite\-cliquez sur **NPS \(Local\)**, puis cliquez sur **inscrire le serveur dans Active Directory**. La boîte de dialogue **Serveur NPS (Network Policy Server)** s’ouvre.
+2. Droite\-cliquez sur **NPS \(Local\)** , puis cliquez sur **inscrire le serveur dans Active Directory**. La boîte de dialogue **Serveur NPS (Network Policy Server)** s’ouvre.
 
 3. Dans **Network Policy Server**, cliquez sur **OK**, puis cliquez sur **OK** à nouveau.
 
 ### <a name="bkmk_radiusclient"></a>Configurer un point d’accès sans fil en tant que serveur NPS RADIUS Client
-Vous pouvez utiliser cette procédure pour configurer un point d’accès, également appelé un *serveur d’accès réseau \(NAS\)*, comme un Remote Authentication Dial\-In User Service \(RADIUS\) client à l’aide du composant logiciel enfichable NPS\-dans. 
+Vous pouvez utiliser cette procédure pour configurer un point d’accès, également appelé un *serveur d’accès réseau \(NAS\)* , comme un Remote Authentication Dial\-In User Service \(RADIUS\) client à l’aide du composant logiciel enfichable NPS\-dans. 
 
 >[!IMPORTANT]
 >Les ordinateurs clients, tels que les ordinateurs portables sans fil et autres ordinateurs exécutant des systèmes d'exploitation clients, ne sont pas des clients RADIUS. Clients RADIUS sont des serveurs d’accès réseau, tels que des points d’accès sans fil 802. 1 X\-commutateurs compatibles, réseau privé virtuel \(VPN\) serveurs et accès à distance\-jusqu'à des serveurs —, car elles utilisent le protocole RADIUS pour communiquer avec les serveurs RADIUS tels que NPSs.
@@ -429,7 +429,7 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
 
     Par exemple, si vous souhaitez ajouter un point d’accès sans fil \(AP\) nommé AP\-01, type **AP\-01**.
 
-5. Dans **adresse \(IP ou DNS\)**, tapez l’adresse IP ou le nom de domaine complet \(FQDN\) pour le serveur NAS.
+5. Dans **adresse \(IP ou DNS\)** , tapez l’adresse IP ou le nom de domaine complet \(FQDN\) pour le serveur NAS.
 
     Si vous entrez le nom de domaine complet, pour vérifier que le nom est correct et qu’il est mappé à une adresse IP valide, cliquez sur **Vérifiez**, puis dans **adresse vérifier**, dans le **adresse** , cliquez sur  **Résoudre**. Si le nom de domaine complet est mappée à une adresse IP valide, l’adresse IP de ce stockage NAS s’affiche automatiquement dans **adresse IP**. Si le nom de domaine complet n’aboutit pas à une adresse IP que vous recevrez un message indiquant qu’aucun hôte n’inconnu. Si cela se produit, vérifiez que vous avez le nom de point d’accès correct et que le point d’accès est sous tension et connecté au réseau.  
 
@@ -465,7 +465,7 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
 
 #### <a name="create-policies-for-8021x-authenticated-wireless-by-using-a-wizard"></a>Créer des stratégies pour 802. 1 X sans fil authentifié à l’aide d’un Assistant
 
-1. Ouvrez le serveur NPS d’alignement\-dans. Si ce n’est pas déjà fait, cliquez sur **NPS \(Local\)**. Si vous exécutez le composant logiciel enfichable MMC NPS\-dans et souhaitez créer des stratégies sur un serveur NPS à distance, sélectionnez le serveur.
+1. Ouvrez le serveur NPS d’alignement\-dans. Si ce n’est pas déjà fait, cliquez sur **NPS \(Local\)** . Si vous exécutez le composant logiciel enfichable MMC NPS\-dans et souhaitez créer des stratégies sur un serveur NPS à distance, sélectionnez le serveur.
 
 2. Dans **mise en route**, dans **Configuration Standard**, sélectionnez **serveur RADIUS pour les connexions câblées ou sans fil de X 802.1**. Le texte et les liens ci-dessous pour refléter votre sélection, la modification de texte.
 
@@ -475,7 +475,7 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
 
 5.  Sur le **spécifier des commutateurs de 802. 1 X** page d’Assistant, en **clients RADIUS**, une 802. 1 toutes les X commutateurs des points d’accès sans fil que vous avez ajoutés en tant que Clients RADIUS dans le composant logiciel enfichable NPS\-dans sont affichés. Effectuez l’une des actions suivantes :
 
-    -   Pour ajouter des serveurs d’accès réseau supplémentaire \(NAS\), tels que les points d’accès sans fil, dans **clients RADIUS**, cliquez sur **ajouter**, puis dans **nouveau client RADIUS**, entrez les informations pour : **Nom convivial**, **adresse \(IP ou DNS\)**, et **Secret partagé**.
+    -   Pour ajouter des serveurs d’accès réseau supplémentaire \(NAS\), tels que les points d’accès sans fil, dans **clients RADIUS**, cliquez sur **ajouter**, puis dans **nouveau client RADIUS**, entrez les informations pour : **Nom convivial**, **adresse \(IP ou DNS\)** , et **Secret partagé**.
 
     -   Pour modifier les paramètres de n’importe quel serveur NAS, dans **clients RADIUS**, sélectionnez le point d’accès pour lequel vous souhaitez modifier les paramètres, puis cliquez sur **modifier**. Modifiez les paramètres en fonction des besoins.
 
@@ -484,7 +484,7 @@ L'appartenance au groupe **Admins du domaine**, ou équivalent, est la condition
         >[!WARNING]
         >Suppression d’un client RADIUS depuis le **configurer 802. 1 X** Assistant supprime le client à partir de la configuration du serveur NPS. Tous les ajouts, modifications et suppressions que vous apportez dans le **configurer 802. 1 X** Assistant pour les clients RADIUS sont répercutées dans le serveur NPS composant logiciel enfichable\-dans, dans le **Clients RADIUS** nœud sous  **NPS** \/ **Clients et serveurs RADIUS**. Par exemple, si vous utilisez l’Assistant pour supprimer un commutateur X 802.1, le commutateur est également retiré le serveur NPS composant logiciel enfichable\-dans.
 
-6. Cliquez sur **Suivant**. Sur le **configurer une méthode d’authentification** page d’Assistant, en **Type \(selon la méthode de configuration d’accès et réseau\)**, sélectionnez **Microsoft : Protected EAP \(PEAP\)**, puis cliquez sur **configurer**.
+6. Cliquez sur **Suivant**. Sur le **configurer une méthode d’authentification** page d’Assistant, en **Type \(selon la méthode de configuration d’accès et réseau\)** , sélectionnez **Microsoft : Protected EAP \(PEAP\)** , puis cliquez sur **configurer**.
 
     >[!TIP]
     >Si vous recevez un message d’erreur indiquant qu’un certificat est introuvable pour une utilisation avec la méthode d’authentification, et que vous avez configuré les Services de certificats Active Directory afin d’émettre automatiquement les certificats sur des serveurs RAS et IAS sur votre réseau, tout d’abord Vérifiez que vous avez suivi les étapes pour inscrire le serveur NPS dans les Services de domaine Active Directory, puis procédez comme suit pour mettre à jour de la stratégie de groupe : Cliquez sur **Démarrer**, cliquez sur **Windows System**, cliquez sur **exécuter**et dans **Open**, type **gpupdate**, puis Appuyez sur ENTRÉE. Lorsque la commande renvoie les résultats indiquant que les utilisateur et stratégie de groupe ont mis à jour avec succès, sélectionnez **Microsoft : Protected EAP \(PEAP\)**  à nouveau, puis cliquez sur **configurer**.
@@ -608,7 +608,7 @@ Avec cette méthode, vous effectuez les étapes décrites dans la section étape
 
 9. Cliquez sur **modifier les paramètres de connexion**. Le *votre SSID réseau* ouvre la boîte de dialogue Propriétés de réseau sans fil.
 
-10. Cliquez sur le **sécurité** onglet, puis dans **choisir une méthode d’authentification réseau**, sélectionnez **EAP protégé \(PEAP\)**.
+10. Cliquez sur le **sécurité** onglet, puis dans **choisir une méthode d’authentification réseau**, sélectionnez **EAP protégé \(PEAP\)** .
 
 11. Cliquez sur **Paramètres**. Le **EAP protégé \(PEAP\) propriétés** page s’ouvre.
 

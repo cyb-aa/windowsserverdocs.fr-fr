@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b32d72a1317683e4c1bbeb2d6101d1315b69148e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ad9d180e2cf2110d36ebc82211af3a495a0e0b6b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862640"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440730"
 ---
 # <a name="using-the-add-drivergrouppackage-command"></a>À l’aide de la commande add-DriverGroupPackage
 
@@ -30,12 +30,14 @@ Ajoute un package de pilotes à un groupe de pilotes.
 wdsutil /add-DriverGroupPackage /DriverGroup:<Group Name> [/Server:<Server Name>] {/DriverPackage:<Name> | /PackageId:<ID>}
 ```
 ## <a name="parameters"></a>Paramètres
-|Paramètre|Description|
-|-------|--------|
-|/ DriverGroup :<Group Name>|Spécifie le nom du groupe pilote.|
-|/ Server :<Server name>|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom de domaine complet. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
-|/ DriverPackage :<Name>|Spécifie le nom du package de pilotes à ajouter au groupe. Vous devez spécifier cette option si le package de pilotes ne peut pas être identifié de manière unique par son nom.|
-|/ PackageId :<ID>|Spécifie l’ID d’un package. Pour rechercher l’ID de Package, cliquez sur le groupe de pilotes se trouve le package (ou le **tous les Packages** nœud), cliquez sur le package, puis cliquez sur **propriétés**. L’ID de Package est répertorié dans le **général** onglet, par exemple : **{DD098D20-1850-4fc8-8E35-EA24A1BEFF5E}**.|
+
+|         Paramètre         |                                                                                                                                               Description                                                                                                                                               |
+|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| / DriverGroup :<Group Name> |                                                                                                                                 Spécifie le nom du groupe pilote.                                                                                                                                 |
+|   / Server :<Server name>   |                                                                                  Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom de domaine complet. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.                                                                                  |
+|   / DriverPackage :<Name>   |                                                                      Spécifie le nom du package de pilotes à ajouter au groupe. Vous devez spécifier cette option si le package de pilotes ne peut pas être identifié de manière unique par son nom.                                                                       |
+|      / PackageId :<ID>      | Spécifie l’ID d’un package. Pour rechercher l’ID de Package, cliquez sur le groupe de pilotes se trouve le package (ou le **tous les Packages** nœud), cliquez sur le package, puis cliquez sur **propriétés**. L’ID de Package est répertorié dans le **général** onglet, par exemple : **{DD098D20-1850-4fc8-8E35-EA24A1BEFF5E}** . |
+
 ## <a name="BKMK_examples"></a>Exemples
 Pour ajouter un package de pilotes, tapez une des opérations suivantes :
 ```

@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 284e02174b4a8c06f114640223d289dc63ea3a26
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3f735c45582bc9d1746f18c0ac7c9888a4b3ac88
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890390"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445561"
 ---
 # <a name="prepare-to-migrate-a-sql-server-farm"></a>Préparer la migration d'une batterie SQL Server  
  Pour préparer la migration des serveurs de fédération 2.0 AD FS qui appartiennent à une batterie de serveurs SQL Server vers Windows Server 2012, vous devez exporter et sauvegarder les données de configuration AD FS à partir de ces serveurs.  
@@ -22,9 +22,9 @@ ms.locfileid: "59890390"
   
 -   [Étape 1 : Exporter les paramètres de service](#step-1-export-service-settings)  
   
--   [Étape 2 : Sauvegarder des magasins d’attributs personnalisés](#step-2-back-up-custom-attribute-stores)  
+-   [Étape 2 : Sauvegarder des magasins d’attributs personnalisés](#step-2-back-up-custom-attribute-stores)  
   
--   [Étape 3 : Sauvegarder les personnalisations de page Web](#step-3-back-up-webpage-customizations)  
+-   [Étape 3 : Sauvegarder les personnalisations de page Web](#step-3-back-up-webpage-customizations)  
   
 ## <a name="step-1-export-service-settings"></a>Étape 1 : exporter les paramètres de service  
  Pour exporter les paramètres de service, effectuez la procédure suivante :  
@@ -38,21 +38,21 @@ ms.locfileid: "59890390"
 >   
 >  Cette étape est facultative, car ce certificat est stocké dans le magasin de certificats personnels sur l'ordinateur local et est préservé pendant la mise à niveau du système d'exploitation.  
   
-2.  Exportez les autres clés et les certificats de signature de jetons, de chiffrement de jetons ou de communication de service qui ne sont pas générés de manière interne par AD FS.  
+2. Exportez les autres clés et les certificats de signature de jetons, de chiffrement de jetons ou de communication de service qui ne sont pas générés de manière interne par AD FS.  
   
 Vous pouvez afficher tous les certificats actuellement utilisés par AD FS sur votre serveur à l'aide de Windows PowerShell. Ouvrez Windows PowerShell et exécutez la commande suivante pour ajouter les applets de commande AD FS à votre session Windows PowerShell : `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Puis exécutez la commande suivante pour afficher tous les certificats qui sont en cours d’utilisation sur votre serveur `PSH:>Get-ADFSCertificate`. La sortie de cette commande comprend les valeurs StoreLocation et StoreName, qui spécifient l'emplacement du magasin de chaque certificat.  
   
 > [!NOTE]
 >  Éventuellement, vous pouvez ensuite suivre les instructions indiquées dans la rubrique [Exporter la partie clé privée d'un certificat d'authentification serveur](Export-the-Private-Key-Portion-of-a-Server-Authentication-Certificate.md) pour exporter chaque certificat et sa clé privée dans un fichier .pfx. Cette étape est facultative, car tous les certificats externes sont préservés pendant la mise à niveau du système d'exploitation.  
   
-3.  Sauvegardez le fichier de configuration de l’application. Parmi d’autres paramètres, ce fichier contient la chaîne de connexion à la base de données de stratégies.  
+3. Sauvegardez le fichier de configuration de l’application. Parmi d’autres paramètres, ce fichier contient la chaîne de connexion à la base de données de stratégies.  
   
 Pour sauvegarder le fichier de configuration de l’application, vous devez copier manuellement le fichier `%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config` à un emplacement sécurisé sur un serveur de sauvegarde.  
   
 > [!NOTE]
 >  Enregistrer la chaîne de connexion SQL Server après « policystore connectionstring = » dans le fichier suivant : `%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config`. Vous avez besoin de cette chaîne lors de la restauration de la configuration AD FS d’origine sur le serveur de fédération.  
   
-4.  Enregistrez l’identité du compte de service AD FS 2.0 de fédération et le mot de passe de ce compte.  
+4. Enregistrez l’identité du compte de service AD FS 2.0 de fédération et le mot de passe de ce compte.  
   
 Pour rechercher la valeur d’identité, examinez le **session en tant que** colonne de **AD FS 2.0 Windows Service** dans le **Services** console et enregistrez la valeur manuellement.  
   
@@ -67,4 +67,4 @@ Pour rechercher la valeur d’identité, examinez le **session en tant que** col
  [Préparer la migration du serveur Proxy pour AD FS 2.0 de fédération](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Migrer le serveur AD FS 2.0 de fédération](migrate-the-ad-fs-fed-server.md)   
  [Migrer le serveur Proxy AD FS 2.0 de fédération](migrate-the-ad-fs-2-fed-server-proxy.md)   
- [Migrer les Agents de 1.1 Web AD FS](migrate-the-ad-fs-web-agent.md)
+ [Migrer les agents web AD FS 1.1](migrate-the-ad-fs-web-agent.md)

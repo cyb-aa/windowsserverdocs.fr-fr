@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5a3e51effa6321c3575e385f1c56bba57318eca5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6944eac179c605db6c7b6f3e08f87c2329fb777f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822830"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435376"
 ---
 # <a name="get-started-with-software-inventory-logging"></a>Bien démarrer avec le logiciel de journalisation de l’inventaire
 
@@ -45,8 +45,8 @@ La journalisation de l’inventaire logiciel peut aider les administrateurs des 
 -   Agrégation des informations d'inventaire logiciel et serveur pour un large éventail de scénarios de gestion des actifs logiciels en activant la journalisation de la fonctionnalité Journalisation de l'inventaire logiciel de chaque serveur de fonctionnalité et en choisissant un URI cible de serveur web et une empreinte numérique du certificat pour l'authentification.
 
 ## <a name="see-also"></a>Voir aussi
-[Software Inventory Logging Aggregator](https://technet.microsoft.com/library/mt572043.aspx)<br>
-[Gérer les logiciels journalisation de l’inventaire](manage-software-inventory-logging.md)<br>
+[Agrégateur de journalisation de l’inventaire logiciel](https://technet.microsoft.com/library/mt572043.aspx)<br>
+[Gérer la journalisation de l’inventaire logiciel](manage-software-inventory-logging.md)<br>
 [Applets de commande journalisation de l’inventaire logiciel dans Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx)<br>
 [Microsoft Assessment and Planning Toolkit](https://www.microsoft.com/download/en/details.aspx?id=7826)
 [Volume Activation Management Tool](http://blogs.technet.com/b/volume-licensing/)

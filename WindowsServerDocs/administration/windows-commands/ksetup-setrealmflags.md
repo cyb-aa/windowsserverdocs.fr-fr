@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 018d94e08cc15780cf0aa861b06b915538c21122
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 249eb82bb40890e071bd7d1eca3a0201064fa01e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865860"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437941"
 ---
 # <a name="ksetupsetrealmflags"></a>ksetup:setrealmflags
 
@@ -53,7 +53,7 @@ Les indicateurs de domaine spécifient des fonctionnalités supplémentaires d�
 |0x08|NcSupported|Ce domaine prend en charge la canonisation nom, ce qui permet des normes d’affectation de noms de domaine DNS.|
 |0x80|RC4|Ce domaine prend en charge le chiffrement RC4 pour activer l’approbation entre domaines, ce qui permet l’utilisation de TLS.|
 
-Indicateurs de domaine sont stockés dans le Registre sous **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Domains\*** RealmName *. Par défaut, cette entrée n’existe pas dans le Registre. Vous pouvez utiliser la [Ksetup:addrealmflags](ksetup-addrealmflags.md) commande pour remplir le Registre.
+Indicateurs de domaine sont stockés dans le Registre sous **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Domains\\** <em>RealmName</em>. Par défaut, cette entrée n’existe pas dans le Registre. Vous pouvez utiliser la [Ksetup:addrealmflags](ksetup-addrealmflags.md) commande pour remplir le Registre.
 
 Vous pouvez voir quels indicateurs de domaine disponible et défini en affichant la sortie de **ksetup**.
 
@@ -67,11 +67,11 @@ Définissez les deux indicateurs qui ne sont pas actuellement définies :
 ```
 ksetup /setrealmflags CONTOSO ncsupported delegate
 ```
-Exécutez le **ksetup** pour vérifier que l’indicateur de domaine est défini par l’affichage de la sortie et en recherchant **indicateurs de domaine =**.
+Exécutez le **ksetup** pour vérifier que l’indicateur de domaine est défini par l’affichage de la sortie et en recherchant **indicateurs de domaine =** .
 
 #### <a name="additional-references"></a>Références supplémentaires
 
 -   [Ksetup:listrealmflags](ksetup-listrealmflags.md)
 -   [Ksetup:addrealmflags](ksetup-addrealmflags.md)
 -   [Ksetup:delrealmflags](ksetup-delrealmflags.md)
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

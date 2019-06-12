@@ -9,12 +9,12 @@ ms.date: 02/19/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 54b0e055d6cfde5e5c69540ac804a38cbceb1e59
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 231c8783032f51f607565922d90ea7f7eb877cfd
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188770"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444688"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>Personnaliser des en-têtes de réponse de sécurité HTTP avec AD FS 2019 
  
@@ -39,7 +39,7 @@ Avant d’aborder les en-têtes, jetons un œil à quelques scénarios de créat
 ## <a name="http-security-response-headers"></a>En-têtes de réponse de sécurité HTTP 
 Les en-têtes de réponse sont inclus dans la réponse HTTP sortante envoyée par AD FS dans un navigateur web. Les en-têtes peuvent être répertoriés à l’aide de la `Get-AdfsResponseHeaders` applet de commande comme indiqué ci-dessous.  
 
-![Réponse de l’en-tête](media\customize-http-security-headers-ad-fs\header1.png)
+![Réponse de l’en-tête](media/customize-http-security-headers-ad-fs/header1.png)
 
 Le `ResponseHeaders` attribut dans la capture d’écran ci-dessus identifie les en-têtes de sécurité qui seront inclus par AD FS dans chaque réponse HTTP. Les en-têtes de réponse seront envoyés uniquement si `ResponseHeadersEnabled` a la valeur `True` (valeur par défaut). La valeur peut être définie `False` afin d’éviter d’AD FS, y compris ceux des en-têtes de sécurité dans la réponse HTTP. Cela n’est toutefois pas recommandé.  Pour cela, utilisez les éléments suivants :
 
@@ -218,7 +218,7 @@ Set-AdfsResponseHeaders -SetHeaderName "TestHeader" -SetHeaderValue "TestHeaderV
 
 Une fois définie, le nouvel en-tête est envoyé dans la réponse d’AD FS (fiddler extrait de code ci-dessous).  
  
-![Fiddler](media\customize-http-security-headers-ad-fs\header2.png)
+![Fiddler](media/customize-http-security-headers-ad-fs/header2.png)
 
 ## <a name="web-browswer-compatibility"></a>Compatibilité de navigateur attribuant alors Web
 Utilisez le tableau et les liens suivants pour déterminer quels sont les navigateurs web sont compatibles avec chacun des en-tête de réponse de sécurité.

@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: ''
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b86726fd6e9ee37dbfd43357d8040b43b8dfb200
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7fb7b5f7ae6e10d1007317949a42c48b4765f35c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853340"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446061"
 ---
-#<a name="step-1-plan-the-basic-directaccess-infrastructure"></a>Étape 1 Plan l’Infrastructure DirectAccess de base
+# <a name="step-1-plan-the-basic-directaccess-infrastructure"></a>Étape 1 Plan l’Infrastructure DirectAccess de base
 La première étape pour un déploiement DirectAccess de base sur un serveur unique consiste à planifier l’infrastructure requise pour le déploiement. Cette rubrique décrit les étapes de planification de cette infrastructure :  
   
 |Tâche|Description|  
@@ -253,5 +253,5 @@ Le message d'erreur suivant d'affiche dans la **Gestion DirectAccess** : **GPO 
   
 ### <a name="BKMK_Links"></a>Étape suivante  
   
--   [Étape 2 : Planifier le déploiement de DirectAccess de base](da-basic-plan-s2-deployment.md)  
+-   [Étape 2 : Planifier un déploiement de base de DirectAccess](da-basic-plan-s2-deployment.md)  
   

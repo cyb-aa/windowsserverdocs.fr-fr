@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 7b61a0494b8a63168b40bfaed42dedf0fff40c35
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d67f15d65feb28fb05fc056fd3c34c04cee80d09
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887260"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447766"
 ---
 # <a name="volume-shadow-copy-service"></a>Service VSS (page éventuellement en anglais)
 
@@ -97,7 +97,7 @@ Pour créer un cliché instantané, le demandeur, le writer et le fournisseur d�
 > La création de clichés instantanés peut être annulée si les enregistreurs sont conservées dans l’état de blocage pendant plus de 60 secondes ou si les fournisseurs de prennent plus de 10 secondes pour valider le cliché instantané. 
 <br>
 
-9.  Le demandeur peut recommencer le processus (allez à l’étape 1) ou pour avertir l’administrateur pour réessayer ultérieurement.  
+9. Le demandeur peut recommencer le processus (allez à l’étape 1) ou pour avertir l’administrateur pour réessayer ultérieurement.  
       
 10. Si le cliché instantané est créé avec succès, le Service de cliché instantané de Volume retourne les informations d’emplacement pour le cliché instantané au demandeur. Dans certains cas, le cliché instantané peut être temporairement rendue disponible en un volume en lecture-écriture afin que VSS et une ou plusieurs applications peuvent modifier le contenu de la copie de clichés instantanés avant que le cliché instantané est terminé. Une fois que VSS et les applications apporter leurs modifications, le cliché instantané est effectué en lecture seule. Cette phase est appelée récupération automatique, et il est utilisé pour annuler les transactions de système de fichiers ou une application sur le volume de clichés instantanés qui n’ont pas été terminées avant que le cliché instantané a été créé.  
       
@@ -136,7 +136,7 @@ Dans la méthode de copie sur écriture, lorsque se produit une modification du 
 </colgroup>
 <thead>
 <tr class="header">
-<th>Temps</th>
+<th>Time</th>
 <th>Source de données (état et données)</th>
 <th>Cliché instantané (état et données)</th>
 </tr>
@@ -177,7 +177,7 @@ Dans la méthode de redirection lors de l’écriture, chaque fois que le volume
 </colgroup>
 <thead>
 <tr class="header">
-<th>Temps</th>
+<th>Time</th>
 <th>Source de données (état et données)</th>
 <th>Cliché instantané (état et données)</th>
 </tr>
@@ -376,12 +376,12 @@ Pour exclure des fichiers spécifiques de clichés instantanés, utilisez la cl�
 
 > [!NOTE]
 > Le <STRONG>FilesNotToSnapshot</STRONG> clé de Registre est destinée à être utilisée uniquement par les applications. Les utilisateurs qui tentent d’utiliser rencontreront des limitations, telles que les éléments suivants :
-<br>
-<UL>
-<LI>Il ne peut pas supprimer des fichiers à partir d’un cliché instantané qui a été créé sur un serveur Windows à l’aide de la fonctionnalité Versions précédentes.<BR><BR>
-<LI>Il ne peut pas supprimer les fichiers de clichés instantanés pour dossiers partagés.<BR><BR>
-<LI>Il peut supprimer des fichiers à partir d’un cliché instantané qui a été créé à l’aide de la [Diskshadow](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow) utilitaire, mais il ne peut pas supprimer des fichiers à partir d’un cliché instantané qui a été créé à l’aide de la [Vssadmin](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin) utilitaire.<BR><BR>
-<LI>Fichiers sont supprimés à partir d’un cliché instantané sur une mesure du possible. Cela signifie qu’ils ne sont pas garantis pour être supprimé.<BR><BR></LI></UL>
+> <br>
+> <UL>
+> <LI>Il ne peut pas supprimer des fichiers à partir d’un cliché instantané qui a été créé sur un serveur Windows à l’aide de la fonctionnalité Versions précédentes.<BR><BR>
+> <LI>Il ne peut pas supprimer les fichiers de clichés instantanés pour dossiers partagés.<BR><BR>
+> <LI>Il peut supprimer des fichiers à partir d’un cliché instantané qui a été créé à l’aide de la <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow" data-raw-source="[Diskshadow](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow)">Diskshadow</a> utilitaire, mais il ne peut pas supprimer des fichiers à partir d’un cliché instantané qui a été créé à l’aide de la <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin" data-raw-source="[Vssadmin](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin)">Vssadmin</a> utilitaire.<BR><BR>
+> <LI>Fichiers sont supprimés à partir d’un cliché instantané sur une mesure du possible. Cela signifie qu’ils ne sont pas garantis pour être supprimé.<BR><BR></LI></UL>
 
 
 Pour plus d’informations, consultez [à l’exclusion de fichiers à partir de clichés instantanés](http://go.microsoft.com/fwlink/?linkid=180904) (http://go.microsoft.com/fwlink/?LinkId=180904) sur MSDN.
@@ -450,7 +450,7 @@ Le système d’exploitation Windows fournit les outils suivants pour travailler
 
 Oui, DiskShadow est un demandeur VSS que vous pouvez utiliser pour gérer tous les instantanés de matériels et logiciels que vous pouvez avoir sur un système. DiskShadow inclut des commandes telles que les éléments suivants :
 
-  - **Liste**: Répertorie les enregistreurs VSS, les fournisseurs VSS et les clichés instantanés  
+  - **liste**: Répertorie les enregistreurs VSS, les fournisseurs VSS et les clichés instantanés  
       
   - **créer**: Crée une nouvelle copie de clichés instantanés  
       

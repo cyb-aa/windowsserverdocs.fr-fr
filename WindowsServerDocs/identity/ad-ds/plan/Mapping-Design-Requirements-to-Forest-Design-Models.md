@@ -9,12 +9,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 4577e65fe5dd2193fe7256cc555e859a78824b4b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 35d6322f053c7a02dc1df5430b28f771f57a1ad7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867940"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442568"
 ---
 # <a name="mapping-design-requirements-to-forest-design-models"></a>Mappage des exigences de conception aux modèles de conception de forêt
 
@@ -89,13 +89,13 @@ Considérations pour la création de forêts d’isolation des données sont les
 
 - Forêts d’organisation créées pour l’isolation des données peuvent approuver les domaines d’autres forêts, mais les utilisateurs d’autres forêts ne doivent pas être inclus dans les éléments suivants :  
 
-   - Groupes responsables de la gestion des services ou des groupes qui peuvent gérer l’appartenance aux groupes d’administrateur de service  
+  - Groupes responsables de la gestion des services ou des groupes qui peuvent gérer l’appartenance aux groupes d’administrateur de service  
 
-   - Groupes qui ont un contrôle administratif sur les ordinateurs qui stockent des données protégées  
+  - Groupes qui ont un contrôle administratif sur les ordinateurs qui stockent des données protégées  
 
-   - Les groupes qui ont accès aux données protégées ou les groupes qui sont responsables de la gestion des objets utilisateur ou des objets de groupe qui ont accès à des données protégées  
+  - Les groupes qui ont accès aux données protégées ou les groupes qui sont responsables de la gestion des objets utilisateur ou des objets de groupe qui ont accès à des données protégées  
 
-   Si les utilisateurs à partir d’une autre forêt sont inclus dans un de ces groupes, une compromission de l’autre forêt peut entraîner une compromission de la forêt isolée et à la divulgation des données protégées.  
+    Si les utilisateurs à partir d’une autre forêt sont inclus dans un de ces groupes, une compromission de l’autre forêt peut entraîner une compromission de la forêt isolée et à la divulgation des données protégées.  
 
 - Autres forêts peuvent être configurés pour approuver la forêt d’organisation créée pour l’isolation des données afin que les utilisateurs dans la forêt isolée peuvent accéder aux ressources dans d’autres forêts. Toutefois, les utilisateurs à partir de la forêt isolée doivent jamais connecter de façon interactive les stations de travail dans la forêt d’approbation. L’ordinateur dans la forêt d’approbation peut être compromis par des logiciels malveillants et peut être utilisé pour capturer les informations d’identification d’ouverture de session de l’utilisateur.  
 

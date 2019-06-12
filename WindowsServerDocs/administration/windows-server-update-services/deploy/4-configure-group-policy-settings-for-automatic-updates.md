@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 69b433ee3e0f57398db1e7814d2de24df7dd1696
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 9205565486b75edcd550174fc89990a5aa2d69b7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222921"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439852"
 ---
 # <a name="step-4-configure-group-policy-settings-for-automatic-updates"></a>Étape 4 : Configurer les paramètres de stratégie de groupe pour les mises à jour automatiques
 
@@ -420,10 +420,11 @@ Pour utiliser ce paramètre, vous devez définir deux valeurs de nom de serveur�
 
 **Options :** Lorsque ce paramètre de stratégie est activé, vous devez spécifier le service intranet de mise à jour que les clients WSUS utilisera lors de la détection des mises à jour, et le serveur de statistiques Internet auquel mis à jour les clients WSUS téléchargera les statistiques. Exemples de valeurs
 
-|Option de paramètre :|Exemple de valeur :|
-|----------|---------|
-|Configurer le service intranet de mise à jour pour la détection des mises à jour|http://wsus01:8530|
-|Configurer le serveur intranet de statistiques|http://IntranetUpd01|
+
+|                    Option de paramètre :                    |    Exemple de valeur :    |
+|-------------------------------------------------------|----------------------|
+| Configurer le service intranet de mise à jour pour la détection des mises à jour |  http://wsus01:8530  |
+|          Configurer le serveur intranet de statistiques           | http://IntranetUpd01 |
 
 #### <a name="turn-on-recommended-updates-via-automatic-updates"></a>Activer les mises à jour recommandées par le biais de mises à jour automatiques
 Spécifie si les mises à jour automatiques fournira IMPORTANT et mises à jour recommandées à partir de WSUS.
@@ -586,7 +587,7 @@ Spécifie si le **installer les mises à jour et arrêter** option est autorisé
 |**Désactivé**|Spécifie si le **installer les mises à jour et arrêter** option n’est pas l’option par défaut dans le **arrêté bas Windows** boîte de dialogue si les mises à jour sont disponibles pour l’installation au moment où l’utilisateur sélectionne l’arrêt Option enfoncée pour arrêter l’ordinateur.|
 
 **Options :** Il n’existe aucune option pour ce paramètre.
-    
+
 #### <a name="remove-access-to-use-all-windows-update-features"></a>Supprimer l’accès à l’utilisation de toutes les fonctionnalités Windows Update
 Ce paramètre vous permet de supprimer l’accès client WSUS à Windows Update.
 

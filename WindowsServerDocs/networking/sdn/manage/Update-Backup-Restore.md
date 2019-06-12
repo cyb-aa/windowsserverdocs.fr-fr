@@ -9,12 +9,12 @@ ms.assetid: e9a8f2fd-48fe-4a90-9250-f6b32488b7a4
 ms.author: grcusanz
 author: shortpatti
 ms.date: 08/27/2018
-ms.openlocfilehash: 3374d1b79b84edd78dca3b61c73ea2db1dff9561
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7916377f58261d0ccaa3fa24f135fccca3d5e79b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854460"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446335"
 ---
 # <a name="upgrade-backup-and-restore-sdn-infrastructure"></a>Mise à niveau, la sauvegarde et restauration SDN infrastructure
 
@@ -131,18 +131,18 @@ Des sauvegardes régulières de la base de données du contrôleur de réseau ga
 
 **Procédure :**
 
-1.  Utilisez la méthode de sauvegarde de machine virtuelle de votre choix, ou Hyper-V pour exporter une copie de chaque machine virtuelle contrôleur de réseau.<p>Sauvegarder la machine virtuelle contrôleur de réseau garantit que les certificats nécessaires pour déchiffrer la base de données sont présents.  
+1. Utilisez la méthode de sauvegarde de machine virtuelle de votre choix, ou Hyper-V pour exporter une copie de chaque machine virtuelle contrôleur de réseau.<p>Sauvegarder la machine virtuelle contrôleur de réseau garantit que les certificats nécessaires pour déchiffrer la base de données sont présents.  
 
-2.  Si vous utilisez System Center Virtual Machine Manager (SCVMM), arrêtez le service SCVMM et sauvegarder via SQL Server.<p>L’objectif ici est pour vous assurer qu’aucune mise à jour n’effectuées à SCVMM pendant ce temps, ce qui peut entraîner une incohérence entre la sauvegarde de contrôleur de réseau et de SCVMM.  
+2. Si vous utilisez System Center Virtual Machine Manager (SCVMM), arrêtez le service SCVMM et sauvegarder via SQL Server.<p>L’objectif ici est pour vous assurer qu’aucune mise à jour n’effectuées à SCVMM pendant ce temps, ce qui peut entraîner une incohérence entre la sauvegarde de contrôleur de réseau et de SCVMM.  
 
    >[!IMPORTANT]
    >Ne ré-démarrez pas le service SCVMM jusqu'à ce que la sauvegarde de contrôleur de réseau est terminée.
 
-3.  Sauvegarder la base de données du contrôleur de réseau avec la `new-networkcontrollerbackup` applet de commande.
+3. Sauvegarder la base de données du contrôleur de réseau avec la `new-networkcontrollerbackup` applet de commande.
 
-4.  Vérifiez la saisie semi-automatique et la réussite de la sauvegarde avec la `get-networkcontrollerbackup` applet de commande.
+4. Vérifiez la saisie semi-automatique et la réussite de la sauvegarde avec la `get-networkcontrollerbackup` applet de commande.
 
-5.  Si vous utilisez SCVMM, démarrez le service SCVMM.
+5. Si vous utilisez SCVMM, démarrez le service SCVMM.
 
 
 

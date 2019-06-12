@@ -11,12 +11,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 5f253bd4952d8a347e97eafdb38d86fa98024b8d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bd5650724272422d09e87b7eecf10f825b00fabf
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839940"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447043"
 ---
 # <a name="manage-different-domains-in-active-directory-administrative-center"></a>Gérer des domaines différents dans le centre d’administration Active Directory
 
@@ -52,31 +52,31 @@ ms.locfileid: "59839940"
 
 ### <a name="windows-server-2008-r2-to-manage-a-foreign-domain-in-the-selected-instance-of-active-directory-administrative-center-using-the-current-set-of-logon-credentials"></a>Windows Server 2008 R2 : Pour gérer un domaine étranger dans l’instance sélectionnée du centre d’administration Active Directory à l’aide de l’ensemble actuel des informations d’identification d’ouverture de session
 
-1.  Pour ouvrir le centre d’administration Active Directory, cliquez sur **Démarrer**, cliquez sur **outils d’administration**, puis cliquez sur **centre d’administration Active Directory**.
+1. Pour ouvrir le centre d’administration Active Directory, cliquez sur **Démarrer**, cliquez sur **outils d’administration**, puis cliquez sur **centre d’administration Active Directory**.
 
-    > [!NOTE]
-    >  Une autre façon d’ouvrir le centre d’administration Active Directory consiste à cliquer sur **Démarrer**, cliquez sur **exécuter**, puis tapez **dsac.exe**.
+   > [!NOTE]
+   >  Une autre façon d’ouvrir le centre d’administration Active Directory consiste à cliquer sur **Démarrer**, cliquez sur **exécuter**, puis tapez **dsac.exe**.
 
-2.  Pour ouvrir **ajouter des nœuds de Navigation**, près du haut de la fenêtre du centre d’administration Active Directory, cliquez **ajouter des nœuds de Navigation** comme indiqué dans l’illustration suivante.
+2. Pour ouvrir **ajouter des nœuds de Navigation**, près du haut de la fenêtre du centre d’administration Active Directory, cliquez **ajouter des nœuds de Navigation** comme indiqué dans l’illustration suivante.
 
-     ![Capture d’écran ** Ajouter Navigation nœuds ** l’interface utilisateur](media/click_add_nav_nodes.gif)
+    ![Capture d’écran ** Ajouter Navigation nœuds ** l’interface utilisateur](media/click_add_nav_nodes.gif)
 
-    > [!NOTE]
-    >  Une autre façon d’ouvrir **ajouter des nœuds de Navigation** est à droite\-cliquez n’importe où dans l’espace vide dans le volet de navigation du centre d’administration Active Directory, puis cliquez sur **ajouter des nœuds de Navigation**.
+   > [!NOTE]
+   >  Une autre façon d’ouvrir **ajouter des nœuds de Navigation** est à droite\-cliquez n’importe où dans l’espace vide dans le volet de navigation du centre d’administration Active Directory, puis cliquez sur **ajouter des nœuds de Navigation**.
 
-3.  Dans **ajouter des nœuds de Navigation**, cliquez sur **se connecter à d’autres domaines** comme indiqué dans l’illustration suivante.
+3. Dans **ajouter des nœuds de Navigation**, cliquez sur **se connecter à d’autres domaines** comme indiqué dans l’illustration suivante.
 
-     ![Capture d’écran ** Ajouter Navigation nœuds ** ** se connecter aux autres domaines ** l’interface utilisateur](media/add_nav_nodes.gif)
+    ![Capture d’écran ** Ajouter Navigation nœuds ** ** se connecter aux autres domaines ** l’interface utilisateur](media/add_nav_nodes.gif)
 
-4.  Dans **se connecter à**, tapez le nom du domaine étranger que vous souhaitez gérer \(, par exemple, **contoso.com**\), puis cliquez sur **OK**.
+4. Dans **se connecter à**, tapez le nom du domaine étranger que vous souhaitez gérer \(, par exemple, **contoso.com**\), puis cliquez sur **OK**.
 
-5.  Lorsque vous êtes correctement connecté au domaine étranger, parcourez les colonnes dans le **ajouter des nœuds de Navigation** fenêtre, sélectionnez l’ou les conteneurs à ajouter au volet de navigation de votre centre d’administration Active Directory, et puis cliquez sur **OK**.
+5. Lorsque vous êtes correctement connecté au domaine étranger, parcourez les colonnes dans le **ajouter des nœuds de Navigation** fenêtre, sélectionnez l’ou les conteneurs à ajouter au volet de navigation de votre centre d’administration Active Directory, et puis cliquez sur **OK**.
 
- Pour plus d’informations sur la personnalisation du volet de navigation du centre d’administration Active Directory, consultez [personnaliser le Active Directory Administrative Center volet de Navigation](customize-the-active-directory-administrative-center-navigation-pane.md).
+   Pour plus d’informations sur la personnalisation du volet de navigation du centre d’administration Active Directory, consultez [personnaliser le Active Directory Administrative Center volet de Navigation](customize-the-active-directory-administrative-center-navigation-pane.md).
 
- Vous pouvez également ouvrir le centre d’administration Active Directory à l’aide d’un ensemble d’informations d’identification d’ouverture de session qui est différent de votre jeu actuel d’informations d’identification d’ouverture de session. La commande dans la procédure suivante peut être utile si vous êtes connecté à l’ordinateur qui exécute le centre d’administration Active Directory avec les informations d’identification de l’utilisateur normal, mais que vous souhaitez utiliser le centre d’administration Active Directory sur cet ordinateur pour gérer votre domaine local en tant qu’administrateur. \(Cette commande peut également être utile si vous souhaitez utiliser le centre d’administration Active Directory pour gérer à distance un domaine étranger est différent de votre domaine local avec un ensemble d’informations d’identification qui est différent de votre jeu actuel d’informations d’identification d’ouverture de session. Toutefois, le domaine étranger doit avoir une approbation établie avec le domaine local.\)
+   Vous pouvez également ouvrir le centre d’administration Active Directory à l’aide d’un ensemble d’informations d’identification d’ouverture de session qui est différent de votre jeu actuel d’informations d’identification d’ouverture de session. La commande dans la procédure suivante peut être utile si vous êtes connecté à l’ordinateur qui exécute le centre d’administration Active Directory avec les informations d’identification de l’utilisateur normal, mais que vous souhaitez utiliser le centre d’administration Active Directory sur cet ordinateur pour gérer votre domaine local en tant qu’administrateur. \(Cette commande peut également être utile si vous souhaitez utiliser le centre d’administration Active Directory pour gérer à distance un domaine étranger est différent de votre domaine local avec un ensemble d’informations d’identification qui est différent de votre jeu actuel d’informations d’identification d’ouverture de session. Toutefois, le domaine étranger doit avoir une approbation établie avec le domaine local.\)
 
- Pour mener à bien cette procédure, il n’est pas nécessaire d’appartenir à un groupe particulier.
+   Pour mener à bien cette procédure, il n’est pas nécessaire d’appartenir à un groupe particulier.
 
 ### <a name="to-manage-a-domain-using-logon-credentials-that-are-different-from-the-current-set-of-logon-credentials"></a>Pour gérer un domaine à l’aide d’informations d’identification autres que les vôtres
 

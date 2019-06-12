@@ -14,16 +14,16 @@ manager: dongill
 ms.author: elizapo
 date: 01/13/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 1a1939c7fd6d25d756369c85e4adaa6c15195b37
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 71fe969de4d21f7fa3c134b0f80fc7f69e5b2da8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889630"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446707"
 ---
 # <a name="get-started-with-remote-desktop-on-ios"></a>Bien démarrer avec le Bureau à distance sur iOS
 
->S'applique à : Windows 10, Windows 8.1, Windows Server 2012 R2, Windows Server 2016
+>S’applique à : Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 Vous pouvez utiliser le client Bureau à distance pour iOS pour travailler avec les applications Windows, les ressources et les postes de travail à partir de votre appareil iOS (iPhone et iPad).
 
@@ -48,16 +48,16 @@ Sur votre appareil iOS, suivez [ces instructions](https://aka.ms/rdiosbeta) pour
 ### <a name="add-a-remote-desktop-connection"></a>Ajouter une connexion Bureau à distance
 
 Pour créer une connexion Bureau à distance : 
-1. Dans, appuyez sur le centre de connexion **+**, puis appuyez sur **ajouter un PC ou un serveur**.
+1. Dans, appuyez sur le centre de connexion **+** , puis appuyez sur **ajouter un PC ou un serveur**.
 2. Entrez les informations suivantes pour la connexion Bureau à distance :
-  - **Nom du PC** – le nom de l’ordinateur. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez également ajouter des informations de port pour le nom du PC (par exemple, **MyDesktop:3389** ou **10.0.0.1:3389**).
-  - **Nom d’utilisateur** – le nom d’utilisateur à utiliser pour accéder à l’ordinateur distant. Vous pouvez utiliser les formats suivants : *user_name*, *domaine\nom_utilisateur*, ou *user_name@domain.com*. Vous pouvez également spécifier s’il faut demander un nom d’utilisateur et mot de passe.
+   - **Nom du PC** – le nom de l’ordinateur. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez également ajouter des informations de port pour le nom du PC (par exemple, **MyDesktop:3389** ou **10.0.0.1:3389**).
+   - **Nom d’utilisateur** – le nom d’utilisateur à utiliser pour accéder à l’ordinateur distant. Vous pouvez utiliser les formats suivants : *user_name*, *domaine\nom_utilisateur*, ou <em>user_name@domain.com</em>. Vous pouvez également spécifier s’il faut demander un nom d’utilisateur et mot de passe.
 3. Vous pouvez également définir des options supplémentaires suivantes :
-  - **Nom convivial (facultatif)** : un nom facile à mémoriser pour le PC que vous vous connectez à. Vous pouvez utiliser n’importe quelle chaîne, mais si vous ne spécifiez pas un nom convivial, le nom du PC s’affiche.
-  - **(Facultative) de la passerelle** – passerelle le Bureau à distance que vous souhaitez utiliser pour se connecter à des bureaux virtuels, des programmes RemoteApp et des ordinateurs de bureau basés sur des sessions sur un réseau d’entreprise interne. Obtenir les informations sur la passerelle de votre administrateur système.
-  - **Son** – sélectionnez l’appareil à utiliser pour l’audio pendant votre session à distance. Vous pouvez choisir de lire un son sur les appareils locaux, le périphérique distant, ou pas du tout.
-  - **Permuter les boutons de la souris** : chaque fois qu’un mouvement de souris envoie une commande avec le bouton gauche de la souris, il envoie la même commande avec le bouton droit de la souris à la place. Cela est nécessaire si l’ordinateur distant est configuré pour le mode gaucher de la souris.
-  - **Mode administrateur** -se connecter à une session d’administration sur un serveur exécutant Windows Server 2003 ou version ultérieure.
+   - **Nom convivial (facultatif)** : un nom facile à mémoriser pour le PC que vous vous connectez à. Vous pouvez utiliser n’importe quelle chaîne, mais si vous ne spécifiez pas un nom convivial, le nom du PC s’affiche.
+   - **(Facultative) de la passerelle** – passerelle le Bureau à distance que vous souhaitez utiliser pour se connecter à des bureaux virtuels, des programmes RemoteApp et des ordinateurs de bureau basés sur des sessions sur un réseau d’entreprise interne. Obtenir les informations sur la passerelle de votre administrateur système.
+   - **Son** – sélectionnez l’appareil à utiliser pour l’audio pendant votre session à distance. Vous pouvez choisir de lire un son sur les appareils locaux, le périphérique distant, ou pas du tout.
+   - **Permuter les boutons de la souris** : chaque fois qu’un mouvement de souris envoie une commande avec le bouton gauche de la souris, il envoie la même commande avec le bouton droit de la souris à la place. Cela est nécessaire si l’ordinateur distant est configuré pour le mode gaucher de la souris.
+   - **Mode administrateur** -se connecter à une session d’administration sur un serveur exécutant Windows Server 2003 ou version ultérieure.
 4. Appuyez sur **enregistrer**.
 
 Vous avez besoin pour modifier ces paramètres ? Appuyez sur et maintenez le poste de travail que vous souhaitez modifier puis appuyez sur l’icône des paramètres. 
@@ -70,7 +70,7 @@ Ressources distantes sont des programmes RemoteApp, bureaux basés sur session e
 
 Pour ajouter une ressource distante :
 
-1. Dans l’écran de centre de connexion, appuyez sur **+**, puis appuyez sur **ajouter des ressources à distance**. 
+1. Dans l’écran de centre de connexion, appuyez sur **+** , puis appuyez sur **ajouter des ressources à distance**. 
 2. Entrez les informations pour la ressource distante :
    - **URL du flux** -l’URL du serveur d’accès Web de bureau à distance. Vous pouvez également entrer votre compte de messagerie d’entreprise dans ce champ : cela indique au client pour rechercher le serveur d’accès Web Bureau à distance associé à votre adresse de messagerie.
    - **Nom d’utilisateur** -nom d’utilisateur à utiliser pour le serveur d’accès Web de bureau à distance que vous vous connectez à.
@@ -89,8 +89,8 @@ Pour configurer une nouvelle passerelle :
 1. Dans le centre de connexion, appuyez sur **Paramètres > passerelles**. 
 2. Appuyez sur **passerelle d’ajouter le Bureau à distance**.
 3. Entrez les informations suivantes :
-  - **Nom du serveur** – le nom de l’ordinateur que vous souhaitez utiliser en tant que passerelle. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez également ajouter des informations de port au nom du serveur (par exemple : **RDGateway:443** ou **10.0.0.1:443**).
-  - **Nom d’utilisateur** -le nom d’utilisateur et le mot de passe à utiliser pour la passerelle Bureau à distance que vous êtes connecté. Vous pouvez également sélectionner **utiliser les informations d’identification de connexion** à utiliser le même nom d’utilisateur et le mot de passe que ceux utilisés pour la connexion Bureau à distance.
+   - **Nom du serveur** – le nom de l’ordinateur que vous souhaitez utiliser en tant que passerelle. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez également ajouter des informations de port au nom du serveur (par exemple : **RDGateway:443** ou **10.0.0.1:443**).
+   - **Nom d’utilisateur** -le nom d’utilisateur et le mot de passe à utiliser pour la passerelle Bureau à distance que vous êtes connecté. Vous pouvez également sélectionner **utiliser les informations d’identification de connexion** à utiliser le même nom d’utilisateur et le mot de passe que ceux utilisés pour la connexion Bureau à distance.
 
 
 ## <a name="manage-your-user-accounts"></a>Gérer vos comptes d’utilisateur 

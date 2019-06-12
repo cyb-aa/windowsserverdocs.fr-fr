@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 0305467b-ce39-4532-a05a-2cc5ff946f55
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: bb122990c1baf1db8a2edbbbecba8b8cdf8a264d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fa82ba8e2fc3fe19b9e73f602605d3ef76f4b9a5
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833760"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446903"
 ---
 # <a name="generate-a-usage-report-for-remote-clients-using-historical-data"></a>Générer un rapport d'utilisation pour les clients distants à l'aide de données d'historique
 
@@ -49,7 +49,7 @@ La console de gestion sur le serveur d’accès à distance peut être utilisée
   
 2.  Cliquez sur **REPORTING** pour accéder à **rapports l’accès à distance** dans le **Console de gestion des accès à distance**.  
   
-3.  Dans le volet central, cliquez sur les dates du calendrier pour sélectionner la durée de rapport **date de début :** et **date de fin :**, puis cliquez sur **générer le rapport**.  
+3.  Dans le volet central, cliquez sur les dates du calendrier pour sélectionner la durée de rapport **date de début :** et **date de fin :** , puis cliquez sur **générer le rapport**.  
   
 4.  Vous verrez la liste des utilisateurs qui se sont connectés au serveur d’accès à distance au sein de l’heure et sélectionnées des statistiques détaillées à leur sujet. Cliquez sur la première ligne dans la liste. Lorsque vous sélectionnez une ligne, l’activité de l’utilisateur distant est indiquée dans le volet de visualisation. Sélectionnez maintenant le **Server charge statistiques** onglet dans le volet de visualisation pour afficher l’historique de la charge sur le serveur.  
   
@@ -60,7 +60,7 @@ La console de gestion sur le serveur d’accès à distance peut être utilisée
 >   
 > Gestion d’accès à distance est basée sur le concept de **sessions**. Contrairement à un **connexion**, un **session** est identifiée par une combinaison de nom d’utilisateur et l’adresse IP client distant. Par exemple, si un tunnel d’ordinateur est formé à partir du client à distance, nommé CLIENT1 et, une session sera créée et stockée dans la base de données de comptabilité. Lors de la passe d’un utilisateur nommé User1 se connecte à partir de ce client après un certain temps (mais le tunnel d’ordinateur est toujours actif), la session est enregistrée en tant qu’une session distincte. La distinction des sessions consiste à conserver la distinction entre le tunnel d’ordinateur et le tunnel de l’utilisateur.  
   
-![Windows PowerShell](../../../media/Generate-a-usage-report-for-remote-clients-using-historical-data/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![Windows PowerShell](../../../media/Generate-a-usage-report-for-remote-clients-using-historical-data/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   

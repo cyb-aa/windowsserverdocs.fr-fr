@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 5a7252d0-6db8-4a9d-98ee-75082ecd2929
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c21b890523ca61b8f0821692178d050bc11efd79
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: af22b1bbc923b9a06e4aebb910690050af1b7492
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890810"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446635"
 ---
 # <a name="step-7-test-connectivity-when-returning-to-the-corpnet"></a>ÉTAPE 7 de tester la connectivité lors du retour au réseau d’entreprise
 
@@ -28,11 +28,11 @@ La plupart de vos utilisateurs déplacera entre des emplacements distants et le 
   
 ### <a name="test-connectivity-on-client1"></a>Tester la connectivité sur CLIENT1  
   
-1.  Arrêter de CLIENT1 puis débranchez CLIENT1 à partir du sous-réseau de réseau domestique ou un commutateur virtuel et connectez-le au commutateur virtuel ou sous-réseau Corpnet. Activez sur CLIENT1 et connectez-vous en tant que CORP\User1.  
+1. Arrêter de CLIENT1 puis débranchez CLIENT1 à partir du sous-réseau de réseau domestique ou un commutateur virtuel et connectez-le au commutateur virtuel ou sous-réseau Corpnet. Activez sur CLIENT1 et connectez-vous en tant que CORP\User1.  
   
-2.  Ouvrez une fenêtre Windows PowerShell avec élévation de privilèges, tapez **ipconfig/all**, puis appuyez sur ENTRÉE. La sortie indique que CLIENT1 dispose d’une adresse IP locale, et qu’aucune ou n’est active 6to4, Teredo, IP-HTTPS tunnel.  
+2. Ouvrez une fenêtre Windows PowerShell avec élévation de privilèges, tapez **ipconfig/all**, puis appuyez sur ENTRÉE. La sortie indique que CLIENT1 dispose d’une adresse IP locale, et qu’aucune ou n’est active 6to4, Teredo, IP-HTTPS tunnel.  
   
-3.  Tester la connectivité au partage réseau sur APP2. Sur le **Démarrer** , tapez**\\\APP2\Files**, puis appuyez sur ENTRÉE. Vous serez en mesure d’ouvrir le fichier dans ce dossier.  
+3. Tester la connectivité au partage réseau sur APP2. Sur le **Démarrer** , tapez<strong>\\\APP2\Files</strong>, puis appuyez sur ENTRÉE. Vous serez en mesure d’ouvrir le fichier dans ce dossier.  
   
 
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7d9b99dbe7e26190e87c5dfc9de29980b9cb2f43
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 581e9a3bad8323c79839a4487b7da045e9cfec21
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192588"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811238"
 ---
 # <a name="cmd"></a>Cmd
 
@@ -76,10 +76,12 @@ Le tableau suivant répertorie les chiffres hexadécimaux valides que vous pouve
 
 -   À l’aide de plusieurs commandes
 
-    Pour utiliser plusieurs commandes pour \<chaîne >, séparez-les par le séparateur de commandes **&&** et placez-les entre guillemets. Exemple :  
+    Pour utiliser plusieurs commandes pour \<chaîne >, séparez-les par le séparateur de commandes **&&** et placez-les entre guillemets. Exemple :
+
     ```
     "<Command>&&<Command>&&<Command>"
-    ```  
+    ``` 
+ 
 -   Traitement des guillemets
 
     Si vous spécifiez **/c** ou **/k**, **cmd** traite le reste de *chaîne,* et les guillemets sont conservés uniquement si tous les des opérations suivantes conditions sont remplies :  

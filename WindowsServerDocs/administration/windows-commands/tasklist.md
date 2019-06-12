@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: abb36c8c794836387af5547f3706e910dc06fa42
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2c933bb68c488d83311856958a56809f2f5b859
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843000"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440994"
 ---
 # <a name="tasklist"></a>tasklist
 
@@ -34,34 +34,34 @@ tasklist [/s <Computer> [/u [<Domain>\]<UserName> [/p <Password>]]] [{/m <Module
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|/s \<ordinateur >|Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.|
-|/u [\<Domain>\\\]\<UserName>|Exécute la commande avec les autorisations de compte de l’utilisateur qui est spécifié par *nom d’utilisateur* ou *domaine*\** nom d’utilisateur. **/u** peut être spécifié uniquement si **/s** est spécifié. La valeur par défaut est les autorisations de l’utilisateur actuellement connecté à l’ordinateur qui émet la commande.|
-|/p \<mot de passe >|Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** paramètre.|
-|/m \<Module>|Répertorie toutes les tâches avec les modules DLL chargés qui correspondent au nom de modèle donné. Si le nom du module n’est pas spécifié, cette option affiche tous les modules chargés par chaque tâche.|
-|/svc|Répertorie toutes les informations de service pour chaque processus sans troncation. Valide lorsque le **/fo** paramètre est défini sur **table**.|
-|/v|Affiche des commentaires sur les tâches dans la sortie. Pour obtenir une sortie détaillée complète sans troncation, utilisez **/v** et **/svc** ensemble.|
-|/FO {table \| liste \| csv}|Spécifie le format à utiliser pour la sortie. Les valeurs valides sont **table**, **liste**, et **csv**. Le format par défaut pour la sortie est **table**.|
-|/nh|Supprime les en-têtes de colonne dans la sortie. Valide lorsque le **/fo** paramètre est défini sur **table** ou **csv**.|
-|/fi \<Filter>|Spécifie les types de processus à inclure ou à exclure de la requête. Consultez le tableau suivant pour les noms de filtre valide, les opérateurs et les valeurs.|
-|/?|Affiche l'aide à l'invite de commandes.|
+|          Paramètre           |                                                                                                                                            Description                                                                                                                                             |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        /s \<ordinateur >        |                                                                                         Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.                                                                                         |
+| /u [\<Domain>\\\]\<UserName> | Exécute la commande avec les autorisations de compte de l’utilisateur qui est spécifié par *nom d’utilisateur* ou *domaine*\*nom d’utilisateur<em>. \* \*/u</em> \* peut être spécifié uniquement si **/s** est spécifié. La valeur par défaut est les autorisations de l’utilisateur actuellement connecté à l’ordinateur qui émet la commande. |
+|        /p \<mot de passe >        |                                                                                                       Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** paramètre.                                                                                                        |
+|         /m \<Module>         |                                                               Répertorie toutes les tâches avec les modules DLL chargés qui correspondent au nom de modèle donné. Si le nom du module n’est pas spécifié, cette option affiche tous les modules chargés par chaque tâche.                                                                |
+|             /svc             |                                                                                    Répertorie toutes les informations de service pour chaque processus sans troncation. Valide lorsque le **/fo** paramètre est défini sur **table**.                                                                                    |
+|              /v              |                                                                                 Affiche des commentaires sur les tâches dans la sortie. Pour obtenir une sortie détaillée complète sans troncation, utilisez **/v** et **/svc** ensemble.                                                                                 |
+|  /FO {table \| liste \| csv}  |                                                                             Spécifie le format à utiliser pour la sortie. Les valeurs valides sont **table**, **liste**, et **csv**. Le format par défaut pour la sortie est **table**.                                                                             |
+|             /nh              |                                                                                             Supprime les en-têtes de colonne dans la sortie. Valide lorsque le **/fo** paramètre est défini sur **table** ou **csv**.                                                                                              |
+|        /fi \<Filter>         |                                                                          Spécifie les types de processus à inclure ou à exclure de la requête. Consultez le tableau suivant pour les noms de filtre valide, les opérateurs et les valeurs.                                                                          |
+|              /?              |                                                                                                                                Affiche l'aide à l'invite de commandes.                                                                                                                                |
 
 ### <a name="filter-names-operators-and-values"></a>Filtrer les noms, opérateurs et valeurs
 
-|Nom du filtre|Opérateurs valides|Valeurs valides|
-|-----------|---------------|------------|
-|ÉTAT|eq, ne|EN COURS D’EXÉCUTION | NE RÉPOND NE PAS | INCONNU|
-|IMAGENAME|eq, ne|Nom de l’image|
-|PID|eq, ne, gt, lt, ge, le|Valeur PID|
-|SESSION|eq, ne, gt, lt, ge, le|Numéro de session|
-|NOM DE SESSION|eq, ne|Nom de session|
-|CPUTIME|eq, ne, gt, lt, ge, le|Temps processeur dans le format *HH ***:*** MM ***:*** SS*, où *MM* et *SS* sont comprises entre 0 et 59 et *HH* est le nombre non signé|
-|MEMUSAGE|eq, ne, gt, lt, ge, le|Utilisation de la mémoire en Ko|
-|NOM D’UTILISATEUR|eq, ne|N’importe quel nom d’utilisateur valide|
-|SERVICES|eq, ne|Nom du service|
-|WINDOWTITLE|eq, ne|Titre de la fenêtre|
-|MODULES|eq, ne|Nom de la DLL|
+| Nom du filtre |    Opérateurs valides     |                                                                 Valeurs valides                                                                 |
+|-------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+|   ÉTAT    |         eq, ne         |                                                                   EN COURS D’EXÉCUTION                                                                    |
+|  IMAGENAME  |         eq, ne         |                                                                  Nom de l’image                                                                  |
+|     PID     | eq, ne, gt, lt, ge, le |                                                                  Valeur PID                                                                   |
+|   SESSION   | eq, ne, gt, lt, ge, le |                                                                Numéro de session                                                                |
+| NOM DE SESSION |         eq, ne         |                                                                 Nom de session                                                                 |
+|   CPUTIME   | eq, ne, gt, lt, ge, le | Temps processeur dans le format <em>HH</em> **:** <em>MM</em> **:** <em>SS</em>, où *MM* et *SS* sont comprises entre 0 et 59 et *HH* est le nombre non signé |
+|  MEMUSAGE   | eq, ne, gt, lt, ge, le |                                                              Utilisation de la mémoire en Ko                                                              |
+|  NOM D’UTILISATEUR   |         eq, ne         |                                                             N’importe quel nom d’utilisateur valide                                                              |
+|  SERVICES   |         eq, ne         |                                                                 Nom du service                                                                 |
+| WINDOWTITLE |         eq, ne         |                                                                 Titre de la fenêtre                                                                 |
+|   MODULES   |         eq, ne         |                                                                   Nom de la DLL                                                                   |
 
 ## <a name="remarks"></a>Notes
 
@@ -96,4 +96,4 @@ tasklist /s srvmain /u maindom\hiropln /p p@ssW23
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: d53be34d04edfac9f30b6e269833be74a6ebcf22
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 541ceec25e8cb0fae0b55c3de3be269982546c54
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820350"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447662"
 ---
 # <a name="configure-e-mail-notifications"></a>Configurer les notifications par courrier électronique
 
@@ -25,21 +25,21 @@ Pour envoyer ces notifications et ces rapports de stockage, vous devez spécifie
 
 ## <a name="to-configure-e-mail-options"></a>Pour configurer les options de messagerie
 
-1.  Dans l'arborescence de la console, cliquez avec le bouton droit sur **Gestionnaire de ressources du serveur de fichiers**, puis cliquez sur **Configurer les options**. La boîte de dialogue **Options du Gestionnaire de ressources du serveur de fichiers** s'affiche.
+1. Dans l'arborescence de la console, cliquez avec le bouton droit sur **Gestionnaire de ressources du serveur de fichiers**, puis cliquez sur **Configurer les options**. La boîte de dialogue **Options du Gestionnaire de ressources du serveur de fichiers** s'affiche.
 
-2.  Sous l'onglet **Notifications par courrier électronique**, sous **Nom ou adresse IP du serveur SMTP**, tapez le nom d'hôte ou l'adresse IP du serveur SMTP qui transfèrera les notifications et les rapports de stockage par courrier électronique.
+2. Sous l'onglet **Notifications par courrier électronique**, sous **Nom ou adresse IP du serveur SMTP**, tapez le nom d'hôte ou l'adresse IP du serveur SMTP qui transfèrera les notifications et les rapports de stockage par courrier électronique.
 
-3.  Si vous souhaitez informer certains administrateurs des événements liés aux quotas ou aux filtres de fichiers ou envoyer des rapports de stockage par courrier électronique, sous **Administrateurs destinataires par défaut**, tapez chaque adresse de messagerie.
+3. Si vous souhaitez informer certains administrateurs des événements liés aux quotas ou aux filtres de fichiers ou envoyer des rapports de stockage par courrier électronique, sous **Administrateurs destinataires par défaut**, tapez chaque adresse de messagerie.
 
-    Utilisez le format *account@domain*. Séparez les différents comptes par des points-virgules.
+   Utilisez le format <em>account@domain</em>. Séparez les différents comptes par des points-virgules.
 
-4.  Pour spécifier une autre adresse d'expéditeur pour envoyer des notifications et des rapports de stockage à partir du Gestionnaire de ressources du serveur de fichiers, sous **Adresse de messagerie de l’expéditeur par défaut**, tapez l’adresse de messagerie que vous souhaitez voir apparaître dans votre message.
+4. Pour spécifier une autre adresse d'expéditeur pour envoyer des notifications et des rapports de stockage à partir du Gestionnaire de ressources du serveur de fichiers, sous **Adresse de messagerie de l’expéditeur par défaut**, tapez l’adresse de messagerie que vous souhaitez voir apparaître dans votre message.
 
-5.  Pour tester vos paramètres, cliquez sur **Envoyer un message de test**.
+5. Pour tester vos paramètres, cliquez sur **Envoyer un message de test**.
 
-6.  Cliquez sur **OK**.
+6. Cliquez sur **OK**.
 
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Options de paramètre File Server Resource Manager](setting-file-server-resource-manager-options.md)
+-   [Définition des options du Gestionnaire de ressources du serveur de fichiers](setting-file-server-resource-manager-options.md)

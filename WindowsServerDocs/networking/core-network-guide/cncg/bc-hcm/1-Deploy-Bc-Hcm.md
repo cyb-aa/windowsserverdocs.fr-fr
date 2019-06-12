@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 4235231c-4732-4ea9-9330-2a8c8a616d39
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: dc2cb29f0f00c04c4208bd83d70bc4d966bbad00
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 54991b343623b934118bb62af1bd91871a726996
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839350"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446485"
 ---
 # <a name="deploy-branchcache-hosted-cache-mode"></a>Déployer le mode de cache hébergé de BranchCache
 
@@ -63,8 +63,8 @@ Il s’agit d’un guide d’accompagnement pour le Guide du réseau Windows Ser
     - Windows 8.1 Entreprise
     - Windows 8 Entreprise
 
->[!NOTE]
->Dans les systèmes d’exploitation suivants, BranchCache ne prend pas en charge les fonctionnalités HTTP et SMB, mais ne prend pas en charge les fonctionnalités de BITS de BranchCache.
+> [!NOTE]
+> Dans les systèmes d’exploitation suivants, BranchCache ne prend pas en charge les fonctionnalités HTTP et SMB, mais ne prend pas en charge les fonctionnalités de BITS de BranchCache.
 >     - Windows 10 Professionnel, BITS prennent uniquement en charge
 >     - Windows 8.1 Pro, BITS prennent uniquement en charge
 >     - Windows 8 Professionnel, BITS prennent uniquement en charge

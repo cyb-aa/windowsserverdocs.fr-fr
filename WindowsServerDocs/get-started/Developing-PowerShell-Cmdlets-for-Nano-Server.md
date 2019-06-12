@@ -12,12 +12,12 @@ author: jaimeo
 ms.author: jaimeo
 ms.date: 09/06/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 4c669db414c4f12b6145a26a75b83449f43e8918
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c3376d03a2e9f02b20aba608de0228efd7dfddea
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887680"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443621"
 ---
 # <a name="developing-powershell-cmdlets-for-nano-server"></a>Développement d’applets de commande PowerShell pour Nano Server
 
@@ -127,9 +127,9 @@ Si vous n’êtes pas certain de l’implémentation que vous avez utilisée pou
 * %UserProfile%\Documents\WindowsPowerShell\Modules   
 * \<votre emplacement d’installation du produit >   
     
- Vérifiez les détails suivants dans ces emplacements :  
- * Les applets de commande CIM présentent des extensions de fichier .cdxml.  
- * Les applets de commande .NET présentent des extensions de fichier .dll ou ont des assemblys installés dans le GAC, répertoriés dans les champs RootModule, ModuleToProcess ou NestedModules du fichier .psd1.  
+  Vérifiez les détails suivants dans ces emplacements :  
+  * Les applets de commande CIM présentent des extensions de fichier .cdxml.  
+  * Les applets de commande .NET présentent des extensions de fichier .dll ou ont des assemblys installés dans le GAC, répertoriés dans les champs RootModule, ModuleToProcess ou NestedModules du fichier .psd1.  
 * Les applets de commande de script PowerShell présentent des extensions de fichier .psm1 ou .ps1.   
   
 ## <a name="porting-cim-cmdlets"></a>Portage des applets de commande CIM  

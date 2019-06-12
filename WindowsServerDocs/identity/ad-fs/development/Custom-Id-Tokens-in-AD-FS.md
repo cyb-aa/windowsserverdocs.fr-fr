@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.reviewer: anandy
 ms.technology: identity-adfs
-ms.openlocfilehash: c4f9a2880aa91b7a600cdb40238bead7d565e6bc
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 04573aa13689a0e6744b01a0fbf8b11b622b2706
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65977026"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445471"
 ---
 # <a name="customize-claims-to-be-emitted-in-idtoken-when-using-openid-connect-or-oauth-with-ad-fs-2016-or-later"></a>Personnaliser des revendications pour être émis dans id_token lors de l’utilisation de OpenID Connect ou OAuth avec AD FS 2016 ou version ultérieure
 
@@ -57,29 +57,29 @@ Suivez les étapes ci-dessous pour créer et configurer l’application dans AD 
 
 2. Dans l’Assistant de groupe d’Application, pour le nom, entrez **ADFSSSO** et sélectionnez des applications sous Client-serveur le **application Native l’accès à une application web** modèle. Cliquez sur **Suivant**.
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap1.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap1.png)
 
 3. Copie le **identificateur Client** valeur.  Il servira ultérieurement comme valeur pour ida : ClientId dans le fichier web.config des applications.
 
 4. Entrez les informations suivantes **URI de redirection :**  -  **https://localhost:44320/** .  Cliquez sur **Ajouter**. Cliquez sur **Suivant**.
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap2.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap2.png)
 
 5. Sur le **configurer des API Web** écran, entrez les informations suivantes **identificateur** -  **https://contoso.com/WebApp** .  Cliquez sur **Ajouter**. Cliquez sur **Suivant**.  Cette valeur sera utilisée ultérieurement pour **ida : ResourceID** dans le fichier web.config des applications.
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap3.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap3.png)
 
 6. Sur le **choisir la stratégie de contrôle d’accès** s’affiche, sélectionnez **autoriser tout le monde** et cliquez sur **suivant**.
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap4.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap4.png)
 
 7. Sur le **configurer les autorisations Application** écran, vérifiez que **openid** et **allatclaims** sont sélectionnées et cliquez sur **suivant**.
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap5.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap5.png)
 
 8. Sur le **Résumé** , cliquez sur **suivant**.  
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap6.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap6.png)
 
 9. Sur le **Terminer** , cliquez sur **fermer**.
 
@@ -89,20 +89,20 @@ Suivez les étapes ci-dessous pour créer et configurer l’application dans AD 
 
 11. Sur **ADFSSSO - propriétés d’API Web** s’affiche, sélectionnez **règles de transformation d’émission** onglet et cliquez sur **ajouter une règle...**
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap8.png)
+    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap8.png)
 
 12. Sur **ajouter un Assistant de règle de revendication de transformation** s’affiche, sélectionnez **envoyer les revendications à l’aide d’une règle personnalisée** à partir de la liste déroulante et cliquez sur **suivant**
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap9.png)
+    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap9.png)
 
 13. Sur **ajouter transformer Assistant règle de revendication** écran, entrez **ForCustomIDToken** dans **nom de règle de revendication** et de la règle de revendication suivant **règle personnalisée**. Cliquez sur **terminer**
 
-  ```  
-  x:[]
-  => issue(claim=x);  
-  ```
+    ```  
+    x:[]
+    => issue(claim=x);  
+    ```
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap10.png)
+    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap10.png)
 
 ```
 

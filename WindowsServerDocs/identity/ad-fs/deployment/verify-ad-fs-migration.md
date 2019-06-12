@@ -8,12 +8,12 @@ ms.date: 07/10/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0a3e8e444f715fe2ae0f0ccd858d90e8664be00c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 38e44ab2f803d8ec8940dbba7574a9f37389112a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877770"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444464"
 ---
 # <a name="verify-the-ad-fs-20-migration-to-windows-server-2012-r2"></a>Vérifiez l’AD FS 2.0 la migration vers Windows Server 2012 R2
 
@@ -27,7 +27,7 @@ Vous devez au minimum appartenir au groupe **Utilisateurs**, **Opérateurs de sa
   
 Si, dans la fenêtre de navigateur, vous pouvez voir les métadonnées du serveur de fédération sans aucun avertissement ni erreur SSL, le serveur de fédération est opérationnel.  
   
-2.  Vous pouvez également accéder à la page de connexion AD FS (nom du service de fédération suivi de `adfs/ls/idpinitiatedsignon.htm`, par exemple `https://fs.contoso.com/adfs/ls/idpinitiatedsignon.htm`).  La page de connexion AD FS s’ouvre dans laquelle vous pouvez vous connecter à l’aide des informations d’identification d’administrateur du domaine.  
+2. Vous pouvez également accéder à la page de connexion AD FS (nom du service de fédération suivi de `adfs/ls/idpinitiatedsignon.htm`, par exemple `https://fs.contoso.com/adfs/ls/idpinitiatedsignon.htm`).  La page de connexion AD FS s’ouvre dans laquelle vous pouvez vous connecter à l’aide des informations d’identification d’administrateur du domaine.  
   
 > [!IMPORTANT]
 >  Veillez à configurer les paramètres du navigateur pour approuver le rôle de serveur de fédération en ajoutant le nom de votre service de fédération (par exemple, `https://fs.contoso.com`) à la zone intranet locale du navigateur.  

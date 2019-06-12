@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 07/25/2018
-ms.openlocfilehash: a10b3d3877e9511164d298bcc1dab11540e6f596
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 7ab2eff32b105916d979a954275e9c9122a06903
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188198"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441720"
 ---
 # <a name="robocopy"></a>robocopy
 
@@ -32,12 +32,12 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|\<Source>|Spécifie le chemin d’accès au répertoire source.|
-|\<Destination>|Spécifie le chemin d’accès au répertoire de destination.|
-|\<File>|Spécifie l’ou les fichiers à copier. Vous pouvez utiliser des caractères génériques (**&#42;** ou **?** ), si vous le souhaitez. Si le **fichier** paramètre n’est pas spécifié, **\*.\*** est utilisé comme valeur par défaut.|
-|\<Options>|Spécifie les options à utiliser avec le **robocopy** commande.|
+|   Paramètre    |                                                                                            Description                                                                                             |
+|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   \<Source>    |                                                                            Spécifie le chemin d’accès au répertoire source.                                                                             |
+| \<Destination> |                                                                          Spécifie le chemin d’accès au répertoire de destination.                                                                          |
+|    \<File>     | Spécifie l’ou les fichiers à copier. Vous pouvez utiliser des caractères génériques ( **&#42;** ou **?** ), si vous le souhaitez. Si le **fichier** paramètre n’est pas spécifié, **\*.\\** \* est utilisé comme valeur par défaut. |
+|   \<Options>   |                                                                    Spécifie les options à utiliser avec le **robocopy** commande.                                                                     |
 
 ### <a name="copy-options"></a>Options de copie
 
@@ -90,7 +90,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/m|Copie uniquement les fichiers pour lesquels le **Archive** attribut est défini et réinitialise le **Archive** attribut.|
 |/IA : [RASHCNETO]|Inclut uniquement les fichiers pour lequel un des attributs spécifiés sont défini.|
 |/XA : [RASHCNETO]|Exclut les fichiers pour lequel un des attributs spécifiés sont défini.|
-|/xf \<FileName>[ ...]|Exclut les fichiers qui correspondent aux noms spécifiés ou des chemins d’accès. Notez que *FileName* peut inclure des caractères génériques (**&#42;** et **?** ).|
+|/xf \<FileName>[ ...]|Exclut les fichiers qui correspondent aux noms spécifiés ou des chemins d’accès. Notez que *FileName* peut inclure des caractères génériques ( **&#42;** et **?** ).|
 |/XD \<répertoire > [...]|Exclut les répertoires qui correspondent aux noms spécifiés et aux chemins d’accès.|
 |/xc|Exclut les fichiers modifiés.|
 |/xn|Exclut les fichiers les plus récents.|
@@ -157,6 +157,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/if|Inclut les fichiers spécifiés.|
 
 ### <a name="exit-return-codes"></a>Codes de sortie (retour)
+
 Value | Description
 -- | --
 0 | Aucun fichier ont été copiés. Aucune défaillance a été rencontrée.  Aucun fichier ont été ne correspondent pas. Les fichiers existent déjà dans le répertoire de destination ; Par conséquent, l’opération de copie a été ignorée.

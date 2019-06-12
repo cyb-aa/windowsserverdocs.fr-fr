@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 35afec8e-39a4-463b-839a-3c300ab01174
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0d51ac71fa2fbe4d0bb7121a9ef511524c47f4f4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: adcd13bda942b756a122e9642da795dd9c847bad
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826610"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446960"
 ---
 # <a name="step-2-configure-advanced-directaccess-servers"></a>Étape 2 configurer des serveurs d’infrastructure DirectAccess avancée
 
@@ -30,7 +30,7 @@ Cette rubrique décrit comment configurer les paramètres de client et de serveu
 |----|--------|  
 |2.1. Installer le rôle Accès à distance|Installez le rôle Accès à distance.|  
 |2.2. Configurer le type de déploiement|Configurez le type de déploiement comme DirectAccess et VPN, DirectAccess uniquement ou VPN uniquement.|  
-|[Planifier un déploiement d’une infrastructure DirectAccess avancée](Plan-an-Advanced-DirectAccess-Deployment.md)|Configurez le serveur d'accès à distance avec les groupes de sécurité contenant les clients DirectAccess.|  
+|[Planifier un déploiement avancé de DirectAccess](Plan-an-Advanced-DirectAccess-Deployment.md)|Configurez le serveur d'accès à distance avec les groupes de sécurité contenant les clients DirectAccess.|  
 |2.4. Configurer le serveur d'accès à distance|Configurez les paramètres du serveur d'accès à distance.|  
 |2.5. Configurer les serveurs d'infrastructure|Configurez les serveurs d'infrastructure utilisés dans l'organisation.|  
 |2.6. Configurer les serveurs d'applications|Configurez les serveurs d'applications afin qu'ils exigent une authentification et un chiffrement.|  
@@ -57,7 +57,7 @@ Pour déployer l'accès à distance, vous devez installer le rôle Accès à dis
   
 6.  Dans la page **Progression de l'installation**, vérifiez que l'installation s'est correctement déroulée et cliquez sur **Fermer**.  
   
-![Réussite de progression de l’installation](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)****Windows PowerShell équivalente commandes****  
+![Réussite de progression de l’installation](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -244,11 +244,11 @@ Set-DAClientExperienceConfiguration -FriendlyName 'Contoso DirectAccess Connecti
   
 ## <a name="BKMK_Links"></a>Étape précédente  
   
--   [Étape 1 : Configurer l’Infrastructure DirectAccess avancée](da-adv-configure-s1-infrastructure.md)  
+-   [Étape 1 : Configurer l’infrastructure DirectAccess avancée](da-adv-configure-s1-infrastructure.md)  
   
 ## <a name="next-step"></a>Étape suivante  
   
--   [Étape 3 : Vérifier le déploiement](Step-3-Verify-the-Deployment.md)  
+-   [Étape 3 : Vérifier le déploiement](Step-3-Verify-the-Deployment.md)  
   
 
 

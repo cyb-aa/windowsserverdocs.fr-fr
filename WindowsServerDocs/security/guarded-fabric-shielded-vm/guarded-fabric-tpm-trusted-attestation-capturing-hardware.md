@@ -7,13 +7,13 @@ ms.assetid: 915b1338-5085-481b-8904-75d29e609e93
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 12/12/2018
-ms.openlocfilehash: 82171eee10a06cad6bb3ac30e8f771086975c242
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.date: 04/01/2019
+ms.openlocfilehash: 61f56eea59d11264047a9c7b8b6734617ad1802f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841660"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447330"
 ---
 # <a name="authorize-guarded-hosts-using-tpm-based-attestation"></a>Autoriser les hôtes service Guardian à l’aide de l’attestation basée sur le module de plateforme sécurisée
 
@@ -99,8 +99,11 @@ Pour plus d’informations sur les niveaux de règle de stratégie CI disponible
 
 3.  Appliquer la stratégie de l’élément de configuration à votre hôte de référence :
 
-    1.  Copiez le fichier de stratégie CI binaire (HW1CodeIntegrity.p7b) à l’emplacement suivant sur votre hôte de référence (le nom de fichier doit correspondre exactement à) :<br>
-        **C:\\Windows\\System32\\CodeIntegrity\\SIPolicy.p7b**
+    1.  Exécutez la commande suivante pour configurer l’ordinateur pour utiliser votre stratégie d’intégrité. Vous pouvez également déployer la stratégie CI avec [stratégie de groupe](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/deploy-windows-defender-application-control-policies-using-group-policy) ou [System Center Virtual Machine Manager](https://docs.microsoft.com/en-us/system-center/vmm/guarded-deploy-host?view=sc-vmm-2019#manage-and-deploy-code-integrity-policies-with-vmm).
+
+        ```powershell
+        Invoke-CimMethod -Namespace root/Microsoft/Windows/CI -ClassName PS_UpdateAndCompareCIPolicy -MethodName Update -Arguments @{ FilePath = "C:\temp\HW1CodeIntegrity.p7b" }
+        ```
 
     2.  Redémarrez l’hôte pour appliquer la stratégie.
 
@@ -117,8 +120,8 @@ Pour plus d’informations sur les niveaux de règle de stratégie CI disponible
 5.  Appliquer la stratégie CI pour tous les ordinateurs hôtes (avec une configuration matérielle et logicielle identiques) en utilisant les commandes suivantes :
 
     ```powershell
-    Copy-Item -Path '<Path to HW1CodeIntegrity\_enforced.p7b>' -Destination 'C:\Windows\System32\CodeIntegrity\SIPolicy.p7b'
-
+    Invoke-CimMethod -Namespace root/Microsoft/Windows/CI -ClassName PS_UpdateAndCompareCIPolicy -MethodName Update -Arguments @{ FilePath = "C:\temp\HW1CodeIntegrity.p7b" }
+    
     Restart-Computer
     ```
 
@@ -167,5 +170,5 @@ Une ligne de base du module de plateforme sécurisée est requis pour chaque cla
 
 ## <a name="next-step"></a>Étape suivante
 
->[!div class="nextstepaction"]
-[Confirmer l’attestation](guarded-fabric-confirm-hosts-can-attest-successfully.md)
+> [!div class="nextstepaction"]
+> [Confirmer l’attestation](guarded-fabric-confirm-hosts-can-attest-successfully.md)

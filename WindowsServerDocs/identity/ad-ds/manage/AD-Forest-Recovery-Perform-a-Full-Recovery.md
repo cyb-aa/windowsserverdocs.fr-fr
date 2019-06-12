@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 1a1182a6-4462-4a13-806e-0e642a0d5db2
 ms.technology: identity-adds
-ms.openlocfilehash: 6f600ade3d07130d4e1fb3b1a254cb1073f592e9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9cf89c9f4875f602abea89e366cadfba8d0599c3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874230"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443014"
 ---
 # <a name="ad-forest-recovery---performing-a-full-server-recovery"></a>Récupération de forêt AD - exécution d’une récupération complète du serveur 
 
@@ -69,15 +69,15 @@ Selon votre scénario, utilisez une des procédures suivantes pour effectuer une
    ![Restauration du serveur](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore8.png)
 8. Tapez le chemin d’accès UNC à l’emplacement de partage de sauvegarde (par exemple, \\\server1\backups) et cliquez sur **OK**. Vous pouvez également taper l’adresse IP du serveur cible, tel que \\\192.168.1.3\backups. 
    ![Restauration du serveur](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore9.png)
-10. Tapez les informations d’identification nécessaires pour accéder au partage et cliquez sur OK. 
-11. Maintenant **sélectionner la date et l’heure de l’image du système pour restaurer** et cliquez sur **suivant**.
-12. Vous aurez maintenant une option permettant de :
-   - Formater et repartitionner les disques
-   - Installer des pilotes
-   - Désélectionnant les **avancé** fonctionnalités de redémarrer automatiquement et en recherchant les erreurs de disque. Ces dernières sont activées par défaut.
-13. Cliquez sur **Suivant**.
-14. Cliquez sur **Terminer**. Vous devez vous demandant si vous êtes sûr de que vouloir continuer. Cliquez sur **Oui**.  
-15. Une fois cette étape termine effectuer une restauration faisant autorité de SYSVOL, comme décrit dans [récupération de forêt AD - effectuer une synchronisation faisant autoritée de SYSVOL de réplication DFSR](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md).
+9. Tapez les informations d’identification nécessaires pour accéder au partage et cliquez sur OK. 
+10. Maintenant **sélectionner la date et l’heure de l’image du système pour restaurer** et cliquez sur **suivant**.
+11. Vous aurez maintenant une option permettant de :
+    - Formater et repartitionner les disques
+    - Installer des pilotes
+    - Désélectionnant les **avancé** fonctionnalités de redémarrer automatiquement et en recherchant les erreurs de disque. Ces dernières sont activées par défaut.
+12. Cliquez sur **Suivant**.
+13. Cliquez sur **Terminer**. Vous devez vous demandant si vous êtes sûr de que vouloir continuer. Cliquez sur **Oui**.  
+14. Une fois cette étape termine effectuer une restauration faisant autorité de SYSVOL, comme décrit dans [récupération de forêt AD - effectuer une synchronisation faisant autoritée de SYSVOL de réplication DFSR](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md).
 
 ## <a name="enabling-the-network-adapter-for-a-network-backup"></a>L’activation de la carte réseau pour une sauvegarde réseau
 
@@ -132,5 +132,5 @@ Si vous avez besoin activer une carte réseau à partir de l’invite de command
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Guide de la forêt Active Directory](AD-Forest-Recovery-Guide.md)
-- [Récupération de forêt AD - procédures](AD-Forest-Recovery-Procedures.md)
+- [Guide de récupération de la forêt Active Directory](AD-Forest-Recovery-Guide.md)
+- [Récupération de la forêt Active Directory : procédures](AD-Forest-Recovery-Procedures.md)

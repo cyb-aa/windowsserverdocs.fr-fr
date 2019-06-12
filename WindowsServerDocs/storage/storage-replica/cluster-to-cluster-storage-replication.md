@@ -9,12 +9,12 @@ ms.assetid: 834e8542-a67a-4ba0-9841-8a57727ef876
 author: nedpyle
 ms.date: 04/26/2019
 description: Comment utiliser le réplica de stockage pour répliquer des volumes dans un cluster vers un autre cluster exécutant Windows Server.
-ms.openlocfilehash: 2e3245320b2ef7035ac600ff783684083f3f929a
-ms.sourcegitcommit: 0099873d69bd23495d275d7bcb464594de09ee3c
+ms.openlocfilehash: 9d4b7eb05576095abd5d8c905211b2a5e88555bd
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65699899"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447632"
 ---
 # <a name="cluster-to-cluster-storage-replication"></a>Réplication du stockage de cluster à cluster
 
@@ -57,7 +57,7 @@ La plupart de ces exigences peuvent être déterminées à l’aide de l’apple
 
 ## <a name="step-1-provision-operating-system-features-roles-storage-and-network"></a>Étape 1 : Configurer le système d’exploitation, les fonctionnalités, les rôles, le stockage et le réseau
 
-1.  Installation de Windows Server sur tous les quatre nœuds de serveur avec un type d’installation de Windows Server **(expérience)**. 
+1.  Installation de Windows Server sur tous les quatre nœuds de serveur avec un type d’installation de Windows Server **(expérience)** . 
 
 2.  Ajoutez des informations réseau et joignez-les au domaine, puis redémarrez-les.  
 
@@ -139,8 +139,8 @@ La plupart de ces exigences peuvent être déterminées à l’aide de l’apple
 
 2. Assurez-vous que les volumes de journaux SR se trouvent toujours sur le périphérique de stockage flash le plus rapide et les volumes de données sur un périphérique de stockage à haute capacité plus lent.
 
-10. Démarrez Windows PowerShell et utilisez l’applet de commande `Test-SRTopology` pour déterminer si vous répondez à toutes les conditions des réplicas de stockage. Vous pouvez utiliser l’applet de commande dans un mode d’exigences uniquement pour un test rapide ainsi qu’un mode d’évaluation de performances à exécution longue.  
-Par exemple,  
+3. Démarrez Windows PowerShell et utilisez l’applet de commande `Test-SRTopology` pour déterminer si vous répondez à toutes les conditions des réplicas de stockage. Vous pouvez utiliser l’applet de commande dans un mode d’exigences uniquement pour un test rapide ainsi qu’un mode d’évaluation de performances à exécution longue.  
+   Par exemple,  
 
    ```PowerShell
    MD c:\temp
@@ -148,13 +148,13 @@ Par exemple,
    Test-SRTopology -SourceComputerName SR-SRV01 -SourceVolumeName f: -SourceLogVolumeName g: -DestinationComputerName SR-SRV03 -DestinationVolumeName f: -DestinationLogVolumeName g: -DurationInMinutes 30 -ResultPath c:\temp        
    ```
 
-      > [!IMPORTANT]
-      > Lorsque vous utilisez un serveur de test sans aucune écriture de charge d’E/S sur le volume source spécifié pendant la période d’évaluation, envisagez d’ajouter une charge de travail, ou le rapport généré ne sera pas utile. Vous devez effectuer des tests avec des charges de travail de type production afin de voir des nombres réels et les tailles de journal recommandées. Vous pouvez également simplement copier certains fichiers dans le volume source pendant le test ou télécharger et exécuter [DISKSPD](https://gallery.technet.microsoft.com/DiskSpd-a-robust-storage-6cd2f223) pour générer des E/S d’écriture. Par exemple, un échantillon avec une faible charge de travail d’E/S pendant cinq minutes pour le volume D: :  
-      > `Diskspd.exe -c1g -d300 -W5 -C5 -b8k -t2 -o2 -r -w5 -h d:\test.dat`  
+     > [!IMPORTANT]
+     > Lorsque vous utilisez un serveur de test sans aucune écriture de charge d’E/S sur le volume source spécifié pendant la période d’évaluation, envisagez d’ajouter une charge de travail, ou le rapport généré ne sera pas utile. Vous devez effectuer des tests avec des charges de travail de type production afin de voir des nombres réels et les tailles de journal recommandées. Vous pouvez également simplement copier certains fichiers dans le volume source pendant le test ou télécharger et exécuter [DISKSPD](https://gallery.technet.microsoft.com/DiskSpd-a-robust-storage-6cd2f223) pour générer des E/S d’écriture. Par exemple, un échantillon avec une faible charge de travail d’E/S pendant cinq minutes pour le volume D: :  
+     > `Diskspd.exe -c1g -d300 -W5 -C5 -b8k -t2 -o2 -r -w5 -h d:\test.dat`  
 
-11. Examinez le rapport **TestSrTopologyReport.html** pour vous assurer que les exigences de réplica de stockage sont satisfaites.  
+4. Examinez le rapport **TestSrTopologyReport.html** pour vous assurer que les exigences de réplica de stockage sont satisfaites.  
 
-    ![Capture d’écran montrant les résultats du rapport de topologie de réplication](./media/Cluster-to-Cluster-Storage-Replication/SRTestSRTopologyReport.png)      
+   ![Capture d’écran montrant les résultats du rapport de topologie de réplication](./media/Cluster-to-Cluster-Storage-Replication/SRTestSRTopologyReport.png)      
 
 ## <a name="step-2-configure-two-scale-out-file-server-failover-clusters"></a>Étape 2 : Configurer deux clusters de basculement de serveur de fichiers avec montée en charge  
 Vous allez maintenant créer deux clusters de basculement normaux. Après la configuration, la validation et le test, vous allez les répliquer à l’aide d’un réplica de stockage. Vous pouvez effectuer toutes les étapes ci-dessous sur les nœuds de cluster directement ou à partir d’un ordinateur de gestion à distance qui contient les outils d’Administration de serveur à distance Windows Server.  
@@ -212,89 +212,89 @@ Vous allez maintenant créer deux clusters de basculement normaux. Après la con
 ## <a name="step-3-set-up-cluster-to-cluster-replication-using-windows-powershell"></a>Étape 3 : Configurer la réplication de Cluster à Cluster à l’aide de Windows PowerShell  
 Vous allez maintenant configurer la réplication de cluster à cluster à l’aide de Windows PowerShell. Vous pouvez effectuer toutes les étapes ci-dessous sur les nœuds directement ou à partir d’un ordinateur de gestion à distance qui contient les outils d’Administration de serveur à distance Windows Server  
 
-1.  Accordez le premier cluster un accès complet à l’autre cluster en exécutant la **Grant-SRAccess** applet de commande sur n’importe quel nœud dans le premier cluster, ou à distance.  Outils d’Administration de serveur distant Windows Server
+1. Accordez le premier cluster un accès complet à l’autre cluster en exécutant la **Grant-SRAccess** applet de commande sur n’importe quel nœud dans le premier cluster, ou à distance.  Outils d’Administration de serveur distant Windows Server
 
-    ```PowerShell
-    Grant-SRAccess -ComputerName SR-SRV01 -Cluster SR-SRVCLUSB  
-    ```  
+   ```PowerShell
+   Grant-SRAccess -ComputerName SR-SRV01 -Cluster SR-SRVCLUSB  
+   ```  
 
-2.  Accordez le second cluster un accès complet à l’autre cluster en exécutant la **Grant-SRAccess** applet de commande sur n’importe quel nœud dans le deuxième cluster, ou à distance.  
+2. Accordez le second cluster un accès complet à l’autre cluster en exécutant la **Grant-SRAccess** applet de commande sur n’importe quel nœud dans le deuxième cluster, ou à distance.  
 
-    ```PowerShell
-    Grant-SRAccess -ComputerName SR-SRV03 -Cluster SR-SRVCLUSA  
-    ```  
+   ```PowerShell
+   Grant-SRAccess -ComputerName SR-SRV03 -Cluster SR-SRVCLUSA  
+   ```  
 
-3.  Configurez la réplication de cluster à cluster, en spécifiant les disques de la source et de la destination, les journaux de la source et de la destination, les noms de cluster de la source et de la destination, et la taille du journal. Vous pouvez exécuter cette commande localement sur le serveur ou à l’aide d’un ordinateur de gestion à distance.  
+3. Configurez la réplication de cluster à cluster, en spécifiant les disques de la source et de la destination, les journaux de la source et de la destination, les noms de cluster de la source et de la destination, et la taille du journal. Vous pouvez exécuter cette commande localement sur le serveur ou à l’aide d’un ordinateur de gestion à distance.  
 
-    ```powershell  
-    New-SRPartnership -SourceComputerName SR-SRVCLUSA -SourceRGName rg01 -SourceVolumeName c:\ClusterStorage\Volume2 -SourceLogVolumeName f: -DestinationComputerName SR-SRVCLUSB -DestinationRGName rg02 -DestinationVolumeName c:\ClusterStorage\Volume2 -DestinationLogVolumeName f:  
-    ```  
+   ```powershell  
+   New-SRPartnership -SourceComputerName SR-SRVCLUSA -SourceRGName rg01 -SourceVolumeName c:\ClusterStorage\Volume2 -SourceLogVolumeName f: -DestinationComputerName SR-SRVCLUSB -DestinationRGName rg02 -DestinationVolumeName c:\ClusterStorage\Volume2 -DestinationLogVolumeName f:  
+   ```  
 
-    > [!WARNING]  
-    > La taille du journal par défaut est de 8 Go. En fonction des résultats de l’applet de commande **Test-SRTopology**, vous pouvez décider d’utiliser **- LogSizeInBytes** avec une valeur supérieure ou inférieure.  
+   > [!WARNING]  
+   > La taille du journal par défaut est de 8 Go. En fonction des résultats de l’applet de commande **Test-SRTopology**, vous pouvez décider d’utiliser **- LogSizeInBytes** avec une valeur supérieure ou inférieure.  
 
-4.  Pour obtenir l’état de réplication de la source et de la destination, utilisez **Get-SRGroup** et **Get-SRPartnership**, comme suit :  
+4. Pour obtenir l’état de réplication de la source et de la destination, utilisez **Get-SRGroup** et **Get-SRPartnership**, comme suit :  
 
-    ```powershell
-    Get-SRGroup  
-    Get-SRPartnership  
-    (Get-SRGroup).replicas  
-    ```  
+   ```powershell
+   Get-SRGroup  
+   Get-SRPartnership  
+   (Get-SRGroup).replicas  
+   ```  
 
-5.  Déterminez la progression de la réplication comme suit :  
+5. Déterminez la progression de la réplication comme suit :  
 
-    1.  Sur le serveur source, exécutez la commande suivante et examinez les événements 5015, 5002, 5004, 1237, 5001 et 2200:
+   1.  Sur le serveur source, exécutez la commande suivante et examinez les événements 5015, 5002, 5004, 1237, 5001 et 2200:
         
-        ```PowerShell
-        Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica -max 20
-        ```
-    2.  Sur le serveur de destination, exécutez la commande suivante pour afficher les événements de réplica de stockage qui indiquent la création du partenariat. Cet événement indique le nombre d’octets copiés et la durée de l’opération. Exemple :  
-        
-        ```powershell
-        Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica | Where-Object {$_.ID -eq "1215"} | Format-List
-        ```
-        Voici un exemple de sortie :
-        
-        ```
-        TimeCreated  : 4/8/2016 4:12:37 PM  
-        ProviderName : Microsoft-Windows-StorageReplica  
-        Id           : 1215  
-        Message      : Block copy completed for replica.  
-            ReplicationGroupName: rg02  
-            ReplicationGroupId:  
-            {616F1E00-5A68-4447-830F-B0B0EFBD359C}  
-            ReplicaName: f:\  
-            ReplicaId: {00000000-0000-0000-0000-000000000000}  
-            End LSN in bitmap:  
-            LogGeneration: {00000000-0000-0000-0000-000000000000}  
-            LogFileId: 0  
-            CLSFLsn: 0xFFFFFFFF  
-            Number of Bytes Recovered: 68583161856  
-            Elapsed Time (seconds): 117  
-        ```
-    3. Le groupe de serveurs de destination pour le réplica peut aussi indiquer le nombre d’octets restants à copier à tout moment, et peut être interrogé via PowerShell. Exemple :
-
        ```PowerShell
-       (Get-SRGroup).Replicas | Select-Object numofbytesremaining
+       Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica -max 20
        ```
+   2.  Sur le serveur de destination, exécutez la commande suivante pour afficher les événements de réplica de stockage qui indiquent la création du partenariat. Cet événement indique le nombre d’octets copiés et la durée de l’opération. Exemple :  
+        
+       ```powershell
+       Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica | Where-Object {$_.ID -eq "1215"} | Format-List
+       ```
+       Voici un exemple de sortie :
+        
+       ```
+       TimeCreated  : 4/8/2016 4:12:37 PM  
+       ProviderName : Microsoft-Windows-StorageReplica  
+       Id           : 1215  
+       Message      : Block copy completed for replica.  
+           ReplicationGroupName: rg02  
+           ReplicationGroupId:  
+           {616F1E00-5A68-4447-830F-B0B0EFBD359C}  
+           ReplicaName: f:\  
+           ReplicaId: {00000000-0000-0000-0000-000000000000}  
+           End LSN in bitmap:  
+           LogGeneration: {00000000-0000-0000-0000-000000000000}  
+           LogFileId: 0  
+           CLSFLsn: 0xFFFFFFFF  
+           Number of Bytes Recovered: 68583161856  
+           Elapsed Time (seconds): 117  
+       ```
+   3. Le groupe de serveurs de destination pour le réplica peut aussi indiquer le nombre d’octets restants à copier à tout moment, et peut être interrogé via PowerShell. Exemple :
 
-       Un exemple de progression (qui ne s’interrompt pas) :  
+      ```PowerShell
+      (Get-SRGroup).Replicas | Select-Object numofbytesremaining
+      ```
 
-       ```PowerShell
-         while($true) {  
-         $v = (Get-SRGroup -Name "Replication 2").replicas | Select-Object numofbytesremaining  
-         [System.Console]::Write("Number of bytes remaining: {0}`n", $v.numofbytesremaining)  
-         Start-Sleep -s 5  
-        }
-        ```
+      Un exemple de progression (qui ne s’interrompt pas) :  
+
+      ```PowerShell
+        while($true) {  
+        $v = (Get-SRGroup -Name "Replication 2").replicas | Select-Object numofbytesremaining  
+        [System.Console]::Write("Number of bytes remaining: {0}`n", $v.numofbytesremaining)  
+        Start-Sleep -s 5  
+       }
+       ```
 
 6. Sur le serveur de destination dans le cluster de destination, exécutez la commande suivante et examinez les événements 5009, 1237, 5001, 5015, 5005 et 2200 pour comprendre la progression du traitement. Il ne doit y avoir aucun avertissement d’erreur dans cette séquence. Il y aura un grand nombre d’événements 1237; ils indiquent la progression.  
     
    ```PowerShell
    Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica | FL  
    ```
-   > [!NOTE]  
-        > Le disque de cluster de destination s’affiche toujours comme étant **En ligne (aucun accès)** lors de la réplication.  
+   > [!NOTE]
+   > Le disque de cluster de destination s’affiche toujours comme étant **En ligne (aucun accès)** lors de la réplication.  
 
 ## <a name="step-4-manage-replication"></a>Étape 4 : Gérer la réplication
 

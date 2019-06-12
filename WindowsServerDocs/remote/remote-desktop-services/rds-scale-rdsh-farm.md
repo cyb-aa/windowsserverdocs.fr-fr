@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: d243994a68c0bf4f0584f68475a185acb9cb73d5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 0e3852b4ea5f1080a3798c0806e5c87ca808c3be
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865490"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446522"
 ---
 # <a name="scale-out-your-remote-desktop-services-deployment-by-adding-an-rd-session-host-farm"></a>Monter en charge votre déploiement de Services Bureau à distance en ajoutant une batterie de serveurs hôte de Session Bureau à distance
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Vous pouvez améliorer la disponibilité et la mise à l’échelle de votre déploiement des services Bureau à distance en ajoutant une batterie de serveurs hôte de Session de bureau à distance (RDSH).   
   
@@ -30,7 +30,7 @@ Utilisez les étapes suivantes pour ajouter un autre hôte de session Bureau à 
   
 1. Créer un serveur pour héberger le second hôte de Session Bureau à distance. Si vous utilisez des machines virtuelles, veillez à inclure la nouvelle machine virtuelle dans le même groupe à haute disponibilité qui contient votre premier hôte de Session Bureau à distance.
 2. Activer la gestion à distance sur le nouveau serveur ou une machine virtuelle :
-   1. Dans le Gestionnaire de serveur, cliquez sur **serveur Local > paramètre actuel de gestion à distance (désactivé)**. 
+   1. Dans le Gestionnaire de serveur, cliquez sur **serveur Local > paramètre actuel de gestion à distance (désactivé)** . 
    2. Sélectionnez **activer la gestion à distance pour ce serveur**, puis cliquez sur **OK**. 
    3. Facultatif : Vous pouvez temporairement définir la mise à jour de Windows pour télécharger et installer les mises à jour pas automatiquement. Cela permet d’éviter les modifications et les redémarrages du système pendant que vous déployez le serveur RDSH. Dans le Gestionnaire de serveur, cliquez sur **serveur Local > paramètre en cours de mise à jour Windows**. Cliquez sur **les options avancées > différer les mises à niveau**. 
 3. Ajoutez le serveur ou la machine virtuelle au domaine :
@@ -39,8 +39,8 @@ Utilisez les étapes suivantes pour ajouter un autre hôte de session Bureau à 
    3. Entrez les informations d’identification administrateur de domaine. 
    4. Redémarrez la machine virtuelle ou le serveur.
 4. Ajoutez le nouvel hôte de Session Bureau à distance à la batterie de serveurs :
->[!NOTE] 
-> Étape 1-Création d’une adresse IP publique pour la machine virtuelle de RDM, est uniquement nécessaire si vous utilisez une machine virtuelle pour le SGBDR et si elle n’a pas déjà une adresse IP assignée.
+   >[!NOTE] 
+   > Étape 1-Création d’une adresse IP publique pour la machine virtuelle de RDM, est uniquement nécessaire si vous utilisez une machine virtuelle pour le SGBDR et si elle n’a pas déjà une adresse IP assignée.
    
    1. Créer une adresse IP publique pour la machine virtuelle exécutant les Services de gestion à distance Bureau (SGBDR). La machine virtuelle de RDM sera généralement la machine virtuelle en cours d’exécution la première instance du rôle Broker pour les connexions Bureau à distance.  
        1. Dans le portail Azure, cliquez sur **Parcourir > groupes de ressources**puis cliquez sur la machine virtuelle de RDM (par exemple, Contoso-Cb1) et cliquez sur le groupe de ressources pour le déploiement.  

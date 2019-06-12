@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8285c22c3c64b4f056124d8a1bb02297c7aea3c8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9420945dca9b72de1937258201e7072d2bb115b2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853390"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441524"
 ---
 # <a name="seceditconfigure"></a>secedit:configure
 
@@ -45,7 +45,7 @@ Secedit /configure /db <database file name> [/cfg <configuration file name>] [/o
 
 ## <a name="remarks"></a>Notes
 
-Si le chemin d’accès du fichier journal n’est pas fourni, le fichier journal par défaut, (*systemroot*\Users \*UserAccount*\My Documents\Security\Logs\*DatabaseName*.log) est utilisé.
+Si le chemin d’accès du fichier journal n’est pas fourni, le fichier journal par défaut, (*systemroot*\Users \*UserAccount<em>\My Documents\Security\Logs\*DatabaseName</em>.log) est utilisé.
 
 À partir de Windows Server 2008, `Secedit /refreshpolicy` a été remplacé par `gpupdate`. Pour plus d’informations sur l’actualisation des paramètres de sécurité, consultez [Gpupdate](gpupdate.md).
 
@@ -64,4 +64,4 @@ Secedit /configure /db C:\Security\FY11\SecDbContoso.sdb /cfg SecContoso.inf /ov
 
 -   [Secedit](secedit.md)
 -   [Secedit:analyze](secedit-analyze.md)
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: f000066e-7cf8-4085-82a3-4f4fe1cb3c5c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e075569f6ce5983838edde26f928d41606ac44bb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f835e27a80e661ff1f066af4779bd7c033cddc99
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824130"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446621"
 ---
 # <a name="step-3-configure-a-load-balanced-cluster"></a>Étape 3 configurer un Cluster d’équilibrage de charge
 
@@ -70,7 +70,7 @@ Après avoir préparé les serveurs pour le cluster, configurez l’équilibrage
   
 4.  Selon ce que vous avez choisi dans les étapes de planification :  
   
-    1.  Windows NLB : Sur le **méthode d’équilibrage de charge** , cliquez sur **utilisez Windows NLB Network Load Balancing ()**, puis cliquez sur **suivant**.  
+    1.  Windows NLB : Sur le **méthode d’équilibrage de charge** , cliquez sur **utilisez Windows NLB Network Load Balancing ()** , puis cliquez sur **suivant**.  
   
     2.  Équilibreur de charge externe : Sur le **méthode d’équilibrage de charge** , cliquez sur **utiliser un équilibreur de charge externe**, puis cliquez sur **suivant**.  
   
@@ -101,7 +101,7 @@ Après avoir préparé les serveurs pour le cluster, configurez l’équilibrage
     > [!NOTE]  
     > Si l’équilibrage de charge externe est utilisé, notez les adresses IP virtuelles et les fournir comme sur les équilibreurs de charge externe.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -133,11 +133,11 @@ L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condi
   
 4.  Dans le volet gauche de la console, accédez à **certificats (ordinateur Local) \Personal\Certificates**. Cliquez sur le certificat IP-HTTPS, pointez sur **toutes les tâches** et cliquez sur **exporter**.  
   
-5.  Dans la page **Bienvenue !**, cliquez sur **Suivant**.  
+5.  Dans la page **Bienvenue !** , cliquez sur **Suivant**.  
   
 6.  Dans la page **Exportation de la clé privée**, cliquez sur **Oui, exporter la clé privée**, puis sur **Suivant**.  
   
-7.  Sur le **Format de fichier d’exportation** , cliquez sur **échange d’informations personnelles - PKCS #12 (. PFX)**, puis cliquez sur **suivant**.  
+7.  Sur le **Format de fichier d’exportation** , cliquez sur **échange d’informations personnelles - PKCS #12 (. PFX)** , puis cliquez sur **suivant**.  
   
 8.  Sur le **sécurité** page, sélectionnez le **mot de passe** case à cocher, entrez un mot de passe dans le **mot de passe** zone et confirmer le mot de passe, puis cliquez sur **suivant**.  
   
@@ -248,7 +248,7 @@ L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condi
   
 12. Sur le **Ajout et suppression de serveurs** boîte de dialogue, cliquez sur **fermer**.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -278,7 +278,7 @@ Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 7.  Sur le **Ajout et suppression de serveurs** boîte de dialogue, cliquez sur **fermer**.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -299,7 +299,7 @@ Remove-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 4.  Sur le **désactiver l’équilibrage de charge** boîte de dialogue, cliquez sur **fermer**.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -318,7 +318,7 @@ En cliquant sur **supprimer les paramètres de configuration** supprimera l’ac
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Étape 4 : Vérification du cluster](Step-4-Verify-the-Cluster.md)  
+-   [Étape 4 : Vérification du cluster](Step-4-Verify-the-Cluster.md)  
   
 
 

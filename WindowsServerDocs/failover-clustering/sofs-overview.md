@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 3e6d67eee496d19b216a4366af51ab5736229cf0
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: e38c53c3458c3f66f24ea2ddaa66febf508c4568
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476151"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442454"
 ---
 # <a name="scale-out-file-server-for-application-data-overview"></a>Vue d’ensemble d’un serveur de fichiers avec montée en puissance parallèle pour les données d’application
 
@@ -177,25 +177,25 @@ Le tableau suivant répertorie les fonctionnalités de SMB 3.0, les systèmes de
 <td>Gestion des fichiers</td>
 <td>Redirection de dossiers</td>
 <td>Oui</td>
-<td>Non recommandé*</td>
+<td>Non recommandé<em></td>
 </tr>
 <tr class="odd">
 <td>Gestion des fichiers</td>
 <td>Fichiers hors connexion (cache côté client)</td>
 <td>Oui</td>
-<td>Non recommandé*</td>
+<td>Non recommandé</em></td>
 </tr>
 <tr class="even">
 <td>Gestion des fichiers</td>
 <td>Profils utilisateur itinérants</td>
 <td>Oui</td>
-<td>Non recommandé*</td>
+<td>Non recommandé<em></td>
 </tr>
 <tr class="odd">
 <td>Gestion des fichiers</td>
 <td>Répertoires de base</td>
 <td>Oui</td>
-<td>Non recommandé*</td>
+<td>Non recommandé</em></td>
 </tr>
 <tr class="even">
 <td>Gestion des fichiers</td>
@@ -256,13 +256,13 @@ Le tableau ci-dessous répertorie les fonctionnalités incluses dans ce scénari
 <tbody>
 <tr class="odd">
 <td><a href="failover-clustering.md">Clustering de basculement</a></td>
-<td>Clusters de basculement ajouté les fonctionnalités suivantes dans Windows Server 2012 pour prendre en charge du serveur de fichiers avec montée en puissance : Nom de réseau distribué, le type de ressource de serveur de fichiers avec montée en puissance, Cluster Shared Volumes (CSV) 2 et le rôle serveur de fichiers Scale-Out haute disponibilité. Pour plus d’informations sur ces fonctionnalités, consultez <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)">Nouveautés du clustering avec basculement dans Windows Server 2012 [redirigé]</a>.</td>
+<td>Clusters de basculement ajouté les fonctionnalités suivantes dans Windows Server 2012 pour prendre en charge du serveur de fichiers avec montée en puissance : Nom de réseau distribué, le type de ressource de serveur de fichiers avec montée en puissance, Cluster Shared Volumes (CSV) 2 et le rôle serveur de fichiers Scale-Out haute disponibilité. Pour plus d’informations sur ces fonctionnalités, consultez <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)">que&#39;Nouveautés de Clustering de basculement dans Windows Server 2012 [redirigé]</a>.</td>
 </tr>
 <tr class="even">
 <td><a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831795(v%3dws.11)">Server Message Block</a></td>
 <td>SMB 3.0 a ajouté les fonctionnalités suivantes dans Windows Server 2012 pour prendre en charge du serveur de fichiers avec montée en puissance : Basculement transparent SMB, SMB Multichannel et SMB Direct.<br />
 <br />
-Pour plus d’informations sur les fonctionnalités nouvelles et modifiées pour SMB dans Windows Server 2012 R2, consultez <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831474(v%3dws.11)">What ' s New in SMB dans Windows Server</a>.</td>
+Pour plus d’informations sur les fonctionnalités nouvelles et modifiées pour SMB dans Windows Server 2012 R2, consultez <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831474(v%3dws.11)">que&#39;Nouveautés de SMB dans Windows Server</a>.</td>
 </tr>
 </tbody>
 </table>

@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 82bf5fed-93b3-4fa6-8e71-522146eccdb1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fc0abf849d43c8ba6ec86e17b9ed86fce573ed47
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9983fb475143109d191f3b6d69afef48d109472a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813380"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446950"
 ---
 # <a name="step-2-configure-the-basic-directaccess-server"></a>Étape 2 configurer le serveur DirectAccess de base
 
@@ -54,7 +54,7 @@ Pour déployer l'accès à distance, vous devez installer le rôle Accès à dis
   
 7.  Dans la boîte de dialogue **Progression de l’installation** , vérifiez que l’installation s’est correctement déroulée et cliquez sur **Fermer**.  
   
-![Windows PowerShell](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![Windows PowerShell](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L’applet de commande Windows PowerShell suivante ou les applets de commande installer le rôle accès à distance : 
 
@@ -122,7 +122,7 @@ L’applet de commande Windows PowerShell suivante ou les applets de commande in
   
 ## <a name="BKMK_Links"></a>Étape précédente  
   
--   [Étape 1 : Configurer l’Infrastructure DirectAccess](Step-1-Configure-the-DirectAccess-Infrastructure.md)  
+-   [Étape 1 : Configurer l’infrastructure DirectAccess](Step-1-Configure-the-DirectAccess-Infrastructure.md)  
   
 ## <a name="next-step"></a>Étape suivante  
   

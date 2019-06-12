@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.date: 10/17/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: ab5bee55975b803a77db0b6cdb179b76590e1d83
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: be41267d6584002ebf87e5fe828a41575d305e1b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826050"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445910"
 ---
 # <a name="windows-admin-center-ui-text-and-design-style-guide"></a>Guide de style pour la conception et le texte de l’interface utilisateur Windows Admin Center
 
@@ -199,12 +199,12 @@ Voici certains aide dans le Guide de Style Windows.
 
 ### <a name="guidelines"></a>Recommandations
 
- - Si possible, utilisez les situations d’état null comme une opportunité pour former des personnes sur l’utilisation de la fonctionnalité (par exemple, comment ajouter de la musique, où pour rechercher des images, etc.)  
-- Si vous avez un titre dans votre interface utilisateur, expliquent l’action à entreprendre pour « réparer » de l’état null (par exemple, « ajouter une musique ») 
-- Amusez-vous avec le texte. Cet espace peut être une opportunité pour fournir la satisfaction dans la mesure où il sera probablement pas vu plusieurs fois. 
-- Éviter les « Il est vide ici. » Il s’agit triste et a été utilisée de manière excessive. 
-- Éviter des questions telles que « Le n’avez pas connecté votre imprimante ? » OK pour utiliser une seule fois, mais ce format a tendance à obtenir galvaudés et questions solliciter davantage la charge/sur le client. Il peut également se sentent évident. 
-- Plusieurs types de texte de l’état null est une bonne chose. 
+- Si possible, utilisez les situations d’état null comme une opportunité pour former des personnes sur l’utilisation de la fonctionnalité (par exemple, comment ajouter de la musique, où pour rechercher des images, etc.)  
+  - Si vous avez un titre dans votre interface utilisateur, expliquent l’action à entreprendre pour « réparer » de l’état null (par exemple, « ajouter une musique ») 
+  - Amusez-vous avec le texte. Cet espace peut être une opportunité pour fournir la satisfaction dans la mesure où il sera probablement pas vu plusieurs fois. 
+  - Éviter les « Il est vide ici. » Il s’agit triste et a été utilisée de manière excessive. 
+  - Éviter des questions telles que « Le n’avez pas connecté votre imprimante ? » OK pour utiliser une seule fois, mais ce format a tendance à obtenir galvaudés et questions solliciter davantage la charge/sur le client. Il peut également se sentent évident. 
+  - Plusieurs types de texte de l’état null est une bonne chose. 
 
 ### <a name="examples"></a>Exemples
 

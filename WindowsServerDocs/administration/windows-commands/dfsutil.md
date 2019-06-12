@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 245f8fb2e6419d22da3e2e76eebd9f801ab90664
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 45545b4e12d31c293ead5b18b83efd50d7bc37bb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821480"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439651"
 ---
 # <a name="dfsutil"></a>dfsutil
 
@@ -53,13 +53,13 @@ command </parameter> </param2>
 Si vous spécifiez un objet \(tel qu’un serveur d’espace de noms\) à la fin d’une commande, la plupart des commandes affiche des informations sur l’objet sans nécessiter davantage de paramètres ou des commandes. Par exemple, lorsque vous utilisez la commande Root dfsutil, vous pouvez ajouter un espace de noms racine à la commande pour afficher des informations sur la racine.
 
 ## <a name="BKMK_Examples"></a>Exemples
-<Here is where you put a detailed description of your example.>
+&lt;Voici où vous placez une description détaillée de votre exemple.&gt;
 
 ```
 This /is /the /example /of /calling /command /with /parameters
 ```
 
-<Here is where you put a detailed description of another example.>
+&lt;Voici où vous placez une description détaillée d’un autre exemple.&gt;
 
 ```
 This /is /a:different /example
@@ -67,6 +67,6 @@ This /is /a:different /example
 
 ## <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 

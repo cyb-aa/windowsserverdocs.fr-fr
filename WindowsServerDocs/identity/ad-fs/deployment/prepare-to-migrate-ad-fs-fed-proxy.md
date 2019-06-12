@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f207993580e6fd06c9ff185e58e5b7e81af60252
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2b2275af0934413fa2de02de720d609feda7392c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847830"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444449"
 ---
 # <a name="prepare-to-migrate-the-ad-fs-20-federation-server-proxy"></a>Préparer la migration du serveur proxy de fédération AD FS 2.0
 
@@ -23,7 +23,7 @@ Pour préparer la migration d’un serveur proxy de fédération 2.0 AD FS vers 
   
 -   [Étape 1 : Exporter les paramètres de service de proxy](#step-1-export-proxy-service-settings)  
   
--   [Étape 2 : Sauvegarder les personnalisations de page Web](#step-2-back-up-webpage-customizations)  
+-   [Étape 2 : Sauvegarder les personnalisations de page Web](#step-2-back-up-webpage-customizations)  
   
 ##  <a name="step-1-export-proxy-service-settings"></a>Étape 1 : exporter les paramètres de service proxy  
  Pour exporter les paramètres de service proxy de serveur de fédération, effectuez la procédure suivante :  
@@ -35,13 +35,13 @@ Pour préparer la migration d’un serveur proxy de fédération 2.0 AD FS vers 
 > [!NOTE]
 >  Cette étape est facultative, car ce certificat est préservé pendant la mise à niveau du système d’exploitation.  
   
-2.  Exportez les propriétés du proxy AD FS 2.0 de fédération vers un fichier. Pour ce faire, utilisez Windows PowerShell.  
+2. Exportez les propriétés du proxy AD FS 2.0 de fédération vers un fichier. Pour ce faire, utilisez Windows PowerShell.  
   
 Ouvrez Windows PowerShell et exécutez la commande suivante pour ajouter les applets de commande AD FS à votre session Windows PowerShell : `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Ensuite, exécutez la commande suivante pour exporter les propriétés de proxy de fédération vers un fichier : `PSH:> Get-ADFSProxyProperties | out-file “.\proxyproperties.txt”`.  
   
-3.  Vérifiez que vous connaissez les informations d’identification d’un compte administrateur du serveur de fédération AD FS ou d’un compte de service sous lequel s’exécute le service de fédération AD FS.  Ces informations sont requises pour la configuration d’approbation de proxy.  
+3. Vérifiez que vous connaissez les informations d’identification d’un compte administrateur du serveur de fédération AD FS ou d’un compte de service sous lequel s’exécute le service de fédération AD FS.  Ces informations sont requises pour la configuration d’approbation de proxy.  
   
- La réalisation de cette étape permet de rassembler les informations suivantes requises pour configurer votre serveur proxy de fédération AD FS :  
+   La réalisation de cette étape permet de rassembler les informations suivantes requises pour configurer votre serveur proxy de fédération AD FS :  
   
 -   Nom du service de fédération AD FS  
   
@@ -57,4 +57,4 @@ Ouvrez Windows PowerShell et exécutez la commande suivante pour ajouter les app
  [Préparer la migration du serveur Proxy pour AD FS 2.0 de fédération](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Migrer le serveur AD FS 2.0 de fédération](migrate-the-ad-fs-fed-server.md)   
  [Migrer le serveur Proxy AD FS 2.0 de fédération](migrate-the-ad-fs-2-fed-server-proxy.md)   
- [Migrer les Agents de 1.1 Web AD FS](migrate-the-ad-fs-web-agent.md)
+ [Migrer les agents web AD FS 1.1](migrate-the-ad-fs-web-agent.md)

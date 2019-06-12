@@ -8,12 +8,12 @@ ms.prod: windows-server-threshold
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 769a4165cfd82056a904c79c41e96fb666d05e43
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2d4cdcd11e0eb334064ddefec0eda775ffccff2c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842270"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446468"
 ---
 # <a name="deploy-server-certificates-for-8021x-wired-and-wireless-deployments"></a>Déployer des certificats de serveur pour des déploiements câblés et sans fil 802.1X
 
@@ -66,8 +66,8 @@ L’inscription automatique des certificats de serveur, également appelé l’i
 Ce guide fournit des instructions sur la façon de déployer des certificats de serveur à l’aide des services AD CS et le rôle de serveur serveur Web (IIS) dans Windows Server 2016. Voici la configuration requise pour exécuter les procédures décrites dans ce guide.  
 
 - Vous devez déployer un réseau de base à l’aide du Guide du réseau Windows Server 2016 Core, ou vous devez déjà disposer les technologies fournies dans le Guide du réseau installé et fonctionne correctement sur votre réseau. Ces technologies incluent TCP/IP v4, DHCP, Active Directory domaine Services (AD DS), DNS et NPS.  
->[!NOTE]
->Le Guide du réseau Windows Server 2016 Core est disponible dans la bibliothèque technique Windows Server 2016. Pour plus d’informations, consultez [Guide du réseau](../../../core-network-guide/Core-Network-Guide.md).
+  >[!NOTE]
+  >Le Guide du réseau Windows Server 2016 Core est disponible dans la bibliothèque technique Windows Server 2016. Pour plus d’informations, consultez [Guide du réseau](../../../core-network-guide/Core-Network-Guide.md).
 
 - Vous devez lire la section de planification de ce guide pour vous assurer que vous êtes prêt pour ce déploiement avant d’effectuer le déploiement.  
 - Vous devez effectuer les étapes de ce guide dans l’ordre dans lequel elles sont présentées. Ne pas passer directement et déployer votre autorité de certification sans les étapes conduisant à déployer le serveur ou votre déploiement échoue.  

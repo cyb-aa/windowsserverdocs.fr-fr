@@ -6,12 +6,12 @@ ms.author: joflore
 ms.date: 04/19/2018
 ms.topic: article
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 684f3418bf336af4959282e7a8c2088d22a8c8dc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8a1775a40761e4a489cc39535514d75174edffa5
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865130"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442988"
 ---
 # <a name="virtualizing-domain-controllers-using-hyper-v"></a>Virtualisation de contrôleurs de domaine à l’aide de Hyper-V
 
@@ -191,19 +191,19 @@ Il existe plusieurs pratiques courantes machine virtuelle que vous ne devez pas 
 
 Les plateformes de virtualisation, telles que Hyper-V, proposent plusieurs fonctions pratiques qui facilitent la gestion, l'entretien, la sauvegarde et la migration des ordinateurs. Toutefois, les pratiques de déploiement courantes suivantes et les fonctionnalités doivent être pas utilisées pour les contrôleurs de domaine virtuel :
 
-   - Pour garantir la durabilité des écritures de Active Directory, ne déployez pas de fichiers de base de données d’un contrôleur de domaine virtuel (Active Directory base de données (NTDS. DIT), journaux et SYSVOL) sur les disques virtuels IDE. Au lieu de cela, créez un deuxième disque dur virtuel attaché à un contrôleur SCSI virtuel et vous assurer que la base de données, les journaux et SYSVOL sont placés sur le disque SCSI de la machine virtuelle lors de l’installation de contrôleur de domaine.  
-   - Ne recourez pas aux disques durs virtuels de différenciation (VHD) sur un ordinateur virtuel que vous configurez en tant que contrôleur de domaine. Il deviendrait trop aisé de revenir à une version antérieure, et les performances s'en trouveraient réduites. Pour plus d’informations sur les types de disque dur virtuel, consultez [Assistant du nouveau disque dur virtuel](https://go.microsoft.com/fwlink/?linkid=137279).  
-   - Ne déployez pas de nouveaux domaines Active Directory et les forêts sur une copie d’un système d’exploitation Windows Server qui a été préparée pas tout d’abord à l’aide de l’outil de préparation système (Sysprep). Pour plus d’informations sur l’exécution de Sysprep, consultez [présentation de Sysprep (préparation du système)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)
+- Pour garantir la durabilité des écritures de Active Directory, ne déployez pas de fichiers de base de données d’un contrôleur de domaine virtuel (Active Directory base de données (NTDS. DIT), journaux et SYSVOL) sur les disques virtuels IDE. Au lieu de cela, créez un deuxième disque dur virtuel attaché à un contrôleur SCSI virtuel et vous assurer que la base de données, les journaux et SYSVOL sont placés sur le disque SCSI de la machine virtuelle lors de l’installation de contrôleur de domaine.  
+- Ne recourez pas aux disques durs virtuels de différenciation (VHD) sur un ordinateur virtuel que vous configurez en tant que contrôleur de domaine. Il deviendrait trop aisé de revenir à une version antérieure, et les performances s'en trouveraient réduites. Pour plus d’informations sur les types de disque dur virtuel, consultez [Assistant du nouveau disque dur virtuel](https://go.microsoft.com/fwlink/?linkid=137279).  
+- Ne déployez pas de nouveaux domaines Active Directory et les forêts sur une copie d’un système d’exploitation Windows Server qui a été préparée pas tout d’abord à l’aide de l’outil de préparation système (Sysprep). Pour plus d’informations sur l’exécution de Sysprep, consultez [présentation de Sysprep (préparation du système)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)
 
-      > [!WARNING]
-      > Exécution de Sysprep sur un contrôleur de domaine n’est pas pris en charge.
+   > [!WARNING]
+   > Exécution de Sysprep sur un contrôleur de domaine n’est pas pris en charge.
 
-   - Afin d'éviter la restauration potentielle d'un numéro de séquence de mise à jour (USN), n'utilisez pas les copies d'un fichier VHD représentant un contrôleur de domaine déjà déployé pour déployer d'autres contrôleurs de domaine. Pour plus d’informations sur la restauration USN, consultez [USN et restauration USN](#usn-and-usn-rollback).
-      - Windows Server 2012 et versions ultérieures permet aux administrateurs de cloner les images de contrôleur de domaine si préparé correctement lorsqu’ils souhaitent déployer des contrôleurs de domaine supplémentaires
-   - N'utilisez pas la fonction d'exportation Hyper-V pour exporter un ordinateur virtuel qui exécute un contrôleur de domaine.
-      - Avec Windows Server 2012 et versions ultérieures, une exportation et l’importation d’un invité virtuel de contrôleur de domaine est gérée comme une restauration ne faisant pas autorité comme il détecte une modification de l’ID de génération, et il n’est pas configuré pour le clonage.
-      - Vérifiez que vous n’utilisez pas l’invité que vous avez exporté le plus.
-  - Vous pouvez utiliser la réplication Hyper-V pour conserver une deuxième copie inactive d’un contrôleur de domaine. Si vous démarrez l’image répliquée, vous devez également effectuer un nettoyage approprié, pour la même raison que ne pas à l’aide de la source après l’exportation d’une image d’invité de contrôleur de domaine.
+- Afin d'éviter la restauration potentielle d'un numéro de séquence de mise à jour (USN), n'utilisez pas les copies d'un fichier VHD représentant un contrôleur de domaine déjà déployé pour déployer d'autres contrôleurs de domaine. Pour plus d’informations sur la restauration USN, consultez [USN et restauration USN](#usn-and-usn-rollback).
+   - Windows Server 2012 et versions ultérieures permet aux administrateurs de cloner les images de contrôleur de domaine si préparé correctement lorsqu’ils souhaitent déployer des contrôleurs de domaine supplémentaires
+- N'utilisez pas la fonction d'exportation Hyper-V pour exporter un ordinateur virtuel qui exécute un contrôleur de domaine.
+  - Avec Windows Server 2012 et versions ultérieures, une exportation et l’importation d’un invité virtuel de contrôleur de domaine est gérée comme une restauration ne faisant pas autorité comme il détecte une modification de l’ID de génération, et il n’est pas configuré pour le clonage.
+  - Vérifiez que vous n’utilisez pas l’invité que vous avez exporté le plus.
+    - Vous pouvez utiliser la réplication Hyper-V pour conserver une deuxième copie inactive d’un contrôleur de domaine. Si vous démarrez l’image répliquée, vous devez également effectuer un nettoyage approprié, pour la même raison que ne pas à l’aide de la source après l’exportation d’une image d’invité de contrôleur de domaine.
 
 ## <a name="physical-to-virtual-migration"></a>Migration d'un ordinateur physique vers un ordinateur virtuel
 
@@ -244,23 +244,23 @@ Pour désactiver le fournisseur de synchronisation de temps de Hyper-V, arrêtez
 
 Pour optimiser les performances de l’ordinateur virtuel de contrôleur de domaine et garantir la durabilité des écritures de Active Directory, utilisez les recommandations suivantes pour le stockage du système d’exploitation, Active Directory et les fichiers de disque dur virtuel :
 
-   - **Stockage invité**. Stockez le fichier de base de données (Ntds.dit), les fichiers journaux et les fichiers SYSVOL d'Active Directory sur un disque virtuel, séparément des fichiers du système d'exploitation. Créer un deuxième disque dur virtuel attaché à un contrôleur SCSI virtuel et stocker la base de données, les journaux et SYSVOL sur disque SCSI virtuel de la machine virtuelle. Disques SCSI virtuels fournissent des performances accrues par rapport au virtuel IDE et ils prennent en charge forcé Unit Access (FUA). FUA garantit que le système d’exploitation écrit et lit les données directement à partir du support en ignorant tous les mécanismes de mise en cache.
+- **Stockage invité**. Store le fichier de base de données Active Directory (Ntds.dit), les fichiers journaux et les fichiers SYSVOL sur un disque virtuel distinct à partir des fichiers de système d’exploitation. Créer un deuxième disque dur virtuel attaché à un contrôleur SCSI virtuel et stocker la base de données, les journaux et SYSVOL sur disque SCSI virtuel de la machine virtuelle. Disques SCSI virtuels fournissent des performances accrues par rapport au virtuel IDE et ils prennent en charge forcé Unit Access (FUA). FUA garantit que le système d’exploitation écrit et lit les données directement à partir du support en ignorant tous les mécanismes de mise en cache.
 
-   > [!NOTE]
-   > Si vous envisagez d’utiliser Bitlocker pour l’invité virtuelle de contrôleur de domaine, vous devez vous assurer que les volumes supplémentaires sont configurés pour « déverrouillage automatique ».
-   > Plus d’informations sur la configuration automatique déverrouillage se trouve dans [Enable-BitLockerAutoUnlock](https://docs.microsoft.com/powershell/module/bitlocker/enable-bitlockerautounlock)
+  > [!NOTE]
+  > Si vous envisagez d’utiliser Bitlocker pour l’invité virtuelle de contrôleur de domaine, vous devez vous assurer que les volumes supplémentaires sont configurés pour « déverrouillage automatique ».
+  > Plus d’informations sur la configuration automatique déverrouillage se trouve dans [Enable-BitLockerAutoUnlock](https://docs.microsoft.com/powershell/module/bitlocker/enable-bitlockerautounlock)
 
-   - **Stockage hôte des fichiers VHD**. Recommandations : ces recommandations concernent le stockage des fichiers VHD. Pour bénéficier d'une performance optimale, ne stockez pas les fichiers VHD sur un disque utilisé fréquemment par d'autres services ou applications, comme le disque système sur lequel est installé le système d'exploitation Windows hôte. Stockez chaque fichier VHD sur une partition distincte de celle du système d'exploitation et de tout autre fichier VHD. La configuration idéale consiste à stocker chaque fichier VHD sur un disque physique distinct.  
+- **Stockage hôte des fichiers VHD**. Recommandations : ces recommandations concernent le stockage des fichiers VHD. Pour bénéficier d'une performance optimale, ne stockez pas les fichiers VHD sur un disque utilisé fréquemment par d'autres services ou applications, comme le disque système sur lequel est installé le système d'exploitation Windows hôte. Stockez chaque fichier VHD sur une partition distincte de celle du système d'exploitation et de tout autre fichier VHD. La configuration idéale consiste à stocker chaque fichier VHD sur un disque physique distinct.  
 
-    Le système de disque physique hôte doit également satisfaire **au moins un** des critères suivants pour satisfaire les besoins de la charge de travail virtualisée d’intégrité des données :  
+  Le système de disque physique hôte doit également satisfaire **au moins un** des critères suivants pour satisfaire les besoins de la charge de travail virtualisée d’intégrité des données :  
 
-      - Le système utilise des disques de classe du serveur (SCSI, Fibre Channel).  
-      - Le système permet de s’assurer que les disques sont connectés à un batterie de secours mise en cache adaptateur de bus hôte (HBA).  
-      - Le système utilise un contrôleur de stockage (par exemple, un système RAID) en tant que le périphérique de stockage.  
-      - Le système permet de s’assurer que l’alimentation sur le disque est protégée par un onduleur (UPS).  
-      - Le système permet de s’assurer que la fonctionnalité de cache d’écriture du disque est désactivée.  
+   - Le système utilise des disques de classe du serveur (SCSI, Fibre Channel).  
+   - Le système permet de s’assurer que les disques sont connectés à un batterie de secours mise en cache adaptateur de bus hôte (HBA).  
+   - Le système utilise un contrôleur de stockage (par exemple, un système RAID) en tant que le périphérique de stockage.  
+   - Le système permet de s’assurer que l’alimentation sur le disque est protégée par un onduleur (UPS).  
+   - Le système permet de s’assurer que la fonctionnalité de cache d’écriture du disque est désactivée.  
 
-   - **VHD fixe et disques pass-through**. Plusieurs méthodes permettent de configurer le stockage pour les ordinateurs virtuels. En cas d'utilisation de fichiers VHD, les VHD de taille fixe sont plus efficaces que les VHD dynamiques, car leur mémoire est allouée au moment de leur création. Les disques pass-through, que les ordinateurs virtuels peuvent utiliser pour accéder aux supports de stockage physiques, sont davantage optimisés en termes de performances. Il s'agit essentiellement de disques physiques ou de numéros d'unité logique (LUN) rattachés à un ordinateur virtuel. Ces disques ne prennent pas en charge la fonction d'instantanés. Les disques pass-through constituent par conséquent la configuration optimale, étant donné que l'utilisation d'instantanés est déconseillée avec les contrôleurs de domaine.  
+- **VHD fixe et disques pass-through**. Plusieurs méthodes permettent de configurer le stockage pour les ordinateurs virtuels. En cas d'utilisation de fichiers VHD, les VHD de taille fixe sont plus efficaces que les VHD dynamiques, car leur mémoire est allouée au moment de leur création. Les disques pass-through, que les ordinateurs virtuels peuvent utiliser pour accéder aux supports de stockage physiques, sont davantage optimisés en termes de performances. Il s'agit essentiellement de disques physiques ou de numéros d'unité logique (LUN) rattachés à un ordinateur virtuel. Ces disques ne prennent pas en charge la fonction d'instantanés. Les disques pass-through constituent par conséquent la configuration optimale, étant donné que l'utilisation d'instantanés est déconseillée avec les contrôleurs de domaine.  
 
 Pour réduire le risque d’altération des données Active Directory, utilisez des contrôleurs SCSI virtuels :
 
@@ -320,11 +320,11 @@ Lorsque l'ordinateur virtuel d'un contrôleur de domaine tombe en panne, sans en
 
 Suivez le processus de l'illustration suivante pour déterminer le meilleur moyen de restaurer le contrôleur de domaine virtualisé.
 
-![](media\virtualized-domain-controller-architecture\Dd363553.85c97481-7b95-4705-92a7-006e48bc29d0(WS.10).gif)
+![](media/virtualized-domain-controller-architecture/Dd363553.85c97481-7b95-4705-92a7-006e48bc29d0(WS.10).gif)
 
 Pour les RODC, le processus de restauration et les choix à effectuer sont plus simples.
 
-![](media\virtualized-domain-controller-architecture\Dd363553.4c5c5eda-df95-4c6b-84e0-d84661434e5d(WS.10).gif)
+![](media/virtualized-domain-controller-architecture/Dd363553.4c5c5eda-df95-4c6b-84e0-d84661434e5d(WS.10).gif)
 
 ## <a name="restoring-the-system-state-backup-of-a-virtual-domain-controller"></a>Restauration de la sauvegarde de l'état système d'un contrôleur de domaine virtuel
 
@@ -365,17 +365,17 @@ Si vous ne possédez aucune sauvegarde des données sur l'état du système ant�
 9. Cliquez avec le bouton droit sur le journal **Services d'annuaire**, puis cliquez sur **Rechercher**. Dans **Rechercher**, tapez **1109**, puis cliquez sur **Suivant**.
 10. La recherche doit renvoyer au moins une entré pour l'ID d'événement 1109. Si cette entrée n'apparaît pas, passez à l'étape suivante. Sinon, double-cliquez sur cette entrée et passez en revue le texte confirmant la mise à jour de l'attribut InvocationID:
 
-   ```
-   Active Directory has been restored from backup media, or has been configured to host an application partition. 
-   The invocationID attribute for this directory server has been changed. 
-   The highest update sequence number at the time the backup was created is <time>
+    ```
+    Active Directory has been restored from backup media, or has been configured to host an application partition. 
+    The invocationID attribute for this directory server has been changed. 
+    The highest update sequence number at the time the backup was created is <time>
 
-   InvocationID attribute (old value):<Previous InvocationID value>
-   InvocationID attribute (new value):<New InvocationID value>
-   Update sequence number:<USN>
+    InvocationID attribute (old value):<Previous InvocationID value>
+    InvocationID attribute (new value):<New InvocationID value>
+    Update sequence number:<USN>
 
-   The InvocationID is changed when a directory server is restored from backup media or is configured to host a writeable application directory partition.
-   ```
+    The InvocationID is changed when a directory server is restored from backup media or is configured to host a writeable application directory partition.
+    ```
 
 11. Fermez l’Observateur d’événements.
 12. Dans l'Éditeur du Registre, vérifiez que la valeur de **DSA Previous Restore Count** est égale à la valeur précédente, plus un. Si cette valeur est incorrecte et que vous ne parvenez à trouver aucune entrée pour l'ID d'événement 1109 dans l'Observateur d'événements, vérifiez que les Service Packs du contrôleur de domaine sont actuels. Vous ne pouvez pas réessayer cette procédure sur le même disque dur virtuel. Vous pouvez réessayer sur une copie du disque dur virtuel ou sur un disque dur virtuel différent qui n'a pas été démarré en mode normal, en recommençant à l'étape 1.
@@ -418,7 +418,7 @@ Lorsque les services AD DS est correctement restauré sur un contrôleur de doma
 
 Par exemple, supposons que VDC1 et DC2 sont deux contrôleurs de domaine appartenant au même domaine. La figure suivante illustre la manière dont DC2 reconnaît VDC1 lorsque la valeur de l'attribut invocationID est réinitialisée dans une situation de restauration normale.
 
-![](media\virtualized-domain-controller-architecture\Dd363553.ca71fc12-b484-47fb-991c-5a0b7f516366(WS.10).gif)
+![](media/virtualized-domain-controller-architecture/Dd363553.ca71fc12-b484-47fb-991c-5a0b7f516366(WS.10).gif)
 
 ## <a name="usn-rollback"></a>Restauration USN
 
@@ -445,7 +445,7 @@ Dans Windows Server 2008 et Windows Server 2003 SP1, lorsqu'un contrôleur 
 
 L'illustration suivante représente la séquence d'événements qui se produit lorsqu'une restauration USN est détectée sur VDC2, le contrôleur de domaine de destination exécuté sur un ordinateur virtuel. Sur cette illustration, la détection de la restauration USN se produit sur VDC2 lorsqu'un partenaire de réplication détecte que VDC2 a envoyé une valeur USN de mise à jour déjà vue par le contrôleur de domaine de destination. Cela signifie en effet qu'une version antérieure erronée de la base de données de VDC2 a été restaurée.
 
-![](media\virtualized-domain-controller-architecture\\Dd363553.373b0504-43fc-40d0-9908-13fdeb7b3f14(WS.10).gif)
+![](media/virtualized-domain-controller-architecture/Dd363553.373b0504-43fc-40d0-9908-13fdeb7b3f14(WS.10).gif)
 
 Si le journal d'événements du service d'annuaire signale l'ID d'événement 2095, effectuez immédiatement les opérations ci-après.
 
@@ -470,7 +470,7 @@ Dans le premier cas, la réplication peut avoir lieu entre les autres contrôleu
 
 Dans le second cas de figure, une série de numéros USN s'applique à deux ensembles de modifications distincts. Cette situation peut se produire sur de longues périodes sans être détectée. Dès qu'un objet est créé pendant cette période, un objet en attente est détecté et signalé en tant qu'ID d'événement 1988 dans l'Observateur d'événements. L'illustration suivante montre une restauration USN non détectée dans ce type de circonstance.
 
-![](media\virtualized-domain-controller-architecture\Dd363553.63565fe0-d970-4b4e-b5f3-9c76bc77e2d4(WS.10).gif)
+![](media/virtualized-domain-controller-architecture/Dd363553.63565fe0-d970-4b4e-b5f3-9c76bc77e2d4(WS.10).gif)
 
 ## <a name="read-only-domain-controllers"></a>Contrôleurs de domaine en lecture seule
 

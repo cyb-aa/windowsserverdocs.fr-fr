@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f95490850acd263fb0b34007ac64a84c9a374865
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: da870c4a9676a08070e22f5391164af0bffd4df0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822050"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441339"
 ---
 # <a name="set-id"></a>Id de jeu
 
@@ -39,12 +39,12 @@ set id={ <byte> | <GUID> } [override] [noerr]
   
 ## <a name="parameters"></a>Paramètres  
   
-|Paramètre|Description|  
-|-------|--------|  
-|<byte>|pour l’enregistrement de démarrage principal \(MBR\) disques, spécifie la nouvelle valeur pour le champ de type, au format hexadécimal, pour la partition. N’importe quel octet de type de partition peut être spécifié avec ce paramètre à l’exception de type 0 x 42, qui spécifie une partition LDM. Notez que le x 0 non significatif est omis lorsque vous spécifiez le type de partition hexadécimal.|  
-|<GUID>|pour la table de partition GUID \(gpt\) disques, spécifie la nouvelle valeur GUID pour le champ de type pour la partition. GUID reconnus est les suivants :<br /><br />-Partition système EFI : c12a7328\-f81f\-11d 2\-ba4b\-00a0c93ec93b<br />-Partition de de base de données : ebd0a0a2\-b9e5\-4433\-c 87 0\-68b6b72699c7<br /><br />N’importe quel type de partition GUID peut être spécifié avec ce paramètre à l’exception de ce qui suit :<br /><br />-Microsoft Reserved partition : e3c9e316\-0b5c\-4db8\-d 817\-f92df00215ae<br />-Partition de métadonnées LDM sur un disque dynamique : 5808c8aa\-7e8f\-42e0\-85d 2\-e1e90434cfb3<br />-Partition de données LDM sur un disque dynamique : af9b60a0\-1431\-4f62\-bc68\-3311714a69ad<br />-Partition de métadonnées de cluster : db97dba9\-0840\-4bae\-97f0\-ffb9a327c7e1|  
-|override|force le système de fichiers sur le volume à démonter avant de modifier le type de partition. Lorsque vous exécutez le **id de jeu** DiskPart tente de verrouiller et de démonter le système de fichiers sur le volume de la commande. Si **remplacer** n’est pas spécifié, et l’appel de verrouiller le système de fichiers échoue \(, par exemple, étant donné qu’un handle ouvert\), l’opération échoue. Lorsque **remplacer** est spécifié, DiskPart force le démontage, même si l’appel de verrouiller le système de fichiers échoue, et tous les descripteurs ouverts sur le volume ne seront plus valides.<br /><br />Cette commande est uniquement disponible pour Windows 7 et Windows Server 2008 R2.|  
-|NOERR|Utilisé pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.|  
+| Paramètre |                                                                                                                                                                                                                                                                                                                                                                   Description                                                                                                                                                                                                                                                                                                                                                                   |
+|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  <byte>   |                                                                                                                                                                                                       pour l’enregistrement de démarrage principal \(MBR\) disques, spécifie la nouvelle valeur pour le champ de type, au format hexadécimal, pour la partition. N’importe quel octet de type de partition peut être spécifié avec ce paramètre à l’exception de type 0 x 42, qui spécifie une partition LDM. Notez que le x 0 non significatif est omis lorsque vous spécifiez le type de partition hexadécimal.                                                                                                                                                                                                       |
+|  <GUID>   | pour la table de partition GUID \(gpt\) disques, spécifie la nouvelle valeur GUID pour le champ de type pour la partition. GUID reconnus est les suivants :<br /><br />-Partition système EFI : c12a7328\-f81f\-11d 2\-ba4b\-00a0c93ec93b<br />-Partition de de base de données : ebd0a0a2\-b9e5\-4433\-c 87 0\-68b6b72699c7<br /><br />N’importe quel type de partition GUID peut être spécifié avec ce paramètre à l’exception de ce qui suit :<br /><br />-Microsoft Reserved partition : e3c9e316\-0b5c\-4db8\-d 817\-f92df00215ae<br />-Partition de métadonnées LDM sur un disque dynamique : 5808c8aa\-7e8f\-42e0\-85d 2\-e1e90434cfb3<br />-Partition de données LDM sur un disque dynamique : af9b60a0\-1431\-4f62\-bc68\-3311714a69ad<br />-Partition de métadonnées de cluster : db97dba9\-0840\-4bae\-97f0\-ffb9a327c7e1 |
+| override  |                                                                force le système de fichiers sur le volume à démonter avant de modifier le type de partition. Lorsque vous exécutez le **id de jeu** DiskPart tente de verrouiller et de démonter le système de fichiers sur le volume de la commande. Si **remplacer** n’est pas spécifié, et l’appel de verrouiller le système de fichiers échoue \(, par exemple, étant donné qu’un handle ouvert\), l’opération échoue. Lorsque **remplacer** est spécifié, DiskPart force le démontage, même si l’appel de verrouiller le système de fichiers échoue, et tous les descripteurs ouverts sur le volume ne seront plus valides.<br /><br />Cette commande est uniquement disponible pour Windows 7 et Windows Server 2008 R2.                                                                 |
+|   NOERR   |                                                                                                                                                                                                                                                                    Utilisé pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.                                                                                                                                                                                                                                                                    |
   
 ## <a name="remarks"></a>Notes  
   
@@ -66,7 +66,7 @@ set id=ebd0a0a2-b9e5-4433-87c0-68b6b72699c7
 ```  
   
 #### <a name="additional-references"></a>Références supplémentaires  
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
   
 
   

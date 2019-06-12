@@ -11,12 +11,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: e7b1128d93912f724225905bedd38131f8aab0b2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a4cab0246226cf22a1b7212b832a902783952407
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854840"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446507"
 ---
 # <a name="customize-the-active-directory-administrative-center-navigation-pane"></a>Personnaliser le volet de Navigation du centre d’administration Active Directory
 
@@ -33,21 +33,21 @@ ms.locfileid: "59854840"
 
 ### <a name="to-customize-the-active-directory-administrative-center-navigation-pane"></a>Pour personnaliser le volet de navigation du centre d’administration Active Directory
 
-1.  Dans le volet de navigation du centre d’administration Active Directory avec le bouton droit\-cliquez sur le nœud que vous souhaitez modifier. Vous pouvez modifier la position ou le nom du nœud, ou en créer une copie.
+1. Dans le volet de navigation du centre d’administration Active Directory avec le bouton droit\-cliquez sur le nœud que vous souhaitez modifier. Vous pouvez modifier la position ou le nom du nœud, ou en créer une copie.
 
-2.  Cliquez sur une des commandes suivantes :
+2. Cliquez sur une des commandes suivantes :
 
-    -   **Changement de nom**
+   -   **Changement de nom**
 
-    -   **Créer un nœud dupliqué**
+   -   **Créer un nœud dupliqué**
 
-    -   **Supprimer**
+   -   **Supprimer**
 
-    -   **Déplacer vers le haut**
+   -   **Déplacer vers le haut**
 
-    -   **Déplacer vers le bas**
+   -   **Déplacer vers le bas**
 
- À l’aide de l’affichage de liste, vous pouvez tirer parti de la plus récemment utilisé \(MRU\) liste. La liste apparaît automatiquement sous un nœud de navigation lorsque vous visitez au moins un conteneur dans ce nœud de navigation. Vous pouvez également afficher la liste des derniers fichiers utilisés en cours en développant la barre de navigation en haut de la fenêtre du centre d’administration Active Directory. La liste des fichiers récents contient toujours les trois derniers conteneurs visités dans un nœud de navigation particulier. Chaque fois que vous sélectionnez un conteneur particulier, celui-ci est ajouté au début de la liste et le dernier conteneur inclus dans la liste en est supprimé.
+   À l’aide de l’affichage de liste, vous pouvez tirer parti de la plus récemment utilisé \(MRU\) liste. La liste apparaît automatiquement sous un nœud de navigation lorsque vous visitez au moins un conteneur dans ce nœud de navigation. Vous pouvez également afficher la liste des derniers fichiers utilisés en cours en développant la barre de navigation en haut de la fenêtre du centre d’administration Active Directory. La liste des fichiers récents contient toujours les trois derniers conteneurs visités dans un nœud de navigation particulier. Chaque fois que vous sélectionnez un conteneur particulier, celui-ci est ajouté au début de la liste et le dernier conteneur inclus dans la liste en est supprimé.
 
   
 

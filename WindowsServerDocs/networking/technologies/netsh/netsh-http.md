@@ -8,12 +8,12 @@ ms.assetid: ''
 manager: dougkim
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: daecc6a385d7aa2c02d1bea02eb0a585a9b33185
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3c5f3927abf1a2394c2dd5b8ea664c7de8d5f614
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881790"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446195"
 ---
 # <a name="netsh-http-commands"></a>Commandes Netsh http
 
@@ -55,9 +55,11 @@ add iplisten [ ipaddress= ] IPAddress
 ```
 
 **Paramètres**
-| | | |
-|---|---|---|
+
+|               |                                                                                                                                                                                                                          |          |
+|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | **ipaddress** | Liste d’écoutes l’adresse IPv4 ou IPv6 à ajouter à l’adresse IP. La liste d’écoutes IP est utilisée pour étendre la liste d’adresses auquel le service HTTP est liée. « 0.0.0.0 » signifie que n’importe quelle adresse IPv4 et « :: » signifie que n’importe quelle adresse IPv6. | Obligatoire |
+
 ---
 
 **Exemples**
@@ -83,21 +85,23 @@ add sslcert [ ipport= ] IPAddress:port [ certhash= ] CertHash [ appid= ] GUID [ 
 
 **Paramètres**
 
-| | | |
-|---|---|---|
-| **ipport**                                   | Spécifie l’adresse IP et le port pour la liaison. Un signe deux-points ( :)) est utilisé comme un séparateur entre l’adresse IP et le numéro de port.                                              | Obligatoire |
-| **certhash**                                 | Spécifie le hachage SHA du certificat. Ce hachage est de 20 octets et est spécifié sous forme de chaîne hexadécimale.                                                                          | Obligatoire |
-| **appid**                                    | Spécifie le GUID pour identifier l’application propriétaire.                                                                                                                                   | Obligatoire |
-| **certstorename**                            | Spécifie le nom du magasin du certificat. La valeur par défaut est MY. Certificat doit être stocké dans le contexte de l’ordinateur local.                                                                   | Facultatif |
-| **verifyclientcertrevocation**               | Spécifie l’Active ou désactive la vérification de révocation des certificats clients.                                                                                                            | Facultatif |
-| **verifyrevocationwithcachedclientcertonly** | Spécifie si l’utilisation du certificat du client mis en cache uniquement pour la vérification de révocation est activée ou désactivée.                                                                            | Facultatif |
-| **usagecheck**                               | Spécifie si la vérification de l’utilisation est activée ou désactivée. Valeur par défaut est activé.                                                                                                            | Facultatif |
-| **revocationfreshnesstime**                  | Spécifie l’intervalle de temps, en secondes, pour rechercher une liste de révocation de certificats mis à jour (CRL). Si cette valeur est zéro, puis la nouvelle liste de révocation est mis à jour uniquement si le précédent arrive à expiration. | Facultatif |
-| **urlretrievaltimeout**                      | Spécifie l’intervalle de délai d’attente (en millisecondes) après la tentative d’extraction de la liste de révocation de certificat pour l’URL distante.                                                       | Facultatif |
-| **sslctlidentifier**                         | Spécifie la liste des émetteurs de certificats de confiance. Cette liste peut être un sous-ensemble des émetteurs de certificats approuvés par l’ordinateur.                                | Facultatif |
-| **sslctlstorename**                          | Spécifie le nom de magasin de certificat sous ordinateur_local où SslCtlIdentifier est stocké.                                                                                               | Facultatif |
-| **dsmapperusage**                            | Spécifie si les mappeurs DS est activé ou désactivé. Par défaut est désactivé.                                                                                                                | Facultatif |
-| **clientcertnegotiation**                    | Spécifie si la négociation de certificat est activée ou désactivée. Par défaut est désactivé.                                                                                            | Facultatif |
+
+|                                              |                                                                                                                                                                                          |          |
+|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+|                  **ipport**                  |                       Spécifie l’adresse IP et le port pour la liaison. Un signe deux-points ( :)) est utilisé comme un séparateur entre l’adresse IP et le numéro de port.                        | Obligatoire |
+|                 **certhash**                 |                                     Spécifie le hachage SHA du certificat. Ce hachage est de 20 octets et est spécifié sous forme de chaîne hexadécimale.                                      | Obligatoire |
+|                  **appid**                   |                                                                  Spécifie le GUID pour identifier l’application propriétaire.                                                                  | Obligatoire |
+|              **certstorename**               |                                  Spécifie le nom du magasin du certificat. La valeur par défaut est MY. Certificat doit être stocké dans le contexte de l’ordinateur local.                                  | Facultatif |
+|        **verifyclientcertrevocation**        |                                                      Spécifie l’Active ou désactive la vérification de révocation des certificats clients.                                                       | Facultatif |
+| **verifyrevocationwithcachedclientcertonly** |                                      Spécifie si l’utilisation du certificat du client mis en cache uniquement pour la vérification de révocation est activée ou désactivée.                                       | Facultatif |
+|                **usagecheck**                |                                                      Spécifie si la vérification de l’utilisation est activée ou désactivée. Valeur par défaut est activé.                                                       | Facultatif |
+|         **revocationfreshnesstime**          | Spécifie l’intervalle de temps, en secondes, pour rechercher une liste de révocation de certificats mis à jour (CRL). Si cette valeur est zéro, puis la nouvelle liste de révocation est mis à jour uniquement si le précédent arrive à expiration. | Facultatif |
+|           **urlretrievaltimeout**            |                            Spécifie l’intervalle de délai d’attente (en millisecondes) après la tentative d’extraction de la liste de révocation de certificat pour l’URL distante.                            | Facultatif |
+|             **sslctlidentifier**             |                Spécifie la liste des émetteurs de certificats de confiance. Cette liste peut être un sous-ensemble des émetteurs de certificats approuvés par l’ordinateur.                 | Facultatif |
+|             **sslctlstorename**              |                                                Spécifie le nom de magasin de certificat sous ordinateur_local où SslCtlIdentifier est stocké.                                                | Facultatif |
+|              **dsmapperusage**               |                                                        Spécifie si les mappeurs DS est activé ou désactivé. Par défaut est désactivé.                                                         | Facultatif |
+|          **clientcertnegotiation**           |                                              Spécifie si la négociation de certificat est activée ou désactivée. Par défaut est désactivé.                                               | Facultatif |
+
 ---
 
 **Exemples**
@@ -119,10 +123,12 @@ add timeout [ timeouttype= ] IdleConnectionTimeout | HeaderWaitTimeout [ value=]
 ```
 
 **Paramètres**
-| | |
-|---|---|
-| **timeouttype** | Type de délai d’attente pour le paramètre.                                                                        |
-| **value**       | Valeur d’expiration (en secondes). Si la valeur est en notation hexadécimale, puis ajouter le préfixe 0 x. |
+
+|                 |                                                                                                     |
+|-----------------|-----------------------------------------------------------------------------------------------------|
+| **timeouttype** |                                    Type de délai d’attente pour le paramètre.                                     |
+|    **value**    | Valeur d’expiration (en secondes). Si la valeur est en notation hexadécimale, puis ajouter le préfixe 0 x. |
+
 ---
 
 **Exemples**
@@ -145,23 +151,25 @@ add urlacl [ url= ] URL [ [user=] User [ [ listen= ] yes | no [ delegate= ] yes 
 ```
 
 **Paramètres**
-| | | |
-|---|---|---|
-| **url**       | Spécifie le complet URL Uniform Resource Locator ().                                                                                    | Obligatoire |
-| **user**      | Spécifie le nom d’utilisateur ou groupe d’utilisateurs                                                                                                            | Obligatoire |
-| **listen**    | Spécifie une des valeurs suivantes : Oui : Autoriser l’utilisateur à inscrire l’URL. Valeur par défaut. non : Refuser l’utilisateur à partir de l’inscription d’URL. | Facultatif |
-| **delegate**  | Spécifie une des valeurs suivantes : Oui : Autoriser l’utilisateur à déléguer ne l’URL : Refuser l’utilisateur à partir de la délégation de l’URL. Valeur par défaut.   | Facultatif |
-| **sddl**      | Spécifie une chaîne SDDL qui décrit la liste DACL.                                                                                                | Facultatif |
+
+|              |                                                                                                                                                  |          |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+|   **url**    |                                          Spécifie le complet URL Uniform Resource Locator ().                                           | Obligatoire |
+|   **user**   |                                                      Spécifie le nom d’utilisateur ou groupe d’utilisateurs                                                       | Obligatoire |
+|  **listen**  | Spécifie une des valeurs suivantes : Oui : Autoriser l’utilisateur à inscrire l’URL. Valeur par défaut. non : Refuser l’utilisateur à partir de l’inscription d’URL. | Facultatif |
+| **delegate** |  Spécifie une des valeurs suivantes : Oui : Autoriser l’utilisateur à déléguer ne l’URL : Refuser l’utilisateur à partir de la délégation de l’URL. Valeur par défaut.  | Facultatif |
+|   **sddl**   |                                                Spécifie une chaîne SDDL qui décrit la liste DACL.                                                 | Facultatif |
+
 ---
 
 **Exemples**
 
 Voici quatre exemples de la **ajouter urlacl** commande.
 
--   Ajouter urlacl url =https://+:80/MyUri utilisateur = DOMAIN\\utilisateur
--   Ajouter urlacl url =https://www.contoso.com:80/MyUri utilisateur = DOMAIN\\utilisateur écoute = yes
--   Ajouter urlacl url =https://www.contoso.com:80/MyUri utilisateur = DOMAIN\\délégué d’utilisateur = non
--   Ajouter urlacl url =https://+:80/MyUri sddl =...
+- Ajouter urlacl url =https://+:80/MyUri utilisateur = DOMAIN\\utilisateur
+- Ajouter urlacl url =<https://www.contoso.com:80/MyUri> utilisateur = DOMAIN\\utilisateur écoute = yes
+- Ajouter urlacl url =<https://www.contoso.com:80/MyUri> utilisateur = DOMAIN\\délégué d’utilisateur = non
+- Ajouter urlacl url =https://+:80/MyUri sddl =...
 
 ---
 
@@ -176,18 +184,20 @@ delete cache [ [ url= ] URL [ [recursive= ] yes | no ]
 ```
 
 **Paramètres**
-| | | |
-|---|---|---|
-| **url**       | Spécifie le complet URL Uniform Resource Locator () que vous souhaitez supprimer.                                        | Facultatif |
+
+|               |                                                                                                                              |          |
+|---------------|------------------------------------------------------------------------------------------------------------------------------|----------|
+|    **url**    |                    Spécifie le complet URL Uniform Resource Locator () que vous souhaitez supprimer.                     | Facultatif |
 | **recursive** | Spécifie si toutes les entrées dans le cache d’url sont supprimées. **Oui**: supprimer toutes les entrées **aucune**: ne pas supprimer toutes les entrées | Facultatif |
+
 ---
 
 **Exemples**
 
 Voici deux exemples de la **supprimer cache** commande.
 
--   supprimer le cache url =https://www.contoso.com:80/myresource/ récursive = yes
--   supprimer le cache
+- supprimer le cache url =<https://www.contoso.com:80/myresource/> récursive = yes
+- supprimer le cache
 
 ---
 
@@ -202,9 +212,11 @@ delete iplisten [ ipaddress= ] IPAddress
 ```
 
 **Paramètres**
-| | | |
-|---|---|---|
+
+|               |                                                                                                                                                                                                                                                                     |          |
+|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | **ipaddress** | Liste d’écoutes l’adresse IPv4 ou IPv6 doit être supprimé à partir de l’adresse IP. La liste d’écoutes IP est utilisée pour étendre la liste d’adresses auquel le service HTTP est liée. « 0.0.0.0 » signifie que n’importe quelle adresse IPv4 et « :: » signifie que n’importe quelle adresse IPv6. Cela n’inclut pas le numéro de port. | Obligatoire |
+
 ---
 
 
@@ -231,9 +243,11 @@ delete sslcert [ ipport= ] IPAddress:port
 ```
 
 **Paramètres**
-| | | |
-|---|---|---|
+
+|            |                                                                                                                                                                                          |          |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | **ipport** | Spécifie l’adresse IPv4 ou IPv6 et le port pour laquelle obtient supprimés les liaisons de certificat SSL. Un signe deux-points ( :)) est utilisé comme un séparateur entre l’adresse IP et le numéro de port. | Obligatoire |
+
 ---
 
 
@@ -258,9 +272,11 @@ delete timeout [ timeouttype= ] idleconnectiontimeout | headerwaittimeout
 ```
 
 **Paramètres**
-| | | |
-|---|---|---|
+
+|                 |                                        |          |
+|-----------------|----------------------------------------|----------|
 | **timeouttype** | Spécifie le type de paramètre de délai d’attente. | Obligatoire |
+
 ---
 
 
@@ -284,9 +300,11 @@ delete urlacl [ url= ] URL
 ```
 
 **Paramètres**
-| | | |
-|---|---|---|
+
+|         |                                                                                       |          |
+|---------|---------------------------------------------------------------------------------------|----------|
 | **url** | Spécifie le complet URL Uniform Resource Locator () que vous souhaitez supprimer. | Obligatoire |
+
 ---
 
 
@@ -294,8 +312,8 @@ delete urlacl [ url= ] URL
 
 Voici deux exemples de la **supprimer urlacl** commande.
 
--   supprimer les urlacl url =https://+:80/MyUri
--   supprimer les urlacl url =https://www.contoso.com:80/MyUri
+- supprimer les urlacl url =https://+:80/MyUri
+- supprimer les urlacl url =<https://www.contoso.com:80/MyUri>
 
 ---
 
@@ -322,9 +340,11 @@ show cachestate [ [url= ] URL]
 ```
 
 **Paramètres**
-| | | |
-|---|---|---|
+
+|         |                                                                                                                                                    |          |
+|---------|----------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | **url** | Spécifie l’URL qualifiée complète que vous souhaitez afficher. Si non spécifié, afficher toutes les URL. L’URL peut également être un préfixe d’URL inscrites. | Facultatif |
+
 ---
 
 
@@ -332,8 +352,8 @@ show cachestate [ [url= ] URL]
 
 Voici deux exemples de la **afficher cachestate** commande :
 
--   afficher l’url de cachestate =https://www.contoso.com:80/myresource
--   Afficher cachestate
+- afficher l’url de cachestate =<https://www.contoso.com:80/myresource>
+- Afficher cachestate
 
 ---
 
@@ -359,10 +379,12 @@ show servicestate [ [ view= ] session | requestq ] [ [ verbose= ] yes | no ]
 ```
 
 **Paramètres**
-| | | |
-|---|---|---|
-| **Affichage**    | Spécifie s’il faut afficher un instantané de l’état du service HTTP basée sur la session de serveur ou sur les files d’attente de la demande. | Facultatif |
-| **Verbose** | Spécifie s’il faut afficher des informations détaillées qui affiche également des informations de propriété.                               | Facultatif |
+
+|             |                                                                                                                      |          |
+|-------------|----------------------------------------------------------------------------------------------------------------------|----------|
+|  **Affichage**   | Spécifie s’il faut afficher un instantané de l’état du service HTTP basée sur la session de serveur ou sur les files d’attente de la demande. | Facultatif |
+| **Verbose** |                Spécifie s’il faut afficher des informations détaillées qui affiche également des informations de propriété.                | Facultatif |
+
 ---
 
 **Exemples**
@@ -385,9 +407,11 @@ show sslcert [ ipport= ] IPAddress:port
 ```
 
 **Paramètres**
-| | | |
-|---|---|---|
+
+|            |                                                                                                                                                                                                                                                |          |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | **ipport** | Spécifie l’adresse IPv4 ou IPv6 et le port pour lequel le certificat SSL affichage de liaisons. Un signe deux-points ( :)) est utilisé comme un séparateur entre l’adresse IP et le numéro de port. Si vous ne spécifiez pas ipport, toutes les liaisons sont affichés. | Obligatoire |
+
 ---
 
 
@@ -426,9 +450,11 @@ show urlacl [ [url= ] URL]
 ```
 
 **Paramètres**
-| | | |
-|---|---|---|
+
+|         |                                                                                                |          |
+|---------|------------------------------------------------------------------------------------------------|----------|
 | **url** | Spécifie l’URL qualifiée complète que vous souhaitez afficher. Si non spécifié, affiche toutes les URL. | Facultatif |
+
 ---
 
 
@@ -436,8 +462,8 @@ show urlacl [ [url= ] URL]
 
 Voici trois exemples de la **afficher urlacl** commande.
 
--   Afficher urlacl url =https://+:80/MyUri
--   Afficher urlacl url =https://www.contoso.com:80/MyUri
--   afficher les urlacl
+- Afficher urlacl url =https://+:80/MyUri
+- Afficher urlacl url =<https://www.contoso.com:80/MyUri>
+- afficher les urlacl
 
 ---

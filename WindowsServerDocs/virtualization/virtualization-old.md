@@ -9,12 +9,12 @@ author: shortpatti
 ms.author: pashort
 ms.localizationpriority: medium
 ms.date: 03/16/2018
-ms.openlocfilehash: b3b018037d788d47fafe7d3adda50cfb5831ab56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6dbb5be6d836462c9a24078dbec3700b09b08fc
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829910"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446048"
 ---
 # <a name="virtualization"></a>Virtualisation
 
@@ -41,7 +41,7 @@ Technologies de virtualisation Windows Server incluent les mises à jour Hyper-V
                     </div>
                     <div class="cardText">
                         <h3>Structure protégée et machines virtuelles dotées d’une protection maximale</h3>
-                        <p>En tant que fournisseur de services cloud ou administrateur d’un cloud privé d’entreprise, vous pouvez utiliser une structure protégée pour offrir un environnement plus sécurisé pour les ordinateurs virtuels. Une structure protégée se compose d’un Service de surveillance d’hôte \(SGH\) -en général, un cluster de trois nœuds - plus un ou plusieurs hôtes service Guardian et un ensemble de machines virtuelles protégées.</p>
+                        <p>En tant que fournisseur de services cloud ou administrateur d’un cloud privé d’entreprise, vous pouvez utiliser une structure protégée pour offrir un environnement plus sécurisé pour les ordinateurs virtuels. Une structure protégée se compose d’un Service Guardian hôte (SGH) - en général, un cluster de trois nœuds - plus un ou plusieurs service Guardian hôtes et un ensemble de machines virtuelles protégées.</p>
                     </div>
                 </div>
             </div>
@@ -101,11 +101,11 @@ Technologies de virtualisation Windows Server incluent les mises à jour Hyper-V
                     </div>
                     <div class="cardText">
                         <h3>Commutateur virtuel Hyper-V</h3>
-                        <p>Le Hyper\-V Virtual Switch est un logiciel\-couche base\-commutateur de réseau Ethernet 2 qui est inclus dans toutes les versions d’Hyper\-V.</p>
+                        <p>Le commutateur virtuel Hyper-V désigne un commutateur réseau Ethernet de couche 2 logiciel inclus dans toutes les versions d'Hyper-V.</p>
 
-                        <p>Hyper\-commutateur virtuel V est disponible dans Hyper\-V Manager après avoir installé le Hyper\-rôle serveur V.</p>
+                        <p>Le commutateur virtuel Hyper-V est disponible dans le Gestionnaire Hyper-V une fois que le rôle serveur Hyper-V est installé.</p>
 
-                        <p>Inclus dans Hyper\-commutateur virtuel V sont des fonctionnalités gérées par programme et extensibles qui vous permettent de connecter des machines virtuelles à des réseaux virtuels et le réseau physique.</p> 
+                        <p>Le commutateur virtuel Hyper-V offre des fonctionnalités gérées par programme et extensibles qui vous permettent de connecter des machines virtuelles aux réseaux virtuels et au réseau physique à la fois.</p> 
 
                         <p>Qui plus est, le commutateur virtuel Hyper-V assure l’application de la stratégie de sécurité et d’isolement, ainsi que des niveaux de service.</p>
                     </div>
@@ -128,7 +128,7 @@ Technologies de virtualisation Windows Server incluent les mises à jour Hyper-V
                     </div>
                     <div class="cardText">
                         <h3>Conteneurs Windows</h3>
-                        <p>Les conteneurs Windows fournissent le système d’exploitation\-virtualisation au niveau qui permet à plusieurs applications isolées d’être exécuté sur un système unique. Deux types de runtime de conteneurs différents sont compris dans la fonctionnalité, chacun avec un degré différent d'isolation d'application.</p>
+                        <p>Les conteneurs Windows offrent une virtualisation au niveau du système d'exploitation qui permet à plusieurs applications isolées d'être exécutées sur un seul système. Deux types de runtime de conteneurs différents sont compris dans la fonctionnalité, chacun avec un degré différent d'isolation d'application.</p>
                     </div>
                 </div>
             </div>

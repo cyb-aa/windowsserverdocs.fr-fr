@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 65ac1c23-3a47-4e58-888d-9dde7fba1586
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 767d9e0760f29023aaf049ad108792f17dac309f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e45f0c3c988c86a2428c3beb8bafc29b7b16bc0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856960"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446933"
 ---
 # <a name="step-12-test-directaccess-connectivity"></a>ÉTAPE 12 Test la connectivité DirectAccess
 
@@ -71,32 +71,32 @@ Connecter les deux ordinateurs clients au réseau du réseau d’entreprise et r
   
 ## <a name="EDGE1"></a>Tester la connectivité DirectAccess à partir d’Internet via EDGE1  
   
-1.  Débranchez 2-EDGE1 à partir du réseau Internet.  
+1. Débranchez 2-EDGE1 à partir du réseau Internet.  
   
-2.  Débranchez CLIENT1 et CLIENT2 du commutateur de réseau d’entreprise et de les connecter au commutateur Internet. Patientez 30 secondes.  
+2. Débranchez CLIENT1 et CLIENT2 du commutateur de réseau d’entreprise et de les connecter au commutateur Internet. Patientez 30 secondes.  
   
-3.  Sur CLIENT1, dans la fenêtre Windows PowerShell, tapez **ipconfig/all** et appuyez sur ENTRÉE.  
+3. Sur CLIENT1, dans la fenêtre Windows PowerShell, tapez **ipconfig/all** et appuyez sur ENTRÉE.  
   
-4.  Examinez la sortie à partir de la commande ipconfig.  
+4. Examinez la sortie à partir de la commande ipconfig.  
   
-    L’ordinateur client est maintenant connecté à Internet et a une adresse IPv4 publique. Lorsque le client DirectAccess a une adresse IPv4 publique, il utilise les technologies de transition Teredo ou IP-HTTPS IPv6 pour transférer les messages IPv6 via un Internet IPv4 entre le client DirectAccess et le serveur d’accès à distance. Notez que Teredo est la technologie de transition par défaut.  
+   L’ordinateur client est maintenant connecté à Internet et a une adresse IPv4 publique. Lorsque le client DirectAccess a une adresse IPv4 publique, il utilise les technologies de transition Teredo ou IP-HTTPS IPv6 pour transférer les messages IPv6 via un Internet IPv4 entre le client DirectAccess et le serveur d’accès à distance. Notez que Teredo est la technologie de transition par défaut.  
   
-5.  Dans la fenêtre Windows PowerShell, tapez **ipconfig /flushdns** et appuyez sur ENTRÉE. Vide les entrées de résolution de noms susceptibles d’être restées dans le cache DNS client depuis lorsque l’ordinateur client a été connecté au réseau d’entreprise.  
+5. Dans la fenêtre Windows PowerShell, tapez **ipconfig /flushdns** et appuyez sur ENTRÉE. Vide les entrées de résolution de noms susceptibles d’être restées dans le cache DNS client depuis lorsque l’ordinateur client a été connecté au réseau d’entreprise.  
   
-6.  Désactiver l’interface Teredo pour vous assurer que l’ordinateur client utilise IP-HTTPS pour se connecter au réseau d’entreprise avec la commande suivante :  
+6. Désactiver l’interface Teredo pour vous assurer que l’ordinateur client utilise IP-HTTPS pour se connecter au réseau d’entreprise avec la commande suivante :  
   
-    ```  
-    netsh interface teredo set state disable  
-    ```  
+   ```  
+   netsh interface teredo set state disable  
+   ```  
   
-7.  Vérifiez que vous êtes connecté via EDGE1. Type **netsh interface httpstunnel afficher les interfaces** et appuyez sur ENTRÉE.  
+7. Vérifiez que vous êtes connecté via EDGE1. Type **netsh interface httpstunnel afficher les interfaces** et appuyez sur ENTRÉE.  
   
-    La sortie doit contenir l’URL : https://edge1.contoso.com:443/IPHTTPS.  
+   La sortie doit contenir l’URL : https://edge1.contoso.com:443/IPHTTPS.  
   
-    > [!TIP]  
-    > Sur CLIENT1, vous pouvez également exécuter la commande Windows PowerShell suivante : **Get-NetIPHTTPSConfiguration**. La sortie affiche les connexions d’URL de serveur disponibles et le profil actuellement actif.  
+   > [!TIP]  
+   > Sur CLIENT1, vous pouvez également exécuter la commande Windows PowerShell suivante : **Get-NetIPHTTPSConfiguration**. La sortie affiche les connexions d’URL de serveur disponibles et le profil actuellement actif.  
   
-8.  Dans la fenêtre Windows PowerShell, tapez **un test ping sur app1** et appuyez sur ENTRÉE. Vous devez voir des réponses à partir de l’adresse IPv6 affectée à APP1, qui est dans ce cas 2001:db8:1::3.  
+8. Dans la fenêtre Windows PowerShell, tapez **un test ping sur app1** et appuyez sur ENTRÉE. Vous devez voir des réponses à partir de l’adresse IPv6 affectée à APP1, qui est dans ce cas 2001:db8:1::3.  
   
 9. Dans la fenêtre Windows PowerShell, tapez **ping 2-app1** et appuyez sur ENTRÉE. Vous devez voir des réponses à partir de l’adresse IPv6 affectée à 2-APP1, qui est dans ce cas 2001:db8:2::3.  
   
@@ -110,11 +110,11 @@ Connecter les deux ordinateurs clients au réseau du réseau d’entreprise et r
   
 13. Dans la barre d’adresses Internet Explorer, entrez **https://app2/** et appuyez sur ENTRÉE. Vous allez voir le site web par défaut sur APP2.  
   
-14. Sur le **Démarrer** , tapez**\\\2-App1\Files**, puis appuyez sur ENTRÉE. Double-cliquez sur l’exemple de fichier texte.  
+14. Sur le **Démarrer** , tapez<strong>\\\2-App1\Files</strong>, puis appuyez sur ENTRÉE. Double-cliquez sur l’exemple de fichier texte.  
   
     Cet exemple montre que vous avez pu se connecter au serveur de fichiers dans le domaine corp2.corp.contoso.com lorsque connecté via EDGE1.  
   
-15. Sur le **Démarrer** , tapez**\\\App2\Files**, puis appuyez sur ENTRÉE. Double-cliquez sur le fichier Nouveau document texte.  
+15. Sur le **Démarrer** , tapez<strong>\\\App2\Files</strong>, puis appuyez sur ENTRÉE. Double-cliquez sur le fichier Nouveau document texte.  
   
     Cet exemple montre que vous avez pu se connecter à un serveur IPv4 uniquement à l’aide de SMB pour obtenir une ressource dans le domaine de ressources.  
   
@@ -154,31 +154,31 @@ Connecter les deux ordinateurs clients au réseau du réseau d’entreprise et r
   
 ## <a name="DAConnect"></a>Tester la connectivité DirectAccess à partir d’Internet via EDGE1-2  
   
-1.  Se connecter à 2-EDGE1 au réseau Internet.  
+1. Se connecter à 2-EDGE1 au réseau Internet.  
   
-2.  Débranchez EDGE1 à partir du réseau Internet.  
+2. Débranchez EDGE1 à partir du réseau Internet.  
   
-3.  Sur CLIENT1, ouvrez une fenêtre Windows PowerShell avec élévation de privilèges.  
+3. Sur CLIENT1, ouvrez une fenêtre Windows PowerShell avec élévation de privilèges.  
   
-4.  Dans la fenêtre Windows PowerShell, tapez **ipconfig /flushdns** et appuyez sur ENTRÉE. Vide les entrées de résolution de noms susceptibles d’être restées dans le cache DNS client depuis lorsque l’ordinateur client a été connecté au réseau d’entreprise.  
+4. Dans la fenêtre Windows PowerShell, tapez **ipconfig /flushdns** et appuyez sur ENTRÉE. Vide les entrées de résolution de noms susceptibles d’être restées dans le cache DNS client depuis lorsque l’ordinateur client a été connecté au réseau d’entreprise.  
   
-5.  Vérifiez que vous êtes connecté via EDGE1-2. Type **netsh interface httpstunnel afficher les interfaces** et appuyez sur ENTRÉE.  
+5. Vérifiez que vous êtes connecté via EDGE1-2. Type **netsh interface httpstunnel afficher les interfaces** et appuyez sur ENTRÉE.  
   
-    La sortie doit contenir l’URL : https://2-edge1.contoso.com:443/IPHTTPS.  
+   La sortie doit contenir l’URL : https://2-edge1.contoso.com:443/IPHTTPS.  
   
-    > [!TIP]  
-    > Sur CLIENT1, vous pouvez également exécuter la commande suivante : **Get-NetIPHTTPSConfiguration**. La sortie affiche les connexions d’URL de serveur disponibles et le profil actuellement actif.  
+   > [!TIP]  
+   > Sur CLIENT1, vous pouvez également exécuter la commande suivante : **Get-NetIPHTTPSConfiguration**. La sortie affiche les connexions d’URL de serveur disponibles et le profil actuellement actif.  
   
-    > [!NOTE]  
-    > CLIENT1 modifie automatiquement le serveur par le biais duquel il se connecte aux ressources d’entreprise. Si la sortie de la commande indique une connexion à EDGE1, patientez environ cinq minutes et réessayez.  
+   > [!NOTE]  
+   > CLIENT1 modifie automatiquement le serveur par le biais duquel il se connecte aux ressources d’entreprise. Si la sortie de la commande indique une connexion à EDGE1, patientez environ cinq minutes et réessayez.  
   
-6.  Dans la fenêtre Windows PowerShell, tapez **un test ping sur app1** et appuyez sur ENTRÉE. Vous devez voir des réponses à partir de l’adresse IPv6 affectée à APP1, qui est dans ce cas 2001:db8:1::3.  
+6. Dans la fenêtre Windows PowerShell, tapez **un test ping sur app1** et appuyez sur ENTRÉE. Vous devez voir des réponses à partir de l’adresse IPv6 affectée à APP1, qui est dans ce cas 2001:db8:1::3.  
   
-7.  Dans la fenêtre Windows PowerShell, tapez **ping 2-app1** et appuyez sur ENTRÉE. Vous devez voir des réponses à partir de l’adresse IPv6 affectée à 2-APP1, qui est dans ce cas 2001:db8:2::3.  
+7. Dans la fenêtre Windows PowerShell, tapez **ping 2-app1** et appuyez sur ENTRÉE. Vous devez voir des réponses à partir de l’adresse IPv6 affectée à 2-APP1, qui est dans ce cas 2001:db8:2::3.  
   
-8.  Dans la fenêtre Windows PowerShell, tapez **un test ping sur app2** et appuyez sur ENTRÉE. Vous devez voir des réponses à partir de l’adresse NAT64 affectée par EDGE1 à APP2, qui est dans ce cas fd**c9:9f4e:eb1b**: 7777::a00:4. Notez que les valeurs en gras peut varier en raison de la façon dont l’adresse est générée.  
+8. Dans la fenêtre Windows PowerShell, tapez **un test ping sur app2** et appuyez sur ENTRÉE. Vous devez voir des réponses à partir de l’adresse NAT64 affectée par EDGE1 à APP2, qui est dans ce cas fd**c9:9f4e:eb1b**: 7777::a00:4. Notez que les valeurs en gras peut varier en raison de la façon dont l’adresse est générée.  
   
-    La possibilité d’un test ping sur APP2 est importante, car la réussite indique que vous étiez en mesure d’établir une connexion à l’aide de NAT64/DNS64, comme APP2 est une ressource uniquement IPv4.  
+   La possibilité d’un test ping sur APP2 est importante, car la réussite indique que vous étiez en mesure d’établir une connexion à l’aide de NAT64/DNS64, comme APP2 est une ressource uniquement IPv4.  
   
 9. Ouvrez Internet Explorer, dans la barre d’adresses Internet Explorer, entrez **https://app1/** et appuyez sur ENTRÉE. Vous allez voir le site web IIS par défaut sur APP1.  
   
@@ -186,11 +186,11 @@ Connecter les deux ordinateurs clients au réseau du réseau d’entreprise et r
   
 11. Dans la barre d’adresses Internet Explorer, entrez **https://app2/** et appuyez sur ENTRÉE. Vous allez voir le site Web par défaut sur APP3.  
   
-12. Sur le **Démarrer** , tapez**\\\App1\Files**, puis appuyez sur ENTRÉE. Double-cliquez sur l’exemple de fichier texte.  
+12. Sur le **Démarrer** , tapez<strong>\\\App1\Files</strong>, puis appuyez sur ENTRÉE. Double-cliquez sur l’exemple de fichier texte.  
   
     Cet exemple montre que vous avez pu se connecter au serveur de fichiers dans le domaine corp.contoso.com lorsque connecté via EDGE1-2.  
   
-13. Sur le **Démarrer** , tapez**\\\App2\Files**, puis appuyez sur ENTRÉE. Double-cliquez sur le fichier Nouveau document texte.  
+13. Sur le **Démarrer** , tapez<strong>\\\App2\Files</strong>, puis appuyez sur ENTRÉE. Double-cliquez sur le fichier Nouveau document texte.  
   
     Cet exemple montre que vous avez pu se connecter à un serveur IPv4 uniquement à l’aide de SMB pour obtenir une ressource dans le domaine de ressources.  
   

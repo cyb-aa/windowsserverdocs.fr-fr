@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: bef2cac726b1c4ea9b30f9a2086e3a2670339228
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 2053f0a93f33cdfdd85eec8cdbb6eca4ebad1ff0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189831"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444919"
 ---
 # <a name="configure-ad-fs-to-authenticate-users-stored-in-ldap-directories"></a>Configuration d'AD FS pour authentifier les utilisateurs stockées dans des annuaires LDAP
 
@@ -40,61 +40,60 @@ Le protocole d’autorisation active WS-Trust est également pris en charge pour
 ## <a name="configure-ad-fs-to-authenticate-users-stored-in-an-ldap-directory"></a>Configurer AD FS pour authentifier les utilisateurs stockés dans un annuaire LDAP
 Pour configurer votre batterie AD FS pour authentifier les utilisateurs à partir d’un annuaire LDAP, vous pouvez effectuer les étapes suivantes :
 
-1.  Tout d’abord, configurez une connexion à votre annuaire LDAP à l’aide du **New-AdfsLdapServerConnection** applet de commande :
+1. Tout d’abord, configurez une connexion à votre annuaire LDAP à l’aide du **New-AdfsLdapServerConnection** applet de commande :
 
-    ```
-    $DirectoryCred = Get-Credential
-    $vendorDirectory = New-AdfsLdapServerConnection -HostName dirserver -Port 50000 -SslMode None -AuthenticationMethod Basic -Credential $DirectoryCred
-    ```
+   ```
+   $DirectoryCred = Get-Credential
+   $vendorDirectory = New-AdfsLdapServerConnection -HostName dirserver -Port 50000 -SslMode None -AuthenticationMethod Basic -Credential $DirectoryCred
+   ```
 
-    > [!NOTE]
-    > Il est recommandé de créer un nouvel objet de connexion pour chaque serveur LDAP que vous souhaitez vous connecter. AD FS peut se connecter à plusieurs serveurs LDAP de réplica et effectuer un basculement automatique au cas où un serveur LDAP spécifique est arrêté. Pour ce cas, vous pouvez créer des un AdfsLdapServerConnection pour chacun de ces serveurs LDAP de réplica et ajouter ensuite le tableau d’objets de connexion à l’aide de-**LdapServerConnection** paramètre de la  **AdfsLocalClaimsProviderTrust ajouter** applet de commande.
+   > [!NOTE]
+   > Il est recommandé de créer un nouvel objet de connexion pour chaque serveur LDAP que vous souhaitez vous connecter. AD FS peut se connecter à plusieurs serveurs LDAP de réplica et effectuer un basculement automatique au cas où un serveur LDAP spécifique est arrêté. Pour ce cas, vous pouvez créer des un AdfsLdapServerConnection pour chacun de ces serveurs LDAP de réplica et ajouter ensuite le tableau d’objets de connexion à l’aide de-**LdapServerConnection** paramètre de la  **AdfsLocalClaimsProviderTrust ajouter** applet de commande.
 
-    **REMARQUE :** Votre tentative d’utilisation de Get-Credential et tapez un nom unique et le mot de passe à utiliser pour lier à une instance LDAP peut entraîner un échec car la de la nécessité d’interface utilisateur pour les formats d’entrée spécifiques, par exemple, DOMAINE\nom d’utilisateur ou user@domain.tld. Vous pouvez utiliser à la place de l’applet de commande ConvertTo-SecureString comme suit (l’exemple ci-dessous suppose qu’uid = admin, UO = système en tant que le nom unique des informations d’identification à utiliser pour lier à l’instance LDAP) :
+   **REMARQUE :** Votre tentative d’utilisation de Get-Credential et tapez un nom unique et le mot de passe à utiliser pour lier à une instance LDAP peut entraîner un échec car la de la nécessité d’interface utilisateur pour les formats d’entrée spécifiques, par exemple, DOMAINE\nom d’utilisateur ou user@domain.tld. Vous pouvez utiliser à la place de l’applet de commande ConvertTo-SecureString comme suit (l’exemple ci-dessous suppose qu’uid = admin, UO = système en tant que le nom unique des informations d’identification à utiliser pour lier à l’instance LDAP) :
 
-    ```
-    $ldapuser = ConvertTo-SecureString -string "uid=admin,ou=system" -asplaintext -force
-    $DirectoryCred = Get-Credential -username $ldapuser -Message "Enter the credentials to bind to the LDAP instance:"
-    ```
+   ```
+   $ldapuser = ConvertTo-SecureString -string "uid=admin,ou=system" -asplaintext -force
+   $DirectoryCred = Get-Credential -username $ldapuser -Message "Enter the credentials to bind to the LDAP instance:"
+   ```
 
-    Puis entrez le mot de passe pour l’uid = admin et complétez le reste des étapes.
+   Puis entrez le mot de passe pour l’uid = admin et complétez le reste des étapes.
 
-2.  Ensuite, vous pouvez effectuer l’étape facultative de mappage d’attributs LDAP aux revendications AD FS existantes à l’aide de la **New-AdfsLdapAttributeToClaimMapping** applet de commande. Dans l’exemple ci-dessous, vous mappez givenName, Surname, et CommonName LDAP des attributs aux revendications AD FS :
+2. Ensuite, vous pouvez effectuer l’étape facultative de mappage d’attributs LDAP aux revendications AD FS existantes à l’aide de la **New-AdfsLdapAttributeToClaimMapping** applet de commande. Dans l’exemple ci-dessous, vous mappez givenName, Surname, et CommonName LDAP des attributs aux revendications AD FS :
 
-    ```
-    #Map given name claim
-    $GivenName = New-AdfsLdapAttributeToClaimMapping -LdapAttribute givenName -ClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"
-    # Map surname claim
-    $Surname = New-AdfsLdapAttributeToClaimMapping -LdapAttribute sn -ClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"
-    # Map common name claim
-    $CommonName = New-AdfsLdapAttributeToClaimMapping -LdapAttribute cn -ClaimType "http://schemas.xmlsoap.org/claims/CommonName"
-    ```
+   ```
+   #Map given name claim
+   $GivenName = New-AdfsLdapAttributeToClaimMapping -LdapAttribute givenName -ClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"
+   # Map surname claim
+   $Surname = New-AdfsLdapAttributeToClaimMapping -LdapAttribute sn -ClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"
+   # Map common name claim
+   $CommonName = New-AdfsLdapAttributeToClaimMapping -LdapAttribute cn -ClaimType "http://schemas.xmlsoap.org/claims/CommonName"
+   ```
 
-    Ce mappage est effectué afin de rendre les attributs à partir du magasin LDAP disponibles en tant que revendications dans ADFS afin de créer des règles de contrôle d’accès conditionnel dans AD FS. Il permet également d’AD FS travailler avec des schémas personnalisés dans les magasins LDAP en fournissant un moyen simple pour mapper les attributs LDAP en cas de réclamation.
+   Ce mappage est effectué afin de rendre les attributs à partir du magasin LDAP disponibles en tant que revendications dans ADFS afin de créer des règles de contrôle d’accès conditionnel dans AD FS. Il permet également d’AD FS travailler avec des schémas personnalisés dans les magasins LDAP en fournissant un moyen simple pour mapper les attributs LDAP en cas de réclamation.
 
-3.  Enfin, vous devez inscrire le magasin LDAP avec AD FS comme une approbation de fournisseur à l’aide de revendications le **Add-AdfsLocalClaimsProviderTrust** applet de commande :
+3. Enfin, vous devez inscrire le magasin LDAP avec AD FS comme une approbation de fournisseur à l’aide de revendications le **Add-AdfsLocalClaimsProviderTrust** applet de commande :
 
-    ```
-    Add-AdfsLocalClaimsProviderTrust -Name "Vendors" -Identifier "urn:vendors" -Type Ldap
+   ```
+   Add-AdfsLocalClaimsProviderTrust -Name "Vendors" -Identifier "urn:vendors" -Type Ldap
 
-    # Connection info
-    -LdapServerConnection $vendorDirectory 
+   # Connection info
+   -LdapServerConnection $vendorDirectory 
 
-    # How to locate user objects in directory
-    -UserObjectClass inetOrgPerson -UserContainer "CN=VendorsContainer,CN=VendorsPartition" -LdapAuthenticationMethod Basic 
+   # How to locate user objects in directory
+   -UserObjectClass inetOrgPerson -UserContainer "CN=VendorsContainer,CN=VendorsPartition" -LdapAuthenticationMethod Basic 
 
-    # Claims for authenticated users
-    -AnchorClaimLdapAttribute mail -AnchorClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" -LdapAttributeToClaimMapping @($GivenName, $Surname, $CommonName) 
+   # Claims for authenticated users
+   -AnchorClaimLdapAttribute mail -AnchorClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" -LdapAttributeToClaimMapping @($GivenName, $Surname, $CommonName) 
 
-    # General claims provider properties
-    -AcceptanceTransformRules "c:[Type != ''] => issue(claim=c);" -Enabled $true 
+   # General claims provider properties
+   -AcceptanceTransformRules "c:[Type != ''] => issue(claim=c);" -Enabled $true 
 
-    # Optional - supply user name suffix if you want to use Ws-Trust
-    -OrganizationalAccountSuffix "vendors.contoso.com"
+   # Optional - supply user name suffix if you want to use Ws-Trust
+   -OrganizationalAccountSuffix "vendors.contoso.com"
+   ```
 
-    ```
-
-    Dans l’exemple ci-dessus, vous créez une approbation de fournisseur de revendications local appelée « Fournisseurs ». Vous spécifiez des informations de connexion pour AD FS pour se connecter à l’annuaire LDAP cette approbation de fournisseur de revendications local représente en assignant `$vendorDirectory` à la `-LdapServerConnection` paramètre. Notez qu’à l’étape 1, vous avez affecté `$vendorDirectory` une chaîne de connexion à utiliser lors de la connexion à votre annuaire LDAP spécifique. Enfin, vous spécifiez que le `$GivenName`, `$Surname`, et `$CommonName` les attributs LDAP (ce qui vous avez mappé aux revendications AD FS) doivent être utilisées pour le contrôle d’accès conditionnel, y compris les stratégies d’authentification multifacteur et l’émission règles d’autorisation, ainsi que pour d’émission via des revendications AD FS émis jetons de sécurité. Pour utiliser des protocoles actifs tels que Ws-Trust avec AD FS, vous devez spécifier le paramètre OrganizationalAccountSuffix, qui permet à AD FS lever l’ambiguïté entre les approbations de fournisseur de revendications local lors de la maintenance d’une demande d’autorisation active.
+   Dans l’exemple ci-dessus, vous créez une approbation de fournisseur de revendications local appelée « Fournisseurs ». Vous spécifiez des informations de connexion pour AD FS pour se connecter à l’annuaire LDAP cette approbation de fournisseur de revendications local représente en assignant `$vendorDirectory` à la `-LdapServerConnection` paramètre. Notez qu’à l’étape 1, vous avez affecté `$vendorDirectory` une chaîne de connexion à utiliser lors de la connexion à votre annuaire LDAP spécifique. Enfin, vous spécifiez que le `$GivenName`, `$Surname`, et `$CommonName` les attributs LDAP (ce qui vous avez mappé aux revendications AD FS) doivent être utilisées pour le contrôle d’accès conditionnel, y compris les stratégies d’authentification multifacteur et l’émission règles d’autorisation, ainsi que pour d’émission via des revendications AD FS émis jetons de sécurité. Pour utiliser des protocoles actifs tels que Ws-Trust avec AD FS, vous devez spécifier le paramètre OrganizationalAccountSuffix, qui permet à AD FS lever l’ambiguïté entre les approbations de fournisseur de revendications local lors de la maintenance d’une demande d’autorisation active.
 
 ## <a name="see-also"></a>Voir aussi
 [Opérations d’AD FS](../../ad-fs/AD-FS-2016-Operations.md)

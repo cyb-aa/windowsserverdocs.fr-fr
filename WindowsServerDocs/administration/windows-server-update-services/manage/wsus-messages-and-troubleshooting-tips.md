@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 77a4702ddab987cb3adda7627badb790e3102952
-ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
+ms.openlocfilehash: 4acc5e284d5ca7a62335a1c52f341cda3dfb547e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66308548"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439731"
 ---
 # <a name="wsus-messages-and-troubleshooting-tips"></a>Conseils de dépannage et messages WSUS
 
@@ -48,13 +48,13 @@ Les raisons les plus courantes sont :
 
 ## <a name="message-id-6703---wsus-synchronization-failed"></a>ID de message 6703 - synchronisation WSUS a échoué
 > Message : La demande a échoué avec l’état HTTP 503 : Service non disponible.
-
+> 
 > Source : Microsoft.UpdateServices.Administration.AdminProxy.createUpdateServer.
 
 Lorsque vous essayez d’ouvrir des Services de mise à jour sur le serveur WSUS, vous recevez l’erreur suivante :
 
 > Erreur : Erreur de connexion
-
+> 
 > Une erreur s’est produite lors de la tentative de connexion au serveur WSUS. Cette erreur peut se produire pour plusieurs raisons. Si le problème persiste, contactez votre administrateur réseau. Cliquez sur la réinitialisation du nœud du serveur de vous connecter au serveur.
 
 Outre les précautions ci-dessus, tente d’accéder à l’URL pour le site Web Administration WSUS (par exemple, `http://CM12CAS:8530`) échoue avec l’erreur :
@@ -88,8 +88,8 @@ Pour résoudre ce problème, accordez des autorisations d’administrateur syst�
 
 - **Service SQL :** Chaque service à l’exception du service selfupdate nécessite que le service SQL est en cours d’exécution. Si les fichiers journaux indiquent des problèmes de connexion SQL, commencez par vérifier le service SQL. Pour accéder au service SQL, cliquez sur **Démarrer**, pointez sur **outils d’administration**, cliquez sur **Services**, puis recherchez une des opérations suivantes :
     
-    -   **MSSQLSERver** (si vous utilisez WMSDE ou MSDE, ou si vous utilisez SQL Server et que vous utilisez le nom de l’instance par défaut pour le nom d’instance)
+  - **MSSQLSERver** (si vous utilisez WMSDE ou MSDE, ou si vous utilisez SQL Server et que vous utilisez le nom de l’instance par défaut pour le nom d’instance)
     
-    -   **MSSQL$ WSUS** (si vous utilisez une base de données SQL Server et avez nommé votre instance de base de données « WSUS »)
+  - **MSSQL$ WSUS** (si vous utilisez une base de données SQL Server et avez nommé votre instance de base de données « WSUS »)
     
     Cliquez sur le service, puis cliquez sur **Démarrer** si le service n’est pas en cours d’exécution, ou **redémarrer** pour actualiser le service s’il s’exécute.

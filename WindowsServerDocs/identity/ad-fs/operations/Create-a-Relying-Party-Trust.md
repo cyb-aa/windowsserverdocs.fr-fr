@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 42df338ee5a5aecb3cf32f91a2b1aedae1210164
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: b000d4cfd4ded7ad37dbb235a9d33c83d8951707
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189510"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444361"
 ---
 # <a name="create-a-relying-party-trust"></a>Créer une partie de confiance
 
@@ -74,22 +74,22 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 
 1. Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion AD FS**.  
   
-2.  Sous **Actions**, cliquez sur **ajouter Relying Party Trust**.  
-![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust1.PNG)   
+2. Sous **Actions**, cliquez sur **ajouter Relying Party Trust**.  
+   ![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust1.PNG)   
 
-3.  Sur le **Bienvenue** page, choisissez **prenant en charge des revendications** et cliquez sur **Démarrer**.  
-![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
+3. Sur le **Bienvenue** page, choisissez **prenant en charge des revendications** et cliquez sur **Démarrer**.  
+   ![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
   
-4.  Sur le **sélectionner une Source de données** , cliquez sur **importer les données sur la partie de confiance publiées en ligne ou sur un réseau local*. Dans **Adresse des métadonnées de fédération (nom d’hôte ou URL)** , tapez l’URL de métadonnées de fédération ou le nom d’hôte du partenaire, puis cliquez sur **Suivant**.  
-![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust12.PNG) 
+4. Sur le **sélectionner une Source de données** , cliquez sur <strong>importer les données sur la partie de confiance publiées en ligne ou sur un réseau local *. Dans ** adresse de métadonnées de fédération (nom d’hôte ou URL)</strong>, tapez la fédération métadonnées URL ou nom d’hôte pour le partenaire, puis cliquez sur **suivant**.  
+   ![partie de confiance](media/Create-a-Relying-Party-Trust/addtrust12.PNG) 
 
-5.  Dans la page spécifier le nom complet, tapez un nom dans **surnom**, sous Notes tapez une description pour cette partie de confiance, puis cliquez sur **suivant**.
+5. Dans la page spécifier le nom complet, tapez un nom dans **surnom**, sous Notes tapez une description pour cette partie de confiance, puis cliquez sur **suivant**.
 
-6.  Dans la page Choisir les règles d’autorisation d’émission, sélectionnez **autoriser tous les utilisateurs à accéder à cette confiance** ou **refuser tous les utilisateurs l’accès à cette partie de confiance**, puis cliquez sur **suivant**.
+6. Dans la page Choisir les règles d’autorisation d’émission, sélectionnez **autoriser tous les utilisateurs à accéder à cette confiance** ou **refuser tous les utilisateurs l’accès à cette partie de confiance**, puis cliquez sur **suivant**.
 
-7.  Sur la page Prêt pour ajouter l’approbation, passez en revue les paramètres, puis cliquez sur **suivant** pour enregistrer votre partie de confiance les informations de confidentialité.
+7. Sur la page Prêt pour ajouter l’approbation, passez en revue les paramètres, puis cliquez sur **suivant** pour enregistrer votre partie de confiance les informations de confidentialité.
 
-8.  Dans la page Terminer, cliquez sur **fermer**. Cette action affiche automatiquement la boîte de dialogue Modifier les règles de revendication. Pour plus d'informations sur l'ajout de règles de revendication pour cette approbation de partie de confiance, voir Références supplémentaires.
+8. Dans la page Terminer, cliquez sur **fermer**. Cette action affiche automatiquement la boîte de dialogue Modifier les règles de revendication. Pour plus d'informations sur l'ajout de règles de revendication pour cette approbation de partie de confiance, voir Références supplémentaires.
 
 
 

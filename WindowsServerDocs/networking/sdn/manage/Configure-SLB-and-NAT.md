@@ -13,12 +13,12 @@ ms.assetid: 73bff8ba-939d-40d8-b1e5-3ba3ed5439c3
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 55847bfbc0362887497514009f6efe1312d79906
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4d53c4bcbe1f37f532f2861d5669201959a9f091
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819350"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446671"
 ---
 # <a name="configure-the-software-load-balancer-for-load-balancing-and-network-address-translation-nat"></a>Configurer l’équilibreur de charge logicielle pour l’équilibrage de charge et la traduction d’adresses réseau (NAT)
 
@@ -109,22 +109,22 @@ Dans cet exemple, vous créez un objet d’équilibrage de charge avec une adres
     $LoadBalancerProperties.Probes += $Probe
    ```
 
-5.  Définir une règle pour envoyer le trafic qui arrive au niveau de l’adresse IP frontale à l’adresse IP de serveur principal d’équilibrage de charge.  Dans cet exemple, le pool back-end reçoit le trafic TCP vers le port 80.<p>L’exemple suivant permet de définir une règle d’équilibrage de charge :
+5. Définir une règle pour envoyer le trafic qui arrive au niveau de l’adresse IP frontale à l’adresse IP de serveur principal d’équilibrage de charge.  Dans cet exemple, le pool back-end reçoit le trafic TCP vers le port 80.<p>L’exemple suivant permet de définir une règle d’équilibrage de charge :
 
    ```PowerShell
-    $Rule = new-object Microsoft.Windows.NetworkController.LoadBalancingRule
-    $Rule.ResourceId = "webserver1"
+   $Rule = new-object Microsoft.Windows.NetworkController.LoadBalancingRule
+   $Rule.ResourceId = "webserver1"
 
-    $Rule.Properties = new-object Microsoft.Windows.NetworkController.LoadBalancingRuleProperties
-    $Rule.Properties.FrontEndIPConfigurations += $FrontEndIPConfig
-    $Rule.Properties.backendaddresspool = $BackEndAddressPool 
-    $Rule.Properties.protocol = "TCP"
-    $Rule.Properties.FrontEndPort = 80
-    $Rule.Properties.BackEndPort = 80
-    $Rule.Properties.IdleTimeoutInMinutes = 4
-    $Rule.Properties.Probe = $Probe
+   $Rule.Properties = new-object Microsoft.Windows.NetworkController.LoadBalancingRuleProperties
+   $Rule.Properties.FrontEndIPConfigurations += $FrontEndIPConfig
+   $Rule.Properties.backendaddresspool = $BackEndAddressPool 
+   $Rule.Properties.protocol = "TCP"
+   $Rule.Properties.FrontEndPort = 80
+   $Rule.Properties.BackEndPort = 80
+   $Rule.Properties.IdleTimeoutInMinutes = 4
+   $Rule.Properties.Probe = $Probe
 
-    $LoadBalancerProperties.loadbalancingRules += $Rule
+   $LoadBalancerProperties.loadbalancingRules += $Rule
    ```
 
 6. Ajouter la configuration d’équilibrage de charge au contrôleur de réseau.<p>Pour ajouter la configuration d’équilibrage de charge au contrôleur de réseau, utilisez l’exemple suivant :
@@ -205,7 +205,7 @@ Vous pouvez également répéter ce processus sur une seule interface réseau po
    ```PowerShell
    $lbresourceid = "LB2"
    $lb = get-networkcontrollerloadbalancer -connectionuri $uri -resourceID $LBResourceId -PassInnerException
-  ```
+   ```
 
 2. Obtenir l’interface réseau et ajouter le pool backendaddress au tableau loadbalancerbackendaddresspools.
 
@@ -280,17 +280,17 @@ Cet exemple répète la même action que l’exemple précédent, mais il alloue
     PreviousIpConfiguration  :
    ```
  
-1. Affecter l’adresse IP publique à une interface réseau.
+3. Affecter l’adresse IP publique à une interface réseau.
 
    ```PowerShell
    $nic = get-networkcontrollernetworkinterface  -connectionuri $uri -resourceid 6daca142-7d94-0000-1111-c38c0141be06
    $nic.properties.IpConfigurations[0].Properties.PublicIPAddress = $publicIP
    New-NetworkControllerNetworkInterface -ConnectionUri $uri -ResourceId $nic.ResourceId -Properties $nic.properties -PassInnerException
    ```
-## <a name="example-remove-a-publicip-address-that-is-being-used-for-forwarding-traffic-and-return-it-to-the-vip-pool"></a>Exemple : Supprimer une adresse de l’adresse IP publique qui est utilisée pour transférer le trafic et le retourner au pool d’adresses IP virtuelles
-Cet exemple supprime la ressource d’adresse IP publique qui a été créée par les exemples précédents.  Une fois que l’adresse IP publique est supprimé, la référence à l’adresse IP publique sera automatiquement supprimée de l’interface réseau, le trafic cesse de transfert et l’adresse IP s’affichera pour le pool d’adresses IP virtuelles publiques pour une réutilisation.  
+   ## <a name="example-remove-a-publicip-address-that-is-being-used-for-forwarding-traffic-and-return-it-to-the-vip-pool"></a>Exemple : Supprimer une adresse de l’adresse IP publique qui est utilisée pour transférer le trafic et le retourner au pool d’adresses IP virtuelles
+   Cet exemple supprime la ressource d’adresse IP publique qui a été créée par les exemples précédents.  Une fois que l’adresse IP publique est supprimé, la référence à l’adresse IP publique sera automatiquement supprimée de l’interface réseau, le trafic cesse de transfert et l’adresse IP s’affichera pour le pool d’adresses IP virtuelles publiques pour une réutilisation.  
 
-1. Supprimer l’adresse IP publique
+4. Supprimer l’adresse IP publique
 
    ```PowerShell
    Remove-NetworkControllerPublicIPAddress -ConnectionURI $uri -ResourceId "MyPIP"

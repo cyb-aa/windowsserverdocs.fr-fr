@@ -12,12 +12,12 @@ ms.assetid: 16984724-2d77-4d7b-9738-3dff375ed68c
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 1461f3e3266d77d2510aba37208347253a8f78e7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 54c8d05c028cbca364b6a46052d12cdcb12c01b0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851620"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443617"
 ---
 # <a name="iis-on-nano-server"></a>IIS sur Nano Server
 
@@ -82,7 +82,7 @@ L’exemple suivant suppose que vous lancez l’exécution à partir du réperto
 3.  .\Tools\dism.exe /Add-Package /PackagePath:.\packages\Microsoft-NanoServer-IIS-Package.cab /Image:.\mountdir
 4.  .\Tools\dism.exe /Add-Package /PackagePath:.\packages\en-us\Microsoft-NanoServer-IIS-Package_en-us.cab /Image:.\mountdir
 5.  .\Tools\dism.exe /Unmount-Image /MountDir:.\MountDir /Commit
- 
+
 
 > [!NOTE]  
 > Notez que l’étape 4 ajoute le module linguistique, en l’occurrence EN-US.  
@@ -99,7 +99,7 @@ L’installation hors connexion du rôle de serveur est recommandée, mais vous 
 
 
 ```  
-   
+
     <unattend xmlns="urn:schemas-microsoft-com:unattend">  
     <servicing>  
         <package action="install">  
@@ -118,20 +118,20 @@ L’installation hors connexion du rôle de serveur est recommandée, mais vous 
 
 
 
-3.  Dans le nouveau fichier XML que vous avez créé (ou copié), remplacez C:\packages par le répertoire dans lequel vous avez copié le contenu de Packages.  
+3. Dans le nouveau fichier XML que vous avez créé (ou copié), remplacez C:\packages par le répertoire dans lequel vous avez copié le contenu de Packages.  
 
-4.  Accédez au répertoire contenant le fichier XML créé et exécutez  
+4. Accédez au répertoire contenant le fichier XML créé et exécutez  
 
-    **dism /online /apply-unattend:.\unattend.xml**  
+   **dism /online /apply-unattend:.\unattend.xml**  
 
 
-5.  Vérifiez que le package IIS et son module linguistique sont correctement installés en exécutant :  
+5. Vérifiez que le package IIS et son module linguistique sont correctement installés en exécutant :  
 
-    **dism /online /get-packages**  
+   **dism /online /get-packages**  
 
-    Vous devez voir « identité du Package : Microsoft-NanoServer-IIS-Package ~ 31bf3856ad364e35 ~ amd64 ~ ~ 10.0.14393.1000" répertorié deux fois, une fois pour Type de version : Module linguistique et une fois pour le Type de version : Feature Pack.  
+   Vous devez voir « identité du Package : Microsoft-NanoServer-IIS-Package ~ 31bf3856ad364e35 ~ amd64 ~ ~ 10.0.14393.1000" répertorié deux fois, une fois pour Type de version : Module linguistique et une fois pour le Type de version : Feature Pack.  
 
-6.  Démarrez le service W3SVC avec **net start w3svc** ou en redémarrant Nano Server.  
+6. Démarrez le service W3SVC avec **net start w3svc** ou en redémarrant Nano Server.  
 
 ## <a name="starting-iis"></a>Redémarrage d’IIS  
 Une fois installé et en cours d’exécution, IIS est prêt à traiter les demandes web. Vérifiez qu’IIS s’exécute en consultant sa page web par défaut à l’adresse http://\<adresse IP de Nano Server>. Sur un ordinateur physique, vous pouvez connaître cette adresseIP à l’aide de la Console de récupération. Sur une machine virtuelle, vous pouvez obtenir cette adresse IP en ouvrant une invite Windows PowerShell et en exécutant :  
@@ -152,7 +152,7 @@ Chaque fonctionnalité d’IIS se présente sous la forme d’éléments de conf
 |`<windowsAuthentication>`|`<windowsAuthentication enabled="false" authPersistNonNTLM\="true"><providers><add value="Negotiate" /><add value="NTLM" /><br /></providers><br /></windowsAuthentication>`|  
 
 Toutes les sous-fonctionnalités d’IIS figurent dans l’annexe 1 de cette rubrique et leurs éléments de configuration correspondants figurent dans l’annexe 2 de cette rubrique.  
- 
+
 
 ### <a name="example-installing-windows-authentication"></a>Exemple : installation de l’authentification Windows  
 
@@ -381,11 +381,12 @@ L’entrée `StaticFile \<handlers>` peut-être déjà être présente. Dans ce 
 ### <a name="security"></a>Sécurité  
 **Filtrage des demandes**  
 
-|Section|Éléments de configuration|  
-|----------------|--------------------------|  
-|`<globalModules>`|`<add name="RequestFilteringModule" image="%windir%\System32\inetsrv\modrqflt.dll" />`|  
-|`<modules>`|`<add name="RequestFilteringModule" lockItem="true" />`|  
-|`<requestFiltering>|`<requestFiltering><br />    <fileExtensions allowUnlisted="true" applyToWebDAV="true" /><br />    <verbs allowUnlisted="true" applyToWebDAV="true" /><br />    <hiddenSegments applyToWebDAV="true"><br />        <add segment="web.config" /><br />    </hiddenSegments><br /></requestFiltering>`|  
+
+|       Section        |                                                                                                                                        Éléments de configuration                                                                                                                                        |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  `<globalModules>`   |                                                                                                        `<add name="RequestFilteringModule" image="%windir%\System32\inetsrv\modrqflt.dll" />`                                                                                                        |
+|     `<modules>`      |                                                                                                                       `<add name="RequestFilteringModule" lockItem="true" />`                                                                                                                        |
+| \`<requestFiltering> | `<requestFiltering><br />    <fileExtensions allowUnlisted="true" applyToWebDAV="true" /><br />    <verbs allowUnlisted="true" applyToWebDAV="true" /><br />    <hiddenSegments applyToWebDAV="true"><br />        <add segment="web.config" /><br />    </hiddenSegments><br /></requestFiltering>` |
 
 **Authentification de base**  
 
@@ -413,11 +414,12 @@ L’entrée `StaticFile \<handlers>` peut-être déjà être présente. Dans ce 
 
 **Authentification par mappage de certificat client IIS**  
 
-|Section|Éléments de configuration|  
-|----------------|--------------------------|   
-|`<globalModules>`|`<add name="CertificateMappingAuthenticationModule" image="%windir%\System32\inetsrv\authcert.dll" />`|  
-|`<modules>`|`<add name="CertificateMappingAuthenticationModule" lockItem="true" `/>`|  
-|`<clientCertificateMappingAuthentication>`|`<clientCertificateMappingAuthentication enabled="false" />`|  
+
+|                  Section                   |                                         Éléments de configuration                                         |
+|--------------------------------------------|--------------------------------------------------------------------------------------------------------|
+|             `<globalModules>`              | `<add name="CertificateMappingAuthenticationModule" image="%windir%\System32\inetsrv\authcert.dll" />` |
+|                `<modules>`                 |               `<add name="CertificateMappingAuthenticationModule" lockItem="true" `/>\`                |
+| `<clientCertificateMappingAuthentication>` |                      `<clientCertificateMappingAuthentication enabled="false" />`                      |
 
 **Restrictions IP et de domaine**  
 

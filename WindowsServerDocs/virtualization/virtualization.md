@@ -10,12 +10,12 @@ ms.topic: landing-page
 author: shortpatti
 ms.author: pashort
 ms.localizationpriority: high
-ms.openlocfilehash: 1ae36a2e1be1559094dd55dba41fa9a468118260
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 53c927f89fd3ccaa212c998f7102d0fdb9f41bde
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840060"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447942"
 ---
 # <a name="virtualization"></a>Virtualisation
 
@@ -41,7 +41,7 @@ La virtualisation dans Windows Server est l'une des technologies fondamentales 
                     <div class="cardText">
                         <h3>Structure protégée et machines virtuelles dotées d’une protection maximale</h3>
 <HR />
-                        <p>En tant que fournisseur de services cloud ou administrateur d’un cloud privé d’entreprise, vous pouvez utiliser une structure protégée pour offrir un environnement plus sécurisé pour les ordinateurs virtuels. Une structure protégée se compose d’un Service de surveillance d’hôte \(SGH\) -en général, un cluster de trois nœuds - plus un ou plusieurs hôtes service Guardian et un ensemble de machines virtuelles protégées.</p>
+                        <p>En tant que fournisseur de services cloud ou administrateur d’un cloud privé d’entreprise, vous pouvez utiliser une structure protégée pour offrir un environnement plus sécurisé pour les ordinateurs virtuels. Une structure protégée se compose d’un Service Guardian hôte (SGH) - en général, un cluster de trois nœuds - plus un ou plusieurs service Guardian hôtes et un ensemble de machines virtuelles protégées.</p>
                      </div>
                   </div>
               </div>

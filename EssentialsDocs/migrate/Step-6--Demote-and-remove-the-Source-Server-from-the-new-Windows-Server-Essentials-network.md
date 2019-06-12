@@ -12,12 +12,12 @@ ms.assetid: 86244c66-2c5e-488d-adb8-112e1ca3e2e1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 24a1f2da2333c7e6854e9efd9d996391d0fcb3b9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6842137dd498b11bccc2216023d648d61edbb87e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872360"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432543"
 ---
 # <a name="step-6-demote-and-remove-the-source-server-from-the-new-windows-server-essentials-network"></a>Étape 6 : Rétrograder et supprimer le serveur source du nouveau réseau Windows Server Essentials
 
@@ -76,17 +76,17 @@ Après avoir terminé l’installation de Windows Server Essentials et avoir eff
   
 #### <a name="to-force-a-group-policy-update-on-a-client-computer"></a>Pour forcer une mise à jour de la stratégie de groupe sur un ordinateur client  
   
-1.  Connectez-vous à l'ordinateur client en tant qu'administrateur.  
+1. Connectez-vous à l'ordinateur client en tant qu'administrateur.  
   
-2.  Ouvrez une fenêtre d'invite de commandes en tant qu'administrateur.  
+2. Ouvrez une fenêtre d'invite de commandes en tant qu'administrateur.  
   
-3.  À l'invite de commandes, tapez **gpupdate/force**, puis appuyez sur ENTRÉE.  
+3. À l'invite de commandes, tapez **gpupdate/force**, puis appuyez sur ENTRÉE.  
   
-4.  Le processus est susceptible de vous demander de fermer la session, puis de la rouvrir à nouveau pour terminer. Cliquez sur **Oui** pour confirmer.  
+4. Le processus est susceptible de vous demander de fermer la session, puis de la rouvrir à nouveau pour terminer. Cliquez sur **Oui** pour confirmer.  
   
- Si vous effectuez une migration de Windows Server Essentials ou des versions précédentes, pour rétrograder le serveur, consultez [supprimer des Services de domaine Active Directory](https://technet.microsoft.com/library/hh472163.aspx). Une fois le serveur source ajouté en tant que membre d'un groupe de travail et déconnecté du réseau, vous devez le supprimer des services AD DS sur le serveur de destination.  
+   Si vous effectuez une migration de Windows Server Essentials ou des versions précédentes, pour rétrograder le serveur, consultez [supprimer des Services de domaine Active Directory](https://technet.microsoft.com/library/hh472163.aspx). Une fois le serveur source ajouté en tant que membre d'un groupe de travail et déconnecté du réseau, vous devez le supprimer des services AD DS sur le serveur de destination.  
   
- Si vous effectuez une migration à partir de Windows Server Essentials, utilisez le Gestionnaire de serveur pour supprimer le rôle Services de domaine Active Directory, rétrogradant ainsi le contrôleur de domaine sur le serveur Source à l’aide de la procédure suivante :  
+   Si vous effectuez une migration à partir de Windows Server Essentials, utilisez le Gestionnaire de serveur pour supprimer le rôle Services de domaine Active Directory, rétrogradant ainsi le contrôleur de domaine sur le serveur Source à l’aide de la procédure suivante :  
   
 #### <a name="to-remove-the-source-server-from-active-directory"></a>Pour supprimer le serveur source d'Active Directory  
   

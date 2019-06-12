@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 65804f99095d0c0a56537b1d155ac26e768f61a7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 583f56c294e66542a75efca09e97d57ae54a8cea
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827660"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436424"
 ---
 # <a name="ntcmdprompt"></a>ntcmdprompt
 
@@ -30,13 +30,15 @@ Exécute l’interpréteur de commandes **Cmd.exe**, plutôt que **Command.com**
 ntcmdprompt
 ```
 ### <a name="parameters"></a>Paramètres
-|Paramètre|Description|
-|-------|--------|
-|/?|Affiche l'aide à l'invite de commandes.|
+
+| Paramètre |             Description              |
+|-----------|--------------------------------------|
+|    /?     | Affiche l'aide à l'invite de commandes. |
+
 ## <a name="remarks"></a>Notes
--   Lorsque **Command.com** est en cours d’exécution, certaines fonctionnalités de **Cmd.exe**, telles que la **doskey** l’affichage de l’historique des commandes, ne sont pas disponibles. Si vous préférez exécuter le **Cmd.exe** interpréteur de commandes une fois que vous avez démarré un Terminate et le rester résident résident ou démarrer l’invite de commandes dans une application basée sur MS-DOS, vous pouvez utiliser le **ntcmdprompt**  commande. Toutefois, n’oubliez pas que le programme résident ne soient pas disponible pour une utilisation lors de l’exécution **Cmd.exe**. Vous pouvez inclure le **ntcmdprompt** commande dans votre **Config.nt** fichier ou le fichier de démarrage personnalisé équivalent dans le fichier (Pif) d’une application.
-## <a name="examples"></a>Exemples
-Pour inclure **ntcmdprompt** dans votre **Config.nt** fichier ou le fichier de démarrage de configuration spécifié dans le fichier Pif, type : **ntcmdprompt**
-## <a name="additional-references"></a>Références supplémentaires
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+- Lorsque **Command.com** est en cours d’exécution, certaines fonctionnalités de **Cmd.exe**, telles que la **doskey** l’affichage de l’historique des commandes, ne sont pas disponibles. Si vous préférez exécuter le **Cmd.exe** interpréteur de commandes une fois que vous avez démarré un Terminate et le rester résident résident ou démarrer l’invite de commandes dans une application basée sur MS-DOS, vous pouvez utiliser le **ntcmdprompt**  commande. Toutefois, n’oubliez pas que le programme résident ne soient pas disponible pour une utilisation lors de l’exécution **Cmd.exe**. Vous pouvez inclure le **ntcmdprompt** commande dans votre **Config.nt** fichier ou le fichier de démarrage personnalisé équivalent dans le fichier (Pif) d’une application.
+  ## <a name="examples"></a>Exemples
+  Pour inclure **ntcmdprompt** dans votre **Config.nt** fichier ou le fichier de démarrage de configuration spécifié dans le fichier Pif, type : **ntcmdprompt**
+  ## <a name="additional-references"></a>Références supplémentaires
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 

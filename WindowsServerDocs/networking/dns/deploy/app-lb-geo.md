@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: b6e679c6-4398-496c-88bc-115099f3a819
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 806c0cdeedb44db44fc0ec5218124f516a6f70e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9f76163e6b064ac3225ab4d755afd548e1cb720b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852550"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446411"
 ---
 # <a name="use-dns-policy-for-application-load-balancing-with-geo-location-awareness"></a>Utiliser une stratégie DNS pour l’équilibrage de charge des applications avec connaissance de la géolocalisation
 
@@ -45,7 +45,7 @@ Les sections suivantes vous montrent comment configurer une stratégie DNS pour 
 >[!IMPORTANT]
 >Les sections suivantes incluent des exemples de commandes Windows PowerShell qui contiennent des exemples de valeurs de paramètres. Veillez à remplacer les exemples de valeurs dans ces commandes avec les valeurs appropriées pour votre déploiement avant d’exécuter ces commandes.
 
-###<a name="bkmk_clientsubnets"></a>Créer les sous-réseaux du Client DNS
+### <a name="bkmk_clientsubnets"></a>Créer les sous-réseaux du Client DNS
 
 Vous devez tout d’abord identifier les sous-réseaux ou un espace d’adressage IP des régions Amérique du Nord et Europe.
 
@@ -61,7 +61,7 @@ Vous pouvez utiliser les commandes Windows PowerShell suivantes pour créer des 
     
 Pour plus d’informations, consultez [Add-DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).
 
-###<a name="bkmk_zscopes2"></a>Créer des étendues de la Zone
+### <a name="bkmk_zscopes2"></a>Créer des étendues de la Zone
 
 Une fois que les sous-réseaux du client sont en place, vous devez partitionner la zone contosogiftservices.com dans des étendues de zone différents, chacun correspondant à un centre de données.
 
@@ -85,7 +85,7 @@ Vous pouvez utiliser les commandes Windows PowerShell suivantes pour créer des 
 
 Pour plus d’informations, consultez [DnsServerZoneScope-ajouter](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-###<a name="bkmk_records2"></a>Ajoutez des enregistrements dans les étendues de Zone
+### <a name="bkmk_records2"></a>Ajoutez des enregistrements dans les étendues de Zone
 
 Maintenant, vous devez ajouter les enregistrements représentant l’hôte du serveur web dans les étendues de zone.
 
@@ -98,7 +98,7 @@ Les enregistrements pour les centres de données d’Amérique ont été ajouté
 
 Pour plus d’informations, consultez [Add-DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
-###<a name="bkmk_policies2"></a>Créer les stratégies DNS
+### <a name="bkmk_policies2"></a>Créer les stratégies DNS
 
 Une fois que vous avez créé les partitions (étendues de zone) et que vous avez ajouté des enregistrements, vous devez créer des stratégies DNS qui distribuent les requêtes entrantes entre ces étendues.
 

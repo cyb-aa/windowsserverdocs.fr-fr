@@ -8,12 +8,12 @@ ms.assetid: 7ebaa271-2557-4c24-a679-c3d863e6bf9e
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e5e8abbc19482bcd0dd5670065cde59d5be3169a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bcb0c1c5a08a306fbd9b419d0c458c3bc54e1786
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824350"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446205"
 ---
 # <a name="network-related-performance-counters"></a>Compteurs de performance liées au réseau
 
@@ -31,43 +31,43 @@ Cette rubrique répertorie les compteurs qui sont pertinents pour la gestion des
 
 Les compteurs de performances suivants sont pertinents pour l’utilisation des ressources réseau.  
   
--   IPv4, IPv6  
+- IPv4, IPv6  
   
-    -   Datagrammes reçus/s  
+  -   Datagrammes reçus/s  
   
-    -   Datagrammes envoyés/s  
+  -   Datagrammes envoyés/s  
   
--   TCPv4, TCPv6  
+- TCPv4, TCPv6  
   
-    -   Segments reçus/s  
+  -   Segments reçus/s  
   
-    -   Segments envoyés/s  
+  -   Segments envoyés/s  
   
-    -   Segments retransmis/s  
+  -   Segments retransmis/s  
   
--   Interface(*) du réseau, la carte réseau (\*)  
+- Interface(*) du réseau, la carte réseau (\*)  
   
-    -   Octets reçus/s  
+  - Octets reçus/s  
   
-    -   Octets envoyés/s  
+  - Octets envoyés/s  
   
-    -   Paquets reçus/s  
+  - Paquets reçus/s  
   
-    -   Paquets envoyés/s  
+  - Paquets envoyés/s  
   
-    -   Longueur de la file d'attente de sortie  
+  - Longueur de la file d'attente de sortie  
   
-     Ce compteur est la longueur de la file d’attente des paquets de sortie \(dans les paquets\). S’il s’agit plu de 2, sont rencontrés. Vous devez trouver le goulot d’étranglement et éliminer si vous le pouvez. Étant donné que NDIS files d’attente les demandes, cette longueur doit toujours être 0.  
+    Ce compteur est la longueur de la file d’attente des paquets de sortie \(dans les paquets\). S’il s’agit plu de 2, sont rencontrés. Vous devez trouver le goulot d’étranglement et éliminer si vous le pouvez. Étant donné que NDIS files d’attente les demandes, cette longueur doit toujours être 0.  
   
--   Informations de processeur  
+- Informations de processeur  
   
-    -   % Processor Time  
+  - % Processor Time  
   
-    -   Interruptions/s  
+  - Interruptions/s  
   
-    -   Les appels DPC en file d’attente/s  
+  - Les appels DPC en file d’attente/s  
   
-     Ce compteur est un taux moyen auquel les appels DPC ont été ajoutés à la file d’attente DPC du processeur logique. Chaque processeur logique a sa propre file d’attente DPC. Ce compteur mesure le taux auquel les appels DPC sont ajoutés à la file d’attente, pas le nombre de DPC dans la file d’attente. Il affiche la différence entre les valeurs qui ont été observées dans les deux derniers intervalles de temps, divisée par la durée de l’intervalle échantillon.  
+    Ce compteur est un taux moyen auquel les appels DPC ont été ajoutés à la file d’attente DPC du processeur logique. Chaque processeur logique a sa propre file d’attente DPC. Ce compteur mesure le taux auquel les appels DPC sont ajoutés à la file d’attente, pas le nombre de DPC dans la file d’attente. Il affiche la différence entre les valeurs qui ont été observées dans les deux derniers intervalles de temps, divisée par la durée de l’intervalle échantillon.  
   
 ##  <a name="bkmk_np"></a> Problèmes potentiels de réseau  
 

@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 43b2a90eaa987e96b716e10259f75ffaf9f136a4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 954393126333bf04d2aa46a01089d88bc91151cb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832570"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447322"
 ---
 # <a name="verify-the-hgs-configuration"></a>Vérifier la configuration SGH
 
@@ -38,6 +38,6 @@ Exécutez les diagnostics sur chaque nœud dans votre cluster SGH.
 
 ## <a name="next-step"></a>Étape suivante
 
->[!div class="nextstepaction"]
-[Déployer des hôtes service Guardian](guarded-fabric-configure-hgs-with-authorized-hyper-v-hosts.md)
+> [!div class="nextstepaction"]
+> [Déployer des hôtes protégés](guarded-fabric-configure-hgs-with-authorized-hyper-v-hosts.md)
 

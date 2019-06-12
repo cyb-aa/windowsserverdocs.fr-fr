@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: d9999f786639ff4aa303ed34ade14849cda8feec
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 95f3e9e929d6a28279f526eec6dbdf0427bd74c0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65475912"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447584"
 ---
 # <a name="cluster-to-cluster-storage-replica-cross-region-in-azure"></a>Réplica du stockage de cluster à cluster entre régions dans Azure
 
@@ -25,7 +25,7 @@ Vous pouvez configurer des réplicas de stockage de Cluster à Cluster pour les 
 Regardez la vidéo ci-dessous pour obtenir une présentation complète du processus.
 > [!video https://www.microsoft.com/en-us/videoplayer/embed/RE26xeW]
 
-![L’architecture de diagramme illustrant SR C2C dans Azure au sein même région.](media\Cluster-to-cluster-azure-cross-region\architecture.png)
+![L’architecture de diagramme illustrant SR C2C dans Azure au sein même région.](media/Cluster-to-cluster-azure-cross-region/architecture.png)
 > [!IMPORTANT]
 > Tous les exemples référencés sont spécifiques à l’illustration ci-dessus.
 
@@ -68,7 +68,7 @@ Regardez la vidéo ci-dessous pour obtenir une présentation complète du proces
    Modifier le serveur DNS du réseau virtuel à l’adresse IP privée de contrôleur de domaine.
    - Dans l’exemple, le contrôleur de domaine **az2azDC** a l’adresse IP privée (10.3.0.8). Dans le réseau virtuel (**az2az-réseau virtuel** et **azcross-réseau virtuel**) modification du serveur DNS 10.3.0.8. 
 
-    Dans l’exemple, connecter tous les nœuds pour « contoso.com » et fournir des privilèges d’administrateur pour « contosoadmin ».
+     Dans l’exemple, connecter tous les nœuds pour « contoso.com » et fournir des privilèges d’administrateur pour « contosoadmin ».
    - Connectez-vous en tant que contosoadmin à partir de tous les nœuds. 
  
 6. La création des clusters (**SRAZC1**, **SRAZCross**).
@@ -106,87 +106,87 @@ Regardez la vidéo ci-dessous pour obtenir une présentation complète du proces
 
 9. Créer [passerelle de réseau virtuel](https://ms.portal.azure.com/#create/Microsoft.VirtualNetworkGateway-ARM) pour la connectivité de réseau virtuel à réseau virtuel.
 
- - Créer la première passerelle de réseau virtuel (**az2az-VNetGateway**) dans le premier groupe de ressources (**SR-AZ2AZ**)
- - Type de passerelle = VPN, VPN et tapez = Route-based
+   - Créer la première passerelle de réseau virtuel (**az2az-VNetGateway**) dans le premier groupe de ressources (**SR-AZ2AZ**)
+   - Type de passerelle = VPN, VPN et tapez = Route-based
 
- - Créer la deuxième passerelle de réseau virtuel (**azcross-VNetGateway**) du deuxième groupe de ressources (**SR-AZCROSS**)
- - Type de passerelle = VPN, VPN et tapez = Route-based
+   - Créer la deuxième passerelle de réseau virtuel (**azcross-VNetGateway**) du deuxième groupe de ressources (**SR-AZCROSS**)
+   - Type de passerelle = VPN, VPN et tapez = Route-based
 
- - Créer une connexion de réseau virtuel à réseau virtuel à partir de la première passerelle de réseau virtuel à la seconde passerelle de réseau virtuel. Fournir une clé partagée
+   - Créer une connexion de réseau virtuel à réseau virtuel à partir de la première passerelle de réseau virtuel à la seconde passerelle de réseau virtuel. Fournir une clé partagée
 
- - Créer une connexion de réseau virtuel à réseau virtuel à partir de la deuxième passerelle de réseau virtuel pour la première passerelle de réseau virtuel. Fournir la même clé partagée, comme indiqué dans l’étape ci-dessus. 
+   - Créer une connexion de réseau virtuel à réseau virtuel à partir de la deuxième passerelle de réseau virtuel pour la première passerelle de réseau virtuel. Fournir la même clé partagée, comme indiqué dans l’étape ci-dessus. 
 
 10. Sur chaque nœud du cluster, ouvrez le port 59999 (sonde d’intégrité).
 
-   Exécutez la commande suivante sur chaque nœud :
+    Exécutez la commande suivante sur chaque nœud :
 
-   ```powershell
+    ```powershell
       netsh advfirewall firewall add rule name=PROBEPORT dir=in protocol=tcp action=allow localport=59999 remoteip=any profile=any 
-   ```
+    ```
 
 11. Indiquer le cluster pour écouter les messages de sonde d’intégrité sur le Port 59999 et répondre à partir du nœud actuellement propriétaire de cette ressource.
 
-   Exécutez-le une seule fois à partir de n’importe quel un nœud du cluster, pour chaque cluster. 
+    Exécutez-le une seule fois à partir de n’importe quel un nœud du cluster, pour chaque cluster. 
     
-   Dans notre exemple, veillez à modifier le « ILBIP » en fonction de vos valeurs de configuration. Exécutez la commande suivante à partir de n’importe quel un nœud **az2az1**/**az2az2**
+    Dans notre exemple, veillez à modifier le « ILBIP » en fonction de vos valeurs de configuration. Exécutez la commande suivante à partir de n’importe quel un nœud **az2az1**/**az2az2**
 
-   ```PowerShell
+    ```PowerShell
      $ClusterNetworkName = "Cluster Network 1" # Cluster network name (Use Get-ClusterNetwork on Windows Server 2012 or higher to find the name. And use Get-ClusterResource to find the IPResourceName).
      $IPResourceName = "Cluster IP Address" # IP Address cluster resource name.
      $ILBIP = "10.3.0.100" # IP Address in Internal Load Balancer (ILB) - The static IP address for the load balancer configured in the Azure portal.
      [int]$ProbePort = 59999
      Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";”ProbeFailureThreshold”=5;"EnableDhcp"=0}  
-   ```
+    ```
 
 12. Exécutez la commande suivante à partir de n’importe quel un nœud **azcross1**/**azcross2**
-   ```PowerShell
+    ```PowerShell
      $ClusterNetworkName = "Cluster Network 1" # Cluster network name (Use Get-ClusterNetwork on Windows Server 2012 or higher to find the name. And use Get-ClusterResource to find the IPResourceName).
      $IPResourceName = "Cluster IP Address" # IP Address cluster resource name.
      $ILBIP = "10.0.0.10" # IP Address in Internal Load Balancer (ILB) - The static IP address for the load balancer configured in the Azure portal.
      [int]$ProbePort = 59999
      Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";”ProbeFailureThreshold”=5;"EnableDhcp"=0}  
-   ```
+    ```
 
-   Assurez-vous que les deux clusters peuvent se connecter / communiquent entre eux.
+    Assurez-vous que les deux clusters peuvent se connecter / communiquent entre eux.
 
-   Soit utiliser la fonctionnalité de « Se connecter au Cluster » dans le Gestionnaire du cluster de basculement pour vous connecter à l’autre cluster ou vérifier le qu'autre cluster répond à partir d’un des nœuds du cluster actif.
+    Soit utiliser la fonctionnalité de « Se connecter au Cluster » dans le Gestionnaire du cluster de basculement pour vous connecter à l’autre cluster ou vérifier le qu'autre cluster répond à partir d’un des nœuds du cluster actif.
 
-   À partir de l’exemple nous avons été à l’aide de :
-   ```powershell
+    À partir de l’exemple nous avons été à l’aide de :
+    ```powershell
       Get-Cluster -Name SRAZC1 (ran from azcross1)
-   ```
-   ```powershell
+    ```
+    ```powershell
       Get-Cluster -Name SRAZCross (ran from az2az1) 
-   ```
+    ```
 
 13. Créez un témoin cloud pour les deux clusters. Créez deux [comptes de stockage](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) (**az2azcw**,**azcrosssa**) dans Azure, un pour chaque cluster dans chaque groupe de ressources (**SR-AZ2AZ**,  **SR-AZCROSS**).
    
-   - Copier le nom de compte de stockage et la clé à partir de « clés d’accès »
-   - Créer le témoin de cloud à partir de « gestionnaire du cluster de basculement » et utiliser le nom du compte et la clé ci-dessus pour le créer. 
+    - Copier le nom de compte de stockage et la clé à partir de « clés d’accès »
+    - Créer le témoin de cloud à partir de « gestionnaire du cluster de basculement » et utiliser le nom du compte et la clé ci-dessus pour le créer. 
 
 14. Exécutez [les tests de validation de cluster](../../failover-clustering/create-failover-cluster.md#validate-the-configuration) avant de passer à l’étape suivante
 
 15. Démarrez Windows PowerShell et utilisez l’applet de commande [Test-SRTopology](https://docs.microsoft.com/powershell/module/storagereplica/test-srtopology?view=win10-ps) pour déterminer si toutes les conditions des réplicas de stockage sont satisfaites. Vous pouvez utiliser l’applet de commande dans un mode d’exigences uniquement pour un test rapide ainsi qu’un mode d’évaluation de performances à exécution longue.
  
 16. Configurer le réplica de stockage de cluster à cluster.
-Accorder l’accès à partir d’un cluster à un autre cluster dans les deux sens :
+    Accorder l’accès à partir d’un cluster à un autre cluster dans les deux sens :
 
-   À partir de notre exemple :
-   ```powershell
+    À partir de notre exemple :
+    ```powershell
      Grant-SRAccess -ComputerName az2az1 -Cluster SRAZCross
-   ```
-Si vous utilisez Windows Server 2016, également exécuter cette commande :
+    ```
+    Si vous utilisez Windows Server 2016, également exécuter cette commande :
 
-   ```powershell
+    ```powershell
      Grant-SRAccess -ComputerName azcross1 -Cluster SRAZC1
-   ```
+    ```
 
 17. Créez SR-partenariat pour les deux clusters :</ol>
 
-   - Pour cluster **SRAZC1**
+    - Pour cluster **SRAZC1**
       - Emplacement du volume :-c:\ClusterStorage\DataDisk1
       - Emplacement du journal :-g :
-   - Pour cluster **SRAZCross**
+    - Pour cluster **SRAZCross**
       - Emplacement du volume :-c:\ClusterStorage\DataDiskCross
       - Emplacement du journal :-g :
 

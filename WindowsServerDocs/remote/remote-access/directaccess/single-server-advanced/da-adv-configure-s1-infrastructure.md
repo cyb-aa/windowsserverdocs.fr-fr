@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 43abc30a-300d-4752-b845-10a6b9f32244
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: edd59208237f9b1042427dfecba0a407a34b30a8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9d19ac813280981341019330470cc5d53ee00778
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835810"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446112"
 ---
 # <a name="step-1-configure-advanced-directaccess-infrastructure"></a>Étape 1 configurer l’Infrastructure DirectAccess avancée
 
@@ -246,17 +246,17 @@ Vous devez configurer manuellement une entrée DNS pour le site web du serveur E
   
 1.  Sur le serveur DNS du réseau interne : Sur le **Démarrer** , tapez**dnsmgmt.msc**, puis appuyez sur ENTRÉE.  
   
-2.  Dans le volet gauche de la console **Gestionnaire DNS**, développez la zone de recherche directe de votre domaine. Cliquez avec le bouton droit sur le domaine et cliquez sur **Nouvel hôte (A ou AAAA)**.  
+2.  Dans le volet gauche de la console **Gestionnaire DNS**, développez la zone de recherche directe de votre domaine. Cliquez avec le bouton droit sur le domaine et cliquez sur **Nouvel hôte (A ou AAAA)** .  
   
 3.  Dans la boîte de dialogue **Nouvel hôte**, dans la zone **Adresse IP** :  
   
-    -   Dans la zone **Nom (utilise le domaine parent si ce champ est vide)**, entrez le nom DNS du site web du serveur Emplacement réseau (il s'agit du nom que les clients DirectAccess utilisent pour se connecter au serveur Emplacement réseau).  
+    -   Dans la zone **Nom (utilise le domaine parent si ce champ est vide)** , entrez le nom DNS du site web du serveur Emplacement réseau (il s'agit du nom que les clients DirectAccess utilisent pour se connecter au serveur Emplacement réseau).  
   
     -   Entrez l'adresse IPv4 ou IPv6 du serveur Emplacement réseau, puis cliquez sur **Ajouter un hôte** et sur **OK**.  
   
 4.  Dans la boîte de dialogue **Nouvel hôte** :  
   
-    -   Dans la zone **Nom (utilise le domaine parent si ce champ est vide)**, entrez le nom DNS de la sonde web (le nom de la sonde web par défaut est **directaccess-webprobehost**).  
+    -   Dans la zone **Nom (utilise le domaine parent si ce champ est vide)** , entrez le nom DNS de la sonde web (le nom de la sonde web par défaut est **directaccess-webprobehost**).  
   
     -   Dans la zone **Adresse IP**, entrez l'adresse IPv4 ou IPv6 de la sonde web, puis cliquez sur **Ajouter un hôte**.  
   
@@ -264,7 +264,7 @@ Vous devez configurer manuellement une entrée DNS pour le site web du serveur E
   
 5.  Dans la boîte de dialogue **DNS**, cliquez sur **OK**, puis sur **Terminé**.  
   
-![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -336,7 +336,7 @@ Le serveur DirectAccess et tous les ordinateurs clients DirectAccess doivent êt
   
 10. Lorsque vous êtes invité à redémarrer l’ordinateur, cliquez sur **Redémarrer maintenant**.  
   
-![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -425,7 +425,7 @@ Une fois que l'administrateur de l'accès à distance a terminé toutes les modi
   
     10. Dans la page **Analyse de la sauvegarde**, cliquez sur **Suivant**, puis sur **Terminer**.  
   
-![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -556,7 +556,7 @@ Les éléments suivants sont requis pour les deux types de certificats, s'ils n'
   
 ## <a name="BKMK_Links"></a>Étape suivante  
   
--   [Étape 2 : Configurer les serveurs d’infrastructure DirectAccess avancée](da-adv-configure-s2-servers.md)  
+-   [Étape 2 : Configurer des serveurs DirectAccess avancés](da-adv-configure-s2-servers.md)  
   
 
 

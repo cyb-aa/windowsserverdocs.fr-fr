@@ -8,12 +8,12 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
-ms.openlocfilehash: 15cfc054810a2cab85aae9a04d6195c3ae6fe0b9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: af977519b5e77eb768fdf8de1e6a34f7c8274666
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861210"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447240"
 ---
 # <a name="advanced-data-deduplication-settings"></a>Paramètres de déduplication des données avancés
 
@@ -76,7 +76,7 @@ Vous pouvez activer les paramètres suivants pour les travaux de déduplication 
     </thead>
     <tbody>
         <tr>
-            <td>Type</td>
+            <td>type</td>
             <td>Type du travail à planifier</td>
             <td>
                 <ul>
@@ -97,7 +97,7 @@ Vous pouvez activer les paramètres suivants pour les travaux de déduplication 
                     <li>Faible</li>
                 </ul>
             </td>
-            <td>Cette valeur aide le système à déterminer comment allouer du temps processeur. *Haute* utilise plus de temps processeur, *faible* en utilise moins.</td>
+            <td>Cette valeur aide le système à déterminer comment allouer du temps processeur. <em>Haute</em> utilise plus de temps processeur, <em>faible</em> en utilise moins.</td>
         </tr>
         <tr>
             <td>Days</td>
@@ -123,7 +123,7 @@ Vous pouvez activer les paramètres suivants pour les travaux de déduplication 
             <td>DurationHours</td>
             <td>Nombre maximal d’heures pendant lesquelles un travail doit être autorisé à s’exécuter</td>
             <td>Entiers positifs</td>
-            <td>Pour empêcher un travail de s’exécuter pendant les heures d’activité d’une charge de travail</td>
+            <td>Pour empêcher un travail de s’exécuter une charge de travail&#39;les heures d’activité s</td>
         </tr>
         <tr>
             <td>Enabled</td>
@@ -141,7 +141,7 @@ Vous pouvez activer les paramètres suivants pour les travaux de déduplication 
             <td>InputOutputThrottle</td>
             <td>Spécifie le limite d’entrées/sorties appliquée au travail</td>
             <td>Entiers de 0 à 100 (indique un pourcentage)</td>
-            <td>La limitation permet de s’assurer que les travaux n’interfèrent pas avec d’autres processus gourmands en E/S.</td>
+            <td>La limitation permet de s’assurer que don de travaux&#39;t interfère avec d’autres processus d’e/S intensives.</td>
         </tr>
         <tr>
             <td>Mémoire</td>
@@ -164,8 +164,8 @@ Vous pouvez activer les paramètres suivants pour les travaux de déduplication 
         <tr>
             <td>Début</td>
             <td>Spécifie l’heure de début d’un travail</td>
-            <td>`System.DateTime`</td>
-            <td>La partie *date* du `System.Datetime` fourni à *Démarrer* n’est pas pertinente (dès lors qu’elle est passée), mais la partie *heure* spécifie le moment auquel le travail doit démarrer.</td>
+            <td><code>System.DateTime</code></td>
+            <td>Le <em>date</em> dans le cadre de la <code>System.Datetime</code> fourni à <em>Démarrer</em> n’est pas pertinente (tant qu’il&#39;s dans le passé), mais la <em>temps</em> partie spécifie quand la tâche doit démarrer .</td>
         </tr>
         <tr>
             <td>StopWhenSystemBusy</td>
@@ -208,9 +208,9 @@ Les principales raisons de modifier les paramètres de volume du type d’utilis
     <tbody>
         <tr>
             <td>ChunkRedundancyThreshold</td>
-            <td>Nombre de fois qu’un bloc est référencé avant d’être dupliqué dans la section de la zone réactive du magasin de blocs. La valeur de la section de la zone réactive correspond aux blocs « à chaud » souvent référencés qui ont plusieurs chemins pour améliorer les temps d’accès.</td>
+            <td>Nombre de fois qu’un bloc est référencé avant d’être dupliqué dans la section de la zone réactive du magasin de blocs. La valeur de la section de la zone réactive est que ce que l'on appelle &quot;à chaud&quot; segments souvent référencés qui ont plusieurs chemins d’accès pour améliorer les temps d’accès.</td>
             <td>Entiers positifs</td>
-            <td>La principale raison de modifier ce nombre est d’accroître le taux de réduction pour les volumes à duplication élevée. En général, la valeur par défaut (100) est le paramètre recommandé et vous ne devez pas la modifier.</td>
+            <td>La principale raison de modifier ce nombre est d’accroître le taux de réduction pour les volumes à duplication élevée. En règle générale, la valeur par défaut (100) est le paramètre recommandé et ne doit pas vous&#39;inutile de modifier cela.</td>
         </tr>
         <tr>
             <td>ExcludeFileType</td>
@@ -228,13 +228,13 @@ Les principales raisons de modifier les paramètres de volume du type d’utilis
             <td>InputOutputScale</td>
             <td>Spécifie le niveau de parallélisation des E/S (files d’attente d’E/S) que la déduplication des données doit utiliser sur un volume pendant un travail de post-traitement</td>
             <td>Entiers positifs compris entre 1 et 36</td>
-            <td>La principale raison de modifier cette valeur est de réduire l’impact sur les performances d’une charge de travail à E/S élevées en limitant le nombre de files d’attente d’E/S que la déduplication des données est autorisée à utiliser sur un volume. Notez que la modification de la valeur par défaut de ce paramètre peut entraîner une exécution lente des travaux de post-traitement de la déduplication des données.</td>
+            <td>La principale raison de modifier cette valeur est de réduire l’impact sur les performances d’une charge de travail à E/S élevées en limitant le nombre de files d’attente d’E/S que la déduplication des données est autorisée à utiliser sur un volume. Notez que la modification de ce paramètre à partir de la valeur par défaut peut entraîner la déduplication des données&#39;s exécution lente des travaux de traitement ultérieur.</td>
         </tr>
         <tr>
             <td>MinimumFileAgeDays</td>
             <td>Nombre de jours après la création du fichier à partir duquel le fichier est considéré comme conforme à la stratégie d’optimisation.</td>
             <td>Entiers positifs (zéro compris)</td>
-            <td>Les types d’utilisation **Par défaut** et **Hyper-v** définissent cette valeur à 3 pour maximiser les performances sur les fichiers à chaud ou récemment créés. Vous pouvez modifier cette valeur si vous voulez que la déduplication des données soit plus agressive ou si la latence supplémentaire associée à la déduplication ne vous dérange pas.</td>
+            <td>Les types d’utilisation <strong>Par défaut</strong> et <strong>Hyper-v</strong> définissent cette valeur à 3 pour maximiser les performances sur les fichiers à chaud ou récemment créés. Vous pouvez modifier cette valeur si vous voulez que la déduplication des données soit plus agressive ou si la latence supplémentaire associée à la déduplication ne vous dérange pas.</td>
         </tr>
         <tr>
             <td>MinimumFileSize</td>
@@ -258,7 +258,7 @@ Les principales raisons de modifier les paramètres de volume du type d’utilis
             <td>OptimizeInUseFiles</td>
             <td>Quand ce paramètre est activé, les fichiers qui ont des descripteurs actifs sont considérés comme conformes à la stratégie d’optimisation.</td>
             <td>Vrai/Faux</td>
-            <td>Activez ce paramètre si votre charge de travail garde des fichiers ouverts pendant de longues périodes. Si ce paramètre n’était pas activé, un fichier ne serait jamais optimisé si la charge de travail avait un descripteur ouvert, même si elle n’ajoutait qu’occasionnellement des données à la fin du fichier.</td>
+            <td>Activez ce paramètre si votre charge de travail garde des fichiers ouverts pendant de longues périodes. Si ce paramètre n’est pas activé, un fichier ne serait jamais optimisé si la charge de travail a un descripteur ouvert, même si elle&#39;s n'ajoutait qu’occasionnellement des données à la fin.</td>
         </tr>
         <tr>
             <td>OptimizePartialFiles</td>
@@ -310,9 +310,9 @@ Par exemple, vous voulez peut-être désactiver le nettoyage de la mémoire comp
         </tr>
         <tr>
             <td>DeepGCInterval</td>
-            <td>Ce paramètre configure l’intervalle auquel les travaux de nettoyage de la mémoire réguliers deviennent des [travaux de nettoyage de la mémoire complet](advanced-settings.md#faq-full-v-regular-gc). Le paramètre n signifie que tous les n<sup>ièmes</sup> travaux sont un travail de nettoyage de la mémoire complet. Notez que le nettoyage de la mémoire complet est toujours désactivé (quelle que soit la valeur de Registre) pour les volumes avec le [Type d’utilisation Sauvegarde](understand.md#usage-type-backup). `Start-DedupJob -Type GarbageCollection -Full` peut être utilisé si le Garbage Collection complet est souhaité sur un volume de sauvegarde.</td>
+            <td>Ce paramètre configure l’intervalle auquel les travaux de nettoyage de la mémoire réguliers deviennent des <a href="advanced-settings.md#faq-full-v-regular-gc" data-raw-source="[full Garbage Collection jobs](advanced-settings.md#faq-full-v-regular-gc)">travaux de nettoyage de la mémoire complet</a>. Le paramètre n signifie que tous les n<sup>ièmes</sup> travaux sont un travail de nettoyage de la mémoire complet. Notez que le nettoyage de la mémoire complet est toujours désactivé (quelle que soit la valeur de Registre) pour les volumes avec le <a href="understand.md#usage-type-backup" data-raw-source="[Backup Usage Type](understand.md#usage-type-backup)">Type d’utilisation Sauvegarde</a>. <code>Start-DedupJob -Type GarbageCollection -Full</code> peut être utilisé si le Garbage Collection complet est souhaité sur un volume de sauvegarde.</td>
             <td>Entiers (-1 = désactivé)</td>
-            <td>Consultez cette [question du Forum aux questions](advanced-settings.md#faq-why-disable-full-gc).</td>
+            <td>Consultez cette <a href="advanced-settings.md#faq-why-disable-full-gc" data-raw-source="[this frequently asked question](advanced-settings.md#faq-why-disable-full-gc)">question du Forum aux questions</a>.</td>
         </tr>
     </tbody>
 </table>

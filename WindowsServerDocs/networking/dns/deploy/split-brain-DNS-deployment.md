@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: a255a4a5-c1a0-4edc-b41a-211bae397e3c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4ec4bc8e77e8411101b9a2b83a85ad5e1a0765b2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c74bb2ee2f1647716c8c38e392434a5b7f01805f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873500"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446393"
 ---
 # <a name="use-dns-policy-for-split-brain-dns-deployment"></a>Utiliser une stratégie DNS pour le fractionnement\-déploiement DNS du cerveau
 
@@ -33,7 +33,7 @@ Cette rubrique contient les sections suivantes.
 - [Exemple de déploiement de DNS « split brain »](#bkmk_sbexample)
 - [Exemple de contrôle de récursivité sélectif de DNS](#bkmk_recursion)
 
-##<a name="bkmk_sbexample"></a>Exemple de déploiement de DNS « split brain »
+## <a name="bkmk_sbexample"></a>Exemple de déploiement de DNS « split brain »
 Voici un exemple de comment vous pouvez utiliser une stratégie DNS pour accomplir le scénario décrit précédemment dans DNS « split brain ».
 
 Cette section contient les rubriques suivantes :
@@ -57,7 +57,7 @@ L’illustration suivante représente ce scénario.
 ![Déploiement de DNS « split brain »](../../media/DNS-Split-Brain/Dns-Split-Brain-01.jpg)  
 
 
-##<a name="bkmk_sbhow"></a>Fonctionne du déploiement DNS « split brain »
+## <a name="bkmk_sbhow"></a>Fonctionne du déploiement DNS « split brain »
 
 Lorsque le serveur DNS est configuré avec les stratégies DNS requises, chaque demande de résolution de nom est recherchée dans les stratégies sur le serveur DNS.
 
@@ -67,7 +67,7 @@ Si l’interface du serveur sur lequel la requête est reçue correspond à aucu
 
 Par conséquent, dans notre exemple, les requêtes DNS pour www.career.contoso.com qui sont reçus sur l’adresse IP privée (10.0.0.56) recevoir une réponse DNS qui contient une adresse IP interne ; et les requêtes DNS qui sont reçus sur l’interface de réseau public recevoir une réponse DNS qui contient l’adresse IP publique dans l’étendue de la zone par défaut (cela est identique à la résolution de requête normale).  
 
-##<a name="bkmk_sbconfigure"></a>Comment configurer le déploiement de DNS « split brain »
+## <a name="bkmk_sbconfigure"></a>Comment configurer le déploiement de DNS « split brain »
 Pour configurer le déploiement de Split-Brain DNS à l’aide d’une stratégie DNS, vous devez utiliser les étapes suivantes.
 
 - [Créer des étendues de la Zone](#bkmk_zscopes)  
@@ -79,12 +79,12 @@ Les sections suivantes fournissent des instructions de configuration détaillée
 >[!IMPORTANT]
 >Les sections suivantes incluent des exemples de commandes Windows PowerShell qui contiennent des exemples de valeurs de paramètres. Veillez à remplacer les exemples de valeurs dans ces commandes avec les valeurs appropriées pour votre déploiement avant d’exécuter ces commandes. 
 
-###<a name="bkmk_zscopes"></a>Créer des étendues de la Zone
+### <a name="bkmk_zscopes"></a>Créer des étendues de la Zone
 
 Une étendue de la zone est une instance unique de la zone. Une zone DNS peut avoir plusieurs étendues de zone, avec chaque étendue de la zone contenant son propre ensemble d’enregistrements DNS. Le même enregistrement peut être présent dans plusieurs étendues, avec différentes adresses IP ou les mêmes adresses IP. 
 
->[!NOTE]
->Par défaut, une étendue de la zone existe sur les zones DNS. Cette étendue de la zone a le même nom que la zone, et des opérations DNS héritées travailler sur cette étendue. Cette étendue de la zone par défaut va héberger la version externe de www.career.contoso.com.
+> [!NOTE]
+> Par défaut, une étendue de la zone existe sur les zones DNS. Cette étendue de la zone a le même nom que la zone, et des opérations DNS héritées travailler sur cette étendue. Cette étendue de la zone par défaut va héberger la version externe de www.career.contoso.com.
 
 Vous pouvez utiliser la commande suivante pour partitionner la zone étendue contoso.com pour créer une étendue de la zone interne. L’étendue de la zone interne permet de conserver la version interne de www.career.contoso.com.
 
@@ -92,11 +92,11 @@ Vous pouvez utiliser la commande suivante pour partitionner la zone étendue con
 
 Pour plus d’informations, consultez [DnsServerZoneScope-ajouter](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-###<a name="bkmk_records"></a>Ajoutez des enregistrements dans les étendues de Zone
+### <a name="bkmk_records"></a>Ajoutez des enregistrements dans les étendues de Zone
 
 L’étape suivante consiste à ajouter les enregistrements représentant l’hôte du serveur Web dans les étendues de deux zone - internes et la valeur par défaut (pour les clients externes). 
 
-Dans l’étendue de la zone interne, l’enregistrement **www.career.contoso.com** a été ajouté avec l’adresse IP 10.0.0.39, qui est une adresse IP privée ; et dans l’étendue de la zone par défaut le même enregistrement, **www.career.contoso.com**, est ajouté par l’adresse IP 65.55.39.10.
+Dans l’étendue de la zone interne, l’enregistrement <strong>www.career.contoso.com</strong> a été ajouté avec l’adresse IP 10.0.0.39, qui est une adresse IP privée ; et dans l’étendue de la zone par défaut le même enregistrement, <strong>www.career.contoso.com</strong>, est ajouté par l’adresse IP 65.55.39.10.
 
 Ne **– ZonePortée** paramètre est fourni dans l’exemple de commande suivant lorsque l’enregistrement est ajouté à l’étendue de la zone par défaut. Cela revient à ajouter des enregistrements à une zone vanille.
 
@@ -109,7 +109,7 @@ Add-DnsServerResourceRecord -ZoneName "contoso.com" -A -Name "www.career" -IPv4A
 
 Pour plus d’informations, consultez [Add-DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
-###<a name="bkmk_policies"></a>Créer les stratégies DNS
+### <a name="bkmk_policies"></a>Créer les stratégies DNS
 
 Une fois que vous avez identifié les interfaces de serveur pour le réseau externe et le réseau interne et que vous avez créé les étendues de zone, vous devez créer des stratégies DNS qui se connectent les étendues de zone internes et externes.
 

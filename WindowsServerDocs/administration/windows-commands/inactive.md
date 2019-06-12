@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6642288385571b00c3fd0094dcd6cc4237aa492e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9c8ded732d984830c7892720f75938979f1abb67
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812920"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438164"
 ---
 # <a name="inactive"></a>inactif
 
@@ -36,8 +36,8 @@ inactive
 
 > [!CAUTION]
 > Votre ordinateur ne peut pas démarrer sans une partition active. Ne marquez pas une partition système ou de démarrage comme étant inactive, sauf si vous êtes un utilisateur expérimenté avec une connaissance approfondie de la famille Windows de systèmes d’exploitation.</br>> Si vous ne parvenez pas à démarrer votre ordinateur après avoir marqué la partition système ou de démarrage comme étant inactive, insérez le CD d’installation de Windows dans le lecteur de CD-ROM, redémarrez l’ordinateur, puis réparez la partition à l’aide de la **fixmbr** et **fixboot** commandes dans la Console de récupération.
--   Une fois que vous marquez la partition système ou une partition de démarrage comme étant inactive, votre ordinateur démarre à partir de l’option suivante spécifiée dans le BIOS, telles que le lecteur de CD-ROM ou une Pre-Boot eXecution Environment (PXE).
--   Une partition système ou de démarrage active doit être sélectionnée pour cette opération réussisse. Utilisez le **sélectionnez partition** commande pour sélectionner la partition active et déplacer le focus vers elle.
+> -   Une fois que vous marquez la partition système ou une partition de démarrage comme étant inactive, votre ordinateur démarre à partir de l’option suivante spécifiée dans le BIOS, telles que le lecteur de CD-ROM ou une Pre-Boot eXecution Environment (PXE).
+> -   Une partition système ou de démarrage active doit être sélectionnée pour cette opération réussisse. Utilisez le **sélectionnez partition** commande pour sélectionner la partition active et déplacer le focus vers elle.
 
 ## <a name="BKMK_examples"></a>Exemples
 
@@ -47,5 +47,5 @@ inactive
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 

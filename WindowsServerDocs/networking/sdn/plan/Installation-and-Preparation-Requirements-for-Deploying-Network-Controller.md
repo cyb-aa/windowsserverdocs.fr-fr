@@ -9,12 +9,12 @@ ms.assetid: 7f899e62-6e5b-4fca-9a59-130d4766ee2f
 ms.author: pashort
 author: shortpatti
 ms.date: 08/10/2018
-ms.openlocfilehash: 9db7609f6f1273c46cba1dd29f81c297bb26f94b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 51ba991397a7c35ee0198f8e75c67b2f99b7c7bc
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829860"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446310"
 ---
 # <a name="requirements-for-deploying-network-controller"></a>Configuration requise pour le déploiement de contrôleur de réseau
 
@@ -31,13 +31,13 @@ Déploiement du contrôleur de réseau nécessite un ou plusieurs ordinateurs ou
 - L’Édition Datacenter de Windows Server 2016 doit être en cours d’exécution n’importe quel ordinateur ou une machine virtuelle (VM) sur lequel vous installez le contrôleur de réseau. 
 - L’ordinateur client de gestion ou de la machine virtuelle pour le contrôleur de réseau doit exécuter Windows 10. 
 
-  
+
 ## <a name="configuration-requirements"></a>Configuration requise
 
 Avant de déployer un contrôleur de réseau, vous devez configurer les groupes de sécurité, emplacements des fichiers journaux (si nécessaire) et l’inscription DNS dynamique.
-  
+
 ### <a name="step-1-configure-your-security-groups"></a>Étape 1. Configurer vos groupes de sécurité
-  
+
 La première chose que vous voulez faire est créer deux groupes de sécurité pour l’authentification Kerberos. 
 
 Vous créez des groupes pour les utilisateurs habilités à : 
@@ -57,22 +57,24 @@ La prochaine chose que vous voulez faire est de configurer les emplacements des 
 
 
 ### <a name="step-3-configure-dynamic-dns-registration-for-network-controller"></a>Étape 3. Configurer l’inscription DNS dynamique pour le contrôleur de réseau
-  
+
 Enfin, la prochaine chose que vous voulez faire est de déployer des nœuds de cluster de contrôleur de réseau sur le même sous-réseau ou des sous-réseaux différents. 
 
-|Si…  |Alors…  |
-|---------|---------|
-|Sur le même sous-réseau, |Vous devez fournir l’adresse IP REST du contrôleur réseau. |
-|Sur des sous-réseaux différents, |Vous devez fournir le nom DNS REST du contrôleur réseau, que vous créez pendant le processus de déploiement. Vous devez également effectuer ce qui suit :<ul><li>Configurer les mises à jour dynamiques DNS pour le nom DNS du contrôleur réseau sur le serveur DNS.</li><li>Restreindre les mises à jour dynamiques DNS pour les nœuds de contrôleur de réseau uniquement.</li></ul> |
+
+|         Si…         |                                                                                                                                                         Alors…                                                                                                                                                         |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  Sur le même sous-réseau,  |                                                                                                                                Vous devez fournir l’adresse IP REST du contrôleur réseau.                                                                                                                                 |
+| Sur des sous-réseaux différents, | Vous devez fournir le nom DNS REST du contrôleur réseau, que vous créez pendant le processus de déploiement. Vous devez également effectuer ce qui suit :<ul><li>Configurer les mises à jour dynamiques DNS pour le nom DNS du contrôleur réseau sur le serveur DNS.</li><li>Restreindre les mises à jour dynamiques DNS pour les nœuds de contrôleur de réseau uniquement.</li></ul> |
+
 ---
 
 > [!NOTE]
 > L’appartenance au **Admins du domaine**, ou équivalente, est la condition minimale requise pour effectuer ces procédures.
-  
+
 1. Autoriser les mises à jour dynamiques DNS pour une zone.
 
    a. Ouvrez le Gestionnaire DNS et dans l’arborescence de la console, cliquez sur la zone concernée, puis cliquez sur **propriétés**. 
-      
+
    b. Sur le **général** , vérifiez que le type de zone est soit **principal** ou **intégré à Active Directory**.
 
    c. Dans **mises à jour dynamiques**, vérifiez que **Secure uniquement** est sélectionnée, puis cliquez sur **OK**.
@@ -82,7 +84,7 @@ Enfin, la prochaine chose que vous voulez faire est de déployer des nœuds de c
    a.  Cliquez sur l'onglet **Sécurité**, puis sur **Avancé**. 
 
    b. Dans **paramètres de sécurité avancés**, cliquez sur **ajouter**. 
-  
+
    c. Cliquez sur **Sélectionnez un principal**. 
 
    d. Dans le **sélectionner un utilisateur, ordinateur, compte de Service ou groupe** boîte de dialogue, cliquez sur **Types d’objets**. 
@@ -95,7 +97,7 @@ Enfin, la prochaine chose que vous voulez faire est de déployer des nœuds de c
 
       - **Type** = Allow
       - **S’applique à** = cet objet et tous ceux descendants
-  
+
    h. Dans **autorisations**, sélectionnez **écrire toutes les propriétés** et **supprimer**, puis cliquez sur **OK**.
 
 3. Répétez pour tous les ordinateurs et les machines virtuelles dans le cluster de contrôleur de réseau.
@@ -115,19 +117,19 @@ Le programme d’installation est hautement disponible avec trois nœuds de cont
 ### <a name="network-controller-and-software-load-balancer-deployment"></a>Déploiement d’un équilibrage de charge logiciel et le contrôleur de réseau
 
 Pour une haute disponibilité, il existe deux ou plusieurs nœuds SLB/MUX.
-   
+
 ![Planification de contrôleur de réseau SDN](../../media/Plan-a-Software-Defined-Network-Infrastructure/SDN-SLB-Deployment.png)
-  
+
 ### <a name="network-controller-software-load-balancer-and-ras-gateway-deployment"></a>Déploiement de contrôleur de réseau, équilibrage de charge logicielle et passerelle RAS
 
 Il existe trois machines virtuelles de passerelle ; deux sont actifs, et une est redondante.
 
 ![Planification de contrôleur de réseau SDN](../../media/Plan-a-Software-Defined-Network-Infrastructure/SDN-GW-Deployment.png)  
-  
-  
-  
+
+
+
 Pour l’automatisation du déploiement basé sur TP5, Active Directory doit être disponible et accessible à partir de ces sous-réseaux. Pour plus d’informations sur Active Directory, consultez [présentation des Services de domaine Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).  
-  
+
 >[!IMPORTANT] 
 >Si vous déployez à l’aide de VMM, vérifiez vos machines virtuelles d’infrastructure (serveur VMM, AD/DNS, SQL Server, etc.) ne sont pas hébergés sur un des quatre hôtes affichés dans les diagrammes.  
 
@@ -138,5 +140,5 @@ Pour l’automatisation du déploiement basé sur TP5, Active Directory doit êt
 ## <a name="related-topics"></a>Rubriques connexes
 - [Contrôleur de réseau](../technologies/network-controller/Network-Controller.md) 
 - [Haute disponibilité du contrôleur de réseau](../technologies/network-controller/network-controller-high-availability.md) 
-- [Déployer le contrôleur de réseau à l’aide de Windows PowerShell](../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)   
-- [Installer le rôle de serveur de contrôleur de réseau à l’aide du Gestionnaire de serveur](../technologies/network-controller/Install-the-Network-Controller-server-role-using-Server-Manager.md)   
+- [Déployer le contrôleur de réseau à l’aide de Windows PowerShell](../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)   
+- [Installer le rôle serveur Contrôleur de réseau en utilisant le Gestionnaire de serveur](../technologies/network-controller/Install-the-Network-Controller-server-role-using-Server-Manager.md)   

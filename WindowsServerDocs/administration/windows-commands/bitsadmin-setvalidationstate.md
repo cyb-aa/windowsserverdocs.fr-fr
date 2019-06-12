@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 647389aaac06d1eb109052548c1b24f7579bde2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a832e8f3d21681f67a4486df33c387e5a8456718
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851240"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434871"
 ---
 # <a name="bitsadmin-setvalidationstate"></a>Bitsadmin setvalidationstate
 
@@ -34,11 +34,11 @@ bitsadmin /SetValidationState <Job> <file index> <true|false>
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
-|Fichier d’index|Démarre à 0|
-|True|False|A la valeur TRUE si le contenu du fichier est valide, sinon la valeur FALSE|
+| Paramètre  |          Description           |
+|------------|--------------------------------|
+|    Tâche     | Nom d’affichage ou le GUID du travail |
+| Fichier d’index |         Démarre à 0          |
+|    True    |             False              |
 
 ## <a name="BKMK_examples"></a>Exemples
 
@@ -49,4 +49,4 @@ C:\>bitsadmin /SetValidationState myJob 2 TRUE
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

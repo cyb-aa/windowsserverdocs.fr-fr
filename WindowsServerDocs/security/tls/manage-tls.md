@@ -12,12 +12,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic-msft
 ms.date: 05/16/2018
-ms.openlocfilehash: 8053a14a74797cccce4c441d41f1f1623ba0ad6e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 872647f09898bf8ae08ee69f28b717d28abf7c78
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879440"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447305"
 ---
 # <a name="manage-transport-layer-security-tls"></a>Gérer la sécurité de couche Transport (TLS)
 
@@ -39,22 +39,22 @@ Modifications apportées à l’ordre des suites de chiffrement TLS prendront ef
 
 Vous pouvez utiliser les paramètres de stratégie de groupe de l’ordre de SSL Cipher Suite pour configurer l’ordre des suites TLS par défaut.
 
-1.  À partir de la Console de gestion de stratégie de groupe, accédez à **Configuration ordinateur** > **modèles d’administration** > **réseaux**  >  **Les paramètres de Configuration de SSL**.
-2.  Double-cliquez sur **ordre des suites de chiffrement SSL**, puis cliquez sur le **activé** option.
-3.  Avec le bouton droit **Suites de chiffrement SSL** et sélectionnez **sélectionner tout** dans le menu contextuel.
+1. À partir de la Console de gestion de stratégie de groupe, accédez à **Configuration ordinateur** > **modèles d’administration** > **réseaux**  >  **Les paramètres de Configuration de SSL**.
+2. Double-cliquez sur **ordre des suites de chiffrement SSL**, puis cliquez sur le **activé** option.
+3. Avec le bouton droit **Suites de chiffrement SSL** et sélectionnez **sélectionner tout** dans le menu contextuel.
 
-    ![Paramètre de stratégie de groupe](../media/Transport-Layer-Security-protocol/ssl-cipher-suite-order-gp-setting.png)
+   ![Paramètre de stratégie de groupe](../media/Transport-Layer-Security-protocol/ssl-cipher-suite-order-gp-setting.png)
 
-4.  Cliquez sur le texte sélectionné, puis sélectionnez **copie** dans le menu contextuel.
-5.  Collez le texte dans un éditeur de texte comme notepad.exe et mise à jour avec la nouvelle liste de commande de suite de chiffrement.
+4. Cliquez sur le texte sélectionné, puis sélectionnez **copie** dans le menu contextuel.
+5. Collez le texte dans un éditeur de texte comme notepad.exe et mise à jour avec la nouvelle liste de commande de suite de chiffrement.
 
-    > [!NOTE]
-    > La liste des commandes TLS cipher suite doit être au format de strict par des virgules. Chaque chaîne de suite de chiffrement s’achèvera par une virgule (,) à droite de celui-ci. 
+   > [!NOTE]
+   > La liste des commandes TLS cipher suite doit être au format de strict par des virgules. Chaque chaîne de suite de chiffrement s’achèvera par une virgule (,) à droite de celui-ci. 
+   > 
+   > En outre, la liste des suites de chiffrement est limitée à 1 023 caractères.
 
-    > En outre, la liste des suites de chiffrement est limitée à 1 023 caractères.
-
-6.  Remplacement de la liste dans le **Suites de chiffrement SSL** avec la liste ordonnée mis à jour.
-7.  Cliquez sur **OK** ou **Appliquer**.
+6. Remplacement de la liste dans le **Suites de chiffrement SSL** avec la liste ordonnée mis à jour.
+7. Cliquez sur **OK** ou **Appliquer**.
 
 ### <a name="configuring-tls-cipher-suite-order-by-using-mdm"></a>Configuration d’ordre des suites de chiffrement TLS à l’aide de gestion des appareils mobiles
 
@@ -124,7 +124,7 @@ Le processus de distribution d’une courbe est :
 1.  Sur Windows 10 et Windows Server 2016, utilisez **certutil.exe** pour ajouter une courbe nommée inscrite nouvelle à Windows.
 2.  À partir de ce même ordinateur, ouvrez la Console de gestion des stratégies de groupe (GPMC), créez un nouvel objet de stratégie de groupe et le modifier.
 3.  Accédez à **Configuration ordinateur | Préférences | Les paramètres Windows | Registre**.  Avec le bouton droit **Registre**. Placez le curseur sur **New** et sélectionnez **élément de Collection**. Renommer l’élément de collecte pour correspondre au nom de la courbe. Vous allez créer un élément de collecte du Registre pour chaque clé de Registre sous *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters*.
-4.  Configurer la Collection de Registre de préférence de stratégie groupe nouvellement créé en ajoutant une nouvelle **élément de Registre** pour chaque valeur de Registre répertoriée sous *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ ECCParameters\[la courbe name]*.
+4.  Configurer la Collection de Registre de préférence de stratégie groupe nouvellement créé en ajoutant une nouvelle **élément de Registre** pour chaque valeur de Registre répertoriée sous *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ ECCParameters\[la courbe name]* .
 5.  Déployer l’objet de stratégie de groupe contenant l’élément de Collection de Registre de stratégie de groupe aux ordinateurs Windows 10 et Windows Server 2016 qui doit recevoir les nouvelles courbes nommées.
 
     ![GPP distribuer des courbes](../media/Transport-Layer-Security-protocol/gpp-distribute-curves.png)

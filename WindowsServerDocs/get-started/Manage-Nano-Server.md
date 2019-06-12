@@ -12,12 +12,12 @@ ms.assetid: 599d6438-a506-4d57-a0ea-1eb7ec19f46e
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 8973302fc8a0c6bdb5b19f9296e711dcc6465589
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cc535934705878c7f2b7fdc4e655ab5c853e4f96
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826800"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443534"
 ---
 # <a name="manage-nano-server"></a>Gérer Nano Server
 
@@ -39,8 +39,8 @@ Pour utiliser un outil de gestion à distance, il vous faudra probablement conna
 ## <a name="using-windows-powershell-remoting"></a>Utilisation de la communication à distance Windows PowerShell  
 Pour gérer Nano Server avec la communication à distance Windows PowerShell, vous devez ajouter l’adresse IP de l’instance Nano Server à la liste des hôtes approuvés par votre ordinateur de gestion, ajouter le compte que vous utilisez à la liste des administrateurs de Nano Server, et activer CredSSP si vous prévoyez d’utiliser cette fonctionnalité.  
 
- >[!NOTE]  
-    > Si la cible Nano Server et votre ordinateur de gestion sont dans la même forêt AD DS (ou dans des forêts avec une relation d’approbation), vous ne devez pas ajouter le serveur Nano Server à la liste des hôtes approuvés, vous pouvez vous connecter au serveur Nano à l’aide de son nom de domaine complet , par exemple : PS C :\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
+> [!NOTE]
+> Si la cible Nano Server et votre ordinateur de gestion sont dans la même forêt AD DS (ou dans des forêts avec une relation d’approbation), vous ne devez pas ajouter le serveur Nano Server à la liste des hôtes approuvés, vous pouvez vous connecter au serveur Nano à l’aide de son nom de domaine complet , par exemple : PS C :\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
   
   
 Pour ajouter le serveur Nano Server à la liste des hôtes approuvés, exécutez cette commande à partir d’une invite Windows PowerShell avec élévation de privilèges :  
@@ -51,7 +51,7 @@ Pour démarrer la session Windows PowerShell à distance, démarrez une session 
   
   
 ```  
-$ip = "\<IP address of Nano Server>"  
+$ip = "<IP address of Nano Server>"  
 $user = "$ip\Administrator"  
 Enter-PSSession -ComputerName $ip -Credential $user  
 ```  
@@ -72,7 +72,7 @@ Pour démarrer la session CIM, exécutez les commandes suivantes dans une invite
   
 ```  
 $ip = "<IP address of the Nano Server\>"  
-$ip\Administrator  
+$user = $ip\Administrator  
 $cim = New-CimSession -Credential $user -ComputerName $ip  
 ```  
   
@@ -89,15 +89,17 @@ Get-CimInstance -CimSession $Cim -Query "SELECT * from Win32_Process WHERE name 
 ## <a name="windows-remote-management"></a>Gestion à distance de Windows  
 Vous pouvez exécuter des programmes à distance sur le serveur Nano Server à l’aide du service Gestion à distance de Windows (WinRM). Pour utiliser WinRM, commencez par configurer le service et définir la page de code avec les commandes suivantes dans une invite de commandes avec élévation de privilèges:  
   
-**winrm quickconfig**  
-  
-**winrm set winrm/config/client @{TrustedHosts="<ip address of Nano Server"}**  
-  
-**chcp 65001**  
+```
+winrm quickconfig
+winrm set winrm/config/client @{TrustedHosts="<ip address of Nano Server>"}
+chcp 65001
+```
   
 Vous pouvez maintenant exécuter des commandes à distance sur le serveur Nano Server. Exemple :  
-  
-**Winrs-r:\<adresse IP de Nano Server > - u : administrateur-p:\<mot de passe administrateur Nano Server > ipconfig**  
+
+```
+winrs -r:<IP address of Nano Server> -u:Administrator -p:<Nano Server administrator password> ipconfig
+```
   
 Pour plus d’informations sur le service Gestion à distance de Windows, voir [Vue d’ensemble de la Gestion à distance de Windows (WinRM)](https://technet.microsoft.com/library/dn265971.aspx).  
    
@@ -115,7 +117,7 @@ Stop-NetEventSession [-Name]
 ```  
 Ces applets de commande sont décrites de façon détaillée dans l’article [réseau événement paquet capturer les applets de commande Windows PowerShell](https://technet.microsoft.com/library/dn268520(v=wps.630).aspx) (Applets de commande pour la capture de paquets d’événements réseau dans Windows PowerShell).  
 
-##<a name="installing-servicing-packages"></a>Installation de packages de mise en service  
+## <a name="installing-servicing-packages"></a>Installation de packages de mise en service  
 Si vous voulez installer un package de mise en service, utilisez le paramètre -ServicingPackagePath (vous pouvez transmettre un tableau de chemins à des fichiers .cab) :  
   
 `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath \\path\to\kb123456.cab`  
@@ -134,7 +136,7 @@ Le numéro de série du volume est B05B-CC3D
       Répertoire de C:\KB3157663_développé  
    
       19/04/2016 13:17    \<REP>.  
-      19/04/2016 13:17    \<REP>..  
+      19/04/2016 13:17    \<REP&gt;.  
         17/04/2016 00:31               517 Windows10.0-KB3157663-x64-pkgProperties.txt  
 17/04/2016  00:30        93 886 347 Windows10.0-KB3157663-x64.cab  
 17/04/2016  00:31        454 Windows10.0-KB3157663-x64.xml  
@@ -378,7 +380,7 @@ The command completed successfully.
 
 Les autres options de ligne de commande vous permettent entre autres de définir les noms des compteurs de performance qui vous intéressent dans un fichier de configuration, en redirigeant la sortie vers un fichier journal. Pour plus d’informations, consultez la [documentation sur typeperf.exe](https://technet.microsoft.com/library/bb490960.aspx).
 
-Vous pouvez également utiliser l’interface graphique de Perfmon.exe à distance avec des cibles Nano Server. Lorsque vous ajoutez des compteurs de performance à l’affichage, spécifiez la cible Nano Server dans le nom de l’ordinateur au lieu de la valeur par défaut *<Local computer>*.
+Vous pouvez également utiliser l’interface graphique de Perfmon.exe à distance avec des cibles Nano Server. Lorsque vous ajoutez des compteurs de performance à l’affichage, spécifiez la cible Nano Server dans le nom de l’ordinateur au lieu de la valeur par défaut *<Local computer>* .
 
 ### <a name="interact-with-the-windows-event-log"></a>Interagir avec le journal des événements Windows
 

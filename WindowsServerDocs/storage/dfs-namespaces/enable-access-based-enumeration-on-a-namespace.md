@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e9a2b2162fcf11385a5a866372e57338df87c541
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7e9a5b397127e9eb88352fb4d7bc28955023d4b7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850590"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447217"
 ---
 # <a name="enable-access-based-enumeration-on-a-namespace"></a>Activer l’énumération basée sur l’accès pour un espace de noms
 
@@ -78,15 +78,15 @@ Vous pouvez contrôler les utilisateurs et les groupes qui peuvent afficher des 
 
 ## <a name="to-control-folder-visibility-by-using-a-command-line"></a>Pour contrôler la visibilité des dossiers à l’aide de la ligne de commande
 
-1.  Ouvrez une fenêtre d’invite de commandes sur un serveur sur lequel est installé le service de rôle **Système de fichiers DFS** ou la fonctionnalité **Outils du système de fichiers DFS**.
+1. Ouvrez une fenêtre d’invite de commandes sur un serveur sur lequel est installé le service de rôle **Système de fichiers DFS** ou la fonctionnalité **Outils du système de fichiers DFS**.
 
-2.  Tapez la commande suivante, où *&lt;DFSPath&gt;* est le chemin d’accès du dossier DFS (lien), *< domaine\\compte >* est le nom du compte d’utilisateur ou de groupe et *(...)*  est remplacé par les autres entrées de contrôle d’accès (ACE) :
+2. Tapez la commande suivante, où *&lt;DFSPath&gt;* est le chemin d’accès du dossier DFS (lien), *< domaine\\compte >* est le nom du compte d’utilisateur ou de groupe et *(...)*  est remplacé par les autres entrées de contrôle d’accès (ACE) :
 
-    ```
-    dfsutil property sd grant <DFSPath> DOMAIN\Account:R (...) Protect Replace
-    ```
+   ```
+   dfsutil property sd grant <DFSPath> DOMAIN\Account:R (...) Protect Replace
+   ```
 
-    Par exemple, pour remplacer les autorisations existantes avec des autorisations qui permet les Admins du domaine CONTOSO\\formateurs groupes Read (R) l’accès à la \\contoso.office\public\training dossier, tapez la commande suivante :
+   Par exemple, pour remplacer les autorisations existantes avec des autorisations qui permet les Admins du domaine CONTOSO\\formateurs groupes Read (R) l’accès à la \\contoso.office\public\training dossier, tapez la commande suivante :
 
    ```
    dfsutil property sd grant \\contoso.office\public\training "CONTOSO\Domain Admins":R CONTOSO\Trainers:R Protect Replace 
@@ -103,7 +103,7 @@ Vous pouvez contrôler les utilisateurs et les groupes qui peuvent afficher des 
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Créer un Namespace DFS](create-a-dfs-namespace.md)
--   [Déléguer des autorisations de gestion pour les espaces de noms DFS](delegate-management-permissions-for-dfs-namespaces.md)
+-   [Créer un espace de noms DFS](create-a-dfs-namespace.md)
+-   [Déléguer les autorisations de gestion pour les espaces de noms DFS](delegate-management-permissions-for-dfs-namespaces.md)
 -   [L’installation de DFS](https://technet.microsoft.com/library/cc731089(v=ws.11).aspx)
 -   [À l’aide d’autorisations héritées avec l’énumération basée sur l’accès](using-inherited-permissions-with-access-based-enumeration.md)

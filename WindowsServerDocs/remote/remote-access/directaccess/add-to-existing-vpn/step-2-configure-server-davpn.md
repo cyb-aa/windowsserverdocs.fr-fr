@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: fe221fc9-c7d9-4508-b8a1-000d2515283c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 31a5310ddb59831650f6b46108d071c120116dc1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f8a6448661861fdc9f97c66fb130bfc03d0ce72c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830930"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446975"
 ---
 #  <a name="step-2-configure-the-directaccess-vpn-server"></a>Étape 2 configurer le serveur VPN et DirectAccess
 
@@ -83,10 +83,10 @@ Lorsque le suffixe de recherche liste n’est pas vide et au moins un suffixe DN
 
 Si les requêtes de tous les noms de domaine complets résultant de l'ajout et du test de chaque suffixe de la liste ne sont pas résolues, le processus de requête échoue et indique « Impossible de trouver le nom ». 
 
->[!WARNING]
->Si la liste des suffixes du domaine est utilisée, les clients continuent d'envoyer d'autres requêtes supplémentaires basées sur différents noms de domaine DNS, en l'absence de réponse ou de résolution d'une requête. Lorsqu'un nom est résolu à partir d'une entrée de la liste des suffixes, les entrées de liste non utilisées ne sont pas testées. C'est la raison pour laquelle il est plus efficace de trier la liste en plaçant en premier les suffixes de domaine les plus utilisés.
-
->Les recherches d'un suffixe de nom de domaine ne sont utilisées que lorsqu'une entrée de nom DNS n'est pas pleinement qualifiée. Pour qualifier pleinement un nom DNS, un point final (.) est entré à la suite du nom.
+> [!WARNING]
+> Si la liste des suffixes du domaine est utilisée, les clients continuent d'envoyer d'autres requêtes supplémentaires basées sur différents noms de domaine DNS, en l'absence de réponse ou de résolution d'une requête. Lorsqu'un nom est résolu à partir d'une entrée de la liste des suffixes, les entrées de liste non utilisées ne sont pas testées. C'est la raison pour laquelle il est plus efficace de trier la liste en plaçant en premier les suffixes de domaine les plus utilisés.
+> 
+> Les recherches d'un suffixe de nom de domaine ne sont utilisées que lorsqu'une entrée de nom DNS n'est pas pleinement qualifiée. Pour qualifier pleinement un nom DNS, un point final (.) est entré à la suite du nom.
 
 ## <a name="gpo-configuration"></a>Configuration des objets de stratégie de groupe
 

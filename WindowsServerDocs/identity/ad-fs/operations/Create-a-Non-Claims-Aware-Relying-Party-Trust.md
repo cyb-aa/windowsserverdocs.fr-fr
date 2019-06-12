@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: cdd0b32b50f676007a6cc922bc15b95bb61323be
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: e94b07d7fa654732526d0b43daadc9ad0ad4f3a8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189674"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444933"
 ---
 # <a name="create-a-non-claims-aware-relying-party-trust"></a>Créer une Non-Claims-Aware partie de confiance
 
@@ -27,7 +27,7 @@ Pour ajouter un nouveau non\-revendications\-prenant en charge de confiance, à 
   
 Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-##<a name="to-create-a-non-claims-aware-relying-party-trust-manually"></a>Pour créer un revendications confiance prenant en charge manuellement 
+## <a name="to-create-a-non-claims-aware-relying-party-trust-manually"></a>Pour créer un revendications confiance prenant en charge manuellement 
 1. Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion AD FS**.  
   
 2.  Sous **Actions**, cliquez sur **ajouter Relying Party Trust**.  

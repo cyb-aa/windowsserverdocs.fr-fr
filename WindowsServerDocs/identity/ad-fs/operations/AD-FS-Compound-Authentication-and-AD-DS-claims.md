@@ -8,12 +8,12 @@ ms.date: 09/07/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 270fb6efd63e6355c410ee45d09e6fd16b14222b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2380060894ff2f365451bbabfd41b8aa7e6792a0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867990"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445297"
 ---
 # <a name="compound-authentication-and-ad-ds-claims-in-ad-fs"></a>Authentification composée et revendications AD DS dans AD FS
 Windows Server 2012 améliore l’authentification Kerberos en introduisant l’authentification composée.  L’authentification composée permet à une demande de Service d’accord de tickets Kerberos (TGS) à inclure deux identités : 
@@ -87,21 +87,21 @@ Set-AdfsGlobalAuthenticationPolicy -PrimaryIntranetAuthenticationProvider 'Windo
 >Dans une batterie de serveurs SQL en fonction, la commande PowerShell peut être exécutée sur n’importe quel serveur AD FS qui est un membre de la batterie de serveurs.
 
 ### <a name="step-5--add-the-claim-description-to-ad-fs"></a>Étape 5 :  Ajouter la description de revendication à AD FS
-1.  Ajouter la Description de revendication suivante à la batterie de serveurs. Cette Description de revendication n’est pas présente par défaut dans AD FS 2012 R2 et doit être ajouté manuellement.
-2.  Dans Gestion AD FS, sous **Service**, avec le bouton droit **description de revendication** et sélectionnez **ajouter description de revendication**
-3.  Entrez les informations suivantes dans la description de revendication
-    - Nom complet : « Groupe d’appareils Windows » 
-    - Description de revendication : 'https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup' »
+1. Ajouter la Description de revendication suivante à la batterie de serveurs. Cette Description de revendication n’est pas présente par défaut dans AD FS 2012 R2 et doit être ajouté manuellement.
+2. Dans Gestion AD FS, sous **Service**, avec le bouton droit **description de revendication** et sélectionnez **ajouter description de revendication**
+3. Entrez les informations suivantes dans la description de revendication
+   - Nom complet : « Groupe d’appareils Windows » 
+   - Description de revendication : '<https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup>' »
 4. Cochez la case dans les deux zones.
 5. Cliquez sur **OK**.
 
 ![Description de revendication](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc6.png)
 
 6. À l’aide de PowerShell, vous pouvez utiliser la **Add-AdfsClaimDescription** applet de commande.
-``` powershell
-Add-AdfsClaimDescription -Name 'Windows device group' -ClaimType 'https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup' `
--ShortName 'windowsdevicegroup' -IsAccepted $true -IsOffered $true -IsRequired $false -Notes 'The windows group SID of the device' 
-```
+   ``` powershell
+   Add-AdfsClaimDescription -Name 'Windows device group' -ClaimType 'https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup' `
+   -ShortName 'windowsdevicegroup' -IsAccepted $true -IsOffered $true -IsRequired $false -Notes 'The windows group SID of the device' 
+   ```
 
 
 >[!NOTE]
@@ -118,7 +118,7 @@ Add-AdfsClaimDescription -Name 'Windows device group' -ClaimType 'https://schema
 ``` powershell
 Set-ADServiceAccount -Identity “ADFS Service Account” -CompoundIdentitySupported:$true 
 ```
-2.  Redémarrez le Service ADFS.
+2. Redémarrez le Service ADFS.
 
 >[!NOTE]
 >Une fois définie à true, installation de la même gMSA sur Nouveau échoue de serveurs (2012 R2/2016) avec l’erreur suivante : 'CompoundIdentitySupported' **Install-ADServiceAccount : Impossible d’installer le compte de service. Message d'erreur : « Le contexte fourni ne correspondait pas la cible. »** .
@@ -137,15 +137,15 @@ CompoundIdentitySupported de désactivation et réactivation puis ne nécessite 
 ![Description de revendication](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc7.png)
 
 ### <a name="step-8-on-the-relying-party-where-the-windowsdevicegroup-claims-are-expected-add-a-similar-pass-through-or-transform-claim-rule"></a>Étape 8 : Sur la partie de confiance dans lequel les revendications « WindowsDeviceGroup » sont attendues, ajoutez une règle de revendication « Pass-through » ou « Transformer » similaire.
-2.  Dans **gestion AD FS**, cliquez sur **confiance** et dans le volet droit, clic droit votre fournisseur de ressources, puis sélectionnez **modifier les règles de revendication**.
-3.  Sur le **règles de transformation d’émission** cliquez sur **ajouter une règle**.
-4.  Sur le **ajouter un Assistant de règle de revendication de transformation** sélectionnez **passer ou filtrer une revendication entrante** et cliquez sur **suivant**.
-5.  Ajoutez un nom d’affichage et sélectionnez **groupe d’appareils Windows** à partir de la **type de revendication entrante** liste déroulante.
-6.  Cliquez sur **Terminer**.  Cliquez sur **appliquer** et **Ok**.
-![Description de revendication](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc8.png)
+2. Dans **gestion AD FS**, cliquez sur **confiance** et dans le volet droit, clic droit votre fournisseur de ressources, puis sélectionnez **modifier les règles de revendication**.
+3. Sur le **règles de transformation d’émission** cliquez sur **ajouter une règle**.
+4. Sur le **ajouter un Assistant de règle de revendication de transformation** sélectionnez **passer ou filtrer une revendication entrante** et cliquez sur **suivant**.
+5. Ajoutez un nom d’affichage et sélectionnez **groupe d’appareils Windows** à partir de la **type de revendication entrante** liste déroulante.
+6. Cliquez sur **Terminer**.  Cliquez sur **appliquer** et **Ok**.
+   ![Description de revendication](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc8.png)
 
 
-##<a name="steps-for-configuring-ad-fs-in-windows-server-2016"></a>Procédure de configuration AD FS dans Windows Server 2016
+## <a name="steps-for-configuring-ad-fs-in-windows-server-2016"></a>Procédure de configuration AD FS dans Windows Server 2016
 Ce qui suit décrit en détail les étapes de configuration de l’authentification composée sur AD FS pour Windows Server 2016.
 
 ### <a name="step-1--enable-kdc-support-for-claims-compound-authentication-and-kerberos-armoring-on-the-default-domain-controller-policy"></a>Étape 1 :  Activer la prise en charge du contrôleur de domaine Kerberos des revendications, l’authentification composée et le blindage Kerberos sur la stratégie de contrôleur de domaine par défaut
@@ -189,7 +189,7 @@ Set-AdfsGlobalAuthenticationPolicy -PrimaryIntranetAuthenticationProvider 'Windo
 ``` powershell
 Set-ADServiceAccount -Identity “ADFS Service Account” -CompoundIdentitySupported:$true 
 ```
-2.  Redémarrez le Service ADFS.
+2. Redémarrez le Service ADFS.
 
 >[!NOTE]
 >Une fois définie à true, installation de la même gMSA sur Nouveau échoue de serveurs (2012 R2/2016) avec l’erreur suivante : 'CompoundIdentitySupported' **Install-ADServiceAccount : Impossible d’installer le compte de service. Message d'erreur : « Le contexte fourni ne correspondait pas la cible. »** .
@@ -208,11 +208,11 @@ CompoundIdentitySupported de désactivation et réactivation puis ne nécessite 
 
 
 ### <a name="step-6-on-the-relying-party-where-the-windowsdevicegroup-claims-are-expected-add-a-similar-pass-through-or-transform-claim-rule"></a>Étape 6 : Sur la partie de confiance dans lequel les revendications « WindowsDeviceGroup » sont attendues, ajoutez une règle de revendication « Pass-through » ou « Transformer » similaire.
-2.  Dans **gestion AD FS**, cliquez sur **confiance** et dans le volet droit, clic droit votre fournisseur de ressources, puis sélectionnez **modifier les règles de revendication**.
-3.  Sur le **règles de transformation d’émission** cliquez sur **ajouter une règle**.
-4.  Sur le **ajouter un Assistant de règle de revendication de transformation** sélectionnez **passer ou filtrer une revendication entrante** et cliquez sur **suivant**.
-5.  Ajoutez un nom d’affichage et sélectionnez **groupe d’appareils Windows** à partir de la **type de revendication entrante** liste déroulante.
-6.  Cliquez sur **Terminer**.  Cliquez sur **appliquer** et **Ok**.
+2. Dans **gestion AD FS**, cliquez sur **confiance** et dans le volet droit, clic droit votre fournisseur de ressources, puis sélectionnez **modifier les règles de revendication**.
+3. Sur le **règles de transformation d’émission** cliquez sur **ajouter une règle**.
+4. Sur le **ajouter un Assistant de règle de revendication de transformation** sélectionnez **passer ou filtrer une revendication entrante** et cliquez sur **suivant**.
+5. Ajoutez un nom d’affichage et sélectionnez **groupe d’appareils Windows** à partir de la **type de revendication entrante** liste déroulante.
+6. Cliquez sur **Terminer**.  Cliquez sur **appliquer** et **Ok**.
 
 ## <a name="validation"></a>Validation
 Pour valider la version de revendications de 'WindowsDeviceGroup', créez un test de revendications Application prenant en charge à l’aide de .net 4.6. Avec le kit SDK WIF 4.0.

@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: f3f34b4c86854bfc55cf4b1b57a0fd3c2baf2ffc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3cce07ba5b3d2cc89f1363bbb2af5acd048c0466
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839250"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445939"
 ---
 # <a name="control-your-tools-visibility-in-a-solution"></a>Contrôler la visibilité de votre outil dans une solution #
 
@@ -90,10 +90,10 @@ Le SDK inclut un ensemble organisé préalable de propriétés stock que vous po
 | operatingSystemVersion | version_string (par exemple : "10.1.*") |
 | productType | nombre |
 | clusterFqdn | chaîne |
-| isHyperVRoleInstalled | booléen |
-| isHyperVPowershellInstalled | booléen |
-| isManagementToolsAvailable | booléen |
-| isWmfInstalled | booléen |
+| isHyperVRoleInstalled | booléenne |
+| isHyperVPowershellInstalled | booléenne |
+| isManagementToolsAvailable | booléenne |
+| isWmfInstalled | booléenne |
 
 Chaque objet dans le tableau d’inventaire doit être conforme à la structure json suivante :
 
@@ -124,12 +124,12 @@ Chaque objet dans le tableau d’inventaire doit être conforme à la structure 
 
 Options disponibles pour la propriété 'type' :
 
-| Type | Description |
+| type | Description |
 | ---- | ----------- |
 | version | un numéro de version (par exemple : 10.1.*) |
 | nombre | une valeur numérique |
 | chaîne | valeur de chaîne |
-| booléen | la valeur True ou false |
+| booléenne | la valeur True ou false |
 
 #### <a name="value-types"></a>Types valeur ####
 
@@ -137,7 +137,7 @@ La propriété 'value' accepte ces types :
 
 * chaîne
 * nombre
-* booléen
+* booléenne
 
 Un ensemble de conditions de stock correctement formé ressemble à ceci :
 
@@ -194,6 +194,7 @@ Enfin, vous pouvez exécuter un script PowerShell personnalisé afin d’identif
 }
 ```
 La propriété State est la valeur importante qui contrôle la décision pour afficher ou masquer votre extension dans la liste des outils.  Les valeurs autorisées sont :
+
 | Value | Description |
 | ---- | ----------- |
 | Disponible | L’extension doit être affichée dans la liste des outils. |

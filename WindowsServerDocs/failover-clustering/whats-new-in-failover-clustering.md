@@ -8,12 +8,12 @@ manager: dongill
 author: JasonGerend
 ms.author: jgerend
 ms.date: 10/18/2018
-ms.openlocfilehash: 3c0792347aaa70fe80d346cc51cbc44b73c42f39
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 330f65721fca1908ac54ddfd194f96ffe540f1b5
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476022"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442364"
 ---
 # <a name="whats-new-in-failover-clustering"></a>Nouveautés du clustering de basculement
 
@@ -50,10 +50,10 @@ Cette rubrique décrit les fonctionnalités nouvelles et modifiées dans le Clus
     La mise à jour adaptée aux clusters (Cluster Aware Updating ou CAU) est désormais intégrée et détecte les espaces de stockage direct, vérifiant et garantissant que la resynchronisation des données est terminée sur chaque nœud. La mise à jour prenant en charge du cluster inspecte les mises à jour redémarrent intelligemment uniquement si nécessaire. Cela permet d’orchestrer des redémarrages de tous les serveurs du cluster pour la maintenance planifiée.
 
 - **Améliorations de témoin de partage de fichiers** nous avons activé l’utilisation d’un témoin de partage de fichiers dans les scénarios suivants : 
-    - Accès Internet absent ou extrêmement médiocre en raison d’un emplacement distant, empêchant l’utilisation d’un témoin de cloud. 
-    - Absence des lecteurs partagés pour un témoin de disque. Cela peut être une configuration hyperconvergé espaces de stockage Direct, un SQL Server toujours sur les groupes de disponibilité, ou un * Exchange de base de données groupe de disponibilité (DAG), aucun d'entre eux utilise des disques partagés. 
-    - Absence d’une connexion de contrôleur de domaine en raison du cluster en cours derrière une zone DMZ. 
-    - Un groupe de travail ou domaines cluster pour lequel il n’existe aucun objet de nom Active Directory cluster (CNO). Pour en savoir plus sur ces améliorations dans le billet suivant dans les Blogs de gestion & serveur : Témoin de partage de fichiers de Cluster de basculement et DFS.
+  - Accès Internet absent ou extrêmement médiocre en raison d’un emplacement distant, empêchant l’utilisation d’un témoin de cloud. 
+  - Absence des lecteurs partagés pour un témoin de disque. Cela peut être une configuration hyperconvergé espaces de stockage Direct, un SQL Server toujours sur les groupes de disponibilité, ou un * Exchange de base de données groupe de disponibilité (DAG), aucun d'entre eux utilise des disques partagés. 
+  - Absence d’une connexion de contrôleur de domaine en raison du cluster en cours derrière une zone DMZ. 
+  - Un groupe de travail ou domaines cluster pour lequel il n’existe aucun objet de nom Active Directory cluster (CNO). Pour en savoir plus sur ces améliorations dans le billet suivant dans les Blogs de gestion & serveur : Témoin de partage de fichiers de Cluster de basculement et DFS.
     
     Nous avons maintenant également bloquer explicitement l’utilisation d’un partage d’espaces de noms DFS en tant qu’emplacement. Ajout d’un témoin de partage de fichier pour une recherche DFS partage peut entraîner des problèmes de stabilité de votre cluster, et cette configuration n’a jamais été prise en charge. Nous avons ajouté la logique permettant de détecter si un partage utilise des espaces de noms DFS, et si les espaces de noms DFS est détectée, le Gestionnaire du Cluster de basculement bloque la création du témoin et affiche un message d’erreur concernant n’est ne pas pris en charge.
 - **Sécurisation renforcée du cluster**

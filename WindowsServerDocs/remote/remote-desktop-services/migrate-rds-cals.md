@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 91bdedce-6145-469f-b72e-7e113c4391e9
 author: christianmontoya
 manager: scottman
-ms.openlocfilehash: 3b809d4d624f21eaeae5a66277db683c95c79bdd
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: c947375b58c0ad88781335b799055e101bd2a193
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034444"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447099"
 ---
 # <a name="migrate-your-remote-desktop-services-client-access-licenses-rds-cals"></a>Migrer vos licences d’accès client aux services Bureau à distance
 
@@ -70,19 +70,19 @@ Il existe trois mécanismes pour migrer des licences vers le serveur de licences
 
 ### <a name="using-a-web-browser"></a>À l’aide d’un navigateur web
 1. Sur le **obtenir le jeu de clés de licence Client** , cliquez sur le lien hypertexte pour vous connecter au site Web du Gestionnaire de licences des Services Bureau à distance.
-Si vous exécutez le Gestionnaire de licences bureau à distance sur un ordinateur qui n’a pas de connectivité Internet, notez l’adresse du site Web du Gestionnaire de licences des Services Bureau à distance, puis connectez-vous au site Web à partir d’un ordinateur qui dispose d’une connectivité Internet. 
+   Si vous exécutez le Gestionnaire de licences bureau à distance sur un ordinateur qui n’a pas de connectivité Internet, notez l’adresse du site Web du Gestionnaire de licences des Services Bureau à distance, puis connectez-vous au site Web à partir d’un ordinateur qui dispose d’une connectivité Internet. 
 2. Dans la page Web du Gestionnaire de licences des Services Bureau à distance, sous **sélectionner l’Option**, sélectionnez **gérer les licences d’accès client**, puis cliquez sur **suivant**.
 3. Indiquez les informations requises suivantes, puis cliquez sur **suivant**:
     - **ID de licence serveur cible**: Un nombre à 35 chiffres, groupés par 5, qui est affiché dans le **obtenir le jeu de clés de licence Client** page dans l’Assistant Gestion des licences d’accès client RDS.
     - **Raison pour la récupération**: Choisissez le motif pour migrer les licences RDS CAL.
     - **Programme de licence**: Choisissez le programme par le biais duquel vous avez acheté vos CAL de services Bureau à distance.
 4. Indiquez les informations requises suivantes, puis cliquez sur **suivant**:
-    - Le nom de famille
-    - Prénom ou le nom donné
-    - Nom de la société
-    - Pays/région
+   - Le nom de famille
+   - Prénom ou le nom donné
+   - Nom de la société
+   - Pays/région
 
-    Vous pouvez également fournir les informations facultatives demandées, telles que l’adresse de la société, adresse e-mail et numéro de téléphone. Dans le champ d’unité d’organisation, vous pouvez décrire l’unité au sein de votre organisation qui sert de ce serveur de licences.
+     Vous pouvez également fournir les informations facultatives demandées, telles que l’adresse de la société, adresse e-mail et numéro de téléphone. Dans le champ d’unité d’organisation, vous pouvez décrire l’unité au sein de votre organisation qui sert de ce serveur de licences.
 
 5. Le programme de licence que vous avez sélectionné dans la page précédente détermine les informations que vous devez fournir dans la page suivante. Dans la plupart des cas, vous devez fournir un code de licence ou un numéro de contrat. Consultez la documentation fournie lorsque vous avez acheté vos CAL de services Bureau à distance. En outre, vous devez spécifier le type de licence d’accès client RDS et la quantité que vous souhaitez migrer vers le serveur de licences.
 6. Après avoir entré les informations demandées, cliquez sur **Suivant**.

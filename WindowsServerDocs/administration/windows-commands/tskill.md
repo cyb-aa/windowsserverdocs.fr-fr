@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 59958481a7c832aca7bc25d7d4d3ebbf4e8ef80c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b582334d7b79b2badbb86818be1093b6a5f55080
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835040"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440817"
 ---
 # <a name="tskill"></a>tskill
 
@@ -36,6 +36,7 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
 ```
 
 ## <a name="parameters"></a>Paramètres
+
 |Paramètre|Description|
 |-------|--------|
 |\<ProcessID>|Spécifie l’ID du processus que vous souhaitez mettre fin.|
@@ -47,19 +48,19 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
--   Vous pouvez utiliser **tskill** à la fin uniquement les processus qui vous appartiennent, sauf si vous êtes un administrateur. Les administrateurs ont un accès complet à tous les **tskill** fonctionne et peut mettre fin aux processus qui sont exécutent dans d’autres sessions utilisateur.
--   Mettre fin à tous les processus qui sont exécutent dans une session, la session se termine également.
--   Si vous utilisez le *ProcessName* et le **/Server : *** ServerName* paramètres, vous devez également spécifier le **/id : *** SessionID* ou **/a** paramètre.
+- Vous pouvez utiliser **tskill** à la fin uniquement les processus qui vous appartiennent, sauf si vous êtes un administrateur. Les administrateurs ont un accès complet à tous les **tskill** fonctionne et peut mettre fin aux processus qui sont exécutent dans d’autres sessions utilisateur.
+- Mettre fin à tous les processus qui sont exécutent dans une session, la session se termine également.
+- Si vous utilisez le *ProcessName* et **/Server :** <em>nom_serveur</em> paramètres, vous devez également spécifier le **/id :**  <em>SessionID</em> ou **/a** paramètre.
 
 ## <a name="BKMK_examples"></a>Exemples
--   Pour terminer le processus 6543, tapez :
-    ```
-    tskill 6543
-    ```
--   Pour terminer le processus « explorer » en cours d’exécution de la session 5, tapez :
-    ```
-    tskill explorer /id:5
-    ```
-#### <a name="additional-references"></a>Références supplémentaires
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
-[des Services Bureau à distance &#40;Services Terminal Server&#41; référence de la commande](remote-desktop-services-terminal-services-command-reference.md)
+- Pour terminer le processus 6543, tapez :
+  ```
+  tskill 6543
+  ```
+- Pour terminer le processus « explorer » en cours d’exécution de la session 5, tapez :
+  ```
+  tskill explorer /id:5
+  ```
+  #### <a name="additional-references"></a>Références supplémentaires
+  [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+  [des Services Bureau à distance &#40;Services Terminal Server&#41; référence de la commande](remote-desktop-services-terminal-services-command-reference.md)

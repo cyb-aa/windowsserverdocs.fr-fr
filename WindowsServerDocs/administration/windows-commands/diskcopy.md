@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/07/2018
-ms.openlocfilehash: 5b9343dc2f6b4c74da5a9d89a2ea804b702248cc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: aadb3a77cda7f1403cd2f04ced12c17617f046df
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841170"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439572"
 ---
 # <a name="diskcopy"></a>diskcopy
 
@@ -84,9 +84,9 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
 > [!NOTE]
 > Vous ne pouvez pas utiliser **xcopy** pour copier un disque de démarrage.
--   Présentation de **diskcopy** les codes de sortie
+> -   Présentation de **diskcopy** les codes de sortie
 
-    Le tableau suivant décrit chaque code de sortie.  
+    The following table explains each exit code.  
     |Code de sortie|Description|
     |---------|-----------|
     |0|Opération de copie a réussi|
@@ -94,7 +94,7 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
     |3|Erreur matérielle irrécupérable s’est produite|
     |4|Erreur d’initialisation s’est produite|
 
-    Pour traiter les codes de sortie qui sont retournés par **diskcomp**, vous pouvez utiliser la *ERRORLEVEL* variable d’environnement sur le **si** ligne de commande dans un programme de traitement par lots.
+    To process the exit codes that are returned by **diskcomp**, you can use the *ERRORLEVEL* environment variable on the **if** command line in a batch program.
 
 ## <a name="BKMK_examples"></a>Exemples
 
@@ -108,4 +108,4 @@ diskcopy a: a:
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

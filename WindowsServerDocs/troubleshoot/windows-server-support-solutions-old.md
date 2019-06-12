@@ -9,12 +9,12 @@ ms.date: 03/16/2018
 ms.topic: article
 author: kaushika-msft
 ms.author: elizapo
-ms.openlocfilehash: b283eed38e991886fc72de0e8f8cdbc209972fa7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1eb52f28fcd5afe62df33cd56208f2ab506e7194
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820520"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453150"
 ---
 # <a name="top-support-solutions-for-windows-server-2016"></a>Meilleures solutions de support pour Windows Server 2016
 
@@ -27,15 +27,15 @@ Voici les meilleures solutions de support Microsoft concernant les problèmes le
 
 ## <a name="solutions-for-installing-or-upgrading-windows-server"></a>Solutions pour l’installation ou la mise à niveau de Windows Server
 
-- [Résoudre les erreurs de mise à niveau de Windows 10 : Informations techniques pour les professionnels de l’informatique](\windows\deployment\upgrade\resolve-windows-10-upgrade-errors)
+- [Résoudre les erreurs de mise à niveau de Windows 10 : Informations techniques pour les professionnels de l’informatique](https://docs.microsoft.com/windows/deployment/upgrade/resolve-windows-10-upgrade-errors)
 - [Maintenance de mise à jour de la pile pour Windows 10 Version 1607 et Windows Server 2016 : 8 août 2017](https://support.microsoft.com/en-US/help/4035631)
 - [Mise à jour de compatibilité pour la mise à niveau vers Windows 10 Version 1607 et Windows Server 2016 : 3 août 2017](https://support.microsoft.com/en-US/help/4033524)
 - [Une mise à niveau du système en place n’est pas pris en charge sur les machines virtuelles Azure basé sur Windows](https://support.microsoft.com/en-US/help/4014997)
-- [Options de mise à niveau et de conversion pour Windows Server 2016](..\get-started\supported-upgrade-paths.md)
-- [Matrice de mise à niveau et migration de rôle pour Windows Server 2016 Server](..\get-started\server-role-upgradeability-table.md)
-- [Mise à niveau et Installation de Windows Server](..\get-started\installation-and-upgrade.md)
-- [Notes de publication : Problèmes importants dans Windows Server 2016](..\get-started\windows-server-2016-ga-release-notes.md)
-- [Recommandations pour le passage à Windows Server 2016](..\get-started\recommendations-moving-to-server2016.md)
+- [Options de mise à niveau et de conversion pour Windows Server 2016](../get-started/supported-upgrade-paths.md)
+- [Matrice de mise à niveau et migration de rôle pour Windows Server 2016 Server](../get-started/server-role-upgradeability-table.md)
+- [Mise à niveau et Installation de Windows Server](../get-started/installation-and-upgrade.md)
+- [Notes de publication : problèmes importants sur Windows Server 2016](../get-started/windows-server-2016-ga-release-notes.md)
+- [Recommandations pour le passage à Windows Server 2016](../get-started/recommendations-moving-to-server2016.md)
 
 ## <a name="solutions-for-volume-activation"></a>Solutions pour l’activation en volume
 - [Activation de Windows Server 2016](../get-started/server-2016-activation.md)
@@ -51,17 +51,17 @@ Voici les meilleures solutions de support Microsoft concernant les problèmes le
 - [Ports de pare-feu Active Directory – essayons faire Simple](http://blogs.msmvps.com/acefekay/2011/11/01/active-directory-firewall-ports-let-s-try-to-make-this-simple/)
 - [Prise en charge d’Exchange Server pour Windows Server 2016](https://technet.microsoft.com/library/ff728623(v=exchg.150).aspx)
 - [Utilisation de Ntdsutil.exe pour transférer ou prendre des rôles FSMO vers un contrôleur de domaine](https://support.microsoft.com/kb/255504)
-- [Résolution des problèmes de déploiement du contrôleur de domaine](../identity/ad-ds/deploy/troubleshooting-domain-controller-deployment.md)
+- [Résolution des problèmes de déploiement de contrôleur de domaine](../identity/ad-ds/deploy/troubleshooting-domain-controller-deployment.md)
 - [Problèmes de résolution des problèmes de l’Assistant Installation de Active Directory](https://msdn.microsoft.com/library/bb727058.aspx)
 - [Problèmes connus pour l’installation et la suppression des services AD DS](https://technet.microsoft.com/library/cc754463(v=ws.10).aspx)
 
 ## <a name="solutions-for-active-directory-federation-services-ad-fs"></a>Solutions pour les services de fédération Active Directory (AD FS)
 - [Comment configurer l’inscription automatique des appareils joints au domaine de Windows avec Azure Active Directory](/azure/active-directory/active-directory-conditional-access-automatic-device-registration-setup)
 - [Configuration de l’émission de revendications](/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup#step-2-setup-issuance-of-claims)
-- [Configurer AD FS pour authentifier les utilisateurs stockés dans les annuaires LDAP](../identity/ad-fs/operations/configure-ad-fs-to-authenticate-users-stored-in-ldap-directories.md)
-- [AD FS prend en charge pour la liaison de l’autre nom d’hôte pour l’authentification par certificat](../identity/ad-fs/operations/ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md)
+- [Configuration d’AD FS pour authentifier les utilisateurs stockées dans des annuaires LDAP](../identity/ad-fs/operations/configure-ad-fs-to-authenticate-users-stored-in-ldap-directories.md)
+- [Prise en charge AD FS de la liaison de l’autre nom d’hôte pour l’authentification par certificat](../identity/ad-fs/operations/ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md)
 - [Protection contre les attaques de mot de passe](https://blogs.technet.microsoft.com/tspring/2017/01/20/federated-to-microsoft-cloud-and-account-lockouts/)
-- [La mise à niveau vers AD FS dans Windows Server 2016 à l’aide d’une base de données WID](../identity/ad-fs/deployment/upgrading-to-ad-fs-in-windows-server-2016.md)
+- [Mise à niveau vers AD FS dans Windows Server 2016 à l’aide d’une base de données WID](../identity/ad-fs/deployment/upgrading-to-ad-fs-in-windows-server-2016.md)
 - [Windows 10 l’authentification : l’activation de l’authentification des appareils avec AD FS](../identity/ad-fs/operations/configure-device-based-conditional-access-on-premises.md)
 - [La gestion des certificats SSL dans AD FS et WAP dans Windows Server 2016](../identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap-2016.md)
 - [Stratégies de contrôle d’accès dans Windows Server 2016 AD FS](../identity/ad-fs/operations/access-control-policies-in-ad-fs.md)

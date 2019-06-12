@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: 5a43b104-4d02-4d73-a385-da1cfb67e341
-ms.openlocfilehash: 81f30a7a4d50423a68719343fec3032cc6a1602e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6b21579fb1dedc777733317e7222debd8d944a1
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854710"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812669"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 3, les dossiers de travail de configuration
 
@@ -32,7 +32,7 @@ Cette rubrique décrit la troisième étape de déploiement Dossiers de travail
 -   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : L’étape 5, configurez les Clients](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
->   Les instructions présentées dans cette section ont été conçues pour un environnement Windows Server 2016. Si vous utilisez Windows Server 2012 R2, suivez les [instructions pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Les instructions présentées dans cette section concernent un environnement Windows Server 2019 ou Windows Server 2016. Si vous utilisez Windows Server 2012 R2, suivez les [instructions pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Pour configurer Dossiers de travail, procédez comme suit.  
   
@@ -49,7 +49,7 @@ Pour créer l’enregistrement CNAME pour Dossiers de travail, procédez comme s
   
 1.  Sur votre contrôleur de domaine, ouvrez le **Gestionnaire DNS**.  
   
-2.  Développez le dossier Zones de recherche directe, cliquez avec le bouton droit sur votre domaine, puis cliquez sur **Nouvel Alias (CNAME)**.  
+2.  Développez le dossier Zones de recherche directe, cliquez avec le bouton droit sur votre domaine, puis cliquez sur **Nouvel Alias (CNAME)** .  
   
 3.  Dans la fenêtre **Nouvel enregistrement de ressource**, dans le champ **Nom de l’alias**, entrez l’alias de Dossiers de travail. Dans l’exemple de test, il s’agit de **workfolders**.  
   
@@ -78,7 +78,7 @@ Installez le certificat AD FS qui a été créé pendant l’installation d’A
   
 5.  Sélectionnez **Un compte d’ordinateur**, puis cliquez sur **Suivant**.  
   
-6.  Sélectionnez **Ordinateur local (l’ordinateur sur lequel cette console s’exécute)**, puis cliquez sur **Terminer**.  
+6.  Sélectionnez **Ordinateur local (l’ordinateur sur lequel cette console s’exécute)** , puis cliquez sur **Terminer**.  
   
 7.  Cliquez sur **OK**.  
   
@@ -250,7 +250,7 @@ Pour configurer Dossiers de travail de manière à utiliser les services AD FS 
   
 4.  Dans la fenêtre **Paramètres de Dossier de travail**, sélectionnez **Services de fédération Active Directory (AD FS)** puis tapez l’URL du service de fédération. Cliquez sur **Appliquer**.  
   
-    Dans l’exemple de test, l’URL est **https://blueadfs.contoso.com**.  
+    Dans l’exemple de test, l’URL est **https://blueadfs.contoso.com** .  
   
 L’applet de commande permettant d’effectuer la même tâche via Windows PowerShell est la suivante :  
   

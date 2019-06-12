@@ -9,12 +9,12 @@ author: justinha
 ms.author: justinha
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: d63726e7046896c9ef7aa0c3b3d85237bc3f788d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8e1ef34370b1459cd55705bc0069b49a572de303
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879060"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447532"
 ---
 # <a name="quick-start-for-guarded-fabric-deployment"></a>Guide de démarrage rapide pour le déploiement de la structure protégée
 
@@ -107,7 +107,7 @@ Pour le mode de module de plateforme sécurisée, trois choses sont requises :
 
 1.  Un _publique de type EK_ (ou _EKpub_) à partir de l’interface TPM 2.0 sur chaque hôte Hyper-V. Pour capturer la EKpub, utilisez `Get-PlatformIdentifier`. 
 2.  Un _planifié de matériel_. Si chacun de vos hôtes Hyper-V est identique, puis une ligne de base unique est que nécessaire. Si elles ne sont pas, vous aurez besoin un pour chaque classe de matériel. La ligne de base est sous la forme d’un fichier journal Trustworthy Computing Group ou TCGlog. Le TCGlog contient tout ce qui fait de l’hôte, du microprogramme UEFI, via le noyau, jusqu’où l’hôte est entièrement initialisé. Pour capturer la ligne de base du matériel, installez le rôle Hyper-V et la fonctionnalité de Support de Hyper-V Guardian hôte et utilisez `Get-HgsAttestationBaselinePolicy`. 
-3.  Un _stratégie d’intégrité du Code_. Si chacun de vos hôtes Hyper-V est identique, puis une seule stratégie d’élément de configuration est que nécessaire. Si elles ne sont pas, vous aurez besoin un pour chaque classe de matériel. Windows Server 2016 et Windows 10 ont une nouvelle forme de mise en œuvre de stratégies d’élément de configuration appelé _appliquée par l’hyperviseur de l’intégrité de Code (HVCI)_. HVCI met en œuvre fort et s’assure qu’un hôte est uniquement autorisé à exécuter des fichiers binaires d’un administrateur approuvé a autorisé à s’exécuter. Ces instructions sont encapsulées dans une stratégie d’intégrité qui est ajoutée à SGH. SGH mesure la stratégie d’intégrité de chaque ordinateur hôte avant qu’ils sont autorisés à s’exécuter des machines virtuelles protégées. Pour capturer une stratégie d’intégrité, utilisez `New-CIPolicy`. La stratégie doit alors être convertie à sa forme binaire à l’aide `ConvertFrom-CIPolicy`.
+3.  Un _stratégie d’intégrité du Code_. Si chacun de vos hôtes Hyper-V est identique, puis une seule stratégie d’élément de configuration est que nécessaire. Si elles ne sont pas, vous aurez besoin un pour chaque classe de matériel. Windows Server 2016 et Windows 10 ont une nouvelle forme de mise en œuvre de stratégies d’élément de configuration appelé _appliquée par l’hyperviseur de l’intégrité de Code (HVCI)_ . HVCI met en œuvre fort et s’assure qu’un hôte est uniquement autorisé à exécuter des fichiers binaires d’un administrateur approuvé a autorisé à s’exécuter. Ces instructions sont encapsulées dans une stratégie d’intégrité qui est ajoutée à SGH. SGH mesure la stratégie d’intégrité de chaque ordinateur hôte avant qu’ils sont autorisés à s’exécuter des machines virtuelles protégées. Pour capturer une stratégie d’intégrité, utilisez `New-CIPolicy`. La stratégie doit alors être convertie à sa forme binaire à l’aide `ConvertFrom-CIPolicy`.
 
 ![Extraire des identités, de base et stratégie d’intégrité](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-three-extract-identity-baseline-ci-policy.png)
 
@@ -165,5 +165,5 @@ Création des machines virtuelles protégées diffère très peu de choses à pa
 
 ## <a name="next-step"></a>Étape suivante
 
->[!div class="nextstepaction"]
-[Conditions préalables SGH](guarded-fabric-prepare-for-hgs.md)
+> [!div class="nextstepaction"]
+> [Conditions préalables SGH](guarded-fabric-prepare-for-hgs.md)

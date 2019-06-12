@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: landing-page
 author: kaushika-msft
 ms.author: elizapo
-ms.openlocfilehash: 1a4d28e168e7ce328ac125d12a07cb0c133e2d0e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fc87bf87a79f5f7e13069ad1a58be0dc940a558e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852120"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447781"
 ---
 # <a name="top-support-solutions-for-windows-server"></a>Meilleures solutions de support pour Windows Server
 
@@ -55,7 +55,7 @@ Voici les meilleures solutions de support Microsoft concernant les problèmes le
 <hr>
                        <p><a href="..\get-started\installation-and-upgrade.md">Installation de Windows Server et la mise à niveau)</a></p>
 <hr>
-                       <p><a href="..\get-started\windows-server-2016-ga-release-notes.md">Notes de publication : Problèmes importants dans Windows Server 2016)</a></p>
+                       <p><a href="..\get-started\windows-server-2016-ga-release-notes.md">Notes de publication : Problèmes importants dans Windows Server 2016)</a></p>
 <hr>
                        <p><a href="..\get-started\recommendations-moving-to-server2016.md">Recommandations pour le passage à Windows Server 2016)</a></p>
                     </div>
@@ -84,10 +84,9 @@ Voici les meilleures solutions de support Microsoft concernant les problèmes le
                         <p><a href="https://technet.microsoft.com/library/ee939272.aspx">Comment résoudre les problèmes de Service de gestion de clés (KMS)</a></p>
 <hr>
                         <p><a href="https://technet.microsoft.com/library/ff793439.aspx">Dépannage de l’Activation de volume</a></p>
-<hr>                       
-                        <p><a href="https://technet.microsoft.com/library/ff793399.aspx">Codes d’erreur d’activation</a></p>
+<hr><br/>                        <p><a href="https://technet.microsoft.com/library/ff793399.aspx">Codes d’erreur d’activation</a></p>
 <hr>
-                        <p><a href="https://support.microsoft.com/help/2796988/windows-8-or-windows-server-2012-installation-may-fail-with-error-mess">Installation de Windows peut échouer avec l’erreur « la clé de produit entrée ne correspond pas aux images Windows disponibles pour l’installation. Entrez une autre clé de produit »</a></p>
+                        <p><a href="https://support.microsoft.com/help/2796988/windows-8-or-windows-server-2012-installation-may-fail-with-error-mess">L’installation de Windows peut échouer avec l’erreur &quot;la clé de produit entrée ne correspond pas à une des images Windows disponibles pour l’installation. Entrez une autre clé de produit&quot;</a></p>
                     </div>
                 </div>
             </div>
@@ -113,7 +112,7 @@ Voici les meilleures solutions de support Microsoft concernant les problèmes le
 <hr>
                         <p><a href="https://support.microsoft.com/kb/255504">Utilisation de Ntdsutil.exe pour transférer ou prendre des rôles FSMO vers un contrôleur de domaine</a></p>
 <hr>
-                        <p><a href="../identity/ad-ds/deploy/troubleshooting-domain-controller-deployment.md">Résolution des problèmes de déploiement du contrôleur de domaine</a></p>
+                        <p><a href="../identity/ad-ds/deploy/troubleshooting-domain-controller-deployment.md">Résolution des problèmes de déploiement de contrôleur de domaine</a></p>
 <hr>
                         <p><a href="https://msdn.microsoft.com/library/bb727058.aspx">Problèmes de résolution des problèmes de l’Assistant Installation de Active Directory</a></p>
 <hr>
@@ -138,10 +137,9 @@ Voici les meilleures solutions de support Microsoft concernant les problèmes le
                         <a href="/azure/active-directory/active-directory-conditional-access-automatic-device-registration-setup">Comment configurer l’inscription automatique des appareils joints au domaine de Windows avec Azure Active Directory</a>
 <hr>
                         <p><a href="/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup#step-2-setup-issuance-of-claims">Configuration de l’émission de revendications</a></p>
-<hr>  
-                        <p><a href="../identity/ad-fs/operations/configure-ad-fs-to-authenticate-users-stored-in-ldap-directories.md">Configurer AD FS pour authentifier les utilisateurs stockés dans les annuaires LDAP</a></p>
+<hr><br/>                        <p><a href="../identity/ad-fs/operations/configure-ad-fs-to-authenticate-users-stored-in-ldap-directories.md">Configuration d’AD FS pour authentifier les utilisateurs stockées dans des annuaires LDAP</a></p>
 <hr>
-                        <p><a href="../identity/ad-fs/operations/ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md">AD FS prend en charge pour la liaison de l’autre nom d’hôte pour l’authentification par certificat</a></p>
+                        <p><a href="../identity/ad-fs/operations/ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md">Prise en charge AD FS de la liaison de l’autre nom d’hôte pour l’authentification par certificat</a></p>
 <hr>
                         <p><a href="https://blogs.technet.microsoft.com/tspring/2017/01/20/federated-to-microsoft-cloud-and-account-lockouts/">Protection contre les attaques de mot de passe</a>
                         <a href="../identity/ad-fs/deployment/upgrading-to-ad-fs-in-windows-server-2016.md">mise à niveau vers AD FS dans Windows Server 2016 à l’aide d’une base de données WID</a></p>

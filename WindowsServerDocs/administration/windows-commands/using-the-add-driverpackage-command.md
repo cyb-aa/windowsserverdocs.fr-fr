@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a7e96391ee8dce0b77f00f51d7cb78ff9b8bf242
-ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.openlocfilehash: 893bcd3b28aaa5d501017fe65b7b5205e9452693
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65564654"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440691"
 ---
 # <a name="using-the-add-driverpackage-command"></a>À l’aide de la commande add-DriverPackage
 
@@ -34,13 +34,13 @@ WDSUTIL /Add-DriverPackage /InfFile:<Inf File path> [/Server:<Server name>] [/Ar
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|InfFile :\<chemin d’accès du fichier Inf >|Spécifie le chemin d’accès complet du fichier .inf à ajouter.|
-|/ Server :\<nom du serveur >|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom de domaine complet. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
-|/ Architecture : {x86 | ia64 | x64}|Spécifie l’architecture du package de pilotes.|
-|[/ DriverGroup :\<nom du groupe >]|Spécifie le nom du groupe pilote auquel le package doit être ajouté.|
-|[/ Nom :\<nom convivial >]|Indique le nom convivial pour le package de pilotes.|
+|          Paramètre           |                                                              Description                                                              |
+|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+|   InfFile :\<chemin d’accès du fichier Inf >   |                                           Spécifie le chemin d’accès complet du fichier .inf à ajouter.                                            |
+|    / Server :\<nom du serveur >    | Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom de domaine complet. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé. |
+|      / Architecture : {x86      |                                                                 ia64                                                                  |
+| [/ DriverGroup :\<nom du groupe >] |                             Spécifie le nom du groupe pilote auquel le package doit être ajouté.                              |
+|   [/ Nom :\<nom convivial >]   |                                           Indique le nom convivial pour le package de pilotes.                                            |
 
 ## <a name="BKMK_examples"></a>Exemples
 

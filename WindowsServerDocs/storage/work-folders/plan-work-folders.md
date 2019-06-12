@@ -9,12 +9,12 @@ manager: dongill
 ms.author: jgerend
 ms.date: 4/5/2017
 description: Comment planifier un déploiement de Dossiers de travail, y compris la configuration système requise et comment préparer votre environnement réseau.
-ms.openlocfilehash: 2ac52b15f266fce7202df4c9c76e774fca4098cc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 06d56df7ce9ddb8c9822f62de383ccad0394b4f3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824640"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447842"
 ---
 # <a name="planning-a-work-folders-deployment"></a>Planification d’un déploiement de Dossiers de travail
 
@@ -22,17 +22,17 @@ ms.locfileid: "59824640"
 
 Cette rubrique décrit le processus de conception d’une implémentation de Dossiers de travail et part du principe que vous disposez des connaissances suivantes :  
   
--   notions de base sur les Dossiers de travail (comme décrit dans [Dossiers de travail](work-folders-overview.md)) ;  
+- notions de base sur les Dossiers de travail (comme décrit dans [Dossiers de travail](work-folders-overview.md)) ;  
   
--   notions de base sur les concepts des services de domaine Active Directory (AD DS) ;  
+- notions de base sur les concepts des services de domaine Active Directory (AD DS) ;  
   
--   notions de base sur le partage de fichiers Windows et les technologies associées ;  
+- notions de base sur le partage de fichiers Windows et les technologies associées ;  
   
--   notions de base sur l’utilisation du certificat SSL ;  
+- notions de base sur l’utilisation du certificat SSL ;  
   
--   notions de base sur l’activation de l’accès Web aux ressources internes via un proxy inverse Web.  
+- notions de base sur l’activation de l’accès Web aux ressources internes via un proxy inverse Web.  
   
- Les sections suivantes vont vous aider à concevoir votre implémentation de Dossiers de travail. Le déploiement de Dossiers de travail est abordé dans la rubrique suivante, [Déploiement de Dossiers de travail](deploy-work-folders.md).  
+  Les sections suivantes vont vous aider à concevoir votre implémentation de Dossiers de travail. Le déploiement de Dossiers de travail est abordé dans la rubrique suivante, [Déploiement de Dossiers de travail](deploy-work-folders.md).  
   
 ##  <a name="BKMK_SOFT"></a> Configuration logicielle requise  
 
@@ -119,16 +119,16 @@ La fonctionnalité Dossiers de travail présente la configuration logicielle req
 ###  <a name="GroupPolicy"></a> Stratégie de groupe  
  Si vous avez des PC Windows 7 dans votre environnement, nous vous conseillons les actions suivantes :  
   
--   Utilisez la stratégie de groupe pour contrôler les stratégies de mot de passe pour tous les PC appartenant à un domaine qui utilisent Dossiers de travail.  
+- Utilisez la stratégie de groupe pour contrôler les stratégies de mot de passe pour tous les PC appartenant à un domaine qui utilisent Dossiers de travail.  
   
--   Utilisez la stratégie **Verrouiller automatiquement l'écran et exiger un mot de passe** de Dossiers de travail sur les PC qui ne sont pas joints à votre domaine.  
+- Utilisez la stratégie **Verrouiller automatiquement l'écran et exiger un mot de passe** de Dossiers de travail sur les PC qui ne sont pas joints à votre domaine.  
   
- Vous pouvez aussi utiliser une stratégie de groupe pour indiquer un serveur Dossiers de travail pour les PC appartenant à un domaine. L’installation de Dossiers de travail est ainsi quelque peu simplifiée : les utilisateurs devraient sinon entrer leur adresse de messagerie professionnelle pour rechercher les paramètres (en supposant que Dossiers de travail est correctement configuré) ou l’URL de Dossiers de travail que vous leur avez fournie de façon explicite par courrier électronique ou un autre moyen de communication.  
+  Vous pouvez aussi utiliser une stratégie de groupe pour indiquer un serveur Dossiers de travail pour les PC appartenant à un domaine. L’installation de Dossiers de travail est ainsi quelque peu simplifiée : les utilisateurs devraient sinon entrer leur adresse de messagerie professionnelle pour rechercher les paramètres (en supposant que Dossiers de travail est correctement configuré) ou l’URL de Dossiers de travail que vous leur avez fournie de façon explicite par courrier électronique ou un autre moyen de communication.  
   
- Vous pouvez également utiliser une stratégie de groupe pour installer de force Dossiers de travail en fonction de l’utilisateur ou de l’ordinateur, bien que cette opération provoque la synchronisation de Dossiers de travail sur chaque PC auquel un utilisateur se connecte (lors de l’utilisation du paramètre de stratégie par utilisateur) et empêche les utilisateurs de spécifier un autre emplacement pour Dossiers de travail sur leur PC (tel qu’une carte microSD pour économiser l’espace sur le lecteur principal). Nous vous conseillons d’évaluer soigneusement les besoins de l’utilisateur avant de forcer l’installation automatique.  
+  Vous pouvez également utiliser une stratégie de groupe pour installer de force Dossiers de travail en fonction de l’utilisateur ou de l’ordinateur, bien que cette opération provoque la synchronisation de Dossiers de travail sur chaque PC auquel un utilisateur se connecte (lors de l’utilisation du paramètre de stratégie par utilisateur) et empêche les utilisateurs de spécifier un autre emplacement pour Dossiers de travail sur leur PC (tel qu’une carte microSD pour économiser l’espace sur le lecteur principal). Nous vous conseillons d’évaluer soigneusement les besoins de l’utilisateur avant de forcer l’installation automatique.  
   
 ### <a name="windows-intune"></a>Windows Intune  
- Windows Intune fournit également une couche de sécurité et une facilité de gestion pour les appareils n’appartenant pas à un domaine qui seraient autrement absents. Vous pouvez utiliser Windows Intune pour configurer et gérer les appareils personnels des utilisateurs, tels que les tablettes qui se connectent à Dossiers de travail depuis Internet. Windows Intune peut fournir des appareils avec l’URL du serveur de synchronisation à utiliser : sinon les utilisateurs doivent entrer leur adresse de messagerie professionnelle pour rechercher les paramètres (si vous publiez une URL de dossiers publics fonctionne sous la forme de https://workfolders. *Contoso.com*), ou entrez l’URL du serveur de synchronisation directement.  
+ Windows Intune fournit également une couche de sécurité et une facilité de gestion pour les appareils n’appartenant pas à un domaine qui seraient autrement absents. Vous pouvez utiliser Windows Intune pour configurer et gérer les appareils personnels des utilisateurs, tels que les tablettes qui se connectent à Dossiers de travail depuis Internet. Windows Intune peut fournir des appareils avec l’URL du serveur de synchronisation à utiliser : sinon les utilisateurs doivent entrer leur adresse de messagerie professionnelle pour rechercher les paramètres (si vous publiez une URL de dossiers publics fonctionne sous la forme de https://workfolders. <em>Contoso.com</em>), ou entrez l’URL du serveur de synchronisation directement.  
   
  Sans un déploiement Windows Intune, les utilisateurs doivent configurer manuellement des appareils externes, ce qui peut augmenter le nombre de demandes auprès du personnel du support technique d’un client.  
   
@@ -149,16 +149,16 @@ La fonctionnalité Dossiers de travail prend en charge l'utilisation du proxy d�
 ### <a name="number-of-sync-servers"></a>Nombre de serveurs de synchronisation  
  Il est possible pour un client de faire fonctionner plusieurs serveurs de synchronisation dans un environnement. Cette configuration peut être souhaitable pour plusieurs raisons :  
   
--   répartition géographique des utilisateurs : par exemple des serveurs de fichiers de succursales ou des centres de données régionaux ;  
+- répartition géographique des utilisateurs : par exemple des serveurs de fichiers de succursales ou des centres de données régionaux ;  
   
--   besoins en matière de stockage des données : certains services de l’entreprise peuvent avoir des besoins spécifiques en matière de gestion ou de stockage des données qui sont plus simples à traiter avec un serveur dédié ;  
+- besoins en matière de stockage des données : certains services de l’entreprise peuvent avoir des besoins spécifiques en matière de gestion ou de stockage des données qui sont plus simples à traiter avec un serveur dédié ;  
   
--   équilibrage de la charge : dans les environnements de grande taille, le stockage des données utilisateur sur plusieurs serveurs peut augmenter le temps d’activité et les performances des serveurs.  
+- équilibrage de la charge : dans les environnements de grande taille, le stockage des données utilisateur sur plusieurs serveurs peut augmenter le temps d’activité et les performances des serveurs.  
   
- Pour plus d’informations sur les performances et l’adaptation du serveur Dossiers de travail, voir [Considérations sur les performances pour les déploiements de Dossiers de travail](http://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx).  
+  Pour plus d’informations sur les performances et l’adaptation du serveur Dossiers de travail, voir [Considérations sur les performances pour les déploiements de Dossiers de travail](http://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx).  
   
 > [!NOTE]
->  Lors de l’utilisation de plusieurs serveurs de synchronisation, il est conseillé de configurer la découverte automatique de serveurs pour les utilisateurs. Ce processus repose sur la configuration d’un attribut sur chaque compte d’utilisateur dans les services de domaine Active Directory. Cet attribut se nomme **msDS-SyncServerURL** et devient disponible sur les comptes d'utilisateurs après l'ajout d'un contrôleur de domaine Windows Server 2012 R2 au domaine ou l'application des mises à jour du schéma Active Directory. Cet attribut doit être défini pour chaque utilisateur afin de garantir que tous se connectent au serveur de synchronisation approprié. À l’aide de découverte automatique de serveurs, les organisations peuvent publier des dossiers de travail derrière une URL « conviviale » comme *https://workfolders.contoso.com*, quel que soit le nombre de serveurs de synchronisation dans l’opération.  
+>  Lors de l’utilisation de plusieurs serveurs de synchronisation, il est conseillé de configurer la découverte automatique de serveurs pour les utilisateurs. Ce processus repose sur la configuration d’un attribut sur chaque compte d’utilisateur dans les services de domaine Active Directory. Cet attribut se nomme **msDS-SyncServerURL** et devient disponible sur les comptes d'utilisateurs après l'ajout d'un contrôleur de domaine Windows Server 2012 R2 au domaine ou l'application des mises à jour du schéma Active Directory. Cet attribut doit être défini pour chaque utilisateur afin de garantir que tous se connectent au serveur de synchronisation approprié. À l’aide de découverte automatique de serveurs, les organisations peuvent publier des dossiers de travail derrière une URL « conviviale » comme *https://workfolders.contoso.com* , quel que soit le nombre de serveurs de synchronisation dans l’opération.  
   
 ### <a name="number-of-sync-shares"></a>Nombre de partages de synchronisation  
  Des serveurs de synchronisation individuels peuvent gérer plusieurs partages de synchronisation. Cela peut s’avérer utile pour les raisons suivantes :  

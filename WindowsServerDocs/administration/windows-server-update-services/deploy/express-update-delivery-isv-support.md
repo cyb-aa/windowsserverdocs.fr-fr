@@ -11,14 +11,14 @@ author: sakitong
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: b891f61ff2c930591c33805d0e3bc595ebf196f7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 7331418c1926958da07c94bca9ff9f871134f3fa
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850490"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439869"
 ---
-#<a name="express-update-delivery-isv-support"></a>Prise en charge par les ISV de la distribution des mises à jour Express
+# <a name="express-update-delivery-isv-support"></a>Prise en charge par les ISV de la distribution des mises à jour Express
 
 >S'applique à : Windows 10, Windows Server 2016
 
@@ -38,7 +38,7 @@ Depuis la version 7, Windows a été en mesure de réduire la taille des téléc
 
 -  **Les périphériques d'entreprise gérés via [Windows Update for Business](https://technet.microsoft.com/itpro/windows/manage/waas-manage-updates-wufb)** bénéficient également de la distribution de mises à jour Express, le tout sans modification de la configuration.
 
-##<a name="how-isvs-can-take-advantage-of-express"></a>Comment les éditeurs de logiciels indépendants peuvent tirer parti d’Express
+## <a name="how-isvs-can-take-advantage-of-express"></a>Comment les éditeurs de logiciels indépendants peuvent tirer parti d’Express
 
 Éditeurs de logiciels indépendants peuvent utiliser WSUS et le client WU pour prendre en charge la remise de mise à jour d’Express. Microsoft recommande les trois étapes suivantes, chacune abordée plus en détail dans les sections ci-dessous :
 
@@ -64,7 +64,7 @@ WSUS sert d’interface pour la mise à jour de Windows et gère toutes les mét
 
 ### <a name="BKMK_2"></a>Étape 2 : Spécifiez et remplir le Cache de fichier ISV 
 
-####<a name="specify-the-isv-file-cache"></a>Spécifiez le cache du fichier ISV
+#### <a name="specify-the-isv-file-cache"></a>Spécifiez le cache du fichier ISV
 
 Nouveaux paramètres de stratégie de groupe et de gestion des appareils mobiles (MDM) côté client détaillées dans le [ **référence de fournisseur de service de Configuration** ](https://msdn.microsoft.com/en-us/windows/hardware/commercialize/customize/mdm/configuration-service-provider-reference) définissent l’emplacement du cache de fichier ISV.
 
@@ -82,10 +82,10 @@ Il existe deux options lorsque vous configurez l’emplacement de téléchargeme
  
     Cette approche configure le client Windows Update pour effectuer des demandes de téléchargement à localhost. Ainsi, l’agent du client ISV gérer ces demandes et l’itinéraire comme il convient de répondre à la demande de téléchargement.
 
->[!IMPORTANT]
->Le cache de fichier ISV nécessite les éléments suivants :                                                          
-                                                                                                                                   >- Le serveur doit être compatible avec la RFC HTTP 1.1 : <http://www.w3.org/Protocols/rfc2616/rfc2616.html>                                                                                                                                                                
-                                                                                                                                   >Plus précisément, le serveur web doit prendre en charge                                                                                                                                                                                                                                       [ **HEAD** ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) et [ **obtenir** ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.htm) demandes<br>                                                                                                                                                                                                                                                                                                  -Demandes de plage de partielle<br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Persistant<br>                                                                                                                                                                                                                                                                                                                                                                                                                            -N’utilisez pas « Transfer-Encoding : chunked ?                                                                                                 
+> [!IMPORTANT]
+> Le cache de fichier ISV nécessite les éléments suivants :                                                          
+> - Le serveur doit être compatible avec la RFC HTTP 1.1 : <http://www.w3.org/Protocols/rfc2616/rfc2616.html>                                                                                                                                                                
+> Plus précisément, le serveur web doit prendre en charge                                                                                                                                                                                                                                       [ **HEAD** ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) et [ **obtenir** ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.htm) demandes<br>                                                                                                                                                                                                                                                                                                  -Demandes de plage de partielle<br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Persistant<br>                                                                                                                                                                                                                                                                                                                                                                                                                            -N’utilisez pas « Transfer-Encoding : chunked »                                                                                                 
 
 #### <a name="populate-the-isv-file-cache"></a>Remplir le Cache de fichier ISV
 
@@ -95,15 +95,15 @@ Le cache de fichiers des éditeurs de logiciels indépendants doit être rempli 
 
 1. Utilisez [API WSUS](https://msdn.microsoft.com/en-us/library/windows/desktop/microsoft.updateservices.administration.updatefile(v=vs.85).aspx) pour accéder à la mise à jour le chemin d’accès au fichier et nom de fichier pour le service Microsoft Update.
 
-    Les métadonnées pour chaque mise à jour sur le serveur WSUS contient le chemin d’accès et nom de fichier sur Microsoft Update de la mise à jour comme suit (nom d’hôte de Microsoft Update en gras, suivie du chemin d’accès et nom de fichier) : **http://download.windowsupdate.com** /c/msdownload/mise à jour / Software/UPDT/2016/09/windows10.0-kb3195781-x64_0c06079bccc35cba35a48bd2b1ec46f818bd2e74.msu
+    Les métadonnées pour chaque mise à jour sur le serveur WSUS contient le chemin d’accès et nom de fichier sur Microsoft Update de la mise à jour comme suit (nom d’hôte de Microsoft Update en gras, suivie du chemin d’accès et nom de fichier) : **<http://download.windowsupdate.com>** /c/msdownload/mise à jour / Software/UPDT/2016/09/windows10.0-kb3195781-x64_0c06079bccc35cba35a48bd2b1ec46f818bd2e74.msu
 
 2. Télécharger des fichiers à partir de Microsoft Update et les stocker dans le cache de fichier ISV en utilisant l’une de ces deux méthodes : 
 
- - Fichiers de Store à l’aide de la **même chemin de dossier que sur le service MU**
+   - Fichiers de Store à l’aide de la **même chemin de dossier que sur le service MU**
 
- - Fichiers de Store à l’aide un **chemin d’accès du dossier défini par l’éditeur de logiciels indépendant**
+   - Fichiers de Store à l’aide un **chemin d’accès du dossier défini par l’éditeur de logiciels indépendant**
 
-    Ont de redirection de serveur (ou localhost) HTTP **HTTP GET** demandes, qui font référence à la MU dossier chemin d’accès et nom de fichier à l’emplacement du fichier ISV.
+     Ont de redirection de serveur (ou localhost) HTTP **HTTP GET** demandes, qui font référence à la MU dossier chemin d’accès et nom de fichier à l’emplacement du fichier ISV.
 
 ### <a name="BKMK_3"></a>Étape 3 : Configurer un agent de client ISV pour diriger les opérations du client WU
 
@@ -132,15 +132,15 @@ Voici les deux illustrations des options de flux de travail de téléchargement 
 
 - Pour les mises à jour du système d’exploitation qui prennent en charge le téléchargement Express, deux versions de la charge utile de fichier sont stockées sur le service :
 
- - **Version complète** --essentiellement en remplaçant les versions locales des fichiers binaires de mise à jour
+  - **Version complète** --essentiellement en remplaçant les versions locales des fichiers binaires de mise à jour
 
- - **Version Express** --contenant les deltas nécessaires pour corriger les fichiers binaires existants sur l’appareil. 
+  - **Version Express** --contenant les deltas nécessaires pour corriger les fichiers binaires existants sur l’appareil. 
 
-   La version complète et la version Express sont référencés dans les métadonnées de la mise à jour, ce qui a été téléchargée sur le client en tant que partie de la phase d’analyse. 
+    La version complète et la version Express sont référencés dans les métadonnées de la mise à jour, ce qui a été téléchargée sur le client en tant que partie de la phase d’analyse. 
 
-   **Téléchargement rapide fonctionne comme suit :**
+    **Téléchargement rapide fonctionne comme suit :**
 
-   Le client WU tente de télécharger Express tout d’abord et dans certaine situations fall fichier complet si nécessaire (par exemple, si la connexion via un proxy qui ne prennent pas en charge les demandes de plage d’octets).
+    Le client WU tente de télécharger Express tout d’abord et dans certaine situations fall fichier complet si nécessaire (par exemple, si la connexion via un proxy qui ne prennent pas en charge les demandes de plage d’octets).
 
   1. Lorsque le client WU lance un téléchargement rapide, **le client Windows Update télécharge d’abord un stub**, qui fait partie du package Express.
 

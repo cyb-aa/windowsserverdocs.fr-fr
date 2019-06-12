@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 161446ff-a072-4cc4-b339-00a04857ff3a
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 33fd9447a79346127714a5e5e73977611eba483c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c36475dacb8664352f4ab270878357118d281c60
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829470"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446421"
 ---
 # <a name="use-dns-policy-for-intelligent-dns-responses-based-on-the-time-of-day"></a>Utiliser une stratégie DNS pour les réponses DNS intelligentes basées sur l’heure du jour
 
@@ -107,7 +107,7 @@ Pour plus d’informations, consultez [Add-DnsServerZoneScope](https://docs.micr
 #### <a name="bkmk_records"></a>Ajoutez des enregistrements dans les étendues de Zone  
 Maintenant, vous devez ajouter les enregistrements représentant l’hôte du serveur web dans les étendues de deux zones.  
   
-Par exemple, dans **SeattleZoneScope**, l’enregistrement **www.contosogiftservices.com** est ajouté avec l’adresse IP 192.0.0.1, qui se trouve dans un centre de données de Seattle. De même, dans **DublinZoneScope**, l’enregistrement **www.contosogiftservices.com** est ajouté avec l’adresse IP 141.1.0.3 dans le centre de données Dublin  
+Par exemple, dans **SeattleZoneScope**, l’enregistrement <strong>www.contosogiftservices.com</strong> est ajouté avec l’adresse IP 192.0.0.1, qui se trouve dans un centre de données de Seattle. De même, dans **DublinZoneScope**, l’enregistrement <strong>www.contosogiftservices.com</strong> est ajouté avec l’adresse IP 141.1.0.3 dans le centre de données Dublin  
   
 Vous pouvez utiliser les commandes Windows PowerShell suivantes pour ajouter des enregistrements pour les étendues de zone.  
   

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5a650fae246d71d8c1f9822dfa9ff8e96d855b4b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0b2caceed6962bef22e7d546fa3b4469c9682b39
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886570"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441254"
 ---
 # <a name="setx"></a>setx
 
@@ -38,21 +38,21 @@ setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <FileName>
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|/s \<ordinateur >|Spécifie le nom ou l’adresse IP d’un ordinateur distant. N’utilisez pas de barres obliques inverses. La valeur par défaut est le nom de l’ordinateur local.|
-|/u [\<domaine >\]<User name>|Exécute le script avec les informations d’identification du compte d’utilisateur spécifié. La valeur par défaut est les autorisations du système.|
-|/p [\<Password>]|Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** paramètre.|
-|\<Variable>|Spécifie le nom de la variable d’environnement que vous souhaitez définir.|
-|\<valeur >|Spécifie la valeur à laquelle vous souhaitez définir la variable d’environnement.|
-|/k \<Path>|Spécifie que la variable est définie en fonction des informations à partir d’une clé de Registre. Le p*hemin* utilise la syntaxe suivante :</br>`\\<HIVE>\<KEY>\...\<Value>`</br>Par exemple, vous pouvez spécifier le chemin d’accès suivant :</br>`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName`|
-|/f \<nom de fichier >|Spécifie le fichier que vous souhaitez utiliser.|
-|/a \<X>,<Y>|Spécifie des coordonnées absolues et le décalage en tant que paramètres de recherche.|
-|/r \<X >,<Y> «<String>»|Spécifie les coordonnées relatives et le décalage de **chaîne** en tant que paramètres de recherche.|
-|/m|Spécifie pour définir la variable dans l’environnement système. Le paramètre par défaut est l’environnement local.|
-|/x|Affiche fichier coordonnées, en ignorant le **/a**, **/r**, et **/d** des options de ligne de commande.|
-|/d \<délimiteurs >|Spécifie les délimiteurs tels que »**,**» ou « **\**» pour être utilisée en plus les quatre délimiteurs intégrés : espace, tabulation, entrée et saut de ligne. Délimiteurs valides incluent tout caractère ASCII. Le nombre maximal de délimiteurs est 15, y compris les délimiteurs intégrés.|
-|/?|Affiche l'aide à l'invite de commandes.|
+|         Paramètre          |                                                                                                                                              Description                                                                                                                                              |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|       /s \<ordinateur >       |                                                                                  Spécifie le nom ou l’adresse IP d’un ordinateur distant. N’utilisez pas de barres obliques inverses. La valeur par défaut est le nom de l’ordinateur local.                                                                                  |
+| /u [\<domaine >\]<User name> |                                                                                           Exécute le script avec les informations d’identification du compte d’utilisateur spécifié. La valeur par défaut est les autorisations du système.                                                                                            |
+|      /p [\<Password>]      |                                                                                                         Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** paramètre.                                                                                                         |
+|        \<Variable>         |                                                                                                                 Spécifie le nom de la variable d’environnement que vous souhaitez définir.                                                                                                                  |
+|          \<valeur >          |                                                                                                                Spécifie la valeur à laquelle vous souhaitez définir la variable d’environnement.                                                                                                                 |
+|         /k \<Path>         | Spécifie que la variable est définie en fonction des informations à partir d’une clé de Registre. Le p*hemin* utilise la syntaxe suivante :</br>`\\<HIVE>\<KEY>\...\<Value>`</br>Par exemple, vous pouvez spécifier le chemin d’accès suivant :</br>`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName` |
+|      /f \<nom de fichier >       |                                                                                                                               Spécifie le fichier que vous souhaitez utiliser.                                                                                                                                |
+|        /a \<X>,<Y>         |                                                                                                                    Spécifie des coordonnées absolues et le décalage en tant que paramètres de recherche.                                                                                                                    |
+|   /r \<X >,<Y> «<String>»   |                                                                                                            Spécifie les coordonnées relatives et le décalage de **chaîne** en tant que paramètres de recherche.                                                                                                            |
+|             /m             |                                                                                                Spécifie pour définir la variable dans l’environnement système. Le paramètre par défaut est l’environnement local.                                                                                                 |
+|             /x             |                                                                                                       Affiche fichier coordonnées, en ignorant le **/a**, **/r**, et **/d** des options de ligne de commande.                                                                                                        |
+|      /d \<délimiteurs >      |                    Spécifie les délimiteurs tel que « **,** « ou » **\\** » pour être utilisée en plus les quatre délimiteurs intégrés : espace, tabulation, entrée et saut de ligne. Délimiteurs valides incluent tout caractère ASCII. Le nombre maximal de délimiteurs est 15, y compris les délimiteurs intégrés.                    |
+|             /?             |                                                                                                                                 Affiche l'aide à l'invite de commandes.                                                                                                                                  |
 
 ## <a name="remarks"></a>Notes
 
@@ -80,7 +80,7 @@ Pour définir la variable d’environnement MYPATH dans l’environnement local 
 ```
 setx MYPATH %PATH%
 ```
-Pour définir la variable d’environnement MYPATH dans l’environnement local à utiliser le chemin de recherche défini dans la variable d’environnement PATH après avoir remplacé **~** avec **%**, type :
+Pour définir la variable d’environnement MYPATH dans l’environnement local à utiliser le chemin de recherche défini dans la variable d’environnement PATH après avoir remplacé **~** avec **%** , type :
 ```
 setx MYPATH ~PATH~ 
 ```
@@ -131,4 +131,4 @@ setx /s computer1 /u maindom\hiropln /p p@ssW23 /f ipconfig.out /x
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

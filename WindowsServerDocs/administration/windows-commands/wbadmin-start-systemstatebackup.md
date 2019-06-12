@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 591ff7caa554a892bda0bc0e888bd89a87d8b0ef
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d98ba295b2a76baf98e85a01a02677d57922877d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863550"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440261"
 ---
 # <a name="wbadmin-start-systemstatebackup"></a>WBADMIN start systemstatebackup
 
@@ -43,10 +43,10 @@ wbadmin start systemstatebackup
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|-backupTarget|Spécifie l’emplacement où vous souhaitez stocker la sauvegarde. L’emplacement de stockage nécessite une lettre de lecteur ou un volume en fonction du GUID du format : \\ \\? \Volume {*GUID*}.</br>Une sauvegarde d’état système sur un dossier réseau partagé n’est pas pris en charge sur un ordinateur exécutant Windows Server 2008. Si votre serveur exécute Windows Server 2008 R2 ou version ultérieure, vous pouvez utiliser la commande **- backuptarget :\\\\servername\sharedFolder\**  pour stocker les sauvegardes d’état système.|
-|-quiet|Exécute la sous-commande sans invite à l’utilisateur.|
+|   Paramètre   |                                                                                                                                                                                                                      Description                                                                                                                                                                                                                      |
+|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -backupTarget | Spécifie l’emplacement où vous souhaitez stocker la sauvegarde. L’emplacement de stockage nécessite une lettre de lecteur ou un volume en fonction du GUID du format : \\ \\? \Volume {*GUID*}.</br>Une sauvegarde d’état système sur un dossier réseau partagé n’est pas pris en charge sur un ordinateur exécutant Windows Server 2008. Si votre serveur exécute Windows Server 2008 R2 ou version ultérieure, vous pouvez utiliser la commande **- backuptarget :\\\\servername\sharedFolder\\**  pour stocker les sauvegardes d’état système. |
+|    -quiet     |                                                                                                                                                                                                   Exécute la sous-commande sans invite à l’utilisateur.                                                                                                                                                                                                    |
 
 ## <a name="remarks"></a>Notes
 
@@ -61,6 +61,6 @@ wbadmin start systemstatebackup -backupTarget:f:
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Start-WBBackup](https://technet.microsoft.com/library/jj902459.aspx) applet de commande

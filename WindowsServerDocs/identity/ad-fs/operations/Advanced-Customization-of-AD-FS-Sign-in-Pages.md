@@ -9,12 +9,12 @@ ms.date: 01/16/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 73ff3fc6df872edd29735ee96c0918144250d5f1
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: ee7bef2afe61500fe75b2d3c61b92b902f9757fa
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190040"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444264"
 ---
 # <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>Personnalisation d’AD FS Sign-in Pages avancée
 
@@ -104,33 +104,33 @@ if (loginMessage)
 ```  
   
 ### <a name="example-2-accept-sam-account-name-as-a-login-format-on-an-ad-fs-form-based-sign-in-page"></a>Exemple 2 : accepter SAM\-nom du compte en tant que connexion format sur un formulaire d’AD FS\-l’authentification par\-dans la page  
-La valeur par défaut du formulaire d’AD FS\-l’authentification par\-dans la page prend en charge le format de connexion des noms d’utilisateur Principal \(UPN\) \(, par exemple, **johndoe@contoso.com** \) domaine qualifié sam ou\-noms de comptes \( **contoso\\johndoe** ou **contoso.com\\johndoe**\). En cas de tous vos utilisateurs proviennent du même domaine et ils ont uniquement connaissent sam\-noms de compte, vous souhaiterez prendre en charge le scénario où les utilisateurs peuvent se connecter à leur utilisation sam\-uniquement des noms de compte. Vous pouvez ajouter le code suivant à onload.js pour prendre en charge ce scénario, remplacez simplement le domaine « contoso.com » dans l’exemple ci-dessous avec le domaine que vous souhaitez utiliser.  
+La valeur par défaut du formulaire d’AD FS\-l’authentification par\-dans la page prend en charge le format de connexion des noms d’utilisateur Principal \(UPN\) \(, par exemple, <strong>johndoe@contoso.com</strong> \) domaine qualifié sam ou\-noms de comptes \( **contoso\\johndoe** ou **contoso.com\\johndoe**\). En cas de tous vos utilisateurs proviennent du même domaine et ils ont uniquement connaissent sam\-noms de compte, vous souhaiterez prendre en charge le scénario où les utilisateurs peuvent se connecter à leur utilisation sam\-uniquement des noms de compte. Vous pouvez ajouter le code suivant à onload.js pour prendre en charge ce scénario, remplacez simplement le domaine « contoso.com » dans l’exemple ci-dessous avec le domaine que vous souhaitez utiliser.  
   
 ```  
 if (typeof Login != 'undefined'){  
-    Login.submitLoginRequest = function () {   
-    var u = new InputUtil();  
-    var e = new LoginErrors();  
-    var userName = document.getElementById(Login.userNameInput);  
-    var password = document.getElementById(Login.passwordInput);  
-    if (userName.value && !userName.value.match('[@\\\\]'))   
-    {  
-        var userNameValue = 'contoso.com\\' + userName.value;  
-        document.forms['loginForm'].UserName.value = userNameValue;  
-    }  
+    Login.submitLoginRequest = function () {   
+    var u = new InputUtil();  
+    var e = new LoginErrors();  
+    var userName = document.getElementById(Login.userNameInput);  
+    var password = document.getElementById(Login.passwordInput);  
+    if (userName.value && !userName.value.match('[@\\\\]'))   
+    {  
+        var userNameValue = 'contoso.com\\' + userName.value;  
+        document.forms['loginForm'].UserName.value = userNameValue;  
+    }  
   
-    if (!userName.value) {  
-       u.setError(userName, e.userNameFormatError);  
-       return false;  
-    }  
+    if (!userName.value) {  
+       u.setError(userName, e.userNameFormatError);  
+       return false;  
+    }  
   
-    if (!password.value)   
-    {  
-        u.setError(password, e.passwordEmpty);  
-        return false;  
-    }  
-    document.forms['loginForm'].submit();  
-    return false;  
+    if (!password.value)   
+    {  
+        u.setError(password, e.passwordEmpty);  
+        return false;  
+    }  
+    document.forms['loginForm'].submit();  
+    return false;  
 };  
 }  
   

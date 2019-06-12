@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: ea7ecd52-4c12-4a49-92fd-b8c08cec42a9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5c74a9277af3853d709a8ecd58c1e53e1bccc719
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 009ded50b156162ad1f3397fc0708ef8075c6a6f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812510"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446834"
 ---
 # <a name="step-3-configure-the-multisite-deployment"></a>Étape 3 configurer le déploiement Multisite
 
@@ -67,7 +67,7 @@ Après avoir configuré l’infrastructure multisite, procédez comme suit pour 
 11.  Dans la boîte de dialogue **Progression de l’installation** , vérifiez que l’installation s’est correctement déroulée et cliquez sur **Fermer**.  
   
   
-![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
 
   
 Étapes 1 à 3 doivent être effectuées manuellement et ne sont pas réalisées à l’aide de cette applet de commande Windows PowerShell.  
@@ -183,7 +183,7 @@ Si vous avez sélectionné pour configurer le site de serveur d’emplacement r�
   
 1.  Sur le serveur DNS : Sur le **Démarrer** , tapez **dnsmgmt.msc**, puis appuyez sur ENTRÉE.  
   
-2.  Dans le volet gauche de la **Gestionnaire DNS** de la console, ouvrez la zone de recherche directe pour le réseau interne. Cliquez avec le bouton droit sur la zone concernée et cliquez sur **nouvel hôte (A ou AAAA)**.  
+2.  Dans le volet gauche de la **Gestionnaire DNS** de la console, ouvrez la zone de recherche directe pour le réseau interne. Cliquez avec le bouton droit sur la zone concernée et cliquez sur **nouvel hôte (A ou AAAA)** .  
   
 3.  Sur le **nouvel hôte** boîte de dialogue le **nom (utilise nom du domaine parent si vide)** , entrez le nom qui a été utilisé pour le serveur d’emplacement réseau pour le premier serveur d’accès à distance. Dans le **adresse IP** zone, entrez l’adresse IPv4 intranet du serveur d’accès à distance, puis cliquez sur **ajouter un hôte**. Dans la boîte de dialogue **DNS**, cliquez sur **OK**.  
   
@@ -261,7 +261,7 @@ Pour configurer un déploiement multisite, activer la fonctionnalité multisite 
   
 10. Sur le **activer le déploiement Multisite** boîte de dialogue, cliquez sur **fermer** puis cliquez sur l’Assistant Activer le déploiement Multisite, **fermer**.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -343,7 +343,7 @@ Après l’activation multisite dans votre déploiement, vous pouvez ajouter des
   
 16. Répétez cette procédure à l’étape 2 pour chaque point d’entrée que vous souhaitez ajouter à votre déploiement multisite.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -361,4 +361,4 @@ Add-DAClient -EntrypointName 'Edge2-Europe' -DownlevelGpoName @('corp.contoso.co
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Étape 2 : Configurer l’infrastructure multisite](Step-2-Configure-the-Multisite-Infrastructure.md)
+-   [Étape 2 : Configurer l’infrastructure multisite](Step-2-Configure-the-Multisite-Infrastructure.md)

@@ -8,12 +8,12 @@ ms.date: 07/13/2016
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: web-app-proxy
-ms.openlocfilehash: c7dab1dbf97d2dcbda1fe0375e61300f2a1cc373
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ca4d8661f8f0252334bdecbde85603d8af5e2d2a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862240"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446808"
 ---
 # <a name="publishing-applications-using-ad-fs-preauthentication"></a>Publication d’applications à l’aide de la préauthentification ADFS
 
@@ -103,7 +103,7 @@ Cette procédure décrit comment publier une application basée sur les revendic
   
 2.  Dans l’ **Assistant Publication d’une nouvelle application**, dans la page **Bienvenue** , cliquez sur **Suivant**.  
   
-3.  Sur le **la pré-authentification** , cliquez sur **Active Directory Federation Services (ADFS)**, puis cliquez sur **suivant**.  
+3.  Sur le **la pré-authentification** , cliquez sur **Active Directory Federation Services (ADFS)** , puis cliquez sur **suivant**.  
   
 4.  Sur la page **Clients pris en charge**, sélectionnez **Web et MSOFBA**, puis cliquez sur **Suivant**.  
   
@@ -128,7 +128,7 @@ Cette procédure décrit comment publier une application basée sur les revendic
   
 8.  Dans la page **Résultats** , vérifiez que l’application a été correctement publiée, puis cliquez sur **Fermer**.  
   
-![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***<em>Commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -183,7 +183,7 @@ Cette procédure décrit comment publier une application qui utilise l’authent
   
 2.  Dans l’ **Assistant Publication d’une nouvelle application**, dans la page **Bienvenue** , cliquez sur **Suivant**.  
   
-3.  Sur le **la pré-authentification** , cliquez sur **Active Directory Federation Services (ADFS)**, puis cliquez sur **suivant**.  
+3.  Sur le **la pré-authentification** , cliquez sur **Active Directory Federation Services (ADFS)** , puis cliquez sur **suivant**.  
   
 4.  Sur la page **Clients pris en charge**, sélectionnez **Web et MSOFBA**, puis cliquez sur **Suivant**.  
   
@@ -210,7 +210,7 @@ Cette procédure décrit comment publier une application qui utilise l’authent
   
 8.  Dans la page **Résultats** , vérifiez que l’application a été correctement publiée, puis cliquez sur **Fermer**.  
   
-![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***<em>Commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -286,7 +286,7 @@ La procédure suivante explique comment publier des applications de base HTTP.
   
 2.  Dans l’ **Assistant Publication d’une nouvelle application**, dans la page **Bienvenue** , cliquez sur **Suivant**.  
   
-3.  Sur le **la pré-authentification** , cliquez sur **Active Directory Federation Services (ADFS)**, puis cliquez sur **suivant**.  
+3.  Sur le **la pré-authentification** , cliquez sur **Active Directory Federation Services (ADFS)** , puis cliquez sur **suivant**.  
   
 4.  Sur le **Clients pris en charge** page, sélectionnez **HTTP Basic** puis cliquez sur **suivant**.  
   
@@ -310,7 +310,7 @@ La procédure suivante explique comment publier des applications de base HTTP.
   
 8.  Dans la page **Résultats** , vérifiez que l’application a été correctement publiée, puis cliquez sur **Fermer**.  
   
-![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***<em>Commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -391,7 +391,7 @@ Cette procédure décrit comment publier une application pour OAuth2. Ce type d�
   
 2.  Dans l’ **Assistant Publication d’une nouvelle application**, dans la page **Bienvenue** , cliquez sur **Suivant**.  
   
-3.  Sur le **la pré-authentification** , cliquez sur **Active Directory Federation Services (ADFS)**, puis cliquez sur **suivant**.  
+3.  Sur le **la pré-authentification** , cliquez sur **Active Directory Federation Services (ADFS)** , puis cliquez sur **suivant**.  
   
 4.  Sur le **Clients pris en charge** page, sélectionnez **OAuth2** puis cliquez sur **suivant**.  
   
@@ -441,7 +441,7 @@ Add-WebApplicationProxyApplication
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Résolution des problèmes de Proxy d’Application Web](https://technet.microsoft.com/library/dn770156.aspx)  
+-   [Résolution des problèmes au niveau du proxy d’application web](https://technet.microsoft.com/library/dn770156.aspx)  
   
 -   [Publier des Applications via le Proxy d’Application Web](https://technet.microsoft.com/library/dn383659.aspx)  
   

@@ -12,20 +12,20 @@ ms.assetid: affff774-5fa6-4944-887a-9bfde05f6a3f
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 7fed7e71f7ac163437fe5d32da7c867f93fbcf00
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bc83686f76c49773203d63a88894841f65ffd1d9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869970"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433761"
 ---
-#<a name="whats-new-in-windows-server-2016-essentials"></a>Nouveautés dans Windows Server 2016 Essentials
+# <a name="whats-new-in-windows-server-2016-essentials"></a>Nouveautés dans Windows Server 2016 Essentials
 
 > S'applique à : WindowsServer2016 Essentials
 
 Voici les nouvelles fonctionnalités dans Windows Server 2016 Essentials et améliorations.
 
-##<a name="integration-with-azure-site-recovery-servicesazure-site-recovery-services-integrationmd"></a>[Intégration avec Azure Site Recovery Services](azure-site-recovery-services-integration.md)
+## <a name="integration-with-azure-site-recovery-servicesazure-site-recovery-services-integrationmd"></a>[Intégration avec Azure Site Recovery Services](azure-site-recovery-services-integration.md)
 
 **Ce qu’il fait** --lorsqu’un ordinateur virtuel qui est protégé échoue, ou le serveur hôte que la machine virtuelle protégée s’exécute sur échoue, le basculement avec Azure Site Recovery Services gère la continuité des activités jusqu'à ce que la machine virtuelle de site sur ou serveur hôte est réparé et disponible. 
 
@@ -40,7 +40,7 @@ Voici les nouvelles fonctionnalités dans Windows Server 2016 Essentials et amé
 
 
 
-##<a name="support-for-larger-deploymentssupport-for-larger-deploymentsmd"></a>[Prise en charge des déploiements plus importants](support-for-larger-deployments.md) 
+## <a name="support-for-larger-deploymentssupport-for-larger-deploymentsmd"></a>[Prise en charge des déploiements plus importants](support-for-larger-deployments.md) 
 
 Certaines petites entreprises supérieure avez besoin de davantage de fonctionnalités et de capacité à implémenter efficacement des Windows Server Essentials. Windows Server 2016 Essentials fournit apprécieront la gestion de domaines, les utilisateurs et les appareils en ajoutant la prise en charge des déploiements plus importants avec :                                                                                                                                                                                                 
 
@@ -52,4 +52,4 @@ Certaines petites entreprises supérieure avez besoin de davantage de fonctionna
 <a name="see-also"></a>Voir aussi
 --------
 
-[Prise en main Windows Server Essentials](get-started.md)
+[Prise en main de Windows Server Essentials](get-started.md)

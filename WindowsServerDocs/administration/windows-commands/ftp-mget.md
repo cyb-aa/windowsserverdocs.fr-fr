@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1160ec742dde318141da720bd35b7d60ab805bb1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e43bf8b6e7067a31b3ec51336b0b43845ab88f63
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888420"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438601"
 ---
 # <a name="ftp-mget"></a>FTP : mget
 
@@ -30,9 +30,11 @@ Type de transfert de copie des fichiers à distance sur l’ordinateur local à 
 mget <remoteFile>[ ]  
 ```  
 ### <a name="parameters"></a>Paramètres  
-|Paramètre|Description|  
-|-------|--------|  
-|<remoteFile>|Spécifie les fichiers distants à copier sur l’ordinateur local.|  
+
+|  Paramètre   |                        Description                        |
+|--------------|-----------------------------------------------------------|
+| <remoteFile> | Spécifie les fichiers distants à copier sur l’ordinateur local. |
+
 ## <a name="BKMK_Examples"></a>Exemples  
 Copiez les fichiers distants **a.exe** et **b.exe** sur l’ordinateur local en utilisant le mode de transfert de fichiers en cours.  
 ```  
@@ -41,4 +43,4 @@ mget a.exe b.exe
 ## <a name="additional-references"></a>Références supplémentaires  
 -   [ftp: ascii](ftp-ascii.md)  
 -   [ftp: binary](ftp-binary.md)  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

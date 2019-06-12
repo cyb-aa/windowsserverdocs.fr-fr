@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ed9518fae07745502d01dc0084b7443a1332db83
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 264bdb6d51622e6323be00b44014b86cd9662e61
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859800"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440504"
 ---
 # <a name="using-the-get-driverpackagefile-command"></a>À l’aide de la commande get-DriverPackageFile
 
@@ -34,11 +34,11 @@ WDSUTIL /Get-DriverPackageFile /InfFile:<Inf File path> [/Architecture:{x86 | ia
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|/ InfFile :\<chemin d’accès du fichier Inf >|Spécifie le chemin d’accès et le nom complet du fichier .inf de package de pilotes.|
-|[/ Architecture : {x86 | ia64 | x64}]|Spécifie l’architecture du package de pilotes.|
-|[/ Afficher : {pilotes | Fichiers | All}]|Indique les informations de package à afficher. Si **/afficher** n’est pas spécifié, la valeur par défaut est de retourner uniquement le pilote les métadonnées du package. **Pilotes** affiche la liste des pilotes dans le package. **Fichiers** affiche la liste des fichiers dans le package. **Tous les** affiche les pilotes et les fichiers.|
+|         Paramètre         |                              Description                               |
+|---------------------------|------------------------------------------------------------------------|
+| / InfFile :\<chemin d’accès du fichier Inf > | Spécifie le chemin d’accès et le nom complet du fichier .inf de package de pilotes. |
+|    [/ Architecture : {x86    |                                  ia64                                  |
+|     [/ Afficher : {pilotes      |                                 Fichiers                                  |
 
 ## <a name="BKMK_examples"></a>Exemples
 
@@ -49,4 +49,4 @@ WDSUTIL /Get-DriverPackageFile /InfFile:"C:\temp\1394.inf" /Architecture:x86
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

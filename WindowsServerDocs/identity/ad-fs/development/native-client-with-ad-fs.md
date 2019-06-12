@@ -9,12 +9,12 @@ ms.date: 07/17/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: e85a97fa08e4c77588b17aee08ee03e0b897a74c
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 15bb6f1e39f64ff19ebb5515188ee944e277d3b7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976847"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445481"
 ---
 # <a name="build-a-native-client-application-using-oauth-public-clients-with-ad-fs-2016-or-later"></a>Générer un client natif application à l’aide des clients publics OAuth avec AD FS 2016 ou version ultérieur
 
@@ -163,7 +163,7 @@ Exécution de l’application
 
 Dans cette étape, l’application native redirigé vers AD FS et obtenu un jeton d’ID et un jeton d’accès pour l’API Web
 
-3.  Entrez un élément dans la zone de texte et cliquez sur Ajouter un élément. Dans cette étape, l’application contacte l’API Web pour ajouter l’élément de tâche et pour ce faire, présentent le jeton d’accès à l’API Web obtenu à partir d’AD FS. L’API Web correspond à la valeur de l’audience pour vous assurer que le jeton est destiné et vérifie la signature du jeton en utilisant les informations à partir des métadonnées de fédération.
+3. Entrez un élément dans la zone de texte et cliquez sur Ajouter un élément. Dans cette étape, l’application contacte l’API Web pour ajouter l’élément de tâche et pour ce faire, présentent le jeton d’accès à l’API Web obtenu à partir d’AD FS. L’API Web correspond à la valeur de l’audience pour vous assurer que le jeton est destiné et vérifie la signature du jeton en utilisant les informations à partir des métadonnées de fédération.
 
 ![Connexion](media/native-client-with-ad-fs-2016/clienttodoadd.png)
 

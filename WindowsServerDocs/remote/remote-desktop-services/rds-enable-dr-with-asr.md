@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: e3f9db4afb37452b4fd5d0229b385492b915fe45
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 7aa25602c71e5d114be7ae59c5e3ce168844d700
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859010"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446548"
 ---
 # <a name="enable-disaster-recovery-of-rds-using-azure-site-recovery"></a>Activer la récupération d’urgence des services Bureau à distance à l’aide d’Azure Site Recovery
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 Pour vous assurer que votre déploiement des services Bureau à distance est correctement configuré pour la récupération d’urgence, vous devez protéger tous les composants qui constituent votre déploiement des services Bureau à distance :
 
@@ -29,7 +29,7 @@ Pour vous assurer que votre déploiement des services Bureau à distance est cor
 - Niveau de SQL Server
 - Composants des services Bureau à distance
 - Composants réseau
- 
+
 ## <a name="configure-active-directory-and-dns-replication"></a>Configurer la réplication Active Directory et DNS
 
 Vous avez besoin d’Active Directory sur le site de récupération d’urgence pour votre déploiement des services Bureau à distance fonctionne. Vous avez deux possibilités en fonction de la complexité votre déploiement des services Bureau à distance :
@@ -47,9 +47,10 @@ Consultez [protéger SQL Server à l’aide de la récupération d’urgence de 
 
 Selon votre type de déploiement des services Bureau à distance, vous pouvez activer la protection pour les machines virtuelles composant différent (comme indiqué dans le tableau ci-dessous) dans Azure Site Recovery. Configurer les éléments d’Azure Site Recovery appropriés selon que vos machines virtuelles sont déployées sur Hyper-V ou VMWare.
 
-| Type de déploiement                              | Procédure de protection                                                                                                                                                                                      |
-|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Bureau virtuel personnel (non managé)         |  1. Assurez-vous que tous les hôtes de virtualisation sont prêts avec le rôle d’ordinateur RDVH installé.    </br>2. Agent de connexion.  </br>3. Bureaux personnels. </br>4. Gold modèle de machine virtuelle. </br>5. Web Access, serveur de licences et de serveur de passerelle |
-| Bureau virtuel mis en pool (géré avec sans UPD) |  1. Tous les hôtes de virtualisation sont prêts avec le rôle d’ordinateur RDVH installé.  </br>2. Agent de connexion.  </br>3. Gold modèle de machine virtuelle. </br>4. Web Access, serveur de licences et de serveur de passerelle.                                  |
-| RemoteApps et Sessions de bureau (sans UPD)     |  1. Hôtes de session.  </br>2. Agent de connexion. </br>3. Web Access, serveur de licences et de serveur de passerelle.                                                                                                          |                                                                                                                                      |
+
+|               Type de déploiement                |                                                                                                     Procédure de protection                                                                                                     |
+|----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     Bureau virtuel personnel (non managé)     | 1. Assurez-vous que tous les hôtes de virtualisation sont prêts avec le rôle d’ordinateur RDVH installé.    </br>2. Agent de connexion.  </br>3. Bureaux personnels. </br>4. Gold modèle de machine virtuelle. </br>5. Web Access, serveur de licences et de serveur de passerelle |
+| Bureau virtuel mis en pool (géré avec sans UPD) |                    1. Tous les hôtes de virtualisation sont prêts avec le rôle d’ordinateur RDVH installé.  </br>2. Agent de connexion.  </br>3. Gold modèle de machine virtuelle. </br>4. Web Access, serveur de licences et de serveur de passerelle.                    |
+|   RemoteApps et Sessions de bureau (sans UPD)   |                                                          1. Hôtes de session.  </br>2. Agent de connexion. </br>3. Web Access, serveur de licences et de serveur de passerelle.                                                           |
 

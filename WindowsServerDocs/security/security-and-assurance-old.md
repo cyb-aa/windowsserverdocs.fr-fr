@@ -11,12 +11,12 @@ ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
-ms.openlocfilehash: b32b4879ad454d1154c3d65dbf690cdaae73d76c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fed0587b74873005f14a216bac22f952bcc65a4f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827220"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447294"
 ---
 # <a name="security-and-assurance-in-windows-server"></a>Sécurité et assurance dans Windows Server 
 
@@ -87,10 +87,10 @@ Ce document partage la vision et les détails techniques de Just Enough Administ
 Démonstration pas à pas Just Enough Administration                                                                                                                  
 ## <a name="credential-protection"></a>Protection des informations d’identification
 
-### <a name="protect-derived-domain-credentials-with-credential-guardhttpsdocsmicrosoftcomwindowssecurityidentity-protectioncredential-guardcredential-guard"></a>[Protéger les informations d’identification de domaine dérivées avec Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard)
+### <a name="protect-derived-domain-credentials-with-credential-guardhttpsdocsmicrosoftcomwindowssecurityidentity-protectioncredential-guardcredential-guard"></a>[Protéger les informations d’identification de domaine dérivées avec la protection des informations d’identification](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard)
 La protection des informations d’identification utilise une sécurité basée sur la virtualisation pour isoler les secrets, afin que seuls les logiciels système privilégiés puissent y accéder. L’accès non autorisé à ces informations secrètes peut entraîner des vols, par exemple de type Pass-the-Hash ou Pass-the-Ticket. Credential Guard empêche ces attaques en protégeant les hachages de mot de passe NTLM et les tickets TGT (Ticket Granting Ticket) Kerberos.
 
-### <a name="protect-remote-desktop-credentials-with-remote-credential-guardhttpsdocsmicrosoftcomwindowssecurityidentity-protectionremote-credential-guard"></a>[Protéger les informations d’identification de bureau à distance avec de Credential Guard à distance](https://docs.microsoft.com/windows/security/identity-protection/remote-credential-guard)
+### <a name="protect-remote-desktop-credentials-with-remote-credential-guardhttpsdocsmicrosoftcomwindowssecurityidentity-protectionremote-credential-guard"></a>[Protéger les informations d’identification du Bureau à distance avec Remote Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/remote-credential-guard)
 La protection des informations d’identification à distance vous permet de protéger vos informations d’identification via une connexion Bureau à distance en redirigeant les demandes Kerberos vers l’appareil qui demande la connexion. Il offre également une expérience d’authentification unique pour les sessions de Bureau à distance.                                                                                                        |
 ### <a name="credential-guard-demo-videohttpswwwyoutubecomwatchveupkogsl7yk"></a>[Vidéo de démonstration Credential Guard](https://www.youtube.com/watch?v=eUpKOGSl7yk)
 Cette vidéo de démonstration de 5 minutes porte sur Credential Guard et Credential Guard à distance.         
@@ -111,7 +111,7 @@ La protection du flux de contrôle offre une protection intégrée contre certai
 ### <a name="windows-defenderhttpstechnetmicrosoftcomwindows-server-docssecuritywindows-defenderwindows-defender-overview-windows-server"></a>[Windows Defender](https://technet.microsoft.com/windows-server-docs/security/windows-defender/windows-defender-overview-windows-server)
 Windows Defender offre des fonctionnalités de détection active permettant de bloquer les logiciels malveillants connus. Windows Defender est activé par défaut et est optimisé pour prendre en charge les différents rôles serveur dans Windows Server.
 
-##<a name="detecting-and-responding-to-threats"></a>Détecter et répondre aux menaces
+## <a name="detecting-and-responding-to-threats"></a>Détecter et répondre aux menaces
 ### <a name="security-threat-analysis-using-microsoft-operations-management-suitehttpschannel9msdncomeventsignite2015brk3464"></a>[Analyse de menaces de sécurité à l’aide de Microsoft Operations Management Suite](https://channel9.msdn.com/events/ignite/2015/brk3464)
 Cette présentation Ignite explique comment vous pouvez utiliser Operational Insights pour effectuer l’analyse des menaces de sécurité.
 

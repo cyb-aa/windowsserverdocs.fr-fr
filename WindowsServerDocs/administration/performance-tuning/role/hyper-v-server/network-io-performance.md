@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 6dd9d03cce71c42e2ecc1388519de049a5e4e8dd
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 9f576963a93c8c0b9d6c05f406cc3331c407ceb9
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266714"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811518"
 ---
 # <a name="hyper-v-network-io-performance"></a>Performances d’e/s de réseau Hyper-V
 
@@ -22,7 +22,7 @@ Server 2016 contient plusieurs améliorations et nouvelles fonctionnalités pour
 
 Migration dynamique vous permet en toute transparence déplacer les machines virtuelles en cours d’exécution d’un nœud d’un cluster de basculement vers un autre nœud dans le même cluster sans une connexion réseau ou d’une indisponibilité perceptible.
 
-> [!Note]
+> [!NOTE]
 > Le Clustering de basculement nécessite un stockage partagé pour les nœuds de cluster.
 
 Le processus de déplacement d’une machine virtuelle en cours d’exécution peut être divisé en deux phases principales. La première phase copie la mémoire de la machine virtuelle à partir de l’hôte actuel vers le nouvel hôte. La deuxième phase transfère l’état de la machine virtuelle à partir de l’hôte actuel vers le nouvel hôte. Les durées des deux phases est largement déterminée par la vitesse à laquelle les données peuvent être transférées à partir de l’hôte actuel vers le nouvel hôte.

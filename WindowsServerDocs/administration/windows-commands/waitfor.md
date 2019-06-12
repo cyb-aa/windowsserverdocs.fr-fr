@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1c4a91dd3822cf4d8dd904f473f146a2f0ee54c0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 21ced4a9ef0dd7dac5f6c4fc6f171d99fa516c07
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840160"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440310"
 ---
 # <a name="waitfor"></a>waitfor
 
@@ -37,15 +37,15 @@ waitfor [/t <Timeout>] <SignalName>
 
 ## <a name="parameters"></a>Paramètres
 
-|Paramètre|Description|
-|---------|-----------|
-|/s \<ordinateur >|Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local. Ce paramètre s’applique à tous les fichiers et dossiers spécifiés dans la commande.|
-|/u [\<domaine >\]<User>|Exécute le script en utilisant les informations d’identification du compte d’utilisateur spécifié. Par défaut, **waitfor** utilise les informations d’identification de l’utilisateur actuel.|
-|/p [\<Password>]|Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** paramètre.|
-|/si|Envoie le signal spécifié sur le réseau.|
-|/t \<délai d’attente >|Spécifie le nombre de secondes à attendre un signal. Par défaut, **waitfor** attend indéfiniment.|
-|\<SignalName>|Spécifie le signal qui **waitfor** attend ou envoie. *NomSignal* ne respecte pas la casse.|
-|/?|Affiche l'aide à l'invite de commandes.|
+|       Paramètre       |                                                                                         Description                                                                                          |
+|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    /s \<ordinateur >     | Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local. Ce paramètre s’applique à tous les fichiers et dossiers spécifiés dans la commande. |
+| /u [\<domaine >\]<User> |                              Exécute le script en utilisant les informations d’identification du compte d’utilisateur spécifié. Par défaut, **waitfor** utilise les informations d’identification de l’utilisateur actuel.                               |
+|   /p [\<Password>]    |                                                    Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** paramètre.                                                     |
+|          /si          |                                                                        Envoie le signal spécifié sur le réseau.                                                                        |
+|     /t \<délai d’attente >     |                                              Spécifie le nombre de secondes à attendre un signal. Par défaut, **waitfor** attend indéfiniment.                                               |
+|     \<SignalName>     |                                                Spécifie le signal qui **waitfor** attend ou envoie. *NomSignal* ne respecte pas la casse.                                                 |
+|          /?           |                                                                             Affiche l'aide à l'invite de commandes.                                                                             |
 
 ## <a name="remarks"></a>Notes
 
@@ -76,4 +76,4 @@ waitfor /si espresso\build007
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

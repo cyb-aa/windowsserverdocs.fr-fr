@@ -10,12 +10,12 @@ ms.topic: article
 author: adagashe
 ms.date: 01/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 66d4796a6ffb453f6edb5fed20dba29b70f7ec4b
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 30958b8b1e8b0009626509409d1f031611c76a20
+ms.sourcegitcommit: fe621b72d45d0259bac1d5b9031deed3dcbed29d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476107"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455437"
 ---
 # <a name="understanding-cluster-and-pool-quorum"></a>Quorum de cluster et pool de présentation
 
@@ -29,8 +29,8 @@ Quorum détermine le nombre d’échecs que le cluster peut soutenir tout en res
 
 Dans Windows Server 2019 et Windows Server 2016, il existe deux composants du système qui possèdent leurs propres mécanismes de quorum :
 
-- <strong>Quorum du cluster</strong>: Cela fonctionne au niveau du cluster (par exemple, vous pouvez perdre des nœuds et le cluster reste opérationnelle)
-- <strong>Pool Quorum</strong>: Cela fonctionne au niveau du pool lorsque les espaces de stockage Direct est activé (par exemple, vous pouvez perdre des nœuds et des disques et le pool de rester opérationnel). Pools de stockage ont été conçus pour être utilisé dans les scénarios de cluster et non-cluster, c’est pourquoi ils ont un mécanisme de quorum différents.
+- **Quorum du cluster**: Cela fonctionne au niveau du cluster (par exemple, vous pouvez perdre des nœuds et le cluster reste opérationnelle)
+- **Pool Quorum**: Cela fonctionne au niveau du pool lorsque les espaces de stockage Direct est activé (par exemple, vous pouvez perdre des nœuds et des disques et le pool de rester opérationnel). Pools de stockage ont été conçus pour être utilisé dans les scénarios de cluster et non-cluster, c’est pourquoi ils ont un mécanisme de quorum différents.
 
 ## <a name="cluster-quorum-overview"></a>Vue d’ensemble du quorum de cluster
 
@@ -48,9 +48,9 @@ Le tableau ci-dessous donne une vue d’ensemble de résultats de Quorum du Clus
 
 ### <a name="cluster-quorum-recommendations"></a>Recommandations de quorum de cluster
 
-- Si vous avez deux nœuds, un témoin est <strong>requis</strong>.
-- Si vous avez trois ou quatre nœuds, le témoin est <strong>fortement recommandé</strong>.
-- Si vous avez accès à Internet, utilisez un  <strong>[cloud témoin](../../failover-clustering/deploy-cloud-witness.md)</strong>
+- Si vous avez deux nœuds, un témoin est **requis**.
+- Si vous avez trois ou quatre nœuds, le témoin est **fortement recommandé**.
+- Si vous avez accès à Internet, utilisez un  **[cloud témoin](../../failover-clustering/deploy-cloud-witness.md)**
 - Si vous êtes dans un environnement informatique avec d’autres ordinateurs et les partages de fichiers, utiliser un témoin de partage de fichiers
 
 ## <a name="how-cluster-quorum-works"></a>Le fonctionnement du quorum de cluster
@@ -64,7 +64,7 @@ Il existe deux façons le cluster peut rendre le *nombre total de votes* impair�
 1. Tout d’abord, il peut aller *des* une en ajoutant un *témoin* avec un vote supplémentaire. Cela nécessite la configuration de l’utilisateur.
 2.  Vous pouvez aussi, il peut *vers le bas* un en mettant à zéro le vote d’un nœud dans d’autres (se produit automatiquement en fonction des besoins).
 
-Chaque fois que les nœuds survivants correctement vérifier qu’ils sont le *majorité*, la définition de *majorité* est mis à jour pour être entre simplement les survivants. Cela permet au cluster à perdre un nœud, puis un autre, puis un autre et ainsi de suite. Ce concept de la *nombre total de votes* adaptation après des échecs consécutifs est appelé  <strong>*quorum dynamique*</strong>.  
+Chaque fois que les nœuds survivants correctement vérifier qu’ils sont le *majorité*, la définition de *majorité* est mis à jour pour être entre simplement les survivants. Cela permet au cluster à perdre un nœud, puis un autre, puis un autre et ainsi de suite. Ce concept de la *nombre total de votes* adaptation après des échecs consécutifs est appelé ***quorum dynamique***.  
 
 ### <a name="dynamic-witness"></a>Témoin dynamique
 
@@ -74,10 +74,10 @@ Quorum dynamique fonctionne avec témoin dynamique de la façon décrite ci-dess
 
 ### <a name="dynamic-quorum-behavior"></a>Comportement du quorum dynamique
 
-- Si vous avez un <strong>même</strong> nombre de nœuds et aucun témoin, *un seul nœud obtient son vote remis à zéro*. Par exemple, seulement trois des quatre nœuds obtiennent voix, donc la *nombre total de votes* est trois, et deux survivants avec les votes sont considérés comme une majorité.
-- Si vous avez un <strong>impair</strong> nombre de nœuds et aucun témoin, *pouvoir tous les votes*.
-- Si vous avez un <strong>même</strong> nombre de nœuds ainsi que le témoin, *le témoin votes*, de sorte que le total est impair.
-- Si vous avez un <strong>impair</strong> nombre de nœuds ainsi que le témoin, *le témoin ne vote*.
+- Si vous avez un **même** nombre de nœuds et aucun témoin, *un seul nœud obtient son vote remis à zéro*. Par exemple, seulement trois des quatre nœuds obtiennent voix, donc la *nombre total de votes* est trois, et deux survivants avec les votes sont considérés comme une majorité.
+- Si vous avez un **impair** nombre de nœuds et aucun témoin, *pouvoir tous les votes*.
+- Si vous avez un **même** nombre de nœuds ainsi que le témoin, *le témoin votes*, de sorte que le total est impair.
+- Si vous avez un **impair** nombre de nœuds ainsi que le témoin, *le témoin ne vote*.
 
 Quorum dynamique vous permettent d’assigner un vote à un nœud dynamiquement pour éviter de perdre la majorité des votes et permettre au cluster de s’exécuter avec un seul nœud (appelé permanent de la dernière-man). Prenons un cluster à quatre nœuds comme un exemple. Supposons que quorum nécessite 3 votes. 
 
@@ -89,72 +89,72 @@ Toutefois, quorum dynamique permet d’éviter ce problème. Le *nombre total de
 
 ![Diagramme montrant quatre nœuds de cluster, avec des nœuds échouent une à la fois et le nombre de votes requis ajustant après chaque échec.](media/understand-quorum/dynamic-quorum-step-through.png)
 
-Le scénario ci-dessus s’applique à un cluster général dépourvu d’espaces de stockage Direct est activé. Toutefois, espaces de stockage Direct est activé, le cluster peut uniquement prendre en charge deux défaillances de nœud. Cela est expliqué plus dans le [section de quorum de pool](#poolQuorum).
+Le scénario ci-dessus s’applique à un cluster général dépourvu d’espaces de stockage Direct est activé. Toutefois, espaces de stockage Direct est activé, le cluster peut uniquement prendre en charge deux défaillances de nœud. Cela est expliqué plus dans le [section de quorum de pool](#pool-quorum-overview).
 
 ### <a name="examples"></a>Exemples
 
 #### <a name="two-nodes-without-a-witness"></a>Deux nœuds sans témoin. 
-Vote d’un nœud est remis à zéro, afin que la *majorité* vote est déterminé sur un total de <strong>1 vote</strong>. Si le nœud non-votant s’arrête inopinément, survivant a 1/1 et le cluster survit. Si le vote du nœud tombe en panne inattendue, survivant a 0/1 et le cluster tombe en panne. Si le nœud de vote est mis hors tension normalement, le vote est transféré vers l’autre nœud et le cluster survit. *<strong>C’est pourquoi il est essentiel pour configurer un témoin.</strong>*
+Vote d’un nœud est remis à zéro, afin que la *majorité* vote est déterminé sur un total de **1 vote**. Si le nœud non-votant s’arrête inopinément, survivant a 1/1 et le cluster survit. Si le vote du nœud tombe en panne inattendue, survivant a 0/1 et le cluster tombe en panne. Si le nœud de vote est mis hors tension normalement, le vote est transféré vers l’autre nœud et le cluster survit. ***C’est pourquoi il est essentiel pour configurer un témoin.***
 
 ![Expliqué dans le cas avec deux nœuds sans témoin de quorum](media/understand-quorum/2-node-no-witness.png)
 
-- Peut survivre à une défaillance du serveur : <strong>50 % de chance</strong>.
-- Peut survivre à la défaillance d’un serveur, puis une autre : <strong>No</strong>.
-- Peut surmonter les défaillances de serveur deux à la fois : <strong>No</strong>. 
+- Peut survivre à une défaillance du serveur : **50 % de chance**.
+- Peut survivre à la défaillance d’un serveur, puis une autre : **No**.
+- Peut surmonter les défaillances de serveur deux à la fois : **No**. 
 
 #### <a name="two-nodes-with-a-witness"></a>Deux nœuds avec un témoin. 
-Les deux nœuds votants, ainsi que les votes le témoin, la *majorité* est déterminée sur un total de <strong>3 votes</strong>. Si des nœuds tombe en panne, survivant a 2/3 et le cluster survit.
+Les deux nœuds votants, ainsi que les votes le témoin, la *majorité* est déterminée sur un total de **3 votes**. Si des nœuds tombe en panne, survivant a 2/3 et le cluster survit.
 
 ![Expliqué dans le cas avec deux nœuds avec un témoin de quorum](media/understand-quorum/2-node-witness.png)
 
-- Peut survivre à une défaillance du serveur : <strong>Oui</strong>.
-- Peut survivre à la défaillance d’un serveur, puis une autre : <strong>No</strong>.
-- Peut surmonter les défaillances de serveur deux à la fois : <strong>No</strong>. 
+- Peut survivre à une défaillance du serveur : **Oui**.
+- Peut survivre à la défaillance d’un serveur, puis une autre : **No**.
+- Peut surmonter les défaillances de serveur deux à la fois : **No**. 
 
 #### <a name="three-nodes-without-a-witness"></a>Trois nœuds sans témoin.
-Tous les nœuds de votent, afin que la *majorité* est déterminée sur un total de <strong>3 votes</strong>. Si n’importe quel nœud tombe en panne, les survivants sont 2/3 et le cluster survit. Le cluster présente deux nœuds sans témoin : à ce stade, vous êtes dans le scénario 1.
+Tous les nœuds de votent, afin que la *majorité* est déterminée sur un total de **3 votes**. Si n’importe quel nœud tombe en panne, les survivants sont 2/3 et le cluster survit. Le cluster présente deux nœuds sans témoin : à ce stade, vous êtes dans le scénario 1.
 
 ![Expliqué dans le cas avec trois nœuds sans témoin de quorum](media/understand-quorum/3-node-no-witness.png)
 
-- Peut survivre à une défaillance du serveur : <strong>Oui</strong>.
-- Peut survivre à la défaillance d’un serveur, puis une autre : <strong>50 % de chance</strong>.
-- Peut surmonter les défaillances de serveur deux à la fois : <strong>No</strong>. 
+- Peut survivre à une défaillance du serveur : **Oui**.
+- Peut survivre à la défaillance d’un serveur, puis une autre : **50 % de chance**.
+- Peut surmonter les défaillances de serveur deux à la fois : **No**. 
 
 #### <a name="three-nodes-with-a-witness"></a>Trois nœuds avec un témoin.
-Tous les nœuds de votent, donc le témoin ne vote initialement. Le *majorité* est déterminée sur un total de <strong>3 votes</strong>. Après un échec, le cluster a deux nœuds avec un témoin – ce qui correspond au scénario 2. Donc, maintenant les deux nœuds et le témoin votent.
+Tous les nœuds de votent, donc le témoin ne vote initialement. Le *majorité* est déterminée sur un total de **3 votes**. Après un échec, le cluster a deux nœuds avec un témoin – ce qui correspond au scénario 2. Donc, maintenant les deux nœuds et le témoin votent.
 
 ![Expliqué dans le cas avec trois nœuds avec un témoin de quorum](media/understand-quorum/3-node-witness.png)
 
-- Peut survivre à une défaillance du serveur : <strong>Oui</strong>.
-- Peut survivre à la défaillance d’un serveur, puis une autre : <strong>Oui</strong>.
-- Peut surmonter les défaillances de serveur deux à la fois : <strong>No</strong>. 
+- Peut survivre à une défaillance du serveur : **Oui**.
+- Peut survivre à la défaillance d’un serveur, puis une autre : **Oui**.
+- Peut surmonter les défaillances de serveur deux à la fois : **No**. 
 
 #### <a name="four-nodes-without-a-witness"></a>Quatre nœuds sans témoin
-Vote d’un nœud est remis à zéro, afin que la *majorité* est déterminée sur un total de <strong>3 votes</strong>. Après un échec, le cluster présente trois nœuds, et vous êtes dans le scénario 3.
+Vote d’un nœud est remis à zéro, afin que la *majorité* est déterminée sur un total de **3 votes**. Après un échec, le cluster présente trois nœuds, et vous êtes dans le scénario 3.
 
 ![Expliqué dans le cas avec quatre nœuds sans témoin de quorum](media/understand-quorum/4-node-no-witness.png)
 
-- Peut survivre à une défaillance du serveur : <strong>Oui</strong>.
-- Peut survivre à la défaillance d’un serveur, puis une autre : <strong>Oui</strong>.
-- Peut surmonter les défaillances de serveur deux à la fois : <strong>50 % de chance</strong>. 
+- Peut survivre à une défaillance du serveur : **Oui**.
+- Peut survivre à la défaillance d’un serveur, puis une autre : **Oui**.
+- Peut surmonter les défaillances de serveur deux à la fois : **50 % de chance**. 
 
 #### <a name="four-nodes-with-a-witness"></a>Quatre nœuds avec un témoin.
-Tous les votes de nœuds et les votes de témoin, donc la *majorité* est déterminée sur un total de <strong>5 votes</strong>. Après un échec, vous êtes dans le scénario 4. Après deux défaillances simultanées, vous passez à scénario 2.
+Tous les votes de nœuds et les votes de témoin, donc la *majorité* est déterminée sur un total de **5 votes**. Après un échec, vous êtes dans le scénario 4. Après deux défaillances simultanées, vous passez à scénario 2.
 
 ![Expliqué dans le cas avec quatre nœuds avec un témoin de quorum](media/understand-quorum/4-node-witness.png)
 
-- Peut survivre à une défaillance du serveur : <strong>Oui</strong>.
-- Peut survivre à la défaillance d’un serveur, puis une autre : <strong>Oui</strong>.
-- Peut surmonter les défaillances de serveur deux à la fois : <strong>Oui</strong>. 
+- Peut survivre à une défaillance du serveur : **Oui**.
+- Peut survivre à la défaillance d’un serveur, puis une autre : **Oui**.
+- Peut surmonter les défaillances de serveur deux à la fois : **Oui**. 
 
 #### <a name="five-nodes-and-beyond"></a>Cinq nœuds et au-delà.
 Tous les nœuds votants, ou un seul vote, quelle que soit, le total impair. Espaces de stockage Direct ne peut pas gérer plus de deux nœuds vers le bas en tout cas, par conséquent, à ce stade, aucun témoin n’est nécessaire ou utile.
 
 ![Quorum expliqué dans le cas de cinq nœuds et au-delà](media/understand-quorum/5-nodes.png)
 
-- Peut survivre à une défaillance du serveur : <strong>Oui</strong>.
-- Peut survivre à la défaillance d’un serveur, puis une autre : <strong>Oui</strong>.
-- Peut surmonter les défaillances de serveur deux à la fois : <strong>Oui</strong>. 
+- Peut survivre à une défaillance du serveur : **Oui**.
+- Peut survivre à la défaillance d’un serveur, puis une autre : **Oui**.
+- Peut surmonter les défaillances de serveur deux à la fois : **Oui**. 
 
 Maintenant que nous comprenons le fonctionnement du quorum, examinons les types de témoins de quorum.
 
@@ -162,11 +162,11 @@ Maintenant que nous comprenons le fonctionnement du quorum, examinons les types 
 
 Le Clustering de basculement prend en charge trois types de témoins de Quorum :
 
-- <strong>[Témoin de cloud](../../failover-clustering\deploy-cloud-witness.md)</strong>  -le stockage Blob en Azure accessible par tous les nœuds du cluster. Il conserve les informations de mise en cluster dans un fichier witness.log, mais ne stocke pas une copie de la base de données de cluster.
-- <strong>Le témoin de partage de fichiers</strong> – partage de fichiers SMB de A qui est configuré sur un serveur de fichiers exécutant Windows Server. Il conserve les informations de mise en cluster dans un fichier witness.log, mais ne stocke pas une copie de la base de données de cluster.
-- <strong>Disque témoin</strong> -un petit disque en cluster qui se trouve dans le groupe de stockage disponible du Cluster. Ce disque est hautement disponible et peut basculer entre les nœuds. Il contient une copie de la base de données de cluster.  <strong>*Un témoin de disque n’est pas pris en charge avec les espaces de stockage Direct*</strong>.
+- **[Témoin de cloud](../../failover-clustering/deploy-cloud-witness.md)**  -le stockage Blob en Azure accessible par tous les nœuds du cluster. Il conserve les informations de mise en cluster dans un fichier witness.log, mais ne stocke pas une copie de la base de données de cluster.
+- **Le témoin de partage de fichiers** – partage de fichiers SMB de A qui est configuré sur un serveur de fichiers exécutant Windows Server. Il conserve les informations de mise en cluster dans un fichier witness.log, mais ne stocke pas une copie de la base de données de cluster.
+- **Disque témoin** -un petit disque en cluster qui se trouve dans le groupe de stockage disponible du Cluster. Ce disque est hautement disponible et peut basculer entre les nœuds. Il contient une copie de la base de données de cluster.  ***Un témoin de disque n’est pas pris en charge avec les espaces de stockage Direct***.
 
-## <a id="poolQuorum"></a>Vue d’ensemble du quorum de pool
+## <a name="pool-quorum-overview"></a>Vue d’ensemble du quorum de pool
 
 Nous venons de parler de Quorum du Cluster, qui fonctionne au niveau du cluster. À présent, examinons le Quorum de Pool, qui fonctionne au niveau du pool (par exemple, vous pouvez perdre des nœuds et lecteurs et avez le pool de rester opérationnel). Pools de stockage ont été conçus pour être utilisé dans les scénarios de cluster et non-cluster, c’est pourquoi ils ont un mécanisme de quorum différents.
 
@@ -195,31 +195,31 @@ Mais le quorum de pool fonctionne différemment de quorum du cluster comme suit�
 ### <a name="examples"></a>Exemples
 
 #### <a name="four-nodes-with-a-symmetrical-layout"></a>Quatre nœuds avec une disposition symétrique. 
-Chacun des 16 disques a un vote et nœud deux a également un vote (dans la mesure où il est propriétaire de la ressource de pool). Le *majorité* est déterminée sur un total de <strong>16 votes</strong>. Si les nœuds trois et quatre tombent en panne, le sous-ensemble survivant a 8 disques et le propriétaire de la ressource de pool, est 9/16 votes. Par conséquent, le pool survit.
+Chacun des 16 disques a un vote et nœud deux a également un vote (dans la mesure où il est propriétaire de la ressource de pool). Le *majorité* est déterminée sur un total de **16 votes**. Si les nœuds trois et quatre tombent en panne, le sous-ensemble survivant a 8 disques et le propriétaire de la ressource de pool, est 9/16 votes. Par conséquent, le pool survit.
 
 ![Pool Quorum 1](media/understand-quorum/pool-1.png)
 
-- Peut survivre à une défaillance du serveur : <strong>Oui</strong>.
-- Peut survivre à la défaillance d’un serveur, puis une autre : <strong>Oui</strong>.
-- Peut surmonter les défaillances de serveur deux à la fois : <strong>Oui</strong>. 
+- Peut survivre à une défaillance du serveur : **Oui**.
+- Peut survivre à la défaillance d’un serveur, puis une autre : **Oui**.
+- Peut surmonter les défaillances de serveur deux à la fois : **Oui**. 
 
 #### <a name="four-nodes-with-a-symmetrical-layout-and-drive-failure"></a>Quatre nœuds avec un échec de mise en page et lecteur symétrique. 
-Chacun des 16 disques a un vote et nœud 2 a également un vote (dans la mesure où il est propriétaire de la ressource de pool). Le *majorité* est déterminée sur un total de <strong>16 votes</strong>. Tout d’abord, le lecteur 7 tombe en panne. Si les nœuds trois et quatre tombent en panne, le sous-ensemble survivant a 7 disques et le propriétaire de la ressource de pool, est de 8/16 votes. Par conséquent, le pool n’a pas majorité et tombe en panne.
+Chacun des 16 disques a un vote et nœud 2 a également un vote (dans la mesure où il est propriétaire de la ressource de pool). Le *majorité* est déterminée sur un total de **16 votes**. Tout d’abord, le lecteur 7 tombe en panne. Si les nœuds trois et quatre tombent en panne, le sous-ensemble survivant a 7 disques et le propriétaire de la ressource de pool, est de 8/16 votes. Par conséquent, le pool n’a pas majorité et tombe en panne.
 
 ![Pool Quorum 2](media/understand-quorum/pool-2.png)
 
-- Peut survivre à une défaillance du serveur : <strong>Oui</strong>.
-- Peut survivre à la défaillance d’un serveur, puis une autre : <strong>No</strong>.
-- Peut surmonter les défaillances de serveur deux à la fois : <strong>No</strong>. 
+- Peut survivre à une défaillance du serveur : **Oui**.
+- Peut survivre à la défaillance d’un serveur, puis une autre : **No**.
+- Peut surmonter les défaillances de serveur deux à la fois : **No**. 
 
 #### <a name="four-nodes-with-a-non-symmetrical-layout"></a>Quatre nœuds avec une disposition non symétrique. 
-Chacun des 24 disques a un vote et nœud deux a également un vote (dans la mesure où il est propriétaire de la ressource de pool). Le *majorité* est déterminée sur un total de <strong>24 votes</strong>. Si les nœuds trois et quatre tombent en panne, le sous-ensemble survivant a 8 disques et le propriétaire de la ressource de pool, est 9/24 votes. Par conséquent, le pool n’a pas majorité et tombe en panne.
+Chacun des 24 disques a un vote et nœud deux a également un vote (dans la mesure où il est propriétaire de la ressource de pool). Le *majorité* est déterminée sur un total de **24 votes**. Si les nœuds trois et quatre tombent en panne, le sous-ensemble survivant a 8 disques et le propriétaire de la ressource de pool, est 9/24 votes. Par conséquent, le pool n’a pas majorité et tombe en panne.
 
 ![Pool Quorum 3](media/understand-quorum/pool-3.png)
 
-- Peut survivre à une défaillance du serveur : <strong>Oui</strong>.
-- Peut survivre à la défaillance d’un serveur, puis une autre : <strong>Varie</strong> (ne peut pas survivre à si les deux nœuds, trois et quatre tombent en panne, mais peuvent survivre à tous les autres scénarios.
-- Peut surmonter les défaillances de serveur deux à la fois : <strong>Varie</strong> (ne peut pas survivre à si les deux nœuds, trois et quatre tombent en panne, mais peuvent survivre à tous les autres scénarios.
+- Peut survivre à une défaillance du serveur : **Oui**.
+- Peut survivre à l’échec d’un serveur, puis une autre : ** Depends ** (ne peut pas survivre à si les deux nœuds, trois et quatre tombent en panne, mais peuvent survivre à tous les autres scénarios.
+- Peut survivre à deux défaillances de serveur à la fois : ** Depends ** (ne peut pas survivre à si les deux nœuds, trois et quatre tombent en panne, mais peuvent survivre à tous les autres scénarios.
 
 ### <a name="pool-quorum-recommendations"></a>Recommandations de quorum de pool
 

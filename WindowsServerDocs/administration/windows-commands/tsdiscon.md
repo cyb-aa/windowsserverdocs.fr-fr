@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2033cbc9b3d9127249656c3e0dcf95d872229797
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a1b5fca329864ebed9eab66671a17493f0fc3ca8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842540"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440912"
 ---
 # <a name="tsdiscon"></a>tsdiscon
 
@@ -36,6 +36,7 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
 ```
 
 ## <a name="parameters"></a>Paramètres
+
 |Paramètre|Description|
 |-------|--------|
 |\<SessionId>|Spécifie l’ID de la session à déconnecter.|
@@ -52,18 +53,18 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
 -   La session de console ne peut pas être déconnectée.
 
 ## <a name="BKMK_examples"></a>Exemples
--   Pour déconnecter la session active, tapez :
-    ```
-    tsdiscon
-    ```
--   Pour déconnecter la session 10, tapez :
-    ```
-    tsdiscon 10
-    ```
--   Pour déconnecter la session nommée TERM04, tapez :
-    ```
-    tsdiscon TERM04
-    ```
-#### <a name="additional-references"></a>Références supplémentaires
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
-[des Services Bureau à distance &#40;Services Terminal Server&#41; référence de la commande](remote-desktop-services-terminal-services-command-reference.md)
+- Pour déconnecter la session active, tapez :
+  ```
+  tsdiscon
+  ```
+- Pour déconnecter la session 10, tapez :
+  ```
+  tsdiscon 10
+  ```
+- Pour déconnecter la session nommée TERM04, tapez :
+  ```
+  tsdiscon TERM04
+  ```
+  #### <a name="additional-references"></a>Références supplémentaires
+  [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+  [des Services Bureau à distance &#40;Services Terminal Server&#41; référence de la commande](remote-desktop-services-terminal-services-command-reference.md)
