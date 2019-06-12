@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 18ba3517f6533a85fe7cb24f24a7f4ffdfad6991
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 526acaadc257d5e8b1dea342756cdeeec240c1dd
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222981"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435461"
 ---
 # <a name="install-or-uninstall-roles-role-services-or-features"></a>Installer ou désinstaller des rôles, des services de rôle ou des fonctionnalités
 
@@ -100,53 +100,53 @@ Les applets de commande de déploiement de gestionnaire de serveur pour Windows 
   
 #### <a name="to-install-roles-and-features-by-using-the-install-windowsfeature-cmdlet"></a>Pour installer des rôles et des fonctionnalités à l’aide de l’applet de commande Install-WindowsFeature  
   
-1.  Effectuez une des opérations suivantes pour ouvrir une session Windows PowerShell avec des droits utilisateur élevés.  
+1. Effectuez une des opérations suivantes pour ouvrir une session Windows PowerShell avec des droits utilisateur élevés.  
   
-    > [!NOTE]  
-    > Si vous installez des rôles et fonctionnalités sur un serveur distant, il est inutile d’exécuter Windows PowerShell avec des droits utilisateur élevés.  
+   > [!NOTE]  
+   > Si vous installez des rôles et fonctionnalités sur un serveur distant, il est inutile d’exécuter Windows PowerShell avec des droits utilisateur élevés.  
   
-    -   Sur le Bureau Windows, cliquez avec le bouton droit dans la barre des tâches sur **Windows PowerShell** , puis cliquez sur **Exécuter en tant qu’administrateur**.  
+   -   Sur le Bureau Windows, cliquez avec le bouton droit dans la barre des tâches sur **Windows PowerShell** , puis cliquez sur **Exécuter en tant qu’administrateur**.  
   
-    -   Sur le Windows **Démarrer** écran, cliquez sur la vignette pour Windows PowerShell et cliquez sur la barre des applications **exécuter en tant qu’administrateur**.  
+   -   Sur le Windows **Démarrer** écran, cliquez sur la vignette pour Windows PowerShell et cliquez sur la barre des applications **exécuter en tant qu’administrateur**.  
   
-2.  Tapez **Get-WindowsFeature**, puis appuyez sur **Entrée** pour afficher une liste de rôles et fonctionnalités installés et disponibles sur le serveur local. Si l’ordinateur local n’est pas un serveur, ou si vous souhaitez des informations sur un serveur distant, exécutez **Get-WindowsFeature - computerName <***Nom_Ordinateur***>** , dans lequel  *Nom_Ordinateur* représente le nom d’un ordinateur distant qui exécute Windows Server 2016. Les résultats de l’applet de commande contiennent les noms de commande des rôles et fonctionnalités que vous ajoutez à votre applet de commande à l’étape 4.  
+2. Tapez **Get-WindowsFeature**, puis appuyez sur **Entrée** pour afficher une liste de rôles et fonctionnalités installés et disponibles sur le serveur local. Si l’ordinateur local n’est pas un serveur, ou si vous souhaitez des informations sur un serveur distant, exécutez **Get-WindowsFeature - computerName <** <em>Nom_Ordinateur</em> **>** , dans lequel *Nom_Ordinateur* représente le nom d’un ordinateur distant qui exécute Windows Server 2016. Les résultats de l’applet de commande contiennent les noms de commande des rôles et fonctionnalités que vous ajoutez à votre applet de commande à l’étape 4.  
   
-    > [!NOTE]  
-    > Dans Windows PowerShell 3.0 et versions ultérieures de Windows PowerShell, il n’est pas nécessaire d’importer le module d’applet de commande Gestionnaire de serveur dans la session Windows PowerShell avant d’exécuter les applets de commande qui font partie du module. Un module est automatiquement importé la première fois que vous exécutez une applet de commande qui fait partie du module. En outre, les applets de commande Windows PowerShell, ni les noms de fonctionnalités utilisés avec les applets de commande respectent la casse.  
+   > [!NOTE]  
+   > Dans Windows PowerShell 3.0 et versions ultérieures de Windows PowerShell, il n’est pas nécessaire d’importer le module d’applet de commande Gestionnaire de serveur dans la session Windows PowerShell avant d’exécuter les applets de commande qui font partie du module. Un module est automatiquement importé la première fois que vous exécutez une applet de commande qui fait partie du module. En outre, les applets de commande Windows PowerShell, ni les noms de fonctionnalités utilisés avec les applets de commande respectent la casse.  
   
-3.  type **Get-help Install-WindowsFeature**, puis appuyez sur **entrée** pour afficher la syntaxe et les paramètres acceptés pour le `Install-WindowsFeature` applet de commande.  
+3. type **Get-help Install-WindowsFeature**, puis appuyez sur **entrée** pour afficher la syntaxe et les paramètres acceptés pour le `Install-WindowsFeature` applet de commande.  
   
-4.  Tapez la commande suivante, puis appuyez sur **entrée**, où *feature_name* représente le nom de la commande d’un rôle ou une fonctionnalité que vous souhaitez installer (obtenu à l’étape 2), et *Nom_Ordinateur* représente un ordinateur distant sur lequel vous souhaitez installer des rôles et fonctionnalités. Séparez plusieurs valeurs pour *nom_fonctionnalité* à l’aide de virgules. Le paramètre `Restart` permet de redémarrer automatiquement le serveur de destination si l’installation des rôles ou des fonctionnalités le requiert.  
+4. Tapez la commande suivante, puis appuyez sur **entrée**, où *feature_name* représente le nom de la commande d’un rôle ou une fonctionnalité que vous souhaitez installer (obtenu à l’étape 2), et *Nom_Ordinateur* représente un ordinateur distant sur lequel vous souhaitez installer des rôles et fonctionnalités. Séparez plusieurs valeurs pour *nom_fonctionnalité* à l’aide de virgules. Le paramètre `Restart` permet de redémarrer automatiquement le serveur de destination si l’installation des rôles ou des fonctionnalités le requiert.  
   
-    ```  
-    Install-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
-    ```  
+   ```  
+   Install-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
+   ```  
   
-    Pour installer des rôles et fonctionnalités sur un disque dur virtuel hors connexion, ajoutez les paramètres `computerName` et `VHD` . Si vous n’ajoutez pas le paramètre `computerName` , l’applet de commande suppose que l’ordinateur local est monté pour accéder au disque dur virtuel. Le paramètre `computerName` contient le nom du serveur sur lequel monter le disque dur virtuel tandis que le paramètre `VHD` contient le chemin d’accès au fichier VHD sur le serveur spécifié.  
+   Pour installer des rôles et fonctionnalités sur un disque dur virtuel hors connexion, ajoutez les paramètres `computerName` et `VHD` . Si vous n’ajoutez pas le paramètre `computerName` , l’applet de commande suppose que l’ordinateur local est monté pour accéder au disque dur virtuel. Le paramètre `computerName` contient le nom du serveur sur lequel monter le disque dur virtuel tandis que le paramètre `VHD` contient le chemin d’accès au fichier VHD sur le serveur spécifié.  
   
-    > [!NOTE]  
-    > Vous devez ajouter le `computerName` paramètre si vous exécutez l’applet de commande à partir d’un ordinateur qui exécute un système d’exploitation du client Windows.  
-    >   
-    > Pour installer des rôles et des fonctionnalités sur des disques durs virtuels hors connexion, les disques durs virtuels hors connexion cibles doivent répondre aux exigences suivantes.  
-    >   
-    > -   Ils doivent être équipés de la version de Windows Server qui correspond à la version du Gestionnaire de serveur vous sont en cours d’exécution. Consultez la note au début de [installer des rôles, services de rôle et fonctionnalités à l’aide de l’ajouter des rôles et fonctionnalités Assistant](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).  
-    > -   Ils ne peuvent pas posséder plus d’un volume ou d’une partition système.  
-    > -   Le dossier réseau partagé dans lequel le disque dur virtuel hors connexion est stocké doit accorder les droits d’accès suivants au compte d’ordinateur (ou système local) du serveur que vous avez sélectionné pour le montage du disque dur virtuel. L’accès au compte d’utilisateur uniquement ne suffit pas. Le partage peut accorder les autorisations **Lire** et **Écrire** au groupe **Tout le monde** pour autoriser l’accès au disque dur virtuel, mais pour des raisons de sécurité, cela n’est pas recommandé.  
-    >   
-    >     -   Accès **Lecture/écriture** dans la boîte de dialogue **Partage de fichiers**.  
-    >     -   **Contrôle total** accéder sur le **sécurité** tab, fichier ou dossier **propriétés** boîte de dialogue.  
+   > [!NOTE]  
+   > Vous devez ajouter le `computerName` paramètre si vous exécutez l’applet de commande à partir d’un ordinateur qui exécute un système d’exploitation du client Windows.  
+   >   
+   > Pour installer des rôles et des fonctionnalités sur des disques durs virtuels hors connexion, les disques durs virtuels hors connexion cibles doivent répondre aux exigences suivantes.  
+   >   
+   > -   Ils doivent être équipés de la version de Windows Server qui correspond à la version du Gestionnaire de serveur vous sont en cours d’exécution. Consultez la note au début de [installer des rôles, services de rôle et fonctionnalités à l’aide de l’ajouter des rôles et fonctionnalités Assistant](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).  
+   > -   Ils ne peuvent pas posséder plus d’un volume ou d’une partition système.  
+   > -   Le dossier réseau partagé dans lequel le disque dur virtuel hors connexion est stocké doit accorder les droits d’accès suivants au compte d’ordinateur (ou système local) du serveur que vous avez sélectionné pour le montage du disque dur virtuel. L’accès au compte d’utilisateur uniquement ne suffit pas. Le partage peut accorder les autorisations **Lire** et **Écrire** au groupe **Tout le monde** pour autoriser l’accès au disque dur virtuel, mais pour des raisons de sécurité, cela n’est pas recommandé.  
+   >   
+   >     -   Accès **Lecture/écriture** dans la boîte de dialogue **Partage de fichiers**.  
+   >     -   **Contrôle total** accéder sur le **sécurité** tab, fichier ou dossier **propriétés** boîte de dialogue.  
   
-    ```  
-    Install-WindowsFeature -Name <feature_name> -VHD <path> -computerName <computer_name> -Restart  
-    ```  
+   ```  
+   Install-WindowsFeature -Name <feature_name> -VHD <path> -computerName <computer_name> -Restart  
+   ```  
   
-    **Exemple :** L’applet de commande suivante installe le rôle Services de domaine active directory et la fonctionnalité Gestion de stratégie de groupe sur un serveur distant nommé ContosoDC1. Les outils de gestion et les composants logiciels enfichables sont ajoutés à l’aide du paramètre `IncludeManagementTools` et le serveur de destination doit être redémarré automatiquement si l’installation exige un redémarrage des serveurs.  
+   **Exemple :** L’applet de commande suivante installe le rôle Services de domaine active directory et la fonctionnalité Gestion de stratégie de groupe sur un serveur distant nommé ContosoDC1. Les outils de gestion et les composants logiciels enfichables sont ajoutés à l’aide du paramètre `IncludeManagementTools` et le serveur de destination doit être redémarré automatiquement si l’installation exige un redémarrage des serveurs.  
   
-    ```  
-    Install-WindowsFeature -Name AD-Domain-Services,GPMC -computerName ContosoDC1 -IncludeManagementTools -Restart  
-    ```  
+   ```  
+   Install-WindowsFeature -Name AD-Domain-Services,GPMC -computerName ContosoDC1 -IncludeManagementTools -Restart  
+   ```  
   
-5.  Lors de l’installation terminée, vérifiez-la en ouvrant le **tous les serveurs** page Gestionnaire de serveur, en sélectionnant un serveur sur lequel vous avez installé des rôles et fonctionnalités, puis en affichant le **des rôles et fonctionnalités** vignette sur la page pour le serveur sélectionné. Vous pouvez également exécuter la `Get-WindowsFeature` applet de commande ciblée sur le serveur sélectionné (Get-WindowsFeature - computerName <*Nom_Ordinateur*>) pour afficher la liste des rôles et fonctionnalités installés sur le serveur.  
+5. Lors de l’installation terminée, vérifiez-la en ouvrant le **tous les serveurs** page Gestionnaire de serveur, en sélectionnant un serveur sur lequel vous avez installé des rôles et fonctionnalités, puis en affichant le **des rôles et fonctionnalités** vignette sur la page pour le serveur sélectionné. Vous pouvez également exécuter la `Get-WindowsFeature` applet de commande ciblée sur le serveur sélectionné (Get-WindowsFeature - computerName <*Nom_Ordinateur*>) pour afficher la liste des rôles et fonctionnalités installés sur le serveur.  
   
 ## <a name="remove-roles-role-services-and-features-by-using-the-remove-roles-and-features-wizard"></a>Supprimer des rôles, services de rôle et fonctionnalités à l’aide de la supprimer Assistant rôles et fonctionnalités  
 Vous devez être connecté à un serveur en tant qu’administrateur pour désinstaller des rôles, services de rôle et fonctionnalités. Si vous êtes connecté à l’ordinateur local avec un compte sans droits d’administrateur sur votre serveur cible de désinstallation, cliquez avec le bouton droit sur le serveur cible dans la vignette **Serveurs**, puis cliquez sur **Gérer en tant que** pour préciser un compte doté de droits d’administrateur. Le serveur sur lequel vous voulez monter un disque dur virtuel hors connexion doit être ajouté au Gestionnaire de serveur et vous devez avoir des droits d’administrateur sur le serveur.  
@@ -191,49 +191,49 @@ Les applets de commande de déploiement de gestionnaire de serveur pour Windows 
   
 #### <a name="to-remove-roles-and-features-by-using-the-uninstall-windowsfeature-cmdlet"></a>Pour supprimer des rôles et des fonctionnalités à l’aide de l’applet de commande Uninstall-WindowsFeature  
   
-1.  Effectuez une des opérations suivantes pour ouvrir une session Windows PowerShell avec des droits utilisateur élevés.  
+1. Effectuez une des opérations suivantes pour ouvrir une session Windows PowerShell avec des droits utilisateur élevés.  
   
-    > [!NOTE]  
-    > Si vous désinstallez des rôles et fonctionnalités à partir d’un serveur distant, il est inutile d’exécuter Windows PowerShell avec des droits utilisateur élevés.  
+   > [!NOTE]  
+   > Si vous désinstallez des rôles et fonctionnalités à partir d’un serveur distant, il est inutile d’exécuter Windows PowerShell avec des droits utilisateur élevés.  
   
-    -   Sur le Bureau Windows, cliquez avec le bouton droit dans la barre des tâches sur **Windows PowerShell** , puis cliquez sur **Exécuter en tant qu’administrateur**.  
+   -   Sur le Bureau Windows, cliquez avec le bouton droit dans la barre des tâches sur **Windows PowerShell** , puis cliquez sur **Exécuter en tant qu’administrateur**.  
   
-    -   Sur le Windows **Démarrer** écran, cliquez sur la vignette de Windows PowerShell et cliquez sur la barre des applications **exécuter en tant qu’administrateur**.  
+   -   Sur le Windows **Démarrer** écran, cliquez sur la vignette de Windows PowerShell et cliquez sur la barre des applications **exécuter en tant qu’administrateur**.  
   
-2.  Tapez **Get-WindowsFeature**, puis appuyez sur **Entrée** pour afficher une liste de rôles et fonctionnalités installés et disponibles sur le serveur local. Si l’ordinateur local n’est pas un serveur, ou si vous souhaitez des informations sur un serveur distant, exécutez **Get-WindowsFeature - computerName <***Nom_Ordinateur***>** , dans lequel  *Nom_Ordinateur* représente le nom d’un ordinateur distant qui exécute Windows Server 2016. Les résultats de l’applet de commande contiennent les noms de commande des rôles et fonctionnalités que vous ajoutez à votre applet de commande à l’étape 4.  
+2. Tapez **Get-WindowsFeature**, puis appuyez sur **Entrée** pour afficher une liste de rôles et fonctionnalités installés et disponibles sur le serveur local. Si l’ordinateur local n’est pas un serveur, ou si vous souhaitez des informations sur un serveur distant, exécutez **Get-WindowsFeature - computerName <** <em>Nom_Ordinateur</em> **>** , dans lequel *Nom_Ordinateur* représente le nom d’un ordinateur distant qui exécute Windows Server 2016. Les résultats de l’applet de commande contiennent les noms de commande des rôles et fonctionnalités que vous ajoutez à votre applet de commande à l’étape 4.  
   
-    > [!NOTE]  
-    > Dans Windows PowerShell 3.0 et versions ultérieures de Windows PowerShell, il n’est pas nécessaire d’importer le module d’applet de commande Gestionnaire de serveur dans la session Windows PowerShell avant d’exécuter les applets de commande qui font partie du module. Un module est automatiquement importé la première fois que vous exécutez une applet de commande qui fait partie du module. En outre, les applets de commande Windows PowerShell, ni les noms de fonctionnalités utilisés avec les applets de commande respectent la casse.  
+   > [!NOTE]  
+   > Dans Windows PowerShell 3.0 et versions ultérieures de Windows PowerShell, il n’est pas nécessaire d’importer le module d’applet de commande Gestionnaire de serveur dans la session Windows PowerShell avant d’exécuter les applets de commande qui font partie du module. Un module est automatiquement importé la première fois que vous exécutez une applet de commande qui fait partie du module. En outre, les applets de commande Windows PowerShell, ni les noms de fonctionnalités utilisés avec les applets de commande respectent la casse.  
   
-3.  type **Get-help Uninstall-WindowsFeature**, puis appuyez sur **entrée** pour afficher la syntaxe et les paramètres acceptés pour le `Uninstall-WindowsFeature` applet de commande.  
+3. type **Get-help Uninstall-WindowsFeature**, puis appuyez sur **entrée** pour afficher la syntaxe et les paramètres acceptés pour le `Uninstall-WindowsFeature` applet de commande.  
   
-4.  Tapez ce qui suit, puis appuyez sur **Entrée**, où *feature_name* représente le nom de commande d’un rôle ou d’une fonctionnalité que vous souhaitez supprimer (obtenu à l’étape 2) et *computer_name* représente un ordinateur distant duquel vous souhaitez supprimer des rôles et fonctionnalités. Séparez plusieurs valeurs pour *nom_fonctionnalité* à l’aide de virgules. Le paramètre `Restart` permet de redémarrer automatiquement les serveurs de destination si la suppression des rôles ou des fonctionnalités le requiert.  
+4. Tapez ce qui suit, puis appuyez sur **Entrée**, où *feature_name* représente le nom de commande d’un rôle ou d’une fonctionnalité que vous souhaitez supprimer (obtenu à l’étape 2) et *computer_name* représente un ordinateur distant duquel vous souhaitez supprimer des rôles et fonctionnalités. Séparez plusieurs valeurs pour *nom_fonctionnalité* à l’aide de virgules. Le paramètre `Restart` permet de redémarrer automatiquement les serveurs de destination si la suppression des rôles ou des fonctionnalités le requiert.  
   
-    ```  
-    Uninstall-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
-    ```  
+   ```  
+   Uninstall-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
+   ```  
   
-    Pour supprimer des rôles et fonctionnalités d’un disque dur virtuel hors connexion, ajoutez les paramètres `computerName` et `VHD` . Si vous n’ajoutez pas le paramètre `computerName` , l’applet de commande suppose que l’ordinateur local est monté pour accéder au disque dur virtuel. Le paramètre `computerName` contient le nom du serveur sur lequel monter le disque dur virtuel tandis que le paramètre `VHD` contient le chemin d’accès au fichier VHD sur le serveur spécifié.  
+   Pour supprimer des rôles et fonctionnalités d’un disque dur virtuel hors connexion, ajoutez les paramètres `computerName` et `VHD` . Si vous n’ajoutez pas le paramètre `computerName` , l’applet de commande suppose que l’ordinateur local est monté pour accéder au disque dur virtuel. Le paramètre `computerName` contient le nom du serveur sur lequel monter le disque dur virtuel tandis que le paramètre `VHD` contient le chemin d’accès au fichier VHD sur le serveur spécifié.  
   
-    > [!NOTE]  
-    > Vous devez ajouter le `computerName` paramètre si vous exécutez l’applet de commande à partir d’un ordinateur qui exécute un système d’exploitation du client Windows.  
-    >   
-    > Le dossier réseau partagé dans lequel le disque dur virtuel hors connexion est stocké doit accorder les droits d’accès suivants au compte d’ordinateur (ou système local) du serveur que vous avez sélectionné pour le montage du disque dur virtuel. L’accès au compte d’utilisateur uniquement ne suffit pas. Le partage peut accorder les autorisations **Lire** et **Écrire** au groupe **Tout le monde** pour autoriser l’accès au disque dur virtuel, mais pour des raisons de sécurité, cela n’est pas recommandé.  
-    >   
-    > -   Accès **Lecture/écriture** dans la boîte de dialogue **Partage de fichiers**.  
-    > -   **Contrôle total** accéder sur le **sécurité** tab, fichier ou dossier **propriétés** boîte de dialogue.  
+   > [!NOTE]  
+   > Vous devez ajouter le `computerName` paramètre si vous exécutez l’applet de commande à partir d’un ordinateur qui exécute un système d’exploitation du client Windows.  
+   >   
+   > Le dossier réseau partagé dans lequel le disque dur virtuel hors connexion est stocké doit accorder les droits d’accès suivants au compte d’ordinateur (ou système local) du serveur que vous avez sélectionné pour le montage du disque dur virtuel. L’accès au compte d’utilisateur uniquement ne suffit pas. Le partage peut accorder les autorisations **Lire** et **Écrire** au groupe **Tout le monde** pour autoriser l’accès au disque dur virtuel, mais pour des raisons de sécurité, cela n’est pas recommandé.  
+   >   
+   > -   Accès **Lecture/écriture** dans la boîte de dialogue **Partage de fichiers**.  
+   > -   **Contrôle total** accéder sur le **sécurité** tab, fichier ou dossier **propriétés** boîte de dialogue.  
   
-    ```  
-    Uninstall-WindowsFeature -Name <feature_name> -VHD <path> -computerName <computer_name> -Restart  
-    ```  
+   ```  
+   Uninstall-WindowsFeature -Name <feature_name> -VHD <path> -computerName <computer_name> -Restart  
+   ```  
   
-    **Exemple :** L’applet de commande suivante supprime le rôle Services de domaine active directory et la fonctionnalité Gestion de stratégie de groupe à partir d’un serveur distant nommé ContosoDC1. Les outils de gestion et les composants logiciels enfichables sont également supprimés et le serveur de destination doit être redémarré automatiquement si la suppression exige un redémarrage des serveurs.  
+   **Exemple :** L’applet de commande suivante supprime le rôle Services de domaine active directory et la fonctionnalité Gestion de stratégie de groupe à partir d’un serveur distant nommé ContosoDC1. Les outils de gestion et les composants logiciels enfichables sont également supprimés et le serveur de destination doit être redémarré automatiquement si la suppression exige un redémarrage des serveurs.  
   
-    ```  
-    Uninstall-WindowsFeature -Name AD-Domain-Services,GPMC -computerName ContosoDC1 -IncludeManagementTools -Restart  
-    ```  
+   ```  
+   Uninstall-WindowsFeature -Name AD-Domain-Services,GPMC -computerName ContosoDC1 -IncludeManagementTools -Restart  
+   ```  
   
-5.  Lors de la désinstallation terminée, vérifiez que les rôles et fonctionnalités sont supprimées en ouvrant le **tous les serveurs** page Gestionnaire de serveur, en sélectionnant le serveur à partir duquel vous avez supprimé des rôles et fonctionnalités, puis en affichant le **rôles et Fonctionnalités** vignette sur la page pour le serveur sélectionné. Vous pouvez également exécuter la `Get-WindowsFeature` applet de commande ciblée sur le serveur sélectionné (Get-WindowsFeature - computerName <*Nom_Ordinateur*>) pour afficher la liste des rôles et fonctionnalités installés sur le serveur.  
+5. Lors de la désinstallation terminée, vérifiez que les rôles et fonctionnalités sont supprimées en ouvrant le **tous les serveurs** page Gestionnaire de serveur, en sélectionnant le serveur à partir duquel vous avez supprimé des rôles et fonctionnalités, puis en affichant le **rôles et Fonctionnalités** vignette sur la page pour le serveur sélectionné. Vous pouvez également exécuter la `Get-WindowsFeature` applet de commande ciblée sur le serveur sélectionné (Get-WindowsFeature - computerName <*Nom_Ordinateur*>) pour afficher la liste des rôles et fonctionnalités installés sur le serveur.  
   
 ## <a name="install-roles-and-features-on-multiple-servers-by-running-a-windows-powershell-script"></a>Installer des rôles et des fonctionnalités sur plusieurs serveurs à l’aide d’un script Windows PowerShell  
 Bien que vous ne pouvez pas utiliser les fonctionnalités Assistant Ajouter des rôles pour installer des rôles, services de rôle et fonctionnalités sur plusieurs serveurs cibles dans une session d’Assistant unique, vous pouvez utiliser un script Windows PowerShell pour installer des rôles, services de rôle et fonctionnalités sur plusieurs cibles serveurs que vous gérez à l’aide du Gestionnaire de serveur. Le script que vous utilisez pour effectuer le déploiement par lots, en tant que ce processus est appelé, pointe vers un fichier de configuration XML que vous pouvez aisément créer par l’Assistant de fonctionnalités et ajouter des rôles, puis en cliquant sur **exporter les paramètres de configuration** après progressé dans l’Assistant pour le **confirmer les sélections d’installation** page Ajouter des rôles et de l’Assistant les fonctionnalités.  
@@ -337,25 +337,25 @@ Vous pouvez installer le .NET Framework 3.5 en effectuant l’une des opération
   
 ### <a name="to-install-net-framework-35-by-using-the-add-roles-and-features-wizard"></a>Pour installer .NET Framework 3.5 à l’aide de l’ajouter Assistant rôles et fonctionnalités  
   
-1.  Sur le **gérer** menu dans le Gestionnaire de serveur, cliquez sur **ajouter des rôles et fonctionnalités**.  
+1. Sur le **gérer** menu dans le Gestionnaire de serveur, cliquez sur **ajouter des rôles et fonctionnalités**.  
   
-2.  Sélectionnez un serveur de destination qui exécute Windows Server 2016.  
+2. Sélectionnez un serveur de destination qui exécute Windows Server 2016.  
   
-3.  Sur le **sélectionner des fonctionnalités** page Ajouter des rôles et de l’Assistant de fonctionnalités, sélectionnez **.NET Framework 3.5**.  
+3. Sur le **sélectionner des fonctionnalités** page Ajouter des rôles et de l’Assistant de fonctionnalités, sélectionnez **.NET Framework 3.5**.  
   
-4.  Si l’ordinateur local y est autorisé par les paramètres de stratégie de groupe, le processus d’installation tente d’obtenir les fichiers de fonctionnalités manquants à l’aide de Windows Update. Cliquez sur **Installer** ; inutile de passer à l’étape suivante.  
+4. Si l’ordinateur local y est autorisé par les paramètres de stratégie de groupe, le processus d’installation tente d’obtenir les fichiers de fonctionnalités manquants à l’aide de Windows Update. Cliquez sur **Installer** ; inutile de passer à l’étape suivante.  
   
-    Si les paramètres de stratégie de groupe n’autorisent pas cela, ou vous souhaitez utiliser une autre source pour les fichiers de fonctionnalités .NET Framework 3.5, sur le **confirmer les sélections d’installation** page de l’Assistant, cliquez sur **spécifier un chemin d’accès de l’autre source** .  
+   Si les paramètres de stratégie de groupe n’autorisent pas cela, ou vous souhaitez utiliser une autre source pour les fichiers de fonctionnalités .NET Framework 3.5, sur le **confirmer les sélections d’installation** page de l’Assistant, cliquez sur **spécifier un chemin d’accès de l’autre source** .  
   
-5.  Spécifiez un chemin d’accès à un magasin côte à côte (appelé **SxS**) sur un support d’installation ou un chemin d’accès à un fichier WIM. Dans l’exemple suivant, le support d’installation se trouve sur le disque D.  
+5. Spécifiez un chemin d’accès à un magasin côte à côte (appelé **SxS**) sur un support d’installation ou un chemin d’accès à un fichier WIM. Dans l’exemple suivant, le support d’installation se trouve sur le disque D.  
   
-    **D:\Sources\SxS\\**  
+   **D:\Sources\SxS\\**  
   
-    Pour spécifier un fichier WIM, ajoutez un préfixe  **WIM:** et ajoutez l’index de l’image à utiliser dans le fichier WIM comme suffixe, comme indiqué dans l’exemple suivant.  
+   Pour spécifier un fichier WIM, ajoutez un préfixe  **WIM:** et ajoutez l’index de l’image à utiliser dans le fichier WIM comme suffixe, comme indiqué dans l’exemple suivant.  
   
-    **WIM :\\\\***nom_serveur***\share\install.wim:3**  
+   **WIM :\\\\** <em>nom_serveur</em> **\share\install.wim:3**  
   
-6.  Cliquez sur **OK**, puis sur **Installer**.  
+6. Cliquez sur **OK**, puis sur **Installer**.  
   
 ### <a name="to-install-net-framework-35-by-using-dism"></a>Pour installer le .NET Framework 3.5 à l’aide de DISM  
   
@@ -395,23 +395,23 @@ Le paramètre de stratégie de groupe décrit dans cette section spécifie les e
   
 ##### <a name="to-configure-a-default-alternate-source-path-in-group-policy"></a>Pour configurer un autre chemin d’accès source par défaut dans la stratégie de groupe  
   
-1.  Dans l’éditeur de stratégie de groupe locale ou la Console de gestion de stratégie de groupe, ouvrez le paramètre de stratégie suivant.  
+1. Dans l’éditeur de stratégie de groupe locale ou la Console de gestion de stratégie de groupe, ouvrez le paramètre de stratégie suivant.  
   
-    **configuration de l’ordinateur\Modèles d’administration\système\spécifier des paramètres de l’ordinateur pour l’installation des composants facultatifs et la réparation de composants**  
+   **configuration de l’ordinateur\Modèles d’administration\système\spécifier des paramètres de l’ordinateur pour l’installation des composants facultatifs et la réparation de composants**  
   
 2. Sélectionnez **activé** pour activer le paramètre de stratégie, s’il n’est pas déjà activé.  
   
-3.  Dans la zone de texte **Autre chemin d’accès au fichier source** dans la zone **Options**, spécifiez un chemin d’accès complet à un dossier partagé ou un fichier WIM. Pour spécifier un fichier WIM comme autre emplacement de fichier source, ajoutez le préfixe **WIM:** au chemin d’accès et ajoutez l’index de l’image à utiliser dans le fichier WMI comme suffixe. Voici quelques exemples de valeurs que vous pouvez spécifier.  
+3. Dans la zone de texte **Autre chemin d’accès au fichier source** dans la zone **Options**, spécifiez un chemin d’accès complet à un dossier partagé ou un fichier WIM. Pour spécifier un fichier WIM comme autre emplacement de fichier source, ajoutez le préfixe **WIM:** au chemin d’accès et ajoutez l’index de l’image à utiliser dans le fichier WMI comme suffixe. Voici quelques exemples de valeurs que vous pouvez spécifier.  
   
-    -   chemin d’accès à un dossier partagé : * *\\\\***nom_serveur***\share\\*** nom_dossier*  
+   - chemin d’accès à un dossier partagé : **\\ \\** <em>nom_serveur</em> **\share\\** <em>nom_dossier</em>  
   
-    -   chemin d’accès à un fichier WIM, dans lequel **3** représente l’index de l’image dans lequel sont trouvent les fichiers de fonctionnalités :  **WIM :\\\\***nom_serveur***\share\install.wim:3**  
+   - chemin d’accès à un fichier WIM, dans lequel **3** représente l’index de l’image dans lequel sont trouvent les fichiers de fonctionnalités :  **WIM :\\\\** <em>nom_serveur</em> **\share\install.wim:3**  
   
-4.  Si vous ne souhaitez pas que les ordinateurs contrôlés par ce paramètre de stratégie pour rechercher les fichiers manquants dans la mise à jour de Windows, sélectionnez **jamais tente de télécharger la charge utile à partir de Windows Update**.  
+4. Si vous ne souhaitez pas que les ordinateurs contrôlés par ce paramètre de stratégie pour rechercher les fichiers manquants dans la mise à jour de Windows, sélectionnez **jamais tente de télécharger la charge utile à partir de Windows Update**.  
   
-5.  Si les ordinateurs contrôlés par ce paramètre de stratégie reçoivent généralement des mises à jour par le biais des services WSUS, mais que vous préférez passer par Windows Update plutôt que par les services WSUS pour rechercher les fichiers manquants, sélectionnez **Contacter Windows Update directement pour télécharger le contenu de réparation au lieu de Windows Server Update Services (WSUS)** .  
+5. Si les ordinateurs contrôlés par ce paramètre de stratégie reçoivent généralement des mises à jour par le biais des services WSUS, mais que vous préférez passer par Windows Update plutôt que par les services WSUS pour rechercher les fichiers manquants, sélectionnez **Contacter Windows Update directement pour télécharger le contenu de réparation au lieu de Windows Server Update Services (WSUS)** .  
   
-6.  Cliquez sur **OK** une fois que vous avez terminé de modifier ce paramètre de stratégie, puis fermez l’Éditeur de stratégie de groupe.  
+6. Cliquez sur **OK** une fois que vous avez terminé de modifier ce paramètre de stratégie, puis fermez l’Éditeur de stratégie de groupe.  
   
 ## <a name="see-also"></a>Voir aussi  
 [Options d’Installation de Windows Server](https://go.microsoft.com/fwlink/p/?LinkId=241573)  

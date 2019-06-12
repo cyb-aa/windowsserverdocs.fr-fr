@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 0e7d1f5b-c939-47ca-892f-5bb285027fbc
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: dc08d89f7d84b5435e97ed5ed77eb72d003b0c84
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 95fc9cbef454c8f36b1921eb7f570138bf124256
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888570"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446944"
 ---
 # <a name="step-1-configure-the-remote-access-infrastructure"></a>Étape 1 Configuration de l’Infrastructure d’accès à distance
 
@@ -57,11 +57,11 @@ Requiert les éléments suivants :
   
 -   Une seule adresse IPv4 ou IPv6 statique interne.  
   
-**Derrière un périphérique NAT (deux cartes réseau)**:  
+**Derrière un périphérique NAT (deux cartes réseau)** :  
   
 Nécessite une seule interne côté réseau IPv4 ou IPv6 adresse statique.  
   
-**Derrière un périphérique NAT (une carte réseau)**:  
+**Derrière un périphérique NAT (une carte réseau)** :  
   
 Nécessite une adresse IPv4 ou IPv6 statique unique.  
   
@@ -234,7 +234,7 @@ Vous devez configurer manuellement une entrée DNS pour le site web du serveur E
   
 1.  Sur le serveur DNS du réseau interne : Sur le **Démarrer** , tapez**dnsmgmt.msc**, puis appuyez sur ENTRÉE.  
   
-2.  Dans le volet gauche de la console **Gestionnaire DNS**, développez la zone de recherche directe de votre domaine. Cliquez sur le domaine, puis cliquez sur **nouvel hôte (A ou AAAA)**.  
+2.  Dans le volet gauche de la console **Gestionnaire DNS**, développez la zone de recherche directe de votre domaine. Cliquez sur le domaine, puis cliquez sur **nouvel hôte (A ou AAAA)** .  
   
 3.  Dans le **nouvel hôte** boîte de dialogue le **nom (utilise nom du domaine parent si vide)** , entrez le nom DNS pour le site de serveur d’emplacement réseau (c’est le nom que les clients DirectAccess utilisent pour se connecter à la serveur d’emplacement réseau). Dans le **adresse IP** , entrez l’adresse IPv4 du serveur d’emplacement réseau, puis cliquez sur **ajouter un hôte**, puis cliquez sur **OK**.  
   
@@ -244,7 +244,7 @@ Vous devez configurer manuellement une entrée DNS pour le site web du serveur E
   
 6.  Cliquez sur **Terminé**.  
   
-![Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -316,7 +316,7 @@ Le serveur d'accès à distance et tous les ordinateurs clients DirectAccess doi
   
 10. Lorsque vous y êtes invité, cliquez sur **Redémarrer maintenant**.  
   
-![Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -456,5 +456,5 @@ Si vous utilisez un certificat privé ou un certificat auto-signé, ils requièr
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Étape 2 : Configurer le serveur d’accès à distance](Step-2-Configure-the-Remote-Access-Server.md)
+-   [Étape 2 : Configurer le serveur d’accès à distance](Step-2-Configure-the-Remote-Access-Server.md)
 

@@ -14,12 +14,12 @@ author: lizap
 ms.author: elizapo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 8d14ccf734d5242301030bbb6e3c2489e1a0266a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f9a4e4e0dde0c2c6178629f0dee744448edc72dd
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876350"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812600"
 ---
 # <a name="windows-server---it-administrator-content-for-current-and-previous-releases"></a>Windows Server - Contenu sur les versions actuelles et précédentes pour les administrateurs informatiques
 
@@ -29,7 +29,7 @@ Utilisez les liens ci-dessous pour afficher le contenu technique pour les profes
 
 > [!IMPORTANT]
 > Windows est-il en cours d’exécution sur votre PC ? Windows 10, Windows 8 ou 8.1 ? Windows 7 ? Avez-vous un problème ? Accédez au [Support Microsoft](https://support.microsoft.com) et saisissez simplement votre problème dans la barre de recherche. Cette équipe dispose d’informations sur Windows, Office, Skype, etc. 
-
+> 
 > Les informations ci-dessous concernent *uniquement* Windows **Server**.
 
 ## <a name="windows-server-2016"></a>Windows Server 2016
@@ -54,18 +54,14 @@ Utilisez les liens ci-dessous pour afficher le contenu technique pour les profes
 
 [Bibliothèque de développement de Windows Server 2003 sur MSDN](https://msdn.microsoft.com/library/dn792549.aspx)
 
-
 ## <a name="product-evaluations"></a>Évaluations du produit
 
 [Téléchargez l’évaluation de Windows Server 2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016?i=1) 
 
 [Télécharger la version d’évaluation de Windows Server 2012 R2](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012-r2) 
 
-
 ## <a name="related-links"></a>Liens connexes
 [Informations sur les produits Windows Server 2016](https://www.microsoft.com/cloud-platform/windows-server) 
-
-<br>
 
 > [!TIP]
 > Vous rencontrez un problème ? Commencez par accéder au [Support Microsoft](https://support.microsoft.com) et saisissez simplement votre problème dans la barre de recherche. Vous pouvez obtenir de l’aide pour Windows, Office, Skype, et de nombreux autres produits. 

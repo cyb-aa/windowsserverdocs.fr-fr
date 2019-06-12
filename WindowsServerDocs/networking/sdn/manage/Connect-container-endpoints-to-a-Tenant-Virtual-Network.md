@@ -13,12 +13,12 @@ ms.assetid: f7af1eb6-d035-4f74-a25b-d4b7e4ea9329
 ms.author: pashort
 author: jmesser81
 ms.date: 08/24/2018
-ms.openlocfilehash: 1968a4db9231459fe5858d9a0f3ba5e8f317ed1b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cb9c7157ffb07233e41e1c933f6775f1cd0766a9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872740"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446349"
 ---
 # <a name="connect-container-endpoints-to-a-tenant-virtual-network"></a>Connecter les points de terminaison de conteneur à un réseau virtuel locataire
 
@@ -34,9 +34,11 @@ Stratégie réseau (ACL, l’encapsulation et QoS) pour ces points de terminaiso
 
 La différence entre la *l2bridge* et *l2tunnel* pilotes sont :
 
-| l2bridge | l2tunnel |
-| --- | --- |
-|Points de terminaison de conteneur qui résident sur : <ul><li>Le même conteneur hôte de machine virtuelle et sur le même sous-réseau a tout le trafic réseau ponté au sein du commutateur virtuel Hyper-V. </li><li>Autre conteneur héberger les machines virtuelles ou sur des sous-réseaux différents leur trafic transmis à l’hôte Hyper-V physique. </li></ul>Stratégie de réseau ne pas obtenir appliquée dans la mesure où le trafic réseau entre les conteneurs sur le même hôte et dans le même sous-réseau ne sont pas acheminées à l’hôte physique. Stratégie de réseau s’applique le trafic réseau de conteneur uniquement entre les hôtes ou entre sous-réseaux. | *Tous les* le trafic réseau entre deux points de terminaison de conteneur est transmis à l’hôte Hyper-V physique, quel que soit l’hôte ou au sous-réseau. Stratégie de réseau s’applique au trafic de réseau entre sous-réseaux et entre les hôtes. |
+
+|                                                                                                                                                                                                                                                                            l2bridge                                                                                                                                                                                                                                                                            |                                                                                                 l2tunnel                                                                                                  |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Points de terminaison de conteneur qui résident sur : <ul><li>Le même conteneur hôte de machine virtuelle et sur le même sous-réseau a tout le trafic réseau ponté au sein du commutateur virtuel Hyper-V. </li><li>Autre conteneur héberger les machines virtuelles ou sur des sous-réseaux différents leur trafic transmis à l’hôte Hyper-V physique. </li></ul>Stratégie de réseau ne pas obtenir appliquée dans la mesure où le trafic réseau entre les conteneurs sur le même hôte et dans le même sous-réseau ne sont pas acheminées à l’hôte physique. Stratégie de réseau s’applique le trafic réseau de conteneur uniquement entre les hôtes ou entre sous-réseaux. | *Tous les* le trafic réseau entre deux points de terminaison de conteneur est transmis à l’hôte Hyper-V physique, quel que soit l’hôte ou au sous-réseau. Stratégie de réseau s’applique au trafic de réseau entre sous-réseaux et entre les hôtes. |
+
 ---
 
 >[!NOTE]
@@ -60,10 +62,10 @@ La différence entre la *l2bridge* et *l2tunnel* pilotes sont :
 ## <a name="workflow"></a>Flux de travail
 
 [1. Ajouter plusieurs configurations IP à une ressource VM NIC existante via le contrôleur de réseau (hôte Hyper-V)](#1-add-multiple-ip-configurations)
-[2. Activer le proxy réseau sur l’ordinateur hôte à allouer des adresses IP autorité de certification pour les points de terminaison de conteneur (hôte Hyper-V) ](#2-enable-the-network-proxy) 
- [3. Installer le plug-in pour affecter des adresses IP de l’autorité de certification aux points de terminaison de conteneur (conteneur hôte VM) de cloud privé ](#3-install-the-private-cloud-plug-in) 
- [4. Créer un *l2bridge* ou *l2tunnel* réseau à l’aide de docker (conteneur hôte VM) ](#4-create-an-l2bridge-container-network)
- 
+[2. Activer le proxy réseau sur l’ordinateur hôte à allouer des adresses IP autorité de certification pour les points de terminaison de conteneur (hôte Hyper-V)](#2-enable-the-network-proxy)
+[3. Installer le plug-in pour affecter des adresses IP de l’autorité de certification aux points de terminaison de conteneur (conteneur hôte VM) de cloud privé](#3-install-the-private-cloud-plug-in)
+[4. Créer un *l2bridge* ou *l2tunnel* réseau à l’aide de docker (conteneur hôte VM)](#4-create-an-l2bridge-container-network)
+
 >[!NOTE]
 >Plusieurs configurations IP n’est pas pris en charge sur les ressources de VM NIC créées par le biais de System Center Virtual Machine Manager. Il est recommandé pour ces types de déploiements que vous créez la ressource VM NIC hors bande à l’aide de PowerShell du contrôleur de réseau.
 
@@ -101,10 +103,10 @@ foreach ($i in 1..10)
         $resourceid += "0$i"
         $ipstr = "192.168.1.10$i"
     }
-    
+
     $newipconfig.ResourceId = $resourceid
     $props.PrivateIPAddress = $ipstr    
-    
+
     $props.PrivateIPAllocationMethod = "Static"
     $props.Subnet = new-object Microsoft.Windows.NetworkController.Subnet
     $props.Subnet.ResourceRef = $vmsubnet.ResourceRef
@@ -130,7 +132,7 @@ PS C:\> ConfigureMCNP.ps1
 ### <a name="3-install-the-private-cloud-plug-in"></a>3. Installer le plug-in de Cloud privé
 Dans cette étape, vous installez un plug-in pour autoriser le HNS communiquer avec le proxy réseau sur l’ordinateur hôte Hyper-V.
 
-Pour installer le plug-in, exécutez le [InstallPrivateCloudPlugin.ps1](https://github.com/Microsoft/SDN/blob/master/Containers/InstallPrivateCloudPlugin.ps1) de script à l’intérieur de la **machine virtuelle de conteneur hôte (locataire)**.
+Pour installer le plug-in, exécutez le [InstallPrivateCloudPlugin.ps1](https://github.com/Microsoft/SDN/blob/master/Containers/InstallPrivateCloudPlugin.ps1) de script à l’intérieur de la **machine virtuelle de conteneur hôte (locataire)** .
 
 
 ```powershell

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 74ab2d90b037207cffb79da7e4a49831863fa215
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 49502f23c5659c6d43b50c01ddbd9cf1fd896820
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813670"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434388"
 ---
 # <a name="chgport"></a>chgport
 
@@ -27,9 +27,9 @@ ms.locfileid: "59813670"
 Répertorie ou modifie les mappages de port COM pour être compatible avec les applications MS-DOS.
 > [!NOTE]
 > Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour savoir quelles sont les nouveautés dans la version la plus récente, consultez [les nouveautés des Services Bureau à distance dans Windows Server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
-## <a name="remarks"></a>Notes
-Cette commande est identique à la **modifier le port** commande.
-#### <a name="additional-references"></a>Références supplémentaires
-[modifier le port](change-port.md)
-[clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-[Services Bureau à distance &#40;Services Terminal Server&#41; référence des commandes](remote-desktop-services-terminal-services-command-reference.md)
+> ## <a name="remarks"></a>Notes
+> Cette commande est identique à la **modifier le port** commande.
+> #### <a name="additional-references"></a>Références supplémentaires
+> [modifier le port](change-port.md)
+> [clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+> [Services Bureau à distance &#40;Services Terminal Server&#41; référence des commandes](remote-desktop-services-terminal-services-command-reference.md)

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ef3b943491a90078dab453aaf3a037bd4ccf1825
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1c9406af0868421fa54fe757742cf2a120561b9c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887490"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438343"
 ---
 # <a name="ftp-user"></a>FTP : utilisateur
 
@@ -30,15 +30,17 @@ Spécifie un utilisateur à l’ordinateur distant.
 user <UserName> [<Password>] [<Account>]  
 ```  
 ### <a name="parameters"></a>Paramètres  
-|Paramètre|Description|  
-|-------|--------|  
-|<UserName>|Spécifie un nom d’utilisateur avec lequel vous vous connectez à l’ordinateur distant.|  
-|[<Password>]|Spécifie le mot de passe *nom d’utilisateur*. Si un mot de passe n’est pas spécifié, mais est nécessaire, **ftp** vous invite à entrer le mot de passe.|  
-|[<Account>]|Spécifie un compte avec lequel vous vous connectez à l’ordinateur distant. Si un *compte* n’est pas spécifié, mais est nécessaire, **ftp** demande le compte.|  
+
+|  Paramètre   |                                                                      Description                                                                      |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  <UserName>  |                                          Spécifie un nom d’utilisateur avec lequel vous vous connectez à l’ordinateur distant.                                           |
+| [<Password>] |               Spécifie le mot de passe *nom d’utilisateur*. Si un mot de passe n’est pas spécifié, mais est nécessaire, **ftp** vous invite à entrer le mot de passe.               |
+| [<Account>]  | Spécifie un compte avec lequel vous vous connectez à l’ordinateur distant. Si un *compte* n’est pas spécifié, mais est nécessaire, **ftp** demande le compte. |
+
 ## <a name="BKMK_Examples"></a>Exemples  
 Spécifiez User1 avec le mot de passe Password1.  
 ```  
 user User1 Password1  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

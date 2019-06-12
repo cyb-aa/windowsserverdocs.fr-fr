@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ffdbd6f67e4e4c32022134191deabd861bf248b9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ef98a98088e345f267aa852318cee6e237604aa4
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827670"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433988"
 ---
 # <a name="cscript"></a>cscript
 
@@ -30,24 +30,26 @@ démarre un script afin qu’elle s’exécute dans un environnement de ligne de
 cscript <Scriptname.extension> [/B] [/D] [/E:<Engine>] [{/H:cscript|/H:wscript}] [/I] [/Job:<Identifier>] [{/Logo|/NoLogo}] [/S] [/T:<Seconds>] [/X] [/U] [/?] [<ScriptArguments>]
 ```
 ### <a name="parameters"></a>Paramètres
-|Paramètre|Description|
-|-------|--------|
-|Scriptname.extension|Spécifie le chemin d’accès et le nom du fichier de script avec l’extension de nom de fichier facultatif.|
-|/B|Spécifie le mode de traitement par lots, qui n’affiche pas les alertes, les erreurs de script ou les invites d’entrée.|
-|/D|Démarre le débogueur.|
-|/ E:<Engine>|Spécifie le moteur est utilisé pour exécuter le script.|
-|/ H :|Enregistre cscript.exe comme hôte de script par défaut pour l’exécution de scripts.|
-|/H:wscript|Inscrit wscript.exe comme l’hôte de script par défaut pour l’exécution de scripts. Il s’agit de l’option par défaut.|
-|/I|Spécifie le mode interactif, qui affiche les alertes, les erreurs de script et les invites d’entrée. C’est la valeur par défaut et l’opposé de **/B**.|
-|/ Travail :<Identifier>|Exécute le travail identifié par *identificateur* dans un fichier de script .wsf.|
-|/Logo|Spécifie que la bannière de Windows Script Host est affichée dans la console avant l’exécution du script. C’est la valeur par défaut et l’opposé de **/Nologo**.|
-|/Nologo|Spécifie que la bannière de Windows Script Host n’est pas affichée avant l’exécution du script.|
-|/S|Enregistre les options d’invite de commandes en cours pour l’utilisateur actuel.|
-|/ T :<Seconds>|Spécifie le temps maximal de qu'exécution du script (en secondes). Vous pouvez spécifier jusqu'à 32 767 secondes. La valeur par défaut n’existe aucune limite de temps.|
-|/U|Spécifie Unicode pour l’entrée et de sortie est redirigée à partir de la console.|
-|/X|lance le script dans le débogueur.|
-|/?|Affiche les paramètres de commande disponibles et fournit une aide pour leur utilisation. Cela équivaut à taper **cscript.exe** sans paramètres et aucun script.|
-|ScriptArguments|Spécifie les arguments passés au script. Chaque argument de script doit être précédé d’une barre oblique (**/**).|
+
+|      Paramètre       |                                                                      Description                                                                       |
+|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Scriptname.extension |                                 Spécifie le chemin d’accès et le nom du fichier de script avec l’extension de nom de fichier facultatif.                                 |
+|          /B          |                                Spécifie le mode de traitement par lots, qui n’affiche pas les alertes, les erreurs de script ou les invites d’entrée.                                |
+|          /D          |                                                                  Démarre le débogueur.                                                                  |
+|     / E:<Engine>      |                                                  Spécifie le moteur est utilisé pour exécuter le script.                                                  |
+|      / H :      |                                         Enregistre cscript.exe comme hôte de script par défaut pour l’exécution de scripts.                                          |
+|      /H:wscript      |                               Inscrit wscript.exe comme l’hôte de script par défaut pour l’exécution de scripts. Il s’agit de l’option par défaut.                               |
+|          /I          |        Spécifie le mode interactif, qui affiche les alertes, les erreurs de script et les invites d’entrée. C’est la valeur par défaut et l’opposé de **/B**.         |
+|  / Travail :<Identifier>   |                                             Exécute le travail identifié par *identificateur* dans un fichier de script .wsf.                                             |
+|        /Logo         | Spécifie que la bannière de Windows Script Host est affichée dans la console avant l’exécution du script. C’est la valeur par défaut et l’opposé de **/Nologo**. |
+|       /Nologo        |                                 Spécifie que la bannière de Windows Script Host n’est pas affichée avant l’exécution du script.                                 |
+|          /S          |                                             Enregistre les options d’invite de commandes en cours pour l’utilisateur actuel.                                             |
+|     / T :<Seconds>     |            Spécifie le temps maximal de qu'exécution du script (en secondes). Vous pouvez spécifier jusqu'à 32 767 secondes. La valeur par défaut n’existe aucune limite de temps.             |
+|          /U          |                                      Spécifie Unicode pour l’entrée et de sortie est redirigée à partir de la console.                                       |
+|          /X          |                                                           lance le script dans le débogueur.                                                           |
+|          /?          |  Affiche les paramètres de commande disponibles et fournit une aide pour leur utilisation. Cela équivaut à taper **cscript.exe** sans paramètres et aucun script.  |
+|   ScriptArguments    |                        Spécifie les arguments passés au script. Chaque argument de script doit être précédé d’une barre oblique ( **/** ).                         |
+
 ### <a name="remarks"></a>Notes
 -   Pour exécuter cette tâche, vous n’avez pas besoin d’avoir d’informations d’identification administratives. Par conséquent, et par mesure de sécurité, il est conseillé d’exécuter cette tâche en tant qu’utilisateur sans informations d’identification d’administrateur.
 -   Pour ouvrir une invite de commandes, sur le **Démarrer** , tapez **cmd**, puis cliquez sur **invite de commandes**.
@@ -62,4 +64,4 @@ cscript <Scriptname.extension> [/B] [/D] [/E:<Engine>] [{/H:cscript|/H:wscript}]
 
 #### <a name="BKMK_references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: e5e55ad492439fcb7150469d9a35b639f5ff9a2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: baea091482818c581414ba1d9c1c01db2a52e3d7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830510"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435667"
 ---
 # <a name="hyper-v-configuration"></a>Configuration d’Hyper-V
 
@@ -76,15 +76,15 @@ Hyper-V publie les compteurs de performances pour aider à définir le comportem
 
 Vous devriez toujours mesurer l’utilisation du processeur du système physique en utilisant les compteurs de performances de processeur logique de l’hyperviseur Hyper-V. Ce rapport de Gestionnaire des tâches et l’Analyseur de performances dans la racine des compteurs de l’utilisation du processeur et les partitions enfants ne reflètent pas l’utilisation du processeur physique réelle. Pour surveiller les performances, utilisez les compteurs de performances suivants :
 
--   **Processeur logique de l’hyperviseur Hyper-V (\*)\\% temps d’exécution Total** le temps d’activité total des processeurs logiques
+- **Processeur logique de l’hyperviseur Hyper-V (\*)\\% temps d’exécution Total** le temps d’activité total des processeurs logiques
 
--   **Processeur logique de l’hyperviseur Hyper-V (\*)\\% durée d’exécution invité** le temps passé à cycles en cours d’exécution au sein d’un invité ou de l’hôte
+- **Processeur logique de l’hyperviseur Hyper-V (\*)\\% durée d’exécution invité** le temps passé à cycles en cours d’exécution au sein d’un invité ou de l’hôte
 
--   **Processeur logique de l’hyperviseur Hyper-V (\*)\\% durée d’exécution hyperviseur** le temps passé en cours d’exécution au sein de l’hyperviseur
+- **Processeur logique de l’hyperviseur Hyper-V (\*)\\% durée d’exécution hyperviseur** le temps passé en cours d’exécution au sein de l’hyperviseur
 
--   **Processeur virtuel racine de l’hyperviseur Hyper-V (\*)\\ \***  mesure l’utilisation du processeur de la partition racine
+- **Processeur virtuel racine de l’hyperviseur Hyper-V (\*)\\\\** * mesure l’utilisation du processeur de la partition racine
 
--   **Processeur virtuel de l’hyperviseur Hyper-V (\*)\\ \***  mesure l’utilisation du processeur de partitions de l’invité
+- **Processeur virtuel de l’hyperviseur Hyper-V (\*)\\\\** * mesure l’utilisation du processeur de partitions de l’invité
 
 
 ## <a name="see-also"></a>Voir aussi
@@ -93,14 +93,14 @@ Vous devriez toujours mesurer l’utilisation du processeur du système physique
 
 -   [Architecture Hyper-V](architecture.md)
 
--   [Performances du processeur de Hyper-V](processor-performance.md)
+-   [Performances du processeur Hyper-V](processor-performance.md)
 
 -   [Performances de la mémoire Hyper-V](memory-performance.md)
 
--   [Stockage Hyper-V les performances d’e/s](storage-io-performance.md)
+-   [Performances E/S du stockage Hyper-V](storage-io-performance.md)
 
--   [Réseau de Hyper-V les performances d’e/s](network-io-performance.md)
+-   [Performances E/S du réseau Hyper-V](network-io-performance.md)
 
 -   [Détecter les goulots d’étranglement dans un environnement virtualisé](detecting-virtualized-environment-bottlenecks.md)
 
--   [Machines virtuelles Linux](linux-virtual-machine-considerations.md)
+-   [Ordinateurs virtuels Linux](linux-virtual-machine-considerations.md)

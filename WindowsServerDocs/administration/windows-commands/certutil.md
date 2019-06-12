@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: faaf936e4c23579e908e12543c07d0764a2cdcc1
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 7a602472d30f19cb2d4a802423635e5788e78a43
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192622"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434552"
 ---
 # <a name="certutil"></a>certutil
 
@@ -145,14 +145,15 @@ Retour à [Menu](#menu)
 
 Le tableau suivant décrit la notation utilisée pour indiquer la syntaxe de ligne de commande.
 
-|Notation|Description|
-|--------|-----------|
-|Texte sans crochets ou accolades|Vous devez taper comme des éléments|
-|\<Texte à l’intérieur de crochets pointus >|Espace réservé pour lequel vous devez fournir une valeur|
-|[Texte à l’intérieur des crochets]|Éléments facultatifs|
-|{Texte entre accolades}|Ensemble d’éléments requis ; Choisissez une|
-|Barre (verticale|)|Séparateur d’éléments qui s’excluent mutuellement ; Choisissez une|
-|Points de suspension (…)|Éléments qui peuvent être répétés|
+
+|            Notation             |                  Description                  |
+|---------------------------------|-----------------------------------------------|
+| Texte sans crochets ou accolades |         Vous devez taper comme des éléments          |
+|  \<Texte à l’intérieur de crochets pointus >  | Espace réservé pour lequel vous devez fournir une valeur |
+|  [Texte à l’intérieur des crochets]  |                Éléments facultatifs                 |
+|      {Texte entre accolades}       |       Ensemble d’éléments requis ; Choisissez une       |
+|         Barre (verticale          |                       )                       |
+|          Points de suspension (…)           |          Éléments qui peuvent être répétés           |
 
 Retour à [Menu](#menu)
 

@@ -14,16 +14,16 @@ manager: dongill
 ms.author: elizapo
 ms.date: 05/07/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 20879507e13ac7da566c95db7b59d88e0b5d8ce8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: b2141a6a57629ccbb585b2f74c581eba5ba2b1b1
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873570"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446687"
 ---
 # <a name="get-started-with-remote-desktop-on-windows"></a>Bien démarrer avec le Bureau à distance sur Windows
 
->S'applique à : Windows 10, Windows 8.1, Windows Server 2012 R2, Windows Server 2016
+>S’applique à : Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 Vous pouvez utiliser le client Bureau à distance pour Windows pour travailler avec les applications Windows et les ordinateurs de bureau à distance à partir d’un autre appareil Windows.
 
@@ -48,25 +48,25 @@ Pour créer une connexion Bureau à distance :
 
 1. Dans, appuyez sur le centre de connexion **+ ajouter**, puis appuyez sur **Desktop**.
 2. Entrez les informations suivantes pour l’ordinateur que vous souhaitez vous connecter :
-  - **Nom du PC** – le nom de l’ordinateur. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez également ajouter des informations de port pour le nom du PC (par exemple, **MyDesktop:3389** ou **10.0.0.1:3389**).
-  - **Compte d’utilisateur** – le compte d’utilisateur à utiliser pour accéder à l’ordinateur distant. Appuyez sur **+** pour ajouter un nouveau compte ou sélectionnez un compte existant. Vous pouvez utiliser les formats suivants pour le nom d’utilisateur : *user_name*, *domaine\nom_utilisateur*, ou *user_name@domain.com*. Vous pouvez également spécifier s’il faut demander un nom d’utilisateur et mot de passe lors de la connexion en sélectionnant **me demander chaque fois**.
+   - **Nom du PC** – le nom de l’ordinateur. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez également ajouter des informations de port pour le nom du PC (par exemple, **MyDesktop:3389** ou **10.0.0.1:3389**).
+   - **Compte d’utilisateur** – le compte d’utilisateur à utiliser pour accéder à l’ordinateur distant. Appuyez sur **+** pour ajouter un nouveau compte ou sélectionnez un compte existant. Vous pouvez utiliser les formats suivants pour le nom d’utilisateur : *user_name*, *domaine\nom_utilisateur*, ou <em>user_name@domain.com</em>. Vous pouvez également spécifier s’il faut demander un nom d’utilisateur et mot de passe lors de la connexion en sélectionnant **me demander chaque fois**.
 3. Vous pouvez également définir des options supplémentaires en appuyant sur **afficher plus**:
-  - **Nom d’affichage** – un nom facile à mémoriser pour le PC que vous vous connectez à. Vous pouvez utiliser n’importe quelle chaîne, mais si vous ne spécifiez pas un nom convivial, le nom du PC s’affiche.
-  - **Groupe** – spécifier un groupe pour le rendre plus facile à repérer vos connexions. Vous pouvez ajouter un nouveau groupe en appuyant sur **+** ou sélectionnez-en un dans la liste.
-  - **Passerelle** – passerelle le Bureau à distance que vous souhaitez utiliser pour se connecter à des bureaux virtuels, des programmes RemoteApp et des ordinateurs de bureau basés sur des sessions sur un réseau d’entreprise interne. Obtenir les informations sur la passerelle de votre administrateur système.
-  - **Se connecter à la session d’administration** -Utilisez cette option pour vous connecter à une session de console pour administrer un serveur Windows.
-  - **Permuter les boutons de la souris** – Utilisez cette option pour échanger des fonctions du bouton gauche de la souris pour le bouton droit de la souris. (Cela est particulièrement utile si l’ordinateur distant est configuré pour un utilisateur gaucher mais que vous utilisez une souris droite.)
-  - **La valeur de la résolution de mon session à distance :** – sélectionnez la résolution que vous souhaitez utiliser dans la session. **Choisissez pour moi** définira la résolution en fonction de la taille du client.
-  - **Modifier la taille de l’affichage :** – lorsque vous sélectionnez une haute résolution statique pour la session, vous pouvez agrandir des éléments à l’écran pour améliorer la lisibilité. Remarque: Cela s’applique uniquement lorsque vous vous connectez à Windows 8.1 ou version ultérieure.
-  - **Mettre à jour de la résolution de la session à distance sur le redimensionnement** – lorsque l’option est activée, le client met à jour dynamiquement la résolution de session basée sur la taille du client. Remarque: Cela s’applique uniquement lorsque vous vous connectez à Windows 8.1 ou version ultérieure.
-  - **Presse-papiers** – lorsqu’il est activé, vous permet de copier le texte et des images vers/à partir de l’ordinateur distant.
-  - **Lecture audio** – sélectionnez l’appareil à utiliser pour l’audio pendant votre session à distance. Vous pouvez choisir de lire un son sur les appareils locaux, l’ordinateur distant, ou pas du tout.
-  - **L’enregistrement audio** – lorsqu’il est activé, vous permet d’utiliser un microphone local avec les applications sur un ordinateur distant.
+   - **Nom d’affichage** – un nom facile à mémoriser pour le PC que vous vous connectez à. Vous pouvez utiliser n’importe quelle chaîne, mais si vous ne spécifiez pas un nom convivial, le nom du PC s’affiche.
+   - **Groupe** – spécifier un groupe pour le rendre plus facile à repérer vos connexions. Vous pouvez ajouter un nouveau groupe en appuyant sur **+** ou sélectionnez-en un dans la liste.
+   - **Passerelle** – passerelle le Bureau à distance que vous souhaitez utiliser pour se connecter à des bureaux virtuels, des programmes RemoteApp et des ordinateurs de bureau basés sur des sessions sur un réseau d’entreprise interne. Obtenir les informations sur la passerelle de votre administrateur système.
+   - **Se connecter à la session d’administration** -Utilisez cette option pour vous connecter à une session de console pour administrer un serveur Windows.
+   - **Permuter les boutons de la souris** – Utilisez cette option pour échanger des fonctions du bouton gauche de la souris pour le bouton droit de la souris. (Cela est particulièrement utile si l’ordinateur distant est configuré pour un utilisateur gaucher mais que vous utilisez une souris droite.)
+   - **La valeur de la résolution de mon session à distance :** – sélectionnez la résolution que vous souhaitez utiliser dans la session. **Choisissez pour moi** définira la résolution en fonction de la taille du client.
+   - **Modifier la taille de l’affichage :** – lorsque vous sélectionnez une haute résolution statique pour la session, vous pouvez agrandir des éléments à l’écran pour améliorer la lisibilité. Remarque: Cela s’applique uniquement lorsque vous vous connectez à Windows 8.1 ou version ultérieure.
+   - **Mettre à jour de la résolution de la session à distance sur le redimensionnement** – lorsque l’option est activée, le client met à jour dynamiquement la résolution de session basée sur la taille du client. Remarque: Cela s’applique uniquement lorsque vous vous connectez à Windows 8.1 ou version ultérieure.
+   - **Presse-papiers** – lorsqu’il est activé, vous permet de copier le texte et des images vers/à partir de l’ordinateur distant.
+   - **Lecture audio** – sélectionnez l’appareil à utiliser pour l’audio pendant votre session à distance. Vous pouvez choisir de lire un son sur les appareils locaux, l’ordinateur distant, ou pas du tout.
+   - **L’enregistrement audio** – lorsqu’il est activé, vous permet d’utiliser un microphone local avec les applications sur un ordinateur distant.
 4. Appuyez sur **enregistrer**.
 
-Vous avez besoin pour modifier ces paramètres ? Appuyez sur le menu de dépassement de capacité (**...** ) en regard du nom du bureau et puis appuyez sur **modifier**.
+Vous avez besoin pour modifier ces paramètres ? Appuyez sur le menu de dépassement de capacité ( **...** ) en regard du nom du bureau et puis appuyez sur **modifier**.
 
-Voulez-vous supprimer la connexion ? Là encore, appuyez sur le menu de dépassement de capacité (**...** ), puis appuyez sur **supprimer**.
+Voulez-vous supprimer la connexion ? Là encore, appuyez sur le menu de dépassement de capacité ( **...** ), puis appuyez sur **supprimer**.
 
 ### <a name="add-a-remote-resource"></a>Ajouter une ressource distante
 Ressources distantes sont des programmes RemoteApp, bureaux basés sur une session et des bureaux virtuels publiées par votre administrateur à l’aide des Services Bureau à distance.
@@ -82,12 +82,12 @@ Les ressources à distance seront affichera dans le centre de connexion.
 
 Pour supprimer les ressources distantes :
 
-1. Dans le centre de connexion, appuyez sur le menu de dépassement de capacité (**...** ) en regard de la ressource distante.
+1. Dans le centre de connexion, appuyez sur le menu de dépassement de capacité ( **...** ) en regard de la ressource distante.
 2. Appuyez sur **supprimer**.
 
 ### <a name="pin-a-saved-desktop-to-your-start-menu"></a>Épingler une session Bureau enregistrée sur votre menu Démarrer
 
-Pour épingler une connexion à votre menu Démarrer, appuyez sur le menu de dépassement de capacité (**...** ) en regard du nom du bureau et puis appuyez sur **épingler au menu Démarrer**.
+Pour épingler une connexion à votre menu Démarrer, appuyez sur le menu de dépassement de capacité ( **...** ) en regard du nom du bureau et puis appuyez sur **épingler au menu Démarrer**.
 
 Vous pouvez maintenant démarrer la connexion Bureau à distance directement à partir de votre menu Démarrer en appuyant dessus.
 
@@ -100,8 +100,8 @@ Pour configurer une nouvelle passerelle :
 1. Dans le centre de connexion, appuyez sur **paramètres**.
 2. En regard de la passerelle, appuyez sur **+** pour ajouter une nouvelle passerelle. Remarque: Une passerelle peut également être ajoutée lors de l’ajout d’une nouvelle connexion.
 3. Entrez les informations suivantes :
-  - **Nom du serveur** – le nom de l’ordinateur que vous souhaitez utiliser en tant que passerelle. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez également ajouter des informations de port au nom du serveur (par exemple : **RDGateway:443** ou **10.0.0.1:443**).
-  - **Compte d’utilisateur** : sélectionnez ou ajoutez un compte d’utilisateur à utiliser avec la passerelle des services Bureau à distance vous vous connectez à. Vous pouvez également sélectionner **utiliser le compte d’utilisateur du bureau** à utiliser les informations d’identification que celles utilisées pour la connexion Bureau à distance.
+   - **Nom du serveur** – le nom de l’ordinateur que vous souhaitez utiliser en tant que passerelle. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez également ajouter des informations de port au nom du serveur (par exemple : **RDGateway:443** ou **10.0.0.1:443**).
+   - **Compte d’utilisateur** : sélectionnez ou ajoutez un compte d’utilisateur à utiliser avec la passerelle des services Bureau à distance vous vous connectez à. Vous pouvez également sélectionner **utiliser le compte d’utilisateur du bureau** à utiliser les informations d’identification que celles utilisées pour la connexion Bureau à distance.
 4. Appuyez sur **enregistrer**.  
 
 ## <a name="global-app-settings"></a>Paramètres d’application globale
