@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: d011eaad-f72a-4a83-8099-8589c4ee8994
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0257c4d15db4fc54e55ef430f6f2eea9cea2ec4d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 65a272873a60d74efcf417a16fdc84670f5878da
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882820"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447003"
 ---
 # <a name="realm-names"></a>Noms de domaine
 
@@ -28,7 +28,7 @@ Dans un autre exemple, si l’attribut de nom d’utilisateur RADIUS contient le
 
 - **Example\user1**. Dans cet exemple, le nom de domaine **exemple** est un préfixe ; et il est également le nom d’un annuaire Active Directory&reg; les Services de domaine \(AD DS\) domaine.
 
-- **user1@example.com**. Dans cet exemple, le nom de domaine **example.com** est un suffixe ; et il est un nom de domaine DNS ou le nom d’un domaine AD DS.
+- <strong>user1@example.com</strong>. Dans cet exemple, le nom de domaine **example.com** est un suffixe ; et il est un nom de domaine DNS ou le nom d’un domaine AD DS.
 
 Vous pouvez utiliser des noms de domaine configurés dans les stratégies de demande de connexion lors de la conception et le déploiement de votre infrastructure RADIUS pour vous assurer que les demandes de connexion sont routés à partir de clients RADIUS, également appelés serveurs d’accès réseau aux serveurs RADIUS qui peuvent authentifier et autoriser la demande de connexion.
 

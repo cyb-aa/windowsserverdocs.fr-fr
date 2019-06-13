@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.author: esaggese
 ms.date: 05/30/2019
 ms.topic: article
-ms.openlocfilehash: ce058a2885315c84d2c1c6701ad2801790d3c590
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: HT
+ms.openlocfilehash: f5d621a0ba06f5b1beb97ccdbffb8376b5503168
+ms.sourcegitcommit: 927adf32faa6052234ad08f21125906362e593dc
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66814072"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67033344"
 ---
 # <a name="upgrading-ad-rms-to-windows-server-2016"></a>La mise à niveau d’AD RMS pour Windows Server 2016
 
@@ -257,7 +257,7 @@ Si votre cluster AD RMS utilise un Module de sécurité matériel plutôt qu’u
 
 13. Une fois ouvert une session, ouvrez **le Gestionnaire de serveur** sélectionnez **outils** , puis **Active Directory Rights Management**. La fenêtre de gestion doit apparaître et indiquer que le cluster possède le serveur supplémentaire dans le cluster.
 
-14. 14. Si l’Extension d’appareil Mobile AD RMS a été installée dans le cluster AD RMS d’origine, vous devez également installer le fichier MDE dans les nœuds de cluster mis à jour. Suivez les instructions dans la documentation MDE ajouter MDE à votre cluster AD RMS. À ce stade, réaffecter tous les nœuds préexistants ou les mettre à niveau vers Windows Server 2016 et participer au cluster AD RMS en utilisant le même processus présentée ci-dessus. 
+14. Si l’Extension d’appareil Mobile AD RMS a été installée dans le cluster AD RMS d’origine, vous devez également installer le fichier MDE dans les nœuds de cluster mis à jour. Suivez les instructions dans la documentation MDE ajouter MDE à votre cluster AD RMS. À ce stade, réaffecter tous les nœuds préexistants ou les mettre à niveau vers Windows Server 2016 et participer au cluster AD RMS en utilisant le même processus présentée ci-dessus. 
 
 ### <a name="configuring-windows-server-2016-web-application-proxy-wap"></a>Configuration du Proxy d’Application Windows Server 2016 Web (WAP)
 

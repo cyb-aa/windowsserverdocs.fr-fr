@@ -7,19 +7,18 @@ ms.topic: article
 author: phstee
 ms.author: NedPyle; Danlo; DKruse
 ms.date: 4/14/2017
-ms.openlocfilehash: ed9e9c6e2280aa69408455a111eddb3af7f88750
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: dc8a845a6d352fa03517e2a092c44b6d1c1def4b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266699"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811467"
 ---
 # <a name="performance-tuning-for-file-servers"></a>Réglage des performances des serveurs de fichiers
 
 Vous devez sélectionner le matériel approprié pour répondre à la charge attendue du serveur de fichiers, en tenant compte de la charge moyenne, des pics de charge, de la capacité, des plans de croissance et des temps de réponse. Les goulots d’étranglement matériels limitent l’efficacité du paramétrage de logiciels.
 
 ## <a name="general-tuning-parameters-for-clients"></a>Paramétrage général des clients
-
 
 Les paramètres de Registre REG\_DWORD suivants peuvent affecter les performances des ordinateurs clients qui interagissent avec des serveurs de fichiers SMB :
 
@@ -94,9 +93,9 @@ Les paramètres de Registre REG\_DWORD suivants peuvent affecter les performance
 
     La valeur par défaut est 10 secondes. Il s’agit du délai d’expiration du cache de répertoire.
 
-    > [!Note]   Ce paramètre contrôle la mise en cache des métadonnées de répertoire en l’absence de baux de répertoire.
-
-     
+    > [!NOTE]
+    > Ce paramètre contrôle la mise en cache des métadonnées de répertoire en l’absence de baux de répertoire.
+     
 
 -   **DirectoryCacheEntrySizeMax**
 
@@ -222,7 +221,7 @@ Les paramètres généraux pour les ordinateurs clients peuvent optimiser un ord
 | FileNotFoundCacheEntriesMax | 32768 | 128     |
 | MaxCmds                     | 32768 | 15      |
 
- 
+ 
 
 À partir de Windows 8, vous pouvez configurer bon nombre de ces paramètres SMB à l’aide des applets de commande Windows PowerShell **Set-SmbClientConfiguration** et **Set-SmbServerConfiguration**. Les paramètres applicables au Registre uniquement sont également configurés avec Windows PowerShell.
 
