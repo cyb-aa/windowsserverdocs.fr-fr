@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 529000c60a80ee33fc2aa7d09370d8ac1e06311c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8e454a9b1a7375be5cfdbc1e76316ad62ff40067
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850230"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445806"
 ---
 # <a name="deploy-encryption-of-office-files-demonstration-steps"></a>Déployer le chiffrement des fichiers Office (étapes de démonstration)
 
@@ -37,21 +37,21 @@ Dans ce scénario, vous allez effectuer les étapes suivantes :
   
 #### <a name="to-enable-resource-properties"></a>Pour activer les propriétés de ressource  
   
-1.  Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_DC1. Connectez-vous au serveur à l’aide de compte contoso\administrateur avec le mot de passe **pass@word1**.  
+1. Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_DC1. Connectez-vous au serveur à l’aide de compte contoso\administrateur avec le mot de passe <strong>pass@word1</strong>.  
   
-2.  Ouvrez le Centre d'administration Active Directory et cliquez sur **Arborescence**.  
+2. Ouvrez le Centre d'administration Active Directory et cliquez sur **Arborescence**.  
   
-3.  Développez **Contrôle d'accès dynamique**et sélectionnez **Propriétés de ressource**.  
+3. Développez **Contrôle d'accès dynamique**et sélectionnez **Propriétés de ressource**.  
   
-4.  Faites défiler la liste jusqu'à atteindre la propriété **Impact** dans la colonne **Nom complet**. Cliquez avec le bouton droit sur **Impact**, puis cliquez sur **Activer**.  
+4. Faites défiler la liste jusqu'à atteindre la propriété **Impact** dans la colonne **Nom complet**. Cliquez avec le bouton droit sur **Impact**, puis cliquez sur **Activer**.  
   
-5.  Faites défiler la liste jusqu'à atteindre la propriété **Informations d'identification personnelle** dans la colonne **Nom complet**. Cliquez avec le bouton droit sur **Informations d'identification personnelle**, puis cliquez sur **Activer**.  
+5. Faites défiler la liste jusqu'à atteindre la propriété **Informations d'identification personnelle** dans la colonne **Nom complet**. Cliquez avec le bouton droit sur **Informations d'identification personnelle**, puis cliquez sur **Activer**.  
   
-6.  Pour publier les propriétés de ressource dans la **Liste de ressources globales**, dans le volet gauche, cliquez sur **Liste de propriétés de ressources**, puis double-cliquez sur **Liste de propriétés de ressource globales**.  
+6. Pour publier les propriétés de ressource dans la **Liste de ressources globales**, dans le volet gauche, cliquez sur **Liste de propriétés de ressources**, puis double-cliquez sur **Liste de propriétés de ressource globales**.  
   
-7.  Cliquez sur **Ajouter**, puis accédez à **Impact** et cliquez dessus pour l'ajouter à la liste. Faites de même pour **Informations d'identification personnelle**. Cliquez deux fois sur **OK** pour terminer.  
+7. Cliquez sur **Ajouter**, puis accédez à **Impact** et cliquez dessus pour l'ajouter à la liste. Faites de même pour **Informations d'identification personnelle**. Cliquez deux fois sur **OK** pour terminer.  
   
-![guides de solutions](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![guides de solutions](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -67,21 +67,21 @@ Vous allez aussi créer une règle **Niveau IIP élevé** . Cette règle analyse
   
 #### <a name="to-create-the-high-impact-classification-rule"></a>Pour créer la règle de classification de fort impact  
   
-1.  Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_FILE1. Connectez-vous au serveur à l’aide de compte contoso\administrateur avec le mot de passe **pass@word1**.  
+1. Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_FILE1. Connectez-vous au serveur à l’aide de compte contoso\administrateur avec le mot de passe <strong>pass@word1</strong>.  
   
-2.  Vous devez actualiser les propriétés de ressource globales à partir d'Active Directory. Ouvrez Windows PowerShell, tapez `Update-FSRMClassificationPropertyDefinition`, puis appuyez sur ENTRÉE. Fermez Windows PowerShell.  
+2. Vous devez actualiser les propriétés de ressource globales à partir d'Active Directory. Ouvrez Windows PowerShell, tapez `Update-FSRMClassificationPropertyDefinition`, puis appuyez sur ENTRÉE. Fermez Windows PowerShell.  
   
-3.  Ouvrez le Gestionnaire de ressources du serveur de fichiers. Pour ouvrir le Gestionnaire de ressources du serveur de fichiers, cliquez sur **Démarrer**, tapez **gestionnaire de ressources du serveur de fichiers**, puis cliquez sur **Gestionnaire de ressources du serveur de fichiers**.  
+3. Ouvrez le Gestionnaire de ressources du serveur de fichiers. Pour ouvrir le Gestionnaire de ressources du serveur de fichiers, cliquez sur **Démarrer**, tapez **gestionnaire de ressources du serveur de fichiers**, puis cliquez sur **Gestionnaire de ressources du serveur de fichiers**.  
   
-4.  Dans le volet gauche du Gestionnaire de ressources du serveur de fichiers, développez **Gestion de la classification** et sélectionnez **Règle de classification**.  
+4. Dans le volet gauche du Gestionnaire de ressources du serveur de fichiers, développez **Gestion de la classification** et sélectionnez **Règle de classification**.  
   
-5.  Dans le volet **Actions**, cliquez sur **Configurer la planification de la classification**. Sous l'onglet **Classification automatique**, sélectionnez **Activer la planification fixe**, sélectionnez un **Jour de la semaine**, puis cochez la case **Autoriser la classification continue de nouveaux fichiers**. Cliquez sur **OK**.  
+5. Dans le volet **Actions**, cliquez sur **Configurer la planification de la classification**. Sous l'onglet **Classification automatique**, sélectionnez **Activer la planification fixe**, sélectionnez un **Jour de la semaine**, puis cochez la case **Autoriser la classification continue de nouveaux fichiers**. Cliquez sur **OK**.  
   
-6.  Dans le volet **Actions** , cliquez sur **Créer une règle de classification**. La boîte de dialogue **Créer une règle de classification** s’affiche.  
+6. Dans le volet **Actions** , cliquez sur **Créer une règle de classification**. La boîte de dialogue **Créer une règle de classification** s’affiche.  
   
-7.  Dans la zone **Nom de la règle**, tapez **Fort impact commercial**.  
+7. Dans la zone **Nom de la règle**, tapez **Fort impact commercial**.  
   
-8.  Dans le **Description** , tapez **détermine si le document a un fort impact commercial en fonction de la présence de la chaîne « Confidentiel Contoso »**  
+8. Dans le **Description** , tapez **détermine si le document a un fort impact commercial en fonction de la présence de la chaîne « Confidentiel Contoso »**  
   
 9. Sous l'onglet **Étendue** , cliquez sur **Set Folder Management Properties**, sélectionnez **Folder Usage**, cliquez sur **Ajouter**, puis sur **Parcourir**, accédez au chemin d'accès D:\Finance Documents, cliquez sur **OK**, puis choisissez une valeur de propriété nommée **Fichiers de groupe** et cliquez sur **Fermer**. Une fois les propriétés de gestion définies, sous l'onglet **Étendue de la règle** , sélectionnez **Fichiers de groupe**.  
   
@@ -95,7 +95,7 @@ Vous allez aussi créer une règle **Niveau IIP élevé** . Cette règle analyse
   
 14. Cliquez sur l'onglet **Type d'évaluation**.  Cliquez sur Réévaluer les valeurs de propriété existantes, cliquez sur **Remplacer**la valeur existante, puis cliquez sur **OK** pour terminer.  
   
-![guides de solutions](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![guides de solutions](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -109,35 +109,35 @@ New-FSRMClassificationRule -Name "High Business Impact" -Property "Impact_MS" -D
   
 #### <a name="to-create-the-high-pii-classification-rule"></a>Pour créer la règle de classification de niveau IIP élevé  
   
-1.  Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_FILE1. Connectez-vous au serveur à l’aide de compte contoso\administrateur avec le mot de passe **pass@word1**.  
+1. Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_FILE1. Connectez-vous au serveur à l’aide de compte contoso\administrateur avec le mot de passe <strong>pass@word1</strong>.  
   
-2.  Sur le Bureau, ouvrez le dossier **Expressions régulières**, puis ouvrez le document texte nommé **RegEx-SSN**. Mettez en surbrillance et copiez la chaîne d’expression régulière suivante : **^ ( ? 000) ([0-7] \d{2}| 7([0-7]\d|7[012])) ([-] ?) (?! 00) \d\d\3 ( ? ! 0000) \d{4}$**. Nous utiliserons cette chaîne plus loin lors de cette étape. Conservez-la dans votre Presse-papiers.  
+2. Sur le Bureau, ouvrez le dossier **Expressions régulières**, puis ouvrez le document texte nommé **RegEx-SSN**. Mettez en surbrillance et copiez la chaîne d’expression régulière suivante : **^ ( ? 000) ([0-7] \d{2}| 7([0-7]\d|7[012])) ([-] ?) (?! 00) \d\d\3 ( ? ! 0000) \d{4}$** . Nous utiliserons cette chaîne plus loin lors de cette étape. Conservez-la dans votre Presse-papiers.  
   
-3.  Ouvrez le Gestionnaire de ressources du serveur de fichiers. Pour ouvrir le Gestionnaire de ressources du serveur de fichiers, cliquez sur **Démarrer**, tapez **gestionnaire de ressources du serveur de fichiers**, puis cliquez sur **Gestionnaire de ressources du serveur de fichiers**.  
+3. Ouvrez le Gestionnaire de ressources du serveur de fichiers. Pour ouvrir le Gestionnaire de ressources du serveur de fichiers, cliquez sur **Démarrer**, tapez **gestionnaire de ressources du serveur de fichiers**, puis cliquez sur **Gestionnaire de ressources du serveur de fichiers**.  
   
-4.  Dans le volet gauche du Gestionnaire de ressources du serveur de fichiers, développez **Gestion de la classification** et sélectionnez **Règle de classification**.  
+4. Dans le volet gauche du Gestionnaire de ressources du serveur de fichiers, développez **Gestion de la classification** et sélectionnez **Règle de classification**.  
   
-5.  Dans le volet **Actions**, cliquez sur **Configurer la planification de la classification**. Sous l'onglet **Classification automatique**, sélectionnez **Activer la planification fixe**, sélectionnez un **Jour de la semaine**, puis cochez la case **Autoriser la classification continue de nouveaux fichiers**. Cliquez sur OK.  
+5. Dans le volet **Actions**, cliquez sur **Configurer la planification de la classification**. Sous l'onglet **Classification automatique**, sélectionnez **Activer la planification fixe**, sélectionnez un **Jour de la semaine**, puis cochez la case **Autoriser la classification continue de nouveaux fichiers**. Cliquez sur OK.  
   
-6.  Dans la zone **Nom de la règle**, tapez **Niveau IIP élevé**. Dans la zone **Description** , tapez **Détermine si le document a un niveau IIP élevé en fonction de la présence d'un numéro de sécurité sociale**.  
+6. Dans la zone **Nom de la règle**, tapez **Niveau IIP élevé**. Dans la zone **Description** , tapez **Détermine si le document a un niveau IIP élevé en fonction de la présence d'un numéro de sécurité sociale**.  
   
-7.  Cliquez sur l'onglet **Étendue** et cochez la case **Fichiers de groupe**.  
+7. Cliquez sur l'onglet **Étendue** et cochez la case **Fichiers de groupe**.  
   
-8.  Cliquez sur l'onglet **Classification**.  Sous Choisissez une méthode pour attribuer une propriété aux fichiers, sélectionnez **Classifieur de contenus** dans la liste déroulante.  
+8. Cliquez sur l'onglet **Classification**.  Sous Choisissez une méthode pour attribuer une propriété aux fichiers, sélectionnez **Classifieur de contenus** dans la liste déroulante.  
   
 9. Sous **Choisissez une propriété à attribuer aux fichiers**, sélectionnez **Informations d'identification personnelle** dans la liste déroulante.  
   
 10. Sous **Spécifiez une valeur**, sélectionnez **Élevé** dans la liste déroulante.  
   
 11. Cliquez sur **Configurer** sous **Paramètres**.   
-    Dans le volet **Paramètres de classification**, dans la liste **Type d'expression** , sélectionnez **Expression régulière**. Dans le **Expression** , collez le texte à partir de votre Presse-papiers : **^ ( ? 000) ([0-7] \d{2}| 7([0-7]\d|7[012])) ([-] ?) (?! 00) \d\d\3 ( ? ! 0000) \d{4}$**, puis cliquez sur **OK**.  
+    Dans le volet **Paramètres de classification**, dans la liste **Type d'expression** , sélectionnez **Expression régulière**. Dans le **Expression** , collez le texte à partir de votre Presse-papiers : **^ ( ? 000) ([0-7] \d{2}| 7([0-7]\d|7[012])) ([-] ?) (?! 00) \d\d\3 ( ? ! 0000) \d{4}$** , puis cliquez sur **OK**.  
   
     > [!NOTE]  
     > Cette expression autorise les numéros de sécurité sociale non valides. Cela nous permet d'utiliser des numéros de sécurité sociale fictifs dans la démonstration.  
   
 12. Cliquez sur l'onglet **Type d'évaluation**.  Sélectionnez Réévaluer les valeurs de propriété existantes, **Remplacer**la valeur existante, puis cliquez sur **OK** pour terminer.  
   
-![guides de solutions](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![guides de solutions](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -156,25 +156,25 @@ Maintenant que vous avez créé des règles pour classifier automatiquement les 
   
 #### <a name="to-protect-documents-with-ad-rms"></a>Pour protéger les documents avec les services AD RMS  
   
-1.  Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_FILE1. Connectez-vous au serveur à l’aide de compte contoso\administrateur avec le mot de passe **pass@word1**.  
+1. Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_FILE1. Connectez-vous au serveur à l’aide de compte contoso\administrateur avec le mot de passe <strong>pass@word1</strong>.  
   
-2.  Ouvrez le Gestionnaire de ressources du serveur de fichiers. Pour ouvrir le Gestionnaire de ressources du serveur de fichiers, cliquez sur **Démarrer**, tapez **gestionnaire de ressources du serveur de fichiers**, puis cliquez sur **Gestionnaire de ressources du serveur de fichiers**.  
+2. Ouvrez le Gestionnaire de ressources du serveur de fichiers. Pour ouvrir le Gestionnaire de ressources du serveur de fichiers, cliquez sur **Démarrer**, tapez **gestionnaire de ressources du serveur de fichiers**, puis cliquez sur **Gestionnaire de ressources du serveur de fichiers**.  
   
-3.  Dans le volet gauche, sélectionnez **Tâches de gestion de fichiers**. Dans le volet **Actions**, sélectionnez **Créer une tâche de gestion de fichiers**.  
+3. Dans le volet gauche, sélectionnez **Tâches de gestion de fichiers**. Dans le volet **Actions**, sélectionnez **Créer une tâche de gestion de fichiers**.  
   
-4.  Dans le champ **Nom de la tâche**, tapez **Niveau IIP élevé**. Dans le champ **Description**, tapez **Protection RMS automatique des documents ayant un niveau IIP élevé**.  
+4. Dans le champ **Nom de la tâche**, tapez **Niveau IIP élevé**. Dans le champ **Description**, tapez **Protection RMS automatique des documents ayant un niveau IIP élevé**.  
   
-5.  Cliquez sur l'onglet **Étendue** et cochez la case **Fichiers de groupe**.  
+5. Cliquez sur l'onglet **Étendue** et cochez la case **Fichiers de groupe**.  
   
-6.  Cliquez sur l'onglet **Action**. Sous Type, sélectionnez **Chiffrement RMS**. Cliquez sur **Parcourir** pour sélectionner un modèle, puis sélectionnez le modèle **Contoso Finance Admin uniquement** .  
+6. Cliquez sur l'onglet **Action**. Sous Type, sélectionnez **Chiffrement RMS**. Cliquez sur **Parcourir** pour sélectionner un modèle, puis sélectionnez le modèle **Contoso Finance Admin uniquement** .  
   
-7.  Cliquez sur l'onglet **Condition**, puis sur **Ajouter**. Sous **Propriété**, sélectionnez **Informations d'identification personnelle**. Sous **Opérateur**, sélectionnez **Égal**. Sous **Valeur**, sélectionnez **Élevé**. Cliquez sur **OK**.  
+7. Cliquez sur l'onglet **Condition**, puis sur **Ajouter**. Sous **Propriété**, sélectionnez **Informations d'identification personnelle**. Sous **Opérateur**, sélectionnez **Égal**. Sous **Valeur**, sélectionnez **Élevé**. Cliquez sur **OK**.  
   
-8.  Cliquez sur l'onglet **Planification**. Dans la section Planification , cliquez sur **Toutes les semaines**, puis sélectionnez **Dimanche**. L'exécution hebdomadaire de la tâche permet d'intercepter tout document qui pourrait avoir été ignoré pour cause de panne de service ou autre événement perturbateur.  
+8. Cliquez sur l'onglet **Planification**. Dans la section Planification , cliquez sur **Toutes les semaines**, puis sélectionnez **Dimanche**. L'exécution hebdomadaire de la tâche permet d'intercepter tout document qui pourrait avoir été ignoré pour cause de panne de service ou autre événement perturbateur.  
   
 9. Dans la section **Opération continue**, sélectionnez **Exécuter la tâche en continu sur les nouveaux fichiers**, puis cliquez sur **OK**. Vous devez maintenant avoir une tâche de gestion de fichiers nommée Niveau IIP élevé.  
   
-![guides de solutions](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell équivalente commandes ***  
+![guides de solutions](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
   
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.  
   
@@ -191,23 +191,23 @@ Il est temps de jeter un œil à votre nouvelle classification automatique et le
   
 #### <a name="to-view-the-results"></a>Pour afficher les résultats  
   
-1.  Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_FILE1. Connectez-vous au serveur à l’aide de compte contoso\administrateur avec le mot de passe **pass@word1**.  
+1. Dans le Gestionnaire Hyper-V, connectez-vous au serveur ID_AD_FILE1. Connectez-vous au serveur à l’aide de compte contoso\administrateur avec le mot de passe <strong>pass@word1</strong>.  
   
-2.  Dans l'Explorateur Windows, accédez à D:\Finance Documents.  
+2. Dans l'Explorateur Windows, accédez à D:\Finance Documents.  
   
-3.  Cliquez avec le bouton droit sur le document Finance Memo et cliquez sur **Propriétés**. Cliquez sur l'onglet **Classification** et notez que la propriété Impact n'a pas de valeur actuellement. Cliquez sur **Annuler**.  
+3. Cliquez avec le bouton droit sur le document Finance Memo et cliquez sur **Propriétés**. Cliquez sur l'onglet **Classification** et notez que la propriété Impact n'a pas de valeur actuellement. Cliquez sur **Annuler**.  
   
-4.  Cliquez avec le bouton droit sur le document **Request for Approval to Hire**, puis sélectionnez **Propriétés**.  
+4. Cliquez avec le bouton droit sur le document **Request for Approval to Hire**, puis sélectionnez **Propriétés**.  
   
-5.  Cliquez sur l'onglet **Classification** et notez que la propriété **Informations d'identification personnelle** n'a pas de valeur actuellement. Cliquez sur **Annuler**.  
+5. Cliquez sur l'onglet **Classification** et notez que la propriété **Informations d'identification personnelle** n'a pas de valeur actuellement. Cliquez sur **Annuler**.  
   
-6.  Basculez vers CLIENT1. Déconnectez tout utilisateur qui s’est connecté, puis connectez-vous en tant que Contoso\MReid avec le mot de passe **pass@word1**.  
+6. Basculez vers CLIENT1. Déconnectez tout utilisateur qui s’est connecté, puis connectez-vous en tant que Contoso\MReid avec le mot de passe <strong>pass@word1</strong>.  
   
-7.  Sur le Bureau, ouvrez le dossier partagé **Finance Documents** .  
+7. Sur le Bureau, ouvrez le dossier partagé **Finance Documents** .  
   
-8.  Ouvrez le document **Finance Memo** . Près du bas du document figure le mot **Confidential**. Remplacez-le par : **Confidentiel Contoso**. Enregistrez le document et fermez-le.  
+8. Ouvrez le document **Finance Memo** . Près du bas du document figure le mot **Confidential**. Remplacez-le par : **Confidentiel Contoso**. Enregistrez le document et fermez-le.  
   
-9. Ouvrez le document **Request for Approval to Hire**. Dans la section **Social Security#:**, tapez : 777-77-7777. Enregistrez le document et fermez-le.  
+9. Ouvrez le document **Request for Approval to Hire**. Dans la section **Social Security#:** , tapez : 777-77-7777. Enregistrez le document et fermez-le.  
   
     > [!NOTE]  
     > Vous devrez peut-être patienter 30 secondes avant que la classification ait lieu.  

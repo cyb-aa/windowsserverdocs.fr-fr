@@ -6,12 +6,12 @@ ms.technology: storage-failover-clustering
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 454783a13b834ef705bd896155195750de2b183c
-ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.openlocfilehash: c15c33e31bf0bf7261097fbea110f2a0a788dab2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64772714"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439751"
 ---
 # <a name="configuring-cluster-accounts-in-active-directory"></a>Configuration des comptes de cluster dans Active Directory
 
@@ -60,12 +60,12 @@ Le tableau suivant décrit les autorisations requises pour ces comptes.
 <tr class="even">
 <td><p>Compte du nom du cluster (compte d'ordinateur du cluster lui-même)</p></td>
 <td><p>Lorsque l'Assistant Création d'un cluster est exécuté, il crée le compte du nom du cluster dans le conteneur par défaut utilisé pour les comptes d'ordinateur dans le domaine. Par défaut, le compte du nom du cluster (comme d'autres comptes d'ordinateur) peut créer jusqu'à dix comptes d'ordinateur dans le domaine.</p>
-<p>Si vous créez le compte du nom du cluster (objet nom de cluster) avant de créer le cluster, autrement dit, si vous prédéfinissez le compte, vous devez lui affecter les autorisations <strong>Créer des objets d'ordinateur</strong> et <strong>Lire toutes les propriétés</strong> dans le conteneur utilisé pour les comptes d'ordinateur dans le domaine. Vous devez également désactiver le compte et affecter au compte qui sera utilisé par l'administrateur qui installe le cluster un <strong>Contrôle total</strong> de ce compte. Pour plus d'informations, consultez [Étapes de la prédéfinition du compte du nom du cluster](#steps-for-prestaging-the-cluster-name-account), ultérieurement dans ce guide.</p></td>
+<p>Si vous créez le compte du nom du cluster (objet nom de cluster) avant de créer le cluster, autrement dit, si vous prédéfinissez le compte, vous devez lui affecter les autorisations <strong>Créer des objets d'ordinateur</strong> et <strong>Lire toutes les propriétés</strong> dans le conteneur utilisé pour les comptes d'ordinateur dans le domaine. Vous devez également désactiver le compte et affecter au compte qui sera utilisé par l'administrateur qui installe le cluster un <strong>Contrôle total</strong> de ce compte. Pour plus d'informations, consultez <a href="#steps-for-prestaging-the-cluster-name-account" data-raw-source="[Steps for prestaging the cluster name account](#steps-for-prestaging-the-cluster-name-account)">Étapes de la prédéfinition du compte du nom du cluster</a>, ultérieurement dans ce guide.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Compte d'ordinateur d'un service ou d'une application en cluster</p></td>
 <td><p>Lorsque l’Assistant haute disponibilité est exécution (pour créer un nouveau service en cluster ou une application), dans la plupart des cas, un compte d’ordinateur pour le service en cluster ou application est créée dans Active Directory. Le compte du nom du cluster est accordé les autorisations nécessaires pour contrôler ce compte. L’exception est un ordinateur virtuel de Hyper-V en cluster : aucun compte d’ordinateur n’est créé pour celui-ci.</p>
-<p>Si vous prédéfinissez le compte d’ordinateur pour une application ou un service en cluster, vous devez le configurer avec les autorisations nécessaires. Pour plus d'informations, consultez [Étapes de la prédéfinition d'un compte pour un service ou une application en cluster](#steps-for-prestaging-an-account-for-a-clustered-service-or-application), ultérieurement dans ce guide.</p></td>
+<p>Si vous prédéfinissez le compte d’ordinateur pour une application ou un service en cluster, vous devez le configurer avec les autorisations nécessaires. Pour plus d'informations, consultez <a href="#steps-for-prestaging-an-account-for-a-clustered-service-or-application" data-raw-source="[Steps for prestaging an account for a clustered service or application](#steps-for-prestaging-an-account-for-a-clustered-service-or-application)">Étapes de la prédéfinition d'un compte pour un service ou une application en cluster</a>, ultérieurement dans ce guide.</p></td>
 </tr>
 </tbody>
 </table>
@@ -144,23 +144,23 @@ L'appartenance à un groupe minimum obligatoire pour effectuer la procédure sui
 <br>
 
 
-3.  Si le compte qui a été créé ou obtenu à l'étape 1 est un compte d'administrateur de domaine, ignorez le reste de cette procédure. Sinon, accordez au compte les autorisations **Créer des objets d'ordinateur** et **Lire toutes les propriétés** dans le conteneur utilisé pour les comptes d'ordinateur dans le domaine :
+3. Si le compte qui a été créé ou obtenu à l'étape 1 est un compte d'administrateur de domaine, ignorez le reste de cette procédure. Sinon, accordez au compte les autorisations **Créer des objets d'ordinateur** et **Lire toutes les propriétés** dans le conteneur utilisé pour les comptes d'ordinateur dans le domaine :
     
-    1.  Sur un contrôleur de domaine, cliquez sur **Démarrer**, sur **Outils d'administration**, puis sur **Utilisateurs et ordinateurs Active Directory**. Si la boîte de dialogue **Contrôle de compte d’utilisateur** apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur **Continuer**.  
+   1.  Sur un contrôleur de domaine, cliquez sur **Démarrer**, sur **Outils d'administration**, puis sur **Utilisateurs et ordinateurs Active Directory**. Si la boîte de dialogue **Contrôle de compte d’utilisateur** apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur **Continuer**.  
           
-    2.  Dans le menu **Affichage**, assurez-vous que **Fonctionnalités avancées** est sélectionné.  
+   2.  Dans le menu **Affichage**, assurez-vous que **Fonctionnalités avancées** est sélectionné.  
           
-        Lorsque **Fonctionnalités avancées** est sélectionné, l'onglet **Sécurité** s'affiche dans les propriétés des comptes (objets) dans **Utilisateurs et ordinateurs Active Directory**.  
+       Lorsque **Fonctionnalités avancées** est sélectionné, l'onglet **Sécurité** s'affiche dans les propriétés des comptes (objets) dans **Utilisateurs et ordinateurs Active Directory**.  
           
-    3.  Cliquez avec le bouton droit sur le conteneur **Ordinateurs** par défaut ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine, puis cliquez sur **Propriétés**. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers</b>.  
+   3.  Cliquez avec le bouton droit sur le conteneur **Ordinateurs** par défaut ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine, puis cliquez sur **Propriétés**. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers.</b>.  
           
-    4.  Sous l’onglet **Sécurité**, cliquez sur **Avancé**.  
+   4.  Sous l’onglet **Sécurité**, cliquez sur **Avancé**.  
           
-    5.  Cliquez sur **Ajouter**, tapez le nom du compte qui a été créé ou obtenu à l'étape 1, puis cliquez sur **OK**.  
+   5.  Cliquez sur **Ajouter**, tapez le nom du compte qui a été créé ou obtenu à l'étape 1, puis cliquez sur **OK**.  
           
-    6.  Dans le **entrée d’autorisation pour *** conteneur* boîte de dialogue, recherchez le **créer des objets ordinateur** et **lire toutes les propriétés** autorisations et vous assurer que le **Autoriser** case à cocher est activée pour chacun d'entre eux.  
+   6.  Dans le **entrée d’autorisation pour *** conteneur* boîte de dialogue, recherchez le **créer des objets ordinateur** et **lire toutes les propriétés** autorisations et vous assurer que le **Autoriser** case à cocher est activée pour chacun d'entre eux.  
           
-        ![](media/configure-ad-accounts/Cc731002.0a863ac5-2024-4f9f-8a4d-a419aff32fa0(WS.10).gif)
+       ![](media/configure-ad-accounts/Cc731002.0a863ac5-2024-4f9f-8a4d-a419aff32fa0(WS.10).gif)
 
 ## <a name="steps-for-prestaging-the-cluster-name-account"></a>Étapes de la prédéfinition du compte du nom du cluster
 
@@ -174,7 +174,7 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe *
 
 2.  Sur un contrôleur de domaine, cliquez sur **Démarrer**, sur **Outils d'administration**, puis sur **Utilisateurs et ordinateurs Active Directory**. Si la boîte de dialogue **Contrôle de compte d’utilisateur** apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur **Continuer**.
 
-3.  Dans l'arborescence de la console, cliquez avec le bouton droit sur **Ordinateurs** ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers</b>.
+3.  Dans l'arborescence de la console, cliquez avec le bouton droit sur **Ordinateurs** ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers.</b>.
 
 4.  Cliquez sur **Nouveau**, puis sur **Ordinateur**.
 
@@ -226,7 +226,7 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au minimum 
 
 2.  Sur un contrôleur de domaine, cliquez sur **Démarrer**, sur **Outils d'administration**, puis sur **Utilisateurs et ordinateurs Active Directory**. Si la boîte de dialogue **Contrôle de compte d’utilisateur** apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur **Continuer**.
 
-3.  Dans l'arborescence de la console, cliquez avec le bouton droit sur **Ordinateurs** ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers</b>.
+3.  Dans l'arborescence de la console, cliquez avec le bouton droit sur **Ordinateurs** ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers.</b>.
 
 4.  Cliquez sur **Nouveau**, puis sur **Ordinateur**.
 
@@ -287,7 +287,7 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe *
 
 1.  Sur un contrôleur de domaine, cliquez sur **Démarrer**, sur **Outils d'administration**, puis sur **Utilisateurs et ordinateurs Active Directory**. Si la boîte de dialogue **Contrôle de compte d’utilisateur** apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur **Continuer**.
 
-2.  Développez le conteneur **Ordinateurs** par défaut ou le dossier dans lequel le compte du nom du cluster (compte d'ordinateur pour le cluster) se trouve. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers</b>.
+2.  Développez le conteneur **Ordinateurs** par défaut ou le dossier dans lequel le compte du nom du cluster (compte d'ordinateur pour le cluster) se trouve. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers.</b>.
 
 3.  Examinez l'icône pour le compte du nom du cluster. Elle ne doit pas comporter de flèche pointant vers le bas, autrement dit, le compte ne doit pas être désactivé. S'il semble désactivé, cliquez dessus avec le bouton droit et recherchez la commande **Activer le compte**. Si vous voyez la commande, cliquez dessus.
 
@@ -309,9 +309,9 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe *
 <br>
 
 
-9.  Pour le compte du nom du cluster (également appelé objet nom de cluster), assurez-vous que la case à cocher **Autoriser** est activée pour les autorisations **Créer des objets d'ordinateur** et **Lire toutes les propriétés**.
+9. Pour le compte du nom du cluster (également appelé objet nom de cluster), assurez-vous que la case à cocher **Autoriser** est activée pour les autorisations **Créer des objets d'ordinateur** et **Lire toutes les propriétés**.
     
-    ![](media/configure-ad-accounts/Cc731002.f5977c4d-a62e-4b17-81e3-8c19ddca2078(WS.10).gif)
+   ![](media/configure-ad-accounts/Cc731002.f5977c4d-a62e-4b17-81e3-8c19ddca2078(WS.10).gif)
 
 10. Cliquez sur **OK** jusqu'à ce que soyez de retour dans le composant logiciel enfichable **Utilisateurs et ordinateurs Active Directory**.
 
@@ -323,17 +323,17 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe *
 
 14. Sous l'onglet **Sécurité**, confirmez que le compte du nom du cluster est répertorié parmi les comptes qui ont des autorisations, et sélectionnez-le. Confirmez que le compte du nom du cluster a l'autorisation **Contrôle total** (la case à cocher **Autoriser** est activée). Dans le cas contraire, ajoutez le compte du nom du cluster à la liste et donnez-lui l'autorisation **Contrôle total**.
     
-    ![](media/configure-ad-accounts/Cc731002.2e614376-87a6-453a-81ba-90ff7ebc3fa2(WS.10).gif)
+   ![](media/configure-ad-accounts/Cc731002.2e614376-87a6-453a-81ba-90ff7ebc3fa2(WS.10).gif)
 
 15. Répétez les étapes 13 et 14 pour chaque service et application en cluster configuré dans le cluster.
 
 16. Vérifiez que le quota à l'échelle du domaine pour la création d'objets ordinateur (par défaut, 10) n'a pas été atteint (en consultant un administrateur de domaine le cas échéant). Si les éléments précédents dans cette procédure ont tous été examinés et corrigés, et si le quota a été atteint, envisagez d'augmenter le quota. Pour modifier le quota :
     
-    1.  Ouvrez une invite de commandes en tant qu'administrateur et exécutez **ADSIEdit.msc**.  
+   1.  Ouvrez une invite de commandes en tant qu'administrateur et exécutez **ADSIEdit.msc**.  
           
-    2.  Cliquez avec le bouton droit sur **Modification ADSI**, cliquez sur **Connexion**, puis sur **OK**. Le **Contexte d'attribution de noms par défaut** est ajouté à l'arborescence de la console.  
+   2.  Cliquez avec le bouton droit sur **Modification ADSI**, cliquez sur **Connexion**, puis sur **OK**. Le **Contexte d'attribution de noms par défaut** est ajouté à l'arborescence de la console.  
           
-    3.  Double-cliquez sur **Contexte d'attribution de noms par défaut**, cliquez avec le bouton droit sur l'objet de domaine situé en dessous, puis cliquez sur **Propriétés**.  
+   3.  Double-cliquez sur **Contexte d'attribution de noms par défaut**, cliquez avec le bouton droit sur l'objet de domaine situé en dessous, puis cliquez sur **Propriétés**.  
           
-    4.  Faites défiler jusqu'à **ms-DS-MachineAccountQuota**, sélectionnez-le, cliquez sur **Modifier**, modifiez la valeur, puis cliquez sur **OK**.
+   4.  Faites défiler jusqu'à **ms-DS-MachineAccountQuota**, sélectionnez-le, cliquez sur **Modifier**, modifiez la valeur, puis cliquez sur **OK**.
 
