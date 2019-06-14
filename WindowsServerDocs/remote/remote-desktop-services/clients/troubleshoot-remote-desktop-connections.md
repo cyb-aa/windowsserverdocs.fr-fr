@@ -12,12 +12,12 @@ manager: ''
 ms.author: kaushika; rklemen; josh.bender; v-tea
 ms.date: 02/22/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 4bbdd17f5e6e2b161e0dda0e172ea862a9107841
-ms.sourcegitcommit: 564158d760f902ced7f18e6d63a9daafa2a92bd4
+ms.openlocfilehash: 43e40f8442600dfc66dafd6b8b210274908b4595
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64988334"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446720"
 ---
 # <a name="troubleshooting-remote-desktop-connections"></a>Résolution des problèmes de connexion Bureau à distance
 Pour brèves explications sur certains des problèmes de Services Bureau à distance (RDS) plus courants, consultez [Forum aux questions sur les clients Bureau à distance](https://review.docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-client-faq). Cet article décrit plusieurs approches plus avancées de résolution des problèmes de connexion. Bon nombre de ces procédures s’appliquent si vous dépannez une configuration simple, tel qu’un seul ordinateur physique se connecter à un autre ordinateur physique ou une configuration plus complexe. Certaines procédures résoudre les problèmes qui se produisent uniquement dans des scénarios plus compliqués multi-utilisateur. Pour plus d’informations sur les composants de bureau à distance et comment ils fonctionnent ensemble, consultez [architecture des Services Bureau à distance](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture).
@@ -68,7 +68,7 @@ Pour vérifier et modifier l’état du protocole RDP sur un ordinateur distant,
 2. Dans l’Éditeur du Registre, sélectionnez **fichier**, puis sélectionnez **connexion au Registre réseau**.
 3. Dans le **sélectionner un ordinateur** boîte de dialogue, entrez le nom de l’ordinateur distant, sélectionnez **vérifier les noms**, puis sélectionnez **OK**.
 4. Accédez à **HKEY\_LOCAL\_MACHINE\\système\\CurrentControlSet\\contrôle\\serveur Terminal Server**.  
-   ![Éditeur du Registre, montrant l’entrée fDenyTSConnections](..\media\troubleshoot-remote-desktop-connections\RegEntry_fDenyTSConnections.png)
+   ![Éditeur du Registre, montrant l’entrée fDenyTSConnections](../media/troubleshoot-remote-desktop-connections/RegEntry_fDenyTSConnections.png)
    - Si la valeur de la **fDenyTSConnections** clé est **0**, RDP est activé.
    - Si la valeur de la **fDenyTSConnections** clé est **1**, RDP est désactivée.
 5. Pour activer le protocole RDP, modifiez la valeur de **fDenyTSConnections** de **1** à **0**.
@@ -85,9 +85,9 @@ Une fois cette commande terminée, ouvrez gpresult.html. Dans **Configuration or
 
 - Si le paramètre pour cette stratégie est **activé**, stratégie de groupe ne bloque pas les connexions RDP.
 - Si le paramètre pour cette stratégie est **désactivé**, vérifiez **GPO gagnante**. Il s’agit de l’objet de stratégie de groupe qui bloque les connexions RDP.
-![Un segment de l’exemple de gpresult.html, dans lequel l’objet de stratégie de groupe au niveau du domaine ** bloc RDP ** est la désactivation de RDP.](..\media\troubleshoot-remote-desktop-connections\GPResult_RDSH_Connections_GP.png)
+  ![Un segment de l’exemple de gpresult.html, dans lequel l’objet de stratégie de groupe au niveau du domaine ** bloc RDP ** est la désactivation de RDP.](../media/troubleshoot-remote-desktop-connections/GPResult_RDSH_Connections_GP.png)
    
-  ![Un segment de l’exemple de gpresult.html, dans lequel ** stratégie de groupe Local ** est la désactivation de RDP.](..\media\troubleshoot-remote-desktop-connections\GPResult_RDSH_Connections_LGP.png)
+  ![Un segment de l’exemple de gpresult.html, dans lequel ** stratégie de groupe Local ** est la désactivation de RDP.](../media/troubleshoot-remote-desktop-connections/GPResult_RDSH_Connections_LGP.png)
 
 #### <a name="check-whether-a-gpo-is-blocking-rdp-on-a-remote-computer"></a>Vérifiez si un objet de stratégie de groupe ne bloque le RDP sur un ordinateur distant
 
@@ -117,7 +117,7 @@ Sur l’ordinateur local (client) et l’ordinateur distant (cible), les service
 
 Vous pouvez utiliser le composant logiciel enfichable MMC des Services pour gérer les services localement ou à distance. Vous pouvez également utiliser PowerShell localement ou à distance (si l’ordinateur distant est configuré pour accepter les commandes PowerShell à distance).
 
-![Services Bureau à distance dans le composant logiciel enfichable MMC Services. Ne modifiez pas les paramètres de service par défaut.](..\media\troubleshoot-remote-desktop-connections\RDSServiceStatus.png)
+![Services Bureau à distance dans le composant logiciel enfichable MMC Services. Ne modifiez pas les paramètres de service par défaut.](../media/troubleshoot-remote-desktop-connections/RDSServiceStatus.png)
 
 Sur un ordinateur, si un ou les deux services ne sont pas en cours d’exécution, démarrez-les.
 
@@ -135,7 +135,7 @@ Pour cette procédure, utilisez une instance de PowerShell qui dispose des autor
 
 1. Ouvrez une fenêtre PowerShell. Pour vous connecter à un ordinateur distant, entrez **Enter-PSSession - ComputerName \<nom de l’ordinateur\>** .
 2. Entrez **qwinsta**. 
-    ![La commande de qwinsta répertorie les processus à l’écoute sur les ports de l’ordinateur.](..\media\troubleshoot-remote-desktop-connections\WPS_qwinsta.png)
+    ![La commande de qwinsta répertorie les processus à l’écoute sur les ports de l’ordinateur.](../media/troubleshoot-remote-desktop-connections/WPS_qwinsta.png)
 3. Si la liste comprend **rdp-tcp** avec l’état **écouter**, l’utilisation de l’écouteur RDP. Passez à [vérifier le port d’écoute RDP](#check-the-rdp-listener-port). Sinon, passez à l’étape 4.
 4. Exporter la configuration de l’écouteur RDP à partir d’un ordinateur de travail.
     1. Se connecter à un ordinateur qui a la même version de système d’exploitation que l’ordinateur concerné a et d’accès du Registre de cet ordinateur (par exemple, en utilisant l’Éditeur du Registre).
@@ -171,7 +171,7 @@ Pour cette procédure, utilisez une instance de PowerShell qui dispose des autor
 
 1. Si vous ne pouvez toujours pas vous connecter, ouvrez le composant logiciel enfichable MMC Certificats. Lorsque vous êtes invité à sélectionner le magasin de certificats pour gérer, sélectionner **compte d’ordinateur**, puis sélectionnez l’ordinateur concerné.
 2. Dans le **certificats** dossier sous **Bureau à distance**, supprimer le certificat auto-signé RDP. 
-    ![Certificats de bureau à distance dans le composant logiciel enfichable MMC Certificats.](..\media\troubleshoot-remote-desktop-connections\MMCCert_Delete.png)
+    ![Certificats de bureau à distance dans le composant logiciel enfichable MMC Certificats.](../media/troubleshoot-remote-desktop-connections/MMCCert_Delete.png)
 3. Sur l’ordinateur concerné, redémarrez le service Services Bureau à distance.
 4. Actualisez le composant logiciel enfichable Certificats.
 5. Si le certificat auto-signé RDP n’a pas été recréé, [vérifier les autorisations du dossier MachineKeys](#check-the-permissions-of-the-machinekeys-folder).
@@ -197,7 +197,7 @@ Pour vérifier ou modifier le port RDP, utilisez l’Éditeur du Registre :
       - Pour vous connecter à un ordinateur distant, sélectionnez **fichier**, puis sélectionnez **connexion au Registre réseau**.
       - Dans le **sélectionner un ordinateur** boîte de dialogue, entrez le nom de l’ordinateur distant, sélectionnez **vérifier les noms**, puis sélectionnez **OK**.
 2. Ouvrez le Registre et accédez à **HKEY\_LOCAL\_MACHINE\\système\\CurrentControlSet\\contrôle\\Terminal Server\\WinStations\\ \<écouteur\>** . 
-    ![La sous-clé de numéro de port pour le protocole RDP.](..\media\troubleshoot-remote-desktop-connections\RegEntry_PortNumber.png)
+    ![La sous-clé de numéro de port pour le protocole RDP.](../media/troubleshoot-remote-desktop-connections/RegEntry_PortNumber.png)
 3. Si **PortNumber** a une valeur autre que **3389**, remplacez-la par **3389**. 
    > [!IMPORTANT]  
     > Vous pouvez utiliser les services Bureau à distance à l’aide d’un autre port. Toutefois, nous déconseillons que cela. Résolution des problèmes d’une telle configuration n’entre pas dans le cadre de cet article.
@@ -214,19 +214,19 @@ Pour cette procédure, utilisez une instance de PowerShell qui dispose des autor
     cmd /c 'netstat -ano | find "3389"'  
     ```
   
-    ![La commande netstat génère une liste des ports et services qui écoutent leur.](..\media\troubleshoot-remote-desktop-connections\WPS_netstat.png)
-1. Recherchez une entrée pour le port TCP 3389 (ou le port RDP attribué) associé à l'état **Écoute**. 
+    ![La commande netstat génère une liste des ports et services qui écoutent leur.](../media/troubleshoot-remote-desktop-connections/WPS_netstat.png)
+3. Recherchez une entrée pour le port TCP 3389 (ou le port RDP attribué) associé à l'état **Écoute**. 
     > [!NOTE]  
    > Le PID (Identificateur de processus) du processus ou service utilisant ce port apparaît sous la colonne PID.
-1. Pour déterminer quelle application utilise le port 3389 (ou le port RDP attribué), entrez la commande suivante :  
+4. Pour déterminer quelle application utilise le port 3389 (ou le port RDP attribué), entrez la commande suivante :  
    
      ```powershell  
     cmd /c 'tasklist /svc | find "<pid listening on 3389>"'  
     ```  
   
-    ![La commande tasklist signale les détails d’un processus spécifique.](..\media\troubleshoot-remote-desktop-connections\WPS_tasklist.png)
-1. Recherchez une entrée pour le numéro PID associé avec le port (à partir de la **netstat** sortie). Les services ou les processus qui sont associés à ce PID apparaissent à droite.
-1. Si une application ou un service autre que les Services Bureau à distance (TermServ.exe) utilise le port, vous pouvez résoudre le conflit en utilisant l’une des méthodes suivantes :
+    ![La commande tasklist signale les détails d’un processus spécifique.](../media/troubleshoot-remote-desktop-connections/WPS_tasklist.png)
+5. Recherchez une entrée pour le numéro PID associé avec le port (à partir de la **netstat** sortie). Les services ou les processus qui sont associés à ce PID apparaissent à droite.
+6. Si une application ou un service autre que les Services Bureau à distance (TermServ.exe) utilise le port, vous pouvez résoudre le conflit en utilisant l’une des méthodes suivantes :
       - Configurez l’autre application ou service pour utiliser un autre port (recommandé).
       - Désinstaller l’autre application ou service.
       - Configurez le RDP pour utiliser un autre port, puis redémarrez le service Services Bureau à distance (non recommandé).
@@ -295,7 +295,7 @@ La procédure suivante utilise le Gestionnaire de serveur pour apporter les modi
 3. Sélectionnez **Gestionnaire de licences bureau à distance**, puis sélectionnez le mode de licence approprié pour votre déploiement (**par périphérique** ou **par utilisateur**).
 4. Entrez le nom de domaine complet (FQDN) de votre serveur de licences des services Bureau à distance, puis sélectionnez **ajouter**.
 5. Si vous avez plusieurs serveurs de licences des services Bureau à distance, répétez l’étape 4 pour chaque serveur. 
-    ![Options de configuration de serveur Bureau à distance par licence dans le Gestionnaire de serveur.](..\media\troubleshoot-remote-desktop-connections\RDLicensing_Configure.png)
+    ![Options de configuration de serveur Bureau à distance par licence dans le Gestionnaire de serveur.](../media/troubleshoot-remote-desktop-connections/RDLicensing_Configure.png)
 
 ### <a name="refresh-the-x509-certificate-registry-keys"></a>Clés de Registre du certificat actualisation le X509
 
@@ -440,12 +440,12 @@ Pour résoudre ce problème, assurez-vous que tous les systèmes sont entièreme
 
 Pour contourner ce problème jusqu'à ce que les mises à jour sont terminées, vérifiez 4093492 Ko pour les types autorisés de connexions. S’il n’existe aucune alternative possible, vous pouvez envisager une des méthodes suivantes :
 
-  - Pour les ordinateurs clients affectés, définissez le **mise à jour de chiffrement Oracle** stratégie de sauvegarde pour **vulnérable**.
-  - Modifier les stratégies suivantes dans le **Configuration ordinateur\\modèles d’administration\\les composants Windows\\Services Bureau à distance\\hôte de Session Bureau à distance\\ Sécurité** dossier de stratégie de groupe :  
-      - **Exiger l’utilisation de la couche de sécurité spécifique pour les connexions à distance (RDP)** : la valeur **activé** et sélectionnez **RDP**.
-      - **Exiger une authentification de l’utilisateur pour les connexions à distance à l’aide de l’authentification au niveau du réseau**: la valeur **désactivé**.
-      > [!IMPORTANT]  
-      > Ces modifications réduisent la sécurité de votre déploiement. Ils doivent uniquement être temporaires, si vous utilisez le tout.
+- Pour les ordinateurs clients affectés, définissez le **mise à jour de chiffrement Oracle** stratégie de sauvegarde pour **vulnérable**.
+- Modifier les stratégies suivantes dans le **Configuration ordinateur\\modèles d’administration\\les composants Windows\\Services Bureau à distance\\hôte de Session Bureau à distance\\ Sécurité** dossier de stratégie de groupe :  
+  - **Exiger l’utilisation de la couche de sécurité spécifique pour les connexions à distance (RDP)** : la valeur **activé** et sélectionnez **RDP**.
+  - **Exiger une authentification de l’utilisateur pour les connexions à distance à l’aide de l’authentification au niveau du réseau**: la valeur **désactivé**.
+    > [!IMPORTANT]  
+    > Ces modifications réduisent la sécurité de votre déploiement. Ils doivent uniquement être temporaires, si vous utilisez le tout.
 
 Pour plus d’informations sur l’utilisation de la stratégie de groupe, consultez [modifier un GPO blocage](#modifying-a-blocking-gpo).
 
@@ -493,7 +493,7 @@ Les clients Bureau à distance tente de se connecter également cesser de répon
 
 Pour contourner ce problème, redémarrez le serveur RDSH.
 
-Pour résoudre ce problème, appliquez 4093114 Ko, [10 avril 2018 — KB4093114 (cumul mensuel)] (file:///C:\\utilisateurs\\jesits (deuxième v\\AppData\\Local\\Microsoft\\Windows\\INetCache\\Content.Outlook\\FUB8OO45\\% avril 2010, % 202018 — KB4093114 %20\(mensuel % 20Rollup\)), aux serveurs RDSH.
+Pour résoudre ce problème, appliquez 4093114 Ko, [10 avril 2018 — KB4093114 (Rollup)](file:///C:/Users/v-jesits/AppData/Local/Microsoft/Windows/INetCache/Content.Outlook/FUB8OO45/April%2010,%202018—KB4093114%20(Monthly%20Rollup)) mensuel, à la Serveurs RDSH.
 
 ### <a name="rd-listener-issue"></a>Problème de port d’écoute de bureau à distance
 

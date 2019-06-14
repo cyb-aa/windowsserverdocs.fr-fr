@@ -12,12 +12,12 @@ ms.assetid: 27bf6f24-30c4-4935-9b24-069eb43e22f4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 15d9a10daec0b72eb41092dbd9fa87f989ebedb8
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 5618eb95fb8afcff2057575191699da05612a542
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63720666"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433066"
 ---
 # <a name="restore-or-repair-your-server-running-windows-server-essentials"></a>Restaurer ou réparer votre serveur Windows Server Essentials
 
@@ -36,19 +36,19 @@ ms.locfileid: "63720666"
   
  Les raisons les plus courantes pour la restauration d'un serveur sont les suivantes :  
   
--   Un virus sur le serveur ne peut pas être inoculé ou supprimé.  
+- Un virus sur le serveur ne peut pas être inoculé ou supprimé.  
   
--   Les paramètres de configuration du serveur sont incorrects et vous ne pouvez pas démarrer le serveur.  
+- Les paramètres de configuration du serveur sont incorrects et vous ne pouvez pas démarrer le serveur.  
   
--   Vous avez remplacé le lecteur système.  
+- Vous avez remplacé le lecteur système.  
   
--   Vous mettez le serveur hors service et vous souhaitez restaurer sur un nouveau serveur.  
+- Vous mettez le serveur hors service et vous souhaitez restaurer sur un nouveau serveur.  
   
- Vous pouvez restaurer le serveur à partir d'une sauvegarde ou rétablir les paramètres par défaut du serveur.  
+  Vous pouvez restaurer le serveur à partir d'une sauvegarde ou rétablir les paramètres par défaut du serveur.  
   
--   [Restauration du serveur à partir d’une sauvegarde](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFromBackup)  
+- [Restauration du serveur à partir d’une sauvegarde](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFromBackup)  
   
--   [Réinitialisation des paramètres d’usine par défaut le serveur](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_FactoryReset)  
+- [Réinitialisation des paramètres d’usine par défaut le serveur](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_FactoryReset)  
   
 ###  <a name="BKMK_RestoreFromBackup"></a> Restauration du serveur à partir d’une sauvegarde  
  Cette section fournit des instructions sur le type de sauvegarde à choisir.  
@@ -57,21 +57,21 @@ ms.locfileid: "63720666"
   
  Quand vous choisissez de récupérer votre serveur en effectuant une restauration à partir d'une sauvegarde antérieure, vous devez choisir la sauvegarde spécifique que vous souhaitez restaurer et vous devez posséder un fichier de sauvegarde valide sur un disque dur externe connecté directement au serveur :  
   
--   **Si vous disposez d'une sauvegarde très récente du serveur** et que vous savez que la sauvegarde contient toutes vos données critiques, votre choix est assez simple. Vous devrez uniquement recréer les données créées après votre dernière sauvegarde et reconfigurer les paramètres en fonction des modifications apportées après cette sauvegarde.  
+- **Si vous disposez d'une sauvegarde très récente du serveur** et que vous savez que la sauvegarde contient toutes vos données critiques, votre choix est assez simple. Vous devrez uniquement recréer les données créées après votre dernière sauvegarde et reconfigurer les paramètres en fonction des modifications apportées après cette sauvegarde.  
   
--   **Si vous restaurez votre serveur à cause d'un virus**, sélectionnez une sauvegarde qui a été effectuée avant la contamination par le virus. Vous devrez peut-être revenir plusieurs jours en arrière pour sélectionner une sauvegarde correcte.  
+- **Si vous restaurez votre serveur à cause d'un virus**, sélectionnez une sauvegarde qui a été effectuée avant la contamination par le virus. Vous devrez peut-être revenir plusieurs jours en arrière pour sélectionner une sauvegarde correcte.  
   
--   **Si vous restaurez votre serveur à cause de paramètres de configuration incorrects**, sélectionnez une sauvegarde qui a été effectuée avant la modification du paramètre de configuration qui provoque le problème sur le serveur.  
+- **Si vous restaurez votre serveur à cause de paramètres de configuration incorrects**, sélectionnez une sauvegarde qui a été effectuée avant la modification du paramètre de configuration qui provoque le problème sur le serveur.  
   
- Quand vous restaurez une sauvegarde, le processus exact et le suivi nécessaire dépendent du nombre de disques durs sur le serveur et du remplacement éventuel du lecteur système :  
+  Quand vous restaurez une sauvegarde, le processus exact et le suivi nécessaire dépendent du nombre de disques durs sur le serveur et du remplacement éventuel du lecteur système :  
   
--   **Si le serveur dispose d'un seul disque dur et que le lecteur n'est pas remplacé**, les informations de partition du lecteur sont laissées intactes quand vous restaurez le serveur. Le volume système est restauré et les données sur le volume restant sont conservées.  
+- **Si le serveur dispose d'un seul disque dur et que le lecteur n'est pas remplacé**, les informations de partition du lecteur sont laissées intactes quand vous restaurez le serveur. Le volume système est restauré et les données sur le volume restant sont conservées.  
   
--   **Si le serveur dispose d'un seul disque dur et que le lecteur est remplacé**, le volume système est restauré et vous devez restaurer manuellement les dossiers sur le volume de données. Tous les dossiers partagés autres que les dossiers par défaut doivent être créés, car ils ne sont pas créés lors de la recréation du stockage de serveur.  
+- **Si le serveur dispose d'un seul disque dur et que le lecteur est remplacé**, le volume système est restauré et vous devez restaurer manuellement les dossiers sur le volume de données. Tous les dossiers partagés autres que les dossiers par défaut doivent être créés, car ils ne sont pas créés lors de la recréation du stockage de serveur.  
   
--   **Si le serveur dispose de plusieurs disques durs et que lecteur 0 (contenant le volume système) n'est pas remplacé**, les informations de partition du lecteur sont laissées intactes quand vous restaurez le serveur. Le volume système est restauré et les données sur tous les volumes restants sont conservées.  
+- **Si le serveur dispose de plusieurs disques durs et que lecteur 0 (contenant le volume système) n'est pas remplacé**, les informations de partition du lecteur sont laissées intactes quand vous restaurez le serveur. Le volume système est restauré et les données sur tous les volumes restants sont conservées.  
   
--   **Si le serveur dispose de plusieurs disques durs et que lecteur 0 (contenant le volume système) est remplacé**, le volume système est restauré et vous devez restaurer manuellement les dossiers partagés qui étaient auparavant stockés sur le disque 0.  
+- **Si le serveur dispose de plusieurs disques durs et que lecteur 0 (contenant le volume système) est remplacé**, le volume système est restauré et vous devez restaurer manuellement les dossiers partagés qui étaient auparavant stockés sur le disque 0.  
   
 ###  <a name="BKMK_FactoryReset"></a> Réinitialisation des paramètres d’usine par défaut le serveur  
  Si vous n'avez pas de sauvegarde à partir de laquelle vous pouvez restaurer ou si, pour une raison quelconque, vous souhaitez ou devez effectuer une restauration complète du système sans restaurer la configuration de serveur précédente, vous pouvez effectuer une restauration qui rétablit les paramètres par défaut du serveur à l'aide du support d'installation ou de récupération fourni par le fabricant de matériel de serveur.  

@@ -12,12 +12,12 @@ ms.assetid: ed062945-27e9-4572-b1bb-6c8cf1b9c2f4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 12a9ba285757a37a8fc32a73e52ac3003db80a6d
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: f080bed5714ae4426cc6d0ca8edb5fab2d3c65b2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63721024"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432473"
 ---
 # <a name="troubleshoot-file-history-in-windows-server-essentials"></a>Résoudre les problèmes d’historique des fichiers dans Windows Server Essentials
 
@@ -29,11 +29,11 @@ ms.locfileid: "63721024"
 ### <a name="file-history-data-is-not-automatically-deleted"></a>Les données de l’historique des fichiers ne sont pas automatiquement supprimées  
  Il se peut que les données de l’historique des fichiers ne soient pas supprimées automatiquement dans les cas suivants :  
   
--   Lorsque vous supprimez un compte d’utilisateur, vous choisissez de ne pas supprimer le compte d’utilisateur s des données de l’historique des fichiers et choisissez de supprimer manuellement les données.  
+- Lorsque vous supprimez un compte d’utilisateur, vous choisissez de ne pas supprimer le compte d’utilisateur s des données de l’historique des fichiers et choisissez de supprimer manuellement les données.  
   
--   Lorsque vous essayez de supprimer les données de l’historique des fichiers, ces dernières sont en cours d’utilisation par un autre processus.  
+- Lorsque vous essayez de supprimer les données de l’historique des fichiers, ces dernières sont en cours d’utilisation par un autre processus.  
   
- Pour résoudre ce problème, vous devez supprimer manuellement l’historique des fichiers à l’aide de la procédure suivante :  
+  Pour résoudre ce problème, vous devez supprimer manuellement l’historique des fichiers à l’aide de la procédure suivante :  
   
 ####  <a name="BKMK_manuallyDelete"></a> Pour supprimer manuellement des sauvegardes de l’historique des fichiers pour un utilisateur ou un ordinateur  
   
@@ -78,7 +78,7 @@ ms.locfileid: "63721024"
 ### <a name="a-user-account-was-removed-but-the-users-file-history-remains"></a>Un compte d’utilisateur a été supprimé, mais l’historique des fichiers de l’utilisateur a été conservé  
  Dans certains cas, l’administrateur réseau peut choisir de supprimer un utilisateur ou un ordinateur du serveur, mais de conserver la sauvegarde de l’historique des fichiers pour une utilisation ultérieure. Lorsque vous n’avez plus besoin de l’historique des fichiers, supprimez le dossier Sauvegardes de l’Historique des fichiers de l’utilisateur ou de l’ordinateur des dossiers partagés sur le serveur. Pour ce faire, consultez [To manually delete File History backups for a user or a computer](Troubleshoot-File-History-in-Windows-Server-Essentials.md#BKMK_manuallyDelete).  
 
-5.  Vous pouvez maintenant ajouter le nouvel utilisateur. Pour obtenir des instructions, voir Ajouter un compte d’utilisateur ? dans [gérer les comptes d’utilisateur](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md).  
+5. Vous pouvez maintenant ajouter le nouvel utilisateur. Pour obtenir des instructions, voir Ajouter un compte d’utilisateur ? dans [gérer les comptes d’utilisateur](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md).  
   
 ### <a name="a-user-account-was-removed-but-the-users-file-history-remains"></a>Un compte d’utilisateur a été supprimé, mais l’historique des fichiers de l’utilisateur a été conservé  
  Dans certains cas, l’administrateur réseau peut choisir de supprimer un utilisateur ou un ordinateur du serveur, mais de conserver la sauvegarde de l’historique des fichiers pour une utilisation ultérieure. Lorsque vous n’avez plus besoin de l’historique des fichiers, supprimez le dossier Sauvegardes de l’Historique des fichiers de l’utilisateur ou de l’ordinateur des dossiers partagés sur le serveur. Pour ce faire, consultez [To manually delete File History backups for a user or a computer](../support/Troubleshoot-File-History-in-Windows-Server-Essentials.md#BKMK_manuallyDelete).  

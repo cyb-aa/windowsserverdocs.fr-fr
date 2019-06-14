@@ -12,12 +12,12 @@ ms.assetid: 0d115697-532b-48c2-a659-9f889e235326
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 008e614ca7ae202d575d2c3e5976ed3d5544b6ea
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 1cce047c45279f7116e0e8a256633df06344e13c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63720701"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433143"
 ---
 # <a name="manage-user-accounts-in-windows-server-essentials"></a>Gérer les comptes d'utilisateur dans Windows Server Essentials
 
@@ -63,8 +63,8 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
 -   Affecter des groupes d’utilisateurs (Windows Server Essentials uniquement).  
   
 > [!NOTE]
->  -   Les caractères non-ASCII ne sont pas pris en charge dans Microsoft Azure Active Directory (Azure AD). N’utilisez pas tous les caractères non ASCII dans votre mot de passe, si votre serveur est intégré avec Azure AD.  
-> -   Les options de messagerie sont disponibles uniquement si vous installez un complément qui fournit un service de messagerie.  
+> - Les caractères non-ASCII ne sont pas pris en charge dans Microsoft Azure Active Directory (Azure AD). N’utilisez pas tous les caractères non ASCII dans votre mot de passe, si votre serveur est intégré avec Azure AD.  
+>   -   Les options de messagerie sont disponibles uniquement si vous installez un complément qui fournit un service de messagerie.  
   
 ##### <a name="to-add-a-user-account"></a>Pour ajouter un compte d'utilisateur  
   
@@ -200,38 +200,38 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
  Windows Server Essentials vous permet d'effectuer des tâches d'administration courantes à l'aide du tableau de bord Windows Server Essentials. Par défaut, le **utilisateurs** page du tableau de bord comprend deux onglets **utilisateurs** et **groupes d’utilisateurs**.  
   
 > [!NOTE]
->  -   Si vous intégrez votre serveur qui exécute Windows Server Essentials à Office 365, un nouvel onglet appelé **groupes de Distribution** est également ajouté à la **utilisateurs** page du tableau de bord.  
-> -   Dans Windows Server Essentials, le **utilisateurs** page du tableau de bord inclut uniquement un seul onglet - **utilisateurs**.  
+> - Si vous intégrez votre serveur qui exécute Windows Server Essentials à Office 365, un nouvel onglet appelé **groupes de Distribution** est également ajouté à la **utilisateurs** page du tableau de bord.  
+>   -   Dans Windows Server Essentials, le **utilisateurs** page du tableau de bord inclut uniquement un seul onglet - **utilisateurs**.  
   
  L'onglet **Utilisateurs** comprend les éléments suivants :  
   
--   Une liste des comptes d'utilisateur, qui indique :  
+- Une liste des comptes d'utilisateur, qui indique :  
   
-    -   Le nom de l'utilisateur.  
+  -   Le nom de l'utilisateur.  
   
-    -   Le nom d'ouverture de session du compte d'utilisateur.  
+  -   Le nom d'ouverture de session du compte d'utilisateur.  
   
-    -   Si le compte d'utilisateur dispose de l'autorisation Accès en tout lieu. L'autorisation Accès en tout lieu d'un compte d'utilisateur a la valeur **Autorisé** ou **Non autorisé**.  
+  -   Si le compte d'utilisateur dispose de l'autorisation Accès en tout lieu. L'autorisation Accès en tout lieu d'un compte d'utilisateur a la valeur **Autorisé** ou **Non autorisé**.  
   
-    -   Si l'historique des fichiers de ce compte d'utilisateur est géré par le serveur exécutant Windows Server Essentials. L'état de l'historique des fichiers d'un compte d'utilisateur est **Géré** ou **Non géré**.  
+  -   Si l'historique des fichiers de ce compte d'utilisateur est géré par le serveur exécutant Windows Server Essentials. L'état de l'historique des fichiers d'un compte d'utilisateur est **Géré** ou **Non géré**.  
   
-    -   Le niveau d'accès affecté au compte d'utilisateur. Vous pouvez affecter l'accès **Utilisateur standard** ou **Administrateur** à un compte d'utilisateur.  
+  -   Le niveau d'accès affecté au compte d'utilisateur. Vous pouvez affecter l'accès **Utilisateur standard** ou **Administrateur** à un compte d'utilisateur.  
   
-    -   L'état du compte d'utilisateur. Un compte d'utilisateur peut être **Actif**, **Inactif**ou **Incomplet**.  
+  -   L'état du compte d'utilisateur. Un compte d'utilisateur peut être **Actif**, **Inactif**ou **Incomplet**.  
   
-    -   Dans Windows Server Essentials, si le serveur est intégré à Office 365 ou Windows Intune, le compte en ligne de Microsoft s’affiche.  
+  -   Dans Windows Server Essentials, si le serveur est intégré à Office 365 ou Windows Intune, le compte en ligne de Microsoft s’affiche.  
   
-    -   Dans Windows Server Essentials, si le serveur est intégré à Microsoft Office 365, l’état du compte Office 365 (connu dans Windows Server Essentials en tant que le compte en ligne de Microsoft) pour le compte d’utilisateur s’affiche.  
+  -   Dans Windows Server Essentials, si le serveur est intégré à Microsoft Office 365, l’état du compte Office 365 (connu dans Windows Server Essentials en tant que le compte en ligne de Microsoft) pour le compte d’utilisateur s’affiche.  
   
--   Un volet d'informations avec des informations supplémentaires sur le compte d'utilisateur sélectionné.  
+- Un volet d'informations avec des informations supplémentaires sur le compte d'utilisateur sélectionné.  
   
--   Un volet des tâches qui comprend :  
+- Un volet des tâches qui comprend :  
   
-    -   un ensemble de tâches d'administration de compte d'utilisateur, par exemple l'affichage et la suppression de comptes d'utilisateur, ainsi que le changement de mot de passe ;  
+  -   un ensemble de tâches d'administration de compte d'utilisateur, par exemple l'affichage et la suppression de comptes d'utilisateur, ainsi que le changement de mot de passe ;  
   
-    -   les tâches qui vous permettent de définir ou changer globalement les paramètres de tous les comptes d'utilisateur du réseau.  
+  -   les tâches qui vous permettent de définir ou changer globalement les paramètres de tous les comptes d'utilisateur du réseau.  
   
- Le tableau suivant décrit les différentes tâches de compte d'utilisateur disponibles sous l'onglet **Utilisateurs** . Certaines tâches sont spécifiques aux comptes d'utilisateur. Elles ne sont visibles que si vous sélectionnez un compte d'utilisateur dans la liste.  
+  Le tableau suivant décrit les différentes tâches de compte d'utilisateur disponibles sous l'onglet **Utilisateurs** . Certaines tâches sont spécifiques aux comptes d'utilisateur. Elles ne sont visibles que si vous sélectionnez un compte d'utilisateur dans la liste.  
   
 > [!NOTE]
 >  Si vous intégrez Office 365 avec Windows Server Essentials, les tâches supplémentaires sont disponibles. Pour plus d’informations, consultez [gérer les comptes en ligne pour les utilisateurs](Manage-Online-Accounts-for-Users.md).  
@@ -286,55 +286,55 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 ##### <a name="to-reset-the-password-for-a-user-account"></a>Pour réinitialiser le mot de passe d'un compte d'utilisateur  
   
-1.  Ouvrez le tableau de bord Windows Server Essentials.  
+1. Ouvrez le tableau de bord Windows Server Essentials.  
   
-2.  Dans la barre de navigation, cliquez sur **Utilisateurs**.  
+2. Dans la barre de navigation, cliquez sur **Utilisateurs**.  
   
-3.  Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur à réinitialiser.  
+3. Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur à réinitialiser.  
   
-4.  Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **modifier le mot de passe du compte utilisateur**. L'Assistant permettant de changer le mot de passe du compte d'utilisateur s'affiche.  
+4. Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **modifier le mot de passe du compte utilisateur**. L'Assistant permettant de changer le mot de passe du compte d'utilisateur s'affiche.  
   
-5.  Tapez le nouveau mot de passe du compte d'utilisateur, puis retapez le mot de passe pour le confirmer.  
+5. Tapez le nouveau mot de passe du compte d'utilisateur, puis retapez le mot de passe pour le confirmer.  
   
-6.  Cliquez sur **Modifier le mot de passe**.  
+6. Cliquez sur **Modifier le mot de passe**.  
   
-7.  Indiquez le mot de passe à l'utilisateur.  
+7. Indiquez le mot de passe à l'utilisateur.  
   
-    > [!IMPORTANT]
-    >  -   Vous risquez de ne pas pouvoir changer votre mot de passe si la stratégie de mot de passe du compte a la valeur **Les mots de passe n'arrivent jamais à expiration**.  
-    > -   Les caractères non-ASCII ne sont pas pris en charge dans Azure AD. Par conséquent, si votre serveur est intégré avec Azure AD, n’utilisez pas les caractères non-ASCII dans votre mot de passe.  
-    > -   Si un compte en ligne Microsoft (connu dans Windows Server Essentials en tant qu’un compte Office 365) est affecté à l’utilisateur, le mot de passe est synchronisé avec le mot de passe du compte en ligne. L'utilisateur emploie le nouveau mot de passe pour se connecter au serveur ou à Office 365. Pour plus d’informations, consultez [gérer les comptes en ligne pour les utilisateurs](Manage-Online-Accounts-for-Users.md).  
+   > [!IMPORTANT]
+   > - Vous risquez de ne pas pouvoir changer votre mot de passe si la stratégie de mot de passe du compte a la valeur **Les mots de passe n'arrivent jamais à expiration**.  
+   >   -   Les caractères non-ASCII ne sont pas pris en charge dans Azure AD. Par conséquent, si votre serveur est intégré avec Azure AD, n’utilisez pas les caractères non-ASCII dans votre mot de passe.  
+   >   -   Si un compte en ligne Microsoft (connu dans Windows Server Essentials en tant qu’un compte Office 365) est affecté à l’utilisateur, le mot de passe est synchronisé avec le mot de passe du compte en ligne. L'utilisateur emploie le nouveau mot de passe pour se connecter au serveur ou à Office 365. Pour plus d’informations, consultez [gérer les comptes en ligne pour les utilisateurs](Manage-Online-Accounts-for-Users.md).  
   
 ###  <a name="BKMK_Access3"></a> Ce que vous devez savoir sur les stratégies de mot de passe  
  La stratégie de mot de passe est un ensemble de règles qui définissent la façon dont les utilisateurs créent et utilisent des mots de passe. La stratégie contribue à empêcher tout accès non autorisé aux données utilisateur et autres informations stockées sur le serveur. La stratégie de mot de passe est appliquée à tous les comptes d'utilisateur qui accèdent au réseau.  
   
  La stratégie de mot de passe Windows Server Essentials se compose de trois éléments principaux, comme suit :  
   
--   **Longueur du mot de passe**.  Plus un mot de passe est long, plus il est sécurisé. Les mots de passe vides ne sont pas sécurisés.  
+- **Longueur du mot de passe**.  Plus un mot de passe est long, plus il est sécurisé. Les mots de passe vides ne sont pas sécurisés.  
   
--   **Complexité du mot de passe**.  Les mots de passe complexes contiennent une combinaison de caractères en majuscules et minuscules (a-z, A-Z), de chiffres (0-9) et de symboles non alphabétiques (à savoir ; !,@,#,_,-). Les mots de passe complexes sont beaucoup moins vulnérables aux accès non autorisés. Les mots de passe qui contiennent des noms d'utilisateurs, des dates de naissance ou d'autres informations personnelles n'offrent pas une sécurité appropriée.  
+- **Complexité du mot de passe**.  Les mots de passe complexes contiennent une combinaison de caractères en majuscules et minuscules (a-z, A-Z), de chiffres (0-9) et de symboles non alphabétiques (à savoir ; !,@,#,_,-). Les mots de passe complexes sont beaucoup moins vulnérables aux accès non autorisés. Les mots de passe qui contiennent des noms d'utilisateurs, des dates de naissance ou d'autres informations personnelles n'offrent pas une sécurité appropriée.  
   
--   **Âge du mot de passe**.  Windows Server Essentials demande aux utilisateurs de changer leur mot de passe au moins une fois tous les 180 jours. Éventuellement, vous pouvez choisir d'avoir des mots de passe qui n'expirent jamais.  
+- **Âge du mot de passe**.  Windows Server Essentials demande aux utilisateurs de changer leur mot de passe au moins une fois tous les 180 jours. Éventuellement, vous pouvez choisir d'avoir des mots de passe qui n'expirent jamais.  
   
- Pour faciliter l'implémentation d'une stratégie de mot de passe dans votre réseau informatique, Windows Server Essentials fournit un outil simple qui vous permet de définir ou de changer la stratégie de mot de passe en fonction de l'un des quatre profils de stratégie prédéfinis suivants :  
+  Pour faciliter l'implémentation d'une stratégie de mot de passe dans votre réseau informatique, Windows Server Essentials fournit un outil simple qui vous permet de définir ou de changer la stratégie de mot de passe en fonction de l'un des quatre profils de stratégie prédéfinis suivants :  
   
--   **Faible**.  Les utilisateurs peuvent spécifier n'importe quel mot de passe non vide.  
+- **Faible**.  Les utilisateurs peuvent spécifier n'importe quel mot de passe non vide.  
   
--   **Moyen**.  Ces mots de passe doivent contenir au moins 5 caractères. Il n'est pas obligatoire d'utiliser un mot de passe complexe.  
+- **Moyen**.  Ces mots de passe doivent contenir au moins 5 caractères. Il n'est pas obligatoire d'utiliser un mot de passe complexe.  
   
--   **Moyen Fort**.  Ces mots de passe doivent contenir au moins 5 caractères et doivent inclure des lettres, des chiffres et des symboles.  
+- **Moyen Fort**.  Ces mots de passe doivent contenir au moins 5 caractères et doivent inclure des lettres, des chiffres et des symboles.  
   
--   **Fort**.  Ces mots de passe doivent contenir au moins 7 caractères et doivent inclure des lettres, des chiffres et des symboles. Ces mots de passe sont plus sécurisés, mais ils peuvent être plus difficiles à mémoriser.  
+- **Fort**.  Ces mots de passe doivent contenir au moins 7 caractères et doivent inclure des lettres, des chiffres et des symboles. Ces mots de passe sont plus sécurisés, mais ils peuvent être plus difficiles à mémoriser.  
   
-    > [!NOTE]
-    >  Les mots de passe ne peuvent pas contenir le nom d'utilisateur ou l'adresse de messagerie.  
-    >   
-    >  Si vous effectuez une intégration à Office 365, elle applique la stratégie de mot de passe **Fort** et la met à jour pour inclure les exigences suivantes :  
-    >   
-    >  -   Les mots de passe doivent contenir 8 16 caractères.  
-    > -   Les mots de passe ne doivent pas contenir d'espaces, ni le nom du compte de messagerie Office 365.  
+  > [!NOTE]
+  >  Les mots de passe ne peuvent pas contenir le nom d'utilisateur ou l'adresse de messagerie.  
+  > 
+  >  Si vous effectuez une intégration à Office 365, elle applique la stratégie de mot de passe **Fort** et la met à jour pour inclure les exigences suivantes :  
+  > 
+  > - Les mots de passe doivent contenir 8 16 caractères.  
+  >   -   Les mots de passe ne doivent pas contenir d'espaces, ni le nom du compte de messagerie Office 365.  
   
- Par défaut, l'installation du serveur définit la stratégie de mot de passe en utilisant l'option **Fort**.  
+  Par défaut, l'installation du serveur définit la stratégie de mot de passe en utilisant l'option **Fort**.  
   
 ###  <a name="BKMK_Access4"></a> Modifier la stratégie de mot de passe  
  Procédez comme suit pour définir ou changer la stratégie de mot de passe en fonction de l'un des quatre profils de stratégie prédéfinis.  
@@ -373,21 +373,21 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 ##### <a name="to-remove-a-user-account-but-retain-access-to-the-user-s-files"></a>Pour supprimer un compte d’utilisateur, mais conserver l’accès aux fichiers utilisateur s  
   
-1.  Ouvrez le tableau de bord Windows Server Essentials.  
+1. Ouvrez le tableau de bord Windows Server Essentials.  
   
-2.  Dans la barre de navigation, cliquez sur **Utilisateurs**.  
+2. Dans la barre de navigation, cliquez sur **Utilisateurs**.  
   
-3.  Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur à supprimer.  
+3. Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur à supprimer.  
   
-4.  Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **supprimer le compte d’utilisateur**. L'Assistant Suppression d'un compte d'utilisateur s'affiche.  
+4. Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **supprimer le compte d’utilisateur**. L'Assistant Suppression d'un compte d'utilisateur s'affiche.  
   
-5.  Dans la page **Voulez-vous conserver les fichiers ?** , assurez-vous que la case **Supprimer les fichiers inclus dans les sauvegardes Historique des fichiers et le dossier redirigé pour ce compte d'utilisateur** n'est pas cochée, puis cliquez sur **Suivant**.  
+5. Dans la page **Voulez-vous conserver les fichiers ?** , assurez-vous que la case **Supprimer les fichiers inclus dans les sauvegardes Historique des fichiers et le dossier redirigé pour ce compte d'utilisateur** n'est pas cochée, puis cliquez sur **Suivant**.  
   
-     Une page de confirmation s'affiche pour vous avertir que vous supprimez le compte mais que les fichiers sont conservés.  
+    Une page de confirmation s'affiche pour vous avertir que vous supprimez le compte mais que les fichiers sont conservés.  
   
-6.  Cliquez sur **Supprimer le compte** pour supprimer le compte d'utilisateur.  
+6. Cliquez sur **Supprimer le compte** pour supprimer le compte d'utilisateur.  
   
- Une fois le compte d'utilisateur supprimé, l'administrateur peut donner à un autre compte d'utilisateur l'accès au dossier partagé.  
+   Une fois le compte d'utilisateur supprimé, l'administrateur peut donner à un autre compte d'utilisateur l'accès au dossier partagé.  
   
 ##### <a name="to-give-a-user-account-permission-to-access-a-shared-folder"></a>Pour donner à un compte d'utilisateur l'autorisation d'accéder à un dossier partagé  
   
@@ -414,15 +414,15 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 ##### <a name="to-manually-synchronize-the-dsrm-password-to-a-network-administrator-account"></a>Pour synchroniser manuellement le mot de passe DSRM au mot de passe d'un compte d'administrateur réseau  
   
-1.  À l’invite de commandes, exécutez `ntdsutil.exe` pour ouvrir l’outil ntdsutil.  
+1. À l’invite de commandes, exécutez `ntdsutil.exe` pour ouvrir l’outil ntdsutil.  
   
-2.  Pour réinitialiser le mot de passe DSRM, tapez **set dsrm password**.  
+2. Pour réinitialiser le mot de passe DSRM, tapez **set dsrm password**.  
   
-3.  Pour synchroniser le mot de passe DSRM sur un contrôleur de domaine avec le compte de s administrateur réseau actuel, tapez :  
+3. Pour synchroniser le mot de passe DSRM sur un contrôleur de domaine avec le compte de s administrateur réseau actuel, tapez :  
   
-     **la synchronisation à partir du compte de domaine** *< compte_administrateur_réseau_actuel >* , puis appuyez sur ENTRÉE.  
+    **la synchronisation à partir du compte de domaine** *< compte_administrateur_réseau_actuel >* , puis appuyez sur ENTRÉE.  
   
- Comme vous allez changer régulièrement le mot de passe du compte d'administrateur réseau, nous vous recommandons de créer une tâche planifiée pour synchroniser automatiquement et quotidiennement le mot de passe DSRM au mot de passe d'administrateur réseau. Cela permet de garantir que le mot de passe DSRM est toujours identique au mot de passe actif de l'administrateur réseau.  
+   Comme vous allez changer régulièrement le mot de passe du compte d'administrateur réseau, nous vous recommandons de créer une tâche planifiée pour synchroniser automatiquement et quotidiennement le mot de passe DSRM au mot de passe d'administrateur réseau. Cela permet de garantir que le mot de passe DSRM est toujours identique au mot de passe actif de l'administrateur réseau.  
   
 ##### <a name="to-automatically-synchronize-the-dsrm-password-to-a-network-administrator-account"></a>Pour synchroniser automatiquement le mot de passe DSRM au mot de passe d'un compte d'administrateur réseau  
   
@@ -460,15 +460,15 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
  L'Assistant Configuration de l'Accès en tout lieu vous permet d'activer deux méthodes d'accès à distance :  
   
--   réseau privé virtuel (VPN) ;  
+- réseau privé virtuel (VPN) ;  
   
--   Accès web à distance  
+- Accès web à distance  
   
- Quand vous exécutez l'Assistant, vous pouvez également choisir d'autoriser l'Accès en tout lieu pour tous les comptes d'utilisateur, qu'ils soient actifs ou récemment ajoutés.  
+  Quand vous exécutez l'Assistant, vous pouvez également choisir d'autoriser l'Accès en tout lieu pour tous les comptes d'utilisateur, qu'ils soient actifs ou récemment ajoutés.  
   
- Pour configurer l'Accès en tout lieu, ouvrez la page **Accueil** du tableau de bord, cliquez sur **CONFIGURATION**, puis sur **Configurer l'Accès en tout lieu**.  
+  Pour configurer l'Accès en tout lieu, ouvrez la page **Accueil** du tableau de bord, cliquez sur **CONFIGURATION**, puis sur **Configurer l'Accès en tout lieu**.  
   
- Pour plus d’informations sur l’accès en tout lieu, consultez [Manage Anywhere Access](Manage-Anywhere-Access-in-Windows-Server-Essentials.md).  
+  Pour plus d’informations sur l’accès en tout lieu, consultez [Manage Anywhere Access](Manage-Anywhere-Access-in-Windows-Server-Essentials.md).  
   
 ###  <a name="BKMK_Access9"></a> Permettre aux utilisateurs d’accéder aux ressources sur le serveur  
   Cette section s’applique à un serveur exécutant Windows Server Essentials ou Windows Server Essentials, ou à un serveur exécutant Windows Server 2012 R2 Standard ou Windows Server 2012 R2 Datacenter avec le rôle expérience Windows Server Essentials installé.  

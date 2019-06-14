@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: babcdaf6ae35770d48176c7c391fa41e295ce5d5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fff4e5088e3e08cf2e9e742d8fb6aa2187bb9e83
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825050"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438132"
 ---
 # <a name="ipconfig"></a>ipconfig
 
@@ -45,15 +45,15 @@ ipconfig [/allcompartments] [/all] [/renew [<Adapter>]] [/release [<Adapter>]] [
 |/release6[\<Adapter>]|Envoie un message DHCPRELEASE au serveur DHCPv6 pour libérer de la configuration DHCP actuelle et ignorer la configuration d’adresse IPv6 pour toutes les cartes (si un adaptateur n’est pas spécifié) ou pour une carte spécifique si la *adaptateur* paramètre n’est inclus. Ce paramètre désactive TCP/IP pour les adaptateurs configurés pour obtenir une adresse IP automatiquement. Pour spécifier un nom de l’adaptateur, tapez le nom de l’adaptateur qui s’affiche lorsque vous utilisez **ipconfig** sans paramètres.|
 |/ renouveler [\<adaptateur >]|Renouvelle la configuration de DHCP pour toutes les cartes (si un adaptateur n’est pas spécifié) ou pour une carte spécifique si la *adaptateur* paramètre n’est inclus. Ce paramètre est disponible uniquement sur les ordinateurs avec les cartes qui sont configurés pour obtenir automatiquement une adresse IP. Pour spécifier un nom de l’adaptateur, tapez le nom de l’adaptateur qui s’affiche lorsque vous utilisez **ipconfig** sans paramètres.|
 |/renew6 [\<adaptateur >]|Renouvelle la configuration de DHCPv6 pour toutes les cartes (si un adaptateur n’est pas spécifié) ou pour une carte spécifique si la *adaptateur* paramètre n’est inclus. Ce paramètre est disponible uniquement sur les ordinateurs avec les cartes qui sont configurés pour obtenir automatiquement une adresse IPv6. Pour spécifier un nom de l’adaptateur, tapez le nom de l’adaptateur qui s’affiche lorsque vous utilisez **ipconfig** sans paramètres.|
-|/setclassid \<Adapter>[ <ClassID>]|Configure l’ID de classe DHCP d’une carte spécifique. Pour définir l’ID de classe DHCP pour toutes les cartes, utilisez l’astérisque (**&#42;**) caractère générique à la place de *adaptateur*. Ce paramètre est disponible uniquement sur les ordinateurs avec les cartes qui sont configurés pour obtenir automatiquement une adresse IP. Si un ID de classe DHCP n’est pas spécifié, l’ID de classe en cours est supprimé.|
-|/showclassid \<adaptateur >|Affiche l’ID de classe DHCP d’une carte spécifique. Pour afficher l’ID de classe DHCP pour toutes les cartes, utilisez l’astérisque (**&#42;**) caractère générique à la place de *adaptateur*. Ce paramètre est disponible uniquement sur les ordinateurs avec les cartes qui sont configurés pour obtenir automatiquement une adresse IP.|
+|/setclassid \<Adapter>[ <ClassID>]|Configure l’ID de classe DHCP d’une carte spécifique. Pour définir l’ID de classe DHCP pour toutes les cartes, utilisez l’astérisque ( **&#42;** ) caractère générique à la place de *adaptateur*. Ce paramètre est disponible uniquement sur les ordinateurs avec les cartes qui sont configurés pour obtenir automatiquement une adresse IP. Si un ID de classe DHCP n’est pas spécifié, l’ID de classe en cours est supprimé.|
+|/showclassid \<adaptateur >|Affiche l’ID de classe DHCP d’une carte spécifique. Pour afficher l’ID de classe DHCP pour toutes les cartes, utilisez l’astérisque ( **&#42;** ) caractère générique à la place de *adaptateur*. Ce paramètre est disponible uniquement sur les ordinateurs avec les cartes qui sont configurés pour obtenir automatiquement une adresse IP.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
--   Cette commande est particulièrement utile sur les ordinateurs qui sont configurés pour obtenir automatiquement une adresse IP. Cela permet aux utilisateurs de déterminer les valeurs de configuration TCP/IP ont été configurées par DHCP, APIPA Automatic Private IP Addressing () ou une configuration de remplacement.
--   Si le nom que vous fournissez pour *adaptateur* contient des espaces, utilisez les guillemets autour du nom de l’adaptateur (exemple : **«***Nom de l’adaptateur***»**).
--   Pour les noms de l’adaptateur, **ipconfig** prend en charge l’utilisation du caractère générique astérisque (*) pour spécifier des cartes avec des noms qui commencent par une chaîne spécifiée ou les cartes dont les noms contiennent une chaîne spécifiée. Par exemple, **Local\***  correspond à toutes les cartes qui commencent par la chaîne Local et **\*Con\*** correspond à toutes les cartes qui contiennent la chaîne Con.
+- Cette commande est particulièrement utile sur les ordinateurs qui sont configurés pour obtenir automatiquement une adresse IP. Cela permet aux utilisateurs de déterminer les valeurs de configuration TCP/IP ont été configurées par DHCP, APIPA Automatic Private IP Addressing () ou une configuration de remplacement.
+- Si le nom que vous fournissez pour *adaptateur* contient des espaces, utilisez les guillemets autour du nom de l’adaptateur (exemple : **«** <em>Nom de l’adaptateur</em> **»** ).
+- Pour les noms de l’adaptateur, **ipconfig** prend en charge l’utilisation de l’astérisque ( *) caractère générique pour spécifier des cartes avec des noms qui commencent par une chaîne spécifiée ou les cartes dont les noms contiennent une chaîne spécifiée. Par exemple, **Local\\** *   correspond à toutes les cartes qui commencent par la chaîne Local et  **\*Con\\** * correspond à toutes les cartes qui contiennent le chaîne Con.
 
 ## <a name="examples"></a>Exemples
 
@@ -84,4 +84,4 @@ ipconfig /setclassid "Local Area Connection" TEST
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

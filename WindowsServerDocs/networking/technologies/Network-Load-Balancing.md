@@ -9,12 +9,12 @@ ms.assetid: 244a4b48-06e5-4796-8750-a50e4f88ac72
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: d0cf1e1d6b1681a0f18908b08cd17572159e0462
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 0ea129fe2230332c0099d735f064768bce9fc50c
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881750"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812278"
 ---
 # <a name="network-load-balancing"></a>Équilibrage de la charge réseau
 
@@ -22,8 +22,8 @@ ms.locfileid: "59881750"
 
 Dans cette rubrique, nous vous fournissons une vue d’ensemble de l’équilibrage de charge réseau \(NLB\) fonctionnalité dans Windows Server 2016. Vous pouvez utiliser l’équilibrage de charge réseau pour gérer deux ou plusieurs serveurs en tant qu’un seul cluster virtuel. Équilibrage de charge réseau améliore la disponibilité et l’évolutivité des applications de serveur Internet tels que ceux utilisés sur le web, FTP, de pare-feu, proxy, réseau privé virtuel \(VPN\)et autres mission\-serveurs critiques.  
 
->[!NOTE]
->Windows Server 2016 inclut un nouvel équilibrage de charge logiciel d’inspirée d’Azure \(SLB\) en tant que composant de la Software-Defined Networking \(SDN\) infrastructure. Utilisez SLB au lieu de l’équilibrage de charge réseau si vous utilisez SDN, sont à l’aide de charges de travail non Windows, le besoin de traduction d’adresses réseau sortantes \(NAT\), ou vous avez besoin de couche 3 \(L3\) ou l’équilibrage de charge non TCP. Vous pouvez continuer à utiliser l’équilibrage de charge réseau avec Windows Server 2016 pour les déploiements non SDN. Pour plus d’informations sur SLB, consultez [d’équilibrage de charge logiciel (SLB) pour SDN](../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).
+> [!NOTE]
+> Windows Server 2016 inclut un nouvel équilibrage de charge logiciel d’inspirée d’Azure \(SLB\) en tant que composant de la Software-Defined Networking \(SDN\) infrastructure. Utilisez SLB au lieu de l’équilibrage de charge réseau si vous utilisez SDN, sont à l’aide de charges de travail non Windows, le besoin de traduction d’adresses réseau sortantes \(NAT\), ou vous avez besoin de couche 3 \(L3\) ou l’équilibrage de charge non TCP. Vous pouvez continuer à utiliser l’équilibrage de charge réseau avec Windows Server 2016 pour les déploiements non SDN. Pour plus d’informations sur SLB, consultez [d’équilibrage de charge logiciel (SLB) pour SDN](../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).
 
 L’équilibrage de charge réseau \(NLB\) fonctionnalité répartit le trafic sur plusieurs serveurs à l’aide de TCP\/protocole réseau IP. En combinant deux ou plusieurs ordinateurs qui exécutent des applications dans un cluster virtuel unique, équilibrage de charge réseau assure la fiabilité et les performances des serveurs web et autres mission\-serveurs critiques.  
   

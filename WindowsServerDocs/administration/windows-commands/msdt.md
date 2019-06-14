@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 09f3f738d5a7ba7f7c40cb4eb2ce043856b378cc
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: ba411cf73026afe9990e5c32824e3dc277507891
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63718257"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437229"
 ---
 # <a name="msdt"></a>msdt
 
@@ -36,10 +36,12 @@ msdt </id <name> | /path <name> | /cab < name>> <</parameter> [options] … <par
 
 Le tableau suivant contient les paramètres et les options prises en charge par msdt.exe.
 
-|Paramètre|Description|
-|---------|-----------|
-|/id \<package name>|Spécifie le package de diagnostic à exécuter. Pour obtenir la liste des packages disponibles, consultez l’ID de Pack de résolution des problèmes dans « disponible le dépannage des packs ? section plus loin dans cette rubrique.|
-|/ Path \<directory | fichier de .diagpkg | .diagcfg file>|Spécifie le chemin d’accès complet à un package de diagnostic. Si vous spécifiez un répertoire, le répertoire doit contenir un package de diagnostic. Vous ne pouvez pas utiliser le paramètre/Path conjointement avec le */id*, */dci*, ou */cab* paramètre.|
-|/dci \<passkey>|Pré-remplit le champ de clé d’accès dans msdt. Ce paramètre est utilisé uniquement lorsqu’un fournisseur de support a fourni une clé de sécurité.|
-|/dt \<directory>|Affiche l’historique de résolution des problèmes dans le répertoire spécifié. Résultats de diagnostics sont stockés dans l’utilisateur **%LOCALAPPDATA%\Diagnostics** ou **%LOCALAPPDATA%\ElevatedDiagnostics** répertoires.|
-|/AF \<fichier de réponses >|Spécifie un fichier de réponses au format XML qui contient les réponses à un ou plusieurs des interactions Diagnostics.|
+
+|      Paramètre      |                                                                                            Description                                                                                             |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| /id \<package name> |        Spécifie le package de diagnostic à exécuter. Pour obtenir la liste des packages disponibles, consultez l’ID de Pack de résolution des problèmes dans « disponible le dépannage des packs ? section plus loin dans cette rubrique.         |
+|  / Path \<directory  |                                                                                           fichier de .diagpkg                                                                                            |
+|   /dci \<passkey>   |                                        Pré-remplit le champ de clé d’accès dans msdt. Ce paramètre est utilisé uniquement lorsqu’un fournisseur de support a fourni une clé de sécurité.                                         |
+|  /dt \<directory>   | Affiche l’historique de résolution des problèmes dans le répertoire spécifié. Résultats de diagnostics sont stockés dans l’utilisateur **%LOCALAPPDATA%\Diagnostics** ou **%LOCALAPPDATA%\ElevatedDiagnostics** répertoires. |
+| /AF \<fichier de réponses >  |                                               Spécifie un fichier de réponses au format XML qui contient les réponses à un ou plusieurs des interactions Diagnostics.                                               |
+

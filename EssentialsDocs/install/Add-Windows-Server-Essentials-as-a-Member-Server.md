@@ -12,12 +12,12 @@ ms.assetid: d09dd82f-f7d2-47ce-862d-fd9869f2021c
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 413c1d5d3bec7f002b73e9861aa119d495c5cfb2
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 502e54cf719895dd11030cf163159f6cdda47164
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63717123"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433733"
 ---
 # <a name="add-windows-server-essentials-as-a-member-server"></a>Ajouter Windows Server Essentials en tant que serveur membre
 
@@ -49,23 +49,23 @@ Cette rubrique s’applique à un serveur exécutant Windows Server 2012 R2 Stan
   
 #### <a name="to-join-windows-server-essentials-to-a-workgroup-or-domain"></a>Pour joindre Windows Server Essentials à un domaine ou groupe de travail  
   
-1.  Après avoir terminé l'installation de Windows Server Essentials sur votre second serveur, fermez l'Assistant Configuration de Windows Server Essentials.  
+1. Après avoir terminé l'installation de Windows Server Essentials sur votre second serveur, fermez l'Assistant Configuration de Windows Server Essentials.  
   
-2.  Dans la zone **Rechercher** , tapez **System Settings**et dans les résultats de la recherche, cliquez sur **Afficher les paramètres système avancés**.  
+2. Dans la zone **Rechercher** , tapez **System Settings**et dans les résultats de la recherche, cliquez sur **Afficher les paramètres système avancés**.  
   
-3.  Dans **Propriétés système**, cliquez sur l'onglet **Nom de l'ordinateur**.  
+3. Dans **Propriétés système**, cliquez sur l'onglet **Nom de l'ordinateur**.  
   
-4.  Sous **Nom de l'ordinateur**, dans la section **Domaine**, cliquez sur **Modifier**.  
+4. Sous **Nom de l'ordinateur**, dans la section **Domaine**, cliquez sur **Modifier**.  
   
-5.  Dans **modification du nom ou du domaine d’ordinateur**, dans le **membre** , choisissez si vous souhaitez joindre le serveur exécutant Windows Server Essentials pour un **Workgroup** ou à un **Domaine**.  
+5. Dans **modification du nom ou du domaine d’ordinateur**, dans le **membre** , choisissez si vous souhaitez joindre le serveur exécutant Windows Server Essentials pour un **Workgroup** ou à un **Domaine**.  
   
-    -   Pour ajouter le serveur à un groupe de travail, tapez **workgroup**, puis cliquez sur **OK**.  
+   -   Pour ajouter le serveur à un groupe de travail, tapez **workgroup**, puis cliquez sur **OK**.  
   
-    -   Pour joindre ce serveur à un domaine Active Directory existant, tapez le nom du domaine, puis cliquez sur **OK**.  
+   -   Pour joindre ce serveur à un domaine Active Directory existant, tapez le nom du domaine, puis cliquez sur **OK**.  
   
-6.  Redémarrez le serveur pour appliquer les modifications.  
+6. Redémarrez le serveur pour appliquer les modifications.  
   
- Une fois que vous avez joint le serveur à votre domaine de s du serveur principal, vous pouvez continuer à configurer Windows Server Essentials en exécutant l’Assistant Configurer Windows Server Essentials à partir du Gestionnaire de serveur.  
+   Une fois que vous avez joint le serveur à votre domaine de s du serveur principal, vous pouvez continuer à configurer Windows Server Essentials en exécutant l’Assistant Configurer Windows Server Essentials à partir du Gestionnaire de serveur.  
   
 #### <a name="to-configure-windows-server-essentials-experience-on-a-member-server"></a>Pour configurer l'Expérience Windows Server Essentials sur un serveur membre  
   

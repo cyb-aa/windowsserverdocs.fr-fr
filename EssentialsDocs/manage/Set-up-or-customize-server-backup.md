@@ -12,12 +12,12 @@ ms.assetid: 441c2d6c-435a-42cb-90f2-6d680d279d34
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 4fb34e05b00c35156a8451ffb0d8b914fcc73cf5
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 5bd36db4f61b990c3864828370607158df4803a3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63720287"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433039"
 ---
 # <a name="set-up-or-customize-server-backup"></a>Configurer ou personnaliser la sauvegarde du serveur
 
@@ -55,12 +55,12 @@ ms.locfileid: "63720287"
   
 > [!NOTE]
 >  Dans l’installation par défaut de Windows Server Essentials, le serveur est configuré pour exécuter automatiquement une défragmentation une fois par semaine. Si vous utilisez un logiciel de création d'images qui n'est pas fourni par Microsoft, la taille de vos sauvegardes peut être supérieure à la normale. S'il est inutile de défragmenter régulièrement le serveur, vous pouvez suivre ces étapes pour désactiver la planification de la défragmentation :  
->   
->  1.  Appuyez sur la touche Windows + W pour ouvrir **Rechercher**.  
-> 2.  Dans la zone de texte Rechercher, tapez **Defragment**.  
-> 3.  Dans la section de résultats, cliquez sur **Défragmenter et optimiser vos lecteurs**.  
-> 4.  Dans la page **Optimiser les lecteurs**, sélectionnez un lecteur, puis cliquez sur **Modifier les paramètres**.  
-> 5.  Dans la fenêtre **Planification de l'optimisation** , décochez la case **Exécution planifiée (recommandé)** , puis cliquez sur **OK** pour enregistrer les modifications.  
+> 
+> 1. Appuyez sur la touche Windows + W pour ouvrir **Rechercher**.  
+>    2. Dans la zone de texte Rechercher, tapez **Defragment**.  
+>    3. Dans la section de résultats, cliquez sur **Défragmenter et optimiser vos lecteurs**.  
+>    4. Dans la page **Optimiser les lecteurs**, sélectionnez un lecteur, puis cliquez sur **Modifier les paramètres**.  
+>    5. Dans la fenêtre **Planification de l'optimisation** , décochez la case **Exécution planifiée (recommandé)** , puis cliquez sur **OK** pour enregistrer les modifications.  
   
 ##  <a name="BKMK_2"></a> Planification de sauvegarde de serveur  
  Quand vous utilisez l'Assistant Configurer la sauvegarde du serveur ou l'Assistant Personnaliser la sauvegarde du serveur, vous pouvez choisir de sauvegarder les données du serveur à plusieurs reprises durant la journée. Étant donné que les Assistants planifient des sauvegardes incrémentielles, les sauvegardes s'exécutent rapidement et les performances du serveur ne sont que modérément affectées. Par défaut, les Assistants planifient l'exécution d'une sauvegarde tous les jours à 12h00 et 23h00. Vous pouvez toutefois modifier la planification de la sauvegarde en fonction des besoins de votre organisation. Nous vous conseillons d'évaluer de temps en temps l'efficacité de votre plan de sauvegarde et de le modifier en conséquence.  
@@ -106,32 +106,32 @@ ms.locfileid: "63720287"
   
 > [!NOTE]
 >  Si une sauvegarde échoue, car le lecteur de sauvegarde n’était pas suffisamment d’espace, la lettre de lecteur pour le lecteur cible de sauvegarde est supprimée de la base de données Windows Server Essentials et le tableau de bord n’affiche pas le lecteur. Si vous souhaitez utiliser le lecteur lors des sauvegardes ultérieures, vous devez réassigner la lettre de lecteur à l'aide d'un outil natif.  
->   
+> 
 >  **Pour réaffecter une lettre de lecteur pour un volume existant**  
->   
->  1.  Dans le Panneau de configuration, ouvrez **Systèmes et sécurité**.  
-> 2.  Sous **Outils d'administration**, cliquez sur **Créer et formater des partitions de disque dur**.  
-> 3.  Cliquez avec le bouton droit sur le lecteur, puis cliquez sur **Modifier la lettre de lecteur et les chemins d'accès**.  
-> 4.  Cliquez sur **Ajouter**.  
-> 5.  Dans la boîte de dialogue Ajouter une lettre de lecteur ou de chemin d'accès, sélectionnez une lettre de lecteur à assigner. (Vous pouvez réassigner la même lettre de lecteur). Cliquez sur **OK**.  
->   
->      Le lecteur apparaît immédiatement sur le Tableau de bord.  
+> 
+> 1. Dans le Panneau de configuration, ouvrez **Systèmes et sécurité**.  
+>    2. Sous **Outils d'administration**, cliquez sur **Créer et formater des partitions de disque dur**.  
+>    3. Cliquez avec le bouton droit sur le lecteur, puis cliquez sur **Modifier la lettre de lecteur et les chemins d'accès**.  
+>    4. Cliquez sur **Ajouter**.  
+>    5. Dans la boîte de dialogue Ajouter une lettre de lecteur ou de chemin d'accès, sélectionnez une lettre de lecteur à assigner. (Vous pouvez réassigner la même lettre de lecteur). Cliquez sur **OK**.  
+> 
+>    Le lecteur apparaît immédiatement sur le Tableau de bord.  
   
 ##  <a name="BKMK_4"></a> Éléments à sauvegarder  
  Vous pouvez choisir de sauvegarder tous les lecteurs, fichiers et dossiers sur le serveur ou sélectionner uniquement des lecteurs, fichiers ou dossiers spécifiques à sauvegarder.  
   
  Quand vous ajoutez ou supprimez un lecteur ou des fichiers et dossiers partagés, vous devez modifier la configuration de sauvegarde du serveur pour vous assurer que ces éléments sont ajoutés ou supprimés de la configuration de sauvegarde. Pour ajouter ou supprimer des éléments à sauvegarder, effectuez l'une des opérations suivantes :  
   
--   Pour inclure un lecteur de données dans la sauvegarde du serveur, cochez la case correspondante  
+- Pour inclure un lecteur de données dans la sauvegarde du serveur, cochez la case correspondante  
   
--   Pour exclure un lecteur de données de la sauvegarde du serveur, décochez la case correspondante  
+- Pour exclure un lecteur de données de la sauvegarde du serveur, décochez la case correspondante  
   
-    > [!NOTE]
-    >  Si vous souhaitez exclure l'élément **Système d'exploitation** de la sauvegarde, vous devez d'abord décocher la case **Sauvegarde système (recommandé)** .  
+  > [!NOTE]
+  >  Si vous souhaitez exclure l'élément **Système d'exploitation** de la sauvegarde, vous devez d'abord décocher la case **Sauvegarde système (recommandé)** .  
   
- Pour réduire la quantité de stockage de serveur utilisée par les sauvegardes de votre serveur, vous pouvez exclure les dossiers contenant des fichiers que vous jugez sans grande importance.  
+  Pour réduire la quantité de stockage de serveur utilisée par les sauvegardes de votre serveur, vous pouvez exclure les dossiers contenant des fichiers que vous jugez sans grande importance.  
   
- Par exemple, vous possédez peut-être un dossier contenant des programmes de télévision enregistrés qui prend beaucoup de place sur le disque. Vous pouvez choisir ne pas de sauvegarder ces fichiers, car vous les supprimez de toute façon après les avoir regardés. Vous possédez peut-être aussi un dossier qui contient des fichiers temporaires que vous ne souhaitez pas conserver.  
+  Par exemple, vous possédez peut-être un dossier contenant des programmes de télévision enregistrés qui prend beaucoup de place sur le disque. Vous pouvez choisir ne pas de sauvegarder ces fichiers, car vous les supprimez de toute façon après les avoir regardés. Vous possédez peut-être aussi un dossier qui contient des fichiers temporaires que vous ne souhaitez pas conserver.  
   
 ## <a name="see-also"></a>Voir aussi  
   
