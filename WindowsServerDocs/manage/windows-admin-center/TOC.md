@@ -34,18 +34,18 @@
 
 
 ## Se connecter à Azure
-### [Services Azure hybrides](azure/index.md)
+### [Services hybrides Azure](azure/index.md)
 #### [Sauvegarde Azure](azure/azure-backup.md)
 #### [Azure Site Recovery](azure/azure-site-recovery.md)
 #### [Azure File Sync](azure/azure-file-sync.md)
 #### [Azure Monitor](azure/azure-monitor.md)
-#### [Gestion de la mise à jour Azure](azure/azure-update-management.md)
+#### [Azure Update Management](azure/azure-update-management.md)
 ### [Connecter Windows Admin Center à Azure](azure/azure-integration.md)
 ### [Déployer Windows Admin Center dans Azure](azure/deploy-wac-in-azure.md)
 ### [Gérer les machines virtuelles Azure avec Windows Admin Center](azure/manage-azure-vms.md)
 
 ## Support
-### [Stratégie de prise en charge](support/index.md)
+### [Stratégie de support](support/index.md)
 ### [Étapes de résolution des problèmes courants](support/troubleshooting.md)
 ### [Problèmes connus](support/known-issues.md)
 
@@ -71,7 +71,7 @@
 #### [Utilisation de PowerShell dans votre extension](extend/guides/powershell.md)
 #### [Guide d’icône CSS](extend/guides/cssicons.md)
 #### [Migrer vers la dernière version du SDK](extend/guides/migration-guide-0_1-1_0.md)
-#### [Activer la bannière de découverte d’extension](extend/guides/extension-discovery-banner.md)
+#### [Activer la bannière de détection d'extension](extend/guides/extension-discovery-banner.md)
 ### [Publication d’extensions](extend/publish-extensions.md)
 ### Études de cas
 #### [DataON](extend/case-studies/dataon.md)

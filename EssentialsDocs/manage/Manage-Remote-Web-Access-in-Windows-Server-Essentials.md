@@ -12,12 +12,12 @@ ms.assetid: f3ea40fa-b6ba-4d66-b754-221ca6271387
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: de01b2fd2395377b6e7b3349b9862eb0e51a59b8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 1998ccc7d69bdbc399a71e7177bf9952b3632f26
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870000"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433272"
 ---
 # <a name="manage-remote-web-access-in-windows-server-essentials"></a>Gérer l'accès web à distance dans Windows Server Essentials
 
@@ -38,7 +38,7 @@ ms.locfileid: "59870000"
 -   [Résoudre les problèmes d’accès Web à distance](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_5)  
   
 ##  <a name="BKMK_1"></a> Activer et configurer l’accès Web à distance  
- Les rubriques suivantes vous aident à activer et configurer l’accès web à distance :  
+ Les rubriques suivantes vous aident à activer et configurer l’accès web à distance:  
   
 -   [Vue d’ensemble de l’accès Web à distance](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Overview)  
   
@@ -53,17 +53,17 @@ ms.locfileid: "59870000"
 -   [Gérer les utilisateurs de l’accès Web à distance et VPN](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_ManageRWAVPN)  
   
 ###  <a name="BKMK_Overview"></a> Vue d’ensemble de l’accès Web à distance  
- Lorsque vous êtes en déplacement, vous pouvez ouvrir un navigateur web et l’accès Web à distance à partir de n’importe quel endroit qui a accès à Internet. Accès Web à distance, vous pouvez :  
+ Lorsque vous êtes en déplacement, vous pouvez ouvrir un navigateur web et l’accès Web à distance à partir de n’importe quel endroit qui a accès à Internet. Accès Web à distance, vous pouvez:  
   
--   accéder aux fichiers et dossiers partagés sur le serveur ;  
+- accéder aux fichiers et dossiers partagés sur le serveur ;  
   
--   accéder à votre serveur et à vos ordinateurs sur le réseau. Cela signifie que vous pouvez accéder au Bureau d'un ordinateur en réseau comme si vous étiez assis en face de lui dans votre bureau.  
+- accéder à votre serveur et à vos ordinateurs sur le réseau. Cela signifie que vous pouvez accéder au Bureau d'un ordinateur en réseau comme si vous étiez assis en face de lui dans votre bureau.  
   
   Accès Web à distance n’est pas activé par défaut. Quand vous exécutez l'Assistant Configurer l'accès en tout lieu, il tente de configurer votre routeur et la connectivité Internet. Une fois l’accès Web à distance est activé, vous pouvez configurer un nom de domaine pour votre serveur et personnaliser l’accès Web à distance. Vous pouvez également reconfigurer le routeur si vous le modifiez.  
   
- Autorisation d’accès Web à distance ne reçoit pas automatiquement lorsque vous ajoutez un nouveau compte d’utilisateur. Quand vous ajoutez un compte d'utilisateur, vous pouvez décider d'autoriser l'accès aux dossiers partagés, à la bibliothèque multimédia, aux ordinateurs, aux liens de la page d'accueil et au tableau de bord du serveur. Vous pouvez également spécifier qu’un utilisateur ne pas censé utiliser accès Web à distance.  
+  Autorisation d’accès Web à distance ne reçoit pas automatiquement lorsque vous ajoutez un nouveau compte d’utilisateur. Quand vous ajoutez un compte d'utilisateur, vous pouvez décider d'autoriser l'accès aux dossiers partagés, à la bibliothèque multimédia, aux ordinateurs, aux liens de la page d'accueil et au tableau de bord du serveur. Vous pouvez également spécifier qu’un utilisateur ne pas censé utiliser accès Web à distance.  
   
- Le paramètre d’accès Web à distance s’affiche pour chaque compte d’utilisateur dans le **utilisateurs** onglet du tableau de bord Windows Server Essentials. Pour modifier le paramètre de l’accès Web à distance, cliquez sur le compte d’utilisateur, puis cliquez sur **afficher les propriétés du compte**.  
+  Le paramètre d’accès Web à distance s’affiche pour chaque compte d’utilisateur dans le **utilisateurs** onglet du tableau de bord Windows Server Essentials. Pour modifier le paramètre de l’accès Web à distance, cliquez sur le compte d’utilisateur, puis cliquez sur **afficher les propriétés du compte**.  
   
 ###  <a name="BKMK_TurnOnRWA"></a> Activer l’accès Web à distance  
  Vous pouvez activer l’accès web à distance en exécutant l’Assistant Configurer l’accès en tout lieu à partir du tableau de bord du serveur.  
@@ -94,21 +94,21 @@ ms.locfileid: "59870000"
 4.  Dans la liste déroulante, sélectionnez la nouvelle région, puis cliquez sur **Appliquer** pour accepter le nouveau paramètre de région.  
   
 ###  <a name="BKMK_ManagePerms"></a> Gérer les autorisations d’accès Web à distance  
- Quand vous ajoutez un compte d'utilisateur dans Windows Server Essentials, le nouvel utilisateur est autorisé par défaut à utiliser l'accès web à distance. Si vous avez choisi pas autoriser l’accès Web à distance pour un compte d’utilisateur et constatez que l’utilisateur doit utiliser l’accès Web à distance, vous pouvez mettre à jour les propriétés s du compte utilisateur.  
+ Quand vous ajoutez un compte d'utilisateur dans Windows Server Essentials, le nouvel utilisateur est autorisé par défaut à utiliser l'accès web à distance. Si vous avez choisi pas autoriser l’accès Web à distance pour un compte d’utilisateur et constatez que l’utilisateur doit utiliser l’accès Web à distance, vous pouvez mettre à jour les propriétés du compte d’utilisateur.  
   
 ##### <a name="to-manage-remote-web-access-permissions-for-a-user-account"></a>Pour gérer les autorisations d'accès web à distance pour un compte d'utilisateur  
   
-1.  Ouvrez une session sur le tableau de bord, puis cliquez sur **Utilisateurs**.  
+1. Ouvrez une session sur le tableau de bord, puis cliquez sur **Utilisateurs**.  
   
-2.  Cliquez sur le compte d'utilisateur que vous voulez gérer, puis cliquez sur **Afficher les propriétés du compte** dans le volet **Tâches** .  
+2. Cliquez sur le compte d'utilisateur que vous voulez gérer, puis cliquez sur **Afficher les propriétés du compte** dans le volet **Tâches** .  
   
-3.  Dans la boîte de dialogue **Propriétés**, cliquez sur l'onglet **Accès en tout lieu**.  
+3. Dans la boîte de dialogue **Propriétés**, cliquez sur l'onglet **Accès en tout lieu**.  
   
-4.  Sous l'onglet **Accès en tout lieu** , cochez la case **Autoriser l'accès web à distance et l'accès aux applications de services Web** pour autoriser un utilisateur à se connecter au serveur à l'aide de l'accès web à distance.  
+4. Sous l'onglet **Accès en tout lieu** , cochez la case **Autoriser l'accès web à distance et l'accès aux applications de services Web** pour autoriser un utilisateur à se connecter au serveur à l'aide de l'accès web à distance.  
   
-5.  Cliquez sur **Appliquer**, puis sur **OK**.  
+5. Cliquez sur **Appliquer**, puis sur **OK**.  
   
- Pour plus d’informations, consultez [Manage User Accounts](Manage-User-Accounts-in-Windows-Server-Essentials.md).  
+   Pour plus d’informations, consultez [Manage User Accounts](Manage-User-Accounts-in-Windows-Server-Essentials.md).  
   
 ###  <a name="BKMK_SecureRWA"></a> Sécuriser l’accès Web à distance  
  Windows Server Essentials utilise un certificat de sécurité pour sécuriser les informations qui sont échangées entre le logiciel et un navigateur web. Quand vous installez le logiciel Connecteur sur vos ordinateurs, le certificat de sécurité pour Windows Server Essentials est ajouté à la liste des certificats approuvés sur vos ordinateurs. Pour des utilisateurs, la meilleure façon d'accéder à l'accès web à distance quand ils sont en déplacement consiste à utiliser un ordinateur portable doté du logiciel Connecteur.  
@@ -133,7 +133,7 @@ ms.locfileid: "59870000"
   
 6.  Sous l'onglet **Accès en tout lieu** , procédez comme suit :  
   
-    1.  Pour autoriser un utilisateur à se connecter au serveur à l'aide d'un réseau VPN, cochez la case **Autoriser le Réseau privé virtuel (VPN)**.  
+    1.  Pour autoriser un utilisateur à se connecter au serveur à l'aide d'un réseau VPN, cochez la case **Autoriser le Réseau privé virtuel (VPN)** .  
   
     2.  Pour autoriser un utilisateur à se connecter au serveur à l'aide de l'accès web à distance, cochez la case **Autoriser l'accès web à distance et l'accès aux applications de services Web**.  
   
@@ -159,7 +159,7 @@ ms.locfileid: "59870000"
  Si le routeur n’est pas configuré par l’Assistant Configuration de votre nom de domaine, vous devez manuellement réacheminer le port 443. Pour plus d’informations sur la configuration du réacheminement de port sur votre routeur, consultez [Configuration du routeur](https://social.technet.microsoft.com/wiki/contents/articles/windows-small-business-server-2011-essentials-router-setup.aspx).  
   
 ###  <a name="BKMK_ReplaceRouter"></a> Remplacer un routeur  
- Remplacez le routeur conformément aux instructions s fabricant et puis exécutez l’Assistant Configuration de votre routeur pour configurer le nouveau routeur.  
+ Remplacez le routeur conformément aux instructions du fabricant et puis exécutez l’Assistant Configuration de votre routeur pour configurer le nouveau routeur.  
   
 ##### <a name="to-set-up-your-new-router"></a>Pour configurer votre routeur  
   
@@ -236,13 +236,13 @@ ms.locfileid: "59870000"
 ###  <a name="BKMK_PersonalizedNames"></a> Comprendre les noms de domaine personnalisés Microsoft  
  Un nom de domaine personnalisé Microsoft inclut les fonctionnalités suivantes :  
   
--   Un nom de domaine personnalisé pour l’accès Web à distance (par exemple, *votre_nom_hôte*. remotewebaccess.com). Votre nom de domaine est associé à votre adresse IP publique.  
+- Un nom de domaine personnalisé pour l’accès Web à distance (par exemple, *votre_nom_hôte*. remotewebaccess.com). Votre nom de domaine est associé à votre adresse IP publique.  
   
--   DNS dynamique mettre à jour le service de protocole afin que l’accès Web à distance à l’aide de votre nom de domaine ne sera pas interrompu si votre adresse IP publique change. En général, les fournisseurs de services Internet (ISP) pour votre organisation s haut débit les connexions fournissent des adresses IP publiques dynamiques qui peuvent changer.  
+- DNS dynamique mettre à jour le service de protocole afin que l’accès Web à distance à l’aide de votre nom de domaine ne sera pas interrompu si votre adresse IP publique change. En général, les fournisseurs de services Internet (ISP) pour les connexions haut débit de votre organisation fournissent des adresses IP publiques dynamiques qui peuvent changer.  
   
--   Un certificat approuvé associé au nom de domaine.  
+- Un certificat approuvé associé au nom de domaine.  
   
- Pour intégrer un nom de domaine personnalisé Microsoft à votre serveur, vous avez besoin d'un compte Microsoft (anciennement appelé identifiant Windows Live ID). Si vous n’avez pas de compte Microsoft, vous pouvez en demander un sur le site web [Microsoft Hotmail](https://login.live.com/) .  
+  Pour intégrer un nom de domaine personnalisé Microsoft à votre serveur, vous avez besoin d'un compte Microsoft (anciennement appelé identifiant Windows Live ID). Si vous n’avez pas de compte Microsoft, vous pouvez en demander un sur le site web [Microsoft Hotmail](https://login.live.com/) .  
   
 > [!IMPORTANT]
 >  Windows Live autorise l'utilisation de caractères spéciaux dans le mot de passe de votre compte Microsoft que le serveur ne prend pas en charge. Si vous utilisez un domaine personnalisé Microsoft, assurez-vous que le mot de passe de votre compte Microsoft contient uniquement des caractères pris en charge par le serveur. Le serveur ne prend pas en charge les caractères $, /, ' et %.  
@@ -254,7 +254,7 @@ ms.locfileid: "59870000"
   
 -   Si vous possédez un nom de domaine existant que vous avez acheté auprès d'un des fournisseurs de services de noms de domaine pris en charge, vous pouvez utiliser l'Assistant Configuration de votre nom de domaine pour configurer le nom de domaine de votre serveur. Cliquez sur **Je souhaite utiliser un nom de domaine que je possède déjà**, puis tapez le nom de domaine dans la zone de texte **Configuration de votre nom de domaine**. Vous devez fournir le nom d'utilisateur et le mot de passe que vous avez utilisés pour acheter le nom de domaine.  
   
--   Si vous possédez un nom de domaine existant que vous avez acheté auprès d'un fournisseur de services de noms de domaine qui n'est pas pris en charge par Windows Server Essentials et que vous souhaitez utiliser l'Assistant Configuration de votre nom de domaine pour configurer le nom de domaine de votre serveur, vous pouvez transférer le nom de domaine à l'un des fournisseurs de services de noms de domaine répertoriés dans l'Assistant. Cliquez sur **je souhaite utiliser un nom de domaine que je possède déjà**, tapez le nom de domaine dans le **nom de domaine** texte zone, puis suivez les instructions sur le domaine nom fournisseur s site Web du service pour transférer le nom de domaine .  
+-   Si vous possédez un nom de domaine existant que vous avez acheté auprès d'un fournisseur de services de noms de domaine qui n'est pas pris en charge par Windows Server Essentials et que vous souhaitez utiliser l'Assistant Configuration de votre nom de domaine pour configurer le nom de domaine de votre serveur, vous pouvez transférer le nom de domaine à l'un des fournisseurs de services de noms de domaine répertoriés dans l'Assistant. Cliquez sur **je souhaite utiliser un nom de domaine que je possède déjà**, tapez le nom de domaine dans le **nom de domaine** texte zone, puis suivez les instructions sur le site Web du fournisseur de service de nom du domaine pour transférer le nom de domaine.  
   
 ###  <a name="BKMK_SetUpName"></a> Configurer un nom de domaine  
  Quand vous activez l'accès web à distance, vous pouvez choisir de configurer le nom de domaine Internet du serveur.  
@@ -270,7 +270,7 @@ ms.locfileid: "59870000"
 4.  Suivez les instructions pour exécuter l'Assistant. Si vous ne possédez pas encore un nom de domaine et un certificat, l'Assistant vous aidera à trouver un fournisseur de noms de domaine pour acheter un nom de domaine et un certificat, où vous pouvez obtenir un nom de domaine Microsoft personnalisé.  
   
 ###  <a name="BKMK_ChooseProvider"></a> Choisir un fournisseur de service de nom de domaine  
- Vous devez choisir un fournisseur de services de noms de domaine qui prenne en charge l'extension de nom de domaine que vous voulez utiliser. La valeur votre Assistant nom de domaine inclut une liste des fournisseurs qualifiés que vous pouvez utiliser avec un lien vers chaque site Web de fournisseur s. Cliquez sur le **Infos** lien en regard de chaque nom de fournisseur s pour obtenir des informations sur les services et tarifs offerts par le fournisseur.  
+ Vous devez choisir un fournisseur de services de noms de domaine qui prenne en charge l'extension de nom de domaine que vous voulez utiliser. La valeur votre Assistant nom de domaine inclut une liste des fournisseurs qualifiés que vous pouvez utiliser avec un lien vers le site Web de chaque fournisseur. Cliquez sur le **Infos** lien en regard de chaque nom de fournisseur pour obtenir des informations sur les services et tarifs offerts par le fournisseur.  
   
 > [!NOTE]
 >  Certains fournisseurs de services de noms de domaine servent de grandes régions internationales, alors que d'autres servent des marchés plus petits. Par conséquent, certains fournisseurs ne proposent pas un site web traduit dans votre langue de préférence.  
@@ -347,19 +347,19 @@ ms.locfileid: "59870000"
 ###  <a name="BKMK_SetNameManually"></a> Configurer manuellement un nom de domaine  
  Si vous choisissez cette option, le serveur n’analyse pas votre nom de domaine et ne le gère pas non plus, et il ne vous avertit pas en cas de problème de configuration. Vous pouvez également envisager cette option si l’une des conditions suivantes est remplie :  
   
--   Aucun fournisseur de noms de domaine partenaire n’est répertorié pour votre pays ou votre région.  
+- Aucun fournisseur de noms de domaine partenaire n’est répertorié pour votre pays ou votre région.  
   
--   Les fournisseurs de domaines partenaires répertoriés ne prennent pas en charge l’extension de votre nom de domaine.  
+- Les fournisseurs de domaines partenaires répertoriés ne prennent pas en charge l’extension de votre nom de domaine.  
   
--   Vous avez obtenu un nom de domaine auprès d'un fournisseur de noms de domaine qui n'est actuellement pas en partenariat, et vous ne voulez pas transférer ce nom de domaine vers un fournisseur de noms de domaine pris en charge par Windows Server Essentials.  
+- Vous avez obtenu un nom de domaine auprès d'un fournisseur de noms de domaine qui n'est actuellement pas en partenariat, et vous ne voulez pas transférer ce nom de domaine vers un fournisseur de noms de domaine pris en charge par Windows Server Essentials.  
   
--   L’Assistant ne répertorie pas l’extension de nom de domaine que vous voulez utiliser, mais cette extension est disponible auprès d’un fournisseur de noms de domaine qui n’est pas en partenariat actuellement.  
+- L’Assistant ne répertorie pas l’extension de nom de domaine que vous voulez utiliser, mais cette extension est disponible auprès d’un fournisseur de noms de domaine qui n’est pas en partenariat actuellement.  
   
- Si vous choisissez de configurer manuellement votre nom de domaine, fonctionnent avec votre fournisseur de service de nom de domaine pour créer un enregistrement A pour votre domaine.  
+  Si vous choisissez de configurer manuellement votre nom de domaine, fonctionnent avec votre fournisseur de service de nom de domaine pour créer un enregistrement A pour votre domaine.  
   
 ##### <a name="to-create-an-a-record"></a>Pour créer un enregistrement A  
   
-1.  Choisissez un nom d’hôte, par exemple à distance. Il s’agit du préfixe de nom de domaine. Le préfixe de nom de domaine et votre nom de domaine définissent l’URL pour ouvrir la page d’ouverture de session accès Web à distance. par exemple, **http://remote.contoso.com**.  
+1.  Choisissez un nom d’hôte, par exemple à distance. Il s’agit du préfixe de nom de domaine. Le préfixe de nom de domaine et votre nom de domaine définissent l’URL pour ouvrir la page d’ouverture de session accès Web à distance. par exemple, **http://remote.contoso.com** .  
   
 2.  Dans votre domaine nom service fournisseurs configuration du tableau de bord (généralement sur la page Web), créez l’enregistrement A pour le nom d’hôte choisi à l’étape 1. Assurez-vous que l’adresse IP que vous spécifiez dans l’enregistrement A est l’adresse IP du côté WAN de votre routeur (Internet face côté). Pour trouver votre adresse IP WAN, voir la documentation de votre routeur.  
   
@@ -373,15 +373,15 @@ ms.locfileid: "59870000"
   
 ##### <a name="to-find-the-domain-name-service-provider-for-your-domain-name"></a>Pour rechercher le fournisseur de services de noms de domaine pour votre nom de domaine  
   
-1.  Ouvrez un navigateur web et tapez **www.internic.com** dans la barre d'adresse pour accéder à la page d'accueil du site web Internic.  
+1. Ouvrez un navigateur web et tapez <strong>www.internic.com</strong> dans la barre d'adresse pour accéder à la page d'accueil du site web Internic.  
   
-2.  Dans la page d'accueil du site web Internic, cliquez sur **Whois**.  
+2. Dans la page d'accueil du site web Internic, cliquez sur **Whois**.  
   
-3.  Dans la zone de recherche****, tapez votre nom de domaine (par exemple, contoso.com).  
+3. Dans la zone de recherche **** , tapez votre nom de domaine (par exemple, contoso.com).  
   
-4.  Cochez l'option **Domain**, puis cliquez sur **Submit**.  
+4. Cochez l'option **Domain**, puis cliquez sur **Submit**.  
   
-5.  Dans les résultats de recherche, le nom de votre fournisseur de services de noms de domaine est répertorié sous **Registrar**.  
+5. Dans les résultats de recherche, le nom de votre fournisseur de services de noms de domaine est répertorié sous **Registrar**.  
   
 ##  <a name="BKMK_4"></a> Personnaliser l’accès Web à distance  
  Vous pouvez personnaliser votre site d’accès web à distance en ajoutant un logo personnel ou une image en arrière-plan. Vous pouvez également ajouter des liens à la page d’accueil afin que ces informations soient disponibles pour l’ensemble de vos utilisateurs. Pour plus d’informations, consultez les rubriques suivantes :  

@@ -53,7 +53,7 @@ ipconfig [/allcompartments] [/all] [/renew [<Adapter>]] [/release [<Adapter>]] [
 
 - Cette commande est particulièrement utile sur les ordinateurs qui sont configurés pour obtenir automatiquement une adresse IP. Cela permet aux utilisateurs de déterminer les valeurs de configuration TCP/IP ont été configurées par DHCP, APIPA Automatic Private IP Addressing () ou une configuration de remplacement.
 - Si le nom que vous fournissez pour *adaptateur* contient des espaces, utilisez les guillemets autour du nom de l’adaptateur (exemple : **«** <em>Nom de l’adaptateur</em> **»** ).
-- Pour les noms de l’adaptateur, **ipconfig** prend en charge l’utilisation de l’astérisque ( *) caractère générique pour spécifier des cartes avec des noms qui commencent par une chaîne spécifiée ou les cartes dont les noms contiennent une chaîne spécifiée. Par exemple, **Local\\** *   correspond à toutes les cartes qui commencent par la chaîne Local et  **\*Con\\** * correspond à toutes les cartes qui contiennent le chaîne Con.
+- Pour les noms de l’adaptateur, **ipconfig** prend en charge l’utilisation de l’astérisque ( *) caractère générique pour spécifier des cartes avec des noms qui commencent par une chaîne spécifiée ou les cartes dont les noms contiennent une chaîne spécifiée. Par exemple, **Local\\** *    correspond à toutes les cartes qui commencent par la chaîne Local et  **\*Con\\** * correspond à toutes les cartes qui contiennent le chaîne Con.
 
 ## <a name="examples"></a>Exemples
 

@@ -94,7 +94,7 @@ Les paramètres de Registre REG\_DWORD suivants peuvent affecter les performance
     La valeur par défaut est 10 secondes. Il s’agit du délai d’expiration du cache de répertoire.
 
     > [!NOTE]
-    > Ce paramètre contrôle la mise en cache des métadonnées de répertoire en l’absence de baux de répertoire.
+    > Ce paramètre contrôle la mise en cache des métadonnées de répertoire en l'absence de baux de répertoire.
      
 
 -   **DirectoryCacheEntrySizeMax**

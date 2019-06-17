@@ -38,7 +38,7 @@ ms.locfileid: "66462168"
                                         </div>
                                         <div class="cardText">
                                             <h2>Nouveautés</h2>
-                                            <p>Découvrez ce que&#39;s Nouveautés de Windows Server</p>
+                                            <p>Découvrez les nouveautés de Windows Server</p>
                                         </div>
                                     </div>
                                 </div>
@@ -135,8 +135,8 @@ ms.locfileid: "66462168"
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h2>Se connecter aux services d’Azure hybrid</h2>
-                                            <p>Connecter votre serveur ou cluster aux services Azure hybride pour combiner le meilleur d’en local et le cloud.</p>
+                                            <h2>Connectez-vous aux services hybrides Azure</h2>
+                                            <p>Connectez votre serveur ou votre cluster aux services hybrides Azure pour combiner le meilleur des services locaux et cloud.</p>
             </li>
                     <li class="fullSpan">
                     <HR COLOR="purple" SIZE="6" WIDTH="60%">
@@ -280,7 +280,7 @@ ms.locfileid: "66462168"
        <hr width="80%">
             <li>2. <a href="https://docs.microsoft.com/windows-server/failover-clustering/failover-cluster-csvs">Utiliser les volumes partagés de cluster dans un cluster de basculement</a></li>
        <hr width="80%">
-            <li>3. <a href="https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering">Ce que&#39;s Nouveautés du Clustering de basculement</a></li>
+            <li>3. <a href="https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering">Nouveautés dans le clustering de basculement</a></li>
             </ol>
         </td>
     </tr>
@@ -451,7 +451,7 @@ ms.locfileid: "66462168"
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings">Paramètres du Registre protocole TLS</a></li>
        <hr width="80%">
-            <li>2. <a href="https://docs.microsoft.com/windows-server/security/windows-services/security-guidelines-for-disabling-system-services-in-windows-server">Obtenir des conseils sur la désactivation des services système sur Windows Server 2016 avec expérience utilisateur </a></li>
+            <li>2. <a href="https://docs.microsoft.com/windows-server/security/windows-services/security-guidelines-for-disabling-system-services-in-windows-server">Conseils sur la désactivation des services système sous Windows Server 2016 avec Expérience utilisateur</a></li>
        <hr width="80%">
             <li>3. <a href="https://docs.microsoft.com/windows-server/security/windows-authentication/credentials-processes-in-windows-authentication">Processus des informations d’identification dans l’authentification Windows</a></li>
             </ol>
@@ -619,7 +619,7 @@ ms.locfileid: "66462168"
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Windows Server 2012 et<br> Windows Server 2012 R2</h3>
+                                            <h3>Windows Server 2012 et<br> Windows Server 2012 R2</h3>
                                             <p></p>
                                         </div>
                                     </div>

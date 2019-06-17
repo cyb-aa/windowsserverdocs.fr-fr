@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: b3cd60f7-d380-4712-9a78-0a8f551e1121
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0a9ef4c61794aec6c46cdad2c7111a03430972a1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: ef764356c5f74eb0aff15753e7f83a020c68c091
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850540"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446530"
 ---
 # <a name="core-network-components"></a>Composants du réseau principal
 
@@ -486,9 +486,9 @@ Vous pouvez utiliser les procédures dans cette rubrique pour configurer le Kit 
 
 3.  Dans **Connexions réseau**, cliquez avec le bouton droit sur la connexion que vous voulez configurer, puis cliquez sur **Propriétés**. La boîte de dialogue **Propriétés** de la connexion réseau s’ouvre.
 
-4.  Dans la boîte de dialogue **Propriétés** de la connexion réseau, dans **Cette connexion utilise les éléments suivants**, sélectionnez **Protocole Internet version 4 (TCP/IPv4)**, puis cliquez sur **Propriétés**. La boîte de dialogue **Propriétés de Protocole Internet version 4 (TCP/IPv4)** s’ouvre.
+4.  Dans la boîte de dialogue **Propriétés** de la connexion réseau, dans **Cette connexion utilise les éléments suivants**, sélectionnez **Protocole Internet version 4 (TCP/IPv4)** , puis cliquez sur **Propriétés**. La boîte de dialogue **Propriétés de Protocole Internet version 4 (TCP/IPv4)** s’ouvre.
 
-5.  Dans **Propriétés de Protocole Internet version 4 (TCP/IPv4)**, sous l’onglet **Général**, cliquez sur **Utiliser l’adresse IP suivante**. Dans **Adresse IP**, tapez l’adresse IP que vous voulez utiliser.
+5.  Dans **Propriétés de Protocole Internet version 4 (TCP/IPv4)** , sous l’onglet **Général**, cliquez sur **Utiliser l’adresse IP suivante**. Dans **Adresse IP**, tapez l’adresse IP que vous voulez utiliser.
 
 6.  Appuyez sur Tab pour placer le curseur dans **Masque de sous-réseau**. Une valeur par défaut pour le masque de sous-réseau est entrée automatiquement. Acceptez le masque de sous-réseau par défaut, ou tapez le masque de sous-réseau que vous voulez utiliser.
 
@@ -561,11 +561,11 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 
 Lorsque l’installation est terminée, le message suivant s’affiche dans Windows PowerShell.
 
-    
+
     Success Restart Needed  Exit Code   Feature Result
     ------- --------------  ---------   --------------
     True    No              Success     {Active Directory Domain Services, Group P...
-    
+
 
 - Dans Windows PowerShell, tapez la commande suivante, en remplaçant le texte **corp.contoso.com** avec votre nom de domaine, puis appuyez sur ENTRÉE :
 
@@ -583,11 +583,13 @@ Install-ADDSForest -DomainName "corp.contoso.com"
 
 - Lorsque l’invite suivante s’affiche, tapez la lettre **Y** puis appuyez sur ENTRÉE.
 
-    
-    Le serveur cible sera configuré comme contrôleur de domaine et redémarré une fois cette opération terminée.
-    Voulez-vous continuer cette opération ?
-    [Y] Oui [A] Oui à tous les [N] sans [L] non pour tous les [S] Suspend [ ?] Aide (la valeur par défaut est « Y ») :
-    
+
+~~~
+The target server will be configured as a domain controller and restarted when this operation is complete.
+Do you want to continue with this operation?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
+~~~
+
 - Si vous le souhaitez, vous pouvez lire les messages d’avertissement qui sont affichent pendant l’installation normale, réussie des services AD DS et DNS. Ces messages sont normales et ne sont pas une indication d’échec d’installation.
 
 - Une fois l’installation réussit, un message s’affiche indiquant que vous êtes sur le point d’être fermé la session sur l’ordinateur afin que l’ordinateur peut redémarrer. Si vous cliquez sur **fermer**, vous êtes connecté immédiatement l’ordinateur hors tension et l’ordinateur redémarre. Si vous ne cliquez pas sur **fermer**, l’ordinateur redémarre après une période par défaut.
@@ -727,9 +729,9 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 
 2.  Dans DNS, le cas échéant, double-cliquez sur le nom du serveur pour développer son arborescence. Par exemple, si le serveur DNS s’appelle DC1, double-cliquez sur **DC1**.
 
-3.  Sélectionnez **Zones de recherche inversée**, cliquez dessus avec le bouton droit****, puis cliquez sur **Nouvelle zone**. L’Assistant Nouvelle zone s’ouvre.
+3.  Sélectionnez **Zones de recherche inversée**, cliquez dessus avec le bouton droit **** , puis cliquez sur **Nouvelle zone**. L’Assistant Nouvelle zone s’ouvre.
 
-4.  Sur la page **Bienvenue !**, cliquez sur **Suivant**.
+4.  Sur la page **Bienvenue !** , cliquez sur **Suivant**.
 
 5.  Dans **Type de zone**, sélectionnez **Zone principale**.
 
@@ -874,7 +876,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 
 3.  Sous le nom de serveur avec le bouton droit **IPv4**, puis cliquez sur **nouvelle étendue**. L’Assistant Nouvelle étendue s’ouvre.
 
-4.  Sur la page **Bienvenue !**, cliquez sur **Suivant**.
+4.  Sur la page **Bienvenue !** , cliquez sur **Suivant**.
 
 5.  Dans **Nom de l’étendue**, dans **Nom**, tapez le nom de l’étendue. Par exemple, tapez **Sous-réseau 1**.
 
@@ -902,7 +904,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 
 11. Dans **Configuration des paramètres DHCP**, sélectionnez **Oui, je veux configurer ces options maintenant**, puis cliquez sur **Suivant**.
 
-12. Dans **Routeur (passerelle par défaut)**, effectuez l’une des actions suivantes :
+12. Dans **Routeur (passerelle par défaut)** , effectuez l’une des actions suivantes :
 
     -   Si votre réseau ne comporte pas de routeurs, cliquez sur **Suivant**.
 
@@ -940,7 +942,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 
 1.  Ouvrez une session sur l’ordinateur avec le compte Administrateur local.
 
-2.  Dans **effectuer la recherche web et Windows**, type **système**. Dans les résultats de recherche, cliquez sur **système (Panneau de configuration)**. La boîte de dialogue **Système** s’ouvre.
+2.  Dans **effectuer la recherche web et Windows**, type **système**. Dans les résultats de recherche, cliquez sur **système (Panneau de configuration)** . La boîte de dialogue **Système** s’ouvre.
 
 3.  Dans **système**, cliquez sur **paramètres système avancés**. La boîte de dialogue **Propriétés système** s’ouvre. Cliquez sur le **nom de l’ordinateur** onglet.
 
@@ -1076,7 +1078,7 @@ Pour effectuer cette procédure, vous devez être membre du groupe **Administrat
 
 6.  Dans **Sélectionner des fonctionnalités**, cliquez sur **Suivant**, puis dans **Services de stratégie et d’accès réseau**, vérifiez les informations fournies et cliquez sur **Suivant**.
 
-7.  Dans **Sélectionner des services de rôle**, cliquez sur **Serveur NPS (Network Policy Server)**.  Dans **Ajouter les fonctionnalités requises pour le serveur NPS (Network Policy Server)**, cliquez sur **Ajouter des fonctionnalités**. Cliquez sur **Suivant**.
+7.  Dans **Sélectionner des services de rôle**, cliquez sur **Serveur NPS (Network Policy Server)** .  Dans **Ajouter les fonctionnalités requises pour le serveur NPS (Network Policy Server)** , cliquez sur **Ajouter des fonctionnalités**. Cliquez sur **Suivant**.
 
 8.  Dans **Confirmer les sélections d’installation**, cliquez sur **Redémarrer automatiquement le serveur de destination, si nécessaire**. Lorsque vous êtes invité à confirmer ce choix, cliquez sur **Oui**, puis sur **Installer**. La page de progression de l’installation indique l’état du processus d’installation. La fin du processus, le message « Installation réussie sur *ComputerName*» s’affiche, où *ComputerName* est le nom de l’ordinateur sur lequel vous avez installé le serveur de stratégie réseau. Cliquez sur **Fermer**.
 
@@ -1096,9 +1098,9 @@ Pour effectuer cette procédure, vous devez être membre du groupe **Administrat
 
 ###### <a name="to-register-an-nps-in-its-default-domain"></a>Pour inscrire un serveur NPS dans son domaine par défaut
 
-1.  Sur le serveur NPS1, dans le Gestionnaire de serveur, cliquez sur Outils, puis sur **Serveur NPS (Network Policy Server)**. La console MMC Serveur NPS (Network Policy Server) s’ouvre.
+1.  Sur le serveur NPS1, dans le Gestionnaire de serveur, cliquez sur Outils, puis sur **Serveur NPS (Network Policy Server)** . La console MMC Serveur NPS (Network Policy Server) s’ouvre.
 
-2.  Cliquez avec le bouton droit sur **NPS (local)**, puis cliquez sur **Inscrire un serveur dans Active Directory**. La boîte de dialogue **Serveur NPS (Network Policy Server)** s’ouvre.
+2.  Cliquez avec le bouton droit sur **NPS (local)** , puis cliquez sur **Inscrire un serveur dans Active Directory**. La boîte de dialogue **Serveur NPS (Network Policy Server)** s’ouvre.
 
 3.  Dans **Network Policy Server**, cliquez sur **OK**, puis cliquez sur **OK** à nouveau.
 
@@ -1147,7 +1149,7 @@ Pour réaliser cette procédure, vous devez être membre du groupe **Administrat
 
 4.  Sur le **server de sélectionner la destination** , vérifiez que l’ordinateur local est sélectionné, puis cliquez sur **suivant**.
 
-5.  Sur le **sélectionner des rôles de serveur** page, faites défiler jusqu'à et sélectionnez **serveur Web (IIS)**. Le **ajouter des fonctionnalités qui sont nécessaires pour le serveur Web (IIS)** boîte de dialogue s’ouvre. Cliquez sur **Ajouter les fonctionnalités**, puis sur **Suivant**.
+5.  Sur le **sélectionner des rôles de serveur** page, faites défiler jusqu'à et sélectionnez **serveur Web (IIS)** . Le **ajouter des fonctionnalités qui sont nécessaires pour le serveur Web (IIS)** boîte de dialogue s’ouvre. Cliquez sur **Ajouter les fonctionnalités**, puis sur **Suivant**.
 
 6.  Cliquez sur **Suivant** plusieurs fois afin d’accepter tous les paramètres par défaut du serveur Web, puis cliquez sur **Installer**.
 
@@ -1250,9 +1252,9 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 
 4.  Dans **Connexions réseau**, cliquez avec le bouton droit sur la connexion réseau que vous voulez configurer, puis cliquez sur **Propriétés**.
 
-5.  Dans **Propriétés de la connexion au réseau local**, dans **Cette connexion utilise les éléments suivants**, sélectionnez **Protocole Internet version 4 (TCP/IPv4)**, puis cliquez sur **Propriétés**. La boîte de dialogue **Propriétés de Protocole Internet version 4 (TCP/IPv4)** s’ouvre.
+5.  Dans **Propriétés de la connexion au réseau local**, dans **Cette connexion utilise les éléments suivants**, sélectionnez **Protocole Internet version 4 (TCP/IPv4)** , puis cliquez sur **Propriétés**. La boîte de dialogue **Propriétés de Protocole Internet version 4 (TCP/IPv4)** s’ouvre.
 
-6.  Dans **Propriétés de Protocole Internet version 4 (TCP/IPv4)**, sous l’onglet **Général**, cliquez sur **Utiliser l’adresse IP suivante**. Dans **Adresse IP**, tapez l’adresse IP que vous voulez utiliser.
+6.  Dans **Propriétés de Protocole Internet version 4 (TCP/IPv4)** , sous l’onglet **Général**, cliquez sur **Utiliser l’adresse IP suivante**. Dans **Adresse IP**, tapez l’adresse IP que vous voulez utiliser.
 
 7.  Appuyez sur Tab pour placer le curseur dans **Masque de sous-réseau**. Une valeur par défaut pour le masque de sous-réseau est entrée automatiquement. Acceptez le masque de sous-réseau par défaut, ou tapez le masque de sous-réseau que vous voulez utiliser.
 
@@ -1277,9 +1279,9 @@ Pour effectuer ces procédures, il est nécessaire d’appartenir au minimum au 
 
 4.  Dans **Connexions réseau**, cliquez avec le bouton droit sur la connexion réseau que vous voulez configurer, puis cliquez sur **Propriétés**.
 
-5.  Dans **Propriétés de la connexion au réseau local**, dans **Cette connexion utilise les éléments suivants**, sélectionnez **Protocole Internet version 4 (TCP/IPv4)**, puis cliquez sur **Propriétés**. La boîte de dialogue **Propriétés de Protocole Internet version 4 (TCP/IPv4)** s’ouvre.
+5.  Dans **Propriétés de la connexion au réseau local**, dans **Cette connexion utilise les éléments suivants**, sélectionnez **Protocole Internet version 4 (TCP/IPv4)** , puis cliquez sur **Propriétés**. La boîte de dialogue **Propriétés de Protocole Internet version 4 (TCP/IPv4)** s’ouvre.
 
-6.  Dans **Propriétés de Protocole Internet version 4 (TCP/IPv4)**, sous l’onglet **Général**, cliquez sur **Utiliser l’adresse IP suivante**. Dans **Adresse IP**, tapez l’adresse IP que vous voulez utiliser.
+6.  Dans **Propriétés de Protocole Internet version 4 (TCP/IPv4)** , sous l’onglet **Général**, cliquez sur **Utiliser l’adresse IP suivante**. Dans **Adresse IP**, tapez l’adresse IP que vous voulez utiliser.
 
 7.  Appuyez sur Tab pour placer le curseur dans **Masque de sous-réseau**. Une valeur par défaut pour le masque de sous-réseau est entrée automatiquement. Acceptez le masque de sous-réseau par défaut, ou tapez le masque de sous-réseau que vous voulez utiliser.
 
