@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 856eb7c2c2dfe0e0e3300fcf826e75b56258dc1b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 879a87d4383d07e37227ecf6fffa5d002a77bbc0
+ms.sourcegitcommit: 214e827934e7b3e8987e9e0ab2cf00047d332c89
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447648"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67153317"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Service de Migration de stockage permet de migrer un serveur
 
@@ -35,7 +35,7 @@ Avant de commencer, installez le Service de Migration de stockage et vous assure
     - Windows Management Instrumentation (WMI-In)
 
    > [!NOTE]
-   > Si vous utilisez des pare-feu tiers, les plages de port d’entrée pour ouvrir sont TCP/445 (SMB), TCP/135 (mappeur de point de terminaison RPC/DCOM) et TCP 1025-65535 (ports éphémères DCOM/RPC).
+   > Si vous utilisez des pare-feu tiers, les plages de port d’entrée pour ouvrir sont TCP/445 (SMB), TCP/135 (mappeur de point de terminaison RPC/DCOM) et TCP 1025-65535 (ports éphémères DCOM/RPC). Les ports de service de Migration de stockage sont TCP/28940 (Orchestrator) et TCP/28941 (Proxy).
 
 1. Si vous utilisez un serveur orchestrator pour gérer la migration et que vous souhaitez télécharger les événements ou un journal de quelles données vous transférer, vérifiez que la règle de pare-feu (SMB-In) partage de fichiers et imprimantes est activée sur ce serveur.
 
