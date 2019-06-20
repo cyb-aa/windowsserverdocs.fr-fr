@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: 6722d537c85ce913080224f229f2889e47f41274
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 721816c650adc21109cbfd065f29b694fb6c830f
+ms.sourcegitcommit: a3c9a7718502de723e8c156288017de465daaf6b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812344"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67263040"
 ---
 # <a name="windows-time-service-tools-and-settings"></a>Paramètres et outils du service de temps Windows
 >S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10 ou version ultérieure
@@ -199,25 +199,30 @@ Les entrées de Registre suivantes doivent être ajoutées afin d’activer la j
 #### <a name="maxallowedphaseoffset-information"></a>Informations de MaxAllowedPhaseOffset
 Dans l’ordre pour W32Time définir l’horloge de l’ordinateur progressivement, le décalage doit être inférieure à la **MaxAllowedPhaseOffset** valeur et de répondre à l’équation suivante en même temps :  
 
-```  
-|CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) < SystemClockRate / 2  
-``` 
-Le CurrentTimeOffset est mesurée en battements d’horloge, où 1 MS = 10 000 battements sur un système Windows d’horloge.  
+* Windows Server 2016 et versions ultérieures :
+   ```  
+    |CurrentTimeOffset| / (16*PhaseCorrectRate*pollIntervalInSeconds) <= SystemClockRate / 2  
+   ``` 
+* Windows Server 2012 R2 et versions antérieures :
+   ```  
+   |CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) <= SystemClockRate / 2  
+   ``` 
+Le **CurrentTimeOffset** valeur est mesurée en battements d’horloge, où 1 MS = 10 000 battements sur un système Windows d’horloge.  
 
-SystemClockRate et PhaseCorrectRate sont également mesurés en battements d’horloge. Pour obtenir le SystemClockRate, vous pouvez utiliser la commande suivante et convertissez-le de quelques secondes à l’aide de la formule de secondes de battements d’horloge * 1000\*10000 :  
+**SystemClockRate** et **PhaseCorrectRate** sont également mesurés en cycles d’horloge. Pour obtenir le **SystemClockRate** valeur, vous pouvez utiliser la commande suivante et le convertir à partir de secondes à battements d’horloge à l’aide de la formule de secondes * 1000\*10000 :  
 
 ```  
 W32tm /query /status /verbose  
 ClockRate: 0.0156000s  
 ```  
 
-SystemclockRate est la vitesse de l’horloge sur le système. À l’aide de 156000 secondes par exemple, le SystemclockRate serait être = 0.0156000 \* 1000 \* 10000 = 156000 battements d’horloge.  
+**SystemclockRate** est la vitesse de l’horloge sur le système. Par exemple, à l’aide de secondes 156000 le **SystemclockRate** valeur serait = 0.0156000 \* 1000 \* 10000 = 156000 battements d’horloge.  
 
-MaxAllowedPhaseOffset est également en secondes. Pour convertir en battements d’horloge, multipliez MaxAllowedPhaseOffset * 1000\*10000.  
+**MaxAllowedPhaseOffset** est également en secondes. Pour convertir en battements d’horloge, multipliez **MaxAllowedPhaseOffset**\*1000\*10000.  
 
-Les deux exemples suivants montrent comment appliquer  
+Les exemples suivants montrent comment appliquer ces calculs lorsque vous utilisez Windows Server 2012 R2 ou une version antérieure.
 
-**Exemple 1** : Heure diffère de 4 minutes (par exemple, votre temps est 11 h 05 et reçue d’un homologue de l’échantillon de temps et considérée comme étant correcte est 11:09:00).
+**Exemple 1** : Heure diffère de 4 minutes (par exemple, votre heure est 11:05 et l’échantillon de temps que vous avez reçue d’un homologue et que vous pensez pour être correct est 11:09).
   
 ```
 phasecorrectRate = 1  
@@ -230,19 +235,19 @@ MaxAllowedPhaseOffset = 10min = 600 seconds = 600*1000\*10000=6000000000 clock t
 
 |currentTimeOffset| = 4mins = 4*60\*1000\*10000 = 2400000000 ticks  
 
-Is CurrentTimeOffset < MaxAllowedPhaseOffset?  
+Is CurrentTimeOffset <= MaxAllowedPhaseOffset?  
 
-2400000000 < 6000000000 = TRUE  
+2400000000 <= 6000000000 = TRUE  
 ```
 
 ET ne répond pas à l’équation ci-dessus ? 
 
 ```
-(|CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) < SystemClockRate / 2)  
+(|CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) <= SystemClockRate / 2)  
 
-Is 2,400,000,000 / (30000*1) < 156000/2  
+Is 2,400,000,000 / (30000*1) <= 156000/2  
 
-Is 80,000 < 78,000  
+Is 80,000 <= 78,000  
 
 NO/FALSE  
 ```  
@@ -250,7 +255,7 @@ NO/FALSE
 Par conséquent W32tm serait reculez l’horloge immédiatement.  
 
 > [!NOTE]  
-> Dans ce cas, si vous souhaitez définir l’horloge précédent lentement, vous devez ajuster les valeurs de PhaseCorrectRate ou updateInterval dans le Registre ainsi pour garantir les résultats de l’équation dans la valeur TRUE.  
+> Dans ce cas, si vous souhaitez définir l’horloge précédent lentement, serait également avoir à ajuster les valeurs de **PhaseCorrectRate** ou **updateInterval** dans le Registre pour vous assurer que le résultat de l’équation est **TRUE**.  
 
 **Exemple 2** : Heure diffère de 3 minutes. 
  
@@ -265,19 +270,19 @@ MaxAllowedPhaseOffset = 10min = 600 seconds = 600*1000\*10000=6000000000 clock t
 
 currentTimeOffset = 3mins = 3*60\*1000\*10000 = 1800000000 clock ticks  
 
-Is CurrentTimeOffset < MaxAllowedPhaseOffset?  
+Is CurrentTimeOffset <= MaxAllowedPhaseOffset?  
 
-1800000000 < 6000000000 = TRUE  
+1800000000 <= 6000000000 = TRUE  
 ```  
 
 ET ne répond pas à l’équation ci-dessus ?
 
 ```
-(|CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) < SystemClockRate / 2)  
+(|CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) <= SystemClockRate / 2)  
 
-Is 3 mins (1,800,000,000) / (30000*1) < 156000/2  
+Is 3 mins (1,800,000,000) / (30000*1) <= 156000/2  
 
-Is 60,000 < 78,000  
+Is 60,000 <= 78,000  
 
 YES/TRUE  
 ```  
