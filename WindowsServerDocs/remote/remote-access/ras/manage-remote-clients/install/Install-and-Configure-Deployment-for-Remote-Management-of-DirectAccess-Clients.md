@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4adce101-1e30-439e-b78b-65b26479f33e
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ec87c8524fb4d41f6a553c407e8cfc6fe212943b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1ce605776c064c96382d853418943496b5eccbcd
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823980"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282832"
 ---
 # <a name="install-and-configure-deployment-for-remote-management-of-directaccess-clients"></a>Installer et configurer le déploiement de la gestion à distance des Clients DirectAccess
 
@@ -28,9 +27,9 @@ Cette rubrique présente les étapes de configuration qui sont nécessaires pour
   
 -   [Étape 1 : Configurer l’Infrastructure d’accès à distance](Step-1-Configure-the-Remote-Access-Infrastructure.md): Cette rubrique décrit comment configurer les paramètres réseau et serveur, configuration requise des certificats, les paramètres DNS, déploiement du serveur emplacement réseau, serveurs d’administration DirectAccess, paramètres Active Directory et les objets de stratégie de groupe.  
   
--   [Étape 2 : Configurer le serveur d’accès à distance](Step-2-Configure-the-Remote-Access-Server.md): Cette rubrique décrit comment configurer les ordinateurs clients DirectAccess, les paramètres du serveur et les serveurs d’infrastructure et d’application.  
+-   [Étape 2 : Configurer le serveur d’accès à distance](Step-2-Configure-the-Remote-Access-Server.md): Cette rubrique décrit comment configurer les ordinateurs clients DirectAccess, les paramètres du serveur et les serveurs d’infrastructure et d’application.  
   
--   [Étape 3 : Vérifier le déploiement](Step-3-Verify-the-Deployment_2.md): Cette rubrique décrit comment vérifier le déploiement.  
+-   [Étape 3 : Vérifier le déploiement](Step-3-Verify-the-Deployment_2.md): Cette rubrique décrit comment vérifier le déploiement.  
   
 
 

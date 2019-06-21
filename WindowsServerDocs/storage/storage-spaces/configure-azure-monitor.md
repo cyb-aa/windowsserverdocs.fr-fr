@@ -10,12 +10,12 @@ ms.topic: article
 author: adagashe
 ms.date: 3/26/2019
 ms.localizationpriority: ''
-ms.openlocfilehash: 908e4a7a75606905caebfa4b79168b3976982e6d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6b229696e796f176fe89ab250ab48f1d9f0d5666
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447593"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280203"
 ---
 ---
 # <a name="use-azure-monitor-to-send-emails-for-health-service-faults"></a>Utiliser Azure Monitor pour envoyer des courriers électroniques pour les erreurs de Service de contrôle d’intégrité
@@ -31,11 +31,11 @@ Cela est particulièrement utile pour votre cluster hyperconvergé d’en local.
 
 Toutes les données collectées par Azure Monitor s’adapte à un des deux types fondamentaux : métriques et les journaux.
 
-1. [Mesures](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collection#metrics) sont des valeurs numériques qui décrivent certains aspects d’un système à un moment précis dans le temps. Elles sont légers et peut prendre en charge des scénarios en temps réel quasi. Vous pouvez voir les données collectées par le droit d’Azure Monitor dans leur page de vue d’ensemble dans le portail Azure.
+1. [Mesures](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics) sont des valeurs numériques qui décrivent certains aspects d’un système à un moment précis dans le temps. Elles sont légers et peut prendre en charge des scénarios en temps réel quasi. Vous pouvez voir les données collectées par le droit d’Azure Monitor dans leur page de vue d’ensemble dans le portail Azure.
 
 ![image de l’ingestion de métriques dans metrics explorer](media/configure-azure-monitor/metrics.png)
 
-2. [Journaux](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collection#logs) contiennent différents types de données organisées en enregistrements avec différents jeux de propriétés pour chaque type. Données de télémétrie comme événements et suivis sont stockés sous forme de journaux en outre aux données de performances afin qu’il peut tous être combinée pour l’analyse. Analyse des données de journal collectées par Azure Monitor avec [requêtes](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/log-query-overview) pour rapidement récupérer, consolider et analyser les données collectées. Vous pouvez créer et tester des requêtes à l’aide de [Analytique de journal](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/portals) dans le portail Azure, puis soit directement analyser les données à l’aide de ces outils ou enregistrer des requêtes pour une utilisation avec [visualisations](https://docs.microsoft.com/en-us/azure/azure-monitor/visualizations) ou [alerte règles](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-overview).
+2. [Journaux](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#logs) contiennent différents types de données organisées en enregistrements avec différents jeux de propriétés pour chaque type. Données de télémétrie comme événements et suivis sont stockés sous forme de journaux en outre aux données de performances afin qu’il peut tous être combinée pour l’analyse. Analyse des données de journal collectées par Azure Monitor avec [requêtes](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) pour rapidement récupérer, consolider et analyser les données collectées. Vous pouvez créer et tester des requêtes à l’aide de [Analytique de journal](https://docs.microsoft.com/azure/azure-monitor/log-query/portals) dans le portail Azure, puis soit directement analyser les données à l’aide de ces outils ou enregistrer des requêtes pour une utilisation avec [visualisations](https://docs.microsoft.com/azure/azure-monitor/visualizations) ou [alerte règles](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ![image des journaux d’ingestion dans analytique de journal](media/configure-azure-monitor/logs.png)
 
@@ -64,9 +64,9 @@ Lorsque vous exécutez l’applet de commande ci-dessus pour définir les param�
 
 Maintenant que vous avez configuré la journalisation appropriés sur votre cluster, l’étape suivante consiste à configurer correctement le journal analytique.
 
-Pour donner une vue d’ensemble, [Analytique de journal Azure](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agent-windows) peut collecter des données directement à partir de vos ordinateurs Windows physiques ou virtuels dans votre centre de données ou un autre environnement de cloud dans un référentiel unique pour une analyse détaillée et la corrélation.
+Pour donner une vue d’ensemble, [Analytique de journal Azure](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows) peut collecter des données directement à partir de vos ordinateurs Windows physiques ou virtuels dans votre centre de données ou un autre environnement de cloud dans un référentiel unique pour une analyse détaillée et la corrélation.
 
-Pour comprendre la configuration prise en charge, consultez [pris en charge les systèmes d’exploitation Windows](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) et [configuration du pare-feu réseau](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-analytics-agent#network-firewall-requirements).
+Pour comprendre la configuration prise en charge, consultez [pris en charge les systèmes d’exploitation Windows](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) et [configuration du pare-feu réseau](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-firewall-requirements).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -76,7 +76,7 @@ Connectez-vous au portail Azure à [ https://portal.azure.com ](https://azure.mi
 
 ### <a name="create-a-workspace"></a>Créer un espace de travail
 
-Pour plus d’informations sur les étapes répertoriées ci-dessous, consultez le [documentation Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/quick-collect-windows-computer).
+Pour plus d’informations sur les étapes répertoriées ci-dessous, consultez le [documentation Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-windows-computer).
 
 1. Dans le portail Azure, cliquez sur **tous les services**. Dans la liste des ressources, tapez **Analytique de journal**. Comme vous commencez à taper, les filtres de la liste en fonction de votre entrée. Sélectionnez **journal Analytique**.<br><br> 
 
@@ -123,7 +123,7 @@ Lorsque vous avez terminé, le **Microsoft Monitoring Agent** apparaît dans **l
 
 ![État de la connexion MMA à Log Analytique](media/configure-azure-monitor/log-analytics-mma-laworkspace-status.png)
 
-Pour comprendre la configuration prise en charge, consultez [pris en charge les systèmes d’exploitation Windows](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) et [configuration du pare-feu réseau](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-analytics-agent#network-firewall-requirements).
+Pour comprendre la configuration prise en charge, consultez [pris en charge les systèmes d’exploitation Windows](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) et [configuration du pare-feu réseau](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-firewall-requirements).
 
 ## <a name="collecting-event-and-performance-data"></a>Collecte des données de performances et d’événements
 
@@ -212,4 +212,4 @@ Pour référence, il s’agit quoi ressemble un exemple d’alerte :
 ## <a name="see-also"></a>Voir aussi
 
 - [Vue d’ensemble Direct des espaces de stockage](storage-spaces-direct-overview.md)
-- Pour plus d’informations, lisez le [documentation Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/tutorial-viewdata).
+- Pour plus d’informations, lisez le [documentation Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata).

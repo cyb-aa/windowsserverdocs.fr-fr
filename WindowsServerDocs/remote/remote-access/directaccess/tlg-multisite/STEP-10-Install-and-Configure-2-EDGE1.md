@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d98d6f7a-a2e6-45b1-9c63-08e2986a5c03
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 1640dbae52a1a7c93355b34822d72faa5351bcda
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9810d7294a2651d4811bc5969eaf6a118db8ed56
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860310"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283269"
 ---
 # <a name="step-10-install-and-configure-2-edge1"></a>ÉTAPE 10 installer et configurer 2-EDGE1
 
@@ -60,7 +59,7 @@ ms.locfileid: "59860310"
   
 3.  Avec le bouton droit **2-réseau d’entreprise**, puis cliquez sur **propriétés**.  
   
-4.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)**, puis sur **Propriétés**.  
+4.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
 5.  Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, type **10.2.0.20**, dans **masque de sous-réseau**, type **255.255.255.0**.  
   
@@ -70,7 +69,7 @@ ms.locfileid: "59860310"
   
 8.  Dans **suffixe DNS pour cette connexion**, type **corp2.corp.contoso.com**, puis cliquez sur **OK** à deux reprises.  
   
-9. Cliquez sur **Internet Protocol Version 6 (TCP/IPv6)**, puis cliquez sur **Propriétés**.  
+9. Cliquez sur **Internet Protocol Version 6 (TCP/IPv6)** , puis cliquez sur **Propriétés**.  
   
 10. Cliquez sur **utiliser l’adresse IPv6 suivante**. Dans **adresse IPv6**, type **2001:db8:2::20**, dans **longueur de préfixe de sous-réseau**, type **64**. Cliquez sur **utiliser l’adresse de serveur DNS suivante**et dans **serveur DNS préféré**, type **2001:db8:2::1**, dans **serveur DNS auxiliaire**, type **2001:db8:1::1**.  
   
@@ -84,7 +83,7 @@ ms.locfileid: "59860310"
   
 15. Cliquez avec le bouton droit sur **Internet**, puis cliquez sur **Propriétés**.  
   
-16. Cliquez sur **Protocole Internet version 4 (TCP/IPv4)**, puis sur **Propriétés**.  
+16. Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
 17. Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, type **131.107.0.20**. Dans la zone **Masque de sous-réseau**, tapez **255.255.255.0**.  
   

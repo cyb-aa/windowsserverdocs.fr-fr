@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: df1e87f2-6a0f-433b-8e42-816ae75395f9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5e192c062e8ecd18128109321058ddc58b6b1e4a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 093877657f19006bba2b80c10b92db1fb3b40fde
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839840"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280863"
 ---
 # <a name="step-3-configure-the-remote-access-server-for-otp"></a>Étape 3 configurer le serveur d’accès à distance pour OTP
 

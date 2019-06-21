@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ''
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ab2b0731a5673e14fb130d539324701a336f30ac
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 853788f20c452391c802f0681fa23978b4892c6a
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863630"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281226"
 ---
 # <a name="deploy-remote-access-in-a-cluster"></a>Déployer l’accès à distance dans un cluster
 

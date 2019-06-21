@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 458a3bcf-50b6-47b2-b53c-1b8204c5189e
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 588091b28a97f99c78abeea9c3d9b63e4baf0ce6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 47b88b5be617ae4508f9350944b595346ea74c19
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814890"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283568"
 ---
 # <a name="plan-to-enable-directaccess"></a>Planifier l’activation de DirectAccess
 
@@ -32,7 +31,7 @@ La phase de planification comprend les étapes suivantes :
   
     Au cours de cette phase, vous décrivez les étapes de planification requises pour configurer l'infrastructure réseau avant de commencer le déploiement de l'accès à distance. Cette phase comprend la planification de la topologie de réseau et de serveurs, des certificats, du DNS (Domain Name System), de la configuration d'Active Directory et des objets de stratégie de groupe, ainsi que du serveur d'emplacement réseau DirectAccess.  
   
--   [Étape 2 : Planifier le déploiement de DirectAccess](step-2-plan-da-davpn.md)  
+-   [Étape 2 : Planifier le déploiement de DirectAccess](step-2-plan-da-davpn.md)  
   
     Au cours de cette phase, vous décrivez les étapes de planification requises pour préparer le déploiement de l'accès à distance. Cette phase inclut la planification des ordinateurs clients d'accès à distance, des conditions requises d'authentification des serveurs et clients, ainsi que des serveurs d'infrastructure.  
   

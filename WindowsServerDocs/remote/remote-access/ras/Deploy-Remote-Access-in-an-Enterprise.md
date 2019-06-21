@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4781df0a-158b-4562-b8f5-32b27615a4f8
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: f110ad945139da3b07b33bbb0adb3e8084743fdb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7cbcc844c356978f5bb5f34b66aa36dec9b163c1
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812240"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283005"
 ---
 # <a name="deploy-remote-access-in-an-enterprise"></a>Déployer l'accès à distance dans une entreprise
 
@@ -32,7 +31,7 @@ Cette rubrique fournit une introduction au scénario DirectAccess pour l’entre
   
 ## <a name="before-you-begin-deploying-see-the-list-of-unsupported-configurations-known-issues-and-prerequisites"></a>Avant de commencer le déploiement, consultez la liste des configurations non prises en charge, des problèmes connus et des configurations requises  
   
--   [DirectAccess les Configurations non prises en charge](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/directaccess-unsupported-configurations)  
+-   [Configurations non prises en charge DirectAccess](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/directaccess-unsupported-configurations)  
   
 -   [Problèmes connus de DirectAccess](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/directaccess-known-issues)  
   
@@ -46,9 +45,9 @@ Chaque scénario d’entreprise est décrit dans un document qui inclut les inst
   
 -   [Déployer l’accès à distance dans un cluster](cluster/Deploy-Remote-Access-In-Cluster.md)  
   
--   [Déployer plusieurs serveurs d’accès à distance dans un déploiement Multisite](multisite/Deploy-Multiple-Remote-Access-Servers-in-a-Multisite-Deployment.md)  
+-   [Déployer plusieurs serveurs d’accès à distance dans un déploiement multisite](multisite/Deploy-Multiple-Remote-Access-Servers-in-a-Multisite-Deployment.md)  
   
--   [Déployer l’accès à distance avec l’authentification OTP](otp/Deploy-RA-OTP.md)  
+-   [Déployer l’accès à distance avec l’authentification par mot de passe à usage unique](otp/Deploy-RA-OTP.md)  
   
 -   [Déployer l’accès à distance dans un environnement à forêts multiples](multi-forest/Deploy-Remote-Access-in-a-Multi-Forest-Environment.md)  
   

@@ -6,12 +6,12 @@ contributor: maertendMSFT
 ms.product: w10
 author: maertendMSFT
 title: Configuration du serveur de OpenSSH pour Windows
-ms.openlocfilehash: 8e6476e4005bd5bbc2d40c8a59d39510ca1beb70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7eff3d3e1af67c9daf7a68c67c3609c0ee89fc93
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827280"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280034"
 ---
 # <a name="openssh-server-configuration-for-windows-10-1809-and-server-2019"></a>Configuration d’OpenSSH Server pour Windows 10 1809 et Server # 2019
 
@@ -28,7 +28,7 @@ Pour définir la valeur par défaut de shell de commande, vérifiez que le dossi
 Interface de commande | Commande à utiliser
 ------------- | -------------- 
 Command | path
-PowerShell | $env:\path
+PowerShell | $env:path
 
 Configuration de la valeur par défaut ssh shell est effectué dans le Registre Windows en ajoutant le chemin d’accès complet à un fichier exécutable à Computer\HKEY_LOCAL_MACHINE\SOFTWARE\OpenSSH DefaultShell de la valeur de chaîne de l’interpréteur de commandes. 
 
@@ -53,7 +53,7 @@ Contrôler quels utilisateurs et groupes peuvent se connecter au serveur s’eff
 Lors de la configuration d’utilisateur/groupe en fonction des règles avec un utilisateur de domaine ou un groupe, utilisez le format suivant : ``` user?domain* ```.
 Windows autorise plusieurs formats de pour spécifier les entités de domaine, mais nombreuses en conflit avec les modèles de Linux standard. Pour cette raison, * est ajouté pour couvrir les noms de domaine complets. En outre, cette approche utilise « ? », au lieu de @, pour éviter les conflits avec les username@host format. 
 
-Groupe de travail utilisateurs/groupes et comptes connectés à internet sont toujours résolus à leur nom de compte local (sans domaine la partie, semblable à ceux des Unix standard). Les utilisateurs de domaine et les groupes sont strictement résolues en [NameSamCompatible](https://docs.microsoft.com/en-us/windows/desktop/api/secext/ne-secext-extended_name_format) format - domain_short_name\user_name. Tous les utilisateurs/groupes en fonction des règles doivent se conformer à ce format de configuration.
+Groupe de travail utilisateurs/groupes et comptes connectés à internet sont toujours résolus à leur nom de compte local (sans domaine la partie, semblable à ceux des Unix standard). Les utilisateurs de domaine et les groupes sont strictement résolues en [NameSamCompatible](https://docs.microsoft.com/windows/desktop/api/secext/ne-secext-extended_name_format) format - domain_short_name\user_name. Tous les utilisateurs/groupes en fonction des règles doivent se conformer à ce format de configuration.
 
 Exemples pour les utilisateurs de domaine et les groupes 
 

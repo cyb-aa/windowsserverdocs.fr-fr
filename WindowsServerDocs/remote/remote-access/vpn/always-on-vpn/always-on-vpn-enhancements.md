@@ -9,12 +9,12 @@ ms.author: pashort
 author: shortpatti
 ms.date: 11/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 0b4dd78e0e88678d4570d408b3dcd472bddc88ba
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: e7cbe64609e30b042df70020896aebd85b7d22b9
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749668"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280776"
 ---
 # <a name="always-on-vpn-enhancements"></a>Améliorations du VPN Toujours actif (AlwaysOn)
 
@@ -27,7 +27,7 @@ VPN Always On présente de nombreux avantages sur les solutions VPN de Windows d
 
 - **Intégration de plate-forme :** VPN Always On a une meilleure intégration avec le système d’exploitation de Windows et des solutions tierces pour fournir une plate-forme robuste pour les scénarios de connexion avancées innombrables.
 
-- **Sécurité :** VPN Always On dispose de fonctionnalités de nouveau la sécurité avancée pour restreindre le type de trafic, les applications peuvent utiliser la connexion VPN, et les méthodes d’authentification que vous pouvez utiliser pour lancer la connexion. Lorsque la connexion est active, la plupart du temps, il est particulièrement important de sécuriser la connexion. Pour plus d’informations, consultez [options d’authentification VPN](https://docs.microsoft.com/en-us/windows/security/identity-protection/vpn/vpn-authentication).
+- **Sécurité :** VPN Always On dispose de fonctionnalités de nouveau la sécurité avancée pour restreindre le type de trafic, les applications peuvent utiliser la connexion VPN, et les méthodes d’authentification que vous pouvez utiliser pour lancer la connexion. Lorsque la connexion est active, la plupart du temps, il est particulièrement important de sécuriser la connexion. Pour plus d’informations, consultez [options d’authentification VPN](https://docs.microsoft.com/windows/security/identity-protection/vpn/vpn-authentication).
 
 - **Connectivité VPN :** VPN Always On, avec ou sans périphériques Tunnel offre la possibilité de déclenchement automatique. Avant de VPN Always On, la possibilité de déclencher une connexion automatique à un utilisateur ou l’authentification des appareils n’était pas possible.  
 

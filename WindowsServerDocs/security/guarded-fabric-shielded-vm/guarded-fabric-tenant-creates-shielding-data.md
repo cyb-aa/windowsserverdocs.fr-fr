@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 25ed17d964f12c2f497ccde443dad9f8bc253b20
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: 3c36eff8aabd1fa1c6456dce1d08ebe504102e8c
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034675"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284164"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>Machines virtuelles protégées pour les locataires - création des données de protection pour définir une machine virtuelle protégée
 
@@ -199,7 +199,7 @@ Exécutez l’Assistant de protection de fichier de données pour créer un fich
 Comme alternative à l’Assistant de protection des fichiers de données, vous pouvez exécuter [New-ShieldingDataFile](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/new-shieldingdatafile?view=win10-ps) pour créer un fichier de données de protection.
 
 Tous les fichiers de données de protection doivent être configurés avec le propriétaire et les certificats de guardian pour autoriser vos machines virtuelles protégées à être exécuté sur une infrastructure protégée.
-Vous pouvez vérifier si vous avez les gardiens installés localement en exécutant [Get-HgsGuardian](https://docs.microsoft.com/en-us/powershell/module/hgsclient/get-hgsguardian?view=win10-ps). Contrairement à gardiens pour votre centre de données généralement gardiens du propriétaire ont une clé privée.
+Vous pouvez vérifier si vous avez les gardiens installés localement en exécutant [Get-HgsGuardian](https://docs.microsoft.com/powershell/module/hgsclient/get-hgsguardian?view=win10-ps). Contrairement à gardiens pour votre centre de données généralement gardiens du propriétaire ont une clé privée.
 
 Si vous avez besoin créer un tuteur propriétaire, exécutez la commande suivante :
 
@@ -238,7 +238,7 @@ Le nom du disque et le certificat de signature doivent correspondre exactement p
 Vous pouvez faire confiance à plusieurs disques de modèle en fournissant une liste séparée par des virgules de volume qualificateurs ID pour le `-VolumeIDQualifier` paramètre.
 Enfin, si vous avez d’autres fichiers qui doivent accompagner le fichier de réponses avec la machine virtuelle, utilisez le `-OtherFile` paramètre et fournir une liste séparée par des virgules des chemins d’accès de fichier.
 
-Consultez la documentation de l’applet de commande pour [New-ShieldingDataFile](https://docs.microsoft.com/en-us/powershell/module/shieldedvmdatafile/New-ShieldingDataFile?view=win10-ps) et [New-VolumeIDQualifier](https://docs.microsoft.com/en-us/powershell/module/shieldedvmdatafile/New-VolumeIDQualifier?view=win10-ps) pour en savoir plus sur les autres méthodes permettent de configurer votre fichier de données de protection.
+Consultez la documentation de l’applet de commande pour [New-ShieldingDataFile](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-ShieldingDataFile?view=win10-ps) et [New-VolumeIDQualifier](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-VolumeIDQualifier?view=win10-ps) pour en savoir plus sur les autres méthodes permettent de configurer votre fichier de données de protection.
 
 ## <a name="see-also"></a>Voir aussi
 

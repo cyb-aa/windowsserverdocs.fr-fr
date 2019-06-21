@@ -9,12 +9,12 @@ ms.assetid: acaa46b7-09b1-4707-9562-116df8db17eb
 ms.author: pashort
 author: shortpatti
 ms.date: 05/23/2018
-ms.openlocfilehash: 8fc1c97d7c2a8694e56cc36b5501a82081b3db23
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d61dcdbb61449bd2af57b8e2c99ced6235c4deca
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812340"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281264"
 ---
 # <a name="ras-gateway"></a>Passerelle du serveur d’accès à distance
 
@@ -109,9 +109,9 @@ Passerelle RAS inclut les fonctionnalités suivantes.
   
 -   **Point-to-site VPN**. Cette fonctionnalité de passerelle RAS permet aux employés d’organisation ou aux administrateurs de se connecter au réseau de votre organisation à partir d’emplacements distants. Pour les déploiements à locataire unique de la passerelle RAS, employés distants peuvent se connecter au réseau de votre organisation à l’aide d’une connexion VPN. Cette connexion vous permet d’utiliser des ressources réseau internes, telles que les sites web intranet et les serveurs de fichiers. Pour des déploiements mutualisés, client permet aux administrateurs réseau connexions de point-to-site VPN pour accéder aux ressources de réseau virtuel dans le centre de données CSP.  
   
--   **Routage dynamique avec protocole BGP (Border Gateway)**. Le protocole BGP réduit le besoin de configuration manuelle de routage sur les routeurs, car il s’agit d’un protocole de routage dynamique qui, de plus, découvre automatiquement les itinéraires entre les sites qui sont connectés via des connexions VPN de site à site. Si votre organisation possède plusieurs sites qui sont connectés à l’aide de routeurs BGP comme passerelle RAS, BGP permet les routeurs calculer automatiquement et d’utiliser des itinéraires valides entre eux en cas d’interruption du réseau ou l’échec. Pour plus d’informations, consultez [RFC 4271](https://tools.ietf.org/html/rfc4271).  
+-   **Routage dynamique avec protocole BGP (Border Gateway)** . Le protocole BGP réduit le besoin de configuration manuelle de routage sur les routeurs, car il s’agit d’un protocole de routage dynamique qui, de plus, découvre automatiquement les itinéraires entre les sites qui sont connectés via des connexions VPN de site à site. Si votre organisation possède plusieurs sites qui sont connectés à l’aide de routeurs BGP comme passerelle RAS, BGP permet les routeurs calculer automatiquement et d’utiliser des itinéraires valides entre eux en cas d’interruption du réseau ou l’échec. Pour plus d’informations, consultez [RFC 4271](https://tools.ietf.org/html/rfc4271).  
   
--   **Traduction d’adresses réseau (NAT)**. Traduction d’adresses réseau (NAT) vous permet de partager une connexion à l’Internet public via une interface unique avec une seule adresse IP publique. Les ordinateurs sur le réseau privé utilisent des adresses privées, non routable. NAT mappe les adresses privées à l’adresse publique. Cette fonctionnalité de passerelle RAS permet des employés de l’organisation avec les déploiements à locataire unique accéder aux ressources Internet derrière la passerelle. Pour les fournisseurs de services cloud, cette fonctionnalité permet aux applications qui sont exécutent sur des machines virtuelles d’accéder à Internet du locataire. Par exemple, un machine virtuelle qui est configuré comme un serveur Web de locataire peut contacter externes ressources financières pour traiter les transactions par carte de crédit.  
+-   **Traduction d’adresses réseau (NAT)** . Traduction d’adresses réseau (NAT) vous permet de partager une connexion à l’Internet public via une interface unique avec une seule adresse IP publique. Les ordinateurs sur le réseau privé utilisent des adresses privées, non routable. NAT mappe les adresses privées à l’adresse publique. Cette fonctionnalité de passerelle RAS permet des employés de l’organisation avec les déploiements à locataire unique accéder aux ressources Internet derrière la passerelle. Pour les fournisseurs de services cloud, cette fonctionnalité permet aux applications qui sont exécutent sur des machines virtuelles d’accéder à Internet du locataire. Par exemple, un machine virtuelle qui est configuré comme un serveur Web de locataire peut contacter externes ressources financières pour traiter les transactions par carte de crédit.  
 
   
 ## <a name="bkmk_deploy"></a>Scénarios de déploiement de passerelle RAS  
@@ -124,11 +124,11 @@ Voici les scénarios de déploiement recommandé pour la passerelle RAS.
 ## <a name="bkmk_manage"></a>Outils de gestion de passerelle RAS  
 Voici les outils de gestion pour la passerelle RAS.  
   
--   Dans Windows Server 2016, pour déployer un routeur passerelle RAS, vous devez utiliser les commandes Windows PowerShell. Pour plus d’informations, consultez [applets de commande de l’accès à distance](https://technet.microsoft.com/library/hh918399.aspx) pour Windows Server 2016 et Windows 10.  
+-   Dans Windows Server 2016, pour déployer un routeur passerelle RAS, vous devez utiliser les commandes Windows PowerShell. Pour plus d’informations, consultez [applets de commande de l’accès à distance](https://docs.microsoft.com/powershell/module/remoteaccess) pour Windows Server 2016 et Windows 10.  
   
--   Dans System Center 2012 R2 Virtual Machine Manager (VMM), la passerelle RAS est nommée passerelle Windows Server. Un ensemble limité d’options de configuration de protocole BGP (Border Gateway) sont disponibles dans l’interface logicielle VMM, y compris **adresse IP BGP locale** et **numéros de système autonome (ASN)**,  **Liste des adresses IP homologues BGP**, et **les valeurs ASN**. Cependant, vous pouvez utiliser les commandes BGP Windows PowerShell d’accès à distance pour configurer toutes les autres fonctionnalités de la passerelle Windows Server. Pour plus d’informations, consultez [de Virtual Machine Manager (VMM)](https://technet.microsoft.com/system-center-docs/vmm/vmm) et [applets de commande de l’accès à distance](https://technet.microsoft.com/library/hh918399.aspx) pour Windows Server 2016 et Windows 10.  
+-   Dans System Center 2012 R2 Virtual Machine Manager (VMM), la passerelle RAS est nommée passerelle Windows Server. Un ensemble limité d’options de configuration de protocole BGP (Border Gateway) sont disponibles dans l’interface logicielle VMM, y compris **adresse IP BGP locale** et **numéros de système autonome (ASN)** ,  **Liste des adresses IP homologues BGP**, et **les valeurs ASN**. Cependant, vous pouvez utiliser les commandes BGP Windows PowerShell d’accès à distance pour configurer toutes les autres fonctionnalités de la passerelle Windows Server. Pour plus d’informations, consultez [de Virtual Machine Manager (VMM)](https://technet.microsoft.com/system-center-docs/vmm/vmm) et [applets de commande de l’accès à distance](https://technet.microsoft.com/library/hh918399.aspx) pour Windows Server 2016 et Windows 10.  
   
 ## <a name="related-topics"></a>Rubriques connexes
 - [Passerelle RAS haute disponibilité](../../../networking/sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md)  
 - [Tunneling GRE dans Windows Server](gre-tunneling-windows-server.md)
-- [Performances et le débit de Tunnel GRE RAS passerelle](RAS-Gateway-GRE-Perf.md)
+- [Débit et performances du Tunnel GRE de la passerelle RAS](RAS-Gateway-GRE-Perf.md)

@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c0f4d665-d44e-4348-a89f-5f9191bd96fd
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7c19049674092cccd935c3eecfa0cda78ff12304
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b4fa155bd4b38b1274e36878f44d63155da5b972
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863530"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280892"
 ---
 # <a name="step-1-implement-a-single-server-remote-access-deployment"></a>Étape 1, implémentez un seul déploiement accès à distance
 
@@ -31,7 +30,7 @@ Avant de pouvoir configurer l’accès à distance avec l’OTP, vous devez conf
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Étape 2 : Configurer le serveur RADIUS](Step-2-Configure-the-RADIUS-Server.md)  
+-   [Étape 2 : Configurer le serveur RADIUS](Step-2-Configure-the-RADIUS-Server.md)  
   
 
 

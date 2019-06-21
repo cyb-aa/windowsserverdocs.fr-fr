@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 02/28/2019
 description: Cet article décrit la mise à niveau un Cluster de basculement de 2 nœuds avec le même matériel
 ms.localizationpriority: medium
-ms.openlocfilehash: 77cde9e64fda385facd91d86483f4d7f749f30a1
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 6787d852cc5075e306373a163814135190f27fd6
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453053"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280241"
 ---
 # <a name="upgrading-failover-clusters-on-the-same-hardware"></a>La mise à niveau des Clusters de basculement sur le même matériel
 
@@ -25,7 +25,7 @@ Ce guide décrit les étapes de mise à niveau les nœuds de cluster Windows Ser
 
 ## <a name="overview"></a>Vue d'ensemble
 
-La mise à niveau le système d’exploitation sur un basculement existant cluster est uniquement pris en charge lorsque vous passez de Windows Server 2016 pour Windows 2019.  Si le cluster de basculement s’exécute une version antérieure, par exemple, comme Windows Server 2012 R2 et versions antérieures, la mise à niveau alors que les services de cluster sont en cours d’exécution n’autorise pas joindre des nœuds.  Si vous utilisez le même matériel, peuvent prendre des mesures pour l’obtenir à la version plus récente.  
+La mise à niveau le système d’exploitation sur un basculement existant cluster est uniquement pris en charge lorsque vous passez de Windows Server 2016 pour Windows 2019.  Si le cluster de basculement s’exécute une version antérieure, tels que Windows Server 2012 R2 et versions antérieures, la mise à niveau alors que les services de cluster sont en cours d’exécution autorisera pas joindre des nœuds.  Si vous utilisez le même matériel, peuvent prendre des mesures pour l’obtenir à la version plus récente.  
 
 Avant toute mise à niveau de votre cluster de basculement, veuillez consulter la [centre de mise à niveau Windows](https://www.microsoft.com/upgradecenter).  Lorsque vous mettez à niveau une serveur Windows sur place, vous passer d’une version de système d’exploitation existant à une version plus récente, tout en restant sur le même matériel. Windows Server peut être mis à niveau sur place au moins et parfois deux versions vers l’avant. Par exemple, le Windows Server 2012 R2 et Windows Server 2016 peuvent être mis à niveau sur place vers Windows Server 2019.  Également n’oubliez pas que le [Assistant de Migration de Cluster](https://blogs.msdn.microsoft.com/clustering/2012/06/25/how-to-move-highly-available-clustered-vms-to-windows-server-2012-with-the-cluster-migration-wizard/) peut être utilisé, mais est uniquement pris en charge jusqu'à deux versions précédent. Le graphique suivant montre les chemins de mise à niveau pour Windows Server. Flèches pointant vers le bas représentent le chemin d’accès de mise à niveau pris en charge déplacement à partir de versions antérieures jusqu'à Windows Server 2019.
 

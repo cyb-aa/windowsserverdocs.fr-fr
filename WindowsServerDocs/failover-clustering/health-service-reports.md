@@ -8,15 +8,15 @@ ms.topic: article
 ms.assetid: ''
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: bc21b9fdec5700fec23dc6af7ca15873ded34bea
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e018c0270a0bf410dada9c05d2c25e51fdfac1d8
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821960"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280157"
 ---
 # <a name="health-service-reports"></a>Rapports de Service d’intégrité
-> S’applique à Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server 2016
 
 ## <a name="what-are-reports"></a>Que sont les rapports  
 
@@ -110,7 +110,7 @@ public void DiscoverObjects(CimSession Session)
 
 Ces objets sont les mêmes dans PowerShell, vous obtenez à l’aide des applets de commande comme **Get-StorageSubSystem**, **Get-StorageNode**, et **Get-Volume**.
 
-Vous pouvez accéder à tous les mêmes propriétés, décrites à l’adresse [Classes API de gestion du stockage](https://msdn.microsoft.com/en-us/library/windows/desktop/hh830612(v=vs.85).aspx).
+Vous pouvez accéder à tous les mêmes propriétés, décrites à l’adresse [Classes API de gestion du stockage](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx).
 
 ```
 ...
@@ -131,7 +131,7 @@ La liste complète des métriques disponibles dans chaque étendue dans Windows 
 
 ### <a name="iobserveronnext"></a>IObserver.OnNext()
 
-Cet exemple de code utilise le [modèle de Design Observateur](https://msdn.microsoft.com/en-us/library/ee850490(v=vs.110).aspx) pour implémenter une méthode Observer dont **OnNext()** méthode sera appelée l’arrivée de chaque nouvel exemple de mesures. Son **OnCompleted()** méthode sera appelée si/quand se termine de diffusion en continu. Par exemple, vous utiliseriez il pour relancer la diffusion en continu, afin qu’il continue indéfiniment.
+Cet exemple de code utilise le [modèle de Design Observateur](https://msdn.microsoft.com/library/ee850490(v=vs.110).aspx) pour implémenter une méthode Observer dont **OnNext()** méthode sera appelée l’arrivée de chaque nouvel exemple de mesures. Son **OnCompleted()** méthode sera appelée si/quand se termine de diffusion en continu. Par exemple, vous utiliseriez il pour relancer la diffusion en continu, afin qu’il continue indéfiniment.
 
 ```
 class MetricsObserver<T> : IObserver<T>

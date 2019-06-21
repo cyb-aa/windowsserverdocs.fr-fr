@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e834c50965c3af569dbe3756d677ec4cb2372542
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c1153cd81185dcfe83d291161a85481e5a7d0700
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883920"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280550"
 ---
 # <a name="managing-ssltls-protocols-and-cipher-suites-for-ad-fs"></a>La gestion des protocoles SSL/TLS et des Suites de chiffrement pour AD FS
 La documentation suivante fournit des informations sur comment désactiver et activer certains protocoles TLS/SSL et suites sont utilisés par AD FS de chiffrement
@@ -119,14 +119,14 @@ Pour activer et désactiver le protocole TLS 1.0, utilisez les clés de Registre
 
 
 ### <a name="enable-tls-10"></a>Activer TLS 1.0
-- 1. [0\Server HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS] « Activé » = DWORD : 00000001
-- 1. [0\Server HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS] « DisabledByDefault » = DWORD : 00000000 
+- 1\. [0\Server HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS] « Activé » = DWORD : 00000001
+- 1\. [0\Server HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS] « DisabledByDefault » = DWORD : 00000000 
 - [1. 0\Client HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS] « Activé » = DWORD : 00000001
 - [1. 0\Client HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS] « DisabledByDefault » = DWORD : 00000000 
 
 ### <a name="disable-tls-10"></a>Désactivation de TLS 1.0
-- 1. [0\Server HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS] « Activé » = DWORD : 00000000
-- 1. [0\Server HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS] « DisabledByDefault » = DWORD : 00000001
+- 1\. [0\Server HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS] « Activé » = DWORD : 00000000
+- 1\. [0\Server HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS] « DisabledByDefault » = DWORD : 00000001
 - [1. 0\Client HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS] « Activé » = DWORD : 00000000
 - [1. 0\Client HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS] « DisabledByDefault » = DWORD : 00000001 
 
@@ -256,7 +256,7 @@ Vous pouvez désactiver certains chiffrements spécifiques en les supprimant de 
 
 Pour activer une suite de chiffrement, ajoutez sa valeur de chaîne à la clé de la valeur de chaînes multiples fonctions.  Par exemple, si nous voulons permettre TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P521 nous serait ajoutez-la à la chaîne.
 
-Pour obtenir une liste complète de chiffrement prises en charge les suites consultez [Suites de chiffrement dans TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/en-us/library/windows/desktop/aa374757.aspx).  Ce document fournit un tableau des suites sont activées par défaut et celles qui sont pris en charge mais n’est pas activée par défaut.  Pour classer par priorité les suites de chiffrement consultez [hiérarchisation des Suites de chiffrement Schannel](https://msdn.microsoft.com/en-us/library/windows/desktop/bb870930.aspx).
+Pour obtenir une liste complète de chiffrement prises en charge les suites consultez [Suites de chiffrement dans TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx).  Ce document fournit un tableau des suites sont activées par défaut et celles qui sont pris en charge mais n’est pas activée par défaut.  Pour classer par priorité les suites de chiffrement consultez [hiérarchisation des Suites de chiffrement Schannel](https://msdn.microsoft.com/library/windows/desktop/bb870930.aspx).
 
 ## <a name="enabling-strong-authentication-for-net-applications"></a>L’activation d’une authentification forte pour les applications .NET
 Les .NET Framework 3.5/4.0/4.5.x applications peuvent passer le protocole par défaut TLS 1.2 l’activation de la clé de Registre SchUseStrongCrypto.  Cette clé de Registre forcera les applications .NET pour utiliser TLS 1.2.
@@ -280,7 +280,7 @@ Pour le .NET Framework 4.0/4.5.x utiliser la clé de Registre suivante : HKEY_L
 
 ## <a name="additional-information"></a>Informations supplémentaires
 
-- [Suites de chiffrement dans TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/en-us/library/windows/desktop/aa374757.aspx)
-- [Suites de chiffrement TLS dans Windows 8.1](https://msdn.microsoft.com/en-us/library/windows/desktop/mt767781.aspx)
-- [Hiérarchisation des Suites de chiffrement de Schannel](https://msdn.microsoft.com/en-us/library/windows/desktop/bb870930.aspx)
+- [Suites de chiffrement dans TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx)
+- [Suites de chiffrement TLS dans Windows 8.1](https://msdn.microsoft.com/library/windows/desktop/mt767781.aspx)
+- [Hiérarchisation des Suites de chiffrement de Schannel](https://msdn.microsoft.com/library/windows/desktop/bb870930.aspx)
 - [En parlant de chiffrements et autres fonctions énigmatiques pour les langues](https://blogs.technet.microsoft.com/askds/2015/12/08/speaking-in-ciphers-and-other-enigmatic-tonguesupdate/)

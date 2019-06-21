@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e508d3ee-ffa6-463f-a3dd-9e35e745c005
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3a243debf79d2c9d12de511153b74f23c5a44cce
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2ebda017b41f27c2f69c7b850de44e771732415d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880740"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283327"
 ---
 # <a name="steps-for-configuring-the-directaccess-cluster-nlb-test-lab"></a>Étapes de configuration du laboratoire de test de cluster DirectAccess avec équilibrage de charge réseau
 
@@ -38,11 +37,11 @@ Dans ce test guide de laboratoire vous allez créer un réseau équilibrage de c
   
 -   [ÉTAPE 5 : Tester la connectivité DirectAccess à partir d’Internet et via le cluster](STEP-5-Test-DirectAccess-Connectivity-from-the-Internet-and-Through-the-Cluster.md). Une fois la configuration NLB et du cluster terminée vous pouvez tester la connectivité du client DirectAccess via le cluster d’équilibrage de charge.  
   
--   [ÉTAPE 6 : Tester la connectivité du client DirectAccess situé derrière un périphérique NAT](STEP-6-Test-DirectAccess-Client-Connectivity-from-Behind-a-NAT-Device.md). Déplacer l’ordinateur client derrière un périphérique NAT pour simuler la connectivité des clients DirectAccess test derrière un routeur domestique.  
+-   [ÉTAPE 6 : Tester la connectivité du client DirectAccess situé derrière un périphérique NAT](STEP-6-Test-DirectAccess-Client-Connectivity-from-Behind-a-NAT-Device.md). Déplacer l’ordinateur client derrière un périphérique NAT pour simuler la connectivité des clients DirectAccess test derrière un routeur domestique.  
   
--   [ÉTAPE 7 : Tester la connectivité lors du retour au réseau d’entreprise](STEP-7-Test-Connectivity-When-Returning-to-the-Corpnet.md). Vérifiez que l’ordinateur client peut toujours accéder à des ressources d’entreprise lors du retour au réseau d’entreprise.  
+-   [ÉTAPE 7 : Tester la connectivité lors du retour au réseau d’entreprise](STEP-7-Test-Connectivity-When-Returning-to-the-Corpnet.md). Vérifiez que l’ordinateur client peut toujours accéder à des ressources d’entreprise lors du retour au réseau d’entreprise.  
   
--   [ÉTAPE 8 : La configuration de capture instantanée](da-cluster-nlb-s8-snapshot.md). À l’issue de ce laboratoire de test, prenez un instantané de l’utilisation de cluster NLB d’accès à distance afin que vous pouvez y revenir plus tard pour tester des scénarios supplémentaires.  
+-   [ÉTAPE 8 : La configuration de capture instantanée](da-cluster-nlb-s8-snapshot.md). À l’issue de ce laboratoire de test, prenez un instantané de l’utilisation de cluster NLB d’accès à distance afin que vous pouvez y revenir plus tard pour tester des scénarios supplémentaires.  
   
 
 

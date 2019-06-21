@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3d66901a-c40b-474c-9948-f989f399cfea
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4f31c0e1d36ff458fb4807ab6856a56498f449ab
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8c3e12f9d64619ce00e578c7a8096c764e68ff7d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838180"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283158"
 ---
 # <a name="step-6-install-and-configure-2-dc1"></a>ÉTAPE 6 d’installer et configurer 2-DC1
 
@@ -66,7 +65,7 @@ Configurer le protocole TCP/IP avec des adresses IP statiques.
   
 2.  Dans **Connexions réseau**, cliquez avec le bouton droit sur **Connexion Ethernet câblée** et cliquez sur **Propriétés**.  
   
-3.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)**, puis sur **Propriétés**.  
+3.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
 4.  Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, type **10.2.0.1**. Dans la zone **Masque de sous-réseau**, tapez **255.255.255.0**. Dans **passerelle par défaut**, type **10.2.0.254**. Cliquez sur **utiliser l’adresse de serveur DNS suivante**, dans **serveur DNS préféré**, type **10.2.0.1**et dans **serveur DNS auxiliaire**, type **10.0.0.1**.  
   
@@ -74,7 +73,7 @@ Configurer le protocole TCP/IP avec des adresses IP statiques.
   
 6.  Dans **suffixe DNS pour cette connexion**, type **corp2.corp.contoso.com**, puis cliquez sur **OK** à deux reprises.  
   
-7.  Cliquez sur **Internet Protocol Version 6 (TCP/IPv6)**, puis cliquez sur **Propriétés**.  
+7.  Cliquez sur **Internet Protocol Version 6 (TCP/IPv6)** , puis cliquez sur **Propriétés**.  
   
 8.  Cliquez sur **utiliser l’adresse IPv6 suivante**. Dans **adresse IPv6**, type **2001:db8:2::1**. Dans **longueur de préfixe de sous-réseau**, type **64**. Dans **passerelle par défaut**, type **2001:db8:2::fe**. Cliquez sur **utiliser l’adresse de serveur DNS suivante**, dans **serveur DNS préféré**, type **2001:db8:2::1**et dans **serveur DNS auxiliaire**, type **2001:db8:1::1**.  
   
@@ -121,7 +120,7 @@ Configurer 2-DC1 comme contrôleur de domaine pour le domaine corp2.corp.contoso
   
 8.  Sous **fournir les informations d’identification pour effectuer cette opération**, cliquez sur **modification**. Sur le **Windows Security** boîte de dialogue **nom d’utilisateur**, type **corp.contoso.com\Administrator**et dans **mot de passe**, entrez le corp\ Mot de passe administrateur, cliquez sur **OK**, puis cliquez sur **suivant**.  
   
-9. Sur le **Options du contrôleur de domaine** page, assurez-vous que le **nom du Site** est **seconde-Site**. Sous **tapez le mot de passe du Mode de restauration des Services annuaire (DSRM)**, dans **mot de passe** et **confirmer le mot de passe**, tapez un mot de passe fort à deux reprises, puis cliquez sur  **Suivant** cinq fois.  
+9. Sur le **Options du contrôleur de domaine** page, assurez-vous que le **nom du Site** est **seconde-Site**. Sous **tapez le mot de passe du Mode de restauration des Services annuaire (DSRM)** , dans **mot de passe** et **confirmer le mot de passe**, tapez un mot de passe fort à deux reprises, puis cliquez sur  **Suivant** cinq fois.  
   
 10. Sur le **vérification des prérequis** page, une fois les conditions préalables sont validés, cliquez sur **installer**.  
   
@@ -201,7 +200,7 @@ Avant de pouvoir inscrire des certificats sur EDGE1-2, vous devez forcer la rép
   
 4.  Sur le **DEFAULTIPSITELINK propriétés** boîte de dialogue **coût**, type **1**, dans **répliquer chaque**, type **15**, puis cliquez sur **OK**. Attendez 15 minutes pour la réplication soit terminée.  
   
-5.  Pour forcer la réplication maintenant dans l’arborescence de la console, développez **sites\site-Premier-Site-name\Servers\DC1\NTDS paramètres**, dans le volet détails, cliquez sur **<automatically generated>**, cliquez sur  **Répliquer maintenant**, puis, dans le **Répliquer maintenant** boîte de dialogue, cliquez sur **OK**.  
+5.  Pour forcer la réplication maintenant dans l’arborescence de la console, développez **sites\site-Premier-Site-name\Servers\DC1\NTDS paramètres**, dans le volet détails, cliquez sur **<automatically generated>** , cliquez sur  **Répliquer maintenant**, puis, dans le **Répliquer maintenant** boîte de dialogue, cliquez sur **OK**.  
   
 6.  Pour garantir la réplication est terminée avec succès procédez comme suit :  
   

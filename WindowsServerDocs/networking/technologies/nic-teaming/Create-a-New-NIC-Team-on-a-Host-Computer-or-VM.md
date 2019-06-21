@@ -6,20 +6,19 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-nict
+ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a4caaa86-5799-4580-8775-03ee213784a3
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: d4dc7e0795d1f1d0b2a8bc18a6df12c683ef037d
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 5380cb2007bab1a296e0facc12885d47c6afc708
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812336"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282095"
 ---
 # <a name="create-a-new-nic-team-on-a-host-computer-or-vm"></a>Créer une association de cartes réseau sur un ordinateur hôte ou d’une machine virtuelle
 

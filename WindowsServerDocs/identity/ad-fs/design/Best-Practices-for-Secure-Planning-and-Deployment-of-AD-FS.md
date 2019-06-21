@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4a2fb188bd0a46ebd54ae068e8e4eeb63788aaa0
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 95f9fd468df39525a2fe7d18647f399214486bbb
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501581"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280598"
 ---
 # <a name="best-practices-for-secure-planning-and-deployment-of-ad-fs"></a>Meilleures pratiques pour sécuriser la planification et le déploiement d'AD FS
 
@@ -26,7 +26,7 @@ Principales meilleures pratiques suivantes sont communes à toutes les installat
 
 -   **Sécuriser AD FS comme un système de « Niveau 0 »** 
 
-    AD FS est fondamentalement un système d’authentification.  Par conséquent, elle doit être traitée comme un système de « Niveau 0 » comme autre système d’identité sur votre réseau.  [Microsoft Docs](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) a plus d’informations sur le modèle de niveau d’administration Active Directory. 
+    AD FS est fondamentalement un système d’authentification.  Par conséquent, elle doit être traitée comme un système de « Niveau 0 » comme autre système d’identité sur votre réseau.  [Microsoft Docs](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) a plus d’informations sur le modèle de niveau d’administration Active Directory. 
 
 
 -   **Utilisez l’Assistant de Configuration de sécurité à appliquer les meilleures pratiques de sécurité spécifiques à AD FS aux serveurs de fédération et les ordinateurs de proxy de serveur de fédération**  

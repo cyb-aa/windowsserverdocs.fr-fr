@@ -11,12 +11,12 @@ ms.assetid: 1a65a98e-54b6-4c41-9732-1e3d32fe3a5f
 author: KBDAzure
 ms.author: kathydav
 ms.date: 09/21/2017
-ms.openlocfilehash: 8b7d9233b105f710d620b5142205fb2eadd0248a
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 6ec5db82ecae2fb74731f3c52b9113325837a2fb
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67141371"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280018"
 ---
 # <a name="whats-new-in-hyper-v-on-windows-server"></a>Quelles sont les nouveautés dans Hyper-V sur Windows Server
 
@@ -212,7 +212,7 @@ Fichiers de configuration de machine virtuelle utilisent un nouveau format qui r
   
 ### <a name="virtual-machine-configuration-version-updated"></a>Version de configuration de machine virtuelle \(mis à jour\)
 
-La version représente la compatibilité de la configuration de la machine virtuelle, enregistré l’état et les fichiers de capture instantanée avec la version d’Hyper-V. Machines virtuelles avec la version 5 sont compatibles avec Windows Server 2012 R2 et peuvent s’exécuter sur Windows Server 2012 R2 et Windows Server 2016. Machines virtuelles avec les versions introduites dans Windows Server 2016 et et Windows Server 2019 ne s’exécute pas dans Hyper-V sur Windows Server 2012 R2.   
+La version représente la compatibilité de la configuration de la machine virtuelle, enregistré l’état et les fichiers de capture instantanée avec la version d’Hyper-V. Machines virtuelles avec la version 5 sont compatibles avec Windows Server 2012 R2 et peuvent s’exécuter sur Windows Server 2012 R2 et Windows Server 2016. Machines virtuelles avec les versions introduites dans Windows Server 2016 et Windows Server 2019 ne s’exécute pas dans Hyper-V sur Windows Server 2012 R2.   
   
 Si vous déplacez ou importez un ordinateur virtuel sur un serveur qui exécute Hyper-V sur Windows Server 2016 ou Windows Server 2019 à partir de Windows Server 2012 R2, configuration de la machine virtuelle n’est pas automatiquement mis à jour. Cela signifie que vous pouvez ramener l’ordinateur virtuel vers un serveur qui exécute Windows Server 2012 R2. Toutefois, cela signifie également que vous ne pouvez pas utiliser les nouvelles fonctionnalités de machine virtuelle jusqu'à ce que vous mettez à jour la version de la configuration de machine virtuelle manuellement.  
   

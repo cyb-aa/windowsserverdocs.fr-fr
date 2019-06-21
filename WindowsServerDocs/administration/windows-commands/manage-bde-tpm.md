@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0d41c846034ad421d0da81bda57acbcd419c1ae1
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bc3cfa583866335d214282be08366854dec77d0f
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437390"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280006"
 ---
 # <a name="manage-bde-tpm"></a>gérer-bde : module de plateforme sécurisée
 
 > S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 > 
 > [!IMPORTANT]
-> Cette commande n’est pas pris en charge pour une utilisation sur les ordinateurs exécutant Windows 8, Windows Server 2012 ou des systèmes d’exploitation ultérieurs. Pour ces ordinateurs, vous pouvez utiliser la [applets de commande de gestion du module de plateforme sécurisée pour Windows PowerShell](https://docs.microsoft.com/en-us/powershell/module/trustedplatformmodule/).
+> Cette commande n’est pas pris en charge pour une utilisation sur les ordinateurs exécutant Windows 8, Windows Server 2012 ou des systèmes d’exploitation ultérieurs. Pour ces ordinateurs, vous pouvez utiliser la [applets de commande de gestion du module de plateforme sécurisée pour Windows PowerShell](https://docs.microsoft.com/powershell/module/trustedplatformmodule/).
 > Si vous utilisez cette commande sur l’ordinateur qui exécute Windows 7 ou Windows Server 2008, vous pouvez toujours configurer Trusted Platform Module (TPM l’ordinateur) à l’aide de cette commande. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
 > ## <a name="syntax"></a>Syntaxe
 > ```

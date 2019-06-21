@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 6f3907426fd1124c5ed0a411a155490a2a537239
-ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
+ms.openlocfilehash: 572f923c33739b854808372a826e9c9bbc6aaca3
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66719681"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280852"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2016"></a>Mettre à niveau des contrôleurs de domaine vers Windows Server 2016
 
@@ -27,7 +27,7 @@ La méthode recommandée pour mettre à niveau un domaine consiste à promouvoir
 1. Vérifiez que le serveur cible répond à la configuration requise. 
 2. Vérifiez la compatibilité des applications. 
 3. Passez en revue les recommandations pour le passage à Windows Server 2016 
-4. Vérifiez les paramètres de sécurité Pour plus d’informations, consultez [fonctionnalités déconseillées et modifications de comportement associées aux services AD DS dans Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/get-started/deprecated-features). 
+4. Vérifiez les paramètres de sécurité Pour plus d’informations, consultez [fonctionnalités déconseillées et modifications de comportement associées aux services AD DS dans Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/deprecated-features). 
 5. Vérifiez la connectivité au serveur cible à partir de l’ordinateur sur lequel vous envisagez d’exécuter l’installation. 
 6. Vérifiez la disponibilité des rôles de maître d’opérations nécessaires : 
    - Pour installer le premier contrôleur de domaine qui exécute Windows Server 2016 dans une forêt et un domaine existant, l’ordinateur où vous exécutez l’installation nécessite une connectivité vers le **contrôleur de schéma** afin d’exécuter adprep /forestprep et au maître d’infrastructure Pour exécuter la commande adprep /domainprep. 

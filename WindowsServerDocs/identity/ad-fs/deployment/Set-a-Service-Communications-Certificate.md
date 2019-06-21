@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 140e8e4204148dd8862385054554d7b8336856ec
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 7253502390db004747d3732cf3d288a51afdaaf1
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192010"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280690"
 ---
 # <a name="set-a-service-communications-certificate"></a>Définir un certificat de communication du service
 
@@ -22,7 +22,7 @@ ms.locfileid: "66192010"
 Serveurs de fédération dans Active Directory Federation Services \(AD FS\) utiliser le certificat de communications de service pour sécuriser le trafic des services Web pour Secure Sockets Layer \(SSL\) communication avec le Web les clients ou avec des serveurs proxy de fédération.
 
 > [!NOTE]  
-> Le certificat de Communications de Service n’est pas un certificat SSL. Pour modifier le certificat SSL AD FS, vous devrez utiliser Powershell. Suivez les instructions dans cette [article](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
+> Le certificat de Communications de Service n’est pas un certificat SSL. Pour modifier le certificat SSL AD FS, vous devrez utiliser Powershell. Suivez les instructions dans cette [article](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
 
 
 Vous pouvez utiliser la procédure suivante pour modifier le certificat de communications de service avec le composant logiciel enfichable Gestion AD FS\-dans.  

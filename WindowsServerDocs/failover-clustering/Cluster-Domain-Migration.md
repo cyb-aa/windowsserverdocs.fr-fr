@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 01/18/2019
 description: Cet article décrit le déplacement d’un cluster Windows Server 2019 d’un domaine vers un autre
 ms.localizationpriority: medium
-ms.openlocfilehash: 1054de942e807f00586903683faeaf695ec2f033
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 5d5aaa333d2e20fa25e4738e343f326d63f75c6b
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66452930"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280211"
 ---
 # <a name="failover-cluster-domain-migration"></a>Migration de domaine de Cluster de basculement
 
@@ -61,7 +61,7 @@ La deuxième option est moins destructrice, mais nécessite un matériel supplé
 Comme le montre l’animation, cette option n’est pas destructif mais nécessite un matériel différent ou un nœud du cluster existant qu’a été supprimé.
 
 1. Créer un nouveau CLUSTÉRINE le domaine tout en conservant l’ancien cluster disponible.
-2. Utilisez le [Assistant de Migration de Cluster](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754481(v=ws.10)) pour migrer toutes les ressources vers le nouveau cluster. Pour rappel, il ne copie pas les données, sera donc pas à le faire séparément.
+2. Utilisez le [Assistant de Migration de Cluster](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754481(v=ws.10)) pour migrer toutes les ressources vers le nouveau cluster. Pour rappel, il ne copie pas les données, sera donc pas à le faire séparément.
 3. Désactiver ou supprimer l’ancien cluster.
 
 Dans les deux options, le nouveau cluster doit avoir tous [applications adaptée aux clusters](https://technet.microsoft.com/aa369082(v=vs.90)) installé, la mise à jour, des pilotes et éventuellement tester pour s’assurer tout s’exécute correctement.  Il s’agit d’un processus beaucoup de temps si les données doivent également être déplacé.

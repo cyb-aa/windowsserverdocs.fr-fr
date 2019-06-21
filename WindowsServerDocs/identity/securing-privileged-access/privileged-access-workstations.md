@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 846307e19324ab18f8bbfd84971108871b677aeb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9ac591d65fb84f3c0a8bbd33ca71c93daf892ced
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445881"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280726"
 ---
 # <a name="privileged-access-workstations"></a>Stations de travail à accès privilégié
 
@@ -96,7 +96,7 @@ Dans cette configuration, les tâches quotidiennes qui ne nécessitent pas de pr
 
 Pour configurer cela, suivez les instructions de ce guide pour l’hôte PAW, ajoutez les fonctionnalités de client Hyper-V, créez une machine virtuelle utilisateur, puis installez une image d’entreprise Windows 10 sur la machine virtuelle utilisateur.
 
-Lisez l’article sur le [Client Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/index) article pour plus d’informations sur cette fonctionnalité. Veuillez noter que le système d’exploitation dans les machines virtuelles invitées doivent disposer d’une licence par [Licence produit Microsoft ](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx), ce qui est également décrit [ici](https://download.microsoft.com/download/9/8/D/98D6A56C-4D79-40F4-8462-DA3ECBA2DC2C/Licensing_Windows_Desktop_OS_for_Virtual_Machines.pdf).
+Lisez l’article sur le [Client Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/index) article pour plus d’informations sur cette fonctionnalité. Veuillez noter que le système d’exploitation dans les machines virtuelles invitées doivent disposer d’une licence par [Licence produit Microsoft ](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx), ce qui est également décrit [ici](https://download.microsoft.com/download/9/8/D/98D6A56C-4D79-40F4-8462-DA3ECBA2DC2C/Licensing_Windows_Desktop_OS_for_Virtual_Machines.pdf).
 
 #### <a name="simultaneous-use---adding-remoteapp-rdp-or-a-vdi"></a>Utilisation simultanée - Ajout de RemoteApp, RDP ou une infrastructure VDI
 
@@ -138,7 +138,7 @@ Cette méthodologie est appropriée pour les comptes ayant accès aux ressources
 * **Professionnels de l’Information de sensibilité élevées** -l’approche utilisée dans un PAW peut également fournir une protection pour les tâches de travail des informations hautement confidentielles et personnel comme ceux impliquant avant fusion et acquisition d’activité d’annonce, en version préliminaire rapports financiers, présence de l’organisation de médias sociaux, communications d’executive, les secrets commerciaux non brevetées, sensibles des recherches et autres données propriétaires ou sensibles. Ce guide n’aborde pas la configuration de ces scénarios de traitement des informations en profondeur, et n’inclut pas ce scénario dans les instructions techniques.
 
     > [!NOTE]
-    > Microsoft IT utilise les PAW (appelés en interne « stations de travail admin sécurisées », ou SAW) pour gérer l’accès sécurisé à des systèmes à haute valeur au sein de Microsoft. Ce guide propose ci-dessous des détails supplémentaires sur l’utilisation de PAW chez Microsoft dans la section « Comment Microsoft utilise les stations de travail admin ». Pour plus d’informations sur cette approche d’environnement de ressources à haute valeur, reportez-vous à l’article [Protection des de ressources à haute valeur avec les stations de travail admin sécurisées](https://msdn.microsoft.com/en-us/library/mt186538.aspx).
+    > Microsoft IT utilise les PAW (appelés en interne « stations de travail admin sécurisées », ou SAW) pour gérer l’accès sécurisé à des systèmes à haute valeur au sein de Microsoft. Ce guide propose ci-dessous des détails supplémentaires sur l’utilisation de PAW chez Microsoft dans la section « Comment Microsoft utilise les stations de travail admin ». Pour plus d’informations sur cette approche d’environnement de ressources à haute valeur, reportez-vous à l’article [Protection des de ressources à haute valeur avec les stations de travail admin sécurisées](https://msdn.microsoft.com/library/mt186538.aspx).
 
 Ce document décrit pourquoi cette pratique est recommandée pour la protection des comptes privilégiés à impact élevé, à quoi ces solutions PAW ressemblent pour la protection des privilèges administratifs et comment déployer rapidement une solution PAW pour l’administration de services cloud et de domaine.
 
@@ -857,7 +857,7 @@ Suivez les étapes ci-dessous pour configurer cette phase :
 2. **Les applications à l’aide de Windows Defender Application Control et/ou AppLocker approuvées en liste verte**.  En limitant la capacité du code non approuvé ou non signé à s’exécuter sur un PAW, vous réduisez encore la probabilité d’activités malveillantes de compromissions.  Windows comprend deux options principales pour le contrôle des applications :
 
    * **AppLocker**:  AppLocker permet aux administrateurs un contrôle dont les applications peuvent s’exécuter sur un système donné.  AppLocker peut être contrôlé de façon centrale via une stratégie de groupe et appliqué à des utilisateurs ou des groupes (pour une application ciblée aux utilisateurs de PAW).  Pour plus d’informations sur AppLocker, consultez l’article TechNet [Vue d’ensemble d’AppLocker](https://technet.microsoft.com/library/hh831440.aspx).
-   * **Windows Defender Application Control**: la nouvelle fonctionnalité de Windows Defender Application Control fournit le contrôle d’application en fonction du matériel améliorée qui, contrairement à AppLocker, ne peut pas être substituée sur l’appareil concerné.  Comme AppLocker, Windows Defender Application Control peut être contrôlé via la stratégie de groupe et ciblé à des utilisateurs spécifiques.  Pour plus d’informations sur la limitation de l’utilisation des applications avec Windows Defender Application Control, reportez-vous à [Guide de déploiement de Windows Defender Application contrôle](https://docs.microsoft.com/en-gb/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-deployment-guide).
+   * **Windows Defender Application Control**: la nouvelle fonctionnalité de Windows Defender Application Control fournit le contrôle d’application en fonction du matériel améliorée qui, contrairement à AppLocker, ne peut pas être substituée sur l’appareil concerné.  Comme AppLocker, Windows Defender Application Control peut être contrôlé via la stratégie de groupe et ciblé à des utilisateurs spécifiques.  Pour plus d’informations sur la limitation de l’utilisation des applications avec Windows Defender Application Control, reportez-vous à [Guide de déploiement de Windows Defender Application contrôle](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-deployment-guide).
 
 3. **Utilisez les Utilisateurs protégés, les Stratégies d’authentification et les Silos d’authentification pour protéger davantage les comptes privilégiés**.  Les membres des Utilisateurs protégés sont soumis à des stratégies de sécurité supplémentaire qui protègent les informations d’identification stockées dans l’agent de sécurité local (LSA) et réduisent le risque de vol et de réutilisation des informations d’identification.  Les stratégies d’authentification et silos contrôlent la façon dont les utilisateurs privilégiés peuvent accéder aux ressources du domaine.  Collectivement, ces protections renforcent de façon spectaculaire la sécurité des comptes de ces utilisateurs privilégiés.  Pour plus d’informations sur ces fonctionnalités, reportez-vous à l’article web [Comment configurer des comptes protégés](https://technet.microsoft.com/library/dn518179.aspx).
 
@@ -912,7 +912,7 @@ Lors de l’aide protégées Paw basée sur une machine virtuelle, le [les param
 ### <a name="set-up-the-host-guardian-service"></a>Configurer le Service Guardian hôte
 
 Le Service Guardian hôte est chargé d’attester l’identité et l’intégrité d’un appareil physique de PAW.
-Seules les machines qui sont connus pour SGH et en cours d’exécution approuvé [stratégie d’intégrité du code](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control) sont autorisés à démarrer des machines virtuelles protégées.
+Seules les machines qui sont connus pour SGH et en cours d’exécution approuvé [stratégie d’intégrité du code](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control) sont autorisés à démarrer des machines virtuelles protégées.
 Cela permet de protéger les machines virtuelles protégées, qui s’exécutent des charges de travail approuvées pour gérer vos ressources à plusieurs niveaux, contre les menaces de postes de travail utilisateur.
 
 Étant donné que SGH est chargé de déterminer quels appareils peuvent exécuter des machines virtuelles de PAW, il est considéré comme une ressource de niveau 0.
@@ -1010,7 +1010,7 @@ Une fois que le disque de modèle et le fichier de données de protection sont p
 
 [Vue d’ensemble de Device Guard](https://technet.microsoft.com/library/dn986865(v=vs.85).aspx)
 
-[Protection des ressources à haute valeur avec les stations de travail admin sécurisées](https://msdn.microsoft.com/en-us/library/mt186538.aspx)
+[Protection des ressources à haute valeur avec les stations de travail admin sécurisées](https://msdn.microsoft.com/library/mt186538.aspx)
 
 [Mode utilisateur isolé dans Windows 10 avec Dave Probert (Channel 9)](https://channel9.msdn.com/Blogs/Seth-Juarez/Isolated-User-Mode-in-Windows-10-with-Dave-Probert)
 

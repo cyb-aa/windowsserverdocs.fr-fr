@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 78cc2ce3-a48e-45db-b402-e480b493fab1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 65af14e3adfacd96334e2326f8dd0b346e27034a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 655a7b02468db4246b85b495289806a3f9735a95
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850180"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282002"
 ---
 # <a name="border-gateway-protocol-bgp"></a>Protocole BGP (Border Gateway Protocol)
 
@@ -29,7 +28,7 @@ Vous pouvez utiliser cette rubrique pour mieux comprendre le protocole BGP (Bord
 > [!NOTE]  
 > Outre cette rubrique, la documentation de BGP suivante est disponible.  
 >   
-> -   [Référence des commandes PowerShell BGP Windows](../../remote-access/bgp/BGP-Windows-PowerShell-Command-Reference.md)  
+> -   [Référence à la commande Windows PowerShell BGP](../../remote-access/bgp/BGP-Windows-PowerShell-Command-Reference.md)  
   
 Cette rubrique contient les sections suivantes.  
   
@@ -150,9 +149,9 @@ Voici les fonctionnalités du routeur BGP passerelle RAS.
   
 **Routage BGP en tant que rôle service d’accès à distance**. Vous pouvez maintenant installer le **routage** service de rôle du rôle de serveur d’accès à distance sans installer le **Service d’accès à distance (RAS)** service de rôle lorsque vous souhaitez utiliser l’accès à distance comme un routeur BGP LAN.  Cela réduit l’encombrement de mémoire de routeur BGP et installe uniquement les composants requis pour le routage dynamique BGP. Le service de rôle routage est utile lorsque seuls un routeur BGP la machine virtuelle, et vous ne nécessitent pas l’utilisation de DirectAccess ou VPN. En outre, l’accès à distance en tant que routeur de réseau local avec le protocole BGP vous offre les avantages de routage dynamiques du protocole BGP sur votre réseau interne.  
   
-**Statistiques BGP (compteurs de messages, compteurs d’itinéraires)**. Le routeur BGP prend en charge l’affichage des statistiques de message et d’itinéraire, si nécessaire, à l’aide de la commande Windows PowerShell **Get-BgpStatistics**.  
+**Statistiques BGP (compteurs de messages, compteurs d’itinéraires)** . Le routeur BGP prend en charge l’affichage des statistiques de message et d’itinéraire, si nécessaire, à l’aide de la commande Windows PowerShell **Get-BgpStatistics**.  
   
-**Prise en charge du routage ECMP (Equal Cost Multi Path Routing)**. Le routeur BGP prend en charge le routage ECMP et peut avoir plusieurs itinéraires de même coût raccordés à la pile et la table de routage BGP. La sélection de l’itinéraire effectuée par le routeur BGP pour la transmission des paquets de données est aléatoire lorsque le routage ECMP est activé.  
+**Prise en charge du routage ECMP (Equal Cost Multi Path Routing)** . Le routeur BGP prend en charge le routage ECMP et peut avoir plusieurs itinéraires de même coût raccordés à la pile et la table de routage BGP. La sélection de l’itinéraire effectuée par le routeur BGP pour la transmission des paquets de données est aléatoire lorsque le routage ECMP est activé.  
   
 **Configuration de la valeur HoldTime**. Le routeur BGP prend en charge la configuration de la valeur HoldTimer en fonction des besoins de votre réseau. Cette minuterie peut être modifiée dynamiquement pour s’adapter à l’interopérabilité avec les périphériques tiers ou pour respecter une durée maximale spécifique d’expiration de la session d’homologation du protocole BGP.  
   
@@ -162,7 +161,7 @@ Voici les fonctionnalités du routeur BGP passerelle RAS.
   
 **Prise en charge de l’homologation du transport IPv4 et IPv6**. Le routeur BGP prend en charge les homologations IPv4 et IPv6. Toutefois, vous devez configurer l’identificateur BGP comme adresse IPv4 du routeur BGP. Pour toutes les topologies de déploiement du routeur BGP, vous pouvez utiliser l’un des deux types d’homologation (IPV4/IPv6).  
   
-**Capacité d’apprentissage et de publication d’un itinéraire monodiffusion IPv4 et IPv6 (Multiprotocol Network Layer Reachability Information [NLRI])**. Peu importe le transport que vous utilisez, le routeur BGP peut échanger les itinéraires IPv4 et IPv6 si la capacité appropriée est annoncée par d’autres routeurs BGP lors de l’établissement de la session. Pour configurer le routage IPv6, le paramètre IPv6Routing doit être activé et une adresse IPv6 globale locale doit être configurée au niveau du routeur.  
+**Capacité d’apprentissage et de publication d’un itinéraire monodiffusion IPv4 et IPv6 (Multiprotocol Network Layer Reachability Information [NLRI])** . Peu importe le transport que vous utilisez, le routeur BGP peut échanger les itinéraires IPv4 et IPv6 si la capacité appropriée est annoncée par d’autres routeurs BGP lors de l’établissement de la session. Pour configurer le routage IPv6, le paramètre IPv6Routing doit être activé et une adresse IPv6 globale locale doit être configurée au niveau du routeur.  
   
 **Homologation des modes mixte et passif**. Vous pouvez configurer des sessions d’homologation BGP en mode mixte - où le routeur BGP joue le rôle initiateur et répondeur, ou en mode passif, où le routeur BGP n’initie pas l’homologation, mais ne répond pas aux requêtes entrantes. Le mode mixte est activé par défaut. Il est recommandé pour l’homologation BGP, sauf si vous souhaitez utiliser le mode passif pour le débogage ou le diagnostic. Pour toutes les topologies de déploiement du routeur BGP, l’homologation en mode mixte est requise pour permettre le redémarrage automatique en cas d’événements d’échec.  
   

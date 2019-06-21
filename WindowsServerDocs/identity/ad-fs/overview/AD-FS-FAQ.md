@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f3f84a5c18589d38606825ee064cfb729003a05d
-ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
+ms.openlocfilehash: fc92e8b30d6b4c0c765333d3e22311e551d3365d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66719684"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280491"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS, Forum aux Questions (FAQ)
 
@@ -138,9 +138,9 @@ Avec AD FS sur 2019 de serveur, vous pouvez maintenant passer la valeur de la re
 AD FS dans Server 2019 prend en charge la clé de preuve pour Code Exchange (PKCE) pour les flux d’octroi de Code d’autorisation OAuth
 
 ### <a name="what-permitted-scopes-are-supported-by-ad-fs"></a>Les étendues autorisées sont pris en charge par AD FS ?
-- AZA - si vous utilisez [Extensions du protocole OAuth 2.0 pour les Clients de service Broker](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) et si le paramètre d’étendue contient l’étendue « aza », le serveur émet un nouveau jeton d’actualisation principaux et il définit dans le champ de jeton d’actualisation de la réponse, ainsi que les paramètre le champ refresh_token_expires_in à la durée de vie de nouveau jeton d’actualisation principaux si un est appliqué.
+- AZA - si vous utilisez [Extensions du protocole OAuth 2.0 pour les Clients de service Broker](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) et si le paramètre d’étendue contient l’étendue « aza », le serveur émet un nouveau jeton d’actualisation principaux et il définit dans le champ de jeton d’actualisation de la réponse, ainsi que les paramètre le champ refresh_token_expires_in à la durée de vie de nouveau jeton d’actualisation principaux si un est appliqué.
 - OpenID - permet à l’application demander l’utilisation du protocole d’autorisation OpenID Connect.
-- logon_cert - l’étendue logon_cert permet à une application pour demander des certificats d’ouverture de session, ce qui peut être utilisé pour connecter les utilisateurs authentifiés de manière interactive. Le serveur AD FS omet le paramètre de jeton d’accès de la réponse et une chaîne codée en base64 d’un certificat CMS ou une réponse d’infrastructure à clé publique complète CMC propose à la place. Plus de détails [ici](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e). 
+- logon_cert - l’étendue logon_cert permet à une application pour demander des certificats d’ouverture de session, ce qui peut être utilisé pour connecter les utilisateurs authentifiés de manière interactive. Le serveur AD FS omet le paramètre de jeton d’accès de la réponse et une chaîne codée en base64 d’un certificat CMS ou une réponse d’infrastructure à clé publique complète CMC propose à la place. Plus de détails [ici](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e). 
 - user_impersonation - l’étendue user_impersonation est nécessaire à demander un jeton d’accès on-behalf-of d’AD FS. Pour plus d’informations sur l’utilisation de cette étendue, consultez [créer une application à plusieurs niveaux à l’aide pour le compte (OBO) à l’aide d’OAuth avec AD FS 2016](../../ad-fs/development/ad-fs-on-behalf-of-authentication-in-windows-server.md).
 - vpn_cert - l’étendue vpn_cert permet à une application pour demander des certificats VPN, ce qui peut être utilisé pour établir des connexions VPN à l’aide de l’authentification EAP-TLS. Cela est non plus prises en charge.
 - l’e-mail - permet à l’application demander la revendication de courrier électronique pour l’utilisateur connecté. Cela est non plus prises en charge. 

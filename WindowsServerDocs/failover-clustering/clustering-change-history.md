@@ -9,16 +9,16 @@ manager: daveba
 ms.author: jgerend
 ms.date: 03/08/2019
 description: Rubriques nouvelles et mises à jour dans la documentation de Clustering de basculement de Windows Server 2016
-ms.openlocfilehash: 4044475995175ea527a1ecc487bc0e1cc6f75003
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6dd5c98b14134d42901fad79a375298ad0e7e23
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861220"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280178"
 ---
 # <a name="change-history-for-failover-clustering-topics"></a>Historique des modifications des rubriques sur le clustering de basculement
 
->S’applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel)
+>S’applique à : Windows Server 2019, Windows Server 2016
 
 Cette rubrique répertorie les rubriques nouvelles et mises à jour de la [le Clustering de basculement](failover-clustering-overview.md) documentation de Windows Server.
 
@@ -34,7 +34,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la [le Cl
 
 |Rubrique nouvelle ou modifiée                                    |Description |
 |--------------------------------------------------------|------------|
-| [La mise à niveau un cluster de basculement sur le même matériel](upgrade-option-same-hardware.md)| Nouveau |
+| [Mettre à jour un cluster de basculement sur le même matériel](upgrade-option-same-hardware.md)| Nouveau |
 |[Déployer un serveur de fichiers à deux nœuds](deploy-two-node-clustered-file-server.md)| Nouveau |
 
 ## <a name="january-2019"></a>Janvier 2019
@@ -42,13 +42,13 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la [le Cl
 |Rubrique nouvelle ou modifiée                                    |Description |
 |--------------------------------------------------------|------------|
 |[Déployer un témoin de partage de fichiers](file-share-witness.md)    | Nouveau        |
-|[Migration de domaine du cluster](cluster-domain-migration.md) | Nouveau        |
+|[Migration de domaine en cluster](cluster-domain-migration.md) | Nouveau        |
 
 ## <a name="november-2018"></a>Novembre 2018
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
-|[Configuration des comptes de cluster dans Active Directory](configure-ad-accounts.md)|Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/) bibliothèque|
+|[Configurer des comptes de cluster dans Active Directory](configure-ad-accounts.md)|Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/) bibliothèque|
 
 ## <a name="october-2018"></a>Octobre 2018
 
@@ -60,7 +60,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la [le Cl
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
-|[Ensembles de cluster](../storage/storage-spaces/cluster-sets.md)| Nouvelle rubrique|
+|[Jeux de clusters](../storage/storage-spaces/cluster-sets.md)| Nouvelle rubrique|
 
 ## <a name="may-2018"></a>Mai 2018
 
@@ -72,12 +72,12 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la [le Cl
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
-|[Résolution des problèmes d’un Cluster de basculement à l’aide du rapport d’erreurs Windows](troubleshooting-using-WER-reports.md)| Nouvelle rubrique. |
-|[Serveur de fichiers avec montée en puissance pour les données d’application](sofs-overview.md)|Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) bibliothèque.|
+|[Résolution des problèmes d’un cluster de basculement à l’aide du rapport d’erreurs Windows](troubleshooting-using-WER-reports.md)| Nouvelle rubrique. |
+|[Serveur de fichiers avec montée en puissance parallèle pour les données d’application](sofs-overview.md)|Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) bibliothèque.|
 |[Configuration matérielle requise](clustering-requirements.md)|Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) bibliothèque.|
-|[Utiliser partagés de Cluster Volumes (CSV)](failover-cluster-csvs.md)|Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) bibliothèque.|
+|[Utiliser des volumes partagés de cluster (CSV)](failover-cluster-csvs.md)|Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) bibliothèque.|
 |[Créer un cluster de basculement](create-failover-cluster.md)|Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) bibliothèque.|
-|[Préparer un cluster dans AD DS](prestage-cluster-adds.md)|Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) bibliothèque.|
+|[Prédéfinir un cluster dans AD DS](prestage-cluster-adds.md)|Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) bibliothèque.|
 |[Déployer un témoin Cloud pour un Cluster de basculement](deploy-cloud-witness.md)|Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) bibliothèque.|
 
 ## <a name="june-2017"></a>Juin 2017
@@ -91,7 +91,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la [le Cl
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
 |[Vue d’ensemble de la mise à jour adaptée aux clusters](cluster-aware-updating.md)|Nouvelle rubrique.|
-|[Configuration requise de la mise à jour adaptée aux clusters et les meilleures pratiques](cluster-aware-updating-requirements.md)|Nouvelle rubrique.|
+|[Configuration requise et bonnes pratiques concernant la mise à jour adaptée aux clusters](cluster-aware-updating-requirements.md)|Nouvelle rubrique.|
 |[Mise à jour adaptée aux clusters des options avancées](cluster-aware-updating-options.md)|Nouvelle rubrique.|
 |[Forum aux questions sur la mise à jour adaptée aux clusters](cluster-aware-updating-faq.md)|Nouvelle rubrique.|
 |[Plug-ins de la mise à jour adaptée aux clusters](cluster-aware-updating-plug-ins.md)|Nouvelle rubrique.|

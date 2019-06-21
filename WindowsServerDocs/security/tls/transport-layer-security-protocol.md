@@ -13,12 +13,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic-msft
 ms.date: 05/16/2018
-ms.openlocfilehash: 77e3ee9d89bff7ab6e95ea47ffa141e6e1004ba4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0a3b241fe0d2a61361d551b7f515507ad55d71cd
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853020"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284239"
 ---
 # <a name="transport-layer-security-protocol"></a>Protocole TLS (Transport Layer Security)
 
@@ -41,7 +41,7 @@ Les protocoles TLS et SSL peuvent être divisés en deux couches. La première c
 **Couches de protocole TLS et SSL**
 
 
-Le SSP Schannel implémente les protocoles TLS et SSL sans modification. Le protocole SSL est propriétaire, mais la Internet Engineering Task Force génère les spécifications de TLS publiques. Pour plus d’informations sur les SSL ou TLS version est prise en charge dans les versions de Windows, consultez [protocoles dans TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/en-us/library/windows/desktop/mt808159(v=vs.85).aspx). Le tableau suivant répertorie les spécifications pour chaque version TLS. Chaque spécification contient des informations sur :
+Le SSP Schannel implémente les protocoles TLS et SSL sans modification. Le protocole SSL est propriétaire, mais la Internet Engineering Task Force génère les spécifications de TLS publiques. Pour plus d’informations sur les SSL ou TLS version est prise en charge dans les versions de Windows, consultez [protocoles dans TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/mt808159(v=vs.85).aspx). Le tableau suivant répertorie les spécifications pour chaque version TLS. Chaque spécification contient des informations sur :
 
 -   Le protocole d’enregistrement TLS
 

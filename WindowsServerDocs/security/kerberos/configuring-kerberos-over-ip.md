@@ -1,12 +1,12 @@
 ---
 title: Configuration de Kerberos pour l’adresse IP
 description: Prise en charge de Kerberos pour les noms principaux de service basé sur IP
-ms.openlocfilehash: 30741f7a0f1978fcaa6ac83c98a54c07e1ef25c5
-ms.sourcegitcommit: c6acac3622e5d34714ca5c569805931681f98779
+ms.openlocfilehash: aa2685fcff2fdf231e5e5884d25885585f0bd6c9
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391520"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67279967"
 ---
 # <a name="kerberos-clients-allow-ipv4-and-ipv6-address-hostnames-in-service-principal-names-spns"></a>Les clients Kerberos autorisent des noms d’hôte des adresses IPv4 et IPv6 dans les noms de principal du Service (SPN)
 
@@ -30,7 +30,7 @@ Un nom de principal du Service est un identificateur unique permettant d’ident
 
 Adresses IP ne sont pas normalement utilisés à la place des noms d’hôte, car les adresses IP sont souvent temporaires. Cela peut entraîner les conflits et les échecs d’authentification comme des baux d’adresses expire et renouveler. Par conséquent, l’inscription d’un SPN de fondées sur l’adresse IP est un processus manuel et ne doit être utilisée que lorsqu’il est impossible de basculer vers un nom d’hôte basée sur DNS.
 
-L’approche recommandée consiste à utiliser le [Setspn.exe](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)) outil. Notez qu’un SPN ne peut être inscrit à un seul compte dans Active Directory à la fois et il est donc recommandé que les adresses IP ont des baux statiques si DHCP est utilisé.
+L’approche recommandée consiste à utiliser le [Setspn.exe](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)) outil. Notez qu’un SPN ne peut être inscrit à un seul compte dans Active Directory à la fois et il est donc recommandé que les adresses IP ont des baux statiques si DHCP est utilisé.
 
 ```
 Setspn -s <service>/ip.address> <domain-user-account>  

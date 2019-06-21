@@ -9,12 +9,12 @@ ms.topic: article
 author: eldenchristensen
 ms.date: 06/13/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: f6b93b55d8685180de8eafff5e8a3d5ca33e5fb5
-ms.sourcegitcommit: 3fe551f99c58ac232a9df72aaca55187118eac3b
+ms.openlocfilehash: 7fa4560e0c050c8decbcb4e9456a884976e447e2
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67132926"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284416"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Configuration matérielle requise pour les espaces de stockage direct
 
@@ -22,7 +22,7 @@ ms.locfileid: "67132926"
 
 Cette rubrique décrit la configuration matérielle minimale requise pour les espaces de stockage Direct.
 
-Pour la production, Microsoft recommande d’achat d’une solution matérielle/logicielle validé à partir de nos partenaires, les incluant les outils de déploiement et de procédures. Ces solutions sont conçues, assemblées et validées par rapport à notre architecture de référence pour garantir la compatibilité et la fiabilité, afin de vous être opérationnel rapidement opérationnel. Pour les solutions Windows Server 2019, visitez le [site Web de solutions Azure Stack HCL](https://azure.microsoft.com/overview/azure-stack/hci). Pour les solutions Windows Server 2016, en savoir plus sur [défini par le logiciel Windows Server](https://microsoft.com/wssd).
+Pour la production, Microsoft vous recommande d’acheter une solution matérielle/logicielle validé à partir de nos partenaires, qui incluent des procédures et des outils de déploiement. Ces solutions sont conçues, assemblées et validées par rapport à notre architecture de référence pour garantir la compatibilité et la fiabilité, afin de vous être opérationnel rapidement opérationnel. Pour les solutions Windows Server 2019, visitez le [site Web de solutions Azure Stack HCL](https://azure.microsoft.com/overview/azure-stack/hci). Pour les solutions Windows Server 2016, en savoir plus sur [défini par le logiciel Windows Server](https://microsoft.com/wssd).
 
    > [!TIP]
    > À évaluer les espaces de stockage Direct, mais n’ai pas matériel ? Utilisez des machines virtuelles Hyper-V ou Azure comme décrit dans [à l’aide de Storage Spaces Direct dans les clusters d’ordinateurs virtuels invités](storage-spaces-direct-in-vm.md).
