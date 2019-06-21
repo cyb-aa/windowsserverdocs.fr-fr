@@ -8,12 +8,12 @@ ms.date: 06/04/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 258f25a7e1ec5c796c15450625397e96db25d693
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 8f0f16f14ccf9099af8ff8bb8b27209c75c87cfc
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501521"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284468"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Service de Migration de stockage Forum aux questions (FAQ)
 
@@ -131,7 +131,7 @@ Le Service de Migration de stockage contient un moteur de copie appelé service 
 
 - **Permettre un traitement hautes performances.** Vérifiez que les paramètres BIOS/UEFI des serveurs permettent de hautes performances, par exemple avec la désactivation de C-State, la définition de la vitesse de QPI, l’activation de NUMA et la définition de la fréquence mémoire la plus élevée. Vérifiez la gestion de l’alimentation dans Windows Server est définie à hautes performances. Redémarrez si nécessaire. N’oubliez pas de les retourner aux États appropriés après avoir effectué la migration. 
 
-- **Paramétrer le matériel** révision le [performances réglage des instructions pour Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/administration/performance-tuning/) pour le réglage de l’orchestrator et les ordinateurs de destination exécutant Windows Server 2019 et de Windows Server 2016. Le [réglage des performances réseau sous-système](https://docs.microsoft.com/en-us/windows-server/networking/technologies/network-subsystem/net-sub-performance-tuning-nics) section contient des informations particulièrement utiles.
+- **Paramétrer le matériel** révision le [performances réglage des instructions pour Windows Server 2016](https://docs.microsoft.com/windows-server/administration/performance-tuning/) pour le réglage de l’orchestrator et les ordinateurs de destination exécutant Windows Server 2019 et de Windows Server 2016. Le [réglage des performances réseau sous-système](https://docs.microsoft.com/windows-server/networking/technologies/network-subsystem/net-sub-performance-tuning-nics) section contient des informations particulièrement utiles.
 
 - **Utilisation du stockage plus rapide.** S’il peut être difficile de mettre à niveau de la vitesse de stockage d’ordinateur source, vous devez vous assurer que le stockage de destination est au moins aussi rapide sur les performances d’e/s écriture, la source est au niveau de performances d’e/s lecture afin de vérifier qu'il n’existe aucun goulot d’étranglement inutile dans les transferts. Si la destination est une machine virtuelle, assurez-vous que, au moins dans le cadre de la migration, il s’exécute dans la couche de stockage le plus rapide de vos hôtes hyperviseur, comme sur la couche de flash ou avec les clusters de HCL directe des espaces de stockage utilisant la mise en miroir exclusivement flash ou espaces de hybride. Lors de la migration de SMS est terminée la machine virtuelle peut être migrées dynamiquement à un hôte ou un niveau plus lent.
 

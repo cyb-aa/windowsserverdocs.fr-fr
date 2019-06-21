@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 19a7a4a6-9a04-42ea-a5d0-ecb28a34dbaa
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 612d3f4e9be71f60811b4499d9bdb8ae3bd217e8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 093f8215691b21d7b7fefc3b1c51f3a41af9bea6
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847490"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283133"
 ---
 # <a name="step-2-configure-app1"></a>ÉTAPE 2 configurer APP1
 

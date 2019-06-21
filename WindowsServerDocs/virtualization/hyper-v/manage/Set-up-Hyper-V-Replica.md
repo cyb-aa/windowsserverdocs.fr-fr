@@ -10,12 +10,12 @@ ms.assetid: eea9e996-bfec-4065-b70b-d8f66e7134ac
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/10/2016
-ms.openlocfilehash: 04066c5b645c0be641c2ba76fadac032d5a91420
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b8dcf23946d99509aafba0f8af58bf633bedd069
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843210"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280235"
 ---
 # <a name="set-up-hyper-v-replica"></a>Configurer le réplica Hyper-V
 
@@ -27,7 +27,7 @@ La réplication Hyper-V fait partie intégrante du rôle Hyper-V. Il contribue �
 
 -   **Réplication et le suivi des modifications**: Lorsque vous activez la réplication Hyper-V pour un ordinateur virtuel spécifique, la réplication initiale crée une machine virtuelle de réplica identiques sur un serveur hôte secondaire. Une fois que cela se produit, le suivi des modifications de réplica Hyper-V crée et gère un fichier journal qui capture les modifications sur un disque dur virtuel de machine virtuelle. Le fichier journal est lu dans l’ordre inverse pour le réplica sur disque dur virtuel en fonction des paramètres de fréquence de réplication. Cela signifie que les modifications les plus récentes sont stockées et répliquées de manière asynchrone. La réplication peut être via HTTP ou HTTPS.  
 
--   **Étendue de réplication (chaînée)**: Cela vous permet de répliquer une machine virtuelle à partir d’un hôte principal vers un hôte secondaire, puis de répliquer la base de données secondaire héberger pour héberger une troisième. Notez que vous ne pouvez pas répliquer à partir de l’hôte principal directement à la deuxième et la troisième.  
+-   **Étendue de réplication (chaînée)** : Cela vous permet de répliquer une machine virtuelle à partir d’un hôte principal vers un hôte secondaire, puis de répliquer la base de données secondaire héberger pour héberger une troisième. Notez que vous ne pouvez pas répliquer à partir de l’hôte principal directement à la deuxième et la troisième.  
 
     Cette fonctionnalité rend le réplica Hyper-V plus robuste pour la récupération d’urgence, car si une panne se produit, vous pouvez récupérer à partir du réplica principal et étendu.  Vous pouvez basculer sur le réplica étendu si vos emplacements principaux et secondaires tombent en panne. Notez que le réplica étendu ne prend pas en charge la réplication cohérente avec les applications et qu’il doit utiliser les disques durs virtuels mêmes qui utilise le réplica secondaire.  
 
@@ -80,7 +80,7 @@ Pour autoriser la réplication entre les serveurs primaires et secondaire, le tr
 
     1. Ouvrez les pare-feu Windows avec fonctions avancées de sécurité et cliquez sur **règles de trafic entrant**.  
 
-    2. Pour activer l’authentification HTTP (Kerberos), avec le bouton droit **écouteur HTTP de réplica Hyper-V (TCP-entrant)** >**activer la règle.** Pour activer l’authentification par certificat HTTPS, avec le bouton droit **écouteur HTTPS de réplica Hyper-V (TCP-entrant)** > E**acti règle**.  
+    2. Pour activer l’authentification HTTP (Kerberos), avec le bouton droit **écouteur HTTP de réplica Hyper-V (TCP-entrant)**  >**activer la règle.** Pour activer l’authentification par certificat HTTPS, avec le bouton droit **écouteur HTTPS de réplica Hyper-V (TCP-entrant)** > E**acti règle**.  
 
 -  Pour activer les règles sur un cluster Hyper-V, ouvrez une session Windows PowerShell avec **exécuter en tant qu’administrateur**, puis exécutez une de ces commandes :  
 
@@ -110,14 +110,14 @@ Procédez comme suit sur chaque machine virtuelle à répliquer :
 
     Si vous effectuez une réplication hors connexion, vous allez transport la copie initiale sur le serveur secondaire à l’aide d’un support de stockage externe tel qu’un disque dur ou un lecteur USB. Pour cela de que vous devez connecter l’externe stockage au serveur principal (ou nœud de propriétaire d’un cluster), puis lorsque vous sélectionnez envoient la copie initiale à l’aide de supports externes, que vous pouvez spécifier un emplacement local ou sur un support externe où la copie initiale peut être stockée.  Une machine virtuelle d’espace réservé est créée sur le site de réplication. Une fois terminée la réplication initiale du stockage externe peut être envoyé vers le site de réplication. Il vous vous connectez à un support externe vers le serveur secondaire ou sur le nœud propriétaire du cluster secondaire. Ensuite, vous allez importer le réplica initial vers un emplacement spécifié et fusionner dans la machine virtuelle espace réservé.  
 
-9. Sur le **fin de l’activation de la réplication** page, passez en revue les informations contenues dans le résumé, puis sur **terminer.**. Les données de la machine virtuelle seront transférées selon les paramètres choisis. et une boîte de dialogue s’affiche indiquant que la réplication a été activée avec succès.  
+9. Sur le **fin de l’activation de la réplication** page, passez en revue les informations contenues dans le résumé, puis sur **terminer.** . Les données de la machine virtuelle seront transférées selon les paramètres choisis. et une boîte de dialogue s’affiche indiquant que la réplication a été activée avec succès.  
 
 10. Si vous souhaitez configurer la réplication étendue (chaînée), ouvrez le serveur de réplication et avec le bouton droit de la machine virtuelle que vous souhaitez répliquer. Cliquez sur **réplication** > **étendre la réplication** et spécifiez les paramètres de réplication.  
 
 ## <a name="run-a-failover"></a>Exécuter un basculement  
 Après avoir effectué ces étapes de déploiement votre environnement répliqué est en cours d’exécution. Vous pouvez maintenant exécuter des basculements en fonction des besoins.  
 
-**Test de basculement**:  Si vous souhaitez exécuter un basculement de test clic droit de la machine virtuelle principale et sélectionnez **réplication** > **le Test de basculement**. Choisissez le point de récupération plus récente ou autres si configuré. Une machine virtuelle de test est créée et démarrée sur le site secondaire. Une fois que vous avez terminé le test, sélectionnez **arrêter le Test du basculement** sur la machine virtuelle de réplica pour nettoyer option, celle-ci. Notez que pour une machine virtuelle que vous ne pouvez exécuter un test de basculement à la fois. [En savoir plus](https://blogs.technet.com/b/virtualization/archive/2012/07/26/types-of-failover-operations-in-hyper-v-replica.aspx).  
+**Test de basculement**:  Si vous souhaitez exécuter un basculement de test clic droit de la machine virtuelle principale et sélectionnez **réplication** > **le Test de basculement**. Choisissez le point de récupération plus récente ou autres si configuré. Une machine virtuelle de test est créée et démarrée sur le site secondaire. Une fois que vous avez terminé le test, sélectionnez **arrêter le Test du basculement** sur la machine virtuelle de réplica pour les nettoyer. Notez que pour une machine virtuelle que vous ne pouvez exécuter un test de basculement à la fois. [En savoir plus](https://blogs.technet.com/b/virtualization/archive/2012/07/26/types-of-failover-operations-in-hyper-v-replica.aspx).  
 
 **Basculement planifié**: Pour exécuter un clic droit basculement planifié de l’ordinateur virtuel principal et sélectionnez **réplication** > **basculement planifié**. Basculement planifié effectue des vérifications de conditions préalables pour vous assurer de ne perdre aucune donnée. Il vérifie que la machine virtuelle principale est arrêtée avant de commencer le basculement. Une fois que l’ordinateur virtuel est basculé, il démarre la réplication des modifications vers le site principal lorsqu’il est disponible. Notez que pour ce faire le serveur principal doit être configuré pour la réplication de réception à partir du serveur secondaire ou dans le service Broker de réplication Hyper-V dans le cas d’un cluster principal. Planifié envoie de basculement le dernier ensemble de modifications. [En savoir plus](https://blogs.technet.com/b/virtualization/archive/2012/07/31/types-of-failover-operations-in-hyper-v-replica-part-ii-planned-failover.aspx).  
 

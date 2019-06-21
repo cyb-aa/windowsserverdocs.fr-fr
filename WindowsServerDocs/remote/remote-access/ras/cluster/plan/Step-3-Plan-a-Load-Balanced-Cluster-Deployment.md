@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7540c17b-81de-47de-a04f-3247afa26f70
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 12485ddb9cbb70766c018e8f99caa91cfa6ee9da
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8efeb29bf07b572d5e2faef677349690d4282b4d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861330"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281182"
 ---
 # <a name="step-3-plan-a-load-balanced-cluster-deployment"></a>Étape 3 planifier un déploiement de Cluster à charge équilibrée
 

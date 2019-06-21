@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 509eaa08-c49d-448d-a71e-c1c45519ccd5
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 11f4fe7b68f69b00ec0f8fb9764e0fb4460a2851
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b8e6defc6cc8579f18df2f9636383c65c9a18eb
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845950"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281614"
 ---
 # <a name="step-4-create-the-network-load-balanced-remote-access-cluster"></a>ÉTAPE 4 créer le Cluster de l’accès à distance à charge équilibrée de charge réseau
 
@@ -78,7 +77,7 @@ Utilisez cette procédure pour activer l’équilibrage de charge et de configur
   
 3.  Dans l’Assistant Activation de charge équilibrage, cliquez sur **suivant**.  
   
-4.  Sur le **méthode d’équilibrage de charge** , cliquez sur **utilisez Windows NLB Network Load Balancing ()**, puis cliquez sur **suivant**.  
+4.  Sur le **méthode d’équilibrage de charge** , cliquez sur **utilisez Windows NLB Network Load Balancing ()** , puis cliquez sur **suivant**.  
   
 5.  Sur le **externes des adresses IP dédiées** page, dans le **adresse IPv4** , tapez **131.107.0.10**, dans le **masque de sous-réseau** , vérifiez la préfixe de sous-réseau est **255.255.255.0**, puis cliquez sur **suivant**.  
   

@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 4af0f96b0af3a547ab7d509d031a9e23cce8b654
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 059bb3c1b15afdc579ba048b8bbb02ed185f3d42
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66443217"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280956"
 ---
 # <a name="virtualized-domain-controller-deployment-and-configuration"></a>Déploiement et configuration des contrôleurs de domaine virtualisés
 
@@ -153,7 +153,7 @@ Avant de tenter de cloner un contrôleur de domaine, vous devez vérifier que le
     >   
     > Dans la mesure où cette méthode RPC est nouvelle, votre logiciel d'analyse réseau nécessite des analyseurs mis à jour pour inclure les champs du nouvel Opnum 28 dans l'UUID E3514235-4B06-11D1-AB04-00C04FC2DCD2 existant. Sinon, vous ne pouvez pas analyser ce trafic.  
     >   
-    > Pour plus d’informations, consultez [4.1.29 IDL_DRSAddCloneDC (Opnum 28)](https://msdn.microsoft.com/en-us/library/hh554213(v=prot.13).aspx).  
+    > Pour plus d’informations, consultez [4.1.29 IDL_DRSAddCloneDC (Opnum 28)](https://msdn.microsoft.com/library/hh554213(v=prot.13).aspx).  
   
 ***Cela signifie également qu'avec des réseaux non routés complètement, le clonage d'un contrôleur de domaine virtualisé demande des segments réseau ayant accès à l'émulateur de contrôleur de domaine principal***. Il est possible de déplacer un contrôleur de domaine cloné vers un autre réseau après le clonage (de même qu'un contrôleur de domaine physique), du moment que vous veillez à mettre à jour les informations du site logique AD DS.  
   

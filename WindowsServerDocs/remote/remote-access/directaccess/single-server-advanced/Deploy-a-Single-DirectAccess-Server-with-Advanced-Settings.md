@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b211a9ca-1208-4e1f-a0fe-26a610936c30
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 260926e4818ef95db85d00af02a4fa87665ad709
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f17e1c9dd1a4e2d064a4e5980904c524dc62fb72
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864650"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283609"
 ---
 # <a name="deploy-a-single-directaccess-server-with-advanced-settings"></a>Déployer un serveur DirectAccess unique avec des paramètres avancés
 
@@ -29,9 +28,9 @@ Cette rubrique fournit une introduction au scénario DirectAccess qui utilise un
 ## <a name="before-you-begin-deploying-see-the-list-of-unsupported-configurations-known-issues-and-prerequisites"></a>Avant de commencer le déploiement, consultez la liste des configurations non prises en charge, des problèmes connus et des configurations requises  
 Vous pouvez utiliser les rubriques suivantes pour passer en revue les conditions préalables et les autres informations avant de déployer DirectAccess.  
   
--   [DirectAccess les Configurations non prises en charge](../../../remote-access/directaccess/DirectAccess-Unsupported-Configurations.md)  
+-   [Configurations non prises en charge DirectAccess](../../../remote-access/directaccess/DirectAccess-Unsupported-Configurations.md)  
   
--   [Conditions préalables au déploiement DirectAccess](../../../remote-access/directaccess/Prerequisites-for-Deploying-DirectAccess.md)  
+-   [Conditions préalables pour le déploiement de DirectAccess](../../../remote-access/directaccess/Prerequisites-for-Deploying-DirectAccess.md)  
   
 ## <a name="BKMK_OVER"></a>Description du scénario  
 Dans ce scénario, un ordinateur unique exécutant Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012, est configuré comme un serveur DirectAccess avec des paramètres avancés.  

@@ -5,12 +5,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 3cc0667b54dba75d892795f6520664ce7a7a62a5
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: e04af7b6425e208013277d1aaa6f28af62871bcc
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192648"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280079"
 ---
 # <a name="diskpart-commands"></a>Commandes DiskPart
 
@@ -116,4 +116,4 @@ Vous pouvez exécuter les commandes suivantes dans l’interpréteur de commande
 
 [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
-[Applets de commande de stockage dans Windows PowerShell](https://docs.microsoft.com/en-us/powershell/module/storage/)
+[Applets de commande de stockage dans Windows PowerShell](https://docs.microsoft.com/powershell/module/storage/)

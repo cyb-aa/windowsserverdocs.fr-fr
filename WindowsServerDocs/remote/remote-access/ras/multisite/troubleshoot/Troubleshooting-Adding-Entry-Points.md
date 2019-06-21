@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dcc1037f-1a65-4497-99e6-0df9aef748a8
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d4dfd37e2e8d87dafe6de4e03caf7464e3f0ee6c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 51f49364aa4e7a6da6c51b1d8b7da7e37f842190
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820460"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282564"
 ---
 # <a name="troubleshooting-adding-entry-points"></a>Résolution des problèmes d’ajout de points d’entrée
 

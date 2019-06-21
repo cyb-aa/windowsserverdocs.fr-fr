@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: db15dcf5-4d64-48d7-818a-06c2839e1289
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 910afa78553c828aff954f7677869569068198aa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2318fa58a343b24ec401390b3cbbd6f22fe86870
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869520"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281598"
 ---
 # <a name="test-lab-guide-demonstrate-directaccess-in-a-cluster-with-windows-nlb"></a>Guide du laboratoire de test : Décrire DirectAccess dans un Cluster avec équilibrage de charge réseau de Windows
 

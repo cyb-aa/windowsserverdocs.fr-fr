@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8399bdfa-809a-45e4-9963-f9b6a631007f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3077aa54163ed9548ae3f45f8c673c731b8ef73b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 23aed915edb827fd0cd61e6778167108647269ea
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446648"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283341"
 ---
 # <a name="step-5-test-directaccess-connectivity-from-the-internet-and-through-the-cluster"></a>ÉTAPE 5 tester la connectivité DirectAccess à partir d’Internet et par le biais du Cluster
 

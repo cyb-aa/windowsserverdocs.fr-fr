@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: d67f15d65feb28fb05fc056fd3c34c04cee80d09
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 0a4af25723c6d1e796cd3255875c15faf21fb8be
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447766"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284386"
 ---
 # <a name="volume-shadow-copy-service"></a>Service VSS (page éventuellement en anglais)
 
@@ -380,7 +380,7 @@ Pour exclure des fichiers spécifiques de clichés instantanés, utilisez la cl�
 > <UL>
 > <LI>Il ne peut pas supprimer des fichiers à partir d’un cliché instantané qui a été créé sur un serveur Windows à l’aide de la fonctionnalité Versions précédentes.<BR><BR>
 > <LI>Il ne peut pas supprimer les fichiers de clichés instantanés pour dossiers partagés.<BR><BR>
-> <LI>Il peut supprimer des fichiers à partir d’un cliché instantané qui a été créé à l’aide de la <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow" data-raw-source="[Diskshadow](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow)">Diskshadow</a> utilitaire, mais il ne peut pas supprimer des fichiers à partir d’un cliché instantané qui a été créé à l’aide de la <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin" data-raw-source="[Vssadmin](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin)">Vssadmin</a> utilitaire.<BR><BR>
+> <LI>Il peut supprimer des fichiers à partir d’un cliché instantané qui a été créé à l’aide de la <a href="https://docs.microsoft.com/windows-server/administration/windows-commands/diskshadow" data-raw-source="[Diskshadow](https://docs.microsoft.com/windows-server/administration/windows-commands/diskshadow)">Diskshadow</a> utilitaire, mais il ne peut pas supprimer des fichiers à partir d’un cliché instantané qui a été créé à l’aide de la <a href="https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin" data-raw-source="[Vssadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin)">Vssadmin</a> utilitaire.<BR><BR>
 > <LI>Fichiers sont supprimés à partir d’un cliché instantané sur une mesure du possible. Cela signifie qu’ils ne sont pas garantis pour être supprimé.<BR><BR></LI></UL>
 
 

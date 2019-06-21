@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3c8feff2-cae1-4376-9dfa-21ad3e4d5d99
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5321cc5339bdc38eec0726c108ec42fe0112c772
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bf9222293dfd22b6f32cf00021f34b44c555e340
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812190"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281107"
 ---
 # <a name="configure-a-multi-forest-deployment"></a>Configure a Multi-Forest Deployment
 

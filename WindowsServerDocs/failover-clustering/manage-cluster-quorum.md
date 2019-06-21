@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 85b75d0039fec1b2ad9982d6ae9bf83fa8da2fdf
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: bf854418e9efb7dbb5bd07ba86f29d84ba54d68a
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810988"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280377"
 ---
 # <a name="configure-and-manage-quorum"></a>Configurer et gérer le quorum
 
@@ -67,7 +67,7 @@ Comme une option de configuration de quorum avancée, vous pouvez choisir attrib
 
 Vous pouvez retirer les votes aux nœuds dans certaines configurations de récupération d'urgence. Par exemple, dans un cluster multisite, vous pouvez retirer les votes aux nœuds sur un site de sauvegarde pour éviter que ces nœuds affectent les calculs de quorum. Cette configuration est recommandée uniquement dans le cas d'un basculement manuel entre sites. Pour plus d'informations, voir [Éléments de quorum à prendre en considération pour les configurations de récupération d'urgence](#quorum-considerations-for-disaster-recovery-configurations) plus loin dans cette rubrique.
 
-Le vote configuré d’un nœud peut être vérifié en examinant le **NodeWeight** propriété commune du nœud de cluster à l’aide de la [Get-ClusterNode](http://technet.microsoft.com/library/hh847268.aspx)applet de commande Windows PowerShell. La valeur 0 indique qu'aucun vote de quorum n'est configuré pour le nœud. La valeur 1 indique que le vote de quorum du nœud est attribué et qu'il est géré par le cluster. Pour plus d'informations sur la gestion des votes des nœuds, voir [Gestion de quorum dynamique](#dynamic-quorum-management) plus loin dans cette rubrique.
+Le vote configuré d’un nœud peut être vérifié en examinant le **NodeWeight** propriété commune du nœud de cluster à l’aide de la [Get-ClusterNode](https://technet.microsoft.com/library/hh847268.aspx)applet de commande Windows PowerShell. La valeur 0 indique qu'aucun vote de quorum n'est configuré pour le nœud. La valeur 1 indique que le vote de quorum du nœud est attribué et qu'il est géré par le cluster. Pour plus d'informations sur la gestion des votes des nœuds, voir [Gestion de quorum dynamique](#dynamic-quorum-management) plus loin dans cette rubrique.
 
 L'attribution de votes peut être vérifiée pour tous les nœuds de cluster via le test de validation **Valider le quorum du cluster** .
 

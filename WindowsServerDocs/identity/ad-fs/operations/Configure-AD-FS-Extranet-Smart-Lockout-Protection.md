@@ -9,12 +9,12 @@ ms.date: 05/20/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 7a4ad8c0199f0f62d7cd69a43897cb4608ddb365
-ms.sourcegitcommit: ccc802338b163abdad2e53b55f39addcfea04603
+ms.openlocfilehash: eb31a76dbd7ccdff3ea3ee0d6bb26f9ee16ae93f
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687372"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280706"
 ---
 # <a name="ad-fs-extranet-lockout-and-extranet-smart-lockout"></a>AD FS Extranet Lockout et Extranet verrouillage intelligent
 
@@ -237,7 +237,7 @@ Ce comportement peut être remplacé en transmettant le paramètre - Server.
 ## <a name="event-logging--user-activity-information-for-ad-fs-extranet-lockout"></a>Journalisation des événements et des informations sur l’activité utilisateur pour le verrouillage Extranet AD FS
 
 ### <a name="connect-health"></a>Connect Health
-La méthode recommandée pour surveiller l’activité de compte d’utilisateur est via Connect Health. Se connecter Health génère des rapports téléchargeables sur des adresses IP à risque et de tentatives de mot de passe incorrect. Chaque élément dans le rapport d’adresse IP risquée affiche des informations agrégées sur les activités ayant échoué AD FS sign-in qui dépassent le seuil défini. Notifications par courrier électronique peuvent être définies pour alerter les administrateurs dès que cela se produit avec les paramètres d’e-mail personnalisables. Pour plus d’informations et instructions d’installation, visitez le [documentation de Connect Health](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-health-adfs).
+La méthode recommandée pour surveiller l’activité de compte d’utilisateur est via Connect Health. Se connecter Health génère des rapports téléchargeables sur des adresses IP à risque et de tentatives de mot de passe incorrect. Chaque élément dans le rapport d’adresse IP risquée affiche des informations agrégées sur les activités ayant échoué AD FS sign-in qui dépassent le seuil défini. Notifications par courrier électronique peuvent être définies pour alerter les administrateurs dès que cela se produit avec les paramètres d’e-mail personnalisables. Pour plus d’informations et instructions d’installation, visitez le [documentation de Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs).
 
 ### <a name="ad-fs-extranet-smart-lockout-events"></a>Événements AD FS de verrouillage intelligent Extranet.
 Pour les événements de verrouillage intelligent Extranet à écrire, ESL doit être activé en mode « journal uniquement » ou « appliquer » et l’audit de sécurité AD FS est activé.

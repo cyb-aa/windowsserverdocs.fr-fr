@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 45e9edd6-acca-4d59-851a-a0cc8bd8b4c6
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b2cf5dd1937883edd8b62cfef7d195bc584025b2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e9e78ed78671c5c61fb3736cccf4e095b5186e23
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829370"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281652"
 ---
 # <a name="step-3-verify-deployments"></a>Étape 3 vérifier les déploiements
 
@@ -40,7 +39,7 @@ Cette rubrique décrit comment vérifier que vous avez correctement configuré v
   
 ## <a name="BKMK_Links"></a>Étape précédente  
   
--   [Étape 2 : Configurer le serveur DirectAccess](da-basic-configure-s2-server.md)  
+-   [Étape 2 : Configurer le serveur DirectAccess](da-basic-configure-s2-server.md)  
   
 
 

@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 57c7e039-42ef-4909-867a-b5f669c9e74e
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 09c21facd1a0242b1edbd0436e90c8ebd79f0e2d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f77df438ba2b282101a031b4ff4d145286cf3e94
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824170"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283623"
 ---
 # <a name="prerequisites-for-deploying-directaccess"></a>Conditions préalables pour le déploiement de DirectAccess
 

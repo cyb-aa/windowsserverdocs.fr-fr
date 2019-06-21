@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 55528736-6c19-40bd-99e8-5668169ef3c7
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a9cd811c680f15d53ecbd28d9201f28d9cb8af2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 59b5933a81c7021e58ea14e6ea4c4da374ce35cb
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853060"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283663"
 ---
 # <a name="directaccess-offline-domain-join"></a>Jonction de domaine hors connexion DirectAccess
 

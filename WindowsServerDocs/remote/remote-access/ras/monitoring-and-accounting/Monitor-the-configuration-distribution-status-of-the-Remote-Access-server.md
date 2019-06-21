@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: de285d13-9e54-4c46-88f0-607182e5e3dc
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3171eb9e9c90d0688fa413b80d9dbbf162e77fe8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ab5deea9d594d6e9570d2472b5628a3d5fb8d616
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818420"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282727"
 ---
 # <a name="monitor-the-configuration-distribution-status-of-the-remote-access-server"></a>Analyser l'état de distribution de la configuration du serveur d'accès à distance
 
@@ -40,7 +39,7 @@ Le tableau suivant montre les messages générés par la vignette **État de con
   
 |||||  
 |-|-|-|-|  
-|Sévérité|Message|Signification|Que faire ?|  
+|Sévérité|`Message`|Signification|Que faire ?|  
 |Opération réussie|La configuration a été distribuée correctement.|La configuration spécifiée dans l'objet de stratégie de groupe a correctement été appliquée sur le serveur.|Aucune action nécessaire.|  
 |Warning|La configuration pour le serveur [*nom du serveur*] n'a pas été récupérée auprès du contrôleur de domaine. L'objet de stratégie de groupe n'est pas lié.|La configuration spécifiée dans l'objet de stratégie de groupe n'a pas encore atteint le serveur. Peut-être parce que l'objet de stratégie de groupe n'est pas lié au serveur.|Liez l'objet de stratégie de groupe à une étendue de gestion qui est appliquée au serveur, ou dans un scénario d'objet de stratégie de groupe intermédiaire, exportez manuellement les paramètres de l'objet de stratégie de groupe intermédiaire et importez-les dans l'objet de stratégie de groupe de production. Pour plus d’informations sur la stratégie de groupe de mise en lots, consultez **la gestion de GPO des accès à distance avec des autorisations limitées** dans [Step-1-Plan-the-DirectAccess-Infrastructure](../../directaccess/single-server-advanced/Step-1-Plan-the-DirectAccess-Infrastructure.md). Pour connaître les étapes intermédiaires de GPO, consultez **configuration de GPO de l’accès à distance avec des autorisations limitées** dans [étape 1 : Configurer l’Infrastructure DirectAccess](../../directaccess/single-server-advanced/Step-1-Configuring-DirectAccess-Infrastructure.md).|  
 |Warning|La configuration pour le serveur [*nom du serveur*] n'a pas encore été récupérée auprès du contrôleur de domaine.|La configuration spécifiée dans l'objet de stratégie de groupe n'a pas encore atteint le serveur.<br /><br />Il peut falloir jusqu'à 10 minutes pour propager une nouvelle configuration.|Laissez plus de temps aux stratégies pour se mettre à jour sur le serveur.|  

@@ -5,18 +5,17 @@ keywords: confidentialité, RGPD
 ms.custom: na
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- techgroup-security
+ms.technology: techgroup-security
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: nirb
-ms.openlocfilehash: be9509de0291924bb95733f995b447230bb75214
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1c374c00573e87594eeeab620face9ea9acaa531
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870130"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284201"
 ---
 # <a name="beginning-your-general-data-protection-regulation-gdpr-journey-for-windows-server"></a>À partir de votre parcours général règlement de Protection des données (RGPD) pour Windows Server 
 
@@ -362,7 +361,7 @@ Vous pouvez utiliser ATA pour aider à détecter des personnes malveillantes ten
 
 - **Windows Defender Credential Guard :** https://www.youtube.com/watch?v=F-pTkesjkhI et https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard
 
-- **Protection du flux de contrôle :** https://msdn.microsoft.com/en-us/library/windows/desktop/mt637065(v=vs.85).aspx
+- **Protection du flux de contrôle :** https://msdn.microsoft.com/library/windows/desktop/mt637065(v=vs.85).aspx
 
 - **Sécurité et Assurance :** https://docs.microsoft.com/windows-server/security/security-and-assurance
 

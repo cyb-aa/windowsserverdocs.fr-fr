@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dc20b1a0-540d-4531-a176-50b87c071600
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6a771b5eb8587d23bc67a7e7769264251afdb5bf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7d215ca234d63e7e393fbbce4d65e0803f023487
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838510"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283215"
 ---
 # <a name="step-2-install-and-configure-router1"></a>ÉTAPE 2 installer et configurer ROUTEUR1
 
@@ -58,11 +57,11 @@ Configurer les paramètres TCP/IP sur le routeur et renommez l’ordinateur ROUT
   
 3.  Avec le bouton droit **Corpnet**, puis cliquez sur **propriétés**.  
   
-4.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)**, puis sur **Propriétés**.  
+4.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
 5.  Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, type **10.0.0.254**. Dans **masque de sous-réseau**, type **255.255.255.0**, puis cliquez sur **OK**.  
   
-6.  Cliquez sur **Internet Protocol Version 6 (TCP/IPv6)**, puis cliquez sur **Propriétés**.  
+6.  Cliquez sur **Internet Protocol Version 6 (TCP/IPv6)** , puis cliquez sur **Propriétés**.  
   
 7.  Cliquez sur **utiliser l’adresse IPv6 suivante**. Dans **adresse IPv6**, type **2001:db8:1::fe**. Dans **longueur de préfixe de sous-réseau**, type **64**, puis cliquez sur **OK**.  
   
@@ -72,11 +71,11 @@ Configurer les paramètres TCP/IP sur le routeur et renommez l’ordinateur ROUT
   
 10. Avec le bouton droit **2-réseau d’entreprise**, puis cliquez sur **propriétés**.  
   
-11. Cliquez sur **Protocole Internet version 4 (TCP/IPv4)**, puis sur **Propriétés**.  
+11. Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
 12. Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, type **10.2.0.254**. Dans **masque de sous-réseau**, type **255.255.255.0**, puis cliquez sur **OK**.  
   
-13. Cliquez sur **Internet Protocol Version 6 (TCP/IPv6)**, puis cliquez sur **Propriétés**.  
+13. Cliquez sur **Internet Protocol Version 6 (TCP/IPv6)** , puis cliquez sur **Propriétés**.  
   
 14. Cliquez sur **utiliser l’adresse IPv6 suivante**. Dans **adresse IPv6**, type **2001:db8:2::fe**. Dans **longueur de préfixe de sous-réseau**, type **64**, puis cliquez sur **OK**.  
   

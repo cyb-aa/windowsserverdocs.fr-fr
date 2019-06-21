@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cb84920e-7cf5-4266-b071-d09e3d5e1f10
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b602855db271348ac48ee0a5691424a7321c7370
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 28fcb2506e59ff2afb501a2c8bc74da2d6f0cd15
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849750"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280989"
 ---
 # <a name="configure-a-multisite-deployment"></a>Configurer un déploiement multisite
 
@@ -28,11 +27,11 @@ ms.locfileid: "59849750"
   
 -   Étape 1 : [Déployer un serveur DirectAccess unique avec des paramètres avancés](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/single-server-advanced/deploy-a-single-directaccess-server-with-advanced-settings). Installer et configurer un serveur d’accès à distance unique. Le déploiement multisite vous oblige à installer un serveur unique avant de configurer un déploiement multisite.  
   
--   [Étape 2 : Configurer l’infrastructure multisite](Step-2-Configure-the-Multisite-Infrastructure.md). Pour un déploiement multisite, vous devez configurer des sites Active Directory supplémentaires et des contrôleurs de domaine. Groupes de sécurité supplémentaires et des objets de stratégie de groupe (GPO) sont également requis si vous n’utilisez pas de stratégie de groupe configurés automatiquement.  
+-   [Étape 2 : Configurer l’infrastructure multisite](Step-2-Configure-the-Multisite-Infrastructure.md). Pour un déploiement multisite, vous devez configurer des sites Active Directory supplémentaires et des contrôleurs de domaine. Groupes de sécurité supplémentaires et des objets de stratégie de groupe (GPO) sont également requis si vous n’utilisez pas de stratégie de groupe configurés automatiquement.  
   
--   [Étape 3 : Configurer le déploiement multisite](Step-3-Configure-the-Multisite-Deployment.md)-installer le rôle accès à distance sur d’autres serveurs d’accès à distance, activez le déploiement multisite et configurez les serveurs supplémentaires en tant que points d’entrée pour le déploiement.  
+-   [Étape 3 : Configurer le déploiement multisite](Step-3-Configure-the-Multisite-Deployment.md)-installer le rôle accès à distance sur d’autres serveurs d’accès à distance, activez le déploiement multisite et configurez les serveurs supplémentaires en tant que points d’entrée pour le déploiement.  
   
--   [Étape 4 : Vérifier le déploiement multisite](Step-4-Verify-the-Multisite-Deployment.md) 
+-   [Étape 4 : Vérifier le déploiement multisite](Step-4-Verify-the-Multisite-Deployment.md) 
   
 
 

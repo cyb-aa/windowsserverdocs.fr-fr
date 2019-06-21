@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 92519b49-0df4-43c1-9717-f13570644212
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 454bc8dc5a9cbf8dc4e759196a13e7920de2eaf7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c794d4b8169c81c63162f119467f5f03d10ce756
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823520"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282654"
 ---
 # <a name="use-remote-access-monitoring-and-accounting"></a>Utiliser l'analyse et la gestion de comptes de l'accès à distance
 
@@ -32,11 +31,11 @@ L'analyse d'accès à distance rend compte de l'activité et de l'état des util
 > Outre cette rubrique, les rubriques suivantes sur la surveillance de l'accès à distance sont disponibles.  
 >   
 > -   [Analyser la charge existante sur le serveur d’accès à distance](Monitor-the-existing-load-on-the-Remote-Access-server.md)  
-> -   [Surveiller l’état de distribution de configuration du serveur d’accès à distance](Monitor-the-configuration-distribution-status-of-the-Remote-Access-server.md)  
+> -   [Analyser l’état de distribution de la configuration du serveur d’accès à distance](Monitor-the-configuration-distribution-status-of-the-Remote-Access-server.md)  
 > -   [Surveiller l’état de fonctionnement de l’accès à distance serveur et ses composants](Monitor-the-operations-status-of-the-Remote-Access-server-and-its-components.md)  
-> -   [Identifier et résoudre les problèmes d’opérations serveur accès distant](Identify-and-resolve-Remote-Access-server-operations-problems.md)  
-> -   [Surveiller des clients distants connectés pour l’activité et l’état](Monitor-connected-remote-clients-for-activity-and-status.md)  
-> -   [Générer un rapport d’utilisation pour les clients distants à l’aide des données d’historique](Generate-a-usage-report-for-remote-clients-using-historical-data.md)  
+> -   [Identifier et résoudre les problèmes de fonctionnement du serveur d’accès à distance](Identify-and-resolve-Remote-Access-server-operations-problems.md)  
+> -   [Analyser l’activité et l’état des clients distants connectés](Monitor-connected-remote-clients-for-activity-and-status.md)  
+> -   [Générer un rapport d’utilisation pour les clients distants à l’aide de données d’historique](Generate-a-usage-report-for-remote-clients-using-historical-data.md)  
 
 ## <a name="in-this-guide"></a>Dans ce guide  
 Ce document contient des instructions pour exploiter les fonctionnalités d'analyse de l'accès à distance à l'aide de la console de gestion DirectAccess et des applets de commande Windows PowerShell correspondantes, fournies dans le cadre du rôle serveur Accès à distance.  

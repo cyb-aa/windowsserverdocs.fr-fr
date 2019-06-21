@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: phstee
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: c7ac20da7e8508b824fdd000f6a9dde6e807cdf2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e09363eae005114b73bedac084f5ab0745c237ee
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835830"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280062"
 ---
 # <a name="additional-performance-tuning-resources"></a>Ressources de réglage de performances supplémentaires
 
@@ -29,7 +29,7 @@ Utilisez les liens dans cette rubrique pour en savoir plus sur les concepts qui 
 
 ## <a name="power-management-tuning-resources"></a>Ressources de paramétrage de gestion d’alimentation
 
--   [Configuration de la stratégie d’alimentation et de déploiement dans Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/mt422910.aspx)
+-   [Configuration de la stratégie d’alimentation et de déploiement dans Windows](https://msdn.microsoft.com/library/windows/hardware/mt422910.aspx)
 
 -   [Utilisation de PowerCfg pour évaluer l’efficacité énergétique du système](https://technet.microsoft.com/library/cc748940.aspx)
 
@@ -56,7 +56,7 @@ Utilisez les liens dans cette rubrique pour en savoir plus sur les concepts qui 
 -   [Comment désactiver l’outil de diagnostic de réglage automatique TCP](https://support.microsoft.com/kb/967475)
 
 ## <a name="active-directory-server-tuning-resources"></a>Paramétrage des ressources du serveur Active Directory
--   [Performances d’Active Directory](https://msdn.microsoft.com/en-us/library/windows/hardware/dn567654(v=vs.85).aspx)
+-   [Performances d’Active Directory](https://msdn.microsoft.com/library/windows/hardware/dn567654(v=vs.85).aspx)
 -   [Comment configurer la journalisation des événements de diagnostic de Active Directory dans Windows Server 2003 et Windows 2000 Server](https://support.microsoft.com/kb/314980)
 
 ## <a name="virtualization-server-tuning-resources"></a>La virtualisation serveur au paramétrage des ressources
@@ -83,19 +83,19 @@ Utilisez les liens dans cette rubrique pour en savoir plus sur les concepts qui 
 
 ## <a name="server-workload-tuning-resources"></a>Paramétrage des ressources serveur charge de travail
 
--   [Réglage des performances pour NTttcp](https://msdn.microsoft.com/en-us/library/windows/hardware/dn567663(v=vs.85).aspx)
+-   [Réglage des performances pour NTttcp](https://msdn.microsoft.com/library/windows/hardware/dn567663(v=vs.85).aspx)
 
 -   [Ttcp](http://en.wikipedia.org/wiki/Ttcp)
 
 -   [Comment utiliser NTttcp pour tester les performances réseau](https://msdn.microsoft.com/windows/hardware/gg463264.aspx)
 
--   [À l’aide de l’outil de la capacité de serveur de fichiers](https://msdn.microsoft.com/en-us/library/windows/hardware/dn567658(v=vs.85).aspx)
+-   [À l’aide de l’outil de la capacité de serveur de fichiers](https://msdn.microsoft.com/library/windows/hardware/dn567658(v=vs.85).aspx)
 
--   [À l’aide du serveur de fichiers SPECsfs2008](https://msdn.microsoft.com/en-us/library/windows/hardware/dn567653(v=vs.85).aspx)
+-   [À l’aide du serveur de fichiers SPECsfs2008](https://msdn.microsoft.com/library/windows/hardware/dn567653(v=vs.85).aspx)
 
--   [Optimisation des performances pour les ventes et la Distribution de charge de travail](https://msdn.microsoft.com/en-us/library/windows/hardware/dn567646(v=vs.85).aspx)
+-   [Optimisation des performances pour les ventes et la Distribution de charge de travail](https://msdn.microsoft.com/library/windows/hardware/dn567646(v=vs.85).aspx)
 
--   [Réglage des performances pour les transactions en ligne (OLTP) de traitement](https://msdn.microsoft.com/en-us/library/windows/hardware/dn567642(v=vs.85).aspx)
+-   [Réglage des performances pour les transactions en ligne (OLTP) de traitement](https://msdn.microsoft.com/library/windows/hardware/dn567642(v=vs.85).aspx)
 
 -   [Procédure : Configurer SQL Server pour utiliser Soft-NUMA](https://go.microsoft.com/fwlink/?LinkId=98292)
 
@@ -106,7 +106,7 @@ Utilisez les liens dans cette rubrique pour en savoir plus sur les concepts qui 
 
 ## <a name="server-tuning-tools"></a>Outils de réglage de serveur
 
--   [Microsoft Server Performance Advisor](https://msdn.microsoft.com/en-us/library/windows/hardware/dn481522(v=vs.85).aspx)
+-   [Microsoft Server Performance Advisor](https://msdn.microsoft.com/library/windows/hardware/dn481522(v=vs.85).aspx)
 
 ## <a name="performance-tuning-guidelines-for-previous-versions-of-windows-server"></a>Instructions de réglage des performances pour les versions précédentes de Windows Server
 

@@ -6,12 +6,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 11/21/2018
-ms.openlocfilehash: 274bdf027947ffb6fe807d4acd0a3b2174c20e28
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 39974806c02e55b37d3d16748c4ca0e3f361ee45
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867450"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284107"
 ---
 # <a name="upgrade-a-guarded-fabric-to-windows-server-2019"></a>Mise à niveau d’une structure protégée vers Windows Server 2019
 
@@ -52,7 +52,7 @@ Nous vous recommandons de la mise à niveau votre cluster SGH pour Windows Serve
 
 La mise à niveau votre cluster SGH vous obligera à temporairement supprimer un nœud du cluster à la fois lorsqu’elle est mise à niveau. Cela réduit la capacité de votre cluster pour répondre aux demandes de vos hôtes Hyper-V et peut entraîner des temps de réponse lent ou des interruptions de service pour vos clients. Assurez-vous de qu'avoir une capacité suffisante pour gérer votre d’attestation et les demandes de clé mise en production avant la mise à niveau un serveur SGH.
 
-Pour mettre à niveau votre cluster SGH, procédez comme suit sur chaque nœud de votre cluster, un nœud à l’au moment :
+Pour mettre à niveau votre cluster SGH, procédez comme suit sur chaque nœud de votre cluster, un seul nœud à la fois :
 
 1.  Supprimer le serveur SGH de votre cluster en exécutant `Clear-HgsServer` dans une invite de PowerShell avec élévation de privilèges. Cette applet de commande supprime le magasin de SGH répliquées, SGH sites Web et nœud du cluster de basculement.
 2.  Si votre serveur SGH est un contrôleur de domaine (configuration par défaut), vous devez exécuter `adprep /forestprep` et `adprep /domainprep` sur le premier nœud mis à niveau pour préparer le domaine pour une mise à niveau du système d’exploitation. Consultez le [mise à niveau de Services de domaine Active Directory documentation](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/upgrade-domain-controllers#supported-in-place-upgrade-paths) pour plus d’informations.
@@ -69,9 +69,9 @@ Set-HgsServerVersion  v2
 
 Avant de vous mettre à niveau vos hôtes Hyper-V pour Windows Server 2019, assurez-vous que votre cluster SGH est déjà mis à niveau vers Windows Server 2019 et que vous avez déplacé toutes les machines virtuelles hors tension le serveur Hyper-V.
 
-1.  Si vous utilisez des stratégies d’intégrité du code Windows Defender Application Control sur votre serveur (toujours le cas avec l’attestation TPM), assurez-vous que la stratégie est en mode audit ou désactivé avant d’essayer de mettre à niveau le serveur. [Découvrez comment désactiver une stratégie WDAC](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/disable-windows-defender-application-control-policies)
+1.  Si vous utilisez des stratégies d’intégrité du code Windows Defender Application Control sur votre serveur (toujours le cas avec l’attestation TPM), assurez-vous que la stratégie est en mode audit ou désactivé avant d’essayer de mettre à niveau le serveur. [Découvrez comment désactiver une stratégie WDAC](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/disable-windows-defender-application-control-policies)
 2.  Suivez les instructions de la [centre de mise à niveau de Windows Server](http://aka.ms/upgradecenter) pour mettre à niveau de votre hôte Windows Server 2019. Si votre hôte Hyper-V fait partie d’un Cluster de basculement, envisagez d’utiliser un [niveau propagée de Cluster système d’exploitation](../../failover-clustering/Cluster-Operating-System-Rolling-Upgrade.md).
-3.  [Tester et de réactiver](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/audit-windows-defender-application-control-policies) votre stratégie Windows Defender Application Control, si vous aviez un activé avant la mise à niveau.
+3.  [Tester et de réactiver](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/audit-windows-defender-application-control-policies) votre stratégie Windows Defender Application Control, si vous aviez un activé avant la mise à niveau.
 4.  Exécutez `Get-HgsClientConfiguration` pour vérifier si **IsHostGuarded = True**, ce qui signifie que l’ordinateur hôte est correctement le passage d’attestation avec votre serveur SGH.
 5.  Si vous utilisez l’attestation TPM, vous devrez peut-être [capturez de nouveau la stratégie d’intégrité de ligne de base ou code TPM](guarded-fabric-add-host-information-for-tpm-trusted-attestation.md) après la mise à niveau pour passer une attestation.
 6.  Démarrage en cours d’exécution des machines virtuelles protégées sur l’ordinateur hôte à nouveau !

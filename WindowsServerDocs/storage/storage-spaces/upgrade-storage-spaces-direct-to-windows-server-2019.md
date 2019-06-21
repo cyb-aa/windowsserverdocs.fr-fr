@@ -8,12 +8,12 @@ ms.date: 03/06/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage-spaces
-ms.openlocfilehash: 9db92aa33cde9b2beed11149dae06bb3af2b5a03
-ms.sourcegitcommit: fe621b72d45d0259bac1d5b9031deed3dcbed29d
+ms.openlocfilehash: 54be649cc1753fe07c94105a31a0b738fb030ee0
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455412"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284361"
 ---
 # <a name="upgrade-a-storage-spaces-direct-cluster-to-windows-server-2019"></a>Mise à niveau d’un cluster d’espaces de stockage Direct vers Windows Server 2019
 
@@ -84,7 +84,7 @@ Cette option n’implique aucun temps d’arrêt de la machine virtuelle, mais v
        Enable-StorageMaintenanceMode
        ```
 
-   4. Exécutez l’applet de commande suivante pour vérifier que qui le **OperationalStatus** valeur est **en Mode de Maintenance**:
+   4. Exécutez l’applet de commande suivante pour vérifier que le **OperationalStatus** valeur est **en Mode de Maintenance**:
 
        ```PowerShell
        Get-PhysicalDisk
@@ -176,7 +176,7 @@ Cette option n’implique aucun temps d’arrêt de la machine virtuelle, mais v
        Enable-StorageMaintenanceMode
        ```
 
-   4. Exécutez l’applet de commande suivante pour vérifier que qui le **OperationalStatus** valeur est **en Mode de Maintenance**:
+   4. Exécutez l’applet de commande suivante pour vérifier que le **OperationalStatus** valeur est **en Mode de Maintenance**:
 
        ```PowerShell
        Get-PhysicalDisk
@@ -271,7 +271,7 @@ Cette option implique des temps d’arrêt de la machine virtuelle, mais peut pr
        Enable-StorageMaintenanceMode
        ```
 
-   3. Exécutez l’applet de commande suivante pour vérifier que qui le **OperationalStatus** valeur est **en Mode de Maintenance**:
+   3. Exécutez l’applet de commande suivante pour vérifier que le **OperationalStatus** valeur est **en Mode de Maintenance**:
 
        ```PowerShell
        Get-PhysicalDisk
@@ -359,7 +359,7 @@ Cette option implique des temps d’arrêt de la machine virtuelle, mais peut pr
       Enable-StorageMaintenanceMode
       ```
 
-   4. Exécutez l’applet de commande suivante pour vérifier que qui le **OperationalStatus** valeur est **en Mode de Maintenance**:
+   4. Exécutez l’applet de commande suivante pour vérifier que le **OperationalStatus** valeur est **en Mode de Maintenance**:
 
       ```PowerShell
       Get-PhysicalDisk

@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: eca02eeb-d92d-463e-aae0-1f7038ba26fe
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: bb6be03ed5319a56f9507859e753c88e020ceea9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4102fc4f7eacf0b407446717caa83e4e5f70ae57
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813870"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282368"
 ---
 # <a name="step-3-plan-otp-certificate-deployment"></a>Déploiement de certificats de l’étape 3 Plan OTP
 
@@ -76,7 +75,7 @@ Lorsque les clients DirectAccess demandent un certificat de secret à usage uniq
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Étape 4 : Planifier le secret à usage unique pour le serveur d’accès à distance](Step-4-Plan-for-OTP-on-the-Remote-Access-Server.md)  
+-   [Étape 4 : Planifier le secret à usage unique pour le serveur d’accès à distance](Step-4-Plan-for-OTP-on-the-Remote-Access-Server.md)  
   
 
 
