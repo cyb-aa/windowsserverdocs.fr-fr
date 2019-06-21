@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ipam
+ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: f2f2f1a5-ac2f-41b7-a495-98ad0e2a9b20
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 04838cba63805d20ba31629ed9c8e95290046320
-ms.sourcegitcommit: 29ad32b9dea298a7fe81dcc33d2a42d383018e82
+ms.openlocfilehash: 64de9327dedadbe421e4cceb71496de3609be398
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65624685"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283822"
 ---
 # <a name="whats-new-in-ipam"></a>Nouveautés dans IPAM
 
@@ -43,7 +42,7 @@ Voici les fonctionnalités nouvelles et améliorées pour IPAM dans Windows Serv
 ### <a name="EIP"></a>Gestion améliorée des adresses IP  
 Les fonctionnalités suivantes améliorent les fonctionnalités de gestion d’adresse IPAM.  
 >[!NOTE]
->Pour la référence de commande IPAM Windows PowerShell, consultez [l’applets de commande du serveur de gestion des adresses IP (IPAM) dans Windows PowerShell](https://docs.microsoft.com/en-us/powershell/module/ipamserver/).  
+>Pour la référence de commande IPAM Windows PowerShell, consultez [l’applets de commande du serveur de gestion des adresses IP (IPAM) dans Windows PowerShell](https://docs.microsoft.com/powershell/module/ipamserver/).  
   
 #### <a name="support-for-31-32-and-128-subnets"></a>Prise en charge de /31, /32 et /128 sous-réseaux  
 IPAM dans Windows Server 2016 maintenant prend en charge /31, /32 et /128 sous-réseaux. Par exemple, un sous-réseau d’adresses de deux (/ 31 IPv4) peuvent être nécessaires pour une liaison de point à point entre les commutateurs. En outre, certains commutateurs peuvent nécessiter des adresses de bouclage unique (/ 32 pour IPv4, / 128 pour IPv6).  
@@ -57,7 +56,7 @@ Si le nombre de sous-réseaux disponibles est inférieur au nombre de sous-rése
 >[!NOTE]
 >Cette fonction n’alloue pas réellement les sous-réseaux, il signale uniquement leur disponibilité. Toutefois, la sortie de l’applet de commande peut être dirigée vers le **Add-IpamSubnet** commande pour créer le sous-réseau.  
   
-Pour plus d’informations, consultez [Find-IpamFreeSubnet](https://docs.microsoft.com/en-us/powershell/module/ipamserver/Find-IpamFreeSubnet).  
+Pour plus d’informations, consultez [Find-IpamFreeSubnet](https://docs.microsoft.com/powershell/module/ipamserver/Find-IpamFreeSubnet).  
   
 #### <a name="find-free-address-ranges-with-find-ipamfreerange"></a>**Rechercher des plages d’adresses libres avec IpamFreeRange de recherche**  
   
@@ -68,7 +67,7 @@ La commande recherche une série continue d’adresses IP non alloués qui corre
 > [!NOTE]
 > Cette fonction n’alloue pas réellement les plages d’adresses, il signale uniquement leur disponibilité. Toutefois, la sortie de l’applet de commande peut être dirigée vers le **Add-IpamRange** commande pour créer une plage.  
   
-Pour plus d’informations, consultez [Find-IpamFreeRange](https://docs.microsoft.com/en-us/powershell/module/ipamserver/Find-IpamFreeRange).  
+Pour plus d’informations, consultez [Find-IpamFreeRange](https://docs.microsoft.com/powershell/module/ipamserver/Find-IpamFreeRange).  
   
 ### <a name="EDNS"></a>Gestion améliorée des services DNS  
 IPAM dans Windows Server 2016 prend désormais en charge la découverte des serveurs DNS basé sur fichier joint au domaine dans une forêt Active Directory dans lequel IPAM est en cours d’exécution.  
@@ -129,5 +128,5 @@ Vous pouvez maintenant utiliser Windows PowerShell pour configurer Role Based Ac
   
 -   Étendues DHCP  
   
-Pour plus d’informations, consultez [gérer Role Based Access Control avec Windows PowerShell](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Windows-PowerShell.md) et [l’applets de commande du serveur de gestion des adresses IP (IPAM) dans Windows PowerShell](https://docs.microsoft.com/en-us/powershell/module/ipamserver/).  
+Pour plus d’informations, consultez [gérer Role Based Access Control avec Windows PowerShell](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Windows-PowerShell.md) et [l’applets de commande du serveur de gestion des adresses IP (IPAM) dans Windows PowerShell](https://docs.microsoft.com/powershell/module/ipamserver/).  
 

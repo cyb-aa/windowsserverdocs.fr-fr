@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: e9c293d04f1fd1b8091b768e49db554a23e7ce95
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 873953155d22bafef5b042887b22e953ff580b5c
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846560"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280571"
 ---
 # <a name="how-ldap-server-cookies-are-handled"></a>Gestion des cookies du serveur LDAP
 
@@ -128,7 +128,7 @@ Si vous voyez l'événement 2898 sur votre serveur de contrôleur de domaine/LD
   
 Si vous voyez toujours les événements 2899 avec un pool de 250 Mo ou plus, vous avez probablement de nombreux clients avec un très grand nombre d'objets retournés, interrogés de manière très fréquente. Les données que vous pouvez recueillir avec le [ensemble collecteur de données Active Directory](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx) peut vous aider à trouver des requêtes paginées répétitives qui occupent vos serveurs LDAP informations de disponibilité. Ces requêtes s’affichent avec un nombre de « Entrées retournées » qui correspond à la taille de la page utilisée.  
   
-Si possible, vous devez passer en revue la conception d’application et implémenter une approche différente avec une fréquence inférieure, de volume de données et/ou de moins d’instances client interrogeant ces données. Dans le cas d’applications pour lequel vous avez accès du code source, ce guide pour [création d’Applications efficaces de AD-Enabled](https://msdn.microsoft.com/en-us/library/ms808539.aspx) peut vous aider à comprendre la façon optimale pour les applications accèdent à Active Directory.  
+Si possible, vous devez passer en revue la conception d’application et implémenter une approche différente avec une fréquence inférieure, de volume de données et/ou de moins d’instances client interrogeant ces données. Dans le cas d’applications pour lequel vous avez accès du code source, ce guide pour [création d’Applications efficaces de AD-Enabled](https://msdn.microsoft.com/library/ms808539.aspx) peut vous aider à comprendre la façon optimale pour les applications accèdent à Active Directory.  
   
 Si le comportement de la requête ne peut pas être modifié, une approche consiste à ajouter plus d’instances répliquées des contextes d’appellation nécessités et pour redistribuer les clients et finalement à réduire la charge sur les serveurs LDAP.  
   

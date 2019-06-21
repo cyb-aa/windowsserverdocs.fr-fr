@@ -6,20 +6,19 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-nict
+ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a4caaa86-5799-4580-8775-03ee213784a3
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: 57957e88ff4c398be23355534d5cc0ad7f920bb1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd222cdbcd8b4eee19da6b79e12bd11f6bdd8629
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877930"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283727"
 ---
 # <a name="nic-teaming-settings"></a>Paramètres d’association de cartes réseau
 Dans cette rubrique, nous vous donner une vue d’ensemble des propriétés d’association de cartes réseau telles que l’association de cartes et modes d’équilibrage de charge. Nous vous donnons également plus d’informations sur le paramètre de carte de mise en veille et de la propriété d’interface équipe principale. Si vous avez au moins deux cartes réseau dans une association de cartes réseau, il est inutile de désigner une carte de mise en veille pour une tolérance de panne.
@@ -29,7 +28,7 @@ Dans cette rubrique, nous vous donner une vue d’ensemble des propriétés d’
 ![Propriétés de l’association de cartes réseau](../../media/Create-a-New-NIC-Team-on-a-Host-Computer-or-VM/nict_06_properties.jpg)  
 
 ## <a name="teaming-modes"></a>Modes d’association 
-Les options de mode d’association sont **indépendant du commutateur** et **dépendants du commutateur**. Le commutateur dépendants mode inclut **association statique** et **protocole LACP (Link Aggregation contrôle Protocol)**. 
+Les options de mode d’association sont **indépendant du commutateur** et **dépendants du commutateur**. Le commutateur dépendants mode inclut **association statique** et **protocole LACP (Link Aggregation contrôle Protocol)** . 
 
 >[!TIP]
 >Pour de meilleures performances de l’association de cartes réseau, nous vous recommandons d’utiliser un mode d’équilibrage de charge de la distribution dynamique.  
