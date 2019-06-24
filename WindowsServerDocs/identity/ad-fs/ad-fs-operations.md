@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 72266dcedcda080ee98dd7bc90da8db1a27255b4
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: aa7fae25f68030702aecd378d797301d5cb83186
+ms.sourcegitcommit: 6b6c3601fb7493ab145ccff02db26d7123df9a3d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192534"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316344"
 ---
 # <a name="ad-fs-operations"></a>Opérations d'AD FS
 
@@ -53,13 +53,13 @@ Ce document contient une liste de toutes les opérations de documentation pour A
 - [Personnaliser des en-têtes de réponse de sécurité HTTP avec AD FS 2019](../ad-fs/operations/customize-http-security-headers-ad-fs.md)
 - [Déléguer l’accès aux applets de commande Powershell AD FS aux utilisateurs non-administrateurs](../ad-fs/operations/delegate-ad-fs-pshell-access.md)
 - [Contrôles d’authentification des appareils dans AD FS](../ad-fs/operations/device-authentication-controls-in-AD-FS.md) 
-
 - [Interopérabilité améliorée avec SAML 2.0](../ad-fs/operations/Improved-interoperability-with-SAML-2.0.md)
 - [Rejoindre un espace de travail à partir de n’importe quel appareil pour l’authentification unique et transparente du facteur d’authentification entre les Applications d’entreprise](../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
 - [Gérer les risques avec une authentification multifacteur supplémentaire pour les Applications sensibles](../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 - [Gérer les risques avec le contrôle d’accès conditionnel](../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md)
 - [Gestion des certificats SSL dans AD FS et WAP 2016](../ad-fs/operations/Manage-SSL-Certificates-AD-FS-WAP-2016.md)
 - [Configurer un environnement de laboratoire AD FS](../ad-fs/operations/Set-up-an-AD-FS-lab-environment.md)
+- [SQL correctement de réglage et de latence d’adressage](../ad-fs/operations/adfs-sql-latency.md) 
 - [Guide pas à pas : Gérer les risques avec une authentification multifacteur supplémentaire pour les Applications sensibles](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 - [Guide pas à pas : Gérer les risques avec le contrôle d’accès conditionnel](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
 - [Démonstration : Joindre un espace de travail avec un appareil Windows](../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
