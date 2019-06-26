@@ -185,7 +185,7 @@ Lors de cette étape, nous allons classifier manuellement un fichier en mode de 
   
 ## <a name="BKMK_Links"></a>Voir aussi  
   
--   [Scénario : implémenter la rétention des informations sur les serveurs de fichiers](Scenario--Implement-Retention-of-Information-on-File-Servers.md)  
+-   [Scénario : implémenter la conservation des informations sur les serveurs de fichiers](Scenario--Implement-Retention-of-Information-on-File-Servers.md)  
   
 -   [Planifier la rétention des informations sur les serveurs de fichiers](assetId:///edf13190-7077-455a-ac01-f534064a9e0c)  
   
