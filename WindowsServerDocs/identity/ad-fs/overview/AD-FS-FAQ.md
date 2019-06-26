@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fc92e8b30d6b4c0c765333d3e22311e551d3365d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 1fe73df2ce209fc47c7414d33cb1e0a83d31dcd7
+ms.sourcegitcommit: 9bece8049b1766bd9bb0d5eb5921413a2de2ca61
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280491"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67351287"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS, Forum aux Questions (FAQ)
 
@@ -300,3 +300,6 @@ AD FS et des serveurs d’Application Web prend en charge n’importe quel pare-
 Dans AD FS 2016, la liaison de jeton est automatiquement activé et entraîne plusieurs problèmes connus avec les scénarios de proxy et la fédération les résultats de cette erreur. Pour résoudre ce problème, exécutez la commande Powershell suivante et supprimer la prise en charge de la liaison de jeton.
 
 `Set-AdfsProperties -IgnoreTokenBinding $true`
+
+### <a name="i-have-upgraded-my-farm-from-ad-fs-in-windows-server-2016-to-ad-fs-in-windows-server-2019-the-farm-behavior-level-for-the-ad-fs-farm-has-been-successfully-raised-to-2019-but-the-web-application-proxy-configuration-is-still-displayed-as-windows-server-2016"></a>J’ai mis à niveau ma batterie de serveurs AD FS dans Windows Server 2016 vers AD FS dans Windows Server 2019. Niveau de comportement de la batterie pour la batterie de serveurs AD FS a été déclenché avec succès à 2019, mais la configuration de Proxy d’Application Web est toujours affichée en tant que Windows Server 2016 ?
+Après une mise à niveau vers Windows Server 2019, la version de configuration du Proxy d’Application Web continuera à afficher en tant que Windows Server 2016. Le Proxy d’Application Web ne dispose pas de nouvelles fonctionnalités spécifiques de version pour Windows Server 2019, et si le niveau de comportement de batterie de serveurs a été déclenché avec succès sur AD FS, le Proxy d’Application Web continuera à afficher en tant que Windows Server 2016 par sa conception. 
