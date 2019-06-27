@@ -8,12 +8,12 @@ ms.author: jgerend
 manager: daveba
 ms.technology: storage-spaces
 ms.date: 06/20/2019
-ms.openlocfilehash: b479697366239144e5ca9d3486b84191eb51dc4d
-ms.sourcegitcommit: 078304c4b92bb57eb85ba29634afc92cc028c644
+ms.openlocfilehash: fbec7cd2b8312f03998cfb27b739d0866d3a47c5
+ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67301602"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67407667"
 ---
 # <a name="using-disk-cleanup-on-windows-server"></a>À l’aide de nettoyage de disque sur Windows Server
 
@@ -23,7 +23,7 @@ L’outil de nettoyage de disque supprime les fichiers inutiles dans un environn
 
 Pour démarrer l’outil de nettoyage de disque, exécutez la commande Cleanmgr.exe, ou sélectionnez **Démarrer**, sélectionnez **les outils d’administration Windows**, puis sélectionnez **nettoyage de disque**.
 
-Vous pouvez également exécuter le nettoyage de disque à l’aide de la [cleanmgr commande de Windows](../../administration/windows-commands/clean-mgr.md) et utilisez les options de ligne de commande pour spécifier que le nettoyage de disque nettoie certains fichiers.
+Vous pouvez également exécuter le nettoyage de disque à l’aide de la [cleanmgr commande de Windows](../../administration/windows-commands/cleanmgr.md) et utilisez les options de ligne de commande pour spécifier que le nettoyage de disque nettoie certains fichiers.
 
 ## <a name="enable-disk-cleanup-on-an-earlier-version-of-windows-server-by-installing-the-desktop-experience"></a>Activer le nettoyage de disque sur une version antérieure de Windows Server en installant la fonctionnalité expérience utilisateur
 
@@ -78,4 +78,4 @@ Pour que le bouton de nettoyage de disque apparaissent dans la boîte de dialogu
 
 [Libérer de l’espace disque dans Windows 10](https://support.microsoft.com/en-us/help/12425/windows-10-free-up-drive-space)
 
-[cleanmgr](../../administration/windows-commands/clean-mgr.md)
+[cleanmgr](../../administration/windows-commands/cleanmgr.md)

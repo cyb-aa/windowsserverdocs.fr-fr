@@ -7,17 +7,18 @@ ms.manager: dongill
 ms.technology: storage-spaces
 ms.topic: article
 author: JasonGerend
-ms.date: 08/24/2016
+ms.date: 06/25/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 0c39d704056c4ae6935f3be9c521c12ca1014820
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4ebec8618c79c43816680387ae5e495f125b3c54
+ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870550"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67407550"
 ---
 # <a name="storage-class-memory-nvdimm-n-health-management-in-windows"></a>Gestion de l’intégrité de la mémoire de classe stockage (NVDIMM-N) dans Windows
-> S'applique à : Windows Server 2016, Windows 10 (version 1607)
+
+> S'applique à : Windows Server 2019, Windows Server 2016, Windows Server (canal semi-annuel), Windows 10
 
 Cet article fournit aux administrateurs système et aux professionnels de l’informatique des informations sur la gestion des erreurs et la gestion de l’intégrité propres aux dispositifs de mémoire de classe stockage (NVDIMM-N) dans Windows, en soulignant les différences entre la mémoire de classe stockage et les dispositifs de stockage traditionnels.
 
@@ -25,6 +26,8 @@ Si vous ne connaissez pas la prise en charge Windows des dispositifs de mémoire
 - [À l’aide de la mémoire Non volatile (NVDIMM-N) en tant que stockage de bloc dans Windows Server 2016](https://channel9.msdn.com/Events/Build/2016/P466)
 - [À l’aide de la mémoire Non volatile (NVDIMM-N) en tant que stockage adressable en octets dans Windows Server 2016](https://channel9.msdn.com/Events/Build/2016/P470)
 - [Accélération des performances de SQL Server 2016 avec mémoire persistante dans Windows Server 2016](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-Windows-Server-2016-SCM--FAST)
+
+Consultez également [comprendre et déployer de mémoire persistante dans les espaces de stockage Direct](deploy-pmem.md).
 
 Les dispositifs de mémoire de classe stockage NVDIMM-N compatibles JEDEC sont pris en charge dans Windows avec des pilotes natifs, à compter de Windows Server 2016 et Windows 10 (version 1607). Même si ces dispositifs se comportent de manière similaire aux autres disques (HDD et SSD), il existe des différences.
 
@@ -48,10 +51,10 @@ PS C:\> Get-PhysicalDisk | where BusType -eq "SCM" | select SerialNumber, Health
 
 Vous obtenez ainsi cet exemple de sortie :
 
-|SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
-|---|---|---|---|
-|802c-01-1602-117cb5fc|Healthy|OK||
-|802c-01-1602-117cb64f|Warning|Prévention d’erreur|{Threshold Exceeded,NVDIMM\_N Error}|
+| SerialNumber | HealthStatus | OperationalStatus | OperationalDetails |
+| --- | --- | --- | --- |
+| 802c-01-1602-117cb5fc | Healthy | OK | |
+| 802c-01-1602-117cb64f | Warning | Prévention d’erreur | {Threshold Exceeded,NVDIMM\_N Error} |
 
 > [!NOTE]
 > Pour rechercher l’emplacement physique d’un dispositif NVDIMM-N spécifié dans un événement, sur l’onglet **Détails** de l’événement dans l’observateur d’événements, accédez à **EventData** > **Emplacement**. Notez que Windows Server 2016 répertorie incorrectement l’emplacement des dispositifs NVDIMM-N, mais ce problème est résolu dans Windows Server, version 1709.
@@ -62,36 +65,36 @@ Pour mieux comprendre les différentes conditions d’intégrité, consultez les
 
 Cette condition s’applique quand vous vérifiez l’intégrité d’un dispositif de mémoire de classe stockage et que vous observez que son état d’intégrité est **Avertissement**, comme illustré dans cet exemple de sortie :
 
-|SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
-|---|---|---|---|
-|802c-01-1602-117cb5fc|Healthy|OK||
-|802c-01-1602-117cb64f|Warning|Prévention d’erreur|{Threshold Exceeded,NVDIMM\_N Error}|
+| SerialNumber | HealthStatus | OperationalStatus | OperationalDetails |
+| --- | --- | --- | --- |
+| 802c-01-1602-117cb5fc | Healthy | OK | |
+| 802c-01-1602-117cb64f | Warning | Prévention d’erreur | {Threshold Exceeded,NVDIMM\_N Error} |
 
 Le tableau suivant répertorie des informations sur cette condition.
 
-||Description|
-|---|---|
-|Condition probable|Violation du seuil d’avertissement NVDIMM-N|
-|Cause première|Les dispositifs NVDIMM-N suivent divers seuils, comme la température, la durée de vie NVM et/ou la durée de vie de la source d’énergie. Quand l’un de ces seuils est dépassé, le système d’exploitation est notifié.|
-|Comportement général|Le dispositif reste totalement opérationnel. Il s’agit d’un avertissement, pas d’une erreur.|
-|Comportement des espaces de stockage|Le dispositif reste totalement opérationnel. Il s’agit d’un avertissement, pas d’une erreur.|
-|Informations supplémentaires|Champ OperationalStatus de l’objet PhysicalDisk. Journal des événements – Microsoft-Windows-ScmDisk0101/Operational|
-|À faire|Selon la violation du seuil d’avertissement, il peut s’avérer prudent d’envisager de remplacer l’ensemble ou certaines parties du dispositif NVDIMM-N. Par exemple, si le seuil de durée de vie NVM est dépassé, il peut s’avérer judicieux de remplacer le dispositif NVDIMM-N.|
+| | Description |
+| --- | --- |
+| Condition probable | Violation du seuil d’avertissement NVDIMM-N |
+| Cause première | Les dispositifs NVDIMM-N suivent divers seuils, comme la température, la durée de vie NVM et/ou la durée de vie de la source d’énergie. Quand l’un de ces seuils est dépassé, le système d’exploitation est notifié. |
+| Comportement général | Le dispositif reste totalement opérationnel. Il s’agit d’un avertissement, pas d’une erreur. |
+| Comportement des espaces de stockage | Le dispositif reste totalement opérationnel. Il s’agit d’un avertissement, pas d’une erreur. |
+| Informations supplémentaires | Champ OperationalStatus de l’objet PhysicalDisk. Journal des événements – Microsoft-Windows-ScmDisk0101/Operational |
+| À faire | Selon la violation du seuil d’avertissement, il peut s’avérer prudent d’envisager de remplacer l’ensemble ou certaines parties du dispositif NVDIMM-N. Par exemple, si le seuil de durée de vie NVM est dépassé, il peut s’avérer judicieux de remplacer le dispositif NVDIMM-N. |
 
 ## <a name="writes-to-an-nvdimm-n-fail"></a>Échec des écritures sur un dispositif NVDIMM-N
 
 Cette condition s’applique quand vous vérifiez l’intégrité d’un dispositif de mémoire de classe stockage et que vous observez l’état d’intégrité **Défectueux** et l’état opérationnel **Erreur d’E/S**, comme illustré dans cet exemple de sortie :
 
-|SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
-|---|---|---|---|
-|802c-01-1602-117cb5fc|Healthy|OK||
-|802c-01-1602-117cb64f|Unhealthy|{Métadonnées obsolètes, Erreur d’E/S, Erreur temporaire}|{Persistance de données perdue, Données perdues, NV...}|
+| SerialNumber | HealthStatus | OperationalStatus | OperationalDetails |
+| --- | --- | --- | --- |
+| 802c-01-1602-117cb5fc | Healthy | OK | |
+| 802c-01-1602-117cb64f | Unhealthy | {Métadonnées obsolètes, Erreur d’E/S, Erreur temporaire} | {Persistance de données perdue, Données perdues, NV...} |
 
 Le tableau suivant répertorie des informations sur cette condition.
 
-||Description|
-|---|---|
-|Condition probable|Perte de persistance/alimentation de secours|
+| | Description |
+| --- | --- |
+| Condition probable | Perte de persistance/alimentation de secours |
 |Cause première|Les dispositifs NVDIMM-N s’appuient sur une source d’alimentation de secours pour leur persistance, souvent une batterie ou un supercondensateur. Si cette source d’alimentation de secours n’est pas disponible ou si le dispositif ne parvient pas à effectuer une sauvegarde pour une raison quelconque (erreur de contrôleur/Flash), les données sont exposées à un risque et Windows empêche toute nouvelle écriture sur le dispositif concerné. Les lectures sont toujours possibles pour évacuer des données.|
 |Comportement général|Le volume NTFS est démonté.<br>Le champ de l’état d’intégrité de PhysicalDisk indique « Défectueux » pour tous les dispositifs NVDIMM-N concernés.|
 |Comportement des espaces de stockage|L’espace de stockage reste opérationnel tant qu’un seul dispositif NVDIMM-N est concerné. Si plusieurs dispositifs sont concernés, les écritures dans l’espace de stockage échouent. <br>Le champ de l’état d’intégrité de PhysicalDisk indique « Défectueux » pour tous les dispositifs NVDIMM-N concernés.|
@@ -102,8 +105,8 @@ Le tableau suivant répertorie des informations sur cette condition.
 
 Cette condition s’applique quand un dispositif de mémoire de classe stockage apparaît avec une capacité de 0 octet et ne peut pas être initialisé, ou quand il est exposé en tant que « Disque physique générique » avec un état opérationnel **Perte de communication**, comme illustré dans cet exemple de sortie :
 
-|SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
-|---|---|---|---|
+| SerialNumber | HealthStatus | OperationalStatus | OperationalDetails |
+| --- | --- | --- | --- |
 |802c-01-1602-117cb5fc|Healthy|OK||
 ||Warning|Perte de communication||
 
@@ -122,8 +125,8 @@ Le tableau suivant répertorie des informations sur cette condition.
 
 Cette condition s’applique quand vous vérifiez l’intégrité d’un dispositif de mémoire de classe stockage et que vous observez l’état d’intégrité **Défectueux** et l’état opérationnel **Métadonnées non reconnues**, comme illustré dans cet exemple de sortie :
 
-|SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
-|---|---|---|---|
+| SerialNumber | HealthStatus | OperationalStatus | OperationalDetails |
+| --- | --- | --- | --- |
 |802c-01-1602-117cb5fc|Healthy|OK|{Inconnus}|
 |802c-01-1602-117cb64f|Unhealthy|{Métadonnées non reconnues, Métadonnées obsolètes}|{Inconnus}|
 

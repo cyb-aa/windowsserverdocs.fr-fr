@@ -7,14 +7,14 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.date: 06/04/2019
+ms.date: 06/25/2019
 description: Rubriques nouvelles et mises à jour dans la documentation du stockage en local pour Windows Server pour les professionnels de l’informatique.
-ms.openlocfilehash: 442d640809d3ae9cf4a11feb646fbbd566e6e3fa
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 52e1de646a3acb56b764ee1b781d852d8bf93225
+ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284459"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67407617"
 ---
 # <a name="change-history-for-storage-topics-in-windows-server"></a>Historique des modifications des rubriques de stockage dans Windows Server
 
@@ -26,8 +26,9 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la [stock
 
 ## <a name="june-2019"></a>Juin 2019
 
-| Rubrique nouvelle ou modifiée                                        | Description|
+| Rubrique nouvelle ou modifiée                                        | Description |
 | ---                                                         | ---           |
+| [Nettoyage de disque](file-server/disk-cleanup.md)                                              | Nouveau (migré à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770278(v%3dws.11)))
 | [FAQ sur Service de Migration de stockage](storage-migration-service/faq.md#consolidate-servers) | Ajouté des informations de l’optimisation de performances. |
 
 ## <a name="may-2019"></a>Mai 2019
@@ -42,9 +43,10 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la [stock
 
 |Rubrique nouvelle ou modifiée                                        |Description|
 |---                                                         |---           |
-|[Superviser avec Azure Monitor](storage-spaces/configure-azure-monitor.md)| Nouveau|
-|[Mise à niveau d’un cluster d’espaces de stockage direct vers Windows Server 2019](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)| Nouveau        |
-|[Réplication DFS](dfs-replication/dfsr-overview.md)        | Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770278(v%3dws.11)) bibliothèque|
+| [Superviser avec Azure Monitor](storage-spaces/configure-azure-monitor.md) | Nouveau |
+| [Comprendre et à déployer mémoire persistante](storage-spaces/deploy-pmem.md) | Nouveau |
+| [Mise à niveau d’un cluster d’espaces de stockage direct vers Windows Server 2019](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)| Nouveau        |
+| [Réplication DFS](dfs-replication/dfsr-overview.md)        | Migration à partir de la [les Versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770278(v%3dws.11)) bibliothèque|
 
 ## <a name="february-2019"></a>Février 2019
 

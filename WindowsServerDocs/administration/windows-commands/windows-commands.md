@@ -1,24 +1,20 @@
 ---
 title: Commandes Windows
 description: Commandes Windows
-ms.custom: na
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c703d07c-8227-4e86-94a6-8ef390f94cdc
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
 manager: dongill
-ms.date: 05/22/2018
+ms.date: 06/26/2019
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 861c8f35cf57fc7c8d03914dba2d971d50b66fc5
-ms.sourcegitcommit: 078304c4b92bb57eb85ba29634afc92cc028c644
+ms.openlocfilehash: d0cf58ea8d37efccf80ce262b64e604218bd8d0b
+ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67298176"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67407659"
 ---
 # <a name="windows-commands"></a>Commandes Windows
 
@@ -54,7 +50,8 @@ Pour trouver des informations sur une commande spécifique, dans le menu suivant
 [X](#x) | Y | Z
 
 ## <a name="prerequisites"></a>Prérequis
-Les informations contenues dans ce fichier PDF s’applique à :
+
+Les informations contenues dans cette rubrique s’applique à :
 
 -   Windows Server 2019
 -   Windows Server (canal semi-annuel)
@@ -67,6 +64,7 @@ Les informations contenues dans ce fichier PDF s’applique à :
 -   Windows 8.1
 
 ### <a name="command-shell-overview"></a>Vue d’ensemble du shell de commande
+
 L’interface de commande a été le premier shell intégré à Windows pour automatiser les tâches de routine, telles que la gestion des comptes utilisateur ou les sauvegardes nocturnes, avec les fichiers de commandes (.bat). Avec Windows Script Host, vous pouvez exécuter des scripts plus sophistiqués dans l’interface de commande. Pour plus d’informations, consultez [cscript](cscript.md) ou [wscript](wscript.md). Vous pouvez effectuer des opérations plus efficacement à l’aide de scripts que vous pouvez le faire à l’aide de l’interface utilisateur. Scripts acceptent toutes les commandes qui sont disponibles en ligne de commande.
 
 Windows a deux interfaces de commande : L’interface de commande et [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6). Chaque shell est un logiciel qui fournit une communication directe entre vous et le système d’exploitation ou l’application, en fournissant un environnement pour automatiser les opérations informatiques.
@@ -88,6 +86,7 @@ Le plus robuste et à jour Windows automation, nous recommandons à l’aide de 
 > Pour définir le **reg_DWOrd** , utilisez la valeur hexadécimale d’un caractère de contrôle pour une fonction particulière (par exemple, **0 9** est onglet et **0 08** est le retour arrière). Paramètres spécifiés par l’utilisateur sont prioritaires sur les paramètres de l’ordinateur, et les options de ligne de commande sont prioritaires sur les paramètres du Registre.
 
 ## <a name="command-line-reference-a-z"></a>Référence de ligne de commande A à Z
+
 Pour trouver des informations sur une commande spécifique de Windows, dans le menu suivant A-Z, cliquez sur la lettre qui commence par la commande, puis cliquez sur le nom de commande.
 
 [UN](#a) |
@@ -225,7 +224,7 @@ Pour trouver des informations sur une commande spécifique de Windows, dans le m
 - [chkntfs](chkntfs.md)
 - [choice](choice.md)
 - [cipher](cipher.md)
-- [cleanmgr](clean-mgr.md)
+- [cleanmgr](cleanmgr.md)
 - [clip](clip.md)
 - [cls](cls.md)
 - [Cmd](Cmd.md)
