@@ -28,7 +28,7 @@ Ce document suppose que vous disposez des connaissances de base sur les Services
 
 
 > [!NOTE]
-> Pour télécharger une version imprimable de ce guide, accédez à <a href="http://go.microsoft.com/fwlink/?linkid=150375">Guide de Migration de réplication SYSVOL : Réplication FRS vers DFS</a> ()http://go.microsoft.com/fwlink/?LinkId=150375)
+> Pour télécharger une version imprimable de ce guide, accédez à <a href="http://go.microsoft.com/fwlink/?linkid=150375">Guide de Migration de réplication SYSVOL : Réplication FRS vers DFS</a> (http://go.microsoft.com/fwlink/?LinkId=150375)
 <br>
 
 
