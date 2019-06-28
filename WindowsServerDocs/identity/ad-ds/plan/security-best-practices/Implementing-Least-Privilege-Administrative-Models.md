@@ -9,12 +9,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 609ea0bd796a4d3696e14c7499be047ebdd83183
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 01113b957c6b0be4e18955b5ddc78be3f463abe4
+ms.sourcegitcommit: 236a8ae1da12cea1acfff3f306246db0f022354d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868850"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67412211"
 ---
 # <a name="implementing-least-privilege-administrative-models"></a>Implémentation de modèles d’administration selon le principe des privilèges minimum
 
@@ -37,7 +37,7 @@ Les principes décrits dans les extraits précédentes n’ont pas changé, mais
 
 Malheureusement, le chemin d’accès emprunté dans de nombreux environnements s’est avérée pour être l’utilisation abusive des comptes avec des privilèges d’étendue et approfondie. Privilèges étendus sont les droits et autorisations qui permettent à un compte d’effectuer des actions spécifiques sur une partie importante de l’environnement, par exemple, le personnel du support technique peut avoir des autorisations qui leur permettent de réinitialiser les mots de passe sur plusieurs comptes d’utilisateur.  
 
-Privilèges profonds sont des privilèges élevés qui sont appliqués à un segment étroit de la population, ce type en donnant un ingénieur de droits d’administrateur sur un serveur afin qu’ils puissent exécuter répare. Privilège large, ni privilège approfondie est nécessairement dangereux, mais lorsque plusieurs comptes dans le domaine sont accordées définitivement privilège vaste et étoffé, si seul un des comptes est compromis, il peut rapidement servir à reconfigurer l’environnement pour le à des fins de l’attaquant ou même à détruire les grands segments de l’infrastructure.  
+Privilèges profonds sont des privilèges élevés qui sont appliqués à un segment étroit du remplissage, par exemple un ingénieur de droits d’administrateur sur un serveur afin qu’ils puissent effectuer des réparations. Privilège large, ni privilège approfondie est nécessairement dangereux, mais lorsque plusieurs comptes dans le domaine sont accordées définitivement privilège vaste et étoffé, si seul un des comptes est compromis, il peut rapidement servir à reconfigurer l’environnement pour le à des fins de l’attaquant ou même à détruire les grands segments de l’infrastructure.  
 
 Les attaques pass-the-hash, qui sont un type d’attaque de vol d’informations d’identification, sont omniprésentes étant donné que les outils pour les effectuer sont librement disponible et facile à utiliser, et étant donné que de nombreux environnements sont vulnérables aux attaques. Les attaques pass-the-hash, toutefois, ne sont pas le problème réel. L’essentiel de ce problème est double :  
 
@@ -276,7 +276,7 @@ Gestion des identités (PIM), parfois appelée gestion des comptes privilégiés
 
 Un des défis de gestion des comptes privilégiés est que, par défaut, les comptes qui peuvent gérer les comptes privilégiés et protégés et groupes ont des privilèges élevés et des comptes protégés. Si vous implémentez des solutions RBAC et PIM appropriées pour votre installation de Active Directory, les solutions peuvent inclure des approches qui vous permettent effectivement devez vider l’appartenance des groupes plus privilégiés dans le répertoire, remplir les groupes uniquement temporairement si nécessaire.  
 
-Si vous implémentez natif RBAC et PIM, toutefois, vous devez envisager de créer des comptes qui n’ont aucun privilège et avec la seule fonction de remplissage et le vidage des privilèges des groupes dans Active Directory lorsque nécessaire. [Annexe i : Création de comptes de gestion pour les comptes et groupes dans Active Directory protégés](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md) fournit des instructions détaillées qui vous permettent de créer des comptes à cet effet.  
+Si vous implémentez natif RBAC et PIM, toutefois, vous devez envisager de créer des comptes qui n’ont aucun privilège et avec la seule fonction de remplissage et le vidage des privilèges des groupes dans Active Directory lorsque nécessaire. [Annexe I : Création de comptes de gestion pour les comptes et groupes dans Active Directory protégés](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md) fournit des instructions détaillées qui vous permettent de créer des comptes à cet effet.  
 
 ### <a name="implementing-robust-authentication-controls"></a>L’implémentation de contrôles d’authentification robustes
 
