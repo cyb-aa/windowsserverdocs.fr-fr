@@ -122,7 +122,7 @@ ms.locfileid: "66433066"
     > [!NOTE]
     >  Si le processus de restauration ne démarre pas automatiquement, vérifiez les paramètres du BIOS de votre serveur pour vous assurer que le lecteur de DVD apparaît en premier dans le menu de démarrage.  
   
-     - Ou -  
+     \- Ou -  
   
      Si le fabricant a préchargé le support d'installation sur le serveur, appuyez sur F8 au démarrage pour démarrer à partir du support d'installation.  
   
@@ -201,7 +201,7 @@ ms.locfileid: "66433066"
  Après une restauration du système, vous devrez peut-être utiliser l'Assistant Restauration de fichiers et de dossiers pour restaurer des fichiers et dossiers qui n'ont pas été conservés lors de la restauration. Par exemple, si vous avez remplacé le disque système, ou si les informations de partition du disque système sont illisibles, vous ne pouvez pas restaurer les données d'autres volumes sur le disque système.  
   
 > [!NOTE]
->  Vous ne pouvez pas utiliser l'Assistant Restauration de fichiers et de dossiers pour restaurer tout le lecteur système. Pour plus d’informations concernant la restauration de l’ensemble du système, consultez [Restore or repair your server using installation media](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_1) ou [Restore or reset your server from a client computer using the recovery DVD](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_2).  
+>  Vous ne pouvez pas utiliser l'Assistant Restauration de fichiers et de dossiers pour restaurer tout le lecteur système. Pour plus d’informations sur la restauration complète du système, consultez [restaurer ou réparer votre serveur à l’aide du support d’installation](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_1) ou [restaurer ou réinitialiser votre serveur à partir d’un ordinateur client à l’aide du DVD de récupération](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_2).  
   
 ##### <a name="to-restore-files-and-folders-from-a-server-backup"></a>Pour restaurer des fichiers et des dossiers à partir d'une sauvegarde du serveur  
   
