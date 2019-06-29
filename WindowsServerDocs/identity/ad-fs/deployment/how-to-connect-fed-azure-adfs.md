@@ -16,12 +16,12 @@ ms.date: 10/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 588bc3f87c78feccac47d18d31d37be3b1a02d2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f075f91e97f806555507bfc0e0c5f3d1589a71e6
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835100"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469648"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Déploiement d’Active Directory Federation Services dans Azure
 AD FS fournit la fédération des identités simplifiées et sécurisées et les fonctionnalités de l’authentification unique (SSO) Web. Fédération avec AD Azure ou O365 permet aux utilisateurs de s’authentifier à l’aide des informations d’identification locales et accéder à toutes les ressources dans le cloud. Par conséquent, il devient important de disposer d’une infrastructure AD FS hautement disponible pour garantir l’accès aux ressources locales et dans le cloud. Déploiement d’AD FS dans Azure peut aider à atteindre la haute disponibilité avec un minimum d’efforts.
@@ -277,11 +277,6 @@ En général, vous devez les règles suivantes pour sécuriser efficacement votr
 
 ![Règles d’accès INT (entrant)](./media/how-to-connect-fed-azure-adfs/nsg_int.png)
 
-<!--
-[comment]: <> (![INT access rules (inbound)](./media/how-to-connect-fed-azure-adfs/nsgintinbound.png))
-[comment]: <> (![INT access rules (outbound)](./media/how-to-connect-fed-azure-adfs/nsgintoutbound.png))
--->
-
 **9.2. Sécurisation du sous-réseau DMZ**
 
 | Règle | Description | Flux |
@@ -290,11 +285,6 @@ En général, vous devez les règles suivantes pour sécuriser efficacement votr
 | DenyInternetOutbound |N’est pas HTTPS à internet est bloqué |Sortant |
 
 ![Règles d’accès EXT (entrant)](./media/how-to-connect-fed-azure-adfs/nsg_dmz.png)
-
-<!--
-[comment]: <> (![EXT access rules (inbound)](./media/how-to-connect-fed-azure-adfs/nsgdmzinbound.png))
-[comment]: <> (![EXT access rules (outbound)](./media/how-to-connect-fed-azure-adfs/nsgdmzoutbound.png))
--->
 
 > [!NOTE]
 > Si l’authentification du certificat utilisateur client (authentification clientTLS à l’aide de X509 certificats utilisateur) est requise, AD FS nécessite TCP port 49443 être activé pour l’accès entrant.

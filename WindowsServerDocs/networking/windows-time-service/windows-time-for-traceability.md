@@ -9,12 +9,12 @@ ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: e25217feba45516cd0e9a3aa2bf1a2581d2087f5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3256ff55ec8f293cd37acbea6122584a63847284
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838040"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469575"
 ---
 # <a name="windows-time-for-traceability"></a>Heure de Windows pour la traçabilité
 >S’applique à : Windows Server 2016 version 1709 ou ultérieure et Windows 10 version 1703 ou ultérieure
@@ -41,7 +41,6 @@ Aucune configuration est requise pour réaliser cette fonctionnalité.  Ces jour
 
 La section suivante décrit les événements enregistrés pour une utilisation dans les scénarios de traçabilité.
 
-<!-- use tabs like the group policies -->
 # <a name="257tab257"></a>[257](#tab/257)
 Cet événement est consigné quand le Service de temps Windows (W32Time) est démarré et consigne des informations sur l’heure actuelle, nombre de cycles actuel, configuration du runtime, fournisseurs de temps, les taux actuel de l’horloge.
 
@@ -82,7 +81,7 @@ Cet événement est consigné quand le Service de temps Windows (W32Time) est l�
 |Données enregistrées |<ul><li>Heure actuelle au format UTC</li><li>Nombre de cycles actuel</li></ul> |
 |Mécanisme de limitation  |Aucun. Cet événement se déclenche chaque fois que le service s’arrête. |
 
-**Exemple de texte :**
+**Exemple de texte :** 
 `W32time service is stopping at 2018-03-01T05:42:13.944Z (UTC), System Tick Count 6370250.`
 
 # <a name="259tab259"></a>[259](#tab/259)
@@ -144,7 +143,7 @@ Chaque instance s’ouvre quand l’heure système est modifié à l’aide des 
 |||
 |---|---|
 |Description de l’événement |Modifier dans les sources de temps utilisés par le Client NTP |
-|Détails |Client NTP enregistre un événement avec l’état actuel des serveurs de temps/homologues lorsqu’un serveur de temps/homologue change d’état (**en attente de synchronisation de->**, **-> synchronisation inaccessible**, ou d’autres transitions) |
+|Détails |Client NTP enregistre un événement avec l’état actuel des serveurs de temps/homologues lorsqu’un serveur de temps/homologue change d’état (**en attente de synchronisation de->** , **-> synchronisation inaccessible**, ou d’autres transitions) |
 |Mécanisme de limitation  |Fréquence maximale – uniquement une fois toutes les 5 minutes pour empêcher le journal des problèmes temporaires et l’implémentation de fournisseurs incorrecte. |
 
 # <a name="265tab265"></a>[265](#tab/265)

@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 954393126333bf04d2aa46a01089d88bc91151cb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8098edd1eea475cea1face5541459b262364a07b
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447322"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469545"
 ---
 # <a name="verify-the-hgs-configuration"></a>Vérifier la configuration SGH
 
@@ -29,10 +29,6 @@ Get-HgsTrace -RunDiagnostics
 Étant donné que la configuration de SGH ne contient pas encore d’informations sur les hôtes qui se trouvent dans la structure protégée, les tests de diagnostic indique qu’aucun ordinateur hôte n’est en mesure d’attester encore correctement. Ignorer ce résultat et examinez les autres informations fournies par les diagnostics.
 
 [!INCLUDE [Guarded fabric diagnostics tool](../../../includes/guarded-fabric-diagnostics-tool.md)] 
-
-<!-- When a link is available for an updated troubleshooting guide, add a sentence like the following and create a link to the troubleshooting guide:
-If failures did occur, please review the remediation steps provided or see the Troubleshooting Guide.
--->
 
 Exécutez les diagnostics sur chaque nœud dans votre cluster SGH.
 

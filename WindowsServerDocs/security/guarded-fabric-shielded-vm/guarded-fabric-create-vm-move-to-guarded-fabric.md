@@ -9,21 +9,16 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: dd9b89f34a3b4af8bb98d2399a524790aa65de0e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9601145048b8798cfb102757384da49bed16a538
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447486"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469627"
 ---
 # <a name="shielded-vms-for-tenants---creating-a-new-shielded-vm-on-premises-and-moving-it-to-a-guarded-fabric"></a>Protégées de machines virtuelles protégées pour les locataires - création d’une nouvelle machine virtuelle en local et en la déplaçant vers une structure protégée
 
 >S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016
-
-
-<!-- NOTE THAT THIS FILE HAS A "redirect_url" LINE IN THE METADATA. EVENTUALLY WE WILL PROBABLY STRIP OUT THE DETAILED METADATA AND THE CONTENT BELOW, SO IT'S PURELY A REDIRECTED TOPIC. However, as of mid-November 2016, we're still deciding. -->
-
-
 
 Cette rubrique décrit les étapes pour créer une machine virtuelle protégée, à l’aide de Hyper-V uniquement ; Autrement dit, sans Virtual Machine Manager, les disques de modèle ou un fichier de données de protection. Ce scénario est rare pour le cloud public plus environnements d’hébergement, mais peut être utile lorsque vous testez une structure protégée ou dans l’entreprise scénarios où une machine virtuelle est déplacée d’un service fabric à partagé infrastructure informatique et doivent être chiffrés avant la migration.
 

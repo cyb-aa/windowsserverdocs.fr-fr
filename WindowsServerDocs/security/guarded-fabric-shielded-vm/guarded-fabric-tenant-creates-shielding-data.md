@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 3c36eff8aabd1fa1c6456dce1d08ebe504102e8c
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: d1d269ecdbfd4803c51da4817b62caf01d2091ae
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284164"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469614"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>Machines virtuelles protégées pour les locataires - création des données de protection pour définir une machine virtuelle protégée
 
@@ -43,8 +43,6 @@ Vous pouvez ensuite créer le fichier de données de protection :
 Dans la mesure où les clients peuvent uniquement se connecter à leurs machines virtuelles protégées, à l’aide de la connexion Bureau à distance ou autres outils de gestion à distance, il est important de s’assurer que les clients peuvent vérifier auquel il se connecte au point de terminaison droit (autrement dit, il n’est pas un « l’homme au milieu » interception de la connexion).
 
 Pour vérifier que vous vous connectez au serveur voulu un moyen consiste à installer et configurer un certificat pour les Services Bureau à distance présenter lorsque vous lancez une connexion. L’ordinateur client se connectant au serveur vérifiera si il approuve le certificat et affiche un avertissement si elle n’est pas le cas. En règle générale, pour garantir que le client qui se connecte approuve le certificat, les certificats RDP sont émis à partir de l’infrastructure à clé publique du locataire. Plus d’informations sur [à l’aide de certificats dans les Services Bureau à distance](https://technet.microsoft.com/library/dn781533.aspx) peut être disponible sur TechNet.
-
-<!-- The previous link comes from Windows 2012 R2 content, but as of Sept 2016, there isn't a more recent link that covers the same information. -->
 
 > [!NOTE]
 > Lorsque vous sélectionnez un certificat RDP à inclure dans votre fichier de données de protection, veillez à utiliser un certificat générique. Un fichier de données de protection peut être utilisé pour créer un nombre illimité de machines virtuelles. Étant donné que chaque machine virtuelle partagent le même certificat, un certificat générique permet de garantir le certificat valide, quel que soit le nom d’hôte de la machine virtuelle.
@@ -142,8 +140,6 @@ Vous ou votre fournisseur de services peut obtenir les métadonnées à partir d
         $relecloudmetadata = Get-SCGuardianConfiguration
 
         $relecloudmetadata.InnerXml | Out-File .\RelecloudGuardian.xml -Encoding UTF8
-
-<!-- Note that the VMM PowerShell cmdlets aren't Windows PowerShell, so "VMM PowerShell" is the correct terminology for them. -->
 
 Obtenir la surveillance des fichiers de métadonnées pour chaque infrastructure protégée que vous souhaitez autoriser vos machines virtuelles protégées à exécuter sur avant de continuer.
 

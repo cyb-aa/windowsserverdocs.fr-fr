@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 600ccd74c379daa281f438b1200179dcae210817
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4cb5ed3433e04b7a5fe7004e517eb4cc38c7eb53
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447350"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469659"
 ---
 # <a name="shielded-vms--for-tenants---deploying-a-shielded-vm-by-using-windows-azure-pack"></a>Machines virtuelles protégées pour les locataires - déploiement d’une machine virtuelle protégée à l’aide de Windows Azure Pack
 
@@ -22,8 +22,6 @@ ms.locfileid: "66447350"
 Si votre fournisseur de services prend en charge, vous pouvez utiliser Windows Azure Pack pour déployer une machine virtuelle protégée.
 
 Procédez comme suit :
-
-<!-- When we have a link to the topic about how tenants subscribe, add that link as an indented item just under step 1 below. -->
 
 1. S’abonner à un ou plusieurs plans proposés dans Windows Azure Pack.
 

@@ -6,12 +6,12 @@ ms.author: joflore
 ms.date: 04/19/2018
 ms.topic: article
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 8a1775a40761e4a489cc39535514d75174edffa5
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 297c2a26f10503cb68ae241576a72e08aa4e55a0
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442988"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469567"
 ---
 # <a name="virtualizing-domain-controllers-using-hyper-v"></a>Virtualisation de contrôleurs de domaine à l’aide de Hyper-V
 
@@ -82,7 +82,6 @@ Un fichier VHD de contrôleur de domaine virtuel équivaut au disque dur physiqu
 ## <a name="rodcs"></a>Contrôleurs RODC
 
 L'un des avantages des contrôleurs de domaine en lecture seule est qu'il est possible de les placer dans des lieux où la sécurité physique ne peut être assurée, comme dans des filiales. Vous pouvez utiliser le chiffrement de lecteur BitLocker Windows pour protéger les fichiers de disque dur virtuel (pas les systèmes de fichiers qui y sont) d’être compromis sur l’ordinateur hôte à un vol du disque physique. 
-<!-- Removed link to Windows Server 2008 Hyper-V and BitLocker Drive Encryption (http://go.microsoft.com/fwlink/?linkid=123534). Link is dead. -->
 
 ## <a name="performance"></a>Performances
 
@@ -176,10 +175,8 @@ Pour garantir une performance adéquate, des composants d'intégration (IC) ont 
 Lorsque vous contrôlez les performances des ordinateurs virtuels avec l'analyseur de fiabilité et de performances (Perfmon.msc), les informations sur l'unité centrale, dans l'ordinateur virtuel, ne sont pas exactes en raison de la façon dont l'UC est planifiée sur le processeur physique. Si vous souhaitez obtenir des informations sur l'unité centrale d'un ordinateur virtuel exécuté sur un serveur Hyper-V, utilisez le processeur logique de l'hyperviseur Hyper-V dans la partition hôte.
 
 Pour plus d’informations sur les performances, réglage d’AD DS et Hyper-V, consultez [performances réglage des instructions pour Windows Server 2016](../../../../administration/performance-tuning/index.md).
-<!-- Updated to 2016 perf guidance -->
 
 Par ailleurs, ne prévoyez pas d'utiliser un disque de différenciation VHD sur un ordinateur virtuel configuré en tant que contrôleur de domaine : cela risquerait de faire chuter les performances. Pour en savoir plus sur les types de disque Hyper-V, y compris la différenciation des disques, consultez [Assistant du nouveau disque dur virtuel](http://go.microsoft.com/fwlink/?linkid=137279).
-<!-- Couldn't find an equivalent WS 2016 Hyper-V article. -->
 
 Pour obtenir des informations supplémentaires sur les services AD DS dans les environnements d’hébergement virtuels, consultez [choses à prendre en compte lorsque vous hébergez des contrôleurs de domaine Active Directory dans les environnements d’hébergement virtuels](https://go.microsoft.com/fwlink/?linkid=141292) dans la Base de connaissances Microsoft.
 
@@ -384,8 +381,6 @@ Si vous ne possédez aucune sauvegarde des données sur l'état du système ant�
 ## <a name="usn-and-usn-rollback"></a>USN et restauration USN
 
 Cette section décrit les problèmes de réplication qui peuvent se produire suite à une restauration incorrecte de la base de données Active Directory avec une version antérieure d’une machine virtuelle. Pour plus d’informations sur le processus de réplication Active Directory, consultez [les Concepts de réplication Active Directory](../replication/active-directory-replication-concepts.md)
-
-<!-- Replaced this link with 2016 article: [How the Active Directory Replication Model Works](http://go.microsoft.com/fwlink/?linkid=27636) (http://go.microsoft.com/fwlink/?LinkID=27636). -->
 
 ## <a name="usns"></a>USN
 

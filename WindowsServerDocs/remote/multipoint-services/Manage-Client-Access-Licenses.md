@@ -13,19 +13,19 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: f5f78d3d2387d3b95177a6a8a40fb9b16d8ed8e2
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 42b943ed5e0066f1f810efaba9e65a529ac25f00
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446122"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469345"
 ---
 # <a name="manage-client-access-licenses"></a>Gérer des licences d’accès client
 Chaque station qui se connecte à un système MultiPoint Services, y compris l’ordinateur qui exécute MultiPoint Services qui est utilisé comme une station, doit avoir un bureau à distance par utilisateur valide *licence d’accès client (CAL)* .
 
 Si vous utilisez des bureaux virtuels station au lieu de stations physiques, vous devez installer une licence d’accès client pour chaque bureau virtuel station.  
   
-1.  Achetez une licence de client pour chaque station est connectée à votre serveur ou ordinateur MultiPoint Services. Pour plus d’informations sur l’achat de licences d’accès client, consultez la documentation pour les licences bureau à distance. <!--@Liza: add link to RDS licensing here-->
+1.  Achetez une licence de client pour chaque station est connectée à votre serveur ou ordinateur MultiPoint Services. Pour plus d’informations sur l’achat de licences d’accès client, consultez la documentation pour les licences bureau à distance. 
 
 2.  À partir de la **Démarrer** écran, ouvrez **Gestionnaire MultiPoint**.  
   

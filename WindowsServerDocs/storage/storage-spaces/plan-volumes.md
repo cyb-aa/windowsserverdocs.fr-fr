@@ -7,14 +7,14 @@ ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
-ms.date: 01/10/2019
+ms.date: 06/28/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: c68444be5662480293cee630970d5eb76b52268a
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: a04a362b65af8f184037d26728a1c147ca8ef948
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453193"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469669"
 ---
 # <a name="planning-volumes-in-storage-spaces-direct"></a>Planification des volumes dans les espaces de stockage direct
 
@@ -24,7 +24,7 @@ Cette rubrique fournit des recommandations sur la manière de planifier vos volu
 
 ## <a name="review-what-are-volumes"></a>Révision : Quelles sont les volumes
 
-Les volumes sont des banques de données dans lesquelles vous placez les fichiers dont vos charges de travail ont besoin, tels que vos fichiers VHD ou VHDX pour les machines virtuelles Hyper-V. Les volumes utilisent les disques du pool de stockage de manière combinée afin d'optimiser la tolérance de panne, l'évolutivité et les performances de votre déploiement d'espaces de stockage direct.
+Les volumes sont où vous placez les fichiers que nécessitent de vos charges de travail, telles que de VHD ou VHDX pour les ordinateurs virtuels Hyper-V. Les volumes utilisent les disques du pool de stockage de manière combinée afin d'optimiser la tolérance de panne, l'évolutivité et les performances de votre déploiement d'espaces de stockage direct.
 
    >[!NOTE]
    > Dans toute la documentation relative aux espaces de stockage direct, nous utilisons le terme « volume » pour désigner à la fois le volume et le disque virtuel sous-jacent, y compris les fonctionnalités offertes par d'autres fonctions Windows intégrées comme les volumes partagés de cluster (Cluster Shared Volumes, CSV) et ReFS. Il n'est pas nécessaire de comprendre toutes les subtilités au niveau de l'implémentation pour planifier et déployer avec succès des espaces de stockage direct.
@@ -51,23 +51,27 @@ Nous vous recommandons d’utiliser le nouveau [système de fichiers ReFS (Resil
 
 Si votre charge de travail requiert une fonction que ReFS ne prend pas encore en charge, vous pouvez utiliser le système de fichiers NTFS à la place.
 
-   >[!TIP]
+   > [!TIP]
    > Des volumes utilisant des systèmes de fichiers différents peuvent coexister au sein d’un même cluster.
 
 ## <a name="choosing-the-resiliency-type"></a>Choix du type de résilience
 
 Les volumes utilisés par les espaces de stockage direct fournissent une résilience qui vise à protéger contre les problèmes matériels tels que les pannes de disque ou de serveur, et qui assure une disponibilité continue pendant toutes les opérations de maintenance des serveurs, notamment les mises à jour logicielles.
 
-   >[!NOTE]
+   > [!NOTE]
    > Le type de résilience que vous choisissez ne dépend pas du type de disque que vous possédez.
 
 ### <a name="with-two-servers"></a>Avec deux serveurs
 
-La seule option possible pour les clusters avec deux serveurs est la mise en miroir double. Cette fonctionnalité permet de conserver deux copies de toutes les données, une copie sur les disques de chaque serveur. Son efficacité de stockage est de 50 %. Pour écrire 1 To de données, vous devez donc disposer d’au moins 2 To de capacité de stockage physique dans le pool de stockage. La mise en miroir double tolère une seule défaillance matérielle (disque ou serveur) à la fois.
+Avec deux serveurs du cluster, vous pouvez utiliser la mise en miroir bidirectionnelle. Si vous exécutez Windows Server 2019, vous pouvez également utiliser la résilience imbriquée.
+
+Mise en miroir bidirectionnel conserve deux copies de toutes les données, une copie sur les lecteurs dans chaque serveur. Son efficacité de stockage est de 50 %, pour écrire 1 To de données, vous devez au moins 2 To de capacité de stockage physique dans le pool de stockage. Mise en miroir bidirectionnelle peut en toute sécurité capable de tolérer une défaillance matérielle à la fois (un serveur ou lecteur).
 
 ![two-way-mirror](media/plan-volumes/two-way-mirror.png)
 
-Si vous avez plus de deux serveurs, nous vous recommandons plutôt d’utiliser l'un des types de résilience suivants.
+Résilience imbriquée (disponible uniquement sur Windows Server 2019) fournit la résilience des données entre les serveurs avec mise en miroir bidirectionnelle, puis ajoute la résilience au sein d’un serveur avec la mise en miroir bidirectionnel ou parité accélérée de miroir. Imbrication fournit la résilience des données même si un serveur est indisponible ou de redémarrage. Son efficacité de stockage est 25 avec mise en miroir bidirectionnelle imbriquée et environ 35 à 40 % pour la parité d’accélérée de miroir imbriquée. Résilience imbriquée peut tolérer en toute sécurité les deux défaillances de matériel à la fois (deux disques, ou un serveur et un lecteur sur le serveur restant). En raison de cette tolérance de données ajoutées, nous recommandons d’utiliser la résilience imbriquée sur des clusters de deux serveurs, les déploiements de production si vous exécutez Windows Server 2019. Pour plus d’informations, consultez [Nested résilience](nested-resiliency.md).
+
+![Parité d’accélérée de miroir imbriquée](media/nested-resiliency/nested-mirror-accelerated-parity.png)
 
 ### <a name="with-three-servers"></a>Avec trois serveurs
 
@@ -77,16 +81,16 @@ Avec trois serveurs, il est préférable d'utiliser une mise en miroir triple a
 
 ### <a name="with-four-or-more-servers"></a>Avec quatre serveurs ou plus
 
-Avec quatre serveurs ou plus, vous pouvez choisir pour chaque volume si vous souhaitez utiliser une mise en miroir triple, la double parité (souvent appelée « codage d’effacement »), ou un mélange des deux.
+Avec quatre ou plusieurs serveurs, vous pouvez choisir pour chaque volume s’il faut utiliser la mise en miroir triple, parité double (souvent appelée « codage d’effacement »), ou la combinaison des deux avec parité accélérée de miroir.
 
-La double parité offre la même tolérance de panne que la mise en miroir triple, mais avec une meilleure efficacité de stockage. Avec quatre serveurs, son efficacité de stockage est de 50 %, ce qui signifie que pour stocker 2 To de données, vous avez besoin de 4 To de capacité de stockage physique dans le pool de stockage. Cette efficacité passe à 66,7 % avec sept serveurs, et peut aller jusqu'à 80 %. La contrepartie est que le codage de parité est plus gourmand en ressources système, ce qui peut limiter les performances.
+La double parité offre la même tolérance de panne que la mise en miroir triple, mais avec une meilleure efficacité de stockage. Avec quatre serveurs, son efficacité de stockage est 50.0%—to stocker 2 To de données, vous avez besoin de 4 To de capacité de stockage physique dans le pool de stockage. Cette efficacité passe à 66,7 % avec sept serveurs, et peut aller jusqu'à 80 %. La contrepartie est que le codage de parité est plus gourmand en ressources système, ce qui peut limiter les performances.
 
 ![dual-parity](media/plan-volumes/dual-parity.png)
 
 Le choix du type de résilience à utiliser dépend des besoins de votre charge de travail. Voici un tableau résumant les charges de travail sont adaptées pour chaque type de résilience, ainsi que l’efficacité de stockage et de performances de chaque type de résilience.
 
-| **Type de résilience**| **Efficacité de la capacité**| **Vitesse**| **Charges de travail**
-|--------------------|--------------------------------|--------------------------------|--------------------------
+| Type de résilience | Efficacité de la capacité | Vitesse | Charges de travail |
+| ------------------- | ----------------------  | --------- | ------------- |
 | **Miroir**         | ![Affichage de l’efficacité de stockage 33 %](media/plan-volumes/3-way-mirror-storage-efficiency.png)<br>Miroir triple : 33% <br>Deux-way-mise en miroir : 50%     |![Affichage des performances 100 %](media/plan-volumes/three-way-mirror-perf.png)<br> Meilleures performances  | Charges de travail virtualisées<br> Bases de données<br>Autres charges de travail hautes performances |
 | **Parité accélérée grâce à la mise en miroir** |![Affichage d’environ 50 % de l’efficacité du stockage](media/plan-volumes/mirror-accelerated-parity-storage-efficiency.png)<br> Varie selon la proportion de mise en miroir et parité | ![Affichage d’environ 20 % des performances](media/plan-volumes/mirror-accelerated-parity-perf.png)<br>Beaucoup plus lent que mettre en miroir, mais jusqu'à deux fois plus vite avec double parité<br> Meilleur pour les lectures et écritures séquentielles de grande taille | Archivage et sauvegarde<br> Infrastructure de bureau virtuel     |
 | **Double parité**               | ![Affichage d’environ 80 % de l’efficacité du stockage](media/plan-volumes/dual-parity-storage-efficiency.png)<br>4 serveurs : 50% <br>16 serveurs : jusqu'à 80 % | ![Affichage d’environ 10 % des performances](media/plan-volumes/dual-parity-perf.png)<br>Latence d’e/s la plus élevée et l’utilisation du processeur sur les écritures<br> Meilleur pour les lectures et écritures séquentielles de grande taille | Archivage et sauvegarde<br> Infrastructure de bureau virtuel  |
@@ -108,8 +112,8 @@ Les charges de travail qui écrivent en grandes passes séquentielles, telles qu
 
 L’efficacité de stockage qui en résulte varie en fonction des proportions que vous choisissez. Voir [cette démonstration](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s) pour obtenir des exemples.
 
-   >[!TIP]
-   > Si vous observez une brusque baisse des performances de l’écriture en cours via injestion de données, elle peut indiquer que la partie de la mise en miroir n’est pas assez grande ou de parité avec accélération miroir n’est pas bien adaptée à votre cas d’utilisation. Par exemple, si écrire des diminutions de performances à partir de 400 Mo/s à 40 Mo/s, envisagez de développer la partie de la mise en miroir ou le basculement vers le miroir triple.
+   > [!TIP]
+   > Si vous observez une brusque baisse des performances de l’écriture en cours via la réception de données, elle peut indiquer que la partie de la mise en miroir n’est pas assez grande ou de parité avec accélération miroir n’est pas bien adaptée à votre cas d’utilisation. Par exemple, si écrire des diminutions de performances à partir de 400 Mo/s à 40 Mo/s, envisagez de développer la partie de la mise en miroir ou le basculement vers le miroir triple.
 
 ### <a name="about-deployments-with-nvme-ssd-and-hdd"></a>À propos des déploiements utilisant des disques NVMe, SSD et HDD
 
@@ -117,7 +121,7 @@ Dans les déploiements avec deux types de disques, les disques plus rapides ass
 
 Dans les déploiements utilisant les trois types de disques, seuls les disques les plus rapides (NVMe) assurent la mise en cache, tandis que les deux autres types de disques (SSD et HDD) fournissent la capacité. Pour chaque volume, vous pouvez choisir s'il doit résider entièrement sur le niveau SSD, entièrement sur le niveau HDD, ou s'il doit s'étendre sur les deux.
 
-   >[!IMPORTANT]
+   > [!IMPORTANT]
    > Nous vous recommandons d’utiliser le niveau SSD pour placer vos charges de travail les plus sensibles aux performances sur du 100 % Flash.
 
 ## <a name="choosing-the-size-of-volumes"></a>Choix de la taille des volumes
@@ -125,11 +129,11 @@ Dans les déploiements utilisant les trois types de disques, seuls les disques 
 Nous vous recommandons de limiter la taille de chaque volume à :
 
 | Windows Server 2016 | Windows Server 2019 |
-|---------------------|---------------------|
+| ------------------- | ------------------- |
 | Jusqu'à 32 To         | Jusqu'à 64 To         |
 
-   >[!TIP]
-   > Si vous utilisez une solution de sauvegarde qui repose sur le service VSS (Volume Shadow Copy Service) et le fournisseur de logiciels Volsnap (comme c'est souvent le cas avec les charges de travail de serveur de fichiers), le fait de limiter la taille du volume à 10 To vous permettra d'améliorer les performances et la fiabilité. Les solutions de sauvegarde qui utilisent l'API plus récente Hyper-V RCT et/ou le clonage de bloc sur ReFS et/ou les API de sauvegarde SQL natives fonctionnent bien jusqu'à 32 To et au-delà.
+   > [!TIP]
+   > Si vous utilisez une solution de sauvegarde qui s’appuie sur le service de cliché instantané de Volume (VSS) et le fournisseur de logiciel Volsnap, comme cela est courant avec les charges de travail de fichiers serveur, limitant la taille du volume à 10 To améliore les performances et fiabilité. Les solutions de sauvegarde qui utilisent l'API plus récente Hyper-V RCT et/ou le clonage de bloc sur ReFS et/ou les API de sauvegarde SQL natives fonctionnent bien jusqu'à 32 To et au-delà.
 
 ### <a name="footprint"></a>Encombrement
 
