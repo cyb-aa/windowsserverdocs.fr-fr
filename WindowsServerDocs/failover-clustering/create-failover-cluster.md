@@ -48,7 +48,7 @@ Par ailleurs, vérifiez les conditions requises en matière de comptes :
 - Assurez-vous que le compte que vous envisagez d'utiliser pour créer le cluster est un utilisateur de domaine qui dispose de droits d'administrateur sur tous les serveurs que vous voulez ajouter en tant que nœuds de cluster.
 - Assurez-vous que l'une ou l'autre des conditions suivantes est vraie :
     - L'utilisateur qui crée le cluster dispose de l'autorisation de **création d'objets ordinateur** sur l'UO ou le conteneur où résident les serveurs qui constitueront le cluster.
-    - Si l'utilisateur ne dispose pas de l'autorisation de **création d'objets ordinateur** , demandez à un administrateur de domaine de prédéfinir un objet ordinateur de cluster pour le cluster. Pour plus d'informations, voir [Prestage Cluster Computer Objects in Active Directory Domain Services](prestage-cluster-adds.md).
+    - Si l'utilisateur ne dispose pas de l'autorisation de **création d'objets ordinateur** , demandez à un administrateur de domaine de prédéfinir un objet ordinateur de cluster pour le cluster. Pour plus d’informations, consultez [Prédéfinir des objets ordinateur pour le cluster dans Active Directory Domain Services](prestage-cluster-adds.md).
 
 > [!NOTE]
 > Cette exigence ne s’applique pas si vous souhaitez créer un cluster détaché d’Active Directory dans Windows Server 2012 R2. Pour plus d’informations, voir [Déployer un cluster détaché d’Active Directory](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11)).

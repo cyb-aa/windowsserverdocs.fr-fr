@@ -40,6 +40,7 @@
 ### [Déployer le système de fichiers réseau](nfs/deploy-nfs.md)
 ### [Vue d'ensemble de NTFS](file-server/ntfs-overview.md)
 ### [Service de cliché instantané de volume](file-server/volume-shadow-copy-service.md)
+### [Utilisation du nettoyage de disque](file-server/disk-cleanup.md)
 ## [Gestionnaire de ressources du serveur de fichiers](fsrm/fsrm-overview.md)
 ### [Liste de vérification : appliquer un quota à un volume ou un dossier](fsrm/checklist-apply-quota-to-volume-or-folder.md)
 ### [Liste de vérification : appliquer un filtre de fichiers à un volume ou un dossier](fsrm/checklist-apply-file-screen-to-volume-or-folder.md)
@@ -128,7 +129,9 @@
 #### [Créer des volumes](storage-spaces/create-volumes.md)
 #### [Résilience imbriquée](storage-spaces/nested-resiliency.md)
 #### [Configurer le quorum](../failover-clustering/manage-cluster-quorum.md)
-#### [Mise à niveau d’un cluster d’espaces de stockage direct vers Windows Server 2019](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)
+#### [Mise à niveau d’un cluster d’espaces de stockage direct](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)
+#### [Comprendre et déployer la mémoire persistante](storage-spaces/deploy-pmem.md)
+
 ### Gérer
 #### [Gérer avec Windows Admin Center](../manage/windows-admin-center/use/manage-hyper-converged.md)
 #### [Ajouter des serveurs ou des lecteurs](storage-spaces/add-nodes.md)
@@ -148,11 +151,14 @@
 ##### [Exemples de scripts](storage-spaces/performance-history-scripting.md)
 #### [Délimiter l'allocation des volumes](storage-spaces/delimit-volume-allocation.md)
 #### [Superviser avec Azure Monitor](storage-spaces/configure-azure-monitor.md)
+
 ### Résoudre les problèmes
 #### [Scénarios de résolution des problèmes](storage-spaces/troubleshooting-storage-spaces.md)
 #### [États opérationnels et d'intégrité](storage-spaces/storage-spaces-states.md)
 #### [Collecte des données](storage-spaces/data-collection.md)
 #### [Forum Aux Questions](storage-spaces/storage-spaces-direct-faq.md)
+#### [Gestion du contrôle d’intégrité de mémoire de classe stockage](storage-spaces/Storage-class-memory-health.md)
+
 ## [Dossiers de travail](work-folders/work-folders-overview.md)
 ### [Conception d’une implémentation de Dossiers de travail](work-folders/plan-work-folders.md)
 ### [Déploiement de Dossiers de travail](work-folders/deploy-work-folders.md)
@@ -163,6 +169,5 @@
 #### [Étape 4 : Configurer WAP](work-folders/deploy-work-folders-adfs-step4.md)
 #### [Étape 5 : configurer les clients](work-folders/deploy-work-folders-adfs-step5.md)
 ## [Qualité de service de stockage](storage-qos/storage-qos-overview.md)
-## [Gestion du contrôle d’intégrité de mémoire de classe stockage](storage-spaces/Storage-class-memory-health.md)
 ## [Historique des modifications pour les rubriques de stockage](storage-change-history.md)
 

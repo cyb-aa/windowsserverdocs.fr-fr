@@ -75,5 +75,5 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 
 ## <a name="additional-references"></a>Références supplémentaires
 
-[Présentation des dossiers partagés et le pare-feu Windows](https://technet.microsoft.com/library/cc731402.aspx)()https://technet.microsoft.com/library/cc731402.aspx)
+[Présentation des dossiers partagés et le pare-feu Windows](https://technet.microsoft.com/library/cc731402.aspx)(https://technet.microsoft.com/library/cc731402.aspx)
 

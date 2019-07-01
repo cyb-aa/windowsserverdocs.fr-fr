@@ -24,7 +24,7 @@ ms.locfileid: "66433642"
 >S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 ##  <a name="BKMK_AddIns"></a> Automatiser l’installation des compléments lors de l’installation  
- Pour installer des compléments lors de la phase d’installation, utilisez la méthode PostIC.cmd décrite dans la section [Create the PostIC.cmd File for Running Post Initial Configuration Tasks](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) de ce document.  
+ Pour installer des compléments lors de la phase d’installation, utilisez la méthode PostIC.cmd décrite dans la section [Création du fichier PostIC.cmd pour exécuter les tâches de configuration initiales](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) de ce document.  
   
  Ajoutez l’entrée suivante à votre fichier PostIC.cmd :  
   
