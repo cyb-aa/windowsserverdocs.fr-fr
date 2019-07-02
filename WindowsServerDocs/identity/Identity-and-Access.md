@@ -11,11 +11,11 @@ ms.topic: landing-page
 ms.author: billmath
 ms.localizationpriority: high
 ms.openlocfilehash: 161840d86cae6b688e3e7a877c7c44b17aefd432
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824240"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63684200"
 ---
 # <a name="identity--access"></a>Identité | Accès
 
@@ -24,7 +24,7 @@ ms.locfileid: "59824240"
 
 <hr />
 
-Les technologies d'identité et d'accès permettent de sécuriser des environnements Active Directory locaux et uniquement dans le cloud, ainsi que des déploiements hybrides dans lesquels certains services et applications sont hébergés dans le cloud et d'autres, hébergés en local.
+Les technologies d’identité et d’accès permettent de sécuriser des environnements Active Directory locaux et uniquement dans le cloud, ainsi que des déploiements hybrides dans lesquels certains services et applications sont hébergés dans le cloud et d’autres, hébergés en local.
 
 <hr />
 <ul class="cardsF panelContent">
@@ -40,7 +40,7 @@ Les technologies d'identité et d'accès permettent de sécuriser des environnem
                                         </div>
                                         <div class="cardText">
                                             <h2>Quelles sont les nouveautés ?</h2>
-                                            <p>Découvrir les nouveautés des services de fédération Active Directory (AD FS)</p>
+                                            <p>Découvrir les nouveautés des services AD FS</p>
                                         </div>
                                     </div>
                                 </div>
@@ -80,8 +80,8 @@ Les technologies d'identité et d'accès permettent de sécuriser des environnem
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Windows 10 pour l’entreprise : Façons d’utiliser des appareils professionnels</h3><hr />
-                        <p>Windows 10 vous offre la possibilité de tirer parti d’Azure Active Directory. Les appareils Windows 10 peuvent être connectés à Azure AD. Leurs utilisateurs peuvent se connecter à Windows avec des comptes Azure AD ou ajouter leur ID Azure pour accéder aux applications métier et aux ressources.</p>
+                        <h3>Windows 10 pour l’entreprise : utiliser les appareils pour le travail</h3><hr />
+                        <p>Windows 10 vous offre la possibilité de tirer parti d’Azure Active Directory. Les appareils Windows 10 peuvent être connectés à Azure AD. Leurs utilisateurs peuvent se connecter à Windows avec des comptes Azure AD ou ajouter leur ID Azure pour accéder aux applications métier et aux ressources.</p>
                     </div>
                 </div>
             </div>
@@ -119,7 +119,7 @@ Les technologies d'identité et d'accès permettent de sécuriser des environnem
                     </div>
                     <div class="cardText">
                         <h3>Services de fédération Active Directory (AD FS)</h3><hr />
-                        <p>Documentation détaillée de toutes les fonctionnalités disponibles pour AD FS dans Windows Server.</p>
+                        <p>Documentation détaillée de toutes les fonctionnalités disponibles pour AD DS dans Windows Server.</p>
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@ Les technologies d'identité et d'accès permettent de sécuriser des environnem
 ---
 
 ## <a name="solutions-and-scenario-guides"></a>Guides de solutions et de scénarios  
-* [Sécuriser l’accès aux ressources d’entreprise à partir de n’importe quel emplacement sur n’importe quel appareil](https://technet.microsoft.com/library/dn550982.aspx)  
-*  [Rejoindre un espace de travail à partir de n’importe quel appareil pour l’authentification unique et transparente du facteur d’authentification entre les Applications d’entreprise](https://technet.microsoft.com/library/dn280945.aspx)  
-* [Gérer les risques avec une authentification multifacteur supplémentaire pour les Applications sensibles](https://technet.microsoft.com/library/dn280949.aspx)  
-* [Gérer les risques avec contrôle d’accès conditionnel](https://technet.microsoft.com/library/dn280937.aspx)
+* [Sécuriser l’accès aux ressources de la société depuis n’importe quel endroit et n’importe quel appareil](https://technet.microsoft.com/library/dn550982.aspx)  
+*  [Joindre un espace de travail à partir de n’importe quel appareil en utilisant l’authentification unique et l’authentification de second facteur transparente](https://technet.microsoft.com/library/dn280945.aspx)  
+* [Gérer les risques avec une authentification multifacteur supplémentaire pour les applications sensibles](https://technet.microsoft.com/library/dn280949.aspx)  
+* [Gérer les risques avec le contrôle d’accès conditionnel](https://technet.microsoft.com/library/dn280937.aspx)
