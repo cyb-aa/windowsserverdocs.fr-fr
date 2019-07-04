@@ -12,21 +12,21 @@ ms.assetid: 599d6438-a506-4d57-a0ea-1eb7ec19f46e
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: cc535934705878c7f2b7fdc4e655ab5c853e4f96
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.openlocfilehash: 165b7e7aea7a7d0bb56d21f350f6ee646d5fa973
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66443534"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280408"
 ---
 # <a name="manage-nano-server"></a>Gérer Nano Server
 
->S'applique à : Windows Server 2016
+>S'applique à : Windows Server 2016
 
 > [!IMPORTANT]
-> À compter de Windows Server, version 1709, Nano Server sera uniquement disponible sous forme d’[image du système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Consultez [Modifications apportées à Nano Server](nano-in-semi-annual-channel.md) pour en savoir plus.   
+> À compter de Windows Server, version 1709, Nano Server sera uniquement disponible sous forme d’[image de système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Pour en savoir plus, consultez [Changements apportés à Nano Server](nano-in-semi-annual-channel.md).   
 
-La gestion de Nano Server s’effectue à distance. Il n’existe aucune fonctionnalité d’ouverture de session locale et les services Terminal Server ne sont pas pris en charge. Toutefois, vous disposez d’un large éventail d’options pour gérer Nano Server à distance: Windows PowerShell, Windows Management Instrumentation (WMI), Gestion à distance de Windows, Services de gestion d’urgence (EMS), etc.  
+La gestion de Nano Server s’effectue à distance. Il n’existe aucune fonctionnalité d’ouverture de session locale et les services Terminal Server ne sont pas pris en charge. Toutefois, vous disposez d’un large éventail d’options pour gérer Nano Server à distance : Windows PowerShell, Windows Management Instrumentation (WMI), Gestion à distance de Windows, Services de gestion d’urgence (EMS), etc.  
 
 Pour utiliser un outil de gestion à distance, il vous faudra probablement connaître l’adresse IP du serveur Nano Server. Pour trouver cette adresse IP, vous pouvez entre autres recourir aux méthodes suivantes :  
   
@@ -40,14 +40,14 @@ Pour utiliser un outil de gestion à distance, il vous faudra probablement conna
 Pour gérer Nano Server avec la communication à distance Windows PowerShell, vous devez ajouter l’adresse IP de l’instance Nano Server à la liste des hôtes approuvés par votre ordinateur de gestion, ajouter le compte que vous utilisez à la liste des administrateurs de Nano Server, et activer CredSSP si vous prévoyez d’utiliser cette fonctionnalité.  
 
 > [!NOTE]
-> Si la cible Nano Server et votre ordinateur de gestion sont dans la même forêt AD DS (ou dans des forêts avec une relation d’approbation), vous ne devez pas ajouter le serveur Nano Server à la liste des hôtes approuvés, vous pouvez vous connecter au serveur Nano à l’aide de son nom de domaine complet , par exemple : PS C :\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
+> Si l’instance Nano Server cible et votre ordinateur de gestion se trouvent dans la même forêt AD DS (ou dans des forêts ayant une relation d’approbation), vous n’avez pas besoin d’ajouter l’instance Nano Server à la liste des hôtes approuvés. Il vous suffit de vous connecter à l’instance Nano Server à l’aide de son nom de domaine complet, par exemple : PS C:\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
   
   
 Pour ajouter le serveur Nano Server à la liste des hôtes approuvés, exécutez cette commande à partir d’une invite Windows PowerShell avec élévation de privilèges :  
   
 `Set-Item WSMan:\localhost\Client\TrustedHosts "<IP address of Nano Server>"`  
   
-Pour démarrer la session Windows PowerShell à distance, démarrez une session Windows PowerShell locale avec élévation de privilèges, puis exécutez les commandes suivantes:  
+Pour démarrer la session Windows PowerShell à distance, démarrez une session Windows PowerShell locale avec élévation de privilèges, puis exécutez les commandes suivantes :  
   
   
 ```  
@@ -60,14 +60,14 @@ Enter-PSSession -ComputerName $ip -Credential $user
 Vous pouvez maintenant exécuter normalement des commandes Windows PowerShell sur le serveur Nano Server.  
   
 > [!NOTE]  
-> Certaines commandes Windows PowerShell ne sont pas disponibles dans cette version de Nano Server. Pour afficher les commandes disponibles, exécutez `Get-Command -CommandType Cmdlet`  
+> Certaines commandes Windows PowerShell ne sont pas disponibles dans cette version de Nano Server. Pour voir les commandes disponibles, exécutez `Get-Command -CommandType Cmdlet`  
   
-Arrêter la session à distance avec la commande `Exit-PSSession`  
+Pour arrêter la session à distance, utilisez la commande `Exit-PSSession`  
   
 ## <a name="using-windows-powershell-cim-sessions-over-winrm"></a>Utilisation de sessions CIM Windows PowerShell sur WinRM  
 Vous pouvez utiliser des sessions et instances CIM dans Windows PowerShell pour exécuter des commandes WMI sur le service Gestion à distance de Windows (WinRM).  
   
-Pour démarrer la session CIM, exécutez les commandes suivantes dans une invite de commandes Windows PowerShell:  
+Pour démarrer la session CIM, exécutez les commandes suivantes dans une invite de commandes Windows PowerShell :  
   
   
 ```  
@@ -77,7 +77,7 @@ $cim = New-CimSession -Credential $user -ComputerName $ip
 ```  
   
   
-Une fois la session établie, vous pouvez exécuter différentes commandes WMI, par exemple :  
+Une fois la session établie, vous pouvez exécuter diverses commandes WMI, par exemple :  
   
   
 ```  
@@ -95,7 +95,7 @@ winrm set winrm/config/client @{TrustedHosts="<ip address of Nano Server>"}
 chcp 65001
 ```
   
-Vous pouvez maintenant exécuter des commandes à distance sur le serveur Nano Server. Exemple :  
+Vous pouvez maintenant exécuter des commandes à distance sur le serveur Nano Server. Par exemple :  
 
 ```
 winrs -r:<IP address of Nano Server> -u:Administrator -p:<Nano Server administrator password> ipconfig
@@ -122,11 +122,11 @@ Si vous voulez installer un package de mise en service, utilisez le paramètre -
   
 `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath \\path\to\kb123456.cab`  
   
-Un package de mise en service ou un correctif logiciel est souvent téléchargé en tant qu’élément de la base de connaissances qui contient un fichier .CAB. Procédez comme suit pour extraire le fichier .cab, que vous pouvez ensuite installer à l’aide du paramètre -ServicingPackagePath:  
+Un package de mise en service ou un correctif logiciel est souvent téléchargé en tant qu’élément de la base de connaissances qui contient un fichier .CAB. Procédez comme suit pour extraire le fichier .cab, que vous pouvez ensuite installer à l’aide du paramètre -ServicingPackagePath :  
   
-1.  Téléchargez le package de mise en service (depuis l’article correspondant de la Base de connaissances ou depuis le [catalogue Microsoft Update](https://catalog.update.microsoft.com/v7/site/home.aspx). Enregistrer dans un partage de répertoire ou de réseau local, par exemple : C:\ServicingPackages  
+1.  Téléchargez le package de mise en service (depuis l’article correspondant de la Base de connaissances ou depuis le [catalogue Microsoft Update](https://catalog.update.microsoft.com/v7/site/home.aspx). Enregistrez-le dans un répertoire ou un partage réseau local, par exemple : C:\ServicingPackages  
 2.  Créez un dossier dans lequel enregistrer le package de mise en service extrait.  Exemple : c:\KB3157663_développé  
-3.  Ouvrez une console Windows PowerShell et utilisez la commande `Expand` en spécifiant le chemin d’accès au fichier .msu du package de mise en service, y compris le paramètre `-f:*` et l’emplacement où vous souhaitez que le package de mise en service soit extrait.  Par exemple :  `Expand "C:\ServicingPackages\Windows10.0-KB3157663-x64.msu" -f:* "C:\KB3157663_expanded"`  
+3.  Ouvrez une console Windows PowerShell et utilisez la commande `Expand` en spécifiant le chemin d’accès au fichier .msu du package de mise en service, y compris le paramètre `-f:*` et l’emplacement où vous souhaitez que le package de mise en service soit extrait.  Par exemple : `Expand "C:\ServicingPackages\Windows10.0-KB3157663-x64.msu" -f:* "C:\KB3157663_expanded"`  
   
     Les fichiers développés se présenteront comme suit:  
 C:>dir C:\KB3157663_développé   
@@ -140,16 +140,16 @@ Le numéro de série du volume est B05B-CC3D
         17/04/2016 00:31               517 Windows10.0-KB3157663-x64-pkgProperties.txt  
 17/04/2016  00:30        93 886 347 Windows10.0-KB3157663-x64.cab  
 17/04/2016  00:31        454 Windows10.0-KB3157663-x64.xml  
-17/04/2016  00:36           185818 WSUSSCAN.cab  
-               4fichier(s) 94073136octets  
+17/04/2016  00:36           185 818 WSUSSCAN.cab  
+               4 fichier(s) 94 073 136 octets  
                2Rép(s) 328559427584 octets libres  
-4.  Exécutez `New-NanoServerImage` avec le paramètre - ServicingPackagePath pointant vers le fichier .cab dans ce répertoire, par exemple : `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath C:\KB3157663_expanded\Windows10.0-KB3157663-x64.cab`  
+4.  Exécutez `New-NanoServerImage` avec le paramètre -ServicingPackagePath pointant vers le fichier .cab dans ce répertoire, par exemple : `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath C:\KB3157663_expanded\Windows10.0-KB3157663-x64.cab`  
 
 ## <a name="managing-updates-in-nano-server"></a>Gestion des mises à jour dans Nano Server
 
 À l’heure actuelle, vous pouvez utiliser le fournisseur Windows Update pour Windows Management Instrumentation (WMI) afin de rechercher la liste des mises à jour applicables, puis installer l’ensemble ou un sous-ensemble de celles-ci. Si vous utilisez Windows Server Update Services (WSUS), vous pouvez également configurer le serveur Nano Server de sorte qu’il contacte le serveur WSUS pour obtenir les mises à jour.  
 
-Dans tous les cas, commencez par établir une session Windows PowerShell à distance avec l’ordinateur Nano Server. Ces exemples utilisent *$sess* pour la session; si vous utilisez autre chose, remplacez cet élément là où il y a lieu.  
+Dans tous les cas, commencez par établir une session Windows PowerShell à distance avec l’ordinateur Nano Server. Ces exemples utilisent *$sess* pour la session ; si vous utilisez autre chose, remplacez cet élément là où il y a lieu.  
 
 
 ### <a name="view-all-available-updates"></a>Afficher toutes les mises à jour disponibles  
@@ -237,12 +237,12 @@ Le flux de travail global reste le même que sur n’importe quelle installation
 Les sections suivantes répertorient les activités de collecte de données les plus courantes, ainsi qu’un moyen pour les accomplir sur Nano Server.
 
 ### <a name="query-available-event-providers"></a>Interroger les fournisseurs d’événements disponibles
-L’[Enregistreur de performance Windows](https://msdn.microsoft.com/en-us/library/hh448229.aspx) permet d’interroger les fournisseurs d’événements disponibles à l’aide de la commande suivante :
+L’[Enregistreur de performance Windows](https://msdn.microsoft.com/library/hh448229.aspx) permet d’interroger les fournisseurs d’événements disponibles à l’aide de la commande suivante :
 ```
 wpr.exe -providers
 ```
 
-Vous pouvez filtrer la sortie sur le type d’événements qui vous intéresse. Exemple :
+Vous pouvez filtrer la sortie sur le type d’événements qui vous intéresse. Par exemple :
 ```
 PS C:\> wpr.exe -providers | select-string "Storage"
 
@@ -326,7 +326,7 @@ Copyright (c) 2015 Microsoft Corporation. All rights reserved.
 Pour obtenir des instructions détaillées sur la création de profils personnalisés, consultez la [documentation sur WPR.exe](https://msdn.microsoft.com/library/windows/hardware/hh448223.aspx).
 
 ### <a name="record-etw-traces-during-operating-system-boot-time"></a>Enregistrer des suivis ETW pendant le démarrage du système d’exploitation
-Pour collecter les événements pendant le démarrage du système, utilisez l’applet de commande ```New-AutologgerConfig```. Son utilisation est très similaire à celle de l’applet de commande ```New-EtwTraceSession```, mais les fournisseurs ajoutés à la configuration du journal automatique seront seulement activés au début lors du prochain démarrage. Le flux de travail global se présente comme suit:
+Pour collecter les événements pendant le démarrage du système, utilisez l’applet de commande ```New-AutologgerConfig```. Son utilisation est très similaire à celle de l’applet de commande ```New-EtwTraceSession```, mais les fournisseurs ajoutés à la configuration du journal automatique seront seulement activés au début lors du prochain démarrage. Le flux de travail global se présente comme suit :
 
 Commencez par créer une nouvelle configuration de journal automatique.
 ```
@@ -351,7 +351,7 @@ PS C:\> Remove-AutologgerConfig -Name BootPnpLog
 Pour collecter les suivis de démarrage et d’installation sur un certain nombre de systèmes ou sur un système sans disque, vous pouvez utiliser la [collecte d’événements de configuration et de démarrage](../administration/get-started-with-setup-and-boot-event-collection.md).
 
 ### <a name="capture-performance-counter-data"></a>Capturer les données de compteur de performance
-En règle générale, l’analyse des données de compteur de performance se fait à l’aide de l’interface utilisateur graphique Perfmon.exe. Sur Nano Server, utilisez l’équivalent de ligne de commande ```Typeperf.exe```. Exemple :
+En règle générale, l’analyse des données de compteur de performance se fait à l’aide de l’interface utilisateur graphique Perfmon.exe. Sur Nano Server, utilisez l’équivalent de ligne de commande ```Typeperf.exe```. Par exemple :
 
 Interrogez les compteurs disponibles (vous pouvez filtrer la sortie pour trouver facilement ceux qui vous intéressent).
 ```
