@@ -13,20 +13,20 @@ ms.author: jaimeo
 ms.date: 09/06/2017
 ms.localizationpriority: medium
 ms.openlocfilehash: c3376d03a2e9f02b20aba608de0228efd7dfddea
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66443621"
 ---
 # <a name="developing-powershell-cmdlets-for-nano-server"></a>Développement d’applets de commande PowerShell pour Nano Server
 
->S'applique à : Windows Server 2016
+>S'applique à : Windows Server 2016
 
 > [!IMPORTANT]
-> À compter de Windows Server, version 1709, Nano Server sera uniquement disponible sous forme d’[image du système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Consultez [Modifications apportées à Nano Server](nano-in-semi-annual-channel.md) pour en savoir plus. 
+> À partir de Windows Server version 1709, Nano Server sera uniquement disponible sous forme d'[image de système d'exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Pour en savoir plus, consultez [Modifications apportées à Nano Server](nano-in-semi-annual-channel.md). 
   
-## <a name="overview"></a>Vue d'ensemble  
+## <a name="overview"></a>Vue d’ensemble  
 Nano Server inclut PowerShell Core par défaut dans toutes les installations. PowerShell Core est une édition à encombrement réduit de PowerShell qui repose sur .NET Core et s’exécute sur des éditions à encombrement réduit de Windows, telles que Nano Server et Windows IoT Core. PowerShell Core fonctionne de la même manière que les autres éditions de PowerShell, par exemple Windows PowerShell exécuté sur Windows Server 2016. Toutefois, l’encombrement réduit de Nano Server signifie que certaines fonctionnalités PowerShell de Windows Server 2016 ne sont pas disponibles dans PowerShell Core sur Nano Server.  
   
 Si vous disposez déjà d’applets de commande PowerShell que vous souhaiteriez exécuter sur Nano Server, ou si vous en développez de nouvelles à cette fin, les conseils et suggestions de cette rubrique simplifieront votre travail.  
@@ -36,8 +36,8 @@ Si vous disposez déjà d’applets de commande PowerShell que vous souhaiteriez
   
 À compter de la version 5.1, PowerShell est disponible dans plusieurs éditions, dont les ensembles de fonctionnalités et la compatibilité de plateforme diffèrent.  
   
-- **Desktop Edition :** Basé sur .NET Framework et fournit une compatibilité avec les scripts et modules qui ciblent des versions de PowerShell exécutées sur les éditions complètes de Windows telles que Server Core et Windows Desktop.  
-- **Core Edition :** Basée sur .NET Core et assure la compatibilité avec les scripts et modules qui ciblent des versions de PowerShell exécutées sur des éditions à encombrement réduit de Windows telles que Nano Server et Windows IoT.  
+- **Édition Desktop :** repose sur .NET Framework et offre une compatibilité avec les scripts et les modules ciblant les versions de PowerShell exécutées sur les éditions complètes de Windows, telles que Server Core et le Bureau Windows.  
+- **Édition Core :** repose sur .NET Core et offre une compatibilité avec les scripts et les modules ciblant les versions de PowerShell exécutées sur les éditions à encombrement réduit de Windows, telles que Nano Server et Windows IoT.  
   
 L’édition de PowerShell exécutée est indiquée dans la propriété PSEdition de $PSVersionTable.  
 ```powershell  
@@ -110,14 +110,14 @@ At line:1 char:1
 La rubrique parente [Installer Nano Server](Getting-Started-with-Nano-Server.md) propose un démarrage rapide ainsi qu’une procédure détaillée pour l’installation de Nano Server sur des ordinateurs physiques ou virtuels.  
   
 > [!NOTE]  
-> Pour un travail de développement sur Nano Server, il peut vous être utile d’installer Nano Server à l’aide du paramètre -Development de New-NanoServerImage. Cela permettra l’installation de pilotes non signés, la copie des fichiers binaires du débogueur, l’ouverture d’un port pour le débogage, la signature de test et l’installation des packages AppX sans licence de développeur. Exemple :  
+> Pour un travail de développement sur Nano Server, il peut vous être utile d’installer Nano Server à l’aide du paramètre -Development de New-NanoServerImage. Cela permettra l’installation de pilotes non signés, la copie des fichiers binaires du débogueur, l’ouverture d’un port pour le débogage, la signature de test et l’installation des packages AppX sans licence de développeur. Par exemple :  
 >  
 >`New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -Development`  
   
 ## <a name="determining-the-type-of-cmdlet-implementation"></a>Détermination du type d’implémentation d’applet de commande  
 PowerShell prend en charge plusieurs types d’implémentation pour les applets de commande. Celui que vous utilisez détermine le processus et les outils nécessaires à leur création ou à leur portage en vue d’un fonctionnement sur Nano Server. Les types d’implémentation pris en charge sont les suivants :  
 * CIM : inclut plusieurs fichiers CDXML superposés sur des fournisseurs CIM (WMIv2)   
-* .NET : inclut des assemblys .NET qui implémentent des interfaces d’applet de commande managées, généralement écrites en C#   
+* .NET : inclut des assemblys .NET qui implémentent des interfaces d'applet de commande managées, généralement écrites en C#   
 * Script PowerShell : constitué de modules de script (.psm1) ou de scripts (.ps1) écrits en langage PowerShell   
   
 Si vous n’êtes pas certain de l’implémentation que vous avez utilisée pour les applets de commande existantes que vous souhaitez porter, installez votre produit ou fonctionnalité, puis recherchez le dossier des modules PowerShell dans l’un des emplacements suivants :   
@@ -125,7 +125,7 @@ Si vous n’êtes pas certain de l’implémentation que vous avez utilisée pou
 * %windir%\system32\WindowsPowerShell\v1.0\Modules   
 * %ProgramFiles%\WindowsPowerShell\Modules   
 * %UserProfile%\Documents\WindowsPowerShell\Modules   
-* \<votre emplacement d’installation du produit >   
+* \<Emplacement d'installation de votre produit>   
     
   Vérifiez les détails suivants dans ces emplacements :  
   * Les applets de commande CIM présentent des extensions de fichier .cdxml.  
@@ -160,11 +160,11 @@ Le module SDK dépend également de l’installation de la fonctionnalité suiva
 Vérifiez votre installation de Visual Studio avant d’utiliser le module SDK pour vous assurer que ces conditions préalables sont remplies. Assurez-vous de choisir l’installation de la fonctionnalité ci-dessus pendant l’installation de Visual Studio, ou modifiez votre installation existante de Visual Studio 2015 pour l’installer.  
   
 Le module SDK PowerShell Core inclut des applets de commande suivantes :  
-- New-NanoCSharpProject : Crée un nouveau Visual Studio C# projet ciblant CoreCLR et PowerShell Core inclus dans la version de Windows Server 2016 de Nano Server.  
-- Show-SdkSetupReadMe: Ouvre le dossier racine du kit SDK dans l’Explorateur de fichiers et le fichier README.txt pour le programme d’installation manuelle.  
-- Install-RemoteDebugger : Installe et configure le débogueur distant Visual Studio sur un ordinateur Nano Server.  
-- Start-RemoteDebugger : Démarre le débogueur distant sur un ordinateur distant exécutant Nano Server.  
-- Stop-RemoteDebugger : Arrête le débogueur distant sur un ordinateur distant exécutant Nano Server.  
+- New-NanoCSharpProject : crée un projet Visual Studio C# ciblant CoreCLR et PowerShell Core inclus dans la version Windows Server 2016 de Nano Server.  
+- Show-SdkSetupReadMe : ouvre le dossier racine du kit de développement logiciel (SDK) dans l'Explorateur de fichiers, et ouvre le fichier README.txt en vue d'une installation manuelle.  
+- Install-RemoteDebugger : installe et configure le débogueur distant Visual Studio sur un ordinateur Nano Server.  
+- Start-RemoteDebugger : démarre le débogueur distant sur un ordinateur distant exécutant Nano Server.  
+- Stop-RemoteDebugger : arrête le débogueur distant sur un ordinateur distant exécutant Nano Server.  
   
 Pour plus d’informations sur l’utilisation de ces applets de commande, exécutez Get-Help sur chaque applet de commande après l’installation et l’importation du module comme suit :  
   
@@ -242,7 +242,7 @@ Pour déboguer un script à distance, connectez-vous à l’ordinateur distant �
   
 ### <a name="migrating-from-wmi-net-to-mi-net"></a>Migration à partir de WMI .NET vers MI .NET  
   
-[WMI .NET](https://msdn.microsoft.com/library/mt481551(v=vs.110).aspx) n'est pas pris en charge, donc toutes les applets de commande à l’aide de l’ancienne API doivent migrer vers l’API WMI prise en charge : [MI. NET](https://msdn.microsoft.com/library/dn387184(v=vs.85).aspx). Vous pouvez accéder à MI .NET directement en C# ou par le biais des applets de commande du module CimCmdlets.   
+[WMI .NET](https://msdn.microsoft.com/library/mt481551(v=vs.110).aspx) n'est pas pris en charge. Par conséquent, toutes les applets de commande utilisant l'ancienne API doivent migrer vers l'API WMI prise en charge : [MI. NET](https://msdn.microsoft.com/library/dn387184(v=vs.85).aspx). Vous pouvez accéder à MI .NET directement en C# ou par le biais des applets de commande du module CimCmdlets.   
   
 ### <a name="cimcmdlets-module"></a>Module CimCmdlets  
   

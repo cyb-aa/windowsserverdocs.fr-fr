@@ -13,18 +13,18 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 8d793dde9c41bc99b55eeb0da3a5ee4b025f08d6
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66443639"
 ---
 # <a name="developing-for-nano-server"></a>Développement pour Nano Server
 
->S'applique à : Windows Server 2016
+>S'applique à : Windows Server 2016
 
 > [!IMPORTANT]
-> À compter de Windows Server, version 1709, Nano Server sera uniquement disponible sous forme d’[image du système d’exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Consultez [Modifications apportées à Nano Server](nano-in-semi-annual-channel.md) pour en savoir plus. 
+> À partir de Windows Server version 1709, Nano Server sera uniquement disponible sous forme d'[image de système d'exploitation de base du conteneur](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image). Pour en savoir plus, consultez [Modifications apportées à Nano Server](nano-in-semi-annual-channel.md). 
 
 Ces rubriques expliquent les différences importantes de PowerShell sur Nano Server et fournissent des conseils pour développer vos propres applets de commande PowerShell pour Nano Server.
 
@@ -35,14 +35,14 @@ Ces rubriques expliquent les différences importantes de PowerShell sur Nano Ser
 Pour gérer Nano Server avec la communication à distance Windows PowerShell, vous devez ajouter l’adresse IP de l’instance Nano Server à la liste des hôtes approuvés par votre ordinateur de gestion, ajouter le compte que vous utilisez à la liste des administrateurs de Nano Server, et activer CredSSP si vous prévoyez d’utiliser cette fonctionnalité.  
 
 > [!NOTE]
-> Si la cible Nano Server et votre ordinateur de gestion sont dans la même forêt AD DS (ou dans des forêts avec une relation d’approbation), vous ne devez pas ajouter le serveur Nano Server à la liste des hôtes approuvés, vous pouvez vous connecter au serveur Nano à l’aide de son nom de domaine complet , par exemple : PS C :\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
+> Si l'instance Nano Server cible et votre ordinateur de gestion se trouvent dans la même forêt AD DS (ou dans des forêts ayant une relation d'approbation), vous n'avez pas besoin d'ajouter l'instance Nano Server à la liste des hôtes approuvés. Il vous suffit de vous connecter à l'instance Nano Server à l'aide de son nom de domaine complet, par exemple : PS C:\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
   
   
 Pour ajouter le serveur Nano Server à la liste des hôtes approuvés, exécutez cette commande à partir d’une invite Windows PowerShell avec élévation de privilèges :  
   
 `Set-Item WSMan:\localhost\Client\TrustedHosts "<IP address of Nano Server>"`  
   
-Pour démarrer la session Windows PowerShell à distance, démarrez une session Windows PowerShell locale avec élévation de privilèges, puis exécutez les commandes suivantes:  
+Pour démarrer la session Windows PowerShell à distance, démarrez une session Windows PowerShell locale avec élévation de privilèges, puis exécutez les commandes suivantes :  
   
   
 ```  
@@ -55,14 +55,14 @@ Enter-PSSession -ComputerName $ip -Credential $user
 Vous pouvez maintenant exécuter normalement des commandes Windows PowerShell sur le serveur Nano Server.  
   
 > [!NOTE]  
-> Certaines commandes Windows PowerShell ne sont pas disponibles dans cette version de Nano Server. Pour afficher les commandes disponibles, exécutez `Get-Command -CommandType Cmdlet`  
+> Certaines commandes Windows PowerShell ne sont pas disponibles dans cette version de Nano Server. Pour voir les commandes disponibles, exécutez `Get-Command -CommandType Cmdlet`  
   
-Arrêter la session à distance avec la commande `Exit-PSSession`  
+Pour arrêter la session à distance, utilisez la commande `Exit-PSSession`  
   
 ## <a name="using-windows-powershell-cim-sessions-over-winrm"></a>Utilisation de sessions CIM Windows PowerShell sur WinRM  
 Vous pouvez utiliser des sessions et instances CIM dans Windows PowerShell pour exécuter des commandes WMI sur le service Gestion à distance de Windows (WinRM).  
   
-Pour démarrer la session CIM, exécutez les commandes suivantes dans une invite de commandes Windows PowerShell:  
+Pour démarrer la session CIM, exécutez les commandes suivantes dans une invite de commandes Windows PowerShell :  
   
   
 ```  

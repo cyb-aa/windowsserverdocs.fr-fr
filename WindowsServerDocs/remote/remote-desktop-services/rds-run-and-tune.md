@@ -1,6 +1,6 @@
 ---
-title: Services Bureau à distance - exécution et paramétrage
-description: Fournit des informations de gestion pour les Services Bureau à distance.
+title: Services Bureau à distance - Exécution et optimisation
+description: Fournit des informations sur la gestion des services Bureau à distance.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,37 +14,37 @@ ms.assetid: 79909767-a4c3-4ecf-8d3f-77d37a663153
 author: spatnaik
 manager: scottman
 ms.openlocfilehash: 40f8dbd560da359e8764ed715e7776cc2d230a7f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862180"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63712090"
 ---
-# <a name="run-and-tune-your-remote-desktop-services-environment"></a>Exécuter et optimiser votre environnement de Services Bureau à distance
+# <a name="run-and-tune-your-remote-desktop-services-environment"></a>Exécuter et optimiser votre environnement de services Bureau à distance
 
-Réglage de votre déploiement prend du temps et requiert instrumentation et surveillance. Utilisez les processus ci-dessous pour affiner votre déploiement de bureau à distance, de garantir son fonctionnement et de permettre l’évolutivité horizontale () en fonction des besoins. 
+L'optimisation de votre déploiement prend du temps et requiert instrumentation et surveillance. Utilisez les processus ci-dessous pour affiner votre déploiement Bureau à distance, préserver son fonctionnement et faciliter sa mise à l'échelle en fonction des besoins. 
 
-Il est recommandé d’évaluer régulièrement les mesures et le solde contre les frais de fonctionnement.
+Il convient d'évaluer en permanence les métriques et de trouver un équilibre par rapport aux coûts d'exploitation.
 
 ## <a name="management-and-monitoring"></a>Gestion et surveillance
 
-Découvrez [gérer les utilisateurs dans votre collection de services Bureau à distance](rds-user-management.md) pour plus d’informations sur la façon de gérer l’accès à vos ordinateurs de bureau et les ressources distantes.
+Consultez [Gérer les utilisateurs de votre collection de services Bureau à distance](rds-user-management.md) pour en savoir plus sur la gestion des accès à vos appareils de bureau et à vos ressources distantes.
 
-Utilisez **Microsoft Operations Management Suite (OMS)** pour surveiller les déploiements Bureau à distance pour les goulots d’étranglement potentiels et de les gérer à l’aide d’une des manières suivantes : 
+Utilisez **Microsoft Operations Management Suite (OMS)** pour surveiller les déploiements Bureau à distance afin de détecter les éventuels goulots d'étranglement et de les gérer de l'une des façons suivantes : 
 
-- **Le Gestionnaire de serveur**: Utilisez l’outil de gestion de bureau à distance est intégré à Windows Server pour gérer les déploiements avec les utilisateurs finaux à distance simultanées jusqu'à 500. 
-- **PowerShell**: Utiliser le module PowerShell de bureau à distance, également intégré à Windows Server, pour gérer les déploiements avec les utilisateurs finaux à distance simultanées jusqu'à 5 000.
+- **Gestionnaire de serveur** : utilisez l'outil de gestion des services Bureau à distance intégré à Windows Server pour gérer les déploiements comprenant jusqu'à 500 utilisateurs finaux distants simultanés. 
+- **PowerShell** : utilisez le module PowerShell Bureau à distance, également intégré à Windows Server, pour gérer les déploiements comprenant jusqu'à 5 000 utilisateurs finaux distants simultanés.
 
-## <a name="scale-bigger-better-faster"></a>Mise à l’échelle : Plus important, plus performant, plus rapidement
+## <a name="scale-bigger-better-faster"></a>Des mises à l'échelle plus importantes, plus performantes et plus rapides
 
-Avec une visibilité pour le déploiement, vous pouvez contrôler la mise à l’échelle avec davantage de précision. Facilement ajouter ou supprimer des serveurs hôtes de bureau à distance en fonction des besoins de mise à l’échelle. 
+Grâce à la visibilité dont vous disposez sur le déploiement, vous pouvez contrôler les mises à l'échelle avec plus de précision. Ajoutez ou supprimez facilement des serveurs hôtes Bureau à distance en fonction des besoins de mise à l'échelle. 
 
-Les déploiements Bureau à distance qui reposent sur Azure peuvent rendre l’utilisation des services Azure, tel que SQL Azure, pour mettre à l’échelle automatiquement à la demande.
+Les déploiements Bureau à distance basés sur Azure peuvent utiliser des services Azure, tels qu'Azure SQL, pour une mise à l'échelle automatique et à la demande.
 
-## <a name="automation-script-for-success"></a>Automation : Création de scripts
+## <a name="automation-script-for-success"></a>Automatisation : le scénario du succès
 
-La gestion d’une application en cours d’exécution très évolutive implique des opérations répétées sur une base régulière. Utilisez les applets de commande PowerShell de Services Bureau à distance et les fournisseurs WMI pour développer des scripts qui peuvent être exécutés sur plusieurs déploiements au besoin. Exécuter les règles de Best Practice Analyzer (BPA) pour les Services Bureau à distance sur vos déploiements à paramétrer vos déploiements.
+Pour préserver le fonctionnement d'une application à grande échelle, un certain nombre d'opérations doivent être régulièrement répétées. Utilisez les applets de commande PowerShell des services Bureau à distance et les fournisseurs WMI pour développer des scripts exécutables sur plusieurs déploiements en cas de besoin. Exécutez les règles BPA (Best Practice Analyzer) des services Bureau à distance sur vos déploiements afin de les optimiser.
 
-## <a name="load-testing-avoid-surprises"></a>Test de charge : Évitez les surprises
+## <a name="load-testing-avoid-surprises"></a>Test de charge : éviter les surprises
 
-Test de charge le déploiement avec les tests de stress et de simulation de l’utilisation réelle. Faire varier la taille de charge pour éviter les surprises ! Assurez-vous que la réactivité répond aux besoins des utilisateurs, et que l’ensemble du système est résilient. Créer des tests de charge avec des outils de simulation, comme LoginVSI, qui vérifient la capacité de votre déploiement pour répondre aux besoins des utilisateurs. 
+Soumettez le déploiement à un test de charge en procédant à des tests de contrainte et à une simulation d'utilisation en conditions réelles. Faites varier la taille de charge pour éviter les surprises ! Assurez-vous que la réactivité répond aux besoins des utilisateurs et que l'ensemble du système est résilient. Créez des tests de charge avec des outils de simulation, tels que LoginVSI, permettant de vérifier si votre déploiement répond aux besoins des utilisateurs. 

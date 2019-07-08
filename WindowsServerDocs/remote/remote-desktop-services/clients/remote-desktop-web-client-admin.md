@@ -1,6 +1,6 @@
 ---
-title: Configurer le client web de Bureau à distance pour vos utilisateurs
-description: Décrit comment un administrateur peut configurer le client web de bureau à distance.
+title: Configurer le client web Bureau à distance pour vos utilisateurs
+description: Décrit la procédure à suivre par un administrateur pour configurer le client web Bureau à distance.
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: helohr
@@ -9,271 +9,271 @@ ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
 ms.openlocfilehash: 45164e9eca0873c82148aa3b7baa179a3f626dd7
-ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66804973"
 ---
-# <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Configurer le client web de Bureau à distance pour vos utilisateurs
+# <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Configurer le client web Bureau à distance pour vos utilisateurs
 
-Le client web de bureau à distance permet aux utilisateurs d’accéder à infrastructure de bureau à distance de votre organisation via un navigateur web compatible. Ils seront en mesure d’interagir avec des applications à distance ou de postes de travail comme ils le feraient avec un ordinateur local où qu’elles soient. Une fois que vous configurez votre client web de bureau à distance, tous vos utilisateurs ont besoin pour commencer est l’URL où ils peuvent accéder le client, leurs informations d’identification et un navigateur web pris en charge.
+Le client web Bureau à distance permet aux utilisateurs d'accéder à l'infrastructure Bureau à distance de votre organisation via un navigateur web compatible. Où qu'ils se trouvent, les utilisateurs peuvent alors interagir avec les applications ou appareils de bureau distants comme ils le feraient avec un PC local. Une fois votre client web Bureau à distance configuré, vos utilisateurs ont uniquement besoin de l'URL d'accès au client, de leurs informations d'identification et d'un navigateur web pris en charge.
 
 >[!IMPORTANT]
->Le client web ne prend pas en charge à l’aide du Proxy d’Application Azure et ne pas en charge le Proxy d’Application Web. Consultez [à l’aide de services Bureau à distance avec les services de proxy d’application](../rds-supported-config.md#using-remote-desktop-services-with-application-proxy-services) pour plus d’informations.
+>Le client web ne prend actuellement pas en charge l'utilisation du Proxy d'application Azure ni le Proxy d'application Web. Pour plus d'informations, consultez [Utilisation des services Bureau à distance avec les services de proxy d'application](../rds-supported-config.md#using-remote-desktop-services-with-application-proxy-services).
 
-## <a name="what-youll-need-to-set-up-the-web-client"></a>Ce dont vous aurez besoin configurer le client web
+## <a name="what-youll-need-to-set-up-the-web-client"></a>Ce dont vous aurez besoin pour configurer le client web
 
-Avant de commencer, gardez les points suivants à l’esprit :
+Avant de commencer, gardez les points suivants à l'esprit :
 
-* Assurez-vous que votre [déploiement de bureau à distance](../rds-deploy-infrastructure.md) est une passerelle Bureau à distance, service Broker pour les connexions Bureau à distance et que l’accès Web Bureau à distance sur Windows Server 2016 ou 2019.
-* Assurez-vous que votre déploiement est configuré pour [licences d’accès client par utilisateur](../rds-client-access-license.md) (CAL) plutôt que par périphérique, sinon toutes les licences seront consommées.
-* Installer le [mise à jour Windows 10 KB4025334](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334) sur la passerelle Bureau à distance. Plus tard les mises à jour cumulatives peut contient déjà cette base de connaissances.
-* Assurez-vous que des certificats publics approuvés sont configurés pour les rôles de passerelle Bureau à distance et l’accès Web Bureau à distance.
-* Assurez-vous que tous vos utilisateurs se connectent les ordinateurs exécutent une des versions du système d’exploitation suivantes :
+* Assurez-vous que votre [déploiement Bureau à distance](../rds-deploy-infrastructure.md) dispose d'une passerelle de services Bureau à distance, d'un service Broker pour les connexions Bureau à distance et d'un accès aux services Bureau à distance par le web sous Windows Server 2016 ou 2019.
+* Assurez-vous que votre déploiement est configuré pour utiliser des [licences d'accès client par utilisateur](../rds-client-access-license.md) et non par appareil, sinon toutes les licences seront utilisées.
+* Installez la [mise à jour KB4025334 de Windows 10](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334) sur la passerelle des services Bureau à distance. Les mises à jour cumulatives ultérieures peuvent déjà contenir cette mise à jour.
+* Assurez-vous que les certificats publics approuvés sont configurés pour les rôles Passerelle des services Bureau à distance et Accès aux services Bureau à distance par le web.
+* Assurez-vous que tous les ordinateurs auxquels vos utilisateurs se connecteront exécutent l'une des versions suivantes du système d'exploitation :
   * Windows 10
-  * Windows Server 2008 R2 ou version ultérieure
+  * Windows Server 2008 R2 ou version ultérieure
 
-Vos utilisateurs verront les meilleures performances se connectant à Windows Server 2016 (ou version ultérieure) et Windows 10 (version 1611 ou version ultérieure).
+Vos utilisateurs bénéficieront de meilleures performances en se connectant à Windows Server 2016 (ou version ultérieure) et à Windows 10 (version 1611 ou ultérieure).
 
 >[!IMPORTANT]
->Si vous utiliser le client web pendant la période d’évaluation et installé une version antérieure à 1.0.0, vous devez d’abord désinstaller l’ancien client avant de passer à la nouvelle version. Si vous recevez une erreur indiquant « le client web a été installé à l’aide d’une version antérieure de RDWebClientManagement et doit être retiré avant de déployer la nouvelle version », procédez comme suit :
+>Si vous avez utilisé le client web pendant la phase de préversion et installé une version antérieure à la version 1.0.0, vous devez d'abord désinstaller l'ancien client avant de passer à la nouvelle version. Si vous recevez le message d'erreur « Le client web a été installé à l'aide d'une version antérieure de RDWebClientManagement et doit d'abord être supprimé avant de déployer la nouvelle version », procédez comme suit :
 >
->1. Ouvrez une invite de PowerShell avec élévation de privilèges.
+>1. Ouvrez une invite PowerShell avec élévation de privilèges.
 >2. Exécutez **Uninstall-Module RDWebClientManagement** pour désinstaller le nouveau module.
->3. Fermez et rouvrez l’invite PowerShell avec élévation de privilèges.
->4. Exécutez **RDWebClientManagement d’Install-Module - RequiredVersion \<ancienne version > pour installer le module ancien.**
->5. Exécutez **RDWebClient de désinstallation** pour désinstaller l’ancien client web.
->6. Exécutez **Uninstall-Module RDWebClientManagement** pour désinstaller l’ancien module.
->7. Fermez et rouvrez l’invite PowerShell avec élévation de privilèges.
->8. Procédez comme suit les étapes d’installation normale.
+>3. Fermez et rouvrez l'invite PowerShell avec élévation de privilèges.
+>4. Exécutez **Install-Module RDWebClientManagement -RequiredVersion \<ancienne version> pour installer l'ancien module.**
+>5. Exécutez **Uninstall-RDWebClient** pour désinstaller l'ancien client web.
+>6. Exécutez **Uninstall-Module RDWebClientManagement** pour désinstaller l'ancien module.
+>7. Fermez et rouvrez l'invite PowerShell avec élévation de privilèges.
+>8. Passez aux étapes normales d'installation décrites ci-dessous.
 
-## <a name="how-to-publish-the-remote-desktop-web-client"></a>Comment publier le client web de bureau à distance
+## <a name="how-to-publish-the-remote-desktop-web-client"></a>Publier le client web Bureau à distance
 
-Pour installer le client web pour la première fois, procédez comme suit :
+Pour installer le client web, procédez comme suit :
 
-1. Sur le serveur Service Broker pour les connexions Bureau à distance, obtenir le certificat utilisé pour les connexions Bureau à distance et l’exporter sous forme de fichier .cer. Copiez le fichier .cer à partir de l’agent de connexion Bureau à distance au serveur exécutant le rôle Web de bureau à distance.
-2. Sur le serveur d’accès Web de bureau à distance, ouvrez une invite de PowerShell avec élévation de privilèges.
-3. Sur Windows Server 2016, mettez à jour le module PowerShellGet, étant donné que la version de la boîte de réception ne prend pas en charge l’installation du module de gestion de client web. Pour mettre à jour PowerShellGet, exécutez l’applet de commande suivante :
+1. Sur le serveur du service Broker pour les connexions Bureau à distance, procurez-vous le certificat utilisé pour les connexions Bureau à distance et exportez-le au format .cer. À partir du service Broker pour les connexions Bureau à distance, copiez le fichier .cer sur le serveur exécutant le rôle Accès aux services Bureau à distance par le web.
+2. Sur le serveur d'accès aux services Bureau à distance par le web, ouvrez une invite PowerShell avec élévation de privilèges.
+3. Sous Windows Server 2016, mettez à jour le module PowerShellGet, car la version de la boîte de réception ne prend pas en charge l'installation du module de gestion du client web. Pour mettre à jour le module PowerShellGet, exécutez l'applet de commande suivante :
     ```PowerShell
     Install-Module -Name PowerShellGet -Force
     ```
 
     >[!IMPORTANT]
-    >Vous devrez redémarrer PowerShell avant la mise à jour peut prendre effet, sinon que le module peut ne pas fonctionne.
+    >Vous devrez redémarrer PowerShell pour que la mise à jour prenne effet, sinon le module risque de ne pas fonctionner.
 
-4. Installer le module PowerShell de gestion du client de web de bureau à distance à partir de PowerShell gallery avec cette applet de commande :
+4. Installez le module PowerShell de gestion du client web Bureau à distance à partir de la galerie PowerShell avec l'applet de commande suivante :
     ```PowerShell
     Install-Module -Name RDWebClientManagement
     ```
 
-5. Après cela, exécutez l’applet de commande suivante pour télécharger la dernière version du client web Bureau à distance :
+5. Puis exécutez l'applet de commande suivante pour télécharger la dernière version du client web Bureau à distance :
     ```PowerShell
     Install-RDWebClientPackage
     ```
 
-6. Ensuite, exécutez cette applet de commande avec la valeur entre crochets est remplacée par le chemin d’accès du fichier .cer que vous avez copiée à partir du courtier de bureau à distance :
+6. Exécutez ensuite l'applet de commande suivante en remplaçant la valeur entre crochets par le chemin du fichier .cer que vous avez copié à partir du service Broker Bureau à distance :
     ```PowerShell
     Import-RDWebClientBrokerCert <.cer file path>
     ```
 
-7. Enfin, exécutez cette applet de commande pour publier le client web de bureau à distance :
+7. Enfin, exécutez l'applet de commande suivante pour publier le client web Bureau à distance :
     ```PowerShell
     Publish-RDWebClientPackage -Type Production -Latest
     ```
-    Assurez-vous que vous pouvez accéder le client web à l’URL de client web avec le nom de votre serveur, sous la forme <https://server_FQDN/RDWeb/webclient/index.html>. Il est important d’utiliser le nom du serveur qui correspond au certificat public de l’accès Web Bureau à distance dans l’URL (généralement le serveur nom de domaine complet).
+    Vérifiez que vous avez accès au client web via l'URL avec le nom de votre serveur, au format <https://server_FQDN/RDWeb/webclient/index.html>. Il est important d'utiliser le nom du serveur qui correspond au certificat public d'accès aux services Bureau à distance par le web dans l'URL (il s'agit généralement du nom de domaine complet du serveur).
 
     >[!NOTE]
-    >Lorsque vous exécutez le **RDWebClientPackage de publication** applet de commande, vous pouvez voir un avertissement indiquant une CAL par périphérique ne sont pas pris en charge, même si votre déploiement est configuré pour les licences d’accès client par utilisateur. Si votre déploiement utilise des CAL par utilisateur, vous pouvez ignorer cet avertissement. Nous l’affichons s’assurer que vous êtes informé de la limitation de la configuration.
-8. Lorsque vous êtes prêt pour les utilisateurs à accéder au client web, simplement les envoyer l’URL de client web que vous avez créé.
+    >Lorsque vous exécutez l'applet de commande **Publish-RDWebClientPackage**, un avertissement peut apparaître pour indiquer que les licences d'accès client par appareil ne sont pas prises en charge, même si votre déploiement est configuré pour les licences d'accès client par utilisateur. Si votre déploiement utilise des licences d'accès client par utilisateur, vous pouvez ignorer cet avertissement. Nous l'affichons pour vous informer des limites de la configuration.
+8. Lorsque vous êtes prêt à autoriser les utilisateurs à accéder au client web, il vous suffit de leur envoyer l'URL que vous avez créée pour le client web.
 
 >[!NOTE]
->Pour afficher une liste de toutes les applets de commande pris en charge pour le module RDWebClientManagement, exécutez l’applet de commande suivante dans PowerShell :
+>Pour afficher la liste de toutes les applets de commande prises en charge pour le module RDWebClientManagement, exécutez l'applet de commande suivante dans PowerShell :
 >```PowerShell
 >Get-Command -Module RDWebClientManagement
 >```
 
-## <a name="how-to-update-the-remote-desktop-web-client"></a>Comment mettre à jour le client web de bureau à distance
+## <a name="how-to-update-the-remote-desktop-web-client"></a>Mettre à jour le client web Bureau à distance
 
-Lorsqu’une nouvelle version du client web Bureau à distance est disponible, procédez comme suit pour mettre à jour le déploiement avec le nouveau client :
+Lorsqu'une nouvelle version du client web Bureau à distance est disponible, procédez comme suit pour mettre à jour le déploiement avec le nouveau client :
 
-1. Ouvrez une invite de PowerShell avec élévation de privilèges sur le serveur d’accès Web de bureau à distance et exécutez l’applet de commande suivante pour télécharger la dernière version disponible du client web :
+1. Ouvrez une invite PowerShell avec élévation de privilèges sur le serveur d'accès aux services Bureau à distance par le web et exécutez l'applet de commande suivante pour télécharger la dernière version disponible du client web :
     ```PowerShell
     Install-RDWebClientPackage
     ```
 
-2. Si vous le souhaitez, vous pouvez publier le client pour le test avant la sortie officielle en exécutant cette applet de commande :
+2. Si vous le souhaitez, vous pouvez tester le client avant sa publication officielle en exécutant l'applet de commande suivante :
     ```PowerShell
     Publish-RDWebClientPackage -Type Test -Latest
     ```
 
-    Le client doit apparaître sur l’URL de test qui correspond à l’URL de votre client web (par exemple, <https://server_FQDN/RDWeb/webclient-test/index.html>).
-3. Publier le client pour les utilisateurs en exécutant l’applet de commande suivante :
+    Le client doit apparaître sur l'URL de test correspondant à l'URL de votre client web (par exemple, <https://server_FQDN/RDWeb/webclient-test/index.html>).
+3. Publiez le client pour les utilisateurs en exécutant l'applet de commande suivante :
     ```PowerShell
     Publish-RDWebClientPackage -Type Production -Latest
     ```
 
-    Cela remplacera le client pour tous les utilisateurs lorsqu’ils relancer la page web.
+    Cela remplacera le client pour tous les utilisateurs lorsqu'ils relanceront la page web.
 
-## <a name="how-to-uninstall-the-remote-desktop-web-client"></a>Comment désinstaller le client web de bureau à distance
+## <a name="how-to-uninstall-the-remote-desktop-web-client"></a>Désinstaller le client web Bureau à distance
 
-Pour supprimer toutes les traces du client web, procédez comme suit :
+Pour supprimer toute trace du client web, procédez comme suit :
 
-1. Sur le serveur d’accès Web de bureau à distance, ouvrez une invite de PowerShell avec élévation de privilèges.
-2. Annuler la publication les clients de Test et de Production, désinstallez tous les packages locales et supprimer les paramètres de client web :
+1. Sur le serveur d'accès aux services Bureau à distance par le web, ouvrez une invite PowerShell avec élévation de privilèges.
+2. Annulez la publication des clients de test et de production, désinstallez tous les packages locaux et supprimez les paramètres du client web :
 
    ```PowerShell
    Uninstall-RDWebClient
    ```
 
-3. Désinstaller le module PowerShell de gestion du client de web de bureau à distance :
+3. Désinstallez le module PowerShell de gestion du client web Bureau à distance :
 
    ```PowerShell
    Uninstall-Module -Name RDWebClientManagement
    ```
 
-## <a name="how-to-install-the-remote-desktop-web-client-without-an-internet-connection"></a>Comment installer le client web Bureau à distance sans connexion internet
+## <a name="how-to-install-the-remote-desktop-web-client-without-an-internet-connection"></a>Installer le client web Bureau à distance sans connexion Internet
 
-Suivez ces étapes pour déployer le client web sur un serveur d’accès Web de bureau à distance n’ayant pas d’une connexion internet.
-
-> [!NOTE]
-> Installation sans une connexion internet n’est pas disponible dans la version 1.0.1 et versions ultérieures du module PowerShell de RDWebClientManagement.
+Suivez les étapes ci-dessous pour déployer le client web sur un serveur d'accès aux services Bureau à distance par le web dépourvu de connexion Internet.
 
 > [!NOTE]
-> Vous devez toujours un administrateur PC connecté à internet pour télécharger les fichiers nécessaires avant de les transférer vers le serveur en mode hors connexion.
+> L'installation sans connexion Internet est disponible avec les versions 1.0.1 et ultérieures du module PowerShell RDWebClientManagement.
 
 > [!NOTE]
-> Le PC de l’utilisateur final a besoin d’une connexion internet pour l’instant. Ce problème sera résolu dans une prochaine version du client pour fournir un scénario hors connexion complet.
+> Vous devez malgré tout disposer d'un PC administrateur avec accès Internet pour télécharger les fichiers nécessaires avant de les transférer vers le serveur hors ligne.
 
-### <a name="from-a-device-with-internet-access"></a>À partir d’un appareil connecté à internet
+> [!NOTE]
+> Pour le moment, le PC de l'utilisateur final doit disposer d'une connexion Internet. Ce point sera traité dans une prochaine version du client afin de fournir un scénario hors ligne complet.
 
-1. Ouvrez une invite de PowerShell.
+### <a name="from-a-device-with-internet-access"></a>À partir d'un appareil connecté à Internet
 
-2. Importer le module PowerShell de gestion du client de web de bureau à distance à partir de PowerShell gallery :
+1. Ouvrez une invite PowerShell.
+
+2. Importez le module PowerShell de gestion du client web Bureau à distance à partir de la galerie PowerShell :
     ```PowerShell
     Import-Module -Name RDWebClientManagement
     ```
 
-3. Téléchargez la dernière version du client web Bureau à distance pour l’installation sur un autre appareil :
+3. Téléchargez la dernière version du client web Bureau à distance pour l'installer sur un autre appareil :
     ```PowerShell
     Save-RDWebClientPackage "C:\WebClient\"
     ```
 
-4. Téléchargez la dernière version du module PowerShell de RDWebClientManagement :
+4. Téléchargez la dernière version du module PowerShell RDWebClientManagement :
     ```PowerShell
     Find-Module -Name "RDWebClientManagement" -Repository "PSGallery" | Save-Module -Path "C:\WebClient\"
     ```
 
-5. Copiez le contenu de « C:\WebClient\" au serveur d’accès Web de bureau à distance.
+5. Copiez le contenu de « C:\WebClient\" » sur le serveur d'accès aux services Bureau à distance par le web.
 
-### <a name="from-the-rd-web-access-server"></a>À partir du serveur d’accès Web de bureau à distance
+### <a name="from-the-rd-web-access-server"></a>À partir du serveur d'accès aux services Bureau à distance par le web
 
-Suivez les instructions sous [comment publier le client web de bureau à distance](remote-desktop-web-client-admin.md#how-to-publish-the-remote-desktop-web-client), en remplaçant les étapes 4 et 5 par le code suivant.
+Suivez les instructions fournies à la section [Publier le client web Bureau à distance](remote-desktop-web-client-admin.md#how-to-publish-the-remote-desktop-web-client) en remplaçant les étapes 4 et 5 par les suivantes.
 
-4. Importez le module PowerShell de gestion du client de web de bureau à distance à partir du dossier local :
+4. Importez le module PowerShell de gestion du client web Bureau à distance à partir du dossier local :
     ```PowerShell
     Import-Module -Name "C:\WebClient\"
     ```
 
-5. Déployer la dernière version du client web Bureau à distance à partir du dossier local (à remplacer par le fichier zip approprié) :
+5. Déployez la dernière version du client web Bureau à distance à partir du dossier local (remplacez le fichier par le zip approprié) :
     ```PowerShell
     Install-RDWebClientPackage -Source "C:\WebClient\rdwebclient-1.0.1.zip"
     ```
 
-## <a name="connecting-to-rd-broker-without-rd-gateway-in-windows-server-2019"></a>Connexion à Service Broker pour les services Bureau à distance sans passerelle Bureau à distance dans Windows Server 2019
-Cette section décrit comment activer une connexion de client web à un répartiteur de bureau à distance sans une passerelle Bureau à distance dans Windows Server 2019.
+## <a name="connecting-to-rd-broker-without-rd-gateway-in-windows-server-2019"></a>Connexion au service Broker Bureau à distance sans passerelle de services Bureau à distance dans Windows Server 2019
+Cette section explique comment activer une connexion client web à un service Broker Bureau à distance sans passerelle de services Bureau à distance dans Windows Server 2019.
 
-### <a name="setting-up-the-rd-broker-server"></a>Configuration du serveur Bureau à distance
+### <a name="setting-up-the-rd-broker-server"></a>Configuration du serveur du service Broker Bureau à distance
 
-#### <a name="follow-these-steps-if-there-is-no-certificate-bound-to-the-rd-broker-server"></a>Suivez ces étapes si aucun certificat n’est lié au serveur Service Broker pour les services Bureau à distance
+#### <a name="follow-these-steps-if-there-is-no-certificate-bound-to-the-rd-broker-server"></a>Suivez les étapes ci-dessous si aucun certificat n'est lié au serveur du service Broker Bureau à distance.
 
-1. Ouvrez **le Gestionnaire de serveur** > **des Services Bureau à distance**.
+1. Ouvrez **Gestionnaire de serveur** > **Services Bureau à distance**.
 
-2. Dans **vue d’ensemble du déploiement** section, sélectionnez le **tâches** menu déroulant.
+2. Dans la section **Vue d'ensemble du déploiement**, sélectionnez le menu déroulant **Tâches**.
 
-3. Sélectionnez **modifier les propriétés de déploiement**, une nouvelle fenêtre intitulée **propriétés de déploiement** s’ouvre.
+3. Sélectionnez **Modifier les propriétés de déploiement**. Une nouvelle fenêtre intitulée **Propriétés de déploiement** s'ouvre alors.
 
-4. Dans le **propriétés de déploiement** fenêtre, sélectionnez **certificats** dans le menu de gauche.
+4. Dans la fenêtre **Propriétés de déploiement**, sélectionnez **Certificats** à partir du menu de gauche.
 
-5. Dans la liste des niveaux de certificat, sélectionnez **Broker pour les connexions Bureau à distance - activer l’authentification unique**. Vous avez deux options : (1) créer un nouveau certificat ou (2) un certificat existant.
+5. Dans la liste des Niveaux de certification, sélectionnez **Service Broker pour les connexions Bureau à distance - Activer l'authentification unique**. Deux options s'offrent à vous : (1) créer un nouveau certificat ou (2) utiliser un certificat existant.
 
-#### <a name="follow-these-steps-if-there-is-a-certificate-previously-bound-to-the-rd-broker-server"></a>Suivez ces étapes s’il existe un certificat précédemment lié au serveur Service Broker pour les services Bureau à distance
+#### <a name="follow-these-steps-if-there-is-a-certificate-previously-bound-to-the-rd-broker-server"></a>Suivez les étapes ci-dessous si un certificat a précédemment été lié au serveur du service Broker Bureau à distance :
 
-1. Ouvrez le certificat lié au service Broker et copie le **empreinte** valeur.
+1. Ouvrez le certificat lié au service Broker et copiez la valeur **Thumbprint**.
 
-2. Pour lier ce certificat au port sécurisé 3392, ouvrez une fenêtre PowerShell avec élévation de privilèges et exécutez la commande suivante en remplaçant de la commande **« < thumbprint > »** avec la valeur copiée à partir de l’étape précédente :
+2. Pour lier ce certificat au port sécurisé 3392, ouvrez une fenêtre PowerShell avec élévation de privilèges et exécutez la commande suivante, en remplaçant **"<thumbprint>"** par la valeur copiée à l'étape précédente :
 
     ```PowerShell
     netsh http add sslcert ipport=0.0.0.0:3392 certhash="<thumbprint>" certstorename="Remote Desktop" appid="{00000000-0000-0000-0000-000000000000}"
     ```
 
     > [!NOTE]
-    > Pour vérifier si le certificat a été lié correctement, exécutez la commande suivante :
+    > Pour vérifier que le certificat a été correctement lié, exécutez la commande suivante :
     >
     > ```PowerShell
     > netsh http show sslcert
     > ```
     >
-    > Dans la liste des liaisons de certificat SSL, vérifiez que le certificat correct est lié au port 3392.
+    > Dans la liste des liaisons de certificat SSL, assurez-vous que le certificat qui convient est lié au port 3392.
 
-3. Ouvrez le Registre Windows (regedit) et le nagivate à ```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp``` et recherchez la clé **WebSocketURI**. La valeur doit être définie sur <strong>https://+:3392/rdp/</strong>.
+3. Ouvrez le Registre Windows (regedit), accédez à ```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp``` et localisez la clé **WebSocketURI**. La valeur doit être définie sur <strong>https://+:3392/rdp/</strong>.
 
-### <a name="setting-up-the-rd-session-host"></a>Configuration de l’hôte de Session Bureau à distance
-Si le serveur hôte de Session Bureau à distance est différent du serveur Bureau à distance, procédez comme suit :
+### <a name="setting-up-the-rd-session-host"></a>Configuration de l'Hôte de session Bureau à distance
+Suivez les étapes ci-dessous si le serveur Hôte de session Bureau à distance est différent du serveur du service Broker Bureau à distance :
 
-1. Créer un certificat pour l’ordinateur hôte de Session Bureau à distance, ouvrez-le et copiez le **empreinte** valeur.
+1. Créez un certificat pour l'ordinateur Hôte de session Bureau à distance, ouvrez-le et copiez la valeur **Thumbprint**.
 
-2. Pour lier ce certificat au port sécurisé 3392, ouvrez une fenêtre PowerShell avec élévation de privilèges et exécutez la commande suivante en remplaçant de la commande **« < thumbprint > »** avec la valeur copiée à partir de l’étape précédente :
+2. Pour lier ce certificat au port sécurisé 3392, ouvrez une fenêtre PowerShell avec élévation de privilèges et exécutez la commande suivante, en remplaçant **"<thumbprint>"** par la valeur copiée à l'étape précédente :
 
     ```PowerShell
     netsh http add sslcert ipport=0.0.0.0:3392 certhash="<thumbprint>" appid="{00000000-0000-0000-0000-000000000000}"
     ```
 
     > [!NOTE]
-    > Pour vérifier si le certificat a été lié correctement, exécutez la commande suivante :
+    > Pour vérifier que le certificat a été correctement lié, exécutez la commande suivante :
     >
     > ```PowerShell
     > netsh http show sslcert
     > ```
     >
-    > Dans la liste des liaisons de certificat SSL, vérifiez que le certificat correct est lié au port 3392.
+    > Dans la liste des liaisons de certificat SSL, assurez-vous que le certificat qui convient est lié au port 3392.
 
-3. Ouvrez le Registre Windows (regedit) et le nagivate à ```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp``` et recherchez la clé **WebSocketURI**. La valeur doit être définie sur <https://+:3392/rdp/>.
+3. Ouvrez le Registre Windows (regedit), accédez à ```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp``` et localisez la clé **WebSocketURI**. La valeur doit être définie sur <https://+:3392/rdp/>.
 
 ### <a name="general-observations"></a>Observations générales
 
-* Assurez-vous que l’hôte de Session Bureau à distance et le Bureau à distance Broker server exécutent Windows Server 2019.
+* Assurez-vous que l'Hôte de session Bureau à distance et le serveur du service Broker Bureau à distance exécutent Windows Server 2019.
 
-* Assurez-vous que public approuvé de certificats sont configurés pour le serveur de l’hôte de Session Bureau à distance et le Bureau à distance.
+* Assurez-vous que des certificats publics approuvés sont configurés pour l'Hôte de session Bureau à distance et le serveur du service Broker Bureau à distance.
     > [!NOTE]
-    > Si l’hôte de Session Bureau à distance et le serveur du service Broker de bureau à distance partagent le même ordinateur, définissez uniquement le certificat de serveur Bureau à distance. Si le serveur hôte de Session Bureau à distance et Bureau à distance Broker utilise des ordinateurs différents, les deux doivent être configurés avec les certificats uniques.
+    > Si l'Hôte de session Bureau à distance et le serveur du service Broker Bureau à distance partagent le même ordinateur, définissez uniquement le certificat du serveur du service Broker Bureau à distance. Si l'Hôte de session Bureau à distance et le serveur du service Broker Bureau à distance utilisent des ordinateurs différents, les deux doivent être configurés avec des certificats uniques.
 
-* Le **nom SAN (Subject Alternative)** pour chaque certificat doit être définie sur l’ordinateur **nom de domaine complet (FQDN)** . Le **nom commun (CN)** doit correspondre le réseau SAN pour chaque certificat.
+* L'**autre nom de l'objet (SAN)** de chaque certificat doit être défini sur le **nom de domaine complet (FQDN)** de l'ordinateur. Le **nom commun (CN)** doit correspondre au SAN pour chaque certificat.
 
-## <a name="how-to-pre-configure-settings-for-remote-desktop-web-client-users"></a>Comment préconfigurer les paramètres pour les utilisateurs de clients web Bureau à distance
-Cette section vous indique comment utiliser PowerShell pour configurer les paramètres pour votre déploiement de client web Bureau à distance. Ces applets de commande PowerShell contrôlent la capacité d’un utilisateur pour modifier les paramètres selon les problèmes de sécurité de votre organisation ou prévu de flux de travail. Les paramètres suivants se trouvent toutes dans le **paramètres** panneau latéral du client web. 
+## <a name="how-to-pre-configure-settings-for-remote-desktop-web-client-users"></a>Préconfigurer les paramètres pour les utilisateurs du client web Bureau à distance
+Cette section explique comment utiliser PowerShell pour configurer les paramètres de déploiement de votre client web Bureau à distance. Ces applets de commande PowerShell déterminent la capacité d'un utilisateur à modifier les paramètres en fonction des préoccupations de sécurité de votre organisation ou du flux de travail prévu. Les paramètres suivants se trouvent tous dans le volet latéral **​Paramètres** du client web. 
 
-### <a name="suppress-telemetry"></a>Supprimer les données de télémétrie
-Par défaut, les utilisateurs peuvent choisir d’activer ou désactiver la collecte des données de télémétrie sont envoyées à Microsoft. Pour plus d’informations sur les données de télémétrie Microsoft collecte, reportez-vous à notre déclaration de confidentialité via le lien dans le **sur** panneau latéral.
+### <a name="suppress-telemetry"></a>Supprimer des données de télémétrie
+Par défaut, les utilisateurs peuvent choisir d'activer ou de désactiver la collecte des données de télémétrie envoyées à Microsoft. Pour plus d'informations sur les données de télémétrie collectées par Microsoft, consultez notre déclaration de confidentialité via le lien situé dans le volet latéral **À propos de**.
 
-En tant qu’administrateur, vous pouvez choisir de supprimer la collection de données de télémétrie pour votre déploiement à l’aide de l’applet de commande PowerShell suivante :
+En tant qu'administrateur, vous pouvez choisir de supprimer la collecte de données de télémétrie pour votre déploiement à l'aide de l'applet de commande PowerShell suivante :
 
    ```PowerShell
     Set-RDWebClientDeploymentSetting -SuppressTelemetry $true
    ```
 
-Par défaut, l’utilisateur peut sélectionner pour activer ou désactiver la télémétrie. Valeur booléenne **$false** correspondra le comportement du client par défaut. Valeur booléenne **$true** désactive la télémétrie et limite l’utilisateur à partir de l’activation de la télémétrie.
+Par défaut, l'utilisateur peut activer ou désactiver les données de télémétrie. Une valeur booléenne **$false** correspondra au comportement par défaut du client. Une valeur booléenne **$true** désactivera les données de télémétrie et empêchera l'utilisateur de les activer.
 
-### <a name="remote-resource-launch-method"></a>Méthode de lancement de ressource distante
-Par défaut, les utilisateurs peuvent choisir lancer des ressources distantes (1) dans le navigateur ou (2) en téléchargeant un fichier .rdp à gérer avec un autre client installé sur leur ordinateur. En tant qu’administrateur, vous pouvez choisir de restreindre la méthode de lancement des ressources à distance pour votre déploiement avec la commande Powershell suivante :
+### <a name="remote-resource-launch-method"></a>Méthode de lancement de ressources distantes
+Par défaut, les utilisateurs peuvent choisir de lancer des ressources distantes (1) dans le navigateur ou (2) en téléchargeant un fichier .rdp à gérer avec un autre client installé sur leur ordinateur. En tant qu'administrateur, vous pouvez choisir de limiter la méthode de lancement de ressources distantes de votre déploiement à l'aide de la commande Powershell suivante :
 
    ```PowerShell
     Set-RDWebClientDeploymentSetting -LaunchResourceInBrowser ($true|$false)
    ```
- Par défaut, l’utilisateur peut sélectionner une méthode de lancement. Valeur booléenne **$true** forcera l’utilisateur de lancer des ressources dans le navigateur. Valeur booléenne **$false** forcera l’utilisateur de lancer des ressources en téléchargeant un fichier .rdp à gérer avec un client RDP installé localement.
+ Par défaut, l'utilisateur peut sélectionner l'une ou l'autre des méthodes de lancement. Une valeur booléenne **$true** obligera l'utilisateur à lancer les ressources dans le navigateur. Une valeur booléenne **$false** obligera l'utilisateur à lancer les ressources en téléchargeant un fichier .rdp à gérer avec un client RDP installé localement.
 
-### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>Réinitialiser les configurations RDWebClientDeploymentSetting par défaut
-Pour réinitialiser tous les paramètres du client au niveau du déploiement web pour les configurations par défaut, exécutez l’applet de commande PowerShell suivante :
+### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>Rétablir les configurations RDWebClientDeploymentSetting par défaut
+Pour rétablir tous les paramètres par défaut du client web au niveau du déploiement, exécutez l'applet de commande PowerShell suivante :
 
    ```PowerShell
     Reset-RDWebClientDeploymentSetting 
@@ -281,39 +281,39 @@ Pour réinitialiser tous les paramètres du client au niveau du déploiement web
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 
-Si un utilisateur signale tous les problèmes suivants lors de l’ouverture du client web pour la première fois, les sections suivantes vous indiquera que faire pour les corriger.
+Si un utilisateur signale l'un des problèmes suivants lors de l'ouverture du client web, les sections suivantes vous indiqueront comment y remédier.
 
-### <a name="what-to-do-if-the-users-browser-shows-a-security-warning-when-they-try-to-access-the-web-client"></a>Que faire si le navigateur affiche un avertissement de sécurité quand ils tentent d’accéder au client web
+### <a name="what-to-do-if-the-users-browser-shows-a-security-warning-when-they-try-to-access-the-web-client"></a>Que faire si le navigateur de l'utilisateur affiche un avertissement de sécurité lorsqu'il tente d'accéder au client web ?
 
-Le rôle accès Web de bureau à distance n’utilisez ne peut-être pas un certificat approuvé. Assurez-vous que le rôle accès Bureau à distance par le Web est configuré avec un certificat approuvé publiquement.
+Le rôle Accès aux services Bureau à distance par le web n'utilise peut-être pas de certificat approuvé. Assurez-vous que le rôle Accès aux services Bureau à distance par le web est configuré avec un certificat public approuvé.
 
-Si cela ne fonctionne pas, le nom de votre serveur dans le site web client URL ne peut pas correspondre au nom fourni par le certificat Web Bureau à distance. Assurez-vous que votre URL utilise le nom de domaine complet du serveur qui héberge le rôle Web de bureau à distance.
+Si le problème persiste, il se peut que le nom de votre serveur dans l'URL du client web ne corresponde pas au nom fourni par le certificat d'accès aux services Bureau à distance par le web. Assurez-vous que votre URL utilise le nom de domaine complet du serveur qui héberge le rôle Accès aux services Bureau à distance par le web.
 
-### <a name="what-to-do-if-the-user-cant-connect-to-a-resource-with-the-web-client-even-though-they-can-see-the-items-under-all-resources"></a>Que faire si l’utilisateur Impossible de se connecter à une ressource avec le client web même s’ils peuvent voir les éléments sous toutes les ressources
+### <a name="what-to-do-if-the-user-cant-connect-to-a-resource-with-the-web-client-even-though-they-can-see-the-items-under-all-resources"></a>Que faire si l'utilisateur ne parvient pas à se connecter à une ressource avec le client web alors qu'il voit les éléments sous Toutes les ressources ?
 
-Si l’utilisateur signale qu’elles ne peuvent pas se connecter avec le client web même s’ils peuvent voir les ressources répertoriées, vérifiez les points suivants :
+Si l'utilisateur signale qu'il ne parvient pas à se connecter au client web alors qu'il voit les ressources répertoriées, vérifiez les points suivants :
 
-* Le rôle de passerelle Bureau à distance est correctement configuré pour utiliser un certificat public approuvé ?
-* Le serveur de passerelle Bureau à distance a-t-il les mises à jour requises installées ? Assurez-vous que votre serveur [la mise à jour KB4025334](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334) installé.
+* Le rôle Passerelle des services Bureau à distance est-il correctement configuré pour utiliser un certificat public approuvé ?
+* Les mises à jour requises sont-elles installées sur le serveur de passerelle Bureau à distance ? Assurez-vous que la [mise à jour KB4025334](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334) est installée sur votre serveur.
 
-Si l’utilisateur obtient une erreur « certificat d’authentification serveur inattendue a été reçu » lorsqu’ils tentent de se connecter, puis le message affiche l’empreinte du certificat du message. Rechercher le Gestionnaire de certificat du serveur Bureau à distance à l’aide de cette empreinte numérique pour rechercher le certificat approprié. Vérifiez que le certificat est configuré pour être utilisé pour le rôle Service Broker pour les services Bureau à distance dans la page de propriétés de déploiement de bureau à distance. Une fois s’assurer que le certificat n’a pas expiré, copiez le certificat au format de fichier .cer pour le serveur d’accès Web de bureau à distance et exécutez la commande suivante sur le serveur d’accès Web de bureau à distance avec la valeur entre crochets est remplacée par le chemin d’accès de fichier du certificat :
+Si l'utilisateur reçoit le message d'erreur « Un certificat d'authentification serveur inattendu a été reçu » lorsqu'il tente de se connecter, le message contient l'empreinte du certificat. Recherchez le gestionnaire de certificat du serveur du service Broker Bureau à distance à l'aide de cette empreinte pour trouver le bon certificat. Vérifiez que le certificat est configuré pour le rôle Service Broker Bureau à distance sur la page des propriétés du déploiement Bureau à distance. Après vous être assuré que le certificat n'a pas expiré, copiez-le au format .cer sur le serveur d'accès aux services Bureau à distance par le web et exécutez la commande suivante sur le serveur d'accès aux services Bureau à distance par le web, en remplaçant la valeur entre crochets par le chemin du certificat :
 
 ```PowerShell
 Import-RDWebClientBrokerCert <certificate file path>
 ```
 
-### <a name="diagnose-issues-with-the-console-log"></a>Diagnostiquez les problèmes avec le journal de console
+### <a name="diagnose-issues-with-the-console-log"></a>Diagnostiquer les problèmes liés au journal de la console
 
-Si vous ne pouvez pas résoudre le problème selon les instructions de dépannage dans cet article, vous pouvez essayer de diagnostiquer la source du problème en regardant la console se connecter dans le navigateur. Le client web fournit une méthode d’enregistrement de l’activité de journal de console de navigateur tout en utilisant le client web pour aider à diagnostiquer les problèmes.
+Si vous ne parvenez pas à résoudre le problème en suivant les instructions de résolution fournies dans cet article, vous pouvez essayer de diagnostiquer vous-même la source du problème en consultant le journal de la console dans le navigateur. Le client web fournit une méthode pour enregistrer l'activité du journal de la console du navigateur tout en utilisant le client web pour diagnostiquer les problèmes.
 
-* Sélectionnez les points de suspension dans le coin supérieur droit et accédez à la **sur** page dans le menu déroulant.
-* Sous **Capture les informations de support** sélectionner le **démarrer l’enregistrement** bouton.
-* Effectuer les opérations dans le client web qui a produit le problème que vous tentez de diagnostiquer.
-* Accédez à la **sur** page et sélectionnez **arrêter l’enregistrement**.
-* Votre navigateur télécharge automatiquement un fichier .txt intitulé **Logs.txt de Console de bureau à distance**. Ce fichier contiendra l’activité du journal de console complète générée lors de la reproduction du problème cible.
+* Sélectionnez les points de suspension dans le coin supérieur droit et accédez à la page **À propos de** à partir du menu déroulant.
+* Sous **Capturer les informations de support**, sélectionnez le bouton **Démarrer l'enregistrement**.
+* Dans le client web, reproduisez les opérations qui ont généré le problème que vous essayez de diagnostiquer.
+* Accédez à la page **À propos de** et sélectionnez **Arrêter l'enregistrement**.
+* Votre navigateur télécharge automatiquement un fichier .txt intitulé **RD Console Logs.txt**. Ce fichier contient l'activité complète du journal de la console générée lors de la reproduction du problème cible.
 
-La console peut également être accessible directement par le biais de votre navigateur. La console se trouve généralement sous les outils de développement. Par exemple, vous pouvez accéder au journal dans Microsoft Edge en appuyant sur la **F12** clé, ou en sélectionnant les points de suspension, puis navigué **davantage d’outils** > **lesoutilsdedéveloppement**.
+Vous pouvez également accéder directement à la console à partir de votre navigateur. La console se trouve généralement sous les outils de développement. Par exemple, dans Microsoft Edge, vous pouvez accéder au journal en appuyant sur la touche **F12** ou en sélectionnant les points de suspension, puis en accédant à **Autres outils** > **Outils de développement**.
 
-## <a name="get-help-with-the-web-client"></a>Obtenir de l’aide avec le client web
+## <a name="get-help-with-the-web-client"></a>Obtenir de l'aide concernant le client web
 
-Si vous avez rencontré un problème qui ne peut pas être résolu par les informations contenues dans cet article, vous pouvez [envoyez-nous un courrier électronique](mailto:rdwbclnt@microsoft.com) à signaler. Vous pouvez également demander ou voter pour les nouvelles fonctionnalités à notre [boîte à suggestions](https://aka.ms/rdwebfbk).
+Si vous rencontrez un problème que les informations contenues dans cet article ne permettent pas de résoudre, vous pouvez [nous envoyer un e-mail](mailto:rdwbclnt@microsoft.com) pour nous le signaler. Vous pouvez également solliciter ou voter en faveur de nouvelles fonctionnalités via notre [boîte à suggestions](https://aka.ms/rdwebfbk).
