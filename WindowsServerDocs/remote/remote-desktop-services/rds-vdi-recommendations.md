@@ -1,6 +1,6 @@
 ---
-title: Configuration recommandée pour les bureaux VDI
-description: Recommandé des paramètres et la configuration pour réduire la charge pour les ordinateurs de bureau Windows 10 1607 (10.0.1393) utilisé en tant qu’images VDI
+title: Configuration recommandée pour les postes de travail VDI
+description: Paramètres et configuration recommandés pour réduire la charge pour les postes de travail Windows 10 1607 (10.0.1393) utilisés comme images VDI
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,526 +13,526 @@ ms.topic: article
 ms.assetid: 2a44dc9f-c221-4bf7-89c3-fb4c86a90f8c
 author: jaimeo
 manager: dougkim
-ms.openlocfilehash: 24704373dedf6a44809b83f3df17bd073cee2bf8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.openlocfilehash: 4f6e68ba1025e23e052d3c40535483ee90cb9b4b
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818380"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63712262"
 ---
-# <a name="recommended-settings-for-vdi-desktops"></a>Paramètres recommandés pour les bureaux VDI
+# <a name="recommended-settings-for-vdi-desktops"></a>Paramètres recommandés pour les postes de travail VDI
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows 10
 
-Microsoft Desktop Virtualization détecte automatiquement les configurations de périphériques et les conditions du réseau pour créer les utilisateurs et en cours d’exécution plus tôt en activant le programme d’installation instantanée des applications d’entreprise et des postes de travail, et il apporte l’informatique pour fournir l’accès à l’ancien applications pendant la migration vers Windows 10.
+Microsoft Desktop Virtualization accélère la préparation des utilisateurs en détectant automatiquement les configurations de périphériques et les conditions du réseau et en activant le programme d’installation instantanée des applications d’entreprise et des postes de travail. En outre, il permet aux équipes informatiques de fournir un accès aux applications héritées pendant la migration vers Windows 10.
 
-Bien que le système d’exploitation Windows 10 est très bien réglé prêts à l’emploi, il existe des opportunités affiner supplémentaire spécifiquement pour l’environnement d’entreprise de Microsoft Virtual Desktop Infrastructure (VDI). Dans l’environnement VDI, plusieurs services d’arrière-plan et les tâches sont désactivées à partir du début.
+Bien que le réglage de base du système d’exploitation Windows 10 soit très efficace, vous pouvez l’affiner pour l’environnement Microsoft Virtual Desktop Infrastructure (VDI) de votre entreprise. Dans l’environnement VDI, plusieurs services et tâches d’arrière-plan et désactivés par défaut.
 
-Cette rubrique n’est pas un plan, mais plutôt un repère ou un point de départ. Certaines recommandations peuvent entraîner la désactivation des fonctionnalités que vous souhaitez utiliser, vous devez donc envisager les coûts par rapport à l’avantage d’ajustement de n’importe quel paramètre dans votre scénario particulier.
+Cette rubrique n’est pas un modèle à suivre à la lettre, mais plutôt un repère ou un point de départ. Certaines recommandations peuvent entraîner la désactivation des fonctionnalités que vous souhaitez utiliser. Nous vous recommandons donc d’envisager les avantages et les désavantages de l’ajustement de vos paramètres selon votre situation.
 
-Ces instructions et les paramètres recommandés sont pertinentes pour Windows 10 1607 (version 10.0.1393).
+Ces instructions et paramètres recommandés sont pertinents pour Windows 10 1607 (version 10.0.1393).
 
 > [!NOTE]  
-> Tous les paramètres ne sont pas spécifiquement mentionnés dans cette rubrique peuvent être laissés à leurs valeurs par défaut (ou un ensemble par vos besoins et les stratégies) sans impact notable sur les fonctionnalités de l’infrastructure VDI.
+> Tous les paramètres qui ne sont pas spécifiquement mentionnés dans cette rubrique peuvent être laissés à leurs valeurs par défaut (ou définis selon vos besoins et stratégies). Cela n’aura aucun impact notable sur les fonctionnalités de l’infrastructure VDI.
 
-Lorsque vous créez une image pour le déploiement de VDI, veillez à utiliser le **Current Branch**. Pour plus d’informations sur la branche actuelle, consultez [les informations de version de Windows 10](https://technet.microsoft.com/windows/release-info.aspx).
+Lorsque vous créez une image pour le déploiement du VDI, veillez à utiliser l’option **Current Branch**. Si vous souhaitez en savoir plus sur l’option Current Branch, veuillez consulter l’article [Informations sur les publications pour Windows 10](https://technet.microsoft.com/windows/release-info.aspx).
 
-## <a name="creating-the-windows-10-image"></a>Création de l’image de Windows 10
-La première étape consiste à installer une image de référence de Windows 10 1607 (version 10.0.1393) sur l’un ordinateur virtuel ou physique. L’installation à une machine virtuelle est facile et vous permet d’enregistrer les versions du fichier (VHD) sur le disque dur virtuel, au cas où vous souhaitez revenir à une version antérieure.
+## <a name="creating-the-windows-10-image"></a>Création de l’image Windows 10
+La première étape consiste à installer une image de référence de Windows 10 1607 (version 10.0.1393) sur un ordinateur virtuel ou physique. L’installation sur un ordinateur virtuel est facile et vous permet d’enregistrer les versions du fichier de disque dur virtuel (VHD), au cas où vous souhaitez restaurer une version antérieure.
 
-Pendant l’installation, vous pouvez choisir une **paramètres Express** ou **personnaliser**. Les paramètres offerte pendant la **personnaliser** option sont réglables en utilisant une stratégie de groupe, par conséquent, la méthode d’installation du système d’exploitation de base n’est pas particulièrement importante.
+Pendant l’installation, vous pouvez choisir **Configuration rapide** ou **Personnaliser**. Les paramètres accessibles via l’option **Personnaliser** sont réglables en utilisant une stratégie de groupe. Par conséquent, la méthode d’installation du système d’exploitation de base n’est pas particulièrement importante.
 
 
-Si vous avez choisi **personnaliser**, vous pouvez ajuster ces paramètres lors de l’installation :
+Si vous avez choisi **Personnaliser**, vous pouvez ajuster ces paramètres lors de l’installation :
 
 ## <a name="in-customize-settings"></a>Dans « Personnaliser les paramètres »
 
-Vous pouvez également ajuster ces après l’installation avec l’éditeur de stratégie de groupe ; consultez la section « Paramètres de stratégie de groupe » de cette rubrique.
+Vous pouvez également les ajuster après l’installation, en utilisant l’éditeur de stratégie de groupe. Pour cela, veuillez consulter la section « Paramètres de stratégie de groupe » de cette rubrique.
 
-|Paramètre|Valeur par défaut|Valeur recommandée pour une utilisation de l’infrastructure VDI|  
+|Paramètre|Valeur par défaut|Valeur recommandée pour une utilisation du VDI|  
 |-------------------|----------|--------------|
 |**Personnalisation**| | |
-|Personnalisez votre enregistrement vocal, taper et entrée d’encrage en envoyant vos données d’entrée à Microsoft.|    Activé| Désactivé|
-|Envoyer en tapant et entrée manuscrite de données à Microsoft pour améliorer la plateforme de reconnaissance et de suggestion.|  Activé| Désactivé|
-|Permettre aux applications à utiliser votre ID de publicité pour une expérience entre applications.|  Activé| Désactivé|
-|Permettent de Skype (si installé) vous aident à vous connecter avec vos amis dans votre carnet d’adresses et vérifiez votre numéro de téléphone mobile. Les frais SMS et les données peuvent s’appliquer.|    Activé| Désactivé|
+|Personnaliser la voix, la frappe et l’entrée manuscrite en envoyant vos données d’entrée à Microsoft.|    Activé| Désactivé|
+|Envoyer des données de saisie clavier et manuscrite à Microsoft pour améliorer la plateforme de reconnaissance et de suggestion.|  Activé| Désactivé|
+|Autorisez les applications à utiliser votre identifiant de publicité.|  Activé| Désactivé|
+|Autorisez Skype (s’il est installé) à vous aider à vous connecter aux amis de votre carnet d’adresses et à vérifier votre numéro de téléphone mobile. Des frais d’envoi de SMS et de données peuvent s’appliquer.|    Activé| Désactivé|
 |**Emplacement**| | |
-|Activer mon appareil et let Windows et des applications demandent votre emplacement, notamment l’historique des emplacements de recherche| Activé| Désactivé|
-|Connectivité et le rapport d’erreurs| | |
-|Se connecter automatiquement, selon les suggestions fournies, aux points d'accès ouverts. Pas tous les réseaux sont sécurisées.|    Activé| Désactivé|
-|Se connecter automatiquement pour ouvrir les zones réactives temporairement pour voir si payé services réseau disponibles.| Activé| Désactivé|
-|Envoyer des données d’utilisation et de diagnostic complet à Microsoft. Désactivation de cette option envoie uniquement les données de base.| Activé| Désactivé|
-|**Navigateur, de protection et de mise à jour**| | |
-|SmartScreen d’utilisation en ligne des services pour vous protéger contre les contenus malveillants et ne télécharge dans sites chargés par les navigateurs de Windows et des applications de Store|    Activé| Sur (s’il n’existe aucun accès à Internet, puis défini sur désactivé.)
-|Utiliser la prédiction de page pour améliorer la lecture, d’accélérer la navigation et améliorer votre expérience globale dans les navigateurs de Windows. Les données de votre navigation seront envoyées à Microsoft.| Activé| Désactivé|
-|Obtenir des mises à jour à partir d’et envoi à d’autres ordinateurs sur Internet pour accélérer l’application et téléchargements de Windows Update|   Activé| Désactivé|
+|Activez la fonctionnalité Localiser mon appareil et laissez Windows et les applications vous localiser en demandant notamment l’historique des emplacements| Activé| Désactivé|
+|Connectivité et rapport d’erreurs| | |
+|Permet de se connecter automatiquement, selon les suggestions fournies, aux points d’accès ouverts. Tous les réseaux ne sont pas sécurisés.|    Activé| Désactivé|
+|Connectez-vous automatiquement et temporairement aux points d’accès afin de vérifier si des services réseau payants sont disponibles.| Activé| Désactivé|
+|Envoyez des rapports de diagnostics et d’utilisation complets à Microsoft. La désactivation de cette option envoie uniquement des données de base.| Activé| Désactivé|
+|**Navigateur, protection et mise à jour**| | |
+|Utiliser les services en ligne SmartScreen pour favoriser la protection contre le contenu et les téléchargements malveillants présents sur des sites chargés par les navigateurs Windows et les applications issues du Windows Store|    Activé| Activé (Désactivé s’il n’existe aucun accès à Internet)
+|Utiliser la prédiction de page pour améliorer la lecture, accélérer la navigation et optimiser votre expérience dans les navigateurs Windows. Vos données de navigation seront envoyées à Microsoft.| Activé| Désactivé|
+|Obtenez des mises à jour et envoyez-en sur les PC connectés à Internet afin d’accélérer les téléchargements des applications et des mises à jour Windows Update|   Activé| Désactivé|
 
-Une fois l’installation terminée, vous pouvez continuer à ajuster les paramètres en commençant par **Windows paramètres**.
+Une fois l’installation terminée, vous pouvez continuer à ajuster les paramètres en commençant par **Paramètres Windows**.
 
-## <a name="in-windows-settings"></a>Dans les paramètres de Windows
-Pour accéder aux paramètres de Windows, cliquez sur **Démarrer** (l’icône de Windows sur la barre des tâches), puis cliquez sur le **paramètres** icône (la forme d’un engrenage).
+## <a name="in-windows-settings"></a>Dans Paramètres Windows
+Pour accéder à la fenêtre Paramètres Windows, cliquez sur **Démarrer** (l’icône Windows sur la barre des tâches), puis sur l’icône **Paramètres** (en forme d’engrenage).
 
-### <a name="in-the-system-area-of-windows-settings"></a>Dans la zone « Système » de paramètres de Windows
-Dans la zone de paramètres de Windows, cliquez sur le **système** icône vous permet d’accéder à un nombre de paramètres liés au système. Certaines d'entre elles doivent être ajustées pour optimiser l’utilisation VDI--ces paramètres sont les plus importants :
+### <a name="in-the-system-area-of-windows-settings"></a>Dans la zone « Système » de la fenêtre Paramètres de Windows
+Dans la fenêtre Paramètres Windows, cliquez sur l’icône **Système** pour accéder aux paramètres relatifs au système. Certains d'entre eux doivent être ajustés pour optimiser l’utilisation de VDI. Voici les plus importants :
 
 #### <a name="apps-and-features"></a>Applications et fonctionnalités
 
-Pour supprimer une application, en l’excluant ainsi à partir de votre image VDI, cliquez sur l’application, puis cliquez sur **désinstallation**. Si **désinstallation** est grisé, vous ne pouvez pas le supprimer par cette méthode ; vous pourrez le supprimer avec Windows PowerShell ou essayez les étapes suivantes :
-1. Cliquez sur **gestion des fonctionnalités facultatives** (immédiatement en dessous le **applications et fonctionnalités** titre sur la même page).
-2. Cliquez sur la fonctionnalité facultative, puis cliquez sur **désinstallation**.
+Pour supprimer une application, en l’excluant ainsi à partir de votre image de VDI, cliquez sur l’application, puis cliquez sur **Désinstaller**. Si **Désinstaller** apparaît en grisé, cela veut dire que vous ne pouvez pas supprimer l’application ainsi. Vous pourrez probablement la supprimer avec Windows PowerShell, ou en essayant la procédure suivante :
+1. Cliquez sur **Gérer les fonctionnalités facultatives** (cette option est située juste en dessous du titre **Applications et fonctionnalités** sur la même page).
+2. Cliquez sur la fonctionnalité facultative de votre choix, puis sur **Désinstaller**.
 
-Pour envisager de supprimer (le cas échéant) les fonctionnalités suivantes :
-- **Contactez le support technique**
-- **Contenu de démonstration de vente au détail anglais (États-Unis)**
-- **Contenu de démonstration de vente au détail neutre**
-- **Aide rapide**
+Nous vous recommandons de supprimer les fonctionnalités suivantes :
+- **Contacter le support technique**
+- **Contenu du mode démo pour l’anglais (États-Unis)**
+- **Contenu du mode démo neutre**
+- **Assistance rapide**
 
 #### <a name="default-apps"></a>Applications par défaut
 
-Cette zone définit l’application à utiliser par défaut pour certaines fonctions génériques telles que le courrier électronique, la navigation sur le web et les mappages. Si vous souhaitez une autre application à utiliser pour une fonction particulière, cliquez sur l’entrée en cours, puis cliquez sur l’application que vous préférez être utilisé dans l’image de l’infrastructure VDI. Pour une application non Microsoft constituer un choix disponible, vous devez installer l’application avant de régler ce paramètre.
+Cette zone définit l’application à utiliser par défaut pour certaines fonctionnalités génériques telles que le courrier électronique, la navigation sur le web et les cartes. Si vous souhaitez utiliser une autre application pour une fonctionnalité particulière, cliquez sur l’entrée en cours, puis sur l’application que vous préférez utiliser dans l’image VDI. Si vous souhaitez utiliser une application tierce (non fournie par Microsoft), vous devez l’installer avant de régler ce paramètre.
 
 #### <a name="notifications-and-actions"></a>Notifications et actions
 
-Ces valeurs recommandées réduira les notifications et l’activité du réseau en arrière-plan dans un environnement VDI :
+Ces valeurs recommandées réduisent le nombre de notifications et l’activité du réseau en arrière-plan dans un environnement VDI :
 
-|Paramètre|Valeur par défaut|Valeur recommandée pour une utilisation de l’infrastructure VDI|  
+|Paramètre|Valeur par défaut|Valeur recommandée pour une utilisation de VDI|  
 |-------------------|----------|--------------|
-|Obtenir des notifications à partir d’applications et d’autres expéditeurs| Activé| Désactivé|
-|Afficher les notifications sur l’écran de verrouillage.|    Activé| Désactivé|
-|Afficher les appels entrants VoIP, les rappels et les alarmes sur l’écran de verrouillage.|   Activé| Désactivé|
-|Afficher les conseils, astuces et des suggestions que vous utilisez Windows.|    Activé| Désactivé|
+|Obtenir les notifications des applications et des autres expéditeurs| Activé| Désactivé|
+|Afficher les notifications dans l’écran de verrouillage.|    Activé| Désactivé|
+|Afficher les alarmes, rappels et appels VoIP entrants sur l’écran de verrouillage.|   Activé| Désactivé|
+|Afficher des conseils, astuces et suggestions lorsque vous utilisez Windows.|    Activé| Désactivé|
 
 
 #### <a name="offline-maps"></a>Cartes hors connexion
 
-Ce paramètre est uniquement applicable si l’application de cartes est installée. Sa valeur par défaut est **sur**; pour une utilisation VDI la valeur recommandée est **hors**. 
+Ce paramètre est uniquement applicable si l’application Cartes est installée. Sa valeur par défaut est **Activé**. Nous vous recommandons de le définir sur **Désactivé** si vous utilisez un VDI. 
 
-#### <a name="tablet-mode"></a>Mode tablette
+#### <a name="tablet-mode"></a>Mode Tablette
 
-|Paramètre|Valeur par défaut|Valeur recommandée pour une utilisation de l’infrastructure VDI|  
+|Paramètre|Valeur par défaut|Valeur recommandée pour une utilisation de VDI|  
 |-------------------|----------|--------------|
-|Lorsque je me connecter|    Utiliser le mode approprié pour mon matériel|   Utiliser le mode bureau|
-|Lorsque cet appareil bascule automatiquement en mode activé ou désactivé|    Toujours demander avant de changer| Ne plus me poser et ne pas basculer|
-|Les options Masquer les icônes d’application sur la barre des tâches en mode tablette|  Activé| Désactivé|
+|Lorsque je me connecte|    Utiliser le mode approprié à mon matériel|   Utiliser le mode bureau|
+|Lorsque cet appareil active ou désactive automatiquement le mode|    Toujours me demander confirmation avant de changer de mode| Ne pas me demander et ne pas changer de mode|
+|Masquer les icônes d’application sur la barre des tâches en mode tablette|  Activé| Désactivé|
 
 
-### <a name="in-the-devices-area-of-windows-settings"></a>Dans la zone « Appareils » des paramètres de Windows
-Dans la zone de paramètres de Windows, cliquez sur le **appareils** icône vous permet d’accéder à un nombre de paramètres liés au système. Certaines d'entre elles doivent être ajustées pour optimiser l’utilisation VDI--ces paramètres sont les plus importants :
+### <a name="in-the-devices-area-of-windows-settings"></a>Dans la zone « Appareils » de la page Paramètres Windows
+Dans la page Paramètres Windows, cliquez sur l’icône **Appareils** pour accéder à plusieurs paramètres relatifs au système. Certains d'entre eux doivent être ajustés pour optimiser l’utilisation de VDI. Voici les plus importants :
 
-#### <a name="autoplay"></a>Lecture automatique
+#### <a name="autoplay"></a>Exécution automatique
 
-|Paramètre|Valeur par défaut|Valeur recommandée pour une utilisation de l’infrastructure VDI|  
+|Paramètre|Valeur par défaut|Valeur recommandée pour une utilisation de VDI|  
 |-------------------|----------|--------------|
-|Utiliser l’exécution automatique pour tous les périphériques et supports|    Activé| Désactivé|
-|Lecteur amovible :|Choisissez une valeur par défaut|Ne rien faire|
-|Carte mémoire|Choisissez une valeur par défaut|Ne rien faire|
+|Utiliser l’exécution automatique pour tous les médias et tous les périphériques|    Activé| Désactivé|
+|Lecteur amovible :|Choisir un paramètre par défaut|Ne rien faire|
+|Carte mémoire|Choisir un paramètre par défaut|Ne rien faire|
 
-### <a name="in-the-personalization-area-of-windows-settings"></a>Dans la zone « Personnalisation » des paramètres de Windows
-Dans la zone de paramètres de Windows, cliquez sur le **personnalisation** icône vous permet d’accéder à un nombre de paramètres liés au système. Certaines d'entre elles doivent être ajustées pour optimiser l’utilisation VDI--ces paramètres sont les plus importants :
+### <a name="in-the-personalization-area-of-windows-settings"></a>Dans la zone « Personnalisation » de la page Paramètres Windows
+Dans la page Paramètres Windows, cliquez sur l’icône **Personnalisation** pour accéder à plusieurs paramètres relatifs au système. Certains d'entre eux doivent être ajustés pour optimiser l’utilisation de VDI. Voici les plus importants :
 
 #### <a name="background"></a>Arrière-plan
-Parfois, l’arrière-plan noir par défaut peut permettre à considérer que l’ordinateur ne répond pas. Modification de la couleur d’arrière-plan peut aider à clarifier les choses. Pour cela, procédez comme suit:
-1. Dans le **arrière-plan** zone, cliquez sur le menu déroulant.
-2. Pour modifier la couleur d’arrière-plan, cliquez sur **couleur unie**, puis cliquez sur une des couleurs que le noir. Alternativement, vous pouvez cliquer sur **image** , puis sélectionnez une image à utiliser comme arrière-plan.
+Parfois, un arrière-plan noir par défaut inciter les utilisateurs à croire que l’ordinateur ne répond plus. En modifiant la couleur d’arrière-plan, vous pouvez éviter ce genre de méprise. Pour cela, procédez comme suit:
+1. Dans la zone **arrière-plan**, cliquez sur le menu déroulant.
+2. Pour modifier la couleur d’arrière-plan, cliquez sur **Couleur unie**, puis sur une autre couleur que le noir. Vous pouvez également cliquer sur **Image**, puis sélectionner une image à utiliser comme arrière-plan.
 
 #### <a name="start"></a>Début
 
-|Paramètre|Valeur par défaut|Valeur recommandée pour une utilisation de l’infrastructure VDI|  
+|Paramètre|Valeur par défaut|Valeur recommandée pour une utilisation de VDI|  
 |-------------------|----------|--------------|
-|Parfois afficher les suggestions dans Démarrer|    Activé| Désactivé|
-|Applications d’afficher plus utilisé|Activé|Désactivé|
-|Afficher les applications ajoutées récemment|Activé|Désactivé|
-|Afficher les éléments récemment ouverts dans les listes de raccourcis de début ou de la barre des tâches|Activé|Désactivé|
+|Afficher occasionnellement les suggestions dans l’écran d’accueil|    Activé| Désactivé|
+|Afficher les applications les plus utilisées|Activé|Désactivé|
+|Afficher les applications récemment ajoutées|Activé|Désactivé|
+|Afficher les éléments récemment ouverts dans les Listes de raccourcis de l’écran d’accueil ou la barre des tâches|Activé|Désactivé|
 
 #### <a name="taskbar"></a>Barre des tâches
-Le paramètre par défaut consiste à utiliser les boutons de barre des tâches de grande taille (autrement dit, une valeur de « Désactivé » pour **utiliser les boutons de barre des tâches petite**). Ce paramètre entraîne l’élément de Cortana à utiliser un grand nombre de la zone de la barre des tâches. Pour éviter ce problème, définissez **utiliser les boutons de barre des tâches petite** sur « Activé ». Si vous préférez que les éléments de la barre des tâches restent plus grande, mais souhaitez ne pas que Cortana occuper beaucoup d’espace, avec le bouton droit de la barre des tâches, pointez sur **Cortana**et dans le menu qui s’envole out, sélectionnez **Hidden**.
+Le paramètre par défaut consiste à utiliser les boutons de barre des tâches de grande taille (autrement dit, la valeur « Désactivé » pour **Utiliser des petits boutons de barre des tâches**). Ce paramètre entraîne l’élément Cortana à utiliser une grande partie de la barre des tâches. Pour éviter ce problème, définissez **Utiliser des petits boutons de barre des tâches** sur « Activé ». Si vous préférez que les éléments de la barre des tâches restent plus grands, mais souhaitez que Cortana n’occupe pas beaucoup d’espace, faites un clic droit sur la barre des tâches, pointez sur **Cortana**, puis dans le menu qui s’affiche, sélectionnez **Masquée**.
 
-### <a name="in-the-privacy-area-of-windows-settings"></a>Dans la zone « Confidentialité » des paramètres de Windows
-Dans la zone de paramètres de Windows, cliquez sur le **confidentialité** icône vous permet d’accéder à un nombre de paramètres liés au système. Certaines d'entre elles doivent être ajustées pour optimiser l’utilisation VDI--ces paramètres sont les plus importants :
+### <a name="in-the-privacy-area-of-windows-settings"></a>Dans la zone « Confidentialité » de la page Paramètres Windows
+Dans la page Paramètres Windows, cliquez sur l’icône **Confidentialité** pour accéder à plusieurs paramètres relatifs au système. Certains d'entre eux doivent être ajustés pour optimiser l’utilisation de VDI. Voici les plus importants :
 
 #### <a name="general"></a>Général
-Certains de ces paramètres sont également définis dans la fenêtre « Personnaliser les paramètres », décrit au début de cette rubrique.
+Certains de ces paramètres sont également définis dans la fenêtre « Personnaliser les paramètres », décrite au début de cette rubrique.
 
-|Paramètre|Valeur par défaut|Valeur recommandée pour une utilisation de l’infrastructure VDI|  
+|Paramètre|Valeur par défaut|Valeur recommandée pour une utilisation de VDI|  
 |-------------------|----------|--------------|
-|Permettre aux applications d’utiliser mon ID de publicité pour des expériences entre applications (désactivation de cette option sera de réinitialisation de votre ID)|  Activé| Désactivé|
+|Laisser les applications utiliser mon identifiant de publicité (la désactivation de cette option réinitialise votre identifiant)|  Activé| Désactivé|
 |Laissez les sites Web accéder à ma liste de langues pour fournir du contenu local|Activé|Désactivé|
-|Permettre aux applications sur d’autres appareils ouvrez applications et continuer d’expériences sur ce périphérique.|Activé|Désactivé|
+|Autoriser les applications installées sur vos autres appareils à exécuter des applications et à poursuivre les expériences entamées sur cet appareil|Activé|Désactivé|
 
 #### <a name="camera"></a>Appareil photo
 
-La valeur par défaut pour « Permettre aux applications utiliser mon appareil photo » est **sur**; pour une utilisation VDI la valeur recommandée est **hors**.
+La valeur par défaut pour « Autoriser les applications à utiliser ma caméra » est **Activé**. Nous vous recommandons de le définir sur **Désactivé** si vous utilisez un VDI.
 
 
 #### <a name="microphone"></a>Microphone
 
-La valeur par défaut pour « Permettre aux applications utiliser mon microphone » est **sur**; pour une utilisation VDI la valeur recommandée est **hors**.
+La valeur par défaut pour « Autoriser les applications à utiliser mon microphone » est **Activé**. Nous vous recommandons de le définir sur **Désactivé** si vous utilisez un VDI.
 
 #### <a name="notifications"></a>Notifications
 
-La valeur par défaut pour « Permettre les applications d’accéder à Mes notifications » est **sur**; pour une utilisation VDI la valeur recommandée est **hors**.
+La valeur par défaut pour « Autoriser les applications à accéder à mes notifications » est **Activé**. Nous vous recommandons de le définir sur **Désactivé** si vous utilisez un VDI.
 
 #### <a name="contacts"></a>Contacts
 
-La valeur par défaut pour « Permettre les applications d’accéder à mes contacts » est **sur**; pour une utilisation VDI la valeur recommandée est **hors**.
+La valeur par défaut pour « Autoriser les applications à accéder à mes contacts » est **Activé**. Nous vous recommandons de le définir sur **Désactivé** si vous utilisez un VDI.
 
 #### <a name="calendar"></a>Calendrier
 
-La valeur par défaut pour « Permettre les applications d’accéder à mon calendrier » est **sur**; pour une utilisation VDI la valeur recommandée est **hors**.
+La valeur par défaut pour « Autoriser les applications à accéder à mon calendrier » est **Activé**. Nous vous recommandons de le définir sur **Désactivé** si vous utilisez un VDI.
 
 #### <a name="call-history"></a>Historique des appels
 
-La valeur par défaut pour « Permettre aux applications mon historique des appels d’accès » est **sur**; pour une utilisation VDI la valeur recommandée est **hors**.
+La valeur par défaut pour « Autoriser les applications à accéder à mon historique des appels » est **Activé**. Nous vous recommandons de le définir sur **Désactivé** si vous utilisez un VDI.
 
 #### <a name="email"></a>E-mail
 
-La valeur par défaut pour « Permettre aux applications d’accéder et envoyer un courrier électronique » est **sur**; pour une utilisation VDI la valeur recommandée est **hors**.
+La valeur par défaut pour « Autoriser les applications à accéder à et à envoyer un courrier électronique » est **Activé**. Nous vous recommandons de le définir sur **Désactivé** si vous utilisez un VDI.
 
 #### <a name="messaging"></a>Messagerie
 
-La valeur par défaut pour « Permettre aux applications lire ou envoyer des messages (SMS ou MMS) » est **sur**; pour une utilisation VDI la valeur recommandée est **hors**.
+La valeur par défaut pour « Autoriser les applications à lire ou envoyer des messages (SMS ou MMS) » est **Activé**. Nous vous recommandons de le définir sur **Désactivé** si vous utilisez un VDI.
 
 #### <a name="radios"></a>Radios
 
-La valeur par défaut pour « Permet de radios de contrôle d’applications » est **sur**; pour une utilisation VDI la valeur recommandée est **hors**.
+La valeur par défaut pour « Laisser les applications contrôler les radios » est **Activé**. Nous vous recommandons de le définir sur **Désactivé** si vous utilisez un VDI.
 
 #### <a name="other-devices"></a>Autres appareils
 
-La valeur par défaut pour « Let vos applications automatiquement partageront et synchroniser des informations avec des appareils sans fil ne pas explicitement jumelés avec votre PC, une tablette ou téléphone » est **sur**; pour une utilisation VDI la valeur recommandée est **hors**.
+La valeur par défaut pour « Permettre à vos applications de partager et de synchroniser automatiquement des informations avec des périphériques sans fil non couplés explicitement avec votre PC, votre tablette ou votre téléphone » est **Activé**. Nous vous recommandons de le définir sur **Désactivé** si vous utilisez un VDI.
 
 #### <a name="feedback-and-diagnostics"></a>Commentaires et diagnostics
 
-La valeur par défaut pour « Windows demandez à mes commentaires » est **automatiquement**; pour une utilisation de l’infrastructure VDI, la valeur recommandée est **jamais**.
+La valeur par défaut pour « Windows demande à recevoir mes commentaires » est **Automatiquement**. Nous vous recommandons de le définir sur **Jamais** si vous utilisez un VDI.
 
 #### <a name="background-apps"></a>Applications en arrière-plan
-Applications répertoriées ont une valeur par défaut de **sur**, ce qui leur permet de recevoir des informations, envoyer des notifications, et mettre à jour eux-mêmes s’ils sont utilisés ou non. Vous devez désactiver (la valeur **hors**) toutes les applications vous ne souhaitez pas en cours d’exécution en arrière-plan dans l’image de l’infrastructure VDI.
+Les applications répertoriées ici sont définies par défaut sur **Activé**, ce qui leur permet de recevoir des informations, d’envoyer des notifications et de se mettre à jour automatiquement, qu’elles soient utilisées ou non. Nous vous recommandons de désactiver (en définissant le paramètre sur **Désactivé**) toutes les applications qui ne doivent pas être exécutées en arrière-plan dans votre image VDI.
 
 ### <a name="update-and-security"></a>Mise à jour et sécurité
 #### <a name="windows-update"></a>Windows Update
-Dans le **mettre à jour les paramètres** zone, cliquez sur **les options avancées** ajuster ces paramètres :
+Dans la zone **Mettre à jour les paramètres**, cliquez sur **Options avancées** pour ajuster ces paramètres :
 
-|Paramètre|Valeur par défaut|Valeur recommandée pour une utilisation de l’infrastructure VDI|  
+|Paramètre|Valeur par défaut|Valeur recommandée pour une utilisation de VDI|  
 |-------------------|----------|--------------|
-|Donnez-moi des mises à jour pour d’autres produits Microsoft lors de la mise à jour Windows|    Désactivée|    sélectionné|
-|Différer les mises à jour de fonctionnalité|Désactivée|sélectionné|
-|Utiliser mes infos de connexion pour terminer automatiquement la configuration de mon appareil après une mise à jour |Désactivée|Varie selon la configuration spécifique d’infrastructure VDI|
+|Me communiquer les mises à jour d'autres produits Microsoft lorsque je mets à jour Windows|    désactivé|    activé|
+|Différer les mises à jour de fonctionnalité|désactivé|activé|
+|Utiliser mes infos de connexion pour terminer automatiquement la configuration de mon appareil après une mise à jour |désactivé|Dépend de la configuration spécifique du VDI|
 
-Sur le **options avancées** , cliquez sur **choisir la façon dont les mises à jour sont remises** pour accéder à la valeur de « Mises à jour à partir de plusieurs endroits. » La valeur par défaut est **sur**; pour une utilisation VDI la valeur recommandée est **hors**.
+Dans la page **Options avancées**, cliquez sur **Choisir le mode de distribution des mises à jour** pour accéder au paramètre « Mises à jour provenant de plusieurs emplacements ». Sa valeur par défaut est **Activé**. Nous vous recommandons de le définir sur **Désactivé** si vous utilisez un VDI.
 
-## <a name="in-control-panel-and-other-system-utilities"></a>Dans le panneau de configuration et d’autres utilitaires système
+## <a name="in-control-panel-and-other-system-utilities"></a>Dans le Panneau de configuration et d’autres utilitaires système
 
-Les paramètres dans cette section sont réglables en accédant via le panneau de configuration ou ouvrir l’utilitaire directement.
+Vous pouvez régler les paramètres présentés dans cette section en y accédant via le Panneau de configuration ou en ouvrant l’utilitaire directement.
 
 > [!NOTE]  
-> Tous les paramètres ne sont pas spécifiquement mentionnés dans cette rubrique peuvent être laissés à leurs valeurs par défaut (ou un ensemble par vos besoins et les stratégies) sans impact notable sur les fonctionnalités de l’infrastructure VDI.
+> Tous les paramètres qui ne sont pas spécifiquement mentionnés dans cette rubrique peuvent être laissés à leurs valeurs par défaut (ou définis selon vos besoins et stratégies). Cela n’aura aucun impact notable sur les fonctionnalités de l’infrastructure VDI.
 
 
 ### <a name="task-scheduler"></a>Planificateur de tâches
-Le moyen le plus rapide pour ouvrir le Planificateur de tâches consiste à transmettre le bouton de Windows et le type *Planificateur de tâches* ou *taskschd.msc*. Dans les résultats qui retournent, cliquez sur **Planificateur de tâches** pour ouvrir l’utilitaire. Dans le Planificateur de tâches, développez **bibliothèque du Planificateur de tâches**, développez **Microsoft**, puis développez **Windows**. Vous avez désormais accès à la liste des collections de tâches. Pour modifier l’état de chaque tâche planifiée, faites un clic droit, puis cliquez sur l’état souhaité (en règle générale, **désactivé** pour une utilisation de l’infrastructure VDI).
+Le moyen le plus rapide pour ouvrir le Planificateur de tâches consiste à appuyer sur la touche Windows, puis à taper *Planificateur de tâches* ou *taskschd.msc*. Dans les résultats affichés, cliquez sur **Planificateur de tâches** pour ouvrir l’utilitaire. Dans le Planificateur de tâches, développez successivement **Bibliothèque du Planificateur de tâches**, **Microsoft**, puis **Windows**. Vous avez désormais accès à la liste des collections de tâches. Pour modifier le statut d’une tâche planifiée, faites un clic droit dessus, puis cliquez sur le statut de votre choix (en règle générale, **Désactivé** si vous utilisez un VDI).
 
-|Collection de tâches|Nom de la tâche|État par défaut|État recommandé pour une utilisation de l’infrastructure VDI|  
+|Collection de tâches|Nom de la tâche|État par défaut|Statut recommandé si vous utilisez un VDI|  
 |-------------------|-------------|----------|--------------|
 |Programme d’amélioration du produit||||
-||Consolidateur|Enabled|Désactivée|
-||KernelCeipTask|Enabled|Désactivée|
-||UsbCeip|Enabled|Désactivée|
-|la défragmentation||||
-||ScheduledDefrag|Enabled|Désactivée|
-|Location||||
-||Notifications|Enabled|Désactivée|
-||WindowsActionDialog|Enabled|Désactivée|
+||Consolidator|Activé|Désactivée|
+||KernelCeipTask|Activé|Désactivée|
+||UsbCeip|Activé|Désactivée|
+|Defrag||||
+||ScheduledDefrag|Activé|Désactivée|
+|Emplacement||||
+||Notifications|Activé|Désactivée|
+||WindowsActionDialog|Activé|Désactivée|
 |Maintenance||||
-||WinSAT|Enabled|Désactivée|
+||WinSAT|Activé|Désactivée|
 |Cartes||||
-||MapsToastTask|Enabled|Désactivée|
-||MapsUpdateTask|Enabled|Désactivée|
-|Comptes de haut débit mobiles||||
-||Analyseur de métadonnées MNO|Enabled|Désactivée|
-|Diagnostics d’efficacité énergétique||||
-||Analyser le système|Enabled|Désactivée|
+||MapsToastTask|Activé|Désactivée|
+||MapsUpdateTask|Activé|Désactivée|
+|Compte haut débit mobile||||
+||Analyseur de métadonnées MNO|Activé|Désactivée|
+|Diagnostics de l’efficacité énergétique||||
+||Analyze System|Activé|Désactivée|
 |Environnement de récupération||||
-||VerifyWinRE|Enabled|Désactivée|
-|Démonstration de la vente au détail||||
-||CleanupOfflineContent|Enabled|Désactivée|
+||VerifyWinRE|Activé|Désactivée|
+|Démonstration commerciale||||
+||CleanupOfflineContent|Activé|Désactivée|
 |Shell||||
-||FamilySafetyMonitor|Enabled|Désactivée|
-||FamilySafetyRefreshTask|Enabled|Désactivée|
+||FamilySafetyMonitor|Activé|Désactivée|
+||FamilySafetyRefreshTask|Activé|Désactivée|
 |Rapport d’erreurs Windows||||
-||QueueReporting|Enabled|Désactivée|
-|Partage de support de Windows||||
-||UpdateLibrary|Enabled|Désactivée|
+||QueueReporting|Activé|Désactivée|
+|Partage de fichiers multimédias Windows||||
+||UpdateLibrary|Activé|Désactivée|
 
-Cliquez sur **Windows** à nouveau pour réduire, puis cliquez sur **XblGameSave**. Cela vous permet d’accéder aux tâches **XBLGameSaveTask** et **XBLGameSaveTaskLogon**; ces deux peuvent être définies sur **désactivé**.
+Cliquez sur **Windows** à nouveau pour réduire ce niveau, puis cliquez sur **XblGameSave**. Cela vous permet d’accéder aux tâches **XBLGameSaveTask** et **XBLGameSaveTaskLogon**. Vous pouvez définir leurs statuts sur **Désactivé**.
 
 ### <a name="performance-monitor"></a>Analyseur de performances
-Le moyen le plus rapide pour ouvrir le moniteur de performances consiste à transmettre le bouton de Windows et le type *Analyseur de performances* ou *perfmon.msc*. Dans les résultats qui retournent, cliquez sur **Analyseur de performances**. Dans l’Analyseur de performances, cliquez sur **des ensembles de collecteurs de données** , puis double-cliquez sur **Sessions de suivi d’événements**. Avec le bouton droit **WiFiSession**; si elle est dans l’état par défaut de **en cours d’exécution**, puis cliquez sur **arrêter**.
+Le moyen le plus rapide pour ouvrir l’Analyseur de performances consiste à appuyer sur la touche Windows, puis de taper *Analyseur de performances* ou *perfmon.msc*. Dans les résultats affichés, cliquez sur **Analyseur de performances**. Dans l’Analyseur de performances, cliquez sur **Ensembles de collecteurs de données**, puis double-cliquez sur **Sessions de suivi d’événements**. Faites un clic droit sur **WiFiSession**. Si son statut est défini sur **En cours d’exécution**, cliquez sur **Arrêter**.
 
-Cliquez sur **StartupEventTraceSessions**, puis cliquez sur **ReadyBoot**; si elle est en cours d’exécution, cliquez sur **arrêter**. Cliquez sur **Sessions de suivi d’événements**, avec le bouton droit **ReadyBoot**, puis cliquez sur **propriétés**. Dans la boîte de dialogue qui s’ouvre, cliquez sur le **la Session de Trace** onglet. Effacer la **activé** case à cocher.
+Cliquez sur **StartupEventTraceSessions**, puis faites un clic droit sur **ReadyBoot**. Si son statut est défini sur En cours d’exécution, cliquez sur **Arrêter**. Cliquez sur **Sessions de suivi d’événements**, faites un clic droit sur **ReadyBoot**, puis cliquez sur **Propriétés**. Dans la boîte de dialogue qui s’ouvre, cliquez sur l’onglet **Session de suivi**. Décochez la case en regard d’**Activé**.
 
 ### <a name="services"></a>Services
-Le moyen le plus rapide pour gérer les Services consiste à transmettre le bouton de Windows et le type *services*. Dans les résultats qui retournent, cliquez sur **Services**. Les services suivants sont de bons candidats pour la désactiver pour une utilisation dans des scénarios VDI. Toutefois, vous devrez peut-être effectuer des tests pour vérifier qu’ils ne sont pas nécessaires pour vos besoins. Pour désactiver un service, dans le **Services** -composant logiciel enfichable, cliquez sur le nom de service, puis cliquez sur **propriétés**. Sur le **général** , cliquez sur le **type de démarrage** menu déroulant, puis cliquez sur **désactivé**. Cliquez sur **OK**.
+Le moyen le plus rapide pour gérer les Services consiste à appuyer sur la touche Windows, puis à taper *services*. Dans les résultats affichés, cliquez sur **Services**. Nous vous recommandons de désactiver les services suivants si vous utilisez un VDI. Toutefois, vous devrez peut-être effectuer des tests pour vous assurer qu’ils ne vous sont pas nécessaires. Pour désactiver un service, dans le composant logiciel enfichable **Services**, cliquez sur le nom du service à désactiver, puis sur **Propriétés**. Sous l’onglet **Général**, cliquez sur le menu déroulant en regard de **Type de démarrage**, puis sur **Désactivé**. Cliquez sur **OK**.
 
 - BranchCache
 - Optimisation de la distribution
-- Hôte de Service de diagnostic
-- Service de zone réactive mobiles Windows
-- Xbox Live Auth Manager
-- Xbox Live Game enregistrer
+- Service hôte WDIServiceHost
+- Service Point d'accès sans fil mobile Windows
+- Gestionnaire d'authentification Xbox Live
+- Jeu sauvegardé sur Xbox Live
 - Service de mise en réseau Xbox Live
 
-### <a name="file-explorer-options"></a>Options de l’Explorateur de fichiers
-Appuyez sur le bouton de Windows et le type *le panneau de configuration*. Dans les résultats qui retournent, cliquez sur **le panneau de configuration**. Dans le panneau de configuration, cliquez sur **les Options de l’Explorateur de fichiers**. Dans la boîte de dialogue qui s’ouvre, cliquez sur le **recherche** onglet, puis dans le **lors de la recherche des emplacements non indexés** zone, désactivez la case à cocher **inclure les répertoires système**. Cliquez sur **OK** à enregistrer.
+### <a name="file-explorer-options"></a>Options de l'Explorateur de fichiers
+Appuyez sur la touche Windows, puis tapez *Panneau de configuration*. Dans les résultats affichés, cliquez sur **le Panneau de configuration**. Dans le Panneau de configuration, cliquez sur **Options de l’Explorateur de fichiers**. Dans la boîte de dialogue qui s’ouvre, cliquez sur l’onglet **Rechercher**, puis dans la zone **Lors des recherches sur des emplacements non indexés**, décochez la case en regard de **Inclure les répertoires système**. Cliquez sur **OK** pour enregistrer.
 
-### <a name="flash-settings"></a>Paramètres du Flash
-Appuyez sur le bouton de Windows et le type *le panneau de configuration*. Dans les résultats qui retournent, cliquez sur **le panneau de configuration**. Dans le panneau de configuration, cliquez sur **Flash Player** pour ouvrir le Gestionnaire de paramètres de Flash Player. Sur le **stockage** , sélectionnez le bouton radio pour **bloquer tous les sites de stocker des informations sur cet ordinateur**. Dans la boîte de dialogue qui s’ouvre, cliquez sur **OK**.
+### <a name="flash-settings"></a>Paramètres Flash
+Appuyez sur la touche Windows, puis tapez *Panneau de configuration*. Dans les résultats affichés, cliquez sur **le Panneau de configuration**. Dans le panneau de configuration, cliquez sur **Flash Player** pour ouvrir le Gestionnaire des paramètres de Flash Player. Sous l’onglet **Enregistrement**, sélectionnez l’option **Empêcher tous les sites d’enregistrer des informations sur cet ordinateur**. Dans la boîte de dialogue qui s’ouvre, cliquez sur **OK**.
 
-Sur le **webcam et micro** sous l’onglet le **caméra et les paramètres du Microphone** zone, sélectionnez la case d’option pour **bloquer tous les sites à partir d’à l’aide de la caméra et le microphone**.
+Sous l’onglet **Caméra et microphone**, dans la zone **Paramètres de la caméra et du microphone**, sélectionnez l’option **Empêcher tous les sites d’utiliser la caméra et le microphone**.
 
-Sur le **lecture** sous l’onglet le **assistée par l’homologue de mise en réseau** zone, sélectionnez la case d’option pour **bloquer tous les sites à partir de la mise en réseau homologue assistance**. Fermez le Gestionnaire de paramètres de Flash Player.
+Sous l’onglet **Lecture**, dans la zone **Mise en réseau coopérative**, sélectionnez l’option **Empêcher tous les sites de recourir à la mise en réseau coopérative**. Fermez le Gestionnaire des paramètres de Flash Player.
 
 ### <a name="internet-options"></a>Options Internet
-Appuyez sur le bouton de Windows et le type *le panneau de configuration*. Dans les résultats qui retournent, cliquez sur **le panneau de configuration**. Dans le panneau de configuration, cliquez sur **Options Internet** pour ouvrir les propriétés d’Internet. Dans le **page d’accueil** zone, entrez l’URL du site web que vous voulez que les utilisateurs voient en tant que la page d’accueil dans les navigateurs. Cela peut être un site web pour votre entreprise, ou vous pouvez le définir sur une page d’accueil vide en entrant *sur : vide*.
+Appuyez sur la touche Windows, puis tapez *Panneau de configuration*. Dans les résultats affichés, cliquez sur **le Panneau de configuration**. Dans le Panneau de configuration, cliquez sur **Options Internet** pour ouvrir les propriétés d’Internet. Dans la zone **Page de démarrage**, entrez l’URL du site web que vous voulez que les utilisateurs voient en tant que page d’accueil dans leurs navigateurs. Cela peut être un site web de votre entreprise, ou une page d’accueil vide, en entrant *about:blank*.
 
-Dans le **l’historique de navigation** zone, sélectionnez la case à cocher **supprimer l’historique de navigation en quittant**.
+Dans la zone **Historique de navigation**, cochez la case en regard de **Supprimer l’historique de navigation en quittant le navigateur**.
 
 ### <a name="power-options"></a>Options d’alimentation
-Appuyez sur le bouton de Windows et le type *le panneau de configuration*. Dans les résultats qui retournent, cliquez sur **le panneau de configuration**. Dans le panneau de configuration, cliquez sur **Options d’alimentation** pour ouvrir le panneau de configuration Options d’alimentation. Dans le **choisir ou personnaliser un mode d’alimentation** zone, cliquez sur la flèche vers le bas pour **afficher des plans supplémentaires**, puis sélectionnez le bouton radio pour **hautes performances**. Ce paramètre a très peu d’impact sur l’hôte VDI.
+Appuyez sur la touche Windows, puis tapez *Panneau de configuration*. Dans les résultats affichés, cliquez sur **le Panneau de configuration**. Dans le panneau de configuration, cliquez sur **Options d’alimentation** pour ouvrir la fenêtre Options d’alimentation. Dans la zone **Choisir ou personnaliser un mode de gestion de l’alimentation**, cliquez sur la flèche vers le bas pour **Afficher les modes supplémentaires**, puis sélectionnez l’option **Performances élevées**. Ce paramètre a très peu d’impact sur l’hôte VDI.
 
 ### <a name="system"></a>System
-Appuyez sur le bouton de Windows et le type *le panneau de configuration*. Dans les résultats qui retournent, cliquez sur **le panneau de configuration**. Dans le panneau de configuration, cliquez sur **système** pour ouvrir le panneau de configuration système. Dans le volet gauche, cliquez sur **paramètres système avancés**. Dans la boîte de dialogue qui s’ouvre, cliquez sur le **avancé** onglet. Dans le **performances** zone, cliquez sur le **paramètres** bouton, puis sur **effets visuels** onglet dans la boîte de dialogue qui s’affiche, sélectionnez le **Adjust pour de meilleures performances**  case d’option. Cliquez sur **OK** pour enregistrer et quitter.
+Appuyez sur la touche Windows, puis tapez *Panneau de configuration*. Dans les résultats affichés, cliquez sur **le Panneau de configuration**. Dans le panneau de configuration, cliquez sur **Système** pour ouvrir la fenêtre Système. Dans le volet de gauche, cliquez sur **Paramètres système avancés**. Dans la boîte de dialogue qui s’ouvre, cliquez sur l’onglet **Avancé**. Dans la zone **Performances**, cliquez sur **Paramètres**. Puis sous l’onglet **Effets visuels**, sélectionnez l’option **Ajuster afin d’obtenir les meilleures performances**. Cliquez sur **OK** pour enregistrer et quitter.
 
 ## <a name="group-policy-settings"></a>Paramètres de stratégie de groupe
 
-Pour modifier les paramètres de stratégie de groupe, appuyez sur le bouton de Windows et le type *stratégie de groupe* ou *gpedit.msc*. Dans les résultats qui retournent, cliquez sur **modifier la stratégie de groupe** pour ouvrir l’éditeur de stratégie de groupe locale.
+Pour modifier les paramètres Stratégie de groupe, appuyez la touche Windows, puis tapez *Stratégie de groupe* ou *gpedit.msc*. Dans les résultats affichés, cliquez sur **Modifier la stratégie de groupe** pour ouvrir l’Éditeur d'objets de stratégie de groupe.
 
 > [!NOTE]  
-> Tous les paramètres ne sont pas spécifiquement mentionnés dans cette rubrique peuvent être laissés à leurs valeurs par défaut (ou un ensemble par vos besoins et les stratégies) sans impact notable sur les fonctionnalités de l’infrastructure VDI.
+> Tous les paramètres qui ne sont pas spécifiquement mentionnés dans cette rubrique peuvent être laissés à leurs valeurs par défaut (ou définis selon vos besoins et stratégies). Cela n’aura aucun impact notable sur les fonctionnalités de l’infrastructure VDI.
 
-Sous **Configuration ordinateur**, développez **Windows paramètres**, puis développez **paramètres de sécurité**. Cliquez sur **stratégies réseau liste Manager**, puis double-cliquez sur **tous les réseaux**. Dans la boîte de dialogue qui s’ouvre, dans le **emplacement réseau** zone, sélectionnez la case d’option pour **utilisateur ne peut pas modifier l’emplacement**. Cliquez sur le **OK** bouton pour enregistrer.
+Sous **Configuration ordinateur**, développez **Paramètres Windows**, puis **Paramètres de sécurité**. Cliquez sur **Stratégies du gestionnaire de listes de réseaux**, puis double-cliquez sur **Tous les réseaux**. Dans la boîte de dialogue qui s’ouvre, dans la zone **Emplacement réseau**, sélectionnez l’option **L’utilisateur ne peut pas changer l’emplacement**. Cliquez sur **OK** pour enregistrer.
 
-Réduire **Windows paramètres**, puis développez **modèles d’administration**. Cliquez sur ou développez **réseau**, puis ajustez chaque paramètre comme suit en double-cliquant dessus, puis en sélectionnant le bouton radio pour la valeur indiquée en cliquant sur le **OK** bouton :
+Réduisez le niveau **Paramètres Windows**, puis développez **Modèles d’administration**. Cliquez sur **Réseau** ou développez ce niveau, puis ajustez chaque paramètre comme suit en double-cliquant dessus, puis en sélectionnant l’option correspondant à la valeur indiquée ici en cliquant sur **OK** :
 
-|Zone de paramétrage|Paramètre|Valeur recommandée pour une utilisation de l’infrastructure VDI|  
+|Zone Paramètre|Paramètre|Valeur recommandée pour une utilisation de VDI|  
 |-------------------|-------|----------|
 |Service de transfert intelligent en arrière-plan (BITS)|||
-||Ne pas autoriser le client BITS utilise Windows BranchCache|Enabled|
-||Ne pas autoriser l’ordinateur d’agir comme un client de mise en cache BITS|Enabled|
-||Ne pas autoriser l’ordinateur d’agir comme un serveur de mise en cache BITS|Enabled|
-||Autoriser la mise en cache BITS|Désactivée|
+||Ne pas autoriser le client BITS à utiliser le cache de filiale Windows|Activé|
+||Ne pas autoriser l’utilisation de l’ordinateur en tant que client de mise en cache partagé entre systèmes homologues BITS|Activé|
+||Ne pas autoriser l’utilisation de l’ordinateur en tant que serveur de mise en cache partagé entre systèmes homologues BITS|Activé|
+||Autoriser la mise en cache partagé entre systèmes homologues BITS|Désactivée|
 |BranchCache||
 ||Activer BranchCache|Désactivée|
-|Authentification de la zone réactive||
-||Activer l’authentification de zone réactive|Désactivée|
-|Services de mise en réseau Microsoft Peer-to-Peer||
-||Arrêter les Services de mise en réseau Microsoft Peer-to-Peer|Enabled|
+|Authentification de la zone d’accès sans fil||
+||Activer l’authentification de la zone d’accès sans fil|Désactivée|
+|Activer les services réseau pair à pair Microsoft||
+||Désactiver les services réseau pair à pair Microsoft|Activé|
 |Fichiers hors connexion||
-||Autoriser ou interdire l’utilisation de la fonctionnalité fichiers hors connexion|Désactivée|
+||Autoriser ou interdire l’utilisation de la fonctionnalité de fichiers hors connexion|Désactivée|
 
-Réduire **réseau**, puis développez **système**. Ajuster chaque paramètre comme suit en double-cliquant dessus, puis en sélectionnant le bouton radio pour la valeur indiquée et en cliquant sur le **OK** bouton :
+Réduisez le niveau **Réseau**, puis développez le niveau **Système**. Ajustez chaque paramètre comme suit en double-cliquant dessus, puis en sélectionnant l’option correspondant à la valeur indiquée ici en cliquant sur **OK** :
 
-|Zone de paramétrage|Paramètre|Valeur recommandée pour une utilisation de l’infrastructure VDI|  
+|Zone Paramètre|Paramètre|Valeur recommandée pour une utilisation de VDI|  
 |-------------------|----------|--------------|
-|Installation de périphérique||
-||Ne pas envoyer un rapport d’erreurs Windows lorsqu’un pilote générique est installé sur un appareil|Enabled|
-||Empêcher la création d’un point de restauration système pendant l’activité de l’appareil qui invitait normalement la création d’un point de restauration|Enabled|
-||Empêcher la récupération de métadonnées d’appareil à partir d’Internet|Enabled|
-||Empêcher l’envoi d’un rapport d’erreurs quand un logiciel supplémentaire de demandes de pilote de périphérique lors de l’installation de Windows|Enabled|
-||Désactiver les bulles « Nouveau matériel détecté » pendant l’installation de l’appareil|Enabled|
+|Installation de périphériques||
+||Ne pas envoyer de rapport d’erreurs Windows lors de l’installation d’un pilote générique sur un périphérique|Activé|
+||Empêcher la création de point de restauration système lors d’une activité d’un périphérique demandant habituellement la création d’un point de restauration|Activé|
+||Empêcher la récupération des métadonnées de périphérique depuis Internet|Activé|
+||Empêcher Windows d’envoyer un rapport d’erreurs lorsqu’un pilote de périphérique demande un logiciel supplémentaire au cours de l’installation|Activé|
+||Désactiver les bulles « Nouveau matériel détecté » pendant l’installation de périphériques|Activé|
 
-Développez **Filesystem**, double-cliquez sur **NTFS**, double-cliquez sur **abrégée des options de création de nom**, sélectionnez la case pour **activé**, puis utilisez le **Options** menu déroulant pour sélectionner **activer sur tous les volumes**. Cliquez sur le **OK** bouton pour enregistrer.
+Développez le niveau **Filesystem**, double-cliquez sur **NTFS**, double-cliquez sur **Options de création de noms courts**, sélectionnez l’option **Activé**, puis, dans le menu déroulant **Options** sélectionnez  **	Activer sur tous les volumes**. Cliquez sur **OK** pour enregistrer.
 
-Réduire **Filesystem**, puis développez **gestion de la Communication Internet**. Cliquez sur **paramètres de Communication Internet**. Ajuster chaque paramètre comme suit en double-cliquant dessus, puis en sélectionnant le bouton radio pour **activé**, puis en cliquant sur le **OK** bouton :
+Réduisez le niveau **Filesystem**, puis développez **Gestion de la communication Internet**. Cliquez sur **Paramètres de communication Internet**. Ajustez chaque paramètre comme suit en double-cliquant dessus, puis en sélectionnant l’option **Activé**, puis en cliquant sur **OK** :
 
-- Désactiver les liens « Events.asp » l’Observateur d’événements
-- Désactiver le partage de données de personnalisation de l’écriture manuscrite
-- Désactiver le signalement de l’erreur reconnaissance de l’écriture manuscrite
-- Désactiver centre d’aide et Support « Le saviez-vous ? » content
-- Désactiver la recherche d’aide et de Base de connaissances Microsoft Support Center
-- Désactiver l’Assistant connexion Internet si l’adresse URL de connexion fait référence à Microsoft.com
-- Désactiver le téléchargement d’Internet pour la publication Web et commande en ligne des Assistants
-- Désactiver le service d’Association de fichier Internet
-- Désactiver l’inscription si l’adresse URL de connexion fait référence à Microsoft.com
-- Désactiver la tâche d’image « Commander des photos »
-- Désactiver la tâche « Publier sur le Web » pour les fichiers et dossiers
-- Désactiver le programme Windows Messenger d’amélioration
-- Désactiver Windows Customer Experience Improvement Program
-- Désactiver rapport d’erreurs Windows
-- Désactiver la recherche de pilotes de périphérique Windows Update
+- Désactiver les liens « Events.asp » de l’observateur d’événements
+- Désactiver le partage des données de personnalisation de l'écriture manuscrite
+- Désactiver le signalement d’erreurs de la reconnaissance de l’écriture manuscrite
+- Désactiver le contenu « Le saviez-vous ? » du Centre d’aide et de support content
+- Désactiver la recherche dans la Base de connaissances Microsoft du Centre d’aide et de support
+- Désactiver l’Assistant Connexion Internet si l’adresse URL de connexion fait référence à Microsoft.com
+- Désactiver le téléchargement à partir d’Internet pour les Assistants Publication de sites Web et Commande en ligne via Internet
+- Désactiver le service d’association de fichier Internet
+- Désactiver l’inscription si l’adresse URL de connexion fait référence à microsoft.com
+- Désactiver l’option Commander des photos de la Gestion des images
+- Désactiver l’option Publier sur le Web de la Gestion des fichiers
+- Désactiver le Programme d’amélioration des services pour Windows Messenger
+- Désactiver le Programme d’amélioration de l’expérience utilisateur Windows
+- Désactiver Rapport d’erreurs Windows
+- Désactiver la recherche de pilotes de périphériques sur Windows Update
 
-Cliquez sur **gestion de l’alimentation** , puis double-cliquez sur **sélectionner un plan d’alimentation**. Sélectionnez le bouton radio pour **activé**, puis utilisez le **Options** menu déroulant pour sélectionner **hautes performances**. Cliquez sur le **OK** bouton pour enregistrer.
+Cliquez sur **Gestion de l’alimentation**, puis double-cliquez sur **Sélectionner un mode de gestion d’alimentation actif**. Sélectionnez l’option **Activé**, puis, dans le menu déroulant **Options**, sélectionnez **Performances élevées**. Cliquez sur **OK** pour enregistrer.
 
-Cliquez sur **récupération**, puis double-cliquez sur **autoriser la restauration du système à l’état par défaut**. Sélectionnez le bouton radio pour **activé**, puis cliquez sur le **OK** bouton pour enregistrer.
+Cliquez sur **Récupération**, puis double-cliquez sur **Autoriser la restauration de l’état par défaut du système**. Sélectionnez l’option **Activé**, puis cliquez sur **OK** pour enregistrer.
 
-Développez **dépannage et Diagnostics**. Cliquez sur **Maintenance planifiée**, double-cliquez sur **configurer le comportement Maintenance planifiée**, puis sélectionnez le bouton radio pour **désactivé**. Cliquez sur le **OK** bouton pour enregistrer.
+Développez **Dépannage et diagnostics**. Cliquez sur **Maintenance planifiée**, double-cliquez sur **Configurer le comportement de la maintenance planifiée**, puis sélectionnez l’option **Désactivé**. Cliquez sur **OK** pour enregistrer.
 
-Pour chacune des zones de paramètres suivant, cliquez dessus, puis double-cliquez sur **configurer le niveau de l’exécution du scénario**, sélectionnez la case pour **désactivé**, puis cliquez sur le **OK**bouton pour enregistrer :
+Cliquez sur chacune des zones de paramètres suivantes, puis double-cliquez sur **Configurer le niveau d'exécution des scénarios**, sélectionnez l’option **Désactivé**, puis cliquez sur **OK** pour enregistrer :
 
-- Diagnostics de performances de démarrage de Windows
-- Diagnostics de fuite de mémoire Windows
-- Résolution et détection de carence des ressources Windows
-- Diagnostics de performances d’arrêt Windows
-- Diagnostics des performances de veille/reprise Windows
-- Diagnostics des performances de la réactivité du système Windows
+- Diagnostics des performances de démarrage Windows
+- Diagnostic de fuite de mémoire Windows
+- Programme de détection et de résolution de carence des ressources Windows
+- Diagnostics des performances de l’arrêt de Windows
+- Diagnostics des performances de la veille/reprise Windows
+- Diagnostics des performances de réactivité du système Windows
 
-Réduire **système**, puis développez **les composants Windows**. Ajuster chaque paramètre comme suit en double-cliquant dessus, puis en sélectionnant le bouton radio pour la valeur indiquée en cliquant sur le **OK** bouton :
+Réduisez **Système**, puis développez **Composants Windows**. Ajustez chaque paramètre comme suit en double-cliquant dessus, puis en sélectionnant l’option correspondant à la valeur indiquée ici en cliquant sur **OK** :
 
-|Zone de paramétrage|Paramètre|Valeur recommandée pour une utilisation de l’infrastructure VDI|  
+|Zone Paramètre|Paramètre|Valeur recommandée pour une utilisation de VDI|  
 |-------------------|-------|----------|
-|Ajouter des fonctionnalités à Windows 10|||
-||Empêcher l’exécution de l’Assistant|Enabled|
-|Stratégies de lecture automatique|||
-||Définir le comportement par défaut pour l’exécution automatique|Activé, puis utiliser le **Options** menu déroulant pour sélectionner **n’exécutez pas les commandes d’exécution automatique**|
-|Contenu de cloud|||
-||Ne pas afficher les conseils de Windows|Enabled|
-||Désactiver les expériences consommateur Microsoft|Enabled|
-|Collecte de données et les versions d’évaluation|||
-||Autoriser la télémétrie|Activé, puis utiliser le **Options** menu déroulant pour sélectionner **1 – de base**|
+|Processus d’ajout de fonctionnalités à Windows 10|||
+||Empêcher l’exécution de l’assistant|Activé|
+|Stratégies d’exécution automatique|||
+||Définir le comportement par défaut du programme Autorun|Sélectionnez Activé, puis, dans le menu déroulant **Options**, sélectionnez **N’exécuter aucune commande Autorun**|
+|Contenu cloud|||
+||Ne pas afficher les Conseils Windows|Activé|
+||Désactiver les expériences consommateur Microsoft|Activé|
+|Collecte des données et versions d’évaluation Preview|||
+||Autoriser la télémétrie|Sélectionnez Activé, puis, dans le menu déroulant **Options**, sélectionnez **1 : De base**|
 ||Désactiver les fonctionnalités ou paramètres des versions préliminaires|     Désactivée|
-||Ne pas afficher les notifications de commentaires|       Enabled|
+||Ne pas afficher les notifications de commentaires|       Activé|
 ||Activer/désactiver le contrôle de l’utilisateur sur les builds d’Insider|      Désactivée|
-|Gestionnaire de fenêtrage|||
-||Ne pas autoriser l’invocation de Flip3D|       Enabled|
-||Ne pas autoriser les animations de fenêtres|       Enabled|
-||Utiliser une couleur unie pour l’arrière-plan de démarrage|     Enabled|
-|Bord de l’interface utilisateur|||
-||Autoriser le balayage de bord|     Désactivée|
-||Désactiver les info-bulles|        Enabled|
+|Gestionnaire de fenêtres du Bureau|||
+||Ne pas autoriser l’invocation de Rotation 3D|       Activé|
+||Ne pas autoriser les animations de fenêtres|       Activé|
+||Utiliser une couleur unie pour l’arrière-plan du menu Démarrer|     Activé|
+|Interface utilisateur latérale|||
+||Autoriser le balayage latéral|     Désactivée|
+||Désactiver les astuces|        Activé|
 |Explorateur de fichiers|||
-||Ne plus afficher la notification de « nouvelle application installée »|     Enabled|
+||Ne pas afficher la notification « Nouvelle application installée »|     Activé|
 |Explorateur de jeux|||
-||Désactiver le téléchargement des informations sur les jeux|     Enabled|
-||Désactiver les mises à jour de jeu|        Enabled|
-||Désactiver le suivi de la dernière heure de lecture de jeux dans le dossier jeux|     Enabled|
-|Groupe résidentiel|||
-||Empêcher l'ordinateur de rejoindre un groupe résidentiel|        Enabled|
+||Désactiver le téléchargement d’informations sur les jeux|     Activé|
+||Désactiver les mises à jour de jeux|        Activé|
+||Désactiver le suivi de l’heure de la dernière utilisation d’un jeu du dossier Jeux|     Activé|
+|Groupement résidentiel|||
+||Empêcher l'ordinateur de rejoindre un groupe résidentiel|        Activé|
 |Internet Explorer|||
 ||Autoriser les services Microsoft à fournir des suggestions améliorées à mesure que l’utilisateur entre du texte dans la barre d’adresses|        Désactivée|
-||Désactiver la vérification périodique des mises à jour de logiciels Internet Explorer|        Enabled|
-||Désactiver l’affichage de l’écran de démarrage|        Enabled|
+||Désactiver la vérification périodique des mises à jour de logiciels Internet Explorer|        Activé|
+||Désactiver l’affichage de l’écran de démarrage|        Activé|
 ||Installer automatiquement de nouvelles versions d’Internet Explorer|      Désactivée|
-||Empêcher la participation au programme d’amélioration du produit|     Enabled|
-||Empêcher en cours d’exécution Assistant 1ère utilisation d’accéder directement à la page d’accueil|   Activé, puis utiliser le **Options** menu déroulant pour sélectionner **accéder directement à la page d’accueil**|
-||Définir la croissance de processus d’onglet|Activé, puis tapez ce qui suit dans le **onglet processus croissance** zone : *Faible*.|
-||Spécifier le comportement par défaut pour un nouvel onglet|Activé, puis utiliser le **Options** menu déroulant pour sélectionner **nouvelle page d’onglets**|
-||Désactiver les notifications de performances des modules complémentaires|        Enabled|
-||Désactiver la géolocalisation du navigateur|     Enabled|
-||Désactiver le rouvrir une dernière Session de navigation|        Enabled|
-||Désactiver les suggestions pour tous les fournisseurs installés par l’utilisateur|        Enabled|
-||Activer les sites suggérés|       Désactivée|
+||Empêcher la participation au Programme d’amélioration de l’expérience utilisateur|     Activé|
+||Empêcher l’exécution de l’Assistant Première exécution d’aller directement à la page d’accueil|   Sélectionnez Activé, puis, dans le menu déroulant **Options**, sélectionnez **Aller directement à la page d’accueil**|
+||Définir le développement de processus d’onglet|Sélectionnez Activé, puis tapez ce qui suit dans la zone **Développement de processus d’onglet** : *Faible*.|
+||Spécifier le comportement par défaut d’un nouvel onglet|Sélectionnez Activé, puis, dans le menu déroulant **Options**, sélectionnez **Page du nouvel onglet**|
+||Désactiver les notifications de performances des modules complémentaires|        Activé|
+||Désactiver la géolocalisation du navigateur|     Activé|
+||Désactiver Rouvrir la dernière session de navigation|        Activé|
+||Désactiver les suggestions de tous les moteurs de recherche installés par l’utilisateur|        Activé|
+||Activer Sites suggérés|       Désactivée|
 
-Au même niveau que le **Internet Explorer** paramètres que vous venez d’ajustée dans le tableau précédent, notez un autre niveau de dossiers allant **accélérateurs** à **barres d’outils**. En d’autres termes, vous êtes maintenant à la stratégie ordinateur Local > Configuration ordinateur > modèles d’administration > composants de Windows > Internet Explorer. 
+Au même niveau que paramètre **Internet Explorer** que vous avez ajusté dans la table précédente, notez un autre niveau de dossiers allant d’**Accélérateurs** à **Barres d’outils**. En d’autres termes, vous êtes maintenant à Stratégie ordinateur local > Configuration ordinateur > Modèles administration > Composants Windows > Internet Explorer. 
 
-Ouvrez le **supprimer l’historique de navigation** dossier, double-cliquez sur **autorise la suppression de l’historique de navigation en quittant**, sélectionnez **activer**, puis cliquez sur **OK**pour enregistrer et quitter.
+Ouvrez dossier **Supprimer l’historique de navigation**, double-cliquez sur **Autoriser la suppression de l’historique de navigation en quittant**, sélectionnez **Activer**, puis cliquez sur **OK**pour enregistrer et quitter.
 
-Utilisez la flèche précédent dans le coin supérieur gauche d’éditeur pour revenir à la **Internet Explorer** niveau. Double-cliquez sur **paramètres Internet**, double-cliquez sur **paramètres avancés**, puis réglez les paramètres dans les sous-dossiers comme suit :
+Dans le coin supérieur gauche de l’Éditeur d'objets de stratégie de groupe, cliquez sur la flèche Précédent pour revenir au niveau **Internet Explorer**. Double-cliquez sur **Paramètres Internet**, double-cliquez sur **Paramètres avancés**, puis réglez les paramètres des sous-dossiers comme suit :
 
-|Définition du dossier sous **paramètres avancés**|Paramètre|Valeur recommandée pour une utilisation de l’infrastructure VDI|  
+|Définition du dossier sous **Paramètres avancés**|Paramètre|Valeur recommandée pour une utilisation de VDI|  
 |-------------------|-------|----------|
 |**Navigation**|||
-||Désactiver la détection des numéros de téléphone|Enabled|
+||Désactiver la détection des numéros de téléphone|Activé|
 |**Multimédia**|||
-||Autorisez Internet Explorer lire des fichiers multimédias qui utilisent d’autres codecs|Désactivée|
+||Autoriser Internet Explorer à lire les fichiers multimédias qui utilisent des codecs de remplacement|Désactivée|
 
-Accédez à sauvegarder sur le niveau de **Internet Explorer**, puis double-cliquez sur **paramètres Internet**. Dans ce dossier, définissez ces deux paramètres sous **la saisie semi-automatique** à **activé**:
+Revenez au niveau **Internet Explorer**, puis double-cliquez sur **Paramètres Internet**. Dans ce dossier, définissez ces deux paramètres sous **Saisie semi-automatique** sur **Activé** :
 
 - Désactiver les suggestions d’URL
-- Désactiver la saisie semi-automatique de Windows Search
+- Désactiver la saisie semi-automatique de recherche Windows
 
-Accédez sauvegarder les quatre niveaux à **les composants Windows**, double-cliquez sur **localisation et capteurs**, puis affectez ces trois paramètres **activé** (pour chacune, cliquez sur  **OK** pour enregistrer et quitter) :
+Revenez en arrière de quatre niveaux, jusqu’à **Composants Windows**, double-cliquez sur **Emplacement et capteurs**, puis définissez ces trois paramètres sur **Activé** (à chaque fois, cliquez sur **OK** pour enregistrer et quitter) :
 
-- Mettre hors tension de l’emplacement
-- Désactiver l’emplacement de script
+- Désactiver l’emplacement
+- Désactiver le script d’emplacement
 - Désactiver les capteurs
 
-While au niveau de **localisation et capteurs**, double-cliquez sur **fournisseur de localisation de Windows** et définissez **désactiver le fournisseur de localisation de Windows** à **activé**. Cliquez sur **OK** pour enregistrer et quitter.
+Au niveau de **Emplacement et capteurs**, double-cliquez sur **Service de localisation Windows**, puis définissez **Désactiver le service de localisation Windows** sur **Activé**. Cliquez sur **OK** pour enregistrer et quitter.
 
-Dans le volet gauche, cliquez sur **Maps**, ces paramètres la valeur **activé**; pour chacun, puis cliquez sur **OK** pour enregistrer et quitter :
+Dans le volet gauche, cliquez sur **Cartes**, définissez ces paramètres sur valeur **Activé**. À chaque fois, cliquez sur **OK** pour enregistrer et quitter :
 
 - Désactiver le téléchargement automatique et la mise à jour des données de carte
 - Désactiver le trafic réseau non sollicité dans la page de paramètres des cartes hors connexion
 
-Utilisez le volet gauche, entrez chaque sous-dossier de paramètres suivants et ajuster les paramètres comme suit :
+Dans le volet de gauche, entrez dans chacun des sous-dossiers de paramètres suivants et réglez les paramètres individuels comme suit :
 
-|Dossier paramètres sous **composants de Windows**|Paramètre|Valeur recommandée pour une utilisation de l’infrastructure VDI|  
+|Réglages du dossier sous **Composants Windows**|Paramètre|Valeur recommandée pour une utilisation de VDI|  
 |-------------------|-------|----------|
 |**OneDrive**|||
-||Empêcher l’utilisation de OneDrive pour le stockage de fichiers|Enabled|
-||Enregistrer des documents sur OneDrive par défaut|Désactivée|
+||Empêcher l’utilisation de OneDrive pour le stockage de fichiers|Activé|
+||Enregistrer les documents sur OneDrive par défaut|Désactivée|
 |**Flux RSS**|||
-||Empêcher la détection automatique des flux et les composants Web Slice|Enabled|
+||Empêcher la découverte automatique des flux et des composants Web Slice|Activé|
 |**Recherche**|||
 ||Autoriser Cortana|        Désactivée|
-||Autoriser Cortana par-dessus écran de verrouillage|      Désactivée|
+||Autoriser Cortana au-dessus de l’écran de verrouillage|      Désactivée|
 ||Autoriser la recherche et autoriser Cortana à utiliser la localisation|     Désactivée|
-||Ne pas autoriser la recherche web|      Enabled|
-||Ne pas rechercher sur le web ou afficher les résultats web dans la recherche|        Enabled|
-||Empêcher l’ajout d’UNC emplacements à l’index dans le panneau de configuration|     Enabled|
-||Empêcher l’indexation des fichiers dans le cache des fichiers hors connexion|        Enabled|
+||Ne pas autoriser la recherche web|      Activé|
+||Ne pas rechercher sur le web ou afficher des résultats web dans la recherche|        Activé|
+||Empêcher l’ajout d’emplacements UNC à l’index depuis le Panneau de configuration|     Activé|
+||Empêcher l’indexation des fichiers dans le cache des fichiers hors connexion|        Activé|
 |**Microsoft Store**|||
-||Désactiver l’offre de mise à jour vers la dernière version de Windows|Enabled|
+||Désactiver la proposition d’effectuer une mise à jour vers la dernière version de Windows|Activé|
 |**Rapport d’erreurs Windows**|||
-||Envoyer automatiquement les vidages de mémoire pour les rapports d’erreur générés par le système d’exploitation|       Désactivée|
-||Désactiver le rapport d’erreurs Windows|      Enabled|
+||Envoyer automatiquement des images mémoire pour les rapports d’erreurs générés par le système d’exploitation|       Désactivée|
+||Désactiver le rapport d’erreurs Windows|      Activé|
 |**Windows Installer**|||
-||Contrôle la taille maximale du cache de fichiers de base|  Activé, puis utilisez le spinbox dans le **Options** zone à définir **taille maximale du cache de fichier de base** à *5*.|
-||Désactiver la création de points de contrôle de restauration du système|      Enabled|
-|**Windows Mail**|||
-||Désactiver la fonctionnalité de Communautés|Enabled|
-|**Windows Media Player**|||
-||Ne pas afficher les boîtes de dialogue première utilisation|       Enabled|
-||Empêcher le partage de fichiers multimédias|        Enabled|
-|**Le centre de mobilité Windows**|||
-||Désactiver le centre de mobilité Windows|Enabled|
-|**Analyse de fiabilité de Windows**|||
-||Configurer les fournisseurs WMI de fiabilité|Désactivée|
+||Contrôler la taille maximale du cache de fichiers de base|  Sélectionnez Activé, puis, dans la zone **Options**, définissez le paramètre **Taille maximale du cache de fichiers de base** sur *5*.|
+||Désactiver la création de points de vérification pour la Restauration du système|      Activé|
+|**Windows Mail 7.0**|||
+||Désactiver la fonctionnalité Communautés|Activé|
+|**Lecteur Windows Media**|||
+||Ne pas afficher les boîtes de dialogue de configuration à la première exécution du Lecteur|       Activé|
+||Empêcher le partage de médias|        Activé|
+|**Centre de mobilité Windows**|||
+||Désactiver le Centre de mobilité Windows|Activé|
+|**Analyse de fiabilité Windows**|||
+||Configurer les fournisseurs WMI du service de fiabilité|Désactivée|
 |**Windows Update**|||
-||Autoriser l’installation immédiate des mises à jour automatiques|       Enabled|
-||Supprimer l’accès à toutes les fonctionnalités de mise à jour de Windows|     Enabled|
-|Dans le **mise à jour Windows** dossier, ouvrez **différer la mise à jour Windows**|||
-||Sélectionnez lors de la réception des mises à jour de fonctionnalité|Activé, puis dans le **Options** zone, utilisez la **sélectionner le niveau de disponibilité de branche pour les mises à jour de fonctionnalité que vous souhaitez recevoir** menu déroulant pour sélectionner **Current Branch for Business**. Définir le **après la publication d’une mise à jour de fonctionnalité, différer la réception des il pour ce nombre de jours** spinbox à *180 jours*.
-||Sélectionnez lors de la réception des mises à jour qualité|Activé, puis, dans le **Options** zone, le **après la publication d’une mise à jour de qualité, différer la réception des il pour ce nombre de jours** spinbox à *30 jours* et sélectionnez la case à cocher **Suspendre les mises à jour qualité**.
+||Autoriser l’installation immédiate des mises à jour automatiques|       Activé|
+||Supprimer l’accès à toutes les fonctionnalités Windows Update|     Activé|
+|Dans le dossier **Windows Update**, ouvrez **Différer les mises à jour de Windows**|||
+||Choisir quand recevoir les mises à jour des fonctionnalités|Sélectionnez Activé, puis, dans la zone **Options** cliquez sur le menu déroulant en regard de **Sélectionner le niveau de disponibilité de branche des mises à jour des fonctionnalités que vous voulez recevoir** pour sélectionner **Current Branch for Business**. Définissez le paramètre **Après la publication d’une mise à jour des fonctionnalités, différer sa réception pendant ce nombre de jours** sur *180 jours*.
+||Choisir quand recevoir les mises à jour qualité|Sélectionnez Activé, puis, dans la zone **Options**, définissez le paramètre **Après la publication d’une mise à jour qualité, différer sa réception pendant ce nombre de jour** sur *30 jours*, puis cochez la case en regard de **Suspendre les mises à jour qualité**.
 
-Dans le volet gauche de l’éditeur de stratégie de groupe locale, cliquez sur **Configuration utilisateur**. Le volet gauche, cliquez sur **modèles d’administration** , puis entrez chaque sous-dossier de paramètres suivants et ajuster les paramètres comme suit :
+Dans le volet de gauche de l’Éditeur d'objets de stratégie de groupe, cliquez sur **Configuration utilisateur**. Dans le volet gauche, cliquez sur  **	Modèles d'administration**, puis entrez dans chacun des sous-dossiers de paramètres suivants et réglez les paramètres individuels comme suit :
 
-|Dossier paramètres sous **modèles d’administration**|Paramètre|Valeur recommandée pour une utilisation de l’infrastructure VDI|  
+|Réglages du dossier sous **Modèles d’administration**|Paramètre|Valeur recommandée pour une utilisation de VDI|  
 |-------------------|-------|----------|
 |**Bureau**|||
-||N’ajoutez pas de partages des documents récemment ouverts vers des emplacements réseau|Enabled|
-|Dans le **Desktop** dossier, ouvrez **Active Directory**|||
-||Taille maximale de recherches Active Directory|Activé, puis dans le **Options** zone, permet de définir le spinbox **nombre d’objets renvoyés** à *5000*.|
-|**Manu de début et de la barre des tâches**|||
-||Effacer la liste des programmes récents pour les nouveaux utilisateurs|     Enabled|
-||Ne pas afficher ni suivre les éléments des listes de raccourcis à partir d'emplacements distants|        Enabled|
-||Désactiver les bulles de notifications de fonctionnalités existantes|     Enabled|
-||Désactiver le suivi de l’utilisateur|       Enabled|
-|Dans le **Menu Démarrer et barre des tâches** dossier, ouvrez **Notifications**|||
-||Désactiver les notifications par toast|Enabled|
-|Dans le **les composants Windows** dossier, ouvrez :|||
-|**Contenu de cloud**|||
-||Désactiver toutes les fonctionnalités Windows à la une|Enabled|
+||Ne pas ajouter de partages des documents récemment ouverts dans Emplacements réseau|Activé|
+|Dans le dossier **Bureau**, ouvrez **Active Directory**|||
+||Taille maximale des recherches dans Active Directory|Sélectionnez Activé, puis dans la zone **Options**, définissez l’option **Nombre d’objets renvoyés** sur *5000*.|
+|**Menu Démarrage et barre des tâches**|||
+||Effacer la liste des programmes récents pour les nouveaux utilisateurs|     Activé|
+||Ne pas afficher ni suivre les éléments des listes de raccourcis à partir d'emplacements distants|        Activé|
+||Désactiver les bulles de notification d’annonce de fonctionnalité|     Activé|
+||Désactiver le suivi utilisateur|       Activé|
+|Dans le dossier **Menu Démarrer et barre des tâches**, ouvrez **Notifications**|||
+||Désactiver les notifications toast|Activé|
+|Dans le dossier **Composants Windows**, ouvrez :|||
+|**Contenu cloud**|||
+||Désactiver toutes les fonctionnalités Windows à la une|Activé|
 |**Explorateur de fichiers**|||
-||Désactiver la mise en cache des images miniatures|       Enabled|
-||Désactiver l’affichage des entrées de recherche récents dans la zone de recherche de l’Explorateur de fichiers|        Enabled|
-||Désactiver la mise en cache de miniatures dans le fichier caché thumbs.db|      Enabled|
+||Désactiver la mise en cache des miniatures|       Activé|
+||Désactiver l’affichage des entrées de recherche récentes de la zone de recherche de l’Explorateur de fichiers|        Activé|
+||Désactiver la mise en cache des miniatures dans les fichiers masqués thumbs.db|      Activé|
 
 ## <a name="microsoft-store-apps"></a>Applications du Microsoft Store
-Il existe un nombre d’applications Microsoft Store que vous pouvez supprimer à partir de l’image de l’infrastructure VDI ; les supprimer pour réduire l’utilisation du processeur et économiser l’espace disque. Bons candidats pour la suppression sont les suivantes :
+Nous vous recommandons de supprimer certaines applications Microsoft Store de votre image VDI. Ainsi, vous pourrez réduire l’utilisation du processeur et économiser de l’espace disque. Voici une liste d’applications dont nous vous recommandons la suppression :
 
 - Obtenir Office
-- Skype (version préliminaire)
-- Prise en main (en particulier s’il n’y a aucune connexion Internet)
+- Skype (Preview)
+- Prise en main (en particulier s’il n’y a aucune connexion à Internet)
 - Hub de commentaires
-- Collection de Microsoft Solitaire
-- Payant Wi-Fi et cellulaire
+- Microsoft Solitaire Collection
+- Wi-Fi payants et Cellulaire
 
-Pour personnaliser le profil utilisateur par défaut utilisé pour la création d’images VDI, utilisez le compte administrateur intégré. S’il n’est pas déjà activé, faire à l’aide d’utilisateurs et groupes locaux dans Gestion de l’ordinateur. Ensuite vous connecter au compte d’administrateur pour effectuer les étapes suivantes.
+Pour personnaliser le profil utilisateur par défaut utilisé pour créer des images VDI, utilisez le compte Administrateur intégré. S’il n'est pas déjà activé, vous pouvez le faire en utilisant Utilisateurs locaux et Groupes dans Gestion de l’ordinateur. Puis, connectez-vous à votre compte Administrateur pour mener à bien la procédure suivante.
 
 > [!NOTE]  
-> Ne supprimez pas les applications système telles que l’application de Store. Ils sont difficiles à réinstaller. Autres applications sont facilement reinstallable à partir du Store.
+> Ne supprimez pas les applications système telles que l’application Store. Elles sont difficiles à réinstaller. D’autres applications peuvent être facilement réinstallées à partir du Store.
 
-### <a name="delete-unwanted-apps-from-the-administrator-user-profile"></a>Supprimer les applications indésirables à partir du profil d’utilisateur administrateur
+### <a name="delete-unwanted-apps-from-the-administrator-user-profile"></a>Supprimer les applications indésirables à partir du profil d’utilisateur Administrateur
 1. Dans Windows PowerShell, exécutez `Get-AppxPackage | ft PackageFamilyName` pour afficher la liste des applications installées.
-2. Pour chaque gestionnaire de package de l’application à désinstaller, exécutez les applets de commande de cet exemple de format :
+2. Exécutez les cmdlets en suivant le format de cet exemple pour chaque gestionnaire de package d’application à désinstaller :
 
     `Get-AppxPackage *messaging* | Remove-AppxPackage`
 
@@ -541,38 +541,38 @@ Pour personnaliser le profil utilisateur par défaut utilisé pour la création 
     `Get-AppxPackage *ZuneMusic* | Remove-AppxPackage`
 
 ### <a name="delete-the-payload-of-unwanted-store-apps"></a>Supprimer la charge utile d’applications de Store indésirables
-Cela empêche les applications de réinstallation.
-1. Applications de Store de la liste et d’autres éléments qui ont configuré des données dans le stockage avec cette applet de commande : `Get-AppxProvisionedPackage -Online`.
-2. Supprimer un package donné avec `Remove-AppxProvisionedPackage -Online -PackageName MyAppPackage`, à l’aide de la MyAppPackage approprié retourné à l’étape 1. Par exemple, pour supprimer le package de Zune, vous exécuteriez `Remove-AppxProvisionedPackage -Online -PackageName Microsoft.ZuneMusic_2019.17012.10311.0_neutral_~_8wekyb3d8bbwe`.
+Cela empêche la réinstallation de telles applications.
+1. Utilisez cette cmdlet pour répertorier les applications du Store et d’autres éléments ayant provisionné des données dans le stockage : `Get-AppxProvisionedPackage -Online`.
+2. Supprimer un package donné avec `Remove-AppxProvisionedPackage -Online -PackageName MyAppPackage`, à l’aide de du MyAppPackage approprié retourné à l’étape 1. Par exemple, pour supprimer le package de Zune, exécutez `Remove-AppxProvisionedPackage -Online -PackageName Microsoft.ZuneMusic_2019.17012.10311.0_neutral_~_8wekyb3d8bbwe`.
 
 ## <a name="removing-other-items"></a>Suppression d’autres éléments
-Vous pouvez supprimer l’application et l’icône de OneDrive, désactiver les icônes système et mises à jour téléchargées.
+Vous pouvez supprimer l’application et l’icône de OneDrive, désactiver les icônes système et supprimer les mises à jour téléchargées.
 
 ### <a name="remove-onedrive-icon-and-app"></a>Supprimer l’application et l’icône de OneDrive
-1. Cliquez sur **Démarrer** et faites défiler vers le **OneDrive** icône.
-2. Cliquez sur le **OneDrive** icône, pointez sur **plus**, puis cliquez sur **ouvrir l’emplacement du fichier**.
-3. Cliquez sur le **OneDrive** icône dans son emplacement de fichier, puis cliquez sur **supprimer**.
+1. Cliquez sur **Démarrer** et faites défiler la liste d’applications jusqu’à l’icône **OneDrive**.
+2. Cliquez sur l’icône **OneDrive**, pointez sur **Plus**, puis cliquez sur **Ouvrir l’emplacement du fichier**.
+3. Faites un clic droit sur l’cône **OneDrive** dans son emplacement de fichier, puis cliquez sur **Supprimer**.
 
 Pour supprimer l’application OneDrive :
-1. Cliquez sur **Démarrer** et faites défiler vers le **OneDrive** icône.
-2. Cliquez sur le **OneDrive** icône, puis cliquez sur **désinstallation**. Programmes et ouvre de fonctionnalités.
-3. Dans programmes et fonctionnalités, cliquez sur **Microsoft OneDrive** et cliquez sur **désinstallation**.
+1. Cliquez sur **Démarrer** et faites défiler la liste d’applications jusqu’à l’icône **OneDrive**.
+2. Faites un clic droit sur l’icône **OneDrive**, puis cliquez sur **Désinstaller**. La fenêtre Programmes et fonctionnalités s’ouvre.
+3. Dans Programmes et fonctionnalités, cliquez sur **Microsoft OneDrive**, puis sur **Désinstaller**.
 
-### <a name="programs-and-features-from-previous-versions-of-control-panel"></a>Programmes et fonctionnalités (à partir de versions précédentes du Panneau de configuration)
-1. Poussez le **Démarrer** bouton, tapez *contrôle*, puis appuyez sur ENTRÉE.
-2. Cliquez ou double-cliquez sur **programmes et fonctionnalités**.
-3. À l’extrême gauche, sous **accueil du Panneau de contrôle**, appuyez ou cliquez sur **ou désactiver des fonctionnalités Windows activer**. Une nouvelle interface utilisateur s’ouvre.
-4. Désactivez les cases à cocher pour tous les éléments que vous ne veulent pas ou n’avez besoin dans l’image de base, par exemple : **Prise en charge de partage de fichiers SMB 1.0/CIFS**.
+### <a name="programs-and-features-from-previous-versions-of-control-panel"></a>Programmes et fonctionnalités (à partir des versions précédentes du Panneau de configuration)
+1. Cliquez sur le bouton **Démarrer**, tapez *Contrôle*, puis appuyez sur ENTRÉE.
+2. Cliquez ou double-cliquez sur **Programmes et fonctionnalités**.
+3. Dans la zone la plus à gauche, sous **Page d’accueil du Panneau de configuration**, appuyez ou cliquez sur **Activer ou désactiver des fonctionnalités Windows**. Une nouvelle interface utilisateur s’ouvre.
+4. Décochez les cases en regard des éléments inutiles dans l’image de base, par exemple : **Support de partage de fichiers SMB 1.0/CIFS**.
 
 ### <a name="turn-system-icons-off"></a>Désactiver les icônes système
-1. Push ou cliquez sur **Démarrer**, puis cliquez sur **paramètres** (l’icône d’engrenage).
-2. Dans le **trouver un paramètre** zone de texte, tapez *barre des tâches*, puis cliquez sur **paramètres de la barre des tâches**.
-3. Sous le **barre des tâches** section, faites défiler ou faites défiler jusqu'à la **zone de Notification** section.
-4. Cliquez ou appuyez sur **activer ou désactiver les icônes système**, puis activer chaque icône système ou désactiver comme vous le souhaitez pour l’image.
+1. Cliquez sur le bouton **Démarrer**, puis sur **Paramètres** (l’icône en forme d’engrenage).
+2. Dans la zone de texte **Rechercher un paramètre**, tapez *Barre des tâches*, puis cliquez sur **Paramètres de la barre des tâches**.
+3. Faites défiler la section **Barre des tâches** jusqu'à la section **Zone de notification**.
+4. Cliquez ou appuyez sur **Activer ou désactiver les icônes système**, puis activez ou désactivez chaque icône système pour l’image, selon vos besoins.
 
-### <a name="delete-downloaded-updates"></a>Supprimer des mises à jour téléchargées
-1. À l’aide de l’Explorateur de fichiers, accédez à **C:\Windows\Software Distribution\Download**.
-2. Supprimer tous les fichiers et dossiers dans ce répertoire.
+### <a name="delete-downloaded-updates"></a>Supprimer les mises à jour téléchargées
+1. Dans l’Explorateur de fichiers, accédez à **C:\Windows\Software Distribution\Download**.
+2. Supprimez tous les fichiers et dossiers dans ce répertoire.
 
 
 
