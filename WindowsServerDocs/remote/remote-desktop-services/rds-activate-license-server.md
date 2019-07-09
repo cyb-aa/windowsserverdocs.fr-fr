@@ -1,6 +1,6 @@
 ---
 title: Activer le serveur de licences des Services Bureau à distance
-description: Installer et activer le serveur de licences bureau à distance
+description: Installer et activer le serveur de licences des Services Bureau à distance
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,37 +13,37 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/20/2016
 manager: dongill
-ms.openlocfilehash: d28ceac9cde0ee2d4c92867bdd90d5c463a8cd4c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c2c721a7d65d28b75f823f566630681e9dff1201
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888010"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63712673"
 ---
 # <a name="activate-the-remote-desktop-services-license-server"></a>Activer le serveur de licences des Services Bureau à distance
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
-Les Services Bureau à distance des licences d’accès serveur problèmes client (CAL) de licence aux utilisateurs et appareils, lorsqu’ils accèdent à l’hôte de Session Bureau à distance. Vous pouvez activer le serveur de licences à l’aide du Gestionnaire de licences bureau à distance. 
+Le serveur de licences des services Bureau à distance délivre des licences d'accès client (CAL) aux utilisateurs et aux périphériques lorsqu'ils accèdent à l'hôte de session de Bureau à distance. Vous pouvez activer le serveur de licences à l’aide du Gestionnaire de licences des services Bureau à distance. 
 
-## <a name="install-the-rd-licensing-role"></a>Installer le rôle Gestionnaire de licences bureau à distance
+## <a name="install-the-rd-licensing-role"></a>Installer le rôle Gestionnaire de licences des services Bureau à distance
 
-1. Connectez-vous au serveur que vous souhaitez utiliser en tant que le serveur de licences à l’aide d’un compte d’administrateur.
-2. Dans le Gestionnaire de serveur, cliquez sur **résumé des rôles**, puis cliquez sur **Ajout de rôles**.
-   Cliquez sur **suivant** sur la première page de l’Assistant de rôles.
-3. Sélectionnez **Services Bureau à distance**, puis cliquez sur **suivant**, puis **suivant** sur la page Services Bureau à distance.
-4. Sélectionnez **licences distance**, puis cliquez sur **suivant**.
-5. Configurer le domaine - sélectionner **configurer une étendue de découverte pour ce serveur de licences**, cliquez sur **ce domaine**, puis cliquez sur **suivant**.
+1. Utilisez un compte d’administrateur pour vous connecter au serveur que vous souhaitez utiliser en tant que serveur de licences.
+2. Dans le Gestionnaire de serveur, cliquez sur **Résumé des rôles**, puis sur **Ajouter des rôles**.
+   Sur la première page de l’Assistant Rôles, cliquez sur **Suivant**.
+3. Sélectionnez **Services Bureau à distance**, puis cliquez sur **Suivant**, puis, sur la page Services Bureau à distance, cliquez de nouveau sur **Suivant**.
+4. Sélectionnez **Gestionnaire de licences des services Bureau à distance**, puis cliquez sur **Suivant**.
+5. Configurez le domaine : sélectionner **Configurer une étendue de découverte pour ce serveur de licences**, cliquez sur **Ce domaine**, puis sur **Suivant**.
 6. Cliquez sur **Installer**.
 
 ## <a name="activate-the-license-server"></a>Activer le serveur de licences
 
-1. Ouvrez le Gestionnaire de licences bureau à distance : cliquez sur **Démarrer > Outils d’administration > Services Bureau à distance > Gestionnaire de licences bureau à distance**.
-2. Cliquez sur le serveur de licences, puis cliquez sur **activer le serveur**.
-3. Cliquez sur **suivant** sur la page d’accueil.
-4. Pour la méthode de connexion, sélectionnez **connexion automatique (recommandé)**, puis cliquez sur **suivant**.
-5. Entrez les informations de votre société (votre nom, le nom de société, votre région géographique), puis cliquez sur **suivant**.
-6. Entrez éventuellement d’autres informations d’entreprise (par exemple, les adresses de messagerie et d’entreprise), puis cliquez sur **suivant**. 
-7. Assurez-vous que l’option **démarrer l’Assistant Installation de licences** n’est pas sélectionnée (nous allons installer les licences dans une étape ultérieure), puis cliquez sur **suivant**.
+1. Ouvrez le Gestionnaire de licences des services Bureau à distance : cliquez sur **Démarrer > Outils d'administration > Services Bureau à distance > Gestionnaire de licences des services Bureau à distance**.
+2. Faites un clic droit sur le serveur de licences, puis cliquez sur **Activer le serveur**.
+3. Dans la page d’accueil, cliquez sur **Suivant**.
+4. Pour la méthode de connexion, sélectionnez **Connexion automatique (recommandé)** , puis cliquez sur **Suivant**.
+5. Entrez les informations relatives à votre entreprise (votre nom, le nom de l’entreprise, votre région), puis cliquez sur **Suivant**.
+6. Si nécessaire, entrez toute autre information sur l'entreprise (par exemple, son adresse e-mail et son adresse physique), puis cliquez sur **Suivant**. 
+7. Vérifiez que l’option **Démarrer l’Assistant Installation de licences** n’est pas sélectionnée (nous installerons les lienses lors d’une étape ultérieure), puis cliquez sur **Suivant**.
 
-Votre serveur de licences est maintenant prêt à commencer l’émission et la gestion de licences. 
+Votre serveur de licences est maintenant prêt à commencer l’émission et la gestion de vos licences. 

@@ -15,14 +15,14 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 2f05bcffa7c8c4f9e74f3699b9838b8a627af1b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837720"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63688675"
 ---
 # <a name="whats-new-in-the-windows-console-in-windows-server-2016"></a>Nouveautés de la console Windows dans Windows Server2016
->S'applique à : Windows Server 2016
+>S'applique à : Windows Server 2016
 
 L’hôte de la console (le code sous-jacent qui prend en charge toutes les applications en mode caractère, notamment l’invite de commandes Windows et l’invite Windows PowerShell, entre autres) a été mis à jour de plusieurs manières pour ajouter un grand nombre de nouvelles fonctionnalités.  
 
@@ -66,7 +66,7 @@ Les fenêtres de console peuvent maintenant être semi-transparentes (pour une t
 ## <a name="selection"></a>d’un certificat SSTP  
 Il existe de nombreuses nouvelles options pour la sélection de texte et des lignes, ainsi que pour le marquage de texte et l’utilisation de l’historique de la mémoire tampon. La console tente d’éviter les conflits avec les applications qui peuvent utiliser les mêmes touches.  
 
-**Pour les développeurs :** Si un conflit se produit, vous pouvez généralement contrôler le comportement d’utilisation de l’application de la ligne d’entrée, entrée traitée et modes d’écho d’entrée avec l’API SetConsoleMode(). Si le mode d’exécution est l’entrée traitée, les raccourcis ci-dessous s’appliquent mais, dans d’autres modes, votre application doit les gérer. Les combinaisons de touches non répertoriées ici fonctionnent comme dans les versions précédentes de la console. Vous pouvez également tenter de résoudre les conflits avec différents paramètres sous l’onglet **Options**. Si toutes les autres possibilités échouent, vous pouvez toujours revenir à la console d’origine.  
+**Pour les développeurs** : si un conflit se produit, vous pouvez généralement contrôler le comportement de l’application quand elle utilise l’entrée de ligne, l’entrée traitée et les modes d’entrée d’écho avec l’API SetConsoleMode(). Si le mode d’exécution est l’entrée traitée, les raccourcis ci-dessous s’appliquent mais, dans d’autres modes, votre application doit les gérer. Les combinaisons de touches non répertoriées ici fonctionnent comme dans les versions précédentes de la console. Vous pouvez également tenter de résoudre les conflits avec différents paramètres sous l’onglet **Options**. Si toutes les autres possibilités échouent, vous pouvez toujours revenir à la console d’origine.  
 
 Vous pouvez maintenant utiliser la sélection « cliquer et faire glisser » en dehors du mode d’édition rapide et cette sélection permet de sélectionner du texte sur plusieurs lignes, comme dans le Bloc-notes, et non juste un bloc rectangulaire. Les opérations de copie ne nécessitent plus de supprimer les sauts de ligne. En plus de la sélection « cliquer et faire glisser », les combinaisons de touches suivantes sont disponibles :  
 
@@ -101,7 +101,7 @@ Vous pouvez copier et coller du texte dans la console à l’aide des commandes 
 |Copier le texte sélectionné dans le Presse-papiers ; envoyer BREAK|Ctrl+C|  
 |Coller du texte dans la ligne de commande|Maj+Ins|  
 
-**Mode marque**  
+**Mode marquage**  
 
 Pour passer en mode marquage à tout moment, cliquez avec le bouton droit n’importe où dans la barre de titre de la console, pointez sur **Modifier**, puis sélectionnez **Mark** (Marquage) dans le menu qui s’ouvre. Vous pouvez également utiliser Ctrl+M. En mode marquage, utilisez la touche Alt pour identifier le début d’une sélection du retour automatique à la ligne. (Si l’option **Activer la sélection du retour automatique à la ligne** est désactivée, le mode marquage sélectionne le texte dans un bloc.) En mode marquage, utilisez Ctrl+Maj+touche de direction pour une sélection par caractère et non par mot comme en mode normal. En plus des touches de sélection de la section **Modification de texte**, les combinaisons suivantes sont disponibles en mode marquage :  
 

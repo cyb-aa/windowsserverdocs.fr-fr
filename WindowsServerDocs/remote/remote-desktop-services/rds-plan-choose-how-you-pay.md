@@ -1,5 +1,5 @@
 ---
-title: Les Services Bureau à distance - choisir le mode de paiement
+title: 'Services Bureau à distance : choisir un mode de paiement'
 description: Planification des informations sur les licences des services Bureau à distance.
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,17 +13,17 @@ author: spatnaik
 ms.author: spatnaik
 ms.date: 09/23/2016
 manager: scottman
-ms.openlocfilehash: daa23b6ff8123f7b5122d93f39c4865402bd8565
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5d6b0b230bace0ce66d9956fad231eac5b679403
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844480"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63712068"
 ---
-# <a name="remote-desktop-services---choose-how-you-pay"></a>Les Services Bureau à distance - choisir le mode de paiement
+# <a name="remote-desktop-services---choose-how-you-pay"></a>Services Bureau à distance : choisir un mode de paiement
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
-Choisissez votre licence en fonction de ce qui a un sens pour votre entreprise. Licence par utilisateur pour permettre aux utilisateurs à distance sur leurs appareils dans un scénario BYOD. Licence par périphérique si des utilisateurs partagent les mêmes unités. Si vous êtes un fournisseur de services (HSP ou MSP) ou l’éditeur de logiciels indépendant, choisissez les licences par utilisateur SAL pour un modèle flexible, paiement à l’utilisation.
+Choisissez votre licence en fonction des besoins logiques de votre entreprise. Cette licence par utilisateur pour permettre aux utilisateurs de se connecter à distance sur n'importe lequel de leurs appareils dans un scénario BYOD. Licence par périphérique si les utilisateurs partagent les mêmes périphériques. Si vous êtes un fournisseur de services (HSP ou MSP) ou l’éditeur de logiciels indépendant, choisissez les licences par utilisateur SAL pour un modèle flexible, paiement à l’utilisation.
 
-Pour plus d’informations, consultez [la licence de votre déploiement des services Bureau à distance avec des licences d’accès client (CAL)](rds-client-access-license.md).
+Si vous avez besoin de plus d’informations, veuillez consulter l’article [Gérer les licences de votre déploiement Services Bureau à distance avec des licences d’accès client (CAL)](rds-client-access-license.md).
