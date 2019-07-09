@@ -11,22 +11,22 @@ ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: 140f67a9dab5cf1f10cdb0c5c51a031a0dfb9dd3
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66443550"
 ---
-# <a name="windows-server-installation-and-upgrade"></a>Mise à niveau et installation de Windows Server
+# <a name="windows-server-installation-and-upgrade"></a>Installation et mise à niveau de Windows Server
 
->S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+>S’applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
-Vous recherchez Windows Server 2019 ? Consultez [installer, mettre à niveau ou migrer vers Windows Server 2019](../get-started-19/install-upgrade-migrate-19.md).
+Vous cherchez Windows Server 2019 ? Consultez [Installer, mettre à niveau ou migrer vers Windows Server 2019](../get-started-19/install-upgrade-migrate-19.md).
 
 > [!IMPORTANT]
 > Le support étendu de Windows Server 2008 R2 et de Windows Server 2008 prend fin en janvier 2020. [En savoir plus sur vos options de mise à niveau](#upgrading-from-windows-server-2008-r2-or-windows-server-2008).
 
-Il est peut-être temps de passer à une version plus récente de Windows Server. Selon la version que exécutez actuellement, vous disposez de nombreuses options de mise à niveau.
+Il est peut-être temps de passer à une version plus récente de Windows Server. Selon la version exécutée, vous disposez de nombreuses options de mise à niveau.
 
 ## <a name="installation"></a>Installation
 
@@ -36,10 +36,10 @@ La mise à niveau d’une version précommerciale (par exemple, Windows Server�
 
 ## <a name="migration-recommended-for-windows-server-2016"></a>Migration (recommandée pour Windows Server 2016)
 
-Documentation de migration de Windows Server vous permet de migrer un rôle ou une fonctionnalité à la fois à partir d’un ordinateur source qui exécute Windows Server vers un autre ordinateur de destination qui exécute Windows Server, le même réseau ou une version plus récente. À ces fins, la migration est définie comme étant le déplacement d’un rôle ou d’une fonctionnalité et des données associées vers un autre ordinateur, et non pas la mise à niveau de la fonctionnalité sur le même ordinateur. Il s’agit de la méthode recommandée pour déplacer votre charge de travail existante et les données associées vers une version plus récente de Windows Server. Pour commencer, consultez le [matrice de mise à niveau et migration de rôle de serveur](https://go.microsoft.com/fwlink/?LinkId=828595) pour Windows Server.
+La documentation relative à la migration de Windows Server vous aide à migrer un rôle ou une fonctionnalité à la fois d’un ordinateur source qui exécute Windows Server vers un autre ordinateur cible qui exécute la même version ou une version plus récente de Windows Server. À ces fins, la migration est définie comme étant le déplacement d’un rôle ou d’une fonctionnalité et des données associées vers un autre ordinateur, et non pas la mise à niveau de la fonctionnalité sur le même ordinateur. Il s’agit de la méthode recommandée pour déplacer votre charge de travail existante et les données associées vers une version plus récente de Windows Server. Pour commencer, vérifiez le [tableau sur la mise à niveau et la migration des rôles serveur](https://go.microsoft.com/fwlink/?LinkId=828595) pour Windows Server.
 
 ## <a name="cluster-os-rolling-upgrade"></a>Mise à niveau propagée du système d’exploitation de cluster
-La mise à niveau propagée de système d’exploitation de cluster est une nouvelle fonctionnalité de Windows Server2016 qui permet à un administrateur de mettre à niveau le système d’exploitation des nœuds de cluster Windows Server2016R2 vers Windows Server2012, sans arrêter les charges de travail du serveur de fichiers avec montée en puissance parallèle ou Hyper-V. Cette fonctionnalité élimine les temps d’arrêt susceptibles d’affecter les contrats de niveau de service. Cette nouvelle fonctionnalité est décrite plus en détail dans l’article [Mise à niveau propagée de système d’exploitation de cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade).
+La mise à niveau propagée de système d’exploitation de cluster est une nouvelle fonctionnalité de Windows Server 2016 qui permet à un administrateur de mettre à niveau le système d’exploitation des nœuds de cluster Windows Server 2016 R2 vers Windows Server 2012, sans arrêter les charges de travail du serveur de fichiers avec montée en puissance parallèle ou Hyper-V. Cette fonctionnalité élimine les temps d’arrêt susceptibles d’affecter les contrats de niveau de service. Cette nouvelle fonctionnalité est décrite plus en détail dans l’article [Mise à niveau propagée de système d’exploitation de cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade).
 
 ## <a name="license-conversion"></a>Conversion de licence
 Dans certaines versions de systèmes d’exploitation, vous pouvez convertir une édition particulière de la version vers une autre édition de la même version en une seule étape à l’aide d’une simple commande et de la clé de licence appropriée. Cette opération est appelée **conversion de licence**. Par exemple, si votre serveur exécute Windows Server 2016 Standard, vous pouvez effectuer une conversion vers Windows Server 2016 Datacenter. Pour certaines versions de Windows Server, vous pouvez également effectuer librement des conversions entre les versions OEM, de licence en volume et commerciales avec la même commande et la clé appropriée.
@@ -57,7 +57,7 @@ Avant de commencer une mise à niveau, passez en revue les tableaux de cette pag
 Pour plus d’informations sur les différences entre les options d’installation disponibles pour Windows Server 2016 Technical Preview, notamment les fonctionnalités installées avec chaque option et les options de gestion disponibles après l’installation, consultez [Windows Server 2016](https://go.microsoft.com/fwlink/?LinkId=828598).
 
 >[!NOTE]
->Chaque fois que vous migrez ou effectuez une mise à niveau vers une version de Windows Server, vous devez passer en revue et comprendre la [politique de support](https://support.microsoft.com/lifecycle) et le cycle de vie de cette version et planifier la procédure en conséquence. Vous pouvez [rechercher les informations de cycle de vie](https://support.microsoft.com/lifecycle) pour la version de Windows Server qui vous intéresse.
+>Chaque fois que vous migrez ou effectuez une mise à niveau vers une version de Windows Server, vous devez passer en revue et comprendre la [stratégie de support](https://support.microsoft.com/lifecycle) et le cycle de vie de cette version et planifier la procédure en conséquence. Vous pouvez [rechercher les informations relatives au cycle de vie](https://support.microsoft.com/lifecycle) de la version de Windows Server qui vous intéresse.
  
  
 ## <a name="upgrading-to-windows-server-2016"></a>Mise à niveau vers Windows Server 2016
@@ -72,11 +72,11 @@ Tableau de référence rapide des chemins de mise à niveau pris en charge pour 
 |Si vous exécutez ces versions et éditions :|Vous pouvez effectuer une mise à niveau vers ces versions et éditions :|
 |--------------------------------|---------------------------------------|
 |Windows Server 2012 Standard|Windows Server 2016 Standard ou Datacenter|
-|Windows Server 2012 Datacenter|Windows Server 2016 Datacenter|
+|Windows Server 2012 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Standard|Windows Server 2016 Standard ou Datacenter|
-|Windows Server2012R2 Datacenter|Windows Server 2016 Datacenter|
+|Windows Server 2012 R2 Datacenter|Windows Server 2016 Datacenter|
 |Hyper-V Server 2012 R2|Hyper-V Server 2016 (à l’aide de la fonctionnalité Mise à niveau propagée du système d’exploitation de cluster)|
-|Windows Server 2012 R2 Essentials|WindowsServer2016 Essentials|
+|Windows Server 2012 R2 Essentials|Windows Server 2016 Essentials|
 |Windows Storage Server 2012 Standard|Windows Storage Server 2016 Standard|
 |Windows Storage Server 2012 Workgroup|Windows Storage Server 2016 Workgroup|
 |Windows Storage Server 2012 R2 Standard|Windows Storage Server 2016 Standard|
@@ -85,7 +85,7 @@ Tableau de référence rapide des chemins de mise à niveau pris en charge pour 
 ### <a name="license-conversion"></a>Conversion de licence
 Vous pouvez convertir Windows Server 2016 Standard (version commerciale) vers Windows Server 2016 Datacenter (version commerciale).
 
-Vous pouvez convertir Windows Server 2016 Essentials (version commerciale) vers Windows Server 2016 Standard (version commerciale).
+Vous pouvez convertir Windows Server 2016 Essentials (version commerciale) en Windows Server 2016 Standard (version commerciale).
 
 Vous pouvez convertir la version d’évaluation de Windows Server 2016 Standard vers Windows Server 2016 Standard (version commerciale) ou Datacenter (version commerciale).
 
@@ -98,20 +98,20 @@ Tableau de référence rapide des chemins de mise à niveau pris en charge pour 
 
 |Si votre ordinateur fonctionne sous :|Vous pouvez effectuer une mise à niveau vers ces éditions :|
 |-------------------------|---------------------------|
-|Windows Server 2008 R2 Datacenter avec SP1|Windows Server2012R2 Datacenter|
-|Windows Server 2008 R2 Enterprise avec SP1|Windows Server 2012 R2 Standard ou Windows Server 2012 R2 Datacenter|
-|Windows Server 2008 R2 Standard avec SP1|Windows Server 2012 R2 Standard ou Windows Server 2012 R2 Datacenter|
-|Windows Web Server 2008 R2 avec SP1|Windows Server 2012 R2 Standard|
+|Windows Server 2008 R2 Datacenter avec SP1|Windows Server2012R2 Datacenter|
+|Windows Server 2008 R2 Entreprise avec SP1|Windows Server 2012 R2 Standard ou Windows Server 2012 R2 Datacenter|
+|Windows Server 2008 R2 Standard avec SP1|Windows Server 2012 R2 Standard ou Windows Server 2012 R2 Datacenter|
+|Windows Web Server 2008 R2 avec SP1|Windows Server 2012 R2 Standard|
 |Windows Server 2012 Datacenter|Windows Server2012R2 Datacenter|
 |Windows Server 2012 Standard|Windows Server 2012 R2 Standard ou Windows Server 2012 R2 Datacenter|
 |Hyper-V Server 2012|Hyper-V Server 2012 R2|
 
 ### <a name="license-conversion"></a>Conversion de licence
-Vous pouvez convertir Windows Server 2012 Standard (version commerciale) vers Windows Server 2012 Datacenter (version commerciale).
+Vous pouvez convertir Windows Server 2012 Standard (version commerciale) en Windows Server 2012 Datacenter (version commerciale).
 
-Vous pouvez convertir Windows Server 2012 Essentials (version commerciale) vers Windows Server 2012 Standard (version commerciale).
+Vous pouvez convertir Windows Server 2012 Essentials (version commerciale) en Windows Server 2012 Standard (version commerciale).
 
-Vous pouvez convertir la version d’évaluation de Windows Server 2012 Standard vers Windows Server 2012 Standard (version commerciale) ou Datacenter(version commerciale).
+Vous pouvez convertir la version d’évaluation de Windows Server 2012 Standard en Windows Server 2012 Standard (version commerciale) ou Datacenter (version commerciale).
 
 ## <a name="upgrading-to-windows-server-2012"></a>Mise à niveau vers Windows Server 2012
 Pour plus d’informations, y compris les réserves importantes et les limitations applicables à la mise à niveau et la conversion de versions d’évaluation vers une version commerciale, consultez [Versions d’évaluation et options de mise à niveau pour Windows Server 2012](https://technet.microsoft.com/library/jj574204.aspx).
@@ -120,33 +120,33 @@ Tableau de référence rapide des chemins de mise à niveau pris en charge pour 
 
 |Si votre ordinateur fonctionne sous :|Vous pouvez effectuer une mise à niveau vers ces éditions :|
 |--------------------------|--------------------------|
-|Windows Server 2008 Standard avec SP2 ou Windows Server 2008 Entreprise avec SP2|Windows Server 2012 Standard ou Windows Server 2012 Datacenter|
-|Windows Server 2008 Datacenter avec SP2|Windows Server 2012 Datacenter|
-|Windows Web Server 2008|Windows Server 2012 Standard|
-|Windows Server 2008 R2 Standard avec SP1 ou Windows Server 2008 R2 Entreprise SP1|Windows Server 2012 Standard ou Windows Server 2012 Datacenter|
-|Windows Server 2008 R2 Datacenter avec SP1|Windows Server 2012 Datacenter|
+|Windows Server 2008 Standard avec SP2 ou Windows Server 2008 Entreprise avec SP2|Windows Server 2012 Standard, Windows Server 2012 Datacenter|
+|Windows Server 2008 Datacenter avec SP2|Windows Server 2012 Datacenter|
+|Windows Web Server 2008|Windows Server 2012 Standard|
+|Windows Server 2008 R2 Standard avec SP1 ou Windows Server 2008 R2 Entreprise avec SP1|Windows Server 2012 Standard, Windows Server 2012 Datacenter|
+|Windows Server 2008 R2 Datacenter avec SP1|Windows Server 2012 Datacenter|
 |Windows Web Server 2008 R2|Windows Server 2012 Standard|
 
 ### <a name="license-conversion"></a>Conversion de licence
-Vous pouvez convertir Windows Server 2012 Standard (version commerciale) vers Windows Server 2012 Datacenter (version commerciale).
+Vous pouvez convertir Windows Server 2012 Standard (version commerciale) en Windows Server 2012 Datacenter (version commerciale).
 
-Vous pouvez convertir Windows Server 2012 Essentials (version commerciale) vers Windows Server 2012 Standard (version commerciale).
+Vous pouvez convertir Windows Server 2012 Essentials (version commerciale) en Windows Server 2012 Standard (version commerciale).
 
-Vous pouvez convertir la version d’évaluation de Windows Server 2012 Standard vers Windows Server 2012 Standard (version commerciale) ou Datacenter(version commerciale).
+Vous pouvez convertir la version d’évaluation de Windows Server 2012 Standard en Windows Server 2012 Standard (version commerciale) ou Datacenter (version commerciale).
 
-## <a name="upgrading-from-windows-server-2008-r2-or-windows-server-2008"></a>La mise à niveau à partir de Windows Server 2008 R2 ou Windows Server 2008
+## <a name="upgrading-from-windows-server-2008-r2-or-windows-server-2008"></a>Mise à niveau depuis Windows Server 2008 R2 ou Windows Server 2008
 
-Comme décrit dans [mise à niveau de Windows Server 2008 et Windows Server 2008 R2](modernize-windows-server-2008.md), la prise en charge étendue pour Windows Server 2008 R2/Windows Server 2008 se termine de janvier de 2020. Pour vous assurer aucun écart dans prise en charge, vous devez mettre à niveau vers une version prise en charge de Windows Server ou de réhébergement dans Azure en migrant vers [spécialisé des machines virtuelles de Windows Server 2008 R2](uploading-specialized-WS08-image-to-azure.md). Découvrez le [Guide de Migration de Windows Server](https://go.microsoft.com/fwlink/?linkid=872689) pour des informations et des considérations pour la planification de votre migration/mise à niveau.
+Comme décrit dans [Mise à niveau de Windows Server 2008 et Windows Server 2008 R2](modernize-windows-server-2008.md), le support étendu pour Windows Server 2008 R2/Windows Server 2008 se termine de janvier 2020. Pour vous assurer qu’il n’y a aucune interruption dans le support, vous devez effectuer une mise à niveau vers une version prise en charge de Windows Server ou procéder à un ré-hébergement dans Azure en migrant vers des [machines virtuelles Windows Server 2008 R2 spécialisées](uploading-specialized-WS08-image-to-azure.md). Consultez le [Guide de migration de Windows Server](https://go.microsoft.com/fwlink/?linkid=872689) pour obtenir des informations et des conseils pour la planification de votre migration/mise à niveau.
 
-Pour les serveurs locaux, il n’existe aucun chemin de mise à niveau directe à partir de Windows Server 2008 R2 vers Windows Server 2016 ou version ultérieure. Au lieu de cela, tout d’abord mettre à niveau vers Windows Server 2012 R2, puis [mise à niveau vers Windows Server 2016](#upgrading-to-windows-server-2016).
+Pour les serveurs locaux, il n’y a aucun parcours de mise à niveau direct de Windows Server 2008 R2 vers Windows Server 2016 ou version ultérieure. Pour cela, vous devez d’abord procéder à la mise à niveau vers Windows Server 2012 R2, puis effectuer une [mise à niveau vers Windows Server 2016](#upgrading-to-windows-server-2016).
 
-Lors de la planification de votre mise à niveau, tenez compte des instructions suivantes pour l’étape intermédiaire de la mise à niveau vers Windows Server 2012 R2.
+Lorsque vous prévoyez votre mise à niveau, tenez compte des instructions suivantes pour l’étape intermédiaire de la mise à niveau vers Windows Server 2012 R2.
 
-  - Vous ne pouvez pas effectuer une mise à niveau sur place à partir d’un architectures 32 bits vers 64 bits ou à partir d’un type à un autre (français vers tchèque, par exemple) de build.
+  - Vous ne pouvez pas effectuer de mise à niveau sur place d’une architecture 32 bits vers 64 bits ou d’un type de version à une autre (français vers tchèque, par exemple).
 
-  - Mises à niveau sur place sont uniquement pris en charge dans la même langue. Vous ne pouvez pas mettre à niveau d’une langue à un autre.
+  - Les mises à niveau sur place sont uniquement possibles dans la même langue. Vous ne pouvez pas procéder à une mise à niveau d’une langue à une autre.
 
-  - Vous ne pouvez pas migrer à partir d’une installation server core de Windows Server 2008 vers Windows Server 2012 R2 avec l’interface utilisateur graphique de serveur (appelé « Serveur avec Desktop complète » dans Windows Server). Vous pouvez basculer votre installation minimale mis à niveau vers serveur avec l’intégralité du bureau, mais uniquement sur Windows Server 2012 R2. Windows Server 2016 et versions ultérieur *ne le faites pas* prennent en charge le basculement à partir de serveur pour l’intégralité du bureau, assurez-vous que le commutateur avant la mise à niveau vers Windows Server 2016.
+  - Vous ne pouvez pas migrer à partir d’une installation minimale de Windows Server 2008 vers Windows Server 2012 R2 avec l’interface utilisateur graphique de serveur (appelée « Serveur avec bureau complet » dans Windows Server). Vous pouvez basculer votre installation minimale mise à niveau vers Server avec bureau complet, mais uniquement sur Windows Server 2012 R2. Windows Server 2016 et les versions ultérieures *ne prennent pas en charge* le passage de Server au bureau complet, assurez-vous donc que le basculement soit effectué avant la mise à niveau vers Windows Server 2016.
   
-Pour plus d’informations, consultez [Versions d’évaluation et Options de mise à niveau pour Windows Server 2012](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574204\(v=ws.11\)), qui inclut des détails de mise à niveau de rôle spécifique.
+Pour plus d’informations, consultez [Versions d’évaluation et options de mise à niveau pour Windows Server 2012](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574204\(v=ws.11\)), qui comprend des détails de mise à niveau spécifiques aux rôles.
 

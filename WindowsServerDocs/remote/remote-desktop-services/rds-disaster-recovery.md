@@ -1,5 +1,5 @@
 ---
-title: Protéger votre déploiement des services Bureau à distance - récupération d’urgence
+title: Protection de votre déploiement des services Bureau à distance - Récupération d’urgence
 description: En savoir plus sur vos options de récupération d’urgence pour les Services Bureau à distance
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,23 +13,23 @@ author: lizap
 ms.author: elizapo
 ms.date: 06/12/2017
 ms.openlocfilehash: a6eac3a50999633d15b1b6dc28608f60f6fef6c7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834080"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743818"
 ---
 # <a name="configure-disaster-recovery-for-remote-desktop-services"></a>Configurer la récupération d’urgence pour les Services Bureau à distance
 
-Lorsque vous déployez des Services Bureau à distance dans votre environnement, il devient un élément essentiel de votre infrastructure, en particulier les applications et les ressources que vous partagez avec des utilisateurs. Si le déploiement des services Bureau à distance s’arrête en raison de quoi que ce soit à partir d’une défaillance du réseau à une catastrophe naturelle, les utilisateurs ne peuvent pas accéder aux applications et aux ressources et votre entreprise s’en ressentent. Pour éviter ce problème, vous pouvez configurer une solution de récupération d’urgence qui vous permet de basculer votre déploiement - si votre déploiement des services Bureau à distance n’est pas disponible, pour une raison quelconque, il est une sauvegarde disponible pour reprendre automatiquement.
+Lorsque vous déployez les Services Bureau à distance dans votre environnement, ils deviennent un élément essentiel de votre infrastructure, en particulier les applications et les ressources que vous partagez avec les utilisateurs. Si le déploiement des services Bureau à distance s’arrête en raison d’une défaillance du réseau ou d’une catastrophe naturelle, les utilisateurs ne peuvent pas accéder aux applications et aux ressources et votre entreprise s’en ressent. Pour éviter ce problème, vous pouvez configurer une solution de récupération d’urgence qui vous permet de basculer votre déploiement : si votre déploiement des services Bureau à distance n’est pas disponible pour une raison ou pour une autre, une sauvegarde est disponible afin de reprendre automatiquement.
 
-Pour conserver votre déploiement des services Bureau à distance en cours d’exécution dans le cas d’un ordinateur en panne ou un composant unique, nous vous recommandons de configuration de votre déploiement des services Bureau à distance pour la haute disponibilité. Ce faire, vous pouvez configurer un [batterie de serveurs RDSH](rds-scale-rdsh-farm.md) et garantir votre [agents de connexion sont en cluster pour la haute disponibilité](rds-connection-broker-cluster.md). 
+Pour que votre déploiement des services Bureau à distance reste en activité en cas de panne d’un ordinateur ou d’un composant, nous vous recommandons de configurer votre déploiement des services Bureau à distance pour la haute disponibilité. Pour ce faire, vous pouvez configurer une [batterie de serveurs RDSH](rds-scale-rdsh-farm.md) et vous assurer que vos [services Broker de connexion sont mis en cluster pour la haute disponibilité](rds-connection-broker-cluster.md). 
 
-Les solutions de récupération d’urgence qu'est recommandé ici sont à protéger votre déploiement à partir de la catastrophe - quelque chose qui retire tout votre déploiement de services Bureau à distance (y compris les rôles redondants configurés pour la haute disponibilité). Si un tel incident est atteint, disposer d’une solution de récupération d’urgence intégrée à votre déploiement vous pour basculer la totalité du déploiement et obtenir rapidement des applications et ressources et en cours d’exécution pour vos utilisateurs.
+Les solutions de récupération d’urgence que nous recommandons ici sont destinées à protéger votre déploiement des catastrophes, qui arrêtent tout votre déploiement des services Bureau à distance (y compris les rôles redondants configurés pour la haute disponibilité). Si un tel incident se produit, disposer d’une solution de récupération d’urgence intégrée à votre déploiement vous permet de basculer la totalité du déploiement et de remettre rapidement en fonctionnement les applications et les ressources pour vos utilisateurs.
 
-Utilisez les informations suivantes pour déployer des solutions de récupération d’urgence dans les services Bureau à distance :
+Utilisez les informations suivantes pour déployer les solutions de récupération d’urgence dans les services Bureau à distance :
 
-- [Tirer parti de plusieurs centres de données Azure pour garantir les utilisateurs peuvent accéder à votre déploiement des services Bureau à distance, même si un centre de données Azure tombe en panne (géo-redondance)](rds-multi-datacenter-deployment.md)
-- [Déployer Azure Site Recovery pour assurer le basculement pour les composants des services Bureau à distance dans les basculements de site à site ou site vers Azure](rds-disaster-recovery-with-azure.md)
+- [Exploitez plusieurs centres de données Azure pour garantir que les utilisateurs puissent accéder à votre déploiement des services Bureau à distance, même si un centre de données Azure tombe en panne (géo-redondance)](rds-multi-datacenter-deployment.md)
+- [Déployez Azure Site Recovery pour assurer le basculement pour les composants des services Bureau à distance dans les basculements de site à site ou de site vers Azure](rds-disaster-recovery-with-azure.md)
 
 
