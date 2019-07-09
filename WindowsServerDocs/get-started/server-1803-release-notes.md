@@ -1,6 +1,6 @@
 ---
-title: 'Notes de publication : problèmes importants dans Windows Server, version 1803'
-description: En savoir plus sur les problèmes connus, les limitations ou les autres informations que vous avez besoin avant d’installer Windows Server, version 1803
+title: Notes de publication - Points importants sur Windows Server, version 1803
+description: Découvrez les problèmes connus, les limitations ou autres informations dont vous avez besoin avant d’installer Windows Server, version 1803.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,27 +14,27 @@ ms.author: elizapo
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: e9bd860769ec375a6d89ac452e3430b791fff3ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868500"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63688730"
 ---
-# <a name="release-notes-important-issues-in-windows-server-version-1803"></a>Notes de publication : Problèmes importants dans Windows Server, version 1803
+# <a name="release-notes-important-issues-in-windows-server-version-1803"></a>Notes de publication : Points importants dans Windows Server, version 1803
 
 >S'applique à : Canal semi-annuel Windows Server
 
-Ces notes de publication résument les problèmes les plus critiques dans le système d’exploitation Windows Server, y compris les façons d’éviter ou résoudre les problèmes connus. Pour en savoir plus sur les nouvelles fonctionnalités dans cette version, consultez [What ' s New in Windows Server version 1803](whats-new-in-windows-server-1803.md). Découvrez [les conteneurs sur Windows](https://docs.microsoft.com/virtualization/windowscontainers/about/) si vous êtes intéressé par un serveur Windows, version 1803, le conteneur en cours d’exécution. 
+Ces notes de publication résument les problèmes les plus critiques du système d’exploitation Windows Server et expliquent comment éviter ou contourner les problèmes connus. Pour en savoir plus sur les nouvelles fonctionnalités dans cette version, consultez [Nouveautés de Windows Server, version 1803](whats-new-in-windows-server-1803.md). Consultez [À propos des conteneurs Windows](https://docs.microsoft.com/virtualization/windowscontainers/about/) si vous souhaitez exécuter un conteneur Windows Server, version 1803. 
 
-Sauf indication contraire, chaque problème signalé s’applique à toutes les éditions et options d’installation de Windows Server, version 1803.  
+Sauf mention contraire, chaque problème signalé s’applique à toutes les éditions et options d’installation de Windows Server, version 1803.  
 
-En permanence, nous mettre à jour cet article. Si les problèmes connus sont identifiés, nous allons ici les documenter. 
+Nous mettons à jour cet article de manière continue. Si des problèmes connus sont identifiés, nous les documenterons ici. 
 
 
-## <a name="software-defined-datacenter"></a>Centre de données défini par logiciel
+## <a name="software-defined-datacenter"></a>Centre de données à définition logicielle
 
-Fonctionnalités de centre de données défini par logiciel telles que les espaces de stockage Direct, défini par logiciel de mise en réseau, protégées et d’ordinateurs virtuels ne sont pas inclus dans Windows Server, version 1803. Comme décrit dans [mise à jour de Windows Server semi-annuel canal](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/), le canal semi-annuel de Windows Server se concentre sur les conteneurs et les scénarios d’application qui bénéficient des dernières innovations plus rapidement. 
+Les fonctionnalités de centre de données à définition logicielle telles que les espaces de stockage direct, SDN (Software-Defined Networking) et les machines virtuelles dotées d’une protection maximale ne sont pas incluses dans Windows Server, version 1803. Comme décrit dans [Mise à jour du canal semi-annuel Windows Server](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/), le canal semi-annuel de Windows Server est axé sur les conteneurs et les scénarios d’application bénéficiant d’une innovation plus rapide. 
 
-Si vous avez besoin de rôles d’infrastructure, utilisez une version de canal de maintenance à long terme : Windows Server 2016 (désormais disponible) ou [Windows Server 2019](https://cloudblogs.microsoft.com/windowsserver/2018/03/20/introducing-windows-server-2019-now-available-in-preview) (prochainement).
+Si vous avez besoin de rôles d’infrastructure, utilisez une version de canal de maintenance à long terme : Windows Server 2016 (disponible dès maintenant) ou [Windows Server 2019](https://cloudblogs.microsoft.com/windowsserver/2018/03/20/introducing-windows-server-2019-now-available-in-preview) (disponible dans le courant de l’année).
 
-Nous nous engageons à la création de la plateforme idéale pour l’infrastructure Hyper-convergée, et nous continuons à développer de nouvelles fonctionnalités et améliorer les existants en fonction de vos commentaires. Merci de nous aider à obtenir pour [plus de 10 000 clusters d’espaces de stockage Direct](https://blogs.technet.microsoft.com/filecab/2018/03/27/storage-spaces-direct-momentum)! Nous sommes impatients de partage plus plus tard cette année.
+Nous nous engageons à créer la plateforme la plus performante possible pour l’infrastructure hyperconvergée, et nous continuons à développer de nouvelles fonctionnalités et à améliorer les fonctionnalités existantes en fonction de vos commentaires. Merci de nous aider à obtenir [plus de 10 000 clusters d’espaces de stockage direct](https://blogs.technet.microsoft.com/filecab/2018/03/27/storage-spaces-direct-momentum) ! Nous sommes impatients de pouvoir partager plus dans le courant de l’année.

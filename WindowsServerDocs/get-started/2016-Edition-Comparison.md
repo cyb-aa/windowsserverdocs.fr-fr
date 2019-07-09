@@ -15,15 +15,15 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 2c26d6d0c4c4465b5f9073dbcac951fc0adce1d5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882050"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63688541"
 ---
 # <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2016"></a>Comparatif des éditions Standard et Datacenter de Windows Server 2016
 
-> S'applique à : Windows Server 2016
+> S'applique à : Windows Server 2016
   
 ## <a name="locks-and-limits"></a>Verrous et limites
 |Verrous et limites|Windows Server 2016 Standard|Windows Server 2016 Datacenter|  
@@ -91,7 +91,7 @@ ms.locfileid: "59882050"
 |Déverrouillage réseau BitLocker|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
 |BranchCache|Oui|Oui|
 |Client pour NFS|Oui|Oui|
-|Conteneurs|Oui (conteneurs Windows en nombre illimité ; conteneurs Hyper-V, jusqu'à 2)|Oui (tous les types de conteneurs, en nombre illimité)|
+|Conteneurs|Oui (conteneurs Windows en nombre illimité ; conteneurs Hyper-V, jusqu’à 2)|Oui (tous les types de conteneurs, en nombre illimité)|
 |Data Center Bridging|Oui|Oui|
 |DirectPlay|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
 |Stockage étendu|Oui|Oui|
@@ -160,7 +160,7 @@ ms.locfileid: "59882050"
 |Option d'installation de Nano Server|Oui|Oui|
 |Gestionnaire de serveur|Oui|Oui|
 |SMB Direct et SMB sur RDMA|Oui|Oui|
-|Mise en réseau SDN (Software Defined Networking)|Non|Oui|
+|SDN (Software-Defined Networking)|Non|Oui|
 |Service de gestion du stockage|Oui|Oui|
 |Espaces de stockage|Oui|Oui|
 |Espaces de stockage directs|Non|Oui|

@@ -1,6 +1,6 @@
 ---
-title: Ressources supplémentaires de bureau à distance
-description: Fournit des liens vers l’emplacement où obtenir plus d’informations et de l’aide sur RDS.
+title: Ressources de Bureau à distance supplémentaires
+description: Fournit des liens permettant d’obtenir des informations et de l’aide supplémentaires sur les services Bureau à distance.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,19 +14,19 @@ ms.assetid: 938adb3d-71ab-488b-b2f2-57b29df210d7
 author: evaseydl
 manager: scottman
 ms.openlocfilehash: 413f958201597d8f857bc0becd9ae0ab43499b79
-ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66805104"
 ---
-# <a name="additional-remote-desktop-resources"></a>Ressources supplémentaires de bureau à distance
+# <a name="additional-remote-desktop-resources"></a>Ressources de Bureau à distance supplémentaires
 
-Outre les informations ici dans la bibliothèque Windows Server 2016, vous pouvez utiliser les ressources suivantes pour en savoir plus sur et obtenir de l’aide des Services Bureau à distance :
+En plus des informations contenues dans la bibliothèque Windows Server 2016, vous pouvez utiliser les ressources suivantes pour en savoir plus sur les services Bureau à distance, et obtenir de l’aide à ce sujet :
 
-- Sur Twitter ? Par conséquent, sommes-nous : [@RDS4U](https://twitter.com/RDS4U)
-- Participer en général des discussions sur les Services Bureau à distance dans le [forum TechNet de RDS](https://aka.ms/technetforum-rds).
-- Pour une discussion sur les applications/clients Bureau à distance pour Windows, Android, iOS et Mac, visitez le [Forum TechNet sur le Bureau à distance les clients](https://aka.ms/technetforum-rdc).
-- Pour MultiPoint, visitez le [forum MultiPoint TechNet](https://aka.ms/multipoint-forum).
+- Vous êtes sur Twitter ? Nous aussi : [@RDS4U](https://twitter.com/RDS4U)
+- Participez à des discussions générales sur les services Bureau à distance dans le [forum TechNet des services Bureau à distance](https://aka.ms/technetforum-rds).
+- Pour plus d’informations sur les applications/clients Bureau à distance pour Windows, Android, iOS et Mac, visitez le [forum TechNet des clients Bureau à distance](https://aka.ms/technetforum-rdc).
+- Pour MultiPoint, visitez le [forum TechNet de MultiPoint](https://aka.ms/multipoint-forum).
 
-Si vous avez des idées sur les Services Bureau à distance que vous souhaitez partager avec nous, validez une rubrique dans [notre forum UserVoice](https://aka.ms/uservoice-rds).
+Si vous avez des idées sur les services Bureau à distance et si vous souhaitez les partager avec nous, postez vos suggestions sur [notre forum UserVoice](https://aka.ms/uservoice-rds).

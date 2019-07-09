@@ -1,5 +1,5 @@
 ---
-title: Comparaison des éditions Standard et Datacenter de Windows Server 2019
+title: Comparatif des éditions Standard et Datacenter de Windows Server 2019
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,19 +12,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: ba7487a7e063775219182645a273d49c473f52e2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6ec6934b5c2cfcc33a95a0336e22a20dbd60d82
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854130"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64772397"
 ---
-# <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2019"></a>Comparaison des éditions Standard et Datacenter de Windows Server 2019
+# <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2019"></a>Comparatif des éditions Standard et Datacenter de Windows Server 2019
 
 > S'applique à : Windows Server 2019
   
 ## <a name="locks-and-limits"></a>Verrous et limites
-|Verrous et limites|Windows Server 2019 Standard|Centre de données Windows Server 2019|  
+|Verrous et limites|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
 |Nombre maximal d'utilisateurs|Basé sur les licences d'accès client|Basé sur les licences d'accès client|
 |Nombre maximal de connexions SMB|16777216|16777216|
@@ -41,7 +41,7 @@ ms.locfileid: "59854130"
 |DLNA – codecs et diffusion multimédia en continu sur le Web|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
 
 ## <a name="server-roles"></a>Rôles serveur
-|Rôles Windows Server disponibles|Services de rôle|Windows Server 2019 Standard|Centre de données Windows Server 2019|  
+|Rôles Windows Server disponibles|Services de rôle|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|----------|---------------------------|  
 |Services de certificats Active Directory| |Oui|Oui|
 |Services de domaine Active Directory| |Oui|Oui|
@@ -66,7 +66,6 @@ ms.locfileid: "59854130"
 |Services de fichiers et de stockage|Services de stockage|Oui|Oui|
 |Service Guardian hôte| |Oui|Oui|
 |Hyper-V| |Oui|Oui, y compris des machines virtuelles dotées d'une protection maximale|
-|MultiPoint Services| |Oui|Oui|
 |Contrôleur de réseau| |Non|Oui|
 |Services de stratégie et d'accès réseau| |Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
 |Services d'impression et de numérisation de document| |Oui|Oui|
@@ -78,12 +77,12 @@ ms.locfileid: "59854130"
 |Expérience Windows Server Essentials| |Oui|Oui|
 |Windows Server Update Services| |Oui|Oui|
 
-* Serveur de Transport WDS est une nouveauté pour les installations Server Core dans Windows Server 2019 (également dans le canal semi-annuel compter de Windows Server, version 1803)
+\* Le serveur de transport des services de déploiement Windows est une nouveauté pour les installations minimales dans Windows Server 2019 (également dans le canal semi-annuel à partir de Windows Server, version 1803)
 
 
 ## <a name="features"></a>Fonctionnalités
 
-|Fonctionnalités Windows Server pouvant être installées avec le Gestionnaire de serveur (ou PowerShell)|Windows Server 2019 Standard|Centre de données Windows Server 2019|  
+|Fonctionnalités Windows Server pouvant être installées avec le Gestionnaire de serveur (ou PowerShell)|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
 |.NET Framework 3.5|Oui|Oui|
 |.NET Framework 4.6|Oui|Oui|
@@ -92,7 +91,7 @@ ms.locfileid: "59854130"
 |Déverrouillage réseau BitLocker|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
 |BranchCache|Oui|Oui|
 |Client pour NFS|Oui|Oui|
-|Conteneurs|Oui (conteneurs Windows en nombre illimité ; conteneurs Hyper-V, jusqu'à 2)|Oui (tous les types de conteneurs, en nombre illimité)|
+|Conteneurs|Oui (conteneurs Windows en nombre illimité ; conteneurs Hyper-V, jusqu’à 2)|Oui (tous les types de conteneurs, en nombre illimité)|
 |Data Center Bridging|Oui|Oui|
 |DirectPlay|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
 |Stockage étendu|Oui|Oui|
@@ -125,7 +124,7 @@ ms.locfileid: "59854130"
 |Serveur SMTP|Oui|Oui|
 |Service SNMP|Oui|Oui|
 |Équilibrage de la charge logicielle|Oui|Oui|
-|Réplica de stockage|Non|Oui|
+|Réplica de stockage|Oui|Oui|
 |Client Telnet|Oui|Oui|
 |Client TFTP|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
 |Outils de protection d'ordinateur virtuel pour la gestion d'infrastructure|Oui|Oui|
@@ -147,10 +146,10 @@ ms.locfileid: "59854130"
 |Prise en charge WoW64|Installé|Installé|
 |Visionneuse XPS|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
 
-|Fonctionnalités généralement disponibles|Windows Server 2019 Standard|Centre de données Windows Server 2019|  
+|Fonctionnalités généralement disponibles|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
 |Best Practices Analyzer|Oui|Oui|
-|Réplica de stockage limitée|Oui, (1 partenariat et 1 groupe de ressources avec le volume de 2 To unique)|Oui, un nombre illimité|
+|Réplica de stockage limité|Oui, (1 partenariat et 1 groupe de ressources avec un volume unique de 2 To)|Oui, illimité|
 |DirectAccess|Oui|Oui|
 |Mémoire dynamique (virtualisation)|Oui|Oui|
 |Ajout/remplacement de RAM à chaud|Oui|Oui|
@@ -162,7 +161,7 @@ ms.locfileid: "59854130"
 |Option d'installation de Nano Server|Oui|Oui|
 |Gestionnaire de serveur|Oui|Oui|
 |SMB Direct et SMB sur RDMA|Oui|Oui|
-|Mise en réseau SDN (Software Defined Networking)|Non|Oui|
+|Mise en réseau définie par logiciel|Non|Oui|
 |Service de gestion du stockage|Oui|Oui|
 |Espaces de stockage|Oui|Oui|
 |Espaces de stockage directs|Non|Oui|

@@ -1,50 +1,50 @@
 ---
-title: Windows Admin Center liés à des solutions de gestion
-description: Comment Windows Admin Center compare avec et complète les autres Microsoft analyse et la gestion des solutions/produits (projet Honolulu)
+title: Solutions d’administration liées à Windows Admin Center
+description: Comparez Windows Admin Center avec les autres solutions/produits d’administration et de supervision de Microsoft et découvrez en quoi ils sont complémentaires (projet Honolulu)
 ms.technology: manage
 ms.topic: article
 author: haley-rowland
 ms.author: harowl
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 385a066cb828f58d698c2ca47e0553e996a77733
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f7bf0e32b1156fe361c79ac4ccd0e3536df767e2
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847320"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63742129"
 ---
-# <a name="windows-admin-center-and-related-management-solutions-from-microsoft"></a>Windows Admin Center et des solutions de gestion liées à partir de Microsoft
+# <a name="windows-admin-center-and-related-management-solutions-from-microsoft"></a>Windows Admin Center et autres solutions d’administration de Microsoft
 
->S'applique à : Windows Admin Center, version préliminaire de Windows Admin Center
+>S'applique à : Windows Admin Center, Windows Admin Center Preview
 
-[Windows Admin Center](windows-admin-center.md) est l’évolution de serveur traditionnel de zone dans les outils de gestion pour les situations où vous avez peut-être utilisé RDP (Remote Desktop) pour se connecter à un serveur pour le dépannage ou de configuration. Il n’est pas destiné à remplacer les autres solutions de gestion Microsoft existantes ; au lieu de cela, il complète ces solutions, comme décrit ci-dessous.
+[Windows Admin Center](windows-admin-center.md) est l’évolution des outils d’administration de serveur existants, fournis pour les situations où vous deviez utiliser le protocole RDP (Remote Desktop Protocol) pour vous connecter à un serveur à des fins de dépannage ou de configuration. Cette solution n’a pas vocation à remplacer les autres solutions d’administration existantes proposées par Microsoft. Elle vient en complément de ces solutions, comme cela est décrit ci-dessous.
 
 ## <a name="remote-server-administration-tools-rsat"></a>Outils d’administration de serveur distant (RSAT)
 
-[Outils d’Administration de serveur distant (RSAT)](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) est un ensemble d’outils de l’interface graphique utilisateur et PowerShell pour gérer les rôles facultatifs et des fonctionnalités dans Windows Server. RSAT comporte de nombreuses fonctionnalités qui n’a pas de Windows Admin Center. Nous pouvons ajouter certains des outils plus couramment utilisés dans RSAT à Windows Admin Center à l’avenir. Une fonctionnalité qui requiert une interface graphique utilisateur pour la gestion ou un nouveau rôle de serveur de Windows sera dans Windows Admin Center.
+Les [Outils d’administration de serveur distant (RSAT)](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) constituent un ensemble d’outils GUI et PowerShell qui permettent de gérer les rôles et fonctionnalités facultatifs dans Windows Server. RSAT présente beaucoup de capacités que n’a pas Windows Admin Center. Nous ajouterons peut-être certains des outils les plus couramment utilisés dans RSAT à Windows Admin Center dans une version future. Les nouvelles fonctionnalités ou nouveaux rôles Windows Server dont la gestion nécessite une interface graphique utilisateur seront inclus dans Windows Admin Center.
 
 ## <a name="intune"></a>Intune
 
-[Intune](https://www.microsoft.com/cloud-platform/microsoft-intune) est un service de gestion de mobilité d’entreprise-cloud qui vous permet de gérer des appareils iOS, Android, Windows et macOS, selon un ensemble de stratégies. Intune se concentre sur ce qui vous permet de sécuriser les informations de l’entreprise en contrôlant la façon dont votre personnel y accède et partage les informations. En revanche, Windows Admin Center n’est pas pilotée par des stratégies, mais permet la gestion ad hoc des systèmes Windows 10 et Windows Server, à l’aide de PowerShell et WMI à distance via WinRM.
+[Intune](https://www.microsoft.com/cloud-platform/microsoft-intune) est un service cloud de gestion d’Enterprise Mobility qui vous permet de gérer des appareils iOS, Android, Windows et macOS en utilisant un ensemble de stratégies. L’une des priorités d’Intune est de vous permettre de sécuriser les informations de l’entreprise en contrôlant la façon dont le personnel partage les informations et y accède. En revanche, Windows Admin Center n’est pas basé sur des stratégies. Il permet une administration ad hoc des systèmes Windows 10 et Windows Server en utilisant PowerShell et WMI à distance par le biais de WinRM.
 
 ## <a name="azure-stack"></a>Azure Stack
 
-[Azure Stack](https://azure.microsoft.com/overview/azure-stack/) est une plateforme de cloud hybride qui vous permet de fournir des services Azure à partir de votre centre de données. Azure Stack est géré à l’aide de PowerShell ou le portail administrateur, qui est similaire au portail Azure classique utilisé pour accéder et gérer des services Azure traditionnels. Windows Admin Center n’est pas destinée à gérer l’infrastructure Azure Stack, mais vous pouvez l’utiliser pour [gérer des machines virtuelles Azure IaaS](../configure/manage-azure-vms.md) (exécutant Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012) ou de dépanner serveurs physiques individuels déployés dans votre environnement Azure Stack.
+[Azure Stack](https://azure.microsoft.com/overview/azure-stack/) est une plateforme cloud hybride sur laquelle vous pouvez fournir des services Azure de votre centre de données. L’administration d’Azure Stack s’effectue à l’aide de PowerShell ou du portail de l’administrateur, qui est similaire au portail Azure classique utilisé pour administrer les services Azure standard et y accéder. Windows Admin Center n’a pas été conçu pour l’administration de l’infrastructure Azure Stack, mais vous pouvez l’utiliser pour [gérer des machines virtuelles Azure IaaS](../azure/manage-azure-vms.md) (sur Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012) ou pour résoudre les problèmes avec les serveurs physiques individuels déployés dans votre environnement Azure Stack.
 
 ## <a name="system-center"></a>System Center
 
-[System Center](https://www.microsoft.com/cloud-platform/system-center) est une solution de gestion de centre de données sur site pour le déploiement, configuration, gestion, surveillance de votre centre de données. System Center vous permet de voir l’état de tous les systèmes dans votre environnement, tandis que Windows Admin Center vous permet d’accéder à un serveur spécifique pour gérer ou de résoudre le problème avec des outils plus précis.
+[System Center](https://www.microsoft.com/cloud-platform/system-center) est une solution de gestion de centre de données en local qui vous permet de déployer, configurer, gérer et superviser votre centre de données dans son intégralité. Avec System Center, vous supervisez l’état de tous les systèmes installés dans votre environnement, alors qu’avec Windows Admin Center, vous avez une vue détaillée de chaque serveur, que vous pouvez ainsi administrer et dépanner à l’aide d’outils granulaires.
 
 | Windows Admin Center                 | System Center                      |
 |--------------------------------------|------------------------------------|
-| **Outils & repensée » dans « plate-forme** | **Surveillance et gestion de centre de données** |
-| Inclus avec licence de Windows Server – **sans coût supplémentaire**, comme MMC et d’autres outils de l’emploi traditionnels | **Complète** suite de solutions pour une valeur supplémentaire dans votre environnement et les plateformes |
-| **Lightweight**, basée sur navigateur de gestion à distance des instances de Windows Server, **n’importe où**; l’autre pour le protocole RDP | Gérer et surveiller **hétérogènes** systèmes **à grande échelle**, notamment Hyper-V, VMware et Linux |
-|**Deep** monoserveur & unique-cluster zoom pour le dépannage, configuration et maintenance|Infrastructure d’approvisionnement ; automatisation et libre-service ;  infrastructure et la surveillance de la charge de travail **transversales**|
-|Optimisé la gestion de **individuels** 2 à 4 nœuds **HCL** clusters, l’intégration de Hyper-V, espaces de stockage Direct et SDN|Déployer et gérer Hyper-V, Windows Server clusters à **mise à l’échelle du centre de données** de **un système nu** avec SCVMM|
-|**Surveillance de HCL** uniquement ; le service de contrôle d’intégrité de cluster stocke l’historique. Une plate-forme extensible pour le 1er et le 3e partie **extensions de l’outil administrateur**|**Extensible** & **analyse évolutive** plate-forme dans SCOM, avec la génération d’alertes, notifications, par des tiers de charge de travail de surveillance ; SQL pour l’historique|
-|Pont le plus simple pour **hybride**; intégrer et utiliser divers services Azure pour la protection des données, la réplication, les mises à jour et bien plus encore|**Intégrés** protection des données, réplication, les mises à jour (DPM/VMM/SCCM). Intégration hybride avec Analytique de journal et Service Map|
-|**Fonctionnalités de la plateforme s’allume** de Windows Server : Insights de système de Service de Migration, le réplica de stockage, stockage, etc.|**Plateformes supplémentaires**: Automation dans Orchestrator/SMA. Intégrations avec SCSM & autres outils de gestion de service|
+| **Outils et plateforme fournis repensés** | **Supervision et gestion de centre de données** |
+| Inclus avec la licence Windows Server, **sans coût supplémentaire**, comme MMC et d’autres outils fournis standard | Suite de solutions **complète** qui apporte des capacités supplémentaires à votre environnement et vos plateformes |
+| Solution **légère**, basée sur navigateur, qui permet de gérer à distance, **de n’importe où**, les instances Windows Server. Autre solution possible à la place du protocole RDP | Gestion et supervision de systèmes **hétérogènes** **à grande échelle**, comme Hyper-V, VMware et Linux |
+|Administration **granulaire** de chaque serveur et chaque cluster pour le dépannage, la configuration et la maintenance|Provisionnement de l’infrastructure ; automatisation et libre-service ; supervision de l’infrastructure et des charges de travail sur l’**étendue**|
+|Gestion optimisée des clusters **individuels** **HCI** de deux à quatre nœuds ; intégration d’Hyper-V, de Storage Spaces Direct et de SDN|Déploiement et gestion de clusters Windows Server Hyper-V à l’**échelle du centre de données** à partir du **système nu** avec SCVMM|
+|**Supervision sur HCI** uniquement ; historique des magasins du service de contrôle d’intégrité des clusters. Plateforme extensible pour les première et troisième **extensions des outils d’administration** tiers|Plateforme de **supervision scalable** & **extensible** dans SCOM, avec des alertes, des notifications, une solution tierce de supervision des charges de travail ; SQL pour l’historique|
+|Voie la plus simple vers un environnement **hybride** ; intégration et utilisation de divers services Azure pour la protection des données, la réplication, les mises à jour et bien plus encore|**Intégration** de la protection des données, de la réplication et des mises à jour (DPM/VMM/SCCM). Intégration hybride avec Log Analytics et Service Map|
+|**Mise en avant des fonctionnalités de la plateforme** Windows Server : Service de migration de stockage, Réplica de stockage, Insights système, etc.|**Plateformes supplémentaires** : Automatisation dans Orchestrator/SMA. Intégrations avec SCSM et d’autres outils de gestion de service|
 
-#### <a name="each-delivers-targeted-value-independently-better-together-with-complementary-capabilities"></a>Chacun d'entre eux de manière indépendante ; propose la valeur ciblée **mieux ensemble** avec des fonctionnalités complémentaires.
+#### <a name="each-delivers-targeted-value-independently-better-together-with-complementary-capabilities"></a>Chacune de ces solutions offre ses propres avantages. **Utilisez-les conjointement** pour bénéficier de capacités complémentaires.

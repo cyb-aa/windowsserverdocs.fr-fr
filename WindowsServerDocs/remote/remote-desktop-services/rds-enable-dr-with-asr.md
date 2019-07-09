@@ -1,6 +1,6 @@
 ---
-title: Activer la récupération d’urgence des services Bureau à distance à l’aide d’Azure Site Recovery
-description: Découvrez comment activer la récupération d’urgence des services Bureau à distance à l’aide d’Azure Site Recovery.
+title: Activer la reprise d’activité après sinistre des services Bureau à distance à l’aide d’Azure Site Recovery
+description: Découvrez comment activer la reprise d’activité après sinistre des services Bureau à distance à l’aide d’Azure Site Recovery.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,44 +13,44 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.openlocfilehash: 7aa25602c71e5d114be7ae59c5e3ce168844d700
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66446548"
 ---
-# <a name="enable-disaster-recovery-of-rds-using-azure-site-recovery"></a>Activer la récupération d’urgence des services Bureau à distance à l’aide d’Azure Site Recovery
+# <a name="enable-disaster-recovery-of-rds-using-azure-site-recovery"></a>Activer la reprise d’activité après sinistre des services Bureau à distance à l’aide d’Azure Site Recovery
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
-Pour vous assurer que votre déploiement des services Bureau à distance est correctement configuré pour la récupération d’urgence, vous devez protéger tous les composants qui constituent votre déploiement des services Bureau à distance :
+Pour vérifier que le déploiement des services Bureau à distance est correctement configuré en cas de reprise d’activité après sinistre, vous devez protéger tous les composants qui constituent votre déploiement des services Bureau à distance :
 
 - Active Directory
-- Niveau de SQL Server
+- Niveau SQL Server
 - Composants des services Bureau à distance
 - Composants réseau
 
-## <a name="configure-active-directory-and-dns-replication"></a>Configurer la réplication Active Directory et DNS
+## <a name="configure-active-directory-and-dns-replication"></a>Configurer Active Directory et la réplication DNS
 
-Vous avez besoin d’Active Directory sur le site de récupération d’urgence pour votre déploiement des services Bureau à distance fonctionne. Vous avez deux possibilités en fonction de la complexité votre déploiement des services Bureau à distance :
+Vous avez besoin d’Active Directory sur le site de reprise d’activité après sinistre pour que votre déploiement des services Bureau à distance fonctionne. Vous avez deux options possibles en fonction de la complexité de votre déploiement des services Bureau à distance :
 
-- Option 1 : Si vous avez un petit nombre d’applications et un seul contrôleur de domaine pour l’ensemble de votre site local et il souhaite basculer l’intégralité du site, utilisez la réplication ASR pour répliquer le contrôleur de domaine sur le site secondaire (la valeur true pour les deux scénarios de site à site et le site vers Azure).
-- Option 2 : Si vous avez un grand nombre d’applications et que vous exécutez une forêt Active Directory, et vous allez basculement quelques applications à la fois, configurer un contrôleur de domaine supplémentaire sur le site de récupération d’urgence (sur un site secondaire ou dans Azure).
+- Option 1 - Si vous avez un petit nombre d’applications et un seul contrôleur de domaine pour l’ensemble de votre site local, et si vous devez effectuer le basculement de ce dernier, utilisez la fonctionnalité de récupération automatique du système pour répliquer le contrôleur de domaine sur le site secondaire (aussi bien dans les scénarios de site à site que de site à Azure).
+- Option 2 - Si vous avez un grand nombre d’applications et une forêt Active Directory, et si vous devez effectuer le basculement de quelques applications à la fois, configurez un contrôleur de domaine supplémentaire sur le site de reprise d’activité après sinistre (site secondaire ou Azure).
 
-Consultez [protéger Active Directory et DNS avec Azure Site Recovery](/azure/site-recovery/site-recovery-active-directory) pour plus d’informations sur la disposition d’un contrôleur de domaine sur le site de récupération d’urgence. Pour le reste de ce guide, nous partons du principe que vous avez suivi ces étapes et le contrôleur de domaine disponibles.
+Consultez [Protéger Active Directory et DNS avec Azure Site Recovery](/azure/site-recovery/site-recovery-active-directory) pour plus d’informations sur la mise à disposition d’un contrôleur de domaine sur le site de reprise d’activité après sinistre. Pour le reste de ces informations d’aide, nous supposons que vous avez suivi ces étapes et que le contrôleur de domaine est disponible.
 
-## <a name="set-up-sql-server-replication"></a>Configurer la réplication de SQL Server
+## <a name="set-up-sql-server-replication"></a>Configurer la réplication SQL Server
 
-Consultez [protéger SQL Server à l’aide de la récupération d’urgence de SQL Server et Azure Site Recovery](/azure/site-recovery/site-recovery-sql) pour découvrir comment configurer la réplication de SQL Server.
+Consultez [Protéger SQL Server à l’aide de la reprise d’activité après sinistre et d’Azure Site Recovery](/azure/site-recovery/site-recovery-sql) pour connaître les étapes de configuration de la réplication SQL Server.
 
-## <a name="enable-protection-for-the-rds-application-components"></a>Activer la protection pour les composants d’application de services Bureau à distance
+## <a name="enable-protection-for-the-rds-application-components"></a>Activer la protection des composants d’application des services Bureau à distance
 
-Selon votre type de déploiement des services Bureau à distance, vous pouvez activer la protection pour les machines virtuelles composant différent (comme indiqué dans le tableau ci-dessous) dans Azure Site Recovery. Configurer les éléments d’Azure Site Recovery appropriés selon que vos machines virtuelles sont déployées sur Hyper-V ou VMWare.
+En fonction de votre type de déploiement des services Bureau à distance, vous pouvez activer la protection des différentes machines virtuelles qui le composent (comme indiqué dans le tableau ci-dessous) dans Azure Site Recovery. Configurez les éléments Azure Site Recovery appropriés selon que vos machines virtuelles sont déployées sur Hyper-V ou VMWare.
 
 
-|               Type de déploiement                |                                                                                                     Procédure de protection                                                                                                     |
+|               Type de déploiement                |                                                                                                     Étapes de protection                                                                                                     |
 |----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     Bureau virtuel personnel (non managé)     | 1. Assurez-vous que tous les hôtes de virtualisation sont prêts avec le rôle d’ordinateur RDVH installé.    </br>2. Agent de connexion.  </br>3. Bureaux personnels. </br>4. Gold modèle de machine virtuelle. </br>5. Web Access, serveur de licences et de serveur de passerelle |
-| Bureau virtuel mis en pool (géré avec sans UPD) |                    1. Tous les hôtes de virtualisation sont prêts avec le rôle d’ordinateur RDVH installé.  </br>2. Agent de connexion.  </br>3. Gold modèle de machine virtuelle. </br>4. Web Access, serveur de licences et de serveur de passerelle.                    |
-|   RemoteApps et Sessions de bureau (sans UPD)   |                                                          1. Hôtes de session.  </br>2. Agent de connexion. </br>3. Web Access, serveur de licences et de serveur de passerelle.                                                           |
+|     Bureau virtuel personnel (non managé)     | 1. Vérifiez que tous les hôtes de virtualisation disposent du rôle de serveur hôte de virtualisation des services Bureau à distance.    </br>2. Service Broker pour les connexions.  </br>3. Bureaux personnels. </br>4. Modèle de machine virtuelle maître. </br>5. Accès web, serveur de licences et serveur de passerelle |
+| Bureau virtuel mis en pool (managé sans UPD) |                    1. Tous les hôtes de virtualisation disposent du rôle de serveur hôte de virtualisation des services Bureau à distance.  </br>2. Service Broker pour les connexions.  </br>3. Modèle de machine virtuelle maître. </br>4. Accès web, serveur de licences et serveur de passerelle.                    |
+|   Programmes RemoteApp et sessions Bureau à distance (sans UPD)   |                                                          1. Hôtes de session.  </br>2. Service Broker pour les connexions. </br>3. Accès web, serveur de licences et serveur de passerelle.                                                           |
 

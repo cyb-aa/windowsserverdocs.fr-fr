@@ -1,6 +1,6 @@
 ---
-title: Présentation de l’environnement d’hébergement bureau
-description: Vue d’ensemble d’un deployhment de services Bureau à distance à l’aide d’Azure IaaS.
+title: Comprendre l’environnement d’hébergement de bureaux
+description: Vue d’ensemble d’un déploiement Services Bureau à distance à l’aide d’Azure IaaS.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,72 +12,72 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 880fc8f9fa2db5ec56d2117e02c069650c61584a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1bdf4e3e25facfa8cc49459ada8d9b1b6309a724
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877920"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63744032"
 ---
-# <a name="understanding-the-desktop-hosting-environment"></a>Présentation de l’environnement d’hébergement bureau
+# <a name="understanding-the-desktop-hosting-environment"></a>Comprendre l’environnement d’hébergement de bureaux
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
-Les informations suivantes décrivent les composants du bureau qui héberge le service.  
+Les informations suivantes décrivent les composants du service d’hébergement de bureaux.  
   
-## <a name="tenant-environment"></a>Environnement de client  
-Service du fournisseur d’hébergement bureau est implémenté comme un ensemble d’environnements isolés de client. Les environnement de chaque client se compose d’un conteneur de stockage, un ensemble de machines virtuelles et une combinaison de services Azure, tous les de communiquer via un réseau virtuel isolé. Chaque machine virtuelle contient un ou plusieurs des composants qui constituent l’environnement du client de bureau hébergé. Les sous-sections suivantes décrivent les composants qui constituent l’environnement de chaque client de bureau hébergé.
+## <a name="tenant-environment"></a>Environnement de locataire  
+Le service d’hébergement de bureaux du fournisseur est implémenté en tant qu’ensemble d’environnements de locataire isolés. L’environnement de chaque client se compose d’un conteneur de stockage, d’un ensemble de machines virtuelles et d’une combinaison de services Azure, qui communiquent tous sur un réseau virtuel isolé. Chaque machine virtuelle contient un ou plusieurs des composants qui constituent l’environnement de bureau hébergé du locataire. Les sous-sections suivantes décrivent les composants qui constituent l’environnement de bureau hébergé de chaque locataire.
 
 ## <a name="remote-desktop-services"></a>Services Bureau à distance
-Dans un environnement d’hébergement bureau, les rôles Services Bureau à distance suivants sont installés entre différentes machines virtuelles :
+Dans un environnement d’hébergement de bureaux, les rôles Services Bureau à distance suivants sont installés entre différentes machines virtuelles :
 
   - Service Broker pour les connexions Bureau à distance
   - Passerelle des services Bureau à distance
-  - Gestionnaire de licences bureau à distance
+  - Gestionnaire de licences des services Bureau à distance
   - Hôte de session Bureau à distance
-  - Accès Web Bureau à distance
+  - Accès web au Bureau à distance
 
-Pour obtenir une description complète de chacune de ces rôles et la façon dont ils interagissent entre eux, veuillez consulter la [les rôles Services Bureau à distance de compréhension](Understanding-RDS-roles.md) document.
+Pour obtenir une description complète de chacun de ces rôles et de la façon dont ils interagissent entre eux, veuillez consulter le document sur la [compréhension des rôles Services Bureau à distance](Understanding-RDS-roles.md).
   
-##  <a name="azure-active-directory-domain-services"></a>(Azure) Services de domaine Active Directory  
-Il existe plusieurs façons de se connecter à et gérer des Services de domaine Active Directory (AD DS) pour un environnement d’hébergement bureau dans Azure :
+##  <a name="azure-active-directory-domain-services"></a>(Azure) Active Directory Domain Services  
+Il existe plusieurs façons de se connecter à Active Directory Domain Services (AD DS) et de le gérer pour un environnement d’hébergement de bureaux dans Azure :
 
-1. Créer une machine virtuelle dans l’environnement du client qui exécute le rôle AD DS
-2. Créer une connexion VPN de site à site avec environnement de local du locataire à utiliser un existant AD DS
-3. Utilisez le rôle Azure AD Domain Services PaaS, ce qui crée un domaine sur le réseau virtuel du locataire en fonction Azure Active Directory du locataire
+1. Créer une machine virtuelle dans l’environnement du locataire qui exécute le rôle AD DS
+2. Créer une connexion VPN de site à site avec l’environnement local du locataire pour utiliser une instance AD DS existante
+3. Utiliser le rôle PaaS Azure AD Domain Services, qui crée un domaine sur le réseau virtuel du locataire en fonction de l’instance Azure Active Directory du locataire
 
-Services Bureau à distance, le client doit avoir un annuaire Active Directory pour gérer l’accès dans l’environnement, de stockage de profil utilisateur et la surveillance dans le déploiement. Lorsque vous utilisez le service d’annuaire AD (non-Azure) standard, les forêts du locataire ne nécessitent pas de toute relation d’approbation avec la forêt d’administration du fournisseur. Un compte d’administrateur de domaine peut être défini dans le domaine du locataire pour autoriser du personnel technique du fournisseur pour effectuer des tâches d’administration dans l’environnement du client (par exemple, la surveillance de l’état du système et en appliquant des mises à jour logicielles) et pour aider à dépannage et la configuration.  
+Avec Services Bureau à distance, le locataire doit avoir une instance Active Directory pour gérer l’accès dans l’environnement, le stockage de profil utilisateur et la surveillance dans le déploiement. Lorsque vous utilisez l’instance AD DS standard (autre qu’Azure), les forêts du locataire n’exigent pas de relation d’approbation avec la forêt de gestion du fournisseur. Un compte d’administrateur de domaine peut être configuré dans le domaine du locataire pour autoriser le personnel technique du fournisseur à effectuer des tâches d’administration dans l’environnement du locataire (par exemple, la surveillance de l’état du système et l’application de mises à jour logicielles) et pour faciliter la résolution des problèmes et la configuration.  
     
 Informations complémentaires :  
-[Documentation Azure Active Directory Domain Services](https://azure.microsoft.com/documentation/services/active-directory-ds/)  
-[Installer une nouvelle forêt Active Directory sur un réseau virtuel Azure](https://azure.microsoft.com/documentation/articles/active-directory-new-forest-virtual-machine/)  
-[Créer une ressource Gestionnaire de réseau virtuel avec une connexion VPN de Site à l’aide du portail Azure](https://azure.microsoft.com/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal/)  
+[Azure Active Directory Domain Services Documentation](https://azure.microsoft.com/documentation/services/active-directory-ds/) (Documentation sur Azure Active Directory Domain Services)  
+[Install a new Active Directory forest on an Azure virtual network](https://azure.microsoft.com/documentation/articles/active-directory-new-forest-virtual-machine/) (Installer une nouvelle forêt Active Directory sur un réseau virtuel Azure)  
+[Création d’une connexion de site à site dans le portail Azure](https://azure.microsoft.com/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal/)  
   
 ## <a name="azure-sql-database"></a>Base de données SQL Azure  
-Base de données SQL Azure permet aux hébergeurs d’étendre leur déploiement des Services Bureau à distance sans avoir à déployer et maintenir un cluster SQL Server Always-on complet. La base de données SQL Azure est utilisé par l’intermédiaire de connexion Bureau à distance pour stocker les informations de déploiement, telles que le mappage de connexions des utilisateurs actuels aux serveurs hôtes de fin. Comme d’autres services Azure, Azure SQL DB suit un modèle de consommation, idéal pour le déploiement de toute taille.   
+La base de données SQL Azure permet aux hébergeurs d’étendre leur déploiement Services Bureau à distance sans avoir à déployer ni gérer un cluster SQL Server Always-on complet. La base de données SQL Azure est utilisée par le service Broker de connexion Bureau à distance pour stocker les informations de déploiement, telles que le mappage des connexions des utilisateurs actuels aux serveurs d’hôte final. Comme d’autres services Azure, la base de données SQL Azure suit un modèle de consommation, idéal pour des déploiements de toute taille.   
   
 Informations complémentaires :  
-[Qu’est la base de données SQL ?](https://azure.microsoft.com/documentation/articles/sql-database-technical-overview/)  
+[Qu’est-ce que le service Azure SQL Database ?](https://azure.microsoft.com/documentation/articles/sql-database-technical-overview/)  
   
-## <a name="azure-active-directory-application-proxy"></a>Proxy d’Application Azure Active Directory  
-Azure Active Directory Application Proxy est un service fourni dans payé-références (SKU) d’Azure Active Directory qui permettent aux utilisateurs pour se connecter à des applications internes via le service de proxy inverse d’Azure. Ainsi, les points de terminaison Web de bureau à distance et passerelle Bureau à distance être masquées à l’intérieur du réseau virtuel, en éliminant la nécessité d’être exposée à internet via une adresse IP publique. Cela permet plus aux hébergeurs de condenser le nombre de machines virtuelles dans un environnement du locataire tout en conservant un déploiement complet.
+## <a name="azure-active-directory-application-proxy"></a>Proxy d’application Azure Active Directory  
+Le proxy d’application Azure Active Directory est un service fourni dans des références SKU payantes d’Azure Active Directory qui permettent aux utilisateurs de se connecter à des applications internes via le service de proxy inverse d’Azure. Ainsi, les points de terminaison de passerelle Bureau à distance et web Bureau à distance peuvent être masqués à l’intérieur du réseau virtuel, ce qui élimine la nécessité d’exposition à Internet par une adresse IP publique. Cela permet aux hébergeurs de condenser le nombre de machines virtuelles dans l’environnement d’un locataire tout en conservant un déploiement complet.
   
 Informations complémentaires :  
-[Activation du Proxy d’Application Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-enable/)  
+[Enabling Azure AD Application Proxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-enable/) (Activation du proxy d’application Azure AD)  
     
 ## <a name="file-server"></a>Serveur de fichiers  
-Le serveur de fichiers fournit des dossiers partagés en utilisant le protocole Server Message Block (SMB) 3.0. Les dossiers partagés sont utilisés pour créer et stocker des fichiers de disque de profil utilisateur (.vhdx), pour sauvegarder des données et pour permettre aux utilisateurs de partager des données avec d’autres utilisateurs dans le réseau virtuel du locataire.
+Le serveur de fichiers fournit des dossiers partagés en utilisant le protocole Server Message Block (SMB) 3.0. Les dossiers partagés sont utilisés pour créer et stocker des fichiers de disque de profil utilisateur (.vhdx), pour sauvegarder des données et pour offrir aux utilisateurs un emplacement où partager des données avec d’autres utilisateurs dans le réseau virtuel du locataire.
   
-La machine virtuelle utilisée pour déployer le serveur de fichiers doit avoir un disque de données Azure attachés et configurés avec des dossiers partagés. Disques de données Azure utilisent écriture via la mise en cache qui conservent des garanties qui écrit sur le disque après un redémarrage de la machine virtuelle.  
+La machine virtuelle utilisée pour déployer le serveur de fichiers doit avoir un disque de données Azure attaché et configuré avec des dossiers partagés. Les disques de données Azure utilisent la mise en cache via l’écriture qui garantit que les écritures sur le disque sont conservées après les redémarrages de la machine virtuelle.  
   
-Pour les petits locataires, le coût peut être réduit en combinant le serveur de fichiers avec la machine virtuelle exécutant les rôles de service Broker pour les connexions Bureau à distance et le Gestionnaire de licences bureau à distance sur une seule machine virtuelle dans un environnement du locataire.  
+Pour les petits locataires, le coût peut être réduit en combinant le serveur de fichiers à la machine virtuelle exécutant les rôles de Gestionnaire de licences Bureau à distance et de service Broker de connexion Bureau à distance sur une seule machine virtuelle dans l’environnement du locataire.  
   
 Informations complémentaires  
-[Présentation des Services de stockage et de fichier](https://technet.microsoft.com/library/hh831487.aspx)  
-[Comment attacher un disque de données à une Machine virtuelle](http://www.windowsazure.com/manage/windows/how-to-guides/attach-a-disk/)  
+[Vue d’ensemble des services de stockage et de fichiers](https://technet.microsoft.com/library/hh831487.aspx)  
+[Attacher un disque de données managé à une machine virtuelle Windows à l’aide du portail Azure](http://www.windowsazure.com/manage/windows/how-to-guides/attach-a-disk/)  
   
 ### <a name="user-profile-disks"></a>Disques de profil utilisateur  
-Disques de profil utilisateur permettent aux utilisateurs d’enregistrer des fichiers et paramètres personnels quand ils sont connectés à une session sur un serveur hôte de Session Bureau à distance dans une collection et accéder aux paramètres et aux fichiers même lorsque vous vous connectez à un autre serveur hôte de Session Bureau à distance dans la collection. Lorsque l’utilisateur se connecte pour la première fois, un disque de profil utilisateur est créé sur le serveur de fichiers du client, et ce disque est monté sur le serveur hôte de Session Bureau à distance à laquelle l’utilisateur est connecté. Pour chaque suivantes connectez-vous, le disque de profil utilisateur est monté sur le serveur hôte de Session Bureau à distance approprié, et avec chaque déconnexion, il est non monté. Le contenu du disque de profil est uniquement accessible par l’utilisateur.  
+Les disques de profil utilisateur permettent aux utilisateurs d’enregistrer des fichiers et paramètres personnels quand ils sont connectés à une session sur un serveur d’hôte de session Bureau à distance dans une collection, puis d’avoir accès à ces mêmes paramètres et fichiers lorsqu’ils se connectent à un autre serveur d’hôte de session Bureau à distance dans la collection. Quand l’utilisateur se connecte pour la première fois, un disque de profil utilisateur est créé sur le serveur de fichiers du locataire, et ce disque est monté sur le serveur d’hôte de session Bureau à distance auquel l’utilisateur est connecté. Pour chaque connexion suivante, le disque de profil utilisateur est monté sur le serveur d’hôte de session Bureau à distance approprié, et est démonté à chaque déconnexion. Le contenu du disque de profil est uniquement accessible par cet utilisateur.  
   
 
 

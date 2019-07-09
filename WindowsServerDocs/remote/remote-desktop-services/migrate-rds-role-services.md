@@ -1,6 +1,6 @@
 ---
-title: Migrer votre déploiement de Services Bureau à distance vers Windows Server 2016
-description: Cet article décrit comment migrer votre déploiement des Services Bureau à distance vers de nouveaux serveurs Windows Server 2016.
+title: Migrer les déploiements des services Bureau à distance vers Windows Server 2016
+description: Cet article décrit comment migrer votre déploiement des services Bureau à distance vers de nouveaux serveurs Windows Server 2016.
 ms.custom: na
 ms.prod: windows-server-threshold
 msreviewer: ''
@@ -14,142 +14,142 @@ ms.assetid: 9b1fa833-4325-48a8-bf34-46265f40c001
 author: christianmontoya
 manager: scottman
 ms.openlocfilehash: 0e4736f753fc0ad2ece6135de84d481eecb8b7a1
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66812583"
 ---
-# <a name="migrate-your-remote-desktop-services-deployment-to-windows-server-2016"></a>Migrer votre déploiement de Services Bureau à distance vers Windows Server 2016
+# <a name="migrate-your-remote-desktop-services-deployment-to-windows-server-2016"></a>Migrer les déploiements des services Bureau à distance vers Windows Server 2016
 
-Si vous utilisez actuellement des Services Bureau à distance dans Windows Server 2012 R2, vous pouvez déplacer vers Windows Server 2016 pour tirer parti des nouvelles fonctionnalités telles que la prise en charge pour SQL Azure et les espaces de stockage Direct.
+Si vous utilisez actuellement des services Bureau à distance dans Windows Server 2012 R2, vous pouvez passer à Windows Server 2016 pour tirer parti des nouvelles fonctionnalités comme la prise en charge de SQL Azure et des espaces de stockage Direct.
 
-Migration d’un déploiement Services Bureau à distance est prise en charge à partir des serveurs sources exécutant Windows Server 2016 à des serveurs de destination exécutant Windows Server 2016. En d’autres termes, il n’existe aucune migration sur place directe à partir des services Bureau à distance dans Windows Server 2012 R2 vers Windows Server 2016. Au lieu de cela, pour la plupart des composants des services Bureau à distance, tout d’abord mettre à niveau vers Windows Server 2016 et migrer des données et licences. Les seuls composants avec une migration directe sont Web Bureau à distance, passerelle Bureau à distance et le serveur de licences.
+La migration pour un déploiement Services Bureau à distance est prise en charge à partir de serveurs sources exécutant Windows Server 2013 sur des serveurs de destination exécutant Windows Server 2016. En d’autres termes, il n’existe aucune migration directe à partir des services Bureau à distance dans Windows Server 2012 R2 vers Windows Server 2016. Au lieu de cela, pour la plupart des composants des services Bureau à distance, vous devez d’abord effectuer une mise à niveau vers Windows Server 2016 et migrer les données et les licences. Les seuls composants avec une migration directe sont RD Web, RD Gateway et le serveur de licences.
 
-Pour plus d’informations sur la mise à niveau et la configuration requise, consultez [mise à niveau de vos déploiements de Services Bureau à distance vers Windows Server 2016](upgrade-to-rds-2016.md).
+Pour plus d’informations sur la mise à niveau et la configuration requise, consultez [Mise à niveau de vos déploiements de services Bureau à distance vers Windows Server 2016](upgrade-to-rds-2016.md).
 
-Utilisez les étapes suivantes pour migrer votre déploiement des Services Bureau à distance :
+Utilisez les étapes suivantes pour migrer votre déploiement des services Bureau à distance :
 
-- [Migrer les serveurs de service Broker pour les connexions Bureau à distance](#migrate-rdconnection-broker-servers)
+- [Migrer des serveurs du service Broker pour les connexions Bureau à distance](#migrate-rdconnection-broker-servers)
 
 - [Migrer les collections de sessions](#migrate-session-collections)
 
 - [Migrer les collections de bureaux virtuels](#migrate-virtual-desktop-collections)
 
-- [Migrer des serveurs d’accès Web de bureau à distance](#migrate-rdweb-access-servers)
+- [Migrer les serveurs d’accès Bureau à distance par le Web](#migrate-rdweb-access-servers)
 
 - [Migrer les serveurs de passerelle Bureau à distance](#migrate-rdgateway-servers)
 
-- [Migrer des serveurs de licences des services Bureau à distance](#migrate-rdgateway-servers)
+- [Migrer les serveurs de licences des services Bureau à distance](#migrate-rdgateway-servers)
 
-- [Migrer des certificats](#migrate-certificates)
+- [Migrer les certificats](#migrate-certificates)
 
-## <a name="migrate-rdconnection-broker-servers"></a>Migrer les serveurs de service Broker pour les connexions Bureau à distance
+## <a name="migrate-rdconnection-broker-servers"></a>Migrer des serveurs du service Broker pour les connexions Bureau à distance
 
-Ceci est la première et la plus importante pour la migration : migration de vos agents de connexion Bureau à distance vers les serveurs de destination exécutant Windows Server 2016.
+Il s’agit de la première de la migration et également de la plus importante : migration de vos agents de connexion Bureau à distance vers des serveurs de destination exécutant Windows Server 2016.
 
 > [!IMPORTANT]
-> Les serveurs de source de Broker de connexion Bureau à distance (RD Connection Broker) doivent être configurés pour la haute disponibilité prendre en charge la migration. Pour plus d’informations, consultez [déployer un cluster de service Broker pour les connexions Bureau à distance](Deploy-a-Remote-Desktop-Connection-Broker-cluster.md).
+> Les serveurs sources Service Broker pour les connexions Bureau à distance doivent être configurés pour la haute disponibilité afin de prendre en charge la migration. Pour plus d’informations, consultez [Déployer un cluster du service Broker pour les connexions Bureau à distance](Deploy-a-Remote-Desktop-Connection-Broker-cluster.md).
 
 1. Si plusieurs serveurs Service Broker pour les connexions Bureau à distance sont présents dans la configuration de haute disponibilité, supprimez tous ces serveurs à l’exception du serveur actif.
 
-2. [Mettre à niveau](upgrade-to-rds-2016.md) serveur RD Connection Broker restant dans le déploiement vers Windows Server 2016.
+2. [Mettez à niveau](upgrade-to-rds-2016.md) le serveur Service Broker pour les connexions Bureau à distance restant vers Windows Server 2016.
 
-3. Ajouter des serveurs de Broker de connexion Bureau à distance de Windows Server 2016 dans le déploiement de haute disponibilité.
+3. Ajoutez des serveurs Broker de connexion Bureau à distance sous Windows Server 2016 dans le déploiement de haute disponibilité.
 
 > [!NOTE] 
-> Une configuration haute disponibilité mixte avec Windows Server 2016 et Windows Server 2012 R2 n’est pas pris en charge pour les serveurs de service Broker pour les connexions Bureau à distance. Un Broker pour les connexions Bureau à distance exécutant Windows Server 2016 peut utiliser des collections de sessions avec les serveurs hôte de Session Bureau à distance exécutant Windows Server 2012 R2, et il peut utiliser des collections de bureaux virtuels avec les serveurs hôte de virtualisation Bureau à distance exécutant Windows Server 2012 R2.
+> Une configuration de haute disponibilité mixte avec Windows Server 2016 et Windows Server 2012 R2 n’est pas prise en charge pour les serveurs Service Broker pour les connexions Bureau à distance. Un serveur Service Broker pour les connexions Bureau à distance exécutant Windows Server 2016 peut utiliser des collections de sessions avec les serveurs Hôte de session Bureau à distance exécutant Windows Server 2012 R2, et il peut utiliser des collections de bureaux virtuels avec des serveurs Hôte de virtualisation des services Bureau à distance exécutant Windows Server 2012 R2.
 
 ## <a name="migrate-session-collections"></a>Migrer les collections de sessions
 
-Suivez ces étapes pour migrer une collection de sessions dans Windows Server 2012 R2 vers une collection de sessions dans Windows Server 2016.
+Procédez comme suit pour migrer une collection de sessions dans Windows Server 2012 R2 vers une collection de sessions dans Windows Server 2016.
 
 > [!IMPORTANT]
-> Migrer des collections de sessions uniquement après avoir effectué l’étape précédente, [serveurs de migrer RD Connection Broker](#migrate-rdconnection-broker-servers).
+> Migrez les collections de sessions uniquement après avoir effectué l’étape précédente, [Migrer des serveurs Service Broker pour les connexions Bureau à distance](#migrate-rdconnection-broker-servers).
 
-1. [Mise à niveau de la collection de sessions](Upgrade-to-RDSH-2016.md) à partir de Windows Server 2012 R2 vers Windows Server 2016.
+1. [Mettez à niveau la collection de sessions](Upgrade-to-RDSH-2016.md) à partir de Windows Server 2012 R2 vers Windows Server 2016.
 
-2. Ajoutez le nouveau serveur hôte de Session Bureau à distance exécutant Windows Server 2016 à la collection de sessions.
+2. Ajoutez le nouveau serveur Hôte de session Bureau à distance exécutant Windows Server 2016 à la collection de sessions.
 
 3. Déconnectez-vous de toutes les sessions sur les serveurs Hôte de session Bureau à distance et supprimez les serveurs qui vont être migrés de la collection de sessions.
 
    > [!NOTE]
-   > Si le modèle UVHD (UVHD-Template.vhdx) est activé dans la collection de sessions et le serveur de fichiers a été migré vers un nouveau serveur, mettez à jour les disques de profil utilisateur : Propriété de collection d’emplacement avec le nouveau chemin. Les disques de profil utilisateur doivent être disponibles au même chemin relatif sur le serveur source et au nouvel emplacement.
+   > Si le modèle UVHD (UVHD-template.vhdx) est activé dans la collection de sessions et si le serveur de fichiers a été migré sur un nouveau serveur, mettez à jour la propriété de collection Disques de profil utilisateur : Emplacement avec le nouveau chemin. Les disques de profil utilisateur doivent être disponibles au même chemin relatif sur le serveur source et au nouvel emplacement.
    >
-   > Une collection de sessions de serveurs hôtes de Session Bureau à distance avec un mélange de serveurs qui exécutent Windows Server 2012 R2 et Windows Server 2016 n’est pas pris en charge.
+   > Une collection de sessions de serveurs Hôte de session Bureau à distance avec un mélange de serveurs exécutant Windows Server 2012 R2 et Windows Server 2016 n’est pas prise en charge.
 
 ## <a name="migrate-virtual-desktop-collections"></a>Migrer les collections de bureaux virtuels
 
-Suivez ces étapes pour migrer une collection de bureaux virtuels à partir d’un serveur source exécutant Windows Server 2012 R2 vers un serveur de destination exécutant Windows Server 2016.
+Procédez comme suit pour migrer une collection de bureaux virtuels d’un serveur source exécutant Windows Server 2012 R2 vers un serveur de destination exécutant Windows Server 2016.
 
 > [!IMPORTANT]
-> Migrer des collections de bureaux virtuels uniquement après avoir effectué l’étape précédente, [serveurs de migrer RD Connection Broker](#migrate-rdconnection-broker-servers).
+> Migrez les collections de bureaux virtuels uniquement après avoir effectué l’étape précédente, [Migrer des serveurs Service Broker pour les connexions Bureau à distance](#migrate-rdconnection-broker-servers).
 
-1. [Mise à niveau de la collection de bureaux virtuels](Upgrade-to-RDVH-2016.md) à partir du serveur exécutant Windows Server 2012 R2 vers Windows Server 2016.
+1. [Mettez à jour la collection de bureaux virtuels](Upgrade-to-RDVH-2016.md) à partir du serveur exécutant Windows Server 2012 R2 vers Windows Server 2016.
 
-2. Ajouter les nouveaux serveurs hôte de virtualisation Bureau à distance de Windows Server 2016 à la collection de bureaux virtuels.
+2. Ajoutez les nouveaux serveurs Hôte de virtualisation des services Bureau à distance Windows Server 2016 à la collection de bureaux virtuels.
 
 3. Migrez tous les ordinateurs virtuels dans la collection de bureaux virtuels actuelle qui s’exécutent sur les serveurs Hôte de virtualisation des services Bureau à distance sur les nouveaux serveurs.
 
 4. Supprimez tous les serveurs Hôte de virtualisation des services Bureau à distance qui doivent être migrés de la collection de bureaux virtuels sur le serveur source.
 
 > [!NOTE]
-> Si le modèle UVHD (UVHD-Template.vhdx) est activé dans la collection de sessions et le serveur de fichiers a été migré vers un nouveau serveur, mettez à jour les disques de profil utilisateur : Propriété de collection d’emplacement avec le nouveau chemin. Les disques de profil utilisateur doivent être disponibles au même chemin relatif sur le serveur source et au nouvel emplacement.
+> Si le modèle UVHD (UVHD-template.vhdx) est activé dans la collection de sessions et si le serveur de fichiers a été migré sur un nouveau serveur, mettez à jour la propriété de collection Disques de profil utilisateur : Emplacement avec le nouveau chemin. Les disques de profil utilisateur doivent être disponibles au même chemin relatif sur le serveur source et au nouvel emplacement.
 >
-> Une collection de bureaux virtuelle de serveurs hôtes de virtualisation des services Bureau à distance avec un mélange de serveurs qui exécutent Windows Server 2012 R2 et Windows Server 2016 n’est pas pris en charge.
+> Une collection de bureaux virtuels de serveurs Hôte de virtualisation Bureau à distance avec un mélange de serveurs exécutant Windows Server 2012 R2 et Windows Server 2016 n’est pas prise en charge.
 
 ## <a name="migrate-rdweb-access-servers"></a>Migrer les serveurs d’accès Bureau à distance par le Web
 
-Suivez ces étapes pour migrer des serveurs d’accès Web de bureau à distance :
+Suivez ces étapes pour migrer des serveurs d’accès Bureau à distance par le web :
 
-- Joindre les serveurs de destination exécutant Windows Server 2016 pour le déploiement des Services Bureau à distance et d’installer le rôle Web de bureau à distance
+- Joindre les serveurs de destination exécutant Windows Server 2016 au déploiement des services Bureau à distance et installer le rôle RD web
 
-- Utilisez [outil IIS Web Deploy](https://www.iis.net/) pour migrer les paramètres de site Web Bureau à distance à partir des serveurs d’accès Web de bureau à distance en cours pour les serveurs de destination exécutant Windows Server 2016.
+- Utilisez [l’outil IIS Web Deploy](https://www.iis.net/) pour migrer les paramètres de site web RD à partir des serveurs d’accès RD Web actuels vers les serveurs de destination exécutant Windows Server 2016.
 
-- [Migrer des certificats](#migrate-certificates) pour les serveurs de destination exécutant Windows Server 2016.
+- [Migrez des certificats](#migrate-certificates) vers les serveurs de destination exécutant Windows Server 2016.
 
-- Supprimez les serveurs source du déploiement des Services Bureau à distance.
+- Supprimez les serveurs sources du déploiement des services Bureau à distance.
 
 ## <a name="migrate-rdgateway-servers"></a>Migrer les serveurs de passerelle Bureau à distance
 
-Suivez ces étapes pour migrer les serveurs de passerelle Bureau à distance :
+Suivez ces étapes pour migrer des serveurs de passerelle Bureau à distance :
 
-- Joindre les serveurs de destination exécutant Windows Server 2016 pour le déploiement des Services Bureau à distance et d’installer le rôle de passerelle Bureau à distance
+- Joindre les serveurs de destination exécutant Windows Server 2016 au déploiement des services Bureau à distance et installer le rôle RD Gateway
 
-- Utilisez [outil IIS Web Deploy](https://www.iis.net/) pour migrer les paramètres de point de terminaison de passerelle Bureau à distance à partir des serveurs de passerelle Bureau à distance en cours pour les serveurs de destination exécutant Windows Server 2016.
+- Utilisez [l’outil IIS Web Deploy](https://www.iis.net/) pour migrer les paramètres de point de terminaison RD Gateway à partir des serveurs d’accès RD Gateway actuels vers les serveurs de destination exécutant Windows Server 2016.
 
-- [Migrer des certificats](#migrate-certificates) pour les serveurs de destination exécutant Windows Server 2016.
+- [Migrez des certificats](#migrate-certificates) vers les serveurs de destination exécutant Windows Server 2016.
 
-- Supprimez les serveurs source du déploiement des Services Bureau à distance.
+- Supprimez les serveurs sources du déploiement des services Bureau à distance.
 
 ## <a name="migrate-rdlicensing-servers"></a>Migrer les serveurs de licences des services Bureau à distance
 
-Suivez ces étapes pour migrer un serveur de licences des services Bureau à distance à partir d’un serveur source exécutant Windows Server 2012 ou Windows Server 2012 R2 vers un serveur de destination exécutant Windows Server 2016.
+Procédez comme suit pour migrer un serveur de licences des services Bureau à distance à partir d’un serveur source exécutant Windows Server 2012 ou Windows Server 2012 R2 vers un serveur de destination exécutant Windows Server 2016.
 
-1. [Migrer les licences d’accès client des Services Bureau à distance (RDS CAL)](migrate-rds-cals.md) à partir du serveur source vers le serveur de destination.
+1. [Migrez les licences RDS CA](migrate-rds-cals.md) du serveur source vers le serveur de destination.
 
-2. Modifier le **propriétés de déploiement** dans **le Gestionnaire de serveur** sur le serveur d’administration Bureau à distance (qui est généralement en cours d’exécution sur le premier serveur du service Broker pour les connexions Bureau à distance) pour inclure uniquement les nouvelles licences des services Bureau serveurs exécutant Windows Server 2016.
+2. Modifiez les **propriétés de déploiement** dans le **Gestionnaire de serveur** sur le serveur d’administration Bureau à distance (qui est généralement exécuté sur le premier serveur Service Broker pour les connexions Bureau à distance) pour inclure uniquement les nouveaux serveurs de licences des services Bureau à distance exécutant Windows Server 2016.
 
-3. Désactiver le serveur de licences des services Bureau à distance source : Dans **Gestionnaire de licences bureau à distance**, cliquez sur le serveur approprié, pointez sur **avancé** pour sélectionner **désactiver le serveur**, puis suivez les étapes décrites dans l’Assistant .
+3. Désactiver le serveur de licences des services Bureau à distance source : Dans le **Gestionnaire de licences bureau à distance**, faites un clic droit sur le serveur approprié, pointez **Avancé** pour sélectionner **Désactiver le serveur**, puis suivez les étapes décrites dans l’assistant.
 
-4. Supprimer les serveurs de licences des services Bureau à distance source du déploiement dans **le Gestionnaire de serveur** sur le serveur d’administration Bureau à distance.
+4. Supprimez du déploiement les serveurs de licences des services Bureau à distance sources dans le **Gestionnaire de serveur** sur le serveur d’administration Bureau à distance.
 
 ## <a name="migrate-certificates"></a>Migrer les certificats
 
-Migration des certificats réussie nécessite à la fois le processus de migration des certificats et de mise à jour des informations de certificat dans les propriétés de déploiement de Services Bureau à distance.
+Une migration réussie des certificats nécessite à la fois le processus de migration des certificats et la mise à jour des informations des certificats dans les propriétés du déploiement des services Bureau à distance.
 
-Migration de certificats classique comprend les étapes suivantes :
+Une migration de certificats classique comprend les étapes suivantes :
 
-- Exportez le certificat vers un fichier PFX avec la clé privée.
+- Exporter le certificat vers un fichier PFX avec la clé privée.
 
-- Importez le certificat à partir d’un fichier PFX.
+- Importer le certificat à partir d’un fichier PFX.
 
-Après avoir migré les certificats appropriés, mettez à jour les certificats requis suivants pour le déploiement des Services Bureau à distance dans le Gestionnaire de serveur ou de PowerShell :
+Après avoir migré les certificats appropriés, mettez à jour les certificats requis suivants pour le déploiement des services Bureau à distance dans le gestionnaire de serveur ou PowerShell :
 
-- Service Broker pour les connexions Bureau à distance - l’authentification unique
+- Serveur Broker pour les connexions Bureau à distance - authentification unique
 
 - Service Broker pour les connexions Bureau à distance - publication du fichier RDP
 
 - Passerelle Bureau à distance - connexion HTTPS
 
-- Accès Web de bureau à distance - connexion HTTPS et abonnement de connexion de RemoteApp/de bureau
+- Accès Web de bureau à distance - connexion HTTPS et abonnement de connexion RemoteApp/bureau

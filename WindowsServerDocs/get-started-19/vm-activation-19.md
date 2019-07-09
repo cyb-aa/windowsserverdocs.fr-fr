@@ -1,7 +1,7 @@
 ---
-title: Activation automatique d’ordinateur virtuel
+title: Activation automatique de machine virtuelle
 TOCTitle: Automatic VM Activation
-description: Comment activer des machines virtuelles dans Windows Server 2019, Windows Server 2016 et Windows Server 2012 R2
+description: Découvrez comment activer des machines virtuelles dans Windows Server 2019, Windows Server 2016 et Windows Server 2012 R2.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,15 +13,15 @@ author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
 ms.openlocfilehash: 18e20433050371dc02782fb8630a885e53ae31ad
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "63688706"
 ---
-# <a name="automatic-virtual-machine-activation"></a>Activation automatique d’ordinateur virtuel
+# <a name="automatic-virtual-machine-activation"></a>Activation automatique de machine virtuelle
 
-> S’applique à : Windows Server 2019, canal semi-annuel de serveur Windows, Windows Server 2016, Windows Server 2012 R2
+> S’applique à : Windows Server 2019, Windows Server (Canal semi-annuel), Windows Server 2016, Windows Server 2012 R2
 
 L’activation automatique d’ordinateur virtuel (AVMA) joue le rôle de mécanisme de preuve d’achat qui permet de garantir que les produits Windows sont utilisés conformément aux droits d’utilisation de logiciels et termes du contrat de licence logiciel Microsoft.
 
@@ -45,25 +45,25 @@ Les partenaires SPLA (Service Provider License Agreement) et d’autres fourniss
 
 ## <a name="system-requirements"></a>Configuration requise
 
-AVMA nécessite un serveur de virtualisation Microsoft Windows Server Datacenter 2019, Windows Server 2016 Datacenter ou Windows Server 2012 R2 en cours d’exécution. 
+AVMA nécessite un serveur de virtualisation Microsoft exécutant Windows Server Datacenter 2019, Windows Server 2016 Datacenter ou Windows Server 2012 R2. 
 
-Voici les invités qui peuvent être activé par les hôtes de version différente :
+Voici les invités qui peuvent être activés par les hôtes de différentes versions :
 
-|Version du serveur hôte|Windows Server 2019|Windows Server 2016|Windows Server 2012 R2|
+|Version du serveur hôte|Windows Server 2019|Windows Server 2016|Windows Server 2012 R2|
 |-|-|-|-|
 |Windows Server 2019|X|X|X|
-|Windows Server 2016| |X|X|
+|Windows Server 2016| |X|X|
 |Windows Server 2012 R2| ||X|
 
-Notez que ces activer toutes les éditions (centre de données, Standard ou Essentials).
+Notez que ceux-ci activent toutes les éditions (Datacenter, Standard ou Essentials).
 
 Cet outil ne fonctionne pas avec d’autres technologies de serveur de virtualisation.
 
 ## <a name="how-to-implement-avma"></a>Comment implémenter AVMA
 
-1.  Sur un serveur de virtualisation Windows Server Datacenter, installer et configurer le rôle de serveur Hyper-V de Microsoft. Pour plus d’informations, consultez [installer Hyper-V Server](../virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server.md).
+1.  Sur un serveur de virtualisation Windows Server Datacenter, installez et configurez le rôle serveur Microsoft Hyper-V. Pour plus d’informations, consultez [Installer Hyper-V Server](../virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server.md).
 
-2.  [Créer une machine virtuelle](../virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v.md) et installer un système d’exploitation pris en charge sur celle-ci.
+2.  [Créez une machine virtuelle](../virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v.md) et installez-y un système d’exploitation serveur pris en charge.
 
 3.  Installez la clé AVMA dans l’ordinateur virtuel. À partir d’une invite de commandes avec élévation de privilèges, exécutez la commande suivante :
     
@@ -80,22 +80,22 @@ L’ordinateur virtuel active automatiquement la licence sur le serveur de virtu
 
 ## <a name="avma-keys"></a>Clés AVMA
 
-Les clés AVMA suivantes peuvent être utilisés pour Windows Server 2019.
+Les clés AVMA suivantes peuvent être utilisées pour Windows Server 2019.
 
 |Édition|   Clé AVMA|
 |-|-|
 |Datacenter|    H3RNG-8C32Q-Q8FRX-6TDXV-WMBMW|
 |Standard|  TNK62-RXVTB-4P47B-2D623-4GF74|
-|Éléments essentiels|    2CTP7-NHT64-BP62M-FV6GG-HFV28|
+|Essentials|    2CTP7-NHT64-BP62M-FV6GG-HFV28|
  
-Les clés AVMA suivantes peuvent être utilisés pour Windows Server, version 1809.
+Les clés AVMA suivantes peuvent être utilisées pour Windows Server version 1809.
 
 |Édition|   Clé AVMA|
 |-|-|
 |Datacenter|    H3RNG-8C32Q-Q8FRX-6TDXV-WMBMW|
 |Standard|  TNK62-RXVTB-4P47B-2D623-4GF74|
 
-Les clés AVMA suivantes peuvent être utilisées pour Windows Server, version 1803 et 1709.
+Les clés AVMA suivantes peuvent être utilisées pour Windows Server versions 1803 et 1709.
 
 |Édition|Clé AVMA|
 |-|-|
@@ -103,13 +103,13 @@ Les clés AVMA suivantes peuvent être utilisées pour Windows Server, version 1
 |Standard|C3RCX-M6NRP-6CXC9-TW2F2-4RHYD|
 
 
-Les clés AVMA suivantes peuvent être utilisées pour Windows Server 2016.
+Les clés AVMA suivantes peuvent être utilisées pour Windows Server 2016.
 
 |Édition|Clé AVMA|
 |-|-|
 |Datacenter|TMJ3Y-NTRTM-FJYXT-T22BY-CWG3J|
 |Standard|C3RCX-M6NRP-6CXC9-TW2F2-4RHYD|
-|Éléments essentiels|B4YNW-62DX9-W8V6M-82649-MHBKQ|
+|Essentials|B4YNW-62DX9-W8V6M-82649-MHBKQ|
 
 
 Les clés AVMA suivantes peuvent être utilisées pour Windows Server 2012 R2.
@@ -118,9 +118,9 @@ Les clés AVMA suivantes peuvent être utilisées pour Windows Server 2012 R2.
 |-|-|
 |Datacenter|Y4TGP-NPTV9-HTC2H-7MGQ3-DV4TW|
 |Standard|DBGBW-NPF86-BJVTX-K3WKJ-MTB6V|
-|Éléments essentiels|K2XGM-NMBT3-2R6Q8-WF2FK-P36R2|
+|Essentials|K2XGM-NMBT3-2R6Q8-WF2FK-P36R2|
 
-## <a name="reporting-and-tracking"></a>Création de rapports et de suivi
+## <a name="reporting-and-tracking"></a>Rapports et suivi
 
 Le Registre (paire de valeurs de clé ou KVP) sur le serveur de virtualisation fournit des données de suivi en temps réel pour les systèmes d’exploitation invités. Étant donné que la clé de Registre se déplace avec l’ordinateur virtuel, vous pouvez également obtenir les informations de licence. Par défaut, la paire KVP retourne des informations sur l’ordinateur virtuel, notamment les suivantes :
 
@@ -134,7 +134,7 @@ Le Registre (paire de valeurs de clé ou KVP) sur le serveur de virtualisation f
 
   - Adresses RDP
 
-Pour plus d’informations sur la façon d’obtenir ces informations, consultez [Script Hyper-V : Recherchez la paire KVP guestintrinsicexchangeitems](http://blogs.msdn.com/b/virtual_pc_guy/archive/2008/11/18/hyper-v-script-looking-at-kvp-guestintrinsicexchangeitems.aspx).
+Pour plus d’informations sur la façon d’obtenir ces informations, consultez [Hyper-V Script : Looking at KVP GuestIntrinsicExchangeItems](http://blogs.msdn.com/b/virtual_pc_guy/archive/2008/11/18/hyper-v-script-looking-at-kvp-guestintrinsicexchangeitems.aspx).
 
 
 > [!NOTE]

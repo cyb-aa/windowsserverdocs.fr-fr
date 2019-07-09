@@ -1,6 +1,6 @@
 ---
 title: Fonctionnalités supprimées ou déconseillées dans Windows Server 2016
-description: Liste des fonctions et fonctionnalités dans Windows Server 2016 qui ont été supprimées du produit dans la version actuelle ou qui vont potentielles dans les versions ultérieures (déconseillées). Ce produit s’adresse aux professionnels de l’informatique qui mettent à jour des systèmes d’exploitation dans un environnement commercial.
+description: Une liste des fonctionnalités de Windows Server 2016 qui ont été supprimées de la version actuelle du produit ou qui vont l’être dans les versions ultérieures (déconseillées). Ce produit s’adresse aux professionnels de l’informatique qui mettent à jour des systèmes d’exploitation dans un environnement commercial.
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
@@ -11,19 +11,19 @@ ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: 83855cf7e4fa86a932298dd15735dc5bf7277dfb
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65976604"
 ---
 # <a name="features-removed-or-deprecated-in--windows-server-2016"></a>Fonctionnalités supprimées ou déconseillées dans Windows Server 2016
 
->S’applique à : Windows Server 2016
+>S’applique à : Windows Server 2016
 
 Voici la liste des fonctionnalités de Windows Server 2016 qui ont été supprimées de la version actuelle du produit ou qui vont l’être dans les versions ultérieures (déconseillées). Ce produit s’adresse aux professionnels de l’informatique qui mettent à jour des systèmes d’exploitation dans un environnement commercial. Cette liste peut faire l’objet de modifications dans des versions ultérieures. Il est donc possible que certaines fonctionnalités déconseillées n’y figurent plus. Pour plus d’informations sur une fonctionnalité spécifique et la fonctionnalité qui la remplace, voir la documentation de la fonctionnalité.
 
-Pour plus d’informations sur ce qui a été supprimé ou déconseillé dans les versions plus récentes, consultez [fonctionnalités supprimées ou planifié pour le remplacement à partir de Windows Server 2019](../get-started-19/removed-features-19.md).
+Pour obtenir des informations sur ce qui a été supprimé ou déconseillé récemment, consultez [Fonctionnalités supprimées ou dont le remplacement est prévu à compter de Windows Server 2019](../get-started-19/removed-features-19.md).
 
 ## <a name="features-removed-from-windows-server-2016"></a>Fonctionnalités supprimées de Windows Server 2016
 
@@ -46,21 +46,21 @@ Le composant logiciel enfichable Gestion du partage et du stockage pour Microsof
 Journal.dll est supprimé de Windows Server 2016. Il n’existe aucun remplacement.  
 
 ### <a name="security-configuration-wizard"></a>Assistant Configuration de la sécurité  
-L’Assistant Configuration de la sécurité est supprimé. En revanche, les fonctionnalités sont sécurisées par défaut. Si vous avez besoin de contrôler les paramètres de sécurité spécifiques, vous pouvez utiliser une stratégie de groupe ou [Microsoft Security Compliance Manager](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx).  
+L’Assistant Configuration de la sécurité est supprimé. En revanche, les fonctionnalités sont sécurisées par défaut. Si vous avez besoin de contrôler des paramètres de sécurité spécifiques, vous pouvez utiliser une stratégie de groupe ou [Microsoft Security Compliance Manager](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx).  
 
 ### <a name="sqm"></a>SQM  
 Les composants d’adhésion qui gèrent la participation au programme d’amélioration de l’expérience utilisateur ont été supprimés. 
 
 ### <a name="windows-update"></a>Windows Update
-La commande **wuauclt.exe /detectnow** a été supprimée et n’est plus prise en charge. Pour déclencher une recherche des mises à jour, effectuez l’une des opérations suivantes :
+La commande **wuauclt.exe /detectnow** a été supprimée et n’est plus prise en charge. Pour déclencher une recherche des mises à jour, effectuez l’une des opérations suivantes :
 
-- Exécutez les commandes PowerShell suivantes :
+- Exécutez ces commandes PowerShell :
     ````powershell
     $AutoUpdates = New-Object -ComObject "Microsoft.Update.AutoUpdate"`
     $AutoUpdates.DetectNow()` 
     ````
 
-- Vous pouvez également utiliser le VBScript suivant :
+- Vous pouvez également utiliser le VBScript suivant :
     ````vb
     Set automaticUpdates = CreateObject("Microsoft.Update.AutoUpdate")
     automaticUpdates.DetectNow()
@@ -71,9 +71,9 @@ Les fonctionnalités suivantes, qui sont déconseillées à compter de cette ver
 
 ### <a name="configuration-tools"></a>Outils de configuration  
 
--   **Scregedit.exe** est déconseillée. Si vous avez des scripts qui dépendent de Scregedit.exe, ajustez-les pour utiliser les méthodes Reg.exe ou Windows PowerShell.  
+-   **Scregedit.exe** est déconseillé. Si vous avez des scripts qui dépendent de Scregedit.exe, ajustez-les pour utiliser les méthodes Reg.exe ou Windows PowerShell.  
 
--   **Sconfig.exe** est déconseillée. Utilisez Windows PowerShell à la place.  
+-   **Sconfig.exe** est déconseillé. Utilisez Windows PowerShell à la place.  
 
 ### <a name="netcfg-custom-apis"></a>API personnalisées NetCfg  
 L’installation de PrintProvider, NetClient et RNIS à l’aide d’API personnalisées NetCfg est déconseillée.  

@@ -1,6 +1,6 @@
 ---
-title: Utiliser des compteurs de performances pour diagnostiquer les problèmes de réactivité des applications sur des hôtes de Session Bureau à distance
-description: Votre application s’exécute lentement sur les services Bureau à distance ? En savoir plus sur les compteurs de performances que vous pouvez utiliser pour diagnostiquer les problèmes de performances d’application sur RDSH
+title: Utiliser les compteurs de performance pour diagnostiquer les problèmes de réactivité des applications sur les hôtes de session Bureau à distance
+description: Votre application s’exécute-t-elle lentement sur les services Bureau à distance ? Découvrez les compteurs de performance que vous pouvez utiliser pour diagnostiquer des problèmes de performance d’application sur les hôtes de session Bureau à distance
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: elizapo
@@ -11,35 +11,35 @@ author: lizap
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: f9aafaa34d5c16e45681e88b1ce60e99a9ad2842
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66447093"
 ---
-# <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>Utiliser des compteurs de performances pour diagnostiquer les problèmes de performances d’application sur des hôtes de Session Bureau à distance
+# <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>Utiliser les compteurs de performance pour diagnostiquer les problèmes de performance des applications sur les hôtes de session Bureau à distance
 
-Un des problèmes plus difficiles à diagnostiquer est performances médiocres des applications, les applications s’exécutent trop lentement ou ne répondent pas. En règle générale, vous démarrez votre diagnostic par collecte d’UC, mémoire, entrée/sortie disque et d’autres mesures, puis outils tels que Windows Performance Analyzer pour tenter de déterminer ce qui provoque le problème. Malheureusement dans la plupart des situations ces données ne vous aider à identifier la cause racine, car les compteurs de consommation de ressources ont des variations fréquentes et de grande taille. Cela rend difficile à lire les données et le corréler avec le problème signalé. Pour vous aider à plus rapidement de résoudre vos problèmes de performances d’application, nous avons ajouté certains nouveaux compteurs de performance (disponible [pour télécharger](#download-windows-server-insider-software) via la [programme Insider de Windows](https://insider.windows.com)) que l’utilisateur mesure les flux d’entrée.
+Des performances d’application médiocres, par exemple une application qui s’exécute lentement ou qui ne répond pas, représentent un des problèmes les plus difficiles à diagnostiquer. En règle générale, vous démarrez votre diagnostic par la collecte d’entrées et de sorties de disque, de mémoire, de processeur et d’autres métriques, puis vous utilisez des outils, tels que Windows Performance Analyzer, pour tenter de déterminer la cause du problème. Malheureusement, dans la plupart des cas, ces données ne vous permettent pas d’identifier l’origine, car les compteurs de consommation des ressources enregistrent des variations importantes et fréquentes. La lecture des données pour les corréler avec le problème signalé s’avère donc ardue. Afin de vous faciliter la résolution des problèmes de performance d’application, nous avons ajouté quelques nouveaux compteurs de performance (disponible [au téléchargement](#download-windows-server-insider-software) via le [Programme Windows Insider](https://insider.windows.com)) qui mesurent les flux de l’entrée utilisateur.
 
-Le compteur de délai d’entrée utilisateur peut vous aider à identifier rapidement la cause de mauvais utilisateur final que rencontre de RDP. Ce compteur mesure la durée pendant laquelle n’importe quel utilisateur d’entrée (par exemple, l’utilisation de la souris ou clavier) reste dans la file d’attente avant qu’il est récupéré par un processus, et le compteur fonctionne dans les sessions locales et distantes.
+Le compteur du délai de l’entrée utilisateur peut vous aider à identifier rapidement l’origine de mauvaises expériences utilisateur final qui sont liées au protocole RDP (Remote Desktop Protocol). Ce compteur mesure la durée pendant laquelle une entrée utilisateur (par exemple, l’utilisation de la souris ou du clavier) reste dans la file d’attente avant d’être récupérée par un processus ; ce compteur fonctionne dans les sessions locales et à distance.
 
-L’illustration suivante montre une représentation approximative de flux d’entrée d’utilisateur à partir du client à l’application.
+L’illustration suivante montre une représentation approximative du flux de l’entrée utilisateur, du client vers l’application.
 
-![Bureau à distance - flux d’entrée utilisateur à partir du client de bureau à distance des utilisateurs à l’application](./media/rds-user-input.png)
+![Bureau à distance - Flux de l’entrée utilisateur, du client Bureau à distance des utilisateurs vers l’application](./media/rds-user-input.png)
 
-Le compteur de délai d’entrée utilisateur mesure le delta max (dans un intervalle de temps) entre l’entrée en file d’attente et quand elle est récupérée par l’application dans un [boucle de message traditionnel](https://msdn.microsoft.com/library/windows/desktop/ms644927.aspx#loop), comme illustré dans l’organigramme suivant :
+Le compteur du délai de l’entrée utilisateur mesure l’écart maximal (dans un intervalle de temps) entre le moment où l’entrée est mise en file d’attente et celui où elle est récupérée par l’application dans une [boucle de message classique](https://msdn.microsoft.com/library/windows/desktop/ms644927.aspx#loop), comme illustré dans l’organigramme suivant :
 
-![Bureau à distance - flux de compteur de performances délai d’entrée utilisateur](./media/rds-user-input-delay.png)
+![Bureau à distance - Flux du compteur de performance du délai de l’entrée utilisateur](./media/rds-user-input-delay.png)
 
-Un détail important de ce compteur est qu’il indique le délai d’entrée maximal d’utilisateurs dans un intervalle configurable. Il s’agit de la plus longue durée pour une entrée accéder à l’application, ce qui peut avoir un impact sur la vitesse des actions importantes et visibles telles que la saisie.
+Une précision importante sur ce compteur est qu’il renseigne sur le délai de l’entrée utilisateur maximal dans un intervalle configurable. Il s’agit de la plus longue durée nécessaire à une entrée pour accéder à l’application, ce qui peut avoir un impact sur la vitesse d’actions importantes et tangibles, telles que la frappe au clavier.
 
-Par exemple, dans le tableau suivant, le délai d’entrée utilisateur serait signalé en tant que 1 000 ms dans cet intervalle. Le compteur signale à l’utilisateur les plus lentes d’entrée délai dans l’intervalle, car la perception de « lent » est déterminée par l’heure la plus lente d’entrée (maximum) ils rencontrent, pas la vitesse moyenne de toutes les entrées de total.
+Ainsi, dans le tableau suivant, le délai de l’entrée utilisateur est indiqué comme étant de 1 000 ms dans cet intervalle. Le compteur indique le délai de l’entrée utilisateur le plus lent dans l’intervalle, car la perception de « lent » par l’utilisateur est déterminée par la durée de l’entrée la plus lente (le maximum) qu’il rencontre, et non par la vitesse moyenne de toutes les entrées totalisées.
 
 |Numéro| 0 | 1 | 2 |
 |------|---|---|---|
-|Délai |16 ms| 20 ms| 1 000 ms|
+|Délai |16 ms| 20 ms| 1 000 ms|
 
-## <a name="enable-and-use-the-new-performance-counters"></a>Activer et utiliser les nouveaux compteurs de performances
+## <a name="enable-and-use-the-new-performance-counters"></a>Activer et utiliser les nouveaux compteurs de performance
 
 Pour utiliser ces nouveaux compteurs de performance, vous devez d’abord activer une clé de Registre en exécutant cette commande :
 
@@ -48,65 +48,65 @@ reg add "HKLM\System\CurrentControlSet\Control\Terminal Server" /v "EnableLagCou
 ```
 
 >[!NOTE]
-> Si vous utilisez Windows 10, version 1809 ou version ultérieure ou Windows Server 2019 ou une version ultérieure, vous ne devez activer la clé de Registre.
+> Si vous utilisez Windows 10 (version 1809 ou ultérieure) ou Windows Server 2019 (ou une version ultérieure), il est inutile d’activer la clé de Registre.
 
-Ensuite, redémarrez le serveur. Ensuite, ouvrez l’Analyseur de performances et sélectionnez le signe plus (+), comme indiqué dans la capture d’écran suivante.
+Redémarrez le serveur. Ensuite, ouvrez l’Analyseur de performances et sélectionnez le signe plus (+), comme indiqué dans la capture d’écran suivante.
 
-![Bureau à distance - capture d’écran montrant comment ajouter l’utilisateur d’entrée de compteur de performances délai](./media/rds-add-user-input-counter-screen.png)
+![Bureau à distance - Capture d’écran illustrant l’ajout du compteur de performance du délai de l’entrée utilisateur](./media/rds-add-user-input-counter-screen.png)
 
-Après cela, vous devez voir la boîte de dialogue Ajouter des compteurs, dans laquelle vous pouvez sélectionner **délai d’entrée utilisateur par processus** ou **délai d’entrée utilisateur par Session**.
+La boîte de dialogue Ajouter des compteurs doit s’afficher ; dans celle-ci vous pouvez sélectionner **User Input Delay per Process** (Délai de l’entrée utilisateur par processus) ou **User Input Delay per Session** (Délai de l’entrée utilisateur par session).
 
-![Bureau à distance - capture d’écran montrant comment ajouter le délai d’entrée utilisateur par session](./media/rds-user-delay-per-session.png)
+![Bureau à distance - Capture d’écran illustrant l’ajout du délai de l’entrée utilisateur par session](./media/rds-user-delay-per-session.png)
 
-![Bureau à distance - capture d’écran montrant comment ajouter le délai d’entrée utilisateur par processus](./media/rds-user-delay-per-process.png)
+![Bureau à distance - Capture d’écran illustrant l’ajout du délai de l’entrée utilisateur par processus](./media/rds-user-delay-per-process.png)
 
-Si vous sélectionnez **délai d’entrée utilisateur par processus**, vous verrez la **Instances de l’objet sélectionné** (en d’autres termes, les processus) dans ```SessionID:ProcessID <Process Image>``` format.
+Si vous sélectionnez **Délai de l’entrée utilisateur par processus**, vous voyez les **Instances de l’objet sélectionné** (autrement dit, les processus) dans le format ```SessionID:ProcessID <Process Image>```.
 
-Par exemple, si l’application de calculatrice est en cours d’exécution un [Session ID 1](https://msdn.microsoft.com/library/ms524326.aspx), vous verrez ```1:4232 <Calculator.exe>```.
+Par exemple, si l’application Calculatrice est en cours d’exécution dans une [ID de session 1](https://msdn.microsoft.com/library/ms524326.aspx), vous voyez ```1:4232 <Calculator.exe>```.
 
 > [!NOTE]
-> Pas tous les processus sont inclus. Vous ne voyez pas tous les processus qui sont exécutent en tant que système.
+> Tous les processus ne sont pas inclus. Vous ne voyez aucun des processus exécutés en tant que SYSTÈME.
 
-Le compteur commence à signaler de délai d’entrée utilisateur dès que vous l’ajoutez. Notez que la mise à l’échelle maximale est définie sur 100 (ms) par défaut. 
+Aussitôt qu’il est ajouté, le compteur commence à donner des informations sur le délai de l’entrée utilisateur. Notez que l’échelle maximale est définie sur 100 (ms) par défaut. 
 
-![Bureau à distance - un exemple d’activité pour le délai d’entrée utilisateur par processus dans l’Analyseur de performances](./media/rds-sample-user-input-delay-perfmon.png)
+![Bureau à distance - Exemple d’activité pour le délai de l’entrée utilisateur par processus dans l’Analyseur de performances](./media/rds-sample-user-input-delay-perfmon.png)
 
-Ensuite, nous allons examiner la **délai d’entrée utilisateur par Session**. Il existe des instances pour chaque ID de session et leurs compteurs indiquent le délai d’entrée d’utilisateur de n’importe quel processus au sein de la session spécifiée. En outre, il existe deux instances sont appelées « Max » (le maximal d’utilisateurs d’entrée délai dans toutes les sessions) et « Average » (l’acorss moyenne toutes les sessions).
+Examinons à présent le **délai de l’entrée utilisateur par session**. Il y a des instances pour chaque ID de session, et leurs compteurs renseignent sur le délai de l’entrée utilisateur de n’importe quel processus au sein de la session spécifiée. Il existe par ailleurs deux instances appelées « Max » (le délai maximal de l’entrée utilisateur dans toutes les sessions) et « Average » (le délai moyen dans toutes les sessions).
 
-Ce tableau montre un exemple visuel de ces instances. (Vous pouvez obtenir les mêmes informations dans l’Analyseur de performances en basculant vers le type de graphique du rapport.)
+Ce tableau montre un exemple visuel de ces instances. (Vous pouvez obtenir les mêmes informations dans Perfmon en basculant vers le type de graphe Rapport.)
 
-|Type de compteur|Nom de l'instance|Délai signalée (ms)|
+|Type de compteur|Nom de l'instance|Délai signalé (ms)|
 |---------------|-------------|-------------------|
-|Délai d’entrée utilisateur par processus|1:4232 < Calculator.exe >|  200|
-|Délai d’entrée utilisateur par processus|2:1000 < Calculator.exe >|  16|
-|Délai d’entrée utilisateur par processus|1 : 2 000 < Calculator.exe >|  32|
-|Délai d’entrée utilisateur par session|1|    200|
-|Délai d’entrée utilisateur par session|2|    16|
-|Délai d’entrée utilisateur par session|Moyenne|  108|
-|Délai d’entrée utilisateur par session|Max.|  200|
+|Délai de l’entrée utilisateur par processus|1:4232 <Calculator.exe>|  200|
+|Délai de l’entrée utilisateur par processus|2:1000 <Calculator.exe>|  16|
+|Délai de l’entrée utilisateur par processus|1:2000 <Calculator.exe>|  32|
+|Délai de l’entrée utilisateur par session|1|    200|
+|Délai de l’entrée utilisateur par session|2|    16|
+|Délai de l’entrée utilisateur par session|Moyenne|  108|
+|Délai de l’entrée utilisateur par session|Max.|  200|
 
 ## <a name="counters-used-in-an-overloaded-system"></a>Compteurs utilisés dans un système surchargé
 
-Maintenant nous allons voir ce que vous verrez dans le rapport si la dégradation de performances pour une application. Le graphique suivant montre les relevés aux utilisateurs qui travaillent à distance dans Microsoft Word. Dans ce cas, les performances du serveur RDSH se dégradent au fil du temps en tant que davantage d’utilisateurs.
+Examinons maintenant le contenu du rapport pour voir comment il se présente si les performances d’une application se dégradent. Le graphe suivant montre les relevés d’utilisateurs travaillant à distance dans Microsoft Word. Dans le cas présent, les performances du serveur RDSH se détériorent au fil du temps, au fur et à mesure que d’autres utilisateurs se connectent.
 
-![Bureau à distance - un exemple de graphique de performances pour le serveur RDSH Microsoft Word en cours d’exécution](./media/rds-user-input-perf-graph.png)
+![Bureau à distance - Exemple de graphe de performance du serveur RDSH exécutant Microsoft Word](./media/rds-user-input-perf-graph.png)
 
-Voici comment lire les lignes du graphique :
+Voici comment interpréter les lignes du graphe :
 
-- Le trait rose indique le nombre de sessions ouvertes sur le serveur.
-- La ligne rouge est l’utilisation du processeur.
-- La ligne verte est le délai d’entrée maximal d’utilisateurs dans les sessions.
-- La ligne bleue (affichée en noir dans ce graphique) représente le délai d’entrée utilisateur moyen dans toutes les sessions.
+- La trait rose indique le nombre de sessions ouvertes sur le serveur.
+- Le trait rouge représente l’utilisation du processeur.
+- Le trait vert symbolise le délai maximal de l’entrée utilisateur dans toutes les sessions.
+- Le trait bleu (affiché en noir dans ce graphe) matérialise le délai moyen de l’entrée utilisateur dans toutes les sessions.
 
-Vous remarquerez qu’il existe une corrélation entre les pics du processeur et de délai d’entrée utilisateur, à mesure que l’UC augmente l’utilisation de plus, l’entrée utilisateur augmente de délai. En outre, comme davantage d’utilisateurs est ajoutés au système, l’utilisation du processeur est proche de l’à 100 %, ce qui conduit à des pics de délai d’entrée utilisateur plus fréquents. Bien que ce compteur est très utile dans les cas où le serveur manque de ressources, vous pouvez également l’utiliser pour effectuer le suivi de délai d’entrée utilisateur liée à une application spécifique.
+Vous pouvez remarquer qu’il existe une corrélation entre les pics du processeur et ceux du délai de l’entrée utilisateur : plus l’utilisation du processeur augmente, plus le délai de l’entrée utilisateur s’allonge. Qui plus est, au fur et à mesure que d’autres utilisateurs sont ajoutés au système, l’utilisation du processeur se rapproche de 100 %, ce qui se traduit par des pics plus fréquents du délai de l’entrée utilisateur. Même si ce compteur s’avère très utile dans des situations où le serveur ne dispose plus de ressources suffisantes, vous pouvez tout aussi bien vous en servir pour effectuer le suivi du délai de l’entrée utilisateur associé à une application particulière.
 
 ## <a name="configuration-options"></a>Options de configuration
 
-Un point essentiel à retenir lors de l’utilisation de ce compteur de performance est qu’il indique le délai d’entrée utilisateur un intervalle de 1 000 ms par défaut. Si vous définissez la propriété d’intervalle performances compteur exemple (comme indiqué dans la capture d’écran suivante), à quelque chose de différent, la valeur signalée sera incorrecte.
+L’indication du délai de l’entrée utilisateur d’après un intervalle par défaut de 1 000 ms est un point essentiel à retenir lorsque vous utilisez ce compteur de performance. Si vous définissez la propriété de l’intervalle d’échantillonnage du compteur de performance (comme indiqué dans la capture d’écran suivante) sur une autre valeur, l’information donnée sera incorrecte.
 
-![Bureau à distance - les propriétés de l’Analyseur de performances](./media/rds-user-input-perfmon-properties.png)
+![Bureau à distance - Propriétés de votre analyseur de performances](./media/rds-user-input-perfmon-properties.png)
 
-Pour résoudre ce problème, vous pouvez définir la clé de Registre suivante pour faire correspondre l’intervalle (en millisecondes) que vous souhaitez utiliser. Par exemple, si nous modifions exemple toutes les x secondes à 5 secondes, nous devons définir cette clé à 5 000 ms.
+Pour résoudre ce problème, vous pouvez définir la clé de Registre suivante, afin qu’elle corresponde à l’intervalle (en millisecondes) que vous souhaitez utiliser. Par exemple, si nous modifions la valeur de Échantillonner toutes les x secondes, en optant pour « 5 » secondes, nous devons définir cette clé sur 5 000 ms.
 
 ```
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server]
@@ -115,28 +115,28 @@ Pour résoudre ce problème, vous pouvez définir la clé de Registre suivante p
 ```
 
 >[!NOTE]
->Si vous utilisez Windows 10, version 1809 ou version ultérieure ou Windows Server 2019 ou une version ultérieure, vous n’avez pas besoin définir LagCounterInterval pour résoudre le compteur de performances.
+>Si vous utilisez Windows 10 version 1809 ou ultérieure ou Windows Server 2019 ou ultérieur, il est inutile de définir LagCounterInterval pour corriger le compteur de performance.
 
-Nous avons également ajouté deux clés que vous être utiles sous la même clé de Registre :
+Nous avons également ajouté deux clés qui peuvent vous être utiles, sous la même clé de Registre :
 
-**LagCounterImageNameFirst** : définissez cette clé sur `DWORD 1` (valeur par défaut 0 ou la clé n’existe pas). Cela modifie les noms de compteur à « Nom de l’Image de < SessionID:ProcessId >. » Par exemple, « explorer < 1:7964 >. » Cela est utile si vous souhaitez trier par nom de l’image.
+**LagCounterImageNameFirst** : définissez cette clé sur `DWORD 1` (valeur par défaut 0 ou la clé n’existe pas). Les noms de compteur sont alors modifiés pour « Nom d’image <SessionID:ProcessId> ». Par exemple, « explorer <1:7964> ». Ce procédé est utile si vous souhaitez procéder à un tri par nom d’image.
 
-**LagCounterShowUnknown** : définissez cette clé sur `DWORD 1` (valeur par défaut 0 ou la clé n’existe pas). Cela affiche tous les processus qui sont exécutent en tant que services ou système. Certains processus seront afficheront avec leur session définie comme « ?. »
+**LagCounterShowUnknown** : définissez cette clé sur `DWORD 1` (valeur par défaut 0 ou la clé n’existe pas). Vous affichez ainsi tous les processus qui sont exécutés en tant que services ou SYSTÈME. Certains processus peuvent s’afficher avec leur session définie comme « ? ».
 
-Voici à quoi elle ressemble si vous activez les deux clés :
+Voici à quoi ressemble le résultat que vous obtenez si vous activez les deux clés :
 
-![Bureau à distance - l’Analyseur de performances avec les deux clés sur](./media/rds-user-input-delay-with-two-counters.png)
+![Bureau à distance - Analyseur de performances avec les deux clés activées](./media/rds-user-input-delay-with-two-counters.png)
 
-## <a name="using-the-new-counters-with-non-microsoft-tools"></a>À l’aide de nouveaux compteurs avec les outils non Microsoft
+## <a name="using-the-new-counters-with-non-microsoft-tools"></a>Utilisation des nouveaux compteurs avec des outils non-Microsoft
 
-Outils de surveillance peuvent consommer ce compteur à l’aide de la [Perfmon API](https://msdn.microsoft.com/library/windows/desktop/aa371903.aspx).
+Des outils de supervision peuvent consommer ce compteur par le biais de l’[API Perfmon](https://msdn.microsoft.com/library/windows/desktop/aa371903.aspx).
 
-## <a name="download-windows-server-insider-software"></a>Télécharger le logiciel de Windows Server Insider
+## <a name="download-windows-server-insider-software"></a>Télécharger le logiciel Windows Server Insider
 
-Initiés inscrits peuvent accéder directement à la [page de téléchargement de Windows Server Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver) pour obtenir les derniers logiciels Insider téléchargements.  Pour savoir comment enregistrer en tant qu’une personne interne, consultez [mise en route avec le serveur](https://insider.windows.com/en-us/for-business-getting-started-server/).
+Les utilisateurs inscrits au programme Insider peuvent accéder directement à la [page de téléchargement de Windows Server Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver) pour obtenir les téléchargements des logiciels Insider les plus récents.  Pour savoir comment vous inscrire en tant que membre du programme Insider, consultez [Bien démarrer avec Server](https://insider.windows.com/en-us/for-business-getting-started-server/).
 
-## <a name="share-your-feedback"></a>Partagez vos commentaires
+## <a name="share-your-feedback"></a>Partager vos commentaires
 
-Vous pouvez envoyer des commentaires pour cette fonctionnalité via le Hub de commentaires. Sélectionnez **applications > toutes les autres applications** et inclure « compteurs de performances des services Bureau à distance, l’Analyseur de performances » dans le titre de votre billet.
+Vous pouvez envoyer des commentaires concernant cette fonctionnalité via le Hub de commentaires. Sélectionnez **Applications > Toutes les autres applications** et incluez « Compteurs de performance des services Bureau à distance—Analyseur de performances » dans le titre de votre billet.
 
-Pour les idées de fonctionnalités générales, visitez le [page Services Bureau à distance UserVoice](https://aka.ms/uservoice-rds).
+Pour des idées de fonctionnalités générales, visitez la [page UserVoice des Services Bureau à distance](https://aka.ms/uservoice-rds).

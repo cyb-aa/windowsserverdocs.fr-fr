@@ -1,6 +1,6 @@
 ---
-title: Gérer les utilisateurs de votre collection Services Bureau à distance
-description: Découvrez comment gérer les utilisateurs dans les Services Bureau à distance.
+title: Gérer les utilisateurs de votre collection de services Bureau à distance
+description: Découvrez comment gérer les utilisateurs dans les services Bureau à distance.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,80 +13,80 @@ author: christianmontoya
 ms.author: chrimo
 ms.date: 03/27/2018
 manager: scottman
-ms.openlocfilehash: 4b45061697926a3003712a88610cb17ef3c00c45
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 91d032d1a7131fd0bc84e33bd2806d807eb1dafe
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859640"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63711993"
 ---
-# <a name="manage-users-in-your-rds-collection"></a>Gérer les utilisateurs de votre collection Services Bureau à distance
+# <a name="manage-users-in-your-rds-collection"></a>Gérer les utilisateurs de votre collection de services Bureau à distance
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
-En tant qu’administrateur, vous pouvez gérer directement les utilisateurs ayant accès à des regroupements spécifiques. De cette façon, vous pouvez créer une collection avec des applications standards pour les professionnels de l’information, mais ensuite créer une collection distincte avec des applications de modélisation de graphiques pour les ingénieurs. Il existe deux étapes principales pour la gestion des accès utilisateur dans un déploiement Services Bureau à distance (RDS) :
+En tant qu’administrateur, vous pouvez gérer directement les utilisateurs ayant accès à des collections spécifiques. Ainsi, vous pouvez créer une collection avec des applications standard pour les travailleurs de l’information, puis créer une collection distincte avec des applications de modélisation graphique pour les ingénieurs. La gestion de l’accès utilisateur dans un déploiement des Services Bureau à distance nécessite deux étapes principales :
 
 1.  [Créer des utilisateurs et groupes dans Active Directory](#create-your-users-and-groups-in-active-directory)
-2.  [Affecter des utilisateurs et des groupes aux collections](#assign-users-and-groups-to-collections)
+2.  [Affecter des utilisateurs et des groupes à des collections](#assign-users-and-groups-to-collections)
 
 
 ## <a name="create-your-users-and-groups-in-active-directory"></a>Créer vos utilisateurs et groupes dans Active Directory
 
-Dans un déploiement services Bureau à distance, les Services de domaine Active Directory (AD DS) est la source de tous les utilisateurs, groupes et d’autres objets dans le domaine. Vous pouvez gérer Active Directory directement avec PowerShell, ou vous pouvez utiliser intégrées dans les outils d’interface utilisateur qui ajoutent de manière simple et flexible. Les étapes suivantes vous guide pour installer ces outils, si vous n’avez pas déjà installés et ensuite utiliser ces outils pour gérer les utilisateurs et groupes.
+Dans un déploiement des services Bureau à distance, Active Directory Domain Services (AD DS) est la source de tous les utilisateurs, groupes et autres objets dans le domaine. Vous pouvez gérer Active Directory directement avec PowerShell, ou vous pouvez utiliser des outils d’interface utilisateur intégrés qui rendent le processus plus simple et plus flexible. Les étapes suivantes vous montreront comment installer ces outils, s’ils ne le sont pas encore, puis comment les utiliser pour gérer les utilisateurs et groupes.
 
 ### <a name="install-ad-ds-tools"></a>Installer les outils AD DS
 
-Les étapes suivantes décrivent comment installer les outils AD DS sur un serveur exécutant déjà les services AD DS. Une fois installé, vous pouvez ensuite créer des utilisateurs ou créer des groupes.
+Les étapes suivantes décrivent comment installer les outils AD DS sur un serveur exécutant déjà les services AD DS. Une fois ces outils installés, vous pouvez créer des utilisateurs ou des groupes.
 
-1. Se connecter au serveur exécutant les Services de domaine Active Directory. Pour les déploiements Azure :
-   1. Dans le portail Azure, cliquez sur **Parcourir > groupes de ressources**, puis cliquez sur le groupe de ressources pour le déploiement
-   2. Sélectionnez l’ordinateur Active Directory.
-   3. Cliquez sur **Connect > Ouvrez** pour ouvrir le client Bureau à distance. Si **Connect** est grisée, la machine virtuelle ne peut pas avoir une adresse IP publique. Pour lui donner un effectuer les étapes suivantes, puis réessayez cette étape.
-      1. Cliquez sur **Paramètres > interfaces réseau**, puis cliquez sur l’interface réseau correspondante.
-      2. Cliquez sur **Paramètres > adresse IP**.
-      3. Pour **adresse IP publique**, sélectionnez **activé**, puis cliquez sur **adresse IP**.
-      4. Si vous avez une adresse IP publique existante à utiliser, sélectionnez-le dans la liste. Sinon, cliquez sur **créer**, entrez un nom, puis cliquez sur **OK** et **enregistrer**.
-   4. Dans le client, cliquez sur **Connect**, puis cliquez sur **utiliser un autre compte**. Entrez le nom d’utilisateur et le mot de passe pour un compte d’administrateur de domaine.
-   5. Cliquez sur **Oui** lorsque vous êtes invité sur le certificat.
-2. Installer les outils AD DS :
-   1. Dans le Gestionnaire de serveur, cliquez sur **gérer > ajouter des rôles et fonctionnalités**.
-   2. Cliquez sur **installation en fonction du rôle ou une fonctionnalité**, puis cliquez sur le serveur AD actuel. Suivez les étapes jusqu'à ce que vous arriviez à la **fonctionnalités** onglet.
-   3. Développez **outils d’Administration de serveur distant > Outils d’Administration de rôles > Outils AD DS et AD LDS**, puis sélectionnez **outils AD DS**.
-   4. Sélectionnez **redémarrer automatiquement le serveur de destination si nécessaire**, puis cliquez sur **installer**.
+1. Connectez-vous au serveur exécutant Active Directory Domain Services. Pour les déploiements Azure :
+   1. Dans le portail Azure, cliquez sur **Parcourir > Groupes de ressources**, puis cliquez sur le groupe de ressources pour le déploiement.
+   2. Sélectionnez la machine virtuelle Active Directory.
+   3. Cliquez sur **Se connecter > Ouvrir** pour ouvrir le client Bureau à distance. Si **Se connecter** est grisé, il est possible que la machine virtuelle n’ait pas d’adresse IP publique. Pour lui en affecter une, effectuez les étapes suivantes, puis réessayez cette étape.
+      1. Cliquez sur **Paramètres > Interfaces réseau**, puis sur l’interface réseau correspondante.
+      2. Cliquez sur **Paramètres > Adresse IP**.
+      3. Pour **Adresse IP publique**, sélectionnez **Activé**, puis cliquez sur **Adresse IP**.
+      4. Si vous disposez d’une adresse IP publique existante à utiliser, sélectionnez-la dans la liste. Sinon, cliquez sur **Créer**, entrez un nom, puis cliquez sur **OK** et **Enregistrer**.
+   4. Sur le client, cliquez sur **Se connecter**, puis sur **Utiliser un autre compte**. Entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur de domaine.
+   5. Répondez **Oui** à l’invite concernant le certificat.
+2. Installez les outils AD DS :
+   1. Dans le Gestionnaire de serveur, cliquez sur **Gérer > Ajouter des rôles et fonctionnalités**.
+   2. Cliquez sur **Installation basée sur un rôle ou une fonctionnalité**, puis cliquez sur le serveur AD actuel. Suivez les étapes jusqu’à ce que vous arriviez à la **fonctionnalités** onglet.
+   3. Développez **Outils d’administration de serveur distant > Outils d’administration de rôles > Outils AD DS et AD LDS**, puis sélectionnez **Outils AD DS**.
+   4. Sélectionnez **Redémarrer automatiquement le serveur de destination si nécessaire**, puis cliquez sur **Installer**.
 
 ### <a name="create-a-group"></a>Créer un groupe
 
-Vous pouvez utiliser les groupes AD DS pour accorder l’accès à un ensemble d’utilisateurs ayant besoin d’utiliser les mêmes ressources à distance.
+Vous pouvez utiliser des groupes AD DS pour accorder l’accès à un ensemble d’utilisateurs ayant besoin d’utiliser les mêmes ressources distantes.
 
-1. Dans le Gestionnaire de serveur sur le serveur exécutant les services AD DS, cliquez sur **Outils > Active Directory Users and Computers**.
+1. Dans le Gestionnaire de serveur sur le serveur exécutant les services AD DS, cliquez sur **Outils > Utilisateurs et ordinateurs Active Directory**.
 2. Développez le domaine dans le volet gauche pour afficher ses sous-dossiers.
-3. Cliquez sur le dossier où vous souhaitez créer le groupe, puis cliquez sur **Nouveau > groupe**.
-4. Entrez un nom de groupe approprié, puis sélectionnez **Global** et **sécurité**.
+3. Cliquez avec le bouton droit sur le dossier où vous souhaitez créer le groupe, puis cliquez sur **Nouveau > Groupe**.
+4. Entrez un nom de groupe approprié, puis sélectionnez **Global** et **Sécurité**.
 
 ### <a name="create-a-user-and-add-to-a-group"></a>Créer un utilisateur et l’ajouter à un groupe
-1. Dans le Gestionnaire de serveur sur le serveur exécutant les services AD DS, cliquez sur **Outils > Active Directory Users and Computers**.
+1. Dans le Gestionnaire de serveur sur le serveur exécutant les services AD DS, cliquez sur **Outils > Utilisateurs et ordinateurs Active Directory**.
 2. Développez le domaine dans le volet gauche pour afficher ses sous-dossiers.
-3. Avec le bouton droit **utilisateurs**, puis cliquez sur **Nouveau > utilisateur**.
-4. Entrez au minimum, un prénom et un nom d’ouverture de session utilisateur.
-5. Entrez et confirmez un mot de passe pour l’utilisateur. Définir les options de l’utilisateur approprié, comme **utilisateur doit changer de mot de passe à la prochaine ouverture de session**.
-6. Ajouter le nouvel utilisateur à un groupe :
-   1. Dans le **utilisateurs** dossier avec le bouton droit le nouvel utilisateur.
-   2. Cliquez sur **ajouter à un groupe**.
+3. Cliquez avec le bouton droit sur **Utilisateurs**, puis cliquez sur **Nouveau > Utilisateur**.
+4. Entrez au minimum un prénom et un nom d’ouverture de session de l’utilisateur.
+5. Entrez et confirmez un mot de passe pour l’utilisateur. Définissez les options utilisateur appropriées, comme **L’utilisateur doit changer le mot de passe à la prochaine ouverture de session**.
+6. Ajoutez le nouvel utilisateur à un groupe :
+   1. Dans le dossier **Utilisateurs**, cliquez avec le bouton droit sur le nouvel utilisateur.
+   2. Cliquez sur **Ajouter à un groupe**.
    3. Entrez le nom du groupe auquel vous souhaitez ajouter l’utilisateur.
 
-## <a name="assign-users-and-groups-to-collections"></a>Affecter des utilisateurs et des groupes aux collections
-Maintenant que vous avez créé les utilisateurs et groupes dans Active Directory, vous pouvez ajouter certains granularité concernant qui a accès aux collections de bureau à distance dans votre déploiement.
+## <a name="assign-users-and-groups-to-collections"></a>Affecter des utilisateurs et des groupes à des collections
+Maintenant que vous avez créé les utilisateurs et les groupes dans Active Directory, vous pouvez ajouter une granularité concernant qui a accès aux collections Bureau à distance dans votre déploiement.
 
-1. Se connecter au serveur exécutant le rôle de Broker de connexion Bureau à distance (RD Connection Broker), en suivant les étapes décrites précédemment.
-2. Ajoutez les autres serveurs Bureau à distance au pool de Broker de connexion Bureau à distance des serveurs gérés :
-   1. Dans le Gestionnaire de serveur, cliquez sur **gérer > ajouter des serveurs**.
+1. Connectez-vous au serveur exécutant le rôle Service Broker pour les connexions Bureau à distance en suivant les étapes décrites plus haut.
+2. Ajoutez les autres serveurs Bureau à distance au pool de serveurs gérés du Service Broker pour les connexions Bureau à distance :
+   1. Dans le Gestionnaire de serveur, cliquez sur **Gérer > Ajouter des serveurs**.
    2. Cliquez sur **Rechercher**.
    3. Cliquez sur chaque serveur dans votre déploiement qui exécute un rôle Services Bureau à distance, puis cliquez sur **OK**.
-3. Modifier une collection pour attribuer l’accès à des utilisateurs ou groupes spécifiques :
-   1. Dans le Gestionnaire de serveur, cliquez sur **Services Bureau à distance > vue d’ensemble**, puis cliquez sur un regroupement spécifique.
-   2. Sous **propriétés**, cliquez sur **tâches > modifier les propriétés**.
-   3. Cliquez sur **groupes d’utilisateurs**.
-   4. Cliquez sur **ajouter** et entrez l’utilisateur ou le groupe que vous souhaitez avoir accès à la collection. Vous pouvez également supprimer les utilisateurs et groupes à partir de cette fenêtre en sélectionnant l’utilisateur ou le groupe à supprimer, puis en cliquant sur **supprimer**. 
+3. Modifiez une collection pour accorder l’accès à des utilisateurs ou groupes spécifiques :
+   1. Dans le Gestionnaire de serveur, cliquez sur **Services Bureau à distance > Vue d’ensemble**, puis cliquez sur une collection spécifique.
+   2. Sous **Propriétés**, cliquez sur **Tâches > Modifier les propriétés**.
+   3. Cliquez sur **Groupes d’utilisateurs**.
+   4. Cliquez sur **Ajouter** et entrez l’utilisateur ou le groupe auquel vous souhaitez accorder l’accès à la collection. Vous pouvez également supprimer des utilisateurs et des groupes de cette fenêtre en sélectionnant l’utilisateur ou le groupe à supprimer, puis en cliquant sur **Supprimer**. 
    
    >[!NOTE] 
-   > La fenêtre de groupes de l’utilisateur ne peut jamais être vide. Pour limiter la portée des utilisateurs ayant accès à la collection, vous devez tout d’abord ajouter des utilisateurs ou groupes spécifiques avant de supprimer des groupes plus larges.
+   > La fenêtre Groupes d’utilisateurs ne peut jamais être vide. Pour limiter l’étendue des utilisateurs ayant accès à la collection, vous devez tout d’abord ajouter des utilisateurs ou groupes spécifiques avant de supprimer des groupes plus larges.

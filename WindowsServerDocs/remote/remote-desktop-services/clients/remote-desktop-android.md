@@ -1,6 +1,6 @@
 ---
 title: Bien démarrer avec le Bureau à distance sur Android
-description: Configuration de base comme suit pour le client Bureau à distance pour Android.
+description: Étapes de configuration de base pour le client Bureau à distance sur Android.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -15,187 +15,187 @@ ms.author: elizapo
 ms.date: 07/24/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: b4b188eb8148b2f4e5c6672b07884af8fdcd0c60
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66446744"
 ---
 # <a name="get-started-with-remote-desktop-on-android"></a>Bien démarrer avec le Bureau à distance sur Android
 
->S’applique à : Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
+>S’applique à : Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
-Vous pouvez utiliser le client Bureau à distance pour Android pour travailler avec les ordinateurs de bureau et les applications Windows directement à partir de votre appareil Android.
+Le client Bureau à distance sur Android vous permet d’utiliser des bureaux et applications Windows directement à partir de votre appareil Android.
 
-Utilisez les informations suivantes pour commencer. Veillez à consulter le [FAQ](remote-desktop-client-faq.md) si vous avez des questions.
-
-> [!NOTE]
-> - Curieux de savoir les nouvelles versions du client Android ? Découvrez [quelles sont les nouveautés pour Bureau à distance sur Android ?](android-whatsnew.md)
-> Vous pouvez exécuter le client sur Android 4.1 et les périphériques plus récents ainsi que sur les Chromebooks avec 53 ChromeOS installé. En savoir plus sur les applications Android sur Chrome [ici](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps).
-
-## <a name="get-the-rd-client-and-start-using-it"></a>Obtenir le client Bureau à distance et l’utiliser
-
-Suivez ces étapes pour bien démarrer avec le Bureau à distance sur votre appareil Android :
-
-1. Télécharger le client Bureau à distance à partir de [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android). 
-2. [Configurer votre PC pour accepter les connexions à distance](remote-desktop-allow-access.md).
-3. Ajouter une connexion Bureau à distance ou une ressource distante. Vous utilisez une connexion pour vous connecter directement à un PC Windows et à une ressource distante à utiliser un programme RemoteApp, un bureau basé sur session, ou un bureau virtuel publiée en local. 
-4. Créer un widget afin de pouvoir obtenir rapidement au Bureau à distance.
+Aidez-vous des informations suivantes pour démarrer. Consultez le [Forum aux questions (FAQ)](remote-desktop-client-faq.md) si vous avez des questions.
 
 > [!NOTE]
-> Si vous souhaitez déployer de nouvelles fonctionnalités précédemment nous vous recommandons de télécharger notre [bêta de bureau à distance Microsoft](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android.beta) l’application à partir de Google Play store. 
+> - Vous êtes curieux de découvrir les nouvelles versions du client Android ? Consultez [Nouveautés du Bureau à distance sur Android](android-whatsnew.md).
+> Vous pouvez exécuter le client sur des appareils Android 4.1 ou plus récents ainsi que sur les appareils Chromebook avec ChromeOS 53 installé. Découvrez-en plus sur les applications Android sur Chrome [ici](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps).
+
+## <a name="get-the-rd-client-and-start-using-it"></a>Obtenir le client Bureau à distance et commencer à l’utiliser
+
+Effectuez ces étapes pour bien démarrer avec le Bureau à distance sur votre appareil Android :
+
+1. Téléchargez le client Bureau à distance à partir de [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android). 
+2. [Configurez votre PC pour accepter les connexions à distance](remote-desktop-allow-access.md).
+3. Ajoutez une connexion Bureau à distance ou une ressource distante. Utilisez une connexion pour vous connecter directement à un PC Windows, et une ressource distante pour accéder à un programme RemoteApp, un bureau basé sur une session ou un bureau virtuel publié en local. 
+4. Créez un widget pour accéder rapidement au Bureau à distance.
+
+> [!NOTE]
+> Si vous souhaitez essayer de nouvelles fonctionnalités décrites précédemment, nous vous recommandons de télécharger notre [application bêta du Bureau à distance Microsoft](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android.beta) à partir de Google Play Store. 
 
 ### <a name="add-a-remote-desktop-connection"></a>Ajouter une connexion Bureau à distance
 
 Pour créer une connexion Bureau à distance :
 
-1. Dans, appuyez sur le centre de connexion **+** , puis appuyez sur **Desktop**.
-2. Entrez les informations suivantes pour l’ordinateur que vous souhaitez vous connecter :
-   - **Nom du PC** – le nom de l’ordinateur. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez également ajouter des informations de port pour le nom du PC (par exemple, **MyDesktop:3389** ou **10.0.0.1:3389**).
-   - **Nom d’utilisateur** – le nom d’utilisateur à utiliser pour accéder à l’ordinateur distant. Vous pouvez utiliser les formats suivants : *user_name*, *domaine\nom_utilisateur*, ou <em>user_name@domain.com</em>. Vous pouvez également spécifier s’il faut demander un nom d’utilisateur et mot de passe.
-3. Vous pouvez également définir des options supplémentaires suivantes :
-   - **Nom convivial** – un nom facile à mémoriser pour le PC que vous vous connectez à. Vous pouvez utiliser n’importe quelle chaîne, mais si vous ne spécifiez pas un nom convivial, le nom du PC s’affiche.
-   - **Passerelle** – passerelle le Bureau à distance que vous souhaitez utiliser pour se connecter à des bureaux virtuels, des programmes RemoteApp et des ordinateurs de bureau basés sur des sessions sur un réseau d’entreprise interne. Obtenir les informations sur la passerelle de votre administrateur système.
-    Vous avez besoin pour configurer une passerelle des services Bureau à distance ?
-   - **Son** – sélectionnez l’appareil à utiliser pour l’audio pendant votre session à distance. Vous pouvez choisir de lire un son sur les appareils locaux, le périphérique distant, ou pas du tout.
-   - **Personnaliser la résolution d’affichage** -définir une résolution personnalisée pour une connexion en activant ce paramètre. Quand désactiver la résolution est appliqué que vous avez définis dans les paramètres globaux de l’application.
-   - **Permuter les boutons de la souris** – Utilisez cette option pour échanger des fonctions du bouton gauche de la souris pour le bouton droit de la souris. (Cela est particulièrement utile si l’ordinateur distant est configuré pour un utilisateur gaucher mais que vous utilisez une souris droite.)
-   - **Se connecter à la session d’administration** -Utilisez cette option pour vous connecter à une session de console pour administrer un serveur Windows.
-   - **Rediriger vers le stockage local** – votre stockage local est monté comme un système de fichiers à distance sur un ordinateur distant.
-4. Appuyez sur **enregistrer**.
+1. Dans le Centre de connexion, appuyez sur **+** , puis sur **Bureau**.
+2. Entrez les informations suivantes pour l’ordinateur auquel vous souhaitez vous connecter :
+   - **Nom du PC** : nom de l’ordinateur. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez aussi ajouter les informations du port au nom du PC (par exemple, **MyDesktop:3389** ou **10.0.0.1:3389**).
+   - **Nom d’utilisateur** : nom d’utilisateur à spécifier pour accéder au PC distant. Les formats suivants sont possibles : *nom_utilisateur*, *domaine\nom_utilisateur* ou <em>user_name@domain.com</em>. Vous pouvez également spécifier si l’utilisateur est invité à entrer un nom d’utilisateur et un mot de passe.
+3. Vous pouvez aussi définir les options supplémentaires suivantes :
+   - **Nom convivial** : nom facile à mémoriser pour le PC auquel vous vous connectez. Vous pouvez choisir n’importe quelle chaîne, mais si vous ne spécifiez pas de nom convivial, le nom du PC est affiché.
+   - **Passerelle** : passerelle Bureau à distance par laquelle vous voulez vous connecter aux bureaux virtuels, programmes RemoteApp et bureaux basés sur une session dans un réseau interne d’entreprise. Demandez les informations sur la passerelle à votre administrateur système.
+    Vous devez configurer une passerelle Bureau à distance ?
+   - **Son** : sélectionnez l’appareil à utiliser pour l’audio pendant votre session à distance. Vous pouvez choisir d’activer le son sur les appareils locaux ou l’appareil distant, ou de désactiver entièrement le son.
+   - **Personnaliser la résolution d’affichage** : activez ce paramètre si vous voulez définir une résolution personnalisée pour une connexion. Quand ce paramètre est désactivé, la résolution appliquée est celle que vous avez définie dans les paramètres généraux de l’application.
+   - **Permuter les boutons de la souris** : avec cette option, vous pouvez permuter les fonctions du bouton gauche de la souris sur le bouton droit de la souris. (Cela est particulièrement utile si le PC distant est configuré pour un utilisateur gaucher mais que vous utilisez une souris pour droitier.)
+   - **Se connecter à la session admin** : avec cette option, vous pouvez vous connecter à une session de console en vue d’administrer un serveur Windows.
+   - **Rediriger vers le stockage local** : monte votre stockage local comme un système de fichiers distant sur un PC distant.
+4. Appuyez sur **Enregistrer**.
 
-Vous avez besoin pour modifier ces paramètres ? Appuyez sur le menu de dépassement de capacité ( **...** ) en regard du nom du bureau et puis appuyez sur **modifier**.
+Vous devez modifier ces paramètres ? Appuyez sur le menu de dépassement ( **...** ) à côté du nom du bureau et appuyez ensuite sur **Modifier**.
 
-Voulez-vous supprimer la connexion ? Là encore, appuyez sur le menu de dépassement de capacité ( **...** ), puis appuyez sur **supprimer**.
+Vous souhaitez supprimer la connexion ? Là encore, appuyez sur le menu de dépassement ( **...** ), puis appuyez sur **Supprimer**.
 
 >[!TIP]
-> Si vous obtenez l’erreur 0xf07 un mot de passe incorrect (« nous n’avons pas pu se connecter à l’ordinateur distant, car le mot de passe associé au compte d’utilisateur a expiré »), modifier votre mot de passe et réessayez.
+> Si vous obtenez l’erreur 0xf07 à cause d’un mot de passe incorrect (« Nous n’avons pas pu vous connecter à l’ordinateur distant, car le mot de passe associé au compte d’utilisateur a expiré »), changez votre mot de passe et réessayez.
 
 ### <a name="add-a-remote-resource"></a>Ajouter une ressource distante
-Ressources distantes sont des programmes RemoteApp, bureaux basés sur session et des bureaux virtuels publiées à l’aide de connexions RemoteApp et bureau.
+Les ressources distantes peuvent être des programmes RemoteApp, des bureaux basés sur une session et des bureaux virtuels publiés à l’aide de la fonctionnalité Connexions aux programmes RemoteApp et aux services Bureau à distance.
 
 Pour ajouter une ressource distante :
 
-1. Dans l’écran de centre de connexion, appuyez sur **+** , puis appuyez sur **le flux de ressources à distance**. 
-2. Entrez les informations pour la ressource distante :
-   - **Adresse e-mail ou URL** -l’URL du serveur d’accès Web de bureau à distance. Vous pouvez également entrer votre compte de messagerie d’entreprise dans ce champ : cela indique au client pour rechercher le serveur d’accès Web Bureau à distance associé à votre adresse de messagerie.
-   - **Nom d’utilisateur** -nom d’utilisateur à utiliser pour le serveur d’accès Web de bureau à distance que vous vous connectez à.
-   - **Mot de passe** -mot de passe à utiliser pour le serveur d’accès Web de bureau à distance que vous vous connectez à.
-3. Appuyez sur **enregistrer**.
+1. Dans l’écran du Centre de connexion, appuyez sur **+** , puis appuyez sur **Flux de ressources distantes**. 
+2. Entrez les informations appropriées pour la ressource distante :
+   - **Adresse de messagerie ou URL** : URL du serveur d’accès Web des services Bureau à distance. Vous pouvez également entrer votre compte e-mail professionnel dans ce champ : cela indique au client de rechercher le serveur d’accès Web des services Bureau à distance qui est associé à votre adresse e-mail.
+   - **Nom d’utilisateur** : nom d’utilisateur à spécifier pour le serveur d’accès Web des services Bureau à distance auquel vous vous connectez.
+   - **Mot de passe** : mot de passe à spécifier pour le serveur d’accès Web des services Bureau à distance auquel vous vous connectez.
+3. Appuyez sur **Enregistrer**.
 
-Les ressources à distance seront affichera dans le centre de connexion.
+Les ressources distantes ajoutées seront affichées dans le Centre de connexion.
 
 
-Pour supprimer les ressources distantes :
+Pour supprimer des ressources distantes :
 
-1. Dans le centre de connexion, appuyez sur le menu de dépassement de capacité ( **...** ) en regard de la ressource distante.
-2. Appuyez sur **supprimer**.
-3. Confirmer la suppression.
+1. Dans le Centre de connexion, appuyez sur le menu de dépassement ( **...** ) à côté de la ressource distante.
+2. Appuyez sur **Supprimer**.
+3. Confirmez la suppression.
 
-### <a name="widgets--pin-a-saved-desktop-to-your-home-screen"></a>Épingler des widgets : une session Bureau enregistrée sur votre écran d’accueil
+### <a name="widgets--pin-a-saved-desktop-to-your-home-screen"></a>Utiliser des widgets pour épingler un bureau enregistré sur votre écran d’accueil
 
-Les applications de bureau à distance prend en charge l’épinglage des connexions à votre écran d’accueil à l’aide de la fonctionnalité de widget Android. La manière que vous ajoutez un widget varie selon le type d’appareil Android que vous utilisez et de son système d’exploitation. Voici la méthode la plus courante d’ajouter un widget : 
+Les applications Bureau à distance prennent en charge l’épinglage des connexions à votre écran d’accueil à l’aide de la fonctionnalité de widget Android. La méthode d’ajout d’un widget varie selon le type d’appareil Android utilisé et son système d’exploitation. Voici la méthode la plus courante pour ajouter un widget : 
 
-1. Appuyez sur **applications** pour lancer le menu d’applications.
-2. Appuyez sur **widgets**.
-3. Faites défiler via les widgets et recherchez l’icône de bureau à distance avec la description « Bureau à distance de code confidentiel. »
-4. Appuyez sur ce widget du Bureau à distance et déplacez-le vers l’écran d’accueil.
-5. Lorsque vous relâchez l’icône, vous verrez les bureaux à distance enregistrés. Choisissez la connexion que vous souhaitez enregistrer sur votre écran d’accueil.
+1. Appuyez sur **Applications** pour lancer le menu Applications.
+2. Appuyez sur **Widgets**.
+3. Faites défiler les widgets pour trouver l’icône Bureau à distance avec la description « Épingler Bureau à distance ».
+4. Appuyez longuement sur ce widget Bureau à distance et déplacez-le vers l’écran d’accueil.
+5. Quand vous relâchez l’icône, les bureaux à distance enregistrés s’affichent. Choisissez la connexion à enregistrer sur votre écran d’accueil.
 
-Vous pouvez maintenant démarrer la connexion Bureau à distance directement à partir de votre écran d’accueil en appuyant dessus.
+Vous pouvez maintenant démarrer la connexion au bureau à distance directement à partir de votre écran d’accueil en appuyant dessus.
 
 > [!NOTE]
-> Si vous renommez la connexion de bureau dans l’application de bureau à distance, l’étiquette de ce bureau à distance épinglé ne met pas à jour.
+> Si vous renommez la connexion au bureau à distance dans l’application Bureau à distance, l’étiquette de ce bureau à distance épinglé n’est pas mise à jour avec le nouveau nom.
 
 ## <a name="connect-to-an-rd-gateway-to-access-internal-assets"></a>Se connecter à une passerelle Bureau à distance pour accéder aux ressources internes
 
-Une passerelle des services Bureau à distance (passerelle RD) vous permet de vous connecter à un ordinateur distant sur un réseau d’entreprise à partir de n’importe où sur Internet. Vous pouvez créer et gérer vos passerelles à l’aide du client Bureau à distance.
+Une passerelle Bureau à distance vous permet de vous connecter à un ordinateur distant sur un réseau d’entreprise à partir de n’importe où sur Internet. Vous pouvez créer et gérer les passerelles à l’aide du client Bureau à distance.
 
 Pour configurer une nouvelle passerelle :
 
-1. Dans le centre de connexion, appuyez sur **Paramètres > passerelles**. Appuyez sur **+** pour ajouter une nouvelle passerelle.
+1. Dans le Centre de connexion, appuyez sur **Paramètres > Passerelles**. Appuyez sur **+** pour ajouter une nouvelle passerelle.
 2. Entrez les informations suivantes :
-   - **Nom du serveur** – le nom de l’ordinateur que vous souhaitez utiliser en tant que passerelle. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez également ajouter des informations de port au nom du serveur (par exemple : **RDGateway:443** ou **10.0.0.1:443**).
-   - **Nom d’utilisateur** -le nom d’utilisateur et le mot de passe à utiliser pour la passerelle Bureau à distance, vous êtes connecté. Vous pouvez également sélectionner **utiliser le compte d’utilisateur du bureau** à utiliser les informations d’identification que celles utilisées pour la connexion Bureau à distance.
+   - **Nom du serveur** : nom de l’ordinateur que vous souhaitez utiliser comme passerelle. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez aussi ajouter les informations de port au nom du serveur (par exemple, **RDGateway:443** ou **10.0.0.1:443**).
+   - **Nom d’utilisateur** : nom d’utilisateur et mot de passe à spécifier pour la passerelle Bureau à distance à laquelle vous vous connectez. Vous pouvez également sélectionner **Utiliser le compte d’utilisateur du bureau** si vous préférez garder les mêmes informations d’identification que celles utilisées pour la connexion Bureau à distance.
 
 ## <a name="manage-your-user-accounts"></a>Gérer vos comptes d’utilisateur
 
-Lorsque vous vous connectez à un bureau ou à distance des ressources, vous pouvez enregistrer les comptes d’utilisateur à sélectionner à nouveau. Vous pouvez également définir des comptes d’utilisateur dans le client lui-même, par opposition à l’enregistrement des données utilisateur lorsque vous vous connectez à un ordinateur de bureau.
+Quand vous vous connectez à un bureau ou à des ressources distantes, vous pouvez enregistrer les comptes d’utilisateur pour les resélectionner ultérieurement. Vous pouvez également définir des comptes d’utilisateur directement sur le client, au lieu d’enregistrer les données utilisateur quand vous vous connectez à un bureau.
 
-Pour créer un nouveau compte d’utilisateur :
+Pour créer un compte d’utilisateur :
 
-1. Dans le centre de connexion, appuyez sur **paramètres**, puis appuyez sur **comptes d’utilisateur**.
+1. Dans le Centre de connexion, appuyez sur **Paramètres**, puis appuyez sur **Comptes d’utilisateur**.
 2. Appuyez sur **+** pour ajouter un nouveau compte d’utilisateur.
 3. Entrez les informations suivantes :
-   - **Nom d’utilisateur** -le nom de l’utilisateur à enregistrer pour une utilisation avec une connexion à distance. Vous pouvez entrer le nom d’utilisateur dans un des formats suivants : user_name, DOMAINE\nom_utilisateur, ou user_name@domain.com.
-   - **Mot de passe** -le mot de passe pour l’utilisateur spécifié. Chaque compte d’utilisateur que vous souhaitez enregistrer pour utiliser des connexions à distance doit avoir un mot de passe associé.
-4. Appuyez sur **enregistrer**.
+   - **Nom d’utilisateur** : nom d’utilisateur à enregistrer pour l’utiliser avec une connexion à distance. Entrez le nom d’utilisateur dans un de ces formats : nom_utilisateur, domaine\nom_utilisateur ou user_name@domain.com.
+   - **Mot de passe** : mot de passe associé à l’utilisateur spécifié. Chaque compte d’utilisateur que vous souhaitez enregistrer pour les connexions à distance doit avoir un mot de passe associé.
+4. Appuyez sur **Enregistrer**.
 
 Pour supprimer un compte d’utilisateur :
 
-1. Dans le centre de connexion, appuyez sur **Paramètres > comptes d’utilisateur**.
-2. Maintenez sur un compte d’utilisateur dans la liste pour le sélectionner. Vous pouvez sélectionner plusieurs utilisateurs.
+1. Dans le Centre de connexion, appuyez sur **Paramètres > Comptes d’utilisateur**.
+2. Appuyez longuement sur un compte d’utilisateur dans la liste pour le sélectionner. Vous pouvez sélectionner plusieurs utilisateurs.
 3. Appuyez sur la Corbeille pour supprimer l’utilisateur sélectionné.
 
-## <a name="navigate-the-remote-desktop-session"></a>Accédez à la session Bureau à distance
-Lorsque vous démarrez une connexion Bureau à distance, il existe des outils que vous pouvez utiliser pour parcourir la session.
+## <a name="navigate-the-remote-desktop-session"></a>Naviguer dans la session Bureau à distance
+Quand vous démarrez une connexion Bureau à distance, vous disposez d’outils utiles pour naviguer dans la session.
 
 ### <a name="start-a-remote-desktop-connection"></a>Démarrer une connexion Bureau à distance
 
 1. Appuyez sur la connexion Bureau à distance pour démarrer la session. 
-2. Si vous êtes invité à vérifier le certificat pour le Bureau à distance, appuyez sur **Connect**. Vous pouvez également sélectionner **me redemander pour les connexions à cet ordinateur** pour toujours accepter le certificat.
+2. Si vous êtes invité à vérifier le certificat du bureau à distance, appuyez sur **Connexion**. Vous pouvez également sélectionner **Ne pas me redemander pour les connexions à cet ordinateur** pour accepter automatiquement le certificat.
 
-### <a name="manage-global-app-settings"></a>Gérer les paramètres d’application globale
+### <a name="manage-global-app-settings"></a>Gérer les paramètres d’application généraux
 
-Vous pouvez définir les paramètres globaux suivants dans votre client Android :
+Vous pouvez définir les paramètres généraux suivants sur votre client Android :
 
-- **Afficher les aperçus de bureau** -vous permet d’afficher un aperçu d’un ordinateur de bureau dans le centre de connexion avant de vous connecter à celui-ci. Par défaut, elle est définie **sur**.
-- **Pincer pour zoomer** -vous permet d’utiliser des gestes de pincement pour zoomer. Si l’application que vous utilisez le Bureau à distance prend en charge l’interaction tactile multipoint (introduite dans Windows 8), activer ce paramètre **hors**.
-- **Aide pour améliorer le Bureau à distance** -envoie des données anonymes à Microsoft. Nous utilisons ces données pour améliorer le client. Vous pouvez en savoir plus sur la façon dont nous utilisons ces données anonymes, privées, consultez le [déclaration de confidentialité de Client Bureau à distance](https://www.microsoft.com/privacystatement/RemoteApp/Default.aspx). Par défaut, ce paramètre est **sur**.
-- **Afficher** -il existe deux paramètres globaux de votre affichage :
-  - **Orientation** -définit la préférence d’orientation (paysage ou portrait) pour votre session. 
+- **Afficher les aperçus de bureau** : vous permet d’afficher l’aperçu d’un bureau dans le Centre de connexion avant de vous y connecter. Par défaut, ce paramètre est **activé**.
+- **Pincer pour zoomer** : vous permet de faire un zoom en effectuant un mouvement de pincement. Si l’application que vous utilisez par le biais du Bureau à distance prend en charge l’interaction tactile multipoint (introduite dans Windows 8), ce paramètre doit être **désactivé**.
+- **Aidez-nous à améliorer le Bureau à distance** : envoie des données anonymes à Microsoft. Nous nous servons de ces données pour améliorer le client. Pour en savoir plus sur la façon dont nous utilisons ces données personnelles anonymes, consultez la [Déclaration de confidentialité pour le client Bureau à distance](https://www.microsoft.com/privacystatement/RemoteApp/Default.aspx). Par défaut, ce paramètre est **activé**.
+- **Affichage** : il y a deux paramètres d’affichage généraux :
+  - **Orientation** : définit l’orientation par défaut (paysage ou portrait) pour votre session. 
     >[!NOTE]
-    > Si vous vous connectez à un PC exécutant Windows 8 ou une version antérieure de Windows, la session n’évolutive pas correctement. Votre meilleure solution consiste à déconnecter de l’ordinateur, puis vous reconnecter à l’orientation que vous souhaitez utiliser. Une meilleure option consiste à mettre à niveau le PC au moins Windows 8.1.
+    > Si vous vous connectez à un PC avec Windows 8 ou une version antérieure de Windows, l’orientation de la session ne s’adapte pas correctement. La meilleure solution est de vous déconnecter du PC, puis de vous y reconnecter dans l’orientation de votre choix. Mieux encore, mettez à niveau votre PC vers Windows 8.1 ou une version ultérieure.
 
-  - **Résolution** -définit la résolution que vous souhaitez utiliser pour les connexions Bureau dans le monde entier. Si vous avez déjà défini une résolution personnalisée pour une application individuelle ou la connexion, qui ne change pas ce paramètre.
+  - **Résolution** : définit la résolution à utiliser globalement pour les connexions Bureau à distance. Si vous avez déjà défini une résolution personnalisée pour une connexion ou une application individuelle, cette résolution reste inchangée.
     >[!NOTE]
-    >Lorsque vous modifiez un des paramètres d’affichage, ils s’appliquent uniquement aux nouvelles connexions à partir de ce point sur. Pour voir la modification dans une session, vous êtes déjà connecté pour vous déconnecter, puis connectez-vous à nouveau.
+    >Quand vous modifiez un paramètre d’affichage, le nouveau paramètre s’applique uniquement aux nouvelles connexions établies après le changement. Pour voir la modification appliquée dans une session à laquelle vous êtes déjà connecté, déconnectez-vous, puis reconnectez-vous.
 
 ### <a name="connection-bar"></a>Barre de connexion
 
-La connexion barre vous donne qu'accès aux contrôles de navigation supplémentaires. Par défaut, la barre de connexion est placée dans le milieu en haut de l’écran. Double-clic et faites glisser la barre à gauche ou droite pour le déplacer.
+La barre de connexion vous donne accès à des contrôles de navigation supplémentaires. Par défaut, la barre de connexion est placée en haut de l’écran, au milieu. Appuyez deux fois sur la barre et faites-la glisser vers la gauche ou la droite pour la déplacer.
 
-- **Contrôle Panorama**: Le contrôle panoramique permet à l’écran être agrandi et déplacé. Notez que contrôle Panorama est uniquement disponible si vous utilisez l’interaction tactile directe.
-   - Activer / désactiver le contrôle Panorama : Appuyez sur l’icône de panoramique dans la barre de connexion pour afficher le contrôle Panoramique et Zoom sur l’écran. Appuyez sur l’icône de panoramique dans la barre de connexion à nouveau à masquer le contrôle et de retourner l’écran à sa résolution d’origine.
-   - Utilisez le contrôle Panorama : Appuyez sur le contrôle Panoramique et faites-le glisser dans la direction que vous souhaitez déplacer l’écran.
-   - Déplacer le contrôle Panorama : Double cliquez et maintenez le contrôle panoramique pour déplacer le contrôle sur l’écran.
-- **Options supplémentaires**: Appuyez sur l’icône des options supplémentaires pour afficher la sélection de session de la barre et commande de la barre (voir ci-dessous).
-- **Clavier**: Appuyez sur l’icône de clavier pour afficher ou masquer le clavier. Le contrôle Panorama s’affiche automatiquement lorsque le clavier est affiché.
-- **Déplacer la barre de connexion**: Appuyez et maintenez la barre de connexion et puis faites glisser vers un nouvel emplacement en haut de l’écran.
+- **Contrôle panoramique** : avec le contrôle panoramique, vous pouvez agrandir et déplacer l’écran. Notez que le contrôle panoramique est uniquement disponible avec l’interaction tactile directe.
+   - Activer/désactiver le contrôle panoramique : appuyez sur l’icône panoramique dans la barre de connexion pour afficher le contrôle panoramique et zoomer dans l’écran. Appuyez de nouveau sur l’icône panoramique dans la barre de connexion pour masquer le contrôle et réafficher l’écran dans sa résolution d’origine.
+   - Utiliser le contrôle panoramique : appuyez longuement sur le contrôle panoramique et faites-le glisser dans la direction où vous souhaitez déplacer l’écran.
+   - Déplacer le contrôle panoramique : appuyez longuement deux fois sur le contrôle panoramique pour le déplacer sur l’écran.
+- **Options supplémentaires** : appuyez sur l’icône des options supplémentaires pour afficher la barre de sélection de session et la barre de commandes (voir ci-dessous).
+- **Clavier** : appuyez sur l’icône du clavier pour afficher ou masquer le clavier. Le contrôle panoramique s’affiche automatiquement quand le clavier est affiché.
+- **Déplacer la barre de connexion** : appuyez longuement sur la barre de connexion, puis faites-la glisser vers un nouvel emplacement en haut de l’écran.
 
 
 ### <a name="command-bar"></a>Barre de commandes
 
-Appuyez sur la barre de connexion pour afficher la barre de commandes sur le côté droit de l’écran. Vous pouvez basculer entre les modes de la souris (interaction tactile directe et pointeur de la souris). Utiliser le bouton Accueil pour revenir au centre de connexion à partir de la barre de commandes. Vous pouvez également utiliser le bouton Précédent pour la même action. Votre session active n’est pas déconnectée. 
+Appuyez sur la barre de connexion pour afficher la barre de commandes sur le côté droit de l’écran. Vous pouvez passer d’un mode souris à un autre (interaction tactile directe et pointeur de souris). Utilisez le bouton Accueil pour revenir au Centre de connexion à partir de la barre de commandes. Vous pouvez aussi utiliser le bouton Précédent pour la même action. Votre session active ne sera pas déconnectée. 
 
 
-### <a name="use-direct-touch-gestures-and-mouse-modes-in-a-remote-session"></a>Utilisation directe touch mouvements et les modes de la souris dans une session à distance
+### <a name="use-direct-touch-gestures-and-mouse-modes-in-a-remote-session"></a>Utiliser les mouvements d’interaction tactile directe et les modes souris dans une session à distance
 
-Le client utilise des gestes tactiles standard. Vous pouvez également utiliser des gestes tactiles pour répliquer les actions de la souris sur le Bureau à distance. Les modes de la souris disponibles sont définies dans le tableau ci-dessous.
+Le client utilise les mouvements d’interaction tactile standard. Vous pouvez également utiliser les mouvements d’interaction tactile pour répliquer les actions de la souris sur le bureau à distance. Les modes souris disponibles sont décrits dans le tableau ci-dessous.
 
 > [!NOTE]
-> Interaction avec Windows 8 ou version ultérieure les mouvements tactiles natif sont pris en charge en mode d’interaction tactile directe. 
+> Sur Windows 8 ou une version ultérieure, les mouvements d’interaction tactile natifs sont pris en charge en mode d’interaction tactile directe. 
 
-| Mode souris    | Opération de la souris      | Mouvement                                                               |
+| Mode souris    | Action avec la souris      | Mouvement                                                               |
 |---------------|----------------------|-----------------------------------------------------------------------|
-| Interaction tactile directe  | Clic gauche           | Appuyez sur 1 doigt                                                          |
-| Interaction tactile directe  | Clic droit          | 1 doigt maintenez                                                 |
-| Pointeur de la souris | Zoom                 | Utilisez les 2 doigts et pincer pour faire un zoom ou déplacer les unes des autres les doigts pour effectuer un zoom arrière. |
-| Pointeur de la souris | Clic gauche           | Appuyez sur 1 doigt                                                          |
-| Pointeur de la souris | Clic gauche et glissement  | appuyer deux fois 1 doigt et maintenir, puis faites glisser                               |
-| Pointeur de la souris | Clic droit          | Appuyez sur 2 doigt                                                          |
-| Pointeur de la souris | Clic avec le bouton droit et glissement | 2 double pression du doigt et maintenir, puis faites glisser                               |
-| Pointeur de la souris | Roulette de la souris          | 2 doigt appuyez sur et maintenez la touche, puis faites glisser vers le haut ou vers le bas                           |
+| Interaction tactile directe  | Clic gauche           | Appuyez avec un doigt                                                          |
+| Interaction tactile directe  | Clic droit          | Appuyez longuement avec un doigt                                                 |
+| Pointeur de souris | Zoom                 | Resserrez les deux doigts pour faire un zoom ou écartez les doigts pour effectuer un zoom arrière. |
+| Pointeur de souris | Clic gauche           | Appuyez avec un doigt                                                          |
+| Pointeur de souris | Clic gauche et glissement  | Appuyez longuement deux fois avec un doigt, puis faites glisser                               |
+| Pointeur de souris | Clic droit          | Appuyez avec deux doigts                                                          |
+| Pointeur de souris | Clic droit et glissement | Appuyez longuement deux fois avec deux doigts, puis faites glisser                               |
+| Pointeur de souris | Roulette de la souris          | Appuyez longuement avec deux doigts, puis faites glisser vers le haut ou le bas                           |
 
 > [!TIP]
-> Questions et vos commentaires sont toujours les bienvenus. Toutefois, ne posez pas une demande de résolution des problèmes à l’aide de la fonctionnalité de commentaire à la fin de cet article. Au lieu de cela, accédez à la [forum du client Bureau à distance](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc) et démarrer un nouveau thread. Vous avez une suggestion de fonctionnalité ? Dites-nous dans le [forum vocal des utilisateurs client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android).
+> Vos questions et vos commentaires sont toujours les bienvenus. Toutefois, n’envoyez PAS votre demande d’aide par le biais de la fonctionnalité de commentaire qui figure à la fin de cet article. Accédez au [forum du client Bureau à distance](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc) et démarrez un nouveau thread. Vous avez une suggestion de fonctionnalité à nous faire ? Faites-nous en part via le [forum UserVoice pour le client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android).

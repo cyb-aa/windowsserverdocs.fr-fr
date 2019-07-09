@@ -1,6 +1,6 @@
 ---
 title: Configuration requise pour Windows Server 2019
-description: Configuration minimale requise pour le stockage, processeur, réseau, mémoire RAM dans une nouvelle installation de Windows Server 2019.
+description: Configuration minimale requise pour le stockage, le processeur, le réseau, la mémoire et la RAM dans une nouvelle installation de Windows Server 2019.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,10 +14,10 @@ ms.author: coreyp
 manager: jasgroce
 ms.localizationpriority: medium
 ms.openlocfilehash: d97ec0efee86165f82bdf99a316d24d9c39ec958
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66810719"
 ---
 # <a name="system-requirements"></a>Configuration système
@@ -28,7 +28,7 @@ Cette rubrique décrit la configuration minimale requise pour exécuter Windows 
 
 ## <a name="review-system-requirements"></a>Passer en revue la configuration système requise  
 
-Configuration système requise estimée Windows Server 2019 sont les suivantes : Si votre ordinateur ne possède pas la configuration minimale requise, vous ne pourrez pas installer ce produit correctement. La configuration requise réelle varie en fonction de la configuration de votre système et des applications et fonctionnalités que vous installez.
+La configuration requise estimée pour Windows Server 2019 est présentée ci-dessous. Si votre ordinateur ne possède pas la configuration minimale requise, vous ne pourrez pas installer ce produit correctement. La configuration requise réelle varie en fonction de la configuration de votre système et des applications et fonctionnalités que vous installez.
 
 Sauf indication contraire, cette configuration minimale requise s’applique à toutes les options d’installation (installation minimale, Serveur avec Expérience utilisateur et Nano Server) et aux éditions Standard et Datacenter.  
 
@@ -37,7 +37,7 @@ Sauf indication contraire, cette configuration minimale requise s’applique à 
 
 ## <a name="processor"></a>Processeur  
 
-Les performances du processeur dépendent non seulement de la fréquence d’horloge du processeur, mais également du nombre de cœurs de processeur et de la taille du cache de processeur. La configuration requise en matière de processeur pour ce produit est la suivante :  
+Les performances du processeur dépendent non seulement de la fréquence d’horloge du processeur, mais également du nombre de cœurs de processeur et de la taille du cache de processeur. La configuration requise en matière de processeur pour ce produit est la suivante :  
 
 **Minimum** :  
 - Processeur 1,4 GHz 64 bits  
@@ -46,14 +46,14 @@ Les performances du processeur dépendent non seulement de la fréquence d’hor
 - Prend en charge CMPXCHG16b, LAHF/SAHF et PrefetchW  
 - Prend en charge la traduction d’adresse de second niveau (EPT ou NPT)  
 
-[Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx) est un outil que vous pouvez utiliser pour les capacités votre processeur a de confirmer.
+Pour vérifier les capacités de votre processeur, vous pouvez utiliser l’outil [Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx).
 
 ## <a name="ram"></a>RAM  
 La configuration requise en matière de mémoire vive (RAM) pour ce produit est la suivante :  
 
 **Minimum** :  
 - 512 Mo (2 Go pour l’option d’installation Serveur avec Expérience utilisateur)
-- Type d’ECC (Error Correcting Code) ou une technologie similaire pour les déploiements de l’hôte physique
+- Type ECC (Error Correcting Code) ou technologie similaire pour les déploiements d’hôtes physiques
 
 > [!IMPORTANT]  
 > Si vous créez un ordinateur virtuel avec les paramètres matériel minimum pris en charge (1 processeur et 512 Mo de RAM), puis essayez d’installer cette version sur l’ordinateur virtuel, le programme d’installation échouera.  
@@ -64,14 +64,14 @@ La configuration requise en matière de mémoire vive (RAM) pour ce produit est 
 > -   Interrompez le processus de démarrage de cette version sur l’ordinateur virtuel en appuyant sur Maj+F10. Dans l’invite de commandes qui s’ouvre, utilisez Diskpart.exe pour créer et formater une partition d’installation. Exécutez **Wpeutil createpagefile /path=C:\pf.sys** (C: étant la partition d’installation créée). Fermez l’invite de commandes et poursuivez le programme d’installation.  
 
 ## <a name="storage-controller-and-disk-space-requirements"></a>Contrôleur de stockage et espace disque requis  
-Les ordinateurs qui exécutent Windows Server 2019 doivent inclure une carte de stockage qui est conforme à la spécification de l’architecture PCI Express. Les dispositifs de stockage persistant sur les serveurs classés en tant que lecteurs de disque dur ne doivent pas être PATA. Windows Server 2019 n’autorise pas ATA/PATA/IDE/EIDE pour les lecteurs de données, de démarrage ou de page.  
+Les ordinateurs qui exécutent Windows Server 2019 doivent inclure un adaptateur du stockage conforme à la spécification de l’architecture PCI Express. Les dispositifs de stockage persistant sur les serveurs classés en tant que lecteurs de disque dur ne doivent pas être PATA. Windows Server 2019 n’autorise pas ATA/PATA/IDE/EIDE pour les lecteurs de données, de démarrage ou de page.  
 
 L’espace disque requis **minimal** approximatif pour la partition système est le suivant.  
 
 **Minimum** : 32 Go  
 
 > [!NOTE]
-> Gardez à l’esprit que 32 Go doivent être considérés comme une valeur *minimale absolue* pour une installation réussie. Cette valeur minimale doit vous permettre d’installer Windows Server 2019 en mode Server Core, avec le rôle de serveur Web Services (IIS). Un serveur en mode d’installation minimale nécessite environ 4 Go d’espace disque de moins que le même serveur en mode Serveur avec une interface graphique utilisateur. 
+> Gardez à l’esprit que 32 Go doivent être considérés comme une valeur *minimale absolue* pour une installation réussie. Cette valeur permet une installation minimale de Windows Server 2019, avec le rôle serveur Services Web (IIS). Un serveur en mode d’installation minimale nécessite environ 4 Go d’espace disque de moins que le même serveur en mode Serveur avec une interface graphique utilisateur. 
 > 
 > La partition système aura besoin d’espace supplémentaire dans chacun des cas suivants :  
 > 
@@ -88,7 +88,7 @@ Les cartes réseau utilisées avec cette version doivent inclure les fonctionnal
 
 Une carte réseau qui prend en charge le débogage réseau (KDNet) est utile, mais ne constitue pas une condition minimale requise.   
 
-Une carte réseau que prend en charge l’environnement d’exécution de prédémarrage (PXE) est utile, mais pas une configuration minimale requise.
+Une carte réseau qui prend en charge l’environnement PXE (Pre-boot Execution Environment) est utile, mais ne constitue pas une condition minimale requise.
 
 ## <a name="other-requirements"></a>Autres conditions requises pour la configuration  
 Les ordinateurs exécutant cette version doivent également disposer des éléments suivants :  
@@ -110,6 +110,6 @@ Les éléments suivants ne sont pas strictement obligatoires, mais sont nécessa
 > Une puce de module de plateforme sécurisée n’est pas strictement nécessaire pour installer cette version, même si elle est requise pour pouvoir utiliser certaines fonctionnalités telles que le chiffrement de lecteur BitLocker. Si votre ordinateur utilise le module de plateforme sécurisée, il doit répondre à ces exigences :  
 >  
 > - Les modules de plateforme sécurisée matériels doivent implémenter la version 2.0 de la spécification de module de plateforme sécurisée.  
-> - Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent avoir un certificat EK préconfiguré pour le module de plateforme sécurisée par le fournisseur de matériel ou capable d’être récupéré par l’appareil pendant le premier démarrage.  
-> - Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent être livrés avec des banques de registre de configuration de plateforme (PCR) SHA-256 et implémenter les PCR 0 à 23 pour SHA-256. Il est acceptable de livrer des modules de plateforme sécurisée avec une seule banque PCR commutable qui peut être utilisée pour les deux mesures SHA-1 et SHA-256.  
+> - Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent avoir un certificat EK préconfiguré pour le module de plateforme sécurisée (TPM) par le fournisseur de matériel ou capable d’être récupéré par l’appareil pendant le premier démarrage.  
+> - Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent être livrés avec des banques de registre de configuration de plateforme (PCR) SHA-256 et implémenter les PCR 0 à 23 pour SHA-256. Il est acceptable de livrer des modules de plateforme sécurisée avec une seule banque PCR commutable qui peut être utilisée pour les deux mesures SHA-1 et SHA-256.  
 > - Une option UEFI pour désactiver le module de plateforme sécurisée n’est pas obligatoire.  

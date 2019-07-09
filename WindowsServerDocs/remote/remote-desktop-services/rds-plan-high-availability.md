@@ -1,6 +1,6 @@
 ---
-title: Services Bureau à distance - haute disponibilité
-description: Planification d’informations sur la configuration d’un déploiement de RDS hautement disponible.
+title: Services Bureau à distance - Haute disponibilité
+description: Informations de planification concernant la configuration d’un déploiement des services Bureau à distance hautement disponible.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,27 +13,27 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/07/2016
 manager: dongill
-ms.openlocfilehash: b5a2bd38c8831063d6fd2ba525b71a10403b8fc2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 79fd05458d0d838e34402bf28ef83b9327bfcceb
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839260"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743458"
 ---
-# <a name="remote-desktop-services---high-availability"></a>Services Bureau à distance - haute disponibilité
+# <a name="remote-desktop-services---high-availability"></a>Services Bureau à distance - Haute disponibilité
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
-Échecs et limitation sont inévitables dans les systèmes à grande échelle. Il est simple à configurer les rôles d’infrastructure de bureau à distance pour prendre en charge la haute disponibilité et permettre aux utilisateurs finaux pour se connecter en toute transparence, chaque fois.
+Échecs et limitations sont inévitables dans les systèmes à grande échelle. Il est simple de configurer des rôles d’infrastructure de Bureau à distance pour prendre en charge la haute disponibilité et permettre aux utilisateurs finals de se connecter de manière fluide, à chaque fois.
 
-Dans les Services Bureau à distance, les éléments suivants représentent les rôles d’infrastructure de bureau à distance, avec leurs instructions respectives pour établir une haute disponibilité :
+Dans les services Bureau à distance, les éléments suivants représentent les rôles d’infrastructure de Bureau à distance, avec leurs instructions propres pour établir une haute disponibilité :
 - [Service Broker pour les connexions Bureau à distance](Deploy-a-Remote-Desktop-Connection-Broker-cluster.md)
 - [Passerelle des services Bureau à distance](Deploy-a-RD-Web-Access-and-Gateway-farm.md)
-- Gestionnaire de licences bureau à distance
-- [Accès Web Bureau à distance](Deploy-a-RD-Web-Access-and-Gateway-farm.md)
+- Gestionnaire de licences des services Bureau à distance
+- [Accès Bureau à distance par le web](Deploy-a-RD-Web-Access-and-Gateway-farm.md)
 
-Haute disponibilité est établie en dupliquant chacun des services de rôles sur un deuxième groupe de machines. Dans Azure, vous pouvez recevoir un temps d’activité garanti en plaçant l’ensemble des deux machines virtuelles (qui héberge le même rôle) dans un groupe de disponibilité définit.
+La haute disponibilité est établie en dupliquant chacun des services de rôles sur une seconde machine. Dans Azure, vous pouvez obtenir un temps d’activité garanti en plaçant le groupe des deux machines virtuelles (qui héberge le même rôle) dans des groupes à haute disponibilité.
 
-En même temps que les groupes à haute disponibilité, vous pouvez désormais exploiter la puissance de la base de données SQL Azure et son contrat SLA reposant sur Azure pour vous assurer que vous avez toujours avez des informations de connexion et que vous pouvez rediriger les utilisateurs à leurs ordinateurs de bureau et les applications.
+Avec les groupes à haute disponibilité, vous pouvez tirer parti de la puissance d’Azure SQL Database et de son contrat SLA Azure, pour être sûr d’avoir toujours à votre disposition les informations de connexion et de pouvoir rediriger les utilisateurs vers leurs bureaux et leurs applications.
 
-Pour obtenir des recommandations sur la création de votre environnement de services Bureau à distance, consultez le [architecture d’hébergement de bureau](desktop-hosting-reference-architecture.md).
+Pour des bonnes pratiques sur la création de votre environnement des services Bureau à distance, consultez [Architecture d’hébergement de bureaux](desktop-hosting-reference-architecture.md).

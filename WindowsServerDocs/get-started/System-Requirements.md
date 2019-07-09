@@ -15,15 +15,15 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: d089af3562467aa1c222b17d9a1ad69d9c1b5008
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66810588"
 ---
 # <a name="system-requirements"></a>Configuration système
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016 
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016 
 
 Cette rubrique décrit la configuration minimale requise pour exécuter Windows Server&reg; 2016 ou Windows Server, version 1709.
 
@@ -44,7 +44,7 @@ Sauf indication contraire, cette configuration minimale requise s’applique à 
 
 
 ## <a name="processor"></a>Processeur  
-Les performances du processeur dépendent non seulement de la fréquence d’horloge du processeur, mais également du nombre de cœurs de processeur et de la taille du cache de processeur. La configuration requise en matière de processeur pour ce produit est la suivante :  
+Les performances du processeur dépendent non seulement de la fréquence d’horloge du processeur, mais également du nombre de cœurs de processeur et de la taille du cache de processeur. La configuration requise en matière de processeur pour ce produit est la suivante :  
 
 **Minimum** :  
 - Processeur 1,4 GHz 64 bits  
@@ -53,7 +53,7 @@ Les performances du processeur dépendent non seulement de la fréquence d’hor
 - Prend en charge CMPXCHG16b, LAHF/SAHF et PrefetchW  
 - Prend en charge la traduction d’adresse de second niveau (EPT ou NPT)  
 
-[Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx) est un outil que vous pouvez utiliser pour les capacités votre processeur a de confirmer.
+Pour vérifier les capacités de votre processeur, vous pouvez utiliser l’outil [Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx).
 
 ## <a name="ram"></a>RAM  
 La configuration requise en matière de mémoire vive (RAM) pour ce produit est la suivante :  
@@ -118,7 +118,7 @@ Les éléments suivants ne sont pas strictement obligatoires, mais sont nécessa
 >  
 > - Les modules de plateforme sécurisée matériels doivent implémenter la version 2.0 de la spécification de module de plateforme sécurisée.  
 > - Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent avoir un certificat EK préconfiguré pour le module de plateforme sécurisée par le fournisseur de matériel ou capable d’être récupéré par l’appareil pendant le premier démarrage.  
-> - Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent être livrés avec des banques de registre de configuration de plateforme (PCR) SHA-256 et implémenter les PCR 0 à 23 pour SHA-256. Il est acceptable de livrer des modules de plateforme sécurisée avec une seule banque PCR commutable qui peut être utilisée pour les deux mesures SHA-1 et SHA-256.  
+> - Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent être livrés avec des banques de registre de configuration de plateforme (PCR) SHA-256 et implémenter les PCR 0 à 23 pour SHA-256. Il est acceptable de livrer des modules de plateforme sécurisée avec une seule banque PCR commutable qui peut être utilisée pour les deux mesures SHA-1 et SHA-256.  
 > - Une option UEFI pour désactiver le module de plateforme sécurisée n’est pas obligatoire.  
 
 ## <a name="installation-of-nano-server"></a>Installation de Nano Server  
@@ -126,6 +126,6 @@ Pour obtenir des instructions détaillées sur l’installation de Windows Serve
 
 ## <a name="additional-resources"></a>Ressources complémentaires
 - [Configuration requise du processeur Windows](https://docs.microsoft.com/windows-hardware/design/minimum/windows-processor-requirements)
-- [Comparaison des éditions Standard et Datacenter de Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/2016-edition-comparison)
-- [Requise pour Windows 10](https://www.microsoft.com/windows/windows-10-specifications#system-specifications)
-- [Télécharger la fiche technique de gestion des licences Windows Server 2016](http://download.microsoft.com/download/7/2/9/7290EA05-DC56-4BED-9400-138C5701F174/WS2016LicensingDatasheet.pdf)
+- [Comparatif des éditions Standard et Datacenter de Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/2016-edition-comparison)
+- [Configuration requise pour Windows 10](https://www.microsoft.com/windows/windows-10-specifications#system-specifications)
+- [Télécharger la feuille de données de gestion des licences de Windows Server 2016](http://download.microsoft.com/download/7/2/9/7290EA05-DC56-4BED-9400-138C5701F174/WS2016LicensingDatasheet.pdf)

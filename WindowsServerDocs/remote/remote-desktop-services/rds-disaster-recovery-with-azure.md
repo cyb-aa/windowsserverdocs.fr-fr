@@ -1,6 +1,6 @@
 ---
-title: Configurer la récupération d’urgence pour les services Bureau à distance à l’aide de la récupération d’urgence Azure
-description: Découvrez comment utiliser la récupération d’urgence Azure pour la récupération d’urgence pour un déploiement services Bureau à distance
+title: Configurer la reprise d’activité après sinistre pour les services Bureau à distance avec Azure Site Recovery
+description: Découvrir comment utiliser Azure Site Recovery pour la reprise d’activité après sinistre dans un déploiement des services Bureau à distance
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,59 +12,59 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 561a515e23d12cc3397c40fd885550e735ed4d27
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 24b5fdaa815b6d2e84606cd8e681634eb3d0f4e9
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878170"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63713079"
 ---
-# <a name="set-up-disaster-recovery-for-rds-using-azure-site-recovery"></a>Configurer la récupération d’urgence pour les services Bureau à distance à l’aide d’Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-rds-using-azure-site-recovery"></a>Configurer la reprise d’activité après sinistre pour les services Bureau à distance avec Azure Site Recovery
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
-Vous pouvez utiliser Azure Site Recovery pour créer une solution de récupération d’urgence pour votre déploiement des Services Bureau à distance. 
+Vous pouvez utiliser Azure Site Recovery pour créer une solution de reprise d’activité après sinistre de votre déploiement des services Bureau à distance. 
 
-[Azure Site Recovery](/azure/site-recovery/site-recovery-overview) est un service basé sur Azure qui fournit des fonctionnalités de récupération après sinistre en coordonnant la réplication, le basculement et récupération des machines virtuelles. Azure Site Recovery prend en charge un nombre de technologies de réplication pour systématiquement répliquer, protéger et en toute transparence basculer des machines virtuelles et les applications à des clouds de l’hébergeur ou publique/privée. 
+[Azure Site Recovery](/azure/site-recovery/site-recovery-overview) est un service Azure qui assure des fonctionnalités de reprise d’activité après sinistre, en coordonnant la réplication, le basculement et la récupération des machines virtuelles. Azure Site Recovery prend en charge de nombreuses technologies de réplication, afin de systématiquement répliquer, protéger et basculer sans interruption machines virtuelles et applications vers des clouds publics, privés ou proposés par l’hébergeur. 
 
-Utilisez les informations suivantes pour créer et valider la solution de récupération d’urgence.
+Utilisez les informations suivantes pour créer et valider la solution de reprise d’activité après sinistre.
 
-## <a name="disaster-recovery-deployment-options"></a>Options de déploiement de récupération d’urgence
+## <a name="disaster-recovery-deployment-options"></a>Options de déploiement de la reprise d’activité après sinistre
 
-Vous pouvez déployer des services Bureau à distance sur des serveurs physiques ou machines virtuelles exécutant Hyper-V ou VMWare. Azure Site Recovery peut protéger à la fois en local et des déploiements virtuels sur un site secondaire ou sur Azure. Le tableau suivant présente que les différents déploiements de services Bureau à distance pris en charge dans les scénarios de recvoery d’urgence de site à site et le site vers Azure.
+Vous pouvez déployer les services Bureau à distance sur des serveurs physiques ou des machines virtuelles exécutant Hyper-V ou VMWare. Azure Site Recovery peut protéger des déploiements virtuels et locaux, sur un site secondaire ou sur Azure. Le tableau suivant présente plusieurs déploiements de services Bureau à distance pris en charge dans des scénarios de reprise d’activité après sinistre, de site à site, et de site à Azure.
 
-| Type de déploiement                          | Hyper-V à un site | Site Hyper-V vers Azure | Site VMWare vers Azure | Physique de site vers Azure |
+| Type de déploiement                          | Site Hyper-V à site | Site Hyper-V à Azure | Site VMWare à Azure | Site physique à Azure |
 |------------------------------------------|----------------------|-----------------------|---------------------|----------------------|-----------------------|------------------------|
 | Bureau virtuel mis en pool (non managé)       |Oui|Non|Non|Non |
-| Bureau virtuel mis en pool (géré, sans UPD) | Oui|Non|Non|Non|
+| Bureau virtuel mis en pool (managé, sans UPD) | Oui|Non|Non|Non|
 | Sessions RemoteApps et de bureau (sans UPD) | Oui|Oui|Oui|Oui  |
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
-Avant de pouvoir configurer Azure Site Recovery pour votre déploiement, assurez-vous que les conditions suivantes :
+Avant de pouvoir configurer Azure Site Recovery pour votre déploiement, assurez-vous que les conditions suivantes sont remplies :
 
-- Créer un [déploiement des services Bureau à distance local](rds-deploy-infrastructure.md).
-- Ajouter [coffre Azure Site Recovery Services](/azure/site-recovery/site-recovery-vmm-to-azure#create-a-recovery-services-vault) à votre abonnement Microsoft Azure.
-- Si vous vous apprêtez à utiliser Azure comme site de récupération, exécutez le [outil Azure Virtual Machine Readiness Assessment](https://azure.microsoft.com/downloads/vm-readiness-assessment/) sur vos machines virtuelles pour vérifier qu’ils sont compatibles avec les machines virtuelles Azure et Azure Site Recovery Services.
+- Créez un [déploiement des services Bureau à distance en local](rds-deploy-infrastructure.md).
+- Ajoutez un [coffre des services Azure Site Recovery](/azure/site-recovery/site-recovery-vmm-to-azure#create-a-recovery-services-vault) à votre abonnement Microsoft Azure.
+- Si vous vous apprêtez à utiliser Azure en tant que site de reprise d’activité, exécutez l’[outil d’évaluation de la préparation des machines virtuelles Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) sur vos machines virtuelles pour vérifier qu’elles sont compatibles avec les machines virtuelles Azure et les services Azure Site Recovery.
  
-## <a name="implementation-checklist"></a>Liste de vérification de mise en œuvre
+## <a name="implementation-checklist"></a>Check-list d’implémentation
 
-Nous aborderons les différentes étapes pour activer Azure Site Recovery Services pour votre déploiement des services Bureau à distance plus en détail, mais voici les étapes d’implémentation de haut niveau.
+Nous allons aborder plus en détail les différentes étapes de l’activation des services Azure Site Recovery pour votre déploiement des services Bureau à distance, mais dans l’immédiat attachons-nous aux étapes générales de l’implémentation.
 
-| **Étape 1 : configurer des machines virtuelles pour la récupération d’urgence**                                                                                                                                                                                               |
+| **Étape 1 - Configuration des machines virtuelles pour la reprise d’activité après sinistre**                                                                                                                                                                                               |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Hyper-V - téléchargement du fournisseur Microsoft Azure Site Recovery. Installez-le sur votre serveur VMM ou un hôte Hyper-V. Consultez [conditions préalables pour la réplication vers Azure à l’aide d’Azure Site Recovery](/azure/site-recovery/site-recovery-prereq) pour plus d’informations.                                                                                                                             |
-| VMWare - configurer le serveur de protection, serveur de configuration et serveurs cibles maîtres                                                                                                                                                      |
-| **Étape 2 : préparer vos ressources**                                                                                                                                                                                                           |
-| Ajouter un [compte de stockage Azure](/azure/storage/storage-create-storage-account).                                                                                                                                                                                                              |
-| Hyper-V - Téléchargez l’agent Microsoft Azure Recovery Services et l’installer sur les serveurs hôtes Hyper-V.                                                                                                                                     |
-| VMWare : Vérifiez que le service mobilité est installé sur toutes les machines virtuelles.                                                                                                                                                                           |
-| [Activer la protection des machines virtuelles dans le cloud VMM, les sites Hyper-V ou les sites VMWare](rds-enable-dr-with-asr.md).                                                                                                                                                                    |
-| **Étape 3 : concevoir votre plan de récupération.**                                                                                                                                                                                                        |
-| Mappez vos ressources - mappage des réseaux locaux aux réseaux virtuels Azure.                                                                                                                                                                              |
-| [Créer le plan de récupération](rds-disaster-recovery-plan.md). |
-| Tester le plan de récupération en créant un test de basculement. Vérifiez que toutes les machines virtuelles peuvent accéder aux ressources requises, comme Active Directory. Vérifiez les redirections sont configurées de réseau et l’utilisation de RDS. Pour obtenir des instructions détaillées sur le test de votre plan de récupération, consultez [exécuter un test de basculement](/azure/site-recovery/site-recovery-test-failover-to-azure)|
-| **Étape 4 : exécuter une simulation de récupération d’urgence.**                                                                                                                                                                                                     |
-| Exécuter une simulation de récupération d’urgence à l’aide des basculements planifiés et non planifiés. Assurez-vous que toutes les machines virtuelles ont accès aux ressources requises, telles qu’Active Directory. Assurez-vous que toutes les machines virtuelles ont accès aux ressources requises, telles qu’Active Directory. Pour obtenir des instructions détaillées sur les basculements et comment effectuer des exercices, consultez [basculement dans Site Recovery](/azure/site-recovery/site-recovery-failover).|
+| Hyper-V : téléchargez le fournisseur Microsoft Azure Site Recovery. Installez-le sur votre serveur VMM ou votre hôte Hyper-V. Consultez [Prérequis de la réplication vers Azure avec Azure Site Recovery](/azure/site-recovery/site-recovery-prereq) pour plus d’informations.                                                                                                                             |
+| VMWare : configurez le serveur de protection, le serveur de configuration et les serveurs cibles maîtres.                                                                                                                                                      |
+| **Étape 2 - Préparation de vos ressources**                                                                                                                                                                                                           |
+| Ajoutez un [compte de stockage Azure](/azure/storage/storage-create-storage-account).                                                                                                                                                                                                              |
+| Hyper-V : téléchargez l’agent Microsoft Azure Recovery Services et installez-le sur les serveurs hôtes Hyper-V.                                                                                                                                     |
+| VMWare : vérifiez que le service Mobilité est installé sur toutes les machines virtuelles.                                                                                                                                                                           |
+| [Activez la protection des machines virtuelles dans le cloud VMM, les sites Hyper-V ou les sites VMWare](rds-enable-dr-with-asr.md).                                                                                                                                                                    |
+| **Étape 3 - Conception de votre plan de reprise**                                                                                                                                                                                                        |
+| Mappage de vos ressources : mappez les réseaux locaux aux réseaux virtuels Azure.                                                                                                                                                                              |
+| [Créez le plan de reprise](rds-disaster-recovery-plan.md). |
+| Testez le plan de reprise en créant un test de basculement. Vérifiez que toutes les machines virtuelles peuvent accéder aux ressources nécessaires, comme Active Directory. Assurez-vous que les redirections de réseau sont configurées et qu’elles fonctionnent pour les services Bureau à distance. Pour obtenir des instructions détaillées sur le test de votre plan de reprise, consultez [Effectuer un test de basculement](/azure/site-recovery/site-recovery-test-failover-to-azure)|
+| **Étape 4 - Exécution d’une extraction de reprise d’activité**                                                                                                                                                                                                     |
+| Effectuez une extraction de reprise d’activité à l’aide des basculements planifiés et non planifiés. Assurez-vous que toutes les machines virtuelles ont accès aux ressources nécessaires, telles qu’Active Directory. Assurez-vous que toutes les machines virtuelles ont accès aux ressources nécessaires, telles qu’Active Directory. Pour obtenir des instructions détaillées sur les basculements et la façon de procéder aux extractions, consultez [Basculement dans Site Recovery](/azure/site-recovery/site-recovery-failover).|
 
 

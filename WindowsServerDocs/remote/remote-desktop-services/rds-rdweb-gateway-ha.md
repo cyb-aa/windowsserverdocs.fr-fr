@@ -1,6 +1,6 @@
 ---
-title: Ajouter une haute disponibilité pour le serveur web frontal Web de bureau à distance et passerelle
-description: Fournit les étapes pour l’installation des serveurs Web de bureau à distance et passerelle dans un déploiement services Bureau à distance.
+title: Ajouter la haute disponibilité au serveur frontal d’accès web et de passerelle des services Bureau à distance
+description: Fournit les étapes de l’installation des serveurs d’accès web et de passerelle Bureau à distance dans un déploiement de services Bureau à distance.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,104 +13,104 @@ ms.author: elizapo
 ms.date: 11/08/2016
 manager: dongill
 ms.openlocfilehash: 4e185e51b09d2e2f8ac4527f9de339de27e02f24
-ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66805138"
 ---
-# <a name="add-high-availability-to-the-rd-web-and-gateway-web-front"></a>Ajouter une haute disponibilité pour le serveur web frontal Web de bureau à distance et passerelle
+# <a name="add-high-availability-to-the-rd-web-and-gateway-web-front"></a>Ajouter la haute disponibilité au serveur frontal d’accès web et de passerelle des services Bureau à distance
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 
-Vous pouvez déployer une batterie de serveurs de passerelle Bureau à distance (passerelle RD) et de l’accès Web aux services Bureau à distance (RD Web Access) pour améliorer la disponibilité et la mise à l’échelle d’un déploiement Services Bureau à distance (RDS) de Windows Server 
+Vous pouvez déployer une batterie de serveurs d’accès web et de passerelle des services Bureau à distance (Accès Bureau à distance par le web et Passerelle des services Bureau à distance) pour améliorer la disponibilité et la mise à l’échelle d’un déploiement des services Bureau à distance de Windows Server. 
 
-Utilisez les étapes suivantes pour ajouter un serveur de passerelle et Web de bureau à distance à un déploiement de base des Services Bureau à distance existant.  
+Utilisez les étapes suivantes pour ajouter un serveur de passerelle et d’accès web de Bureau à distance à un déploiement de base des services Bureau à distance existant.  
 
-## <a name="pre-requisites"></a>Conditions préalables
+## <a name="pre-requisites"></a>Prérequis
 
-Configurer un serveur d’agir en tant que supplémentaires Web Bureau à distance et passerelle Bureau à distance - cela peut être un serveur physique ou une machine virtuelle. Cela inclut joindre le serveur au domaine et l’activation de la gestion à distance.
+Configurez un serveur pour jouer le rôle d’accès web et de passerelle supplémentaires des services Bureau à distance ; il peut s’agir d’un serveur physique ou d’une machine virtuelle. Y sont incluses la jonction du serveur au domaine et l’activation de la gestion à distance.
 
-## <a name="step-1-configure-the-new-server-to-be-part-of-the-rds-environment"></a>Étape 1 : Configurer le nouveau serveur comme faisant partie de l’environnement de services Bureau à distance
+## <a name="step-1-configure-the-new-server-to-be-part-of-the-rds-environment"></a>Étape 1 : Configurer le nouveau serveur comme faisant partie de l’environnement des services Bureau à distance
 
-1. Se connecter au serveur RDM dans le portail Azure, à l’aide du client Connexion Bureau à distance.
-2. Ajoutez le nouveau serveur de passerelle et Web de bureau à distance au Gestionnaire de serveur :
-    1. Lancez le Gestionnaire de serveur, cliquez sur **gérer > ajouter des serveurs**.   
+1. Connectez-vous au serveur RDMS dans le portail Azure à l’aide du client Connexion Bureau à distance.
+2. Ajoutez le nouveau serveur de passerelle et d’accès web Bureau à distance au Gestionnaire de serveur :
+    1. Lancez le Gestionnaire de serveur, cliquez sur **Gérer > Ajouter des serveurs**.   
     2. Dans la boîte de dialogue Ajouter des serveurs, cliquez sur **Rechercher maintenant**.   
-    3. Sélectionnez le serveur Web de bureau à distance et passerelle nouvellement créé (par exemple, Contoso-WebGw2) et cliquez sur **OK**.
-3. Ajouter des serveurs Web de bureau à distance et de passerelle pour le déploiement  
+    3. Sélectionnez le serveur de passerelle et d’accès web des services Bureau à distance nouvellement créé (par exemple, Contoso-WebGw2), puis cliquez sur **OK**.
+3. Ajouter au déploiement des serveurs de passerelle et d’accès web de Bureau à distance  
     1. Lancez le Gestionnaire de serveur.  
-    2. Cliquez sur **des Services Bureau à distance > vue d’ensemble > serveurs de déploiement > tâches > ajouter des serveurs d’accès Bureau à distance Web**.   
-    3. Sélectionnez le serveur nouvellement créé (par exemple, Contoso-WebGw2), puis cliquez sur **suivant**.  
-    4. Dans la page de Confirmation, sélectionnez **redémarrer des ordinateurs distants en fonction des besoins**, puis cliquez sur **ajouter**.  
-    5. Répétez ces étapes pour ajouter le serveur de passerelle Bureau à distance, mais choisissez **serveurs de passerelle Bureau à distance** à l’étape b.
-4. Réinstallez les certificats pour les serveurs de passerelle Bureau à distance :
-   1. Cliquez sur le Gestionnaire de serveur sur le serveur de RDM, **Services Bureau à distance > vue d’ensemble > tâches > modifier les propriétés de déploiement**.  
-   2. Développez **certificats**.  
-   3. Faites défiler jusqu'à la table. Cliquez sur le Bureau à distance **Service de rôle passerelle > Sélectionner un certificat existant.**  
-   4. Cliquez sur **choisir un autre certificat** puis accédez à l’emplacement du certificat. Par exemple, \Contoso-CB1\Certificates). Sélectionnez le fichier de certificat pour le serveur Web de bureau à distance et passerelle créé au cours de la configuration requise (par exemple, ContosoRdGwCert), puis cliquez sur **Open**.  
-   5. Entrez le mot de passe du certificat, sélectionnez **autoriser le certificat doit être ajouté au magasin de certificats Autorités de certification racine de confiance sur les ordinateurs de destination**, puis cliquez sur **OK**.  
+    2. Cliquez sur **Services Bureau à distance > Vue d’ensemble > Serveurs de déploiement > Tâches > Ajouter des serveurs d’accès Bureau à distance par le web**.   
+    3. Sélectionnez le serveur nouvellement créé (par exemple, Contoso-WebGw2), puis cliquez sur **Suivant**.  
+    4. Dans la page de confirmation, sélectionnez **Redémarrer les ordinateurs distants si nécessaire**, puis cliquez sur **Ajouter**.  
+    5. Répétez ces étapes pour ajouter le serveur de passerelle Bureau à distance, mais choisissez **Serveurs de passerelle Bureau à distance** à l’étape b.
+4. Réinstallez les certificats des serveurs de passerelle Bureau à distance :
+   1. Dans le Gestionnaire de serveur sur le serveur RDMS, cliquez sur **Services Bureau à distance > Vue d’ensemble > Tâches > Modifier les propriétés de déploiement**.  
+   2. Développez **Certificats**.  
+   3. Faites défiler jusqu’à la table. Pour les services Bureau à distance, cliquez sur **Service de rôle Passerelle > Sélectionner un certificat existant**.  
+   4. Cliquez sur **Choisir un autre certificat**, puis accédez à l’emplacement du certificat. Par exemple, \Contoso-CB1\Certificates). Sélectionnez le fichier de certificat pour le serveur de passerelle et d’accès web de Bureau à distance créé lors des prérequis (par exemple, ContosoRdGwCert), puis cliquez sur **Ouvrir**.  
+   5. Entrez le mot de passe du certificat, sélectionnez **Autoriser l’ajout du certificat au magasin de certificats Autorités de certification racines de confiance sur les machines de destination**, puis cliquez sur **OK**.  
    6. Cliquez sur **Appliquer**.
       > [!NOTE] 
-      > Vous devrez peut-être redémarrer manuellement le service TSGateway en cours d’exécution sur chaque serveur de passerelle Bureau à distance, via le Gestionnaire de serveur ou le Gestionnaire des tâches.
-   7. Répétez les étapes a à f pour le Service de rôle accès Web Bureau à distance.
+      > Vous devrez peut-être redémarrer manuellement le service TSGateway exécuté sur chaque serveur de passerelle Bureau à distance, via le Gestionnaire de serveur ou le Gestionnaire des tâches.
+   7. Répétez les étapes a à f pour le service de rôle Accès Bureau à distance par le web.
 
-## <a name="step-2-configure-rd-web-and-rd-gateway-properties-on-the-new-server"></a>Étape 2 : Configurer les propriétés Web du Bureau à distance et passerelle Bureau à distance sur le nouveau serveur
-1. Configurer le serveur comme faisant partie d’une batterie de serveurs de passerelle Bureau à distance :
-    1.  Cliquez sur le Gestionnaire de serveur sur le serveur de RDM, **tous les serveurs**. Cliquez sur un des serveurs de passerelle Bureau à distance, puis cliquez sur **connexion Bureau à distance**.
-    2.  Connectez-vous au serveur de passerelle Bureau à distance à l’aide d’un compte d’administrateur de domaine.  
-    3.  Dans le Gestionnaire de serveur sur le serveur de passerelle Bureau à distance, cliquez sur **Outils > Services Bureau à distance > Gestionnaire de passerelle Bureau à distance**.  
+## <a name="step-2-configure-rd-web-and-rd-gateway-properties-on-the-new-server"></a>Étape 2 : Configurer les propriétés de la passerelle et de l’accès web des services Bureau à distance sur le nouveau serveur
+1. Configurez le serveur comme faisant partie d’une batterie de serveurs de passerelle des services Bureau à distance :
+    1.  Dans le Gestionnaire de serveur, sur le serveur RDMS, cliquez sur **Tous les serveurs**. Cliquez avec le bouton droit sur un des serveurs de passerelle Bureau à distance, puis cliquez sur **Connexion Bureau à distance**.
+    2.  Connectez-vous au serveur de passerelle Bureau à distance au moyen d’un compte d’administrateur de domaine.  
+    3.  Dans le Gestionnaire de serveur, sur le serveur de passerelle Bureau à distance, cliquez sur **Outils > Services Bureau à distance > Gestionnaire de passerelle Bureau à distance**.  
     4.  Dans le volet de navigation, cliquez sur l’ordinateur local (par exemple, Contoso-WebGw1).  
-    5.  Cliquez sur **membres de la batterie de serveurs de passerelle Bureau à distance ajouter**.  
-    6.  Sur le **batterie de serveurs** onglet, entrez le nom de chaque serveur de passerelle Bureau à distance, puis cliquez sur **ajouter** et **appliquer**.  
-    7.  Répétez les étapes a à f sur chaque serveur de passerelle Bureau à distance pour qu’ils reconnaissent mutuellement en tant que serveurs de passerelle Bureau à distance dans une batterie de serveurs. Processus s’il existe des avertissements, car il peut prendre un temps de propagation des paramètres DNS.
-2. Configurer le serveur comme faisant partie d’une batterie de serveurs d’accès Web de bureau à distance. Les étapes ci-dessous configurent la Validation et le déchiffrement des clés d’ordinateur à l’identique sur les deux sites RDWeb.
-    1.  Cliquez sur le Gestionnaire de serveur sur le serveur de RDM, **tous les serveurs**. Cliquez sur le premier serveur d’accès Web de bureau à distance (par exemple, Contoso-WebGw1), puis sur **connexion Bureau à distance**.  
-    2.  Connectez-vous au serveur d’accès Web de bureau à distance à l’aide d’un compte d’administrateur de domaine.  
-    3.  Dans le Gestionnaire de serveur sur le serveur d’accès Web de bureau à distance, cliquez sur **Outils > Gestionnaire des Services Internet (IIS)** .  
-    4.  Dans le volet gauche du Gestionnaire des services Internet, développez le **serveur (par exemple, Contoso-WebGw1) > Sites > Site Web par défaut**, puis cliquez sur **RDWeb**.  
-    5.  Avec le bouton droit **clé Machine**, puis cliquez sur **ouvrir la fonctionnalité**.
-    6.  Dans la page clé de l’ordinateur, dans le **Actions** volet, sélectionnez **générer les clés**, puis cliquez sur **appliquer**.
-    7.  Copiez la clé de validation (vous pouvez avec le bouton droit de la clé, puis sur **copie**.)
-    8.  Dans le Gestionnaire des services Internet, sous **Site Web par défaut**, sélectionnez **flux**, **FeedLogon** et **Pages** à son tour.
-    9. Pour chaque :
-        1.  Avec le bouton droit **clé Machine**, puis cliquez sur **ouvrir la fonctionnalité**.
-        2.  Pour la clé de Validation, désactivez **générer automatiquement lors de l’exécution**, puis collez la clé que vous avez copié à l’étape g.
-    10.  Réduisez la fenêtre de connexion du Bureau à distance à ce serveur Web de bureau à distance.  
-    11.  Répétez les étapes b à e pour le second serveur d’accès Bureau à distance par le Web, se terminant par l’affichage de la fonctionnalité de **clé Machine**.
-    12. Pour la clé de Validation, désactivez **générer automatiquement lors de l’exécution**, puis collez la clé que vous avez copié à l’étape g.
+    5.  Cliquez sur **Ajouter des membres de batterie de serveurs de passerelle Bureau à distance**.  
+    6.  Sous l’onglet **Batterie de serveurs**, entrez le nom de chaque serveur de passerelle Bureau à distance, cliquez sur **Ajouter** puis sur **Appliquer**.  
+    7.  Répétez les étapes a à f sur chaque serveur de passerelle Bureau à distance, afin que les serveurs se reconnaissent mutuellement en tant que serveurs de passerelle Bureau à distance dans une batterie de serveurs. Ne vous inquiétez pas de la présence d’avertissements, car la propagation des paramètres DNS peut prendre du temps.
+2. Configurez le serveur comme faisant partie d’une batterie de serveurs d’accès Bureau à distance par le web. Les étapes ci-dessous configurent à l’identique les clés d’ordinateur de validation et de déchiffrement sur les deux sites RDWeb.
+    1.  Dans le Gestionnaire de serveur, sur le serveur RDMS, cliquez sur **Tous les serveurs**. Cliquez avec le bouton droit sur le premier serveur d’accès Bureau à distance par le web (par exemple, Contoso-WebGw1), puis cliquez sur **Connexion Bureau à distance**.  
+    2.  Connectez-vous au serveur d’accès Bureau à distance par le web au moyen d’un compte d’administrateur de domaine.  
+    3.  Dans le Gestionnaire de serveur, sur le serveur d’accès Bureau à distance par le web, cliquez sur **Outils > Gestionnaire des services Internet (IIS)** .  
+    4.  Dans le volet gauche du Gestionnaire des services Internet, développez le **Serveur (par exemple, Contoso-WebGw1) > Sites > Site web par défaut**, puis cliquez sur **RDWeb**.  
+    5.  Cliquez avec le bouton droit sur **Clé d’ordinateur**, puis cliquez sur **Ouvrir la fonctionnalité**.
+    6.  Dans le volet **Actions** de la page Clé de l’ordinateur, sélectionnez **Générer les clés**, puis cliquez sur **Appliquer**.
+    7.  Copiez la clé de validation (vous pouvez cliquer avec le bouton droit sur la clé, puis cliquer sur **Copier**.)
+    8.  Dans le Gestionnaire des services Internet, sous **Site web par défaut**, sélectionnez successivement **Feed**, **FeedLogon** et **Pages**.
+    9. Pour chacun de ces éléments :
+        1.  Cliquez avec le bouton droit sur **Clé d’ordinateur**, puis cliquez sur **Ouvrir la fonctionnalité**.
+        2.  Pour la clé de validation, décochez l’option **Générer automatiquement au moment de l’exécution**, puis collez la clé que vous avez copiée à l’étape g.
+    10.  Réduisez la fenêtre de connexion du Bureau à distance à ce serveur web de Bureau à distance.  
+    11.  Répétez les étapes b à e pour le second serveur d’accès Bureau à distance par le web, en terminant par l’affichage de la fonctionnalité **Clé de l’ordinateur**.
+    12. Pour la clé de validation, décochez l’option **Générer automatiquement au moment de l’exécution**, puis collez la clé que vous avez copiée à l’étape g.
     13. Cliquez sur **Appliquer**.
-    14. Terminer ce processus pour le **RDWeb**, **flux**, **FeedLogon** et **Pages** pages.
-    15. Réduire la fenêtre de connexion du Bureau à distance pour le second serveur d’accès Web de bureau à distance et agrandissez la fenêtre de connexion du Bureau à distance pour le premier serveur d’accès Web de bureau à distance.  
-    16. Répétez les étapes g à n pour copier la clé de déchiffrement.
-    17. Lorsque les clés de validation et de déchiffrement sont identiques sur les deux serveurs d’accès Web de bureau à distance pour le **RDWeb**, **flux**, **FeedLogon** et **Pages**pages, déconnectez-vous de toutes les fenêtres de connexion du Bureau à distance.
+    14. Reproduisez ce processus pour les pages **RDWeb**, **Feed**, **FeedLogon** et **Pages**.
+    15. Réduisez la fenêtre de connexion du Bureau à distance au second serveur d’accès Bureau à distance par le web, puis agrandissez la fenêtre de connexion du Bureau à distance au premier serveur d’accès Bureau à distance par le web.  
+    16. Répétez les étapes g à n pour copier la clé de déchiffrement.
+    17. Lorsque les clés de validation et de déchiffrement sont identiques sur les deux serveurs d’accès Bureau à distance par le web dans les pages **RDWeb**, **Feed**, **FeedLogon** et **Pages**, déconnectez-vous de toutes les fenêtres de connexion Bureau à distance.
 
-## <a name="step-3-configure-load-balancing-for-the-rd-web-and-rd-gateway-servers"></a>Étape 3 : Configurer l’équilibrage de charge pour les serveurs Web de bureau à distance et passerelle Bureau à distance
+## <a name="step-3-configure-load-balancing-for-the-rd-web-and-rd-gateway-servers"></a>Étape 3 : Configurer l’équilibrage de charge pour les serveurs de passerelle et d’accès web des services Bureau à distance
 
-Si vous utilisez l’infrastructure Azure, vous pouvez créer un équilibreur de charge Azure externe ; Si ce n’est pas le cas, vous pouvez configurer un équilibreur de charge matérielle ou logicielle distinct. L’équilibrage de charge est clé afin que le trafic sera uniformément distribués les connexions de longue durées à partir de clients de bureau à distance, via la passerelle Bureau à distance, aux serveurs que les utilisateurs exécutent leurs charges de travail.
+Si vous utilisez l’infrastructure Azure, vous pouvez créer un équilibreur de charge Azure externe, sinon vous pouvez configurer un équilibreur de charge matérielle ou logicielle distinct. L’équilibrage de charge est primordial pour la répartition uniforme du trafic sur des connexions longue durée, depuis des clients Bureau à distance transitant par la passerelle Bureau à distance vers les serveurs sur lesquels les utilisateurs exécuteront leurs charges de travail.
 
 > [!NOTE] 
-> Si votre serveur précédent en cours d’exécution Web Bureau à distance et passerelle Bureau à distance a été déjà installé derrière un équilibreur de charge externe, passez directement pour l’étape 4, sélectionnez le pool principal existant et ajoutez le nouveau serveur au pool.
+> Si votre précédent serveur, exécutant la passerelle et l’accès web des services Bureau à distance, a déjà été installé derrière un équilibreur de charge externe, passez directement à l’étape 4, sélectionnez le pool principal existant et ajoutez le nouveau serveur au pool.
 
-1.  Créer un équilibreur de charge Azure :  
-    1.  Dans le portail Azure, cliquez sur **Parcourir > équilibreurs de charge > ajouter**.  
+1.  Créez un équilibreur de charge Azure :  
+    1.  Dans le portail Azure, cliquez sur **Parcourir > Équilibreurs de charge > Ajouter**.  
     2.  Entrez un nom, par exemple **WebGwLB**.  
-    3.  Sélectionnez **Public** pour le **schéma**, **adresse IP publique**et un **adresse IP publique**. Vous pouvez sélectionner une adresse IP publique existante ou créez-en un. 
-    4.  Sélectionnez l’option appropriée **abonnement**, **groupe de ressources**, et **emplacement**.
+    3.  Sélectionnez **Public** pour le **Schéma**, l’**Adresse IP publique** et une **Adresse IP publique**. Vous pouvez sélectionner une adresse IP publique existante ou en créer une. 
+    4.  Sélectionnez l’**Abonnement**, le **Groupe de ressources** et l’**Emplacement** appropriés.
     5.  Cliquez sur **Create (Créer)** .  
-2. Créer un [sonde](https://azure.microsoft.com/documentation/articles/load-balancer-custom-probe-overview/) à analyser les serveurs qui sont actifs :  
-    1.  Dans le portail Azure, cliquez sur **Parcourir > équilibrages de charge**., l’équilibreur de charge vous venez de créer, par exemple, WebGwLB et paramètres  
-    2.  Cliquez sur **sondes > ajouter**.  
-    3.  Entrez un nom, par exemple, **HTTPS**, de la sonde. Sélectionnez **TCP** en tant que le **protocole**, puis entrez **443** pour le **Port**, puis cliquez sur **OK**.   
-3.  Créer la règles d’équilibrage de charge HTTPS et UDP :  
-    1.  Dans **paramètres**, cliquez sur **règles d’équilibrage de charge**.  
-    2.  Sélectionnez **ajouter** pour le **règle HTTPS**.  
-    3.  Entrez un nom pour la règle, par exemple, HTTPS, puis sélectionnez **TCP** pour le **protocole**. Entrez **443** pour les deux **Port** et **port principal**, puis cliquez sur **OK**.  
-    4.  Dans **règles d’équilibrage de charge**, cliquez sur **ajouter** pour le **UDP rule**.  
-    5.  Entrez un nom pour la règle, par exemple, **UDP**, puis sélectionnez **UDP** pour le **protocole**. Entrez **3391** pour les deux **Port** et **port principal**, puis cliquez sur **OK**.  
-4. Créer le pool principal pour les serveurs Web de bureau à distance et passerelle Bureau à distance :
-      1. Dans **paramètres**, cliquez sur **pools d’adresses principales > ajouter**.   
-      2. Entrez un nom (par exemple, **WebGwBackendPool**), puis cliquez sur **ajouter une machine virtuelle**.  
+2. Créez une [sonde](https://azure.microsoft.com/documentation/articles/load-balancer-custom-probe-overview/) pour superviser les serveurs qui sont actifs :  
+    1.  Dans le portail Azure, cliquez sur **Parcourir > Équilibreurs de charge**, puis sur l’équilibreur de charge que vous venez de créer, par exemple WebGwLB, et sur Paramètres.  
+    2.  Cliquez sur **Sondes > Ajouter**.  
+    3.  Entrez un nom, par exemple **HTTPS**, pour la sonde. Sélectionnez **TCP** en guise de **Protocole** et entrez **443** pour le **Port**, puis cliquez sur **OK**.   
+3.  Créez les règles d’équilibrage de charge UDP et HTTPS :  
+    1.  Dans **Paramètres**, cliquez sur **Règles d’équilibrage de charge**.  
+    2.  Sélectionnez **Ajouter** pour la **Règle HTTPS**.  
+    3.  Entrez un nom pour la règle, par exemple HTTPS, puis sélectionnez **TCP** pour le **Protocole**. Entrez **443** à la fois pour le **Port** et le **Port principal**, puis cliquez sur **OK**.  
+    4.  Dans les **Règles d’équilibrage de charge**, cliquez sur **Ajouter** pour la **Règle UDP**.  
+    5.  Entrez un nom pour la règle, par exemple **UDP**, puis sélectionnez **UDP** pour le **Protocole**. Entrez **3391** à la fois pour le **Port** et le **Port principal**, puis cliquez sur **OK**.  
+4. Créez le pool principal pour les serveurs de passerelle et d’accès web des services Bureau à distance :
+      1. Dans **Paramètres**, cliquez sur **Pools d’adresses principaux > Ajouter**.   
+      2. Entrez un nom (par exemple, **WebGwBackendPool**), puis cliquez sur **Ajouter une machine virtuelle**.  
       3. Choisissez un groupe à haute disponibilité (par exemple, WebGwAvSet), puis cliquez sur **OK**.   
-      4. Cliquez sur **choisir les machines virtuelles**, sélectionnez chaque machine virtuelle, puis cliquez sur **Sélectionner > OK > OK**.
+      4. Cliquez sur **Choisir les machines virtuelles**, sélectionnez chaque machine virtuelle, puis cliquez sur **Sélectionner > OK > OK**.

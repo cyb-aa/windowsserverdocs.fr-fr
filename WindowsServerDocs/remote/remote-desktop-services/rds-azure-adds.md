@@ -1,6 +1,6 @@
 ---
-title: Azure AD Domain Services et des Services Bureau à distance
-description: Découvrez comment intégrer Azure AD Domain Services dans votre déploiement des services Bureau à distance.
+title: Azure AD Domain Services et services Bureau à distance
+description: Découvrez comment intégrer Azure AD Domain Services à votre déploiement des services Bureau à distance.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,64 +13,64 @@ ms.topic: article
 author: christianmontoya
 ms.localizationpriority: medium
 ms.openlocfilehash: 8b1baf642ffa3c8e8a0a2cfc70d2f49b58f208b3
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66446584"
 ---
-# <a name="integrate-azure-ad-domain-services-with-your-rds-deployment"></a>Intégrer Azure AD Domain Services avec votre déploiement des Services Bureau à distance
+# <a name="integrate-azure-ad-domain-services-with-your-rds-deployment"></a>Intégrer Azure AD Domain Services à votre déploiement des services Bureau à distance
 
-Vous pouvez utiliser [Azure AD Domain Services](/azure/active-directory-domain-services/active-directory-ds-overview) (Azure AD DS) dans votre déploiement des Services Bureau à distance à la place de Windows Server Active Directory. Azure AD DS vous permet d’utiliser vos identités Azure AD existantes avec des charges de travail Windows classiques.
+Vous pouvez utiliser [Azure AD Domain Services](/azure/active-directory-domain-services/active-directory-ds-overview) (Azure AD DS) dans votre déploiement des services Bureau à distance à la place de Windows Server Active Directory. Azure AD DS vous permet d’utiliser vos identités Azure AD existantes avec des charges de travail Windows classiques.
 
-Avec Azure AD DS, vous pouvez : 
-- Créer un environnement Azure avec un domaine local pour les organisations né-in-the-cloud. 
-- Créer un environnement isolé Azure avec les mêmes identités utilisées pour votre en local et votre environnement en ligne, sans avoir à créer un VPN de site à site ou ExpressRoute. 
+Avec Azure AD DS, vous pouvez : 
+- Créer un environnement Azure avec un domaine local pour les organisations nées dans le cloud 
+- Créer un environnement Azure isolé avec les mêmes identités que celles utilisées pour votre environnement local et votre environnement en ligne, sans qu’il soit nécessaire de créer un VPN site à site ou de recourir à ExpressRoute 
 
-Lorsque vous avez terminé l’intégration d’Azure AD DS dans votre déploiement de bureau à distance, votre architecture se présente comme suit :
+Une fois que vous avez fini d’intégrer Azure AD DS à votre déploiement du Bureau à distance, votre architecture ressemble à ceci :
 
-![Un diagramme d’architecture montrant des services Bureau à distance avec Azure AD DS](media/aadds-rds.png)
+![Diagramme d’architecture illustrant les services Bureau à distance avec Azure AD DS](media/aadds-rds.png)
 
-Pour voir comment cette architecture compare avec les autres scénarios de déploiement des services Bureau à distance, consultez [architectures des Services Bureau à distance](desktop-hosting-logical-architecture.md).
+Pour comparer cette architecture à d’autres scénarios de déploiement des services Bureau à distance, consultez [Architectures des services Bureau à distance](desktop-hosting-logical-architecture.md).
 
-Pour obtenir une meilleure compréhension d’Azure AD DS, consultez le [vue d’ensemble d’Azure AD DS](/azure/active-directory-domain-services/active-directory-ds-overview) et [comment déterminer si Azure AD DS est adapté à votre cas d’usage](/azure/active-directory-domain-services/active-directory-ds-comparison).
+Pour mieux comprendre Azure AD DS, consultez [Vue d’ensemble d’Azure AD DS](/azure/active-directory-domain-services/active-directory-ds-overview) et [Guide pratique pour déterminer si Azure AD DS est adapté à votre cas d’usage](/azure/active-directory-domain-services/active-directory-ds-comparison).
 
-Utilisez les informations suivantes pour déployer Azure AD DS avec RDS.
+Utilisez les informations suivantes pour déployer Azure AD DS avec les services Bureau à distance.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
-Avant de pouvoir mettre vos identités d’Azure AD à utiliser dans un déploiement services Bureau à distance, [configurer Azure AD pour enregistrer les mots de passe hachés pour les identités des utilisateurs](/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync). Les organisations né-in-the-cloud n’avez pas besoin d’apporter des modifications supplémentaires dans son répertoire ; Toutefois, les organisations de local doivent autoriser les hachages de mot de passe être synchronisés et stockés dans Azure AD, qui ne peut pas être autorisée pour certaines organisations. Les utilisateurs devront réinitialiser leurs mots de passe après avoir apporté cette modification de configuration.
+Avant de pouvoir utiliser vos identités Azure AD dans un déploiement des services Bureau à distance, [configurez Azure AD pour enregistrer les mots de passe hachés des identités de vos utilisateurs](/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync). Les organisations nées dans le cloud n’ont pas besoin d’apporter des changements supplémentaires à leur annuaire. Toutefois, les organisations locales doivent autoriser la synchronisation et le stockage des hachages de mots de passe dans Azure AD, ce qui n’est peut-être pas autorisé par certaines d’entre elles. Les utilisateurs doivent réinitialiser leurs mots de passe après ce changement de configuration.
 
-## <a name="deploy-azure-ad-ds-and-rds"></a>Déployer des services Bureau à distance et Azure AD DS 
-Utilisez les étapes suivantes pour déployer Azure AD DS et RDS.
+## <a name="deploy-azure-ad-ds-and-rds"></a>Déployer Azure AD DS et les services Bureau à distance 
+Suivez les étapes ci-après pour déployer Azure AD DS et les services Bureau à distance.
 
-1. Activer [Azure AD DS](/azure/active-directory-domain-services/active-directory-ds-getting-started). Notez que l’article lié effectue les opérations suivantes :
-   - Explique comment créer approprié groupes Azure AD pour l’administration de domaine.
-   - Mettez en surbrillance lorsque vous devrez peut-être forcer les utilisateurs à modifier leur mot de passe pour leurs comptes puissent travailler avec Azure AD DS.
+1. Activez [Azure AD DS](/azure/active-directory-domain-services/active-directory-ds-getting-started). Notez que l’article lié fournit les informations suivantes :
+   - Il explique selon une procédure pas à pas comment créer les groupes Azure AD appropriés pour l’administration d’un domaine.
+   - Il met l’accent sur le moment où vous devez forcer les utilisateurs à changer leurs mots de passe pour que leurs comptes puissent fonctionner avec Azure AD DS.
    
-2. Configuration de RDS. Vous pouvez utiliser un modèle Azure ou déployer manuellement des services Bureau à distance.
-   - Utilisez le [Existing AD modèle](https://azure.microsoft.com/resources/templates/rds-deployment-existing-ad/). Veillez à personnaliser les éléments suivants :
+2. Configurez les services Bureau à distance. Vous pouvez utiliser un modèle Azure ou déployer manuellement les services Bureau à distance.
+   - Utilisez le [modèle Active Directory existant](https://azure.microsoft.com/resources/templates/rds-deployment-existing-ad/). Veillez à personnaliser ce qui suit :
    
      - **Paramètres**
-       - **Groupe de ressources**: Utilisez le groupe de ressources dans lequel vous souhaitez créer les ressources de services Bureau à distance.
+       - **Groupe de ressources** : utilisez le groupe de ressources dans lequel vous souhaitez créer les ressources des services Bureau à distance.
          > [!NOTE] 
-         > Actuellement, cette valeur doit être le même groupe de ressources où se trouve le réseau virtuel Azure resource manager.
+         > Pour le moment, il doit s’agir du même groupe de ressources que celui du réseau virtuel d’Azure Resource Manager.
 
-       - **Préfixe d’étiquette DNS**: Entrez l’URL que vous souhaitez que les utilisateurs à utiliser pour accéder à Web du Bureau à distance.
-       - **Nom de domaine AD**: Entrez le nom complet de votre instance Azure AD, par exemple, « contoso.onmicrosoft.com » ou « contoso.com ».
-       - **Nom du réseau virtuel AD** et **nom du sous-réseau Ad**: Entrez les mêmes valeurs que vous avez utilisé lorsque vous avez créé le réseau virtuel Azure resource manager. Il s’agit du sous-réseau auquel les ressources des services Bureau à distance se connectera.
-       - **Nom d’utilisateur administrateur** et **mot de passe administrateur**: Entrez les informations d’identification pour un utilisateur d’administrateur est un membre de la **AAD DC Administrators** groupe dans Azure AD.
+       - **Préfixe d’étiquette DNS** : Entrez l’URL dont les utilisateurs doivent se servir pour accéder au Bureau à distance par le web.
+       - **Nom de domaine Active Directory** : Entrez le nom complet de votre instance d’Azure AD, par exemple « contoso.onmicrosoft.com » ou « contoso.com ».
+       - **Nom du réseau virtuel Active Directory** et **Nom du sous-réseau Active Directory** : Entrez les mêmes valeurs que celles que vous avez utilisées durant la création du réseau virtuel d’Azure Resource Manager. Il s’agit du sous-réseau auquel les ressources des services Bureau à distance vont se connecter.
+       - **Nom d’utilisateur de l’administrateur** et **Mot de passe d’administrateur** : Entrez les informations d’identification d’un utilisateur administrateur membre du groupe **Administrateurs AAD DC** dans Azure AD.
    
-     - **modèle**
-        - Supprimer toutes les propriétés de **dnsServers**: après avoir sélectionné **modifier un modèle de** à partir de la page de modèle de démarrage rapide Azure, recherchez « dnsServers » et supprimez la propriété. 
+     - **Modèle**
+        - Supprimez toutes les propriétés **dnsServers** : après avoir sélectionné **Modifier le modèle** dans la page de modèles de démarrage rapide Azure, recherchez « dnsServers », puis supprimez la propriété. 
 
-           Par exemple, avant de supprimer le **dnsServers** propriété :
+           Par exemple, avant de supprimer la propriété **dnsServers** :
       
-           ![Modèle de démarrage rapide Azure avec une propriété dnsSettings](media/rds-remove-dnssettings-before.png)
+           ![Modèle de démarrage rapide Azure avec la propriété dnsSettings](media/rds-remove-dnssettings-before.png)
 
-           Et Voici le fichier même après la suppression de la propriété :
+           Et voici le même fichier après la suppression de la propriété :
 
-           ![Modèle de démarrage rapide Azure avec une propriété dnsSettings supprimée](media/rds-remove-dnssettings-after.png)
+           ![Modèle de démarrage rapide Azure où la propriété dnsSettings a été supprimée](media/rds-remove-dnssettings-after.png)
    
-   - [Déployer manuellement des services Bureau à distance](rds-deploy-infrastructure.md). 
+   - [Déployez les services Bureau à distance manuellement](rds-deploy-infrastructure.md). 
 

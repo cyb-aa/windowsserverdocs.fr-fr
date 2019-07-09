@@ -1,6 +1,6 @@
 ---
-title: Nouveautés pour Bureau à distance sur Windows ?
-description: En savoir plus sur les dernières modifications effectuées dans le client Bureau à distance pour Windows
+title: Nouveautés pour Bureau à distance sur Windows
+description: En savoir plus sur les dernières modifications apportées au client Bureau à distance pour Windows
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -11,45 +11,54 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 11/06/2018
+ms.date: 03/19/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 8fb66d3578156eb0d0d37edeee02cd2b4d4288c8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 18c14da5b5b16ed20005515fde46235e4cf27331
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839550"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63748831"
 ---
-# <a name="whats-new-for-the-remote-desktop-client-on-windows"></a>Nouveautés du client de bureau à distance sur Windows ?
+# <a name="whats-new-for-the-remote-desktop-client-on-windows"></a>Nouveautés pour le client Bureau à distance sur Windows
 
-Nous mettre à jour régulièrement le [client Bureau à distance pour Windows](windows.md), en ajoutant de nouvelles fonctionnalités et résolution des problèmes. Découvrez les dernières mises à jour ci-dessous.
+Nous mettons régulièrement à jour le [client Bureau à distance pour Windows](windows.md), en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Découvrez les dernières mises à jour ci-dessous.
+
+## <a name="updates-for-version-1011098"></a>Mises à jour pour la version 10.1.1098
+*Date de publication : 15/03/2019*
+
+- Vous pouvez maintenant définir un nom d’affichage pour les comptes d’utilisateur, afin de pouvoir enregistrer le même nom d’utilisateur avec différents mots de passe.
+- Il est désormais possible de sélectionner un compte d’utilisateur lors de l’ajout des ressources distantes.
+- Correction d’un problème de fin d’exécution du client.
+- Le client est désormais interrompu correctement lorsque des fenêtres secondaires s’ouvrent.
+- Corrections de bogues supplémentaires.
 
 ## <a name="updates-for-version-1011088"></a>Mises à jour pour la version 10.1.1088
-*Date de publication : 11/06/2018*
+*Date de publication : 06/11/2018*
 
-- Nom d’affichage de connexion est désormais plus détectable.
-- Correction d’un incident lors de la fermeture de la fenêtre du client lorsqu’une connexion est toujours active.
-- Résoudre un incident lors de la reconnexion une fois que le client est réduit.
-- Autoriser les postes de travail à faire glisser n’importe où dans un groupe.
-- Vérifiez le lancement d’une connexion à partir des résultats jumplist dans une fenêtre distincte, si nécessaire.
-- Correctifs de bogues supplémentaires.
+- Le nom d’affichage de connexion est désormais plus facilement détectable.
+- Correction d’un incident se présentant lors de la fermeture de la fenêtre du client alors qu’une connexion est toujours active.
+- Correction d’un blocage lors d’une reconnexion après avoir réduit la fenêtre du client.
+- Autorisation de faire glisser les bureaux à n’importe quel endroit d’un groupe.
+- Garantie du lancement d’une connexion à partir des résultats d’une liste de raccourcis dans une fenêtre distincte si nécessaire.
+- Corrections de bogues supplémentaires.
 
 ## <a name="updates-for-version-1011060"></a>Mises à jour pour la version 10.1.1060
-*Date de publication : 09/14/2018*
+*Date de publication : 14/09/2018*
 
-- Résolu un problème où en double-cliquant sur une connexion Bureau provoqué deux sessions de lancement.
-- Correction d’un incident lors du basculement entre les bureaux virtuels localement.
-- Déplacement d’une session à un autre moniteur maintenant met également à jour le facteur d’échelle de session. 
-- Gérer les clés de système supplémentaires comme AltGr.
-- Correctifs de bogues supplémentaires.
+- Traitement d’un problème où le fait de double-cliquer sur une connexion de bureau entraînait le lancement de deux sessions.
+- Correction d’un incident lors du basculement entre des bureaux virtuels en local.
+- Désormais, le déplacement d’une session vers un autre moniteur met également à jour le facteur d’échelle de session. 
+- Gestion des touches système supplémentaires telles que AltGr.
+- Corrections de bogues supplémentaires.
 
 ## <a name="updates-for-version-1011046"></a>Mises à jour pour la version 10.1.1046
-*Date de publication : 06/20/2018*
+*Date de publication : 20/06/2018*
 
-- Correctifs de bogues.
+- Corrections de bogues.
 
 ## <a name="updates-for-version-1011042"></a>Mises à jour pour la version 10.1.1042
-*Date de publication : 04/02/2018*
+*Date de publication : 02/04/2018*
 
-- Mises à jour pour traiter la mise à jour de CredSSP chiffrement oracle décrit dans CVE-2018-0886.
-- Correctifs de bogues supplémentaires.
+- Mises à jour pour traiter la correction du chiffrement de l’oracle CredSSP décrite dans CVE-2018-0886.
+- Corrections de bogues supplémentaires.

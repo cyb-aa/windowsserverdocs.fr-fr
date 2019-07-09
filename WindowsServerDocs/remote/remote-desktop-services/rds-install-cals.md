@@ -12,26 +12,26 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/20/2016
 manager: dongill
-ms.openlocfilehash: 2f283b51acc869704a52f09bebc228660cdfbc38
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6a0b5bdfc4df8e7a60181d71b0f26735e8c07506
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870570"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743527"
 ---
-# <a name="install-rds-client-access-licenses-on-the-remote-desktop-license-server"></a>Installer des licences d’accès client services Bureau à distance sur le serveur de licences bureau à distance
+# <a name="install-rds-client-access-licenses-on-the-remote-desktop-license-server"></a>Installer les licences d’accès client RDS sur le serveur de licences des services Bureau à distance
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
-Utilisez les informations suivantes pour installer des licences d’accès client des Services Bureau à distance (CAL) sur le serveur de licences. Une fois que les licences d’accès client sont installés, le serveur de licences émettra les aux utilisateurs comme il convient.
+Utilisez les informations suivantes pour installer les licences d’accès client (CAL) aux services Bureau à distance sur le serveur de licences. Une fois les licences d’accès client installées, le serveur de licences les émettra aux utilisateurs comme il convient.
 
-Notez que vous avez besoin d’une connectivité Internet sur l’ordinateur exécutant le Gestionnaire de licences bureau à distance, mais ne pas sur l’ordinateur exécutant le serveur de licences.
+Notez que vous avez besoin d’une connectivité internet sur l’ordinateur exécutant le gestionnaire de licences Bureau à distance, mais pas sur l’ordinateur exécutant le serveur de licences.
 
-1. Sur le serveur de licences (généralement la première RD Connection Broker), ouvrez le Gestionnaire de licences bureau à distance.
-2. Cliquez sur le serveur de licences, puis cliquez sur **installer des licences**.
-3. Cliquez sur **suivant** sur la page d’accueil.
-4. Sélectionnez le programme que vous avez acheté vos CAL de services Bureau à distance à partir de, puis cliquez sur **suivant**. Si vous êtes un fournisseur de services, sélectionnez **contrat de licence de fournisseur de services**.
-5. Entrez les informations de votre programme de licence. Dans la plupart des cas, il s’agit du code de licence ou un numéro de contrat, mais cela varie en fonction du programme de licences que vous utilisez.
+1. Sur le serveur de licences (généralement le premier serveur Service Broker pour les connexions Bureau à distance), ouvrez le gestionnaire de licences Bureau à distance.
+2. Cliquez avec le bouton droit sur le serveur de licences, puis cliquez sur **Installer les licences**.
+3. Dans la page de bienvenue, cliquez sur **Suivant**.
+4. Sélectionnez le programme à partir duquel vous avez acheté vos licences d’accès client RDS, puis cliquez sur **Suivant**. Si vous êtes un fournisseur de services, sélectionnez **Contrat de licence de fournisseur de services**.
+5. Saisissez les informations de votre programme de licence. Dans la plupart des cas, il s’agit du code de licence ou d’un numéro de contrat, mais cela varie en fonction du programme de licences que vous utilisez.
 6. Cliquez sur **Suivant**.
-7. Sélectionnez la version du produit, le type de licence et le nombre de licences pour votre environnement, puis cliquez sur **suivant**. Le Gestionnaire de licences contacte Microsoft Clearinghouse pour valider et récupérer vos licences.
+7. Sélectionnez la version du produit, le type de licence et le nombre de licences pour votre environnement, puis cliquez sur **Suivant**. Le gestionnaire de licences contacte le serveur Microsoft Clearinghouse pour valider et récupérer vos licences.
 8.  Cliquez sur **Terminer** pour terminer le processus.

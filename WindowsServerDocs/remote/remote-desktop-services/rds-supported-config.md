@@ -1,6 +1,6 @@
 ---
-title: Configurations prises en charge pour les Services Bureau à distance
-description: Fournit des informations sur les configurations prises en charge pour les services Bureau à distance dans Windows Server 2016.
+title: Configurations prises en charge pour les services Bureau à distance
+description: Fournit des informations sur les configurations prises en charge pour les services Bureau à distance dans Windows Server 2016.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,95 +14,95 @@ ms.assetid: c925c7eb-6880-411f-8e59-bd0f57cc5fc3
 author: lizap
 manager: dongill
 ms.openlocfilehash: 8571c2220f804a27e4e1a6b744e8e15e38bd53a3
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66453086"
 ---
-# <a name="supported-configurations-for-remote-desktop-services-in-windows-server-2016"></a>Configurations prises en charge pour les Services Bureau à distance dans Windows Server 2016
+# <a name="supported-configurations-for-remote-desktop-services-in-windows-server-2016"></a>Configurations prises en charge pour les services Bureau à distance dans Windows Server 2016
 
-> S'applique à : Windows Server 2016
+> S'applique à : Windows Server 2016
 
-Lorsqu’il s’agit des configurations prises en charge pour les environnements de Services Bureau à distance, la plus grande préoccupation a tendance à être l’interopérabilité de version. La plupart des environnements incluent plusieurs versions de Windows Server : par exemple, vous avez peut-être un déploiement services Bureau à distance de Windows Server 2012 R2 existant mais souhaitez mettre à niveau vers Windows Server 2016 pour tirer parti des nouvelles fonctionnalités (telles que la prise en charge de OpenGL\OpenCL, discrète Affectation d’appareils, ou les espaces de stockage Direct). Puis la question devient, les composants des services Bureau à distance peuvent travailler avec différentes versions et qui doivent être les mêmes ?
+En ce qui concerne les configurations prises en charge pour les environnements des services Bureau à distance, l’interopérabilité des versions est le principal sujet de préoccupation. La plupart des environnements incluent plusieurs versions de Windows Server. Par exemple, vous disposez d’un déploiement des services Bureau à distance de Windows Server 2012 R2, mais vous souhaitez effectuer une mise à niveau vers Windows Server 2016 pour bénéficier des nouvelles fonctionnalités (par exemple la prise en charge d’OpenGL\OpenCL, l’affectation d’appareils en mode discret ou les espaces de stockage direct). La question devient celle-ci : quels sont les composants des services Bureau à distance qui peuvent fonctionner avec différentes versions et lesquels doivent être identiques ?
 
-Par conséquent, dans cette optique, vous trouverez ici les instructions de base pour les configurations prises en charge des Services Bureau à distance dans Windows Server 2016.
+Dans cette optique, voici les instructions de base relatives aux configurations prises en charge par les services Bureau à distance dans Windows Server 2016.
 
 > [!NOTE]
-> Passez en revue la [configuration système requise pour Windows Server 2016](../../get-started/system-requirements.md).
+> Veillez à consulter la [configuration requise pour Windows Server 2016](../../get-started/system-requirements.md).
 
 ## <a name="best-practices"></a>Meilleures pratiques
-- Utilisez Windows Server 2016 pour votre infrastructure de bureau à distance - l’accès Web, passerelle, service Broker pour les connexions et serveur de licences. Windows Server 2016 présente une compatibilité descendante pour ces composants : un hôte de Session Bureau à distance de 2012 R2 peut se connecter à un agent de connexion Bureau à distance 2016, mais l’inverse n’est pas vrai.
+- Utilisez Windows Server 2016 pour votre infrastructure de Bureau à distance : serveur d’accès web, serveur de passerelle, serveur du service Broker pour les connexions et serveur de licences. Windows Server 2016 présente une compatibilité descendante pour ces composants. Ainsi, un hôte de session Bureau à distance 2012 R2 peut se connecter à un service Broker pour les connexions Bureau à distance 2016, alors que l’inverse n’est pas vrai.
 
-- Pour les hôtes de Session Bureau à distance - tous les hôtes de Session dans une collection doivent être au même niveau, mais vous pouvez avoir plusieurs collections. Vous pouvez avoir une collection avec les hôtes de Session de Windows Server 2012 R2 et l’autre avec les hôtes de Session de Windows Server 2016.
+- Pour les hôtes de session Bureau à distance, tous les hôtes de session d’une collection doivent être au même niveau. Toutefois, vous pouvez avoir plusieurs collections. Vous pouvez avoir une collection avec des hôtes de session Windows Server 2012 R2 et une collection avec des hôtes de session Windows Server 2016.
 
-- Si vous mettez à niveau votre hôte de Session Bureau à distance vers Windows Server 2016, également mettre à niveau le serveur de licences. N’oubliez pas qu’un serveur de licences de 2016 peut traiter les licences d’accès client à partir de toutes les versions précédentes de Windows Server, jusqu'à Windows Server 2003.
+- Si vous mettez à niveau votre hôte de session Bureau à distance vers Windows Server 2016, mettez également à niveau le serveur de licences. N’oubliez pas qu’un serveur de licences 2016 peut traiter les licences d’accès client de toutes les versions précédentes de Windows Server, jusqu’à Windows Server 2003.
 
-- Suivez l’ordre de mise à niveau recommandée dans [mise à niveau votre environnement de Services Bureau à distance](upgrade-to-rds.md#flow-for-deployment-upgrades). 
+- Suivez l’ordre de mise à niveau recommandé dans [Mise à niveau de votre environnement des services Bureau à distance](upgrade-to-rds.md#flow-for-deployment-upgrades). 
 
-- Si vous créez un environnement hautement disponible, tous les agents de votre connexion doivent être au même niveau de système d’exploitation.
+- Si vous créez un environnement hautement disponible, tous vos serveurs du service Broker pour les connexions doivent être au même niveau d’OS (système d’exploitation).
 
-## <a name="rd-connection-brokers"></a>Agents de connexion Bureau à distance
+## <a name="rd-connection-brokers"></a>Serveurs du service Broker pour les connexions Bureau à distance
 
-Windows Server 2016 supprime la restriction pour le nombre d’agents de connexion que vous pouvez avoir dans un déploiement lorsque vous utilisez des hôtes de Session de bureau à distance (RDSH) et à distance les hôtes de virtualisation Bureau (RDVH) qui exécutent également Windows Server 2016. Le tableau suivant montre quelles versions de travail de composants de services Bureau à distance avec les versions R2 2016 et 2012 du service Broker de connexion dans un déploiement à haute disponibilité avec trois ou plusieurs agents de connexion.
+Windows Server 2016 supprime la restriction relative au nombre de serveurs du service Broker pour les connexions disponibles dans un déploiement quand vous utilisez des hôtes de session Bureau à distance et des serveurs hôtes de virtualisation des services Bureau à distance qui exécutent également Windows Server 2016. Le tableau suivant indique les versions des composants des services Bureau à distance compatibles avec les versions 2016 et 2012 R2 du service Broker pour les connexions dans un déploiement hautement disponible avec au moins trois serveurs du service Broker pour les connexions.
 
-| 3 + agents de connexion dans la haute disponibilité              | RDSH 2016 | RDVH 2016 | RDSH 2012 R2  | RDVH 2012 R2  |
+| Plus de 3 serveurs du service Broker pour les connexions en haute disponibilité              | Hôte de session Bureau à distance 2016 | Serveur hôte de virtualisation des services Bureau à distance 2016 | Hôte de session Bureau à distance 2012 R2  | Serveur hôte de virtualisation des services Bureau à distance 2012 R2  |
 |------------------------------------------|-----------|-----------|---------------|---------------|
-| Service Broker de connexion Windows Server 2016    | Prise en charge | Prise en charge | Prise en charge     | Prise en charge     |
-| Agent de connexion de Windows Server 2012 R2 | N/A       | N/A       | Prise en charge     | Prise en charge     |
+| Service Broker pour les connexions Windows Server 2016    | Prise en charge | Prise en charge | Prise en charge     | Prise en charge     |
+| Service Broker pour les connexions Windows Server 2012 R2 | N/A       | N/A       | Prise en charge     | Prise en charge     |
 
-## <a name="support-for-gpu-acceleration-with-hyper-v"></a>Prise en charge pour l’accélération GPU avec Hyper-V
-Le tableau suivant décrit en détail la prise en charge pour l’accélération GPU sur des machines virtuelles. Consultez [quelle technologie de virtualisation de graphiques vous convient ?](rds-graphics-virtualization.md) pour essayer de comprendre ce dont vous avez besoin de l’aide. Pour obtenir des informations spécifiques sur DDA, consultez [planifier le déploiement d’attribution discrète d’appareil](../../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md).
+## <a name="support-for-gpu-acceleration-with-hyper-v"></a>Prise en charge de l’accélération GPU avec Hyper-V
+Le tableau suivant détaille la prise en charge de l’accélération GPU sur les machines virtuelles. Consultez l’article [Quelle technologie de virtualisation graphique vous convient ?](rds-graphics-virtualization.md) pour déterminer ce dont vous avez besoin. Pour plus d’informations sur l’affectation d’appareils en mode discret, consultez [Planification du déploiement de l’affectation d’appareils en mode discret](../../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md).
 
-|Système d’exploitation invité de machine virtuelle  |Windows Server 2012 R2 ou Windows Server 2016<br> Hyper-V RemoteFX vGPU (Gen 1 machine virtuelle) |  Windows Server 2016 Hyper-V RemoteFX vGPU (Gen 2 VM) |  Attribution de discrète d’appareils Windows Server 2016 Hyper-V (machine virtuelle 2 de la génération) |
+|OS invité de machine virtuelle  |Windows Server 2012 R2 ou Windows Server 2016<br> Hyper-V avec RemoteFX vGPU (machine virtuelle de génération 1) |  Windows Server 2016 Hyper-V avec RemoteFX vGPU (machine virtuelle de génération 2) |  Windows Server 2016 Hyper-V avec affectation d’appareils en mode discret (machine virtuelle de génération 2) |
 |-----------------------------|------------------------------------------------------------|--------------------------------------------------------|---------------------------------------------------------------------|
 | Windows 7 SP1               | Oui                                                        | Non                                                     | Non                                                                  |
 | Windows 8.1                 | Oui                                                        | Non                                                     | Non                                                                  |
-| Mise à jour de Windows 10 1511      | Oui                                                        | Oui                                                    | Oui                                                                 |
-| Windows Server 2012 R2      | Oui                                                        | Non                                                     | Oui (exige la base de connaissances 3133690)                                           |
-| Windows Server 2016         | Oui                                                        | Oui                                                    | Oui                                                                 |
-| Windows Server 2012 R2 RDSH | Non                                                         | Non                                                     | Oui (exige la base de connaissances 3133690)                                           |
-| Windows Server 2016 RDSH    | Non                                                         | Non                                                     | Oui                                                                 |
-## <a name="vdi-deployment--supported-guest-oss"></a>Déploiement VDI – des systèmes d’exploitation invités pris en charge 
-Serveurs hôtes de virtualisation des services Bureau à distance Windows Server 2016 prennent en charge les systèmes d’exploitation invités suivants :
+| Windows 10, mise à jour 1511      | Oui                                                        | Oui                                                    | Oui                                                                 |
+| Windows Server 2012 R2      | Oui                                                        | Non                                                     | Oui (nécessite la mise à jour KB 3133690)                                           |
+| Windows Server 2016         | Oui                                                        | Oui                                                    | Oui                                                                 |
+| Hôte de session Bureau à distance Windows Server 2012 R2 | Non                                                         | Non                                                     | Oui (nécessite la mise à jour KB 3133690)                                           |
+| Hôte de session Bureau à distance Windows Server 2016    | Non                                                         | Non                                                     | Oui                                                                 |
+## <a name="vdi-deployment--supported-guest-oss"></a>Déploiement VDI - OS invités pris en charge 
+Les serveurs hôtes de virtualisation des services Bureau à distance de Windows Server 2016 prennent en charge les OS (systèmes d’exploitation) invités suivants :
 
 - Windows 10 Entreprise
 - Windows 8.1 Entreprise 
 - Windows 8 Entreprise 
-- Windows 7 SP1 Enterprise 
+- Windows 7 SP1 Entreprise 
 
-Le tableau ci-dessous répertorie les systèmes d’exploitation hôtes de virtualisation des services Bureau à distance et les combinaisons de système d’exploitation invité :
+Le tableau ci-dessous liste les combinaisons prises en charge pour les systèmes d’exploitation hôtes de virtualisation des services Bureau à distance et les systèmes d’exploitation invités :
 
-| Version du système d’exploitation RDVH        | Version du système d’exploitation invité           |
+| Version de l’OS du serveur hôte de virtualisation des services Bureau à distance        | Version de l’OS invité           |
 | ------------- |-------------|
-| Windows Server 2016      | Windows 7 SP1, Windows 8, Windows 8.1, Windows 10 |
-| Windows Server 2012 R2   | Windows 7 SP1, Windows 8, Windows 8.1, Windows 10 |
-| Windows Server 2012      | Windows 7 SP1, Windows 8, Windows 8.1 |
+| Windows Server 2016      | Windows 7 SP1, Windows 8, Windows 8.1, Windows 10 |
+| Windows Server 2012 R2   | Windows 7 SP1, Windows 8, Windows 8.1, Windows 10 |
+| Windows Server 2012      | Windows 7 SP1, Windows 8, Windows 8.1 |
 
 > [!NOTE]  
-> - Services Bureau à distance de Windows Server 2016 ne prend pas en charge des collections hétérogènes. Toutes les machines virtuelles dans une collection doivent être la même version du système d’exploitation. 
-> - Vous pouvez avoir des collections distinctes homogènes avec les versions de système d’exploitation invités différents sur le même hôte. 
-> - Modèles d’ordinateur virtuel doivent être créés sur un ordinateur hôte Windows Server 2016 Hyper-V utilisé comme système d’exploitation invité sur un ordinateur hôte Windows Server 2016 Hyper-V.
+> - Les services Bureau à distance de Windows Server 2016 ne prennent pas en charge les collections hétérogènes. Toutes les machines virtuelles d’une collection doivent avoir la même version d’OS. 
+> - Vous pouvez avoir des collections homogènes distinctes avec différentes versions d’OS invité sur le même hôte. 
+> - Vous devez créer les modèles de machine virtuelle sur un hôte Windows Server 2016 Hyper-V pour pouvoir les utiliser en tant qu’OS invités sur un hôte Windows Server 2016 Hyper-V.
 
-## <a name="single-sign-on-sso"></a>Single Sign-On (SSO)
-Services Bureau à distance de Windows Server 2016 prend en charge deux expériences de l’authentification unique principales :
+## <a name="single-sign-on-sso"></a>SSO (authentification unique)
+Les services Bureau à distance de Windows Server 2016 prennent en charge deux expériences SSO principales :
 
- - Dans l’application (application de bureau à distance sur Windows, iOS, Android et Mac)
+ - Dans l’application (application Bureau à distance sur Windows, iOS, Android et Mac)
  - SSO de web
  
-À l’aide de l’application de bureau à distance, vous pouvez stocker des informations d’identification dans le cadre des informations de connexion ([Mac](clients/remote-desktop-mac.md)) ou dans le cadre des comptes gérés ([iOS](clients/remote-desktop-ios.md#manage-your-user-accounts), [Android](clients/remote-desktop-android.md#manage-your-user-accounts), Windows) en toute sécurité par le biais de mécanismes propres à chaque système d’exploitation.
+À l’aide de l’application Bureau à distance, vous pouvez stocker les informations d’identification dans le cadre des informations de connexion ([Mac](clients/remote-desktop-mac.md)) ou dans le cadre des comptes managés ([iOS](clients/remote-desktop-ios.md#manage-your-user-accounts), [Android](clients/remote-desktop-android.md#manage-your-user-accounts), Windows) de manière sécurisée grâce aux mécanismes propres à chaque OS.
 
-Pour vous connecter à des bureaux et RemoteApps avec l’authentification unique via le client Connexion Bureau à distance de boîte de réception sur Windows, vous devez vous connecter à la page Web du Bureau à distance via Internet Explorer. Les options de configuration suivantes sont requises sur le côté serveur. Aucune autre configuration n’est pris en charge pour l’authentification unique Web :
+Pour vous connecter à des bureaux et des programmes RemoteApp à l’aide de SSO via le client Connexion Bureau à distance intégré à Windows, vous devez vous connecter à la page web du Bureau à distance via Internet Explorer. Les options de configuration suivantes sont nécessaires côté serveur. Aucune autre configuration n’est prise en charge pour le SSO web :
 
- - Web Bureau à distance est définie sur l’authentification par formulaire (par défaut)
- - Passerelle Bureau à distance à l’authentification de mot de passe (par défaut)
- - Déploiement des services Bureau à distance est définie sur « Informations d’identification de passerelle Bureau à distance de l’utilisation pour les ordinateurs distants » (par défaut) dans les propriétés de passerelle Bureau à distance
+ - Connexion Bureau à distance par le web avec l’option d’authentification basée sur les formulaires (par défaut)
+ - Passerelle des services Bureau à distance avec l’option d’authentification par mot de passe (par défaut)
+ - Déploiement des services Bureau à distance avec l’option « Utiliser les informations d’identification de la passerelle des services Bureau à distance pour les ordinateurs distants » (par défaut) dans les propriétés de la passerelle des services Bureau à distance
 
 > [!NOTE]
-> Les options de configuration requise, en raison d’une SSO de Web n’est pas pris en charge avec les cartes à puce. Utilisateurs qui se connecte via les cartes à puce pouvez rencontrer plusieurs invites de connexion.
+> En raison des options de configuration nécessaires, le SSO web n’est pas pris en charge avec les cartes à puce. Les utilisateurs qui se connectent via des cartes à puce risquent d’être confrontés à plusieurs invites de connexion.
 
-Pour plus d’informations sur la création de déploiement VDI des Services Bureau à distance, consultez [les configurations de sécurité pris en charge Windows 10 pour l’infrastructure VDI des Services Bureau à distance](rds-vdi-supported-config.md).
+Pour plus d’informations sur la création d’un déploiement VDI des services Bureau à distance, consultez [Configurations de sécurité Windows 10 prises en charge pour l’infrastructure VDI des services Bureau à distance](rds-vdi-supported-config.md).
 
-## <a name="using-remote-desktop-services-with-application-proxy-services"></a>À l’aide des Services Bureau à distance avec les services de proxy d’application
+## <a name="using-remote-desktop-services-with-application-proxy-services"></a>Utilisation des services Bureau à distance avec les services proxy d’application
 
-Vous pouvez utiliser des Services Bureau à distance, à l’exception du client web, avec [Proxy d’Application Azure AD](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-remote-desktop). Services Bureau à distance ne prend pas en charge à l’aide de [Proxy d’Application Web](https://docs.microsoft.com/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-windows-server), qui est inclus dans Windows Server 2016 et versions antérieures.
+Vous pouvez utiliser les services Bureau à distance, à l’exception du client web, avec le [proxy d’application Azure AD](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-remote-desktop). Les services Bureau à distance ne prennent pas en charge l’utilisation du [proxy d’application web](https://docs.microsoft.com/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-windows-server), inclus dans Windows Server 2016 et les versions antérieures.

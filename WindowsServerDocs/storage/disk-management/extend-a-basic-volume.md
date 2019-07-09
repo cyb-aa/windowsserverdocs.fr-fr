@@ -9,15 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 4cad773746ae64a2244178be83e4d59c7c44b6a7
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66812437"
 ---
 # <a name="extend-a-basic-volume"></a>Étendre un volume de base
 
-> **S’applique à :** Windows 10, Windows 8.1, Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> **S’applique à :** Windows 10, Windows 8.1, Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vous pouvez ajouter davantage d’espace à des partitions principales et des lecteurs logiques existants en les étendant dans un espace non alloué adjacent sur le même disque. Pour étendre un volume de base, celui-ci doit être brut (non formaté avec un système de fichiers) ou formaté avec le système de fichiers NTFS. Vous pouvez étendre un lecteur logique dans un espace libre contigu dans la partition étendue qui le contient. Si vous étendez un lecteur logique au-delà de l’espace libre disponible dans la partition étendue, la partition étendue s’agrandit pour contenir le lecteur logique.
 
@@ -43,10 +43,10 @@ Pour les lecteurs logiques et les volumes système ou de démarrage, vous pouvez
 
 4. À l’invite **DISKPART**, tapez `extend [size=<size>]`. Cette commande étend le volume sélectionné de *taille* en mégaoctets (Mo).
 
-| Value | Description |
+| Valeur | Description |
 | --- | --- |
-| **volume de la liste** | Affiche une liste des volumes de base et dynamiques sur tous les disques. |
-| **Sélectionnez le volume** | Sélectionne le volume spécifié, où <em>numéro_de_volume</em> est le numéro du volume et place le focus sur celui-ci. Si aucun volume n’est spécifié, la commande **select** répertorie le volume actuel avec le focus. Vous pouvez spécifier le volume par numéro, lettre de lecteur ou chemin d’accès de dossier de point de montage. Sur un disque de base, la sélection d’un volume positionne également le focus sur la partition correspondante. |
+| **list volume** | Affiche une liste des volumes de base et dynamiques sur tous les disques. |
+| **select volume** | Sélectionne le volume spécifié, où <em>numéro_de_volume</em> est le numéro du volume et place le focus sur celui-ci. Si aucun volume n’est spécifié, la commande **select** répertorie le volume actuel avec le focus. Vous pouvez spécifier le volume par numéro, lettre de lecteur ou chemin d’accès de dossier de point de montage. Sur un disque de base, la sélection d’un volume positionne également le focus sur la partition correspondante. |
 | **extend** | <ul><li>Étend le volume sur lequel se trouve le focus dans l’espace non alloué contigu suivant. Pour les volumes de base, l’espace non alloué doit se trouver sur le même disque que la partition avec le focus et doit également suivre (être de décalage de secteur supérieur à) celle-ci. Un volume simple ou fractionné dynamique peut être étendu dans n’importe quel espace vide sur n’importe quel disque dynamique. À l’aide de cette commande, vous pouvez étendre un volume existant dans l’espace qui vient d’être créé.</li ><li>Si la partition a déjà été formatée avec le système de fichiers NTFS, le système de fichiers est automatiquement étendu de manière à occuper la plus grande partition. Cela n’entraîne aucune perte de données. Si la partition a déjà été formatée avec un format de système de fichiers autre que NTFS, la commande échoue et la partition n’est pas modifiée.</li></ul> |
 | **size=** <em>size</em> | La quantité d’espace, en mégaoctets (Mo), à ajouter à la partition actuelle. Si vous ne spécifiez pas de taille, le disque est étendu de manière à occuper tout l’espace non alloué contigu. |
 
@@ -56,4 +56,4 @@ Pour les lecteurs logiques et les volumes système ou de démarrage, vous pouvez
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Notation de syntaxe de ligne de commande](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)
+-   [Notation de la syntaxe de la ligne de commande](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)
