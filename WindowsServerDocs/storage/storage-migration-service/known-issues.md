@@ -4,16 +4,16 @@ description: Problèmes connus et dépannage prise en charge du Service de Migra
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 05/14/2019
+ms.date: 07/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: e1cfd2b0ea3bc4d7802cb4a6d2a8c1493d5511a1
-ms.sourcegitcommit: 0099873d69bd23495d275d7bcb464594de09ee3c
+ms.openlocfilehash: 08156a09491d66016b5fcfe6056ed318d682b987
+ms.sourcegitcommit: 514d659c3bcbdd60d1e66d3964ede87b85d79ca9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65699698"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67735158"
 ---
 # <a name="storage-migration-service-known-issues"></a>Service de Migration de stockage problèmes connus
 
@@ -127,7 +127,7 @@ Si vous n’avez pas installé le service de Proxy de Service de Migration de st
 Lors de l’inventaire ou de transfert de fichiers à partir de la source vers les ordinateurs de destination, les fichiers à partir de laquelle un utilisateur a supprimé les autorisations du groupe administrateurs ne pas migrer. Examen du débogage de Proxy du Service de stockage Migration montre :
 
   Nom du journal :      Source de Microsoft-Windows-StorageMigrationService-Proxy/Debug :        Date de Microsoft-Windows-StorageMigrationService-Proxy :          26/2/2019 ID d’événement 9 h 00:04 :      Catégorie de tâche 10000 : Aucun niveau :         Erreur mots-clés :      
-  Utilisateur :          Ordinateur de SERVICE de réseau : Description de le srv1.contoso.com :
+  Utilisateur :          Ordinateur de SERVICE de réseau : Description de le srv1.contoso.com :
 
   Erreur de transfert 02/26/2019-09:00:04.860 [erreur] pour \\srv1.contoso.com\public\indy.png : (5) l’accès est refusé.
 Trace de la pile : Au Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.OpenFile (String fileName, DesiredAccess desiredAccess, ShareMode shareMode, CreationDisposition creationDisposition, FlagsAndAttributes flagsAndAttributes) à Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetTargetFile (chemin d’accès de la chaîne) à Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetTargetFile (fichier FileInfo) à Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.InitializeSourceFileInfo() à Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.Transfer() à Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.TryTransfer() [d:\os\src\base\dms\proxy\transfer\transferproxy\FileTransfer.cs::TryTransfer::55]
@@ -173,12 +173,39 @@ Cette erreur est attendue si vous n’avez pas activé la règle de pare-feu «�
 
 ## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transfering-from-windows-server-2008-r2"></a>Erreur » n’a pas pu transférer le stockage sur des points de terminaison » lorsque lors du transfert à partir de Windows Server 2008 R2
 
-Lorsque vous tentez de transférer des données à partir d’un ordinateur source de Windows Server 2008 R2, aucune trasnfers de données et que vous l’erreur :  
+Lorsque vous tentez de transférer des données à partir d’un ordinateur source de Windows Server 2008 R2, aucun transfert de données et vous l’erreur :  
 
   N’a pas pu transférer le stockage sur des points de terminaison.
 0x9044
 
 Cette erreur est attendue si votre ordinateur Windows Server 2008 R2 n’est pas entièrement corrigé avec toutes les critiques et importantes mises à jour Windows Update. Quel que soit le Service de Migration de stockage, nous recommandons toujours mise à jour corrective d’un ordinateur Windows Server 2008 R2 pour des raisons de sécurité, car ce système d’exploitation ne contient pas les améliorations de sécurité des versions plus récentes de Windows Server.
+
+## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-and-check-if-the-source-device-is-online---we-couldnt-access-it"></a>Erreur » n’a pas pu transférer le stockage sur des points de terminaison » et « Vérifier si l’appareil source est en ligne - nous n’avons pas pu y accéder. »
+
+Lorsque vous tentez de transférer des données à partir d’un ordinateur source, certains ou tous les partages ne sont pas transférés, avec un résumé des erreurs :
+
+   N’a pas pu transférer le stockage sur des points de terminaison.
+0x9044
+
+Examiner les détails de transfert SMB affiche Erreur :
+
+   Vérifiez que si l’appareil source est en ligne - nous n’avons pas pu y accéder.
+
+Examiner le journal des événements StorageMigrationService/Admin montre :
+
+   Impossible de transférer le stockage.
+
+   Tâche : ID de Job1 :  
+   État : Erreur : Message d’erreur 36931 : 
+
+   Instructions : Examinez l’erreur détaillée et assurez-vous que le transfert sont satisfaites. La tâche de transfert n’a pas pu transférer tous les ordinateurs source et de destination. Il peut s’agir, car l’ordinateur orchestrator n’a pas pu atteindre tous les ordinateurs source ou destination, probablement en raison d’une règle de pare-feu, ou les autorisations manquantes.
+
+Examiner le journal StorageMigrationService-Proxy/Debug affiche :
+
+   Échec de la validation de transfert 07/02/2019-13:35:57.231 [erreur]. Code d’erreur : 40961, point de terminaison source n’est pas accessible ou n’existe pas, ou informations d’identification de la source ne sont pas valides ou utilisateur authentifié ne dispose pas des autorisations suffisantes pour y accéder.
+à Microsoft.StorageMigration.Proxy.Service.Transfer.TransferOperation.Validate() à Microsoft.StorageMigration.Proxy.Service.Transfer.TransferRequestHandler.ProcessRequest (FileTransferRequest fileTransferRequest, Guid operationId)    [d:\os\src\base\dms\proxy\transfer\transferproxy\TransferRequestHandler.cs ::
+
+Cette erreur est attendue si votre compte de migration n’a pas au moins des autorisations d’accès en lecture aux partages SMB. Pour contourner cette erreur, ajoutez un groupe de sécurité qui contient le compte de source de migration pour les partages SMB sur l’ordinateur source et lui accorder en lecture, modification ou contrôle total. Une fois la migration terminée, vous pouvez supprimer ce groupe. Une version ultérieure de Windows Server peut modifier ce comportement pour n’ont plus besoin des autorisations explicites pour les partages sources.
 
 ## <a name="see-also"></a>Voir aussi
 

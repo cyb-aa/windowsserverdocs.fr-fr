@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 9cc40920d366c973ace06a0b6d438a1c2d84b03e
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 03792d7ae5fec3c209cf1abfaa7af3fdfdb75f08
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190510"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792273"
 ---
 # <a name="where-to-place-a-federation-server-proxy"></a>Où installer un serveur proxy de fédération
 
@@ -34,7 +34,7 @@ En outre, Internet\-accessible sur le serveur pare-feu, comme un ordinateur exé
   
 Les règles de publication de serveur déterminent le fonctionnement de la publication de serveur, qui consiste essentiellement dans le filtrage de toutes les demandes entrantes et sortantes via l’ordinateur ISA Server. Les règles de publication serveur mettent en correspondance les demandes clients avec les serveurs appropriés derrière l’ordinateur ISA Server. Pour plus d’informations sur la configuration d’ISA Server pour publier un serveur, consultez [créer une règle de publication Web sécurisée](https://go.microsoft.com/fwlink/?LinkId=75182).  
   
-Dans le monde fédéré des services AD FS, les demandes client sont envoyées à une URL spécifique, par exemple, une identificateur URL du serveur de fédération telles que http://fs.fabrikam.com. Étant donné que les demandes client proviennent d’à partir d’Internet, Internet\-accessible sur le serveur pare-feu doit être configuré pour publier l’identificateur URL du serveur de fédération pour chaque serveur proxy de fédération qui est déployé dans le réseau de périmètre.  
+Dans le monde fédéré des services AD FS, les demandes client sont envoyées à une URL spécifique, par exemple, une identificateur URL du serveur de fédération tels que http :\//fs.fabrikam.com. Étant donné que les demandes client proviennent d’à partir d’Internet, Internet\-accessible sur le serveur pare-feu doit être configuré pour publier l’identificateur URL du serveur de fédération pour chaque serveur proxy de fédération qui est déployé dans le réseau de périmètre.  
   
 ### <a name="configuring-isa-server-to-allow-ssl"></a>Configuration d’ISA Server pour autoriser SSL  
 Pour faciliter des communications sécurisées AD FS, vous devez configurer ISA Server pour autoriser le protocole SSL \(SSL\) communications entre les éléments suivants :  

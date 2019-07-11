@@ -8,16 +8,16 @@ ms.author: harowl
 ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 96d09b25ddb2f473fb4fe22c0cf716bfcf8becaa
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: ef87a3bcc5bd0b924a938f055307a0a87cb60d0b
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811928"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792320"
 ---
 # <a name="configure-user-access-control-and-permissions"></a>Configurer les autorisations et contrôle d’accès utilisateur
 
-> S’applique à : Windows Admin Center, version préliminaire de Windows Admin Center
+> S’applique à : Windows Admin Center, Windows Admin Center Preview
 
 Si vous n’avez pas déjà, vous familiariser avec la [options de contrôle d’accès utilisateur dans Windows Admin Center](../plan/user-access-options.md)
 
@@ -105,13 +105,13 @@ Un des avantages de l’utilisation d’Azure AD comme une couche supplémentair
 
 [En savoir plus sur la configuration de l’accès conditionnel à Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal-get-started)
 
-## <a name="configure-single-sign-on"></a>Configurer l'authentification unique
+## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
 
 **L’authentification unique lors du déploiement en tant que Service sur Windows Server**
 
 Lorsque vous installez Windows Admin Center sur Windows 10, il est prêt à utiliser l’authentification unique. Toutefois, si vous prévoyez d’utiliser Windows Admin Center sur Windows Server, vous devez configurer une forme de délégation Kerberos contrainte dans votre environnement avant de pouvoir utiliser l’authentification unique. La délégation configure l’ordinateur de passerelle comme approuvés pour déléguer au nœud cible. 
 
-Pour configurer [délégation contrainte basée sur les ressources](http://windowsitpro.com/security/how-windows-server-2012-eases-pain-kerberos-constrained-delegation-part-1) dans votre environnement, exécutez les applets de commande PowerShell suivante. (En être conscient que cela nécessite un contrôleur de domaine exécutant Windows Server 2012 ou version ultérieure).
+Pour configurer [délégation contrainte basée sur les ressources](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-constrained-delegation-overview) dans votre environnement, exécutez les applets de commande PowerShell suivante. (En être conscient que cela nécessite un contrôleur de domaine exécutant Windows Server 2012 ou version ultérieure).
 
 ```powershell
      $gateway = "WindowsAdminCenterGW" # Machine where Windows Admin Center is installed
@@ -129,7 +129,7 @@ Pour supprimer cette relation, exécutez l’applet de commande suivante :
 Set-ADComputer -Identity $nodeObject -PrincipalsAllowedToDelegateToAccount $null
 ```
 
-## <a name="role-based-access-control"></a>Contrôle d'accès basé sur les rôles
+## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 
 Contrôle d’accès en fonction du rôle vous permet de fournir aux utilisateurs un accès limité à l’ordinateur au lieu de faire les administrateurs locales complet.
 [En savoir plus sur le contrôle d’accès en fonction du rôle et les rôles disponibles.](../plan/user-access-options.md#role-based-access-control)

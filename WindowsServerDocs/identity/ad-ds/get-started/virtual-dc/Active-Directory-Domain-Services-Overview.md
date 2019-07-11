@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 069cdb493cd0ad442e8922ec67c2b9cc6b2ec5fc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ed8a22881cd20633e6fcd61b146f3b0aad7a757b
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858170"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792282"
 ---
 # <a name="active-directory-domain-services-overview"></a>Vue d’ensemble des services de domaine Active Directory
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
 Un répertoire est une structure hiérarchique qui stocke des informations sur les objets sur le réseau. Un service d’annuaire, telles que les Services de domaine Active Directory (AD DS), fournit les méthodes pour le stockage des données d’annuaire et rendre ces données disponibles pour les administrateurs et les utilisateurs du réseau. Par exemple, les services AD DS stocke des informations sur les comptes d’utilisateur, telles que les noms, les mots de passe, les numéros de téléphone et ainsi de suite et permet aux autres utilisateurs autorisés sur le même réseau accéder à ces informations.
@@ -46,11 +46,11 @@ Active Directory comprend également :
  
 * [Structure Active Directory et les Technologies de stockage](https://technet.microsoft.com/library/cc759186(v=ws.10).aspx)
 * [Rôles de contrôleur de domaines](https://technet.microsoft.com/library/cc786438(v=ws.10).aspx) 
-* Schéma Active Directory 
-* [Présentation des approbations](https://technet.microsoft.com/library/cc771294(v=ws.10).aspx) 
+* [Schéma Active Directory](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771796(v=ws.10))
+* [Présentation des approbations](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771568(v=ws.10)) 
 * [Technologies de réplication Active Directory](https://technet.microsoft.com/library/cc786438(v=ws.10).aspx) 
 * [Recherche dans Active Directory et les Technologies de Publication](https://technet.microsoft.com/library/cc775686(v=ws.10).aspx) 
-* Interopérabilité avec DNS et stratégie de groupe 
+* [Interopérabilité avec DNS et stratégie de groupe](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd197486(v=ws.10))
 * [Présentation du schéma](https://technet.microsoft.com/library/cc759402(v=ws.10).aspx) 
 
 Pour obtenir une liste détaillée des concepts Active Directory, consultez [comprendre Active Directory](https://technet.microsoft.com/library/cc781408(v=ws.10).aspx). 

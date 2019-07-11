@@ -9,12 +9,12 @@ ms.assetid: ''
 ms.author: pashort
 author: shortpatti
 ms.date: 10/02/2018
-ms.openlocfilehash: 50aee16b0b5797f28ebcdf61494b09669699873f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bdfb2b7321d5a4d119c9710e9ad93fc2e91ea536
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446323"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792288"
 ---
 # <a name="egress-metering-in-a-virtual-network"></a>Sortie de contrôle dans un réseau virtuel
 
@@ -72,33 +72,31 @@ Vous pouvez gérer le jeu de préfixes de sous-réseau IP à exclure de la factu
     ```
 
     Votre sortie doit ressembler à ceci :
-    ```
-    Confirm
-    Performing the operation 'New-NetworkControllerVirtualNetwork' on entities of type
-    'Microsoft.Windows.NetworkController.VirtualNetwork' via
-    'https://sdn.contoso.com/networking/v3/virtualNetworks/VNet1'. Are you sure you want to continue?
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+      ```
+         Confirm
+         Performing the operation 'New-NetworkControllerVirtualNetwork' on entities of type
+         'Microsoft.Windows.NetworkController.VirtualNetwork' via
+         'https://sdn.contoso.com/networking/v3/virtualNetworks/VNet1'. Are you sure you want to continue?
+         [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
 
 
-~~~
-Tags             :
-ResourceRef      : /virtualNetworks/VNet1
-InstanceId       : 29654b0b-9091-4bed-ab01-e172225dc02d
-Etag             : W/"6970d0a3-3444-41d7-bbe4-36327968d853"
-ResourceMetadata :
-ResourceId       : VNet1
-Properties       : Microsoft.Windows.NetworkController.VirtualNetworkProperties
-```
-~~~
+         Tags             :
+         ResourceRef      : /virtualNetworks/VNet1
+         InstanceId       : 29654b0b-9091-4bed-ab01-e172225dc02d
+         Etag             : W/"6970d0a3-3444-41d7-bbe4-36327968d853"
+         ResourceMetadata :
+         ResourceId       : VNet1
+         Properties       : Microsoft.Windows.NetworkController.VirtualNetworkProperties
+      ```
 
 
-3. Check the Virtual Network to see the configured **UnbilledAddressRanges**.
+3. Vérifiez le réseau virtuel a posteriori configuré **UnbilledAddressRanges**.
 
    ```PowerShell
    (Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceID "VNet1").properties
    ```
 
-   Your output will now look similar to this:
+   Votre sortie doit maintenant ressembler à ceci :
    ```
    AddressSpace           : Microsoft.Windows.NetworkController.AddressSpace
    DhcpOptions            :
@@ -112,23 +110,23 @@ Properties       : Microsoft.Windows.NetworkController.VirtualNetworkProperties
    LogicalNetwork         : Microsoft.Windows.NetworkController.LogicalNetwork
    ```
 
-## Check the billed the unbilled egress usage of a virtual network
+## <a name="check-the-billed-the-unbilled-egress-usage-of-a-virtual-network"></a>Vérifier le facturée l’utilisation non facturée en sortie d’un réseau virtuel
 
-After you configure the **UnbilledAddressRanges** property, you can check the billed and unbilled egress usage of each subnet within a virtual network. Egress traffic updates every four minutes with the total bytes of the billed and unbilled ranges.
+Après avoir configuré le **UnbilledAddressRanges** propriété, vous pouvez vérifier l’utilisation de la facturation et non facturée en sortie de chaque sous-réseau au sein d’un réseau virtuel. Le trafic de sortie met à jour toutes les quatre minutes avec le nombre total d’octets des plages facturées et non facturés.
 
-The following properties are available for each virtual subnet:
+Les propriétés suivantes sont disponibles pour chaque sous-réseau virtuel :
 
--   **UnbilledEgressBytes** shows the number of unbilled bytes sent by network interfaces connected to this virtual subnet. Unbilled bytes are bytes sent to address ranges that are part of the **UnbilledAddressRanges** property of the parent virtual network.
+-   **UnbilledEgressBytes** indique le nombre d’octets non envoyés par les interfaces réseau connectées à ce sous-réseau virtuel. Octets non facturée en sont des octets envoyés aux plages d’adresses qui font partie de la **UnbilledAddressRanges** propriété du réseau virtuel parent.
 
--   **BilledEgressBytes** shows Number of billed bytes sent by network interfaces connected to this virtual subnet. Billed bytes are bytes sent to address ranges that are not part of the **UnbilledAddressRanges** property of the parent virtual network.
+-   **BilledEgressBytes** affiche le nombre d’octets facturées envoyés par les interfaces réseau connectées à ce sous-réseau virtuel. Facturé octets sont des octets envoyés aux plages d’adresses qui ne sont pas dans le cadre de la **UnbilledAddressRanges** propriété du réseau virtuel parent.
 
-Use the following example to query egress usage:
+Utilisez l’exemple suivant pour l’utilisation de sortie de requête :
 
 ```PowerShell
 (Get-NetworkControllerVirtualNetwork -ConnectionURI $URI -ResourceId "VNet1").properties.subnets.properties | ft AddressPrefix,BilledEgressBytes,UnbilledEgressBytes
 ```
 
-Your output will look similar to this:
+Votre sortie doit ressembler à ceci :
 ```
 AddressPrefix BilledEgressBytes UnbilledEgressBytes
 ------------- ----------------- -------------------

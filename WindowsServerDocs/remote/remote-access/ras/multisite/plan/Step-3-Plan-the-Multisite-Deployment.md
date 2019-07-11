@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: e5ea9d22-a503-4ed4-96b3-0ee2ccf4fd17
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 16a2dcdc573fac2631b5a9890ee04f2efb08d90a
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 973ef70614f056adac1463918cc425d82b21ac62
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282538"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792311"
 ---
 # <a name="step-3-plan-the-multisite-deployment"></a>Plan de l’étape 3 du déploiement Multisite
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Après la planification de l’infrastructure multisite, planifier des exigences de certificat supplémentaires, comment les ordinateurs clients pour sélectionner des points d’entrée et les adresses IPv6 affectées dans votre déploiement.  
 
@@ -162,11 +162,11 @@ Dans un déploiement multisite le routage symétrique est appliqué à l’aide 
   
    3. Préfixe de Teredo (facultatif). Ce préfixe est pertinent uniquement si le serveur d’accès à distance est configuré avec deux adresses IPv4 publiques consécutives sur l’adaptateur externe. Le préfixe est basé sur la première adresse IPv4 publique de la paire d’adresses. Par exemple, si les adresses externes sont :  
   
-      1. www.xxx.yyy.zzz  
+      1. www\.xxx.yyy.zzz  
   
-      2. www.xxx.yyy.zzz+1  
+      2. www\.xxx.yyy.zzz+1  
   
-      Le préfixe de Teredo à configurer est 2001:0:WWXX:YYZZ :: / 64, où WWXX : YYZZ est la représentation hexadécimale de la www.xxx.yyy.zzz adresse IPv4.  
+      Le préfixe de Teredo à configurer est 2001:0:WWXX:YYZZ :: / 64, où WWXX : YYZZ est la représentation hexadécimale de la www d’adresse IPv4\.xxx.yyy.zzz.  
   
       Notez que vous pouvez utiliser le script suivant pour calculer le préfixe Teredo :  
   

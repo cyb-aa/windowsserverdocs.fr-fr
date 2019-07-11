@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e0fb68fc962602969a18145c67ad6c361515db6a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: cce34684509a72912cc867b2d637477f868d289d
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436157"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792265"
 ---
 # <a name="dfsrmig"></a>dfsrmig
 
@@ -79,14 +79,14 @@ dfsrmig [/SetGlobalState <state> | /GetGlobalState | /GetMigrationState | /creat
   ```
   Cet exemple montre l’exemple de résultat à partir de la **dfsrmig /GetMigrationState** commande lorsque les États de migration locale sur certains contrôleurs de domaine ne correspondent pas à l’état de la migration globale.
   ```
-  The following Domain Controllers are not in sync with Global state ( Prepared ):
-Domain Controller (Local Migration State)   DC type
-=========
-CONTOSO-DC2 ( start )   ReadOnly DC
-CONTOSO-DC3 ( Preparing )   Writable DC
-Migration has not yet reached a consistent state on all domain controllers
-State information might be stale due to AD latency.
-```
+    The following Domain Controllers are not in sync with Global state ( Prepared ):
+    Domain Controller (Local Migration State)   DC type
+    =========
+    CONTOSO-DC2 ( start )   ReadOnly DC
+    CONTOSO-DC3 ( Preparing )   Writable DC
+    Migration has not yet reached a consistent state on all domain controllers
+    State information might be stale due to AD latency.
+  ```
 Pour créer les objets globaux et les paramètres qui utilise la réplication DFS dans AD DS sur des contrôleurs de domaine dans lequel ces paramètres n'ont pas été créés automatiquement pendant la migration ou où ces paramètres sont manquants, tapez :
 ```
 dfsrmig /createGlobalObjects
