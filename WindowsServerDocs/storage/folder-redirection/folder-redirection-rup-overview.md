@@ -69,7 +69,7 @@ Avant Windows 8, Windows Server 2012, les utilisateurs effectuaient la transitio
 
 Avec le mode toujours hors connexion, les ordinateurs ne passent jamais en mode en ligne lorsque la **configurer le mode de liaison lente** paramètre de stratégie de groupe est configuré et le **latence** paramètre de seuil est défini sur 1 milliseconde. Les modifications sont synchronisées en arrière-plan toutes les 120 minutes, par défaut, mais la synchronisation est configurable à l’aide du paramètre de stratégie de groupe **Configurer la synchronisation en arrière-plan**.
 
-Pour plus d'informations, voir [Enable the Always Offline Mode to Provide Faster Access to Files](enable-always-offline.md).
+Pour plus d’informations, voir [Activer le mode Toujours hors connexion pour permettre un accès plus rapide aux fichiers](enable-always-offline.md).
 
 ## <a name="cost-aware-synchronization"></a>Synchronisation prenant en charge les coûts
 

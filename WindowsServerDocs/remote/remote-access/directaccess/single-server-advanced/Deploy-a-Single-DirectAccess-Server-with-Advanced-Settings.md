@@ -36,7 +36,7 @@ Vous pouvez utiliser les rubriques suivantes pour passer en revue les conditions
 Dans ce scénario, un ordinateur unique exécutant Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012, est configuré comme un serveur DirectAccess avec des paramètres avancés.  
   
 > [!NOTE]  
-> Pour configurer un déploiement de base avec uniquement des paramètres simples, voir [Deploy a Single DirectAccess Server Using the Getting Started Wizard](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md). Ce scénario simple permet de configurer DirectAccess avec les paramètres par défaut en utilisant un Assistant, sans qu'il soit nécessaire de configurer des paramètres d'infrastructure, tels qu'une autorité de certification ou des groupes de sécurité Active Directory.  
+> Pour configurer un déploiement de base avec des paramètres simples uniquement, consultez [Déploiement d'un serveur DirectAccess unique à l'aide de l'Assistant Mise en route](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md). Ce scénario simple permet de configurer DirectAccess avec les paramètres par défaut en utilisant un Assistant, sans qu'il soit nécessaire de configurer des paramètres d'infrastructure, tels qu'une autorité de certification ou des groupes de sécurité Active Directory.  
   
 ## <a name="in-this-scenario"></a>Dans ce scénario  
 Pour configurer un serveur DirectAccess unique avec des paramètres avancés, vous devez effectuer plusieurs étapes de planification et déploiement.  

@@ -45,7 +45,7 @@ Lorsque vous utilisez l’option Envoyer les attributs LDAP en tant que modèle 
   
 Avec ce modèle, vous pouvez ajouter plusieurs attributs qui seront envoyés en tant que revendications multiples, à partir d'une seule règle. Par exemple, vous pouvez utiliser ce modèle pour créer une règle qui va rechercher des valeurs d’attribut pour des utilisateurs authentifiés dans les attributs Active Directory **company** et **department**, puis envoyer ces valeurs sous la forme de deux revendications sortantes.  
   
-Vous pouvez également utiliser cette règle pour envoyer les appartenances de l’utilisateur à des groupes. Si vous souhaitez n’envoyer qu’une appartenance à un groupe, utilisez le modèle de règle Envoyer l’appartenance au groupe en tant que revendication. Pour plus d'informations, voir [When to Use a Send Group Membership as a Claim Rule](When-to-Use-a-Send-Group-Membership-as-a-Claim-Rule.md).  
+Vous pouvez également utiliser cette règle pour envoyer les appartenances de l’utilisateur à des groupes. Si vous souhaitez n’envoyer qu’une appartenance à un groupe, utilisez le modèle de règle Envoyer l’appartenance au groupe en tant que revendication. Pour plus d’informations, consultez [quand utiliser un envoyer l’appartenance comme une règle de revendication](When-to-Use-a-Send-Group-Membership-as-a-Claim-Rule.md).  
   
 ## <a name="how-to-create-this-rule"></a>Comment créer cette règle  
 Vous pouvez créer cette règle à l’aide du langage de règle de revendication ou à l’aide de l’option Envoyer les attributs LDAP en tant que modèle de règle de revendications dans la gestion AD FS aligner\-dans. Ce modèle de règle fournit les options de configuration suivantes :  

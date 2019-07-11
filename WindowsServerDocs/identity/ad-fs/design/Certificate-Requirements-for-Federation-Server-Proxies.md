@@ -22,7 +22,7 @@ Les serveurs qui sont exécutent dans le rôle du serveur proxy de fédération 
   
 Serveurs proxy de fédération est généralement exposés à des ordinateurs sur Internet qui ne sont pas inclus dans votre infrastructure à clé publique entreprise \(PKI\). Par conséquent, utilisez un certificat d’authentification serveur émis par un public \(troisième\-tiers\) autorité de certification \(autorité de certification\), par exemple, VeriSign.  
   
-Lorsque vous avez une batterie de serveurs du proxy du serveur de fédération, tous les serveurs proxy de fédération doit utiliser le même certificat d’authentification serveur. Pour plus d'informations, voir [When to Create a Federation Server Proxy Farm](When-to-Create-a-Federation-Server-Proxy-Farm.md).  
+Lorsque vous avez une batterie de serveurs du proxy du serveur de fédération, tous les serveurs proxy de fédération doit utiliser le même certificat d’authentification serveur. Pour plus d'informations, voir [Quand créer une batterie de serveurs proxy de fédération](When-to-Create-a-Federation-Server-Proxy-Farm.md).  
   
 Il est important de vérifier que le nom du sujet dans les correspondances de certificat d’authentification serveur le nom du Service de fédération valeur qui est spécifié dans le composant logiciel enfichable Gestion AD FS\-dans. Pour rechercher cette valeur, ouvrez le composant logiciel enfichable\-, avec le bouton droit\-cliquez sur **Service**, cliquez sur **modifier les propriétés de Service de fédération**, puis recherchez la valeur dans **fédération Nom du service** zone de texte.  
   

@@ -186,7 +186,7 @@ ms.locfileid: "66433292"
  Pour sauvegarder ou restaurer des fichiers, dossiers et l’historique des fichiers sur votre serveur Windows Server Essentials dans sauvegarde Azure, vous devez tout d’abord inscrire votre serveur auprès du Service de sauvegarde Microsoft Azure.  
   
 > [!NOTE]
->  Avant d'inscrire votre serveur, vous devez télécharger un certificat à utiliser avec le coffre de sauvegarde dans lequel seront stockées les sauvegardes en ligne. Pour plus d'informations, voir [Upload a certificate to the Azure Backup vault](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_1).  
+>  Avant d'inscrire votre serveur, vous devez télécharger un certificat à utiliser avec le coffre de sauvegarde dans lequel seront stockées les sauvegardes en ligne. Pour plus d’informations, consultez [télécharger un certificat dans le coffre de sauvegarde Azure](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_1).  
   
 ##### <a name="to-register-your-server-with-azure-backup"></a>Pour inscrire votre serveur auprès d'Azure Backup  
   
@@ -415,7 +415,7 @@ ms.locfileid: "66433292"
   
    Après avoir effectué cette procédure, procédez comme suit :  
   
-6. Dans Windows Server Essentials, télécharger un certificat à utiliser pour les sauvegardes en ligne. Pour plus d'informations, voir [Upload a certificate to the Azure Backup vault](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_1).  
+6. Dans Windows Server Essentials, télécharger un certificat à utiliser pour les sauvegardes en ligne. Pour plus d’informations, consultez [télécharger un certificat dans le coffre de sauvegarde Azure](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_1).  
   
 7. Inscrire le serveur auprès du coffre de sauvegarde Azure. Pour plus d'informations, voir [Register this server for backup](Manage-Online-Backup-in-Windows-Server-Essentials.md#BKMK_5).  
   

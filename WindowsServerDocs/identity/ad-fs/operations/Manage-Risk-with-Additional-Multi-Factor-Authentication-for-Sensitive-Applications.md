@@ -72,7 +72,7 @@ Une stratégie d’authentification globale s’applique à toutes les parties d
 
 -   Paramètres et méthodes pour l’authentification multifacteur
 
--   Activation ou non de l’authentification de l’appareil. Pour plus d'informations, voir [Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
+-   Activation ou non de l’authentification de l’appareil. Pour plus d’informations, consultez [rejoindre un espace de travail à partir de n’importe quel appareil pour l’authentification unique et transparente deuxième facteur Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
 Les stratégies d’authentification par approbation de partie de confiance s’appliquent en particulier aux tentatives d’accès à cette approbation de partie de confiance (application ou service). Vous pouvez configurer les paramètres suivants dans le cadre de la stratégie d’authentification par approbation de partie de confiance :
 
