@@ -97,7 +97,7 @@ Installez le certificat AD FS qui a été créé pendant l’installation d’A
 ### <a name="create-the-work-folders-self-signed-certificate"></a>Créer le certificat auto-signé Dossiers de travail  
 Pour créer le certificat auto-signé Dossiers de travail, procédez comme suit :  
   
-1.  Télécharger les scripts fournis dans billet de blog [Deploying Work Folders with AD FS and Web Application Proxy](https://blogs.technet.microsoft.com/filecab/2014/03/03/deploying-work-folders-with-ad-fs-and-web-application-proxy-wap), puis copiez le fichier makecert.ps1 sur l’ordinateur de Dossiers de travail.  
+1.  Télécharger les scripts fournis dans billet de blog [Déploiement de Dossiers de travail avec AD FS et le proxy d'application web](https://blogs.technet.microsoft.com/filecab/2014/03/03/deploying-work-folders-with-ad-fs-and-web-application-proxy-wap), puis copiez le fichier makecert.ps1 sur l’ordinateur de Dossiers de travail.  
   
 2.  Ouvrez une fenêtre Windows PowerShell avec des privilèges d’administrateur.  
   
