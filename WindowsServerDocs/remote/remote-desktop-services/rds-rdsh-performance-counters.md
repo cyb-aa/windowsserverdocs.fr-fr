@@ -4,22 +4,29 @@ description: Votre application s’exécute-t-elle lentement sur les services Bu
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: elizapo
-ms.date: 09/19/2018
+ms.date: 07/11/2019
 ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: f9aafaa34d5c16e45681e88b1ce60e99a9ad2842
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: a302e775d3304db9304cc51e09ede19fa2eba802
+ms.sourcegitcommit: f75d9496f345d73fdda88037617763e7a2f614b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66447093"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67863107"
 ---
 # <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>Utiliser les compteurs de performance pour diagnostiquer les problèmes de performance des applications sur les hôtes de session Bureau à distance
 
-Des performances d’application médiocres, par exemple une application qui s’exécute lentement ou qui ne répond pas, représentent un des problèmes les plus difficiles à diagnostiquer. En règle générale, vous démarrez votre diagnostic par la collecte d’entrées et de sorties de disque, de mémoire, de processeur et d’autres métriques, puis vous utilisez des outils, tels que Windows Performance Analyzer, pour tenter de déterminer la cause du problème. Malheureusement, dans la plupart des cas, ces données ne vous permettent pas d’identifier l’origine, car les compteurs de consommation des ressources enregistrent des variations importantes et fréquentes. La lecture des données pour les corréler avec le problème signalé s’avère donc ardue. Afin de vous faciliter la résolution des problèmes de performance d’application, nous avons ajouté quelques nouveaux compteurs de performance (disponible [au téléchargement](#download-windows-server-insider-software) via le [Programme Windows Insider](https://insider.windows.com)) qui mesurent les flux de l’entrée utilisateur.
+> S’applique à : Windows Server 2019, Windows 10
+
+Des performances d’application médiocres, par exemple une application qui s’exécute lentement ou qui ne répond pas, représentent un des problèmes les plus difficiles à diagnostiquer. En règle générale, vous démarrez votre diagnostic par la collecte d’entrées et de sorties de disque, de mémoire, de processeur et d’autres métriques, puis vous utilisez des outils, tels que Windows Performance Analyzer, pour tenter de déterminer la cause du problème. Malheureusement, dans la plupart des cas, ces données ne vous permettent pas d’identifier l’origine, car les compteurs de consommation des ressources enregistrent des variations importantes et fréquentes. La lecture des données pour les corréler avec le problème signalé s’avère donc ardue. Pour vous aider à résoudre les problèmes de performance de vos applications rapidement, nous avons ajouté quelques nouveaux compteurs de performance (disponible [au téléchargement](#download-windows-server-insider-software) via le [Programme Windows Insider](https://insider.windows.com)) qui mesurent les flux de l’entrée utilisateur.
+
+>[!NOTE]
+>Le compteur de délai d’entrée utilisateur est compatible uniquement avec :
+> - Windows Server 2019 ou ultérieur
+> - Windows 10, version 1809 ou ultérieure
 
 Le compteur du délai de l’entrée utilisateur peut vous aider à identifier rapidement l’origine de mauvaises expériences utilisateur final qui sont liées au protocole RDP (Remote Desktop Protocol). Ce compteur mesure la durée pendant laquelle une entrée utilisateur (par exemple, l’utilisation de la souris ou du clavier) reste dans la file d’attente avant d’être récupérée par un processus ; ce compteur fonctionne dans les sessions locales et à distance.
 
