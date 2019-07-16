@@ -234,7 +234,7 @@ ms.locfileid: "66433228"
   
 3. Suivez les instructions pour exécuter l'Assistant.  
   
-   Pour plus d’informations sur l’augmentation de la capacité du pool de stockage, consultez [Use the new hard drive to increase storage pool capacity](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c).  
+   Pour plus d’informations sur l’augmentation de capacité du pool de stockage, consultez [utiliser le nouveau disque dur pour augmenter la capacité du pool de stockage](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c).  
   
 ## <a name="see-also"></a>Voir aussi  
   

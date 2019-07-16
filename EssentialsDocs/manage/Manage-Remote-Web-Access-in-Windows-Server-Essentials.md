@@ -377,7 +377,7 @@ ms.locfileid: "66433272"
   
 2. Dans la page d'accueil du site web Internic, cliquez sur **Whois**.  
   
-3. Dans la zone de recherche **** , tapez votre nom de domaine (par exemple, contoso.com).  
+3. Dans la zone de **recherche**, tapez votre nom de domaine (par exemple, contoso.com).  
   
 4. Cochez l'option **Domain**, puis cliquez sur **Submit**.  
   

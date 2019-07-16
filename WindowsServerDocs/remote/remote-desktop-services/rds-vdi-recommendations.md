@@ -339,7 +339,7 @@ Réduisez le niveau **Réseau**, puis développez le niveau **Système**. Ajuste
 ||Empêcher Windows d’envoyer un rapport d’erreurs lorsqu’un pilote de périphérique demande un logiciel supplémentaire au cours de l’installation|Activé|
 ||Désactiver les bulles « Nouveau matériel détecté » pendant l’installation de périphériques|Activé|
 
-Développez le niveau **Filesystem**, double-cliquez sur **NTFS**, double-cliquez sur **Options de création de noms courts**, sélectionnez l’option **Activé**, puis, dans le menu déroulant **Options** sélectionnez  **	Activer sur tous les volumes**. Cliquez sur **OK** pour enregistrer.
+Développez le niveau **Filesystem**, double-cliquez sur **NTFS**, double-cliquez sur **Options de création de noms courts**, sélectionnez l’option **Activé**, puis, dans le menu déroulant **Options** sélectionnez  **Activer sur tous les volumes**. Cliquez sur **OK** pour enregistrer.
 
 Réduisez le niveau **Filesystem**, puis développez **Gestion de la communication Internet**. Cliquez sur **Paramètres de communication Internet**. Ajustez chaque paramètre comme suit en double-cliquant dessus, puis en sélectionnant l’option **Activé**, puis en cliquant sur **OK** :
 
@@ -492,7 +492,7 @@ Dans le volet de gauche, entrez dans chacun des sous-dossiers de paramètres sui
 ||Choisir quand recevoir les mises à jour des fonctionnalités|Sélectionnez Activé, puis, dans la zone **Options** cliquez sur le menu déroulant en regard de **Sélectionner le niveau de disponibilité de branche des mises à jour des fonctionnalités que vous voulez recevoir** pour sélectionner **Current Branch for Business**. Définissez le paramètre **Après la publication d’une mise à jour des fonctionnalités, différer sa réception pendant ce nombre de jours** sur *180 jours*.
 ||Choisir quand recevoir les mises à jour qualité|Sélectionnez Activé, puis, dans la zone **Options**, définissez le paramètre **Après la publication d’une mise à jour qualité, différer sa réception pendant ce nombre de jour** sur *30 jours*, puis cochez la case en regard de **Suspendre les mises à jour qualité**.
 
-Dans le volet de gauche de l’Éditeur d'objets de stratégie de groupe, cliquez sur **Configuration utilisateur**. Dans le volet gauche, cliquez sur  **	Modèles d'administration**, puis entrez dans chacun des sous-dossiers de paramètres suivants et réglez les paramètres individuels comme suit :
+Dans le volet de gauche de l’Éditeur d'objets de stratégie de groupe, cliquez sur **Configuration utilisateur**. Dans le volet gauche, cliquez sur **Modèles d'administration**, puis entrez dans chacun des sous-dossiers de paramètres suivants et réglez les paramètres individuels comme suit :
 
 |Réglages du dossier sous **Modèles d’administration**|Paramètre|Valeur recommandée pour une utilisation de VDI|  
 |-------------------|-------|----------|
