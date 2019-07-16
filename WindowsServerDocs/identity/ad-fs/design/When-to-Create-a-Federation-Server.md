@@ -29,9 +29,9 @@ Les sections suivantes décrivent certaines décisions clés permettant de déte
 ## <a name="determine-the-organizational-role-for-the-federation-server"></a>Déterminer le rôle organisationnel du serveur de fédération  
 Pour prendre une décision éclairée concernant quand créer un nouveau serveur de fédération, vous devez tout d’abord déterminer d’organisation dans laquelle réside le serveur. Le rôle joué par un serveur de fédération dans une organisation varie selon que vous placez le serveur de fédération dans l’organisation partenaire de compte ou de l’organisation partenaire de ressource.  
   
-Lorsqu’un serveur de fédération est placé dans le réseau d’entreprise du partenaire de compte, son rôle consiste à authentifier les informations d’identification de l’utilisateur du navigateur, le service Web ou les clients du sélecteur d’identité et envoyer des jetons de sécurité pour les clients. Pour plus d'informations, voir [Review the Role of the Federation Server in the Account Partner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md).  
+Lorsqu’un serveur de fédération est placé dans le réseau d’entreprise du partenaire de compte, son rôle consiste à authentifier les informations d’identification de l’utilisateur du navigateur, le service Web ou les clients du sélecteur d’identité et envoyer des jetons de sécurité pour les clients. Pour plus d’informations, consultez [revue du rôle du serveur de fédération du partenaire de compte](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md).  
   
-Lorsqu’un serveur de fédération est placé dans le réseau d’entreprise du partenaire de ressource, son rôle consiste à authentifier les utilisateurs, selon un jeton de sécurité émis par un serveur de fédération dans l’organisation partenaire de ressource, ou que son rôle consiste à rediriger les demandes de jeton à partir de les applications Web configurées ou des services Web de l’organisation partenaire de compte auquel appartient le client. Pour plus d'informations, voir [Review the Role of the Federation Server in the Resource Partner](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md).  
+Lorsqu’un serveur de fédération est placé dans le réseau d’entreprise du partenaire de ressource, son rôle consiste à authentifier les utilisateurs, selon un jeton de sécurité émis par un serveur de fédération dans l’organisation partenaire de ressource, ou que son rôle consiste à rediriger les demandes de jeton à partir de les applications Web configurées ou des services Web de l’organisation partenaire de compte auquel appartient le client. Pour plus d’informations, consultez [revue du rôle du serveur de fédération du partenaire de ressource](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md).  
   
 ## <a name="determine-which-ad-fs-design-to-deploy"></a>Déterminer la conception AD FS à déployer  
 Vous créez des serveurs de fédération dans votre organisation chaque fois que vous souhaitez déployer une des conceptions AD FS suivantes :  
@@ -66,13 +66,13 @@ Vous pouvez créer un serveur de fédération à l’aide de l’Assistant Confi
   
 -   Créer le premier serveur de fédération dans une batterie de serveurs de fédération  
   
-    Pour plus d’informations sur la façon de configurer le premier serveur de fédération ou d’ajouter un serveur de fédération à une batterie de serveurs, consultez [Create the First Federation Server in a Federation Server Farm](../../ad-fs/deployment/Create-the-First-Federation-Server-in-a-Federation-Server-Farm.md).  
+    Pour plus d’informations sur la façon de configurer le premier serveur de fédération ou ajouter un serveur de fédération à une batterie de serveurs, consultez [créer le premier serveur de fédération dans une batterie de serveurs de fédération](../../ad-fs/deployment/Create-the-First-Federation-Server-in-a-Federation-Server-Farm.md).  
   
 -   Ajouter un serveur de fédération à une batterie de serveurs de fédération  
   
-    Pour plus d’informations sur la façon d’ajouter un serveur de fédération à une batterie de serveurs, consultez [Add a Federation Server to a Federation Server Farm](../../ad-fs/deployment/Add-a-Federation-Server-to-a-Federation-Server-Farm.md).  
+    Pour plus d’informations sur l’ajout d’un serveur de fédération à une batterie de serveurs, consultez [ajouter un serveur de fédération à une batterie de serveurs de fédération](../../ad-fs/deployment/Add-a-Federation-Server-to-a-Federation-Server-Farm.md).  
   
-Pour obtenir des informations plus détaillées sur le fonctionnement de chacune de ces options, consultez [The Role of the AD FS Configuration Database](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md).  
+Pour plus d’informations sur le fonctionnement de chacune de ces options, consultez [le rôle de la base de données de Configuration AD FS](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md).  
   
 Pour plus d’informations sur la configuration de toutes les conditions préalables nécessaires au déploiement d’un serveur de fédération, consultez [liste de vérification : Configuration d’un serveur de fédération](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md).  
   
