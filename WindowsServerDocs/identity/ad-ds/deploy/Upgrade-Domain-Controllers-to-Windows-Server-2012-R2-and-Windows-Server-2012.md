@@ -159,9 +159,9 @@ Il existe quelques modifications associées aux services de domaine Active Direc
 |-|-|-|-|  
 |Type de chiffrement ou stratégie|Paramètre par défaut Windows Server 2008|Paramètre par défaut Windows Server 2012 et Windows Server 2008 R2|Commentaire|  
 |AllowNT4Crypto|Désactivée|Désactivée|Les clients du protocole SMB (Server Message Block) tiers peuvent être incompatibles avec les paramètres par défaut sécurisés sur les contrôleurs de domaine. Dans tous les cas, la valeur de ces paramètres peut être moins stricte pour permettre l’interopérabilité, mais uniquement au détriment de la sécurité. Pour plus d’informations, consultez [article 942564](https://go.microsoft.com/fwlink/?LinkId=164558) dans la Base de connaissances Microsoft (https://go.microsoft.com/fwlink/?LinkId=164558).|  
-|DES|Enabled|Désactivée|[Article 977321](https://go.microsoft.com/fwlink/?LinkId=177717) dans la Base de connaissances Microsoft ()https://go.microsoft.com/fwlink/?LinkId=177717)|  
+|DES|Enabled|Désactivée|[Article 977321](https://go.microsoft.com/fwlink/?LinkId=177717) dans la Base de connaissances Microsoft (https://go.microsoft.com/fwlink/?LinkId=177717)|  
 |Jeton de liaison de canal/Protection étendue pour l’authentification intégrée|N/A|Enabled|Consultez [l’avis de sécurité Microsoft (937811)](https://go.microsoft.com/fwlink/?LinkId=164559) (https://go.microsoft.com/fwlink/?LinkId=164559) et [article 976918](https://go.microsoft.com/fwlink/?LinkId=178251) dans la Base de connaissances Microsoft (https://go.microsoft.com/fwlink/?LinkId=178251).<br /><br />Examinez et installez le correctif logiciel de [article 977073](https://go.microsoft.com/fwlink/?LinkId=186394) (https://go.microsoft.com/fwlink/?LinkId=186394) dans la Base de connaissances Microsoft, en fonction des besoins.|  
-|LMv2|Enabled|Désactivée|[Article 976918](https://go.microsoft.com/fwlink/?LinkId=178251) dans la Base de connaissances Microsoft ()https://go.microsoft.com/fwlink/?LinkId=178251)|  
+|LMv2|Enabled|Désactivée|[Article 976918](https://go.microsoft.com/fwlink/?LinkId=178251) dans la Base de connaissances Microsoft (https://go.microsoft.com/fwlink/?LinkId=178251)|  
 
 ## <a name="BKMK_SysReqs"></a>Configuration requise du système d’exploitation
 
