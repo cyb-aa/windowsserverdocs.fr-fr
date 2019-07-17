@@ -123,7 +123,7 @@ Les compteurs de performances suivants sont pertinentes aux éventuels problème
 
 Les compteurs de performances suivants sont pertinents pour les performances RSC.  
   
--   Carte réseau  
+-   Carte réseau(*)  
   
     -   Connexions TCP RSC Active  
   
