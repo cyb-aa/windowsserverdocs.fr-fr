@@ -7,14 +7,14 @@ ms.manager: dongill
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
-ms.date: 07/18/2017
+ms.date: 07/17/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 62fa33d08af25c424c786c10191fe6ae2b3d02bc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0050a8931162e37408895ef664293be2349d1bde
+ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855510"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314997"
 ---
 # <a name="understanding-the-cache-in-storage-spaces-direct"></a>Fonctionnement du cache dans les espaces de stockage direct
 
@@ -25,7 +25,7 @@ Le fonctionnement du cache dépend des types de lecteurs présents.
 
 La vidéo suivante donne des informations détaillées sur le fonctionnement de la mise en cache des espaces de stockage direct, ainsi que d'autres considérations de conception.
 
-<strong>Considérations de conception directe des espaces de stockage</strong><br>(20 minutes)<br>
+<strong>Considérations relatives à la conception de espaces de stockage direct</strong><br>(20 minutes)<br>
 <iframe src="https://channel9.msdn.com/Blogs/windowsserver/Design-Considerations-for-Storage-Spaces-Direct/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## <a name="drive-types-and-deployment-options"></a>Types de lecteurs et options de déploiement
@@ -88,7 +88,7 @@ Si vous avez des lecteurs SSD et HDD, les SSD seront utilisés pour la mise en c
    >[!NOTE]
    > Les lecteurs de cache ne sont pas compris dans la capacité de stockage utilisable. Toutes les données stockées en cache sont également stockées ailleurs, même si cette opération peut se faire lors d'une étape ultérieure. Autrement dit, la capacité de stockage brute totale de votre déploiement correspond à la somme de vos lecteurs de capacité uniquement.
 
-Lorsque les lecteurs sont tous du même type, aucun cache n'est configuré automatiquement. Vous avez la possibilité de configurer des lecteurs plus endurants pour la mise en cache de lecteurs moins endurants du même type. Pour en savoir plus, consultez la section [Configuration manuelle](#manual).
+Lorsque les lecteurs sont tous du même type, aucun cache n'est configuré automatiquement. Vous avez la possibilité de configurer des lecteurs plus endurants pour la mise en cache de lecteurs moins endurants du même type. Pour en savoir plus, consultez la section [Configuration manuelle](#manual-configuration).
 
    >[!TIP]
    > Dans les déploiements 100 % NVMe ou 100 % SSD, en particulier à très petite échelle, vous pouvez améliorer considérablement l'efficacité du stockage en ne « gaspillant » aucun lecteur pour la mise en cache.
@@ -109,7 +109,7 @@ Par conséquent, les caractéristiques d'écriture, comme la latence, sont dict�
 
 ### <a name="readwrite-caching-for-hybrid-deployments"></a>Mise en cache en lecture/écriture pour les déploiements hybrides
 
-Si vous créez un cache pour des disques HDD, les écritures *et* les lectures sont mises en cache. Dans les deux cas, la latence est équivalente à celle des lecteurs Flash (souvent env. 10x meilleure). Le cache de lecture stocke les données lues récemment et fréquemment pour un accès rapide et pour réduire au maximum le trafic aléatoire vers les disques durs. (En raison de la recherche et des retards de rotation, la latence et le temps perdu encourues par un accès aléatoire à un disque dur est importante). Écrit sont mis en cache d’absorber les pics et, comme avant, fusionner écrit et réécrit et réduire le trafic cumulatif vers les lecteurs de capacité.
+Si vous créez un cache pour des disques HDD, les écritures *et* les lectures sont mises en cache. Dans les deux cas, la latence est équivalente à celle des lecteurs Flash (souvent env. 10x meilleure). Le cache de lecture stocke les données lues récemment et fréquemment pour un accès rapide et pour réduire au maximum le trafic aléatoire vers les disques durs. (En raison de retards de recherche et de rotation, la latence et le temps perdu engendrés par l’accès aléatoire à un disque dur sont significatifs.) Les écritures sont mises en cache pour absorber les pics et, comme auparavant, pour fusionner les écritures et réécriture et réduire le trafic cumulé sur les lecteurs de capacité.
 
 Les espaces de stockage direct font appel à un algorithme qui annule l'aspect aléatoire des écritures avant de les déstocker du cache. Cela permet d'émuler un schéma d'E/S d'apparence séquentielle au niveau du lecteur, même quand les E/S réelles provenant de la charge de travail (par exemple, des machines virtuelles) sont aléatoires. Les E/S par seconde et le débit au niveau des disques durs sont ainsi optimisés.
 
@@ -121,13 +121,13 @@ Lorsque les trois types de lecteurs sont présents, les lecteurs NVMe fournissen
 
 Ce tableau récapitule les lecteurs utilisés pour la mise en cache et la capacité, et rappelle les comportements de cache associés à chaque déploiement.
 
-| Déploiement       | Lecteurs de cache                        | Lecteurs de capacité | Comportement du cache (par défaut)                  |
-|------------------|-------------------------------------|-----------------|-------------------------------------------|
-| Uniquement des disques NVMe         | Aucun (configuration manuelle possible, mais facultative) | NVMe            | Écriture seulement (si configuré)                |
-| Disques SSD uniquement          | Aucun (configuration manuelle possible, mais facultative) | SSD             | Écriture seulement (si configuré)                |
-| NVMe + SSD       | NVMe                                | SSD             | en écriture seule                                |
-| NVMe + HDD       | NVMe                                | HDD             | Lecture + Écriture                              |
-| SSD + HDD        | SSD                                 | HDD             | Lecture + Écriture                              |
+| Déploiement     | Lecteurs de cache                        | Lecteurs de capacité | Comportement du cache (par défaut)  |
+| -------------- | ----------------------------------- | --------------- | ------------------------- |
+| Uniquement des disques NVMe         | Aucun (configuration manuelle possible, mais facultative) | NVMe            | Écriture seulement (si configuré)  |
+| Disques SSD uniquement          | Aucun (configuration manuelle possible, mais facultative) | SSD             | Écriture seulement (si configuré)  |
+| NVMe + SSD       | NVMe                                | SSD             | en écriture seule                  |
+| NVMe + HDD       | NVMe                                | HDD             | Lecture + Écriture                |
+| SSD + HDD        | SSD                                 | HDD             | Lecture + Écriture                |
 | NVMe + SSD + HDD | NVMe                                | SSD + HDD       | Lecture + Écriture pour les HDD, Écriture seulement pour les SSD  |
 
 ## <a name="server-side-architecture"></a>Architecture côté serveur
@@ -171,11 +171,13 @@ Il existe plusieurs autres caches non reliés dans la pile de stockage à défin
 
 Avec les espaces de stockage direct, le comportement par défaut du cache en écriture différée des espaces de stockage ne doit pas être modifié. Par exemple, vous ne pouvez pas utiliser de paramètres tels que **-WriteCacheSize** sur l'applet de commande **New-Volume**.
 
-Vous pouvez utiliser ou non le cache de volume partagé de cluster, au choix. Il est désactivé par défaut dans les espaces de stockage direct, mais il n'entre pas en conflit avec le nouveau cache décrit dans cette rubrique. Dans certains cas, il peut grandement améliorer les performances. Pour plus d'informations, consultez le message de blog [How to Enable CSV Cache](https://blogs.msdn.microsoft.com/clustering/2013/07/19/how-to-enable-csv-cache/) (Comment activer le cache de volume partagé de cluster).
+Vous pouvez utiliser ou non le cache de volume partagé de cluster, au choix. Il est désactivé par défaut dans les espaces de stockage direct, mais il n'entre pas en conflit avec le nouveau cache décrit dans cette rubrique. Dans certains cas, il peut grandement améliorer les performances. Pour plus d'informations, consultez le message de blog [How to Enable CSV Cache](../../failover-clustering/failover-cluster-csvs.md#enable-the-csv-cache-for-read-intensive-workloads-optional) (Comment activer le cache de volume partagé de cluster).
 
-## <a name="manual"></a> Configuration manuelle
+## <a name="manual-configuration"></a>Configuration manuelle
 
-Pour la plupart des déploiements, la configuration manuelle n'est pas requise. Si vous en avez besoin, lisez ce qui suit.
+Pour la plupart des déploiements, la configuration manuelle n'est pas requise. Si vous en avez besoin, consultez les sections suivantes. 
+
+Si vous devez apporter des modifications au modèle de périphérique de cache après l’installation, modifiez le document composants de support de Service de contrôle d’intégrité, comme décrit dans [service de contrôle d’intégrité vue d’ensemble](../../failover-clustering/health-service-overview.md#supported-components-document).
 
 ### <a name="specify-cache-drive-model"></a>Spécifier le modèle du lecteur de cache
 
@@ -188,18 +190,28 @@ Pour utiliser les lecteurs les plus endurants pour la mise en cache et les lecte
 
 ####  <a name="example"></a>Exemple
 
-```
-PS C:\> Get-PhysicalDisk | Group Model -NoElement
+Tout d’abord, récupérez la liste des disques physiques:
 
+```PowerShell
+Get-PhysicalDisk | Group Model -NoElement
+```
+
+Voici quelques exemples de sortie :
+
+```
 Count Name
 ----- ----
     8 FABRIKAM NVME-1710
    16 CONTOSO NVME-1520
-
-PS C:\> Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
 ```
 
-Vous pouvez vérifier que les lecteurs que vous avez choisis sont utilisés pour le cache en exécutant **Get-PhysicalDisk** dans PowerShell et en vérifiant que la propriété **Usage** indique bien **"Journal"**.
+Entrez ensuite la commande suivante, en spécifiant le modèle de périphérique de cache:
+
+```PowerShell
+Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
+```
+
+Vous pouvez vérifier que les lecteurs que vous avez choisis sont utilisés pour le cache en exécutant **Get-PhysicalDisk** dans PowerShell et en vérifiant que la propriété **Usage** indique bien **"Journal"** .
 
 ### <a name="manual-deployment-possibilities"></a>Possibilités de déploiement manuel
 
@@ -211,26 +223,38 @@ La configuration manuelle offre les possibilités de déploiement suivantes :
 
 Vous pouvez changer le comportement par défaut du cache. Par exemple, vous pouvez mettre en cache les lectures, même dans un déploiement 100 % Flash. Nous vous déconseillons de modifier ce comportement à moins d'être certain que le comportement par défaut ne convient pas à votre charge de travail.
 
-Pour modifier le comportement, utilisez l'applet de commande **Set-ClusterS2D** et ses paramètres **-CacheModeSSD** et **-CacheModeHDD**. Le paramètre **CacheModeSSD** définit le comportement d'un cache associé à des disques SSD. Le paramètre **CacheModeHDD** définit le comportement d'un cache associé à des disques durs. Vous pouvez le faire à tout moment une fois les espaces de stockage activés.
+Pour remplacer le comportement, utilisez l’applet de commande **Set-ClusterStorageSpacesDirect** et ses paramètres **-CacheModeSSD** et **-CacheModeHDD** . Le paramètre **CacheModeSSD** définit le comportement d'un cache associé à des disques SSD. Le paramètre **CacheModeHDD** définit le comportement d'un cache associé à des disques durs. Vous pouvez le faire à tout moment une fois les espaces de stockage activés.
 
-Vous pouvez utiliser **Get-ClusterS2D** pour vérifier le comportement.
+Vous pouvez utiliser la **ClusterStorageSpacesDirect** pour vérifier que le comportement est défini.
 
 #### <a name="example"></a>Exemple
 
-```
-PS C:\> Get-ClusterS2D
+Tout d’abord, récupérez les paramètres de espaces de stockage direct:
 
+```PowerShell
+Get-ClusterStorageSpacesDirect
+```
+
+Voici quelques exemples de sortie :
+
+```
 CacheModeHDD : ReadWrite
 CacheModeSSD : WriteOnly
-...
+```
 
-PS C:\> Set-ClusterS2D -CacheModeSSD ReadWrite
+Ensuite, procédez comme suit:
 
-PS C:\> Get-ClusterS2D
+```PowerShell
+Set-ClusterStorageSpacesDirect -CacheModeSSD ReadWrite
 
+Get-ClusterS2D
+```
+
+Voici quelques exemples de sortie :
+
+```
 CacheModeHDD : ReadWrite
 CacheModeSSD : ReadWrite
-...
 ```
 
 ## <a name="sizing-the-cache"></a>Définir la taille du cache
@@ -250,5 +274,5 @@ Il n'y a pas de règle universelle, mais si vous constatez qu'il manque trop de 
 ## <a name="see-also"></a>Voir aussi
 
 - [Choix des lecteurs et des types de résilience](choosing-drives.md)
-- [Efficacité de stockage et la tolérance d’erreur](storage-spaces-fault-tolerance.md)
-- [Configuration matérielle directe des espaces de stockage](storage-spaces-direct-hardware-requirements.md)
+- [Tolérance de panne et efficacité du stockage](storage-spaces-fault-tolerance.md)
+- [espaces de stockage direct configuration matérielle requise](storage-spaces-direct-hardware-requirements.md)

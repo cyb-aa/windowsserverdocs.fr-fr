@@ -9,16 +9,16 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 10/08/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 8bdce646c631b56309f86292f0895fe80b0adf31
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: eb19e7ecf89f02200d3393dc1a4a9e5cd85cf598
+ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284500"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314996"
 ---
 # <a name="choosing-drives-for-storage-spaces-direct"></a>Choix des disques pour les espaces de stockage direct
 
->S’applique à : 2019 Windows, Windows Server 2016
+>S’applique à : Windows 2019, Windows Server 2016
 
 Cette rubrique vous apporte des conseils pour le choix de disques adaptés pour les [espaces de stockage direct](storage-spaces-direct-overview.md), répondant par ailleurs à vos exigences en matière de performances et de capacité.
 
@@ -67,11 +67,11 @@ Vous disposez actuellement de trois moyens pour y parvenir :
 
 ![Possibilités de déploiement « 100 % flash »](media/choosing-drives-and-resiliency-types/All-Flash-Deployment-Possibilities.png)
 
-1. **NVMe.** L’utilisation de disques NVMe uniquement offre des performances sans égal, en plus d’une faible latence hautement prévisible. Si tous vos disques sont du même modèle, il n’y a pas de cache. Vous pouvez également combiner des modèles de disques NVMe plus ou moins endurants, en configurant les modèles à haute endurance pour mettre en cache les écritures sur les modèles à plus faible endurance ([nécessite une configuration](understand-the-cache.md#manual)).
+1. **Tous les NVMe.** L’utilisation de disques NVMe uniquement offre des performances sans égal, en plus d’une faible latence hautement prévisible. Si tous vos disques sont du même modèle, il n’y a pas de cache. Vous pouvez également combiner des modèles de disques NVMe plus ou moins endurants, en configurant les modèles à haute endurance pour mettre en cache les écritures sur les modèles à plus faible endurance ([nécessite une configuration](understand-the-cache.md#manual-configuration)).
 
 2. **NVMe + SSD.** Si vous utilisez un disque NVMe avec des disques SSD, le NVMe met automatiquement en cache les écritures sur les SSD. De cette manière, les écritures sont regroupées dans le cache et déstockées uniquement si nécessaire, afin de réduire la charge sur les SSD. Les caractéristiques d’écriture sont similaires au NVMe, mais les lectures sont effectuées directement à partir des SSD rapides.
 
-3. **Tous les disques SSD.** Comme pour l’option avec uniquement des NVMe, il n’y a pas de cache si tous vos disques sont du même modèle. Si vous combinez des modèles de disques plus ou moins endurants, vous pouvez configurer les modèles à haute endurance pour mettre en cache les écritures sur les modèles à plus faible endurance ([nécessite une configuration](understand-the-cache.md#manual)).
+3. **Tous les disques SSD.** Comme pour l’option avec uniquement des NVMe, il n’y a pas de cache si tous vos disques sont du même modèle. Si vous combinez des modèles de disques plus ou moins endurants, vous pouvez configurer les modèles à haute endurance pour mettre en cache les écritures sur les modèles à plus faible endurance ([nécessite une configuration](understand-the-cache.md#manual-configuration)).
 
    >[!NOTE]
    > L’un des avantages d’utiliser uniquement des disques NVMe ou SSD sans cache est que vous exploitez toute la capacité de stockage de chaque disque. Aucune partie de la capacité n’est utilisée pour la mise en cache, ce qui peut être intéressant pour les déploiements à petite échelle.
@@ -102,7 +102,7 @@ Pour les charges de travail qui requièrent une grande capacité de stockage et 
 1. **SSD + HDD**. Les disques SSD assurent la mise en cache des lectures et des écritures, pour absorber les pics d’opérations et offrir les performances d’écriture des SSD, et les déstockent seulement quand nécessaire sur les disques HDD pour optimiser la capacité.
 
 >[!IMPORTANT]
->Configuration avec des disques durs uniquement n'est pas prise en charge. SSDs haute résistance la mise en cache à faible résistance SSDs n’est pas conseillée.
+>La configuration avec des disques durs uniquement n’est pas prise en charge. La mise en cache SSD à forte endurance sur des disques SSD à faible endurance n’est pas conseillée.
 
 ## <a name="sizing-considerations"></a>Considérations relatives à la taille
 
@@ -110,18 +110,18 @@ Pour les charges de travail qui requièrent une grande capacité de stockage et 
 
 Chaque serveur doit avoir au minimum deux lecteurs de cache pour assurer la redondance. Nous vous recommandons de choisir un nombre de lecteurs de capacité qui soit un multiple du nombre de lecteurs de cache. Par exemple, si vous avez quatre disques de cache, vous obtiendrez des performances plus constantes avec huit disques de capacité plutôt qu'avec sept ou neuf.
 
-Le cache doit être calibré pour contenir la plage de travail de vos applications et les charges de travail, autrement dit, toutes les données qu’ils sont activement lecture et écriture à un moment donné. Il n’y a pas d’autre exigence pour la taille du cache. Pour les déploiements avec des disques durs, un bon point de départ est 10 % de la capacité – par exemple, si chaque serveur a 4 x 4 To HDD = 16 To de capacité, puis 2 x 800 Go SSD = 1,6 To du cache par le serveur. Pour exclusivement flash déploiements, surtout avec très [haute résistance](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/) SSDs, elle peut être juste de démarrer plus proche de 5 % de la capacité – par exemple, si chaque serveur possède 24 x 1,2 To SSD =. à 28,8 To de capacité, puis 2 x 750 Go NVMe = 1,5 To du cache par le serveur. Vous pouvez ajuster la taille à tout moment en ajoutant ou en supprimant des lecteurs de cache.
+Le cache doit être dimensionné pour s’adapter à la plage de travail de vos applications et charges de travail, c’est-à-dire toutes les données qu’ils lisent et écrivent activement à un moment donné. Il n’y a pas d’autre exigence pour la taille du cache. Pour les déploiements avec des disques durs, un emplacement de départ équitable est de 10% de la capacité, par exemple, si chaque serveur possède un disque dur de 4 x 4 to = 16 to de capacité, alors 2 x 800 Go SSD = 1,6 to de cache par serveur. Pour les déploiements de tous les disques, en particulier avec des disques SSD à endurance très [élevés](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/) , il peut être juste de commencer plus près à 5% de la capacité, par exemple, si chaque serveur possède 24 x 1,2 to SSD = 28,8 to de capacité, puis 2 x 750 Go NVMe = 1,5 to de cache par serveur. Vous pouvez ajuster la taille à tout moment en ajoutant ou en supprimant des lecteurs de cache.
 
-### <a name="general"></a>Général
+### <a name="general"></a>Généralités
 
 Nous recommandons de limiter la capacité de stockage totale par serveur à environ 100 téraoctets (To). Plus la capacité de stockage par serveur est élevée, plus il faut de temps pour resynchroniser les données après un arrêt ou un redémarrage (par exemple, pour appliquer des mises à jour logicielles).
 
-La taille maximale actuelle par pool de stockage est 4 se mesure en pétaoctets (po) (4 000 To) pour Windows Server 2019 ou 1 pétaoctet pour Windows Server 2016.
+La taille maximale actuelle par pool de stockage est de 4 pétaoctets (PB) (4 000 to) pour Windows Server 2019, ou 1 pétaoctet pour Windows Server 2016.
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Vue d’ensemble Direct des espaces de stockage](storage-spaces-direct-overview.md)
-- [Comprendre le cache dans les espaces de stockage Direct](understand-the-cache.md)
-- [Configuration matérielle directe des espaces de stockage](storage-spaces-direct-hardware-requirements.md)
-- [Planification des volumes dans les espaces de stockage Direct](plan-volumes.md)
+- [Présentation de espaces de stockage direct](storage-spaces-direct-overview.md)
+- [Comprendre le cache dans espaces de stockage direct](understand-the-cache.md)
+- [espaces de stockage direct configuration matérielle requise](storage-spaces-direct-hardware-requirements.md)
+- [Planification des volumes dans espaces de stockage direct](plan-volumes.md)
 - [Tolérance de panne et efficacité du stockage](storage-spaces-fault-tolerance.md)

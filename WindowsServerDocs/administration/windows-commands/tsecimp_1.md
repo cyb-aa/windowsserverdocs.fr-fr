@@ -1,6 +1,6 @@
 ---
 title: tsecimp
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a5ed2ef8b1d0238a3608dabdd165a255855a304d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 85fea84ed9dcb0f85bfa80e56f0c2c04d2c8e85b
+ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440871"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314310"
 ---
 # <a name="tsecimp"></a>tsecimp
 
 
 
-Importe des informations sur l’attribution d’un fichier de langage XML (Extensible Markup) dans le fichier de sécurité du serveur TAPI (Tsec.ini). Vous pouvez également utiliser cette commande pour afficher la liste des fournisseurs TAPI et les appareils de lignes associé à chacun d’eux, valider la structure du fichier XML sans importer le contenu et vérifier l’appartenance au domaine.
+Importe les informations d’affectation d’un fichier Extensible Markup Language (XML) dans le fichier de sécurité du serveur TAPI (sect. ini). Vous pouvez également utiliser cette commande pour afficher la liste des fournisseurs TAPI et les périphériques de ligne associés à chacun d’eux, valider la structure du fichier XML sans importer le contenu et vérifier l’appartenance au domaine.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -37,39 +37,39 @@ tsecimp /d
 
 |Paramètre|Description|
 |---------|-----------|
-|/f \<Filename>|Obligatoire. Spécifie le nom du fichier XML qui contient les informations d’affectation que vous souhaitez importer.|
-|/v|Valide la structure du fichier XML sans importer les informations dans le fichier Tsec.ini.|
-|/u|Vérifie si chaque utilisateur est membre du domaine spécifié dans le fichier XML. L’ordinateur sur lequel vous utilisez ce paramètre doit être connecté au réseau. Ce paramètre peut ralentir considérablement les performances si vous traitez une grande quantité d’informations sur l’affectation utilisateur.|
-|/d|Affiche une liste de fournisseurs de téléphonie installés. Pour chaque fournisseur de téléphonie, les périphériques de ligne associés sont répertoriés, ainsi que les adresses et les utilisateurs associés à chaque périphérique de ligne.|
+|/f \<nom de fichier >|Requis. Spécifie le nom du fichier XML qui contient les informations d’affectation que vous souhaitez importer.|
+|/v|Valide la structure du fichier XML sans importer les informations dans le fichier sect. ini.|
+|/u.|Vérifie si chaque utilisateur est membre du domaine spécifié dans le fichier XML. L’ordinateur sur lequel vous utilisez ce paramètre doit être connecté au réseau. Ce paramètre peut ralentir considérablement les performances si vous traitez une grande quantité d’informations d’attribution de l’utilisateur.|
+|/d|Affiche la liste des fournisseurs de téléphonie installés. Pour chaque fournisseur de téléphonie, les périphériques de ligne associés sont répertoriés, ainsi que les adresses et les utilisateurs associés à chaque périphérique de ligne.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
--   Le fichier XML à partir de laquelle vous souhaitez importer des informations sur l’attribution doit respecter la structure décrite ci-dessous.  
-    -   **UserList** élément
+-   Le fichier XML à partir duquel vous souhaitez importer les informations d’attribution doit suivre la structure décrite ci-dessous.  
+    -   Élément **UserList**
 
-        Le **UserList** est l’élément supérieur du fichier XML.
-    -   **Utilisateur** élément
+        La **UserList** est l’élément supérieur du fichier XML.
+    -   Élément **utilisateur**
 
-        Chaque **utilisateur** élément contient des informations sur un utilisateur qui est membre d’un domaine. Chaque utilisateur peut être affecté à un ou plusieurs périphériques de ligne.
+        Chaque élément **utilisateur** contient des informations sur un utilisateur qui est membre d’un domaine. Un ou plusieurs périphériques de ligne peuvent être affectés à chaque utilisateur.
 
-        En outre, chaque **utilisateur** élément peut avoir un attribut nommé **NoMerge**. Lorsque cet attribut est spécifié, toutes les attributions de périphérique de ligne actuel pour l’utilisateur sont supprimées avant que d’autres sont effectuées. Vous pouvez utiliser cet attribut pour supprimer facilement des attributions d’utilisateur indésirables. Par défaut, cet attribut n’est pas défini.
+        En outre, chaque élément **utilisateur** peut avoir un attribut nommé **NoMerge**. Lorsque cet attribut est spécifié, toutes les attributions de périphériques de ligne en cours pour l’utilisateur sont supprimées avant que d’autres ne soient effectuées. Vous pouvez utiliser cet attribut pour supprimer facilement les affectations d’utilisateurs indésirables. Par défaut, cet attribut n’est pas défini.
 
-        Le **utilisateur** élément doit contenir un seul **DomainUserName** élément, qui spécifie le nom de domaine et d’utilisateur de l’utilisateur. Le **utilisateur** élément peut également contenir un **FriendlyName** élément, qui spécifie un nom convivial pour l’utilisateur.
+        L’élément **User** doit contenir un seul élément **DomainUserName** , qui spécifie le domaine et le nom d’utilisateur de l’utilisateur. L’élément **User** peut également contenir un seul élément **FriendlyName** , qui spécifie un nom convivial pour l’utilisateur.
 
-        Le **utilisateur** élément peut contenir un **LineList** élément. Si un **LineList** élément n’est pas présent, tous les périphériques de ligne pour cet utilisateur sont supprimées.
-    -   **LineList** élément
+        L’élément **User** peut contenir un élément **LineList** . Si un élément **LineList** n’est pas présent, tous les périphériques de ligne de cet utilisateur sont supprimés.
+    -   Élément **LineList**
 
-        Le **LineList** élément contient des informations sur chaque ligne ou périphérique qui peut être attribué à l’utilisateur. Chaque **LineList** élément peut contenir plusieurs **ligne** élément.
-    -   **Ligne** élément
+        L’élément **LineList** contient des informations sur chaque ligne ou périphérique pouvant être attribué à l’utilisateur. Chaque élément **LineList** peut contenir plusieurs éléments de **ligne** .
+    -   Élément **line**
 
-        Chaque **ligne** élément spécifie un périphérique de ligne. Vous devez identifier chaque périphérique de ligne en ajoutant soit un **adresse** élément ou un **PermanentID** élément sous le **ligne** élément.
+        Chaque élément de **ligne** spécifie un périphérique de ligne. Vous devez identifier chaque périphérique de ligne en ajoutant un élément **Address** ou un élément **PermanentID** sous l’élément **line** .
 
-        Pour chaque **ligne** élément, vous pouvez définir le **supprimer** attribut. Si vous définissez cet attribut, l’utilisateur n’est plus affectée cet appareil de la ligne. Si cet attribut n’est pas défini, l’utilisateur accède à ce périphérique de ligne. Aucune erreur n’est générée si le périphérique de ligne n’est pas disponible à l’utilisateur.
+        Pour chaque élément de **ligne** , vous pouvez définir l’attribut **Remove** . Si vous définissez cet attribut, l’utilisateur n’est plus affecté à ce périphérique de ligne. Si cet attribut n’est pas défini, l’utilisateur obtient l’accès à ce périphérique de ligne. Aucune erreur n’est indiquée si le périphérique de ligne n’est pas disponible pour l’utilisateur.
 
 ## <a name="examples"></a>Exemples
-- Les segments de code XML exemples suivants illustrent l’utilisation correcte des éléments définis ci-dessus.  
-  - Le code suivant supprime tous les périphériques de ligne affectés à Utilisateur1.  
+- Les exemples de segments de code XML suivants illustrent l’utilisation correcte des éléments définis ci-dessus.  
+  - Le code suivant supprime tous les appareils de ligne affectés à User1.  
     ```
     <UserList>
       <User NoMerge="1">
@@ -77,7 +77,7 @@ tsecimp /d
       </User>
     </UserList>
     ```  
-  - Le code suivant supprime tous les périphériques de ligne affectés à Utilisateur1 avant d’affecter une ligne avec l’adresse 99999. User1 n’aura aucun autre périphérique de lignes affectées, quelle que soit si des périphériques de ligne ont été attribués précédemment.  
+  - Le code suivant supprime tous les appareils de ligne affectés à User1 avant d’attribuer une ligne avec l’adresse 99999. Utilisateur1 n’aura pas d’autres lignes attribuées, que des appareils en ligne aient été attribués précédemment.  
     ```
     <UserList>
       <User NoMerge="1">
@@ -91,7 +91,7 @@ tsecimp /d
       </User>
     </UserList>
     ```  
-  - Le code suivant ajoute un périphérique de ligne pour User1 sans supprimer les périphériques de la ligne précédemment affectés.  
+  - Le code suivant ajoute un périphérique de ligne pour User1 sans supprimer les périphériques de ligne précédemment affectés.  
     ```
     <UserList>
       <User>
@@ -105,7 +105,7 @@ tsecimp /d
       </User>
     </UserList>
     ```  
-  - Le code suivant ajoute l’adresse de ligne 99999 et supprime l’adresse de ligne 88888 contre tout accès utilisateur1.  
+  - Le code suivant ajoute l’adresse de ligne 99999 et supprime l’accès à l’adresse de ligne 88888 de utilisateur1.  
     ```
     <UserList>
       <User>
@@ -122,7 +122,7 @@ tsecimp /d
       </User>
     </UserList>
     ```  
-  - Le code suivant ajoute le périphérique permanent 1000 et supprime la ligne 88888 contre tout accès utilisateur1.  
+  - Le code suivant ajoute l’appareil permanent 1000 et supprime la ligne 88888 de l’accès à utilisateur1.  
     ```
     <UserList>
       <User>
@@ -138,12 +138,9 @@ tsecimp /d
         </LineList>
       </User>
     </UserList>
+    ```
 
-
-~~~
-    ```  
-~~~
--   The following sample output appears after the **/d** command-line option is specified to display the current TAPI configuration. For each telephony provider, the associated line devices are listed, as well as the addresses and users associated with each line device.  
+-   L’exemple de sortie suivant apparaît une fois que l’option de ligne de commande **/d** est spécifiée pour afficher la configuration TAPI actuelle. Pour chaque fournisseur de téléphonie, les périphériques de ligne associés sont répertoriés, ainsi que les adresses et les utilisateurs associés à chaque périphérique de ligne.  
     ```
     NDIS Proxy TAPI Service Provider
             Line: "WAN Miniport (L2TP)"
@@ -161,8 +158,8 @@ tsecimp /d
 
     ```
 
-#### Additional references
+#### <a name="additional-references"></a>Références supplémentaires
 
-[Command-Line Syntax Key](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
-[Command shell overview](https://technet.microsoft.com/library/cc737438(v=ws.10).aspx)
+[Vue d’ensemble de l’interface de commande](https://technet.microsoft.com/library/cc737438(v=ws.10).aspx)

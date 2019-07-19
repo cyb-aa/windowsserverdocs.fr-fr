@@ -9,36 +9,36 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: cb4432084386cb3296163f24c801be1c74b379df
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: a7fec85301e2b70fb64f35f0b6e345adde29eed0
+ms.sourcegitcommit: 67833e36b8b2c6194a1426a974c5ad9c859fa4c9
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883040"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68329649"
 ---
 # <a name="install-a-replica-windows-server-2012-domain-controller-in-an-existing-domain-level-200"></a>Installer un contrôleur de domaine Windows Server 2012 répliqué dans un domaine existant (niveau 200)
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique décrit les étapes nécessaires à la mise à niveau d'une forêt ou d'un domaine existant vers Windows Server 2012 à l'aide du Gestionnaire de serveur ou de Windows PowerShell. Elle explique comment ajouter des contrôleurs de domaine qui exécutent Windows Server 2012 à un domaine existant.  
   
--   [Mise à niveau et flux de travail de réplica](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md#BKMK_Workflow)  
+-   [Workflow de mise à niveau et de réplica](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md#BKMK_Workflow)  
   
--   [Mise à niveau et réplication Windows PowerShell](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md#BKMK_PS)  
+-   [Mettre à niveau et répliquer Windows PowerShell](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md#BKMK_PS)  
   
 -   [Déploiement](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md#BKMK_Dep)  
   
-## <a name="BKMK_Workflow"></a>Mise à niveau et flux de travail de réplica  
+## <a name="BKMK_Workflow"></a>Workflow de mise à niveau et de réplica  
 Le diagramme suivant illustre le processus de configuration des services de domaine Active Directory quand vous avez auparavant installé le rôle AD DS et démarré l'Assistant Configuration des services de domaine Active Directory à l'aide du Gestionnaire de serveur pour créer un contrôleur de domaine dans un domaine existant.  
   
 ![Installer un réplica](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/adds_forestupgrade.png)  
   
-## <a name="BKMK_PS"></a>Mise à niveau et réplication Windows PowerShell  
+## <a name="BKMK_PS"></a>Mettre à niveau et répliquer Windows PowerShell  
   
 |||  
 |-|-|  
 |**Applet de commande ADDSDeployment**|Arguments (les arguments en **gras** sont obligatoires. Les arguments en *italique* peuvent être spécifiés à l'aide de Windows PowerShell ou de l'Assistant Configuration des services de domaine Active Directory.)|  
-|Install-AddsDomainController|-SkipPreChecks<br /><br />***-DomainName***<br /><br />*-SafeModeAdministratorPassword*<br /><br />*-SiteName*<br /><br />*-ADPrepCredential*<br /><br />-ApplicationPartitionsToReplicate<br /><br />*-AllowDomainControllerReinstall*<br /><br />-Confirm<br /><br />*-CreateDNSDelegation*<br /><br />***-Credential***<br /><br />-CriticalReplicationOnly<br /><br />*-DatabasePath*<br /><br />*-DNSDelegationCredential*<br /><br />-Force<br /><br />*-InstallationMediaPath*<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />-MoveInfrastructureOperationMasterRoleIfNecessary<br /><br />-NoDnsOnNetwork<br /><br />*-NoGlobalCatalog*<br /><br />-Norebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />-SkipAutoConfigureDNS<br /><br />-SiteName<br /><br />*-SystemKey*<br /><br />*-SYSVOLPath*<br /><br />*-UseExistingAccount*<br /><br />*-Whatif*|  
+|Install-AddsDomainController|-SkipPreChecks<br /><br />***-DomainName***<br /><br />*-SafeModeAdministratorPassword*<br /><br />*-SiteName*<br /><br />*-ADPrepCredential*<br /><br />-ApplicationPartitionsToReplicate<br /><br />*-AllowDomainControllerReinstall*<br /><br />-Confirm<br /><br />*-CreateDNSDelegation*<br /><br />***-Credential***<br /><br />-CriticalReplicationOnly<br /><br />*-DatabasePath*<br /><br />*-DNSDelegationCredential*<br /><br />-Force<br /><br />*-InstallationMediaPath*<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />-MoveInfrastructureOperationMasterRoleIfNecessary<br /><br />-NoDnsOnNetwork<br /><br />*-NoGlobalCatalog*<br /><br />-Norebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />-SkipAutoConfigureDNS<br /><br />-SiteName<br /><br />*-SystemKey*<br /><br />*-SYSVOLPath*<br /><br />*-UseExistingAccount*<br /><br />*-WhatIf*|  
   
 > [!NOTE]  
 > L'argument **-credential** est uniquement requis si vous n'êtes pas déjà connecté en tant que membre des groupes Administrateurs de l'entreprise et Administrateurs du schéma (si vous mettez à niveau la forêt) ou du groupe Admins du domaine (si vous ajoutez un nouveau contrôleur de domaine à un domaine existant).  
@@ -179,7 +179,7 @@ Les arguments de l'applet de commande ADDSDeployment **Options supplémentaires*
 -syskey <secure string>  
 ```  
   
-### <a name="paths"></a>Chemins d’accès  
+### <a name="paths"></a>Chemins d'accès  
 ![Installer un réplica](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradePaths.png)  
   
 La page **Chemins d’accès** vous permet de remplacer les emplacements de dossier par défaut de la base de données AD DS, des journaux de transaction de base de données et du partage SYSVOL. Les emplacements par défaut sont toujours dans des sous-répertoires de %systemroot%.  
@@ -306,7 +306,7 @@ Notez comment, de la même façon que le Gestionnaire de serveur, **Install-ADDS
   
 ![Installer un réplica](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSUpgradeProgress.png)  
   
-Pour configurer un contrôleur de domaine à distance à l'aide de Windows PowerShell, encapsulez l'applet de commande **install-adddomaincontroller** *dans* l'applet de commande **invoke-command** . Cette opération requiert l'utilisation des accolades.  
+Pour configurer un contrôleur de domaine à distance à l’aide de Windows PowerShell, encapsulez l’applet de commande **install-addsdomaincontroller** *à l’intérieur* de l’applet de **commande Invoke-Command** . Cette opération requiert l'utilisation des accolades.  
   
 ```  
 invoke-command {install-addsdomaincontroller "domainname <domain> -credential (get-credential)} -computername <dc name>  
