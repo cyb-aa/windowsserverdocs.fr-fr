@@ -131,7 +131,7 @@ Déplacez les paramètres et les données vers le serveur de destination comme s
  
 2. Cliquez sur **Démarrer**, puis sur **Gestion de serveur**. 
  
-3. Dans le volet de navigation, cliquez sur **gestion avancée**, cliquez sur **Group Policy Management**, puis cliquez sur **forêt : *** < nom_domaine\>* . 
+3. Dans le volet de navigation, cliquez sur **gestion avancée**, cliquez sur **Group Policy Management**, puis cliquez sur **forêt :** *<nom_domaine\>* . 
  
 4. Cliquez sur **domaines**, cliquez sur *< nom_domaine\>* , puis cliquez sur **les objets de stratégie de groupe**. 
  
@@ -161,7 +161,7 @@ Déplacez les paramètres et les données vers le serveur de destination comme s
  
 2. Cliquez sur **Démarrer**, puis sur **Gestion de serveur**. 
  
-3. Dans le volet de navigation, cliquez sur **fonctionnalités**, cliquez sur **Group Policy Management**, puis cliquez sur **forêt : *** < Nomdomainedevotreréseau\>* 
+3. Dans le volet de navigation, cliquez sur **fonctionnalités**, cliquez sur **Group Policy Management**, puis cliquez sur **forêt :** *<Nomdomainedevotreréseau\>* 
  
 4. Cliquez sur **domaines**, cliquez sur *< Nomdomainedevotreréseau\>* , puis cliquez sur **filtres WMI**. 
  

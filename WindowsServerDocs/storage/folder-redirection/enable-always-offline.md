@@ -44,7 +44,7 @@ Pour activer le mode toujours hors connexion, utilisez la stratégie de groupe p
 6. Sélectionnez **Activé**.
 7. Dans le **Options** boîte, sélectionnez **afficher**. Le **fenêtre d’afficher le contenu** s’affiche.
 8. Dans le **nom de la valeur** , spécifiez le partage de fichiers pour lequel vous souhaitez activer le mode toujours hors connexion.
-9. Pour activer le mode toujours hors connexion sur tous les partages de fichiers, entrez **\\***.
+9. Pour activer le mode toujours hors connexion sur tous les partages de fichiers, entrez **\\** *.
 10. Dans le **valeur** , entrez **latence = 1** pour définir le seuil de latence à une milliseconde, puis sélectionnez **OK**.
 
 >[!NOTE]
