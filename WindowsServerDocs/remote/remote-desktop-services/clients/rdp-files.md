@@ -13,16 +13,18 @@ manager: dongill
 ms.author: helohr
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: fbec5c27b7cb3ef0ef750a5ebd7d7ea2654c47b3
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 37ba3ca343eadf1bde5f75993ac2dbbb0ec05bad
+ms.sourcegitcommit: 286e3181ebd2cb9d7dc7fe651858a4e0d61d153f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65983459"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68300705"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>Paramètres pris en charge du fichier RDP du Bureau à distance
 
 Le tableau suivant contient la liste des paramètres du fichier RDP pris en charge et que vous pouvez utiliser avec les clients Windows et HTML. (Un « x » dans la colonne de plateforme indique que le paramètre est pris en charge. Toutefois, cette liste n’est pas une liste complète des paramètres pris en charge pour les clients Windows et HTML5. Nous continuerons à mettre à jour ce tableau pour inclure plus de paramètres RDP pris en charge pour les clients Windows et HTML5, ainsi que les clients macOS, iOS et Android.
+
+Pour en savoir plus sur l’utilisation de PowerShell pour personnaliser les propriétés RDP, consultez [Personnaliser les propriétés RDP (Remote Desktop Protocol) pour un pool d’hôtes](https://docs.microsoft.com/azure/virtual-desktop/customize-rdp-properties).
 
 | Paramètre RDP                        | Description            | Valeurs                 | Valeur par défaut          | Bureau virtuel Windows | Windows | HTML5   |
 |------------------------------------|------------------------|------------------------|:----------------------:|:-----------------------:|:-------:|:-------:|

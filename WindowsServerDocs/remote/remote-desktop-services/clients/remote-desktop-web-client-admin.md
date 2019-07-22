@@ -8,12 +8,12 @@ ms.date: 11/2/2018
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 45164e9eca0873c82148aa3b7baa179a3f626dd7
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 02c7098c8e3f93ce315e7d9a881613a03924e78b
+ms.sourcegitcommit: 286e3181ebd2cb9d7dc7fe651858a4e0d61d153f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66804973"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68300694"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Configurer le client web Bureau à distance pour vos utilisateurs
 
@@ -259,7 +259,7 @@ Par défaut, les utilisateurs peuvent choisir d'activer ou de désactiver la col
 En tant qu'administrateur, vous pouvez choisir de supprimer la collecte de données de télémétrie pour votre déploiement à l'aide de l'applet de commande PowerShell suivante :
 
    ```PowerShell
-    Set-RDWebClientDeploymentSetting -SuppressTelemetry $true
+    Set-RDWebClientDeploymentSetting -Name "SuppressTelemetry" $true
    ```
 
 Par défaut, l'utilisateur peut activer ou désactiver les données de télémétrie. Une valeur booléenne **$false** correspondra au comportement par défaut du client. Une valeur booléenne **$true** désactivera les données de télémétrie et empêchera l'utilisateur de les activer.
@@ -268,15 +268,15 @@ Par défaut, l'utilisateur peut activer ou désactiver les données de télémé
 Par défaut, les utilisateurs peuvent choisir de lancer des ressources distantes (1) dans le navigateur ou (2) en téléchargeant un fichier .rdp à gérer avec un autre client installé sur leur ordinateur. En tant qu'administrateur, vous pouvez choisir de limiter la méthode de lancement de ressources distantes de votre déploiement à l'aide de la commande Powershell suivante :
 
    ```PowerShell
-    Set-RDWebClientDeploymentSetting -LaunchResourceInBrowser ($true|$false)
+    Set-RDWebClientDeploymentSetting -Name "LaunchResourceInBrowser" ($true|$false)
    ```
  Par défaut, l'utilisateur peut sélectionner l'une ou l'autre des méthodes de lancement. Une valeur booléenne **$true** obligera l'utilisateur à lancer les ressources dans le navigateur. Une valeur booléenne **$false** obligera l'utilisateur à lancer les ressources en téléchargeant un fichier .rdp à gérer avec un client RDP installé localement.
 
 ### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>Rétablir les configurations RDWebClientDeploymentSetting par défaut
-Pour rétablir tous les paramètres par défaut du client web au niveau du déploiement, exécutez l'applet de commande PowerShell suivante :
-
+Pour rétablir un paramètre client web de niveau déploiement à la configuration par défaut, exécutez l’applet de commande PowerShell suivante et utilisez le paramètre --Name pour spécifier le paramètre que vous souhaitez rétablir :
    ```PowerShell
-    Reset-RDWebClientDeploymentSetting 
+    Reset-RDWebClientDeploymentSetting -Name "LaunchResourceInBrowser"
+    Reset-RDWebClientDeploymentSetting -Name "SuppressTelemetry"
    ```
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
