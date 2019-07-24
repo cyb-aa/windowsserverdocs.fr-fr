@@ -131,7 +131,7 @@ Les objets de stratégie de groupe (GPO) sont mis à jour pour Windows Server Es
  
 2. Cliquez sur **Démarrer**, puis sur **Gestion de serveur**. 
  
-3. Dans le volet de navigation, cliquez sur **gestion avancée**, cliquez sur **Group Policy Management**, puis cliquez sur **forêt : *** < nom_domaine\>* . 
+3. Dans le volet de navigation, cliquez sur **gestion avancée**, cliquez sur **Group Policy Management**, puis cliquez sur **forêt :** *<nom_domaine\>* . 
  
 4. Cliquez sur **domaines**, cliquez sur *< nom_domaine\>* , puis cliquez sur **les objets de stratégie de groupe**. 
  
@@ -173,7 +173,7 @@ Nous vous recommandons de que configurer la stratégie de mot de passe dans Wind
  
 2. Cliquez sur **Démarrer**, puis sur **Gestion de serveur**. 
  
-3. Dans le volet de navigation, cliquez sur **gestion avancée**, cliquez sur **Group Policy Management**, puis cliquez sur **forêt : *** < Nomdomainedevotreréseau\>* 
+3. Dans le volet de navigation, cliquez sur **gestion avancée**, cliquez sur **Group Policy Management**, puis cliquez sur **forêt :** *<Nomdomainedevotreréseau\>* 
  
 4. Cliquez sur **domaines**, cliquez sur *< Nomdomainedevotreréseau\>* , puis cliquez sur **filtres WMI**. 
  
