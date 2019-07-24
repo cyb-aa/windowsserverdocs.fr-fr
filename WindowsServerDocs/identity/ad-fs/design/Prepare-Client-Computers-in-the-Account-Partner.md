@@ -24,7 +24,7 @@ Pour que vos ordinateurs clients puissent accéder en toute transparence des app
   
 -   Configurez Internet Explorer sur chaque ordinateur client à approuver le serveur de fédération de compte.  
   
-    Pour plus d'informations, voir [Configure Client Computers to Trust the Account Federation Server](../../ad-fs/deployment/Configure-Client-Computers-to-Trust-the-Account-Federation-Server.md).  
+    Pour plus d’informations, consultez [configurer des ordinateurs clients à approuver le serveur de fédération de compte](../../ad-fs/deployment/Configure-Client-Computers-to-Trust-the-Account-Federation-Server.md).  
   
 -   Installer le serveur de fédération de compte approprié, le serveur de fédération de ressources et le serveur Web (Secure Sockets Layer) \(SSL\) certificats \(ou équivalent certificats liés à une racine approuvée\) sur chaque ordinateur client.  
   
