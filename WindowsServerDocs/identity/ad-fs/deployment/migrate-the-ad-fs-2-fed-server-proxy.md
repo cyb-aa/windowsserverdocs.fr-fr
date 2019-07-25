@@ -31,7 +31,7 @@ Pour migrer un serveur proxy de fédération 2.0 AD FS vers Windows Server 2012,
 > [!IMPORTANT]
 >  La mise à niveau du système d’exploitation entraîne la perte de la configuration du proxy AD FS sur ce serveur et la suppression du rôle serveur AD FS 2.0. Le rôle de serveur AD FS de Windows Server 2012 est installé à la place, mais il n’est pas configuré. Vous devez manuellement créer la configuration du proxy AD FS d’origine et restaurer les paramètres du proxy AD FS restants pour terminer la migration du serveur proxy de fédération.  
   
-4. Créez la configuration du proxy AD FS d’origine, à l’aide de l’ **Assistant Configuration du serveur proxy de fédération AD FS**. Pour plus d'informations, voir [Configure a Computer for the Federation Server Proxy Role](configure-a-computer-for-the-federation-server-proxy-role.md). Lorsque vous exécutez l’Assistant, utilisez les informations collectées dans la préparation à la migration du serveur proxy de fédération AD FS 2.0 comme suit :  
+4. Créez la configuration du proxy AD FS d’origine, à l’aide de l’ **Assistant Configuration du serveur proxy de fédération AD FS**. Pour plus d’informations, consultez [configurer un ordinateur pour le rôle de Proxy de serveur de fédération](configure-a-computer-for-the-federation-server-proxy-role.md). Lorsque vous exécutez l’Assistant, utilisez les informations collectées dans la préparation à la migration du serveur proxy de fédération AD FS 2.0 comme suit :  
   
  
 |**Option de saisie de l’Assistant serveur Proxy de fédération**|**Utilisez la valeur suivante**|
