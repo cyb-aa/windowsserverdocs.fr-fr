@@ -7,42 +7,42 @@ ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: b19512a6f34e13469433aba6051f1232824beb0e
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: b649a3cc16bc1a527c5df0b4a0d543da22a882d2
+ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034156"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476486"
 ---
 # <a name="patch-a-server-core-installation"></a>Corriger une installation Server Core
 
-> S’applique à : Windows Server (canal semi-annuel) et Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server 2016 et Windows Server (canal semi-annuel)
 
-Vous pouvez appliquer un correctif un serveur exécutant l’installation Server Core de plusieurs manières :
+Vous pouvez appliquer un correctif à un serveur exécutant une installation Server Core de l’une des manières suivantes:
 
-- **À l’aide de Windows Update automatiquement ou avec Windows Server Update Services (WSUS)** . À l’aide de Windows Update, automatiquement ou avec des outils de ligne de commande ou Windows Server Update Services (WSUS), vous pouvez service serveurs exécutant une installation Server Core.
+- **Utilisation de Windows Update automatiquement ou avec Windows Server Update Services (WSUS)** . En utilisant Windows Update, soit automatiquement, soit à l’aide d’outils en ligne de commande ou Windows Server Update Services (WSUS), vous pouvez traiter des serveurs exécutant une installation Server Core.
 
-- **Manuellement**. Même dans les organisations qui n’utilisent pas Windows update ou WSUS, vous pouvez appliquer des mises à jour manuellement.
+- **Manuellement**. Même dans les organisations qui n’utilisent pas Windows Update ou WSUS, vous pouvez appliquer les mises à jour manuellement.
 
 ## <a name="view-the-updates-installed-on-your-server-core-server"></a>Afficher les mises à jour installées sur votre serveur Server Core
-Avant d’ajouter une nouvelle mise à jour de Server Core, il est judicieux de voir quelles mises à jour ont déjà été installés.
+Avant d’ajouter une nouvelle mise à jour à Server Core, il est judicieux de voir quelles mises à jour ont déjà été installées.
 
-Pour afficher les mises à jour à l’aide de Windows PowerShell, exécutez **Get-Hotfix**.
+Pour afficher les mises à jour à l’aide de Windows PowerShell, exécutez la fenêtre **obtenir un correctif**.
 
-Pour afficher les mises à jour en exécutant une commande, exécutez **systeminfo.exe**. Il peut y avoir un léger retard pendant que l’outil inspecte votre système.
+Pour afficher les mises à jour en exécutant une commande, exécutez **systeminfo. exe**. Il peut y avoir un bref délai pendant que l’outil inspecte votre système.
 
-Vous pouvez également exécuter **wmic qfe liste** à partir de la ligne de commande. 
+Vous pouvez également exécuter la **liste de correctifs WMI** à partir de la ligne de commande. 
 
-## <a name="patch-server-core-automatically-with-windows-update"></a>Correctif de Server Core automatiquement avec la mise à jour de Windows
+## <a name="patch-server-core-automatically-with-windows-update"></a>Patch Server Core automatiquement avec Windows Update
 
-Utilisez les étapes suivantes pour appliquer le correctif automatiquement avec la mise à jour de Windows :
+Procédez comme suit pour corriger automatiquement le serveur avec Windows Update:
 
-1. Vérifier le paramètre actuel de la mise à jour de Windows :
+1. Vérifiez le paramètre de Windows Update actuel:
    ```
    %systemroot%\system32\Cscript scregedit.wsf /AU /v 
    ```
 
-2. Pour activer les mises à jour automatiques :
+2. Pour activer les mises à jour automatiques:
 
    ```
    Net stop wuauserv 
@@ -50,7 +50,7 @@ Utilisez les étapes suivantes pour appliquer le correctif automatiquement avec 
    Net start wuauserv
    ```  
 
-3. Pour désactiver les mises à jour automatiques, exécutez :
+3. Pour désactiver les mises à jour automatiques, exécutez:
 
    ```
    Net stop wuauserv 
@@ -58,7 +58,7 @@ Utilisez les étapes suivantes pour appliquer le correctif automatiquement avec 
    Net start wuauserv 
    ```
 
-Si le serveur est membre d’un domaine, vous pouvez également configurer Windows Update avec une stratégie de groupe. Pour plus d'informations, consultez https://go.microsoft.com/fwlink/?LinkId=192470. Toutefois, lorsque vous utilisez cette méthode, seule l’option 4 (« téléchargement automatique et planification de l’installation ») concerne les installations Server Core en raison de l’absence d’une interface graphique. Pour mieux contrôler quelles mises à jour doivent être installées, et à quel moment, vous pouvez utiliser un script qui fournit des équivalences de ligne de commande pour la plupart des commandes de l’interface graphique de Windows Update. Pour plus d’informations sur le script, consultez https://go.microsoft.com/fwlink/?LinkId=192471.
+Si le serveur est membre d’un domaine, vous pouvez également configurer Windows Update avec une stratégie de groupe. Pour plus d'informations, consultez https://go.microsoft.com/fwlink/?LinkId=192470. Toutefois, lorsque vous utilisez cette méthode, seule l’option 4 («téléchargement automatique et planification de l’installation») s’applique aux installations Server Core en raison de l’absence d’interface graphique. Pour mieux contrôler quelles mises à jour doivent être installées, et à quel moment, vous pouvez utiliser un script qui fournit des équivalences de ligne de commande pour la plupart des commandes de l’interface graphique de Windows Update. Pour plus d’informations sur le script https://go.microsoft.com/fwlink/?LinkId=192471, consultez.
 
 Pour forcer Windows Update à détecter et installer immédiatement les mises à jour disponibles, exécutez la commande suivante :
 
@@ -66,16 +66,16 @@ Pour forcer Windows Update à détecter et installer immédiatement les mises à
 Wuauclt /detectnow 
 ```
 
-Selon les mises à jour installées, vous pouvez être amené à redémarrer l’ordinateur, même si le système ne vous le demande pas. Pour déterminer si le processus d’installation est terminée, utilisez le Gestionnaire des tâches pour vérifier que le **Wuauclt** ou **installateur approuvé** processus ne sont pas en cours d’exécution. Vous pouvez également utiliser les méthodes dans [afficher les mises à jour installées sur votre serveur Server Core](#view-the-updates-installed-on-your-server-core-server) pour vérifier la liste des mises à jour installées.
+Selon les mises à jour installées, vous pouvez être amené à redémarrer l’ordinateur, même si le système ne vous le demande pas. Pour déterminer si le processus d’installation est terminé, utilisez le gestionnaire des tâches pour vérifier que les processus du **programme d’installation approuvé** ou **wuauclt** ne sont pas en cours d’exécution. Vous pouvez également utiliser les méthodes dans [afficher les mises à jour installées sur votre serveur Server Core](#view-the-updates-installed-on-your-server-core-server) pour vérifier la liste des mises à jour installées.
 
-## <a name="patch-the-server-with-wsus"></a>Appliquer le correctif avec WSUS 
+## <a name="patch-the-server-with-wsus"></a>Corriger le serveur avec WSUS 
 
-Si le serveur en mode d’installation minimale est membre d’un domaine, vous pouvez le configurer pour utiliser un serveur WSUS à l’aide d’une stratégie de groupe. Pour plus d’informations, téléchargez le [les informations de référence de stratégie de groupe](https://www.microsoft.com/download/details.aspx?id=25250). Vous pouvez également consulter [configurer des paramètres de stratégie de groupe pour les mises à jour automatiques](../windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates.md)
+Si le serveur en mode d’installation minimale est membre d’un domaine, vous pouvez le configurer pour utiliser un serveur WSUS à l’aide d’une stratégie de groupe. Pour plus d’informations, téléchargez le [stratégie de groupe informations de référence](https://www.microsoft.com/download/details.aspx?id=25250). Vous pouvez également consulter [configurer les paramètres de stratégie de groupe pour mises à jour automatiques](../windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates.md)
 
-## <a name="patch-the-server-manually"></a>Appliquer le correctif manuellement
+## <a name="patch-the-server-manually"></a>Corriger manuellement le serveur
 
-Télécharger la mise à jour et le rendre disponible à l’installation de Server Core.
-À l’invite de commandes, exécutez la commande suivante :
+Téléchargez la mise à jour et rendez-la disponible pour l’installation Server Core.
+Depuis une invite de commandes, exécutez la commande suivante :
 
 ```
 Wusa <update>.msu /quiet 
@@ -83,7 +83,7 @@ Wusa <update>.msu /quiet
 
 Selon les mises à jour installées, vous pouvez être amené à redémarrer l’ordinateur, même si le système ne vous le demande pas.
 
-Pour désinstaller une mise à jour manuellement, exécutez la commande suivante :
+Pour désinstaller une mise à jour manuellement, exécutez la commande suivante:
 
 ```
 Wusa /uninstall <update>.msu /quiet 

@@ -1,6 +1,6 @@
 ---
-title: Déployer des périphériques de graphiques à l’aide d’attribution discrète d’appareil
-description: Découvrez comment utiliser DDA pour déployer des périphériques graphiques dans Windows Server
+title: Déployer des appareils graphiques à l’aide de l’affectation discrète des appareils
+description: Découvrez comment utiliser DDA pour déployer des appareils graphiques dans Windows Server
 ms.prod: windows-server-threshold
 ms.service: na
 ms.technology: hyper-v
@@ -9,40 +9,40 @@ ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.assetid: 67a01889-fa36-4bc6-841d-363d76df6a66
-ms.openlocfilehash: 6c528535fd34f57957a37992843933d4cd9f8824
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 2f9d283f5f80d6bb0851b2abd93be0f4c10899c8
+ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447872"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476588"
 ---
-# <a name="deploy-graphics-devices-using-discrete-device-assignment"></a>Déployer des périphériques de graphiques à l’aide d’attribution discrète d’appareil
+# <a name="deploy-graphics-devices-using-discrete-device-assignment"></a>Déployer des appareils graphiques à l’aide de l’affectation discrète des appareils
 
 >S'applique à : Microsoft Hyper-V Server 2016, Windows Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019  
 
-À compter de Windows Server 2016, vous pouvez utiliser affectation discrète d’appareils ou DDA, pour transmettre l’intégralité d’un appareil de PCIe dans une machine virtuelle.  Cela autorise l’accès hautes performances sur des appareils tels que [NVMe stockage](./Deploying-storage-devices-using-dda.md) ou cartes graphiques à partir d’une machine virtuelle tout en étant en mesure d’utiliser les pilotes de périphériques natives.  Visitez le [planifier pour les appareils de déploiement à l’aide d’affectation d’appareils discrètes](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md) pour plus d’informations sur les appareils de travail, quelles sont les implications en matière de sécurité possibles, etc.
+À compter de Windows Server 2016, vous pouvez utiliser l’affectation discrète des appareils, ou DDA, pour transmettre un appareil PCIe entier à une machine virtuelle.  Cela permet un accès très performant aux appareils tels que le [stockage NVMe](./Deploying-storage-devices-using-dda.md) ou les cartes graphiques à partir d’une machine virtuelle tout en étant en mesure de tirer parti des pilotes natifs des appareils.  Pour plus d’informations sur les appareils qui fonctionnent, sur les implications sur la sécurité, consultez le [plan de déploiement d’appareils à l’aide de l’affectation discrète](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md) d’appareils, etc.
 
-Il existe trois étapes à l’utilisation d’un appareil avec attribution discrète d’appareil :
--   Configurer la machine virtuelle pour l’attribution discrète d’appareils
--   Démonter l’appareil à partir de la Partition hôte
--   Affectation de l’appareil à la machine virtuelle invitée
+Il existe trois étapes pour utiliser un appareil avec l’affectation discrète des appareils:
+-   Configurer la machine virtuelle pour l’affectation discrète des appareils
+-   Démonter l’appareil de la partition hôte
+-   Attribution de l’appareil à la machine virtuelle invitée
 
-Tout (commande) peuvent être exécutée sur l’ordinateur hôte sur une console Windows PowerShell en tant qu’administrateur.
+Toutes les commandes peuvent être exécutées sur l’hôte d’une console Windows PowerShell en tant qu’administrateur.
 
 ## <a name="configure-the-vm-for-dda"></a>Configurer la machine virtuelle pour DDA
-Affectation d’appareils discrètes impose certaines restrictions sur les machines virtuelles et l’étape suivante doit être prise.
+L’affectation discrète des appareils impose des restrictions aux machines virtuelles et l’étape suivante doit être effectuée.
 
-1.  Configurez le « arrêter Action automatique » d’une machine virtuelle à l’arrêt en exécutant
+1.  Configurez l’action d’arrêt automatique d’une machine virtuelle sur TurnOff en exécutant
 
 ```
 Set-VM -Name VMName -AutomaticStopAction TurnOff
 ```
 
-### <a name="some-additional-vm-preparation-is-required-for-graphics-devices"></a>Certaines tâches de préparation de machine virtuelle supplémentaire est requis pour les périphériques graphiques
+### <a name="some-additional-vm-preparation-is-required-for-graphics-devices"></a>Une préparation supplémentaire des machines virtuelles est nécessaire pour les périphériques graphiques
 
-Certains matériels fonctionne mieux si la machine virtuelle dans configuré d’une certaine manière.  Pour plus d’informations sur ou non, vous devez les configurations suivantes pour votre matériel, veuillez contacter le fournisseur de matériel. Vous trouverez des détails supplémentaires sur [planifier pour les appareils de déploiement à l’aide d’affectation d’appareils discrètes](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md) et sur ce [billet de blog.](https://blogs.technet.microsoft.com/virtualization/2015/11/23/discrete-device-assignment-gpus/)
+Le matériel fonctionne mieux si la machine virtuelle est configurée d’une certaine manière.  Pour savoir si vous avez besoin des configurations suivantes pour votre matériel, contactez le fournisseur du matériel. Pour plus d’informations, consultez [planifier le déploiement des appareils à l’aide de l’attribution discrète des appareils](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md) et sur ce billet de [blog.](https://techcommunity.microsoft.com/t5/Virtualization/Discrete-Device-Assignment-GPUs/ba-p/382266)
 
-1. Activer la combinaison d’écriture sur l’UC
+1. Activer la combinaison d’écriture sur le processeur
    ```
    Set-VM -GuestControlledCacheTypes $true -VMName VMName
    ```
@@ -50,58 +50,59 @@ Certains matériels fonctionne mieux si la machine virtuelle dans configuré d�
    ```
    Set-VM -LowMemoryMappedIoSpace 3Gb -VMName VMName
    ```
-3. Configurer supérieur à 32 bits MMIO espace
+3. Configurer un espace de plus de 32 bits MMIO
    ```
    Set-VM -HighMemoryMappedIoSpace 33280Mb -VMName VMName
    ```
-   Notez les valeurs d’espace MMIO ci-dessus sont des valeurs raisonnables à définir pour l’expérimentation avec une seule unité GPU.  Si après le démarrage de la machine virtuelle, l’appareil signale une erreur liée à des ressources insuffisantes, vous devrez probablement modifier ces valeurs.  En outre, si vous affectez plusieurs GPU, vous devrez augmenter ces valeurs ainsi.
+   > [!TIP] 
+   > Les valeurs d’espace MMIO ci-dessus sont des valeurs raisonnables à définir pour l’expérimentation d’une seule unité GPU.  Si, après le démarrage de la machine virtuelle, l’appareil signale une erreur liée à des ressources insuffisantes, vous devrez probablement modifier ces valeurs. Consultez [planifier le déploiement d’appareils à l’aide de l’attribution discrète des appareils](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md) pour savoir comment calculer précisément les exigences de la spécification MMIO.
 
-## <a name="dismount-the-device-from-the-host-partition"></a>Démonter l’appareil à partir de la Partition hôte
-### <a name="optional---install-the-partitioning-driver"></a>Facultatif : installez le pilote de partitionnement
-Attribution discrète d’appareil permettent de vendeurs de matériel pour fournir un pilote d’atténuation de sécurité avec leurs appareils.  Notez que ce pilote n’est pas le même que le pilote de périphérique sera installé dans la machine virtuelle invitée.  Il a jusqu'à la discrétion du fabricant de matériel pour fournir ce pilote, toutefois, si elles ne fournissent pas, veuillez l’installer avant de démontage de l’appareil à partir de la partition hôte.  Veuillez contacter le fournisseur de matériel pour plus d’informations si un pilote d’atténuation
-> Si aucun pilote de partitionnement n’est fournie, lors du démontage vous devez utiliser le `-force` option pour ignorer l’avertissement de sécurité. Veuillez en savoir plus sur les implications en matière de sécurité de sur [planifier pour les appareils de déploiement à l’aide d’affectation d’appareils discrètes](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md).
+## <a name="dismount-the-device-from-the-host-partition"></a>Démonter l’appareil de la partition hôte
+### <a name="optional---install-the-partitioning-driver"></a>Facultatif-installer le pilote de partitionnement
+L’affectation discrète des appareils offre aux fournisseurs de matériel la possibilité de fournir un pilote d’atténuation de la sécurité avec leurs appareils.  Notez que ce pilote n’est pas le même que le pilote de périphérique qui sera installé dans la machine virtuelle invitée.  C’est à la discrétion du fournisseur de matériel de fournir ce pilote. Toutefois, s’il le fournit, installez-le avant de démonter l’appareil de la partition hôte.  Contactez le fournisseur du matériel pour plus d’informations sur s’il dispose d’un pilote d’atténuation
+> Si aucun pilote de partitionnement n’est fourni, pendant le démontage, `-force` vous devez utiliser l’option pour ignorer l’avertissement de sécurité. Pour plus d’informations sur les implications en matière de sécurité, consultez [planifier le déploiement d’appareils à l’aide de l’attribution discrète des](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md)appareils.
 
-### <a name="locating-the-devices-location-path"></a>Recherche de chemin d’accès de l’appareil
-Le chemin d’accès de l’emplacement de la norme PCI est requise pour démonter et monter l’appareil à partir de l’hôte.  Un chemin de localisation exemple ressemble à ceci : `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`.  Plus d’informations sur trouve le chemin d’accès d’emplacement peut trouver ici : [Planifier le déploiement des appareils à l’aide d’attribution discrète d’appareil](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md).
+### <a name="locating-the-devices-location-path"></a>Recherche du chemin d’accès à l’emplacement de l’appareil
+Le chemin d’accès à l’emplacement PCI est requis pour démonter et monter l’appareil à partir de l’ordinateur hôte.  Un exemple de chemin d’accès à l’emplacement `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`ressemble à ce qui suit:.  Pour plus d’informations sur le chemin d’accès de l’emplacement, consultez: [Planifiez le déploiement d’appareils à l’aide de l’attribution discrète des appareils](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md).
 
 ### <a name="disable-the-device"></a>Désactiver l’appareil
-En utilisant le Gestionnaire de périphériques ou de PowerShell, assurez-vous de l’appareil est « disabled ».  
+À l’aide de Device Manager ou de PowerShell, assurez-vous que l’appareil est «désactivé».  
 
 ### <a name="dismount-the-device"></a>Démonter l’appareil
-Selon si le fournisseur a fourni un pilote d’atténuation, vous soit devrez utiliser le «-force » option ou non.
-- Si un pilote d’atténuation a été installé.
+Selon que le fournisseur a fourni un pilote d’atténuation, vous devez soit utiliser l’option «-force», soit non.
+- Si un pilote d’atténuation a été installé
   ```
   Dismount-VMHostAssignableDevice -LocationPath $locationPath
   ```
-- Si un pilote d’atténuation n’a pas été installé.
+- Si aucun pilote d’atténuation n’a été installé
   ```
   Dismount-VMHostAssignableDevice -force -LocationPath $locationPath
   ```
 
-## <a name="assigning-the-device-to-the-guest-vm"></a>Affectation de l’appareil à la machine virtuelle invitée
-L’étape finale consiste à indiquer à Hyper-V qu’une machine virtuelle doit avoir accès à l’appareil.  Outre le chemin d’accès d’emplacement identifié précédemment, vous devez connaître le nom de la machine virtuelle.
+## <a name="assigning-the-device-to-the-guest-vm"></a>Attribution de l’appareil à la machine virtuelle invitée
+La dernière étape consiste à dire à Hyper-V qu’une machine virtuelle doit avoir accès à l’appareil.  En plus du chemin d’accès d’emplacement indiqué ci-dessus, vous devez connaître le nom de la machine virtuelle.
 
 ```
 Add-VMAssignableDevice -LocationPath $locationPath -VMName VMName
 ```
 
-## <a name="whats-next"></a>Quelle est la suite
-Une fois un appareil est correctement monté dans une machine virtuelle, vous êtes maintenant en mesure de démarrer cette machine virtuelle et interagir avec l’appareil, comme vous le feriez normalement si vous exécutiez sur un système de métal nu.  Cela signifie que vous êtes maintenant en mesure d’installer les pilotes du fabricant de matériel dans la machine virtuelle et applications seront en mesure de voir ce matériel présent.  Vous pouvez le vérifier en ouvrant le Gestionnaire de périphériques dans la machine virtuelle invitée et de voir que le matériel affiche maintenant.
+## <a name="whats-next"></a>Étapes suivantes
+Une fois qu’un appareil est correctement monté sur une machine virtuelle, vous pouvez maintenant démarrer cette machine virtuelle et interagir avec l’appareil comme vous le feriez normalement si vous étiez en train d’exécuter sur un système nu.  Cela signifie que vous êtes maintenant en mesure d’installer les pilotes du fournisseur de matériel dans la machine virtuelle et que les applications peuvent voir ce matériel présent.  Vous pouvez le vérifier en ouvrant le gestionnaire de périphériques sur la machine virtuelle invitée et en vérifiant que le matériel s’affiche à présent.
 
-## <a name="removing-a-device-and-returning-it-to-the-host"></a>Suppression d’un périphérique et retourner à l’hôte
-Si vous souhaitez qu’il retourne un appareil à son état d’origine, vous devez arrêter la machine virtuelle et émettre les éléments suivants :
+## <a name="removing-a-device-and-returning-it-to-the-host"></a>Suppression d’un appareil et retour à l’ordinateur hôte
+Si vous souhaitez rétablir l’appareil à son état d’origine, vous devez arrêter la machine virtuelle et émettre les informations suivantes:
 ```
 #Remove the device from the VM
 Remove-VMAssignableDevice -LocationPath $locationPath -VMName VMName
 #Mount the device back in the host
 Mount-VMHostAssignableDevice -LocationPath $locationPath
 ```
-Vous pouvez réactiver ensuite l’appareil dans le Gestionnaire de périphériques et le système d’exploitation hôte sera en mesure d’interagir avec l’appareil à nouveau.
+Vous pouvez ensuite réactiver l’appareil dans le gestionnaire de périphériques et le système d’exploitation hôte pourra à nouveau interagir avec l’appareil.
 
 ## <a name="examples"></a>Exemples
 
-### <a name="mounting-a-gpu-to-a-vm"></a>Le montage d’un GPU à une machine virtuelle
-Dans cet exemple, nous utilisons PowerShell pour configurer une machine virtuelle nommée « ddatest1 » pour prendre le premier GPU disponible par le fabricant de NVIDIA et l’affecter à la machine virtuelle.  
+### <a name="mounting-a-gpu-to-a-vm"></a>Montage d’un GPU sur une machine virtuelle
+Dans cet exemple, nous utilisons PowerShell pour configurer une machine virtuelle nommée «ddatest1» afin de prendre le premier GPU disponible par le fabricant NVIDIA et de l’affecter à la machine virtuelle.  
 ```
 #Configure the VM for a Discrete Device Assignment
 $vm =   "ddatest1"
