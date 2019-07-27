@@ -10,12 +10,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 83855cf7e4fa86a932298dd15735dc5bf7277dfb
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: a58b7d1fe7124eb26b29c13ca53031ded8ed3d62
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65976604"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544550"
 ---
 # <a name="features-removed-or-deprecated-in--windows-server-2016"></a>Fonctionnalités supprimées ou déconseillées dans Windows Server 2016
 
@@ -56,8 +56,8 @@ La commande **wuauclt.exe /detectnow** a été supprimée et n’est plus prise 
 
 - Exécutez ces commandes PowerShell :
     ````powershell
-    $AutoUpdates = New-Object -ComObject "Microsoft.Update.AutoUpdate"`
-    $AutoUpdates.DetectNow()` 
+    $AutoUpdates = New-Object -ComObject "Microsoft.Update.AutoUpdate"
+    $AutoUpdates.DetectNow()
     ````
 
 - Vous pouvez également utiliser le VBScript suivant :

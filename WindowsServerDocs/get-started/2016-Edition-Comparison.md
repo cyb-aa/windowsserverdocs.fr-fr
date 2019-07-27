@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 2c26d6d0c4c4465b5f9073dbcac951fc0adce1d5
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 4a305141b839772bb024140bd803073a67e266b2
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63688541"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544573"
 ---
 # <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2016"></a>Comparatif des éditions Standard et Datacenter de Windows Server 2016
 
@@ -91,7 +91,7 @@ ms.locfileid: "63688541"
 |Déverrouillage réseau BitLocker|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
 |BranchCache|Oui|Oui|
 |Client pour NFS|Oui|Oui|
-|Conteneurs|Oui (conteneurs Windows en nombre illimité ; conteneurs Hyper-V, jusqu’à 2)|Oui (tous les types de conteneurs, en nombre illimité)|
+|Conteneurs|Oui (conteneurs Windows en nombre illimité ; conteneurs Hyper-V, jusqu’à 2)|Oui (tous les types de conteneurs, en nombre illimité)|
 |Data Center Bridging|Oui|Oui|
 |DirectPlay|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
 |Stockage étendu|Oui|Oui|
@@ -123,7 +123,7 @@ ms.locfileid: "63688541"
 |Limite de bande passante SMB|Oui|Oui|
 |Serveur SMTP|Oui|Oui|
 |Service SNMP|Oui|Oui|
-|Équilibrage de la charge logicielle|Oui|Oui|
+|Équilibrage de la charge logicielle|Non|Oui|
 |Réplica de stockage|Non|Oui|
 |Client Telnet|Oui|Oui|
 |Client TFTP|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|Oui, si vous choisissez l'option d'installation Serveur avec Expérience utilisateur|
