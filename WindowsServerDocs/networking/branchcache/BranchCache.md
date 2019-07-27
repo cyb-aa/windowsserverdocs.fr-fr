@@ -14,7 +14,7 @@ ms.author: pashort
 author: shortpatti
 ms.openlocfilehash: ba334e4aee0232d939a52f1173885a5f457adbc8
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59883860"
