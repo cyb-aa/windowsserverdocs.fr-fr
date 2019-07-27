@@ -1,6 +1,6 @@
 ---
 title: Limiter l’accès au Web
-description: Découvrez comment limiter l’accès utilisateur à Internet dans MultiPoint Services
+description: Découvrez comment limiter l’accès utilisateur à Internet dans MultiPoint services
 ms.custom: na
 ms.date: 07/08/2016
 ms.prod: windows-server-threshold
@@ -13,19 +13,19 @@ ms.assetid: 044f2fd5-5b87-42bb-ba0d-c06516ac48c8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 4274569f76b01c1793f7af7562a87f01ba1bdc07
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: cb91914608110d26ff2db8eff1cd28d26d04669b
+ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446133"
+ms.lasthandoff: 07/27/2019
+ms.locfileid: "68590350"
 ---
 # <a name="limit-web-access"></a>Limiter l’accès au Web
-Outre la surveillance des activités des utilisateurs sur des ordinateurs individuels, vous, en tant qu’administrateur, pouvez limiter l’accès utilisateur aux sites Web spécifiques en indiquant les sites Web autorisés et les sites Web à laquelle vous souhaitez bloquer l’accès de l’utilisateur.  
+En plus de surveiller les activités des utilisateurs sur des postes de travail individuels, vous, en tant qu’utilisateur administratif, pouvez limiter l’accès des utilisateurs aux sites Web spécifiés en indiquant les sites Web autorisés et les sites Web auxquels vous souhaitez bloquer l’accès des utilisateurs.  
   
 ## <a name="to-limit-web-access-on-a-station"></a>Pour limiter l’accès au Web sur une station  
   
-1. Dans le tableau de bord MultiPoint, sur le **Web limitant** , cliquez sur **configurer**. La page de **configuration de la limitation de l’accès au Web** s’ouvre. Les sites auxquels l’utilisateur peut accéder sont répertoriés.  
+1. Dans le tableau de bord MultiPoint, sous l’onglet **limitation du Web** , cliquez sur **configurer**. La page de **configuration de la limitation de l’accès au Web** s’ouvre. Les sites auxquels l’utilisateur peut accéder sont répertoriés.  
   
 2. Cliquez sur l’image miniature de la station d’utilisateur sur laquelle vous souhaitez limiter l’accès au Web.  
   
@@ -34,13 +34,13 @@ Outre la surveillance des activités des utilisateurs sur des ordinateurs indivi
 4. Pour ajouter un site autorisé, tapez l’adresse web, puis cliquez sur **Add (Ajouter)** .  
   
    > [!NOTE]
-   > Par exemple, entrer « Contoso.com » autorise ou bloque les sites qui sont par rapport à www.contoso.com (par exemple, www.newpage.contoso.com). Entrer « Contoso » autorise ou limiter tous les sites liés de Contoso (notamment contoso.com, contoso.uk et ainsi de suite).  
+   > Par exemple, si vous entrez «Contoso.com», vous autorisez ou bloquez\.les sites qui sont relatifs à\.www contoso.com (par exemple, www NewPage.contoso.com). Le fait d’entrer «contoso» autorise ou limite tous les sites liés à contoso (y compris contoso.com, contoso.uk, etc.).  
   
 5. Pour supprimer une adresse Web de la liste des sites autorisés, cliquez sur l’adresse Web dont vous souhaitez supprimer l’accès, puis cliquez sur **Remove (Supprimer)** .  
   
 ## <a name="to-limit-web-access-on-all-stations"></a>Pour limiter l’accès au Web sur toutes les stations  
   
-1. Dans le tableau de bord MultiPoint, sur le **Web limitant** onglet, cliquez sur la liste de démarrage\-menu déroulant, puis cliquez sur **limiter l’accès au Web sur tous les bureaux**.  
+1. Dans le tableau de bord multipoint, sous l’onglet **limitation du Web** ,\-cliquez sur le menu déroulant Démarrer, puis sur **limiter les accès Web sur tous les postes de travail**.  
   
    La page de **configuration de la limitation de l’accès au Web** s’ouvre. Les sites auxquels l’utilisateur peut accéder sont répertoriés. Faites une des actions suivantes :  
   
@@ -49,9 +49,9 @@ Outre la surveillance des activités des utilisateurs sur des ordinateurs indivi
    Pour ajouter un site que les utilisateurs ne doivent pas être autorisés à visiter, cliquez sur **Disallow only these sites (Ne pas autoriser uniquement ces sites)** , tapez l’adresse Web correspondante, puis cliquez sur **Add (Ajouter)** .  
   
    > [!NOTE]
-   > Par exemple, entrer « Contoso.com » autorise ou bloque les sites qui sont par rapport à www.contoso.com (par exemple, www.newpage.contoso.com). Entrer « Contoso » autorise ou limiter tous les sites liés de Contoso (notamment contoso.com, contoso.uk et ainsi de suite).  
+   > Par exemple, la saisie de «Contoso.com» autorise ou bloque les sites qui sont relatifs à www.contoso.com (par exemple, www.newpage.contoso.com). Le fait d’entrer «contoso» autorise ou limite tous les sites liés à contoso (y compris contoso.com, contoso.uk, etc.).  
   
 3. Pour supprimer une adresse Web de la liste des sites autorisés ou non autorisés, sélectionnez l’adresse Web, puis cliquez sur **Remove (Supprimer)** .  
   
 ## <a name="see-also"></a>Voir aussi  
-[Gérer des bureaux d’utilisateurs](manage-user-desktops-using-multipoint-dashboard.md)  
+[Gérer les postes de travail des utilisateurs](manage-user-desktops-using-multipoint-dashboard.md)  

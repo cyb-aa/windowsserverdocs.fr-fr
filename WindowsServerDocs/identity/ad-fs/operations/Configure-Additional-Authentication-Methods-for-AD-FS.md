@@ -5,56 +5,57 @@ description: ''
 author: billmath
 ms.author: billmath
 manager: femila
-ms.date: 10/04/2018
+ms.date: 07/26/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 88c4d976b9808d254dc1681ce9eee3ca556824ab
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: adb587412d65506c35705c5eaa8dbea8c660d117
+ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189789"
+ms.lasthandoff: 07/27/2019
+ms.locfileid: "68590360"
 ---
 # <a name="configure-additional-authentication-methods-for-ad-fs"></a>Configurer des méthodes d'authentification supplémentaires pour AD FS
 
-Pour activer l'authentification multifacteur, vous devez sélectionner au moins une méthode d'authentification supplémentaire. Par défaut, dans Active Directory Federation Services (ADFS) dans Windows Server 2012 R2, vous pouvez sélectionner l’authentification par certificat (en d’autres termes, authentification basée sur une carte à puce) comme méthode d’authentification supplémentaires.
+Pour activer l'authentification multifacteur, vous devez sélectionner au moins une méthode d'authentification supplémentaire. Par défaut, dans Services ADFS (AD FS) dans Windows Server 2012 R2, vous pouvez sélectionner l’authentification par certificat (en d’autres termes, l’authentification basée sur une carte à puce) comme méthode d’authentification supplémentaire.
 
 > [!NOTE]
 > Si vous sélectionnez l’authentification par certificat, vérifiez que les certificats de carte à puce ont été configurés en toute sécurité et exigent un code confidentiel.
 
-Saviez-vous que Microsoft Azure offre une fonctionnalité similaire dans le cloud ? En savoir plus sur les [solutions de gestion des identités Microsoft Azure](http://aka.ms/m2w274).<br /><br />Créez une solution d’identité hybride dans Microsoft Azure :<br /> - [En savoir plus sur Azure multi-Factor Authentication.](http://aka.ms/ey6o9r)<br /> - [Gérer les identités pour les environnements hybrides à forêt unique à l’aide de l’authentification cloud.](http://aka.ms/g1jat8)<br /> - [Gérer les risques avec une authentification multifacteur supplémentaire pour les Applications sensibles.](http://aka.ms/kt1bbm)
+Saviez-vous que Microsoft Azure offre une fonctionnalité similaire dans le cloud ? En savoir plus sur les [solutions de gestion des identités Microsoft Azure](http://aka.ms/m2w274).<br /><br />Créez une solution d’identité hybride dans Microsoft Azure :<br /> - [En savoir plus sur Azure Multi-Factor Authentication.](http://aka.ms/ey6o9r)<br /> - [Gérer les identités pour les environnements hybrides à forêt unique à l’aide de l’authentification Cloud.](http://aka.ms/g1jat8)<br /> - [Gérer les risques avec une authentification multifacteur supplémentaire pour les applications sensibles.](http://aka.ms/kt1bbm)
 
 ## <a name="microsoft-and-third-party-additional-authentication-methods"></a>Méthodes d'authentification supplémentaires tierces et Microsoft
-Vous pouvez également configurer et activer Microsoft et les méthodes d’authentification tiers dans AD FS dans Windows Server 2012 R2. Une fois installé et inscrit avec AD FS, vous pouvez appliquer l’authentification Multifacteur dans le cadre de la stratégie d’authentification globale ou par partie de confiance.
+Vous pouvez également configurer et activer des méthodes d’authentification Microsoft et tierces dans AD FS dans Windows Server 2012 R2. Une fois installé et inscrit auprès de AD FS, vous pouvez appliquer l’authentification multifacteur dans le cadre de la stratégie d’authentification globale ou par partie de confiance.
 
 Voici une liste alphabétique des fournisseurs tiers et Microsoft avec les offres d'authentification multifacteur actuellement disponibles pour AD FS dans Windows Server 2012 R2.
 
 |Fournisseur|Offre|Lien pour en savoir plus|
 |-|-|-| 
-|aPersona|aPersona ADAPTATIF multi-Factor Authentication pour Microsoft SSO ADFS|[aPersona adaptateur ADFS de ASM](https://www.apersona.com/adfs)|
-|Duo sécurité|Adaptateur MFA Duo pour AD FS|[Authentification Duo pour AD FS](https://duo.com/docs/adfs)|
+|aPersona|aPersona adaptative Multi-Factor Authentication pour l’authentification unique (SSO) Microsoft ADFS|[Adaptateur aPersona ASM ADFS](https://www.apersona.com/adfs)|
+|Sécurité Duo|Adaptateur d’authentification multifacteur duo pour AD FS|[Authentification duo pour AD FS](https://duo.com/docs/adfs)|
+|Futurae|Suite d’authentification futurae pour AD FS|[Authentification forte futurae](https://futurae.com)|
 |Gemalto|Services de sécurité & et d'identité Gemalto|[http://www.gemalto.com/identity](http://www.gemalto.com/identity)|
-|inWebo Technologies|Service d'authentification d'entreprise inWebo|[inWebo l’authentification d’entreprise](http://www.inwebo.com)|
+|inWebo Technologies|Service d'authentification d'entreprise inWebo|[inWebo Enterprise Authentication](http://www.inwebo.com)|
 |Login People|Connecteur MFA API Login People pour AD FS 2012 R2 (bêta publique)|[https://www.loginpeople.com](https://www.loginpeople.com)|
 |Microsoft Corp.|Authentification multifacteur Microsoft Azure|[Guide pas à pas : gérer les risques avec une authentification multifacteur supplémentaire pour les applications sensibles](https://technet.microsoft.com/library/dn280946.aspx) (voir l'étape 3)|
-Mideye | Fournisseur d’authentification mideye pour ADFS | [Authentification à deux facteurs mideye avec Microsoft Active Directory Federation Services](https://www.mideye.com/support/administrators/documentation/integration/microsoft-adfs/)|
-|Okta | MFA Okta pour Active Directory Federation Services | [MFA Okta pour Active Directory Federation Services (ADFS)](https://help.okta.com/en/prod/Content/Topics/integrations/adfs-okta-int.htm)|
-|Une seule identité| Starling 2FA AD FS|[Starling 2FA adaptateur AD FS](https://www.oneidentity.com/products/starling-two-factor-authentication/)|
-|Une seule identité| Defender AD FS|[Adaptateur Defender AD FS](https://www.oneidentity.com/products/defender/)|
-|Ping Identity|Adaptateur PingID MFA pour AD FS|[Adaptateur PingID MFA pour AD FS](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_PingIDforADFSSSO.html)|
-|RSA, The Security Division of EMC|Agent d'authentification RSA SecurID pour Microsoft Active Directory Federation Services|[Agent d’authentification RSA SecurID pour Microsoft Active Directory Federation Services](http://www.emc.com/security/rsa-securid/rsa-authentication-agents/microsoft-ad-fs.htm)|
+Mideye | Fournisseur d’authentification Mideye pour ADFS | [Mideye l’authentification à deux facteurs avec Microsoft Active Directory service FS (Federation Service)](https://www.mideye.com/support/administrators/documentation/integration/microsoft-adfs/)|
+|Okta | Okta MFA pour Services ADFS | [Okta MFA pour Services ADFS (ADFS)](https://help.okta.com/en/prod/Content/Topics/integrations/adfs-okta-int.htm)|
+|Une identité| AD FS 2FA Starling|[Adaptateur AD FS Starling 2FA](https://www.oneidentity.com/products/starling-two-factor-authentication/)|
+|Une identité| AD FS Defender|[Adaptateur de AD FS Defender](https://www.oneidentity.com/products/defender/)|
+|Tester l’identité|Adaptateur MFA PingID pour AD FS|[Adaptateur MFA PingID pour AD FS](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_PingIDforADFSSSO.html)|
+|RSA, The Security Division of EMC|Agent d'authentification RSA SecurID pour Microsoft Active Directory Federation Services|[Agent d’authentification RSA SecurID pour Microsoft Services ADFS](http://www.emc.com/security/rsa-securid/rsa-authentication-agents/microsoft-ad-fs.htm)|
 |SafeNet, Inc.|Agent SAS (SafeNet Authentication Service) pour AD FS|[SafeNet Authentication Service: AD FS Agent Configuration Guide](http://www.safenet-inc.com/resources/integration-guide/data-protection/Safenet_Authentication_Service/SafeNet_Authentication_Service__AD_FS_Agent_Configuration_Guide/?langtype=1033)|
-|SecureMFA|Fournisseur de SecureMFA OTP| [Fournisseurs d’authentification AD FS Multi-Factor](https://www.securemfa.com/)|
-|Swisscom|Services de signature et service d'authentification Mobile ID|[Service d’authentification mobile ID](http://swisscom.ch/mid)|
-|Symantec|Symantec Validation and ID Protection Service (VIP)|[Validation de Symantec et de Service de Protection d’ID (VIP)](http://www.symantec.com/vip-authentication-service)|
-|Trusona|Essentielles (sans mot de passe MFA) et Executive (essentielles + vérification d’identité)| [Trusona multi-factor Authentication](https://www.trusona.com/solution-overview/)|
+|SecureMFA|Fournisseur de mot de passe à usage unique SecureMFA| [Fournisseurs d’authentification multifacteur ADFS](https://www.securemfa.com/)|
+|Swisscom|Services de signature et service d'authentification Mobile ID|[Service d’authentification Mobile ID](http://swisscom.ch/mid)|
+|Symantec|Symantec Validation and ID Protection Service (VIP)|[Service de sécurité d’ID et de validation Symantec (VIP)](http://www.symantec.com/vip-authentication-service)|
+|Trusona|Essentiel (MFA avec mot de passe) et Executive (vérification essentielle + identité)| [Trusona Multi-Factor Authentication](https://www.trusona.com/solution-overview/)|
 
 
 ## <a name="custom-authentication-method-for-ad-fs-in-windows-server-2012-r2"></a>Méthode d'authentification personnalisée pour AD FS dans Windows Server 2012 R2
 Nous proposons désormais des instructions pour créer votre propre méthode d'authentification personnalisée pour AD FS dans Windows Server 2012 R2. Pour plus d'informations, voir [Créer une méthode d'authentification personnalisée pour AD FS dans Windows Server 2012 R2](https://go.microsoft.com/fwlink/?LinkID=511980).
 
 ## <a name="see-also"></a>Voir aussi
-[Gérer les risques avec une authentification multifacteur supplémentaire pour les Applications sensibles](Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
+[Gérer les risques avec une authentification multifacteur supplémentaire pour les applications sensibles](Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 
 

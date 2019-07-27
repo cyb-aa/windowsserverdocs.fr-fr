@@ -1,6 +1,6 @@
 ---
 title: prompt
-description: Découvrez comment personnaliser l’invite de commandes.
+description: Découvrez comment personnaliser votre invite de commandes.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 5ef487ce9799c1f09660cdfcd6fba71336fc4d9a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8371a67ba1b8dc7d5f02272c809f916aae3df584
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442140"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544561"
 ---
 # <a name="prompt"></a>prompt
 
 
 
-Modifie l’invite de commandes Cmd.exe. Si utilisée sans paramètres, **invite** réinitialise l’invite de commandes pour le paramètre par défaut, qui est la lettre de lecteur en cours et le répertoire suivi par le symbole supérieur à ( **>** ).
+Modifie l’invite de commandes de cmd. exe. En cas d’utilisation sans paramètres, **prompt** rétablit la valeur par défaut de l’invite de commandes, qui est la lettre de lecteur et le répertoire actuels **>** suivis du signe supérieur à ().
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -43,9 +43,9 @@ prompt [<Text>]
 
 ## <a name="remarks"></a>Notes
 
-Vous pouvez personnaliser l’invite de commandes pour afficher le texte de que votre choix, y compris des informations telles que le nom du répertoire actif, l’heure et date et le numéro de version de Microsoft Windows.
+Vous pouvez personnaliser l’invite de commandes pour afficher le texte de votre choix, y compris des informations telles que le nom du répertoire actif, la date et l’heure, ainsi que le numéro de version de Microsoft Windows.
 
-Le tableau suivant répertorie les combinaisons de caractères que vous pouvez inclure à la place ou en plus, un ou plusieurs chaînes de caractères dans le *texte* paramètre. La liste comprend une brève description du texte ou des informations de chaque combinaison de caractères ajoute à l’invite de commandes.  
+Le tableau suivant répertorie les combinaisons de caractères que vous pouvez inclure au lieu de, ou en plus de, une ou plusieurs chaînes de caractères dans le paramètre *Text* . La liste inclut une brève description du texte ou des informations que chaque combinaison de caractères ajoute à votre invite de commandes.  
 
 | Caractère |                                 Description                                 |
 |-----------|-----------------------------------------------------------------------------|
@@ -53,45 +53,45 @@ Le tableau suivant répertorie les combinaisons de caractères que vous pouvez i
 |    $$     |                               $ (signe dollar)                               |
 |    $t     |                                Heure actuelle                                 |
 |    $d     |                                Date actuelle                                 |
-|    $p     |                           Chemin d’accès et le lecteur en cours                            |
+|    $p     |                           Lecteur et chemin d’accès actuels                            |
 |    $v     |                           Numéro de version de Windows                            |
-|    $n     |                                Lecteur en cours                                |
+|    $n     |                                Lecteur actuel                                |
 |    $g     |                            > (signe supérieur à)                            |
 |    $l     |                             < (signe inférieur à)                              |
-|    $b     |                                                                             |
-|    $_     |                               ENTREZ-SAUT DE LIGNE                                |
+|    $b     |                              \|(symbole de barre verticale)                               |
+|    $_     |                               ENTRÉE-SAUT DE LA CASSE                                |
 |    $e     |                         Code d’échappement ANSI (code 27)                          |
-|    $h     | Retour arrière (pour supprimer un caractère qui a été écrite dans la ligne de commande) |
-|    $un     |                                & (esperluette)                                |
-|    $c     |                            ((parenthèse de gauche)                             |
-|    $f     |                            ) (parenthèse droite)                            |
+|    $h     | Retour arrière (pour supprimer un caractère qui a été écrit sur la ligne de commande) |
+|    $a     |                                & (esperluette)                                |
+|    $c     |                            ((parenthèse gauche)                             |
+|    $f     |                            ) (parenthèse fermante)                            |
 |    $s     |                                    espace                                    |
 
-Lorsque les extensions de commande sont activées (autrement dit, la valeur par défaut) le **invite** commande prend en charge les caractères de mise en forme suivants :  
+Lorsque les extensions de commande sont activées (autrement dit, la valeur par défaut), la commande **prompt** prend en charge les caractères de mise en forme suivants:  
 
 |Caractère|Description|
 |---------|-----------|
-|$+|Signe de zéro ou plusieurs ( **+** ) caractères, selon la profondeur de la **pushd** pile de répertoire (un seul caractère pour chaque niveau envoyée).|
-|$m|Le nom distant associé à la lettre de lecteur actuelle ou une chaîne vide si le lecteur n’est pas un lecteur réseau.|
+|$+|Zéro, un ou plusieurs caractères **+** signe plus (), en fonction de la profondeur de la pile de répertoires **pushd** (un caractère pour chaque niveau poussé).|
+|$m|Nom distant associé à la lettre de lecteur en cours ou à la chaîne vide si le lecteur actuel n’est pas un lecteur réseau.|
 
-Si vous incluez le **$p** caractère dans le paramètre de texte, le disque est lu une fois que vous entrez chaque commande (pour déterminer le lecteur actuel et le chemin d’accès). Cela peut prendre du temps, en particulier pour les lecteurs de disquette.
+Si vous incluez le caractère **$p** dans le paramètre text, votre disque est lu après l’entrée de chaque commande (pour déterminer le lecteur et le chemin d’accès actuels). Cela peut prendre du temps supplémentaire, en particulier pour les lecteurs de disquette.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour définir une invite de commandes de deux lignes avec la date et l’heure actuelle sur la première ligne et le signe supérieur à la ligne suivante, tapez :
+Pour définir une invite de commandes sur deux lignes avec l’heure et la date actuelles sur la première ligne et le signe supérieur à sur la ligne suivante, tapez:
 ```
 prompt $d$s$s$t$_$g 
 ```
-L’invite est modifiée comme suit, où la date et l’heure sont en cours :
+L’invite est modifiée comme suit, où la date et l’heure sont actuelles:
 ```
 Fri 06/01/2007  13:53:28.91
 >
 ```
-Pour définir l’invite de commandes à afficher sous forme de flèche (`-->`), type :
+Pour définir l’invite de commandes pour qu’elle s’affiche`-->`sous forme de flèche (), tapez:
 ```
 prompt --$g
 ```
-Pour modifier manuellement l’invite de commandes pour le paramètre par défaut (le lecteur actuel et le chemin suivi par le signe supérieur à), tapez :
+Pour remplacer manuellement l’invite de commandes par le paramètre par défaut (le lecteur et le chemin d’accès actuels suivis du signe supérieur à), tapez:
 ```
 prompt $p$g
 ```

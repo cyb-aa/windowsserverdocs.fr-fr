@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 8e7b77a4-1c6a-4c21-8844-0df89b63f68d
 author: brianlic-msft
 ms.date: 10/12/2016
-ms.openlocfilehash: 4ee77fba1e82179f6998959b494628e97ac23390
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 888992366f8a722c4834f23e08a393c829b47a26
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284227"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544623"
 ---
 # <a name="device-health-attestation"></a>Attestation d’intégrité de l’appareil
 
@@ -98,7 +98,7 @@ Quand le service s’exécute en mode de validation EKCert, il s’appuie sur un
 
 Microsoft publie des packages agrégés d’autorités de certification (AC) racines de confiance et intermédiaires pour les fabricants de TPM approuvés (dès qu’ils sont disponibles) dans une archive accessible publiquement au format .cab. Vous devez télécharger le flux, valider son intégrité et l’installer sur le serveur exécutant le service Attestation d’intégrité de l’appareil.
 
-Exemple d’archive [ https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab ](https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab).
+Exemple d’archive [https://go.microsoft.com/fwlink/?linkid=2097925](https://go.microsoft.com/fwlink/?linkid=2097925).
 
 #### <a name="aikcert-validation-mode"></a>Mode de validation AIKCert
 
@@ -147,7 +147,7 @@ Une fois que vous avez installé Windows Server 2016, l’appareil redémarre e
 
 ### <a name="install-the-signing-and-encryption-certificates"></a>Installer les certificats de signature et de chiffrement
 
-Utilisez le script Windows PowerShell suivant pour installer les certificats de signature et de chiffrement. Pour plus d’informations sur l’empreinte numérique, consultez [Comment : Récupérer l’empreinte numérique d’un certificat](https://msdn.microsoft.com/library/ms734695.aspx).
+Utilisez le script Windows PowerShell suivant pour installer les certificats de signature et de chiffrement. Pour plus d’informations sur l’empreinte numérique [, consultez Procédure: Récupérez l’empreinte numérique d'](https://msdn.microsoft.com/library/ms734695.aspx)un certificat.
 
 ```
 $key = Get-ChildItem Cert:\LocalMachine\My | Where-Object {$_.Thumbprint -like "<thumbprint>"}
@@ -165,7 +165,7 @@ Pour installer le package de certification racine de confiance TPM, vous devez l
 
 #### <a name="download-the-trusted-tpm-roots-certificate-package"></a>Télécharger le package de certification racine de confiance TPM
 
-Avant d’installer le package de certification, vous pouvez télécharger la dernière liste de racines fiables de module de plateforme sécurisée à partir de [ https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab ](https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab).
+Avant d’installer le package de certificats, vous pouvez télécharger la dernière liste des racines TPM approuvées à partir de [https://go.microsoft.com/fwlink/?linkid=2097925](https://go.microsoft.com/fwlink/?linkid=2097925).
 
 > **Important :** Avant d’installer le package, vérifiez qu’il est signé numériquement par Microsoft.
 
@@ -180,7 +180,7 @@ expand -F:* .\TrustedTpm.cab .\TrustedTpm
 
 Supprimez les dossiers des chaînes d’approbation de fournisseurs TPM ne sont pas approuvées par votre organisation.
 
-> **Remarque :** Si vous utilisez le mode de certificat AIK, le dossier Microsoft est nécessaire pour valider les certificats AIK émis de Microsoft.
+> **Remarque :** Si vous utilisez le mode de certificat AIK, le dossier Microsoft est requis pour valider les certificats AIK émis par Microsoft.
 
 #### <a name="install-the-trusted-certificate-package"></a>Installer le package de certification de confiance
 Installez le package de certification de confiance en exécutant le script d’installation à partir du fichier .cab.
@@ -238,7 +238,7 @@ Get-DHASActiveSigningCertificate
 Set-DHASActiveSigningCertificate -Thumbprint "<hex>" -Force
 ```
 
-> **Remarque :** Ce certificat doit être déployé sur le serveur exécutant le service le **LocalMachine\My** magasin de certificats. Quand le certificat de signature actif est défini, le certificat de signature actif existant est déplacé vers la liste des certificats de signature inactifs.
+> **Remarque :** Ce certificat doit être déployé sur le serveur qui exécute le service DHA dans le magasin de certificats **LocalMachine\My** . Quand le certificat de signature actif est défini, le certificat de signature actif existant est déplacé vers la liste des certificats de signature inactifs.
 
 ### <a name="list-the-inactive-signing-certificates"></a>Répertorier les certificats de signature inactifs
 ```
@@ -251,7 +251,7 @@ Remove-DHASInactiveSigningCertificates -Force
 Remove-DHASInactiveSigningCertificates  -Thumbprint "<hex>" -Force
 ```
 
-> **Remarque :** Uniquement *un* certificat inactif (de n’importe quel type) peut-être exister dans le service à tout moment. Les certificats doivent être supprimés de la liste de certificats inactifs une fois qu’ils sont devenus inutiles.
+> **Remarque :** *Un* seul certificat inactif (de tout type) peut exister dans le service à tout moment. Les certificats doivent être supprimés de la liste de certificats inactifs une fois qu’ils sont devenus inutiles.
 
 ### <a name="get-the-active-encryption-certificate"></a>Obtenir le certificat de chiffrement actif
 

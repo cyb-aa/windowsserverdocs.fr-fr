@@ -1,6 +1,6 @@
 ---
 title: mountvol
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 03e7cefc7c7a00338972fc365b7c25d9c795c83e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 07c57f7ab9c41d6155e4a8d38322176aabf3868f
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437283"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544596"
 ---
 # <a name="mountvol"></a>mountvol
 
@@ -26,7 +26,7 @@ ms.locfileid: "66437283"
 
 Crée, supprime ou répertorie un point de montage de volume.
 
-Pour obtenir des exemples montrant comment utiliser cette commande, consultez [exemples](#BKMK_examples).
+Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -42,28 +42,28 @@ mountvol <Drive>: /s
 
 ## <a name="parameters"></a>Paramètres
 
-|     Paramètre     |                                                                                                                           Description                                                                                                                            |
-|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [\<Drive>:]<Path> |                                                                                             Spécifie le répertoire NTFS existant dans lequel résidera le point de montage.                                                                                             |
-|   \<VolumeName>   |                     Spécifie le nom de volume qui est la cible du point de montage. Le nom de volume utilise la syntaxe suivante, où *GUID* est un identificateur global unique :</br>`\\\\?\Volume\{GUID}\`</br>Les accolades sont obligatoires.                      |
-|        /d         |                                                                                                    Supprime le point de montage de volume à partir du dossier spécifié.                                                                                                     |
-|        /l         |                                                                                                     Indique le nom de volume monté pour le dossier spécifié.                                                                                                      |
-|        /p         | Supprime le point de montage de volume à partir du répertoire spécifié, démonte le volume de base et prend le volume de base hors connexion, ce qui irrécupérable. Si d’autres processus utilisent le volume, **mountvol** ferme tous les descripteurs ouverts avant de démonter le volume. |
-|        /r         |             Supprime les répertoires de point de montage de volume et les paramètres de Registre pour les volumes qui ne sont plus dans le système, en les empêchant d’être automatiquement montés et donné leur ancien volume des points lors de l’ajout au système de montage.              |
-|        /n         |                                                                      Désactive le montage automatique de nouveaux volumes de base. Nouveaux volumes ne sont pas montés automatiquement lors de l’ajout au système.                                                                       |
-|        /e         |                                                                                                       Active le montage automatique de nouveaux volumes de base.                                                                                                        |
-|        /s         |                                                                                Monte la partition système EFI sur le lecteur spécifié. Disponible sur les ordinateurs Itanium.                                                                                |
-|        /?         |                                                                                                               Affiche l'aide à l'invite de commandes.                                                                                                               |
+|Paramètre|Description|
+|---------|-----------|
+|[\<Lecteur >:]<Path>|Spécifie le répertoire NTFS existant dans lequel se trouve le point de montage.|
+|\<Nom_volume >|Spécifie le nom du volume qui est la cible du point de montage. Le nom du volume utilise la syntaxe suivante, où *GUID* est un identificateur global unique:</br>`\\\\?\Volume\{GUID}\`</br>Les crochets {} sont requis.|
+|/d|Supprime le point de montage de volume du dossier spécifié.|
+|/l|Répertorie le nom du volume monté pour le dossier spécifié.|
+|/p|Supprime le point de montage de volume du répertoire spécifié, démonte le volume de base et met le volume de base hors connexion, ce qui le rend non montable. Si d’autres processus utilisent le volume, **mountvol** ferme tous les descripteurs ouverts avant de démonter le volume.|
+|/r|Supprime les répertoires de points de montage de volume et les paramètres de Registre pour les volumes qui ne se trouvent plus dans le système, ce qui les empêche d’être montés automatiquement et de recevoir leurs anciens points de montage de volume lorsqu’ils sont rajoutés au système.|
+|/n|Désactive le montage automatique des nouveaux volumes de base. Les nouveaux volumes ne sont pas montés automatiquement lorsqu’ils sont ajoutés au système.|
+|/e|Réactive le montage automatique des nouveaux volumes de base.|
+|/s|Monte la partition système EFI sur le lecteur spécifié.|
+|/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
--   **Mountvol** vous permet de lier des volumes sans nécessiter une lettre de lecteur.
--   Les volumes sont démontés à l’aide de **/p** sont répertoriés dans la liste des volumes comme « Pas monté UNTIL un VOLUME de POINT de montage est créé. » Si le volume a plus d’un montage point, utilisez **/d** pour supprimer les points de montage supplémentaires avant d’utiliser **/p**. Vous pouvez réeffectuer le volume de base montable en assignant un point de montage de volume.
--   Si vous avez besoin développer votre espace de volume sans reformater ou remplacer un disque dur, vous pouvez ajouter un chemin d’accès de montage vers un autre volume. L’avantage d’utiliser un volume avec plusieurs chemins d’accès de montage est que vous pouvez accéder à tous les volumes locaux à l’aide d’une seule lettre de lecteur (par exemple `C:`). Vous n’avez pas besoin de mémoriser la correspondance à la lettre de lecteur qui, bien que vous pouvez toujours monter les volumes locaux et affecter les lettres de lecteur.
+-   **Mountvol** vous permet de lier des volumes sans nécessiter de lettre de lecteur.
+-   Les volumes démontés à l’aide de **/p** sont répertoriés dans la liste des volumes comme «non montés tant qu’un point de montage de volume n’a pas été créé». Si le volume a plusieurs points de montage, utilisez **/d** pour supprimer les points de montage supplémentaires avant d’utiliser **/p**. Vous pouvez rendre le volume de base montable à nouveau en affectant un point de montage de volume.
+-   Si vous devez étendre votre espace de volume sans reformater ou remplacer un disque dur, vous pouvez ajouter un chemin d’accès de montage à un autre volume. L’avantage de l’utilisation d’un seul volume avec plusieurs chemins de montage est que vous pouvez accéder à tous les volumes locaux à l’aide `C:`d’une seule lettre de lecteur (par exemple,). Vous n’avez pas besoin de vous souvenir du volume qui correspond à la lettre de lecteur, même si vous pouvez toujours monter des volumes locaux et leur attribuer des lettres de lecteur.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour créer un point de montage, tapez :
+Pour créer un point de montage, tapez:
 ```
 mountvol \sysmount \\?\Volume\{2eca078d-5cbc-43d3-aff8-7e8511f60d0e}\
 ```

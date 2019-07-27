@@ -1,6 +1,6 @@
 ---
 title: cacls
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 42f620a417f9d7bd06f779802e684e0196efc6a7
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d3c2ba6dca1797cda3851b3c270938d47828ed7a
+ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434588"
+ms.lasthandoff: 07/27/2019
+ms.locfileid: "68590398"
 ---
 # <a name="cacls"></a>cacls
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Affiche ou modifie les listes de contrôle d’accès discrétionnaire (DACL) sur les fichiers spécifiés.  
+Affiche ou modifie les listes de contrôle d’accès discrétionnaire (DACL, Discretionary Access Control List) sur les fichiers spécifiés.  
 ## <a name="syntax"></a>Syntaxe  
 ```  
 cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user [...]] [/p user:<perm> [...]] [/d user [...]]  
@@ -33,37 +33,37 @@ cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user 
 
 |        Paramètre        |                                                                                            Description                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      \<filename\>       |                                                                            Obligatoire. Affiche les ACL des fichiers spécifiés.                                                                             |
-|           /t            |                                                          Modifie les ACL des fichiers spécifiés dans le répertoire actif et tous les sous-répertoires.                                                          |
-|           /m            |                                                                          modifications ACL des volumes montés dans un répertoire.                                                                           |
-|           /l            |                                                                        Travailler sur le lien symbolique par rapport à la cible.                                                                         |
-|         /s:sddl         |                                       remplace les ACL par celles spécifiées dans la chaîne SDDL (non valide avec **/e**, **/g**, **/r**, **/p**, ou **/d**).                                        |
-|           /e            |                                                                                 modifier l’ACL au lieu de remplacer.                                                                                  |
-|           /c            |                                                                                 Continuer en cas d’erreurs d’accès refusé.                                                                                  |
-|    /g utilisateur :\<perm\>     |   Grant spécifié des droits d’accès utilisateur.<br /><br />Valeurs valides pour l’autorisation :<br /><br />-n - aucun<br />-r - lecture<br />-   w - write<br />modification - c - (écriture)<br />contrôle total - f-   |
-|      utilisateur /r [...]      |                                                                  Révoquer les droits d’accès de l’utilisateur spécifié (valide uniquement avec **/e**).                                                                   |
-| [/p utilisateur :\<perm\> [...] | Remplacez les droits d’accès de l’utilisateur spécifié.<br /><br />Valeurs valides pour l’autorisation :<br /><br />-n - aucun<br />-r - lecture<br />-   w - write<br />modification - c - (écriture)<br />contrôle total - f- |
-|     /d [utilisateur [...]      |                                                                                    Refuser l’accès de l’utilisateur spécifié.                                                                                     |
+|      \<filename\>       |                                                                            Requis. Affiche les listes de contrôle d’accès des fichiers spécifiés.                                                                             |
+|           commutateur            |                                                          modifie les listes de contrôle d’accès des fichiers spécifiés dans le répertoire actif et tous les sous-répertoires.                                                          |
+|           /m            |                                                                          modifie les listes de contrôle d’accès des volumes montés dans un répertoire.                                                                           |
+|           /l            |                                                                        Travaillez sur le lien symbolique lui-même et sur la cible.                                                                         |
+|         /s: SDDL         |                                       remplace les listes de contrôle d’accès par celles spécifiées dans la chaîne SDDL (non valide avec **/e**, **/g**, **/r**, **/p**ou **/d**).                                        |
+|           /e            |                                                                                 Modifiez l’ACL au lieu de le remplacer.                                                                                  |
+|           /c            |                                                                                 Continuer en cas d’erreurs de refus d’accès.                                                                                  |
+|    /g utilisateur:\<Perm\>     |   Accordez les droits d’accès utilisateur spécifiés.<br /><br />Valeurs valides pour l’autorisation:<br /><br />-n-aucune<br />-r-lecture<br />-w-Write<br />-c-Modifier (écriture)<br />-f-contrôle total   |
+|      /r utilisateur [...]      |                                                                  Révoquer les droits d’accès de l’utilisateur spécifié (valide uniquement avec **/e**).                                                                   |
+| [/p utilisateur:\<Perm\> [...] | remplacer les droits d’accès de l’utilisateur spécifié.<br /><br />Valeurs valides pour l’autorisation:<br /><br />-n-aucune<br />-r-lecture<br />-w-Write<br />-c-Modifier (écriture)<br />-f-contrôle total |
+|     [/d utilisateur [...]      |                                                                                    Refuser l’accès utilisateur spécifié.                                                                                     |
 |           /?            |                                                                                Affiche l'aide à l'invite de commandes.                                                                                |
 
 ## <a name="remarks"></a>Notes  
-- Cette commande a été déconseillée. Utilisez [icacls](icacls.md) à la place.  
-- Utilisez le tableau suivant pour interpréter les résultats :  
+- Cette commande est dépréciée. Utilisez [icacls](icacls.md) à la place.  
+- Utilisez le tableau suivant pour interpréter les résultats:  
 
 
-  |      Sortie       |                Entrée de contrôle d’accès (ACE) s’applique à                |
+  |      Sortie       |                L’entrée de contrôle d’accès (ACE) s’applique à                |
   |-------------------|---------------------------------------------------------------------|
-  |        OI         |               Hériter de l’objet. Ce dossier et les fichiers.                |
-  |        CI         |           Conteneur héritent. Ce dossier et les sous-dossiers.            |
-  |        E/S         | Hériter uniquement. L’entrée du contrôle ne s’applique pas dans le fichier/répertoire actif. |
+  |        OI         |               Héritage de l’objet. Ce dossier et ces fichiers.                |
+  |        CI         |           Conteneur Inherit. Ce dossier et ses sous-dossiers.            |
+  |        E/S         | Hériter uniquement. L’entrée du contrôle d’accès ne s’applique pas au fichier/répertoire actif. |
   | Aucun message de sortie |                          Ce dossier uniquement.                          |
-  |     (OI)(CI)      |                 Ce dossier, sous-dossiers et fichiers.                 |
-  |   (OI)(CI)(IO)    |                     Sous-dossiers et fichiers uniquement.                      |
-  |     (CI)(IO)      |                          Sous-dossiers.                           |
-  |     (OI)(IO)      |                             Fichiers uniquement.                             |
+  |     OI CI      |                 Ce dossier, ses sous-dossiers et ses fichiers.                 |
+  |   OI CI ENTRÉES    |                     Sous-dossiers et fichiers uniquement.                      |
+  |     CI ENTRÉES      |                          Sous-dossiers uniquement.                           |
+  |     OI ENTRÉES      |                             Fichiers uniquement.                             |
 
 
-- Vous pouvez utiliser des caractères génériques ( **?** et **\\***) pour spécifier plusieurs fichiers.  
+- Vous pouvez utiliser des caractères génériques ( **?** **et\\) pourspécifierplusieursfichiers.\***  
 - Vous pouvez spécifier plusieurs utilisateurs.  
 
 #### <a name="additional-references"></a>Références supplémentaires  

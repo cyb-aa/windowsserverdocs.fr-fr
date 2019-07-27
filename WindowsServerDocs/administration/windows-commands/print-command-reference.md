@@ -1,6 +1,6 @@
 ---
-title: Référence des commandes d’impression
-description: 'Rubrique de commandes de Windows pour ***- '
+title: imprimer la référence des commandes
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,31 +13,31 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e2321b3fef67cfcbc5f7d0bbafe4650a8ec31207
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8a9b0ab1e3e9ecb170eb4535cb7e4e643d791e5b
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436260"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544532"
 ---
-# <a name="print-command-reference"></a>Référence des commandes d’impression
+# <a name="print-command-reference"></a>imprimer la référence des commandes
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Voici une liste des outils de ligne de commande d’impression.
+La liste suivante répertorie les outils en ligne de commande d’impression.
 
 |                         Command                          |                                                                Description                                                                 |
 |----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-|                       [lpq]lpq.md)                       |                           Affiche l’état de la file d’impression sur un ordinateur exécutant le démon LPD (Line printer).                            |
-|                      [lpr](lpr.md)                       |      Envoie un fichier sur un ordinateur ou un appareil exécutant le service démon LPD (Line printer) en préparation pour l’impression de partage d’imprimante.       |
-|                [Net print](net-print.md)                 | Affiche des informations sur une file d’attente de l’imprimante spécifiée, affiche des informations sur un travail d’impression spécifié ou contrôle un travail d’impression spécifié. |
+|                       [lpq](lpq.md)                       |                           Affiche l’état d’une file d’attente à l’impression sur un ordinateur exécutant LPD (Line Printer Daemon).                            |
+|                      [lpr](lpr.md)                       |      Envoie un fichier à un ordinateur ou un périphérique de partage d’imprimante exécutant le service LPD (Line Printer Daemon) en préparation de l’impression.       |
+|                [Net print](net-print.md)                 | Affiche des informations sur une file d’attente d’impression spécifiée, affiche des informations sur un travail d’impression spécifié ou contrôle un travail d’impression spécifié. |
 |                    [print](print.md)                     |                                                      Envoie un fichier texte à une imprimante.                                                       |
-|                  [prncnfg](prncnfg.md)                   |                                     Configure ou affiche des informations de configuration sur une imprimante.                                      |
-|                  [prndrvr](prndrvr.md)                   |                                                 Ajoute, supprime et répertorie des pilotes d’imprimante.                                                  |
-|                  [prnjobs](prnjobs.md)                   |                                              met en pause reprend, annule et répertorie les travaux d’impression.                                               |
-|                  [prnmngr](prnmngr.md)                   |            Ajoute, supprime et répertorie les imprimantes ou les connexions d’imprimante, en plus de la configuration et affichage de l’imprimante par défaut.            |
-|                  [prnport](prnport.md)                   |           Crée, supprime et répertorie les ports d’imprimante TCP/IP standards, en plus d’afficher et de modifier la configuration du port.            |
-|                  [prnqctl](prnqctl.md)                   |                                Imprime une page de test s’interrompt ou reprend une imprimante et efface une file d’attente de l’imprimante.                                |
-|                   [pubprn](pubprn.md)                    |                                       Publie une imprimante sur le service d’annuaire active directory.                                       |
-| [rundll32 printui.dll,printUIEntry](rundll32-printui.md) |                Vous permet d’automatiser l’installation et la configuration des imprimantes à l’aide de scripts ou l’invite de commandes.                 |
+|                  [prncnfg](prncnfg.md)                   |                                     Configure ou affiche les informations de configuration relatives à une imprimante.                                      |
+|                  [prndrvr](prndrvr.md)                   |                                                 Ajoute, supprime et répertorie les pilotes d’imprimante.                                                  |
+|                  [prnjobs](prnjobs.md)                   |                                              suspend, reprend, annule et répertorie les travaux d’impression.                                               |
+|                  [prnmngr](prnmngr.md)                   |            Ajoute, supprime et répertorie des imprimantes ou des connexions d’imprimante, en plus de définir et d’afficher l’imprimante par défaut.            |
+|                  [prnport](prnport.md)                   |           crée, supprime et répertorie les ports d’imprimante TCP/IP standard, en plus de l’affichage et de la modification de la configuration du port.            |
+|                  [prnqctl](prnqctl.md)                   |                                imprime une page de test, interrompt ou reprend une imprimante et efface une file d’attente d’impression.                                |
+|                   [pubprn](pubprn.md)                    |                                       Publie une imprimante dans le service d’annuaire Active Directory.                                       |
+| [rundll32 printui. dll, printUIEntry](rundll32-printui.md) |                Vous permet d’automatiser l’installation et la configuration des imprimantes à l’aide de scripts ou de l’invite de commandes.                 |
 
