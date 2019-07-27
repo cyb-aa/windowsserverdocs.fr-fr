@@ -224,7 +224,7 @@ Les systèmes d’exploitation suivants fournissent BranchCache avec prise en ch
 
 - Windows 7 Édition Intégrale
 
-Dans les systèmes d’exploitation suivants, BranchCache ne prend pas en charge les fonctionnalités HTTP et SMB, mais ne prend pas en charge les fonctionnalités de BITS de BranchCache.
+Dans les systèmes d’exploitation suivants, BranchCache ne prend pas en charge les fonctionnalités HTTP et SMB, mais prend en charge les fonctionnalités de BITS de BranchCache.
 
 -   Windows 10 Professionnel, BITS prennent uniquement en charge
 
