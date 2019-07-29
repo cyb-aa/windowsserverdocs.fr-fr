@@ -66,13 +66,21 @@
 
 ## [Support supplémentaire concernant les services Bureau à distance](rds-get-support.md)
 ## [Clients Bureau à distance](clients/remote-desktop-clients.md)
+### Problèmes connus des services Bureau à distance
+#### [Résolution des problèmes généraux de connexion Bureau à distance](troubleshoot/rdp-error-general-troubleshooting.md)
+#### [Les clients ne peuvent pas se connecter et obtiennent l’erreur « Classe non enregistrée »](troubleshoot/rdp-error-class-not-registered.md).
+#### [Les clients ne peuvent pas se connecter et voient l’erreur « Aucune licence disponible »](troubleshoot/rdp-error-no-licenses-available.md)
+#### [L’utilisateur ne peut pas s’authentifier ou doit s’authentifier deux fois](troubleshoot/cannot-authenticate-or-must-authenticate-twice.md)
+#### [Erreur « Les Services Bureau à distance sont actuellement occupés » à la connexion](troubleshoot/remote-desktop-service-currently-busy.md)
+#### [Le client Bureau à distance se déconnecte et ne peut pas se reconnecter à la même session](troubleshoot/rdp-client-disconnects-cannot-reconnect-same-session.md)
+#### [L’ordinateur portable distant se déconnecte du réseau sans fil](troubleshoot/remote-laptop-disconnects-wireless-network.md)
+#### [Performances faibles ou problèmes d’application pendant la connexion Bureau à distance](troubleshoot/poor-performance-or-application-problems.md)
 ### Informations générales
 #### [Quel client vous convient le mieux ?](clients/remote-desktop-app-compare.md)
 #### [Paramètres du fichier RDP du Bureau à distance](clients/rdp-files.md)
 #### [Schéma d’URI de Bureau à distance](clients/remote-desktop-uri.md)
 #### [FAQ sur le client Bureau à distance](clients/remote-desktop-client-faq.md)
 #### [Paramètres de confidentialité des applications et des postes de travail managés](clients/remote-privacy-settings.md)
-#### [Résolution des problèmes de connexion au Bureau à distance](clients/troubleshoot-remote-desktop-connections.md)
 ### Client Bureau à distance pour Windows
 #### [Prise en main](clients/windows.md)
 #### [Quelles sont les nouveautés dans le client Windows ?](clients/windows-whatsnew.md)

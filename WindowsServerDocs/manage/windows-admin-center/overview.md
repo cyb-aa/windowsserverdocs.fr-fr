@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 06/20/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: d00051f59eb39c6a7c668d00034f72879b0b097f
-ms.sourcegitcommit: 078304c4b92bb57eb85ba29634afc92cc028c644
+ms.openlocfilehash: 0612f4ff102d6b5d1fd24372ac20a98c3ec02edb
+ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67298140"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476568"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -129,6 +129,7 @@ Vous pouvez installer et exécuter Windows Admin Center dans votre environnement
 
 Découvrez nos toutes dernières fonctionnalités publiées :
 
+- Version [1907](https://aka.ms/wac1907) - ajout de liens d’estimation des coûts Azure et améliorations apportées à l’importation/exportation et à l’étiquetage des machines virtuelles.
 - Version [1906](https://aka.ms/wac1906) - Importer/exporter des machines virtuelles, changer de compte Azure, ajouter des connexions depuis Azure, expérience des paramètres de connectivité, améliorations des performances et outil de profilage des performances.
 - La version 1904.1 est la toute dernière version GA - mise à jour de maintenance pour améliorer la stabilité des plug-ins de la passerelle.
 - La version [1904](https://aka.ms/wac1904) est la version GA qui a introduit l’outil Azure Hybrid Services et mis les fonctionnalités jusqu’ici en préversion dans le canal de la disponibilité générale.
