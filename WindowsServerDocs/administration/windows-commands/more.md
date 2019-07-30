@@ -1,6 +1,6 @@
 ---
 title: more
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,13 +12,13 @@ ms.assetid: ded14f6a-d82f-4aeb-a2d8-7ec1c94dfb8f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
-ms.date: 10/16/2017
-ms.openlocfilehash: 93ba6c696c509ea20ffe8f680d4416d24d202b89
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.date: 07/26/2019
+ms.openlocfilehash: 291d98492f3f2b200ff0567c28a97927ca8c75be
+ms.sourcegitcommit: e55e27143dad1d3fb956cfdac4c23ef4186af321
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437320"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68603233"
 ---
 # <a name="more"></a>more
 
@@ -40,77 +40,79 @@ more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
 
 |           Paramètre            |                               Description                               |
 |--------------------------------|-------------------------------------------------------------------------|
-|           \<Command>           |      Spécifie une commande pour laquelle vous souhaitez afficher la sortie.      |
+|           \<> De commande           |      Spécifie une commande pour laquelle vous souhaitez afficher la sortie.      |
 |               /c               |               Efface l’écran avant d’afficher une page.               |
-|               /p               |                      Développe des caractères de saut de page.                      |
-|               /s               |          Affiche plusieurs lignes vides sous la forme d’une ligne vierge.          |
-|             /t\<N>             |         Affiche les onglets en tant que le nombre d’espaces spécifié par *N*.         |
-|             +\<N>              |     Affiche le premier fichier commençant à la ligne spécifiée par *N*.     |
-| [\<Drive>:] [<Path>]<FileName> |          Spécifie l’emplacement et le nom d’un fichier à afficher.          |
-|            \<Files>            | Spécifie une liste de fichiers à afficher. Séparez les noms de fichiers par un espace. |
+|               /p               |                      Développe des caractères de saut de formulaire.                      |
+|               /s               |          Affiche plusieurs lignes vides sous la forme d’une seule ligne vide.          |
+|             /t\<N >             |         Affiche les tabulations sous la forme du nombre d’espaces spécifié par *N*.         |
+|             +\<N >              |     Affiche le premier fichier en commençant à la ligne spécifiée par *N*.     |
+| [\<Lecteur >:] [\<chemin >]\<nom de fichier > |          Spécifie l’emplacement et le nom d’un fichier à afficher.          |
+|            \<Fichiers >            | Spécifie une liste de fichiers à afficher. Séparez les noms de fichiers par un espace. |
 |               /?               |                  Affiche l'aide à l'invite de commandes.                   |
 
 ## <a name="remarks"></a>Notes
 
--   Les sous-commandes suivantes sont acceptées à le **plus** invite (`-- More --`).  
-    |Touche|Action|
-    |---|------|
-    |BARRE D’ESPACE|Affiche la page suivante.|
-    |Entrée|Affiche la ligne suivante.|
-    |f|Affiche le fichier suivant.|
-    |q|Quitte le **plus** commande.|
-    |=|Affiche le numéro de ligne.|
-    |p \<N>|Affiche la prochaine *N* lignes.|
-    |s \<N>|Ignore la prochaine *N* lignes.|
-    |?|Affiche les commandes qui sont disponibles sur le **plus** invite.|
--Lorsque vous utilisez le caractère de redirection ( **<** ), vous devez spécifier un nom de fichier comme source. Lorsque vous utilisez le canal (**|*), vous pouvez utiliser ces commandes en tant que **dir**, **tri**, et **type**.
--   Le **plus** commande, avec des paramètres différents, est disponible à partir de la Console de récupération.
+-   Les sous-commandes suivantes sont acceptées à l’invite **More** (`-- More --`). 
 
-## <a name="BKMK_examples"></a>Exemples
+    | Touche | Action |
+    | --- | ------ |
+    | TOUCHE | Affiche la page suivante. |
+    | Entrée | Affiche la ligne suivante. |
+    | f | Affiche le fichier suivant. |
+    | q | Quitte la commande **More** . |
+    | = | Affiche le numéro de ligne. |
+    | p \<N > | Affiche les *N* lignes suivantes. |
+    | s \<N > |Kips les *N* lignes suivantes. |
+    | ? | Affiche les commandes qui sont disponibles à l’invite **plus** .| 
+    
+-   Lorsque vous utilisez le caractère de redirection **<** (), vous devez spécifier un nom de fichier comme source. Lorsque vous utilisez le canal **\|** (), vous pouvez utiliser des commandes telles que **dir**, **sort**et **type**.
+-   La commande **More** , avec des paramètres différents, est disponible à partir de la console de récupération.
 
-Pour afficher le premier écran d’informations d’un fichier nommé clients.nou, tapez une des commandes suivantes :
+## <a name="BKMK_examples"></a>Illustre
+
+Pour afficher le premier écran d’informations d’un fichier nommé clients. nouveau, tapez l’une des commandes suivantes:
 ```
 more < clients.new
 type clients.new | more
 ```
-Le **plus** commande affiche le premier écran d’informations de clients.nou, puis affiche l’invite suivante :
+La commande **More** affiche le premier écran d’informations de clients. New, puis affiche l’invite suivante:
 ```
 -- More --
 ```
-Vous pouvez ensuite appuyer sur la barre d’espace à l’écran suivant affiche des informations.
+Vous pouvez ensuite appuyer sur la barre d’espace pour afficher l’écran d’informations suivant.
 
-Pour effacer l’écran et supprimer toutes les lignes vierges supplémentaires avant d’afficher le fichier clients.nou, tapez une des commandes suivantes :
+Pour effacer l’écran et supprimer toutes les lignes vides avant d’afficher le fichier clients. nouveau, tapez l’une des commandes suivantes:
 ```
 more /c /s < clients.new
 type clients.new | more /c /s
 ```
-Le **plus** commande affiche le premier écran d’informations de clients.nou, puis affiche l’invite suivante :
+La commande **More** affiche le premier écran d’informations de clients. New, puis affiche l’invite suivante:
 ```
 -- More --
 ```
 
-### <a name="using-more-subcommands"></a>À l’aide de plusieurs sous-commandes
+### <a name="using-more-subcommands"></a>Utilisation de plusieurs sous-commandes
 
-Les exemples suivants peuvent être utilisés à la **plus** invite (`-- More --`).
-- Pour afficher le fichier une ligne à la fois, appuyez sur entrée à la **plus** invite.
-- Pour afficher l’écran suivant, appuyez sur la barre d’espace à la **plus** invite.
-- Pour afficher le prochain fichier indiqué sur la ligne de commande, tapez **f** à la **plus** invite.
-- Pour afficher les commandes disponibles, tapez **?** à la **plus** invite.
-- Pour quitter **plus**, type **q** à la **plus** invite.
-- Pour afficher le numéro de ligne actuel, tapez **=** à la **plus** invite. Le numéro de ligne est ajouté à la **plus** invite comme suit :  
+Les exemples suivants peuvent être utilisés à l’invite **More** (`-- More --`).
+- Pour afficher le fichier une ligne à la fois, appuyez sur entrée à l’invite **plus** .
+- Pour afficher l’écran suivant, appuyez sur la barre d’espace à l’invite **plus** .
+- Pour afficher le fichier suivant indiqué sur la ligne de commande, tapez **f** à l’invite **plus** .
+- Pour afficher les commandes disponibles, tapez **?** à l’invite **plus** .
+- Pour quitter **,** tapez **q** à l’invite **plus** .
+- Pour afficher le numéro de ligne en cours **=** , tapez à l’invite **plus** . Le numéro de ligne en cours est ajouté à l’invite **More** comme suit:  
   ```
   -- More [Line: 24] --
   ```  
-- Pour afficher un nombre spécifique de lignes, tapez **p** à la **plus** invite. **Plus** vous invite à entrer le nombre de lignes à afficher comme suit :  
+- Pour afficher un nombre spécifique de lignes, tapez **p** à l’invite **plus** . **Plus** vous invite à entrer le nombre de lignes à afficher comme suit:  
   ```
   -- More -- Lines:
   ```  
-  Tapez le nombre de lignes à afficher, puis appuyez sur ENTRÉE. **Plus** affiche le nombre de lignes spécifié.
-- Pour ignorer un nombre spécifique de lignes, tapez **s** à la **plus** invite. **Plus** vous invite à entrer le nombre de lignes à ignorer comme suit :  
+  Tapez le nombre de lignes à afficher, puis appuyez sur entrée. **Plus** affiche le nombre de lignes spécifié.
+- Pour ignorer un nombre spécifique de lignes, tapez **s** à l’invite **plus** . **Plus** vous invite à entrer le nombre de lignes à ignorer comme suit:  
   ```
   -- More -- Lines:
   ```  
-  Tapez le nombre de lignes à ignorer, puis appuyez sur ENTRÉE. **Plus** ignore le nombre spécifié de lignes et affiche l’écran suivant de plus d’informations.
+  Tapez le nombre de lignes à ignorer, puis appuyez sur entrée. **More** ignore le nombre spécifié de lignes et affiche l’écran d’informations suivant.
 
 #### <a name="additional-references"></a>Références supplémentaires
 
