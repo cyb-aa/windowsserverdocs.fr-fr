@@ -1,6 +1,6 @@
 ---
-title: Prise en main de Windows Admin Center
-description: Prise en main de Windows Admin Center
+title: Prise en main du centre d’administration Windows
+description: Prise en main du centre d’administration Windows
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -8,151 +8,150 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 02/15/2019
-ms.openlocfilehash: bd35e439ee3c76af1306bbbd712d754dd79f555f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 25f97e614d2c7ea8ae1799a04e7675dc1e60af00
+ms.sourcegitcommit: 286e3181ebd2cb9d7dc7fe651858a4e0d61d153f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446092"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68300733"
 ---
-# <a name="get-started-with-windows-admin-center"></a>Prise en main de Windows Admin Center
+# <a name="get-started-with-windows-admin-center"></a>Prise en main du centre d’administration Windows
 
->S'applique à : Windows Admin Center, version préliminaire de Windows Admin Center
+>S'applique à : Windows Admin Center, Windows Admin Center Preview
 
 > [!Tip]
 > Vous débutez dans Windows Admin Center ?
 > [Découvrez-en davantage sur Windows Admin Center](../understand/windows-admin-center.md) ou [téléchargez maintenant](https://aka.ms/windowsadmincenter).
 
-## <a name="windows-admin-center-installed-on-windows-10"></a>Windows Admin Center est installé sur Windows 10
+## <a name="windows-admin-center-installed-on-windows-10"></a>Centre d’administration Windows installé sur Windows 10
 
 > [!IMPORTANT]
-> Vous devez être membre du groupe des administrateurs locaux d’utiliser Windows Admin Center sur Windows 10
+> Vous devez être membre du groupe Administrateurs local pour utiliser le centre d’administration Windows sur Windows 10
 
 ### <a name="selecting-a-client-certificate"></a>Sélection d’un certificat client
 
-La première fois que vous ouvrez Windows Admin Center sur Windows 10, veillez à sélectionner le *Windows Admin Center Client* certificat (sinon vous obtiendrez une erreur HTTP 403 indiquant « Impossible d’accéder à cette page »).
+La première fois que vous ouvrez le centre d’administration Windows sur Windows 10, veillez à sélectionner le certificat du *client du centre d’administration Windows* (sinon, vous obtiendrez une erreur http 403 indiquant «impossible d’accéder à cette page»).
 
-Dans Microsoft Edge, lorsque vous êtes invité à cette boîte de dialogue :
+Dans Microsoft Edge, lorsque vous êtes invité à utiliser cette boîte de dialogue:
  
 1. Cliquez sur **plus de choix**
 
     ![](../media/launch-cert-1.png)
 
-2. Sélectionnez le certificat étiqueté **Windows Admin Center Client** et cliquez sur **OK**
+2. Sélectionnez le certificat intitulé **client du centre d’administration Windows** , puis cliquez sur **OK** .
 
     ![](../media/launch-cert-2.png)
 
-3. Assurez-vous que **toujours autoriser l’accès** est sélectionné, cliquez sur **autoriser**
+3. Assurez-vous que **l’option toujours autoriser l’accès** est sélectionnée, puis cliquez sur **autoriser**
 
     ![](../media/launch-cert-3.png)
 
-## <a name="connecting-to-managed-nodes-and-clusters"></a>Connexion aux nœuds gérés et aux clusters
+## <a name="connecting-to-managed-nodes-and-clusters"></a>Connexion à des clusters et des nœuds gérés
 
-Une fois que vous avez terminé l’installation de Windows Admin Center, vous pouvez ajouter des serveurs ou clusters à gérer à partir de la page de présentation principale.
+Une fois que vous avez terminé l’installation du centre d’administration Windows, vous pouvez ajouter des serveurs ou des clusters à gérer à partir de la page de vue d’ensemble principale.
 
- **Ajouter un seul serveur ou un cluster comme un nœud géré**
+ **Ajouter un serveur unique ou un cluster en tant que nœud géré**
 
-1. Cliquez sur **+ ajouter** sous **toutes les connexions**.
+1. Cliquez sur **+ Ajouter** sous **toutes les connexions**.
 
    ![](../media/launch/addserver0.png)
 
-2. Choisissez cette option pour ajouter une connexion de serveur, Cluster de basculement ou Hyper-Converged Cluster :
+2. Choisissez d’ajouter un serveur, un cluster de basculement ou une connexion de cluster hyper-convergé:
     
    ![](../media/launch/addserver1.png)
 
-3. Tapez le nom du serveur ou du cluster pour gérer et cliquez sur **envoyer**. Le serveur ou le cluster sera ajouté à votre liste des connexions dans la page Vue d’ensemble.
+3. Tapez le nom du serveur ou du cluster à gérer, puis cliquez sur **Envoyer**. Le serveur ou le cluster sera ajouté à votre liste de connexions sur la page vue d’ensemble.
 
    ![](../media/launch/addserver2.png)
 
    **--OU--**
 
-**Plusieurs serveurs d’importation en bloc**
+**Importation en bloc de plusieurs serveurs**
 
- 1. Sur le **ajouter une connexion serveur** page, choisissez le **importation serveurs** onglet.
+ 1. Sur la page **Ajouter une connexion au serveur** , choisissez l’onglet importer des **serveurs** .
 
     ![](../media/launch/import-servers.png)
 
- 2. Cliquez sur **Parcourir** et sélectionnez un fichier texte qui contient une virgule ou séparées de la nouvelle ligne, la liste des noms de domaine complets pour les serveurs que vous souhaitez ajouter.
+ 2. Cliquez sur **Parcourir** et sélectionnez un fichier texte contenant une virgule, ou une nouvelle ligne séparée, liste des noms de domaine complets pour les serveurs que vous souhaitez ajouter.
 
-    **--OU--**
+> [!Note]
+> Le fichier. csv créé en [exportant vos connexions avec PowerShell](#use-powershell-to-import-or-export-your-connections-with-tags) contient des informations supplémentaires au-delà des noms de serveurs et n’est pas compatible avec cette méthode d’importation.
 
-**Ajouter des serveurs en recherchant dans Active Directory**
+  **--OU--**
 
- 1. Sur le **ajouter une connexion serveur** page, choisissez le **recherche Active Directory** onglet.
+**Ajouter des serveurs en effectuant des recherches Active Directory**
+
+ 1. Sur la page **Ajouter une connexion au serveur** , choisissez l’onglet Active Directory de **recherche** .
 
     ![](../media/launch/search-ad.png)
 
- 2. Entrez vos critères de recherche et cliquez sur **recherche**. Les caractères génériques (*) sont pris en charge.
+ 2. Entrez vos critères de recherche, puis cliquez sur **Rechercher**. Les caractères génériques (*) sont pris en charge.
 
- 3. Une fois la recherche terminée - sélectionnez un ou plusieurs des résultats, si vous le souhaitez ajouter des balises, puis cliquez sur **ajouter**.
+ 3. Une fois la recherche terminée, sélectionnez un ou plusieurs des résultats, ajoutez éventuellement des balises, puis cliquez sur **Ajouter**.
 
 ## <a name="authenticate-with-the-managed-node"></a>S’authentifier avec le nœud géré ##
 
-Windows Admin Center prend en charge plusieurs mécanismes pour l’authentification auprès d’un nœud géré. L’authentification unique est la valeur par défaut.
+Le centre d’administration Windows prend en charge plusieurs mécanismes d’authentification avec un nœud géré. L’authentification unique est la valeur par défaut.
 
-**Single Sign-on**
+**Authentification unique**
 
-Vous pouvez utiliser vos informations d’identification Windows actuelles pour s’authentifier avec le nœud géré. C’est la valeur par défaut, et Windows Admin Center tente l’authentification lorsque vous ajoutez un serveur. 
+Vous pouvez utiliser vos informations d’identification Windows actuelles pour vous authentifier auprès du nœud géré. Il s’agit de la valeur par défaut, et le centre d’administration Windows tente d’ouvrir une session lorsque vous ajoutez un serveur. 
 
-**L’authentification unique lors du déploiement en tant que Service sur Windows Server**
+**Authentification unique lorsqu’elle est déployée en tant que service sur Windows Server**
 
-Si vous avez installé Windows Admin Center sur Windows Server, une configuration supplémentaire est requise pour l’authentification unique.  [Configurer votre environnement pour la délégation](../configure/user-access-control.md)
+Si vous avez installé le centre d’administration Windows sur Windows Server, une configuration supplémentaire est requise pour l’authentification unique.  [Configurer votre environnement pour la délégation](../configure/user-access-control.md)
 
 **--OU--**
 
-**Utilisez *gérer en tant que* spécifier des informations d’identification**
+**Utiliser *gérer en tant que* pour spécifier les informations d’identification**
 
-Sous **toutes les connexions**, sélectionnez un serveur dans la liste et choisissez **gérer en tant que** pour spécifier les informations d’identification que vous allez utiliser pour s’authentifier au nœud géré :
+Sous **toutes les connexions**, sélectionnez un serveur dans la liste et choisissez **gérer en tant que** pour spécifier les informations d’identification que vous allez utiliser pour vous authentifier auprès du nœud géré:
 
 ![](../media/launch-use-6.png)
 
-Si Windows Admin Center s’exécute en mode de service sur Windows Server, mais vous n’avez pas configurée la délégation Kerberos, vous devez entrer à nouveau vos informations d’identification Windows :
+Si le centre d’administration Windows s’exécute en mode de service sur Windows Server, mais que la délégation Kerberos n’est pas configurée, vous devez entrer à nouveau vos informations d’identification Windows:
 
 ![](../media/launch-use-7.png)
 
-Vous pouvez appliquer les informations d’identification pour toutes les connexions, ce qui les met en cache pour cette session de navigateur spécifique. Si vous rechargez votre navigateur, vous devez entrer à nouveau votre **gérer en tant que** informations d’identification.
+Vous pouvez appliquer les informations d’identification à toutes les connexions, ce qui les mettra en cache pour cette session de navigateur spécifique. Si vous rechargez votre navigateur, vous devez entrer à nouveau vos informations d’identification **gérer en tant que** .
 
-**Solution de mot de passe administrateur local (LAP)**
+**Solution de mot de passe d’administrateur local (LAPS)**
 
-Si votre environnement utilise [LAPS](https://technet.microsoft.com/mt227395.aspx)et que vous avez Windows Admin Center est installé sur votre PC Windows 10, vous pouvez utiliser les informations d’identification LAPS pour s’authentifier avec le nœud géré. **Si vous utilisez ce scénario, veuillez** [fournir des commentaires](http://aka.ms/WACFeedback).
+Si votre environnement utilise des [chevauchements](https://technet.microsoft.com/mt227395.aspx)et que vous avez installé le centre d’administration Windows sur votre PC Windows 10, vous pouvez utiliser des informations d’identification pour vous authentifier auprès du nœud géré. **Si vous utilisez ce scénario, veuillez** [fournir des commentaires](http://aka.ms/WACFeedback).
 
-## <a name="using-tags-to-organize-your-connections"></a>À l’aide de balises pour organiser vos connexions
+## <a name="using-tags-to-organize-your-connections"></a>Utilisation de balises pour organiser vos connexions
 
-Vous pouvez utiliser des balises pour identifier et à filtrer les serveurs associés dans votre liste de connexion.  Cela vous permet de voir un sous-ensemble de vos serveurs dans la liste des connexions.  Cela est particulièrement utile si vous avez plusieurs connexions.
+Vous pouvez utiliser des balises pour identifier et filtrer les serveurs associés dans votre liste de connexions.  Cela vous permet d’afficher un sous-ensemble de vos serveurs dans la liste des connexions.  Cela s’avère particulièrement utile si vous avez de nombreuses connexions.
 
 ### <a name="edit-tags"></a>Modifier les balises
 
-* Sélectionnez un ou plusieurs serveurs dans la liste de toutes les connexions
-* Sous **toutes les connexions**, cliquez sur **modifier les balises**
+* Sélectionner un ou plusieurs serveurs dans la liste toutes les connexions
+* Sous **toutes les connexions**, cliquez sur **modifier** les balises
 
 ![](../media/launch/tags-5.png)
 
-Le **modifier les balises de connexion** volet permet d’ajouter, modifier ou supprimer des balises à partir de vos connexions sélectionnées :
+Le volet modifier les balises de **connexion** vous permet de modifier, d’ajouter ou de supprimer des balises de vos connexions sélectionnées:
 
-* Pour ajouter une nouvelle balise à votre connexion (s) sélectionné, sélectionnez **ajouter une balise** et entrez le nom de balise que vous souhaitez utiliser.
+* Pour ajouter une nouvelle balise à vos connexions sélectionnées, sélectionnez Ajouter une **étiquette** , puis entrez le nom de la balise que vous souhaitez utiliser.
 
-* Pour marquer les connexions sélectionnées avec un nom de balise existant, cochez la case en regard du nom de balise que vous souhaitez appliquer.
+* Pour baliser les connexions sélectionnées avec un nom de balise existant, cochez la case en regard du nom de balise que vous souhaitez appliquer.
 
-* Pour supprimer une balise à partir de connexions sélectionnées, désactivez la case en regard de la balise que vous souhaitez supprimer.
+* Pour supprimer une balise de toutes les connexions sélectionnées, décochez la case en regard de la balise que vous souhaitez supprimer.
 
-* Si une balise est appliquée à un sous-ensemble des connexions sélectionnées, la case à cocher est affichée dans un état intermédiaire. Vous pouvez cliquer sur la case pour vérifier et appliquer l’étiquette à toutes les connexions sélectionnées ou cliquez à nouveau pour désactiver et supprimer la balise de toutes les connexions sélectionnées.
+* Si une étiquette est appliquée à un sous-ensemble des connexions sélectionnées, la case à cocher est affichée dans un état intermédiaire. Vous pouvez cliquer sur la case pour la vérifier et appliquer la balise à toutes les connexions sélectionnées, ou cliquer à nouveau pour la désactiver et supprimer la balise de toutes les connexions sélectionnées.
 
 ![](../media/launch/tags-6.png)
 
 ### <a name="filter-connections-by-tag"></a>Filtrer les connexions par balise
 
-Une fois que les balises ont été ajoutées à un ou plusieurs connexions au serveur, vous pouvez afficher les étiquettes dans la liste des connexions et filtrer la liste des connexions par balises.
+Une fois que des balises ont été ajoutées à une ou plusieurs connexions au serveur, vous pouvez afficher les balises dans la liste des connexions et filtrer la liste des connexions par balises.
 
 * Pour filtrer par une balise, sélectionnez l’icône de filtre en regard de la zone de recherche.
 ![](../media/launch/tags-7.png)
-* Vous pouvez sélectionner « ou », « et » ou « non » pour modifier le comportement de filtre des balises sélectionnées.
+* Vous pouvez sélectionner «ou», «et» ou «non» pour modifier le comportement de filtre des balises sélectionnées.
 ![](../media/launch/tags-8.png)
 
-## <a name="use-powershell-to-import-or-export-your-connections-with-tags"></a>Utiliser PowerShell pour importer ou exporter vos connexions (avec balises)
-
-> S'applique à : Windows Admin Center Preview
-
-Version préliminaire de Windows Admin Center inclut un module PowerShell pour importer ou exporter votre liste de connexion.
+## <a name="use-powershell-to-import-or-export-your-connections-with-tags"></a>Utiliser PowerShell pour importer ou exporter vos connexions (avec étiquettes)
 
 ```powershell
 # Load the module
@@ -165,26 +164,26 @@ Export-Connection "https://wac.contoso.com" -fileName "WAC-connections.csv"
 Import-Connection "https://wac.contoso.com" -fileName "WAC-connections.csv"
 ```
 
-### <a name="csv-file-format-for-importing-connections"></a>Format de fichier CSV pour l’importation des connexions
+### <a name="csv-file-format-for-importing-connections"></a>Format de fichier CSV pour l’importation de connexions
 
-Le format du fichier CSV démarre avec les en-têtes de quatre ```"name","type","tags","groupId"```, suivie de chaque connexion sur une nouvelle ligne.
+Le format du fichier CSV commence par les quatre en-têtes ```"name","type","tags","groupId"```, suivis de chaque connexion sur une nouvelle ligne.
 
-**nom** est le nom de domaine complet de la connexion
+**Name** est le nom de domaine complet de la connexion
 
-**type** est le type de connexion. Pour les connexions par défaut incluses avec Windows Admin Center, vous allez utiliser une des opérations suivantes :
+le **type est le** type de connexion. Pour les connexions par défaut incluses dans le centre d’administration Windows, vous devez utiliser l’une des options suivantes:
 
 | Type de connexion | Chaîne de connexion |
 |------|-------------------------------|
-| Windows Server | msft.sme.connection-type.server |
-| PC Windows 10 | msft.sme.connection-type.windows-client |
-| Cluster de basculement | msft.sme.connection-type.cluster |
-| Cluster Hyperconvergé | msft.sme.connection-type.hyper-converged-cluster |
+| Windows Server | msft. SME. Connection-type. Server |
+| PC Windows 10 | msft. SME. Connection-type. Windows-client |
+| Cluster de basculement | msft. SME. Connection-type. cluster |
+| Cluster hyper-convergé | msft. SME. Connection-type. hyper-convergé-cluster |
 
-**balises** sont séparées par un canal.
+les balises sont séparées par des barres verticales.
 
-**groupId** est utilisé pour les connexions partagées. Utilisez la valeur ```global``` dans cette colonne pour faire une connexion partagée.
+**GroupID** est utilisé pour les connexions partagées. Utilisez la valeur ```global``` de cette colonne pour en faire une connexion partagée.
 
-### <a name="example-csv-file-for-importing-connections"></a>Exemple de fichier CSV pour l’importation des connexions
+### <a name="example-csv-file-for-importing-connections"></a>Exemple de fichier CSV pour l’importation de connexions
 
 ```
 "name","type","tags","groupId"
@@ -196,11 +195,11 @@ Le format du fichier CSV démarre avec les en-têtes de quatre ```"name","type",
 "myHCIclusterNode.contoso.com","msft.sme.connection-type.server","myHCIcluster|hyperv|JIT|WS2019"
 ```
 
-## <a name="import-rdcman-connections"></a>Connexions d’importation RDCman
+## <a name="import-rdcman-connections"></a>Importer des connexions RDCman
 
-Utilisez le script ci-dessous pour exporter les connexions enregistrées dans [RDCman](https://blogs.technet.microsoft.com/rmilne/2014/11/19/remote-desktop-connection-manager-download-rdcman-2-7/) dans un fichier. Vous pouvez ensuite importer le fichier dans Windows Admin Center, maintenance de votre hiérarchie RDCMan regroupement à l’aide de balises. Essayez-le !
+Utilisez le script ci-dessous pour exporter des connexions enregistrées dans [RDCman](https://blogs.technet.microsoft.com/rmilne/2014/11/19/remote-desktop-connection-manager-download-rdcman-2-7/) dans un fichier. Vous pouvez ensuite importer le fichier dans le centre d’administration Windows, en conservant votre hiérarchie de regroupement RDCMan à l’aide de balises. Essayez!
 
-1. Copiez et collez le code ci-dessous dans votre session PowerShell :
+1. Copiez et collez le code ci-dessous dans votre session PowerShell:
 
    ```powershell
    #Helper function for RdgToWacCsv
@@ -275,16 +274,16 @@ Utilisez le script ci-dessous pour exporter les connexions enregistrées dans [R
    }
    ```
 
-2. Pour créer un. Fichier CSV, exécutez la commande suivante :
+2. Pour créer un. Fichier CSV, exécutez la commande suivante:
 
    ```powershell
    RdgToWacCsv -RDGfilepath "path\to\myRDCManfile.rdg"
    ```
 
-3. Importer le résultat. Fichier CSV dans Windows Admin Center et votre hiérarchie de regroupement de RDCMan seront représenté par des balises dans la liste des connexions. Pour plus d’informations, consultez [utiliser PowerShell pour importer ou exporter vos connexions (avec balises)](#use-powershell-to-import-or-export-your-connections-with-tags).
+3. Importez le résultant. Fichier CSV dans le centre d’administration Windows, et toutes vos hiérarchies de regroupement RDCMan sont représentées par des balises dans la liste connexion. Pour plus d’informations, consultez [Utiliser PowerShell pour importer ou exporter vos connexions (avec des balises)](#use-powershell-to-import-or-export-your-connections-with-tags).
 
-## <a name="view-powershell-scripts-used-in-windows-admin-center"></a>Afficher le script PowerShell utilisés dans Windows Admin Center
+## <a name="view-powershell-scripts-used-in-windows-admin-center"></a>Afficher les scripts PowerShell utilisés dans le centre d’administration Windows
 
-Une fois que vous êtes connecté à un serveur, un cluster ou un PC, vous pouvez examiner les scripts PowerShell qui alimentent les actions d’interface utilisateur disponibles dans Windows Admin Center. À partir de dans un outil, cliquez sur l’icône PowerShell située dans la barre d’application supérieure. Sélectionnez une commande qui vous intéresse dans la liste déroulante pour accéder au script PowerShell correspondant.
+Une fois que vous êtes connecté à un serveur, un cluster ou un PC, vous pouvez consulter les scripts PowerShell qui alimentent les actions de l’interface utilisateur disponibles dans le centre d’administration Windows. Dans un outil, cliquez sur l’icône PowerShell dans la barre d’application supérieure. Sélectionnez une commande d’intérêt dans la liste déroulante pour accéder au script PowerShell correspondant.
 
 ![](../media/launch/showscript.png)
