@@ -293,7 +293,7 @@ Dans des circonstances rares et généralement impossibles à reproduire, redém
 
     Guidance: Possible causes include network failures, share creation failures for the remote replication group, or firewall settings. Make sure SMB traffic is allowed and there are no connectivity issues between the local computer and the remote computer. You should expect this event when suspending replication or removing a replication partnership.
 
-Notez le `Status: "{Access Denied}"` et le message `A process has requested access to an object, but has not been granted those access rights.` il s’agit d’un problème connu dans le réplica de stockage et a été résolu dans la mise à jour de qualité, le 12 septembre 2017, KB4038782 (version du système d’exploitation 14393,1715)https://support.microsoft.com/help/4038782/windows-10-update-kb4038782 
+Notez le `Status: "{Access Denied}"` et le message `A process has requested access to an object, but has not been granted those access rights.` il s’agit d’un problème connu dans le réplica de stockage et a été résolu dans la mise à jour de qualité, le 12 septembre 2017, KB4038782 (version du système d’exploitation 14393,1715) https://support.microsoft.com/help/4038782/windows-10-update-kb4038782 
 
 ## <a name="error-failed-to-bring-the-resource-cluster-disk-x-online-with-a-stretch-cluster"></a>Erreur « Impossible de mettre la ressource "Disque de Cluster x" en ligne ». avec un cluster étendu
 
