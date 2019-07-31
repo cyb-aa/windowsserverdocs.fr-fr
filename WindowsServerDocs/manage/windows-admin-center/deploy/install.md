@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.date: 07/17/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 994e2324042dd441abbb114da2b8806574ce0352
-ms.sourcegitcommit: e5553285d509f15c20ba98ad9e8bf69b09531560
+ms.openlocfilehash: e67102d1fa8b35d90e97df64cb8bd2991b205ad5
+ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68307490"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658877"
 ---
 # <a name="install-windows-admin-center"></a>Installer Windows Admin Center
 
@@ -27,7 +27,7 @@ Cette rubrique explique comment installer le centre d’administration Windows s
 
 ## <a name="determine-your-installation-type"></a>Déterminer votre type d’installation
 
-Passez en revue les [options d’installation](../plan/installation-options.md) qui incluent les [systèmes d’exploitation pris en charge](../plan/installation-options.md#supported-operating-systems-installation). Pour installer le centre d’administration Windows sur une machine virtuelle dans Azure, consultez [déployer le centre d’administration Windows dans Azure](../azure/deploy-wac-in-azure.md).
+Passez en revue les [options d’installation](../plan/installation-options.md) qui incluent les [systèmes d’exploitation pris en charge](https://docs.microsoft.com/windows-server/manage/windows-admin-center/plan/installation-options#installation-supported-operating-systems). Pour installer le centre d’administration Windows sur une machine virtuelle dans Azure, consultez [déployer le centre d’administration Windows dans Azure](../azure/deploy-wac-in-azure.md).
 
 ## <a name="install-on-windows-10"></a>Installation sous Windows 10
 
