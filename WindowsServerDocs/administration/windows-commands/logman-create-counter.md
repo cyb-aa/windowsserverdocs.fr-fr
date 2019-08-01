@@ -1,6 +1,6 @@
 ---
-title: Logman créer compteur
-description: 'Rubrique de commandes de Windows pour ***- '
+title: logman créer un compteur
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,17 +14,17 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 3d9099fa4540a1d9c91a714ada8a1dbba13f051e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "66437809"
 ---
-# <a name="logman-create-counter"></a>Logman créer compteur
+# <a name="logman-create-counter"></a>logman créer un compteur
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Créer un collecteur de données de compteur.  
+créer un collecteur de données de compteur.  
 
 ## <a name="syntax"></a>Syntaxe  
 ```  
@@ -35,37 +35,37 @@ logman create counter <[-n] <name>> [options]
 |                    Paramètre                     |                                                                               Description                                                                               |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                        /?                        |                                                                    Affiche l’aide contextuelle.                                                                     |
-|                -s <computer name>                |                                                          Exécuter la commande sur l’ordinateur distant spécifié.                                                          |
+|                -s<computer name>                |                                                          Exécutez la commande sur l’ordinateur distant spécifié.                                                          |
 |                 -config <value>                  |                                                         Spécifie le fichier de paramètres contenant les options de commande.                                                         |
-|                   [-n] <name>                    |                                                                       Nom de l’objet cible.                                                                        |
-| -f <bin&#124;bincirc&#124;csv&#124;tsv&#124;sql> |                                                            Spécifie le format de journal pour le collecteur de données.                                                             |
-|             -u [-] < utilisateur [password] >              | Spécifie l’utilisateur à exécuter en tant que. Entrer un \* pour le mot de passe génère une invite pour le mot de passe. Le mot de passe n’est pas affichée lorsque vous le tapez à l’invite de mot de passe. |
-|    -m < [start] [stop] [[start] [stop] [...]] >    |                                                Remplacez par démarrage manuel ou arrêter au lieu d’une heure de début ou de fin planifiée.                                                 |
-|                -rf < [[hh :] mm :] ss >                |                                                        Exécutez le collecteur de données pendant la période de temps spécifiée.                                                         |
-|        -b <M/d/yyyy h:mm:ss[AM&#124;PM]>         |                                                              Commencer à collecter les données à l’heure spécifiée.                                                               |
-|        e - < j/aaaa h : mmss [AM&#124;PM] >         |                                                               Terminer la collecte des données à l’heure spécifiée.                                                                |
-|                -si < [[hh :] mm :] ss >                |                                                 Spécifie l’intervalle d’échantillonnage pour les collecteurs de données de compteur de performances.                                                  |
-|              -o <path&#124;dsn!log>              |                                              Spécifie que le fichier journal de sortie ou la source de données et le journal de nom de jeu dans une base de données SQL.                                               |
-|                      -[-]r                       |                                                  Répétez le collecteur de données tous les jours au début spécifié et les heures de fin.                                                  |
-|                      -[-]a                       |                                                                     ajouter à un fichier journal existant.                                                                     |
-|                      -[-]ow                      |                                                                     Remplacer un fichier journal existant.                                                                     |
-|           -[-]v <nnnnnn&#124;mmddhhmm>           |                                                   joindre des informations de contrôle de version de fichier à la fin du nom du fichier journal.                                                   |
-|                  -[-] rc <task>                   |                                                         Exécutez la commande spécifiée chaque fois que le journal est fermé.                                                          |
-|                 -[-]max <value>                  |                                                 Taille du fichier journal maximale en Mo ou nombre maximal d’enregistrements des journaux SQL.                                                  |
-|              -[-] cnf < [[hh :] mm :] ss >              |     Lors de l’heure est spécifiée, créez un nouveau fichier lorsque le délai imparti est écoulé. Lorsque le temps n’est pas spécifié, créez un nouveau fichier lorsque la taille maximale est dépassée.     |
-|                        -y                        |                                                             Répondez Oui à toutes les questions sans demander confirmation.                                                              |
-|                  -cf <filename>                  |                       Spécifie la liste des compteurs de performances à collecter des fichiers. Le fichier doit contenir un nom de compteur de performances par ligne.                        |
-|               -c < chemin d’accès [chemin d’accès []] >               |                                                              Spécifie les compteurs de performances à collecter.                                                               |
-|                   -sc <value>                    |                                      Spécifie le nombre maximal d’échantillons à collecter avec un collecteur de données de compteur de performances.                                      |
+|                   [-n]<name>                    |                                                                       Nom de l’objet cible.                                                                        |
+| -f < bin&#124;bincirc&#124;CSV&#124;&#124;SQL > |                                                            Spécifie le format du journal pour le collecteur de données.                                                             |
+|             -[-] u < utilisateur [mot de passe] >              | Spécifie l’utilisateur à exécuter en tant que. La saisie \* d’un pour le mot de passe génère une invite pour le mot de passe. Le mot de passe ne s’affiche pas lorsque vous le tapez à l’invite de mot de passe. |
+|    -m < [Start] [STOP] [[Start] [STOP] [...]] >    |                                                Passez au démarrage manuel ou à l’arrêt au lieu d’une heure de début ou de fin planifiée.                                                 |
+|                -RF < [[hh:] mm:] SS >                |                                                        Exécuter le collecteur de données pendant la période spécifiée.                                                         |
+|        -b < M/j/aaaa h:mm: SS [AM&#124;PM] >         |                                                              Commencer à collecter des données à l’heure spécifiée.                                                               |
+|        -e < M/j/aaaa h:mm: SS [AM&#124;PM] >         |                                                               Terminer la collecte de données à l’heure spécifiée.                                                                |
+|                -Si < [[hh:] mm:] SS >                |                                                 Spécifie l’intervalle échantillon pour les collecteurs de données des compteurs de performance.                                                  |
+|              -o < chemin&#124;DSN! log >              |                                              Spécifie le fichier journal de sortie ou le nom de l’ensemble de journaux et de journaux dans une base de données SQL.                                               |
+|                      -[-] r                       |                                                  Répète le collecteur de données quotidiennement aux heures de début et de fin spécifiées.                                                  |
+|                      -[-] a                       |                                                                     Ajouter à un fichier journal existant.                                                                     |
+|                      -[-]                      |                                                                     Remplacer un fichier journal existant.                                                                     |
+|           -[-] v < nnnnnn&#124;mmddhhmm >           |                                                   Joignez les informations de contrôle de version des fichiers à la fin du nom du fichier journal.                                                   |
+|                  -[-] RC<task>                   |                                                         Exécutez la commande spécifiée chaque fois que le journal est fermé.                                                          |
+|                 -[-] Max <value>                  |                                                 Taille maximale du fichier journal en Mo ou nombre maximal d’enregistrements pour les journaux SQL.                                                  |
+|              -[-] cnf < [[hh:] mm:] SS >              |     Lorsque l’heure est spécifiée, crée un nouveau fichier une fois que l’heure spécifiée s’est écoulée. Lorsque l’heure n’est pas spécifiée, créez un nouveau fichier lorsque la taille maximale est dépassée.     |
+|                        -y                        |                                                             Répondez oui à toutes les questions sans demander confirmation.                                                              |
+|                  -cf<filename>                  |                       Spécifie le fichier répertoriant les compteurs de performances à collecter. Le fichier doit contenir un nom de compteur de performance par ligne.                        |
+|               -c < chemin d’accès [chemin []] >               |                                                              Spécifie le ou les compteurs de performance à collecter.                                                               |
+|                   -SC <value>                    |                                      Spécifie le nombre maximal d’échantillons à collecter avec un collecteur de données de compteur de performance.                                      |
 
 ## <a name="remarks"></a>Notes  
-Si [-] est listé, un supplémentaire - inverse l’option.  
-## <a name="BKMK_examples"></a>Exemples  
-La commande suivante crée un compteur appelé journal_perf à l’aide du % temps processeur à partir de la catégorie de compteur de processeur (_Total).  
+Où [-] est listé, un extra-inverse l’option.  
+## <a name="BKMK_examples"></a>Illustre  
+La commande suivante crée un compteur appelé journal_perf à l’aide du compteur% temps processeur de la catégorie de compteurs Processeur (_ total).  
 ```  
 logman create counter perf_log -c "\Processor(_Total)\% Processor time"  
 ```  
-La commande suivante crée un compteur appelé journal_perf à l’aide du % temps processeur à partir de la catégorie de compteur de processeur (_Total), la création d’un fichier journal avec une taille maximale de 10 Mo et la collecte de données pour 1 minute et 0 secondes.  
+La commande suivante crée un compteur appelé journal_perf à l’aide du compteur% temps processeur de la catégorie de compteurs Processeur (_ total), en créant un fichier journal d’une taille maximale de 10 Mo et en collectant des données pendant 1 minute et 0 seconde.  
 ```  
 logman create counter perf_log -c "\Processor(_Total)\% Processor time" -max 10 -rf 01:00  
 ```  

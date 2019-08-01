@@ -1,6 +1,6 @@
 ---
-title: Détecter les goulots d’étranglement dans un environnement virtualisé
-description: Comment détecter et résoudre les éventuels goulots d’étranglement de performances Hyper-v
+title: Détection des goulots d’étranglement dans un environnement virtualisé
+description: Comment détecter et résoudre les goulots d’étranglement potentiels des performances Hyper-v
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
@@ -8,125 +8,125 @@ ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
 ms.openlocfilehash: cdad5f0cc3b0e49ae46e975e3acc2c48a18e5f70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867530"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "63722879"
 ---
-# <a name="detecting-bottlenecks-in-a-virtualized-environment"></a>Détecter les goulots d’étranglement dans un environnement virtualisé
+# <a name="detecting-bottlenecks-in-a-virtualized-environment"></a>Détection des goulots d’étranglement dans un environnement virtualisé
 
-Cette section devrait vous donner quelques conseils sur les éléments à analyser à l’aide de l’Analyseur de performances et comment identifier où le problème peut être lors de l’hôte ou certaines des machines virtuelles n’effectuent pas comme vous vous attendiez.
+Cette section doit vous donner des indications sur les éléments à surveiller à l’aide de l’analyseur de performances et sur la manière d’identifier l’endroit où le problème peut se produire lorsque l’ordinateur hôte ou certains des ordinateurs virtuels ne fonctionnent pas comme prévu.
 
-## <a name="processor-bottlenecks"></a>Goulots d’étranglement de processeur
+## <a name="processor-bottlenecks"></a>Goulots d’étranglement du processeur
 
-Voici quelques scénarios courants pouvant entraîner des goulots d’étranglement du processeur :
+Voici quelques scénarios courants qui peuvent entraîner des goulots d’étranglement du processeur:
 
--   Un ou plusieurs processeurs logiques sont chargés.
+-   Un ou plusieurs processeurs logiques sont chargés
 
--   Un ou plusieurs processeurs virtuels sont chargés.
+-   Un ou plusieurs processeurs virtuels sont chargés
 
-Vous pouvez utiliser les compteurs de performances suivants à partir de l’hôte :
+Vous pouvez utiliser les compteurs de performances suivants à partir de l’hôte:
 
--   Utilisation du processeur logique - \\processeur logique hyperviseur Hyper-V (\*)\\Total de % temps d’exécution
+-   Utilisation du processeur logique \\-processeur logique hyperviseur hyper\*-\\V ()% durée totale d’exécution
 
--   Utilisation du processeur virtuel - \\processeur virtuel hyperviseur Hyper-V (\*)\\Total de % temps d’exécution
+-   Utilisation du processeur virtuel \\-processeur virtuel de l’hyperviseur\\Hyper-V (\*)% de la durée d’exécution totale
 
--   Racine de l’utilisation du processeur virtuel - \\processeur virtuel racine d’hyperviseur Hyper-V (\*)\\Total de % temps d’exécution
+-   Utilisation du processeur virtuel racine \\-processeur virtuel racine de l’hyperviseur\\Hyper-V (\*)% de la durée d’exécution totale
 
-Si le **processeur logique de l’hyperviseur Hyper-V (\_Total)\\% temps Total d’exécution** compteur est plus de 90 %, l’hôte est surchargé. Vous devez ajouter davantage de puissance de traitement ou déplacer des machines virtuelles vers un hôte différent.
+Si le compteur d' **exécution total du processeur logique\_de l'\\hyperviseur Hyper-V (total)% Total** est supérieur à 90%, l’ordinateur hôte est surchargé. Vous devez ajouter de la puissance de traitement ou déplacer des ordinateurs virtuels vers un autre ordinateur hôte.
 
-Si le **Hyper-V hyperviseur virtuel Processor(VM Name:VP x)\\% temps Total d’exécution** compteur est plus de 90 % pour tous les processeurs virtuels, vous devez procédez comme suit :
+Si le compteur de processeur virtuel de l’hyperviseur **Hyper-V (\\nom de la machine virtuelle: VP x)% total du Runtime** est supérieur à 90% pour tous les processeurs virtuels, vous devez effectuer les opérations suivantes:
 
--   Vérifiez que l’hôte n’est pas surchargé
+-   Vérifier que l’hôte n’est pas surchargé
 
--   Déterminer si la charge de travail peut tirer parti de plusieurs processeurs virtuels
+-   Déterminer si la charge de travail peut tirer parti d’un plus grand nombre de processeurs virtuels
 
--   Affecter plusieurs processeurs virtuels à la machine virtuelle
+-   Affecter plus de processeurs virtuels à la machine virtuelle
 
-Si **Hyper-V hyperviseur virtuel Processor(VM Name:VP x)\\% temps Total d’exécution** compteur est plus de 90 % pour certains, mais pas tout, des processeurs virtuels, vous devez procédez comme suit :
+Si le processeur virtuel de l’hyperviseur **Hyper-V (nom\\de la machine virtuelle: VP x)%** du compteur d’exécution total est supérieur à 90% pour certains processeurs virtuels, mais pas tous, vous devez effectuer les opérations suivantes:
 
--   Si votre charge de travail est reçu de réseau intensives, vous devez envisager d’utiliser vRSS.
+-   Si votre charge de travail reçoit beaucoup de ressources réseau, vous devez envisager d’utiliser vRSS.
 
--   Si les machines virtuelles n’exécutent pas Windows Server 2012 R2, vous devez ajouter plus de cartes réseau.
+-   Si les machines virtuelles n’exécutent pas Windows Server 2012 R2, vous devez ajouter d’autres cartes réseau.
 
--   Si votre charge de travail est grande consommatrice du stockage, activez la topologie NUMA virtuelle et ajouter plus de disques virtuels.
+-   Si votre charge de travail est gourmande en stockage, vous devez activer la topologie NUMA virtuelle et ajouter d’autres disques virtuels.
 
-Si le **processeur virtuel racine de l’hyperviseur Hyper-V (VP de racine x)\\% temps Total d’exécution** compteur est supérieure à 90 % pour certains, mais pas tous les processeurs virtuels et le **processeur (x)\\% temps d’interruption et Processeur (x)\\% temps DPC** compteur environ additionne la valeur de la **Processor(Root VP x) virtuel racine\\% temps Total d’exécution** compteur, vous devez vous assurer activer VMQ sur les cartes réseau.
+Si le compteur de l' **exécution du processeur virtuel racine de l’hyperviseur Hyper-V (VP racine x)\\% total d’exécution** est supérieur à 90% pour certains processeurs virtuels, mais pas tous, et le processeur **(x)\\% du temps d’interruption et du processeur (x)\\% du temps DPC** le compteur augmente approximativement la valeur du compteur de **processeur virtuel racine (VP racine x)\\% total du runtime** . vous devez donc vous assurer que l’installation de la carte réseau est activée sur les cartes réseau.
 
 ## <a name="memory-bottlenecks"></a>Goulots d’étranglement de mémoire
 
-Voici quelques scénarios courants pouvant entraîner des goulots d’étranglement de mémoire :
+Voici quelques scénarios courants qui peuvent provoquer des goulots d’étranglement de mémoire:
 
 -   L’hôte ne répond pas.
 
 -   Impossible de démarrer les machines virtuelles.
 
--   Machines virtuelles suffisamment de mémoire.
+-   Les machines virtuelles manquent de mémoire.
 
-Vous pouvez utiliser les compteurs de performances suivants à partir de l’hôte :
+Vous pouvez utiliser les compteurs de performances suivants à partir de l’hôte:
 
--   Mémoire\\mégaoctets disponibles
+-   Mémoire\\disponible en mégaoctets
 
--   Équilibrage de la mémoire dynamique Hyper-V (\*)\\mémoire disponible
+-   Mémoire disponible de l’équilibreur de\*mémoire dynamique\\Hyper-V ()
 
-Vous pouvez utiliser les compteurs de performances suivants à partir de la machine virtuelle :
+Vous pouvez utiliser les compteurs de performances suivants à partir de la machine virtuelle:
 
--   Mémoire\\mégaoctets disponibles
+-   Mémoire\\disponible en mégaoctets
 
-Si le **mémoire\\mégaoctets disponibles** et **Hyper-V Dynamic Memory Balancer (\*)\\mémoire disponible** compteurs sont faibles sur l’ordinateur hôte, vous devez arrêter les utilisations non vitales de services et migrer un ou plusieurs ordinateurs virtuels vers un autre hôte.
+Si la **\\** mémoire disponible en mégaoctets et les compteurs de mémoire disponibles pour l’équilibreur de **mémoire dynamique hyper-\*V ()\\** sont faibles sur l’hôte, vous devez arrêter les services non essentiels et migrer un ou plusieurs serveurs virtuels ordinateurs vers un autre hôte.
 
-Si le **mémoire\\mégaoctets disponibles** compteur est faible sur l’ordinateur virtuel, vous devez attribuer davantage de mémoire à la machine virtuelle. Si vous utilisez la mémoire dynamique, vous devez augmenter le paramètre de mémoire maximale.
+Si le **compteur\\mégaoctets disponibles en mémoire** est insuffisant sur la machine virtuelle, vous devez attribuer plus de mémoire à la machine virtuelle. Si vous utilisez Mémoire dynamique, vous devez augmenter le paramètre de mémoire maximale.
 
 ## <a name="network-bottlenecks"></a>Goulots d’étranglement du réseau
 
-Voici quelques scénarios courants pouvant entraîner des goulots d’étranglement du réseau :
+Voici quelques scénarios courants qui peuvent entraîner des goulots d’étranglement du réseau:
 
--   L’hôte est réseau lié.
+-   L’hôte est lié au réseau.
 
--   La machine virtuelle est lié de réseau.
+-   L’ordinateur virtuel est lié au réseau.
 
-Vous pouvez utiliser les compteurs de performances suivants à partir de l’hôte :
+Vous pouvez utiliser les compteurs de performances suivants à partir de l’hôte:
 
--   Interface réseau (*nom de l’adaptateur réseau*)\\octets/s
+-   Interface réseau (*nom*de la carte\\réseau), octets/s
 
-Vous pouvez utiliser les compteurs de performances suivants à partir de la machine virtuelle :
+Vous pouvez utiliser les compteurs de performances suivants à partir de la machine virtuelle:
 
--   Carte de réseau virtuel Hyper-V (*nom de machine virtuelle&lt;GUID&gt;*)\\octets/s
+-   Carte réseau virtuelle Hyper-V (nom de l'*ordinateur&lt;virtuel&gt;GUID*),\\octets/s
 
-Si le **octets carte réseau physique par seconde** compteur est supérieur ou égale à 90 % de la capacité, vous devez ajouter des cartes réseau supplémentaires, migrer des machines virtuelles vers un autre hôte et configurer la QoS du réseau.
+Si le compteur octets de la **carte réseau physique/s** est supérieur ou égal à 90% de la capacité, vous devez ajouter des cartes réseau supplémentaires, migrer des ordinateurs virtuels vers un autre ordinateur hôte et configurer la qualité de service réseau.
 
-Si le **octets/s de carte de réseau virtuel Hyper-V** compteur est supérieur ou égale à 250 Mbits/s, vous devez ajouter les adaptateurs de cartes réseau supplémentaires dans la machine virtuelle, activez vRSS et utiliser SR-IOV.
+Si le compteur **octets/s de la carte réseau virtuel Hyper-V** est supérieur ou égal à 250 Mbits/s, vous devez ajouter des cartes réseau associées supplémentaires dans l’ordinateur virtuel, activer vRSS et utiliser SR-IOV.
 
-Si vos charges de travail ne peut pas répondre à leur latence du réseau, activez SR-IOV présenter les ressources de la carte réseau physique à la machine virtuelle.
+Si vos charges de travail ne peuvent pas respecter leur latence réseau, activez SR-IOV pour présenter les ressources de carte réseau physique à la machine virtuelle.
 
 ## <a name="storage-bottlenecks"></a>Goulots d’étranglement de stockage
 
-Voici quelques scénarios courants pouvant entraîner des goulots d’étranglement de stockage :
+Voici quelques scénarios courants qui peuvent entraîner des goulots d’étranglement de stockage:
 
--   L’hôte et la machine virtuelle sont des opérations lent ou délai d’attente.
+-   Les opérations de l’hôte et de l’ordinateur virtuel sont lentes ou expirent.
 
--   La machine virtuelle est lente.
+-   L’ordinateur virtuel est lent.
 
-Vous pouvez utiliser les compteurs de performances suivants à partir de l’hôte :
+Vous pouvez utiliser les compteurs de performances suivants à partir de l’hôte:
 
--   Disque physique (*lettre de disque*)\\moyenne disque s/lecture
+-   Moyenne disque s/lecture du\\disque physique (*lettre du disque*)
 
--   Disque physique (*lettre de disque*)\\moyenne disque s/écriture
+-   Disque physique (*lettre*de disque\\) moyenne disque s/écriture
 
--   Disque physique (*lettre de disque*)\\longueur de file d’attente moy.
+-   Longueur moyenne de file d’attente\\de lecture sur le disque physique (*lettre du disque*)
 
--   Disque physique (*lettre de disque*)\\longueur de file d’attente moy.
+-   Longueur moyenne de file d’attente\\d’écriture sur le disque physique (*lettre du disque*)
 
-Si les latences sont régulièrement supérieures à 50 ms, vous devez procédez comme suit :
+Si les latences sont constamment supérieures à 50 ms, vous devez effectuer les opérations suivantes:
 
 -   Répartir les machines virtuelles sur un stockage supplémentaire
 
--   Envisagez l’achat de stockage plus rapide
+-   Envisagez d’acheter un stockage plus rapide
 
--   Prendre en compte les espaces de stockage hiérarchisé, qui a été introduite dans Windows Server 2012 R2
+-   Envisagez Tiered Storage espaces, qui a été introduit dans Windows Server 2012 R2
 
--   Envisagez d’utiliser la QoS de stockage, ce qui a été introduite dans Windows Server 2012 R2
+-   Envisagez d’utiliser la qualité de service de stockage qui a été introduite dans Windows Server 2012 R2
 
 -   Utiliser VHDX
 
@@ -136,14 +136,14 @@ Si les latences sont régulièrement supérieures à 50 ms, vous devez procédez
 
 -   [Architecture Hyper-V](architecture.md)
 
--   [Configuration de serveur Hyper-V](configuration.md)
+-   [Configuration du serveur Hyper-V](configuration.md)
 
--   [Performances du processeur de Hyper-V](processor-performance.md)
+-   [Performances du processeur Hyper-V](processor-performance.md)
 
 -   [Performances de la mémoire Hyper-V](memory-performance.md)
 
--   [Stockage Hyper-V les performances d’e/s](storage-io-performance.md)
+-   [Performances E/S du stockage Hyper-V](storage-io-performance.md)
 
--   [Réseau de Hyper-V les performances d’e/s](network-io-performance.md)
+-   [Performances E/S du réseau Hyper-V](network-io-performance.md)
 
--   [Machines virtuelles Linux](linux-virtual-machine-considerations.md)
+-   [Ordinateurs virtuels Linux](linux-virtual-machine-considerations.md)
