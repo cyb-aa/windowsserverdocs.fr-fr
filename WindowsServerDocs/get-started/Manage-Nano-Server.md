@@ -13,10 +13,10 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 165b7e7aea7a7d0bb56d21f350f6ee646d5fa973
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "67280408"
 ---
 # <a name="manage-nano-server"></a>Gérer Nano Server
@@ -40,7 +40,7 @@ Pour utiliser un outil de gestion à distance, il vous faudra probablement conna
 Pour gérer Nano Server avec la communication à distance Windows PowerShell, vous devez ajouter l’adresse IP de l’instance Nano Server à la liste des hôtes approuvés par votre ordinateur de gestion, ajouter le compte que vous utilisez à la liste des administrateurs de Nano Server, et activer CredSSP si vous prévoyez d’utiliser cette fonctionnalité.  
 
 > [!NOTE]
-> Si l’instance Nano Server cible et votre ordinateur de gestion se trouvent dans la même forêt AD DS (ou dans des forêts ayant une relation d’approbation), vous n’avez pas besoin d’ajouter l’instance Nano Server à la liste des hôtes approuvés. Il vous suffit de vous connecter à l’instance Nano Server à l’aide de son nom de domaine complet, par exemple : PS C:\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
+> Si l'instance Nano Server cible et votre ordinateur de gestion se trouvent dans la même forêt AD DS (ou dans des forêts ayant une relation d'approbation), vous n'avez pas besoin d'ajouter l'instance Nano Server à la liste des hôtes approuvés. Il vous suffit de vous connecter à l'instance Nano Server à l'aide de son nom de domaine complet, par exemple : PS C:\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential)
   
   
 Pour ajouter le serveur Nano Server à la liste des hôtes approuvés, exécutez cette commande à partir d’une invite Windows PowerShell avec élévation de privilèges :  
