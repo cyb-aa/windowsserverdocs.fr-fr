@@ -8,12 +8,12 @@ ms.date: 11/2/2018
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 02c7098c8e3f93ce315e7d9a881613a03924e78b
-ms.sourcegitcommit: 286e3181ebd2cb9d7dc7fe651858a4e0d61d153f
+ms.openlocfilehash: d6761c43eefe04430603a1a16e9e8d256176a736
+ms.sourcegitcommit: 25376e261ebd5e85355c298cfd0bbd6b578a6a0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68300694"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68729539"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Configurer le client web Bureau à distance pour vos utilisateurs
 
@@ -251,7 +251,7 @@ Suivez les étapes ci-dessous si le serveur Hôte de session Bureau à distance 
 * L'**autre nom de l'objet (SAN)** de chaque certificat doit être défini sur le **nom de domaine complet (FQDN)** de l'ordinateur. Le **nom commun (CN)** doit correspondre au SAN pour chaque certificat.
 
 ## <a name="how-to-pre-configure-settings-for-remote-desktop-web-client-users"></a>Préconfigurer les paramètres pour les utilisateurs du client web Bureau à distance
-Cette section explique comment utiliser PowerShell pour configurer les paramètres de déploiement de votre client web Bureau à distance. Ces applets de commande PowerShell déterminent la capacité d'un utilisateur à modifier les paramètres en fonction des préoccupations de sécurité de votre organisation ou du flux de travail prévu. Les paramètres suivants se trouvent tous dans le volet latéral **​Paramètres** du client web. 
+Cette section explique comment utiliser PowerShell pour configurer les paramètres de déploiement de votre client web Bureau à distance. Ces applets de commande PowerShell déterminent la capacité d'un utilisateur à modifier les paramètres en fonction des préoccupations de sécurité de votre organisation ou du flux de travail prévu. Les paramètres suivants se trouvent tous dans le volet latéral **​Paramètres** du client web.
 
 ### <a name="suppress-telemetry"></a>Supprimer des données de télémétrie
 Par défaut, les utilisateurs peuvent choisir d'activer ou de désactiver la collecte des données de télémétrie envoyées à Microsoft. Pour plus d'informations sur les données de télémétrie collectées par Microsoft, consultez notre déclaration de confidentialité via le lien situé dans le volet latéral **À propos de**.
@@ -274,7 +274,8 @@ Par défaut, les utilisateurs peuvent choisir de lancer des ressources distantes
 
 ### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>Rétablir les configurations RDWebClientDeploymentSetting par défaut
 Pour rétablir un paramètre client web de niveau déploiement à la configuration par défaut, exécutez l’applet de commande PowerShell suivante et utilisez le paramètre --Name pour spécifier le paramètre que vous souhaitez rétablir :
-   ```PowerShell
+  
+  ```PowerShell
     Reset-RDWebClientDeploymentSetting -Name "LaunchResourceInBrowser"
     Reset-RDWebClientDeploymentSetting -Name "SuppressTelemetry"
    ```
@@ -314,6 +315,6 @@ Si vous ne parvenez pas à résoudre le problème en suivant les instructions de
 
 Vous pouvez également accéder directement à la console à partir de votre navigateur. La console se trouve généralement sous les outils de développement. Par exemple, dans Microsoft Edge, vous pouvez accéder au journal en appuyant sur la touche **F12** ou en sélectionnant les points de suspension, puis en accédant à **Autres outils** > **Outils de développement**.
 
-## <a name="get-help-with-the-web-client"></a>Obtenir de l'aide concernant le client web
+## <a name="get-help-with-the-web-client"></a>Obtenir de l’aide concernant le client web
 
-Si vous rencontrez un problème que les informations contenues dans cet article ne permettent pas de résoudre, vous pouvez [nous envoyer un e-mail](mailto:rdwbclnt@microsoft.com) pour nous le signaler. Vous pouvez également solliciter ou voter en faveur de nouvelles fonctionnalités via notre [boîte à suggestions](https://aka.ms/rdwebfbk).
+Si vous rencontrez un problème que les informations contenues dans cet article ne permettent pas de résoudre, vous pouvez le signaler sur [Tech Community](https://aka.ms/wvdtc). Vous pouvez également solliciter ou voter en faveur de nouvelles fonctionnalités via notre [boîte à suggestions](https://remotedesktop.uservoice.com/forums/911494-remote-desktop-web-client).
