@@ -68,7 +68,7 @@
 ## [Clients Bureau à distance](clients/remote-desktop-clients.md)
 ### Problèmes connus des services Bureau à distance
 #### [Résolution des problèmes généraux de connexion Bureau à distance](troubleshoot/rdp-error-general-troubleshooting.md)
-#### [Les clients ne peuvent pas se connecter et obtiennent l’erreur « Classe non enregistrée »](troubleshoot/rdp-error-class-not-registered.md).
+#### [Les clients ne peuvent pas se connecter et obtiennent l’erreur « Classe non enregistrée »](troubleshoot/rdp-error-class-not-registered.md)
 #### [Les clients ne peuvent pas se connecter et voient l’erreur « Aucune licence disponible »](troubleshoot/rdp-error-no-licenses-available.md)
 #### [L’utilisateur ne peut pas s’authentifier ou doit s’authentifier deux fois](troubleshoot/cannot-authenticate-or-must-authenticate-twice.md)
 #### [Erreur « Les Services Bureau à distance sont actuellement occupés » à la connexion](troubleshoot/remote-desktop-service-currently-busy.md)
