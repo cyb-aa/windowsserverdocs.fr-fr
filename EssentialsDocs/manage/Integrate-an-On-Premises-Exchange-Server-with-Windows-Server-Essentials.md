@@ -12,12 +12,12 @@ ms.assetid: b56a21e2-c9e3-4ba9-97d9-719ea6a0854b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 4759d33dc89c0ce458b2143cff94f78ea2d9a5cc
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ef57ac325465d7b7a5cf65a2931df824c351c6a2
+ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433390"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863441"
 ---
 # <a name="integrate-an-on-premises-exchange-server-with-windows-server-essentials"></a>Intégrer un serveur Exchange local à Windows Server Essentials
 
@@ -39,18 +39,18 @@ Ce guide fournit des informations et des instructions de base pour vous aider à
 
 -   [Configurer votre nom de domaine Internet](Integrate-an-On-Premises-Exchange-Server-with-Windows-Server-Essentials.md#BKMK_DomainNames)  
 
-###  <a name="BKMK_SetUpSBS8"></a> Configurer un serveur qui exécute Windows Server Essentials  
+###  <a name="BKMK_SetUpSBS8"></a>Configurer un serveur qui exécute Windows Server Essentials  
  Vous devez déjà avoir configuré un serveur qui exécute Windows Server Essentials. Il s’agit du contrôleur de domaine pour le serveur qui exécute Exchange Server. Pour plus d’informations sur la façon de configurer Windows Server Essentials, consultez [Install Windows Server Essentials](../install/Install-Windows-Server-Essentials.md).  
 
-###  <a name="BKMK_SecondServer"></a> Préparer un second serveur sur lequel installer Exchange Server  
+###  <a name="BKMK_SecondServer"></a>Préparer un second serveur sur lequel installer Exchange Server  
  Vous devez installer Exchange Server sur un second serveur qui exécute une version du système d’exploitation Windows Server qui prend officiellement en charge l’exécution d’Exchange Server 2010 ou d’Exchange Server 2013. Vous devez ensuite joindre le second serveur au domaine Windows Server Essentials.  
 
- Pour plus d’informations sur la façon de joindre un second serveur au domaine Windows Server Essentials, consultez joindre un second serveur au réseau de [connexion](../use/Get-Connected-in-Windows-Server-Essentials.md).  
+ Pour plus d’informations sur la façon de joindre un second serveur au domaine Windows Server Essentials, voir joindre un second serveur au réseau dans [connecter](../use/Get-Connected-in-Windows-Server-Essentials.md).  
 
 > [!NOTE]
 >  Microsoft ne prend pas en charge l'installation d'Exchange Server sur un serveur qui exécute Windows Server Essentials.  
 
-###  <a name="BKMK_DomainNames"></a> Configurer votre nom de domaine Internet  
+###  <a name="BKMK_DomainNames"></a>Configurer votre nom de domaine Internet  
  Pour intégrer un serveur local qui exécute Exchange Server à Windows Server Essentials, vous devez avoir inscrit un nom de domaine Internet valide pour votre entreprise (par exemple *contoso.com*). Vous devez également collaborer avec votre fournisseur de noms de domaine pour créer les enregistrements de ressources DNS requis par Exchange Server.  
 
  Par exemple, si le nom de domaine Internet de votre société est contoso.com et que vous voulez utiliser le nom de domaine complet *mail.contoso.com* pour faire référence à votre serveur local qui exécute Exchange Server, collaborez avec votre fournisseur de noms de domaine pour créer les enregistrements de ressources DNS dans le tableau suivant.  
@@ -59,9 +59,9 @@ Ce guide fournit des informations et des instructions de base pour vous aider à
 | Nom de l’enregistrement de ressource |     Type d’enregistrement     |                                                                         Paramètre d’enregistrement                                                                          |                                                                                                                                                                                                                                                              Description                                                                                                                                                                                                                                                              |
 |----------------------|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |         mail         |      hôte (A)       |                                                        Adresse=*adresse IP publique attribuée par votre fournisseur de services Internet*                                                         |                                                                                                                                                                                                   Exchange Server reçoit le courrier adressé à mail.contoso.com.<br /><br /> Vous pouvez utiliser un autre nom que vous choisissez.                                                                                                                                                                                                    |
-|          MX          | serveur de messagerie (MX) |                                            Nom_hôte=@<br /><br /> Adresse=mail.contoso.com<br /><br /> Préférence=0                                             |                                                                                                                                                                                                      Fournit le routage de messages électroniques pour email@contoso.com pour arriver à votre serveur local qui exécute Exchange Server.                                                                                                                                                                                                       |
+|          MX          | serveur de messagerie (MX) |                                            Nom_hôte=@<br /><br /> Adresse=mail.contoso.com<br /><br /> Préférence=0                                             |                                                                                                                                                                                                      Fournit le routage des messages email@contoso.com électroniques pour que se trouve sur votre serveur local qui exécute Exchange Server.                                                                                                                                                                                                       |
 |         SPF          |     texte (TXT)      |                                                                        v=spf1 a mx ~all                                                                         |                                                                                                                                                                                                                      Enregistrement de ressource qui permet d’empêcher que les messages électroniques envoyés depuis votre serveur ne soient identifiés comme courrier indésirable.                                                                                                                                                                                                                      |
-|  autodiscover._tcp   |    service (SRV)    | Service : _autodiscover<br /><br /> Protocole : _tcp<br /><br /> Priorité : 0<br /><br /> Poids : 0<br /><br /> Port : 443<br /><br /> Hôte cible : mail.contoso.com | Permet à Microsoft Office Outlook et aux appareils mobiles de détecter automatiquement votre serveur local qui exécute Exchange Server.<br /><br /> **Remarque :** Vous pouvez également configurer un enregistrement de ressource hôte (A) la découverte automatique et pointer l’enregistrement à l’adresse IP publique de votre serveur local qui exécute Exchange Server. Toutefois, si vous implémentez cette option, vous devez également fournir un certificat SSL de l’autre nom de l’objet (SAN) qui prend en charge à la fois les noms de domaine mail.contoso.com et autodiscover.contoso.com. |
+|  autodiscover._tcp   |    service (SRV)    | Service : _autodiscover<br /><br /> Protocole : _tcp<br /><br /> Priorité : 0<br /><br /> Poids : 0<br /><br /> Port : 443<br /><br /> Hôte cible : mail.contoso.com | Permet à Microsoft Office Outlook et aux appareils mobiles de détecter automatiquement votre serveur local qui exécute Exchange Server.<br /><br /> **Remarque :** Vous pouvez également configurer un enregistrement de ressource d’hôte (A) de découverte automatique et pointer l’enregistrement vers l’adresse IP publique de votre serveur local qui exécute Exchange Server. Toutefois, si vous implémentez cette option, vous devez également fournir un certificat SSL de l’autre nom de l’objet (SAN) qui prend en charge à la fois les noms de domaine mail.contoso.com et autodiscover.contoso.com. |
 
 > [!NOTE]
 >  -   Remplacez les instances de *contoso.com* dans cet exemple par le nom de domaine Internet que vous avez inscrit.  
@@ -81,9 +81,9 @@ Ce guide fournit des informations et des instructions de base pour vous aider à
 
 1.  Ouvrez une session Windows Server Essentials en tant qu'administrateur.  
 
-2.  Exécutez Windows PowerShell en tant qu'administrateur.  
+2.  Exécutez Windows PowerShell en tant qu’administrateur.  
 
-3.  À l’invite de commande Windows PowerShell, tapez **Add-ADGroupMember « Admins d’entreprise » $env : nom d’utilisateur**, puis appuyez sur ENTRÉE.  
+3.  À l’invite de commandes Windows PowerShell, tapez **Add-ADGroupMember "Enterprise Admins" $env: username**, puis appuyez sur entrée.  
 
 #### <a name="to-install-exchange-server"></a>Pour installer Exchange Server  
 
@@ -218,7 +218,7 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 
 6. Enregistrez le fichier avec le nom **ConfigureExchange.ps1**.  
 
-7. Exécutez Windows PowerShell en tant qu'administrateur.  
+7. Exécutez Windows PowerShell en tant qu’administrateur.  
 
 8. À l’invite de commandes Windows PowerShell, tapez **Set-ExecutionPolicy RemoteSigned**, puis appuyez sur Entrée.  
 
@@ -242,7 +242,7 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 15. Redémarrez le serveur.  
 
 > [!NOTE]
->  Si vous décidez d’utiliser un certificat SSL publiquement approuvé au lieu d’un certificat auto-émis, vous pouvez suivre les instructions du guide d’installation pour créer une demande de certificat et l’envoyer à votre autorité de Certification sélectionnée. Vous pouvez également utiliser une applet de commande PowerShell Exchange pour créer une demande de certificat. En voici un exemple.  
+>  Si vous décidez d’utiliser un certificat SSL publiquement approuvé au lieu d’un certificat auto-émis, vous pouvez suivre les instructions du Guide d’installation pour créer une demande de certificat et l’envoyer à votre autorité de certification sélectionnée. Vous pouvez également utiliser une applet de commande PowerShell Exchange pour créer une demande de certificat. Un exemple suit.  
 >   
 >  `New-ExchangeCertificate -GenerateRequest -SubjectName "C=US, S=Washington, L=Redmond, O=contoso, OU=contoso, CN=mail.contoso.com" -DomainName mail.contoso.com -PrivateKeyExportable $true | Set-Content -path "c:\Docs\MyCertRequest.req"`  
 >   
@@ -288,7 +288,7 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 
  Vous devez au minimum configurer les paramètres de port suivants sur le routeur :  
 
-|Port de routeur|Adresse IP de destination|Port de destination|Remarque|  
+|Port de routeur|IP de destination|Port de destination|Remarque|  
 |-----------------|--------------------|----------------------|----------|  
 |25 (SMTP)|Adresse IP interne du serveur local qui exécute Exchange Server.|25||  
 |80 (HTTP)|Adresse IP interne du serveur qui exécute Windows Server Essentials|80||  
@@ -356,26 +356,26 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 
 7. Selon la version de Windows Server Essentials que vous utilisez, effectuez l’une des opérations suivantes :  
 
-   -   Sur Windows Server Essentials : Ouvrez une fenêtre de commandes en tant qu’administrateur, puis le répertoire %ProgramFiles%\Windows Server\Bin.  
+   -   Sur Windows Server Essentials: Ouvrez une fenêtre de commandes en tant qu’administrateur, puis le répertoire %ProgramFiles%\Windows Server\Bin.  
 
-   -   Sur Windows Server Essentials : Ouvrez une fenêtre de commandes en tant qu’administrateur, puis le répertoire %Windir%\System32\Essentials.  
+   -   Sur Windows Server Essentials: Ouvrez une fenêtre de commandes en tant qu’administrateur, puis le répertoire %Windir%\System32\Essentials.  
 
 8. Selon votre scénario d'installation, procédez de l'une des façons suivantes pour configurer ARR :  
 
    - Si vous procédez à une nouvelle installation, exécutez la commande suivante :  
 
-      **ARRConfig config-cert** *chemin d’accès au fichier de certificat* **- noms d’hôte** *noms des hôtes pour Exchange Server* ****  
+      **Configuration de ARRConfig-CERT** *chemin d’accès au fichier de certificat* **-noms d’hôte** *noms d’hôtes pour Exchange Server*  
 
      > [!NOTE]
-     >  Par exemple ; ** ARRConfig config-cert ***c:\temp\certificate.pfx*** ***mail.contoso.com*** de - noms d’hôte  
+     >  Par exemple, **Configuration de ARRConfig-CERT** *c:\temp\certificate.pfx* **-noms d’hôte** *mail.contoso.com*  
      > 
      >  Remplacez *mail.contoso.com* par le nom de votre domaine qui est protégé par le certificat.  
 
    - Si vous effectuez une migration à partir de Windows Small Business Server, exécutez la commande suivante :  
 
-      **ARRConfig config-cert** *chemin d’accès au fichier de certificat* **- noms d’hôte** *noms des hôtes pour Exchange Server* **- targetserver** *nom du serveur Exchange Server* ****  
+      **Configuration de ARRConfig-CERT** *chemin d’accès au fichier de certificat* **-noms d’hôte** *noms d’hôtes pour Exchange Server* **-TargetServer** *nom du serveur Exchange Server*  
 
-      Par exemple ; ** ARRConfig config-cert ***c:\temp\certificate.pfx*** - noms d’hôte ***mail.contoso.com*** - targetserver *** ExchangeSvr ***  
+      Par exemple, **Configuration de ARRConfig-CERT** *c:\temp\certificate.pfx* **-noms d’hôte** *mail.contoso.com* * *-TargetServer * * *ExchangeSvr*  
 
       Remplacez *mail.contoso.com* par le nom de votre domaine. Remplacez *ExchangeSvr* par le nom de votre serveur qui exécute Exchange Server.  
 
@@ -385,7 +385,7 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 > - Les noms des hôtes que vous indiquez doivent être contenus dans le certificat SSL que vous avez acheté pour Exchange Server.  
 >   -   Si vous avez plusieurs noms d’hôtes, utilisez une virgule (,) pour les séparer.  
 
- Pour vérifier que la configuration fonctionne, essayez d’accéder au site Web d’OWA pour votre serveur qui exécute Exchange Server (https://mail. *votre_nom_de_domaine*.com/owa) à partir d’un ordinateur qui n’est pas membre du domaine. Pour résoudre les problèmes de connectivité, vous pouvez également employer l’outil [Analyseur de connectivité à distance Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=249455) en ligne.  
+ Pour vérifier que la configuration fonctionne, essayez d’accéder au site Web d’OWA pour votre serveur qui exécute Exchange Server https://mail (. *votre_nom_de_domaine*.com/owa) à partir d’un ordinateur qui n’est pas membre du domaine. Pour résoudre les problèmes de connectivité, vous pouvez également employer l’outil [Analyseur de connectivité à distance Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=249455) en ligne.  
 
 ### <a name="configure-split-dns-for-exchange-server"></a>Configurer un environnement DNS fractionné pour Exchange Server  
 
@@ -431,18 +431,18 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
  Si vous désactivez l'intégration avec un serveur Exchange Server local, vous ne pourrez plus utiliser le tableau de bord Windows Server Essentials pour afficher, créer et gérer les boîtes aux lettres Exchange Server.  
 
 ### <a name="what-do-i-need-to-know-about-email-accounts"></a>Que dois-je savoir sur les comptes de messagerie ?  
- Une solution de messagerie hébergée est configurée sur votre serveur. Une solution à partir d’un fournisseur de messagerie hébergé, tels que Microsoft Office 365, peut fournir des comptes individuels pour les utilisateurs du réseau. Quand vous exécutez l'Assistant Ajouter un compte d'utilisateur dans Windows Server Essentials pour créer un compte d'utilisateur, l'Assistant tente d'ajouter le compte d'utilisateur à la solution de messagerie hébergée disponible. En même temps, l'Assistant attribue un nom de messagerie (alias) à l'utilisateur et il définit la taille maximale de la boîte aux lettres (quota). La taille maximale de la boîte aux lettres varie en fonction du fournisseur de messagerie que vous utilisez. Après avoir ajouté le compte d'utilisateur, vous pouvez continuer à gérer les informations d'alias et les quotas de boîtes aux lettres à partir de la page de propriétés de l'utilisateur. Pour effectuer la gestion complète de vos comptes d'utilisateur et du fournisseur de messagerie hébergé, utilisez la console de gestion de votre fournisseur hébergé. Selon votre fournisseur, vous pouvez accéder à sa console de gestion à partir d'un portail web ou d'un onglet dans le tableau de bord du serveur.  
+ Une solution de messagerie hébergée est configurée sur votre serveur. Une solution d’un fournisseur de messagerie hébergé, telle que Microsoft Office 365, peut fournir des comptes de messagerie individuels pour les utilisateurs du réseau. Quand vous exécutez l'Assistant Ajouter un compte d'utilisateur dans Windows Server Essentials pour créer un compte d'utilisateur, l'Assistant tente d'ajouter le compte d'utilisateur à la solution de messagerie hébergée disponible. En même temps, l'Assistant attribue un nom de messagerie (alias) à l'utilisateur et il définit la taille maximale de la boîte aux lettres (quota). La taille maximale de la boîte aux lettres varie en fonction du fournisseur de messagerie que vous utilisez. Après avoir ajouté le compte d'utilisateur, vous pouvez continuer à gérer les informations d'alias et les quotas de boîtes aux lettres à partir de la page de propriétés de l'utilisateur. Pour effectuer la gestion complète de vos comptes d'utilisateur et du fournisseur de messagerie hébergé, utilisez la console de gestion de votre fournisseur hébergé. Selon votre fournisseur, vous pouvez accéder à sa console de gestion à partir d'un portail web ou d'un onglet dans le tableau de bord du serveur.  
 
- L'alias que vous fournissez quand vous exécutez l'Assistant Ajouter un compte d'utilisateur est envoyé au fournisseur de messagerie hébergé comme nom suggéré pour l'alias de l'utilisateur. Par exemple, si l’alias d’utilisateur est *FrankM*, adresse de messagerie de l’utilisateur peut être <em>FrankM@Contoso.com</em>.  
+ L'alias que vous fournissez quand vous exécutez l'Assistant Ajouter un compte d'utilisateur est envoyé au fournisseur de messagerie hébergé comme nom suggéré pour l'alias de l'utilisateur. Par exemple, si l’alias d’utilisateur est *Frank*, l’adresse de messagerie de l’utilisateur <em>FrankM@Contoso.com</em>peut être.  
 
  De plus, le mot de passe que vous définissez pour l'utilisateur dans l'Assistant Ajouter un compte d'utilisateur sera le mot de passe initial de l'utilisateur dans la solution de messagerie hébergé.  
 
- Pour finir, si vous supprimez l'utilisateur à l'aide de l'Assistant Supprimer un compte d'utilisateur sur le serveur, l'Assistant envoie une demande au fournisseur de messagerie hébergé pour qu'il supprime aussi l'utilisateur de son système. Le fournisseur peut supprimer le compte d’utilisateur et le message électronique qui est associé au compte.  
+ Pour finir, si vous supprimez l'utilisateur à l'aide de l'Assistant Supprimer un compte d'utilisateur sur le serveur, l'Assistant envoie une demande au fournisseur de messagerie hébergé pour qu'il supprime aussi l'utilisateur de son système. Le fournisseur peut supprimer le compte de l’utilisateur et l’adresse de messagerie associée au compte.  
 
  Pour l'utilisateur d'informations sur la façon de configurer le logiciel de messagerie client nécessaire ou d'accéder à un compte de messagerie, consultez la documentation fournie par votre fournisseur de messagerie hébergé.  
 
 ### <a name="what-is-a-mailbox-quota"></a>Qu'est-ce qu'un quota de boîte aux lettres ?  
- La quantité d’espace de stockage est alloué pour les données de boîtes aux lettres Exchange d’un utilisateur de réseau est appelée le quota de boîte aux lettres.  
+ La quantité d’espace de stockage allouée pour les données de boîte aux lettres Exchange d’un utilisateur réseau est appelée quota de boîtes aux lettres.  
 
  Quand vous exécutez la tâche **Configurer l'intégration du serveur Exchange** du tableau de bord, l'Assistant ajoute une page à l'Assistant Ajouter un compte d'utilisateur qui vous permet de choisir si vous souhaitez appliquer des quotas de boîtes aux lettres et de spécifier la taille des quotas. Par défaut, l'option **Appliquer des quotas de boîtes aux lettres** est activée et 2 Go d'espace de stockage sont affectés aux boîtes aux lettres des utilisateurs. Les administrateurs Exchange peuvent personnaliser les paramètres de quota de boîtes aux lettres en fonction des besoins de leur entreprise.  
 
@@ -450,6 +450,6 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 
 -   [Configuration requise pour Windows Server Essentials](../get-started/system-requirements.md)  
 
--   [Gérer l’intégration de Service de messagerie](Manage-Email-Service-Integration-in-Windows-Server-Essentials.md)  
+-   [Gérer l’intégration du service de messagerie](Manage-Email-Service-Integration-in-Windows-Server-Essentials.md)  
 
 -   [Gérer Windows Server Essentials](Manage-Windows-Server-Essentials.md)

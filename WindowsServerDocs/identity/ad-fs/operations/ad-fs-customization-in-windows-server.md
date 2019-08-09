@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 7f990c3412707e38a00110ac4d3cb3787fa18ee3
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: b8832e7e53e94761a489e850726bbd206b8be62b
+ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476533"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863433"
 ---
 # <a name="ad-fs-customization-in-windows-server-2016"></a>Personnalisation de la AD FS dans Windows Server 2016
 
@@ -69,9 +69,14 @@ Pour les thèmes personnalisés, reportez-vous à [Personnalisation des pages de
 Pour affecter un thème personnalisé par RP, utilisez la procédure suivante:  
   
 1. Créer un nouveau thème en tant que copie pour le thème global par défaut dans AD FS  
-<code>New-AdfsWebTheme -Name AppSpecificTheme -SourceName default</code>2. Exporter le thème pour la personnalisation<code>Export-AdfsWebTheme -Name AppSpecificTheme -DirectoryPath c:\appspecifictheme</code>  
-3.Personnaliser les fichiers de thème (images, CSS, OnLoad. js)-dans votre éditeur favori ou remplacer 4. les fichiers personnalisés d’importation de fichier du système de fichiers par AD FS (ciblant le nouveau thème)<code>Set-AdfsWebTheme -TargetName AppSpecificTheme -AdditionalFileResource @{Uri='/adfs/portal/script/onload.js';Path="c:\appspecifictheme\script\onload.js"}</code>  
-5.Appliquer le nouveau thème personnalisé au RP spécifique (ou au RP)<code>Set-AdfsRelyingPartyWebTheme -TargetRelyingPartyName urn:app1 -SourceWebThemeName AppSpecificTheme</code>  
+`New-AdfsWebTheme -Name AppSpecificTheme -SourceName default`  
+2. Exporter le thème pour la personnalisation  
+`Export-AdfsWebTheme -Name AppSpecificTheme -DirectoryPath c:\appspecifictheme`  
+3. Personnaliser les fichiers de thème (images, CSS, OnLoad. js)-dans votre éditeur favori ou remplacer le fichier  
+4. Importer des fichiers personnalisés à partir du système de fichiers vers AD FS (ciblant le nouveau thème)  
+`Set-AdfsWebTheme -TargetName AppSpecificTheme -AdditionalFileResource @{Uri='/adfs/portal/script/onload.js';Path="c:\appspecifictheme\script\onload.js"}`  
+5. Appliquer le nouveau thème personnalisé au RP spécifique (ou au RP)  
+`Set-AdfsRelyingPartyWebTheme -TargetRelyingPartyName urn:app1 -SourceWebThemeName AppSpecificTheme`  
   
 ## <a name="home-realm-discovery"></a>Découverte de domaine d'accueil  
 Pour la personnalisation de la découverte du domaine d’hébergement, consultez [Personnalisation des pages de connexion AD FS](https://technet.microsoft.com/library/dn280950.aspx).  
