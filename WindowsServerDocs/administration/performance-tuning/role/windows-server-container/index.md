@@ -7,12 +7,12 @@ ms.topic: landing-page
 ms.author: DavSo; Ericam; YaShi
 author: akino
 ms.date: 10/16/2017
-ms.openlocfilehash: 3ac0563975e5ba72d5e4a72c3299233efcc52313
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 072d71a7825907ada7d4bc02eb5390722692e81d
+ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59892070"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863421"
 ---
 # <a name="performance-tuning-windows-server-containers"></a>Réglage des performances des conteneurs Windows Server
 
@@ -25,7 +25,7 @@ Ces configurations ont des implications différentes en termes de performances, 
 
 Les conteneurs Windows Server et Hyper-V offrent bon nombre d’avantages identiques en matière de portabilité et de cohérence, mais diffèrent sur le plan des garanties d’isolation et des caractéristiques des performances.
 
-Les **conteneurs Windows Server** assurent l’isolation d’applications grâce à la technologie d’isolation des processus et des espaces de noms. Un conteneur Windows Server partage un noyau avec l’hôte de conteneur et tous les conteneurs exécutés sur celui-ci.
+Les **conteneurs Windows Server** assurent l’isolation d’applications grâce à la technologie d’isolation des processus et des espaces de noms. Un conteneur Windows Server partage un noyau avec l’hôte de conteneur et tous les conteneurs exécutés sur l’hôte.
 
 Les **conteneurs Hyper-V** étendent l’isolation fournie par les conteneurs Windows Server en exécutant chaque conteneur sur une machine virtuelle hautement optimisée. Dans cette configuration, le noyau de l’hôte de conteneur n’est pas partagé avec les conteneurs Hyper-V.
 
@@ -35,7 +35,7 @@ L’isolation supplémentaire fournie par les conteneurs Hyper-V est en grande p
 
 Les conteneurs Windows Server et Hyper-V prennent en charge Server Core et une nouvelle option d’installation disponible dans Windows Server 2016 : [Nano Server](https://technet.microsoft.com/windows-server-docs/compute/nano-server/getting-started-with-nano-server). 
 
-Nano Server est un système d’exploitation de serveur administré à distance et optimisé pour les centres de données et clouds privés. Il est similaire à Windows Server en mode ServerCore (Installation minimale), mais il est beaucoup plus petit, n’a aucune fonction d’ouverture de session locale et ne prend en charge que les agents, outils et applications 64 bits. Il prend occupe moins d’espace disque et démarre plus rapidement.
+Nano Server est un système d’exploitation de serveur administré à distance et optimisé pour les centres de données et clouds privés. Il est similaire à Windows Server en mode ServerCore (Installation minimale), mais il est beaucoup plus petit, n’a aucune fonction d’ouverture de session locale et ne prend en charge que les agents, outils et applications 64bits. Il prend occupe moins d’espace disque et démarre plus rapidement.
 
 ## <a name="container-start-up-time"></a>Temps de démarrage du conteneur
 Le temps de démarrage du conteneur est une métrique clé dans bon nombre des scénarios où l’usage de conteneurs est le plus avantageux. Il est donc essentiel de comprendre comment optimiser le temps de démarrage du conteneurs. Vous trouverez ci-dessous quelques compromis de réglage destinés à vous aider à comprendre comment améliorer le temps de démarrage.
@@ -81,7 +81,7 @@ Chaque point de terminaison de conteneur est directement connecté au réseau ph
 
 Le mode transparent est l’option la moins coûteuse en termes de chemin d’E/S réseau, et les paquets externes sont directement transmis à la carte réseau virtuelle du conteneur, donnant ainsi un accès direct au réseau externe.
 
-### <a name="l2-bridge"></a>Mode pont L2
+### <a name="l2-bridge"></a>L2 Bridge
 Chaque point de terminaison de conteneur se trouve dans le même sous-réseau IP que l’hôte du conteneur. Les adresses IP doivent être attribuées de façon statique à partir du même préfixe que l’hôte de conteneur. Tous les points de terminaison de conteneur sur l’hôte ont la même adresse MAC en raison de la traduction d’adresses Layer-2.
 
 Le mode pont L2 est plus performant que le mode WinNAT, car il fournit un accès direct au réseau externe, mais moins performant que le mode transparent parce qu’il ajoute une traduction d’adresses MAC.
