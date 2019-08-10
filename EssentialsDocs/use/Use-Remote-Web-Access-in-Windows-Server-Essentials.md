@@ -12,72 +12,72 @@ ms.assetid: 47ea21a0-5e05-4b4b-8fa4-338c82601276
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b78d6abbaf287fc56336ff8d16127ce249b97519
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f6a5d6fd42c5cd7e92821e1157748054c741ef04
+ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435911"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914684"
 ---
 # <a name="use-remote-web-access-in-windows-server-essentials"></a>Utiliser l'accès web à distance dans Windows Server Essentials
 
 >S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
   
-  Accès Web à distance est une fonctionnalité de Essentials de serveurs Windows qui vous permet à des ordinateurs sur votre réseau via un navigateur web et d’accéder aux fichiers/dossiers à partir de n’importe quel emplacement avec une connectivité Internet. 
+  Les Accès web distantes sont une fonctionnalité de Windows Servers Essentials qui vous permet d’accéder à des fichiers/dossiers et des ordinateurs sur votre réseau via un navigateur Web, où que vous soyez. 
   
-  L'accès web à distance vous permet de rester connecté à votre ordinateur Windows Server Essentials réseau lorsque vous êtes absent. Lorsque vous ouvrez une session accès Web à distance, vous pouvez vous connecter aux ordinateurs sur votre réseau Windows Server Essentials, ouvrez le tableau de bord pour gérer votre réseau Windows Server Essentials et accéder à tous les fichiers de support et de dossiers partagés sur le serveur.  
+  L'accès web à distance vous permet de rester connecté à votre ordinateur Windows Server Essentials réseau lorsque vous êtes absent. Quand vous vous connectez à un Accès web distant, vous pouvez vous connecter aux ordinateurs de votre réseau Windows Server Essentials, ouvrir le tableau de bord pour gérer votre réseau Windows Server Essentials et accéder à tous les dossiers partagés et fichiers multimédias sur le serveur.  
   
  Cette rubrique contient les sections suivantes :  
   
 
--   [Se connecter à accès Web à distance](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Connect)  
+-   [Se connecter à un Accès web distant](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Connect)  
   
--   [Partager des fichiers et dossiers](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_SharedFolders)  
+-   [Partager des fichiers et des dossiers](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_SharedFolders)  
   
 -   [Se connecter à partir d’un appareil mobile](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_ConnectMobile)  
   
-##  <a name="BKMK_Connect"></a> Se connecter à accès Web à distance  
+##  <a name="BKMK_Connect"></a>Se connecter à un Accès web distant  
   
--   [Ouvrez une session sur l’accès Web à distance](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1)  
+-   [Connexion à un Accès web distant](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1)  
   
 -   [Accéder à distance à votre ordinateur](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1.5)  
 
--   [Se connecter à accès Web à distance](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Connect)  
+-   [Se connecter à un Accès web distant](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Connect)  
   
--   [Partager des fichiers et dossiers](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_SharedFolders)  
+-   [Partager des fichiers et des dossiers](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_SharedFolders)  
   
 -   [Se connecter à partir d’un appareil mobile](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_ConnectMobile)  
   
-##  <a name="BKMK_Connect"></a> Se connecter à accès Web à distance  
+##  <a name="BKMK_Connect"></a>Se connecter à un Accès web distant  
   
--   [Ouvrez une session sur l’accès Web à distance](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1)  
+-   [Connexion à un Accès web distant](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1)  
   
 -   [Accéder à distance à votre ordinateur](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1.5)  
 
   
-###  <a name="BKMK_1"></a> Ouvrez une session sur l’accès Web à distance  
- Lorsque vous ouvrez une session accès Web à distance à partir d’un ordinateur local ou distant, vous pouvez accéder aux ressources sur votre serveur exécutant Windows Server Essentials et ordinateurs de votre réseau.  
+###  <a name="BKMK_1"></a>Connexion à un Accès web distant  
+ Lorsque vous vous connectez à une Accès web distante à partir d’un ordinateur local ou distant, vous pouvez accéder aux ressources de votre serveur exécutant Windows Server Essentials et des ordinateurs sur votre réseau.  
   
 ##### <a name="to-log-on-to-remote-web-access-from-a-network-computer"></a>Pour se connecter à l'accès web à distance à partir d'un ordinateur réseau  
   
-1.  Ouvrez un navigateur Web, tapez **https://***< Nom_de_votre_serveur\>***/distant** dans la barre d’adresses, puis appuyez sur ENTRÉE.  
+1.  Ouvrez un navigateur Web, tapez **https://** _< yourservername\>_ **/Remote** dans la barre d’adresses, puis appuyez sur entrée.  
   
     > [!NOTE]
-    >  Assurez-vous que vous incluez le s dans https.  
+    >  Veillez à inclure les s dans https.  
   
-2.  Dans la page d’ouverture de session accès Web à distance, tapez votre nom d’utilisateur et le mot de passe dans les zones de texte, puis cliquez sur la flèche.  
+2.  Dans la page d’ouverture de session Accès web à distance, tapez votre nom d’utilisateur et votre mot de passe dans les zones de texte, puis cliquez sur la flèche.  
   
 ##### <a name="to-log-on-to-remote-web-access-from-a-remote-computer"></a>Pour se connecter à l'accès web à distance à partir d'un ordinateur à distance  
   
-1.  Ouvrez un navigateur Web, tapez **https://***< nom_domaine\>***/distant** dans la barre d’adresses, puis appuyez sur ENTRÉE.  
+1.  Ouvrez un navigateur Web, tapez **https://** _< VotreNomdeDomaine\>_ **/Remote** dans la barre d’adresses, puis appuyez sur entrée.  
   
     > [!NOTE]
-    >  Contactez votre administrateur réseau pour obtenir les informations relatives à votre nom de domaine. Assurez-vous que vous incluez le s dans https.  
+    >  Contactez votre administrateur réseau pour obtenir les informations relatives à votre nom de domaine. Veillez à inclure les s dans https.  
   
-2.  Dans la page d’ouverture de session accès Web à distance, tapez votre nom d’utilisateur et le mot de passe dans les zones de texte, puis cliquez sur la flèche.  
+2.  Dans la page d’ouverture de session Accès web à distance, tapez votre nom d’utilisateur et votre mot de passe dans les zones de texte, puis cliquez sur la flèche.  
   
-###  <a name="BKMK_1.5"></a> Accéder à distance à votre ordinateur  
- Lorsque vous êtes en déplacement, vous pouvez utiliser votre navigateur Web pour se connecter au site accès Web à distance pour accéder à distance à votre tableau de bord Windows Server Essentials, les dossiers partagés et les ordinateurs de votre réseau.  
+###  <a name="BKMK_1.5"></a>Accéder à distance à votre ordinateur  
+ Lorsque vous n’êtes pas dans votre bureau, vous pouvez utiliser votre navigateur Web pour ouvrir une session sur le site Accès web distant pour accéder à distance au tableau de bord Windows Server Essentials, aux dossiers partagés et aux ordinateurs de votre réseau.  
   
  Lorsque vous vous connectez au tableau de bord, vous pouvez gérer Windows Server Essentials comme vous le feriez si vous étiez au bureau. Vous pouvez effectuer toutes les tâches d'administration habituelles, comme ajouter des comptes d'utilisateurs, ajouter des dossiers partagés, définir l'accès aux dossiers partagés, etc. Lorsque vous vous connectez aux ordinateurs de votre réseau, vous pouvez accéder à leurs bureaux comme si vous étiez physiquement en face d'eux au bureau.  
   
@@ -87,7 +87,7 @@ ms.locfileid: "66435911"
   
      L'ordinateur est allumé et est disponible pour une connexion à distance. Même si vous voyez cet état, il se peut que vous ne soyez pas en mesure de vous connecter à cet ordinateur, si un pare-feu tiers bloque la connexion.  
   
--   **En mode hors connexion ou en veille**  
+-   **Hors connexion ou en veille**  
   
      L'ordinateur est éteint ou est en mode Veille ou Veille prolongée. Si un ordinateur est hors connexion ou en veille, l'état est mis à jour en temps réel afin que vous puissiez savoir quand l'ordinateur est disponible.  
   
@@ -105,19 +105,19 @@ ms.locfileid: "66435911"
 #### <a name="to-connect-to-the-server-dashboard"></a>Pour se connecter au tableau de bord du serveur  
  Sous l'onglet **PÉRIPHÉRIQUES**, cliquez sur le nom de votre serveur. Vous ne pouvez sélectionner que des ordinateurs avec un état **Disponible**. Vous devez être en mesure de fournir un compte d'utilisateur et un mot de passe d'administrateur sur votre serveur pour utiliser le tableau de bord.  
   
-##  <a name="BKMK_SharedFolders"></a> Partager des fichiers et dossiers  
+##  <a name="BKMK_SharedFolders"></a>Partager des fichiers et des dossiers  
   
 
--   [Télécharger des fichiers dans accès Web à distance](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_UploadRWA)  
+-   [Charger et télécharger des fichiers dans des Accès web distantes](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_UploadRWA)  
   
--   [Créer, renommer, déplacer, supprimer ou copiez les fichiers et dossiers dans accès Web à distance](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2)  
+-   [Créer, renommer, déplacer, supprimer ou copier des fichiers et des dossiers dans Accès web à distance](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2)  
 
--   [Télécharger des fichiers dans accès Web à distance](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_UploadRWA)  
+-   [Charger et télécharger des fichiers dans des Accès web distantes](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_UploadRWA)  
   
--   [Créer, renommer, déplacer, supprimer ou copiez les fichiers et dossiers dans accès Web à distance](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2)  
+-   [Créer, renommer, déplacer, supprimer ou copier des fichiers et des dossiers dans Accès web à distance](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2)  
 
   
-###  <a name="BKMK_UploadRWA"></a> Télécharger des fichiers dans accès Web à distance  
+###  <a name="BKMK_UploadRWA"></a>Charger et télécharger des fichiers dans des Accès web distantes  
  Sous l'onglet **Dossiers partagés** de l'accès web à distance, vous pouvez procéder comme suit :  
   
 -   Téléchargez (envoyez) des fichiers de votre ordinateur vers Windows Server Essentials.  
@@ -130,12 +130,12 @@ ms.locfileid: "66435911"
 -   Créez un dossier dans un dossier partagé sur Windows Server Essentials.  
   
 
--   Déplacez, supprimez et renommez des fichiers et des dossiers sur Windows Server Essentials. Pour plus d’informations, consultez [Create, rename, move, delete, ou copier les fichiers et dossiers dans accès Web à distance](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2).  
+-   Déplacez, supprimez et renommez des fichiers et des dossiers sur Windows Server Essentials. Pour plus d’informations, consultez [créer, renommer, déplacer, supprimer ou copier des fichiers et des dossiers dans accès Web à distance](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2).  
 
--   Déplacez, supprimez et renommez des fichiers et des dossiers sur Windows Server Essentials. Pour plus d’informations, consultez [Create, rename, move, delete, ou copier les fichiers et dossiers dans accès Web à distance](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2).  
+-   Déplacez, supprimez et renommez des fichiers et des dossiers sur Windows Server Essentials. Pour plus d’informations, consultez [créer, renommer, déplacer, supprimer ou copier des fichiers et des dossiers dans accès Web à distance](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2).  
 
   
-#### <a name="upload-files"></a>Télécharger des fichiers  
+#### <a name="upload-files"></a>Charger des fichiers  
   
 ###### <a name="to-upload-files"></a>Pour télécharger des fichiers  
   
@@ -193,7 +193,7 @@ ms.locfileid: "66435911"
 > [!NOTE]
 >  Ces options sont disponibles uniquement lorsque vous téléchargez plusieurs fichiers ou dossiers sur votre ordinateur.  
   
-- **Fichier exécutable à extraction automatique (.exe)**  
+- **Fichier exécutable à extraction automatique (. exe)**  
   
   > [!NOTE]
   >   Cette section s’applique à un serveur exécutant Windows Server Essentials.  
@@ -203,12 +203,12 @@ ms.locfileid: "66435911"
   > [!NOTE]
   >  Cette option prend en charge les caractères Unicode.  
   
-- **Dossier Windows compressé (.zip)**  
+- **Dossier Windows compressé (. zip)**  
   
    La compression d'un fichier crée une version compressée du fichier qui est plus petite que le fichier d'origine. La version du fichier compressée a une extension de nom de fichier .zip. Les types de fichiers dont la taille se réduit le plus à la compression sont les fichiers à contenu textuel, comme les fichiers .txt, .doc, .xls et les fichiers graphiques qui utilisent des types de fichier non compressés comme .bmp. Certains fichiers graphiques, tels que les fichiers .jpg et .gif, utilisent déjà la compression et la taille du fichier est très peu réduite par la compression. Ainsi, la taille d'un document Word qui contient un grand nombre de graphiques n'est pas autant réduite que celle d'un document qui contient principalement du texte.  
   
   > [!NOTE]
-  >  Cette option fournit la prise en charge limitée des noms de fichier internationaux dans Windows Server Essentials.  
+  >  Cette option fournit une prise en charge limitée des noms de fichier internationaux dans Windows Server Essentials.  
   
   Avant le début de téléchargement, le fichier exe ou zip est créé. En fonction du nombre de fichiers et de la taille totale des fichiers à télécharger, cela peut prendre plusieurs minutes. Une fois le fichier de téléchargement créé, le téléchargement du fichier se produit en arrière-plan. Cela vous permet de continuer à travailler pendant le processus de téléchargement.  
   
@@ -248,7 +248,7 @@ ms.locfileid: "66435911"
     > [!NOTE]
     >  Si vous utilisez un programme de compression tiers, suivez les procédures de ce programme pour extraire vos fichiers du fichier compressé.  
   
-###  <a name="BKMK_2"></a> Créer, renommer, déplacer, supprimer ou copiez les fichiers et dossiers dans accès Web à distance  
+###  <a name="BKMK_2"></a>Créer, renommer, déplacer, supprimer ou copier des fichiers et des dossiers dans Accès web à distance  
  Vous pouvez utiliser l'accès web à distance pour créer des dossiers dans un dossier partagé existant, renommer des fichiers et dossiers, déplacer et copier des fichiers et des dossiers et supprimer des fichiers et dossiers sur votre serveur.  
   
 > [!NOTE]
@@ -294,19 +294,19 @@ ms.locfileid: "66435911"
   
 3.  Cliquez avec le bouton droit sur le dossier dans lequel vous voulez copier les fichiers ou dossiers, puis cliquez sur **Coller**.  
   
-##  <a name="BKMK_ConnectMobile"></a> Se connecter à partir d’un appareil mobile  
+##  <a name="BKMK_ConnectMobile"></a>Se connecter à partir d’un appareil mobile  
   
 
--   [Utiliser l’accès Web à distance à partir d’un appareil mobile](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_8)  
+-   [Utiliser des Accès web distantes à partir d’un appareil mobile](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_8)  
   
--   [Prise en charge des navigateurs Web pour les appareils mobiles](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_9)  
+-   [Navigateurs Web pris en charge pour les appareils mobiles](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_9)  
 
--   [Utiliser l’accès Web à distance à partir d’un appareil mobile](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_8)  
+-   [Utiliser des Accès web distantes à partir d’un appareil mobile](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_8)  
   
--   [Prise en charge des navigateurs Web pour les appareils mobiles](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_9)  
+-   [Navigateurs Web pris en charge pour les appareils mobiles](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_9)  
 
   
-###  <a name="BKMK_8"></a> Utiliser l’accès Web à distance à partir d’un appareil mobile  
+###  <a name="BKMK_8"></a>Utiliser des Accès web distantes à partir d’un appareil mobile  
  Vous pouvez vous connecter à l'accès web à distance à partir de votre smartphone pour consulter les fichiers et dossiers des dossiers partagés du serveur.  
   
 > [!NOTE]
@@ -314,27 +314,27 @@ ms.locfileid: "66435911"
   
 ##### <a name="to-log-on-to-remote-web-access-from-a-mobile-device"></a>Pour se connecter à l'accès web à distance à partir d'un appareil mobile  
   
-1.  Ouvrez un navigateur Web et le type **https://***<nom_domaine\>***/distant** dans la barre d’adresses.  Assurez-vous que vous incluez le s dans https.  
+1.  Ouvrez un navigateur Web et tapez **https://** _< VotreNomdeDomaine\>_ **/Remote** dans la barre d’adresses.  Veillez à inclure les s dans https.  
   
-2.  Dans la page d’ouverture de session accès Web à distance, tapez votre nom d’utilisateur et le mot de passe dans les zones de texte, puis cliquez sur la flèche. Vous êtes connecté à la version mobile de l'accès web à distance.  
+2.  Dans la page d’ouverture de session Accès web à distance, tapez votre nom d’utilisateur et votre mot de passe dans les zones de texte, puis cliquez sur la flèche. Vous êtes connecté à la version mobile de l'accès web à distance.  
   
 ##### <a name="to-switch-to-the-desktop-version-of-remote-web-access"></a>Pour passer à la version bureau de l'accès web à distance  
   
-1.  Ouvrez un navigateur Web et le type **https://***<nom_domaine\>***/distant** dans la barre d’adresses.  Assurez-vous que vous incluez le s dans https.  
+1.  Ouvrez un navigateur Web et tapez **https://** _< VotreNomdeDomaine\>_ **/Remote** dans la barre d’adresses.  Veillez à inclure les s dans https.  
   
-2.  Dans la page d’ouverture de session accès Web à distance, tapez votre nom d’utilisateur et le mot de passe dans les zones de texte, cliquez sur **afficher la version de bureau**, puis cliquez sur la flèche. Vous êtes connecté à la version bureau de l'accès web à distance.  
+2.  Dans la page d’ouverture de session Accès web à distance, tapez votre nom d’utilisateur et votre mot de passe dans les zones de texte, cliquez sur **afficher la version du Bureau**, puis cliquez sur la flèche. Vous êtes connecté à la version bureau de l'accès web à distance.  
   
 ##### <a name="to-return-to-the-mobile-version-of-remote-web-access"></a>Pour revenir à la version mobile de l'accès web à distance  
   
 1. Fermez la session.  
   
-2. Ouvrez un navigateur Web et le type **https://***<nom_domaine\>***/remote/m** dans la barre d’adresses. Assurez-vous que vous incluez le s dans https.  
+2. Ouvrez un navigateur Web et tapez **https://** _< VotreNomdeDomaine\>_ **/Remote/m** dans la barre d’adresses. Veillez à inclure les s dans https.  
   
-3. La version mobile de l’accès Web à distance s’affiche. Dans la page d’ouverture de session accès Web à distance, tapez votre nom d’utilisateur et le mot de passe dans les zones de texte, puis cliquez sur la flèche. Vous êtes connecté à la version mobile de l’accès Web à distance.  
+3. La version mobile de Accès web à distance s’affiche. Dans la page d’ouverture de session Accès web à distance, tapez votre nom d’utilisateur et votre mot de passe dans les zones de texte, puis cliquez sur la flèche. Vous êtes connecté à la version mobile de Accès web à distance.  
   
    Vous pouvez rechercher des fichiers et des dossiers dans les dossiers partagés sur le serveur.  
   
-###  <a name="BKMK_9"></a> Prise en charge des navigateurs Web pour les appareils mobiles  
+###  <a name="BKMK_9"></a>Navigateurs Web pris en charge pour les appareils mobiles  
  Les navigateurs web pris en charge pour les appareils mobiles incluent les suivants :  
   
 -   Internet Explorer Mobile 6.0 ou version ultérieure  
@@ -353,7 +353,7 @@ ms.locfileid: "66435911"
   
 ## <a name="see-also"></a>Voir aussi  
   
--   [Gérer l’accès Web à distance](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [Gérer les Accès web distantes](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
 
 -   [Travailler à distance](Work-Remotely-in-Windows-Server-Essentials.md)  

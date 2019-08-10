@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7f898c67755fb8e7874932ea06a7cdf461d1e4bd
-ms.sourcegitcommit: e40fce7b8b4bc0bef278e676435306f14078cf00
+ms.openlocfilehash: fdda956a5da9ec50e44002cd8ab38373396d5713
+ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68787200"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914640"
 ---
 # <a name="schtasks"></a>schtasks
 
@@ -479,7 +479,7 @@ schtasks /create /tn <TaskName> /tr <TaskRun> /sc monthly /mo {FIRST | SECOND | 
 
 #### <a name="remarks"></a>Notes
 
-Dans ce type de planification, le paramètre **/sc monthly** , le paramètre **/Mo** (modificateur) et le paramètre **/d** (Day) sont requis. Le paramètre **/Mo** (modificateur) spécifie la semaine d’exécution de la tâche. Le paramètre **/d** spécifie le jour de la semaine. (Vous ne pouvez spécifier qu’un seul jour de la semaine pour ce type de planification.) Cette planification possède également un paramètre facultatif **/m** (mois) qui vous permet de planifier la tâche pour des mois particuliers ou tous<em>les mois (). La valeur par défaut du paramètre **/m</em>* est tous les*mois ().
+Dans ce type de planification, le paramètre **/sc monthly** , le paramètre **/Mo** (modificateur) et le paramètre **/d** (Day) sont requis. Le paramètre **/Mo** (modificateur) spécifie la semaine d’exécution de la tâche. Le paramètre **/d** spécifie le jour de la semaine. (Vous ne pouvez spécifier qu’un seul jour de la semaine pour ce type de planification.) Cette planification possède également un paramètre facultatif **/m** (mois) qui vous permet de planifier la tâche pour des mois particuliers ou tous\*les mois (). La valeur par défaut du paramètre **/m** est tous les\*mois ().
 
 #### <a name="examples"></a>Exemples
 

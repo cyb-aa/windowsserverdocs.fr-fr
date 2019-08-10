@@ -9,68 +9,68 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 6d651670976fca65ee517672c81dc6cebc42fff8
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 19f0bd019fcfc683de2c554ceadeb0bed3896a71
+ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442483"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914635"
 ---
 # <a name="configure-performance-monitoring"></a>Configurer la surveillance des performances
   
 ## <a name="bkmk_ConfigurePerfMon"></a>  
-AD FS comprend ses propres compteurs de performance dédiés pour vous aider à surveiller les performances des serveurs de fédération et d’ordinateurs de proxy de serveur de fédération. Pour utiliser l’Analyseur de performances pour surveiller les performances de vos serveurs AD FS, il est utile créer un nouvel ensemble de collecteurs de données et ajoutez les compteurs d’AD FS à cette vue. La procédure suivante décrit comment configurer la surveillance des performances pour AD FS.  
+AD FS comprend ses propres compteurs de performances dédiés pour vous aider à surveiller les performances des serveurs de Fédération et des ordinateurs proxy de serveur de Fédération. Pour utiliser l’analyseur de performances afin de surveiller les performances de vos serveurs de AD FS, il est utile de créer un ensemble de collecteurs de données et d’ajouter les compteurs AD FS à cette vue. La procédure suivante décrit comment configurer la surveillance des performances pour AD FS.  
   
-#### <a name="to-configure-performance-monitoring-for-ad-fs-using-performance-monitor"></a>Pour configurer la surveillance des performances pour AD FS à l’aide de l’Analyseur de performances  
+#### <a name="to-configure-performance-monitoring-for-ad-fs-using-performance-monitor"></a>Pour configurer l’analyse des performances pour AD FS à l’aide de l’analyseur de performances  
   
-1. Sur le **Démarrer** , tapez **Analyseur de performances**, puis appuyez sur ENTRÉE.  
+1. Dans l’écran d' **Accueil** , tapez analyseur de **performances**, puis appuyez sur entrée.  
   
-2. Dans l’arborescence de la console, développez **des ensembles de collecteurs de données**, à droite\-cliquez sur **défini par l’utilisateur**, pointez sur **New**, puis cliquez sur **ensemble de collecteurs de données** .  
+2. Dans l’arborescence de la console, développez **ensembles**de\-collecteurs de données, cliquez avec le bouton droit sur **défini par l’utilisateur**, pointez sur **nouveau**, puis cliquez sur ensemble de collecteurs de **données**.  
   
-   L’Assistant créer un nouvel ensemble de collecteurs de données s’affiche.  
+   L’Assistant Création d’un ensemble de collecteurs de données s’affiche.  
   
-3. Dans **créer nouvel ensemble de collecteurs données**, pour **nom** tapez un nom pour le nouvel ensemble de collecteurs de données \(tels que « Performances AD FS »\), cliquez sur **créer manuellement \( Advanced\)** , puis cliquez sur **suivant**.  
+3. Dans **créer un ensemble**de collecteurs de données, pour **nom** , tapez un nom pour le \(nouvel ensemble de collecteurs de\)données, tel que «performances de AD FS», cliquez sur  **\(créer manuellement avancé\)** , puis sur  **Suivant**.  
   
-4. Pour le type de données à inclure, vérifiez que **créer des journaux de données** est sélectionnée, puis cliquez sur les cases à cocher pour les types de données suivants : **Compteur de performances**, **données de trace d’événements**, **les informations de configuration système**.  
+4. Pour le type de données à inclure, vérifiez que l’option **créer des journaux de données** est sélectionnée, puis activez les cases à cocher correspondant aux types de données suivants: **Compteur de performances**, **données de trace d’événements**, informations de configuration du **système**.  
   
-5. Pour les compteurs de performances, développez **AD FS** dans le **compteurs disponibles** liste, puis cliquez sur **ajouter**.  
+5. Pour les compteurs de performances, développez **AD FS** dans la liste **compteurs disponibles** , puis cliquez sur **Ajouter**.  
   
-   Les compteurs de performances AD FS doivent apparaître dans le **ajouté compteurs** liste.  
+   Les compteurs de performance AD FS doivent apparaître dans la liste des **compteurs ajoutés** .  
   
-6. Lorsque vous êtes invité à ajouter des fournisseurs de suivi d’événements, cliquez sur **ajouter**, sélectionnez **événements AD FS** et **suivi AD FS** à partir de la liste des fournisseurs.  
+6. Lorsque vous êtes invité à ajouter des fournisseurs de suivi d’événements, cliquez sur **Ajouter**, sélectionnez **AD FS eventing** et **AD FS Tracing** dans la liste des fournisseurs.  
   
-7. Lorsque vous êtes invité à ajouter les clés de Registre à analyser, cliquez sur **suivant**.  
+7. Lorsque vous êtes invité à ajouter des clés de Registre à surveiller, cliquez sur **suivant**.  
   
-8. Lorsque vous êtes invité à spécifier l’emplacement pour enregistrer les données de performances, vous pouvez accepter l’emplacement par défaut \( * *% lecteur_système %\\PerfLogs\\administrateur\\*** <dedonnées\_collecteur\_définir >* , puis cliquez sur **suivant**.  
+8. Lorsque vous êtes invité à spécifier l’emplacement d’enregistrement des données de performances, vous pouvez accepter l' \(emplacement par défaut **% systemdrive\\%\\perflogs\\** _< Admin\_Data Collector définissez\_>_ , puis cliquez sur **suivant**.  
   
 9. Lorsque vous êtes invité à créer l’ensemble de collecteurs de données, sélectionnez **enregistrer et fermer**, puis cliquez sur **Terminer**.  
   
-    Le nouvel ensemble de collecteurs de données s’affiche dans l’arborescence de la console sous le **défini par l’utilisateur** nœud.  
+    Le nouvel ensemble de collecteurs de données s’affiche dans l’arborescence de la console, sous le nœud **défini par l’utilisateur** .  
   
-10. Utilisez les étapes suivantes pour travailler avec les compteurs de performances AD FS :  
+10. Utilisez les étapes suivantes pour utiliser les compteurs de performance AD FS:  
   
-    -   Pour commencer l’analyse des performances à l’aide d’AD FS\-les compteurs, directement liés au\-cliquez sur l’ensemble de collecteurs de données que vous avez ajouté \(tels que « Performances AD FS »\), puis cliquez sur **Démarrer**.  
+    -   Pour commencer l’analyse des performances\-à l’aide de AD FS\-compteurs associés, cliquez avec le bouton droit \(sur l’ensemble de collecteurs\)de données que vous avez ajouté, par exemple «AD FS performance», puis cliquez sur **Démarrer**.  
   
-    -   Pour créer un rapport pour afficher les résultats d’analyse des performances, avec le bouton droit\-cliquez sur l’ensemble de collecteurs de données que vous avez ajouté \(tels que « Performances AD FS »\), puis cliquez sur **dernier rapport**.  
+    -   Pour créer un rapport afin d’afficher les résultats de l’analyse\-des performances, cliquez avec le bouton droit \(sur l’ensemble de collecteurs de données que vous avez ajouté, par exemple «AD FS performance»\), puis cliquez sur le **dernier rapport**.  
   
-    -   Pour mettre fin à une capture de données de performances afin que vous puissiez afficher le dernier rapport, avec le bouton droit\-cliquez sur l’ensemble de collecteurs de données que vous avez ajouté \(tels que « Performances AD FS »\), puis cliquez sur **arrêter**.  
+    -   Pour mettre fin à une capture de données de performances afin de pouvoir afficher le rapport le\-plus récent, cliquez avec le bouton droit \(sur l’ensemble de collecteurs de données que vous avez ajouté, par exemple «AD FS performance»\), puis cliquez sur **arrêter**.  
   
-    Le dernier rapport est ajouté et numéroté automatiquement \(en commençant à 000001\) sous le **rapport\\défini par l’utilisateur**<em>\\< données\_collecteur \_définir ></em> nœud dans l’arborescence de la console.  
+    Le rapport le plus récent est ajouté et numéroté \(automatiquement à partir\) de 000001 sous le **\\rapport défini par**<em>\\l'\_utilisateur < ensemble de collecteurs de\_données ></em> nœud dans l’arborescence de la console.  
   
-## <a name="ad-fs-performance-counters"></a>Compteurs de performances AD FS  
-Le tableau suivant répertorie les compteurs de performances AD FS et décrit la façon dont elles sont utiles pour la surveillance de l’activité est liée à un serveur de fédération ou un serveur proxy de fédération.  
+## <a name="ad-fs-performance-counters"></a>AD FS des compteurs de performances  
+Le tableau suivant répertorie les compteurs de performance AD FS et décrit comment ils sont utiles pour surveiller l’activité qui concerne un serveur de Fédération ou un serveur proxy de Fédération.  
   
-|Compteur|Description|Peut être utilisé sur : 
+|Compteur|Description|Peut être utilisé sur: 
 |-----------|---------------|------------------- 
-|Demandes de jeton|Surveille le nombre de demandes de jeton envoyé au serveur de fédération, y compris les demandes de jeton SSOAuth.|Serveurs de fédération 
-|Demande de jetons\/s|Surveille le nombre de demandes de jeton envoyé au serveur de fédération, y compris les demandes de jeton SSOAuth par seconde.|Serveurs de fédération  
-|Demandes de métadonnées de fédération|Surveille le nombre de demandes de métadonnées de fédération entrantes envoyées au serveur de fédération.|Serveurs de fédération  
-|Demandes de métadonnées de fédération\/s|Surveille le nombre de demandes entrantes de fédération métadonnées par seconde qui sont envoyés au serveur de fédération.|Serveurs de fédération  
-|Demandes de résolution d'artefacts|Surveille le nombre de demandes entrantes de fédération métadonnées par seconde qui sont envoyés au serveur de fédération.|Serveurs de fédération  
-|Demandes de résolution d’artefact\/s|Surveille le nombre de demandes au point de terminaison résolution artefact par seconde qui sont envoyés au serveur de fédération.|Serveurs de fédération  
-|Demandes de proxy|Surveille le nombre de demandes entrantes envoyées au serveur proxy de fédération.|Serveurs proxy de fédération  
-|Demandes de proxy\/s|Surveille le nombre de demandes entrantes par seconde qui sont envoyées au serveur proxy de fédération.|Serveurs proxy de fédération  
-|Proxy des requêtes MEX|Surveille le nombre de WS entrant\-échange de métadonnées \(MEX\) demandes sont envoyées au serveur proxy de fédération.|Serveurs proxy de fédération 
-|Proxy des requêtes MEX\/s|Surveille le nombre de demandes MEX entrantes par seconde qui sont envoyées au serveur proxy de fédération.|Serveurs proxy de fédération  
+|Demandes de jeton|Analyse le nombre de demandes de jetons envoyées au serveur de Fédération, y compris les demandes de jeton SSOAuth.|Serveurs de fédération 
+|Demandes\/de jeton (s)|Analyse le nombre de demandes de jetons envoyées au serveur de Fédération, y compris les demandes de jetons SSOAuth par seconde.|Serveurs de fédération  
+|Demandes de métadonnées de fédération|Analyse le nombre de demandes de métadonnées de Fédération entrantes envoyées au serveur de Fédération.|Serveurs de fédération  
+|Demandes\/de métadonnées de Fédération s|Analyse le nombre de demandes de métadonnées de Fédération entrantes par seconde envoyées au serveur de Fédération.|Serveurs de fédération  
+|Demandes de résolution d'artefacts|Analyse le nombre de demandes de métadonnées de Fédération entrantes par seconde envoyées au serveur de Fédération.|Serveurs de fédération  
+|Demandes\/de résolution d’artefact s|Analyse le nombre de demandes au point de terminaison de résolution d’artefact par seconde qui sont envoyées au serveur de Fédération.|Serveurs de fédération  
+|Demandes de proxy|Analyse le nombre de demandes entrantes envoyées au serveur proxy de Fédération.|Serveurs proxys de Fédération  
+|Requêtes\/de proxy s|Analyse le nombre de demandes entrantes par seconde envoyées au serveur proxy de Fédération.|Serveurs proxys de Fédération  
+|Demandes de proxy MEX|Analyse le nombre de\-\) demandes entrantes de \(serveur d’échange de métadonnées WS envoyées au serveur proxy de Fédération.|Serveurs proxys de Fédération 
+|Demandes\/de proxy MEX s|Analyse le nombre de requêtes MEX entrantes par seconde qui sont envoyées au serveur proxy de Fédération.|Serveurs proxys de Fédération  
   
 

@@ -12,12 +12,12 @@ ms.assetid: b56a21e2-c9e3-4ba9-97d9-719ea6a0854b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ef57ac325465d7b7a5cf65a2931df824c351c6a2
-ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
+ms.openlocfilehash: 142ae8514a6a480f8181ce193c2f437e2f286e2d
+ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 08/09/2019
-ms.locfileid: "68863441"
+ms.locfileid: "68914605"
 ---
 # <a name="integrate-an-on-premises-exchange-server-with-windows-server-essentials"></a>Intégrer un serveur Exchange local à Windows Server Essentials
 
@@ -364,18 +364,18 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 
    - Si vous procédez à une nouvelle installation, exécutez la commande suivante :  
 
-      **Configuration de ARRConfig-CERT** *chemin d’accès au fichier de certificat* **-noms d’hôte** *noms d’hôtes pour Exchange Server*  
+      **Configuration de ARRConfig-CERT** _chemin d’accès au fichier de certificat_ **-noms d’hôte** _noms d’hôtes pour Exchange Server_  
 
      > [!NOTE]
-     >  Par exemple, **Configuration de ARRConfig-CERT** *c:\temp\certificate.pfx* **-noms d’hôte** *mail.contoso.com*  
+     >  Par exemple, **Configuration de ARRConfig-CERT** _c:\temp\certificate.pfx_ **-noms d’hôte** _mail.contoso.com_  
      > 
      >  Remplacez *mail.contoso.com* par le nom de votre domaine qui est protégé par le certificat.  
 
    - Si vous effectuez une migration à partir de Windows Small Business Server, exécutez la commande suivante :  
 
-      **Configuration de ARRConfig-CERT** *chemin d’accès au fichier de certificat* **-noms d’hôte** *noms d’hôtes pour Exchange Server* **-TargetServer** *nom du serveur Exchange Server*  
+      **Configuration de ARRConfig-CERT** _chemin d’accès au fichier de certificat_ **-noms d’hôte** _noms d’hôtes pour Exchange Server_ **-TargetServer** _nom du serveur Exchange Server_  
 
-      Par exemple, **Configuration de ARRConfig-CERT** *c:\temp\certificate.pfx* **-noms d’hôte** *mail.contoso.com* * *-TargetServer * * *ExchangeSvr*  
+      Par exemple, **Configuration de ARRConfig-CERT** _c:\temp\certificate.pfx_ **-noms d’hôte** _mail.contoso.com_ * *-TargetServer * * _ExchangeSvr_  
 
       Remplacez *mail.contoso.com* par le nom de votre domaine. Remplacez *ExchangeSvr* par le nom de votre serveur qui exécute Exchange Server.  
 

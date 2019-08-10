@@ -1,6 +1,6 @@
 ---
 title: arp
-description: Rubrique de commandes de Windows pour **arp** -affiche et modifie les entrées dans le cache de protocole de résolution (arp) adresse utilisée pour stocker les adresses IP et leurs adresses physiques résolus.
+description: La rubrique commandes Windows pour **ARP** -affiche et modifie les entrées dans le cache ARP (Address Resolution Protocol) utilisé pour stocker les adresses IP et leurs adresses physiques résolues.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f7393c993601a5e1990cde3e6bc6763811062f4
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8354df3f52790840e0cb0c5c9834da2722d27d43
+ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435294"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914693"
 ---
 # <a name="arp"></a>arp
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Affiche et modifie les entrées dans le cache du protocole ARP (Address Resolution). Le cache ARP contient une ou plusieurs tables qui sont utilisés pour stocker les adresses IP et leurs adresses physiques Ethernet ou Token Ring résolues. Il existe une table distincte pour chaque carte réseau Ethernet ou Token Ring installée sur votre ordinateur. Utilisée sans paramètres, **arp** affiche l’aide d’informations.
+Affiche et modifie les entrées dans le cache ARP (Address Resolution Protocol). Le cache ARP contient une ou plusieurs tables qui sont utilisées pour stocker les adresses IP et leurs adresses physiques Ethernet ou Token Ring résolues. Il existe une table distincte pour chaque carte réseau Ethernet ou Token Ring installée sur votre ordinateur. Utilisé sans paramètres, **ARP** affiche des informations d’aide.
 ## <a name="syntax"></a>Syntaxe
 ```
 arp [/a [<Inetaddr>] [/n <ifaceaddr>]] [/g [<Inetaddr>] [-n <ifaceaddr>]] [/d <Inetaddr> [<ifaceaddr>]] [/s <Inetaddr> <Etheraddr> [<ifaceaddr>]]
@@ -33,26 +33,26 @@ arp [/a [<Inetaddr>] [/n <ifaceaddr>]] [/g [<Inetaddr>] [-n <ifaceaddr>]] [/d <I
 
 |                Paramètre                |                                                                                                                                                                                                                                                               Description                                                                                                                                                                                                                                                               |
 |-----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /a [<Inetaddr>] [/n <ifaceaddr>]     | Affiche les tables de cache arp actif pour toutes les interfaces. Le paramètre /n respecte la casse.<br /><br />Pour afficher l’entrée de cache arp pour une adresse IP spécifique, utilisez **arp /a** avec la *AdrInet* paramètre, où *AdrInet* est une adresse IP. Si *AdrInet* n’est pas spécifié, la première interface applicable est utilisée.<br /><br />Pour afficher la table de cache arp pour une interface spécifique, utilisez le **/n** *AdrIface* paramètre conjointement avec la **/a** paramètre où *AdrIface* est l’adresse IP attribuée à l’interface. |
+|    /a [<Inetaddr>] [/n <ifaceaddr>]     | Affiche les tables de cache ARP actuelles pour toutes les interfaces. Le paramètre/n respecte la casse.<br /><br />Pour afficher l’entrée de cache ARP pour une adresse IP spécifique, utilisez **ARP/a** avec le paramètre *InetAddr* , où *InetAddr* est une adresse IP. Si *InetAddr* n’est pas spécifié, la première interface applicable est utilisée.<br /><br />Pour afficher la table de cache ARP pour une interface spécifique, utilisez le paramètre **/n** _ conjointement avec le paramètre **/a** où *ifaceaddr* est l’adresse IP assignée à l’interface. |
 |    /g [<Inetaddr>] [/n <ifaceaddr>]     |                                                                                                                                                                                                                                                          Identique à **/a**.                                                                                                                                                                                                                                                           |
-|      [/d <Inetaddr> [<ifaceaddr>]       |                                                                                           Supprime une entrée avec une adresse IP spécifique, où *AdrInet* est l’adresse IP.<br /><br />Pour supprimer une entrée dans une table pour une interface spécifique, utilisez le *AdrIface* paramètre où *AdrIface* est l’adresse IP attribuée à l’interface.<br /><br />Pour supprimer toutes les entrées, utilisez l’astérisque (\*) caractère générique à la place de *AdrInet*.                                                                                           |
-| /s <Inetaddr> <Etheraddr> [<ifaceaddr>] |                                                                                                                     Ajoute une entrée statique à la mémoire cache arp qui résout l’adresse IP *AdrInet* à l’adresse physique *AdrEther*.<br /><br />Pour ajouter une entrée de cache arp statique à la table pour une interface spécifique, utilisez le *AdrIface* paramètre où *AdrIface* est une adresse IP attribuée à l’interface.                                                                                                                     |
+|      [/d <Inetaddr> [<ifaceaddr>]       |                                                                                           supprime une entrée avec une adresse IP spécifique, où *InetAddr* est l’adresse IP.<br /><br />Pour supprimer une entrée dans une table pour une interface spécifique, utilisez le paramètre *ifaceaddr* où *ifaceaddr* est l’adresse IP assignée à l’interface.<br /><br />Pour supprimer toutes les entrées, utilisez le caractère\*générique astérisque () à la place de *InetAddr*.                                                                                           |
+| /s <Inetaddr> [<Etheraddr> ]<ifaceaddr> |                                                                                                                     Ajoute une entrée statique au cache ARP qui résout l’adresse IP *InetAddr* en adresse physique *Etheraddr*.<br /><br />Pour ajouter une entrée de cache ARP statique à la table pour une interface spécifique, utilisez le paramètre *ifaceaddr* où *ifaceaddr* est une adresse IP affectée à l’interface.                                                                                                                     |
 |                   /?                    |                                                                                                                                                                                                                                                  Affiche l'aide à l'invite de commandes.                                                                                                                                                                                                                                                   |
 
 ## <a name="remarks"></a>Notes
-- Les adresses IP pour *AdrInet* et *AdrIface* sont exprimées en notation décimale.
-- L’adresse physique de *AdrEther* se compose de six octets exprimés en notation hexadécimale et séparés par des traits d’union (par exemple, 00-AA-00-4F-2A-9C).
-- Les entrées ajoutées avec la **/s** paramètre sont statique et de ne pas temps hors de la mémoire cache arp. Les entrées sont supprimées si le protocole TCP/IP est arrêté et démarré. Pour créer des entrées de cache arp statique permanente, placez le texte approprié **arp** commandes dans un lot de fichiers et utiliser des tâches planifiées pour exécuter le fichier de commandes au démarrage.
-  ## <a name="BKMK_Examples"></a>Exemples
-  Pour afficher les tables de cache arp pour toutes les interfaces, tapez :
+- Les adresses IP pour *InetAddr* et *ifaceaddr* sont exprimées en notation décimale séparée par des points.
+- L’adresse physique de *Etheraddr* se compose de six octets exprimés en notation hexadécimale et séparés par des traits d’Union (par exemple, 00-AA-00-4F-2A-9c).
+- Les entrées ajoutées avec le paramètre **/s** sont statiques et n’expirent pas dans le cache ARP. Les entrées sont supprimées si le protocole TCP/IP est arrêté et démarré. Pour créer des entrées de cache ARP statiques permanentes, placez les commandes **ARP** appropriées dans un fichier de commandes et utilisez des tâches planifiées pour exécuter le fichier de commandes au démarrage.
+  ## <a name="BKMK_Examples"></a>Illustre
+  Pour afficher les tables de cache ARP pour toutes les interfaces, tapez:
   ```
   arp /a
   ```
-  Pour afficher la table de cache arp pour l’interface qui est affectée l’adresse IP 10.0.0.99, tapez :
+  Pour afficher la table de cache ARP de l’interface à laquelle est affectée l’adresse IP 10.0.0.99, tapez:
   ```
   arp /a /n 10.0.0.99
   ```
-  Pour ajouter une entrée de cache arp statique qui résout l’adresse IP 10.0.0.80 à l’adresse physique 00-AA-00-4F-2A-9C, tapez :
+  Pour ajouter une entrée de cache ARP statique qui résout l’adresse IP 10.0.0.80 à l’adresse physique 00-AA-00-4F-2A-9C, tapez:
   ```
   arp /s 10.0.0.80 00-AA-00-4F-2A-9C 
   ```
