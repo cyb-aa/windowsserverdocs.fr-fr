@@ -83,6 +83,10 @@
 #### [Utiliser une stratégie DNS pour l’application de filtres sur les requêtes DNS](dns/deploy/apply-filters-on-dns-queries.md)
 #### [Utiliser une stratégie DNS pour l’équilibrage de charge des applications](dns/deploy/app-lb.md)
 #### [Utiliser une stratégie DNS pour l’équilibrage de charge des applications avec connaissance de la géolocalisation](dns/deploy/app-lb-geo.md)
+### [Résolution des problèmes DNS](dns/troubleshoot/troubleshoot-dns-data-collection.md)
+#### [Résolution des problèmes des clients DNS](dns/troubleshoot/troubleshoot-dns-client.md)
+##### [Désactiver la mise en cache côté client DNS sur les clients DNS](dns/troubleshoot/disable-dns-client-side-caching.md)
+#### [Résolution des problèmes des serveurs DNS](dns/troubleshoot/troubleshoot-dns-server.md)
 
 ## [Protocole DHCP (Dynamic Host Configuration Protocol)](technologies/dhcp/dhcp-top.md)
 ### [Nouveautés de DHCP](technologies/dhcp/What-s-New-in-DHCP.md)
