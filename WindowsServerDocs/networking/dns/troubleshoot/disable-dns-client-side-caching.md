@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: 0b20400029b462798587c2291431b5a7c3d61775
-ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
+ms.openlocfilehash: 3aeb7cb06f82b6f2220e42866682ce918389bf1d
+ms.sourcegitcommit: b17ccf7f81e58e8f4dd844be8acf784debbb20ae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68917806"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69023898"
 ---
 # <a name="disable-dns-client-side-caching-on-dns-clients"></a>Désactiver la mise en cache côté client DNS sur les clients DNS
 
@@ -49,6 +49,53 @@ ipconfig /displaydns
 
 Cette commande affiche le contenu du cache de résolution DNS, y compris les enregistrements de ressources DNS qui sont préchargés à partir du fichier hosts et tous les noms récemment interrogés qui ont été résolus par le système. Après un certain temps, le programme de résolution ignore l’enregistrement du cache. La période est spécifiée par la valeur **de durée de vie (TTL)** associée à l’enregistrement de ressource DNS. Vous pouvez également vider le cache manuellement. Une fois le cache vidé, l’ordinateur doit interroger à nouveau les serveurs DNS pour obtenir les enregistrements de ressources DNS qui ont été précédemment résolus par l’ordinateur. Pour supprimer les entrées dans le cache de résolution DNS, `ipconfig /flushdns` exécutez à partir d’une invite de commandes.
 
-## <a name="next-step"></a>Étape suivante
+## <a name="using-the-registry-to-control-the-caching-time"></a>Utilisation du Registre pour contrôler la durée de mise en cache
 
-Pour plus d’informations, consultez Désactivation de [la mise en cache DNS côté client dans Windows](https://support.microsoft.com/kb/318803) .
+> [!IMPORTANT]  
+> Suivez attentivement les étapes décrites dans cette section. De graves problèmes peuvent se produire si vous modifiez le Registre de façon incorrecte. Avant de le modifier, [sauvegardez le Registre afin de pouvoir le restaurer](https://support.microsoft.com/help/322756) en cas de problème.
+
+La durée pendant laquelle une réponse positive ou négative est mise en cache dépend des valeurs des entrées de la clé de Registre suivante:
+
+**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNSCache\Parameters**
+
+La durée de vie des réponses positives est la plus petite des valeurs suivantes: 
+
+- Nombre de secondes spécifié dans la réponse à la requête reçue par le programme de résolution
+
+- Valeur du paramètre de Registre **MaxCacheTtl** .
+
+>[!Note]
+>- La durée de vie par défaut pour les réponses positives est de 86 400 secondes (1 jour).
+>- La durée de vie pour les réponses négatives est le nombre de secondes spécifié dans le paramètre de Registre MaxNegativeCacheTtl.
+>- La durée de vie par défaut pour les réponses négatives est de 900 secondes (15 minutes).
+Si vous ne souhaitez pas que les réponses négatives soient mises en cache, définissez le paramètre de Registre MaxNegativeCacheTtl sur 0.
+
+Pour définir l’heure de mise en cache sur un ordinateur client:
+
+1. Démarrez l’éditeur du Registre (regedit. exe).
+
+2. Recherchez, puis cliquez sur la clé suivante dans le registre:
+
+   **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters**
+
+3. Dans le menu Edition, pointez sur nouveau, cliquez sur valeur DWORD, puis ajoutez les valeurs de Registre suivantes:
+
+   - Nom de la valeur: MaxCacheTtl
+
+     Type de données : REG_DWORD
+
+     Données de la valeur: Valeur par défaut 86400 secondes. 
+     
+     Si vous réduisez la valeur de durée de vie maximale dans le cache DNS du client à 1 seconde, cela donne l’impression que le cache DNS côté client a été désactivé.    
+
+   - Nom de la valeur: MaxNegativeCacheTtl
+
+     Type de données : REG_DWORD
+
+     Données de la valeur: Valeur par défaut 900 secondes. 
+     
+     Définissez la valeur sur 0 si vous ne souhaitez pas que les réponses négatives soient mises en cache.
+
+4. Tapez la valeur que vous souhaitez utiliser, puis cliquez sur OK.
+
+5. Quittez l'Éditeur du Registre.
