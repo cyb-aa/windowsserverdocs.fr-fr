@@ -9,12 +9,12 @@ ms.topic: article
 author: eldenchristensen
 ms.date: 08/05/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: d899ec41b9a87089f03a576fa11dfa7d210fe194
-ms.sourcegitcommit: b68ff64ecd87959cd2acde4a47506a01035b542a
+ms.openlocfilehash: 59c04a858ceae44ee51c1de10fc40b27dc22ef90
+ms.sourcegitcommit: e04565e4a1fb7aaed04addd2bc87cc6ec4c82e81
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68830895"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69529894"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Configuration matérielle requise pour les espaces de stockage direct
 
@@ -131,5 +131,5 @@ Les lecteurs peuvent être internes au serveur ou dans un boîtier externe conne
 
 | Valeurs maximales                | Windows Server 2019  | Windows Server 2016  |
 | ---                     | ---------            | ---------            |
-| Capacité brute par serveur | 100 To               | 100 To               |
+| Capacité brute par serveur | 400 TO               | 100 To               |
 | Capacité du pool           | 4 PO (4 000 TO)      | 1 PO                 |
