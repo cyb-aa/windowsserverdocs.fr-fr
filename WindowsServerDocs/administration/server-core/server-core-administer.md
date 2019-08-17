@@ -8,12 +8,12 @@ author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
 ms.date: 12/18/2018
-ms.openlocfilehash: b144127de2ceea99e36549974101d190154aaeaf
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 78006dbbd2bdc569c15ac9967d8c5c542664312c
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476522"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546290"
 ---
 # <a name="administer-a-server-core-server"></a>Administrer un serveur Server Core
 
@@ -90,8 +90,8 @@ Exécutez **slmgr. vbs – IPK\<ProductKey\>** . Exécutez ensuite **slmgr. vbs 
 > [!NOTE]
 > Vous pouvez également activer le serveur par téléphone, à l’aide d’un [serveur de service de gestion de clés (kms)](../../get-started/server-2016-activation.md), ou à distance. Pour activer à distance, exécutez l’applet de commande suivante à partir d’un ordinateur distant: 
 > 
-> ```powershell
-> **cscript windows\system32\slmgr.vbs <ServerName> <UserName> <password>:-ato**
+> ```
+> cscript windows\system32\slmgr.vbs <ServerName> <UserName> <password>:-ato
 > ```
  
 ### <a name="configure-windows-firewall"></a>Configurer le Pare-feu Windows
@@ -136,7 +136,7 @@ Utilisez les informations de référence suivantes pour effectuer des tâches d�
 |Tâche|Command| 
 |----|-------|
 |Configurer votre serveur pour utiliser un serveur proxy|**netsh WinHTTP Set proxy \<ServerName\>:\<numéro de port\>** <br>**Remarque :** Les installations Server Core ne peuvent pas accéder à Internet via un proxy qui requiert un mot de passe pour autoriser les connexions.|
-|Configurer votre serveur pour contourner le proxy pour les adresses Internet|**netsh winttp Set proxy \<ServerName\>:\<port number\> Bypass-List = "\<local\>"**| 
+|Configurer votre serveur pour contourner le proxy pour les adresses Internet|**netsh WinHTTP Set proxy \<ServerName\>:\<port number\> Bypass-List = "\<local\>"**| 
 |Afficher ou modifier la configuration IPSEC|**netsh ipsec**| 
 |Afficher ou modifier la configuration NAP|**netsh nap**| 
 |Afficher ou modifier l’adresse IP à la traduction d’adresses physiques|**arp**| 
@@ -147,7 +147,7 @@ Utilisez les informations de référence suivantes pour effectuer des tâches d�
 |Afficher les sauts pour les connexions réseau|**pathping**| 
 |Suivi des tronçons pour les connexions réseau|**tracert**| 
 |Afficher la configuration du routeur de multidiffusion|**mrinfo**| 
-|Activer l’administration à distance du pare-feu|**netsh advfirewall firewall set Rule Group = "gestion à distance du pare-feu Windows" nouvelle activation = Oui**| 
+|Activer l’administration à distance du pare-feu|**netsh advfirewall firewall set Rule Group = "gestion à distance du pare-feu Windows Defender" New Enable = Oui**| 
  
 
 ### <a name="updates-error-reporting-and-feedback"></a>Mises à jour, rapports d’erreurs et commentaires

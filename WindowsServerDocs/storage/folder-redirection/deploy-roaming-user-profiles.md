@@ -1,5 +1,5 @@
 ---
-Title: Déploiement de profils utilisateur itinérants
+title: Déploiement de profils utilisateur itinérants
 TOCTitle: Deploying Roaming User Profiles
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -8,12 +8,12 @@ author: JasonGerend
 manager: brianlic
 ms.date: 06/07/2019
 ms.author: jgerend
-ms.openlocfilehash: e6e2e32ff9aeb1b3bcfc8fed9027c7e92e13b118
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: 1fcabf890c0c54e12c1650c31a072d17a33e292f
+ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66812488"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69560542"
 ---
 # <a name="deploying-roaming-user-profiles"></a>Déploiement de profils utilisateur itinérants
 

@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: bb3b98e1ea687b68bbb87d0da413f9624d336370
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 03b6920e75ba3c51f1d181cfd41887fef39b7412
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853330"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546326"
 ---
 # <a name="add-namespace-servers-to-a-domain-based-dfs-namespace"></a>Ajouter des serveurs d’espaces de noms à un espace de noms DFS basé sur un domaine
 
-> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 
 Vous pouvez augmenter la disponibilité d’un espace de noms basé sur un domaine en spécifiant des serveurs d’espaces de noms supplémentaires pour héberger l’espace de noms.
 
@@ -36,12 +36,12 @@ Pour ajouter un serveur d’espace de noms à un espace de noms basé sur un dom
 
 
 > [!TIP]
-> Pour ajouter un serveur d’espace de noms à l’aide de Windows PowerShell, utilisez l’[applet de commande New-DfsnRootTarget](https://docs.microsoft.com/powershell/module/dfsn/set-dfsnroottarget). Le module Windows PowerShell DFSN a été introduit dans Windows Server 2012.
+> Pour ajouter un serveur d’espace de noms à l’aide de Windows PowerShell, utilisez l’[applet de commande New-DfsnRootTarget](https://docs.microsoft.com/powershell/module/dfsn/new-dfsnroottarget). Le module Windows PowerShell DFSN a été introduit dans Windows Server 2012.
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Déploiement d’espaces de noms DFS](deploying-dfs-namespaces.md)
--   [Passez en revue la configuration requise du serveur d’espaces de noms DFS](https://technet.microsoft.com/library/cc753448(v=ws.11).aspx)
--   [Créer un Namespace DFS](create-a-dfs-namespace.md)
--   [Déléguer des autorisations de gestion pour les espaces de noms DFS](delegate-management-permissions-for-dfs-namespaces.md)
+-   [Déploiement d’espaces de noms DFS](deploying-dfs-namespaces.md)
+-   [Examiner la configuration requise du serveur d’espaces de noms DFS](https://technet.microsoft.com/library/cc753448(v=ws.11).aspx)
+-   [Créer un espace de noms DFS](create-a-dfs-namespace.md)
+-   [Déléguer les autorisations de gestion pour les espaces de noms DFS](delegate-management-permissions-for-dfs-namespaces.md)
 

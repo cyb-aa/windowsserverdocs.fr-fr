@@ -1,41 +1,41 @@
 ---
-Title: Configuration des comptes de cluster dans Active Directory
+title: Configuration des comptes de cluster dans Active Directory
 ms.date: 11/12/2012
 ms.prod: windows-server-threshold
 ms.technology: storage-failover-clustering
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: c15c33e31bf0bf7261097fbea110f2a0a788dab2
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 3cc7449c8fbbad2ed4a3cd27513fcbe74b617e36
+ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439751"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69560515"
 ---
 # <a name="configuring-cluster-accounts-in-active-directory"></a>Configuration des comptes de cluster dans Active Directory
 
 
 S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 
-Dans Windows Server, lorsque vous créez un cluster de basculement et configurez des services en cluster ou des applications, les Assistants de cluster de basculement créent les comptes d’ordinateur Active Directory nécessaires (également appelés objets ordinateur) et leur accorder des autorisations spécifiques. Les Assistants créent un compte d'ordinateur pour le cluster lui-même (ce compte est également appelé objet nom de cluster) et un compte d'ordinateur pour la plupart des types de services et d'applications en cluster, l'exception étant un ordinateur virtuel Hyper-V. Les autorisations pour ces comptes sont définies automatiquement par les Assistants de cluster de basculement. Si les autorisations sont modifiées, elles devront être rechangées pour répondre aux besoins de cluster. Ce guide décrit ces comptes et autorisations Active Directory, fournit des informations générales sur leur importance et décrit les étapes de la configuration et de la gestion des comptes.
+Dans Windows Server, lorsque vous créez un cluster de basculement et configurez des services ou des applications en cluster, les assistants de cluster de basculement créent les comptes d’ordinateurs Active Directory nécessaires (également appelés objets ordinateur) et leur accordent des autorisations spécifiques. Les Assistants créent un compte d'ordinateur pour le cluster lui-même (ce compte est également appelé objet nom de cluster) et un compte d'ordinateur pour la plupart des types de services et d'applications en cluster, l'exception étant un ordinateur virtuel Hyper-V. Les autorisations pour ces comptes sont définies automatiquement par les Assistants de cluster de basculement. Si les autorisations sont modifiées, elles devront être rechangées pour répondre aux besoins de cluster. Ce guide décrit ces comptes et autorisations Active Directory, fournit des informations générales sur leur importance et décrit les étapes de la configuration et de la gestion des comptes.
       
 
 ## <a name="overview-of-active-directory-accounts-needed-by-a-failover-cluster"></a>Vue d'ensemble des comptes Active Directory requis par un cluster de basculement
 
 Cette section décrit les comptes d'ordinateur Active Directory (également appelés objets ordinateur Active Directory) qui sont importants pour un cluster de basculement. Voici le détail de ces comptes :
 
-  - **Le compte d’utilisateur utilisé pour créer le cluster.** Il s'agit du compte d'utilisateur utilisé pour démarrer l'Assistant Création d'un cluster. Le compte est important parce qu'il fournit la base à partir de laquelle un compte d'ordinateur est créé pour le cluster lui-même.  
+  - **Compte d’utilisateur utilisé pour créer le cluster.** Il s'agit du compte d'utilisateur utilisé pour démarrer l'Assistant Création d'un cluster. Le compte est important parce qu'il fournit la base à partir de laquelle un compte d'ordinateur est créé pour le cluster lui-même.  
       
-  - **Le compte du nom du cluster.** (le compte d’ordinateur du cluster lui-même, également appelé l’objet nom de cluster ou CNO). Ce compte est créé automatiquement par l'Assistant Création d'un cluster et a le même nom que le cluster. Le compte du nom du cluster est très important, car d'autres comptes sont créés automatiquement via ce compte lorsque vous configurez de nouveaux services et de nouvelles applications sur le cluster. Si le compte du nom du cluster est supprimé ou que des autorisations en sont retirées, il est impossible de créer d'autres comptes comme requis par le cluster, jusqu'à ce que le compte du nom du cluster soit restauré ou que les autorisations appropriées soient rétablies.  
+  - **Compte du nom du cluster.** (le compte d’ordinateur du cluster lui-même, également appelé objet nom de cluster ou CNO). Ce compte est créé automatiquement par l'Assistant Création d'un cluster et a le même nom que le cluster. Le compte du nom du cluster est très important, car d'autres comptes sont créés automatiquement via ce compte lorsque vous configurez de nouveaux services et de nouvelles applications sur le cluster. Si le compte du nom du cluster est supprimé ou que des autorisations en sont retirées, il est impossible de créer d'autres comptes comme requis par le cluster, jusqu'à ce que le compte du nom du cluster soit restauré ou que les autorisations appropriées soient rétablies.  
       
     Par exemple, si vous créez un cluster appelé Cluster1 et essayez de configurer un serveur d'impression en cluster appelé PrintServer1 sur votre cluster, le compte Cluster1 dans Active Directory devra conserver les autorisations appropriées afin qu'il puisse être utilisé pour créer un compte d'ordinateur appelé PrintServer1.  
       
     Le compte du nom du cluster est créé dans le conteneur par défaut pour les comptes d'ordinateur dans Active Directory. Par défaut, il s'agit du conteneur « Ordinateurs », mais l'administrateur de domaine peut choisir de le rediriger vers un autre conteneur ou une autre unité d'organisation.  
       
-  - **Le compte d’ordinateur (objet ordinateur) d’un service en cluster ou d’application.** Ces comptes sont créés automatiquement par l'Assistant Haute disponibilité dans le cadre du processus de création de la plupart des types de services ou d'applications en cluster, l'exception étant un ordinateur virtuel Hyper-V. Le compte du nom du cluster est accordé les autorisations nécessaires pour contrôler ces comptes.  
+  - **Compte d’ordinateur (objet ordinateur) d’un service ou d’une application en cluster.** Ces comptes sont créés automatiquement par l'Assistant Haute disponibilité dans le cadre du processus de création de la plupart des types de services ou d'applications en cluster, l'exception étant un ordinateur virtuel Hyper-V. Le compte du nom du cluster dispose des autorisations nécessaires pour contrôler ces comptes.  
       
-    Par exemple, si vous avez un cluster appelé Cluster1 et que vous créez un serveur de fichiers en cluster appelé FileServer1, l'Assistant Haute disponibilité crée un compte d'ordinateur Active Directory appelé FileServer1. L’Assistant haute disponibilité donne également le compte Cluster1 les autorisations nécessaires pour contrôler le compte FileServer1.  
+    Par exemple, si vous avez un cluster appelé Cluster1 et que vous créez un serveur de fichiers en cluster appelé FileServer1, l'Assistant Haute disponibilité crée un compte d'ordinateur Active Directory appelé FileServer1. L’Assistant haute disponibilité donne également au compte CLUSTER1 les autorisations nécessaires pour contrôler le compte FileServer1.  
       
 
 Le tableau suivant décrit les autorisations requises pour ces comptes.
@@ -64,15 +64,15 @@ Le tableau suivant décrit les autorisations requises pour ces comptes.
 </tr>
 <tr class="odd">
 <td><p>Compte d'ordinateur d'un service ou d'une application en cluster</p></td>
-<td><p>Lorsque l’Assistant haute disponibilité est exécution (pour créer un nouveau service en cluster ou une application), dans la plupart des cas, un compte d’ordinateur pour le service en cluster ou application est créée dans Active Directory. Le compte du nom du cluster est accordé les autorisations nécessaires pour contrôler ce compte. L’exception est un ordinateur virtuel de Hyper-V en cluster : aucun compte d’ordinateur n’est créé pour celui-ci.</p>
-<p>Si vous prédéfinissez le compte d’ordinateur pour une application ou un service en cluster, vous devez le configurer avec les autorisations nécessaires. Pour plus d'informations, consultez <a href="#steps-for-prestaging-an-account-for-a-clustered-service-or-application" data-raw-source="[Steps for prestaging an account for a clustered service or application](#steps-for-prestaging-an-account-for-a-clustered-service-or-application)">Étapes de la prédéfinition d'un compte pour un service ou une application en cluster</a>, ultérieurement dans ce guide.</p></td>
+<td><p>Lorsque l’Assistant haute disponibilité est exécuté (pour créer un service ou une application en cluster), dans la plupart des cas, un compte d’ordinateur pour le service ou l’application en cluster est créé dans Active Directory. Le compte du nom du cluster dispose des autorisations nécessaires pour contrôler ce compte. L’exception est une machine virtuelle Hyper-V en cluster: aucun compte d’ordinateur n’est créé pour ce.</p>
+<p>Si vous préparez le compte d’ordinateur pour un service ou une application en cluster, vous devez le configurer avec les autorisations nécessaires. Pour plus d'informations, consultez <a href="#steps-for-prestaging-an-account-for-a-clustered-service-or-application" data-raw-source="[Steps for prestaging an account for a clustered service or application](#steps-for-prestaging-an-account-for-a-clustered-service-or-application)">Étapes de la prédéfinition d'un compte pour un service ou une application en cluster</a>, ultérieurement dans ce guide.</p></td>
 </tr>
 </tbody>
 </table>
 
 
 > [!NOTE]
-> Dans les versions antérieures de Windows Server, il était un compte pour le service de Cluster. Depuis Windows Server 2008, cependant, le service de Cluster s’exécute automatiquement dans un contexte spécial qui fournit les autorisations et privilèges spécifiques nécessaires au service (similaire au contexte du système local, mais avec des privilèges réduits). Toutefois, d'autres comptes sont nécessaires, comme décrit dans ce guide. 
+> Dans les versions antérieures de Windows Server, il existait un compte pour le service de cluster. Étant donné que Windows Server 2008, toutefois, le service de cluster s’exécute automatiquement dans un contexte spécial qui fournit les autorisations et les privilèges spécifiques nécessaires au service (similaire au contexte du système local, mais avec des privilèges réduits). Toutefois, d'autres comptes sont nécessaires, comme décrit dans ce guide. 
 <br>
 
 
@@ -82,7 +82,7 @@ Le diagramme suivant illustre l'utilisation et la création des comptes d'ordina
 
 ![](media/configure-ad-accounts/Cc731002.e8a7686c-9ba8-4ddf-87b1-175b7b51f65d(WS.10).gif)
 
-Notez que le diagramme ci-dessus montre un administrateur unique qui exécute à la fois l'Assistant Création d'un cluster et l'Assistant Haute disponibilité. Toutefois, il pourrait s'agir de deux administrateurs différents utilisant deux comptes d'utilisateurs différents, si les deux comptes avaient des autorisations suffisantes. Les autorisations sont décrites plus en détail dans les exigences liées aux clusters de basculement, les domaines Active Directory et les comptes, plus loin dans ce guide.
+Notez que le diagramme ci-dessus montre un administrateur unique qui exécute à la fois l'Assistant Création d'un cluster et l'Assistant Haute disponibilité. Toutefois, il pourrait s'agir de deux administrateurs différents utilisant deux comptes d'utilisateurs différents, si les deux comptes avaient des autorisations suffisantes. Les autorisations sont décrites plus en détail dans exigences relatives aux clusters de basculement, aux domaines de Active Directory et aux comptes, plus loin dans ce guide.
 
 ### <a name="how-problems-can-result-if-accounts-needed-by-the-cluster-are-changed"></a>Problèmes qui peuvent se poser si les comptes requis par le cluster sont modifiés
 
@@ -90,7 +90,7 @@ Le diagramme suivant illustre les problèmes qui peuvent se poser si le compte d
 
 ![](media/configure-ad-accounts/Cc731002.beecc4f7-049c-4945-8fad-2cceafd6a4a5(WS.10).gif)
 
-Si le type de problème illustré dans le diagramme se produit, un certain événement (1193, 1194, 1206 ou 1207) est consigné dans l'Observateur d'événements. Pour plus d’informations sur ces événements, consultez [ http://go.microsoft.com/fwlink/?LinkId=118271 ](http://go.microsoft.com/fwlink/?linkid=118271).
+Si le type de problème illustré dans le diagramme se produit, un certain événement (1193, 1194, 1206 ou 1207) est consigné dans l'Observateur d'événements. Pour plus d’informations sur ces événements, [http://go.microsoft.com/fwlink/?LinkId=118271](http://go.microsoft.com/fwlink/?linkid=118271)consultez.
 
 Notez qu'un problème semblable avec la création d'un compte pour un service ou une application en cluster peut se produire si le quota à l'échelle du domaine pour la création d'objets ordinateur (par défaut, 10) a été atteint. Le cas échéant, il peut être approprié de consulter l'administrateur de domaine au sujet de l'augmentation du quota, bien qu'il s'agisse d'un paramètre à l'échelle du domaine qui ne doit être changé qu'avec précaution et uniquement après avoir vérifié que le diagramme précédent ne décrivait pas votre situation. Pour plus d'informations, consultez [Étapes de la résolution de problèmes causés par des modifications dans les comptes Active Directory associés au cluster](#steps-for-troubleshooting-problems-caused-by-changes-in-cluster-related-active-directory-accounts), ultérieurement dans ce guide.
 
@@ -98,9 +98,9 @@ Notez qu'un problème semblable avec la création d'un compte pour un service ou
 
 Comme décrit dans les trois sections précédentes, certaines conditions doivent être remplies avant que les services et applications en cluster ne puissent être configurés avec succès sur un cluster de basculement. Les conditions les plus élémentaires concernent l'emplacement des nœuds de cluster (dans un domaine unique) et le niveau des autorisations du compte de la personne qui installe le cluster. Si ces conditions sont remplies, les autres comptes requis par le cluster peuvent être créés automatiquement par les Assistants de cluster de basculement. La liste suivante fournit des détails sur ces conditions de base.
 
-  - **nœuds :** Tous les nœuds doivent se trouver dans le même domaine Active Directory. (Le domaine ne peut pas être basé sur Windows NT 4.0, qui n'inclut pas Active Directory.)  
+  - **Ceux** Tous les nœuds doivent se trouver dans le même domaine Active Directory. (Le domaine ne peut pas être basé sur Windows NT 4.0, qui n'inclut pas Active Directory.)  
       
-  - **Compte de la personne qui installe le cluster :** La personne qui installe le cluster doit utiliser un compte avec les caractéristiques suivantes :  
+  - **Compte de la personne qui installe le cluster:** La personne qui installe le cluster doit utiliser un compte avec les caractéristiques suivantes :  
       
       - Le compte doit être un compte de domaine. Il ne doit pas être nécessairement un compte d'administrateur de domaine. Il peut s'agir d'un compte d'utilisateur de domaine s'il remplit les autres conditions dans cette liste.  
           
@@ -119,7 +119,7 @@ Les administrateurs de clusters de basculement devront peut-être quelquefois r�
 
 Le compte de la personne qui installe le cluster est important parce qu'il fournit la base à partir de laquelle un compte d'ordinateur est créé pour le cluster lui-même.
 
-L'appartenance à un groupe minimum obligatoire pour effectuer la procédure suivante varie selon si vous créez le compte de domaine et lui attribuez les autorisations requises dans le domaine, ou si vous placez uniquement le compte (créé par quelqu'un d'autre) dans le groupe **Administrateurs** local sur les serveurs qui seront des nœuds dans le cluster de basculement. Dans le premier cas, il est nécessaire d'appartenir au minimum au groupe **Opérateurs de compte** ou **Admins du domaine**, ou à un groupe équivalent. Dans le dernier cas, il suffit d'appartenir au groupe **Administrateurs** local ou à un groupe équivalent sur les serveurs qui seront des nœuds dans le cluster de basculement. Examinez les informations relatives à l’aide de comptes appropriés et les appartenances au groupe [ http://go.microsoft.com/fwlink/?LinkId=83477 ](http://go.microsoft.com/fwlink/?linkid=83477).
+L'appartenance à un groupe minimum obligatoire pour effectuer la procédure suivante varie selon si vous créez le compte de domaine et lui attribuez les autorisations requises dans le domaine, ou si vous placez uniquement le compte (créé par quelqu'un d'autre) dans le groupe **Administrateurs** local sur les serveurs qui seront des nœuds dans le cluster de basculement. Dans le premier cas, il est nécessaire d'appartenir au minimum au groupe **Opérateurs de compte** ou **Admins du domaine**, ou à un groupe équivalent. Dans le dernier cas, il suffit d'appartenir au groupe **Administrateurs** local ou à un groupe équivalent sur les serveurs qui seront des nœuds dans le cluster de basculement. Passez en revue les détails sur l’utilisation des comptes et [http://go.microsoft.com/fwlink/?LinkId=83477](http://go.microsoft.com/fwlink/?linkid=83477)des appartenances aux groupes appropriés à l’adresse.
 
 #### <a name="to-configure-the-account-for-the-person-who-installs-the-cluster"></a>Pour configurer le compte pour la personne qui installe le cluster
 
@@ -133,7 +133,7 @@ L'appartenance à un groupe minimum obligatoire pour effectuer la procédure sui
           
     3.  Dans le volet central, cliquez avec le bouton droit sur **Administrateurs**, cliquez sur **Ajouter au groupe**, puis sur **Ajouter**.  
           
-    4.  Sous **Entrez les noms des objets à sélectionner**, tapez le nom du compte d’utilisateur qui a été créé ou obtenu à l’étape 1. Si vous y êtes invité, entrez un nom de compte et le mot de passe avec des autorisations suffisantes pour cette action. Cliquez sur **OK**.  
+    4.  Sous **Entrez les noms des objets à sélectionner**, tapez le nom du compte d’utilisateur qui a été créé ou obtenu à l’étape 1. Si vous y êtes invité, entrez un nom de compte et un mot de passe avec des autorisations suffisantes pour cette action. Cliquez ensuite sur **OK**.  
           
     5.  Répétez ces étapes sur chaque serveur qui sera un nœud dans le cluster de basculement.  
           
@@ -152,13 +152,13 @@ L'appartenance à un groupe minimum obligatoire pour effectuer la procédure sui
           
        Lorsque **Fonctionnalités avancées** est sélectionné, l'onglet **Sécurité** s'affiche dans les propriétés des comptes (objets) dans **Utilisateurs et ordinateurs Active Directory**.  
           
-   3.  Cliquez avec le bouton droit sur le conteneur **Ordinateurs** par défaut ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine, puis cliquez sur **Propriétés**. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers.</b>.  
+   3.  Cliquez avec le bouton droit sur le conteneur **Ordinateurs** par défaut ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine, puis cliquez sur **Propriétés**. Les **ordinateurs** se trouvent dans <b>Active Directory utilisateurs et ordinateurs/</b><i>nœud de domaine</i><b>/Computers</b>.  
           
    4.  Sous l’onglet **Sécurité**, cliquez sur **Avancé**.  
           
    5.  Cliquez sur **Ajouter**, tapez le nom du compte qui a été créé ou obtenu à l'étape 1, puis cliquez sur **OK**.  
           
-   6.  Dans le **entrée d’autorisation pour *** conteneur* boîte de dialogue, recherchez le **créer des objets ordinateur** et **lire toutes les propriétés** autorisations et vous assurer que le **Autoriser** case à cocher est activée pour chacun d'entre eux.  
+   6.  Dans la boîte de dialogue **entrée d’autorisation pour le conteneur * * ** , localisez les autorisations **créer des objets d’ordinateur** et **Lire toutes les propriétés** , et assurez-vous que la case à cocher **autoriser** est activée pour chacune d’elles.  
           
        ![](media/configure-ad-accounts/Cc731002.0a863ac5-2024-4f9f-8a4d-a419aff32fa0(WS.10).gif)
 
@@ -166,7 +166,7 @@ L'appartenance à un groupe minimum obligatoire pour effectuer la procédure sui
 
 Il est habituellement plus simple de ne pas prédéfinir le compte du nom du cluster, mais d'autoriser à la place la création et la configuration automatique du compte lorsque vous exécutez l'Assistant Création d'un cluster. Toutefois, s'il est nécessaire de prédéfinir le compte du nom du cluster en raison de spécifications dans votre organisation, utilisez la procédure suivante.
 
-Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe **Admins du domaine** ou à un groupe équivalent. Examinez les informations relatives à l’aide de comptes appropriés et les appartenances au groupe [ http://go.microsoft.com/fwlink/?LinkId=83477 ](http://go.microsoft.com/fwlink/?linkid=83477). Notez que vous pouvez utiliser le même compte pour cette procédure que celui utilisé lors de la création du cluster.
+Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe **Admins du domaine** ou à un groupe équivalent. Passez en revue les détails sur l’utilisation des comptes et [http://go.microsoft.com/fwlink/?LinkId=83477](http://go.microsoft.com/fwlink/?linkid=83477)des appartenances aux groupes appropriés à l’adresse. Notez que vous pouvez utiliser le même compte pour cette procédure que celui utilisé lors de la création du cluster.
 
 #### <a name="to-prestage-a-cluster-name-account"></a>Pour prédéfinir un compte du nom du cluster
 
@@ -174,7 +174,7 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe *
 
 2.  Sur un contrôleur de domaine, cliquez sur **Démarrer**, sur **Outils d'administration**, puis sur **Utilisateurs et ordinateurs Active Directory**. Si la boîte de dialogue **Contrôle de compte d’utilisateur** apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur **Continuer**.
 
-3.  Dans l'arborescence de la console, cliquez avec le bouton droit sur **Ordinateurs** ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers.</b>.
+3.  Dans l'arborescence de la console, cliquez avec le bouton droit sur **Ordinateurs** ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine. Les **ordinateurs** se trouvent dans <b>Active Directory utilisateurs et ordinateurs/</b><i>nœud de domaine</i><b>/Computers</b>.
 
 4.  Cliquez sur **Nouveau**, puis sur **Ordinateur**.
 
@@ -188,7 +188,7 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe *
     
     Lorsque **Fonctionnalités avancées** est sélectionné, l'onglet **Sécurité** s'affiche dans les propriétés des comptes (objets) dans **Utilisateurs et ordinateurs Active Directory**.
 
-8.  Cliquez sur le dossier que vous avez cliqué à l’étape 3, puis cliquez sur **propriétés**.
+8.  Cliquez avec le bouton droit sur le dossier sur lequel vous avez cliqué avec le bouton droit à l’étape 3, puis cliquez sur **Propriétés**.
 
 9.  Sous l’onglet **Sécurité**, cliquez sur **Avancé**.
 
@@ -208,7 +208,7 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe *
           
     3.  Sous l’onglet **Sécurité**, cliquez sur **Ajouter**. Si la boîte de dialogue **Contrôle de compte d’utilisateur** apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur **Continuer**.  
           
-    4.  Utilisez la boîte de dialogue **Sélectionner les utilisateurs, les ordinateurs ou les groupes** pour spécifier le compte d'utilisateur qui sera utilisé lors de la création du cluster. Cliquez sur **OK**.  
+    4.  Utilisez la boîte de dialogue **Sélectionner les utilisateurs, les ordinateurs ou les groupes** pour spécifier le compte d'utilisateur qui sera utilisé lors de la création du cluster. Cliquez ensuite sur **OK**.  
           
     5.  Assurez-vous que le compte d'utilisateur qui vous venez d'ajouter est sélectionné puis, en regard de **Contrôle total**, activez la case à cocher **Autoriser**.  
           
@@ -218,7 +218,7 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe *
 
 Il est habituellement plus simple de ne pas prédéfinir le compte d'ordinateur pour un service ou une application en cluster, mais d'autoriser à la place la création et la configuration automatique du compte lorsque vous exécutez l'Assistant Haute disponibilité. Toutefois, s'il est nécessaire de prédéfinir les comptes en raison de spécifications dans votre organisation, utilisez la procédure suivante.
 
-Pour mener à bien cette procédure, il est nécessaire d'appartenir au minimum au groupe **Opérateurs de compte** ou à un groupe équivalent. Examinez les informations relatives à l’aide de comptes appropriés et les appartenances au groupe [ http://go.microsoft.com/fwlink/?LinkId=83477 ](http://go.microsoft.com/fwlink/?linkid=83477).
+Pour mener à bien cette procédure, il est nécessaire d'appartenir au minimum au groupe **Opérateurs de compte** ou à un groupe équivalent. Passez en revue les détails sur l’utilisation des comptes et [http://go.microsoft.com/fwlink/?LinkId=83477](http://go.microsoft.com/fwlink/?linkid=83477)des appartenances aux groupes appropriés à l’adresse.
 
 #### <a name="to-prestage-an-account-for-a-clustered-service-or-application"></a>Pour prédéfinir un compte pour un service ou une application en cluster
 
@@ -226,7 +226,7 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au minimum 
 
 2.  Sur un contrôleur de domaine, cliquez sur **Démarrer**, sur **Outils d'administration**, puis sur **Utilisateurs et ordinateurs Active Directory**. Si la boîte de dialogue **Contrôle de compte d’utilisateur** apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur **Continuer**.
 
-3.  Dans l'arborescence de la console, cliquez avec le bouton droit sur **Ordinateurs** ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers.</b>.
+3.  Dans l'arborescence de la console, cliquez avec le bouton droit sur **Ordinateurs** ou le conteneur par défaut dans lequel les comptes d'ordinateur sont créés dans votre domaine. Les **ordinateurs** se trouvent dans <b>Active Directory utilisateurs et ordinateurs/</b><i>nœud de domaine</i><b>/Computers</b>.
 
 4.  Cliquez sur **Nouveau**, puis sur **Ordinateur**.
 
@@ -252,7 +252,7 @@ Comme décrit précédemment dans ce guide, lorsque vous créez un cluster de ba
 
   - [Étapes de résolution des problèmes de mot de passe avec le compte du nom du cluster](#steps-for-troubleshooting-password-problems-with-the-cluster-name-account)
       
-  - [Étapes pour résoudre les problèmes causés par des modifications dans les comptes Active Directory associés au cluster](#steps-for-troubleshooting-problems-caused-by-changes-in-cluster-related-active-directory-accounts)
+  - [Étapes de résolution des problèmes provoqués par les modifications apportées aux comptes de Active Directory liés aux clusters](#steps-for-troubleshooting-problems-caused-by-changes-in-cluster-related-active-directory-accounts)
       
 
 ### <a name="steps-for-troubleshooting-password-problems-with-the-cluster-name-account"></a>Étapes de la résolution de problèmes de mot de passe liés au compte du nom du cluster
@@ -263,13 +263,13 @@ Utilisez cette procédure s'il y a un message d'événement relatif aux objets o
 
 Les messages d'événement qui correspondent à la description précédente indiquent que le mot de passe pour le compte du nom du cluster et le mot de passe correspondant stocké par le logiciel de clustering ne correspondent plus.
 
-Pour plus d’informations sur la garantie que les administrateurs de cluster disposent des autorisations appropriées pour effectuer la procédure suivante, en fonction des besoins, consultez Planification à l’avance pour les réinitialisations de mot de passe et d’autres tâches de maintenance de compte, plus haut dans ce guide.
+Pour plus d’informations sur la façon de s’assurer que les administrateurs de cluster disposent des autorisations appropriées pour exécuter la procédure suivante, consultez planification anticipée des réinitialisations de mot de passe et autres opérations de maintenance des comptes, plus haut dans ce guide.
 
-L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condition minimale requise pour effectuer cette procédure. En outre, l'autorisation **Réinitialiser le mot de passe** doit être attribuée à votre compte pour le compte du nom du cluster (à moins que votre compte ne soit un compte **Admins du domaine** ou le propriétaire du créateur du compte du nom du cluster). Le compte qui a été utilisé par la personne qui a installé le cluster peut être utilisé pour cette procédure. Examinez les informations relatives à l’aide de comptes appropriés et les appartenances au groupe [ http://go.microsoft.com/fwlink/?LinkId=83477 ](http://go.microsoft.com/fwlink/?linkid=83477).
+L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condition minimale requise pour effectuer cette procédure. En outre, l'autorisation **Réinitialiser le mot de passe** doit être attribuée à votre compte pour le compte du nom du cluster (à moins que votre compte ne soit un compte **Admins du domaine** ou le propriétaire du créateur du compte du nom du cluster). Le compte qui a été utilisé par la personne qui a installé le cluster peut être utilisé pour cette procédure. Passez en revue les détails sur l’utilisation des comptes et [http://go.microsoft.com/fwlink/?LinkId=83477](http://go.microsoft.com/fwlink/?linkid=83477)des appartenances aux groupes appropriés à l’adresse.
 
 #### <a name="to-troubleshoot-password-problems-with-the-cluster-name-account"></a>Pour résoudre les problèmes de mot de passe liés au compte du nom du cluster
 
-1.  Pour ouvrir le composant logiciel enfichable Gestion du cluster de basculement, cliquez sur **Démarrer**, sur **Outils d'administration**, puis sur **Gestion du cluster de basculement**. (Si le **contrôle de compte d’utilisateur** boîte de dialogue s’affiche, vérifiez que l’action affichée est ce que vous souhaitez, puis cliquez sur **continuer**.)
+1.  Pour ouvrir le composant logiciel enfichable Gestion du cluster de basculement, cliquez sur **Démarrer**, sur **Outils d'administration**, puis sur **Gestion du cluster de basculement**. (Si la boîte de dialogue **contrôle de compte d’utilisateur** s’affiche, vérifiez que l’action affichée est celle que vous souhaitez, puis cliquez sur **Continuer**.)
 
 2.  Dans le composant logiciel enfichable Gestion du cluster de basculement, si le cluster que vous souhaitez configurer n'est pas affiché, cliquez avec le bouton droit sur **Gestion du cluster de basculement** dans l'arborescence de la console, cliquez sur **Gérer un cluster**, puis sélectionnez ou spécifiez le cluster voulu.
 
@@ -279,15 +279,15 @@ L'appartenance au groupe local **Administrateurs**, ou équivalent, est la condi
 
 ### <a name="steps-for-troubleshooting-problems-caused-by-changes-in-cluster-related-active-directory-accounts"></a>Étapes de la résolution de problèmes causés par des modifications dans les comptes Active Directory associés au cluster
 
-Si le compte du nom du cluster est supprimé ou que des autorisations en sont retirées, des problèmes se produiront lorsque vous tenterez de configurer un nouveau service ou une nouvelle application en cluster. Pour résoudre un problème avec cette cause possible, utilisez le composant logiciel enfichable Utilisateurs et ordinateurs Active Directory pour afficher ou modifier le compte du nom du cluster et d'autres comptes connexes. Pour plus d’informations sur les événements sont consignés lorsque ce type de problème produit (événement 1193, 1194, 1206 ou 1207), voir [ http://go.microsoft.com/fwlink/?LinkId=118271 ](http://go.microsoft.com/fwlink/?linkid=118271).
+Si le compte du nom du cluster est supprimé ou que des autorisations en sont retirées, des problèmes se produiront lorsque vous tenterez de configurer un nouveau service ou une nouvelle application en cluster. Pour résoudre un problème avec cette cause possible, utilisez le composant logiciel enfichable Utilisateurs et ordinateurs Active Directory pour afficher ou modifier le compte du nom du cluster et d'autres comptes connexes. Pour plus d’informations sur les événements consignés lorsque ce type de problème se produit (événement 1193, 1194, 1206 ou 1207) [http://go.microsoft.com/fwlink/?LinkId=118271](http://go.microsoft.com/fwlink/?linkid=118271), consultez.
 
-Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe **Admins du domaine** ou à un groupe équivalent. Examinez les informations relatives à l’aide de comptes appropriés et les appartenances au groupe [ http://go.microsoft.com/fwlink/?LinkId=83477 ](http://go.microsoft.com/fwlink/?linkid=83477).
+Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe **Admins du domaine** ou à un groupe équivalent. Passez en revue les détails sur l’utilisation des comptes et [http://go.microsoft.com/fwlink/?LinkId=83477](http://go.microsoft.com/fwlink/?linkid=83477)des appartenances aux groupes appropriés à l’adresse.
 
 #### <a name="to-troubleshoot-problems-caused-by-changes-in-cluster-related-active-directory-accounts"></a>Pour résoudre les problèmes causés par des modifications dans les comptes Active Directory associés au cluster
 
 1.  Sur un contrôleur de domaine, cliquez sur **Démarrer**, sur **Outils d'administration**, puis sur **Utilisateurs et ordinateurs Active Directory**. Si la boîte de dialogue **Contrôle de compte d’utilisateur** apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur **Continuer**.
 
-2.  Développez le conteneur **Ordinateurs** par défaut ou le dossier dans lequel le compte du nom du cluster (compte d'ordinateur pour le cluster) se trouve. **Ordinateurs** se trouve dans <b>Active Directory Users and Computers /</b><i>nœud de domaine</i><b>/Computers.</b>.
+2.  Développez le conteneur **Ordinateurs** par défaut ou le dossier dans lequel le compte du nom du cluster (compte d'ordinateur pour le cluster) se trouve. Les **ordinateurs** se trouvent dans <b>Active Directory utilisateurs et ordinateurs/</b><i>nœud de domaine</i><b>/Computers</b>.
 
 3.  Examinez l'icône pour le compte du nom du cluster. Elle ne doit pas comporter de flèche pointant vers le bas, autrement dit, le compte ne doit pas être désactivé. S'il semble désactivé, cliquez dessus avec le bouton droit et recherchez la commande **Activer le compte**. Si vous voyez la commande, cliquez dessus.
 

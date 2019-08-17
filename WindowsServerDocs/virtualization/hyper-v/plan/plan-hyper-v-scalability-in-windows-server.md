@@ -10,12 +10,12 @@ ms.topic: article
 author: KBDAzure
 ms.author: kathydav
 ms.date: 09/28/2016
-ms.openlocfilehash: 534de49e50d7b415c9d64c32927418a4395f6f4f
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: b54d3e655d10d2dbb015d57f2b1be86a803d9911
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544751"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546634"
 ---
 # <a name="plan-for-hyper-v-scalability-in-windows-server-2016"></a>Planifier l’extensibilité d’Hyper-V dans Windows Server 2016
 
@@ -44,7 +44,7 @@ Ces valeurs maximales s’appliquent à chaque ordinateur virtuel. Tous les comp
 |Processeurs virtuels|240 pour la génération 2;<br>64 pour la génération 1;<br>320 disponible pour le système d’exploitation hôte (partition racine)|Le nombre de processeurs virtuels pris en charge par un système d’exploitation invité pourrait être inférieur. Pour plus d’informations, consultez les informations publiées pour le système d’exploitation spécifique.|
 |Contrôleurs SCSI virtuels|4|L’utilisation de périphériques SCSI virtuels nécessite des services d’intégration, qui sont disponibles pour les systèmes d’exploitation invités pris en charge. Pour plus d’informations sur les systèmes d’exploitation pris en charge, consultez [machines virtuelles Linux et FreeBSD prises en](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md) charge et [systèmes d’exploitation invités Windows pris en charge](../supported-windows-guest-operating-systems-for-hyper-v-on-windows.md).|  
 |Disques SCSI virtuels|256|Chaque contrôleur SCSI prend en charge jusqu’à 64 disques. En d’autres termes, chaque ordinateur virtuel peut être configuré avec un maximum de 256 disques SCSI virtuels (4 contrôleurs x 64 disques par contrôleur). (4 contrôleurs x 64 disques par contrôleur).|  
-|Cartes réseau virtuel|Windows Server 2016 prend en charge 12 au total:<br> -8 cartes réseau spécifiques à Hyper-V<br>-4 cartes réseau héritées <br> Windows Server 2019 prend en charge 72 au total: <br> -cartes réseau spécifiques à Hyper-V 64<br>-4 cartes réseau héritées  |La carte réseau spécifique à Hyper-V offre de meilleures performances et requiert un pilote inclus dans Integration Services. Pour plus d’informations, consultez [planifier la mise en réseau Hyper-V dans Windows Server](plan-hyper-v-networking-in-windows-server.md).|  
+|Cartes réseau virtuel|Windows Server 2016 prend en charge 12 au total:<br> -8 cartes réseau spécifiques à Hyper-V<br>-4 cartes réseau héritées <br> Windows Server 2019 prend en charge 68 au total: <br> -cartes réseau spécifiques à Hyper-V 64<br>-4 cartes réseau héritées  |La carte réseau spécifique à Hyper-V offre de meilleures performances et requiert un pilote inclus dans Integration Services. Pour plus d’informations, consultez [planifier la mise en réseau Hyper-V dans Windows Server](plan-hyper-v-networking-in-windows-server.md).|  
   
 ## <a name="maximums-for-hyper-v-hosts"></a>Valeurs maximales pour les hôtes Hyper-V  
 Ces valeurs maximales s’appliquent à chaque hôte Hyper-V.  

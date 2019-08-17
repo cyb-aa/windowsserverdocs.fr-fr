@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 6da212185eb47d3f30f81ca6f1eb322bc232e229
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3d07f137aa40b26b4f4fd69c050415b82608ed7e
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881450"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546368"
 ---
 # <a name="getting-started-with-group-managed-service-accounts"></a>Getting Started with Group Managed Service Accounts
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 
-Ce guide fournit des instructions détaillées et des informations générales pour l’activation et à l’aide du groupe comptes de Service administrés dans Windows Server 2012.
+Ce guide fournit des instructions pas à pas et des informations générales sur l’activation et l’utilisation de comptes de service administrés de groupe dans Windows Server 2012.
 
 **Dans ce document**
 
@@ -33,19 +33,19 @@ Ce guide fournit des instructions détaillées et des informations générales p
 
 -   [Introduction](#BKMK_Intro)
 
--   [Déploiement d’une batterie de serveurs](#BKMK_DeployNewFarm)
+-   [Déploiement d’une nouvelle batterie de serveurs](#BKMK_DeployNewFarm)
 
 -   [Ajout d’hôtes membres à une batterie de serveurs existante](#BKMK_AddMemberHosts)
 
--   [La mise à jour les propriétés de groupe compte de Service administré](#BKMK_Update_gMSA)
+-   [Mise à jour des propriétés du compte de service administré de groupe](#BKMK_Update_gMSA)
 
--   [Désaffectation d’hôtes membres à partir d’une batterie de serveurs existante](#BKMK_DecommMemberHosts)
+-   [Désaffectation d’hôtes membres d’une batterie de serveurs existante](#BKMK_DecommMemberHosts)
 
 
 > [!NOTE]
 > Cette rubrique inclut des exemples d'applets de commande Windows PowerShell que vous pouvez utiliser pour automatiser certaines des procédures décrites. Pour plus d’informations, consultez [Utilisation des applets de commande](https://go.microsoft.com/fwlink/p/?linkid=230693).
 
-## <a name="BKMK_Prereqs"></a>Conditions préalables
+## <a name="BKMK_Prereqs"></a>Configuration requise
 Consultez la section de cette rubrique portant sur [Conditions requises pour les comptes de service administrés de groupe](#BKMK_gMSA_Req).
 
 ## <a name="BKMK_Intro"></a>Introduction
@@ -56,18 +56,18 @@ Lorsqu'un ordinateur client se connecte à un service qui est hébergé sur une 
 
 Les principaux suivants sont disponibles pour les services, chacun avec certaines limitations.
 
-|Principaux|Étendue|Services pris en charge|Gestion des mots de passe|
+|Principaux|`Scope`|Services pris en charge|Gestion des mots de passe|
 |-------|-----|-----------|------------|
-|Compte d'ordinateur du système Windows|domaine.|Limité à un serveur joint à un domaine|Géré par l'ordinateur|
-|Compte d'ordinateur sans système Windows|domaine.|Tout serveur joint à un domaine|Aucune|
+|Compte d'ordinateur du système Windows|Domaine|Limité à un serveur joint à un domaine|Géré par l'ordinateur|
+|Compte d'ordinateur sans système Windows|Domaine|Tout serveur joint à un domaine|Aucun|
 |Compte virtuel|Local|Limité à un serveur|Géré par l'ordinateur|
-|Compte de service administré autonome Windows 7|domaine.|Limité à un serveur joint à un domaine|Géré par l'ordinateur|
-|Compte d’utilisateur|domaine.|Tout serveur joint à un domaine|Aucune|
-|Compte de service administré de groupe|domaine.|N’importe quel serveur de domaine Windows Server 2012|Le contrôleur de domaine gère et l'hôte récupère|
+|Compte de service administré autonome Windows 7|Domaine|Limité à un serveur joint à un domaine|Géré par l'ordinateur|
+|Compte d’utilisateur|Domaine|Tout serveur joint à un domaine|Aucun|
+|Compte de service administré de groupe|Domaine|Tout serveur joint à un domaine Windows Server 2012|Le contrôleur de domaine gère et l'hôte récupère|
 
 Un compte d'ordinateur Windows, un compte de service administré autonome (sMSA) Windows 7 ou des comptes virtuels ne peuvent pas être partagés sur plusieurs systèmes. Si vous configurez un compte à partager par les services de la batterie de serveurs, vous devrez choisir un compte d'utilisateur ou un compte d'ordinateur en dehors d'un système Windows. Dans tous les cas, ces comptes n'ont pas la capacité de gérer les mots de passe depuis un seul point de contrôle. Cette situation est problématique, car chaque organisation doit alors créer une solution coûteuse pour mettre à jour les clés du service dans Active Directory, puis les distribuer à toutes les instances de ces services.
 
-Avec Windows Server 2012, services ou les administrateurs de service n’avez pas besoin gérer la synchronisation de mot de passe entre instances de service lors de l’utilisation du groupe des comptes de Service administrés (gMSA). Vous configurez la fonctionnalité gMSA dans Active Directory, puis configurez le service qui prend en charge les comptes de service administrés. Vous pouvez configurer un compte gMSA à l'aide des applets de commande *-ADServiceAccount qui font partie du module Active Directory. La configuration de l'identité du service sur l'hôte est prise en charge par :
+Avec Windows Server 2012, les services ou les administrateurs de services n’ont pas besoin de gérer la synchronisation de mot de passe entre les instances de service lors de l’utilisation de comptes de service administrés de groupe (gMSA). Vous configurez la fonctionnalité gMSA dans Active Directory, puis configurez le service qui prend en charge les comptes de service administrés. Vous pouvez configurer un compte gMSA à l'aide des applets de commande *-ADServiceAccount qui font partie du module Active Directory. La configuration de l'identité du service sur l'hôte est prise en charge par :
 
 -   Les mêmes API que les comptes sMSA, de sorte que les produits qui prennent en charge les comptes sMSA prendront en charge les comptes gMSA
 
@@ -77,29 +77,29 @@ Avec Windows Server 2012, services ou les administrateurs de service n’avez pa
 
 -   Les tâches qui utilisent le Planificateur de tâches
 
-### <a name="BKMK_gMSA_Req"></a>Configuration requise pour le groupe comptes de Service administrés
+### <a name="BKMK_gMSA_Req"></a>Configuration requise pour les comptes de service administrés de groupe
 Le tableau suivant répertorie la configuration requise du système d'exploitation pour que l'authentification Kerberos puisse fonctionner avec les services utilisant des comptes gMSA. Les conditions requises pour Active Directory sont répertoriées à la suite de ce tableau.
 
 Une architecture 64 bits est requise pour exécuter les commandes Windows PowerShell utilisées pour administrer les comptes de service administrés de groupe.
 
-**Configuration requise du système d’exploitation**
+**Configuration requise pour le système d’exploitation**
 
-|Élément|Condition requise|Système d’exploitation|
+|Élément|Prérequis|Système d’exploitation|
 |------|--------|----------|
 |Hôte d'application cliente|Client Kerberos conforme aux RFC|Au minimum Windows XP|
-|Domaine du compte d’utilisateur contrôleurs de domaine|KDC conforme aux RFC|Au minimum Windows Server 2003|
+|Contrôleurs de domaine du domaine du compte d’utilisateur|KDC conforme aux RFC|Au minimum Windows Server 2003|
 |Hôtes membres du service partagé|| Windows Server 2012 |
-|Domaine de l’hôte membre contrôleurs de domaine|KDC conforme aux RFC|Au minimum Windows Server 2003|
-|domaine du compte de service administré de groupe contrôleurs de domaine| Windows Server 2012 contrôleurs de domaine disponibles pour l’hôte puisse récupérer le mot de passe|Domaine avec Windows Server 2012, qui peut avoir des systèmes antérieurs à Windows Server 2012 |
+|Contrôleurs de domaine de domaine de l’hôte membre|KDC conforme aux RFC|Au minimum Windows Server 2003|
+|Contrôleurs de domaine du domaine du compte gMSA| Contrôleurs de l’ordinateur Windows Server 2012 disponibles pour l’hôte afin de récupérer le mot de passe|Domaine avec Windows Server 2012 qui peut avoir des systèmes antérieurs à Windows Server 2012 |
 |Hôte de service principal|Serveur d'application Kerberos conforme aux RFC|Au minimum Windows Server 2003|
-|Domaine du compte de service principal contrôleurs de domaine|KDC conforme aux RFC|Au minimum Windows Server 2003|
+|Contrôleurs de domaine du domaine du compte de service principal|KDC conforme aux RFC|Au minimum Windows Server 2003|
 |Windows PowerShell pour Active Directory|Windows PowerShell pour Active Directory installé localement sur un ordinateur prenant en charge une architecture 64 bits ou sur votre ordinateur d'administration à distance (utilisant par exemple les Outils d'administration de serveur distant)| Windows Server 2012 |
 
-**Exigences de Active Directory Domain Services**
+**Conditions requises pour le service domaine Active Directory**
 
--   Le schéma Active Directory dans la batterie du domaine gMSA doit être mis à jour vers Windows Server 2012 pour créer un compte gMSA.
+-   Le schéma de Active Directory dans la forêt du domaine gMSA doit être mis à jour vers Windows Server 2012 pour créer un gMSA.
 
-    Vous pouvez mettre à jour le schéma en installant un contrôleur de domaine qui exécute Windows Server 2012 ou en exécutant la version d’adprep.exe à partir d’un ordinateur exécutant Windows Server 2012. La valeur de l'attribut object-version de l'objet CN=Schema,CN=Configuration,DC=Contoso,DC=Com doit être 52.
+    Vous pouvez mettre à jour le schéma en installant un contrôleur de domaine qui exécute Windows Server 2012 ou en exécutant la version d’Adprep. exe à partir d’un ordinateur exécutant Windows Server 2012. La valeur de l'attribut object-version de l'objet CN=Schema,CN=Configuration,DC=Contoso,DC=Com doit être 52.
 
 -   Nouveau compte gMSA configuré
 
@@ -109,9 +109,9 @@ Une architecture 64 bits est requise pour exécuter les commandes Windows PowerS
 
 -   Si la première clé racine principale pour Active Directory n'est pas déployée dans le domaine ou n'a pas été créée, alors créez-la. Le résultat de sa création peut être vérifié dans le journal des opérations du service KDS, ID d'événement 4004.
 
-Pour obtenir des instructions comment créer la clé, voir [créer la clé racine KDS de Services de Distribution clé](create-the-key-distribution-services-kds-root-key.md). Le service de distribution de clés Microsoft (kdssvc.dll) crée la clé racine pour Active Directory.
+Pour obtenir des instructions sur la création de la clé, consultez [créer la clé racine KDS des services de distribution de clés](create-the-key-distribution-services-kds-root-key.md). Le service de distribution de clés Microsoft (kdssvc.dll) crée la clé racine pour Active Directory.
 
-**Lifecycle**
+**Cycles**
 
 Le cycle de vie d'une batterie de serveurs utilisant la fonctionnalité gMSA comporte généralement les tâches suivantes :
 
@@ -125,7 +125,7 @@ Le cycle de vie d'une batterie de serveurs utilisant la fonctionnalité gMSA com
 
 -   Suppression d'un hôte membre compromis d'une batterie de serveurs, le cas échéant.
 
-## <a name="BKMK_DeployNewFarm"></a>Déploiement d’une batterie de serveurs
+## <a name="BKMK_DeployNewFarm"></a>Déploiement d’une nouvelle batterie de serveurs
 Lors du déploiement d'une nouvelle batterie de serveurs, l'administrateur du service devra déterminer les éléments suivants :
 
 -   Si le service prend en charge l'utilisation de comptes gMSA
@@ -143,21 +143,21 @@ Lors du déploiement d'une nouvelle batterie de serveurs, l'administrateur du se
 -   L'intervalle de modification de mot de passe (la valeur par défaut est 30 jours).
 
 ### <a name="BKMK_Step1"></a>Étape 1 : Configuration des comptes de service administrés de groupe
-Vous pouvez créer un compte gMSA uniquement si le schéma de forêt a été mis à jour vers Windows Server 2012, la clé racine principale pour Active Directory a été déployée, et il est au moins Windows Server 2012 DC dans le domaine dans lequel le compte gMSA sera créé.
+Vous pouvez créer un gMSA uniquement si le schéma de forêt a été mis à jour vers Windows Server 2012, si la clé racine principale de Active Directory a été déployée et qu’il existe au moins un contrôleur de domaine Windows Server 2012 dans le domaine dans lequel le gMSA sera créé.
 
 Vous devez au minimum appartenir au groupe **Admins du domaine**ou **Opérateurs de compte** , ou avoir la capacité de créer des objets msDS-GroupManagedServiceAccount pour réaliser les procédures suivantes.
 
-#### <a name="BKMK_CreateGMSA"></a>Pour créer un compte gMSA à l’aide de l’applet de commande New-ADServiceAccount
+#### <a name="BKMK_CreateGMSA"></a>Pour créer un gMSA à l’aide de l’applet de commande New-ADServiceAccount
 
 1.  Sur le contrôleur de domaine Windows Server 2012, exécutez Windows PowerShell à partir de la barre des tâches.
 
 2.  À l'invite de commandes de Windows PowerShell, tapez les commandes suivantes et appuyez sur Entrée : (Le module Active Directory sera chargé automatiquement.)
 
-    **Nouveau-ADServiceAccount [-nom] <string> - DNSHostName <string> [-KerberosEncryptionType <ADKerberosEncryptionType>] [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < [] ADPrincipal >] - SamAccountName <string> - ServicePrincipalNames < string [] >**
+    **New-ADServiceAccount [-name] <string> -dNSHostName <string> [-KerberosEncryptionType <ADKerberosEncryptionType>] [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >]-sAMAccountName <string> -ServicePrincipalNames < String [] >**
 
-    |Paramètre|Chaîne|Exemple|
+    |Paramètre|String|Exemple|
     |-------|-----|------|
-    |Nom|Nom du compte|BatterieIT1|
+    |Name|Nom du compte|BatterieIT1|
     |DNSHostName|Nom d'hôte DNS du service|BatterieIT1.contoso.com|
     |KerberosEncryptionType|Tout type de chiffrement pris en charge par les serveurs hôtes|RC4, AES128, AES256|
     |ManagedPasswordIntervalInDays|Intervalle de modification de mot de passe exprimé en jours (la valeur par défaut est 30 jours)|90|
@@ -185,9 +185,9 @@ Vous devez au minimum appartenir au groupe **Admins du domaine** ou **Opérateur
 
 2.  À l'invite de commandes du module Active Directory pour Windows PowerShell, tapez les commandes suivantes et appuyez sur Entrée :
 
-    **New-ADServiceAccount [-Name] <string> -RestrictToOutboundAuthenticationOnly [-ManagedPasswordIntervalInDays <Nullable[Int32]>] [-PrincipalsAllowedToRetrieveManagedPassword <ADPrincipal[]>]**
+    **New-ADServiceAccount [-name] <string> -RestrictToOutboundAuthenticationOnly [-ManagedPasswordIntervalInDays < Nullable [Int32] >] [-PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >]**
 
-    |Paramètre|Chaîne|Exemple|
+    |Paramètre|String|Exemple|
     |-------|-----|------|
     |Nom|Nom du compte|BatterieIT1|
     |ManagedPasswordIntervalInDays|Intervalle de modification de mot de passe exprimé en jours (la valeur par défaut est 30 jours)|75|
@@ -203,8 +203,8 @@ New-ADServiceAccount ITFarm1 -RestrictToOutboundAuthenticationOnly - PrincipalsA
 
 ```
 
-### <a name="BKMK_ConfigureServiceIdentity"></a>Étape 2 : Configuration du service d'application d'identité au service
-Pour configurer les services dans Windows Server 2012, consultez la documentation des fonctionnalités suivantes :
+### <a name="BKMK_ConfigureServiceIdentity"></a>Étape 2 : Configuration du service d'application d'identité au service
+Pour configurer les services dans Windows Server 2012, consultez la documentation sur les fonctionnalités suivantes:
 
 -   Pool d'applications IIS
 
@@ -221,11 +221,11 @@ Pour configurer les services dans Windows Server 2012, consultez la documentatio
 D'autres services peuvent prendre en charge la fonctionnalité gMSA. Reportez-vous à la documentation produit spécifique pour plus d'informations sur la configuration de ces services.
 
 ## <a name="BKMK_AddMemberHosts"></a>Ajout d’hôtes membres à une batterie de serveurs existante
-Si vous utilisez des groupes de sécurité pour gérer les hôtes membres, ajoutez le compte d’ordinateur pour le nouvel hôte membre pour le groupe de sécurité (hôtes de membres de la fonctionnalité gMSA appartenez) en utilisant l’une des méthodes suivantes.
+Si vous utilisez des groupes de sécurité pour la gestion des hôtes membres, ajoutez le compte d’ordinateur du nouvel hôte membre au groupe de sécurité (dont les hôtes membres de gMSA sont membres) à l’aide de l’une des méthodes suivantes.
 
 Vous devez au minimum appartenir au groupe **Admins du domaine** ou avoir la capacité d'ajouter des membres à l'objet de groupe de sécurité pour réaliser ces procédures.
 
--   Méthode 1 : Utilisateurs et ordinateurs Active Directory
+-   Méthode 1 : Utilisateurs et ordinateurs Active Directory
 
     Pour connaître les procédures d’utilisation de cette méthode, voir [Ajouter un compte d’ordinateur à un groupe](https://technet.microsoft.com/library/cc733097.aspx) et [Gérer des domaines différents dans le Centre d’administration Active Directory](manage-different-domains-in-active-directory-administrative-center.md).
 
@@ -247,13 +247,13 @@ Vous devez au minimum appartenir au groupe **Admins du domaine**ou **Opérateurs
 
 2.  À l'invite de commandes du module Active Directory pour Windows PowerShell, tapez les commandes suivantes et appuyez sur Entrée :
 
-    **Get-ADServiceAccount [-Name] <string> -PrincipalsAllowedToRetrieveManagedPassword**
+    **ADServiceAccount [-name] <string> -PrincipalsAllowedToRetrieveManagedPassword**
 
 3.  À l'invite de commandes du module Active Directory pour Windows PowerShell, tapez les commandes suivantes et appuyez sur Entrée :
 
-    **Set-ADServiceAccount [-Name] <string> -PrincipalsAllowedToRetrieveManagedPassword <ADPrincipal[]>**
+    **Set-ADServiceAccount [-name] <string> -PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >**
 
-|Paramètre|Chaîne|Exemple|
+|Paramètre|String|Exemple|
 |-------|-----|------|
 |Nom|Nom du compte|BatterieIT1|
 |PrincipalsAllowedToRetrieveManagedPassword|Comptes d'ordinateur des hôtes membres ou groupe de sécurité auquel appartiennent les hôtes membres|Hôte1, Hôte2, Hôte3|
@@ -268,24 +268,24 @@ Get-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword
 ```
 
 ```
-Set-ADServiceAccount [-Name] ITFarm1-PrincipalsAllowedToRetrieveManagedPassword Host1,Host2,Host3
+Set-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword Host1,Host2,Host3
 
 ```
 
-## <a name="BKMK_Update_gMSA"></a>La mise à jour les propriétés de compte de Service administré de groupe
+## <a name="BKMK_Update_gMSA"></a>Mise à jour des propriétés du compte de service administré de groupe
 Vous devez au minimum appartenir au groupe **Admins du domaine**ou **Opérateurs de compte**, ou avoir la capacité d'écrire dans des objets msDS-GroupManagedServiceAccount pour réaliser ces procédures.
 
 Ouvrez le module Active Directory pour Windows PowerShell et définissez toute propriété à l'aide de l'applet de commande Set-ADServiceAccount.
 
 Pour plus d’informations sur la définition de ces propriétés, voir [Set-ADServiceAccount](https://technet.microsoft.com/library/ee617252.aspx) dans la Bibliothèque TechNet ou tapez **Get-Help Set-ADServiceAccount** à l’invite de commandes du module Active Directory pour Windows PowerShell et appuyez sur ENTRÉE.
 
-## <a name="BKMK_DecommMemberHosts"></a>Désaffectation d’hôtes membres à partir d’une batterie de serveurs existante
+## <a name="BKMK_DecommMemberHosts"></a>Désaffectation d’hôtes membres d’une batterie de serveurs existante
 Vous devez au minimum appartenir au groupe **Admins du domaine**ou avoir la capacité de supprimer des membres de l'objet de groupe de sécurité pour réaliser ces procédures.
 
-### <a name="step-1-remove-member-host-from-gmsa"></a>Étape 1 : Supprimer l'hôte membre du compte gMSA
-Si vous utilisez des groupes de sécurité pour gérer les hôtes membres, supprimez le compte d’ordinateur pour l’hôte membre désaffecté du groupe de sécurité que les hôtes membres du gMSA sont un membre en utilisant l’une des méthodes suivantes.
+### <a name="step-1-remove-member-host-from-gmsa"></a>Étape 1 : Supprimer l'hôte membre du compte gMSA
+Si vous utilisez des groupes de sécurité pour la gestion des hôtes membres, supprimez le compte d’ordinateur de l’hôte membre retiré du groupe de sécurité auquel les hôtes membres de gMSA sont membres à l’aide de l’une des méthodes suivantes.
 
--   Méthode 1 : Utilisateurs et ordinateurs Active Directory
+-   Méthode 1 : Utilisateurs et ordinateurs Active Directory
 
     Pour connaître les procédures d’utilisation de cette méthode, voir [Supprimer un compte d’ordinateur](https://technet.microsoft.com/library/cc754624.aspx) à l’aide de l’interface Windows et [Gérer des domaines différents dans le Centre d’administration Active Directory](manage-different-domains-in-active-directory-administrative-center.md).
 
@@ -307,13 +307,13 @@ Vous devez au minimum appartenir au groupe **Admins du domaine**ou **Opérateurs
 
 2.  À l'invite de commandes du module Active Directory pour Windows PowerShell, tapez les commandes suivantes et appuyez sur Entrée :
 
-    **Get-ADServiceAccount [-Name] <string> -PrincipalsAllowedToRetrieveManagedPassword**
+    **ADServiceAccount [-name] <string> -PrincipalsAllowedToRetrieveManagedPassword**
 
 3.  À l'invite de commandes du module Active Directory pour Windows PowerShell, tapez les commandes suivantes et appuyez sur Entrée :
 
-    **Set-ADServiceAccount [-Name] <string> -PrincipalsAllowedToRetrieveManagedPassword <ADPrincipal[]>**
+    **Set-ADServiceAccount [-name] <string> -PrincipalsAllowedToRetrieveManagedPassword < ADPrincipal [] >**
 
-|Paramètre|Chaîne|Exemple|
+|Paramètre|String|Exemple|
 |-------|-----|------|
 |Nom|Nom du compte|BatterieIT1|
 |PrincipalsAllowedToRetrieveManagedPassword|Comptes d'ordinateur des hôtes membres ou groupe de sécurité auquel appartiennent les hôtes membres|Hôte1, Hôte3|
@@ -332,7 +332,7 @@ Set-ADServiceAccount [-Name] ITFarm1 -PrincipalsAllowedToRetrieveManagedPassword
 
 ```
 
-### <a name="BKMK_RemoveGMSA"></a>Étape 2 : Suppression d'un compte de service administré de groupe du système
+### <a name="BKMK_RemoveGMSA"></a>Étape 2 : Suppression d'un compte de service administré de groupe du système
 Supprimez les informations d'identification de compte gMSA mises en cache de l'hôte membre à l'aide de Uninstall-ADServiceAccount ou de l'API NetRemoveServiceAccount sur le système hôte.
 
 Vous devez au minimum appartenir au groupe **Administrateurs**ou à un groupe équivalent pour réaliser ces procédures.
@@ -343,7 +343,7 @@ Vous devez au minimum appartenir au groupe **Administrateurs**ou à un groupe é
 
 2.  À l'invite de commandes du module Active Directory pour Windows PowerShell, tapez les commandes suivantes et appuyez sur Entrée :
 
-    **Uninstall-ADServiceAccount < ADServiceAccount>**
+    **Uninstall-ADServiceAccount < ADServiceAccount >**
 
     **Exemple**
 
@@ -359,7 +359,7 @@ Pour plus d’informations sur l’applet de commande Uninstall-ADServiceAccount
 
 ## <a name="BKMK_Links"></a>Voir aussi
 
--   [Présentation des comptes de Service administrés de groupe](group-managed-service-accounts-overview.md)
+-   [Présentation des comptes de service administrés de groupe](group-managed-service-accounts-overview.md)
 
 
 

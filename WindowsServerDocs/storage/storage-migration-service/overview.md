@@ -1,6 +1,6 @@
 ---
-Title: Vue d’ensemble du Service de Migration de stockage
-description: Service de Migration de stockage facilite la migration des serveurs vers une version plus récente de Windows Server. Il fournit un outil graphique qui inventorie les données sur les serveurs, puis transfère les données et la configuration sur de nouveaux serveurs, tout cela sans applications ou utilisateurs d’avoir à modifier quoi que ce soit.
+Title: Vue d’ensemble de Storage migration service
+description: Le Service de migration du stockage facilite la migration des serveurs vers une version plus récente de Windows Server. Il fournit un outil graphique qui inventorie les données sur les serveurs, puis transfère les données et la configuration vers de nouveaux serveurs, le tout sans que les applications ou les utilisateurs aient à changer quoi que ce soit.
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
@@ -8,116 +8,125 @@ ms.date: 05/21/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: ce4cbdc291d98a180ee6f5b597d322620fa1b19f
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 8118b58268e88a173a6219631e109ed1c436fea0
+ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453170"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69560557"
 ---
-# <a name="storage-migration-service-overview"></a>Vue d’ensemble du Service de Migration de stockage
+# <a name="storage-migration-service-overview"></a>Vue d’ensemble de Storage migration service
 
 >S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server (canal semi-annuel)
 
-Service de Migration de stockage facilite la migration des serveurs vers une version plus récente de Windows Server. Il fournit un outil graphique qui inventorie les données sur les serveurs, puis transfère les données et la configuration sur de nouveaux serveurs, tout cela sans applications ou utilisateurs d’avoir à modifier quoi que ce soit.
+Le Service de migration du stockage facilite la migration des serveurs vers une version plus récente de Windows Server. Il fournit un outil graphique qui inventorie les données sur les serveurs, puis transfère les données et la configuration vers de nouveaux serveurs, le tout sans que les applications ou les utilisateurs aient à changer quoi que ce soit.
 
-Cette rubrique explique pourquoi vous pouvez utiliser le Service de Migration de stockage, comment fonctionne le processus de migration, et quelles sont les exigences pour les serveurs source et de destination.
+Cette rubrique explique pourquoi vous pouvez utiliser le service de migration de stockage, comment fonctionne le processus de migration et quelles sont les exigences pour les serveurs source et de destination.
 
-## <a name="why-use-storage-migration-service"></a>Pourquoi utiliser le Service de Migration de stockage
+## <a name="why-use-storage-migration-service"></a>Pourquoi utiliser le service de migration de stockage
 
-Utiliser le Service de Migration de stockage, car vous avez un serveur (ou un grand nombre de serveurs) que vous souhaitez migrer vers la plus récente de matériel ou de machines virtuelles. Service de Migration de stockage est conçu pour aider à en procédant comme suit :
+Utilisez le service de migration de stockage, car vous disposez d’un serveur (ou de nombreux serveurs) que vous souhaitez migrer vers des machines virtuelles ou matérielles plus récentes. Storage migration service est conçu pour vous aider à effectuer les opérations suivantes:
 
-- Plusieurs serveurs et leurs données d’inventaire
-- Transférer rapidement des fichiers, partages de fichiers et la configuration de sécurité à partir des serveurs source
-- Si vous le souhaitez contrôler l’identité des serveurs source (également appelé Couper sur) afin que les utilisateurs et des applications sans avoir à modifier quoi que ce soit pour accéder aux données existantes
-- Gérer un ou plusieurs des migrations à partir de l’interface utilisateur de Windows Admin Center
+- Inventorier plusieurs serveurs et leurs données
+- Transférer rapidement des fichiers, des partages de fichiers et la configuration de sécurité à partir des serveurs sources
+- Éventuellement, vous pouvez utiliser l’identité des serveurs sources (également appelée «découpage») afin que les utilisateurs et les applications n’aient pas à modifier quoi que ce soit pour accéder aux données existantes
+- Gérer une ou plusieurs migrations à partir de l’interface utilisateur du centre d’administration Windows
 
-![Diagramme montrant les fichiers de migration de Service de Migration de stockage & configuration à partir des serveurs sources à des serveurs de destination, les machines virtuelles Azure ou Azure File Sync.](media/overview/storage-migration-service-diagram.png)
+![Diagramme montrant le service de migration de stockage migration des fichiers & Configuration des serveurs source vers les serveurs de destination, les machines virtuelles Azure ou les Azure File Sync.](media/overview/storage-migration-service-diagram.png)
 
-**Figure 1 : Sources de Service de Migration de stockage et des destinations**
+**Figure 1 : Sources et destinations du service de migration du stockage**
 
-## <a name="how-the-migration-process-works"></a>Comment fonctionne le processus de migration
+## <a name="how-the-migration-process-works"></a>Fonctionnement du processus de migration
 
-Migration est un processus en trois étapes :
+La migration est un processus en trois étapes:
 
-1. **Inventaire des serveurs** pour recueillir des informations sur leurs fichiers et de la configuration (illustré dans la Figure 2).
-2. **Transférer (copier) des données** entre les serveurs de la source et les serveurs de destination.
-3. **Basculer vers les nouveaux serveurs** (facultatif).<br>Les serveurs de destination supposent la source d’identités anciens serveurs afin que les utilisateurs et les applications sans avoir à modifier quoi que ce soit. <br>Les serveurs source entrent dans un état de maintenance où ils ont toujours contiennent les mêmes fichiers qu’ils ont toujours (nous jamais supprimer des fichiers à partir des serveurs source), mais ne sont pas disponibles aux utilisateurs et aux applications. Vous pouvez ensuite retirer les serveurs à votre convenance.
+1. Les **serveurs d’inventaire** pour collecter des informations sur leurs fichiers et leur configuration (voir figure 2).
+2. **Transférer (copier) les données** des serveurs source vers les serveurs de destination.
+3. Passer **aux nouveaux serveurs** (facultatif).<br>Les serveurs de destination supposent les anciennes identités des serveurs sources, de sorte que les applications et les utilisateurs n’ont pas à modifier quoi que ce soit. <br>Les serveurs sources entrent dans un état de maintenance où ils contiennent toujours les mêmes fichiers qu’ils ont toujours (nous ne supprimons jamais les fichiers des serveurs source), mais ils ne sont pas disponibles pour les utilisateurs et les applications. Vous pouvez ensuite désactiver les serveurs à votre convenance.
 
-![Capture d’écran montrant un serveur prêt à être analysés](media/migrate/inventory.png)
-**Figure 2 : Service de Migration de stockage inventaire des serveurs**
+![Capture d’écran montrant un serveur prêt à être](media/migrate/inventory.png)
+analysé**figure 2: Serveurs d’inventaire du service de migration du stockage**
 
 ## <a name="requirements"></a>Configuration requise
 
-Pour utiliser le Service de Migration de stockage, vous devez les éléments suivants :
+Pour utiliser le service de migration de stockage, vous avez besoin des éléments suivants:
 
 - Un **serveur source** pour migrer les fichiers et les données à partir de
-- Un **serveur de destination** exécutant Windows Server 2019 pour migrer vers : Windows Server 2016 et Windows Server 2012 R2 fonctionner aussi bien, mais sont d’environ 50 % plus lent
-- Un **serveur orchestrator** exécutant Windows Server 2019 pour gérer la migration  <br>Si vous effectuez une migration uniquement quelques serveurs et des serveurs exécutent Windows Server 2019, vous pouvez l’utiliser que comme l’orchestrateur. Si vous effectuez une migration des serveurs, nous recommandons d’utiliser un serveur distinct orchestrator.
-- Un **PC ou un serveur exécutant [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md)**  pour exécuter l’interface utilisateur du Service de Migration de stockage, sauf si vous préférez utiliser PowerShell pour gérer la migration. La version Windows Admin Center et Windows Server 2019 doit tous deux être au moins la version 1809.
+- Un **serveur de destination** exécutant windows server 2019 à migrer vers — windows server 2016 et windows server 2012 R2 fonctionne également, mais est environ 50% plus lent
+- Un **serveur Orchestrator** exécutant Windows Server 2019 pour gérer la migration  <br>Si vous ne migrez que quelques serveurs et que l’un des serveurs exécute Windows Server 2019, vous pouvez l’utiliser en tant qu’orchestrateur. Si vous migrez d’autres serveurs, nous vous recommandons d’utiliser un serveur Orchestrator distinct.
+- Un **PC ou un serveur exécutant le [Centre d’administration Windows](../../manage/windows-admin-center/understand/windows-admin-center.md)**  pour exécuter l’interface utilisateur du service de migration du stockage, sauf si vous préférez utiliser PowerShell pour gérer la migration. Le centre d’administration Windows et la version 2019 de Windows Server doivent tous deux avoir au moins la version 1809.
 
-Nous recommandons vivement qu’orchestrator et destination ordinateurs ont au moins deux cœurs ou deux processeurs virtuels et au moins 2 Go de mémoire. Opérations d’inventaire et de transfert sont beaucoup plus rapides avec plus de processeurs et de mémoire.
+Nous recommandons vivement que les ordinateurs Orchestrator et de destination disposent d’au moins deux cœurs ou deux processeurs virtuels et au moins 2 Go de mémoire. Les opérations d’inventaire et de transfert sont beaucoup plus rapides avec davantage de processeurs et de mémoire.
 
 ### <a name="security-requirements"></a>Exigences de sécurité
 
-- Un compte de migration qui est administrateur sur les ordinateurs source et l’ordinateur orchestrator.
-- Un compte de migration qui est administrateur sur les ordinateurs de destination et l’ordinateur orchestrator.
-- L’ordinateur orchestrator doit avoir la règle de pare-feu (SMB-In) partage de fichiers et imprimantes est activée *entrant*.
-- Les ordinateurs source et de destination doivent avoir les règles de pare-feu suivantes activés *entrant* (même si vous disposez peut-être déjà les activé) :
+- Un compte de migration qui est administrateur sur les ordinateurs source et l’ordinateur Orchestrator.
+- Un compte de migration qui est administrateur sur les ordinateurs de destination et l’ordinateur Orchestrator.
+- La règle de pare-feu de partage de fichiers et d’imprimantes (SMB-in)doit être activée sur l’ordinateur Orchestrator.
+- Les règles de pare-feu suivantes doivent être activées sur les ordinateurs source et de destination (même si vous les avez peut-être déjà activés):
   - Partage de fichiers et d’imprimantes (SMB-Entrée)
-  - Service accès réseau (NP-Entrée)
-  - Windows Management Instrumentation (DCOM-In)
+  - Service Netlogon (NP-in)
+  - Windows Management Instrumentation (DCOM-in)
   - Windows Management Instrumentation (WMI-In)
   
   > [!TIP]
-  > Installer le service de Proxy de Service de Migration de stockage sur un ordinateur Windows Server 2019 automatiquement ouvre les ports de pare-feu nécessaires sur cet ordinateur.
-- Si les ordinateurs appartiennent à un domaine Active Directory Domain Services, ils doivent tous appartenir à la même forêt. Le serveur de destination doit également être dans le même domaine que le serveur source si vous souhaitez transférer le nom de domaine de la source vers la destination lors de la coupe sur. Le basculement techniquement fonctionne sur plusieurs domaines, mais le nom de domaine complet de la destination sera différent de la source...
+  > L’installation du service de proxy Storage migration service sur un ordinateur Windows Server 2019 ouvre automatiquement les ports de pare-feu nécessaires sur cet ordinateur.
+- Si les ordinateurs appartiennent à un domaine Active Directory Domain Services, ils doivent tous appartenir à la même forêt. Le serveur de destination doit également se trouver dans le même domaine que le serveur source si vous souhaitez transférer le nom de domaine de la source vers la destination lors du découpage. Le basculement fonctionne techniquement sur plusieurs domaines, mais le nom de domaine complet de la destination sera différent de la source...
 
 ### <a name="requirements-for-source-servers"></a>Configuration requise pour les serveurs sources
 
-Le serveur source doit exécuter un des systèmes d’exploitation suivants :
+Le serveur source doit exécuter l’un des systèmes d’exploitation suivants:
 
-- Windows Server, canal semi-annuel
+- Windows Server, canal semi-annuel
 - Windows Server 2019
 - Windows Server 2016
-- Windows Server 2012 R2
+- Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2
-- Windows Server 2008
-- Windows Server 2003 R2
+- Windows Server 2008 R2
+- Windows Server 2008
+- Windows Server 2003 R2
 - Windows Server 2003
+- Windows Small Business Server 2003 R2
+- Windows Small Business Server 2008
+- Windows Small Business Server 2011
+- Windows Server 2012 Essentials
+- Windows Server 2012 R2 Essentials
+- WindowsServer2016 Essentials
+- Windows Server 2019 Essentials
 
-Si l’orchestrateur exécute Windows Server, version 1903 ou version ultérieure, vous pouvez migrer les types de sources supplémentaires suivants :
+Remarque : Windows Small Business Server et Windows Server Essentials sont des contrôleurs de domaine. Le service de migration du stockage ne peut pas encore couper les contrôleurs de domaine, mais il peut inventorier et transférer des fichiers à partir de ces derniers.   
+
+Si l’orchestrateur exécute Windows Server, version 1903 ou ultérieure, vous pouvez migrer les types de sources supplémentaires suivants:
 
 - Clusters de basculement
-- Serveurs Linux qui utilisent Samba. Nous avons testé ce qui suit :
-    - Red Hat Enterprise Linux 7.6, CentOS 7, 8 Debian, Ubuntu 16.04 et 12.04.5, SUSE Linux Enterprise Server (SLES) 11 SP4
-    - Samba 4.x, 3.6.x
+- Serveurs Linux qui utilisent samba. Nous avons testé les éléments suivants:
+    - RedHat Enterprise Linux 7,6, CentOS 7, Debian 8, Ubuntu 16,04 et 12.04.5, SUSE Linux Enterprise Server (SLES) 11 SP4
+    - Samba 4. x, 3.6. x
 
 ### <a name="requirements-for-destination-servers"></a>Configuration requise pour les serveurs de destination
 
-Le serveur de destination doit exécuter un des systèmes d’exploitation suivants :
+Le serveur de destination doit exécuter l’un des systèmes d’exploitation suivants:
 
-- Windows Server, canal semi-annuel
+- Windows Server, canal semi-annuel
 - Windows Server 2019
 - Windows Server 2016
-- Windows Server 2012 R2
+- Windows Server 2012 R2
 
 > [!TIP]
-> Serveurs de destination exécutant Windows Server 2019 ou Windows Server, le canal semi-annuel 1809 ou version ultérieure ont double les performances de transfert des versions antérieures de Windows Server. Cette amélioration des performances est en raison de l’inclusion d’un service de proxy de Service de Migration de stockage intégrée, ce qui ouvre également le ports si elles ne sont pas déjà ouverts de pare-feu nécessaires.
+> Les serveurs de destination qui exécutent Windows Server 2019 ou Windows Server, le canal semi-annuel version 1809 ou ultérieure ont un double des performances de transfert des versions antérieures de Windows Server. Cette amélioration des performances est due à l’inclusion d’un service de proxy de service de migration de stockage intégré, qui ouvre également les ports de pare-feu nécessaires s’ils ne sont pas déjà ouverts.
 
-## <a name="whats-new-in-storage-migration-service"></a>Quelles sont les nouveautés dans le Service de Migration de stockage
+## <a name="whats-new-in-storage-migration-service"></a>Nouveautés du service de migration de stockage
 
-Windows Server, version 1903 ajoute les nouvelles fonctionnalités suivantes sur le serveur orchestrator :
+Windows Server, version 1903 ajoute les nouvelles fonctionnalités suivantes, lorsqu’elles sont exécutées sur le serveur Orchestrator:
 
-- Migrer des utilisateurs et groupes locaux vers le nouveau serveur
+- Migrer des groupes et utilisateurs locaux vers le nouveau serveur
 - Migrer le stockage à partir de clusters de basculement
-- Migration du stockage d’un serveur Linux qui utilise Samba
-- Synchroniser plus facilement les partages migrés dans Azure à l’aide d’Azure File Sync
-- Migrer vers les nouveaux réseaux virtuels, tels que Azure
+- Migrer le stockage à partir d’un serveur Linux qui utilise Samba
+- Synchroniser plus facilement des partages migrés dans Azure à l’aide d’Azure File Sync
+- Migrer vers de nouveaux réseaux comme Azure
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Migrer un serveur de fichiers à l’aide du Service de Migration de stockage](migrate-data.md)
-- [Services de Migration de stockage Forum aux questions (FAQ)](faq.md)
-- [Service de Migration de stockage problèmes connus](known-issues.md)
+- [Migrer un serveur de fichiers à l’aide du service de migration de stockage](migrate-data.md)
+- [Forum aux questions sur Storage migration services (FAQ)](faq.md)
+- [Problèmes connus du service de migration du stockage](known-issues.md)
