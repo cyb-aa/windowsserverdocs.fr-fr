@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: b3eebb38-a835-4fa6-9e41-1966014bf2cb
 author: lizap
 manager: dongill
-ms.openlocfilehash: ff584533eef70144e3bb6ba595fd0f8db89697e9
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 191d2247af5d5f63a203415af13f8d3370b3c6f6
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63744041"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546481"
 ---
 # <a name="tenant-on-premises-components"></a>Composants locaux de locataire
 
@@ -35,8 +35,8 @@ Informations complémentaires :
 [Clients Bureau à distance Microsoft](https://technet.microsoft.com/library/dn473009.aspx)  
 [Application Bureau à distance pour Windows dans Microsoft Store](https://apps.microsoft.com/windows/app/remote-desktop/051f560e-5e9b-4dad-8b2e-fa5e0b05a480)  
 [Bureau à distance Microsoft - Applications Android sur Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android)  
-[Mac App Store - Bureau à distance Microsoft](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12)  
-[Bureau à distance Microsoft dans l’App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop/id714464092?mt=8)  
+[Mac App Store - Bureau à distance Microsoft](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417?mt=12)  
+[Bureau à distance Microsoft dans l’App Store](https://itunes.apple.com/app/microsoft-remote-desktop/id714464092?mt=8)  
   
 ##  <a name="active-directory-domain-services"></a>Services de domaine Active Directory  
 Certains locataires plus volumineux et plus sophistiqués peuvent choisir d’héberger un serveur Services de domaine Active Directory (AD DS) dans leurs locaux. Dans ce cas, le serveur AD DS dans l’environnement du locataire sera généralement un réplica du serveur AD DS qui se trouve dans les locaux du client. Cela est pris en charge par la création d’un réseau virtuel au sein de l’environnement du locataire et l’utilisation de Azure VPN pour créer une connexion de site à site du locataire, depuis son réseau local vers son réseau virtuel dans le centre de données Azure.  

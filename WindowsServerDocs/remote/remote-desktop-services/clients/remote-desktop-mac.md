@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 10/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: a54ffd3d5596ba8c71deab668e4952da445ca12e
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 17df3ca3b88404a2775790d7a4a8206b7aa5befa
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66804940"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546342"
 ---
 # <a name="get-started-with-remote-desktop-on-mac"></a>Prise en main du Bureau à distance sur Mac
 
@@ -35,7 +35,7 @@ Le client Bureau à distance sur Mac vous permet d’accéder à des application
 ## <a name="get-the-remote-desktop-client"></a>Obtenez le client Bureau à distance
 Effectuez ces étapes pour bien démarrer avec le Bureau à distance sur votre appareil Mac:
 
-1. Téléchargez le client Bureau à distance Microsoft à partir de l’[App Store Mac](https://itunes.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12).
+1. Téléchargez le client Bureau à distance Microsoft à partir de l’[App Store Mac](https://itunes.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12).
 2. [Configurez votre PC pour accepter les connexions à distance](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop). Si vous ignorez cette étape, vous ne pouvez pas vous connecter à votre PC.
 3. Ajoutez une connexion Bureau à distance ou une ressource distante. Utilisez une connexion pour vous connecter directement à un PC Windows, et une ressource distante pour accéder à un programme RemoteApp, un bureau basé sur une session ou un bureau virtuel publié en local à l’aide de la fonctionnalité Connexions aux programmes RemoteApp et aux services Bureau à distance. Cette fonctionnalité est généralement disponible dans les environnements d’entreprise.
 

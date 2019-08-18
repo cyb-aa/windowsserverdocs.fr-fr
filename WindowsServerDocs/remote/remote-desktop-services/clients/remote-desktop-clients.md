@@ -14,12 +14,12 @@ manager: dougkim
 ms.author: helohr
 ms.date: 05/07/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 341262243b5bbe8ed046382d7490a6e5c39b8965
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: b7810d0b8b7cbd8d886b99a07d1419cb5e8197ed
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66188134"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546411"
 ---
 # <a name="remote-desktop-clients"></a>Clients Bureau à distance
 
@@ -35,8 +35,8 @@ Les applications clientes suivantes sont disponibles :
 |----------|-----------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
 | Windows  | [Client Windows 10 dans Microsoft Store](https://go.microsoft.com/fwlink/?LinkID=616709)                      | [Prise en main du client Bureau à distance sur Windows](windows.md)                |
 | Android  | [Client Android dans Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android)        | [Prise en main du client Bureau à distance sur Android](remote-desktop-android.md) |
-| iOS      | [Client iOS dans l’iTunes Store](https://itunes.apple.com/us/app/microsoft-remote-desktop/id714464092?mt=8)     | [Prise en main du client Bureau à distance sur iOS](remote-desktop-ios.md)         |
-| macOS    | [Client macOS dans l’iTunes Store](https://itunes.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12) | [Prise en main du client Bureau à distance sur Mac](remote-desktop-mac.md)         |
+| iOS      | [Client iOS dans l’iTunes Store](https://itunes.apple.com/app/microsoft-remote-desktop/id714464092?mt=8)     | [Prise en main du client Bureau à distance sur iOS](remote-desktop-ios.md)         |
+| macOS    | [Client macOS dans l’iTunes Store](https://itunes.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) | [Prise en main du client Bureau à distance sur Mac](remote-desktop-mac.md)         |
 
 ## <a name="configuring-the-remote-pc"></a>Configuration du PC distant
 

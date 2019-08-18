@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 date: 01/13/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 71fe969de4d21f7fa3c134b0f80fc7f69e5b2da8
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ebb169ee3b733bd5e7aade6636e078d54a6f09b3
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66446707"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546401"
 ---
 # <a name="get-started-with-remote-desktop-on-ios"></a>Bien démarrer avec le Bureau à distance sur iOS
 
@@ -38,7 +38,7 @@ Aidez-vous des informations suivantes pour démarrer. Consultez le [Forum aux qu
 ### <a name="download-the-remote-desktop-client-from-the-ios-store"></a>Téléchargez le client Bureau à distance à partir du store iOS
 Effectuez ces étapes pour bien démarrer avec le Bureau à distance sur votre appareil iOS :
 
-1. Téléchargez le client Bureau à distance Microsoft à partir de [iTunes](https://itunes.apple.com/us/app/microsoft-remote-desktop/id714464092?mt=8).
+1. Téléchargez le client Bureau à distance Microsoft à partir de [iTunes](https://itunes.apple.com/app/microsoft-remote-desktop/id714464092?mt=8).
 2. [Configurez votre PC pour accepter les connexions à distance](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop).
 3. Ajoutez une [connexion Bureau à distance](#add-a-remote-desktop-connection) ou une [ressource distante](#add-a-remote-resource). Utilisez une connexion pour vous connecter directement à un PC Windows, et une ressource distante pour accéder à un programme RemoteApp, un bureau basé sur une session ou un bureau virtuel publié en local à l’aide de la fonctionnalité Connexions aux programmes RemoteApp et aux services Bureau à distance. Cette fonctionnalité est généralement disponible dans les environnements d’entreprise.
 
@@ -72,8 +72,8 @@ Pour ajouter une ressource distante :
 
 1. Dans l’écran du Centre de connexion, appuyez sur **+** , puis appuyez sur **Aouter des ressources distantes**. 
 2. Entrez les informations appropriées pour la ressource distante :
-   - **URL de flux** : URL du serveur d’accès Web des services Bureau à distance. Vous pouvez également entrer votre compte e-mail professionnel dans ce champ : cela indique au client de rechercher le serveur d’accès Web des services Bureau à distance qui est associé à votre adresse e-mail.
-   - **Nom d’utilisateur** : nom d’utilisateur à spécifier pour le serveur d’accès Web des services Bureau à distance auquel vous vous connectez.
+   - **URL de flux** : URL du serveur d’accès web des services Bureau à distance. Vous pouvez également entrer votre compte e-mail professionnel dans ce champ : cela indique au client de rechercher le serveur d’accès Web des services Bureau à distance qui est associé à votre adresse e-mail.
+   - **Nom d’utilisateur** : nom d’utilisateur à spécifier pour le serveur d’accès web des services Bureau à distance auquel vous vous connectez.
    - **Mot de passe** : mot de passe à spécifier pour le serveur d’accès Web des services Bureau à distance auquel vous vous connectez.
 3. Appuyez sur **Enregistrer**.
 
@@ -89,7 +89,7 @@ Pour configurer une nouvelle passerelle :
 1. Dans le Centre de connexion, appuyez sur **Paramètres > Passerelles**. 
 2. Appuyez sur **Ajouter ou supprimer la passerelle des services Bureau à distance**.
 3. Entrez les informations suivantes :
-   - **Nom du serveur** : nom de l’ordinateur que vous souhaitez utiliser comme passerelle. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez aussi ajouter les informations de port au nom du serveur (par exemple, **RDGateway:443** ou **10.0.0.1:443**).
+   - **Nom du serveur** : nom de l’ordinateur que vous souhaitez utiliser comme passerelle. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez aussi ajouter les informations de port au nom du serveur (par exemple : **RDGateway:443** ou **10.0.0.1:443**).
    - **Nom d’utilisateur** : nom d’utilisateur et mot de passe à spécifier pour la passerelle Bureau à distance à laquelle vous vous connectez. Vous pouvez également sélectionner **Utiliser les informations d’identification de la connexion** si vous préférez garder les mêmes nom d’utilisateur et mot de passe que ceux utilisés pour la connexion Bureau à distance.
 
 
@@ -201,5 +201,5 @@ N’oubliez pas que, en raison de certaines limitations sur le système d’expl
 - Symboles : La combinaison Alt+touches alphanumériques génère des symboles différents selon la langue configurée
 
 > [!TIP]
-> Vos questions et vos commentaires sont toujours les bienvenus. Toutefois, n’envoyez PAS votre demande d’aide par le biais de la fonctionnalité de commentaire qui figure à la fin de cet article. Accédez au [forum du client Bureau à distance](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc) et démarrez un nouveau thread. Vous avez une suggestion de fonctionnalité à nous faire ? Faites-nous en part via le [forum UserVoice pour le client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android).
+> Vos questions et vos commentaires sont toujours les bienvenus. Toutefois, merci de ne pas utiliser la fonctionnalité de commentaire qui figure à la fin de cet article pour nous envoyer une demande d’aide. Veuillez plutôt accéder au [forum du client Bureau à distance](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc) et démarrez un nouveau fil de discussion. Vous souhaitez nous suggérer une fonctionnalité ? N’hésitez pas à utiliser le [forum UserVoice pour le client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android) afin de nous en faire part.
 
