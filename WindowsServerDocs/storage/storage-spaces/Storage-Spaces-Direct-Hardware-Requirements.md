@@ -9,12 +9,12 @@ ms.topic: article
 author: eldenchristensen
 ms.date: 08/05/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 59c04a858ceae44ee51c1de10fc40b27dc22ef90
-ms.sourcegitcommit: e04565e4a1fb7aaed04addd2bc87cc6ec4c82e81
+ms.openlocfilehash: 2f3f8bff39550108b0417b9513bee4a248dca432
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69529894"
+ms.locfileid: "69546374"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Configuration matérielle requise pour les espaces de stockage direct
 
@@ -86,7 +86,7 @@ Espaces de stockage direct fonctionne avec les lecteurs SATA, SAS ou NVMe direct
 - Même nombre et types de lecteurs dans chaque serveur – voir [considérations relatives](drive-symmetry-considerations.md) à la symétrie de lecteur
 - Les appareils du cache doivent être de 32 Go ou plus
 - Lors de l’utilisation de périphériques de mémoire persistants comme périphériques de cache, vous devez utiliser des appareils de capacité NVMe ou SSD (vous ne pouvez pas utiliser de disques durs)
-- Le pilote NVMe est le pilote NVMe intégré ou mis à jour par Microsoft.
+- Le pilote NVMe est fourni par Microsoft et il est inclus dans Windows. (stornvme. sys)
 - Recommandé : Le nombre de lecteurs de capacité est un multiple entier du nombre de lecteurs de cache
 - Recommandé : Les lecteurs de cache doivent avoir une endurance en écriture élevée: au moins 3 écritures de lecteur par jour (DWPD) ou au moins 4 téraoctets écrits (TBW) par jour: consultez [la page comprendre les écritures de lecteur par jour (DWPD), téraoctets écrits (TBW) et le minimum recommandé pour espaces de stockage direct ](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
 
