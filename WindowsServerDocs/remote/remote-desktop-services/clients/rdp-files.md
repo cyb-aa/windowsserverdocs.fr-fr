@@ -13,18 +13,18 @@ manager: dongill
 ms.author: helohr
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b11f4356496607d59e6c1b8dff2fb8edc0535cb
-ms.sourcegitcommit: 25376e261ebd5e85355c298cfd0bbd6b578a6a0c
+ms.openlocfilehash: ecc3236d44146015564fa593aaf8a20d3bfa42ff
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68729558"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546468"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>Paramètres pris en charge du fichier RDP du Bureau à distance
 
 Le tableau suivant contient la liste des paramètres du fichier RDP pris en charge et que vous pouvez utiliser avec les clients Windows et HTML. (Un « x » dans la colonne de plateforme indique que le paramètre est pris en charge. Toutefois, cette liste n’est pas une liste complète des paramètres pris en charge pour les clients Windows et HTML5. Nous continuerons à mettre à jour ce tableau pour inclure plus de paramètres RDP pris en charge pour les clients Windows et HTML5, ainsi que les clients macOS, iOS et Android.
 
-Pour en savoir plus sur l’utilisation de PowerShell pour personnaliser les propriétés RDP, consultez [Personnaliser les propriétés RDP (Remote Desktop Protocol) pour un pool d’hôtes](https://docs.microsoft.com/azure/virtual-desktop/customize-rdp-properties).
+Consultez [cette documentation](https://go.microsoft.com/fwlink/?linkid=2098243&clcid=0x409) qui décrit comment utiliser PowerShell pour personnaliser les propriétés RDP d’un pool hôte.
 
 | Paramètre RDP                        | Description            | Valeurs                 | Valeur par défaut          | Bureau virtuel Windows | Windows | HTML5   |
 |------------------------------------|------------------------|------------------------|:----------------------:|:-----------------------:|:-------:|:-------:|
