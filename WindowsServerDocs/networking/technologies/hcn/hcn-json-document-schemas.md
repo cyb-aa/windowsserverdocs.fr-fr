@@ -1,21 +1,21 @@
 ---
-title: Schémas de document JSON de réseau de calcul (HCN) hôte
+title: Schémas de document JSON HCN (Host Compute Network)
 description: ''
 ms.author: jmesser
 author: jmesser81
 ms.date: 11/05/2018
-ms.openlocfilehash: 5dadcffc34a4d3bc83b128b4fb5074c227151fa4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9466afed380d20160cad461c766de469e1f6a7cf
+ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836300"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69584775"
 ---
 # <a name="hcn-json-document-schemas"></a>Schémas de document HCN JSON
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-## <a name="hcn-schema"></a>HCN schema
+## <a name="hcn-schema"></a>Schéma HCN
 
 ```json
 // Network
@@ -136,11 +136,12 @@ ms.locfileid: "59836300"
     "Type" : "PortMapping",
     "Protocol" : <enum>,
          // AsString; Values: 
-         // "TCP" (0),
-         // "UDP" (1),
-         // "ICMPv4" (2),
-         // "ICMPv6" (3),
-         // "IGMP" (4),
+         // "Unknown" (0),
+         // "ICMPv4" (1),
+         // "IGMP" (2),
+         // "TCP" (6),
+         // "UDP" (17),
+         // "ICMPv6" (58)
     "InternalPort" : <uint16>,
     "ExternalPort" : <uint16>,
 }
@@ -168,11 +169,12 @@ ms.locfileid: "59836300"
         "Type" : "PortMapping",
         "Protocol" : <enum>,
              // AsString; Values: 
-             // "TCP" (0),
-             // "UDP" (1),
-             // "ICMPv4" (2),
-             // "ICMPv6" (3),
-             // "IGMP" (4),
+             // "Unknown" (0),
+             // "ICMPv4" (1),
+             // "IGMP" (2),
+             // "TCP" (6),
+             // "UDP" (17),
+             // "ICMPv6" (58)
         "InternalPort" : <uint16>,
         "ExternalPort" : <uint16>,
     } ],

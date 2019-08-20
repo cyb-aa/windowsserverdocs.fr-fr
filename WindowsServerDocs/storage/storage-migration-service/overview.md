@@ -1,19 +1,19 @@
 ---
-Title: Vue d’ensemble de Storage migration service
+title: Vue d’ensemble de Storage migration service
 description: Le Service de migration du stockage facilite la migration des serveurs vers une version plus récente de Windows Server. Il fournit un outil graphique qui inventorie les données sur les serveurs, puis transfère les données et la configuration vers de nouveaux serveurs, le tout sans que les applications ou les utilisateurs aient à changer quoi que ce soit.
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
-ms.date: 05/21/2019
+ms.date: 08/16/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 8118b58268e88a173a6219631e109ed1c436fea0
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: dae64b81c48b9ae6bf84c3558066ebbdf9c06ace
+ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560557"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69584836"
 ---
 # <a name="storage-migration-service-overview"></a>Vue d’ensemble de Storage migration service
 
@@ -58,7 +58,7 @@ Pour utiliser le service de migration de stockage, vous avez besoin des élémen
 
 Nous recommandons vivement que les ordinateurs Orchestrator et de destination disposent d’au moins deux cœurs ou deux processeurs virtuels et au moins 2 Go de mémoire. Les opérations d’inventaire et de transfert sont beaucoup plus rapides avec davantage de processeurs et de mémoire.
 
-### <a name="security-requirements"></a>Exigences de sécurité
+### <a name="security-requirements-the-storage-migration-service-proxy-service-and-firewall-ports"></a>Exigences de sécurité, service de proxy de service de migration de stockage et ports de pare-feu
 
 - Un compte de migration qui est administrateur sur les ordinateurs source et l’ordinateur Orchestrator.
 - Un compte de migration qui est administrateur sur les ordinateurs de destination et l’ordinateur Orchestrator.
@@ -70,7 +70,9 @@ Nous recommandons vivement que les ordinateurs Orchestrator et de destination di
   - Windows Management Instrumentation (WMI-In)
   
   > [!TIP]
-  > L’installation du service de proxy Storage migration service sur un ordinateur Windows Server 2019 ouvre automatiquement les ports de pare-feu nécessaires sur cet ordinateur.
+  > L’installation du service de proxy Storage migration service sur un ordinateur Windows Server 2019 ouvre automatiquement les ports de pare-feu nécessaires sur cet ordinateur. Pour ce faire, connectez-vous au serveur de destination dans le centre d’administration Windows, puis accédez à **Gestionnaire de serveur** (dans le centre d’administration windows) > **rôles et fonctionnalités**, sélectionnez **proxy de service de migration de stockage**, puis sélectionnez **installer**.
+
+
 - Si les ordinateurs appartiennent à un domaine Active Directory Domain Services, ils doivent tous appartenir à la même forêt. Le serveur de destination doit également se trouver dans le même domaine que le serveur source si vous souhaitez transférer le nom de domaine de la source vers la destination lors du découpage. Le basculement fonctionne techniquement sur plusieurs domaines, mais le nom de domaine complet de la destination sera différent de la source...
 
 ### <a name="requirements-for-source-servers"></a>Configuration requise pour les serveurs sources

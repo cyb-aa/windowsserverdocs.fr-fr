@@ -1,6 +1,6 @@
 ---
-title: Migrer un serveur de fichiers à l’aide du Service de Migration de stockage
-description: Brève description de la rubrique pour les résultats de recherche
+title: Migrer un serveur de fichiers à l’aide du service de migration de stockage
+description: Brève description de la rubrique relative aux résultats du moteur de recherche
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
@@ -8,91 +8,91 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 879a87d4383d07e37227ecf6fffa5d002a77bbc0
-ms.sourcegitcommit: 214e827934e7b3e8987e9e0ab2cf00047d332c89
+ms.openlocfilehash: 7cec2a9c805208baceff8a8afe22a20fd2859edd
+ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67153317"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69584840"
 ---
-# <a name="use-storage-migration-service-to-migrate-a-server"></a>Service de Migration de stockage permet de migrer un serveur
+# <a name="use-storage-migration-service-to-migrate-a-server"></a>Utiliser Storage migration service pour migrer un serveur
 
-Cette rubrique explique comment migrer un serveur, y compris ses fichiers et la configuration, vers un autre serveur à l’aide de [Service de Migration de stockage](overview.md) et Windows Admin Center. La migration s’effectue en trois étapes une fois que vous avez installé le service et ouvrir des ports de pare-feu nécessaires : l’inventaire de vos serveurs, de transférer des données et de basculer vers les nouveaux serveurs.
+Cette rubrique explique comment migrer un serveur, y compris ses fichiers et sa configuration, vers un autre serveur à l’aide du [service de migration de stockage](overview.md) et du centre d’administration Windows. La migration prend trois étapes une fois que vous avez installé le service et ouvert les ports de pare-feu nécessaires: inventoriez vos serveurs, transférez les données et coupez les serveurs.
 
-## <a name="step-0-install-storage-migration-service-and-check-firewall-ports"></a>Étape 0 : Installez un Service de Migration de stockage et les ports de pare-feu
+## <a name="step-0-install-storage-migration-service-and-check-firewall-ports"></a>Étape 0 : Installer Storage migration service et vérifier les ports du pare-feu
 
-Avant de commencer, installez le Service de Migration de stockage et vous assurer que les ports de pare-feu nécessaires sont ouverts.
+Avant de commencer, installez le service de migration de stockage et assurez-vous que les ports de pare-feu nécessaires sont ouverts.
 
-1. Vérifier le [exigences du Service de Migration de stockage](overview.md#requirements) et installer [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md) sur votre PC ou un serveur d’administration si vous n’avez pas déjà.
-2. Dans Windows Admin Center, se connecter au serveur orchestrator exécutant Windows Server 2019. <br>C’est le serveur que vous allez installer le Service de Migration de stockage sur et utiliser pour gérer la migration. Si vous effectuez une migration qu’un seul serveur, vous pouvez utiliser le serveur de destination tant qu’il s’exécute Windows Server 2019. Nous vous recommandons de qu'utiliser un serveur d’orchestration distincte pour les migrations de serveurs multiples.
-1. Accédez à **le Gestionnaire de serveur** (dans Windows Admin Center) > **Service de Migration de stockage** et sélectionnez **installer** pour installer le Service de Migration de stockage et ses composants requis (voir Figure 1).
-    ![Capture d’écran de la page de Service de Migration de stockage montrant le bouton Installer](media/migrate/install.png) **Figure 1 : Installation du Service de Migration de stockage**
-1. Installer le proxy du Service de Migration de stockage sur tous les serveurs de destination exécutant Windows Server 2019. Cela double la vitesse de transfert lors de l’installation sur les serveurs de destination. <br>Pour ce faire, connectez-vous au serveur de destination dans Windows Admin Center et passez à **le Gestionnaire de serveur** (dans Windows Admin Center) > **des rôles et fonctionnalités**, sélectionnez **Service de Migration de stockage Proxy**, puis sélectionnez **installer**.
-1. Sur tous les serveurs sources et sur les serveurs de destination exécutant Windows Server 2012 R2 ou Windows Server 2016, dans Windows Admin Center, se connecter à chaque serveur, accédez à **le Gestionnaire de serveur** (dans Windows Admin Center) > **pare-feu**   >  **Les règles entrantes**, puis vérifiez que les règles suivantes sont activées :
+1. Vérifiez les [exigences du service de migration de stockage](overview.md#requirements) et installez le [Centre d’administration Windows](../../manage/windows-admin-center/understand/windows-admin-center.md) sur votre ordinateur ou un serveur d’administration si vous ne l’avez pas déjà fait.
+2. Dans le centre d’administration Windows, connectez-vous au serveur Orchestrator exécutant Windows Server 2019. <br>Il s’agit du serveur sur lequel vous allez installer le service de migration de stockage et utilisé pour gérer la migration. Si vous effectuez la migration d’un seul serveur, vous pouvez utiliser le serveur de destination tant qu’il exécute Windows Server 2019. Nous vous recommandons d’utiliser un serveur d’orchestration distinct pour les migrations de plusieurs serveurs.
+1. Accédez à **Gestionnaire de serveur** (dans le centre d’administration Windows) > **service de migration de stockage** et sélectionnez **installer** pour installer le service de migration de stockage et ses composants requis (voir figure 1).
+    ![Capture d’écran de la page service de migration du stockage](media/migrate/install.png) montrant le bouton **installer figure 1: Installation du service de migration de stockage**
+1. Installez le proxy service de migration de stockage sur tous les serveurs de destination exécutant Windows Server 2019. Cela double la vitesse de transfert lorsqu’elle est installée sur les serveurs de destination. <br>Pour ce faire, connectez-vous au serveur de destination dans le centre d’administration Windows, puis accédez à **Gestionnaire de serveur** (dans le centre d’administration windows) > **rôles et fonctionnalités**, sélectionnez **proxy de service de migration de stockage**, puis sélectionnez **installer**.
+1. Sur tous les serveurs sources et sur les serveurs de destination exécutant Windows Server 2012 R2 ou Windows Server 2016, dans le centre d’administration Windows, connectez-vous à chaque serveur, accédez à **Gestionnaire de serveur** (dans le centre d’administration windows) > **pare-feu**  >   **Règles entrantes**, puis vérifiez que les règles suivantes sont activées:
     - Partage de fichiers et d’imprimantes (SMB-Entrée)
-    - Service accès réseau (NP-Entrée)
-    - Windows Management Instrumentation (DCOM-In)
+    - Service Netlogon (NP-in)
+    - Windows Management Instrumentation (DCOM-in)
     - Windows Management Instrumentation (WMI-In)
 
    > [!NOTE]
-   > Si vous utilisez des pare-feu tiers, les plages de port d’entrée pour ouvrir sont TCP/445 (SMB), TCP/135 (mappeur de point de terminaison RPC/DCOM) et TCP 1025-65535 (ports éphémères DCOM/RPC). Les ports de service de Migration de stockage sont TCP/28940 (Orchestrator) et TCP/28941 (Proxy).
+   > Si vous utilisez des pare-feu tiers, les plages de ports entrants à ouvrir sont TCP/445 (SMB), TCP/135 (mappeur de point de terminaison RPC/DCOM) et TCP 1025-65535 (ports éphémères RPC/DCOM). Les ports de service de migration du stockage sont TCP/28940 (Orchestrator) et TCP/28941 (proxy).
 
-1. Si vous utilisez un serveur orchestrator pour gérer la migration et que vous souhaitez télécharger les événements ou un journal de quelles données vous transférer, vérifiez que la règle de pare-feu (SMB-In) partage de fichiers et imprimantes est activée sur ce serveur.
+1. Si vous utilisez un serveur Orchestrator pour gérer la migration et que vous souhaitez télécharger des événements ou un journal des données que vous transférez, vérifiez que la règle de pare-feu partage de fichiers et d’imprimantes (SMB-in) est également activée sur ce serveur.
 
-## <a name="step-1-create-a-job-and-inventory-your-servers-to-figure-out-what-to-migrate"></a>Étape 1 : Créer un travail et l’inventaire de vos serveurs pour déterminer les éléments à migrer
+## <a name="step-1-create-a-job-and-inventory-your-servers-to-figure-out-what-to-migrate"></a>Étape 1 : Créer un travail et inventorier vos serveurs pour déterminer les éléments à migrer
 
-Dans cette étape, vous spécifiez les serveurs à migrer et puis les analyser pour collecter des informations sur leurs fichiers et les configurations.
+Au cours de cette étape, vous allez spécifier les serveurs à migrer, puis les analyser pour collecter des informations sur leurs fichiers et leurs configurations.
 
-1. Sélectionnez **nouveau travail**, nommez la tâche, puis sélectionnez **OK**.
-1. Sur le **Entrez les informations d’identification** page, tapez les informations d’identification d’administrateur qui fonctionnent sur les serveurs que vous souhaitez migrer à partir de, puis sélectionnez **suivant**.
-1. Sélectionnez **ajouter un appareil**, tapez un nom de serveur source, puis sélectionnez **OK**. <br>Répétez cette procédure pour tous les autres serveurs à inventorier.
-1. Sélectionnez **démarrer l’analyse**.<br>Les page mises à jour s’affiche une fois l’analyse est terminée.
-    ![Capture d’écran montrant un serveur prêt à être analysés](media/migrate/inventory.png) **Figure 2 : Inventaire des serveurs**
-1. Sélectionnez chacun des serveurs pour passer en revue les partages, la configuration, les cartes réseau et les volumes qui ont été inventoriés. <br><br>Service de Migration de stockage ne sont pas transférer des fichiers ou dossiers que nous savons peut interférer avec l’opération de Windows, dans cette version, vous verrez des avertissements pour tous les partages situés dans le dossier de système de Windows. Vous devez ignorer ces partages pendant la phase de transfert. Pour plus d’informations, consultez [quels fichiers et dossiers sont exclus de transferts](faq.md#excluded-files).
-1. Sélectionnez **suivant** pour passer à transférer des données.
+1. Sélectionnez **nouveau travail**, nommez le travail, puis sélectionnez **OK**.
+1. Dans la page **entrer les informations d’identification** , tapez les informations d’identification d’administrateur qui fonctionnent sur les serveurs à partir desquels vous souhaitez effectuer la migration, puis sélectionnez **suivant**.
+1. Sélectionnez **Ajouter un appareil**, tapez un nom de serveur source, puis sélectionnez **OK**. <br>Répétez cette opération pour tous les autres serveurs que vous souhaitez inventorier.
+1. Sélectionnez **Démarrer l’analyse**.<br>La page se met à jour pour afficher une fois l’analyse terminée.
+    ![Capture d’écran montrant un serveur prêt à être](media/migrate/inventory.png) analysé **figure 2: Inventaire des serveurs**
+1. Sélectionnez chaque serveur pour passer en revue les partages, la configuration, les cartes réseau et les volumes qui ont été inventoriés. <br><br>Le service de migration du stockage ne transfère pas les fichiers ou dossiers que nous connaissons pourraient interférer avec l’opération Windows. dans cette version, vous verrez des avertissements pour tous les partages situés dans le dossier système de Windows. Vous devrez ignorer ces partages pendant la phase de transfert. Pour plus d’informations, consultez [Quels fichiers et dossiers sont exclus des transferts](faq.md#what-files-and-folders-are-excluded-from-transfers).
+1. Sélectionnez **suivant** pour passer au transfert de données.
 
-## <a name="step-2-transfer-data-from-your-old-servers-to-the-destination-servers"></a>Étape 2 : Transférer des données à partir de vos anciens serveurs vers les serveurs de destination
+## <a name="step-2-transfer-data-from-your-old-servers-to-the-destination-servers"></a>Étape 2 : Transférer des données de vos anciens serveurs vers les serveurs de destination
 
-Dans cette étape vous transférer des données après la spécification de son emplacement sur le serveur de destination.
+Au cours de cette étape, vous allez transférer des données après avoir spécifié où les placer sur les serveurs de destination.
 
-1. Sur le **transférer des données** > **Entrez les informations d’identification** page, tapez les informations d’identification d’administrateur qui fonctionnent sur les serveurs de destination que vous souhaitez migrer vers, puis sélectionnez **suivant**.
-2. Sur le **ajouter un périphérique de destination et les mappages** page, le premier serveur source est répertorié. Tapez le nom du serveur auquel vous souhaitez migrer, puis sélectionnez **rechercher sur l’appareil**.
-3. Mapper les volumes source aux volumes de destination, désactivez la **Include** case à cocher pour tous les partages vous souhaitez transférer (y compris les partages administratifs situés dans le dossier du système Windows), puis sélectionnez **suivant** .
-   ![Capture d’écran montrant un serveur source et ses volumes et les partages et où ils amèneront transférés sur la destination](media/migrate/transfer.png) **Figure 3 : Un serveur source et où son stockage est transféré vers**
-4. Ajouter des mappages pour des serveurs source et un serveur de destination, puis sélectionnez **suivant**.
-5. Si vous le souhaitez ajuster les paramètres de transfert, puis sélectionnez **suivant**.
-6. Sélectionnez **Validate** , puis sélectionnez **suivant**.
-7. Sélectionnez **démarrer Transfert** pour démarrer le transfert de données.<br>La première fois que vous transférez, nous passerons tous les fichiers existants dans une destination à un dossier de sauvegarde. Sur les transferts suivants, par défaut, nous allons actualiser la destination sans sauvegardant en premier. <br>En outre, Service de Migration de stockage est suffisamment intelligent pour gérer avec chevauchement des partages, nous ne copier les mêmes dossiers que deux fois dans la même tâche.
-8. Une fois le transfert terminé, consultez le serveur de destination pour vous assurer que tous les éléments transférés correctement. Sélectionnez **journal des erreurs** si vous souhaitez télécharger un journal de tous les fichiers qui n’a pas de transfert.
+1. Sur la page **transférer les données** > -**entrer les informations d’identification** , tapez les informations d’identification d’administrateur qui fonctionnent sur les serveurs de destination vers lesquels vous souhaitez effectuer la migration, puis sélectionnez **suivant**.
+2. Sur la page **Ajouter un appareil et des mappages de destination** , le premier serveur source est listé. Tapez le nom du serveur vers lequel vous souhaitez effectuer la migration, puis sélectionnez **analyser l’appareil**.
+3. Mappez les volumes source aux volumes de destination, désactivez la case à cocher **inclure** pour tous les partages que vous ne souhaitez pas transférer (y compris les partages administratifs situés dans le dossier système Windows), puis sélectionnez **suivant**.
+   ![Capture d’écran montrant un serveur source et ses volumes et partages et l’emplacement vers lequel ils seront](media/migrate/transfer.png) transférés sur la destination **figure 3: Un serveur source et où son stockage sera transféré**
+4. Ajoutez un serveur de destination et des mappages pour d’autres serveurs sources, puis sélectionnez **suivant**.
+5. Ajustez éventuellement les paramètres de transfert, puis sélectionnez **suivant**.
+6. Sélectionnez **valider** , puis sélectionnez **suivant**.
+7. Sélectionnez **Démarrer le transfert** pour commencer à transférer des données.<br>La première fois que vous transférez, nous allons déplacer tous les fichiers existants dans une destination vers un dossier de sauvegarde. Lors des transferts suivants, par défaut, nous actualiserons la destination sans la sauvegarder en premier. <br>En outre, le service de migration du stockage est suffisamment intelligent pour traiter les partages qui se chevauchent: nous ne copions pas deux fois les mêmes dossiers dans le même travail.
+8. Une fois le transfert terminé, vérifiez le serveur de destination pour vous assurer que tout est correctement transféré. Sélectionnez **Journal des erreurs uniquement** si vous souhaitez télécharger un journal de tous les fichiers qui n’ont pas été transférés.
 
    > [!NOTE]
-   > Si vous souhaitez conserver une piste d’audit des transferts d’ou que vous comptez exécuter plus d’un transfert d’un travail, cliquez sur **journal de transfert** pour enregistrer une copie de volume partagé de cluster. Chaque transfert ultérieur remplace les informations de base de données d’une exécution précédente. 
+   > Si vous souhaitez conserver une piste d’audit des transferts ou planifier l’exécution de plusieurs transferts dans un travail, cliquez sur **transférer le journal** pour enregistrer une copie CSV. Chaque transfert suivant remplace les informations de base de données d’une exécution précédente. 
 
-À ce stade, vous avez trois options :
+À ce stade, vous disposez de trois options:
 
-- **Accédez à l’étape suivante**, coupez sur afin que les serveurs de destination adoptent les identités des serveurs source.
-- **Envisagez la migration complète** sans prise en charge les identités des serveurs de la source.
-- **Transférer de nouveau**, copie uniquement les fichiers qui ont été mis à jour depuis le dernier transfert.
+- **Passez à l’étape suivante**, en coupant afin que les serveurs de destination adoptent les identités des serveurs sources.
+- **Envisagez la migration terminée** sans prendre en charge les identités des serveurs sources.
+- **Transférer à nouveau**, en copiant uniquement les fichiers qui ont été mis à jour depuis le dernier transfert.
 
-Si votre objectif est de synchroniser les fichiers avec Azure, vous pouvez configurer les serveurs de destination avec Azure File Sync après le transfert de fichiers, ou après la découpe sur vers les serveurs de destination (consultez [planification d’un déploiement d’Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)).
+Si votre objectif est de synchroniser les fichiers avec Azure, vous pouvez configurer les serveurs de destination avec Azure File Sync après le transfert des fichiers ou après avoir coupé les serveurs de destination (voir [planification d’un déploiement Azure file Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)).
 
-## <a name="step-3-optionally-cut-over-to-the-new-servers"></a>Étape 3 : Si vous le souhaitez basculer vers les nouveaux serveurs
+## <a name="step-3-optionally-cut-over-to-the-new-servers"></a>Étape 3 : Éventuellement, découpez les nouveaux serveurs
 
-Dans cette étape vous basculer à partir des serveurs source pour les serveurs de destination, déplacer les adresses IP et les noms d’ordinateurs pour les serveurs de destination. Une fois cette étape terminée, applications et les utilisateurs accéder les nouveaux serveurs via les noms et adresses des serveurs que vous avez migré à partir de.
+Au cours de cette étape, vous allez passer des serveurs sources aux serveurs de destination, en déplaçant les adresses IP et les noms d’ordinateur vers les serveurs de destination. Une fois cette étape terminée, les applications et les utilisateurs accèdent aux nouveaux serveurs via les noms et les adresses des serveurs à partir desquels vous avez migré.
 
- 1. Si vous avez accédé en dehors de la tâche de migration dans Windows Admin Center, accédez à **le Gestionnaire de serveur** > **Service de Migration de stockage** , puis sélectionnez le travail que vous souhaitez effectuer. 
- 1. Sur le **basculer vers les nouveaux serveurs** > **Entrez les informations d’identification** page, sélectionnez **suivant** à utiliser les informations d’identification que vous avez tapé précédemment.
- 1. Sur le **configurer le basculement** page, spécifiez les cartes réseau pour contrôler les paramètres de l’appareil de chaque source. Cette opération déplace l’adresse IP de la source vers la destination dans le cadre du basculement.
- 1. Spécifiez quelle adresse IP pour l’utiliser pour le serveur source après le basculement déplace son adresse à la destination. Vous pouvez utiliser DHCP ou une adresse statique. Si vous utilisez une adresse statique, le nouveau sous-réseau doit être qu'identique à l’ancien sous-réseau ou le basculement échouera.
-    ![Capture d’écran montrant un serveur source et ses adresses IP et noms d’ordinateur et qu’ils amèneront remplacés par après le basculement](media/migrate/cutover.png)
-    **Figure 4 : Un serveur source et la manière dont sa configuration réseau déplace vers la destination**
- 1. Spécifiez comment renommer le serveur source une fois que le serveur de destination est sur son nom. Vous pouvez utiliser un nom généré de manière aléatoire ou tapez un vous-même. Puis sélectionnez **suivant**.
- 1. Sélectionnez **suivant** sur le **ajuster les paramètres de basculement** page.
- 1. Sélectionnez **Validate** sur le **appareil source et destination de valider** page, puis sélectionnez **suivant**.
- 1. Lorsque vous êtes prêt à effectuer le basculement, sélectionnez **démarrer le basculement**. <br>Utilisateurs et des applications peuvent produire une interruption pendant que l’adresse et les noms sont déplacés et les serveurs redémarré plusieurs fois chacune, mais sinon seront pas affectées par la migration. La durée pendant laquelle le basculement dépend de la vitesse à laquelle les serveurs de redémarrent, ainsi que les temps de réplication Active Directory et DNS.
+ 1. Si vous avez quitté la tâche de migration, dans le centre d’administration Windows, accédez à **Gestionnaire de serveur** > **service de migration de stockage** , puis sélectionnez le travail que vous souhaitez effectuer. 
+ 1. Dans la page **couper les nouveaux serveurs** > **entrer les informations d’identification** , sélectionnez **suivant** pour utiliser les informations d’identification que vous avez tapées précédemment.
+ 1. Dans la page **configurer** le basculement, spécifiez les cartes réseau à utiliser pour chaque paramètre de l’appareil source. Cela déplace l’adresse IP de la source vers la destination dans le cadre du basculement.
+ 1. Spécifiez l’adresse IP à utiliser pour le serveur source après le déplacement de son adresse vers la destination. Vous pouvez utiliser DHCP ou une adresse statique. Si vous utilisez une adresse statique, le nouveau sous-réseau doit être le même que l’ancien sous-réseau ou le basculement échoue.
+    ![Capture d’écran montrant un serveur source, son adresse IP et son nom d’ordinateur, ainsi que son remplacement après](media/migrate/cutover.png)
+    le basculement**figure 4: Un serveur source et la façon dont sa configuration réseau sera déplacée vers la destination**
+ 1. Spécifiez Comment renommer le serveur source une fois que le serveur de destination a dépassé son nom. Vous pouvez utiliser un nom généré de manière aléatoire ou un type vous-même. Sélectionnez ensuite **Suivant**.
+ 1. Sélectionnez **suivant** dans la page **ajuster les paramètres** de basculement.
+ 1. Sélectionnez **valider** sur la page **valider l’appareil source et le périphérique de destination** , puis sélectionnez **suivant**.
+ 1. Lorsque vous êtes prêt à effectuer le basculement, sélectionnez **Démarrer**le basculement. <br>Les utilisateurs et les applications peuvent rencontrer une interruption pendant que l’adresse et les noms sont déplacés et que les serveurs ont été redémarrés plusieurs fois, mais ils ne seront pas affectés par la migration. La durée du basculement dépend de la vitesse à laquelle les serveurs redémarrent, ainsi que des Active Directory et des temps de réplication DNS.
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Vue d’ensemble du Service de Migration de stockage](overview.md)
-- [Services de Migration de stockage Forum aux questions (FAQ)](faq.md)
-- [Planification d’un déploiement d’Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)
+- [Vue d’ensemble de Storage migration service](overview.md)
+- [Forum aux questions sur Storage migration services (FAQ)](faq.md)
+- [Planification d’un déploiement de Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)

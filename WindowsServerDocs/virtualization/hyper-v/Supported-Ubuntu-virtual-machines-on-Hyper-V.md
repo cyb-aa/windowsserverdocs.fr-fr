@@ -10,13 +10,13 @@ ms.topic: article
 ms.assetid: 95ea5f7c-25c6-494b-8ffd-2a77f631ee94
 author: shirgall
 ms.author: shirgall
-ms.date: 11/19/2018
-ms.openlocfilehash: 8dad054e79a155e6aa3ba123aba4566f0f675a9d
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.date: 06/13/2019
+ms.openlocfilehash: ad0f79767310595244d0d57876c20b9548a81a96
+ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544701"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69584810"
 ---
 # <a name="supported-ubuntu-virtual-machines-on-hyper-v"></a>Machines virtuelles Ubuntu prises en charge sur Hyper-V
 
@@ -36,44 +36,43 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 
 * (*vide*)-fonctionnalité non disponible
 
-| **Fonctionnalité**                                                                                                                                  | **Version du système d’exploitation Windows Server** | **19,04**             | **18,10**             | **18,04 LTS**         | **16,04 LTS**         | **14,04 LTS**         | **12,04 LTS**       |
-|----------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|---------------------|
-| **Disponibilité**                                                                                                                             |                                             | Intégré              | Intégré              | Intégré              | Intégré              | Intégré              | Intégré            |
-| **[Ebauche](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**                                                   | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
-| Heure précise de Windows Server 2016                                                                                                            | 2019, 2016                                  | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                       |                     |
-| **[Mise](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**                                       |                                             |                       |                       |                       |                       |                       |                     |
-| Trames Jumbo                                                                                                                                 | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
-| Balisage et Trunking VLAN                                                                                                                    | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
-| Migration en direct                                                                                                                               | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
-| Injection d’adresses IP statiques                                                                                                                          | 2019, 2016, 2012 R2, 2012                   | &#10004;Remarque 1       | &#10004;Remarque 1       | &#10004;Remarque 1       | &#10004;Remarque 1       | &#10004;Remarque 1       | &#10004;Remarque 1     |
-| vRSS                                                                                                                                         | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| Segmentation TCP et déchargements de somme de contrôle                                                                                                       | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| SR-IOV                                                                                                                                       | 2019, 2016                                  | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                       |                     |
-| **[Rangement](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                                             |                                             |                       |                       |                       |                       |                       |                     |
-| Redimensionnement VHDX                                                                                                                                  | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| Fibre Channel virtuel                                                                                                                        | 2019, 2016, 2012 R2                         | &#10004;Remarque 2       | &#10004;Remarque 2       | &#10004;Remarque 2       | &#10004;Remarque 2       | &#10004;Remarque 2       |                     |
-| Sauvegarde de machine virtuelle en direct                                                                                                                  | 2019, 2016, 2012 R2                         | &#10004;Remarque 3, 4, 6 | &#10004;Remarque 3, 4, 6 | &#10004;Remarque 3, 4, 5 | &#10004;Remarque 3, 4, 5 | &#10004;Remarque 3, 4, 5 |                     |
-| SUPPRIMER la prise en charge                                                                                                                                 | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
-| WWN SCSI                                                                                                                                     | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| **[Capacité](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**                                               |                                             |                       |                       |                       |                       |                       |                     |
-| Prise en charge du noyau PAE                                                                                                                           | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
-| Configuration de l’intervalle MMIO                                                                                                                    | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
-| Mémoire dynamique-ajout à chaud                                                                                                                     | 2019, 2016, 2012 R2, 2012                   | &#10004;Remarque 7, 8, 9 | &#10004;Remarque 7, 8, 9 | &#10004;Remarque 7, 8, 9 | &#10004;Remarque 7, 8, 9 | &#10004;Remarque 7, 8, 9 |                     |
-| Mémoire dynamique-bulles                                                                                                                  | 2019, 2016, 2012 R2, 2012                   | &#10004;Remarque 7, 8, 9 | &#10004;Remarque 7, 8, 9 | &#10004;Remarque 7, 8, 9 | &#10004;Remarque 7, 8, 9 | &#10004;Remarque 7, 8, 9 |                     |
-| Redimensionnement de la mémoire d’exécution                                                                                                                        | 2019, 2016                                  | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| **[Vidéosurveillance](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**                                                 |                                             |                       |                       |                       |                       |                       |                     |
-| Périphérique vidéo spécifique à Hyper-V                                                                                                                | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| **[Diverses](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**                                 |                                             |                       |                       |                       |                       |                       |                     |
-| Paire clé/valeur                                                                                                                               | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;Remarque 6, 10   | &#10004;Remarque 6, 10   | &#10004;Remarque: 5, 10   | &#10004;Remarque: 5, 10   | &#10004;Remarque: 5, 10   | &#10004;Remarque: 5, 10 |
-| Interruption non masquable                                                                                                                       | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
-| Copie de fichiers de l’hôte vers l’invité                                                                                                                 | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| commande lsvmbus                                                                                                                              | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| Sockets Hyper-V                                                                                                                              | 2019, 2016                                  |                       |                       |                       |                       |                       |                     |
-| Passthrough/DDA PCI                                                                                                                          | 2019, 2016                                  | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| **[Ordinateurs virtuels de 2e génération](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)** |                                             |                       |                       |                       |                       |                       |                     |
-| Démarrer à l’aide d’UEFI                                                                                                                              | 2019, 2016, 2012 R2                         | &#10004;Remarque 11, 12  | &#10004;Remarque 11, 12  | &#10004;Remarque 11, 12  | &#10004;Remarque 11, 12  | &#10004;Remarque 11, 12  |                     |
-| Démarrage sécurisé                                                                                                                                  | 2019, 2016                                  | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-
+|**Fonctionnalité**|**Version du système d’exploitation Windows Server**|**18,10/19,04**|**18,04 LTS**|**16,04 LTS**|**14,04 LTS**|**12,04 LTS**|
+|-|-|-|-|-|-|-|
+|**Disponibilité**||Intégré|Intégré|Intégré|Intégré|Intégré|
+|**[Ebauche](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Heure précise de Windows Server 2016|2019, 2016|&#10004;|&#10004;|&#10004;|||
+|**[Mise](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**|||||||
+|Trames Jumbo|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Balisage et Trunking VLAN|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Migration en direct|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Injection d’adresses IP statiques|2019, 2016, 2012 R2, 2012|&#10004;Remarque 1|&#10004;Remarque 1|&#10004;Remarque 1|&#10004;Remarque 1|&#10004;Remarque 1|
+|vRSS|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
+|Segmentation TCP et déchargements de somme de contrôle|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
+|SR-IOV|2019, 2016|&#10004;|&#10004;|&#10004;|||
+|**[Stockage](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||||||
+|Redimensionnement VHDX|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
+|Fibre Channel virtuel|2019, 2016, 2012 R2|&#10004;Remarque 2|&#10004;Remarque 2|&#10004;Remarque 2|&#10004;Remarque 2||
+|Sauvegarde de machine virtuelle en direct|2019, 2016, 2012 R2|&#10004;Remarque 3, 4, 6|&#10004;Remarque 3, 4, 5|&#10004;Remarque 3, 4, 5|&#10004;Remarque 3, 4, 5||
+|SUPPRIMER la prise en charge|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|WWN SCSI|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
+|**[Capacité](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**||||||
+|Prise en charge du noyau PAE|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Configuration de l’intervalle MMIO|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Mémoire dynamique-ajout à chaud|2019, 2016, 2012 R2, 2012|&#10004;Remarque 7, 8, 9|&#10004;Remarque 7, 8, 9|&#10004;Remarque 7, 8, 9|&#10004;Remarque 7, 8, 9||
+|Mémoire dynamique-bulles|2019, 2016, 2012 R2, 2012|&#10004;Remarque 7, 8, 9|&#10004;Remarque 7, 8, 9|&#10004;Remarque 7, 8, 9|&#10004;Remarque 7, 8, 9||
+|Redimensionnement de la mémoire d’exécution|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||
+|**[Vidéosurveillance](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**|||||||
+|Périphérique vidéo spécifique à Hyper-V|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
+|**[Diverses](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**||||||
+|Paire clé/valeur|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;Remarque 6, 10|&#10004;Remarque: 5, 10|&#10004;Remarque: 5, 10|&#10004;Remarque: 5, 10|&#10004;Remarque: 5, 10|
+|Interruption non masquable|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Copie de fichiers de l’hôte vers l’invité|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
+|commande lsvmbus|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
+|Sockets Hyper-V|2019, 2016||||||
+|Passthrough/DDA PCI|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||
+|**[Ordinateurs virtuels de 2e génération](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**||||||
+|Démarrer à l’aide d’UEFI|2019, 2016, 2012 R2|&#10004;Remarque 11, 12|&#10004;Remarque 11, 12|&#10004;Remarque 11, 12|&#10004;Remarque 11, 12||
+|Démarrage sécurisé|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||
 
 ## <a name="notes"></a>Notes
 
@@ -138,7 +137,7 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 
 10. Dans Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2, l’infrastructure de paires clé/valeur peut ne pas fonctionner correctement sans mise à jour logicielle Linux. Contactez votre fournisseur de distribution pour obtenir la mise à jour logicielle en cas de problème avec cette fonctionnalité.
 
-11. Sur Windows Server 2012 R2, le démarrage sécurisé est activé par défaut pour les ordinateurs virtuels de génération 2, et certaines machines virtuelles Linux ne démarrent que si l’option de démarrage sécurisé est désactivée. Vous pouvez désactiver le démarrage sécurisé dans  la section microprogramme des paramètres de l’ordinateur virtuel dans le **Gestionnaire Hyper-V** , ou vous pouvez le désactiver à l’aide de PowerShell:
+11. Sur Windows Server 2012 R2, le démarrage sécurisé est activé par défaut pour les ordinateurs virtuels de génération 2, et certaines machines virtuelles Linux ne démarrent que si l’option de démarrage sécurisé est désactivée. Vous pouvez désactiver le démarrage sécurisé dans la section microprogramme des paramètres de l’ordinateur virtuel dans le **Gestionnaire Hyper-V** , ou vous pouvez le désactiver à l’aide de PowerShell:
 
     ```Powershell
     Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off

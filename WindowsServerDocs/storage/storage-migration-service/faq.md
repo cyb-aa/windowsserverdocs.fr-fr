@@ -1,162 +1,161 @@
 ---
-title: Service de Migration de stockage Forum aux questions (FAQ)
-description: Forum aux questions sur le Service de Migration de stockage, tels que les fichiers qui sont exclus de transferts lors de la migration d’un serveur vers un autre.
+title: Forum aux questions (FAQ) sur le service de migration de stockage
+description: Forum aux questions sur le service de migration de stockage, comme les fichiers exclus des transferts lors de la migration d’un serveur vers un autre.
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 06/04/2019
+ms.date: 08/19/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 8f0f16f14ccf9099af8ff8bb8b27209c75c87cfc
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: f086143ae2e02a2d049189ff248e02fc44fe3cb2
+ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284468"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69584802"
 ---
-# <a name="storage-migration-service-frequently-asked-questions-faq"></a>Service de Migration de stockage Forum aux questions (FAQ)
+# <a name="storage-migration-service-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur le service de migration de stockage
 
-Cette rubrique contient des réponses aux questions fréquemment posées (FAQ) sur l’utilisation de [Service de Migration de stockage](overview.md) pour migrer des serveurs.
+Cette rubrique contient des réponses aux questions fréquemment posées (FAQ) sur l’utilisation de [Storage migration service](overview.md) pour migrer des serveurs.
 
-## <a name="excluded-files"></a> Quels fichiers et dossiers sont exclus des transferts ?
+## <a name="what-files-and-folders-are-excluded-from-transfers"></a>Quels fichiers et dossiers sont exclus des transferts?
 
-Service de Migration de stockage ne sont pas transférer des fichiers ou dossiers que nous savons peut interférer avec l’opération de Windows. Plus précisément, voici ce que nous ne transférez ou déplacer dans le dossier PreExistingData sur la destination :
+Le service de migration du stockage ne transfère pas les fichiers ou dossiers que nous savons être en mesure d’interférer avec le fonctionnement de Windows. Plus précisément, voici ce que nous n’allons pas transférer ou déplacer dans le dossier PreExistingData de la destination:
 
-- Windows, Program Files, Program Files (x86), données de programme, les utilisateurs
-- $Recycle.bin, recycler, recyclage, System Volume Information, $ $UpgDrv, $SysReset, $Windows. ~ BT, $Windows. ~ LS, Windows.old, démarrage, récupération, Documents et paramètres
-- pagefile.sys, hiberfil.sys, swapfile.sys, winpepge.sys, config.sys, bootsect.bak, bootmgr, bootnxt
-- Les fichiers ou les dossiers sur le serveur source qui est en conflit avec les dossiers exclus de la destination. <br>Par exemple, s’il existe un dossier N:\Windows sur la source et il est mappé à la C:\ volume sur la destination, il ne transfert, quel que soit ce qu’il contient, car il entraînerait une interférence avec le dossier de système de C:\Windows sur la destination.
+- Windows, fichiers programme, Program Files (x86), données de programme, utilisateurs
+- $Recycle. bin, recycler, recyclé, informations sur le volume système, $UpgDrv $, $SysReset, $Windows. ~ BT, $Windows. ~ LS, Windows. old, démarrage, récupération, documents et paramètres
+- pagefile. sys, Hiberfil. sys, swap. sys, winpepge. sys, config. sys, Bootsect. bak, bootmgr, bootnxt
+- Tous les fichiers ou dossiers sur le serveur source sont en conflit avec les dossiers exclus sur la destination. <br>Par exemple, s’il existe un dossier N:\Windows sur la source et qu’il est mappé à C:\ volume sur la destination, il n’est pas transféré, indépendamment de ce qu’il contient, car il interfère avec le dossier système C:\Windows sur la destination.
 
-## <a name="domain-migration"></a> Migrations de domaine sont pris en charge ?
+## <a name="are-domain-migrations-supported"></a>Les migrations de domaine sont-elles prises en charge?
 
-Service de Migration de stockage n’autorise pas la migration entre domaines Active Directory. Les migrations entre serveurs seront toujours joints du serveur de destination au même domaine. Vous pouvez utiliser les informations d’identification de la migration à partir de différents domaines dans la forêt Active Directory. Le Service de Migration de stockage ne prend pas en charge la migration entre des groupes de travail.  
+Le service de migration du stockage n’autorise pas la migration entre des domaines de Active Directory. Les migrations entre les serveurs vont toujours joindre le serveur de destination au même domaine. Vous pouvez utiliser les informations d’identification de migration à partir de différents domaines de la forêt Active Directory. Le service de migration de stockage prend en charge la migration entre les groupes de travail.  
 
-## <a name="cluster-support"></a> Les clusters sont pris en charge en tant que sources ou des destinations ?
+## <a name="are-clusters-supported-as-sources-or-destinations"></a>Les clusters sont-ils pris en charge en tant que sources ou destinations?
 
-Service de Migration de stockage n’actuellement migrer entre des Clusters dans Windows Server 2019. Nous prévoyons d’ajouter la prise en charge de cluster dans une prochaine version du Service de Migration de stockage.
+Le service de migration de stockage ne migre pas actuellement entre les clusters dans Windows Server 2019. Nous prévoyons d’ajouter la prise en charge des clusters dans une version ultérieure du service de migration de stockage.
 
-## <a name="local-principals"></a> Migrent les utilisateurs locaux et de groupes locaux ?
+## <a name="do-local-groups-and-local-users-migrate"></a>Les groupes locaux et les utilisateurs locaux migrent-ils?
 
-Service de Migration de stockage n’actuellement migrer les utilisateurs locaux ou des groupes locaux dans Windows Server 2019. Nous prévoyons d’ajouter la prise en charge de l’utilisateur local et migration d’un groupe local dans une prochaine version du Service de Migration de stockage.
+Le service de migration de stockage ne migre pas actuellement les utilisateurs locaux ou les groupes locaux dans Windows Server 2019. Nous prévoyons d’ajouter la prise en charge de la migration des utilisateurs locaux et des groupes locaux dans une version ultérieure du service de migration de stockage.
 
-## <a name="domain-controller"></a> Migration de contrôleur de domaine est pris en charge ?
+## <a name="is-domain-controller-migration-supported"></a>La migration du contrôleur de domaine est-elle prise en charge?
 
-Service de Migration de stockage ne migre actuellement des contrôleurs de domaine dans Windows Server 2019. Pour résoudre ce problème, tant que vous avez plusieurs contrôleurs de domaine dans le domaine Active Directory, rétrograder le contrôleur de domaine avant de les migrer, puis promouvoir la destination après le basculement se termine. Nous prévoyons d’ajouter le support de migration de contrôleur de domaine dans une prochaine version du Service de Migration de stockage.
+Le service de migration de stockage ne migre pas actuellement les contrôleurs de domaine dans Windows Server 2019. En guise de solution de contournement, à condition que vous disposiez de plusieurs contrôleurs de domaine dans le domaine Active Directory, rétrogradez le contrôleur de domaine avant de le migrer, puis promouvez la destination une fois la coupure terminée. Nous prévoyons d’ajouter la prise en charge de la migration du contrôleur de domaine dans une version ultérieure du service de migration de stockage.
 
-## <a name="share-attributes"></a> Quels attributs sont migrés par le Service de Migration de stockage ?
+## <a name="what-attributes-are-migrated-by-the-storage-migration-service"></a>Quels attributs sont migrés par le service de migration de stockage?
 
-Service de stockage Migration migre tous les indicateurs, paramètres et la sécurité des partages SMB. Cette liste d’indicateurs qui migre le Service de Migration de stockage comprend :
+Storage migration service migre tous les indicateurs, paramètres et sécurité des partages SMB. Cette liste d’indicateurs migrés par le service de migration de stockage comprend les éléments suivants:
 
-    - État d’un partage
+    - État du partage
     - Type de disponibilité
     - Type de partage
-    - Mode d’énumération de dossier *(également appelé énumération basée accès ou ABE)*
+    - Mode d’énumération *des dossiers (également appelé énumération basée sur l’accès ou Abe)*
     - Mode de mise en cache
-    - Mode de bail
-    - Instance de SMB
-    - Délai d’expiration de l’autorité de certification
+    - Mode de Leasing
+    - Instance SMB
+    - Délai d’expiration de l’AC
     - Limite d’utilisateurs simultanés
     - Disponible en continu
     - Description           
     - Chiffrer les données
-    - Communication à distance de l’identité
+    - Communication à distance des identités
     - Infrastructure
-    - Nom
-    - Path
+    - Name
+    - path
     - Étendue
     - Nom de l'étendue
     - Descripteur de sécurité
     - Cliché instantané
-    - Spéciale
-    - Temporaire
+    - Special
+    - Passagère
 
-## <a name="move-db"></a> Puis-je déplacer la base de données du Service de Migration de stockage ?
+## <a name="can-i-consolidate-multiple-servers-into-one-server"></a>Puis-je consolider plusieurs serveurs en un seul serveur?
 
-Le Service de Migration de stockage utilise une base de données de moteur ESE () de stockage extensible qui est installé par défaut dans le dossier c:\programdata\microsoft\storagemigrationservice masqué. Cette base de données augmente à mesure que les travaux sont ajoutés et transferts sont terminées et consomment l’espace du lecteur significatifs après la migration des millions de fichiers si vous ne supprimez pas les travaux. Si la base de données doit déplacer, procédez comme suit :
+La version du service de migration du stockage fournie dans Windows Server 2019 ne prend pas en charge la consolidation de plusieurs serveurs en un seul serveur. Un exemple de consolidation consiste à migrer trois serveurs sources distincts, qui peuvent avoir les mêmes noms de partage et chemins d’accès de fichiers locaux, sur un nouveau serveur qui a virtualisé ces chemins d’accès et partages pour empêcher tout chevauchement ou collision, puis de répondre aux trois noms et adresses IP des serveurs précédents. Nous pouvons ajouter cette fonctionnalité dans une version future du service de migration de stockage. 
 
-1. Arrêter le service « Service de Migration de stockage » sur l’ordinateur orchestrator.
-2. S’approprier le `%programdata%/Microsoft/StorageMigrationService` dossier
-3. Ajoutez votre compte d’utilisateur d’avoir un contrôle total sur qui partagent et tous ses fichiers et les sous-dossiers.
-4. Déplacez le dossier vers un autre lecteur sur l’ordinateur orchestrator.
-5. Définissez la valeur REG_SZ de Registre suivante :
+## <a name="can-i-migrate-from-sources-other-than-windows-server"></a>Puis-je effectuer une migration à partir de sources autres que Windows Server?
 
-    HKEY_Local_Machine\Software\Microsoft\SMS DatabasePath = *chemin d’accès au nouveau dossier de base de données sur un autre volume* . 
-6. Assurez-vous que système dispose d’un contrôle total sur tous les fichiers et sous-dossiers de ce dossier
-7. Supprimer vos propres autorisations de comptes.
-8. Démarrez le service « Service de Migration de stockage ».
+La version du service de migration du stockage fournie dans Windows Server 2019 prend en charge la migration à partir de Windows Server 2003 et des systèmes d’exploitation ultérieurs. Vous pouvez également migrer le stockage à partir d’un serveur ou d’un périphérique Linux qui utilise Samba. pour ce faire, exécutez le service de migration de stockage sur un serveur exécutant Windows Server, version 1903 ou ultérieure.
 
-## <a name="non-windows"></a> Puis-je migrer à partir de sources autres que Windows Server ?
+## <a name="can-i-migrate-previous-file-versions"></a>Puis-je migrer des versions de fichier précédentes?
 
-La version du Service de Migration de stockage fournie dans Windows Server 2019 prend en charge la migration à partir de Windows Server 2003 et les systèmes d’exploitation ultérieurs. Actuellement, il ne peut pas migrer à partir de Linux, Samba, NetApp, EMC ou autres périphériques de stockage SAN et NAS. Nous prévoyons autoriser cela dans une future version de Service de Migration de stockage, en commençant par la prise en charge de Linux Samba.
+La version du service de migration du stockage fournie dans Windows Server 2019 ne prend pas en charge la migration des versions précédentes (effectuées avec le service VSS) de fichiers. Seule la version actuelle sera migrée. 
 
-## <a name="previous-versions"></a> Puis-je migrer des versions antérieures des fichiers ?
+## <a name="optimizing-inventory-and-transfer-performance"></a>Optimisation des performances d’inventaire et de transfert
 
-La version du Service de Migration de stockage fournie dans Windows Server 2019 ne prend pas en charge la migration les Versions précédentes (effectuées avec le service de cliché instantané de volume) de fichiers. Migre uniquement la version actuelle. 
+Le service de migration de stockage contient un moteur de lecture et de copie multithread appelé service de proxy de migration de stockage, que nous avons conçu pour être à la fois rapide et apporter une fidélité des données inadaptée à de nombreux outils de copie de fichiers. Si la configuration par défaut est optimale pour de nombreux clients, il existe des moyens d’améliorer les performances de SMS pendant l’inventaire et le transfert.
 
-## <a name="ntfs-refs"></a> Puis-je migrer à partir de NTFS vers REFS ?
+- **Utilisez Windows Server 2019 pour le système d’exploitation de destination.** Windows Server 2019 contient le service de proxy de service de migration de stockage. Lorsque vous installez cette fonctionnalité et migrez vers des destinations Windows Server 2019, tous les transferts fonctionnent comme une ligne de vue directe entre la source et la destination. Ce service s’exécute sur l’orchestrateur pendant le transfert si les ordinateurs de destination sont Windows Server 2012 R2 ou Windows Server 2016, ce qui signifie que les transferts double-saut et sont beaucoup plus lents. Si plusieurs tâches s’exécutent avec des destinations Windows Server 2012 R2 ou Windows Server 2016, l’orchestrateur devient un goulot d’étranglement. 
 
-La version du Service de Migration de stockage fournie dans Windows Server 2019 ne prend pas en charge la migration à partir de NTFS pour les systèmes de fichiers REFS. Vous pouvez migrer à partir de NTFS vers NTFS et REFS en ReFS. Il s’agit par conception, en raison des nombreuses différences dans les fonctionnalités, les métadonnées et les autres aspects ReFS ne duplique pas NTFS. ReFS est conçue comme un système de fichiers de la charge de travail application, pas un système de fichiers généraux. Pour plus d’informations, consultez [vue d’ensemble du système de fichiers résilient (ReFS)](../refs/refs-overview.md)
+- **Modifiez les threads de transfert par défaut.** Le service de proxy de migration de stockage copie 8 fichiers simultanément dans un travail donné. Vous pouvez augmenter le nombre de threads de copie simultanés en ajustant le nom de la valeur REG_DWORD du Registre suivant en décimal sur chaque nœud exécutant le proxy SMS:
 
-## <a name="consolidate-servers"></a> Puis-je consolider plusieurs serveurs dans un seul serveur ?
+    HKEY_Local_Machine\Software\Microsoft\SMSProxy FileTransferThreadCount
 
-La version du Service de Migration de stockage fournie dans Windows Server 2019 ne prend pas en charge la consolidation de plusieurs serveurs dans un seul serveur. Un exemple de consolidation serait effectuez la migration trois serveurs source distinct - qui peuvent avoir les mêmes noms de partage, les chemins de fichiers locaux - sur un nouveau serveur unique qui virtualisés ces chemins d’accès et les partages afin d’éviter tout chevauchement ou un conflit, puis a répondu trois les noms de serveurs précédents et l’adresse IP. Nous pouvons ajouter cette fonctionnalité dans une future version de la Migration du Service de stockage.  
+   La plage valide est comprise entre 1 et 128 dans Windows Server 2019. Après modification, vous devez redémarrer le service de proxy du service de migration de stockage sur tous les ordinateurs participant à une migration. Soyez vigilant avec ce paramètre. la définition d’une valeur supérieure peut nécessiter des cœurs supplémentaires, des performances de stockage et une bande passante réseau. La définition d’une valeur trop élevée peut entraîner une réduction des performances par rapport aux paramètres par défaut. La possibilité de modifier de manière heuristique les paramètres de thread en fonction du processeur, de la mémoire, du réseau et du stockage est prévue pour une version ultérieure de SMS.
 
-## <a name="optimize"></a> Optimisation des performances de l’inventaire et de transfert
+- **Ajoutez des cœurs et de la mémoire.**  Nous recommandons vivement que les ordinateurs source, Orchestrator et de destination disposent d’au moins deux cœurs de processeur ou de deux processeurs virtuels. en plus, ils peuvent améliorer de manière significative les performances d’inventaire et de transfert, en particulier lorsqu’ils sont combinés avec FileTransferThreadCount (ci-dessus). Lors du transfert de fichiers plus volumineux que les formats Office habituels (gigaoctets ou plus), les performances de transfert tirent plus de mémoire que le minimum par défaut de 2 Go.
 
-Le Service de Migration de stockage contient un moteur de copie appelé service de Proxy de Service de Migration de stockage qui nous avons conçu pour être à la fois rapide mais aussi d’intégrer n’ayant pas de données idéal haute fidélité dans de nombreux outils de copie de fichier et de lecture multithread. Alors que la configuration par défaut sera optimale pour de nombreux clients, il existe des moyens d’améliorer les performances de SMS lors de l’inventaire et de transfert.
+- **Créer plusieurs travaux.** Lors de la création d’un travail avec plusieurs sources de serveur, chaque serveur est contacté en série pour l’inventaire, le transfert et le basculement. Cela signifie que chaque serveur doit terminer sa phase avant le démarrage d’un autre serveur. Pour exécuter plusieurs serveurs en parallèle, il vous suffit de créer plusieurs travaux, chaque travail contenant un seul serveur. SMS prend en charge jusqu’à 100 travaux en cours d’exécution simultanément, ce qui signifie qu’un seul Orchestrator peut paralléliser plusieurs ordinateurs de destination Windows Server 2019. Nous vous déconseillons d’exécuter plusieurs tâches parallèles si vos ordinateurs de destination sont Windows Server 2016 ou Windows Server 2012 R2 comme sans le service proxy SMS s’exécutant sur la destination, l’orchestrateur doit effectuer tous les transferts et peut devenir un situ. La possibilité pour les serveurs de s’exécuter en parallèle à l’intérieur d’une seule tâche est une fonctionnalité que nous prévoyons d’ajouter dans une version ultérieure de SMS.
 
-- **Utilisez Windows Server 2019 pour le système d’exploitation de destination.** Windows Server 2019 contient le service de Proxy de Service de Migration de stockage. Lorsque vous installez cette fonctionnalité et migrez vers Windows Server 2019 destinations, tous les transferts de fonctionnent comme une visibilité directe entre la source et de destination. Ce service s’exécute sur l’orchestrateur pendant le transfert si les ordinateurs de destination sont Windows Server 2012 R2 ou Windows Server 2016, ce qui signifie que les transferts de double-saut et seront considérablement ralenties. S’il existe plusieurs travaux en cours d’exécution avec Windows Server 2012 R2 ou Windows Server 2016 destinations, l’orchestrateur devient un goulot d’étranglement. 
+- **Utilisez SMB 3 avec des réseaux RDMA.** Si vous transférez à partir d’un ordinateur source Windows Server 2012 ou version ultérieure, SMB 3. x prend en charge le mode SMB direct et la mise en réseau RDMA. RDMA déplace la plus grande partie du coût de transfert des processeurs de la carte mère vers les processeurs de carte réseau intégrés, ce qui réduit la latence et l’utilisation du processeur du serveur. En outre, les réseaux RDMA tels que ROCE et iWARP ont généralement beaucoup plus de bande passante que le TCP/Ethernet classique, y compris 25, 50 et 100 Go de vitesses par interface. L’utilisation de SMB direct déplace généralement la limite de vitesse de transfert du réseau vers le stockage lui-même.   
 
-- **Modifier les threads de transfert par défaut.** Le service de Proxy de Service de Migration de stockage copie 8 fichiers simultanément dans un travail donné. Vous pouvez augmenter le nombre de threads de copie simultanées en ajustant le nom de valeur REG_DWORD de Registre suivant au format décimal sur chaque nœud qui exécute le Proxy de SMS :
-
-    HKEY_Local_Machine\Software\Microsoft\SMSProxy   FileTransferThreadCount
-
-   La plage valide est 1 et 128 dans Windows Server 2019. Après avoir modifié, vous devez redémarrer le service de Proxy de Service de Migration de stockage sur tous les ordinateurs participant à une migration. Soyez prudent avec ce paramètre ; définition la plus élevée peut nécessiter davantage de noyaux, les performances de stockage et la bande passante réseau. Trop élevée peut entraîner une dégradation des performances par rapport aux paramètres par défaut. La possibilité de manière heuristique modifier les paramètres de thread en fonction du processeur, mémoire, réseau et de stockage est prévue pour une version ultérieure de SMS.
-
-- **Ajoutez les cœurs et la mémoire.**  Nous recommandons vivement que les ordinateurs source et destination orchestrator ont au moins deux cœurs de processeur ou de deux processeurs virtuels, et bien plus encore pouvant aider considérablement le stock et le transfert des performances, en particulier lorsqu’elles sont combinées avec FileTransferThreadCount (ci-dessus). Lors du transfert de fichiers qui sont plus grands que les formats Office habituels (gigaoctets ou plus) les performances de transfert bénéficient de plus de mémoire que le minimum de 2 Go par défaut.
-
-- **Créer plusieurs travaux.** Lorsque vous créez un travail avec plusieurs sources de serveur, chaque serveur est contacté en série pour le stock, transfert et le basculement. Cela signifie que chaque serveur doit terminer sa phase avant le démarrage d’un autre serveur. Pour exécuter davantage de serveurs en parallèle, créez simplement plusieurs tâches, avec chaque tâche contenant uniquement un des serveurs. SMS prend en charge jusqu'à 100 s’exécutant simultanément des travaux, ce qui signifie qu’un seul orchestrator pouvez paralléliser de nombreux ordinateurs de destination Windows Server 2019. Nous ne recommandons pas l’exécution de plusieurs travaux parallèles si vos ordinateurs de destination sont Windows Server 2016 ou Windows Server 2012 R2 sans que le service de proxy SMS en cours d’exécution sur la destination, l’orchestrateur doit effectuer tous les transferts de lui-même et peut devenir un goulot d’étranglement. La possibilité pour les serveurs à s’exécuter en parallèle à l’intérieur d’un seul travail est une fonctionnalité que nous prévoyons d’ajouter dans une version plus récente de SMS.
-
-- **Utiliser SMB 3 avec les réseaux RDMA.** Si le transfert à partir d’un Windows Server 2012 ou ultérieur ordinateur source, SMB SMB 3.x prend en charge le mode Direct et de mise en réseau RDMA. RDMA déplace la plupart des coût UC de transfert à partir de la carte mère processeurs aux processeurs de carte réseau intégrées, ce qui réduit la latence et le serveur de l’utilisation du processeur. En outre, les réseaux RDMA comme ROCE et iWARP généralement la bande passante sensiblement plus élevée que TCP classique/ethernet, y compris les 25, 50 et vitesses de 100 Go par interface. À l’aide de SMB Direct généralement déplace la limite de vitesse de transfert à partir du réseau vers le stockage lui-même.   
-
-- **Utilisez les 3 SMB multichannel.** Si le transfert d’un Windows Server 2012 ou d’un ordinateur de source plus loin, SMB 3.x prend en charge multicanal copie qui peut améliorer considérablement les fichiers des performances de copie. Cette fonctionnalité fonctionne automatiquement tant que la source et destination comportent :
+- **Utilisez SMB 3 Multichannel.** Si vous transférez à partir d’un ordinateur source Windows Server 2012 ou version ultérieure, SMB 3. x prend en charge les copies multicanaux qui peuvent améliorer les performances de copie de fichiers. Cette fonctionnalité fonctionne automatiquement tant que la source et la destination possèdent toutes les deux:
 
    - Plusieurs cartes réseau
-   - Une ou plusieurs cartes réseau qui prennent en charge la mise à l’échelle côté réception (RSS)
-   - Une des plus de cartes réseau qui sont configurées en utilisant l’association de cartes réseau
+   - Une ou plusieurs cartes réseau prenant en charge la mise à l’échelle côté réception (RSS)
+   - Une ou plusieurs cartes réseau configurées à l’aide de l’Association de cartes réseau
    - Une ou plusieurs cartes réseau prenant en charge RDMA
 
-- **Mettre à jour des pilotes.** Comme il convient, installez-y dernier stockage de fournisseur et du microprogramme du boîtier et pilotes derniers pilotes du fournisseur HBA, dernière version du microprogramme BIOS/UEFI de fournisseur, derniers pilotes réseau du fournisseur et derniers pilotes de chipsets de carte mère orchestrator, source et destination serveurs. Redémarrez les nœuds si besoin. Consultez la documentation de votre fournisseur de matériel pour la configuration du stockage partagé et du matériel réseau.
+- **Mettre à jour les pilotes.** Si nécessaire, installez le microprogramme et le microprogrammes de stockage et de boîtier du fournisseur, les derniers pilotes HBA des fournisseurs, le dernier microprogramme du fournisseur BIOS/UEFI, les derniers pilotes réseau du fournisseur et les derniers pilotes de carte mère sur la source, la destination et Orchestrator. serveurs. Redémarrez les nœuds si besoin. Consultez la documentation de votre fournisseur de matériel pour la configuration du stockage partagé et du matériel réseau.
 
-- **Permettre un traitement hautes performances.** Vérifiez que les paramètres BIOS/UEFI des serveurs permettent de hautes performances, par exemple avec la désactivation de C-State, la définition de la vitesse de QPI, l’activation de NUMA et la définition de la fréquence mémoire la plus élevée. Vérifiez la gestion de l’alimentation dans Windows Server est définie à hautes performances. Redémarrez si nécessaire. N’oubliez pas de les retourner aux États appropriés après avoir effectué la migration. 
+- **Activez le traitement hautes performances.** Vérifiez que les paramètres BIOS/UEFI des serveurs permettent de hautes performances, par exemple avec la désactivation de C-State, la définition de la vitesse de QPI, l’activation de NUMA et la définition de la fréquence mémoire la plus élevée. Assurez-vous que la gestion de l’alimentation dans Windows Server est définie sur hautes performances. Redémarrez si nécessaire. N’oubliez pas de les retourner aux États appropriés une fois la migration terminée. 
 
-- **Paramétrer le matériel** révision le [performances réglage des instructions pour Windows Server 2016](https://docs.microsoft.com/windows-server/administration/performance-tuning/) pour le réglage de l’orchestrator et les ordinateurs de destination exécutant Windows Server 2019 et de Windows Server 2016. Le [réglage des performances réseau sous-système](https://docs.microsoft.com/windows-server/networking/technologies/network-subsystem/net-sub-performance-tuning-nics) section contient des informations particulièrement utiles.
+- **Réglage du matériel** Passez en revue les [instructions de réglage des performances pour Windows server 2016](https://docs.microsoft.com/windows-server/administration/performance-tuning/) afin de paramétrer les ordinateurs Orchestrator et de destination exécutant windows server 2019 et windows server 2016. La section sur le [réglage des performances du sous-système réseau](https://docs.microsoft.com/windows-server/networking/technologies/network-subsystem/net-sub-performance-tuning-nics) contient des informations particulièrement précieuses.
 
-- **Utilisation du stockage plus rapide.** S’il peut être difficile de mettre à niveau de la vitesse de stockage d’ordinateur source, vous devez vous assurer que le stockage de destination est au moins aussi rapide sur les performances d’e/s écriture, la source est au niveau de performances d’e/s lecture afin de vérifier qu'il n’existe aucun goulot d’étranglement inutile dans les transferts. Si la destination est une machine virtuelle, assurez-vous que, au moins dans le cadre de la migration, il s’exécute dans la couche de stockage le plus rapide de vos hôtes hyperviseur, comme sur la couche de flash ou avec les clusters de HCL directe des espaces de stockage utilisant la mise en miroir exclusivement flash ou espaces de hybride. Lors de la migration de SMS est terminée la machine virtuelle peut être migrées dynamiquement à un hôte ou un niveau plus lent.
+- **Utilisez un stockage plus rapide.** Bien qu’il soit difficile de mettre à niveau la vitesse de stockage de l’ordinateur source, vous devez vous assurer que le stockage de destination est au moins aussi rapide que les performances d’e/s en écriture, car la source est aux performances d’e/s de lecture afin de garantir qu’il n’y a pas de goulot d’étranglement inutile dans les transferts. Si la destination est une machine virtuelle, assurez-vous que, au moins dans le cadre de la migration, elle s’exécute dans la couche de stockage la plus rapide de vos hôtes hyperviseur, par exemple sur le niveau Flash ou avec des clusters HCI espaces de stockage direct à l’aide d’espaces en miroir tout-Flash ou hybrides. Lorsque la migration SMS est terminée, la machine virtuelle peut être migrée dynamiquement vers un niveau ou un hôte plus lent.
 
-- **Mettre à jour antivirus.** Vérifiez toujours votre source et destination exécutent la dernière version corrigée du logiciel antivirus pour garantir des performances minimal. Comme un test, vous pouvez *temporairement* exclure l’analyse des dossiers vous inventaire ou sur les serveurs source et de destination. Si vos performances de transfert a été amélioré, contactez votre fournisseur de logiciel antivirus pour obtenir des instructions ou pour une version mise à jour du logiciel antivirus ou une explication de la dégradation des performances attendues.
+- **Mettre à jour l’antivirus.** Assurez-vous toujours que votre source et votre destination exécutent la dernière version corrigée du logiciel antivirus pour garantir une surcharge minimale des performances. En guise de test, vous pouvez exclure *temporairement* l’analyse des dossiers que vous stockez ou migrez sur les serveurs source et de destination. Si vos performances de transfert sont améliorées, contactez le fournisseur de votre logiciel antivirus pour obtenir des instructions ou pour obtenir une version mise à jour du logiciel antivirus ou une explication de la dégradation des performances attendue.
 
-## <a name="give-feedback"></a> Quelles sont mes options pour donner votre avis, signaler des bogues, ou obtenir un support technique ?
+## <a name="can-i-migrate-from-ntfs-to-refs"></a>Puis-je migrer de NTFS vers REFS?
 
-Pour envoyer des commentaires sur le Service de Migration de stockage :
+La version du service de migration du stockage fournie dans Windows Server 2019 ne prend pas en charge la migration des systèmes de fichiers NTFS vers REFS. Vous pouvez migrer de NTFS vers NTFS et REFS vers ReFS. Cela est lié à la conception, en raison des nombreuses différences de fonctionnalités, de métadonnées et d’autres aspects que ReFS ne duplique pas à partir de NTFS. ReFS est conçu comme un système de fichiers de charge de travail d’application, pas un système de fichiers général. Pour plus d’informations, consultez [vue d’ensemble du système de fichiers résilient (ReFS)](../refs/refs-overview.md) . 
 
-- Utilisez l’outil de Hub de commentaires inclus dans Windows 10, en cliquant sur « Suggérer une fonctionnalité » et en spécifiant la catégorie de « Windows Server » et la sous-catégorie de « Migration de stockage »
-- Utilisez le [Windows Server UserVoice](https://windowsserver.uservoice.com) site
-- Messagerie smsfeed@microsoft.com
+## <a name="can-i-move-the-storage-migration-service-database"></a>Puis-je déplacer la base de données du service de migration de stockage?
 
-Pour signaler des bogues :
+Le service de migration de stockage utilise une base de données ESE (Extensible Storage Engine) qui est installée par défaut dans le dossier c:\programdata\microsoft\storagemigrationservice masqué. Cette base de données croît au fur et à mesure que des tâches sont ajoutées et que les transferts sont effectués, et peut consommer un espace disque important après la migration de millions de fichiers si vous ne supprimez pas les travaux. Si la base de données doit être déplacée, procédez comme suit:
 
-- Utilisez l’outil de Hub de commentaires inclus dans Windows 10, en cliquant sur « Signaler un problème » et en spécifiant la catégorie de « Windows Server » et la sous-catégorie de « Migration de stockage »
-- Ouvrez une demande de support via [Support Microsoft](https://support.microsoft.com)
+1. Arrêtez le service de migration de stockage sur l’ordinateur Orchestrator.
+2. Prendre possession du `%programdata%/Microsoft/StorageMigrationService` dossier
+3. Ajoutez votre compte d’utilisateur pour avoir un contrôle total sur ce partage et tous ses fichiers et sous-dossiers.
+4. Déplacez le dossier vers un autre lecteur sur l’ordinateur Orchestrator.
+5. Définissez la valeur de Registre REG_SZ suivante:
 
-Pour obtenir la prise en charge :
+    HKEY_Local_Machine\Software\Microsoft\SMS DatabasePath = *chemin d’accès au nouveau dossier de base de données sur un autre volume* . 
+6. Vérifier que le système dispose d’un contrôle total sur tous les fichiers et sous-dossiers de ce dossier
+7. Supprimez vos propres autorisations de compte.
+8. Démarrez le service de migration de stockage.
 
- - Publier une question sur le [communauté technique de Windows Server](https://techcommunity.microsoft.com/t5/Windows-Server/ct-p/Windows-Server)
- - Publier sur le [Forum de Technet de Windows Server 2019](https://social.technet.microsoft.com/Forums/en-US/home?forum=ws2019&filter=alltypes&sort=lastpostdesc) 
- - Ouvrez une demande de support via [Support Microsoft](https://support.microsoft.com)
+## <a name="give-feedback"></a>Quelles sont les options permettant d’envoyer des commentaires, de signaler des bogues ou d’obtenir un support?
 
+Pour envoyer des commentaires sur le service de migration de stockage:
+
+- Utilisez l’outil Hub de commentaires inclus dans Windows 10, en cliquant sur «suggérer une fonctionnalité» et en spécifiant la catégorie «Windows Server» et la sous-catégorie «migration du stockage».
+- Utiliser le site [Windows Server UserVoice](https://windowsserver.uservoice.com)
+- Messageriesmsfeed@microsoft.com
+
+Pour signaler les bogues:
+
+- Utilisez l’outil Hub de commentaires inclus dans Windows 10, en cliquant sur «signaler un problème» et en spécifiant la catégorie «Windows Server» et la sous-catégorie «migration du stockage».
+- Ouvrir un dossier de support via [support Microsoft](https://support.microsoft.com)
+
+Pour bénéficier du support technique:
+
+ - Publiez une question sur la [communauté des technologies Windows Server](https://techcommunity.microsoft.com/t5/Windows-Server/ct-p/Windows-Server)
+ - Publication sur le [Forum TechNet de Windows Server 2019](https://social.technet.microsoft.com/Forums/en-US/home?forum=ws2019&filter=alltypes&sort=lastpostdesc) 
+ - Ouvrir un dossier de support via [support Microsoft](https://support.microsoft.com)
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Vue d’ensemble du Service de Migration de stockage](overview.md)
+- [Vue d’ensemble de Storage migration service](overview.md)

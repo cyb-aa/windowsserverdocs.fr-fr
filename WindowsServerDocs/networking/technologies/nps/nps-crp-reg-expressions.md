@@ -1,34 +1,34 @@
 ---
 title: Utiliser des expressions régulières dans NPS
-description: Cette rubrique explique comment utiliser des expressions régulières pour les critères spéciaux dans NPS dans Windows Server 2016. Vous pouvez utiliser cette syntaxe pour spécifier les conditions des attributs de stratégie réseau et des domaines RADIUS.
+description: Cette rubrique explique l’utilisation d’expressions régulières pour les critères spéciaux dans NPS dans Windows Server. Vous pouvez utiliser cette syntaxe pour spécifier les conditions des attributs de stratégie réseau et des domaines RADIUS.
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
 ms.assetid: bc22d29c-678c-462d-88b3-1c737dceca75
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 2a47403d4f88d5487fb4ffb0e35c46438aadcd8a
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.author: jgerend
+author: jasongerend
+msdate: 08/16/2019
+ms.openlocfilehash: 76615fcccfe06333a76f872b52d2e88182fd60e5
+ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546526"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69584788"
 ---
 # <a name="use-regular-expressions-in-nps"></a>Utiliser des expressions régulières dans NPS
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+> S’applique à :  Windows Server 2019, Windows Server 2016, Windows Server (Canal semi-annuel)
 
-Cette rubrique explique comment utiliser des expressions régulières pour les critères spéciaux dans NPS dans Windows Server 2016. Vous pouvez utiliser cette syntaxe pour spécifier les conditions des attributs de stratégie réseau et des domaines RADIUS.
+Cette rubrique explique l’utilisation d’expressions régulières pour les critères spéciaux dans NPS dans Windows Server. Vous pouvez utiliser cette syntaxe pour spécifier les conditions des attributs de stratégie réseau et des domaines RADIUS.
 
 ## <a name="pattern-matching-reference"></a>Référence de critères spéciaux
 
-Vous pouvez utiliser le tableau suivant comme source de référence lors de la création d’expressions régulières avec une syntaxe de critères spéciaux.
+Vous pouvez utiliser le tableau suivant comme source de référence lors de la création d’expressions régulières avec une syntaxe de critères spéciaux. Notez que les modèles d’expressions régulières sont souvent entourés par des barres obliques (/).
 
-
-|  Caractère  |                                                                                 Description                                                                                  |                                                                 Exemple                                                                 |
-|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-|     `\ `     |                                                              Marque le caractère suivant comme un caractère à faire correspondre.                                                               |                      `/n/ matches the character "n". The sequence /\n/ matches a line feed or newline character.`                       |
+|  Caractère  |  Description  |   Exemple                                                                 |
+| ----------- | ------------- | ------------------------------------------------------------------------  |
+|     `\ `     | Indique que le caractère qui suit est un caractère spécial, ou qu’il doit être interprété littéralement.  | `/n/ matches the character "n" while the sequence /\n/ matches a line feed or newline character.`  |
 |     `^`     |                                                                 Correspond au début de l’entrée ou de la ligne.                                                                  |                                                                 &nbsp;                                                                  |
 |     `$`     |                                                                    Correspond à la fin de l’entrée ou de la ligne.                                                                     |                                                                 &nbsp;                                                                  |
 |     `*`     |                                                             Met en correspondance le caractère précédent zéro ou plusieurs fois.                                                              |                                                  `/zo*/ matches either "z" or "zoo."`                                                   |
