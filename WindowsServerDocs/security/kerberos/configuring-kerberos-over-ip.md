@@ -1,36 +1,38 @@
 ---
 title: Configuration de Kerberos pour l’adresse IP
-description: Prise en charge de Kerberos pour les noms principaux de service basé sur IP
-ms.openlocfilehash: aa2685fcff2fdf231e5e5884d25885585f0bd6c9
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+description: Prise en charge Kerberos pour les noms principaux de service basés sur IP
+author: daveba
+ms.author: daveba
+ms.openlocfilehash: 1061364528100fe005e80f64c6315f9fca69ad98
+ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67279967"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980300"
 ---
-# <a name="kerberos-clients-allow-ipv4-and-ipv6-address-hostnames-in-service-principal-names-spns"></a>Les clients Kerberos autorisent des noms d’hôte des adresses IPv4 et IPv6 dans les noms de principal du Service (SPN)
+# <a name="kerberos-clients-allow-ipv4-and-ipv6-address-hostnames-in-service-principal-names-spns"></a>Les clients Kerberos autorisent les noms d’hôte des adresses IPv4 et IPv6 dans les noms de principal du service (SPN)
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Depuis Windows 10 version 1507 et Windows Server 2016, les clients Kerberos peuvent être configurés pour prendre en charge des noms d’hôtes IPv4 et IPv6 dans les noms principaux de service.
+À compter de Windows 10 version 1507 et Windows Server 2016, les clients Kerberos peuvent être configurés pour prendre en charge les noms d’hôte IPv4 et IPv6 dans les SPN.
 
-Par défaut Windows ne tente pas de l’authentification Kerberos pour un ordinateur hôte si le nom d’hôte est une adresse IP. Il revient à d’autres protocoles d’authentification activées comme NTLM. Toutefois, les applications sont parfois codé en dur pour utiliser des adresses IP et ce qui signifie que l’application sera repasse en NTLM et n’utilisez pas Kerberos. Cela peut entraîner des problèmes de compatibilité que déplacement des environnements de désactiver NTLM.
+Par défaut, Windows ne tente pas l’authentification Kerberos pour un ordinateur hôte si le nom d’hôte est une adresse IP. Elle revient à d’autres protocoles d’authentification activés, comme NTLM. Toutefois, les applications sont parfois codées en dur pour utiliser des adresses IP, ce qui signifie que l’application revient à NTLM et n’utilise pas Kerberos. Cela peut entraîner des problèmes de compatibilité à mesure que les environnements se déplacent pour désactiver NTLM.
 
-Pour réduire l’impact de la désactivation de NTLM, une nouvelle fonctionnalité introduite qui permet aux administrateurs d’utiliser des adresses IP en tant que noms d’hôte dans les noms de principal du Service. Cette fonctionnalité est activée sur le client via une valeur de clé de Registre.
+Pour réduire l’impact de la désactivation de NTLM, une nouvelle fonctionnalité qui permet aux administrateurs d’utiliser des adresses IP en tant que noms d’hôtes dans les noms principaux de service a été introduite. Cette fonctionnalité est activée sur le client par le biais d’une valeur de clé de registre.
 
 ```cmd
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters" /v TryIPSPN /t REG_DWORD /d 1 /f
 ```
 
-Pour configurer la prise en charge des noms d’hôte des adresses IP dans les noms principaux de service, créez une entrée TryIPSPN. Par défaut, cette entrée n’existe pas dans le Registre. Une fois que vous avez créé l’entrée, remplacez la valeur DWORD par 1. Cette valeur de Registre sera doivent être définis sur chaque ordinateur client qui doit accéder aux ressources protégées par Kerberos par adresse IP.
+Pour configurer la prise en charge des noms d’hôtes d’adresse IP dans les noms de principal du service, créez une entrée TryIPSPN. Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par 1. Cette valeur de registre doit être définie sur chaque ordinateur client qui doit accéder aux ressources protégées par Kerberos par adresse IP.
 
-## <a name="configuring-a-service-principal-name-as-ip-address"></a>Configuration d’un nom de principal du Service en tant qu’adresse IP
+## <a name="configuring-a-service-principal-name-as-ip-address"></a>Configuration d’un nom de principal du service en tant qu’adresse IP
 
-Un nom de principal du Service est un identificateur unique permettant d’identifier un service sur le réseau lors de l’authentification Kerberos. Un SPN est composé d’un service, nom d’hôte et, éventuellement, un port sous forme de `service/hostname[:port]` comme `host/fs.contoso.com`. Windows enregistre plusieurs noms principaux de service à un objet ordinateur lorsqu’un ordinateur est joint à Active Directory.
+Un nom principal de service est un identificateur unique utilisé lors de l’authentification Kerberos pour identifier un service sur le réseau. Un SPN est composé d’un service, d’un nom d’hôte et éventuellement d’un port `service/hostname[:port]` sous forme `host/fs.contoso.com`de. Windows inscrira plusieurs noms de principal du service (SPN) sur un objet ordinateur lorsqu’un ordinateur sera joint à Active Directory.
 
-Adresses IP ne sont pas normalement utilisés à la place des noms d’hôte, car les adresses IP sont souvent temporaires. Cela peut entraîner les conflits et les échecs d’authentification comme des baux d’adresses expire et renouveler. Par conséquent, l’inscription d’un SPN de fondées sur l’adresse IP est un processus manuel et ne doit être utilisée que lorsqu’il est impossible de basculer vers un nom d’hôte basée sur DNS.
+Les adresses IP ne sont généralement pas utilisées à la place des noms d’hôtes, car les adresses IP sont souvent temporaires. Cela peut entraîner des conflits et des échecs d’authentification au fur et à mesure de l’expiration et du renouvellement des baux d’adresses. Par conséquent, l’inscription d’un SPN basé sur une adresse IP est un processus manuel qui ne doit être utilisé qu’en cas d’impossibilité de basculer vers un nom d’hôte basé sur DNS.
 
-L’approche recommandée consiste à utiliser le [Setspn.exe](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)) outil. Notez qu’un SPN ne peut être inscrit à un seul compte dans Active Directory à la fois et il est donc recommandé que les adresses IP ont des baux statiques si DHCP est utilisé.
+L’approche recommandée consiste à utiliser l’outil [Setspn. exe](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)) . Notez qu’un SPN ne peut être inscrit qu’à un seul compte dans Active Directory à la fois. il est donc recommandé que les adresses IP aient des baux statiques si le protocole DHCP est utilisé.
 
 ```
 Setspn -s <service>/ip.address> <domain-user-account>  

@@ -9,223 +9,223 @@ ms.date: 04/23/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fbb289c16d82da79aded49e3af4134ac7f6df325
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 2a5de194f5870652920ec6a3d451d18840ba7b2a
+ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188699"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980346"
 ---
 # <a name="whats-new-in-active-directory-federation-services"></a>Nouveautés des services de fédération Active Directory (AD FS)
 
 
-## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2019"></a>Quelles sont les nouveautés dans Active Directory Federation Services pour Windows Server 2019
+## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2019"></a>Nouveautés de Services ADFS pour Windows Server 2019
 
-### <a name="protected-logins"></a>Connexions d’accès protégées
-Voici un bref résumé des mises à jour des connexions protégées disponibles dans AD FS 2019 :
-- **Fournisseurs d’authentification externe en tant que principal** -les clients peuvent désormais utiliser 3e produits d’authentification tiers en tant que le premier facteur et expose pas les mots de passe en tant que le premier facteur. Dans les cas où un fournisseur d’authentification externe peut s’avérer à 2 facteurs, il peut réclamer MFA. 
-- **Authentification de mot de passe comme authentification supplémentaire** -les clients ont une option entièrement prise en charge de boîte de réception à utiliser le mot de passe uniquement pour les facteurs supplémentaires après un mot de passe moins option est utilisée en tant que le premier facteur. Cela améliore l’expérience du client à partir de 2016 ADFS où les clients devaient télécharger une carte de github, qui est prise en charge est. 
-- **Module d’évaluation des risques enfichables** -clients peuvent désormais créer leur propres plug-in modules pour bloquer certains types de demandes au cours de l’étape de pré-authentification. Cela rend plus facile pour les clients à utiliser l’intelligence cloud telles que la protection d’identité pour bloquer les connexions pour les utilisateurs à risque ou les transactions à risque.  Pour plus d’informations, consultez [ Plug-ins avec un modèle d’évaluation AD FS 2019 risque de générer](../../ad-fs/development/ad-fs-risk-assessment-model.md) 
-- **Améliorations de ESL** -améliore le correctif QFE ESL dans 2016 en ajoutant les fonctionnalités suivantes
-    - Permet aux clients d’être en mode audit tout protégées par la fonctionnalité de verrouillage extranet « classiques » disponible à partir de 2012 R2 AD FS. Actuellement, les clients 2016 n’aurait aucune protection en mode audit. 
-    - Permet le seuil de verrouillage indépendants pour les emplacements connus. Cela rend possible pour plusieurs instances d’applications en cours d’exécution avec un compte de service courants de mots de passe avec le moins d’impact. 
+### <a name="protected-logins"></a>Connexions protégées
+Voici un bref résumé des mises à jour des connexions protégées disponibles dans AD FS 2019:
+- **Fournisseurs d’authentification externes en tant que clients principaux** : les clients peuvent désormais utiliser les produits d’authentification tiers comme premier facteur et ne pas exposer les mots de passe comme premier facteur. Dans les cas où un fournisseur d’authentification externe peut prouver 2 facteurs, il peut revendiquer l’authentification MFA. 
+- **Authentification par mot de passe en tant qu’authentification supplémentaire** : les clients disposent d’une option de boîte de réception entièrement prise en charge pour utiliser le mot de passe uniquement pour le facteur supplémentaire après l’utilisation d’une option de mot de passe pour le premier facteur. Cela améliore l’expérience client d’ADFS 2016, où les clients devaient télécharger un adaptateur GitHub qui est pris en charge comme c’est le cas. 
+- **Module d’évaluation des risques enfichables** : les clients peuvent désormais créer leurs propres modules plug-in pour bloquer certains types de demandes lors de la phase de pré-authentification. Cela permet aux clients d’utiliser plus facilement l’intelligence du Cloud, par exemple Identity Protection, pour bloquer les connexions pour les utilisateurs à risque ou les transactions risquées.  Pour plus d’informations, consultez [créer des plug-ins avec le modèle d’évaluation des risques AD FS 2019](../../ad-fs/development/ad-fs-risk-assessment-model.md) 
+- **Améliorations de ESL** : améliore le QFE ESL dans 2016 en ajoutant les fonctionnalités suivantes
+    - Permet aux clients d’être en mode audit tout en étant protégé par la fonctionnalité de verrouillage extranet «classique» disponible depuis la 2012 R2 ADFS. Actuellement, 2016 clients n’auraient pas de protection en mode audit. 
+    - Active le seuil de verrouillage indépendant pour les emplacements familiers. Cela permet à plusieurs instances d’applications qui s’exécutent avec un compte de service commun de restaurer les mots de passe avec le moins d’impact possible. 
 
 ### <a name="additional-security-improvements"></a>Améliorations de sécurité supplémentaires
-Les améliorations de sécurité supplémentaires suivantes sont disponibles dans AD FS 2019 :
-- **À distance PSH à l’aide de la connexion de la carte à puce** : les clients peuvent désormais utiliser cartes à puce à distance se connecter à AD FS via PSH et utilisation que pour gérer tous les PSH les fonctions inclut des applets de commande PSH plusieurs nœuds.
-- **Personnalisation de l’en-tête HTTP** -les clients peuvent maintenant personnaliser des en-têtes HTTP émis au cours des réponses d’ADFS. Cela inclut les en-têtes suivants
-     - HSTS : Pour indiquer que les points de terminaison ADFS utilisable uniquement sur les points de terminaison HTTPS pour un navigateur compatible à appliquer
-     - x-frame-options : Autorise les administrateurs d’ADFS autoriser les parties de confiance spécifiques incorporer des iFrames pour les pages de connexion interactive ADFS. Cela doit être utilisé avec précaution et uniquement sur les ordinateurs hôtes HTTPS. 
-     - En-tête futures : En-têtes futures supplémentaires peuvent aussi être configurés. 
+Les améliorations de sécurité supplémentaires suivantes sont disponibles dans AD FS 2019:
+- **PSH à distance à l’aide** de la connexion par carte à puce: les clients peuvent désormais utiliser des cartes à puce pour se connecter à AD FS via PSH et l’utiliser pour gérer toutes les fonctions PSH incluent des applets de commande PSH à nœuds multiples.
+- **Personnalisation d’en-tête http** : les clients peuvent désormais personnaliser les en-têtes http émis pendant les réponses ADFS. Cela comprend les en-têtes suivants
+     - HSTS Cela indique que les points de terminaison ADFS ne peuvent être utilisés que sur des points de terminaison HTTPs pour qu’un navigateur conforme applique
+     - x-Frame-options: Permet aux administrateurs ADFS d’autoriser des parties de confiance spécifiques à incorporer des iFrames pour les pages de connexion interactive ADFS. Elle doit être utilisée avec précaution et uniquement sur les hôtes HTTPs. 
+     - En-tête futur: Des en-têtes futurs supplémentaires peuvent également être configurés. 
 
-Pour plus d’informations, consultez [en-têtes de réponse de sécurité HTTP personnaliser avec AD FS 2019](../../ad-fs/operations/customize-http-security-headers-ad-fs.md) 
+Pour plus d’informations, consultez [personnaliser les en-têtes de réponse de sécurité http avec AD FS 2019](../../ad-fs/operations/customize-http-security-headers-ad-fs.md) 
 
-### <a name="authenticationpolicy-capabilities"></a>Fonctionnalités de la stratégie d’authentification
-Les fonctionnalités suivantes de la stratégie d’authentification sont dans AD FS 2019 :
-- **Spécifiez la méthode d’authentification pour l’authentification par le fournisseur de ressources supplémentaire** -les clients peuvent maintenant utiliser des règles pour déterminer le fournisseur d’authentification supplémentaires à appeler pour le fournisseur d’authentification supplémentaires de revendications. Cela est utile pour les cas d’utilisation 2
-    - Les clients sont en cours de transition vers un autre à partir du fournisseur d’une authentification supplémentaire. Cette façon dès leur intégration des utilisateurs à un fournisseur d’authentification plus récente, ils peuvent utiliser les groupes de contrôle d’authentification supplémentaire fournisseur est appelé.
-    - Les clients ont des besoins pour un fournisseur d’authentification supplémentaires spécifiques (par exemple, certificat) pour certaines applications. 
-- **Restreindre l’authentification d’appareil TLS en fonction uniquement aux applications qui en ont besoin** -les clients peuvent désormais restreindre le client TLS en fonction des authentifications d’appareil sur uniquement l’accès conditionnel basé sur les applications effectuant des appareils. Cela empêche les invites inutiles pour l’authentification de l’appareil (ou les échecs si l’application cliente ne peut pas gérer) pour les applications qui ne nécessitent pas l’authentification TLS en fonction des appareils.
-- **Prise en charge MFA fraîcheur** -AD FS prend désormais en charge la capacité à refaire 2e facteur d’informations d’identification basées sur l’actualisation de l’information d’identification facteur 2nd. Cela permet aux clients d’effectuer une transaction initiale avec 2 facteurs et uniquement une invite pour le facteur 2nd sur une base périodique. Cela est uniquement disponible pour les applications qui peuvent fournir un paramètre supplémentaire dans la demande et n’est pas un paramètre configurable dans ADFS. Ce paramètre est pris en charge par Azure AD lorsque « N’oubliez pas mon authentification Multifacteur pour les X jours » est configuré et que l’indicateur 'supportsMFA' est défini sur true sur les paramètres d’approbation de domaine fédéré dans Azure AD. 
+### <a name="authenticationpolicy-capabilities"></a>Fonctionnalités d’authentification/de stratégie
+Les fonctionnalités d’authentification/de stratégie suivantes se trouvent dans AD FS 2019:
+- **Spécifier la méthode d’authentification pour une authentification supplémentaire par RP** -les clients peuvent maintenant utiliser des règles de revendication pour déterminer le fournisseur d’authentification supplémentaire à appeler pour le fournisseur d’authentification supplémentaire. Cela est utile pour deux cas d’utilisation
+    - Les clients passent d’un fournisseur d’authentification supplémentaire à un autre. De cette façon, lorsqu’ils intègrent des utilisateurs à un fournisseur d’authentification plus récent, ils peuvent utiliser des groupes pour contrôler le fournisseur d’authentification supplémentaire appelé.
+    - Les clients ont besoin d’un fournisseur d’authentification supplémentaire spécifique (par exemple, un certificat) pour certaines applications. 
+- **Limiter l’authentification des appareils basée sur TLS uniquement aux applications qui en ont besoin** : les clients peuvent désormais restreindre les authentifications des appareils basés sur TLS client aux seules applications qui effectuent un accès conditionnel basé sur les appareils. Cela empêche les invites indésirables pour l’authentification des appareils (ou les échecs si l’application cliente ne peut pas gérer) pour les applications qui ne nécessitent pas l’authentification des appareils basée sur TLS.
+- **Prise en charge de l’actualisation MFA** : AD FS prend désormais en charge la possibilité de réexécuter les informations d’identification du 2e facteur en fonction de l’actualisation des informations d’identification du 1er facteur. Cela permet aux clients d’effectuer une transaction initiale avec 2 facteurs et de demander le second facteur sur une base périodique. Cela est uniquement disponible pour les applications qui peuvent fournir un paramètre supplémentaire dans la demande et qui n’est pas un paramètre configurable dans ADFS. Ce paramètre est pris en charge par Azure AD lorsque l’option «Mémoriser mon MFA pour X jours» est configurée et que l’indicateur «supportsMFA» a la valeur true dans les paramètres d’approbation de domaine fédéré dans Azure AD. 
 
-### <a name="sign-in-sso-improvements"></a>Amélioration de la connexion SSO
-Les améliorations de l’authentification unique de connexion suivantes ont été apportées dans AD FS 2019 :
+### <a name="sign-in-sso-improvements"></a>Améliorations de l’authentification unique pour la connexion
+Les améliorations de l’authentification unique de connexion suivantes ont été apportées dans AD FS 2019:
 
-- [Paginé l’expérience utilisateur avec le thème centré](../operations/AD-FS-paginated-sign-in.md) -ADFS a été déplacées à un flux de l’expérience utilisateur paginé qui permet à ADFS valider et fournir une expérience de connexion plus plus lisse. ADFS utilise désormais une interface utilisateur centrée (au lieu du côté droit de l’écran). Vous pouvez avoir besoin de nouvelles images de logo et d’arrière-plan pour se conformer à cette expérience. Cela reflète également les fonctionnalités offertes dans Azure AD.
-- **Correctif de bogue : État persistant de l’authentification unique pour les appareils Windows 10 lors de la PRT auth** cela résout un problème où MFA pas persistance de l’état lors de l’utilisation de l’authentification PRT pour les appareils Windows 10. Le résultat du problème était que les utilisateurs finaux est invité à entrer 2e facteur d’informations d’identification (MFA) fréquemment. Le correctif rend également l’expérience cohérente lors de l’authentification de l’appareil est effectuée avec succès par le biais de client TLS et via le mécanisme PRT. 
+- Expérience utilisateur [paginée avec thème centré](../operations/AD-FS-paginated-sign-in.md) -ADFS maintenant a été déplacé vers un processus d’expérience utilisateur paginé qui permet à ADFS de valider et de fournir une expérience de connexion plus lisse. ADFS utilise désormais une interface utilisateur centrée (au lieu du côté droit de l’écran). Vous pouvez avoir besoin d’images de logo et d’arrière-plan plus récentes pour l’adapter à cette expérience. Cela reflète également les fonctionnalités proposées dans Azure AD.
+- **Résolution de bogue: État SSO persistant pour les appareils Win10 lors de l'** authentification PRT: cela résout un problème où l’État MFA n’a pas été conservé lors de l’utilisation de l’authentification PRT pour les appareils Windows 10. Le problème est dû au fait que les utilisateurs finaux sont souvent invités à entrer des informations d’identification de 2e facteur (MFA). Le correctif rend également l’expérience cohérente lorsque l’authentification de l’appareil est effectuée avec succès via le protocole TLS du client et via le mécanisme PRT. 
 
 
-### <a name="suppport-for-building-modern-line-of-business-apps"></a>Prise en charge pour la création d’applications line of business modernes
-La prise en charge suivant pour la création d’applications métier modernes a été ajouté à AD FS 2019 :
+### <a name="suppport-for-building-modern-line-of-business-apps"></a>Prise en charge pour la création d’applications métier modernes
+La prise en charge suivante de la création d’applications métier modernes a été ajoutée à AD FS 2019:
 
- - **Flux OAuth appareil/profil** -AD FS prend désormais en charge le profil de flux OAuth appareil pour effectuer des connexions sur les appareils qui n’ont pas d’une interface utilisateur surface d’exposition pour prendre en charge des expériences de connexion riches. Cela permet à l’utilisateur terminer l’expérience de connexion sur un autre appareil. Cette fonctionnalité est requise pour une expérience d’Azure CLI dans Azure Stack et peut être utilisée dans d’autres cas. 
- - **Suppression du paramètre de 'Resource'** -AD FS a supprimé la nécessité de spécifier un paramètre de ressource qui est conforme aux spécifications Oauth en cours. Les clients peuvent désormais fournir l’identificateur d’approbation de partie de confiance en tant que le paramètre d’étendue de plus pour les autorisations demandées. 
- - **Les en-têtes CORS dans les réponses d’AD FS** -clients peuvent désormais créer des Applications à Page unique qui permettent à client bibliothèques JS valider la signature du jeton id_token en recherchant les clés de signature à partir du document de découverte OIDC sur AD FS. 
- - **Prise en charge PKCE** -AD FS ajoute la prise en charge PKCE pour fournir un flux de code d’authentification sécurisée dans OAuth. Cela ajoute une couche supplémentaire de sécurité à ce flux pour empêcher le code de piratage et de le relire à partir d’un autre client. 
- - **Correctif de bogue : Envoi de revendication x5t et kid** -il s’agit d’un bogue mineur. AD FS envoie désormais en outre la revendication « kid » pour désigner l’indicateur de l’id de clé pour vérifier la signature. Déjà AD FS uniquement envoyés cela comme revendication « x5t ».
+ - **Flow/profil d’appareil OAuth** : AD FS prend désormais en charge le profil de workflow d’appareil OAuth pour effectuer des connexions sur des appareils qui n’ont pas de surface d’interface utilisateur pour prendre en charge les expériences de connexion enrichies. Cela permet à l’utilisateur d’effectuer l’expérience de connexion sur un autre appareil. Cette fonctionnalité est requise pour l’expérience Azure CLI dans Azure Stack et peut être utilisée dans d’autres cas. 
+ - La **suppression du paramètre «Resource»** -AD FS a maintenant supprimé la nécessité de spécifier un paramètre de ressource qui est conforme aux spécifications OAuth actuelles. Les clients peuvent désormais fournir l’identificateur d’approbation de la partie de confiance en tant que paramètre d’étendue en plus des autorisations demandées. 
+ - **En-têtes cors dans les réponses de AD FS** : les clients peuvent désormais créer des applications à page unique qui permettent aux bibliothèques js côté client de valider la signature du id_token en interrogeant les clés de signature à partir du document de découverte OIDC sur AD FS. 
+ - **Prise en charge PKCE** : AD FS ajoute la prise en charge de PKCE pour fournir un code d’authentification sécurisé dans OAuth. Cela ajoute une couche supplémentaire de sécurité à ce Flow pour empêcher le détournement du code et sa relecture à partir d’un autre client. 
+ - **Résolution de bogue: Send x5t et Kid claim** : il s’agit d’un correctif de bogue mineur. AD FS à présent envoie en plus la revendication «Kid» pour désigner l’indicateur d’ID de clé pour la vérification de la signature. Auparavant AD FS envoyée uniquement en tant que revendication «x5t».
 
 ### <a name="supportability-improvements"></a>Améliorations de la prise en charge
-Les améliorations suivantes de la prise en charge ne font pas partie d’AD FS 2019 :
-- **Envoyer les détails de l’erreur pour les administrateurs d’AD FS** -permet aux administrateurs de configurer les utilisateurs finaux pour envoyer des journaux de débogage relatives à un échec de l’authentification utilisateur final à stocker comme archivé un compressé pour faciliter leur utilisation. Administrateurs peuvent également configurer une connexion SMTP à automail le fichier compressé à un compte de messagerie de triage ou automatiquement créer un ticket basé sur le courrier électronique. 
+Les améliorations de prise en charge suivantes ne font pas partie de AD FS 2019:
+- **Envoyer les détails de l’erreur aux administrateurs de AD FS** : permet aux administrateurs de configurer les utilisateurs finaux pour qu’ils envoient des journaux de débogage relatifs à un échec de l’authentification de l’utilisateur final afin qu’ils soient stockés en tant que fichiers Zippés pour une consommation facile Les administrateurs peuvent également configurer une connexion SMTP pour envoyer automatiquement le fichier zippé à un compte de messagerie de triage ou pour créer automatiquement un ticket basé sur l’e-mail. 
 
-### <a name="deployment-updates"></a>Déploiement des mises à jour
-Les mises à jour de déploiement suivantes sont désormais incluses dans AD FS 2019 :
-- **2019 de niveau de comportement de batterie de serveurs** : comme avec AD FS 2016, il existe une nouvelle version de niveau de comportement de batterie de serveurs est nécessaire pour activer les nouvelles fonctionnalités abordées ci-dessus. Cela permet la transition de :
+### <a name="deployment-updates"></a>Mises à jour du déploiement
+Les mises à jour de déploiement suivantes sont maintenant incluses dans AD FS 2019:
+- **Niveau de comportement de la batterie de serveurs 2019** -comme avec AD FS 2016, une nouvelle version du niveau de comportement de la batterie de serveurs est nécessaire pour activer les nouvelles fonctionnalités décrites ci-dessus. Cela permet de passer par:
     - 2012 R2-> 2019
-    - 2016 -> 2019   
+    - 2016-> 2019   
 
 ### <a name="saml-updates"></a>Mises à jour SAML
-La mise à jour suivante SAML est dans AD FS 2019 :
-- **Correctif de bogue : Corriger les bogues dans la fédération agrégée** -prise en charge de la fédération agrégées des nombreux correctifs de bogues ont été (par exemple, InCommon). Les correctifs ont été autour de ce qui suit : 
-  - Amélioration de mise à l’échelle pour un grand nombre d’entités dans le document de métadonnées de fédération agrégées. Auparavant, ce code échouerait avec une erreur de « ADMIN0017 ». 
-  - Requête à l’aide du paramètre « ScopeGroupID » via l’applet de commande Get-AdfsRelyingPartyTrustsGroup PSH. 
-  - Gestion des conditions d’erreur autour entityID en double
+La mise à jour SAML suivante se trouve dans AD FS 2019:
+- **Résolution de bogue: Correction des bogues dans la** Fédération agrégée: de nombreux correctifs de bogues ont été appliqués à la prise en charge de la Fédération agrégée (par exemple, inhabituel). Les correctifs ont été mis en rapport avec les éléments suivants: 
+  - Amélioration de la mise à l’échelle pour les grands nombres d’entités dans le document de métadonnées de Fédération agrégé. Auparavant, cela échouait avec l’erreur «ADMIN0017». 
+  - Interrogez à l’aide du paramètre «ScopeGroupID» via l’applet de commande AdfsRelyingPartyTrustsGroup PSH. 
+  - Gestion des conditions d’erreur autour des entityID en double
 
 
-### <a name="azure-ad-style-resource-specification-in-scope-parameter"></a>Spécification de ressource Azure AD style dans le paramètre d’étendue 
-AD FS nécessitaient auparavant, la ressource souhaitée et la portée se trouver dans un paramètre distinct dans toute demande d’authentification. Par exemple, une demande oauth typique ressemblerait à ci-dessous : 7 **https :&#47;&#47;fs.contoso.com/adfs/oauth2/authorize ?</br> response_type = code & client_id = claimsxrayclient & ressource = urn : microsoft :</br>adfs:claimsxray & scope = oauth & redirect_uri = https :&#47;&#47;adfshelp.microsoft.com/</br> ClaimsXray / TokenResponse & prompt = login**
+### <a name="azure-ad-style-resource-specification-in-scope-parameter"></a>Spécification de ressource de style Azure AD dans le paramètre d’étendue 
+Auparavant, AD FS nécessitait que la ressource et la portée souhaitées se trouvent dans un paramètre distinct dans une demande d’authentification. Par exemple, une requête OAuth typique ressemble à ce qui suit: 7 **https:&#47;&#47;FS.contoso.com/ADFS/oauth2/Authorize?</br> response_type = code & client_id = claimsxrayclient & ressource = urn: Microsoft:</br>ADFS: claimsxray & étendue = OAuth & redirect_uri = https:&#47;&#47;adfshelp.Microsoft.com/</br> claimsxray/ TokenResponse & prompt = connexion**
  
-Avec AD FS sur 2019 de serveur, vous pouvez maintenant passer la valeur de la ressource incorporée dans le paramètre d’étendue. Cela est cohérent avec comment vous pouvez également effectuer l’authentification auprès d’Azure AD. 
+Avec AD FS sur le serveur 2019, vous pouvez désormais transmettre la valeur de ressource incorporée dans le paramètre d’étendue. Cela est cohérent avec la manière dont il est possible d’effectuer une authentification par rapport à Azure AD également. 
 
-Le paramètre d’étendue peut maintenant être organisé comme une liste séparée par des espaces où chaque entrée a une structure en tant que portée de la ressource. Exemple :  
+Le paramètre d’étendue peut désormais être organisé comme une liste séparée par des espaces, où chaque entrée est structure en tant que ressource/étendue. Exemple :  
 
-**< créer une demande d’exemple valide >**
+**< créer un exemple de demande valide >**
 > [!NOTE]
-> Une seule ressource peut être spécifiée dans la demande d’authentification. Si plus d’une ressource est incluse dans la demande, AD FS retournera qu'une erreur et l’authentification ne réussiront pas. 
+> Une seule ressource peut être spécifiée dans la demande d’authentification. Si plusieurs ressources sont incluses dans la demande, AD FS renvoie une erreur et l’authentification échoue. 
 
-### <a name="proof-key-for-code-exchange-pkce-support-for-oauth"></a>Clé de vérification pour la prise en charge de Code Exchange (PKCE) pour oAuth 
-Les clients publics OAuth à l’aide de l’octroi de Code d’autorisation sont vulnérables à l’attaque de l’interception de code d’autorisation.  L’attaque est également décrite dans RFC 7636. Pour atténuer ce type d’attaque, AD FS dans Server 2019 prend en charge clé de preuve pour le Code Exchange (PKCE) pour les flux d’octroi de Code d’autorisation OAuth. 
+### <a name="proof-key-for-code-exchange-pkce-support-for-oauth"></a>Clé de vérification pour la prise en charge de l’échange de code (PKCE) pour oAuth 
+Les clients publics OAuth utilisant l’octroi de code d’autorisation sont exposés à l’attaque d’interception de code d’autorisation.  L’attaque est bien décrite dans le document RFC 7636. Pour atténuer cette attaque, AD FS dans le serveur 2019 prend en charge la clé de vérification pour l’échange de code (PKCE) pour le workflow d’octroi de code d’autorisation OAuth. 
  
-Pour tirer parti de la prise en charge PKCE, cette spécification ajoute des paramètres supplémentaires pour les demandes de jeton d’accès OAuth 2.0 Authorization.
+Pour tirer parti de la prise en charge PKCE, cette spécification ajoute des paramètres supplémentaires aux demandes d’autorisation et de jeton d’accès OAuth 2,0.
 
 ![Proofkey](media/whats-new-in-active-directory-federation-services-for-windows-server-2016/adfs2019.png)
 
-A. Le client crée et enregistre un secret nommé le « code_verifier » et est dérivée d’une version transformée « t(code_verifier) » (également appelé le « au code_challenge »), qui est envoyée dans la demande d’autorisation de 2.0 de OAuth, ainsi que la méthode de transformation « t_m ». 
+R. Le client crée et enregistre un secret nommé «code_verifier» et dérive une version transformée «t (code_verifier)» (appelée «code_challenge»), qui est envoyée dans la demande d’autorisation 2,0 OAuth avec la méthode de transformation «t_m». 
 
-B. Le point de terminaison d’autorisation répond comme d’habitude, mais les enregistrements « t(code_verifier) » et la méthode de transformation. 
+B. Le point de terminaison d’autorisation répond comme d’habitude, mais enregistre «t (code_verifier)» et la méthode de transformation. 
 
-C. Ensuite, le client envoie le code d’autorisation dans l’accès demande de jeton, comme d’habitude mais inclut le secret « code_verifier » généré à (A). 
+C. Le client envoie alors le code d’autorisation dans la demande de jeton d’accès comme d’habitude, mais il comprend le secret «code_verifier» généré à (A). 
 
-D. Les services AD FS transforme « code_verifier » et le compare à « t(code_verifier) » à partir de (B).  L’accès est refusé s’ils ne sont pas égaux. 
+E. Le AD FS transforme «code_verifier» et le compare à «t (code_verifier)» à partir de (B).  L’accès est refusé s’ils ne sont pas égaux. 
 
-#### <a name="faq"></a>Forum Aux Questions 
-**Q.** Puis-je passer la valeur de ressource dans le cadre de la valeur d’étendue, comme la façon dont les demandes sont effectuées auprès d’Azure AD ? 
-</br>**A.** Avec AD FS sur 2019 de serveur, vous pouvez maintenant passer la valeur de la ressource incorporée dans le paramètre d’étendue. Le paramètre d’étendue peut maintenant être organisé comme une liste séparée par des espaces où chaque entrée a une structure en tant que portée de la ressource. Exemple :  
-**< créer une demande d’exemple valide >**
+#### <a name="faq"></a>Questions fréquentes (FAQ) 
+**QUESTION.** Puis-je passer une valeur de ressource dans le cadre de la valeur d’étendue comme la façon dont les requêtes sont effectuées sur Azure AD? 
+</br>**UN.** Avec AD FS sur le serveur 2019, vous pouvez désormais transmettre la valeur de ressource incorporée dans le paramètre d’étendue. Le paramètre d’étendue peut désormais être organisé comme une liste séparée par des espaces, où chaque entrée est structure en tant que ressource/étendue. Exemple :  
+**< créer un exemple de demande valide >**
 
-**Q.** AD FS prend-elle en charge l’extension PKCE ?
-</br>**A.** AD FS dans Server 2019 prend en charge la clé de preuve pour Code Exchange (PKCE) pour les flux d’octroi de Code d’autorisation OAuth 
+**QUESTION.** AD FS prend-il en charge l’extension PKCE?
+</br>**UN.** AD FS du serveur 2019 prend en charge la clé de vérification pour l’échange de code (PKCE) pour le workflow d’octroi de code d’autorisation OAuth 
 
 ## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2016"></a>Nouveautés des services de fédération Active Directory (AD FS) pour Windows Server 2016   
-Si vous recherchez plus d’informations sur les versions antérieures d’AD FS, consultez les articles suivants :  
- [AD FS dans Windows Server 2012 ou 2012 R2](https://technet.microsoft.com/library/hh831502.aspx) et [AD FS 2.0](https://technet.microsoft.com/library/adfs2.aspx)  
+Si vous recherchez des informations sur les versions antérieures de AD FS, consultez les articles suivants:  
+ [ADFS dans Windows Server 2012 ou 2012 R2](https://technet.microsoft.com/library/hh831502.aspx) et [AD FS 2,0](https://technet.microsoft.com/library/adfs2.aspx)  
 
- Active Directory Federation Services fournit le contrôle d’accès et l’authentification unique dans une vaste gamme d’applications, notamment Office 365, cloud basée sur les applications SaaS et applications sur le réseau d’entreprise.  
-* Pour l’organisation informatique, il vous permet de fournir authentification et contrôle d’accès aux applications modernes et héritées, en local et dans le cloud, basé sur le même ensemble de stratégies et les informations d’identification.    
-* Pour l’utilisateur, il fournit une authentification transparente à l’aide des informations d’identification de compte familière, même.  
-* Pour les développeurs, il fournit un moyen simple pour authentifier les utilisateurs dont les identités résident dans le répertoire d’organisation afin que vous pouvez concentrer vos efforts sur votre application, pas d’authentification ou d’identité.  
+ Services ADFS fournit un contrôle d’accès et une authentification unique sur un large éventail d’applications, notamment Office 365, les applications SaaS basées sur le Cloud et les applications sur le réseau d’entreprise.  
+* Pour l’organisation informatique, elle vous permet de fournir une authentification et un contrôle d’accès aux applications modernes et héritées, localement et dans le Cloud, en fonction du même ensemble d’informations d’identification et de stratégies.    
+* Pour l’utilisateur, il fournit une authentification transparente à l’aide des mêmes informations d’identification de compte familières.  
+* Pour le développeur, il offre un moyen simple d’authentifier les utilisateurs dont les identités résident dans l’annuaire d’organisation afin que vous puissiez concentrer vos efforts sur votre application, et non sur l’authentification ou l’identité.  
 
-Cet article décrit quelles sont les nouveautés dans AD FS dans Windows Server 2016 (AD FS 2016).  
+Cet article décrit les nouveautés de AD FS dans Windows Server 2016 (AD FS 2016).  
 
-## <a name="eliminate-passwords-from-the-extranet"></a>Éliminer les mots de passe à partir de l’Extranet  
-AD FS 2016 permet trois nouvelles options pour l’authentification sans mot de passe, qui permet aux organisations éviter le risque de réseau compromettent de piratage, volées ou le volés de mots de passe. 
+## <a name="eliminate-passwords-from-the-extranet"></a>Supprimer les mots de passe de l’extranet  
+AD FS 2016 offre trois nouvelles options de connexion sans mot de passe, ce qui permet aux organisations d’éviter les risques de compromission du réseau contre les mots de passe de hameçonnage, de fuite ou de vol. 
 
-### <a name="sign-in-with-azure-multi-factor-authentication"></a>Connectez-vous à Azure multi-factor Authentication
-AD FS 2016 s’appuie sur l’authentification multifacteur fonctionnalités (MFA) d’AD FS dans Windows Server 2012 R2 en autorisant l’authentification à l’aide d’un code d’authentification Multifacteur Azure uniquement, sans entrer d’abord dans un nom d’utilisateur et le mot de passe.
+### <a name="sign-in-with-azure-multi-factor-authentication"></a>Se connecter avec Azure Multi-Factor Authentication
+AD FS 2016 s’appuie sur les fonctionnalités d’authentification multifacteur (MFA) de AD FS dans Windows Server 2012 R2 en autorisant la connexion à l’aide d’un code Azure MFA uniquement, sans entrer d’abord un nom d’utilisateur et un mot de passe.
 
-* Avec Azure MFA en tant que la méthode d’authentification principale, l’utilisateur est invité à entrer son nom d’utilisateur et le code secret à usage unique à partir de l’application Azure Authenticator.  
-* Avec Azure MFA comme méthode d’authentification secondaires ou supplémentaires, l’utilisateur fournit des informations d’identification (à l’aide de l’authentification intégrée de Windows, nom d’utilisateur et mot de passe, carte à puce ou certificat utilisateur ou périphérique) de l’authentification principale, puis voit une invite pour le texte, connexion d’Azure MFA basée sur un voix ou secret à usage unique.  
-* Avec le nouvel adaptateur Azure MFA intégré, le programme d’installation et configuration pour Azure MFA avec AD FS a jamais été plus simple.
-* Les organisations peuvent tirer parti de l’authentification Multifacteur Azure sans recourir à un serveur Azure MFA local.
-* Azure MFA peut être configuré pour l’intranet ou extranet ou dans le cadre d’une stratégie de contrôle d’accès.
+* Avec Azure MFA comme méthode d’authentification principale, l’utilisateur est invité à entrer son nom d’utilisateur et le code de mot de passe à usage unique à partir de l’application Azure Authenticator.  
+* Avec Azure MFA comme méthode d’authentification secondaire ou supplémentaire, l’utilisateur fournit les informations d’identification d’authentification principales (à l’aide de l’authentification intégrée Windows, du nom d’utilisateur et du mot de passe, de la carte à puce ou du certificat d’utilisateur ou d’appareil), puis voit une invite de texte, connexion Azure MFA basée sur un mot de passe à usage unique.  
+* Avec le nouvel adaptateur Azure MFA intégré, le programme d’installation et de configuration pour Azure MFA avec AD FS n’a jamais été plus simple.
+* Les organisations peuvent tirer parti de l’authentification multifacteur Azure sans avoir besoin d’un serveur Azure MFA local.
+* L’authentification multifacteur Azure peut être configurée pour un intranet ou un extranet, ou dans le cadre d’une stratégie de contrôle d’accès.
 
 Pour plus d’informations sur Azure MFA avec AD FS
 *  [Configurer AD FS 2016 et Azure MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa)  
 
-### <a name="password-less-access-from-compliant-devices"></a>Accès sans mot de passe à partir d’appareils conformes
-AD FS 2016 s’appuie sur les fonctionnalités d’inscription précédente pour activer l’authentification et contrôle d’accès en fonction de l’état de conformité d’appareil. Les utilisateurs peuvent se connecter à l’aide de l’information d’identification de l’appareil et ré-évaluation de la conformité lors de la modification d’attributs de l’appareil, afin que vous pouvez toujours vous assurer les stratégies sont appliquées.  Cela permet des stratégies telles que
+### <a name="password-less-access-from-compliant-devices"></a>Accès sans mot de passe à partir des appareils conformes
+AD FS 2016 s’appuie sur les fonctionnalités d’inscription d’appareils précédentes pour activer l’authentification et le contrôle d’accès en fonction de l’état de conformité de l’appareil. Les utilisateurs peuvent se connecter à l’aide des informations d’identification de l’appareil, et la conformité est réévaluée lorsque les attributs de l’appareil changent, afin que vous puissiez toujours garantir l’application des stratégies.  Cela permet d’activer des stratégies telles que
 
-* Activer l’accès uniquement à partir d’appareils qui sont conformes et/ou non managées  
-* Activer l’accès Extranet uniquement à partir d’appareils qui sont conformes et/ou non managées  
-* Exiger une authentification multifacteur pour les ordinateurs qui ne sont pas gérés ou non conformes  
+* Activer l’accès uniquement à partir d’appareils gérés et/ou conformes  
+* Activer l’accès extranet uniquement à partir d’appareils gérés et/ou conformes  
+* Exiger l’authentification multifacteur pour les ordinateurs qui ne sont pas gérés ou non conformes  
 
-AD FS fournit le composant de site sur des stratégies d’accès conditionnel dans un scénario hybride. Lorsque vous inscrivez des appareils avec Azure AD pour l’accès conditionnel aux ressources du cloud, l’identité d’appareil peut être utilisée pour les stratégies AD FS, ainsi.
+AD FS fournit le composant local des stratégies d’accès conditionnel dans un scénario hybride. Lorsque vous inscrivez des appareils avec Azure AD pour l’accès conditionnel aux ressources de Cloud, l’identité de l’appareil peut également être utilisée pour les stratégies de AD FS.
 
-![Ces nouvelles fonctionnalités](media/whats-new-in-active-directory-federation-services-for-windows-server-2016/ADFS_ITPRO4.png)  
+![Nouveautés](media/whats-new-in-active-directory-federation-services-for-windows-server-2016/ADFS_ITPRO4.png)  
 
- Pour plus d’informations sur l’utilisation de périphériques en fonction des accès conditionnel dans le cloud   
- *  [Accès conditionnel Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access/)
+ Pour plus d’informations sur l’utilisation de l’accès conditionnel basé sur les appareils dans le Cloud   
+ *  [Azure Active Directory l’accès conditionnel](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access/)
 
-Pour plus d’informations sur l’utilisation de périphériques en fonction d’accès conditionnel avec AD FS
-*  [Planification de l’appareil en fonction de l’accès conditionnel avec AD FS](../../ad-fs/deployment/Plan-Device-based-Conditional-Access-on-Premises.md)  
-* [Stratégies de contrôle d’accès dans AD FS](../../ad-fs/operations/Access-Control-Policies-in-AD-FS.md)  
+Pour plus d’informations sur l’utilisation de l’accès conditionnel basé sur les appareils avec AD FS
+*  [Planification de l’accès conditionnel basé sur les appareils avec AD FS](../../ad-fs/deployment/Plan-Device-based-Conditional-Access-on-Premises.md)  
+* [Stratégies de Access Control dans AD FS](../../ad-fs/operations/Access-Control-Policies-in-AD-FS.md)  
 
-### <a name="sign-in-with-windows-hello-for-business"></a>Connectez-vous à Windows Hello for Business   
-Appareils Windows 10 introduisent Windows Hello et Windows Hello entreprise, en remplaçant les mots de passe utilisateur avec informations d’identification forts liée à l’appareil utilisateur protégées par un mouvement d’un utilisateur (un code confidentiel, un mouvement biométrique comme empreinte digitale ou reconnaissance faciale). AD FS 2016 prend en charge ces nouvelles fonctionnalités de Windows 10 afin que les utilisateurs peuvent se connecter aux applications d’AD FS à partir de l’intranet ou l’extranet sans la nécessité de fournir un mot de passe.
+### <a name="sign-in-with-windows-hello-for-business"></a>Se connecter avec Windows Hello entreprise   
+Les appareils Windows 10 présentent Windows Hello et Windows Hello entreprise, en remplaçant les mots de passe utilisateur par des informations d’identification de l’utilisateur puissantes, protégées par le mouvement de l’utilisateur (un code confidentiel, un mouvement biométrique comme une empreinte digitale ou une reconnaissance faciale). AD FS 2016 prend en charge ces nouvelles fonctionnalités Windows 10 afin que les utilisateurs puissent se connecter à AD FS applications à partir de l’intranet ou de l’extranet sans avoir besoin de fournir un mot de passe.
 
 Pour plus d’informations sur l’utilisation de Microsoft Windows Hello entreprise dans votre organisation
 *  [Activer Windows Hello entreprise dans votre organisation](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport-deployment/)
 
-## <a name="secure-access-to-applications"></a>Accès sécurisé aux Applications
+## <a name="secure-access-to-applications"></a>Sécuriser l’accès aux applications
 
 ### <a name="modern-authentication"></a>Authentification moderne
-AD FS 2016 prend en charge des protocoles modernes les plus récents qui fournissent une meilleure expérience utilisateur pour Windows 10 ainsi que l’iOS le plus récent et les appareils Android et les applications.  
+AD FS 2016 prend en charge les derniers protocoles modernes qui offrent une meilleure expérience utilisateur pour Windows 10, ainsi que pour les appareils et applications iOS et Android les plus récents.  
 
-Pour plus d’informations, consultez [scénarios AD FS pour les développeurs](../../ad-fs/overview/AD-FS-Scenarios-for-Developers.md)  
+Pour plus d’informations, consultez [AD FS des scénarios pour les développeurs](../../ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios.md)  
 
 
-### <a name="configure-access-control-policies-without-having-to-know-claim-rules-language"></a>Configurer des stratégies de contrôle d’accès sans avoir à connaître le langage de règles de revendication  
-Auparavant, les administrateurs AD FS devaient configurer des stratégies à l’aide du langage de règle de revendication AD FS, rend difficile à configurer et gérer des stratégies. Avec les stratégies de contrôle d’accès, les administrateurs peuvent utiliser des modèles intégrés pour appliquer des stratégies courantes telles que
+### <a name="configure-access-control-policies-without-having-to-know-claim-rules-language"></a>Configurer des stratégies de contrôle d’accès sans avoir à connaître le langage des règles de revendication  
+Auparavant, AD FS administrateurs devaient configurer des stratégies à l’aide du langage de règle de revendication AD FS, ce qui complique la configuration et la maintenance des stratégies. Avec les stratégies de contrôle d’accès, les administrateurs peuvent utiliser des modèles intégrés pour appliquer des stratégies courantes telles que
 * Autoriser l’accès intranet uniquement
-* Autoriser tout le monde et demander l’authentification MFA à partir de l’Extranet
-* Autoriser tout le monde et demander l’authentification Multifacteur à partir d’un groupe spécifique
+* Autoriser tout le monde et demander l’authentification MFA à l’extranet
+* Autoriser tout le monde et demander l’authentification MFA d’un groupe spécifique
 
-Les modèles sont faciles à personnaliser à l’aide d’un Assistant piloté par les processus pour ajouter des exceptions ou des règles de stratégies supplémentaires et peuvent être appliqués à une ou plusieurs applications pour appliquer la stratégie cohérente.
+Les modèles sont faciles à personnaliser à l’aide d’un processus piloté par un Assistant pour ajouter des exceptions ou des règles de stratégie supplémentaires et peuvent être appliqués à une ou plusieurs applications pour l’application cohérente des stratégies.
 
-Pour plus d’informations, consultez [stratégies de contrôle d’accès dans AD FS.](../../ad-fs/operations/Access-Control-Policies-in-AD-FS.md)  
+Pour plus d’informations [, consultez stratégies de contrôle d’accès dans AD FS.](../../ad-fs/operations/Access-Control-Policies-in-AD-FS.md)  
 
-### <a name="enable-sign-on-with-non-ad-ldap-directories"></a>Activer l’authentification avec les annuaires LDAP non - AD  
-De nombreuses organisations possèdent une combinaison d’Active Directory et les répertoires par des tiers. Avec l’ajout de prise en charge AD FS pour authentifier les utilisateurs stockés dans des annuaires LDAP v3 conforme, AD FS est désormais utilisable pour :
-* Utilisateurs de tiers, les annuaires conformes LDAP v3
-* Utilisateurs dans les forêts Active Directory à laquelle une approbation bidirectionnelle Active Directory n’est pas configurée
-* Utilisateurs dans Active Directory Lightweight Directory Services (AD LDS)
+### <a name="enable-sign-on-with-non-ad-ldap-directories"></a>Activer l’authentification avec des annuaires LDAP non-Active Directory  
+De nombreuses organisations ont une combinaison de Active Directory et de répertoires tiers. Avec l’ajout de la prise en charge de AD FS pour l’authentification des utilisateurs stockés dans des annuaires compatibles LDAP v3, AD FS peut désormais être utilisé pour:
+* Utilisateurs de tiers, répertoires compatibles LDAP v3
+* Les utilisateurs de Active Directory forêts pour lesquelles une approbation Active Directory bidirectionnelle n’est pas configurée
+* Utilisateurs de services AD LDS (Active Directory Lightweight Directory Services) (AD LDS)
 
 Pour plus d’informations, consultez [configurer AD FS pour authentifier les utilisateurs stockés dans les annuaires LDAP.](../../ad-fs/operations/Configure-AD-FS-to-authenticate-users-stored-in-LDAP-directories.md)  
 
-## <a name="better-sign-in-experience"></a>Une meilleure expérience de connexion
-### <a name="customize-sign-in-experience-for-ad-fs-applications"></a>Personnaliser l’expérience pour les applications AD FS de connexion  
-Nous avons entendu dire vous que la possibilité de personnaliser l’expérience d’ouverture de session pour chaque application serait une amélioration de la grande facilité d’utilisation, en particulier pour les organisations qui fournir l’authentification pour les applications qui représentent plusieurs entreprises différentes ou marques.  
+## <a name="better-sign-in-experience"></a>Meilleure expérience de connexion
+### <a name="customize-sign-in-experience-for-ad-fs-applications"></a>Personnaliser l’expérience de connexion pour les applications AD FS  
+Nous avons appris que la possibilité de personnaliser l’expérience de connexion pour chaque application serait une amélioration de la convivialité, en particulier pour les organisations qui fournissent une authentification pour les applications qui représentent plusieurs entreprises ou marques différentes.  
 
-Auparavant, AD FS dans Windows Server 2012 R2 fourni un signe courantes sur l’expérience pour toutes les applications de confiance en avec la possibilité de personnaliser un sous-ensemble du texte contenu par application. Avec Windows Server 2016, vous pouvez personnaliser non seulement les messages, mais les images, mais thème web et le logo par application. En outre, vous pouvez créer de nouveaux thèmes web personnalisés et appliquer ces par partie de confiance tiers.  
+Auparavant, AD FS dans Windows Server 2012 R2 offrait une expérience d’authentification commune pour toutes les applications par partie de confiance, avec la possibilité de personnaliser un sous-ensemble de contenu textuel par application. Avec Windows Server 2016, vous pouvez personnaliser non seulement les messages, mais aussi les images, le logo et le thème Web par application. En outre, vous pouvez créer des thèmes Web personnalisés et les appliquer par partie de confiance.  
 
-Pour plus d’informations, consultez [AD FS sign-in personnalisation de l’utilisateur.](../../ad-fs/operations/AD-FS-user-sign-in-customization.md)  
+Pour plus d’informations, consultez [Personnalisation de la connexion de l’utilisateur AD FS.](../../ad-fs/operations/AD-FS-user-sign-in-customization.md)  
 
 
 
-## <a name="manageability-and-operational-enhancements"></a>La facilité de gestion et les améliorations  
-La section suivante décrit les scénarios opérationnels améliorées qui sont introduites avec les Services de fédération Active Directory dans Windows Server 2016.  
+## <a name="manageability-and-operational-enhancements"></a>Facilité de gestion et améliorations opérationnelles  
+La section suivante décrit les scénarios opérationnels améliorés introduits avec Services ADFS dans Windows Server 2016.  
 
-### <a name="streamlined-auditing-for-easier-administrative-management"></a>Rationalisation de l’audit pour simplifier la gestion administrative  
-Dans AD FS pour Windows Server 2012 R2 il ont de nombreux événements d’audit générés pour une seule requête et les informations pertinentes sur un journal dans ou les activités d’émission de jeton soient absent (dans certaines versions d’AD FS) ou répartie sur plusieurs événements d’audit. Par défaut, les services AD FS, les événements d’audit sont désactivées en raison de leur nature détaillée.  
-Avec la version d’AD FS 2016, l’audit est devenue plus simple et moins détaillé.  
+### <a name="streamlined-auditing-for-easier-administrative-management"></a>Audit rationalisé pour faciliter la gestion administrative  
+Dans AD FS pour Windows Server 2012 R2, un grand nombre d’événements d’audit ont été générés pour une requête unique et les informations pertinentes sur une activité de connexion ou d’émission de jetons sont absentes (dans certaines versions de AD FS) ou réparties sur plusieurs événements d’audit. Par défaut, les événements d’audit AD FS sont désactivés en raison de leur nature détaillée.  
+Avec la sortie de AD FS 2016, l’audit est devenu plus rationalisé et moins détaillé.  
 
-Pour plus d’informations, consultez [l’audit des améliorations apportées à AD FS dans Windows Server 2016.](../../ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server.md)  
+Pour plus d’informations [, consultez améliorations apportées à l’audit de AD FS dans Windows Server 2016.](../../ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server.md)  
 
-### <a name="improved-interoperability-with-saml-20-for-participation-in-confederations"></a>Amélioration de l’interopérabilité avec SAML 2.0 pour participer à confédérations de l’industrie  
-AD FS 2016 contient SAML protocole prise en charge supplémentaire, notamment la prise en charge pour l’importation des approbations en fonction des métadonnées qui contient plusieurs entités. Cela vous permet de configurer AD FS pour participer confédérations de l’industrie telles que la fédération InCommon et d’autres implémentations conformes à l’eGov 2.0 standard.  
+### <a name="improved-interoperability-with-saml-20-for-participation-in-confederations"></a>Interopérabilité améliorée avec SAML 2,0 pour la participation aux conversions  
+AD FS 2016 contient une prise en charge du protocole SAML supplémentaire, notamment la prise en charge de l’importation d’approbations basées sur des métadonnées contenant plusieurs entités. Cela vous permet de configurer AD FS pour participer à des conversions telles que la Fédération inhabituelle et d’autres implémentations conformes à la norme eGov 2,0.  
 
-Pour plus d’informations, consultez [amélioré l’interopérabilité avec SAML 2.0.](../../ad-fs/operations/Improved-interoperability-with-SAML-2.0.md)  
+Pour plus d’informations [, consultez interopérabilité améliorée avec SAML 2,0.](../../ad-fs/operations/Improved-interoperability-with-SAML-2.0.md)  
 
-### <a name="simplified-password-management-for-federated-o365-users"></a>Gestion simplifiée du mot de passe pour fédérés les utilisateurs O365  
-Vous pouvez configurer Active Directory Federation Services (ADFS) pour envoyer des revendications d’expiration de mot de passe à la confiance (applications) qui est protégés par AD FS. Comment ces revendications sont utilisées dépendent de l’application. Par exemple, avec Office 365 en tant que votre partie de confiance, les mises à jour ont été implémentées pour Exchange et Outlook pour informer les utilisateurs fédérés de leurs mots de passe bientôt expirer.  
+### <a name="simplified-password-management-for-federated-o365-users"></a>Gestion simplifiée des mots de passe pour les utilisateurs Office 365 fédérés  
+Vous pouvez configurer Services ADFS (AD FS) pour envoyer des revendications d’expiration de mot de passe aux approbations de partie de confiance (applications) protégées par AD FS. Le mode d’utilisation de ces revendications dépend de l’application. Par exemple, avec Office 365 en tant que partie de confiance, des mises à jour ont été implémentées sur Exchange et Outlook pour notifier les utilisateurs fédérés de leurs mots de passe arrivant à expiration.  
 
-Pour plus d’informations, consultez [configurer AD FS pour envoyer des revendications d’expiration de mot de passe.](../../ad-fs/operations/Configure-AD-FS-to-Send-Password-Expiry-Claims.md)  
+Pour plus d’informations [, consultez configurer AD FS pour envoyer des revendications d’expiration de mot de passe.](../../ad-fs/operations/Configure-AD-FS-to-Send-Password-Expiry-Claims.md)  
 
-### <a name="moving-from-ad-fs-in-windows-server-2012-r2-to-ad-fs-in-windows-server-2016-is-easier"></a>Migration d’AD FS dans Windows Server 2012 R2 vers AD FS dans Windows Server 2016 est facile  
-Auparavant, la migration vers une nouvelle version des services AD FS devait exportation de la configuration à partir de l’ancienne batterie de serveurs et de l’importation vers une toute nouvelle batterie de serveurs parallèle.  
+### <a name="moving-from-ad-fs-in-windows-server-2012-r2-to-ad-fs-in-windows-server-2016-is-easier"></a>Il est plus facile de passer de AD FS dans Windows Server 2012 R2 à AD FS dans Windows Server 2016  
+Auparavant, la migration vers une nouvelle version de AD FSait l’exportation de la configuration de l’ancienne batterie de serveurs et l’importation vers une nouvelle batterie parallèle.  
 
-À présent, le déplacement à partir d’AD FS sur Windows Server 2012 R2 vers AD FS sur Windows Server 2016 est devenu beaucoup plus facile. Ajoutez simplement un nouveau serveur Windows Server 2016 à une batterie de serveurs Windows Server 2012 R2, et la batterie de serveurs agira au niveau de comportement de batterie de serveurs Windows Server 2012 R2, afin qu’il se présente et se comporte comme une batterie de serveurs Windows Server 2012 R2.  
+Désormais, le passage d’AD FS sur Windows Server 2012 R2 à AD FS sur Windows Server 2016 est devenu beaucoup plus facile. Ajoutez simplement un nouveau serveur Windows Server 2016 à une batterie de serveurs Windows Server 2012 R2, et la batterie de serveurs agira au niveau du comportement de la batterie de serveurs Windows Server 2012 R2, de sorte qu’elle se présente comme une batterie de serveurs Windows Server 2012 R2.  
 
-Ensuite, ajoutez les nouveaux serveurs Windows Server 2016 à la batterie de serveurs, vérifier la fonctionnalité et supprimer les anciens serveurs d’équilibrage de charge. Une fois que tous les nœuds de batterie de serveurs exécutent Windows Server 2016, vous êtes prêt à mettre à niveau le niveau de comportement de batterie de serveurs vers 2016 et commencer à utiliser les nouvelles fonctionnalités.  
+Ensuite, ajoutez de nouveaux serveurs Windows Server 2016 à la batterie, vérifiez la fonctionnalité et supprimez les serveurs plus anciens de l’équilibreur de charge. Une fois que tous les nœuds de la batterie de serveurs exécutent Windows Server 2016, vous êtes prêt à mettre à niveau le niveau de comportement de la batterie de serveurs vers 2016 et à commencer à utiliser les nouvelles fonctionnalités.  
 
-Pour plus d’informations, consultez [la mise à niveau vers AD FS dans Windows Server 2016.](../../ad-fs/deployment/Upgrading-to-AD-FS-in-Windows-Server-2016.md)  
+Pour plus d’informations [, consultez Mise à niveau vers AD FS dans Windows Server 2016.](../../ad-fs/deployment/Upgrading-to-AD-FS-in-Windows-Server-2016.md)  
