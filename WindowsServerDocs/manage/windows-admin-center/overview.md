@@ -5,15 +5,15 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 06/20/2019
+ms.date: 08/22/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 0612f4ff102d6b5d1fd24372ac20a98c3ec02edb
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 7af852ba934de2dd29a76972d7a7ec73606e9b4c
+ms.sourcegitcommit: 4fa147d552481d8279a5390f458a9f7788061977
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476568"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70009120"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -129,6 +129,7 @@ Vous pouvez installer et exécuter Windows Admin Center dans votre environnement
 
 Découvrez nos toutes dernières fonctionnalités publiées :
 
+- Version [1908](https://aka.ms/wac1908) : comprend les mises à jour visuelles, Packetmon, FlowLog, l’intégration des clusters dans Azure Monitor et la prise en charge de WinRM sur HTTPS (port 5986).
 - Version [1907](https://aka.ms/wac1907) - ajout de liens d’estimation des coûts Azure et améliorations apportées à l’importation/exportation et à l’étiquetage des machines virtuelles.
 - Version [1906](https://aka.ms/wac1906) - Importer/exporter des machines virtuelles, changer de compte Azure, ajouter des connexions depuis Azure, expérience des paramètres de connectivité, améliorations des performances et outil de profilage des performances.
 - La version 1904.1 est la toute dernière version GA - mise à jour de maintenance pour améliorer la stabilité des plug-ins de la passerelle.
