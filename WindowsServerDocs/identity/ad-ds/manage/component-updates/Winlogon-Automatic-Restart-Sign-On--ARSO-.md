@@ -1,148 +1,175 @@
 ---
 ms.assetid: cb834273-828a-4141-9387-37dd8270e932
-title: Connexion de redémarrage automatique Winlogon
-description: ''
+title: Connexion par redémarrage automatique Winlogon (connexion)
+description: La façon dont l’authentification de redémarrage automatique de Windows peut aider vos utilisateurs à être plus productifs.
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
-ms.date: 05/31/2017
+ms.reviewer: cahick
+ms.date: 08/20/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 4024a00c6c186aa929e88cb2aa86b0ec04a731b3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 180ffbd1e96448d7a7ea12c5e08e9fc5b35f7f8b
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883620"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031569"
 ---
-# <a name="winlogon-automatic-restart-sign-on-arso"></a>Connexion de redémarrage automatique Winlogon
+# <a name="winlogon-automatic-restart-sign-on-arso"></a>Connexion par redémarrage automatique Winlogon (connexion)
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+Pendant une Windows Update, des processus spécifiques à l’utilisateur doivent se produire pour que la mise à jour soit terminée. Ces processus nécessitent que l’utilisateur soit connecté à son appareil. Lors de la première connexion après qu’une mise à jour a été lancée, les utilisateurs doivent attendre que ces processus spécifiques à l’utilisateur soient terminés avant de pouvoir commencer à utiliser leur appareil.
 
-**Auteur**: Justin Turner, ingénieur Support résolution Senior auprès du groupe Windows
+## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
+
+Lorsque Windows Update lance un redémarrage automatique, connexion extrait les informations d’identification dérivées de l’utilisateur actuellement connecté, le rend persistant sur le disque et configure l’ouverture de session automatique pour l’utilisateur. Windows Update l’exécution en tant que système avec un privilège TCB déclenchera l’appel RPC pour effectuer cette opération.
+
+Une fois la dernière Windows Update redémarrée, l’utilisateur est automatiquement connecté via le mécanisme d’ouverture de session automatique et la session de l’utilisateur est réalimentée avec les secrets rendus persistants. En outre, l’appareil est verrouillé pour protéger la session de l’utilisateur. Le verrouillage est initié via Winlogon, tandis que la gestion des informations d’identification est effectuée par l’autorité de sécurité locale (LSA). Une fois la configuration de connexion réussie et la connexion établie, les informations d’identification enregistrées sont immédiatement supprimées du disque.
+
+En se connectant et en verrouillant automatiquement l’utilisateur sur la console, Windows Update pouvez terminer les processus spécifiques à l’utilisateur avant que l’utilisateur ne retourne à l’appareil. De cette façon, l’utilisateur peut commencer immédiatement à utiliser son appareil.
+
+CONNEXION traite différemment les appareils non gérés et gérés. Pour les appareils non gérés, le chiffrement de l’appareil est utilisé, mais il n’est pas obligatoire pour l’utilisateur d’obtenir connexion. Pour les appareils gérés, TPM 2,0, SecureBoot et BitLocker sont requis pour la configuration de connexion. Les administrateurs informatiques peuvent remplacer cette exigence via stratégie de groupe. CONNEXION pour les appareils gérés est actuellement disponible uniquement pour les appareils qui sont joints à Azure Active Directory.
+
+|   | Windows Update| arrêter-g-t 0  | Redémarrages lancés par l’utilisateur | API avec indicateurs SHUTDOWN_ARSO/EWX_ARSO |
+| --- | :---: | :---: | :---: | :---: |
+| Appareils gérés | :heavy_check_mark:  | :heavy_check_mark: |   | :heavy_check_mark: |
+| Appareils non gérés | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 > [!NOTE]
-> Ce contenu est écrit par un ingénieur du support client Microsoft et est destiné aux administrateurs expérimentés et aux architectes système qui recherchent des explications techniques plus approfondies des fonctionnalités et des solutions Windows Server 2012 R2 que n'en proposent généralement les rubriques de TechNet. Toutefois, il n'a pas subi les mêmes passes de correction. De ce fait, une partie du langage peut sembler moins finalisée que le contenu de TechNet.
+> Après un redémarrage induit Windows Update, le dernier utilisateur interactif est automatiquement connecté et la session est verrouillée. Cela permet aux applications de l’écran de verrouillage d’un utilisateur de continuer à s’exécuter malgré le redémarrage Windows Update.
 
-## <a name="overview"></a>Vue d'ensemble
-Windows 8 introduit des applications d’écran de verrouillage.  Ce sont les applications qui s’exécutent et affichent les notifications pendant que la session utilisateur est verrouillée (calendrier des rendez-vous, des e-mails et des messages, etc..).  Les appareils qui sont redémarrés en raison du processus de mise à jour de Windows ne parviennent pas à afficher ces notifications de verrouillage d’écran après le redémarrage.  Certains utilisateurs dépendent de ces applications d’écran de verrouillage.
+![Page Paramètres](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/gtr-adds-lockscreenapp.png)
 
-## <a name="whats-changed"></a>Nouveautés
-Lorsqu’un utilisateur se connecte sur un appareil Windows 8.1, LSA enregistre les informations d’identification chiffrée mémoire accessible uniquement par lsass.exe. Lors de la mise à jour Windows lance un redémarrage automatique sans la présence de l’utilisateur, ces informations d’identification seront utilisées pour configurer l’ouverture de session automatique pour l’utilisateur. Mise à jour de Windows en cours d’exécution en tant que système avec le privilège TCB lance l’appel RPC pour ce faire.
+## <a name="policy-1"></a>#1 de stratégie
 
-Après le redémarrage, l’utilisateur sera automatiquement être connecté via le mécanisme d’ouverture de session automatique et plus verrouillé pour protéger la session utilisateur. Le verrouillage est lancé via Winlogon tandis que la gestion d’informations d’identification est effectuée par la LSA.  En automatiquement la signature et le verrouillage de l’utilisateur sur la console, applications d’écran de verrouillage de l’utilisateur seront redémarrées et disponibles.
+### <a name="sign-in-and-lock-last-interactive-user-automatically-after-a-restart"></a>Se connecter et verrouiller le dernier utilisateur interactif automatiquement après un redémarrage
 
-> [!NOTE]
-> Après une mise à jour Windows induites par le redémarrage, le dernier utilisateur interactif est automatiquement connecté et la session est verrouillée par conséquent, verrou écran applications l’utilisateur peuvent s’exécuter.
+Dans Windows 10, connexion est désactivé pour les références de serveur et s’abonne aux références clientes.
 
-![winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/GTR_ADDS_LockScreenApp.gif)
+**Emplacement de la stratégie de groupe:** Configuration de l’ordinateur > Modèles d’administration > les composants Windows > les options d’ouverture de session Windows
 
-![winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/GTR_ADDS_LockScreen.gif)
+**Stratégie Intune:**
 
-**Vue d’ensemble rapide**
+- Multi Windows 10 et versions ultérieures
+- Type de profil: Modèles d’administration
+- Chemin: \Windows Windows\windows Logon options
 
--   Mise à jour de Windows nécessite un redémarrage
+**Pris en charge sur:** Au moins Windows 10 version 1903
 
--   Est l’ordinateur capable de redémarrer (*aucune application en cours d’exécution qui ne perdrait données*) ?
+**Description :**
 
-    -   Redémarrage pour vous
+Ce paramètre de stratégie détermine si un appareil se connecte automatiquement et verrouille le dernier utilisateur interactif après le redémarrage du système ou après un arrêt et un démarrage à froid.
 
-    -   Reconnectez-vous
+Cela se produit uniquement si le dernier utilisateur interactif ne s’est pas déconnecté avant le redémarrage ou l’arrêt.
 
-    -   Machine de verrou
+Si l’appareil est joint à Active Directory ou Azure Active Directory, cette stratégie s’applique uniquement aux redémarrages de Windows Update. Dans le cas contraire, cette opération s’applique aux redémarrages de Windows Update et aux redémarrages et arrêts initiés par l’utilisateur.
 
--   Activé ou désactivé par la stratégie de groupe
+Si vous ne configurez pas ce paramètre de stratégie, il est activé par défaut. Lorsque la stratégie est activée, l’utilisateur est automatiquement connecté et la session est automatiquement verrouillée avec toutes les applications d’écran de verrouillage configurées pour cet utilisateur après le démarrage de l’appareil.
 
-    -   Désactivé par défaut dans les versions serveur
+Après avoir activé cette stratégie, vous pouvez configurer ses paramètres à l’aide de la stratégie ConfigAutomaticRestartSignOn, qui configure le mode de connexion et de verrouillage automatique du dernier utilisateur interactif après un redémarrage ou un démarrage à froid.
 
--   Pourquoi ?
+Si vous désactivez ce paramètre de stratégie, l’appareil ne configure pas la connexion automatique. Les applications de l’écran de verrouillage de l’utilisateur ne sont pas redémarrées après le redémarrage du système.
 
-    -   Certaines mises à jour ne peut pas terminer jusqu'à ce que l’utilisateur se connecte dans.
+**Éditeur du Registre:**
 
-    -   Une meilleure expérience utilisateur : n’êtes pas obligé d’attendre 15 minutes pour terminer l’installation des mises à jour
+| Nom de valeur | Type | Données |
+| --- | --- | --- |
+| DisableAutomaticRestartSignOn | DWORD | 0 (activer connexion) |
+|   |   | 1 (désactiver connexion) |
 
--   Comment ? AutoLogon
+**Emplacement du registre de la stratégie:** HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
 
-    -   stocke le mot de passe, utilise ces informations d’identification pour vous connecter
+**Type :** DWORD
 
-    -   enregistre les informations d’identification en tant que secret LSA dans la mémoire paginée
+![Winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/gtr-adds-signinpolicy.png)
 
-    -   Peut uniquement être activée si BitLocker est activé.
+## <a name="policy-2"></a>#2 de stratégie
 
-## <a name="group-policy-sign-in-last-interactive-user-automatically-after-a-system-initiated-restart"></a>Stratégie de groupe : Connectez-vous dernier utilisateur interactif automatiquement après un redémarrage initié par le système
-Dans Windows 8.1 / Windows Server 2012 R2, ouverture de session automatique de l’utilisateur d’écran de verrouillage après le redémarrage de la mise à jour Windows opter pour les références (SKU) de serveur et refuser pour les références (SKU) de Client.
+### <a name="configure-the-mode-of-automatically-signing-in-and-locking-last-interactive-user-after-a-restart-or-cold-boot"></a>Configurer le mode de connexion et de verrouillage automatique du dernier utilisateur interactif après un redémarrage ou un démarrage à froid
 
-**Emplacement de la stratégie :** Configuration ordinateur > stratégies > modèles d’administration > composants de Windows > Option d’ouverture de session Windows
+**Emplacement de la stratégie de groupe:** Configuration de l’ordinateur > Modèles d’administration > les composants Windows > les options d’ouverture de session Windows
 
-**Nom de la stratégie :** Connectez-vous dernier utilisateur interactif automatiquement après un redémarrage initié par le système
+**Stratégie Intune:**
 
-**Pris en charge :** Au minimum Windows Server 2012 R2, Windows 8.1 ou Windows RT 8.1
+- Multi Windows 10 et versions ultérieures
+- Type de profil: Modèles d’administration
+- Chemin: \Windows Windows\windows Logon options
 
-**Description/support :**
+**Pris en charge sur:** Au moins Windows 10 version 1903
 
-Ce paramètre de stratégie détermine si un appareil sera automatiquement connectez-vous le dernier utilisateur interactif après mise à jour Windows redémarre le système.
+**Description :**
 
-Si vous activez ou ne configurez pas ce paramètre de stratégie, l’appareil enregistre en toute sécurité les informations d’identification de l’utilisateur (y compris le nom d’utilisateur, le domaine et le mot de passe chiffré) pour configurer dans l’authentification automatique après le redémarrage d’une mise à jour de Windows. Après le redémarrage de la mise à jour de Windows, l’utilisateur est automatiquement signé dans et la session est verrouillée automatiquement avec toutes les applications d’écran de verrouillage configurées pour cet utilisateur.
+Ce paramètre de stratégie contrôle la configuration selon laquelle un redémarrage et une connexion automatiques et un verrouillage se produisent après un redémarrage ou un démarrage à froid. Si vous avez choisi «désactivé» dans la stratégie «connexion et verrouillage du dernier utilisateur interactif automatiquement après un redémarrage», l’authentification automatique n’a pas lieu et cette stratégie n’a pas besoin d’être configurée.
 
-Si vous désactivez ce paramètre de stratégie, l’appareil ne stocke pas les informations d’identification de l’utilisateur pour la connexion automatique après le redémarrage d’une mise à jour de Windows. Applications d’écran de verrouillage utilisateurs ne sont pas redémarrées après le redémarrage du système.
+Si vous activez ce paramètre de stratégie, vous pouvez choisir l’une des deux options suivantes:
+
+1. «Activé si BitLocker est activé et non suspendu» indique que la connexion automatique et le verrouillage se produisent uniquement si BitLocker est actif et n’est pas suspendu au cours du redémarrage ou de l’arrêt. Vous pouvez accéder aux données personnelles sur le disque dur de l’appareil à ce moment-là si BitLocker n’est pas activé ou suspendu pendant une mise à jour. La suspension BitLocker supprime temporairement la protection des composants système et des données, mais elle peut être nécessaire dans certaines circonstances pour mettre à jour correctement les composants critiques de démarrage.
+   - BitLocker est suspendu pendant les mises à jour dans les cas suivants:
+      - L’appareil ne dispose pas de TPM 2,0 et PCR7, ou
+      - L’appareil n’utilise pas de protecteur TPM uniquement
+2. «Always Enabled» indique que la connexion automatique se produira même si BitLocker est désactivé ou suspendu lors du redémarrage ou de l’arrêt. Lorsque BitLocker n’est pas activé, les données personnelles sont accessibles sur le disque dur. Le redémarrage automatique et la connexion ne doivent être exécutés que dans ce cas, si vous êtes certain que l’appareil configuré se trouve dans un emplacement physique sécurisé.
+
+Si vous désactivez ou ne configurez pas ce paramètre, l’authentification automatique est définie par défaut sur le comportement «activé si BitLocker est activé et non suspendu».
 
 **Éditeur du Registre**
 
-|Nom de valeur|Type|Données|
-|--------------|--------|--------|
-|DisableAutomaticRestartSignOn|DWORD|0<br /><br />**Exemple :**<br /><br />0 (activé)<br /><br />1 (désactivé)|
+| Nom de valeur | Type | Données |
+| --- | --- | --- |
+| AutomaticRestartSignOnConfig | DWORD | 0 (activer connexion si sécurisé) |
+|   |   | 1 (activer les connexion toujours) |
 
-**Emplacement de Registre de stratégie :** HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+**Emplacement du registre de la stratégie:** HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
 
-**Type :** DWORD
+**Type :** DWORD
 
-**Nom du Registre :** DisableAutomaticRestartSignOn
-
-Valeur : 0 ou 1
-
-0 = activé
-
-1 = désactivé
-
-![winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/GTR_ADDS_SignInPolicy.gif)
+![Winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/arso-policy-setting.png)
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
-Lorsque le verrouillage automatique de WinLogon, suivi d’état de WinLogon est stockée dans le journal des événements WinLogon.
 
-L’état d’une tentative de configuration d’ouverture de session automatique est enregistré
+Lorsque WinLogon se verrouille automatiquement, la trace de l’état de WinLogon est stockée dans le journal des événements WinLogon.
 
--   Si l’opération a réussi
+L’état d’une tentative de configuration d’ouverture de session automatique est journalisé
 
-    -   Il enregistre en tant que tel
+- Si elle est réussie
+   - les enregistre en tant que tel
+- S’il s’agit d’une défaillance:
+   - enregistre l’échec
+- Lorsque l’état de BitLocker change:
+   - la suppression des informations d’identification sera enregistrée
+   - Celles-ci seront stockées dans le journal des opérations LSA.
 
--   S’il s’agit d’une défaillance :
+### <a name="reasons-why-autologon-might-fail"></a>Raisons pour lesquelles l’ouverture automatique peut échouer
 
-    -   Quel était l’échec des enregistrements
+Il existe plusieurs cas dans lesquels la connexion automatique d’un utilisateur ne peut pas être obtenue.  Cette section est destinée à capturer les scénarios connus dans lesquels cela peut se produire.
 
--   Lorsque état de BitLocker change :
+### <a name="user-must-change-password-at-next-login"></a>L’utilisateur doit changer de mot de passe à la prochaine connexion
 
-    -   la suppression des informations d’identification doivent être enregistrée
+La connexion de l’utilisateur peut entrer dans un État bloqué lorsque la modification du mot de passe à la prochaine connexion est requise.  Cela peut être détecté avant le redémarrage dans la plupart des cas, mais pas tous (par exemple, l’expiration du mot de passe peut être atteinte entre l’arrêt et la connexion suivante.
 
-        -   Celles-ci seront stockées dans le journal des opérations de LSA.
+### <a name="user-account-disabled"></a>Compte d’utilisateur désactivé
 
-### <a name="reasons-why-autologon-might-fail"></a>Raisons pourquoi l’ouverture de session automatique peut échouer
-Il existe plusieurs cas dans lequel une connexion automatique de l’utilisateur n’est pas possible.  Cette section est destinée à capturer les scénarios connus dans lequel cela peut se produire.
+Une session utilisateur existante peut être conservée même si elle est désactivée.  Le redémarrage d’un compte qui est désactivé peut être détecté localement dans la plupart des cas à l’avance, en fonction de la stratégie de niveau de service (ou non) pour les comptes de domaine (certains scénarios de connexion de domaine mis en cache fonctionnent même si le compte est désactivé sur le contrôleur de domaine).
 
-### <a name="user-must-change-password-at-next-login"></a>Utilisateur doit changer de mot de passe à la prochaine connexion
-Connexion de l’utilisateur peut entrer dans un état bloqué lors de la modification de mot de passe à la prochaine connexion est requise.  Cela peut être détecté avant redémarrage dans la plupart des cas, mais pas tous (par exemple, expiration du mot de passe peut être atteint entre la fermeture et la prochaine connexion.
+### <a name="logon-hours-and-parental-controls"></a>Horaires d’accès et contrôle parental
 
-### <a name="user-account-disabled"></a>Compte utilisateur désactivé
-Une session utilisateur existante peut être maintenue même si désactivé.  Redémarrage d’un compte qui est désactivé peut être détectée localement dans la plupart des cas à l’avance, en fonction de la stratégie de groupe qu'est peut-être pas pour les comptes de domaine (un domaine mis en cache travail des scénarios de connexion même si le compte est désactivé sur le contrôleur de domaine).
+Les heures d’ouverture de session et le contrôle parental peuvent empêcher la création d’une nouvelle session utilisateur.  Si un redémarrage se produit au cours de cette fenêtre, l’utilisateur n’est pas autorisé à se connecter.  Une stratégie supplémentaire empêche le verrouillage ou la déconnexion en tant qu’action de conformité. L’état d’une tentative de configuration de l’ouverture de session automatique est journalisé.
 
-### <a name="logon-hours-and-parental-controls"></a>Les heures d’ouverture de session et des contrôles parentaux
-Les heures d’ouverture de session et le contrôle parental peut interdire une nouvelle session utilisateur en cours de création.  Si un redémarrage se produit pendant cette fenêtre, l’utilisateur n’est pas autorisé à se connecter.  Il existe des stratégies supplémentaires qui provoque le verrouillage ou déconnexion en tant qu’une action de conformité.  Cela peut être problématique pour les nombreux cas enfant où le verrouillage de compte peut s’écouler entre lit et de veille, en particulier si la fenêtre de maintenance est couramment pendant ce temps.
+## <a name="security-details"></a>Détails de sécurité
 
-## <a name="additional-resources"></a>Ressources complémentaires
-**Table SEQ Table \\ \* arabe 3 : Glossaire ARSO**
+### <a name="credentials-stored"></a>Informations d’identification stockées
 
-|Terme|Définition|
-|--------|--------------|
-|Autologon|Ouverture de session automatique est une fonctionnalité qui était présente dans Windows pour plusieurs versions.  C’est une fonctionnalité documentée de Windows qui a encore des outils tels que version 3.01 d’ouverture de session automatique pour Windows  *[http:/technet.microsoft.com/sysinternals/bb963905.aspx](https://technet.microsoft.com/sysinternals/bb963905.aspx)*<br /><br />Il permet à un utilisateur unique de l’appareil pour vous connecter automatiquement sans entrer les informations d’identification. Les informations d’identification sont configurées et stockées dans le Registre en tant que secret LSA chiffré.|
+|   | Hachage du mot de passe | Clé d’informations d’identification | Ticket d’accord de ticket | Jeton d’actualisation principal |
+| --- | :---: | :---: | :---: | :---: |
+| Compte local | :heavy_check_mark: | :heavy_check_mark: |   |   |
+| Compte MSA | :heavy_check_mark: | :heavy_check_mark: |   |   |
+| Compte joint Azure AD | :heavy_check_mark: | :heavy_check_mark: | : heavy_check_mark: (si hybride) | :heavy_check_mark: |
+| Compte joint au domaine | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | : heavy_check_mark: (si hybride) |
 
+### <a name="credential-guard-interaction"></a>Interaction Credential Guard
 
+Si Credential Guard est activé pour un appareil, les secrets dérivés d’un utilisateur sont chiffrés avec une clé spécifique à la session de démarrage en cours. Par conséquent, connexion n’est pas actuellement pris en charge sur les appareils sur lesquels Credential Guard est activé.
+
+## <a name="additional-resources"></a>Ressources supplémentaires
+
+Le logo automatique est une fonctionnalité qui est présente dans Windows pour plusieurs versions. Il s’agit d’une fonctionnalité documentée de Windows qui a même des outils tels que le logo automatique pour Windows [http:/technet. Microsoft. com/Sysinternals/bb963905. aspx](https://technet.microsoft.com/sysinternals/bb963905.aspx). Il permet à un seul utilisateur de l’appareil de se connecter automatiquement sans entrer d’informations d’identification. Les informations d’identification sont configurées et stockées dans le registre en tant que secret LSA chiffré. Cela peut être problématique dans de nombreux cas enfants où le verrouillage de compte peut se produire entre le temps de sortie et la mise en éveil, en particulier si la fenêtre de maintenance est courante pendant cette période.

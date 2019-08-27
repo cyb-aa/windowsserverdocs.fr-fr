@@ -4,16 +4,16 @@ description: ''
 ms.author: jmesser
 author: jmesser81
 ms.date: 11/05/2018
-ms.openlocfilehash: 9466afed380d20160cad461c766de469e1f6a7cf
-ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
+ms.openlocfilehash: b8676fbab1776144cbbe68604f56d1230a04a145
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69584775"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031540"
 ---
 # <a name="hcn-json-document-schemas"></a>Schémas de document HCN JSON
 
->S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2019
 
 ## <a name="hcn-schema"></a>Schéma HCN
 

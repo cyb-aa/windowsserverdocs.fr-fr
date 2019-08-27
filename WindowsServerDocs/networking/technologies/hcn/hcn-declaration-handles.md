@@ -4,23 +4,23 @@ description: ''
 ms.author: jmesser
 author: jmesser81
 ms.date: 11/05/2018
-ms.openlocfilehash: 48e4626f52ef7af19da6d3e0bb28799665498fe5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0eb620fe52de5ee98a247e17ed73304b2325c7c8
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884850"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031495"
 ---
 # <a name="rpc-context-handles-for-hcn"></a>Poignées de contexte RPC pour HCN
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (canal semi-annuel), Windows Server 2019
 
 
-## <a name="hcnnetwork"></a>HCN_Network
+## <a name="hcn_network"></a>HCN_Network
 
-Un réseau de HCN est une entité qui est utilisée pour représenter un hôte de réseau et ses ressources système associées et les stratégies de calcul. Par exemple, un réseau HCN sera se composent généralement d’un ensemble de métadonnées (id, nom, type), un commutateur virtuel, une carte de réseau virtuel d’hôte (qui fait Office de passerelle par défaut pour le réseau), une instance de la NAT (si requis par le type de réseau), un ensemble de sous-réseau et les pools d’adresses MAC , et les stratégies de l’échelle du réseau pour être appliquées (par exemple, ACL).
+Un réseau HCN est une entité qui est utilisée pour représenter un réseau de calcul hôte et ses ressources système et stratégies associées. Par exemple, un réseau HCN se compose généralement d’un ensemble de métadonnées (par exemple, ID, nom, type), d’un commutateur virtuel, d’une carte réseau virtuelle hôte (qui agit comme passerelle par défaut pour le réseau), d’une instance NAT (si nécessaire par le type de réseau), d’un ensemble de pools de sous-réseau et d’adresses MAC. et toutes les stratégies à l’ensemble du réseau à appliquer (par exemple, les listes de contrôle d’accès).
 
-Entités HCN réseau sont représentées à l’aide de handles de contexte HCN_NETWORK RPC.
+Les entités de réseau HCN sont représentées à l’aide de handles de contexte RPC HCN_NETWORK.
 
 ```
 
@@ -149,10 +149,10 @@ HcnCloseNetwork(
     ); 
 ```
 
-## <a name="hcnendpoint"></a>HCN_Endpoint
+## <a name="hcn_endpoint"></a>HCN_Endpoint
 
-Un point de terminaison HCN est une entité qui est utilisée pour représenter un point de terminaison IP sur un réseau HCN et ses stratégies de ressources système associées. Par exemple, un point de terminaison HCN se compose généralement d’un ensemble de métadonnées (id, nom, id de réseau parent), son identité réseau (par exemple, adresse IP, adresse MAC), et n’importe quel point de terminaison des stratégies spécifiques à être appliquent (par exemple, ACL, itinéraires).
-Entités de point de terminaison HCN sont représentées à l’aide de handles de contexte HCN_ENDPOINT RPC.
+Un point de terminaison HCN est une entité utilisée pour représenter un point de terminaison IP sur un réseau HCN, ainsi que les ressources système et les stratégies associées. Par exemple, un point de terminaison HCN se compose généralement d’un ensemble de métadonnées (par exemple, ID, nom, ID de réseau parent), son identité réseau (par exemple, adresse IP, adresse MAC) et toutes les stratégies spécifiques de point de terminaison à appliquer (par exemple, les listes de contrôle d’accès).
+Les entités de point de terminaison HCN sont représentées à l’aide de handles de contexte RPC HCN_ENDPOINT.
 
 ```
 
@@ -283,11 +283,11 @@ HcnCloseEndpoint(
  
 ```
 
-## <a name="hcnnamespace"></a>HCN_Namespace
+## <a name="hcn_namespace"></a>HCN_Namespace
 
-Un Namespace HCN est une entité qui est utilisée pour représenter un espace de noms réseau de calcul hôte. Espaces de noms vous permettent d’avoir des environnements de réseau sur un seul hôte, où chaque espace de noms possède ses propres interfaces réseau et la table de routage, séparés à partir d’autres espaces de noms.
+Un espace de noms HCN est une entité qui est utilisée pour représenter un espace de noms de réseau de calcul hôte. Les espaces de noms vous permettent d’avoir des environnements réseau isolés sur un seul hôte, où chaque espace de noms a ses propres interfaces réseau et table de routage, séparées des autres espaces de noms.
 
-HCN Namespace entités sont représentées à l’aide de handles de contexte HCN_NAMESPACE RPC.
+Les entités d’espace de noms HCN sont représentées à l’aide de handles de contexte RPC HCN_NAMESPACE.
 
 ```
 /// Handle to an operation
@@ -419,10 +419,10 @@ HcnCloseNamespace(
 
 ```
 
-## <a name="hcnloadbalancer"></a>HCN_LoadBalancer
+## <a name="hcn_loadbalancer"></a>HCN_LoadBalancer
 
-Un équilibreur de charge HCN est une entité qui est utilisée pour représenter un équilibreur de charge réseau de calcul hôte. Équilibreurs de charge vous permettent hôte à charge équilibrée de charge calcul des points de terminaison réseau.
-Équilibreur de charge HCN entités sont représentées à l’aide de handles de contexte HCN_LOADBALANCER RPC.
+Un HCN LoadBalancer est une entité qui est utilisée pour représenter un réseau de calcul hôte LoadBalancer. Les LoadBalancers vous permettent d’avoir des points de terminaison de réseau de calcul d’hôte à charge équilibrée.
+Les entités HCN LoadBalancer sont représentées à l’aide de handles de contexte RPC HCN_LOADBALANCER.
 
 ```
 /// Handle to an operation
@@ -558,9 +558,9 @@ HcnCloseLoadBalancer(
 
 ```
 
-## <a name="hcnnotificationcallback"></a>HCN_Notification_Callback
+## <a name="hcn_notification_callback"></a>HCN_Notification_Callback
 
-Il fonctions permettent d’accéder aux opérations de service à l’échelle telles que des notifications (par exemple, la réception de notifications une réseau de création de nouveaux).
+Certaines fonctions fournissent un accès aux opérations à l’ensemble du service telles que les notifications (par exemple, la réception de notifications d’une nouvelle création de réseau).
 
 ```
 /// Registers a callback function to receive notifications of service-wide events such as network
