@@ -4,16 +4,16 @@ description: Voici la liste des fonctions et fonctionnalités de Windows Server
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 08/22/2019
 author: jasongerend
 ms.author: jgerend
 manager: daveba
-ms.openlocfilehash: 9c79b6da3f9aace55b9464f252f97f19e50cc584
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 079f1a6544aac606358a741ecb3fffae791a4985
+ms.sourcegitcommit: 6f8993e2180c4d3c177e3e1934d378959396b935
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280190"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70000675"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1903"></a>Fonctionnalités supprimées ou dont le remplacement est prévu à compter de Windows Server, version 1903
 
@@ -21,7 +21,7 @@ ms.locfileid: "67280190"
 
 Voici la liste des fonctions et fonctionnalités de Windows Server, version 1903 qui ont été supprimées de cette version du produit ou dont la suppression est envisagée dans les prochaines versions. Ce produit s’adresse aux professionnels de l’informatique qui mettent à jour des systèmes d’exploitation dans un environnement commercial. **Cette liste est susceptible d’être modifiée dans des versions ultérieures. Il est donc possible que certaines fonctionnalités concernées n’y figurent plus.**
 
-Consultez également [Fonctionnalités supprimées ou dont le remplacement est prévu à partir de Windows Server 2019](removed-features-19.md).
+Consultez également [Fonctionnalités supprimées ou dont la suppression est prévue dans Windows Server](removed-features.md).
 
 ## <a name="features-were-no-longer-developing"></a>Fonctionnalités que nous ne développons plus
 

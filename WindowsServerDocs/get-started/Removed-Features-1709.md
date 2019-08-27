@@ -1,24 +1,20 @@
 ---
 title: Fonctionnalités supprimées ou dont le remplacement est prévu à compter de Windows Server (version 1709)
 description: Fonctionnalités supprimées ou dont la suppression est prévue dans les prochaines versions.
-ms.custom: na
 ms.prod: windows-server-threshold
-ms.reviewer: na
-ms.suite: na
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/05/2018
-author: jaimeo
-ms.author: jaimeo
+ms.date: 08/22/2019
+author: jasongerend
+ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 37970f3bee2070cffc77bff855a8f28641196b24
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: b4303d05a87fe06e84df0cc55e2c1af8b34047e6
+ms.sourcegitcommit: 6f8993e2180c4d3c177e3e1934d378959396b935
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66452857"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70000632"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1709"></a>Fonctionnalités supprimées ou dont le remplacement est prévu à compter de Windows Server, version 1709
 
@@ -26,7 +22,12 @@ ms.locfileid: "66452857"
 
 Voici la liste des fonctions et fonctionnalités de Windows Server, version 1709 qui ont été supprimées de cette version du produit ou dont la suppression est envisagée dans les prochaines versions. Ce produit s’adresse aux professionnels de l’informatique qui mettent à jour des systèmes d’exploitation dans un environnement commercial. **Cette liste est susceptible d’être modifiée dans des versions ultérieures. Il est donc possible que certaines fonctionnalités concernées n’y figurent plus.** 
 
+> [!TIP]
+> - Pour obtenir un accès en avant-première aux builds Windows Server, rejoignez le [programme Windows Insider](https://insider.windows.com) : c’est un excellent moyen de tester les changements apportés aux fonctionnalités.
+> - Vous avez des questions sur d’autres versions ? Consultez [Fonctionnalités supprimées ou dont la suppression est prévue dans Windows Server](../get-started-19/removed-features.md).
+
 ## <a name="features-removed-from-windows-server-version-1709"></a>Fonctionnalités supprimées de Windows Server, version 1709
+
 Windows Server, version 1709 contient les fonctionnalités déjà présentes dans Windows Server 2016. Toutefois, cette version propose des options d’installation différentes de celles de Windows Server 2016 :
 
 - En tant que version de canal semi-annuel, Windows Server, version 1709 propose uniquement l’option d’installation Server Core. Pour plus d’informations, consultez [Comparaison des canaux de maintenance](../get-started-19/servicing-channels-19.md).
