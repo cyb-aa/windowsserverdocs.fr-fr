@@ -64,9 +64,35 @@
 ### [Personnaliser le titre des Services Bureau à distance « ressources de travail » à l'aide de PowerShell sur Windows Server](rds-work-resources.md)
 ### [Diagnostiquer les problèmes de performances d'application avec des compteurs de performances](rds-rdsh-performance-counters.md)
 
-## [Support supplémentaire concernant les services Bureau à distance](rds-get-support.md)
-## [Clients Bureau à distance](clients/remote-desktop-clients.md)
-### Problèmes connus des services Bureau à distance
+## Accéder à vos ressources Bureau à distance
+### [Clients Bureau à distance disponibles](clients/remote-desktop-clients.md)
+### Client Windows Store
+#### [Bien démarrer avec le client Windows Store](clients/windows.md)
+#### [Nouveautés du client Windows Store](clients/windows-whatsnew.md)
+### Client Android
+#### [Bien démarrer avec le client Android](clients/remote-desktop-android.md)
+#### [Nouveautés du client Android](clients/android-whatsnew.md)
+### Client iOS
+#### [Bien démarrer avec le client iOS](clients/remote-desktop-ios.md)
+#### [Nouveautés du client iOS](clients/ios-whatsnew.md)
+### Client macOS
+#### [Bien démarrer avec le client macOS](clients/remote-desktop-mac.md)
+#### [Nouveautés du client macOS](clients/mac-whatsnew.md)
+### Client web
+#### [Bien démarrer avec le client web](clients/remote-desktop-web-client.md)
+#### [Nouveautés du client web](clients/web-client-whatsnew.md)
+### Configuration de votre PC pour le Bureau à distance
+#### [PC pris en charge](clients/remote-desktop-supported-config.md)
+#### [Accorder un accès Bureau à distance à votre ordinateur](clients/remote-desktop-allow-access.md)
+#### [Accorder un accès à votre PC à partir de l'extérieur du réseau](clients/remote-desktop-allow-outside-access.md)
+#### [Modifier le port d'écoute du Bureau à distance sur votre PC](clients/change-listening-port.md)
+### Informations avancées
+#### [Quel client vous convient le mieux ?](clients/remote-desktop-app-compare.md)
+#### [Paramètres du fichier RDP du Bureau à distance](clients/rdp-files.md)
+#### [Schéma d’URI de Bureau à distance](clients/remote-desktop-uri.md)
+#### [FAQ sur le client Bureau à distance](clients/remote-desktop-client-faq.md)
+#### [Paramètres de confidentialité des applications et des postes de travail managés](clients/remote-privacy-settings.md)
+### Problèmes connus
 #### [Résolution des problèmes généraux de connexion Bureau à distance](troubleshoot/rdp-error-general-troubleshooting.md)
 #### [Les clients ne peuvent pas se connecter et obtiennent l’erreur « Classe non enregistrée »](troubleshoot/rdp-error-class-not-registered.md)
 #### [Les clients ne peuvent pas se connecter et voient l’erreur « Aucune licence disponible »](troubleshoot/rdp-error-no-licenses-available.md)
@@ -75,29 +101,5 @@
 #### [Le client Bureau à distance se déconnecte et ne peut pas se reconnecter à la même session](troubleshoot/rdp-client-disconnects-cannot-reconnect-same-session.md)
 #### [L’ordinateur portable distant se déconnecte du réseau sans fil](troubleshoot/remote-laptop-disconnects-wireless-network.md)
 #### [Performances faibles ou problèmes d’application pendant la connexion Bureau à distance](troubleshoot/poor-performance-or-application-problems.md)
-### Informations générales
-#### [Quel client vous convient le mieux ?](clients/remote-desktop-app-compare.md)
-#### [Paramètres du fichier RDP du Bureau à distance](clients/rdp-files.md)
-#### [Schéma d’URI de Bureau à distance](clients/remote-desktop-uri.md)
-#### [FAQ sur le client Bureau à distance](clients/remote-desktop-client-faq.md)
-#### [Paramètres de confidentialité des applications et des postes de travail managés](clients/remote-privacy-settings.md)
-### Client Bureau à distance pour Windows
-#### [Prise en main](clients/windows.md)
-#### [Quelles sont les nouveautés dans le client Windows ?](clients/windows-whatsnew.md)
-### Client Bureau à distance pour Android
-#### [Prise en main](clients/remote-desktop-android.md)
-#### [Quelles sont les nouveautés dans le client Android ?](clients/android-whatsnew.md)
-### Client Bureau à distance pour iOS
-#### [Prise en main](clients/remote-desktop-ios.md)
-#### [Quelles sont les nouveautés dans le client iOS ?](clients/ios-whatsnew.md)
-### Client Bureau à distance pour Mac
-#### [Prise en main](clients/remote-desktop-mac.md)
-#### [Quelles sont les nouveautés dans le client MacOS ?](clients/mac-whatsnew.md)
-### Client web Bureau à distance
-#### [Accéder au client web Bureau à distance](clients/remote-desktop-web-client.md)
-#### [Quelles sont les nouveautés dans le client web ?](clients/web-client-whatsnew.md)
-### Configuration de votre PC pour le Bureau à distance
-#### [PC pris en charge](clients/remote-desktop-supported-config.md)
-#### [Accorder un accès Bureau à distance à votre ordinateur](clients/remote-desktop-allow-access.md)
-#### [Accorder un accès à votre PC à partir de l'extérieur du réseau](clients/remote-desktop-allow-outside-access.md)
-#### [Modifier le port d'écoute du Bureau à distance sur votre PC](clients/change-listening-port.md)
+
+## [Ressources supplémentaires](rds-get-support.md)
