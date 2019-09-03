@@ -1,21 +1,21 @@
 ---
-title: Accéder au client web Bureau à distance
+title: Bien démarrer avec le client web
 description: Décrit la procédure à suivre pour se connecter au client web Bureau à distance.
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: helohr
-ms.date: 07/20/2018
+ms.date: 08/27/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: f4433ad592219d6ed15b28fd0514790b078525fd
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 11e68821fb095617cea19ee83c057d247a909604
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63743831"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70150972"
 ---
-# <a name="access-the-remote-desktop-web-client"></a>Accéder au client web Bureau à distance
+# <a name="get-started-with-the-web-client"></a>Bien démarrer avec le client web
 
 Le client web Bureau à distance vous permet d’utiliser un navigateur web compatible pour accéder aux ressources distantes de votre organisation (applications et bureaux) publiées pour vous par votre administrateur. Vous pouvez interagir avec les bureaux et applications distants comme vous le feriez avec un PC local, quel que soit l’endroit où vous êtes, sans avoir à basculer sur un autre PC de bureau. Une fois que votre administrateur a configuré vos ressources distantes, vous avez uniquement besoin des éléments suivants : votre domaine, votre nom d’utilisateur, votre mot de passe, l’URL envoyé par votre administrateur et un navigateur web pris en charge.
 

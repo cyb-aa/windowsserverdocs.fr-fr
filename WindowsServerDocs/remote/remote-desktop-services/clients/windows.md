@@ -1,6 +1,6 @@
 ---
-title: Bien démarrer avec le Bureau à distance sur Windows
-description: Étapes de configuration de base pour le client Bureau à distance sur Windows.
+title: Bien démarrer avec le client Windows Store
+description: Étapes de configuration de base pour le client Bureau à distance pour Windows Store.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,18 +12,18 @@ ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 05/07/2018
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: b2141a6a57629ccbb585b2f74c581eba5ba2b1b1
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 03927cd531617c6e0c9572fc4ce74768e10bc66a
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66446687"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70150928"
 ---
-# <a name="get-started-with-remote-desktop-on-windows"></a>Bien démarrer avec le Bureau à distance sur Windows
+# <a name="get-started-with-the-windows-store-client"></a>Bien démarrer avec le client Windows Store
 
->S’applique à : Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
+>S’applique à : Windows 10
 
 Le client Bureau à distance sur Windows vous permet d’utiliser des bureaux et applications Windows à distance depuis un autre appareil Windows.
 
@@ -69,16 +69,16 @@ Vous devez modifier ces paramètres ? Appuyez sur le menu de dépassement ( **.
 Vous souhaitez supprimer la connexion ? Là encore, appuyez sur le menu de dépassement ( **...** ), puis appuyez sur **Supprimer**.
 
 ### <a name="add-a-remote-resource"></a>Ajouter une ressource distante
+
 Les ressources distantes peuvent être des programmes RemoteApp, des bureaux basés sur une session et des bureaux virtuels publiés par votre administrateur à l’aide des services Bureau à distance.
 
 Pour ajouter une ressource distante :
 
-1. Dans l’écran du Centre de connexion, appuyez sur **+ Ajouter**, puis appuyez sur **Ressources distantes**. 
+1. Dans l’écran du Centre de connexion, appuyez sur **+ Ajouter**, puis appuyez sur **Ressources distantes**.
 2. Entrez l’**URL de flux** fournie par votre administrateur et appuyez sur **Rechercher les flux**.
 3. Lorsque vous y êtes invité, entrez les informations d’identification nécessaires pour vous abonner au flux.
 
 Les ressources distantes ajoutées seront affichées dans le Centre de connexion.
-
 
 Pour supprimer des ressources distantes :
 
@@ -100,7 +100,7 @@ Pour configurer une nouvelle passerelle :
 1. Dans le Centre de connexion, appuyez sur **Paramètres**.
 2. À côté de Passerelle, appuyez sur **+** pour ajouter une nouvelle passerelle. Remarque: Une passerelle peut également être ajoutée quand vous ajoutez une nouvelle connexion.
 3. Entrez les informations suivantes :
-   - **Nom du serveur** : nom de l’ordinateur que vous souhaitez utiliser comme passerelle. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez aussi ajouter les informations de port au nom du serveur (par exemple, **RDGateway:443** ou **10.0.0.1:443**).
+   - **Nom du serveur** : nom de l’ordinateur que vous souhaitez utiliser comme passerelle. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez aussi ajouter les informations de port au nom du serveur (par exemple : **RDGateway:443** ou **10.0.0.1:443**).
    - **Compte d’utilisateur** : sélectionnez ou ajoutez un compte d’utilisateur à utiliser avec la passerelle des services Bureau à distance à laquelle vous vous connectez. Vous pouvez également sélectionner **Utiliser le compte d’utilisateur du bureau** si vous préférez garder les mêmes informations d’identification que celles utilisées pour la connexion Bureau à distance.
 4. Appuyez sur **Enregistrer**.  
 
@@ -109,18 +109,21 @@ Pour configurer une nouvelle passerelle :
 Vous pouvez définir les paramètres généraux suivants sur votre client en appuyant sur **Paramètres** :
 
 ÉLÉMENTS GÉRÉS
+
 - **Compte d’utilisateur** : vous permet d’ajouter, de modifier et de supprimer des comptes d’utilisateur enregistrés sur le client. Il s’agit d’un bon moyen de mettre à jour le mot de passe d’un compte qui a été changé.
 - **Passerelle** : vous permet d’ajouter, de modifier et de supprimer des serveurs de passerelle enregistrés sur le client.
 - **Groupe** : vous permet d’ajouter, de modifier et de supprimer des groupes enregistrés sur le client. Avec les groupes, vous pouvez facilement regrouper des connexions.
 
 PARAMÈTRES DE SESSION
+
 - **Démarrer les connexions en mode plein écran** : quand cette option est activée, à chaque démarrage d’une connexion, le client utilise l’écran actif dans sa totalité.
 - **Démarrer chaque connexion dans une nouvelle fenêtre** : quand cette option est activée, chaque connexion est démarrée dans une fenêtre distincte. Vous pouvez ainsi avoir les connexions dans des écrans différents et passer de l’une à l’autre au moyen de la barre des tâches.
 - **Lors du redimensionnement de l’application** : vous permet de contrôler ce qui se passe quand la fenêtre du client est redimensionnée. L’action par défaut est **Étirer le contenu, en conservant ses proportions**.
-- **Utiliser les commandes clavier avec** : vous permet de spécifier où les commandes clavier comme *WIN* ou *ALT+TAB* sont utilisées. Par défaut, ces commandes sont uniquement envoyées à la session quand la connexion est en mode plein écran.
+- **Utiliser les commandes clavier avec** : vous permet de spécifier où les commandes clavier comme *WIN* ou *ALT+TAB* sont utilisées. Par défaut, ces commandes sont envoyées à la session seulement quand la connexion est en mode plein écran.
 - **Empêcher l’expiration de l’écran** : vous permet d’empêcher que l’écran expire quand une session est active. Cela est utile pour les connexions qui ne nécessitent pas d’interaction pendant de longues périodes.
 
 PARAMÈTRES D’APPLICATION
+
 - **Afficher les aperçus de bureau** : vous permet d’afficher l’aperçu d’un bureau dans le Centre de connexion avant de vous y connecter. Par défaut, ce paramètre est **activé**.
 - **Aidez-nous à améliorer le Bureau à distance** : envoie des données anonymes à Microsoft. Nous nous servons de ces données pour améliorer le client. Pour en savoir plus sur la façon dont nous utilisons ces données personnelles anonymes, consultez la [Déclaration de confidentialité Microsoft](https://privacy.microsoft.com/en-us/privacystatement). Par défaut, ce paramètre est **activé**.
 
@@ -181,13 +184,14 @@ Appuyez sur **...** dans la barre de connexion pour afficher la barre de command
 ### <a name="use-direct-touch-gestures-and-mouse-modes-in-a-remote-session"></a>Utiliser les mouvements d’interaction tactile directe et les modes souris dans une session à distance
 
 Deux modes souris sont disponibles pour interagir avec la session.
+
 - **Interaction tactile directe** : passe tous les contacts d’interaction tactile à la session afin qu’ils soient interprétés à distance.
   - Ce mode s’utilise de la même façon qu’avec un écran tactile sur un appareil Windows.
 - **Pointeur de souris** : transforme votre écran tactile local en un grand pavé tactile permettant de déplacer un pointeur de souris dans la session.
   - Ce mode s’utilise de la même façon qu’avec un pavé tactile sur un appareil Windows.
 
 > [!NOTE]
-> Sur Windows 8 ou une version ultérieure, les mouvements d’interaction tactile natifs sont pris en charge en mode d’interaction tactile directe. 
+> Sur Windows 8 ou une version ultérieure, les mouvements d’interaction tactile natifs sont pris en charge en mode d’interaction tactile directe.
 
 | Mode souris    | Action avec la souris      | Mouvement                                                               |
 |---------------|----------------------|-----------------------------------------------------------------------|
@@ -201,4 +205,4 @@ Deux modes souris sont disponibles pour interagir avec la session.
 | Pointeur de souris | Zoom                 | Resserrez les deux doigts pour faire un zoom ou écartez les doigts pour effectuer un zoom arrière. |
 
 > [!TIP]
-> Vos questions et vos commentaires sont toujours les bienvenus. Toutefois, n’envoyez PAS votre demande d’aide par le biais de la fonctionnalité de commentaire qui figure à la fin de cet article. Accédez au [forum du client Bureau à distance](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc) et démarrez un nouveau thread. Vous avez une suggestion de fonctionnalité à nous faire ? Dites-nous laquelle sur le [Hub de commentaires](feedback-hub://?tabid=2&contextid=605).
+> Vos questions et vos commentaires sont toujours les bienvenus. Toutefois, merci de ne pas utiliser la fonctionnalité de commentaire qui figure à la fin de cet article pour nous envoyer une demande d’aide. Veuillez plutôt accéder au [forum du client Bureau à distance](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc) et démarrez un nouveau fil de discussion. Vous avez une suggestion de fonctionnalité à nous faire ? Dites-nous laquelle sur le [Hub de commentaires](feedback-hub://?tabid=2&contextid=605).

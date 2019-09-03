@@ -1,6 +1,6 @@
 ---
-title: Nouveautés pour Bureau à distance sur Windows
-description: En savoir plus sur les dernières modifications apportées au client Bureau à distance pour Windows
+title: Nouveautés du client Windows Store
+description: Découvrir les dernières modifications apportées au client Bureau à distance pour Windows Store
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -11,20 +11,21 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 03/19/2019
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 18c14da5b5b16ed20005515fde46235e4cf27331
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: a8ecdf217f847f495b2cb90dd3511a8db9e72c95
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63748831"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70150987"
 ---
-# <a name="whats-new-for-the-remote-desktop-client-on-windows"></a>Nouveautés pour le client Bureau à distance sur Windows
+# <a name="whats-new-in-the-windows-store-client"></a>Nouveautés du client Windows Store
 
 Nous mettons régulièrement à jour le [client Bureau à distance pour Windows](windows.md), en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Découvrez les dernières mises à jour ci-dessous.
 
 ## <a name="updates-for-version-1011098"></a>Mises à jour pour la version 10.1.1098
+
 *Date de publication : 15/03/2019*
 
 - Vous pouvez maintenant définir un nom d’affichage pour les comptes d’utilisateur, afin de pouvoir enregistrer le même nom d’utilisateur avec différents mots de passe.
@@ -34,6 +35,7 @@ Nous mettons régulièrement à jour le [client Bureau à distance pour Windows]
 - Corrections de bogues supplémentaires.
 
 ## <a name="updates-for-version-1011088"></a>Mises à jour pour la version 10.1.1088
+
 *Date de publication : 06/11/2018*
 
 - Le nom d’affichage de connexion est désormais plus facilement détectable.
@@ -44,20 +46,23 @@ Nous mettons régulièrement à jour le [client Bureau à distance pour Windows]
 - Corrections de bogues supplémentaires.
 
 ## <a name="updates-for-version-1011060"></a>Mises à jour pour la version 10.1.1060
+
 *Date de publication : 14/09/2018*
 
 - Traitement d’un problème où le fait de double-cliquer sur une connexion de bureau entraînait le lancement de deux sessions.
 - Correction d’un incident lors du basculement entre des bureaux virtuels en local.
-- Désormais, le déplacement d’une session vers un autre moniteur met également à jour le facteur d’échelle de session. 
+- Désormais, le déplacement d’une session vers un autre moniteur met également à jour le facteur d’échelle de session.
 - Gestion des touches système supplémentaires telles que AltGr.
 - Corrections de bogues supplémentaires.
 
 ## <a name="updates-for-version-1011046"></a>Mises à jour pour la version 10.1.1046
+
 *Date de publication : 20/06/2018*
 
 - Corrections de bogues.
 
 ## <a name="updates-for-version-1011042"></a>Mises à jour pour la version 10.1.1042
+
 *Date de publication : 02/04/2018*
 
 - Mises à jour pour traiter la correction du chiffrement de l’oracle CredSSP décrite dans CVE-2018-0886.

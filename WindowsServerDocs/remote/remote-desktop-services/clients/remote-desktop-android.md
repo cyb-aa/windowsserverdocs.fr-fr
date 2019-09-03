@@ -1,5 +1,5 @@
 ---
-title: Bien démarrer avec le Bureau à distance sur Android
+title: Bien démarrer avec le client Android
 description: Étapes de configuration de base pour le client Bureau à distance sur Android.
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -12,16 +12,16 @@ ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 07/24/2018
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: b4b188eb8148b2f4e5c6672b07884af8fdcd0c60
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ccc96013efb71a2403f9be2df03461eba5ff1fc1
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66446744"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70151017"
 ---
-# <a name="get-started-with-remote-desktop-on-android"></a>Bien démarrer avec le Bureau à distance sur Android
+# <a name="get-started-with-the-android-client"></a>Bien démarrer avec le client Android
 
 >S’applique à : Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
@@ -79,7 +79,7 @@ Pour ajouter une ressource distante :
 1. Dans l’écran du Centre de connexion, appuyez sur **+** , puis appuyez sur **Flux de ressources distantes**. 
 2. Entrez les informations appropriées pour la ressource distante :
    - **Adresse de messagerie ou URL** : URL du serveur d’accès Web des services Bureau à distance. Vous pouvez également entrer votre compte e-mail professionnel dans ce champ : cela indique au client de rechercher le serveur d’accès Web des services Bureau à distance qui est associé à votre adresse e-mail.
-   - **Nom d’utilisateur** : nom d’utilisateur à spécifier pour le serveur d’accès Web des services Bureau à distance auquel vous vous connectez.
+   - **Nom d’utilisateur** : nom d’utilisateur à spécifier pour le serveur d’accès web des services Bureau à distance auquel vous vous connectez.
    - **Mot de passe** : mot de passe à spécifier pour le serveur d’accès Web des services Bureau à distance auquel vous vous connectez.
 3. Appuyez sur **Enregistrer**.
 
@@ -115,7 +115,7 @@ Pour configurer une nouvelle passerelle :
 
 1. Dans le Centre de connexion, appuyez sur **Paramètres > Passerelles**. Appuyez sur **+** pour ajouter une nouvelle passerelle.
 2. Entrez les informations suivantes :
-   - **Nom du serveur** : nom de l’ordinateur que vous souhaitez utiliser comme passerelle. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez aussi ajouter les informations de port au nom du serveur (par exemple, **RDGateway:443** ou **10.0.0.1:443**).
+   - **Nom du serveur** : nom de l’ordinateur que vous souhaitez utiliser comme passerelle. Cela peut être un nom d’ordinateur Windows, un nom de domaine Internet ou une adresse IP. Vous pouvez aussi ajouter les informations de port au nom du serveur (par exemple : **RDGateway:443** ou **10.0.0.1:443**).
    - **Nom d’utilisateur** : nom d’utilisateur et mot de passe à spécifier pour la passerelle Bureau à distance à laquelle vous vous connectez. Vous pouvez également sélectionner **Utiliser le compte d’utilisateur du bureau** si vous préférez garder les mêmes informations d’identification que celles utilisées pour la connexion Bureau à distance.
 
 ## <a name="manage-your-user-accounts"></a>Gérer vos comptes d’utilisateur
@@ -198,4 +198,4 @@ Le client utilise les mouvements d’interaction tactile standard. Vous pouvez �
 | Pointeur de souris | Roulette de la souris          | Appuyez longuement avec deux doigts, puis faites glisser vers le haut ou le bas                           |
 
 > [!TIP]
-> Vos questions et vos commentaires sont toujours les bienvenus. Toutefois, n’envoyez PAS votre demande d’aide par le biais de la fonctionnalité de commentaire qui figure à la fin de cet article. Accédez au [forum du client Bureau à distance](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc) et démarrez un nouveau thread. Vous avez une suggestion de fonctionnalité à nous faire ? Faites-nous en part via le [forum UserVoice pour le client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android).
+> Vos questions et vos commentaires sont toujours les bienvenus. Toutefois, merci de ne pas utiliser la fonctionnalité de commentaire qui figure à la fin de cet article pour nous envoyer une demande d’aide. Veuillez plutôt accéder au [forum du client Bureau à distance](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc) et démarrez un nouveau fil de discussion. Vous souhaitez nous suggérer une fonctionnalité ? N’hésitez pas à utiliser le [forum UserVoice pour le client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android) afin de nous en faire part.

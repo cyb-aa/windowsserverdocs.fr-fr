@@ -1,5 +1,5 @@
 ---
-title: Nouveautés pour Bureau à distance sur Mac
+title: Nouveautés du client macOS
 description: En savoir plus sur les dernières modifications apportées au client Bureau à distance pour Mac
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -11,29 +11,49 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 04/29/2019
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 6cfd8a6338d283b7ff42b091e686a31b044a6b7b
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 9ae58103b00941bb71d447641b1cdab7c02fa20b
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65564759"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70151021"
 ---
-# <a name="whats-new-for-the-remote-desktop-client-on-macos"></a>Nouveautés pour le client Bureau à distance sur macOS
+# <a name="whats-new-in-the-macos-client"></a>Nouveautés du client macOS
 
 Nous mettons régulièrement à jour le [client Bureau à distance pour macOS](remote-desktop-mac.md), en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Découvrez les dernières mises à jour ci-dessous.
 
 Si vous rencontrez des problèmes, vous pouvez toujours nous contacter via **Aide > Signaler un problème**.
 
+## <a name="updates-for-version-1030"></a>Mises à jour pour la version 10.3.0
+*Date de publication : 27/08/19*
+
+Quelques semaines se sont écoulées depuis notre dernière mise à jour, mais nous avons beaucoup travaillé pendant ce temps-là. La version 10.3.0 apporte quelques nouvelles fonctionnalités et de nombreuses corrections de problèmes non visibles.
+
+ - La redirection de l’appareil photo est désormais possible lors de la connexion à Windows 10 1809, et à Windows Server 2019 et ultérieur.
+ - Sur Mojave et Catalina, nous avons ajouté une nouvelle boîte de dialogue qui vous demande l’autorisation d’utiliser le microphone et l’appareil photo pour la redirection de périphérique.
+ - La procédure d’abonnement à des flux a été réécrite pour la rendre plus simple et plus rapide.
+ - La redirection du Presse-papiers inclut désormais le format RTF (Rich Text Format).
+ - Quand vous entrez votre mot de passe, vous avez la possibilité de l’afficher avec la case à cocher « Afficher le mot de passe ».
+ - Résolution pour les scénarios où la fenêtre de session passait d’un écran à l’autre.
+ - Le Centre de connexion affiche les icônes de l’application distante en haute résolution (quand elles sont disponibles).
+ - Cmd+A est mappé à Ctrl+A quand les raccourcis du Presse-papiers Mac sont utilisés.
+ - Cmd+R actualise désormais tous les flux auxquels vous vous êtes abonné.
+ - Ajout de nouvelles options de clic secondaire pour développer ou réduire tous les groupes ou flux dans le Centre de connexion.
+ - Ajout d’une nouvelle option de clic secondaire pour changer la taille des icônes dans l’onglet Flux du Centre de connexion.
+ - Nouvelle icône d’application simplifiée et épurée.
+
 ## <a name="updates-for-version-10213"></a>Mises à jour pour la version 10.2.13
+
 *Date de publication : 08/05/2019*
 
 - Correction d’un blocage se produisant lors d’une connexion via une passerelle Bureau à distance.
 - Ajout d’un avis de confidentialité à la boîte de dialogue « Ajouter un flux ».
 
 ## <a name="updates-for-version-10212"></a>Mises à jour pour la version 10.2.12
-*Date de publication : 16/04/2019* 
+
+*Date de publication : 16/04/2019*
 
 - Résolution des déconnexions aléatoires (avec code d’erreur 0x904) qui survenaient lors d’une connexion via une passerelle Bureau à distance.
 - Correction d’un bogue qui vidait la liste des résolutions dans les préférences de l’application après l’installation.
@@ -41,17 +61,20 @@ Si vous rencontrez des problèmes, vous pouvez toujours nous contacter via **Aid
 - Traitement de la boucle d’invite d’authentification ADAL lors de la connexion à des déploiements du Bureau virtuel Windows.
 
 ## <a name="updates-for-version-10210"></a>Mises à jour pour la version 10.2.10
+
 *Date de publication : 30/03/2019*
 
 - Dans cette version, nous avons traité une instabilité causée par la mise à jour récente 10.14.4 de macOS. Nous avons également corrigé les erreurs de peinture qui s’affichaient lors du décodage des données de codec AVC encodées par un serveur à l’aide du matériel NVIDIA.
 
 ## <a name="updates-for-version-1029"></a>Mises à jour pour la version 10.2.9
+
 *Date de publication : 06/03/2019*
 
 - Dans cette version, nous avons corrigé un problème de connectivité de passerelle Bureau à distance qui peut se produire lors de la redirection de serveur.
 - Nous avons également traité une régression de passerelle Bureau à distance provoquée par la mise à jour 10.2.8.
 
 ## <a name="updates-for-version-1028"></a>Mises à jour pour la version 10.2.8
+
 *Date de publication : 01/03/2019*
 
 - Résolution des problèmes de connectivité qui apparaissaient lorsque vous utilisiez une passerelle Bureau à distance.
@@ -61,11 +84,13 @@ Si vous rencontrez des problèmes, vous pouvez toujours nous contacter via **Aid
 - Correction d’un bogue qui entraînait le défilement inutile du centre de connexion lors du lancement d’une connexion.
 
 ## <a name="updates-for-version-1027"></a>Mises à jour pour la version 10.2.7
+
 *Date de publication : 06/02/2019*
 
 - Dans cette version, nous avons traité les erreurs de peinture des graphismes (causées par un bogue d’encodage du serveur) qui s’affichaient lors de l’utilisation du mode AVC444.
 
 ## <a name="updates-for-version-1026"></a>Mises à jour pour la version 10.2.6
+
 *Date de publication : 28/01/2019*
 
 - Ajout de la prise en charge du codec AVC (420 et 444), disponible lors de la connexion aux versions actuelles de Windows 10.
@@ -79,6 +104,7 @@ Si vous rencontrez des problèmes, vous pouvez toujours nous contacter via **Aid
 >Il existe un bogue dans macOS 10.14.0 et 10.14.1 qui peut entraîner l’utilisation d’une grande quantité d’espace disque par le dossier « .com.microsoft.rdc.application-data_SUPPORT/_EXTERNAL_DATA » (imbriqué dans le dossier ~/Library). Pour résoudre ce problème, supprimez le contenu du dossier et effectuez la mise à niveau vers macOS 10.14.2. Notez qu’un effet secondaire de la suppression du contenu du dossier est la suppression des images de capture instantanée attribuée aux Favoris. Ces images seront régénérées lors de la reconnexion au PC distant.
 
 ## <a name="updates-for-version-1024"></a>Mises à jour pour la version 10.2.4
+
 *Date de publication : 18/12/2018*
 
 - Ajour de la prise en charge d’un mode sombre pour macOS Mojave 10.14.
@@ -90,6 +116,7 @@ Si vous rencontrez des problèmes, vous pouvez toujours nous contacter via **Aid
 - Amélioration du défilement de la souris pour les deltas de défilement plus petits.
 
 ## <a name="updates-for-version-1023"></a>Mises à jour pour la version 10.2.3
+
 *Date de publication : 06/11/2018*
 
 - Ajout d’une prise en charge pour le paramètre « remoteapplicationcmdline » du fichier RDP pour les scénarios d’application à distance.
@@ -100,11 +127,12 @@ Si vous rencontrez des problèmes, vous pouvez toujours nous contacter via **Aid
 - Meilleure gestion des applications à distance en mode plein écran en masquant intelligemment la barre de menus et l’accueil.
 - Correction des scénarios où les applications à distance restent masquées après le lancement.
 - Traitement des mises à jour d’affichage lentes lors de l’utilisation du mode « Ajuster à la fenêtre » avec l’accélération matérielle désactivée.
-- Gestion des erreurs de création de base de données causées par des autorisations incorrectes lorsque le client démarre. 
+- Gestion des erreurs de création de base de données causées par des autorisations incorrectes lorsque le client démarre.
 - Correction d’un problème où le client était constamment bloqué au lancement et ne démarrait pas pour certains utilisateurs.
 - Correction d’un scénario où les connexions étaient importées de façon incorrecte en mode plein écran depuis Bureau à distance 8.
 
 ## <a name="updates-for-version-1022"></a>Mises à jour pour la version 10.2.2
+
 *Date de publication : 09/10/2018*
 
 - Tout nouveau centre de connexion qui prend en charge les opérations de glisser-déposer, la disposition manuelle des bureaux, les colonnes redimensionnables en mode Liste, le tri par colonne et une gestion des groupes plus simple.
@@ -133,12 +161,14 @@ Si vous rencontrez des problèmes, vous pouvez toujours nous contacter via **Aid
 - Correction d’un problème qui empêchait le téléchargement des ressources de flux avec des espaces dans l’URL.
 
 ## <a name="updates-for-version-1021"></a>Mises à jour pour la version 10.2.1
+
 *Date de publication : 06/08/2018*
 
 - Connectivité activée pour les PC joints à Azure Active Directory (AAD). Pour vous connecter à un PC joint à AAD, votre nom d’utilisateur doit être dans l’un des formats suivants : « AzureAD\user » ou « AzureAD\user@domain ».
 - Traitement de certains bogues qui affectaient l’utilisation de cartes à puce dans une session distante.
 
 ## <a name="updates-for-version-1020"></a>Mises à jour pour la version 10.2.0
+
 *Date de publication : 24/07/2018*
 
 - Mises à jour incorporées pour la conformité au RGPD.
@@ -167,6 +197,7 @@ Si vous rencontrez des problèmes, vous pouvez toujours nous contacter via **Aid
 - Correction de certains problèmes d’alignement dans le centre de connexion lors de l’exécution sur Mojave.
 
 ## <a name="updates-for-version-1018"></a>Mises à jour pour la version 10.1.8
+
 *Date de publication : 04/05/2018*
 
 - Ajout de la prise en charge de la modification de la résolution à distance en redimensionnant la fenêtre de session !
@@ -174,6 +205,7 @@ Si vous rencontrez des problèmes, vous pouvez toujours nous contacter via **Aid
 - Résolution de l’erreur 0x207 qui pouvait se produire lors de la connexion à des serveurs non corrigés avec la mise à jour pour traiter la correction du chiffrement de l’oracle CredSSP (CVE-2018-0886).
 
 ## <a name="updates-for-version-1017"></a>Mises à jour pour la version 10.1.7
+
 *Date de publication : 05/04/2018*
 
 - Application de correctifs de sécurité pour incorporer les mises à jour pour traiter la correction du chiffrement de l’oracle CredSSP comme décrite dans CVE-2018-0886.
@@ -185,8 +217,9 @@ Si vous rencontrez des problèmes, vous pouvez toujours nous contacter via **Aid
 - Les fenêtres À propos de, Préférences et Centre de connexion réagissent désormais à CMD+M.
 - Vous pouvez maintenant commencer la détection des flux en appuyant sur ENTRÉE sur la page **Adding Remote Resources** (Ajout des ressources distantes).
 - Correction d’un problème où un nouveau flux de ressources distantes apparaissait comme étant vide dans le centre de connexion après l’actualisation.
- 
+
 ## <a name="updates-for-version-1016"></a>Mises à jour pour la version 10.1.6
+
 *Date de publication : 26/03/2018*
 
 - Correction d’un problème où les fenêtres RemoteApp se réorganisaient elles-mêmes.
