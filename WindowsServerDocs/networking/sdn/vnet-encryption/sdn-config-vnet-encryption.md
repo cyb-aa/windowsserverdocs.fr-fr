@@ -1,6 +1,6 @@
 ---
 title: Configurer le chiffrement pour un réseau virtuel
-description: Chiffrement de réseau virtuel, le chiffrement du trafic de réseau virtuel entre des machines virtuelles qui communiquent entre eux au sein de sous-réseaux marqués comme « Chiffrement Enabled ».
+description: Le chiffrement de réseau virtuel permet le chiffrement du trafic réseau virtuel entre les machines virtuelles qui communiquent entre elles au sein des sous-réseaux marqués comme « chiffrement activé ».
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-hv-switch
@@ -9,35 +9,35 @@ ms.assetid: 378213f5-2d59-4c9b-9607-1fc83f8072f1
 ms.author: pashort
 author: shortpatti
 ms.date: 08/08/2018
-ms.openlocfilehash: d2c09c83a227c5a75ff5b1b39b2ef6d1286bbfc8
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 1d61748e4cc5eac2d656e61c1f1ecc30dfe8672c
+ms.sourcegitcommit: f3b61dcd8aa0aa744db4ea938aac633c19217b0a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501561"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70746318"
 ---
 # <a name="configure-encryption-for-a-virtual-subnet"></a>Configurer le chiffrement pour un sous-réseau virtuel
 
->S’applique à : Windows Server
+>S’applique à : Windows Server
 
-Permet de cryptage de réseau virtuel pour le chiffrement du trafic de réseau virtuel entre les machines virtuelles qui communiquent entre eux au sein de sous-réseaux marqués comme « Chiffrement Enabled ». Il utilise aussi le protocole DTLS (Datagram Transport Layer Security) sur le sous-réseau virtuel pour chiffrer les paquets. DTLS protège contre les écoutes clandestines, l'altération et la falsification par toute personne ayant accès au réseau physique.
+Le chiffrement de réseau virtuel permet le chiffrement du trafic réseau virtuel entre les machines virtuelles qui communiquent entre elles dans des sous-réseaux marqués comme « chiffrement activé ». Il utilise aussi le protocole DTLS (Datagram Transport Layer Security) sur le sous-réseau virtuel pour chiffrer les paquets. DTLS protège contre les écoutes clandestines, l'altération et la falsification par toute personne ayant accès au réseau physique.
 
-Le chiffrement du réseau virtuel requiert :
-- Certificats de chiffrement installés sur chacun des hôtes Hyper-V activé de SDN.
-- Un objet d’informations d’identification dans le contrôleur de réseau faisant référence à l’empreinte numérique du certificat.
-- Configuration sur chacun des réseaux virtuels contiennent des sous-réseaux qui exigent un chiffrement.
+Le chiffrement de réseau virtuel requiert :
+- Certificats de chiffrement installés sur chacun des hôtes Hyper-V compatibles SDN.
+- Objet d’informations d’identification dans le contrôleur de réseau qui référence l’empreinte numérique de ce certificat.
+- La configuration sur chaque réseau virtuel contient des sous-réseaux qui nécessitent un chiffrement.
 
-Une fois que vous activez le chiffrement sur un sous-réseau, tout le trafic réseau au sein de ce sous-réseau est chiffré automatiquement, en plus d’un chiffrement au niveau de l’application peut également avoir lieu.  Le trafic entre sous-réseaux, même si marquée sous forme chiffrée, est automatiquement envoyé sans être chiffré. Tout le trafic qui traverse la limite de réseau virtuel obtient envoyé sans être chiffré.
+Une fois que vous activez le chiffrement sur un sous-réseau, tout le trafic réseau au sein de ce sous-réseau est automatiquement chiffré, en plus du chiffrement au niveau de l’application qui peut également avoir lieu.  Le trafic qui traverse des sous-réseaux, même s’il est marqué comme étant chiffré, est envoyé automatiquement non chiffré. Tout trafic qui traverse la limite du réseau virtuel est également envoyé non chiffré.
 
 >[!NOTE]
->Lors de la communication avec une autre machine virtuelle sur le même sous-réseau, si son actuellement connecté ou connecté à une date ultérieure, le trafic chiffré obtient automatiquement.
+>Lors de la communication avec une autre machine virtuelle sur le même sous-réseau, qu’elle soit actuellement connectée ou connectée ultérieurement, le trafic est automatiquement chiffré.
 
 >[!TIP]
->Si vous devez limiter les applications de communiquer uniquement sur le sous-réseau chiffré, vous pouvez utiliser la listes de contrôle d’accès (ACL) uniquement pour permettre la communication au sein du sous-réseau en cours. Pour plus d’informations, consultez [utiliser Access Control Lists (ACL) pour le flux du trafic réseau centre de données gérer](https://docs.microsoft.com/windows-server/networking/sdn/manage/use-acls-for-traffic-flow).
+>Si vous devez limiter les applications pour qu’elles communiquent uniquement sur le sous-réseau chiffré, vous pouvez utiliser des listes de Access Control (ACL) uniquement pour autoriser la communication au sein du sous-réseau actuel. Pour plus d’informations, consultez [utiliser des listes de Access Control (ACL) pour gérer le flux de trafic réseau du centre de](https://docs.microsoft.com/windows-server/networking/sdn/manage/use-acls-for-traffic-flow)données.
 
 
-## <a name="step-1-create-the-encryption-certificate"></a>Étape 1. Créer le certificat de chiffrement
-Chaque hôte doit avoir installé un certificat de chiffrement. Vous pouvez utiliser le même certificat pour tous les locataires ou générer un unique pour chaque client. 
+## <a name="step-1-create-the-encryption-certificate"></a>Étape 1. Créer le certificat de chiffrement
+Un certificat de chiffrement doit être installé sur chaque ordinateur hôte. Vous pouvez utiliser le même certificat pour tous les locataires ou en générer un unique pour chaque locataire. 
 
 1.  Générer le certificat  
 
@@ -95,7 +95,7 @@ Chaque hôte doit avoir installé un certificat de chiffrement. Vous pouvez util
     $enrollment.InstallResponse(2, $certdata, 0, "")
 ```
 
-Après avoir exécuté le script, un nouveau certificat s’affiche dans le magasin My :
+Une fois le script exécuté, un nouveau certificat s’affiche dans le magasin My :
 
     PS D:\> dir cert:\\localmachine\my
 
@@ -107,7 +107,7 @@ Après avoir exécuté le script, un nouveau certificat s’affiche dans le maga
     84857CBBE7A1C851A80AE22391EB2C39BF820CE7  CN=MyNetwork
     5EFF2CE51EACA82408572A56AE1A9BCC7E0843C6  CN=EncryptedVirtualNetworks
 
-2. Exporter le certificat vers un fichier.<p>Vous avez besoin de deux copies du certificat, l’autre avec la clé privée et l’autre sans.
+2. Exportez le certificat vers un fichier.<p>Vous avez besoin de deux copies du certificat, l’une avec la clé privée et l’autre sans.
 
 ```
    $subjectName = "EncryptedVirtualNetworks"
@@ -116,9 +116,9 @@ Après avoir exécuté le script, un nouveau certificat s’affiche dans le maga
    Export-Certificate -Type CERT -FilePath "c:\$subjectName.cer" -cert $cert
 ```
 
-3. Installez les certificats sur chacun de vos hôtes hyper-v 
+3. Installer les certificats sur chacun de vos ordinateurs hôtes Hyper-v 
 
-   PS c :\> dir c:\$subjectname.*
+   PS c :\> Rép c :\$SubjectName. *
 
 
 ~~~
@@ -131,7 +131,7 @@ Mode                LastWriteTime         Length Name
 -a----        9/22/2017   4:54 PM           1706 EncryptedVirtualNetworks.pfx
 ~~~
 
-4. L’installation sur un ordinateur hôte Hyper-V
+4. Installation sur un hôte Hyper-V
 
 ```
    $server = "Server01"
@@ -171,11 +171,11 @@ Mode                LastWriteTime         Length Name
    }
 ```
 
-5. Répétez pour chaque serveur dans votre environnement.<p>Après avoir répété pour chaque serveur, vous devez avoir un certificat installé dans la racine et le magasin my de chaque hôte Hyper-V. 
+5. Répétez cette opération pour chaque serveur de votre environnement.<p>Après la répétition de pour chaque serveur, vous devez disposer d’un certificat installé dans la racine et le magasin My de chaque hôte Hyper-V. 
 
-6. Vérifiez l’installation du certificat.<p>Vérifier les certificats en vérifiant le contenu de la mon et racine des magasins de certificats :
+6. Vérifiez l’installation du certificat.<p>Vérifiez les certificats en vérifiant le contenu des magasins de certificats My et root :
 
-   PS C :\> Entrez-pssession Server1
+   PS C :\> Enter-PSSession server1
 
 ~~~
 [Server1]: PS C:\> get-childitem cert://localmachine/my,cert://localmachine/root | ? {$_.Subject -eq "CN=EncryptedVirtualNetworks"}
@@ -194,13 +194,13 @@ Thumbprint                                Subject
 5EFF2CE51EACA82408572A56AE1A9BCC7E0843C6  CN=EncryptedVirtualNetworks
 ~~~
 
-7. Prenez note de l’empreinte numérique.<p>Vous devez prenez note de l’empreinte numérique, car vous en avez besoin pour créer l’objet d’informations d’identification de certificat dans le contrôleur de réseau.
+7. Prenez note de l’empreinte numérique.<p>Vous devez prendre note de l’empreinte numérique car vous en avez besoin pour créer l’objet d’informations d’identification de certificat dans le contrôleur de réseau.
 
-## <a name="step-2-create-the-certificate-credential"></a>Étape 2. Créer les informations d’identification de certificat
+## <a name="step-2-create-the-certificate-credential"></a>Étape 2. Créer les informations d’identification du certificat
 
-Après avoir installé le certificat sur chacun des hôtes Hyper-V connectés au contrôleur de réseau, vous devez maintenant configurer le contrôleur de réseau pour l’utiliser.  Pour ce faire, vous devez créer un objet d’informations d’identification contenant l’empreinte de certificat à partir de l’ordinateur avec les modules PowerShell de contrôleur de réseau installés. 
+Après avoir installé le certificat sur chacun des ordinateurs hôtes Hyper-V connectés au contrôleur de réseau, vous devez maintenant configurer le contrôleur de réseau pour l’utiliser.  Pour ce faire, vous devez créer un objet d’informations d’identification contenant l’empreinte numérique du certificat à partir de l’ordinateur sur lequel sont installés les modules PowerShell du contrôleur de réseau. 
 
-
+```
     # Replace with thumbprint from your certificate
     $thumbprint = "5EFF2CE51EACA82408572A56AE1A9BCC7E0843C6"  
 
@@ -213,36 +213,37 @@ Après avoir installé le certificat sur chacun des hôtes Hyper-V connectés au
     $credproperties.Type = "X509Certificate"
     $credproperties.Value = $thumbprint
     New-networkcontrollercredential -connectionuri $uri -resourceid "EncryptedNetworkCertificate" -properties $credproperties -force
-
+```
 >[!TIP]
->Vous pouvez réutiliser ces informations d’identification pour chaque réseau virtuel chiffrée, ou vous pouvez déployer et utiliser un certificat unique pour chaque client.
+>Vous pouvez réutiliser ces informations d’identification pour chaque réseau virtuel chiffré, ou vous pouvez déployer et utiliser un certificat unique pour chaque locataire.
 
 
-## <a name="step-3-configuring-a-virtual-network-for-encryption"></a>Étape 3. Configuration d’un réseau virtuel pour le chiffrement
+## <a name="step-3-configuring-a-virtual-network-for-encryption"></a>Étape 3. Configuration d’un réseau virtuel pour le chiffrement
 
-Cette étape suppose que vous avez déjà créé un nom de réseau virtuel « Mon réseau » et qu’il contient au moins un sous-réseau virtuel.  Pour plus d’informations sur la création de réseaux virtuels, consultez [Create, Delete ou réseaux virtuels des clients de mise à jour](../Manage/Create,-Delete,-or-Update-Tenant-Virtual-Networks.md).
+Cette étape suppose que vous avez déjà créé un nom de réseau virtuel « mon réseau » et qu’il contient au moins un sous-réseau virtuel.  Pour plus d’informations sur la création de réseaux virtuels, consultez [créer, supprimer ou mettre à jour des réseaux virtuels locataires](../Manage/Create,-Delete,-or-Update-Tenant-Virtual-Networks.md).
 
 >[!NOTE]
->Lors de la communication avec une autre machine virtuelle sur le même sous-réseau, si son actuellement connecté ou connecté à une date ultérieure, le trafic chiffré obtient automatiquement.
+>Lors de la communication avec une autre machine virtuelle sur le même sous-réseau, qu’elle soit actuellement connectée ou connectée ultérieurement, le trafic est automatiquement chiffré.
 
-1.  Récupérer les objets de réseau virtuel et les informations d’identification à partir du contrôleur de réseau
-
-    $vnet = Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceId "MyNetwork" $certcred = Get-NetworkControllerCredential -ConnectionUri $uri -ResourceId "EncryptedNetworkCertificate"
-
-2.  Ajoutez une référence à l’information d’identification de certificat et d’activer le chiffrement sur des sous-réseaux individuels
-
+1.  Récupérer le réseau virtuel et les objets d’informations d’identification à partir du contrôleur de réseau
+```
+    $vnet = Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceId "MyNetwork"
+    $certcred = Get-NetworkControllerCredential -ConnectionUri $uri -ResourceId "EncryptedNetworkCertificate"
+```
+2.  Ajouter une référence aux informations d’identification de certificat et activer le chiffrement sur des sous-réseaux individuels
+```
     $vnet.properties.EncryptionCredential = $certcred
 
-    # <a name="replace-the-subnets-index-with-the-value-corresponding-to-the-subnet-you-want-encrypted"></a>Remplacez l’index de sous-réseaux avec la valeur correspondant au sous-réseau que vous souhaitez chiffré.  
-    # <a name="repeat-for-each-subnet-where-encryption-is-needed"></a>Répétez pour chaque sous-réseau dans lequel le chiffrement est nécessaire
+    # Replace the Subnets index with the value corresponding to the subnet you want encrypted.  
+    # Repeat for each subnet where encryption is needed
     $vnet.properties.Subnets[0].properties.EncryptionEnabled = $true
-
-3.  Placer l’objet de réseau virtuel mis à jour dans le contrôleur de réseau
-
+```
+3.  Placez l’objet réseau virtuel mis à jour dans le contrôleur de réseau.
+```
     New-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceId $vnet.ResourceId -Properties $vnet.Properties -force
+```
 
-
-_**Félicitations !** _ Vous avez terminé une fois que vous effectuez ces étapes. 
+_**Félicitations!**_ Une fois ces étapes terminées, vous avez terminé. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
