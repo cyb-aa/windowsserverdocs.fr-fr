@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6939373db678f1ca6be62711f1771b8f7019c312
-ms.sourcegitcommit: c9ab5fbde1782a3a2bac2dbd45f3f178f7ae3c4c
+ms.openlocfilehash: bf7e2ed20a59bb021627a8a58f869ea5d94bf2b7
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68354641"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868189"
 ---
 ## <a name="best-practices-for-securing-active-directory-federation-services"></a>Meilleures pratiques pour la sécurisation des Services ADFS
 
@@ -111,7 +111,7 @@ Le proxy du service de Fédération (qui fait partie du WAP) fournit un contrôl
 2.  Accédez au répertoire ADFS, à l’adresse%WINDIR%\adfs\config.
 3.  Modifiez les valeurs par défaut des paramètres de contrôle de congestion<congestionControl latencyThresholdInMSec="8000" minCongestionWindowSize="64" enabled="true" />en «».
 4.  Enregistrez et fermez le fichier.
-5.  Redémarrez le service AD FS en exécutant «net stop adfssrv», puis «net start adfssrv».
+5.  Redémarrez le service AD FS en exécutant « net stop adfssrv », puis « net start adfssrv ».
 Pour référence, vous trouverez des conseils sur cette fonctionnalité [ici](https://msdn.microsoft.com/library/azure/dn528859.aspx ).
 
 ### <a name="standard-http-request-checks-at-the-proxy"></a>Vérifications des demandes HTTP standard au niveau du proxy

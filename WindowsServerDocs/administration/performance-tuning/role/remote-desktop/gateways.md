@@ -1,42 +1,42 @@
 ---
-title: Les passerelles de bureau à distance de réglage des performances
-description: Recommandations pour les passerelles des services Bureau à distance de réglage des performances
+title: Optimisation des performances Bureau à distance les passerelles
+description: Recommandations en matière de réglage des performances pour les passerelles Bureau à distance
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: f3ac020b3137621f6b2535c973ab7759443e1535
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: ad314fbf6701da3f96ddc68a598bf3024eaafe16
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811426"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866468"
 ---
-# <a name="performance-tuning-remote-desktop-gateways"></a>Les passerelles de bureau à distance de réglage des performances
+# <a name="performance-tuning-remote-desktop-gateways"></a>Optimisation des performances Bureau à distance les passerelles
 
 > [!NOTE]
-> Dans Windows 8 et Windows Server 2012 R2 +, la passerelle des services Bureau à distance (passerelle RD) prend en charge TCP, UDP et les transports RPC hérités. La plupart des données suivantes est ce qui concerne le transport RPC hérité. Si le transport RPC hérité n’est pas utilisé, cette section n’est pas applicable.
+> Dans Windows 8 et Windows Server 2012 R2 +, la passerelle Bureau à distance (passerelle des services Bureau à distance) prend en charge TCP, UDP et les transports RPC hérités. La plupart des données suivantes concernent le transport RPC hérité. Si le transport RPC hérité n’est pas utilisé, cette section n’est pas applicable.
 
-Cette rubrique décrit les paramètres liés aux performances d’améliorer les performances d’un déploiement de client et les réglages qui s’appuient sur des modèles d’utilisation réseau du client.
+Cette rubrique décrit les paramètres liés aux performances qui permettent d’améliorer les performances d’un déploiement client et les réglages qui reposent sur les modèles d’utilisation du réseau du client.
 
-Fondamentalement, passerelle Bureau à distance effectue le paquet de nombreuses opérations entre les instances de la connexion Bureau à distance et les instances de serveur hôte de Session Bureau à distance dans le réseau du client de transfert.
+À son cœur, la passerelle des services Bureau à distance effectue de nombreuses opérations de transfert de paquets entre Connexion Bureau à distance instances et les instances de serveur hôte de session Bureau à distance au sein du réseau du client.
 
 > [!NOTE]
-> Les paramètres suivants s’appliquent au transport RPC uniquement.
+> Les paramètres suivants s’appliquent uniquement au transport RPC.
 
-Internet Information Services (IIS) et passerelle Bureau à distance exportent les paramètres de Registre suivants pour aider à améliorer les performances du système dans la passerelle Bureau à distance.
+Internet Information Services (IIS) et la passerelle des services Bureau à distance exportent les paramètres de registre suivants afin d’améliorer les performances du système dans la passerelle des services Bureau à distance.
 
-**Réglages de thread**
+**Paramétrages de thread**
 
--   **MaxIoThreads**
+-   **MaxIOThreads**
 
     ``` syntax
     HKLM\Software\Microsoft\Terminal Server Gateway\Maxiothreads (REG_DWORD)
     ```
 
-    Ce pool de threads de spécifiques de l’application spécifie le nombre de threads qui crée de passerelle Bureau à distance pour gérer les demandes entrantes. Si ce paramètre de Registre est présent, il prend effet. Le nombre de threads est égal au nombre de processus logiques. Si le nombre de processeurs logiques est inférieur à 5, la valeur par défaut est 5 threads.
+    Ce pool de threads spécifique à l’application spécifie le nombre de threads que la passerelle des services Bureau à distance crée pour gérer les demandes entrantes. Si ce paramètre de Registre est présent, il prend effet. Le nombre de threads est égal au nombre de processus logiques. Si le nombre de processeurs logiques est inférieur à 5, la valeur par défaut est 5 threads.
 
 -   **MaxPoolThreads**
 
@@ -44,19 +44,11 @@ Internet Information Services (IIS) et passerelle Bureau à distance exportent l
     HKLM\System\CurrentControlSet\Services\InetInfo\Parameters\MaxPoolThreads (REG_DWORD)
     ```
 
-    Ce paramètre spécifie le nombre de threads de pool IIS à créer par processeur logique. Le pool de threads IIS regardez les demandes réseau et traite toutes les demandes entrantes. Le **MaxPoolThreads** nombre n’inclut pas les threads qui consomme de la passerelle Bureau à distance. La valeur par défaut est 4.
+    Ce paramètre spécifie le nombre de threads du pool IIS à créer par processeur logique. Les threads du pool IIS observent le réseau pour les demandes et traitent toutes les demandes entrantes. Le **nombre** de tentatives n’inclut pas les threads consommés par la passerelle des services Bureau à distance. La valeur par défaut est 4.
 
-**Réglages d’appel de procédure distante pour la passerelle Bureau à distance**
+**Paramétrage des appels de procédure distante pour la passerelle des services Bureau à distance**
 
-Les paramètres suivants peuvent vous aider à régler les appels de procédure distante (RPC) qui sont reçus par connexion Bureau à distance et passerelle Bureau à distance des ordinateurs. Modification de la windows permet de limiter la quantité de données est transmis via chaque connexion et peut améliorer les performances pour RPC sur HTTP v2 scenarios.
-
--   **ServerReceiveWindow**
-
-    ``` syntax
-    HKLM\Software\Microsoft\Rpc\ServerReceiveWindow (REG_DWORD)
-    ```
-
-    La valeur par défaut est 64 Ko. Cette valeur spécifie la fenêtre que le serveur utilise pour les données reçues à partir du proxy RPC. La valeur minimale est définie à 8 Ko, et la valeur maximale est fixée à 1 Go. Si une valeur n’est pas présente, la valeur par défaut est utilisée. Lorsque des modifications sont apportées à cette valeur, IIS doit être redémarré pour que la modification prenne effet.
+Les paramètres suivants permettent de paramétrer les appels de procédure distante (RPC) reçus par les Connexion Bureau à distance et les ordinateurs de passerelle Bureau à distance. La modification de Windows permet de limiter la quantité de données transitant par chaque connexion et peut améliorer les performances pour les scénarios RPC sur HTTP v2.
 
 -   **ServerReceiveWindow**
 
@@ -64,13 +56,21 @@ Les paramètres suivants peuvent vous aider à régler les appels de procédure 
     HKLM\Software\Microsoft\Rpc\ServerReceiveWindow (REG_DWORD)
     ```
 
-    La valeur par défaut est 64 Ko. Cette valeur spécifie la fenêtre que le client utilise pour les données reçues à partir du proxy RPC. La valeur minimale est de 8 Ko, et la valeur maximale est de 1 Go. Si une valeur n’est pas présente, la valeur par défaut est utilisée.
+    La valeur par défaut est 64 Ko. Cette valeur spécifie la fenêtre utilisée par le serveur pour les données reçues du proxy RPC. La valeur minimale est définie à 8 Ko, et la valeur maximale est définie à 1 Go. Si aucune valeur n’est présente, la valeur par défaut est utilisée. Lorsque des modifications sont apportées à cette valeur, IIS doit être redémarré pour que la modification prenne effet.
 
-## <a name="monitoring-and-data-collection"></a>Collecte de données et de surveillance
+-   **ServerReceiveWindow**
 
-La liste suivante des compteurs de performance est considéré comme un ensemble de compteurs de base lorsque vous surveillez l’utilisation des ressources sur la passerelle Bureau à distance :
+    ``` syntax
+    HKLM\Software\Microsoft\Rpc\ServerReceiveWindow (REG_DWORD)
+    ```
 
--   \\Passerelle de Service Terminal Server\\\*
+    La valeur par défaut est 64 Ko. Cette valeur spécifie la fenêtre utilisée par le client pour les données reçues du proxy RPC. La valeur minimale est de 8 Ko, tandis que la valeur maximale est de 1 Go. Si aucune valeur n’est présente, la valeur par défaut est utilisée.
+
+## <a name="monitoring-and-data-collection"></a>Surveillance et collecte des données
+
+La liste suivante de compteurs de performances est considérée comme un ensemble de compteurs de base lorsque vous surveillez l’utilisation des ressources sur la passerelle des services Bureau à distance :
+
+-   \\Passerelle des services Terminal Server\\\*
 
 -   \\Proxy RPC/HTTP\\\*
 
@@ -80,32 +80,32 @@ La liste suivante des compteurs de performance est considéré comme un ensemble
 
 -   \\W3SVC\_W3WP\\\*
 
--   \\IPv4\\\*
+-   \\IPv4/IPv6\\\*
 
--   \\Mémoire\\\*
+-   \\Capacité\\\*
 
 -   \\Interface réseau (\*)\\\*
 
 -   \\Processus (\*)\\\*
 
--   \\Informations de processeur (\*)\\\*
+-   \\Informations sur le\*processeur ()\\\*
 
--   \\Synchronization(\*)\\\*
+-   \\Synchronisation (\*)\\\*
 
--   \\Système\\\*
+-   \\Requise\\\*
 
 -   \\TCPv4\\\*
 
-Les compteurs de performances suivants sont appliquent uniquement aux ancien transport RPC :
+Les compteurs de performances suivants s’appliquent uniquement au transport RPC hérité :
 
--   \\Proxy RPC/HTTP\\ \* RPC
+-   \\RPC proxy\\ \* RPC/http
 
--   \\Proxy RPC/HTTP par serveur\\ \* RPC
+-   \\RPC/proxy http par serveur\\RPC \*
 
--   \\Service Web\\ \* RPC
+-   \\RPC du\\ service\* Web
 
--   \\W3SVC\_W3WP\\\* RPC
+-   \\W3SVC\_RPC\\ W3WP\*
 
 > [!NOTE]
-> Le cas échéant, ajoutez le \\IPv6\\ \* et \\TCPv6\\ \* objets. ReplaceThisText
+> Le cas échéant, ajoutez \\les\\ objets \\IPv6\* et TCPv6\\ \* . ReplaceThisText
 

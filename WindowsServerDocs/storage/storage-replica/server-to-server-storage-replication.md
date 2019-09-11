@@ -9,12 +9,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 61881b52-ee6a-4c8e-85d3-702ab8a2bd8c
-ms.openlocfilehash: 6b6af6d7b3f0c9a40f7e287097a0c102e637fbb0
-ms.sourcegitcommit: 2db58119d6ada38cc1b6b4bbf2950571d914dcab
+ms.openlocfilehash: fccdb8547ff27083ce943892842c2e2d05e5ace8
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69626848"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865289"
 ---
 # <a name="server-to-server-storage-replication-with-storage-replica"></a>Réplication de stockage de serveur à serveur avec le réplica de stockage
 
@@ -48,7 +48,7 @@ Beaucoup de ces exigences peuvent être déterminées à l’aide de `Test-SRTop
 
 ## <a name="windows-admin-center-requirements"></a>Configuration requise pour le centre d’administration Windows
 
-Pour utiliser ensemble le réplica de stockage et le centre d’administration Windows, vous avez besoin des éléments suivants:
+Pour utiliser ensemble le réplica de stockage et le centre d’administration Windows, vous avez besoin des éléments suivants :
 
 | System                        | Système d’exploitation                                            | Requis pour     |
 |-------------------------------|-------------------------------------------------------------|------------------|
@@ -74,7 +74,7 @@ Cette procédure pas à pas utilise l’environnement suivant comme exemple :
 Si vous utilisez le centre d’administration Windows pour gérer le réplica de stockage, suivez les étapes ci-dessous pour préparer votre ordinateur à la gestion du réplica de stockage.
 1. Téléchargez et installez le [Centre d’administration Windows](../../manage/windows-admin-center/overview.md).
 2. Téléchargez et installez le [Outils d’administration de serveur distant](https://www.microsoft.com/download/details.aspx?id=45520).
-    - Si vous utilisez Windows 10, version 1809 ou ultérieure, installez le «RSAT: Module de réplica de stockage pour Windows PowerShell» de fonctionnalités à la demande.
+    - Si vous utilisez Windows 10, version 1809 ou ultérieure, installez le «RSAT : Module de réplica de stockage pour Windows PowerShell» de fonctionnalités à la demande.
 3. Ouvrez une session PowerShell en tant qu’administrateur en sélectionnant le bouton **Démarrer** , en tapant **PowerShell**, en cliquant avec le bouton droit sur **Windows PowerShell,** puis en sélectionnant **exécuter en tant qu’administrateur**.
 4. Entrez la commande suivante pour activer le protocole WS-Management sur l’ordinateur local et configurer la configuration par défaut pour la gestion à distance sur le client.
 
@@ -145,25 +145,25 @@ Si vous utilisez le centre d’administration Windows pour gérer le réplica de
     > -   Le journal doit avoir une taille par défaut de 9 Go, qui peut être supérieure ou inférieure selon la configuration requise.  
     > -   Le rôle serveur de fichiers est uniquement nécessaire pour que Test-SRTopology fonctionne, car elle ouvre les ports de pare-feu nécessaires au test.
     
-    - **Pour les boîtiers JBOD:**  
+    - **Pour les boîtiers JBOD :**  
 
         1.  Assurez-vous que chaque serveur peut voir uniquement les boîtiers de stockage de ce site et que les connexions SAS sont correctement configurées.  
 
         2.  Configurez le stockage à l’aide d’espaces de stockage en suivant les **étapes1 à3** indiquées dans [Déployer des espaces de stockage sur un serveur autonome](../storage-spaces/deploy-standalone-storage-spaces.md) à l’aide de Windows PowerShell ou du Gestionnaire de serveur.  
 
-    - **Pour le stockage iSCSI:**  
+    - **Pour le stockage iSCSI :**  
 
         1.  Assurez-vous que chaque cluster peut voir uniquement les boîtiers de stockage de ce site. Vous devez utiliser plusieurs cartes réseau si vous utilisez iSCSI.    
 
         2.  Configurez le stockage à l’aide de la documentation de votre fournisseur. Si vous utilisez le ciblage iSCSI basé sur Windows, voir [Stockage par blocs de cibles iSCSI, procédure](../iscsi/iscsi-target-server.md).  
 
-    - **Pour le stockage SAN FC:**  
+    - **Pour le stockage SAN FC :**  
 
         1.  Assurez-vous que chaque cluster peut voir uniquement les boîtiers de stockage de ce site et que vous avez correctement segmenté les hôtes.   
 
         2.  Configurez le stockage à l’aide de la documentation de votre fournisseur.  
 
-    - **Pour le stockage sur disque fixe local:**  
+    - **Pour le stockage sur disque fixe local :**  
 
         -   Assurez-vous que le stockage ne contient pas un volume système, un fichier d’échange ou des fichiers de vidage.  
 
@@ -437,13 +437,13 @@ Le processus est généralement le suivant :
 1. [Créez un groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 1. [Ajoutez un groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal). Lors de sa création, sélectionnez l’ID d’abonnement associé au ExpressRoute que vous avez créé, puis sélectionnez le groupe de ressources que vous venez de créer.
 <br><br>Ajoutez les règles de sécurité entrantes et sortantes dont vous avez besoin au groupe de sécurité réseau. Par exemple, vous souhaiterez peut-être autoriser Bureau à distance accès à la machine virtuelle.
-1. [Créez une machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) avec les paramètres suivants (illustrée à la figure 5):
+1. [Créez une machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) avec les paramètres suivants (illustrée à la figure 5) :
     - **Adresse IP publique** : Aucun
     - **Réseau virtuel**: Sélectionnez le réseau virtuel que vous avez noté dans le groupe de ressources ajouté avec ExpressRoute.
     - **Groupe de sécurité réseau (pare-feu)** : Sélectionnez le groupe de sécurité réseau que vous avez créé précédemment.
     ![Créer une machine virtuelle présentant les paramètres](media/Server-to-Server-Storage-Replication/azure-vm-express-route.png)
-    **réseau ExpressRoute figure 5: Création d’une machine virtuelle lors de la sélection des paramètres réseau ExpressRoute**
-1. Une fois la machine virtuelle créée, [consultez étape 2: Approvisionner le système d’exploitation, les fonctionnalités, les rôles](#provision-os), le stockage et le réseau.
+    **réseau ExpressRoute figure 5 : Création d’une machine virtuelle lors de la sélection des paramètres réseau ExpressRoute**
+1. Une fois la machine virtuelle créée, [consultez étape 2 : Approvisionner le système d’exploitation, les fonctionnalités, les rôles](#provision-os), le stockage et le réseau.
 
 
 ## <a name="related-topics"></a>Rubriques connexes  

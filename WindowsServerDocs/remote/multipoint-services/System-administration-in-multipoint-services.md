@@ -1,6 +1,6 @@
 ---
 title: Administration du système dans MultiPoint Services
-description: Rubrique de navigation pour les informations d’administration des Services de MultiPoint
+description: Rubrique de navigation pour obtenir des informations sur l’administration de MultiPoint services
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,17 +13,17 @@ ms.assetid: 8fce1bcf-5459-43a2-957e-c1bc1749bca2
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 815121b158e47e4a2f6a068949953f259dfec549
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 07a00033fb79861470f2874e3c069107e39b9d77
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864500"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871521"
 ---
 # <a name="system-administration-in-multipoint-services"></a>Administration du système dans MultiPoint Services
-Avant de commencer à l’aide de votre système MultiPoint Services, il est judicieux d’effectuer une administration de système de base.  
+Avant de commencer à utiliser votre système MultiPoint services, il est judicieux d’effectuer une administration de base du système.  
   
 Utilisez les informations suivantes :
 
-[Configurer la Protection de disque](Configure-Disk-Protection-in-MultiPoint-services.md)  
-[Installer le serveur de sauvegarde sur votre ordinateur MultiPoint Services](Install-Server-Backup-on-your-MultiPoint-services-computer.md) 
+[Configurer la protection des disques](Configure-Disk-Protection-in-MultiPoint-services.md)  
+[Installer la sauvegarde du serveur sur votre ordinateur MultiPoint services](Install-Server-Backup-on-your-MultiPoint-services-computer.md) 

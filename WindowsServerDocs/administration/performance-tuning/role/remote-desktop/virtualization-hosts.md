@@ -1,25 +1,25 @@
 ---
-title: Hôtes de virtualisation des services Bureau à distance de réglage des performances
-description: Réglage des performances pour les hôtes de virtualisation des services Bureau à distance
+title: Réglage des performances Bureau à distance les hôtes de virtualisation
+description: Réglage des performances pour les hôtes de virtualisation Bureau à distance
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: da528a742a7f49513c50b22a25970d65b9e1885f
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 24e3243d4e9791c8941729d396e0a96cd8b11a7d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811373"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866442"
 ---
-# <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>Hôtes de virtualisation des services Bureau à distance de réglage des performances
+# <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>Réglage des performances Bureau à distance les hôtes de virtualisation
 
 
-Hôte de virtualisation Bureau à distance (hôte de virtualisation Bureau à distance) est un service de rôle qui prend en charge les scénarios d’Infrastructure VDI (Virtual Desktop) et permet à plusieurs utilisateurs simultanés d’exécuter des applications Windows dans les machines virtuelles qui sont hébergées sur un serveur en cours d’exécution Windows Server 2016 et Hyper-V.
+Serveur hôte de virtualisation des services Bureau à distance (ordinateur hôte de virtualisation des services Bureau à distance) est un service de rôle qui prend en charge les scénarios d’infrastructure VDI (Virtual Desktop Infrastructure) et permet à plusieurs utilisateurs simultanés d’exécuter des applications Windows sur des ordinateurs virtuels hébergés sur un serveur exécutant Windows Server 2016 et Hyper-V.
 
-Windows Server 2016 prend en charge deux types de bureaux virtuels, des bureaux virtuels personnels et des bureaux virtuels.
+Windows Server 2016 prend en charge deux types de bureaux virtuels, de bureaux virtuels personnels et de bureaux virtuels mis en pool.
 
 **Dans cette rubrique :**
 
@@ -32,198 +32,198 @@ Windows Server 2016 prend en charge deux types de bureaux virtuels, des bureaux 
 
 ### <a name="storage"></a>Stockage
 
-Le stockage est le plus probable goulot d’étranglement de performances, et il est important de dimensionner votre stockage pour gérer correctement la charge d’e/s qui est générée par les modifications d’état de machine virtuelle. Si un pilote ou une simulation n’est pas possible, une bonne indication consiste à configurer une pile de disques pour les quatre ordinateurs virtuels actifs. Utilisez les configurations de disque qui ont de bonnes performances en écriture (telles que RAID 1 + 0).
+Le stockage est le goulot d’étranglement des performances le plus probable, et il est important de dimensionner votre stockage pour gérer correctement la charge d’e/s générée par les modifications de l’état de l’ordinateur virtuel. Si un pilote ou une simulation n’est pas possible, il est judicieux de configurer une seule pile de disques pour quatre machines virtuelles actives. Utilisez des configurations de disque qui présentent de bonnes performances en écriture (par exemple, RAID 1 + 0).
 
-Lorsque cela est approprié, utilisez la déduplication de disque et la mise en cache afin de réduire la charge de lecture sur le disque et pour activer votre solution de stockage améliorer les performances en mettant en cache une partie significative de l’image.
+Le cas échéant, utilisez la déduplication de disque et la mise en cache pour réduire la charge de lecture sur le disque et permettre à votre solution de stockage d’accélérer les performances en mettant en cache une partie importante de l’image.
 
-### <a name="data-deduplication-and-vdi"></a>VDI et la déduplication des données
+### <a name="data-deduplication-and-vdi"></a>Déduplication des données et VDI
 
-Introduite dans Windows Server 2012 R2, la déduplication des données prend en charge l’optimisation des fichiers ouverts. Pour pouvoir utiliser des machines virtuelles s’exécutant sur un volume dédupliqué, les fichiers de machine virtuelle doivent être stockés sur un hôte distinct à partir de l’hôte Hyper-V. Si Hyper-V et la déduplication s’exécutent sur le même ordinateur, les deux fonctionnalités seront sont en concurrence pour les ressources système et un impact négatif sur les performances globales.
+Introduite dans Windows Server 2012 R2, la déduplication des données prend en charge l’optimisation des fichiers ouverts. Pour pouvoir utiliser des machines virtuelles exécutées sur un volume dédupliqué, les fichiers de l’ordinateur virtuel doivent être stockés sur un hôte distinct de l’hôte Hyper-V. Si Hyper-V et la déduplication s’exécutent sur le même ordinateur, les deux fonctionnalités sont en concurrence pour les ressources système et ont un impact négatif sur les performances globales.
 
-Le volume doit également être configuré pour utiliser le type d’optimisation de la déduplication « Virtual Desktop Infrastructure (VDI) ». Vous pouvez le configurer à l’aide du Gestionnaire de serveur (**File and Storage Services**  - &gt; **Volumes**  - &gt; **paramètres de déduplication**) ou de commande à l’aide de la commande Windows PowerShell suivante :
+Le volume doit également être configuré pour utiliser le type d’optimisation de déduplication « VDI (Virtual Desktop Infrastructure) ». Vous pouvez configurer ce paramètre à l’aide de gestionnaire de serveur ( **paramètres de déduplication**&gt; des **volumes**  -  - &gt; **des services de fichiers et de stockage** ) ou à l’aide de la commande Windows PowerShell suivante :
 
 ``` syntax
 Enable-DedupVolume <volume> -UsageType HyperV
 ```
 
 > [!NOTE]
-> Optimisation de la déduplication des données de fichiers ouverts est prise en charge uniquement pour les scénarios VDI avec Hyper-V à l’aide du stockage distant sur SMB 3.0.
+> L’optimisation de la déduplication des données des fichiers ouverts est prise en charge uniquement pour les scénarios VDI avec Hyper-V utilisant un stockage distant sur SMB 3,0.
 
 ### <a name="memory"></a>Mémoire
 
-Utilisation mémoire du serveur est pilotée par les trois facteurs principaux :
+L’utilisation de la mémoire du serveur est motivée par trois facteurs principaux :
 
 -   Surcharge du système d’exploitation
 
--   Service de Hyper-V surcharge par machine virtuelle
+-   Surcharge du service Hyper-V par ordinateur virtuel
 
 -   Mémoire allouée à chaque machine virtuelle
 
-Pour une charge de travail travailleur de connaissances typique, invité virtual machines en cours d’exécution x86 Windows 8 ou Windows 8.1 convient ~ 512 Mo de mémoire en tant que la ligne de base. Toutefois, la mémoire dynamique augmentera probablement mémoire de l’ordinateur virtuel invité à peu près 800 Mo, selon la charge de travail. Pour x64, nous voyons sur 800 Mo à partir de, augmenter jusqu'à 1 024 Mo.
+Pour une charge de travail de travail de base de connaissances classique, les machines virtuelles invitées exécutant x86 Window 8 ou Windows 8.1 doivent disposer d’environ 512 Mo de mémoire comme ligne de base. Toutefois, Mémoire dynamique augmentera probablement la mémoire de la machine virtuelle invitée à environ 800 Mo, en fonction de la charge de travail. Pour x64, nous voyons environ 800 Mo de démarrage, ce qui devient de 1024 Mo.
 
-Par conséquent, il est important de fournir suffisamment de mémoire serveur afin de satisfaire la mémoire requise par le nombre de machines virtuelles invitées attendu, par ailleurs une quantité suffisante de mémoire pour le serveur.
+Par conséquent, il est important de fournir suffisamment de mémoire serveur pour satisfaire la mémoire requise par le nombre attendu de machines virtuelles invitées, ainsi que d’une quantité suffisante de mémoire pour le serveur.
 
-### <a name="cpu"></a>Processeur
+### <a name="cpu"></a>UC
 
-Lorsque vous planifiez la capacité du serveur pour un serveur hôte de virtualisation Bureau à distance, le nombre d’ordinateurs virtuels par cœur physique dépendra de la nature de la charge de travail. En tant que point de départ, il est raisonnable planifier des machines virtuelles 12 par cœur physique, puis exécutez les scénarios appropriés pour valider les performances et la densité. Densité plus élevée peut être obtenue selon les spécificités de la charge de travail.
+Lorsque vous planifiez la capacité du serveur pour un serveur hôte de virtualisation des services Bureau à distance, le nombre d’ordinateurs virtuels par cœur physique dépend de la nature de la charge de travail. Comme point de départ, il est raisonnable de planifier 12 machines virtuelles par cœur physique, puis d’exécuter les scénarios appropriés pour valider les performances et la densité. Une densité plus élevée peut être réalisable en fonction des caractéristiques de la charge de travail.
 
-Nous vous recommandons d’activer hyper-threading, mais veillez à calculer le taux de surabonnement selon le nombre de cœurs physiques et non le nombre de processeurs logiques. Cela garantit le niveau de performances par UC attendu.
+Nous vous recommandons d’activer l’Hyper-Threading, mais de calculer le taux de surabonnement en fonction du nombre de cœurs physiques et non du nombre de processeurs logiques. Cela garantit le niveau de performance attendu sur une base par UC.
 
-### <a name="virtual-gpu"></a>Processeur graphique virtuel
+### <a name="virtual-gpu"></a>GPU virtuel
 
-Microsoft RemoteFX pour l’hôte de virtualisation Bureau à distance offre une expérience de graphiques riches pour encoder d’Infrastructure VDI (Virtual Desktop) via la communication à distance côté hôte, un pipeline de rendu / capture / encodage, très efficaces basées sur GPU, la limitation basée sur le client activité et un processeur graphique virtuel compatible DirectX. RemoteFX pour l’hôte de virtualisation Bureau à distance met à niveau le processeur graphique virtuel à partir de DirectX9 DirectX11. Il améliore également l’expérience utilisateur en prenant en charge de plusieurs moniteurs aux résolutions plus élevées.
+Microsoft RemoteFX pour l’hôte de virtualisation des services Bureau à distance offre une expérience graphique riche pour l’infrastructure VDI (Virtual Desktop Infrastructure) via la communication à distance côté hôte, un pipeline de capture et de capture de rendu, un encodage basé sur GPU très efficace, une limitation basée sur le client et un GPU virtuel compatible DirectX. RemoteFX pour hôte de virtualisation des services Bureau à distance met à niveau le GPU virtuel de DirectX9 vers DirectX11. Il améliore également l’expérience utilisateur en prenant en charge davantage d’analyses à des résolutions supérieures.
 
-L’expérience de RemoteFX DirectX11 est disponible sans un matériel GPU, via un pilote émulés. Bien que ce logiciel GPU fournit une bonne expérience, l’unité de traitement graphique virtuelle de RemoteFX (VGPU) ajoute une expérience de l’accélération matérielle aux bureaux virtuels.
+L’expérience DirectX11 RemoteFX est disponible sans GPU matériel, par le biais d’un pilote émulé par logiciel. Bien que ce logiciel GPU offre une bonne expérience, l’unité de traitement graphique (GPU) virtuelle RemoteFX ajoute une expérience d’accélération matérielle aux bureaux virtuels.
 
-Pour tirer parti de l’expérience de VGPU RemoteFX sur un serveur exécutant Windows Server 2016, vous avez besoin d’un pilote GPU (par exemple, DirectX11.1 ou WDDM 1.2) sur le serveur hôte. Pour plus d’informations sur les offres GPU à utiliser avec RemoteFX pour l’hôte de virtualisation Bureau à distance, contactez votre fournisseur GPU.
+Pour tirer parti de l’expérience du processeur graphique virtuel RemoteFX sur un serveur exécutant Windows Server 2016, vous avez besoin d’un pilote GPU (tel que DirectX 11.1 ou WDDM 1,2) sur le serveur hôte. Pour plus d’informations sur les offres GPU à utiliser avec RemoteFX pour hôte de virtualisation des services Bureau à distance, contactez votre fournisseur GPU.
 
-Si vous utilisez le GPU virtuel RemoteFX dans votre déploiement VDI, la capacité de déploiement peut varier en fonction des scénarios d’utilisation et la configuration matérielle. Lorsque vous planifiez votre déploiement, procédez comme suit :
+Si vous utilisez le GPU virtuel RemoteFX dans votre déploiement VDI, la capacité de déploiement varie en fonction des scénarios d’utilisation et de la configuration matérielle. Lorsque vous planifiez votre déploiement, tenez compte des éléments suivants :
 
--   Nombre de processeurs graphiques sur votre système
+-   Nombre de GPU sur votre système
 
--   Capacité de mémoire vidéo sur les GPU
+-   Capacité de la mémoire vidéo sur les GPU
 
--   Ressources de processeur et de matériel sur votre système
+-   Ressources du processeur et du matériel sur votre système
 
-### <a name="remotefx-server-system-memory"></a>Mémoire du système serveur RemoteFX
+### <a name="remotefx-server-system-memory"></a>Mémoire système du serveur RemoteFX
 
-Pour chaque ordinateur de bureau virtuel activé avec un processeur graphique virtuel, RemoteFX utilise la mémoire système dans le système d’exploitation invité et sur le serveur compatibles RemoteFX. L’hyperviseur garantit la disponibilité de la mémoire système pour un système d’exploitation. Sur le serveur, chaque bureau virtuel virtuel prenant en charge GPU doit publier ses besoins en mémoire système à l’hyperviseur. Lors du démarrage de bureau virtuel prenant en charge GPU virtuel, l’hyperviseur réserve de mémoire système supplémentaire sur le serveur prenant en charge de RemoteFX pour le bureau virtuel prenant en charge le processeur graphique.
+Pour chaque bureau virtuel activé avec un GPU virtuel, RemoteFX utilise la mémoire système dans le système d’exploitation invité et dans le serveur prenant en charge RemoteFX. L’hyperviseur garantit la disponibilité de la mémoire système pour un système d’exploitation invité. Sur le serveur, chaque bureau virtuel prenant en charge le GPU virtuel doit publier ses besoins en mémoire système sur l’hyperviseur. Lorsque le bureau virtuel compatible avec le GPU virtuel démarre, l’hyperviseur réserve de la mémoire système supplémentaire dans le serveur prenant en charge RemoteFX pour le bureau virtuel compatible avec les PROCESSEURs virtuels.
 
-La mémoire requise pour le serveur compatibles RemoteFX est dynamique, car la quantité de mémoire consommée sur le serveur compatibles RemoteFX est dépend du nombre de moniteurs qui sont associés les bureaux virtuels prenant en charge de VGPU et la résolution maximale pour Ces moniteurs.
+La mémoire requise pour le serveur RemoteFX est dynamique, car la quantité de mémoire consommée sur le serveur RemoteFX dépend du nombre d’analyses associées aux bureaux virtuels compatibles avec les PROCESSEURs virtuels et de la résolution maximale pour Ces analyses.
 
-### <a name="remotefx-server-gpu-video-memory"></a>Serveur RemoteFX mémoire vidéo GPU
+### <a name="remotefx-server-gpu-video-memory"></a>Mémoire vidéo du GPU du serveur RemoteFX
 
-Chaque bureau virtuel prenant en charge GPU virtuel utilise la mémoire vidéo dans le matériel GPU sur le serveur hôte pour afficher le bureau. En plus de rendu, la mémoire vidéo est utilisée par un codec pour compresser l’écran affiché. La quantité de mémoire nécessaire est directement basée sur la quantité de moniteurs qui sont configurées sur l’ordinateur virtuel.
+Chaque bureau virtuel prenant en charge le GPU virtuel utilise la mémoire vidéo dans le matériel du GPU sur le serveur hôte pour afficher le bureau. En plus du rendu, la mémoire vidéo est utilisée par un codec pour compresser l’écran rendu. La quantité de mémoire nécessaire dépend directement de la quantité d’analyses approvisionnées sur la machine virtuelle.
 
-La mémoire vidéo qui est réservée varie en fonction du nombre d’analyses et de la résolution d’écran système. Certains utilisateurs peuvent nécessiter une résolution d’écran plus élevée pour des tâches spécifiques. Il existe une plus grande évolutivité avec les paramètres de résolution inférieure si tous les autres paramètres restent constants.
+La mémoire vidéo réservée varie selon le nombre d’écrans et la résolution de l’écran système. Certains utilisateurs peuvent nécessiter une résolution d’écran plus élevée pour des tâches spécifiques. Il existe une plus grande évolutivité avec des paramètres de résolution inférieurs si tous les autres paramètres restent constants.
 
-### <a name="remotefx-processor"></a>Processeur de RemoteFX
+### <a name="remotefx-processor"></a>Processeur RemoteFX
 
-L’hyperviseur planifie le serveur compatibles RemoteFX et les virtuels bureaux virtuels compatibles GPU sur l’UC. Contrairement à la mémoire système, il n’est pas les informations relatives à des ressources supplémentaires que RemoteFX a besoin de partager avec l’hyperviseur. Surcharge l’UC supplémentaire qui permet de bureau virtuel prenant en charge GPU virtuel RemoteFX est liée à l’exécution du pilote de processeur graphique virtuel et une pile de protocole Bureau à distance en mode utilisateur.
+L’hyperviseur planifie le serveur prenant en charge RemoteFX et les bureaux virtuels compatibles GPU virtuels sur le processeur. Contrairement à la mémoire système, il n’y a pas d’informations relatives aux ressources supplémentaires que RemoteFX doit partager avec l’hyperviseur. La surcharge d’UC supplémentaire introduite par RemoteFX dans le bureau virtuel prenant en charge le GPU virtuel est liée à l’exécution du pilote GPU virtuel et à la pile protocole RDP (Remote Desktop Protocol) en mode utilisateur.
 
-Sur le serveur compatibles RemoteFX, la surcharge est augmentée, étant donné que le système exécute un traitement supplémentaire (rdvgm.exe) par un bureau virtuel virtuel compatibles GPU. Ce processus utilise le pilote de périphérique graphique pour exécuter des commandes sur le GPU. Le codec utilise également les unités centrales pour compresser les données d’écran qui doivent être envoyé au client.
+Sur le serveur prenant en charge RemoteFX, la surcharge est augmentée car le système exécute un processus supplémentaire (rdvgm. exe) par bureau virtuel prenant en charge le GPU virtuel. Ce processus utilise le pilote de périphérique graphique pour exécuter des commandes sur le GPU. Le codec utilise également les processeurs pour compresser les données d’écran qui doivent être renvoyées au client.
 
-Plus de processeurs virtuels signifient une meilleure expérience utilisateur. Nous vous recommandons d’allouer au moins deux processeurs virtuels par un bureau virtuel virtuel compatibles GPU. Nous vous recommandons également de l’utilisation de la x64 architecture pour des bureaux virtuels virtuels compatibles GPU, car les performances sur x64 machines virtuelles est mieux comparé à x86 machines virtuelles.
+Un plus grand nombre de processeurs virtuels signifie une meilleure expérience utilisateur. Nous vous recommandons d’allouer au moins deux processeurs virtuels par bureau virtuel compatible avec le GPU virtuel. Nous vous recommandons également d’utiliser l’architecture x64 pour les bureaux virtuels compatibles GPU, car les performances sur les machines virtuelles x64 sont meilleures par rapport aux machines virtuelles x86.
 
-### <a name="remotefx-gpu-processing-power"></a>Puissance de traitement de RemoteFX GPU
+### <a name="remotefx-gpu-processing-power"></a>Puissance de traitement GPU RemoteFX
 
-Pour chaque compatibles GPU virtuel bureau virtuel, il existe un processus de DirectX correspondant s’exécutant sur le serveur compatibles RemoteFX. Ce processus relit toutes les commandes de graphiques qu’il reçoit à partir du bureau virtuel RemoteFX sur le GPU physique. Pour le GPU physique, il est équivalent à l’exécution simultanée de plusieurs applications DirectX.
+Pour chaque bureau virtuel compatible GPU, il existe un processus DirectX correspondant en cours d’exécution sur le serveur prenant en charge RemoteFX. Ce processus relit toutes les commandes graphiques qu’il reçoit du bureau virtuel RemoteFX sur le GPU physique. Pour le GPU physique, il est équivalent à l’exécution simultanée de plusieurs applications DirectX.
 
-En règle générale, les pilotes et périphériques graphiques sont paramétrées pour exécuter plusieurs applications sur le bureau. RemoteFX s’étend sur les GPU à utiliser de manière unique. Pour mesurer les performances de la GPU sur un serveur RemoteFX, les compteurs de performances ont été ajoutées pour mesurer la réponse GPU pour les demandes de RemoteFX.
+En règle générale, les périphériques et les pilotes graphiques sont réglés pour exécuter quelques applications sur le bureau. RemoteFX étire les GPU à utiliser de manière unique. Pour mesurer la manière dont le GPU s’exécute sur un serveur RemoteFX, des compteurs de performances ont été ajoutés pour mesurer la réponse GPU aux demandes RemoteFX.
 
-Généralement quand une ressource GPU est faible sur les ressources, lire et écrire des opérations dans le take GPU beaucoup de temps pour terminer. À l’aide des compteurs de performances, les administrateurs peuvent mesures préventives, éliminant ainsi l’éventualité de temps d’arrêt pour leurs utilisateurs finaux.
+Généralement, lorsqu’une ressource GPU manque de ressources, les opérations de lecture et d’écriture sur le GPU prennent beaucoup de temps. En utilisant des compteurs de performances, les administrateurs peuvent prendre des mesures préventives, éliminant ainsi le risque de temps d’arrêt pour leurs utilisateurs finaux.
 
-Les compteurs de performances suivants sont disponibles sur le serveur RemoteFX pour mesurer les performances de processeur graphique virtuel :
+Les compteurs de performances suivants sont disponibles sur le serveur RemoteFX pour mesurer les performances du GPU virtuel :
 
-**Graphique de RemoteFX**
+**Graphiques RemoteFX**
 
--   **Cadres ignorés/seconde - manque de ressources Client** nombre de trames ignorés par seconde en raison de ressources insuffisantes client
+-   **Trames ignorées/seconde-ressources client insuffisantes** Nombre de trames ignorées par seconde en raison de ressources client insuffisantes
 
--   **Taux de Compression de graphiques** rapport entre le nombre d’octets codé au nombre d’octets en entrée
+-   **Taux de compression des graphiques** Rapport entre le nombre d’octets encodés et le nombre d’octets entrés
 
-**Racine de RemoteFX gestion de GPU**
+**Gestion de GPU racine RemoteFX**
 
--   **Ressources : TdR dans Server GPU** nombre Total de fois où la fonctionnalité TDR arrive à expiration dans le GPU sur le serveur
+-   **Situées TDRS dans les GPU** du serveur nombre total de fois où le TDR expire dans le GPU sur le serveur
 
--   **Ressources : Les machines virtuelles en cours d’exécution RemoteFX** nombre Total de machines virtuelles qui ont de la carte vidéo 3D RemoteFX installé
+-   **Situées Machines virtuelles exécutant** RemoteFX nombre total d’ordinateurs virtuels sur lesquels la carte vidéo RemoteFX 3D est installée
 
--   **VRAM : Mo disponible par GPU** quantité de mémoire vidéo dédiée qui n’est pas utilisée
+-   **RAM Mo disponibles par processeur** graphique, quantité de mémoire vidéo dédiée non utilisée
 
--   **VRAM : % Réservée par GPU** pourcentage de mémoire vidéo dédiée qui a été réservée pour RemoteFX
+-   **RAM % Réservé par pourcentage** GPU de mémoire vidéo dédiée qui a été réservée pour RemoteFX
 
-**Logiciel de RemoteFX**
+**Logiciel RemoteFX**
 
--   **Taux de capture pour analyse** \[1-4\] affiche la fréquence de capture de RemoteFX pour les moniteurs 1-4
+-   **Taux de capture pour l’analyse** \[1-4\] affiche le taux de capture RemoteFX pour les moniteurs 1-4
 
--   **Taux de compression** déconseillées dans Windows 8 et remplacé par **taux de Compression de graphiques**
+-   **Taux de compression** Déconseillé dans Windows 8 et remplacé par le **ratio de compression graphique**
 
--   **Retardé images par seconde** nombre de frames par seconde où les données de graphique n’a pas envoyées au sein d’un certain laps de temps
+-   **Images différées/s** Nombre d’images par seconde où les données graphiques n’ont pas été envoyées dans un laps de temps donné
 
--   **Temps de réponse GPU de Capture** latence mesurée au sein de la Capture de RemoteFX (en microsecondes) pour effectuer des opérations de GPU
+-   **Temps de réponse GPU de capture** Latence mesurée au sein de la capture RemoteFX (en microsecondes) pour l’exécution des opérations GPU
 
--   **Temps de réponse GPU de rendu** latence mesurée au sein de RemoteFX rendu (en microsecondes) pour effectuer des opérations de GPU
+-   **Temps de réponse GPU à partir du rendu** Latence mesurée dans RemoteFX Render (en microsecondes) pour l’exécution des opérations GPU
 
--   **Octets de sortie** octets de sortie du nombre Total de RemoteFX
+-   **Octets de sortie** Nombre total d’octets de sortie RemoteFX
 
--   **En attente pour le compte client/s** déconseillées dans Windows 8 et remplacé par **cadres ignorés/seconde - manque de ressources Client**
+-   En **attente du nombre de clients/s** Déconseillé dans Windows 8 et remplacé par des **frames ignorés/seconde-ressources client insuffisantes**
 
-**Gestion de vGPU RemoteFX**
+**Gestion du processeur graphique virtuel RemoteFX**
 
--   **Ressources : TDR local aux machines virtuelles** nombre Total de TDR qui se sont produites dans cette machine virtuelle (TDR que le serveur propagé vers les machines virtuelles ne sont pas inclus)
+-   **Situées TDRS local aux machines** virtuelles nombre total de TDRS qui se sont produits dans cet ordinateur virtuel (TDRS que le serveur a propagé aux machines virtuelles n’est pas inclus)
 
--   **Ressources : TDR propagées par serveur** nombre Total de TDR qui s’est produite sur le serveur et qui ont été propagées à la machine virtuelle
+-   **Situées TDRS propagée par le** serveur nombre total de TDRS qui se sont produits sur le serveur et qui ont été propagés à la machine virtuelle
 
-**Performances de vGPU RemoteFX machine virtuelle**
+**Performances du processeur graphique virtuel RemoteFX**
 
--   **Données : Appelé par seconde présente** nombre Total (en secondes) d’opérations présentes à restituer sur le bureau de l’ordinateur virtuel par seconde
+-   **Métadonnée L’appel de présente/** s nombre total (en secondes) d’opérations présentes à rendre sur le Bureau de l’ordinateur virtuel par seconde
 
--   **Données : Sortants/s présente** nombre Total d’opérations présentes envoyées par l’ordinateur virtuel au serveur GPU par seconde
+-   **Métadonnée Nombre total de messages** entrants/s nombre total d’opérations présentes envoyées par l’ordinateur virtuel au GPU du serveur par seconde
 
--   **Données : Octets lus/s** nombre Total d’octets lus à partir du serveur compatibles RemoteFX par seconde
+-   **Métadonnée Octets lus/s** nombre total d’octets lus à partir du serveur RemoteFX par seconde
 
--   **Données : Octets envoyés/s** nombre Total d’octets envoyés sur le serveur compatibles RemoteFX GPU par seconde
+-   **Métadonnée Octets envoyés/s** nombre total d’octets envoyés au GPU de serveur prenant en charge RemoteFX par seconde
 
--   **DMA : Latence (s) de moyenne de tampons de communication** durée moyenne (en secondes) passé dans les mémoires tampons de communication
+-   **CANAL Latence moyenne des tampons de communication (s** ) durée moyenne (en secondes) passée dans les tampons de communication
 
--   **DMA : Latence de mémoire tampon DMA (s)** laps de temps (en secondes) à partir de laquelle le DMA est soumis avant la fin
+-   **CANAL Latence de la mémoire tampon DMA (** s) (en secondes) à partir du moment où le DMA est soumis jusqu’à la fin de l’opération
 
--   **DMA : Longueur de file d’attente** longueur de file d’attente DMA pour une carte vidéo RemoteFX 3D
+-   **CANAL Longueur de** file d’attente DMA longueur de file d’attente pour une carte vidéo 3D RemoteFX
 
--   **Ressources : Délais d’expiration de la fonctionnalité TDR par GPU** nombre des TDR des délais d’attente qui se sont produites par des GPU sur la machine virtuelle
+-   **Situées Délais d’expiration TDR par** GPU nombre de dépassements de délai TDR qui se sont produits par GPU sur l’ordinateur virtuel
 
--   **Ressources : Délais d’expiration de la fonctionnalité TDR par moteur GPU** du moteur de délais d’expiration de nombre des TDR qui se sont produites par des GPU sur la machine virtuelle
+-   **Situées Délais d’expiration TDR par moteur** GPU nombre de dépassements de délai d’attente TDR qui se sont produits par moteur GPU sur l’ordinateur virtuel
 
-Outre les compteurs de performances du GPU RemoteFX virtuels, vous pouvez également mesurer l’utilisation du GPU à l’aide de Process Explorer, qui affiche l’utilisation de la mémoire vidéo et l’utilisation du GPU.
+En plus des compteurs de performances du GPU virtuel RemoteFX, vous pouvez également mesurer l’utilisation du GPU à l’aide de Process Explorer, qui montre l’utilisation de la mémoire vidéo et l’utilisation du GPU.
 
 ## <a name="performance-optimizations"></a>Optimisation des performances
 
 ### <a name="dynamic-memory"></a>Mémoire dynamique
 
-Mémoire dynamique permet plus efficacement l’utilisation des ressources mémoire du serveur exécutant Hyper-V en équilibrant la mémoire est répartie entre les machines virtuelles en cours d’exécution. Mémoire peut être réaffectée de manière dynamique entre les machines virtuelles en réponse à leurs charges de travail fluctuantes.
+Mémoire dynamique permet une utilisation plus efficace des ressources mémoire du serveur exécutant Hyper-V en équilibrant la répartition de la mémoire entre les machines virtuelles en cours d’exécution. La mémoire peut être réallouée dynamiquement entre les machines virtuelles en réponse à leurs charges de travail variables.
 
-Mémoire dynamique vous permet d’augmenter la densité de la machine virtuelle avec les ressources que vous avez déjà sans sacrifier les performances ou l’évolutivité. Le résultat est une utilisation plus efficace des ressources matérielles du serveur, ce qui peut mener à faciliter la gestion et réduire les coûts.
+Mémoire dynamique vous permet d’augmenter la densité des machines virtuelles avec les ressources que vous avez déjà sans sacrifier les performances ou l’évolutivité. Le résultat est une utilisation plus efficace des ressources matérielles serveur onéreuses, ce qui peut être plus facile à gérer et à réduire les coûts.
 
-Sur les systèmes d’exploitation invités exécutant Windows 8 et ci-dessus avec des processeurs virtuels qui s’étendent sur plusieurs processeurs logiques, un compromis entre en cours d’exécution avec la mémoire dynamique pour aider à réduire l’utilisation de la mémoire et la désactivation de la mémoire dynamique pour améliorer les performances d’une application qui est la topologie ordinateurs prenant en charge. Ce type d’application peut exploiter les informations de topologie pour les décisions de planification et de la mémoire d’allocation.
+Sur les systèmes d’exploitation invités exécutant Windows 8 et versions ultérieures avec des processeurs virtuels qui s’étendent sur plusieurs processeurs logiques, considérez le compromis entre l’exécution avec Mémoire dynamique pour réduire l’utilisation de la mémoire et la désactivation des Mémoire dynamique pour améliorer les performances. d’une application qui prend en charge la topologie de l’ordinateur. Une telle application peut exploiter les informations de topologie pour prendre des décisions de planification et d’allocation de mémoire.
 
 ### <a name="tiered-storage"></a>Stockage à plusieurs niveaux
 
-Hôte de virtualisation Bureau à distance prend en charge le stockage hiérarchisé pour les pools de bureaux virtuels. L’ordinateur physique qui est partagé par tous les bureaux virtuels au sein d’une collection peut utiliser une solution de stockage de petite taille, hautes performances, comme un miroir disque SSD (SSD). Les bureaux virtuels peuvent être placés sur un stockage moins coûteux, traditionnel telles que RAID 1 + 0.
+L’hôte de virtualisation des services Bureau à distance prend en charge le stockage hiérarchisé pour les pools de bureaux virtuels. L’ordinateur physique qui est partagé par tous les bureaux virtuels mis en pool au sein d’un regroupement peut utiliser une solution de stockage de petite taille et hautes performances, telle qu’un disque SSD en miroir. Les bureaux virtuels mis en pool peuvent être placés sur un stockage traditionnel moins onéreux, tel que RAID 1 + 0.
 
-L’ordinateur physique doit être placé sur un disque SSD est, car la plupart de la lecture-je/du système d’exploitation à partir de bureaux virtuels sont dans le système d’exploitation de gestion. Par conséquent, le stockage est utilisé par l’ordinateur physique doit prendre en charge beaucoup plus élevée lus e/s par seconde.
+L’ordinateur physique doit être placé sur un disque SSD, car la plupart des e/s lues à partir de bureaux virtuels mis en pool sont dirigés vers le système d’exploitation de gestion. Par conséquent, le stockage utilisé par l’ordinateur physique doit supporter des e/s de lecture plus élevées par seconde.
 
-Cette configuration de déploiement garantit des performances rentable là où les performances sont nécessaire. Le disque SSD fournit de meilleures performances sur un disque de taille plus petit (environ 20 Go par collection, selon la configuration). Stockage classique pour les bureaux virtuels (RAID 1 + 0) utilise environ 3 Go par machine virtuelle.
+Cette configuration de déploiement garantit des performances rentables lorsque les performances sont nécessaires. L’SSD offre des performances supérieures sur un disque de plus petite taille (environ 20 Go par collection, en fonction de la configuration). Le stockage traditionnel pour les bureaux virtuels mis en pool (RAID 1 + 0) utilise environ 3 Go par machine virtuelle.
 
 ### <a name="csv-cache"></a>Cache de volume partagé de cluster
 
-Le Clustering de basculement dans Windows Server 2012 et versions ultérieures fournit la mise en cache sur Cluster Shared Volumes (CSV). Cela est extrêmement avantageux pour les collections de bureaux virtuels où la majorité de la lecture e/s proviennent du système d’exploitation de gestion. Le cache de volume partagé de cluster fournit de meilleures performances de plusieurs ordres de grandeur, car elle met en cache des blocs qui sont lus plusieurs fois et les remet à partir de la mémoire système, ce qui réduit les e/s. Pour plus d’informations sur le cache de volume partagé de cluster, consultez [Guide to Enable CSV Cache](http://blogs.msdn.com/b/clustering/archive/2012/03/22/10286676.aspx).
+Le clustering de basculement dans Windows Server 2012 et versions ultérieures fournit la mise en cache sur les volumes partagés de cluster (CSV). Cela est extrêmement bénéfique pour les collections de bureaux virtuels mis en pool où la majorité des e/s de lecture proviennent du système d’exploitation de gestion. Le cache de volume partagé de cluster fournit des performances supérieures par plusieurs ordres de grandeur, car il met en cache des blocs qui sont lus plusieurs fois et les remet à partir de la mémoire système, ce qui réduit les e/s. Pour plus d’informations sur le cache de volume partagé de cluster, consultez [la rubrique activation du cache de](http://blogs.msdn.com/b/clustering/archive/2012/03/22/10286676.aspx)volume partagé de cluster.
 
-### <a name="pooled-virtual-desktops"></a>Bureaux virtuels
+### <a name="pooled-virtual-desktops"></a>Bureaux virtuels mis en pool
 
-Par défaut, bureaux virtuels sont restaurées à l’état initial une fois un utilisateur se déconnecte, par conséquent, toutes les modifications apportées au système d’exploitation Windows, dans la mesure où la dernière connexion de l’utilisateur sont abandonnées.
+Par défaut, les bureaux virtuels mis en pool sont restaurés à l’état initial après la déconnexion d’un utilisateur, si bien que toute modification apportée au système d’exploitation Windows depuis la dernière connexion de l’utilisateur est abandonnée.
 
-Bien qu’il soit possible de désactiver la restauration, il est toujours une condition temporaire, car il est généralement une collection de bureaux virtuels est recréée en raison des différentes mises à jour pour le modèle de bureau virtuel.
+Bien qu’il soit possible de désactiver la restauration, il s’agit toujours d’une condition temporaire, car généralement, une collection de bureaux virtuels mis en pool est recréée en raison de diverses mises à jour apportées au modèle de bureau virtuel.
 
-Il est judicieux de désactiver les fonctionnalités de Windows et les services qui dépendent d’un état persistant. En outre, il est judicieux de désactiver les services qui sont principalement destinées aux scénarios de non-enterprise.
+Il est logique de désactiver les fonctionnalités et services Windows qui dépendent de l’état persistant. En outre, il est logique de désactiver les services principalement pour les scénarios n’appartenant pas à l’entreprise.
 
-Chaque service spécifique doit être convenablement évalué avant les déploiements à grande échelle. Voici quelques points initiaux à prendre en compte :
+Chaque service spécifique doit être évalué de manière appropriée avant tout déploiement global. Voici quelques éléments à prendre en compte :
 
-| Service                                      | Pourquoi ?                                                                                                                                                                                                      |
+| de diffusion en continu                                      | Pourquoi ?                                                                                                                                                                                                      |
 |----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Mise à jour automatique                                  | Bureaux virtuels sont mis à jour en recréant le modèle de bureau virtuel.                                                                                                                          |
-| Fichiers hors connexion                                | Bureaux virtuels sont toujours en ligne et connecté à partir d’un point de vue mise en réseau.                                                                                                                         |
-| Défragmentation en arrière-plan                            | Les modifications de système de fichiers sont ignorées après qu’un utilisateur se déconnecte (en raison d’une restauration à l’état initial ou à recréer le modèle de bureau virtuel, ce qui entraîne la recréation de tous les bureaux virtuels). |
-| Mise en veille ou veille prolongée                           | Pas de concept pour l’infrastructure VDI                                                                                                                                                                                   |
-| Vidage de mémoire de vérification de bogue                        | Pas de concept pour les bureaux virtuels. Un bureau virtuel mis en pool de vérification des bogues démarre à partir de l’état initial.                                                                                       |
-| Configuration automatique WLAN                              | Il n’existe aucune interface de périphérique Wi-Fi pour l’infrastructure VDI                                                                                                                                                                 |
-| Service de partage de réseau de Windows Media Player | Services centrés sur consommateur                                                                                                                                                                                  |
-| Fournisseur de groupe résidentiel                          | Services centrés sur consommateur                                                                                                                                                                                  |
-| Partage de connexion Internet                  | Services centrés sur consommateur                                                                                                                                                                                  |
-| Media Center services étendus               | Services centrés sur consommateur                                                                                                                                                                                  |
+| Mise à jour automatique                                  | Les bureaux virtuels mis en pool sont mis à jour en recréant le modèle de bureau virtuel.                                                                                                                          |
+| Fichiers hors connexion                                | Les bureaux virtuels sont toujours en ligne et connectés à partir d’un point de vue réseau.                                                                                                                         |
+| Défragmentation en arrière-plan                            | Les modifications du système de fichiers sont ignorées lorsqu’un utilisateur se déconnecte (en raison d’une restauration à l’état initial ou de la recréation du modèle de bureau virtuel, ce qui entraîne la recréation de tous les bureaux virtuels mis en pool). |
+| Mettre en veille prolongée ou mettre en veille                           | Aucun concept de ce type pour l’infrastructure VDI                                                                                                                                                                                   |
+| Vidage de la mémoire de vérification des bogues                        | Ce concept n’existe pas pour les bureaux virtuels mis en pool. Un bureau virtuel mis en pool de vérification des bogues démarre à partir de l’état initial.                                                                                       |
+| Configuration automatique WLAN                              | Il n’y a pas d’interface de périphérique Wi-Fi pour VDI                                                                                                                                                                 |
+| Service de partage réseau du lecteur Windows Media | Service centré sur les consommateurs                                                                                                                                                                                  |
+| Fournisseur du groupe résidentiel                          | Service centré sur les consommateurs                                                                                                                                                                                  |
+| Partage de connexion Internet                  | Service centré sur les consommateurs                                                                                                                                                                                  |
+| Services étendus Media Center               | Service centré sur les consommateurs                                                                                                                                                                                  |
 > [!NOTE]
-> Cette liste n’est pas destinée à être une liste complète, car toutes les modifications affectent les objectifs prévues et les scénarios. Pour plus d’informations, consultez [chaud désactiver les activations, obtenez-le maintenant, le script de l’optimisation d’infrastructure VDI de Windows 8, courtoisie d’ingénieurs PFE !](http://blogs.technet.com/b/jeff_stokes/archive/2013/04/09/hot-off-the-presses-get-it-now-the-windows-8-vdi-optimization-script-courtesy-of-pfe.aspx).
+> Cette liste n’est pas censée être une liste complète, car toutes les modifications affectent les objectifs et les scénarios prévus. Pour plus d’informations, reportez-vous aux [pressages, obtenez-le maintenant, le script d’optimisation de l’infrastructure VDI de Windows 8, avec l’aimable autorisation ingénieurs PFE !](http://blogs.technet.com/b/jeff_stokes/archive/2013/04/09/hot-off-the-presses-get-it-now-the-windows-8-vdi-optimization-script-courtesy-of-pfe.aspx).
 
  
 > [!NOTE]
-> SuperFetch dans Windows 8 est activé par défaut. Il prend en charge VDI et ne doit pas être désactivé. SuperFetch permet de réduire la consommation de mémoire via le partage de page mémoire, ce qui est utile pour l’infrastructure VDI. Bureaux virtuels qui exécutent Windows 7, SuperFetch doit être désactivé, mais pour les bureaux virtuels personnels qui exécutent Windows 7, il doit être conservé sur.
+> SuperFetch dans Windows 8 est activé par défaut. Elle prend en charge l’infrastructure VDI et ne doit pas être désactivée. SuperFetch permet de réduire davantage la consommation de mémoire via le partage de pages mémoire, ce qui est bénéfique pour l’infrastructure VDI. Les bureaux virtuels mis en pool exécutant Windows 7, SuperFetch doivent être désactivés, mais pour les bureaux virtuels personnels exécutant Windows 7, il doit être conservé.
 
  

@@ -9,39 +9,39 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: ea537aa61cd7bfbe05ed1dd151eddd4a0bfc5ca7
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 546507254f796e6a2fbe71e3ba30a7597ea51295
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188297"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869271"
 ---
 # <a name="when-to-use-a-send-group-membership-as-a-claim-rule"></a>Quand utiliser la règle Envoyer l’appartenance à un groupe en tant que revendication
-Vous pouvez utiliser cette règle dans Active Directory Federation Services \(AD FS\) lorsque vous souhaitez émettre une nouvelle valeur de revendication sortante uniquement aux utilisateurs qui sont membres d’un groupe de sécurité Active Directory spécifié. Lorsque vous utilisez cette règle, vous émettez une seule revendication pour le groupe que vous spécifiez et qui correspond à la logique de la règle, comme décrit dans le tableau suivant.  
+Vous pouvez utiliser cette règle dans services ADFS \(AD FS\) lorsque vous souhaitez émettre une nouvelle valeur de revendication sortante uniquement pour les utilisateurs qui sont membres d’un groupe de sécurité Active Directory spécifié. Lorsque vous utilisez cette règle, vous émettez une seule revendication pour le groupe que vous spécifiez et qui correspond à la logique de la règle, comme décrit dans le tableau suivant.  
   
 |Option de règle|Logique de règle|  
 |---------------|--------------|  
-|Valeur de revendication sortante|Si l’appartenance au groupe de l’utilisateur est égale au *groupe spécifié* et que le type de revendication sortante est égal au *type de revendication spécifiée*, remplacez la valeur de nom de groupe existante avec la *valeur de revendication sortante spécifiée* et émettez la revendication.|  
+|Valeur de revendication sortante|Si l’appartenance à un groupe d’un utilisateur est égale au *groupe spécifié* et que le type de revendication sortante est égal au *type de revendication spécifié*, remplacez la valeur de nom de groupe existante par la *valeur de revendication sortante spécifiée* et émettez la revendication.|  
   
 Les sections suivantes présentent brièvement les règles de revendication. Elles expliquent également quand utiliser la règle Envoyer l’appartenance en tant que revendication.  
   
 ## <a name="about-claim-rules"></a>À propos des règles de revendication  
-Une règle de revendication représente une instance de logique métier qui permettront une revendication entrante, lui appliquer une condition \(if x, alors y\) et génère une revendication sortante selon les paramètres de condition. La liste suivante présente d’importantes astuces sur les règles de revendication dont vous devez prendre connaissance avant de poursuivre la lecture de cette rubrique :  
+Une règle de revendication représente une instance de logique métier qui prend une revendication entrante, lui applique une condition \(si x Then y\) et génère une revendication sortante basée sur les paramètres de condition. La liste suivante présente d’importantes astuces sur les règles de revendication dont vous devez prendre connaissance avant de poursuivre la lecture de cette rubrique :  
   
--   Dans le composant logiciel enfichable Gestion AD FS\-, revendication règles peuvent uniquement être créées à l’aide de modèles de règle de revendication  
+-   Dans le composant logiciel enfichable\-gestion des AD FS, les règles de revendication ne peuvent être créées qu’à l’aide de modèles de règles de revendication  
   
--   Processus de règles de revendication entrante de revendications directement à partir d’un fournisseur de revendications \(comme Active Directory ou un autre Service de fédération\) ou à partir de la sortie de l’acceptation des règles sur une approbation de fournisseur de revendications de transformation.  
+-   Les règles de revendication traitent les revendications entrantes soit \(directement à partir d’un fournisseur\) de revendications, par exemple Active Directory ou une autre service FS (Federation Service), soit à partir de la sortie des règles de transformation d’acceptation sur une approbation de fournisseur de revendications.  
   
 -   Les règles de revendication sont traitées par le moteur d’émission des revendications au sein d’un ensemble de règles donné et dans l’ordre chronologique. En définissant la hiérarchie des règles, vous pouvez affiner ou filtrer des revendications générées par des règles précédentes dans un ensemble de règles donné.  
   
 -   Les modèles de règles de revendication vous obligent toujours à spécifier un type de revendication entrante. Toutefois, vous pouvez traiter plusieurs valeurs de revendication avec le même type de revendication en vous appuyant sur une règle unique.  
   
-Pour plus d’informations sur les règles de revendication et des ensembles de règles de revendication, consultez [le rôle des règles de revendication](The-Role-of-Claim-Rules.md). Pour plus d’informations sur le traitement des règles, consultez [The Role of the Claims Engine](The-Role-of-the-Claims-Engine.md). Pour plus d’informations mode de traitement des ensembles de règles de revendication, consultez [The Role of the Claims Pipeline](The-Role-of-the-Claims-Pipeline.md).  
+Pour plus d’informations sur les règles de revendication et les ensembles de règles de revendication, consultez [rôle des règles de revendication](The-Role-of-Claim-Rules.md). Pour plus d’informations sur la façon dont les règles sont traitées, consultez [le rôle du moteur de revendications](The-Role-of-the-Claims-Engine.md). Pour plus d’informations sur le traitement des ensembles de règles de revendication, consultez [le rôle du pipeline de revendications](The-Role-of-the-Claims-Pipeline.md).  
   
 ## <a name="outgoing-claim-value"></a>Valeur de revendication sortante  
 À l’aide du modèle de règle Envoyer l’appartenance à un groupe en tant que revendication, vous pouvez émettre une revendication en fonction de l’appartenance de l’utilisateur au groupe que vous spécifiez.  
   
-En d’autres termes, ce modèle de règle émet une revendication uniquement lorsque l’utilisateur a l’ID de groupe de sécurité \(SID\) qui correspond au groupe Active Directory spécifié par l’administrateur. Tous les utilisateurs qui s’authentifient auprès des Services de domaine Active Directory \(AD DS\) auront groupe entrant revendications SID pour chaque groupe auquel ils appartiennent. Par défaut, les règles de transformation d’acceptation dans l’approbation de fournisseur de revendications Active Directory passent par ces revendications SID de groupe. L’utilisation de ces SID de groupe comme base pour l’émission de revendications est beaucoup plus rapide que la recherche des groupes de l’utilisateur dans AD DS.  
+En d’autres termes, ce modèle de règle émet une revendication uniquement lorsque l’utilisateur possède l’ID \(de\) sécurité de groupe sid qui correspond au groupe de Active Directory que l’administrateur spécifie. Tous les utilisateurs qui s’authentifient\) auprès d’Active Directory Domain Services \(AD DS auront des revendications de SID de groupe entrantes pour chaque groupe auquel ils appartiennent. Par défaut, les règles de transformation d’acceptation dans l’approbation de fournisseur de revendications Active Directory passent par ces revendications SID de groupe. L’utilisation de ces SID de groupe comme base pour l’émission de revendications est beaucoup plus rapide que la recherche des groupes de l’utilisateur dans AD DS.  
   
 Lorsque vous utilisez cette règle, une seule demande est envoyée, en fonction du groupe Active Directory que vous sélectionnez. Par exemple, vous pouvez utiliser ce modèle de règle pour créer une règle qui envoie une revendication de groupe avec la valeur Admin si l’utilisateur est membre du groupe de sécurité Administrateurs du domaine.  
   
@@ -49,24 +49,24 @@ Lorsque vous utilisez cette règle, une seule demande est envoyée, en fonction 
 Les administrateurs doivent utiliser ce type de règle dans les règles de transformation d’acceptation d’une approbation de fournisseur de revendications uniquement lorsque les SID de groupe sont reçus à partir du fournisseur de revendications. Il s’agit d’un cas de figure rare pour les fournisseurs de revendications, à l’exception d’Active Directory ou des services AD DS.  
   
 ## <a name="how-to-create-this-rule"></a>Comment créer cette règle  
-Vous créer cette règle à l’aide du langage de règle de revendication ou à l’aide de l’appartenance au groupe LDAP envoyer en tant qu’un modèle de règle de revendication dans la gestion AD FS aligner\-dans. Ce modèle de règle fournit les options de configuration suivantes :  
+Vous créez cette règle à l’aide du langage de règle de revendication ou en utilisant le modèle de règle envoyer l’appartenance au groupe LDAP en tant\-que revendication dans le composant logiciel enfichable Gestion des AD FS. Ce modèle de règle fournit les options de configuration suivantes :  
   
 -   Spécifier un nom de règle de revendication  
   
--   Sélectionner le groupe d’un utilisateur à l’aide du sélecteur d’objet  
+-   Sélectionner le groupe d’un utilisateur à l’aide du sélecteur d’objets  
   
 -   Sélectionner un type de revendication sortante  
   
--   Sélectionnez un format d’ID de nom sortant \(qui est disponible uniquement lorsque les ID de nom est choisi en fonction du champ de type de revendication sortante\)  
+-   Sélectionnez un format \(d’ID de nom sortant qui est disponible uniquement lorsque ID de nom est choisi dans le champ type de revendication sortante.\)  
   
 -   Spécifier une valeur de revendication sortante  
   
-Pour plus d’informations sur la création de cette règle, consultez [créer une règle pour envoyer l’appartenance au groupe en tant que revendication](https://technet.microsoft.com/library/ee913569.aspx).  
+Pour plus d’informations sur la création de cette règle, consultez [créer une règle pour envoyer l’appartenance à un groupe en tant que revendication](https://technet.microsoft.com/library/ee913569.aspx).  
   
 ## <a name="using-the-claim-rule-language"></a>Utilisation du langage des règles de revendication  
 Si vous souhaitez émettre des revendications basées sur un SID entrant autre qu’un SID de groupe, utilisez le modèle de règle Transformer une revendication entrante. Si l’administrateur souhaite récupérer les noms de tous les groupes dont l’utilisateur est membre, utilisez le modèle de règle Envoyer les attributs LDAP en tant que revendication à la place de l’attribut **tokenGroups**.  
   
-### <a name="example-how-to-issue-group-claims-based-on-the-users-group-membership"></a>Exemple : Comment émettre les revendications de groupe selon l’appartenance au groupe de l’utilisateur  
+### <a name="example-how-to-issue-group-claims-based-on-the-users-group-membership"></a>Exemple : Comment émettre des revendications de groupe en fonction de l’appartenance aux groupes de l’utilisateur  
 La règle suivante émet des revendications de groupe pour un utilisateur en fonction du SID de groupe entrant :  
   
 ```  
@@ -75,6 +75,6 @@ c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
 ```  
   
 ## <a name="additional-references"></a>Références supplémentaires  
-[Créer une règle pour envoyer les attributs LDAP en tant que revendications](https://technet.microsoft.com/library/dd807115.aspx)  
+[Créer une règle pour envoyer des attributs LDAP en tant que revendications](https://technet.microsoft.com/library/dd807115.aspx)  
   
 

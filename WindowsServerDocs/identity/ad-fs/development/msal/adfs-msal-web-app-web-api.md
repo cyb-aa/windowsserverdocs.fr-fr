@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d2ac36180992d44f837ce74ace40cf95533309c9
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 03328ff8c94d96fcf34dcef29ac1a1daefc9d14a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983427"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867486"
 ---
 # <a name="scenario-web-app-server-app-calling-web-api"></a>Scénario : Application Web (application serveur) appelant l’API Web 
 >S'applique à : AD FS 2019 et versions ultérieures 
@@ -28,7 +28,7 @@ Avant de lire cet article, vous devez vous familiariser avec les [concepts de AD
 
 Dans ce processus, vous ajoutez l’authentification à votre application Web (application serveur), qui peut donc connecter des utilisateurs et appeler une API Web. À partir de l’application Web, pour appeler l’API Web, utilisez la méthode d’acquisition de jeton [AcquireTokenByAuthorizationCode](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.acquiretokenbyauthorizationcodeparameterbuilder?view=azure-dotnet) de MSAL. Vous utiliserez le workflow de code d’autorisation, en stockant le jeton acquis dans le cache de jeton. Le contrôleur acquiert ensuite les jetons en mode silencieux à partir du cache, si nécessaire. MSAL actualise le jeton, si nécessaire. 
 
-Web Apps qui appelle des API Web: 
+Web Apps qui appelle des API Web : 
 
 
 - sont des applications clientes confidentielles. 
@@ -51,15 +51,15 @@ Cette section montre comment inscrire l’application Web en tant que client con
   
       ![Ajouter un groupe d’applications](media/adfs-msal-web-app-web-api/webapp2.png)
   
-  3. Copiez la valeur de l' **identificateur du client** . Il sera utilisé ultérieurement comme valeur pour **Ida: ClientID** dans le fichier **Web. config** des applications. Entrez les informations suivantes pour l’URI de redirection **:**  - https://localhost:44326. Cliquez sur Ajouter. Cliquez sur **Suivant**. 
+  3. Copiez la valeur de l' **identificateur du client** . Il sera utilisé ultérieurement comme valeur pour **Ida : ClientID** dans le fichier **Web. config** des applications. Entrez les informations suivantes pour l' **URI de redirection :**  - . https://localhost:44326 Cliquez sur Ajouter. Cliquez sur **Suivant**. 
   
       ![Ajouter un groupe d’applications](media/adfs-msal-web-app-web-api/webapp3.png)
   
-  4. Dans l’écran configurer les informations d’identification de l’application, activez la case à cocher **générer un secret partagé** et copier le secret. Ce sera utilisé ultérieurement comme valeur pour **Ida: ClientSecret** dans le fichier **Web. config** des applications. Cliquez sur **Suivant**.  
+  4. Dans l’écran configurer les informations d’identification de l’application, activez la case à cocher **générer un secret partagé** et copier le secret. Ce sera utilisé ultérieurement comme valeur pour **Ida : ClientSecret** dans le fichier **Web. config** des applications. Cliquez sur **Suivant**.  
   
       ![Ajouter un groupe d’applications](media/adfs-msal-web-app-web-api/webapp4.png)
   
-  5. Dans l’écran configurer l’API Web, entrez l' **identificateur:** https://webapi. Cliquez sur **Ajouter**. Cliquez sur **Suivant**. Cette valeur sera utilisée ultérieurement pour **Ida: GraphResourceId** dans le fichier **Web. config** des applications. 
+  5. Dans l’écran configurer l’API Web, entrez l' **identificateur :** https://webapi. Cliquez sur **Ajouter**. Cliquez sur **Suivant**. Cette valeur sera utilisée ultérieurement pour **Ida : GraphResourceId** dans le fichier **Web. config** des applications. 
   
       ![Ajouter un groupe d’applications](media/adfs-msal-web-app-web-api/webapp5.png)
   
@@ -85,12 +85,12 @@ Cette section montre comment configurer une application Web ASP.NET pour qu’el
   
   2. Ouvrir l’exemple à l’aide de Visual Studio 
   
-  3. Ouvrez le fichier Web. config. Modifiez les éléments suivants: 
-       - Ida: ClientId: entrez la valeur de l' **identificateur du client** à partir de #3 dans inscription de l’application dans la section AD FS ci-dessus. 
-       - Ida: ClientSecret-entrez la valeur **secrète** de #4 dans inscription de l’application dans la section AD FS ci-dessus. 
-       - Ida: RedirectUri: entrez la valeur de l' **URI** de redirection de #3 dans inscription de l’application dans la section AD FS ci-dessus. 
-       - Ida: Authority: entrez https://[votre AD FS nom d’hôte]/ADFS. Par exemple, https://adfs.contoso.com/adfs 
-       - Ida: ressource: entrez la valeur de l' **identificateur** de #5 dans inscription de l’application dans la section AD FS ci-dessus. 
+  3. Ouvrez le fichier Web. config. Modifiez les éléments suivants : 
+       - Ida : ClientId : entrez la valeur de l' **identificateur du client** à partir de #3 dans inscription de l’application dans la section AD FS ci-dessus. 
+       - Ida : ClientSecret-entrez la valeur **secrète** de #4 dans inscription de l’application dans la section AD FS ci-dessus. 
+       - Ida : RedirectUri : entrez la valeur de l' **URI de redirection** de #3 dans inscription de l’application dans la section AD FS ci-dessus. 
+       - Ida : Authority : entrez https://[votre AD FS nom d’hôte]/ADFS. Par exemple, https://adfs.contoso.com/adfs 
+       - Ida : ressource : entrez la valeur de l' **identificateur** de #5 dans inscription de l’application dans la section AD FS ci-dessus. 
       
           ![Ajouter un groupe d’applications](media/adfs-msal-web-app-web-api/webapp8.png)
  
@@ -121,5 +121,5 @@ Cette section montre comment tester l’exemple configuré ci-dessus.
       ![Ajouter un groupe d’applications](media/adfs-msal-web-app-web-api/webapp13.png)
  
  ## <a name="next-steps"></a>Étapes suivantes
-[AD FS les flux OpenID Connect/OAuth et les scénarios d’application](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
+[Flux OpenID Connect/OAuth avec AD FS et scénarios d’application](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
  

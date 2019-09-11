@@ -1,6 +1,6 @@
 ---
 title: klist
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d0b77aed5970c74181ba03da5e57e9b230313a15
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6a8f574b65ec8c123379e1b02ee1571cc9f21fa1
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438112"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867058"
 ---
 # <a name="klist"></a>klist
 
@@ -36,132 +36,132 @@ klist [-lh <LogonId.HighPart>] [-li <LogonId.LowPart>] tickets | tgt | purge | s
 
 |Paramètre|Description|
 |---------|-----------|
-|-lh|Indique la partie haute de l’identificateur unique local de l’utilisateur (LUID), exprimée au format hexadécimal. Si ni lh – ou – li sont présents, la commande par défaut est le LUID de l’utilisateur qui est actuellement connecté.|
-|-li|Indique la partie basse de l’identificateur unique local de l’utilisateur (LUID), exprimée au format hexadécimal. Si ni lh – ou – li sont présents, la commande par défaut est le LUID de l’utilisateur qui est actuellement connecté.|
-|tickets|Répertorie les actuellement mis en cache ticket-granting-ticket (TGT) et les tickets de service de la session d’ouverture de session spécifié. Il s’agit de l’option par défaut.|
-|tgt|Affiche les TGT. Kerberos initiale|
-|Purger|Vous permet de supprimer tous les tickets de l’ouverture de session spécifiée.|
-|sessions|Affiche une liste des ouvertures de session sur cet ordinateur.|
-|kcd_cache|Affiche le Kerberos contraint les informations de cache de délégation.|
+|-LH|Indique la partie haute de l’identificateur unique local (LUID) de l’utilisateur, exprimée au format hexadécimal. Si aucune des options – LH ou-Li n’est présente, la commande prend par défaut le LUID de l’utilisateur actuellement connecté.|
+|-Li|Indique la partie basse de l’identificateur unique local (LUID) de l’utilisateur, exprimée au format hexadécimal. Si aucune des options – LH ou-Li n’est présente, la commande prend par défaut le LUID de l’utilisateur actuellement connecté.|
+|loterie|Répertorie les tickets d’accord de ticket (TGT) actuellement mis en cache et les tickets de service de la session d’ouverture de session spécifiée. Il s'agit de l'option par défaut.|
+|TGT|Affiche le ticket TGT Kerberos initial.|
+|Purger|Vous permet de supprimer tous les tickets de la session d’ouverture de session spécifiée.|
+|Entretiens|Affiche la liste des sessions de connexion sur cet ordinateur.|
+|kcd_cache|Affiche les informations du cache de délégation Kerberos avec restriction.|
 |get|Vous permet de demander un ticket à l’ordinateur cible spécifié par le nom de principal du service (SPN).|
-|add_bind|Vous permet de spécifier un contrôleur de domaine préféré pour l’authentification Kerberos.|
-|query_bind|Affiche une liste mise en cache par défaut des contrôleurs de domaine pour chaque domaine Kerberos a contacté.|
-|purge_bind|Supprime la mise en cache par défaut des contrôleurs de domaine pour les domaines spécifiés.|
-|kdcoptions|Affiche les options de centre de Distribution de clés (KDC) spécifiées dans RFC 4120.|
+|add_bind|Vous permet de spécifier un contrôleur de domaine par défaut pour l’authentification Kerberos.|
+|query_bind|Affiche la liste des contrôleurs de domaine préférés mis en cache pour chaque domaine contacté par Kerberos.|
+|purge_bind|Supprime les contrôleurs de domaine préférés mis en cache pour les domaines spécifiés.|
+|kdcoptions|Affiche les options de centre de distribution de clés (KDC) spécifiées dans le document RFC 4120.|
 |/?|Affiche l’aide de cette commande.|
 
 ## <a name="remarks"></a>Notes
 
-L’appartenance au **Admins du domaine**, ou équivalente, est la condition minimale requise pour exécuter tous les paramètres de cette commande.
+L’appartenance au **groupe Admins du domaine**, ou équivalent, est la condition minimale requise pour exécuter tous les paramètres de cette commande.
 
-Si aucun paramètre n’est fourni, Klist récupérera tous les tickets de l’utilisateur actuellement connecté.
+Si aucun paramètre n’est fourni, klist récupère tous les tickets pour l’utilisateur actuellement connecté.
 
-Les paramètres s’affichent les informations suivantes :
--   **tickets**
+Les paramètres affichent les informations suivantes :
+-   **loterie**
 
-    Répertorie les tickets actuellement mis en cache de services que vous avez authentifié à depuis l’ouverture de session. Affiche les attributs suivants de tous les tickets mis en cache :  
-    -   LogonID : Le LUID
-    -   Client : La concaténation du nom de client et le nom de domaine du client
-    -   Serveur : La concaténation du nom de service et le nom de domaine du service
-    -   Type de chiffrement KerbTicket : Le type de chiffrement qui est utilisé pour chiffrer le ticket Kerberos
-    -   Indicateurs de ticket : Les indicateurs de ticket Kerberos
-    -   Heure de début : L’heure à partir de laquelle le ticket sera valide
-    -   Heure de fin : L’heure que le ticket devient n’est plus valide. Lorsqu’un ticket est postérieure à cette heure, il n’est plus utilisable pour s’authentifier auprès d’un service ou être utilisée pour le renouvellement
-    -   Renouveler : Le temps nécessaire une nouvelle authentification initiale
-    -   Type de clé de session : L’algorithme de chiffrement qui est utilisé pour la clé de session
--   **tgt**
+    Répertorie les tickets actuellement mis en cache des services auxquels vous vous êtes authentifié depuis l’ouverture de session. Affiche les attributs suivants de tous les tickets mis en cache :  
+    -   LogonID: LUID
+    -   Client : La concaténation du nom du client et du nom de domaine du client
+    -   Serveur : Concaténation du nom du service et du nom de domaine du service
+    -   Type de chiffrement KerbTicket : Type de chiffrement utilisé pour chiffrer le ticket Kerberos
+    -   Indicateurs de ticket : Indicateurs de ticket Kerberos
+    -   Heure de début : Heure à partir de laquelle le ticket sera valide
+    -   Heure de fin : Heure à laquelle le ticket n’est plus valide. Lorsqu’un ticket est passé à cette heure, il ne peut plus être utilisé pour s’authentifier auprès d’un service ou être utilisé pour le renouvellement
+    -   Temps de renouvellement : L’heure à laquelle une nouvelle authentification initiale est requise
+    -   Type de clé de session : Algorithme de chiffrement utilisé pour la clé de session
+-   **TGT**
 
-    Répertorie le TGT Kerberos initiale et les attributs suivants du ticket actuellement mis en cache :  
-    -   LogonID : Identifiés en notation hexadécimale
-    -   ServiceName: krbtgt
-    -   TargetName \<SPN > : krbtgt
-    -   DomainName : Nom du domaine qui émet le ticket TGT
-    -   TargetDomainName: Domaine émis le ticket TGT pour
-    -   AltTargetDomainName: Domaine émis le ticket TGT pour
-    -   Indicateurs de ticket : Type et l’adresse et la cible des actions
-    -   Clé de session : Algorithme de chiffrement et la longueur de clé
-    -   Heure de début : Heure de l’ordinateur local qui le ticket a été demandé.
-    -   Heure de fin : Heure que le ticket devient n’est plus valide. Lorsqu’un ticket est postérieure à cette heure, il n’est plus utilisable pour s’authentifier auprès d’un service.
-    -   RenewUntil : Délai de renouvellement du ticket
-    -   TimeSkew : Différence de temps avec le centre de Distribution de clés (KDC)
+    Répertorie le ticket TGT Kerberos initial et les attributs suivants du ticket actuellement mis en cache :  
+    -   LogonID: Identifié au format hexadécimal
+    -   ServiceName : krbtgt
+    -   > \<SPN NomCible : krbtgt
+    -   NomDomaine Nom du domaine qui émet le ticket TGT
+    -   TargetDomainName: Domaine auquel le TGT est émis
+    -   AltTargetDomainName: Domaine auquel le TGT est émis
+    -   Indicateurs de ticket : Actions et type d’adresse et de cible
+    -   Clé de session : Longueur de clé et algorithme de chiffrement
+    -   Heure Heure de l’ordinateur local à laquelle le ticket a été demandé
+    -   EndTime Heure à laquelle le ticket n’est plus valide. Lorsqu’un ticket est passé cette fois, il ne peut plus être utilisé pour s’authentifier auprès d’un service.
+    -   RenewUntil: Échéance pour le renouvellement du ticket
+    -   TimeSkew: Différence de temps avec le centre de distribution de clés (KDC)
     -   EncodedTicket: Ticket encodé
 -   **purge**
 
-    Vous permet de supprimer un ticket spécifique. Purge des tickets détruit tous les tickets que vous avez mis en cache, utilisez cet attribut avec précaution. Il est possible que vous ne soient pas en mesure de s’authentifier auprès de ressources. Si cela se produit, vous devez vous déconnecter et se reconnecter.  
-    -   LogonID : Identifiés en notation hexadécimale
--   **sessions**
+    Vous permet de supprimer un ticket spécifique. La purge des tickets détruit tous les tickets que vous avez mis en cache. Utilisez donc cet attribut avec précaution. Cela peut vous empêcher d’être en mesure de s’authentifier auprès des ressources. Dans ce cas, vous devez vous déconnecter et vous reconnecter.  
+    -   LogonID: Identifié au format hexadécimal
+-   **entretiens**
 
-    Vous permet de répertorier et afficher les informations pour toutes les sessions d’ouverture de session sur cet ordinateur.  
-    -   LogonID : Si spécifié, affiche l’ouverture de session uniquement par la valeur donnée. Si non spécifié, affiche toutes les sessions d’ouverture de session sur cet ordinateur.
+    Vous permet de répertorier et d’afficher les informations de toutes les sessions de connexion sur cet ordinateur.  
+    -   LogonID: S’il est spécifié, affiche la session de connexion uniquement par la valeur donnée. S’il n’est pas spécifié, affiche toutes les sessions de connexion sur cet ordinateur.
 -   **kcd_cache**
 
-    Vous permet d’afficher les informations de cache de délégation contrainte Kerberos.  
-    -   LogonID : Si spécifié, affiche les informations de cache pour l’ouverture de session par la valeur donnée. Si non spécifié, affiche les cache des informations d’ouverture de session de l’utilisateur actuel.
+    Vous permet d’afficher les informations du cache de délégation Kerberos avec restriction.  
+    -   LogonID: S’il est spécifié, affiche les informations de cache pour la session de connexion en fonction de la valeur donnée. S’il n’est pas spécifié, affiche les informations de cache pour la session d’ouverture de session de l’utilisateur actuel.
 -   **get**
 
-    Vous permet de demander un ticket à la cible est spécifié par le SPN.  
-    -   LogonID : Si spécifié, demande un ticket à l’aide de l’ouverture de session par la valeur donnée. Si non spécifié, demande un ticket à l’aide d’ouverture de session de l’utilisateur actuel.
-    -   kdcoptions : Demande un ticket avec les options de contrôleur de domaine Kerberos spécifiées.
+    Vous permet de demander un ticket à la cible spécifiée par le SPN.  
+    -   LogonID: S’il est spécifié, demande un ticket à l’aide de la session de connexion en fonction de la valeur donnée. S’il n’est pas spécifié, demande un ticket à l’aide de la session d’ouverture de session de l’utilisateur actuel.
+    -   kdcoptions: Demande un ticket avec les options KDC données
 -   **add_bind**
 
-    Vous permet de spécifier un contrôleur de domaine préféré pour l’authentification Kerberos.
+    Vous permet de spécifier un contrôleur de domaine par défaut pour l’authentification Kerberos.
 -   **query_bind**
 
-    Vous permet d’afficher les contrôleurs de domaine de mise en cache et par défaut pour les domaines.
+    Vous permet d’afficher les contrôleurs de domaine préférés mis en cache pour les domaines.
 -   **purge_bind**
 
-    Vous permet de supprimer des contrôleurs de domaine de mise en cache et par défaut pour les domaines.
+    Vous permet de supprimer les contrôleurs de domaine préférés mis en cache pour les domaines.
 -   **kdcoptions**
 
-    Pour obtenir la liste des options et leurs explications, consultez [RFC 4120](http://www.ietf.org/rfc/rfc4120.txt).
+    Pour obtenir la liste actuelle des options et leurs explications, consultez [RFC 4120](http://www.ietf.org/rfc/rfc4120.txt).
 
-**Autres considérations**
--   Klist.exe est disponible dans Windows Server 2012 et Windows 8, et il implique aucune installation spéciale.
+**Autres points à considérer**
+-   Klist. exe est disponible dans Windows Server 2012 et Windows 8, et ne nécessite aucune installation particulière.
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 
-1. Lorsque vous analysez un 27 d’ID d’événement lors du traitement de demander un un service d’accord de tickets (TGS) pour le serveur cible, le compte n’avait pas de clé appropriée pour générer un ticket Kerberos. Vous pouvez utiliser Klist pour interroger le cache de ticket Kerberos pour déterminer si les tickets sont manquants, si le serveur cible ou le compte est erroné ou si le type de chiffrement n’est pas pris en charge.  
+1. Lors du diagnostic d’un ID d’événement 27 lors du traitement d’une demande TGS (Ticket-Granting Service) pour le serveur cible, le compte n’avait pas de clé appropriée pour générer un ticket Kerberos. Vous pouvez utiliser klist pour interroger le cache de tickets Kerberos afin de déterminer si des tickets sont manquants, si le serveur ou le compte cible est erroné, ou si le type de chiffrement n’est pas pris en charge.  
    ```
    klist 
    ```  
    ```
    klist –li 0x3e7
    ```  
-2. Lorsque vous diagnostiquez les erreurs et vous souhaitez connaître les spécificités de chaque ticket-granting-ticket qui est mis en cache sur l’ordinateur pour une ouverture de session, vous pouvez utiliser Klist pour afficher les informations de ticket TGT.  
+2. Lorsque vous diagnostiquez des erreurs et que vous souhaitez connaître les spécificités de chaque ticket d’accord de tickets mis en cache sur l’ordinateur pour une ouverture de session, vous pouvez utiliser klist pour afficher les informations TGT.  
    ```
    klist tgt
    ```  
-3. Si vous ne parvenez pas à établir une connexion et de diagnostic peut prendre trop de temps, vous pouvez vider le cache de ticket Kerberos, déconnectez-vous et puis rouvrez une session.  
+3. Si vous ne parvenez pas à établir une connexion et que le diagnostic peut prendre trop de temps, vous pouvez vider le cache du ticket Kerberos, vous déconnecter, puis vous reconnecter.  
    ```
    klist purge
    ```  
    ```
    klist purge –li 0x3e7
    ```  
-4. Lorsque vous souhaitez diagnostiquer une ouverture de session pour un utilisateur ou un service, vous pouvez utiliser la commande suivante pour rechercher le numéro de session qui est utilisé dans d’autres commandes Klist.  
+4. Lorsque vous souhaitez diagnostiquer une ouverture de session pour un utilisateur ou un service, vous pouvez utiliser la commande suivante pour rechercher le LogonID utilisé dans d’autres commandes klist.  
    ```
    klist sessions
    ```  
-5. Lorsque vous souhaitez identifier le problème de délégation Kerberos contrainte, vous pouvez utiliser la commande suivante pour rechercher la dernière erreur qui s’est produite.  
+5. Lorsque vous souhaitez diagnostiquer un échec de délégation Kerberos avec restriction, vous pouvez utiliser la commande suivante pour rechercher la dernière erreur rencontrée.  
    ```
    klist kcd_cache
    ```  
-6. Lorsque vous souhaitez identifier si un utilisateur ou un service peut obtenir un ticket à un serveur, vous pouvez utiliser cette commande pour demander un ticket pour un nom principal de service spécifique.  
+6. Lorsque vous souhaitez diagnostiquer si un utilisateur ou un service peut obtenir un ticket sur un serveur, vous pouvez utiliser cette commande pour demander un ticket pour un SPN spécifique.  
    ```
    klist get host/%computername%
    ```  
-7. Lors du diagnostic des problèmes de réplication entre les contrôleurs de domaine, vous devez en général, l’ordinateur client pour cibler un contrôleur de domaine spécifique. Dans ce cas, vous pouvez utiliser la commande suivante pour cibler l’ordinateur client à ce contrôleur de domaine spécifique.  
+7. Lors du diagnostic des problèmes de réplication entre les contrôleurs de domaine, vous avez généralement besoin de l’ordinateur client pour cibler un contrôleur de domaine spécifique. Dans ce cas, vous pouvez utiliser la commande suivante pour cibler l’ordinateur client sur ce contrôleur de domaine spécifique.  
    ```
    klist add_bind CONTOSO KDC.CONTOSO.COM
    ```  
    ```
    klist add_bind CONTOSO.COM KDC.CONTOSO.COM
    ```  
-8. Pour interroger les contrôleurs de domaine de cet ordinateur récemment contacté, vous pouvez utiliser la commande suivante.  
+8. Pour interroger les contrôleurs de domaine que cet ordinateur a récemment contactés, vous pouvez utiliser la commande suivante.  
    ```
    klist query_bind
    ```  
-9. Lorsque vous souhaitez Kerberos pour redécouvrir les contrôleurs de domaine, vous pouvez utiliser la commande suivante. Cette commande peut également être utilisée pour vider le cache avant de créer de nouvelles liaisons de contrôleur de domaine avec klist add_bind.  
+9. Lorsque vous souhaitez que Kerberos redécouvre les contrôleurs de domaine, vous pouvez utiliser la commande suivante. Cette commande peut également être utilisée pour vider le cache avant de créer de nouvelles liaisons de contrôleur de domaine avec klist add_bind.  
    ```
    klist purge_bind
    ```

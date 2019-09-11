@@ -1,6 +1,6 @@
 ---
 title: Guide de style pour la conception et le texte de l’interface utilisateur Windows Admin Center
-description: L’interface utilisateur de Windows Admin Center de texte et la conception de guide de style SDK
+description: Texte de l’interface utilisateur du centre d’administration Windows et SDK du Guide de style de conception
 ms.technology: manage
 ms.topic: article
 author: jasongerend
@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.date: 10/17/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: be41267d6584002ebf87e5fe828a41575d305e1b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 229a911039ba88847de42e542f47b344d7a032c2
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445910"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869595"
 ---
 # <a name="windows-admin-center-ui-text-and-design-style-guide"></a>Guide de style pour la conception et le texte de l’interface utilisateur Windows Admin Center
 
@@ -25,7 +25,7 @@ Windows Admin Center et toutes les extensions doivent respecter les [principes e
 
 ## <a name="buttons"></a>Boutons
 
-- Boutons doivent être en un seul mot dans la mesure du possible, en particulier si vous souhaitez localiser votre outil. Deux ou trois est OK, mais essayez d’éviter de plus. Si vous avez quatre mots ou plus, il serait préférable d’utiliser un contrôle de lien.
+- Boutons doivent être en un seul mot dans la mesure du possible, en particulier si vous souhaitez localiser votre outil. Deux ou trois sont corrects, mais essayez d’éviter plus longtemps. Si vous avez quatre mots ou plus, il est préférable d’utiliser un contrôle de lien.
 - Les étiquettes de bouton doivent être concises, spécifiques et explicites. Au lieu d’un bouton générique « Soumettre », utilisez un verbe correspondant à l’action de l’utilisateur, tel que « Créer », « Supprimer », « Ajouter », « Formater », etc.
 - Si un bouton suit une question, son étiquette doit clairement correspondre à la question (généralement « Oui » ou « Non »).
 
@@ -38,30 +38,30 @@ Nous suivons le style de Microsoft concernant la [mise en majuscules](https://do
 |Badges (par exemple, PRÉVERSION) |Tout en majuscules      ||
 |Tout le reste          |Majuscule en début de phrase|Toutefois, il existe certaines exceptions où nous exposons des propriétés d'objet à partir de WMI ou PowerShell se trouvant en dehors de notre contrôle.|
 
-## <a name="colons"></a>Deux-points
+## <a name="colons"></a>Virgules
 
-Utiliser des signes deux-points pour introduire des listes. Exemple :
+Utilisez les deux-points pour introduire des listes. Exemple :
 
     Choose one of the following:
     Cats
     Dogs
     Quokkas
 
-N’utilisez pas signes deux-points dans les textes d’interface utilisateur quand une étiquette est sur une autre ligne à partir de la chose étiquettes ou lorsqu’il existe une distinction claire entre l’étiquette et la chose qu’il est l’étiquetage.
+N’utilisez pas de signe deux-points dans le texte de l’interface utilisateur lorsqu’une étiquette est sur une autre ligne que celle qu’elle étiquette ou lorsqu’il existe une distinction claire entre l’étiquette et l’étiquette.
 
-Utilisez signes deux-points dans les textes d’interface utilisateur quand une étiquette est sur la même ligne que le texte, il est l’étiquette et vous avez besoin éviter les deux éléments ensemble.
+Utilisez le signe deux-points dans le texte de l’interface utilisateur lorsqu’une étiquette se trouve sur la même ligne que le texte qu’elle étiquette et que vous devez conserver les deux éléments en cours d’exécution.
 
 ## <a name="confirmation-messages"></a>Messages de confirmation
 
-Boîtes de dialogue de confirmation sont utiles lors de la poursuite peut avoir des résultats inattendus, tels que la perte de données. Elles doivent contenir des informations analysables, utile avec un résultat clair, en particulier pour les événements qui ne peut pas être annulée. 
+Les boîtes de dialogue de confirmation sont utiles lorsque la poursuite de l’opération peut entraîner des résultats inattendus, tels que la perte de données. Ils doivent contenir des informations utiles et pouvant être analysées avec un résultat clair, en particulier pour les événements qui ne peuvent pas être inversés. 
 
-- Assurez-vous qu’une confirmation est nécessaire. S’il n’existe aucune information de nouveau pour offrir (par exemple, « êtes-vous ? »), puis un message de confirmation n’est peut-être pas nécessaire.  
+- Assurez-vous qu’une confirmation est nécessaire. S’il n’existe pas de nouvelles informations à proposer (par exemple, « êtes-vous sûr ? »), un message de confirmation n’est peut-être pas nécessaire.  
 - Vérifiez que le client souhaite poursuivre l’action.
-- Assurez-vous que l’instruction principale (titre) et le texte explicatif (corps) ne sont pas redondantes.
-- Dans l’en-tête, définissez les résultats possibles en tant qu’une question ou une instruction sur ce qui se produira ensuite. Par exemple, « effacer toutes les données sur ce lecteur ? ou « Vous êtes sur le point d’effacer toutes vos données ».
-- Ajouter des détails dans le corps. S’il existe une variable, telles que le nom de l’élément que vous êtes sur la modification, vous pouvez l’inclure ici.
-- Inclure une simple question (soit dans l’en-tête ou dans le corps) qui encadre un choix clair entre les deux boutons d’action.
-- Pour un choix complexe, utilisez Oui/non boutons, encourager la lecture minutieuse. Pour un choix plus simple, utilisez les boutons qui sont spécifiques à l’action, telles que supprimer tous ou sur Annuler.
+- Assurez-vous que l’instruction principale (titre) et le texte explicatif (corps) ne sont pas redondants.
+- Dans l’en-tête, définissez les résultats possibles comme une question ou une instruction sur ce qui se passe ensuite. Par exemple, «effacer toutes les données sur ce lecteur ? ou « vous êtes sur le ou l’effacement de toutes vos données ».
+- Ajoutez des détails dans le corps. S’il existe une variable, telle que le nom de l’élément que vous êtes en train de modifier, incluez-la ici.
+- Incluez une question simple (dans l’en-tête ou dans le corps) qui encadre un choix clair entre deux boutons d’action.
+- Pour un choix complexe, utilisez les boutons Oui/non, qui encouragent la lecture. Pour un choix plus simple, utilisez des boutons spécifiques à l’action, tels que supprimer tout ou annuler.
 
 ## <a name="first-run-experiences"></a>Expériences de première exécution
 
@@ -76,29 +76,29 @@ Voici quelques conseils de notre guide de style Windows :
 ### <a name="1-be-helpful"></a>1. Être efficace
 
 - Évitez le style et le langage marketing.
-- Lorsque vous effectuez une démonstration ou proposez quelque chose, vérifiez que le résultat final est clair ; se contenter de montrer au client comment effectuer une opération n’est pas efficace s'il ne sait pas quel en est le but.
+- Lorsque vous faites une démonstration ou Suggérez un nom, assurez-vous que le résultat final est clair ; le fait de montrer simplement au client comment faire une action n’est pas efficace s’il ne sait pas pourquoi.
 - Ne présentez pas de conseils si le client n’en a pas besoin.
 
-### <a name="2-show-dont-tell"></a>2. Afficher, ne dites pas
+### <a name="2-show-dont-tell"></a>2. Afficher, ne pas dire
 
 Gardez le texte le plus simple possible (pensez à de petites animations ou à des vidéos).
 
-### <a name="3-dont-overwhelm"></a>3. Ne pas surcharger
+### <a name="3-dont-overwhelm"></a>3. Ne vous inquiétez pas
 
 - Limitez les fenêtres contextuelles et les conseils à 4 par session d’utilisation combinés, y compris les notifications système et les notifications de shell.
 - Assurez-vous que la synchronisation des fenêtres contextuelles est utile.
-- N'empêchez pas le client d’effectuer une opération.
+- N’empêchez pas le client d’effectuer une opération.
 - Assurez-vous que les fenêtres contextuelles sont faciles à ignorer.
 
-### <a name="4-keep-it-contextual"></a>4. Conservez-la contextuelles
+### <a name="4-keep-it-contextual"></a>4. Rester contextuel
 
 - Les enseignements sont plus efficaces lorsqu'ils sont présentés au bon moment.
 - Si vous créez des didacticiels ou des diaporamas, restez concret.
 - Évitez tout « discours » marketing : concentrez-vous sur des conseils et des astuces spécifiques.
-- Donnez la possibilité aux clients de revenir au didacticiel ultérieurement, le cas échéant (les utilisateurs ne retiennent souvent pas les informations la première fois, mais les instructions d’installation ne peuvent être pertinentes qu’une seule fois).
+- Permet aux clients de revenir ultérieurement au didacticiel, si nécessaire (les gens ne conservent souvent pas les informations la première fois, mais les instructions de configuration ne sont pertinentes qu’une seule fois).
 - Un message d'état vide est l’endroit idéal pour l'information et/ou la convivialité : gardez-le simple et informatif.
 
-### <a name="5-minimize-painful-setup"></a>5. Réduire le programme d’installation pénible
+### <a name="5-minimize-painful-setup"></a>5. Réduire la configuration pénible
 
 Lorsque vous avez besoin que le client effectue une autre action pour obtenir une valeur ajoutée complète (s'inscrire à un service en ligne, etc.), rendez-la aussi simple que possible.
 
@@ -111,109 +111,109 @@ Lorsque vous avez besoin que le client effectue une autre action pour obtenir un
 
 Voici quelques conseils de notre guide de style Windows :
 
-### <a name="when-should-we-provide-a-help-link"></a>Lorsque nous devons pour fournir un lien d’aide ?
+### <a name="when-should-we-provide-a-help-link"></a>Quand dois-je fournir un lien d’aide ?
 
-Presque jamais. Fournir un lien d’aide uniquement lorsque :
+Presque jamais. Fournissez un lien d’aide uniquement lorsque :
 
-- Il existe une question évidente et importante que les clients sont susceptibles d’avoir lorsqu’ils sont dans l’interface utilisateur de la réponse à ce qui les aideront à réussir la tâche de l’interface utilisateur. 
-- Ne comporte pas assez de place dans l’interface utilisateur pour fournir la quantité d’informations nécessaires pour les utilisateurs à réussir à la tâche de l’interface utilisateur. 
+- Il existe une question évidente et importante que les clients sont susceptibles d’avoir lorsqu’ils se trouvent dans l’interface utilisateur, la réponse qui les aidera à parvenir à la tâche de l’interface utilisateur. 
+- Il n’y a pas assez d’espace dans l’interface utilisateur pour fournir la quantité d’informations nécessaires pour que les utilisateurs puissent se faire correctement au niveau de la tâche d’interface utilisateur. 
 
-### <a name="where-should-help-links-appear"></a>Où doit liens d’aide apparaissent ? 
+### <a name="where-should-help-links-appear"></a>Où les liens d’aide doivent-ils s’afficher ? 
 
-- Liens de texte doivent apparaître comme proche de l’élément d’interface utilisateur qui est dirigée vers l’aide que possible. 
-- Si vous devez fournir un lien de texte qui s’applique à un écran de l’interface utilisateur entière, placez-le en bas à gauche de l’écran. 
+- Les liens de texte doivent apparaître à proximité de l’élément d’interface utilisateur sur lequel l’aide est dirigée le plus possible. 
+- Si vous devez fournir un lien de texte qui s’applique à l’intégralité de l’écran de l’interface utilisateur, placez-le en bas à gauche de l’écran. 
 - Si vous fournissez un lien via un bouton d’aide ( ?), l’info-bulle doit être « Help ».
 
-### <a name="what-url-should-we-use"></a>Quelle URL devons-nous utiliser ?
+### <a name="what-url-should-we-use"></a>Quelle URL dois-je utiliser ?
 
-Ne jamais lier directement à une adresse web, à la place utiliser un service de la redirection.
+N’appliquez jamais une liaison directe à une adresse Web, à la place, utilisez un service de redirection.
 
-Les développeurs Microsoft doivent utiliser un FWLink, sauf si elle est un lien d’aide que les utilisateurs doivent taper manuellement, dans ce cas, utilisez un lien aka.ms (tant que la cible de l’URL est un site Web qui reconnaît automatiquement le paramètres régionaux du navigateur, telles que Docs.microsoft.com)
+Les développeurs Microsoft doivent utiliser un FWLink, sauf lorsqu’il s’agit d’un lien d’aide que les utilisateurs peuvent avoir à taper manuellement. dans ce cas, utilisez un lien aka.ms (tant que la cible de l’URL est un site Web qui reconnaît automatiquement les paramètres régionaux du navigateur, comme Docs.microsoft.com)
 
-### <a name="text-guidelines"></a>Instructions de texte 
+### <a name="text-guidelines"></a>Directives relatives au texte 
 
-- Utiliser des phrases complètes.
-- N’incluez pas de ponctuation, à l’exception des points d’interrogation de fin. 
-- Vous n’avez pas besoin d’utiliser le même texte en tant que le titre de la tâche ; utiliser le texte qui est pertinent dans le contexte de l’interface utilisateur, mais veillez à ce qu’il existe une connexion logique entre les deux. Exemple : 
-- Lien d’aide : Quels sont les risques d’autoriser les exceptions ? 
-- Titre de rubrique d’aide : « Autoriser un programme à communiquer via le pare-feu de Windows »
-- Être aussi précis que possible sur le contenu de la rubrique d’aide. 
+- Utilisez des phrases entières.
+- N’incluez pas de ponctuation de fin, sauf pour les points d’interrogation. 
+- Vous n’avez pas besoin d’utiliser le même texte que le titre de la tâche. Utilisez du texte qui donne un sens dans le contexte de l’interface utilisateur, mais assurez-vous qu’il existe une connexion logique entre les deux. Exemple : 
+- Lien d’aide : Quels sont les risques liés à l’autorisation des exceptions ? 
+- Titre de la rubrique d’aide : « Autoriser un programme à communiquer via le pare-feu Windows »
+- Soyez aussi précis que possible sur le contenu de la rubrique d’aide. 
     - Notre style
-        - Comment Windows Firewall m’aide-t-il à protéger mon ordinateur ?
-        - Pourquoi les points importants peuvent améliorer une image
+        - Comment le pare-feu Windows contribue-t-il à protéger mon ordinateur ?
+        - Pourquoi les mises en évidence peuvent améliorer une image
     - Pas notre style
-        - Plus d’informations sur le pare-feu de Windows
+        - Plus d’informations sur le pare-feu Windows
         - En savoir plus sur la gestion des couleurs
         - En savoir plus
-- Utiliser la phrase entière pour le texte de lien, pas seulement les mots clés. 
+- Utilisez la phrase entière pour le texte du lien, pas seulement les mots clés. 
     - Notre style 
-        - [Quels sont les risques d’autoriser les exceptions ?]()
+        - [Quels sont les risques liés à l’autorisation des exceptions ?]()
     - Pas notre style
-        - Quelles sont les [les risques d’autoriser les exceptions]()? 
+        - Quels sont les [risques liés à l’autorisation des exceptions]()? 
 
-## <a name="error-messages"></a>Messages d’erreur
+## <a name="error-messages"></a>messages d'erreur
 
-Voici quelques conseils adaptés à partir du Guide de Style Windows :
+Voici quelques conseils adaptés à partir du Guide de style Windows :
 
-Écriture d’un message correct est un compromis entre fournir suffisamment explication mais n’est pas trop techniques ; entre l’informels et personnalisable, mais pas gênant ou offensant.
+L’écriture d’un bon message est un juste équilibre entre fournir suffisamment d’explications, mais pas être trop technique. entre un usage fortuit et un homme, mais pas ennuyeux ou offensant.
 
-### <a name="general-guidelines"></a>Recommandations générales
+### <a name="general-guidelines"></a>Indications générales
 
-Utiliser un message par cas d’erreur.
+Utilisez un message par cas d’erreur.
 
 #### <a name="headings"></a>En-têtes
 
-- Laissez cette brève et expliquer plus concise le problème ou **dans l’idéal, que faire**. <br>Des surfaces d’interface utilisateur peuvent avoir des en-têtes de tronquer au lieu d’encapsuler lorsqu’ils sont trop longs, donc tenez-vous pour ces.
-- Utiliser la solution dans l’en-tête s’il s’agit d’une étape simple.
-- Assurez-vous que l’en-tête est liée directement sur le bouton dans le cas où le lecteur ignore le texte du corps.
-- Évitez d’utiliser « Un problème est survenu » dans les en-têtes, si vous ne disposez pas d’autre choix. Être plus précis sur le problème.
-- Évitez les variables (tels que les noms de fichier, dossier et application) dans les en-têtes. Placez-les dans le corps.
+- Tenez-vous informé et expliquez de façon concise le problème ou l' **idéal**. <br>Certaines surfaces de l’interface utilisateur peuvent avoir des en-têtes tronqués au lieu d’être encapsulés lorsqu’ils sont trop longs, donc gardez un œil pour ceux-ci.
+- Utilisez la solution dans l’en-tête s’il s’agit d’une étape simple.
+- Assurez-vous que l’en-tête est directement associé au bouton au cas où le lecteur ignore le corps du texte.
+- Évitez d’utiliser « un problème est survenu » dans les en-têtes, sauf si vous n’avez pas d’autre choix. Soyez plus précis sur le problème.
+- Évitez d’utiliser des variables (telles que les noms de fichier, de dossier et d’application) dans les en-têtes. Placez-les dans le corps.
 
 #### <a name="body"></a>Corps
 
-- Si l’en-tête suffisamment explique que le problème ou la solution, vous n’avez pas besoin corps de texte.
+- Si le titre présente suffisamment d’explications sur le problème ou la solution, vous n’avez pas besoin de texte du corps.
 - Ne répétez pas le titre dans le message avec un libellé légèrement différent.
-- Communiquer clairement et concise ce qui est la solution.
-- Concentrez-vous sur l’octroi de tout d’abord les faits.
-- Les utilisateurs de l’erreur intuitives.
-- S’il existe un code d’erreur associé à l’erreur et si vous pensez qu’y compris le code d’erreur peuvent vous aider au client ou le support technique Microsoft à effectuer des recherches sur le problème, incluez-le directement sous le texte du corps et l’écrire comme suit :
+- Communiquez clairement et de façon concise la solution.
+- Concentrez-vous d’abord sur la présentation des faits.
+- Ne vous inquiétez pas des utilisateurs pour l’erreur.
+- Si un code d’erreur est associé à l’erreur et si vous pensez que l’inclusion du code d’erreur peut aider le client ou le support Microsoft à rechercher le problème, incluez-le directement sous le corps du texte et écrivez-le comme suit :
 
-    Code d’erreur : ###
+    Code d’erreur : ####
 
-    Si le client possède toutes les informations nécessaires pour résoudre l’erreur sans le code, vous n’avez pas besoin de l’inclure.
+    Si le client dispose de toutes les informations nécessaires pour résoudre l’erreur sans le code, vous n’avez pas besoin de l’inclure.
 
 #### <a name="buttons"></a>Boutons
 
-- Écrire du texte du bouton afin qu’il soit une réponse spécifique à l’instruction principale. Si tel n’est pas possible, utilisez « Fermer » pour le texte du bouton licenciement (au lieu de « OK » ou « Terminé »).
-- Si vous avez plusieurs boutons, vous pouvez créer le bouton plus à gauche l’action de que l’utilisateur est encouragé à prendre. Rendre le bouton plus à droite de l’action plus conservatrice, comme « Cancel ».
+- Écrire le texte du bouton afin qu’il s’agisse d’une réponse spécifique à l’instruction principale. Si ce n’est pas possible, utilisez « fermer » pour le texte du bouton à ignorer (au lieu de « OK » ou « terminé »).
+- Si vous avez plus d’un bouton, définissez le bouton le plus à gauche comme l’action que l’utilisateur est encouragé à prendre. Faites du bouton le plus à droite l’action la plus conservatrice, par exemple « annuler ».
 
 #### <a name="help-links"></a>Liens d’aide
 
-Prendre en compte uniquement les liens d’aide pour les messages d’erreur que vous ne pouvez apporter spécifiques et exploitables.
+Ne tenez compte que des liens d’aide pour les messages d’erreur que vous ne pouvez pas rendre spécifiques et exploitables.
 
-## <a name="null-state-text"></a>Texte de l’état null
+## <a name="null-state-text"></a>Texte d’État null
 
-Voici certains aide dans le Guide de Style Windows.
+Voici une aide du Guide de style Windows.
 
-État NULL se produit lorsque les données client ou le contenu est absent à partir d’une application ou une fonctionnalité, lorsque aucune résultats ne sont retournés après une recherche, ou lorsque le manque des informations à partir d’un formulaire, telles que la facturation des informations pour une transaction.
+L’État null se produit lorsque des données client ou du contenu sont absentes d’une application ou d’une fonctionnalité, quand aucun résultat n’est retourné après une recherche, ou lorsque des informations obligatoires sont manquantes dans un formulaire, telles que des informations de facturation pour une transaction.
 
 ### <a name="guidelines"></a>Recommandations
 
-- Si possible, utilisez les situations d’état null comme une opportunité pour former des personnes sur l’utilisation de la fonctionnalité (par exemple, comment ajouter de la musique, où pour rechercher des images, etc.)  
-  - Si vous avez un titre dans votre interface utilisateur, expliquent l’action à entreprendre pour « réparer » de l’état null (par exemple, « ajouter une musique ») 
-  - Amusez-vous avec le texte. Cet espace peut être une opportunité pour fournir la satisfaction dans la mesure où il sera probablement pas vu plusieurs fois. 
-  - Éviter les « Il est vide ici. » Il s’agit triste et a été utilisée de manière excessive. 
-  - Éviter des questions telles que « Le n’avez pas connecté votre imprimante ? » OK pour utiliser une seule fois, mais ce format a tendance à obtenir galvaudés et questions solliciter davantage la charge/sur le client. Il peut également se sentent évident. 
-  - Plusieurs types de texte de l’état null est une bonne chose. 
+- Si possible, utilisez des situations d’État null pour informer les utilisateurs de l’utilisation de la fonctionnalité (par exemple, ajouter de la musique, où trouver des images, etc.)  
+  - Si vous avez un titre dans votre interface utilisateur, Expliquez l’action à entreprendre pour « corriger » l’État null (par exemple, « ajouter une musique ») 
+  - Amusez-vous avec le texte. Cet espace peut être une opportunité de fournir le plaisir, car il ne sera probablement pas visible plusieurs fois. 
+  - Évitez « c’est impossible ici ». Il s’agit d’un Sad qui a été utilisé. 
+  - Évitez les questions telles que « vous n’êtes pas connecté à votre imprimante ? » Vous pouvez utiliser une seule fois, mais ce format tend à être utilisé, et les questions posent davantage de charge/pression sur le client. Cela peut également paraître condescendant. 
+  - La diversité dans le texte d’État null est une bonne chose. 
 
 ### <a name="examples"></a>Exemples
 
-- « Ajouter un utilisateur en tant que favori, et vous pouvez les voir ici ».
-- « Ores et déjà primes ni jeu clips vous sommes particulièrement heureux de Ajoutez-les à votre vitrine. »
-- « Personne dans encore un tiers. Démarrer un ! »
-- « Quand quelqu'un vous ajoute comme friend, vous verrez les ici. »
-- « Lorsque vous fasse le travail comme déverrouiller des primes, enregistrer des clips de jeu, et ajouter des amis, vous verrez qu’il tous ici. »
-- « Vos amis favoris seront afficheront ici, afin que vous puissiez voir lorsqu’ils sont en ligne et ce qu’elles jusqu'à. »
+- « Ajoutez quelqu’un en tant que favori, et vous les verrez ici. »
+- «Avez-vous des réalisations ou des clips de jeu que vous êtes particulièrement fier ? Ajoutez-les à votre vitrine.»
+- «Personne n’a encore été dans un tiers. Démarrez-en un !»
+- « Quand quelqu’un vous ajoute comme ami, vous les verrez ici. »
+- « Quand vous effectuez des tâches de déverrouillage, enregistrez des clips de jeu et ajoutez des amis, vous le verrez ici. »
+- « Vos amis préférés s’affichent ici pour vous permettre de voir quand ils sont en ligne et à quoi ils sont confrontés ».
 
 ## <a name="punctuation"></a>Ponctuation
 
@@ -235,19 +235,19 @@ Voici quelques recommandations détaillées sur les messages de notification :
 |Type de chaîne         | Notes                               |
 |------------        |-------------------------------------|
 |Démarré             |Omettez dans la mesure du possible : généralement vous pouvez vous contenter de passer au message en cours afin de réduire les distractions.|
-|En cours         |Commencez avec le verbe de l’action que vous effectuez et terminez par des points de suspension pour indiquer une opération en cours. Voici un exemple :<br> *Création du volume « Données client »...*|
-|Opération réussie             |Commencez par l'action que le logiciel vient d'effectuer et finissez par « réussi(e) ». Voici un exemple :<br> *Créé avec succès le volume « Données client ».*|
-|Échec             |Démarrez avec « Impossible de » et terminez par ce que le logiciel n’a pas pu faire. Voici un exemple :<br> *Impossible de créer le volume « Données client ».*|
+|En cours         |Commencez avec le verbe de l’action que vous effectuez et terminez par des points de suspension pour indiquer une opération en cours. Voici un exemple :<br> *Création du volume « données client »...*|
+|Succès             |Commencez par l'action que le logiciel vient d'effectuer et finissez par « réussi(e) ». Voici un exemple :<br> *Le volume « données client » a été créé.*|
+|Échec             |Démarrez avec « Impossible de » et terminez par ce que le logiciel n’a pas pu faire. Voici un exemple :<br> *Impossible de créer le volume « données client ».*|
 
 ## <a name="tooltips"></a>Info-bulles
 
-Brièvement, bonne info-bulles décrivent les contrôles sans étiquette ou fournissent quelques informations supplémentaires pour les contrôles étiquetés, lorsque cela est utile. Ils peuvent également aider les clients à naviguer de l’interface utilisateur en offrant supplémentaires, non redondantes : plus d’informations sur les étiquettes de contrôle, des icônes, des liens, etc.
+Les bonnes info-bulles décrivent brièvement les contrôles sans étiquette ou fournissent un peu d’informations supplémentaires pour les contrôles étiquetés, lorsque cela est utile. Ils peuvent également aider les clients à naviguer dans l’interface utilisateur en offrant des informations supplémentaires, non redondantes, sur les étiquettes de contrôle, les icônes, les liens, etc.
 
-Info-bulles doivent être utilisés avec parcimonie ou pas du tout. Ils peuvent être une interruption au client, afin de ne pas inclure une info-bulle qui simplement se répète une étiquette ou États l’évident. Il doit toujours ajouter des informations très utiles.
+Les info-bulles doivent être utilisées avec parcimonie ou pas du tout. Il peut s’agir d’une interruption du client. n’incluez donc pas d’info-bulle qui répète simplement une étiquette ou indique la valeur évidente. Elle doit toujours ajouter des informations précieuses.
 
 |    Contexte                                 |    Comment écrire les info-bulles    |
 |    -----------------------                 |    -------------------------    |
-|Quand un contrôle ou un élément d’interface utilisateur est sans étiquette...|Utiliser une expression nominale simple et descriptif. Exemple :<br> Mise en surbrillance du stylet |
-|Quand un élément d’interface utilisateur est étiqueté, mais son objectif doit clarification...|<ul><li>Décrivez brièvement ce que vous pouvez faire avec cet élément d’interface utilisateur. </li><li>Utilisez la forme verbe impératif. Par exemple, « rechercher du texte dans ce fichier » (pas « recherche du texte dans ce fichier »).</li><li>N’incluez pas ponctuation sauf s’il existe plusieurs phrases complètes.</li> </ul>|
-|Quand une étiquette de texte est tronqué ou probable à tronquer dans certaines langues...|<ul><li>Fournir l’étiquette non tronqué dans l’info-bulle.</li><li>Facultatif : Sur une autre ligne, fournissez une description de clarification, mais uniquement si nécessaire.</li><li>Ne fournissez pas une info-bulle si les informations non tronquée sont fournie ailleurs sur la page ou le flux.</li></ul>|
-|S’il existe un raccourci clavier...|<ul><li>Facultatif : Fournir le raccourci clavier dans les parenthèses qui suivent l’étiquette ou une expression descriptive, par exemple « Print (Ctrl + P) » ou « Rechercher du texte dans ce fichier (Ctrl + F) »</li><li>Il est OK pour ajouter un raccourci clavier utiles à une info-bulle éclaircissement, mais évitez d’ajouter une info-bulle uniquement pour afficher un raccourci clavier. </li></ul>|
+|Lorsqu’un contrôle ou un élément d’interface utilisateur n’est pas labellisé...|Utilisez une phrase nominale simple et descriptive. Exemple :<br> Mise en surbrillance du stylet |
+|Lorsqu’un élément d’interface utilisateur est étiqueté, mais que son objectif a besoin d’être clarifié...|<ul><li>Décrivez brièvement ce que vous pouvez faire avec cet élément d’interface utilisateur. </li><li>Utilisez le format de verbe impératif. Par exemple, « Rechercher le texte dans ce fichier » (et non « recherche le texte dans ce fichier »).</li><li>N’incluez pas de ponctuation finale à moins qu’il y ait plusieurs phrases complètes.</li> </ul>|
+|Quand une étiquette de texte est tronquée ou est susceptible d’être tronquée dans certaines langues...|<ul><li>Fournissez l’étiquette non tronquée dans l’info-bulle.</li><li>Facultatif : Sur une autre ligne, fournissez une description de clarification, mais uniquement si nécessaire.</li><li>Ne fournissez pas d’info-bulle si les informations non tronquées sont fournies ailleurs sur la page ou le Flow.</li></ul>|
+|Si un raccourci clavier est disponible...|<ul><li>Facultatif : Indiquez le raccourci clavier entre parenthèses à la suite de l’étiquette ou de l’expression descriptive, par exemple « Imprimer (Ctrl + P) » ou « Rechercher le texte dans ce fichier (Ctrl + F) »</li><li>Il est recommandé d’ajouter un raccourci clavier utile à une info-bulle clarify, mais d’éviter d’ajouter une info-bulle uniquement pour afficher un raccourci clavier. </li></ul>|

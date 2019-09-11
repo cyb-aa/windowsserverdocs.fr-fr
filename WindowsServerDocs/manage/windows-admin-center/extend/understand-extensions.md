@@ -8,18 +8,18 @@ ms.author: jol
 ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: b00ee847088d038e59266154bcbbe9499bfe47fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e54101e90005a1845820ecf0bb99df527ac7051
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850110"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869775"
 ---
 # <a name="understanding-windows-admin-center-extensions"></a>Présentation des extensions de Windows Admin Center
 
->S'applique à : Windows Admin Center, version préliminaire de Windows Admin Center
+>S'applique à : Windows Admin Center, Windows Admin Center Preview
 
-Si vous n’êtes pas encore familiarisé avec le fonctionnement de Windows Admin Center, commençons par l’architecture de haut niveau. Windows Admin Center est constitué de deux composants principaux :
+Si vous n’êtes pas encore familiarisé avec le fonctionnement du centre d’administration Windows, commençons par l’architecture de haut niveau. Windows Admin Center est constitué de deux composants principaux :
 
 - Un **service web** léger qui affiche les pages web de l’interface utilisateur de Windows Admin Center en réponse aux requêtes du navigateur web.
 - Un **composant de passerelle** qui écoute les demandes de l'API REST dans les pages web et relaie les appels WMI ou les scripts PowerShell à exécuter sur un serveur ou un cluster cible.
@@ -52,4 +52,4 @@ Le service de passerelle expose l’API REST pour l’interface utilisateur à a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Selon les fonctionnalités que vous souhaitez créer dans Windows Admin Center, la [création d’une extension d'outil](develop-tool.md) pour une solution de serveur ou de cluster existante peut être suffisante. C'est la première étape la plus simple pour créer des extensions. Toutefois, si votre fonctionnalité doit permettre la gestion d’un appareil, d'un service ou d'un élément entièrement nouveau, plutôt qu’un serveur ou un cluster, vous devez envisager la [création d’une extension de solution](develop-solution.md) avec un ou plusieurs outils. Enfin, si vous avez besoin de communiquer avec la cible via un protocole autre que WMI ou PowerShell, vous devez [créer un plug-in de passerelle](develop-gateway-plugin.md). [Consultez d'autres informations sur](developing-extensions.md) pour apprendre à configurer votre environnement de développement et commencer l’écriture de votre première extension.
+Selon les fonctionnalités que vous souhaitez créer dans Windows Admin Center, la [création d’une extension d'outil](develop-tool.md) pour une solution de serveur ou de cluster existante peut être suffisante. C'est la première étape la plus simple pour créer des extensions. Toutefois, si votre fonctionnalité doit permettre la gestion d’un appareil, d'un service ou d'un élément entièrement nouveau, plutôt qu’un serveur ou un cluster, vous devez envisager la [création d’une extension de solution](develop-solution.md) avec un ou plusieurs outils. Enfin, si vous avez besoin de communiquer avec la cible par le biais d’un protocole autre que WMI ou PowerShell, vous devez [créer un plug-in de passerelle](develop-gateway-plugin.md). [Consultez d'autres informations sur](developing-extensions.md) pour apprendre à configurer votre environnement de développement et commencer l’écriture de votre première extension.

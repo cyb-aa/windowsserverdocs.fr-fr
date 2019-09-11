@@ -1,6 +1,6 @@
 ---
-title: secedit:analyze
-description: 'Rubrique de commandes de Windows pour ***- '
+title: 'secedit : analyser'
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9122c5c0fa8c42b0ccfc77ceb3f2d337b44ee5dc
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 83f9e977a059e1a1f1b882d5a968054dacf6b3be
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441562"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868868"
 ---
-# <a name="seceditanalyze"></a>secedit:analyze
+# <a name="seceditanalyze"></a>secedit : analyser
 
 
 
-Vous permet d’analyser les paramètres de systèmes en cours par rapport aux paramètres de ligne de base qui sont stockés dans une base de données. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Vous permet d’analyser les paramètres système actuels par rapport aux paramètres de base stockés dans une base de données. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,27 +36,27 @@ Secedit /analyze /db <database file name> [/cfg <configuration file name>] [/ove
 
 |Paramètre|Description|
 |---------|-----------|
-|db|Obligatoire.</br>Spécifie le chemin d’accès et le nom d’une base de données qui contient la configuration stockée par rapport à laquelle l’analyse sera effectuée.</br>Si le nom de fichier spécifie une base de données qui n’a pas un modèle de sécurité (comme représenté par le fichier de configuration) associé, le `/cfg \<configuration file name>` option de ligne de commande doit également être spécifiée.|
-|cfg|Facultatif.</br>Spécifie le chemin d’accès et le nom du modèle de sécurité qui sera importé dans la base de données pour l’analyse.</br>Cette option /cfg est uniquement valide lorsqu’il est utilisé avec le `/db \<database file name>` paramètre. S’il n’est pas spécifié, l’analyse est exécutée sur n’importe quelle configuration déjà stockée dans la base de données.|
-|overwrite|Facultatif.</br>Spécifie si le modèle de sécurité dans le paramètre /cfg doit remplacer n’importe quel modèle ou un modèle composite qui est stocké dans la base de données au lieu d’ajouter les résultats dans le modèle stocké.</br>Cette option de ligne de commande est valide uniquement lorsque le `/cfg \<configuration file name>` paramètre est également utilisé. S’il n’est pas spécifié, le modèle dans le paramètre /cfg est ajouté au modèle stocké.|
-|journal|Facultatif.</br>Spécifie le chemin d’accès et le nom du fichier journal à utiliser dans le processus.|
-|quiet|Facultatif.</br>Supprime la sortie de l’écran. Vous pouvez toujours afficher les résultats analyse à l’aide du composant logiciel enfichable Configuration de la sécurité et l’analyse à la Console MMC (Microsoft Management).|
+|bases|Requis.</br>Spécifie le chemin d’accès et le nom de fichier d’une base de données qui contient la configuration stockée sur laquelle l’analyse doit être effectuée.</br>Si le nom de fichier spécifie une base de données qui n’a pas de modèle de sécurité (tel que représenté par le fichier `/cfg \<configuration file name>` de configuration) qui lui est associé, l’option de ligne de commande doit également être spécifiée.|
+|cfg|facultatif.</br>Spécifie le chemin d’accès et le nom de fichier pour le modèle de sécurité qui sera importé dans la base de données à des fins d’analyse.</br>Cette option/cfg est valide uniquement lorsqu’elle est utilisée `/db \<database file name>` avec le paramètre. Si ce n’est pas spécifié, l’analyse est effectuée sur toute configuration déjà stockée dans la base de données.|
+|overwrite|facultatif.</br>Spécifie si le modèle de sécurité dans le paramètre/cfg doit remplacer tout modèle ou modèle composite qui est stocké dans la base de données au lieu d’ajouter les résultats au modèle stocké.</br>Cette option de ligne de commande est valide uniquement lorsque `/cfg \<configuration file name>` le paramètre est également utilisé. Si cette valeur n’est pas spécifiée, le modèle dans le paramètre/cfg est ajouté au modèle stocké.|
+|log|facultatif.</br>Spécifie le chemin d’accès et le nom du fichier journal à utiliser dans le processus.|
+|Silencieux|facultatif.</br>Supprime la sortie de l’écran. Vous pouvez toujours afficher les résultats de l’analyse en utilisant le composant logiciel enfichable Configuration et analyse de la sécurité de la console MMC (Microsoft Management Console).|
 
 ## <a name="remarks"></a>Notes
 
-Les résultats d’analyse sont stockés dans une zone séparée de la base de données et peuvent être affichés dans la Configuration de la sécurité et le composant logiciel enfichable analyse à la console MMC.
+Les résultats de l’analyse sont stockés dans une zone distincte de la base de données et peuvent être affichés dans le composant logiciel enfichable Configuration et analyse de la sécurité de la console MMC.
 
-Si le chemin d’accès du fichier journal n’est pas fourni, le fichier journal par défaut, (*systemroot*\Documents and Settings\*UserAccount<em>\My Documents\Security\Logs\*DatabaseName</em>. ouvrir une session) est utilisée.
+Si le chemin d’accès du fichier journal n’est pas fourni, le fichier journal pardéfaut, (SystemRoot\*\Documents and Settings UserAccount<em>\*\Mes Documents\Security\Logs DatabaseName</em>. log), est utilisé.
 
-Dans Windows Server 2008, `Secedit /refreshpolicy` a été remplacé par `gpupdate`. Pour plus d’informations sur l’actualisation des paramètres de sécurité, consultez [Gpupdate](gpupdate.md).
+Dans Windows Server 2008, `Secedit /refreshpolicy` a été remplacé par `gpupdate`. Pour plus d’informations sur la façon d’actualiser les paramètres de sécurité, consultez [gpupdate](gpupdate.md).
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 
-Effectuer l’analyse pour les paramètres de sécurité sur la base de données de sécurité, SecDbContoso.sdb, que vous avez créé à l’aide de la Configuration de la sécurité et le composant logiciel enfichable analyse. Diriger la sortie vers le fichier SecAnalysisContosoFY11 avec l’invite afin de vérifier la commande a été exécuté correctement.
+Effectuez l’analyse des paramètres de sécurité sur la base de données de sécurité, SecDbContoso. sdb, que vous avez créée à l’aide du composant logiciel enfichable Configuration et analyse de la sécurité. Dirigez la sortie vers le fichier SecAnalysisContosoFY11 avec une invite pour vous permettre de vérifier que la commande a été exécutée correctement.
 ```
 Secedit /analyze /db C:\Security\FY11\SecDbContoso.sdb /log C:\Security\FY11\SecAnalysisContosoFY11.log
 ```
-Supposons que l’analyse a révélé certaines insuffisances donc le modèle de sécurité, SecContoso.inf, a été modifié. Exécutez la commande à nouveau pour incorporer les modifications, en redirigeant la sortie vers le fichier existant SecAnalysisContosoFY11 sans afficher d’invite.
+Supposons que l’analyse a révélé des insuffisances, de sorte que le modèle de sécurité SecContoso. inf a été modifié. Réexécutez la commande pour incorporer les modifications, en dirigeant la sortie vers le fichier existant SecAnalysisContosoFY11 sans invite.
 ```
 Secedit /analyze /db C:\Security\FY11\SecDbContoso.sdb /cfg SecContoso.inf /overwrite /log C:\Security\FY11\SecAnalysisContosoFY11.xml /quiet
 ```

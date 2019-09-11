@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: baea091482818c581414ba1d9c1c01db2a52e3d7
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: 0c608d3762c45a0b1478bcb3303159feef963291
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66435667"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866623"
 ---
 # <a name="hyper-v-configuration"></a>Configuration d’Hyper-V
 
@@ -74,17 +74,17 @@ Hyper-V prend en charge et a été réglé pour un certain nombre de systèmes d
 
 Hyper-V publie des compteurs de performances pour faciliter la caractérisation du comportement du serveur de virtualisation et signaler l’utilisation des ressources. L’ensemble standard d’outils d’affichage des compteurs de performance dans Windows comprend l’analyseur de performances et logman. exe, qui peuvent afficher et enregistrer les compteurs de performance Hyper-V. Les noms des objets de compteur pertinents sont préfixés par **Hyper-V**.
 
-Vous devez toujours mesurer l’utilisation du processeur par le système physique à l’aide des compteurs de performance du processeur logique de l’hyperviseur Hyper-V. Les compteurs d’utilisation de l’UC que le gestionnaire des tâches et le rapport de l’analyseur de performances dans les partitions racines et enfants ne reflètent pas l’utilisation réelle de l’UC physique. Utilisez les compteurs de performances suivants pour surveiller les performances:
+Vous devez toujours mesurer l’utilisation du processeur par le système physique à l’aide des compteurs de performance du processeur logique de l’hyperviseur Hyper-V. Les compteurs d’utilisation de l’UC que le gestionnaire des tâches et le rapport de l’analyseur de performances dans les partitions racines et enfants ne reflètent pas l’utilisation réelle de l’UC physique. Utilisez les compteurs de performances suivants pour surveiller les performances :
 
 - **Processeur logique de l’hyperviseur\*hyper\\-V () pourcentage** du temps d’exécution total du temps d’inactivité total des processeurs logiques
 
 - **Processeur logique de l’hyperviseur\*hyper\\-V ()% temps d’exécution invité** temps passé à exécuter des cycles au sein d’un invité ou de l’hôte
 
-- **Processeur logique de l’hyperviseur\*hyper\\-V () pourcentage d’exécution** de l’hyperviseur temps passé à s’exécuter dans l’hyperviseur
+- **Processeur logique de l’hyperviseur\*hyper\\-V () pourcentage d’exécution de l’hyperviseur** temps passé à s’exécuter dans l’hyperviseur
 
-- Le processeur virtuel de la racine de l’hyperviseur **Hyper-V\*()\\\\** * mesure l’utilisation du processeur de la partition racine
+- Le **processeur virtuel de la racine de l'\*hyperviseur Hyper-V ()\\\\** * mesure l’utilisation du processeur de la partition racine
 
-- Le processeur virtuel de l’hyperviseur **Hyper-V\*()\\\\** * mesure l’utilisation du processeur des partitions invitées
+- **Le processeur virtuel de l’hyperviseur\\Hyper-V (\*)\\** * mesure l’utilisation du processeur des partitions invitées
 
 
 ## <a name="see-also"></a>Voir aussi

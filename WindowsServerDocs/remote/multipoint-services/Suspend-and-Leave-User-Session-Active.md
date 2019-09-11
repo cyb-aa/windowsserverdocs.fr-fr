@@ -1,6 +1,6 @@
 ---
 title: Suspendre et laisser une session utilisateur active
-description: Découvrez comment suspendre un utilisateur à partir d’une session MultiPoint sans les déconnecter
+description: Découvrez comment suspendre un utilisateur à partir d’une session MultiPoint sans le déconnecter
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,17 +13,17 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: cc4310e6f7609464cf037b750bec6e5e805e0b26
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a7c94b9d1edd36efc8651e35dfabbc95239335cb
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815220"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871530"
 ---
 # <a name="suspend-and-leave-user-session-active"></a>Suspendre et laisser une session utilisateur active
-Vous pouvez vous déconnecter ou suspendre les utilisateurs à partir du système MultiPoint Services quand vous ne souhaitez pas terminer les sessions des utilisateurs. Un utilisateur peut également déconnecter la session lui-même à votre place. Quand une session utilisateur est suspendue, la session reste active dans la mémoire d’ordinateur du système MultiPoint Services jusqu’à ce que l’ordinateur soit arrêté ou redémarré. À ce stade, toutes les sessions suspendues sont terminées et tout travail non enregistré est perdu.  
+Vous pouvez déconnecter ou suspendre des utilisateurs du système MultiPoint services lorsque vous ne souhaitez pas mettre fin aux sessions des utilisateurs. Un utilisateur peut également déconnecter la session lui-même à votre place. Lorsqu’une session utilisateur est suspendue, la session reste active dans la mémoire de l’ordinateur du système MultiPoint services jusqu’à l’arrêt ou le redémarrage de l’ordinateur. À ce stade, toutes les sessions suspendues sont terminées et tout travail non enregistré est perdu.  
   
-1.  Ouvrez le gestionnaire MultiPoint en mode station, puis cliquez sur le **Stations** onglet.  
+1.  Ouvrez le gestionnaire MultiPoint en mode station, puis cliquez sur l’onglet **stations** .  
   
 2.  Dans la colonne **Ordinateur**, cliquez sur le nom de l’ordinateur dont vous voulez suspendre les sessions.  
   
@@ -32,5 +32,5 @@ Vous pouvez vous déconnecter ou suspendre les utilisateurs à partir du systèm
 Quand une session utilisateur a été suspendue, l’utilisateur peut se connecter à la même station ou à une autre et continuer à travailler dans sa session d’origine.  
   
 ## <a name="see-also"></a>Voir aussi  
-[Gérer des bureaux d’utilisateurs](manage-user-desktops-using-multipoint-dashboard.md)  
-[Fermer la session ou déconnecter des Sessions utilisateur](Log-off-or-Disconnect-User-Sessions.md)
+[Gérer les postes de travail des utilisateurs](manage-user-desktops-using-multipoint-dashboard.md)  
+[Déconnecter des sessions utilisateur](Log-off-or-Disconnect-User-Sessions.md)

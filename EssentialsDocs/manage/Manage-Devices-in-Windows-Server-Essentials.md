@@ -12,12 +12,12 @@ ms.assetid: f5fe1088-ebe7-4799-a47d-075b0048dea1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: a66f98b0896e706f520aa057b91cce2fe662d22d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 48eb7009215e484fb00e704c7b328340240321d2
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433324"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865157"
 ---
 # <a name="manage-devices-in-windows-server-essentials"></a>Gérer des appareils dans Windows Server Essentials
 
@@ -27,17 +27,17 @@ ms.locfileid: "66433324"
   
 -   [Gérer des appareils à l’aide du tableau de bord](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_1)  
   
--   [Affecter des comptes d’utilisateur autorisé à vous connecter à des ordinateurs réseau spécifiques](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_2)  
+-   [Accorder des autorisations de compte d’utilisateur pour se connecter à des ordinateurs réseau spécifiques](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_2)  
   
--   [Supprimer un ordinateur à partir du serveur](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3)  
+-   [Supprimer un ordinateur du serveur](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_3)  
   
 -   [Configurer les paramètres de stratégie de groupe pour la redirection de dossiers et la sécurité](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_5)  
   
 -   [Se connecter à un ordinateur réseau à l’aide d’une session Bureau à distance](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_7)  
   
--   [Afficher les propriétés ordinateur](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_8)  
+-   [Afficher les propriétés de l’ordinateur](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_8)  
   
-##  <a name="BKMK_1"></a> Gérer des appareils à l’aide du tableau de bord  
+##  <a name="BKMK_1"></a>Gérer des appareils à l’aide du tableau de bord  
  Windows Server Essentials vous permet d'effectuer des tâches d'administration courantes à l'aide du tableau de bord Windows Server Essentials. La page **Périphériques** du tableau de bord fournit :  
   
 -   la liste des ordinateurs réseau, qui indique :  
@@ -89,7 +89,7 @@ ms.locfileid: "66433324"
 |Comment connecter des ordinateurs sur le serveur ?|Ouvre une rubrique d'aide qui décrit la procédure à suivre pour joindre un ordinateur au réseau.|  
 |Implémenter la stratégie de groupe|Applique des paramètres de stratégie aux ordinateurs Windows 8 et Windows 7 qui sont joints au domaine.|  
   
-##  <a name="BKMK_2"></a> Affecter des comptes d’utilisateur autorisé à vous connecter à des ordinateurs réseau spécifiques  
+##  <a name="BKMK_2"></a>Accorder des autorisations de compte d’utilisateur pour se connecter à des ordinateurs réseau spécifiques  
  Vous pouvez affecter des autorisations aux comptes d'utilisateur pour que les utilisateurs puissent se connecter uniquement à des ordinateurs réseau spécifiques quand ils accèdent au réseau Windows Server Essentials à partir d'un emplacement distant.  
   
 #### <a name="to-change-the-computer-access-for-a-user-account"></a>Pour modifier l'accès d'un compte d'utilisateur aux ordinateurs  
@@ -100,15 +100,15 @@ ms.locfileid: "66433324"
   
 3.  Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur à modifier.  
   
-4.  Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **afficher les propriétés du compte**. La page **Propriétés** du compte d'utilisateur s'affiche.  
+4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **afficher les propriétés du compte**. La page **Propriétés** du compte d'utilisateur s'affiche.  
   
 5.  Sous l'onglet **Accès à l'ordinateur** , sélectionnez l'ordinateur auquel cet utilisateur peut accéder à distance, puis cliquez sur **OK**.  
   
-##  <a name="BKMK_3"></a> Supprimer un ordinateur à partir du serveur  
+##  <a name="BKMK_3"></a>Supprimer un ordinateur du serveur  
  Lorsque vous supprimez un ordinateur d'un serveur qui exécute Windows Server Essentials en ayant recours au tableau de bord, il n'est plus géré par le serveur. Par conséquent, le serveur arrête de créer des sauvegardes d'ordinateur ou d'analyser son intégrité après sa suppression du réseau.  
   
 > [!NOTE]
->  La suppression d'un ordinateur du serveur ne déconnecte pas l'ordinateur du réseau. L'ordinateur peut encore accéder aux ressources du réseau de la même manière qu'il le pouvait avant d'être connecté au serveur. Pour empêcher l'ordinateur d'accéder aux ressources serveur et pour le déconnecter du serveur, vous devez supprimer l'ordinateur du domaine. En outre, la suppression de l'ordinateur du serveur ne désinstalle pas automatiquement le logiciel Connecteur ni le Launchpad de l'ordinateur en cours de suppression. Vous devez supprimer manuellement le logiciel Connecteur de l'ordinateur. Pour plus d’informations, consultez la section désinstaller le logiciel connecteur dans [connexion](../use/Get-Connected-in-Windows-Server-Essentials.md).  
+>  La suppression d'un ordinateur du serveur ne déconnecte pas l'ordinateur du réseau. L'ordinateur peut encore accéder aux ressources du réseau de la même manière qu'il le pouvait avant d'être connecté au serveur. Pour empêcher l'ordinateur d'accéder aux ressources serveur et pour le déconnecter du serveur, vous devez supprimer l'ordinateur du domaine. En outre, la suppression de l'ordinateur du serveur ne désinstalle pas automatiquement le logiciel Connecteur ni le Launchpad de l'ordinateur en cours de suppression. Vous devez supprimer manuellement le logiciel Connecteur de l'ordinateur. Pour plus d’informations, consultez la section désinstaller le logiciel [connecteur dans Connectez](../use/Get-Connected-in-Windows-Server-Essentials.md)-vous.  
   
 #### <a name="to-remove-a-computer-from-the-network-by-using-the-dashboard"></a>Pour supprimer un ordinateur du réseau à l'aide du tableau de bord  
   
@@ -118,7 +118,7 @@ ms.locfileid: "66433324"
   
 3.  Dans la liste des ordinateurs, cliquez avec le bouton droit sur l'ordinateur à supprimer du réseau, puis cliquez sur **Supprimer l'ordinateur**.  
   
-##  <a name="BKMK_5"></a> Configurer les paramètres de stratégie de groupe pour la redirection de dossiers et la sécurité  
+##  <a name="BKMK_5"></a>Configurer les paramètres de stratégie de groupe pour la redirection de dossiers et la sécurité  
  Vous pouvez configurer la stratégie de groupe et la déployer sur les ordinateurs du réseau Windows Server Essentials à l'aide du tableau de bord Windows Server Essentials. La stratégie de groupe dans Windows Server Essentials inclut des paramètres pour la redirection des dossiers et la sécurité, qui impactent Windows Update, Windows Defender et le pare-feu du réseau.  
   
 #### <a name="to-configure-group-policy-in-windows-server-essentials"></a>Pour configurer la stratégie de groupe dans Windows Server Essentials  
@@ -139,8 +139,8 @@ ms.locfileid: "66433324"
   
 7.  Cliquez sur **Terminer** pour implémenter les paramètres de stratégie de groupe.  
   
-##  <a name="BKMK_7"></a> Se connecter à un ordinateur réseau à l’aide d’une session Bureau à distance  
- Pour accéder à distance à votre ordinateur de réseau Windows Server Essentials quand vous êtes en déplacement, utilisez votre navigateur Web pour vous connecter à votre site Web accès Web à distance de s organisation et, sous la **ordinateurs** , cliquez sur le nom de la ordinateur.  
+##  <a name="BKMK_7"></a>Se connecter à un ordinateur réseau à l’aide d’une session Bureau à distance  
+ Pour accéder à distance à votre ordinateur réseau Windows Server Essentials lorsque vous n’êtes pas dans votre bureau, utilisez votre navigateur Web pour vous connecter au site Web Accès web distant de votre organisation et, sous l’onglet **ordinateurs** , cliquez sur le nom de l’ordinateur.  
   
  La colonne **État** vous indique si vous pouvez vous connecter à un ordinateur sur votre réseau. Elle peut contenir les valeurs suivantes :  
   
@@ -148,7 +148,7 @@ ms.locfileid: "66433324"
   
      L'ordinateur est allumé et est disponible pour une connexion à distance. Même si vous voyez cet état, il se peut que vous ne soyez pas en mesure de vous connecter à cet ordinateur, si un pare-feu tiers bloque la connexion.  
   
--   **En mode hors connexion ou en veille**  
+-   **Hors connexion ou en veille**  
   
      L'ordinateur est éteint ou est en mode Veille ou Veille prolongée. Si un ordinateur est hors connexion ou en veille, l'état est mis à jour en temps réel afin que vous puissiez savoir quand l'ordinateur est disponible.  
   
@@ -160,7 +160,7 @@ ms.locfileid: "66433324"
   
      La connexion de l'ordinateur est bloquée par un pare-feu ou le Bureau à distance est désactivé sur l'ordinateur ou par la stratégie de groupe. La mise à jour de cet état sur le serveur peut prendre jusqu'à 6 heures en cas de modifications.  
   
-##  <a name="BKMK_8"></a> Afficher les propriétés ordinateur  
+##  <a name="BKMK_8"></a>Afficher les propriétés de l’ordinateur  
  La section **Périphériques** du tableau de bord Windows Server Essentials affiche la liste des ordinateurs réseau. Cette liste fournit des informations supplémentaires sur chaque ordinateur.  
   
 #### <a name="to-view-a-list-of-computers"></a>Pour afficher la liste des ordinateurs  
@@ -175,7 +175,7 @@ ms.locfileid: "66433324"
   
 1.  Dans la liste des ordinateurs, sélectionnez le compte pour lequel vous voulez afficher ou modifier les propriétés.  
   
-2.  Dans le **< nom_ordinateur\> tâches** volet, cliquez sur **afficher les propriétés de l’ordinateur**. La page **Propriétés** des ordinateurs s'affiche.  
+2.  Dans le volet **tâches\> < ComputerName** , cliquez sur **afficher les propriétés de l’ordinateur**. La page **Propriétés** des ordinateurs s'affiche.  
   
 3.  Cliquez sur un onglet pour afficher les propriétés pour cet ordinateur.  
   
@@ -183,9 +183,9 @@ ms.locfileid: "66433324"
   
 ## <a name="see-also"></a>Voir aussi  
   
--   [Gérer l’accès Web à distance](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [Gérer les Accès web distantes](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
--   [Utiliser l’accès Web à distance](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [Utiliser l’Accès web à distance](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
 -   [Gérer les comptes d’utilisateur à l’aide du tableau de bord](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage8)  
   

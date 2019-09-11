@@ -9,19 +9,19 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1023ca7da02d2a1f6af42f68892dc4c5c8f1a2bf
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 00ae720a933289e3cd4bde5fe9d20610e38ae726
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444368"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866034"
 ---
 # <a name="add-a-claim-description"></a>Ajouter une description de revendication
 
 
-Dans une organisation partenaire de compte, les administrateurs créent des revendications pour représenter l’appartenance d’un utilisateur dans un groupe ou un rôle ou pour représenter des données relatives à un utilisateur, par exemple, un employé numéro d’identification utilisateur.
+Dans une organisation partenaire de compte, les administrateurs créent des revendications pour représenter l’appartenance d’un utilisateur à un groupe ou à un rôle, ou pour représenter des données relatives à un utilisateur, par exemple, le numéro d’identification d’un utilisateur.
 
-Dans une organisation partenaire de ressource, les administrateurs créent des revendications correspondantes pour représenter des groupes et utilisateurs qui peuvent être identifiés en tant qu’utilisateurs de ressources. Étant donné que sortant de revendications dans l’organigramme du partenaire de compte pour les revendications entrantes dans l’organisation partenaire de ressource, le partenaire de ressource est en mesure d’accepter les informations d’identification fournies par le partenaire de compte. 
+Dans une organisation partenaire de ressource, les administrateurs créent des revendications correspondantes pour représenter les groupes et les utilisateurs qui peuvent être reconnus en tant qu’utilisateurs de ressources. Étant donné que les revendications sortantes dans l’organisation partenaire de compte sont mappées aux revendications entrantes dans l’organisation partenaire de ressource, le partenaire de ressource est en mesure d’accepter les informations d’identification fournies par le partenaire de compte. 
 
 Vous pouvez utiliser la procédure suivante pour ajouter une revendication.
 
@@ -29,20 +29,20 @@ Pour effectuer cette procédure, vous devez au minimum être membre du groupe **
 
 ## <a name="to-add-a-claim-description"></a>Pour ajouter une description de revendication
 
-1. Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion AD FS**. 
+1. Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**. 
 
-2. Développez **Service** et sur le bouton droit sur **ajouter une Description de revendication**.
-   ![add claim description](media/Add-a-Claim-Description/claimdesc1.png)
+2. Développez **service** , puis cliquez avec le bouton droit sur **Ajouter une description de revendication**.
+   ![Ajouter une description de revendication](media/Add-a-Claim-Description/claimdesc1.png)
 
-3. Sur l’ajout d’un Description de revendication boîte de dialogue **nom d’affichage**, tapez un nom unique qui identifie le groupe ou du rôle de cette revendication.
+3. Dans la boîte de dialogue Ajouter une description de revendication, dans **nom complet**, tapez un nom unique qui identifie le groupe ou le rôle de cette revendication.
 
-4. Ajouter un **nom abrégé**.
+4. Ajoutez un **nom abrégé**.
 
-5. Dans **revendication d’identificateur**, tapez un URI qui est associé avec le groupe ou du rôle de la revendication que vous souhaitez utiliser.
+5. Dans **identificateur de revendication**, tapez un URI associé au groupe ou au rôle de la revendication que vous allez utiliser.
 
 6. Sous **Description**, tapez le texte qui décrit le mieux l’objectif de cette revendication.
 
-7. Selon les besoins de votre organisation, sélectionnez une des cases à cocher suivantes, si nécessaire, pour publier cette revendication dans les métadonnées de fédération :
+7. En fonction des besoins de votre organisation, activez l’une des cases à cocher suivantes, le cas échéant, pour publier cette revendication dans les métadonnées de Fédération :
 
 
 ~~~

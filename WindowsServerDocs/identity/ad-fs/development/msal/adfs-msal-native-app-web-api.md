@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f1de6229d5360a4ea95d285f34ad32532762edca
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 588d717b8f03987b86af7dc0576d537ebd88c4ba
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983557"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867618"
 ---
 # <a name="scenario-native-app-calling-web-api"></a>Scénario : Application native appelant l’API Web 
 >S'applique à : AD FS 2019 et versions ultérieures 
@@ -49,11 +49,11 @@ Cette section montre comment inscrire l’application native comme un client pub
   
       ![Reg de l’application](media/adfs-msal-native-app-web-api/native2.png)  
 
-  3. Copiez la valeur de l' **identificateur du client** . Il sera utilisé ultérieurement comme valeur pour **ClientID** dans le fichier **app. config** de l’application. Entrez les informations suivantes pour l’URI de redirection **:** https://ToDoListClient. Cliquez sur **Ajouter**. Cliquez sur **Suivant**.  
+  3. Copiez la valeur de l' **identificateur du client** . Il sera utilisé ultérieurement comme valeur pour **ClientID** dans le fichier **app. config** de l’application. Entrez les informations suivantes pour l' **URI de redirection :** https://ToDoListClient. Cliquez sur **Ajouter**. Cliquez sur **Suivant**.  
  
      ![Reg de l’application](media/adfs-msal-native-app-web-api/native3.png) 
 
-  4. Dans l’écran configurer l’API Web, entrez l' **identificateur:** https://localhost:44321/. Cliquez sur **Ajouter**. Cliquez sur **Suivant**. Cette valeur sera utilisée ultérieurement dans les fichiers **app. config** et **Web. config** de l’application.
+  4. Dans l’écran configurer l’API Web, entrez l' **identificateur :** https://localhost:44321/. Cliquez sur **Ajouter**. Cliquez sur **Suivant**. Cette valeur sera utilisée ultérieurement dans les fichiers **app. config** et **Web. config** de l’application.
  
      ![Reg de l’application](media/adfs-msal-native-app-web-api/native4.png)   
   
@@ -85,7 +85,7 @@ Cette section montre comment inscrire l’application native comme un client pub
   
       ![Reg de l’application](media/adfs-msal-native-app-web-api/native10.png) 
 
-  13. Entrez **NameID** dans le champ nom de la **règle de revendication:** . Sélectionnez le **nom** du **type de revendication entrante:** , **ID de nom** pour le type de **revendication sortante:** et **nom commun** pour le **format d’ID de nom sortant:** . Cliquez sur **Terminer**.
+  13. Entrez **NameID** dans le champ nom de la **règle de revendication :** . Sélectionnez le **nom** du **type de revendication entrante :** , **ID de nom** pour le type de **revendication sortante :** et **nom commun** pour le **format d’ID de nom sortant :** . Cliquez sur **Terminer**.
   
       ![Reg de l’application](media/adfs-msal-native-app-web-api/native11.png) 
 
@@ -98,18 +98,18 @@ Cette section montre comment configurer une application native pour qu’elle se
 
 2. Ouvrir l’exemple à l’aide de Visual Studio 
 
-3. Ouvrez le fichier app. config. Modifiez les éléments suivants: 
-   - Ida: Authority: entrez https://[votre AD FS nom d’hôte]/ADFS
-   - Ida: ClientId: entrez la valeur de l' **identificateur du client** à partir de #3 dans inscription de l’application dans la section AD FS ci-dessus. 
-   - Ida: RedirectUri: entrez la valeur de l' **URI** de redirection de #3 dans inscription de l’application dans la section AD FS ci-dessus.
-   - TODO: TodoListResourceId – entrez la valeur de l' **identificateur** de #4 dans inscription de l’application dans la section AD FS ci-dessus 
-   - Ida: TODO: TodoListBaseAddress-entrez la valeur de l' **identificateur** de #4 dans inscription de l’application dans la section AD FS ci-dessus. 
+3. Ouvrez le fichier app. config. Modifiez les éléments suivants : 
+   - Ida : Authority : entrez https://[votre AD FS nom d’hôte]/ADFS
+   - Ida : ClientId : entrez la valeur de l' **identificateur du client** à partir de #3 dans inscription de l’application dans la section AD FS ci-dessus. 
+   - Ida : RedirectUri : entrez la valeur de l' **URI de redirection** de #3 dans inscription de l’application dans la section AD FS ci-dessus.
+   - TODO : TodoListResourceId – entrez la valeur de l' **identificateur** de #4 dans inscription de l’application dans la section AD FS ci-dessus 
+   - Ida : TODO : TodoListBaseAddress-entrez la valeur de l' **identificateur** de #4 dans inscription de l’application dans la section AD FS ci-dessus. 
  
      ![configuration du code](media/adfs-msal-native-app-web-api/native12.png)
 
- 4. Ouvrez le fichier Web. config. Modifiez les éléments suivants: 
-    - Ida: audience: entrez la valeur de l' **identificateur** de #4 dans inscription de l’application dans la section AD FS ci-dessus 
-    - Ida AdfsMetadataEndpoint: entrez https://[votre AD FS nom d’hôte]/FederationMetadata/2007-06/FederationMetadata.Xml 
+ 4. Ouvrez le fichier Web. config. Modifiez les éléments suivants : 
+    - Ida : audience : entrez la valeur de l' **identificateur** de #4 dans inscription de l’application dans la section AD FS ci-dessus 
+    - Ida AdfsMetadataEndpoint : entrez https://[votre AD FS nom d’hôte]/FederationMetadata/2007-06/FederationMetadata.Xml 
     
       ![configuration du code](media/adfs-msal-native-app-web-api/native13.png)
  
@@ -146,5 +146,5 @@ Cette section montre comment tester l’exemple configuré ci-dessus.
        ![Test de l’application](media/adfs-msal-native-app-web-api/native19.png)
  
 ## <a name="next-steps"></a>Étapes suivantes
-[AD FS les flux OpenID Connect/OAuth et les scénarios d’application](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
+[Flux OpenID Connect/OAuth avec AD FS et scénarios d’application](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
  

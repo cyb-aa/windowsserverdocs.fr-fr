@@ -9,17 +9,17 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 220b409b2e0bcc5e5a01aeb9f244ebaa55ac0e1e
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 586f2d7b73c6017f8b69103a09f6b38bb31f542d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544607"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865794"
 ---
 # <a name="configuring-alternate-login-id"></a>Configuration des ID de connexion alternatif
 
 
-## <a name="what-is-alternate-login-id"></a>Qu’est-ce que l’ID de connexion de substitution?
+## <a name="what-is-alternate-login-id"></a>Qu’est-ce que l’ID de connexion de substitution ?
 Dans la plupart des scénarios, les utilisateurs utilisent leur UPN (nom d’utilisateur principal) pour se connecter à leurs comptes. Toutefois, dans certains environnements en raison des stratégies d’entreprise ou des dépendances d’application métier locales, les utilisateurs peuvent utiliser une autre forme de connexion. 
 
 >[!NOTE]
@@ -30,7 +30,7 @@ Par exemple, ils peuvent utiliser leur ID d’adresse de messagerie pour la conn
 Services ADFS (AD FS) permet aux applications fédérées d’utiliser AD FS pour se connecter à l’aide d’un autre ID. Cela permet aux administrateurs de spécifier une alternative à l’UPN par défaut à utiliser pour la connexion. AD FS prend déjà en charge l’utilisation d’une forme d’identificateur d’utilisateur acceptée par Active Directory Domain Services (AD DS). Lorsqu’il est configuré pour un autre ID, AD FS permet aux utilisateurs de se connecter à l’aide de la valeur ID de remplacement configurée, par exemple, l’ID de messagerie. L’utilisation de l’ID secondaire vous permet d’adopter des fournisseurs SaaS, comme Office 365 sans modifier vos UPN locaux. Elle vous permet également de prendre en charge des applications de service métier avec des identités approvisionnées par les consommateurs.
 
 ## <a name="alternate-id-in-azure-ad"></a>Autre ID dans Azure AD
-Une organisation peut avoir à utiliser un autre ID dans les scénarios suivants:
+Une organisation peut avoir à utiliser un autre ID dans les scénarios suivants :
 1. Le nom de domaine local n’est pas routable, par exemple Contoso. local et, par conséquent, le nom d’utilisateur principal par défaut n’est pasjdoe@contoso.localroutable (). Impossible de modifier l’UPN existant en raison de dépendances d’application locales ou de stratégies d’entreprise. Azure AD et Office 365 requièrent que tous les suffixes de domaine associés à Azure AD Directory soient entièrement routés sur Internet. 
 2. L’UPN local est différent de l’adresse de messagerie de l’utilisateur et pour se connecter à Office 365, les utilisateurs utilisent l’adresse de messagerie et l’UPN ne peuvent pas être utilisés en raison de contraintes organisationnelles.
    Dans les scénarios mentionnés ci-dessus, l’ID alternatif avec AD FS permet aux utilisateurs de se connecter à Azure AD sans modifier vos UPN locaux. 
@@ -39,7 +39,7 @@ Une organisation peut avoir à utiliser un autre ID dans les scénarios suivants
 L’expérience de l’utilisateur final varie en fonction de la méthode d’authentification utilisée avec l’ID de connexion de substitution.  Il existe actuellement trois façons différentes d’utiliser l’ID de connexion de substitution.  Celles-ci sont les suivantes :
 
 - **Authentification normale (héritée)** : utilise le protocole d’authentification de base.
-- **L’authentification moderne** : permet aux applications de se connecter à Bibliothèque D’AUTHENTIFICATION Active Directory (Adal). Cela permet des fonctionnalités de connexion telles que l’authentification multifacteur (MFA), les fournisseurs d’identité tiers basés sur SAML avec les applications clientes Office, l’authentification par carte à puce et par certificat.
+- **L’authentification moderne** : permet aux applications de se connecter à Bibliothèque D’AUTHENTIFICATION Active Directory (Adal). Cela permet des fonctionnalités de connexion telles que les Multi-Factor Authentication (MFA), les fournisseurs d’identité tiers basés sur SAML avec les applications clientes Office, l’authentification par carte à puce et par certificat.
 - **Authentification moderne hybride** : fournit tous les avantages de l’authentification moderne et offre aux utilisateurs la possibilité d’accéder aux applications locales à l’aide de jetons d’autorisation obtenus à partir du Cloud.
 
 >[!NOTE]
@@ -59,11 +59,11 @@ Lorsque Azure AD Connect contient des détails sur AD FS environnement, il véri
 > Microsoft recommande d’utiliser Azure AD Connect pour configurer un ID de connexion de substitution.
 
 ### <a name="manually-configure-alternate-id"></a>Configurer manuellement un autre ID
-Pour configurer un ID de connexion de substitution, vous devez effectuer les tâches suivantes: Configurer vos approbations de fournisseur de revendications AD FS pour activer l’ID de connexion de substitution
+Pour configurer un ID de connexion de substitution, vous devez effectuer les tâches suivantes : Configurer vos approbations de fournisseur de revendications AD FS pour activer l’ID de connexion de substitution
 
 1.  Si vous avez un serveur 2012 R2, assurez-vous que KB2919355 est installé sur tous les serveurs AD FS. Vous pouvez l’utiliser via Windows Update Services ou le télécharger directement. 
 
-2.  Mettez à jour la configuration de AD FS en exécutant l’applet de commande PowerShell suivante sur l’un des serveurs de Fédération de votre batterie de serveurs (si vous avez une batterie de serveurs WID, vous devez exécuter cette commande sur le serveur de AD FS principal de votre batterie de serveurs):
+2.  Mettez à jour la configuration de AD FS en exécutant l’applet de commande PowerShell suivante sur l’un des serveurs de Fédération de votre batterie de serveurs (si vous avez une batterie de serveurs WID, vous devez exécuter cette commande sur le serveur de AD FS principal de votre batterie de serveurs) :
 
 ``` powershell
 Set-AdfsClaimsProviderTrust -TargetIdentifier "AD AUTHORITY" -AlternateLoginID <attribute> -LookupForests <forest domain>
@@ -75,7 +75,7 @@ Set-AdfsClaimsProviderTrust -TargetIdentifier "AD AUTHORITY" -AlternateLoginID <
 
 Pour activer la fonctionnalité d’ID de connexion de substitution, vous devez configurer les paramètres-AlternateLoginID et-LookupForests avec une valeur non null, valide.
 
-Dans l’exemple suivant, vous activez d’autres fonctionnalités d’ID de connexion, de sorte que vos utilisateurs disposant de comptes dans les forêts contoso.com et fabrikam.com peuvent se connecter aux applications AD FS avec leur attribut «mail».
+Dans l’exemple suivant, vous activez d’autres fonctionnalités d’ID de connexion, de sorte que vos utilisateurs disposant de comptes dans les forêts contoso.com et fabrikam.com peuvent se connecter aux applications AD FS avec leur attribut « mail ».
 
 ``` powershell
 Set-AdfsClaimsProviderTrust -TargetIdentifier "AD AUTHORITY" -AlternateLoginID mail -LookupForests contoso.com,fabrikam.com
@@ -145,7 +145,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 
 ![Flux d’authentification](media/Configure-Alternate-Login-ID/alt1a.png)
 
-1. un L’utilisateur est approvisionné dans Azure AD à l’aide d’un autre ID
+1. Un L’utilisateur est approvisionné dans Azure AD à l’aide d’un autre ID
    </br>p L’administrateur de l’annuaire pousse les paramètres de RegKey requis sur les ordinateurs clients concernés
 2. L’utilisateur s’authentifie sur l’ordinateur local et ouvre une application Office
 3. L’application Office prend les informations d’identification de session locale
@@ -159,25 +159,25 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 |Client|Support (instruction)|Notes|
 | ----- | -----|-----|
 |Microsoft Teams|Pris en charge|<li>Microsoft teams prend en charge les AD FS (SAML-P, WS-FED, WS-Trust et OAuth) et l’authentification moderne.</li><li> Les fonctionnalités principales de Microsoft, telles que les canaux, les conversations et les fonctionnalités de fichiers, fonctionnent avec un ID de connexion de substitution.</li><li>les applications de première et tierces doivent être examinées séparément par le client. Cela est dû au fait que chaque application possède ses propres protocoles d’authentification de prise en charge.</li>|     
-|OneDrive Entreprise|Prise en charge: clé de Registre côté client recommandée |Avec l’ID secondaire configuré, vous voyez que l’UPN local est prérempli dans le champ vérification. Cela doit être remplacé par l’identité qui est utilisée. Nous vous recommandons d’utiliser la clé de Registre côté client indiquée dans cet article: Office 2013 et Lync 2013 demandent périodiquement des informations d’identification pour SharePoint Online, OneDrive et Lync Online.|
+|OneDrive Entreprise|Prise en charge : clé de Registre côté client recommandée |Avec l’ID secondaire configuré, vous voyez que l’UPN local est prérempli dans le champ vérification. Cela doit être remplacé par l’identité qui est utilisée. Nous vous recommandons d’utiliser la clé de Registre côté client indiquée dans cet article : Office 2013 et Lync 2013 demandent périodiquement des informations d’identification pour SharePoint Online, OneDrive et Lync Online.|
 |Client mobile OneDrive entreprise|Pris en charge|| 
-|Page d’activation d’Office 365 Pro plus|Prise en charge: clé de Registre côté client recommandée|Avec l’ID secondaire configuré, vous voyez que l’UPN local est prérempli dans le champ vérification. Cela doit être remplacé par l’identité qui est utilisée. Nous vous recommandons d’utiliser la clé de Registre côté client indiquée dans cet article: Office 2013 et Lync 2013 demandent périodiquement des informations d’identification pour SharePoint Online, OneDrive et Lync Online.|
+|Page d’activation d’Office 365 Pro plus|Prise en charge : clé de Registre côté client recommandée|Avec l’ID secondaire configuré, vous voyez que l’UPN local est prérempli dans le champ vérification. Cela doit être remplacé par l’identité qui est utilisée. Nous vous recommandons d’utiliser la clé de Registre côté client indiquée dans cet article : Office 2013 et Lync 2013 demandent périodiquement des informations d’identification pour SharePoint Online, OneDrive et Lync Online.|
 
 ### <a name="exchange-and-skype-for-business-clients"></a>Clients Exchange et Skype entreprise
 
 |Client|Support Statement-with HMA|Déclaration de support-sans HMA|
 | ----- |----- | ----- |
-|Outlook|Pris en charge, aucune invite supplémentaire|Pris en charge</br></br>Avec **l’authentification moderne** pour Exchange Online: Pris en charge</br></br>Avec **l’authentification régulière** pour Exchange Online: Pris en charge avec les avertissements suivants:</br><li>Vous devez être sur un ordinateur joint à un domaine et être connecté au réseau d’entreprise </li><li>Vous pouvez utiliser uniquement un autre ID dans les environnements qui n’autorisent pas l’accès externe pour les utilisateurs de boîtes aux lettres. Cela signifie que les utilisateurs peuvent uniquement s’authentifier sur leur boîte aux lettres de manière prise en charge lorsqu’ils sont connectés et joints au réseau d’entreprise, sur un VPN ou connectés via des ordinateurs à accès direct, mais vous recevez quelques invites supplémentaires lors de la configuration de votre profil Outlook.| 
-|Dossiers publics hybrides|Pris en charge, aucune invite supplémentaire.|Avec **l’authentification moderne** pour Exchange Online: Pris en charge</br></br>Avec **l’authentification régulière** pour Exchange Online: Non pris en charge</br></br><li>Les dossiers publics hybrides ne peuvent pas être étendus si des ID de substitution sont utilisés et ne doivent donc pas être utilisés aujourd’hui avec les méthodes d’authentification standard.|
+|Outlook|Pris en charge, aucune invite supplémentaire|Pris en charge</br></br>Avec **l’authentification moderne** pour Exchange Online : Pris en charge</br></br>Avec **l’authentification régulière** pour Exchange Online : Pris en charge avec les avertissements suivants :</br><li>Vous devez être sur un ordinateur joint à un domaine et être connecté au réseau d’entreprise </li><li>Vous pouvez utiliser uniquement un autre ID dans les environnements qui n’autorisent pas l’accès externe pour les utilisateurs de boîtes aux lettres. Cela signifie que les utilisateurs peuvent uniquement s’authentifier sur leur boîte aux lettres de manière prise en charge lorsqu’ils sont connectés et joints au réseau d’entreprise, sur un VPN ou connectés via des ordinateurs à accès direct, mais vous recevez quelques invites supplémentaires lors de la configuration de votre profil Outlook.| 
+|Dossiers publics hybrides|Pris en charge, aucune invite supplémentaire.|Avec **l’authentification moderne** pour Exchange Online : Pris en charge</br></br>Avec **l’authentification régulière** pour Exchange Online : Non pris en charge</br></br><li>Les dossiers publics hybrides ne peuvent pas être étendus si des ID de substitution sont utilisés et ne doivent donc pas être utilisés aujourd’hui avec les méthodes d’authentification standard.|
 |Délégation entre locaux|Consultez [configurer Exchange pour prendre en charge les autorisations déléguées de boîte aux lettres dans un déploiement hybride](https://technet.microsoft.com/library/mt784505.aspx)|Consultez [configurer Exchange pour prendre en charge les autorisations déléguées de boîte aux lettres dans un déploiement hybride](https://technet.microsoft.com/library/mt784505.aspx)|
-|Archiver l’accès aux boîtes aux lettres (boîte aux lettres locale-Archive dans le Cloud)|Pris en charge, aucune invite supplémentaire|Pris en charge: les utilisateurs reçoivent une invite supplémentaire pour les informations d’identification lors de l’accès à l’archive. ils doivent fournir leur autre ID lorsque vous y êtes invité.| 
+|Archiver l’accès aux boîtes aux lettres (boîte aux lettres locale-Archive dans le Cloud)|Pris en charge, aucune invite supplémentaire|Pris en charge : les utilisateurs reçoivent une invite supplémentaire pour les informations d’identification lors de l’accès à l’archive. ils doivent fournir leur autre ID lorsque vous y êtes invité.| 
 |Outlook Web Access|Pris en charge|Pris en charge|
 |Outlook Mobile Apps pour Android, IOS et Windows Phone|Pris en charge|Pris en charge|
-|Skype entreprise/Lync|Pris en charge, sans invite supplémentaire|Pris en charge (sauf indication contraire), mais il existe un risque de confusion pour l’utilisateur.</br></br>Sur les clients mobiles, l’ID alternatif est pris en charge uniquement si adresse SIP = adresse de messagerie = autre ID.</br></br> Il se peut que les utilisateurs doivent se connecter deux fois au client de bureau Skype entreprise, en utilisant d’abord l’UPN local, puis l’ID secondaire. (Notez que l’adresse de connexion est en fait l’adresse SIP qui peut ne pas être la même que le «nom d’utilisateur», bien que c’est souvent le cas). Quand vous êtes invité à entrer un nom d’utilisateur pour la première fois, l’utilisateur doit entrer l’UPN, même s’il est pré-rempli de manière incorrecte avec l’ID ou l’adresse SIP de remplacement. Une fois que l’utilisateur a cliqué sur se connecter avec l’UPN, l’invite de nom d’utilisateur réapparaît et cette fois prérempli avec l’UPN. Cette fois-ci, l’utilisateur doit remplacer ceci par l’ID de substitution, puis cliquer sur se connecter pour terminer le processus de connexion. Sur les clients mobiles, les utilisateurs doivent entrer l’ID d’utilisateur local dans la page avancé, en utilisant le format de type SAM (domaine\nom_utilisateur), et non le format UPN.</br></br>Après une connexion réussie, si Skype entreprise ou Lync indique «Exchange a besoin de vos informations d’identification», vous devez fournir les informations d’identification valides pour l’emplacement de la boîte aux lettres. Si la boîte aux lettres se trouve dans le Cloud, vous devez fournir l’ID de remplacement. Si la boîte aux lettres est locale, vous devez fournir l’UPN local.| 
+|Skype entreprise/Lync|Pris en charge, sans invite supplémentaire|Pris en charge (sauf indication contraire), mais il existe un risque de confusion pour l’utilisateur.</br></br>Sur les clients mobiles, l’ID alternatif est pris en charge uniquement si adresse SIP = adresse de messagerie = autre ID.</br></br> Il se peut que les utilisateurs doivent se connecter deux fois au client de bureau Skype entreprise, en utilisant d’abord l’UPN local, puis l’ID secondaire. (Notez que l’adresse de connexion est en fait l’adresse SIP qui peut ne pas être la même que le « nom d’utilisateur », bien que c’est souvent le cas). Quand vous êtes invité à entrer un nom d’utilisateur pour la première fois, l’utilisateur doit entrer l’UPN, même s’il est pré-rempli de manière incorrecte avec l’ID ou l’adresse SIP de remplacement. Une fois que l’utilisateur a cliqué sur se connecter avec l’UPN, l’invite de nom d’utilisateur réapparaît et cette fois prérempli avec l’UPN. Cette fois-ci, l’utilisateur doit remplacer ceci par l’ID de substitution, puis cliquer sur se connecter pour terminer le processus de connexion. Sur les clients mobiles, les utilisateurs doivent entrer l’ID d’utilisateur local dans la page avancé, en utilisant le format de type SAM (domaine\nom_utilisateur), et non le format UPN.</br></br>Après une connexion réussie, si Skype entreprise ou Lync indique « Exchange a besoin de vos informations d’identification », vous devez fournir les informations d’identification valides pour l’emplacement de la boîte aux lettres. Si la boîte aux lettres se trouve dans le Cloud, vous devez fournir l’ID de remplacement. Si la boîte aux lettres est locale, vous devez fournir l’UPN local.| 
 
 ## <a name="additional-details--considerations"></a>Détails supplémentaires & considérations
 
--   La fonctionnalité de l’ID de connexion de substitution est disponible pour les environnements fédérés avec AD FS déployée.  Il n’est pas pris en charge dans les scénarios suivants:
+-   La fonctionnalité de l’ID de connexion de substitution est disponible pour les environnements fédérés avec AD FS déployée.  Il n’est pas pris en charge dans les scénarios suivants :
     -   Domaines non routables (par exemple, contoso. local) qui ne peuvent pas être vérifiés par Azure AD.
     -   Environnements gérés qui n’ont pas AD FS déployés.
 
@@ -195,29 +195,29 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 
 -   Si l’une des forêts configurée par l’administrateur est en cours, AD FS continue à rechercher le compte d’utilisateur avec un ID de connexion de substitution dans d’autres forêts configurées. Si AD FS serveur trouve un objet utilisateur unique dans les forêts dans lesquelles il a effectué une recherche, un utilisateur se connecte avec succès.
 
--   Vous pouvez en outre personnaliser la page de connexion AD FS pour fournir aux utilisateurs finaux des indications sur l’ID de connexion de substitution. Vous pouvez le faire en ajoutant la description de la page de connexion personnalisée (pour plus d’informations, consultez [Personnalisation des pages de connexion AD FS](https://technet.microsoft.com/library/dn280950.aspx) ou personnalisation de la chaîne «se connecter avec le compte de l’organisation» au-dessus du champ nom d’utilisateur (pour plus d’informations, consultez [ Personnalisation avancée des pages de connexion AD FS](https://technet.microsoft.com/library/dn636121.aspx).
+-   Vous pouvez en outre personnaliser la page de connexion AD FS pour fournir aux utilisateurs finaux des indications sur l’ID de connexion de substitution. Vous pouvez le faire en ajoutant la description de la page de connexion personnalisée (pour plus d’informations, consultez [Personnalisation des pages de connexion AD FS](https://technet.microsoft.com/library/dn280950.aspx) ou personnalisation de la chaîne « se connecter avec le compte de l’organisation » au-dessus du champ nom d’utilisateur (pour plus d’informations, consultez [ Personnalisation avancée des pages de connexion AD FS](https://technet.microsoft.com/library/dn636121.aspx).
 
--   Le nouveau type de revendication qui contient la valeur de l’ID de connexion de remplacement est **http:schemas. Microsoft. com/ws/2013/11/alternateloginid**
+-   Le nouveau type de revendication qui contient la valeur de l’ID de connexion de remplacement est **http :schemas. Microsoft. com/ws/2013/11/alternateloginid**
 
 ## <a name="events-and-performance-counters"></a>Événements et compteurs de performances
-Les compteurs de performances suivants ont été ajoutés pour mesurer les performances des serveurs AD FS lorsque l’ID de connexion de substitution est activé:
+Les compteurs de performances suivants ont été ajoutés pour mesurer les performances des serveurs AD FS lorsque l’ID de connexion de substitution est activé :
 
--   Authentifications d’ID de connexion de substitution: nombre d’authentifications effectuées à l’aide d’un ID de connexion de substitution
+-   Authentifications d’ID de connexion de substitution : nombre d’authentifications effectuées à l’aide d’un ID de connexion de substitution
 
--   Authentifications d’ID de connexion de substitution/s: nombre d’authentifications effectuées à l’aide d’un ID de connexion de substitution par seconde
+-   Authentifications d’ID de connexion de substitution/s : nombre d’authentifications effectuées à l’aide d’un ID de connexion de substitution par seconde
 
--   Latence de recherche moyenne pour l’ID de connexion de substitution: latence de recherche moyenne sur les forêts qu’un administrateur a configurées pour l’ID de connexion de substitution
+-   Latence de recherche moyenne pour l’ID de connexion de substitution : latence de recherche moyenne sur les forêts qu’un administrateur a configurées pour l’ID de connexion de substitution
 
-Voici les différents cas d’erreur et l’impact correspondant sur l’expérience de connexion d’un utilisateur avec des événements consignés par AD FS:
+Voici les différents cas d’erreur et l’impact correspondant sur l’expérience de connexion d’un utilisateur avec des événements consignés par AD FS :
 
 
 
 |                       **Cas d’erreur**                        | **Impact sur l’expérience de connexion** |                                                              **Event**                                                              |
 |--------------------------------------------------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Impossible d’obtenir une valeur pour SAMAccountName pour l’objet utilisateur |          Échec de la connexion           |                  ID d’événement 364 avec le message d’exception MSIS8012: SamAccountName introuvable pour l’utilisateur: '{0}'.                   |
-|        L’attribut CanonicalName n’est pas accessible         |          Échec de la connexion           |               ID d’événement 364 avec le message d’exception MSIS8013: CanonicalName: '{0}'de l’utilisateur: '{1}'est dans un format incorrect.                |
-|        Plusieurs objets utilisateur se trouvent dans une forêt        |          Échec de la connexion           | ID d’événement 364 avec le message d’exception MSIS8015: Plusieurs comptes d’utilisateur avec l’identité{0}«» ont été{1}trouvés dans la forêt «» avec des identités:{2} |
-|   Plusieurs objets utilisateur sont trouvés dans plusieurs forêts    |          Échec de la connexion           |           ID d’événement 364 avec le message d’exception MSIS8014: Plusieurs comptes d’utilisateur avec l’identité{0}' 'ont été trouvés dans les forêts:{1}            |
+| Impossible d’obtenir une valeur pour SAMAccountName pour l’objet utilisateur |          Échec de la connexion           |                  ID d’événement 364 avec le message d’exception MSIS8012 : SamAccountName introuvable pour l’utilisateur : '{0}'.                   |
+|        L’attribut CanonicalName n’est pas accessible         |          Échec de la connexion           |               ID d’événement 364 avec le message d’exception MSIS8013 : CanonicalName : '{0}'de l’utilisateur : '{1}'est dans un format incorrect.                |
+|        Plusieurs objets utilisateur se trouvent dans une forêt        |          Échec de la connexion           | ID d’événement 364 avec le message d’exception MSIS8015 : Plusieurs comptes d’utilisateur avec l’identité{0}« » ont été{1}trouvés dans la forêt « » avec des identités :{2} |
+|   Plusieurs objets utilisateur sont trouvés dans plusieurs forêts    |          Échec de la connexion           |           ID d’événement 364 avec le message d’exception MSIS8014 : Plusieurs comptes d’utilisateur avec l’identité{0}' 'ont été trouvés dans les forêts :{1}            |
 
 ## <a name="see-also"></a>Voir aussi
 [Opérations d’AD FS](../../ad-fs/AD-FS-2016-Operations.md)

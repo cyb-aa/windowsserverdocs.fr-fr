@@ -1,5 +1,5 @@
 ---
-title: Créer une clé d’hôte et ajoutez-le à SGH
+title: Créer une clé d’hôte et l’ajouter à SGH
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.topic: article
@@ -8,54 +8,54 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 0526831fb0648e7f8f6fb1a081180f2e2aa9f09f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 655ebae66b234d62e5863e2a22e785d5a0028da7
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447491"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870540"
 ---
-# <a name="create-a-host-key-and-add-it-to-hgs"></a>Créer une clé d’hôte et ajoutez-le à SGH
+# <a name="create-a-host-key-and-add-it-to-hgs"></a>Créer une clé d’hôte et l’ajouter à SGH
 
 >S’applique à : Windows Server 2019
 
 
-Cette rubrique explique comment préparer des ordinateurs hôtes Hyper-V pour devenir des hôtes service Guardian à l’aide de l’attestation de clé hôte (mode de clé). Vous allez créer une paire de clés d’hôte (ou utiliser un certificat existant) et ajouter la moitié de la clé publique à SGH.
+Cette rubrique explique comment préparer des hôtes Hyper-V pour qu’ils deviennent des hôtes protégés à l’aide de l’attestation de clé hôte (mode clé). Vous allez créer une paire de clés d’hôte (ou utiliser un certificat existant) et ajouter la moitié publique de la clé à SGH.
 
-## <a name="create-a-host-key"></a>Créer une clé d’hôte
+## <a name="create-a-host-key"></a>Créer une clé hôte
 
-1.  Installez Windows Server 2019 sur votre ordinateur hôte de Hyper-V.
-2.  Installez les composants Hyper-V et de Support de Hyper-V Guardian hôte :
+1.  Installez Windows Server 2019 sur votre ordinateur hôte Hyper-V.
+2.  Installez les fonctionnalités de prise en charge d’Hyper-V et de Guardian hôte pour Hyper-V :
 
     ```powershell
     Install-WindowsFeature Hyper-V, HostGuardian -IncludeManagementTools -Restart
     ``` 
 
-3.  Générer automatiquement une clé d’hôte, ou sélectionner un certificat existant. Si vous utilisez un certificat personnalisé, il doit avoir au moins une clé RSA 2048 bits, EKU de l’authentification de Client et l’utilisation de la clé de Signature numérique.
+3.  Générez automatiquement une clé d’hôte ou sélectionnez un certificat existant. Si vous utilisez un certificat personnalisé, il doit avoir au moins une clé RSA 2048 bits, une utilisation améliorée de la clé d’authentification client et une clé de signature numérique.
 
     ```powershell
     Set-HgsClientHostKey
     ```
 
     Vous pouvez également spécifier une empreinte numérique si vous souhaitez utiliser votre propre certificat. 
-    Cela peut être utile si vous souhaitez partager un certificat sur plusieurs ordinateurs, ou utiliser un certificat lié à un module de plateforme sécurisée ou d’un module HSM. Voici un exemple de création d’un certificat lié à du module de plateforme sécurisée (ce qui empêche de générer la clé privée volé et utilisé sur un autre ordinateur et nécessite un TPM 1.2) :
+    Cela peut être utile si vous souhaitez partager un certificat sur plusieurs ordinateurs ou utiliser un certificat lié à un module de plateforme sécurisée (TPM) ou à un HSM. Voici un exemple de création d’un certificat lié au module de plateforme sécurisée (TPM) (ce qui empêche le vol et l’utilisation de la clé privée sur un autre ordinateur et requiert uniquement un TPM 1,2) :
 
     ```powershell
     $tpmBoundCert = New-SelfSignedCertificate -Subject “Host Key Attestation ($env:computername)” -Provider “Microsoft Platform Crypto Provider”
     Set-HgsClientHostKey -Thumbprint $tpmBoundCert.Thumbprint
     ```
 
-4.  Obtenir la moitié publique de la clé pour fournir au serveur SGH. Vous pouvez utiliser l’applet de commande suivant ou, si vous disposez du certificat stocké ailleurs, fournir un fichier .cer contenant le public la moitié de la clé. Notez que nous utilisons uniquement stocker et de validation de la clé publique sur SGH ; Nous ne conservons aucune des informations de certificat ni nous valident la date de chaîne ou d’expiration du certificat.
+4.  Obtenir la partie publique de la clé à fournir au serveur SGH. Vous pouvez utiliser l’applet de commande suivante ou, si vous avez le certificat stocké ailleurs, fournissez un. cer contenant la moitié publique de la clé. Notez que nous enregistrons et validons uniquement la clé publique sur SGH ; Nous ne conservons pas les informations de certificat et nous validons la chaîne de certificats ou la date d’expiration.
 
     ```powershell
     Get-HgsClientHostKey -Path "C:\temp\$env:hostname-HostKey.cer"
     ```
 
-5.  Copiez le fichier .cer à votre serveur SGH.
+5.  Copiez le fichier. cer sur votre serveur SGH.
 
-## <a name="add-the-host-key-to-the-attestation-service"></a>Ajouter la clé d’hôte pour le service d’attestation
+## <a name="add-the-host-key-to-the-attestation-service"></a>Ajouter la clé d’hôte au service d’attestation
 
-Cette étape est effectuée sur le serveur SGH et permet à l’hôte exécuter des machines virtuelles protégées. Il est recommandé que vous définissez le nom sur le nom de domaine complet ou identificateur de ressource de l’ordinateur hôte, vous pouvez facilement faire référence hôte sur lequel la clé est installé sur.
+Cette étape est effectuée sur le serveur SGH et permet à l’hôte d’exécuter des machines virtuelles protégées. Il est recommandé de définir le nom sur le nom de domaine complet ou l’identificateur de ressource de l’ordinateur hôte. vous pouvez donc facilement vous référer à l’hôte sur lequel la clé est installée.
 
 ```powershell
 Add-HgsAttestationHostKey -Name MyHost01 -Path "C:\temp\MyHost01-HostKey.cer"
@@ -64,8 +64,8 @@ Add-HgsAttestationHostKey -Name MyHost01 -Path "C:\temp\MyHost01-HostKey.cer"
 ## <a name="next-step"></a>Étape suivante
 
 > [!div class="nextstepaction"]
-> [Confirmer les ordinateurs hôtes peuvent correctement attester](guarded-fabric-confirm-hosts-can-attest-successfully.md)
+> [Confirmer que les hôtes peuvent attester correctement](guarded-fabric-confirm-hosts-can-attest-successfully.md)
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Déploiement du Service Guardian hôte pour les hôtes service Guardian et des machines virtuelles protégées](guarded-fabric-deploying-hgs-overview.md)
+- [Déploiement du service Guardian hôte pour les hôtes service Guardian et les machines virtuelles protégées](guarded-fabric-deploying-hgs-overview.md)

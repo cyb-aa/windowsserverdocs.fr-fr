@@ -1,6 +1,6 @@
 ---
-title: Mise à niveau, la sauvegarde et restauration SDN infrastructure
-description: Dans cette rubrique, vous allez apprendre à mettre à jour, de sauvegarde et de restauration d’une infrastructure SDN.
+title: Mettre à niveau, sauvegarder et restaurer l’infrastructure SDN
+description: Dans cette rubrique, vous allez apprendre à mettre à jour, sauvegarder et restaurer une infrastructure SDN.
 manager: dougkim
 ms.prod: windows-server-threshold
 ms.technology: networking-sdn
@@ -9,78 +9,78 @@ ms.assetid: e9a8f2fd-48fe-4a90-9250-f6b32488b7a4
 ms.author: grcusanz
 author: shortpatti
 ms.date: 08/27/2018
-ms.openlocfilehash: 7916377f58261d0ccaa3fa24f135fccca3d5e79b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1bee4ef9023a1fab49bf796907780662a0297a7c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446335"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869958"
 ---
-# <a name="upgrade-backup-and-restore-sdn-infrastructure"></a>Mise à niveau, la sauvegarde et restauration SDN infrastructure
+# <a name="upgrade-backup-and-restore-sdn-infrastructure"></a>Mettre à niveau, sauvegarder et restaurer l’infrastructure SDN
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Dans cette rubrique, vous allez apprendre à mettre à jour, de sauvegarde et de restauration d’une infrastructure SDN. 
+Dans cette rubrique, vous allez apprendre à mettre à jour, sauvegarder et restaurer une infrastructure SDN. 
 
-## <a name="upgrade-the-sdn-infrastructure"></a>Mise à niveau l’infrastructure SDN
-Infrastructure SDN peut être mis à niveau à partir de Windows Server 2016 pour Windows Server 2019. Pour la mise à niveau de classement, suivez la même séquence d’étapes, comme indiqué dans la section « Mise à jour de l’infrastructure SDN ». Avant la mise à niveau, il est recommandé pour effectuer une sauvegarde de la base de données du contrôleur de réseau.
+## <a name="upgrade-the-sdn-infrastructure"></a>Mettre à niveau l’infrastructure SDN
+L’infrastructure SDN peut être mise à niveau de Windows Server 2016 vers Windows Server 2019. Pour le classement de mise à niveau, suivez la même séquence d’étapes que celle indiquée dans la section « mettre à jour l’infrastructure SDN ». Avant la mise à niveau, il est recommandé d’effectuer une sauvegarde de la base de données du contrôleur de réseau.
 
-Pour les machines de contrôleur de réseau, utilisez l’applet de commande Get-NetworkControllerNode pour vérifier l’état du nœud après que la mise à niveau est terminée. Assurez-vous que le nœud est à nouveau « Jusqu'à « état avant la mise à niveau les autres nœuds. Une fois que vous avez mis à niveau tous les nœuds de contrôleur de réseau, le contrôleur de réseau met à jour les microservices en cours d’exécution au sein du cluster de contrôleur de réseau au sein d’une heure. Vous pouvez déclencher une mise à jour immédiate à l’aide de l’applet de commande update-networkcontroller. 
+Pour les ordinateurs de contrôleur de réseau, utilisez l’applet de commande NetworkControllerNode pour vérifier l’état du nœud une fois la mise à niveau terminée. Assurez-vous que le nœud revient à l’État « haut » avant de mettre à niveau les autres nœuds. Une fois que vous avez mis à niveau tous les nœuds du contrôleur de réseau, le contrôleur de réseau met à jour les microservices qui s’exécutent au sein du cluster de contrôleur de réseau dans l’heure qui s’est écoulée. Vous pouvez déclencher une mise à jour immédiate à l’aide de l’applet de commande Update-networkcontroller. 
 
-Installer les mises à jour de Windows mêmes sur tous les composants de système d’exploitation du système de mise en réseau SDN (Software Defined), qui inclut :
+Installez les mêmes mises à jour Windows sur tous les composants du système d’exploitation du système SDN (Software Defined Networking), notamment :
 
-- SDN activé des hôtes Hyper-V
-- Machines virtuelles du contrôleur réseau
-- Machines virtuelles Mux d’équilibreur de charge logiciel
+- Ordinateurs hôtes Hyper-V activés pour SDN
+- Machines virtuelles du contrôleur de réseau
+- Logiciels Load Balancer les machines virtuelles MUX
 - Machines virtuelles de passerelle RAS 
 
 >[!IMPORTANT]
->Si vous utilisez System Center Virtual Manager, vous devez le mettre à jour avec les dernières mises à jour cumulatives.
+>Si vous utilisez System Center Virtual Manager, vous devez le mettre à jour avec les correctifs cumulatifs les plus récents.
 
-Lorsque vous mettez à jour chaque composant, vous pouvez utiliser une des méthodes standards pour l’installation des mises à jour de Windows. Toutefois, pour garantir des temps d’arrêt minimal pour les charges de travail et l’intégrité de la base de données du contrôleur de réseau, procédez comme suit :
+Lorsque vous mettez à jour chaque composant, vous pouvez utiliser l’une des méthodes standard pour installer les mises à jour Windows. Toutefois, pour garantir un temps d’arrêt minimal pour les charges de travail et l’intégrité de la base de données du contrôleur de réseau, procédez comme suit :
 
-1. Mettre à jour les consoles de gestion.<p>Installer les mises à jour sur chacun des ordinateurs où vous utilisez le module Powershell de contrôleur de réseau.  N’importe où, notamment d’avoir le rôle de RSAT-NetworkController installé par lui-même. À l’exclusion de la machines virtuelles du contrôleur réseau elles-mêmes. vous les mettre à jour à l’étape suivante.
+1. Mettez à jour les consoles de gestion.<p>Installez les mises à jour sur chacun des ordinateurs sur lesquels vous utilisez le module PowerShell du contrôleur de réseau.  Y compris partout où le rôle RSAT-NetworkController est installé par lui-même. Exclusion des machines virtuelles du contrôleur de réseau elles-mêmes ; vous les mettez à jour à l’étape suivante.
 
-2. Sur la première machine virtuelle du contrôleur de réseau, installez toutes les mises à jour, puis redémarrez.
+2. Sur la première machine virtuelle du contrôleur de réseau, installez toutes les mises à jour et redémarrez.
 
-3. Avant de passer à la machine virtuelle de contrôleur de réseau suivant, utilisez le `get-networkcontrollernode` applet de commande pour vérifier l’état du nœud que vous avez mis à jour et redémarré.
+3. Avant de passer à la machine virtuelle du contrôleur de réseau `get-networkcontrollernode` suivante, utilisez l’applet de commande pour vérifier l’état du nœud que vous avez mis à jour et redémarré.
 
-4. Au cours du cycle de redémarrage, attendez que le nœud de contrôleur de réseau à tomber en panne et puis revienne en ligne à nouveau.<p>Après le redémarrage de la machine virtuelle, il peut prendre plusieurs minutes avant qu’il réintègre le **_des_** état. Pour obtenir un exemple de la sortie, consultez 
+4. Pendant le cycle de redémarrage, attendez que le nœud du contrôleur de réseau s’affiche, puis revenez en arrière.<p>Après le redémarrage de la machine virtuelle, plusieurs minutes peuvent être nécessaires avant de revenir à l’état **_d’avancement._** Pour obtenir un exemple de la sortie, consultez. 
 
-5. Installer les mises à jour sur chaque machine virtuelle de SLB Mux un à la fois pour assurer une disponibilité permanente de l’infrastructure d’équilibrage de charge.
+5. Installez les mises à jour sur chaque machine virtuelle SLB à la fois pour garantir la disponibilité continue de l’infrastructure de l’équilibreur de charge.
 
-6. Mettre à jour les hôtes Hyper-V et les passerelles RAS, en commençant par les hôtes qui contiennent les passerelles RAS qui se trouvent dans **Standby** mode.<p>Machines virtuelles de passerelle RAS ne peut pas être migrées de façon dynamique sans perdre les connexions client. Au cours du cycle de mise à jour, vous devez veiller à réduire le nombre de fois locataire basculement de connexions à une passerelle RAS. Grâce à la coordination de la mise à jour des hôtes et des passerelles RAS, chaque client bascule une fois, au maximum.
+6. Mettez à jour les hôtes Hyper-V et les passerelles RAS, en commençant par les ordinateurs hôtes qui contiennent les passerelles RAS en mode **veille** .<p>Les machines virtuelles de passerelle RAS ne peuvent pas être migrées en temps réel sans perdre les connexions clientes. Pendant le cycle de mise à jour, vous devez veiller à réduire le nombre de tentatives de basculement des connexions client vers une nouvelle passerelle RAS. En coordonnant la mise à jour des hôtes et des passerelles RAS, chaque locataire bascule une seule fois, au plus.
 
-    a. Évacuer l’hôte de machines virtuelles qui sont capables de migration en direct.<p>Machines virtuelles de passerelle RAS doivent rester sur l’ordinateur hôte.
+    a. Évacuez l’ordinateur hôte des machines virtuelles pouvant être migrées en direct.<p>Les machines virtuelles de la passerelle RAS doivent rester sur l’ordinateur hôte.
 
-    b. Installer les mises à jour sur chaque machine virtuelle de passerelle sur cet ordinateur hôte.
+    b. Installez les mises à jour sur chaque machine virtuelle de passerelle sur cet ordinateur hôte.
 
-    c. Si la mise à jour nécessite le redémarrage de machine virtuelle de passerelle, puis redémarrez la machine virtuelle.  
+    c. Si la mise à jour nécessite le redémarrage de la machine virtuelle de la passerelle, redémarrez la machine virtuelle.  
 
-    d. Installer les mises à jour sur l’ordinateur hôte contenant la machine virtuelle qui a été mis à jour de la passerelle.
+    d. Installez les mises à jour sur l’hôte contenant la machine virtuelle de passerelle qui vient d’être mise à jour.
 
-    e. Redémarrez l’hôte si requis par les mises à jour.
+    e. Redémarrez l’hôte si nécessaire par les mises à jour.
 
-    f. Répétez pour chaque hôte supplémentaire contenant une passerelle de secours.<p>Si aucune passerelle secours ne reste, puis suivez ces étapes pour tous les hôtes restants.
+    f. Répétez cette opération pour chaque hôte supplémentaire contenant une passerelle de secours.<p>Si aucune passerelle de secours n’est conservée, suivez les mêmes étapes pour tous les hôtes restants.
 
 
-### <a name="example-use-the-get-networkcontrollernode-cmdlet"></a>Exemple : Utilisez l’applet de commande get-networkcontrollernode 
+### <a name="example-use-the-get-networkcontrollernode-cmdlet"></a>Exemple : Utiliser l’applet de commande networkcontrollernode 
 
-Dans cet exemple, vous voyez la sortie pour le `get-networkcontrollernode` applet de commande exécuté à partir d’une des machines virtuelles de contrôleur de réseau.  
+Dans cet exemple, vous voyez la sortie de l' `get-networkcontrollernode` applet de commande exécutée à partir de l’une des machines virtuelles du contrôleur de réseau.  
 
-L’état des nœuds que vous voyez dans l’exemple de sortie est :
+L’état des nœuds que vous voyez dans l’exemple de sortie est le suivant :
 
-- NCNode1.contoso.com = Down
-- NCNode2.contoso.com = Up
-- NCNode3.contoso.com = Up
+- NCNode1.contoso.com = en dessous
+- NCNode2.contoso.com = haut
+- NCNode3.contoso.com = haut
 
 >[!IMPORTANT]
->Vous devez attendre quelques minutes jusqu'à ce que l’état pour le nœud devient alors _**des**_ avant de vous mettre à jour tous les nœuds supplémentaires à la fois.
+>Vous devez attendre quelques minutes jusqu’à ce que l’état du nœud soit _**modifié avant de mettre à jour**_ des nœuds supplémentaires, l’un après l’autre.
 
-Une fois que vous avez mis à jour tous les nœuds de contrôleur de réseau, le contrôleur de réseau met à jour les microservices en cours d’exécution au sein du cluster de contrôleur de réseau au sein d’une heure. 
+Une fois que vous avez mis à jour tous les nœuds du contrôleur de réseau, le contrôleur de réseau met à jour les microservices qui s’exécutent au sein du cluster de contrôleur de réseau dans l’heure qui s’est écoulée. 
 
 >[!TIP]
->Vous pouvez déclencher une mise à jour immédiate à l’aide de la `update-networkcontroller` applet de commande.
+>Vous pouvez déclencher une mise à jour immédiate `update-networkcontroller` à l’aide de l’applet de commande.
 
 
 ```Powershell
@@ -107,11 +107,11 @@ NodeCertificate :
 Status          : Up
 ```
 
-### <a name="example-use-the-update-networkcontroller-cmdlet"></a>Exemple : Utilisez l’applet de commande update-networkcontroller
-Dans cet exemple, vous voyez la sortie pour le `update-networkcontroller` applet de commande pour forcer le contrôleur de réseau pour mettre à jour. 
+### <a name="example-use-the-update-networkcontroller-cmdlet"></a>Exemple : Utiliser l’applet de commande Update-networkcontroller
+Dans cet exemple, vous voyez la sortie de l' `update-networkcontroller` applet de commande pour forcer la mise à jour du contrôleur de réseau. 
 
 >[!IMPORTANT]
->Exécutez cette applet de commande lorsque vous ne disposez d’aucun autres mises à jour à installer.
+>Exécutez cette applet de commande lorsque vous n’avez plus de mises à jour à installer.
 
 
 ```Powershell
@@ -121,26 +121,26 @@ NetworkControllerClusterVersion NetworkControllerVersion
 10.1.1                          10.1.15
 ```
 
-## <a name="backup-the-sdn-infrastructure"></a>Sauvegarde l’infrastructure SDN
+## <a name="backup-the-sdn-infrastructure"></a>Sauvegarder l’infrastructure SDN
 
-Des sauvegardes régulières de la base de données du contrôleur de réseau garantit la continuité d’activité en cas de perte de données ou d’urgence.  Sauvegarde des machines virtuelles de contrôleur de réseau n’est pas suffisante, car il ne garantit pas que la session se poursuit sur plusieurs nœuds de contrôleur de réseau.
+Les sauvegardes régulières de la base de données du contrôleur de réseau assurent la continuité des activités en cas de sinistre ou de perte de données.  La sauvegarde des machines virtuelles du contrôleur de réseau n’est pas suffisante, car elle ne garantit pas que la session continue sur les différents nœuds du contrôleur de réseau.
 
-**Configuration requise :**
-* Un partage SMB et les informations d’identification avec des autorisations de lecture/écriture dans le système de partage et de fichiers.
-* Vous pouvez éventuellement utiliser un compte de Service gérés groupe (GMSA) si le contrôleur de réseau a été installé à l’aide d’un compte GMSA également.
+**Exigences**
+* Un partage SMB et des informations d’identification avec des autorisations de lecture/écriture sur le partage et le système de fichiers.
+* Vous pouvez éventuellement utiliser un compte de service administré de groupe (GMSA) si le contrôleur de réseau a été installé à l’aide d’un GMSA également.
 
-**Procédure :**
+**Procédures**
 
-1. Utilisez la méthode de sauvegarde de machine virtuelle de votre choix, ou Hyper-V pour exporter une copie de chaque machine virtuelle contrôleur de réseau.<p>Sauvegarder la machine virtuelle contrôleur de réseau garantit que les certificats nécessaires pour déchiffrer la base de données sont présents.  
+1. Utilisez la méthode de sauvegarde de la machine virtuelle de votre choix ou utilisez Hyper-V pour exporter une copie de chaque machine virtuelle du contrôleur de réseau.<p>La sauvegarde de la machine virtuelle du contrôleur de réseau garantit que les certificats nécessaires au déchiffrement de la base de données sont présents.  
 
-2. Si vous utilisez System Center Virtual Machine Manager (SCVMM), arrêtez le service SCVMM et sauvegarder via SQL Server.<p>L’objectif ici est pour vous assurer qu’aucune mise à jour n’effectuées à SCVMM pendant ce temps, ce qui peut entraîner une incohérence entre la sauvegarde de contrôleur de réseau et de SCVMM.  
+2. Si vous utilisez System Center Virtual Machine Manager (SCVMM), arrêtez le service SCVMM et sauvegardez-le via SQL Server.<p>L’objectif ici est de s’assurer qu’aucune mise à jour n’est apportée à SCVMM pendant ce temps, ce qui peut créer une incohérence entre la sauvegarde du contrôleur de réseau et SCVMM.  
 
    >[!IMPORTANT]
-   >Ne ré-démarrez pas le service SCVMM jusqu'à ce que la sauvegarde de contrôleur de réseau est terminée.
+   >Ne redémarrez pas le service SCVMM tant que la sauvegarde du contrôleur de réseau n’est pas terminée.
 
-3. Sauvegarder la base de données du contrôleur de réseau avec la `new-networkcontrollerbackup` applet de commande.
+3. Sauvegardez la base de données du `new-networkcontrollerbackup` contrôleur de réseau avec l’applet de commande.
 
-4. Vérifiez la saisie semi-automatique et la réussite de la sauvegarde avec la `get-networkcontrollerbackup` applet de commande.
+4. Vérifiez l’achèvement et la réussite de la sauvegarde avec `get-networkcontrollerbackup` l’applet de commande.
 
 5. Si vous utilisez SCVMM, démarrez le service SCVMM.
 
@@ -177,7 +177,7 @@ $BackupProperties.Credential = $ShareCredential
 $Backup = New-NetworkControllerBackup -ConnectionURI $URI -Credential $Credential -Properties $BackupProperties -ResourceId $BackupTime -Force
 ```
 
-### <a name="example-checking-the-status-of-a-network-controller-backup-operation"></a>Exemple : Vérification de l’état d’une opération de sauvegarde du contrôleur de réseau
+### <a name="example-checking-the-status-of-a-network-controller-backup-operation"></a>Exemple : Vérification de l’état d’une opération de sauvegarde de contrôleur de réseau
 
 ```Powershell
 PS C:\ > Get-NetworkControllerBackup -ConnectionUri $URI -Credential $Credential -ResourceId $Backup.ResourceId
@@ -262,19 +262,19 @@ PS C:\ > Get-NetworkControllerBackup -ConnectionUri $URI -Credential $Credential
 }
 ```
 
-## <a name="restore-the-sdn-infrastructure-from-a-backup"></a>Restaurer l’infrastructure SDN à partir d’une sauvegarde
+## <a name="restore-the-sdn-infrastructure-from-a-backup"></a>Restauration de l’infrastructure SDN à partir d’une sauvegarde
 
-Lorsque vous restaurez tous les composants nécessaires à partir de la sauvegarde, l’environnement SDN retourne à un état opérationnel.  
+Lorsque vous restaurez tous les composants nécessaires à partir de la sauvegarde, l’environnement SDN revient à un état opérationnel.  
 
 >[!IMPORTANT]
->Les étapes varient selon le nombre de composants restaurés.
+>Les étapes varient en fonction du nombre de composants restaurés.
 
 
-1. Si nécessaire, redéployez les hôtes Hyper-V et le stockage nécessaire.
+1. Si nécessaire, Redéployez les hôtes Hyper-V et le stockage nécessaire.
 
-2. Si nécessaire, restaurez les machines virtuelles du contrôleur de réseau, les machines virtuelles de passerelle RAS et les machines virtuelles Mux à partir de la sauvegarde. 
+2. Si nécessaire, restaurez les machines virtuelles du contrôleur de réseau, les machines virtuelles de la passerelle RAS et les machines virtuelles MUX à partir de 
 
-3. Agent hôte de Stop NC et SLB hébergent l’agent sur tous les hôtes Hyper-V :
+3. Arrêtez l’agent hôte NC et l’agent hôte SLB sur tous les ordinateurs hôtes Hyper-V :
 
     ```
     stop-service slbhostagent
@@ -282,19 +282,19 @@ Lorsque vous restaurez tous les composants nécessaires à partir de la sauvegar
     stop-service nchostagent
     ```
 
-4. Arrêter les machines virtuelles de passerelle RAS.
+4. Arrêtez les machines virtuelles de passerelle RAS.
 
-5. Arrêter les machines virtuelles SLB Mux.
+5. Arrêtez les machines virtuelles MUX SLB.
 
-6. Restaurer le contrôleur de réseau avec la `new-networkcontrollerrestore` applet de commande.
+6. Restaurez le contrôleur de réseau `new-networkcontrollerrestore` à l’aide de l’applet de commande.
 
-7. Vérifier la restauration **ProvisioningState** savoir quand la restauration s’est déroulée correctement.
+7. Vérifiez le **ProvisioningState** de restauration pour savoir quand la restauration s’est terminée avec succès.
 
-8. Si vous utilisez SCVMM, restaurez la base de données SCVMM à l’aide de la sauvegarde a été créée en même temps que la sauvegarde de contrôleur de réseau.
+8. Si vous utilisez SCVMM, restaurez la base de données SCVMM à l’aide de la sauvegarde qui a été créée en même temps que la sauvegarde du contrôleur de réseau.
 
-9. Si vous souhaitez restaurer des machines virtuelles de charge de travail à partir de la sauvegarde, faites-le maintenant.
+9. Si vous souhaitez restaurer des machines virtuelles de charge de travail à partir d’une sauvegarde, faites-le maintenant.
 
-10. Vérifier l’intégrité de votre système avec l’applet de commande debug-networkcontrollerconfigurationstate.
+10. Vérifiez l’intégrité de votre système avec l’applet de commande Debug-networkcontrollerconfigurationstate.
 
 ```Powershell
 $cred = Get-Credential
@@ -309,7 +309,7 @@ Fetching ResourceType:     loadbalancerMuxes
 Fetching ResourceType:     Gateways
 ```
 
-### <a name="example-restoring-a-network-controller-database"></a>Exemple : Restauration d’une base de données du contrôleur de réseau
+### <a name="example-restoring-a-network-controller-database"></a>Exemple : Restauration d’une base de données de contrôleur de réseau
  
 ```Powershell
 $URI = "https://NC.contoso.com"
@@ -326,7 +326,7 @@ $RestoreTime = (Get-Date).ToString("s").Replace(":", "_")
 New-NetworkControllerRestore -ConnectionURI $URI -Credential $Credential -Properties $RestoreProperties -ResourceId $RestoreTime -Force
 ```
 
-### <a name="example-checking-the-status-of-a-network-controller-database-restore"></a>Exemple : Vérification de l’état d’une restauration de base de données du contrôleur de réseau
+### <a name="example-checking-the-status-of-a-network-controller-database-restore"></a>Exemple : Vérification de l’état d’une restauration de base de données de contrôleur de réseau
 
 ```PowerShell
 PS C:\ > get-networkcontrollerrestore -connectionuri $uri -credential $cred -ResourceId $restoreTime | convertto-json -depth 10
@@ -349,4 +349,4 @@ PS C:\ > get-networkcontrollerrestore -connectionuri $uri -credential $cred -Res
 ```
 
 
-Pour plus d’informations sur les messages d’état de configuration susceptibles d’apparaître, consultez [résoudre les problèmes de la Windows Server 2016 défini par la mise en réseau pile logicielle](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack).
+Pour plus d’informations sur les messages d’état de configuration qui peuvent s’afficher, consultez [résoudre les problèmes de la pile de mise en réseau définie par le logiciel Windows Server 2016](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack).

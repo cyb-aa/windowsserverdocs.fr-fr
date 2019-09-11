@@ -9,12 +9,12 @@ ms.date: 07/02/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 188e635543e13154622f52bf02cf877b05cc8fda
-ms.sourcegitcommit: 286e3181ebd2cb9d7dc7fe651858a4e0d61d153f
+ms.openlocfilehash: fc924f5e5bdd7dabecac4fdd6805ad261a0fc634
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68300717"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866167"
 ---
 # <a name="ad-fs-rapid-restore-tool"></a>Outil de restauration rapide ADFS
 
@@ -65,7 +65,7 @@ Pour créer une sauvegarde, utilisez l’applet de commande Backup-ADFS. Cette a
 
 L’utilisateur doit être au moins un administrateur local pour exécuter cette applet de commande. Pour sauvegarder le conteneur Active Directory DKM (requis dans la configuration de AD FS par défaut), l’utilisateur doit être un administrateur de domaine, doit transmettre les informations d’identification du compte de service AD FS ou avoir accès au conteneur DKM.  Si vous utilisez un compte gMSA, l’utilisateur doit être administrateur de domaine ou disposer d’autorisations sur le conteneur. vous ne pouvez pas fournir les informations d’identification gMSA. 
 
-La sauvegarde sera nommée selon le modèle «adfsBackup_ID_Date-Time». Elle contient le numéro de version, la date et l’heure de réalisation de la sauvegarde.
+La sauvegarde sera nommée selon le modèle « adfsBackup_ID_Date-Time ». Elle contient le numéro de version, la date et l’heure de réalisation de la sauvegarde.
 L’applet de commande prend les paramètres suivants:
     
 Jeux de paramètres
@@ -263,7 +263,7 @@ RngCryptoServiceProvider est utilisé pour générer le Salt utilisé par AES et
 
 **Problèmes résolus :**
 
-   - Résolution de bogue: gérer les mots de passe de compte de service qui contiennent des caractères spéciaux (par ex., «&»)
+   - Résolution de bogue : gérer les mots de passe de compte de service qui contiennent des caractères spéciaux (par ex., « & »)
    - Résolution de bogue: la restauration échoue car Microsoft. IdentityServer. ServiceHost. exe. config est utilisé par un autre processus
 
 

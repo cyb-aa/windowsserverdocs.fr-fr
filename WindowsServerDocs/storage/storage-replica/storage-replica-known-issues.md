@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 06/25/2019
 ms.assetid: ceddb0fa-e800-42b6-b4c6-c06eb1d4bc55
-ms.openlocfilehash: ad08d8716819773484fc1d1fbe3cc79dd203c498
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: 681e07b85af603d11295bf1ca2a08f0eb7181725
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590560"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865251"
 ---
 # <a name="known-issues-with-storage-replica"></a>Problèmes connus liés au réplica de stockage
 
@@ -81,7 +81,7 @@ Utilisez l’applet de commande `New-Partition**` pour créer des volumes et les
 
 Quand vous tentez d’utiliser `Test-SRTopology`, vous recevez l’une des erreurs suivantes :  
 
-**EXEMPLE D’ERREUR 1:**
+**EXEMPLE D’ERREUR 1 :**
 
     WARNING: Invalid value entered for target computer name: sr-srv03. Test-SrTopology cmdlet does not accept IP address as  
     input for target computer name parameter. NetBIOS names and fully qualified domain names are acceptable inputs  
@@ -96,11 +96,11 @@ Quand vous tentez d’utiliser `Test-SRTopology`, vous recevez l’une des erreu
         + CategoryInfo          : InvalidArgument: (:) [Test-SRTopology], Exception  
         + FullyQualifiedErrorId : TestSRTopologyFailure,Microsoft.FileServices.SR.Powershell.TestSRTopologyCommand  
 
-**EXEMPLE D’ERREUR 2:**
+**EXEMPLE D’ERREUR 2 :**
 
     WARNING: Invalid value entered for source computer name
 
-**EXEMPLE D’ERREUR 3:**
+**EXEMPLE D’ERREUR 3 :**
 
     The specified volume cannot be found G: cannot be found on computer SRCLUSTERNODE1
 
@@ -146,7 +146,7 @@ Si vous utilisez le composant logiciel enfichable MMC Gestion des disques, vous 
 
 Cela se produit même si vous activez correctement le redimensionnement du volume sur le serveur source à l’aide de `Set-SRGroup -Name rg01 -AllowVolumeResize $TRUE`. 
 
-Ce problème a été résolu dans la mise à jour cumulative pour Windows 10, version 1607 (mise à jour anniversaire) et Windows Server 2016: Le 9 décembre 2016 (KB3201845). 
+Ce problème a été résolu dans la mise à jour cumulative pour Windows 10, version 1607 (mise à jour anniversaire) et Windows Server 2016 : Le 9 décembre 2016 (KB3201845). 
 
 ## <a name="attempting-to-grow-a-replicated-volume-fails-due-to-missing-step"></a>Échec des tentatives d’augmentation de la taille d’un volume répliqué en raison d'une étape manquante
 
@@ -212,7 +212,7 @@ Ce comportement a été modifié dans Windows Server, version 1709 pour autorise
 
 ## <a name="attempting-to-add-disks-to-a-two-node-asymmetric-cluster-returns-no-disks-suitable-for-cluster-disks-found"></a>Une tentative d’ajout de disques à un cluster asymétrique à deux nœuds retourne un message de type « Aucun disque approprié pour les disques de cluster trouvés ».
 
-Quand vous tentez de configurer un cluster avec deux nœuds uniquement, avant d’ajouter la réplication de cluster étendu de réplica de stockage, vous tentez d’ajouter les disques du deuxième site aux disques disponibles. Vous recevez l’erreur suivante:
+Quand vous tentez de configurer un cluster avec deux nœuds uniquement, avant d’ajouter la réplication de cluster étendu de réplica de stockage, vous tentez d’ajouter les disques du deuxième site aux disques disponibles. Vous recevez l’erreur suivante :
 
     "No disks suitable for cluster disks found. For diagnostic information about disks available to the cluster, use the Validate a Configuration Wizard to run Storage tests." 
 
@@ -356,7 +356,7 @@ Exécutez Get-Cluster | fl * sur chaque nœud.
 Si ClusterFunctionalLevel = 9, il s'agit de la version de ClusterFunctionalLevel Windows 2016 nécessaire pour implémenter le réplica de stockage sur ce nœud.
 Si ClusterFunctionalLevel n’est défini sur 9, ClusterFunctionalLevel doit être mis à jour afin d’implémenter le réplica de stockage sur ce nœud.
 
-Pour résoudre le problème, augmentez le niveau fonctionnel du cluster en exécutant l’applet de commande PowerShell: [Mettre à jour-ClusterFunctionalLevel](https://docs.microsoft.com/powershell/module/failoverclusters/update-clusterfunctionallevel)
+Pour résoudre le problème, augmentez le niveau fonctionnel du cluster en exécutant l’applet de commande PowerShell : [Mettre à jour-ClusterFunctionalLevel](https://docs.microsoft.com/powershell/module/failoverclusters/update-clusterfunctionallevel)
 
 ## <a name="small-unknown-partition-listed-in-diskmgmt-for-each-replicated-volume"></a>Partition inconnue de petite taille répertoriée dans DISKMGMT pour chaque volume répliqué
 
@@ -380,15 +380,15 @@ Pour éviter ce comportement, n’effectuez pas de capture instantanée des volu
 
 Lorsque vous utilisez espaces de stockage direct avec un cache NVME ou SSD, vous constatez une augmentation de la latence supérieure à celle prévue lors de la configuration de la réplication du réplica de stockage entre les clusters espaces de stockage direct. La modification de la latence est proportionnellement plus élevée que lorsque vous utilisez NVME et SSD dans une configuration des performances et des capacités, et pas de niveau de disque dur ni de niveau de capacité.
 
-Ce problème se produit en raison de limitations architecturales dans le mécanisme de journalisation du réplica de stockage combiné avec la latence extrêmement faible de NVME par rapport aux supports plus lents. Lors de l’utilisation du cache espaces de stockage direct, toutes les e/s des journaux des réplicas de stockage, ainsi que toutes les e/s de lecture/écriture les plus récentes des applications, sont exécutées dans le cache et jamais sur les niveaux de performance ou de capacité. Cela signifie que toutes les activités de réplica de stockage se produisent sur le même support de vitesse: cette configuration est prise https://aka.ms/srfaq en charge mais n’est pas recommandée (voir pour obtenir des recommandations pour les journaux). 
+Ce problème se produit en raison de limitations architecturales dans le mécanisme de journalisation du réplica de stockage combiné avec la latence extrêmement faible de NVME par rapport aux supports plus lents. Lors de l’utilisation du cache espaces de stockage direct, toutes les e/s des journaux des réplicas de stockage, ainsi que toutes les e/s de lecture/écriture les plus récentes des applications, sont exécutées dans le cache et jamais sur les niveaux de performance ou de capacité. Cela signifie que toutes les activités de réplica de stockage se produisent sur le même support de vitesse : cette configuration est prise https://aka.ms/srfaq en charge mais n’est pas recommandée (voir pour obtenir des recommandations pour les journaux). 
 
 Lorsque vous utilisez espaces de stockage direct avec des disques durs, vous ne pouvez pas désactiver ou éviter le cache. En guise de solution de contournement, si vous utilisez uniquement SSD et NVME, vous pouvez configurer uniquement les niveaux de performances et de capacité. Si vous utilisez cette configuration et que vous placez les journaux SR sur le niveau de performance uniquement avec les volumes de données qu’ils utilisent uniquement sur le niveau de capacité, vous évitez le problème de latence élevée décrit ci-dessus. La même opération peut être effectuée avec une combinaison de SSD plus rapide et plus lente et aucun NVME.
 
 Cette solution de contournement n’est bien sûr pas idéale et certains clients peuvent ne pas être en mesure de les utiliser. L’équipe de réplicas de stockage travaille sur les optimisations et un mécanisme de journalisation mis à jour à l’avenir pour réduire ces goulots d’étranglement artificiels. Ce journal v 1.1 est tout d’abord disponible dans Windows Server 2019 et ses performances améliorées sont décrites dans sur le [blog stockage](https://blogs.technet.microsoft.com/filecab/2018/12/13/chelsio-rdma-and-storage-replica-perf-on-windows-server-2019-are-💯/)sur le serveur.
 
-## <a name="error-could-not-find-file-when-running-test-srtopology-between-two-clusters"></a>Erreur «Impossible de trouver le fichier» lors de l’exécution de test-SRTopology entre deux clusters
+## <a name="error-could-not-find-file-when-running-test-srtopology-between-two-clusters"></a>Erreur « Impossible de trouver le fichier » lors de l’exécution de test-SRTopology entre deux clusters
 
-Lors de l’exécution de test-SRTopology entre deux clusters et leurs chemins d’accès CSV, l’opération échoue avec l’erreur suivante: 
+Lors de l’exécution de test-SRTopology entre deux clusters et leurs chemins d’accès CSV, l’opération échoue avec l’erreur suivante : 
 
     PS C:\Windows\system32> Test-SRTopology -SourceComputerName NedClusterA -SourceVolumeName C:\ClusterStorage\Volume1 -SourceLogVolumeName L: -DestinationComputerName NedClusterB -DestinationVolumeName C:\ClusterStorage\Volume1 -DestinationLogVolumeName L: -DurationInMinutes 1 -ResultPath C:\Temp
 
@@ -413,9 +413,9 @@ Lors de l’exécution de test-SRTopology entre deux clusters et leurs chemins d
 
 Cela est dû à un défaut de code connu dans Windows Server 2016. Ce problème a été résolu pour la première fois dans Windows Server, version 1709 et les outils RSAT associés. Pour une résolution de niveau inférieur, contactez Support Microsoft et demandez une mise à jour rétroporter. Il n’existe aucune solution de contournement.
 
-## <a name="error-specified-volume-could-not-be-found-when-running-test-srtopology-between-two-clusters"></a>Erreur «le volume spécifié est introuvable» lors de l’exécution de test-SRTopology entre deux clusters
+## <a name="error-specified-volume-could-not-be-found-when-running-test-srtopology-between-two-clusters"></a>Erreur « le volume spécifié est introuvable » lors de l’exécution de test-SRTopology entre deux clusters
 
-Lors de l’exécution de test-SRTopology entre deux clusters et leurs chemins d’accès CSV, l’opération échoue avec l’erreur suivante:
+Lors de l’exécution de test-SRTopology entre deux clusters et leurs chemins d’accès CSV, l’opération échoue avec l’erreur suivante :
 
     PS C:\> Test-SRTopology -SourceComputerName RRN44-14-09 -SourceVolumeName C:\ClusterStorage\Volume1 -SourceLogVolumeName L: -DestinationComputerName RRN44-14-13 -DestinationVolumeName C:\ClusterStorage\Volume1 -DestinationLogVolumeName L: -DurationInMinutes 30 -ResultPath c:\report
 
@@ -442,7 +442,7 @@ Vous devez utiliser la clé ou le mot de passe du lecteur de données du serveur
 
 ## <a name="test-failover-doesnt-mount-when-using-asynchronous-replication"></a>Le test de basculement n’est pas monté quand vous utilisez la réplication asynchrone
 
-Lors de l’exécution de Mount-SRDestination pour mettre en ligne un volume de destination dans le cadre de la fonctionnalité de test de basculement, l’opération échoue avec l’erreur suivante:
+Lors de l’exécution de Mount-SRDestination pour mettre en ligne un volume de destination dans le cadre de la fonctionnalité de test de basculement, l’opération échoue avec l’erreur suivante :
 
     Mount-SRDestination: Unable to mount SR group <TEST>, detailed reason: The group or resource is not in the correct state to perform the supported operation.
     At line:1 char:1

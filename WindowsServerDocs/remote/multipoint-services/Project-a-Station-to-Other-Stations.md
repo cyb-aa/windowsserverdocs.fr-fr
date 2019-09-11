@@ -1,6 +1,6 @@
 ---
 title: Projeter une station sur d’autres stations
-description: Découvrez comment partager un bureau d’un système vers un autre dans MultiPoint Services
+description: Découvrez comment partager un bureau d’un système à un autre dans MultiPoint services
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,32 +13,32 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: a91460718d8f80b62ef7bde698f723a8be9ded90
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: db2b718154a7c41646ab25b16420eb0ee46a17cd
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858110"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871580"
 ---
 # <a name="project-a-station-to-other-stations"></a>Projeter une station sur d’autres stations
-En tant qu’un utilisateur de tableau de bord MultiPoint, vous pouvez projeter votre bureau sur stations (non-administrateur) de tous les utilisateurs ou d’un seul utilisateur. Cette fonctionnalité est utile quand vous souhaitez expliquer une tâche à un ou plusieurs utilisateurs.  
+En tant qu’utilisateur du tableau de bord MultiPoint, vous pouvez projeter votre bureau sur la station d’un seul utilisateur ou sur tous les postes de travail (non-administrateur). Cette fonctionnalité est utile quand vous souhaitez expliquer une tâche à un ou plusieurs utilisateurs.  
   
 ## <a name="to-project-your-desktop-to-a-standard-users-station"></a>Pour projeter votre bureau sur la station d’un utilisateur standard  
   
-1.  Dans le tableau de bord MultiPoint, cliquez sur l’image miniature du bureau auquel vous souhaitez projeter votre station.  
-2.  Sur le **accueil** , cliquez sur **votre bureau**, puis cliquez sur **projetez votre bureau sur le poste de travail sélectionné**.  
-3.  Pour mettre fin à la projection, cliquez sur **arrêter** (soit sur le **Projection** onglet ou dans le coin droit sous le ruban).  
+1.  Dans le tableau de bord MultiPoint, cliquez sur l’image miniature du Bureau sur lequel vous souhaitez projeter votre station.  
+2.  Dans l’onglet dossier de **démarrage** , cliquez sur **votre bureau**, puis sur **projetez votre bureau sur le ou les postes de travail sélectionnés**.  
+3.  Pour mettre fin à la projection, cliquez sur **arrêter** (sous l’onglet **projection** ou dans le coin droit sous le ruban).  
   
 ## <a name="to-project-your-desktop-to-all-stations"></a>Pour projeter votre bureau sur toutes les stations  
   
-1.  Dans le tableau de bord MultiPoint, sur le **accueil** , cliquez sur **votre bureau**, puis cliquez sur **projetez votre bureau sur Poste de travail de tous les**.  
+1.  Dans le tableau de bord MultiPoint, sous l’onglet dossier de **démarrage** , cliquez sur **votre bureau**, puis sur **projetez votre bureau sur tous les postes de travail**.  
   
-2.  Pour mettre fin à la projection, cliquez sur **arrêter** (soit sur le **Projection** onglet ou dans le coin droit sous le ruban).  
+2.  Pour mettre fin à la projection, cliquez sur **arrêter** (sous l’onglet **projection** ou dans le coin droit sous le ruban).  
   
 ## <a name="to-project-a-different-desktop-to-all-desktops"></a>Pour projeter un autre bureau sur tous les bureaux  
   
-1.  Cliquez sur l’image miniature du bureau que vous souhaitez projeter sur tous les bureaux.  
+1.  Cliquez sur l’image miniature du Bureau que vous souhaitez projeter sur tous les postes de travail.  
   
-2.  Sur le **accueil** , cliquez sur **Bureau sélectionné**, puis cliquez sur **Bureau sélectionné**. Le bureau sélectionné est affiché sur tous les bureaux.  
+2.  Dans l’onglet dossier de **démarrage** , cliquez sur **Bureau sélectionné**, puis sur **Bureau sélectionné**. Le bureau sélectionné est affiché sur tous les bureaux.  
   
-3.  Pour mettre fin à la projection, cliquez sur **arrêter** (soit sur le **Projection** onglet ou dans le coin droit sous le ruban).  
+3.  Pour mettre fin à la projection, cliquez sur **arrêter** (sous l’onglet **projection** ou dans le coin droit sous le ruban).  
