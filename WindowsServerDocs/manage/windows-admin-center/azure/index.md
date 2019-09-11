@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 05/31/2019
-ms.openlocfilehash: 460399a57bc229b44d37a9fdd1e4938bf9e7d6ac
-ms.sourcegitcommit: fe621b72d45d0259bac1d5b9031deed3dcbed29d
+ms.openlocfilehash: b4b1f42db7d80fabe2e3361f3ab9ebf41ad8bc29
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455364"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865427"
 ---
 # <a name="connecting-windows-server-to-azure-hybrid-services"></a>Connexion de Windows Server aux services hybrides Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "66455364"
 Vous pouvez utiliser les services hybrides Azure pour étendre des déploiements locaux de Windows Server vers le cloud. Ces services cloud offrent un éventail de fonctions particulièrement utiles :
 
 - Protégez les machines virtuelles, et utilisez la sauvegarde et la récupération d'urgence basées sur le cloud avec Azure Site Recovery. 
-- Assurez le suivi des événements liés à vos applications, à votre réseau et à votre infrastructure à l'aide des fonctionnalités d'analytique avancée et de Machine Learning d'Azure Monitor. 
+- Suivez les événements liés à vos applications, à votre réseau et à votre infrastructure à l'aide des fonctionnalités d'analytique avancée et du machine learning d'Azure Monitor. 
 - Simplifiez la connectivité réseau à Azure avec la carte réseau Azure Network Adapter.
 - Maintenez les machines virtuelles à jour avec Azure Update Management.
 
@@ -63,7 +63,7 @@ Vous pouvez ajouter une couche de sécurité supplémentaire à Windows Admin Ce
 Pour plus d'informations, consultez [Configurer l'authentification Azure AD pour Windows Admin Center.](../configure/user-access-control.md#azure-active-directory)  
 
 - **Protégez vos machines virtuelles Hyper-V avec [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)**  
-Vous pouvez répliquer les charges de travail exécutées sur les machines virtuelles afin que votre infrastructure stratégique soit protégée en cas d'incident. Windows Admin Center simplifie la configuration et le processus de réplication de vos machines virtuelles sur vos serveurs ou clusters Hyper-V, facilitant ainsi la résilience de votre environnement avec le service de récupération d'urgence d'Azure Site Recovery.  
+Vous pouvez répliquer les charges de travail exécutées sur les machines virtuelles afin que votre infrastructure stratégique soit protégée en cas d'incident. Windows Admin Center simplifie la configuration et le processus de réplication de vos machines virtuelles sur vos serveurs ou clusters Hyper-V, facilitant ainsi la résilience de votre environnement avec le service de reprise d’activité après sinistre d'Azure Site Recovery.  
 Pour plus d'informations, consultez [Protéger vos machines virtuelles avec Azure Site Recovery et Windows Admin Center](azure-site-recovery.md).
 
 - **Sauvegardez vos serveurs Windows avec [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-overview)**  

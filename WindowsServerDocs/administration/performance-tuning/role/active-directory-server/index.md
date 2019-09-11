@@ -7,12 +7,12 @@ ms.topic: landing-page
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab; v-tea
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: b8ab1eed003294e3396bcea21b31b7c084180b9c
-ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
+ms.openlocfilehash: 9fa01e7336953c4b2817535d1e50c0200b93e4fd
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68863445"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866638"
 ---
 # <a name="performance-tuning-active-directory-servers"></a>Optimisation des performances des serveurs Active Directory
 
@@ -40,7 +40,7 @@ Des améliorations significatives dans les optimisations Active Directory et des
 - Meilleures performances
 - Meilleure journalisation et outils de dépannage
 
-Cependant, nous sommes conscients que cela prend du temps et que de nombreux environnements sont déployés dans un scénario où il est impossible d’adopter à 100 % la plate-forme la plus récente. Certaines améliorations ont été ajoutées aux anciennes versions de la plate-forme et nous continuerons d’en ajouter de nouvelles.
+Cependant, nous sommes conscients que cela prend du temps et que de nombreux environnements sont déployés dans un scénario où il est impossible d’adopter à 100 % la plate-forme la plus récente. Nous avons ajouté des améliorations aux anciennes versions de la plateforme et nous continuerons d’en ajouter de nouvelles.
 
 Nous vous encourageons à rester au fait des dernières actualités, conseils et bonnes pratiques en matière de gestion d'AD DS en suivant le blog de notre équipe, [« Demander à l’équipe des services d’annuaire »](https://techcommunity.microsoft.com/t5/Ask-the-Directory-Services-Team/bg-p/AskDS).
 

@@ -7,12 +7,12 @@ ms.topic: landing-page
 ms.author: phstee
 author: phstee
 ms.date: 01/08/2018
-ms.openlocfilehash: d12a6c66c5e76852900828af04f4c6ec63a9a4f5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f9c7f0e589980f7d985f165e318667ebe2e5d5c5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891980"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866747"
 ---
 # <a name="server-hardware-performance-considerations"></a>Considérations relatives aux performances du matériel du serveur
 
@@ -105,7 +105,7 @@ Les adaptateurs compatibles avec le déchargement offrent des économies de temp
 ### <a name="dynamic-interrupt-and-deferred-procedure-call-dpc-redirection"></a>Interruption dynamique et redirection d’appel de procédure différé (DPC)
 Dans Windows Server 2016, les E/S Numa permettent aux adaptateurs du stockage PCIe de rediriger de manière dynamique les interruptions et les DPC, et peuvent aider tout système multiprocesseur en améliorant le partitionnement de la charge de travail, les taux de réussite du cache et l’utilisation de l’interconnexion matérielle intégrée pour les charges de travail nécessitant des E/S intensives.
 
-## <a name="see-also"></a>Voir également
+## <a name="see-also"></a>Voir aussi
 - [Considérations relatives à la puissance du matériel du serveur](power.md)
 - [Réglage de la puissance et des performances](power/power-performance-tuning.md)
 - [Réglage de la gestion de la puissance du processeur](power/processor-power-management-tuning.md)
