@@ -13,15 +13,15 @@ ms.assetid: f9f9d618-ccfe-41ea-a52c-00c3c7adb51a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 43386f0f4d4020d5e127e7b7cbd918e4c48cec6e
-ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
+ms.openlocfilehash: 4aa08f58f8fdf6d6fce816ee090275b0bf46a844
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68863457"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871628"
 ---
 # <a name="multipoint--stations"></a>Stations MultiPoint
-Dans un environnement de système MultiPoint services, les *stations* sont les points de terminaison utilisateur pour la connexion à l’ordinateur qui exécute multipoint services. Chaque station fournit à l’utilisateur une expérience Windows 10 indépendante. Les types de stations suivants sont pris en charge:  
+Dans un environnement de système MultiPoint services, les *stations* sont les points de terminaison utilisateur pour la connexion à l’ordinateur qui exécute multipoint services. Chaque station fournit à l’utilisateur une expérience Windows 10 indépendante. Les types de stations suivants sont pris en charge :  
   
 -   Stations directes connectées à la vidéo  
   
@@ -42,7 +42,7 @@ La station principale affiche les écrans de démarrage lorsque l’ordinateur e
 L’ordinateur qui exécute MultiPoint services peut contenir plusieurs cartes vidéo, chacune pouvant avoir un ou plusieurs ports vidéo. Cela vous permet de brancher des moniteurs pour plusieurs stations directement sur l’ordinateur. Les claviers et les souris sont connectés via des concentrateurs USB associés à chaque analyse. Ces hubs sont appelés hubs de *station*. D’autres périphériques, tels que les haut-parleurs, les casques ou les périphériques de stockage USB, peuvent également être connectés à un concentrateur de station, et ne sont disponibles que pour l’utilisateur de cette station.  
   
 > [!IMPORTANT]  
-> Il doit y avoir au moins une station connectée à la *vidéo directe* par serveur pour servir de station principale pour afficher le processus de démarrage lorsque l’ordinateur est sous tension.  
+> Il doit y avoir au moins une *station connectée à la vidéo directe* par serveur pour servir de station principale pour afficher le processus de démarrage lorsque l’ordinateur est sous tension.  
   
 ![Image de la disposition du système USB MultiPoint services](./media/WMSMultiPointServerUSBSystemLayout.gif)  
   
@@ -70,7 +70,7 @@ Les clients et les appareils qui exécutent Microsoft RemoteFX peuvent fournir u
   
 Si vous disposez de clients LAN existants, MultiPoint services peut offrir un moyen rapide et économique de mettre à niveau simultanément tous vos utilisateurs vers une expérience Windows 10.  
   
-Du point de vue du déploiement et de l’administration, les différences suivantes existent quand vous utilisez des stations connectées via le réseau local:  
+Du point de vue du déploiement et de l’administration, les différences suivantes existent quand vous utilisez des stations connectées via le réseau local :  
   
 -   Non limité aux distances physiques des connexions USB  
   
@@ -95,7 +95,7 @@ Du point de vue du déploiement et de l’administration, les différences suiva
 ### <a name="split-screen-stations"></a>Stations à écran partagé  
 MultiPoint services offre une option d’affichage partagé sur les ordinateurs équipés de stations connectées directement à la vidéo ou de stations USB-zéro-client. Un écran fractionné offre la possibilité de créer une station supplémentaire par moniteur. Au lieu de demander deux moniteurs, vous pouvez utiliser une analyse avec deux configurations de concentrateur de station pour créer deux stations avec une seule analyse. Vous pouvez augmenter rapidement le nombre de stations disponibles sans acheter des analyses supplémentaires, des clients USB-zéro ou des cartes vidéo.  
   
-Les avantages de l’utilisation d’une station à écran partagé peuvent être les suivants:  
+Les avantages de l’utilisation d’une station à écran partagé peuvent être les suivants :  
   
 -   Réduction des coûts et de l’espace en prenant en charge davantage d’utilisateurs sur un système MultiPoint services.  
   

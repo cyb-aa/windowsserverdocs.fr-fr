@@ -1,47 +1,47 @@
 ---
 title: Architecture Hyper-V
-description: Condsiderations architecture Hyper-v pour le réglage des performances
+description: Architecture Hyper-v condsiderations pour le réglage des performances
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: fcc87b04698a44e115c8f49150fe33443f8e6a88
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7ed8522ec34e9e262f835530a248567ebbd0ddc9
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890280"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866666"
 ---
 # <a name="hyper-v-architecture"></a>Architecture Hyper-V
 
-Hyper-V propose une architecture basée sur hyperviseur de Type 1. L’hyperviseur virtualise les processeurs et la mémoire et fournit des mécanismes de la pile de virtualisation dans la partition racine pour gérer des partitions enfants (machines virtuelles) et exposer des services tels que les périphériques d’e/s pour les machines virtuelles.
+Hyper-V propose une architecture basée sur un hyperviseur de type 1. L’hyperviseur virtualise les processeurs et la mémoire et fournit des mécanismes pour la pile de virtualisation dans la partition racine afin de gérer des partitions enfants (ordinateurs virtuels) et d’exposer des services tels que des périphériques d’e/s aux ordinateurs virtuels.
 
-La partition racine possède et a un accès direct aux périphériques d’e/s physiques. La pile de virtualisation dans la partition racine fournit un gestionnaire de mémoire pour les machines virtuelles, les API de gestion et les périphériques d’e/s virtualisés. Il implémente également des périphériques émulés tels que le contrôleur de disque integrated device electronics (IDE) et port du périphérique d’entrée PS/2 et prend en charge les périphériques synthétiques spécifiques à Hyper-V pour améliorer les performances et réduction des coûts.
+La partition racine possède un accès direct aux périphériques d’e/s physiques. La pile de virtualisation dans la partition racine fournit un gestionnaire de mémoire pour les machines virtuelles, les API de gestion et les périphériques d’e/s virtualisés. Il implémente également des appareils émulés tels que le contrôleur de disque IDE (Integrated Device Electronics) et le port d’entrée PS/2, et prend en charge les appareils synthétiques spécifiques à Hyper-V pour accroître les performances et réduire la surcharge.
 
-![architecture d’hyperviseur Hyper-v](../../media/perftune-guide-hyperv-arch.png)
+![architecture basée sur l’hyperviseur Hyper-v](../../media/perftune-guide-hyperv-arch.png)
 
-L’architecture d’e/s spécifiques à Hyper-V se compose des fournisseurs de services de virtualisation (vsp) dans les racine partition et la virtualisation clients du service (VSC) dans la partition enfant. Chaque service est exposé en tant qu’appareil via VMBus, qui agit comme un bus d’e/s et permet une communication hautes performances entre les machines virtuelles qui utilisent des mécanismes tels que la mémoire partagée. Le Gestionnaire de Plug-and-Play du système d’exploitation invité énumère ces appareils, y compris VMBus et charge les pilotes de périphériques appropriés (clients de service virtuel). Services autres que les e/s sont également exposées via cette architecture.
+L’architecture d’e/s spécifique à Hyper-V se compose des fournisseurs de services de virtualisation (VSPs) dans les clients de la partition racine et du service de virtualisation (VSC) de la partition enfant. Chaque service est exposé comme un appareil sur VMBus, qui agit comme un bus d’e/s et permet une communication hautes performances entre les ordinateurs virtuels qui utilisent des mécanismes tels que la mémoire partagée. Le gestionnaire de Plug-and-Play du système d’exploitation invité énumère ces appareils, y compris VMBus, et charge les pilotes de périphériques appropriés (clients de service virtuel). Les services autres que les e/s sont également exposés via cette architecture.
 
-À compter de Windows Server 2008, les enlightments de fonctionnalités de système d’exploitation pour optimiser son comportement lorsqu’il s’exécute sur des machines virtuelles. Les avantages incluent ce qui réduit le coût de la virtualisation de mémoire, amélioration de l’évolutivité multicœur et la diminution de l’arrière-plan de l’utilisation du processeur du système d’exploitation invité.
+À compter de Windows Server 2008, le système d’exploitation propose des options d’inversion pour optimiser son comportement lorsqu’il s’exécute sur des machines virtuelles. Les avantages incluent la réduction du coût de la virtualisation de mémoire, l’amélioration de l’évolutivité multicœur et la diminution de l’utilisation de l’UC en arrière-plan du système d’exploitation invité.
 
-Les sections suivantes vous suggérons de meilleures pratiques qui génèrent des performances accrues sur les serveurs exécutant le rôle Hyper-V.
+Les sections suivantes suggèrent des méthodes recommandées qui améliorent les performances sur les serveurs qui exécutent le rôle Hyper-V.
 
 ## <a name="see-also"></a>Voir aussi
 
 -   [Terminologie Hyper-V](terminology.md)
 
--   [Configuration de serveur Hyper-V](configuration.md)
+-   [Configuration du serveur Hyper-V](configuration.md)
 
--   [Performances du processeur de Hyper-V](processor-performance.md)
+-   [Performances du processeur Hyper-V](processor-performance.md)
 
 -   [Performances de la mémoire Hyper-V](memory-performance.md)
 
--   [Stockage Hyper-V les performances d’e/s](storage-io-performance.md)
+-   [Performances E/S du stockage Hyper-V](storage-io-performance.md)
 
--   [Réseau de Hyper-V les performances d’e/s](network-io-performance.md)
+-   [Performances E/S du réseau Hyper-V](network-io-performance.md)
 
 -   [Détecter les goulots d’étranglement dans un environnement virtualisé](detecting-virtualized-environment-bottlenecks.md)
 
--   [Machines virtuelles Linux](linux-virtual-machine-considerations.md)
+-   [Ordinateurs virtuels Linux](linux-virtual-machine-considerations.md)

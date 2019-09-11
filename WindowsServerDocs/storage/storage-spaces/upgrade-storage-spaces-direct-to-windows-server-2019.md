@@ -1,6 +1,6 @@
 ---
-title: Mise à niveau d’un cluster d’espaces de stockage Direct vers Windows Server 2019
-description: La mise à niveau un cluster d’espaces de stockage Direct Windows Server 2019-soit tout en conservant les machines virtuelles en cours d’exécution alors que ceux-ci sont arrêtés.
+title: Mettre à niveau un cluster espaces de stockage direct vers Windows Server 2019
+description: Comment mettre à niveau un cluster espaces de stockage direct vers Windows Server 2019, tout en conservant les machines virtuelles en cours d’exécution ou pendant qu’elles sont arrêtées.
 author: robhindman
 ms.author: robhind
 manager: eldenc
@@ -8,75 +8,75 @@ ms.date: 03/06/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage-spaces
-ms.openlocfilehash: 54be649cc1753fe07c94105a31a0b738fb030ee0
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 9966ee0fd3c0a2d1df0180bf177dec03343efc14
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284361"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867187"
 ---
-# <a name="upgrade-a-storage-spaces-direct-cluster-to-windows-server-2019"></a>Mise à niveau d’un cluster d’espaces de stockage Direct vers Windows Server 2019
+# <a name="upgrade-a-storage-spaces-direct-cluster-to-windows-server-2019"></a>Mettre à niveau un cluster espaces de stockage direct vers Windows Server 2019
 
-Cette rubrique décrit comment mettre à niveau un cluster d’espaces de stockage Direct à Windows Server 2019. Il existe quatre approches pour la mise à niveau d’un cluster d’espaces de stockage Direct à partir de Windows Server 2016 pour Windows Server 2019, à l’aide de la [du système d’exploitation, les processus de mise à niveau propagée de cluster](../../failover-clustering/Cluster-Operating-System-Rolling-Upgrade.md) : deux qui nécessitent de conserver les machines virtuelles en cours d’exécution et deux qui impliquent arrêt de toutes les machines virtuelles. Chaque approche présente des forces et faiblesses, donc en sélectionner qu’un mieux adaptée aux besoins de votre organisation :
+Cette rubrique explique comment mettre à niveau un cluster espaces de stockage direct vers Windows Server 2019. Il existe quatre approches pour mettre à niveau un cluster espaces de stockage direct de Windows Server 2016 vers Windows Server 2019, à l’aide du [processus de mise à niveau propagée du système d’exploitation du cluster](../../failover-clustering/Cluster-Operating-System-Rolling-Upgrade.md) , à savoir deux qui impliquent de maintenir les machines virtuelles en cours d’exécution, et deux qui impliquent l’arrêt de toutes les machines Chaque approche présente des points forts et des faiblesses différents. Sélectionnez donc celle qui répond le mieux aux besoins de votre organisation :
 
-- **Niveau sur place pendant l’exécutant des machines virtuelles** sur chaque serveur dans le cluster, cette option n’implique aucun temps d’arrêt de la machine virtuelle, mais vous devrez attendre des tâches de stockage (réparation de miroir) à effectuer après la mise à niveau chaque serveur.
+- **Mise à niveau sur place lorsque des machines virtuelles sont en cours d’exécution** sur chaque serveur du cluster : cette option n’entraîne aucun temps d’arrêt de la machine virtuelle, mais vous devez attendre la fin des tâches de stockage (réparation en miroir) après la mise à niveau de chaque serveur.
 
-- **Installation de système d’exploitation nettoyer pendant l’exécutant des machines virtuelles** sur chaque serveur dans le cluster, cette option n’implique aucun temps d’arrêt de la machine virtuelle, mais vous devrez attendre des tâches de stockage (réparation de miroir) effectuer une fois que chaque serveur est mis à niveau, et vous devrez définir chaque serveur et tous les ses applications et les rôles à nouveau.
+- **Installation Clean-OS lorsque des machines virtuelles sont en cours d’exécution** sur chaque serveur du cluster : cette option n’entraîne aucun temps d’arrêt de la machine virtuelle, mais vous devez attendre la fin des tâches de stockage (réparation en miroir) après la mise à niveau de chaque serveur et configurer chaque serveur et tous ses les applications et les rôles.
 
-- **Niveau sur place alors que les machines virtuelles sont arrêtées** sur chaque serveur dans le cluster, cette option implique des temps d’arrêt de la machine virtuelle, mais vous n’avez pas besoin d’attendre le stockage des travaux (réparation de miroir), par conséquent, il est plus rapide.
+- **Mise à niveau sur place alors que les machines virtuelles sont arrêtées** sur chaque serveur du cluster : cette option entraîne un temps d’arrêt de la machine virtuelle, mais vous n’avez pas besoin d’attendre les tâches de stockage (réparation en miroir), et c’est donc plus rapide.
 
-- **Système d’exploitation nettoyer installer pendant l’arrêt des machines virtuelles** sur chaque serveur dans le cluster, cette option implique des temps d’arrêt de la machine virtuelle, mais vous n’avez pas besoin d’attendre pour le stockage des travaux (réparation de miroir). il est plus rapide.
+- **Installation Clean-OS lorsque des machines virtuelles sont arrêtées** sur chaque serveur du cluster : cette option entraîne un temps d’arrêt de la machine virtuelle, mais vous n’avez pas besoin d’attendre les tâches de stockage (réparation en miroir) pour accélérer l’opération.
 
 ## <a name="prerequisites-and-limitations"></a>Conditions préalables et limitations
 
 Avant de procéder à une mise à niveau :
 
-- Vérifiez que vous disposez des sauvegardes utilisables dans le cas où il existe des problèmes pendant le processus de mise à niveau.
+- Vérifiez que vous disposez de sauvegardes utilisables en cas de problème pendant le processus de mise à niveau.
 
-- Vérifiez que votre fournisseur de matériel a un BIOS, des microprogrammes et des pilotes pour vos serveurs seront pris en charge sur Windows Server 2019.
+- Vérifiez que votre fournisseur de matériel possède un BIOS, un microprogramme et des pilotes pour vos serveurs qu’il prendra en charge sur Windows Server 2019.
 
-Il existe certaines limitations avec la mise à niveau à connaître :
+Le processus de mise à niveau présente certaines limitations à connaître :
 
-- Pour activer les espaces de stockage Direct avec Windows Server 2019 builds antérieures à 176693.292, les clients peuvent doivent contacter le support Microsoft pour les clés de Registre qui activent les fonctionnalités Sdn et les espaces de stockage Direct. Pour plus d’informations, consultez la Base de connaissances Microsoft [article 4464776](https://support.microsoft.com/help/4464776/software-defined-data-center-and-software-defined-networking).
+- Pour permettre la espaces de stockage direct avec les versions de Windows Server 2019 antérieures à 176693,292, les clients devront peut-être contacter le support technique de Microsoft pour obtenir les clés de Registre qui activent les espaces de stockage direct et les fonctionnalités de mise en réseau définies par logiciel. Pour plus d’informations, consultez [l’article 4464776](https://support.microsoft.com/help/4464776/software-defined-data-center-and-software-defined-networking)de la base de connaissances Microsoft.
 
-- Lors de la mise à niveau un cluster avec des volumes ReFS, il existe quelques limitations :
+- Lors de la mise à niveau d’un cluster avec des volumes ReFS, il existe quelques limitations :
 
-- La mise à niveau est entièrement pris en charge sur des volumes ReFS, toutefois, les volumes mis à niveau ne sont pas en bénéficier ReFS améliorations dans Windows Server 2019. Ces avantages, tels que de meilleures performances pour la parité avec accélération miroir, nécessitent un volume de Windows Server 2019 ReFS nouvellement créé. En d’autres termes, vous seriez obligé de créer des volumes à l’aide de la `New-Volume` applet de commande ou le Gestionnaire de serveur. Voici quelques-unes des améliorations ReFS nouveaux volumes obtiendriez :
+- La mise à niveau est entièrement prise en charge sur les volumes ReFS. Toutefois, les volumes mis à niveau ne tirent pas parti des améliorations apportées à ReFS dans Windows Server 2019. Ces avantages, tels que l’amélioration des performances pour la parité avec accélération miroir, nécessitent un volume Windows Server 2019 ReFS récemment créé. En d’autres termes, vous devez créer des volumes à l’aide `New-Volume` de l’applet de commande ou gestionnaire de serveur. Voici quelques-unes des améliorations apportées par les références aux nouveaux volumes :
 
-    - **CARTE journal-contournement**: une amélioration des performances dans les références qui seulement s’applique aux systèmes (espaces de stockage Direct) en cluster et ne s’applique pas aux pools de stockage autonome.
+    - **Mapper le journal-contournement**: amélioration des performances dans les références qui s’applique uniquement aux systèmes en cluster (espaces de stockage direct) et qui ne s’applique pas aux pools de stockage autonomes.
 
-    - **Compactage** des améliorations de l’efficacité dans Windows Server 2019 qui sont spécifiques à des volumes multiples résilientes.
+    - Améliorations de l’efficacité de **compactage** dans Windows Server 2019 qui sont spécifiques aux volumes multi-résilients.
 
-- Avant la mise à niveau un serveur de cluster espaces de stockage Windows Server 2016 Direct, nous vous recommandons de mettre le serveur en mode de maintenance de stockage. Pour plus d’informations, consultez la section événements 5120 de [résoudre les espaces de stockage Direct](troubleshooting-storage-spaces.md). Bien que ce problème a été résolu dans Windows Server 2016, nous vous recommandons de placer chaque serveur d’espaces de stockage Direct en mode de maintenance de stockage pendant la mise à niveau est recommandé.
+- Avant de mettre à niveau un serveur de cluster Windows Server 2016 espaces de stockage direct, nous vous recommandons de placer le serveur en mode de maintenance du stockage. Pour plus d’informations, consultez la section Event 5120 de [Troubleshoot espaces de stockage direct](troubleshooting-storage-spaces.md). Bien que ce problème ait été résolu dans Windows Server 2016, nous vous recommandons de placer chaque espaces de stockage direct Server en mode de maintenance du stockage au cours de la mise à niveau, comme meilleure pratique.
 
-- Il existe un problème connu avec les environnements Sdn qui utilisent le jeu de commutateurs. Ce problème implique des migrations dynamiques machine virtuelle Hyper-V à partir de Windows Server 2019 vers Windows Server 2016 (migration dynamique à un système d’exploitation antérieur). Pour garantir la réussite migrations en direct, nous vous recommandons de modifier un paramètre de réseau de machine virtuelle sur des machines virtuelles qui sont migrés à partir de Windows Server 2019 vers Windows Server 2016. Ce problème est résolu pour Windows Server 2019 dans le package de correctif cumulatif 2019-01D, également appelé génération 17763.292. Pour plus d’informations, consultez la Base de connaissances Microsoft [article 4476976](https://support.microsoft.com/help/4476976/windows-10-update-kb4476976).
+- Il existe un problème connu avec les environnements réseau définis par logiciel qui utilisent des commutateurs SET. Ce problème concerne les migrations dynamiques des machines virtuelles Hyper-V de Windows Server 2019 vers Windows Server 2016 (migration dynamique vers un système d’exploitation antérieur). Pour garantir la réussite des migrations dynamiques, nous vous recommandons de modifier un paramètre de réseau de machines virtuelles sur les machines virtuelles en cours de migration de Windows Server 2019 vers Windows Server 2016. Ce problème est résolu pour Windows Server 2019 dans le package de correctifs de correctifs 2019-01D, également appelé Build 17763,292. Pour plus d’informations, consultez [l’article 4476976](https://support.microsoft.com/help/4476976/windows-10-update-kb4476976)de la base de connaissances Microsoft.
 
-En raison de problèmes connus ci-dessus, certains clients peuvent prendre en compte la création d’un cluster Windows Server 2019 et copier des données à partir de l’ancien cluster, au lieu de la mise à niveau leurs clusters Windows Server 2016 à l’aide d’un des quatre processus décrits ci-dessous.
+En raison des problèmes connus ci-dessus, certains clients peuvent envisager de créer un nouveau cluster Windows Server 2019 et de copier des données à partir de l’ancien cluster, au lieu de mettre à niveau leurs clusters Windows Server 2016 à l’aide de l’un des quatre processus décrits ci-dessous.
 
-## <a name="performing-an-in-place-upgrade-while-vms-are-running"></a>Effectuer une mise à niveau sur place pendant l’exécutant des machines virtuelles
+## <a name="performing-an-in-place-upgrade-while-vms-are-running"></a>Exécution d’une mise à niveau sur place pendant l’exécution de machines virtuelles
 
-Cette option n’implique aucun temps d’arrêt de la machine virtuelle, mais vous devrez attendre des tâches de stockage (réparation de miroir) à effectuer après la mise à niveau chaque serveur. Bien que des serveurs individuels doit être redémarrés de manière séquentielle pendant le processus de mise à niveau, les serveurs restants dans le cluster, ainsi que toutes les machines virtuelles, reste en cours d’exécution.
+Cette option n’entraîne aucun temps d’arrêt de la machine virtuelle, mais vous devez attendre la fin des tâches de stockage (réparation en miroir) après la mise à niveau de chaque serveur. Bien que des serveurs individuels soient redémarrés séquentiellement pendant le processus de mise à niveau, les autres serveurs du cluster, ainsi que toutes les machines virtuelles, restent en cours d’exécution.
 
-1. Vérifiez que tous les serveurs du cluster ont installé les dernières mises à jour de Windows. Pour plus d’informations, consultez [l’historique de mise à jour de Windows 10 et Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history). Au minimum, installez la Base de connaissances Microsoft [article 4487006](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) (le 19 février 2019). Le numéro de build (voir `ver` commande) doit être 14393.2828 ou une version ultérieure.
+1. Vérifiez que tous les serveurs du cluster ont installé les dernières mises à jour de Windows. Pour plus d’informations, consultez [l’historique des mises à jour Windows 10 et Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history). Au minimum, installez [l’article 4487006](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) de la base de connaissances Microsoft (19 février, 2019). Le numéro de build ( `ver` voir commande) doit être 14393,2828 ou une version ultérieure.
 
-2. Si vous utilisez Sdn avec jeu de commutateurs, ouvrez une session PowerShell avec élévation de privilèges et exécutez la commande suivante pour désactiver les contrôles de vérification de la migration dynamique de machine virtuelle sur toutes les machines virtuelles sur le cluster :
+2. Si vous utilisez la mise en réseau définie par logiciel avec les commutateurs SET, ouvrez une session PowerShell avec élévation de privilèges et exécutez la commande suivante pour désactiver les contrôles de vérification de la migration dynamique de machine virtuelle sur toutes les machines virtuelles sur le cluster :
 
    ```PowerShell
    Get-ClusterResourceType -Cluster {clusterName} -Name "Virtual Machine" |
    Set-ClusterParameter -Create SkipMigrationDestinationCheck -Value 1
    ```
 
-3. Procédez comme suit sur un serveur de cluster à la fois :
+3. Effectuez les étapes suivantes sur un serveur de cluster à la fois :
 
-   1. Utiliser la migration dynamique de machine virtuelle Hyper-V pour déplacer des machines virtuelles en cours d’exécution sur le serveur que vous êtes sur le point de mise à niveau.
+   1. Utilisez la migration dynamique des machines virtuelles Hyper-V pour déplacer les machines virtuelles en cours d’exécution sur le serveur que vous allez mettre à niveau.
 
-   2. Suspendez le serveur de cluster à l’aide de la commande PowerShell suivante : Notez que certains groupes internes sont masqués. Nous vous recommandons de cette étape pour être prudent : Si vous n’avez pas déjà actives migrer des machines virtuelles du serveur de cette applet de commande fera que pour vous, par conséquent, vous pourriez ignorer l’étape précédente si vous préférez.
+   2. Suspendez le serveur de cluster à l’aide de la commande PowerShell suivante : Notez que certains groupes internes sont masqués. Nous vous recommandons d’effectuer cette étape avec prudence : Si vous n’avez pas encore migré les machines virtuelles à partir du serveur, cette applet de commande le fera pour vous, vous pouvez donc ignorer l’étape précédente si vous préférez.
 
         ```PowerShell
        Suspend-ClusterNode -Drain
        ```
 
-   3. Placer le serveur en mode de maintenance de stockage en exécutant les commandes PowerShell suivantes :
+   3. Placez le serveur en mode maintenance du stockage en exécutant les commandes PowerShell suivantes :
 
        ```PowerShell
        Get-StorageFaultDomain -type StorageScaleUnit | 
@@ -84,17 +84,17 @@ Cette option n’implique aucun temps d’arrêt de la machine virtuelle, mais v
        Enable-StorageMaintenanceMode
        ```
 
-   4. Exécutez l’applet de commande suivante pour vérifier que le **OperationalStatus** valeur est **en Mode de Maintenance**:
+   4. Exécutez l’applet de commande suivante pour vérifier que la valeur **OperationalStatus** est **en mode maintenance**:
 
        ```PowerShell
        Get-PhysicalDisk
        ```
 
-   5. Effectuez une mise à niveau vers Windows Server 2019 sur le serveur en exécutant **setup.exe** et à l’aide de l’option « Conserver les fichiers personnels et des applications ». Une fois l’installation terminée, le serveur reste dans le cluster et le cluster service démarre automatiquement.
+   5. Effectuez une installation de mise à niveau de Windows Server 2019 sur le serveur en exécutant le **fichier Setup. exe** et en utilisant l’option « conserver les fichiers et les applications personnels ». Une fois l’installation terminée, le serveur reste dans le cluster et le service de cluster démarre automatiquement.
 
-   6. Vérifiez que le serveur qui vient d’être mis à niveau sont les dernières mises à jour de Windows Server 2019. Pour plus d’informations, consultez [l’historique de mise à jour de Windows 10 et Windows Server 2019](https://support.microsoft.com/help/4464619/windows-10-update-history). Le numéro de build (voir `ver` commande) doit être 17763.292 ou une version ultérieure.
+   6. Vérifiez que le serveur qui vient d’être mis à niveau dispose des dernières mises à jour de Windows Server 2019. Pour plus d’informations, consultez [l’historique des mises à jour Windows 10 et Windows Server 2019](https://support.microsoft.com/help/4464619/windows-10-update-history). Le numéro de build ( `ver` voir commande) doit être 17763,292 ou une version ultérieure.
 
-   7. Supprimer le serveur de stockage mode de maintenance à l’aide de la commande PowerShell suivante :
+   7. Supprimez le serveur du mode de maintenance du stockage à l’aide de la commande PowerShell suivante :
 
        ```PowerShell
        Get-StorageFaultDomain -type StorageScaleUnit | 
@@ -102,20 +102,20 @@ Cette option n’implique aucun temps d’arrêt de la machine virtuelle, mais v
        Disable-StorageMaintenanceMode
        ```
 
-   8. Reprendre le serveur à l’aide de la commande PowerShell suivante :
+   8. Reprenez le serveur à l’aide de la commande PowerShell suivante :
 
        ```PowerShell
        Resume-ClusterNode
        ```
 
-   9. Attente de fin des tâches de réparation de stockage et pour tous les disques revenir à un état sain. Cette opération peut prendre beaucoup de temps en fonction du nombre de machines virtuelles en cours d’exécution pendant la mise à niveau du serveur. Voici les commandes à exécuter :
+   9. Attendez la fin des tâches de réparation de stockage et pour que tous les disques reviennent à un état sain. Cela peut prendre beaucoup de temps en fonction du nombre de machines virtuelles en cours d’exécution pendant la mise à niveau du serveur. Voici les commandes à exécuter :
 
        ```PowerShell
        Get-StorageJob
        Get-VirtualDisk
        ```
 
-4. Mettre à niveau le serveur suivant dans le cluster.
+4. Mettez à niveau le serveur suivant du cluster.
 
 5. Une fois que tous les serveurs ont été mis à niveau vers Windows Server 2019, utilisez l’applet de commande PowerShell suivante pour mettre à jour le niveau fonctionnel du cluster.
 
@@ -124,51 +124,51 @@ Cette option n’implique aucun temps d’arrêt de la machine virtuelle, mais v
    ```
 
    > [!NOTE]
-   > Nous vous recommandons de la mise à jour le niveau fonctionnel du cluster dès que possible, bien que techniquement, vous avez quatre semaines au maximum à le faire.
+   > Nous vous recommandons de mettre à jour le niveau fonctionnel du cluster dès que possible, bien que techniquement vous ayez jusqu’à quatre semaines pour le faire.
 
-6. Une fois que le niveau fonctionnel du cluster a été mis à jour, utilisez l’applet de commande suivante pour mettre à jour le pool de stockage. À ce stade, nouvelles applets de commande telles que `Get-ClusterPerf` soit entièrement opérationnel sur n’importe quel serveur dans le cluster.
+6. Une fois le niveau fonctionnel du cluster mis à jour, utilisez l’applet de commande suivante pour mettre à jour le pool de stockage. À ce stade, de nouvelles applets de `Get-ClusterPerf` commande, telles que, sont entièrement opérationnelles sur n’importe quel serveur du cluster.
 
    ```PowerShell
    Update-StoragePool
    ```
 
-7. Si vous le souhaitez mettre à niveau des niveaux de configuration de machine virtuelle en arrêtant chaque machine virtuelle, à l’aide de la `Update-VMVersion` applet de commande, puis de redémarrer les machines virtuelles.
+7. Vous pouvez éventuellement mettre à niveau des niveaux de configuration de machine virtuelle `Update-VMVersion` en arrêtant chaque machine virtuelle, en utilisant l’applet de commande, puis en redémarrant les machines virtuelles.
 
-8. Si vous utilisez Sdn avec des commutateurs de jeu et désactivées vérifications de migration dynamique de machine virtuelle en suivant les instructions ci-dessus, pour utilisent l’applet de commande suivante pour réactiver Live de la machine virtuelle aux contrôles de vérification :
+8. Si vous utilisez la mise en réseau définie par logiciel avec des commutateurs SET et des contrôles de migration dynamique de machine virtuelle désactivés comme indiqué ci-dessus, utilisez l’applet de commande suivante pour réactiver les contrôles de vérification dynamique de machine virtuelle :
 
    ```PowerShell
    Get-ClusterResourceType -Cluster {clusterName} -Name "Virtual Machine" |
    Set-ClusterParameter  SkipMigrationDestinationCheck -Value 0
    ```
 
-9. Vérifiez que le cluster mis à niveau fonctionne comme prévu. Rôles doivent basculer correctement et si la migration dynamique de machine virtuelle est utilisée sur le cluster, les machines virtuelles doivent migrer correctement dynamiquement.
+9. Vérifiez que le cluster mis à niveau fonctionne comme prévu. Les rôles doivent basculer correctement et si la migration dynamique de machine virtuelle est utilisée sur le cluster, les machines virtuelles doivent réussir la migration.
 
-10. Valider le cluster en exécutant la Validation du Cluster (`Test-Cluster`) et en examinant le rapport de validation de cluster.
+10. Validez le cluster en exécutant la validation`Test-Cluster`de cluster () et en examinant le rapport de validation de cluster.
 
-## <a name="performing-a-clean-os-installation-while-vms-are-running"></a>Effectuez une nouvelle installation de système d’exploitation pendant l’exécutant des machines virtuelles
+## <a name="performing-a-clean-os-installation-while-vms-are-running"></a>Exécution d’une installation propre du système d’exploitation pendant l’exécution des machines virtuelles
 
-Cette option n’implique aucun temps d’arrêt de la machine virtuelle, mais vous devrez attendre des tâches de stockage (réparation de miroir) à effectuer après la mise à niveau chaque serveur. Bien que des serveurs individuels doit être redémarrés de manière séquentielle pendant le processus de mise à niveau, les serveurs restants dans le cluster, ainsi que toutes les machines virtuelles, reste en cours d’exécution.
+Cette option n’entraîne aucun temps d’arrêt de la machine virtuelle, mais vous devez attendre la fin des tâches de stockage (réparation en miroir) après la mise à niveau de chaque serveur. Bien que des serveurs individuels soient redémarrés séquentiellement pendant le processus de mise à niveau, les autres serveurs du cluster, ainsi que toutes les machines virtuelles, restent en cours d’exécution.
 
-1. Vérifiez que tous les serveurs du cluster exécutent les dernières mises à jour. Pour plus d’informations, consultez [l’historique de mise à jour de Windows 10 et Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history). Au minimum, installez la Base de connaissances Microsoft [article 4487006](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) (le 19 février 2019). Le numéro de build (voir `ver` commande) doit être 14393.2828 ou une version ultérieure.
+1. Vérifiez que tous les serveurs du cluster exécutent les dernières mises à jour. Pour plus d’informations, consultez [l’historique des mises à jour Windows 10 et Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history). Au minimum, installez [l’article 4487006](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) de la base de connaissances Microsoft (19 février, 2019). Le numéro de build ( `ver` voir commande) doit être 14393,2828 ou une version ultérieure.
 
-2. Si vous utilisez Sdn avec jeu de commutateurs, ouvrez une session PowerShell avec élévation de privilèges et exécutez la commande suivante pour désactiver les contrôles de vérification de la migration dynamique de machine virtuelle sur toutes les machines virtuelles sur le cluster :
+2. Si vous utilisez la mise en réseau définie par logiciel avec les commutateurs SET, ouvrez une session PowerShell avec élévation de privilèges et exécutez la commande suivante pour désactiver les contrôles de vérification de la migration dynamique de machine virtuelle sur toutes les machines virtuelles sur le cluster :
 
    ```PowerShell
    Get-ClusterResourceType -Cluster {clusterName} -Name "Virtual Machine" |
    Set-ClusterParameter -Create SkipMigrationDestinationCheck -Value 1
    ```
 
-3. Procédez comme suit sur un serveur de cluster à la fois :
+3. Effectuez les étapes suivantes sur un serveur de cluster à la fois :
 
-   1. Utiliser la migration dynamique de machine virtuelle Hyper-V pour déplacer des machines virtuelles en cours d’exécution sur le serveur que vous êtes sur le point de mise à niveau.
+   1. Utilisez la migration dynamique des machines virtuelles Hyper-V pour déplacer les machines virtuelles en cours d’exécution sur le serveur que vous allez mettre à niveau.
 
-   2. Suspendez le serveur de cluster à l’aide de la commande PowerShell suivante : Notez que certains groupes internes sont masqués. Nous vous recommandons de cette étape pour être prudent : Si vous n’avez pas déjà actives migrer des machines virtuelles du serveur de cette applet de commande fera que pour vous, par conséquent, vous pourriez ignorer l’étape précédente si vous préférez.
+   2. Suspendez le serveur de cluster à l’aide de la commande PowerShell suivante : Notez que certains groupes internes sont masqués. Nous vous recommandons d’effectuer cette étape avec prudence : Si vous n’avez pas encore migré les machines virtuelles à partir du serveur, cette applet de commande le fera pour vous, vous pouvez donc ignorer l’étape précédente si vous préférez.
 
         ```PowerShell
        Suspend-ClusterNode -Drain
        ```
 
-   3. Placer le serveur en mode de maintenance de stockage en exécutant les commandes PowerShell suivantes :
+   3. Placez le serveur en mode maintenance du stockage en exécutant les commandes PowerShell suivantes :
 
        ```PowerShell
        Get-StorageFaultDomain -type StorageScaleUnit | 
@@ -176,33 +176,33 @@ Cette option n’implique aucun temps d’arrêt de la machine virtuelle, mais v
        Enable-StorageMaintenanceMode
        ```
 
-   4. Exécutez l’applet de commande suivante pour vérifier que le **OperationalStatus** valeur est **en Mode de Maintenance**:
+   4. Exécutez l’applet de commande suivante pour vérifier que la valeur **OperationalStatus** est **en mode maintenance**:
 
        ```PowerShell
        Get-PhysicalDisk
        ```
 
-   3.  Supprimez le serveur à partir du cluster en exécutant la commande PowerShell suivante :  
+   3.  Supprimez le serveur du cluster en exécutant la commande PowerShell suivante :  
 
        ```PowerShell
        Remove-ClusterNode <ServerName>
        ```
 
-   4. Effectuez une nouvelle installation de Windows Server 2019 sur le serveur : format le lecteur du système, exécutez **setup.exe** et utiliser le « Nothing » option. Vous devrez configurer l’identité du serveur, rôles, fonctionnalités et applications une fois le programme d’installation est terminée et le serveur a redémarré.
+   4. Effectuez une nouvelle installation de Windows Server 2019 sur le serveur : formatez le lecteur système, exécutez **Setup. exe** et utilisez l’option « Nothing ». Vous devez configurer l’identité, les rôles, les fonctionnalités et les applications du serveur une fois l’installation terminée et le serveur redémarré.
 
-   5. Installez le rôle Hyper-V et la fonctionnalité de Clustering de basculement sur le serveur (vous pouvez utiliser le `Install-WindowsFeature` applet de commande).
+   5. Installez le rôle Hyper-V et la fonctionnalité de clustering de basculement sur le serveur (vous `Install-WindowsFeature` pouvez utiliser l’applet de commande).
 
-   6. Installer les pilotes réseau et de stockage plus récente pour votre matériel qui sont approuvées par le fabricant de votre serveur pour une utilisation avec les espaces de stockage Direct.
+   6. Installez les derniers pilotes de réseau et de stockage pour votre matériel qui sont approuvés par le fabricant de votre serveur pour une utilisation avec espaces de stockage direct.
 
-   7. Vérifiez que le serveur qui vient d’être mis à niveau sont les dernières mises à jour de Windows Server 2019. Pour plus d’informations, consultez [l’historique de mise à jour de Windows 10 et Windows Server 2019](https://support.microsoft.com/help/4464619/windows-10-update-history). Le numéro de build (voir `ver` commande) doit être 17763.292 ou une version ultérieure.
+   7. Vérifiez que le serveur qui vient d’être mis à niveau dispose des dernières mises à jour de Windows Server 2019. Pour plus d’informations, consultez [l’historique des mises à jour Windows 10 et Windows Server 2019](https://support.microsoft.com/help/4464619/windows-10-update-history). Le numéro de build ( `ver` voir commande) doit être 17763,292 ou une version ultérieure.
 
-   8. Rejoindre le serveur au cluster à l’aide de la commande PowerShell suivante :
+   8. Rattachez le serveur au cluster à l’aide de la commande PowerShell suivante :
 
        ```PowerShell
        Add-ClusterNode
        ```
 
-   9. Supprimer le serveur de stockage mode de maintenance à l’aide des commandes PowerShell suivantes :
+   9. Supprimez le serveur du mode de maintenance du stockage à l’aide des commandes PowerShell suivantes :
 
        ```PowerShell
        Get-StorageFaultDomain -type StorageScaleUnit | 
@@ -210,14 +210,14 @@ Cette option n’implique aucun temps d’arrêt de la machine virtuelle, mais v
        Disable-StorageMaintenanceMode
        ```
 
-   10. Attente de fin des tâches de réparation de stockage et pour tous les disques revenir à un état sain. Cette opération peut prendre beaucoup de temps en fonction du nombre de machines virtuelles en cours d’exécution pendant la mise à niveau du serveur. Voici les commandes à exécuter :
+   10. Attendez la fin des tâches de réparation de stockage et pour que tous les disques reviennent à un état sain. Cela peut prendre beaucoup de temps en fonction du nombre de machines virtuelles en cours d’exécution pendant la mise à niveau du serveur. Voici les commandes à exécuter :
 
         ```PowerShell
         Get-StorageJob
         Get-VirtualDisk
         ```
 
-4. Mettre à niveau le serveur suivant dans le cluster.
+4. Mettez à niveau le serveur suivant du cluster.
 
 5. Une fois que tous les serveurs ont été mis à niveau vers Windows Server 2019, utilisez l’applet de commande PowerShell suivante pour mettre à jour le niveau fonctionnel du cluster.
     
@@ -226,44 +226,44 @@ Cette option n’implique aucun temps d’arrêt de la machine virtuelle, mais v
    ```
 
    > [!NOTE]
-   > Nous vous recommandons de la mise à jour le niveau fonctionnel du cluster dès que possible, bien que techniquement, vous avez quatre semaines au maximum à le faire.
+   > Nous vous recommandons de mettre à jour le niveau fonctionnel du cluster dès que possible, bien que techniquement vous ayez jusqu’à quatre semaines pour le faire.
 
-6. Une fois que le niveau fonctionnel du cluster a été mis à jour, utilisez l’applet de commande suivante pour mettre à jour le pool de stockage. À ce stade, nouvelles applets de commande telles que `Get-ClusterPerf` soit entièrement opérationnel sur n’importe quel serveur dans le cluster.
+6. Une fois le niveau fonctionnel du cluster mis à jour, utilisez l’applet de commande suivante pour mettre à jour le pool de stockage. À ce stade, de nouvelles applets de `Get-ClusterPerf` commande, telles que, sont entièrement opérationnelles sur n’importe quel serveur du cluster.
 
    ```PowerShell
    Update-StoragePool
    ```
 
-7. Si vous le souhaitez mettre à niveau des niveaux de configuration de machine virtuelle par l’arrêt de chaque machine virtuelle et à l’aide de la `Update-VMVersion` applet de commande, puis de redémarrer les machines virtuelles.
+7. Vous pouvez éventuellement mettre à niveau des niveaux de configuration de machine virtuelle `Update-VMVersion` en arrêtant chaque machine virtuelle et en utilisant l’applet de commande, puis en redémarrant les machines virtuelles.
 
-8. Si vous utilisez Sdn avec des commutateurs de jeu et désactivées vérifications de migration dynamique de machine virtuelle en suivant les instructions ci-dessus, pour utilisent l’applet de commande suivante pour réactiver Live de la machine virtuelle aux contrôles de vérification :
+8. Si vous utilisez la mise en réseau définie par logiciel avec des commutateurs SET et des contrôles de migration dynamique de machine virtuelle désactivés comme indiqué ci-dessus, utilisez l’applet de commande suivante pour réactiver les contrôles de vérification dynamique de machine virtuelle :
 
    ```PowerShell
    Get-ClusterResourceType -Cluster {clusterName} -Name "Virtual Machine" | 
    Set-ClusterParameter SkipMigrationDestinationCheck -Value 0
    ```
 
-9. Vérifiez que le cluster mis à niveau fonctionne comme prévu. Rôles doivent basculer correctement et si la migration dynamique de machine virtuelle est utilisée sur le cluster, les machines virtuelles doivent migrer correctement dynamiquement.
+9. Vérifiez que le cluster mis à niveau fonctionne comme prévu. Les rôles doivent basculer correctement et si la migration dynamique de machine virtuelle est utilisée sur le cluster, les machines virtuelles doivent réussir la migration.
 
-10. Valider le cluster en exécutant la Validation du Cluster (`Test-Cluster`) et en examinant le rapport de validation de cluster.
+10. Validez le cluster en exécutant la validation`Test-Cluster`de cluster () et en examinant le rapport de validation de cluster.
 
-## <a name="performing-an-in-place-upgrade-while-vms-are-stopped"></a>Effectuer une mise à niveau sur place pendant l’arrêt des machines virtuelles
+## <a name="performing-an-in-place-upgrade-while-vms-are-stopped"></a>Exécution d’une mise à niveau sur place alors que les machines virtuelles sont arrêtées
 
-Cette option implique des temps d’arrêt de la machine virtuelle, mais peut prendre moins de temps que si vous avez conservé les machines virtuelles en cours d’exécution pendant la mise à niveau, car vous n’avez pas besoin d’attendre des tâches de stockage (réparation de miroir) à effectuer après la mise à niveau chaque serveur. Bien que des serveurs individuels doit être redémarrés de manière séquentielle pendant le processus de mise à niveau, les serveurs restants du cluster restent en cours d’exécution.
+Cette option entraîne un temps d’arrêt de la machine virtuelle, mais elle peut prendre moins de temps que si vous avez conservé les machines virtuelles en cours d’exécution pendant la mise à niveau, car vous n’avez pas besoin d’attendre la fin des tâches de stockage (réparation en miroir) après la mise à niveau de chaque serveur. Bien que les serveurs individuels soient redémarrés séquentiellement pendant le processus de mise à niveau, les autres serveurs du cluster restent en cours d’exécution.
 
-1. Vérifiez que tous les serveurs du cluster exécutent les dernières mises à jour. Pour plus d’informations, consultez [l’historique de mise à jour de Windows 10 et Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history). Au minimum, installez la Base de connaissances Microsoft [article 4487006](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) (le 19 février 2019). Le numéro de build (voir `ver` commande) doit être 14393.2828 ou une version ultérieure.
+1. Vérifiez que tous les serveurs du cluster exécutent les dernières mises à jour. Pour plus d’informations, consultez [l’historique des mises à jour Windows 10 et Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history). Au minimum, installez [l’article 4487006](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) de la base de connaissances Microsoft (19 février, 2019). Le numéro de build ( `ver` voir commande) doit être 14393,2828 ou une version ultérieure.
 
-2. Arrêter les machines virtuelles en cours d’exécution sur le cluster.
+2. Arrêtez les machines virtuelles en cours d’exécution sur le cluster.
 
-3. Procédez comme suit sur un serveur de cluster à la fois :
+3. Effectuez les étapes suivantes sur un serveur de cluster à la fois :
 
-   1. Suspendez le serveur de cluster à l’aide de la commande PowerShell suivante : Notez que certains groupes internes sont masqués. Nous recommandons cette étape pour être prudent.
+   1. Suspendez le serveur de cluster à l’aide de la commande PowerShell suivante : Notez que certains groupes internes sont masqués. Nous vous recommandons d’effectuer cette étape avec prudence.
 
         ```PowerShell
        Suspend-ClusterNode -Drain
        ```
 
-   2. Placer le serveur en mode de maintenance de stockage en exécutant les commandes PowerShell suivantes :
+   2. Placez le serveur en mode maintenance du stockage en exécutant les commandes PowerShell suivantes :
 
        ```PowerShell
        Get-StorageFaultDomain -type StorageScaleUnit | 
@@ -271,20 +271,20 @@ Cette option implique des temps d’arrêt de la machine virtuelle, mais peut pr
        Enable-StorageMaintenanceMode
        ```
 
-   3. Exécutez l’applet de commande suivante pour vérifier que le **OperationalStatus** valeur est **en Mode de Maintenance**:
+   3. Exécutez l’applet de commande suivante pour vérifier que la valeur **OperationalStatus** est **en mode maintenance**:
 
        ```PowerShell
        Get-PhysicalDisk
        ```
 
-   4. Effectuez une mise à niveau vers Windows Server 2019 sur le serveur en exécutant **setup.exe** et à l’aide de l’option « Conserver les fichiers personnels et des applications ».  
-   Une fois l’installation terminée, le serveur reste dans le cluster et le cluster service démarre automatiquement.
+   4. Effectuez une installation de mise à niveau de Windows Server 2019 sur le serveur en exécutant le **fichier Setup. exe** et en utilisant l’option « conserver les fichiers et les applications personnels ».  
+   Une fois l’installation terminée, le serveur reste dans le cluster et le service de cluster démarre automatiquement.
 
-   5.  Vérifiez que le serveur qui vient d’être mis à niveau sont les dernières mises à jour de Windows Server 2019.  
-   Pour plus d’informations, consultez [l’historique de mise à jour de Windows 10 et Windows Server 2019](https://support.microsoft.com/help/4464619/windows-10-update-history).
-   Le numéro de build (voir `ver` commande) doit être 17763.292 ou une version ultérieure.
+   5.  Vérifiez que le serveur qui vient d’être mis à niveau dispose des dernières mises à jour de Windows Server 2019.  
+   Pour plus d’informations, consultez [l’historique des mises à jour Windows 10 et Windows Server 2019](https://support.microsoft.com/help/4464619/windows-10-update-history).
+   Le numéro de build ( `ver` voir commande) doit être 17763,292 ou une version ultérieure.
 
-   6.  Supprimer le serveur de stockage mode de maintenance à l’aide des commandes PowerShell suivantes :
+   6.  Supprimez le serveur du mode de maintenance du stockage à l’aide des commandes PowerShell suivantes :
 
        ```PowerShell
        Get-StorageFaultDomain -type StorageScaleUnit | 
@@ -292,21 +292,21 @@ Cette option implique des temps d’arrêt de la machine virtuelle, mais peut pr
        Disable-StorageMaintenanceMode
        ```
 
-   7.  Reprendre le serveur à l’aide de la commande PowerShell suivante :
+   7.  Reprenez le serveur à l’aide de la commande PowerShell suivante :
 
        ```PowerShell
        Resume-ClusterNode
        ```
 
-   8.  Attente de fin des tâches de réparation de stockage et pour tous les disques revenir à un état sain.  
-   Cela doit être relativement rapide, étant donné que les machines virtuelles ne sont pas en cours d’exécution. Voici les commandes à exécuter :
+   8.  Attendez la fin des tâches de réparation de stockage et pour que tous les disques reviennent à un état sain.  
+   Cela doit être relativement rapide, puisque les machines virtuelles ne sont pas en cours d’exécution. Voici les commandes à exécuter :
 
        ```PowerShell
        Get-StorageJob
        Get-VirtualDisk
        ```
 
-4. Mettre à niveau le serveur suivant dans le cluster.
+4. Mettez à niveau le serveur suivant du cluster.
 5. Une fois que tous les serveurs ont été mis à niveau vers Windows Server 2019, utilisez l’applet de commande PowerShell suivante pour mettre à jour le niveau fonctionnel du cluster.
     
    ```PowerShell
@@ -314,44 +314,44 @@ Cette option implique des temps d’arrêt de la machine virtuelle, mais peut pr
    ```
 
    > [!NOTE]
-   >   Nous vous recommandons de la mise à jour le niveau fonctionnel du cluster dès que possible, bien que techniquement, vous avez quatre semaines au maximum à le faire.
+   >   Nous vous recommandons de mettre à jour le niveau fonctionnel du cluster dès que possible, bien que techniquement vous ayez jusqu’à quatre semaines pour le faire.
 
-6. Une fois que le niveau fonctionnel du cluster a été mis à jour, utilisez l’applet de commande suivante pour mettre à jour le pool de stockage.  
-   À ce stade, nouvelles applets de commande telles que `Get-ClusterPerf` soit entièrement opérationnel sur n’importe quel serveur dans le cluster.
+6. Une fois le niveau fonctionnel du cluster mis à jour, utilisez l’applet de commande suivante pour mettre à jour le pool de stockage.  
+   À ce stade, de nouvelles applets de `Get-ClusterPerf` commande, telles que, sont entièrement opérationnelles sur n’importe quel serveur du cluster.
 
    ```PowerShell
    Update-StoragePool
    ```
 
-7. Démarrer les machines virtuelles sur le cluster et vérifiez qu’elles fonctionnent correctement.
+7. Démarrez les machines virtuelles sur le cluster et assurez-vous qu’elles fonctionnent correctement.
 
-8. Si vous le souhaitez mettre à niveau des niveaux de configuration de machine virtuelle par l’arrêt de chaque machine virtuelle et à l’aide de la `Update-VMVersion` applet de commande, puis de redémarrer les machines virtuelles.
+8. Vous pouvez éventuellement mettre à niveau des niveaux de configuration de machine virtuelle `Update-VMVersion` en arrêtant chaque machine virtuelle et en utilisant l’applet de commande, puis en redémarrant les machines virtuelles.
 
 9. Vérifiez que le cluster mis à niveau fonctionne comme prévu.  
-   Rôles doivent basculer correctement et si la migration dynamique de machine virtuelle est utilisée sur le cluster, les machines virtuelles doivent migrer correctement dynamiquement.
+   Les rôles doivent basculer correctement et si la migration dynamique de machine virtuelle est utilisée sur le cluster, les machines virtuelles doivent réussir la migration.
 
-10. Valider le cluster en exécutant la Validation du Cluster (`Test-Cluster`) et en examinant le rapport de validation de cluster.
+10. Validez le cluster en exécutant la validation`Test-Cluster`de cluster () et en examinant le rapport de validation de cluster.
 
-## <a name="performing-a-clean-os-installation-while-vms-are-stopped"></a>Effectuez une nouvelle installation de système d’exploitation pendant l’arrêt des machines virtuelles
+## <a name="performing-a-clean-os-installation-while-vms-are-stopped"></a>Exécution d’une installation propre du système d’exploitation pendant l’arrêt des machines virtuelles
 
-Cette option implique des temps d’arrêt de la machine virtuelle, mais peut prendre moins de temps que si vous avez conservé les machines virtuelles en cours d’exécution pendant la mise à niveau, car vous n’avez pas besoin d’attendre des tâches de stockage (réparation de miroir) à effectuer après la mise à niveau chaque serveur. Bien que des serveurs individuels doit être redémarrés de manière séquentielle pendant le processus de mise à niveau, les serveurs restants du cluster restent en cours d’exécution.
+Cette option entraîne un temps d’arrêt de la machine virtuelle, mais elle peut prendre moins de temps que si vous avez conservé les machines virtuelles en cours d’exécution pendant la mise à niveau, car vous n’avez pas besoin d’attendre la fin des tâches de stockage (réparation en miroir) après la mise à niveau de chaque serveur. Bien que les serveurs individuels soient redémarrés séquentiellement pendant le processus de mise à niveau, les autres serveurs du cluster restent en cours d’exécution.
 
 1. Vérifiez que tous les serveurs du cluster exécutent les dernières mises à jour.  
-   Pour plus d’informations, consultez [l’historique de mise à jour de Windows 10 et Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history).
-   Au minimum, installez la Base de connaissances Microsoft [article 4487006](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) (le 19 février 2019). Le numéro de build (voir `ver` commande) doit être 14393.2828 ou une version ultérieure.
+   Pour plus d’informations, consultez [l’historique des mises à jour Windows 10 et Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history).
+   Au minimum, installez [l’article 4487006](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) de la base de connaissances Microsoft (19 février, 2019). Le numéro de build ( `ver` voir commande) doit être 14393,2828 ou une version ultérieure.
 
-2. Arrêter les machines virtuelles en cours d’exécution sur le cluster.
+2. Arrêtez les machines virtuelles en cours d’exécution sur le cluster.
 
-3. Procédez comme suit sur un serveur de cluster à la fois :
+3. Effectuez les étapes suivantes sur un serveur de cluster à la fois :
 
    2. Suspendez le serveur de cluster à l’aide de la commande PowerShell suivante : Notez que certains groupes internes sont masqués.  
-      Nous recommandons cette étape pour être prudent.
+      Nous vous recommandons d’effectuer cette étape avec prudence.
 
        ```PowerShell
       Suspend-ClusterNode -Drain
       ```
 
-   3. Placer le serveur en mode de maintenance de stockage en exécutant les commandes PowerShell suivantes :
+   3. Placez le serveur en mode maintenance du stockage en exécutant les commandes PowerShell suivantes :
 
       ```PowerShell
       Get-StorageFaultDomain -type StorageScaleUnit | 
@@ -359,36 +359,36 @@ Cette option implique des temps d’arrêt de la machine virtuelle, mais peut pr
       Enable-StorageMaintenanceMode
       ```
 
-   4. Exécutez l’applet de commande suivante pour vérifier que le **OperationalStatus** valeur est **en Mode de Maintenance**:
+   4. Exécutez l’applet de commande suivante pour vérifier que la valeur **OperationalStatus** est **en mode maintenance**:
 
       ```PowerShell
       Get-PhysicalDisk
       ```
 
-   5. Supprimez le serveur à partir du cluster en exécutant la commande PowerShell suivante :  
+   5. Supprimez le serveur du cluster en exécutant la commande PowerShell suivante :  
     
       ```PowerShell
       Remove-ClusterNode <ServerName>
       ```
 
-   6. Effectuez une nouvelle installation de Windows Server 2019 sur le serveur : format le lecteur du système, exécutez **setup.exe** et utiliser le « Nothing » option.  
-      Vous devrez configurer l’identité du serveur, rôles, fonctionnalités et applications une fois le programme d’installation est terminée et le serveur a redémarré.
+   6. Effectuez une nouvelle installation de Windows Server 2019 sur le serveur : formatez le lecteur système, exécutez **Setup. exe** et utilisez l’option « Nothing ».  
+      Vous devez configurer l’identité, les rôles, les fonctionnalités et les applications du serveur une fois l’installation terminée et le serveur redémarré.
 
-   7. Installez le rôle Hyper-V et la fonctionnalité de Clustering de basculement sur le serveur (vous pouvez utiliser le `Install-WindowsFeature` applet de commande).
+   7. Installez le rôle Hyper-V et la fonctionnalité de clustering de basculement sur le serveur (vous `Install-WindowsFeature` pouvez utiliser l’applet de commande).
 
-   8. Installer les pilotes réseau et de stockage plus récente pour votre matériel qui sont approuvées par le fabricant de votre serveur pour une utilisation avec les espaces de stockage Direct.
+   8. Installez les derniers pilotes de réseau et de stockage pour votre matériel qui sont approuvés par le fabricant de votre serveur pour une utilisation avec espaces de stockage direct.
 
-   9. Vérifiez que le serveur qui vient d’être mis à niveau sont les dernières mises à jour de Windows Server 2019.  
-      Pour plus d’informations, consultez [l’historique de mise à jour de Windows 10 et Windows Server 2019](https://support.microsoft.com/help/4464619/windows-10-update-history).
-      Le numéro de build (voir `ver` commande) doit être 17763.292 ou une version ultérieure.
+   9. Vérifiez que le serveur qui vient d’être mis à niveau dispose des dernières mises à jour de Windows Server 2019.  
+      Pour plus d’informations, consultez [l’historique des mises à jour Windows 10 et Windows Server 2019](https://support.microsoft.com/help/4464619/windows-10-update-history).
+      Le numéro de build ( `ver` voir commande) doit être 17763,292 ou une version ultérieure.
 
-   10. Rejoindre le serveur au cluster à l’aide de la commande PowerShell suivante :
+   10. Rattachez le serveur au cluster à l’aide de la commande PowerShell suivante :
 
       ```PowerShell
       Add-ClusterNode
       ```
 
-   11. Supprimer le serveur de stockage mode de maintenance à l’aide de la commande PowerShell suivante :
+   11. Supprimez le serveur du mode de maintenance du stockage à l’aide de la commande PowerShell suivante :
 
        ```PowerShell
        Get-StorageFaultDomain -type StorageScaleUnit | 
@@ -396,15 +396,15 @@ Cette option implique des temps d’arrêt de la machine virtuelle, mais peut pr
        Disable-StorageMaintenanceMode
        ```
 
-   12. Attente de fin des tâches de réparation de stockage et pour tous les disques revenir à un état sain.  
-       Cette opération peut prendre beaucoup de temps en fonction du nombre de machines virtuelles en cours d’exécution pendant la mise à niveau du serveur. Voici les commandes à exécuter :
+   12. Attendez la fin des tâches de réparation de stockage et pour que tous les disques reviennent à un état sain.  
+       Cela peut prendre beaucoup de temps en fonction du nombre de machines virtuelles en cours d’exécution pendant la mise à niveau du serveur. Voici les commandes à exécuter :
 
        ```PowerShell
        Get-StorageJob
        Get-VirtualDisk
        ```
 
-4. Mettre à niveau le serveur suivant dans le cluster.
+4. Mettez à niveau le serveur suivant du cluster.
 
 5. Une fois que tous les serveurs ont été mis à niveau vers Windows Server 2019, utilisez l’applet de commande PowerShell suivante pour mettre à jour le niveau fonctionnel du cluster.
     
@@ -413,20 +413,20 @@ Cette option implique des temps d’arrêt de la machine virtuelle, mais peut pr
    ```
 
    > [!NOTE]
-   >   Nous vous recommandons de la mise à jour le niveau fonctionnel du cluster dès que possible, bien que techniquement, vous avez quatre semaines au maximum à le faire.
+   >   Nous vous recommandons de mettre à jour le niveau fonctionnel du cluster dès que possible, bien que techniquement vous ayez jusqu’à quatre semaines pour le faire.
 
-6. Une fois que le niveau fonctionnel du cluster a été mis à jour, utilisez l’applet de commande suivante pour mettre à jour le pool de stockage.  
-   À ce stade, nouvelles applets de commande telles que `Get-ClusterPerf` soit entièrement opérationnel sur n’importe quel serveur dans le cluster.
+6. Une fois le niveau fonctionnel du cluster mis à jour, utilisez l’applet de commande suivante pour mettre à jour le pool de stockage.  
+   À ce stade, de nouvelles applets de `Get-ClusterPerf` commande, telles que, sont entièrement opérationnelles sur n’importe quel serveur du cluster.
 
    ```PowerShell
    Update-StoragePool
    ```
 
-7. Démarrer les machines virtuelles sur le cluster et vérifiez qu’elles fonctionnent correctement.
+7. Démarrez les machines virtuelles sur le cluster et assurez-vous qu’elles fonctionnent correctement.
 
-8. Si vous le souhaitez mettre à niveau des niveaux de configuration de machine virtuelle par l’arrêt de chaque machine virtuelle et à l’aide de la `Update-VMVersion` applet de commande, puis de redémarrer les machines virtuelles.
+8. Vous pouvez éventuellement mettre à niveau des niveaux de configuration de machine virtuelle `Update-VMVersion` en arrêtant chaque machine virtuelle et en utilisant l’applet de commande, puis en redémarrant les machines virtuelles.
 
 9. Vérifiez que le cluster mis à niveau fonctionne comme prévu.  
-   Rôles doivent basculer correctement et si la migration dynamique de machine virtuelle est utilisée sur le cluster, les machines virtuelles doivent migrer correctement dynamiquement.
+   Les rôles doivent basculer correctement et si la migration dynamique de machine virtuelle est utilisée sur le cluster, les machines virtuelles doivent réussir la migration.
 
-10. Valider le cluster en exécutant la Validation du Cluster (`Test-Cluster`) et en examinant le rapport de validation de cluster.
+10. Validez le cluster en exécutant la validation`Test-Cluster`de cluster () et en examinant le rapport de validation de cluster.

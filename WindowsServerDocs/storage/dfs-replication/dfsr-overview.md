@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: ac1f963fd369a5b18414ffcdf9b05519a2e33e14
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 7c092547688bed01d3d588116badf6191e87b1ed
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560508"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871963"
 ---
 # <a name="dfs-replication-overview"></a>Présentation de réplication DFS
 
@@ -27,7 +27,7 @@ Pour utiliser réplication DFS, vous devez créer des groupes de réplication et
 
 ![Groupe de réplication contenant une connexion entre deux membres, chacun d’entre eux ayant deux dossiers répliqués](media/dfsr-overview.gif)
 
-Cette illustration montre qu’un groupe de réplication est un ensemble de serveurs, appelés membres, qui participent à la réplication d’un ou plusieurs dossiers répliqués. Un dossier répliqué est un dossier qui reste synchronisé sur chaque membre. Dans la figure, il existe deux dossiers répliqués: Projets et propositions. À mesure que les données changent dans chaque dossier répliqué, les modifications sont répliquées sur les connexions entre les membres du groupe de réplication. Les connexions entre tous les membres forment la topologie de réplication.
+Cette illustration montre qu’un groupe de réplication est un ensemble de serveurs, appelés membres, qui participent à la réplication d’un ou plusieurs dossiers répliqués. Un dossier répliqué est un dossier qui reste synchronisé sur chaque membre. Dans la figure, il existe deux dossiers répliqués : Projets et propositions. À mesure que les données changent dans chaque dossier répliqué, les modifications sont répliquées sur les connexions entre les membres du groupe de réplication. Les connexions entre tous les membres forment la topologie de réplication.
 La création de plusieurs dossiers répliqués dans un même groupe de réplication simplifie le processus de déploiement des dossiers répliqués, car la topologie, la planification et la limitation de la bande passante pour le groupe de réplication sont appliquées à chaque dossier répliqué. Pour déployer des dossiers répliqués supplémentaires, vous pouvez utiliser Dfsradmin. exe ou un suivant les instructions de l’Assistant pour définir le chemin d’accès local et les autorisations pour le nouveau dossier répliqué.
 
 Chaque dossier répliqué possède des paramètres uniques, tels que des filtres de fichiers et de sous-dossiers, afin que vous puissiez filtrer différents fichiers et sous-dossiers pour chaque dossier répliqué.
@@ -50,7 +50,7 @@ Avant de pouvoir déployer la réplication DFS, vous devez configurer vos serve
 
 L’utilisation de réplication DFS sur une machine virtuelle dans Azure a été testée avec Windows Server. Toutefois, il existe certaines limitations et exigences que vous devez suivre.
 
-- L’utilisation des captures instantanées ou des états de mise en mémoire pour restaurer un serveur exécutant la réplication DFS pour répliquer tout élément différent du dossier SYSVOL entraîne l’échec de la réplication DFS, ce qui requiert des étapes de récupération de base de données particulières. De même, n’exportez pas, ne clonez pas et ne copiez pas les machines virtuelles. Pour plus d’informations, voir l’article [2517913](http://support.microsoft.com/kb/2517913) de la Base de connaissances Microsoft et la rubrique [Virtualisation DFSR sûre](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
+- L’utilisation des captures instantanées ou des états de mise en mémoire pour restaurer un serveur exécutant la réplication DFS pour répliquer tout élément différent du dossier SYSVOL entraîne l’échec de la réplication DFS, ce qui requiert des étapes de récupération de base de données particulières. De même, n’exportez, ne clonez pas et ne copiez pas les machines virtuelles. Pour plus d’informations, voir l’article [2517913](http://support.microsoft.com/kb/2517913) de la Base de connaissances Microsoft et la rubrique [Virtualisation DFSR sûre](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 - Lorsque vous sauvegardez des données dans un dossier répliqué hébergé sur une machine virtuelle, vous devez utiliser le logiciel de sauvegarde de la machine virtuelle invitée.
 - Réplication DFS nécessite l’accès à des contrôleurs de domaine physiques ou virtualisés, il ne peut pas communiquer directement avec Azure AD.
 - La réplication DFS nécessite une connexion VPN entre les membres du groupe de réplication local et tous les membres hébergés dans des machines virtuelles Azure. Vous devez également configurer le routeur local (par exemple, Forefront Threat Management Gateway) pour autoriser le mappeur de point de terminaison RPC (port 135) et un port attribué de façon aléatoire compris entre 49152 et 65535 à passer sur la connexion VPN. Vous pouvez utiliser l’applet de commande Set-DfsrMachineConfiguration ou l’outil en ligne de commande Dfsrdiag pour spécifier un port statique au lieu du port aléatoire. Pour plus d’informations sur la façon de spécifier un port statique pour la réplication DFS, voir [Set-DfsrServiceConfiguration](https://docs.microsoft.com/powershell/module/dfsr/set-dfsrserviceconfiguration). Pour plus d’informations sur les ports associés à ouvrir pour la gestion de Windows Server, consultez l’article [832017](http://support.microsoft.com/kb/832017) de la Base de connaissances Microsoft.
@@ -79,7 +79,7 @@ Installez réplication DFS à l’aide du [Centre d’administration Windows](..
 
 ### <a name="to-install-dfs-replication-by-using-windows-powershell"></a>Pour installer réplication DFS à l’aide de Windows PowerShell
 
-Ouvrez une session Windows PowerShell avec des droits d’utilisateur élevés, puis tapez la commande suivante, où < nom\> est le service de rôle ou la fonctionnalité que vous souhaitez installer (consultez le tableau suivant pour obtenir la liste des noms de services de rôle ou de fonctionnalités appropriés):
+Ouvrez une session Windows PowerShell avec des droits d’utilisateur élevés, puis tapez la commande suivante, où < nom\> est le service de rôle ou la fonctionnalité que vous souhaitez installer (consultez le tableau suivant pour obtenir la liste des noms de services de rôle ou de fonctionnalités appropriés) :
 
 ```PowerShell
 Install-WindowsFeature <name>
@@ -96,7 +96,7 @@ Par exemple, pour installer l’option Outils du système de fichiers DFS de la 
 Install-WindowsFeature "RSAT-DFS-Mgmt-Con"
 ```
 
-Pour installer les réplication DFS et les composants système de fichiers DFS des outils de la fonctionnalité Outils d’administration de serveur distant, tapez:
+Pour installer les réplication DFS et les composants système de fichiers DFS des outils de la fonctionnalité Outils d’administration de serveur distant, tapez :
 
 ```PowerShell
 Install-WindowsFeature "FS-DFS-Replication", "RSAT-DFS-Mgmt-Con"

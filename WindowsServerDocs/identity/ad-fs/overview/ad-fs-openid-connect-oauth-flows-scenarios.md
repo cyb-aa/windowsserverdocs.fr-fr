@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: b83cc7c4c9062c68298e52f6f3b366e6953cb442
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: d7ed8f7976116ab245fa730a5a050e7ec46cebea
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983507"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869491"
 ---
 # <a name="ad-fs-openid-connectoauth-flows-and-application-scenarios"></a>AD FS les flux OpenID Connect/OAuth et les scénarios d’application
 S’applique à AD FS 2016 et versions ultérieures
@@ -67,7 +67,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |redirect_uri|required|La redirect_uri de votre application, où les réponses d’authentification peuvent être envoyées et reçues par votre application. Il doit correspondre exactement à l’un des redirection que vous avez configurés dans AD FS.| 
 |nonce|required|Valeur incluse dans la demande, générée par l’application, qui sera incluse dans le id_token résultant en tant que revendication. L’application peut ensuite vérifier cette valeur pour atténuer les attaques par relecture de jetons. La valeur est généralement une chaîne unique et aléatoire qui peut être utilisée pour identifier l’origine de la demande. Obligatoire uniquement lorsqu’un id_token est demandé.|
 |scope|facultatif|Liste d’étendues séparées par des espaces. Pour OpenID Connect, il doit inclure l’étendue `openid`.|
-|resource|facultatif|URL de votre API Web.</br>Remarque: Si vous utilisez la bibliothèque cliente MSAL, le paramètre de ressource n’est pas envoyé. Au lieu de cela, l’URL de la ressource est envoyée dans le cadre du paramètre Scope:`scope = [resource url]//[scope values e.g., openid]`</br>Si la ressource n’est pas passée ici ou dans l’étendue, ADFS utilise une ressource par défaut urn: Microsoft: UserInfo. les stratégies de ressources UserInfo, telles que l’authentification MFA, l’émission ou la stratégie d’autorisation, ne peuvent pas être personnalisées.| 
+|resource|facultatif|URL de votre API Web.</br>Remarque : Si vous utilisez la bibliothèque cliente MSAL, le paramètre de ressource n’est pas envoyé. Au lieu de cela, l’URL de la ressource est envoyée dans le cadre du paramètre Scope :`scope = [resource url]//[scope values e.g., openid]`</br>Si la ressource n’est pas passée ici ou dans l’étendue, ADFS utilise une ressource par défaut urn : Microsoft : UserInfo. les stratégies de ressources UserInfo, telles que l’authentification MFA, l’émission ou la stratégie d’autorisation, ne peuvent pas être personnalisées.| 
 |response_mode|facultatif| Spécifie la méthode à utiliser pour renvoyer le jeton résultant à votre application. La valeur par défaut est `fragment`.| 
 |state|facultatif|Valeur incluse dans la demande qui est également retournée dans la réponse de jeton. Il peut s’agir d’une chaîne de tout contenu que vous souhaitez. Une valeur unique générée de manière aléatoire est généralement utilisée pour empêcher les attaques par falsification de requête intersites. L’État est également utilisé pour encoder les informations sur l’état de l’utilisateur dans l’application avant la demande d’authentification, comme la page ou la vue sur laquelle il se trouvait.| 
 |prompt|facultatif|Indique le type d’interaction utilisateur requis. Les seules valeurs valides pour l’instant sont login et None.</br>- `prompt=login` forcera l’utilisateur à entrer ses informations d’identification sur cette demande, en annulant l’authentification unique. </br>- `prompt=none` est l’inverse. cela permet de s’assurer que l’utilisateur ne voit aucune invite interactive. Si la demande ne peut pas être effectuée en mode silencieux via l’authentification unique, AD FS renvoie une erreur interaction_required.| 
@@ -78,7 +78,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
  
 ### <a name="successful-response"></a>Réponse réussie 
  
-Une réponse correcte utilisant `response_mode=fragment and response_type=id_token+token` se présente comme suit:  
+Une réponse correcte utilisant `response_mode=fragment and response_type=id_token+token` se présente comme suit :  
  
 ```
 // Line breaks for legibility only 
@@ -111,13 +111,13 @@ L’octroi du code d’autorisation OAuth 2,0 peut être utilisé dans les appli
  
 ### <a name="protocol-diagram"></a>Diagramme de protocole 
  
-À un niveau élevé, le processus d’authentification pour une application native ressemble à ce qui suit:
+À un niveau élevé, le processus d’authentification pour une application native ressemble à ce qui suit :
 
 ![Workflow d’octroi d’un code d’autorisation](media/adfs-scenarios-for-developers/authorization.png)
 
 ### <a name="request-an-authorization-code"></a>Demander un code d’autorisation 
  
-Le workflow de code d’autorisation commence par le client qui dirige l’utilisateur vers le point de terminaison/Authorize. Dans cette demande, le client indique les autorisations qu’il doit obtenir de la part de l’utilisateur: 
+Le workflow de code d’autorisation commence par le client qui dirige l’utilisateur vers le point de terminaison/Authorize. Dans cette demande, le client indique les autorisations qu’il doit obtenir de la part de l’utilisateur : 
  
 ```
 // Line breaks for legibility only 
@@ -137,7 +137,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |client_id|required|L’ID d’application (client) que le AD FS affecté à votre application.|  
 |response_type|required| Doit inclure du code pour le workflow du code d’autorisation.| 
 |redirect_uri|required|`redirect_uri` De votre application, où les réponses d’authentification peuvent être envoyées et reçues par votre application. Il doit correspondre exactement à l’un des redirection que vous avez enregistrés dans le AD FS pour le client.|  
-|resource|facultatif|URL de votre API Web.</br>Remarque: Si vous utilisez la bibliothèque cliente MSAL, le paramètre de ressource n’est pas envoyé. Au lieu de cela, l’URL de la ressource est envoyée dans le cadre du paramètre Scope:`scope = [resource url]//[scope values e.g., openid]`</br>Si la ressource n’est pas passée ici ou dans l’étendue, ADFS utilise une ressource par défaut urn: Microsoft: UserInfo. les stratégies de ressources UserInfo, telles que l’authentification MFA, l’émission ou la stratégie d’autorisation, ne peuvent pas être personnalisées.| 
+|resource|facultatif|URL de votre API Web.</br>Remarque : Si vous utilisez la bibliothèque cliente MSAL, le paramètre de ressource n’est pas envoyé. Au lieu de cela, l’URL de la ressource est envoyée dans le cadre du paramètre Scope :`scope = [resource url]//[scope values e.g., openid]`</br>Si la ressource n’est pas passée ici ou dans l’étendue, ADFS utilise une ressource par défaut urn : Microsoft : UserInfo. les stratégies de ressources UserInfo, telles que l’authentification MFA, l’émission ou la stratégie d’autorisation, ne peuvent pas être personnalisées.| 
 |scope|facultatif|Liste d’étendues séparées par des espaces.|
 |response_mode|facultatif|Spécifie la méthode à utiliser pour renvoyer le jeton résultant à votre application. Il peut s'agir d'une des valeurs suivantes : </br>-requête </br>-fragment </br>- form_post</br>`query` fournit le code en tant que paramètre de chaîne de requête sur votre URI de redirection. Si vous demandez le code, vous pouvez utiliser Query, fragment ou form_post.  `form_post` exécuteunepublicationcontenantlecodedansvotre URI de redirection.|
 |state|facultatif|Valeur incluse dans la demande qui est également retournée dans la réponse de jeton. Il peut s’agir d’une chaîne de tout contenu que vous souhaitez. Une valeur unique générée de manière aléatoire est généralement utilisée pour empêcher les attaques par falsification de requête intersites. La valeur peut également encoder les informations sur l’état de l’utilisateur dans l’application avant la demande d’authentification, comme la page ou la vue sur laquelle il se trouvait.|
@@ -151,7 +151,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
  
 ### <a name="successful-response"></a>Réponse réussie 
  
-Une réponse correcte à l’aide de response_mode = Query ressemble à ceci: 
+Une réponse correcte à l’aide de response_mode = Query ressemble à ceci : 
  
 ```
 GET https://adfs.contoso.com/common/oauth2/nativeclient? 
@@ -167,7 +167,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 
 ### <a name="request-an-access-token"></a>Demander un jeton d’accès 
  
-Maintenant que vous avez acquis un `authorization_code` et que vous avez reçu une autorisation de la part de l’utilisateur, vous pouvez `access_token`échanger le code d’un à la ressource souhaitée. Pour ce faire, envoyez une demande de publication au point de terminaison/Token:  
+Maintenant que vous avez acquis un `authorization_code` et que vous avez reçu une autorisation de la part de l’utilisateur, vous pouvez `access_token`échanger le code d’un à la ressource souhaitée. Pour ce faire, envoyez une demande de publication au point de terminaison/Token :  
  
 ```
 // Line breaks for legibility only 
@@ -190,11 +190,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |code|required|`authorization_code` Que vous avez acquis dans le premier tronçon du Flow.| 
 |redirect_uri|required|La valeur qui a été utilisée pour acquérir le `authorization_code`. `redirect_uri`| 
 |client_secret|requis pour les applications Web|Le secret d’application que vous avez créé lors de l’inscription de l’application dans AD FS. Vous ne devez pas utiliser le secret d’application dans une application native, car clés secrètes client ne peut pas être stocké de manière fiable sur des appareils. Elle est requise pour les applications Web et les API Web, qui ont la capacité de stocker les client_secret de façon sécurisée côté serveur. La clé secrète client doit être encodée URL avant d’être envoyée. Ces applications peuvent également utiliser une authentification basée sur les clés en signant un JWT et en l’ajoutant en tant que paramètre client_assertion.| 
-|code_verifier|facultatif|Identique `code_verifier` à celui utilisé pour obtenir le autorisation. Obligatoire si PKCE a été utilisé dans la demande d’octroi de code d’autorisation. Pour plus d’informations, consultez la [RFC PKCE](https://tools.ietf.org/html/rfc7636).</br>Remarque: s’applique à AD FS 2019 et versions ultérieures| 
+|code_verifier|facultatif|Identique `code_verifier` à celui utilisé pour obtenir le autorisation. Obligatoire si PKCE a été utilisé dans la demande d’octroi de code d’autorisation. Pour plus d’informations, consultez la [RFC PKCE](https://tools.ietf.org/html/rfc7636).</br>Remarque : s’applique à AD FS 2019 et versions ultérieures| 
 
 ### <a name="successful-response"></a>Réponse réussie 
  
-Une réponse de jeton réussie se présente comme suit: 
+Une réponse de jeton réussie se présente comme suit : 
  
 ```
 { 
@@ -231,7 +231,7 @@ Les jetons sont à courte durée de vie et vous devez les actualiser après leur
  
 Les jetons d’actualisation n’ont pas de durée de vie spécifiée. En règle générale, les durées de vie des jetons d’actualisation sont relativement longues. Toutefois, dans certains cas, les jetons d’actualisation expirent, sont révoqués ou ne disposent pas de privilèges suffisants pour l’action souhaitée. Votre application doit attendre et gérer correctement les erreurs retournées par le point de terminaison d’émission de jeton.  
  
-Bien que les jetons d’actualisation ne soient pas révoqués lorsqu’ils sont utilisés pour acquérir de nouveaux jetons d’accès, vous devez ignorer l’ancien jeton d’actualisation. La spécification OAuth 2,0 indique: «Le serveur d’autorisation peut émettre un nouveau jeton d’actualisation, auquel cas le client doit ignorer l’ancien jeton d’actualisation et le remplacer par le nouveau jeton d’actualisation. Le serveur d’autorisation peut révoquer l’ancien jeton d’actualisation après l’émission d’un nouveau jeton d’actualisation au client.» 
+Bien que les jetons d’actualisation ne soient pas révoqués lorsqu’ils sont utilisés pour acquérir de nouveaux jetons d’accès, vous devez ignorer l’ancien jeton d’actualisation. La spécification OAuth 2,0 indique : «Le serveur d’autorisation peut émettre un nouveau jeton d’actualisation, auquel cas le client doit ignorer l’ancien jeton d’actualisation et le remplacer par le nouveau jeton d’actualisation. Le serveur d’autorisation peut révoquer l’ancien jeton d’actualisation après l’émission d’un nouveau jeton d’actualisation au client.» 
  
 ```
 // Line breaks for legibility only 
@@ -251,13 +251,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |-----|-----|-----|
 |client_id|required|L’ID d’application (client) que le AD FS affecté à votre application.| 
 |grant_type|required|Doit être `refresh_token` pour cette branche du workflow de code d’autorisation.| 
-|resource|facultatif|URL de votre API Web.</br>Remarque: Si vous utilisez la bibliothèque cliente MSAL, le paramètre de ressource n’est pas envoyé. Au lieu de cela, l’URL de la ressource est envoyée dans le cadre du paramètre Scope:`scope = [resource url]//[scope values e.g., openid]`</br>Si la ressource n’est pas passée ici ou dans l’étendue, ADFS utilise une ressource par défaut urn: Microsoft: UserInfo. les stratégies de ressources UserInfo, telles que l’authentification MFA, l’émission ou la stratégie d’autorisation, ne peuvent pas être personnalisées.|
+|resource|facultatif|URL de votre API Web.</br>Remarque : Si vous utilisez la bibliothèque cliente MSAL, le paramètre de ressource n’est pas envoyé. Au lieu de cela, l’URL de la ressource est envoyée dans le cadre du paramètre Scope :`scope = [resource url]//[scope values e.g., openid]`</br>Si la ressource n’est pas passée ici ou dans l’étendue, ADFS utilise une ressource par défaut urn : Microsoft : UserInfo. les stratégies de ressources UserInfo, telles que l’authentification MFA, l’émission ou la stratégie d’autorisation, ne peuvent pas être personnalisées.|
 |scope|facultatif|Liste d’étendues séparées par des espaces.| 
 |refresh_token|required|Refresh_token que vous avez acquis au cours de la deuxième jambe du Flow.| 
 |client_secret|requis pour les applications Web| Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application. Il ne doit pas être utilisé dans une application native, car clés secrètes client ne peut pas être stocké de manière fiable sur des appareils. Elle est requise pour les applications Web et les API Web, qui ont la capacité de stocker les client_secret de façon sécurisée côté serveur. Ces applications peuvent également utiliser une authentification basée sur les clés en signant un JWT et en l’ajoutant en tant que paramètre client_assertion.|
 
 ### <a name="successful-response"></a>Réponse réussie 
-Une réponse de jeton réussie se présente comme suit: 
+Une réponse de jeton réussie se présente comme suit : 
  
 ```
 { 
@@ -292,7 +292,7 @@ Les étapes qui suivent constituent le OBO Flow et sont expliquées dans l’aid
 
   1. L’application cliente envoie une requête à l’API A avec le jeton A.  
   Remarque : Lors de la configuration du OBO Flow dans AD FS Assurez-vous que l’option `user_impersonation` étendue `user_impersonation` est sélectionnée et que le client demande l’étendue dans la demande. 
-  2. L’API A s’authentifie auprès du point de terminaison d’émission de jetons AD FS et demande un jeton pour accéder à l’API B. Remarque: Lors de la configuration de ce Workflow dans AD FS Assurez-vous que l’API A est également inscrite en tant qu’application serveur avec clientID ayant la même valeur que l’ID de ressource dans l’API A. Pour plus d’informations, reportez-vous à pour le compte de l’exemple ici ajouter un lien.  
+  2. L’API A s’authentifie auprès du point de terminaison d’émission de jetons AD FS et demande un jeton pour accéder à l’API B. Remarque : Lors de la configuration de ce Workflow dans AD FS Assurez-vous que l’API A est également inscrite en tant qu’application serveur avec clientID ayant la même valeur que l’ID de ressource dans l’API A. Pour plus d’informations, reportez-vous à pour le compte de l’exemple ici ajouter un lien.  
   3. Le point de terminaison d’émission de jetons AD FS valide les informations d’identification de l’API A avec le jeton A et émet le jeton d’accès pour l’API B (jeton B). 
   4. Le jeton B est défini dans l’en-tête d’autorisation de la demande à l’API B. 
   5. Les données de la ressource sécurisée sont retournées par l’API B. 
@@ -309,7 +309,7 @@ Lors de l’utilisation d’un secret partagé, une demande de jeton d’accès 
 
 |Paramètre|Obligatoire ou facultatif|Description|
 |-----|-----|-----| 
-|grant_type|required|Type de demande de jeton. Pour une demande utilisant un JWT, la valeur doit être urn: IETF: params: OAuth: Grant-type: JWT-Bearer.|  
+|grant_type|required|Type de demande de jeton. Pour une demande utilisant un JWT, la valeur doit être urn : IETF : params : OAuth : Grant-type : JWT-Bearer.|  
 |client_id|required|L’ID client que vous configurez lors de l’inscription de votre première API Web en tant qu’application serveur (application de niveau intermédiaire). Il doit s’agir du même ID de ressource que celui utilisé dans la première jambe, c.-à-d. URL de la première API Web.| 
 |client_secret|required|Le secret d’application que vous avez créé lors de l’inscription de l’application serveur dans AD FS.| 
 |assertion|required|Valeur du jeton utilisé dans la demande.|  
@@ -344,9 +344,9 @@ Une demande de jeton d’accès de service à service avec un certificat contien
 
 |Paramètre|obligatoire/facultatif|Description|
 |-----|-----|-----| 
-|grant_type|required|Type de demande de jeton. Pour une demande utilisant un JWT, la valeur doit être urn: IETF: params: OAuth: Grant-type: JWT-Bearer. |
+|grant_type|required|Type de demande de jeton. Pour une demande utilisant un JWT, la valeur doit être urn : IETF : params : OAuth : Grant-type : JWT-Bearer. |
 |client_id|required|L’ID client que vous configurez lors de l’inscription de votre première API Web en tant qu’application serveur (application de niveau intermédiaire). Il doit s’agir du même ID de ressource que celui utilisé dans la première jambe, c.-à-d. URL de la première API Web.|  
-|client_assertion_type|required|La valeur doit être urn: IETF: params: OAuth: client-assertion-type: JWT-Bearer.| 
+|client_assertion_type|required|La valeur doit être urn : IETF : params : OAuth : client-assertion-type : JWT-Bearer.| 
 |client_assertion|required|Une assertion (un jeton Web JSON) que vous devez créer et signer avec le certificat que vous avez enregistré en tant qu’informations d’identification pour votre application.|  
 |assertion|required|Valeur du jeton utilisé dans la demande.| 
 |requested_token_use|required|Spécifie le mode de traitement de la demande. Dans le OBO Flow, la valeur doit être définie sur on_behalf_of| 
@@ -354,7 +354,7 @@ Une demande de jeton d’accès de service à service avec un certificat contien
 |scope|facultatif|Liste d’étendues séparées par des espaces pour la demande de jeton.|
 
 
-Notez que les paramètres sont presque les mêmes que dans le cas de la demande par secret partagé, sauf que le paramètre client_secret est remplacé par deux paramètres: client_assertion_type et client_assertion. 
+Notez que les paramètres sont presque les mêmes que dans le cas de la demande par secret partagé, sauf que le paramètre client_secret est remplacé par deux paramètres : client_assertion_type et client_assertion. 
 
 #### <a name="example"></a>Exemple 
 La requête HTTP suivante demande un jeton d’accès pour l’API Web avec un certificat.
@@ -430,7 +430,7 @@ Le diagramme suivant illustre le processus d’octroi des informations d’ident
 
 ### <a name="request-a-token"></a>Demander un jeton 
  
-Pour obtenir un jeton à l’aide de l’octroi des informations d’identification `POST` du client, envoyez une demande au point de terminaison/Token AD FS:  
+Pour obtenir un jeton à l’aide de l’octroi des informations d’identification `POST` du client, envoyez une demande au point de terminaison/Token AD FS :  
  
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Premier cas: Demande de jeton d’accès avec un secret partagé 
  
@@ -471,7 +471,7 @@ Content-Type: application/x-www-form-urlencoded
 
 |Paramètre|Obligatoire ou facultatif|Description| 
 |-----|-----|-----|
-|client_assertion_type|required|La valeur doit être définie sur urn: IETF: params: OAuth: client-assertion-type: JWT-Bearer.| 
+|client_assertion_type|required|La valeur doit être définie sur urn : IETF : params : OAuth : client-assertion-type : JWT-Bearer.| 
 |client_assertion|required|Une assertion (un jeton Web JSON) que vous devez créer et signer avec le certificat que vous avez enregistré en tant qu’informations d’identification pour votre application.|  
 |grant_type|required|Doit avoir la valeur `client_credentials`.|
 |client_id|facultatif|L’ID d’application (client) que le AD FS affecté à votre application. Cela fait partie de client_assertion. il n’est donc pas nécessaire de la transmettre ici.| 
@@ -498,7 +498,7 @@ Le diagramme suivant illustre le déroulement du ROPC.
 ![ROPC Flow](media/adfs-scenarios-for-developers/resource.png)
 
 ### <a name="authorization-request"></a>Demande d’autorisation 
-Le ROPC est une requête unique: il envoie l’identification du client et les informations d’identification de l’utilisateur au IDP, puis reçoit les jetons en retour. Le client doit demander l’adresse de messagerie de l’utilisateur (UPN) et le mot de passe avant de procéder. Immédiatement après une demande réussie, le client doit libérer en toute sécurité les informations d’identification de l’utilisateur à partir de la mémoire. Il ne doit jamais les enregistrer.  
+Le ROPC est une requête unique : il envoie l’identification du client et les informations d’identification de l’utilisateur au IDP, puis reçoit les jetons en retour. Le client doit demander l’adresse de messagerie de l’utilisateur (UPN) et le mot de passe avant de procéder. Immédiatement après une demande réussie, le client doit libérer en toute sécurité les informations d’identification de l’utilisateur à partir de la mémoire. Il ne doit jamais les enregistrer.  
 
 ```
 // Line breaks and spaces are for legibility only. 
@@ -524,7 +524,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |scope|facultatif|Liste d’étendues séparées par des espaces.|
 
 ### <a name="successful-authentication-response"></a>Réponse d’authentification réussie 
-L’exemple suivant montre une réponse de jeton réussie: 
+L’exemple suivant montre une réponse de jeton réussie : 
 
 ```
 { 
@@ -592,7 +592,7 @@ Une réponse correcte est un objet JSON contenant les informations requises pour
 |verification_uri_complete|URI auquel l’utilisateur doit accéder avec user_code pour se connecter. Il est prérempli avec user_code pour que l’utilisateur n’ait pas besoin d’entrer user_code| 
 |expires_in|Nombre de secondes avant l’expiration de device_code et user_code.| 
 |interval|Nombre de secondes pendant lesquelles le client doit attendre entre les demandes d’interrogation.| 
-|message|Chaîne explicite avec des instructions pour l’utilisateur. Cela peut être localisé en incluant un paramètre de requête dans la demande du formulaire? MKT = XX-XX, en remplissant le code de culture de langue approprié.  
+|message|Chaîne explicite avec des instructions pour l’utilisateur. Cela peut être localisé en incluant un paramètre de requête dans la demande du formulaire ? MKT = XX-XX, en remplissant le code de culture de langue approprié.  
 
 ### <a name="authenticating-the-user"></a>Authentification de l’utilisateur 
 Après avoir reçu les user_code et verification_uri, le client les affiche à l’utilisateur, ce qui leur demande de se connecter à l’aide de leur téléphone mobile ou navigateur de PC. En outre, le client peut utiliser un code QR ou un mécanisme similaire pour afficher verfication_uri_complete, ce qui va à l’étape de la saisie des user_code pour l’utilisateur. Pendant que l’utilisateur s’authentifie sur le verification_uri, le client doit interroger le point de terminaison/Token pour le jeton demandé à l’aide de device_code. 
@@ -609,12 +609,12 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 
 |Paramètre|required|Description|
 |-----|-----|-----| 
-|grant_type|required|Doit être urn: IETF: params: OAuth: Grant-type: device_code| 
+|grant_type|required|Doit être urn : IETF : params : OAuth : Grant-type : device_code| 
 |client_id|required|Doit correspondre au client_id utilisé dans la demande initiale.| 
 |code|required|Device_code retourné dans la demande d’autorisation de l’appareil.|
 
 ### <a name="successful-authentication-response"></a>Réponse d’authentification réussie 
-Une réponse de jeton réussie se présente comme suit:  
+Une réponse de jeton réussie se présente comme suit :  
 
 
 |Paramètre|Description|

@@ -9,109 +9,109 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 72fe425b040f83a217a144976265c7754830c91b
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: d057c943b9c14b74b44472d446625b60f5ad9d22
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189502"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865961"
 ---
 # <a name="create-a-rule-to-permit-or-deny-users-based-on-an-incoming-claim"></a>Créer une règle pour autoriser ou refuser des utilisateurs en fonction d’une demande entrante 
 
 
-Dans Windows Server 2016, vous pouvez utiliser un **stratégie de contrôle d’accès** pour créer une règle qui autorise ou refuse les utilisateurs basés sur une revendication entrante.  Dans Windows Server 2012 R2, à l’aide de la **autoriser ou refuser les utilisateurs en fonction d’une revendication entrante** le modèle de règle dans Active Directory Federation Services \(AD FS\), vous pouvez créer une règle d’autorisation qui accordera ou refuser l’accès de l’utilisateur à la partie de confiance selon le type et la valeur d’une revendication entrante. 
+Dans Windows Server 2016, vous pouvez utiliser une **stratégie de Access Control** pour créer une règle qui autorise ou refuse des utilisateurs en fonction d’une revendication entrante.  Dans Windows Server 2012 R2, en utilisant le modèle de règle **autoriser ou refuser des utilisateurs en fonction d’une revendication entrante** dans services ADFS \(AD FS\), vous pouvez créer une règle d’autorisation qui accorde ou refuse l’accès de l’utilisateur au partie de confiance basée sur le type et la valeur d’une revendication entrante. 
 
-Par exemple, vous pouvez l’utiliser pour créer une règle qui autorise uniquement les utilisateurs qui ont un groupe avec une valeur du groupe Admins du domaine à accéder à la confiance de revendication. Si vous souhaitez autoriser tous les utilisateurs pour accéder à la partie de confiance, utilisez le **autoriser tout le monde** stratégie de contrôle d’accès ou le **autoriser tous les utilisateurs** le modèle de règle selon votre version de Windows Server. Les utilisateurs dont l’accès à la partie de confiance est autorisé par le service de fédération peuvent se voir refuser le service par la partie de confiance.  
+Par exemple, vous pouvez l’utiliser pour créer une règle qui autorise uniquement les utilisateurs qui ont une revendication de groupe avec la valeur Admins du domaine à accéder à la partie de confiance. Si vous souhaitez autoriser tous les utilisateurs à accéder à la partie de confiance, utilisez la stratégie **autoriser tout le monde** Access Control ou le modèle de règle **autoriser tous les utilisateurs** en fonction de votre version de Windows Server. Les utilisateurs dont l’accès à la partie de confiance est autorisé par le service de fédération peuvent se voir refuser le service par la partie de confiance.  
   
-Vous pouvez utiliser la procédure suivante pour créer une règle de revendication avec le composant logiciel enfichable Gestion AD FS\-dans.  
+Vous pouvez utiliser la procédure suivante pour créer une règle de revendication avec le composant logiciel\-enfichable de gestion AD FS.  
   
 Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).  
 
-## <a name="to-create-a-rule-to-permit-users-based-on-an-incoming-claim-on-windows-server-2016"></a>Pour créer une règle pour autoriser les utilisateurs basés sur une revendication entrante sur Windows Server 2016
+## <a name="to-create-a-rule-to-permit-users-based-on-an-incoming-claim-on-windows-server-2016"></a>Pour créer une règle permettant d’autoriser les utilisateurs en fonction d’une revendication entrante sur Windows Server 2016
  
-1.  Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion AD FS**.  
+1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**.  
   
-2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **stratégies de contrôle d’accès**. 
-![Créer la règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny3.PNG)
+2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **Access Control stratégies**. 
+![créer une règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny3.PNG)
 
-3. Avec le bouton droit et sélectionnez **ajouter une stratégie de contrôle d’accès**.
-![Créer la règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny4.PNG)
+3. Cliquez avec le bouton droit et sélectionnez **Ajouter une stratégie de Access Control**.
+![créer une règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny4.PNG)
 
-4. Dans la zone Nom, entrez un nom pour votre stratégie, d’une description et cliquez sur **ajouter**.
-![Créer la règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny5.PNG)
+4. Dans la zone Nom, entrez un nom pour votre stratégie, une description, puis cliquez sur **Ajouter**.
+![créer une règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny5.PNG)
 
-5. Sur le **éditeur de règles**, sous les utilisateurs, cochez la case **avec des revendications spécifiques dans la demande** et cliquez sur le texte souligné **spécifique** en bas.
-![Créer la règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny6.PNG)
+5. Dans l' **éditeur de règles**, sous utilisateurs, placez une coche **avec des revendications spécifiques dans la demande** , puis cliquez sur le souligné **spécifique** en bas.
+![créer une règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny6.PNG)
 
-6. Sur le **revendications sélectionnez** , cliquez sur le **revendications** bouton radio, sélectionnez le **type de revendication**, le **opérateur**et le  **Valeur de revendication** puis cliquez sur **Ok**.
-![Créer la règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny7.PNG)
+6. Dans l' **écran Sélectionner des revendications** , cliquez sur la case d’option **revendications** , sélectionnez le **type de revendication**, l' **opérateur**et la **valeur de revendication** , puis cliquez sur **OK**.
+![créer une règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny7.PNG)
 
-7.  Sur le **éditeur de règles** cliquez sur **Ok**.  Sur le **ajouter une stratégie de contrôle d’accès** , cliquez sur **Ok**.
+7.  Dans l' **éditeur de règles** , cliquez sur **OK**.  Dans l’écran **Ajouter une stratégie de Access Control** , cliquez sur **OK**.
 
-8. Dans le **gestion AD FS** arborescence, sous **AD FS**, cliquez sur **confiance**. 
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)
+8. Dans l’arborescence de la console de **gestion AD FS** , sous **AD FS**, cliquez sur **approbations de partie de confiance**. 
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)
 
-9.  Cliquez sur le **Relying Party Trust** que vous souhaitez autoriser l’accès à et sélectionnez **modifier une stratégie de contrôle d’accès**.  
-![Créer la règle](media/Create-a-Rule-to-Permit-All-Users/permitall2.PNG)
+9.  Cliquez avec le bouton droit sur l' **approbation de partie de confiance** à laquelle vous souhaitez autoriser l’accès, puis sélectionnez Modifier la stratégie de **Access Control**.  
+![créer une règle](media/Create-a-Rule-to-Permit-All-Users/permitall2.PNG)
 
-10. Dans la stratégie de contrôle d’accès, sélectionnez votre stratégie, puis sur **appliquer** et **Ok**.
-![Créer la règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny8.PNG)
+10. Dans la stratégie de contrôle d’accès, sélectionnez votre stratégie, puis cliquez sur **appliquer** , puis sur **OK**.
+![créer une règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny8.PNG)
 
-## <a name="to-create-a-rule-to-deny-users-based-on-an-incoming-claim-on-windows-server-2016"></a>Pour créer une règle pour refuser des utilisateurs en fonction d’une revendication entrante sur Windows Server 2016
+## <a name="to-create-a-rule-to-deny-users-based-on-an-incoming-claim-on-windows-server-2016"></a>Pour créer une règle pour refuser aux utilisateurs une revendication entrante sur Windows Server 2016
  
-1.  Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion AD FS**.  
+1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**.  
   
-2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **stratégies de contrôle d’accès**. 
-![Créer la règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny3.PNG)
+2.  Dans l’arborescence de la console, sous **AD FS**, cliquez sur **Access Control stratégies**. 
+![créer une règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny3.PNG)
 
-3. Avec le bouton droit et sélectionnez **ajouter une stratégie de contrôle d’accès**.
-![Créer la règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny4.PNG)
+3. Cliquez avec le bouton droit et sélectionnez **Ajouter une stratégie de Access Control**.
+![créer une règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny4.PNG)
 
-4. Dans la zone Nom, entrez un nom pour votre stratégie, d’une description et cliquez sur **ajouter**.
-![Créer la règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny9.PNG)
+4. Dans la zone Nom, entrez un nom pour votre stratégie, une description, puis cliquez sur **Ajouter**.
+![créer une règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny9.PNG)
 
-5. Sur le **éditeur de règles**, assurez-vous que tout le monde est sélectionné puis, sous **sauf** Cochez la case **avec des revendications spécifiques dans la demande** et cliquez sur le texte souligné  **spécifique** en bas.
-![Créer la règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny10.PNG)
+5. Dans l' **éditeur de règles**, assurez-vous que tout le monde est sélectionné et sous **, à l’exception** de placer une coche **avec des revendications spécifiques dans la demande** , puis cliquez sur le souligné **spécifique** en bas.
+![créer une règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny10.PNG)
 
-6. Sur le **revendications sélectionnez** , cliquez sur le **revendications** bouton radio, sélectionnez le **type de revendication**, le **opérateur**et le  **Valeur de revendication** puis cliquez sur **Ok**.
-![Créer la règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny11.PNG)
+6. Dans l' **écran Sélectionner des revendications** , cliquez sur la case d’option **revendications** , sélectionnez le **type de revendication**, l' **opérateur**et la **valeur de revendication** , puis cliquez sur **OK**.
+![créer une règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny11.PNG)
 
-7.  Sur le **éditeur de règles** cliquez sur **Ok**.  Sur le **ajouter une stratégie de contrôle d’accès** , cliquez sur **Ok**.
+7.  Dans l' **éditeur de règles** , cliquez sur **OK**.  Dans l’écran **Ajouter une stratégie de Access Control** , cliquez sur **OK**.
 
-8. Dans le **gestion AD FS** arborescence, sous **AD FS**, cliquez sur **confiance**. 
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)
+8. Dans l’arborescence de la console de **gestion AD FS** , sous **AD FS**, cliquez sur **approbations de partie de confiance**. 
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)
 
-9.  Cliquez sur le **Relying Party Trust** que vous souhaitez autoriser l’accès à et sélectionnez **modifier une stratégie de contrôle d’accès**.  
-![Créer la règle](media/Create-a-Rule-to-Permit-All-Users/permitall2.PNG)
+9.  Cliquez avec le bouton droit sur l' **approbation de partie de confiance** à laquelle vous souhaitez autoriser l’accès, puis sélectionnez Modifier la stratégie de **Access Control**.  
+![créer une règle](media/Create-a-Rule-to-Permit-All-Users/permitall2.PNG)
 
-10. Dans la stratégie de contrôle d’accès, sélectionnez votre stratégie, puis sur **appliquer** et **Ok**.
-![Créer la règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny12.PNG)
+10. Dans la stratégie de contrôle d’accès, sélectionnez votre stratégie, puis cliquez sur **appliquer** , puis sur **OK**.
+![créer une règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny12.PNG)
 
   
-## <a name="to-create-a-rule-to-permit-or-deny-users-based-on-an-incoming-claim-on-windows-server-2012-r2"></a>Pour créer une règle pour autoriser ou refuser des utilisateurs basés sur une revendication entrante sur Windows Server 2012 R2
+## <a name="to-create-a-rule-to-permit-or-deny-users-based-on-an-incoming-claim-on-windows-server-2012-r2"></a>Pour créer une règle pour autoriser ou refuser des utilisateurs en fonction d’une revendication entrante sur Windows Server 2012 R2
   
-1.  Dans le Gestionnaire de serveur, cliquez sur **outils**, puis sélectionnez **gestion AD FS**.    
+1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sélectionnez **gestion des AD FS**.    
   
-2.  Dans l’arborescence de la console, sous **AD FS\\relations d’approbation\\confiance**, cliquez sur une approbation spécifique dans la liste où vous souhaitez créer cette règle.  
+2.  Dans l’arborescence de la console, sous **\\AD FS\\approbations de partie**de confiance de relations d’approbation, cliquez sur une approbation spécifique dans la liste dans laquelle vous souhaitez créer cette règle.  
   
-3.  Droite\-cliquez sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.  
-![Créer la règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG)   
+3.  Cliquez\-avec le bouton droit sur l’approbation sélectionnée, puis cliquez sur **modifier les règles de revendication**.  
+![créer une règle](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG)   
 
-4.  Dans le **modifier les règles de revendication** boîte de dialogue, cliquez sur le **les règles d’autorisation d’émission** onglet ou la **règles d’autorisation de délégation** onglet \(selon le type de règle d’autorisation que vous avez besoin de\), puis cliquez sur **ajouter une règle** pour démarrer le **Assistant de règle de revendication d’autorisation Ajouter**.  
-![Créer la règle](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)
+4.  Dans la boîte de dialogue **modifier les règles de revendication** , cliquez sur l’onglet **règles d’autorisation d’émission** ou sur l’onglet \( **règles d’autorisation** de délégation\)en fonction du type de règle d’autorisation dont vous avez besoin, puis cliquez sur **Ajouter une règle.** pour démarrer l' **Assistant Ajouter une règle de revendication d’autorisation**.  
+![créer une règle](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)
 
-5.  Sur le **sélectionner le modèle de règle** page sous **modèle de règle de revendication**, sélectionnez **autoriser ou refuser les utilisateurs en fonction d’une revendication entrante** dans la liste, puis cliquez sur  **Suivant**.  
-![Créer la règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny1.PNG)
+5.  Dans la page **Sélectionner le modèle de règle** , sous modèle de règle de **revendication**, sélectionnez **autoriser ou refuser des utilisateurs en fonction d’une revendication entrante** dans la liste, puis cliquez sur **suivant**.  
+![créer une règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny1.PNG)
 
-6.  Sur le **configurer la règle** page sous **nom de règle de revendication** tapez le nom complet de cette règle, **type de revendication entrante** sélectionner un type de revendication dans la liste, sous  **Valeur de revendication entrante** taper une valeur ou cliquez sur Parcourir \(s’il est disponible\) et sélectionnez une valeur, puis sélectionnez une des options suivantes, selon les besoins de votre organisation :  
+6.  Dans la **page Configurer la règle** , sous nom de la règle de **revendication** , tapez le nom complet de cette règle, dans **type de revendication entrante** , sélectionnez un type de revendication dans la liste, \(sous **valeur de revendication entrante** tapez une valeur ou cliquez sur Parcourir si elle est disponible\) et sélectionnez une valeur, puis sélectionnez l’une des options suivantes, selon les besoins de votre organisation :  
   
     -   **Autoriser l’accès aux utilisateurs avec cette revendication entrante**  
   
     -   **Refuser l’accès aux utilisateurs avec cette revendication entrante**  
-![Créer la règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny2.PNG)  
+![créer une règle](media/Create-a-Rule-to-Permit-or-Deny-Users-Based-on-an-Incoming-Claim/permitdeny2.PNG)  
 7.  Cliquez sur **Terminer**.  
   
-8.  Dans le **modifier les règles de revendication** boîte de dialogue, cliquez sur **OK** pour enregistrer la règle.  
+8.  Dans la boîte de dialogue **modifier les règles de revendication** , cliquez sur **OK** pour enregistrer la règle.  
 
 ## <a name="additional-references"></a>Références supplémentaires 
 [Configurer les règles de revendication](Configure-Claim-Rules.md)  

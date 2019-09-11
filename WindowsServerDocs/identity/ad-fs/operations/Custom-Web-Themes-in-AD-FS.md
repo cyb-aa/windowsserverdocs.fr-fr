@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2bce52a5704706ad72799d00879e2f4e48f9d703
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: affcc8b7d6aed56c37ddf00dd1c962c0d82fd85b
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189248"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865777"
 ---
 # <a name="custom-web-themes-in-ad-fs"></a>Thèmes Web personnalisés dans AD FS 
 
-Le thème qui est livré out\-de\-le\-est appelée par défaut. Vous pouvez exporter le thème par défaut de manière à démarrer rapidement. Vous pouvez personnaliser l'apparence et le comportement, notamment la disposition par le biais du fichier .css, importer et appliquer ce nouveau thème, puis utiliser l'apparence et le comportement personnalisés. L'utilisation du fichier .css facilite par ailleurs la collaboration avec vos concepteurs web.  
+Le thème qui est expédié\-\-\-par défaut est appelé default. Vous pouvez exporter le thème par défaut de manière à démarrer rapidement. Vous pouvez personnaliser l'apparence et le comportement, notamment la disposition par le biais du fichier .css, importer et appliquer ce nouveau thème, puis utiliser l'apparence et le comportement personnalisés. L'utilisation du fichier .css facilite par ailleurs la collaboration avec vos concepteurs web.  
   
 L'applet de commande suivante crée un thème web personnalisé, qui duplique le thème web par défaut.  
   
@@ -45,7 +45,7 @@ L'applet de commande suivante crée un thème web personnalisé à partir d'une 
   
   
   
-Pour appliquer le thème web personnalisé à AD FS, utilisez l’applet de commande suivante.  
+Pour appliquer le thème Web personnalisé à AD FS, utilisez l’applet de commande suivante.  
   
 
 `Set-AdfsWebConfig -ActiveThemeName custom`  
@@ -54,8 +54,8 @@ Pour appliquer le thème web personnalisé à AD FS, utilisez l’applet de comm
 Pour ajouter JavaScript à AD FS, utilisez l’applet de commande suivante.  
   
  
-    Set-AdfsWebTheme -TargetName custom -AdditionalFileResource @{Uri=’ /adfs/portal/script/onload.js’;path="D:\inetpub\adfsassets\script\onload.js"}  
+    Set-AdfsWebTheme -TargetName custom -AdditionalFileResource @{Uri=' /adfs/portal/script/onload.js';path="D:\inetpub\adfsassets\script\onload.js"}  
 
 
 ## <a name="additional-references"></a>Références supplémentaires 
-[AD FS Sign-in personnalisation de l’utilisateur](AD-FS-user-sign-in-customization.md)  
+[Personnalisation de la connexion de l’utilisateur AD FS](AD-FS-user-sign-in-customization.md)  

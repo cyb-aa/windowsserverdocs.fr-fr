@@ -10,12 +10,12 @@ ms.date: 08/20/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 180ffbd1e96448d7a7ea12c5e08e9fc5b35f7f8b
-ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
+ms.openlocfilehash: 56f485491340b3974d8bf5ba697c6cf01f3e56ac
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70031569"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868208"
 ---
 # <a name="winlogon-automatic-restart-sign-on-arso"></a>Connexion par redémarrage automatique Winlogon (connexion)
 
@@ -47,15 +47,15 @@ CONNEXION traite différemment les appareils non gérés et gérés. Pour les ap
 
 Dans Windows 10, connexion est désactivé pour les références de serveur et s’abonne aux références clientes.
 
-**Emplacement de la stratégie de groupe:** Configuration de l’ordinateur > Modèles d’administration > les composants Windows > les options d’ouverture de session Windows
+**Emplacement de la stratégie de groupe :** Configuration de l’ordinateur > Modèles d’administration > les composants Windows > les options d’ouverture de session Windows
 
-**Stratégie Intune:**
+**Stratégie Intune :**
 
 - Multi Windows 10 et versions ultérieures
-- Type de profil: Modèles d’administration
-- Chemin: \Windows Windows\windows Logon options
+- Type de profil : Modèles d’administration
+- Chemin : \Windows Windows\windows Logon options
 
-**Pris en charge sur:** Au moins Windows 10 version 1903
+**Pris en charge sur :** Au moins Windows 10 version 1903
 
 **Description :**
 
@@ -71,14 +71,14 @@ Après avoir activé cette stratégie, vous pouvez configurer ses paramètres à
 
 Si vous désactivez ce paramètre de stratégie, l’appareil ne configure pas la connexion automatique. Les applications de l’écran de verrouillage de l’utilisateur ne sont pas redémarrées après le redémarrage du système.
 
-**Éditeur du Registre:**
+**Éditeur du Registre :**
 
 | Nom de valeur | Type | Données |
 | --- | --- | --- |
 | DisableAutomaticRestartSignOn | DWORD | 0 (activer connexion) |
 |   |   | 1 (désactiver connexion) |
 
-**Emplacement du registre de la stratégie:** HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+**Emplacement du registre de la stratégie :** HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
 
 **Type :** DWORD
 
@@ -88,29 +88,29 @@ Si vous désactivez ce paramètre de stratégie, l’appareil ne configure pas l
 
 ### <a name="configure-the-mode-of-automatically-signing-in-and-locking-last-interactive-user-after-a-restart-or-cold-boot"></a>Configurer le mode de connexion et de verrouillage automatique du dernier utilisateur interactif après un redémarrage ou un démarrage à froid
 
-**Emplacement de la stratégie de groupe:** Configuration de l’ordinateur > Modèles d’administration > les composants Windows > les options d’ouverture de session Windows
+**Emplacement de la stratégie de groupe :** Configuration de l’ordinateur > Modèles d’administration > les composants Windows > les options d’ouverture de session Windows
 
-**Stratégie Intune:**
+**Stratégie Intune :**
 
 - Multi Windows 10 et versions ultérieures
-- Type de profil: Modèles d’administration
-- Chemin: \Windows Windows\windows Logon options
+- Type de profil : Modèles d’administration
+- Chemin : \Windows Windows\windows Logon options
 
-**Pris en charge sur:** Au moins Windows 10 version 1903
+**Pris en charge sur :** Au moins Windows 10 version 1903
 
 **Description :**
 
-Ce paramètre de stratégie contrôle la configuration selon laquelle un redémarrage et une connexion automatiques et un verrouillage se produisent après un redémarrage ou un démarrage à froid. Si vous avez choisi «désactivé» dans la stratégie «connexion et verrouillage du dernier utilisateur interactif automatiquement après un redémarrage», l’authentification automatique n’a pas lieu et cette stratégie n’a pas besoin d’être configurée.
+Ce paramètre de stratégie contrôle la configuration selon laquelle un redémarrage et une connexion automatiques et un verrouillage se produisent après un redémarrage ou un démarrage à froid. Si vous avez choisi « désactivé » dans la stratégie « connexion et verrouillage du dernier utilisateur interactif automatiquement après un redémarrage », l’authentification automatique n’a pas lieu et cette stratégie n’a pas besoin d’être configurée.
 
-Si vous activez ce paramètre de stratégie, vous pouvez choisir l’une des deux options suivantes:
+Si vous activez ce paramètre de stratégie, vous pouvez choisir l’une des deux options suivantes :
 
-1. «Activé si BitLocker est activé et non suspendu» indique que la connexion automatique et le verrouillage se produisent uniquement si BitLocker est actif et n’est pas suspendu au cours du redémarrage ou de l’arrêt. Vous pouvez accéder aux données personnelles sur le disque dur de l’appareil à ce moment-là si BitLocker n’est pas activé ou suspendu pendant une mise à jour. La suspension BitLocker supprime temporairement la protection des composants système et des données, mais elle peut être nécessaire dans certaines circonstances pour mettre à jour correctement les composants critiques de démarrage.
-   - BitLocker est suspendu pendant les mises à jour dans les cas suivants:
+1. « Activé si BitLocker est activé et non suspendu » indique que la connexion automatique et le verrouillage se produisent uniquement si BitLocker est actif et n’est pas suspendu au cours du redémarrage ou de l’arrêt. Vous pouvez accéder aux données personnelles sur le disque dur de l’appareil à ce moment-là si BitLocker n’est pas activé ou suspendu pendant une mise à jour. La suspension BitLocker supprime temporairement la protection des composants système et des données, mais elle peut être nécessaire dans certaines circonstances pour mettre à jour correctement les composants critiques de démarrage.
+   - BitLocker est suspendu pendant les mises à jour dans les cas suivants :
       - L’appareil ne dispose pas de TPM 2,0 et PCR7, ou
       - L’appareil n’utilise pas de protecteur TPM uniquement
-2. «Always Enabled» indique que la connexion automatique se produira même si BitLocker est désactivé ou suspendu lors du redémarrage ou de l’arrêt. Lorsque BitLocker n’est pas activé, les données personnelles sont accessibles sur le disque dur. Le redémarrage automatique et la connexion ne doivent être exécutés que dans ce cas, si vous êtes certain que l’appareil configuré se trouve dans un emplacement physique sécurisé.
+2. « Always Enabled » indique que la connexion automatique se produira même si BitLocker est désactivé ou suspendu lors du redémarrage ou de l’arrêt. Lorsque BitLocker n’est pas activé, les données personnelles sont accessibles sur le disque dur. Le redémarrage automatique et la connexion ne doivent être exécutés que dans ce cas, si vous êtes certain que l’appareil configuré se trouve dans un emplacement physique sécurisé.
 
-Si vous désactivez ou ne configurez pas ce paramètre, l’authentification automatique est définie par défaut sur le comportement «activé si BitLocker est activé et non suspendu».
+Si vous désactivez ou ne configurez pas ce paramètre, l’authentification automatique est définie par défaut sur le comportement « activé si BitLocker est activé et non suspendu ».
 
 **Éditeur du Registre**
 
@@ -119,7 +119,7 @@ Si vous désactivez ou ne configurez pas ce paramètre, l’authentification aut
 | AutomaticRestartSignOnConfig | DWORD | 0 (activer connexion si sécurisé) |
 |   |   | 1 (activer les connexion toujours) |
 
-**Emplacement du registre de la stratégie:** HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+**Emplacement du registre de la stratégie :** HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
 
 **Type :** DWORD
 
@@ -133,9 +133,9 @@ L’état d’une tentative de configuration d’ouverture de session automatiqu
 
 - Si elle est réussie
    - les enregistre en tant que tel
-- S’il s’agit d’une défaillance:
+- S’il s’agit d’une défaillance :
    - enregistre l’échec
-- Lorsque l’état de BitLocker change:
+- Lorsque l’état de BitLocker change :
    - la suppression des informations d’identification sera enregistrée
    - Celles-ci seront stockées dans le journal des opérations LSA.
 
@@ -163,8 +163,8 @@ Les heures d’ouverture de session et le contrôle parental peuvent empêcher l
 | --- | :---: | :---: | :---: | :---: |
 | Compte local | :heavy_check_mark: | :heavy_check_mark: |   |   |
 | Compte MSA | :heavy_check_mark: | :heavy_check_mark: |   |   |
-| Compte joint Azure AD | :heavy_check_mark: | :heavy_check_mark: | : heavy_check_mark: (si hybride) | :heavy_check_mark: |
-| Compte joint au domaine | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | : heavy_check_mark: (si hybride) |
+| Compte joint Azure AD | :heavy_check_mark: | :heavy_check_mark: | : heavy_check_mark : (si hybride) | :heavy_check_mark: |
+| Compte joint au domaine | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | : heavy_check_mark : (si hybride) |
 
 ### <a name="credential-guard-interaction"></a>Interaction Credential Guard
 

@@ -1,5 +1,5 @@
 ---
-title: Paramètres de Registre Layer Security (TLS) de transport
+title: Paramètres du Registre TLS (Transport Layer Security)
 description: Sécurité de Windows Server
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -12,18 +12,18 @@ author: justinha
 ms.author: justinha
 manager: brianlic-msft
 ms.date: 02/28/2019
-ms.openlocfilehash: 32068319aae7545675e126eed6e1ab4c914bcbcf
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 83146bd8a65b90994ed90a6dda29a4bc00a2533a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812636"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870296"
 ---
-# <a name="transport-layer-security-tls-registry-settings"></a>Paramètres de Registre Layer Security (TLS) de transport
+# <a name="transport-layer-security-tls-registry-settings"></a>Paramètres du Registre TLS (Transport Layer Security)
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows 10
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016, Windows 10
 
-Cette rubrique de référence pour les professionnels de l’informatique contient des informations de paramètre de Registre pris en charge pour l’implémentation Windows du protocole Transport Layer Security (TLS) et le protocole Secure Sockets Layer (SSL) via la prise en charge de sécurité Schannel Fournisseur (SSP). Les sous-clés de Registre et les entrées traitées dans cette rubrique vous aident à administrez et dépanner le SSP Schannel, en particulier les protocoles TLS et SSL. 
+Cette rubrique de référence destinée aux professionnels de l’informatique contient des informations sur les paramètres de Registre pris en charge pour l’implémentation Windows du protocole TLS (Transport Layer Security) et du protocole protocole SSL (SSL) par le biais de la prise en charge de la sécurité Schannel. Fournisseur (SSP). Les sous-clés et les entrées de Registre abordées dans cette rubrique vous aident à administrer et à dépanner le SSP Schannel, en particulier les protocoles TLS et SSL. 
 
 > [!CAUTION]
 > Ces informations sont fournies à titre de référence et peuvent être utilisées dans le cadre de la résolution de problèmes ou de la vérification de l’application des paramètres requis.
@@ -53,19 +53,19 @@ Par défaut, le fournisseur Schannel utilise les quatre méthodes de mappage de 
 
 Versions applicables : Comme indiqué dans la liste **S’applique à** qui se trouve au début de cette rubrique.
 
-Chemin d’accès du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
+Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
 ## <a name="ciphers"></a>Chiffrements
 
-Chiffrement TLS/SSL doit être contrôlé en configurant l’ordre des suites de chiffrement. Pour plus d’informations, consultez [configuration ordre des suites de chiffrement TLS](manage-tls.md#configuring-tls-cipher-suite-order).
+Le chiffrement TLS/SSL doit être contrôlé en configurant l’ordre de la suite de chiffrement. Pour plus d’informations, consultez Configuration de la [suite de chiffrement TLS](manage-tls.md#configuring-tls-cipher-suite-order).
 
-Pour plus d’informations sur l’ordre de suites de chiffrement par défaut qui sont utilisés par le SSP Schannel, consultez [Suites de chiffrement dans TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx). 
+Pour plus d’informations sur l’ordre des suites de chiffrement par défaut qui sont utilisées par le SSP Schannel, voir [suites de chiffrement dans TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx). 
 
 ## <a name="ciphersuites"></a>Suites de chiffrement
 
-Configuration des suites de chiffrement TLS/SSL doit être effectuée à l’aide de la stratégie de groupe, gestion des appareils mobiles ou PowerShell, consultez [configuration ordre des suites de chiffrement TLS](manage-tls.md#configuring-tls-cipher-suite-order) pour plus d’informations.
+La configuration des suites de chiffrement TLS/SSL doit être effectuée à l’aide de la stratégie de groupe, MDM ou PowerShell. pour plus d’informations, consultez Configuration de la [suite de chiffrement TLS](manage-tls.md#configuring-tls-cipher-suite-order) .
 
-Pour plus d’informations sur l’ordre de suites de chiffrement par défaut qui sont utilisés par le SSP Schannel, consultez [Suites de chiffrement dans TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx). 
+Pour plus d’informations sur l’ordre des suites de chiffrement par défaut qui sont utilisées par le SSP Schannel, voir [suites de chiffrement dans TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx). 
 
 
 ## <a name="clientcachetime"></a>ClientCacheTime
@@ -74,130 +74,130 @@ Cette entrée contrôle la durée en millisecondes nécessaire pour que le syst�
 
 La première fois qu’un client se connecte à un serveur via le SSP Schannel, une liaison TLS/SSL complète est établie. Ensuite, le secret principal, la suite de chiffrement et les certificats sont stockés dans le cache de session sur le client et le serveur correspondants.
 
-Depuis Windows Server 2008 et Windows Vista, la durée du cache client par défaut est de 10 heures.
+À partir de Windows Server 2008 et Windows Vista, la durée de mise en cache par défaut du client est de 10 heures.
 
-Chemin d’accès du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
+Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
 Heure du cache du client par défaut
 
 ## <a name="enableocspstaplingforsni"></a>EnableOcspStaplingForSni
 
-Agrafage de certificat protocole OCSP (Status) en ligne permet à un serveur web, tels que les Services Internet (IIS), pour fournir l’état actuel de la révocation d’un certificat de serveur lorsqu’il envoie le certificat de serveur à un client pendant la négociation TLS. Cette fonctionnalité réduit la charge sur les serveurs de protocole OCSP, car le serveur web peut mettre en cache l’état actuel de OCSP du certificat du serveur et les envoyer à plusieurs clients web. Sans cette fonctionnalité, chaque client web tentait de récupérer l’état actuel de OCSP du certificat du serveur à partir du serveur de protocole OCSP. Cela générerait une charge élevée sur ce serveur OCSP. 
+L’agrafage du protocole OCSP (Online Certificate Status Protocol) permet à un serveur Web, tel que Internet Information Services (IIS), de fournir l’état de révocation actuel d’un certificat de serveur lorsqu’il envoie le certificat de serveur à un client pendant la négociation TLS. Cette fonctionnalité réduit la charge sur les serveurs OCSP, car le serveur Web peut mettre en cache l’État OCSP actuel du certificat de serveur et l’envoyer à plusieurs clients Web. Sans cette fonctionnalité, chaque client Web essaiera de récupérer l’État OCSP actuel du certificat de serveur à partir du serveur OCSP. Cela générerait une charge élevée sur ce serveur OCSP. 
 
-Outre par IIS, les services web sur http.sys peuvent également bénéficier de ce paramètre, y compris Active Directory Federation Services (ADFS) et Proxy d’Application Web (WAP). 
+Outre IIS, les services Web sur http. sys peuvent également bénéficier de ce paramètre, y compris Services ADFS (AD FS) et le proxy d’application Web (WAP). 
 
-Par défaut, prise en charge du protocole OCSP est activée pour les sites Web IIS qui ont la simple liaison sécurisée (SSL/TLS). Toutefois, cette prise en charge n’est pas activée par défaut si le site Web IIS est à l’aide d’une des deux types de liaisons de sécurisées (SSL/TLS) suivants :
-- Exiger l’Indication de nom de serveur
+Par défaut, la prise en charge OCSP est activée pour les sites Web IIS qui ont une liaison sécurisée (SSL/TLS) simple. Toutefois, cette prise en charge n’est pas activée par défaut si le site Web IIS utilise l’un des types suivants de liaisons sécurisées (SSL/TLS), ou les deux :
+- Exiger Indication du nom du serveur
 - Utiliser le magasin de certificats centralisés
 
-Dans ce cas, la réponse hello de serveur pendant la négociation TLS n’inclure un état OCSP agrafé par défaut. Ce comportement améliore les performances : L’implémentation d’agrafage de Windows OCSP gérant des centaines de certificats de serveur. Étant donné que SNI et CCS activer IIS à l’échelle à des milliers de sites Web qui ont potentiellement des milliers de certificats de serveur, la définition ce comportement doit être activé par défaut peut provoquer des problèmes de performances.
+Dans ce cas, la réponse Hello du serveur pendant la négociation TLS n’inclut pas l’état d’agrafage OCSP par défaut. Ce comportement améliore les performances : L’implémentation de l’agrafage OCSP Windows s’adapte à des centaines de certificats de serveur. Étant donné que SNI et CCS permettent à IIS de s’adapter à des milliers de sites Web qui ont potentiellement des milliers de certificats de serveur, le fait de définir ce comportement comme étant activé par défaut peut entraîner des problèmes de performances.
 
-Versions applicables : Toutes les versions à compter de Windows Server 2012 et Windows 8. 
+Versions applicables : Toutes les versions à partir de Windows Server 2012 et Windows 8. 
 
-Chemin d’accès du Registre : [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL]
+Chemin d’accès au registre : [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL]
 
 Ajoutez la clé suivante :
 
-"EnableOcspStaplingForSni"=dword:00000001
+"EnableOcspStaplingForSni" = dword : 00000001
 
 Pour désactiver, définissez la valeur DWORD sur 0 :
 
-"EnableOcspStaplingForSni"=dword:00000000
+"EnableOcspStaplingForSni" = dword : 00000000
 
 > [!NOTE] 
-> L’activation de cette clé de Registre a un impact potentiel sur les performances.
+> L’activation de cette clé de registre a un impact potentiel sur les performances.
 
 ## <a name="fipsalgorithmpolicy"></a>FIPSAlgorithmPolicy
 
 Cette entrée contrôle la conformité aux normes FIPS (Federal Information Processing Standard). La valeur par défaut est 0.
 
-Versions applicables : Toutes les versions à compter de Windows Server 2012 et Windows 8. 
+Versions applicables : Toutes les versions à partir de Windows Server 2012 et Windows 8. 
 
-Chemin d’accès du Registre : HKLM SYSTEM\CurrentControlSet\Control\LSA
+Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\LSA
 
-Windows Server FIPS les suites de chiffrement : Consultez [pris en charge des protocoles et des Suites de chiffrement dans le SSP Schannel](https://technet.microsoft.com/library/dn786419.aspx).
+Suites de chiffrement FIPS de Windows Server : Consultez [les suites et les protocoles de chiffrement pris en charge dans le SSP Schannel](https://technet.microsoft.com/library/dn786419.aspx).
 
 ## <a name="hashes"></a>Hachages
 
-Les algorithmes de hachage TLS/SSL doivent être contrôlés en configurant l’ordre des suites de chiffrement. Consultez [configuration ordre des suites de chiffrement TLS](manage-tls.md#configuring-tls-cipher-suite-order) pour plus d’informations.
+Les algorithmes de hachage TLS/SSL doivent être contrôlés en configurant l’ordre de la suite de chiffrement. Pour plus d’informations, consultez Configuration de la [suite de chiffrement TLS](manage-tls.md#configuring-tls-cipher-suite-order) .
 
 ## <a name="issuercachesize"></a>IssuerCacheSize
 
-Cette entrée contrôle la taille du cache de l’émetteur. Elle est utilisée avec le mappage de l’émetteur. Le SSP Schannel tente de mapper tous les émetteurs de la chaîne de certificats du client, et non pas seulement l’émetteur direct du certificat du client. Lorsque les émetteurs ne correspondent pas à un compte, ce qui est le cas par défaut, le serveur peut tenter de mapper le même nom de l’émetteur à plusieurs reprises, des centaines de fois par seconde. 
+Cette entrée contrôle la taille du cache de l’émetteur. Elle est utilisée avec le mappage de l’émetteur. Le SSP Schannel tente de mapper tous les émetteurs dans la chaîne de certificats du client, et non pas seulement l’émetteur direct du certificat client. Lorsque les émetteurs ne correspondent pas à un compte, ce qui est le cas par défaut, le serveur peut tenter de mapper le même nom de l’émetteur à plusieurs reprises, des centaines de fois par seconde. 
 
-Pour éviter ce problème, le serveur a un cache négatif ; ainsi lorsqu’un nom d’émetteur ne correspond pas à un compte, il est ajouté au cache et le SSP Schannel ne tente pas de mapper le nom d’émetteur à nouveau tant que l’entrée de cache n’a pas expiré. Cette entrée de Registre spécifie la taille du cache. Par défaut, cette entrée n’existe pas dans le Registre. La valeur par défaut est 100. 
+Pour éviter ce problème, le serveur a un cache négatif ; ainsi lorsqu’un nom d’émetteur ne correspond pas à un compte, il est ajouté au cache et le SSP Schannel ne tente pas de mapper le nom d’émetteur à nouveau tant que l’entrée de cache n’a pas expiré. Cette entrée de Registre spécifie la taille du cache. Par défaut, cette entrée n’existe pas dans le Registre. La valeur par défaut est 100. 
 
-Versions applicables : Toutes les versions à compter de Windows Server 2008 et Windows Vista.
+Versions applicables : Toutes les versions à partir de Windows Server 2008 et Windows Vista.
 
-Chemin d’accès du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
+Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
 ## <a name="issuercachetime"></a>IssuerCacheTime
 
-Cette entrée contrôle l’intervalle de temps d’expiration du cache en millisecondes. Le SSP Schannel tente de mapper tous les émetteurs de la chaîne de certificats du client, et non pas seulement l’émetteur direct du certificat du client. Lorsque les émetteurs ne correspondent pas à un compte, ce qui est le cas par défaut, le serveur peut tenter de mapper le même nom d’émetteur à plusieurs reprises, des centaines de fois par seconde.
+Cette entrée contrôle l’intervalle de temps d’expiration du cache en millisecondes. Le SSP Schannel tente de mapper tous les émetteurs dans la chaîne de certificats du client, et non pas seulement l’émetteur direct du certificat client. Lorsque les émetteurs ne correspondent pas à un compte, ce qui est le cas par défaut, le serveur peut tenter de mapper le même nom d’émetteur à plusieurs reprises, des centaines de fois par seconde.
 
 Pour éviter ce problème, le serveur a un cache négatif ; ainsi lorsqu’un nom d’émetteur ne correspond pas à un compte, il est ajouté au cache et le SSP Schannel ne tente pas de mapper le nom d’émetteur à nouveau tant que l’entrée de cache n’a pas expiré. Ce cache est conservé pour des raisons de performances, afin que le système ne continue pas de tente de mapper les mêmes émetteurs. Par défaut, cette entrée n’existe pas dans le Registre. La valeur par défaut est 10 minutes.
 
-Versions applicables : Toutes les versions à compter de Windows Server 2008 et Windows Vista.
+Versions applicables : Toutes les versions à partir de Windows Server 2008 et Windows Vista.
 
-Chemin d’accès du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
+Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
-## <a name="keyexchangealgorithm---client-rsa-key-sizes"></a>KeyExchangeAlgorithm - tailles de clé RSA de Client
+## <a name="keyexchangealgorithm---client-rsa-key-sizes"></a>KeyExchangeAlgorithm-tailles de clé RSA du client
 
-Cette entrée contrôle les tailles de clé RSA client. 
+Cette entrée contrôle les tailles de clé RSA du client. 
 
-Utilisation des algorithmes d’échange de clés doit être contrôlée en configurant l’ordre des suites de chiffrement.
+L’utilisation des algorithmes d’échange de clés doit être contrôlée en configurant l’ordre de la suite de chiffrement.
 
 Ajouté dans Windows 10, version 1507 et Windows Server 2016.
 
-Chemin d’accès du Registre : HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\PKCS
+Chemin du Registre : HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\PKCS
 
-Pour spécifier une longueur de bits pour les clés de plage prise en charge minimale de RSA pour le client TLS, créez un **ClientMinKeyBitLength** entrée. Par défaut, cette entrée n’existe pas dans le Registre. Une fois que vous avez créé l’entrée, remplacez la valeur DWORD à la longueur en bits souhaitée. Si non configuré, 1 024 bits sera la valeur minimale. 
+Pour spécifier une plage minimale prise en charge de la longueur en bits de clé RSA pour le client TLS, créez une entrée **ClientMinKeyBitLength** . Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par la longueur de bit souhaitée. S’il n’est pas configuré, 1024 bits est le minimum. 
 
-Pour spécifier une longueur en bits de clé maximale prise en charge plage de RSA pour le client TLS, créez un **ClientMaxKeyBitLength** entrée. Par défaut, cette entrée n’existe pas dans le Registre. Une fois que vous avez créé l’entrée, remplacez la valeur DWORD à la longueur en bits souhaitée. Si ne pas configuré, un maximum n’est pas appliqué.
+Pour spécifier une plage maximale prise en charge de la longueur en bits de clé RSA pour le client TLS, créez une entrée **ClientMaxKeyBitLength** . Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par la longueur de bit souhaitée. S’il n’est pas configuré, le nombre maximal n’est pas appliqué.
 
-## <a name="keyexchangealgorithm---diffie-hellman-key-sizes"></a>KeyExchangeAlgorithm - tailles de clé Diffie-Hellman
+## <a name="keyexchangealgorithm---diffie-hellman-key-sizes"></a>Tailles de clé de Diffie-Hellman KeyExchangeAlgorithm
 
 Cette entrée contrôle les tailles de clé Diffie-Hellman. 
 
-Utilisation des algorithmes d’échange de clés doit être contrôlée en configurant l’ordre des suites de chiffrement.
+L’utilisation des algorithmes d’échange de clés doit être contrôlée en configurant l’ordre de la suite de chiffrement.
 
 Ajouté dans Windows 10, version 1507 et Windows Server 2016.
 
-Chemin d’accès du Registre : HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\Diffie-Hellman
+Chemin du Registre : HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\Diffie-Hellman
 
-Pour spécifier une longueur en bits de clé minimale prise en charge plage de Diffie-Helman pour le client TLS, créez un **ClientMinKeyBitLength** entrée. Par défaut, cette entrée n’existe pas dans le Registre. Une fois que vous avez créé l’entrée, remplacez la valeur DWORD à la longueur en bits souhaitée. Si non configuré, 1 024 bits sera la valeur minimale. 
+Pour spécifier une plage de bits de clé Diffie-Helman minimale prise en charge pour le client TLS, créez une entrée **ClientMinKeyBitLength** . Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par la longueur de bit souhaitée. S’il n’est pas configuré, 1024 bits est le minimum. 
  
-Pour spécifier une longueur en bits de clé maximale prise en charge plage de Diffie-Helman pour le client TLS, créez un **ClientMaxKeyBitLength** entrée. Par défaut, cette entrée n’existe pas dans le Registre. Une fois que vous avez créé l’entrée, remplacez la valeur DWORD à la longueur en bits souhaitée. Si ne pas configuré, un maximum n’est pas appliqué. 
+Pour spécifier une plage maximale prise en charge de la longueur en bits de clé Diffie-Helman pour le client TLS, créez une entrée **ClientMaxKeyBitLength** . Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par la longueur de bit souhaitée. S’il n’est pas configuré, le nombre maximal n’est pas appliqué. 
  
-Pour spécifier la longueur en bits de clé Diffie-Helman pour la valeur par défaut du serveur TLS, créez un **ServerMinKeyBitLength** entrée. Par défaut, cette entrée n’existe pas dans le Registre. Une fois que vous avez créé l’entrée, remplacez la valeur DWORD à la longueur en bits souhaitée. Si non configuré, 2 048 bits sera la valeur par défaut. 
+Pour spécifier la longueur en bits de la clé Diffie-Helman pour le serveur TLS par défaut, créez une entrée **ServerMinKeyBitLength** . Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par la longueur de bit souhaitée. S’il n’est pas configuré, 2048 bits est la valeur par défaut. 
 
 ## <a name="maximumcachesize"></a>MaximumCacheSize
 
-Cette entrée contrôle le nombre maximal d’éléments du cache. En définissant le nombre maximal d’éléments du cache sur 0, vous désactivez le cache de session côté serveur et empêchez les reconnexions. Lorsque la valeur de cette entrée est supérieure aux valeurs par défaut, Lsass.exe consomme plus de mémoire. Chaque élément de cache de session nécessite généralement 2 à 4 Ko de mémoire. Par défaut, cette entrée n’existe pas dans le Registre. La valeur par défaut est 20 000 éléments. 
+Cette entrée contrôle le nombre maximal d’éléments du cache. En définissant le nombre maximal d’éléments du cache sur 0, vous désactivez le cache de session côté serveur et empêchez les reconnexions. Lorsque la valeur de cette entrée est supérieure aux valeurs par défaut, Lsass.exe consomme plus de mémoire. Chaque élément du cache de session nécessite généralement 2 à 4 Ko de mémoire. Par défaut, cette entrée n’existe pas dans le Registre. La valeur par défaut est 20 000 éléments. 
 
-Versions applicables : Toutes les versions à compter de Windows Server 2008 et Windows Vista.
+Versions applicables : Toutes les versions à partir de Windows Server 2008 et Windows Vista.
 
-Chemin d’accès du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
+Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
-## <a name="messaging--fragment-parsing"></a>Messaging – l’analyse du fragment
+## <a name="messaging--fragment-parsing"></a>Messagerie-analyse de fragments
 
 ________________________________________
-Cette entrée contrôle la taille maximale autorisée des messages de négociation TLS fragmentés qui vont être acceptées. Les messages supérieurs à la taille autorisée ne seront pas acceptés et la négociation TLS échouera. Ces entrées n’existent pas dans le Registre par défaut. 
+Cette entrée contrôle la taille maximale autorisée des messages de négociation TLS fragmentés qui seront acceptés. Les messages dont la taille est supérieure à la taille autorisée ne sont pas acceptés et la négociation TLS échoue. Par défaut, ces entrées n’existent pas dans le registre. 
 
-Lorsque vous définissez la valeur sur 0 x 0, messages fragmentés ne sont pas traités et entraînent la négociation TLS à échouer. Cela rend TLS clients ou serveurs sur l’ordinateur actuel non compatible avec les normes RFC TLS. 
+Lorsque vous définissez la valeur sur 0x0, les messages fragmentés ne sont pas traités et entraînent l’échec de la négociation TLS. Cela rend les clients TLS ou les serveurs sur l’ordinateur actuel non conformes aux RFC TLS. 
 
-Le nombre maximal autorisé de taille peut être augmentée jusqu'à 2 ^ 24-1 octets. Autoriser un client ou un serveur lire et stocker de grandes quantités de données non vérifiées à partir du réseau n’est pas une bonne idée et consomme de la mémoire supplémentaire pour chaque contexte de sécurité. 
+La taille maximale autorisée peut être augmentée jusqu’à 2 ^ 24-1 octets. Autoriser un client ou un serveur à lire et stocker de grandes quantités de données non vérifiées à partir du réseau n’est pas une bonne idée et consommera de la mémoire supplémentaire pour chaque contexte de sécurité. 
 
 Ajouté dans Windows 7 et Windows Server 2008 R2.
-Une mise à jour qui permet à Internet Explorer dans Windows XP, Windows Vista, ou dans Windows Server 2008 pour analyser les messages de négociation TLS/SSL fragmentés n’est disponible.
+Une mise à jour qui permet à Internet Explorer dans Windows XP, Windows Vista ou Windows Server 2008 d’analyser les messages de négociation TLS/SSL fragmentés est disponible.
 
-Chemin d’accès du Registre : HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Messaging
+Chemin du Registre : HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Messaging
 
-Pour spécifier une taille maximale autorisée des messages de négociation TLS fragmentés qui accepte le client TLS, créez un **MessageLimitClient** entrée. Une fois que vous avez créé l’entrée, remplacez la valeur DWORD à la longueur en bits souhaitée. Si non configuré, la valeur par défaut sera 0 x 8000 octets. 
+Pour spécifier une taille maximale autorisée de messages de négociation TLS fragmentés que le client TLS acceptera, créez une entrée **MessageLimitClient** . Après avoir créé l’entrée, remplacez la valeur DWORD par la longueur de bit souhaitée. S’il n’est pas configuré, la valeur par défaut est 0x8000 octets. 
 
-Pour spécifier une taille maximale autorisée des messages de négociation TLS fragmentés que le serveur TLS acceptera lorsqu’il n’existe aucune authentification client, créez un **MessageLimitServer** entrée. Une fois que vous avez créé l’entrée, remplacez la valeur DWORD à la longueur en bits souhaitée. Si non configuré, la valeur par défaut sera 0 x 4000 octets. 
+Pour spécifier une taille maximale autorisée de messages de négociation TLS fragmentés que le serveur TLS acceptera en l’absence d’authentification du client, créez une entrée **MessageLimitServer** . Après avoir créé l’entrée, remplacez la valeur DWORD par la longueur de bit souhaitée. S’il n’est pas configuré, la valeur par défaut est 0x4000 octets. 
 
-Pour spécifier une taille maximale autorisée des messages de négociation TLS fragmentés que le serveur TLS acceptera en l’absence de l’authentification du client, créez un **MessageLimitServerClientAuth** entrée. Une fois que vous avez créé l’entrée, remplacez la valeur DWORD à la longueur en bits souhaitée. Si non configuré, la valeur par défaut sera 0 x 8000 octets. 
+Pour spécifier une taille maximale autorisée de messages de négociation TLS fragmentés que le serveur TLS acceptera en cas d’authentification du client, créez une entrée **MessageLimitServerClientAuth** . Après avoir créé l’entrée, remplacez la valeur DWORD par la longueur de bit souhaitée. S’il n’est pas configuré, la valeur par défaut est 0x8000 octets. 
 
 ## <a name="sendtrustedissuerlist"></a>SendTrustedIssuerList
 
@@ -205,214 +205,214 @@ Cette entrée contrôle l’indicateur qui est utilisé lors de l’envoi de la 
 
 Ne pas envoyer une liste d’émetteurs approuvés peut avoir un impact sur ce que le client envoie lorsqu’il reçoit une demande de certificat de client. Par exemple, lorsqu’Internet Explorer reçoit une demande d’authentification du client, il affiche uniquement les certificats du client qui sont liés à l’une des autorités de certification qui est envoyée par le serveur. Si le serveur n’a pas envoyé de liste, Internet Explorer affiche tous les certificats du client installés sur le client. 
 
-Ce comportement peut être souhaitable. Par exemple, lorsque des environnements PKI incluent des certificats croisés, les certificats de serveur et de client n’ont pas la même autorité de certification racine. Par conséquent, Internet Explorer ne peut pas choisir un certificat qui est lié à une des autorités de certification du serveur. En configurant le serveur de manière à ce qu’il n’envoie pas de liste d’émetteurs approuvés, Internet Explorer envoie tous ses certificats.
+Ce comportement peut être souhaitable. Par exemple, lorsque des environnements PKI incluent des certificats croisés, les certificats du client et du serveur n’ont pas la même autorité de certification racine ; par conséquent, Internet Explorer ne peut pas choisir un certificat qui est lié à l’une des autorités de certification du serveur. En configurant le serveur de manière à ce qu’il n’envoie pas de liste d’émetteurs approuvés, Internet Explorer envoie tous ses certificats.
 
 Par défaut, cette entrée n’existe pas dans le Registre.
 
-Comportement d’envoyer la liste des émetteurs approuvés par défaut
+Comportement de la liste envoyer un émetteur approuvé par défaut
 
-| Version de Windows | Time |
+| Version Windows | Time |
 |-----------------|------|
 | Windows Server 2012 et Windows 8 et versions ultérieures | FALSE |
 | Windows Server 2008 R2 et Windows 7 et versions antérieures | TRUE |
 
-Versions applicables : Toutes les versions à compter de Windows Server 2008 et Windows Vista.
+Versions applicables : Toutes les versions à partir de Windows Server 2008 et Windows Vista.
 
-Chemin d’accès du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
+Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
 ## <a name="servercachetime"></a>ServerCacheTime
 
 Cette entrée contrôle la durée en millisecondes nécessaire pour que le système d’exploitation fasse expirer les entrées de cache côté serveur. La valeur 0 désactive le cache de session côté serveur et empêche les reconnexions. Lorsque la valeur de cette entrée est supérieure aux valeurs par défaut, Lsass.exe consomme plus de mémoire. Chaque élément du cache de session nécessite généralement 2 à 4 Ko de mémoire. Par défaut, cette entrée n’existe pas dans le Registre. 
 
-Versions applicables : Toutes les versions à compter de Windows Server 2008 et Windows Vista.
+Versions applicables : Toutes les versions à partir de Windows Server 2008 et Windows Vista.
 
-Chemin d’accès du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
+Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
-Durée de cache du serveur par défaut : 10 heures
+Heure du cache du serveur par défaut : 10 heures
 
 ## <a name="ssl-20"></a>SSL 2.0
 
-Cette sous-clé contrôle l’utilisation de SSL 2.0.
+Cette sous-clé contrôle l’utilisation de SSL 2,0.
 
-Depuis Windows 10, version 1607 et Windows Server 2016, SSL 2.0 a été supprimé et n’est plus pris en charge.
-Pour une valeur par défaut les paramètres SSL 2.0, consultez [protocoles dans TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx). 
+À partir de Windows 10, version 1607 et Windows Server 2016, SSL 2,0 a été supprimé et n’est plus pris en charge.
+Pour obtenir les paramètres par défaut SSL 2,0, consultez [protocoles dans TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx). 
 
-Chemin d’accès du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
+Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
-Pour activer le protocole SSL 2.0, créez un **activé** entrée dans la sous-clé Client ou du serveur, comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Une fois que vous avez créé l’entrée, remplacez la valeur DWORD par 1. 
+Pour activer le protocole SSL 2,0, créez une entrée **activé** dans la sous-clé client ou serveur, comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par 1. 
 
-Tableau des sous-clés SSL 2.0
+Table de sous-clé SSL 2,0
 
 | Sous-clé | Description |
 |--------|-------------|
-| Client | Contrôle l’utilisation de SSL 2.0 sur le client SSL. |
-| Server | Contrôle l’utilisation de SSL 2.0 sur le serveur SSL. |
+| Client | Contrôle l’utilisation de SSL 2,0 sur le client SSL. |
+| Serveur | Contrôle l’utilisation de SSL 2,0 sur le serveur SSL. |
 
-Pour désactiver SSL 2.0 pour le client ou serveur, modifiez la valeur DWORD 0. Si une application SSPI demandes d’utilisation de SSL 2.0, il sera refusé. 
+Pour désactiver SSL 2,0 pour le client ou le serveur, remplacez la valeur DWORD par 0. Si une application SSPI demande l’utilisation de SSL 2,0, elle est refusée. 
 
-Pour désactiver SSL 2.0 par défaut, créez un **DisabledByDefault** entrée et modifier la valeur DWORD de valeur 1. Si un explicitement d’application SSPI demande à utiliser SSL 2.0, il peut être négociée. 
+Pour désactiver SSL 2,0 par défaut, créez une entrée **DisabledByDefault** et remplacez la valeur DWORD par 1. Si une application SSPI explicitement les demandes d’utilisation du protocole SSL 2,0, elle peut être négociée. 
 
-L’exemple suivant montre le SSL 2.0 est désactivé dans le Registre :
+L’exemple suivant montre le chiffrement SSL 2,0 désactivé dans le registre :
 
-![SSL 2.0 est désactivé](images/ssl-2-registry-setting.png)
+![SSL 2,0 désactivé](images/ssl-2-registry-setting.png)
 
 
 ## <a name="ssl-30"></a>SSL 3.0
 
-Cette sous-clé contrôle l’utilisation de SSL 3.0.
+Cette sous-clé contrôle l’utilisation de SSL 3,0.
 
-Depuis Windows 10, version 1607 et Windows Server 2016, SSL 3.0 a été désactivée par défaut. Pour les paramètres par défaut de SSL 3.0, consultez [protocoles dans TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx). 
+À partir de Windows 10, version 1607 et Windows Server 2016, SSL 3,0 a été désactivé par défaut. Pour les paramètres par défaut SSL 3,0, consultez [protocoles dans TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx). 
 
-Chemin d’accès du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
+Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
-Pour activer le protocole SSL 3.0, créez un **activé** entrée dans la sous-clé Client ou du serveur, comme décrit dans le tableau suivant.  
-Par défaut, cette entrée n’existe pas dans le Registre. Une fois que vous avez créé l’entrée, remplacez la valeur DWORD par 1. 
+Pour activer le protocole SSL 3,0, créez une entrée **activé** dans la sous-clé client ou serveur, comme décrit dans le tableau suivant.  
+Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par 1. 
 
-Tableau des sous-clés SSL 3.0
+Table de sous-clé SSL 3,0
 
 | Sous-clé | Description |
 |--------|-------------|
-| Client | Contrôle l’utilisation de SSL 3.0 sur le client SSL. |
-| Server | Contrôle l’utilisation de SSL 3.0 sur le serveur SSL. |
+| Client | Contrôle l’utilisation de SSL 3,0 sur le client SSL. |
+| Serveur | Contrôle l’utilisation de SSL 3,0 sur le serveur SSL. |
 
-Pour désactiver SSL 3.0 pour le client ou serveur, modifiez la valeur DWORD 0.
-Si une application SSPI demande à utiliser SSL 3.0, il sera refusé. 
+Pour désactiver SSL 3,0 pour le client ou le serveur, remplacez la valeur DWORD par 0.
+Si une application SSPI demande l’utilisation de SSL 3,0, elle est refusée. 
 
-Pour désactiver SSL 3.0 par défaut, créez un **DisabledByDefault** entrée et modifier la valeur DWORD de valeur 1. Si une application SSPI demande explicitement à utiliser SSL 3.0, il peut être négociée. 
+Pour désactiver SSL 3,0 par défaut, créez une entrée **DisabledByDefault** et remplacez la valeur DWORD par 1. Si une application SSPI demande explicitement l’utilisation de SSL 3,0, elle peut être négociée. 
 
-L’exemple suivant montre le SSL 3.0 est désactivé dans le Registre :
+L’exemple suivant montre le chiffrement SSL 3,0 désactivé dans le registre :
 
-![SSL 3.0 est désactivé](images/ssl-3-registry-setting.png)
+![SSL 3,0 désactivé](images/ssl-3-registry-setting.png)
 
 ## <a name="tls-10"></a>TLS 1.0
 
-Cette sous-clé contrôle l’utilisation de TLS 1.0.
+Cette sous-clé contrôle l’utilisation de TLS 1,0.
 
-Pour les paramètres par défaut de TLS 1.0, consultez [protocoles dans TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx).
+Pour les paramètres par défaut TLS 1,0, consultez [protocoles dans TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx).
 
-Chemin d’accès du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
+Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
-Pour activer le protocole TLS 1.0, créez un **activé** entrée dans la sous-clé Client ou du serveur comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Une fois que vous avez créé l’entrée, remplacez la valeur DWORD par 1. 
+Pour activer le protocole TLS 1,0, créez une entrée **activé** dans la sous-clé client ou serveur, comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par 1. 
 
-Tableau des sous-clés TLS 1.0
+Table de sous-clé TLS 1,0
 
 | Sous-clé | Description |
 |--------|-------------|
-| Client | Contrôle l’utilisation de TLS 1.0 sur le client TLS. |
-| Server | Contrôle l’utilisation de TLS 1.0 sur le serveur TLS. |
+| Client | Contrôle l’utilisation de TLS 1,0 sur le client TLS. |
+| Serveur | Contrôle l’utilisation de TLS 1,0 sur le serveur TLS. |
 
-Pour désactiver TLS 1.0 pour le client ou serveur, modifiez la valeur DWORD 0.
-Si une application SSPI demande à utiliser que TLS 1.0, il sera refusé. 
+Pour désactiver TLS 1,0 pour le client ou le serveur, remplacez la valeur DWORD par 0.
+Si une application SSPI demande l’utilisation de TLS 1,0, elle est refusée. 
 
-Pour désactiver TLS 1.0 par défaut, créez un **DisabledByDefault** entrée et modifier la valeur DWORD de valeur 1. Si une application SSPI demande explicitement à utiliser TLS 1.0, il peut être négociée. 
+Pour désactiver TLS 1,0 par défaut, créez une entrée **DisabledByDefault** et remplacez la valeur DWORD par 1. Si une application SSPI demande explicitement l’utilisation de TLS 1,0, elle peut être négociée. 
 
-L’exemple suivant montre le protocole TLS 1.0 est désactivé dans le Registre :
+L’exemple suivant montre le protocole TLS 1,0 désactivé dans le registre :
 
-![TLS 1.0 est désactivé](images/tls-registry-setting.png)
+![TLS 1,0 désactivé](images/tls-registry-setting.png)
 
 ## <a name="tls-11"></a>TLS 1.1
 
-Cette sous-clé contrôle l’utilisation de TLS 1.1.
+Cette sous-clé contrôle l’utilisation de TLS 1,1.
 
-Pour les paramètres par défaut de TLS 1.1, consultez [protocoles dans TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx).
+Pour les paramètres par défaut TLS 1,1, consultez [protocoles dans TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx).
 
-Chemin d’accès du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
+Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
-Pour activer le protocole TLS 1.1, créez un **activé** entrée dans la sous-clé Client ou du serveur comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Une fois que vous avez créé l’entrée, remplacez la valeur DWORD par 1. 
+Pour activer le protocole TLS 1,1, créez une entrée **activé** dans la sous-clé client ou serveur, comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par 1. 
 
-Tableau des sous-clés TLS 1.1
+Table de sous-clé TLS 1,1
 
 | Sous-clé | Description |
 |--------|-------------|
-| Client | Contrôle l’utilisation de TLS 1.1 sur le client TLS. |
-| Server | Contrôle l’utilisation de TLS 1.1 sur le serveur TLS. |
+| Client | Contrôle l’utilisation de TLS 1,1 sur le client TLS. |
+| Serveur | Contrôle l’utilisation de TLS 1,1 sur le serveur TLS. |
 
-Pour désactiver TLS 1.1 pour le client ou serveur, modifiez la valeur DWORD 0.
-Si une application SSPI demande pour utiliser TLS 1.1, il sera refusé. 
+Pour désactiver TLS 1,1 pour le client ou le serveur, remplacez la valeur DWORD par 0.
+Si une application SSPI demande l’utilisation de TLS 1,1, elle est refusée. 
 
-Pour désactiver TLS 1.1 par défaut, créez un **DisabledByDefault** entrée et modifier la valeur DWORD de valeur 1. Si une application SSPI demande explicitement pour utiliser TLS 1.1, il peut être négociée. 
+Pour désactiver TLS 1,1 par défaut, créez une entrée **DisabledByDefault** et remplacez la valeur DWORD par 1. Si une application SSPI demande explicitement l’utilisation de TLS 1,1, elle peut être négociée. 
 
-L’exemple suivant montre le TLS 1.1 est désactivé dans le Registre :
+L’exemple suivant montre le protocole TLS 1,1 désactivé dans le registre :
 
-![TLS 1.1 désactivé](images/tls-11-registry-setting.png)
+![TLS 1,1 désactivé](images/tls-11-registry-setting.png)
 
 ## <a name="tls-12"></a>TLS 1.2
 
-Cette sous-clé contrôle l’utilisation de TLS 1.2.
+Cette sous-clé contrôle l’utilisation de TLS 1,2.
 
-Pour les paramètres par défaut de TLS 1.2, consultez [protocoles dans TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx).
+Pour les paramètres par défaut TLS 1,2, consultez [protocoles dans TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx).
 
-Chemin d’accès du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
+Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
-Pour activer le protocole TLS 1.2, créez un **activé** entrée dans la sous-clé Client ou du serveur comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Une fois que vous avez créé l’entrée, remplacez la valeur DWORD par 1. 
+Pour activer le protocole TLS 1,2, créez une entrée **activé** dans la sous-clé client ou serveur, comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par 1. 
 
-Tableau des sous-clés TLS 1.2
+Table de sous-clé TLS 1,2
 
 | Sous-clé | Description |
 |--------|-------------|
-| Client | Contrôle l’utilisation de TLS 1.2 sur le client TLS. |
-| Server | Contrôle l’utilisation de TLS 1.2 sur le serveur TLS. |
+| Client | Contrôle l’utilisation de TLS 1,2 sur le client TLS. |
+| Serveur | Contrôle l’utilisation de TLS 1,2 sur le serveur TLS. |
 
-Pour désactiver TLS 1.2 pour le client ou serveur, modifiez la valeur DWORD 0.
-Si une application SSPI demande pour utiliser TLS 1.2, sera refusée. 
+Pour désactiver TLS 1,2 pour le client ou le serveur, remplacez la valeur DWORD par 0.
+Si une application SSPI demande l’utilisation de TLS 1,2, elle est refusée. 
 
-Pour désactiver TLS 1.2 par défaut, créez un **DisabledByDefault** entrée et modifier la valeur DWORD de valeur 1. Si une application SSPI demande explicitement pour utiliser TLS 1.2, il peut être négociée. 
+Pour désactiver TLS 1,2 par défaut, créez une entrée **DisabledByDefault** et remplacez la valeur DWORD par 1. Si une application SSPI demande explicitement l’utilisation de TLS 1,2, elle peut être négociée. 
 
-L’exemple suivant montre le TLS 1.2 est désactivé dans le Registre :
+L’exemple suivant montre le protocole TLS 1,2 désactivé dans le registre :
 
-![TLS 1.2 est désactivé](images/tls-12-registry-setting.png)
+![TLS 1,2 désactivé](images/tls-12-registry-setting.png)
 
 ## <a name="dtls-10"></a>DTLS 1.0
 
-Cette sous-clé contrôle l’utilisation de DTLS 1.0.
+Cette sous-clé contrôle l’utilisation de DTLS 1,0.
 
-Pour les paramètres par défaut de DTLS 1.0, consultez [protocoles dans TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx).
+Pour les paramètres par défaut de DTLS 1,0, consultez [protocoles dans TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx).
 
-Chemin d’accès du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
+Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
 
-Pour activer le protocole DTLS 1.0, créez un **activé** entrée dans la sous-clé Client ou du serveur comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Une fois que vous avez créé l’entrée, remplacez la valeur DWORD par 1. 
+Pour activer le protocole DTLS 1,0, créez une entrée **activé** dans la sous-clé client ou serveur, comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par 1. 
 
-Tableau des sous-clés DTLS 1.0
-
-| Sous-clé | Description |
-|--------|-------------|
-| Client | Contrôle l’utilisation de DTLS 1.0 sur le client DTLS. |
-| Server | Contrôle l’utilisation de DTLS 1.0 sur le serveur DTLS. |
-
-Pour désactiver DTLS 1.0 pour le client ou serveur, modifiez la valeur DWORD 0.
-Si une application SSPI demande à utiliser le protocole DTLS 1.0, il sera refusé. 
-
-Pour désactiver le protocole DTLS 1.0 par défaut, créez un **DisabledByDefault** entrée et modifier la valeur DWORD de valeur 1. Si une application SSPI demande explicitement à utiliser DTLS 1.0, il peut être négociée. 
-
-L’exemple suivant montre 1.0 DTLS désactivé dans le Registre :
-
-![1.0 DTLS désactivé](images/dtls-10-registry-setting.png)
-
-## <a name="dtls-12"></a>DTLS 1.2
-
-Cette sous-clé contrôle l’utilisation de DTLS 1.2.
-
-Pour les paramètres par défaut de DTLS 1.2, consultez [protocoles dans TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx).
-
-Chemin d’accès du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
-
-Pour activer le protocole DTLS 1.2, créez un **activé** entrée dans la sous-clé Client ou du serveur comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Une fois que vous avez créé l’entrée, remplacez la valeur DWORD par 1. 
-
-Tableau des sous-clés DTLS 1.2
+Table de sous-clé DTLS 1,0
 
 | Sous-clé | Description |
 |--------|-------------|
-| Client | Contrôle l’utilisation de DTLS 1.2 sur le client DTLS. |
-| Server | Contrôle l’utilisation de DTLS 1.2 sur le serveur DTLS. |
+| Client | Contrôle l’utilisation de DTLS 1,0 sur le client DTLS. |
+| Serveur | Contrôle l’utilisation de DTLS 1,0 sur le serveur DTLS. |
+
+Pour désactiver DTLS 1,0 pour le client ou le serveur, remplacez la valeur DWORD par 0.
+Si une application SSPI demande l’utilisation de DTLS 1,0, elle est refusée. 
+
+Pour désactiver DTLS 1,0 par défaut, créez une entrée **DisabledByDefault** et remplacez la valeur DWORD par 1. Si une application SSPI demande explicitement l’utilisation de DTLS 1,0, elle peut être négociée. 
+
+L’exemple suivant montre le DTLS 1,0 désactivé dans le registre :
+
+![DTLS 1,0 désactivé](images/dtls-10-registry-setting.png)
+
+## <a name="dtls-12"></a>DTLS 1,2
+
+Cette sous-clé contrôle l’utilisation de DTLS 1,2.
+
+Pour les paramètres par défaut de DTLS 1,2, consultez [protocoles dans TLS/SSL (SSP Schannel)](https://msdn.microsoft.com/library/windows/desktop/mt808159.aspx).
+
+Chemin du Registre : HKLM SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols
+
+Pour activer le protocole DTLS 1,2, créez une entrée **activé** dans la sous-clé client ou serveur, comme décrit dans le tableau suivant. Par défaut, cette entrée n’existe pas dans le Registre. Après avoir créé l’entrée, remplacez la valeur DWORD par 1. 
+
+Table de sous-clé DTLS 1,2
+
+| Sous-clé | Description |
+|--------|-------------|
+| Client | Contrôle l’utilisation de DTLS 1,2 sur le client DTLS. |
+| Serveur | Contrôle l’utilisation de DTLS 1,2 sur le serveur DTLS. |
 
 
-Pour désactiver DTLS 1.2 pour le client ou serveur, modifiez la valeur DWORD 0.
-Si une application SSPI demande à utiliser le protocole DTLS 1.0, il sera refusé. 
+Pour désactiver DTLS 1,2 pour le client ou le serveur, remplacez la valeur DWORD par 0.
+Si une application SSPI demande l’utilisation de DTLS 1,0, elle est refusée. 
 
-Pour désactiver le protocole DTLS 1.2 par défaut, créez un **DisabledByDefault** entrée et modifier la valeur DWORD de valeur 1. Si une application SSPI demande explicitement à utiliser DTLS 1.2, il peut être négociée. 
+Pour désactiver DTLS 1,2 par défaut, créez une entrée **DisabledByDefault** et remplacez la valeur DWORD par 1. Si une application SSPI demande explicitement l’utilisation de DTLS 1,2, elle peut être négociée. 
 
-L’exemple suivant montre 1.1 DTLS désactivé dans le Registre :
+L’exemple suivant montre le DTLS 1,1 désactivé dans le registre :
 
-![1.1 DTLS désactivé](images/dtls-11-registry-setting.png)
+![DTLS 1,1 désactivé](images/dtls-11-registry-setting.png)
 
 

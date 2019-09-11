@@ -1,6 +1,6 @@
 ---
-title: Carte d’interface réseau convergé dans une configuration de la carte d’interface réseau associées (datacenter)
-description: Dans cette rubrique, nous fournissons des instructions permettant de déployer la carte de réseau convergé dans une configuration de la carte d’interface réseau associées avec l’association de cartes SET (Switch Embedded).
+title: Carte réseau convergée dans une configuration de carte réseau en collaboration (Datacenter)
+description: Dans cette rubrique, nous vous fournissons des instructions pour déployer une carte réseau convergée dans une configuration de carte réseau associée à l’aide de switch Embedded Teaming (SET).
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -9,105 +9,105 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/17/2018
-ms.openlocfilehash: 58c4483c092c30a892ea6bdde20794270340fa8e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8229b72d69968d3690ece87d5116b215bdf78a08
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447026"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869870"
 ---
-# <a name="converged-nic-in-a-teamed-nic-configuration-datacenter"></a>Carte d’interface réseau convergé dans une configuration de la carte d’interface réseau associées (datacenter)
+# <a name="converged-nic-in-a-teamed-nic-configuration-datacenter"></a>Carte réseau convergée dans une configuration de carte réseau en collaboration (Datacenter)
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Dans cette rubrique, nous vous fournissons des instructions pour déployer la carte de réseau convergé dans une configuration de la carte d’interface réseau associées avec Switch Embedded Teaming \(définir\). 
+Dans cette rubrique, nous vous fournissons des instructions pour déployer une carte réseau convergée dans une configuration de carte réseau associée à \(l'\)aide de switch Embedded Association Set. 
 
-L’exemple de configuration dans cette rubrique décrit deux hôtes Hyper-V, **hôte 1 Hyper-V** et **hôte 2 Hyper-V**. Les deux hôtes ont deux cartes réseau. Sur chaque hôte, une carte est connectée au sous-réseau 192.168.1.x/24, et une carte est connectée au sous-réseau 192.168.2.x/24.
+L’exemple de configuration de cette rubrique décrit deux hôtes Hyper-V, l' **hôte 1 Hyper-v** et l' **hôte 2 Hyper-v**. Les deux hôtes ont deux cartes réseau. Sur chaque ordinateur hôte, une carte est connectée au sous-réseau 192.168.1. x/24, et une carte est connectée au sous-réseau 192.168.2. x/24.
 
 ![Ordinateurs hôtes Hyper-V](../../media/Converged-NIC/1-datacenter-test-conn.jpg)
 
-## <a name="step-1-test-the-connectivity-between-source-and-destination"></a>Étape 1. Tester la connectivité entre la source et destination
+## <a name="step-1-test-the-connectivity-between-source-and-destination"></a>Étape 1. Tester la connectivité entre la source et la destination
 
-Vérifiez que physique carte d’interface réseau peut se connecter à l’hôte de destination.  Ce test démontre la connectivité à l’aide de couche 3 \(L3\) - ou la couche IP - ainsi que la couche 2 \(L2\) réseaux locaux virtuels \(VLAN\).
+Vérifiez que la carte réseau physique peut se connecter à l’ordinateur hôte de destination.  Ce test illustre la connectivité à l’aide \(de\) la couche 3 (L3) ou de la couche IP, \(ainsi que du réseau local virtuel\)(VLAN) de réseaux \(locaux L2\) de couche 2.
 
-1. Afficher les propriétés d’adaptateur réseau premier.
+1. Affichez les propriétés de la première carte réseau.
 
    ```PowerShell
    Get-NetAdapter -Name "Test-40G-1" | ft -AutoSize
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
-   |    Nom    |           InterfaceDescription           | ifIndex | État |    MacAddress     | LinkSpeed |
+   |    Nom    |           InterfaceDescription           | ifIndex | Statut |    macAddress     | LinkSpeed |
    |------------|------------------------------------------|---------|--------|-------------------|-----------|
-   | Test-40G-1 | Carte Ethernet Pro Mellanox ConnectX-3 |   11    |   Up (Haut)   | E4-1D-2D-07-43-D0 |  40 Gbits/s  |
+   | Test-40G-1 | Adaptateur Ethernet Mellanox ConnectX-3 Pro |   11    |   Up (Haut)   | E4-1D-2D-07-43-D0 |  40 Gbits/s  |
 
    ---
 
-2. Afficher les propriétés supplémentaires pour la première carte, y compris l’adresse IP. 
+2. Affichez les propriétés supplémentaires de la première carte, y compris l’adresse IP. 
 
    ```PowerShell
    Get-NetIPAddress -InterfaceAlias "Test-40G-1"
    Get-NetIPAddress -InterfaceAlias "TEST-40G-1" | Where-Object {$_.AddressFamily -eq "IPv4"} | fl InterfaceAlias,IPAddress
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
    |   Paramètre    |    Value    |
    |----------------|-------------|
-   |   AdresseIP    | 192.168.1.3 |
+   |   IPAddress    | 192.168.1.3 |
    | InterfaceIndex |     11      |
    | InterfaceAlias | Test-40G-1  |
    | AddressFamily  |    IPv4     |
-   |      type      |   Monodiffusion   |
+   |      Type      |   Monodiffusion   |
    |  PrefixLength  |     24      |
 
    ---
 
-3. Afficher les propriétés d’adaptateur réseau deuxième.
+3. Affichez les propriétés de la deuxième carte réseau.
 
    ```PowerShell
    Get-NetAdapter -Name "Test-40G-2" | ft -AutoSize
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
-   |    Nom    |          InterfaceDescription           | ifIndex | État |    MacAddress     | LinkSpeed |
+   |    Nom    |          InterfaceDescription           | ifIndex | Statut |    macAddress     | LinkSpeed |
    |------------|-----------------------------------------|---------|--------|-------------------|-----------|
-   | TEST-40G-2 | Ethernet Pro Mellanox ConnectX-3 A... n ° 2 |   13    |   Up (Haut)   | E4-1D-2D-07-40-70 |  40 Gbits/s  |
+   | TEST-40G-2 | Mellanox ConnectX-3 Ethernet Pro A... #2 |   13    |   Up (Haut)   | E4-1D-2D-07-40-70 |  40 Gbits/s  |
 
    ---
 
-4. Afficher les propriétés supplémentaires pour la deuxième carte, y compris l’adresse IP.
+4. Affichez les propriétés supplémentaires pour le deuxième adaptateur, y compris l’adresse IP.
 
    ```PowerShell
    Get-NetIPAddress -InterfaceAlias "Test-40G-2"
    Get-NetIPAddress -InterfaceAlias "Test-40G-2" | Where-Object {$_.AddressFamily -eq "IPv4"} | fl InterfaceAlias,IPAddress
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
    |   Paramètre    |    Value    |
    |----------------|-------------|
-   |   AdresseIP    | 192.168.2.3 |
+   |   IPAddress    | 192.168.2.3 |
    | InterfaceIndex |     13      |
    | InterfaceAlias | TEST-40G-2  |
    | AddressFamily  |    IPv4     |
-   |      type      |   Monodiffusion   |
+   |      Type      |   Monodiffusion   |
    |  PrefixLength  |     24      |
 
    ---
 
-5. Vérifiez que pNICs autres membre association de cartes réseau ou un ensemble dispose d’une adresse IP valide.<p>Utiliser un sous-réseau distinct, \(xxx.xxx. **2**.xxx vs xxx.xxx. **1**.xxx\), afin de faciliter l’envoi à partir de cet adaptateur à la destination. Sinon, si vous recherchez les deux pNICs sur le même sous-réseau, la charge de la pile TCP/IP de Windows équilibre entre les interfaces et une validation simple devient plus complexe.
+5. Vérifiez que les autres associations de cartes réseau ou définir le membre pNICs ont une adresse IP valide.<p>Utilisez un sous-réseau \(distinct, xxx.xxx. **2**. xxx vs xxx.xxx. **1**. xxx\), pour faciliter l’envoi à partir de cet adaptateur vers la destination. Dans le cas contraire, si vous localisez les deux pNICs sur le même sous-réseau, la charge de la pile TCP/IP de Windows équilibre entre les interfaces et la validation simple devient plus complexe.
 
 
-## <a name="step-2-ensure-that-source-and-destination-can-communicate"></a>Étape 2. Vérifiez que la source et destination peuvent communiquer
+## <a name="step-2-ensure-that-source-and-destination-can-communicate"></a>Étape 2. S’assurer que la source et la destination peuvent communiquer
 
-Dans cette étape, nous utilisons le **Test-NetConnection** commande Windows PowerShell, mais si vous pouvez utiliser la **ping** commande si vous préférez. 
+Dans cette étape, nous utilisons la commande **test-NetConnection** Windows PowerShell, mais si vous le souhaitez, vous pouvez utiliser la commande **ping** . 
 
 1. Vérifiez la communication bidirectionnelle.
 
@@ -115,7 +115,7 @@ Dans cette étape, nous utilisons le **Test-NetConnection** commande Windows Pow
    Test-NetConnection 192.168.1.5
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
    |        Paramètre         |    Value    |
@@ -125,13 +125,13 @@ Dans cette étape, nous utilisons le **Test-NetConnection** commande Windows Pow
    |      InterfaceAlias      | Test-40G-1  |
    |      SourceAddress       | 192.168.1.3 |
    |      PingSucceeded       |    False    |
-   | PingReplyDetails \(RTT\) |    0 ms     |
+   | RTT \(PingReplyDetails\) |    0 ms     |
 
    ---
 
-   Dans certains cas, vous devrez peut-être désactiver le pare-feu Windows avec fonctions avancées de sécurité pour effectuer ce test. Si vous désactivez le pare-feu, n’oubliez pas sécurité et vérifiez que votre configuration répond aux exigences de sécurité de votre organisation.
+   Dans certains cas, vous devrez peut-être désactiver le pare-feu Windows avec fonctions avancées de sécurité pour effectuer ce test. Si vous désactivez le pare-feu, gardez à l’esprit la sécurité et assurez-vous que votre configuration répond aux exigences de sécurité de votre organisation.
 
-2. Désactiver tous les profils de pare-feu.
+2. Désactivez tous les profils de pare-feu.
 
    ```PowerShell
    Set-NetFirewallProfile -All -Enabled False
@@ -143,7 +143,7 @@ Dans cette étape, nous utilisons le **Test-NetConnection** commande Windows Pow
    Test-NetConnection 192.168.1.5
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
    |        Paramètre         |    Value    |
@@ -153,18 +153,18 @@ Dans cette étape, nous utilisons le **Test-NetConnection** commande Windows Pow
    |      InterfaceAlias      | Test-40G-1  |
    |      SourceAddress       | 192.168.1.3 |
    |      PingSucceeded       |    False    |
-   | PingReplyDetails \(RTT\) |    0 ms     |
+   | RTT \(PingReplyDetails\) |    0 ms     |
 
    ---
 
 
-4. Vérifiez la connectivité pour les cartes réseau supplémentaires. Répétez les étapes précédentes pour tous les pNICs suivants inclus dans l’équipe de la carte réseau ou un ensemble.
+4. Vérifiez la connectivité des cartes réseau supplémentaires. Répétez les étapes précédentes pour tous les pNICs suivants inclus dans la carte réseau ou définissez l’équipe.
 
    ```PowerShell    
    Test-NetConnection 192.168.2.5
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
    |        Paramètre         |    Value    |
@@ -174,74 +174,74 @@ Dans cette étape, nous utilisons le **Test-NetConnection** commande Windows Pow
    |      InterfaceAlias      | Test-40G-2  |
    |      SourceAddress       | 192.168.2.3 |
    |      PingSucceeded       |    False    |
-   | PingReplyDetails \(RTT\) |    0 ms     |
+   | RTT \(PingReplyDetails\) |    0 ms     |
 
    ---
 
-## <a name="step-3-configure-the-vlan-ids-for-nics-installed-in-your-hyper-v-hosts"></a>Étape 3. Configurer l’ID de VLAN pour les cartes réseau installées dans vos hôtes Hyper-V
+## <a name="step-3-configure-the-vlan-ids-for-nics-installed-in-your-hyper-v-hosts"></a>Étape 3. Configuration des ID de réseau local virtuel pour les cartes réseau installées dans vos ordinateurs hôtes Hyper-V
 
-De nombreuses configurations réseau utilisent des réseaux locaux virtuels, et si vous envisagez d’utiliser des réseaux locaux virtuels dans votre réseau, vous devez répéter le test précédent avec les réseaux locaux virtuels configurés.
+De nombreuses configurations réseau utilisent des réseaux locaux virtuels. Si vous envisagez d’utiliser des réseaux locaux virtuels dans votre réseau, vous devez répéter le test précédent avec des réseaux locaux virtuels configurés.
 
-Pour cette étape, les cartes réseau sont dans **accès** mode. Toutefois, lorsque vous créez un commutateur virtuel Hyper-V \(vSwitch\) plus loin dans ce guide, les propriétés de réseau local virtuel sont appliquées au niveau du port de commutateur virtuel. 
+Pour cette étape, les cartes réseau sont en mode d' **accès** . Toutefois, lorsque vous créez un commutateur \(virtuel Hyper-V vswitch\) plus loin dans ce guide, les propriétés du réseau local virtuel sont appliquées au niveau du port vswitch. 
 
-Comme un commutateur peut héberger plusieurs réseaux locaux virtuels, il est nécessaire pour le Top of Rack \(ToR\) commutateur physique pour que le port que l’hôte est connecté à configurée en mode Trunk.
+Étant donné qu’un commutateur peut héberger plusieurs réseaux locaux virtuels, il est nécessaire que \(le\) commutateur physique du rack soit connecté au port auquel l’ordinateur hôte est connecté en mode Trunk.
 
 >[!NOTE]
->Pour obtenir des instructions sur la façon de configurer le mode Trunk sur le commutateur, consultez la documentation de votre commutateur ToR.
+>Consultez la documentation de votre commutateur pour obtenir des instructions sur la configuration du mode Trunk sur le commutateur.
 
-L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau chaque qui ont les VLAN 101 et 102 de réseau local virtuel configuré dans les propriétés de la carte réseau.
+L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau, chacune disposant de réseaux locaux virtuels 101 et VLAN 102 configurés dans les propriétés de la carte réseau.
 
 ![Configurer des réseaux locaux virtuels](../../media/Converged-NIC/2-datacenter-configure-vlans.jpg)
 
 
 >[!TIP]
->En fonction de l’Institute of Electrical and Electronics Engineers \(IEEE\) normes, la qualité de Service de mise en réseau \(QoS\) agissent de propriétés dans la carte réseau physique sur l’en-tête de 802.1 p est incorporé dans le 802. 1 q \(VLAN\) en-tête lorsque vous configurez le VLAN ID.
+>Conformément aux normes de \(mise en réseau IEEE\) de l’Institute of Electrical and Electronics Engineers, les\) propriétés QoS de qualité de service \(de la carte réseau physique agissent sur l’en-tête p 802.1 qui est incorporé dans l’en- \(tête\) VLAN 802.1 q lorsque vous configurez l’ID de réseau local virtuel.
 
-1. Configurer l’ID VLAN sur la première carte réseau, Test-40G-1.
+1. Configurez l’ID de réseau local virtuel sur la première carte d’interface réseau, test-40G-1.
 
    ```PowerShell    
    Set-NetAdapterAdvancedProperty -Name "Test-40G-1" -RegistryKeyword VlanID -RegistryValue "101"
    Get-NetAdapterAdvancedProperty -Name "Test-40G-1" | Where-Object {$_.RegistryKeyword -eq "VlanID"} | ft -AutoSize
    ```
 
-   _**Résultats :** _   
+   _**About**_   
 
 
-   |    Nom    | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
+   |    Name    | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
    |------------|-------------|--------------|-----------------|---------------|
    | TEST-40G-1 |   ID du réseau local virtuel   |     101      |     VlanID      |     {101}     |
 
    ---
 
-2. Redémarrez la carte réseau pour appliquer le VLAN ID.
+2. Redémarrez la carte réseau pour appliquer l’ID de réseau local virtuel.
 
    ```PowerShell
    Restart-NetAdapter -Name "Test-40G-1"
    ```
 
-3. Vérifiez l’état est **des**.
+3. Assurez-vous que l’État est **up**.
 
    ```PowerShell
    Get-NetAdapter -Name "Test-40G-1" | ft -AutoSize
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
-   |    Nom    |          InterfaceDescription           | ifIndex | État |    MacAddress     | LinkSpeed |
+   |    Nom    |          InterfaceDescription           | ifIndex | Statut |    macAddress     | LinkSpeed |
    |------------|-----------------------------------------|---------|--------|-------------------|-----------|
-   | Test-40G-1 | Ethernet Pro Mellanox ConnectX-3 Ada... |   11    |   Up (Haut)   | E4-1D-2D-07-43-D0 |  40 Gbits/s  |
+   | Test-40G-1 | Mellanox ConnectX-3 Pro Ethernet Ada... |   11    |   Up (Haut)   | E4-1D-2D-07-43-D0 |  40 Gbits/s  |
 
    ---
 
-4. Configurer l’ID VLAN sur la deuxième carte réseau, Test-40G-2.
+4. Configurez l’ID de réseau local virtuel sur la deuxième carte d’interface réseau, test-40G-2.
 
    ```PowerShell    
    Set-NetAdapterAdvancedProperty -Name "Test-40G-2" -RegistryKeyword VlanID -RegistryValue "102"
    Get-NetAdapterAdvancedProperty -Name "Test-40G-2" | Where-Object {$_.RegistryKeyword -eq "VlanID"} | ft -AutoSize
    ``` 
 
-   _**Résultats :** _
+   _**About**_
 
 
    |    Nom    | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
@@ -250,37 +250,37 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau ch
 
    ---
 
-5. Redémarrez la carte réseau pour appliquer le VLAN ID.
+5. Redémarrez la carte réseau pour appliquer l’ID de réseau local virtuel.
 
    ```PowerShell
    Restart-NetAdapter -Name "Test-40G-2" 
    ```
 
-6. Vérifiez l’état est **des**.
+6. Assurez-vous que l’État est **up**.
 
    ```PowerShell
    Get-NetAdapter -Name "Test-40G-1" | ft -AutoSize
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
-   |    Nom    |          InterfaceDescription           | ifIndex | État |    MacAddress     | LinkSpeed |
+   |    Name    |          InterfaceDescription           | ifIndex | Statut |    macAddress     | LinkSpeed |
    |------------|-----------------------------------------|---------|--------|-------------------|-----------|
-   | Test-40G-2 | Ethernet Pro Mellanox ConnectX-3 Ada... |   11    |   Up (Haut)   | E4-1D-2D-07-43-D1 |  40 Gbits/s  |
+   | Test-40G-2 | Mellanox ConnectX-3 Pro Ethernet Ada... |   11    |   Up (Haut)   | E4-1D-2D-07-43-D1 |  40 Gbits/s  |
 
    ---
 
    >[!IMPORTANT]
-   >Il peut prendre plusieurs secondes pour l’appareil pour redémarrer et sont disponibles sur le réseau. 
+   >Le redémarrage de l’appareil peut prendre plusieurs secondes et être disponible sur le réseau. 
 
-7. Vérifiez la connectivité pour la première carte réseau, Test-40G-1.<p>En cas de connectivité, inspecter le commutateur de participation de configuration ou la destination de réseau local virtuel dans le même réseau local virtuel. 
+7. Vérifiez la connectivité de la première carte d’interface réseau, test-40G-1.<p>Si la connectivité échoue, inspectez la configuration du réseau local virtuel du commutateur ou la participation à la destination dans le même réseau local virtuel. 
 
    ```PowerShell
    Test-NetConnection 192.168.1.5
    ```
 
-   _**Résultats :** _   
+   _**About**_   
 
 
    |        Paramètre         |    Value    |
@@ -290,17 +290,17 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau ch
    |      InterfaceAlias      | Test-40G-1  |
    |      SourceAddress       | 192.168.1.5 |
    |      PingSucceeded       |    True     |
-   | PingReplyDetails \(RTT\) |    0 ms     |
+   | RTT \(PingReplyDetails\) |    0 ms     |
 
    ---
 
-8. Vérifiez la connectivité pour la première carte réseau, Test-40G-2.<p>En cas de connectivité, inspecter le commutateur de participation de configuration ou la destination de réseau local virtuel dans le même réseau local virtuel.
+8. Vérifiez la connectivité de la première carte d’interface réseau, test-40G-2.<p>Si la connectivité échoue, inspectez la configuration du réseau local virtuel du commutateur ou la participation à la destination dans le même réseau local virtuel.
 
    ```PowerShell    
    Test-NetConnection 192.168.2.5
    ```
 
-   _**Résultats :** _    
+   _**About**_    
 
 
    |        Paramètre         |    Value    |
@@ -310,62 +310,62 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau ch
    |      InterfaceAlias      | Test-40G-2  |
    |      SourceAddress       | 192.168.2.3 |
    |      PingSucceeded       |    True     |
-   | PingReplyDetails \(RTT\) |    0 ms     |
+   | RTT \(PingReplyDetails\) |    0 ms     |
 
    ---
 
    >[!IMPORTANT]
-   >Il n’est pas rare qu’un **Test-NetConnection** ou l’échec du ping à se produire immédiatement après avoir effectué **redémarrage-NetAdapter**.  Par conséquent, attendez que la carte réseau initialiser complètement et puis recommencez l’opération.
+   >Il n’est pas rare de rencontrer un échec de **test-NetConnection** ou de ping immédiatement après avoir exécuté **restart-NetAdapter**.  Par conséquent, attendez que la carte réseau soit complètement initialisée, puis réessayez.
    >
-   >Si les connexions de réseau local virtuel 101 fonctionnent, mais ne les connexions de réseau local virtuel 102, il est possible que le commutateur doit être configuré pour autoriser le trafic du port sur le réseau local virtuel souhaité. Pour cela, vous pouvez vérifier en temporairement définissant les adaptateurs d’échec à 101 de réseau local virtuel et en répétant le test de connectivité.
+   >Si les connexions de réseau local virtuel 101 fonctionnent, mais que les connexions VLAN 102 ne le sont pas, le problème peut être que le commutateur doit être configuré pour autoriser le trafic de port sur le réseau local virtuel souhaité. Vous pouvez le vérifier en définissant temporairement les adaptateurs défaillants sur VLAN 101 et en répétant le test de connectivité.
 
 
    L’illustration suivante montre vos hôtes Hyper-V après avoir correctement configuré les réseaux locaux virtuels.
 
-   ![Configurer la qualité de Service](../../media/Converged-NIC/3-datacenter-configure-qos.jpg)
+   ![Configurer la qualité de service](../../media/Converged-NIC/3-datacenter-configure-qos.jpg)
 
 
-## <a name="step-4-configure-quality-of-service-qos"></a>Étape 4. Configurer la qualité de Service \(QoS\)
+## <a name="step-4-configure-quality-of-service-qos"></a>Étape 4. Configurer la qualité de \(service (QoS)\)
 
 >[!NOTE]
->Vous devez effectuer toutes les étapes de configuration suivantes DCB et QoS sur tous les hôtes qui sont destinées à communiquer entre eux.
+>Vous devez effectuer toutes les étapes de configuration DCB et QoS suivantes sur tous les ordinateurs hôtes qui sont destinés à communiquer entre eux.
 
-1. Installer Data Center Bridging \(DCB\) sur chacun de vos hôtes Hyper-V.
+1. Installez Data Center \(Bridging\) DCB sur chacun de vos ordinateurs hôtes Hyper-V.
 
-   - **Facultatif** pour les configurations de réseau qui utilisent iWarp.
-   - **Requis** pour les configurations de réseau qui utilisent RoCE \(n’importe quelle version\) pour les services RDMA.
+   - **Facultatif** pour les configurations réseau qui utilisent iWarp.
+   - **Requis** pour les configurations réseau qui utilisent RoCE \(n’importe\) quelle version pour les services RDMA.
 
    ```PowerShell
    Install-WindowsFeature Data-Center-Bridging
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
-   | Opération réussie | Redémarrage nécessaire | Code de sortie |     Résultat de la fonctionnalité     |
+   | Succès | Redémarrage nécessaire | Code de sortie |     Résultat de la fonctionnalité     |
    |---------|----------------|-----------|------------------------|
-   |  True   |       Non       |  Opération réussie  | {Pontage de centre de données} |
+   |  True   |       Non       |  Succès  | {Data Center Bridging} |
 
    ---
 
-2. Définir les stratégies de QoS à SMB Direct :
+2. Définir les stratégies QoS pour SMB-direct :
 
-   - **Facultatif** pour les configurations de réseau qui utilisent iWarp.
-   - **Requis** pour les configurations de réseau qui utilisent RoCE \(n’importe quelle version\) pour les services RDMA.
+   - **Facultatif** pour les configurations réseau qui utilisent iWarp.
+   - **Requis** pour les configurations réseau qui utilisent RoCE \(n’importe\) quelle version pour les services RDMA.
 
-   Dans l’exemple de commande ci-dessous, la valeur « 3 » est arbitraire. Vous pouvez utiliser n’importe quelle valeur comprise entre 1 et 7, que vous utilisez régulièrement la même valeur tout au long de la configuration des stratégies de QoS.
+   Dans l’exemple de commande ci-dessous, la valeur « 3 » est arbitraire. Vous pouvez utiliser n’importe quelle valeur comprise entre 1 et 7 tant que vous utilisez régulièrement la même valeur tout au long de la configuration des stratégies QoS.
 
    ```PowerShell
    New-NetQosPolicy "SMB" -NetDirectPortMatchCondition 445 -PriorityValue8021Action 3
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
    |   Paramètre    |          Value           |
    |----------------|--------------------------|
-   |      Nom      |           SMB            |
-   |     Propriétaire      | Stratégie de groupe \(Machine\) |
+   |      Name      |           SMB            |
+   |     Propriétaire      | Ordinateur \(stratégie de groupe\) |
    | NetworkProfile |           Tous            |
    |   Priorité   |           127            |
    |   JobObject    |          &nbsp;          |
@@ -374,19 +374,19 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau ch
 
    ---
 
-3. Définir des stratégies de qualité de service supplémentaires pour le reste du trafic sur l’interface.   
+3. Définissez des stratégies QoS supplémentaires pour d’autres trafics sur l’interface.   
 
    ```PowerShell
    New-NetQosPolicy "DEFAULT" -Default -PriorityValue8021Action 0
    ```
 
-   _**Résultats :** _   
+   _**About**_   
 
 
    |   Paramètre    |          Value           |
    |----------------|--------------------------|
    |      Nom      |         PAR DÉFAUT          |
-   |     Propriétaire      | Stratégie de groupe \(Machine\) |
+   |     Propriétaire      | Ordinateur \(stratégie de groupe\) |
    | NetworkProfile |           Tous            |
    |   Priorité   |           127            |
    |    Modèle    |         Par défaut          |
@@ -395,39 +395,39 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau ch
 
    ---
 
-4. Activer **contrôle de flux de priorité** pour le trafic SMB, qui n’est pas requis pour iWarp.
+4. Activez le **contrôle de flux Priority** pour le trafic SMB, ce qui n’est pas nécessaire pour iWarp.
 
    ```PowerShell
    Enable-NetQosFlowControl -priority 3
    Get-NetQosFlowControl
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
    | Priority | Enabled | PolicySet | IfIndex | IfAlias |
    |----------|---------|-----------|---------|---------|
-   |    0     |  False  |  Globale   | &nbsp;  | &nbsp;  |
-   |    1     |  False  |  Globale   | &nbsp;  | &nbsp;  |
-   |    2     |  False  |  Globale   | &nbsp;  | &nbsp;  |
-   |    3     |  True   |  Globale   | &nbsp;  | &nbsp;  |
-   |    4     |  False  |  Globale   | &nbsp;  | &nbsp;  |
-   |    5     |  False  |  Globale   | &nbsp;  | &nbsp;  |
-   |    6     |  False  |  Globale   | &nbsp;  | &nbsp;  |
-   |    7     |  False  |  Globale   | &nbsp;  | &nbsp;  |
+   |    0     |  False  |  Global   | &nbsp;  | &nbsp;  |
+   |    1     |  False  |  Global   | &nbsp;  | &nbsp;  |
+   |    2     |  False  |  Global   | &nbsp;  | &nbsp;  |
+   |    3     |  True   |  Global   | &nbsp;  | &nbsp;  |
+   |    4     |  False  |  Global   | &nbsp;  | &nbsp;  |
+   |    5\.     |  False  |  Global   | &nbsp;  | &nbsp;  |
+   |    6\.     |  False  |  Global   | &nbsp;  | &nbsp;  |
+   |    7     |  False  |  Global   | &nbsp;  | &nbsp;  |
 
    ---
 
-   >**IMPORTANT** si vos résultats ne correspondent pas ces résultats, car les autres éléments que 3 ont une valeur Enabled True, vous devez désactiver **contrôle de flux** pour ces classes.
+   >**Important** Si vos résultats ne correspondent pas à ces résultats, car les éléments autres que 3 ont une valeur Enabled égale à true, vous devez désactiver **FlowControl** pour ces classes.
    >
    >```PowerShell
    >Disable-NetQosFlowControl -priority 0,1,2,4,5,6,7
    >Get-NetQosFlowControl
    >```
-   >Sous les configurations plus complexes, les autres classes de trafic peuvent nécessiter le contrôle de flux, mais ces scénarios sont en dehors de la portée de ce guide.
+   >Dans les configurations plus complexes, les autres classes de trafic peuvent nécessiter un contrôle de flux, mais ces scénarios ne sont pas abordés dans ce guide.
 
 
-5. Activer la qualité de service pour la première carte réseau, Test-40G-1.
+5. Activez la qualité de service pour la première carte d’interface réseau, test-40G-1.
 
    ```PowerShell
    Enable-NetAdapterQos -InterfaceAlias "Test-40G-1"
@@ -439,18 +439,18 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau ch
    _**Fonctionnalités**:_   
 
 
-   |      Paramètre      |   Matériel   |   Actuel    |
+   |      Paramètre      |   Matériel   |   Actuelle    |
    |---------------------|--------------|--------------|
    |    MacSecBypass     | NotSupported | NotSupported |
-   |     DcbxSupport     |     Aucune     |     Aucune     |
-   | NumTCs(Max/ETS/PFC) |    8/8/8     |    8/8/8     |
+   |     DcbxSupport     |     Aucun     |     Aucun     |
+   | NumTCs (max/ETS/PFC) |    8/8/8     |    8/8/8     |
 
    ---
 
    _**OperationalTrafficClasses**:_    
 
 
-   | TC |  TSA   | Bande passante | Priorités |
+   | CT |  AUTORITÉ TSA   | La | Priorité |
    |----|--------|-----------|------------|
    | 0  | Strict |  &nbsp;   |    0-7     |
 
@@ -458,19 +458,19 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau ch
 
    _**OperationalFlowControl**:_  
 
-   Priorité 3 activé  
+   Priorité 3 activée  
 
    _**OperationalClassifications**:_  
 
 
-   | Protocol  | Type de port / | Priority |
+   | Protocol  | Port/type | Priority |
    |-----------|-----------|----------|
    |  Par défaut  |  &nbsp;   |    0     |
    | NetDirect |    445    |    3     |
 
    ---
 
-6. Activer la qualité de service pour la deuxième carte réseau, Test-40G-2.
+6. Activez la qualité de service pour la deuxième carte d’interface réseau, test-40G-2.
 
    ```PowerShell
    Enable-NetAdapterQos -InterfaceAlias "Test-40G-2"
@@ -483,18 +483,18 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau ch
    _**Fonctionnalités**:_ 
 
 
-   |      Paramètre      |   Matériel   |   Actuel    |
+   |      Paramètre      |   Matériel   |   Actuelle    |
    |---------------------|--------------|--------------|
    |    MacSecBypass     | NotSupported | NotSupported |
-   |     DcbxSupport     |     Aucune     |     Aucune     |
-   | NumTCs(Max/ETS/PFC) |    8/8/8     |    8/8/8     |
+   |     DcbxSupport     |     Aucun     |     Aucun     |
+   | NumTCs (max/ETS/PFC) |    8/8/8     |    8/8/8     |
 
    ---
 
    _**OperationalTrafficClasses**:_  
 
 
-   | TC |  TSA   | Bande passante | Priorités |
+   | CT |  AUTORITÉ TSA   | La | Priorité |
    |----|--------|-----------|------------|
    | 0  | Strict |  &nbsp;   |    0-7     |
 
@@ -502,12 +502,12 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau ch
 
     _**OperationalFlowControl**:_  
 
-    Priorité 3 activé  
+    Priorité 3 activée  
 
    _**OperationalClassifications**:_  
 
 
-   | Protocol  | Type de port / | Priority |
+   | Protocol  | Port/type | Priority |
    |-----------|-----------|----------|
    |  Par défaut  |  &nbsp;   |    0     |
    | NetDirect |    445    |    3     |
@@ -515,38 +515,38 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau ch
    ---
 
 
-7. Réserver la moitié de la bande passante à SMB Direct \(RDMA\)
+7. Réserver la moitié de la bande passante à RDMA SMB direct \(\)
 
    ```PowerShell
    New-NetQosTrafficClass "SMB" -priority 3 -bandwidthpercentage 50 -algorithm ETS
    ```
 
-   _**Résultats :** _  
+   _**About**_  
 
 
-   | Nom | Algorithm | Bandwidth(%) | Priority | PolicySet | IfIndex | IfAlias |
+   | Nom | Algorithm | Bande passante (%) | Priority | PolicySet | IfIndex | IfAlias |
    |------|-----------|--------------|----------|-----------|---------|---------|
-   | SMB  |    ETS    |      50      |    3     |  Globale   | &nbsp;  | &nbsp;  |
+   | SMB  |    STE    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |
 
    ---
 
-8. Afficher les paramètres de réservation de bande passante :   
+8. Affichez les paramètres de réservation de bande passante :   
 
    ```PowerShell
    Get-NetQosTrafficClass | ft -AutoSize
    ```
 
-   _**Résultats :** _  
+   _**About**_  
 
 
-   |   Nom    | Algorithm | Bandwidth(%) | Priority | PolicySet | IfIndex | IfAlias |
+   |   Nom    | Algorithm | Bande passante (%) | Priority | PolicySet | IfIndex | IfAlias |
    |-----------|-----------|--------------|----------|-----------|---------|---------|
-   | [Default] |    ETS    |      50      | 0-2,4-7  |  Globale   | &nbsp;  | &nbsp;  |
-   |    SMB    |    ETS    |      50      |    3     |  Globale   | &nbsp;  | &nbsp;  |
+   | Valeurs |    STE    |      50      | 0-2, 4-7  |  Global   | &nbsp;  | &nbsp;  |
+   |    SMB    |    STE    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |
 
    ---
 
-9. (Facultatif) Créer deux classes de trafic supplémentaire pour le trafic IP de client. 
+9. Facultatif Créez deux classes de trafic supplémentaires pour le trafic IP du locataire. 
 
    >[!TIP]
    >Vous pouvez omettre les valeurs « IP1 » et « IP2 ».
@@ -555,12 +555,12 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau ch
    New-NetQosTrafficClass "IP1" -Priority 1 -bandwidthpercentage 10 -algorithm ETS
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
-   | Nom | Algorithm | Bandwidth(%) | Priority | PolicySet | IfIndex | IfAlias |
+   | Nom | Algorithm | Bande passante (%) | Priority | PolicySet | IfIndex | IfAlias |
    |------|-----------|--------------|----------|-----------|---------|---------|
-   | IP1  |    ETS    |      10      |    1     |  Globale   | &nbsp;  | &nbsp;  |
+   | IP1  |    STE    |      10      |    1     |  Global   | &nbsp;  | &nbsp;  |
 
    ---
 
@@ -568,41 +568,41 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau ch
    New-NetQosTrafficClass "IP2" -Priority 2 -bandwidthpercentage 10 -algorithm ETS
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
-   | Nom | Algorithm | Bandwidth(%) | Priority | PolicySet | IfIndex | IfAlias |
+   | Nom | Algorithm | Bande passante (%) | Priority | PolicySet | IfIndex | IfAlias |
    |------|-----------|--------------|----------|-----------|---------|---------|
-   | IP2  |    ETS    |      10      |    2     |  Globale   | &nbsp;  | &nbsp;  |
+   | IP2  |    STE    |      10      |    2     |  Global   | &nbsp;  | &nbsp;  |
 
    ---
 
-10. Afficher les classes de trafic QoS.
+10. Affichez les classes de trafic QoS.
 
     ```PowerShell
     Get-NetQosTrafficClass | ft -AutoSize
     ```
 
-    _**Résultats :** _
+    _**About**_
 
 
-    |   Nom    | Algorithm | Bandwidth(%) | Priority | PolicySet | IfIndex | IfAlias |
+    |   Nom    | Algorithm | Bande passante (%) | Priority | PolicySet | IfIndex | IfAlias |
     |-----------|-----------|--------------|----------|-----------|---------|---------|
-    | [Default] |    ETS    |      30      |  0,4-7   |  Globale   | &nbsp;  | &nbsp;  |
-    |    SMB    |    ETS    |      50      |    3     |  Globale   | &nbsp;  | &nbsp;  |
-    |    IP1    |    ETS    |      10      |    1     |  Globale   | &nbsp;  | &nbsp;  |
-    |    IP2    |    ETS    |      10      |    2     |  Globale   | &nbsp;  | &nbsp;  |
+    | Valeurs |    STE    |      30      |  0,4-7   |  Global   | &nbsp;  | &nbsp;  |
+    |    SMB    |    STE    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |
+    |    IP1    |    STE    |      10      |    1     |  Global   | &nbsp;  | &nbsp;  |
+    |    IP2    |    STE    |      10      |    2     |  Global   | &nbsp;  | &nbsp;  |
 
     ---
 
-11. (Facultatif) Remplacer le débogueur.<p>Par défaut, le débogueur attaché bloque NetQos. 
+11. Facultatif Remplacez le débogueur.<p>Par défaut, le débogueur attaché bloque NetQos. 
 
     ```PowerShell
     Set-ItemProperty HKLM:"\SYSTEM\CurrentControlSet\Services\NDIS\Parameters" AllowFlowControlUnderDebugger -type DWORD -Value 1 –Force
     Get-ItemProperty HKLM:"\SYSTEM\CurrentControlSet\Services\NDIS\Parameters" | ft AllowFlowControlUnderDebugger
     ```
 
-    _**Résultats :** _  
+    _**About**_  
 
     ```
     AllowFlowControlUnderDebugger
@@ -610,13 +610,13 @@ L’illustration suivante montre deux hôtes Hyper-V avec deux cartes réseau ch
     1
     ```
 
-## <a name="step-5-verify-the-rdma-configuration-mode-1"></a>Étape 5. Vérifier la configuration RDMA \(Mode 1\) 
+## <a name="step-5-verify-the-rdma-configuration-mode-1"></a>Étape 5. Vérifier le mode de \(configuration RDMA 1\) 
 
-Vous souhaitez vous assurer que l’infrastructure est correctement configuré avant la création d’un commutateur virtuel et en cours de transition RDMA \(Mode 2\).
+Vous voulez vous assurer que l’infrastructure est correctement configurée avant de créer un vswitch et de passer au \(mode RDMA\)2.
 
-L’illustration suivante montre l’état actuel des hôtes Hyper-V.
+L’illustration suivante montre l’état actuel des ordinateurs hôtes Hyper-V.
 
-![Test RDMA](../../media/Converged-NIC/4-datacenter-test-rdma.jpg)
+![Tester RDMA](../../media/Converged-NIC/4-datacenter-test-rdma.jpg)
 
 
 1. Vérifiez la configuration RDMA.
@@ -625,43 +625,43 @@ L’illustration suivante montre l’état actuel des hôtes Hyper-V.
    Get-NetAdapterRdma | ft -AutoSize
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
    |    Nom    |        InterfaceDescription        | Enabled |
    |------------|------------------------------------|---------|
-   | TEST-40G-1 | Carte Mellanox ConnectX-4 VPI #2 |  True   |
-   | TEST-40G-2 |  Mellanox ConnectX-4 VPI adaptateur   |  True   |
+   | TEST-40G-1 | Mellanox ConnectX-4 adaptateur VPI #2 |  True   |
+   | TEST-40G-2 |  Mellanox ConnectX-4 adaptateur VPI   |  True   |
 
    ---
 
-2. Déterminer le **ifIndex** valeur de vos cartes cibles.<p>Vous utilisez cette valeur dans les étapes suivantes lorsque vous exécutez le script que vous téléchargez.   
+2. Déterminez la valeur **ifIndex** de vos adaptateurs cibles.<p>Vous utilisez cette valeur dans les étapes suivantes lorsque vous exécutez le script que vous téléchargez.   
 
    ```PowerShell
    Get-NetIPConfiguration -InterfaceAlias "TEST*" | ft InterfaceAlias,InterfaceIndex,IPv4Address
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
    | InterfaceAlias | InterfaceIndex |  IPv4Address  |
    |----------------|----------------|---------------|
-   |   TEST-40G-1   |       14       | {192.168.1.3} |
+   |   TEST-40G-1   |       14       | 192.168.1.3 |
    |   TEST-40G-2   |       13       | {192.168.2.3} |
 
    ---
 
-3. Téléchargez le [DiskSpd.exe utilitaire](https://aka.ms/diskspd) et extrayez-le dans C:\TEST\.
+3. Téléchargez l' [utilitaire DiskSpd. exe](https://aka.ms/diskspd) et extrayez-le dans C:\test\.
 
-4. Téléchargez le [script Test-RDMA PowerShell](https://github.com/Microsoft/SDN/blob/master/Diagnostics/Test-Rdma.ps1) dans un dossier de test sur votre lecteur local, par exemple, C:\TEST\.
+4. Téléchargez le [script PowerShell test-RDMA](https://github.com/Microsoft/SDN/blob/master/Diagnostics/Test-Rdma.ps1) dans un dossier de test sur votre disque local, par exemple, C:\test\.
 
-5. Exécutez le **Test-Rdma.ps1** script PowerShell pour passer la valeur ifIndex au script, ainsi que l’adresse IP de la première carte à distance sur le même réseau local virtuel.<p>Dans cet exemple, le script transmet la **ifIndex** valeur 14 sur l’adresse de l’adaptateur de réseau distant 192.168.1.5.
+5. Exécutez le script PowerShell **test-RDMA. ps1** pour transmettre la valeur ifIndex au script, ainsi que l’adresse IP de la première carte distante sur le même réseau local virtuel.<p>Dans cet exemple, le script transmet la valeur **ifIndex** de 14 à l’adresse IP de la carte réseau distante 192.168.1.5.
 
    ```PowerShell
    C:\TEST\Test-RDMA.PS1 -IfIndex 14 -IsRoCE $true -RemoteIpAddress 192.168.1.5 -PathToDiskspd C:\TEST\Diskspd-v2.0.17\amd64fre\
    ```
 
-   _**Résultats :** _ 
+   _**About**_ 
 
    ```   
    VERBOSE: Diskspd.exe found at C:\TEST\Diskspd-v2.0.17\amd64fre\diskspd.exe
@@ -684,15 +684,15 @@ L’illustration suivante montre l’état actuel des hôtes Hyper-V.
    ```
 
    >[!NOTE]
-   >Si le trafic RDMA échoue, le cas RoCE en particulier, consultez votre configuration ToR Switch pour les paramètres PFC/ETS appropriés qui doivent correspondre aux paramètres de l’hôte. Reportez-vous à la section de la qualité de service dans ce document pour les valeurs de référence.
+   >Si le trafic RDMA échoue, pour le cas RoCE, consultez la configuration de votre commutateur pour obtenir les paramètres PFC/ETS appropriés qui doivent correspondre aux paramètres de l’ordinateur hôte. Reportez-vous à la section QoS dans ce document pour obtenir les valeurs de référence.
 
-6. Exécutez le **Test-Rdma.ps1** script PowerShell pour passer la valeur ifIndex au script, ainsi que l’adresse IP de la deuxième carte à distance sur le même réseau local virtuel.<p>Dans cet exemple, le script transmet la **ifIndex** valeur de 13 sur l’adresse de l’adaptateur de réseau distant 192.168.2.5.
+6. Exécutez le script PowerShell **test-RDMA. ps1** pour transmettre la valeur ifIndex au script, ainsi que l’adresse IP de la deuxième carte à distance sur le même réseau local virtuel.<p>Dans cet exemple, le script transmet la valeur **ifIndex** de 13 à l’adresse IP de la carte réseau distante 192.168.2.5.
 
    ```PowerShell
    C:\TEST\Test-RDMA.PS1 -IfIndex 13 -IsRoCE $true -RemoteIpAddress 192.168.2.5 -PathToDiskspd C:\TEST\Diskspd-v2.0.17\amd64fre\
    ```
 
-   _**Résultats :** _ 
+   _**About**_ 
 
    ```   
    VERBOSE: Diskspd.exe found at C:\TEST\Diskspd-v2.0.17\amd64fre\diskspd.exe
@@ -714,35 +714,35 @@ L’illustration suivante montre l’état actuel des hôtes Hyper-V.
    VERBOSE: RDMA traffic test SUCCESSFUL: RDMA traffic was sent to 192.168.2.5
    ``` 
 
-## <a name="step-6-create-a-hyper-v-vswitch-on-your-hyper-v-hosts"></a>Étape 6. Créer un commutateur virtuel Hyper-V sur vos ordinateurs hôtes Hyper-V
+## <a name="step-6-create-a-hyper-v-vswitch-on-your-hyper-v-hosts"></a>Étape 6. Créer un vSwitch Hyper-V sur vos ordinateurs hôtes Hyper-V
 
 
-L’illustration suivante montre l’hôte 1 Hyper-V avec un commutateur virtuel.
+L’illustration suivante montre l’hôte 1 Hyper-V avec un vSwitch.
 
 ![Créer un commutateur virtuel Hyper-V](../../media/Converged-NIC/5-datacenter-create-vswitch.jpg)
 
-1. Créer un commutateur virtuel en mode de jeu sur l’hôte Hyper-V 1.
+1. Créez un vSwitch en mode SET sur l’hôte 1 Hyper-V.
 
    ```PowerShell
    New-VMSwitch –Name "VMSTEST" –NetAdapterName "TEST-40G-1","TEST-40G-2" -EnableEmbeddedTeaming $true -AllowManagementOS $true
    ```
 
-   _**Résultat :** _
+   _**Venir**_
 
 
-   |  Nom   | SwitchType | NetAdapterInterfaceDescription |
+   |  Name   | SwitchType | Paramètre netadapterinterfacedescription |
    |---------|------------|--------------------------------|
-   | VMSTEST |  Externe  |        Interface associées        |
+   | VMSTEST |  Ressource externe  |        Association-interface        |
 
    ---
 
-2. Afficher l’association de cartes physiques dans le jeu.
+2. Affichez l’Association de cartes physiques dans SET.
 
    ```PowerShell
    Get-VMSwitchTeam -Name "VMSTEST" | fl
    ```
 
-   _**Résultats :** _  
+   _**About**_  
 
    ```
    Name: VMSTEST  
@@ -752,44 +752,44 @@ L’illustration suivante montre l’hôte 1 Hyper-V avec un commutateur virtuel
    LoadBalancingAlgorithm: Dynamic   
    ```
 
-3. Afficher deux vues de la carte réseau virtuelle hôte
+3. Afficher deux vues de l’hôte carte réseau virtuelle
 
    ```PowerShell
     Get-NetAdapter
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
-   |        Nom         |        InterfaceDescription         | ifIndex | État |    MacAddress     | LinkSpeed |
+   |        Nom         |        InterfaceDescription         | IfIndex | Statut |    macAddress     | LinkSpeed |
    |---------------------|-------------------------------------|---------|--------|-------------------|-----------|
-   | vEthernet (VMSTEST) | Adaptateur Ethernet virtuel Hyper-V #2 |   28    |   Up (Haut)   | E4-1D-2D-07-40-71 |  80 Gbits/s  |
+   | vEthernet (VMSTEST) | Carte Ethernet virtuelle Hyper-V #2 |   28    |   Up (Haut)   | E4-1D-2D-07-40-71 |  80 Gbits/s  |
 
    ---
 
-4. Afficher les propriétés supplémentaires de la carte réseau virtuelle hôte. 
+4. Affichez les propriétés supplémentaires de l’hôte carte réseau virtuelle. 
 
    ```PowerShell
    Get-VMNetworkAdapter -ManagementOS
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
-   |  Nom   | IsManagementOs | VMName  |  SwitchName  | MacAddress | État | IPAddresses |
+   |  Name   | IsManagementOs | VMName  |  SwitchName  | macAddress | Statut | AdressesIP |
    |---------|----------------|---------|--------------|------------|--------|-------------|
-   | VMSTEST |      True      | VMSTEST | E41D2D074071 |    {Ok}    | &nbsp; |             |
+   | VMSTEST |      True      | VMSTEST | E41D2D074071 |    OK    | &nbsp; |             |
 
    ---
 
 
-5. Testez la connexion réseau à l’adaptateur de réseau local virtuel 101 à distance.
+5. Testez la connexion réseau à l’adaptateur réseau local virtuel 101 distant.
 
    ```PowerShell
    Test-NetConnection 192.168.1.5 
    ```
 
-   _**Résultats :** _  
+   _**About**_  
 
    ```
    WARNING: Ping to 192.168.1.5 failed -- Status: DestinationHostUnreachable
@@ -802,11 +802,11 @@ L’illustration suivante montre l’hôte 1 Hyper-V avec un commutateur virtuel
    PingReplyDetails (RTT) : 0 ms
    ```
 
-## <a name="step-7-remove-the-access-vlan-setting"></a>Étape 7. Supprimez le paramètre VLAN Access
+## <a name="step-7-remove-the-access-vlan-setting"></a>Étape 7. Supprimer le paramètre d’accès VLAN
 
-Dans cette étape, vous supprimez le paramètre de réseau local virtuel de l’accès à partir de la carte réseau physique et pour définir le VLANID à l’aide du commutateur virtuel.
+Dans cette étape, vous supprimez le paramètre de réseau local virtuel d’accès de la carte réseau physique et vous définissez VLANID à l’aide de vSwitch.
 
-Vous devez supprimer le paramètre VLAN d’accès pour empêcher les deux balisage automatique le trafic de sortie avec l’ID de VLAN incorrect et à partir de l’entrée de filtrage du trafic qui ne correspond pas à l’ID de VLAN ACCESS.
+Vous devez supprimer le paramètre d’accès VLAN pour empêcher le marquage automatique du trafic de sortie avec l’ID de réseau local virtuel incorrect et de filtrer le trafic d’entrée qui ne correspond pas à l’ID de réseau local virtuel d’accès.
 
 1. Supprimez le paramètre.
 
@@ -815,14 +815,14 @@ Vous devez supprimer le paramètre VLAN d’accès pour empêcher les deux balis
    Set-NetAdapterAdvancedProperty -Name "Test-40G-2" -RegistryKeyword VlanID -RegistryValue "0"
    ```
 
-2. Définir l’ID de VLAN.
+2. Définissez l’ID de réseau local virtuel.
 
    ```PowerShell
    Set-VMNetworkAdapterVlan -VMNetworkAdapterName "VMSTEST" -VlanId "101" -Access -ManagementOS
    Get-VMNetworkAdapterVlan -ManagementOS -VMNetworkAdapterName "VMSTEST"
    ```
 
-   _**Résultats :** _  
+   _**About**_  
 
    ```
    VMName VMNetworkAdapterName Mode   VlanList
@@ -831,13 +831,13 @@ Vous devez supprimer le paramètre VLAN d’accès pour empêcher les deux balis
    ```
 
 
-3. Tester la connexion réseau.
+3. Testez la connexion réseau.
 
    ```PowerShell
    Test-NetConnection 192.168.1.5
    ```
 
-   _**Résultats :** _   
+   _**About**_   
 
    ```
    ComputerName   : 192.168.1.5
@@ -848,7 +848,7 @@ Vous devez supprimer le paramètre VLAN d’accès pour empêcher les deux balis
    PingReplyDetails (RTT) : 0 ms
    ```
 
-   >**IMPORTANT** si vos résultats ne sont pas similaires à ceux d’exemple et le test ping échoue avec le message « Avertissement : Échec du test ping à 192.168.1.5--état : DestinationHostUnreachable, » confirmer que le « vEthernet (VMSTEST) » a l’adresse IP appropriée.
+   >**Important** Si vos résultats ne sont pas similaires aux résultats de l’exemple et si le test ping échoue avec le message «AVERTISSEMENT : Échec de la commande ping sur 192.168.1.5--État : DestinationHostUnreachable, confirmez que « vEthernet (VMSTEST) » possède l’adresse IP appropriée.
    >
    >```PowerShell
    >Get-NetIPAddress -InterfaceAlias "vEthernet (VMSTEST)"
@@ -875,94 +875,94 @@ Vous devez supprimer le paramètre VLAN d’accès pour empêcher les deux balis
    >```  
 
 
-4. Renommer la gestion de carte réseau.
+4. Renommez la carte réseau de gestion.
 
    ```PowerShell
    Rename-VMNetworkAdapter -ManagementOS -Name “VMSTEST” -NewName “MGT”
    Get-VMNetworkAdapter -ManagementOS
    ```
 
-   _**Résultats :** _ 
+   _**About**_ 
 
 
-   |         Nom         | IsManagementOs | VMName |      SwitchName      |  MacAddress  | État | IPAddresses |
+   |         Nom         | IsManagementOs | VMName |      SwitchName      |  macAddress  | Statut | AdressesIP |
    |----------------------|----------------|--------|----------------------|--------------|--------|-------------|
-   | Commutateur de CORP-externe |      True      | &nbsp; | Commutateur de CORP-externe | 001B785768AA |  {Ok}  |   &nbsp;    |
-   |         MGT          |      True      | &nbsp; |       VMSTEST        | E41D2D074071 |  {Ok}  |   &nbsp;    |
+   | CORP-External-Switch |      True      | &nbsp; | CORP-External-Switch | 001B785768AA |  OK  |   &nbsp;    |
+   |         MAGASIN          |      True      | &nbsp; |       VMSTEST        | E41D2D074071 |  OK  |   &nbsp;    |
 
    ---
 
-5. Afficher les propriétés des cartes réseau supplémentaires.
+5. Affichez les propriétés de carte réseau supplémentaires.
 
    ```PowerShell
    Get-NetAdapter
    ```
 
-   _**Résultats :** _
+   _**About**_
 
 
-   |      Nom       |        InterfaceDescription         | ifIndex | État |    MacAddress     | LinkSpeed |
+   |      Nom       |        InterfaceDescription         | IfIndex | Statut |    macAddress     | LinkSpeed |
    |-----------------|-------------------------------------|---------|--------|-------------------|-----------|
-   | vEthernet (gestion avancée) | Adaptateur Ethernet virtuel Hyper-V #2 |   28    |   Up (Haut)   | E4-1D-2D-07-40-71 |  80 Gbits/s  |
+   | vEthernet (gestion) | Carte Ethernet virtuelle Hyper-V #2 |   28    |   Up (Haut)   | E4-1D-2D-07-40-71 |  80 Gbits/s  |
 
    ---
 
-## <a name="step-8-test-hyper-v-vswitch-rdma"></a>Étape 8. Test RDMA de commutateur virtuel Hyper-V
+## <a name="step-8-test-hyper-v-vswitch-rdma"></a>Étape 8. Tester le vSwitch RDMA Hyper-V
 
-L’illustration suivante montre l’état actuel de vos hôtes Hyper-V, y compris le commutateur virtuel sur l’hôte 1 Hyper-V.
+L’illustration suivante montre l’état actuel de vos ordinateurs hôtes Hyper-V, y compris le vSwitch sur l’hôte 1 Hyper-V.
 
 ![Tester le commutateur virtuel Hyper-V](../../media/Converged-NIC/6-datacenter-test-vswitch-rdma.jpg)
 
-1. Définir la priorité sur la carte réseau virtuelle hôte afin de compléter les paramètres de réseau local virtuel précédents de balisage.
+1. Définissez le balisage de priorité sur l’hôte carte réseau virtuelle pour compléter les paramètres VLAN précédents.
 
    ```PowerShell    
    Set-VMNetworkAdapter -ManagementOS -Name "MGT" -IeeePriorityTag on
    Get-VMNetworkAdapter -ManagementOS -Name "MGT" | fl Name,IeeePriorityTag
    ```
 
-   _**Résultats :** _  
+   _**About**_  
 
-   nom : MGT  
-   IeeePriorityTag :  Activé  
+   nomme MAGASIN  
+   IeeePriorityTag :  Activé  
 
-2. Créer deux cartes réseau virtuelles hôtes pour RDMA et les connecter à un commutateur virtuel VMSTEST.
+2. Créez deux cartes réseau virtuelles hôtes pour RDMA et connectez-les au VMSTEST vSwitch.
 
    ```PowerShell    
    Add-VMNetworkAdapter –SwitchName "VMSTEST" –Name SMB1 –ManagementOS
    Add-VMNetworkAdapter –SwitchName "VMSTEST" –Name SMB2 –ManagementOS
    ```
 
-3. Afficher les propriétés de la carte réseau de gestion.
+3. Affichez les propriétés de la carte réseau de gestion.
 
    ```PowerShell    
    Get-VMNetworkAdapter -ManagementOS
    ```
 
-   _**Résultats :** _ 
+   _**About**_ 
 
 
-   |         Nom         | IsManagementOs |        VMName        |  SwitchName  | MacAddress | État | IPAddresses |
+   |         Name         | IsManagementOs |        VMName        |  SwitchName  | macAddress | Statut | AdressesIP |
    |----------------------|----------------|----------------------|--------------|------------|--------|-------------|
-   | Commutateur de CORP-externe |      True      | Commutateur de CORP-externe | 001B785768AA |    {Ok}    | &nbsp; |             |
-   |         Gestion avancée          |      True      |       VMSTEST        | E41D2D074071 |    {Ok}    | &nbsp; |             |
-   |         SMB1         |      True      |       VMSTEST        | 00155D30AA00 |    {Ok}    | &nbsp; |             |
-   |         SMB2         |      True      |       VMSTEST        | 00155D30AA01 |    {Ok}    | &nbsp; |             |
+   | CORP-External-Switch |      True      | CORP-External-Switch | 001B785768AA |    OK    | &nbsp; |             |
+   |         Magasin          |      True      |       VMSTEST        | E41D2D074071 |    OK    | &nbsp; |             |
+   |         SMB1         |      True      |       VMSTEST        | 00155D30AA00 |    OK    | &nbsp; |             |
+   |         SMB2         |      True      |       VMSTEST        | 00155D30AA01 |    OK    | &nbsp; |             |
 
    ---
 
-## <a name="step-9-assign-an-ip-address-to-the-smb-host-vnics-vethernet-smb1-and-vethernet-smb2"></a>Étape 9 : Affecter une adresse IP à la vEthernet de cartes réseau virtuelles hôte SMB \(block1\) et vEthernet \(SMB2\)
+## <a name="step-9-assign-an-ip-address-to-the-smb-host-vnics-vethernet-smb1-and-vethernet-smb2"></a>Étape 9 : Affecter une adresse IP à l’hôte SMB cartes réseau virtuelles vEthernet \(SMB1\) et vEthernet \(SMB2\)
 
-Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS de 101 et 102 configuré. Pour cette raison, les adaptateurs marquer le trafic - et ping réussit. Auparavant, vous configuré les deux ID de VLAN de carte réseau à zéro, puis définissez le commutateur virtuel VMSTEST 101 de réseau local virtuel. Après cela, vous pouviez toujours un test ping de l’adaptateur de réseau local virtuel 101 à distance à l’aide de la carte réseau virtuelle de gestion avancée, mais il n’existe actuellement aucun membre 102 de réseau local virtuel.
+Les adaptateurs physiques TEST-40G-1 et TEST-40G-2 disposent toujours d’un réseau local virtuel d’accès de 101 et de 102 configurés. Pour cette raison, les adaptateurs marquent le trafic et le test Ping s’effectue correctement. Auparavant, vous configurez les deux ID de réseau local virtuel pNIC sur zéro, puis vous définissez VMSTEST vSwitch sur VLAN 101. Après cela, vous avez toujours pu exécuter une commande ping sur la carte réseau local virtuel 101 à distance à l’aide de l’carte réseau virtuelle de gestion, mais il n’existe actuellement aucun membre VLAN 102.
 
 
 
-1. Supprimez le paramètre de réseau local virtuel de l’accès à partir de la carte réseau physique pour éviter qu’il les deux balisage automatique le trafic de sortie avec l’ID de VLAN incorrect et pour empêcher de filtrage du trafic d’entrée qui ne correspond pas à l’ID de VLAN ACCESS.
+1. Supprimez le paramètre de réseau local virtuel d’accès de la carte réseau physique pour empêcher le balisage automatique du trafic de sortie avec l’ID de réseau local virtuel incorrect et l’empêcher de filtrer le trafic d’entrée qui ne correspond pas à l’ID de réseau local virtuel d’accès.
 
    ```PowerShell    
    New-NetIPAddress -InterfaceAlias "vEthernet (SMB1)" -IPAddress 192.168.2.111 -PrefixLength 24
    ```
 
-   _**Résultats :** _  
+   _**About**_  
 
    ```   
    IPAddress : 192.168.2.111
@@ -980,13 +980,13 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
    PolicyStore   : PersistentStore
    ```
 
-2. Testez l’adaptateur de réseau local virtuel 102 à distance.
+2. Testez l’adaptateur réseau local virtuel 102 distant.
 
    ```PowerShell
    Test-NetConnection 192.168.2.5 
    ```
 
-   _**Résultats :** _  
+   _**About**_  
 
    ```
    ComputerName   : 192.168.2.5
@@ -997,13 +997,13 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
    PingReplyDetails (RTT) : 0 ms
    ```
 
-3. Ajouter une nouvelle adresse IP pour l’interface vEthernet \(SMB2\).
+3. Ajoutez une nouvelle adresse IP pour l’interface \(vEthernet\)SMB2.
 
    ```PowerShell
    New-NetIPAddress -InterfaceAlias "vEthernet (SMB2)" -IPAddress 192.168.2.222 -PrefixLength 24 
    ```
 
-   _**Résultats :** _ 
+   _**About**_ 
 
    ```
    IPAddress : 192.168.2.222
@@ -1024,7 +1024,7 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
 4. Testez à nouveau la connexion.    
 
 
-5. Placez les cartes réseau virtuelles de l’hôte de RDMA sur la 102 VLAN préexistant.
+5. Placez le cartes réseau virtuelles d’hôte RDMA sur le réseau local virtuel préexistant 102.
 
    ```PowerShell
    Set-VMNetworkAdapterVlan -VMNetworkAdapterName "SMB1" -VlanId "102" -Access -ManagementOS
@@ -1033,7 +1033,7 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
    Get-VMNetworkAdapterVlan -ManagementOS
    ```
 
-   _**Résultats :** _ 
+   _**About**_ 
 
    ```   
    VMName VMNetworkAdapterName Mode VlanList
@@ -1044,7 +1044,7 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
       CORP-External-Switch Untagged
    ```
 
-6. Inspecter le mappage de SMB1 et SMB2 aux cartes réseau physiques sous-jacente sous le commutateur virtuel défini une équipe.<p>L’association de carte réseau virtuelle hôte pour les cartes réseau physiques est aléatoire et susceptible d’être rééquilibrage pendant la création et la destruction. Dans ce cas, vous pouvez utiliser un mécanisme indirect pour vérifier l’association en cours. Les adresses MAC des SMB1 et SMB2 sont associés au membre de l’association de cartes réseau TEST-40G-2. Cela n’est pas idéale car Test-40G-1 ne dispose pas d’une carte réseau virtuelle hôte SMB associée et n’autorisera pas pour l’utilisation du trafic RDMA sur le lien jusqu'à ce qu’une carte réseau virtuelle hôte SMB est mappée à celui-ci.
+6. Inspectez le mappage entre SMB1 et SMB2 avec les cartes réseau physiques sous-jacentes dans l’équipe de jeu de vSwitch.<p>L’Association des carte réseau virtuelle hôtes aux cartes réseau physiques est aléatoire et peut faire l’objet d’un rééquilibrage lors de la création et de la destruction. Dans ce cas, vous pouvez utiliser un mécanisme indirect pour vérifier l’Association actuelle. Les adresses MAC des adresses SMB1 et SMB2 sont associées au membre de l’équipe de cartes réseau TEST-40G-2. Cette solution n’est pas idéale, car test-40G-1 n’a pas de carte réseau virtuelle d’hôte SMB associé et n’autorise pas l’utilisation du trafic RDMA sur le lien tant qu’un hôte SMB carte réseau virtuelle n’est pas mappé à celui-ci.
 
    ```PowerShell    
    Get-NetAdapterVPort (Preferred)
@@ -1052,7 +1052,7 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
    Get-NetAdapterVmqQueue
    ```
 
-   _**Résultats :** _ 
+   _**About**_ 
 
    ```
    Name   QueueID MacAddressVlanID Processor VmFriendlyName
@@ -1062,13 +1062,13 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
    TEST-40G-2 2   00-15-5D-30-AA-01 1020:17
    ```
 
-7. Afficher les propriétés de l’adaptateur de réseau de machine virtuelle.
+7. Affichez les propriétés de la carte réseau d’ordinateur virtuel.
 
    ```PowerShell
    Get-VMNetworkAdapter -ManagementOS
    ```
 
-   _**Résultats :** _ 
+   _**About**_ 
 
    ```
    Name IsManagementOs VMName SwitchName   MacAddress   Status IPAddresses
@@ -1079,7 +1079,7 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
    SMB2 True  VMSTEST  00155D30AA01 {Ok}  
    ```
 
-8. Afficher le mappage d’équipe de carte réseau.<p>Les résultats ne doivent pas retourner d’informations, car vous n’avez pas encore effectué de mappage.
+8. Affichez le mappage de l’équipe de cartes réseau.<p>Les résultats ne doivent pas retourner d’informations car vous n’avez pas encore effectué le mappage.
 
    ```PowerShell
    Get-VMNetworkAdapterTeamMapping -ManagementOS -SwitchName VMSTEST -VMNetworkAdapterName SMB1
@@ -1087,10 +1087,10 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
    ```
 
 
-9. Mapper SMB1 et SMB2 pour séparer les membres de l’équipe carte réseau physiques et pour afficher les résultats de vos actions.
+9. Mappez SMB1 et SMB2 pour séparer les membres physiques de l’équipe de cartes réseau et afficher les résultats de vos actions.
 
    >[!IMPORTANT]
-   >Assurez-vous que vous effectuez cette étape avant de continuer, ou votre implémentation échoue.
+   >Veillez à effectuer cette étape avant de continuer, sinon votre implémentation échoue.
 
    ```PowerShell
    Set-VMNetworkAdapterTeamMapping -ManagementOS -SwitchName VMSTEST -VMNetworkAdapterName "SMB1" -PhysicalNetAdapterName "Test-40G-1"
@@ -1099,7 +1099,7 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
    Get-VMNetworkAdapterTeamMapping -ManagementOS -SwitchName VMSTEST
    ```
 
-   _**Résultats :** _ 
+   _**About**_ 
 
    ```   
    NetAdapterName : Test-40G-1
@@ -1119,13 +1119,13 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
    IsDeleted  : False
    ```
 
-10. Vérifiez les associations de MAC créées précédemment.
+10. Vérifiez les associations MAC créées précédemment.
 
     ```PowerShell    
     Get-NetAdapterVmqQueue
     ```
 
-    _**Résultats :** _ 
+    _**About**_ 
 
     ```   
     Name   QueueID MacAddressVlanID Processor VmFriendlyName
@@ -1136,13 +1136,13 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
     ```
 
 
-11. Tester la connexion à partir du système distant, car les deux cartes réseau virtuelles hôtes se trouvent sur le même sous-réseau et ont le même ID de VLAN \(102\).
+11. Testez la connexion à partir du système distant, car les deux hôtes cartes réseau virtuelles résident sur le même sous-réseau et \(ont\)le même ID de réseau local virtuel 102.
 
     ```PowerShell 
     Test-NetConnection 192.168.2.111
     ```
 
-    _**Résultats :** _   
+    _**About**_   
 
     ```
     ComputerName   : 192.168.2.111
@@ -1157,7 +1157,7 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
     Test-NetConnection 192.168.2.222
     ```
 
-    _**Résultats :** _   
+    _**About**_   
 
     ```
     ComputerName   : 192.168.2.222
@@ -1167,7 +1167,7 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
     PingSucceeded  : True
     PingReplyDetails (RTT) : 0 ms 
     ```
-12. Définir le nom, nom du commutateur et les balises de priorité.   
+12. Définissez le nom, le nom du commutateur et les étiquettes de priorité.   
 
     ```PowerShell
     Set-VMNetworkAdapter -ManagementOS -Name "SMB1" -IeeePriorityTag on
@@ -1175,7 +1175,7 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
     Get-VMNetworkAdapter -ManagementOS -Name "SMB*" | fl Name,SwitchName,IeeePriorityTag,Status
     ```
 
-    _**Résultats :** _   
+    _**About**_   
 
     ```
     Name: SMB1
@@ -1189,13 +1189,13 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
     Status  : {Ok}
     ```
 
-13. Afficher les propriétés de l’adaptateur de réseau vEthernet.
+13. Affichez les propriétés de la carte réseau vEthernet.
 
     ```PowerShell
     Get-NetAdapterRdma -Name "vEthernet*" | sort Name | ft -AutoSize
     ```
 
-    _**Résultats :** _   
+    _**About**_   
 
     ```
     Name  InterfaceDescription Enabled
@@ -1205,7 +1205,7 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
     vEthernet (MGT)   Hyper-V Virtual Ethernet Adapter #2  False   
     ```
 
-14. Activer les cartes réseau de vEthernet.  
+14. Activez les cartes réseau vEthernet.  
 
     ```PowerShell
     Enable-NetAdapterRdma -Name "vEthernet (SMB1)"
@@ -1213,7 +1213,7 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
     Get-NetAdapterRdma -Name "vEthernet*" | sort Name | fl *
     ```
 
-    _**Résultats :** _   
+    _**About**_   
 
     ```
     Name  InterfaceDescription Enabled
@@ -1223,9 +1223,9 @@ Le TEST-40G-1 et les cartes physiques de TEST-40G-2 toujours ont un VLAN ACCESS 
     vEthernet (MGT)   Hyper-V Virtual Ethernet Adapter #2  False
     ```
 
-## <a name="step-10-validate-the-rdma-functionality"></a>Étape 10. Valider la fonctionnalité RDMA.
+## <a name="step-10-validate-the-rdma-functionality"></a>Étape 10. Validez la fonctionnalité RDMA.
 
-Voulez-vous valider la fonctionnalité RDMA à partir du système à distance sur le système local, ce qui a un commutateur virtuel, pour les deux membres de l’équipe de jeu de commutateur virtuel.<p>Étant donné que les deux cartes réseau virtuelles hôtes \(SMB1 et SMB2\) sont affectés à 102 de réseau local virtuel, vous pouvez sélectionner l’adaptateur de réseau local virtuel 102 sur le système distant. <p>Dans cet exemple, la carte réseau Test-40G-2 fait de RDMA pour SMB1 (192.168.2.111) et SMB2 (192.168.2.222).
+Vous souhaitez valider la fonctionnalité RDMA à partir du système distant sur le système local, qui dispose d’un vSwitch, aux deux membres de l’équipe de jeu vSwitch.<p>Étant donné que les \(deux hôtes cartes réseau virtuelles\) SMB1 et SMB2 sont affectés au réseau local virtuel 102, vous pouvez sélectionner l’adaptateur VLAN 102 sur le système distant. <p>Dans cet exemple, la carte réseau test-40G-2 utilise RDMA pour SMB1 (192.168.2.111) et SMB2 (192.168.2.222).
 
 >[!TIP]
 >Vous devrez peut-être désactiver le pare-feu sur ce système.  Pour plus d’informations, consultez votre stratégie d’infrastructure.
@@ -1236,7 +1236,7 @@ Voulez-vous valider la fonctionnalité RDMA à partir du système à distance su
 >Get-NetAdapterAdvancedProperty -Name "Test-40G-2"
 >```
 >
->_**Résultats :** _ 
+>_**About**_ 
 >   
 >```
 >Name  DisplayNameDisplayValue   RegistryKeyword RegistryValue  
@@ -1246,13 +1246,13 @@ Voulez-vous valider la fonctionnalité RDMA à partir du système à distance su
 >Test-40G-2VLAN ID102VlanID  {102} 
 >```
 
-1. Afficher les propriétés de la carte réseau.
+1. Affichez les propriétés de la carte réseau.
 
    ```PowerShell
    Get-NetAdapter
    ```
 
-   _**Résultats :** _ 
+   _**About**_ 
 
    ```
    Name  InterfaceDescriptionifIndex Status   MacAddress LinkSpeed
@@ -1260,13 +1260,13 @@ Voulez-vous valider la fonctionnalité RDMA à partir du système à distance su
    Test-40G-2Mellanox ConnectX-3 Pro Ethernet A...#3   3 Up   E4-1D-2D-07-43-D140 Gbps
    ```
 
-2. Afficher la carte réseau d’informations RDMA.
+2. Affichez les informations RDMA de la carte réseau.
 
    ```PowerShell
    Get-NetAdapterRdma
    ```
 
-   _**Résultats :** _  
+   _**About**_  
 
    ```
    Name  InterfaceDescription Enabled
@@ -1274,13 +1274,13 @@ Voulez-vous valider la fonctionnalité RDMA à partir du système à distance su
    Test-40G-2Mellanox ConnectX-3 Pro Ethernet Adap... True   
    ```
 
-3. Effectuer le test de trafic RDMA sur la première carte physique.
+3. Exécutez le test de trafic RDMA sur la première carte physique.
 
    ```PowerShell 
    C:\TEST\Test-RDMA.PS1 -IfIndex 3 -IsRoCE $true -RemoteIpAddress 192.168.2.111 -PathToDiskspd C:\TEST\Diskspd-v2.0.17\amd64fre\
    ```
 
-   _**Résultats :** _ 
+   _**About**_ 
 
    ```
    VERBOSE: Diskspd.exe found at C:\TEST\Diskspd-v2.0.17\amd64fre\diskspd.exe
@@ -1300,13 +1300,13 @@ Voulez-vous valider la fonctionnalité RDMA à partir du système à distance su
    VERBOSE: RDMA traffic test SUCCESSFUL: RDMA traffic was sent to 192.168.2.111
    ```
 
-4. Effectuer le test de trafic RDMA sur la deuxième carte physique.
+4. Exécutez le test de trafic RDMA sur la seconde carte physique.
 
    ```PowerShell
    C:\TEST\Test-RDMA.PS1 -IfIndex 3 -IsRoCE $true -RemoteIpAddress 192.168.2.222 -PathToDiskspd C:\TEST\Diskspd-v2.0.17\amd64fre\
    ```
 
-   _**Résultats :** _ 
+   _**About**_ 
 
    ```
    VERBOSE: Diskspd.exe found at C:\TEST\Diskspd-v2.0.17\amd64fre\diskspd.exe
@@ -1328,13 +1328,13 @@ Voulez-vous valider la fonctionnalité RDMA à partir du système à distance su
    VERBOSE: RDMA traffic test SUCCESSFUL: RDMA traffic was sent to 192.168.2.222
    ```
 
-5. Test pour le trafic RDMA à partir de l’ordinateur local à l’ordinateur distant.
+5. Testez le trafic RDMA entre l’ordinateur local et l’ordinateur distant.
 
     ```PowerShell
     Get-NetAdapter | ft –AutoSize
     ```
 
-    _**Résultats :** _ 
+    _**About**_ 
 
     ```
     Name  InterfaceDescriptionifIndex Status   MacAddress LinkSpeed
@@ -1343,13 +1343,13 @@ Voulez-vous valider la fonctionnalité RDMA à partir du système à distance su
     vEthernet (SMB1)  Hyper-V Virtual Ethernet Adapter #3  41 Up   00-15-5D-30-AA-0280 Gbps
     ```
 
-6. Effectuer le test de trafic RDMA sur la première carte virtuelle.    
+6. Exécutez le test de trafic RDMA sur la première carte virtuelle.    
 
    ```
    C:\TEST\Test-RDMA.PS1 -IfIndex 41 -IsRoCE $true -RemoteIpAddress 192.168.2.5 -PathToDiskspd C:\TEST\Diskspd-v2.0.17\amd64fre\
    ```
 
-   _**Résultats :** _ 
+   _**About**_ 
 
    ```
    VERBOSE: Diskspd.exe found at C:\TEST\Diskspd-v2.0.17\amd64fre\diskspd.exe
@@ -1376,13 +1376,13 @@ Voulez-vous valider la fonctionnalité RDMA à partir du système à distance su
    VERBOSE: RDMA traffic test SUCCESSFUL: RDMA traffic was sent to 192.168.2.5
    ```
 
-7. Effectuer le test de trafic RDMA sur la deuxième carte virtuelle.
+7. Exécutez le test de trafic RDMA sur la seconde carte virtuelle.
 
    ```PowerShell
    C:\TEST\Test-RDMA.PS1 -IfIndex 45 -IsRoCE $true -RemoteIpAddress 192.168.2.5 -PathToDiskspd C:\TEST\Diskspd-v2.0.17\amd64fre\
    ```
 
-   _**Résultats :** _ 
+   _**About**_ 
 
    ```
    VERBOSE: Diskspd.exe found at C:\TEST\Diskspd-v2.0.17\amd64fre\diskspd.exe
@@ -1407,10 +1407,10 @@ Voulez-vous valider la fonctionnalité RDMA à partir du système à distance su
    VERBOSE: RDMA traffic test SUCCESSFUL: RDMA traffic was sent to 192.168.2.5
    ```
 
-La dernière ligne dans cette sortie, « test de trafic RDMA réussi : Le trafic RDMA a été envoyé à 192.168.2.5, » montre que vous avez correctement configuré convergé la carte réseau sur votre carte.
+La dernière ligne de cette sortie, «test du trafic RDMA réussie : Le trafic RDMA a été envoyé à 192.168.2.5, «indique que vous avez correctement configuré la carte réseau convergée sur votre carte.
 
 ## <a name="related-topics"></a>Rubriques connexes 
 
-- [Configuration de carte réseau convergé avec une seule carte réseau](cnic-single.md)
-- [Configuration de commutateur physique pour la carte réseau convergé](cnic-app-switch-config.md)
-- [Résolution des problèmes convergé des Configurations de carte réseau](cnic-app-troubleshoot.md)
+- [Configuration de carte réseau convergée avec une seule carte réseau](cnic-single.md)
+- [Configuration du commutateur physique pour la carte réseau convergée](cnic-app-switch-config.md)
+- [Résolution des problèmes de configuration de cartes réseau convergées](cnic-app-troubleshoot.md)

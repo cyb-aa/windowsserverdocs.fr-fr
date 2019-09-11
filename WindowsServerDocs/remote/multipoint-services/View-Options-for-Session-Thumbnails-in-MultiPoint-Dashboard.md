@@ -1,6 +1,6 @@
 ---
 title: Afficher des options pour les miniatures de session dans le tableau de bord MultiPoint
-description: Découvrez comment personnaliser vos options d’affichage de MultiPoint Services
+description: Découvrez comment personnaliser vos options d’affichage pour MultiPoint services
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,19 +13,19 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: febd5c4a5d5fdcf5ad2a27eec13bb7439ea0ee4f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a11f2f2bbafe4d21e1cd5d56d66a97e08cf35b11
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875490"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871469"
 ---
 # <a name="view-options-for-session-thumbnails-in-multipoint-dashboard"></a>Afficher des options pour les miniatures de session dans le tableau de bord MultiPoint
-Une manière simple de contrôler les activités des utilisateurs sur leur bureau consiste à afficher les images miniatures de chaque bureau actif sur votre système MultiPoint Services. Par défaut, les images de postes de travail sont affichés dans le tableau de bord MultiPoint sur le **accueil** onglet.  
+Une manière simple de contrôler les activités des utilisateurs sur leur bureau consiste à afficher les images miniatures de chaque bureau actif sur votre système MultiPoint Services. Par défaut, les images des postes de travail s’affichent dans le tableau de bord MultiPoint sous l’onglet dossier de **démarrage** .  
   
-À l’aide du tableau de bord MultiPoint, vous pouvez procédez comme suit :  
+À l’aide du tableau de bord MultiPoint, vous pouvez effectuer les opérations suivantes :  
   
-- Afficher des parties précises du bureau d’un utilisateur en agrandissant son affichage dans le tableau de bord.  
+- Affichez le Bureau d’un utilisateur plus en détail en agrandissant son affichage dans le tableau de bord.  
 - Modifier la taille des miniatures affichées dans le tableau de bord. Trois tailles d’affichage sont disponibles : petites, moyennes ou grandes. La taille par défaut est la taille moyenne.  
 - Afficher tous les bureaux sur le système MultiPoint Services, ou choisir une vue filtrée montrant les bureaux actifs.  
   
@@ -33,7 +33,7 @@ Une manière simple de contrôler les activités des utilisateurs sur leur burea
   
 1.  Cliquez sur l’onglet **Accueil**, puis sur le bureau que vous souhaitez agrandir.  
   
-2.  Dans l’onglet **Accueil**, cliquez sur **Agrandir la sélection**. Le bureau de l’utilisateur s’ouvre dans le tableau de bord.  
+2.  Dans l’onglet **Accueil**, cliquez sur **Agrandir la sélection**. Le Bureau de l’utilisateur s’ouvre dans le tableau de bord.  
   
 3.  Quand vous avez terminé de travailler dans l’affichage agrandi, cliquez sur Retourner à la vue Bureaux.  
   
@@ -43,7 +43,7 @@ Une manière simple de contrôler les activités des utilisateurs sur leur burea
   
 2.  Dans l’onglet **Accueil**, cliquez sur **Agrandir la sélection**. La page **Modifier la taille du bureau** s’ouvre.  
   
-3.  Cliquez sur la taille voulue (**petit**, **support**, ou **grande**), puis cliquez sur **OK**.  
+3.  Cliquez sur la taille de votre choix (**petite**, **moyenne**ou **grande**), puis cliquez sur **OK**.  
   
 ## <a name="to-show-all-desktops-in-multipoint-dashboard"></a>Pour afficher tous les bureaux dans le tableau de bord MultiPoint  
   
@@ -57,4 +57,4 @@ Une manière simple de contrôler les activités des utilisateurs sur leur burea
 > Cliquez avec le bouton droit sur une ou plusieurs miniatures pour accéder à d’autres actions que vous pouvez effectuer sur des sessions actives ou inactives, telles que **Déconnecter les utilisateurs sélectionnés**. Pour plus d’informations, voir [Fermer les sessions utilisateur](Log-Off-User-Sessions.md).
 
 ## <a name="see-also"></a>Voir aussi  
-[Gérer les bureaux des utilisateurs à l’aide du tableau de bord MultiPoint](Manage-User-Desktops-Using-MultiPoint-Dashboard.md)
+[Gérer les postes de travail des utilisateurs à l’aide du tableau de bord MultiPoint](Manage-User-Desktops-Using-MultiPoint-Dashboard.md)

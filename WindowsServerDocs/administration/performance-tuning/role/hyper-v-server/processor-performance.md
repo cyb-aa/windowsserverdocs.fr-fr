@@ -1,73 +1,73 @@
 ---
-title: Performances du processeur de Hyper-V
-description: Considérations sur les performances de processeur de réglage des performances d’Hyper-V
+title: Performances du processeur Hyper-V
+description: Considérations sur les performances du processeur dans le réglage des performances Hyper-V
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: f16ee9cff9c244a8c579e008bced1e90b1a20673
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 232141758032a8e21eca50ddb73ac9bc3cf6af56
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435592"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866548"
 ---
-# <a name="hyper-v-processor-performance"></a>Performances du processeur de Hyper-V
+# <a name="hyper-v-processor-performance"></a>Performances du processeur Hyper-V
 
 
-## <a name="virtual-machine-integration-services"></a>Services d’intégration de machine virtuelle
+## <a name="virtual-machine-integration-services"></a>Services d’intégration de machines virtuelles
 
-Les Services d’intégration de Machine virtuelle incluent des pilotes compatibles pour les périphériques d’e/s spécifiques à Hyper-V, ce qui réduit considérablement UC surcharge d’e/s par rapport aux périphériques émulés. Vous devez installer la dernière version de la Machine virtuelle des Services d’intégration sur chaque machine virtuelle pris en charge. La diminution de services invités de l’utilisation du processeur des invités, du mode inactif à largement utilisé invités et améliore le débit d’e/s. Il s’agit de la première étape de réglage des performances dans un serveur exécutant Hyper-V. Pour obtenir la liste des systèmes d’exploitation invités pris en charge, consultez [vue d’ensemble d’Hyper-V](https://technet.microsoft.com/library/hh831531.aspx).
+La machine virtuelle Integration Services inclure des pilotes compatibles pour les périphériques d’e/s spécifiques à Hyper-V, ce qui réduit considérablement la surcharge du processeur pour les e/s par rapport aux appareils émulés. Vous devez installer la dernière version de la machine virtuelle Integration Services sur chaque ordinateur virtuel pris en charge. Les services diminuent l’utilisation du processeur des invités, des invités inactifs aux invités très utilisés et améliorent le débit d’e/s. Il s’agit de la première étape de réglage des performances sur un serveur exécutant Hyper-V. Pour obtenir la liste des systèmes d’exploitation invités pris en charge, consultez [vue d’ensemble d’Hyper-V](https://technet.microsoft.com/library/hh831531.aspx).
 
 ## <a name="virtual-processors"></a>Processeurs virtuels
 
-Hyper-V dans Windows Server 2016 prend en charge un maximum de 240 processeurs virtuels par machine virtuelle. Machines virtuelles qui ont des charges qui ne sont pas beaucoup de ressources processeur doivent être configurés pour utiliser un processeur virtuel. Il s’agit en raison de la charge supplémentaire qui est associée à plusieurs processeurs virtuels, telles que les coûts de synchronisation supplémentaire dans le système d’exploitation invité.
+Hyper-V dans Windows Server 2016 prend en charge un maximum de 240 processeurs virtuels par ordinateur virtuel. Les machines virtuelles dont les charges ne sont pas gourmandes en processeur doivent être configurées pour utiliser un processeur virtuel. Cela est dû à la surcharge supplémentaire qui est associée à plusieurs processeurs virtuels, tels que des coûts de synchronisation supplémentaires dans le système d’exploitation invité.
 
-Augmenter le nombre de processeurs virtuels si l’ordinateur virtuel nécessite plusieurs processeurs de traitement sous les pics de charge.
+Augmentez le nombre de processeurs virtuels si l’ordinateur virtuel requiert plus d’un processeur de traitement dans les pics de charge.
 
 ## <a name="background-activity"></a>Activité en arrière-plan
 
-Réduction de l’activité d’arrière-plan dans les machines virtuelles inactives libère des cycles de processeur qui peuvent être utilisées ailleurs par d’autres machines virtuelles. Les invités Windows utilisent généralement inférieure à 1 % d’un processeur lorsqu’ils sont inactifs. Voici plusieurs bonnes pratiques pour réduire l’utilisation du processeur d’une machine virtuelle en arrière-plan :
+La réduction de l’activité en arrière-plan dans les machines virtuelles inactives libère des cycles d’UC qui peuvent être utilisés ailleurs par d’autres machines virtuelles. Les invités Windows utilisent généralement moins d’un pour cent d’un processeur lorsqu’ils sont inactifs. Voici plusieurs méthodes conseillées pour réduire l’utilisation de l’UC en arrière-plan d’une machine virtuelle :
 
--   Installez la dernière version de la Machine virtuelle Integration Services.
+-   Installez la dernière version de la machine virtuelle Integration Services.
 
--   Supprimer la carte réseau émulée via la boîte de dialogue de paramètres de machine virtuelle (adaptateur d’utiliser Microsoft Hyper-V-spécifiques).
+-   Supprimez la carte réseau émulée via la boîte de dialogue Paramètres de l’ordinateur virtuel (utilisez l’adaptateur spécifique à Microsoft Hyper-V).
 
--   Supprimer les périphériques inutilisés tels que le port COM et de CD-ROM, ou déconnecter leur support.
+-   Supprimer les appareils inutilisés, tels que le CD-ROM et le port COM, ou déconnecter leur média.
 
--   Le système d’exploitation Windows sur l’écran de connexion quand il n’est pas utilisé et désactivez l’économiseur d’écran.
+-   Conservez le système d’exploitation invité Windows sur l’écran de connexion lorsqu’il n’est pas utilisé et désactivez l’écran de veille.
 
--   Passez en revue les tâches planifiées et les services qui sont activées par défaut.
+-   Passez en revue les tâches et les services planifiés qui sont activés par défaut.
 
--   Passez en revue les fournisseurs de suivi ETW sont activées par défaut en exécutant **logman.exe interroger - ets**
+-   Passez en revue les fournisseurs de suivi ETW qui sont activés par défaut en exécutant la **requête logman. exe-ETS**
 
--   Améliorer les applications de serveur afin de réduire l’activité périodique (par exemple, les minuteurs).
+-   Améliorez les applications serveur pour réduire les activités périodiques (telles que les minuteurs).
 
--   Fermez le Gestionnaire de serveur sur les systèmes d’exploitation hôte et invité.
+-   Fermez Gestionnaire de serveur à la fois sur l’hôte et sur les systèmes d’exploitation invités.
 
--   Ne laissez pas le Gestionnaire Hyper-V en cours d’exécution dans la mesure où il actualise constamment la miniature de la machine virtuelle.
+-   Ne laissez pas le Gestionnaire Hyper-V s’exécuter, car il actualise constamment la miniature de la machine virtuelle.
 
-Voici les meilleures pratiques supplémentaires pour configurer un *version du client* de Windows sur une machine virtuelle afin de réduire l’utilisation globale du processeur :
+Voici les meilleures pratiques supplémentaires pour configurer une *version cliente* de Windows dans une machine virtuelle afin de réduire l’utilisation globale du processeur :
 
--   Désactivez les services d’arrière-plan telles que SuperFetch et de Windows Search.
+-   Désactivez les services d’arrière-plan, tels que SuperFetch et Windows Search.
 
--   Désactiver les tâches planifiées telles que la défragmentation planifiée.
+-   Désactivez les tâches planifiées telles que la défragmentation planifiée.
 
 ## <a name="virtual-numa"></a>NUMA virtuel
 
-Pour activer la virtualisation de grandes charges de travail de monter en puissance, Hyper-V dans Windows Server 2016 développé des limites de mise à l’échelle de machine virtuelle. Une seule machine virtuelle peut avoir jusqu'à 240 processeurs virtuels et 12 To de mémoire. Lorsque vous créez ces machines virtuelles de grande taille, la mémoire à partir de plusieurs nœuds NUMA sur le système hôte sera probablement utilisée. Dans cette configuration de machine virtuelle, si la mémoire et les processeurs virtuels ne sont pas allouées à partir du même nœud NUMA, charges de travail peuvent avoir des mauvaises performances en raison de l’incapacité à tirer parti des optimisations pour NUMA.
+Pour permettre la virtualisation de charges de travail à grande échelle, Hyper-V dans Windows Server 2016 a développé des limites de mise à l’échelle de machine virtuelle. Une seule machine virtuelle peut recevoir jusqu’à 240 processeurs virtuels et 12 to de mémoire. Lors de la création de ces machines virtuelles volumineuses, la mémoire de plusieurs nœuds NUMA sur le système hôte sera probablement utilisée. Dans une telle configuration de machine virtuelle, si les processeurs virtuels et la mémoire ne sont pas alloués à partir du même nœud NUMA, les charges de travail peuvent présenter des performances médiocres en raison de l’impossibilité de tirer parti des optimisations NUMA.
 
 Dans Windows Server 2016, Hyper-V présente une topologie NUMA virtuelle aux machines virtuelles. Par défaut, cette topologie NUMA virtuelle est optimisée pour correspondre à la topologie NUMA de l'ordinateur hôte sous-jacent. Le fait d'exposer une topologie NUMA virtuelle sur une machine virtuelle permet au système d'exploitation hôte et à toute application orientée NUMA exécutée dessus de tirer parti des optimisations de performances NUMA, exactement comme s'ils s'exécutaient sur un ordinateur physique.
 
-Il n'y a aucune distinction entre une topologie NUMA virtuelle et physique du point de vue de la charge de travail. Sur une machine virtuelle, quand une charge de travail alloue de la mémoire locale pour des données et qu'elle accède à ces données sur le même nœud NUMA, l'accès à la mémoire locale est plus rapide sur le système physique sous-jacent. Aucune pénalité de performances due à l'accès mémoire à distance n'est constatée. Seules les applications orientées NUMA peuvent bénéficier de vNUMA.
+Il n’existe aucune distinction entre une topologie NUMA virtuelle et physique du point de vue de la charge de travail. Sur une machine virtuelle, quand une charge de travail alloue de la mémoire locale pour des données et qu'elle accède à ces données sur le même nœud NUMA, l'accès à la mémoire locale est plus rapide sur le système physique sous-jacent. Aucune pénalité de performances due à l'accès mémoire à distance n'est constatée. Seules les applications compatibles NUMA peuvent bénéficier de vNUMA.
 
-Microsoft SQL Server est un exemple d’application prenant en charge NUMA. Pour plus d’informations, consultez [compréhension Non-uniform Memory Access](https://technet.microsoft.com/library/ms178144.aspx).
+Microsoft SQL Server est un exemple d’application prenant en charge NUMA. Pour plus d’informations, consultez [Présentation de l’accès mémoire non uniforme](https://technet.microsoft.com/library/ms178144.aspx).
 
 Les fonctionnalités de topologie NUMA virtuelle et de mémoire dynamique ne peuvent pas être utilisées simultanément. Une machine virtuelle sur laquelle la mémoire dynamique est activée n'a qu'un seul nœud NUMA virtuel et aucune topologie NUMA ne lui est présentée, quels que soient les paramètres de NUMA virtuelle.
 
-Pour plus d’informations sur la topologie NUMA virtuelle, consultez [Hyper-V Virtual NUMA Overview](https://technet.microsoft.com/library/dn282282.aspx).
+Pour plus d’informations sur la topologie NUMA virtuelle, consultez [vue d’ensemble de la topologie NUMA virtuelle Hyper-V](https://technet.microsoft.com/library/dn282282.aspx).
 
 ## <a name="see-also"></a>Voir aussi
 

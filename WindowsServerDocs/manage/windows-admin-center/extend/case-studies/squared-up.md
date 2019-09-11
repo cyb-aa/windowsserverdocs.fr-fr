@@ -1,6 +1,6 @@
 ---
-title: Étude de cas de kit de développement logiciel Windows Admin Center - carré
-description: Étude de cas de kit de développement logiciel Windows Admin Center - carré
+title: Étude de cas du kit de développement logiciel (SDK) du centre d’administration Windows-disposé en carré
+description: Étude de cas du kit de développement logiciel (SDK) du centre d’administration Windows-disposé en carré
 ms.technology: extend
 ms.topic: article
 author: daniellee-msft
@@ -8,49 +8,49 @@ ms.author: jol
 ms.date: 05/23/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: ab0a7bdcf2388ffc867763c04e183b7388fd13e9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0d4469684ad9cbdadec5c40cb3b5178345b64a6d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863940"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865335"
 ---
-# <a name="squared-up-extension"></a>Carré une Extension
+# <a name="squared-up-extension"></a>Extension au carré
 
-## <a name="bringing-scom-based-monitoring-server-dependency-visibility-and-external-data-insights-into-windows-admin-center"></a>Arrivée de surveillance SCOM, visibilité dépendance du serveur et des analyses de données externes dans Windows Admin Center
+## <a name="bringing-scom-based-monitoring-server-dependency-visibility-and-external-data-insights-into-windows-admin-center"></a>Intégration de la surveillance basée sur SCOM, de la visibilité des dépendances du serveur et des informations externes sur les données dans le centre d’administration Windows
 
-Carré inscrire a été créé avec la vision de l’utilisation de la visualisation des données pour aider à résoudre les problèmes de complexité de l’informatique d’entreprise. Unique, léger de carré d’et logicielle composée uniquement de l’interface utilisateur sommet Microsoft puissante plateforme de System Center Operations Manager, ainsi que l’intégration à d’autres sources de données - Analytique des journaux Azure, Application Insights et du système de Microsoft Centre de Service Manager pour les produits tiers tels que ServiceNow, Splunk et bien plus encore - pour fournir une visibilité sur l’entreprise à grande échelle parcs d’infrastructure et d’application, à la fois en local et dans les environnements de cloud hybride.
+Le carré a été créé avec la vision de l’utilisation de la visualisation des données pour aider à résoudre les défis de la complexité informatique de l’entreprise. Les logiciels uniques, légers et de l’interface utilisateur uniquement du carré s’appuient sur la plate-forme puissante de Microsoft System Center Operations Manager, ainsi que sur l’intégration à des sources de données supplémentaires, de Microsoft Azure Log Analytics, Application Insights et système Center Service Manager à des produits tiers tels que ServiceNow, Splunk et bien plus encore, afin de fournir une visibilité sur l’infrastructure d’entreprise et les parcs d’applications à grande échelle, en local et dans des environnements de Cloud hybrides.
 
-> <cite>« Nous avons été très utilisant Windows Admin Center tout au long de son Technical Preview et ce fut un énorme gain déjà, vraiment aider à relever des défis tels que nos ingénieurs de l’obtention d’un accès facile à nos laboratoires de configuration, et nous avons l’intention de rendre nos administration principal console une fois qu’il atteint la version complète. Nous aimons le potentiel de l’intégration avec carré haut et la capacité à exposer toutes nos données dans un emplacement unique. »</cite>
+> <cite>«Nous avons beaucoup fait appel au centre d’administration Windows tout au long de sa version d’évaluation technique et il s’agit déjà d’un énorme toucher, ce qui nous a permis de résoudre des problèmes tels que nos ingénieurs qui accèdent facilement à nos laboratoires de configuration, et nous avons l’intention d’en faire notre gestion principale une fois qu’elle a atteint la version complète. Nous apprécions le potentiel de l’intégration avec un carré et la capacité à faire apparaître toutes nos données dans un seul et même endroit.»</cite>
 >
-> --David Acevedo, j’ai / spécialiste S NuStar l’énergie L.P.
+> --David Acevedo, spécialiste des e/S chez NuStar Energy L.P.
 
-De clients carré gérer des centaines, souvent des milliers, de serveurs de Windows et de l’application de divers portefeuilles remis par eux et à la fois au carré des et Microsoft sont une mission pour afficher les équipes informatiques le meilleur de fast, moderne, interface utilisateur web pour fournir les informations dont ils ont besoin. Par conséquent, l’équipe au carré de scie immédiatement un alignement passionnant avec Windows Admin Center, qui affiche ces valeurs et les entités de même pour la prochaine génération de l’administration Windows Server. En particulier, l’équipe de croire que les données de performances à long terme, informations de dépendance serveur en temps réel les contexte d’application exposés par le carré des parfaitement complétant les données élégants, en temps réel et les fonctionnalités de gestion de serveur fournies par Windows Admin Center.
+Les clients de niveau carré gèrent des centaines, souvent des milliers de serveurs Windows et les différents portefeuilles d’applications qu’ils proposent, et les deux à la fois, et Microsoft sont en mesure de proposer aux équipes informatiques le meilleur d’une interface utilisateur Web rapide et moderne, afin de fournir les informations dont elles ont besoin. En conséquence, l’équipe a immédiatement vu un alignement passionnant avec le centre d’administration Windows, ce qui permet d’obtenir ces mêmes valeurs et principaux pour la nouvelle génération de l’administration de Windows Server. En particulier, l’équipe a supposé que les données de performances à long terme, les Insights de dépendances de serveur en temps réel et le contexte d’application mis en place par le biais d’un carré supérieur complètent parfaitement les fonctionnalités de gestion de serveur et de données en temps réel élégantes fournies par Centre d’administration Windows.
 
-![Carré une Extension](../../media/extend-case-study-squared-up/squared-up-1.png)
+![Extension au carré](../../media/extend-case-study-squared-up/squared-up-1.png)
 
-> <cite>« En tant qu’une organisation qui gère un espace de serveur à grande échelle, carré des / intégration de Windows Admin Center est l’alliance parfaite de nos outils localisée et centralisé et choses croirait peut rejeter un serveur directement en Mode Maintenance depuis Windows Admin Center sont un excellents wins peu pour nous »</cite>
+> <cite>«En tant qu’organisation gérant un serveur à grande échelle, l’intégration au centre d’administration Windows ² est le mariage parfait de nos outils localisés et centralisés, ainsi que de la possibilité de générer un serveur directement en mode de maintenance à partir de Le centre d’administration Windows est un excellent petit gagnant pour nous»</cite>
 >
-> -– Ignorer Granson, administrateur de systèmes de virtualisation à l’Université de Purdue
+> --Granson, administrateur des systèmes de virtualisation de Purdue University
 
-Grâce à une vision claire des souhaite présenter ces données en toute transparence au sein de Windows Admin Center, carré travaillé avec la version d’évaluation privé du Kit de développement Windows Admin Center et trouve simple, bien documenté et flexible.
+Avec une vision claire de la souhait de présenter ces données en toute transparence dans le centre d’administration Windows, le carré a travaillé avec la préversion privée préliminaire du kit de développement logiciel (SDK) du centre d’administration Windows et a été jugé simple, bien documenté et flexible.
 
-À l’aide du Kit de développement logiciel Windows Admin Center, carré haut a été en mesure de générer une extension qui incorpore dynamiquement pertinentes au carré des vues dans le Windows Admin Center expérience. Par exemple, dans le contexte d’un serveur spécifique ou un cluster, au carré des vues sont incorporés automatiquement à fourni visibilité étendue. Vues incluent des tendances historiques de performance clés et des métriques de capacité (par exemple, processeur, mémoire et disque), l’hébergement de pile (virtualisation centre de données ou de la plateforme du cloud), les composants d’application telles que les bases de données SQL et de services et même d’analytique de journal basé sur le cloud et les données ITSM.
+À l’aide du kit de développement logiciel (SDK) du centre d’administration Windows, le carré a pu créer une extension qui incorpore dynamiquement les vues carrées pertinentes au sein de l’expérience du centre d’administration Windows. Par exemple, dans le contexte d’un serveur ou d’un cluster spécifique, les vues carrées sont automatiquement incorporées à la visibilité étendue fournie. Les vues incluent les tendances historiques des métriques de performances et de capacité clés (telles que le processeur, la mémoire et le disque), la pile d’hébergement (plateforme Cloud ou la virtualisation de centre de données), les composants d’application tels que les bases de données SQL et les services, et même l’analyse des journaux basés sur le Cloud. et ITSM.
 
-![Carré une Extension](../../media/extend-case-study-squared-up/squared-up-2.png)
+![Extension au carré](../../media/extend-case-study-squared-up/squared-up-2.png)
 
-Carré Up and Windows Admin Center partagent un web moderne architecture et conception croyance, ce qui a activé une simple intégration technique et une expérience utilisateur transparente. Avec la norme de plus en plus l’administration basée sur le web, nous pensons que cette méthode d’intégration entre différents systèmes est la clé de déverrouillage d’une expérience d’administration modernes et unifiée.
+Le centre d’administration Windows et le centre d’administration Windows partagent un esprit de conception et d’architecture Web moderne, qui a permis une intégration technique simple et une expérience utilisateur transparente. Avec l’administration basée sur le Web devenant de plus en plus la norme, nous pensons que cette méthode d’intégration entre les différents systèmes est la clé de la déverrouillage d’une expérience d’administration moderne et unifiée.
 
-> <cite>« Nous voir Windows Admin Center en tant que la pointe de l’administration de Windows Server moderne, et a été une expérience optimale, nous pouvons travailler étroitement avec l’équipe et le fait qu’ils travaillent avec telle vitesse, l’enthousiasme, la flexibilité et dans tels fondamentalement paradigmes de développement modernes les a rendu convient parfaitement la façon dont nous, en tant qu’une société de développement logiciel lean, agile, rapides et travailler nous-mêmes. »</cite>
+> <cite>«Nous voyons le centre d’administration Windows comme le cœur de l’administration de Windows Server moderne. il s’agit donc d’une expérience remarquable pour nous permettre de travailler en étroite collaboration avec l’équipe et le fait qu’ils travaillent avec une telle vitesse, enthousiasme, flexibilité et, de manière radicale, des paradigmes de développement modernes nous ont rendu compte comme nous, en tant que société de développement de logiciels à la fois plus rapide, agile et rapide.»</cite>
 >
-> --Richard Benwell, architecte de produit au carré
+> --Richard Benwell, architecte produit au carré
 
-À partir de cet alignement naturel, l’équipe de développement au carré des a été en mesure de progresser rapidement à une intégration de prototype affichage carré en mode natif au sein de l’expérience Windows Admin Center et pour obtenir ceci dans les mains de leurs propres des premiers, technique afficher un aperçu des clients. À partir de réactions des clients, il était immédiatement clair que le récit a été gagnant.
+À partir de cet alignement naturel, l’équipe de développement au carré est parvenue à progresser rapidement jusqu’à une intégration de prototype s’affichant en mode natif au sein de l’expérience du centre d’administration Windows et à faire en sorte que les mains de leurs propres prévisualiser les clients. Des réactions des clients, il a été immédiatement clair que l’histoire était gagnante.
 
-> <cite>« Un des principaux défis de gestion de service en attente au sein de notre environnement de serveurs de plus de 3 500 est unification nos divers paysage de gestion et la surveillance des outils et donc l’intégration entre carré Up and Windows Admin Center - qui amène ensemble tellement de données provenant de nombreuses sources disparates, dans une console unique – est énorme pour nous. »</cite>
+> <cite>«L’un des principaux défis liés à la maintenance d’un service remarquable dans notre environnement de plus de 3 500 serveurs consiste à unifier notre paysage diversifié d’outils de gestion et de surveillance, ainsi que l’intégration entre le centre d’administration Windows au carré et le centre d’administration Windows, ce qui apporte ensemble, beaucoup de données, à partir de nombreuses sources disparates, en une console unique, sont massives pour nous.»</cite>
 >
-> --Ehrnst Martin, responsable technique pour Azure au niveau Intility a/s
+> --Martin Ehrnst, responsable technique pour Azure à Intility A/S
 
-Avec ce type d’enthousiasme à partir de carré des clients déjà et avec des tonnes de nouvelles fonctionnalités exceptionnelles toujours pour arriver à Windows Admin Center, carré haut est extrêmement heureux sur l’avenir de cette intégration et les possibilités awesome s’ouvre pour leurs clients et leurs Journey to un true unique-volet-de-verre pour leur gestion des opérations informatiques.
+Avec ce type d’enthousiasme des clients au carré et avec des tonnes de nouvelles fonctionnalités exceptionnelles à venir dans le centre d’administration Windows, le carré est très enthousiaste pour l’avenir de cette intégration et les possibilités impressionnantes qu’elle ouvre pour ses clients et leurs Voyagez vers une véritable simple vitre pour la gestion des opérations informatiques.
 
-Carré de / intégration de Windows Admin Center est actuellement en version bêta ; Si vous souhaitez que l’accès, consultez [la page dédiée de carré haut](https://squaredup.com/product/honolulu/windows-admin-center-extension/?utm_source=microsoft-wac&utm_medium=public-relations&utm_campaign=honolulu) pour plus d’informations. Si votre organisation utilise Microsoft System Center Operations Manager et que vous n’avez pas encore au carré haut (ce qui est essentiel pour l’extension fonctionne), vous pouvez également obtenir vos mains sur et riche en fonctionnalités, de 30 jours gratuitement à partir du même emplacement. 
+L’intégration au centre d’administration carré/Windows est actuellement en version bêta. Si vous souhaitez accéder à, consultez [la page dédiée du carré](https://squaredup.com/product/honolulu/windows-admin-center-extension/?utm_source=microsoft-wac&utm_medium=public-relations&utm_campaign=honolulu) pour plus d’informations. Si votre organisation utilise Microsoft System Center Operations Manager et que vous n’avez pas encore de carré (ce qui est essentiel pour que l’extension fonctionne), vous pouvez également faire appel à une version d’évaluation gratuite de 30 jours à partir du même emplacement. 

@@ -1,6 +1,6 @@
 ---
 title: msdt
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ba411cf73026afe9990e5c32824e3dc277507891
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 7bec16ab3f716148bb009dd56be475fcd058a897
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437229"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868898"
 ---
 # <a name="msdt"></a>msdt
 
 
 
-Appelle un pack de dépannage en ligne de commande ou dans le cadre d’un script automatisé et active des options supplémentaires sans entrée utilisateur.
+Appelle un pack de résolution des problèmes sur la ligne de commande ou dans le cadre d’un script automatisé, et active des options supplémentaires sans entrée d’utilisateur.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,14 +34,14 @@ msdt </id <name> | /path <name> | /cab < name>> <</parameter> [options] … <par
 
 ## <a name="parameters"></a>Paramètres
 
-Le tableau suivant contient les paramètres et les options prises en charge par msdt.exe.
+Le tableau suivant répertorie les paramètres et les options pris en charge par MSDT. exe.
 
 
 |      Paramètre      |                                                                                            Description                                                                                             |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /id \<package name> |        Spécifie le package de diagnostic à exécuter. Pour obtenir la liste des packages disponibles, consultez l’ID de Pack de résolution des problèmes dans « disponible le dépannage des packs ? section plus loin dans cette rubrique.         |
-|  / Path \<directory  |                                                                                           fichier de .diagpkg                                                                                            |
-|   /dci \<passkey>   |                                        Pré-remplit le champ de clé d’accès dans msdt. Ce paramètre est utilisé uniquement lorsqu’un fournisseur de support a fourni une clé de sécurité.                                         |
-|  /dt \<directory>   | Affiche l’historique de résolution des problèmes dans le répertoire spécifié. Résultats de diagnostics sont stockés dans l’utilisateur **%LOCALAPPDATA%\Diagnostics** ou **%LOCALAPPDATA%\ElevatedDiagnostics** répertoires. |
-| /AF \<fichier de réponses >  |                                               Spécifie un fichier de réponses au format XML qui contient les réponses à un ou plusieurs des interactions Diagnostics.                                               |
+| nom \<du package/ID > |        Spécifie le package de diagnostic à exécuter. Pour obtenir la liste des packages disponibles, consultez l’ID du Pack de résolution des problèmes dans la section « packs de résolution des problèmes disponibles » plus loin dans cette rubrique.         |
+|  répertoire \</Path  |                                                                                           fichier. diagpkg                                                                                            |
+|   > \<de clé de clé/DCI   |                                        Préremplit le champ de clé d’une clé de clé dans MSDT. Ce paramètre est utilisé uniquement lorsqu’un fournisseur de support a fourni une clé de clé.                                         |
+|  > \<du répertoire/DT   | Affiche l’historique de résolution des problèmes dans le répertoire spécifié. Les résultats des diagnostics sont stockés dans les répertoires **%LocalAppData%\Diagnostics** ou **%LocalAppData%\ElevatedDiagnostics** de l’utilisateur. |
+| > \<du fichier de réponses/AF  |                                               Spécifie un fichier de réponses au format XML qui contient les réponses à une ou plusieurs interactions de diagnostic.                                               |
 

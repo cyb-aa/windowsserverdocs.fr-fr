@@ -9,17 +9,17 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: d4d2782a1d0ce4329feee03d6c3cb2e6b6a6dc55
-ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
+ms.openlocfilehash: ea97f7f71d1b484c7ac63c7c429f291fba607bba
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914666"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867068"
 ---
 # <a name="fsutil-resource"></a>Fsutil resource
 >S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7, Windows 2008, Windows Vista
 
-Crée un Gestionnaire des ressources transactionnel secondaire, démarre ou arrête un Gestionnaire des ressources transactionnel, ou affiche des informations sur un Gestionnaire des ressources transactionnel et modifie le comportement suivant:
+Crée un Gestionnaire des ressources transactionnel secondaire, démarre ou arrête un Gestionnaire des ressources transactionnel, ou affiche des informations sur un Gestionnaire des ressources transactionnel et modifie le comportement suivant :
 
 -   Si un Gestionnaire des ressources transactionnel par défaut nettoie ses métadonnées transactionnelles au prochain montage
 
@@ -56,7 +56,7 @@ fsutil resource [stop] <RmRootPathname>
 |      setavailable       |                                                                                                                                                                                                 Spécifie qu’un Gestionnaire des ressources transactionnel préfèrera la disponibilité à la cohérence.                                                                                                                                                                                                 |
 |      setconsistent      |                                                                                                                                                                                                 Spécifie qu’un Gestionnaire des ressources transactionnel préfèrera la cohérence au niveau de la disponibilité.                                                                                                                                                                                                 |
 |         Growth          |                                                                                                                                                                                                  Modifie les caractéristiques d’un Gestionnaire des ressources transactionnel qui est déjà en cours d’exécution.                                                                                                                                                                                                  |
-|         future          |                                                                                                  Spécifie le nombre de fois que le journal des Gestionnaire des ressources transactionnelles peut croître.<br /><br />Le paramètre Growth peut être spécifié comme suit:<br /><br />-Nombre de conteneurs en utilisant le format: _Conteneurs_ **conteneurs**<br />-Pourcentage en utilisant le format: _Pourcentage_ **pourcentage**                                                                                                   |
+|         future          |                                                                                                  Spécifie le nombre de fois que le journal des Gestionnaire des ressources transactionnelles peut croître.<br /><br />Le paramètre Growth peut être spécifié comme suit :<br /><br />-Nombre de conteneurs en utilisant le format : _Conteneurs_ **conteneurs**<br />-Pourcentage en utilisant le format : _Pourcentage_ **pourcentage**                                                                                                   |
 |      <containers>       |                                                                                                                                                                                                      Spécifie les objets de données utilisés par le Gestionnaire des ressources transactionnel.                                                                                                                                                                                                       |
 |        maxextent        |                                                                                                                                                                                                Spécifie le nombre maximal de conteneurs pour le Gestionnaire des ressources transactionnel spécifié.                                                                                                                                                                                                |
 |        minextent        |                                                                                                                                                                                                Spécifie le nombre minimal de conteneurs pour le Gestionnaire des ressources transactionnel spécifié.                                                                                                                                                                                                |
@@ -68,19 +68,19 @@ fsutil resource [stop] <RmRootPathname>
 |          stop           |                                                                                                                                                                                                                    Arrête le Gestionnaire des ressources transactionnel spécifié.                                                                                                                                                                                                                     |
 
 ### <a name="BKMK_examples"></a>Illustre
-Pour définir le journal pour le Gestionnaire des ressources transactionnel spécifié par c:\test, afin d’avoir une croissance automatique de cinq conteneurs, tapez:
+Pour définir le journal pour le Gestionnaire des ressources transactionnel spécifié par c:\test, afin d’avoir une croissance automatique de cinq conteneurs, tapez :
 
 ```
 fsutil resource setlog growth 5 containers c:test
 ```
 
-Pour définir le journal pour le Gestionnaire des ressources transactionnel spécifié par c:\test, pour avoir une croissance automatique de deux pour cent, tapez:
+Pour définir le journal pour le Gestionnaire des ressources transactionnel spécifié par c:\test, pour avoir une croissance automatique de deux pour cent, tapez :
 
 ```
 fsutil resource setlog growth 2 percent c:test
 ```
 
-Pour spécifier que le Gestionnaire des ressources transactionnel par défaut nettoie les métadonnées transactionnelles lors du montage suivant sur le lecteur C, tapez:
+Pour spécifier que le Gestionnaire des ressources transactionnel par défaut nettoie les métadonnées transactionnelles lors du montage suivant sur le lecteur C, tapez :
 
 ```
 fsutil resource setautoreset true c:\  

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 0f1aa1e3c07c5cb9238a332156abfec248e74176
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: 4d1e6c2744cfe0d16b034e6511144bef92a46b2e
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "63721161"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866658"
 ---
 # <a name="hardware-considerations-in-adds-performance-tuning"></a>Considérations matérielles dans ajoute l’optimisation des performances 
 
@@ -31,7 +31,7 @@ Active Directory met en cache la plus grande partie de la base de données que l
 
 -   Placez le système d’exploitation, les journaux et la base de données sur des volumes distincts. Si la totalité ou la majorité de la DIT peut être mise en cache, une fois le cache chauffé et dans un état stable, cela devient moins pertinent et offre un peu plus de flexibilité dans la disposition du stockage. Dans les scénarios où la DIT entière ne peut pas être mise en cache, l’importance du fractionnement du système d’exploitation, des journaux et de la base de données sur des volumes distincts devient plus importante.
 
--   Normalement, les ratios d’e/s du DIT sont d’environ 90% de lecture et de 10% d’écriture. Les scénarios où les volumes d’e/s d’écriture dépassent de manière significative 10%-20% sont considérés comme des écritures lourdes. Les scénarios à écriture intensive n’offrent pas beaucoup d’avantages du cache de Active Directory. Pour garantir la durabilité transactionnelle des données écrites dans le répertoire, Active Directory n’effectue pas de mise en cache d’écriture sur le disque. Au lieu de cela, elle valide toutes les opérations d’écriture sur le disque avant de renvoyer un état d’achèvement réussi pour une opération, sauf s’il existe une demande explicite qui ne le fait pas. Par conséquent, l’e/s disque rapide est importante pour les performances des opérations d’écriture sur Active Directory. Voici les recommandations matérielles qui peuvent améliorer les performances de ces scénarios:
+-   Normalement, les ratios d’e/s du DIT sont d’environ 90% de lecture et de 10% d’écriture. Les scénarios où les volumes d’e/s d’écriture dépassent de manière significative 10%-20% sont considérés comme des écritures lourdes. Les scénarios à écriture intensive n’offrent pas beaucoup d’avantages du cache de Active Directory. Pour garantir la durabilité transactionnelle des données écrites dans le répertoire, Active Directory n’effectue pas de mise en cache d’écriture sur le disque. Au lieu de cela, elle valide toutes les opérations d’écriture sur le disque avant de renvoyer un état d’achèvement réussi pour une opération, sauf s’il existe une demande explicite qui ne le fait pas. Par conséquent, l’e/s disque rapide est importante pour les performances des opérations d’écriture sur Active Directory. Voici les recommandations matérielles qui peuvent améliorer les performances de ces scénarios :
 
     -   Contrôleurs RAID matériels
 
@@ -47,7 +47,7 @@ Active Directory met en cache la plus grande partie de la base de données que l
 
     -   Base de données&gt; = = instances (LSASS/\\ntdsa) latence moyenne des &lt; écritures de journal des e/s (10 ms)
 
-    -   Base de données&gt; = = instances (LSASS/\\ntdsa) écritures du journal des e/s/s: informations uniquement.
+    -   Base de données&gt; = = instances (LSASS/\\ntdsa) écritures du journal des e/s/s : informations uniquement.
 
         Pour maintenir la cohérence des données, toutes les modifications doivent être écrites dans le journal. Il n’y a pas de bon ou mauvais nombre ici, il s’agit uniquement d’une mesure de la quantité de stockage prise en charge.
 

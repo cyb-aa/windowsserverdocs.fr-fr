@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: c4570d807fea37a402d7b1115c21048e68cbbea4
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 30222d0737ac3cd2947fc3b2d70a0df77b606299
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560535"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871994"
 ---
 # <a name="migrate-sysvol-replication-to-dfs-replication"></a>Migrer la réplication SYSVOL vers la réplication DFS
 
@@ -28,7 +28,7 @@ Ce document suppose que vous avez une connaissance de base de Active Directory D
 
 
 > [!NOTE]
-> Pour télécharger une version imprimable de ce guide, consultez <a href="http://go.microsoft.com/fwlink/?linkid=150375">le Guide de migration de la réplication SYSVOL: Réplication FRS vers DFS</a> (http://go.microsoft.com/fwlink/?LinkId=150375)
+> Pour télécharger une version imprimable de ce guide, consultez <a href="http://go.microsoft.com/fwlink/?linkid=150375">le Guide de migration de la réplication SYSVOL : Réplication FRS vers DFS</a> (http://go.microsoft.com/fwlink/?LinkId=150375)
 <br>
 
 
@@ -70,15 +70,15 @@ Ce document suppose que vous avez une connaissance de base de Active Directory D
 
 ## <a name="additional-references"></a>Références supplémentaires
 
-[Série de migration SYSVOL: Partie 1: présentation du processus de migration de SYSVOL](http://go.microsoft.com/fwlink/?linkid=121756)
+[Série de migration SYSVOL : Partie 1 : présentation du processus de migration de SYSVOL](http://go.microsoft.com/fwlink/?linkid=121756)
 
-[Série de migration SYSVOL: Partie 2 — dfsrmig. exe: Outil de migration SYSVOL](http://go.microsoft.com/fwlink/?linkid=121757)
+[Série de migration SYSVOL : Partie 2 — dfsrmig. exe : Outil de migration SYSVOL](http://go.microsoft.com/fwlink/?linkid=121757)
 
-[Série de migration SYSVOL: Partie 3: migration vers l’état préparé](http://go.microsoft.com/fwlink/?linkid=121758)
+[Série de migration SYSVOL : Partie 3 : migration vers l’état préparé](http://go.microsoft.com/fwlink/?linkid=121758)
 
-[Série de migration SYSVOL: Partie 4: migration vers l’État «Redirigé»](http://go.microsoft.com/fwlink/?linkid=121759)
+[Série de migration SYSVOL : Partie 4 : migration vers l’État « Redirigé »](http://go.microsoft.com/fwlink/?linkid=121759)
 
-[Série de migration SYSVOL: Partie 5: migration vers l’État «éliminé»](http://go.microsoft.com/fwlink/?linkid=121760)
+[Série de migration SYSVOL : Partie 5 : migration vers l’État « éliminé »](http://go.microsoft.com/fwlink/?linkid=121760)
 
 [Guide pas à pas des systèmes de fichiers distribués dans Windows Server 2008](http://go.microsoft.com/fwlink/?linkid=85231)
 

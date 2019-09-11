@@ -9,18 +9,18 @@ ms.date: 01/31/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 86bbb562e223fdf61dac3ce5646d97a57b2eba4c
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: f4b8f09e5c75f3b9086847a47d33bd76775f3cd1
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546308"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865496"
 ---
 # <a name="delegate-ad-fs-powershell-commandlet-access-to-non-admin-users"></a>Déléguer l’accès à l’applet de AD FS PowerShell à des utilisateurs non administrateurs 
 Par défaut, l’administration de AD FS via PowerShell ne peut être effectuée que par les administrateurs de AD FS. Pour de nombreuses organisations de grande taille, cela peut ne pas être un modèle opérationnel viable lorsque vous traitez avec d’autres personnes, telles que le personnel du support technique.  
 
 Avec juste assez d’administration (JEA), les clients peuvent maintenant déléguer des applets spécifiques à différents groupes de personnel.  
-Un bon exemple de ce cas d’utilisation est d’autoriser le personnel du support technique à interroger AD FS état de verrouillage de compte et à réinitialiser l’état de verrouillage de compte dans AD FS une fois qu’un utilisateur a été approuvé. Dans ce cas, le applets qui doit être délégué est le suivant: 
+Un bon exemple de ce cas d’utilisation est d’autoriser le personnel du support technique à interroger AD FS état de verrouillage de compte et à réinitialiser l’état de verrouillage de compte dans AD FS une fois qu’un utilisateur a été approuvé. Dans ce cas, le applets qui doit être délégué est le suivant : 
 - `Get-ADFSAccountActivity`
 - `Set-ADFSAccountActivity` 
 - `Reset-ADFSAccountLockout` 
@@ -32,7 +32,7 @@ Nous utilisons cet exemple dans le reste de ce document. Toutefois, vous pouvez 
 1. Créez un [compte de service administré de groupe](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview). Le compte gMSA permet à l’utilisateur JEA d’accéder aux ressources réseau en tant qu’autres ordinateurs ou services Web. Il fournit une identité de domaine qui peut être utilisée pour l’authentification auprès de ressources sur n’importe quel ordinateur au sein du domaine. Le compte gMSA dispose des droits d’administration nécessaires ultérieurement dans le programme d’installation. Pour cet exemple, nous appelons le compte **gMSAContoso**. 
 2. Créer un groupe de Active Directory peut être rempli avec les utilisateurs qui doivent disposer des droits sur les commandes déléguées. Dans cet exemple, le personnel du support technique dispose des autorisations de lecture, de mise à jour et de réinitialisation de l’état de verrouillage ADFS. Nous faisons référence à ce groupe dans l’exemple en tant que **JEAContoso**. 
 
-### <a name="install-the-gmsa-account-on-the-adfs-server"></a>Installez le compte gMSA sur le serveur ADFS: 
+### <a name="install-the-gmsa-account-on-the-adfs-server"></a>Installez le compte gMSA sur le serveur ADFS : 
 Créez un compte de service qui dispose de droits d’administration sur les serveurs ADFS. Cela peut être effectué sur le contrôleur de domaine ou à distance tant que le package des outils d’installation à distance Active Directory est installé.  Le compte de service doit être créé dans la même forêt que le serveur ADFS. Modifiez les exemples de valeurs de la configuration de votre batterie de serveurs. 
 
 ```powershell
@@ -67,7 +67,7 @@ Sur le serveur AD FS, créez le rôle JEA dans un fichier bloc-notes. Les instru
  
 Le applets délégué dans cet exemple est `Reset-AdfsAccountLockout, Get-ADFSAccountActivity, and Set-ADFSAccountActivity`. 
 
-Exemple de rôle JEA déléguer l’accès des applets «Reset-ADFSAccountLockout», «ADFSAccountActivity» et «Set-ADFSAccountActivity»:
+Exemple de rôle JEA déléguer l’accès des applets « Reset-ADFSAccountLockout », « ADFSAccountActivity » et « Set-ADFSAccountActivity » :
 
 ```powershell
 @{
@@ -85,7 +85,7 @@ Les capacités de rôle sont référencées par le nom plat (nom de fichier sans
 
 Pour spécifier un fichier de capacité de rôle avec un chemin d' `RoleCapabilityFiles` accès, utilisez l’argument. Pour un sous-dossier, Jea recherche les modules PowerShell valides qui `RoleCapabilities` contiennent un sous-dossier `RoleCapabilityFiles` , où l’argument doit être `RoleCapabilities`modifié comme étant. 
 
-Exemple de fichier de configuration de session: 
+Exemple de fichier de configuration de session : 
 
 ```powershell
 @{
@@ -111,7 +111,7 @@ Register-PSSessionConfiguration -Path .\JEASessionConfig.pssc -name "AccountActi
 ## <a name="operational-instructions"></a>Instructions opérationnelles 
 Une fois configuré, la journalisation et l’audit JEA peuvent être utilisés pour déterminer si les utilisateurs appropriés ont accès au point de terminaison JEA. 
 
-Pour utiliser les commandes déléguées: 
+Pour utiliser les commandes déléguées : 
 
 ```powershell
 Enter-pssession -ComputerName server01.contoso.com -ConfigurationName "AccountActivityAdministration" -Credential <User Using JEA> 

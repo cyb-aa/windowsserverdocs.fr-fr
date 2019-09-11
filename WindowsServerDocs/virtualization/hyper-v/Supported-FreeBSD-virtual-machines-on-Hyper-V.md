@@ -11,12 +11,12 @@ ms.assetid: 930e758f-bd50-46b4-a3a4-9857110f17b4
 author: shirgall
 ms.author: kathydav
 ms.date: 08/30/2017
-ms.openlocfilehash: a6e9c6e3bec2001c73254ffd813954f04a37a714
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 3ca1de87469c30a8cadbf047e77aff441145a499
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544712"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869481"
 ---
 # <a name="supported-freebsd-virtual-machines-on-hyper-v"></a>Ordinateurs virtuels FreeBSD pris en charge sur Hyper-V
 
@@ -46,7 +46,7 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 |Segmentation TCP et déchargements de somme de contrôle|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|||
 |Déchargement de réception volumineux (LRO)|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;||||
 |SR-IOV|2019, 2016|||||||
-|**[Rangement](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||Remarque 1|Remarque 1|Remarque 1|Remarque 1|Remarque 1, 2|Remarque 1, 2|
+|**[Stockage](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||Remarque 1|Remarque 1|Remarque 1|Remarque 1|Remarque 1, 2|Remarque 1, 2|
 |Redimensionnement VHDX|2019, 2016, 2012 R2|&#10004;Remarque 7|&#10004;Remarque 7|||||
 |Fibre Channel virtuel|2019, 2016, 2012 R2|||||||
 |Sauvegarde de machine virtuelle en direct|2019, 2016, 2012 R2|&#10004;||||||
@@ -61,7 +61,7 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 |**[Vidéosurveillance](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**||||||||
 |Périphérique vidéo spécifique à Hyper-V|2019, 2016, 2012 R2, 2012, 2008 R2|||||||
 |**[Diverses](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**||||||||
-|Paire clé/valeur|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;Remarque 6|&#10004;Remarque: 5, 6|&#10004;Remarque 6|
+|Paire clé/valeur|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;Remarque 6|&#10004;Remarque : 5, 6|&#10004;Remarque 6|
 |Interruption non masquable|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Copie de fichiers de l’hôte vers l’invité|2019, 2016, 2012 R2|||||||
 |commande lsvmbus|2019, 2016, 2012 R2, 2012, 2008 R2|||||||
@@ -77,7 +77,7 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 
 2. Le lecteur de DVD virtuel n’est peut-être pas reconnu lors du chargement des pilotes BIS sur FreeBSD 8. x et 9. x, sauf si vous activez le pilote ATA hérité à l’aide de la commande suivante.
     ```sh
-    # echo ‘hw.ata.disk_enable=1’ >> /boot/loader.conf
+    # echo ‘hw.ata.disk_enable=1' >> /boot/loader.conf
     # shutdown -r now
     ```
 
@@ -89,7 +89,7 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 
 6. KVP peut ne pas fonctionner sur Windows Server 2008 R2.
 
-7. Pour que le redimensionnement VHDX en ligne fonctionne correctement dans FreeBSD 11,0, une étape manuelle spéciale est requise pour contourner un bogue GEOM qui est corrigé dans 11.0 +, après que l’hôte a redimensionné le disque VHDX-ouvrir le disque en écriture et exécuter «gpart Recover» comme suit.
+7. Pour que le redimensionnement VHDX en ligne fonctionne correctement dans FreeBSD 11,0, une étape manuelle spéciale est requise pour contourner un bogue GEOM qui est corrigé dans 11.0 +, après que l’hôte a redimensionné le disque VHDX-ouvrir le disque en écriture et exécuter « gpart Recover » comme suit.
     ```sh
     # dd if=/dev/da1 of=/dev/da1 count=0
     # gpart recover da1

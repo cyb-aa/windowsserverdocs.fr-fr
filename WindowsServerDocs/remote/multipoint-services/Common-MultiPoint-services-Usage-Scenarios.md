@@ -1,6 +1,6 @@
 ---
-title: Scénarios d’utilisation des Services courants MultiPoint
-description: En savoir plus sur les utilisations courantes de MultiPoint Services
+title: Scénarios courants d’utilisation de MultiPoint services
+description: En savoir plus sur les utilisations courantes de MultiPoint services
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.technology: multipoint-services
@@ -13,23 +13,23 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.date: 08/04/2016
-ms.openlocfilehash: 5172927e087b49ec8a81ee84e58d58bdfa1d7e31
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3b0f8ea649382675a162572fcdafcfacc480a5f6
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865170"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871765"
 ---
 # <a name="common-usage-scenarios"></a>Scénarios d’utilisation courants
-MultiPoint Services offre des bureaux d’utilisateurs individuels avec les éléments les plus importants de l’expérience du bureau Windows 10. Il offre également un outil de gestion simple, le gestionnaire MultiPoint, que les administrateurs système peuvent utiliser pour la découverte et de contrôle de plusieurs serveurs MultiPoint et les clients. En outre, MultiPoint Services inclut le tableau de bord MultiPoint pour une visibilité en temps réel. Voici quelques exemples de ce que vous pouvez avec MultiPoint Services :  
+MultiPoint Services fournit aux postes de travail des utilisateurs individuels les éléments les plus importants de l’expérience utilisateur Windows 10. Il offre également un outil de gestion simple, le gestionnaire MultiPoint, que les administrateurs système peuvent utiliser pour la découverte et le contrôle de plusieurs serveurs et clients MultiPoint. En outre, MultiPoint services comprend le tableau de bord MultiPoint pour une visibilité en temps réel. Voici quelques exemples de ce que vous pouvez faire avec MultiPoint services :  
   
-- Accordez à chaque utilisateur une expérience informatique personnelle et dossiers privés sans avoir besoin d’un ordinateur distinct pour chaque personne.  
-- Gérer plusieurs systèmes MultiPoint dans un laboratoire informatique, de la classe, centre de formation ou environnement de PME.  
-- Installer un programme qu’une seule fois et y accéder depuis n’importe quelle station.  
-- Surveiller l’activité de postes de travail de chaque utilisateur.  
-- Écrans de bloc avec un message personnalisable adressé à l’attention du groupe.  
-- Limitez le groupe à uniquement l’accès à un ou plusieurs sites Web.  
-- Projet de votre écran pour les autres écrans afin d’illustrer une tâche particulière.  
-- Communiquer en privé avec un utilisateur standard qui est votre demande d’aide.  
-- Prendre le contrôle d’une session utilisateur afin d’illustrer une tâche.  
-- Faire de tous les éléments répertoriés plus haut pour un utilisateur qui est à l’aide un PC traditionnel, ordinateur portable ou tout autre appareil mobile. 
+- Donnez à chaque utilisateur une expérience informatique personnelle et des dossiers privés sans avoir besoin d’un ordinateur distinct pour chaque personne.  
+- Gérez plusieurs systèmes MultiPoint dans un laboratoire informatique, en classe, dans un centre de formation ou dans un environnement de petite entreprise.  
+- Installez un programme une seule fois, puis accédez-y à partir de n’importe quelle station.  
+- Surveiller l’activité du Bureau de chaque utilisateur.  
+- Bloque les écrans avec un message personnalisable pour attirer l’attention du groupe.  
+- Limitez le groupe pour qu’il accède uniquement à un ou plusieurs sites Web.  
+- Projetez votre écran sur les autres écrans pour illustrer une tâche particulière.  
+- Communiquez en privé avec un utilisateur standard qui demande de l’aide.  
+- Prenez le contrôle de la session d’un utilisateur pour illustrer une tâche.  
+- Effectuez tous les éléments de la liste ci-dessus pour un utilisateur qui utilise un PC, un ordinateur portable ou tout autre appareil mobile traditionnel. 

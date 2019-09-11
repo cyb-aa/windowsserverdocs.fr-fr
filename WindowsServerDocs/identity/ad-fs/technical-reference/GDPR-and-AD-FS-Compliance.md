@@ -1,5 +1,5 @@
 ---
-title: Confidentialité des utilisateurs et AD FS
+title: Confidentialité et AD FS de l’utilisateur
 description: ''
 author: billmath
 ms.author: billmath
@@ -8,24 +8,24 @@ ms.date: 04/24/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 93d0f892fe6fc5ceae8d8afaaa280b9202179d86
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 56087f8ff990e4b089c4efdd1bf1bc88915d12e1
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188558"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869399"
 ---
 # <a name="user-privacy-and-ad-fs"></a>Confidentialité des utilisateurs et des services AD FS
 
 
 
 >[!Note] 
-> Cet article explique comment supprimer des données personnelles de l’appareil et peut être utilisé pour prendre en charge vos obligations en vertu du RGPD. Si vous recherchez des informations générales sur RGPD, consultez le [section RGPD du centre de confidentialité du Service](https://www.microsoft.com/en-us/TrustCenter/Privacy/gdpr/default.aspx).
+> Cet article explique comment supprimer des données personnelles de l’appareil et peut être utilisé pour prendre en charge vos obligations dans le cadre du RGPD. Si vous recherchez des informations générales sur RGPD, consultez la [section RGPD du centre de gestion de la confidentialité des services](https://www.microsoft.com/en-us/TrustCenter/Privacy/gdpr/default.aspx).
 
 >[!Note] 
->Si vous êtes intéressé de l’affichage ou la suppression des données personnelles, veuillez consulter la [demandes d’objet de données Azure pour le RGPD](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure) article. Si vous recherchez des informations générales sur RGPD, consultez le [section RGPD du centre de confidentialité du Service](https://www.microsoft.com/en-us/TrustCenter/Privacy/gdpr/default.aspx).
+>Si vous souhaitez afficher ou supprimer des données personnelles, consultez les [demandes de l’objet des données Azure pour l’article RGPD](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure) . Si vous recherchez des informations générales sur RGPD, consultez la [section RGPD du centre de gestion de la confidentialité des services](https://www.microsoft.com/en-us/TrustCenter/Privacy/gdpr/default.aspx).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Passez en revue la stratégie Microsoft Privacy sur le centre de confidentialité](https://www.microsoft.com/trustcenter)
+* [Lire la politique de confidentialité Microsoft sur le Centre de confidentialité](https://www.microsoft.com/trustcenter)
 
  

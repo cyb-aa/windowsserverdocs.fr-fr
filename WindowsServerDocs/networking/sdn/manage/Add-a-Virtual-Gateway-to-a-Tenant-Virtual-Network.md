@@ -1,6 +1,6 @@
 ---
 title: Ajouter une passerelle virtuelle à un réseau virtuel locataire
-description: Découvrez comment utiliser les applets de commande Windows PowerShell et des scripts pour fournir une connectivité de site à site pour les réseaux virtuels de votre client.
+description: Découvrez comment utiliser les applets de commande et les scripts Windows PowerShell pour fournir une connectivité de site à site pour les réseaux virtuels de votre locataire.
 manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,35 +13,35 @@ ms.assetid: b9552054-4eb9-48db-a6ce-f36ae55addcd
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 768a25c8c452a8c4bc85b38736b4241fa2570b32
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 39199a96b1f3cd5a62e60f676e8ab47ad4acb4a8
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446361"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869947"
 ---
 # <a name="add-a-virtual-gateway-to-a-tenant-virtual-network"></a>Ajouter une passerelle virtuelle à un réseau virtuel locataire 
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016 
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016 
 
-Découvrez comment utiliser les applets de commande Windows PowerShell et des scripts pour fournir une connectivité de site à site pour les réseaux virtuels de votre client. Dans cette rubrique, vous ajoutez des passerelles virtuel locataire à des instances de passerelle RAS qui appartiennent à des pools de passerelles, à l’aide du contrôleur de réseau. Passerelle RAS prend en charge les locataires jusqu'à cent, selon la bande passante utilisée par chaque client. Contrôleur de réseau détermine automatiquement la meilleure passerelle RAS à utiliser lorsque vous déployez une nouvelle passerelle virtuelle pour vos clients.  
+Découvrez comment utiliser les applets de commande et les scripts Windows PowerShell pour fournir une connectivité de site à site pour les réseaux virtuels de votre locataire. Dans cette rubrique, vous allez ajouter des passerelles virtuelles clientes aux instances de la passerelle RAS qui sont membres des pools de passerelles, à l’aide du contrôleur de réseau. La passerelle RAS prend en charge jusqu’à 100 locataires, en fonction de la bande passante utilisée par chaque locataire. Le contrôleur de réseau détermine automatiquement la meilleure passerelle RAS à utiliser lorsque vous déployez une nouvelle passerelle virtuelle pour vos locataires.  
 
-Chaque passerelle virtuelle correspond à un locataire particulier et se compose d’un ou plusieurs connexions réseau (tunnels VPN de site à site) et, éventuellement, les connexions de protocole BGP (Border Gateway). Lorsque vous fournir la connectivité de site à site, vos clients peuvent se connecter leur réseau virtuel du client à un réseau externe, comme un réseau d’entreprise locataire, un réseau de fournisseur de service ou Internet.
+Chaque passerelle virtuelle correspond à un locataire particulier et se compose d’une ou plusieurs connexions réseau (tunnels VPN de site à site) et, éventuellement, de connexions Border Gateway Protocol (BGP). Lorsque vous fournissez une connectivité de site à site, vos clients peuvent connecter leur réseau virtuel locataire à un réseau externe, tel qu’un réseau d’entreprise client, un réseau de fournisseur de services ou Internet.
 
 **Lorsque vous déployez une passerelle virtuelle de locataire, vous disposez des options de configuration suivantes :**  
 
 
-|                                                        Options de connexion réseau                                                         |                                              Options de configuration de BGP                                               |
+|                                                        Options de connexion réseau                                                         |                                              Options de configuration BGP                                               |
 |-------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| <ul><li>Réseau privé virtuel de site à site de IPSec (VPN)</li><li>Encapsulation générique de routage (GRE)</li><li>Transfert de couche 3</li></ul> | <ul><li>Configuration du routeur BGP</li><li>Configuration d’homologue BGP</li><li>Configuration des stratégies de routage BGP</li></ul> |
+| <ul><li>Réseau privé virtuel (VPN) de site à site IPSec</li><li>Encapsulation générique de routage (GRE)</li><li>Transfert de couche 3</li></ul> | <ul><li>Configuration du routeur BGP</li><li>Configuration de l’homologue BGP</li><li>Configuration des stratégies de routage BGP</li></ul> |
 
 ---
 
-Les exemples de scripts Windows PowerShell et les commandes de cette rubrique montrent comment déployer une passerelle virtuelle de locataire sur une passerelle RAS avec chacune de ces options.  
+Les exemples de scripts et commandes Windows PowerShell de cette rubrique montrent comment déployer une passerelle virtuelle de locataire sur une passerelle RAS avec chacune de ces options.  
 
 
 >[!IMPORTANT]  
->Avant d’exécuter les scripts fournis et exemples de commandes Windows PowerShell, vous devez modifier toutes les valeurs de variable afin que les valeurs sont appropriées pour votre déploiement.  
+>Avant d’exécuter l’un des exemples de commandes et de scripts Windows PowerShell fournis, vous devez modifier toutes les valeurs des variables afin que les valeurs soient appropriées pour votre déploiement.  
 
 1.  Vérifiez que l’objet de pool de passerelle existe dans le contrôleur de réseau. 
 
@@ -56,7 +56,7 @@ Les exemples de scripts Windows PowerShell et les commandes de cette rubrique mo
 
     ```  
 
-2.  Vérifiez que le sous-réseau utilisé pour le routage de paquets en dehors du réseau virtuel du locataire existe dans le contrôleur de réseau. Vous également récupérer le sous-réseau virtuel utilisé pour le routage entre la passerelle client et le réseau virtuel.  
+2.  Vérifiez que le sous-réseau utilisé pour le routage des paquets en dehors du réseau virtuel du locataire existe dans le contrôleur de réseau. Vous pouvez également récupérer le sous-réseau virtuel utilisé pour le routage entre la passerelle de locataire et le réseau virtuel.  
 
     ```PowerShell 
     $uri = "https://ncrest.contoso.com"   
@@ -75,7 +75,7 @@ Les exemples de scripts Windows PowerShell et les commandes de cette rubrique mo
 
     ```  
 
-3.  Créez un nouvel objet pour la passerelle virtuelle de locataire et puis mettez à jour la référence du pool de passerelle.  Vous spécifiez également le sous-réseau virtuel utilisé pour le routage entre la passerelle et le réseau virtuel.  Après avoir spécifié le sous-réseau virtuel, vous mettre à jour le reste des propriétés de l’objet passerelle virtuelle, puis ajoutez la nouvelle passerelle virtuelle pour le locataire.
+3.  Créez un nouvel objet pour la passerelle virtuelle du locataire, puis mettez à jour la référence du pool de passerelle.  Vous spécifiez également le sous-réseau virtuel utilisé pour le routage entre la passerelle et le réseau virtuel.  Après avoir spécifié le sous-réseau virtuel, vous mettez à jour le reste des propriétés de l’objet de la passerelle virtuelle, puis vous ajoutez la nouvelle passerelle virtuelle pour le locataire.
 
     ```PowerShell  
     # Create a new object for Tenant Virtual Gateway  
@@ -99,12 +99,12 @@ Les exemples de scripts Windows PowerShell et les commandes de cette rubrique mo
 
     ```  
 
-4. Créer une connexion VPN de site à site avec IPsec, GRE, ou de couche 3 (L3) transfert.  
+4. Créez une connexion VPN de site à site avec le transfert IPsec, GRE ou couche 3 (L3).  
 
    >[!TIP]
-   >Si vous le souhaitez, vous pouvez combiner toutes les étapes précédentes et configurer une passerelle virtuelle locataire tous les trois options de connexion.  Pour plus d’informations, consultez [configurer une passerelle avec tous les types de connexion (IPsec, GRE, L3) et BGP](#optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp).
+   >Si vous le souhaitez, vous pouvez combiner toutes les étapes précédentes et configurer une passerelle virtuelle locataire avec les trois options de connexion.  Pour plus d’informations, consultez [configurer une passerelle avec les trois types de connexion (IPSec, GRE, L3) et BGP](#optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp).
 
-   **Connexion de réseau de site à site VPN IPsec**
+   **Connexion réseau de site à site VPN IPsec**
 
    ```PowerShell  
    # Create a new object for Tenant Network Connection  
@@ -154,7 +154,7 @@ Les exemples de scripts Windows PowerShell et les commandes de cette rubrique mo
 
    ```  
 
-   **Connexion de réseau de site à site VPN GRE**
+   **Connexion réseau de site à site VPN GRE**
 
    ```PowerShell  
    # Create a new object for the Tenant Network Connection  
@@ -189,10 +189,10 @@ Les exemples de scripts Windows PowerShell et les commandes de cette rubrique mo
 
    ```  
 
-   **Connexion de réseau L3 transfert**<p>
-   Pour un L3 transfert connexion réseau fonctionne correctement, vous devez configurer un réseau logique correspondant.   
+   **Connexion réseau de transfert L3**<p>
+   Pour qu’une connexion réseau de transfert L3 fonctionne correctement, vous devez configurer un réseau logique correspondant.   
 
-   1. Configurer un réseau logique pour le L3 connexion réseau de transfert.  <br>
+   1. Configurez un réseau logique pour la connexion réseau de transfert L3.  <br>
 
       ```PowerShell  
       # Create a new object for the Logical Network to be used for L3 Forwarding  
@@ -216,7 +216,7 @@ Les exemples de scripts Windows PowerShell et les commandes de cette rubrique mo
 
       ```  
 
-   2. Créer un objet JSON de connexion réseau et l’ajouter au contrôleur de réseau.  
+   2. Créez un objet JSON de connexion réseau et ajoutez-le au contrôleur de réseau.  
 
       ```PowerShell 
       # Create a new object for the Tenant Network Connection  
@@ -254,7 +254,7 @@ Les exemples de scripts Windows PowerShell et les commandes de cette rubrique mo
 
       ```  
 
-5. Configurer la passerelle comme un routeur BGP et ajoutez-le au contrôleur de réseau. 
+5. Configurez la passerelle en tant que routeur BGP et ajoutez-la au contrôleur de réseau. 
 
    1. Ajoutez un routeur BGP pour le locataire.  
 
@@ -272,7 +272,7 @@ Les exemples de scripts Windows PowerShell et les commandes de cette rubrique mo
 
       ```  
 
-   2. Ajouter un homologue BGP pour ce client, correspondant à la connexion de réseau VPN site à site ajoutées ci-dessus.  
+   2. Ajoutez un homologue BGP pour ce locataire, correspondant à la connexion réseau VPN de site à site ajoutée ci-dessus.  
 
       ```PowerShell
       # Create a new object for Tenant BGP Peer  
@@ -288,8 +288,8 @@ Les exemples de scripts Windows PowerShell et les commandes de cette rubrique mo
 
       ```  
 
-## <a name="optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp"></a>(Étape facultative) Configurer une passerelle avec tous les types de connexion (IPsec, GRE, L3) et BGP  
-Si vous le souhaitez, vous pouvez combiner toutes les étapes précédentes et configurer une passerelle virtuelle locataire tous les trois options de connexion :   
+## <a name="optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp"></a>(Étape facultative) Configurer une passerelle avec les trois types de connexion (IPsec, GRE, L3) et BGP  
+Si vous le souhaitez, vous pouvez combiner toutes les étapes précédentes et configurer une passerelle virtuelle locataire avec les trois options de connexion :   
 
 ```PowerShell  
 # Create a new Virtual Gateway Properties type object  
@@ -461,27 +461,27 @@ New-NetworkControllerVirtualGateway -ConnectionUri $uri  -ResourceId "Contoso_Vi
 ## <a name="modify-a-gateway-for-a-virtual-network"></a>Modifier une passerelle pour un réseau virtuel  
 
 
-**Récupérer la configuration pour le composant et le stocker dans une variable**
+**Récupérer la configuration du composant et la stocker dans une variable**
 
 ```PowerShell  
 $nwConnection = Get-NetworkControllerVirtualGatewayNetworkConnection -ConnectionUri $uri -VirtualGatewayId "Contoso_VirtualGW" -ResourceId "Contoso_IPSecGW"  
 ```  
 
-**Parcourir la structure de variable pour atteindre la propriété requise et affectez-lui la valeur de mises à jour**
+**Parcourez la structure variable pour atteindre la propriété Required et affectez-lui la valeur updates.**
 
 ```PowerShell  
 $nwConnection.properties.IpSecConfiguration.SharedSecret = "C0mplexP@ssW0rd"  
 ```  
 
-**Ajouter la configuration modifiée pour remplacer la configuration antérieure sur le contrôleur de réseau**
+**Ajouter la configuration modifiée pour remplacer l’ancienne configuration sur le contrôleur de réseau**
 
 ```PowerShell  
 New-NetworkControllerVirtualGatewayNetworkConnection -ConnectionUri $uri -VirtualGatewayId "Contoso_VirtualGW" -ResourceId $nwConnection.ResourceId -Properties $nwConnection.Properties -Force  
 ```  
 
 
-## <a name="remove-a-gateway-from-a-virtual-network"></a>Supprimer une passerelle à partir d’un réseau virtuel 
-Vous pouvez utiliser les commandes Windows PowerShell suivantes pour supprimer les fonctionnalités de la passerelle individuels ou l’ensemble de la passerelle.  
+## <a name="remove-a-gateway-from-a-virtual-network"></a>Supprimer une passerelle d’un réseau virtuel 
+Vous pouvez utiliser les commandes Windows PowerShell suivantes pour supprimer des fonctionnalités de passerelle individuelles ou la passerelle entière.  
 
 **Supprimer une connexion réseau**  
 ```PowerShell  

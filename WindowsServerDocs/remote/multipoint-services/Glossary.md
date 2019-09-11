@@ -1,6 +1,6 @@
 ---
 title: Glossaire
-description: Définit les mots, termes et concepts dans MultiPoint Services
+description: Définit des mots, des termes et des concepts dans MultiPoint services
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,86 +13,86 @@ ms.assetid: 807bce1d-b993-49c6-9783-b01a3c55846c
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 4449d2d6fb87f74496b7d482a7a7263f703c7822
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 759dc5d0b8210dc4d8da3ef18caff2ee3ca2cceb
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831110"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871693"
 ---
 # <a name="glossary"></a>Glossaire
 **associer une station**  
-Pour spécifier quel moniteur est utilisé avec les station et les périphériques, par exemple un clavier et une souris. Pour les stations connectées vidéo directe, cela en appuyant sur une clé spécifiée sur le clavier de la station lorsque vous êtes invité à le faire. Pour USB zéro client connecté stations, cela se produit généralement automatiquement.  
+Pour spécifier l’analyse utilisée avec les périphériques de station et de périphérique, tels qu’un clavier et une souris. Pour les stations connectées à une vidéo directe, cette opération s’effectue en appuyant sur une touche spécifiée sur le clavier de la station quand vous y êtes invité. Pour les stations connectées à un client USB zéro, cela se produit généralement automatiquement.  
   
 **concentrateur alimenté par bus**  
-Hub qui dessine toute sa puissance à partir de l’interface USB de l’ordinateur. Alimenté par bus de hubs n’avez pas besoin de connexions d’alimentation distinctes. Toutefois, de nombreux périphériques ne fonctionnent pas avec ce type de concentrateur, car elles nécessitent plus de puissance que fournit ce type de concentrateur.  
+Hub qui dessine toute son alimentation à partir de l’interface USB de l’ordinateur. Les hubs alimentés par bus n’ont pas besoin de connexions d’alimentation distinctes. Toutefois, de nombreux appareils ne fonctionnent pas avec ce type de concentrateur, car ils nécessitent plus de puissance que ce type de concentrateur.  
   
 **mode console**  
-Un des deux modes de MultiPoint services peut démarrer. Lorsque le système est en mode console, aucune stations ne sont disponibles pour utilisation. Au lieu de cela, tous les moniteurs sont traités comme un seul bureau étendu pour la session de console de l’ordinateur. Mode console sert généralement à installer, mettre à jour ou configurer le logiciel, qui ne peut pas être effectué lorsque l’ordinateur est en mode station. Voir aussi : *mode station*.  
+L’un des deux modes que MultiPoint services peut démarrer. Lorsque le système est en mode console, aucune station n’est disponible pour utilisation. Au lieu de cela, toutes les analyses sont traitées comme un bureau étendu unique pour la session de console du système informatique. Le mode de console est généralement utilisé pour installer, mettre à jour ou configurer des logiciels, ce qui ne peut pas être fait lorsque l’ordinateur est en mode station. Voir aussi : *mode station*.  
   
-**station connectée direct-vidéo**  
-Une station MultiPoint se compose d’un moniteur est directement connecté à une sortie vidéo sur le serveur et au minimum, il inclut un clavier et une souris qui sont connectés au serveur via un concentrateur USB.  
+**station directe-vidéo connectée**  
+Station MultiPoint qui se compose d’une analyse directement connectée à une sortie vidéo sur le serveur, et qui comprend au minimum un clavier et une souris connectés au serveur via un concentrateur USB.  
   
-**Compte d’utilisateur de domaine**  
-Un compte d’utilisateur qui est hébergé sur un ordinateur de domaine. Comptes d’utilisateur de domaine est accessible à partir de n’importe quel ordinateur connecté au domaine, et ils ne sont pas liés à n’importe quel ordinateur particulier.  
+**compte d’utilisateur de domaine**  
+Compte d’utilisateur hébergé sur un ordinateur de domaine. Les comptes d’utilisateur de domaine sont accessibles à partir de tout ordinateur connecté au domaine et ne sont pas liés à un ordinateur particulier.  
   
-**downstream hub**  
-Un concentrateur qui est connecté à un concentrateur de station pour ajouter des ports supplémentaires disponibles pour les appareils de la station. Un concentrateur en aval ne doit pas avoir de clavier.  
+**Hub en aval**  
+Concentrateur connecté à un concentrateur de station pour ajouter d’autres ports disponibles pour les appareils de station. Un concentrateur en aval ne doit pas être associé à un clavier.  
   
-**concentrateur alimenté de façon externe**  
-Également appelé un concentrateur alimenté d’automatique, ce hub prend sa puissance à partir d’une alimentation externe ; Par conséquent, il peut fournir toute la puissance (jusqu'à 500 mA) pour chaque port. De nombreux concentrateurs peuvent fonctionner en tant que hubs alimenté par bus ou alimentés de façon externe.  
+**concentrateur alimenté de manière externe**  
+Également connu sous le nom de concentrateur auto-alimenté, ce Hub prend sa puissance d’une unité d’alimentation externe ; par conséquent, elle peut fournir une alimentation complète (jusqu’à 500 mA) à chaque port. De nombreux hubs peuvent fonctionner comme des hubs alimentés par bus ou externes.  
   
-**Périphérique de contrôle consommateur HID**  
-Un périphérique HID (Human Interface) est un appareil de l’ordinateur qui interagit directement avec l’homme. Il peut prendre d’entrée à partir d’ou transmettre une sortie à l’homme. Clavier, souris, trackball, pavé tactile, dispositif de pointage, table graphics, manette, lecteur d’empreintes digitales, gamepad, webcam, casque et conduite simulateurs de périphériques sont des exemples. Un périphérique de contrôle consommateur est une classe particulière de périphériques d’interface utilisateur qui comprend les contrôles de volume audio et les touches de contrôle de navigateur et des applications multimédias.  
+**Périphérique de contrôle de consommateur HID**  
+Un périphérique d’interface utilisateur (HID) est un périphérique informatique qui interagit directement avec les êtres humains. Elle peut prendre en entrée ou fournir une sortie aux êtres humains. Il s’agit par exemple du clavier, de la souris, du trackball, du pavé tactile, du dispositif de pointage, de la table graphique, de la manette, du scanneur d’empreintes digitales, du boîtier à webcam, du casque et de Un périphérique de contrôle de consommateur HID est une classe particulière de périphériques HID qui comprend des contrôles de volume audio et des clés de contrôle de navigateur et de multimédia.  
   
-**concentrateur intermédiaire**  
-Un concentrateur est entre un *concentrateur racine* sur le serveur et un concentrateur de station. Hubs intermédiaires sont généralement utilisées pour augmenter le nombre de ports disponibles pour les concentrateurs de stations ou pour étendre la distance des stations à partir de l’ordinateur.  
+**Hub intermédiaire**  
+Concentrateur situé entre un *concentrateur racine* sur le serveur et un concentrateur de station. Les concentrateurs intermédiaires sont généralement utilisés pour augmenter le nombre de ports disponibles pour les concentrateurs de stations ou pour étendre la distance entre les stations et l’ordinateur.  
   
 **compte d’utilisateur local**  
-Un compte d’utilisateur sur un ordinateur spécifique. Un compte d’utilisateur local est disponible uniquement sur l’ordinateur où le compte est défini.  
+Un compte d’utilisateur sur un ordinateur spécifique. Un compte d’utilisateur local est disponible uniquement sur l’ordinateur sur lequel le compte est défini.  
   
 **concentrateur multifonction**  
-Consultez *USB zéro client*.  
+Voir *client USB Zero*.  
   
-**Système multiPoint Services**  
-Une collection de matériels et logiciels qui se compose d’un ordinateur équipé de Windows Server 2016 est installé avec le rôle de MultiPoint Services activé et au moins une station MultiPoint. Pour plus d’informations sur les options de disposition de système, consultez [planification de Site MultiPoint Services](MultiPoint-services-Site-Planning.md)  
+**Système MultiPoint services**  
+Ensemble de matériels et de logiciels comprenant un ordinateur sur lequel Windows Server 2016 est installé avec le rôle MultiPoint services activé et au moins une station MultiPoint. Pour plus d’informations sur les options de disposition du système, consultez [planification de site multipoint services](MultiPoint-services-Site-Planning.md) .  
   
 **partition**  
-Une section d’espace sur un disque physique qui fonctionne comme si elle était un disque distinct.  
+Section d’espace sur un disque physique qui fonctionne comme s’il s’agissait d’un disque distinct.  
   
 **station principale**  
-La station est le premier à démarrer lorsque MultiPoint Services est démarré. La station principale peut être utilisée par un administrateur pour accéder aux paramètres et les menus de démarrage. Quand il n’est pas utilisé par l’administrateur, il peut être utilisé comme station normale (il ne doit pas être réservé exclusivement pour l’administration). Moniteur de la station principale doit toujours être connecté directement à une sortie vidéo sur l’ordinateur qui exécute MultiPoint Services. Voir aussi : station.  
+Station qui est la première à démarrer au démarrage de MultiPoint services. La station principale peut être utilisée par un administrateur pour accéder aux menus et aux paramètres de démarrage. Lorsqu’il n’est pas utilisé par l’administrateur, il peut être utilisé comme station normale (il ne doit pas être réservé exclusivement à l’administration). Le moniteur de la station principale doit toujours être connecté directement à une sortie vidéo sur l’ordinateur qui exécute MultiPoint services. Voir aussi : station.  
   
-**Station RDP-over-connectés au réseau local**  
-Une station est un client léger, un bureau traditionnel ou un ordinateur portable qui se connecte à MultiPoint services à l’aide du protocole RDP (Remote Desktop) via le réseau local (LAN).  
+**Station de connexion RDP-sur-LAN**  
+Station qui est un client léger, un ordinateur de bureau traditionnel ou un ordinateur portable qui se connecte à MultiPoint services à l’aide d’protocole RDP (Remote Desktop Protocol) (RDP) via le réseau local (LAN).  
   
 **concentrateur racine**  
-Un concentrateur USB qui est intégré au contrôleur sur la carte mère d’un ordinateur hôte.  
+Concentrateur USB intégré au contrôleur hôte sur la carte mère d’un ordinateur.  
   
-**diviser l’écran**  
-Une station où un moniteur unique peut être utilisé pour afficher les deux bureaux d’utilisateurs indépendants. Deux ensembles de concentrateurs, des claviers et des souris sont associés à un même écran. Un ensemble est associé avec le côté gauche de l’analyse, et l’autre ensemble est associé à la partie droite de l’analyse.  
+**fractionner l’écran**  
+Station dans laquelle une seule analyse peut être utilisée pour afficher deux bureaux utilisateur indépendants. Deux ensembles de hubs, claviers et souris sont associés à une seule analyse. Un jeu est associé au côté gauche de l’analyse et l’autre ensemble est associé au côté droit de l’analyse.  
   
 **station standard**  
-Contrairement à la *station principale*, qui peut être utilisé par un administrateur pour accéder aux menus de démarrage, stations standards n’affichera pas les menus de démarrage, et ils peuvent être utilisés uniquement lorsque MultiPoint Services a terminé le processus de démarrage . Voir aussi : station.  
+Contrairement à la *station principale*, qui peut être utilisée par un administrateur pour accéder aux menus de démarrage, les stations standard n’affichent pas les menus de démarrage et ne peuvent être utilisées qu’une fois que multipoint services a terminé le processus de démarrage. Voir aussi : station.  
   
 *station*  
-Point de terminaison utilisateur pour la connexion à l’ordinateur qui exécute MultiPoint Services. Trois types de station sont prises en charge : stations vidéo-connectés directement, zéro-client-connectés par USB et RDP-over-connectés au réseau local. Pour plus d’informations sur les stations, consultez [Stations MultiPoint](MultiPoint-services-Stations.md).  
+Point de terminaison de l’utilisateur pour la connexion à l’ordinateur qui exécute MultiPoint services. Trois types de station sont pris en charge : les stations connectées via une connexion vidéo, USB-zéro-client connectée et RDP-sur-LAN. Pour plus d’informations sur les stations, consultez [multipoint stations](MultiPoint-services-Stations.md).  
   
 **concentrateur de station**  
-Un concentrateur USB qui a été associé à une analyse pour créer une station MultiPoint. Il connecte les périphériques USB à MultiPoint Services. Voir aussi : *USB zéro client* et *concentrateur USB*.  
+Concentrateur USB qui a été associé à une analyse pour créer une station MultiPoint. Il connecte les périphériques USB aux services MultiPoint. Voir aussi : *Client USB Zero* et *concentrateur USB*.  
   
 **mode station**  
-Un des deux modes de MultiPoint services peut démarrer. En règle générale, le système MultiPoint Services est en mode station. En mode station, les stations MultiPoint Services se comportent comme si chaque station est un ordinateur distinct qui exécute le système d’exploitation Windows, et plusieurs utilisateurs peuvent utiliser le système en même temps. Voir aussi : *mode console*.  
+L’un des deux modes que MultiPoint services peut démarrer. En règle générale, le système MultiPoint services est en mode station. En mode station, les stations MultiPoint services se comportent comme si chaque station était un ordinateur distinct qui exécute le système d’exploitation Windows, et plusieurs utilisateurs peuvent utiliser le système en même temps. Voir aussi : *mode console*.  
   
 **Concentrateur USB**  
-Un concentrateur USB multiport générique d’extension qui est conforme aux spécifications du bus USB (USB) 2.0 ou version ultérieure. Ces concentrateurs disposent généralement plusieurs ports USB, ce qui permet de connecter plusieurs périphériques USB d’être connecté à un seul port USB sur l’ordinateur. Concentrateurs USB sont généralement des périphériques qui peuvent être *alimentés de façon externe* ou *alimenté par bus*. D’autres périphériques, tels que certains claviers et les moniteurs vidéo, peuvent inclure un concentrateur USB dans leur conception. Voir aussi : *USB zéro client*.  
+Concentrateur d’extension USB multiport générique conforme aux spécifications USB (Universal Serial Bus) 2,0 ou ultérieures. De tels hubs possèdent généralement plusieurs ports USB, ce qui permet de connecter plusieurs périphériques USB à un port USB unique sur l’ordinateur. Les concentrateurs USB sont généralement des périphériques distincts qui peuvent être *alimentés* de manière externe ou *alimentés par bus*. Certains autres appareils, tels que certains claviers et moniteurs vidéo, peuvent intégrer un concentrateur USB à leur conception. Voir aussi : *Client USB Zero*.  
   
-**USB sur un client Ethernet zéro**  
-USB zéro client qui se connecte à l’ordinateur via une connexion de réseau local plutôt qu’un port USB. Ce client s’affiche sur le serveur comme un périphérique USB même via les données est envoyé via la connexion Ethernet.  
+**Client USB sur zéro Ethernet**  
+Un client USB zéro qui se connecte à l’ordinateur par le biais d’une connexion LAN plutôt que d’un port USB. Ce client apparaît sur le serveur en tant que périphérique USB, même si les données sont envoyées via la connexion Ethernet.  
   
-**USB zéro client**  
-Concentrateur d’extension qui se connecte à l’ordinateur via un port USB et permet de connecter divers appareils non-USB au concentrateur. Les clients USB zéro sont produites par des fabricants de matériel spécifique, et ils nécessitent l’installation d’un pilote spécifique à l’appareil. Les clients USB zéro prend en charge la connexion d’un moniteur vidéo (via VGA, DVI et ainsi de suite) et les périphériques (via USB, parfois PS/2 et audio analogique). USB zéro client peut être *alimentés de façon externe* ou *alimenté par bus*. Voir aussi *concentrateurs USB*.  
+**Client USB Zero**  
+Hub de développement qui se connecte à l’ordinateur via un port USB et permet la connexion d’un grand nombre de périphériques non USB au concentrateur. Les clients USB nuls sont générés par des fabricants de matériel spécifiques et nécessitent l’installation d’un pilote spécifique à l’appareil. Les clients USB Zero prennent en charge la connexion d’un moniteur vidéo (via VGA, DVI, etc.) et les périphériques (via USB, parfois PS/2 et audio analogique). Le client zéro USB peut être *alimenté en externe* ou *alimenté par bus*. Voir aussi *concentrateurs USB*.  
   
-**Station de connectée USB zéro client**  
-Une station MultiPoint Services comprenant (au minimum) un moniteur, clavier et une souris, qui sont connecté au serveur via un client USB zéro.  
+**Station connectée sans client USB**  
+Une station MultiPoint services qui se compose (au minimum) d’un moniteur, d’un clavier et d’une souris, qui sont connectés au serveur via un client USB à zéro.  
   

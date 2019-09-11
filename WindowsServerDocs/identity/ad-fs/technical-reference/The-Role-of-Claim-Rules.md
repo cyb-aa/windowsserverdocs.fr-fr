@@ -9,49 +9,49 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 06f2f0d1fb48c6b9dea89762a30fdf77643d0e53
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: af0fce04fcb48e9c93076ca8d0f261c5170dc9fc
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188568"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865488"
 ---
 # <a name="the-role-of-claim-rules"></a>Rôle des règles de revendication
-La fonction globale du Service de fédération dans Active Directory Federation Services \(AD FS\) consiste à émettre un jeton qui contient un ensemble de revendications. La décision concernant les revendications AD FS accepte et lui envoie ensuite est régie par les règles de revendication.  
+La fonction globale de l’service FS (Federation Service) dans services ADFS \(AD FS\) consiste à émettre un jeton qui contient un ensemble de revendications. La décision concernant les revendications que AD FS accepte, puis les problèmes est régie par les règles de revendication.  
   
 ## <a name="what-are-claim-rules"></a>Définition des règles de revendication  
-Une règle de revendication représente une instance de logique métier qui utilisera une ou plusieurs revendications entrantes et applique des conditions \(if x, alors y\) et produire un ou plusieurs revendications sortantes en fonction des paramètres de condition. Pour plus d’informations sur les revendications entrantes et sortantes, consultez [The Role of Claims](The-Role-of-Claims.md).  
+Une règle de revendication représente une instance de logique métier qui prend une ou plusieurs revendications entrantes, leur \(applique des conditions si x Then y\) et produit une ou plusieurs revendications sortantes en fonction des paramètres de condition. Pour plus d’informations sur les revendications entrantes et sortantes, consultez [le rôle des revendications](The-Role-of-Claims.md).  
   
-Vous utilisez les règles de revendication lorsque vous devez implémenter la logique métier qui contrôle le flux des revendications à travers le pipeline de revendications. Bien que le pipeline de revendications est plus un concept logique de la fin\-à\-fin du processus de flux des revendications, les règles sont un élément d’administration réel que vous pouvez utiliser pour personnaliser le flux des revendications à travers le processus d’émission de revendications de la revendication.  
+Vous utilisez les règles de revendication lorsque vous devez implémenter la logique métier qui contrôle le flux des revendications à travers le pipeline de revendications. Alors que le pipeline de revendications est davantage un concept logique\-du\-processus de bout en bout pour les revendications de workflow, les règles de revendication sont un élément d’administration réel que vous pouvez utiliser pour personnaliser le workflow de revendications via le processus d’émission de revendications.  
   
-Pour plus d’informations sur le pipeline de revendications, consultez [The Role of the Claims Engine](The-Role-of-the-Claims-Engine.md).  
+Pour plus d’informations sur le pipeline de revendications, consultez [le rôle du moteur de revendications](The-Role-of-the-Claims-Engine.md).  
   
 Les règles de revendication présentent les avantages suivants :  
   
--   Fournissent un mécanisme permettant aux administrateurs d’appliquer l’exécution\-logique métier de temps pour approuver des revendications à partir de fournisseurs de revendications  
+-   Fournir un mécanisme permettant aux administrateurs d’appliquer\-une logique métier d’exécution pour approuver les revendications des fournisseurs de revendications  
   
 -   Fournissent un mécanisme permettant aux administrateurs de définir les revendications à publier sur les parties de confiance  
   
--   Fournir des revendications riches et détaillées\-en fonction des fonctionnalités d’autorisation pour les administrateurs qui souhaitent autoriser ou refuser l’accès à des utilisateurs spécifiques  
+-   Fournir des fonctionnalités d’autorisation\-basées sur des revendications complètes et détaillées aux administrateurs qui souhaitent autoriser ou refuser l’accès à des utilisateurs spécifiques  
   
 ### <a name="how-claim-rules-are-processed"></a>Mode de traitement des règles de revendication  
 Les règles de revendication sont traitées via le pipeline de revendications à l’aide du *moteur de revendications*. Le moteur de revendications est un composant logique du service de fédération qui examine le jeu des revendications entrantes présenté par un utilisateur, puis, en fonction de la logique de chaque règle, produit un jeu de revendications de sortie.  
   
-Ensemble, le moteur des règles de revendication et le jeu de règles de revendication associé à une approbation fédérée donnée déterminent si les revendications entrantes doivent être transmises telles qu’elles sont, filtrées pour répondre à un critère de condition spécifique ou transformées en un tout nouveau jeu de revendications avant qu’elles ne soient émises en tant que revendications sortantes par votre service de fédération.  
+Ensemble, le moteur de règles de revendication et le jeu de règles de revendication associées à une approbation fédérée donnée déterminent si les revendications entrantes doivent être transmises comme elles le sont, filtrées pour répondre aux critères d’une condition spécifique ou transformés en un ensemble entièrement nouveau les revendications avant qu’elles ne soient émises en tant que revendications sortantes par votre service FS (Federation Service).  
   
-Pour plus d’informations sur ce processus, consultez [The Role of the Claims Engine](The-Role-of-the-Claims-Engine.md).  
+Pour plus d’informations sur ce processus, consultez [le rôle du moteur de revendications](The-Role-of-the-Claims-Engine.md).  
   
 ## <a name="what-are-claim-rule-templates"></a>Définition des modèles de règles de revendication  
-AD FS inclut un ensemble prédéfini de règle de revendication de modèles qui sont conçus pour vous aider à facilement sélectionnent et créent les règles de revendication plus appropriées pour vos besoins professionnels particuliers. Les modèles de règles de revendication sont uniquement utilisés pendant le processus de création des règles de revendication.  
+AD FS comprend un ensemble prédéfini de modèles de règles de revendication conçus pour vous aider à sélectionner et à créer facilement les règles de revendication les plus appropriées pour vos besoins professionnels spécifiques. Les modèles de règles de revendication sont uniquement utilisés pendant le processus de création des règles de revendication.  
   
-Dans le composant logiciel enfichable Gestion AD FS\-, règles peuvent uniquement être créées à l’aide de modèles de règle de revendication. Une fois que vous utilisez le composant logiciel enfichable\-dans pour sélectionner un modèle de règle de revendication, entrez les données nécessaires à la logique de règle et enregistrez-le sur la base de données de configuration, il sera \(à partir de là\) fait référence dans l’interface utilisateur en tant qu’une règle de revendication.  
+Dans le composant logiciel enfichable\-gestion de la AD FS, les règles peuvent uniquement être créées à l’aide de modèles de règle de revendication. Une fois que vous avez\-utilisé le modèle de règle de sélection pour sélectionner un modèle de règle de revendication, entrez les données nécessaires à la logique de la règle et \(enregistrez-le dans\) la base de données de configuration. c’est à partir de ce point qu’il est indiqué dans l’interface utilisateur en tant que règle de revendication.  
   
 ### <a name="how-claim-rule-templates-work"></a>Fonctionnement des modèles de règles de revendication  
-À première vue, les modèles de règle semblent être des formulaires de saisie simplement fournis par le composant logiciel enfichable de revendication\-pour collecter des données et processus logique spécifique sur les revendications entrantes. Toutefois, une analyse plus détaillée des modèles de règle de revendication permet de constater qu’ils enregistrent l’infrastructure du langage de règle de revendication utile qui constitue la logique de base nécessaire pour créer rapidement une règle sans avoir à connaître parfaitement le langage.  
+À première vue, les modèles de règles de revendication semblent juste être des formulaires de saisie\-fournis par le composant logiciel enfichable pour collecter des données et une logique spécifique au processus sur les revendications entrantes. Toutefois, une analyse plus détaillée des modèles de règle de revendication permet de constater qu’ils enregistrent l’infrastructure du langage de règle de revendication utile qui constitue la logique de base nécessaire pour créer rapidement une règle sans avoir à connaître parfaitement le langage.  
   
-Chaque modèle est fourni dans l’interface utilisateur \(l’interface utilisateur\) représente une syntaxe de langage de la règle de revendication préremplies, en fonction des tâches d’administration plus couramment requises. Un modèle de règle fait cependant exception. Il s’agit du modèle de règle personnalisé. Avec ce modèle, aucune syntaxe n’est prédéfinie. Vous devez au contraire la créer directement dans le corps du formulaire du modèle de règle de revendication, à l’aide de la syntaxe du langage de règle de revendication.  
+Chaque modèle fourni dans l’interface utilisateur de l' \(interface\) utilisateur représente une syntaxe préremplie du langage de règle de revendication, basée sur les tâches administratives les plus couramment requises. Un modèle de règle fait cependant exception. Il s’agit du modèle de règle personnalisé. Avec ce modèle, aucune syntaxe n’est prédéfinie. Vous devez au contraire la créer directement dans le corps du formulaire du modèle de règle de revendication, à l’aide de la syntaxe du langage de règle de revendication.  
   
-Pour plus d’informations sur l’utilisation de la syntaxe de langage de règle de revendication, consultez [The Role of du langage des règles de revendication](The-Role-of-the-Claim-Rule-Language.md) dans le Guide de déploiement d’AD FS.  
+Pour plus d’informations sur l’utilisation de la syntaxe du langage de règle de revendication, consultez [le rôle du langage de règle de revendication](The-Role-of-the-Claim-Rule-Language.md) dans le Guide de déploiement de AD FS.  
   
 > [!TIP]  
 > Vous pouvez à tout moment afficher le langage de règle de revendication associé à une règle en cliquant sur le bouton **Afficher le langage de la règle** dans les propriétés d’une règle de revendication.  
@@ -59,7 +59,7 @@ Pour plus d’informations sur l’utilisation de la syntaxe de langage de règl
 ### <a name="how-to-create-a-claim-rule"></a>Création d’une règle de revendication  
 Les règles de revendication sont créées séparément pour chaque relation d’approbation fédérée au sein du service de fédération et ne sont pas partagées par plusieurs approbations. Vous pouvez créer une règle à partir d’un modèle de règle de revendication, démarrer à partir de rien en créant la règle à l’aide du langage de règle de revendication ou utiliser Windows PowerShell pour personnaliser une règle.  
   
-Toutes ces options coexistent pour vous offrir la possibilité de choisir la méthode adaptée à un scénario donné. Pour plus d’informations sur la création d’une règle de revendication, consultez [configuration des règles de revendication](https://technet.microsoft.com/library/ee913571.aspx) dans le Guide de FSDeployment AD.  
+Toutes ces options coexistent pour vous offrir la possibilité de choisir la méthode adaptée à un scénario donné. Pour plus d’informations sur la création d’une règle de revendication, consultez [Configuration des règles de revendication](https://technet.microsoft.com/library/ee913571.aspx) dans le guide des FSDeployment ad.  
   
 #### <a name="using-claim-rule-templates"></a>Utilisation de modèles de règles de revendication  
 Les modèles de règles de revendication sont uniquement utilisés pendant le processus de création des règles de revendication. Vous pouvez utiliser l’un des modèles suivants pour créer une règle de revendication :  
@@ -78,18 +78,18 @@ Les modèles de règles de revendication sont uniquement utilisés pendant le pr
   
 -   Autoriser tous les utilisateurs  
   
-Pour plus d’informations sur chacun de ces modèles de règle de revendication, consultez [déterminer le Type de revendication modèle de règle à utiliser](Determine-the-Type-of-Claim-Rule-Template-to-Use.md).  
+Pour plus d’informations sur chacun de ces modèles de règles de revendication, consultez [déterminer le type de modèle de règle de revendication à utiliser](Determine-the-Type-of-Claim-Rule-Template-to-Use.md).  
   
 #### <a name="using-the-claim-rule-language"></a>Utilisation du langage des règles de revendication  
 Pour les règles d’entreprise qui dépassent le cadre des modèles de règles de revendication standard, vous pouvez utiliser un modèle de règle personnalisé pour exprimer une série de conditions logiques complexes à l’aide du langage de règle de revendication. Pour plus d’informations sur l’utilisation d’une règle personnalisée, consultez [quand utiliser une règle de revendication personnalisée](When-to-Use-a-Custom-Claim-Rule.md).  
   
 #### <a name="using-windowspowershell"></a>Utilisation de Windows PowerShell  
-Vous pouvez également utiliser l’objet d’applet de commande ADFSClaimRuleSet avec Windows PowerShell pour créer ou gérer des règles dans AD FS. Pour plus d’informations sur la façon dont vous pouvez utiliser Windows PowerShell avec cette applet de commande, consultez la page [Administration d’AD FS avec Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=179634).  
+Vous pouvez également utiliser l’objet d’applet de commande ADFSClaimRuleSet avec Windows PowerShell pour créer ou administrer des règles dans AD FS. Pour plus d’informations sur la façon dont vous pouvez utiliser Windows PowerShell avec cette applet de commande, consultez la page [Administration d’AD FS avec Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=179634).  
   
 ## <a name="what-is-a-claim-rule-set"></a>Définition d’un jeu de règles de revendication  
 Comme indiqué dans l’illustration suivante, un jeu de règles de revendication est un regroupement d’une ou plusieurs règles pour une approbation fédérée donnée qui définit le traitement des revendications par le moteur de règles de revendication. Lorsqu’une revendication entrante est reçue par le service de fédération, le moteur de règles de revendication applique la logique définie par le jeu de règles de revendication approprié. La somme finale de la logique de chaque règle du jeu détermine la méthode d’émission des revendications pour une approbation donnée, dans son intégralité.  
   
-![Rôles d’AD FS](media/adfs2_claimruleset.gif)  
+![Rôles de AD FS](media/adfs2_claimruleset.gif)  
   
 Les règles de revendication sont traitées par le moteur de revendications dans l’ordre chronologique, dans un jeu de règles donné. Cet ordre est important, car la sortie d’une règle peut être utilisée comme entrée pour la règle suivante du jeu.  
   
@@ -106,6 +106,6 @@ Le tableau suivant décrit les différents types de jeux de règles de revendica
 |Jeu de règles d’autorisation de délégation|Jeu de règles de revendication que vous utilisez sur une approbation de la partie de confiance pour spécifier les utilisateurs qui seront autorisés à agir comme délégués au nom d’autres utilisateurs pour la partie de confiance.<br /><br />Ces règles déterminent si le demandeur est autorisé à emprunter l’identité d’un utilisateur tout en identifiant toujours le demandeur du jeton qui est envoyé à la partie de confiance.<br /><br />À moins que vous ne spécifiiez une règle d’autorisation d’émission, par défaut, aucun utilisateur ne peut agir comme délégué.|Approbations de la partie de confiance|  
 |Jeu de règles d’autorisation de substitution d’identité|Jeu de règles de revendication que vous configurez à l’aide de Windows PowerShell pour déterminer si un utilisateur peut totalement se substituer à un autre pour la partie de confiance.<br /><br />Ces règles déterminent si le demandeur est autorisé à emprunter l’identité d’un utilisateur sans identifier le demandeur du jeton qui est envoyé à la partie de confiance.<br /><br />La substitution de l’identité d’un autre utilisateur est, dans ce sens, une fonction très puissante, car la partie de confiance ne saura pas que l’identité de l’utilisateur a été substituée.|Approbation de partie de confiance|  
   
-Pour plus d’informations sur, activez les règles de revendication approprié à utiliser dans votre organisation, consultez [déterminer le Type de revendication modèle de règle à utiliser](Determine-the-Type-of-Claim-Rule-Template-to-Use.md).  
+Pour plus d’informations sur la sélection des règles de revendication appropriées à utiliser dans votre organisation, consultez [déterminer le type de modèle de règle de revendication à utiliser](Determine-the-Type-of-Claim-Rule-Template-to-Use.md).  
   
 

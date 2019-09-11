@@ -1,6 +1,6 @@
 ---
-title: vRSS Forum aux Questions
-description: Dans cette rubrique, vous trouverez que certaines fréquentes questions et réponses sur l’utilisation de vRSS.
+title: Forum aux questions sur vRSS
+description: Dans cette rubrique, vous trouverez des questions fréquentes et des réponses sur l’utilisation de vRSS.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -10,59 +10,59 @@ manager: dougkim
 ms.date: 09/05/2018
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3fafe6c39285e65a9d39a76cc6b652dac5c3efbd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f0f3cb2bebf5aed31be0dda0c8e33a78aae94367
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840240"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871821"
 ---
-# <a name="vrss-frequently-asked-questions"></a>vRSS Forum aux Questions
+# <a name="vrss-frequently-asked-questions"></a>Forum aux questions sur vRSS
 
-Dans cette rubrique, vous trouverez que certaines fréquentes questions et réponses sur l’utilisation de vRSS.
+Dans cette rubrique, vous trouverez des questions fréquentes et des réponses sur l’utilisation de vRSS.
 
-## <a name="what-are-the-requirements-for-the-physical-network-adapters-that-i-use-with-vrss"></a>Quelles sont les exigences pour les cartes réseau physiques que j’utilise grâce à vRSS ?
+## <a name="what-are-the-requirements-for-the-physical-network-adapters-that-i-use-with-vrss"></a>Quelles sont les conditions requises pour les cartes réseau physiques que j’utilise avec vRSS ?
 
-Cartes réseau doivent être compatibles avec la file d’attente de la Machine virtuelle \(VMQ\) et doit avoir une vitesse de liaison de 10 Gbits/s ou plus.
+Les cartes réseau doivent être compatibles avec file d’attente d’ordinateurs virtuels \(\) d’ordinateurs virtuels et doivent avoir une vitesse de liaison de 10 Gbits/s ou plus.
 
-Pour plus d’informations, consultez [planifiez l’utilisation de vRSS](vrss-plan.md).
+Pour plus d’informations, consultez [planifier l’utilisation de vRSS](vrss-plan.md).
 
-## <a name="does-vrss-work-with-hyper-threaded-processor-cores"></a>VRSS fonctionne-t-il avec hyper\-thread cœurs de processeur ?
+## <a name="does-vrss-work-with-hyper-threaded-processor-cores"></a>L’vRSS utilise-t\--il les cœurs de processeurs hyper-threads ?
 
-Non. VRSS et VMQ ignorent hyper\-cœurs de processeur multithreads.
+Non. VRSS et des ordinateurs virtuels ignorent les cœurs de processeurs hyper\--thread.
 
-## <a name="does-vrss-work-for-host-virtual-nics-vnics"></a>VRSS fonctionne-t-il pour héberger des cartes réseau virtuelles \(cartes réseau virtuelles\)?
+## <a name="does-vrss-work-for-host-virtual-nics-vnics"></a>L’ordinateur vRSS fonctionne-t- \(il\)pour les cartes réseau virtuelles hôtes cartes réseau virtuelles ?
 
-Oui. Utilisez le **- ManagementOS** paramètre au lieu de la machine virtuelle \(machine virtuelle\) nom sur le **Set-VMNetworkAdapter** commande Windows PowerShell, et  **Enable-NetAdapterRss** sur la carte réseau virtuelle hôte.
+Oui. Utilisez le paramètre **-managementos** au lieu du\) nom de \(machine virtuelle de l’ordinateur virtuel sur la commande Windows PowerShell **Set-VMNetworkAdapter** , puis **activez-NetAdapterRss** sur l’hôte carte réseau virtuelle.
 
-Pour plus d’informations, consultez [commandes PowerShell de Windows pour les flux RSS et vRSS](vrss-wps.md).
+Pour plus d’informations, consultez [commandes Windows PowerShell pour RSS et vRSS](vrss-wps.md).
 
-## <a name="how-many-logical-processors-does-a-vm-need-to-use-vrss"></a>Le nombre de processeurs logique une machine virtuelle a besoin d’utiliser des vRSS ?
+## <a name="how-many-logical-processors-does-a-vm-need-to-use-vrss"></a>Combien de processeurs logiques un ordinateur virtuel doit-il utiliser vRSS ?
 
-Machines virtuelles doivent deux ou plusieurs processeurs logiques \(LPs\) pour être en mesure d’utiliser vRSS.
+Les machines virtuelles ont besoin \(\) de deux processeurs logiques ou plus pour pouvoir utiliser vRSS.
 
-Pour plus d’informations, consultez [planifiez l’utilisation de vRSS](vrss-plan.md).
+Pour plus d’informations, consultez [planifier l’utilisation de vRSS](vrss-plan.md).
 
-## <a name="is-vrss-compatible-with-nic-teaming"></a>VRSS est compatible avec l’association de cartes réseau ?
+## <a name="is-vrss-compatible-with-nic-teaming"></a>VRSS est-il compatible avec l’Association de cartes réseau ?
 
-Oui. Si vous utilisez l’association de cartes réseau, il est important de configurer correctement les ordinateurs virtuels pour travailler avec les paramètres d’association de cartes réseau. Pour obtenir des informations détaillées sur l’association de cartes réseau de déploiement et la gestion, consultez [association de cartes réseau](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming).
+Oui. Si vous utilisez l’Association de cartes réseau, il est important de configurer correctement les ordinateurs virtuels de manière à ce qu’ils fonctionnent avec les paramètres d’association de cartes réseau. Pour plus d’informations sur le déploiement et la gestion de l’Association de cartes réseau, consultez [Association de cartes réseau](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming).
 
-## <a name="vrss-is-enabled-but-how-do-i-know-if-it-is-working"></a>vRSS est activé, mais comment savoir si elle fonctionne ? 
+## <a name="vrss-is-enabled-but-how-do-i-know-if-it-is-working"></a>l’option vRSS est activée, mais comment savoir si elle fonctionne ? 
 
-Vous serez en mesure de savoir vRSS fonctionne en ouvrant le Gestionnaire des tâches dans votre machine virtuelle et en affichant l’utilisation du processeur virtuel. S’il existe plusieurs connexions établies à la machine virtuelle, vous pouvez voir plusieurs cœurs au-dessus de 0 % d’utilisation.
+Vous pouvez indiquer à vRSS qu’il fonctionne en ouvrant le gestionnaire des tâches dans votre machine virtuelle et en affichant l’utilisation du processeur virtuel. Si plusieurs connexions sont établies avec la machine virtuelle, vous pouvez voir plusieurs cœurs au-dessus de 0% d’utilisation.
 
-Une seule session TCP ne peut pas être à charge équilibrée sur plusieurs cœurs de processeur logique, votre machine virtuelle doit recevoir TCP plusieurs sessions avant que vous pouvez observer ou non vRSS fonctionne.
+Étant donné qu’une seule session TCP ne peut pas faire l’équilibrage de charge entre plusieurs cœurs de processeurs logiques, votre machine virtuelle doit recevoir plusieurs sessions TCP pour que vous puissiez observer si vRSS fonctionne.
 
-Si la machine virtuelle reçoit plusieurs sessions TCP, mais vous ne voyez pas plusieurs cœurs LP au-dessus de 0 % d’utilisation, vérifiez que vous avez effectué toutes les étapes de préparation dans la rubrique [planifiez l’utilisation de vRSS](vrss-plan.md).
+Si la machine virtuelle reçoit plusieurs sessions TCP, mais que vous ne voyez pas plus d’un cœur LP au-dessus de 0% d’utilisation, assurez-vous que vous avez effectué toutes les étapes de préparation de la rubrique [planifier l’utilisation de vRSS](vrss-plan.md).
 
 ## <a name="im-looking-at-the-host-and-not-all-of-the-processors-are-being-used-it-looks-like-every-other-one-is-being-skipped"></a>Je regarde l’hôte et les processeurs ne sont pas tous utilisés. Il semble qu’un sur deux soit ignoré.
   
-Vérifiez si l’hyperthreading est activé. VMQ et vRSS sont conçues pour ignorer\-cœurs multithreads.
+Vérifiez si l’hyperthreading est activé. Les ordinateurs virtuels et vRSS sont conçus pour ignorer\-les cœurs hyper-thread.
 
-## <a name="are-there-different-windows-powershell-commands-for-rss-and-vrss"></a>Existe-t-il des différentes commandes Windows PowerShell pour les flux RSS et vRSS ?
+## <a name="are-there-different-windows-powershell-commands-for-rss-and-vrss"></a>Existe-t-il différentes commandes Windows PowerShell pour RSS et vRSS ?
 
-Yes et no. Pendant que vous utilisez les mêmes commandes pour RSS dans les hôtes natifs et RSS dans des machines virtuelles, vRSS requiert également VMQ soit activé sur la carte réseau physique - et pour la machine virtuelle et vRSS doit être activé sur le port de commutateur.
+Oui et non. Si vous utilisez les mêmes commandes pour RSS dans des hôtes natifs et RSS dans des machines virtuelles, vRSS requiert également l’activation de l’ordinateur virtuel sur la carte réseau physique, et pour l’activation de la machine virtuelle et de vRSS sur le port de commutateur.
 
-Pour plus d’informations, consultez [commandes PowerShell de Windows pour les flux RSS et vRSS](vrss-wps.md).
+Pour plus d’informations, consultez [commandes Windows PowerShell pour RSS et vRSS](vrss-wps.md).
 
 ---

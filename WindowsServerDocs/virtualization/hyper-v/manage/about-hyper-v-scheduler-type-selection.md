@@ -1,6 +1,6 @@
 ---
-title: À propos de la sélection du type de planificateur hyperviseur Hyper-V
-description: Fournit des informations pour les administrateurs d’hôtes Hyper-V sur l’utilisation du Planificateur de Hyper-V de modes
+title: À propos de la sélection du type de planificateur de l’hyperviseur Hyper-V
+description: Fournit des informations pour les administrateurs d’ordinateurs hôtes Hyper-V sur l’utilisation des modes de planification d’Hyper-V
 author: allenma
 ms.author: allenma
 ms.date: 08/14/2018
@@ -9,14 +9,14 @@ ms.prod: windows-server-hyper-v
 ms.technology: virtualization
 ms.localizationpriority: low
 ms.assetid: 5fe163d4-2595-43b0-ba2f-7fad6e4ae069
-ms.openlocfilehash: c5360d8e2fdc23f8b05c6be0f665407eebedeba2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1e77535548cccd1c821163dabbad381f35d2948a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823880"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872059"
 ---
-# <a name="about-hyper-v-hypervisor-scheduler-type-selection"></a>À propos de la sélection du type de planificateur hyperviseur Hyper-V
+# <a name="about-hyper-v-hypervisor-scheduler-type-selection"></a>À propos de la sélection du type de planificateur de l’hyperviseur Hyper-V
 
 S'applique à :
 
@@ -25,97 +25,97 @@ S'applique à :
 * Windows Server, version 1803
 * Windows Server 2019
 
-Ce document décrit les modifications importantes apportées à la valeur par défaut de Hyper-V et utilisation d’hyperviseur de recommandée de types de planificateur. Impact de ces modifications à la fois performances de la virtualisation et de sécurité système. Administrateurs d’hôtes de virtualisation doivent examiner comprendre les modifications et les implications en matière de décrites dans ce document et évaluer avec soin les impacts, les instructions de déploiement suggéré et les facteurs de risque impliqué pour mieux comprendre comment déployer et gérer Hôtes Hyper-V face à l’évolution de sécurité rapidement.
+Ce document décrit les modifications importantes apportées à l’utilisation par défaut et recommandée d’Hyper-V pour les types de planificateur d’hyperviseur. Ces modifications ont un impact sur les performances de la sécurité et de la virtualisation du système. Les administrateurs hôtes de virtualisation doivent examiner et comprendre les modifications et les implications décrites dans ce document, et évaluer avec soin les impacts, les recommandations de déploiement suggérées et les facteurs de risque impliqués dans la meilleure compréhension du déploiement et de la gestion Ordinateurs hôtes Hyper-V en face du paysage de sécurité à évolution rapide.
 
 >[!IMPORTANT]
->Sécurité de canal latéral susceptibles d’être exploitées par une machine virtuelle invitée malveillante via le comportement de planification du type de planificateur classique hyperviseur hérités sur les hôtes avec simultanée des vulnérabilités dans plusieurs architectures de processeur inconnu Multithreading (SMT) activé.  Si elles sont exploitées avec succès, une charge de travail malveillant pourrait observer les données en dehors de sa limite de partition. Cette classe d’attaques peut être atténuée en configurant l’hyperviseur Hyper-V pour utiliser le type de planificateur d’hyperviseur core et invité reconfigurer les machines virtuelles. Avec le planificateur core, l’hyperviseur restreint VPs un invité de la machine virtuelle pour s’exécuter sur le même cœur de processeur physique, par conséquent isolant fortement capacité de la machine virtuelle pour accéder aux données pour les limites du cœur physique sur lequel il s’exécute.  Il s’agit d’une atténuation très efficace contre ces attaques côté canal, ce qui empêche que la machine virtuelle en observant les artefacts à partir d’autres partitions, si la racine ou une autre partition de l’invité.  Par conséquent, Microsoft modifie la valeur par défaut et recommandé des paramètres de configuration pour les hôtes de virtualisation et les machines virtuelles invitées.
+>Les vulnérabilités de sécurité de canal virtuel actuellement connues dans des architectures à plusieurs processeurs peuvent être exploitées par une machine virtuelle invitée malveillante via le comportement de planification du type de planificateur classique d’hyperviseur hérité lorsqu’ils sont exécutés sur des ordinateurs hôtes avec Multithread (SMT) activé.  Si elle est exploitée avec succès, une charge de travail malveillante pourrait observer des données en dehors de ses limites de partition. Cette classe d’attaques peut être atténuée en configurant l’hyperviseur Hyper-V pour qu’il utilise le type de planificateur du noyau de l’hyperviseur et reconfigure les machines virtuelles invitées. Avec le planificateur de base, l’hyperviseur restreint les VPs d’une machine virtuelle invitée à s’exécuter sur le même noyau de processeur physique, ce qui permet d’isoler fortement la capacité de la machine virtuelle à accéder aux données dans les limites du noyau physique sur lequel elle s’exécute.  Il s’agit d’une atténuation très efficace contre ces attaques de canaux secondaires, qui empêche la machine virtuelle d’observer les artefacts d’autres partitions, que ce soit la racine ou une autre partition invitée.  Par conséquent, Microsoft modifie les paramètres de configuration par défaut et recommandés pour les hôtes de virtualisation et les machines virtuelles invitées.
 
-## <a name="background"></a>Arrière-plan
+## <a name="background"></a>Présentation
 
-À compter de Windows Server 2016, Hyper-V prend en charge plusieurs méthodes de planification et gestion des processeurs virtuels, appelés types de planificateur d’hyperviseur.  Vous trouverez une description détaillée de tous les types de planificateur hyperviseur dans [compréhension et l’utilisation de types de planificateur d’hyperviseur Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
+À compter de Windows Server 2016, Hyper-V prend en charge plusieurs méthodes de planification et de gestion des processeurs virtuels, appelées types de planificateur d’hyperviseur.  Une description détaillée de tous les types de planificateur d’hyperviseur est disponible dans [présentation et utilisation des types de planificateur d’hyperviseur Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
 
 >[!NOTE]
->Nouveaux types de planificateur hyperviseur ont été introduites avec Windows Server 2016 et ne sont pas disponibles dans les versions antérieures. Toutes les versions d’Hyper-V avant Windows Server 2016 prend en charge uniquement le planificateur classique. Prise en charge pour le Planificateur de noyau a été que récemment publié.
+>De nouveaux types de planificateur d’hyperviseur ont été introduits pour la première fois avec Windows Server 2016 et ne sont pas disponibles dans les versions antérieures. Toutes les versions d’Hyper-V antérieures à Windows Server 2016 prennent uniquement en charge le planificateur classique. La prise en charge du planificateur de base a été récemment publiée.
 
 ## <a name="about-hypervisor-scheduler-types"></a>À propos des types de planificateur d’hyperviseur
 
-Cet article se concentre spécifiquement sur l’utilisation du nouveau type de planificateur hyperviseur core et le Planificateur de « classique » hérité, et comment ces types de planificateur croisent avec l’utilisation de Symmetric Multi-Threading ou SMT.  Il est important de comprendre les différences entre les planificateurs core et le déploiement classique et comment chacune place fonctionne à partir de machines virtuelles invitées sur les processeurs du système sous-jacent.
+Cet article se concentre spécifiquement sur l’utilisation du nouveau type de planificateur du noyau de l’hyperviseur par rapport au planificateur « classique » hérité, et sur la façon dont ces types de planificateur se croisent avec l’utilisation du Multi-Threading symétrique, ou SMT.  Il est important de comprendre les différences entre les planificateurs principaux et les planificateurs classiques et la façon dont chacun d’entre eux s’effectue à partir de machines virtuelles invitées sur les processeurs système sous-jacents.
 
 ### <a name="the-classic-scheduler"></a>Le planificateur classique
 
-Le planificateur classique fait référence à la méthode du tourniquet (Round Robin) partage équitable, de planifier le travail sur les processeurs virtuels (VPs) sur le système - y compris racine VPs, ainsi que des VPs appartenant à des machines virtuelles invitées. Le planificateur classique a été le type de planificateur par défaut utilisé sur toutes les versions d’Hyper-V (jusqu'à ce que Windows Server 2019, comme décrit dans le présent document).  Les caractéristiques de performances du planificateur classique sont bien comprises, et le planificateur classique est illustré pour prendre en charge ably de surabonnement des charges de travail - autrement dit, d’un surabonnement de ratio de VP:LP de l’hôte d’une marge raisonnable (en fonction de la types de charges de travail virtualisées, l’utilisation globale des ressources, etc.).
+Le planificateur classique fait référence à la méthode de planification de travail sur les processeurs virtuels (VPs) à l’échelle du système, y compris les VPs racine, ainsi que les VPs appartenant aux machines virtuelles invitées. Le planificateur classique est le type de planificateur par défaut utilisé sur toutes les versions d’Hyper-V (jusqu’à Windows Server 2019, comme décrit dans le présent document).  Les caractéristiques de performances du planificateur classique sont bien comprises, et le planificateur classique est démontré à la prise en charge de la surabonnement des charges de travail, c’est-à-dire au surabonnement du ratio VP/de l’hôte par une marge raisonnable (en fonction de la types de charges de travail virtualisées, utilisation globale des ressources, etc.).
 
-Exécuté sur un hôte de virtualisation avec SMT activé, le planificateur classique planifiera VPs invité à partir de toutes les machines virtuelles sur chaque thread SMT appartenant à un cœur indépendamment. Par conséquent, différentes machines virtuelles peuvent être en cours d’exécution sur le même cœur en même temps (une machine virtuelle en cours d’exécution sur un thread d’un cœur pendant l’exécution d’une autre machine virtuelle sur l’autre thread).
+Lorsqu’il est exécuté sur un ordinateur hôte de virtualisation avec SMT activé, le planificateur classique planifie les VPs invités à partir de n’importe quelle machine virtuelle sur chaque thread SMT appartenant indépendamment à un cœur. Par conséquent, différentes machines virtuelles peuvent s’exécuter sur le même cœur simultanément (une machine virtuelle s’exécutant sur un thread d’un cœur alors qu’une autre machine virtuelle est en cours d’exécution sur l’autre thread).
 
-### <a name="the-core-scheduler"></a>Le Planificateur de noyau
+### <a name="the-core-scheduler"></a>Planificateur principal
 
-Le Planificateur de noyau s’appuie sur les propriétés de SMT pour assurer l’isolation des charges de travail invité, ce qui a un impact sur la sécurité et les performances du système. Le planificateur core garantit que VPs à partir d’une machine virtuelle sont planifiées sur des threads SMT frère. Cela symétriquement afin que si LPs se trouvent dans des groupes de deux, VPs sont planifiées dans les deux groupes, et un cœur de processeur système n’est jamais partagé entre les machines virtuelles.
+Le Planificateur principal exploite les propriétés de SMT pour assurer l’isolation des charges de travail invitées, ce qui a un impact sur la sécurité et les performances du système. Le Planificateur principal s’assure que les VPs d’une machine virtuelle sont planifiés sur les threads SMT frères. Cette opération est effectuée symétriquement, de sorte que si la base de l’UC est de deux groupes de deux, les VPs sont planifiés dans des groupes de deux et un cœur du processeur système n’est jamais partagé entre les machines virtuelles.
 
-En planifiant VPs invité sur les paires SMT sous-jacent, le planificateur core offre une limite de sécurité renforcée pour l’isolation de la charge de travail et peut également servir à réduire la variabilité des performances pour les charges de travail sensibles de latence.
+En planifiant les VPs invités sur les paires de SMT sous-jacentes, le planificateur de base offre une limite de sécurité renforcée pour l’isolation de la charge de travail et peut également être utilisé pour réduire la variabilité des performances pour les charges de travail sensibles à la latence.
 
-Notez que paramètre lorsque le vice-président est planifiée pour une machine virtuelle sans SMT activé, que VP consommera les principales lorsqu’elle s’exécute et frère de la base thread SMT restera inactif.  Cela est nécessaire de fournir l’isolation de la charge de travail correct, mais a un impact sur les performances globales du système, surtout lorsque les système LPs deviennent trop sollicitées - autrement dit, lorsque les taux total VP:LP dépasse 1:1. Par conséquent, les machines virtuelles invitées configurés sans que plusieurs threads par cœur en cours d’exécution est une configuration optimale.
+Notez que lorsque le VP est planifié pour un ordinateur virtuel sans SMT activé, ce vice-président consommera l’intégralité du noyau lors de son exécution, et le thread de SMT frère du cœur restera inactif.  Cela est nécessaire pour fournir l’isolation de charge de travail correcte, mais a un impact sur les performances globales du système, en particulier lorsque le nombre de mètres du système est dépassé, c’est-à-dire lorsque le ratio VP total est supérieur à 1:1. Par conséquent, l’exécution de machines virtuelles invitées configurées sans plusieurs threads par cœur est une configuration sous-optimale.
 
-### <a name="benefits-of-the-using-the-core-scheduler"></a>Avantages de l’utilisation du Planificateur de noyau
+### <a name="benefits-of-the-using-the-core-scheduler"></a>Avantages de l’utilisation du planificateur de base
 
-Le planificateur core offre les avantages suivants :
+Le Planificateur principal offre les avantages suivants :
 
-* Une limite de sécurité renforcée pour l’isolation des charges de travail invité - invité VPs sont limités à une exécution sur des paires de cœur physique sous-jacent, ce qui réduit la vulnérabilité aux attaques par espionnage de canal latéral.
+* Une limite de sécurité renforcée pour l’isolation de la charge de travail invité-les VPs invités sont limités pour s’exécuter sur les paires de cœurs physiques sous-jacentes, ce qui réduit les risques d’attaques d’espionnage des canaux secondaires.
 
-* Variabilité réduit la charge de travail - variabilité de débit de charge de travail invité est considérablement réduite, offre une plus grande cohérence de la charge de travail.
+* Variabilité de la charge de travail réduite-la variabilité du débit de la charge de travail invitée est considérablement réduite, ce qui offre une plus grande cohérence
 
-* Utilisation de SMT dans invité des machines virtuelles - le système d’exploitation et les applications exécutées dans la machine virtuelle invitée peut utiliser le comportement de SMT et interfaces de programmation (API) pour contrôler et de répartir le travail entre les threads SMT, comme s’ils étaient exécutés quand non virtualisés.
+* Utilisation de SMT dans les machines virtuelles invitées : le système d’exploitation et les applications qui s’exécutent sur la machine virtuelle invitée peuvent utiliser le comportement SMT et les interfaces de programmation (API) pour contrôler et distribuer le travail entre les threads SMT, comme c’est le cas lors de l’exécution non virtualisée.
 
-Le Planificateur de noyau est actuellement utilisé sur les hôtes de virtualisation Azure, spécifiquement pour tirer parti de la limite de sécurité renforcée et variabilty de faible charge de travail. Microsoft est convaincu que le type de planificateur core doit être et continue à être l’hyperviseur par défaut type pour la majorité des scénarios de virtualisation de planification.  Par conséquent, pour garantir à que nos clients sont sécurisés par défaut, Microsoft apporte cette modification pour Windows Server 2019 maintenant.
+Le Planificateur principal est actuellement utilisé sur les hôtes de virtualisation Azure, en particulier pour tirer parti de la forte limite de sécurité et de la faible charge de travail variabilty. Microsoft est convaincu que le type de planificateur de base doit être et qu’il continuera à être le type de planification de l’hyperviseur par défaut pour la majorité des scénarios de virtualisation.  Par conséquent, pour garantir la sécurité de nos clients par défaut, Microsoft apporte cette modification pour Windows Server 2019.
 
-### <a name="core-scheduler-performance-impacts-on-guest-workloads"></a>Core impacts sur les performances du planificateur sur les charges de travail invité
+### <a name="core-scheduler-performance-impacts-on-guest-workloads"></a>Impact sur les performances du Planificateur principal sur les charges de travail invitées
 
-Tandis que nécessaire pour réduire certains types de vulnérabilités de manière efficace, le Planificateur de noyau peut également réduire les performances. Les clients peuvent constater une différence entre les caractéristiques de performances avec leurs machines virtuelles et leurs impacts à la capacité de charge de travail globale de leurs hôtes de virtualisation. Dans les cas où le Planificateur de noyau doit exécuter un non - SMT VP, seul les flux d’instructions dans le cœur logique sous-jacente s’exécute pendant que l’autre doit rester inactive. Cela limitera la capacité totale d’hôte pour les charges de travail invité.
+Bien qu’il soit nécessaire d’atténuer efficacement certaines classes de vulnérabilités, le planificateur de base peut également potentiellement réduire les performances. Les clients peuvent constater une différence entre les caractéristiques de performances et leurs machines virtuelles et leur impact sur la capacité globale de la charge de travail de leurs hôtes de virtualisation. Dans les cas où le Planificateur principal doit exécuter un vice-président non-SMT, seul l’un des flux d’instructions du cœur logique sous-jacent s’exécute alors que l’autre doit être laissé inactif. Cela limite la capacité totale de l’ordinateur hôte pour les charges de travail invitées.
 
-Ces impacts sur les performances peuvent être réduites en suivant les instructions de déploiement dans ce document. Les administrateurs d’hôtes doivent soigneusement prendre en compte leur virtualisation spécifique de scénarios de déploiement et équilibre leur tolérance en matière de risque de sécurité et la nécessité de densité de la charge de travail maximale, une consolidation des hôtes de virtualisation, etc.
+Ces impacts sur les performances peuvent être réduits en suivant les instructions de déploiement dans ce document. Les administrateurs d’ordinateurs hôtes doivent prendre en compte soigneusement leurs scénarios de déploiement de virtualisation spécifiques et équilibrer leur tolérance pour les risques de sécurité par rapport au besoin de densité de charge de travail maximale, de consolidation des hôtes de virtualisation, etc.
 
-## <a name="changes-to-the-default-and-recommended-configurations-for-windows-server-2016-and-windows-server-2019"></a>Modifications apportées à la valeur par défaut et les configurations recommandées pour Windows Server 2016 et Windows Server 2019
+## <a name="changes-to-the-default-and-recommended-configurations-for-windows-server-2016-and-windows-server-2019"></a>Modifications apportées aux configurations par défaut et recommandées pour Windows Server 2016 et Windows Server 2019
 
-Déploiement d’hôtes Hyper-V avec la posture de sécurité maximale nécessite l’utilisation du type de planificateur core hyperviseur. Pour garantir à que nos clients sont sécurisés par défaut, Microsoft modifie la valeur par défaut suivant et les paramètres recommandés.
-
->[!NOTE]
->Alors que la prise en charge interne de l’hyperviseur pour les types de planificateur a été incluse dans la version initiale de Windows Server 2016, Windows Server 1709 et Windows Server 1803, mises à jour sont nécessaires pour accéder au contrôle de configuration qui permet de sélectionner le type de planificateur d’hyperviseur.  Reportez-vous à [compréhension et l’utilisation de types de planificateur d’hyperviseur Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types) pour plus d’informations sur ces mises à jour.
-
-### <a name="virtualization-host-changes"></a>Modifications d’hôte de virtualisation
-
-* L’hyperviseur utilise le Planificateur de noyau par défaut à compter avec Windows Server 2019.
-
-* Reccommends Microsoft configuration le planificateur core sur Windows Server 2016. Le type de planificateur hyperviseur core est pris en charge dans Windows Server 2016, cependant, la valeur par défaut est le planificateur classique. Le Planificateur de noyau est facultatif et doit être explicitement activé par l’administrateur de l’hôte Hyper-V.
-
-### <a name="virtual-machine-configuration-changes"></a>Modifications de configuration de machine virtuelle
-
-* Sur Windows Server 2019, nouveaux ordinateurs virtuels créés à l’aide de la version de machine virtuelle par défaut 9.0 héritera automatiquement les propriétés SMT (activé ou désactivé) de l’hôte de virtualisation. Autrement dit, si SMT est activé sur l’hôte physique, qui vient d’être créé les machines virtuelles auront également SMT activé et hérite la topologie SMT de l’hôte par défaut, avec la machine virtuelle ayant le même nombre de threads matériels par cœur en tant que le système sous-jacent. Il apparaîtra dans la configuration de la machine virtuelle avec HwThreadCountPerCore = 0, 0 correspondant à la machine virtuelle doit hériter des paramètres de SMT de l’hôte.
-
-* Machines virtuelles existantes avec une version de la machine virtuelle de 8.2 ou une version antérieure sera conservent leur paramètre de processeur de machine virtuelle d’origine pour HwThreadCountPerCore, et la valeur par défaut pour les visiteurs de version 8.2 machine virtuelle est HwThreadCountPerCore = 1. Lorsque ces invités exécutent sur un hôte Windows Server 2019, ils seront traités comme suit :
-
-    1. Si la machine virtuelle a un nombre de VP est inférieur ou égal au nombre de cœurs de LP, la machine virtuelle est considérée comme une non - SMT machine virtuelle par le Planificateur de noyau. Lorsque le vice-président invité s’exécute sur un seul thread SMT, frère de la base thread SMT sera inactif. Cela n’est pas optimal et provoquer une indisponibilité globale des performances.
-
-    2. Si la machine virtuelle a VPs plus de cœurs de LP, la machine virtuelle est considérée comme une VM SMT par le Planificateur de noyau. Toutefois, la machine virtuelle ne sera pas équilibrée autres indications qu’il s’agit d’une VM SMT. Par exemple, utilisation de l’API de Windows ou d’une instruction CPUID pour interroger la topologie du processeur par le système d’exploitation ou les applications n’indiquera pas que l’option SMT est activée.
-
-* Lorsqu’une machine virtuelle existante est explicitement mis à jour à partir de versions de machine virtuelle de versions antérieures à la version 9.0 via l’opération de mise à jour-machine virtuelle, la machine virtuelle conserve sa valeur actuelle pour HwThreadCountPerCore.  La machine virtuelle n’a pas de SMT prenant en charge de force.
-
-* Sur Windows Server 2016, Microsoft recommande l’activation de SMT pour les machines virtuelles invitées.  Par défaut, les machines virtuelles créées sur Windows Server 2016 serait ont SMT désactivés, qui est que hwthreadcountpercore est défini sur 1, sans modification explicite.
+Le déploiement d’ordinateurs hôtes Hyper-V avec la position de sécurité maximale nécessite l’utilisation du type de planificateur du noyau de l’hyperviseur. Pour garantir la sécurité de nos clients par défaut, Microsoft modifie les paramètres par défaut et recommandés suivants.
 
 >[!NOTE]
->Windows Server 2016 ne prend pas en charge le paramètre HwThreadCountPerCore sur 0.
+>Alors que la prise en charge interne de l’hyperviseur pour les types de planificateur était incluse dans la version initiale de Windows Server 2016, Windows Server 1709 et Windows Server 1803, des mises à jour sont nécessaires pour accéder au contrôle de configuration qui permet de sélectionner le type de planificateur d’hyperviseur.  Pour plus d’informations sur ces mises à jour [, consultez comprendre et utiliser les types de planificateur de l’hyperviseur Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types) .
 
-#### <a name="managing-virtual-machine-smt-configuration"></a>Gestion de la configuration de SMT de machine virtuelle
+### <a name="virtualization-host-changes"></a>Modifications de l’hôte de virtualisation
 
-La configuration de SMT d’ordinateur virtuel invité est définie sur une base par machine virtuelle. L’administrateur de l’hôte peut inspecter et configurer la configuration de SMT d’une machine virtuelle pour sélectionner parmi les options suivantes :
+* L’hyperviseur utilisera par défaut le Planificateur principal à partir de Windows Server 2019.
 
-    1. Configurer des machines virtuelles pour exécuter comme SMT compatibles, éventuellement héritant automatiquement la topologie SMT hôte
+* Microsoft reccommends la configuration du planificateur de base sur Windows Server 2016. Le type de planificateur du noyau de l’hyperviseur est pris en charge dans Windows Server 2016, mais la valeur par défaut est le planificateur classique. Le Planificateur principal est facultatif et doit être explicitement activé par l’administrateur de l’hôte Hyper-V.
 
-    2. Configurer des machines virtuelles pour exécuter en tant que non-SMT
+### <a name="virtual-machine-configuration-changes"></a>Modifications de la configuration des machines virtuelles
 
-La configuration SMT pour une machine virtuelle s’affiche dans les volets de résumé dans la console du Gestionnaire Hyper-V.  Configuration des paramètres de SMT d’une machine virtuelle peut être effectuée à l’aide des paramètres de la machine virtuelle ou de PowerShell.
+* Sur Windows Server 2019, les nouvelles machines virtuelles créées à l’aide de la version 9,0 de la machine virtuelle par défaut héritent automatiquement des propriétés SMT (activées ou désactivées) de l’hôte de virtualisation. Autrement dit, si SMT est activé sur l’hôte physique, les machines virtuelles nouvellement créées disposent également de SMT activée, et héritent de la topologie SMT de l’hôte par défaut, avec la machine virtuelle qui a le même nombre de threads matériels par cœur que le système sous-jacent. Cela sera reflété dans la configuration de la machine virtuelle avec HwThreadCountPerCore = 0, où 0 indique que la machine virtuelle doit hériter des paramètres SMT de l’hôte.
 
-#### <a name="configuring-vm-smt-settings-using-powershell"></a>Configuration des paramètres de VM SMT à l’aide de PowerShell
+* Les machines virtuelles existantes avec une version de machine virtuelle de 8,2 ou antérieure conservent leur paramètre de processeur d’ordinateur virtuel d’origine pour HwThreadCountPerCore, et la valeur par défaut de la version de machine virtuelle 8,2 invités est HwThreadCountPerCore = 1. Lorsque ces invités s’exécutent sur un ordinateur hôte Windows Server 2019, ils sont traités comme suit :
 
-Pour configurer les paramètres de SMT pour une machine virtuelle invitée, ouvrez une fenêtre PowerShell avec des autorisations suffisantes, puis tapez :
+    1. Si la machine virtuelle a un nombre de VP inférieur ou égal au nombre de cœurs LP, la machine virtuelle sera traitée comme une machine virtuelle non-SMT par le Planificateur principal. Lorsque le VP invité s’exécute sur un seul thread SMT, le thread SMT frère du noyau est inactif. Cela n’est pas optimal et entraîne une perte de performances globale.
+
+    2. Si la machine virtuelle a plus de VPs que de cœurs LP, la machine virtuelle sera traitée comme une machine virtuelle SMT par le Planificateur principal. Toutefois, la machine virtuelle n’observera pas d’autres indications qu’il s’agit d’une machine virtuelle SMT. Par exemple, l’utilisation de l’instruction CPUID ou des API Windows pour interroger le processeur topologie par le système d’exploitation ou les applications n’indique pas que SMT est activé.
+
+* Quand une machine virtuelle existante est mise à jour explicitement à partir des versions de machine virtuelle la vers la version 9,0 via l’opération de mise à jour-machine virtuelle, la machine virtuelle conserve sa valeur actuelle pour HwThreadCountPerCore.  La machine virtuelle n’est pas compatible avec la force SMT.
+
+* Sur Windows Server 2016, Microsoft recommande d’activer SMT pour les machines virtuelles invitées.  Par défaut, SMT est désactivé sur les machines virtuelles créées sur Windows Server 2016, HwThreadCountPerCore a la valeur 1, sauf si elle a été modifiée explicitement.
+
+>[!NOTE]
+>Windows Server 2016 ne prend pas en charge la définition de HwThreadCountPerCore sur 0.
+
+#### <a name="managing-virtual-machine-smt-configuration"></a>Gestion de la configuration de l’ordinateur virtuel
+
+La configuration de l’ordinateur virtuel invité est définie pour chaque machine virtuelle. L’administrateur de l’hôte peut inspecter et configurer la configuration SMT d’une machine virtuelle pour effectuer une sélection parmi les options suivantes :
+
+    1. Configurer des machines virtuelles pour qu’elles s’exécutent en tant que SMT, en héritant éventuellement de la topologie du SMT hôte automatiquement
+
+    2. Configurer des machines virtuelles pour qu’elles s’exécutent en tant que non-SMT
+
+Le configuration SMT pour une machine virtuelle s’affiche dans les volets Résumé de la console du Gestionnaire Hyper-V.  La configuration des paramètres SMT d’une machine virtuelle peut être effectuée à l’aide des paramètres de machine virtuelle ou de PowerShell.
+
+#### <a name="configuring-vm-smt-settings-using-powershell"></a>Configuration des paramètres de machine virtuelle SMT à l’aide de PowerShell
+
+Pour configurer les paramètres SMT pour une machine virtuelle invitée, ouvrez une fenêtre PowerShell avec des autorisations suffisantes, puis tapez :
 
 ``` powershell
 Set-VMProcessor -VMName <VMName> -HwThreadCountPerCore <0, 1, 2>
@@ -129,59 +129,59 @@ Où :
 
     Values > 1 = the desired number of SMT threads per core. May not exceed the number of physical SMT threads per core.
 
-Pour lire les paramètres de SMT pour une machine virtuelle invitée, ouvrez une fenêtre PowerShell avec des autorisations suffisantes, puis tapez :
+Pour lire les paramètres SMT d’une machine virtuelle invitée, ouvrez une fenêtre PowerShell avec des autorisations suffisantes, puis tapez :
 
 ``` powershell
 (Get-VMProcessor -VMName <VMName>).HwThreadCountPerCore
 ```
 
-Notez qu’invité de machines virtuelles configurées avec HwThreadCountPerCore = 0 indique que SMT est activée pour l’invité et exposera le même nombre de threads SMT à l’invité comme ils se trouvent sur l’hôte de virtualisation sous-jacente, en général 2.
+Notez que les machines virtuelles invitées configurées avec HwThreadCountPerCore = 0 indiquent que SMT est activé pour l’invité et exposent le même nombre de threads SMT à l’invité comme sur l’hôte de virtualisation sous-jacent, en général 2.
 
-### <a name="guest-vms-may-observe-changes-to-cpu-topology-across-vm-mobility-scenarios"></a>Machines virtuelles invitées peut observer les modifications apportées à la topologie de l’UC entre les scénarios de mobilité de machine virtuelle
+### <a name="guest-vms-may-observe-changes-to-cpu-topology-across-vm-mobility-scenarios"></a>Les machines virtuelles invitées peuvent observer les modifications apportées à la topologie de l’UC dans les scénarios de mobilité
 
-Le système d’exploitation et les applications dans une machine virtuelle peuvent voir les modifications à l’hôte et les paramètres de machine virtuelle avant et après que les événements de cycle de vie de machine virtuelle comme migration dynamique ou l’enregistrement et les opérations de restauration. Pendant une opération dans les machines virtuelles est enregistré et restauré, les paramètres de la machine virtuelle HwThreadCountPerCore et la valeur réalisée (autrement dit, la combinaison calculée du paramètre de la machine virtuelle et de configuration de l’hôte source) sont migrés. La machine virtuelle continue à s’exécuter avec ces paramètres sur l’hôte de destination. Au point de la machine virtuelle est arrêté et redémarré, il est possible que la valeur réalisée observée par la machine virtuelle changera. Cette valeur doit être sans gravité, en tant que système d’exploitation et applications logiciels de la couche doivent rechercher les informations sur la topologie du processeur dans le cadre de leurs flux de code d’initialisation et de démarrage normal. Toutefois, étant donné que ces initialisation démarrage séquences sont ignorés lors des opérations de migration ou de sauvegarde/restauration en direct, les machines virtuelles que suivent les ces transitions d’état pourrait observer calculée à l’origine valeur réalisée jusqu'à ce qu’ils sont arrêtés et redémarré.  
+Le système d’exploitation et les applications d’une machine virtuelle peuvent voir les modifications apportées aux paramètres d’ordinateur hôte et de machine virtuelle avant et après les événements de cycle de vie de la machine virtuelle, tels que les opérations de migration dynamique ou d’enregistrement Au cours d’une opération dans laquelle l’état de la machine virtuelle est enregistré et restauré, le paramètre HwThreadCountPerCore de la machine virtuelle et la valeur réalisée (autrement dit, la combinaison calculée du paramètre de la machine virtuelle et de la configuration de l’hôte source) sont migrés. La machine virtuelle continue de s’exécuter avec ces paramètres sur l’ordinateur hôte de destination. Au moment où la machine virtuelle est arrêtée et redémarrée, il est possible que la valeur réalisée observée par la machine virtuelle change. Cela doit être Bénin, car le système d’exploitation et le logiciel de la couche d’application doivent rechercher les informations de topologie de l’UC dans le cadre de leurs flux de démarrage et de code d’initialisation normaux. Toutefois, étant donné que ces séquences d’initialisation du temps de démarrage sont ignorées pendant les opérations de migration en direct ou d’enregistrement/restauration, les machines virtuelles qui subissent ces transitions d’État peuvent observer la valeur réalisée initialement calculée jusqu’à ce qu’elles soient arrêtées et redémarrées.  
 
-### <a name="alerts-regarding-non-optimal-vm-configurations"></a>Alertes concernant des configurations non optimales de machine virtuelle
+### <a name="alerts-regarding-non-optimal-vm-configurations"></a>Alertes relatives aux configurations de machine virtuelle non optimales
 
-Machines virtuelles configurées avec des VPs plus qu’il ne sont cœurs physiques sur le résultat de l’hôte dans une configuration non optimales. Le planificateur d’hyperviseur traitera ces machines virtuelles comme s’ils sont compatibles avec SMT. Toutefois, système d’exploitation et logiciels d’application dans la machine virtuelle s’afficheront une topologie de processeur montrant SMT est désactivé. Lorsque cette condition est détectée, le processus de travail Hyper-V enregistrera un événement sur l’hôte de virtualisation avertissement de l’administrateur de l’hôte que la configuration de la machine virtuelle n’est pas optimal, et recommander SMT être activée pour la machine virtuelle.
+Les machines virtuelles configurées avec plus de VPs qu’il n’y a de cœurs physiques sur l’ordinateur hôte entraînent une configuration non optimale. Le planificateur d’hyperviseur traitera ces machines virtuelles comme si elles étaient compatibles avec la technologie SMT. Toutefois, le système d’exploitation et les logiciels d’application de la machine virtuelle sont présentés dans une topologie de processeur qui indique que SMT est désactivé. Lorsque cette condition est détectée, le processus de travail Hyper-V enregistre un événement sur l’hôte de virtualisation en avertissant l’administrateur de l’ordinateur hôte que la configuration de la machine virtuelle n’est pas optimale et recommande l’activation de SMT pour la machine virtuelle.
 
-#### <a name="how-to-identify-non-optimally-configured-vms"></a>Comment identifier de façon non optimale configuré des machines virtuelles
+#### <a name="how-to-identify-non-optimally-configured-vms"></a>Comment identifier les machines virtuelles configurées de manière non optimale
 
-Vous pouvez identifier les non - SMT machines virtuelles en examinant le journal système dans l’Observateur d’événements pour l’événement de processus de travail Hyper-V 3498 ID, qui sera déclenchée pour une machine virtuelle chaque fois que le nombre de VPs dans la machine virtuelle est supérieur au nombre de cœur physique. Événements du processus de travail peuvent être obtenus à partir de l’Observateur d’événements, ou via PowerShell.
+Vous pouvez identifier les machines virtuelles non-SMT en examinant le journal système dans observateur d’événements pour l’ID d’événement 3498 du processus de travail Hyper-V, qui sera déclenché pour une machine virtuelle chaque fois que le nombre de VPs dans la machine virtuelle est supérieur au nombre de cœurs physiques. Les événements du processus de travail peuvent être obtenus à partir de observateur d’événements ou via PowerShell.
 
-#### <a name="querying-the-hyper-v-worker-process-vm-event-using-powershell"></a>Interrogation de l’événement de machine virtuelle de processus de travail Hyper-V à l’aide de PowerShell
+#### <a name="querying-the-hyper-v-worker-process-vm-event-using-powershell"></a>Interrogation de l’événement de machine virtuelle du processus de travail Hyper-V à l’aide de PowerShell
 
-À la requête pour l’événement de processus de travail Hyper-V 3498 d’ID à l’aide de PowerShell, entrez les commandes suivantes à partir d’une invite de PowerShell.
+Pour Rechercher l’ID d’événement 3498 du processus de travail Hyper-V à l’aide de PowerShell, entrez les commandes suivantes à partir d’une invite PowerShell.
 
 ``` powershell
 Get-WinEvent -FilterHashTable @{ProviderName="Microsoft-Windows-Hyper-V-Worker"; ID=3498}
 ```
 
-### <a name="impacts-of-guest-smt-configuaration-on-the-use-of-hypervisor-enlightenments-for-guest-operating-systems"></a>Impacts d’invité SMT personnels sur l’utilisation de l’hyperviseur les enlightments pour les systèmes d’exploitation invités
+### <a name="impacts-of-guest-smt-configuaration-on-the-use-of-hypervisor-enlightenments-for-guest-operating-systems"></a>Impact de l’invité SMT configuration sur l’utilisation des avantages de l’hyperviseur pour les systèmes d’exploitation invités
 
-L’hyperviseur Microsoft offre plusieurs enlightments, ou indicateurs, ce qui le système d’exploitation en cours d’exécution sur une machine virtuelle invitée peut interroger et utiliser pour déclencher des optimisations, telles que celles qui peuvent bénéficier de performances ou sinon améliore la gestion de diverses conditions lors de l’exécution virtualisé. Un seul révération récemment introduite concerne la gestion de la planification de processeur virtuel et l’utilisation de solutions d’atténuation du système d’exploitation pour les attaques côté canal qui exploitent SMT.
+L’hyperviseur Microsoft offre plusieurs conseils, ou indicateurs, que le système d’exploitation s’exécutant sur une machine virtuelle invitée peut interroger et utiliser pour déclencher des optimisations, telles que celles qui peuvent tirer parti des performances ou améliorer la gestion de diverses conditions lors de l’exécution virtualisé. Un problème récemment apparu concerne la gestion de la planification du processeur virtuel et l’utilisation des atténuations du système d’exploitation pour les attaques de canaux secondaires qui exploitent SMT.
 
 >[!NOTE]
->Microsoft recommande que les administrateurs d’hôtes activent SMT pour les machines virtuelles invitées optimiser les performances de la charge de travail.
+>Microsoft recommande que les administrateurs d’hôtes activent SMT pour les machines virtuelles invitées pour optimiser les performances de la charge de travail.
 
-Les détails de cette révération invité sont fournis ci-dessous, toutefois l’essentiel à retenir pour les administrateurs de virtualisation hôte n’est que les machines virtuelles doivent avoir HwThreadCountPerCore configurée pour correspondre à physique SMT configuration l’hôte. Ainsi, l’hyperviseur signaler qu’il n’existe aucun core-architecturaux partage. Par conséquent, aucune optimisation de prise en charge du système d’exploitation invité qui nécessitent les connaissances peut être activée. Sur Windows Server 2019, créer des machines virtuelles et conservez la valeur par défaut HwThreadCountPerCore (0). Anciennes machines virtuelles migrées à partir de Windows Server 2016 hôtes peuvent être mis à jour vers la version de configuration de Windows Server 2019. Après cela, Microsoft recommande de définir HwThreadCountPerCore = 0.  Sur Windows Server 2016, Microsoft vous recommande de paramètre HwThreadCountPerCore pour correspondre à la configuration d’hôte (en général, 2).
+Les détails de cette information de l’invité sont fournis ci-dessous, mais le principal obligé pour les administrateurs des hôtes de virtualisation est que les ordinateurs virtuels doivent avoir des HwThreadCountPerCore configurés pour correspondre à la configuration du SMT physique de l’ordinateur hôte. Cela permet à l’hyperviseur de signaler qu’il n’existe aucun partage de noyau non architectural. Par conséquent, tout système d’exploitation invité prenant en charge les optimisations qui requièrent l’activation peut être activé. Sur Windows Server 2019, créez de nouvelles machines virtuelles et laissez la valeur par défaut HwThreadCountPerCore (0). Les machines virtuelles plus anciennes migrées à partir des hôtes Windows Server 2016 peuvent être mises à jour vers la version de configuration de Windows Server 2019. Après cela, Microsoft recommande de définir HwThreadCountPerCore = 0.  Sur Windows Server 2016, Microsoft recommande de définir HwThreadCountPerCore pour qu’il corresponde à la configuration de l’hôte (en général, 2).
 
-### <a name="nononarchitecturalcoresharing-enlightenment-details"></a>Détails de révération NoNonArchitecturalCoreSharing
+### <a name="nononarchitecturalcoresharing-enlightenment-details"></a>Détails de l’NoNonArchitecturalCoreSharing
 
-À compter de Windows Server 2016, l’hyperviseur définit une nouveau révération pour décrire sa gestion des VP de planification et le placement du système d’exploitation invité. Cette révération est définie dans le [v5.0c de spécification fonctionnelle de hyperviseur haut niveau](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/tlfs).
+À partir de Windows Server 2016, l’hyperviseur définit une nouvelle assistance pour décrire sa gestion de la planification et de l’emplacement du VP au système d’exploitation invité. Cette recommandation est définie dans la [spécification fonctionnelle de niveau supérieur de l’hyperviseur v 5.0 c](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/tlfs).
 
-Feuille CPUID synthétique hyperviseur CPUID.0x40000004.EAX:18[NoNonArchitecturalCoreSharing = 1] indique qu’un processeur virtuel partagent jamais un cœur physique avec un autre processeur virtuel, à l’exception des processeurs virtuels qui sont signalés en tant que frère SMT threads. Par exemple, un vice-président invité sera jamais exécuté sur un thread SMT parallèlement à un vice-président racine en cours d’exécution simultanément sur un thread SMT sur le même cœur de processeur frère. Cette condition n’est possible que lors de l’exécution virtualisé et représente donc un comportement SMT-architecturaux qui a également des implications de sécurité sérieux. Le système d’exploitation invité peut utiliser NoNonArchitecturalCoreSharing = 1 en tant qu’indication qu’il est sûr activer les optimisations qui peuvent aider à éviter la surcharge de performances de la configuration STIBP.
+Hyperviseur CPUID feuille cpuid. 0x40000004. EAX : 18 [NoNonArchitecturalCoreSharing = 1] indique qu’un processeur virtuel ne partagera jamais un cœur physique avec un autre processeur virtuel, sauf pour les processeurs virtuels qui sont signalés en tant que SMT thèmes. Par exemple, un vice-président invité ne s’exécutera jamais sur un thread SMT en même temps qu’un VP racine exécuté simultanément sur un thread SMT frère sur le même cœur de processeur. Cette condition est uniquement possible lors de l’exécution virtualisée et représente donc un comportement SMT non architectural qui a également des implications graves en matière de sécurité. Le système d’exploitation invité peut utiliser NoNonArchitecturalCoreSharing = 1 pour indiquer qu’il est possible d’activer des optimisations, ce qui peut permettre d’éviter la surcharge de performances liée à la définition de STIBP.
 
-Dans certaines configurations, l’hyperviseur n’indiquera pas ce NoNonArchitecturalCoreSharing = 1. Par exemple, si un hôte a SMT activé et est configuré pour utiliser le Planificateur de classique de l’hyperviseur, NoNonArchitecturalCoreSharing est égal à 0. Cela peut empêcher les invités compatibles de l’activation de certaines optimisations. Par conséquent, Microsoft recommande que les administrateurs d’hôtes à l’aide de SMT s’appuient sur le Planificateur de noyau d’hyperviseur et assurez-vous que les machines virtuelles sont configurés pour héritent leur configuration SMT de l’hôte pour garantir des performances optimales de la charge de travail.
+Dans certaines configurations, l’hyperviseur n’indique pas que NoNonArchitecturalCoreSharing = 1. Par exemple, si SMT est activé pour un hôte et configuré pour utiliser le planificateur Classic hyperviseur, NoNonArchitecturalCoreSharing sera 0. Cela peut empêcher les invités activés d’activer certaines optimisations. Par conséquent, Microsoft recommande que les administrateurs d’hôtes utilisant SMT s’appuient sur le planificateur du noyau de l’hyperviseur et s’assurent que les machines virtuelles sont configurées pour hériter de leur configuration SMT de l’hôte afin de garantir des performances optimales.
 
 ## <a name="summary"></a>Récapitulatif
 
-Le paysage de menaces de sécurité continue d’évoluer. Pour garantir à que nos clients sont sécurisés par défaut, Microsoft modifie la configuration par défaut pour l’hyperviseur et les machines virtuelles à partir de Windows Server 2019 Hyper-V, et fournissant des mises à jour des conseils et des recommandations pour les clients qui exécutent Windows Server 2016 Hyper-V. Administrateurs d’hôtes de virtualisation doivent :
+Le paysage des menaces de sécurité continue à évoluer. Pour garantir la sécurité par défaut de nos clients, Microsoft change la configuration par défaut de l’hyperviseur et des machines virtuelles à partir de Windows Server 2019 Hyper-V, et fournit des conseils et recommandations mis à jour pour les clients exécutant Windows. Serveur 2016 Hyper-V. Les administrateurs de l’hôte de virtualisation doivent :
 
-* Lire et comprendre les instructions fournies dans ce document
+* Lisez et comprenez les conseils fournis dans ce document
 
-* Évaluer avec soin et d’ajuster leurs déploiements de virtualisation pour vérifier qu’ils respectent la sécurité, les performances, densité de virtualisation et objectifs de réactivité de charge de travail de leurs exigences uniques
+* Évaluez et ajustez soigneusement leurs déploiements de virtualisation pour vous assurer qu’ils répondent aux objectifs de sécurité, de performances, de densité de virtualisation et de réactivité de la charge de travail pour leurs besoins uniques.
 
-* Prendre en compte la reconfiguration des hôtes Windows Server 2016 Hyper-V existants pour tirer parti des avantages de sécurité renforcée offertes par le Planificateur de noyau d’hyperviseur
+* Envisagez de reconfigurer les ordinateurs hôtes Hyper-V Windows Server 2016 existants pour tirer parti des avantages de sécurité renforcés offerts par le planificateur de noyau de l’hyperviseur.
 
-* Mettre à jour non - SMT des machines virtuelles existantes afin de réduire l’impact sur les performances de la planification des contraintes imposées par l’isolation VP qui traite des vulnérabilités de sécurité matériel
+* Mettre à jour les machines virtuelles non-SMT existantes pour réduire l’impact sur les performances des contraintes de planification imposées par l’isolation du VP qui résout les vulnérabilités de sécurité matérielle

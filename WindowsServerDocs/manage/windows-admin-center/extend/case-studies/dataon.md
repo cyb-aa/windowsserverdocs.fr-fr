@@ -1,6 +1,6 @@
 ---
-title: Étude de cas de kit de développement logiciel Windows Admin Center - sur
-description: Étude de cas de kit de développement logiciel Windows Admin Center - sur
+title: Étude de cas du kit de développement logiciel (SDK) Windows Admin Center-DataON
+description: Étude de cas du kit de développement logiciel (SDK) Windows Admin Center-DataON
 ms.technology: extend
 ms.topic: article
 author: daniellee-msft
@@ -8,41 +8,41 @@ ms.author: jol
 ms.date: 01/11/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 1adf538792763bf05a43d431d9751d275a6fcd04
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 12de939aa451ba75b4bafed85cd57bdd8280bc81
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858220"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70864936"
 ---
-# <a name="dataon-must-extension"></a>DataON doit Extension
+# <a name="dataon-must-extension"></a>DataON doit être une extension
 
-## <a name="integrated-monitoring-and-management-for-microsoft-hyper-converged-infrastructure"></a>Surveillance intégrée et la gestion d’infrastructure Hyper-convergée de Microsoft
+## <a name="integrated-monitoring-and-management-for-microsoft-hyper-converged-infrastructure"></a>Surveillance et gestion intégrées pour l’infrastructure hyper-convergée Microsoft
 
-[DataON](http://www.dataonstorage.com/) est le fournisseur leader du secteur de stockage et infrastructure de systèmes hyperconvergés optimisé pour les environnements Microsoft Windows Server. Exclusivement axé sur la fourniture d’applications Microsoft, de virtualisation, de protection des données et de services de cloud hybride, il a plus de 650 les déploiements d’entreprise et 120PB sur des déploiements d’espaces de stockage Direct.
+[DataON](http://www.dataonstorage.com/) est le fournisseur leader du secteur de l’infrastructure hyper-convergée et des systèmes de stockage optimisés pour les environnements Microsoft Windows Server. Conçu exclusivement pour la diffusion d’applications Microsoft, la virtualisation, la protection des données et les services Cloud hybrides, il compte plus de 650 déploiements d’entreprise et plus de 120PB de déploiements de espaces de stockage direct.
 
-[DataON doit](http://www.dataonstorage.com/must) extension pour Windows Admin Center est un parfait exemple de la valeur que l’intégration des deux produits complémentaires peut fournir aux clients en apportant insight analyse et de gestion et de bout en bout dans les configurations matérielle et logicielle ensemble sur un cluster entier dans un environnement unifié.
+L’extension de [DataON](http://www.dataonstorage.com/must) pour le centre d’administration Windows est un excellent exemple de la valeur que l’intégration de deux produits complémentaires peut offrir aux clients, ce qui permet d’obtenir des informations de surveillance et de gestion, ainsi que des informations de bout en bout sur le matériel et les logiciels. un cluster entier dans une expérience unifiée.
 
-> <cite>« Nous avons pris notre outil autonome doit visibilité, la surveillance et la gestion et qu’il fonctionne dans Windows Admin Center activé. Clients pourront tirer parti les capacités étendues doit fournit, et la combinaison de doit et Windows Admin Center à partir d’une seule console fournira l’expérience de gestion intégrale pour l’infrastructure Windows Server. »</cite>
+> <cite>«Nous avons suivi notre outil de visibilité, de surveillance et de gestion pour pouvoir travailler dans le centre d’administration Windows. Les clients bénéficieront des capacités étendues que doit fournir, et la combinaison de doit et du centre d’administration Windows à partir d’une console unique offrira une expérience de gestion optimale pour l’infrastructure basée sur Windows Server.»</cite>
 >
-> --Howard Lo, Areil vice-président des ventes et Marketing, DataON
+> --Howard Lo, vice-président Sales and Marketing, DataON
 
-L’extension doit étend les fonctionnalités de Windows Admin Center en fournissant des fonctionnalités telles que :
-- **Les rapports de données historiques** – fournit des tableaux de bord en temps réel et mensuelles de vos données de performances système, y compris les e/s, la latence, débit sur votre cluster, le pool de stockage, le volume et le nœuds.
-- **Mappage de disque** – doit affiche les types d’appareils et les composants dans chacun des nœuds, en fournissant un mappage de disque clair de votre nœud entier. Il indique le nombre de disques, type de disque, emplacement et emplacement de chaque lecteur et un état d’intégrité de disque.
-- **Alertes système** – erreurs de Service de contrôle d’intégrité de Windows tire parti pour identifier les défaillances matérielles, les problèmes de configuration et la saturation de la ressource. Il fournit également une évaluation à plusieurs niveaux d’emplacements spécifiques, les descriptions d’erreur et les actions de récupération. Vous pouvez également utiliser des fournisseurs tiers d’analyse SNMP interruptions pour vous avertir lorsque vous avez besoin des remplacements de matériel ou de disque.
-- **SAN de type accueil Service d’appel** – alertes système vous y invite, les administrateurs peuvent avoir automatisé des alertes par courrier électronique envoyés aux contacts de clé.
+L’extension doit étendre les fonctionnalités du centre d’administration Windows en fournissant des fonctionnalités telles que :
+- **Rapport historique des données** : fournit des tableaux de bord en temps réel et mensuels de vos données de performances système, notamment les e/s par seconde, la latence, le débit sur votre cluster, le pool de stockage, le volume et les nœuds.
+- **Mappage de disque** : doit afficher les types d’appareils et les composants dans chacun des nœuds, ce qui fournit une carte de disque claire de l’ensemble du nœud. Elle indique le nombre de disques, le type de disque, l’emplacement et l’emplacement de chaque lecteur, ainsi que l’état d’intégrité du disque.
+- **Alertes système** : exploite les erreurs de Windows service de contrôle d’intégrité pour identifier les défaillances matérielles, les problèmes de configuration et la saturation des ressources. Il fournit également une évaluation à plusieurs niveaux d’emplacements spécifiques, de descriptions d’erreurs et d’actions de récupération. Vous pouvez également utiliser des interruptions de surveillance SNMP tierces pour vous avertir lorsque vous avez besoin de remplacements de disque ou de matériel.
+- **Service d’appel à distance d’un réseau San** – demandé par les alertes système, les administrateurs peuvent envoyer des alertes par courrier électronique automatiques aux contacts clés.
 
-![Extension de DataON](../../media/extend-case-study-dataon/dataon-1.png)
-*mappage de disque dans l’extension sur doit pour Windows Admin Center*
+![](../../media/extend-case-study-dataon/dataon-1.png)
+*Le mappage de disque d’extension DataON dans le DataON doit être extension pour le centre d’administration Windows*
 
-> <cite>« C’est formidable que Windows Admin Center autorise les extensions notamment sur doit, je peux utiliser ces deux outils dans la même console et j’ai comme transparente comment cette intégration est. Windows Admin Center et sur doit ensemble vraiment nous permet d’être plus efficaces et enregistre notre équipe énormément de temps. Il nous permet d’atteindre nos tâches administrateur beaucoup plus rapides que ce que nous avions auparavant. »</cite>
+> <cite>«Il est parfait que le centre d’administration Windows autorise les extensions telles que DataON. je peux donc utiliser les deux outils dans la même console et j’aime l’intégration transparente. Le centre d’administration Windows et DataON doivent, ensemble, nous permettre d’être plus efficaces et de gagner beaucoup de temps à notre équipe. Cela nous permet d’obtenir des tâches d’administrateur beaucoup plus rapidement que nous l’avons fait précédemment.</cite>
 >
-> --Matt Roper, l’animateur de la technologie des Services de Support, comté Cherokee (GA) scolaire District
+> --Matt Roper, facilitateur des services de support technique, Cherokee comté (GA) School District
 
-![Extension de DataON](../../media/extend-case-study-dataon/dataon-2.png)
-*Services d’alerte dans l’extension sur doit pour Windows Admin Center*
+![](../../media/extend-case-study-dataon/dataon-2.png)
+*Les services d’alerte de l’extension DataON dans le DataON doivent être extensions pour le centre d’administration Windows*
 
-> <cite>« DOIT a été très utiles, mais a un point de vente big. Pour nous, il a montré un engagement de DataON pour prendre en charge d’infrastructure Hyper-convergée de Microsoft. L’inclusion du doivent avec leur matériel S2D est ce qui termine à la solution avec les espaces de stockage Direct en remplacement SAN viable ». </cite>
+> <cite>«DOIT être très utile et était un grand point de vente. Pour nous, il a démontré un engagement de DataON pour prendre en charge l’infrastructure hyper-convergée Microsoft. L’inclusion de doit être effectuée avec son appliance S2D, ce qui termine la solution avec espaces de stockage direct comme un remplacement SAN viable.»</cite>
 >
-> --Benjamin Clements, président, stratégiques en ligne Systems, Inc.
+> --Benjamin Clements, Président, Strategic Online Systems, Inc.

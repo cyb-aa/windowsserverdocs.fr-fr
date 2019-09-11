@@ -7,33 +7,33 @@ ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.date: 5/14/2018
-description: File Server Resource Manager (FSRM) est un outil qui vous permet de gérer et classer les données sur un serveur de fichiers Windows Server.
-ms.openlocfilehash: 8488c7418ac03be53db7164678fad353bc7c637d
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+description: Le Gestionnaire des ressources de serveur de fichiers (FSRM) est un outil qui vous permet de gérer et de classer des données sur un serveur de fichiers Windows Server.
+ms.openlocfilehash: 49e7731c9f1e0f312728894e99bc88b0391738d8
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476124"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866946"
 ---
 # <a name="file-server-resource-manager-fsrm-overview"></a>Vue d’ensemble du Gestionnaire de ressources du serveur de fichiers
 
 > S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server (canal semi-annuel), 
 
-Le Gestionnaire de ressources du serveur de fichiers (FSRM) est un service de rôle de Windows Server qui permet de gérer et de classer les données stockées sur des serveurs de fichiers. Vous pouvez utiliser File Server Resource Manager pour classifier les fichiers, effectuer des tâches en fonction de ces classifications, définir des quotas sur les dossiers et créer des rapports de surveillance de l’utilisation de stockage automatiquement.
+Le Gestionnaire de ressources du serveur de fichiers (FSRM) est un service de rôle de Windows Server qui permet de gérer et de classer les données stockées sur des serveurs de fichiers. Vous pouvez utiliser des Gestionnaire des ressources de serveur de fichiers pour classifier automatiquement des fichiers, effectuer des tâches en fonction de ces classifications, définir des quotas sur les dossiers et créer des rapports d’analyse de l’utilisation du stockage.
 
-C’est un point de petite, mais nous avons également [ajouté la possibilité de désactiver les journaux de modification](#whats-new) dans Windows Server, version 1803.
+C’est un petit point, mais nous avons également [ajouté la possibilité de désactiver les journaux de modification](#whats-new) dans Windows Server, version 1803.
 
 ## <a name="features"></a>Fonctionnalités
 
 Le Gestionnaire de ressources du serveur de fichiers comprend les fonctionnalités suivantes :
 
--   [Gestion de quota](quota-management.md) vous permet de limiter l’espace autorisé pour un volume ou un dossier, et ils peuvent être automatiquement appliqués aux nouveaux dossiers créés sur un volume. Vous pouvez également définir des modèles de quota qui peuvent être appliqués aux nouveaux volumes ou dossiers.  
--   [Infrastructure de Classification des fichiers](classification-management.md) fournit un aperçu de vos données en automatisant les processus de classification afin que vous pouvez gérer plus efficacement vos données. Vous pouvez classer les fichiers et appliquer des stratégies en fonction de cette classification. Parmi les exemples de stratégie, citons le contrôle d’accès dynamique pour restreindre l’accès aux fichiers, le chiffrement des fichiers et l’expiration des fichiers. Vous pouvez soit classer les fichiers automatiquement en utilisant des règles de classification de fichiers, soit les classer manuellement en modifiant les propriétés d’un fichier ou d’un dossier sélectionné.
--   [Tâches de gestion de fichiers](file-management-tasks.md) vous permet d’appliquer une stratégie ou action conditionnelle à des fichiers en fonction de leur classification. Les conditions d’une tâche de gestion de fichiers incluent l’emplacement du fichier, les propriétés de classification, la date de création du fichier, la date de la dernière modification du fichier ou le dernier accès au fichier. Dans le cadre d’une tâche de gestion de fichiers, vous pouvez faire expirer des fichiers, les chiffrer ou exécuter une commande personnalisée.
--   [Gestion des filtres](file-screening-management.md) vous permet de contrôler les types de fichiers qu’un utilisateur peut stocker sur un serveur de fichiers. Vous pouvez limiter les extensions pouvant être stockées sur vos fichiers partagés. Par exemple, vous pouvez créer un filtre de fichiers qui interdit le stockage de fichiers dotés d’une extension MP3 dans les dossiers partagés personnels sur un serveur de fichiers.
--   [Rapports de stockage](storage-reports-management.md) vous aider à identifier les tendances dans l’utilisation du disque et comment vos données sont classées. Vous pouvez également analyser un groupe sélectionné d’utilisateurs afin de détecter toute tentative d’enregistrement de fichiers non autorisés.  
+-   La [gestion des quotas](quota-management.md) vous permet de limiter l’espace autorisé pour un volume ou un dossier, et elles peuvent être appliquées automatiquement aux nouveaux dossiers créés sur un volume. Vous pouvez également définir des modèles de quota qui peuvent être appliqués aux nouveaux volumes ou dossiers.  
+-   [Infrastructure de classification des fichiers](classification-management.md) fournit des informations sur vos données en automatisant les processus de classification afin que vous puissiez gérer vos données plus efficacement. Vous pouvez classer les fichiers et appliquer des stratégies en fonction de cette classification. Parmi les exemples de stratégie, citons le contrôle d’accès dynamique pour restreindre l’accès aux fichiers, le chiffrement des fichiers et l’expiration des fichiers. Vous pouvez soit classer les fichiers automatiquement en utilisant des règles de classification de fichiers, soit les classer manuellement en modifiant les propriétés d’un fichier ou d’un dossier sélectionné.
+-   Les [tâches de gestion de fichiers](file-management-tasks.md) vous permettent d’appliquer une stratégie ou une action conditionnelle à des fichiers en fonction de leur classification. Les conditions d’une tâche de gestion de fichiers incluent l’emplacement du fichier, les propriétés de classification, la date de création du fichier, la date de la dernière modification du fichier ou le dernier accès au fichier. Dans le cadre d’une tâche de gestion de fichiers, vous pouvez faire expirer des fichiers, les chiffrer ou exécuter une commande personnalisée.
+-   La [gestion du filtrage de fichiers](file-screening-management.md) vous permet de contrôler les types de fichiers que l’utilisateur peut stocker sur un serveur de fichiers. Vous pouvez limiter les extensions pouvant être stockées sur vos fichiers partagés. Par exemple, vous pouvez créer un filtre de fichiers qui interdit le stockage de fichiers dotés d’une extension MP3 dans les dossiers partagés personnels sur un serveur de fichiers.
+-   Les [rapports de stockage](storage-reports-management.md) vous aident à identifier les tendances d’utilisation des disques et la façon dont vos données sont classées. Vous pouvez également analyser un groupe sélectionné d’utilisateurs afin de détecter toute tentative d’enregistrement de fichiers non autorisés.  
   
-Les fonctionnalités incluses avec le Gestionnaire de ressources du serveur de fichiers peuvent être configurées et gérées à l’aide de l’application de File Server Resource Manager ou à l’aide de Windows PowerShell.
+Les fonctionnalités incluses dans les Gestionnaire des ressources du serveur de fichiers peuvent être configurées et gérées à l’aide de l’application Gestionnaire des ressources serveur de fichiers ou à l’aide de Windows PowerShell.
   
 > [!IMPORTANT]
 >  Le Gestionnaire de ressources du serveur de fichiers prend uniquement en charge les volumes formatés avec le système de fichiers NTFS. Le système de fichiers résilient n’est pas pris en charge.  
@@ -47,36 +47,36 @@ Les fonctionnalités incluses avec le Gestionnaire de ressources du serveur de f
   
 -   Vous pouvez faire expirer les fichiers qui n’ont pas été modifiés au cours des 10 dernières années.  
   
--   Vous pouvez créer un quota de 200 mégaoctets pour le répertoire de base de chaque utilisateur et les notifier lorsqu’ils utilisent 180 mégaoctets.  
+-   Créez un quota de 200 mégaoctets pour le répertoire de démarrage de chaque utilisateur et avertissez-le lorsqu’il utilise 180 mégaoctets.  
   
 -   Vous pouvez interdire le stockage des fichiers musicaux dans les dossiers partagés personnels.  
   
 -   Vous pouvez créer un rapport qui s’exécute tous les dimanches soirs à minuit et qui génère une liste des fichiers les plus récemment consultés au cours des deux derniers jours. Vous pouvez ainsi déterminer l’activité de stockage du week-end et planifier en conséquence le temps mort du serveur.  
 
-## <a name="whats-new"></a>Quelles sont les nouveautés - FSRM empêche de créer des journaux de modification
+## <a name="whats-new"></a>Nouveautés-empêcher FSRM de créer des journaux de modifications
 
-En commençant par Windows Server, version 1803, vous pouvez maintenant empêcher le service de File Server Resource Manager à partir de la création d’un journal des modifications (également appelé un journal USN) sur les volumes au démarrage du service. Cela permet d’économiser un peu d’espace sur chaque volume, mais désactivera la classification des fichiers en temps réel.
+À compter de Windows Server, version 1803, vous pouvez désormais empêcher le service de Gestionnaire des ressources de serveur de fichiers de créer un journal des modifications (également appelé journal USN) sur les volumes au démarrage du service. Cela peut économiser un peu d’espace sur chaque volume, mais la classification des fichiers en temps réel est désactivée.
 
-Pour les anciennes nouvelles fonctionnalités, consultez [quelles sont les nouveautés dans le Gestionnaire de ressources du serveur de fichiers](https://technet.microsoft.com/library/dn383587.aspx).
+Pour les nouvelles fonctionnalités plus anciennes, consultez [Nouveautés du serveur de fichiers gestionnaire des ressources](https://technet.microsoft.com/library/dn383587.aspx).
 
-Pour éviter les File Server Resource Manager à partir de la création d’un journal des modifications sur certains ou tous les volumes au démarrage du service, utilisez les étapes suivantes : 
+Pour empêcher les Gestionnaire des ressources du serveur de fichiers de créer un journal des modifications sur tout ou partie des volumes au démarrage du service, procédez comme suit : 
 
-1. Arrêtez le service SRMSVC. Par exemple, ouvrez une session PowerShell en tant qu’administrateur, puis entrez `Stop-Service SrmSvc`.
-2. Supprimer le journal USN pour les volumes que vous souhaitez économiser l’espace à l’aide de la commande fsutil : 
+1. Arrêtez le service SRMSVC. Par exemple, ouvrez une session PowerShell en tant qu’administrateur et `Stop-Service SrmSvc`entrez.
+2. Supprimez le journal USN pour les volumes pour lesquels vous souhaitez économiser de l’espace à l’aide de la commande fsutil : 
 
       ```
       fsutil usn deletejournal /d <VolumeName>
       ```
     Par exemple : `fsutil usn deletejournal /d c:`
 
-3. Ouvrez l’Éditeur du Registre, par exemple, en tapant `regedit` dans la même session PowerShell.
+3. Ouvrez l’éditeur du Registre, par exemple, `regedit` en tapant dans la même session PowerShell.
 4. Accédez à la clé suivante : **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SrmSvc\Settings**
-5. Si vous le souhaitez à ignorer modifier la création du journal pour l’ensemble du serveur (ignorez cette étape si vous souhaitez désactiver uniquement sur des volumes spécifiques) :
-    1. Cliquez sur le **paramètres** clé, puis sélectionnez **New** > **valeur DWORD (32 bits)** . 
-    1. Nommez la valeur `SkipUSNCreationForSystem`.
-    1. Définissez la valeur sur **1** (en hexadécimal).
-6. Si vous le souhaitez ignorer la création du journal de modification pour des volumes spécifiques :
-    1. Obtenir les chemins d’accès de volume que vous souhaitez ignorer à l’aide de la `fsutil volume list` commande ou la commande PowerShell suivante :
+5. Pour ignorer éventuellement la modification de la création du journal pour l’ensemble du serveur (ignorez cette étape si vous souhaitez la désactiver uniquement sur des volumes spécifiques) :
+    1. Cliquez avec le bouton droit sur la clé des **paramètres** , puis sélectionnez **nouvelle** > **valeur DWORD (32 bits)** . 
+    1. Nommez la `SkipUSNCreationForSystem`valeur.
+    1. Définissez la valeur sur **1** (hexadécimal).
+6. Pour éventuellement ignorer la création du journal des modifications pour des volumes spécifiques :
+    1. Récupérez les chemins de volume que vous souhaitez ignorer à `fsutil volume list` l’aide de la commande ou de la commande PowerShell suivante :
         ```PowerShell
         Get-Volume | Format-Table DriveLetter,FileSystemLabel,Path
         ```
@@ -88,9 +88,9 @@ Pour éviter les File Server Resource Manager à partir de la création d’un j
                     System Reserved \\?\Volume{8d3c9e8a-0000-0000-0000-100000000000}\
         C                           \\?\Volume{8d3c9e8a-0000-0000-0000-501f00000000}\
        ```
-    2. Revenez dans Éditeur du Registre, cliquez sur le **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SrmSvc\Settings** clé, puis sélectionnez **New** > **chaînes multiples Valeur**.
-    3. Nommez la valeur `SkipUSNCreationForVolumes`.
-    4. Entrez le chemin d’accès de chaque volume sur lequel vous ignorez la création d’un journal des modifications, placer chaque chemin d’accès sur une ligne distincte. Exemple :
+    2. De retour dans l’éditeur du Registre, cliquez avec le bouton droit sur la clé **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SrmSvc\Settings** , puis sélectionnez **nouvelle** > **valeur de chaînes multiples**.
+    3. Nommez la `SkipUSNCreationForVolumes`valeur.
+    4. Entrez le chemin d’accès de chaque volume sur lequel vous ignorez la création d’un journal des modifications, en plaçant chaque chemin sur une ligne distincte. Exemple :
 
         ```
         \\?\Volume{8d3c9e8a-0000-0000-0000-100000000000}\
@@ -98,12 +98,12 @@ Pour éviter les File Server Resource Manager à partir de la création d’un j
         ```
 
         > [!NOTE] 
-        > Éditeur du Registre peut vous dire qu’il supprimé des chaînes vides, affichage de cet avertissement, vous pouvez ignorer en toute sécurité : *Données de type REG_MULTI_SZ ne peut pas contenir des chaînes vides. Éditeur du Registre supprimera toutes les chaînes vides trouvées.*
+        > L’éditeur du Registre peut vous indiquer qu’il a supprimé des chaînes vides, en affichant cet avertissement que vous pouvez ignorer en toute sécurité : *Les données de type REG_MULTI_SZ ne peuvent pas contenir de chaînes vides. L’éditeur du Registre va supprimer toutes les chaînes vides trouvées.*
 
-7. Démarrez le service SRMSVC. Par exemple, dans une session PowerShell, entrez `Start-Service SrmSvc`.
+7. Démarrez le service SRMSVC. Par exemple, dans une session PowerShell, `Start-Service SrmSvc`entrez.
 
 
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Contrôle d’accès dynamique](https://technet.microsoft.com/library/dn408191(v=ws.11).aspx) 
+- [Access Control dynamique](https://technet.microsoft.com/library/dn408191(v=ws.11).aspx) 

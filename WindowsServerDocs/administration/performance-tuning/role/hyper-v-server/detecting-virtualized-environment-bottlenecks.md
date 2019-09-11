@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: cdad5f0cc3b0e49ae46e975e3acc2c48a18e5f70
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: a0d6d263b344cde412ee4dd3caa80305742d56e7
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "63722879"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866600"
 ---
 # <a name="detecting-bottlenecks-in-a-virtualized-environment"></a>Détection des goulots d’étranglement dans un environnement virtualisé
 
@@ -20,13 +20,13 @@ Cette section doit vous donner des indications sur les éléments à surveiller 
 
 ## <a name="processor-bottlenecks"></a>Goulots d’étranglement du processeur
 
-Voici quelques scénarios courants qui peuvent entraîner des goulots d’étranglement du processeur:
+Voici quelques scénarios courants qui peuvent entraîner des goulots d’étranglement du processeur :
 
 -   Un ou plusieurs processeurs logiques sont chargés
 
 -   Un ou plusieurs processeurs virtuels sont chargés
 
-Vous pouvez utiliser les compteurs de performances suivants à partir de l’hôte:
+Vous pouvez utiliser les compteurs de performances suivants à partir de l’hôte :
 
 -   Utilisation du processeur logique \\-processeur logique hyperviseur hyper\*-\\V ()% durée totale d’exécution
 
@@ -36,7 +36,7 @@ Vous pouvez utiliser les compteurs de performances suivants à partir de l’hô
 
 Si le compteur d' **exécution total du processeur logique\_de l'\\hyperviseur Hyper-V (total)% Total** est supérieur à 90%, l’ordinateur hôte est surchargé. Vous devez ajouter de la puissance de traitement ou déplacer des ordinateurs virtuels vers un autre ordinateur hôte.
 
-Si le compteur de processeur virtuel de l’hyperviseur **Hyper-V (\\nom de la machine virtuelle: VP x)% total du Runtime** est supérieur à 90% pour tous les processeurs virtuels, vous devez effectuer les opérations suivantes:
+Si le compteur de **processeur virtuel de l’hyperviseur Hyper-V (\\nom de la machine virtuelle : VP x)% total du Runtime** est supérieur à 90% pour tous les processeurs virtuels, vous devez effectuer les opérations suivantes :
 
 -   Vérifier que l’hôte n’est pas surchargé
 
@@ -44,7 +44,7 @@ Si le compteur de processeur virtuel de l’hyperviseur **Hyper-V (\\nom de la m
 
 -   Affecter plus de processeurs virtuels à la machine virtuelle
 
-Si le processeur virtuel de l’hyperviseur **Hyper-V (nom\\de la machine virtuelle: VP x)%** du compteur d’exécution total est supérieur à 90% pour certains processeurs virtuels, mais pas tous, vous devez effectuer les opérations suivantes:
+Si le **processeur virtuel de l’hyperviseur Hyper-V (nom\\de la machine virtuelle : VP x)%** du compteur d’exécution total est supérieur à 90% pour certains processeurs virtuels, mais pas tous, vous devez effectuer les opérations suivantes :
 
 -   Si votre charge de travail reçoit beaucoup de ressources réseau, vous devez envisager d’utiliser vRSS.
 
@@ -56,7 +56,7 @@ Si le compteur de l' **exécution du processeur virtuel racine de l’hyperviseu
 
 ## <a name="memory-bottlenecks"></a>Goulots d’étranglement de mémoire
 
-Voici quelques scénarios courants qui peuvent provoquer des goulots d’étranglement de mémoire:
+Voici quelques scénarios courants qui peuvent provoquer des goulots d’étranglement de mémoire :
 
 -   L’hôte ne répond pas.
 
@@ -64,33 +64,33 @@ Voici quelques scénarios courants qui peuvent provoquer des goulots d’étrang
 
 -   Les machines virtuelles manquent de mémoire.
 
-Vous pouvez utiliser les compteurs de performances suivants à partir de l’hôte:
+Vous pouvez utiliser les compteurs de performances suivants à partir de l’hôte :
 
 -   Mémoire\\disponible en mégaoctets
 
 -   Mémoire disponible de l’équilibreur de\*mémoire dynamique\\Hyper-V ()
 
-Vous pouvez utiliser les compteurs de performances suivants à partir de la machine virtuelle:
+Vous pouvez utiliser les compteurs de performances suivants à partir de la machine virtuelle :
 
 -   Mémoire\\disponible en mégaoctets
 
-Si la **\\** mémoire disponible en mégaoctets et les compteurs de mémoire disponibles pour l’équilibreur de **mémoire dynamique hyper-\*V ()\\** sont faibles sur l’hôte, vous devez arrêter les services non essentiels et migrer un ou plusieurs serveurs virtuels ordinateurs vers un autre hôte.
+Si la **\\** mémoire disponible en mégaoctets et les compteurs de **mémoire disponibles\*pour\\l’équilibreur de mémoire dynamique Hyper-V ()** sont faibles sur l’hôte, vous devez arrêter les services non essentiels et migrer un ou plusieurs serveurs virtuels ordinateurs vers un autre hôte.
 
 Si le **compteur\\mégaoctets disponibles en mémoire** est insuffisant sur la machine virtuelle, vous devez attribuer plus de mémoire à la machine virtuelle. Si vous utilisez Mémoire dynamique, vous devez augmenter le paramètre de mémoire maximale.
 
 ## <a name="network-bottlenecks"></a>Goulots d’étranglement du réseau
 
-Voici quelques scénarios courants qui peuvent entraîner des goulots d’étranglement du réseau:
+Voici quelques scénarios courants qui peuvent entraîner des goulots d’étranglement du réseau :
 
 -   L’hôte est lié au réseau.
 
 -   L’ordinateur virtuel est lié au réseau.
 
-Vous pouvez utiliser les compteurs de performances suivants à partir de l’hôte:
+Vous pouvez utiliser les compteurs de performances suivants à partir de l’hôte :
 
 -   Interface réseau (*nom*de la carte\\réseau), octets/s
 
-Vous pouvez utiliser les compteurs de performances suivants à partir de la machine virtuelle:
+Vous pouvez utiliser les compteurs de performances suivants à partir de la machine virtuelle :
 
 -   Carte réseau virtuelle Hyper-V (nom de l'*ordinateur&lt;virtuel&gt;GUID*),\\octets/s
 
@@ -102,13 +102,13 @@ Si vos charges de travail ne peuvent pas respecter leur latence réseau, activez
 
 ## <a name="storage-bottlenecks"></a>Goulots d’étranglement de stockage
 
-Voici quelques scénarios courants qui peuvent entraîner des goulots d’étranglement de stockage:
+Voici quelques scénarios courants qui peuvent entraîner des goulots d’étranglement de stockage :
 
 -   Les opérations de l’hôte et de l’ordinateur virtuel sont lentes ou expirent.
 
 -   L’ordinateur virtuel est lent.
 
-Vous pouvez utiliser les compteurs de performances suivants à partir de l’hôte:
+Vous pouvez utiliser les compteurs de performances suivants à partir de l’hôte :
 
 -   Moyenne disque s/lecture du\\disque physique (*lettre du disque*)
 
@@ -118,7 +118,7 @@ Vous pouvez utiliser les compteurs de performances suivants à partir de l’hô
 
 -   Longueur moyenne de file d’attente\\d’écriture sur le disque physique (*lettre du disque*)
 
-Si les latences sont constamment supérieures à 50 ms, vous devez effectuer les opérations suivantes:
+Si les latences sont constamment supérieures à 50 ms, vous devez effectuer les opérations suivantes :
 
 -   Répartir les machines virtuelles sur un stockage supplémentaire
 

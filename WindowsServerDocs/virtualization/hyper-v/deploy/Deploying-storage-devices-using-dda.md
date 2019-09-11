@@ -1,6 +1,6 @@
 ---
-title: Déployer des dispositifs de stockage NVMe à l’aide d’attribution discrète d’appareil
-description: Découvrez comment utiliser DDA pour déployer des périphériques de stockage
+title: Déployer les appareils de stockage NVMe à l’aide de l’affectation discrète des appareils
+description: Découvrez comment utiliser DDA pour déployer des dispositifs de stockage
 ms.prod: windows-server-threshold
 ms.service: na
 ms.technology: hyper-v
@@ -9,62 +9,62 @@ ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.assetid: 1c36107e-78c9-4ec0-a313-6ed557ac0ffc
-ms.openlocfilehash: d6fe54789d37386d5dc782ef8a2ca26b47adc69e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 001d8addba2cdb8cbbd5d72ffa224d16f62d1245
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841360"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872121"
 ---
-# <a name="deploy-nvme-storage-devices-using-discrete-device-assignment"></a>Déployer des dispositifs de stockage NVMe à l’aide d’attribution discrète d’appareil
+# <a name="deploy-nvme-storage-devices-using-discrete-device-assignment"></a>Déployer les appareils de stockage NVMe à l’aide de l’affectation discrète des appareils
 
 >S'applique à : Microsoft Hyper-V Server 2016, Windows Server 2016
 
-À compter de Windows Server 2016, vous pouvez utiliser affectation discrète d’appareils ou DDA, pour transmettre l’intégralité d’un appareil de PCIe dans une machine virtuelle.  Cela autorise l’accès hautes performances pour les périphériques de stockage de NVMe cartes graphiques à partir d’une machine virtuelle tout en étant en mesure d’utiliser les pilotes de périphériques natives.  Visitez le [planifier pour les appareils de déploiement à l’aide d’affectation d’appareils discrètes](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md) pour plus d’informations sur les appareils de travail, quelles sont les implications en matière de sécurité possibles, etc. Il existe à l’aide d’un appareil avec DDA en trois étapes :
+À compter de Windows Server 2016, vous pouvez utiliser l’affectation discrète des appareils, ou DDA, pour transmettre un appareil PCIe entier à une machine virtuelle.  Cela permet un accès très performant aux appareils tels que le stockage NVMe ou les cartes graphiques à partir d’une machine virtuelle tout en étant en mesure de tirer parti des pilotes natifs des appareils.  Pour plus d’informations sur les appareils qui fonctionnent, sur les implications sur la sécurité, consultez le [plan de déploiement d’appareils à l’aide de l’affectation discrète](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md) d’appareils, etc. L’utilisation d’un appareil avec DDA se présente en trois étapes :
 -   Configurer la machine virtuelle pour DDA
--   Démonter l’appareil à partir de la Partition hôte
--   Affectation de l’appareil à la machine virtuelle invitée
+-   Démonter l’appareil de la partition hôte
+-   Attribution de l’appareil à la machine virtuelle invitée
 
-Tout (commande) peuvent être exécutée sur l’ordinateur hôte sur une console Windows PowerShell en tant qu’administrateur.
+Toutes les commandes peuvent être exécutées sur l’hôte d’une console Windows PowerShell en tant qu’administrateur.
 
 ## <a name="configure-the-vm-for-dda"></a>Configurer la machine virtuelle pour DDA
-Affectation d’appareils discrètes impose certaines restrictions sur les machines virtuelles et l’étape suivante doit être prise.
+L’affectation discrète des appareils impose des restrictions aux machines virtuelles et l’étape suivante doit être effectuée.
 
-1.  Configurez le « arrêter Action automatique » d’une machine virtuelle à l’arrêt en exécutant
+1.  Configurez l’action d’arrêt automatique d’une machine virtuelle sur TurnOff en exécutant
 
 ```
 Set-VM -Name VMName -AutomaticStopAction TurnOff
 ```
 
-## <a name="dismount-the-device-from-the-host-partition"></a>Démonter l’appareil à partir de la Partition hôte
+## <a name="dismount-the-device-from-the-host-partition"></a>Démonter l’appareil de la partition hôte
 
-### <a name="locating-the-devices-location-path"></a>Recherche de chemin d’accès de l’appareil
-Le chemin d’accès de l’emplacement de la norme PCI est requise pour démonter et monter l’appareil à partir de l’hôte.  Un chemin de localisation exemple ressemble à ceci : `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`.   Plus d’informations sur trouve le chemin d’accès d’emplacement peut trouver ici : [Planifier le déploiement des appareils à l’aide d’attribution discrète d’appareil](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md).
+### <a name="locating-the-devices-location-path"></a>Recherche du chemin d’accès à l’emplacement de l’appareil
+Le chemin d’accès à l’emplacement PCI est requis pour démonter et monter l’appareil à partir de l’ordinateur hôte.  Un exemple de chemin d’accès à l’emplacement `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`ressemble à ce qui suit :.   Pour plus d’informations sur le chemin d’accès de l’emplacement, consultez : [Planifiez le déploiement d’appareils à l’aide de l’attribution discrète des appareils](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md).
 
 ### <a name="disable-the-device"></a>Désactiver l’appareil
-En utilisant le Gestionnaire de périphériques ou de PowerShell, assurez-vous de l’appareil est « disabled ».  
+À l’aide de Device Manager ou de PowerShell, assurez-vous que l’appareil est « désactivé ».  
 
 ### <a name="dismount-the-device"></a>Démonter l’appareil
 ```
 Dismount-VMHostAssignableDevice -LocationPath $locationPath
 ```
 
-## <a name="assigning-the-device-to-the-guest-vm"></a>Affectation de l’appareil à la machine virtuelle invitée
-L’étape finale consiste à indiquer à Hyper-V qu’une machine virtuelle doit avoir accès à l’appareil.  Outre le chemin d’accès d’emplacement identifié précédemment, vous devez connaître le nom de la machine virtuelle.
+## <a name="assigning-the-device-to-the-guest-vm"></a>Attribution de l’appareil à la machine virtuelle invitée
+La dernière étape consiste à dire à Hyper-V qu’une machine virtuelle doit avoir accès à l’appareil.  En plus du chemin d’accès d’emplacement indiqué ci-dessus, vous devez connaître le nom de la machine virtuelle.
 
 ```
 Add-VMAssignableDevice -LocationPath $locationPath -VMName VMName
 ```
 
-## <a name="whats-next"></a>Quelle est la suite
-Une fois un appareil est correctement monté dans une machine virtuelle, vous êtes maintenant en mesure de démarrer cette machine virtuelle et interagir avec l’appareil, comme vous le feriez normalement si vous exécutiez sur un système de métal nu.  Vous pouvez le vérifier en ouvrant le Gestionnaire de périphériques dans la machine virtuelle invitée et de voir que le matériel affiche maintenant.
+## <a name="whats-next"></a>Étapes suivantes
+Une fois qu’un appareil est correctement monté sur une machine virtuelle, vous pouvez maintenant démarrer cette machine virtuelle et interagir avec l’appareil comme vous le feriez normalement si vous étiez en train d’exécuter sur un système nu.  Vous pouvez le vérifier en ouvrant le gestionnaire de périphériques sur la machine virtuelle invitée et en vérifiant que le matériel s’affiche à présent.
 
-## <a name="removing-a-device-and-returning-it-to-the-host"></a>Suppression d’un périphérique et retourner à l’hôte
-Si vous souhaitez qu’il retourne un appareil à son état d’origine, vous devez arrêter la machine virtuelle et émettre les éléments suivants :
+## <a name="removing-a-device-and-returning-it-to-the-host"></a>Suppression d’un appareil et retour à l’ordinateur hôte
+Si vous souhaitez rétablir l’appareil à son état d’origine, vous devez arrêter la machine virtuelle et émettre les informations suivantes :
 ```
 #Remove the device from the VM
 Remove-VMAssignableDevice -LocationPath $locationPath -VMName VMName
 #Mount the device back in the host
 Mount-VMHostAssignableDevice -LocationPath $locationPath
 ```
-Vous pouvez réactiver ensuite l’appareil dans le Gestionnaire de périphériques et le système d’exploitation hôte sera en mesure d’interagir avec l’appareil à nouveau.
+Vous pouvez ensuite réactiver l’appareil dans le gestionnaire de périphériques et le système d’exploitation hôte pourra à nouveau interagir avec l’appareil.

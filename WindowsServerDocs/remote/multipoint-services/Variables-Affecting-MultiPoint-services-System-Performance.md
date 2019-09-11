@@ -1,6 +1,6 @@
 ---
 title: Variables qui affectent les performances du système MultiPoint Services
-description: Informations sur les performances de MultiPoint Services
+description: Informations sur les performances de MultiPoint services
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,36 +13,36 @@ ms.assetid: 0f3e8875-1b5e-4789-b16c-d06d6e31f38e
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 7a06fcc763283114dc12ad106aa7ec146502dbd9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 23bde4a65e3bf41d8968d55bf9641ca6a44b7d96
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867580"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871489"
 ---
 # <a name="variables-affecting-multipoint-services-system-performance"></a>Variables qui affectent les performances du système MultiPoint Services
-Il existe plusieurs variables qui peuvent affecter les performances globales de votre système MultiPoint Services. Vous souhaiterez ces lorsque vous concevez votre système.  
+Il existe de nombreuses variables qui peuvent affecter les performances globales de votre système MultiPoint services. Vous souhaiterez peut-être les prendre en compte lors de la conception de votre système.  
   
 ## <a name="usage"></a>Utilisation  
   
--   **Applications** le type et le nombre d’applications qui s’exécutent en même temps, en particulier graphique\-lourds ou la mémoire des applications intensives affectera les performances globales de votre système. Pour plus d’informations, consultez [Applications et le contenu Internet](hardware-and-performance-recommendations.md#applications-and-internet-content).  
+-   **Applications** Le type et le nombre d’applications qui s’exécutent en même temps\-, en particulier les applications graphiques lourdes ou gourmandes en mémoire, affectent les performances globales de votre système. Pour plus d’informations, consultez [applications et contenu Internet](hardware-and-performance-recommendations.md#applications-and-internet-content).  
   
--   **Utilisation d’Internet** envisager si vos utilisateurs verront un contenu multimédia ou des pages web qui utilisent des vidéos de plein écran. Ce type de contenu peut surcharger le système si trop d’utilisateurs affichez simultanément.  
+-   **Utilisation d’Internet** Déterminez si vos utilisateurs visualisent du contenu multimédia ou des pages Web qui utilisent des vidéos en mode plein mouvement. Ce type de contenu peut surcharger le système si un trop grand nombre d’utilisateurs sont affichés simultanément.  
   
     > [!NOTE]  
-    > La fonctionnalité de projection dans MultiPoint Services, ce qui permet aux enseignants projeter leurs écrans sur leurs analyses étudiant, n’est pas conçue pour projeter la vidéo. La fonctionnalité de projection est destinée à des fins de démonstration, par exemple affichage d’une procédure.  
+    > La fonctionnalité de projection dans MultiPoint services, qui permet aux enseignants de projeter leurs écrans sur leurs moniteurs d’étudiant, n’est pas conçue pour projeter une vidéo en plein mouvement. La fonctionnalité de projection est conçue à des fins de démonstration, telles que l’émission d’une procédure.  
   
--   **Les appareils à haut débit** si trop d’utilisateurs simultanément utilisent un appareil à haut débit, comme une caméra web ou un lecteur de DVD, cela affecte les performances globales du système.  
+-   **Périphériques à haut débit** Si un trop grand nombre d’utilisateurs utilisent simultanément un appareil à haut débit, tel qu’un lecteur de DVD ou de caméra Web, cela affecte les performances globales du système.  
   
 ## <a name="configuration"></a>Configuration  
   
--   **Processeur, de GPU et de RAM** consultez [optimiser les performances de système MultiPoint Services](hardware-and-performance-recommendations.md#optimize-multipoint-services-system-performance) dans ce guide pour obtenir des recommandations processeur, de GPU et de RAM.  
--   **La bande passante réseau** pour RDP sur le réseau local est important, en particulier si la vidéo est en cours d’exécution dans la session utilisateur stations connectées, la bande passante réseau et la capacité du client (par exemple, un client léger, postes de travail PC ou ordinateurs portables). Si vous n’utilisez pas les clients over-Ethernet USB zéro, la bande passante réseau doit également être un facteur important. Données vidéo pour tous les appareils sont envoyées via la même connexion Ethernet, vous pouvez donc à prendre en compte la configuration d’un réseau Gigabit Ethernet distinct lors de l’utilisation de ces appareils.  
--   **RemoteFX** pour les stations de RDP sur le réseau local connecté, vous pourrez peut-être utiliser RemoteFX pour améliorer considérablement la distribution de contenu multimédia de haute définition.  
--   **Résolution d’affichage** si vous avez une utilisation élevée de vidéo plein écran, vous souhaiterez envisager de réduire la résolution d’écran pour optimiser les performances.  
--   **Nombre de clients USB zéro** le nombre total de clients USB zéro sur un concentrateur racine unique sur le serveur affecte directement les performances vidéo. Pour plus d’informations, consultez [disposition pour les Stations USB zéro Client connecté](MultiPoint-services-Site-Planning.md#layout-for-usb-zero-client-connected-stations). Le nombre de stations over-Ethernet USB zéro client sont prises en charge peut être légèrement inférieur au nombre de clients USB zéro.  
--   **La bande passante USB** prendre en compte la bande passante USB lorsque vous concevez votre système.  Cela est particulièrement important pour les clients USB zéro, ce qui envoient des données vidéo sur la connexion USB. Pour optimiser la bande passante, réduire le nombre d’appareils qui sont connectés à un seul port USB sur le serveur. Cela s’applique aux concentrateurs intermédiaires et de stations de connecter en chaîne. Pour plus d’informations, consultez [concentrateurs de Station](MultiPoint-services-Site-Planning.md#station-hubs) et [intermédiaire hubs](MultiPoint-services-Site-Planning.md#intermediate-hubs).  
+-   **Processeur, GPU et RAM** Pour obtenir des recommandations en matière de processeur, de GPU et de RAM, consultez [optimiser les performances du système multipoint services](hardware-and-performance-recommendations.md#optimize-multipoint-services-system-performance) dans ce guide.  
+-   **Bande passante réseau** Pour les stations connectées au réseau local, la bande passante réseau et la capacité du client (par exemple, un client léger, un ordinateur de bureau ou un ordinateur portable) sont importantes, en particulier si la vidéo est en cours d’exécution dans la session de l’utilisateur. Si vous utilisez des clients de zéro USB sur Ethernet, la bande passante réseau doit également être prise en compte. Les données vidéo de tous les appareils sont envoyées via la même connexion Ethernet. vous pouvez donc envisager de configurer un réseau Gigabit Ethernet distinct lors de l’utilisation de ces appareils.  
+-   **RemoteFX** Pour les stations connectées à RDP-sur-LAN, vous pouvez utiliser RemoteFX pour améliorer de façon considérable la distribution de contenu multimédia haute définition.  
+-   **Résolution d’affichage** Si vous utilisez beaucoup de vidéo en plein écran, vous souhaiterez peut-être réduire la résolution de l’analyse pour optimiser les performances.  
+-   **Nombre de clients USB à zéro** Le nombre total de clients USB à zéro sur un concentrateur racine unique sur le serveur aura une incidence directe sur les performances de la vidéo. Pour plus d’informations, consultez [disposition pour les stations connectées à un client USB sans client](MultiPoint-services-Site-Planning.md#layout-for-usb-zero-client-connected-stations). Le nombre de stations clientes Zero USB prises en charge peut être légèrement inférieur au nombre de clients USB à zéro.  
+-   **Bande passante USB** Tenez compte de la bande passante USB lors de la conception de votre système.  Ceci est particulièrement important pour les clients USB à zéro, qui envoient des données vidéo via la connexion USB. Pour optimiser la bande passante, réduisez le nombre d’appareils connectés à un port USB unique sur le serveur. Cela s’applique aux stations connectés en chaîne et aux concentrateurs intermédiaires. Pour plus d’informations, consultez [hubs de station](MultiPoint-services-Site-Planning.md#station-hubs) et [concentrateurs intermédiaires](MultiPoint-services-Site-Planning.md#intermediate-hubs).  
   
--   **Type USB** à l’aide de USB 3.0 au lieu de USB 2.0 augmente la bande passante disponible entre le serveur et le concentrateur intermédiaire si vous vous connectez plus de trois clients USB zéro pour le concentrateur ou si vous utilisez des périphériques USB de bande passante élevée.  
+-   **Type USB** L’utilisation de USB 3,0 au lieu de USB 2,0 augmente la bande passante disponible entre le serveur et le concentrateur intermédiaire si vous connectez plus de trois clients USB à zéro au concentrateur ou si vous utilisez des périphériques USB à bande passante élevée.  
   
--   **Stations** le nombre total de stations affecte les performances. Si vous avez des besoins vidéo, de traitement ou de graphique, vous souhaiterez limiter le nombre total de stations. Pour plus d’informations, consultez [performances d’optimiser le système MultiPoint Services](hardware-and-performance-recommendations.md#optimize-multipoint-services-system-performance).
+-   **Stations** de Le nombre total de stations affecte les performances. Si vous avez des besoins en graphiques, en traitement ou en vidéo lourds, vous souhaiterez peut-être limiter le nombre total de stations. Pour plus d’informations, consultez [optimiser les performances du système multipoint services](hardware-and-performance-recommendations.md#optimize-multipoint-services-system-performance).

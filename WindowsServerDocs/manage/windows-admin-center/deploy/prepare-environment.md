@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 5924a6a2304bd8e883c43628e3c6c05b69cbd46c
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 96aced2c062717aee0d2957b751bc2c25ac8e0da
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980326"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869098"
 ---
 # <a name="prepare-your-environment-for-windows-admin-center"></a>Préparer votre environnement pour Windows Admin Center
 
@@ -147,7 +147,7 @@ Microsoft Hyper-V Server 2012 R2 est prêt pour la gestion avec Windows Admin 
 
 ## <a name="port-configuration-on-the-target-server"></a>Configuration du port sur le serveur cible
 
-Le centre d’administration Windows utilise le protocole de partage de fichiers SMB pour certaines tâches de copie de fichiers, par exemple lors de l’importation d’un certificat sur un serveur distant. Pour que ces opérations de copie de fichiers aboutissent, le pare-feu sur le serveur distant doit autoriser les connexions entrantes sur le port 445.  Vous pouvez utiliser l’outil de pare-feu dans le centre d’administration Windows pour vérifier que la règle entrante «gestion à distance du serveur de fichiers (SMB-in)» est définie sur autoriser l’accès sur ce port.
+Le centre d’administration Windows utilise le protocole de partage de fichiers SMB pour certaines tâches de copie de fichiers, par exemple lors de l’importation d’un certificat sur un serveur distant. Pour que ces opérations de copie de fichiers aboutissent, le pare-feu sur le serveur distant doit autoriser les connexions entrantes sur le port 445.  Vous pouvez utiliser l’outil de pare-feu dans le centre d’administration Windows pour vérifier que la règle entrante « gestion à distance du serveur de fichiers (SMB-in) » est définie sur autoriser l’accès sur ce port.
 
 > [!Tip]
 > Prêt à installer Windows Admin Center ? [Télécharger maintenant](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center#download-now)

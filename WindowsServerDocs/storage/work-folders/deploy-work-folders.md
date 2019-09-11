@@ -9,12 +9,12 @@ manager: dongill
 ms.author: jgerend
 ms.date: 6/24/2017
 description: Comment déployer Dossiers de travail, y compris l’installation du rôle de serveur, la création des partages de synchronisation et la création d’enregistrements DNS.
-ms.openlocfilehash: d2ba117a021cfc7361c0f7c8df2ed9f3c4bc9d94
-ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
+ms.openlocfilehash: 45b25befcde328e38f694b64fa7536a2b5c7f232
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67792338"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867028"
 ---
 # <a name="deploying-work-folders"></a>Déploiement de Dossiers de travail
 
@@ -51,7 +51,7 @@ Cette rubrique présente les étapes requises pour déployer Dossiers de travail
 ## <a name="step-2-create-dns-records"></a>Étape 2 : créer des enregistrements DNS  
  Pour permettre aux utilisateurs d’effectuer la synchronisation sur Internet, vous devez créer un enregistrement d’hôte (A) dans le DNS public pour autoriser les clients Internet à résoudre votre URL de Dossiers de travail. Cet enregistrement DNS doit être résolu en interface externe du serveur proxy inverse.  
   
- Sur votre réseau interne, créez un enregistrement CNAME dans DNS nommé « dossiersTravail », qui résout les noms de domaines complets d’un serveur Dossiers de travail. Lorsque les clients de dossiers de travail utilisent la détection automatique, l’URL utilisée pour détecter le serveur dossiers de travail est https :\//workfolders.domain.com. Si vous prévoyez d’utiliser la détection automatique, l’enregistrement CNAME dossiersTravail doit exister dans DNS.  
+ Sur votre réseau interne, créez un enregistrement CNAME dans DNS nommé « dossiersTravail », qui résout les noms de domaines complets d’un serveur Dossiers de travail. Lorsque la fonctionnalité dossiers de travail clients utilise la détection automatique, l’URL utilisée pour découvrir le serveur dossiers de\/travail est https:/workfolders.domain.com. Si vous prévoyez d’utiliser la détection automatique, l’enregistrement CNAME dossiersTravail doit exister dans DNS.  
   
 ## <a name="step-3-install-work-folders-on-file-servers"></a>Étape 3 : installer Dossiers de travail sur des serveurs de fichiers  
  Vous pouvez installer Dossiers de travail sur un serveur appartenant à un domaine en utilisant le Gestionnaire de serveur ou Windows PowerShell, en local ou à distance sur un réseau. Cela s’avère utile si vous configurez plusieurs serveurs de synchronisation sur votre réseau.  
@@ -212,7 +212,7 @@ L’exemple ci-dessus crée un partage de synchronisation nommé *Partage01* ave
 > [!TIP]
 >  Après avoir créé des partages de synchronisation, vous pouvez utiliser la fonctionnalité Gestionnaire de ressources du serveur de fichiers pour gérer les données dans les partages. Par exemple, vous pouvez utiliser la vignette **Quota** de la page Dossiers de travail dans le Gestionnaire de serveur pour définir des quotas sur les dossiers utilisateur. Vous pouvez également utiliser [Gestion du filtrage de fichiers](https://technet.microsoft.com/library/cc732074.aspx) pour contrôler les types de fichiers qui seront synchronisés par Dossiers de travail, ou les scénarios décrits dans [Contrôle d’accès dynamique](https://technet.microsoft.com/windows-server-docs/identity/solution-guides/dynamic-access-control--scenario-overview) pour afficher des tâches de classification des fichiers plus élaborées.  
   
-## <a name="step-8-optionally-specify-a-tech-support-email-address"></a>Étape 8 : Si vous le souhaitez spécifier une adresse de messagerie du support technique   
+## <a name="step-8-optionally-specify-a-tech-support-email-address"></a>Étape 8 : Éventuellement, vous pouvez spécifier une adresse de messagerie du support technique   
  Après l’installation de Dossiers de travail sur un serveur de fichiers, vous voudrez probablement spécifier une adresse de messagerie de contact administratif pour le serveur. Pour ajouter une adresse de messagerie, procédez comme suit :  
   
 #### <a name="specifying-an-administrative-contact-email"></a>Spécification d'une adresse de messagerie administrative 
@@ -229,7 +229,7 @@ L’exemple ci-dessus crée un partage de synchronisation nommé *Partage01* ave
  Si vous hébergez plusieurs serveurs de synchronisation dans votre environnement, vous devez configurer la découverte automatique de serveurs en remplissant la propriété **msDS-SyncServerURL** sur les comptes d’utilisateurs dans les services de domaine Active Directory.  
   
 >[!NOTE]
->La propriété msDS-SyncServerURL dans Active Directory ne doit pas être définie pour les utilisateurs distants qui accèdent à Dossiers de travail par le biais d’une solution de proxy inverse comme le proxy d’application web ou le proxy d’application Azure AD. Si la propriété msDS-SyncServerURL est définie, le client Dossiers de travail va tenter d’accéder à une URL interne non accessible via la solution de proxy inverse. Lorsque vous utilisez le proxy d’application web ou le proxy d’application Azure AD, vous devez créer des applications de proxy uniques pour chaque serveur Dossiers de travail. Pour plus d’informations, consultez [Deploying Work Folders with AD FS et Proxy d’Application Web : Vue d’ensemble](deploy-work-folders-adfs-overview.md) ou [déploiement de dossiers de travail avec le Proxy d’Application Azure AD](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/).
+>La propriété msDS-SyncServerURL dans Active Directory ne doit pas être définie pour les utilisateurs distants qui accèdent à Dossiers de travail par le biais d’une solution de proxy inverse comme le proxy d’application web ou le proxy d’application Azure AD. Si la propriété msDS-SyncServerURL est définie, le client dossiers de travail essaiera d’accéder à une URL interne qui n’est pas accessible via la solution de proxy inverse. Lorsque vous utilisez le proxy d’application web ou le proxy d’application Azure AD, vous devez créer des applications de proxy uniques pour chaque serveur Dossiers de travail. Pour plus d’informations, [consultez déploiement de dossiers de travail avec AD FS et proxy d’application Web : Vue](deploy-work-folders-adfs-overview.md) d’ensemble ou [déploiement de dossiers de travail avec Azure ad proxy d’application](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/).
 
 
  Avant cela, vous devez installer un contrôleur de domaine Windows Server 2012 R2 ou mettre à jour les schémas de la forêt et du domaine à l’aide des commandes `Adprep /forestprep` et `Adprep /domainprep`. Pour plus d’informations sur l’exécution de ces commandes en toute sécurité, voir [Exécution d’Adprep.exe](https://technet.microsoft.com/library/dd464018.aspx).  
@@ -264,7 +264,7 @@ Set-ADUser –Add @{"msDS-SyncServerURL"=$SyncServerURL}
   
 ```  
   
-## <a name="step-10-optionally-configure-web-application-proxy-azure-ad-application-proxy-or-another-reverse-proxy"></a>Étape 10 : Si vous le souhaitez configurer le Proxy d’Application Web, le Proxy d’Application ou un autre proxy inverse  
+## <a name="step-10-optionally-configure-web-application-proxy-azure-ad-application-proxy-or-another-reverse-proxy"></a>Étape 10 : Vous pouvez éventuellement configurer le proxy d’application Web, le proxy d’application Azure AD ou un autre proxy inverse  
 
 Pour permettre aux utilisateurs distants d'accéder à leurs fichiers, vous devez publier le serveur Dossiers de travail via un proxy inverse, ce qui rend Dossiers de travail disponible en externe sur Internet. Vous pouvez utiliser le proxy d’application web, le proxy d’application Azure Active Directory ou une autre solution de proxy inverse.  
   
@@ -289,12 +289,12 @@ Si vous disposez d’un grand nombre de PC appartenant à un domaine sur lesquel
 > [!NOTE]
 >  Ces paramètres de stratégie ne sont disponibles que lors de la modification de la stratégie de groupe à partir d'un ordinateur exécutant la gestion des stratégies de groupe sur Windows 8.1, Windows Server 2012 R2 ou versions ultérieures. Ce paramètre n’est pas disponible dans les versions de la gestion des stratégies de groupe de systèmes d’exploitation antérieurs. Ces paramètres de stratégie s’appliquent aux PC Windows 7 sur lesquels l'application [Dossiers de travail pour Windows 7](http://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) a été installée.  
   
-##  <a name="BKMK_LINKS"></a> Voir aussi  
+##  <a name="BKMK_LINKS"></a>Voir aussi  
  Pour plus d’informations connexes, voir les ressources suivantes.  
   
 |Type de contenu|Références|  
 |------------------|----------------|  
-|**Présentation**|-   [Dossiers de travail](work-folders-overview.md)|  
+|**Appréhension**|-   [Dossiers de travail](work-folders-overview.md)|  
 |**Planification**|-   [Conception d’une implémentation de dossiers de travail](plan-work-folders.md)|
-|**Déploiement**|-   [Déploiement de dossiers de travail avec AD FS et Proxy d’Application Web (WAP)](deploy-work-folders-adfs-overview.md)<br />-   [Utiliser des dossiers de déploiement de laboratoire de tests](http://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (billet de blog)<br />-   [Un nouvel attribut utilisateur pour l’Url du serveur dossiers de travail](http://blogs.technet.com/b/filecab/archive/2013/10/09/a-new-user-attribute-for-work-folders-server-url.aspx) (billet de blog)|  
-|**Référence technique**|-   [Ouverture de session interactive : Seuil de verrouillage du compte ordinateur](https://technet.microsoft.com/library/jj966264(v=ws.11).aspx)<br />-   [Applets de commande de synchronisation partage](https://docs.microsoft.com/powershell/module/syncshare/?view=win10-ps)|
+|**Déploiement**|-   [Déploiement de dossiers de travail avec AD FS et le proxy d’application Web (WAP)](deploy-work-folders-adfs-overview.md)<br />-   [Dossiers de travail déploiement laboratoire de test](http://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (billet de blog)<br />-   [Nouvel attribut utilisateur pour l’URL du serveur dossiers de travail](http://blogs.technet.com/b/filecab/archive/2013/10/09/a-new-user-attribute-for-work-folders-server-url.aspx) (billet de blog)|  
+|**Référence technique**|-   [Ouverture de session interactive : Seuil de verrouillage du compte d’ordinateur](https://technet.microsoft.com/library/jj966264(v=ws.11).aspx)<br />-   [Applets de commande de partage de synchronisation](https://docs.microsoft.com/powershell/module/syncshare/?view=win10-ps)|

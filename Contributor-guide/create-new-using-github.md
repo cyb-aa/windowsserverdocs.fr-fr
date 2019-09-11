@@ -4,18 +4,18 @@ description: Comment créer de nouveaux articles relatifs à Windows Server, à 
 author: eross-msft
 ms.author: lizross
 ms.date: 05/02/2019
-ms.openlocfilehash: f5e7e3d0cd17c64175fddaaac73c12daa2c2a32c
-ms.sourcegitcommit: ffd9c42374c7448deb5f53f7a865cb427b5e4e9e
+ms.openlocfilehash: 3f09c36c1e3960728ff016f5801deb854e3d3c96
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69887950"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865065"
 ---
 # <a name="create-new-windows-server-articles-using-github-and-visual-studio-code"></a>Créer des articles Windows Server à l’aide de GitHub et Visual Studio Code
 
-Il existe deux emplacements distincts où nous conservons le contenu technique de Windows Server. L’un des emplacements est public (windowsserverdocs) tandis que l’autre est privé (windowsserverdocs-PR). Qui détermine à quel emplacement vous contribuez:
+Il existe deux emplacements distincts où nous conservons le contenu technique de Windows Server. L’un des emplacements est public (windowsserverdocs) tandis que l’autre est privé (windowsserverdocs-PR). Qui détermine à quel emplacement vous contribuez :
 
-- **Je suis un employé de Microsoft.** En tant qu’employé Microsoft, vous disposez d’options, en fonction de ce que vous essayez de faire:
+- **Je suis un employé de Microsoft.** En tant qu’employé Microsoft, vous disposez d’options, en fonction de ce que vous essayez de faire :
 
     - **Créez un article de toute nouvelle appellation.** Pour créer un article de toute nouvelle appellation, vous devez créer et configurer votre compte et vos outils GitHub, brancher et cloner le référentiel windowsserverdocs-PR, configurer votre branche distante, créer l’article et enfin créer une nouvelle requête de tirage pour l’approbation et la publication. Pour obtenir ces instructions, poursuivez la lecture de cet article.
 
@@ -77,7 +77,7 @@ Vous devez cloner le référentiel obtenir une copie locale du référentiel sur
 
 4. Ouvrez une commande git bash et remplacez les répertoires par l’emplacement où vous souhaitez stocker vos référentiel. Nous vous recommandons d' `C:\users\<your_name>\GitHub`utiliser,.
 
-5. Tapez les commandes suivantes à l’aide de vos propres informations, une à la fois, pour cloner vos référentiel et configurer vos branches distantes:
+5. Tapez les commandes suivantes à l’aide de vos propres informations, une à la fois, pour cloner vos référentiel et configurer vos branches distantes :
 
     ```markdown
 
@@ -90,11 +90,11 @@ Vous devez cloner le référentiel obtenir une copie locale du référentiel sur
     git fetch upstream master
     ```
 
-6. Exécutez cette commande pour vous assurer que votre télécommande est correctement configurée:
+6. Exécutez cette commande pour vous assurer que votre télécommande est correctement configurée :
 
     `git remote -v`
 
-7. Vous devez voir un résultat semblable à ce qui suit:
+7. Vous devez voir un résultat semblable à ce qui suit :
 
     ```markdown
     $ git remote -v
@@ -117,7 +117,7 @@ Avant de pouvoir commencer à travailler sur votre contenu, vous devez créer un
 
 #### <a name="to-create-a-new-branch-in-git-bash"></a>Pour créer une nouvelle branche dans Git bash
 
-- Ouvrez git bash et tapez les commandes (une à la fois):
+- Ouvrez git bash et tapez les commandes (une à la fois) :
 
     ```markdown
     cd windowsserverdocs-pr
@@ -168,7 +168,7 @@ Après vous être assuré que votre texte semble correct, vous pouvez valider vo
 
 #### <a name="to-commit-your-changes"></a>Pour valider vos modifications
 
-- Ouvrez git bash et tapez les commandes (une à la fois, en supprimant les balises FACULTATIVEs):
+- Ouvrez git bash et tapez les commandes (une à la fois, en supprimant les balises FACULTATIVEs) :
 
     ```markdown
     OPTIONAL: git status
@@ -193,7 +193,7 @@ Une fois que vous avez terminé votre article, vous devez obtenir l’approbatio
 
 1. Accédez à https://github.com/MicrosoftDocs/windowsserverdocs-pr et sélectionnez l’onglet **requêtes de tirage** .
 
-2. Dans la zone réviseurs du volet droit, sélectionnez l’icône d’engrenage, puis entrez l’alias _windowsservercontent_ pour la révision.
+2. Dans la zone **réviseurs** du volet droit, sélectionnez l’icône d’engrenage, puis entrez l’alias _windowsservercontent_ pour la révision.
 
     Un membre de l’alias _windowsservercontent_ examine vos modifications ou ajoute des commentaires sur les éléments qui doivent être modifiés avant que la fusion puisse se produire.
 
@@ -212,7 +212,7 @@ Une fois que vous avez terminé votre article, vous devez obtenir l’approbatio
 
 ## <a name="related-information"></a>Informations connexes
 
-Pour plus d’informations sur GitHub et le langage de démarque, consultez:
+Pour plus d’informations sur GitHub et le langage de démarque, consultez :
 
 ### <a name="git-concepts"></a>Concepts git
 
@@ -222,7 +222,7 @@ Pour plus d’informations sur GitHub et le langage de démarque, consultez:
 
 - [Guides GitHub-comprendre le déroulement du GitHub](https://guides.github.com/introduction/flow/)
 
-- [Découvrir la branche git] (https://learngitbranching.js.org/ (Idéal pour les apprenants visuels!))
+- [Découvrir la branche git] (https://learngitbranching.js.org/ (Idéal pour les apprenants visuels !))
 
 ### <a name="markdown"></a>Markdown
 

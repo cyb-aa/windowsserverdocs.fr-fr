@@ -1,6 +1,6 @@
 ---
 title: taskkill
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 13366307bbf685d1e4af8c0a58d5b9d6643111dc
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 9050788a06b66e54be59c69dd8cc837092123b00
+ms.sourcegitcommit: ee8e0b217be6f6b2532ee7265fb4be00c106e124
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811048"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878135"
 ---
 # <a name="taskkill"></a>taskkill
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Met fin à une ou plusieurs tâches ou à un ou plusieurs processus. Les processus peuvent être terminés par ID de processus ou par nom d’image. **TASKKILL** remplace le **kill** outil.
-Pour obtenir des exemples montrant comment utiliser cette commande, consultez [exemples](#examples).
+Met fin à une ou plusieurs tâches ou à un ou plusieurs processus. Les processus peuvent être terminés par ID de processus ou par nom d’image. **taskkill** remplace l’outil **Kill** .
+Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -37,64 +37,64 @@ taskkill [/s <computer> [/u [<Domain>\]<UserName> [/p [<Password>]]]] {[/fi <Fil
 
 |         Paramètre         |                                                                                                                                        Description                                                                                                                                        |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      /s \<computer>       |                                                                                    Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.                                                                                     |
-| /u \<domaine >\\\<nom d’utilisateur > | Exécute la commande avec les autorisations de compte de l’utilisateur qui est spécifié par *nom d’utilisateur* ou *domaine*\\*nom d’utilisateur*. **/u** peut être spécifié uniquement si **/s** est spécifié. La valeur par défaut est les autorisations de l’utilisateur actuellement connecté à l’ordinateur qui émet la commande. |
-|      /p \<mot de passe >       |                                                                                                   Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** paramètre.                                                                                                   |
-|       /fi \<Filter>       |          Applique un filtre pour sélectionner un ensemble de tâches. Vous pouvez utiliser plusieurs filtres ou utiliser le caractère générique ( **\\** \*) pour spécifier toutes les tâches ou de noms d’image. Consultez les rubriques suivantes [table pour les noms de filtre valide](#filter-names-operators-and-values), opérateurs et valeurs.           |
-|     /PID \<ProcessID >     |                                                                                                                 Spécifie l’ID de processus du processus à arrêter.                                                                                                                 |
-|     /im \<ImageName>      |                                                                                Spécifie le nom de l’image de la fin du processus. Utilisez le caractère générique ( **\\** \*) pour spécifier tous les noms d’image.                                                                                |
-|            /f             |                                                                    Spécifie que les processus doit être forcé. Ce paramètre est ignoré pour les processus distants ; tous les processus distants sont toujours forcés.                                                                     |
-|            /t             |                                                                                                          Termine le processus spécifié et tous les processus enfant démarrés par ce dernier.                                                                                                          |
+|      /s \<ordinateur >       |                                                                                    Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.                                                                                     |
+| /u \<domaine >\\nomd’utilisateur>\< | Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par le *nom* d’utilisateur ou le*nom d'* utilisateur de *domaine*\\. **/u** ne peut être spécifié que si **/s** est spécifié. La valeur par défaut est les autorisations de l’utilisateur actuellement connecté à l’ordinateur qui émet la commande. |
+|      /p \<mot de passe >       |                                                                                                   Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .                                                                                                   |
+|       /fi \<filtre >       |          Applique un filtre pour sélectionner un ensemble de tâches. Vous pouvez utiliser plusieurs filtres ou utiliser le caractère générique ( **\\** \*) pour spécifier l’ensemble des tâches ou des noms d’images. Consultez le tableau suivant pour connaître les noms de filtre, les opérateurs et les valeurs [valides](#filter-names-operators-and-values).           |
+|     /PID \<ProcessId >     |                                                                                                                 Spécifie l’ID de processus du processus à arrêter.                                                                                                                 |
+|     /im \<ImageName >      |                                                                                Spécifie le nom de l’image du processus à arrêter. Utilisez le caractère générique ( **\\** \*) pour spécifier tous les noms d’images.                                                                                |
+|            /f             |                                                                    Spécifie que les processus doivent être arrêtés de force. Ce paramètre est ignoré pour les processus distants ; tous les processus distants sont arrêtés de force.                                                                     |
+|            commutateur             |                                                                                                          Met fin au processus spécifié et à tous les processus enfants démarrés par celui-ci.                                                                                                          |
 
-#### <a name="filter-names-operators-and-values"></a>Filtrer les noms, opérateurs et valeurs
+#### <a name="filter-names-operators-and-values"></a>Filtrer les noms, les opérateurs et les valeurs
 
-| Nom du filtre |    Opérateurs valides     |                                                                Ou les valeurs valides                                                                |
+| Nom du filtre |    Opérateurs valides     |                                                                Valeur (s) valide (s)                                                                |
 |-------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-|   STatUS    |         eq, ne         |                                                 EN COURS D’EXÉCUTION &AMP;#124; NE RÉPOND NE PAS &AMP;#124; INCONNU                                                 |
+|   STATU    |         eq, ne         |                                                 EXÉCUTION &#124; SANS RÉPONSE &#124; INCONNUE                                                 |
 |  IMAGENAME  |         eq, ne         |                                                                  Nom de l’image                                                                  |
 |     PID     | eq, ne, gt, lt, ge, le |                                                                  Valeur PID                                                                   |
 |   SESSION   | eq, ne, gt, lt, ge, le |                                                                Numéro de session                                                                |
-|   CPUtime   | eq, ne, gt, lt, ge, le | Temps processeur dans le format <em>HH</em> **:** <em>MM</em> **:** <em>SS</em>, où *MM* et *SS* sont comprises entre 0 et 59 et *HH* est le nombre non signé |
+|   CpuTime   | eq, ne, gt, lt, ge, le | Temps processeur au format <em>hh</em> **:** <em>mm</em> **:** <em>SS</em>, où *mm* et *SS* sont compris entre 0 et 59 et *hh* est un nombre non signé |
 |  MEMUSAGE   | eq, ne, gt, lt, ge, le |                                                              Utilisation de la mémoire en Ko                                                              |
-|  NOM D’UTILISATEUR   |         eq, ne         |                                               N’importe quel nom d’utilisateur valide (*utilisateur* ou *domaine*\\*utilisateur*)                                               |
+|  NOM D’UTILISATEUR   |         eq, ne         |                                               N’importe quel nom d'*utilisateur valide (utilisateur* ou *domaine*\\ *)*                                               |
 |  SERVICES   |         eq, ne         |                                                                 Nom du service                                                                 |
 | WINDOWTITLE |         eq, ne         |                                                                 Titre de la fenêtre                                                                 |
-|   MODULES   |         eq, ne         |                                                                   Nom de la DLL                                                                   |
+|   ACTUALIS   |         eq, ne         |                                                                   Nom de la DLL                                                                   |
 
 ## <a name="remarks"></a>Notes
-* Les filtres WINDOWTITLE et état ne sont pas pris en charge lorsqu’un système distant est spécifié.
-* Le caractère générique ( **\\** <em>) est accepté pour la * */im</em>*  option uniquement lorsqu’un filtre est appliqué.
-* Arrêt des processus distants est toujours effectué volontairement, indépendamment de si le **/f** option est spécifiée.
-* En fournissant un nom d’ordinateur pour le filtre de nom d’hôte provoque un arrêt et tous les processus sont arrêtés.
-* Vous pouvez utiliser **tasklist** pour déterminer l’ID de processus (PID) pour le processus à arrêter.
+* WINDOWTITLE et les filtres d’État ne sont pas pris en charge lorsqu’un système distant est spécifié.
+* Le caractère générique ( **\\** <em>) est accepté pour l’option * */im</em>*  uniquement lorsqu’un filtre est appliqué.
+* L’arrêt des processus distants est toujours effectué de force, que l’option **/f** soit spécifiée ou non.
+* La spécification d’un nom d’ordinateur dans le filtre de nom d’hôte provoque un arrêt et l’arrêt de tous les processus.
+* Vous pouvez utiliser la **TaskList** pour déterminer l’ID de processus (PID) du processus à arrêter.
 
 ## <a name="examples"></a>Exemples
 
-Pour terminer les processus avec le processus ID 1230, 1241 et 1253, tapez :
+Pour mettre fin aux processus avec les ID de processus 1230, 1241 et 1253, tapez :
 
 ```
 taskkill /pid 1230 /pid 1241 /pid 1253
 ```
 
-À la fin de force le processus « Notepad.exe » s’il a été démarré par le système, tapez :
+Pour forcer la fin du processus « Notepad. exe » s’il a été démarré par le système, tapez :
 
 ```
 taskkill /f /fi "USERNAME eq NT AUTHORITY\SYSTEM" /im notepad.exe
 ```
 
-Pour mettre fin à tous les processus sur l’ordinateur distant « Srvmain » avec un image le nom commence par « note », tout en utilisant les informations d’identification du compte d’utilisateur Hiropln, tapez :
+Pour mettre fin à tous les processus sur l’ordinateur distant « Srvmain » avec un nom d’image commençant par « remarque » tout en utilisant les informations d’identification du compte d’utilisateur hiropln, tapez :
 
 ```
 taskkill /s srvmain /u maindom\hiropln /p p@ssW23 /fi "IMAGENAME eq note*" /im *
 ```
 
-Pour terminer le processus avec le processus ID 2134 et tout enfant les processus qui elle a, mais uniquement si ces processus ont été démarrés par le compte d’administrateur, tapez :
+Pour mettre fin au processus avec l’ID de processus 2134 et les processus enfants qu’il a démarré, mais uniquement si ces processus ont été démarrés par le compte d’administrateur, tapez :
 
 ```
 taskkill /pid 2134 /t /fi "username eq administrator"
 ```
 
-Pour mettre fin à tous les processus qui ont un ID de processus supérieur ou égal à 1 000, quel que soit leur nom d’image, tapez :
+Pour mettre fin à tous les processus dont l’ID de processus est supérieur ou égal à 1000, quel que soit leur nom d’image, tapez :
 
 ```
 taskkill /f /fi "PID ge 1000" /im *

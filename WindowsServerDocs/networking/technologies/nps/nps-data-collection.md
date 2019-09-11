@@ -1,6 +1,6 @@
 ---
-title: Réseau de collecte de données de serveur de stratégie utilisateur
-description: Quelles informations sont utilisées pour aider à authentifier les utilisateurs par le serveur de stratégie réseau dans Windows Server 2016.
+title: Collecte des données utilisateur du serveur de stratégie réseau
+description: Les informations utilisées pour aider à authentifier les utilisateurs par le serveur de stratégie réseau dans Windows Server 2016.
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.author: joflore
@@ -11,40 +11,40 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: ''
 ms.date: 05/01/2018
-ms.openlocfilehash: 5bddd22c9c2f954435cc6ce37347d18c76ee7de3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cd145402ed70aa52da7188dee9dd64ce17fea155
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888740"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871878"
 ---
-# <a name="network-policy-server-user-data-collection"></a>Réseau de collecte de données de serveur de stratégie utilisateur
+# <a name="network-policy-server-user-data-collection"></a>Collecte des données utilisateur du serveur de stratégie réseau
 
-Ce document explique comment trouver les informations utilisateur collectées par le serveur NPS (Network Policy) dans l’événement vous souhaitez supprimer.
+Ce document explique comment rechercher des informations utilisateur collectées par le serveur NPS (Network Policy Server) dans l’événement que vous souhaitez supprimer.
 
 >[!Note]
->Si vous êtes intéressé de l’affichage ou la suppression des données personnelles, passez en revue les conseils de Microsoft dans le [requêtes Windows pour le RGPD](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-windows) site. Si vous recherchez des informations générales sur RGPD, consultez le [section RGPD du portail de confiance du Service](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+>Si vous souhaitez afficher ou supprimer des données personnelles, consultez les conseils de Microsoft relatifs aux demandes de l' [objet des données Windows pour le site RGPD](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-windows) . Si vous recherchez des informations générales sur RGPD, reportez-vous à la [section RGPD du portail Service Trust](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## <a name="information-collected-by-nps"></a>Informations collectées par le serveur NPS
 
-- Horodateur
+- Timestamp
 - Horodateur de l’événement
-- Nom d'utilisateur
-- Nom d’utilisateur qualifié complet
+- Nom d’utilisateur
+- Nom d’utilisateur complet
 - Adresse IP du client
 - Fournisseur du client
 - Nom convivial du client
 - Type d’authentification
-- Nombreux autres champs concernant le protocole RADIUS
+- Nombreux autres champs relatifs au protocole RADIUS
 
-## <a name="gather-data-from-nps"></a>Collecter les données de serveur NPS
+## <a name="gather-data-from-nps"></a>Collecter des données à partir du serveur NPS
 
-Si les données de gestion sont activées et configurées, les enregistrements de tentatives d’authentification NPS d’un utilisateur peuvent être obtenus à partir de SQL Server ou les fichiers journaux en fonction de la configuration. 
+Si les données de gestion sont activées et configurées, les enregistrements des tentatives d’authentification NPS d’un utilisateur peuvent être obtenus à partir de SQL Server ou des fichiers journaux en fonction de la configuration. 
 
-Si les données de gestion sont configurées pour SQL Server, la requête pour tous les enregistrements où nom_utilisateur = `'<username>'`.
+Si les données de gestion des comptes sont configurées pour SQL Server, recherchez tous `'<username>'`les enregistrements où user_name =.
 
-Si les données de gestion sont configurées pour un fichier journal, puis recherchez le fichier journal pour le `<username>` pour rechercher toutes les entrées de journal.
+Si les données de gestion des comptes sont configurées pour un fichier journal, recherchez toutes `<username>` les entrées de journal dans le fichier journal.
 
-Stratégie de réseau et les Services d’accès aux entrées de journal des événements sont considérés comme pyramidaux pour les données de gestion et ne doivent être collectées.
+Les entrées du journal des événements des services de stratégie et d’accès réseau sont considérées comme dupliquées dans les données de comptabilité et n’ont pas besoin d’être collectées.
 
-Si les données de gestion ne sont pas activées, les enregistrements de tentatives d’authentification NPS d’un utilisateur peuvent être obtenus à partir du journal des événements de stratégie réseau et Services d’accès en recherchant le `<username>`.
+Si les données de gestion ne sont pas activées, les enregistrements des tentatives d’authentification NPS d’un utilisateur peuvent être obtenus à partir du journal des événements des services `<username>`de stratégie et d’accès réseau en recherchant le.

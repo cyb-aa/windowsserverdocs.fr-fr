@@ -1,6 +1,6 @@
 ---
-title: Migration du serveur de fédération 2.0 AD FS
-description: Fournit des informations sur la migration d’un serveur AD FS vers Windows Server 2012 R2.
+title: Migrer le serveur de fédération AD FS 2,0
+description: Contient des informations sur la migration d’un serveur AD FS vers Windows Server 2012 R2.
 author: billmath
 ms.author: billmath
 manager: femila
@@ -8,32 +8,32 @@ ms.date: 07/10/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 38e44ab2f803d8ec8940dbba7574a9f37389112a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1357c4bd86f45de5d83b38419b3612afc123dea9
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444464"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867887"
 ---
-# <a name="verify-the-ad-fs-20-migration-to-windows-server-2012-r2"></a>Vérifiez l’AD FS 2.0 la migration vers Windows Server 2012 R2
+# <a name="verify-the-ad-fs-20-migration-to-windows-server-2012-r2"></a>Vérifier la migration de AD FS 2,0 vers Windows Server 2012 R2
 
-Lorsque vous avez terminé la même migration serveur de votre batterie de serveurs du Service de fédération Active Directory (AD FS) vers Windows Server 2012 R2, vous pouvez utiliser la procédure suivante pour vérifier que les serveurs de fédération dans votre batterie de serveurs sont opérationnels ; Autrement dit, qu’un client sur le même réseau peut accéder à vos serveurs federtation.  
+Une fois que vous avez effectué la même migration serveur de votre batterie de serveurs Active Directory service FS (Federation Service) (AD FS) vers Windows Server 2012 R2, vous pouvez utiliser la procédure suivante pour vérifier que les serveurs de Fédération de votre batterie sont opérationnels. autrement dit, tous les clients sur le même réseau peuvent accéder à vos serveurs federtation.  
   
 Vous devez au minimum appartenir au groupe **Utilisateurs**, **Opérateurs de sauvegarde**, **Utilisateurs avec pouvoir**, **Administrateurs** ou à un groupe équivalent sur l’ordinateur local pour pouvoir suivre cette procédure.
   
 ### <a name="to-verify-that-a-federation-server-is-operational"></a>Pour vérifier qu’un serveur de fédération est opérationnel  
   
-1.  Ouvrez une fenêtre de navigateur et dans la barre d’adresses, tapez le nom de serveurs de fédération et ajoutez-le avec `federationmetadata/2007-06/federationmetadata.xml` pour accéder au point de terminaison de métadonnées de service FS. Par exemple, `https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml` .  
+1.  Ouvrez une fenêtre de navigateur et, dans la barre d’adresse, tapez le nom du serveur de Fédération, `federationmetadata/2007-06/federationmetadata.xml` puis ajoutez-le avec pour accéder au point de terminaison des métadonnées du service de Fédération. Par exemple, `https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml` .  
   
 Si, dans la fenêtre de navigateur, vous pouvez voir les métadonnées du serveur de fédération sans aucun avertissement ni erreur SSL, le serveur de fédération est opérationnel.  
   
 2. Vous pouvez également accéder à la page de connexion AD FS (nom du service de fédération suivi de `adfs/ls/idpinitiatedsignon.htm`, par exemple `https://fs.contoso.com/adfs/ls/idpinitiatedsignon.htm`).  La page de connexion AD FS s’ouvre dans laquelle vous pouvez vous connecter à l’aide des informations d’identification d’administrateur du domaine.  
   
 > [!IMPORTANT]
->  Veillez à configurer les paramètres du navigateur pour approuver le rôle de serveur de fédération en ajoutant le nom de votre service de fédération (par exemple, `https://fs.contoso.com`) à la zone intranet locale du navigateur.  
+>  Veillez à configurer les paramètres de votre navigateur pour approuver le rôle de serveur de Fédération en ajoutant le nom de votre `https://fs.contoso.com`service de Fédération (par exemple,) à la zone Intranet local du navigateur.  
   
 ## <a name="next-steps"></a>Étapes suivantes
- [Migrer des Services de rôle Active Directory Federation Services vers Windows Server 2012 R2](migrate-ad-fs-service-role-to-windows-server-r2.md)   
- [Préparation à la migration du serveur de fédération AD FS](prepare-migrate-ad-fs-server-r2.md)  
+ [Migrer Services ADFS services de rôle vers Windows Server 2012 R2](migrate-ad-fs-service-role-to-windows-server-r2.md)   
+ [Préparation de la migration du serveur de fédération AD FS](prepare-migrate-ad-fs-server-r2.md)  
  [Migration du serveur de fédération AD FS](migrate-ad-fs-fed-server-r2.md)   
- [Migration de serveur Proxy de fédération AD FS](migrate-fed-server-proxy-r2.md)   
+ [Migration du serveur proxy de fédération AD FS](migrate-fed-server-proxy-r2.md)   

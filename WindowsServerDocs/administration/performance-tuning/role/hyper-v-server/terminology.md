@@ -1,56 +1,56 @@
 ---
 title: Terminologie Hyper-V
-description: Terminologie Hyper-v utile de réglage des performances d’Hyper-V
+description: Terminologie Hyper-v utile dans le réglage des performances d’Hyper-V
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: bc970633ff24827207eb3a27e282656f2486a6eb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d18557a205f8366631becb65b7460c07757db3d5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841140"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866527"
 ---
 # <a name="hyper-v-terminology"></a>Terminologie Hyper-V
-Cette section récapitule la terminologie clé spécifique à la technologie de machine virtuelle qui est utilisée tout au long de cette rubrique d’optimisation des performances :
+Cette section résume la terminologie clé propre à la technologie des machines virtuelles utilisée dans cette rubrique de réglage des performances :
 
 | Terme        | Définition           |
 | ------------- |:------------|
-|*partition enfant* | N’importe quel ordinateur virtuel qui est créé par la partition racine.|
-|*virtualisation de l’appareil* | Un mécanisme qui permet un matériel ressources être abstraits et partagés entre plusieurs consommateurs.|
-|*APPAREIL émulé*|Un appareil virtualisé qui simule un appareil matériel physique afin que les invités peuvent utiliser les pilotes classiques pour ce périphérique matériel.|
-|*enlightenment*|Une optimisation pour un système d’exploitation pour la rendre prenant en charge des environnements d’ordinateur virtuel et ajuster son comportement pour les machines virtuelles.|
-|*guest*|Logiciel qui s’exécute dans une partition. Il peut être un système d’exploitation complet ou un noyau de petite taille, à usage spécial. L’hyperviseur est indépendant de l’invité.|
-|*hypervisor*|Une couche logicielle qui se trouve au-dessus du matériel et au-dessous d’un ou plusieurs systèmes d’exploitation. Son travail principal consiste à fournir des environnements d’exécution isolés appelés partitions. Chaque partition possède son propre ensemble de ressources d’un matériel virtualisé (unité centrale ou du processeur, mémoire et des périphériques). L’hyperviseur contrôle et régit l’accès au matériel sous-jacent.|
-|*processeur logique*| Une unité de traitement qui gère un thread d’exécution (flux d’instructions). Il peut y avoir un ou plusieurs processeurs logiques par cœur de processeur et un ou plusieurs noyaux par socket de processeur.|
-| *accès au disque de transfert direct*|Une représentation sous forme d’un disque physique entier comme un disque virtuel au sein de l’invité. Les données et les commandes sont transmises sur le disque physique (via la pile de stockage natif de la partition racine) avec aucun traitement concerné par la pile virtuelle.|
-|*partition racine*|La partition racine qui est créée en premier et possède toutes les ressources que l’hyperviseur n’effectue pas, y compris la plupart des appareils et la mémoire système. La partition racine héberge la pile de virtualisation et crée et gère les partitions enfants.|
-|*Appareil de spécifique à Hyper-V*|Un appareil virtualisé avec aucun analogique du matériel physique, c’est le cas invités peuvent devoir un pilote (client de service de virtualisation) cet appareil spécifique à Hyper-V. Le pilote peut utiliser virtual machine bus VMBus pour communiquer avec le logiciel d’appareil virtualisé dans la partition racine.|
-|*machine virtuelle*|Un ordinateur virtuel qui a été créé par émulation logicielle et a les mêmes caractéristiques que réel de l’ordinateur.|
-| *commutateur de réseau virtuel*|(également appelée un commutateur virtuel) Une version virtuelle d’un commutateur réseau physique. Il est possible de configurer un réseau virtuel pour fournir à un ou plusieurs ordinateurs virtuels un accès à des ressources locales ou réseau externes.|
-|*processeur virtuel*|Une abstraction virtuelle d’un processeur qui est planifiée pour s’exécuter sur un processeur logique. Une machine virtuelle peut avoir un ou plusieurs processeurs virtuels.|
-|*client de service de virtualisation (VSC)*|Un module logiciel un invité se charge pour utiliser une ressource ou un service. Pour les périphériques d’e/s, le client de service de virtualisation peut être un pilote de périphérique qui charge le noyau du système d’exploitation.|
-| *fournisseur de services de virtualisation (VSP)*|  Un fournisseur est exposé par la pile de virtualisation dans la partition racine qui fournit des ressources ou des services tels que des e/s à une partition enfant.|
-| *pile de virtualisation*|Une collection de composants logiciels dans la partition racine qui fonctionnent ensemble pour prendre en charge des machines virtuelles. La pile de virtualisation fonctionne avec et se trouve au-dessus de l’hyperviseur. Il fournit également des fonctionnalités de gestion.|
-|*VMBus*|Mécanisme de communication basée sur le canal utilisé pour l’énumération de communication et l’appareil entre les partitions sur les systèmes avec plusieurs partitions virtualisées actives. Le VMBus est installé avec les Services d’intégration Hyper-V.|
+|*partition enfant* | Tout ordinateur virtuel créé par la partition racine.|
+|*virtualisation des appareils* | Mécanisme qui permet à une ressource matérielle d’être abstraite et partagée entre plusieurs consommateurs.|
+|*appareil émulé*|Appareil virtualisé qui imite un périphérique matériel physique réel afin que les invités puissent utiliser les pilotes typiques pour ce périphérique matériel.|
+|*enlightenment*|Optimisation d’un système d’exploitation invité pour qu’il prenne en charge les environnements de machines virtuelles et ajuste son comportement pour les ordinateurs virtuels.|
+|*courriels*|Logiciel qui s’exécute dans une partition. Il peut s’agir d’un système d’exploitation complet ou d’un petit noyau à usage spécial. L’hyperviseur est indépendant de l’invité.|
+|*hypervisor*|Couche de logiciels qui se trouve au-dessus du matériel et au-dessous d’un ou de plusieurs systèmes d’exploitation. Son travail principal consiste à fournir des environnements d’exécution isolés appelés partitions. Chaque partition possède son propre ensemble de ressources matérielles virtualisées (unité centrale de traitement ou UC, mémoire et périphériques). L’hyperviseur contrôle et régit l’accès au matériel sous-jacent.|
+|*processeur logique*| Unité de traitement qui gère un thread d’exécution (flux d’instructions). Il peut y avoir un ou plusieurs processeurs logiques par cœur de processeur et un ou plusieurs cœurs par socket de processeur.|
+| *accès direct au disque*|Représentation d’un disque physique entier en tant que disque virtuel au sein de l’invité. Les données et les commandes sont transmises au disque physique (via la pile de stockage native de la partition racine) sans traitement intermédiaire par la pile virtuelle.|
+|*partition racine*|La partition racine qui est créée en premier et possède toutes les ressources qui ne le sont pas, y compris la plupart des appareils et de la mémoire système. La partition racine héberge la pile de virtualisation et crée et gère les partitions enfants.|
+|*Appareil spécifique à Hyper-V*|Un appareil virtualisé sans matériel physique analogique, de sorte que les invités peuvent avoir besoin d’un pilote (client du service de virtualisation) sur cet appareil spécifique à Hyper-V. Le pilote peut utiliser le bus VMBus pour communiquer avec le logiciel de l’appareil virtualisé dans la partition racine.|
+|*ordinateur virtuel*|Ordinateur virtuel créé par l’émulation de logiciel et ayant les mêmes caractéristiques qu’un ordinateur réel.|
+| *commutateur de réseau virtuel*|(également appelé commutateur virtuel) Version virtuelle d’un commutateur de réseau physique. Il est possible de configurer un réseau virtuel pour fournir à un ou plusieurs ordinateurs virtuels un accès à des ressources locales ou réseau externes.|
+|*processeur virtuel*|Abstraction virtuelle d’un processeur qui est planifiée pour s’exécuter sur un processeur logique. Un ordinateur virtuel peut avoir un ou plusieurs processeurs virtuels.|
+|*client du service de virtualisation (VSC)*|Module logiciel qu’un invité charge pour consommer une ressource ou un service. Pour les périphériques d’e/s, le client du service de virtualisation peut être un pilote de périphérique chargé par le noyau du système d’exploitation.|
+| *fournisseur de services de virtualisation (VSP)*|  Fournisseur exposé par la pile de virtualisation dans la partition racine qui fournit des ressources ou des services tels que des e/s à une partition enfant.|
+| *pile de virtualisation*|Collection de composants logiciels dans la partition racine qui fonctionnent ensemble pour prendre en charge les ordinateurs virtuels. La pile de virtualisation fonctionne avec et se trouve au-dessus de l’hyperviseur. Il fournit également des fonctionnalités de gestion.|
+|*VMBus*|Mécanisme de communication basé sur le canal utilisé pour la communication entre les partitions et l’énumération des appareils sur les systèmes avec plusieurs partitions virtualisées actives. Le VMBus est installé avec les Services d’intégration Hyper-V.|
 
 ## <a name="see-also"></a>Voir aussi
 
 -   [Architecture Hyper-V](architecture.md)
 
--   [Configuration de serveur Hyper-V](configuration.md)
+-   [Configuration du serveur Hyper-V](configuration.md)
 
--   [Performances du processeur de Hyper-V](processor-performance.md)
+-   [Performances du processeur Hyper-V](processor-performance.md)
 
 -   [Performances de la mémoire Hyper-V](memory-performance.md)
 
--   [Stockage Hyper-V les performances d’e/s](storage-io-performance.md)
+-   [Performances E/S du stockage Hyper-V](storage-io-performance.md)
 
--   [Réseau de Hyper-V les performances d’e/s](network-io-performance.md)
+-   [Performances E/S du réseau Hyper-V](network-io-performance.md)
 
 -   [Détecter les goulots d’étranglement dans un environnement virtualisé](detecting-virtualized-environment-bottlenecks.md)
 
--   [Machines virtuelles Linux](linux-virtual-machine-considerations.md)
+-   [Ordinateurs virtuels Linux](linux-virtual-machine-considerations.md)

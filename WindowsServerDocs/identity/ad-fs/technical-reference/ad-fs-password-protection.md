@@ -1,6 +1,6 @@
 ---
-title: Protection contre les attaques de mot de passe FS de AD
-description: Ce document décrit comment protéger les utilisateurs AD FS contre les attaques de mot de passe
+title: Protection contre les attaques de mot de passe AD FS
+description: Ce document explique comment protéger les utilisateurs AD FS contre les attaques de mot de passe
 author: billmath
 manager: mtillman
 ms.reviewer: andandyMSFT
@@ -9,118 +9,118 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 5666943138070cfa8cfe62f1ba932c2793daa003
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: c446ec86d426148836267e29610f86691cf0798a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501603"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865454"
 ---
-# <a name="ad-fs-password-attack-protection"></a>Protection contre les attaques de mot de passe FS de AD
+# <a name="ad-fs-password-attack-protection"></a>Protection contre les attaques de mot de passe AD FS
 
-## <a name="what-is-a-password-attack"></a>Qu’est une attaque de mot de passe ?
+## <a name="what-is-a-password-attack"></a>Qu’est-ce qu’une attaque de mot de passe ?
 
-Une exigence pour fédérés l’authentification unique est la disponibilité des points de terminaison à s’authentifier via internet. La disponibilité des points de terminaison d’authentification sur internet permet aux utilisateurs d’accéder aux applications, même lorsqu’ils ne sont pas sur un réseau d’entreprise. 
+Une condition requise pour l’authentification unique fédérée est la disponibilité des points de terminaison pour l’authentification sur Internet. La disponibilité des points de terminaison d’authentification sur Internet permet aux utilisateurs d’accéder aux applications même s’ils ne se trouvent pas sur un réseau d’entreprise. 
 
-Toutefois, cela signifie également que certains mauvais acteurs peut tirer parti des points de terminaison fédérés disponibles sur internet et utiliser ces points de terminaison pour essayer de déterminer les mots de passe ou pour créer par déni de service. Une telle attaque est de plus en plus courante est appelée un **attaque de mot de passe**. 
+Toutefois, cela signifie également que certains mauvais acteurs peuvent tirer parti des points de terminaison fédérés disponibles sur Internet et utiliser ces points de terminaison pour essayer de déterminer les mots de passe ou pour créer des attaques par déni de service. L’une de ces attaques qui devient plus courante est appelée **attaque de mot de passe**. 
 
-Il existe 2 types d’attaques de mot de passe courants. Mot de passe pulvérisation attaque & brute force attaque de mot de passe. 
+Il existe 2 types d’attaques de mot de passe courantes. Attaque par pulvérisation de mot de passe & attaque de mot de passe en force brute. 
 
-### <a name="password-spray-attack"></a>Attaque de pulvérisation de mot de passe
-Dans une attaque par pulvérisation de mot de passe, ces mauvais acteurs va tenter les mots de passe courants sur de nombreux comptes différents et les services pour accéder à n’importe quel il peut trouver des ressources protégé par mot de passe. Généralement Cela englobe les nombreux différentes organisations et les fournisseurs d’identité. Par exemple, une personne malveillante utilisera un kit de ressources généralement disponible pour énumérer tous les utilisateurs dans plusieurs organisations et essayez « P@$$w0rd » et « Password1 » par rapport à tous ces comptes. Pour vous donner l’idée, une attaque pourrait ressembler à :
+### <a name="password-spray-attack"></a>Attaque par pulvérisation de mot de passe
+Dans le cas d’une attaque par pulvérisation de mot de passe, ces mauvais acteurs vont essayer les mots de passe les plus courants entre de nombreux comptes et services différents pour accéder aux ressources protégées par mot de passe qu’ils peuvent trouver. Généralement, ceux-ci s’étendent à de nombreuses organisations et fournisseurs d’identité. Par exemple, une personne malveillante utilise une boîte à outils couramment disponible pour énumérer tous les utilisateurs de plusieurs organisations, puis essayer « P @ $ $w 0rd » et « Password1 » pour tous ces comptes. Pour vous donner l’idée, une attaque peut se présenter comme suit :
 
 
-|  Utilisateur cible   | Cible de mot de passe |
+|  Utilisateur cible   | Mot de passe cible |
 |----------------|-----------------|
 | User1@org1.com |    Password1    |
 | User2@org1.com |    Password1    |
 | User1@org2.com |    Password1    |
 | User2@org2.com |    Password1    |
 |       …        |        …        |
-| User1@org1.com |    P@$$w0rd     |
-| User2@org1.com |    P@$$w0rd     |
-| User1@org2.com |    P@$$w0rd     |
-| User2@org2.com |    P@$$w0rd     |
+| User1@org1.com |    P @ $ $w 0rd     |
+| User2@org1.com |    P @ $ $w 0rd     |
+| User1@org2.com |    P @ $ $w 0rd     |
+| User2@org2.com |    P @ $ $w 0rd     |
 
-Ce modèle d’attaque échappe à la plupart des techniques de détection, car à partir du point de vue d’un utilisateur individuel ou d’entreprise, l’attaque ressemble simplement à une connexion ayant échouée isolée.
+Ce modèle d’attaque échappe à la plupart des techniques de détection, car du point de bourré d’un utilisateur ou d’une société individuel, l’attaque ressemble à une connexion ayant échoué isolée.
 
-Pour les attaquants, c’est un jeu de nombres : ils savent qu’il n’y a certains mots de passe ici sont très courantes.  L’attaquant obtiendra quelques réussites pour tous les milliers comptes attaqués, et c’est suffisant pour être efficace. Ils utilisent les comptes pour obtenir des données à partir des e-mails, collecter des informations de contact et envoyer des liens de phishing ou développez simplement le groupe de cibles de pulvérisation de mot de passe. Les pirates ne vous souciez beaucoup qui sont les cibles initiales, juste qu’ils disposent de succès qui peuvent tirer parti.
+Pour les attaquants, il s’agit d’un jeu de chiffres : ils savent qu’il y a des mots de passe très courants.  L’attaquant obtiendra quelques réussites pour chaque millier de comptes attaqués, ce qui est suffisant pour être efficace. Ils utilisent les comptes pour obtenir des données à partir de messages électroniques, collecter des informations de contact et envoyer des liens d’hameçonnage ou simplement développer le groupe cible de pulvérisation de mot de passe. Les attaquants ne se soucient pas de l’identité des cibles initiales, mais elles ont un certain succès qu’elles peuvent exploiter.
 
-Mais, en prenant quelques étapes pour configurer les services AD FS et réseau correctement, les points de terminaison AD FS peuvent être sécurisés contre les attaques de ce type. Cet article couvre des 3 domaines qui doivent être configurés correctement pour vous aider à sécuriser contre ces attaques.
+Toutefois, en suivant quelques étapes pour configurer correctement la AD FS et le réseau, AD FS points de terminaison peuvent être sécurisés contre ces types d’attaques. Cet article traite des 3 domaines qui doivent être configurés correctement pour vous aider à sécuriser ces attaques.
 
-### <a name="brute-force-password-attack"></a>Attaque de mot de passe par Force brute 
-Dans ce type d’attaque, un attaquant va tenter de plusieurs tentatives de mot de passe par rapport à un ensemble ciblé de comptes. Dans de nombreux cas, ces comptes sont ciblés sur les utilisateurs qui ont un niveau plus élevé d’accès au sein de l’organisation. Il peut s’agir cadres au sein de l’organisation ou les administrateurs qui gèrent des infrastructures critiques.  
+### <a name="brute-force-password-attack"></a>Attaque par force brute de mot de passe 
+Dans ce type d’attaque, une personne malveillante tentera plusieurs tentatives de mot de passe sur un ensemble de comptes ciblé. Dans de nombreux cas, ces comptes sont ciblés sur les utilisateurs qui ont un niveau d’accès plus élevé au sein de l’organisation. Il peut s’agir de dirigeants au sein de l’organisation ou des administrateurs qui gèrent l’infrastructure critique.  
 
-Ce type d’attaque peut également entraîner des modèles de déni de service. Cela peut être au niveau du service où AD FS ne peut pas traiter un grand nombre de requêtes en raison d’un nombre insuffisant de serveurs ou peut être à un niveau de l’utilisateur où un utilisateur est verrouillé à leur compte.  
+Ce type d’attaque peut également entraîner des modèles DOS. Il peut s’agir d’un niveau de service dans lequel ADFS ne peut pas traiter un grand nombre de requêtes en raison d’un nombre insuffisant de serveurs ou d’un niveau utilisateur où un utilisateur est verrouillé à partir de son compte.  
 
-## <a name="securing-ad-fs-against-password-attacks"></a>Sécurisation d’AD FS contre les attaques de mot de passe 
+## <a name="securing-ad-fs-against-password-attacks"></a>Sécurisation des AD FS contre les attaques par mot de passe 
 
-Mais, en prenant quelques étapes pour configurer les services AD FS et réseau correctement, les points de terminaison AD FS peuvent être sécurisées par rapport à ces types d’attaques. Cet article couvre des 3 domaines qui doivent être configurés correctement pour vous aider à sécuriser contre ces attaques. 
+Toutefois, en suivant quelques étapes pour configurer correctement la AD FS et le réseau, AD FS points de terminaison peuvent être sécurisés contre ces types d’attaques. Cet article traite des 3 domaines qui doivent être configurés correctement pour vous aider à sécuriser ces attaques. 
 
 
-- Niveau 1, ligne de base : Voici les paramètres de base qui doivent être configurés sur un serveur AD FS pour vous assurer que les mauvais acteurs ne peut pas les utilisateurs attaque fédéré de force brute. 
-- Niveau 2, protection de l’extranet : Ce sont les paramètres qui doivent être configurés pour garantir que l’accès extranet est configuré pour utiliser des protocoles sécurisés, les stratégies d’authentification et les applications appropriées. 
-- Niveau 3, accédez sans mot de passe pour l’accès extranet : Ceux-ci sont des paramètres et des instructions pour activer l’accès aux ressources fédérés avec la plus sécurisée identification, plutôt que les mots de passe qui sont vulnérables aux attaques. 
+- Niveau 1, ligne de base : Il s’agit des paramètres de base qui doivent être configurés sur un serveur AD FS pour s’assurer que les mauvais acteurs ne peuvent pas forcer les utilisateurs fédérés malveillants. 
+- Niveau 2, protection de l’extranet : Il s’agit des paramètres qui doivent être configurés pour garantir que l’accès extranet est configuré pour utiliser des protocoles sécurisés, des stratégies d’authentification et des applications appropriées. 
+- Niveau 3, passer au mot de passe sans mot de passe pour l’accès extranet : Il s’agit de paramètres avancés et de recommandations pour permettre l’accès aux ressources fédérées avec des informations d’identification plus sécurisées plutôt que des mots de passe susceptibles d’être attaqués. 
 
 ## <a name="level-1-baseline"></a>Niveau 1 : Baseline
 
-1. Si AD FS 2016, implémentez [extranet verrouillage intelligent](../../ad-fs/operations/Configure-AD-FS-Extranet-Smart-Lockout-Protection.md) Extranet verrouillage intelligent effectue le suivi des emplacements connus et permet à un utilisateur valid à transiter par si elles ont précédemment connecté avec succès à partir de cet emplacement. À l’aide de verrouillage intelligent extranet, vous pouvez vous assurer que les mauvais acteurs ne sera pas en mesure de force brute attaquer les utilisateurs et en même temps vous permettent d’utilisateur légitime être productifs.
-    - Si vous n’êtes pas sur AD FS 2016, nous vous recommandons fortement [mise à niveau](../../ad-fs/deployment/upgrading-to-ad-fs-in-windows-server.md) à AD FS 2016. Il est une simple mise à niveau à partir d’AD FS 2012 R2. Si vous utilisez AD FS 2012 R2, implémenter [verrouillage extranet](../../ad-fs/operations/Configure-AD-FS-Extranet-Soft-Lockout-Protection.md). L’un des inconvénients de cette approche sont que les utilisateurs valides peuvent être bloqués à partir de l’accès extranet si vous êtes dans un modèle de force brute. AD FS sur Server 2016 n’a pas cet inconvénient.
+1. Si ADFS 2016, implémentez le verrouillage intelligent extranet de [verrouillage intelligent](../../ad-fs/operations/Configure-AD-FS-Extranet-Smart-Lockout-Protection.md) qui effectue le suivi des emplacements familiers et permettra à un utilisateur valide de traverser s’il s’est déjà connecté avec succès à partir de cet emplacement. En utilisant le verrouillage intelligent extranet, vous pouvez vous assurer que les mauvais acteurs ne seront pas en mesure de forcer les utilisateurs à effectuer des attaques en force brute et de laisser à l’utilisateur légitime la productivité.
+    - Si vous n’êtes pas sur AD FS 2016, nous vous recommandons vivement d' [effectuer la mise à niveau](../../ad-fs/deployment/upgrading-to-ad-fs-in-windows-server.md) vers AD FS 2016. Il s’agit d’un chemin de mise à niveau simple de AD FS 2012 R2. Si vous êtes sur AD FS 2012 R2, implémentez le [verrouillage extranet](../../ad-fs/operations/Configure-AD-FS-Extranet-Soft-Lockout-Protection.md). L’un des inconvénients de cette approche est que les utilisateurs valides peuvent être bloqués pour l’accès extranet si vous êtes en force brute. AD FS sur le serveur 2016 ne présente pas cet inconvénient.
 
-2. Surveiller et bloquer des adresses IP suspectes 
-    - Si vous avez Azure AD Premium, implémenter Connect Health pour AD FS et utilisez le [rapport d’adresse IP risquée](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs#risky-ip-report-public-preview) notifications qu’il fournit.
+2. Surveiller & bloquer les adresses IP suspectes 
+    - Si vous avez Azure AD Premium, implémentez Connect Health pour ADFS et utilisez les notifications de [rapport d’adresse IP risquées](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs#risky-ip-report-public-preview) qu’il fournit.
 
-        a. Gestionnaire de licences n’est pas pour tous les utilisateurs et nécessite 25 licences/ADFS/WAP du serveur qui peut être facile pour un client.
+        a. La gestion des licences n’est pas destinée à tous les utilisateurs et nécessite 25 licences/ADFS/WAP, ce qui peut être facile pour un client.
 
-        b. Vous pouvez commencer à étudier l’adresse IP qui génèrent le grand nombre d’échecs de connexion
+        b. Vous pouvez maintenant examiner les adresses IP qui génèrent de nombreux échecs de connexion
 
-        c. Vous devrez activer l’audit sur vos serveurs AD FS.
+        c. Pour cela, vous devez activer l’audit sur vos serveurs ADFS.
 
-3.  Bloquer l’adresse IP suspecte.  Cela bloque potentiellement des attaques de déni de service.
+3.  Bloquez les adresses IP suspectes.  Cela bloque potentiellement les attaques DOS.
 
-    a. Si vous utilisez 2016, utilisez le [ *des adresses IP d’interdites Extranet* ](../../ad-fs/operations/configure-ad-fs-banned-ip.md) pour bloquer toutes les demandes provenant d’adresses IP indiquées par #3 (ou une analyse manuelle).
+    a. Si le 2016, utilisez la fonctionnalité d' [*adresses IP interdites extranet*](../../ad-fs/operations/configure-ad-fs-banned-ip.md) pour bloquer toutes les demandes provenant de l’adresse IP signalées par #3 (ou une analyse manuelle).
 
-    b. Si vous utilisez AD FS 2012 R2 ou antérieur, bloquer l’adresse IP directement à Exchange Online et, éventuellement, sur votre pare-feu.
+    b. Si vous êtes sur AD FS 2012 R2 ou une version antérieure, bloquez l’adresse IP directement sur Exchange Online et éventuellement sur votre pare-feu.
 
-4. Si vous avez Azure AD Premium, utilisez [Protection de mot de passe Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) pour empêcher les mots de passe à deviner d’accéder à Azure AD  
+4. Si vous avez Azure AD Premium, utilisez [Azure ad protection par mot de passe](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) pour empêcher que les mots de passe devinés ne soient Azure ad  
 
-    a. Notez que si vous avez des mots de passe à deviner, vous pouvez facilement les décoder simplement 1 à 3 tentatives. Cette fonctionnalité évite à partir de la configuration. 
+    a. Notez que si vous avez des mots de passe devinables, vous pouvez les deviner avec seulement 1-3 tentatives. Cette fonctionnalité empêche ces derniers d’être définis. 
 
-    b. À partir des statistiques de notre version préliminaire, presque 20 à 50 % de nouveaux mots de passe être bloqué d’être définie. Cela implique que % des utilisateurs sont vulnérables aux mots de passe faciles à deviner.
+    b. À partir de nos statistiques préliminaires, presque 20-50% des nouveaux mots de passe sont bloqués. Cela implique que% des utilisateurs sont vulnérables aux mots de passe facilement devinés.
 
 ## <a name="level-2-protect-your-extranet"></a>Niveau 2 : Protéger votre extranet
 
-5. Déplacer vers l’authentification moderne pour les clients qui accèdent à partir de l’extranet. Les clients de messagerie sont une grande partie de ce. 
+5. Passez à l’authentification moderne pour tous les clients accédant à partir de l’extranet. Les clients de messagerie constituent une partie importante de cette fonctionnalité. 
 
-    a. Vous devez utiliser Outlook Mobile pour les appareils mobiles. La nouvelle application de messagerie native iOS prend en charge l’authentification moderne. 
+    a. Vous devrez utiliser Outlook Mobile pour les appareils mobiles. La nouvelle application de messagerie Native iOS prend également en charge l’authentification moderne. 
 
-    b. Vous devez utiliser Outlook 2013 (avec les derniers correctifs CU) ou Outlook 2016.
+    b. Vous devrez utiliser Outlook 2013 (avec les derniers correctifs CU) ou Outlook 2016.
 
-6. Activer l’authentification Multifacteur pour tous les accès extranet. Ce vous offre plus de protection pour l’accès extranet.
+6. Activez MFA pour tous les accès extranet. Vous bénéficiez ainsi d’une protection supplémentaire pour tous les accès extranet.
 
-   a.  Si vous avez Azure AD premium, utilisez [des stratégies d’accès conditionnel Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) pour contrôler cela.  Cela est préférable à l’application des règles au niveau AD FS.  Il s’agit, car les applications clientes modernes sont appliquées de manière plus fréquente.  Cela se produit, sur Azure AD, lorsque vous demandez un nouveau jeton d’accès (généralement toutes les heures) à l’aide d’un jeton d’actualisation.  
+   a.  Si vous avez Azure AD Premium, utilisez [Azure ad des stratégies d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) pour contrôler cela.  C’est mieux que d’implémenter les règles sur AD FS.  Cela est dû au fait que les applications clientes modernes sont appliquées de manière plus fréquente.  Cela se produit, au Azure AD, lors de la demande d’un nouveau jeton d’accès (généralement toutes les heures) à l’aide d’un jeton d’actualisation.  
 
-   b.  Si vous n’avez Azure AD premium ou d’autres applications sur AD FS que vous autorisez internet après accès, mettre en œuvre MFA (peut également Azure MFA sur AD FS 2016) et effectuez un [stratégie globale de MFA](../../ad-fs/operations/configure-authentication-policies.md#to-configure-multi-factor-authentication-globally) pour tous les accès extranet.
+   b.  Si vous n’avez pas Azure AD Premium ou si vous disposez d’applications supplémentaires sur AD FS que vous autorisez l’accès à Internet, implémentez l’authentification MFA (l’authentification multifacteur peut également être Azure MFA sur AD FS 2016) et effectuez une [stratégie d’authentification multifacteur globale](../../ad-fs/operations/configure-authentication-policies.md#to-configure-multi-factor-authentication-globally) pour tous les accès extranet.
 
-## <a name="level-3-move-to-password-less-for-extranet-access"></a>Niveau 3 : Déplacement au mot de passe moins pour l’accès extranet
+## <a name="level-3-move-to-password-less-for-extranet-access"></a>Niveau 3 : Passer au mot de passe moins pour l’accès extranet
 
-7. Déplacez vers Windows 10 et utilisez [Hello For Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+7. Accédez à la fenêtre 10 et utilisez [Hello entreprise](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
-8. Pour d’autres périphériques, si vous utilisez AD FS 2016, que vous pouvez utiliser [Azure MFA OTP](../../ad-fs/operations/configure-ad-fs-and-azure-mfa.md) en tant que le premier facteur et mot de passe comme facteur 2nd. 
+8. Pour les autres appareils, si vous utilisez AD FS 2016, vous pouvez utiliser le mot de passe à [usage unique Azure MFA](../../ad-fs/operations/configure-ad-fs-and-azure-mfa.md) comme premier facteur et mot de passe comme second facteur. 
 
-9. Pour les appareils mobiles, si vous autorisez uniquement les périphériques gérés MDM, vous pouvez utiliser [certificats](../../ad-fs/operations/configure-user-certificate-authentication.md) pour vous connecter l’utilisateur. 
+9. Pour les appareils mobiles, si vous autorisez uniquement les appareils gérés par MDM, vous pouvez utiliser des [certificats](../../ad-fs/operations/configure-user-certificate-authentication.md) pour connecter l’utilisateur. 
 
-## <a name="urgent-handling"></a>Gestion d’urgence
+## <a name="urgent-handling"></a>Gestion urgente
 
-Si l’environnement AD FS sous attaque active, les étapes suivantes doivent être implémentés au plus tôt :
+Si l’environnement de AD FS est en cours d’attaque, les étapes suivantes doivent être implémentées au plus tôt :
 
- - Désactiver le point de terminaison U/P dans ADFS et nécessitent tout le monde au VPN pour accéder à ou être à l’intérieur de votre réseau. Cela nécessite que vous disposiez d’étape **2 de niveau 1 a #** terminée. Dans le cas contraire, toutes les demandes Outlook internes seront toujours routés via le cloud via l’authentification de proxy EXO
- - Si l’attaque est uniquement disponible via EXO, vous pouvez désactiver l’authentification de base pour les protocoles d’échange (POP, IMAP, SMTP, EWS, etc.) à l’aide de stratégies d’authentification, ces protocoles et méthodes d’authentification sont utilisés sur la grande majorité de ces attaques. En outre, les règles d’accès Client dans l’activation de protocole EXO et par boîte aux lettres sont évaluée après l’authentification et ne sont pas aider à atténuer les attaques. 
- - Sélectivement offrent un accès extranet à l’aide de niveau 3 #1-3.
+ - Désactivez le point de terminaison U/P dans ADFS et demandez à tout le monde d’accéder au VPN ou à l’intérieur de votre réseau. Pour cela, vous devez disposer de l’étape **2 #1a** terminée. Dans le cas contraire, toutes les demandes Outlook internes seront toujours acheminées via le Cloud via l’authentification proxy EXO.
+ - Si l’attaque provient uniquement de EXO, vous pouvez désactiver l’authentification de base pour les protocoles Exchange (POP, IMAP, SMTP, EWS, etc.) à l’aide de stratégies d’authentification, ces protocoles et méthodes d’authentification sont utilisés sur la plupart de ces attaques. En outre, les règles d’accès client dans EXO et l’activation des protocoles par boîte aux lettres sont évaluées après l’authentification et ne permettent pas d’atténuer les attaques. 
+ - Offrez de manière sélective un accès extranet à l’aide du niveau 3 #1-3.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Mise à niveau vers le serveur AD FS 2016](../../ad-fs/deployment/upgrading-to-ad-fs-in-windows-server.md) 
+- [Mettre à niveau vers AD FS Server 2016](../../ad-fs/deployment/upgrading-to-ad-fs-in-windows-server.md) 
 - [Verrouillage intelligent extranet dans AD FS 2016](../../ad-fs/operations/Configure-AD-FS-Extranet-Smart-Lockout-Protection.md)
 - [Configurer des stratégies d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-- [Protection de mot de passe Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises)
+- [Protection par mot de passe Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises)

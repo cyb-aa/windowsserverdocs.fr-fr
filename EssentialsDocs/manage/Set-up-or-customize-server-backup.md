@@ -12,12 +12,12 @@ ms.assetid: 441c2d6c-435a-42cb-90f2-6d680d279d34
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 5bd36db4f61b990c3864828370607158df4803a3
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 820474934ef1f164d24d4893c42b10c5043f7707
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433039"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865210"
 ---
 # <a name="set-up-or-customize-server-backup"></a>Configurer ou personnaliser la sauvegarde du serveur
 
@@ -27,15 +27,15 @@ ms.locfileid: "66433039"
   
  Consultez les sections suivantes pour configurer ou personnaliser la sauvegarde du serveur :  
   
--   [Définir ou modifier les paramètres de sauvegarde de serveur](Set-up-or-customize-server-backup.md#BKMK_1)  
+-   [Configurer ou modifier les paramètres de sauvegarde du serveur](Set-up-or-customize-server-backup.md#BKMK_1)  
   
--   [Planification de sauvegarde de serveur](Set-up-or-customize-server-backup.md#BKMK_2)  
+-   [Planification de la sauvegarde du serveur](Set-up-or-customize-server-backup.md#BKMK_2)  
   
--   [Lecteur cible de sauvegarde](Set-up-or-customize-server-backup.md#BKMK_Target)  
+-   [Sauvegarder le lecteur cible](Set-up-or-customize-server-backup.md#BKMK_Target)  
   
 -   [Éléments à sauvegarder](Set-up-or-customize-server-backup.md#BKMK_4)  
   
-##  <a name="BKMK_1"></a> Définir ou modifier les paramètres de sauvegarde de serveur  
+##  <a name="BKMK_1"></a>Configurer ou modifier les paramètres de sauvegarde du serveur  
   
 #### <a name="to-set-up-or-change-server-backup-settings"></a>Pour définir ou modifier les paramètres de sauvegarde de serveur  
   
@@ -54,7 +54,7 @@ ms.locfileid: "66433039"
     >  Si vous démarrez l'Assistant avant d'attacher le disque dur externe au serveur, cliquez sur **Actualiser la liste** dans la page **Sélectionner la destination de sauvegarde** après avoir attaché le disque dur.  
   
 > [!NOTE]
->  Dans l’installation par défaut de Windows Server Essentials, le serveur est configuré pour exécuter automatiquement une défragmentation une fois par semaine. Si vous utilisez un logiciel de création d'images qui n'est pas fourni par Microsoft, la taille de vos sauvegardes peut être supérieure à la normale. S'il est inutile de défragmenter régulièrement le serveur, vous pouvez suivre ces étapes pour désactiver la planification de la défragmentation :  
+>  Dans l’installation par défaut de Windows Server Essentials, le serveur est configuré pour effectuer automatiquement une défragmentation une fois par semaine. Si vous utilisez un logiciel de création d'images qui n'est pas fourni par Microsoft, la taille de vos sauvegardes peut être supérieure à la normale. S'il est inutile de défragmenter régulièrement le serveur, vous pouvez suivre ces étapes pour désactiver la planification de la défragmentation :  
 > 
 > 1. Appuyez sur la touche Windows + W pour ouvrir **Rechercher**.  
 >    2. Dans la zone de texte Rechercher, tapez **Defragment**.  
@@ -62,10 +62,10 @@ ms.locfileid: "66433039"
 >    4. Dans la page **Optimiser les lecteurs**, sélectionnez un lecteur, puis cliquez sur **Modifier les paramètres**.  
 >    5. Dans la fenêtre **Planification de l'optimisation** , décochez la case **Exécution planifiée (recommandé)** , puis cliquez sur **OK** pour enregistrer les modifications.  
   
-##  <a name="BKMK_2"></a> Planification de sauvegarde de serveur  
+##  <a name="BKMK_2"></a>Planification de la sauvegarde du serveur  
  Quand vous utilisez l'Assistant Configurer la sauvegarde du serveur ou l'Assistant Personnaliser la sauvegarde du serveur, vous pouvez choisir de sauvegarder les données du serveur à plusieurs reprises durant la journée. Étant donné que les Assistants planifient des sauvegardes incrémentielles, les sauvegardes s'exécutent rapidement et les performances du serveur ne sont que modérément affectées. Par défaut, les Assistants planifient l'exécution d'une sauvegarde tous les jours à 12h00 et 23h00. Vous pouvez toutefois modifier la planification de la sauvegarde en fonction des besoins de votre organisation. Nous vous conseillons d'évaluer de temps en temps l'efficacité de votre plan de sauvegarde et de le modifier en conséquence.  
   
-##  <a name="BKMK_Target"></a> Lecteur cible de sauvegarde  
+##  <a name="BKMK_Target"></a>Sauvegarder le lecteur cible  
  Vous pouvez utiliser plusieurs lecteurs de stockage externe pour vos sauvegardes et les entreposer à tour de rôle dans des emplacements sur site et hors site. Cela peut vous aider à renforcer votre stratégie de planification d'urgence, car vous pourrez récupérer vos données si votre matériel local subit des dommages.  
   
  Au moment d'acquérir un lecteur de stockage pour sauvegarder votre serveur, tenez compte des points suivants :  
@@ -81,9 +81,9 @@ ms.locfileid: "66433039"
   
 -   Si vous choisissez un lecteur qui contient des sauvegardes précédentes comme cible de sauvegarde, l'Assistant vous permet de choisir si vous souhaitez conserver les sauvegardes précédentes. Si vous conservez les sauvegardes, l'Assistant ne formate pas le lecteur.  
   
--   Visitez le site Web du fabricant de votre lecteur de stockage externe pour vous assurer que votre lecteur de sauvegarde est prise en charge sur les ordinateurs exécutant Windows Server Essentials.  
+-   Vous devez visiter le site Web du fabricant de votre lecteur de stockage externe pour vous assurer que votre lecteur de sauvegarde est pris en charge sur les ordinateurs exécutant Windows Server Essentials.  
   
--   Le lecteur ne peut pas contenir de partition système EFI (Extensible Firmware Interface). Si une partition EFI est présente sur un lecteur USB, il est supposé que le disque est un disque de démarrage. Si vous êtes certain que vous n’avez pas besoin de t les données sur le disque, vous pouvez reformater le disque et l’utiliser pour les sauvegardes.  
+-   Le lecteur ne peut pas contenir de partition système EFI (Extensible Firmware Interface). Si une partition EFI est présente sur un lecteur USB, il est supposé que le disque est un disque de démarrage. Si vous êtes certain que vous n’avez pas besoin des données sur le disque, vous pouvez reformater le disque et l’utiliser pour les sauvegardes.  
   
     > [!CAUTION]
     >  Toutes les données sont supprimées quand vous reformatez le disque.  
@@ -105,19 +105,19 @@ ms.locfileid: "66433039"
     2.  Sélectionnez le dossier dont vous souhaitez arrêter le partage puis, dans le volet des tâches, cliquez sur **Arrêter**.  
   
 > [!NOTE]
->  Si une sauvegarde échoue, car le lecteur de sauvegarde n’était pas suffisamment d’espace, la lettre de lecteur pour le lecteur cible de sauvegarde est supprimée de la base de données Windows Server Essentials et le tableau de bord n’affiche pas le lecteur. Si vous souhaitez utiliser le lecteur lors des sauvegardes ultérieures, vous devez réassigner la lettre de lecteur à l'aide d'un outil natif.  
+>  Si une sauvegarde échoue car le lecteur de sauvegarde ne dispose pas de suffisamment d’espace, la lettre de lecteur du lecteur cible de sauvegarde est supprimée de la base de données Windows Server Essentials et le tableau de bord n’affiche pas le lecteur. Si vous souhaitez utiliser le lecteur lors des sauvegardes ultérieures, vous devez réassigner la lettre de lecteur à l'aide d'un outil natif.  
 > 
->  **Pour réaffecter une lettre de lecteur pour un volume existant**  
+>  **Pour réassigner une lettre de lecteur pour un volume existant**  
 > 
 > 1. Dans le Panneau de configuration, ouvrez **Systèmes et sécurité**.  
 >    2. Sous **Outils d'administration**, cliquez sur **Créer et formater des partitions de disque dur**.  
 >    3. Cliquez avec le bouton droit sur le lecteur, puis cliquez sur **Modifier la lettre de lecteur et les chemins d'accès**.  
 >    4. Cliquez sur **Ajouter**.  
->    5. Dans la boîte de dialogue Ajouter une lettre de lecteur ou de chemin d'accès, sélectionnez une lettre de lecteur à assigner. (Vous pouvez réassigner la même lettre de lecteur). Cliquez sur **OK**.  
+>    5. Dans la boîte de dialogue Ajouter une lettre de lecteur ou de chemin d'accès, sélectionnez une lettre de lecteur à assigner. (Vous pouvez réassigner la même lettre de lecteur). Cliquez ensuite sur **OK**.  
 > 
 >    Le lecteur apparaît immédiatement sur le Tableau de bord.  
   
-##  <a name="BKMK_4"></a> Éléments à sauvegarder  
+##  <a name="BKMK_4"></a>Éléments à sauvegarder  
  Vous pouvez choisir de sauvegarder tous les lecteurs, fichiers et dossiers sur le serveur ou sélectionner uniquement des lecteurs, fichiers ou dossiers spécifiques à sauvegarder.  
   
  Quand vous ajoutez ou supprimez un lecteur ou des fichiers et dossiers partagés, vous devez modifier la configuration de sauvegarde du serveur pour vous assurer que ces éléments sont ajoutés ou supprimés de la configuration de sauvegarde. Pour ajouter ou supprimer des éléments à sauvegarder, effectuez l'une des opérations suivantes :  
@@ -137,7 +137,7 @@ ms.locfileid: "66433039"
   
 -   [Gérer la sauvegarde du serveur](Manage-Server-Backup-in-Windows-Server-Essentials.md)  
   
--   [Gérer la sauvegarde et restauration](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md)  
+-   [Gérer la sauvegarde et la restauration](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md)  
   
 -   [Gérer Windows Server Essentials](Manage-Windows-Server-Essentials.md)  
   

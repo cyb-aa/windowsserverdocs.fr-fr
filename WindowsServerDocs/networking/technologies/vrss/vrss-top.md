@@ -1,6 +1,6 @@
 ---
 title: Mise à l'échelle côté réception virtuelle (vRSS, Virtual Receive Side Scaling)
-description: Découvrez Virtual l’échelle côté réception (vRSS) dans Windows Server et comment configurer une carte réseau virtuelle pour la charge de répartir le trafic réseau entrant sur plusieurs cœurs de processeurs logiques dans une machine virtuelle. Vous pouvez également configurer des cœurs physiques multiples pour un ordinateur hôte carte d’Interface réseau virtuelle (vNIC).
+description: En savoir plus sur la mise à l’échelle côté réception virtuelle (vRSS) dans Windows Server et sur la configuration d’une carte réseau virtuelle pour équilibrer la charge du trafic réseau entrant sur plusieurs cœurs de processeur logiques dans une machine virtuelle. Vous pouvez également configurer de multicœurs physiques pour une carte d’interface réseau virtuelle hôte (carte réseau virtuelle).
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -10,83 +10,83 @@ ms.localizationpriority: medium
 manager: dougkim
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0c1cb11cb8ce69463a31cfa5061290f79d8dda91
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ae017d7d78adea565942a952aaea3da1669f39a9
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875230"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871799"
 ---
-# <a name="virtual-receive-side-scaling-vrss"></a>Virtuel trafic entrant \(vRSS\)
+# <a name="virtual-receive-side-scaling-vrss"></a>\(VRSS de mise à l’échelle côté réception virtuelle\)
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Dans cette rubrique, vous découvrez virtuel l’échelle côté réception (vRSS) et comment configurer une carte réseau virtuelle pour la charge de répartir le trafic réseau entrant sur plusieurs cœurs de processeurs logiques dans une machine virtuelle. Vous pouvez également utiliser vRSS pour configurer plusieurs cœurs physiques d’un hôte virtuel carte d’Interface réseau \(carte réseau virtuelle\).
+Dans cette rubrique, vous découvrez la mise à l’échelle côté réception virtuelle (vRSS) et la configuration d’une carte réseau virtuelle pour équilibrer la charge du trafic réseau entrant sur plusieurs cœurs de processeurs logiques dans une machine virtuelle. Vous pouvez également utiliser vRSS pour configurer plusieurs cœurs physiques pour une carte \(d’interface réseau virtuelle d’ordinateur hôte carte réseau virtuelle.\)
 
-Cette configuration permet la charge d’une carte réseau virtuelle doit être réparti entre plusieurs processeurs virtuels dans une machine virtuelle \(machine virtuelle\), ce qui permet de traiter plus de trafic réseau plus rapidement que possible avec une seule de la machine virtuelle processeur logique.
+Cette configuration permet de répartir la charge d’une carte réseau virtuelle entre plusieurs processeurs virtuels dans une machine \(virtuelle\)d’ordinateur virtuel, ce qui permet à la machine virtuelle de traiter davantage de trafic réseau plus rapidement qu’avec une seule processeur logique.
 
 >[!TIP]
->Vous pouvez utiliser vRSS des machines virtuelles sur Hyper\-hôtes V avec plusieurs processeurs, un seul cœur plusieurs, ou plusieurs plusieurs processeurs core installé et configuré pour une utilisation de la machine virtuelle.
+>Vous pouvez utiliser vRSS dans des machines virtuelles sur des ordinateurs hôtes Hyper\--V qui ont plusieurs processeurs, un processeur à plusieurs cœurs ou plusieurs processeurs à plusieurs cœurs installés et configurés pour l’utilisation de machines virtuelles.
 
-vRSS est compatible avec tous les autres Hyper\-V technologies réseau. vRSS est dépendante de la file d’attente de la Machine virtuelle \(VMQ\) dans Hyper\-hôte V et RSS dans la machine virtuelle ou sur la carte réseau virtuelle hôte.
+vRSS est compatible avec toutes les autres\-technologies de mise en réseau Hyper-V. vRSS dépend de file d’attente d’ordinateurs virtuels \(\) ordinateur virtuel dans l’hôte\-Hyper-V et RSS dans la machine virtuelle ou sur l’ordinateur hôte carte réseau virtuelle.
 
-Par défaut, Windows Server permet de vRSS, mais vous pouvez le désactiver dans une machine virtuelle à l’aide de Windows PowerShell. Pour plus d’informations, consultez [gérer vRSS](vrss-manage.md) et [commandes PowerShell de Windows pour les flux RSS et vRSS](vrss-wps.md).
+Par défaut, Windows Server active vRSS, mais vous pouvez le désactiver dans une machine virtuelle à l’aide de Windows PowerShell. Pour plus d’informations, consultez [gérer](vrss-manage.md) les [commandes VRSS et Windows PowerShell pour RSS et vRSS](vrss-wps.md).
 
 
 
-## <a name="operating-system-compatibility"></a>Compatibilité de système d’exploitation
+## <a name="operating-system-compatibility"></a>Compatibilité du système d’exploitation
 
-Vous pouvez utiliser RSS sur n’importe quel ordinateur multiprocesseur ou multinoyau ou le vRSS sur toute machine virtuelle multiprocesseur ou multinoyau - qui exécute Windows Server 2016.
+Vous pouvez utiliser RSS sur n’importe quel ordinateur multiprocesseur ou multicœur (vRSS) sur n’importe quelle machine virtuelle multiprocesseur ou multicœur, qui exécute Windows Server 2016.
 
-Multiprocesseur ou multicœur, les machines virtuelles exécutant les systèmes d’exploitation Microsoft suivants prennent également en charge vRSS.
+Les machines virtuelles multiprocesseur ou multicœur qui exécutent les systèmes d’exploitation Microsoft suivants prennent également en charge vRSS.
 
 - Windows Server 2016
-- Windows 10 Pro ou entreprise
-- Windows Server 2012 R2
-- Windows 8.1 Pro ou entreprise
-- Windows Server 2012 avec les composants d’intégration de Windows Server 2012 R2 installés.
-- 8 Windows avec les composants d’intégration de Windows Server 2012 R2 installés.
+- Windows 10 professionnel ou entreprise
+- Windows Server 2012 R2
+- Windows 8.1 Pro ou Enterprise
+- Windows Server 2012 avec les composants d’intégration Windows Server 2012 R2 installés.
+- Windows 8 avec les composants d’intégration Windows Server 2012 R2 installés.
 
-Pour plus d’informations sur la prise en charge vRSS des ordinateurs virtuels en cours d’exécution FreeBSD ou Linux comme système d’exploitation invité sur Hyper-V, consultez [pris en charge de Linux et FreeBSD machines virtuelles pour Hyper-V sur Windows](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows).
+Pour plus d’informations sur la prise en charge de vRSS pour les machines virtuelles exécutant FreeBSD ou Linux en tant que système d’exploitation invité sur Hyper-V, consultez [machines virtuelles Linux et FreeBSD prises en charge pour Hyper-v sur Windows](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows).
   
 ## <a name="hardware-requirements"></a>Configuration matérielle requise
 
 Voici la configuration matérielle requise pour vRSS.
  
-- Cartes réseau physiques doivent prendre en charge la file d’attente de la Machine virtuelle \(VMQ\). Si VMQ est désactivé ou n’est pas pris en charge, vRSS est désactivé pour le Hyper\-hôte V et les machines virtuelles configurées sur l’ordinateur hôte.
-- Cartes réseau doivent avoir une vitesse de liaison de 10 Gbits/s ou plus.
-- Hyper\-hôtes V doivent être configurés avec au moins une multiples de plusieurs processeurs\-cœur de processeur pour utiliser vRSS.
-- Machines virtuelles \(machines virtuelles\) doit être configuré pour utiliser deux ou plusieurs processeurs logiques.
+- Les cartes réseau physiques doivent prendre en \(charge\)file d’attente d’ordinateurs virtuels d’ordinateurs virtuels. Si la machine virtuelle est désactivée ou n’est pas prise en charge\-, vRSS est désactivé pour l’hôte Hyper-V et toutes les machines virtuelles configurées sur l’ordinateur hôte.
+- Les cartes réseau doivent avoir une vitesse de liaison de 10 Gbits/s ou plus.
+- Les\-ordinateurs hôtes Hyper-V doivent être configurés avec plusieurs processeurs\-ou au moins un processeur multicœur pour utiliser le protocole vRSS.
+- Les machines \(virtuelles de machines\) virtuelles doivent être configurées pour utiliser au moins deux processeurs logiques.
 
 
-## <a name="use-case-scenarios"></a>Scénarios d’utilisation
+## <a name="use-case-scenarios"></a>Scénarios de cas d’usage
 
-Les scénarios d’utilisation de deux suivantes décrivent une utilisation courante de vRSS pour l’équilibrage de charge de processeur et d’équilibrage de charge logicielle.
+Les deux scénarios de cas d’usage suivants illustrent l’utilisation courante de vRSS pour l’équilibrage de la charge du processeur et l’équilibrage de la charge logicielle.
 
 ### <a name="processor-load-balancing"></a>Équilibrage de la charge processeur
   
-Anthony, un administrateur réseau, consiste à configurer un nouvel hôte Hyper-V avec carte réseau deux qui prend en charge la virtualisation de sortie d’une racine unique \(SR\-IOV\). Il déploie Windows Server 2016 afin d’héberger un serveur de fichiers de machine virtuelle.
+Anthony, administrateur réseau, configure un nouvel hôte Hyper-V avec deux cartes réseau qui prennent en charge la virtualisation \(d’entrée-sortie à racine unique SR\-IOV\). Il déploie Windows Server 2016 pour héberger un serveur de fichiers de machine virtuelle.
 
-Après avoir installé les matériels et logiciels, Anthony configure un ordinateur virtuel utilise huit processeurs virtuels et 4 096 Mo de mémoire. Malheureusement, Anthony n’a pas la possibilité d’activer SR\-IOV, car ses machines virtuelles s’appuient sur l’application des stratégies via le commutateur virtuel, il a créé avec Hyper\-Gestionnaire de commutateur virtuel V. Pour cette raison, Anthony décide d’utiliser des vRSS au lieu de SR\-IOV.
+Une fois le matériel et les logiciels installés, Anthony configure une machine virtuelle pour qu’elle utilise huit processeurs virtuels et 4096 Mo de mémoire. Malheureusement, Anthony n’a pas la possibilité d’activer SR\-IOV, car ses machines virtuelles s’appuient sur l’application de la stratégie via le commutateur virtuel qu’il a créé avec le gestionnaire de commutateur virtuel Hyper\-V. Pour cette raison, Anthony décide d’utiliser vRSS au lieu de\-SR IOV.
 
-Initialement, Anthony quatre processeurs virtuels à l’aide de Windows PowerShell soit disponible pour une utilisation avec vRSS. L’utilisation du serveur de fichiers après une semaine semblait être très populaire, Anthony vérifie les performances de la machine virtuelle.  Il découvre la pleine utilisation des quatre processeurs virtuels.
+Au départ, Anthony affecte quatre processeurs virtuels à l’aide de Windows PowerShell pour une utilisation avec vRSS. L’utilisation du serveur de fichiers après une semaine semblait très populaire, de sorte que Anthony vérifie les performances de la machine virtuelle.  Il découvre l’utilisation complète des quatre processeurs virtuels.
 
-Pour cette raison, Anthony décide d’ajouter des processeurs à la machine virtuelle pour une utilisation par vRSS.  Il assigne deux processeurs virtuels supplémentaires à la machine virtuelle, qui sont automatiquement disponibles pour vRSS pour aider à gérer la charge réseau de grande taille. Ses efforts entraînent de meilleures performances pour le serveur de fichiers de machine virtuelle, avec les six processeurs gérant efficacement la charge du trafic réseau.
+Pour cette raison, Anthony décide d’ajouter des processeurs à la machine virtuelle pour une utilisation par vRSS.  Il affecte deux autres processeurs virtuels à la machine virtuelle, qui sont automatiquement disponibles pour vRSS afin de gérer la charge réseau importante. Ses efforts améliorent les performances du serveur de fichiers de machine virtuelle, avec les six processeurs qui gèrent efficacement la charge du trafic réseau.
 
 
 ### <a name="software-load-balancing"></a>Équilibrage de la charge logicielle
 
-Sandra, un administrateur réseau, consiste à configurer une seule machine virtuelle de hautes performances sur l’un de ses systèmes d’agir comme un équilibreur de charge logiciel. Elle a attribué à tous les processeurs logiques disponibles à cette machine virtuelle unique.
+Sandra, administrateur réseau, configure une machine virtuelle haute performance unique sur l’un de ses systèmes pour qu’elle agisse comme un équilibreur de charge logiciel. Elle a affecté tous les processeurs logiques disponibles à cette machine virtuelle unique.
 
-Après l’installation de Windows Server, elle utilise vRSS parallèles de trafic réseau de traitement sur plusieurs processeurs logiques dans la machine virtuelle. Windows Server permet de vRSS, Sandra n’a pas d’apporter des modifications de configuration.
+Après l’installation de Windows Server, elle utilise vRSS pour recevoir le trafic réseau parallèle sur plusieurs processeurs logiques de la machine virtuelle. Étant donné que Windows Server active vRSS, Sandra n’a pas besoin d’apporter de modifications à la configuration.
 
 
 ## <a name="related-topics"></a>Rubriques connexes
 
-- [Planifiez l’utilisation de vRSS](vrss-plan.md)
-- [Activez vRSS sur une carte réseau virtuelle](vrss-enable.md)
+- [Planifier l’utilisation de vRSS](vrss-plan.md)
+- [Activer vRSS sur une carte réseau virtuelle](vrss-enable.md)
 - [Gérer vRSS](vrss-manage.md)
-- [vRSS Forum aux Questions](vrss-faq.md)
-- [Commandes PowerShell de Windows pour les flux RSS et vRSS](vrss-wps.md)
+- [Forum aux questions sur vRSS](vrss-faq.md)
+- [Commandes Windows PowerShell pour RSS et vRSS](vrss-wps.md)
 
 ---

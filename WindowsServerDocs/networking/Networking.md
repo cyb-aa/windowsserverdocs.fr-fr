@@ -10,12 +10,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b2b42c0a1878a2d9f5f9002dd36e0124e2101cc
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: fb36f0ff804b139149922596a05d1ff649884bdd
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546554"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868968"
 ---
 # <a name="networking"></a>Mise en réseau
 
@@ -26,7 +26,7 @@ ms.locfileid: "69546554"
 
 La mise en réseau est une partie fondamentale de la plateforme \(SDDC\) du centre de donnes, et Windows Server 2016 fournit des technologies \(de\) mise en réseau SDN nouvelles et améliorées pour vous aider à passer à une solution SDDC entièrement réalisée pour votre organisation.
 
-Lorsque vous gérez les réseaux sous la forme de ressources à définition logicielle, vous pouvez décrire une seule fois les exigences d’une application en matière d’infrastructure, puis déterminer à quel emplacement cette application sera exécutée (de manière locale ou dans le cloud). 
+Lorsque vous gérez des réseaux en tant que ressource définie par un logiciel, vous pouvez décrire une fois les exigences de l’infrastructure d’une application, puis choisir l’emplacement d’exécution de l’application (localement ou dans le Cloud). 
 
 Cette cohérence signifie que vos applications sont désormais plus faciles à mettre à l’échelle ; vous pouvez exécuter des applications en toute transparence, n’importe où, en sachant que la sécurité, les performances, la qualité de service et la disponibilité seront toujours aussi fiables.
 
@@ -514,6 +514,7 @@ Vous pouvez utiliser les technologies d’accès à distance, telles que DirectA
                                         <h3><a href="https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture">Mise en réseau de conteneurs Windows</a><hr /></h3>
                                         <p>
 La mise en réseau de conteneurs Windows vous permet de créer et gérer des réseaux de manière à connecter les points de terminaison de conteneur, aussi bien aux hôtes Windows 10 et Windows Server à l’aide d’outils conformes aux normes du secteur et de flux de travail. Les réseaux de conteneurs Windows prennent en charge plusieurs topologies, notamment privée, à plat-couche 2 et routé-couche 3.</p>
+
                                         <p>Les superpositions que vous pouvez créer localement sur l’hôte sont également prises en charge à l’aide de Dockr, Kubernetes ou Windows PowerShell via les plug-ins qui communiquent avec le service de mise en réseau d’hôte Windows (HNS). Vous pouvez créer et gérer des réseaux de clusters à plusieurs nœuds via des systèmes d’orchestration de niveau supérieur en communiquant via un agent local à chaque HNS de nœud.</p>
                     </div>
                 </div>

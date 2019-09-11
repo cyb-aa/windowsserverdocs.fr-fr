@@ -1,6 +1,6 @@
 ---
 title: Mettre à jour et installer des pilotes de périphériques si nécessaire
-description: Découvrez comment vérifier et mettre à jour des pilotes de périphérique dans MultiPoint Services
+description: Découvrez comment vérifier et mettre à jour les pilotes de périphérique dans MultiPoint services
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,25 +13,25 @@ ms.assetid: 16be3ef9-a05b-4621-a431-5806b567e997
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 66477634e06df217656876b084ae37be8cb311c0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 94c06e6d33577c5542358e1244ea5a9b3331f1cd
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829130"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871508"
 ---
 # <a name="update-and-install-device-drivers-if-needed"></a>Mettre à jour et installer des pilotes de périphériques si nécessaire
-Si vous utilisez des clients USB zéro ou des périphériques qui nécessitent des pilotes, vous devez installer les pilotes pour l’instant. Il est judicieux également vérifier **Device Manager** aux alertes de pilote et installer les pilotes pour ces appareils.  
+Si vous utilisez des clients ou des périphériques USB nuls qui requièrent des pilotes, vous devez installer les pilotes pour l’instant. Il est également judicieux de vérifier **Device Manager** pour toutes les alertes de pilote et d’installer des pilotes pour ces appareils.  
   
-En règle générale, les pilotes les plus récents sont requises pour les types d’appareils suivants :  
+En règle générale, les pilotes les plus récents sont requis pour les types d’appareils suivants :  
   
--   Clients USB zéro  
+-   Clients USB à zéro  
   
--   Clients over-Ethernet USB zéro  
+-   Clients USB-sur-Ethernet Zero  
   
 -   Contrôleurs de disque  
   
--   Cartes réseau  
+-   Adaptateurs réseau  
   
 -   Contrôleurs audio  
   
@@ -40,25 +40,25 @@ En règle générale, les pilotes les plus récents sont requises pour les types
 -   Cartes graphiques
 
 
-## <a name="to-check-for-driver-alerts-in-device-manager"></a>Pour vérifier les alertes de pilote dans le Gestionnaire de périphériques  
+## <a name="to-check-for-driver-alerts-in-device-manager"></a>Pour rechercher les alertes de pilote dans Device Manager  
   
 1.  Ouvrez l’écran d’accueil.  
   
-2.  Type **gestion de l’ordinateur**, puis cliquez sur **gestion de l’ordinateur** dans les résultats.  
+2.  Tapez **gestion**de l’ordinateur, puis cliquez sur gestion de l' **ordinateur** dans les résultats.  
   
 3.  Dans l’arborescence de la console Gestion de l’ordinateur, cliquez sur **Device Manager**.  
   
-4.  Dans les périphériques système sur la droite, recherchez les alertes de pilote qui pourraient affecter MultiPoint Server.  
+4.  Dans les périphériques système sur la droite, recherchez les alertes de pilote qui peuvent affecter MultiPoint Server.  
   
 ## <a name="to-install-device-drivers-in-multipoint-manager"></a>Pour installer des pilotes de périphérique dans le gestionnaire MultiPoint  
   
-1.  Pour ouvrir le gestionnaire MultiPoint, recherchez « Gestionnaire MultiPoint », puis cliquez sur **Gestionnaire MultiPoint** dans les résultats.  
+1.  Pour ouvrir le gestionnaire MultiPoint, recherchez « gestionnaire MultiPoint », puis cliquez sur **Gestionnaire multipoint** dans les résultats.  
   
-2.  Dans le gestionnaire MultiPoint, cliquez sur le **accueil** onglet, puis cliquez sur **passer en mode console**.  
+2.  Dans le gestionnaire MultiPoint, cliquez sur l’onglet dossier de **démarrage** , puis cliquez sur **basculer en mode console**.  
   
 3.  Pour installer un pilote de périphérique, double-cliquez sur le fichier de pilote et suivez les instructions pour installer le pilote.  
   
 4.  Répétez l’étape précédente pour installer tous les pilotes requis.  
   
     > [!NOTE]  
-    > Si une installation requiert un redémarrage de l’ordinateur, vous devrez passer au mode de console avant d’installer le pilote suivant. Serveur multiPoint démarre toujours en mode station. Pour passer en mode console atteindre le **accueil** onglet dans le gestionnaire MultiPoint et cliquez sur **passer en mode console**.
+    > Si une installation requiert un redémarrage de l’ordinateur, vous devrez revenir en mode console avant d’installer le pilote suivant. MultiPoint Server démarre toujours en mode station. Pour basculer en mode console, accédez à l’onglet dossier de **démarrage** dans le gestionnaire multipoint, puis cliquez sur **basculer en mode console**.

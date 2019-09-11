@@ -10,12 +10,12 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.reviewer: deverette
-ms.openlocfilehash: eab81443ba91b229495a124aae642570608c6bba
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: c3ac8295d048c599a1cb6d1ed141cd63a7a73f47
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658887"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871336"
 ---
 # <a name="step-6-configure-windows-10-client-always-on-vpn-connections"></a>Étape 6. Configurer le client Windows 10 Always On les connexions VPN
 
@@ -318,7 +318,7 @@ $ProfileXML = @("
 ")
 ```
 
-### <a name="output-vpnprofilexml-for-intune"></a>Sortie de VPN_Profile. xml pour Intune
+### <a name="output-vpn_profilexml-for-intune"></a>Sortie de VPN_Profile. xml pour Intune
 
 Vous pouvez utiliser l’exemple de commande suivant pour enregistrer le fichier XML de profil:
 
@@ -326,7 +326,7 @@ Vous pouvez utiliser l’exemple de commande suivant pour enregistrer le fichier
 $ProfileXML | Out-File -FilePath ($env:USERPROFILE + '\desktop\VPN_Profile.xml')
 ```
 
-### <a name="output-vpnprofileps1-for-the-desktop-and-system-center-configuration-manager"></a>Sortie de VPN_Profile. ps1 pour le bureau et les System Center Configuration Manager
+### <a name="output-vpn_profileps1-for-the-desktop-and-system-center-configuration-manager"></a>Sortie de VPN_Profile. ps1 pour le bureau et les System Center Configuration Manager
 
 L’exemple de code suivant configure une connexion VPN IKEv2 AlwaysOn à l’aide du nœud ProfileXML dans le CSP VPNv2.
 
@@ -605,7 +605,7 @@ L’exemple de script suivant contient tous les exemples de code des sections pr
 
 Pour configurer le fournisseur de services de chiffrement VPNv2 sur un ordinateur client Windows 10, exécutez le script Windows PowerShell VPN_Profile. ps1 que vous avez créé dans la section [créer le profil XML](#create-the-profile-xml) . Ouvrez Windows PowerShell en tant qu’administrateur. dans le cas contraire, vous recevrez un message d’erreur indiquant que _l’accès_a été refusé.
 
-Après avoir exécuté VPN_Profile. ps1 pour configurer le profil VPN, vous pouvez vérifier à tout moment qu’il a réussi en exécutant la commande suivante dans la Windows PowerShell ISE:
+Après avoir exécuté VPN_Profile. ps1 pour configurer le profil VPN, vous pouvez vérifier à tout moment qu’il a réussi en exécutant la commande suivante dans la Windows PowerShell ISE :
 
 ```powershell
 Get-WmiObject -Namespace root\cimv2\mdm\dmmap -Class MDM_VPNv2_01
@@ -718,7 +718,7 @@ Pour utiliser System Center Configuration Manager pour déployer un profil VPN A
 
     b.  Sur la page d’**accueil**, cliquez sur **Suivant**.
 
-    c.  Dans la page Rechercher des ressources, dans **valeur**, tapez le nom de l’utilisateur que vous souhaitez ajouter. Le nom de la ressource comprend le domaine de l’utilisateur. Pour inclure des résultats en fonction d’une correspondance partielle, **%** Insérez le caractère à chaque extrémité de votre critère de recherche. Par exemple, pour rechercher tous les utilisateurs contenant la chaîne «Lori», tapez **% Lori%** . Cliquez sur **Suivant**.
+    c.  Dans la page Rechercher des ressources, dans **valeur**, tapez le nom de l’utilisateur que vous souhaitez ajouter. Le nom de la ressource comprend le domaine de l’utilisateur. Pour inclure des résultats en fonction d’une correspondance partielle, **%** Insérez le caractère à chaque extrémité de votre critère de recherche. Par exemple, pour rechercher tous les utilisateurs contenant la chaîne « Lori », tapez **% Lori%** . Cliquez sur **Suivant**.
 
     d.  Dans la page Sélectionner les ressources, sélectionnez les utilisateurs que vous souhaitez ajouter au groupe, puis cliquez sur **suivant**.
 
@@ -759,7 +759,7 @@ Après avoir créé le groupe d’utilisateurs pour recevoir le profil VPN, vous
 
     a.  Dans **nom**, tapez **script de profil VPN**.
 
-    b.  Dans **ligne de commande**, tapez **PowerShell. exe-executionpolicy Bypass-file «VPN_Profile. ps1»** .
+    b.  Dans **ligne de commande**, tapez **PowerShell. exe-executionpolicy Bypass-file « VPN_Profile. ps1 »** .
 
     c.  En **mode exécution**, cliquez sur **exécuter avec les droits d’administration**.
 

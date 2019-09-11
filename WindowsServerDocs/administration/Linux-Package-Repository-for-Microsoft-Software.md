@@ -1,6 +1,6 @@
 ---
 title: Référentiel de logiciels Linux pour les produits Microsoft
-description: Ce document décrit comment utiliser et installer les packages de logiciels Linux pour les produits Microsoft.
+description: Ce document explique comment utiliser et installer des packages logiciels Linux pour les produits Microsoft.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.service: na
@@ -11,32 +11,32 @@ ms.assetid: b5387444-595f-4f38-abb7-163a70ea1895
 author: szarkos
 ms.author: szark
 ms.date: 10/16/2017
-ms.openlocfilehash: 77b309739125a2114ef4ada4adb305f4dd169b06
-ms.sourcegitcommit: 927adf32faa6052234ad08f21125906362e593dc
+ms.openlocfilehash: bade9fff306272188ac8d2b91a3d9921c80fe036
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67033323"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866890"
 ---
 # <a name="linux-software-repository-for-microsoft-products"></a>Référentiel de logiciels Linux pour les produits Microsoft
 
 ## <a name="overview"></a>Vue d'ensemble
-Microsoft génère et prend en charge une variété de produits logiciels pour les systèmes Linux et les rend disponibles via des référentiels de package APT et YUM standards. Ce document décrit comment configurer le référentiel sur votre système Linux, afin que vous pouvez ensuite installation/mise à niveau Linux logiciels Microsoft à l’aide des outils de gestion de package standard de votre distribution.
+Microsoft crée et prend en charge un large éventail de produits logiciels pour les systèmes Linux et les met à disposition via des référentiels de packages APT et YUM standard. Ce document décrit comment configurer le référentiel sur votre système Linux, afin que vous puissiez installer/mettre à niveau le logiciel Linux de Microsoft à l’aide des outils de gestion des packages standard de votre distribution.
 
-Référentiel de logiciels de Microsoft Linux se compose de plusieurs référentiels secondaires :
+Le référentiel de logiciels Linux de Microsoft est constitué de plusieurs sous-référentiels :
 
- - prod – la Production sous-référentiel est désigné pour les packages destinés à utiliser en production. Ces packages sont pris en charge dans le commerce par Microsoft sous les termes du contrat de support applicable ou programme que vous avez avec Microsoft.
+ - Prod : le sous-dépôt de production est désigné pour les packages destinés à être utilisés en production. Ces packages sont pris en charge par Microsoft conformément aux termes du contrat de support applicable ou du programme que vous avez avec Microsoft.
 
- - MSSQL-server - ces référentiels contiennent des packages pour Microsoft SQL Server sur Linux - Voir également : [SQL Server sur Linux](https://www.microsoft.com/en-us/sql-server/sql-server-vnext-including-Linux).
+ - MSSQL-Server : ces référentiels contiennent des packages pour Microsoft SQL Server sur Linux-voir aussi : [SQL Server sur Linux](https://www.microsoft.com/en-us/sql-server/sql-server-vnext-including-Linux).
 
 > [!Note]
-> Les packages dans les référentiels de logiciels Linux sont soumis aux termes du contrat de licence situé dans les packages. Veuillez lire les termes du contrat de licence avant d’utiliser le package. Votre installation et l’utilisation du package, vous acceptez ces termes. Si vous n’acceptez pas les termes du contrat de licence, n’utilisez pas le package.
+> Les packages dans les référentiels de logiciels Linux sont soumis aux termes du contrat de licence figurant dans les packages. Lisez les termes du contrat de licence avant d’utiliser le package. Le fait d’installer et d’utiliser le package implique l’acceptation de ces termes. Si vous n’acceptez pas les termes du contrat de licence, n’utilisez pas le package.
 
 
 ## <a name="configuring-the-repositories"></a>Configuration des référentiels
-Référentiels peuvent être configurées automatiquement en installant le package de Linux qui s’applique à votre distribution Linux et la version. Le package installe la configuration du référentiel, ainsi que la clé publique GPG utilisée par des outils tels qu’apt/yum/zypper pour valider les packages signés et/ou les métadonnées du référentiel.
+Les référentiels peuvent être configurés automatiquement en installant le package Linux qui s’applique à la distribution et à la version de Linux. Le package installe la configuration du référentiel avec la clé publique GPG utilisée par les outils tels que apt/yum/zypper pour valider les métadonnées de packages et/ou de référentiel signés.
 
-### <a name="enterprise-linux-rhel-and-variants"></a>Enterprise Linux (RHEL et variantes)
+### <a name="enterprise-linux-rhel-and-variants"></a>Enterprise Linux (RHEL et variants)
 
  - Enterprise Linux 6 (EL6)
 
@@ -49,31 +49,31 @@ Référentiels peuvent être configurées automatiquement en installant le packa
 
 ### <a name="ubuntu"></a>Ubuntu
 
- - Ubuntu 14.04 (fidèle)
+ - Ubuntu 14,04 (confiance)
 
         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/14.04/prod
         sudo apt-get update
 
- - Ubuntu 16.04 (Xenial)
+ - Ubuntu 16,04 (Xenial)
 
         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/16.04/prod
         sudo apt-get update
 
- - Ubuntu 18.04 (bionique)
+ - Ubuntu 18,04 (Bionic)
 
         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/18.04/prod
         sudo apt-get update
 
- - Ubuntu 18.10 (Cosmic)
+ - Ubuntu 18,10 (cosmique)
 
         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/18.10/prod
         sudo apt-get update
 
- - Ubuntu 19.04 (Disco)
+ - Ubuntu 19,04 (Disco)
 
         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/19.04/prod
@@ -85,15 +85,15 @@ Référentiels peuvent être configurées automatiquement en installant le packa
 
 
 ## <a name="manual-configuration"></a>Configuration manuelle
-Les fichiers de configuration du référentiel sont disponibles à partir de [packages.microsoft.com/config](https://packages.microsoft.com/config/). Le nom et l’emplacement de ces fichiers peuvent être déterminés à l’aide de la convention d’affectation de noms URI suivante :
+Les fichiers de configuration du référentiel sont disponibles à partir de [packages.Microsoft.com/config](https://packages.microsoft.com/config/). Le nom et l’emplacement de ces fichiers peuvent être localisés à l’aide de la Convention d’affectation de noms d’URI suivante :
 
         https://packages.microsoft.com/config/<Distribution>/<Version>/prod.(repo|list)
 
-**Clé de package et la signature de référentiel**
+**Clé de signature de package et de dépôt**
 
- - Clé de Microsoft GPG publique peut être téléchargé ici : [https://packages.microsoft.com/keys/microsoft.asc](https://packages.microsoft.com/keys/microsoft.asc)
- - ID de clé publique : Microsoft (signature de version) <gpgsecurity@microsoft.com>
- - Empreinte digitale de clé publique : `BC52 8686 B50D 79E3 39D3 721C EB3E 94AD BE12 29CF`
+ - La clé publique GPG de Microsoft peut être téléchargée ici :[https://packages.microsoft.com/keys/microsoft.asc](https://packages.microsoft.com/keys/microsoft.asc)
+ - ID de la clé publique : Microsoft (signature de version)<gpgsecurity@microsoft.com>
+ - Empreinte digitale de la clé publique :`BC52 8686 B50D 79E3 39D3 721C EB3E 94AD BE12 29CF`
 
 ### <a name="examples"></a>Exemples :
 

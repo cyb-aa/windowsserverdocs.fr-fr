@@ -1,45 +1,45 @@
 ---
 title: Performances de la mémoire Hyper-V
-description: Considérations relatives à la mémoire dans Hyper-V d’optimisation des performances
+description: Considérations relatives à la mémoire dans le réglage des performances Hyper-V
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 63a1b654b8ac52725cc5dd87c8b245f9dfaf40f0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ddb336e0d6e16342dd60f2f61e50afeda61837e9
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848070"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70866575"
 ---
 # <a name="hyper-v-memory-performance"></a>Performances de la mémoire Hyper-V
 
 
-L’hyperviseur virtualise la mémoire physique de l’invité pour isoler les ordinateurs virtuels entre eux et à fournir un espace de mémoire contiguës, de base zéro pour chaque système d’exploitation invité, comme sur les systèmes non virtualisés.
+L’hyperviseur virtualise la mémoire physique de l’invité pour isoler les machines virtuelles les unes des autres et pour fournir un espace mémoire contigu de base zéro pour chaque système d’exploitation invité, tout comme sur les systèmes non virtualisés.
 
-## <a name="correct-memory-sizing-for-child-partitions"></a>Taille de mémoire pour les partitions enfants suffisante
+## <a name="correct-memory-sizing-for-child-partitions"></a>Corriger le dimensionnement de la mémoire pour les partitions enfants
 
-Vous devez déterminer la taille de mémoire de la machine virtuelle comme vous le faites habituellement pour les applications serveur sur un ordinateur physique. Vous devez dimensionner pour permettre de gérer la charge attendue en ordinaire et aux heures de pointe, car la quantité de mémoire insuffisante peut augmenter considérablement le temps de réponse et l’utilisation du processeur ou d’e/s.
+Vous devez dimensionner la mémoire de l’ordinateur virtuel comme vous le feriez habituellement pour les applications serveur sur un ordinateur physique. Vous devez le dimensionner pour gérer raisonnablement la charge prévue à des heures de pointe et normales, car une mémoire insuffisante peut augmenter considérablement les temps de réponse et l’utilisation du processeur ou des e/s.
 
-Vous pouvez activer la mémoire dynamique autoriser Windows à dynamiquement la taille de mémoire de la machine virtuelle. Avec la mémoire dynamique, si des applications dans la machine virtuelle rencontrez des problèmes effectue les allocations de mémoire soudaine volumineux, vous pouvez augmenter la taille de fichier d’échange pour la machine virtuelle pour vous assurer de stockage temporaire pendant que la mémoire dynamique répond à la pression de mémoire.
+Vous pouvez activer Mémoire dynamique pour permettre à Windows de dimensionner dynamiquement la mémoire de l’ordinateur virtuel. Avec Mémoire dynamique, si les applications de l’ordinateur virtuel rencontrent des problèmes d’allocations de mémoire soudaine, vous pouvez augmenter la taille du fichier d’échange de la machine virtuelle pour garantir une sauvegarde temporaire pendant que Mémoire dynamique répond à la sollicitation de la mémoire.
 
-Pour plus d’informations sur la mémoire dynamique, consultez [Hyper-V Dynamic Memory Overview]( https://go.microsoft.com/fwlink/?linkid=834434) et [Guide de Configuration de mémoire dynamique Hyper-V](https://go.microsoft.com/fwlink/?linkid=834435).
+Pour plus d’informations sur la Mémoire dynamique, consultez [vue d’ensemble d’Hyper-v mémoire dynamique]( https://go.microsoft.com/fwlink/?linkid=834434) et guide de configuration de la [mémoire dynamique hyper](https://go.microsoft.com/fwlink/?linkid=834435)-v.
 
-Lorsque vous exécutez Windows dans la partition enfant, vous pouvez utiliser les compteurs de performances suivants dans une partition enfant pour déterminer si la partition enfant subit une sollicitation de la mémoire et est susceptible de s’exécuter mieux avec une taille de mémoire de machine virtuelle plus élevée.
+Quand vous exécutez Windows dans la partition enfant, vous pouvez utiliser les compteurs de performances suivants dans une partition enfant pour déterminer si la partition enfant subit une sollicitation de la mémoire et est susceptible d’être plus efficace avec une plus grande taille de mémoire de l’ordinateur virtuel.
 
-| Compteur de performances                                                         | Valeur de seuil suggéré                                                                                                                                                           |
+| Compteur de performances                                                         | Valeur de seuil suggérée                                                                                                                                                           |
 |-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Mémoire : octets de réserve du Cache en attente                                        | Somme des octets de réserve du Cache de mise en veille et gratuit et zéro Page liste octets doit être 200 Mo ou plus d’informations sur les systèmes avec 1 Go et 300 Mo ou plus d’informations sur les systèmes avec 2 Go de RAM ou plus visible. |
-| Mémoire – gratuit & zéro octets de la liste des pages                                        | Somme des octets de réserve du Cache de mise en veille et gratuit et zéro Page liste octets doit être 200 Mo ou plus d’informations sur les systèmes avec 1 Go et 300 Mo ou plus d’informations sur les systèmes avec 2 Go de RAM ou plus visible. |
-| Mémoire : Pages en entrée/s                                                    | Moyenne sur une période de 1 heure est inférieure à 10.                                                                                                                                       | 
+| Mémoire – octets de réserve du cache en attente                                        | La somme des octets de réserve de cache en attente et des octets de liste de pages libre et zéro doit être de 200 Mo ou plus sur les systèmes avec 1 Go et 300 Mo ou plus sur les systèmes avec au moins 2 Go de RAM visible. |
+| Mémoire – octets libres & de la liste des pages de zéros                                        | La somme des octets de réserve de cache en attente et des octets de liste de pages libre et zéro doit être de 200 Mo ou plus sur les systèmes avec 1 Go et 300 Mo ou plus sur les systèmes avec au moins 2 Go de RAM visible. |
+| Mémoire-entrées de pages/s                                                    | La moyenne sur une période de 1 heure est inférieure à 10.                                                                                                                                       | 
 
-## <a name="correct-memory-sizing-for-root-partition"></a>Dimensionnement correcte de la mémoire pour la partition racine
+## <a name="correct-memory-sizing-for-root-partition"></a>Corriger le dimensionnement de la mémoire pour la partition racine
 
-La partition racine doit avoir suffisamment de mémoire pour fournir des services tels que la virtualisation d’e/s, instantané de machine virtuelle et de gestion pour prendre en charge les partitions enfants.
+La partition racine doit disposer de suffisamment de mémoire pour fournir des services tels que la virtualisation des e/s, la capture instantanée de l’ordinateur virtuel et la gestion pour prendre en charge les partitions enfants.
 
-Hyper-V dans Windows Server 2016 surveille l’intégrité de l’exécution gestion système de la partition racine d’exploitation pour déterminer la quantité de mémoire pouvant être allouée en toute sécurité à des partitions enfants, tout en garantissant des performances élevées et la fiabilité de la partition racine.
+Hyper-V dans Windows Server 2016 surveille l’intégrité du runtime du système d’exploitation de gestion de la partition racine afin de déterminer la quantité de mémoire pouvant être allouée en toute sécurité aux partitions enfants, tout en garantissant des performances et une fiabilité élevées de la partition racine.
 
 ## <a name="see-also"></a>Voir aussi
 
@@ -47,14 +47,14 @@ Hyper-V dans Windows Server 2016 surveille l’intégrité de l’exécution ges
 
 -   [Architecture Hyper-V](architecture.md)
 
--   [Configuration de serveur Hyper-V](configuration.md)
+-   [Configuration du serveur Hyper-V](configuration.md)
 
--   [Performances du processeur de Hyper-V](processor-performance.md)
+-   [Performances du processeur Hyper-V](processor-performance.md)
 
--   [Stockage Hyper-V les performances d’e/s](storage-io-performance.md)
+-   [Performances E/S du stockage Hyper-V](storage-io-performance.md)
 
--   [Réseau de Hyper-V les performances d’e/s](network-io-performance.md)
+-   [Performances E/S du réseau Hyper-V](network-io-performance.md)
 
 -   [Détecter les goulots d’étranglement dans un environnement virtualisé](detecting-virtualized-environment-bottlenecks.md)
 
--   [Machines virtuelles Linux](linux-virtual-machine-considerations.md)
+-   [Ordinateurs virtuels Linux](linux-virtual-machine-considerations.md)

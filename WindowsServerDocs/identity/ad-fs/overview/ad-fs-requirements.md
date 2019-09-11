@@ -9,18 +9,18 @@ ms.date: 03/06/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: c330b5f65b2862628fd23e288c95e81653da5c5b
-ms.sourcegitcommit: 4fa147d552481d8279a5390f458a9f7788061977
+ms.openlocfilehash: b93848a47eca952ebbeeec2a55c3e6f9b60dbfb8
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70009079"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865478"
 ---
 # <a name="ad-fs-requirements"></a>Configuration AD FS requise
 
 
 
-Voici la configuration requise pour le déploiement de AD FS:  
+Voici la configuration requise pour le déploiement de AD FS :  
   
 -   [Conditions requises pour les certificats](ad-fs-requirements.md#BKMK_1)  
   
@@ -51,13 +51,13 @@ Chaque AD FS et le serveur proxy d’application Web dispose d’un certificat S
 Les certificats SSL sur les serveurs de Fédération doivent remplir les conditions suivantes
 - Le certificat est approuvé publiquement (pour les déploiements de production)
 - Le certificat contient la valeur de l’utilisation améliorée de la clé d’authentification du serveur
-- Le certificat contient le nom du service de Fédération, tel que «fs.contoso.com» dans l’objet ou l’autre nom de l’objet (SAN)
-- Pour l’authentification par certificat utilisateur sur le port 443, le certificat contient «certauth. \<nom\>du service de Fédération, tel que «certauth.FS.contoso.com» dans le San
+- Le certificat contient le nom du service de Fédération, tel que « fs.contoso.com » dans l’objet ou l’autre nom de l’objet (SAN)
+- Pour l’authentification par certificat utilisateur sur le port 443, le certificat contient «certauth. \<nom\>du service de Fédération, tel que « certauth.FS.contoso.com » dans le San
 - Pour l’inscription de l’appareil ou pour une authentification moderne auprès des ressources locales à l’aide de clients antérieurs à Windows 10, le réseau SAN doit contenir «enterpriseregistration. suffixe\>UPN» pour chaque suffixe UPN utilisé dans votre organisation. \<
 
 Les certificats SSL sur le proxy d’application Web doivent remplir les conditions suivantes
 - Si le proxy est utilisé pour effectuer un proxy AD FS les demandes qui utilisent l’authentification intégrée de Windows, le certificat SSL proxy doit être identique (utiliser la même clé) que le certificat SSL du serveur de Fédération.
-- Si la propriété AD FS «ExtendedProtectionTokenCheck» est activée (paramètre par défaut dans AD FS), le certificat SSL proxy doit être identique (utiliser la même clé) que le certificat SSL du serveur de Fédération.
+- Si la propriété AD FS « ExtendedProtectionTokenCheck » est activée (paramètre par défaut dans AD FS), le certificat SSL proxy doit être identique (utiliser la même clé) que le certificat SSL du serveur de Fédération.
 - Dans le cas contraire, les conditions requises pour le certificat SSL proxy sont les mêmes que celles du certificat SSL du serveur de Fédération.
 
 ### <a name="service-communication-certificate"></a>Certificat de communication du service
@@ -94,7 +94,7 @@ Ce certificat est utilisé par les fournisseurs de revendications qui chiffrent 
 AD FS et le proxy d’application Web requis (physique ou virtuel) sont contrôlés sur le processeur. vous devez donc dimensionner votre batterie de serveurs pour la capacité de traitement.  
 - Utilisez la [feuille de calcul de planification de la capacité AD FS 2016](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx) pour déterminer le nombre de AD FS et de serveurs proxy d’application Web dont vous aurez besoin.
 
-La mémoire et les disques requis pour AD FS sont relativement statiques, consultez le tableau ci-dessous:
+La mémoire et les disques requis pour AD FS sont relativement statiques, consultez le tableau ci-dessous :
 
 
 |**Configuration matérielle requise**|**Configuration minimale requise**|**Configuration recommandée**|
@@ -143,11 +143,11 @@ Si vous utilisez SQL Server pour votre base de données de configuration AD FS, 
   
 -   N’importe quel compte de domaine standard peut être utilisé comme compte de service pour AD FS. Les comptes de service administrés de groupe sont également pris en charge. Les autorisations requises lors de l’exécution sont automatiquement ajoutées lorsque vous configurez AD FS.
 
--   L’attribution des droits utilisateur requise pour le compte de service Active Directory est «ouvrir une session en tant que service»
+-   L’attribution des droits utilisateur requise pour le compte de service Active Directory est « ouvrir une session en tant que service »
 
--   Les attributions des droits utilisateur requises pour les autorisations «NT Service\adfssrv» et «NT Service\drs» sont «générer des audits de sécurité» et «ouvrir une session en tant que service».
+-   Les attributions des droits utilisateur requises pour les autorisations « NT Service\adfssrv » et « NT Service\drs » sont « générer des audits de sécurité » et « ouvrir une session en tant que service ».
 
--   Les comptes de service administrés de groupe nécessitent au moins un contrôleur de domaine exécutant Windows Server 2012 ou une version ultérieure.  GMSA doit résider sous le conteneur par défaut «CN = Managed Service Accounts».  
+-   Les comptes de service administrés de groupe nécessitent au moins un contrôleur de domaine exécutant Windows Server 2012 ou une version ultérieure.  GMSA doit résider sous le conteneur par défaut « CN = Managed Service Accounts ».  
 
 -   Pour l’authentification Kerberos, le nom de principal`HOST/<adfs\_service\_name>`du service «» doit être inscrit sur le compte de service AD FS. Par défaut, AD FS configure ce paramètre lors de la création d’une batterie de AD FS.  En cas d’échec, comme dans le cas d’une collision ou d’autorisations insuffisantes, un avertissement s’affiche et vous devez l’ajouter manuellement.  
    
@@ -166,7 +166,7 @@ Si vous utilisez SQL Server pour votre base de données de configuration AD FS, 
 -   Le compte de service AD FS doit avoir les autorisations nécessaires pour lire les attributs utilisateur dans chaque domaine qui contient les utilisateurs qui s’authentifient auprès du service AD FS.  
   
 ## <a name="BKMK_5"></a>Configuration requise pour la base de données de configuration  
-Cette section décrit les conditions requises et les restrictions pour les batteries de AD FS qui utilisent respectivement la base de données interne Windows (WID) ou SQL Server en tant que base de données:  
+Cette section décrit les conditions requises et les restrictions pour les batteries de AD FS qui utilisent respectivement la base de données interne Windows (WID) ou SQL Server en tant que base de données :  
   
 **WID**  
   
@@ -189,7 +189,7 @@ Le tableau suivant fournit un résumé du nombre de serveurs AD FS pris en charg
 - La résolution d’artefacts SAML et la détection de relecture de jetons sont prises en charge dans une batterie de SQL Server.  
   
 ## <a name="BKMK_6"></a>Configuration requise pour le navigateur  
-Lorsque AD FS authentification est effectuée par le biais d’un navigateur ou d’un contrôle de navigateur, votre navigateur doit respecter les conditions suivantes:  
+Lorsque AD FS authentification est effectuée par le biais d’un navigateur ou d’un contrôle de navigateur, votre navigateur doit respecter les conditions suivantes :  
   
 - JavaScript doit être activé  
   
@@ -199,7 +199,7 @@ Lorsque AD FS authentification est effectuée par le biais d’un navigateur ou 
   
 - Pour le certificat utilisateur & l’authentification par certificat d’appareil, le navigateur doit prendre en charge l’authentification par certificat client SSL  
 
-- Pour une connexion transparente à l’aide de l’authentification intégrée Windows, le nom du service de Fédération\/(par exemple, https:\/FS.contoso.com) doit être configuré dans la zone Intranet local ou dans la zone sites de confiance.
+- Pour une connexion transparente à l’aide de l’authentification intégrée Windows, le nom du service de Fédération\/(par exemple, https :\/FS.contoso.com) doit être configuré dans la zone Intranet local ou dans la zone sites de confiance.
   ## <a name="BKMK_7"></a>Configuration réseau requise  
  
 **Configuration requise du pare-feu**  
@@ -229,7 +229,7 @@ Pour plus d’informations, consultez [meilleures pratiques pour la sécurisatio
 **Configuration requise pour la Load Balancer**
 - L’équilibreur de charge ne doit pas arrêter le protocole SSL. AD FS prend en charge plusieurs cas d’usage avec l’authentification par certificat, ce qui s’interrompt lors de l’arrêt de SSL. L’arrêt de SSL sur l’équilibreur de charge n’est pas pris en charge pour les cas d’usage. 
 - Il est recommandé d’utiliser un équilibreur de charge qui prend en charge SNI. Dans le cas contraire, l’utilisation de la liaison de secours 0.0.0.0 sur votre serveur proxy d’application AD FS/Web doit fournir une solution de contournement.
-- Il est recommandé d’utiliser les points de terminaison de sonde d’intégrité HTTP (et non HTTPs) pour effectuer des vérifications de l’intégrité de l’équilibreur de charge pour le trafic de routage. Cela permet d’éviter tout problème lié à SNI. La réponse à ces points de terminaison de sonde est HTTP 200 OK et est traitée localement sans dépendre des services principaux. La sonde HTTP est accessible via HTTP à l’aide du chemin d’accès «/ADFS/Probe»
+- Il est recommandé d’utiliser les points de terminaison de sonde d’intégrité HTTP (et non HTTPs) pour effectuer des vérifications de l’intégrité de l’équilibreur de charge pour le trafic de routage. Cela permet d’éviter tout problème lié à SNI. La réponse à ces points de terminaison de sonde est HTTP 200 OK et est traitée localement sans dépendre des services principaux. La sonde HTTP est accessible via HTTP à l’aide du chemin d’accès « /ADFS/Probe »
     - http://&lt;nom&gt;du proxy d’application Web/ADFS/Probe
     - http://&lt;nom&gt;du serveur ADFS/ADFS/Probe
     - &lt;adresse&gt;IP du proxy d’application Web http:///ADFS/Probe

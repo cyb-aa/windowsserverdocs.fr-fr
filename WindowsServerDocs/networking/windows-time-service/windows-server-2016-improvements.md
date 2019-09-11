@@ -8,12 +8,12 @@ ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: 34d05a8058db366714c0ff4fed0b7d80b9150aa4
-ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
+ms.openlocfilehash: 2b8c6148af21e94e4a56661402f36dcb2e636461
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69626323"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871835"
 ---
 ## <a name="windows-server-2016-improvements"></a>Améliorations de Windows Server 2016
 
@@ -29,7 +29,7 @@ Windows 2016 a amélioré le service TimeSync Hyper-V. Les améliorations inclue
 En outre, le niveau de couche que l’hôte signale à l’invité est plus transparent.  Auparavant, l’hôte présenterait un Stratum fixe de 2, quelle que soit sa précision.  Avec les modifications apportées à Windows Server 2016, l’hôte signale une couche supérieure à la strate de l’hôte, ce qui produit un meilleur temps pour les invités virtuels.  Le niveau de la couche hôte est déterminé par le mode de fonctionnement normal, en fonction de son heure source.  Les invités Windows 2016 joints à un domaine trouveront l’horloge la plus précise, plutôt que d’utiliser par défaut l’ordinateur hôte.  C’est pour cette raison que nous recommandons de désactiver manuellement le paramètre de fournisseur de temps Hyper-V pour les ordinateurs participant à un domaine dans Windows 2012 R2 et les versions antérieures.
 
 ### <a name="monitoring"></a>Surveillance
-Des compteurs de l’analyseur de performances ont été ajoutés.  Elles vous permettent d’effectuer une ligne de base, de surveiller et de résoudre les problèmes de temps.  Ces compteurs sont les suivants:
+Des compteurs de l’analyseur de performances ont été ajoutés.  Elles vous permettent d’effectuer une ligne de base, de surveiller et de résoudre les problèmes de temps.  Ces compteurs sont les suivants :
 
 Compteur|Description|
 ----- | ----- |
@@ -40,7 +40,7 @@ Nombre de sources du client NTP|    Nombre actif de sources de temps NTP utilis�
 Demandes entrantes du serveur NTP|   Nombre de demandes reçues par le serveur NTP (demandes/s).|
 Réponses sortantes du serveur NTP|  Nombre de demandes traitées par le serveur NTP (réponses/s).|
 
-Les 3 premiers compteurs ciblent des scénarios de résolution des problèmes de précision.  La section «précision du temps et NTP» ci-dessous, sous [meilleures pratiques](#BestPractices), offre plus de détails.
+Les 3 premiers compteurs ciblent des scénarios de résolution des problèmes de précision.  La section « précision du temps et NTP » ci-dessous, sous [meilleures pratiques](#BestPractices), offre plus de détails.
 Les 3 derniers compteurs couvrent les scénarios de serveur NTP et sont utiles lors de la détermination de la charge et de l’établissement de la ligne de performance actuelle.
 
 ### <a name="configuration-updates-per-environment"></a>Mises à jour de la configuration par environnement
@@ -97,8 +97,8 @@ Nous avons utilisé quatre méthodes différentes pour mesurer la précision ave
 
 
 1. Mesurez l’horloge locale, qui est conditionnée par w32tm, sur notre machine de test de référence qui dispose d’un matériel GPS distinct.  
-2.  Mesurez les pings NTP entre le serveur NTP et les clients à l’aide de w32tm «stripchart»
-3.  Mesurez les pings NTP entre le client et le serveur NTP à l’aide de w32tm «stripchart»
+2.  Mesurez les pings NTP entre le serveur NTP et les clients à l’aide de w32tm « stripchart »
+3.  Mesurez les pings NTP entre le client et le serveur NTP à l’aide de w32tm « stripchart »
 4.  Mesurez les résultats Hyper-V de l’hôte à l’invité à l’aide du compteur d’horodatage (TSC).  Ce compteur est partagé entre les partitions et l’heure système dans les deux partitions.  Nous avons calculé la différence entre l’heure de l’hôte et l’heure du client sur la machine virtuelle.  Ensuite, nous utilisons l’horloge TSC pour interpoler l’heure de l’hôte à partir de l’invité, car les mesures ne se produisent pas en même temps.  En outre, nous utilisons les retards et la latence du facteur d’horloge TSV dans l’API.
 
 W32tm est intégré, mais les autres outils que nous avons utilisés pendant nos tests sont disponibles pour le référentiel Microsoft sur GitHub en tant que Open source pour vos tests et votre utilisation.  Le WIKI sur le référentiel contient des informations supplémentaires qui décrivent comment utiliser les outils pour effectuer des mesures.
@@ -143,10 +143,10 @@ La durée d’un ordinateur est aussi bonne que celle de l’horloge source avec
 Différentes solutions matérielles peuvent offrir un temps précis.  En règle générale, les solutions actuelles sont basées sur des antennes GPS.  Il existe également des solutions de modems radio et Dial-up utilisant des lignes dédiées.  Ils sont attachés à votre réseau en tant qu’appliance, ou branchés sur un PC, par exemple Windows via un périphérique PCIe ou USB.  Différentes options offrent des niveaux de précision différents et, comme toujours, les résultats dépendent de votre environnement.  Les variables qui affectent la précision incluent la disponibilité GPS, la stabilité et la charge du réseau, ainsi que le matériel PC.  Ce sont tous des facteurs importants lors du choix d’une horloge source, qui, comme nous l’avons indiqué, est une exigence de temps stable et précis.
 
 ### <a name="domain-and-synchronizing-time"></a>Heure du domaine et synchronisation
-Les membres du domaine utilisent la hiérarchie de domaine pour déterminer l’ordinateur qu’ils utilisent comme source pour synchroniser l’heure.  Chaque membre du domaine trouvera un autre ordinateur à synchroniser et l’enregistrera comme source d’horloge.  Chaque type de membre de domaine suit un ensemble différent de règles afin de rechercher une source d’horloge pour la synchronisation de l’heure.  Le contrôleur de domaine principal de la racine de la forêt est la source d’horloge par défaut de tous les domaines.  Vous trouverez ci-dessous différents rôles et une description de haut niveau pour la façon dont ils trouvent une source:
+Les membres du domaine utilisent la hiérarchie de domaine pour déterminer l’ordinateur qu’ils utilisent comme source pour synchroniser l’heure.  Chaque membre du domaine trouvera un autre ordinateur à synchroniser et l’enregistrera comme source d’horloge.  Chaque type de membre de domaine suit un ensemble différent de règles afin de rechercher une source d’horloge pour la synchronisation de l’heure.  Le contrôleur de domaine principal de la racine de la forêt est la source d’horloge par défaut de tous les domaines.  Vous trouverez ci-dessous différents rôles et une description de haut niveau pour la façon dont ils trouvent une source :
 
 
-- **Contrôleur de domaine avec rôle** de contrôleur de domaine principal: cet ordinateur est la source de temps faisant autorité pour un domaine. Il disposera de l’heure la plus précise disponible dans le domaine et doit se synchroniser avec un contrôleur de domaine dans le domaine parent, sauf dans les cas où le rôle [GTIMESERV](#GTIMESERV) est activé. 
+- **Contrôleur de domaine avec rôle** de contrôleur de domaine principal : cet ordinateur est la source de temps faisant autorité pour un domaine. Il disposera de l’heure la plus précise disponible dans le domaine et doit se synchroniser avec un contrôleur de domaine dans le domaine parent, sauf dans les cas où le rôle [GTIMESERV](#GTIMESERV) est activé. 
 - **Tout autre contrôleur de domaine** : cet ordinateur agira comme source de temps pour les clients et les serveurs membres du domaine. Un contrôleur de domaine peut se synchroniser avec le contrôleur de domaine principal de son propre domaine ou n’importe quel contrôleur de domaine de son domaine parent.
 - **Clients/serveurs membres** : cet ordinateur peut se synchroniser avec n’importe quel contrôleur de domaine ou contrôleur de domaine principal de son propre domaine, ou un contrôleur de domaine ou un contrôleur de domaine principal dans le domaine parent.
 
@@ -161,7 +161,7 @@ Les versions antérieures à Windows Server 2016 comportaient de nombreux probl�
 
 Dans certains scénarios impliquant des contrôleurs de domaine invités, les exemples Hyper-V TimeSync peuvent perturber la synchronisation de l’heure du domaine.  Cela ne devrait plus être un problème pour les invités du serveur 2016 s’exécutant sur des hôtes Hyper-V Server 2016.
 
-Pour empêcher le service TimeSync Hyper-V de fournir des exemples à w32time, définissez la clé de Registre invité suivante:
+Pour empêcher le service TimeSync Hyper-V de fournir des exemples à w32time, définissez la clé de Registre invité suivante :
 
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\VMICTimeProvider 
     "Enabled"=dword:00000000
@@ -169,7 +169,7 @@ Pour empêcher le service TimeSync Hyper-V de fournir des exemples à w32time, d
 #### <a name="AllowingLinux"></a>Autoriser Linux à utiliser l’heure de l’hôte Hyper-V
 Pour les invités Linux exécutés dans Hyper-V, les clients sont généralement configurés pour utiliser le démon NTP pour la synchronisation de l’heure avec les serveurs NTP.  Si la distribution Linux prend en charge le protocole TimeSync version 4 et que le service d’intégration TimeSync est activé sur l’invité Linux, il se synchronisera en fonction de l’heure de l’hôte. Cela peut entraîner un temps d’attente incohérent si les deux méthodes sont activées.
 
-Pour synchroniser exclusivement avec l’heure de l’hôte, il est recommandé de désactiver la synchronisation de l’heure NTP par l’une des deux opérations suivantes:
+Pour synchroniser exclusivement avec l’heure de l’hôte, il est recommandé de désactiver la synchronisation de l’heure NTP par l’une des deux opérations suivantes :
 
 - Désactivation de tous les serveurs NTP dans le fichier NTP. conf
 - ou désactiver le démon NTP
@@ -187,7 +187,7 @@ Vous pouvez spécifier un ou plusieurs contrôleurs de domaine en tant qu’horl
 > [!NOTE]
 > Vous trouverez plus d’informations sur les indicateurs de domaine dans la [documentation du protocole MS-ADTS](https://msdn.microsoft.com/library/mt226583.aspx).
 
-TIMESERV est un autre indicateur des services de domaine associé qui indique si un ordinateur fait actuellement autorité, qui peut changer si un contrôleur de domaine perd la connexion.  Un contrôleur de périphérique dans cet État retourne «couche inconnue» lorsqu’il est interrogé via NTP.  Après plusieurs tentatives, le contrôleur de réseau consigne l’événement du service de temps des événements système 36.
+TIMESERV est un autre indicateur des services de domaine associé qui indique si un ordinateur fait actuellement autorité, qui peut changer si un contrôleur de domaine perd la connexion.  Un contrôleur de périphérique dans cet État retourne « couche inconnue » lorsqu’il est interrogé via NTP.  Après plusieurs tentatives, le contrôleur de réseau consigne l’événement du service de temps des événements système 36.
 
 Si vous souhaitez configurer un contrôleur de périphérique en tant que GTIMESERV, vous pouvez le configurer manuellement à l’aide de la commande suivante.  Dans ce cas, le contrôleur de bus utilise un autre ordinateur comme horloge maître.  Il peut s’agir d’un appareil ou d’un ordinateur dédié.
 
@@ -229,7 +229,7 @@ Essai|  Localisé|
 Value|  Paramètre ATTENDU|
 ----- | ----- |
 Stratum|    1 (référence principale-synchronisée par radio)|
-ReferenceId|    0x4C4F434C (nom de la source:  «LOCAL»)|
+ReferenceId|    0x4C4F434C (nom de la source :  « LOCAL »)|
 `Source`| Horloge CMOS locale|
 Décalage de phase|   0.0000000 s|
 Rôle serveur|    576 (service de temps fiable)|
@@ -240,7 +240,7 @@ Lorsque Windows est virtualisé, par défaut, l’hyperviseur est responsable de
 #### <a name="discovering-the-hierarchy"></a>Découverte de la hiérarchie
 Dans la mesure où la chaîne de hiérarchie de temps à la source de l’horloge principale est dynamique dans un domaine et négociée, vous devez interroger l’état d’un ordinateur particulier pour comprendre la source de temps et la chaîne de l’horloge source principale.  Cela peut aider à diagnostiquer les problèmes de synchronisation de l’heure.
 
-Vous voulez dépanner un client spécifique; la première étape consiste à comprendre sa source de temps à l’aide de cette commande w32tm.
+Vous voulez dépanner un client spécifique ; la première étape consiste à comprendre sa source de temps à l’aide de cette commande w32tm.
 
     w32tm /query /status
 
@@ -257,14 +257,14 @@ Utilisez ensuite l’entrée source ci-dessus et utilisez le paramètre/StripCha
 
 #### <a name="using-group-policy"></a>Utilisation de stratégie de groupe
 Vous pouvez utiliser stratégie de groupe pour obtenir une plus grande précision, par exemple en affectant des clients pour utiliser des serveurs NTP spécifiques ou pour contrôler le mode de configuration des systèmes d’exploitation de niveau inférieure lorsqu’ils sont virtualisés.  
-Vous trouverez ci-dessous une liste des scénarios possibles et des paramètres de stratégie de groupe pertinents:
+Vous trouverez ci-dessous une liste des scénarios possibles et des paramètres de stratégie de groupe pertinents :
 
 **Domaines virtualisés** : afin de contrôler les contrôleurs de domaine virtualisés dans Windows 2012 R2 afin qu’ils synchronisent l’heure avec leur domaine, plutôt qu’avec l’hôte Hyper-V, vous pouvez désactiver cette entrée de registre.   Pour le contrôleur de domaine principal, vous ne souhaitez pas désactiver l’entrée, car l’hôte Hyper-V fournira la source de temps la plus stable.  L’entrée de Registre nécessite le redémarrage du service W32Time après sa modification.
 
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\VMICTimeProvider]
     "Enabled"=dword:00000000
 
-**Charges sensibles** à la précision: pour les charges de travail sensibles au temps, vous pouvez configurer des groupes d’ordinateurs pour définir les serveurs NTP et les paramètres d’heure associés, tels que l’interrogation et la fréquence de mise à jour de l’horloge.  Cela est normalement géré par le domaine, mais pour plus de contrôle, vous pouvez cibler des machines spécifiques pour pointer directement vers l’horloge principale.
+**Charges sensibles** à la précision : pour les charges de travail sensibles au temps, vous pouvez configurer des groupes d’ordinateurs pour définir les serveurs NTP et les paramètres d’heure associés, tels que l’interrogation et la fréquence de mise à jour de l’horloge.  Cela est normalement géré par le domaine, mais pour plus de contrôle, vous pouvez cibler des machines spécifiques pour pointer directement vers l’horloge principale.
 
 Paramètre de stratégie de groupe|   Nouvelle valeur|
 ----- | ----- |
@@ -277,7 +277,7 @@ EventLogFlags|  3 – toute la journalisation de l’heure spéciale|
 > [!NOTE]
 > Les paramètres NtpServer et EventLogFlags se trouvent sous System\Windows temps Service\Time fournisseurs à l’aide des paramètres configurer le client NTP Windows.  Les 3 autres sont situées sous le service de temps System\Windows à l’aide des paramètres de configuration globaux.
 
-**Charges à distance sensibles à** distance: pour les systèmes des domaines de succursales pour l’instance de vente au détail et le secteur des crédits de paiement (PCI), Windows utilise les informations de site actuelles et le localisateur de contrôleur de domaine pour trouver un contrôleur de domaine local, sauf si une source de temps NTP manuelle est configurée .  Cet environnement nécessite 1 seconde de précision, qui utilise une convergence plus rapide jusqu’à l’heure correcte.  Cette option permet au service W32Time de déplacer l’horloge vers l’arrière.  Si cela est acceptable et répond à vos besoins, vous pouvez créer la stratégie suivante.   Comme pour n’importe quel environnement, veillez à tester et à établir une ligne de base de votre réseau. 
+**Charges à distance sensibles à** distance : pour les systèmes des domaines de succursales pour l’instance de vente au détail et le secteur des crédits de paiement (PCI), Windows utilise les informations de site actuelles et le localisateur de contrôleur de domaine pour trouver un contrôleur de domaine local, sauf si une source de temps NTP manuelle est configurée .  Cet environnement nécessite 1 seconde de précision, qui utilise une convergence plus rapide jusqu’à l’heure correcte.  Cette option permet au service W32Time de déplacer l’horloge vers l’arrière.  Si cela est acceptable et répond à vos besoins, vous pouvez créer la stratégie suivante.   Comme pour n’importe quel environnement, veillez à tester et à établir une ligne de base de votre réseau. 
 
 Paramètre de stratégie de groupe|   Nouvelle valeur|
 ----- | ----- |
@@ -290,13 +290,13 @@ Le paramètre MaxAllowedPhaseOffset se trouve sous System\Windows Time service �
 
 ## <a name="azure-and-windows-iaas-considerations"></a>Considérations relatives à Azure et à IaaS de Windows
 
-### <a name="azure-virtual-machine-active-directory-domain-services"></a>Machine virtuelle Azure: Services de domaine Active Directory
-Si la machine virtuelle Azure exécutant Active Directory Domain Services fait partie d’une forêt Active Directory locale existante, TimeSync (VMIC) doit être désactivé. Cela permet d’autoriser tous les contrôleurs de l’ensemble de la forêt, physiques et virtuels, à utiliser une seule hiérarchie de synchronisation à l’heure. Reportez-vous au livre blanc sur les meilleures pratiques [«exécution de contrôleurs de domaine dans Hyper-V»](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv.aspx)
+### <a name="azure-virtual-machine-active-directory-domain-services"></a>Machine virtuelle Azure : Services de domaine Active Directory
+Si la machine virtuelle Azure exécutant Active Directory Domain Services fait partie d’une forêt Active Directory locale existante, TimeSync (VMIC) doit être désactivé. Cela permet d’autoriser tous les contrôleurs de l’ensemble de la forêt, physiques et virtuels, à utiliser une seule hiérarchie de synchronisation à l’heure. Reportez-vous au livre blanc sur les meilleures pratiques [« exécution de contrôleurs de domaine dans Hyper-V »](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv.aspx)
 
-### <a name="azure-virtual-machine-domain-joined-machine"></a>Machine virtuelle Azure: Ordinateur joint à un domaine
+### <a name="azure-virtual-machine-domain-joined-machine"></a>Machine virtuelle Azure : Ordinateur joint à un domaine
 Si vous hébergez un ordinateur qui est joint à un domaine existant Active Directory forêt, virtuel ou physique, la meilleure pratique consiste à désactiver TimeSync pour l’invité et à vérifier que W32Time est configuré pour se synchroniser avec son contrôleur de domaine via la configuration de l’heure pour Type = NTP5
 
-### <a name="azure-virtual-machine-standalone-workgroup-machine"></a>Machine virtuelle Azure: Ordinateur de groupe de travail autonome
+### <a name="azure-virtual-machine-standalone-workgroup-machine"></a>Machine virtuelle Azure : Ordinateur de groupe de travail autonome
 Si la machine virtuelle Azure n’est pas jointe à un domaine, et qu’il ne s’agit pas d’un contrôleur de domaine, il est recommandé de conserver la configuration de l’heure par défaut et de la synchroniser avec l’ordinateur hôte.
 
 ## <a name="windows-application-requiring-accurate-time"></a>Application Windows nécessitant un temps précis
@@ -306,7 +306,7 @@ Les programmes qui requièrent la plus grande précision en ce qui concerne l’
 ### <a name="udp-performance"></a>Performances UDP
 Si vous disposez d’une application qui utilise la communication UDP pour les transactions et qu’il est important de réduire la latence, il existe des entrées de Registre associées que vous pouvez utiliser pour configurer une plage de ports à exclure du port du moteur de filtrage de base.  Cela permet d’améliorer la latence et d’augmenter votre débit.  Toutefois, les modifications apportées au registre doivent être limitées aux administrateurs expérimentés.  En outre, cette solution de contournement exclut le pare-feu de la sécurisation des ports.  Pour plus d’informations, consultez la référence d’article ci-dessous.
 
-Pour Windows Server 2012 et Windows Server 2008, vous devez d’abord installer un correctif.  Vous pouvez vous référer à cet article de la base de connaissances: [Perte de datagrammes quand vous exécutez une application de récepteur de multidiffusion dans Windows 8 et Windows Server 2012](https://support.microsoft.com/kb/2808584)
+Pour Windows Server 2012 et Windows Server 2008, vous devez d’abord installer un correctif.  Vous pouvez vous référer à cet article de la base de connaissances : [Perte de datagrammes quand vous exécutez une application de récepteur de multidiffusion dans Windows 8 et Windows Server 2012](https://support.microsoft.com/kb/2808584)
 
 ### <a name="update-network-drivers"></a>Mettre à jour les pilotes réseau
 Certains fournisseurs de réseau ont des mises à jour de pilotes qui améliorent les performances en ce qui concerne la latence des pilotes et la mise en mémoire tampon des paquets UDP.  Contactez le fournisseur de votre réseau pour savoir s’il existe des mises à jour qui vous aideront à utiliser le débit UDP.
@@ -316,8 +316,8 @@ Pour se conformer aux réglementations de suivi du temps, vous pouvez archiver m
 
 
 1. Précision de l’horloge à l’aide du compteur de l’analyseur de performances de décalage temporel calculé.  Cela indique l’horloge avec dans la précision souhaitée.
-2.  Source de l’horloge à la recherche de «réponse homologue de» dans les journaux de w32tm.   À la suite du message, le texte est l’adresse IP ou VMIC, qui décrit la source de temps et la suivante dans la chaîne des horloges de référence à valider.
-3.  État de la condition d’horloge à l’aide des journaux w32tm pour valider cette «discipline ClockDispl: \*L'\*heure\*d’inclinaison "se produit.  Cela indique que w32tm est actif à la fois.
+2.  Source de l’horloge à la recherche de « réponse homologue de » dans les journaux de w32tm.   À la suite du message, le texte est l’adresse IP ou VMIC, qui décrit la source de temps et la suivante dans la chaîne des horloges de référence à valider.
+3.  État de la condition d’horloge à l’aide des journaux w32tm pour valider cette «discipline ClockDispl : \*L'\*heure\*d’inclinaison "se produit.  Cela indique que w32tm est actif à la fois.
 
 ### <a name="event-logging"></a>Journalisation des événements
 Pour obtenir l’histoire complète, vous aurez également besoin des informations du journal des événements.  En recueillant le journal des événements système et en filtrant sur Time-Server, Microsoft-Windows-Kernel-boot, Microsoft-Windows-Kernel-General, vous pourrez peut-être déterminer s’il existe d’autres influences qui ont changé l’heure, par exemple, des tiers.  Ces journaux peuvent être nécessaires pour éliminer les interférences externes.  La stratégie de groupe peut affecter les journaux des événements qui sont écrits dans le journal.  Pour plus d’informations, consultez la section ci-dessus sur l’utilisation de stratégie de groupe.
@@ -362,31 +362,31 @@ Le domaine et les protocoles non joints à un domaine nécessitent le port UDP 1
 ### <a name="reliable-hardware-clock-rtc"></a>Horloge matérielle fiable (RTC)
 Windows n’a pas de temps pas à pas, sauf si certaines limites sont dépassées, mais plutôt la discipline de l’horloge.  Cela signifie que w32tm ajuste la fréquence de l’horloge à intervalles réguliers, en utilisant le paramètre fréquence de mise à jour de l’horloge, qui prend la valeur par défaut une fois par seconde avec Windows Server 2016.  Si l’horloge est en retard, elle accélère la fréquence et, si elle est en avance, ralentit la fréquence.  Toutefois, pendant ce délai entre les ajustements de fréquence d’horloge, l’horloge matérielle est dans le contrôle.  En cas de problème avec le microprogramme ou l’horloge matérielle, l’heure de l’ordinateur peut être moins précise.
 
-Il s’agit d’une autre raison pour laquelle vous devez tester et la base de référence dans votre environnement.  Si le compteur de performances «décalage de temps calculé» ne se stabilise pas à la précision que vous ciblez, vous souhaiterez peut-être vérifier que le microprogramme est à jour.  En guise d’autre test, vous pouvez voir si le matériel dupliqué reproduire le même problème.
+Il s’agit d’une autre raison pour laquelle vous devez tester et la base de référence dans votre environnement.  Si le compteur de performances « décalage de temps calculé » ne se stabilise pas à la précision que vous ciblez, vous souhaiterez peut-être vérifier que le microprogramme est à jour.  En guise d’autre test, vous pouvez voir si le matériel dupliqué reproduire le même problème.
 
 ### <a name="troubleshooting-time-accuracy-and-ntp"></a>Résolution des problèmes de précision du temps et NTP
 Vous pouvez utiliser la section découverte de la hiérarchie ci-dessus pour comprendre la source de l’heure inexacte.  En examinant le décalage de temps, recherchez le point dans la hiérarchie où le temps est le plus élevé de sa source NTP.  Une fois que vous avez compris la hiérarchie, vous pouvez essayer de comprendre pourquoi cette source de temps ne reçoit pas de temps précis.  
 
-En vous concentrant sur le système avec un temps divergent, vous pouvez utiliser ces outils ci-dessous pour recueillir des informations supplémentaires qui vous aideront à déterminer le problème et à trouver une solution.  La référence UpstreamClockSource ci-dessous est l’horloge découverte à l’aide de «w32tm/config/Status».
+En vous concentrant sur le système avec un temps divergent, vous pouvez utiliser ces outils ci-dessous pour recueillir des informations supplémentaires qui vous aideront à déterminer le problème et à trouver une solution.  La référence UpstreamClockSource ci-dessous est l’horloge découverte à l’aide de « w32tm/config/Status ».
 
 
 - Journaux des événements système
-- Activez la journalisation à l’aide de: journaux w32tm-w32tm/Debug/Enable/file: C:\Windows\Temp\w32time-test.log/Size: 10000000/Entries: 0-300
+- Activez la journalisation à l’aide de : journaux w32tm-w32tm/Debug/Enable/file : C:\Windows\Temp\w32time-test.log/Size : 10000000/Entries : 0-300
 - clé de Registre w32Time HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time
 - Suivis de réseau local
 - Compteurs de performances (à partir de l’ordinateur local ou UpstreamClockSource)
-- W32tm/stripchart/Computer: UpstreamClockSource
+- W32tm/stripchart/Computer : UpstreamClockSource
 - PING UpstreamClockSource pour comprendre la latence et le nombre de tronçons à la source
 - Tracert UpstreamClockSource
 
 Problème|    Symptômes|   Résolution :|
 ----- | ----- | ----- |
-L’horloge TSC locale n’est pas stable.| À l’aide de l’utilitaire Perfmon-Physical Computer: synchronisation de l’horloge stable, mais vous voyez toujours que toutes les 1-2 minutes de plusieurs 100US. |   Mettre à jour le microprogramme ou valider un matériel différent n’affiche pas le même problème.|
+L’horloge TSC locale n’est pas stable.| À l’aide de l’utilitaire Perfmon-Physical Computer : synchronisation de l’horloge stable, mais vous voyez toujours que toutes les 1-2 minutes de plusieurs 100US. |   Mettre à jour le microprogramme ou valider un matériel différent n’affiche pas le même problème.|
 Latence du réseau|    w32tm stripchart affiche un RoundTripDelay de plus de 10 ms.  La variation du délai est due à un bruit de 1/2 de la durée du trajet aller-retour, par exemple un délai qui n’est que dans une seule direction.</br></br>UpstreamClockSource est plusieurs sauts, comme indiqué par PING.  La durée de vie doit être proche de 128.</br></br>Utilisez tracert pour rechercher la latence à chaque tronçon.    | Trouvez une source d’horloge plus proche pour l’heure.  Une solution consiste à installer une horloge source sur le même segment ou à POINTER manuellement vers une horloge source qui est géographiquement plus proche.  Pour un scénario de domaine, ajoutez un ordinateur avec le rôle GTimeServ. |  
-Impossible d’atteindre la source NTP de manière fiable|    W32tm/stripchart retourne par intermittence «la demande a expiré»    |La source NTP ne répond pas|
-La source NTP ne répond pas|    Vérifiez les compteurs PerfMon pour le nombre de sources du client NTP, les demandes entrantes du serveur NTP, les réponses sortantes du serveur NTP et déterminez votre utilisation par rapport à vos lignes de base.|    À l’aide des compteurs de performances du serveur, déterminez si le chargement a changé en référence à vos lignes de base.</br></br>Existe-t-il des problèmes de congestion du réseau?|
+Impossible d’atteindre la source NTP de manière fiable|    W32tm/stripchart retourne par intermittence « la demande a expiré »    |La source NTP ne répond pas|
+La source NTP ne répond pas|    Vérifiez les compteurs PerfMon pour le nombre de sources du client NTP, les demandes entrantes du serveur NTP, les réponses sortantes du serveur NTP et déterminez votre utilisation par rapport à vos lignes de base.|    À l’aide des compteurs de performances du serveur, déterminez si le chargement a changé en référence à vos lignes de base.</br></br>Existe-t-il des problèmes de congestion du réseau ?|
 Le contrôleur de domaine n’utilise pas l’horloge la plus précise|    Modifications de la topologie ou de l’horloge principale récemment ajoutée.|   w32tm/Resync/rediscover|
-Les horloges client se dérivent| Événement de service de temps 36 dans le journal des événements système et/ou dans le texte du fichier journal décrivant les éléments suivants: Le compteur «nombre de sources de temps du client NTP» passe de 1 à 0|Résolvez les problèmes de la source amont et comprenez si elle s’exécute en cas de problème de performances.|
+Les horloges client se dérivent| Événement de service de temps 36 dans le journal des événements système et/ou dans le texte du fichier journal décrivant les éléments suivants : Le compteur « nombre de sources de temps du client NTP » passe de 1 à 0|Résolvez les problèmes de la source amont et comprenez si elle s’exécute en cas de problème de performances.|
 
 ### <a name="baselining-time"></a>Heure de la planification
 La base de référence est importante afin que vous puissiez d’abord comprendre les performances et la précision de votre réseau, et comparer à la ligne de base à l’avenir lorsque des problèmes surviennent.  Vous devez effectuer une ligne de base du PDC racine ou de n’importe quelle machine marquée avec GTIMESRV.  Nous vous recommandons également de référencer le contrôleur de domaine principal dans chaque forêt.  Enfin, choisissez les contrôleurs de l’État ou les machines critiques qui présentent des caractéristiques intéressantes, telles que la distance ou les chargements élevés et les bases de référence.
@@ -404,9 +404,9 @@ La période de rotation de la terre varie dans le temps, en raison des événeme
 ## <a name="secure-time-seeding"></a>Amorçage de temps sécurisé
 W32time dans le serveur 2016 comprend la fonctionnalité d’amorçage de temps sécurisé. Cette fonctionnalité détermine l’heure actuelle approximative des connexions SSL sortantes.  Cette valeur de temps est utilisée pour surveiller l’horloge système locale et corriger les erreurs brutes. Pour plus d’informations sur la fonctionnalité, consultez ce billet de [blog](https://blogs.msdn.microsoft.com/w32time/2016/09/28/secure-time-seeding-improving-time-keeping-in-windows/).  Dans les déploiements avec une source de temps fiable et des ordinateurs surveillés qui incluent la surveillance des décalages de temps, vous pouvez choisir de ne pas utiliser la fonctionnalité d’amorçage de temps sécurisé et de vous appuyer sur votre infrastructure existante à la place. 
 
-Vous pouvez désactiver la fonctionnalité en procédant comme suit:
+Vous pouvez désactiver la fonctionnalité en procédant comme suit :
 
-1.  Définissez la valeur de configuration du Registre UtilizeSSLTimeData sur 0 sur un ordinateur spécifique:
+1.  Définissez la valeur de configuration du Registre UtilizeSSLTimeData sur 0 sur un ordinateur spécifique :
 
     Reg Add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\Config/v UtilizeSslTimeData/t REG_DWORD/d 0/f
 

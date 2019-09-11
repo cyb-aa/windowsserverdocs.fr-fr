@@ -13,12 +13,12 @@ ms.assetid: 044f2fd5-5b87-42bb-ba0d-c06516ac48c8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: cb91914608110d26ff2db8eff1cd28d26d04669b
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: 97d9e671823dade9e488922561c4c6a925719830
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590350"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871661"
 ---
 # <a name="limit-web-access"></a>Limiter l’accès au Web
 En plus de surveiller les activités des utilisateurs sur des postes de travail individuels, vous, en tant qu’utilisateur administratif, pouvez limiter l’accès des utilisateurs aux sites Web spécifiés en indiquant les sites Web autorisés et les sites Web auxquels vous souhaitez bloquer l’accès des utilisateurs.  
@@ -34,7 +34,7 @@ En plus de surveiller les activités des utilisateurs sur des postes de travail 
 4. Pour ajouter un site autorisé, tapez l’adresse web, puis cliquez sur **Add (Ajouter)** .  
   
    > [!NOTE]
-   > Par exemple, si vous entrez «Contoso.com», vous autorisez ou bloquez\.les sites qui sont relatifs à\.www contoso.com (par exemple, www NewPage.contoso.com). Le fait d’entrer «contoso» autorise ou limite tous les sites liés à contoso (y compris contoso.com, contoso.uk, etc.).  
+   > Par exemple, si vous entrez « Contoso.com », vous autorisez ou bloquez\.les sites qui sont relatifs à\.www contoso.com (par exemple, www NewPage.contoso.com). Le fait d’entrer « contoso » autorise ou limite tous les sites liés à contoso (y compris contoso.com, contoso.uk, etc.).  
   
 5. Pour supprimer une adresse Web de la liste des sites autorisés, cliquez sur l’adresse Web dont vous souhaitez supprimer l’accès, puis cliquez sur **Remove (Supprimer)** .  
   
@@ -46,10 +46,10 @@ En plus de surveiller les activités des utilisateurs sur des postes de travail 
   
 2. Pour ajouter un site autorisé, cliquez sur **Allow only these sites (Autoriser uniquement ces sites)** , tapez l’adresse Web autorisée, puis cliquez sur **Add (Ajouter)** .  
   
-   Pour ajouter un site que les utilisateurs ne doivent pas être autorisés à visiter, cliquez sur **Disallow only these sites (Ne pas autoriser uniquement ces sites)** , tapez l’adresse Web correspondante, puis cliquez sur **Add (Ajouter)** .  
+   Pour ajouter un site que les utilisateurs ne doivent pas visiter, cliquez sur **interdire uniquement ces sites**, tapez l’adresse Web que les utilisateurs ne doivent pas visiter, puis cliquez sur **Ajouter**.  
   
    > [!NOTE]
-   > Par exemple, la saisie de «Contoso.com» autorise ou bloque les sites qui sont relatifs à www.contoso.com (par exemple, www.newpage.contoso.com). Le fait d’entrer «contoso» autorise ou limite tous les sites liés à contoso (y compris contoso.com, contoso.uk, etc.).  
+   > Par exemple, la saisie de « Contoso.com » autorise ou bloque les sites qui sont relatifs à www.contoso.com (par exemple, www.newpage.contoso.com). Le fait d’entrer « contoso » autorise ou limite tous les sites liés à contoso (y compris contoso.com, contoso.uk, etc.).  
   
 3. Pour supprimer une adresse Web de la liste des sites autorisés ou non autorisés, sélectionnez l’adresse Web, puis cliquez sur **Remove (Supprimer)** .  
   

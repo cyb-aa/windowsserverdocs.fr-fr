@@ -8,12 +8,12 @@ ms.topic: article
 author: jasongerend
 ms.date: 06/07/2019
 description: Cette rubrique décrit la fonctionnalité Espaces de noms DFS qui est un service de rôle de Windows Server. Elle permet de grouper des dossiers partagés qui se trouvent sur des serveurs différents en un ou plusieurs espaces de noms logiquement structurés.
-ms.openlocfilehash: 2d91cb7197d2deecd96ebb29a951ef96ceefd9aa
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 8507961749bee6d01541029e33c8095470792b8a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284285"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870219"
 ---
 # <a name="dfs-namespaces-overview"></a>Vue d’ensemble des espaces de noms DFS
 
@@ -26,11 +26,11 @@ La fonctionnalité Espaces de noms DFS est un service de rôle de Windows Serve
 Voici une description des éléments qui constituent un espace de noms DFS :
 
 - **Serveur d’espaces de noms** : un serveur d’espace de noms héberge un espace de noms. Le serveur d’espace de noms peut être un serveur membre ou contrôleur de domaine.
-- **Racine de l'espace de noms** : la racine de l'espace de noms est le point de départ de l’espace de noms. Dans la figure précédente, le nom de la racine est Public, et le chemin d’accès de l’espace de noms \\ \\Contoso\\publique. Ce type d’espace de noms est un espace de noms de domaine, car elle commence par un nom de domaine (par exemple, Contoso) et ses métadonnées sont stockées dans les Services de domaine Active Directory (AD DS). Même si un serveur d’espace de noms unique est indiqué dans la figure précédente, un espace de noms basé sur un domaine peut être hébergé sur plusieurs serveurs d’espace de noms pour accroître la disponibilité de l’espace de noms.
+- **Racine de l'espace de noms** : la racine de l'espace de noms est le point de départ de l’espace de noms. Dans l’illustration précédente, le nom de la racine est public et le chemin d’accès de \\l'\\espace de noms est \\contoso public. Ce type d’espace de noms est un espace de noms basé sur un domaine, car il commence par un nom de domaine (par exemple, contoso) et ses métadonnées sont stockées dans Active Directory Domain Services (AD DS). Même si un serveur d’espace de noms unique est indiqué dans la figure précédente, un espace de noms basé sur un domaine peut être hébergé sur plusieurs serveurs d’espace de noms pour accroître la disponibilité de l’espace de noms.
 - **Dossier** : les dossiers sans cibles de dossier ajoutent une structure et une hiérarchie à l’espace de noms et les dossiers avec cibles de dossier donnent un contenu réel aux utilisateurs. Lorsque les utilisateurs accèdent à un dossier dont l’espace de noms est doté de cibles, l'ordinateur client reçoit une référence qui redirige l’ordinateur client de façon transparente vers une des cibles de dossier.
-- **Cibles de dossier** : une cible de dossier représente un chemin d’accès UNC (Universal Naming Convention) d’un dossier partagé ou d’un autre espace de noms associé à un dossier dans un espace de noms. La cible de dossier se trouve à l'endroit où sont stockés les données et le contenu. Dans la figure précédente, le dossier nommé Tools a deux cibles de dossiers, une à Londres et une à New York, et le dossier nommé Training Guides a une seule cible de dossier à New York. Un utilisateur qui accède à \\ \\Contoso\\Public\\logiciel\\outils est redirigée de façon transparente vers le dossier partagé \\ \\LDN-SVR-01\\outils ou \\ \\NYC-SVR-01\\outils, en fonction du site auquel l’utilisateur se trouve actuellement dans.
+- **Cibles de dossier** : une cible de dossier représente un chemin d’accès UNC (Universal Naming Convention) d’un dossier partagé ou d’un autre espace de noms associé à un dossier dans un espace de noms. La cible de dossier se trouve à l'endroit où sont stockés les données et le contenu. Dans la figure précédente, le dossier nommé Tools a deux cibles de dossiers, une à Londres et une à New York, et le dossier nommé Training Guides a une seule cible de dossier à New York. \\Un utilisateur qui accède aux \\outils logiciels\\\\ \\ \\\\publics contoso est redirigé de manière transparente vers le dossier partagé LDN-SVR-01 outils ou\\ Les outils de New-\\SVR-01, en fonction du site où se trouve l’utilisateur. \\ \\
 
-Elle explique comment installer le système de fichiers DFS, quelles sont les nouveautés et où trouver des informations d’évaluation et de déploiement.
+Cette rubrique explique comment installer le système de fichiers DFS, les nouveautés et où trouver des informations sur l’évaluation et le déploiement.
 
 Vous pouvez administrer les espaces de noms à l’aide de la gestion DFS, des [applets de commande des espaces de noms DFS (DFSN) dans Windows PowerShell](https://docs.microsoft.com/powershell/module/dfsn/?view=win10-ps), de la commande **DfsUtil** ou des scripts qui appellent WMI.
 
@@ -44,9 +44,9 @@ Les serveurs qui exécutent les systèmes d’exploitation suivants peuvent héb
 
 - Windows Server 2019
 - Windows Server 2016
-- Windows Server 2012 R2
+- Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2 Datacenter et Enterprise Edition
+- Éditions Windows Server 2008 R2 Datacenter et Enterprise
 - Windows Server (canal semi-annuel)
 
 Les serveurs qui exécutent les systèmes d’exploitation suivants peuvent héberger un espace de noms autonome :
@@ -65,7 +65,7 @@ Le tableau suivant décrit les autres facteurs à prendre en compte lors du choi
 
 Les espaces de noms DFS et la réplication DFS sont intégrés au rôle Services de fichiers et de stockage. Les outils de gestion consacrés au système de fichiers DFS (Gestion DFS, module Espaces de noms DFS pour Windows PowerShell et les outils en ligne de commande) sont installés séparément dans le cadre des outils d’administration de serveur distant.
 
-Installer les espaces de noms DFS à l’aide de [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md), Gestionnaire de serveur ou de PowerShell, comme décrit dans les sections suivantes.
+Installez les espaces de noms DFS à l’aide du [Centre d’administration Windows](../../manage/windows-admin-center/understand/windows-admin-center.md), gestionnaire de serveur ou PowerShell, comme décrit dans les sections suivantes.
 
 ### <a name="to-install-dfs-by-using-server-manager"></a>Pour installer DFS à l’aide du Gestionnaire de serveur
 
@@ -83,7 +83,7 @@ Installer les espaces de noms DFS à l’aide de [Windows Admin Center](../../ma
 
 ### <a name="to-install-dfs-by-using-windows-powershell"></a>Pour installer DFS à l’aide de Windows PowerShell
 
-Ouvrez une session Windows PowerShell avec des droits utilisateur élevés et tapez la commande suivante, où < nom\> est le service de rôle ou une fonctionnalité que vous souhaitez installer (voir le tableau suivant pour obtenir la liste des noms de service ou une fonctionnalité de rôle pertinentes) :
+Ouvrez une session Windows PowerShell avec des droits d’utilisateur élevés, puis tapez la commande suivante, où < nom\> est le service de rôle ou la fonctionnalité que vous souhaitez installer (consultez le tableau suivant pour obtenir la liste des noms de services de rôle ou de fonctionnalités appropriés) :
 
 ```PowerShell
 Install-WindowsFeature <name>
@@ -112,7 +112,7 @@ L’utilisation des espaces de noms DFS sur une machine virtuelle dans Microsof
 
 - Vous ne pouvez pas mettre en cluster des espaces de noms autonomes dans des machines virtuelles Azure.
 
-- Vous pouvez héberger des espaces de noms basés sur le domaine dans des machines virtuelles Azure, y compris les environnements avec Azure Active Directory.
+- Vous pouvez héberger des espaces de noms basés sur un domaine dans des machines virtuelles Azure, y compris des environnements avec Azure Active Directory.
 
 Pour en savoir plus sur la prise en main des machines virtuelles Azure, voir [Documentation sur les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/).
 
@@ -122,10 +122,10 @@ Pour plus d’informations connexes, voir les ressources suivantes.
 
 | Type de contenu        | Références |
 | ------------------  | ----------------|
-| **Évaluation du produit** | [Quelles sont les nouveautés dans les espaces de noms DFS et réplication DFS dans Windows Server](https://technet.microsoft.com/library/dn281957(v=ws.11).aspx) |
-| **Déploiement**    | [Considérations d’extensibilité Namespace DFS](http://blogs.technet.com/b/filecab/archive/2012/08/26/dfs-namespace-scalability-considerations.aspx) |
+| **Évaluation du produit** | [Nouveautés des espaces de noms DFS et des réplication DFS dans Windows Server](https://technet.microsoft.com/library/dn281957(v=ws.11).aspx) |
+| **Déploiement**    | [Considérations sur l’extensibilité des espaces de noms DFS](http://blogs.technet.com/b/filecab/archive/2012/08/26/dfs-namespace-scalability-considerations.aspx) |
 | **Opérations**    | [Espaces de noms DFS : Forum Aux Questions](https://technet.microsoft.com/library/ee404780.aspx) |
-| **Ressources de la communauté** | [Les Services de fichiers et le forum TechNet sur le stockage](https://social.technet.microsoft.com/forums/winserverfiles/threads/) |
-| **Protocoles**        | [Protocoles dans Windows Server des Services de fichiers](https://msdn.microsoft.com/library/cc239318.aspx) (déconseillée) |
+| **Ressources de la communauté** | [Forum TechNet sur le stockage et les services de fichiers](https://social.technet.microsoft.com/forums/winserverfiles/threads/) |
+| **Protocoles**        | [Protocoles des services de fichiers dans Windows Server](https://msdn.microsoft.com/library/cc239318.aspx) Déconseillé |
 | **Technologies connexes** | [Clustering de basculement](../../failover-clustering/failover-clustering-overview.md)|
-| **Support technique** | [Windows IT Pro prise en charge](https://www.microsoft.com/itpro/windows/support)|
+| **Support** | [Support technique pour les professionnels de l’informatique Windows](https://www.microsoft.com/itpro/windows/support)|

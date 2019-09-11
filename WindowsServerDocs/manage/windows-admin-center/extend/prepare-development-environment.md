@@ -8,18 +8,18 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 09/18/2018
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 7b1a0672ee374f3e2d1339c43576db0e5cabdc36
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 08634e05d6b7450035324e8d925f2bb9df3b007e
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834760"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70869578"
 ---
 # <a name="prepare-your-development-environment"></a>Préparer votre environnement de développement
 
->S'applique à : Windows Admin Center, version préliminaire de Windows Admin Center
+>S'applique à : Windows Admin Center, Windows Admin Center Preview
 
-Commençons à développer des extensions avec le SDK Windows Admin Center !  Dans ce document, nous aborderons le processus pour obtenir votre environnement et en cours d’exécution pour générer et tester une extension pour Windows Admin Center.
+Nous allons commencer à développer des extensions avec le kit de développement logiciel (SDK) du centre d’administration Windows.  Dans ce document, nous allons aborder le processus de mise en route de votre environnement pour créer et tester une extension pour le centre d’administration Windows.
 
 > [!NOTE]
 > Vous débutez dans le SDK Windows Admin Center ?  Découvrez-en davantage sur les [Extensions pour Windows Admin Center](extensibility-overview.md)
@@ -30,9 +30,9 @@ Pour préparer votre environnement de développement, procédez comme suit :
 
 Pour commencer à développer avec le kit de développement logiciel (SDK), téléchargez et installez les composants requis suivants :
 
-* [Windows Admin Center](https://aka.ms/WACDownloadPage) (version GA ou préversion)
+* [Centre d’administration Windows](https://aka.ms/WACDownloadPage) (Version GA ou Preview)
 * Visual Studio ou [Visual Studio Code](http://code.visualstudio.com)
-* [Gestionnaire de Package de nœud](https://npmjs.com/get-npm) (8.12.0 ou version ultérieure)
+* [Gestionnaire de package de nœud](https://npmjs.com/get-npm) (8.12.0 ou version ultérieure)
 * [NuGet](https://www.nuget.org/downloads) (pour la publication des extensions)
 
 > [!NOTE]
@@ -44,7 +44,7 @@ Pour commencer à développer avec le kit de développement logiciel (SDK), tél
 
 ## <a name="install-global-dependencies"></a>Installer les dépendances globales
 
-Ensuite, installer ou mettre à jour les dépendances requises pour vos projets, avec le Gestionnaire de Package de nœud. Ces dépendances seront installées globalement et seront disponibles pour tous les projets.
+Ensuite, installez ou mettez à jour les dépendances requises pour vos projets, avec node Package Manager. Ces dépendances seront installées globalement et seront disponibles pour tous les projets.
 
 ```
 npm install -g npm
@@ -58,18 +58,18 @@ npm install -g windows-admin-center-cli
 ```
 
 >[!NOTE]
->Vous pouvez installer une version ultérieure de @angular/cli, sachez que si vous installez une version supérieure à 1.6.5)., vous recevrez un avertissement lors de l’étape de génération gulp que la version de cli local ne correspond pas à la version installée.
+>Vous pouvez installer une version ultérieure de @angular/cli, mais sachez que si vous installez une version supérieure à 1.6.5, vous recevrez un avertissement lors de l’étape de génération de Gulp que la version locale de l’interface de commande ne correspond pas à la version installée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que votre environnement est prêt, vous êtes prêt à commencer la création de contenu.
+Maintenant que votre environnement est préparé, vous êtes prêt à commencer à créer du contenu.
 
 - Créer une extension d'[outil](develop-tool.md)
 - Créer une extension de [solution](develop-solution.md)
 - Créer un [plug-in de passerelle](develop-gateway-plugin.md)
 - En savoir plus sur nos [guides](guides.md)
 
-## <a name="sdk-design-toolkit"></a>Kit de ressources de conception SDK
+## <a name="sdk-design-toolkit"></a>Kit SDK Design
 
-Découvrez notre de Windows Admin Center [boîte à outils de conception de kit de développement logiciel](https://github.com/Microsoft/windows-admin-center-sdk/blob/master/WindowsAdminCenterDesignToolkit.zip)! Cette boîte à outils est conçu pour vous aider à simuler rapidement extensions dans PowerPoint à l’aide de styles Windows Admin Center, les contrôles et les modèles de page. Consultez ce que votre extension peut ressembler dans Windows Admin Center avant de commencer à coder !
+Consultez notre boîte à outils de [conception du kit de développement logiciel (SDK)](https://github.com/Microsoft/windows-admin-center-sdk/blob/master/WindowsAdminCenterDesignToolkit.zip)Windows Admin Center ! Ce kit d’outils est conçu pour vous aider à simuler rapidement des extensions dans PowerPoint à l’aide des styles, des contrôles et des modèles de pages du centre d’administration Windows. Avant de commencer à coder, consultez à quoi votre extension peut ressembler dans le centre d’administration Windows.
 

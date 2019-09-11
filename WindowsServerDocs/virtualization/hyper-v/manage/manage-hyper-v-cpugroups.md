@@ -1,5 +1,5 @@
 ---
-title: Contrôles de ressources de Machine virtuelle
+title: Contrôles de ressources de machine virtuelle
 description: Utilisation de groupes d'UC de machine virtuelle
 keywords: Windows 10, Hyper-V
 author: allenma
@@ -8,128 +8,128 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: cc7bb88e-ae75-4a54-9fb4-fc7c14964d67
-ms.openlocfilehash: 7c4ddf3e5d2ff58eef844c50960327c27a3e0a3d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 41390421c9e3126915cdf2e827e251e84495bafd
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854760"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70872016"
 ---
 >S'applique à : Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
-# <a name="virtual-machine-resource-controls"></a>Contrôles de ressources de Machine virtuelle
+# <a name="virtual-machine-resource-controls"></a>Contrôles de ressources de machine virtuelle
 
-Cet article décrit les contrôles de ressources et d’isolation Hyper-V pour les machines virtuelles.  Ces fonctionnalités, nous appellerons en tant que groupes de processeurs de Machine virtuelle, ou simplement « groupes d’UC », ont été introduites dans Windows Server 2016.  Groupes d’UC permettent aux administrateurs de Hyper-V afin de mieux gérant et allouer des ressources de processeur de l’hôte sur les machines virtuelles invitées.  À l’aide de groupes d’UC, les administrateurs Hyper-V peuvent :
+Cet article décrit les contrôles de ressource et d’isolation Hyper-V pour les ordinateurs virtuels.  Ces fonctionnalités, que nous allons désigner comme groupes UC de machines virtuelles ou simplement « groupes UC », ont été introduites dans Windows Server 2016.  Les groupes de PROCESSEURs permettent aux administrateurs Hyper-V de mieux gérer et allouer les ressources processeur de l’ordinateur hôte sur les machines virtuelles invitées.  À l’aide de groupes de PROCESSEURs, les administrateurs Hyper-V peuvent :
 
-* Créer des groupes de machines virtuelles, chaque groupe ayant des allocations différentes de ressources processeur totales de l’hôte de virtualisation, partagés entre l’ensemble du groupe. Cela permet à l’administrateur de l’hôte implémenter des classes de service pour différents types de machines virtuelles.
+* Créer des groupes de machines virtuelles, chaque groupe ayant des allocations différentes des ressources processeur totales de l’hôte de virtualisation, partagées sur l’ensemble du groupe. Cela permet à l’administrateur de l’hôte d’implémenter des classes de service pour différents types de machines virtuelles.
 
-* Définir des limites de ressources processeur à des groupes spécifiques. Cet embout « groupe » définit la limite supérieure pour l’hôte de ressources processeur par l’ensemble du groupe peut-être consommer, efficacement en appliquant la classe souhaitée du service pour ce groupe.
+* Définir des limites de ressources de processeur pour des groupes spécifiques. Cette « limite de groupe » définit la limite supérieure des ressources processeur de l’ordinateur hôte que le groupe entier peut consommer, en appliquant efficacement la classe de service souhaitée pour ce groupe.
 
-* Limiter à un groupe de processeur pour exécuter uniquement sur un ensemble spécifique de processeurs du système hôte. Cela permet d’isoler les machines virtuelles appartenant à différents groupes d’UC entre eux.
+* Contraindre un groupe UC à s’exécuter uniquement sur un ensemble spécifique de processeurs du système hôte. Cela peut être utilisé pour isoler les machines virtuelles appartenant à différents groupes d’UC les unes des autres.
 
-## <a name="managing-cpu-groups"></a>La gestion des groupes d’UC
+## <a name="managing-cpu-groups"></a>Gestion des groupes de PROCESSEURs
 
-Groupes d’UC sont gérées via le Service de calcul hôte Hyper-V, ou HCS. Une excellente description de la HCS, son genesis, des liens vers les API HCS et bien plus encore sont disponible sur le blog de l’équipe Microsoft Virtualization dans la validation [présentation de l’hôte de Service de calcul (HCS)](https://blogs.technet.microsoft.com/virtualization/2017/01/27/introducing-the-host-compute-service-hcs/).
+Les groupes de PROCESSEURs sont gérés via le service de calcul hôte Hyper-V ou HCS. La description de HCS, de ses Genesis, des liens vers les API HCS et bien plus est disponible sur le blog de l’équipe de virtualisation Microsoft dans la publication [Présentation du service de calcul hôte (HCS)](https://blogs.technet.microsoft.com/virtualization/2017/01/27/introducing-the-host-compute-service-hcs/).
 
 >[!NOTE] 
->Uniquement la HCS peut servir à créer et gérer des groupes d’UC ; l’applet Gestionnaire Hyper-V, les interfaces de gestion WMI et PowerShell ne prennent pas en charge les groupes d’UC.
+>Seul le HCS peut être utilisé pour créer et gérer des groupes de PROCESSEURs. l’applet du Gestionnaire Hyper-V, les interfaces WMI et de gestion PowerShell ne prennent pas en charge les groupes de PROCESSEURs.
 
-Microsoft fournit une ligne de commande utilitaire, cpugroups.exe, sur le [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=865968) qui utilise l’interface HCS pour gérer des groupes d’UC.  Cet utilitaire peut également afficher la topologie de l’UC d’un ordinateur hôte.
+Microsoft propose un utilitaire de ligne de commande, cpugroups. exe, sur le [Centre de téléchargement Microsoft](https://go.microsoft.com/fwlink/?linkid=865968) , qui utilise l’interface HCS pour gérer les groupes de processeurs.  Cet utilitaire peut également afficher la topologie de l’UC d’un ordinateur hôte.
 
-## <a name="how-cpu-groups-work"></a>Fonctionnement des groupes de processeur
+## <a name="how-cpu-groups-work"></a>Fonctionnement des groupes de PROCESSEURs
 
-Allocation des ressources de calcul d’hôte entre les groupes d’UC est appliquée par l’hyperviseur Hyper-V, à l’aide d’une limite de groupe du processeur calculée. La limite de groupe du processeur est une fraction de la capacité totale de l’UC pour un groupe de processeur. La valeur de l’extrémité du groupe dépend de la classe de groupe, ou niveau de priorité. La limite de groupe calculée peut être considérée « en tant que nombre de LP's important du temps processeur ». Ce budget de groupe est partagé, si seulement une seule machine virtuelle était active, il pouvait ainsi utiliser d’allocation de l’ensemble du groupe processeur pour lui-même.
+L’allocation des ressources de calcul de l’hôte entre les groupes d’UC est appliquée par l’hyperviseur Hyper-V, à l’aide d’une limite de groupe de PROCESSEURs calculée. L’embout du groupe de PROCESSEURs représente une fraction de la capacité totale de l’UC pour un groupe de PROCESSEURs. La valeur de l’extrémité du groupe dépend de la classe de groupe ou du niveau de priorité affecté. L’extrémité du groupe calculé peut être considérée comme « un nombre de LP de temps processeur ». Ce groupe est partagé. par conséquent, si une seule machine virtuelle était active, elle pourrait utiliser l’allocation de l’UC du groupe entier pour elle-même.
 
-La limite de groupe du processeur est calculée comme G = *n* x *C*, où :
+L’embout du groupe de PROCESSEURs est calculé comme G = *n* x *C*, où :
 
     *G* is the amount of host LP we'd like to assign to the group
     *n* is the total number of logical processors (LPs) in the group
-    *C* is the maximum CPU allocation — that is, the class of service desired for the group, expressed as a percentage of the system’s total compute capacity
+    *C* is the maximum CPU allocation — that is, the class of service desired for the group, expressed as a percentage of the system's total compute capacity
 
-Par exemple, considérez un groupe de processeur configuré avec 4 processeurs logiques (LPs) et une limite supérieure de 50 %.
+Par exemple, considérez un groupe UC configuré avec 4 processeurs logiques (de 1 à 4) et une limite de 50%.
 
     G = n * C
     G = 4 * 50%
     G = 2 LP's worth of CPU time for the entire group
 
-Dans cet exemple, le groupe de processeur G est alloué 2 LP's important du temps processeur.  
+Dans cet exemple, le groupe UC G est alloué à 2 LP de temps processeur.  
 
-Notez que la limite de groupe s’applique quel que soit le nombre de machines virtuelles ou liées au groupe de processeurs virtuels et quel que soit l’état (par exemple, arrêt ou de démarrage) des machines virtuelles affectées au groupe du processeur. Par conséquent, chaque machine virtuelle liée au même groupe de processeur reçoit une fraction de l’allocation d’UC totale du groupe, et cela modifiera avec le nombre de machines virtuelles liée au groupe de processeur. Par conséquent, comme les machines virtuelles sont liés ou indépendant des machines virtuelles à partir d’un groupe de processeur, la limite de groupe globale du processeur doit être réajustée et définie pour maintenir le cap par machine virtuelle qui en résulte souhaité. La gestion des hôtes machine virtuelle administrateur ou la virtualisation de couche logicielle est chargé de gérer les plafonds de groupe que nécessaire pour atteindre l’allocation des ressources du processeur souhaitée par machine virtuelle.
+Notez que l’extrémité du groupe s’applique quel que soit le nombre de machines virtuelles ou de processeurs virtuels liés au groupe, et quel que soit l’État (par exemple, l’arrêt ou le démarrage) des machines virtuelles affectées au groupe de PROCESSEURs. Par conséquent, chaque machine virtuelle liée au même groupe de PROCESSEURs reçoit une fraction de l’allocation d’UC totale du groupe, ce qui change avec le nombre de machines virtuelles liées au groupe de PROCESSEURs. Par conséquent, comme les machines virtuelles sont des machines virtuelles liées ou indépendantes d’un groupe de PROCESSEURs, la limite globale du groupe de PROCESSEURs doit être réajustée et définie pour conserver l’extrémité de la machine virtuelle souhaitée. L’administrateur de l’hôte de machine virtuelle ou la couche logicielle de gestion de la virtualisation est responsable de la gestion des Cap de groupe selon les besoins afin d’obtenir l’allocation de ressources de processeur par machine virtuelle souhaitée.
 
-## <a name="example-classes-of-service"></a>Exemples de Classes de Service
+## <a name="example-classes-of-service"></a>Exemples de classes de service
 
-Examinons quelques exemples simples. Pour commencer, supposons que l’administrateur de l’hôte Hyper-V aimeriez prendre en charge deux niveaux de service pour les machines virtuelles invitées :
+Examinons quelques exemples simples. Pour commencer, supposons que l’administrateur de l’hôte Hyper-V souhaite prendre en charge deux niveaux de service pour les machines virtuelles invitées :
 
-1. Un niveau bas de gamme de « C ». Nous vous offrons ce niveau 10 % de l’hôte ensemble ressources de calcul.
+1. Niveau « C » bas. Nous offrons ce niveau 10% des ressources de calcul de l’hôte entier.
 
-1. Un niveau de milieu de gamme « B ». Ce niveau est alloué 50 % de l’hôte ensemble ressources de calcul.
+1. Niveau « B » de milieu de gamme. Ce niveau est alloué à 50% de l’ensemble des ressources de calcul de l’hôte.
 
-À ce stade dans notre exemple, nous allons déclarer qu’aucune autres les contrôles de ressources processeur sont en cours d’utilisation, telles que des embouts de machine virtuelle individuelles, poids et réserve.
-Toutefois, les plafonds de machine virtuelle individuelles sont importantes, comme nous allons un peu plus loin.
+À ce stade de notre exemple, nous affirmerons qu’aucun autre contrôle de ressource de processeur n’est utilisé, comme des Cap, des poids et des réserves de machines virtuelles individuels.
+Toutefois, les limites individuelles des machines virtuelles sont importantes, car nous verrons un peu plus tard.
 
-Par souci de simplicité, supposons que chaque machine virtuelle 1 VP, et que notre hôte a 8 LPs. Nous allons commencer par un hôte vide.
+Par souci de simplicité, supposons que chaque machine virtuelle a 1 VP, et que notre hôte dispose de 8 to. Nous allons commencer par un hôte vide.
 
-Pour créer le niveau « B », l’hôte adminstartor définit la limite de groupe à 50 % :
+Pour créer le niveau « B », l’hôte adminstartor définit la limite de groupe sur 50% :
 
     G = n * C
     G = 8 * 50%
     G = 4 LP's worth of CPU time for the entire group
 
-L’administrateur de l’hôte ajoute un niveau « B » unique machine virtuelle.
-À ce stade, notre machine virtuelle de niveau « B » permettre utiliser au maximum 50 % intéressant du processeur de l’ordinateur hôte, ou l’équivalent de 4 LPs dans notre exemple de système.
+L’administrateur de l’hôte ajoute une seule machine virtuelle de niveau « B ».
+À ce stade, notre machine virtuelle de niveau « B » peut utiliser au maximum 50% de l’UC de l’hôte, ou l’équivalent de 4 unités de mémoire dans notre exemple de système.
 
-À présent, l’administrateur ajoute une deuxième « couche B « machine virtuelle. L’allocation du groupe du processeur — est réparti uniformément entre toutes les machines virtuelles. Nous avons un total de 2 machines virtuelles dans le groupe B, pour chaque machine virtuelle obtient désormais la moitié du nombre total du groupe B de 50 %, 25 % ou l’équivalent de 2 LPs intéressant de temps de calcul.
+À présent, l’administrateur ajoute une deuxième machine virtuelle « Tier B ». L’allocation du groupe de PROCESSEURs, est divisée uniformément entre toutes les machines virtuelles. Nous avons un total de 2 machines virtuelles dans le groupe B. par conséquent, chaque machine virtuelle obtient désormais la moitié du total du groupe B de 50%, 25% chacune, ou l’équivalent de 2% du temps de calcul.
 
-## <a name="setting-cpu-caps-on-individual-vms"></a>Définir des plafonds de l’UC sur des machines virtuelles individuelles
+## <a name="setting-cpu-caps-on-individual-vms"></a>Définition des seuils d’UC sur des machines virtuelles individuelles
 
-En plus de la limite de groupe, chaque machine virtuelle peut également avoir un embout de machine virtuelle « individuel ». Les contrôles de ressources du processeur par machine virtuelle, y compris une extrémité de l’UC, le poids et la réserve, ont été une partie d’Hyper-V depuis son introduction.
-Lorsqu’elles sont combinées avec une limite supérieure de groupe, une extrémité de la machine virtuelle spécifie la quantité maximale d’UC que chaque VP peut obtenir, même si le groupe dispose des ressources processeur disponibles.
+En plus de l’extrémité de groupe, chaque machine virtuelle peut également avoir un « embout de machine virtuelle » individuel. Les contrôles de ressources de processeur par machine virtuelle, y compris une limite d’UC, une pondération et une réserve, font partie d’Hyper-V depuis son introduction.
+Lorsqu’elle est associée à un groupe de ressources, une limite de machines virtuelles spécifie la quantité maximale d’UC que chaque VP peut obtenir, même si le groupe a des ressources processeur disponibles.
 
-Par exemple, l’administrateur de l’hôte souhaiterez peut-être placer une extrémité de machine virtuelle de 10 % sur les machines virtuelles « C ».
-De cette façon, même si la plupart des VPs « C » sont inactives, chaque VP deviendrait jamais plus de 10 %.
-Sans une extrémité de la machine virtuelle, machines virtuelles « C » pourraient façon opportuniste optimisent les performances au-delà des niveaux autorisée par leur niveau.
+Par exemple, l’administrateur de l’hôte peut souhaiter placer une limite de 10% de machines virtuelles sur les machines virtuelles « C ».
+De cette façon, même si la plupart des VPss « C » sont inactifs, chaque VP ne peut jamais obtenir plus de 10%.
+Sans l’extrémité de la machine virtuelle, les machines virtuelles « C » peuvent associer façon opportuniste obtenir des performances au-delà des niveaux autorisés par leur niveau.
 
-## <a name="isolating-vm-groups-to-specific-host-processors"></a>Isoler les groupes de machines virtuelles avec des processeurs de l’ordinateur hôte spécifique
+## <a name="isolating-vm-groups-to-specific-host-processors"></a>Isolation des groupes de machines virtuelles à des processeurs hôtes spécifiques
 
-Administrateurs de l’ordinateur hôte Hyper-V peuvent également la possibilité de dédier les ressources de calcul à une machine virtuelle.
-Par exemple, imaginez l’administrateur souhaitait offrir une prime de machine virtuelle « A » qui a une limite de classe de 100 %.
-Ces machines virtuelles premium également requièrent une latence plus faible de planification et d’instabilité possibles ; Autrement dit, ils ne sont pas retirer programmées par toute autre machine virtuelle.
-Pour atteindre cette séparation, un processeur groupe peut également être configuré avec un mappage d’affinité LP spécifique.
+Les administrateurs d’ordinateurs hôtes Hyper-V peuvent également souhaiter dédier des ressources de calcul à une machine virtuelle.
+Par exemple, imaginez que l’administrateur souhaitait proposer une machine virtuelle « A » Premium qui a une limite de classe de 100%.
+Ces machines virtuelles Premium requièrent également la latence de planification la plus faible et l’instabilité possible. autrement dit, ils ne peuvent pas être déplanifiés par une autre machine virtuelle.
+Pour atteindre cette séparation, un groupe de PROCESSEURs peut également être configuré avec un mappage d’affinités LP spécifique.
 
-Par exemple, pour s’ajuster à une machine virtuelle « A » sur l’ordinateur hôte dans notre exemple, l’administrateur voulez-vous créer un nouveau groupe de processeur et définir l’affinité de processeur du groupe à un sous-ensemble de LPs l’hôte.
-Groupes B et C suivants sont associés aux LPs restantes.
-L’administrateur peut créer une seule machine virtuelle dans le groupe A, dont un accès exclusif à toutes les LPs dans un groupe, tout en les groupes de niveau inférieurs vraisemblablement B et C doivent partager les LPs restantes.
+Par exemple, pour ajuster une machine virtuelle « A » sur l’hôte dans notre exemple, l’administrateur crée un nouveau groupe d’UC et définit l’affinité du processeur du groupe sur un sous-ensemble de la taille de serveur de l’hôte.
+Les groupes B et C seraient affinités à la valeur de-la plus restante.
+L’administrateur peut créer une machine virtuelle unique dans le groupe A, qui aurait alors un accès exclusif à tous les processeurs du groupe A, tandis que les groupes de niveaux moins élevés B et C partageraient le plus petit.
 
-## <a name="segregating-root-vps-from-guest-vps"></a>Séparation des VPs racine à partir de l’invité VPs
+## <a name="segregating-root-vps-from-guest-vps"></a>Séparer les VPs racines des VPs invités
 
-Par défaut, Hyper-V crée une racine VP sur chaque LP physique sous-jacent.
-Ces VPs racine sont strictement mappé 1:1 avec le système LPs et ne migrent pas, autrement dit, chaque racine VP s’exécute toujours sur le même LP physique.
-Invité VPs peuvent s’exécuter sur n’importe quel LP disponible et partagent l’exécution avec racine VPs.
+Par défaut, Hyper-V crée un VP racine sur chaque LP physique sous-jacente.
+Ces VPs racines sont strictement mappées à 1:1 avec le système de la configuration de disque, et ne sont pas migrées, autrement dit, chaque VP racine s’exécutera toujours sur la même LP physique.
+Les VPs invités peuvent être exécutés sur n’importe quel LP disponible et partager l’exécution avec la racine VPs.
 
-Toutefois, il peut être souhaitable à la racine totalement distincte activité de vice-président à partir de l’invité VPs.
-Prenons notre exemple ci-dessus dans lequel nous implémentons un niveau de « A » premium machine virtuelle.
-Pour assurer VPs notre « un » de la machine virtuelle la latence plus faible possible et « instabilité » ou planification variation, nous souhaitons les exécuter sur un ensemble dédié de LPs et garantir que la racine n’est pas exécuté sur ces LPs.
+Toutefois, il peut être souhaitable de séparer complètement l’activité du VP racine des VPs invités.
+Prenons l’exemple ci-dessus, où nous implémentons une machine virtuelle de niveau « A » Premium.
+Pour vous assurer que les VPs de la machine virtuelle « A » ont la latence la plus faible possible et le « bougé », ou la variation de planification, nous aimerions les exécuter sur un ensemble dédié de et s’assurer que la racine n’est pas exécutée sur ces deux.
 
-Cela peut être accompli en utilisant une combinaison de la configuration « minroot », ce qui limite l’hôte de partition de système d’exploitation en cours d’exécution sur un sous-ensemble des processeurs logiques totale du système, ainsi qu’un ou plusieurs groupes d’UC des affinités avec.
+Cela peut être accompli à l’aide d’une combinaison de la configuration « minroot », qui limite la partition de système d’exploitation hôte à s’exécuter sur un sous-ensemble des processeurs logiques système totaux, ainsi qu’un ou plusieurs groupes de PROCESSEURs affinité.
 
-L’hôte de virtualisation permettre être configurée pour limiter la partition hôte aux LPs spécifiques, avec un ou plusieurs groupes d’UC avec affinité pour les LPs restantes.
-De cette manière, les partitions racines et les invités peuvent s’exécuter sur des ressources de processeur dédiés et complètement isolant, sans partage d’UC.
+L’hôte de virtualisation peut être configuré pour limiter la partition de l’hôte à une unité de mesure spécifique, avec un ou plusieurs groupes de processeurs affinité à la valeur de-1 restante.
+De cette manière, les partitions racine et invité peuvent s’exécuter sur des ressources processeur dédiées, et complètement isolées, sans partage de l’UC.
 
-Pour plus d’informations sur la configuration de « minroot », consultez [gestion des ressources de processeur hôte Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-minroot-2016).
+Pour plus d’informations sur la configuration « minroot », consultez [gestion des ressources du processeur de l’ordinateur hôte Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-minroot-2016).
 
-## <a name="using-the-cpugroups-tool"></a>À l’aide de l’outil CpuGroups
+## <a name="using-the-cpugroups-tool"></a>Utilisation de l’outil CpuGroups
 
-Examinons quelques exemples montrant comment utiliser l’outil CpuGroups.
+Examinons quelques exemples d’utilisation de l’outil CpuGroups.
 
 >[!NOTE] 
->Paramètres de ligne de commande pour l’outil CpuGroups sont transmises en utilisant uniquement des espaces comme délimiteurs. Ne '/' ou '-' caractères doivent continuer le commutateur de ligne de commande de votre choix.
+>Les paramètres de ligne de commande pour l’outil CpuGroups sont passés en utilisant uniquement des espaces comme délimiteurs. Aucun caractère « / » ou « - » ne doit continuer le commutateur de ligne de commande souhaité.
 
 ### <a name="discovering-the-cpu-topology"></a>Découverte de la topologie de l’UC
 
-L’exécution de CpuGroups avec la GetCpuTopology retourne des informations sur le système actuel, comme indiqué ci-dessous, y compris l’Index LP, le nœud NUMA auquel le LP appartient, le Package et ID de base et l’index VP de la racine.
+L’exécution de CpuGroups avec le GetCpuTopology retourne des informations sur le système actuel, comme indiqué ci-dessous, y compris l’index LP, le nœud NUMA auquel le LP appartient, le package et les ID de noyau, et l’index du VP Directeur racine.
 
-L’exemple suivant montre un système avec 2 sockets d’UC et les nœuds NUMA, un total de 32 LPs et multithreading activé et configuré pour autoriser Minroot avec 8 racine VPs, 4 à partir de chaque nœud NUMA.
-LPs ayant racine VPs ont un RootVpIndex > = 0 ; LPs avec un RootVpIndex de -1 ne sont pas disponibles pour la partition racine, mais sont toujours gérés par l’hyperviseur et exécuteront invité VPs comme autorisé par d’autres paramètres de configuration.
+L’exemple suivant montre un système avec 2 sockets d’UC et des nœuds NUMA, un total de 32 de 1 to et le multithreading activé, et configurés pour activer Minroot avec 8 VPs racine, 4 à partir de chaque nœud NUMA.
+Le VPs de la valeur de la racine a un RootVpIndex > = 0 ; La valeur de 1 à 1 avec un RootVpIndex de-1 n’est pas disponible pour la partition racine, mais elle est toujours gérée par l’hyperviseur et exécutera VPs invité comme autorisé par d’autres paramètres de configuration.
 
 ```console
 C:\vm\tools>CpuGroups.exe GetCpuTopology
@@ -170,11 +170,11 @@ LpIndex NodeNumber PackageId CoreId RootVpIndex
      31          1         1     23          -1
 ```
 
-### <a name="example-2--print-all-cpu-groups-on-the-host"></a>Exemple 2 : imprimer tous les groupes d’UC sur l’ordinateur hôte
+### <a name="example-2--print-all-cpu-groups-on-the-host"></a>Exemple 2 : imprimer tous les groupes de PROCESSEURs sur l’ordinateur hôte
 
-Ici, nous allons répertorier tous les groupes d’UC sur l’hôte actuel, leur GroupId, limite de processeur du groupe et les indices de LPs affectés à ce groupe.
+Ici, nous allons dresser la liste de tous les groupes de PROCESSEURs sur l’hôte actuel, de leur GroupId, de la limite d’UC du groupe et des indices de base attribués à ce groupe.
 
-Notez que les valeurs de limite de processeur valides sont dans la plage [0, 65536], et ces valeurs express la limite de groupe en pourcentage (par exemple, 32768 = 50 %).
+Notez que les valeurs de l’UC valides sont comprises dans la plage [0, 65536], et ces valeurs expriment l’extrémité du groupe en pourcentage (par exemple, 32768 = 50%).
 
 ```console
 C:\vm\tools>CpuGroups.exe GetGroups
@@ -186,9 +186,9 @@ CpuGroupId                          CpuCap  LpIndexes
 36AB08CB-3A76-4B38-992E-000000000004 65536  24,25,26,27,28,29,30,31
 ```
 
-### <a name="example-3--print-a-single-cpu-group"></a>Exemple 3 : imprimer un seul groupe de processeur
+### <a name="example-3--print-a-single-cpu-group"></a>Exemple 3 : imprimer un seul groupe UC
 
-Dans cet exemple, nous allons interroger un seul groupe de processeur à l’aide de GroupId en tant que filtre.
+Dans cet exemple, nous allons interroger un seul groupe UC en utilisant le GroupId comme filtre.
 
 ```console
 C:\vm\tools>CpuGroups.exe GetGroups /GroupId:36AB08CB-3A76-4B38-992E-000000000003
@@ -197,15 +197,15 @@ CpuGroupId                          CpuCap   LpIndexes
 36AB08CB-3A76-4B38-992E-000000000003 65536  12,13,14,15
 ```
 
-### <a name="example-4--create-a-new-cpu-group"></a>Exemple 4 : créer un nouveau groupe de processeur
+### <a name="example-4--create-a-new-cpu-group"></a>Exemple 4 : créer un groupe de PROCESSEURs
 
-Ici, nous allons créer un nouveau groupe de processeur, en spécifiant l’ID de groupe et le jeu de LPs à affecter au groupe.
+Ici, nous allons créer un nouveau groupe de processeurs, en spécifiant l’ID de groupe et l’ensemble de de jeux de ressources à affecter au groupe.
 
 ```console
 C:\vm\tools>CpuGroups.exe CreateGroup /GroupId:36AB08CB-3A76-4B38-992E-000000000001 /GroupAffinity:0,1,16,17
 ```
 
-Afficher maintenant notre groupe récemment créé.
+Maintenant, affichez le groupe que vous venez d’ajouter.
 
 ```console
 C:\vm\tools>CpuGroups.exe GetGroups
@@ -217,15 +217,15 @@ CpuGroupId                          CpuCap LpIndexes
 36AB08CB-3A76-4B38-992E-000000000004 65536 24,25,26,27,28,29,30,31
 ```
 
-### <a name="example-5--set-the-cpu-group-cap-to-50"></a>Exemple 5 – Définissez la limite de groupe de processeur à 50 %
+### <a name="example-5--set-the-cpu-group-cap-to-50"></a>Exemple 5 : définir le seuil du groupe de PROCESSEURs sur 50%
 
-Ici, nous allons définir la limite de groupe du processeur à 50 %.
+Ici, nous allons définir le seuil du groupe de PROCESSEURs sur 50%.
 
 ```console
 C:\vm\tools>CpuGroups.exe SetGroupProperty /GroupId:36AB08CB-3A76-4B38-992E-000000000001 /CpuCap:32768
 ```
 
-Maintenant nous allons confirmer notre paramètre en affichant le groupe juste mis à jour.
+Nous allons maintenant confirmer notre paramètre en affichant le groupe que nous venons de mettre à jour.
 
 ```console
 C:\vm\tools>CpuGroups.exe GetGroups /GroupId:36AB08CB-3A76-4B38-992E-000000000001
@@ -235,7 +235,7 @@ CpuGroupId                          CpuCap LpIndexes
 36AB08CB-3A76-4B38-992E-000000000001 32768 0,1,16,17
 ```
 
-### <a name="example-6--print-cpu-group-ids-for-all-vms-on-the-host"></a>Exemple 6 : ID de groupe du processeur d’impression pour toutes les machines virtuelles sur l’ordinateur hôte
+### <a name="example-6--print-cpu-group-ids-for-all-vms-on-the-host"></a>Exemple 6 : imprimer des ID de groupe de PROCESSEURs pour toutes les machines virtuelles sur l’ordinateur hôte
 
 ```console
 C:\vm\tools>CpuGroups.exe GetVmGroup
@@ -249,9 +249,9 @@ VmName                                 VmId                           CpuGroupId
     G1 F699B50F-86F2-4E48-8BA5-EB06883C1FDC 36ab08cb-3a76-4b38-992e-000000000002
 ```
 
-### <a name="example-7--unbind-a-vm-from-the-cpu-group"></a>Exemple 7 – séparer une machine virtuelle à partir du groupe de processeur
+### <a name="example-7--unbind-a-vm-from-the-cpu-group"></a>Exemple 7 – dissociation d’une machine virtuelle du groupe UC
 
-Pour supprimer une machine virtuelle à partir d’un groupe de processeur, la valeur CpuGroupId de la machine virtuelle vers le GUID de valeur NULL. Cette opération annule la liaison la machine virtuelle à partir du groupe de processeur.
+Pour supprimer une machine virtuelle d’un groupe de PROCESSEURs, affectez au CpuGroupId de la machine virtuelle la valeur du GUID NULL. Cela dissocie la machine virtuelle du groupe UC.
 
 ```console
 C:\vm\tools>CpuGroups.exe SetVmGroup /VmName:g1 /GroupId:00000000-0000-0000-0000-000000000000
@@ -266,16 +266,16 @@ VmName                                 VmId                           CpuGroupId
     G1 F699B50F-86F2-4E48-8BA5-EB06883C1FDC 00000000-0000-0000-0000-000000000000
 ```
 
-### <a name="example-8--bind-a-vm-to-an-existing-cpu-group"></a>Exemple 8 : lier une machine virtuelle à un groupe existant de processeur
+### <a name="example-8--bind-a-vm-to-an-existing-cpu-group"></a>Exemple 8 : lier une machine virtuelle à un groupe de PROCESSEURs existant
 
-Ici, nous allons ajouter une machine virtuelle à un groupe d’UC existant.
-Notez que la machine virtuelle ne doit pas être liée à n’importe quel groupe d’UC existant, ou id de groupe du processeur de paramètre échoue.
+Ici, nous allons ajouter une machine virtuelle à un groupe de PROCESSEURs existant.
+Notez que la machine virtuelle ne doit pas être liée à un groupe d’UC existant ou que la définition de l’ID du groupe de processeurs échoue.
 
 ```console
 C:\vm\tools>CpuGroups.exe SetVmGroup /VmName:g1 /GroupId:36AB08CB-3A76-4B38-992E-000000000001
 ```
 
-Maintenant, vérifiez que le G1 de machine virtuelle est dans le groupe de processeur souhaité.
+Maintenant, vérifiez que la machine virtuelle G1 est dans le groupe de PROCESSEURs souhaité.
 
 ```console
 C:\vm\tools>CpuGroups.exe GetVmGroup
@@ -288,7 +288,7 @@ VmName                                 VmId                           CpuGroupId
     G1 F699B50F-86F2-4E48-8BA5-EB06883C1FDC 36AB08CB-3A76-4B38-992E-000000000001
 ```
 
-### <a name="example-9--print-all-vms-grouped-by-cpu-group-id"></a>Exemple 9 – toutes les machines virtuelles regroupées par id de groupe du processeur d’impression
+### <a name="example-9--print-all-vms-grouped-by-cpu-group-id"></a>Exemple 9 : imprimer toutes les machines virtuelles regroupées par ID de groupe UC
 
 ```console
 C:\vm\tools>CpuGroups.exe GetGroupVms
@@ -301,7 +301,7 @@ CpuGroupId                           VmName                                 VmId
 36ab08cb-3a76-4b38-992e-000000000004     P2 A593D93A-3A5F-48AB-8862-A4350E3459E8
 ```
 
-### <a name="example-10--print-all-vms-for-a-single-cpu-group"></a>Exemple 10 – imprimer toutes les machines virtuelles pour un seul groupe de processeur
+### <a name="example-10--print-all-vms-for-a-single-cpu-group"></a>Exemple 10 : imprimer toutes les machines virtuelles pour un seul groupe de PROCESSEURs
 
 ```console
 C:\vm\tools>CpuGroups.exe GetGroupVms /GroupId:36ab08cb-3a76-4b38-992e-000000000002
@@ -314,8 +314,8 @@ CpuGroupId                           VmName                                VmId
 
 ### <a name="example-11--attempting-to-delete-a-non-empty-cpu-group"></a>Exemple 11 : tentative de suppression d’un groupe d’UC non vide
 
-Vide uniquement les groupes d’UC, autrement dit, les groupes d’UC non lié machines virtuelles, peuvent être supprimés.
-Pour supprimer un groupe d’UC non vides échoue.
+Seuls les groupes de PROCESSEURs vides (c’est-à-dire les groupes de PROCESSEURs sans machines virtuelles associées) peuvent être supprimés.
+La tentative de suppression d’un groupe d’UC non vide échouera.
 
 ```console
 C:\vm\tools>CpuGroups.exe DeleteGroup /GroupId:36ab08cb-3a76-4b38-992e-000000000001
@@ -323,11 +323,11 @@ C:\vm\tools>CpuGroups.exe DeleteGroup /GroupId:36ab08cb-3a76-4b38-992e-000000000
 Failed with error 0xc0350070
 ```
 
-### <a name="example-12--unbind-the-only-vm-from-a-cpu-group-and-delete-the-group"></a>Exemple 12 – annuler la liaison de la seule machine virtuelle à partir d’un groupe de processeur et de supprimer le groupe
+### <a name="example-12--unbind-the-only-vm-from-a-cpu-group-and-delete-the-group"></a>Exemple 12 : annuler la liaison de la machine virtuelle à partir d’un groupe UC et supprimer le groupe
 
-Dans cet exemple, nous allons utiliser plusieurs commandes pour examiner un groupe de processeur, de supprimer la machine virtuelle unique appartenant à ce groupe, puis supprimez le groupe.
+Dans cet exemple, nous allons utiliser plusieurs commandes pour examiner un groupe de PROCESSEURs, supprimer la machine virtuelle unique appartenant à ce groupe, puis supprimer le groupe.
 
-Tout d’abord, nous allons énumérer les machines virtuelles dans notre groupe.
+Tout d’abord, nous allons énumérer les machines virtuelles de notre groupe.
 
 ```console
 C:\vm\tools>CpuGroups.exe GetGroupVms /GroupId:36AB08CB-3A76-4B38-992E-000000000001
@@ -336,14 +336,14 @@ CpuGroupId                           VmName                                VmId
 36AB08CB-3A76-4B38-992E-000000000001     G1 F699B50F-86F2-4E48-8BA5-EB06883C1FDC
 ```
 
-Nous voyons qu’uniquement une seule machine virtuelle, nommée G1, appartient à ce groupe.
-Nous allons supprimer la machine virtuelle G1 notre groupe en définissant l’ID de groupe de la machine virtuelle avec la valeur NULL.
+Nous voyons qu’une seule machine virtuelle, nommée G1, appartient à ce groupe.
+Nous allons supprimer la machine virtuelle G1 de notre groupe en affectant à l’ID de groupe de la machine virtuelle la valeur NULL.
 
 ```console
 C:\vm\tools>CpuGroups.exe SetVmGroup /VmName:g1 /GroupId:00000000-0000-0000-0000-000000000000
 ```
 
-Et vérifier notre modification...
+Et vérifiez notre modification...
 
 ```console
 C:\vm\tools>CpuGroups.exe GetVmGroup /VmName:g1
@@ -358,7 +358,7 @@ Maintenant que le groupe est vide, nous pouvons le supprimer en toute sécurité
 C:\vm\tools>CpuGroups.exe DeleteGroup /GroupId:36ab08cb-3a76-4b38-992e-000000000001
 ```
 
-Et confirmer que notre groupe a disparu.
+Et confirmez que notre groupe a disparu.
 
 ```console
 C:\vm\tools>CpuGroups.exe GetGroups
@@ -369,7 +369,7 @@ CpuGroupId                          CpuCap                     LpIndexes
 36AB08CB-3A76-4B38-992E-000000000004 65536 24,25,26,27,28,29,30,31
 ```
 
-### <a name="example-13--bind-a-vm-back-to-its-original-cpu-group"></a>Exemple de 13 : lier une machine virtuelle à son groupe d’UC d’origine
+### <a name="example-13--bind-a-vm-back-to-its-original-cpu-group"></a>Exemple 13 : reliaison d’une machine virtuelle à son groupe de PROCESSEURs d’origine
 
 ```console
 C:\vm\tools>CpuGroups.exe SetVmGroup /VmName:g1 /GroupId:36AB08CB-3A76-4B38-992E-000000000002

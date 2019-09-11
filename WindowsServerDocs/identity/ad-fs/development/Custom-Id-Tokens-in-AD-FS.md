@@ -1,6 +1,6 @@
 ---
-title: Personnaliser des revendications pour être émis dans id_token lors de l’utilisation de OpenID Connect ou OAuth avec AD FS 2016 ou version ultérieure
-description: Une vue d’ensemble technique des concepts de jeton d’id personnalisé dans AD FS 2016 ou version ultérieure
+title: Personnaliser les revendications à émettre dans id_token lors de l’utilisation de OpenID Connect ou OAuth avec AD FS 2016 ou version ultérieure
+description: Présentation technique des concepts de jeton d’ID personnalisés dans AD FS 2016 ou version ultérieure
 author: anandyadavmsft
 ms.author: billmath
 manager: mtillman
@@ -9,93 +9,93 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.reviewer: anandy
 ms.technology: identity-adfs
-ms.openlocfilehash: 04573aa13689a0e6744b01a0fbf8b11b622b2706
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d2577be364d7bb2e74ab7e06490b7bc3f150441a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445471"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867697"
 ---
-# <a name="customize-claims-to-be-emitted-in-idtoken-when-using-openid-connect-or-oauth-with-ad-fs-2016-or-later"></a>Personnaliser des revendications pour être émis dans id_token lors de l’utilisation de OpenID Connect ou OAuth avec AD FS 2016 ou version ultérieure
+# <a name="customize-claims-to-be-emitted-in-id_token-when-using-openid-connect-or-oauth-with-ad-fs-2016-or-later"></a>Personnaliser les revendications à émettre dans id_token lors de l’utilisation de OpenID Connect ou OAuth avec AD FS 2016 ou version ultérieure
 
 ## <a name="overview"></a>Vue d'ensemble
-L’article [ici](native-client-with-ad-fs.md) montre comment créer une application qui utilise ADFS pour OpenID Connect d’authentification. Toutefois, par défaut il existe uniquement un ensemble fixe de revendications disponibles dans le paramètre id_token. AD FS 2016 et versions ultérieures ont la possibilité de personnaliser id_token dans les scénarios OpenID Connect.
+[Cet article montre comment](native-client-with-ad-fs.md) générer une application qui utilise AD FS pour la connexion OpenID Connect. Toutefois, par défaut, il n’existe qu’un ensemble fixe de revendications disponibles dans le id_token. Les versions 2016 et ultérieures de AD FS peuvent personnaliser les id_token dans les scénarios OpenID Connect.
 
-## <a name="when-are-custom-id-token-used"></a>Lorsque sont ID personnalisé jeton utilisé ?
-Dans certains scénarios, il est possible que l’application cliente n’a pas d’une ressource qu’il tente d’accéder. Par conséquent, il n’a pas vraiment besoin d’un jeton d’accès. Dans ce cas, l’application cliente doit essentiellement uniquement un ID jeton, mais certaines revendications supplémentaires pour vous aider dans la fonctionnalité.
+## <a name="when-are-custom-id-token-used"></a>Quand le jeton d’ID personnalisé est-il utilisé ?
+Dans certains scénarios, il est possible que l’application cliente ne dispose pas d’une ressource à laquelle elle tente d’accéder. Par conséquent, il n’a pas vraiment besoin d’un jeton d’accès. Dans ce cas, l’application cliente a uniquement besoin d’un jeton d’ID, mais avec des revendications supplémentaires pour aider à la fonctionnalité.
 
-## <a name="what-are-the-restrictions-on-getting-custom-claims-in-id-token"></a>Quelles sont les restrictions sur l’obtention des revendications personnalisées dans l’ID de jeton ?
+## <a name="what-are-the-restrictions-on-getting-custom-claims-in-id-token"></a>Quelles sont les restrictions relatives à l’obtention de revendications personnalisées dans le jeton d’ID ?
 
 ### <a name="scenario-1"></a>Scénario 1
 
-![restreindre](media/Custom-Id-Tokens-in-AD-FS/res1.png)
+![identifier](media/Custom-Id-Tokens-in-AD-FS/res1.png)
 
-1.  response_mode est défini comme form_post
-2.  Uniquement les clients publics peuvent obtenir des revendications personnalisées dans l’ID de jeton
-3.  Identificateur de partie de confiance tiers (identificateur de l’API Web) doit être identique en tant qu’identificateur de client
+1.  response_mode est défini en tant que form_post
+2.  Seuls les clients publics peuvent recevoir des revendications personnalisées dans le jeton d’ID
+3.  L’identificateur de la partie de confiance (identificateur de l’API Web) doit être identique à l’identificateur du client
 
-### <a name="scenario-2"></a>Scénario 2
+### <a name="scenario-2"></a>Scénario 2
 
-![restreindre](media/Custom-Id-Tokens-in-AD-FS/restrict2.png)
+![identifier](media/Custom-Id-Tokens-in-AD-FS/restrict2.png)
 
 Avec [KB4019472](https://support.microsoft.com/help/4019472/windows-10-update-kb4019472) installé sur vos serveurs AD FS
-1.  response_mode est défini comme form_post
-2.  Publics et confidentielles les clients peuvent obtenir des revendications personnalisées dans l’ID de jeton
-3.  Affecter allatclaims d’étendue pour le client : paire de partie de confiance.
-Vous pouvez affecter l’étendue à l’aide de l’applet de commande Grant-ADFSApplicationPermission, comme indiqué dans l’exemple ci-dessous :
+1.  response_mode est défini en tant que form_post
+2.  Les clients publics et confidentiels peuvent recevoir des revendications personnalisées dans le jeton d’ID
+3.  Assignez l’étendue allatclaims à la paire client-RP.
+Vous pouvez assigner l’étendue à l’aide de l’applet de commande Grant-ADFSApplicationPermission comme indiqué dans l’exemple ci-dessous :
 
 ``` powershell
 Grant-AdfsApplicationPermission -ClientRoleIdentifier "https://my/privateclient" -ServerRoleIdentifier "https://rp/fedpassive" -ScopeNames "allatclaims","openid"
 ```
 
 ## <a name="creating-and-configuring-an-oauth-application-to-handle-custom-claims-in-id-token"></a>Création et configuration d’une application OAuth pour gérer les revendications personnalisées dans le jeton d’ID
-Suivez les étapes ci-dessous pour créer et configurer l’application dans AD FS pour la réception du jeton d’ID avec des revendications personnalisées.
+Suivez les étapes ci-dessous pour créer et configurer l’application dans AD FS pour la réception d’un jeton d’ID avec des revendications personnalisées.
 
 ### <a name="create-and-configure-an-application-group-in-ad-fs-2016-or-later"></a>Créer et configurer un groupe d’applications dans AD FS 2016 ou version ultérieure
 
-1. Dans Gestion AD FS, avec le bouton droit sur les groupes de l’Application et sélectionnez **ajouter l’Application groupe**.
+1. Dans AD FS gestion, cliquez avec le bouton droit sur groupes d’applications, puis sélectionnez **Ajouter un groupe d’applications**.
 
-2. Dans l’Assistant de groupe d’Application, pour le nom, entrez **ADFSSSO** et sélectionnez des applications sous Client-serveur le **application Native l’accès à une application web** modèle. Cliquez sur **Suivant**.
+2. Dans l’Assistant groupe d’applications, pour le nom, entrez **ADFSSSO** , puis sous applications client-serveur, sélectionnez l' **application native qui accède à un modèle d’application Web** . Cliquez sur **Suivant**.
 
    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap1.png)
 
-3. Copie le **identificateur Client** valeur.  Il servira ultérieurement comme valeur pour ida : ClientId dans le fichier web.config des applications.
+3. Copiez la valeur de l' **identificateur du client** .  Il sera utilisé ultérieurement comme valeur pour Ida : ClientId dans le fichier Web. config des applications.
 
-4. Entrez les informations suivantes **URI de redirection :**  -  **https://localhost:44320/** .  Cliquez sur **Ajouter**. Cliquez sur **Suivant**.
+4. Entrez les informations suivantes pour l' **URI de redirection :**  - . **https://localhost:44320/**  Cliquez sur **Ajouter**. Cliquez sur **Suivant**.
 
    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap2.png)
 
-5. Sur le **configurer des API Web** écran, entrez les informations suivantes **identificateur** -  **https://contoso.com/WebApp** .  Cliquez sur **Ajouter**. Cliquez sur **Suivant**.  Cette valeur sera utilisée ultérieurement pour **ida : ResourceID** dans le fichier web.config des applications.
+5. Dans l’écran **configurer l’API Web** , entrez les informations - suivantes pour l' **https://contoso.com/WebApp** identificateur.  Cliquez sur **Ajouter**. Cliquez sur **Suivant**.  Cette valeur sera utilisée ultérieurement pour **Ida : ResourceId** dans le fichier Web. config des applications.
 
    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap3.png)
 
-6. Sur le **choisir la stratégie de contrôle d’accès** s’affiche, sélectionnez **autoriser tout le monde** et cliquez sur **suivant**.
+6. Dans l’écran **choisir une stratégie de Access Control** , sélectionnez **autoriser tout le monde** , puis cliquez sur **suivant**.
 
    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap4.png)
 
-7. Sur le **configurer les autorisations Application** écran, vérifiez que **openid** et **allatclaims** sont sélectionnées et cliquez sur **suivant**.
+7. Dans l’écran **configurer les autorisations** de l’application, assurez-vous que **OpenID** et **allatclaims** sont sélectionnés, puis cliquez sur **suivant**.
 
    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap5.png)
 
-8. Sur le **Résumé** , cliquez sur **suivant**.  
+8. Dans l’écran **Résumé** , cliquez sur **suivant**.  
 
    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap6.png)
 
-9. Sur le **Terminer** , cliquez sur **fermer**.
+9. Dans l’écran **terminé** , cliquez sur **Fermer**.
 
-10. Dans Gestion AD FS, cliquez sur groupes de l’Application pour obtenir la liste de tous les groupes de l’application. Avec le bouton droit sur **ADFSSSO** et sélectionnez **propriétés**. Sélectionnez **ADFSSSO - API Web** et cliquez sur **modifier...**
+10. Dans AD FS gestion, cliquez sur groupes d’applications pour afficher la liste de tous les groupes d’applications. Cliquez avec le bouton droit sur **ADFSSSO** et sélectionnez **Propriétés**. Sélectionnez **ADFSSSO-API Web** , puis cliquez sur **modifier...**
 
     ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap7.png)
 
-11. Sur **ADFSSSO - propriétés d’API Web** s’affiche, sélectionnez **règles de transformation d’émission** onglet et cliquez sur **ajouter une règle...**
+11. Dans l’écran **ADFSSSO-propriétés de l’API Web** , sélectionnez l’onglet **règles de transformation d’émission** , puis cliquez sur Ajouter une **règle...**
 
     ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap8.png)
 
-12. Sur **ajouter un Assistant de règle de revendication de transformation** s’affiche, sélectionnez **envoyer les revendications à l’aide d’une règle personnalisée** à partir de la liste déroulante et cliquez sur **suivant**
+12. Dans l’écran de l' **Assistant Ajouter une règle de revendication de transformation** , sélectionnez **Envoyer des revendications à l’aide d’une règle personnalisée** dans la liste déroulante, puis cliquez sur **suivant** .
 
     ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap9.png)
 
-13. Sur **ajouter transformer Assistant règle de revendication** écran, entrez **ForCustomIDToken** dans **nom de règle de revendication** et de la règle de revendication suivant **règle personnalisée**. Cliquez sur **terminer**
+13. Dans l’écran de l' **Assistant Ajouter une règle de revendication de transformation** , entrez **ForCustomIDToken** dans nom de la **règle de revendication** et règle de revendication suivante dans **règle personnalisée**. Cliquez sur **Terminer**
 
     ```  
     x:[]
@@ -112,11 +112,11 @@ Suivez les étapes ci-dessous pour créer et configurer l’application dans AD 
 Grant-AdfsApplicationPermission -ClientRoleIdentifier "[Client ID from #3 above]" -ServerRoleIdentifier "[Identifier from #5 above]" -ScopeNames "allatclaims","openid"
 ```
 
-### <a name="download-and-modify-the-sample-application-to-emit-custom-claims-in-idtoken"></a>Téléchargez et modifiez l’exemple d’application pour émettre des revendications personnalisées dans id_token
+### <a name="download-and-modify-the-sample-application-to-emit-custom-claims-in-id_token"></a>Télécharger et modifier l’exemple d’application pour émettre des revendications personnalisées dans id_token
 
-Cette section explique comment télécharger l’exemple d’application Web et la modifier dans Visual Studio.   Nous allons utiliser l’exemple d’Azure AD est [ici](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect).  
+Cette section explique comment télécharger l’exemple d’application Web et le modifier dans Visual Studio.   Nous allons utiliser l’exemple Azure AD qui se trouve [ici](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect).  
 
-Pour télécharger l’exemple de projet, utilisez Git Bash et tapez la commande suivante :  
+Pour télécharger l’exemple de projet, utilisez git bash et tapez la commande suivante :  
 
 ```  
 git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect  
@@ -128,9 +128,9 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-openid
 
 1.  Ouvrez l’exemple à l’aide de Visual Studio.  
 
-2.  Régénérer l’application afin que tous les packages NuGet manquants sont restaurés.  
+2.  Régénérez l’application afin que toutes les packages NuGet manquantes soient restaurées.  
 
-3.  Ouvrez le fichier web.config.  Modifiez les valeurs suivantes afin du ressemblent à ce qui suit :  
+3.  Ouvrez le fichier Web. config.  Modifiez les valeurs suivantes pour qu’elles se présentent comme suit :  
 
     ```  
     <add key="ida:ClientId" value="[Replace this Client Id from #3 above under section Create and configure an Application Group in AD FS 2016 or later]" />  
@@ -145,7 +145,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-openid
 
 4.  Ouvrez le fichier Startup.Auth.cs et apportez les modifications suivantes :  
 
-    -   Régler la logique d’initialisation intergiciel (middleware) OpenId Connect avec les modifications suivantes :  
+    -   Ajustez la logique d’initialisation d’intergiciel OpenId Connect avec les modifications suivantes :  
 
         ```  
         private static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];  
@@ -156,7 +156,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-openid
         private static string postLogoutRedirectUri = ConfigurationManager.AppSettings["ida:PostLogoutRedirectUri"];  
         ```  
 
-    -   Commentez les éléments suivants :  
+    -   Commentez ce qui suit :  
 
             ```  
             //string Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);  
@@ -164,7 +164,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-openid
 
           ![AD FS OpenID](media/Custom-Id-Tokens-in-AD-FS/AD_FS_OpenID_3.PNG)
 
-    -   Vers le bas, modifier les options de middleware OpenId Connect comme suit :  
+    -   Pour plus d’informations, modifiez les options de l’intergiciel OpenId Connect comme suit :  
 
         ```  
         app.UseOpenIdConnectAuthentication(  
@@ -188,7 +188,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-openid
             using System.Security.Claims;  
             ```
 
-    -   Mettre à jour la méthode About() comme indiqué ci-dessous :  
+    -   Mettez à jour la méthode about () comme indiqué ci-dessous :  
 
         ```  
         [Authorize]
@@ -205,19 +205,19 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-openid
 
 ### <a name="test-the-custom-claims-in-id-token"></a>Tester les revendications personnalisées dans le jeton d’ID
 
-Une fois que les modifications ci-dessus ont été apportées, appuyez sur F5. L’exemple de page s’affiche. Cliquez sur connexion.
+Une fois les modifications apportées ci-dessus effectuées, appuyez sur F5. L’exemple de page s’affiche. Cliquez sur connexion.
 
 ![AD FS OpenID](media/Custom-Id-Tokens-in-AD-FS/AD_FS_OpenID_6.PNG)
 
-Vous serez redirigé vers la page de connexion AD FS. Continuons et connectez-vous.
+Vous serez redirigé vers la page de connexion AD FS. Continuez et connectez-vous.
 
 ![AD FS OpenID](media/Custom-Id-Tokens-in-AD-FS/AD_FS_OpenID_7.PNG)
 
-Une fois que l’opération réussit, vous devez voir que vous êtes désormais connecté.
+Une fois cette opération réussie, vous devriez voir que vous êtes maintenant connecté.
 
 ![AD FS OpenID](media/Custom-Id-Tokens-in-AD-FS/AD_FS_OpenID_8.PNG)
 
-Cliquez sur le lien. Vous verrez Hello [Username] qui est récupéré à partir de la revendication de nom d’utilisateur dans le jeton d’ID
+Cliquez sur à propos du lien. Vous verrez Hello [username] qui est récupéré à partir de la revendication de nom d’utilisateur dans le jeton d’ID
 
 ![AD FS OpenID](media/Custom-Id-Tokens-in-AD-FS/AD_FS_OpenID_9.PNG)
 

@@ -8,12 +8,12 @@ ms.technology: storage
 ms.topic: article
 author: toklima
 ms.date: 04/18/2017
-ms.openlocfilehash: 7ee5c57839f32d71053e983fc14f76c481236779
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8283b87e9505b1d3f47ddc823016fbcc7c0c29e6
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884160"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70867049"
 ---
 # <a name="troubleshooting-drive-firmware-updates"></a>Résolution des problèmes liés aux mises à jour du microprogramme des lecteurs
 
@@ -23,8 +23,8 @@ Windows 10, version 1703 ou ultérieure, et Windows Server (canal semi-annuel
 
 Vous trouverez plus d’informations sur cette fonctionnalité ici :
 
-- [La mise à jour du microprogramme de lecteur dans Windows Server 2016](update-firmware.md)
-- [Mettre à jour du microprogramme des lecteurs sans temps d’arrêt dans les espaces de stockage Direct](https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct)
+- [Mise à jour du microprogramme de lecteur dans Windows Server 2016](update-firmware.md)
+- [Mettez à jour le microprogramme de lecteur sans temps d’arrêt dans espaces de stockage direct](https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct)
 
 Les mises à jour du microprogramme peuvent échouer pour diverses raisons. Cet article vous aide à effectuer des procédures de dépannage avancé.
 
@@ -64,7 +64,7 @@ Le champ SupportsUpdate indique toujours « True » pour les périphériques S
 
 Pour vérifier si un périphérique SAS prend en charge le jeu de commandes requis, il existe deux options :
 1.  Faire un essai à l’aide de l’applet de commande Update-StorageFirmware avec une image de microprogramme appropriée, ou
-2.  Consultez le Catalogue Windows Server pour identifier les appareils SAS acquis avec succès le (AQ de mise à jour de microprogramme https://www.windowsservercatalog.com/)
+2.  Consultez le catalogue Windows Server pour identifier les appareils SAS qui ont obtenu avec succès la mise à jour du pare-feu AQ (https://www.windowsservercatalog.com/)
 
 ### <a name="remediation-options"></a>Options de correction
 Si le périphérique que vous testez ne prend pas en charge le jeu de commandes approprié, vérifiez si votre fournisseur peut vous fournir un microprogramme mis à jour, comportant le jeu de commandes requis ou, dans le catalogue Windows Server, recherchez les périphériques qui implémentent le jeu de commandes approprié.
@@ -119,7 +119,7 @@ CdbBytes    3B0E0000000001000000
 NumberOfRetriesDone 0
 ```
 
-L’événement ETW 507 du canal indique qu’une demande SRB SCSI a échoué et fournit des informations supplémentaires dans lequel le code de détection est « 5 » (Demande incorrecte) et les informations du code de détection supplémentaires indiquent « 36 » (Champ non autorisé dans CDB).
+L’événement ETW 507 du canal indique qu’une demande SCSI SRB a échoué et fournit les informations supplémentaires que SenseKey était « 5 » (demande non conforme) et que AdditionalSense informations était « 36 » (champ non conforme dans CDB).
 
    > [!Note]
    > Ces informations sont fournies directement par le miniport en question et leur exactitude dépend de l’implémentation et du niveau technique du pilote du miniport.
@@ -134,7 +134,7 @@ S’il apparaît que le pilote tiers n’implémente pas les API ou les traducti
 ## <a name="additional-troubleshooting-with-microsoft-drivers-satanvme"></a>Dépannage supplémentaire pour les pilotes Microsoft (SATA/NVMe)
 Lorsque des pilotes natifs Windows tels que que StorAHCI.sys ou StorNVMe.sys sont utilisés pour des périphériques de stockage, il est possible d’obtenir des informations supplémentaires sur les défaillances potentielles pendant les opérations de mise à jour du microprogramme.
 
-Au-delà du canal opérationnel ClassPnP, StorAHCI et StorNVMe consignent les codes de retour spécifiques au protocole du périphérique dans le canal ETW suivant :
+Au-delà du canal opérationnel ClassPnP, StorAHCI et StorNVMe journalisent les codes de retour spécifiques au protocole du périphérique dans le canal ETW suivant :
 
 Observateur d’événements - Journaux des applications et des services - Microsoft - Windows - StorDiag - **Microsoft-Windows-Storage-StorPort/Diagnose**
 
@@ -142,7 +142,7 @@ Par défaut, les journaux de diagnostic ne sont pas affichés et vous pouvez les
 
 Pour collecter ces entrées de journal avancées, activez le journal, reproduisez l’échec de mise à jour du microprogramme et enregistrez le journal de diagnostic.
 
-Voici un exemple d’une mise à jour du microprogramme sur un échec de périphérique SATA, étant donné que l’image à télécharger n’était pas valide (ID d’événement : 258):
+Voici un exemple de mise à jour de microprogramme sur un appareil SATA qui échoue, car l’image à télécharger n’était pas valide (ID d’événement : 258) :
 
 ``` 
 EventData
@@ -174,11 +174,11 @@ Parameter8Value 0
 ```
 
 L’événement ci-dessus contient des informations détaillées sur le périphérique sous forme de valeurs de paramètre comprises entre 2 et 6. Dans ce cas, il s’agit de valeurs de registre ATA. La spécification ACS ATA peut être utilisée pour décoder les valeurs suivantes pour l’échec d’une commande de téléchargement de commande :
-- Code de retour : 0 (0000 0000) (n/a - pas de sens dans la mesure où aucune charge utile qui a été transférée)
-- Fonctionnalités : 15 (0000 1111) (bit 1 est défini sur « 1 » et indique « Annuler »)
-- SectorCount : 0 (0000 0000) (N/A)
-- DriveHead: 160 (1010 0000) (n/a : seuls les bits obsolètes sont définies)
-- Commande : 146 (1001 0010) (bit 1 est défini sur « 1 » qui indique la disponibilité des données de détection)
+- Code de retour : 0 (0000 0000) (sans signification, car aucune charge utile n’a été transférée)
+- Fonctionnalités : 15 (0000 1111) (le bit 1 est défini sur « 1 » et indique « Abort »)
+- SectorCount: 0 (0000 0000) (N/A)
+- DriveHead: 160 (1010 0000) (N/A : seuls les bits obsolètes sont définis)
+- Commande 146 (1001 0010) (le bit 1 est défini sur « 1 » indiquant la disponibilité des données de sens)
 
 Ceci indique que l’opération de mise à jour du microprogramme a été abandonnée par le périphérique.
 

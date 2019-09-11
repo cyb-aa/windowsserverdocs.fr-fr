@@ -12,12 +12,12 @@ ms.assetid: 9153ac90-bb0c-4b8d-93b2-e2121ed13636
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 7dc66c8a439552c2087d0348b0115adba04027ee
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bbff22c03b7bf4310b86048848ded276547b911f
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433501"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865202"
 ---
 # <a name="preconfiguring-a-router"></a>Préconfiguration d’un routeur
 
@@ -32,8 +32,8 @@ En général, une nouvelle installation du système d’exploitation nécessite 
 |Paramètre de configuration|Détails|  
 |---------------------------|-------------|  
 |DHCP|Activé|  
-|Réacheminement de port|Vous devez réacheminer les ports suivants vers l’adresse du serveur :<br /><br /> -80 (pour une configuration hébergée, utilisez uniquement 443)<br />-   443|  
-|Prise en charge UPnP|Vous devez activer la prise en charge de UPnP ¢ fournir la configuration de routeur le plus simple pour le client et la meilleure expérience utilisateur lors de l’installation.<br /><br /> **Avertissement :** L’architecture UPnP peut présenter un risque en matière de sécurité si elle reste activée.|  
+|Réacheminement de port|Vous devez réacheminer les ports suivants vers l’adresse du serveur :<br /><br /> -80 (pour la configuration hébergée, utilisez uniquement 443)<br />-443|  
+|Prise en charge UPnP|Vous devez activer la prise en charge d’UPnP pour fournir la configuration de routeur la plus simple au client et la meilleure expérience client au cours de l’installation.<br /><br /> **Avertissement :** L’architecture UPnP peut présenter un risque en matière de sécurité si elle reste activée.|  
   
  Outre les paramètres de préconfiguration de base du routeur, voici les différentes tâches qu’il est possible d’effectuer pour gérer le routeur dans un environnement intégré :  
   
@@ -43,14 +43,14 @@ En général, une nouvelle installation du système d’exploitation nécessite 
   
 -   Si le routeur prend en charge plusieurs sous-réseaux, l’adresse IP du serveur doit être remise en tant que serveur DNS unique via le protocole DHCP.  
   
--   Si le routeur possède une fonctionnalité de contrôle d’accès intégré pour les Services de domaine Active DirectoryÂ®, vous pouvez automatiser l’intégration Active Directory lors de la Configuration initiale du serveur. N’oubliez pas d’exposer cette fonction via le complément de gestion du routeur dans le Tableau de bord.  
+-   Si le routeur dispose d’une fonctionnalité de contrôle d’accès intégrée pour les services de domaine Active DirectoryÂ®, vous pouvez automatiser l’intégration de Active Directory lors de la configuration initiale du serveur. N’oubliez pas d’exposer cette fonction via le complément de gestion du routeur dans le Tableau de bord.  
   
 > [!NOTE]
 >  Pour plus d'informations sur la configuration des connexions réseau sans fil, voir [Configuration de la prise en charge d'un réseau sans fil](Configure-Support-for-a-Wireless-Network.md).  
   
 ## <a name="see-also"></a>Voir aussi  
- [Prise en main du ADK Windows Server Essentials](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
- [Création et personnalisation de l’Image](Creating-and-Customizing-the-Image.md)   
+ [Prise en main avec le kit de réévaluation Windows Server Essentials](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Création et personnalisation de l’image](Creating-and-Customizing-the-Image.md)   
  [Personnalisations supplémentaires](Additional-Customizations.md)   
- [Préparation de l’Image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
+ [Préparation de l’image pour le déploiement](Preparing-the-Image-for-Deployment.md)   
  [Test de l’expérience utilisateur](Testing-the-Customer-Experience.md)
