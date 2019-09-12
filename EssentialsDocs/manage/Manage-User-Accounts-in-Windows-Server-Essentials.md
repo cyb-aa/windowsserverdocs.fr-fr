@@ -12,28 +12,28 @@ ms.assetid: 0d115697-532b-48c2-a659-9f889e235326
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1cce047c45279f7116e0e8a256633df06344e13c
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 069cbbdf499ce86586390b1031b6fea71f4f2b2a
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433143"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865224"
 ---
 # <a name="manage-user-accounts-in-windows-server-essentials"></a>Gérer les comptes d'utilisateur dans Windows Server Essentials
 
 >S'applique à : Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-La page Utilisateurs du tableau de bord Windows Server Essentials centralise les informations et les tâches qui vous aident à gérer les comptes d'utilisateur sur votre réseau de petite entreprise. Pour une vue d’ensemble du tableau de bord d’utilisateurs, consultez [vue d’ensemble du tableau de bord](Overview-of-the-Dashboard-in-Windows-Server-Essentials.md).  
+La page Utilisateurs du tableau de bord Windows Server Essentials centralise les informations et les tâches qui vous aident à gérer les comptes d'utilisateur sur votre réseau de petite entreprise. Pour obtenir une vue d’ensemble du tableau de bord utilisateurs, consultez [vue d’ensemble du tableau de bord](Overview-of-the-Dashboard-in-Windows-Server-Essentials.md).  
   
   
-##  <a name="BKMK_ManageAccounts"></a> La gestion des comptes d’utilisateur  
+##  <a name="BKMK_ManageAccounts"></a>Gestion des comptes d’utilisateur  
  Les rubriques suivantes fournissent des informations sur l'utilisation du tableau de bord Windows Server Essentials pour gérer les comptes d'utilisateur sur le serveur :  
   
 -   [Ajouter un compte d’utilisateur](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage1)  
   
 -   [Supprimer un compte d’utilisateur](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Remove)  
   
--   [Afficher les comptes utilisateur](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage3)  
+-   [Afficher les comptes d’utilisateur](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage3)  
   
 -   [Modifier le nom complet du compte d’utilisateur](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage4)  
   
@@ -45,7 +45,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 -   [Gérer les comptes d’utilisateur à l’aide du tableau de bord](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage8)  
   
-###  <a name="BKMK_Manage1"></a> Ajouter un compte d’utilisateur  
+###  <a name="BKMK_Manage1"></a>Ajouter un compte d’utilisateur  
  Quand vous ajoutez un compte d'utilisateur, l'utilisateur affecté peut se connecter au réseau. En outre, vous pouvez donner à cet utilisateur l'autorisation d'accéder à des ressources réseau telles que les dossiers partagés et le site d'accès web à distance. Windows Server Essentials comprend l'Assistant Ajouter un compte d'utilisateur qui vous permet d'effectuer les tâches suivantes :  
   
 -   fournir un nom et un mot de passe pour le compte d'utilisateur ;  
@@ -58,12 +58,12 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 -   sélectionner les options de messagerie électronique, le cas échéant ;  
   
--   Affecter un compte Microsoft Online Services (appelé un compte Office 365 dans Windows Server Essentials), le cas échéant.  
+-   Affectez un compte Microsoft Online Services (appelé compte Office 365 dans Windows Server Essentials), le cas échéant.  
   
 -   Affecter des groupes d’utilisateurs (Windows Server Essentials uniquement).  
   
 > [!NOTE]
-> - Les caractères non-ASCII ne sont pas pris en charge dans Microsoft Azure Active Directory (Azure AD). N’utilisez pas tous les caractères non ASCII dans votre mot de passe, si votre serveur est intégré avec Azure AD.  
+> - Les caractères non-ASCII ne sont pas pris en charge dans les Microsoft Azure Active Directory (Azure AD). N’utilisez pas de caractères non-ASCII dans votre mot de passe, si votre serveur est intégré à Azure AD.  
 >   -   Les options de messagerie sont disponibles uniquement si vous installez un complément qui fournit un service de messagerie.  
   
 ##### <a name="to-add-a-user-account"></a>Pour ajouter un compte d'utilisateur  
@@ -76,11 +76,11 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 4.  Suivez les instructions pour exécuter l'Assistant.  
   
-###  <a name="BKMK_Remove"></a> Supprimer un compte d’utilisateur  
+###  <a name="BKMK_Remove"></a>Supprimer un compte d’utilisateur  
  Quand vous choisissez de supprimer un compte d'utilisateur du serveur, un Assistant supprime le compte sélectionné. Ainsi, vous ne pouvez plus utiliser le compte pour vous connecter au réseau ou accéder aux ressources réseau. Le cas échéant, vous pouvez également supprimer les fichiers du compte d'utilisateur en même temps que vous supprimez ce dernier. Si vous ne souhaitez pas supprimer de façon permanente le compte d'utilisateur, vous pouvez le désactiver à la place pour interrompre l'accès aux ressources réseau.  
   
 > [!IMPORTANT]
->  Si un compte d’utilisateur a un Microsoft en ligne compte affecté, lorsque vous supprimez le compte d’utilisateur, le compte en ligne est également supprimé de Microsoft Online Services, et les données de s utilisateur, notamment le courrier électronique sont soumis à des données dans Microsoft Online Services, les stratégies de rétention. Si vous souhaitez conserver les données utilisateur du compte en ligne, désactivez le compte d'utilisateur au lieu de le supprimer. Pour plus d’informations, consultez [gérer les comptes en ligne pour les utilisateurs](Manage-Online-Accounts-for-Users.md).  
+>  Si un compte d’utilisateur dispose d’un compte en ligne Microsoft, lorsque vous supprimez le compte d’utilisateur, le compte en ligne est également supprimé de Microsoft Online Services, et les données de l’utilisateur, y compris les e-mails, sont soumises aux stratégies de rétention des données dans Microsoft Online Services. Si vous souhaitez conserver les données utilisateur du compte en ligne, désactivez le compte d'utilisateur au lieu de le supprimer. Pour plus d’informations, consultez [gérer les comptes en ligne pour les utilisateurs](Manage-Online-Accounts-for-Users.md).  
   
 ##### <a name="to-remove-a-user-account"></a>Pour supprimer un compte d'utilisateur  
   
@@ -90,18 +90,18 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur à supprimer.  
   
-4.  Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **supprimer le compte d’utilisateur**. L'Assistant Suppression d'un compte d'utilisateur s'affiche.  
+4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **supprimer le compte d’utilisateur**. L'Assistant Suppression d'un compte d'utilisateur s'affiche.  
   
-5.  Sur le **vous souhaitez conserver les fichiers ?** page de l’Assistant, vous pouvez choisir de supprimer les fichiers utilisateur s, y compris les sauvegardes de l’historique des fichiers et le dossier redirigé du compte d’utilisateur. Pour tenir l’utilisateur fichiers s, laissez la case à cocher vide. Après avoir effectué votre sélection, cliquez sur **Suivant**.  
+5.  Dans la page **voulez-vous conserver les fichiers ?** de l’Assistant, vous pouvez choisir de supprimer les fichiers de l’utilisateur, y compris les sauvegardes de l’historique des fichiers et le dossier redirigé du compte d’utilisateur. Pour conserver les fichiers de l’utilisateur, laissez la case à cocher vide. Après avoir effectué votre sélection, cliquez sur **Suivant**.  
   
 6.  Cliquez sur **Supprimer le compte**.  
   
 > [!NOTE]
->  Une fois que vous avez supprimé un compte d'utilisateur, il n'apparaît plus dans la liste des comptes d'utilisateur. Si vous avez choisi de supprimer les fichiers, le serveur supprime définitivement le dossier utilisateur s à partir de la **utilisateurs** dossier du serveur et à partir de la **les sauvegardes de l’historique des fichiers** dossier du serveur.  
+>  Une fois que vous avez supprimé un compte d'utilisateur, il n'apparaît plus dans la liste des comptes d'utilisateur. Si vous avez choisi de supprimer les fichiers, le serveur supprime définitivement le dossier de l’utilisateur dans le dossier du serveur **utilisateurs** et dans le dossier du serveur **sauvegardes de l’historique des fichiers** .  
 >   
 >  Si vous avez un fournisseur de messagerie intégrée, le compte de messagerie affecté au compte d'utilisateur est également supprimé.  
   
-###  <a name="BKMK_Manage3"></a> Afficher les comptes utilisateur  
+###  <a name="BKMK_Manage3"></a>Afficher les comptes d’utilisateur  
  La section **Utilisateurs** du tableau de bord Windows Server Essentials affiche une liste des comptes d'utilisateur réseau. La liste fournit également des informations supplémentaires sur chaque compte.  
   
 ##### <a name="to-view-a-list-of-user-accounts"></a>Pour afficher une liste des comptes d'utilisateur  
@@ -116,13 +116,13 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 1.  Dans la liste des comptes d'utilisateur, sélectionnez le compte dont vous voulez afficher ou changer les propriétés.  
   
-2.  Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **afficher les propriétés du compte**. La page **Propriétés** du compte d'utilisateur s'affiche.  
+2.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **afficher les propriétés du compte**. La page **Propriétés** du compte d'utilisateur s'affiche.  
   
 3.  Cliquez sur un onglet pour afficher les propriétés de cette fonctionnalité de compte.  
   
 4.  Pour enregistrer les changements que vous apportez aux propriétés du compte d'utilisateur, cliquez sur **Appliquer**.  
   
-###  <a name="BKMK_Manage4"></a> Modifier le nom complet du compte d’utilisateur  
+###  <a name="BKMK_Manage4"></a>Modifier le nom complet du compte d’utilisateur  
  Le nom complet est le nom qui apparaît dans la colonne **Nom** de la page **Utilisateurs** du tableau de bord. Le changement du nom complet ne change pas le nom d'ouverture de session ou le nom de connexion d'un compte d'utilisateur.  
   
 ##### <a name="to-change-the-display-name-for-a-user-account"></a>Pour changer le nom complet d'un compte d'utilisateur  
@@ -133,13 +133,13 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur à modifier.  
   
-4.  Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **afficher les propriétés du compte**. La page **Propriétés** du compte d'utilisateur s'affiche.  
+4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **afficher les propriétés du compte**. La page **Propriétés** du compte d'utilisateur s'affiche.  
   
 5.  Sous l'onglet **Général**, tapez un nouveau **Prénom** et **Nom** pour le compte d'utilisateur, puis cliquez sur **OK**.  
   
      Le nouveau nom complet s'affiche dans la liste des comptes d'utilisateur.  
   
-###  <a name="BKMK_Manage5"></a> Activer un compte d’utilisateur  
+###  <a name="BKMK_Manage5"></a>Activer un compte d’utilisateur  
  Quand vous activez un compte d'utilisateur, l'utilisateur affecté peut se connecter au réseau et accéder aux ressources réseau pour lesquelles le compte dispose d'une autorisation d'accès, par exemple les dossiers partagés et le site d'accès web à distance.  
   
 > [!NOTE]
@@ -153,7 +153,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  En mode Liste, sélectionnez le compte d'utilisateur à activer.  
   
-4.  Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **activer le compte d’utilisateur**.  
+4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **activer le compte d’utilisateur**.  
   
 5.  Dans la fenêtre de confirmation, cliquez sur **Oui** pour confirmer votre action.  
   
@@ -162,10 +162,10 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
 >   
 >  Si vous avez un fournisseur de messagerie intégrée, le compte de messagerie affecté au compte d'utilisateur est également activé.  
   
-###  <a name="BKMK_Manage6"></a> Désactiver un compte d’utilisateur  
+###  <a name="BKMK_Manage6"></a>Désactiver un compte d’utilisateur  
  Quand vous désactivez un compte d'utilisateur, l'accès du compte au serveur est temporairement interrompu. Ainsi, l'utilisateur affecté ne peut pas utiliser le compte pour accéder aux ressources réseau telles que les dossiers partagés ou le site d'accès web à distance tant que vous n'avez pas activé le compte.  
   
- Si le compte d'utilisateur dispose d'un compte en ligne Microsoft, ce dernier est également désactivé. L’utilisateur ne peut pas utiliser des ressources dans Office 365 et d’autres services en ligne que vous vous abonnez à, mais les données de s utilisateur, notamment le courrier électronique sont conservées dans Microsoft Online Services.  
+ Si le compte d'utilisateur dispose d'un compte en ligne Microsoft, ce dernier est également désactivé. L’utilisateur ne peut pas utiliser les ressources dans Office 365 et d’autres services en ligne auxquelles vous êtes abonné, mais les données de l’utilisateur, y compris les e-mails, sont conservées dans Microsoft Online Services.  
   
 > [!NOTE]
 >  Vous pouvez uniquement désactiver un compte d'utilisateur actif.  
@@ -178,7 +178,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  En mode Liste, sélectionnez le compte d'utilisateur à désactiver.  
   
-4.  Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **désactiver le compte d’utilisateur**.  
+4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **désactiver le compte d’utilisateur**.  
   
 5.  Dans la fenêtre de confirmation, cliquez sur **Oui** pour confirmer votre action.  
   
@@ -187,7 +187,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
 >   
 >  Si vous avez un fournisseur de messagerie intégrée, le compte de messagerie affecté au compte d'utilisateur est également désactivé.  
   
-###  <a name="BKMK_Manage7"></a> Comprendre les comptes d’utilisateur  
+###  <a name="BKMK_Manage7"></a>Comprendre les comptes d’utilisateur  
  Un compte d'utilisateur fournit des informations importantes à Windows Server Essentials. Cela permet aux utilisateurs non seulement d'accéder aux informations stockées sur le serveur, mais également de créer et gérer leurs fichiers et paramètres. Les utilisateurs peuvent se connecter à tous les ordinateurs du réseau s'ils ont un compte d'utilisateur Windows Server Essentials et s'ils disposent d'autorisations d'accès à l'ordinateur choisi. Les utilisateurs accèdent à leurs comptes d'utilisateur avec un nom d'utilisateur et un mot de passe.  
   
  Il existe deux principaux types de compte d'utilisateur. Chaque type fournit aux utilisateurs un niveau distinct de contrôle sur l'ordinateur :  
@@ -196,12 +196,12 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 -   Les comptes**Administrateur** fournissent le contrôle le plus important possible sur un réseau d'ordinateurs. Vous devez affecter le type de compte Administrateur uniquement quand cela est nécessaire.  
   
-###  <a name="BKMK_Manage8"></a> Gérer les comptes d’utilisateur à l’aide du tableau de bord  
- Windows Server Essentials vous permet d'effectuer des tâches d'administration courantes à l'aide du tableau de bord Windows Server Essentials. Par défaut, le **utilisateurs** page du tableau de bord comprend deux onglets **utilisateurs** et **groupes d’utilisateurs**.  
+###  <a name="BKMK_Manage8"></a>Gérer les comptes d’utilisateur à l’aide du tableau de bord  
+ Windows Server Essentials vous permet d'effectuer des tâches d'administration courantes à l'aide du tableau de bord Windows Server Essentials. Par défaut, la page **utilisateurs** du tableau de bord comprend deux onglets : **Utilisateurs** et **groupes d’utilisateurs**.  
   
 > [!NOTE]
-> - Si vous intégrez votre serveur qui exécute Windows Server Essentials à Office 365, un nouvel onglet appelé **groupes de Distribution** est également ajouté à la **utilisateurs** page du tableau de bord.  
->   -   Dans Windows Server Essentials, le **utilisateurs** page du tableau de bord inclut uniquement un seul onglet - **utilisateurs**.  
+> - Si vous intégrez votre serveur qui exécute Windows Server Essentials à Office 365, un nouvel onglet appelé **groupes de distribution** est également ajouté à la page **utilisateurs** du tableau de bord.  
+>   -   Dans Windows Server Essentials, la page **utilisateurs** du tableau de bord comprend uniquement un seul onglet **utilisateurs**.  
   
  L'onglet **Utilisateurs** comprend les éléments suivants :  
   
@@ -219,9 +219,9 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
   -   L'état du compte d'utilisateur. Un compte d'utilisateur peut être **Actif**, **Inactif**ou **Incomplet**.  
   
-  -   Dans Windows Server Essentials, si le serveur est intégré à Office 365 ou Windows Intune, le compte en ligne de Microsoft s’affiche.  
+  -   Dans Windows Server Essentials, si le serveur est intégré à Office 365 ou à Windows Intune, le compte en ligne Microsoft s’affiche.  
   
-  -   Dans Windows Server Essentials, si le serveur est intégré à Microsoft Office 365, l’état du compte Office 365 (connu dans Windows Server Essentials en tant que le compte en ligne de Microsoft) pour le compte d’utilisateur s’affiche.  
+  -   Dans Windows Server Essentials, si le serveur est intégré à Microsoft Office 365, l’état du compte Office 365 (connu sous le nom de compte en ligne Microsoft Windows Server Essentials) pour le compte d’utilisateur est affiché.  
   
 - Un volet d'informations avec des informations supplémentaires sur le compte d'utilisateur sélectionné.  
   
@@ -234,7 +234,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   Le tableau suivant décrit les différentes tâches de compte d'utilisateur disponibles sous l'onglet **Utilisateurs** . Certaines tâches sont spécifiques aux comptes d'utilisateur. Elles ne sont visibles que si vous sélectionnez un compte d'utilisateur dans la liste.  
   
 > [!NOTE]
->  Si vous intégrez Office 365 avec Windows Server Essentials, les tâches supplémentaires sont disponibles. Pour plus d’informations, consultez [gérer les comptes en ligne pour les utilisateurs](Manage-Online-Accounts-for-Users.md).  
+>  Si vous intégrez Office 365 à Windows Server Essentials, des tâches supplémentaires sont disponibles. Pour plus d’informations, consultez [gérer les comptes en ligne pour les utilisateurs](Manage-Online-Accounts-for-Users.md).  
   
 ### <a name="user-account-tasks-in-the-dashboard"></a>Tâches de compte d'utilisateur dans le tableau de bord  
   
@@ -254,10 +254,10 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
 |Changer les paramètres de l'historique des fichiers|Vous permet de changer les paramètres de l'historique des fichiers, par exemple la fréquence de la sauvegarde ou sa durée.<br /><br /> Cette tâche s’applique à Windows Server Essentials.|  
 |Exporter toutes les connexions à distance|Crée un fichier au format .CSV de toutes les connexions à distance vers le serveur au cours des 30 derniers jours.|  
   
-##  <a name="BKMK_ManageAccess"></a> La gestion des mots de passe et des accès  
+##  <a name="BKMK_ManageAccess"></a>Gestion des mots de passe et de l’accès  
  Les rubriques suivantes fournissent des informations sur l'utilisation du tableau de bord Windows Server Essentials pour gérer les mots de passe des comptes d'utilisateur et l'accès des utilisateurs aux dossiers partagés sur le serveur :  
   
--   [Modifier ou réinitialiser le mot de passe pour un compte d’utilisateur](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Access1)  
+-   [Modifier ou réinitialiser le mot de passe d’un compte d’utilisateur](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Access1)  
   
 -   [Ce que vous devez savoir sur les stratégies de mot de passe](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Access3)  
   
@@ -265,11 +265,11 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 -   [Niveau d’accès aux dossiers partagés](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Access5)  
   
--   [Conserver et de gérer l’accès aux fichiers pour les comptes d’utilisateur supprimé](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Access6)  
+-   [Conserver et gérer l’accès aux fichiers pour les comptes d’utilisateur supprimés](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Access6)  
   
--   [Synchroniser le mot de passe DSRM avec le mot de passe administrateur réseau](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Access7)  
+-   [Synchroniser le mot de passe DSRM avec le mot de passe d’administrateur réseau](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Access7)  
   
--   [Autoriser les comptes d’utilisateur à distance Bureau](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Access8)  
+-   [Accorder à des comptes d’utilisateur l’autorisation Bureau à distance](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Access8)  
   
 -   [Permettre aux utilisateurs d’accéder aux ressources sur le serveur](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Access9)  
   
@@ -279,9 +279,9 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 -   [Modifier l’accès aux dossiers partagés internes pour un compte d’utilisateur](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Access12)  
   
--   [Autoriser les comptes d’utilisateur établir une session Bureau à distance à leur ordinateur](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Access13)  
+-   [Autoriser les comptes d’utilisateur à établir une session Bureau à distance sur leur ordinateur](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Access13)  
   
-###  <a name="BKMK_Access1"></a> Modifier ou réinitialiser le mot de passe pour un compte d’utilisateur  
+###  <a name="BKMK_Access1"></a>Modifier ou réinitialiser le mot de passe d’un compte d’utilisateur  
  Pour changer ou réinitialiser un mot de passe de compte d'utilisateur, procédez comme suit.  
   
 ##### <a name="to-reset-the-password-for-a-user-account"></a>Pour réinitialiser le mot de passe d'un compte d'utilisateur  
@@ -292,7 +292,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3. Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur à réinitialiser.  
   
-4. Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **modifier le mot de passe du compte utilisateur**. L'Assistant permettant de changer le mot de passe du compte d'utilisateur s'affiche.  
+4. Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **modifier le mot de passe du compte d’utilisateur**. L'Assistant permettant de changer le mot de passe du compte d'utilisateur s'affiche.  
   
 5. Tapez le nouveau mot de passe du compte d'utilisateur, puis retapez le mot de passe pour le confirmer.  
   
@@ -302,10 +302,10 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
    > [!IMPORTANT]
    > - Vous risquez de ne pas pouvoir changer votre mot de passe si la stratégie de mot de passe du compte a la valeur **Les mots de passe n'arrivent jamais à expiration**.  
-   >   -   Les caractères non-ASCII ne sont pas pris en charge dans Azure AD. Par conséquent, si votre serveur est intégré avec Azure AD, n’utilisez pas les caractères non-ASCII dans votre mot de passe.  
-   >   -   Si un compte en ligne Microsoft (connu dans Windows Server Essentials en tant qu’un compte Office 365) est affecté à l’utilisateur, le mot de passe est synchronisé avec le mot de passe du compte en ligne. L'utilisateur emploie le nouveau mot de passe pour se connecter au serveur ou à Office 365. Pour plus d’informations, consultez [gérer les comptes en ligne pour les utilisateurs](Manage-Online-Accounts-for-Users.md).  
+   >   -   Les caractères non-ASCII ne sont pas pris en charge dans Azure AD. Par conséquent, si votre serveur est intégré à Azure AD, n’utilisez pas de caractères non-ASCII dans votre mot de passe.  
+   >   -   Si un compte en ligne Microsoft (connu sous le nom de compte Office 365 dans Windows Server Essentials) est affecté à l’utilisateur, le mot de passe est synchronisé avec le mot de passe du compte en ligne. L'utilisateur emploie le nouveau mot de passe pour se connecter au serveur ou à Office 365. Pour plus d’informations, consultez [gérer les comptes en ligne pour les utilisateurs](Manage-Online-Accounts-for-Users.md).  
   
-###  <a name="BKMK_Access3"></a> Ce que vous devez savoir sur les stratégies de mot de passe  
+###  <a name="BKMK_Access3"></a>Ce que vous devez savoir sur les stratégies de mot de passe  
  La stratégie de mot de passe est un ensemble de règles qui définissent la façon dont les utilisateurs créent et utilisent des mots de passe. La stratégie contribue à empêcher tout accès non autorisé aux données utilisateur et autres informations stockées sur le serveur. La stratégie de mot de passe est appliquée à tous les comptes d'utilisateur qui accèdent au réseau.  
   
  La stratégie de mot de passe Windows Server Essentials se compose de trois éléments principaux, comme suit :  
@@ -336,7 +336,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
   Par défaut, l'installation du serveur définit la stratégie de mot de passe en utilisant l'option **Fort**.  
   
-###  <a name="BKMK_Access4"></a> Modifier la stratégie de mot de passe  
+###  <a name="BKMK_Access4"></a>Modifier la stratégie de mot de passe  
  Procédez comme suit pour définir ou changer la stratégie de mot de passe en fonction de l'un des quatre profils de stratégie prédéfinis.  
   
 ##### <a name="to-change-the-password-policy"></a>Pour changer la stratégie de mot de passe  
@@ -354,7 +354,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 4.  Cliquez sur **Modifier la stratégie**.  
   
-###  <a name="BKMK_Access5"></a> Niveau d’accès aux dossiers partagés  
+###  <a name="BKMK_Access5"></a>Niveau d’accès aux dossiers partagés  
  Il est recommandé d'affecter aux utilisateurs les autorisations les plus restrictives tout en leur permettant d'effectuer les tâches dont ils ont besoin.  
   
  Vous disposez de trois paramètres d'accès pour les dossiers partagés sur le serveur :  
@@ -365,13 +365,13 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 -   **Aucun accès**.  Choisissez ce paramètre si vous ne voulez pas que le compte d'utilisateur ait accès aux fichiers dans le dossier partagé.  
   
-###  <a name="BKMK_Access6"></a> Conserver et de gérer l’accès aux fichiers pour les comptes d’utilisateur supprimé  
- L’administrateur réseau peut supprimer un compte d’utilisateur et choisissez de conserver des fichiers de s pour une utilisation ultérieure de l’utilisateur. Dans ce scénario, le compte d'utilisateur supprimé ne peut plus être utilisé pour la connexion au réseau. Toutefois, les fichiers de l'utilisateur concerné sont enregistrés dans un dossier partagé, qui peut être accessible à un autre utilisateur.  
+###  <a name="BKMK_Access6"></a>Conserver et gérer l’accès aux fichiers pour les comptes d’utilisateur supprimés  
+ L’administrateur réseau peut supprimer un compte d’utilisateur et choisir de conserver les fichiers de l’utilisateur pour une utilisation ultérieure. Dans ce scénario, le compte d'utilisateur supprimé ne peut plus être utilisé pour la connexion au réseau. Toutefois, les fichiers de l'utilisateur concerné sont enregistrés dans un dossier partagé, qui peut être accessible à un autre utilisateur.  
   
 > [!IMPORTANT]
 >  Sachez que si vous supprimez un compte d'utilisateur qui dispose d'un compte en ligne Microsoft affecté, le compte en ligne est également supprimé. Par ailleurs, les données utilisateur (y compris le courrier électronique) sont soumises aux stratégies de rétention des données de Microsoft Online Services. Pour conserver les données utilisateur du compte en ligne, désactivez le compte d'utilisateur au lieu de le supprimer. Pour plus d’informations, consultez [gérer les comptes en ligne pour les utilisateurs](Manage-Online-Accounts-for-Users.md).  
   
-##### <a name="to-remove-a-user-account-but-retain-access-to-the-user-s-files"></a>Pour supprimer un compte d’utilisateur, mais conserver l’accès aux fichiers utilisateur s  
+##### <a name="to-remove-a-user-account-but-retain-access-to-the-users-files"></a>Pour supprimer un compte d’utilisateur tout en conservant l’accès aux fichiers de l’utilisateur  
   
 1. Ouvrez le tableau de bord Windows Server Essentials.  
   
@@ -379,7 +379,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3. Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur à supprimer.  
   
-4. Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **supprimer le compte d’utilisateur**. L'Assistant Suppression d'un compte d'utilisateur s'affiche.  
+4. Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **supprimer le compte d’utilisateur**. L'Assistant Suppression d'un compte d'utilisateur s'affiche.  
   
 5. Dans la page **Voulez-vous conserver les fichiers ?** , assurez-vous que la case **Supprimer les fichiers inclus dans les sauvegardes Historique des fichiers et le dossier redirigé pour ce compte d'utilisateur** n'est pas cochée, puis cliquez sur **Suivant**.  
   
@@ -401,16 +401,16 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 5.  Cliquez avec le bouton droit sur le compte d'utilisateur à partager, puis cliquez sur **Propriétés**.  
   
-6.  Dans **< compte d’utilisateur\> propriétés**, cliquez sur le **partage** onglet, puis cliquez sur **partage**.  
+6.  Dans **< propriétés du\> compte d’utilisateur**, cliquez sur l’onglet **partage** , puis sur **partager**.  
   
 7.  Dans la fenêtre **Partage de fichiers**, tapez ou sélectionnez le nom du compte d'utilisateur avec lequel vous souhaitez partager le dossier, puis cliquez sur **Ajouter**.  
   
 8.  Choisissez le **Niveau d'autorisation** du compte d'utilisateur, puis cliquez sur **Partager**.  
   
-###  <a name="BKMK_Access7"></a> Synchroniser le mot de passe DSRM avec le mot de passe administrateur réseau  
+###  <a name="BKMK_Access7"></a>Synchroniser le mot de passe DSRM avec le mot de passe d’administrateur réseau  
  Le mode de restauration des services d'annuaire (DSRM) est un mode de démarrage spécial qui permet de réparer ou de récupérer Active Directory. Le système d'exploitation utilise le mode DSRM pour se connecter à l'ordinateur si Active Directory est défaillant ou doit être restauré. Si votre mot de passe d'administrateur réseau et le mot de passe DSRM sont différents, le mode DSRM ne se charge pas.  
   
- Durant une nouvelle installation (première installation) de Windows Server Essentials, le programme définit le mot de passe DSRM en fonction du mot de passe de compte administrateur réseau spécifié pendant l'installation ou dans le fichier de réponses de migration. Quand vous changez votre mot de passe d'administrateur réseau, (de préférence, tous les 60 jours pour une sécurité accrue du serveur), le changement de mot de passe n'est pas transmis au mode DSRM. Cela entraîne une incompatibilité des mots de passe. Si cela se produit, vous pouvez utiliser les solutions suivantes pour manuellement ou automatiquement synchroniser votre mot de passe réseau administrateur avec le mot de passe DSRM.  
+ Durant une nouvelle installation (première installation) de Windows Server Essentials, le programme définit le mot de passe DSRM en fonction du mot de passe de compte administrateur réseau spécifié pendant l'installation ou dans le fichier de réponses de migration. Quand vous changez votre mot de passe d'administrateur réseau, (de préférence, tous les 60 jours pour une sécurité accrue du serveur), le changement de mot de passe n'est pas transmis au mode DSRM. Cela entraîne une incompatibilité des mots de passe. Si cela se produit, vous pouvez utiliser les solutions suivantes pour synchroniser manuellement ou automatiquement le mot de passe de votre administrateur réseau avec le mot de passe DSRM.  
   
 ##### <a name="to-manually-synchronize-the-dsrm-password-to-a-network-administrator-account"></a>Pour synchroniser manuellement le mot de passe DSRM au mot de passe d'un compte d'administrateur réseau  
   
@@ -418,9 +418,9 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 2. Pour réinitialiser le mot de passe DSRM, tapez **set dsrm password**.  
   
-3. Pour synchroniser le mot de passe DSRM sur un contrôleur de domaine avec le compte de s administrateur réseau actuel, tapez :  
+3. Pour synchroniser le mot de passe DSRM sur un contrôleur de domaine avec le compte de l’administrateur réseau actuel, tapez :  
   
-    **la synchronisation à partir du compte de domaine** *< compte_administrateur_réseau_actuel >* , puis appuyez sur ENTRÉE.  
+    **synchroniser à partir du compte de domaine** *< > current_network_administrator_account*, puis appuyez sur entrée.  
   
    Comme vous allez changer régulièrement le mot de passe du compte d'administrateur réseau, nous vous recommandons de créer une tâche planifiée pour synchroniser automatiquement et quotidiennement le mot de passe DSRM au mot de passe d'administrateur réseau. Cela permet de garantir que le mot de passe DSRM est toujours identique au mot de passe actif de l'administrateur réseau.  
   
@@ -449,11 +449,11 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
     2.  Dans la liste **Action**, cliquez sur **Démarrer un programme**, puis accédez à **C:\WINDOWS\SYSTEM32\ntdsutil.exe**.  
   
-    3.  Dans le **ajouter des arguments**(facultatif) le texte, tapez ce qui suit (vous devez inclure les guillemets) : **définir la synchronisation de mot de passe dsrm à partir du compte de domaine SBS_network_administrator_account q q** où  *SBS_network_administrator_account* est le nom du compte administrateur s réseau actuel.  
+    3.  Dans la zone de texte **Ajouter des arguments**(facultatif), tapez ce qui suit (vous devez inclure les guillemets) : **définir la synchronisation du mot de passe DSRM à partir du compte de domaine SBS_network_administrator_account q q** , où *SBS_network_administrator_account* est nom du compte de l’administrateur réseau actuel.  
   
 6.  Cliquez sur **OK** à deux reprises pour enregistrer la tâche et fermer la boîte de dialogue **Créer une tâche**. La nouvelle tâche apparaît dans la section **Tâches actives** du **Planificateur de tâches**.  
   
-###  <a name="BKMK_Access8"></a> Autoriser les comptes d’utilisateur à distance Bureau  
+###  <a name="BKMK_Access8"></a>Accorder à des comptes d’utilisateur l’autorisation Bureau à distance  
  Dans l'installation par défaut de Windows Server Essentials, les utilisateurs réseau ne sont pas autorisés à établir de connexion à distance aux ordinateurs ou autres ressources réseau.  
   
  Pour permettre aux utilisateurs réseau d'établir une connexion à distance aux ressources réseau, vous devez d'abord configurer l'Accès en tout lieu. Une fois l'Accès en tout lieu configuré, les utilisateurs peuvent accéder aux fichiers, applications et ordinateurs de votre réseau d'entreprise à partir d'un appareil (quel que soit son emplacement) disposant d'une connexion Internet.  
@@ -468,9 +468,9 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
   Pour configurer l'Accès en tout lieu, ouvrez la page **Accueil** du tableau de bord, cliquez sur **CONFIGURATION**, puis sur **Configurer l'Accès en tout lieu**.  
   
-  Pour plus d’informations sur l’accès en tout lieu, consultez [Manage Anywhere Access](Manage-Anywhere-Access-in-Windows-Server-Essentials.md).  
+  Pour plus d’informations sur l’accès en tout lieu, consultez [gérer l’accès en tout lieu](Manage-Anywhere-Access-in-Windows-Server-Essentials.md).  
   
-###  <a name="BKMK_Access9"></a> Permettre aux utilisateurs d’accéder aux ressources sur le serveur  
+###  <a name="BKMK_Access9"></a>Permettre aux utilisateurs d’accéder aux ressources sur le serveur  
   Cette section s’applique à un serveur exécutant Windows Server Essentials ou Windows Server Essentials, ou à un serveur exécutant Windows Server 2012 R2 Standard ou Windows Server 2012 R2 Datacenter avec le rôle expérience Windows Server Essentials installé.  
   
  Si vous souhaitez que les utilisateurs se servent de l'accès à distance et/ou disposent de comptes d'utilisateur individuels, une fois que vous avez fini de connecter un ordinateur au serveur, créez sur le serveur à l'aide du tableau de bord des comptes d'utilisateur réseau pour les utilisateurs de l'ordinateur en réseau. Pour plus d'informations sur la création d'un compte d'utilisateur, voir [Ajouter un compte d'utilisateur](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage1). Après avoir créé les comptes d'utilisateur, vous devez fournir les informations relatives aux mots de passe et aux noms d'utilisateurs réseau des utilisateurs de l'ordinateur client pour qu'ils puissent accéder aux ressources du serveur via Launchpad.  
@@ -491,9 +491,9 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur que vous souhaitez modifier.  
   
-4.  Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **afficher les propriétés du compte**.  
+4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **afficher les propriétés du compte**.  
   
-5.  Dans le **< compte d’utilisateur\> propriétés**, procédez comme suit :  
+5.  Dans les **Propriétés du compte\> d’utilisateur <** , procédez comme suit :  
   
     1.  Sous l'onglet **Dossiers partagés** , définissez les autorisations de dossier appropriées pour chaque dossier partagé en fonction des besoins.  
   
@@ -513,9 +513,9 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur que vous souhaitez modifier.  
   
-4.  Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **propriétés**.  
+4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **Propriétés**.  
   
-5.  Dans le **< compte d’utilisateur\> propriétés**, procédez comme suit :  
+5.  Dans les **Propriétés du compte\> d’utilisateur <** , procédez comme suit :  
   
     1.  Sous l'onglet **Général**, sélectionnez **L'utilisateur peut afficher les alertes de santé du réseau**, si le compte d'utilisateur a besoin d'accéder aux rapports d'intégrité du réseau.  
   
@@ -529,7 +529,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
     4.  Sous l'onglet **Accès à l'ordinateur** , sélectionnez les ordinateurs réseau auxquels vous voulez que l'utilisateur puisse accéder.  
   
-###  <a name="BKMK_Access10"></a> Modifier les autorisations d’accès à distance pour un compte d’utilisateur  
+###  <a name="BKMK_Access10"></a>Modifier les autorisations d’accès à distance pour un compte d’utilisateur  
  Un utilisateur peut accéder aux ressources situées sur le serveur à partir d'un emplacement distant à l'aide d'un réseau privé virtuel (VPN), de l'accès web à distance ou d'autres applications de services web. Par défaut, les autorisations d'accès à distance sont activées pour les utilisateurs réseau quand vous configurez l'Accès en tout lieu dans Windows Server Essentials à l'aide du tableau de bord.  
   
 ##### <a name="to-change-remote-access-permissions-for-a-user-account"></a>Pour changer les autorisations d'accès à distance pour un compte d'utilisateur  
@@ -540,7 +540,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  Dans la liste des comptes d'utilisateur, sélectionnez le compte d'utilisateur à modifier.  
   
-4.  Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **afficher les propriétés du compte**. La page **Propriétés** du compte d'utilisateur s'affiche.  
+4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **afficher les propriétés du compte**. La page **Propriétés** du compte d'utilisateur s'affiche.  
   
 5.  Sous l'onglet **Accès en tout lieu** , procédez comme suit :  
   
@@ -550,7 +550,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 6.  Cliquez sur **Appliquer**, puis sur **OK**.  
   
-###  <a name="BKMK_Access11"></a> Modifier les autorisations de réseau privé virtuel pour un compte d’utilisateur  
+###  <a name="BKMK_Access11"></a>Modifier les autorisations de réseau privé virtuel pour un compte d’utilisateur  
  Vous pouvez utiliser un réseau privé virtuel (VPN) pour vous connecter à Windows Server Essentials et accéder à toutes les ressources stockées sur le serveur. Cela est particulièrement utile si vous disposez d'un ordinateur client configuré avec des comptes réseau pouvant être utilisés pour se connecter à un serveur Windows Server Essentials hébergé via une connexion VPN. Tous les comptes d'utilisateur récemment créés sur le serveur Windows Server Essentials hébergé doivent utiliser le réseau VPN pour se connecter à l'ordinateur client pour la première fois.  
   
 ##### <a name="to-change-vpn-permissions-for-network-users"></a>Pour changer les autorisations VPN des utilisateurs réseau  
@@ -561,15 +561,15 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  Dans la liste des comptes d'utilisateur, sélectionnez celui auquel vous voulez accorder des autorisations d'accès au Bureau à distance.  
   
-4.  Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **propriétés**.  
+4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **Propriétés**.  
   
-5.  Dans le **< compte d’utilisateur\> propriétés**, cliquez sur le **accès en tout lieu** onglet.  
+5.  Dans la **< propriétés du\> compte d’utilisateur**, cliquez sur l’onglet **accès en tout lieu** .  
   
 6.  Sous l'onglet **Accès en tout lieu**, pour autoriser un utilisateur à se connecter au serveur à l'aide d'un réseau VPN, cochez la case **Autoriser le Réseau privé virtuel (VPN)** .  
   
 7.  Cliquez sur **Appliquer**, puis sur **OK**.  
   
-###  <a name="BKMK_Access12"></a> Modifier l’accès aux dossiers partagés internes pour un compte d’utilisateur  
+###  <a name="BKMK_Access12"></a>Modifier l’accès aux dossiers partagés internes pour un compte d’utilisateur  
  Vous pouvez gérer l'accès aux dossiers partagés sur le serveur à l'aide des tâches situées sous l'onglet **Dossiers du serveur** du tableau de bord. Par défaut, les dossiers serveur suivants sont créés quand vous installez Windows Server Essentials :  
   
 -   **Sauvegardes d'ordinateurs client**.  Permet de stocker les sauvegardes d'ordinateurs clients créées par la fonctionnalité de sauvegarde de Windows Server. Ce dossier serveur n'est pas partagé.  
@@ -600,12 +600,12 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 4.  Dans le volet des tâches, cliquez sur **Afficher les propriétés du dossier**.  
   
-5.  Dans **< nom_dossier\> propriétés**, cliquez sur **partage**et sélectionnez le niveau d’accès utilisateur approprié pour les comptes d’utilisateur répertoriés, puis cliquez sur **appliquer**.  
+5.  Dans **< propriétés\> NomDossier**, cliquez sur **partage**et sélectionnez le niveau d’accès utilisateur approprié pour les comptes d’utilisateurs listés, puis cliquez sur **appliquer**.  
   
     > [!NOTE]
     >  Vous ne pouvez pas changer les autorisations de partage des dossiers serveur **Sauvegardes de l'Historique des fichiers**, **Redirection de dossiers**et **Utilisateurs** . Il n'y a donc pas d'onglet **Partage** dans les propriétés de dossier de ces dossiers serveur.  
   
-###  <a name="BKMK_Access13"></a> Autoriser les comptes d’utilisateur établir une session Bureau à distance à leur ordinateur  
+###  <a name="BKMK_Access13"></a>Autoriser les comptes d’utilisateur à établir une session Bureau à distance sur leur ordinateur  
   Cette section s’applique à un serveur exécutant Windows Server Essentials ou Windows Server Essentials, ou à un serveur exécutant Windows Server 2012 R2 Standard ou Windows Server 2012 R2 Datacenter avec le rôle expérience Windows Server Essentials installé.  
   
  L'administrateur réseau peut accorder des autorisations aux utilisateurs réseau pour accéder à leurs ordinateurs réseau à partir d'un emplacement distant.  
@@ -618,9 +618,9 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 3.  Dans la liste des comptes d'utilisateur, sélectionnez celui auquel vous voulez accorder des autorisations d'accès au Bureau à distance.  
   
-4.  Dans le **< compte d’utilisateur\> tâches** volet, cliquez sur **propriétés**.  
+4.  Dans le volet **tâches du\> compte d’utilisateur <** , cliquez sur **Propriétés**.  
   
-5.  Dans le **< compte d’utilisateur\> propriétés**, cliquez sur le **accès à l’ordinateur** onglet.  
+5.  Dans la **< propriétés du\> compte d’utilisateur**, cliquez sur l’onglet **accès à l’ordinateur** .  
   
 6.  Sélectionnez les ordinateurs auxquels ce compte d'utilisateur peut accéder à distance, puis cliquez sur **OK**.  
   
@@ -628,7 +628,7 @@ La page Utilisateurs du tableau de bord Windows Server Essentials centralise les
   
 -   [Gérer les comptes en ligne des utilisateurs](Manage-Online-Accounts-for-Users.md)  
   
--   [Se connecter](../use/Get-Connected-in-Windows-Server-Essentials.md)  
+-   [Connectez-vous](../use/Get-Connected-in-Windows-Server-Essentials.md)  
   
 -   [Utiliser Windows Server Essentials](../use/Use-Windows-Server-Essentials.md)  
   

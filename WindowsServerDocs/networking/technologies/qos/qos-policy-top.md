@@ -1,6 +1,6 @@
 ---
-title: Stratégie de qualité de service \(QoS, Quality of Service\)
-description: Cette rubrique fournit une vue d’ensemble de la stratégie de qualité de Service (QoS), qui vous permet d’utiliser la stratégie de groupe pour classer par priorité de la bande passante du trafic réseau des applications spécifiques et des services dans Windows Server 2016.
+title: Stratégie de qualité de service (QoS, Quality of Service)
+description: Cette rubrique fournit une vue d’ensemble de la stratégie de qualité de service (QoS), qui vous permet d’utiliser stratégie de groupe pour hiérarchiser la bande passante du trafic réseau d’applications et de services spécifiques dans Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -8,122 +8,122 @@ ms.assetid: 16918506-102c-482e-89d3-004ad8d6aabe
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a3ef81825ef6544bc96506e37bc027e0ac2a78db
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 8f139f047218c4c8da3a462206d4541c1fc255ec
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820280"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871858"
 ---
-# <a name="quality-of-service-qos-policy"></a>Qualité de Service \(QoS\) stratégie
+# <a name="quality-of-service-qos-policy"></a>Stratégie QoS \(\) de qualité de service
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser une stratégie de qualité de service comme pilier de la gestion de bande passante réseau dans toute votre infrastructure Active Directory, en créant des profils de qualité de service dont les paramètres sont distribués à l’aide de la stratégie de groupe.
 
 >[!NOTE]
->  Outre cette rubrique, la documentation suivante de la stratégie de qualité de service est disponible.  
+>  En plus de cette rubrique, la documentation de la stratégie de QoS suivante est disponible.  
 >   
->  - [Mise en route de la stratégie de QoS](qos-policy-get-started.md)
->  - [Gérer la stratégie de QoS](qos-policy-manage.md)
->  - [Questions fréquentes de stratégie de QoS](qos-policy-faq.md)
+>  - [Prise en main avec la stratégie QoS](qos-policy-get-started.md)
+>  - [Gérer la stratégie QoS](qos-policy-manage.md)
+>  - [Forum aux questions sur la stratégie QoS](qos-policy-faq.md)
 
-Stratégies QoS sont appliquées à une ouverture de session utilisateur ou un ordinateur en tant que partie d’un objet de stratégie de groupe \(GPO\) que vous avez lié à un conteneur Active Directory, tel qu’un domaine, un site ou une unité d’organisation \(unité d’organisation\).
+Les stratégies de QoS sont appliquées à une session de connexion utilisateur ou à un ordinateur dans le \(cadre\) d’un objet de stratégie de groupe d’objets stratégie de groupe que vous avez lié à un conteneur Active Directory, \(tel\)qu’un domaine, un site ou une unité d’organisation.
 
-Gestion du trafic QoS se produit sous la couche application, ce qui signifie que vos applications existantes n’avez pas besoin être modifiés pour bénéficier des avantages fournis par les stratégies de QoS.
+La gestion du trafic QoS se situe au-dessous de la couche application, ce qui signifie que vos applications existantes n’ont pas besoin d’être modifiées pour tirer parti des avantages fournis par les stratégies QoS.
 
-## <a name="operating-systems-that-support-qos-policy"></a>Systèmes d’exploitation qui prennent en charge de la stratégie de QoS
+## <a name="operating-systems-that-support-qos-policy"></a>Systèmes d’exploitation prenant en charge la stratégie QoS
 
-Vous pouvez utiliser la stratégie de QoS pour gérer la bande passante pour les ordinateurs ou utilisateurs avec les systèmes d’exploitation Microsoft suivants.
+Vous pouvez utiliser la stratégie QoS pour gérer la bande passante pour les ordinateurs ou les utilisateurs avec les systèmes d’exploitation Microsoft suivants.
 
 - Windows Server 2016
 - Windows 10
-- Windows Server 2012 R2
+- Windows Server 2012 R2
 - Windows 8.1
 - Windows Server 2012
 - Windows 8
-- Windows Server 2008 R2
+- Windows Server 2008 R2
 - Windows 7
-- Windows Server 2008
+- Windows Server 2008
 - Windows Vista
 
-### <a name="location-of-qos-policy-in-group-policy"></a>Emplacement de la stratégie de QoS dans la stratégie de groupe
+### <a name="location-of-qos-policy-in-group-policy"></a>Emplacement de la stratégie QoS dans stratégie de groupe
 
-Dans Windows Server 2016 éditeur stratégies de groupe gestion, le chemin d’accès à la stratégie de QoS pour la Configuration de l’ordinateur est la suivante.
+Dans Windows Server 2016 Éditeur de gestion des stratégies de groupe, le chemin d’accès à la stratégie QoS pour la configuration de l’ordinateur est le suivant.
 
-**Stratégie de domaine par défaut | Configuration ordinateur | Stratégies | Les paramètres Windows | Stratégie\-en fonction de qualité de service**
+**Stratégie de domaine par défaut | Configuration de l’ordinateur | Stratégies | Paramètres Windows | QoS\-basée sur la stratégie**
 
-Ce chemin d’accès est illustrée dans l’image suivante.
+Ce chemin d’accès est illustré dans l’image suivante.
 
-![Emplacement de la stratégie de QoS dans la stratégie de groupe](../../media/QoS/QoS-Gp.jpg)
+![Emplacement de la stratégie QoS dans stratégie de groupe](../../media/QoS/QoS-Gp.jpg)
 
-Dans Windows Server 2016 éditeur stratégies de groupe gestion, le chemin d’accès à la stratégie de QoS pour la Configuration de l’utilisateur est la suivante.
+Dans Windows Server 2016 Éditeur de gestion des stratégies de groupe, le chemin d’accès à la stratégie QoS pour la configuration utilisateur est le suivant.
 
-**Stratégie de domaine par défaut | Configuration de l’utilisateur | Stratégies | Les paramètres Windows | Stratégie\-en fonction de qualité de service**
+**Stratégie de domaine par défaut | Configuration de l’utilisateur | Stratégies | Paramètres Windows | QoS\-basée sur la stratégie**
 
-Par défaut, aucune stratégie de qualité de service n’est configurés.
+Par défaut, aucune stratégie de qualité de service n’est configurée.
 
-## <a name="why-use-qos-policy"></a>Pourquoi utiliser la stratégie de qualité de service ?
+## <a name="why-use-qos-policy"></a>Pourquoi utiliser la stratégie QoS ?
   
-À mesure que le trafic augmente sur votre réseau, il est important pour vous permet d’équilibrer les performances du réseau avec le coût du service - mais le trafic réseau n’est pas normalement facile de hiérarchiser et à gérer.
+À mesure que le trafic augmente sur votre réseau, il est de plus en plus important d’équilibrer les performances du réseau avec le coût du service, mais le trafic réseau n’est généralement pas facile à hiérarchiser et à gérer.
 
-Sur votre réseau, mission\-critique et la latence\-applications sensibles doivent en concurrence pour la bande passante réseau contre le trafic de priorité inférieure. En même temps, certains utilisateurs et les ordinateurs avec exigences peuvent nécessiter des performances réseau spécifique différencient des niveaux de service.
+Sur votre réseau,\-les applications critiques et\-sensibles à la latence doivent concurrencer la bande passante réseau par rapport au trafic de faible priorité. En même temps, certains utilisateurs et ordinateurs avec des exigences de performances réseau spécifiques peuvent nécessiter des niveaux de service différenciés.
 
-Les défis de fournir des niveaux de performances réseau économique et prévisible, apparaissent souvent tout d’abord sur le réseau étendu \(WAN\) connexions ou avec les applications sensibles à la latence, comme la voix sur IP \(VoIP\) et le flux vidéo. Toutefois, l’objectif final de fournir des niveaux de service réseau prévisibles s’applique à n’importe quel environnement réseau \(, par exemple, une entreprise réseau\)et à plusieurs applications VoIP, telles que la ligne personnalisé de votre société\-de\-les applications métier.
+Les défis liés à la fourniture de niveaux de performances réseau prévisibles et rentables s’affichent \(souvent\) sur des connexions WAN de réseau étendu ou avec des applications sensibles à \(la latence, comme la VoIPvoixsurIP\) et vidéo streaming. Toutefois, l’objectif final de fournir des niveaux de service réseau prévisibles s’applique à \(n’importe quel environnement réseau, par exemple,\)un réseau local de l’entreprise et plus que des applications VoIP, telles que la lignepersonnaliséedevotreentreprise.\-d'\-applications d’entreprise.
   
-QoS basée sur la stratégie est l’outil de gestion de la bande passante réseau qui vous offre un contrôle de réseau - basé sur les applications, les utilisateurs et ordinateurs. 
+La QoS basée sur la stratégie est l’outil de gestion de la bande passante réseau qui vous permet de contrôler le réseau en fonction des applications, des utilisateurs et des ordinateurs. 
 
-Lorsque vous utilisez la stratégie de QoS, vos applications n’avez pas besoin être écrites pour les interfaces de programmation d’application spécifique \(API\). Cela vous donne la possibilité d’utiliser la qualité de service avec les applications existantes. En outre, basée sur des stratégies de QoS tire parti de votre infrastructure de gestion existante, car la QoS basée sur des stratégies est intégrée à la stratégie de groupe.
+Lorsque vous utilisez la stratégie QoS, vos applications n’ont pas besoin d’être écrites pour des API \(\)d’interfaces de programmation d’application spécifiques. Cela vous donne la possibilité d’utiliser la qualité de service avec les applications existantes. En outre, la QoS basée sur la stratégie tire parti de votre infrastructure de gestion existante, car la qualité de service basée sur la stratégie est intégrée à stratégie de groupe.
 
-## <a name="define-qos-priority-through-a-differentiated-services-code-point-dscp"></a>Définir la priorité de qualité de service via un Point de Code de Services différenciés \(DSCP\)
+## <a name="define-qos-priority-through-a-differentiated-services-code-point-dscp"></a>Définir la priorité QoS via un point \(de code de services différenciés DSCP\)
   
-Vous pouvez créer des stratégies de QoS qui définissent la priorité du trafic réseau avec un Point de Code de Services différenciés \(DSCP\) valeur que vous attribuez à différents types de trafic réseau. 
+Vous pouvez créer des stratégies de QoS qui définissent la priorité du trafic réseau avec \(une\) valeur DSCP du point de code des services différenciés que vous attribuez à différents types de trafic réseau. 
 
-DSCP vous permet d’appliquer une valeur \(0 à 63\) dans le Type de Service \(OT\) champ dans l’en-tête d’un paquet IPv4 et dans le champ de classe de trafic IPv6. 
+Le DSCP vous permet d’appliquer une valeur \(comprise\) entre 0 et 63 dans \(le\) type de champ de service OT dans l’en-tête d’un paquet IPv4, et dans le champ de classe de trafic dans IPv6. 
 
-La valeur DSCP fournit la classification de trafic réseau sur le protocole Internet \(IP\) niveau, les routeurs qui permet de déterminer le comportement de file d’attente de trafic. 
+La valeur DSCP fournit la classification du trafic réseau au niveau \(IP\) du protocole Internet, que les routeurs utilisent pour déterminer le comportement de la mise en file d’attente du trafic. 
 
-Par exemple, vous pouvez configurer les routeurs pour placer des paquets avec des valeurs DSCP spécifiques dans un des trois files d’attente : priorité élevée, meilleur effort ou inférieur au meilleur effort. 
+Par exemple, vous pouvez configurer des routeurs pour placer des paquets avec des valeurs DSCP spécifiques dans l’une des trois files d’attente : High Priority, Best effort ou Lower effort. 
 
-Le trafic réseau stratégiques, qui est dans la file d’attente de priorité élevée, est prioritaire sur tout autre trafic.
+Le trafic réseau stratégique, qui se trouve dans la file d’attente de priorité élevée, est prioritaire par rapport à d’autres trafics.
 
-### <a name="limit-network-bandwidth-use-per-application-with-throttle-rate"></a>Limite la bande passante de réseau utilisée par l’Application avec le taux d’accélération
+### <a name="limit-network-bandwidth-use-per-application-with-throttle-rate"></a>Limiter l’utilisation de la bande passante réseau par application avec taux d’accélération
 
-Vous pouvez également limiter le trafic réseau sortant d’une application en spécifiant un taux d’accélération dans Stratégie de QoS.
+Vous pouvez également limiter le trafic réseau sortant d’une application en spécifiant un taux d’accélération dans la stratégie QoS.
 
-Une stratégie de QoS qui définit les limites de limitation détermine le taux de trafic réseau sortant. Par exemple, pour gérer les coûts de réseau étendus, un service informatique peut implémenter un contrat de niveau de service qui spécifie qu’un serveur de fichiers peut fournir jamais téléchargements au-delà d’une fréquence spécifique.  
+Une stratégie de QoS qui définit les limites de limitation détermine le taux de trafic réseau sortant. Par exemple, pour gérer les coûts du réseau étendu, un service informatique peut implémenter un contrat de niveau de service qui spécifie qu’un serveur de fichiers ne peut jamais fournir des téléchargements au-delà d’une fréquence spécifique.  
 
-### <a name="use-qos-policy-to-apply-dscp-values-and-throttle-rates"></a>Utiliser une stratégie QoS pour appliquer DSCP valeurs et taux de limitation
+### <a name="use-qos-policy-to-apply-dscp-values-and-throttle-rates"></a>Utiliser la stratégie QoS pour appliquer des valeurs DSCP et des taux de limitation
 
-Vous pouvez également utiliser la stratégie de QoS pour appliquer des valeurs DSCP et la limitation des taux de trafic réseau sortant à ce qui suit :
+Vous pouvez également utiliser la stratégie QoS pour appliquer des valeurs DSCP et des taux de limitation pour le trafic réseau sortant vers les éléments suivants :
 
-- Application émettrice et le chemin du répertoire
+- Envoi de l’application et du chemin d’accès du répertoire
 
-- Source et destination des adresses IPv4 ou IPv6 ou les préfixes d’adresse
+- Adresses IPv4 ou IPv6 sources et de destination ou préfixes d’adresse
 
-- Protocole - Transmission Control Protocol \(TCP\) et User Datagram Protocol \(UDP\)
+- Protocole \( \(TCP\) et UDP protocole UDP (User Datagram Protocol)\)
 
-- Ports source et destination et les plages de ports \(TCP ou UDP\)
+- Ports source et de destination et plages \(de ports TCP ou UDP\)
 
-- Groupes d’utilisateurs ou ordinateurs via un déploiement de stratégie de groupe spécifiques
+- Groupes d’utilisateurs ou d’ordinateurs spécifiques par le biais du déploiement dans stratégie de groupe
 
-À l’aide de ces contrôles, vous pouvez spécifier une stratégie de QoS avec une valeur DSCP de 46 pour une application VoIP, l’activation de routeurs placer des paquets de VoIP dans une file d’attente à faible latence, ou vous pouvez utiliser une stratégie de QoS pour limiter un ensemble de trafic sortant de serveurs à 512 kilo-octets par seconde <c1/>\(Kbits/s\) lors de l’envoi via le port TCP 443.
+À l’aide de ces contrôles, vous pouvez spécifier une stratégie de qualité de service avec une valeur DSCP de 46 pour une application VoIP, en permettant aux routeurs de placer des paquets VoIP dans une file d’attente à faible latence, ou vous pouvez utiliser une stratégie de QoS pour limiter un ensemble de trafic sortant de serveurs à 512 kilo-octets par seconde <C1/>Kbit\) /s lors de l’envoi à partir du port TCP 443.
 
-Vous pouvez également appliquer la stratégie de QoS à une application particulière qui a des besoins en bande passante spécial. Pour plus d’informations, consultez [les scénarios de stratégie de QoS](qos-policy-scenarios.md).
+Vous pouvez également appliquer une stratégie de QoS à une application particulière qui a des besoins spécifiques en bande passante. Pour plus d’informations, consultez [scénarios de stratégie de QoS](qos-policy-scenarios.md).
   
-## <a name="advantages-of-qos-policy"></a>Avantages de la stratégie de QoS
+## <a name="advantages-of-qos-policy"></a>Avantages de la stratégie QoS
 
-Avec la stratégie de QoS, vous pouvez configurer et appliquer des stratégies de QoS qui ne peut pas être configurés sur les routeurs et commutateurs. Stratégie de QoS offre les avantages suivants.
+Avec la stratégie QoS, vous pouvez configurer et appliquer des stratégies de QoS qui ne peuvent pas être configurées sur les routeurs et les commutateurs. La stratégie QoS offre les avantages suivants.
   
-1. **Niveau de détail :** Il est difficile de créer des stratégies de QoS au niveau de l’utilisateur sur les routeurs ou les commutateurs, surtout si l’ordinateur est que soit configurée à l’aide d’affectation d’adresses IP dynamiques ou si l’ordinateur n’est pas connecté au commutateur fixe ni aux ports du routeur, comme c’est souvent le cas avec ordinateurs portables. En revanche, stratégie de QoS rend plus facile à configurer un utilisateur\-le niveau de stratégie de QoS sur un contrôleur de domaine et de propager la stratégie à l’ordinateur de l’utilisateur.
-2. **Flexibilité**. Quel que soit l’emplacement ou le mode un ordinateur se connecte au réseau, stratégie de QoS s’applique, l’ordinateur peut se connecter à l’aide de Wi-Fi ou Ethernet à partir de n’importe quel emplacement. Pour l’utilisateur\-le niveau de la qualité de service de stratégie est appliquée sur n’importe quel périphérique compatible à n’importe quel emplacement où l’utilisateur se connecte sur des stratégies de QoS.
-3. **Sécurité :** Si votre service informatique chiffre le trafic des utilisateurs de bout en bout à l’aide d’Internet Protocol security \(IPsec\), vous ne pouvez pas classer le trafic sur les routeurs sur des informations au-dessus de la couche IP dans le paquet \(, par exemple, un Le port TCP\). Toutefois, en utilisant une stratégie de QoS, vous pouvez classer les paquets au niveau de l’appareil de fin pour indiquer la priorité des paquets dans l’en-tête IP avant les charges utiles IP sont chiffrés et les paquets sont envoyés.
-4. **Performances :** Certaines fonctions de qualité de service, tels que les limitations, sont mieux exécutées lorsqu’ils sont plus proches de la source. Stratégie de QoS déplace ces fonctions de qualité de service le plus proche de la source.
-5. **Facilité de gestion :** Stratégie de QoS améliore la facilité de gestion réseau de deux manières :
+1. **Niveau de détail :** Il est difficile de créer des stratégies de QoS au niveau de l’utilisateur sur des routeurs ou des commutateurs, en particulier si l’ordinateur de l’utilisateur est configuré à l’aide d’une attribution d’adresse IP dynamique ou si l’ordinateur n’est pas connecté à des ports de commutateur ou de routeur fixes, comme c’est souvent le cas avec ordinateurs portables. En revanche, la stratégie QoS facilite la configuration d’une stratégie\-QoS de niveau utilisateur sur un contrôleur de domaine et la propagation de la stratégie sur l’ordinateur de l’utilisateur.
+2. **Flexibilité**. Quel que soit l’emplacement ou la manière dont un ordinateur se connecte au réseau, la stratégie de qualité de service (QoS) est appliquée : l’ordinateur peut se connecter à l’aide de WiFi ou Ethernet à n’importe quel emplacement. Pour les\-stratégies QoS au niveau de l’utilisateur, la stratégie QoS est appliquée à n’importe quel appareil compatible à n’importe quel emplacement où l’utilisateur ouvre une session.
+3. **Caution** Si votre service informatique chiffre le trafic des utilisateurs de bout en bout à l’aide du protocole \(IPSec\)(Internet Protocol Security) IPSec, vous ne pouvez pas classer le trafic sur les routeurs en fonction \(des informations situées au-dessus de la couche IP dans le paquet, par exemple, un Port\)TCP. Toutefois, à l’aide de la stratégie de QoS, vous pouvez classer les paquets sur l’appareil final pour indiquer la priorité des paquets dans l’en-tête IP avant le chiffrement des charges utiles IP et l’envoi des paquets.
+4. **Performances :** Certaines fonctions de QoS, telles que la limitation, sont mieux exécutées lorsqu’elles sont plus proches de la source. La stratégie QoS déplace les fonctions QoS les plus proches de la source.
+5. **Gestion** La stratégie QoS améliore la facilité de gestion du réseau de deux manières :
 
-    **a**. Car elle est basée sur la stratégie de groupe, vous pouvez utiliser la stratégie de QoS pour configurer et gérer un ensemble de stratégies de QoS utilisateur/ordinateur chaque fois que nécessaire et sur l’ordinateur d’un contrôleur de domaine central.
+    **.** Étant donné qu’il est basé sur stratégie de groupe, vous pouvez utiliser la stratégie QoS pour configurer et gérer un ensemble de stratégies QoS utilisateur/ordinateur chaque fois que nécessaire et sur un ordinateur contrôleur de domaine central.
 
-    **b**. Stratégie de QoS facilite la configuration de l’ordinateur/utilisateur en fournissant un mécanisme permettant de spécifier des stratégies par Uniform Resource Locator \(URL\) au lieu de spécifier des stratégies basées sur les adresses IP de chacun des serveurs où les stratégies de QoS doivent à appliquer. Par exemple, supposons que votre réseau dispose d’un cluster de serveurs qui partagent une URL courantes. En utilisant une stratégie de QoS, vous pouvez créer une stratégie basée sur l’URL courantes, au lieu de créer une stratégie pour chaque serveur dans le cluster, avec chaque stratégie basée sur l’adresse IP de chaque serveur.
+    **b**. La stratégie de QoS facilite la configuration des utilisateurs/ordinateurs en fournissant un mécanisme permettant de \(spécifier\) des stratégies en Uniform Resource Locator URL au lieu de spécifier des stratégies en fonction des adresses IP de chacun des serveurs dont les stratégies QoS ont besoin à appliquer. Supposons, par exemple, que votre réseau dispose d’un cluster de serveurs partageant une URL commune. À l’aide de la stratégie de QoS, vous pouvez créer une stratégie basée sur l’URL commune au lieu de créer une stratégie pour chaque serveur du cluster, chaque stratégie étant basée sur l’adresse IP de chaque serveur.
 
-Pour la rubrique suivante de ce guide, consultez [mise en route de la stratégie de QoS](qos-policy-get-started.md).
+Pour la rubrique suivante de ce guide, consultez [prise en main avec la stratégie QoS](qos-policy-get-started.md).
 
