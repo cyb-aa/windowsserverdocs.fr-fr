@@ -8,12 +8,12 @@ ms.date: 3/27/2018
 ms.localizationpriority: medium
 ms.topic: article
 author: christianmontoya
-ms.openlocfilehash: 5b3f162b8eee70fbc452b7400b737454c3fffb59
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ca9484cc8abffcc21b4ed11756fb009b55046a0c
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63712657"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870975"
 ---
 # <a name="set-up-email-discovery-to-subscribe-to-your-rds-feed"></a>Configurer la découverte de courrier électronique pour vous abonner à votre flux RDS
 
@@ -38,4 +38,4 @@ Maintenant, suivez ces étapes pour configurer la découverte d’adresse de mes
 
    Les noms des champs d’enregistrements DNS varient en fonction de la société d’enregistrement de nom de domaine, mais ce processus produit un enregistrement TXT appelé _msradc. \<nom_domaine\> (par exemple, _msradc.contoso.com) qui a la valeur d’un flux web Bureau à distance complet.
 
-C’est tout. À présent, lancez l’application Bureau à distance sur votre appareil et abonnez-vous !
+C’est tout ! À présent, lancez l’application Bureau à distance sur votre appareil et abonnez-vous !
