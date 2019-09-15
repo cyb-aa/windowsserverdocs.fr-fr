@@ -1,6 +1,6 @@
 ---
 title: tracerpt
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c105fe714e30866297e4f6c3c83a670ff7966a6
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 25014d23c797f37dcc488b5fea20c73907eb6f4c
+ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440974"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975302"
 ---
 # <a name="tracerpt"></a>tracerpt
 
 
 
-Le **tracerpt** commande peut être utilisée pour analyser les journaux de suivi d’événements, les fichiers journaux générés par l’Analyseur de performances et les fournisseurs de suivi d’événements en temps réel. Il génère des fichiers de vidage, les fichiers de rapport et les schémas de rapport.
+La commande **Tracerpt** peut être utilisée pour analyser les journaux de suivi d’événements, les fichiers journaux générés par l’analyseur de performances et les fournisseurs de suivi d’événements en temps réel. Il génère des fichiers de vidage, des fichiers de rapport et des schémas de rapport.
 
-Pour obtenir des exemples montrant comment utiliser **tracerpt**, consultez [exemples](#BKMK_EXAMPLES).
+Pour obtenir des exemples d’utilisation de **Tracerpt**, consultez [exemples](#BKMK_EXAMPLES).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -38,47 +38,47 @@ tracerpt <[-l] <value [value [...]]>|-rt <session_name [session_name [...]]>> [o
 
 |              Indicateur d’option               |                                                                    Description                                                                    |
 |----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-|                   -?                   |                                                         Affiche sensible au contexte d’aide.                                                          |
-|          -config \<filename>           |                                                 Charger un fichier de paramètres contenant les options de commande.                                                  |
-|                   -y                   |                                                  Répondez Oui à toutes les questions sans demander confirmation.                                                   |
-|                f - \<XML                |                                                                       HTML>                                                                       |
-|               -de \<CSV                |                                                                       EVTX                                                                        |
-|            -df \<filename>             |                                            Créer un spécifique à Microsoft comptage/reporting du fichier de schéma.                                            |
-|            -int \<filename >            |                                            Vider la structure des événements interprétées dans le fichier spécifié.                                            |
-|                  -rts                  |                        Horodatage brut de rapport dans l’en-tête de trace d’événements. Utilisable uniquement avec -o, - rapport ni ne-résumé.                         |
-|            -tmf \<filename>            |                                                  Spécifiez un fichier de définition de Format de Message de Trace.                                                  |
-|              -tp \<value>              |                            Spécifiez le chemin de recherche de fichiers TMF. Plusieurs chemins d’accès peuvent être utilisés, séparés par un point-virgule ( ;).                            |
-|              -i \<value>               | Spécifiez le chemin d’image de fournisseur. Le fichier PDB correspondant sera situé dans le serveur de symboles. Plusieurs chemins d’accès peuvent être utilisés, séparés par un point-virgule ( ;). |
-|             -pdb \<value>              |                             Spécifiez le chemin d’accès du serveur de symbole. Plusieurs chemins d’accès peuvent être utilisés, séparés par un point-virgule ( ;).                             |
-|                  -gmt                  |                                              Conversion des horodatages de charge utile WPP Greenwich Mean Time.                                               |
-|              -rl \<value>              |                                               Définir le niveau de rapport système à partir de 1 à 5. Valeur par défaut est 1.                                               |
-|          -Résumé [nom_fichier]           |                                  Générer un fichier texte de rapport de synthèse. Nom de fichier si non spécifié est summary.txt.                                   |
-|             -o [nom_fichier]              |                                      Générer un fichier de sortie de texte. Nom de fichier si non spécifié est dumpfile.xml.                                      |
-|           -rapports [nom_fichier]           |                                  Générer un fichier de rapport de sortie de texte. Nom de fichier si non spécifié est workload.xml.                                   |
-|                  -lr                   |                        Spécifiez « moins restrictif. » Cet exemple utilise meilleur effort pour les événements qui ne correspondent pas le schéma d’événements.                         |
-|           -Exporter [nom_fichier]           |                                  Générer un fichier d’exportation de schéma d’événement. Nom de fichier si non spécifié est : Schema.man.                                   |
-|       [-l]. \<valeur [valeur [...]] >        |                                                   Spécifiez le fichier journal de suivi d’événements à traiter.                                                    |
-| -rt \<session_name [session_name [...]] > |                                                Spécifier les sources de données de Session de Trace d’événements en temps réel.                                                |
+|                   -?                   |                                                         Affiche l’aide contextuelle.                                                          |
+|          -nom \<de fichier de configuration >           |                                                 Charge un fichier de paramètres contenant les options de commande.                                                  |
+|                   -y                   |                                                  Répondez oui à toutes les questions sans demander confirmation.                                                   |
+|            -f \<>\|HTML XML             |                                                                  Format du rapport.                                                                   |
+|         -de \<>\|XML\|evtx CSV          |                                                         Format de vidage, la valeur par défaut est XML.                                                          |
+|            -DF \<> de nom de fichier             |                                            Créez un fichier de schéma de comptage/rapports spécifique à Microsoft.                                            |
+|            -int \<nom du fichier >            |                                            Vide la structure d’événement interprétée dans le fichier spécifié.                                            |
+|                  -RTS                  |                        Horodatage brut du rapport dans l’en-tête de suivi d’événement. Peut uniquement être utilisé avec-o, et non-Report ou-Summary.                         |
+|            -TMF \<nom de fichier >            |                                                  Spécifiez un fichier de définition de format de message de trace.                                                  |
+|              -valeur \<de TP >              |                            Spécifiez le chemin de recherche de fichiers TMF. Plusieurs chemins d’accès peuvent être utilisés, séparés par un point-virgule (;).                            |
+|              -i \<valeur >               | Spécifiez le chemin d’accès de l’image du fournisseur. Le fichier PDB correspondant sera situé dans le serveur de symboles. Plusieurs chemins d’accès peuvent être utilisés, séparés par un point-virgule (;). |
+|             -valeur \<PDB >              |                             Spécifiez le chemin d’accès du serveur de symboles. Plusieurs chemins d’accès peuvent être utilisés, séparés par un point-virgule (;).                             |
+|                  -GMT                  |                                              Convertit les horodateurs de charge WPP en heure GMT.                                               |
+|              -RL \<valeur >              |                                               Définissez le niveau de rapport système de 1 à 5. La valeur par défaut est 1.                                               |
+|          -Summary [nom de fichier]           |                                  Générez un fichier texte de rapport de synthèse. Nom de fichier s’il n’est pas spécifié est Summary. txt.                                   |
+|             -o [nom de fichier]              |                                      Générez un fichier de sortie de texte. Nom de fichier s’il n’est pas spécifié est dumpfile. Xml.                                      |
+|           -rapport [nom de fichier]           |                                  Générez un fichier de rapport de sortie texte. Nom de fichier s’il n’est pas spécifié est Workload. Xml.                                   |
+|                  -LR                   |                        Spécifiez « moins restrictif ». Cela utilise les meilleurs efforts pour les événements qui ne correspondent pas au schéma d’événements.                         |
+|           -Export [nom de fichier]           |                                  Générez un fichier d’exportation du schéma d’événement. Nom de fichier s’il n’est pas spécifié est Schema. Man.                                   |
+|       [-l] \<valeur [valeur [...]] >        |                                                   Spécifiez le fichier journal de suivi d’événements à traiter.                                                    |
+| -RT \<session_name [session_name [...]] > |                                                Spécifiez les sources de données de session de suivi d’événements en temps réel.                                                |
 
-## <a name="BKMK_EXAMPLES"></a>Exemples
+## <a name="BKMK_EXAMPLES"></a>Illustre
 
-- Cet exemple crée un rapport basé sur les deux journaux des événements **logfile1.etl** et **logfile2.etl** et crée le fichier de vidage **logdump.xml** au format XML.  
+- Cet exemple crée un rapport basé sur les deux journaux des événements **logfile1. etl** et **logfile2. etl** et crée le fichier de vidage **LOGDUMP. xml** au format XML.  
   ```
   tracerpt logfile1.etl logfile2.etl -o logdump.xml -of XML
   ```  
-- Cet exemple crée un rapport basé sur le journal des événements **journal.etl**, crée le fichier de vidage **logdmp.xml** au format XML, utilise un meilleur effort pour identifier les événements pas dans le schéma, produit un fichier de rapport de synthèse **logdump.txt**et produit le fichier de rapport **logrpt.xml**.  
+- Cet exemple crée un rapport basé sur le journal des événements **logfile. etl**, crée le fichier de vidage **logdmp. XML** au format XML, utilise les meilleurs efforts pour identifier les événements qui ne se trouvent pas dans le schéma, génère un fichier de rapport de synthèse **logdump. txt**et produit le fichier de rapport **logrpt. xml**.  
   ```
   tracerpt logfile.etl -o logdmp.xml -of XML -lr -summary logdmp.txt -report logrpt.xml
   ```  
-- Cet exemple utilise les deux journaux des événements **logfile1.etl** et **logfile2.etl** pour produire un fichier de vidage et le fichier de rapport avec les noms de fichiers par défaut.  
+- Cet exemple utilise les deux journaux des événements **logfile1. etl** et **logfile2. etl** pour produire un fichier de vidage et un fichier de rapport avec les noms de fichiers par défaut.  
   ```
   tracerpt logfile1.etl logfile2.etl -o -report
   ```  
-- Cet exemple utilise le journal des événements **journal.etl** et le journal des performances **counterfile.blg** pour produire le fichier de rapport **logrpt.xml** et le schéma XML de spécifique à Microsoft fichier **schema.xml**.  
+- Cet exemple utilise le journal des événements **logfile. etl** et le journal de performances **counterfile. BLG** pour générer le fichier de rapport **logrpt. xml** et le fichier de schéma XML spécifique à Microsoft **Schema. xml**.  
   ```
   tracerpt logfile.etl counterfile.blg -report logrpt.xml -df schema.xml
   ```  
-- Cet exemple lit la Session en temps réel de Trace d’événements « NT Kernel Logger » et génère le fichier de vidage **journal.csv** au format CSV.  
+- Cet exemple lit la session de suivi d’événements en temps réel « journal de noyau NT » et génère le fichier de vidage **logfile. csv** au format CSV.  
   ```
   tracerpt -rt "NT Kernel Logger" -o logfile.csv -of CSV
   ```

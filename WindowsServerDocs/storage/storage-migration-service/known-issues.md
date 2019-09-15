@@ -8,16 +8,20 @@ ms.date: 07/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 2200c41bfc6f7e50d4f85f48591a12ad35720062
-ms.sourcegitcommit: 86350de764b89ebcac2a78ebf32631b7b5ce409a
+ms.openlocfilehash: 16e62d9232d0ec1b01333d73bc5b4a1555ffbad0
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70923362"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987404"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problèmes connus du service de migration du stockage
 
 Cette rubrique contient des réponses aux problèmes connus liés à l’utilisation de [Storage migration service](overview.md) pour migrer des serveurs.
+
+Le service de migration de stockage est disponible en deux parties : le service dans Windows Server et l’interface utilisateur dans le centre d’administration Windows. Le service est disponible dans Windows Server, le canal de maintenance à long terme, ainsi que Windows Server, canal semi-annuel ; le centre d’administration Windows est disponible sous forme de téléchargement distinct. Nous incluons également périodiquement des modifications dans les mises à jour cumulatives pour Windows Server, publiées via Windows Update. 
+
+Par exemple, Windows Server, version 1903 comprend de nouvelles fonctionnalités et des correctifs pour le service de migration de stockage, qui sont également disponibles pour Windows Server 2019 et Windows Server version 1809 en installant [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534).
 
 ## <a name="collecting-logs"></a>Comment collecter des fichiers journaux lors de l’utilisation de Support Microsoft
 
@@ -109,7 +113,7 @@ Ce comportement est lié à la conception, afin d’éviter les problèmes de co
 
 Pour contourner ce problème, effectuez une migration vers un ordinateur sur le même réseau. Ensuite, déplacez cet ordinateur vers un nouveau réseau et réaffectez ses informations IP. Par exemple, si vous migrez vers Azure IaaS, migrez d’abord vers une machine virtuelle locale, puis utilisez Azure Migrate pour déplacer la machine virtuelle vers Azure.  
 
-Nous avons résolu ce problème dans une version ultérieure du centre d’administration Windows. Nous allons maintenant vous permettre de spécifier des migrations qui ne modifient pas les paramètres réseau du serveur de destination. L’extension mise à jour sera répertoriée ici lors de la publication. 
+Nous avons résolu ce problème dans une version ultérieure du centre d’administration Windows. Nous vous autorisons maintenant à spécifier des migrations qui ne modifient pas les paramètres réseau du serveur de destination. L’extension mise à jour sera répertoriée ici lors de la publication. 
 
 ## <a name="validation-warnings-for-destination-proxy-and-credential-administrative-privileges"></a>Avertissements de validation pour le proxy de destination et les privilèges d’administration des informations d’identification
 
@@ -120,7 +124,7 @@ Lors de la validation d’une tâche de transfert, les avertissements suivants s
  > **Le proxy de destination est inscrit.**
  > Avertissement : Le proxy de destination est introuvable.
 
-Si vous n’avez pas installé le service proxy de service de migration de stockage sur l’ordinateur de destination Windows Server 2019, ou si l’ordinateur processus est Windows Server 2016 ou Windows Server 2012 R2, ce comportement est normal. Nous vous recommandons de migrer vers un ordinateur Windows Server 2019 avec le proxy installé pour améliorer considérablement les performances de transfert.  
+Si vous n’avez pas installé le service proxy de service de migration de stockage sur l’ordinateur de destination Windows Server 2019, ou si l’ordinateur de destination est Windows Server 2016 ou Windows Server 2012 R2, ce comportement est normal. Nous vous recommandons de migrer vers un ordinateur Windows Server 2019 avec le proxy installé pour améliorer considérablement les performances de transfert.  
 
 ## <a name="certain-files-do-not-inventory-or-transfer-error-5-access-is-denied"></a>Certains fichiers ne sont pas inventaires ou transférés, erreur 5 « accès refusé »
 
@@ -129,7 +133,7 @@ Lors de l’inventaire ou du transfert de fichiers d’un ordinateur source vers
   Nom du journal :      Source Microsoft-Windows-StorageMigrationService-proxy/débogage :        Microsoft-Windows-StorageMigrationService-date du proxy :          ID d’événement 2/26/2019 9:00:04 AM :      10000 catégorie de tâche : Aucun niveau :         Mots clés d’erreur :      
   Utilisateur :          Ordinateur de SERVICE réseau : description de srv1.contoso.com :
 
-  02/26/2019-09:00:04.860 [com\public\indy.png] erreur de transfert \\pour SRV1. contoso. : (5) l’accès est refusé.
+  02/26/2019-09:00:04.860 [erreur] erreur de transfert \\pour SRV1. contoso. com\public\indy.png : (5) l’accès est refusé.
 Trace de la pile : au niveau de Microsoft. StorageMigration. proxy. service. Transfer. FileDirUtils. OpenFile (String fileName, DesiredAccess desiredAccess, ShareMode shareMode, CreationDisposition creationDisposition, FlagsAndAttributes flagsAndAttributes) à l’adresse Microsoft. StorageMigration. proxy. service. Transfer. FileDirUtils. GetTargetFile (chemin d’accès de chaîne) au niveau de Microsoft. StorageMigration. proxy. service. Transfer. FileDirUtils. GetTargetFile (fichier FileInfo) à l’adresse Microsoft. StorageMigration. proxy. service. Transfer. FileTransfer. InitializeSourceFileInfo () à Microsoft. StorageMigration. proxy. service. Transfer. FileTransfer. Transfer () à l’adresse Microsoft. StorageMigration. proxy. service. Transfer. FileTransfer. TryTransfer () [d:\os\src\base\dms\proxy\transfer\transferproxy\FileTransfer.cs :: TryTransfer :: 55]
 
 
@@ -139,7 +143,7 @@ Pour résoudre ce problème, installez [Windows Update le 2 avril 2019 — KB449
 
 ## <a name="dfsr-hashes-mismatch-when-using-storage-migration-service-to-preseed-data"></a>Incompatibilité de hachages DFSR lors de l’utilisation du service de migration de stockage pour préamorcer des données
 
-Lorsque vous utilisez le service de migration de stockage pour transférer des fichiers vers une nouvelle destination, en configurant le réplication DFS (DFSR) pour répliquer ces données avec un serveur DFSR existant par le biais de la réplication activée ou du clonage de base de données DFSR, tous les fichiers experiemce un hachage discordance et sont à nouveau répliquées. Les flux de données, les flux de sécurité, les tailles et les attributs semblent être parfaitement mis en correspondance après l’utilisation de SMS pour les transférer. L’examen des fichiers avec ICACLS ou le journal de débogage de clonage de base de données DFSR révèle les éléments suivants :
+Lorsque vous utilisez le service de migration de stockage pour transférer des fichiers vers une nouvelle destination, en configurant le réplication DFS (DFSR) pour répliquer ces données avec un serveur DFSR existant via la réplication prédéfinie ou le clonage de base de données DFSR, tous les fichiers experiemce un hachage discordance et sont à nouveau répliquées. Les flux de données, les flux de sécurité, les tailles et les attributs semblent être parfaitement mis en correspondance après l’utilisation de SMS pour les transférer. L’examen des fichiers avec ICACLS ou le journal de débogage de clonage de base de données DFSR révèle :
 
 Fichier source :
 
@@ -171,7 +175,7 @@ Lorsque vous tentez de télécharger les journaux de transfert ou d’erreurs à
 
 Cette erreur est attendue si vous n’avez pas activé la règle de pare-feu « partage de fichiers et d’imprimantes (SMB-in) » sur le serveur Orchestrator. Les téléchargements de fichiers du centre d’administration Windows nécessitent le port TCP/445 (SMB) sur les ordinateurs connectés.  
 
-## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transfering-from-windows-server-2008-r2"></a>Erreur « Impossible de transférer le stockage sur l’un des points de terminaison » lors du transfert à partir de Windows Server 2008 R2
+## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transferring-from-windows-server-2008-r2"></a>Erreur « Impossible de transférer le stockage sur l’un des points de terminaison » lors du transfert à partir de Windows Server 2008 R2
 
 Lorsque vous tentez de transférer des données à partir d’un ordinateur source Windows Server 2008 R2, aucun transfert de données ne s’affiche et vous recevez l’erreur suivante :  
 
@@ -205,7 +209,7 @@ L’examen du journal StorageMigrationService-proxy/Debug affiche :
    07/02/2019-13:35:57.231 [erreur] échec de la validation du transfert. ErrorCode 40961, le point de terminaison source n’est pas accessible ou n’existe pas, les informations d’identification source ne sont pas valides, ou l’utilisateur authentifié ne dispose pas des autorisations suffisantes pour y accéder.
 à Microsoft. StorageMigration. proxy. service. Transfer. TransferOperation. Validate () à Microsoft. StorageMigration. proxy. service. Transfer. TransferRequestHandler. ProcessRequest (FileTransferRequest fileTransferRequest, Guid operationId)    [d:\os\src\base\dms\proxy\transfer\transferproxy\TransferRequestHandler.cs::
 
-Cette erreur est attendue si votre compte de migration ne dispose pas au minimum d’autorisations d’accès en lecture aux partages SMB. Pour contourner cette erreur, ajoutez un groupe de sécurité contenant le compte de migration source aux partages SMB sur l’ordinateur source et accordez-lui l’autorisation lecture, modification ou contrôle total. Une fois la migration terminée, vous pouvez supprimer ce groupe. Une version ultérieure de Windows Server peut modifier ce comportement pour ne pas nécessiter d’autorisations explicites sur les partages sources.
+Cette erreur est attendue si votre compte de migration ne dispose pas au minimum d’autorisations d’accès en lecture aux partages SMB. Pour contourner cette erreur, ajoutez un groupe de sécurité contenant le compte de migration source aux partages SMB sur l’ordinateur source et accordez-lui l’autorisation lecture, modification ou contrôle total. Une fois la migration terminée, vous pouvez supprimer ce groupe.
 
 ## <a name="error-0x80005000-when-running-inventory"></a>Erreur 0x80005000 lors de l’exécution de l’inventaire
 

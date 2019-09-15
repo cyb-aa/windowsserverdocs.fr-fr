@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 96aced2c062717aee0d2957b751bc2c25ac8e0da
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 19013c3f132b7486647ade2c9c4950b65c21b8e7
+ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869098"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975316"
 ---
 # <a name="prepare-your-environment-for-windows-admin-center"></a>Préparer votre environnement pour Windows Admin Center
 
@@ -36,7 +36,7 @@ Windows Admin Center requiert des fonctionnalités de PowerShell qui ne sont pas
 
 Saisissez `$PSVersiontable` dans PowerShell pour vérifier que WMF est installé, et que sa version est 5.1 ou ultérieure.
 
-S’il n’est pas installé, vous pouvez [télécharger et installer WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure).
+S’il n’est pas installé, vous pouvez [télécharger et installer WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure).
 
 ## <a name="prepare-windows-server-2008-r2"></a>Préparer Windows Server 2008 R2
 
@@ -48,7 +48,7 @@ Assurez-vous que [.NET Framework 4.5.2 ou une version ultérieure](https://docs.
 
 Saisissez `$PSVersiontable` dans PowerShell pour vérifier que WMF est installé, et que sa version est 5.1 ou ultérieure.
 
-S’il n’est pas installé, vous pouvez [télécharger et installer WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure).
+S’il n’est pas installé, vous pouvez [télécharger et installer WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure).
 
 Exécutez `Enable-PSRemoting –force` dans une console PowerShell pour activer la connexion à distance Powershell. 
 
@@ -114,7 +114,7 @@ Windows Admin Center requiert des fonctionnalités de PowerShell qui ne sont pas
 
 Saisissez `$PSVersiontable` dans PowerShell pour vérifier que WMF est installé, et que sa version est 5.1 ou ultérieure. 
 
-S’il n’est pas installé, vous pouvez [télécharger WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure).
+S’il n’est pas installé, vous pouvez [télécharger WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure).
 
 ### <a name="step-2-enable-remote-management"></a>Étape 2 : Activer la gestion à distance
 
