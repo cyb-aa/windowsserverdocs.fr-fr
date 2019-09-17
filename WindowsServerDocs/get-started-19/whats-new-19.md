@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 06/04/2019
-ms.openlocfilehash: 7110fe78982fec616174a93514d86fb2e1cf9fa5
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 665363c17cf5cb8d8ad52872128f2f63c07ea683
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810763"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868550"
 ---
 # <a name="whats-new-in-windows-server-2019"></a>Nouveautés de Windows Server 2019
 
@@ -214,7 +214,7 @@ Le [Service de temps Windows](https://docs.microsoft.com/windows-server/networki
 
 ### <a name="new-deployment-ui-and-windows-admin-center-extension-for-sdn"></a>Nouvelle interface utilisateur de déploiement et extension du Windows Admin Center pour SDN
 
-Désormais, avec Windows Server 2019, il est facile de déployer et de gérer par le biais d’une nouvelle interface utilisateur de déploiement et l’extension Windows Admin Center qui permettra à tout le monde d’exploiter la puissance du SDN. 
+Désormais, avec Windows Server 2019, il est facile de déployer et de gérer par le biais d’une nouvelle interface utilisateur de déploiement et l’extension Windows Admin Center qui permettra à tout le monde de tirer parti de la puissance du SDN. 
 
 ### <a name="persistent-memory-support-for-hyper-v-vms"></a>Prise en charge de la mémoire persistante pour les machines virtuelles Hyper-V
 

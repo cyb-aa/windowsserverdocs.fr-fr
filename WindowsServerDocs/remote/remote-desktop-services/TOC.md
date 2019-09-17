@@ -66,6 +66,9 @@
 
 ## Accéder à vos ressources Bureau à distance
 ### [Clients Bureau à distance disponibles](clients/remote-desktop-clients.md)
+### Client Windows Desktop
+#### [Bien démarrer avec le client Windows Desktop](clients/windowsdesktop.md)
+#### [Nouveautés du client Windows Desktop](clients/windowsdesktop-whatsnew.md)
 ### Client Windows Store
 #### [Bien démarrer avec le client Windows Store](clients/windows.md)
 #### [Nouveautés du client Windows Store](clients/windows-whatsnew.md)

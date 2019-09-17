@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: cdb831eb772114b86e6260063dff6ad881f2f37b
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 639623b4ebb21a4f6a0025a71721204cbfc4f496
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280340"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868596"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Canaux de maintenance de Windows Server : LTSC et SAC
 
@@ -25,7 +25,7 @@ Vous pouvez conserver les serveurs sur le canal de maintenance à long terme (LT
 
 ## <a name="long-term-servicing-channel-ltsc"></a>Canal de maintenance à long terme (LTSC)
 
-C’est le modèle de publication que vous connaissez déjà (anciennement « Long-Term Servicing *Branch*) selon lequel une nouvelle version majeure de Windows Server est publiée tous les 2 à 3 ans. Les utilisateurs ont droit à 5 ans de support standard et 5 ans de support étendu. Ce canal convient aux systèmes qui nécessitent une option de maintenance plus longue et une stabilité fonctionnelle. Les déploiements de Windows Server 2016 et des versions antérieures de Windows Server ne seront pas affectés par les nouvelles versions du canal semi-annuel. Le canal de maintenance à long terme continuera de recevoir des mises à jour de sécurité et autres, mais ne recevra pas les nouvelles fonctionnalités.
+Il s'agit du modèle de publication que vous connaissez déjà (anciennement « Long-Term Servicing *Branch* ») selon lequel une nouvelle version majeure de Windows Server est publiée tous les 2 à 3 ans. Les utilisateurs ont droit à 5 ans de support standard et 5 ans de support étendu. Ce canal convient aux systèmes qui nécessitent une option de maintenance plus longue et une stabilité fonctionnelle. Les déploiements de Windows Server 2016 et des versions antérieures de Windows Server ne seront pas affectés par les nouvelles versions du canal semi-annuel. Le canal de maintenance à long terme continuera de recevoir des mises à jour de sécurité et autres, mais ne recevra pas les nouvelles fonctionnalités.
 
 > [!Note]  
 > **Le produit de canal de maintenance à long terme actuel est Windows Server 2019**. Si vous voulez rester dans ce canal, vous devez installer (ou continuer à utiliser) Windows Server 2019, qui peut être installé avec l’option d’installation Server Core ou Expérience utilisateur.

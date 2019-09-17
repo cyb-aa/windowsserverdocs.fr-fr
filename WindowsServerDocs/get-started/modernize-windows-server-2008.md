@@ -10,12 +10,12 @@ ms.date: 07/12/2018
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.openlocfilehash: 9d8a8cae62a9be3384c09009dbad52e06623adb0
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: a1453ee225ab138f1808c990506145f73c50e5a5
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66222911"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868464"
 ---
 # <a name="upgrade-windows-server-2008-and-windows-server-2008-r2"></a>Mettre à niveau Windows Server 2008 et Windows Server 2008 R2
 
@@ -33,7 +33,7 @@ Si vous exécutez Windows Server 2003, vous devrez [effectuer une mise à nivea
 
 
 ## <a name="migrate-to-azure"></a>Migrer vers Azure
-Vous pouvez migrer vos serveurs locaux de Windows Server 2008 et Windows Server 2008 R2 vers Azure, dans lequel vous pouvez continuer à les exécuter sur des machines virtuelles. Dans Azure, vous resterez en conformité, vous optimiserez la sécurité et apporterez l’innovation du Cloud à votre travail. Avantages de la migration vers Azure :
+Vous pouvez migrer vos serveurs locaux de Windows Server 2008 et Windows Server 2008 R2 vers Azure, dans lequel vous pouvez continuer à les exécuter sur des machines virtuelles. Dans Azure, vous restez en conformité, bénéficiez d’une plus grande sécurité et profitez de l’innovation du cloud dans votre travail. Avantages de la migration vers Azure :
 
 - Mises à jour de sécurité dans Azure.
 - Bénéficiez de trois de mises à jour de sécurité critiques et importantes de plus pour Windows Server 2008 R2 ou 2008, inclus sans frais supplémentaires. 
