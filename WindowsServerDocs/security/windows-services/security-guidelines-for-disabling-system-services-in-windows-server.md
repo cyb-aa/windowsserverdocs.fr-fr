@@ -10,12 +10,12 @@ ms.date: 11/26/2018
 ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: nirb
 ms.author: nirb
-ms.openlocfilehash: 1a9496a121fc45df0b788ea56d50db922fd24536
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: fe2f82c373b0014a3f385dcfad77ec11a0b1e6c0
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66749452"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870213"
 ---
 ## <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>Conseils sur la désactivation des services système sous Windows Server 2016 avec Expérience utilisateur
 
@@ -28,7 +28,7 @@ Toutefois, certains clients d'entreprise peuvent préférer un équilibre plus c
 Ces instructions sont réservées à Windows Server 2016 avec Expérience utilisateur (sauf utilisé en tant que remplacement de bureau pour les utilisateurs finaux). À partir de Windows Server 2019, ces instructions sont configurées par défaut. Chaque service présent sur le système est catégorisé comme suit :
 
 -   **Doit être désactivé :** Une entreprise centrée sur la sécurité préférera très certainement désactiver ce service et renoncer à ses fonctionnalités (voir détails supplémentaires ci-dessous).
-- **Possibilité de désactivation :** Ce service fournit des fonctionnalités utiles à certaines entreprises. Les entreprises centrées sur la sécurité qui ne s'en servent pas peuvent les désactiver en toute sécurité.
+- **Possibilité de désactivation :** Ce service fournit des fonctionnalités utiles à certaines entreprises. Les entreprises centrées sur la sécurité qui ne s’en servent pas peuvent les désactiver en toute sécurité.
 - **Ne pas désactiver :** La désactivation de ce service a un impact sur les fonctionnalités essentielles ou empêche le bon fonctionnement de certains rôles ou fonctionnalités. Dès lors, il ne doit pas être désactivé.
 -  **(Pas de recommandations) :** L’impact d'une désactivation de ces services n’a pas été entièrement évalué. Dès lors, la configuration par défaut de ces services ne doit pas être modifiée.
 

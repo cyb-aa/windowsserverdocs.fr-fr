@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 03927cd531617c6e0c9572fc4ce74768e10bc66a
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 14df478c681074f8081190048fb5579d7fa9f653
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150928"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987322"
 ---
 # <a name="get-started-with-the-windows-store-client"></a>Bien démarrer avec le client Windows Store
 
@@ -30,8 +30,8 @@ Le client Bureau à distance sur Windows vous permet d’utiliser des bureaux et
 Aidez-vous des informations suivantes pour démarrer. Consultez le [Forum aux questions (FAQ)](remote-desktop-client-faq.md) si vous avez des questions.
 
 > [!NOTE]
-> - Vous êtes curieux de découvrir les nouvelles versions du client Windows ? Consultez [Nouveautés du Bureau à distance sur Windows](windows-whatsnew.md).
-> - Vous pouvez exécuter le client sur n’importe quelle version de Windows 10.
+> - Vous êtes curieux de découvrir les nouvelles versions du client Windows Store ? Consultez [Nouveautés du client Windows Store](windows-whatsnew.md).
+> - Vous pouvez exécuter le client sur n’importe quelle version prise en charge de Windows 10.
 
 ## <a name="get-the-rd-client-and-start-using-it"></a>Obtenir le client Bureau à distance et commencer à l’utiliser
 
@@ -155,7 +155,7 @@ Quand vous démarrez une connexion Bureau à distance, vous disposez d’outils 
 
 1. Appuyez sur la connexion Bureau à distance pour démarrer la session.
 2. Si vous n’avez pas enregistré les informations d’identification pour la connexion, vous êtes invité à entrer un **nom d’utilisateur** et un **mot de passe**.
-3. Si vous êtes invité à vérifier le certificat du bureau à distance, passez en revue les informations et assurez-vous que l’ordinateur est un PC de confiance avant d’appuyer sur **Connexion**. Vous pouvez aussi sélectionner **Ne plus me demander d’informations sur ce certificat** afin d’accepter automatiquement ce certificat.
+3. Si vous êtes invité à vérifier le certificat du bureau à distance, passez en revue les informations et assurez-vous que l’ordinateur est un PC de confiance avant d’appuyer sur **Connexion**. Vous pouvez aussi sélectionner **Ne plus me demander d’informations sur ce certificat** pour accepter automatiquement ce certificat.
 
 ### <a name="connection-bar"></a>Barre de connexion
 

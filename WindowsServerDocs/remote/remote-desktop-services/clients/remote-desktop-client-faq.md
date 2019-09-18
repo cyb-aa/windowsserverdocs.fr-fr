@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: e6f91aa02cd0f19d480c24309be5797c273b0f2e
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: e0dbe709681cf679347ccad2677ff3cda6690f3d
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66804952"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871231"
 ---
 # <a name="frequently-asked-questions-about-the-remote-desktop-clients"></a>Forum aux questions sur les clients Bureau à distance
 
@@ -89,7 +89,7 @@ Voici quelques solutions possibles aux problèmes courants que vous pouvez renco
      Si vous utilisez un autre pare-feu, assurez-vous que le port Bureau à distance (généralement 3389) est ouvert.
 - **La fonctionnalité Connexion à distance ne peut pas être configurée sur le PC distant.** Pour résoudre ce problème, revenez à la question [Comment configurer un PC pour le Bureau à distance ?](#how-do-i-set-up-a-pc-for-remote-desktop) de cette rubrique.
 - **Le PC à distance peut autoriser uniquement la connexion des PC dont l’authentification au niveau du réseau est configurée.** 
-- **Le PC à distance est peut-être désactivé.** Vous ne pouvez pas vous connecter à un PC qui est désactivé, en veille, ou en veille prolongée. Par conséquent, vérifiez que les paramètres de mise en veille et veille prolongée sur un PC distant sont définis sur **Jamais**. Remarque : la mise en veille prolongée n’est pas disponible pour tous les PC.
+- **Le PC à distance est peut-être désactivé.** Vous ne pouvez pas vous connecter à un PC qui est désactivé, en veille ou en veille prolongée. Par conséquent, vérifiez que les paramètres de mise en veille et veille prolongée sur un PC distant sont définis sur **Jamais**. Remarque : La mise en veille prolongée n’est pas disponible pour tous les PC.
 
 ### <a name="why-cant-i-find-or-connect-to-my-pc"></a>Pourquoi ne puis-je pas trouver mon PC ou m’y connecter ?
 
@@ -234,7 +234,7 @@ Si une erreur de type **RPC 23014** ou **0x59E6** survient, veuillez attendre q
 ### <a name="what-does-the-failed-to-parse-ntlm-challenge-error-mean"></a>Que signifie l’erreur « Impossible d’analyser le test NTLM » ?
 Cette erreur est due à une erreur de configuration sur un PC distant. Assurez-vous que le paramètre de niveau de sécurité RDP du PC distant est défini sur « Client compatible ». Si vous avez besoin d’aide supplémentaire, veuillez contacter votre administrateur système.
 
-### <a name="what-does-tsrap-you-are-not-allowed-to-connect-to-the-given-host-mean"></a>Que signifie « TS_RAP Vous n'êtes pas autorisé à vous connecter à l'hôte donné » ?
+### <a name="what-does-ts_rap-you-are-not-allowed-to-connect-to-the-given-host-mean"></a>Que signifie « TS_RAP Vous n'êtes pas autorisé à vous connecter à l'hôte donné » ?
 Cette erreur se produit lorsqu’une stratégie d’autorisation d’accès aux ressources sur le serveur de la passerelle arrête la connexion de votre nom d’utilisateur au PC distant. Cela peut se produire dans les cas suivants :
 
 - Le nom du PC à distance est le même que le nom de la passerelle. Puis, lorsque vous essayez de vous connecter au PC distant, la connexion s’établit plutôt vers la passerelle, et vous ne disposez probablement pas des autorisations requises pour une telle connexion. Si vous devez pour vous connecter à la passerelle, n’utilisez pas le nom de la passerelle externe en tant que nom de PC. Veuillez plutôt utiliser « localhost » ou l’adresse IP (127.0.0.1) ou le nom du serveur interne.

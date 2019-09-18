@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 2a44dc9f-c221-4bf7-89c3-fb4c86a90f8c
 author: jaimeo
 manager: dougkim
-ms.openlocfilehash: 4f6e68ba1025e23e052d3c40535483ee90cb9b4b
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ef13369fa325d136f9e3847db9872a80b650ca37
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63712262"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870633"
 ---
 # <a name="recommended-settings-for-vdi-desktops"></a>Paramètres recommandés pour les postes de travail VDI
 
@@ -59,7 +59,7 @@ Vous pouvez également les ajuster après l’installation, en utilisant l’éd
 |**Emplacement**| | |
 |Activez la fonctionnalité Localiser mon appareil et laissez Windows et les applications vous localiser en demandant notamment l’historique des emplacements| Activé| Désactivé|
 |Connectivité et rapport d’erreurs| | |
-|Permet de se connecter automatiquement, selon les suggestions fournies, aux points d’accès ouverts. Tous les réseaux ne sont pas sécurisés.|    Activé| Désactivé|
+|Se connecter automatiquement, selon les suggestions fournies, aux points d'accès ouverts. Tous les réseaux ne sont pas sécurisés.|    Activé| Désactivé|
 |Connectez-vous automatiquement et temporairement aux points d’accès afin de vérifier si des services réseau payants sont disponibles.| Activé| Désactivé|
 |Envoyez des rapports de diagnostics et d’utilisation complets à Microsoft. La désactivation de cette option envoie uniquement des données de base.| Activé| Désactivé|
 |**Navigateur, protection et mise à jour**| | |
@@ -198,7 +198,7 @@ La valeur par défaut pour « Laisser les applications contrôler les radios �
 
 #### <a name="other-devices"></a>Autres appareils
 
-La valeur par défaut pour « Permettre à vos applications de partager et de synchroniser automatiquement des informations avec des périphériques sans fil non couplés explicitement avec votre PC, votre tablette ou votre téléphone » est **Activé**. Nous vous recommandons de le définir sur **Désactivé** si vous utilisez un VDI.
+La valeur par défaut pour « Permettre à vos applications de partager et de synchroniser automatiquement des informations avec des périphériques sans fil non couplés explicitement avec votre PC, votre tablette ou votre téléphone » est **Activé**. La valeur recommandée est **Désactivé** si vous utilisez un VDI.
 
 #### <a name="feedback-and-diagnostics"></a>Commentaires et diagnostics
 

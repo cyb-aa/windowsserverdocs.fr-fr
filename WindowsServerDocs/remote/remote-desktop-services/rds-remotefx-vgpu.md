@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 0263fa6b-2185-4cc3-99ef-3588e2f4ada5
 author: lizap
 manager: scottman
-ms.openlocfilehash: 3e7da1a70826dc720a96ceb3fe5d04868943f163
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 3e189d9ac059136b40d8ee5d93a4eea5b788cdd1
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63712138"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870849"
 ---
 # <a name="set-up-and-configure-remotefx-vgpu-for-remote-desktop-services"></a>Installer et configurer un processeur graphique virtuel (vGPU) RemoteFX pour les services Bureau à distance
 
@@ -120,7 +120,7 @@ Pour plus d'informations, consultez [Get-VMRemoteFXPhysicalVideoAdapter](https:/
 
 ## <a name="monitor-performance"></a>Analyser les performances
 
-Les performances et la mise à l'échelle d'un système VDI dépendent de divers facteurs tels que la mémoire totale du GPU, la quantité de mémoire système et sa vitesse, le nombre de cœurs du processeur et la fréquence d'horloge de l'UC, la vitesse de stockage et l'implémentation de l'architecture NUMA.
+Les performances et la mise à l’échelle d’un système VDI dépendent de divers facteurs tels que la mémoire totale du GPU, la quantité de mémoire système et sa vitesse, le nombre de cœurs du processeur et la fréquence d’horloge de l’UC, la vitesse de stockage et l’implémentation de l’architecture NUMA.
 
 La prise en charge de la fonctionnalité vGPU à distance dans les services Bureau à distance inclut les compteurs de performance suivants, que vous pouvez consulter dans Analyseur de performances (PerfMon.exe) afin de recueillir des informations sur la fréquence d'images.
 

@@ -8,21 +8,21 @@ ms.suite: na
 ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
-author: lizap
-manager: dongill
-ms.author: elizapo
-ms.date: 08/27/2019
+author: heidilohr
+manager: daveba
+ms.author: helohr
+ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 9ae58103b00941bb71d447641b1cdab7c02fa20b
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 9fbd3e9c5f7938fbf6a80e9f5dc950a2c0a9a257
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70151021"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987338"
 ---
 # <a name="whats-new-in-the-macos-client"></a>Nouveautés du client macOS
 
-Nous mettons régulièrement à jour le [client Bureau à distance pour macOS](remote-desktop-mac.md), en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Découvrez les dernières mises à jour ci-dessous.
+Nous mettons régulièrement à jour le [client Bureau à distance pour macOS](remote-desktop-mac.md), en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Vous y trouverez les dernières mises à jour.
 
 Si vous rencontrez des problèmes, vous pouvez toujours nous contacter via **Aide > Signaler un problème**.
 
@@ -46,14 +46,14 @@ Quelques semaines se sont écoulées depuis notre dernière mise à jour, mais n
 
 ## <a name="updates-for-version-10213"></a>Mises à jour pour la version 10.2.13
 
-*Date de publication : 08/05/2019*
+*Date de publication : 08/05/2019*
 
 - Correction d’un blocage se produisant lors d’une connexion via une passerelle Bureau à distance.
 - Ajout d’un avis de confidentialité à la boîte de dialogue « Ajouter un flux ».
 
 ## <a name="updates-for-version-10212"></a>Mises à jour pour la version 10.2.12
 
-*Date de publication : 16/04/2019*
+*Date de publication : 16/04/2019*
 
 - Résolution des déconnexions aléatoires (avec code d’erreur 0x904) qui survenaient lors d’une connexion via une passerelle Bureau à distance.
 - Correction d’un bogue qui vidait la liste des résolutions dans les préférences de l’application après l’installation.
@@ -62,20 +62,20 @@ Quelques semaines se sont écoulées depuis notre dernière mise à jour, mais n
 
 ## <a name="updates-for-version-10210"></a>Mises à jour pour la version 10.2.10
 
-*Date de publication : 30/03/2019*
+*Date de publication : 30/03/2019*
 
 - Dans cette version, nous avons traité une instabilité causée par la mise à jour récente 10.14.4 de macOS. Nous avons également corrigé les erreurs de peinture qui s’affichaient lors du décodage des données de codec AVC encodées par un serveur à l’aide du matériel NVIDIA.
 
 ## <a name="updates-for-version-1029"></a>Mises à jour pour la version 10.2.9
 
-*Date de publication : 06/03/2019*
+*Date de publication : 06/03/2019*
 
 - Dans cette version, nous avons corrigé un problème de connectivité de passerelle Bureau à distance qui peut se produire lors de la redirection de serveur.
 - Nous avons également traité une régression de passerelle Bureau à distance provoquée par la mise à jour 10.2.8.
 
 ## <a name="updates-for-version-1028"></a>Mises à jour pour la version 10.2.8
 
-*Date de publication : 01/03/2019*
+*Date de publication : 01/03/2019*
 
 - Résolution des problèmes de connectivité qui apparaissaient lorsque vous utilisiez une passerelle Bureau à distance.
 - Correction des avertissements de certificat incorrect qui s’affichaient lors de la connexion.
@@ -85,13 +85,13 @@ Quelques semaines se sont écoulées depuis notre dernière mise à jour, mais n
 
 ## <a name="updates-for-version-1027"></a>Mises à jour pour la version 10.2.7
 
-*Date de publication : 06/02/2019*
+*Date de publication : 06/02/2019*
 
 - Dans cette version, nous avons traité les erreurs de peinture des graphismes (causées par un bogue d’encodage du serveur) qui s’affichaient lors de l’utilisation du mode AVC444.
 
 ## <a name="updates-for-version-1026"></a>Mises à jour pour la version 10.2.6
 
-*Date de publication : 28/01/2019*
+*Date de publication : 28/01/2019*
 
 - Ajout de la prise en charge du codec AVC (420 et 444), disponible lors de la connexion aux versions actuelles de Windows 10.
 - Dans le mode Ajuster à la fenêtre, une actualisation de la fenêtre a immédiatement lieu après chaque redimensionnement pour s’assurer que le contenu est affiché selon le niveau d’interpolation approprié.
@@ -105,7 +105,7 @@ Quelques semaines se sont écoulées depuis notre dernière mise à jour, mais n
 
 ## <a name="updates-for-version-1024"></a>Mises à jour pour la version 10.2.4
 
-*Date de publication : 18/12/2018*
+*Date de publication : 18/12/2018*
 
 - Ajour de la prise en charge d’un mode sombre pour macOS Mojave 10.14.
 - Une option d’importation à partir de Bureau à distance Microsoft 8 s’affiche maintenant dans le centre de connexion dans le cas où il serait vide.
@@ -117,7 +117,7 @@ Quelques semaines se sont écoulées depuis notre dernière mise à jour, mais n
 
 ## <a name="updates-for-version-1023"></a>Mises à jour pour la version 10.2.3
 
-*Date de publication : 06/11/2018*
+*Date de publication : 06/11/2018*
 
 - Ajout d’une prise en charge pour le paramètre « remoteapplicationcmdline » du fichier RDP pour les scénarios d’application à distance.
 - Le titre de la fenêtre de session inclut désormais le nom du fichier RDP (et le nom du serveur) lorsqu’elle est lancée à partir d’un fichier RDP.
@@ -133,7 +133,7 @@ Quelques semaines se sont écoulées depuis notre dernière mise à jour, mais n
 
 ## <a name="updates-for-version-1022"></a>Mises à jour pour la version 10.2.2
 
-*Date de publication : 09/10/2018*
+*Date de publication : 09/10/2018*
 
 - Tout nouveau centre de connexion qui prend en charge les opérations de glisser-déposer, la disposition manuelle des bureaux, les colonnes redimensionnables en mode Liste, le tri par colonne et une gestion des groupes plus simple.
 - Le centre de connexion mémorise désormais le dernier sélecteur de vue actif (bureaux ou flux) lors de la fermeture de l’application.
@@ -162,14 +162,14 @@ Quelques semaines se sont écoulées depuis notre dernière mise à jour, mais n
 
 ## <a name="updates-for-version-1021"></a>Mises à jour pour la version 10.2.1
 
-*Date de publication : 06/08/2018*
+*Date de publication : 06/08/2018*
 
 - Connectivité activée pour les PC joints à Azure Active Directory (AAD). Pour vous connecter à un PC joint à AAD, votre nom d’utilisateur doit être dans l’un des formats suivants : « AzureAD\user » ou « AzureAD\user@domain ».
 - Traitement de certains bogues qui affectaient l’utilisation de cartes à puce dans une session distante.
 
 ## <a name="updates-for-version-1020"></a>Mises à jour pour la version 10.2.0
 
-*Date de publication : 24/07/2018*
+*Date de publication : 24/07/2018*
 
 - Mises à jour incorporées pour la conformité au RGPD.
 - MicrosoftAccount\username@domain est désormais accepté en tant que nom d’utilisateur valide.
@@ -198,7 +198,7 @@ Quelques semaines se sont écoulées depuis notre dernière mise à jour, mais n
 
 ## <a name="updates-for-version-1018"></a>Mises à jour pour la version 10.1.8
 
-*Date de publication : 04/05/2018*
+*Date de publication : 04/05/2018*
 
 - Ajout de la prise en charge de la modification de la résolution à distance en redimensionnant la fenêtre de session !
 - Correction des scénarios où le téléchargement du flux de ressource distante prenait énormément de temps.
@@ -206,7 +206,7 @@ Quelques semaines se sont écoulées depuis notre dernière mise à jour, mais n
 
 ## <a name="updates-for-version-1017"></a>Mises à jour pour la version 10.1.7
 
-*Date de publication : 05/04/2018*
+*Date de publication : 05/04/2018*
 
 - Application de correctifs de sécurité pour incorporer les mises à jour pour traiter la correction du chiffrement de l’oracle CredSSP comme décrite dans CVE-2018-0886.
 - Amélioration de l’affichage du curseur de la souris et de l’icône RemoteApp pour traiter les erreurs de peinture signalées.
@@ -220,7 +220,7 @@ Quelques semaines se sont écoulées depuis notre dernière mise à jour, mais n
 
 ## <a name="updates-for-version-1016"></a>Mises à jour pour la version 10.1.6
 
-*Date de publication : 26/03/2018*
+*Date de publication : 26/03/2018*
 
 - Correction d’un problème où les fenêtres RemoteApp se réorganisaient elles-mêmes.
 - Résolution d’un bogue qui entraînait le blocage de certaines fenêtres RemoteApp derrière leur fenêtre parente.

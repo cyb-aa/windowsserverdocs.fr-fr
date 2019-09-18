@@ -8,12 +8,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
 ms.date: 06/03/2019
-ms.openlocfilehash: e17a636c5bf06d194abd1bfe9b6d20970773e993
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: b5391677397660e3beacb9a71189bf3ffe2aeaab
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66501401"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868338"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Nouveautés de Windows Server, version 1709
 
@@ -44,7 +44,7 @@ Pour plus d’informations, consultez [Comparaison des canaux de maintenance](ht
 
 ## <a name="application-containers-and-micro-services"></a>Conteneurs d’applications et micro-services
 
-- L’image conteneur Server Core a été optimisée pour les scénarios «lift-and-shift » qui permettent de migrer des bases de code ou des applications existantes dans des conteneurs avec très peu de modifications, et qui plus est une taille inférieure de 60 %. 
+- L’image conteneur Server Core a été optimisée pour les scénarios « lift-and-shift » qui permettent de migrer des bases de code ou des applications existantes dans des conteneurs avec très peu de modifications, et qui plus est une taille inférieure de 60 %. 
 - L’image conteneur Nano Server est réduite de près de 80 %.
     - Dans le canal semi-annuel Windows Server, l’image de système d’exploitation de base de conteneur Nano Server est réduite de 390 Mo à 80 Mo.
 - Conteneurs Linux avec isolation Hyper-V 
@@ -70,9 +70,9 @@ La **prise en charge de la mémoire de classe stockage pour les machines virtuel
 
 La **mémoire persistante virtualisée (vPMEM)** est activée en créant un fichier VHD (.vhdpmem) sur un volume à accès direct sur un hôte, en ajoutant un contrôleur vPMEM à une machine virtuelle, puis en ajoutant le périphérique créé (.vhdpmem) à une machine virtuelle. L’utilisation de fichiers vhdpmem sur des volumes à accès direct sur un hôte pour sauvegarder la mémoire persistante virtualisée (vPMEM) offre une plus grande flexibilité d’allocation et tire parti d’un modèle de gestion familier pour l’ajout de disques à des machines virtuelles.
 
-**Stockage de conteneur : volumes de données persistants sur des volumes partagés de cluster (CSV)** . Dans Windows Server, version 1709, ainsi que dans Windows Server 2016 disposant des dernières mises à jour, nous avons ajouté la prise en charge de l’accès par des conteneurs à des volumes de données persistants situés sur des volumes partagés de cluster, y compris des volumes partagés de cluster dans les espaces de stockage direct. Ainsi, le conteneur d’applications dispose d’un accès persistant au volume, quel que soit le nœud de cluster sur lequel s’exécute l’instance de conteneur. Pour plus d’informations, consultez le billet de blog [Container Storage Support with Cluster Shared Volumes (CSV), Storage Spaces Direct (S2D), SMB Global Mapping](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
+**Stockage de conteneur : volumes de données persistants sur des volumes partagés de cluster (CSV)** . Dans Windows Server version 1709 ainsi que dans Windows Server 2016 avec les dernières mises à jour, nous avons ajouté la prise en charge de l’accès par des conteneurs à des volumes de données persistants situés sur des volumes partagés de cluster, notamment des volumes partagés de cluster dans les espaces de stockage direct. Ainsi, le conteneur d’applications dispose d’un accès persistant au volume, quel que soit le nœud de cluster sur lequel s’exécute l’instance de conteneur. Pour plus d’informations, consultez le billet de blog [Container Storage Support with Cluster Shared Volumes (CSV), Storage Spaces Direct (S2D), SMB Global Mapping](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
 
-**Stockage de conteneur : volumes de données persistants avec le mappage global SMB**. Dans Windows Server, version 1709, nous avons ajouté la prise en charge du mappage d’un partage de fichiers SMB à une lettre de lecteur à l’intérieur d’un conteneur. Ce mappage est appelé mappage global SMB. Ce lecteur mappé est ensuite accessible à tous les utilisateurs sur le serveur local afin que les E/S de conteneur sur le volume de données puissent transiter par le biais du lecteur monté pour accéder au partage de fichiers sous-jacent. Pour plus d’informations, consultez le billet de blog [Container Storage Support with Cluster Shared Volumes (CSV), Storage Spaces Direct (S2D), SMB Global Mapping](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
+**Stockage de conteneur : volumes de données persistants avec le mappage global SMB**. Dans Windows Server version 1709, nous avons ajouté la prise en charge du mappage d’un partage de fichiers SMB à une lettre de lecteur à l’intérieur d’un conteneur. Ce mappage est appelé mappage global SMB. Ce lecteur mappé est ensuite accessible à tous les utilisateurs sur le serveur local afin que les E/S de conteneur sur le volume de données puissent transiter par le biais du lecteur monté pour accéder au partage de fichiers sous-jacent. Pour plus d’informations, consultez le billet de blog [Container Storage Support with Cluster Shared Volumes (CSV), Storage Spaces Direct (S2D), SMB Global Mapping](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
 
 **Format de fichier de configuration de machine virtuelle (mis à jour)** . Un fichier supplémentaire (.vmgs) a été ajouté pour les machines virtuelles dont la version de configuration est 8.2 ou ultérieure. VMGS signifie « VM guest state » (état de machine virtuelle invitée). Il s’agit d’un nouveau fichier interne qui inclut l’état de l’appareil, lequel faisait précédemment partie du fichier d’état du runtime de la machine virtuelle.
 

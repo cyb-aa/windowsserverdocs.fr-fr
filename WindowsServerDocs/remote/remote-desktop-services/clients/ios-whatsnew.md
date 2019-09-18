@@ -8,25 +8,25 @@ ms.suite: na
 ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
-author: lizap
-manager: dongill
-ms.author: elizapo
-ms.date: 08/27/2019
+author: heidilohr
+manager: daveba
+ms.author: helohr
+ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: df19f9f27b79f5549d487f6035eba2345dd87ea6
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 3bdf50ed04e291014ed5b70b572b3123fa925d10
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70151005"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987355"
 ---
 # <a name="whats-new-in-the-ios-client"></a>Nouveautés du client iOS
 
-Nous mettons régulièrement à jour le [client Bureau à distance pour iOS](remote-desktop-ios.md), en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Découvrez les dernières mises à jour ci-dessous.
+Nous mettons régulièrement à jour le [client Bureau à distance pour iOS](remote-desktop-ios.md), en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Vous y trouverez les dernières mises à jour.
 
 ## <a name="remote-desktop-ios-beta-client"></a>Client bêta iOS Bureau à distance
 
-*Date de publication : 20/02/2019*
+*Date de publication : 20/02/2019*
 
 Le [client bêta iOS Bureau à distance](remote-desktop-ios.md#download-the-remote-desktop-ios-beta-client-from-apple-testflight) est désormais disponible sur TestFlight. Lors du test du client bêta iOS, gardez à l’esprit qu’il s’agit d’une version préliminaire du nouveau client iOS et qu’il n’est pas garanti comme étant aussi stable que les versions de production. Nous continuerons à mettre régulièrement à jour ce client avec de nouveaux correctifs et fonctionnalités. Plusieurs fonctionnalités du client bêta iOS sont présentées ci-dessous :
 
@@ -39,12 +39,12 @@ Le [client bêta iOS Bureau à distance](remote-desktop-ios.md#download-the-remo
 
 ## <a name="updates-for-version-8142"></a>Mises à jour pour la version 8.1.42
 
-*Date de publication : 20/06/2018*
+*Date de publication : 20/06/2018*
 
 - Améliorations des performances et corrections des bogues.
 
 ## <a name="updates-for-version-8141"></a>Mises à jour pour la version 8.1.41
 
-*Date de publication : 28/03/2018*
+*Date de publication : 28/03/2018*
 
 - Mises à jour pour traiter la correction du chiffrement de l’oracle CredSSP décrite dans CVE-2018-0886.

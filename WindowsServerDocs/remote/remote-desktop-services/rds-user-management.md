@@ -13,12 +13,12 @@ author: christianmontoya
 ms.author: chrimo
 ms.date: 03/27/2018
 manager: scottman
-ms.openlocfilehash: 91d032d1a7131fd0bc84e33bd2806d807eb1dafe
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ff782bc4d01709f56d19ee3e9a06a95267cf7a12
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63711993"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870740"
 ---
 # <a name="manage-users-in-your-rds-collection"></a>Gérer les utilisateurs de votre collection de services Bureau à distance
 
@@ -43,8 +43,8 @@ Les étapes suivantes décrivent comment installer les outils AD DS sur un serve
    2. Sélectionnez la machine virtuelle Active Directory.
    3. Cliquez sur **Se connecter > Ouvrir** pour ouvrir le client Bureau à distance. Si **Se connecter** est grisé, il est possible que la machine virtuelle n’ait pas d’adresse IP publique. Pour lui en affecter une, effectuez les étapes suivantes, puis réessayez cette étape.
       1. Cliquez sur **Paramètres > Interfaces réseau**, puis sur l’interface réseau correspondante.
-      2. Cliquez sur **Paramètres > Adresse IP**.
-      3. Pour **Adresse IP publique**, sélectionnez **Activé**, puis cliquez sur **Adresse IP**.
+      2. Cliquez sur **Paramètres > Adresse IP**.
+      3. Pour **Adresse IP publique**, sélectionnez **Activé**, puis cliquez sur **Adresse IP**.
       4. Si vous disposez d’une adresse IP publique existante à utiliser, sélectionnez-la dans la liste. Sinon, cliquez sur **Créer**, entrez un nom, puis cliquez sur **OK** et **Enregistrer**.
    4. Sur le client, cliquez sur **Se connecter**, puis sur **Utiliser un autre compte**. Entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur de domaine.
    5. Répondez **Oui** à l’invite concernant le certificat.

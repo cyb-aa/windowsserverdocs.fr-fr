@@ -13,12 +13,12 @@ author: spatnaik
 ms.author: spatnaik
 ms.date: 09/23/2016
 manager: scottman
-ms.openlocfilehash: 9d16989cc3ecbf0170081bb8cb52a9103f979741
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 05b9dcfdb28613e4f8a815e78a84ba1f70c35b97
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63743464"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870933"
 ---
 # <a name="remote-desktop-services---cater-to-different-kinds-of-users"></a>Services Bureau à distance - Prendre en charge différents types d’utilisateurs
 
@@ -27,4 +27,4 @@ ms.locfileid: "63743464"
 Adaptez votre déploiement en fonction du besoin attendu de chaque type d’utilisateur.
 Par exemple, les utilisateurs peuvent entrer des données sur des applications légères, manipuler des jeux de données volumineux avec des applications de productivité comme Office, ou travailler sur de puissantes applications graphiques ou techniques.
 
-Il est recommandé de tester la charge du déploiement avec des tests de contrainte et de simulation de l’utilisation réelle. Variez la taille de charge pour éviter les surprises ! Assurez-vous que la réactivité répond aux besoins des utilisateurs et que l’ensemble du système est résilient. Créez des tests de charge avec des outils de simulation, tels que LoginVSI, qui vérifient la capacité de votre déploiement à répondre aux besoins des utilisateurs. 
+Il est recommandé de tester la charge du déploiement avec des tests de contrainte et de simulation de l’utilisation réelle. Variez la taille de charge pour éviter les surprises ! Assurez-vous que la réactivité répond aux besoins des utilisateurs et que l’ensemble du système est résilient. Créez des tests de charge avec des outils de simulation, tels que LoginVSI, permettant de vérifier si votre déploiement répond aux besoins des utilisateurs. 

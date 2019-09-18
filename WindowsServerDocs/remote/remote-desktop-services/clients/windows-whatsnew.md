@@ -8,25 +8,25 @@ ms.suite: na
 ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
-author: lizap
-manager: dongill
-ms.author: elizapo
-ms.date: 08/27/2019
+author: heidilohr
+manager: daveba
+ms.author: helohr
+ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: a8ecdf217f847f495b2cb90dd3511a8db9e72c95
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 6a4a6ae860dc8eabc4856ff3aa66268ed8d588de
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150987"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987364"
 ---
 # <a name="whats-new-in-the-windows-store-client"></a>Nouveautés du client Windows Store
 
-Nous mettons régulièrement à jour le [client Bureau à distance pour Windows](windows.md), en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Découvrez les dernières mises à jour ci-dessous.
+Nous mettons régulièrement à jour le [client Windows Store](windows.md) en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Vous y trouverez les dernières mises à jour.
 
 ## <a name="updates-for-version-1011098"></a>Mises à jour pour la version 10.1.1098
 
-*Date de publication : 15/03/2019*
+*Date de publication : 15/03/2019*
 
 - Vous pouvez maintenant définir un nom d’affichage pour les comptes d’utilisateur, afin de pouvoir enregistrer le même nom d’utilisateur avec différents mots de passe.
 - Il est désormais possible de sélectionner un compte d’utilisateur lors de l’ajout des ressources distantes.
@@ -36,7 +36,7 @@ Nous mettons régulièrement à jour le [client Bureau à distance pour Windows]
 
 ## <a name="updates-for-version-1011088"></a>Mises à jour pour la version 10.1.1088
 
-*Date de publication : 06/11/2018*
+*Date de publication : 06/11/2018*
 
 - Le nom d’affichage de connexion est désormais plus facilement détectable.
 - Correction d’un incident se présentant lors de la fermeture de la fenêtre du client alors qu’une connexion est toujours active.
@@ -47,7 +47,7 @@ Nous mettons régulièrement à jour le [client Bureau à distance pour Windows]
 
 ## <a name="updates-for-version-1011060"></a>Mises à jour pour la version 10.1.1060
 
-*Date de publication : 14/09/2018*
+*Date de publication : 14/09/2018*
 
 - Traitement d’un problème où le fait de double-cliquer sur une connexion de bureau entraînait le lancement de deux sessions.
 - Correction d’un incident lors du basculement entre des bureaux virtuels en local.
@@ -57,13 +57,13 @@ Nous mettons régulièrement à jour le [client Bureau à distance pour Windows]
 
 ## <a name="updates-for-version-1011046"></a>Mises à jour pour la version 10.1.1046
 
-*Date de publication : 20/06/2018*
+*Date de publication : 20/06/2018*
 
 - Corrections de bogues.
 
 ## <a name="updates-for-version-1011042"></a>Mises à jour pour la version 10.1.1042
 
-*Date de publication : 02/04/2018*
+*Date de publication : 02/04/2018*
 
 - Mises à jour pour traiter la correction du chiffrement de l’oracle CredSSP décrite dans CVE-2018-0886.
 - Corrections de bogues supplémentaires.

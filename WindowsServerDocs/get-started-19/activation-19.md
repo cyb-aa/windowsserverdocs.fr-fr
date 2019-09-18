@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: 4cc669fee4fbd31edc8813f16761ecb9f90532df
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 536d3265e6a29c2d5321d3d8a8ea3ecfa7b2cdcb
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810919"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868687"
 ---
 # <a name="windows-server-2019-activation"></a>Activation de Windows Server 2019
 
@@ -66,7 +66,7 @@ L’activation basée sur le service KMS requiert la connectivité TCP/IP. Les c
 
 Une fois que le premier hôte KMS a été activé, la clé KMS utilisée sur le premier hôte peut être utilisée pour activer jusqu’à cinq hôtes KMS supplémentaires sur votre réseau. Une fois qu’un hôte KMS a été activé, les administrateurs peuvent réactiver le même hôte jusqu’à neuf fois avec la même clé.
 
-Si votre organisation a besoin de plus de six hôtes KMS, vous devez demander des activations supplémentaires pour la clé KMS de votre organisation ; par exemple, si vous avez dix emplacements physiques sous un seul contrat de licence en volume et que vous voulez que chaque emplacement possède un hôte KMS local.
+Si votre organisation a besoin de plus de six hôtes KMS, vous devez demander des activations supplémentaires pour la clé KMS de votre organisation ; par exemple, si vous avez dix emplacements physiques sous un seul contrat de licence en volume et que vous voulez que chaque emplacement possède un hôte KMS local.
 
 > [!NOTE] 
 > Pour demander une telle exception, contactez votre centre d’appels d’activation. Pour plus d’informations, consultez [Licence en volume Microsoft](https://go.microsoft.com/fwlink/?LinkID=73076).

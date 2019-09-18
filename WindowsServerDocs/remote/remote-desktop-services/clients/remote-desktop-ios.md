@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: f5a0808148068282c218343a923b357267e724e5
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 97f7c3e26a54b9170ebc65e0c48acd964d9e2429
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150940"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871159"
 ---
 # <a name="get-started-with-the-ios-client"></a>Bien démarrer avec le client iOS
 
@@ -163,7 +163,7 @@ Quand vous démarrez une session Bureau à distance, vous disposez d’outils ut
 ### <a name="start-a-remote-desktop-connection"></a>Démarrer une connexion Bureau à distance
 
 1. Appuyez sur la connexion Bureau à distance pour démarrer la session Bureau à distance.
-2. Si vous êtes invité à vérifier le certificat du bureau à distance, appuyez sur **Accepter**. Vous pouvez choisir d’accepter automatiquement le certificat en faisant glisser l’option **Ne pas me redemander pour les connexions à cet ordinateur** vers **Activé**.
+2. Si vous êtes invité à vérifier le certificat du bureau à distance, appuyez sur **Accepter**. Vous pouvez choisir d’accepter automatiquement le certificat en faisant passer l’option **Ne pas me redemander pour les connexions à cet ordinateur** à **Activé**.
 
 ### <a name="connection-bar"></a>Barre de connexion
 

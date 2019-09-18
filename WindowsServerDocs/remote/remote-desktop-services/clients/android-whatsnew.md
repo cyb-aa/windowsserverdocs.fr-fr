@@ -8,21 +8,21 @@ ms.suite: na
 ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
-author: lizap
-manager: dongill
-ms.author: elizapo
-ms.date: 08/27/2019
+author: heidilohr
+manager: daveba
+ms.author: helohr
+ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 6ee224cd5bf7ccdeb3b0d55d091a5d322583c101
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 7a2061878cdbc7a5ace923835a334736e976e248
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150994"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987329"
 ---
 # <a name="whats-new-in-the-android-client"></a>Nouveautés du client Android
 
-Nous mettrons régulièrement à jour le [client Bureau à distance pour Android](remote-desktop-android.md), en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Découvrez les dernières mises à jour ci-dessous.
+Nous mettrons régulièrement à jour le [client Bureau à distance pour Android](remote-desktop-android.md), en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Vous y trouverez les dernières mises à jour.
 
 ## <a name="updates-for-version-8171"></a>Mises à jour relatives à la version 8.1.71
 

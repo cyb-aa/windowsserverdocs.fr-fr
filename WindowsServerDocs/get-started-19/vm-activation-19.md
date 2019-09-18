@@ -12,12 +12,12 @@ ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
-ms.openlocfilehash: 18e20433050371dc02782fb8630a885e53ae31ad
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 4d1cdcfe8325a246e2752e1d1f2a3ad536598658
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63688706"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70868568"
 ---
 # <a name="automatic-virtual-machine-activation"></a>Activation automatique de machine virtuelle
 
@@ -86,7 +86,7 @@ Les clés AVMA suivantes peuvent être utilisées pour Windows Server 2019.
 |-|-|
 |Datacenter|    H3RNG-8C32Q-Q8FRX-6TDXV-WMBMW|
 |Standard|  TNK62-RXVTB-4P47B-2D623-4GF74|
-|Essentials|    2CTP7-NHT64-BP62M-FV6GG-HFV28|
+|Éléments essentiels|    2CTP7-NHT64-BP62M-FV6GG-HFV28|
  
 Les clés AVMA suivantes peuvent être utilisées pour Windows Server version 1809.
 
@@ -109,7 +109,7 @@ Les clés AVMA suivantes peuvent être utilisées pour Windows Server 2016.
 |-|-|
 |Datacenter|TMJ3Y-NTRTM-FJYXT-T22BY-CWG3J|
 |Standard|C3RCX-M6NRP-6CXC9-TW2F2-4RHYD|
-|Essentials|B4YNW-62DX9-W8V6M-82649-MHBKQ|
+|Éléments essentiels|B4YNW-62DX9-W8V6M-82649-MHBKQ|
 
 
 Les clés AVMA suivantes peuvent être utilisées pour Windows Server 2012 R2.
@@ -118,7 +118,7 @@ Les clés AVMA suivantes peuvent être utilisées pour Windows Server 2012 R2.
 |-|-|
 |Datacenter|Y4TGP-NPTV9-HTC2H-7MGQ3-DV4TW|
 |Standard|DBGBW-NPF86-BJVTX-K3WKJ-MTB6V|
-|Essentials|K2XGM-NMBT3-2R6Q8-WF2FK-P36R2|
+|Éléments essentiels|K2XGM-NMBT3-2R6Q8-WF2FK-P36R2|
 
 ## <a name="reporting-and-tracking"></a>Rapports et suivi
 

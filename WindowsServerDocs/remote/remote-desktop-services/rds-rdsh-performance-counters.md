@@ -10,12 +10,12 @@ ms.topic: article
 author: lizap
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: a302e775d3304db9304cc51e09ede19fa2eba802
-ms.sourcegitcommit: f75d9496f345d73fdda88037617763e7a2f614b7
+ms.openlocfilehash: 3eb1e4b6da971d788383b8facbf8bbcbe00a5953
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67863107"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870909"
 ---
 # <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>Utiliser les compteurs de performance pour diagnostiquer les problèmes de performance des applications sur les hôtes de session Bureau à distance
 

@@ -8,12 +8,12 @@ ms.date: 08/27/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 11e68821fb095617cea19ee83c057d247a909604
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 4185454c6351b752a6397109b3a333d3eab107cd
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150972"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871150"
 ---
 # <a name="get-started-with-the-web-client"></a>Bien démarrer avec le client web
 
@@ -61,4 +61,4 @@ Le client web prend actuellement en charge les opérations de copie et de collag
 
 ## <a name="get-help-with-the-web-client"></a>Obtenir de l’aide concernant le client web
 
-Si vous avez rencontré un problème qui ne peut pas être résolu en utilisant les informations de cet article, vous pouvez obtenir de l’aide concernant le client web en envoyant un e-mail à l’adresse indiquée sur la page « À propos de » du client web.
+Si vous avez rencontré un problème qui ne peut pas être résolu en utilisant les informations de cet article, vous pouvez obtenir de l’aide concernant le client web en envoyant un e-mail à l’adresse indiquée sur la page « À propos de » du client web.

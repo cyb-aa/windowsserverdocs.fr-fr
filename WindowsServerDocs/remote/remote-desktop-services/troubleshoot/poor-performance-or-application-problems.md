@@ -13,12 +13,12 @@ manager: ''
 ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 63e28cba6669e6a6bb604fbfd19650fb461fe575
-ms.sourcegitcommit: f6503e503d8f08ba8000db9c5eda890551d4db37
+ms.openlocfilehash: c65683a69633a950630b7fd74e1181da767ae35b
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68529909"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70870582"
 ---
 # <a name="poor-performance-or-application-problems-during-remote-desktop-connection"></a>Problèmes de performances ou d’application pendant une connexion Bureau à distance
 

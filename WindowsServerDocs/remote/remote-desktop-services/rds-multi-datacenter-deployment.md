@@ -13,12 +13,12 @@ author: haley-rowland
 ms.author: elizapo
 ms.date: 06/14/2017
 manager: dongill
-ms.openlocfilehash: 2d12062f302c28a8124e0aa49af7f441e77ffe33
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 39a0d00e64ecab93fe1826726b14969e5e034738
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66222792"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871036"
 ---
 # <a name="create-a-geo-redundant-multi-data-center-rds-deployment-for-disaster-recovery"></a>Créer un déploiement RDS avec plusieurs centres de données géo-redondants pour la récupération d’urgence
 

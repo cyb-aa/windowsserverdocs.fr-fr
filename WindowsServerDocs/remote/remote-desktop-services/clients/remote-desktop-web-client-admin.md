@@ -8,12 +8,12 @@ ms.date: 11/2/2018
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: d167fb5dfdfbb2a302c2b0fca9286dc034b730e3
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: 7de392b049fbe910688a4b950e1ca870b6ba3f46
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546332"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70871168"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Configurer le client web Bureau à distance pour vos utilisateurs
 
@@ -84,7 +84,7 @@ Pour installer le client web, procédez comme suit :
     Vérifiez que vous avez accès au client web via l'URL avec le nom de votre serveur, au format <https://server_FQDN/RDWeb/webclient/index.html>. Il est important d'utiliser le nom du serveur qui correspond au certificat public d'accès aux services Bureau à distance par le web dans l'URL (il s'agit généralement du nom de domaine complet du serveur).
 
     >[!NOTE]
-    >Lorsque vous exécutez l'applet de commande **Publish-RDWebClientPackage**, un avertissement peut apparaître pour indiquer que les licences d'accès client par appareil ne sont pas prises en charge, même si votre déploiement est configuré pour les licences d'accès client par utilisateur. Si votre déploiement utilise des licences d'accès client par utilisateur, vous pouvez ignorer cet avertissement. Nous l'affichons pour vous informer des limites de la configuration.
+    >Lorsque vous exécutez l'applet de commande **Publish-RDWebClientPackage**, un avertissement peut apparaître pour indiquer que les licences d'accès client par appareil ne sont pas prises en charge, même si votre déploiement est configuré pour les licences d'accès client par utilisateur. Si votre déploiement utilise des licences d'accès client par utilisateur, vous pouvez ignorer cet avertissement. Nous l’affichons pour vous informer des limites de la configuration.
 8. Lorsque vous êtes prêt à autoriser les utilisateurs à accéder au client web, il vous suffit de leur envoyer l'URL que vous avez créée pour le client web.
 
 >[!NOTE]

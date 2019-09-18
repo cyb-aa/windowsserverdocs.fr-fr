@@ -8,21 +8,21 @@ ms.suite: na
 ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
-author: lizap
-manager: dongill
-ms.author: elizapo
-ms.date: 08/27/2019
+author: heidilohr
+manager: daveba
+ms.author: helohr
+ms.date: 09/11/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 4eaa9a187b4a8f7879cabf15724bfcfe3f625939
-ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
+ms.openlocfilehash: 14d5eab00271ea825bb84a2d8189a44c38fa5388
+ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70150958"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70987375"
 ---
 # <a name="whats-new-in-the-web-client"></a>Nouveautés du client web
 
-Nous mettons régulièrement à jour le [client web Bureau à distance](remote-desktop-web-client.md) en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Découvrez les dernières mises à jour ci-dessous.
+Nous mettons régulièrement à jour le [client web Bureau à distance](remote-desktop-web-client.md) en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Vous y trouverez les dernières mises à jour.
 
 > [!NOTE]
 > Nous avons modifié le système de contrôle de version du client web. À partir de la version 1.0.18.0, toutes les versions du client web contiendront des numéros (au format « W.X.Y.Z »). Les numéros de version du client web Bureau à distance se termineront toujours par un 0 (par exemple, W.X.Y.0). À chaque version du client web Windows Virtual Desktop, le dernier chiffre changera jusqu'à la publication de la version suivante du client web Bureau à distance (par exemple, 1.0.18.1).
