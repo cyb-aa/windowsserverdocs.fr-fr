@@ -68,6 +68,7 @@
 ### [Clients Bureau à distance disponibles](clients/remote-desktop-clients.md)
 ### Client Windows Desktop
 #### [Bien démarrer avec le client Windows Desktop](clients/windowsdesktop.md)
+#### [Client Windows Desktop pour les administrateurs](clients/windowsdesktop-admin.md)
 #### [Nouveautés du client Windows Desktop](clients/windowsdesktop-whatsnew.md)
 ### Client Windows Store
 #### [Bien démarrer avec le client Windows Store](clients/windows.md)
