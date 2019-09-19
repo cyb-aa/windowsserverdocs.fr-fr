@@ -1,6 +1,6 @@
 ---
 title: nslookup set
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 99ac8736ca8223a1a444784c4cf605a973a9e4dd
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 928d222714bf01cac1585a25e8cac3ec6c8b0233
+ms.sourcegitcommit: 6423dfa9cecb3b06bdd563cae113c3e80a4ec330
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436543"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105051"
 ---
 # <a name="nslookup-set"></a>nslookup set
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Modifie les paramètres de configuration qui affectent la fonction de recherches.
+Modifie les paramètres de configuration qui affectent le fonctionnement des recherches.
 ## <a name="syntax"></a>Syntaxe
 ```
 set <KeyWord>[=<Value>]
@@ -33,12 +33,12 @@ set <KeyWord>[=<Value>]
 
 |    Paramètre    |                                                                                                                    Description                                                                                                                    |
 |-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    <KeyWord>    | Identifie les sous-commandes qui sont dérivées de la **définir** sous-commande. Par exemple, la sous-commande **set d2** a un mot clé [**aucun**]**d2**. Pour obtenir la liste des sous-commandes qui sont dérivées de la **définir** sous-commande, voir Références supplémentaires. |
-|     <Value>     |                                                                                      Spécifie la valeur de paramètre de configuration de nslookup pour chaque sous-commande.                                                                                      |
-| {aide &#124; ?} |                                                                                               Affiche un résumé de **nslookup** sous-commandes.                                                                                               |
+|    <KeyWord>    | Identifie les sous-commandes qui sont dérivées de la sous-commande **Set** . Par exemple, la sous-commande **Set D2** a un mot clé [**no**]**D2**. Pour obtenir la liste des sous-commandes dérivées de la sous-commande **Set** , consultez Références supplémentaires. |
+|     <Value>     |                                                                                      Spécifie la valeur du paramètre de configuration Nslookup pour chaque sous-commande.                                                                                      |
+| {Help &#124; ?} |                                                                                               Affiche un bref résumé des sous-commandes **nslookup** .                                                                                               |
 
 ## <a name="remarks"></a>Notes
-Utilisez **définir tout** pour consulter la liste des paramètres actuels.
+Utilisez **Set All** pour afficher la liste des paramètres actuels.
 ## <a name="additional-references"></a>Références supplémentaires
-[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-[nslookup définie toutes les](nslookup-set-all.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)[nslookup Set All](nslookup-set-all.md) 
+
