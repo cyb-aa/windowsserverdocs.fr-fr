@@ -13,12 +13,12 @@ ms.assetid: 044f2fd5-5b87-42bb-ba0d-c06516ac48c8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 97d9e671823dade9e488922561c4c6a925719830
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9f3524261e8e93439ff48a3e6666fa7680a76a29
+ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871661"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71143735"
 ---
 # <a name="limit-web-access"></a>Limiter l’accès au Web
 En plus de surveiller les activités des utilisateurs sur des postes de travail individuels, vous, en tant qu’utilisateur administratif, pouvez limiter l’accès des utilisateurs aux sites Web spécifiés en indiquant les sites Web autorisés et les sites Web auxquels vous souhaitez bloquer l’accès des utilisateurs.  
@@ -49,7 +49,7 @@ En plus de surveiller les activités des utilisateurs sur des postes de travail 
    Pour ajouter un site que les utilisateurs ne doivent pas visiter, cliquez sur **interdire uniquement ces sites**, tapez l’adresse Web que les utilisateurs ne doivent pas visiter, puis cliquez sur **Ajouter**.  
   
    > [!NOTE]
-   > Par exemple, la saisie de « Contoso.com » autorise ou bloque les sites qui sont relatifs à www.contoso.com (par exemple, www.newpage.contoso.com). Le fait d’entrer « contoso » autorise ou limite tous les sites liés à contoso (y compris contoso.com, contoso.uk, etc.).  
+   > Par exemple, la saisie de « contoso.com » autorise ou bloque les sites qui sont relatifs à www.contoso.com (\.par exemple, www NewPage.contoso.com). Le fait d’entrer « contoso » autorise ou limite tous les sites liés à contoso (y compris contoso.com, contoso.uk, etc.).  
   
 3. Pour supprimer une adresse Web de la liste des sites autorisés ou non autorisés, sélectionnez l’adresse Web, puis cliquez sur **Remove (Supprimer)** .  
   

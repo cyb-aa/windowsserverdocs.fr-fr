@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 4b66f517-b17d-408c-828f-a3793086bc1f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: bd951f221f1cf1c5715e26830b7da644d685634a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 64098a152d9ba485cfed80e0d0541f0e5ea72bf2
+ms.sourcegitcommit: 47a9514a68e42ac236065fd6b641204b769223d1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868978"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71127678"
 ---
 # <a name="wireless-access-deployment"></a>Déploiement de l’accès sans fil
 
@@ -121,7 +121,7 @@ Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au
 
 6. Cliquez sur **OK**.
 
-Si vous avez besoin de plusieurs groupes de sécurité pour les utilisateurs sans fil, répétez ces étapes pour créer des groupes d’utilisateurs sans fil supplémentaires. Plus tard, vous pouvez créer des stratégies réseau individuelles dans NPS pour appliquer différentes conditions et Constraints à chaque groupe, en leur fournissant des autorisations d’accès et des règles de connectivité différentes.
+Si vous avez besoin de plusieurs groupes de sécurité pour les utilisateurs sans fil, répétez ces étapes pour créer des groupes d’utilisateurs sans fil supplémentaires. Plus tard, vous pouvez créer des stratégies réseau individuelles dans NPS pour appliquer différentes conditions et contraintes à chaque groupe, en leur fournissant des autorisations d’accès et des règles de connectivité différentes.
 
 ### <a name="bkmk_addusers"></a>Ajouter des utilisateurs au groupe de sécurité utilisateurs sans fil
 
