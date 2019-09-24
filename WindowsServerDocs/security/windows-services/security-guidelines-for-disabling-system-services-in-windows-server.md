@@ -2466,7 +2466,7 @@ Les tableaux suivants présentent des conseils Microsoft en matière de désacti
 
 | | |           
 |---|---|
-|   **Description du service** |   Ajoute, modifie et supprime des applications fournies en tant que package Windows Installer (*.msi, *.msp, *.appx). Si ce service est désactivé, le démarrage de tout service qui en dépend explicitement échouera.
+|   **Description du service** |   Ajoute, modifie et supprime des applications fournies en tant que package Windows Installer (*.msi, *.msp). Si ce service est désactivé, le démarrage de tout service qui en dépend explicitement échouera.
 |   **Nom du service**    |   msiserver
 |   **Installation**    |   Toujours installé
 |   **Type de démarrage**   |   Manuelle
