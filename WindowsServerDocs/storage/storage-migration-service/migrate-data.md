@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: c5a3012b989a16c8416a17460b87e197f7f6fc6a
-ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
+ms.openlocfilehash: 4b90f8c5713fbcefc1740b932e9a6f210901a974
+ms.sourcegitcommit: 45415ba58907d650cfda45f4c57f6ddf1255dcbf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70987414"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71206904"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Utiliser Storage migration service pour migrer un serveur
 
@@ -23,7 +23,7 @@ Cette rubrique explique comment migrer un serveur, y compris ses fichiers et sa 
 
 Avant de commencer, installez le service de migration de stockage et assurez-vous que les ports de pare-feu nécessaires sont ouverts.
 
-1. Vérifiez les [exigences du service de migration de stockage](overview.md#requirements) et installez le [Centre d’administration Windows](../../manage/windows-admin-center/understand/windows-admin-center.md) sur votre ordinateur ou un serveur d’administration si vous ne l’avez pas déjà fait.
+1. Vérifiez les [exigences du service de migration de stockage](overview.md#requirements) et installez le [Centre d’administration Windows](../../manage/windows-admin-center/understand/windows-admin-center.md) sur votre ordinateur ou un serveur d’administration si vous ne l’avez pas déjà fait. Si vous migrez des ordinateurs sources joints à un domaine, vous devez installer et exécuter le service de migration de stockage sur un serveur joint au même domaine ou à la même forêt que les ordinateurs sources.
 2. Dans le centre d’administration Windows, connectez-vous au serveur Orchestrator exécutant Windows Server 2019. <br>Il s’agit du serveur sur lequel vous allez installer le service de migration de stockage et utilisé pour gérer la migration. Si vous effectuez la migration d’un seul serveur, vous pouvez utiliser le serveur de destination tant qu’il exécute Windows Server 2019. Nous vous recommandons d’utiliser un serveur d’orchestration distinct pour les migrations de plusieurs serveurs.
 1. Accédez à **Gestionnaire de serveur** (dans le centre d’administration Windows) > **service de migration de stockage** et sélectionnez **installer** pour installer le service de migration de stockage et ses composants requis (voir figure 1).
     ![Capture d’écran de la page service de migration du stockage](media/migrate/install.png) montrant le bouton **installer figure 1 : Installation du service de migration de stockage**
@@ -38,11 +38,11 @@ Avant de commencer, installez le service de migration de stockage et assurez-vou
 
 1. Si vous utilisez un serveur Orchestrator pour gérer la migration et que vous souhaitez télécharger des événements ou un journal des données que vous transférez, vérifiez que la règle de pare-feu partage de fichiers et d’imprimantes (SMB-in) est également activée sur ce serveur.
 
-## <a name="step-1-create-a-job-and-inventory-your-servers-to-figure-out-what-to-migrate"></a>Étape 1 : Créer un travail et inventorier vos serveurs pour déterminer les éléments à migrer
+## <a name="step-1-create-a-job-and-inventory-your-servers-to-figure-out-what-to-migrate"></a>Étape 1 : Créer un travail et inventorier vos serveurs pour déterminer les éléments à migrer
 
 Au cours de cette étape, vous allez spécifier les serveurs à migrer, puis les analyser pour collecter des informations sur leurs fichiers et leurs configurations.
 
-1. Sélectionnez **nouveau travail**, nommez le travail, puis indiquez si vous souhaitez migrer les serveurs Windows et les clusters ou les serveurs Linux qui utilisent samba. Sélectionnez ensuite **OK**.
+1. Sélectionnez **nouveau travail**, nommez le travail, puis indiquez si vous souhaitez migrer les serveurs Windows et les clusters ou les serveurs Linux qui utilisent samba. Cliquez ensuite sur **OK**.
 2. Dans la page **entrer les informations d’identification** , tapez les informations d’identification d’administrateur qui fonctionnent sur les serveurs à partir desquels vous souhaitez effectuer la migration, puis sélectionnez **suivant**. <br>Si vous effectuez une migration à partir de serveurs Linux, vous devez entrer les informations d’identification dans les pages informations d’identification **samba** et **informations d’identification Linux** , y compris un mot de passe SSH ou une clé privée. 
 
 3. Sélectionnez **Ajouter un appareil**, tapez un nom de serveur source ou le nom d’un serveur de fichiers en cluster, puis sélectionnez **OK**. <br>Répétez cette opération pour tous les autres serveurs que vous souhaitez inventorier.
@@ -52,12 +52,12 @@ Au cours de cette étape, vous allez spécifier les serveurs à migrer, puis les
 5. Sélectionnez chaque serveur pour passer en revue les partages, la configuration, les cartes réseau et les volumes qui ont été inventoriés. <br><br>Le service de migration du stockage ne transfère pas les fichiers ou dossiers que nous connaissons pourraient interférer avec l’opération Windows. dans cette version, vous verrez des avertissements pour tous les partages situés dans le dossier système de Windows. Vous devrez ignorer ces partages pendant la phase de transfert. Pour plus d’informations, consultez [Quels fichiers et dossiers sont exclus des transferts](faq.md#what-files-and-folders-are-excluded-from-transfers).
 6. Sélectionnez **suivant** pour passer au transfert de données.
 
-## <a name="step-2-transfer-data-from-your-old-servers-to-the-destination-servers"></a>Étape 2 : Transférer des données de vos anciens serveurs vers les serveurs de destination
+## <a name="step-2-transfer-data-from-your-old-servers-to-the-destination-servers"></a>Étape 2 : Transférer des données de vos anciens serveurs vers les serveurs de destination
 
 Au cours de cette étape, vous allez transférer des données après avoir spécifié où les placer sur les serveurs de destination.
 
 1. Sur la page **transférer les données** > -**entrer les informations d’identification** , tapez les informations d’identification d’administrateur qui fonctionnent sur les serveurs de destination vers lesquels vous souhaitez effectuer la migration, puis sélectionnez **suivant**.
-2. Sur la page **Ajouter un appareil et des mappages de destination** , le premier serveur source est listé. Tapez le nom du serveur ou du serveur de fichiers en cluster vers lequel vous souhaitez effectuer la migration, puis sélectionnez **analyser l’appareil**.
+2. Sur la page **Ajouter un appareil et des mappages de destination** , le premier serveur source est listé. Tapez le nom du serveur ou du serveur de fichiers en cluster vers lequel vous souhaitez effectuer la migration, puis sélectionnez **analyser l’appareil**. Si vous migrez à partir d’un ordinateur source joint à un domaine, le serveur de destination doit être joint au même domaine.
 3. Mappez les volumes source aux volumes de destination, désactivez la case à cocher **inclure** pour tous les partages que vous ne souhaitez pas transférer (y compris les partages administratifs situés dans le dossier système Windows), puis sélectionnez **suivant**.
    ![Capture d’écran montrant un serveur source et ses volumes et partages et l’emplacement vers lequel ils seront](media/migrate/transfer.png) transférés sur la destination **figure 3 : Un serveur source et où son stockage sera transféré**
 4. Ajoutez un serveur de destination et des mappages pour d’autres serveurs sources, puis sélectionnez **suivant**.
@@ -85,7 +85,7 @@ Au cours de cette étape, vous allez transférer des données après avoir spéc
 
 Si votre objectif est de synchroniser les fichiers avec Azure, vous pouvez configurer les serveurs de destination avec Azure File Sync après le transfert des fichiers ou après avoir coupé les serveurs de destination (voir [planification d’un déploiement Azure file Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)).
 
-## <a name="step-3-cut-over-to-the-new-servers"></a>Étape 3 : Passer aux nouveaux serveurs
+## <a name="step-3-cut-over-to-the-new-servers"></a>Étape 3 : Passer aux nouveaux serveurs
 
 Au cours de cette étape, vous allez passer des serveurs sources aux serveurs de destination, en déplaçant les adresses IP et les noms d’ordinateur vers les serveurs de destination. Une fois cette étape terminée, les applications et les utilisateurs accèdent aux nouveaux serveurs via les noms et les adresses des serveurs à partir desquels vous avez migré.
 
@@ -97,7 +97,7 @@ Au cours de cette étape, vous allez passer des serveurs sources aux serveurs de
 3. Dans la page **configurer le basculement** , spécifiez la carte réseau de la destination qui doit prendre en charge les paramètres de chaque adaptateur sur la source. Cela déplace l’adresse IP de la source vers la destination dans le cadre du basculement, donnant au serveur source une nouvelle adresse IP DHCP ou statique. Vous avez la possibilité d’ignorer toutes les migrations réseau ou certaines interfaces. 
 4. Spécifiez l’adresse IP à utiliser pour le serveur source après le déplacement de son adresse vers la destination. Vous pouvez utiliser DHCP ou une adresse statique. Si vous utilisez une adresse statique, le nouveau sous-réseau doit être le même que l’ancien sous-réseau ou le basculement échoue.
     ![Capture d’écran montrant un serveur source, son adresse IP et son nom d’ordinateur, ainsi que son remplacement après](media/migrate/cutover.png) le basculement **figure 4 : Un serveur source et la façon dont sa configuration réseau sera déplacée vers la destination**
-5. Spécifiez Comment renommer le serveur source une fois que le serveur de destination a dépassé son nom. Vous pouvez utiliser un nom généré de manière aléatoire ou un type vous-même. Sélectionnez ensuite **Suivant**.
+5. Spécifiez Comment renommer le serveur source une fois que le serveur de destination a dépassé son nom. Vous pouvez utiliser un nom généré de manière aléatoire ou un type vous-même. Sélectionnez ensuite **suivant**.
 6. Sélectionnez **suivant** dans la page **ajuster les paramètres de basculement** .
 7. Sélectionnez **valider** sur la page **valider l’appareil source et le périphérique de destination** , puis sélectionnez **suivant**.
 8. Lorsque vous êtes prêt à effectuer le basculement, sélectionnez **Démarrer le basculement**. <br>Les utilisateurs et les applications peuvent rencontrer une interruption pendant que l’adresse et les noms sont déplacés et que les serveurs ont été redémarrés plusieurs fois, mais ils ne seront pas affectés par la migration. La durée du basculement dépend de la vitesse à laquelle les serveurs redémarrent, ainsi que des Active Directory et des temps de réplication DNS.

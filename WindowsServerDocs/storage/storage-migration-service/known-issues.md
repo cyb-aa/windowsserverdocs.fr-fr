@@ -8,12 +8,12 @@ ms.date: 07/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 16e62d9232d0ec1b01333d73bc5b4a1555ffbad0
-ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
+ms.openlocfilehash: d8437e0e33a370ab698d25f25b43fbbcbae97792
+ms.sourcegitcommit: 45415ba58907d650cfda45f4c57f6ddf1255dcbf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70987404"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71206914"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problèmes connus du service de migration du stockage
 
@@ -131,7 +131,7 @@ Si vous n’avez pas installé le service proxy de service de migration de stock
 Lors de l’inventaire ou du transfert de fichiers d’un ordinateur source vers un ordinateur de destination, la migration des fichiers à partir desquels un utilisateur a supprimé les autorisations du groupe administrateurs échoue. Examen du service de migration de stockage-débogage du proxy :
 
   Nom du journal :      Source Microsoft-Windows-StorageMigrationService-proxy/débogage :        Microsoft-Windows-StorageMigrationService-date du proxy :          ID d’événement 2/26/2019 9:00:04 AM :      10000 catégorie de tâche : Aucun niveau :         Mots clés d’erreur :      
-  Utilisateur :          Ordinateur de SERVICE réseau : description de srv1.contoso.com :
+  Utilisateur :          Ordinateur de SERVICE réseau : description de srv1.contoso.com :
 
   02/26/2019-09:00:04.860 [erreur] erreur de transfert \\pour SRV1. contoso. com\public\indy.png : (5) l’accès est refusé.
 Trace de la pile : au niveau de Microsoft. StorageMigration. proxy. service. Transfer. FileDirUtils. OpenFile (String fileName, DesiredAccess desiredAccess, ShareMode shareMode, CreationDisposition creationDisposition, FlagsAndAttributes flagsAndAttributes) à l’adresse Microsoft. StorageMigration. proxy. service. Transfer. FileDirUtils. GetTargetFile (chemin d’accès de chaîne) au niveau de Microsoft. StorageMigration. proxy. service. Transfer. FileDirUtils. GetTargetFile (fichier FileInfo) à l’adresse Microsoft. StorageMigration. proxy. service. Transfer. FileTransfer. InitializeSourceFileInfo () à Microsoft. StorageMigration. proxy. service. Transfer. FileTransfer. Transfer () à l’adresse Microsoft. StorageMigration. proxy. service. Transfer. FileTransfer. TryTransfer () [d:\os\src\base\dms\proxy\transfer\transferproxy\FileTransfer.cs :: TryTransfer :: 55]
@@ -200,7 +200,7 @@ L’examen du journal des événements StorageMigrationService/admin affiche :
    Impossible de transférer le stockage.
 
    Attente ID Job1 :  
-   État : Échec de l’erreur : Message d’erreur 36931 : 
+   Département Échec de l’erreur : Message d’erreur 36931 : 
 
    Instructions : Vérifiez l’erreur détaillée et assurez-vous que les conditions de transfert sont remplies. La tâche de transfert n’a pas pu transférer les ordinateurs source et de destination. Cela peut être dû au fait que l’ordinateur Orchestrator n’a pu atteindre aucun ordinateur source ou de destination, peut-être en raison d’une règle de pare-feu ou d’autorisations manquantes.
 
@@ -218,11 +218,11 @@ Après l’installation de [KB4512534](https://support.microsoft.com/en-us/help/
   EXCEPTION DE HRESULT : 0x80005000
   
   Nom du journal :      Source Microsoft-Windows-StorageMigrationService/admin :        Microsoft-Windows-StorageMigrationService Date :          ID d’événement 9/9/2019 5:21:42 PM :      2503 catégorie de tâche : Aucun niveau :         Mots clés d’erreur :      
-  Utilisateur :          Ordinateur de SERVICE réseau :      FS02. Description de TailwindTraders.net : Impossible d’inventorier les ordinateurs.
+  Utilisateur :          Ordinateur de SERVICE réseau :      FS02. Description de TailwindTraders.net : Impossible d’inventorier les ordinateurs.
 Tâche : ID foo2 : État de 20ac3f75-4945-41d1-9a79-d11dbb57798b : Échec de l’erreur : Message d’erreur 36934 : Échec de l’inventaire pour tous les appareils : Vérifiez l’erreur détaillée et assurez-vous que les conditions d’inventaire sont remplies. Le travail n’a pas pu inventorier les ordinateurs source spécifiés. Cela peut être dû au fait que l’ordinateur Orchestrator n’a pas pu l’atteindre sur le réseau, peut-être en raison d’une règle de pare-feu ou d’autorisations manquantes.
   
   Nom du journal :      Source Microsoft-Windows-StorageMigrationService/admin :        Microsoft-Windows-StorageMigrationService Date :          ID d’événement 9/9/2019 5:21:42 PM :      2509 catégorie de tâche : Aucun niveau :         Mots clés d’erreur :      
-  Utilisateur :          Ordinateur de SERVICE réseau :      FS02. Description de TailwindTraders.net : Impossible d’inventorier un ordinateur.
+  Utilisateur :          Ordinateur de SERVICE réseau :      FS02. Description de TailwindTraders.net : Impossible d’inventorier un ordinateur.
 Travail : ordinateur foo2 : FS01. État de TailwindTraders.net : Échec de l’erreur :-2147463168 message d’erreur : Instructions : Vérifiez l’erreur détaillée et assurez-vous que les conditions d’inventaire sont remplies. L’inventaire n’a pas pu déterminer les aspects de l’ordinateur source spécifié. Cela peut être dû à des autorisations ou des privilèges manquants sur la source ou sur un port de pare-feu bloqué.
   
 Cette erreur est due à un défaut de code dans le service de migration de stockage lorsque vous fournissez des informations d’identification de migration sous la forme d’un nom d'meghan@contoso.comutilisateur principal (UPN), tel que «». Le service d’analyse du service de migration du stockage ne parvient pas à analyser ce format correctement, ce qui provoque un échec dans une recherche de domaine qui a été ajoutée pour la prise en charge de la migration de cluster dans KB4512534 et 19H1.
@@ -248,6 +248,15 @@ Une autre solution de contournement consiste à :
    ```PowerShell
    Register-SMSProxy -ComputerName *destination server* -Force
    ```
+## <a name="error-dll-was-not-found-when-running-inventory-from-a-cluster-node"></a>Erreur « dll introuvable » lors de l’exécution de l’inventaire à partir d’un nœud de cluster
+
+Lorsque vous tentez d’exécuter un inventaire avec l’installation de Storage migration service Orchestrator sur un nœud de cluster de basculement Windows Server 2019 et en ciblant une source de serveur de fichiers d’utilisation générale du cluster de basculement Windows Server, vous recevez l’erreur suivante :
+
+    DLL not found
+    [Error] Failed device discovery stage VolumeInfo with error: (0x80131524) Unable to load DLL 'Microsoft.FailoverClusters.FrameworkSupport.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)   
+
+Pour contourner ce problème, installez les outils d’administration de cluster de basculement (RSAT-clustering-Mgmt) sur le serveur qui exécute le service de migration de stockage Orchestrator. 
+
 
 ## <a name="see-also"></a>Voir aussi
 
