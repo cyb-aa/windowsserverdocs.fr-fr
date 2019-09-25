@@ -6,17 +6,16 @@ ms.technology: storage-failover-clustering
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 3cc7449c8fbbad2ed4a3cd27513fcbe74b617e36
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 06fcb7ee7d05b85c1e7d1c6752268ea7e5dbbdb2
+ms.sourcegitcommit: 94ba5a33e783fdfb965c612943d0bfe35f9fcaa1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560515"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71250226"
 ---
 # <a name="configuring-cluster-accounts-in-active-directory"></a>Configuration des comptes de cluster dans Active Directory
 
-
-S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
+S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 
 Dans Windows Server, lorsque vous créez un cluster de basculement et configurez des services ou des applications en cluster, les assistants de cluster de basculement créent les comptes d’ordinateurs Active Directory nécessaires (également appelés objets ordinateur) et leur accordent des autorisations spécifiques. Les Assistants créent un compte d'ordinateur pour le cluster lui-même (ce compte est également appelé objet nom de cluster) et un compte d'ordinateur pour la plupart des types de services et d'applications en cluster, l'exception étant un ordinateur virtuel Hyper-V. Les autorisations pour ces comptes sont définies automatiquement par les Assistants de cluster de basculement. Si les autorisations sont modifiées, elles devront être rechangées pour répondre aux besoins de cluster. Ce guide décrit ces comptes et autorisations Active Directory, fournit des informations générales sur leur importance et décrit les étapes de la configuration et de la gestion des comptes.
       
@@ -64,7 +63,7 @@ Le tableau suivant décrit les autorisations requises pour ces comptes.
 </tr>
 <tr class="odd">
 <td><p>Compte d'ordinateur d'un service ou d'une application en cluster</p></td>
-<td><p>Lorsque l’Assistant haute disponibilité est exécuté (pour créer un service ou une application en cluster), dans la plupart des cas, un compte d’ordinateur pour le service ou l’application en cluster est créé dans Active Directory. Le compte du nom du cluster dispose des autorisations nécessaires pour contrôler ce compte. L’exception est une machine virtuelle Hyper-V en cluster: aucun compte d’ordinateur n’est créé pour ce.</p>
+<td><p>Lorsque l’Assistant haute disponibilité est exécuté (pour créer un service ou une application en cluster), dans la plupart des cas, un compte d’ordinateur pour le service ou l’application en cluster est créé dans Active Directory. Le compte du nom du cluster dispose des autorisations nécessaires pour contrôler ce compte. L’exception est une machine virtuelle Hyper-V en cluster : aucun compte d’ordinateur n’est créé pour ce.</p>
 <p>Si vous préparez le compte d’ordinateur pour un service ou une application en cluster, vous devez le configurer avec les autorisations nécessaires. Pour plus d'informations, consultez <a href="#steps-for-prestaging-an-account-for-a-clustered-service-or-application" data-raw-source="[Steps for prestaging an account for a clustered service or application](#steps-for-prestaging-an-account-for-a-clustered-service-or-application)">Étapes de la prédéfinition d'un compte pour un service ou une application en cluster</a>, ultérieurement dans ce guide.</p></td>
 </tr>
 </tbody>
@@ -100,13 +99,13 @@ Comme décrit dans les trois sections précédentes, certaines conditions doiven
 
   - **Ceux** Tous les nœuds doivent se trouver dans le même domaine Active Directory. (Le domaine ne peut pas être basé sur Windows NT 4.0, qui n'inclut pas Active Directory.)  
       
-  - **Compte de la personne qui installe le cluster:** La personne qui installe le cluster doit utiliser un compte avec les caractéristiques suivantes :  
+  - **Compte de la personne qui installe le cluster :** La personne qui installe le cluster doit utiliser un compte avec les caractéristiques suivantes :  
       
       - Le compte doit être un compte de domaine. Il ne doit pas être nécessairement un compte d'administrateur de domaine. Il peut s'agir d'un compte d'utilisateur de domaine s'il remplit les autres conditions dans cette liste.  
           
       - Le compte doit avoir des autorisations administratives sur les serveurs qui deviendront des nœuds de cluster. La méthode la plus simple pour cela consiste à créer un compte d'utilisateur de domaine, puis à ajouter ce compte au groupe Administrateurs local sur chacun des serveurs qui deviendront des nœuds de cluster. Pour plus d'informations, consultez [Étapes de la configuration du compte pour la personne qui installe le cluster](#steps-for-configuring-the-account-for-the-person-who-installs-the-cluster), ultérieurement dans ce guide.  
           
-      - Le compte (ou le groupe duquel le compte est un membre) doit recevoir les autorisations **Créer des objets d'ordinateur** et **Lire toutes les propriétés** dans le conteneur utilisé pour les comptes d'ordinateur dans le domaine. Vous pouvez également transformer le compte en compte d'administrateur de domaine. Pour plus d'informations, consultez [Étapes de la configuration du compte pour la personne qui installe le cluster](#steps-for-configuring-the-account-for-the-person-who-installs-the-cluster), ultérieurement dans ce guide.  
+      - Le compte (ou le groupe duquel le compte est un membre) doit recevoir les autorisations **Créer des objets d'ordinateur** et **Lire toutes les propriétés** dans le conteneur utilisé pour les comptes d'ordinateur dans le domaine. Pour plus d'informations, consultez [Étapes de la configuration du compte pour la personne qui installe le cluster](#steps-for-configuring-the-account-for-the-person-who-installs-the-cluster), ultérieurement dans ce guide.  
           
       - Si votre organisation choisit de prédéfinir le compte du nom du cluster (compte d'ordinateur avec le même nom que le cluster), le compte du nom du cluster prédéfini doit donner l'autorisation « Contrôle total » au compte de la personne qui installe le cluster. Pour obtenir d'autres détails importants sur la façon de prédéfinir le compte du nom du cluster, consultez [Étapes de la prédéfinition du compte du nom du cluster](#steps-for-prestaging-the-cluster-name-account), ultérieurement dans ce guide.  
           
@@ -119,13 +118,13 @@ Les administrateurs de clusters de basculement devront peut-être quelquefois r�
 
 Le compte de la personne qui installe le cluster est important parce qu'il fournit la base à partir de laquelle un compte d'ordinateur est créé pour le cluster lui-même.
 
-L'appartenance à un groupe minimum obligatoire pour effectuer la procédure suivante varie selon si vous créez le compte de domaine et lui attribuez les autorisations requises dans le domaine, ou si vous placez uniquement le compte (créé par quelqu'un d'autre) dans le groupe **Administrateurs** local sur les serveurs qui seront des nœuds dans le cluster de basculement. Dans le premier cas, il est nécessaire d'appartenir au minimum au groupe **Opérateurs de compte** ou **Admins du domaine**, ou à un groupe équivalent. Dans le dernier cas, il suffit d'appartenir au groupe **Administrateurs** local ou à un groupe équivalent sur les serveurs qui seront des nœuds dans le cluster de basculement. Passez en revue les détails sur l’utilisation des comptes et [http://go.microsoft.com/fwlink/?LinkId=83477](http://go.microsoft.com/fwlink/?linkid=83477)des appartenances aux groupes appropriés à l’adresse.
+L'appartenance à un groupe minimum obligatoire pour effectuer la procédure suivante varie selon si vous créez le compte de domaine et lui attribuez les autorisations requises dans le domaine, ou si vous placez uniquement le compte (créé par quelqu'un d'autre) dans le groupe **Administrateurs** local sur les serveurs qui seront des nœuds dans le cluster de basculement. Si le premier, l’appartenance au groupe **opérateurs de compte** ou équivalent, est la condition minimale requise pour effectuer cette procédure. Dans le dernier cas, il suffit d'appartenir au groupe **Administrateurs** local ou à un groupe équivalent sur les serveurs qui seront des nœuds dans le cluster de basculement. Passez en revue les détails sur l’utilisation des comptes et [http://go.microsoft.com/fwlink/?LinkId=83477](http://go.microsoft.com/fwlink/?linkid=83477)des appartenances aux groupes appropriés à l’adresse.
 
 #### <a name="to-configure-the-account-for-the-person-who-installs-the-cluster"></a>Pour configurer le compte pour la personne qui installe le cluster
 
-1.  Créez ou obtenez un compte de domaine pour la personne qui installe le cluster. Ce compte peut être un compte d'utilisateur de domaine ou un compte d'administrateur de domaine (dans **Admins du domaine** ou un groupe équivalent).
+1.  Créez ou obtenez un compte de domaine pour la personne qui installe le cluster. Ce compte peut être un compte d’utilisateur de domaine ou un compte d' **opérateur de compte** . Si vous utilisez un compte d’utilisateur standard, vous devez lui accorder des autorisations supplémentaires plus tard dans cette procédure.
 
-2.  Si le compte qui a été créé ou obtenu à l'étape 1 est un compte d'utilisateur de domaine, ou si les comptes d'administrateur de domaine dans votre domaine ne sont pas inclus automatiquement dans le groupe **Administrateurs** local sur les ordinateurs dans le domaine, ajoutez le compte au groupe **Administrateurs** local sur les serveurs qui seront des nœuds dans le cluster de basculement :
+2.  Si le compte qui a été créé ou obtenu à l’étape 1 n’est pas automatiquement inclus dans le groupe **administrateurs** local sur les ordinateurs du domaine, ajoutez le compte au groupe **administrateurs** local sur les serveurs qui seront des nœuds dans le basculement organisés
     
     1.  Cliquez successivement sur **Démarrer**, **Outils d'administration**, puis **Gestionnaire de serveur**.  
           
@@ -133,11 +132,9 @@ L'appartenance à un groupe minimum obligatoire pour effectuer la procédure sui
           
     3.  Dans le volet central, cliquez avec le bouton droit sur **Administrateurs**, cliquez sur **Ajouter au groupe**, puis sur **Ajouter**.  
           
-    4.  Sous **Entrez les noms des objets à sélectionner**, tapez le nom du compte d’utilisateur qui a été créé ou obtenu à l’étape 1. Si vous y êtes invité, entrez un nom de compte et un mot de passe avec des autorisations suffisantes pour cette action. Cliquez ensuite sur **OK**.  
+    4.  Sous **Entrez les noms des objets à sélectionner**, tapez le nom du compte d’utilisateur qui a été créé ou obtenu à l’étape 1. Si vous y êtes invité, entrez un nom de compte et un mot de passe avec des autorisations suffisantes pour cette action. Cliquez sur **OK**.  
           
     5.  Répétez ces étapes sur chaque serveur qui sera un nœud dans le cluster de basculement.  
-          
-    
 
 > [!IMPORTANT]
 > Ces étapes doivent être répétées sur tous les serveurs qui seront des nœuds dans le cluster. 
@@ -208,7 +205,7 @@ Pour mener à bien cette procédure, il est nécessaire d'appartenir au groupe *
           
     3.  Sous l’onglet **Sécurité**, cliquez sur **Ajouter**. Si la boîte de dialogue **Contrôle de compte d’utilisateur** apparaît, confirmez que l’action affichée est celle que vous souhaitez, puis cliquez sur **Continuer**.  
           
-    4.  Utilisez la boîte de dialogue **Sélectionner les utilisateurs, les ordinateurs ou les groupes** pour spécifier le compte d'utilisateur qui sera utilisé lors de la création du cluster. Cliquez ensuite sur **OK**.  
+    4.  Utilisez la boîte de dialogue **Sélectionner les utilisateurs, les ordinateurs ou les groupes** pour spécifier le compte d'utilisateur qui sera utilisé lors de la création du cluster. Cliquez sur **OK**.  
           
     5.  Assurez-vous que le compte d'utilisateur qui vous venez d'ajouter est sélectionné puis, en regard de **Contrôle total**, activez la case à cocher **Autoriser**.  
           

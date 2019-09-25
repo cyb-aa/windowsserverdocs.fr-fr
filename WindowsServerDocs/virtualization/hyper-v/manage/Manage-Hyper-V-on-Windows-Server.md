@@ -1,37 +1,38 @@
 ---
-title: Gérer Hyper-V sur Windows Server 2016
+title: Gérer Hyper-V sur Windows Server
 description: Fournit des liens vers des articles sur la gestion d’Hyper-V
 ms.prod: windows-server-threshold
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5c06b632-dd19-46ca-9f51-130c321963d8
-author: KBDAzure
-ms.author: kathydav
+author: jasongerend
+ms.author: jgerend
 ms.date: 01/08/2018
-ms.openlocfilehash: 0f5f7600dd47a97e6f49669426d32054e4ab847d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e8a9d4a894990c793c3725f93a51f04c93be41e3
+ms.sourcegitcommit: d12d9e6afd71d23e8a24682ad80d2cf3bc486588
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867420"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71226012"
 ---
 # <a name="manage-hyper-v-on-windows-server"></a>Gérer Hyper-V sur Windows Server
 
 >S'applique à : Windows Server 2016, Windows Server 2019
 
-Utilisez les ressources dans cette section pour vous aider à gérer Hyper-V sur Windows Server 2016.
+Utilisez les ressources de cette section pour vous aider à gérer Hyper-V sur Windows Server :
 
-- [Choisissez entre les points de contrôle standard ou de production](Choose-between-standard-or-production-checkpoints-in-Hyper-V.md)  
-- [Activer ou désactiver des points de contrôle](Enable-or-disable-checkpoints-in-Hyper-V.md) 
-- [Gérer les hôtes avec le Gestionnaire Hyper-V](Remotely-manage-Hyper-V-hosts.md)
+- [Configuration d'appareils à mémoire persistante pour les ordinateurs virtuels Hyper-V](persistent-memory-cmdlets.md)
+- [Choisir entre des points de contrôle standard ou de production](Choose-between-standard-or-production-checkpoints-in-Hyper-V.md)
+- [Créer une définition de VHD](Create-VHDSet-file.md)
+- [Activer ou désactiver des points de contrôle](Enable-or-disable-checkpoints-in-Hyper-V.md)
+- [Gérer des hôtes avec le Gestionnaire Hyper-V](Remotely-manage-Hyper-V-hosts.md)
 - [Gérer les contrôles de ressources du processeur hôte](manage-hyper-v-minroot-2016.md)
-- [À l’aide de groupes de processeurs de machine virtuelle](manage-hyper-v-cpugroups.md)
-- [Gérer les machines virtuelles Windows avec PowerShell Direct](Manage-Windows-virtual-machines-with-PowerShell-Direct.md)  
-- [Configurer la réplication Hyper-V](Set-up-Hyper-V-Replica.md)
-- [Migration dynamique sans Clustering de basculement permet de déplacer un ordinateur virtuel](Use-live-migration-without-Failover-Clustering-to-move-a-virtual-machine.md)
-  
-
-
+- [Utilisation de groupes d'UC de machine virtuelle](manage-hyper-v-cpugroups.md)
+- [Gérer les types de planificateur d'hyperviseur](manage-hyper-v-scheduler-types.md)
+- [À propos de la sélection du type de planificateur Hyper-V](about-hyper-v-scheduler-type-selection.md)
+- [Gérer les services d’intégration](Manage-Hyper-V-integration-services.md)
+- [Gérer les machines virtuelles Windows avec PowerShell Direct](Manage-Windows-virtual-machines-with-powershell-direct.md)
+- [Configurer le réplica Hyper-V](Set-up-Hyper-V-Replica.md) 
+- [Activer le matériel Intel de surveillance des performances](Performance-Monitoring-Hardware.md)
+- [Déplacer les ordinateurs virtuels à l'aide d'une migration dynamique](Live-migration-overview.md)
