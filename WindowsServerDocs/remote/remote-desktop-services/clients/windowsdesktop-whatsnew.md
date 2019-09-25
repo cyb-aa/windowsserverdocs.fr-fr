@@ -11,27 +11,34 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/13/2019
+ms.date: 09/17/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 9b51370a83fe6a49c29cc2557abd54e339c3b213
-ms.sourcegitcommit: 61767c405da44507bd3433967543644e760b20aa
+ms.openlocfilehash: 587ad44509451497b253689238c3aef233a37153
+ms.sourcegitcommit: e210fce039452a9855353520c7f8698acd76ffce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70988247"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71071283"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Nouveautés du client Windows Desktop
 
-Nous mettons régulièrement à jour le [client Windows Desktop](windowsdesktop.md) en ajoutant de nouvelles fonctionnalités et en corrigeant les problèmes. Vous y trouverez les dernières mises à jour.
+Vous trouverez des informations plus détaillées sur le client Windows Desktop dans la page [Bien démarrer avec le client Windows Desktop](windowsdesktop.md). Vous trouverez les dernières mises à jour du client ci-dessous.
 
-## <a name="client-versions"></a>Versions du client
+## <a name="latest-client-versions"></a>Versions les plus récentes du client
 
-Le client peut être configuré pour utiliser des versions différentes pour les clients Release ou Insider. La version Release est la configuration par défaut.
+Le client peut être configuré pour différents [groupes d’utilisateurs](windowsdesktop-admin.md#configure-user-groups). Le tableau suivant liste les versions actuelles disponibles pour chaque groupe d’utilisateurs :
 
-|Client |Version  |
-|---------|---------|
-|Release  |1.2.246  |
-|Insider  |1.2.246  |
+|Groupe d'utilisateurs |Version  |
+|-----------|---------|
+|Public     |1.2.246  |
+|Insider    |1.2.247  |
+
+## <a name="updates-for-version-12247"></a>Mises à jour relatives à la version 1.2.247
+
+*Date de publication : 17/09/2019*
+
+- Correction d’un plantage qui se produisait lors de l’authentification pendant une connexion.
+- Correction d’un plantage qui se produisait lors de la fermeture du client.
 
 ## <a name="updates-for-version-12246"></a>Mises à jour pour la version 1.2.246
 

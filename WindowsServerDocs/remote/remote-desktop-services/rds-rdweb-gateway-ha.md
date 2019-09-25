@@ -12,12 +12,12 @@ author: lizap
 ms.author: elizapo
 ms.date: 11/08/2016
 manager: dongill
-ms.openlocfilehash: 4e185e51b09d2e2f8ac4527f9de339de27e02f24
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 869d47be73a39114ecc05080f8da16f460fb8198
+ms.sourcegitcommit: 6423dfa9cecb3b06bdd563cae113c3e80a4ec330
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66805138"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105039"
 ---
 # <a name="add-high-availability-to-the-rd-web-and-gateway-web-front"></a>Ajouter la haute disponibilité au serveur frontal d’accès web et de passerelle des services Bureau à distance
 
@@ -96,12 +96,13 @@ Si vous utilisez l’infrastructure Azure, vous pouvez créer un équilibreur de
 1.  Créez un équilibreur de charge Azure :  
     1.  Dans le portail Azure, cliquez sur **Parcourir > Équilibreurs de charge > Ajouter**.  
     2.  Entrez un nom, par exemple **WebGwLB**.  
-    3.  Sélectionnez **Public** pour le **Schéma**, l’**Adresse IP publique** et une **Adresse IP publique**. Vous pouvez sélectionner une adresse IP publique existante ou en créer une. 
-    4.  Sélectionnez l’**Abonnement**, le **Groupe de ressources** et l’**Emplacement** appropriés.
-    5.  Cliquez sur **Create (Créer)** .  
+    3.  Sélectionnez **Public** pour le **Schéma**.
+    4.  Sous **Adresse IP publique**, sélectionnez **Choisir une adresse IP publique**, puis sélectionnez une adresse IP publique existante ou créez-en une.
+    5.  Sélectionnez l’**Abonnement**, le **Groupe de ressources** et l’**Emplacement** appropriés.
+    6.  Cliquez sur **Create (Créer)** .  
 2. Créez une [sonde](https://azure.microsoft.com/documentation/articles/load-balancer-custom-probe-overview/) pour superviser les serveurs qui sont actifs :  
-    1.  Dans le portail Azure, cliquez sur **Parcourir > Équilibreurs de charge**, puis sur l’équilibreur de charge que vous venez de créer, par exemple WebGwLB, et sur Paramètres.  
-    2.  Cliquez sur **Sondes > Ajouter**.  
+    1.  Dans le portail Azure, sélectionnez **Parcourir** > **Équilibreurs de charge**, puis choisissez l’équilibreur de charge que vous avez créé à l’étape précédente.
+    2.  Sélectionnez **Tous les paramètres** > **Sondes** > **Ajouter**.  
     3.  Entrez un nom, par exemple **HTTPS**, pour la sonde. Sélectionnez **TCP** en guise de **Protocole** et entrez **443** pour le **Port**, puis cliquez sur **OK**.   
 3.  Créez les règles d’équilibrage de charge UDP et HTTPS :  
     1.  Dans **Paramètres**, cliquez sur **Règles d’équilibrage de charge**.  

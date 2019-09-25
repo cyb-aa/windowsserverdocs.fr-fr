@@ -4,16 +4,16 @@ description: Décrit la procédure à suivre par un administrateur pour configur
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: helohr
-ms.date: 11/2/2018
+ms.date: 09/19/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 7de392b049fbe910688a4b950e1ca870b6ba3f46
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 86667c744acfd340c2608609323b95c159e1279d
+ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871168"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71143750"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Configurer le client web Bureau à distance pour vos utilisateurs
 
@@ -265,6 +265,10 @@ En tant qu'administrateur, vous pouvez choisir de supprimer la collecte de donn�
 Par défaut, l'utilisateur peut activer ou désactiver les données de télémétrie. Une valeur booléenne **$false** correspondra au comportement par défaut du client. Une valeur booléenne **$true** désactivera les données de télémétrie et empêchera l'utilisateur de les activer.
 
 ### <a name="remote-resource-launch-method"></a>Méthode de lancement de ressources distantes
+
+>[!NOTE]
+>Ce paramètre fonctionne uniquement avec le client web des services Bureau à distance et non avec le client web Windows Virtual Desktop.
+
 Par défaut, les utilisateurs peuvent choisir de lancer des ressources distantes (1) dans le navigateur ou (2) en téléchargeant un fichier .rdp à gérer avec un autre client installé sur leur ordinateur. En tant qu'administrateur, vous pouvez choisir de limiter la méthode de lancement de ressources distantes de votre déploiement à l'aide de la commande Powershell suivante :
 
    ```PowerShell

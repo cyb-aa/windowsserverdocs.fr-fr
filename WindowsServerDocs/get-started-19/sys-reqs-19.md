@@ -1,28 +1,24 @@
 ---
 title: Configuration requise pour Windows Server 2019
 description: Configuration minimale requise pour le stockage, le processeur, le réseau, la mémoire et la RAM dans une nouvelle installation de Windows Server 2019.
-ms.custom: na
 ms.prod: windows-server-threshold
-ms.reviewer: na
-ms.suite: na
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4a8b42d7-9fe5-4efe-9ea1-ace2131f860e
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: d97ec0efee86165f82bdf99a316d24d9c39ec958
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 70ebf445515fd227d0f35b0c267f4fe34b2b83a9
+ms.sourcegitcommit: 081661f50d6dafb77180149956a02e679270c710
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810719"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037581"
 ---
 # <a name="system-requirements"></a>Configuration système
 
->S'applique à : Windows Server 2019 
+> S’applique à : Windows Server 2019
 
 Cette rubrique décrit la configuration minimale requise pour exécuter Windows Server&reg; 2019.
 
@@ -48,7 +44,8 @@ Les performances du processeur dépendent non seulement de la fréquence d’hor
 
 Pour vérifier les capacités de votre processeur, vous pouvez utiliser l’outil [Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx).
 
-## <a name="ram"></a>RAM  
+## <a name="ram"></a>RAM
+
 La configuration requise en matière de mémoire vive (RAM) pour ce produit est la suivante :  
 
 **Minimum** :  
@@ -60,7 +57,7 @@ La configuration requise en matière de mémoire vive (RAM) pour ce produit est 
 >   
 > Pour éviter ceci, effectuez l’une des opérations suivantes :  
 >   
-> -   Allouez plus de 800 Mo de RAM à l’ordinateur virtuel sur lequel vous voulez installer cette version. Une fois le programme d’installation terminé, vous pouvez réduire l’allocation à 512 Mo de RAM, en fonction de la configuration du serveur.  
+> -   Allouez plus de 800 Mo de RAM à l’ordinateur virtuel sur lequel vous voulez installer cette version. Une fois le programme d’installation terminé, vous pouvez réduire l’allocation à 512 Mo de RAM, en fonction de la configuration du serveur. Si vous avez modifié l’image de démarrage pour le programme d’installation en y ajoutant des langues et des mises à jour, vous devrez peut-être allouer plus de 800 Mo de RAM pour l’installation.  
 > -   Interrompez le processus de démarrage de cette version sur l’ordinateur virtuel en appuyant sur Maj+F10. Dans l’invite de commandes qui s’ouvre, utilisez Diskpart.exe pour créer et formater une partition d’installation. Exécutez **Wpeutil createpagefile /path=C:\pf.sys** (C: étant la partition d’installation créée). Fermez l’invite de commandes et poursuivez le programme d’installation.  
 
 ## <a name="storage-controller-and-disk-space-requirements"></a>Contrôleur de stockage et espace disque requis  
@@ -111,5 +108,5 @@ Les éléments suivants ne sont pas strictement obligatoires, mais sont nécessa
 >  
 > - Les modules de plateforme sécurisée matériels doivent implémenter la version 2.0 de la spécification de module de plateforme sécurisée.  
 > - Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent avoir un certificat EK préconfiguré pour le module de plateforme sécurisée (TPM) par le fournisseur de matériel ou capable d’être récupéré par l’appareil pendant le premier démarrage.  
-> - Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent être livrés avec des banques de registre de configuration de plateforme (PCR) SHA-256 et implémenter les PCR 0 à 23 pour SHA-256. Il est acceptable de livrer des modules de plateforme sécurisée avec une seule banque PCR commutable qui peut être utilisée pour les deux mesures SHA-1 et SHA-256.  
+> - Les modules de plateforme sécurisée qui implémentent la version 2.0 doivent être livrés avec des banques de registre de configuration de plateforme (PCR) SHA-256 et implémenter les PCR 0 à 23 pour SHA-256. Il est acceptable de livrer des modules de plateforme sécurisée avec une seule banque PCR commutable qui peut être utilisée pour les deux mesures SHA-1 et SHA-256.  
 > - Une option UEFI pour désactiver le module de plateforme sécurisée n’est pas obligatoire.  
