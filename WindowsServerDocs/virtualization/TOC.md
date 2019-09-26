@@ -34,6 +34,7 @@
 #### [Mettre à niveau la version de la machine virtuelle](hyper-v/deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server.md)
 #### [Déployer des périphériques graphiques à l'aide de DDA](hyper-v/deploy/deploying-graphics-devices-using-dda.md)
 #### [Déployer des périphériques de stockage à l’aide de DDA](hyper-v/deploy/deploying-storage-devices-using-dda.md)
+
 ### [Gérer](hyper-v/manage/Manage-Hyper-V-on-Windows-Server.md)
 #### [Configuration d'appareils à mémoire persistante pour les ordinateurs virtuels Hyper-V](hyper-v/manage/persistent-memory-cmdlets.md)
 #### [Choisir entre des points de contrôle standard ou de production](hyper-v/manage/Choose-between-standard-or-production-checkpoints-in-Hyper-V.md)
@@ -46,11 +47,14 @@
 #### [À propos de la sélection du type de planificateur Hyper-V](hyper-v/manage/about-hyper-v-scheduler-type-selection.md)
 #### [Gérer les services d’intégration](hyper-v/manage/Manage-Hyper-V-integration-services.md)
 #### [Gérer les machines virtuelles Windows avec PowerShell Direct](hyper-v/manage/Manage-Windows-virtual-machines-with-powershell-direct.md)
-#### [Configurer le réplica Hyper-V](hyper-v/manage/Set-up-Hyper-V-Replica.md) 
-#### [Déplacer les ordinateurs virtuels à l'aide d'une migration dynamique](hyper-v/manage/Live-migration-overview.md) 
-##### [Vue d’ensemble de la migration dynamique](hyper-v/manage/Live-migration-overview.md) 
+#### [Configurer le réplica Hyper-V](hyper-v/manage/Set-up-Hyper-V-Replica.md)
+#### [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[
+#### [Déplacer les ordinateurs virtuels à l'aide d'une migration dynamique](hyper-v/manage/Live-migration-overview.md)
+##### [Vue d’ensemble de la migration dynamique](hyper-v/manage/Live-migration-overview.md)
 ##### [Configurer des hôtes pour la migration dynamique](hyper-v/deploy/Set-up-hosts-for-live-migration-without-Failover-Clustering.md) 
-##### [Utiliser la migration dynamique sans clustering de basculement](hyper-v/manage/Use-live-migration-without-Failover-Clustering-to-move-a-virtual-machine.md) 
+##### [Utiliser la migration dynamique sans clustering de basculement](hyper-v/manage/Use-live-migration-without-Failover-Clustering-to-move-a-virtual-machine.md)
+
+
 ### [Réglage des performances Hyper-V](../administration/performance-tuning/role/hyper-v-server/index.md)
 ## [Commutateur virtuel Hyper-V](hyper-v-virtual-switch/Hyper-V-Virtual-Switch.md)
 ### [RDMA (Remote Direct Memory Access) et SET (Switch Embedded Teaming)](hyper-v-virtual-switch/rdMA-and-Switch-Embedded-Teaming.md)
