@@ -1,9 +1,9 @@
 ---
 title: Utiliser l'analyse et la gestion de comptes de l'accès à distance
-description: Cette rubrique fait partie du guide de la surveillance de l’accès à distance et la gestion des comptes dans Windows Server 2016.
+description: Cette rubrique fait partie du Guide d’analyse et de gestion de l’accès à distance dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 92519b49-0df4-43c1-9717-f13570644212
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c794d4b8169c81c63162f119467f5f03d10ce756
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: eb7c052358bc50f9b466b7ac862e77be7b044685
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282654"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367148"
 ---
 # <a name="use-remote-access-monitoring-and-accounting"></a>Utiliser l'analyse et la gestion de comptes de l'accès à distance
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 L'analyse d'accès à distance rend compte de l'activité et de l'état des utilisateurs distants quant aux connexions DirectAccess et VPN. Elle relève le nombre et la durée des connexions clientes (parmi d'autres statistiques) et analyse l'état de fonctionnement du serveur. Une console d'analyse facile à utiliser propose un aperçu de toute votre infrastructure d'accès à distance. Vous avez la possibilité d'afficher l'analyse de configurations de serveur unique, de cluster et multisites.  
   
@@ -32,7 +32,7 @@ L'analyse d'accès à distance rend compte de l'activité et de l'état des util
 >   
 > -   [Analyser la charge existante sur le serveur d’accès à distance](Monitor-the-existing-load-on-the-Remote-Access-server.md)  
 > -   [Analyser l’état de distribution de la configuration du serveur d’accès à distance](Monitor-the-configuration-distribution-status-of-the-Remote-Access-server.md)  
-> -   [Surveiller l’état de fonctionnement de l’accès à distance serveur et ses composants](Monitor-the-operations-status-of-the-Remote-Access-server-and-its-components.md)  
+> -   [Surveiller l’état des opérations du serveur d’accès à distance et de ses composants](Monitor-the-operations-status-of-the-Remote-Access-server-and-its-components.md)  
 > -   [Identifier et résoudre les problèmes de fonctionnement du serveur d’accès à distance](Identify-and-resolve-Remote-Access-server-operations-problems.md)  
 > -   [Analyser l’activité et l’état des clients distants connectés](Monitor-connected-remote-clients-for-activity-and-status.md)  
 > -   [Générer un rapport d’utilisation pour les clients distants à l’aide de données d’historique](Generate-a-usage-report-for-remote-clients-using-historical-data.md)  

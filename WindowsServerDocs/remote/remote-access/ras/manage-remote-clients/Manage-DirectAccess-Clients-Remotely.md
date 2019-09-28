@@ -1,9 +1,9 @@
 ---
 title: Gérer les clients DirectAccess à distance
-description: Cette rubrique fait partie du guide les Clients DirectAccess de gérer à distance dans Windows Server 2016.
+description: Cette rubrique fait partie du guide gérer des clients DirectAccess à distance dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,20 +12,20 @@ ms.topic: article
 ms.assetid: 36255d80-a13e-4af7-a5c0-ab4c8f302622
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c4ebab1cb444df9c756d66ded24e1c851023d17a
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: ecfbd6dc09f251d5197a16b166aa76e6a37b933a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281167"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367280"
 ---
 # <a name="manage-directaccess-clients-remotely"></a>Gérer les clients DirectAccess à distance
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 L'analyse d'accès à distance rend compte de l'activité et de l'état des utilisateurs distants quant aux connexions DirectAccess et VPN. Elle relève le nombre et la durée des connexions clientes (parmi d'autres statistiques) et analyse l'état de fonctionnement du serveur. Une console d'analyse facile à utiliser propose un aperçu de toute votre infrastructure d'accès à distance. Vous avez la possibilité d'afficher l'analyse de configurations de serveur unique, de cluster et multisites.  
   
-**Remarque :** Windows Server 2016 combine DirectAccess et le Service d’accès à distance (RAS) dans un seul rôle accès à distance.  
+**Remarque :** Windows Server 2016 combine DirectAccess et le service d’accès à distance (RAS) dans un seul rôle d’accès à distance.  
   
 ## <a name="in-this-guide"></a>Dans ce guide  
 Ce document contient des instructions pour exploiter les fonctionnalités d'analyse de l'accès à distance à l'aide de la console de gestion DirectAccess et des applets de commande Windows PowerShell correspondantes, fournies dans le cadre du rôle serveur Accès à distance.  

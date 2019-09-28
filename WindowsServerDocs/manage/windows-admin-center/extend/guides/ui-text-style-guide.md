@@ -7,13 +7,13 @@ author: jasongerend
 ms.author: jgerend
 ms.date: 10/17/2018
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 229a911039ba88847de42e542f47b344d7a032c2
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: 159202fcb8c6125134154094e67e862ce8eb12ab
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869595"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357030"
 ---
 # <a name="windows-admin-center-ui-text-and-design-style-guide"></a>Guide de style pour la conception et le texte de l’interface utilisateur Windows Admin Center
 
@@ -151,13 +151,13 @@ Les développeurs Microsoft doivent utiliser un FWLink, sauf lorsqu’il s’agi
     - Pas notre style
         - Quels sont les [risques liés à l’autorisation des exceptions]()? 
 
-## <a name="error-messages"></a>messages d'erreur
+## <a name="error-messages"></a>Messages d’erreur
 
 Voici quelques conseils adaptés à partir du Guide de style Windows :
 
 L’écriture d’un bon message est un juste équilibre entre fournir suffisamment d’explications, mais pas être trop technique. entre un usage fortuit et un homme, mais pas ennuyeux ou offensant.
 
-### <a name="general-guidelines"></a>Indications générales
+### <a name="general-guidelines"></a>Recommandations générales
 
 Utilisez un message par cas d’erreur.
 

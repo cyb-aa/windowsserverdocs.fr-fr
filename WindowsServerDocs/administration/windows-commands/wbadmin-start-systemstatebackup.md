@@ -1,8 +1,8 @@
 ---
-title: WBADMIN start systemstatebackup
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Wbadmin start systemstatebackup
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,25 +13,25 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d98ba295b2a76baf98e85a01a02677d57922877d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 0244f984d29c8a802475d2dc08f1cdfe4495f0b9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440261"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362232"
 ---
-# <a name="wbadmin-start-systemstatebackup"></a>WBADMIN start systemstatebackup
+# <a name="wbadmin-start-systemstatebackup"></a>Wbadmin start systemstatebackup
 
 
 
-Crée une sauvegarde de l’état système de l’ordinateur local et les stocke sur l’emplacement spécifié.
+Crée une sauvegarde de l’état du système de l’ordinateur local et le stocke à l’emplacement spécifié.
 
 > [!NOTE]
-> Sauvegarde Windows Server ne pas sauvegarder ou récupérer les ruches utilisateur du Registre (HKEY_CURRENT_USER) dans le cadre de la sauvegarde de l’état système ou de récupération de l’état système.
+> Sauvegarde Windows Server ne sauvegarde pas ou ne récupère pas les ruches des utilisateurs du Registre (HKEY_CURRENT_USER) dans le cadre de la sauvegarde de l’état du système ou de la récupération de l’état du système.
 
-Pour effectuer une sauvegarde de l’état système avec la sous-commande, vous devez être membre du **opérateurs de sauvegarde** groupe ou le **administrateurs** groupe, ou vous devez vous avoir été délégué des autorisations appropriées. En outre, vous devez exécuter **wbadmin** à partir d’une invite de commandes avec élévation de privilèges. (Pour ouvrir un invite de commandes avec élévation de privilèges de droit **invite de commandes**, puis cliquez sur **exécuter en tant qu’administrateur**.)
+Pour effectuer une sauvegarde de l’état du système avec cette sous-commande, vous devez être membre du groupe **opérateurs de sauvegarde** ou **administrateurs** , ou l’autorisation appropriée doit vous avoir été déléguée. En outre, vous devez exécuter **Wbadmin** à partir d’une invite de commandes avec élévation de privilèges. (Pour ouvrir une invite de commandes avec élévation de privilèges, cliquez avec le bouton droit sur **invite de commandes**, puis cliquez sur **exécuter en tant qu’administrateur**.)
 
-Pour obtenir des exemples montrant comment utiliser cette sous-commande, consultez [exemples](#BKMK_examples).
+Pour obtenir des exemples d’utilisation de cette sous-commande, consultez [exemples](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -45,16 +45,16 @@ wbadmin start systemstatebackup
 
 |   Paramètre   |                                                                                                                                                                                                                      Description                                                                                                                                                                                                                      |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| -backupTarget | Spécifie l’emplacement où vous souhaitez stocker la sauvegarde. L’emplacement de stockage nécessite une lettre de lecteur ou un volume en fonction du GUID du format : \\ \\? \Volume {*GUID*}.</br>Une sauvegarde d’état système sur un dossier réseau partagé n’est pas pris en charge sur un ordinateur exécutant Windows Server 2008. Si votre serveur exécute Windows Server 2008 R2 ou version ultérieure, vous pouvez utiliser la commande **- backuptarget :\\\\servername\sharedFolder\\**  pour stocker les sauvegardes d’état système. |
+| -backupTarget | Spécifie l’emplacement où vous souhaitez stocker la sauvegarde. L’emplacement de stockage requiert une lettre de lecteur ou un volume GUID au format suivant : \\ @ no__t-1 ? \Volume{*GUID*}.</br>Une sauvegarde de l’état du système dans un dossier réseau partagé n’est pas prise en charge sur un ordinateur exécutant Windows Server 2008. Si votre serveur exécute Windows Server 2008 R2 ou une version ultérieure, vous pouvez utiliser la commande **-backupTarget : \\ @ no__t-2servername\sharedFolder @ no__t-3** pour stocker les sauvegardes de l’état du système. |
 |    -quiet     |                                                                                                                                                                                                   Exécute la sous-commande sans invite à l’utilisateur.                                                                                                                                                                                                    |
 
 ## <a name="remarks"></a>Notes
 
-Pour plus d’informations sur l’enregistrement d’une sauvegarde de l’état système sur un volume qui, à son tour, contient des fichiers d’état système, consultez l’article 944530 dans la Base de connaissances Microsoft ([https://go.microsoft.com/fwlink/?LinkId=110439](https://go.microsoft.com/fwlink/?LinkId=110439)).
+Pour plus d’informations sur l’enregistrement d’une sauvegarde de l’état du système sur un volume qui, à son tour, contient des fichiers d’État du système, voir l’article 944530 de la base de connaissances Microsoft ([https://go.microsoft.com/fwlink/?LinkId=110439](https://go.microsoft.com/fwlink/?LinkId=110439)).
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour créer une sauvegarde de l’état système et le stocker sur le volume f, tapez :
+Pour créer une sauvegarde de l’état du système et la stocker sur le volume f, tapez :
 ```
 wbadmin start systemstatebackup -backupTarget:f:
 ```
@@ -63,4 +63,4 @@ wbadmin start systemstatebackup -backupTarget:f:
 
 -   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
--   [Start-WBBackup](https://technet.microsoft.com/library/jj902459.aspx) applet de commande
+-   Applet [de commande Start-WBBackup](https://technet.microsoft.com/library/jj902459.aspx)

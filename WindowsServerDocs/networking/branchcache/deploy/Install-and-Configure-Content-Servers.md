@@ -1,31 +1,31 @@
 ---
 title: Installer et configurer des serveurs de contenu
-description: Cette rubrique fait partie de BranchCache déploiement Guide pour Windows Server 2016, qui montre comment déployer BranchCache en mode cache distribué et hébergé pour optimiser l’utilisation de la bande passante WAN dans les succursales
+description: Cette rubrique fait partie du Guide de déploiement BranchCache pour Windows Server 2016, qui montre comment déployer BranchCache en mode de cache distribué et hébergé pour optimiser l’utilisation de la bande passante WAN dans les filiales.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: e753c56b-8902-4610-9c53-381e77bf29ab
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4a75335623927896d2f20ffe447bf85cb9c2ab6a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c254a6f19d07f1c6b3197b46e208b7c837c8236c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816290"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356548"
 ---
 # <a name="install-and-configure-content-servers"></a>Installer et configurer des serveurs de contenu
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Lorsque vous déployez BranchCache en mode de cache distribué ou en mode cache hébergé, vous devez déployer un ou plusieurs serveurs de contenu à votre siège social ou dans le cloud. Les serveurs de contenu sont des serveurs Web ou des serveurs d’applications utilisent la fonctionnalité BranchCache. Les serveurs de contenu sont des serveurs de fichiers utilisent le BranchCache pour le service de rôle fichiers réseau du rôle serveur Services de fichiers dans Windows Server 2016.  
+Lorsque vous déployez BranchCache en mode de cache distribué ou en mode de cache hébergé, vous devez déployer un ou plusieurs serveurs de contenu dans votre siège social ou dans le Cloud. Les serveurs de contenu qui sont des serveurs Web ou des serveurs d’applications utilisent la fonctionnalité BranchCache. Les serveurs de contenu qui sont des serveurs de fichiers utilisent le service de rôle BranchCache pour fichiers réseau du rôle serveur services de fichiers dans Windows Server 2016.  
   
 Consultez les rubriques suivantes pour déployer des serveurs de contenu.  
   
 -   [Installer des serveurs de contenu qui utilisent la fonctionnalité BranchCache](../../branchcache/deploy/Install-Content-Servers-that-Use-the-BranchCache-Feature.md)  
   
--   [Installer des serveurs de contenu de Services de fichiers](../../branchcache/deploy/Install-File-Services-Content-Servers.md)  
+-   [Installer les services de fichiers content servers](../../branchcache/deploy/Install-File-Services-Content-Servers.md)  
   
 
 

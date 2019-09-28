@@ -1,8 +1,8 @@
 ---
 title: whoami
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6844ba001c2ebd7407b77f97204069a48a1b595b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9731ba3be3983eb53ade88fceaee863800229084
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840150"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362143"
 ---
 # <a name="whoami"></a>whoami
 
 
 
-Affiche des informations utilisateur, groupe et les privilèges de l’utilisateur actuellement connecté au système local. Si utilisée sans paramètres, **whoami** affiche le nom de domaine et d’utilisateur actuel.
+Affiche des informations sur l’utilisateur, le groupe et les privilèges de l’utilisateur actuellement connecté au système local. En cas d’utilisation sans paramètre, **whoami** affiche le domaine et le nom d’utilisateur actuels.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -40,32 +40,32 @@ whoami /all [/fo <Format>] [/nh]
 
 |Paramètre|Description|
 |---------|-----------|
-|/upn|Affiche le nom d’utilisateur dans le format nom utilisateur principal (UPN).|
-|/fqdn|Affiche le nom d’utilisateur au format nom de domaine complet (FQDN).|
+|/upn|Affiche le nom d’utilisateur au format UPN (user principal name).|
+|/fqdn|Affiche le nom d’utilisateur au format de nom de domaine complet (FQDN).|
 |/logonid|Affiche l’ID d’ouverture de session de l’utilisateur actuel.|
-|/User|Affiche le nom de domaine et d’utilisateur actuel et l’identificateur de sécurité (SID).|
-|/Groups|Affiche les groupes d’utilisateurs à laquelle appartient l’utilisateur actuel.|
+|/User|Affiche le domaine et le nom d’utilisateur actuels et l’identificateur de sécurité (SID).|
+|/groups|Affiche les groupes d’utilisateurs auxquels appartient l’utilisateur actuel.|
 |/priv|Affiche les privilèges de sécurité de l’utilisateur actuel.|
-|/Fo \<format >|Spécifie le format de sortie. Les valeurs valides sont les suivantes :</br>**table** affiche la sortie dans une table. Valeur par défaut.</br>**liste** affiche la sortie dans une liste.</br>**CSV** affiche la sortie au format de valeurs séparées par des virgules (CSV).|
-|/all|Affiche toutes les informations dans le jeton d’accès actuel, y compris le nom d’utilisateur actuel, les identificateurs de sécurité (SID), les privilèges et les groupes auxquels appartient l’utilisateur actuel.|
-|/nh|Spécifie que l’en-tête de colonne ne doit pas être affiché dans la sortie. Cela est valide uniquement pour les formats CSV et de table.|
+|/FO \<Format >|Spécifie le format de sortie. Les valeurs valides sont les suivantes:</br>**table** Affiche la sortie dans une table. Valeur par défaut.</br>**liste** Affiche la sortie dans une liste.</br>fichier **CSV** Affiche la sortie au format CSV (valeurs séparées par des virgules).|
+|All|Affiche toutes les informations du jeton d’accès actuel, y compris le nom d’utilisateur actuel, les identificateurs de sécurité (SID), les privilèges et les groupes auxquels l’utilisateur actuel appartient.|
+|/NH|Spécifie que l’en-tête de colonne ne doit pas être affiché dans la sortie. Cela est valide uniquement pour les formats table et CSV.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour afficher le nom de domaine et d’utilisateur de la personne qui est actuellement connecté à cet ordinateur, tapez :
+Pour afficher le domaine et le nom d’utilisateur de la personne qui est actuellement connectée à cet ordinateur, tapez :
 ```
 whoami
 ```
-Une sortie similaire à ce qui suit apparaît :
+Une sortie similaire à ce qui suit s’affiche :
 ```
 DOMAIN1\administrator
 ```
-Pour afficher toutes les informations dans le jeton d’accès actuel, tapez :
+Pour afficher toutes les informations du jeton d’accès actuel, tapez :
 ```
 whoami /all
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

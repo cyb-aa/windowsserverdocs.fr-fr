@@ -6,33 +6,33 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 5767fa45f8b25680aa1b1d97ddab630923d10fae
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 132e71cec134d17dd73be998683c09f752fdc414
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192490"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71360330"
 ---
 # <a name="add-a-host-a-resource-record-to-corporate-dns-for-a-federation-server"></a>Ajouter un enregistrement de ressource hôte (A) au DNS d’entreprise d’un serveur de fédération
 
 
 
-Pour les clients sur l’entreprise réseau puisse accéder à un serveur de fédération à l’aide de l’authentification Windows intégrée, un hôte \(A\) enregistrement de ressource doit d’abord être créé dans le système de nom de domaine d’entreprise \(DNS\) qui résout le nom d’hôte du serveur de fédération de compte \(, par exemple, fs.fabrikam.com\) à l’adresse IP du serveur de fédération ou du cluster de serveur de fédération. Vous pouvez utiliser la procédure suivante pour ajouter un hôte \(A\) enregistrement de ressource au DNS d’entreprise pour un serveur de fédération.  
+Pour que les clients du réseau d’entreprise accèdent correctement à un serveur de Fédération à l’aide de l’authentification intégrée Windows, un enregistrement de ressource hôte \(A @ no__t-1 doit d’abord être créé dans le système de noms de domaine d’entreprise \(DNS @ no__t-3 qui résout le nom d’hôte du serveur de Fédération de compte @no__t 4for exemple, FS. fabrikam. com @ no__t-5 à l’adresse IP du serveur de Fédération ou du cluster de serveurs de Fédération. Vous pouvez utiliser la procédure suivante pour ajouter un enregistrement de ressource hôte \(A @ no__t-1 au DNS d’entreprise pour un serveur de Fédération.  
   
 Pour mener à bien cette procédure, il faut appartenir au groupe **Administrateurs** ou à un groupe équivalent.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-### <a name="to-add-a-host-a-resource-record-to-corporate-dns-for-a-federation-server"></a>Pour ajouter un hôte \(A\) enregistrement de ressource au DNS d’entreprise pour un serveur de fédération  
+### <a name="to-add-a-host-a-resource-record-to-corporate-dns-for-a-federation-server"></a>Pour ajouter un enregistrement de ressource hôte \(A @ no__t-1 au DNS d’entreprise pour un serveur de Fédération  
   
-1.  Sur un serveur DNS pour le réseau d’entreprise, ouvrez le composant logiciel enfichable DNS\-dans.  
+1.  Sur un serveur DNS du réseau d’entreprise, ouvrez le composant logiciel enfichable DNS @ no__t-0in.  
   
-2.  Dans l’arborescence de la console, avec le bouton droit\-cliquez sur la zone de recherche directe applicable, puis cliquez sur **nouvel hôte \(A ou AAAA\)** .  
+2.  Dans l’arborescence de la console, cliquez avec le bouton droit sur @ no__t-0click la zone de recherche directe applicable, puis cliquez sur **nouvel hôte \(A ou AAAA @ no__t-3**.  
   
-3.  Dans **nom**, tapez uniquement le nom d’ordinateur du serveur de fédération ou du cluster de serveur de fédération ; par exemple, pour le nom de domaine pleinement qualifié \(FQDN\) fs.fabrikam.com, tapez **fs**.  
+3.  Dans **nom**, tapez uniquement le nom d’ordinateur du serveur de Fédération ou du cluster de serveurs de Fédération ; par exemple, pour le nom de domaine complet \(FQDN @ no__t-2 fs.fabrikam.com, tapez **FS**.  
   
-4.  Dans **adresse IP**, tapez l’adresse IP pour le serveur de fédération ou d’un cluster de serveurs de fédération, par exemple, 192.168.1.4.  
+4.  Dans **adresse IP**, tapez l’adresse IP du serveur de Fédération ou du cluster de serveurs de Fédération, par exemple, 192.168.1.4.  
   
 5.  Cliquez sur **Ajouter un hôte**.  
   

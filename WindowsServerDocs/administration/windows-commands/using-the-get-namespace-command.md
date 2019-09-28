@@ -1,8 +1,8 @@
 ---
-title: À l’aide de la commande get-Namespace
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Utilisation de la commande de l’espace de noms
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8c30f9ef375bdf368f81f5a69961746851a2aac8
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 607fb758db64cfc938a08b070b520fe2950aa482
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440430"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363080"
 ---
-# <a name="using-the-get-namespace-command"></a>À l’aide de la commande get-Namespace
+# <a name="using-the-get-namespace-command"></a>Utilisation de la commande de l’espace de noms
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 Affiche des informations sur un espace de noms personnalisé.
 ## <a name="syntax"></a>Syntaxe
@@ -38,21 +38,21 @@ wdsutil /Get-Namespace /Namespace:<Namespace name> [/Server:<Server name>] [/det
 
 |               Paramètre               |                                                                                                                                                                                         Description                                                                                                                                                                                          |
 |---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      / Namespace :<Namespace name>      | Spécifie le nom de l’espace de noms. Notez que cela n’est pas le nom convivial, et il doit être unique.<br /><br />-Déploiement Server : La syntaxe de nom de l’espace de noms est /Namspace:WDS :<ImageGroup>/<ImageName>/<Index>. Exemple : **WDS:ImageGroup1/install.wim/1**<br />-Transport Server : Cette valeur doit correspondre au nom donné à l’espace de noms lorsqu’il a été créé sur le serveur. |
-|        [/Server:<Server name>]        |                                                                                                             Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.                                                                                                              |
-| [/ Show : les Clients] ou [/ Détails : les Clients] |                                                                                                                                                  Affiche des informations sur les ordinateurs clients qui sont connectés à l’espace de noms spécifié.                                                                                                                                                  |
+|      /Namespace : <Namespace name>      | Spécifie le nom de l’espace de noms. Notez qu’il ne s’agit pas du nom convivial et qu’il doit être unique.<br /><br />-Serveur de déploiement : La syntaxe du nom de l’espace de noms est/Namspace : WDS : <ImageGroup> @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4. Exemple : **WDS : ImageGroup1/install. wim/1**<br />-Serveur de transport : Cette valeur doit correspondre au nom donné à l’espace de noms lorsqu’il a été créé sur le serveur. |
+|        [/Server:<Server name>]        |                                                                                                             Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.                                                                                                              |
+| [/Show : clients] ou [/details : clients] |                                                                                                                                                  Affiche des informations sur les ordinateurs clients qui sont connectés à l’espace de noms spécifié.                                                                                                                                                  |
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 Pour afficher des informations sur un espace de noms, tapez :
 ```
 wdsutil /Get-Namespace /Namespace:"Custom Auto 1"
 ```
-Pour afficher des informations sur un espace de noms et les clients qui sont connectés, tapez une des opérations suivantes :
+Pour afficher des informations sur un espace de noms et les clients qui sont connectés, tapez l’un des éléments suivants :
 - Windows Server 2008 : `wdsutil /Get-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1" /Show:Clients`
 - Windows Server 2008 R2 : `wdsutil /Get-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1" /details:Clients`
   #### <a name="additional-references"></a>Références supplémentaires
   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-  [à l’aide de la commande get-AllNamespaces](using-the-get-allnamespaces-command.md)
-  [à l’aide de la commande Nouveau Namespace](using-the-new-namespace-command.md)
-  [Using la commande remove-Namespace](using-the-remove-namespace-command.md)
-  [sous-commande : Namespace-début](subcommand-start-namespace.md)
+  [à l’aide de la commande AllNamespaces](using-the-get-allnamespaces-command.md)
+  [à l’aide de la commande New-Namespace](using-the-new-namespace-command.md)
+  [à l’aide de la commande Remove-Namespace](using-the-remove-namespace-command.md)
+   sous-[commande : Start-namespace](subcommand-start-namespace.md)

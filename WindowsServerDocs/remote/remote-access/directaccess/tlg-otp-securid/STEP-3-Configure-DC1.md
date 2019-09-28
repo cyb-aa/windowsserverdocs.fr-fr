@@ -1,9 +1,9 @@
 ---
 title: ÉTAPE 3 configurer DC1
-description: Cette rubrique fait partie du Guide de laboratoire de Test - démontrer DirectAccess avec l’authentification OTP et RSA SecurID pour Windows Server 2016
+description: 'Cette rubrique fait partie du Guide de laboratoire de test : illustrer DirectAccess avec l’authentification par mot de passe à usage unique et RSA SecurID pour Windows Server 2016'
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,24 +12,24 @@ ms.topic: article
 ms.assetid: 836a2a08-3d22-48d2-873e-80d7e57ebbd6
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 338e214ac10796d3f9864aef74190f2d27f173b7
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 7655208fb537e78839f2b459c8df0e24c0573aa7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281357"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367548"
 ---
 # <a name="step-3-configure-dc1"></a>ÉTAPE 3 configurer DC1
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-DC1 joue un contrôleur de domaine, le serveur DNS et le serveur DHCP pour le domaine corp.contoso.com. Configurez DC1 comme suit :  
+DC1 agit en tant que contrôleur de domaine, serveur DNS et serveur DHCP pour le domaine corp.contoso.com. Configurez DC1 comme suit :  
   
-## <a name="verify-user1-has-a-user-principal-name-defined-on-dc1"></a>Vérifiez que User1 a un nom d’utilisateur Principal défini sur DC1  
+## <a name="verify-user1-has-a-user-principal-name-defined-on-dc1"></a>Vérifier que User1 a un nom d’utilisateur principal défini sur DC1  
   
-1.  Sur DC1, ouvrez le Gestionnaire de serveur, puis cliquez sur **AD DS** dans le volet gauche. Avec le bouton droit **DC1** et sélectionnez **Active Directory Users and Computers**. Dans le volet gauche, développez **corp.contoso.com\Users**, double-cliquez sur User1.  
+1.  Sur DC1, ouvrez Gestionnaire de serveur, puis cliquez sur **AD DS** dans le volet gauche. Cliquez avec le bouton droit sur **DC1** , puis sélectionnez **Active Directory utilisateurs et ordinateurs**. Dans le volet gauche, développez **Corp. contoso. com\Users**, puis double-cliquez sur User1.  
   
-2.  Sur le **compte** onglet Vérifiez que **nom d’utilisateur d’ouverture de session** est définie à l’utilisateur User1. Dans le cas contraire, puis entrez **User1** dans le **nom d’utilisateur d’ouverture de session** champ.  
+2.  Sous l’onglet **compte** , vérifiez que **nom d’ouverture de session** de l’utilisateur a la valeur utilisateur1. Si ce n’est pas le cas, entrez **User1** dans le champ **nom d’ouverture de session** de l’utilisateur.  
   
 3.  Cliquez sur **OK**. Fermez la console **Utilisateurs et ordinateurs Active Directory** .  
   
