@@ -1,7 +1,7 @@
 ---
 ms.assetid: 7787a72e-a26b-415f-b700-a32806803478
-title: fsutil fsinfo
-ms.prod: windows-server-threshold
+title: Fsutil fsinfo
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,17 +9,17 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 434dfde2286538367fb96d168b06983cb4357067
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 472c3b91285810ac1ff528da24de50533bae526d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873040"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376942"
 ---
-# <a name="fsutil-fsinfo"></a>fsutil fsinfo
+# <a name="fsutil-fsinfo"></a>Fsutil fsinfo
 >S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
-Répertorie tous les lecteurs, le type de lecteur, interroge les informations de volume, interroge les informations de volume NTFS spécifiques ou interroge les statistiques sur les fichiers système.
+Répertorie tous les lecteurs, interroge le type de lecteur, interroge les informations sur le volume, interroge les informations de volume spécifiques à NTFS ou interroge les statistiques du système de fichiers.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -37,35 +37,35 @@ fsutil fsinfo [volumeinfo] <RootPath>
 
 |Paramètre|Description|
 |-------------|---------------|
-|lecteurs|Répertorie tous les lecteurs de l’ordinateur.|
-|DriveType|Interroge un lecteur et affiche son type, le lecteur de CD-ROM par exemple.|
-|ntfsinfo|Répertorie des informations de volume spécifique de NTFS pour le volume spécifié, comme le nombre de secteurs, nombre total de clusters, les clusters libres et début et de fin de la Zone MFT.|
-|sectorinfo|Répertorie des informations sur la taille de secteur et l’alignement de matériel.|
-|Statistiques|Listes des statistiques du système pour le volume spécifié, telles que les métadonnées, fichier journal et MFT lectures et écritures de fichiers.|
-|volumeinfo|Répertorie des informations pour le volume spécifié, telles que le système de fichiers et si le volume prend en charge les noms de fichiers respectant la casse, unicode dans les noms de fichiers, les quotas de disque, ou est un volume DirectAccess (DAX).|
-|<"VolumePath">|Spécifie la lettre de lecteur (suivie d’un signe deux-points).|
-|<"RootPathname">|Spécifie la lettre de lecteur (suivie d’un signe deux-points) du lecteur racine.|
+|Durs|Répertorie tous les lecteurs de l’ordinateur.|
+|DriveType|Interroge un lecteur et répertorie son type, par exemple lecteur de CD-ROM.|
+|NTFSInfo|Répertorie les informations de volume spécifiques à NTFS pour le volume spécifié, telles que le nombre de secteurs, le nombre total de clusters, les clusters libres et le début et la fin de la zone MFT.|
+|sectorinfo|Répertorie des informations sur la taille et l’alignement des secteurs du matériel.|
+|Portent|Répertorie les statistiques du système de fichiers pour le volume spécifié, telles que les métadonnées, le fichier journal et les lectures et écritures MFT.|
+|volumeinfo|Répertorie des informations sur le volume spécifié, telles que le système de fichiers, et indique si le volume prend en charge les noms de fichiers sensibles à la casse, Unicode dans les noms de fichiers, les quotas de disque ou s’il s’agit d’un volume DirectAccess (DAX).|
+|< « VolumePath » >|Spécifie la lettre de lecteur (suivie d’un signe deux-points).|
+|< « RootPathname » >|Spécifie la lettre de lecteur (suivie d’un signe deux-points) du lecteur racine.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 Pour répertorier tous les lecteurs de l’ordinateur, tapez :
 
 ```
 fsutil fsinfo drives
 ```
 
-Sortie similaire à ce qui suit affiche :
+Une sortie similaire à ce qui suit s’affiche :
 
 ```
 Drives: A:\ C:\ D:\ E:\       
 ```
 
-Pour interroger le type de lecteur du lecteur C, tapez :
+Pour interroger le type de lecteur C, tapez :
 
 ```
 fsutil fsinfo drivetype c:
 ```
 
-Les résultats possibles de la requête sont les suivantes :
+Les résultats possibles de la requête sont les suivants :
 
 ```
 Unknown Drive
@@ -77,13 +77,13 @@ CD-ROM Drive
 Ram Disk
 ```
 
-Pour interroger les informations de volume pour le volume E, tapez :
+Pour interroger les informations sur le volume E, tapez :
 
 ```
 fsinfo volumeinfo e:\
 ```
 
-Sortie similaire à ce qui suit affiche :
+Une sortie similaire à ce qui suit s’affiche :
 
 ```
 Volume Name :Volume
@@ -97,13 +97,13 @@ Supports Named Streams
 Is DAX Volume
 ```
 
-Pour interroger le lecteur F pour des informations spécifiques de NTFS, tapez :
+Pour rechercher des informations sur les volumes spécifiques à NTFS dans le lecteur F, tapez :
 
 ```
 fsutil fsinfo ntfsinfo f:
 ```
 
-Sortie similaire à ce qui suit affiche :
+Une sortie similaire à ce qui suit s’affiche :
 
 ```
 NTFS Volume Serial Number : 0xe660d46a60d442cb
@@ -115,13 +115,13 @@ Total Clusters :            0x000000000021d409
 Mft Zone End   :            0x0000000000004700       
 ```
 
-Pour interroger le fichier matériel du système sous-jacent pour les informations de secteur, tapez :
+Pour rechercher les informations de secteur dans le matériel sous-jacent du système de fichiers, tapez :
 
 ```
 fsinfo sectorinfo d:
 ```
 
-Sortie similaire à ce qui suit affiche :
+Une sortie similaire à ce qui suit s’affiche :
 
 ```
 D:\>fsutil fsinfo sectorinfo d:
@@ -134,13 +134,13 @@ Trim Not Supported
 DAX capable
 ```
 
-Pour obtenir les statistiques de système de fichiers pour le lecteur E, tapez :
+Pour interroger les statistiques du système de fichiers pour le lecteur E, tapez :
 
 ```
 fsinfo statistics e:
 ```
 
-Sortie similaire à ce qui suit affiche :
+Une sortie similaire à ce qui suit s’affiche :
 
 ```
 File System Type :     NTFS
@@ -154,7 +154,7 @@ LogFileWriteBytes :    180936704
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
-[Clé de la syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
-[Fsutil](Fsutil.md)
+[Clé de syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
+[fsutil](Fsutil.md)
 
 

@@ -6,18 +6,18 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 3e144a09c99d9b72d623956e868b3f573962ed94
-ms.sourcegitcommit: 67833e36b8b2c6194a1426a974c5ad9c859fa4c9
+ms.openlocfilehash: cbb947c17219d4fe2f6694f0e44e379fc8671e76
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68329641"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71401936"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2016"></a>Mettre à niveau des contrôleurs de domaine vers Windows Server 2016
 
-S'applique à : Windows Server
+S'applique à : Windows Server
 
 Cette rubrique fournit des informations générales sur Active Directory Domain Services dans Windows Server 2016 et explique le processus de mise à niveau des contrôleurs de domaine à partir de Windows Server 2012 ou Windows Server 2012 R2.
 
@@ -45,10 +45,10 @@ Le tableau suivant fournit un résumé des étapes de mise à niveau et des auto
 | ----- | ----- |
 |Installer une nouvelle forêt|Administrateur local sur le serveur cible|
 |Installer un nouveau domaine dans une forêt existante|Administrateurs de l’entreprise|
-|Installer un autre contrôleur de domaine dans un domaine existant|Admins du domaine|
+|Installer un autre contrôleur de domaine dans un domaine existant|Administrateurs du domaine|
 |Exécuter adprep /forestprep|Administrateurs du schéma, Administrateurs de l’entreprise et Administrateurs du domaine|
-|Exécuter adprep /domainprep|Admins du domaine|
-|Exécuter adprep /domainprep /gpprep|Admins du domaine|
+|Exécuter adprep /domainprep|Administrateurs du domaine|
+|Exécuter adprep /domainprep /gpprep|Administrateurs du domaine|
 |Exécuter adprep /rodcprep|Administrateurs de l’entreprise|
 
 Pour plus d’informations sur les nouvelles fonctionnalités de Windows Server 2016, voir [Nouveautés de Windows server 2016](../../../get-started/what-s-new-in-windows-server-2016.md).

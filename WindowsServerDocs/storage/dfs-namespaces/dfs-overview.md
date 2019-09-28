@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble des espaces de noms DFS
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: jgerend
 ms.manager: daveba
 ms.technology: storage
@@ -8,12 +8,12 @@ ms.topic: article
 author: jasongerend
 ms.date: 06/07/2019
 description: Cette rubrique décrit la fonctionnalité Espaces de noms DFS qui est un service de rôle de Windows Server. Elle permet de grouper des dossiers partagés qui se trouvent sur des serveurs différents en un ou plusieurs espaces de noms logiquement structurés.
-ms.openlocfilehash: 8507961749bee6d01541029e33c8095470792b8a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 33fe25d2298d210ee37f9193a50fa77ed39bd2b4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870219"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402222"
 ---
 # <a name="dfs-namespaces-overview"></a>Vue d’ensemble des espaces de noms DFS
 
@@ -44,7 +44,7 @@ Les serveurs qui exécutent les systèmes d’exploitation suivants peuvent héb
 
 - Windows Server 2019
 - Windows Server 2016
-- Windows Server 2012 R2
+- Windows Server 2012 R2
 - Windows Server 2012
 - Éditions Windows Server 2008 R2 Datacenter et Enterprise
 - Windows Server (canal semi-annuel)
@@ -128,4 +128,4 @@ Pour plus d’informations connexes, voir les ressources suivantes.
 | **Ressources de la communauté** | [Forum TechNet sur le stockage et les services de fichiers](https://social.technet.microsoft.com/forums/winserverfiles/threads/) |
 | **Protocoles**        | [Protocoles des services de fichiers dans Windows Server](https://msdn.microsoft.com/library/cc239318.aspx) Déconseillé |
 | **Technologies connexes** | [Clustering de basculement](../../failover-clustering/failover-clustering-overview.md)|
-| **Support** | [Support technique pour les professionnels de l’informatique Windows](https://www.microsoft.com/itpro/windows/support)|
+| **Support technique** | [Support technique pour les professionnels de l’informatique Windows](https://www.microsoft.com/itpro/windows/support)|

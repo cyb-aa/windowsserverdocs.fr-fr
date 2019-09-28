@@ -2,18 +2,18 @@
 title: Configurer la vérification du filtrage de fichiers
 description: Cet article explique comment configurer la vérification du filtrage de fichiers pour générer le rapport de vérification du filtrage des fichiers
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 89592a9e1f61374d2d909678a91dc4a06e0b1972
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a9444e158a935f4e931aa7a5d634d970c5acc88e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824470"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394565"
 ---
 # <a name="configure-file-screen-audit"></a>Configurer la vérification du filtrage de fichiers
 
@@ -34,5 +34,5 @@ Le Gestionnaire de ressources du serveur de fichiers permet d'enregistrer l’ac
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Options de paramètre File Server Resource Manager](setting-file-server-resource-manager-options.md)
+-   [Définition des options du Gestionnaire de ressources du serveur de fichiers](setting-file-server-resource-manager-options.md)
 -   [Gestion des rapports de stockage](storage-reports-management.md)

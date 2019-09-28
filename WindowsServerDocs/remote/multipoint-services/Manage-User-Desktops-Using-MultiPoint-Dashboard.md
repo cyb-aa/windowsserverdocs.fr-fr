@@ -2,7 +2,7 @@
 title: Gérer les postes de travail des utilisateurs à l’aide du tableau de bord MultiPoint
 description: Fournit une vue d’ensemble du tableau de bord MultiPoint
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,17 +13,17 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 049910029f0ed2623ae34131d3755964d3499d0e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b250d820e7086054d18d62eebe8ce9d3686f8d5d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837340"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405096"
 ---
 # <a name="manage-user-desktops-using-multipoint-dashboard"></a>Gérer les postes de travail des utilisateurs à l’aide du tableau de bord MultiPoint
-Dans un système MultiPoint Services, un bureau est l’interface utilisateur du logiciel affichée sur le moniteur pour chaque *station* d’utilisateur. Le tableau de bord MultiPoint est un outil qui vous permet de gérer ces bureaux.   
+Dans un système MultiPoint Services, un bureau est l’interface utilisateur du logiciel affichée sur le moniteur pour chaque *station* d’utilisateur. Le tableau de bord MultiPoint est un outil qui vous permet de gérer ces postes de travail.   
   
-Dans le tableau de bord MultiPoint, sur le **accueil** onglet, vous pouvez procédez comme suit :  
+Dans le tableau de bord MultiPoint, sous l’onglet dossier de **démarrage** , vous pouvez effectuer les opérations suivantes :  
   
 - Afficher les bureaux  
 Vous pouvez afficher les images miniatures de chaque bureau actif. Pour plus d’informations sur l’affichage des miniatures, voir la rubrique [Options d’affichage pour les miniatures de session](View-Options-for-Session-Thumbnails-in-MultiPoint-Dashboard.md).  

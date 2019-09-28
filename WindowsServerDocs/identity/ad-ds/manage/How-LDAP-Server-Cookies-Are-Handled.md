@@ -7,18 +7,18 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 873953155d22bafef5b042887b22e953ff580b5c
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: c825ae9c9b52068b58b99bc6ff597304c9643d17
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280571"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390080"
 ---
 # <a name="how-ldap-server-cookies-are-handled"></a>Gestion des cookies du serveur LDAP
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dans LDAP, certaines requêtes génèrent un jeu de résultats de grande taille. Ces requêtes présentent des défis pour Windows Server.  
   
@@ -26,10 +26,10 @@ La collecte et la création de ces jeux de résultats volumineux représentent u
   
 Un autre défi est que les jeux de résultats avec des dizaines de milliers d'objets deviennent encombrants, facilement plusieurs centaines de méga-octets. Ils requièrent alors un espace d'adressage virtuel volumineux. En outre, le transfert sur réseau présente des problèmes car l'effort entier est perdu lorsque la session TCP se décompose en transit.  
   
-Ces capacités et les aspects logistiques ont conduit les développeurs Microsoft LDAP à la création d’une extension LDAP appelée « Requête paginée ». Elle implémente un contrôle LDAP pour séparer une seule requête volumineuse en segments plus petits de jeux de résultats. Il est devenu une norme RFC [RFC 2696](http://www.ietf.org/rfc/rfc2696).  
+Ces problèmes de capacité et de logistique ont conduit les développeurs LDAP Microsoft à créer une extension LDAP appelée « requête paginée ». Elle implémente un contrôle LDAP pour séparer une seule requête volumineuse en segments plus petits de jeux de résultats. Il est devenu la norme RFC [2696](http://www.ietf.org/rfc/rfc2696).  
   
 ## <a name="cookie-handling-on-client"></a>Gestion des cookies sur le client  
-La méthode de requête paginée utilise la taille de page définie par le client ou via un [stratégie LDAP](https://support.microsoft.com/kb/315071/en-us) (« MaxPageSize »). Le client doit systématiquement activer la pagination en envoyant un contrôle LDAP.  
+La méthode de requête paginée utilise la taille de page définie par le client ou par le biais d’une [stratégie LDAP](https://support.microsoft.com/kb/315071/en-us) (« MaxPageSize »). Le client doit systématiquement activer la pagination en envoyant un contrôle LDAP.  
 
   
 Lorsque vous travaillez sur une requête avec un grand nombre de résultats, à un moment donné, le nombre maximal d'objets autorisés est atteint. Le serveur LDAP empaquette le message de réponse et ajoute un cookie qui contient les informations nécessaires pour continuer ultérieurement la recherche.  
@@ -48,15 +48,15 @@ Dans ce cas, le cookie envoyé au client par le serveur est également utilisé 
 ## <a name="how-the-cookie-pool-is-managed"></a>Gestion du pool de cookies  
 Évidemment, le serveur LDAP sert plusieurs clients à la fois, et plusieurs clients à la fois peuvent lancer des requêtes qui requièrent l'utilisation du cache de cookie du serveur. Par conséquent, l'implémentation de Windows Server comporte un suivi de l'utilisation et des limites du pool de cookies afin que le pool n'utilise pas trop de ressources. Les limites peuvent être définies par l'administrateur en utilisant les paramètres suivants dans la stratégie LDAP. Les valeurs par défaut et les explications sont les suivantes :  
   
-**MinResultSets : 4**  
+@no__t 0MinResultSets : 4 @ no__t-0  
   
 Le serveur LDAP ne recherche pas la taille maximale du pool indiquée ci-dessous s'il y a moins de MinResultSets entrées dans le cache de cookie du serveur.  
   
-**MaxResultSetSize : 262 144 octets**  
+@no__t 0MaxResultSetSize : 262 144 octets @ no__t-0  
   
 La taille totale du cache de cookie sur le serveur ne doit pas dépasser le nombre maximal de MaxResultSetSize en octets. Le cas échéant, les cookies, à partir du plus ancien, sont supprimés jusqu'à ce que le pool soit inférieur à MaxResultSetSize octets ou à MinResultSets cookies. Cela signifie que, en utilisant les paramètres par défaut, le serveur LDAP considère qu'un pool de 450 Ko est correct s'il y a seulement 3 cookies stockés.  
   
-**MaxResultSetsPerConn : 10**  
+@no__t 0MaxResultSetsPerConn : 10 @ no__t-0  
   
 Le serveur LDAP n'autorise pas plus de MaxResultSetsPerConn cookies par connexion LDAP dans le pool.  
   
@@ -72,10 +72,10 @@ Que se passe-t-il lorsqu'un cookie est supprimé du serveur et que le client con
 ```  
   
 > [!NOTE]  
-> La valeur hexadécimale « DSID » varie selon la version de build des binaires du serveur LDAP.  
+> La valeur hexadécimale en arrière-plan de « DSID » varie en fonction de la version de build des fichiers binaires du serveur LDAP.  
   
 ## <a name="reporting-on-the-cookie-pool"></a>Création de rapports sur le pool de cookies  
-Le serveur LDAP a la possibilité de consigner les événements dans la catégorie « 16 Ldap Interface » le [clé des diagnostics NTDS](https://support.microsoft.com/kb/314980/en-us). Si vous définissez cette catégorie sur « 2 », vous pouvez obtenir les événements suivants :  
+Le serveur LDAP peut consigner des événements via la catégorie « 16 interface LDAP » dans la [clé de diagnostics NTDS](https://support.microsoft.com/kb/314980/en-us). Si vous définissez cette catégorie sur « 2 », vous pouvez vous procurer les événements suivants :  
   
 ```  
 Log Name:      Directory Service  
@@ -126,11 +126,11 @@ Les événements 2898 et 2899 sont les seuls moyens de savoir si le serveur LDA
   
 Si vous voyez l'événement 2898 sur votre serveur de contrôleur de domaine/LDAP, nous vous recommandons de définir MaxResultSetsPerConn sur 25. Plus de 25 recherches paginées parallèles sur une seule connexion LDAP n'est pas habituel. Si vous continuez à voir l'événement 2898, analysez votre application cliente LDAP qui rencontre l'erreur. Il est probable que, d'une certaine manière, l'application reste bloquée lors de la récupération des résultats paginés supplémentaires, laisse le cookie en attente et redémarre une nouvelle requête. Déterminez donc si l'application, à un moment donné, a suffisamment de cookies pour ses besoins. Vous pouvez également augmenter la valeur de MaxResultSetsPerConn au-delà de 25 Lorsque vous voyez des événements 2899 consignés sur vos contrôleurs de domaine, l'approche est différente. Si votre serveur de contrôleur de domaine/LDAP s'exécute sur un ordinateur avec suffisamment de mémoire (plusieurs gigaoctets de mémoire disponible), nous vous recommandons de définir MaxResultsetSize sur le serveur LDAP sur une valeur supérieure ou égale à 250 Mo. Cette limite est assez grande pour contenir des volumes importants de recherches paginées LDAP même sur des répertoires très volumineux.  
   
-Si vous voyez toujours les événements 2899 avec un pool de 250 Mo ou plus, vous avez probablement de nombreux clients avec un très grand nombre d'objets retournés, interrogés de manière très fréquente. Les données que vous pouvez recueillir avec le [ensemble collecteur de données Active Directory](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx) peut vous aider à trouver des requêtes paginées répétitives qui occupent vos serveurs LDAP informations de disponibilité. Ces requêtes s’affichent avec un nombre de « Entrées retournées » qui correspond à la taille de la page utilisée.  
+Si vous voyez toujours les événements 2899 avec un pool de 250 Mo ou plus, vous avez probablement de nombreux clients avec un très grand nombre d'objets retournés, interrogés de manière très fréquente. Les données que vous pouvez collecter avec l' [ensemble de collecteurs de données Active Directory](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx) peuvent vous aider à trouver des requêtes paginées répétitives qui maintiennent vos serveurs LDAP occupés. Ces requêtes s’affichent avec un nombre d’entrées retournées qui correspond à la taille de la page utilisée.  
   
-Si possible, vous devez passer en revue la conception d’application et implémenter une approche différente avec une fréquence inférieure, de volume de données et/ou de moins d’instances client interrogeant ces données. Dans le cas d’applications pour lequel vous avez accès du code source, ce guide pour [création d’Applications efficaces de AD-Enabled](https://msdn.microsoft.com/library/ms808539.aspx) peut vous aider à comprendre la façon optimale pour les applications accèdent à Active Directory.  
+Si possible, vous devez examiner la conception de l’application et implémenter une approche différente avec une fréquence inférieure, le volume de données et/ou moins d’instances de client qui interrogent ces données. Dans le cas des applications pour lesquelles vous disposez d’un accès au code source, ce guide de [création d’applications ad efficaces](https://msdn.microsoft.com/library/ms808539.aspx) peut vous aider à comprendre la façon optimale pour les applications d’accéder à Active Directory.  
   
-Si le comportement de la requête ne peut pas être modifié, une approche consiste à ajouter plus d’instances répliquées des contextes d’appellation nécessités et pour redistribuer les clients et finalement à réduire la charge sur les serveurs LDAP.  
+Si le comportement de la requête ne peut pas être modifié, une approche consiste à ajouter plus d’instances répliquées des contextes d’attribution de noms nécessaires et à redistribuer les clients, puis à réduire la charge sur les serveurs LDAP individuels.  
   
 
 

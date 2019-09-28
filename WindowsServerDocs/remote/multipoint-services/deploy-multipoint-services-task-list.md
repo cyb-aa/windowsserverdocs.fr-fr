@@ -3,7 +3,7 @@ title: Tâches de déploiement de MultiPoint services
 description: Répertorie toutes les tâches impliquées dans le déploiement de MultiPoint services, ainsi que des liens vers des instructions
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: e08c5784-5b3e-4028-86c1-96deaee41f09
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 9f0b69da06fb783ac7cccc2dc5bc7337dae59d66
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9d50cfc3ed48f77281af400e9e80fb8b4895bac5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871449"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394758"
 ---
 # <a name="task-lists-multipoint-services"></a>Listes des tâches : MultiPoint Services
 Utilisez les listes de tâches de cette rubrique pour vous aider dans le déploiement de votre système MultiPoint services et pour effectuer le suivi des tâches terminées. Toutes les tâches ne s’appliquent pas à tous les environnements. Par exemple, certaines tâches sont exécutées uniquement si vous déployez un serveur MultiPoint sur un domaine Active Directory. D’autres, telles que la création de stations à écran partagé ou le déploiement de bureaux virtuels pour les stations, sont facultatives. Pour obtenir des procédures qui expliquent comment effectuer ces tâches, consultez [déploiement de multipoint services](deploying-multipoint-services.md).  

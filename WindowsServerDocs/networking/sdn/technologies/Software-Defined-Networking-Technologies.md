@@ -2,7 +2,7 @@
 title: Technologies SDN
 description: Les rubriques de cette section fournissent une vue d’ensemble et des informations techniques sur les technologies de mise en réseau définies par logiciel qui sont incluses dans Windows Server 2016.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: virtual-network
 ms.technology: networking-sdn
 ms.topic: article
@@ -10,12 +10,12 @@ ms.assetid: b491089c-5bcb-49d4-95b1-915b7ce69f88
 ms.author: pashort
 author: shortpatti
 ms.date: 02/14/2019
-ms.openlocfilehash: 040568dd696c4dee665de415d23ce9a7cdc8a711
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b71b17760ec11d7d2ea6a3bfeb118899be9504e7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870066"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405961"
 ---
 # <a name="sdn-technologies"></a>Technologies SDN
 
@@ -39,7 +39,7 @@ Vous pouvez utiliser Windows PowerShell, l’API REST, ou une application de ges
 - Routeurs de réseau physique 
 - Logiciel pare-feu 
 - Passerelles VPN, y compris les passerelles mutualisées du service d’accès à distance (RAS) 
-- Équilibreurs de charge 
+- Programmes d'équilibrage de la charge 
   
 ## <a name="hyper-v-network-virtualizationhyper-v-network-virtualizationhyper-v-network-virtualizationmd"></a>[Virtualisation de réseau Hyper-V](hyper-v-network-virtualization/Hyper-V-Network-Virtualization.md)
 

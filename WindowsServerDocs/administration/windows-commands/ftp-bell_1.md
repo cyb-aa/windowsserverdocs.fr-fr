@@ -1,8 +1,8 @@
 ---
-title: FTP bell_1
-description: Rubrique de commandes de Windows pour ftp bell_1
+title: bell_1 FTP
+description: Rubrique relative aux commandes Windows pour FTP bell_1
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f93c7a5f11b88b06c04d1525c5edc2953cafe700
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eb47bc8eb4dff06596a332a4d5875e7442e8df96
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882850"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376607"
 ---
-# <a name="ftp-bell1"></a>ftp: bell_1
+# <a name="ftp-bell_1"></a>FTP : bell_1
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Active ou désactive un son audible après que chaque commande de transfert de fichier est terminée.   
+Bascule un son audible pour qu’il se produise après la fin de chaque commande de transfert de fichiers.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 bell  
@@ -32,11 +32,11 @@ bell
 ### <a name="parameters"></a>Paramètres  
 aucune  
 ## <a name="remarks"></a>Notes  
-Par défaut, représentant une cloche est désactivée.  
-## <a name="BKMK_Examples"></a>Exemples  
-Activer/désactiver un son audible après que chaque commande de transfert de fichier est terminée.  
+Par défaut, cloche est désactivé.  
+## <a name="BKMK_Examples"></a>Illustre  
+Basculer un son audible pour qu’il se produise après la fin de chaque commande de transfert de fichiers.  
 ```  
 bell  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

@@ -1,9 +1,9 @@
 ---
 title: ÉTAPE 5 configurer DC1
-description: 'Cette rubrique fait partie du Guide de laboratoire de Test : illustrer un déploiement Multisite DirectAccess pour Windows Server 2016'
+description: 'Cette rubrique fait partie du Guide de laboratoire de test : illustrer un déploiement multisite DirectAccess pour Windows Server 2016'
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,71 +12,71 @@ ms.topic: article
 ms.assetid: 70357156-fcb0-4346-a61e-4ea963e3ffb0
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 108e517923c75f685d817cdf9fad9b14132e3bb0
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: aa251ccc0cc48e3805667a247047711c2ae4fcf6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281432"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388305"
 ---
 # <a name="step-5-configure-dc1"></a>ÉTAPE 5 configurer DC1
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-DC1 joue un contrôleur de domaine, le serveur DNS et le serveur DHCP pour le domaine corp.contoso.com.  
+DC1 agit en tant que contrôleur de domaine, serveur DNS et serveur DHCP pour le domaine corp.contoso.com.  
   
-Pour configurer l’accès à distance pour utiliser une topologie multisite, il est nécessaire pour ajouter un site supplémentaire de Services de domaine Active Directory (AD DS) pour le deuxième contrôleur 2 domaine-DC1 et configurer le routage entre les sous-réseaux.  
+Pour configurer l’accès à distance en vue d’utiliser une topologie multisite, vous devez ajouter un site de Active Directory Domain Services (AD DS) supplémentaire pour le deuxième contrôleur de domaine 2-DC1 et configurer le routage entre les sous-réseaux.  
   
-1. Pour configurer la passerelle par défaut sur le contrôleur de domaine. Configurer la passerelle par défaut sur DC1.  
+1. Pour configurer la passerelle par défaut sur le contrôleur de domaine. Configurez la passerelle par défaut sur DC1.  
   
-2. Créer des groupes de sécurité pour les clients DirectAccess dans Windows 7 sur DC1. Lorsque DirectAccess est configuré, il crée automatiquement des objets de stratégie de groupe (GPO) et les paramètres de stratégie de groupe qui sont appliqués aux clients DirectAccess et serveurs. Le client DirectAccess GPO est appliqué à des groupes de sécurité Active Directory spécifiques.  
+2. Créez des groupes de sécurité pour les clients DirectAccess Windows 7 sur DC1. Lorsque DirectAccess est configuré, il crée automatiquement des objets de stratégie de groupe (GPO) et des paramètres d’objet de stratégie de groupe qui sont appliqués aux serveurs et clients DirectAccess. L’objet de stratégie de groupe du client DirectAccess est appliqué à des groupes de sécurité Active Directory spécifiques.  
   
-3. Pour ajouter un nouveau site AD DS. Créer un deuxième site AD DS.  
+3. Pour ajouter un nouveau site de AD DS. Créez un deuxième AD DS site.  
   
 ## <a name="to-configure-the-default-gateway-on-the-domain-controller"></a>Pour configurer la passerelle par défaut sur le contrôleur de domaine  
   
-1.  Dans la console Gestionnaire de serveur, cliquez sur **serveur Local**, puis, dans le **propriétés** zone, en regard **connexion Ethernet câblée**, cliquez sur le lien.  
+1.  Dans la console Gestionnaire de serveur, cliquez sur **serveur local**, puis dans la zone **Propriétés** , en regard de **connexion Ethernet câblée**, cliquez sur le lien.  
   
-2.  Dans la fenêtre Connexions réseau, cliquez sur **connexion Ethernet câblée**, puis cliquez sur **propriétés**.  
+2.  Dans la fenêtre Connexions réseau, cliquez avec le bouton droit sur **connexion Ethernet câblée**, puis cliquez sur **Propriétés**.  
   
 3.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
-4.  Dans **passerelle par défaut**, type **10.0.0.254**et dans **serveur DNS auxiliaire**, type **10.2.0.1**, puis cliquez sur **OK** .  
+4.  Dans **passerelle par défaut**, tapez **10.0.0.254**, et dans **serveur DNS auxiliaire**, tapez **10.2.0.1**, puis cliquez sur **OK**.  
   
 5.  Cliquez sur **Internet Protocol Version 6 (TCP/IPv6)** , puis cliquez sur **Propriétés**.  
   
-6.  Dans **passerelle par défaut**, type **2001:db8:1::fe**et dans **serveur DNS auxiliaire**, type **2001:db8:2::1**, puis cliquez sur **OK**.  
+6.  Dans **passerelle par défaut**, tapez **2001 : DB8:1 :: Fe**, et dans **serveur DNS auxiliaire**, tapez **2001 : DB8:2 :: 1**, puis cliquez sur **OK**.  
   
-7.  Sur le **propriétés de connexion Ethernet câblée** boîte de dialogue, cliquez sur **fermer**.  
+7.  Dans la boîte de dialogue **Propriétés de connexion Ethernet câblée** , cliquez sur **Fermer**.  
   
 8.  Fermez la fenêtre **Connexions réseau**.  
   
-## <a name="create-security-groups-for-windows-7-directaccess-clients-on-dc1"></a>Créer des groupes de sécurité pour les clients DirectAccess dans Windows 7 sur DC1  
-Créez les groupes de sécurité de DirectAccess pour Windows 7 avec la procédure suivante.  
+## <a name="create-security-groups-for-windows-7-directaccess-clients-on-dc1"></a>Créer des groupes de sécurité pour les clients DirectAccess Windows 7 sur DC1  
+Créez les groupes de sécurité DirectAccess pour Windows 7 à l’aide de la procédure suivante.  
   
- Les ordinateurs clients Windows 7 doivent être membres de groupes de sécurité distincts, car ils sont en mesure de se connecter aux ressources internes via un point d’entrée unique. Lors de l’activation de prise en charge Multisite ou l’ajout d’entrée de pointe, si la prise en charge de Windows 7 est demandée, puis un GPO est automatiquement créé par les clients DirectAccess pour Windows 7 pour chaque point d’entrée.  
+ Les ordinateurs clients Windows 7 doivent être membres de groupes de sécurité distincts, car ils sont en mesure de se connecter aux ressources internes par le biais d’un seul point d’entrée. Lors de l’activation de la prise en charge multisite ou de l’ajout de points d’entrée, si la prise en charge de Windows 7 est demandée, un objet de stratégie de groupe distinct est automatiquement créé par DirectAccess pour les clients Windows 7 pour chaque point d’entrée.  
   
 ### <a name="create-security-groups"></a>Créer des groupes de sécurité  
   
-1.  Sur le **Démarrer** , tapez**DSA.msc**, puis appuyez sur ENTRÉE.  
+1.  Dans l’écran d' **Accueil** , tapez**DSA. msc**, puis appuyez sur entrée.  
   
-2.  Dans le volet gauche, développez **corp.contoso.com**, cliquez sur **utilisateurs**, puis cliquez sur **utilisateurs**, pointez sur **New**, puis cliquez sur **Groupe**.  
+2.  Dans le volet gauche, développez **Corp.contoso.com**, cliquez sur **utilisateurs**, cliquez avec le bouton droit sur **utilisateurs**, pointez sur **nouveau**, puis cliquez sur **groupe**.  
   
-3.  Sur le **nouvel objet - groupe** boîte de dialogue **nom_groupe**, entrez **Win7_Clients_Site1**.  
+3.  Dans la boîte de dialogue **nouvel objet-groupe** , sous **nom du groupe**, entrez **Win7_Clients_Site1**.  
   
 4.  Sous **Étendue du groupe**, cliquez sur **Globale**. Sous **Type de groupe**, cliquez sur **Sécurité**, puis cliquez sur **OK**.  
   
-5.  Double-cliquez sur le **Win7_Clients_Site1** groupe de sécurité, puis, dans le **Win7_Clients_Site1 propriétés** boîte de dialogue, cliquez sur le **membres** onglet.  
+5.  Double-cliquez sur le groupe de sécurité **Win7_Clients_Site1** , puis dans la boîte de dialogue **Propriétés de Win7_Clients_Site1** , cliquez sur l’onglet **membres** .  
   
 6.  Sous l'onglet **Membres** , cliquez sur **Ajouter**.  
   
-7.  Sur le **sélectionner des utilisateurs, Contacts, ordinateurs ou comptes de Service** boîte de dialogue, cliquez sur **Types d’objets**. Sur le **Types d’objets** boîte de dialogue, sélectionnez **ordinateurs**, puis cliquez sur **OK**.  
+7.  Dans la boîte de dialogue **Sélectionner les utilisateurs, les contacts, les ordinateurs ou les comptes de service** , cliquez sur **types d’objets**. Dans la boîte de dialogue **types d’objets** , sélectionnez **ordinateurs**, puis cliquez sur **OK**.  
   
-8.  Dans **Entrez les noms des objets à sélectionner**, type **client2**, puis cliquez sur **OK**, puis, dans le **Win7_Clients_Site1 propriétés** boîte de dialogue Cliquez sur boîte **OK**.  
+8.  Dans **Entrez les noms des objets à sélectionner**, tapez **client2**, puis cliquez sur **OK**, puis dans la boîte de dialogue **Propriétés de Win7_Clients_Site1** , cliquez sur **OK**.  
   
-9. Dans le **Active Directory Users and Computers** avec le bouton droit de la console, dans le volet gauche, **utilisateurs**, pointez sur **New**, puis cliquez sur **groupe** .  
+9. Dans la console **utilisateurs et ordinateurs Active Directory** , dans le volet gauche, cliquez avec le bouton droit sur **utilisateurs**, pointez sur **nouveau**, puis cliquez sur **groupe**.  
   
-10. Sur le **nouvel objet - groupe** boîte de dialogue **nom_groupe**, entrez **Win7_Clients_Site2**.  
+10. Dans la boîte de dialogue **nouvel objet-groupe** , sous **nom du groupe**, entrez **Win7_Clients_Site2**.  
   
 11. Sous **Étendue du groupe**, cliquez sur **Globale**. Sous **Type de groupe**, cliquez sur **Sécurité**, puis cliquez sur **OK**.  
   
@@ -84,31 +84,31 @@ Créez les groupes de sécurité de DirectAccess pour Windows 7 avec la procédu
   
 ## <a name="to-add-a-new-ad-ds-site"></a>Pour ajouter un nouveau site AD DS  
   
-1.  Sur le **Démarrer** , tapez**dssite.msc**, puis appuyez sur ENTRÉE.  
+1.  Dans l’écran d' **Accueil** , tapez**Dssite. msc**, puis appuyez sur entrée.  
   
-2.  Dans la console Services et Sites Active Directory, dans l’arborescence de la console, cliquez sur **Sites**, puis cliquez sur **nouveau Site**.  
+2.  Dans la console sites et services Active Directory, dans l’arborescence de la console, cliquez avec le bouton droit sur **sites**, puis cliquez sur **nouveau site**.  
   
-3.  Sur le **nouvel objet - Site** boîte de dialogue le **nom** , tapez **seconde-Site**.  
+3.  Dans la boîte de dialogue **nouvel objet-site** , dans la zone **nom** , tapez **second-site**.  
   
-4.  Dans la zone de liste, cliquez sur **DEFAULTIPSITELINK**, puis cliquez sur **OK** à deux reprises.  
+4.  Dans la zone de liste, cliquez sur **DEFAULTIPSITELINK**, puis cliquez deux fois sur **OK** .  
   
-5.  Dans l’arborescence de la console, développez **Sites**, avec le bouton droit **sous-réseaux**, puis cliquez sur **nouveau sous-réseau**.  
+5.  Dans l’arborescence de la console, développez **sites**, cliquez avec le bouton droit sur **sous-réseaux**, puis cliquez sur **nouveau sous-réseau**.  
   
-6.  Sur le **nouvel objet - sous-réseau** boîte de dialogue **préfixe**, type **10.0.0.0/24**, dans le **sélectionnez un objet de site pour ce préfixe** , cliquez sur **Default-First-Site-Name**, puis cliquez sur **OK**.  
+6.  Dans la boîte de dialogue **nouvel objet-sous-réseau** , sous **préfixe**, tapez **10.0.0.0/24**dans la liste **Sélectionnez un objet de site pour ce préfixe** , cliquez sur **nom-premier-site-par-défaut**, puis cliquez sur **OK**.  
   
-7.  Dans l’arborescence de la console, cliquez sur **sous-réseaux**, puis cliquez sur **nouveau sous-réseau**.  
+7.  Dans l’arborescence de la console, cliquez avec le bouton droit sur **sous-réseaux**, puis cliquez sur **nouveau sous-réseau**.  
   
-8.  Sur le **nouvel objet - sous-réseau** boîte de dialogue **préfixe**, type **2001:db8:1 :: / 64**, dans le **sélectionnez un objet de site pour ce préfixe** liste, Cliquez sur **Default-First-Site-Name**, puis cliquez sur **OK**.  
+8.  Dans la boîte de dialogue **nouvel objet-sous-réseau** , sous **préfixe**, tapez **2001 : DB8:1 ::/64**, dans la liste **Sélectionnez un objet de site pour ce préfixe** , cliquez sur **nom-premier-site-par-défaut**, puis cliquez sur **OK**.  
   
-9. Dans l’arborescence de la console, cliquez sur **sous-réseaux**, puis cliquez sur **nouveau sous-réseau**.  
+9. Dans l’arborescence de la console, cliquez avec le bouton droit sur **sous-réseaux**, puis cliquez sur **nouveau sous-réseau**.  
   
-10. Sur le **nouvel objet - sous-réseau** boîte de dialogue **préfixe**, type **10.2.0.0/24**, dans le **sélectionnez un objet de site pour ce préfixe** , cliquez sur **Seconde intersites**, puis cliquez sur **OK**.  
+10. Dans la boîte de dialogue **nouvel objet-sous-réseau** , sous **préfixe**, tapez **10.2.0.0/24**dans la liste **Sélectionnez un objet de site pour ce préfixe** , cliquez sur **second site**, puis cliquez sur **OK**.  
   
-11. Dans l’arborescence de la console, cliquez sur **sous-réseaux**, puis cliquez sur **nouveau sous-réseau**.  
+11. Dans l’arborescence de la console, cliquez avec le bouton droit sur **sous-réseaux**, puis cliquez sur **nouveau sous-réseau**.  
   
-12. Sur le **nouvel objet - sous-réseau** boîte de dialogue **préfixe**, type **2001:db8:2 :: / 64**, dans le **sélectionnez un objet de site pour ce préfixe** liste, Cliquez sur **seconde intersites**, puis cliquez sur **OK**.  
+12. Dans la boîte de dialogue **nouvel objet-sous-réseau** , sous **préfixe**, tapez **2001 : DB8:2 ::/64**, dans la liste **Sélectionnez un objet de site pour ce préfixe** , cliquez sur **second-site**, puis cliquez sur **OK**.  
   
-13. Fermez les Sites et Services Active Directory.  
+13. Fermez Active Directory sites et services.  
   
 
 

@@ -2,7 +2,7 @@
 title: Prendre le contrôle d’une session utilisateur
 description: Découvrez comment accéder et prendre le contrôle de la station d’un autre utilisateur dans MultiPoint services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: fbf50d2a30bdae1665fed2ed4f1b223c6505c699
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 702c6c08647869825d6a46208ee261b6f3843717
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871541"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389230"
 ---
 # <a name="take-control-of-a-user-session"></a>Prendre le contrôle d’une session utilisateur
 En tant qu’utilisateur du tableau de bord MultiPoint, vous pouvez aider un autre utilisateur en accédant à distance à son bureau à l’aide de la fonctionnalité Prendre le contrôle.  

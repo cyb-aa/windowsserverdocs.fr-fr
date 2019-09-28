@@ -1,7 +1,7 @@
 ---
-title: Mémoire dynamique est activé mais ne répond pas sur des machines virtuelles
-description: Version en ligne du texte pour cette règle de Best Practices Analyzer.
-ms.prod: windows-server-threshold
+title: Mémoire dynamique est activé, mais ne répond pas sur certaines machines virtuelles
+description: Version en ligne du texte de cette règle de Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 91b7f50f-a071-4ab6-beb1-1b29f92f52b6
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 95fd426929f3e2f6f01bc10b207a21a57f1d8370
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9aa482d91c94a7a619bb65046cf152d6a5f8827a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887780"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393675"
 ---
-# <a name="dynamic-memory-is-enabled-but-not-responding-on-some-virtual-machines"></a>Mémoire dynamique est activé mais ne répond pas sur des machines virtuelles
+# <a name="dynamic-memory-is-enabled-but-not-responding-on-some-virtual-machines"></a>Mémoire dynamique est activé, mais ne répond pas sur certaines machines virtuelles
 
 >S'applique à : Windows Server 2016
 
@@ -27,25 +27,25 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Niveau de gravité**|Warning|  
+|**Va**|Warning|  
 |**Catégorie**|Configuration|  
   
-Dans les sections suivantes, italique indique le texte de l’interface utilisateur qui apparaît dans l’outil Best Practices Analyzer pour ce problème.  
+Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
   
 ## <a name="issue"></a>Problème  
-*Un ou plusieurs machines virtuelles rencontre des problèmes avec le pilote requis pour la mémoire dynamique dans le système d’exploitation invité.*  
+*Une ou plusieurs machines virtuelles rencontrent des problèmes avec le pilote requis pour Mémoire dynamique dans le système d’exploitation invité.*  
   
 ## <a name="impact"></a>Impact  
-*Le système d’exploitation invité dans les machines virtuelles suivantes peuvent ne pas fonctionner ou peut s’exécuter unreliably car Hyper-V ne peut pas ajuster la mémoire dynamiquement pour répondre aux modifications de la demande de mémoire. Cela affecte les ordinateurs virtuels suivants :*  
+le système d’exploitation invité @no__t 0The dans les ordinateurs virtuels suivants peut ne pas s’exécuter ou s’exécuter de manière non fiable, car Hyper-V ne peut pas ajuster la mémoire dynamiquement pour répondre aux modifications de la demande de mémoire. Cela a un impact sur les ordinateurs virtuels suivants : *  
   
-\<liste des machines virtuelles >  
+@no__t 0list de machines virtuelles >  
   
-## <a name="resolution"></a>Résolution  
-*Ce comportement est attendu si le démarrage de la machine virtuelle. Si la machine virtuelle ne démarre pas, assurez-vous que les services d’intégration sont mis à niveau vers la dernière version et que le système d’exploitation invité prend en charge la mémoire dynamique.*  
+## <a name="resolution"></a>Résolution :  
+*This est le comportement attendu si l’ordinateur virtuel est en cours de démarrage. Si la machine virtuelle ne démarre pas, assurez-vous que les services d’intégration sont mis à niveau vers la dernière version et que le système d’exploitation invité prend en charge Mémoire dynamique.*  
   
-À compter de Windows Server 2016, les services d’intégration sont remis via Windows Update. Vérifiez que les ordinateurs virtuels sont configurés pour recevoir des mises à jour pour obtenir la dernière version des services d’intégration.  
+À compter de Windows Server 2016, les services d’intégration sont fournis par le biais de Windows Update. Assurez-vous que les machines virtuelles sont configurées pour recevoir des mises à jour afin d’obtenir la dernière version d’Integration Services.  
   
-Mémoire dynamique fonctionne avec des versions spécifiques des invités pris en charge. Consultez [Hyper-V Dynamic Memory Overview](https://technet.microsoft.com/library/hh831766.aspx) pour les versions antérieures à Windows Server 2016 et Windows 10.  
+Mémoire dynamique fonctionne avec des versions spécifiques des invités pris en charge. Consultez la page [vue d’ensemble d’Hyper-V mémoire dynamique](https://technet.microsoft.com/library/hh831766.aspx) pour les versions antérieures à windows server 2016 et Windows 10.  
   
 
 

@@ -1,50 +1,50 @@
 ---
-title: Récupération de forêt AD - étapes de la restauration de la forêt
+title: 'Récupération de la forêt Active Directory : étapes de restauration de la forêt'
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: 1712d3a636160f82495539afdd42ab2ee85ffae2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 07a043c4361f8eaae30b1dea665c604c0df42333
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861470"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390291"
 ---
-# <a name="ad-forest-recovery---steps-for-restoring-the-forest"></a>Récupération de forêt AD - étapes de la restauration de la forêt
+# <a name="ad-forest-recovery---steps-for-restoring-the-forest"></a>Récupération de la forêt Active Directory : étapes de restauration de la forêt
 
 >S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
-Cette section fournit une vue d’ensemble de la procédure recommandée pour la récupération d’une forêt. La procédure de récupération de forêt est décrites en détail ultérieurement.  
+Cette section fournit une vue d’ensemble du chemin d’accès recommandé pour la récupération d’une forêt. Les étapes de récupération de la forêt sont décrites en détail plus loin.  
   
 La liste suivante résume les étapes de récupération à un niveau élevé :  
   
 1. [Identifier le problème](AD-Forest-Recovery-Identify-the-Problem.md)  
 
-   Travailler avec informatique et de Support Microsoft pour déterminer l’étendue du problème et les causes potentielles et évaluer les solutions possibles avec toutes les parties prenantes. Dans de nombreux cas, récupération de forêt total doit être la dernière option.  
+   Collaborez avec le service informatique et Support Microsoft pour déterminer l’étendue du problème et des causes potentielles, et évaluez les solutions possibles avec toutes les parties prenantes de l’entreprise. Dans de nombreux cas, la récupération de forêt totale doit être la dernière option.  
   
 2. [Décider comment récupérer la forêt](AD-Forest-Recovery-Determine-how-to-Recover.md)  
 
-   Après avoir déterminé que la récupération de forêt est nécessaire, version préliminaire terminé les étapes pour vous y préparer : déterminer la structure actuelle de la forêt, identifier les fonctions de chaque contrôleur de domaine effectue, décider quel contrôleur de domaine pour la restauration pour chaque domaine et assurez-vous que tous les contrôleurs de domaine accessible en écriture sont mis hors connexion.  
+   Une fois que vous avez déterminé que la récupération de la forêt est nécessaire, effectuez les étapes préliminaires pour la préparer : déterminer la structure actuelle de la forêt, identifier les fonctions effectuées par chaque contrôleur de domaine, décider du contrôleur de domaine à restaurer pour chaque domaine et vérifier que tous les contrôleurs de domaine accessibles en écriture sont mis hors connexion.  
 
-3. [Effectuer une récupération initiale](AD-Forest-Recovery-Perform-initial-recovery.md)  
+3. [Effectuer la récupération initiale](AD-Forest-Recovery-Perform-initial-recovery.md)  
 
-   De manière isolée, récupérer un contrôleur de domaine pour chaque domaine, les nettoyer et se reconnecter les domaines. Réinitialiser les comptes privilégiés, rechercher et corriger les problèmes causés par des failles de sécurité dans cette phase.  
+   En isolation, récupérez un contrôleur de domaine pour chaque domaine, nettoyez-les, puis reconnectez les domaines. Réinitialiser les comptes privilégiés et résoudre les problèmes causés par des violations de sécurité dans cette phase.  
   
-4. [Redéployer restant des contrôleurs de domaine](AD-Forest-Recovery-Restore-Additional-DCs.md)  
+4. [Redéployer les contrôleurs de contrôle restants](AD-Forest-Recovery-Restore-Additional-DCs.md)  
 
-   Redéployez la forêt pour lui rendre son état avant la défaillance. Cette étape devra être adaptée à vos exigences et de conception spécifiques. Clonage du contrôleur de domaine virtualisé peut aider à accélérer ce processus.  
+   Redéployez la forêt pour la ramener à son état avant la défaillance. Cette étape doit être adaptée à votre conception et à vos exigences spécifiques. Le clonage des contrôleurs de domaine virtualisés peut vous aider à accélérer ce processus.  
 
-5. [Cleanup](AD-Forest-Recovery-Cleanup.md)  
+5. [Nettoyage](AD-Forest-Recovery-Cleanup.md)  
 
-   Une fois que la fonctionnalité a été restaurée, reconfigurer la résolution de noms en fonction des besoins et utilisation des applications métier.  
+   Une fois que la fonctionnalité a été restaurée, reconfigurez la résolution de noms en fonction des besoins et récupérez les applications LOB opérationnelles.  
 
-Les étapes décrites dans ce guide sont conçus pour minimiser le risque de réintroduction de données dangereuses dans la forêt récupérée. Il se peut que vous deviez modifier ces étapes pour tenir compte des facteurs tels que :  
+Les étapes de ce guide sont conçues pour réduire la possibilité de réintroduire des données dangereuses dans la forêt récupérée. Vous devrez peut-être modifier ces étapes pour prendre en compte les facteurs suivants :  
   
 - Extensibilité  
 - Facilité de gestion à distance  

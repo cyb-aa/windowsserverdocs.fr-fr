@@ -1,9 +1,9 @@
 ---
 title: Dépannage des URL de sonde Web
-description: Cette rubrique fait partie du guide de déploiement de plusieurs serveurs d’accès distant dans un déploiement Multisite dans Windows Server 2016.
+description: Cette rubrique fait partie du guide déployer plusieurs serveurs d’accès à distance dans un déploiement multisite dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,30 +12,30 @@ ms.topic: article
 ms.assetid: 6dfffd1e-f4f4-43b6-9e3c-49015ce34338
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 44bc409af33ce217e21c5d6e252ac4804718d7a8
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 132db4811ee135d2ebff99efed6f53b5db1356ad
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282468"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404436"
 ---
 # <a name="troubleshooting-web-probe-urls"></a>Dépannage des URL de sonde Web
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Cette rubrique contient des informations de résolution des problèmes liés à la commande `Set-DAEntryPointDC`. Pour confirmer que l’erreur que vous avez reçue est liée à la définition du contrôleur de domaine du point d’entrée, recherchez l’ID d’événement 10065 dans le journal des événements Windows.  
   
-## <a name="SaveGPOSettings"></a>Enregistrement des paramètres du GPO de serveur  
-**Erreur reçue**. Une erreur s’est produite lors de l’enregistrement des paramètres d’accès à distance à l’objet de stratégie de groupe < nom_objet_de_stratégie_de_groupe >.  
+## <a name="SaveGPOSettings"></a>Enregistrement des paramètres d’objet de stratégie de groupe de serveur  
+**Erreur reçue**. Une erreur s’est produite lors de l’enregistrement des paramètres d’accès à distance dans l’objet de stratégie de groupe < GPO_name >.  
   
-Pour résoudre cette erreur, consultez l’enregistrement des paramètres du GPO de serveur.  
+Pour résoudre cette erreur, consultez enregistrement des paramètres d’objet de stratégie de groupe de serveur.  
   
 ## <a name="remote-access-is-not-configured"></a>Accès à distance non configuré  
-**Erreur reçue**. Accès à distance n’est pas configuré sur < nom_serveur >. Spécifiez le nom d’un serveur qui appartient à un déploiement multisite.  
+**Erreur reçue**. L’accès à distance n’est pas configuré sur < nom_serveur >. Spécifiez le nom d’un serveur qui appartient à un déploiement multisite.  
   
 Ou  
   
-Accès à distance n’est pas configuré sur le serveur < nom_serveur >. Spécifiez un ordinateur sur lequel DirectAccess est activé.  
+L’accès à distance n’est pas configuré sur le serveur < nom_serveur >. Spécifiez un ordinateur sur lequel DirectAccess est activé.  
   
 **Cause**  
   
@@ -63,7 +63,7 @@ Exécutez la commande et assurez-vous de spécifier le paramètre *ComputerName*
 ## <a name="entry-point-and-domain-controller-not-provided-in-cmdlet"></a>Point d’entrée et contrôleur de domaine non fournis dans l’applet de commande  
 L’applet de commande `Set-DaEntryPointDC` vous permet de modifier le contrôleur de domaine associé à des points entrées différents, par exemple, si un contrôleur de domaine particulier n’est plus disponible. Vous pouvez mettre à jour un point d’entrée spécifique afin d’utiliser un autre contrôleur de domaine, ou vous pouvez mettre à jour tous les points d’entrée qui utilisent un contrôleur de domaine spécifique afin d’utiliser un nouveau contrôleur de domaine. Dans le premier cas, vous devez utiliser le paramètre *EntryPointName* pour spécifier le point d’entrée à mettre à jour. Dans le second cas, vous devez utiliser le paramètre *ExistingDC* pour spécifier le contrôleur de domaine à remplacer. Vous ne pouvez spécifier qu’un seul de ces paramètres.  
   
-**Erreur reçue**. Aucun paramètre requis ont été spécifiés. Fournissez le nom d’un point d’entrée ou d’un contrôleur de domaine existant.  
+**Erreur reçue**. Aucun paramètre requis n’a été spécifié. Fournissez le nom d’un point d’entrée ou d’un contrôleur de domaine existant.  
   
 Ou  
   
@@ -78,7 +78,7 @@ Le paramètre *EntryPointName* ou *ExistingDC* n’a pas été spécifié ou ces
 Exécutez la commande et assurez-vous de spécifier soit le paramètre *EntryPointName*, soit le paramètre *ExistingDC*.  
   
 ## <a name="could-not-locate-domain-controller"></a>Impossible de localiser le contrôleur de domaine  
-**Erreur reçue**. Impossible de localiser un contrôleur de domaine automatiquement. Réessayez plus tard ou vérifiez les paramètres du contrôleur de domaine.  
+**Erreur reçue**. Impossible de localiser automatiquement un nouveau contrôleur de domaine. Réessayez plus tard ou vérifiez les paramètres du contrôleur de domaine.  
   
 **Cause**  
   
@@ -92,7 +92,7 @@ Assurez-vous que l’ordinateur distant est accessible sur RPC et qu’il existe
   
 -   **Problème 1**  
   
-    **Erreur reçue**. Le contrôleur de domaine < contrôleur_de_domaine > ne peut pas être atteint. Vérifiez la connectivité réseau et la disponibilité du contrôleur de domaine.  
+    **Erreur reçue**. Impossible d’accéder au contrôleur de domaine < > domain_controller. Vérifiez la connectivité réseau et la disponibilité du contrôleur de domaine.  
   
     **Cause**  
   
@@ -104,7 +104,7 @@ Assurez-vous que l’ordinateur distant est accessible sur RPC et qu’il existe
   
 -   **Problème 2**  
   
-    **Erreur reçue**. Le contrôleur de domaine < contrôleur_de_domaine > ne peut pas être contacté.  
+    **Erreur reçue**. Impossible de contacter le contrôleur de domaine < > domain_controller.  
   
     **Cause**  
   
@@ -116,19 +116,19 @@ Assurez-vous que l’ordinateur distant est accessible sur RPC et qu’il existe
   
 -   **Problème 3**  
   
-    **Erreur reçue**. Impossible d’atteindre le contrôleur de domaine < contrôleur_de_domaine > pour %2 ! s !.  
+    **Erreur reçue**. Impossible d’accéder au contrôleur de domaine < > domain_controller pour% 2 ! s !.  
   
     **Cause**  
   
-    Pour assurer la cohérence de la configuration dans un déploiement multisite, il est important de veiller à ce que chaque objet de stratégie de groupe soit géré par un seul contrôleur de domaine. Lorsque le contrôleur de domaine qui gère les GPO de serveur d’un point d’entrée n’est pas disponible, les paramètres de configuration de l’accès à distance ne peut pas lire ou de modifier.  
+    Pour assurer la cohérence de la configuration dans un déploiement multisite, il est important de veiller à ce que chaque objet de stratégie de groupe soit géré par un seul contrôleur de domaine. Lorsque le contrôleur de domaine qui gère l’objet de stratégie de groupe du serveur d’un point d’entrée n’est pas disponible, les paramètres de configuration de l’accès à distance ne peuvent pas être lus ou modifiés.  
   
     **Solution**  
   
-    Suivez la procédure « pour modifier le contrôleur de domaine qui gère la stratégie de groupe serveur » décrite dans [2.4. Configurer la stratégie de groupe](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs).  
+    Suivez la procédure « pour modifier le contrôleur de domaine qui gère les objets de stratégie de groupe de serveur » décrite dans [2,4. Configurez les objets de stratégie de groupe @ no__t-0.  
   
 -   **Problème 4**  
   
-    **Erreur reçue**. Le contrôleur de domaine principal dans le domaine < nom_domaine > n’est pas accessible.  
+    **Erreur reçue**. Impossible d’atteindre le contrôleur de domaine principal dans le domaine < nom_domaine >.  
   
     **Cause**  
   
@@ -136,10 +136,10 @@ Assurez-vous que l’ordinateur distant est accessible sur RPC et qu’il existe
   
     **Solution**  
   
-    Suivez la procédure « pour transférer le rôle d’émulateur PDC » décrite dans [2.4. Configurer la stratégie de groupe](assetId:///b1960686-a81e-4f48-83f1-cc4ea484df43#ConfigGPOs).  
+    Suivez la procédure « pour transférer le rôle d’émulateur de contrôleur de domaine principal » décrite dans [2,4. Configurez les objets de stratégie de groupe @ no__t-0.  
   
 ## <a name="read-only-domain-controller"></a>Contrôleur de domaine en lecture seule  
-**Erreur reçue**. Le contrôleur de domaine < contrôleur_de_domaine > est en lecture seule. Spécifiez un contrôleur de domaine qui n’est pas en lecture seule.  
+**Erreur reçue**. Le contrôleur de domaine < > domain_controller est en lecture seule. Spécifiez un contrôleur de domaine qui n’est pas en lecture seule.  
   
 **Cause**  
   
@@ -153,7 +153,7 @@ Avec `Set-DAEntryPointDC`, le paramètre *NewDC* est utilisé pour mettre à jou
   
 -   **Problème 1**  
   
-    **Erreur reçue**. Impossible de récupérer les GPO < nom_objet_de_stratégie_de_groupe > sur le contrôleur de domaine < contrôleur_de_domaine_précédent > à partir du contrôleur de domaine < contrôleur_de_domaine_de_remplacement >, car ils ne sont pas dans le même domaine.  
+    **Erreur reçue**. L’objet de stratégie de groupe < > GPO_name sur le contrôleur de domaine < previous_domain_controller > ne peut pas être récupéré à partir du contrôleur de domaine < replacement_domain_controller >, car ils ne se trouvent pas dans le même domaine.  
   
     **Cause**  
   
@@ -165,7 +165,7 @@ Avec `Set-DAEntryPointDC`, le paramètre *NewDC* est utilisé pour mettre à jou
   
 -   **Problème 2**  
   
-    **Erreur reçue**. GPO < nom_objet_de_stratégie_de_groupe > sur le contrôleur de domaine < contrôleur_de_domaine_précédent > ne peut pas être récupérée à partir du contrôleur de domaine < contrôleur_de_domaine_de_remplacement >. Attendez que la réplication de domaine se termine, puis réessayez.  
+    **Erreur reçue**. L’objet de stratégie de groupe < > GPO_name sur le contrôleur de domaine < previous_domain_controller > ne peut pas être récupéré à partir du contrôleur de domaine < replacement_domain_controller >. Attendez que la réplication de domaine se termine, puis réessayez.  
   
     **Cause**  
   
@@ -177,7 +177,7 @@ Avec `Set-DAEntryPointDC`, le paramètre *NewDC* est utilisé pour mettre à jou
   
 -   **Problème 3**  
   
-    **Erreur reçue**. Vous n’avez pas les autorisations d’accès de l’objet de stratégie de groupe < nom_objet_de_stratégie_de_groupe >.  
+    **Erreur reçue**. Vous n’avez pas les autorisations nécessaires pour accéder à l’objet de stratégie de groupe < GPO_name >.  
   
     **Cause**  
   
@@ -188,7 +188,7 @@ Avec `Set-DAEntryPointDC`, le paramètre *NewDC* est utilisé pour mettre à jou
     L’objet de stratégie de groupe existe sur le contrôleur de domaine, mais il ne peut pas être lu. Vérifiez que vous possédez les autorisations requises et réessayez.  
   
 ## <a name="entry-point-not-part-of-multisite-deployment"></a>Point d’entrée non inclus dans le déploiement multisite  
-**Erreur reçue**. Point d’entrée < nom_du_point_entrée > ne fait pas partie du déploiement multisite. Donnez une autre valeur.  
+**Erreur reçue**. Le point d’entrée < le > entry_point_name ne fait pas partie du déploiement multisite. Donnez une autre valeur.  
   
 **Cause**  
   
@@ -202,7 +202,7 @@ Assurez-vous que le nom du point d’entrée est correct et que les objets de st
   
 -   **Problème 1**  
   
-    **Erreur reçue**. Serveur < nom_serveur > dans < nom_du_point_entrée > point d’entrée ne sont pas accessibles.  
+    **Erreur reçue**. Impossible d’accéder au serveur < nom_serveur > dans le point d’entrée < le > entry_point_name.  
   
     **Cause**  
   
@@ -214,7 +214,7 @@ Assurez-vous que le nom du point d’entrée est correct et que les objets de st
   
 -   **Problème 2**  
   
-    **Erreur reçue**. Paramètres ne peut pas être enregistrés dans le Registre sur le serveur < nom_serveur > dans < nom_du_point_entrée > point d’entrée.  
+    **Erreur reçue**. Impossible d’enregistrer les paramètres dans le registre sur le serveur < nom_serveur > dans le point d’entrée < le > entry_point_name.  
   
     **Cause**  
   
@@ -226,7 +226,7 @@ Assurez-vous que le nom du point d’entrée est correct et que les objets de st
   
 -   **Problème 3**  
   
-    **Erreur reçue**. Mises à jour de l’objet stratégie de groupe ne peut pas être appliqués sur < nom_serveur >. Les modifications apportées ne prendront effet qu’après la prochaine actualisation de la stratégie.  
+    **Erreur reçue**. Les mises à jour des objets de stratégie de groupe ne peuvent pas être appliquées sur < nom_serveur >. Les modifications apportées ne prendront effet qu’après la prochaine actualisation de la stratégie.  
   
     **Cause**  
   
@@ -237,7 +237,7 @@ Assurez-vous que le nom du point d’entrée est correct et que les objets de st
     Vous pouvez voir tous les serveurs qui n’ont pas été mis à jour en vous référant à l’indication **État de configuration** dans **TABLEAU DE BORD** dans la console Gestion de l’accès à distance. Cette absence de mise à jour ne provoque pas de problèmes fonctionnels ; toutefois, vous pouvez exécuter `gpupdate /force` sur tous les serveurs qui n’ont pas été mis à jour afin que l’état de configuration soit immédiatement mis à jour.  
   
 ## <a name="problem-resolving-fqdn"></a>Problème de résolution de nom de domaine complet  
-**Erreur reçue**. Serveur < nom_serveur > dans < nom_du_point_entrée > point d’entrée ne sont pas accessibles.  
+**Erreur reçue**. Impossible d’accéder au serveur < nom_serveur > dans le point d’entrée < le > entry_point_name.  
   
 **Cause**  
   
@@ -248,7 +248,7 @@ Lors de l’obtention de la liste des serveurs DirectAccess à modifier, l’app
 Le point d’entrée spécifié dans le message d’erreur est associé à un contrôleur de domaine. Assurez-vous que le contrôleur de domaine est disponible pour le point d’entrée. Si l’ordinateur auquel le SID spécifié appartient a été supprimé du domaine, ignorez ce message, puis supprimez le serveur du déploiement multisite.  
   
 ## <a name="no-entry-points-to-update"></a>Aucun point d’entrée à mettre à jour  
-**Avertissement reçu**. Paramètres de contrôleur de domaine n’ont pas été modifiés. Si des modifications sont nécessaires, assurez-vous que les paramètres de l’applet de commande sont configurés correctement et que les objets de stratégie de groupe sont répliqués sur les contrôleurs de domaine nécessaires.  
+**Avertissement reçu**. Les paramètres du contrôleur de domaine n’ont pas été modifiés. Si des modifications sont nécessaires, assurez-vous que les paramètres de l’applet de commande sont configurés correctement et que les objets de stratégie de groupe sont répliqués sur les contrôleurs de domaine nécessaires.  
   
 **Cause**  
   

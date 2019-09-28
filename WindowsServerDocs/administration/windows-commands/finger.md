@@ -1,8 +1,8 @@
 ---
 title: finger
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 526363db3ecff4a9138c9cf13cbf330196e14ced
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8e16120eb19ff2f194fe2c8bdeb3af80ca459ebe
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439252"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377161"
 ---
 # <a name="finger"></a>finger
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Affiche des informations sur un ou plusieurs utilisateurs sur un ordinateur distant spécifié (généralement un ordinateur exécutant UNIX) qui exécute le service finger ou démon. L’ordinateur distant spécifie le format et la sortie de l’affichage des informations utilisateur. Utilisée sans paramètres, **doigt** affiche l’aide. 
+Affiche des informations sur un utilisateur ou des utilisateurs sur un ordinateur distant spécifié (généralement un ordinateur exécutant UNIX) qui exécute le service ou démon Finger. L’ordinateur distant spécifie le format et la sortie de l’affichage des informations de l’utilisateur. Utilisé sans paramètres, **Finger** affiche l’aide. 
 ## <a name="syntax"></a>Syntaxe
 ```
 finger [-l] [<User>] [@<Host>] [...]
@@ -33,22 +33,22 @@ finger [-l] [<User>] [@<Host>] [...]
 
 | Paramètre |                                                                            Description                                                                            |
 |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    -l     |                                                          Affiche les informations utilisateur sous forme de liste longue.                                                           |
-|  <User>   | Spécifie l’utilisateur sur lequel vous souhaitez des informations. Si vous omettez le *utilisateur* paramètre, **doigt** affiche des informations sur tous les utilisateurs sur l’ordinateur spécifié. |
-|  @<Host>  |        Spécifie l’ordinateur distant exécutant le service finger où vous recherchez des informations de l’utilisateur. Vous pouvez spécifier une adresse IP ou le nom de l’ordinateur.        |
+|    -l     |                                                          Affiche les informations utilisateur sous la forme d’une longue liste.                                                           |
+|  <User>   | Spécifie l’utilisateur pour lequel vous souhaitez obtenir des informations. Si vous omettez le paramètre *User* , **Finger** affiche des informations sur tous les utilisateurs sur l’ordinateur spécifié. |
+|  @<Host>  |        Spécifie l’ordinateur distant qui exécute le service finger dans lequel vous recherchez des informations sur l’utilisateur. Vous pouvez spécifier un nom d’ordinateur ou une adresse IP.        |
 |    /?     |                                                               Affiche l'aide à l'invite de commandes.                                                                |
 
 ## <a name="remarks"></a>Notes
-Plusieurs User@Host paramètres peuvent être spécifiés.
-Vous devez faire précéder **doigt** paramètres avec un trait d’union (-) plutôt qu’une barre oblique (/).
-Cette commande est disponible uniquement si le protocole TCP/IP (Internet Protocol) est installé en tant que composant dans les propriétés d’une carte réseau dans Connexions réseau.
-Windows Server 2003 ne fournit pas un service de doigt.
-## <a name="BKMK_Examples"></a>Exemples
-Pour afficher des informations pour user1 sur l’ordinateur utilisateurs.Microsoft.com, tapez :
+Plusieurs paramètres User@Host peuvent être spécifiés.
+Vous devez faire précéder les paramètres **Finger** d’un trait d’Union (-) plutôt que d’une barre oblique (/).
+Cette commande est disponible uniquement si le protocole TCP/IP (Internet Protocol) est installé en tant que composant dans les propriétés d’une carte réseau dans connexions réseau.
+Windows Server 2003 ne fournit pas de service finger.
+## <a name="BKMK_Examples"></a>Illustre
+Pour afficher des informations pour user1 sur l’ordinateur users.microsoft.com, tapez :
 ```
 finger user1@users.microsoft.com
 ```
-Pour afficher des informations pour tous les utilisateurs sur l’ordinateur utilisateurs.Microsoft.com, tapez :
+Pour afficher les informations de tous les utilisateurs sur l’ordinateur users.microsoft.com, tapez :
 ```
 finger @users.microsoft.com
 ```

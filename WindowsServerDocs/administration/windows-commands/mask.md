@@ -1,8 +1,8 @@
 ---
-title: Masque
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Filtrage
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 353e6080d1f6c548bc907b58655f31d0bce6de8b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2f0dc83d7d9f7204f56e95c62b7cfad991f539ef
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858020"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373712"
 ---
-# <a name="mask"></a>Masque
+# <a name="mask"></a>Filtrage
 
 
 
-Supprime les clichés instantanés de matériels qui ont été importés à l’aide de la **importer** commande.
+supprime les clichés instantanés matériels importés à l’aide de la commande **Importer** .
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -38,19 +38,19 @@ mask <ShadowSetID>
 
 |Paramètre|Description|
 |---------|-----------|
-|ShadowSetID|Supprime les clichés instantanés qui appartiennent à l’ID spécifié le jeu de copies de clichés instantanés.|
+|ShadowSetID|Supprime les clichés instantanés qui appartiennent à l’ID du jeu de clichés instantanés spécifié.|
 
 ## <a name="remarks"></a>Notes
 
--   Vous pouvez utiliser un alias existant ou une variable d’environnement à la place de *ShadowSetID*. Utilisez **ajouter** sans paramètres pour voir les alias existants.
+-   Vous pouvez utiliser un alias existant ou une variable d’environnement à la place de *ShadowSetID*. Utilisez **Ajouter** sans paramètres pour afficher les alias existants.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour supprimer le clichés instantanés importés copie % Import_1, tapez :
+Pour supprimer le cliché instantané importé% Import_1%, tapez :
 ```
 mask %Import_1%
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

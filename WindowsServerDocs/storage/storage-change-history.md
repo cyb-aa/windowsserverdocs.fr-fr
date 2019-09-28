@@ -1,7 +1,7 @@
 ---
 ms.assetid: 87174225-a60f-4718-b4cc-9b172f205b72
 title: Historique des modifications pour les rubriques de stockage
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
@@ -9,12 +9,12 @@ manager: brianlic
 ms.author: jgerend
 ms.date: 08/19/2019
 description: Nouvelles rubriques et rubriques mises à jour dans la documentation sur le stockage local pour Windows Server pour les professionnels de l’informatique.
-ms.openlocfilehash: d5ab2d8ae4ca90e259f8bc996494439190bc5279
-ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
+ms.openlocfilehash: ce937dfb5c6c0b46c8085cbb202590567ea829d3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69584820"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393928"
 ---
 # <a name="change-history-for-storage-topics-in-windows-server"></a>Historique des modifications des rubriques de stockage dans Windows Server
 
@@ -54,19 +54,19 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 | [Mise à niveau d’un cluster d’espaces de stockage direct vers Windows Server 2019](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)| Nouveau        |
 | [Réplication DFS](dfs-replication/dfsr-overview.md)        | Migration à partir de la bibliothèque de [versions précédente](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770278(v%3dws.11))|
 
-## <a name="february-2019"></a>Février 2019
+## <a name="february-2019"></a>Février 2019
 
 |Rubrique nouvelle ou modifiée                                        |Description|
 |---                                                         |---           |
 |[Problèmes connus du service de migration du stockage](storage-migration-service/known-issues.md)   | Ajout d’un problème    |
 
-## <a name="january-2019"></a>Janvier 2019
+## <a name="january-2019"></a>2019 janvier
 
 |Rubrique nouvelle ou modifiée                                        |Description|
 |---                                                         |---           |
 |[Comprendre et contrôler la resynchronisation du stockage](storage-spaces/understand-storage-resync.md)|Nouvelle rubrique|
 
-## <a name="december-2018"></a>Décembre 2018
+## <a name="december-2018"></a>2018 décembre
 
 |Rubrique nouvelle ou modifiée                                        |Description|
 |---                                                         |---           |
@@ -93,7 +93,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 |[Nouveautés du stockage](whats-new-in-storage.md)|Mise à jour pour couvrir les nouveautés de Windows Server 2019|
 |[Problèmes connus du réplica de stockage](storage-replica/storage-replica-known-issues.md)|Ajout d’informations sur une nouvelle mise à jour.|
 
-## <a name="september-2018"></a>Septembre 2018
+## <a name="september-2018"></a>Septembre 2018
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
@@ -103,14 +103,14 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 | [Serveur cible iSCSI](iscsi/iscsi-target-server.md) | Migration à partir de la bibliothèque de [versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) .|
 | [Limites d'extensibilité du serveur cible iSCSI](iscsi/iscsi-target-server-limits.md) |Migration à partir de la bibliothèque de [versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) .|
 
-## <a name="june-2018"></a>Juin 2018
+## <a name="june-2018"></a>2018 juin
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
 |[Réplication de stockage de serveur à serveur](storage-replica/server-to-server-storage-replication.md)|Ajout d’informations sur l’utilisation de machines virtuelles Azure, y compris ExpressRoute.|
 |[Jeux de clusters](storage-spaces/cluster-sets.md)| Nouvelle rubrique|
 
-## <a name="may-2018"></a>Mai 2018
+## <a name="may-2018"></a>Mai 2018
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
@@ -124,7 +124,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 |[Réplication de stockage de serveur à serveur](storage-replica/server-to-server-storage-replication.md)|Ajout d’informations sur l’utilisation du centre d’administration Windows.|
 |[Problèmes connus du réplica de stockage](storage-replica/storage-replica-known-issues.md)|Ajout d'une nouvelle information.|
 
-## <a name="april-2018"></a>Avril 2018
+## <a name="april-2018"></a>Avril 2018
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
@@ -135,7 +135,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 |[Améliorer les performances d’un serveur de fichiers avec SMB direct](file-server/smb-direct.md)|Migration à partir de la bibliothèque de [versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) .|
 |[Améliorations en matière de sécurité SMB](file-server/smb-security.md)|Migration à partir de la bibliothèque de [versions précédentes](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) .|
 
-## <a name="march-2018"></a>Mars 2018
+## <a name="march-2018"></a>Mars 2018
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
@@ -143,7 +143,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 |[Fonctionnement du quorum dans espaces de stockage direct](storage-spaces/understand-quorum.md)| Nouvelle rubrique.|
 |[Déploiement de espaces de stockage direct](storage-spaces/deploy-storage-spaces-direct.md)| Fortement revu pour inclure des scénarios convergés et hyper-convergés.|
 |[Déploiement de profils utilisateur itinérants](folder-redirection/deploy-roaming-user-profiles.md)|Déplacé depuis la bibliothèque de versions précédentes et mis à jour.|
-|[Forum aux questions sur le réplica de stockage](storage-replica/storage-replica-frequently-asked-questions.md)|[Le CSV est-il requis pour la réplication dans un cluster étendu ou entre des clusters?](storage-replica/storage-replica-frequently-asked-questions.md#FAQ7.5).|
+|[Forum aux questions sur le réplica de stockage](storage-replica/storage-replica-frequently-asked-questions.md)|[Le CSV est-il requis pour la réplication dans un cluster étendu ou entre des clusters ?](storage-replica/storage-replica-frequently-asked-questions.md#FAQ7.5).|
 
 ## <a name="february-2018"></a>Février 2018
 
@@ -152,33 +152,33 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 |[États opérationnels et intégrité des espaces de stockage](storage-spaces/storage-spaces-states.md)| Nouvelle rubrique.|
 |[Utilisation de espaces de stockage direct avec le cache de lecture en mémoire CSV](storage-spaces/csv-cache.md)| Nouvelle rubrique. |
 
-## <a name="january-2018"></a>Janvier 2018
+## <a name="january-2018"></a>Janvier 2018
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
 |[Considérations relatives à la symétrie de lecteur dans espaces de stockage direct](storage-spaces/drive-symmetry-considerations.md)| Nouvelle rubrique.|
 |[Utilisation du réplica de stockage avec Project Honolulu](storage-replica/storage-replica-ui.md)|Nouvelle rubrique.|
 
-## <a name="december-2017"></a>Décembre 2017
+## <a name="december-2017"></a>Décembre 2017
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
 |[Changer une lettre de lecteur](disk-management/change-a-drive-letter.md)|Nouvelle rubrique.|
-|[Résolution des problèmes de la Gestion des disques](disk-management/troubleshooting-disk-management.md)|La réécriture de l' [État du disque n’est pas initialisée ou la section du disque est entièrement](disk-management/troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing) absente pour ajouter des étapes de dépannage complètes, en fonction des demandes des clients.|
+|[Résolution des problèmes de la Gestion des disques](disk-management/troubleshooting-disk-management.md)|La réécriture de l' [État du disque n’est pas initialisée ou la section du disque est entièrement absente](disk-management/troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing) pour ajouter des étapes de dépannage complètes, en fonction des demandes des clients.|
 |[Initialiser les nouveaux disques](disk-management/initialize-new-disks.md)|Réécrit pour essayer de mieux comprendre et résoudre les questions des clients.|
 |[Planification des volumes dans espaces de stockage direct](storage-spaces/plan-volumes.md)|Ajout d’un tableau résumant les types de résilience disponibles sur les clusters à quatre nœuds et de plus grande taille.|
 |[Vue d’ensemble des ReFS](refs/refs-overview.md)|Clarification des charges de travail recommandées pour la parité avec accélération miroir et correction des tailles de fichiers et de volumes pris en charge pour ReFS et NTFS.|
 |[Parité accélérée grâce à la mise en miroir](refs/mirror-accelerated-parity.md)|Recommandation clarifiée pour placer les fichiers à forte écriture dans des répertoires distincts.|
 |[Problèmes connus du réplica de stockage](storage-replica/storage-replica-known-issues.md)|Ajout d'une nouvelle information.|
 
-## <a name="november-2017"></a>Novembre 2017
+## <a name="november-2017"></a>Novembre 2017
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
 |[Nouveautés du stockage](whats-new-in-storage.md)|Ajout d’informations sur les nouveautés de Windows Server, version 1709.|
 |[Ajouter des serveurs ou des lecteurs](storage-spaces/add-nodes.md)|Ajout d’informations sur la façon dont espaces de stockage direct optimise automatiquement l’utilisation des lecteurs après l’ajout de lecteurs.|
 
-## <a name="october-2017"></a>Octobre 2017
+## <a name="october-2017"></a>Octobre 2017
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
@@ -198,7 +198,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 |[Fonctionnement du cache dans espaces de stockage direct](storage-spaces/understand-the-cache.md)|Ajout d'une vidéo de considérations en matière de conception d'espaces de stockage direct.|
 |[Forum aux questions sur le réplica de stockage](storage-replica/storage-replica-frequently-asked-questions.md)|Ajout de meilleures pratiques concernant les volumes de journaux.|
 
-## <a name="june-2017"></a>Juin 2017
+## <a name="june-2017"></a>Juin 2017
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
@@ -207,7 +207,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 |[Déploiement de espaces de stockage direct](storage-spaces/deploy-storage-spaces-direct.md)|Nano Server supprimé des options d’installation prises en charge.|
 |[Gestionnaire de ressources du serveur de fichiers](fsrm/fsrm-overview.md)|Nouvelle rubrique pour Windows Server 2016.|
 
-## <a name="may-2017"></a>Mai 2017
+## <a name="may-2017"></a>Mai 2017
 
 |                                                           Rubrique nouvelle ou modifiée                                                           |                                          Description                                           |
 |------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
@@ -229,7 +229,7 @@ Cette rubrique répertorie les rubriques nouvelles et mises à jour de la docume
 |[Déploiement de espaces de stockage direct](storage-spaces/deploy-storage-spaces-direct.md)|Suppression d'une référence à une mise à jour logicielle obsolète et correction d'une faute de frappe dans l’exemple de sortie.|
 |[Problèmes connus du réplica de stockage](storage-replica/storage-replica-known-issues.md)|Ajout d'une nouvelle information.|
 
-## <a name="march-2017"></a>Mars 2017
+## <a name="march-2017"></a>Mars 2017
 
 |Rubrique nouvelle ou modifiée|Description|
 |---|---|
