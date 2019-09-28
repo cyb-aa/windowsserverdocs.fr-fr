@@ -2,7 +2,7 @@
 title: Protection de votre déploiement des services Bureau à distance - Récupération d’urgence
 description: En savoir plus sur vos options de récupération d’urgence pour les Services Bureau à distance
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -12,12 +12,12 @@ ms.assetid: 9ff6a3b0-ea14-424e-9524-209252e9f1a8
 author: lizap
 ms.author: elizapo
 ms.date: 06/12/2017
-ms.openlocfilehash: a6eac3a50999633d15b1b6dc28608f60f6fef6c7
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 6691a6ab0e8762840faf3dd7fa8a8aea8cae0e47
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63743818"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403999"
 ---
 # <a name="configure-disaster-recovery-for-remote-desktop-services"></a>Configurer la récupération d’urgence pour les Services Bureau à distance
 

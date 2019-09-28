@@ -3,18 +3,18 @@ title: Attribuer un chemin d’accès de dossier de point de montage à un lecte
 description: Cet article décrit comment attribuer un chemin d’accès de dossier de point de montage à un lecteur (plutôt qu’une lettre de lecteur).
 keywords: virtualisation, sécurité, programmes malveillants
 ms.date: 06/07/2019
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: d09024b3c7f7a1e55c9e9c2ece56e037fe7e16f2
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 1255eadd50adb0eaaf44774e150d69f6dad8adae
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66812499"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386050"
 ---
 # <a name="assign-a-mount-point-folder-path-to-a-drive"></a>Attribuer un chemin d’accès de dossier de point de montage à un lecteur
 
@@ -53,7 +53,7 @@ Vous pouvez utiliser l’outil Gestion des disques pour attribuer un chemin d’
 | Valeur | Description |
 | --- | --- |
 | **list volume** | Affiche une liste des volumes de base et dynamiques sur tous les disques. |
-| **select volume**        | Sélectionne le volume spécifié, où <em>numéro_de_volume</em> est le numéro du volume et place le focus sur celui-ci. Si aucun volume n’est spécifié, la commande **select** répertorie le volume actuel avec le focus. Vous pouvez spécifier le volume par numéro, lettre de lecteur ou chemin d’accès de dossier de point de montage. Sur un disque de base, la sélection d’un volume positionne également le focus sur la partition correspondante.|
+| **select volume**        | Sélectionne le volume spécifié, où <em>volumenumber</em> est le numéro du volume et place le focus sur celui-ci. Si aucun volume n’est spécifié, la commande **select** répertorie le volume actuel avec le focus. Vous pouvez spécifier le volume par numéro, lettre de lecteur ou chemin d’accès de dossier de point de montage. Sur un disque de base, la sélection d’un volume positionne également le focus sur la partition correspondante.|
 | **assign** | <ul><li> Attribue une lettre de lecteur ou un chemin d’accès de dossier de point de montage au volume sur lequel se trouve le focus. Si aucune lettre de lecteur ou aucun chemin d’accès de dossier de point de montage n’est spécifié, la lettre de lecteur disponible suivante est attribuée. Si la lettre de lecteur ou le chemin d’accès de dossier de point de montage est déjà en cours d’utilisation, une erreur est générée.</li>  <li>À l’aide de la commande **assign**, vous pouvez modifier la lettre de lecteur associée à un lecteur amovible.</li> <li> Vous ne pouvez pas attribuer de lettres de lecteur aux volumes de démarrage ni aux volumes contenant le fichier de pagination. En outre, il n’est pas possible d’attribuer une lettre de lecteur à une partition OEM, une partition système EFI ou toute autre partition GPT autre qu’une partition de données de base.</li></ul> |
 | **mount=** <em>path</em> | Spécifie un dossier NTFS vide existant dans lequel se trouvera le lecteur monté.  |
 

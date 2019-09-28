@@ -2,18 +2,18 @@
 title: Convertir un enregistrement de démarrage principal (MBR) en disque de table de partition GUID (GPT)
 description: Décrit comment convertir un enregistrement de démarrage principal (MBR) en disque de table de partition GUID (GPT)
 ms.date: 06/07/2019
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 902a845bbe6a7e2a4d811aac0ea2990fb3557832
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 6bd97802fbef342520e92a857a1a53acf3e8d7a3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66812454"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385938"
 ---
 # <a name="convert-an-mbr-disk-into-a-gpt-disk"></a>Convertir un disque MBR en disque GPT
 
