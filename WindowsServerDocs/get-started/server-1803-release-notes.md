@@ -2,7 +2,7 @@
 title: Notes de publication - Points importants sur Windows Server, version 1803
 description: Découvrez les problèmes connus, les limitations ou autres informations dont vous avez besoin avant d’installer Windows Server, version 1803.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.date: 05/07/2018
@@ -13,12 +13,12 @@ author: lizap
 ms.author: elizapo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 506236cbb3893fe200b39aa1d58ed44cdbd9704a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: a250f83a4f46966666556ba3d078d2faf3ea8e06
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868379"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391459"
 ---
 # <a name="release-notes-important-issues-in-windows-server-version-1803"></a>Notes de publication : Points importants dans Windows Server, version 1803
 

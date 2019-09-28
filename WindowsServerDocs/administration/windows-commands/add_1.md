@@ -1,8 +1,8 @@
 ---
 title: ajouter
-description: 'Rubrique de commandes de Windows pour **add_1** : ajoute des volumes à l’ensemble de volumes qui doivent être des clichés instantanés, ou ajoute des alias à l’environnement de l’alias.'
+description: 'Rubrique relative aux commandes Windows pour **add_1** : ajoute des volumes à l’ensemble des volumes qui doivent être des clichés instantanés ou ajoute des alias à l’environnement des alias.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 549c8560774f004a60926ce568c850fd1b71c7f9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d1aaa211938d14a0019d29e64867f4df2475a877
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889950"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382785"
 ---
 # <a name="add"></a>ajouter
 
 
-Ajoute des volumes à l’ensemble de volumes qui doivent être des clichés instantanés, ou ajoute des alias à l’environnement de l’alias. Si utilisée sans les sous-commandes, **ajouter** répertorie les volumes actuels et les alias.
+Ajoute des volumes à l’ensemble des volumes qui doivent être des clichés instantanés ou ajoute des alias à l’environnement d’alias. S’il est utilisé sans sous-commandes, **Ajouter** répertorie les volumes et les alias actuels.
 
 > [!NOTE]
-> Alias ne sont pas ajoutés à l’environnement d’alias jusqu'à ce que le cliché instantané est créé. Les alias que vous devez immédiatement doivent être ajoutés à l’aide de **ajouter l’alias**.
+> Les alias ne sont pas ajoutés à l’environnement d’alias tant que le cliché instantané n’a pas été créé. Vous devez ajouter immédiatement les alias dont vous avez besoin à l’aide de l' **Ajout d’alias**.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -42,17 +42,17 @@ add alias <AliasName> <AliasValue>
 
 |Sous-commande|Description|
 |----------|-----------|
-|volume|Ajoute un volume pour les clichés instantanés copie définir, qui est l’ensemble de volumes de clichés instantanés. Consultez [ajouter un volume](add-volume.md) pour la syntaxe et les paramètres.|
-|alias|Ajoute le nom donné et la valeur à l’environnement de l’alias. Consultez [ajouter l’alias](add-alias.md) pour la syntaxe et les paramètres.|
-|/?|Affiche l’aide en ligne de commande.|
+|volume|Ajoute un volume au jeu de clichés instantanés, qui est l’ensemble des volumes pour lesquels des clichés instantanés sont ajoutés. Consultez [Ajouter un volume](add-volume.md) pour connaître la syntaxe et les paramètres.|
+|alias|Ajoute le nom et la valeur donnés à l’environnement d’alias. Consultez [Ajouter un alias](add-alias.md) pour la syntaxe et les paramètres.|
+|/?|Affiche l’aide sur la ligne de commande.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 Pour afficher les volumes ajoutés et les alias qui se trouvent actuellement dans l’environnement, tapez :
 ```
 add
 ```
-La sortie suivante montre que le lecteur C a été ajouté à l’ensemble de la copie de clichés instantanés :
+La sortie suivante montre que le lecteur C a été ajouté au jeu de clichés instantanés :
 ```
 Volume c: alias System1    GUID \\?\Volume{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}\
 1 volume in Shadow Copy Set.
@@ -61,4 +61,4 @@ No Diskshadow aliases in the environment.
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

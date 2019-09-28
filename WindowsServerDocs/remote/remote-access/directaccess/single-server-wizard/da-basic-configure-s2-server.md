@@ -1,9 +1,9 @@
 ---
 title: Étape 2 configurer le serveur DirectAccess de base
-description: Cette rubrique fait partie du guide de déployer un serveur DirectAccess unique à l’aide de la prise en main Assistant pour Windows Server 2016
+description: Cette rubrique fait partie du guide déployer un serveur DirectAccess unique à l’aide de l’Assistant Prise en main pour Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,18 +12,18 @@ ms.topic: article
 ms.assetid: 82bf5fed-93b3-4fa6-8e71-522146eccdb1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5bd248e36c316b11ea5e272707b75624d73dc49a
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: a21e5799824c968b29c719585ca16b6b45a9ef37
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283425"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404912"
 ---
 # <a name="step-2-configure-the-basic-directaccess-server"></a>Étape 2 configurer le serveur DirectAccess de base
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Cette rubrique décrit comment configurer les paramètres de client et de serveur requis pour un déploiement DirectAccess de base. Avant de commencer les étapes de déploiement, vérifiez que vous avez effectué les étapes de planification décrites dans [planifier un déploiement DirectAccess de base](Plan-a-Basic-DirectAccess-Deployment.md).  
+Cette rubrique décrit comment configurer les paramètres de client et de serveur requis pour un déploiement DirectAccess de base. Avant de commencer les étapes de déploiement, assurez-vous que vous avez effectué les étapes de planification décrites dans [planifier un déploiement de base de DirectAccess](Plan-a-Basic-DirectAccess-Deployment.md).  
   
 |Tâche|Description|  
 |----|--------|  
@@ -39,7 +39,7 @@ Pour déployer l'accès à distance, vous devez installer le rôle Accès à dis
   
 #### <a name="to-install-the-remote-access-role"></a>Pour installer le rôle Accès à distance  
   
-1.  Sur le serveur d’accès à distance, dans la console Gestionnaire de serveur, dans le **tableau de bord**, cliquez sur **ajouter des rôles et fonctionnalités**.  
+1.  Sur le serveur d’accès à distance, dans la console Gestionnaire de serveur, dans le **tableau de bord**, cliquez sur **Ajouter des rôles et des fonctionnalités**.  
   
 2.  Cliquez sur **Suivant** trois fois pour accéder à l’écran de sélection du rôle de serveur.  
   
@@ -47,19 +47,19 @@ Pour déployer l'accès à distance, vous devez installer le rôle Accès à dis
   
 4.  Dans la boîte de dialogue **Sélectionner des fonctionnalités**, cliquez sur **Suivant**.  
   
-5.  Cliquez sur **suivant**, puis, dans le **sélectionnez services de rôle** boîte de dialogue, cliquez sur le **DirectAccess et VPN (RAS)** case à cocher.  
+5.  Cliquez sur **suivant**, puis dans la boîte de dialogue **Sélectionner des services de rôle** , activez la case à cocher **DirectAccess et VPN (RAS)** .  
   
-6.  Cliquez sur **ajouter des fonctionnalités**, cliquez sur **suivant**, puis cliquez sur **installer**.  
+6.  Cliquez sur **Ajouter des fonctionnalités**, sur **suivant**, puis sur **installer**.  
   
 7.  Dans la boîte de dialogue **Progression de l’installation** , vérifiez que l’installation s’est correctement déroulée et cliquez sur **Fermer**.  
   
-![Windows PowerShell](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em>***  
+](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)***<em>commandes Windows PowerShell équivalentes</em> @no__t 0Windows PowerShell***  
   
-L’applet de commande Windows PowerShell suivante ou les applets de commande installer le rôle accès à distance : 
+L’applet de commande Windows PowerShell ou les applets de commande suivantes installent le rôle accès à distance : 
 
 1. Ouvrez PowerShell en tant qu’administrateur.
 
-2. Installer la fonctionnalité d’accès à distance :
+2. Installer la fonctionnalité accès à distance :
 
    ```  
    Install-WindowsFeature RemoteAccess   
@@ -71,7 +71,7 @@ L’applet de commande Windows PowerShell suivante ou les applets de commande in
    Restart-Computer
    ```
    
-4. Installer PowerShell pour l’accès à distance :
+4. Installer l’accès à distance PowerShell :
 
    ```
    Install-WindowsFeature RSAT-RemoteAccess-PowerShell
@@ -86,7 +86,7 @@ L’applet de commande Windows PowerShell suivante ou les applets de commande in
   
 1.  Dans le Gestionnaire de serveur, cliquez sur **Outils**, puis sur **Gestion de l’accès à distance**.  
   
-2.  Dans la console de gestion de l’accès à distance, sélectionnez le service de rôle à configurer dans le volet de navigation gauche, puis cliquez sur **exécuter l’Assistant Mise en route**.  
+2.  Dans la console Gestion de l’accès à distance, sélectionnez le service de rôle à configurer dans le volet de navigation gauche, puis cliquez sur **exécuter l’assistant prise en main**.  
   
 3.  Cliquez sur **Déployer DirectAccess uniquement**.  
   
@@ -125,7 +125,7 @@ L’applet de commande Windows PowerShell suivante ou les applets de commande in
   
 ## <a name="next-step"></a>Étape suivante  
   
--   [Étape 3 vérifier les déploiements de DirectAccess de base](da-basic-configure-s3-verify.md)  
+-   [Étape 3 vérifier les déploiements DirectAccess de base](da-basic-configure-s3-verify.md)  
   
 
 

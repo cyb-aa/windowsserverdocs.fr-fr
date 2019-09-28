@@ -1,8 +1,8 @@
 ---
 title: mqsvc
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 092f3c685b370defff2c41f2d6cb0acf3073bea3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8dcf98fa02eaede162fd75181af7a070b8a0aed4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869380"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373516"
 ---
 # <a name="mqsvc"></a>mqsvc
 
 
 
-La technologie Message Queuing permet aux applications en cours d’exécution à des moments différents de communiquer sur des réseaux hétérogènes et les systèmes qui peuvent être temporairement hors connexion. Message Queuing fournit la remise des messages, un routage efficace, une sécurité et une messagerie basée sur la priorité. Il peut être utilisé pour implémenter des solutions pour les scénarios de messagerie asynchrones et synchrones. Pour plus d’informations sur cette commande, consultez [Message Queuing (MSMQ)](https://go.microsoft.com/fwlink/?LinkId=248723) sur MSDN.
+Message Queuing technologie permet aux applications exécutées à des moments différents de communiquer sur des réseaux et des systèmes hétérogènes qui peuvent être temporairement hors connexion. Message Queuing fournit la remise des messages garantie, un routage efficace, la sécurité et la messagerie basée sur les priorités. Il peut être utilisé pour implémenter des solutions pour les scénarios de messagerie asynchrone et synchrone. Pour plus d’informations sur cette commande, consultez [Message Queuing (MSMQ)](https://go.microsoft.com/fwlink/?LinkId=248723) sur MSDN.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -38,4 +38,4 @@ Aucune
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,18 +1,18 @@
 ---
 title: Optimisation des performances Bureau à distance les passerelles
 description: Recommandations en matière de réglage des performances pour les passerelles Bureau à distance
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: ad314fbf6701da3f96ddc68a598bf3024eaafe16
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: fcd7afd840df12ec19e162f751df9e5c0c9c84d4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866468"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385015"
 ---
 # <a name="performance-tuning-remote-desktop-gateways"></a>Optimisation des performances Bureau à distance les passerelles
 

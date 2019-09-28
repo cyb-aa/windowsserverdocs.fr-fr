@@ -1,8 +1,8 @@
 ---
 title: ajouter
-description: Rubrique de commandes de Windows pour **ajouter** -reflète le volume simple avec le focus sur le disque spécifié.
+description: La rubrique commandes Windows pour **Add** -reflète le volume simple ayant le focus sur le disque spécifié.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5ed2dc4c8bbd6ff8e1bca498ebe50216185dc720
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c126676d1e600b5133e91408d9ff7b9a8e5a3510
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850940"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382791"
 ---
 # <a name="add"></a>ajouter
 
 
 
-Reflète le volume simple avec le focus sur le disque spécifié.
+Met en miroir le volume simple ayant le focus sur le disque spécifié.
 
 > [!IMPORTANT]
-> Cette commande DiskPart n’est pas disponible dans n’importe quelle édition de Windows Vista.
+> Cette commande DiskPart n’est pas disponible dans les éditions de Windows Vista.
 

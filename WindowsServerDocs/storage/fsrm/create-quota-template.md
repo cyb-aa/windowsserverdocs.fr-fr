@@ -2,18 +2,18 @@
 title: Créer un modèle de quota
 description: Cet article explique comment créer un modèle de quota pour définir une limite d’espace de stockage
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 236b5cb198a13441a087ad6dbfeef9a416e07e61
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 28a64c77d09bffeccbbc94ba7648d1bc0227e945
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445987"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394156"
 ---
 # <a name="create-a-quota-template"></a>Créer un modèle de quota
 
@@ -53,7 +53,7 @@ Par exemple, vous pouvez configurer des seuils pour envoyer un message électron
 > [!Important]
 > Pour envoyer des notifications par courrier électronique et configurer les rapports de stockage avec des paramètres appropriés à votre environnement de serveur, vous devez d’abord définir les options générales du Gestionnaire de ressources du serveur de fichiers. Pour plus d’informations, voir [Définition des options du Gestionnaire de ressources du serveur de fichiers](setting-file-server-resource-manager-options.md)
 
-**Pour configurer les notifications qui généreront des File Server Resource Manager à un seuil de quota**
+**Pour configurer des notifications que le serveur de fichiers Gestionnaire des ressources générera à un seuil de quota**
 
 1. Dans la boîte de dialogue **Créer un modèle de quota**, sous **Seuils de notification**, cliquez sur **Ajouter**. La boîte de dialogue **Ajouter un seuil** s’affiche.
 
@@ -67,7 +67,7 @@ Par exemple, vous pouvez configurer des seuils pour envoyer un message électron
 
    - Pour avertir les administrateurs qu’un seuil a été atteint, cochez la case **Envoyer un courrier électronique aux administrateurs suivants**, puis entrez les noms des comptes d’administration qui recevront les notifications. Utilisez le format <em>account@domain</em> et séparez les différents comptes par des points-virgules.
    - Pour envoyer un courrier électronique à la personne ayant enregistré le fichier qui atteint le seuil de quota, cochez la case **Envoyer un message à l'utilisateur qui dépasse le seuil**.
-   - Pour configurer le message, modifiez le contenu par défaut de la ligne d'objet et du corps du message. Le texte entre crochets insère les informations de variables sur l’événement de quota qui a provoqué la notification. Par exemple, le **\[propriétaire de la Source d’e/s\]** variable insère le nom de l’utilisateur qui a enregistré le fichier qui atteint le seuil de quota. Pour insérer d'autres variables dans le texte, cliquez sur **Insérer une variable**.
+   - Pour configurer le message, modifiez le contenu par défaut de la ligne d'objet et du corps du message. Le texte entre crochets insère les informations de variables sur l’événement de quota qui a provoqué la notification. Par exemple, la variable **\[Source Io Owner @ no__t-2** insère le nom de l’utilisateur qui a enregistré le fichier ayant atteint le seuil de quota. Pour insérer d'autres variables dans le texte, cliquez sur **Insérer une variable**.
    - Pour configurer des en-têtes supplémentaires (notamment De, Cc, Cci et Répondre), cliquez sur **Autres en-têtes de courrier électronique**.
 
 4. Pour consigner un événement :

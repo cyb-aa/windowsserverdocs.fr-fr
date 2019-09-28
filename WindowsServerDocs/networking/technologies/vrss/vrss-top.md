@@ -1,7 +1,7 @@
 ---
 title: Mise à l'échelle côté réception virtuelle (vRSS, Virtual Receive Side Scaling)
 description: En savoir plus sur la mise à l’échelle côté réception virtuelle (vRSS) dans Windows Server et sur la configuration d’une carte réseau virtuelle pour équilibrer la charge du trafic réseau entrant sur plusieurs cœurs de processeur logiques dans une machine virtuelle. Vous pouvez également configurer de multicœurs physiques pour une carte d’interface réseau virtuelle hôte (carte réseau virtuelle).
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 9be477b3-f81d-4e84-a6b0-ac4c1ea97715
@@ -10,12 +10,12 @@ ms.localizationpriority: medium
 manager: dougkim
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ae017d7d78adea565942a952aaea3da1669f39a9
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: b24cabe3597af35e7c7f3c6f81d360bb11675e23
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871799"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395790"
 ---
 # <a name="virtual-receive-side-scaling-vrss"></a>\(VRSS de mise à l’échelle côté réception virtuelle\)
 
@@ -42,7 +42,7 @@ Les machines virtuelles multiprocesseur ou multicœur qui exécutent les systèm
 
 - Windows Server 2016
 - Windows 10 professionnel ou entreprise
-- Windows Server 2012 R2
+- Windows Server 2012 R2
 - Windows 8.1 Pro ou Enterprise
 - Windows Server 2012 avec les composants d’intégration Windows Server 2012 R2 installés.
 - Windows 8 avec les composants d’intégration Windows Server 2012 R2 installés.

@@ -1,24 +1,24 @@
 ---
 ms.assetid: 7f285c9f-c3e8-4aae-9ff4-a9123815114e
-title: Stratégie d’accès centralisée de scénario
+title: Stratégie d’accès centralisée du scénario
 description: ''
 author: billmath
 ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1ec4165209b726609b1f9b2caeab02fb5072c756
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 91fd437895e765d4d73f3a200f76a5f8f96b52f2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873410"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407093"
 ---
 # <a name="scenario-central-access-policy"></a>Scénario : Stratégie d’accès centralisée
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Les stratégies d’accès centralisées pour les fichiers permettent aux organisations de déployer et gérer de manière centrale des stratégies d’autorisation qui comprennent des expressions conditionnelles utilisant des groupes d’utilisateurs, des revendications d’utilisateur, de revendications de périphérique et des propriétés de ressource. (Les revendications sont des assertions sur les attributs de l’objet auquel elles sont associées). Par exemple, pour accéder aux données HBI (high-business-impact), un utilisateur doit être un employé à plein-temps, obtenir l’accès à partir d’un périphérique géré et se connecter avec une carte à puce. Ces stratégies sont définies et hébergées dans les services de domaine Active Directory (AD DS).  
   
@@ -79,18 +79,18 @@ La figure suivante montre comment associer des stratégies en listes de stratég
 ## <a name="in-this-scenario"></a>Dans ce scénario  
 Le guide suivant est à votre disposition pour les stratégies d’accès centralisée :  
   
--   [Planifier un déploiement de stratégie d’accès centralisée](assetId:///0311a76d-d66c-4ddb-ade6-af586a2ad82f)  
+-   [Planifier le déploiement d’une stratégie d’accès centralisée](assetId:///0311a76d-d66c-4ddb-ade6-af586a2ad82f)  
   
--   [Déployer une stratégie d’accès centralisée &#40;étapes de démonstration&#41;](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md)  
+-   [Déployer une procédure de démonstration &#40;de stratégie d’accès centralisée&#41;](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md)  
   
 -   [Contrôle d’accès dynamique : Vue d’ensemble du scénario](Dynamic-Access-Control--Scenario-Overview.md)  
   
-## <a name="BKMK_NEW"></a>Fonctionnalités et rôles inclus dans ce scénario  
+## <a name="BKMK_NEW"></a>Rôles et fonctionnalités inclus dans ce scénario  
 Le tableau qui suit décrit les rôles et les fonctionnalités inclus dans ce scénario et détaille la manière dont ils prennent en charge ce dernier.  
   
 |Rôle/fonctionnalité|Prise en charge de ce scénario|  
 |-----------------|---------------------------------|  
-|Rôle Services de domaine Active Directory|Les services AD DS dans Windows Server 2012 introduit une plateforme d’autorisation basée sur les revendications qui permet de créer des revendications d’utilisateur et revendications de périphérique, une identité composée, (utilisateur plus revendications de périphérique), nouveaux modèles de stratégie (CAP) d’accès centralisée et l’utilisation de la classification des fichiers informations dans les décisions d’autorisation.|  
+|Rôle Services de domaine Active Directory|AD DS dans Windows Server 2012 introduit une plateforme d’autorisation basée sur les revendications qui permet la création de revendications d’utilisateur et de revendications d’appareil, l’identité composée, (utilisateurs plus revendications de périphérique), les nouveaux modèles de stratégie d’accès centralisée et l’utilisation de la classification des fichiers. informations dans les décisions d’autorisation.|  
 |Rôle de serveur Services de fichiers et de stockage|Les services de fichiers et de stockage fournissent des technologies qui vous permettent de configurer et de gérer un ou plusieurs serveurs de fichiers qui constituent sur votre réseau des emplacements centralisés où vous pouvez stocker des fichiers et les partager avec d’autres utilisateurs. Si vos utilisateurs réseau doivent accéder aux mêmes fichiers et applications, ou si la sauvegarde et la gestion des fichiers centralisées sont des éléments importants pour votre organisation, configurez un ou plusieurs ordinateurs en tant que serveurs de fichiers en ajoutant le rôle Services de fichiers et de stockage et les services de rôle appropriés aux ordinateurs.|  
 |Ordinateur client Windows|Les utilisateurs peuvent accéder aux fichiers et dossiers sur le réseau via l’ordinateur client.|  
   

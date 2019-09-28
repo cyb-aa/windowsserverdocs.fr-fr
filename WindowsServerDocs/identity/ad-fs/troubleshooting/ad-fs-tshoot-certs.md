@@ -6,14 +6,14 @@ ms.author: billmath
 manager: mtillman
 ms.date: 02/21/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: cee87ce864e333b98e92fa64e939f2ead7edc156
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: fdadbefc138562246c72f7707b303d966bff0989
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869187"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407193"
 ---
 # <a name="ad-fs-troubleshooting---certificates"></a>Résolution des problèmes de AD FS-certificats
 AD FS requiert les certificats suivants pour fonctionner correctement.  Si l’un de ces éléments n’a pas été configuré ou configuré correctement, des problèmes peuvent survenir.  

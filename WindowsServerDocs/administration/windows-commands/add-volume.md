@@ -1,8 +1,8 @@
 ---
 title: Ajouter un volume
-description: Rubrique de commandes de Windows pour **ajouter un volume** -ajoute des volumes pour le cliché instantané, qui est l’ensemble de volumes pour être des clichés instantanés copié.
+description: Rubrique relative aux commandes Windows pour **Ajouter un volume** -ajoute des volumes au jeu de clichés instantanés, qui est l’ensemble de volumes pour lesquels des clichés instantanés sont ajoutés.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8960ffafdf49d4512e1df2dfcc046bdfbe56e224
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c534bcc5a264fbb51d12cfd2a6fc93b4e6fbd857
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819470"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382794"
 ---
 # <a name="add-volume"></a>Ajouter un volume
 
 
 
-Ajoute des volumes pour les clichés instantanés copie définir, qui est l’ensemble de volumes de clichés instantanés. Cette commande n’est nécessaire pour créer des clichés instantanés. Si utilisée sans paramètres, **ajouter un volume** affiche l’aide à l’invite de commandes.
+Ajoute des volumes au jeu de clichés instantanés, qui est l’ensemble des volumes pour lesquels des clichés instantanés sont ajoutés. Cette commande est nécessaire pour créer des clichés instantanés. S’il est utilisé sans paramètres, **Ajouter un volume** affiche l’aide à l’invite de commandes.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -38,22 +38,22 @@ add volume <Volume> [provider <ProviderID>]
 
 |Paramètre|Description|
 |---------|-----------|
-|\<Volume>|Spécifie un volume à ajouter à l’ensemble de la copie de clichés instantanés. Au moins un volume est requis pour la création de clichés instantanés.|
-|[fournisseur \<ProviderID >]|Spécifie l’ID de fournisseur d’un fournisseur inscrit à utiliser pour créer le cliché instantané. Si **fournisseur** n’est pas spécifié, le fournisseur par défaut est utilisé.|
+|@no__t 0Volume >|Spécifie un volume à ajouter au jeu de clichés instantanés. Au moins un volume est requis pour la création de clichés instantanés.|
+|[@no__t du fournisseur-0ProviderID >]|Spécifie l’ID de fournisseur d’un fournisseur inscrit à utiliser pour créer le cliché instantané. Si le **fournisseur** n’est pas spécifié, le fournisseur par défaut est utilisé.|
 
 ## <a name="remarks"></a>Notes
 
--   Les volumes sont ajoutés à la fois.
--   Chaque fois qu’un volume est ajouté, il est vérifié pour s’assurer que VSS prend en charge la création de clichés instantanés de ce volume. Cette vérification principale risquent d’être invalidée, toutefois, par une utilisation ultérieure de la **définir le contexte** commande.
--   Lorsqu’un cliché instantané est créé, une variable d’environnement lie l’alias à l’ID du cliché instantané, donc l’alias peut ensuite servir pour le script.
+-   Les volumes sont ajoutés un par un.
+-   Chaque fois qu’un volume est ajouté, il est vérifié pour s’assurer que VSS prend en charge la création de clichés instantanés de ce volume. Cette vérification principale peut toutefois être invalidée en utilisant ultérieurement la commande **set context** .
+-   Lorsqu’un cliché instantané est créé, une variable d’environnement lie l’alias à l’ID d’ombre, de sorte que l’alias peut ensuite être utilisé pour l’écriture de scripts.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour afficher la liste actuelle des fournisseurs inscrits, à le `DISKSHADOW>` invite, tapez :
+Pour afficher la liste actuelle des fournisseurs inscrits, à l’invite `DISKSHADOW>`, tapez :
 ```
 list providers
 ```
-La sortie suivante affiche un seul fournisseur, qui sera utilisé par défaut :
+La sortie suivante affiche un fournisseur unique, qui sera utilisé par défaut :
 ```
 * ProviderID: {b5946137-7b9f-4925-af80-51abd60b20d5}
         Type: [1] VSS_PROV_SYSTEM
@@ -62,11 +62,11 @@ La sortie suivante affiche un seul fournisseur, qui sera utilisé par défaut :
         CLSID: {65ee1dba-8ff4-4a58-ac1c-3470ee2f376a}
 1 provider registered.
 ```
-Pour ajouter le lecteur C à l’ensemble de la copie de clichés instantanés et attribuer un alias nommé System1, tapez :
+Pour ajouter le lecteur C au jeu de clichés instantanés et affecter un alias nommé System1, tapez :
 ```
 add volume c: alias System1
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

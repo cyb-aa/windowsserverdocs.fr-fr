@@ -2,7 +2,7 @@
 title: doskey
 description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6179160b7195be6ddf32f9b77d5da0eed5df34d3
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: d45a2ddfeba7ec136add07eac11c3a8522ef872b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544469"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377690"
 ---
 # <a name="doskey"></a>doskey
 
@@ -39,16 +39,16 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
 |       Paramètre        |                                                                                                                          Description                                                                                                                           |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |       /REINSTALL       |                                                                                            Installe une nouvelle copie de Doskey. exe et efface la mémoire tampon de l’historique des commandes.                                                                                            |
-|   /LISTSIZE =\<taille >    |                                                                                                Spécifie le nombre maximal de commandes dans la mémoire tampon de l’historique.                                                                                                 |
+|   /LISTSIZE = \<Size >    |                                                                                                Spécifie le nombre maximal de commandes dans la mémoire tampon de l’historique.                                                                                                 |
 |        /macros         |                                        Affiche la liste de toutes les macros **doskey** . Vous pouvez utiliser le symbole de redirection ( **>** ) avec **/macros** pour rediriger la liste vers un fichier. Vous pouvez abréger **/macros** à **/m**.                                         |
-|      /macros: tout       |                                                                                                        Affiche les macros **doskey** pour tous les exécutables.                                                                                                         |
-|   /macros:\<EXEName >   |                                                                                             Affiche les macros **doskey** pour l’exécutable spécifié par *exeName*.                                                                                              |
+|      /macros : tout       |                                                                                                        Affiche les macros **doskey** pour tous les exécutables.                                                                                                         |
+|   /macros : \<ExeName >   |                                                                                             Affiche les macros **doskey** pour l’exécutable spécifié par *exeName*.                                                                                              |
 |        /History        |                                    Affiche toutes les commandes qui sont stockées en mémoire. Vous pouvez utiliser le symbole de redirection ( **>** ) avec **/History** pour rediriger la liste vers un fichier. Vous pouvez abréger **/History** comme **/h**.                                    |
 | /Insert | Spécifie que le nouveau texte que vous tapez est inséré dans l’ancien texte. |
 | /overstrike | Spécifie que le nouveau texte remplace l’ancien texte. |
-|  /EXEName =\<EXEName >   |                                                                                        Spécifie le programme (c’est-à-dire, exécutable) dans lequel la macro **doskey** s’exécute.                                                                                         |
-| /MACROFILE =\<nom de fichier > |                                                                                              Spécifie un fichier qui contient les macros que vous souhaitez installer.                                                                                               |
-| \<Nommacro > = [\<texte >]  | Crée une macro qui exécute les commandes spécifiées par le *texte*. *Nommacro* spécifie le nom que vous souhaitez assigner à la macro. *Texte* spécifie les commandes que vous souhaitez enregistrer. Si le *texte* n’est pas renseigné, la commande *nommacro* est désactivée pour toutes les commandes attribuées. |
+|  /EXEName = \<ExeName >   |                                                                                        Spécifie le programme (c’est-à-dire, exécutable) dans lequel la macro **doskey** s’exécute.                                                                                         |
+| /MACROFILE = \<FileName > |                                                                                              Spécifie un fichier qui contient les macros que vous souhaitez installer.                                                                                               |
+| \<MacroName > = [\<Text >]  | Crée une macro qui exécute les commandes spécifiées par le *texte*. *Nommacro* spécifie le nom que vous souhaitez assigner à la macro. *Texte* spécifie les commandes que vous souhaitez enregistrer. Si le *texte* n’est pas renseigné, la commande *nommacro* est désactivée pour toutes les commandes attribuées. |
 |           /?           |                                                                                                              Affiche l'aide à l'invite de commandes.                                                                                                              |
 
 ## <a name="remarks"></a>Notes
@@ -116,82 +116,82 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
 
   Vous pouvez utiliser DOSKEY. exe pour créer des macros qui exécutent une ou plusieurs commandes. Le tableau suivant répertorie les caractères spéciaux que vous pouvez utiliser pour contrôler les opérations de commande lorsque vous définissez une macro.  
 
-  |   Caractère   |                                                                                                                                                                               Description                                                                                                                                                                               |
+  |   symbole   |                                                                                                                                                                               Description                                                                                                                                                                               |
   |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   |   $G ou $g    |                                                                                   Redirige la sortie. Utilisez l’un de ces caractères spéciaux pour envoyer la sortie vers un appareil ou un fichier plutôt que vers l’écran. Ce caractère est équivalent au symbole de redirection pour la sortie ( **>** ).                                                                                    |
-  | $G $ G ou $g $ g  |                                                         Ajoute la sortie à la fin d’un fichier. Utilisez l’un ou l’autre de ces deux caractères pour ajouter la sortie à un fichier existant au lieu de remplacer les données du fichier. Ces caractères doubles sont équivalents au symbole de redirection d’ajout pour la **>>** sortie ().                                                         |
-  |   $L ou $l    |                                                                                  Redirige l’entrée. Utilisez l’un ou l’autre de ces caractères spéciaux pour lire l’entrée à partir d’un appareil ou d’un fichier au lieu du clavier. Ce caractère est équivalent au symbole de redirection pour Input ( **<** ).                                                                                  |
-  |   $B ou $b    |                                                                                                                                    Envoie la sortie de la macro à une commande. Ces caractères spéciaux sont équivalents à l’utilisation du canal (\*\*                                                                                                                                     |
-  |   $T ou $t    |                                                            Sépare les commandes. Utilisez l’un ou l’autre de ces caractères spéciaux pour séparer les commandes lorsque vous créez des macros ou tapez des commandes sur la ligne de commande **doskey** . Ces caractères spéciaux sont équivalents à l’utilisation de **&** l’esperluette () sur une ligne de commande.                                                            |
-  |      $$       |                                                                                                                                                              Spécifie le caractère de signe dollar **$** ().                                                                                                                                                               |
+  | $G $ G ou $g $ g  |                                                         Ajoute la sortie à la fin d’un fichier. Utilisez l’un ou l’autre de ces deux caractères pour ajouter la sortie à un fichier existant au lieu de remplacer les données du fichier. Ces caractères doubles sont équivalents au symbole de redirection d’ajout pour la sortie ( **>>** ).                                                         |
+  |   $L ou $l    |                                                                                  Redirige l’entrée. Utilisez l’un ou l’autre de ces caractères spéciaux pour lire l’entrée à partir d’un appareil ou d’un fichier au lieu du clavier. Ce caractère est équivalent au symbole de redirection pour l’entrée ( **<** ).                                                                                  |
+  |   $B ou $b    |                                                                                                                                    Envoie la sortie de la macro à une commande. Ces caractères spéciaux sont équivalents à l’utilisation du canal (\* @ no__t-1                                                                                                                                     |
+  |   $T ou $t    |                                                            Sépare les commandes. Utilisez l’un ou l’autre de ces caractères spéciaux pour séparer les commandes lorsque vous créez des macros ou tapez des commandes sur la ligne de commande **doskey** . Ces caractères spéciaux sont équivalents à l’utilisation de l’esperluette ( **&** ) sur une ligne de commande.                                                            |
+  |      $$       |                                                                                                                                                              Spécifie le caractère de signe dollar ( **$** ).                                                                                                                                                               |
   | de $1 à $9 |             Représente les informations de ligne de commande que vous souhaitez spécifier lorsque vous exécutez la macro. Les caractères spéciaux **$1** à **$9** sont des paramètres batch qui vous permettent d’utiliser des données différentes sur la ligne de commande chaque fois que vous exécutez la macro. Le caractère **$1** dans une commande **doskey** est semblable au caractère **% 1** dans un programme de traitement par lots.             |
-  |      $\*      | Représente toutes les informations de ligne de commande que vous souhaitez spécifier lorsque vous tapez le nom de la macro. Le **$ caractère\\** **spécial est** un paramètre remplaçable qui est similaire aux paramètres de lot $1 à $9, avec une différence importante: tout ce que vous tapez sur la ligne de commande après le  \* **le$ nom demacroestremplacépardanslamacro.\\** \* |
+  |      $\*      | Représente toutes les informations de ligne de commande que vous souhaitez spécifier lorsque vous tapez le nom de la macro. Le caractère spécial **$ @ no__t-2**\* est un paramètre remplaçable qui est similaire aux paramètres de lot **$1** à **$9**, avec une différence importante : tout ce que vous tapez sur la ligne de commande après le nom de la macro substitution de la **$ @ no__t-8**\* dans la macro. |
 
 
 - Exécution d’une macro **doskey**
 
-  Pour exécuter une macro, tapez le nom de la macro à l’invite de commandes, en commençant à la première position. Si la macro a été définie **$ \\** avec * ou l’un des paramètres de lot **$1** à **$9**, utilisez un espace pour séparer les paramètres. Vous ne pouvez pas exécuter une macro **doskey** à partir d’un programme de traitement par lots.
+  Pour exécuter une macro, tapez le nom de la macro à l’invite de commandes, en commençant à la première position. Si la macro a été définie avec **$ @ no__t-2*** ou l’un des paramètres de lot **$1** à **$9**, utilisez un espace pour séparer les paramètres. Vous ne pouvez pas exécuter une macro **doskey** à partir d’un programme de traitement par lots.
 - Création d’une macro portant le même nom qu’une commande de la famille Windows Server 2003
 
-  Si vous utilisez toujours une commande particulière avec des options de ligne de commande spécifiques, vous pouvez créer une macro qui porte le même nom que la commande. Pour spécifier si vous souhaitez exécuter la macro ou la commande, suivez ces instructions:  
+  Si vous utilisez toujours une commande particulière avec des options de ligne de commande spécifiques, vous pouvez créer une macro qui porte le même nom que la commande. Pour spécifier si vous souhaitez exécuter la macro ou la commande, suivez ces instructions :  
   -   Pour exécuter la macro, tapez le nom de la macro à l’invite de commandes. N’ajoutez pas d’espace avant le nom de la macro.
   -   Pour exécuter la commande, insérez un ou plusieurs espaces à l’invite de commandes, puis tapez le nom de la commande.
 - Suppression d’une macro
 
-  Pour supprimer une macro, tapez:  
+  Pour supprimer une macro, tapez :  
   ```
   doskey <MacroName> =
   ```
 
 ## <a name="BKMK_examples"></a>Illustre
 
-Les options de ligne de commande **/macros** et **/History** sont utiles pour créer des programmes batch afin d’enregistrer des macros et des commandes. Par exemple, pour stocker toutes les macros **doskey** actuelles, tapez:
+Les options de ligne de commande **/macros** et **/History** sont utiles pour créer des programmes batch afin d’enregistrer des macros et des commandes. Par exemple, pour stocker toutes les macros **doskey** actuelles, tapez :
 ```
 doskey /macros > macinit 
 ```
-Pour utiliser les macros stockées dans Macinit, tapez:
+Pour utiliser les macros stockées dans Macinit, tapez :
 ```
 doskey /macrofile=macinit 
 ```
-Pour créer un programme de commandes nommé tmp. bat qui contient les commandes récemment utilisées, tapez:
+Pour créer un programme de commandes nommé tmp. bat qui contient les commandes récemment utilisées, tapez :
 ```
 doskey /history> tmp.bat 
 ```
-Pour définir une macro avec plusieurs commandes, utilisez **$t** pour séparer les commandes, comme suit:
+Pour définir une macro avec plusieurs commandes, utilisez **$t** pour séparer les commandes, comme suit :
 ```
 doskey tx=cd temp$tdir/w $*
 ```
-Dans l’exemple précédent, la macro TX remplace le répertoire actuel par Temp, puis affiche une liste de répertoires dans un format d’affichage étendu. Vous pouvez **$ utiliser\\** * à la fin de la macro pour ajouter d’autres options de ligne de commande à **dir** lorsque vous exécutez TX.
+Dans l’exemple précédent, la macro TX remplace le répertoire actuel par Temp, puis affiche une liste de répertoires dans un format d’affichage étendu. Vous pouvez utiliser **$ @ no__t-2*** à la fin de la macro pour ajouter d’autres options de ligne de commande à **dir** lorsque vous exécutez TX.
 
-La macro suivante utilise un paramètre batch pour un nouveau nom de répertoire:
+La macro suivante utilise un paramètre batch pour un nouveau nom de répertoire :
 ```
 doskey mc=md $1$tcd $1
 ```
 La macro crée un nouveau répertoire, puis passe au nouveau répertoire dans le répertoire actif.
 
-Pour utiliser la macro précédente pour créer un répertoire nommé Books et le modifier, tapez:
+Pour utiliser la macro précédente pour créer un répertoire nommé Books et le modifier, tapez :
 ```
 mc books
 ```
-Pour créer une macro **doskey** pour un programme appelé FTP. exe, incluez **/exeName** comme suit:
+Pour créer une macro **doskey** pour un programme appelé FTP. exe, incluez **/exeName** comme suit :
 ```
 doskey /exename=ftp.exe go=open 172.27.1.100$tmget *.TXT c:\reports$tbye 
 ```
-Pour utiliser la macro précédente, démarrez FTP. À l’invite FTP, tapez:
+Pour utiliser la macro précédente, démarrez FTP. À l’invite FTP, tapez :
 ```
 go
 ```
 FTP exécute les commandes **Open**, **mget**et **Bye** .
 
-Pour créer une macro qui formate rapidement et sans condition un disque, tapez:
+Pour créer une macro qui formate rapidement et sans condition un disque, tapez :
 ```
 doskey qf=format $1 /q /u
 ```
-Pour formater rapidement et sans condition un disque dans le lecteur A, tapez:
+Pour formater rapidement et sans condition un disque dans le lecteur A, tapez :
 ```
 qf a:
 ```
-Pour supprimer une macro appelée Vlist, tapez:
+Pour supprimer une macro appelée Vlist, tapez :
 ```
 doskey vlist =
 ```

@@ -1,8 +1,8 @@
 ---
 title: nslookup view
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 623064db7a3e89decbfc1fbc27fa0598e398ac34
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 61a01a25317bdf42491f05e896ddd5bb022193fe
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436409"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372718"
 ---
 # <a name="nslookup-view"></a>nslookup view
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-trie et affiche la sortie de la précédente **ls** sous-commande ou des commandes.  
+Trie et répertorie la sortie de la sous-commande ou des commandes **ls** précédente.  
 ## <a name="syntax"></a>Syntaxe  
 ```  
 view <FileName>  
@@ -33,8 +33,8 @@ view <FileName>
 
 |    Paramètre    |                                            Description                                            |
 |-----------------|---------------------------------------------------------------------------------------------------|
-|   <FileName>    | Spécifie le nom du fichier contenant la sortie de la précédente **ls** sous-commande ou des commandes. |
-| {aide &#124; ?} |                       Affiche un résumé de **nslookup** sous-commandes.                       |
+|   <FileName>    | Spécifie le nom du fichier contenant la sortie de la sous-commande ou des commandes **ls** précédente. |
+| {Help &#124; ?} |                       Affiche un bref résumé des sous-commandes **nslookup** .                       |
 
 ## <a name="additional-references"></a>Références supplémentaires  
 [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

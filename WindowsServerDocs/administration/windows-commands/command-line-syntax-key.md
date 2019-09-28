@@ -1,8 +1,8 @@
 ---
 title: Clé de syntaxe de ligne de commande
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,24 +13,24 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 795397c43234e338029fc1e76aa11bf8080256cd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b4f8d1e492ee14c3f94c1de00812edcf60c52991
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826390"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379232"
 ---
 # <a name="command-line-syntax-key"></a>Clé de syntaxe de ligne de commande
 
 
 
-Le tableau suivant décrit la notation utilisée pour indiquer la syntaxe de ligne de commande.
+Le tableau suivant décrit la notation utilisée pour indiquer la syntaxe de la ligne de commande.
 
-|Notation|Description|
+|Conventions|Description|
 |--------|-----------|
-|Texte sans crochets ou accolades|Vous devez taper comme des éléments|
-|\<Texte à l’intérieur de crochets pointus >|Espace réservé pour lequel vous devez fournir une valeur|
+|Texte sans crochets ou accolades|Éléments que vous devez taper comme indiqué|
+|\<Texte à l’intérieur des crochets angulaires >|Espace réservé pour lequel vous devez fournir une valeur|
 |[Texte à l’intérieur des crochets]|Éléments facultatifs|
-|{Texte entre accolades}|Ensemble d’éléments requis ; Choisissez une|
-|Barre verticale (\|)|Séparateur d’éléments qui s’excluent mutuellement ; Choisissez une|
-|Points de suspension (…)|Éléments qui peuvent être répétés|
+|{Text à l’intérieur des accolades}|Ensemble d’éléments requis; choisir un|
+|Barre verticale (\|)|Séparateur pour les éléments s’excluant mutuellement ; choisir un|
+|Points de suspension (…)|Éléments pouvant être répétés|

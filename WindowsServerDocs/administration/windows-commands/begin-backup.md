@@ -1,8 +1,8 @@
 ---
 title: Commencer la sauvegarde
-description: Rubrique de commandes de Windows pour **Begin sauvegarde** -démarre une session de sauvegarde complète.
+description: La rubrique commandes Windows pour **Begin Backup** -démarre une session de sauvegarde complète.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9ad732bb47c15a41e03a73d17199c3201a346175
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2675914b9b2886b9e818af55fcfb7a75e1616fc9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824950"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382168"
 ---
 # <a name="begin-backup"></a>Commencer la sauvegarde
 
 
 
-démarre une session de sauvegarde complète.
+Démarre une session de sauvegarde complète.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -38,4 +38,4 @@ begin backup
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

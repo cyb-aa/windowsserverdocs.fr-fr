@@ -2,7 +2,7 @@
 title: Activation de Microsoft Windows Server
 description: Comment activer Windows Server 2016.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.date: 09/19/2018
@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 746434884701ba1a8a6781b485b3f1540abe975e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9dd12a7858a24457251d8354a2df49632b5960c5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868415"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391612"
 ---
 # <a name="windows-server-2016-activation"></a>Activation de Windows Server 2016
 
@@ -63,7 +63,7 @@ L’activation basée sur le service KMS requiert la connectivité TCP/IP. Les c
 
 Une fois que le premier hôte KMS a été activé, la clé KMS utilisée sur le premier hôte peut être utilisée pour activer jusqu’à cinq hôtes KMS supplémentaires sur votre réseau. Une fois qu’un hôte KMS a été activé, les administrateurs peuvent réactiver le même hôte jusqu’à neuf fois avec la même clé.
 
-Si votre organisation a besoin de plus de six hôtes KMS, vous devez demander des activations supplémentaires pour la clé KMS de votre organisation ; par exemple, si vous avez dix emplacements physiques sous un seul contrat de licence en volume et que vous voulez que chaque emplacement possède un hôte KMS local.
+Si votre organisation a besoin de plus de six hôtes KMS, vous devez demander des activations supplémentaires pour la clé KMS de votre organisation ; par exemple, si vous avez dix emplacements physiques sous un seul contrat de licence en volume et que vous voulez que chaque emplacement possède un hôte KMS local.
 
 > [!NOTE] 
 > Pour demander une telle exception, contactez votre centre d’appels d’activation. Pour plus d’informations, consultez [Licence en volume Microsoft]( https://www.microsoft.com/licensing).

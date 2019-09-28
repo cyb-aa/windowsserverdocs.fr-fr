@@ -1,129 +1,129 @@
 ---
-title: Scénarios de récupération d’urgence pour l’Infrastructure Hyper-convergée
-ms.prod: windows-server-threshold
+title: Scénarios de récupération d’urgence pour une infrastructure hyper-convergée
+ms.prod: windows-server
 ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: johnmarlin-msft
 ms.date: 03/29/2018
-description: Cet article décrit les scénarios disponibles dès aujourd'hui pour la récupération d’urgence de Microsoft HCI (espaces de stockage Direct)
+description: Cet article décrit les scénarios disponibles aujourd’hui pour la récupération d’urgence de Microsoft HCI (espaces de stockage direct)
 ms.localizationpriority: medium
-ms.openlocfilehash: c844c56c3a1717658bcdb970e78d45b5cdda861c
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 8e6372ec7b4759f672c13f4bd822172afaf3faf3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453121"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393747"
 ---
-# <a name="disaster-recovery-with-storage-spaces-direct"></a>Récupération d’urgence avec les espaces de stockage Direct
+# <a name="disaster-recovery-with-storage-spaces-direct"></a>Récupération d’urgence avec espaces de stockage direct
 
 > S’applique à : Windows Server 2019, Windows Server 2016
 
-Cette rubrique fournit des scénarios sur comment infrastructure Hyper-convergée (HCL) peuvent être configurés pour la récupération d’urgence.
+Cette rubrique fournit des scénarios sur la façon dont la configuration de l’infrastructure hyper-convergée (HCI) peut être configurée pour la récupération d’urgence.
 
-De nombreuses sociétés sont en cours d’exécution solutions hyperconvergées et planification d’urgence permet de rester dans ou revenir à la production rapidement si un incident se produit. Il existe plusieurs façons de configurer HCL pour la récupération d’urgence et ce document explique les options qui sont actuellement disponibles pour vous.
+De nombreuses entreprises exécutent des solutions hyper-convergées et la planification d’un sinistre donne la possibilité de rester dans ou de revenir rapidement en production en cas de sinistre. Il existe plusieurs façons de configurer HCI pour la récupération d’urgence. ce document décrit les options disponibles aujourd’hui.
 
-Lorsque les discussions de la restauration de la disponibilité en cas de sinistre tournent autour de ce qui est connu comme l’objectif de délai récupération (RTO). Il s’agit de la durée de temps ciblé où les services doivent être restaurés pour éviter les conséquences inacceptables pour l’entreprise. Dans certains cas, ce processus peut se produire automatiquement avec production restaurée presque immédiatement. Dans d’autres cas, une intervention manuelle administrateur doit se produire pour restaurer les services.
+Lorsque vous parcourez la restauration de la disponibilité en cas de sinistre, reportez-vous à ce que l’on appelle l’objectif de délai de récupération (RTO). Il s’agit de la durée pendant laquelle les services doivent être restaurés afin d’éviter des conséquences inacceptables pour l’entreprise. Dans certains cas, ce processus peut se produire automatiquement avec la production restaurée presque immédiatement. Dans d’autres cas, une intervention manuelle de l’administrateur doit se produire pour restaurer les services.
 
-Les options de récupération d’urgence avec un hyperconvergé sont aujourd'hui :
+Les options de récupération d’urgence avec Hyper-convergé aujourd’hui sont les suivantes :
 
-1. Plusieurs clusters en utilisant le réplica de stockage
+1. Plusieurs clusters utilisant le réplica de stockage
 2. Réplica Hyper-V entre des clusters
 3. Sauvegarde et restauration
 
-## <a name="multiple-clusters-utilizing-storage-replica"></a>Plusieurs clusters en utilisant le réplica de stockage
+## <a name="multiple-clusters-utilizing-storage-replica"></a>Plusieurs clusters utilisant le réplica de stockage
 
-[Le réplica de stockage](../storage-replica/storage-replica-overview.md) permet la réplication de volumes et prend en charge de la réplication synchrone et asynchrone. Lors du choix entre l’utilisation de la réplication synchrone ou asynchrone, vous devez envisager votre objectif de Point de récupération (RPO). Objectif de Point de récupération est la quantité de perte de données que vous êtes prêt à assumer avant d’être considéré perte majeure. Si vous accédez avec la réplication synchrone, il séquentiellement écrira aux deux extrémités en même temps. Si vous accédez avec asynchrone, écritures répliqueront très rapide mais peuvent toujours être perdus. Vous devez envisager l’utilisation d’application ou le fichier pour voir ce qui fonctionne mieux pour vous.
+Le [réplica de stockage](../storage-replica/storage-replica-overview.md) permet la réplication des volumes et prend en charge la réplication synchrone et asynchrone. Lorsque vous choisissez entre l’utilisation d’une réplication synchrone ou asynchrone, vous devez prendre en compte votre objectif de point de récupération (RPO). L’objectif de point de récupération est la quantité de perte de données que vous êtes disposé à subir avant qu’il ne soit considéré comme une perte majeure. Si vous utilisez la réplication synchrone, les deux extrémités sont écrites de manière séquentielle en même temps. Si vous utilisez le mode asynchrone, les écritures sont répliquées très rapidement, mais elles peuvent toujours être perdues. Vous devez tenir compte de l’utilisation de l’application ou du fichier pour voir ce qui vous convient le mieux.
 
-Réplica de stockage est un mécanisme de copie au niveau bloc et au niveau du fichier ; Autrement dit, peu importe quels types de données en cours de réplication. Cela rend une option populaire pour l’infrastructure Hyper-convergée. Le réplica de stockage permettre également utiliser les différents types de disques entre les partenaires de réplication, ainsi que de tous de stockage d’un type sur un seul HCL et fonctionne parfaitement bien à un autre stockage de type sur l’autre. 
+Le réplica de stockage est un mécanisme de copie au niveau du bloc et au niveau du fichier ; Cela signifie que les types de données répliquées n’ont pas d’importance. Cela en fait une option populaire pour l’infrastructure hyper-convergée. Le réplica de stockage peut également utiliser différents types de lecteurs entre les partenaires de réplication. ainsi, le fait d’avoir tout le stockage de type sur un HCI et un autre stockage de type sur l’autre est parfait. 
 
-Une fonctionnalité importante du réplica de stockage est qu’il peut être exécuté dans Azure, ainsi que sur site. Vous pouvez configurer en local au niveau local, Azure vers Azure, ou même localement vers Azure (ou vice versa).
+L’une des fonctionnalités importantes du réplica de stockage est qu’il peut être exécuté dans Azure et localement. Vous pouvez configurer l’environnement local vers le site local, Azure vers Azure ou même localement vers Azure (ou vice versa).
 
-Dans ce scénario, il existe deux clusters indépendants distincts. Pour configurer le réplica de stockage entre HCL, vous pouvez suivre les étapes décrites dans [réplication de stockage de Cluster à cluster](../storage-replica/cluster-to-cluster-storage-replication.md).
+Dans ce scénario, il existe deux clusters indépendants distincts. Pour configurer un réplica de stockage entre HCI, vous pouvez suivre les étapes de la section [réplication du stockage de cluster à cluster](../storage-replica/cluster-to-cluster-storage-replication.md).
 
-![Diagramme de la réplication de stockage](media/storage-spaces-direct-disaster-recovery/Disaster-Recovery-Figure1.png)
+![Diagramme de réplication du stockage](media/storage-spaces-direct-disaster-recovery/Disaster-Recovery-Figure1.png)
 
-Les considérations suivantes s’appliquent lors du déploiement de réplica de stockage. 
+Les considérations suivantes s’appliquent lors du déploiement du réplica de stockage. 
 
-1.  Configuration de la réplication est effectué en dehors de Clustering de basculement. 
-2.  Choix de la méthode de réplication dépendra votre latence du réseau en matière de RPO. Synchrone réplique les données sur des réseaux à faible latence avec cohérence d’incident pour éviter toute perte de données à la fois de défaillance. Asynchrone réplique les données sur les réseaux avec des latences élevées, mais chaque site peut-être pas des copies identiques à la fois de défaillance. 
-3.  En cas de sinistre, les basculements entre les clusters ne sont pas automatiques et doivent être orchestré manuellement via les applets de commande PowerShell de réplica de stockage. Dans le diagramme ci-dessus, ClusterA est le principal et ClusterB est la base de données secondaire. Si ClusterA tombe en panne, vous devez définir manuellement ClusterB comme principale avant que vous pouvez afficher les ressources. Une fois que ClusterA est sauvegardé, vous devez rendre la base de données secondaire. Une fois toutes les données a été synchronisé des, apporter la modification et échange les rôles à la façon qu'elles ont été définies à l’origine.
-4.  Étant donné que le réplica de stockage réplique uniquement les données, un nouvel ordinateur virtuel ou une mise à l’échelle des serveur de fichiers (SOFS) utilisant ces données devra être créé à l’intérieur de gestionnaire du Cluster de basculement sur le partenaire de réplica.
+1.  La configuration de la réplication s’effectue en dehors du clustering de basculement. 
+2.  Le choix de la méthode de réplication dépend de la latence du réseau et des exigences de RPO. Le mode synchrone réplique les données sur les réseaux à faible latence avec cohérence des incidents pour garantir l’absence de perte de données en cas de défaillance. Asynchrone réplique les données sur des réseaux avec des latences plus élevées, mais chaque site peut ne pas avoir de copies identiques à la fois. 
+3.  En cas de sinistre, les basculements entre les clusters ne sont pas automatiques et doivent être orchestrés manuellement par le biais des applets de commande PowerShell du réplica de stockage. Dans le schéma ci-dessus, ClusterA est le serveur principal et ClusterB est le réplica secondaire. Si ClusterA tombe en panne, vous devez définir manuellement ClusterB comme principal avant de pouvoir mettre les ressources à l’haut. Une fois le ClusterA sauvegardé, vous devez le rendre secondaire. Une fois que toutes les données ont été synchronisées, effectuez la modification et échangez les rôles de manière à ce qu’ils aient été définis à l’origine.
+4.  Étant donné que le réplica de stockage réplique uniquement les données, un nouvel ordinateur virtuel ou serveur de fichiers Scale Out (SOFS) utilisant ces données doit être créé dans Gestionnaire du cluster de basculement sur le partenaire de réplication.
 
-Le réplica de stockage peut être utilisé si vous avez des machines virtuelles ou un serveur SOFS en cours d’exécution sur votre cluster. Connexion des ressources dans le réplica HCL peut être manuel ou automatisé via l’utilisation de l’écriture de scripts PowerShell.
+Le réplica de stockage peut être utilisé si vous avez des machines virtuelles ou un SOFS s’exécutant sur votre cluster. La mise en ligne des ressources dans le HCI du réplica peut être manuelle ou automatisée grâce à l’utilisation de scripts PowerShell.
 
 ## <a name="hyper-v-replica"></a>Réplication Hyper-V
 
-[Réplica Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica) fournit la réplication au niveau des machines virtuelles pour la récupération d’urgence sur des infrastructures hyperconvergé. Ce que peut faire le réplica Hyper-V est à prendre une machine virtuelle et la réplique sur un site secondaire ou sur Azure (réplica). Puis à partir du site secondaire, réplica Hyper-V peut répliquer la machine virtuelle à un tiers (réplica étendu).
+Le [réplica Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica) fournit la réplication au niveau de l’ordinateur virtuel pour la récupération d’urgence sur les infrastructures hyper-convergées. La réplication Hyper-V permet de prendre une machine virtuelle et de la répliquer sur un site secondaire ou Azure (réplica). Ensuite, à partir du site secondaire, le réplica Hyper-V peut répliquer l’ordinateur virtuel sur un troisième (réplica étendu).
 
-![Diagramme de la réplication Hyper-V](media/storage-spaces-direct-disaster-recovery/Disaster-Recovery-Figure2.png)
+![Diagramme de réplication Hyper-V](media/storage-spaces-direct-disaster-recovery/Disaster-Recovery-Figure2.png)
 
-Avec le réplica Hyper-V, la réplication est pris en charge par Hyper-V. Lorsque vous activez tout d’abord une machine virtuelle pour la réplication, il existe trois options pour la façon dont vous souhaitez la copie initiale pour être envoyées pour les clusters de réplica correspondant.
+Avec la réplication Hyper-V, la réplication est prise en charge par Hyper-V. Lorsque vous activez pour la première fois une machine virtuelle pour la réplication, vous pouvez choisir la façon dont vous souhaitez que la copie initiale soit envoyée aux clusters de réplication correspondants.
 
 1.  Envoyer la copie initiale sur le réseau
-2.  Envoyer la copie initiale sur des supports externes afin qu’il peut être copié manuellement sur votre serveur
-3.  Utiliser une machine virtuelle existante déjà créée sur les hôtes de réplica
+2.  Envoyer la copie initiale sur un support externe afin qu’il puisse être copié manuellement sur votre serveur
+3.  Utiliser un ordinateur virtuel existant déjà créé sur les hôtes de réplica
 
-L’autre option concerne lorsque vous devez activer que la réplication initiale doit avoir lieu.
+L’autre option concerne le moment où vous souhaitez que cette réplication initiale ait lieu.
 
-1.  Démarrer la réplication immédiatement
-2.  Planifiez une heure pour laquelle la réplication initiale a lieu. 
+1.  Démarrer immédiatement la réplication
+2.  Planifiez une heure à laquelle la réplication initiale a lieu. 
 
-Autres considérations, que vous devez sont :
+Les autres éléments à prendre en compte sont les suivants :
 
-- Du VHD/VHDX vous souhaitez répliquer. Vous pouvez choisir de répliquer toutes les ou qu’un seul d'entre eux.
-- Nombre de points de récupération que vous souhaitez enregistrer. Si vous souhaitez avoir plusieurs options sur quel point dans le temps que vous souhaitez restaurer, vous pouvez spécifier le nombre souhaité. Si vous souhaitez uniquement un point de restauration, vous pouvez le choisir également.
-- La fréquence à laquelle vous souhaitez que les Volume Shadow Copy Service (VSS) à répliquer un cliché instantané incrémentiel.
-- La fréquence à laquelle ces modifications sont répliquées (30 secondes, 5 minutes, 15 minutes).
+- Les disques durs virtuels/VHDX que vous souhaitez répliquer. Vous pouvez choisir de répliquer tous les éléments ou un seul d’entre eux.
+- Nombre de points de récupération que vous souhaitez enregistrer. Si vous souhaitez disposer de plusieurs options sur le point dans le temps que vous souhaitez restaurer, vous devez spécifier le nombre de votre choix. Si vous n’avez besoin que d’un point de restauration, vous pouvez également le choisir.
+- La fréquence à laquelle vous souhaitez que le Service VSS (VSS) réplique un cliché instantané incrémentiel.
+- La fréquence à laquelle les modifications sont répliquées (30 secondes, 5 minutes, 15 minutes).
 
-Lorsque HCL participer de réplica Hyper-V, vous devez disposer du [Hyper-V Replica Broker](https://blogs.technet.microsoft.com/virtualization/2012/03/27/why-is-the-hyper-v-replica-broker-required/) ressource créée dans chaque cluster. Cette ressource fait plusieurs choses :
+Lorsque HCI participe à la réplication Hyper-V, vous devez avoir créé la ressource de [Service Broker de réplication Hyper-v](https://blogs.technet.microsoft.com/virtualization/2012/03/27/why-is-the-hyper-v-replica-broker-required/) dans chaque cluster. Cette ressource effectue plusieurs opérations :
 
-1.  Vous offre un espace de noms unique pour chaque cluster pour réplica Hyper-V pour vous connecter à.
-2.  Détermine quel nœud au sein de ce cluster, le réplica (ou réplica étendu) résideront sur lorsqu’il reçoit tout d’abord la copie.
-3.  Effectue le suivi de nœud qui possède le réplica (ou réplica étendu), au cas où la machine virtuelle est déplacée vers un autre nœud. Il doit effectuer ce suivi afin que lors de la réplication a lieu, il peut envoyer les informations sur le nœud approprié.
+1.  Vous donne un espace de noms unique pour chaque cluster auquel le réplica Hyper-V se connecte.
+2.  Détermine quel nœud dans le cluster sur lequel le réplica (ou réplica étendu) résidera lorsqu’il reçoit pour la première fois la copie.
+3.  Effectue le suivi du nœud propriétaire du réplica (ou du réplica étendu) au cas où l’ordinateur virtuel se déplace vers un autre nœud. Il doit effectuer le suivi afin que, lorsque la réplication a lieu, il puisse envoyer les informations au nœud approprié.
 
 ## <a name="backup-and-restore"></a>Sauvegarde et restauration
 
-Une option de récupération d’urgence traditionnelles qui n’est pas parlée à beaucoup, mais est tout aussi importante est l’échec de l’ensemble du cluster ou un nœud du cluster. L’option choisie avec ce scénario se sert de sauvegarde de Windows NT. 
+Une option de récupération d’urgence traditionnelle qui n’est pas encore parlée, mais qui est tout aussi importante, est la défaillance de l’ensemble du cluster ou d’un nœud du cluster. L’une ou l’autre des options de ce scénario utilise la sauvegarde Windows NT. 
 
-Il est toujours une recommandation ait des sauvegardes périodiques de l’infrastructure Hyper-convergée. Bien que le Service de Cluster est en cours d’exécution, si vous prenez une sauvegarde d’état système, la base de données de Registre de cluster serait une partie de cette sauvegarde. Restauration de base de données ou le cluster a deux méthodes différentes (Non-faisant autorité et faisant autorité).
+Il est toujours recommandé d’effectuer des sauvegardes périodiques de l’infrastructure hyper-convergée. Si le service de cluster est en cours d’exécution, si vous effectuez une sauvegarde de l’état du système, la base de données du Registre du cluster fera partie de cette sauvegarde. La restauration du cluster ou de la base de données a deux méthodes différentes (ne faisant pas autorité et faisant autorité).
 
-### <a name="non-authoritative"></a>Faisant
+### <a name="non-authoritative"></a>Ne faisant pas autorité
 
-Une restauration faisant peut être accomplie à l’aide de la sauvegarde de Windows NT et équivaut à une restauration complète du nœud de cluster lui-même. Si vous avez besoin uniquement de restaurer un nœud de cluster (et la base de données de Registre de cluster) et tous les clusters plus d’informations bonne, vous restaurez à l’aide ne faisant pas autorité. Les restaurations faisant peuvent être effectuées via l’interface de sauvegarde de Windows NT ou de la ligne de commande WBADMIN. EXE.
+Une restauration ne faisant pas autorité peut être effectuée à l’aide de la sauvegarde Windows NT et équivaut à une restauration complète du seul nœud de cluster. Si vous devez uniquement restaurer un nœud de cluster (et la base de données du Registre du cluster) et que toutes les informations actuelles du cluster sont correctes, vous devez effectuer une restauration à l’aide de ne faisant pas autorité. Les restaurations ne faisant pas autorité peuvent être effectuées par le biais de l’interface de sauvegarde Windows NT ou de la ligne de commande WBADMIN. Exécutable.
 
-Une fois que vous restaurez le nœud, laissez-le rejoindre le cluster. Que se passera-t-il est qu’il accède au cluster existant en cours d’exécution et toutes ses informations de mise à jour avec ce qui est actuellement.
+Une fois que vous avez restauré le nœud, laissez-le rejoindre le cluster. Ce qui se passe, c’est qu’il accède au cluster existant et met à jour toutes ses informations avec ce qui est actuellement.
 
-### <a name="authoritative"></a>Faisant autorité
+### <a name="authoritative"></a>Manière
 
-Une restauration faisant autorité de la configuration du cluster prend quant à eux, la configuration du cluster dans le temps. Ce type de restauration doit uniquement être réalisée lorsque les informations du cluster lui-même a été perdues et doit être restaurées. Par exemple, quelqu'un a supprimé accidentellement un serveur de fichiers contenant des partages de plus de 1000 et vous devez le retour. Fin d’une restauration faisant autorité du cluster nécessite l’exécution à partir de la ligne de commande sauvegarde.
+Une restauration faisant autorité de la configuration du cluster, en revanche, rétablit la configuration du cluster dans le temps. Ce type de restauration ne doit être effectué que si les informations du cluster ont été perdues et doivent être restaurées. Par exemple, quelqu’un a supprimé accidentellement un serveur de fichiers qui contenait plus de 1000 partages et vous en avez besoin. Pour effectuer une restauration faisant autorité du cluster, vous devez exécuter la sauvegarde à partir de la ligne de commande.
 
-Lorsqu’une restauration faisant autorité est lancée sur un nœud de cluster, le service de cluster est arrêté sur tous les autres nœuds dans la vue de cluster et la configuration du cluster est figée. C’est pourquoi il est essentiel que le service de cluster sur le nœud sur lequel la restauration a été exécutée être démarrés en premier pour le cluster est formé à l’aide de la nouvelle copie de la configuration du cluster.
+Quand une restauration faisant autorité est lancée sur un nœud de cluster, le service de cluster est arrêté sur tous les autres nœuds de l’affichage de cluster et la configuration du cluster est figée. C’est la raison pour laquelle il est essentiel que le service de cluster sur le nœud sur lequel la restauration a été exécutée démarre d’abord pour que le cluster soit formé à l’aide de la nouvelle copie de la configuration du cluster.
 
-Pour exécuter une restauration faisant autorité, les étapes suivantes peuvent être accomplies.
+Pour exécuter une restauration faisant autorité, les étapes suivantes peuvent être effectuées.
 
-1.  Exécutez WBADMIN. EXE à partir d’une invite de commandes d’administration pour obtenir la dernière version des sauvegardes que vous souhaitez installer et assurez-vous que l’état du système est l’un des composants que vous pouvez restaurer.
+1.  Exécutez WBADMIN. EXE à partir d’une invite de commandes d’administration pour obtenir la dernière version des sauvegardes que vous souhaitez installer et vérifier que l’état du système est l’un des composants que vous pouvez restaurer.
 
     ```powershell
     Wbadmin get versions
     ```
 
-2.  Déterminer si la sauvegarde de version que vous avez comporte les informations de Registre de cluster en tant que composant. Il existe quelques éléments qui que vous seront nécessaires à partir de cette commande, la version et le composant / d’application pour une utilisation à l’étape 3. Pour la version, par exemple, la sauvegarde a été effectuée le 3 janvier 2018 à 2 h 04 et c’est celui-ci que vous devez restaurée.
+2.  Déterminez si la sauvegarde de la version contient les informations du Registre du cluster en tant que composant. Il y a deux éléments dont vous aurez besoin à partir de cette commande, de la version et de l’application/du composant à utiliser à l’étape 3. Pour la version, par exemple, imaginons que la sauvegarde a été effectuée le 3 janvier 2018 à 2:04am et qu’il s’agit de celui que vous avez besoin de restaurer.
 
     ```powershell
     wbadmin get items -backuptarget:\\backupserver\location
     ```
 
-3.  Démarrer la restauration faisant autorité pour récupérer uniquement la version de Registre de cluster que vous avez besoin. 
+3.  Démarrez la restauration faisant autorité pour récupérer uniquement la version du registre de cluster dont vous avez besoin. 
 
     ```powershell
     wbadmin start recovery -version:01/03/2018-02:04 -itemtype:app -items:cluster
     ```
 
-Une fois que la restauration a eu lieu, ce nœud doit être celui dans lequel démarrer le Service de Cluster tout d’abord et former un cluster. Tous les autres nœuds puis deviez démarrer et rejoindre le cluster.
+Une fois la restauration effectuée, ce nœud doit être celui pour démarrer le service de cluster en premier et former le cluster. Tous les autres nœuds doivent alors être démarrés et se joindre au cluster.
 
 ## <a name="summary"></a>Récapitulatif 
 
-Pour additionner tout, hyperconvergé reprise d’activité est quelque chose qui doit être planifiée avec soin out. Il existe plusieurs scénarios qui peuvent mieux à vos besoins et doivent être testées. À noter est que si vous êtes familiarisé avec les Clusters de basculement dans le passé, clusters étendus ont été une option très populaire au fil des années. Il était un peu d’une modification de conception avec la solution hyperconvergée et elle est basée sur la résilience. Si vous perdez les deux nœuds dans un cluster hyperconvergé, l’ensemble du cluster s’arrêtent. Avec ce qui est le cas, dans un environnement hyperconvergé, le scénario d’extension n’est pas pris en charge.
+Pour additionner tout cela, la récupération d’urgence hyper-convergée est une opération qui doit être planifiée avec prudence. Il existe plusieurs scénarios qui peuvent mieux répondre à vos besoins et doivent être testés minutieusement. Un élément à noter est que si vous êtes familiarisé avec les clusters de basculement par le passé, les clusters étendus sont une option très populaire au fil des années. Il y avait un peu de modifications de conception avec la solution hyper-convergée et elle est basée sur la résilience. Si vous perdez deux nœuds dans un cluster hyper-convergé, l’ensemble du cluster s’affiche. Dans ce cas, dans un environnement hyper-convergé, le scénario d’étirement n’est pas pris en charge.
 
 

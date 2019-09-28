@@ -6,17 +6,17 @@ manager: mtillman
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: ''
 ms.date: 05/01/2018
-ms.openlocfilehash: cd145402ed70aa52da7188dee9dd64ce17fea155
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: d393ad4af81ee1c24fa5f28b8a3b05217e7b34dd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871878"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71396291"
 ---
 # <a name="network-policy-server-user-data-collection"></a>Collecte des données utilisateur du serveur de stratégie réseau
 
@@ -29,7 +29,7 @@ Ce document explique comment rechercher des informations utilisateur collectées
 
 - Timestamp
 - Horodateur de l’événement
-- Nom d’utilisateur
+- Nom d'utilisateur
 - Nom d’utilisateur complet
 - Adresse IP du client
 - Fournisseur du client
@@ -41,7 +41,7 @@ Ce document explique comment rechercher des informations utilisateur collectées
 
 Si les données de gestion sont activées et configurées, les enregistrements des tentatives d’authentification NPS d’un utilisateur peuvent être obtenus à partir de SQL Server ou des fichiers journaux en fonction de la configuration. 
 
-Si les données de gestion des comptes sont configurées pour SQL Server, recherchez tous `'<username>'`les enregistrements où user_name =.
+Si les données de gestion des comptes sont configurées pour SQL Server, recherchez tous les enregistrements où User_Name = `'<username>'`.
 
 Si les données de gestion des comptes sont configurées pour un fichier journal, recherchez toutes `<username>` les entrées de journal dans le fichier journal.
 

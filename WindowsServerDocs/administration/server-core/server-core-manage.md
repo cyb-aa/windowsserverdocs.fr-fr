@@ -1,24 +1,24 @@
 ---
 title: Gérer le Server Core
 description: En savoir plus sur la gestion d’une installation Server Core de Windows Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 07/23/2019
-ms.openlocfilehash: bbb04e761dbb1dd48d95e15d11c91608f4d6c240
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: bd96dbfc93f3999d8fb3ddf7ec94cc11025bba30
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476545"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383399"
 ---
 # <a name="manage-a-server-core-server"></a>Gérer un serveur Server Core
  
 > S’applique à : Windows Server 2019, Windows Server 2016 et Windows Server (canal semi-annuel)
 
-Vous pouvez gérer un serveur Server Core des manières suivantes:
+Vous pouvez gérer un serveur Server Core des manières suivantes :
 - Utilisation du [Centre d’administration Windows](../../manage/windows-admin-center/overview.md)
 - Utilisation de [Outils d’administration de serveur distant](../../remote/remote-server-administration-tools.md) s’exécutant sur Windows 10
 - Localement et à distance avec Windows PowerShell
@@ -28,9 +28,9 @@ Vous pouvez gérer un serveur Server Core des manières suivantes:
 
 Vous pouvez également ajouter du matériel et gérer les pilotes localement, à condition de le faire à partir de la ligne de commande.
 
-Il existe des limitations et des conseils importants à prendre en compte lorsque vous travaillez avec Server Core:
+Il existe des limitations et des conseils importants à prendre en compte lorsque vous travaillez avec Server Core :
 
-- Si vous fermez toutes les fenêtres d’invite de commandes et souhaitez ouvrir une nouvelle fenêtre d’invite de commandes, vous pouvez le faire à partir du gestionnaire des tâches. Appuyez **sur\+Ctrl\+Alt Suppr**, cliquez sur **Démarrer le gestionnaire des tâches**, cliquez sur plus de **Détails > fichier > exécuter**, puis tapez **cmd. exe**. (Tapez **PowerShell. exe** pour ouvrir une fenêtre de commande PowerShell.) Vous pouvez également vous déconnecter, puis vous reconnecter.
+- Si vous fermez toutes les fenêtres d’invite de commandes et souhaitez ouvrir une nouvelle fenêtre d’invite de commandes, vous pouvez le faire à partir du gestionnaire des tâches. Appuyez sur **CTRL @ no__t-1ALT @ no__t-2DELETE**, cliquez sur **Démarrer le gestionnaire des tâches**, cliquez sur plus de **Détails > fichier > exécuter**, puis tapez **cmd. exe**. (Tapez **PowerShell. exe** pour ouvrir une fenêtre de commande PowerShell.) Vous pouvez également vous déconnecter, puis vous reconnecter.
 - Les commandes ou les outils qui essaient de démarrer l’Explorateur Windows ne fonctionnent pas. Par exemple, en exécutant **Start.** à partir d’une invite de commandes ne fonctionnera pas.
 - Il n’existe aucune prise en charge du rendu HTML ou de l’aide HTML dans Server Core.
 - Server Core prend en charge Windows Installer en mode silencieux afin que vous puissiez installer des outils et des utilitaires à partir de Windows Installer fichiers. Lorsque vous installez Windows Installer packages sur Server Core, utilisez l’option **/qb** pour afficher l’interface utilisateur de base.
@@ -52,15 +52,15 @@ Pour permettre à votre serveur local d’être géré par Gestionnaire de serve
 
 Vous pouvez utiliser de nombreux composants logiciels enfichables pour la console MMC (Microsoft Management Console) à distance pour gérer votre serveur Server Core.
 
-Pour utiliser un composant logiciel enfichable MMC afin de gérer un serveur Server Core qui est membre du domaine: 
+Pour utiliser un composant logiciel enfichable MMC afin de gérer un serveur Server Core qui est membre du domaine : 
 
 1. Démarrez un composant logiciel enfichable MMC, tel que gestion de l’ordinateur.
 2. Cliquez avec le bouton droit sur le composant logiciel enfichable, puis cliquez sur **se connecter à un autre ordinateur**.
 2. Tapez le nom d’ordinateur du serveur Server Core, puis cliquez sur **OK**. Vous pouvez maintenant utiliser le composant logiciel enfichable MMC pour gérer le serveur Server Core comme vous le feriez pour tout autre ordinateur ou serveur.
 
-Pour utiliser un composant logiciel enfichable MMC afin de gérer un serveur Server Core qui n’est *pas* membre du domaine: 
+Pour utiliser un composant logiciel enfichable MMC afin de gérer un serveur Server Core qui n’est *pas* membre du domaine : 
 
-1. Établissez d’autres informations d’identification à utiliser pour se connecter à l’ordinateur Server Core en tapant la commande suivante à une invite de commandes sur l’ordinateur distant:
+1. Établissez d’autres informations d’identification à utiliser pour se connecter à l’ordinateur Server Core en tapant la commande suivante à une invite de commandes sur l’ordinateur distant :
 
    ```
    cmdkey /add:<ServerName> /user:<UserName> /pass:<password>
@@ -75,19 +75,19 @@ Pour utiliser un composant logiciel enfichable MMC afin de gérer un serveur Ser
 5. Sur **un autre ordinateur**, tapez le nom d’ordinateur du serveur Server Core, puis cliquez sur **OK**. Vous pouvez maintenant utiliser le composant logiciel enfichable MMC pour administrer le serveur en mode d’installation minimale comme vous le feriez sur n’importe quel autre ordinateur exécutant un système d’exploitation Windows Server.
 
 ### <a name="to-configure-windows-firewall-to-allow-mmc-snap-ins-to-connect"></a>Pour configurer le Pare-feu Windows afin d’autoriser la connexion de composants logiciels enfichables MMC
-Pour autoriser tous les composants logiciels enfichables MMC à se connecter, exécutez la commande suivante:
+Pour autoriser tous les composants logiciels enfichables MMC à se connecter, exécutez la commande suivante :
 
 ```PowerShell
 Enable-NetFirewallRule -DisplayGroup "Remote Administration"
 ```
 
-Pour autoriser uniquement la connexion de composants logiciels enfichables MMC spécifiques, exécutez la commande suivante:
+Pour autoriser uniquement la connexion de composants logiciels enfichables MMC spécifiques, exécutez la commande suivante :
 
 ```PowerShell
 Enable-NetFirewallRule -DisplayGroup "<rulegroup>"
 ```
 
-Où *RuleGroup* est l’un des éléments suivants, selon le composant logiciel enfichable que vous souhaitez connecter:
+Où *RuleGroup* est l’un des éléments suivants, selon le composant logiciel enfichable que vous souhaitez connecter :
 
 | Composant logiciel enfichable MMC                            | Groupe de règles                                            |
 | ---------------------------------------- | ------------------------------------------------------- |
@@ -112,7 +112,7 @@ Où *RuleGroup* est l’un des éléments suivants, selon le composant logiciel 
 
 Vous pouvez utiliser [Bureau à distance](../../remote/remote-desktop-services/welcome-to-rds.md) pour gérer un serveur Server Core à partir d’ordinateurs distants.
 
-Avant de pouvoir accéder à Server Core, vous devez exécuter la commande suivante: 
+Avant de pouvoir accéder à Server Core, vous devez exécuter la commande suivante : 
 
 ```
 cscript C:\Windows\System32\Scregedit.wsf /ar 0
@@ -124,7 +124,7 @@ Cette commande configure le mode Bureau à distance pour administration afin d�
 
 Pour ajouter du matériel à un serveur Server Core, suivez les instructions fournies par le fournisseur de matériel pour l’installation du nouveau matériel. 
 
-Si le matériel n’est pas Plug-and-Play, vous devez installer le pilote manuellement. Pour ce faire, copiez les fichiers de pilote dans un emplacement temporaire sur le serveur, puis exécutez la commande suivante:
+Si le matériel n’est pas Plug-and-Play, vous devez installer le pilote manuellement. Pour ce faire, copiez les fichiers de pilote dans un emplacement temporaire sur le serveur, puis exécutez la commande suivante :
 
 ```
 pnputil –i –a <driverinf>
@@ -134,7 +134,7 @@ Où *driverinf* est le nom de fichier du fichier. inf du pilote.
 
 Si vous y êtes invité, redémarrez l’ordinateur.
 
-Pour voir quels pilotes sont installés, exécutez la commande suivante: 
+Pour voir quels pilotes sont installés, exécutez la commande suivante : 
 
 ```
 sc query type= driver
@@ -143,7 +143,7 @@ sc query type= driver
 > [!NOTE] 
 > N’oubliez pas d’inclure l’espace après le signe égal pour que la commande s’exécute correctement.
 
-Pour désactiver un pilote de périphérique, exécutez la commande suivante:
+Pour désactiver un pilote de périphérique, exécutez la commande suivante :
 
 ```
 sc delete <service_name>

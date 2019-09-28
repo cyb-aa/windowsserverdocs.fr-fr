@@ -1,9 +1,9 @@
 ---
 title: Résolution des problèmes d’ajout de points d’entrée
-description: Cette rubrique fait partie du guide de déploiement de plusieurs serveurs d’accès distant dans un déploiement Multisite dans Windows Server 2016.
+description: Cette rubrique fait partie du guide déployer plusieurs serveurs d’accès à distance dans un déploiement multisite dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: dcc1037f-1a65-4497-99e6-0df9aef748a8
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 51f49364aa4e7a6da6c51b1d8b7da7e37f842190
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 7e93c972dbbe2971796c12cdeea27474723a80ac
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282564"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404466"
 ---
 # <a name="troubleshooting-adding-entry-points"></a>Résolution des problèmes d’ajout de points d’entrée
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Cette rubrique contient des informations de résolution des problèmes liés à la commande `Add-DAEntryPoint`. Pour confirmer que l’erreur que vous avez reçue est liée à l’ajout d’un point d’entrée, recherchez l’ID d’événement 10067 dans le journal des événements Windows.  
   
@@ -37,13 +37,13 @@ Lorsque vous ajoutez un nouveau point d’entrée à un déploiement multisite, 
 Exécutez la commande et assurez-vous de spécifier le paramètre *RemoteAccessServer* à l’aide du nom du serveur à ajouter en tant que point d’entrée.  
   
 ## <a name="remote-access-is-not-configured"></a>Accès à distance non configuré  
-**Erreur reçue**. Accès à distance n’est pas configuré sur < nom_serveur >. Spécifiez le nom d’un serveur qui appartient à un déploiement multisite.  
+**Erreur reçue**. L’accès à distance n’est pas configuré sur < nom_serveur >. Spécifiez le nom d’un serveur qui appartient à un déploiement multisite.  
   
 **Cause**  
   
 L’accès à distance n’est pas configuré sur l’ordinateur spécifié par le paramètre *ComputerName* ou sur l’ordinateur sur lequel vous exécutez la commande.  
   
-Lorsque vous ajoutez une nouveau point d’entrée à un déploiement multisite, vous devez spécifier deux paramètres : *ComputerName* et *RemoteAccessServer*. Le paramètre *ComputerName* correspond au nom d’un serveur qui fait déjà partie du déploiement multisite et le paramètre *RemoteAccessServer* correspond au nom du serveur que vous voulez ajouter en tant que nouveau point d’entrée. Si l’exécution est effectuée depuis un ordinateur qui fait partie du déploiement multisite, le paramètre ComputerName n’est pas requis.  
+Lorsque vous ajoutez un nouveau point d’entrée à un déploiement multisite, vous devez spécifier deux paramètres : *ComputerName* et *RemoteAccessServer*. Le paramètre *ComputerName* correspond au nom d’un serveur qui fait déjà partie du déploiement multisite et le paramètre *RemoteAccessServer* correspond au nom du serveur que vous voulez ajouter en tant que nouveau point d’entrée. Si l’exécution est effectuée depuis un ordinateur qui fait partie du déploiement multisite, le paramètre ComputerName n’est pas requis.  
   
 **Solution**  
   
@@ -64,7 +64,7 @@ Activez un déploiement multisite à l’aide de l’applet de commande `Enable-
   
 -   **Problème 1**  
   
-    **Erreur reçue**. IPv6 est déployé dans le réseau interne, mais vous n’avez spécifié un préfixe IPv6 de client.  
+    **Erreur reçue**. IPv6 est déployé sur le réseau interne, mais vous n’avez pas spécifié de préfixe IPv6 de client.  
   
     **Cause**  
   
@@ -78,7 +78,7 @@ Activez un déploiement multisite à l’aide de l’applet de commande `Enable-
   
 -   **Problème 2**  
   
-    **Erreur reçue**. Le préfixe IPv6 du client est déjà en cours d’utilisation par un autre point d’entrée. Donnez une autre valeur.  
+    **Erreur reçue**. Le préfixe IPv6 du client est déjà utilisé par un autre point d’entrée. Donnez une autre valeur.  
   
     **Cause**  
   
@@ -91,7 +91,7 @@ Activez un déploiement multisite à l’aide de l’applet de commande `Enable-
     2.  Exécutez l’applet de commande `Add-DAEntryPoint` et spécifiez le préfixe IP-HTTPS dans le paramètre *ClientIPv6Prefix*.  
   
 ## <a name="connectto-address"></a>Adresse ConnectTo  
-**Erreur reçue**. L’adresse (< adresse_connectto >) à laquelle les clients DirectAccess se connecter sur le serveur d’accès distant est identique à l’adresse du serveur emplacement réseau. Donnez une autre valeur.  
+**Erreur reçue**. L’adresse (< connect_to_address >) à laquelle les clients DirectAccess se connectent sur le serveur RemoteAccess est identique à l’adresse du serveur d’emplacement réseau. Donnez une autre valeur.  
   
 **Cause**  
   
@@ -106,7 +106,7 @@ L’adresse ConnectTo doit pouvoir être résolue sur Internet afin de permettre
   
 Ou  
   
-Accès à distance est déjà installé sur le serveur < nom_serveur >. Spécifiez un autre serveur qui n’exécute pas DirectAccess, ou supprimez la configuration DirectAccess existante du serveur.  
+L’accès à distance est déjà installé sur le serveur < nom_serveur >. Spécifiez un autre serveur qui n’exécute pas DirectAccess, ou supprimez la configuration DirectAccess existante du serveur.  
   
 **Cause**  
   
@@ -139,19 +139,19 @@ Lors de la première installation de DirectAccess, la carte réseau interne est 
   
 -   **Problème 1**  
   
-    **Avertissement reçu**. Le serveur d’accès à distance en cours d’ajout est configuré avec les adresses IPv4 et IPv6. Il s’agit d’un déploiement IPv4 uniquement et l’accès à distance ignorera les adresses IPv6.  
+    **Avertissement reçu**. Le serveur d’accès à distance ajouté est configuré avec des adresses IPv4 et IPv6. Il s’agit d’un déploiement IPv4 uniquement et l’accès à distance ignorera les adresses IPv6.  
   
     **Cause**  
   
-    Lors de la première installation de ce déploiement, le réseau interne a été détecté en tant que réseau IPv4 uniquement. Dans un déploiement multisite, les différents points d’entrée sont supposés se trouver dans différents sous-réseaux dont les caractéristiques sont différentes. Par conséquent, bien que le déploiement soit configuré en tant que déploiement IPv4 uniquement, il peut contenir un point d’entrée situé dans un sous-réseau IPv6+IPv4. Toutefois, bien que le point d’entrée doivent être ajouté au déploiement, DirectAccess ignore les adresses IPv6 configurées sur l’interface interne de nouveau point d’entrée.  
+    Lors de la première installation de ce déploiement, le réseau interne a été détecté en tant que réseau IPv4 uniquement. Dans un déploiement multisite, les différents points d’entrée sont supposés se trouver dans différents sous-réseaux dont les caractéristiques sont différentes. Par conséquent, bien que le déploiement soit configuré en tant que déploiement IPv4 uniquement, il peut contenir un point d’entrée situé dans un sous-réseau IPv6+IPv4. Toutefois, bien que le point d’entrée soit ajouté au déploiement, DirectAccess ignore les adresses IPv6 configurées sur l’interface interne du nouveau point d’entrée.  
   
     **Solution**  
   
-    Si le réseau interne entier est configuré avec des adresses IPv6 et IPv4, envisagez de passer à un déploiement IPv6+IPv4 pour tirer parti des technologies IPv6. Voir « Transition depuis une pure IPv4 à un réseau d’entreprise IPv6 + IPv4 » dans [étape 3 : Planifier le déploiement multisite](assetId:///19d49dbf-1786-47bb-ab97-f0458c53d91d).  
+    Si le réseau interne entier est configuré avec des adresses IPv6 et IPv4, envisagez de passer à un déploiement IPv6+IPv4 pour tirer parti des technologies IPv6. Consultez la section « transition d’un réseau IPv4 pur à un réseau d’entreprise IPv6 + IPv4 » dans [Step 3 : Planifier le déploiement multisite @ no__t-0.  
   
 -   **Problème 2**  
   
-    **Erreur reçue**. Les cartes réseau interne de serveurs d’accès distant de ce déploiement multisite sont configurées avec des adresses IPv4. Vous devez également configurer le point d’entrée que vous ajoutez avec une adresse IPv4 sur la carte réseau interne.  
+    **Erreur reçue**. Les cartes réseau internes des serveurs accès distants dans ce déploiement multisite sont configurées avec des adresses IPv4. Vous devez également configurer le point d’entrée que vous ajoutez avec une adresse IPv4 sur la carte réseau interne.  
   
     **Cause**  
   
@@ -159,11 +159,11 @@ Lors de la première installation de DirectAccess, la carte réseau interne est 
   
     **Solution**  
   
-    Si le réseau entier est déjà configuré avec des adresses IPv6, vous devez passer à un déploiement IPv6+IPv4 ou IPv6 uniquement. Voir « Planifier la transition vers IPv6 lorsque l’accès à distance multisite est déployé ».  
+    Si le réseau entier est déjà configuré avec des adresses IPv6, vous devez passer à un déploiement IPv6+IPv4 ou IPv6 uniquement. Consultez la section « planifier la transition vers IPv6 lorsque l’accès à distance multisite est déployé ».  
   
 -   **Problème 3**  
   
-    **Erreur reçue**. Ce point d’entrée se trouve dans un réseau IPv4, mais les points d’entrée précédents sont situés dans un réseau IPv6. Connectez ce point d’entrée au réseau IPv6 avant de l’ajouter au même déploiement multisite.  
+    **Erreur reçue**. Ce point d’entrée se trouve dans un réseau IPv4, mais les points d’entrée précédents se trouvent dans un réseau IPv6. Connectez ce point d’entrée au réseau IPv6 avant de l’ajouter au même déploiement multisite.  
   
     **Cause**  
   
@@ -181,7 +181,7 @@ Lors de la première installation de DirectAccess, la carte réseau interne est 
   
     Lors de la première installation de ce déploiement, il a été détecté que le réseau interne était un réseau IPv6+IPv4. Dans ce mode de déploiement, DNS64 et NAT64 sont activés de sorte à autoriser les ordinateurs clients à accéder aux ordinateurs situés sur le réseau interne qui sont configurés avec des adresses IPv4 uniquement.  
   
-    Lors de l’ajout du nouveau point d’entrée, l’accès à distance a détecté que l’interface interne située sur le nouvel ordinateur possède uniquement des adresses IPv6. Pour configurer DNS64 et NAT64, une adresse IPv4 est requise afin d’acheminer les paquets depuis le serveur d’accès à distance vers l’ordinateur uniquement IPv4. Étant donné qu’il n’existe aucune adresse IP de ce type sur le nouvel ordinateur, NAT64 et DNS64 ne sont pas configurés sur le serveur d’accès à distance. Par conséquent, les ordinateurs clients qui accèdent au réseau d’entreprise via DirectAccess à l’aide de ce point d’entrée ne sont pas en mesure d’accéder aux serveurs IPv4 uniquement sur le réseau interne. Pour plus d’informations sur la transition vers un réseau IPv6 + IPv4 ou un réseau IPv6 uniquement, voir « Planifier la transition vers IPv6 lorsque de l’accès à distance multisite est déployé ».  
+    Lors de l’ajout du nouveau point d’entrée, l’accès à distance a détecté que l’interface interne située sur le nouvel ordinateur possède uniquement des adresses IPv6. Pour configurer DNS64 et NAT64, une adresse IPv4 est requise afin d’acheminer les paquets depuis le serveur d’accès à distance vers l’ordinateur uniquement IPv4. Étant donné qu’il n’existe aucune adresse IP de ce type sur le nouvel ordinateur, NAT64 et DNS64 ne sont pas configurés sur le serveur d’accès à distance. Par conséquent, les ordinateurs clients qui accèdent au réseau d’entreprise via DirectAccess à l’aide de ce point d’entrée ne sont pas en mesure d’accéder aux serveurs IPv4 uniquement sur le réseau interne. Pour plus d’informations sur la façon de passer à un réseau IPv6 + IPv4 ou à un réseau IPv6 uniquement, consultez la section « planifier la transition vers IPv6 lorsque l’accès à distance multisite est déployé ».  
   
     **Solution**  
   
@@ -191,7 +191,7 @@ Lors de la première installation de DirectAccess, la carte réseau interne est 
   
 -   **Problème 1**  
   
-    **Erreur reçue**. Le domaine spécifié dans le paramètre ServerGpoName < objet_de_stratégie_de_groupe_du_serveur > n’existe pas. Spécifiez le domaine < nom_domaine > à la place.  
+    **Erreur reçue**. Le domaine spécifié dans le paramètre ServerGpoName < server_GPO > n’existe pas. Spécifiez le domaine < nom_domaine > à la place.  
   
     **Cause**  
   
@@ -203,7 +203,7 @@ Lors de la première installation de DirectAccess, la carte réseau interne est 
   
 -   **Problème 2**  
   
-    **Erreur reçue**. Le serveur de stratégie de groupe doit se trouver dans le domaine du serveur accès à distance. Spécifiez le domaine < nom_domaine > dans le paramètre ServerGpoName.  
+    **Erreur reçue**. L’objet de stratégie de groupe du serveur doit se trouver dans le domaine du serveur d’accès à distance. Spécifiez le domaine < nom_domaine > dans le paramètre ServerGpoName.  
   
     **Cause**  
   
@@ -214,7 +214,7 @@ Lors de la première installation de DirectAccess, la carte réseau interne est 
     L’objet de stratégie de groupe du serveur doit se situer dans le même domaine que celui du serveur d’accès à distance. Utilisez le nom de domaine du serveur pour l’objet de stratégie de groupe du serveur, puis réessayez.  
   
 ## <a name="split-brain-dns"></a>DNS « split brain »  
-**Avertissement reçu**. L’entrée NRPT pour le suffixe DNS < suffixe_dns > contient le nom public utilisé par les ordinateurs clients pour se connecter au serveur d’accès à distance. Ajoutez le nom < adresse_connectto > en tant qu’exemption dans la table NRPT.  
+**Avertissement reçu**. L’entrée NRPT pour le suffixe DNS < DNS_suffix > contient le nom public utilisé par les ordinateurs clients pour se connecter au serveur d’accès à distance. Ajoutez le nom < connect_to_address > en tant qu’exemption dans la table NRPT.  
   
 **Cause**  
   
@@ -235,12 +235,12 @@ Pour exempter une adresse dans les règles NRPT :
 Lorsque vous ajoutez des suffixes de noms sans spécifier d’adresse de serveur, le suffixe est traité comme une exemption NRPT.  
   
 ## <a name="saving-server-gpo-settings"></a>Enregistrement des paramètres de l’objet de stratégie de groupe serveur  
-**Erreur reçue**. Une erreur s’est produite lors de l’enregistrement des paramètres d’accès à distance à l’objet de stratégie de groupe < nom_objet_de_stratégie_de_groupe >.  
+**Erreur reçue**. Une erreur s’est produite lors de l’enregistrement des paramètres d’accès à distance dans l’objet de stratégie de groupe < GPO_name >.  
   
-Pour corriger cette erreur, voir l’enregistrement des paramètres du GPO de serveur dans [Multisite de l’activation de résolution des problèmes](https://technet.microsoft.com/library/jj591658.aspx).  
+Pour résoudre cette erreur, consultez enregistrement des paramètres d’objet de stratégie de groupe du serveur dans [Dépannage activation de multisite](https://technet.microsoft.com/library/jj591658.aspx).  
   
 ## <a name="gpo-updates-cannot-be-applied"></a>Impossible d’appliquer les mises à jour d’objet de stratégie de groupe  
-**Avertissement reçu**. Mises à jour de l’objet stratégie de groupe ne peut pas être appliqués sur < nom_serveur >. Les modifications apportées ne prendront effet qu’après la prochaine actualisation de la stratégie.  
+**Avertissement reçu**. Les mises à jour des objets de stratégie de groupe ne peuvent pas être appliquées sur < nom_serveur >. Les modifications apportées ne prendront effet qu’après la prochaine actualisation de la stratégie.  
   
 **Cause**  
   

@@ -1,8 +1,8 @@
 ---
-title: bdehdcfg driveinfo
-description: 'Rubrique de commandes de Windows pour ** bdehdcfg : driveinfo ** - affiche la lettre de lecteur, la taille totale, l’espace libre maximal et les caractéristiques de la partition.'
+title: BdeHdCfg DriveInfo
+description: 'Rubrique relative aux commandes Windows pour * * BdeHdCfg : DriveInfo * *-affiche la lettre de lecteur, la taille totale, l’espace libre maximal et les caractéristiques de la partition.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b2dd62e34f8205e0b5d395ba759fff4b4937b0ad
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: b0f4541bfd71fb7639d18e6e548559ed02918815
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435045"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382270"
 ---
-# <a name="bdehdcfg-driveinfo"></a>bdehdcfg: driveinfo
+# <a name="bdehdcfg-driveinfo"></a>BdeHdCfg : DriveInfo
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 Affiche la lettre de lecteur, la taille totale, l’espace libre maximal et les caractéristiques de la partition. Seules les partitions valides apparaissent. L'espace non alloué n'apparaît pas si quatre partitions principales ou étendues existent déjà. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
 ## <a name="syntax"></a>Syntaxe
@@ -33,12 +33,12 @@ bdehdcfg -driveinfo <DriveLetter>
 
 |   Paramètre   |                  Description                  |
 |---------------|-----------------------------------------------|
-| <DriveLetter> | Spécifie une lettre de lecteur suivie du signe deux-points. |
+| <DriveLetter> | Spécifie une lettre de lecteur suivie d’un signe deux-points. |
 
 ## <a name="remarks"></a>Notes
-La commande est d’information uniquement et ne rend aucune modification sur le lecteur.
-## <a name="BKMK_Examples"></a>Exemple
-L’exemple suivant affiche les informations de lecteur pour le lecteur C.
+La commande est à titre d’information uniquement et ne modifie pas le lecteur.
+## <a name="BKMK_Examples"></a>Tels
+L’exemple suivant affiche les informations sur le lecteur C.
 ```
 bdehdcfg  driveinfo C:
 ```

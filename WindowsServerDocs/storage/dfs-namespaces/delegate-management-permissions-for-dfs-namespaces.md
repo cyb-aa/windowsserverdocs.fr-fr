@@ -2,22 +2,22 @@
 title: Déléguer les autorisations de gestion pour les espaces de noms DFS
 description: Cet article décrit comment déléguer des autorisations de gestion pour les espaces de noms DFS et détaille les groupes autorisés par défaut à réaliser des tâches liées aux espaces de noms
 ms.date: 6/5/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 7895432ca16dd13c6425d966f99104fc03db100d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5bf23498c95d4b44d5c17aecd216921dc70819a3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829490"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402214"
 ---
 # <a name="delegate-management-permissions-for-dfs-namespaces"></a>Déléguer les autorisations de gestion pour les espaces de noms DFS
 
-> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+> S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 
 Le tableau suivant présente les groupes autorisés par défaut à réaliser les tâches de base liées aux espaces de noms et les procédures permettant de déléguer l’exécution de ces tâches :
 
@@ -32,4 +32,4 @@ Le tableau suivant présente les groupes autorisés par défaut à réaliser les
 
 <br />
 
-\*Déléguer des autorisations de gestion pour gérer un espace de noms autonome n’accorde pas l’utilisateur la possibilité d’afficher et gérer la sécurité à l’aide de la **délégation** onglet, sauf si l’utilisateur est membre du groupe Administrateurs local sur le serveur d’espace de noms. Ce problème est dû au fait que le composant logiciel enfichable Gestion DFS ne peut pas récupérer les listes de contrôle d’accès discrétionnaire (DACL) de l’espace de noms autonome à partir du Registre. Pour activer le composant logiciel enfichable pour afficher des informations de délégation, vous devez suivre les étapes décrites dans le Microsoft<sup>®</sup> article de la Base de connaissances : [KB314837 : Comment gérer l’accès à distance au Registre](https://go.microsoft.com/fwlink?linkid=46803)
+les autorisations de gestion \*Delegating pour gérer un espace de noms autonome n’autorisent pas l’utilisateur à afficher et à gérer la sécurité à l’aide de l’onglet **délégation** , sauf si l’utilisateur est membre du groupe Administrateurs local sur le serveur d’espaces de noms. Ce problème est dû au fait que le composant logiciel enfichable Gestion DFS ne peut pas récupérer les listes de contrôle d’accès discrétionnaire (DACL) de l’espace de noms autonome à partir du Registre. Pour permettre au composant logiciel enfichable d’afficher les informations de délégation, vous devez suivre les étapes de l’article de la base de connaissances Microsoft<sup>®</sup> : @NO__T 0KB314837 : Gestion de l’accès à distance au registre @ no__t-0

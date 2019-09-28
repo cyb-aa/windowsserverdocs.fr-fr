@@ -1,8 +1,8 @@
 ---
 title: Gérer des licences d’accès client
-description: Découvrez comment travailler avec des licences d’accès client dans MultiPoint Services
+description: En savoir plus sur l’utilisation des licences d’accès client dans MultiPoint services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,39 +13,39 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 42b943ed5e0066f1f810efaba9e65a529ac25f00
-ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
+ms.openlocfilehash: 0ca951c5e4c4fcdba06d0b475a7d7536a9c7f91f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67469345"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395457"
 ---
 # <a name="manage-client-access-licenses"></a>Gérer des licences d’accès client
-Chaque station qui se connecte à un système MultiPoint Services, y compris l’ordinateur qui exécute MultiPoint Services qui est utilisé comme une station, doit avoir un bureau à distance par utilisateur valide *licence d’accès client (CAL)* .
+Chaque station qui se connecte à un système MultiPoint services, y compris l’ordinateur exécutant MultiPoint services utilisé comme station, doit avoir une *licence d’accès client (CAL)* Bureau à distance par utilisateur valide.
 
-Si vous utilisez des bureaux virtuels station au lieu de stations physiques, vous devez installer une licence d’accès client pour chaque bureau virtuel station.  
+Si vous utilisez des bureaux virtuels de station plutôt que des stations physiques, vous devez installer une licence d’accès client pour chaque bureau virtuel de station.  
   
-1.  Achetez une licence de client pour chaque station est connectée à votre serveur ou ordinateur MultiPoint Services. Pour plus d’informations sur l’achat de licences d’accès client, consultez la documentation pour les licences bureau à distance. 
+1.  Achetez une licence client pour chaque station connectée à votre serveur ou ordinateur MultiPoint services. Pour plus d’informations sur l’achat de licences d’accès client, consultez la documentation relative aux licences Bureau à distance. 
 
-2.  À partir de la **Démarrer** écran, ouvrez **Gestionnaire MultiPoint**.  
+2.  À partir de l’écran d' **Accueil** , ouvrez le **Gestionnaire multipoint**.  
   
-3.  Cliquez sur le **accueil** onglet, puis cliquez sur **ajouter des licences d’accès client**.  L’outil de gestion de licences de gestion des licences d’accès client s’ouvre.
+3.  Cliquez sur l’onglet dossier de **démarrage** , puis sur **Ajouter des licences d’accès client**.  L’outil de gestion du gestionnaire de licences d’accès client s’ouvre.
 
 # <a name="set-the-licensing-mode-manually"></a>Définir le mode de licence manuellement
-Si pas configuré correctement la configuration de MultiPoint Services invite avec une notification concernant la période de grâce en cours a expiré. Suivez ces étapes pour définir le mode de licence :
+Si elle n’est pas configurée correctement, la configuration de MultiPoint services demande une notification indiquant que la période de grâce a expiré. Pour définir le mode de licence, procédez comme suit :
 
-1. Lancez **éditeur de stratégie de groupe locale** (gpedit.msc).
+1. Lancez l' **éditeur de stratégie de groupe local** (gpedit. msc).
 
-2. Dans le volet gauche, accédez à **stratégie ordinateur Local -> Configuration ordinateur - > modèles d’administration -> Windows composants -> Services Bureau à distance - > hôte de Session Bureau à distance -> Gestionnaire de licences**.
+2. Dans le volet gauche, accédez à **stratégie de l’ordinateur local-> configuration de l’ordinateur-> modèles d’administration-> composants Windows-> Services Bureau à distance-> Bureau à distance hôte de session-> licence**.
 
-3. Dans le volet droit, avec le bouton droit sur **utiliser les serveurs de licences bureau à distance spécifiés** et sélectionnez **modifier**:
-   - Dans le dialogue de l’éditeur de stratégie de groupe, sélectionnez **activé**
-   - Entrez le nom de l’ordinateur local dans le **aux serveurs à utiliser de licences** champ.
+3. Dans le volet droit, cliquez avec le bouton droit sur **utiliser les serveurs de licences bureau à distance spécifiés** , puis sélectionnez **modifier**:
+   - Dans la boîte de dialogue Éditeur de stratégie de groupe, sélectionnez **activé** .
+   - Entrez le nom de l’ordinateur local dans le champ **serveurs de licences à utiliser** .
    - Sélectionnez **OK**
   
-4. Dans le volet droit, avec le bouton droit sur **définir le mode de licence du Bureau à distance** et sélectionnez **modifier**
-   - Dans le dialogue de l’éditeur de stratégie de groupe, sélectionnez **activé**
-   - Définir le **mode de licence** à par périphérique / par utilisateur
+4. Dans le volet droit, cliquez avec le bouton droit sur **définir le mode de licence Bureau à distance** , puis sélectionnez **modifier** .
+   - Dans la boîte de dialogue Éditeur de stratégie de groupe, sélectionnez **activé** .
+   - Définir le **mode de licence** par périphérique/par utilisateur
    - Sélectionnez **OK** 
 
   

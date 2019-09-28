@@ -1,8 +1,8 @@
 ---
 title: Bitsadmin sethttpmethod
-description: Rubrique de commandes de Windows pour **bitsadmin sethttpmethod** -définit le verbe HTTP à utiliser.
+description: Rubrique relative aux commandes Windows pour **Bitsadmin sethttpmethod** -définit le verbe http à utiliser.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: 710df3eedb0bbad60f28c519ef683d60ca55fcd2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0f23b3b06bb3da448bb4cf18344aecfa31dcecd9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866430"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380610"
 ---
 # <a name="bitsadmin-sethttpmethod"></a>Bitsadmin sethttpmethod
 
@@ -33,9 +33,9 @@ bitsadmin /GetHttpMethod <Job> <HTTPMethod>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
-|HTTPMethod|Le verbe HTTP à utiliser|
+|Tâche|Nom complet ou GUID du travail|
+|HTTPMethod|Verbe HTTP à utiliser|
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

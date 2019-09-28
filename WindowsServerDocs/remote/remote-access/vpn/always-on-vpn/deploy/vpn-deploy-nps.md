@@ -1,7 +1,7 @@
 ---
 title: Installer et configurer le serveur NPS
 description: Le traitement par le serveur NPS des demandes de connexion envoyées par le serveur VPN vérifie que l’utilisateur a l’autorisation de se connecter, l’identité de l’utilisateur et enregistre les aspects de la demande de connexion que vous avez choisie lors de la configuration de la gestion de comptes RADIUS dans NPS.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
@@ -9,18 +9,18 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
-ms.openlocfilehash: 553f3327e6252d2b03744b2e0fc88f340701f3a9
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 5cb0d342afec9c28259efb7a2e15666358f3cb5b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871333"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404253"
 ---
-# <a name="step-4-install-and-configure-the-network-policy-server-nps"></a>Étape 4. Installer et configurer le serveur NPS (Network Policy Server)
+# <a name="step-4-install-and-configure-the-network-policy-server-nps"></a>Étape 4. Installer et configurer le serveur NPS (Network Policy Server)
 
 > S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Situé** Étape 3. Configurer le serveur d’accès à distance pour VPN Toujours actif (AlwaysOn)](vpn-deploy-ras.md)
+- [**Situé** Étape 3. Configurer le serveur d’accès à distance pour VPN Toujours actif (AlwaysOn)](vpn-deploy-ras.md)
 - [**Situé** Étape 5. Configurer DNS et les paramètres de pare-feu](vpn-deploy-dns-firewall.md)
 
 Au cours de cette étape, vous allez installer le serveur NPS (Network Policy Server) pour le traitement des demandes de connexion envoyées par le serveur VPN :
@@ -100,7 +100,7 @@ Dans cette procédure, vous inscrivez le serveur dans Active Directory afin qu�
 
 **Procédures**
 
-1.  Dans Gestionnaire de serveur, sélectionnez **Outils**, puis **Network Policy Server**. La console NPS s’ouvre.
+1.  Dans Gestionnaire de serveur, sélectionnez **Outils**, puis sélectionnez **serveur NPS (Network Policy Server**). La console NPS s’ouvre.
 
 2.  Dans la console NPS, cliquez avec le bouton droit sur **NPS (local)** , puis sélectionnez **inscrire le serveur dans Active Directory**.
    

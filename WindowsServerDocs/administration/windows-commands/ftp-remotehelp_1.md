@@ -1,8 +1,8 @@
 ---
-title: FTP remotehelp_1
-description: 'Rubrique de commandes de Windows pour ***- '
+title: remotehelp_1 FTP
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bd64af157f7ce05330cdafe6e4db6787fa765859
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bac6fbe4a55c3fed4caab4e30ba848ec9ea68e21
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889590"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376028"
 ---
-# <a name="ftp-remotehelp1"></a>ftp: remotehelp_1
+# <a name="ftp-remotehelp_1"></a>FTP : remotehelp_1
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Affiche l’aide de commandes à distance.   
+Affiche l’aide relative aux commandes distantes.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 remotehelp [<Command>]  
@@ -32,18 +32,18 @@ remotehelp [<Command>]
 ### <a name="parameters"></a>Paramètres  
 |Paramètre|Description|  
 |-------|--------|  
-|[<Command>]|Spécifie le nom de la commande sur laquelle vous souhaitez vous renseigner. Si *commande* n’est pas spécifié, **ftp** affiche une liste de toutes les commandes à distance.|  
+|[<Command>]|Spécifie le nom de la commande sur laquelle vous souhaitez obtenir de l’aide. Si la *commande* n’est pas spécifiée, **FTP** affiche une liste de toutes les commandes distantes.|  
 ## <a name="remarks"></a>Notes  
-Vous pouvez exécuter des commandes à distance à l’aide de **devis** ou **littéral**.  
-## <a name="BKMK_Examples"></a>Exemples  
-Afficher la liste des commandes à distance.  
+Vous pouvez exécuter des commandes distantes à l’aide d’un **guillemet** ou d’un **littéral**.  
+## <a name="BKMK_Examples"></a>Illustre  
+Affiche la liste des commandes distantes.  
 ```  
 remotehelp  
 ```  
-Afficher la syntaxe pour le **prouesse** commande à distance.  
+Affiche la syntaxe de la commande distante **fonc** .  
 ```  
 remotehelp feat  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [ftp: quote](ftp-quote.md)  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [FTP : citation](ftp-quote.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

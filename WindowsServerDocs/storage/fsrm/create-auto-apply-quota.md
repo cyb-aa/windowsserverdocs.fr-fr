@@ -2,18 +2,18 @@
 title: Créer un quota automatique
 description: Cet article décrit la création de quotas automatiques basée sur un modèle de quota
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e2837df448434252470d783a6c06f0690ba09021
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 68967ff920f25c05affc206ed45bad9275e781b6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847920"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394236"
 ---
 # <a name="create-an-auto-apply-quota"></a>Créer un quota automatique
 
@@ -35,7 +35,7 @@ Par exemple, vous pouvez définir un quota automatique pour les sous-dossiers cr
 
 5.  Sous **Dériver les propriétés de ce modèle de quota**, sélectionnez le modèle de quota que vous souhaitez appliquer à partir de la liste déroulante. Notez que les propriétés de chaque modèle sont affichées sous **Résumé des propriétés de quota**.
 
-6.  Cliquez sur **Create (Créer)**.
+6.  Cliquez sur **Create (Créer)** .
 
 > [!Note]
 > Vous pouvez vérifier tous les quotas générés automatiquement en sélectionnant le nœud **Quotas**, puis en sélectionnant **Actualiser**. Un quota individuel pour chaque sous-dossier et le profil de quota automatique sont répertoriés dans le volume ou dossier parent.
@@ -43,4 +43,4 @@ Par exemple, vous pouvez définir un quota automatique pour les sous-dossiers cr
 ## <a name="see-also"></a>Voir aussi
 
 -   [Gestion de quota](quota-management.md)
--   [Modifier automatiquement appliquer des propriétés de Quota](edit-auto-apply-quota-properties.md)
+-   [Modifier les propriétés de quota automatique](edit-auto-apply-quota-properties.md)

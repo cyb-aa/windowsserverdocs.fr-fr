@@ -1,8 +1,8 @@
 ---
-title: FTP trace_1
-description: 'Rubrique de commandes de Windows pour ***- '
+title: trace_1 FTP
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9db8ae49f996a6f316f0c18b51149ada38a759c7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 51f1f41a854a73bba8b56aebbc0cc8e2e98d89e2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817450"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375928"
 ---
-# <a name="ftp-trace1"></a>FTP : trace_1
+# <a name="ftp-trace_1"></a>FTP : trace_1
 
 
 
-Active ou désactive le suivi des paquets.
+Active/désactive le suivi des paquets.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -38,15 +38,15 @@ aucune
 
 ## <a name="remarks"></a>Notes
 
-**Trace** affiche la série d’appels de fonction internes FTP lors de l’exécution une **ftp** commande.
+**Trace** affiche la série d’appels de fonction FTP internes lors de l’exécution d’une commande **FTP** .
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 
-Activer/désactiver le suivi et désactiver.
+Activez ou désactivez le suivi.
 ```
 trace
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
