@@ -2,7 +2,7 @@
 title: certutil
 description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3bc1e544c0e0684678bc168f286b52e5573f3ac2
-ms.sourcegitcommit: 286e3181ebd2cb9d7dc7fe651858a4e0d61d153f
+ms.openlocfilehash: 45c9946cc53fe3a901c3f6ee53f082a5b3d086c0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68300683"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379650"
 ---
 # <a name="certutil"></a>certutil
 
@@ -38,11 +38,11 @@ Les principales sections de ce document sont les suivantes:
 - [Options](#options)
 - [Exemples supplémentaires de Certutil](#additional-certutil-examples)
 
-## <a name="verbs"></a>Verbes et adverbes
+## <a name="verbs"></a>Verbes
 
 Le tableau suivant décrit les verbes qui peuvent être utilisés avec la commande certutil.
 
-|Verbes et adverbes|Description|
+|Verbes|Description|
 |-----|-----------|
 |[-dump](#-dump)|Vider les informations de configuration ou les fichiers|
 |[-ASN](#-asn)|Analyser le fichier ASN. 1|
@@ -146,7 +146,7 @@ Revenir au [menu](#menu)
 Le tableau suivant décrit la notation utilisée pour indiquer la syntaxe de la ligne de commande.
 
 
-|            Notation             |                  Description                  |
+|            Conventions             |                  Description                  |
 |---------------------------------|-----------------------------------------------|
 | Texte sans crochets ou accolades |         Éléments que vous devez taper comme indiqué          |
 |  \<Texte à l’intérieur des crochets angulaires >  | Espace réservé pour lequel vous devez fournir une valeur |
@@ -250,7 +250,7 @@ Revenir au [menu](#menu)
 
 ## <a name="-setextension"></a>-setextension
 
-CertUtil [options]-SetExtension RequestId ExtensionName Flags {long | Date | Chaîne | \@INFILE}
+CertUtil [options]-SetExtension RequestId ExtensionName Flags {long | Date | Chaîne | \@InFile}
 
 Définir l’extension pour la demande en attente
 
@@ -350,7 +350,7 @@ Syntaxe de l’argument InfoName:
 - txt Version du fichier
 - production Version du produit
 - exitcount: Quitter le nombre de modules
-- quitter [index]: Quitter la description du module
+- quitter [index] : Quitter la description du module
 - renvoi Description du module de stratégie
 - nomme Nom de l’autorité de certification
 - sanitizedname: Nom de l’autorité de certification expurgée
@@ -366,33 +366,33 @@ Syntaxe de l’argument InfoName:
 - kracount: Nombre de certificats KRA
 - kraused: Nombre d’utilisations du certificat KRA
 - propidmax: ID de l’autorité de certification maximal
-- certstate [index]: Certificat d’autorité de certification
-- certversion [index]: Version du certificat d’autorité de certification
-- certstatuscode [index]: État de vérification du certificat d’autorité de certification
-- crlstate [index]: RÉVOCATION
-- krastate [index]: Certificat KRA
-- crossstate + [index]: Transférer le certificat croisé
-- crossstate-[index]: Certificat croisé inverse
-- certificat [index]: Certificat d’autorité de certification
-- certchain [index]: Chaîne du certificat d’autorité de certification
-- certcrlchain [index]: Chaîne Cert CA avec listes de révocation de certificats
-- Xchg [index]: Certificat d’échange d’autorité de certification
-- xchgchain [index]: Chaîne de certificats Exchange d’autorité de certification
-- xchgcrlchain [index]: Chaîne de certificats Exchange d’autorité de certification avec CRL
-- kra [index]: Certificat KRA
-- Cross + [index]: Transférer le certificat croisé
-- Cross-[index]: Certificat croisé inverse
-- Liste de révocation de certificats [index]: CRL de base
-- DeltaCRL [index]: Liste de révocation de certificats delta
-- crlstatus [index]: État de publication de la liste de révocation
-- deltacrlstatus [index]: État de publication des listes de révocation de certificats delta
+- certstate [index] : Certificat d’autorité de certification
+- certversion [index] : Version du certificat d’autorité de certification
+- certstatuscode [index] : État de vérification du certificat d’autorité de certification
+- crlstate [index] : RÉVOCATION
+- krastate [index] : Certificat KRA
+- crossstate + [index] : Transférer le certificat croisé
+- crossstate-[index] : Certificat croisé inverse
+- certificat [index] : Certificat d’autorité de certification
+- certchain [index] : Chaîne du certificat d’autorité de certification
+- certcrlchain [index] : Chaîne Cert CA avec listes de révocation de certificats
+- Xchg [index] : Certificat d’échange d’autorité de certification
+- xchgchain [index] : Chaîne de certificats Exchange d’autorité de certification
+- xchgcrlchain [index] : Chaîne de certificats Exchange d’autorité de certification avec CRL
+- kra [index] : Certificat KRA
+- Cross + [index] : Transférer le certificat croisé
+- Cross-[index] : Certificat croisé inverse
+- Liste de révocation de certificats [index] : CRL de base
+- DeltaCRL [index] : Liste de révocation de certificats delta
+- crlstatus [index] : État de publication de la liste de révocation
+- deltacrlstatus [index] : État de publication des listes de révocation de certificats delta
 - DN Nom DNS
 - actif Séparation des rôles
 - fenêtres Advanced Server
 - ceux Modèles
-- CSP [index]: URL OCSP
-- AIA [index]: URL AIA
-- CDP [index]: URL CDP
+- CSP [index] : URL OCSP
+- AIA [index] : URL AIA
+- CDP [index] : URL CDP
 - localename Nom des paramètres régionaux de l’autorité de certification
 - subjecttemplateoids: OID de modèle objet
 
@@ -442,7 +442,7 @@ Revenir au [menu](#menu)
 
 ## <a name="-crl"></a>-CRL
 
-CertUtil [options]-CRL [JJ: HH | Republish] [Delta]
+CertUtil [options]-CRL [JJ : HH | Republish] [Delta]
 
 Publier de nouvelles listes de révocation de certificats [ou delta CRL uniquement]
 
@@ -540,7 +540,7 @@ Pour afficher la liste de révocation de certificats de base numéro 3:-v-restre
 
 Pour afficher l’intégralité de la table de liste de révocation de certificats: RÉVOCATION
 
-Utilisez «date [+ |-JJ: HH]» pour les restrictions de date
+Utilisez « date [+ |-JJ : HH] » pour les restrictions de date
 
 Utilisez «Now + DD: HH» pour une date relative à l’heure actuelle
 
@@ -681,7 +681,7 @@ PFXFile: Fichier PFX à importer
 Modificateurs Liste séparée par des virgules d’un ou plusieurs des éléments suivants:
 
 1. AT_SIGNATURE: Changer KeySpec en signature
-2. AT_KEYEXCHANGE: Changer KeySpec en Key Exchange
+2. AT_KEYEXCHANGE : Changer KeySpec en Key Exchange
 3. Noexport: Rendre la clé privée non exportable
 4. NoCert: Ne pas importer le certificat
 5. Nochaîne: Ne pas importer la chaîne de certificats
@@ -941,9 +941,9 @@ CrossCA: Publier le certificat croisé vers l’objet de l’autorité de certif
 
 GROENLAND Publier le certificat sur l’objet agent de récupération de clé DS
 
-Utilisateur : Publier le certificat sur l’objet DS de l’utilisateur
+Utilisateur : Publier le certificat sur l’objet DS de l’utilisateur
 
-Machine : Publier le certificat sur l’objet de l’ordinateur DS
+Usinage Publier le certificat sur l’objet de l’ordinateur DS
 
 FichierCRL Fichier de liste de révocation de certificats à publier
 
@@ -1308,7 +1308,7 @@ Revenir au [menu](#menu)
 
 ## <a name="-sign"></a>-Sign
 
-CertUtil [options]-Sign InFileList | SerialNumber | Liste de révocation de certificats OutFileList [StartDate + DD: HH] [+ SerialNumberList |-SerialNumberList |-ObjectIdList | \@ExtensionFile]
+CertUtil [options]-Sign InFileList | SerialNumber | CRL OutFileList [StartDate + DD : HH] [+ SerialNumberList |-SerialNumberList |-ObjectIdList | \@ExtensionFile]
 
 CertUtil [options]-Sign InFileList | SerialNumber | Liste de révocation des OutFileList [#HashAlgorithm] [+ AlternateSignatureAlgorithm |-AlternateSignatureAlgorithm]
 
@@ -1322,7 +1322,7 @@ RÉVOCATION Créez une liste de révocation de certificats vide. La période de 
 
 OutFileList: liste séparée par des virgules des fichiers de sortie de certificat ou de liste de révocation de certificats modifiés. Le nombre de fichiers doit correspondre à InFileList.
 
-StartDate + JJ: HH: nouvelle période de validité: date facultative plus; période de validité des jours et heures facultatives; Si les deux sont spécifiés, utilisez un séparateur de signe plus (+). Utilisez «Now [+ DD: HH]» pour commencer à l’heure actuelle. Utilisez «Never» pour n’avoir aucune date d’expiration (pour les listes de révocation de certificats uniquement).
+StartDate + JJ: HH: nouvelle période de validité: date facultative plus; période de validité des jours et heures facultatives; Si les deux sont spécifiés, utilisez un séparateur de signe plus (+). Utilisez « Now [+ DD : HH] » pour commencer à l’heure actuelle. Utilisez «Never» pour n’avoir aucune date d’expiration (pour les listes de révocation de certificats uniquement).
 
 SerialNumberList: liste de numéros de série séparés par des virgules à ajouter ou à supprimer
 
@@ -1461,7 +1461,7 @@ Revenir au [menu](#menu)
 
 ## <a name="-getreg"></a>-getreg
 
-CertUtil [options]-getreg [{ca | restaurer | stratégie | quitter | modèle | inscrire | chaîne | PolicyServers}\[ProgID\]] [RegistryValueName]
+CertUtil [options]-getreg [{ca | restaurer | stratégie | quitter | modèle | inscrire | chaîne | PolicyServers} \[ProgId @ no__t-1] [RegistryValueName]
 
 Afficher la valeur de Registre
 
@@ -1487,9 +1487,9 @@ RegistryValueName: nom de la valeur de Registre (\*utilisez «Name» pour la cor
 
 Valeur: nouvelle valeur de Registre numérique, de chaîne ou de date ou de nom de fichier. Si une valeur numérique commence par «+» ou «-», les bits spécifiés dans la nouvelle valeur sont définis ou désactivés dans la valeur de Registre existante.
 
-Si une valeur de chaîne commence par «+» ou «-» et que la valeur existante est une valeur REG_MULTI_SZ, la chaîne est ajoutée à la valeur de Registre existante ou en est supprimée. Pour forcer la création d’une valeur REG_MULTI_SZ, ajoutez un «\n» à la fin de la valeur de chaîne.
+Si une valeur de chaîne commence par « + » ou « - » et que la valeur existante est une valeur REG_MULTI_SZ, la chaîne est ajoutée à la valeur de Registre existante ou en est supprimée. Pour forcer la création d’une valeur REG_MULTI_SZ, ajoutez un « \n » à la fin de la valeur de chaîne.
 
-Si la valeur commence par «\@», le reste de la valeur est le nom du fichier contenant la représentation textuelle hexadécimale d’une valeur binaire. S’il ne fait pas référence à un fichier valide, il est analysé en tant que [date] [+ |-] [DD: HH]--une date facultative plus ou moins les jours et heures facultatifs. Si les deux sont spécifiés, utilisez un signe plus (+) ou un signe moins (-). Utilisez «Now + DD: HH» pour une date relative à l’heure actuelle.
+Si la valeur commence par «\@», le reste de la valeur est le nom du fichier contenant la représentation textuelle hexadécimale d’une valeur binaire. S’il ne fait pas référence à un fichier valide, il est analysé en tant que [date] [+ |-] [DD : HH]--une date facultative plus ou moins les jours et heures facultatifs. Si les deux sont spécifiés, utilisez un signe plus (+) ou un signe moins (-). Utilisez «Now + DD: HH» pour une date relative à l’heure actuelle.
 
 Utilisez «chain\ChainCacheResyncFiletime \@Now» pour vider efficacement les listes de révocation de certificats mises en cache.
 
@@ -1499,7 +1499,7 @@ Revenir au [menu](#menu)
 
 ## <a name="-setreg"></a>-setreg
 
-CertUtil [options]-setreg [{ca | restaurer | stratégie | quitter | modèle | inscrire | chaîne | PolicyServers}\[ProgID\]] RegistryValueName valeur
+CertUtil [options]-setreg [{ca | restaurer | stratégie | quitter | modèle | inscrire | chaîne | PolicyServers} \[ProgId @ no__t-1] RegistryValueName valeur
 
 Définir la valeur de Registre
 
@@ -1525,9 +1525,9 @@ RegistryValueName: nom de la valeur de Registre (\*utilisez «Name» pour la cor
 
 Valeur: nouvelle valeur de Registre numérique, de chaîne ou de date ou de nom de fichier. Si une valeur numérique commence par «+» ou «-», les bits spécifiés dans la nouvelle valeur sont définis ou désactivés dans la valeur de Registre existante.
 
-Si une valeur de chaîne commence par «+» ou «-» et que la valeur existante est une valeur REG_MULTI_SZ, la chaîne est ajoutée à la valeur de Registre existante ou en est supprimée. Pour forcer la création d’une valeur REG_MULTI_SZ, ajoutez un «\n» à la fin de la valeur de chaîne.
+Si une valeur de chaîne commence par « + » ou « - » et que la valeur existante est une valeur REG_MULTI_SZ, la chaîne est ajoutée à la valeur de Registre existante ou en est supprimée. Pour forcer la création d’une valeur REG_MULTI_SZ, ajoutez un « \n » à la fin de la valeur de chaîne.
 
-Si la valeur commence par «\@», le reste de la valeur est le nom du fichier contenant la représentation textuelle hexadécimale d’une valeur binaire. S’il ne fait pas référence à un fichier valide, il est analysé en tant que [date] [+ |-] [DD: HH]--une date facultative plus ou moins les jours et heures facultatifs. Si les deux sont spécifiés, utilisez un signe plus (+) ou un signe moins (-). Utilisez «Now + DD: HH» pour une date relative à l’heure actuelle.
+Si la valeur commence par «\@», le reste de la valeur est le nom du fichier contenant la représentation textuelle hexadécimale d’une valeur binaire. S’il ne fait pas référence à un fichier valide, il est analysé en tant que [date] [+ |-] [DD : HH]--une date facultative plus ou moins les jours et heures facultatifs. Si les deux sont spécifiés, utilisez un signe plus (+) ou un signe moins (-). Utilisez «Now + DD: HH» pour une date relative à l’heure actuelle.
 
 Utilisez «chain\ChainCacheResyncFiletime \@Now» pour vider efficacement les listes de révocation de certificats mises en cache.
 
@@ -1537,7 +1537,7 @@ Revenir au [menu](#menu)
 
 ## <a name="-delreg"></a>-DelReg
 
-CertUtil [options]-DelReg [{ca | restaurer | stratégie | quitter | modèle | inscrire | chaîne | PolicyServers}\[ProgID\]] [RegistryValueName]
+CertUtil [options]-DelReg [{ca | restaurer | stratégie | quitter | modèle | inscrire | chaîne | PolicyServers} \[ProgId @ no__t-1] [RegistryValueName]
 
 Supprimer la valeur de Registre
 
@@ -1563,9 +1563,9 @@ RegistryValueName: nom de la valeur de Registre (\*utilisez «Name» pour la cor
 
 Valeur: nouvelle valeur de Registre numérique, de chaîne ou de date ou de nom de fichier. Si une valeur numérique commence par «+» ou «-», les bits spécifiés dans la nouvelle valeur sont définis ou désactivés dans la valeur de Registre existante.
 
-Si une valeur de chaîne commence par «+» ou «-» et que la valeur existante est une valeur REG_MULTI_SZ, la chaîne est ajoutée à la valeur de Registre existante ou en est supprimée. Pour forcer la création d’une valeur REG_MULTI_SZ, ajoutez un «\n» à la fin de la valeur de chaîne.
+Si une valeur de chaîne commence par « + » ou « - » et que la valeur existante est une valeur REG_MULTI_SZ, la chaîne est ajoutée à la valeur de Registre existante ou en est supprimée. Pour forcer la création d’une valeur REG_MULTI_SZ, ajoutez un « \n » à la fin de la valeur de chaîne.
 
-Si la valeur commence par «\@», le reste de la valeur est le nom du fichier contenant la représentation textuelle hexadécimale d’une valeur binaire. S’il ne fait pas référence à un fichier valide, il est analysé en tant que [date] [+ |-] [DD: HH]--une date facultative plus ou moins les jours et heures facultatifs. Si les deux sont spécifiés, utilisez un signe plus (+) ou un signe moins (-). Utilisez «Now + DD: HH» pour une date relative à l’heure actuelle.
+Si la valeur commence par «\@», le reste de la valeur est le nom du fichier contenant la représentation textuelle hexadécimale d’une valeur binaire. S’il ne fait pas référence à un fichier valide, il est analysé en tant que [date] [+ |-] [DD : HH]--une date facultative plus ou moins les jours et heures facultatifs. Si les deux sont spécifiés, utilisez un signe plus (+) ou un signe moins (-). Utilisez «Now + DD: HH» pour une date relative à l’heure actuelle.
 
 Utilisez «chain\ChainCacheResyncFiletime \@Now» pour vider efficacement les listes de révocation de certificats mises en cache.
 
@@ -1602,7 +1602,7 @@ Utilisez ExistingRow pour importer le certificat à la place d’une demande en 
 
 Utilisez-f pour importer des certificats non émis par l’autorité de certification.
 
-L’autorité de certification doit également être configurée pour prendre en charge l’importation de certificats étrangers: certutil-setreg ca\KRAFlags + KRAF_ENABLEFOREIGN
+L’autorité de certification doit également être configurée pour prendre en charge l’importation de certificats étrangers : certutil-setreg ca\KRAFlags + KRAF_ENABLEFOREIGN
 
 [-f] [-config Machine\CAName]
 

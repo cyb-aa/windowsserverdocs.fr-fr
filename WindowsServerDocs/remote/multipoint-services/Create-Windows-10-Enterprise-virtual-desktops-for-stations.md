@@ -3,7 +3,7 @@ title: Créer des bureaux virtuels Windows 10 Entreprise pour les stations
 description: Découvrez comment créer des postes de travail Windows Server 2016 pour station
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: 63f08b5b-c735-41f4-b6c8-411eff85a4ab
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: e68412808e037b788d5b25c1c2c7b14253e40ea6
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: cd08caef8228a4d20c6d5f4a40fe5bd90aacbe40
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871729"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395536"
 ---
 # <a name="create-windows-10-enterprise-virtual-desktops-for-stations"></a>Créer des bureaux virtuels Windows 10 Entreprise pour les stations
 Cette configuration facultative dans MultiPoint services est principalement destinée aux situations où une application essentielle requiert sa propre instance d’un système d’exploitation client pour chaque utilisateur. Les exemples incluent des applications qui ne peuvent pas être installées sur Windows Server et les applications qui n’exécutent pas plusieurs instances sur le même ordinateur hôte.  

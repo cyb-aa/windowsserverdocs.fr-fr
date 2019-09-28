@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a1210918067bbb71ea26dff4db11561bbeb09dbd
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 08382a8eccaafac257165587fe7b6c18a8ecfbbc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869247"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407277"
 ---
 # <a name="when-to-use-a-send-ldap-attributes-as-claims-rule"></a>Quand utiliser une règle Envoyer les attributs LDAP en tant que revendications
 Vous pouvez utiliser cette règle dans services ADFS \(AD FS\) lorsque vous souhaitez émettre des revendications sortantes contenant des valeurs d’attribut \(LDAP LDAP\) réelles qui existent dans un magasin d’attributs, puis associez un type de revendication à chacun des attributs LDAP. Pour plus d’informations sur les magasins d’attributs, consultez [rôle des magasins d’attributs](The-Role-of-Attribute-Stores.md).  

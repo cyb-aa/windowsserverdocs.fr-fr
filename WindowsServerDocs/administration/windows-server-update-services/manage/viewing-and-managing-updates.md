@@ -1,7 +1,7 @@
 ---
 title: Affichage et gestion des mises à jour
-description: Rubrique de Windows Server Update Service (WSUS) - comment afficher et gérer les mises à jour dans la console WSUS
-ms.prod: windows-server-threshold
+description: Rubrique Windows Server Update Service (WSUS)-comment afficher et gérer les mises à jour dans la console WSUS
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-wsus
@@ -12,192 +12,192 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f2ffc6680239fa468b058b74f9acf26d22f2b65f
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: de2d12ad34ba11f948baa390546747a6bf4b635c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222612"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361492"
 ---
 # <a name="viewing-and-managing-updates"></a>Affichage et gestion des mises à jour
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 Vous pouvez utiliser la console WSUS pour afficher et gérer les mises à jour.
 
 ## <a name="viewing-updates"></a>Affichage des mises à jour
-Sur le **mises à jour** page, vous pouvez procédez comme suit :
+Sur la page **mises à jour** , vous pouvez effectuer les opérations suivantes :
 
--   Afficher les mises à jour. La vue d’ensemble de la mise à jour affiche les mises à jour qui ont été synchronisées à partir de la source de mise à jour sur votre serveur WSUS et sont disponibles pour approbation.
+-   Affichez les mises à jour. La vue d’ensemble de la mise à jour affiche les mises à jour qui ont été synchronisées à partir de la source de mise à jour sur votre serveur WSUS et qui sont disponibles pour approbation.
 
--   Filtrer les mises à jour. Dans la vue par défaut, vous pouvez filtrer par état d’approbation et l’état de l’installation des mises à jour. Le paramètre par défaut est pour les mises à jour non approuvées qui sont requis par certains clients ou qui ont eu des échecs d’installation sur certains clients. Vous pouvez modifier cet affichage en modifiant les filtres d’état état et l’installation d’approbation et puis en cliquant sur **Actualiser**.
+-   Filtrer les mises à jour. Dans l’affichage par défaut, vous pouvez filtrer les mises à jour par État d’approbation et état de l’installation. Le paramètre par défaut est pour les mises à jour non approuvées qui sont nécessaires à certains clients ou qui ont subi des échecs d’installation sur certains clients. Vous pouvez modifier cet affichage en modifiant les filtres état d’approbation et état de l’installation, puis en cliquant sur **Actualiser**.
 
--   Créer des vues de mise à jour. Dans le **Actions** volet, cliquez sur **nouvelle vue de la mise à jour**. Vous pouvez filtrer par classification, produit, le groupe pour lequel elles ont été approuvées et la date de synchronisation des mises à jour. Vous pouvez trier la liste en cliquant sur l’en-tête de colonne appropriée dans la barre de titre.
+-   Créez de nouvelles vues de mise à jour. Dans le volet **actions** , cliquez sur **nouvelle vue de mise à jour**. Vous pouvez filtrer les mises à jour par classification, produit, groupe pour lequel elles ont été approuvées et date de synchronisation. Vous pouvez trier la liste en cliquant sur l’en-tête de colonne approprié dans la barre de titre.
 
--   Recherche des mises à jour. Pour une mise à jour individuelle ou un ensemble de mises à jour, vous pouvez rechercher par titre, description, base de connaissances ou le nombre de Microsoft Security Response Center pour la mise à jour.
+-   Recherchez des mises à jour. Vous pouvez rechercher une mise à jour individuelle ou un ensemble de mises à jour par titre, description, article de la base de connaissances ou le numéro du centre de réponse de sécurité Microsoft pour la mise à jour.
 
--   Afficher les détails, l’état et l’historique de révision pour chaque mise à jour.
+-   Affichez les détails, l’État et l’historique des révisions pour chaque mise à jour.
 
--   Approuver ou refuser des mises à jour.
+-   Approuvez et refusez les mises à jour.
 
 #### <a name="to-view-updates"></a>Pour afficher les mises à jour
 
 1.  Dans la console d’administration WSUS, développez le nœud mises à jour, puis cliquez sur toutes les mises à jour.
 
-2.  Par défaut, les mises à jour sont affichés avec leur titre, classification, pourcentage applicable/non installé et l’état d’approbation. Si vous souhaitez afficher les propriétés de mise à jour différents ou plus, avec le bouton droit de la barre de titre de colonne et sélectionnez les colonnes appropriées.
+2.  Par défaut, les mises à jour sont affichées avec leur titre, leur classification, le pourcentage d’installation/non applicable et l’état d’approbation. Si vous souhaitez afficher des propriétés de mise à jour plus ou moins nombreuses, cliquez avec le bouton droit sur la barre d’en-tête de colonne et sélectionnez les colonnes appropriées.
 
-3.  Pour trier selon différents critères, tels que l’état du téléchargement, title, classification, date de publication ou état d’approbation, cliquez sur l’en-tête de colonne approprié.
+3.  Pour effectuer un tri selon différents critères, tels que le statut du téléchargement, le titre, la classification, la date de publication ou l’état d’approbation, cliquez sur l’en-tête de colonne approprié.
 
-#### <a name="to-filter-the-list-of-updates-displayed-on-the-updates-page"></a>Pour filtrer la liste des mises à jour affichées dans la page mises à jour
-
-1.  Dans la console d’administration WSUS, développez **mises à jour**, puis cliquez sur **toutes les mises à jour**.
-
-2.  Dans le volet central regard **approbation**, sélectionnez l’état d’approbation de votre choix et en regard **état** sélectionner l’état d’installation souhaitée. Cliquez sur **Actualiser**.
-
-#### <a name="to-create-a-new-update-view-on-wsus"></a>Pour créer un nouvel affichage de mise à jour dans WSUS
+#### <a name="to-filter-the-list-of-updates-displayed-on-the-updates-page"></a>Pour filtrer la liste des mises à jour affichées sur la page mises à jour
 
 1.  Dans la console d’administration WSUS, développez **mises à jour**, puis cliquez sur **toutes les mises à jour**.
 
-2.  Dans le **Actions** volet, cliquez sur **nouvelle vue de la mise à jour**.
+2.  Dans le volet central en regard d' **approbation**, sélectionnez l’état d’approbation souhaité et en regard de **État** , sélectionnez l’état d’installation souhaité. Cliquez sur **Actualiser**.
 
-3.  Dans le **ajouter une vue de mettre à jour** fenêtre, sous **étape 1 : sélectionnez les propriétés**, sélectionnez les propriétés que vous avez besoin pour filtrer le mode de mise à jour :
+#### <a name="to-create-a-new-update-view-on-wsus"></a>Pour créer une vue de mise à jour sur WSUS
 
-    -   Sélectionnez les mises à jour sont dans une classification spécifique pour filtrer sur les mises à jour appartenant à un ou plusieurs classifications de mise à jour.
+1.  Dans la console d’administration WSUS, développez **mises à jour**, puis cliquez sur **toutes les mises à jour**.
 
-    -   Sélectionnez les mises à jour sont pour un produit spécifique filtrer sur les mises à jour pour un ou plusieurs produits ou les familles de produits.
+2.  Dans le volet **actions** , cliquez sur **nouvelle vue de mise à jour**.
 
-    -   Sélectionnez les mises à jour sont approuvées pour un groupe spécifique filtrer sur les mises à jour approuvées pour un ou plusieurs groupes d’ordinateurs.
+3.  Dans la fenêtre **Ajouter une vue de mise à jour** , sous **étape 1 : sélectionnez des propriétés**, sélectionnez les propriétés dont vous avez besoin pour filtrer l’affichage des mises à jour :
 
-    -   Sélectionnez les mises à jour ont été synchronisés au sein d’une période spécifique pour filtrer sur les mises à jour synchronisées à un moment donné.
+    -   Sélectionnez les mises à jour dans une classification spécifique pour filtrer les mises à jour appartenant à une ou plusieurs classifications de mise à jour.
 
-    -   Sélectionnez les mises à jour sont mises à jour WSUS pour filtrer sur les mises à jour WSUS.
+    -   Sélectionnez les mises à jour pour un produit spécifique afin de filtrer les mises à jour pour un ou plusieurs produits ou familles de produits.
 
-4.  Sous **étape 2 : modifier les propriétés**, cliquez sur les mots soulignés pour récupérer les valeurs souhaitées.
+    -   Sélectionnez les mises à jour sont approuvées pour un groupe spécifique afin de filtrer les mises à jour approuvées pour un ou plusieurs groupes d’ordinateurs.
 
-5.  Sous **étape 3 : Spécifiez un nom**, donnez un nom à votre nouvelle vue.
+    -   Sélectionnez les mises à jour ont été synchronisées dans une période de temps spécifique pour filtrer les mises à jour synchronisées à un moment donné.
+
+    -   Sélectionner les mises à jour sont des mises à jour WSUS pour filtrer les mises à jour WSUS.
+
+4.  Sous **étape 2 : modifiez les propriétés**, cliquez sur les mots soulignés pour sélectionner les valeurs souhaitées.
+
+5.  Sous **Step 3 : Spécifiez un nom @ no__t-0, donnez un nom à votre nouvelle vue.
 
 6.  Cliquez sur **OK**.
 
-Votre nouvel affichage apparaîtra dans le volet d’arborescence sous les mises à jour. Il s’affichera, comme les vues standards, dans le volet central, lorsque vous la sélectionnez.
+Votre nouvel affichage apparaît dans le volet de l’arborescence sous mises à jour. Elle s’affiche, comme les vues standard, dans le volet central lorsque vous la sélectionnez.
 
 #### <a name="to-search-for-an-update"></a>Pour rechercher une mise à jour
 
-1.  Sélectionnez le **mises à jour** nœud (ou n’importe quel nœud dans cette section).
+1.  Sélectionnez le nœud **mises à jour** (ou n’importe quel nœud situé sous celui-ci).
 
-2.  Dans le **Actions** volet, cliquez sur **recherche**.
+2.  Dans le volet **actions** , cliquez sur **Rechercher**.
 
-3.  Dans le **recherche** fenêtre, dans le **mises à jour** , entrez vos critères de recherche. Vous pouvez utiliser le texte de la **titre**, **Description**, et **numéro d’article de Base de connaissances Microsoft (KB)** champs. Chacun de ces éléments est une propriété répertoriée sur le **détails** onglet dans les propriétés de mise à jour.
+3.  Dans la fenêtre de **recherche** , sous l’onglet **mises à jour** , entrez vos critères de recherche. Vous pouvez utiliser du texte du **titre**, de la **Description**et des champs de numéro d’article de la **base de connaissances Microsoft** . Chacun de ces éléments est une propriété figurant dans l’onglet **Détails** des propriétés de mise à jour.
 
-#### <a name="to-view-the-properties-for-an-update"></a>Pour afficher les propriétés pour une mise à jour
+#### <a name="to-view-the-properties-for-an-update"></a>Pour afficher les propriétés d’une mise à jour
 
 1.  Dans la console d’administration WSUS, développez **mises à jour**, puis cliquez sur **toutes les mises à jour**.
 
 2.  Dans la liste des mises à jour, cliquez sur la mise à jour que vous souhaitez afficher.
 
-3.  Dans le volet inférieur, vous verrez les sections de la propriété différents :
+3.  Dans le volet inférieur, les différentes sections de propriétés s’affichent :
 
-    -   La barre de titre affiche le titre de la mise à jour ; par exemple, sécurité mise à jour pour Windows Media Player 9 (KB911565).
+    -   La barre de titre affiche le titre de la mise à jour ; par exemple, la mise à jour de sécurité pour Windows Media Player 9 (KB911565).
 
-    -   La section état affiche l’état d’installation de la mise à jour (ordinateurs sur lesquels il doit être installé, les ordinateurs sur lesquels il a été installé avec des erreurs, ordinateurs sur lesquels il a été installé ou n’est pas applicable et les ordinateurs qui n’ont pas signalé état de la mise à jour), ainsi que des informations générales (date de publication de nombres Ko et MSRC, etc.).
+    -   La section état affiche l’état d’installation de la mise à jour (les ordinateurs sur lesquels elle doit être installée, les ordinateurs sur lesquels elle a été installée avec des erreurs, les ordinateurs sur lesquels elle a été installée ou n’est pas applicable) et les ordinateurs qui n’ont pas signalé État de la mise à jour), ainsi que des informations générales (date de publication des numéros KB et MSRC, etc.).
 
-    -   La section de Description affiche une brève description de la mise à jour.
+    -   La section Description affiche une brève description de la mise à jour.
 
-    -   La section des détails supplémentaires affiche les informations suivantes :
+    -   La section détails supplémentaires affiche les informations suivantes :
 
-        -   Le comportement d’installation de la mise à jour (si elle peut être supprimé, demande un redémarrage, nécessite une entrée utilisateur ou doit être installé exclusivement).
+        -   Le comportement d’installation de la mise à jour (qu’elle soit amovible ou non, demande un redémarrage, requiert une entrée de l’utilisateur ou doit être installé exclusivement).
 
-        -   La mise à jour ait ou non des termes du contrat de licence de logiciel Microsoft
+        -   Indique si la mise à jour a des termes du contrat de licence logiciel Microsoft
 
-        -   Les produits auxquels s’applique la mise à jour
+        -   Produits auxquels s’applique la mise à jour
 
         -   Les mises à jour qui remplacent cette mise à jour
 
-        -   Les mises à jour qui sont remplacées par cette mise à jour
+        -   Mises à jour remplacées par cette mise à jour
 
-        -   Les langues prises en charge par la mise à jour
+        -   Langues prises en charge par la mise à jour
 
-        -   L’ID de mise à jour
+        -   ID de mise à jour
 
-Notez que vous pouvez effectuer cette procédure sur la mise à jour qu’une seule à la fois. Si vous sélectionnez plusieurs mises à jour, uniquement la première mise à jour dans la liste s’affichera dans le **propriétés** volet.
+Notez que vous ne pouvez effectuer cette procédure que sur une seule mise à jour à la fois. Si vous sélectionnez plusieurs mises à jour, seule la première mise à jour de la liste s’affiche dans le volet **Propriétés** .
 
-## <a name="managing-updates-with-wsus"></a>La gestion des mises à jour avec WSUS
-Mises à jour sont utilisés pour la mise à jour ou en fournissant un remplacement de fichier complet pour les logiciels installés sur un ordinateur. Chaque mise à jour est disponible sur Microsoft Update est constitué de deux composants :
+## <a name="managing-updates-with-wsus"></a>Gestion des mises à jour avec WSUS
+Les mises à jour sont utilisées pour la mise à jour ou la fourniture d’un remplacement de fichier complet pour les logiciels installés sur un ordinateur. Chaque mise à jour disponible sur Microsoft Update est constituée de deux composants :
 
--   Métadonnées : Fournit des informations sur la mise à jour. Par exemple, les métadonnées fournissent des informations pour les propriétés d’une mise à jour, ce qui vous permet de savoir ce que la mise à jour est utile. Les métadonnées incluent également les termes du contrat de licence de logiciel Microsoft. Le package de métadonnées téléchargé pour une mise à jour est généralement plus petit que le package de fichiers de mise à jour réelle.
+-   Metadata Fournit des informations sur la mise à jour. Par exemple, les métadonnées fournissent des informations sur les propriétés d’une mise à jour, ce qui vous permet de savoir ce que la mise à jour est utile. Les métadonnées incluent également les termes du contrat de licence logiciel Microsoft. Le package de métadonnées téléchargé pour une mise à jour est généralement plus petit que le package de fichiers de mise à jour réel.
 
--   Fichiers de mises à jour : Les fichiers réels requis pour installer une mise à jour sur un ordinateur.
+-   Fichiers de mise à jour : Fichiers réels requis pour installer une mise à jour sur un ordinateur.
 
-Lorsque les mises à jour sont synchronisées sur votre serveur WSUS, les fichiers de mise à jour et les métadonnées sont stockés à deux endroits différents. Les métadonnées sont stockées dans la base de données WSUS. Fichiers de mise à jour peuvent être stockés sur votre serveur WSUS ou sur des serveurs de Microsoft Update, en fonction de la manière dont vous avez configuré vos options de synchronisation. Si vous choisissez de stocker les fichiers de mise à jour sur les serveurs Microsoft Update, seules les métadonnées sont téléchargée au moment de la synchronisation ; vous approuvez les mises à jour via la console WSUS et les ordinateurs clients obtiennent les fichiers de mise à jour directement à partir de Microsoft Update au moment de l’installation. Pour plus d’informations sur les options de stockage des mises à jour, consultez la section [1.3. Choisir une stratégie de stockage WSUS](../plan/plan-your-wsus-deployment.md#13-choose-a-wsus-storage-strategy) de l’étape 1 : Préparer votre déploiement de WSUS, dans le guide de déploiement de WSUS.
+Lorsque les mises à jour sont synchronisées sur votre serveur WSUS, les fichiers de mise à jour et les métadonnées sont stockés à deux endroits différents. Les métadonnées sont stockées dans la base de données WSUS. Les fichiers de mise à jour peuvent être stockés sur votre serveur WSUS ou sur des serveurs de Microsoft Update, en fonction de la façon dont vous avez configuré vos options de synchronisation. Si vous choisissez de stocker les fichiers de mise à jour sur les serveurs Microsoft Update, seules les métadonnées sont téléchargées au moment de la synchronisation ; vous approuvez les mises à jour via la console WSUS, puis les ordinateurs clients obtiennent les fichiers de mise à jour directement à partir de Microsoft Update au moment de l’installation. Pour plus d’informations sur les options de stockage des mises à jour, consultez la section [1,3. Choisissez une stratégie de stockage WSUS @ no__t-0 de l’étape 1 : Préparez votre déploiement de WSUS dans le Guide de déploiement de WSUS.
 
-Vous devez configurer et exécuter des synchronisations, ajout d’ordinateurs et des groupes d’ordinateurs et le déploiement des mises à jour régulièrement. La liste suivante donne des exemples de tâches générales que vous pouvez entreprendre dans la mise à jour des ordinateurs avec WSUS.
+Vous allez configurer et exécuter des synchronisations, ajouter des ordinateurs et des groupes d’ordinateurs, et déployer des mises à jour sur une base régulière. La liste suivante fournit des exemples de tâches générales que vous pouvez entreprendre pour mettre à jour des ordinateurs avec WSUS.
 
--   Déterminer un plan de gestion de mise à jour globale en fonction de votre topologie de réseau et la bande passante, des besoins de l’entreprise et structure organisationnelle.
+-   Déterminez un plan de gestion des mises à jour global basé sur la topologie et la bande passante de votre réseau, les besoins de votre entreprise et la structure organisationnelle.
 
-    -   Si vous souhaitez définir une hiérarchie de serveurs WSUS et comment la hiérarchie doit être structurée.
+    -   Indique s’il faut configurer une hiérarchie de serveurs WSUS et comment la hiérarchie doit être structurée.
 
-    -   Pour créer des groupes quel ordinateur et comment leur attribuer des ordinateurs (ciblage côté serveur ou côté client).
+    -   Les groupes d’ordinateurs à créer, ainsi que la manière de leur attribuer des ordinateurs (ciblage côté serveur ou côté client).
 
-    -   Base de données à utiliser pour les métadonnées de mise à jour (par exemple, base de données interne Windows, SQL Server).
+    -   La base de données à utiliser pour les métadonnées de mise à jour (par exemple, base de données interne Windows, SQL Server).
 
-    -   Détermine si les mises à jour doivent être synchronisés automatiquement et à quel moment.
+    -   Si les mises à jour doivent être synchronisées automatiquement et à quel moment.
 
--   Définir les options de synchronisation, telles que la source de mise à jour, la classification de produit et de mise à jour, language, paramètres de connexion, emplacement de stockage et planification de la synchronisation.
+-   Définir les options de synchronisation, telles que la source des mises à jour, la classification des produits et des mises à jour, la langue, les paramètres de connexion, l’emplacement de stockage et le calendrier de synchronisation.
 
--   Obtenir les mises à jour et les métadonnées associées sur votre serveur WSUS via la synchronisation à partir de Microsoft Update ou un serveur WSUS en amont.
+-   Récupérez les mises à jour et les métadonnées associées sur votre serveur WSUS par le biais de la synchronisation à partir de Microsoft Update ou d’un serveur WSUS en amont.
 
--   Approuver ou refuser des mises à jour. Vous avez la possibilité de permettre aux utilisateurs d’installer les mises à jour eux-mêmes (s’ils sont administrateurs locaux sur leurs ordinateurs clients).
+-   Approuver ou refuser des mises à jour. Vous avez la possibilité d’autoriser les utilisateurs à installer les mises à jour elles-mêmes (s’il s’agit d’administrateurs locaux sur leurs ordinateurs clients).
 
--   Configurer des approbations automatiques. Vous pouvez également configurer si vous souhaitez activer l’approbation automatique des révisions de mises à jour existantes ou approuver les révisions manuellement. Si vous choisissez d’approuver les révisions manuellement, puis votre serveur WSUS continueront à l’aide de l’ancienne version jusqu'à ce que vous approuvez manuellement la nouvelle révision.
+-   Configurer les approbations automatiques. Vous pouvez également configurer si vous voulez activer l’approbation automatique des révisions des mises à jour existantes ou approuver les révisions manuellement. Si vous choisissez d’approuver les révisions manuellement, votre serveur WSUS continuera à utiliser l’ancienne version jusqu’à ce que vous approuviez manuellement la nouvelle révision.
 
--   Vérifiez l’état des mises à jour. Vous pouvez afficher l’état de mise à jour, imprimer un rapport d’état ou configurer la messagerie électronique pour les rapports d’état régulières.
+-   Vérifiez l’état des mises à jour. Vous pouvez consulter l’état de la mise à jour, imprimer un rapport d’État ou configurer la messagerie électronique pour les rapports d’état standard.
 
-## <a name="update-products-and-classifications"></a>Mise à jour produits et Classifications
-Mises à jour disponibles sur Microsoft Update sont différenciées par produit (ou famille de produits) et la classification.
+## <a name="update-products-and-classifications"></a>Mettre à jour des produits et des classifications
+Les mises à jour disponibles sur Microsoft Update sont différenciées par produit (ou famille de produits) et par classification.
 
-Un produit est une édition spécifique d’un système d’exploitation ou une application, par exemple, Windows Server 2012. Une famille de produits est le système d’exploitation ou l’application à partir de laquelle sont dérivés les produits. Un exemple d’une famille de produit est Microsoft Windows, dont Windows Server 2012 est un membre. Vous pouvez sélectionner les produits ou les familles de produits pour laquelle vous souhaitez que votre serveur pour synchroniser les mises à jour. Vous pouvez spécifier une famille de produits ou des produits individuels au sein de la famille. Sélection d’un produit ou une famille de produits obtiendra les mises à jour pour les versions actuelles et futures du produit.
+Un produit est une édition spécifique d’un système d’exploitation ou d’une application, par exemple, Windows Server 2012. Une famille de produits est le système d’exploitation ou l’application de base à partir duquel les produits individuels sont dérivés. Par exemple, Microsoft Windows est une famille de produits dont Windows Server 2012 est membre. Vous pouvez sélectionner les produits ou les familles de produits pour lesquels vous souhaitez que votre serveur synchronise les mises à jour. Vous pouvez spécifier une famille de produits ou des produits individuels au sein de la famille. La sélection d’un produit ou d’une famille de produits recevra des mises à jour pour les versions actuelles et futures du produit.
 
-Classifications de mise à jour représentent le type de mise à jour. Pour tout produit ou une famille de produits, mises à jour peuvent être proposées selon différentes classifications de mise à jour (par exemple, Windows 7 famille mises à jour critiques et mises à jour de sécurité). Le tableau suivant répertorie les classifications de mise à jour.
+Les classifications de mise à jour représentent le type de mise à jour. Pour un produit ou une famille de produits donné, les mises à jour peuvent être disponibles parmi plusieurs classifications de mise à jour (par exemple, mises à jour critiques et mises à jour de sécurité de la famille Windows 7). Le tableau suivant répertorie les classifications de mise à jour.
 
 | Classifications des mises à jour  | Description   |
 |--|--|
-|Mises à jour critiques|Répondant correctifs pour des problèmes spécifiques critiques, pas la sécurité des bogues associés.|
-|Mises à jour de définition|Mises à jour pour des virus ou autres fichiers de définition.|
+|Mises à jour critiques|Correctifs étendus pour des problèmes spécifiques relatifs à des bogues critiques non liés à la sécurité.|
+|Mises à jour de définitions|Mises à jour de virus ou autres fichiers de définition.|
 |Pilotes|Composants logiciels conçus pour prendre en charge le nouveau matériel.|
-|Packs de fonctionnalités|Généralement, les nouvelles versions des fonctionnalités, intégré dans les produits de la nouvelle version.|
-|Mises à jour de sécurité|Correctifs largement publiés pour résoudre des problèmes de sécurité des produits spécifiques.|
-|Service Packs|Ensembles cumulatifs de tous les correctifs, mises à jour de sécurité, les mises à jour critiques et les mises à jour créées depuis la version du produit. Les service packs peuvent également contenir un nombre limité de fonctionnalités ou des modifications de conception demandées par les clients.|
-|Outils|Utilitaires ou des fonctionnalités qui aident à accomplir une tâche ou un ensemble de tâches.|
-|Mises à jour cumulatives|Ensembles cumulés de correctifs, les mises à jour de sécurité, les mises à jour critiques et les autres mises à jour qui sont réunis pour faciliter leur déploiement. Un correctif cumulatif cible généralement un domaine spécifique, telles que la sécurité, ou un composant spécifique, telles que les Services Internet (IIS).|
-|Mises à jour|Répondant correctifs pour des problèmes spécifiques non critique et non à la sécurité des bogues associés.|
+|Packs de fonctionnalités|Nouvelles versions de fonctionnalités, généralement intégrées aux produits de la prochaine version.|
+|Mises à jour de sécurité|Correctifs étendus pour des produits spécifiques, en résolvant les problèmes de sécurité.|
+|Service Packs|Ensembles cumulatifs de tous les correctifs, mises à jour de sécurité, mises à jour critiques et mises à jour créées depuis la sortie du produit. Les service packs peuvent également contenir un nombre limité de modifications de conception ou de fonctionnalités demandées par les clients.|
+|Outils|Utilitaires ou fonctionnalités qui facilitent l’accomplissement d’une tâche ou d’un ensemble de tâches.|
+|Correctifs cumulatifs|Ensemble cumulé de correctifs, de mises à jour de sécurité, de mises à jour critiques et d’autres mises à jour qui sont regroupées pour faciliter leur déploiement. Un cumul cible généralement un domaine spécifique, tel que la sécurité, ou un composant spécifique, tel que Internet Information Services (IIS).|
+|Mises à jour|Correctifs étendus pour des problèmes spécifiques concernant des bogues non critiques liés à la sécurité.|
 
 ## <a name="icons-used-for-updates-in-windows-server-update-services"></a>Icônes utilisées pour les mises à jour dans Windows Server Update Services
- Mises à jour dans WSUS sont représentées par une des icônes suivantes.  
- Pour afficher ces icônes, vous devez activer la colonne de remplacement dans la console Services de mise à jour.
+ Les mises à jour dans WSUS sont représentées par l’une des icônes suivantes.  
+ Pour afficher ces icônes, vous devez activer la colonne de remplacement dans la console des services de mise à jour.
  
 ### <a name="no-icon"></a>Aucune icône
- Il n’y a aucune relation de remplacement avec n’importe quel autre mise à jour pour la mise à jour.
+ La mise à jour n’a pas de relation de remplacement avec une autre mise à jour.
 
- **Problèmes liés au fonctionnement :**  
+ **Problèmes opérationnels :**  
 
  Il n'existe aucun problème opérationnel.  
  
 ### <a name="superseding-icon"></a>Icône de remplacement
- ![icon](../../media/wsus/wsus-superseding.png) Cette mise à jour remplace les autres mises à jour.
+ ![icon](../../media/wsus/wsus-superseding.png) Cette mise à jour remplace d’autres mises à jour.
 
- **Problèmes liés au fonctionnement :**  
+ **Problèmes opérationnels :**  
 
  Il n'existe aucun problème opérationnel.  
 
-### <a name="superseded--superseding-icon"></a>Icône remplacée & remplacement
+### <a name="superseded--superseding-icon"></a>Icône de remplacement & remplacée
  ![icon](../../media/wsus/wsus-superseded.png) Cette mise à jour est remplacée par une autre mise à jour et remplace les autres mises à jour.
 
- **Problèmes liés au fonctionnement :**  
+ **Problèmes opérationnels :**  
 
- Remplacez ces mises à jour avec les mises à jour de remplacement lorsque cela est possible.
+ Remplacez ces mises à jour par les mises à jour de remplacement lorsque cela est possible.
  
 ### <a name="superseded-icon"></a>Icône Remplacé
  ![icon](../../media/wsus/wsus-superseded-leaf.png) Cette mise à jour est remplacée par une autre mise à jour.
 
- **Problèmes liés au fonctionnement :**  
+ **Problèmes opérationnels :**  
 
- Remplacez ces mises à jour avec les mises à jour de remplacement lorsque cela est possible.
+ Remplacez ces mises à jour par les mises à jour de remplacement lorsque cela est possible.

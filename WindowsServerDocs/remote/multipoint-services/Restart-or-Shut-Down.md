@@ -2,7 +2,7 @@
 title: Redémarrer ou arrêter
 description: En savoir plus sur le redémarrage ou l’arrêt complet d’un système dans MultiPoint services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: d2ef7185dc660e50dfde1816ed843b9c2586e930
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 76155fa5f8baf877999bdc3eb0753d7805087a72
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871566"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389420"
 ---
 # <a name="restart-or-shut-down"></a>Redémarrer ou arrêter
 Si cela est recommandé, vous devrez peut-être redémarrer l’ordinateur hôte et toutes les *stations* de votre système MultiPoint Services après avoir installé du matériel, des logiciels et des mises à jour logicielles. Si vous avez ajouté de nouveaux appareils sur une station, vous pouvez également associer les appareils à cette station. Pour plus d’informations sur la façon d’*associer des stations*, voir la rubrique [Changer de mode](Switch-Between-Modes.md).  

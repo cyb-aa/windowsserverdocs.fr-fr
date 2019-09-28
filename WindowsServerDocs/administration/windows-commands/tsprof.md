@@ -1,8 +1,8 @@
 ---
 title: tsprof
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,26 +13,26 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e17d60126125fcd4b10373133dd61ca0db030290
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 77d0752f74d2f6031f83f805273650747d24cfee
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836070"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71392320"
 ---
 # <a name="tsprof"></a>tsprof
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Copie les informations de configuration utilisateur des Services Bureau à distance à partir d’un seul utilisateur à un autre.
-Les informations de configuration utilisateur des Services Bureau à distance s’affiche dans les extensions de Services Bureau à distance et les utilisateurs locaux et groupes active directory les utilisateurs et les ordinateurs.
+Copie les informations de configuration d’utilisateur Services Bureau à distance d’un utilisateur vers un autre.
+Les informations de configuration de l’utilisateur Services Bureau à distance s’affichent dans la Services Bureau à distance extensions pour utilisateurs et groupes locaux et utilisateurs et ordinateurs Active Directory.
 
-**tsprof** peut également définir le chemin d’accès de profil pour un utilisateur.
+**TSPROF** peut également définir le chemin du profil d’un utilisateur.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
 > [!NOTE]
-> Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour savoir quelles sont les nouveautés dans la version la plus récente, consultez [les nouveautés des Services Bureau à distance dans Windows Server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
+> Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
 
 ## <a name="syntax"></a>Syntaxe
 ```
@@ -44,30 +44,30 @@ tsprof /q {/domain:<DomainName> | /local} <UserName>
 ## <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-|/update|Mises à jour du profil des informations de chemin d’accès pour <*nom d’utilisateur*> dans le domaine <*DomainName*> à <*CheminProfil*>.|
-|/ Domain :\<DomainName >|Spécifie le nom du domaine dans lequel l’opération est appliquée.|
-|/local|S’applique à l’opération uniquement aux comptes d’utilisateurs locaux.|
-|/ profile :\<chemin d’accès >|Spécifie le chemin d’accès de profil tel qu’affiché dans les extensions de Services Bureau à distance dans utilisateurs et groupes et locaux active directory les utilisateurs et les ordinateurs.|
-|\<UserName>|Spécifie le nom de l’utilisateur pour lequel vous souhaitez mettre à jour ou interroger le chemin d’accès du profil de serveur.|
-|/ Copy|Copie les informations de configuration utilisateur de \< *SourceUser*> à \< *DestinationUser*> et met à jour les informations de chemin d’accès de profil pour \<  *DestinationUser*> à \< *CheminProfil*>. Les deux \< *SourceUser*> et \< *DestinationUser*> doit être local ou doit être dans le domaine \< *DomainName*> .|
-|\<Src_usr>|Spécifie le nom de l’utilisateur à partir de laquelle vous souhaitez copier les informations de configuration utilisateur.|
-|\<Dest_usr>|Spécifie le nom de l’utilisateur auquel vous souhaitez copier les informations de configuration utilisateur.|
-|/q|Affiche le chemin du profil actuel de l’utilisateur pour lequel vous souhaitez interroger le chemin d’accès du profil de serveur.|
+|/Update|Met à jour les informations de chemin de profil pour <*nom d’utilisateur*> dans le domaine <*nom_domaine*> à <*profilePath*>.|
+|/Domain : \<DomainName >|Spécifie le nom du domaine dans lequel l’opération est appliquée.|
+|/local|Applique l’opération uniquement aux comptes d’utilisateurs locaux.|
+|/Profile : \<path >|Spécifie le chemin d’accès au profil tel qu’il s’affiche dans les Services Bureau à distance extensions dans utilisateurs et groupes locaux et utilisateurs et ordinateurs Active Directory.|
+|@no__t 0UserName >|Spécifie le nom de l’utilisateur pour lequel vous souhaitez mettre à jour ou interroger le chemin d’accès du profil de serveur.|
+|/Copy|Copie les informations de configuration de l’utilisateur de \<*SourceUser*> vers \<*DestinationUser*> et met à jour les informations de chemin d’accès du profil pour \<*DestinationUser*> à \<*profilePath*>. Les \<*SourceUser*> et \<*DestinationUser*> doivent être locaux ou se trouver dans le domaine \<*nom_domaine*>.|
+|@no__t 0Src_usr >|Spécifie le nom de l’utilisateur à partir duquel vous souhaitez copier les informations de configuration de l’utilisateur.|
+|@no__t 0Dest_usr >|Spécifie le nom de l’utilisateur pour lequel vous souhaitez copier les informations de configuration de l’utilisateur.|
+|/q|Affiche le chemin d’accès du profil actuel de l’utilisateur pour lequel vous souhaitez interroger le chemin d’accès du profil de serveur.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
--   Le **tsprof** commande est disponible uniquement lorsque vous avez installé le service de rôle Terminal Server sur un ordinateur exécutant le service de rôle hôte de Session Bureau à distance ou de Windows Server 2008 sur un ordinateur exécutant Windows Server 2008 R2.
+-   La commande **TSPROF** n’est disponible que si vous avez installé le service de rôle Terminal Server sur un ordinateur exécutant le service de rôle hôte de session Bureau à distance windows Server 2008 ou sur un ordinateur exécutant windows Server 2008 R2.
 
-## <a name="BKMK_examples"></a>Exemples
--   Pour copier les informations de configuration utilisateur d’Utilisateurlocal1 dans Utilisateurlocal2, tapez :
+## <a name="BKMK_examples"></a>Illustre
+-   Pour copier les informations de configuration de l’utilisateur de LocalUser1 vers LocalUser2, tapez :
     ```
     tsprof /copy /local LocalUser1 LocalUser2
     ```
--   Pour définir le chemin du profil des Services Bureau à distance pour Utilisateurlocal1 sur un répertoire nommé « c:\profiles », tapez :
+-   Pour définir le chemin du profil de Services Bureau à distance pour LocalUser1 sur un répertoire nommé « c:\Profiles », tapez :
     ```
     tsprof /update /local /profile:c:\profiles LocalUser1
     ```
 
 #### <a name="additional-references"></a>Références supplémentaires
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
-[des Services Bureau à distance &#40;Services Terminal Server&#41; référence de la commande](remote-desktop-services-terminal-services-command-reference.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+[ &#40;services Bureau à distance&#41; référence des commandes des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)

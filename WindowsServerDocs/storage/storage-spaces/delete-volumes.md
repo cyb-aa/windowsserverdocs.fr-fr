@@ -1,39 +1,39 @@
 ---
-title: Suppression des volumes dans les espaces de stockage Direct
-description: Comment supprimer des volumes dans Storage Spaces Direct using Windows Admin Center.
-ms.prod: windows-server-threshold
+title: Suppression de volumes dans espaces de stockage direct
+description: Comment supprimer des volumes dans espaces de stockage direct à l’aide du centre d’administration Windows.
+ms.prod: windows-server
 ms.reviewer: cosmosdarwin
 author: iangpgh
 ms.author: jgerend
 manager: daveba
 ms.technology: storage-spaces
 ms.date: 05/07/2019
-ms.openlocfilehash: f0227b4623118a01cecb58a91db209482451db70
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.openlocfilehash: a144479c196f42939aee6eb26227ed2e2b22d87a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619285"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402854"
 ---
-# <a name="deleting-volumes-in-storage-spaces-direct"></a>Suppression des volumes dans les espaces de stockage Direct
+# <a name="deleting-volumes-in-storage-spaces-direct"></a>Suppression de volumes dans espaces de stockage direct
 > S’applique à : Windows Server 2019, Windows Server 2016
 
-Cette rubrique fournit des instructions pour la suppression des volumes sur un [espaces de stockage Direct](storage-spaces-direct-overview.md) cluster à l’aide de Windows Admin Center.
+Cette rubrique fournit des instructions sur la suppression de volumes dans sur un cluster [espaces de stockage direct](storage-spaces-direct-overview.md) à l’aide du centre d’administration Windows.
 
-Regardez une courte vidéo sur la façon de supprimer un volume.
+Regardez une vidéo rapide sur la façon de supprimer un volume.
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/DbjF8r2F6Jo]
 
-Pour supprimer un volume dans Windows Admin Center :
+Pour supprimer un volume dans le centre d’administration Windows :
 
-1. Dans Windows Admin Center, se connecter à un cluster d’espaces de stockage Direct, puis sélectionnez **Volumes** à partir de la **outils** volet.
-2. Dans la page de Volumes, sélectionnez le **inventaire** onglet, puis sélectionnez le volume que vous souhaitez supprimer.
-4. En haut de la page de détails de volumes, sélectionnez **supprimer**.
-5. Dans la boîte de dialogue de confirmation, sélectionnez la case à cocher pour confirmer que vous souhaitez supprimer le volume, puis sélectionnez **supprimer**.
+1. Dans le centre d’administration Windows, connectez-vous à un cluster espaces de stockage direct, puis sélectionnez **volumes** dans le volet **Outils** .
+2. Dans la page volumes, sélectionnez l’onglet **inventaire** , puis sélectionnez le volume à supprimer.
+4. En haut de la page de détails volumes, sélectionnez **supprimer**.
+5. Dans la boîte de dialogue confirmations, activez la case à cocher pour confirmer que vous souhaitez supprimer le volume, puis sélectionnez **supprimer**.
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Espaces de stockage Direct dans Windows Server 2016](storage-spaces-direct-overview.md)
-- [Planification des volumes dans les espaces de stockage Direct](plan-volumes.md)
-- [Création de volumes dans les espaces de stockage Direct](create-volumes.md)
-- [Extension des volumes dans les espaces de stockage Direct](resize-volumes.md)
+- [espaces de stockage direct dans Windows Server 2016](storage-spaces-direct-overview.md)
+- [Planification des volumes dans espaces de stockage direct](plan-volumes.md)
+- [Création de volumes dans espaces de stockage direct](create-volumes.md)
+- [Extension des volumes dans espaces de stockage direct](resize-volumes.md)

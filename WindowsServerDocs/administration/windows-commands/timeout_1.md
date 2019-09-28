@@ -1,8 +1,8 @@
 ---
 title: timeout
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3997399b732c494050797c83a0a52938574986bd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 09f294eb78a8868b4e3962557a36199b69fae0c9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830170"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385772"
 ---
 # <a name="timeout"></a>timeout
 
 
 
-Interrompt le processeur de commandes pour le nombre de secondes spécifié.
+Suspend le processeur de commandes pendant le nombre de secondes spécifié.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -38,31 +38,31 @@ timeout /t <TimeoutInSeconds> [/nobreak]
 
 |Paramètre|Description|
 |---------|-----------|
-|/t \<TimeoutInSeconds>|Spécifie le nombre de secondes (entre -1 et 99 999) d’attente avant que le processeur de commandes continue le traitement. La valeur -1, l’ordinateur d’attendre indéfiniment une frappe au clavier.|
-|/NOBREAK.|Indique d’ignorer les frappes de touche d’utilisateur.|
+|/t \<TimeoutInSeconds >|Spécifie le nombre de secondes (entre-1 et 99999) à attendre avant que le processeur de commande continue le traitement. La valeur-1 provoque l’attente indéfinie de l’ordinateur pour une séquence de touches.|
+|/nobreak|Spécifie d’ignorer les frappes de touches utilisateur.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
--   Le **délai d’attente** commande est généralement utilisée dans les fichiers de commandes.
--   Une séquence de touches utilisateur reprend l’exécution de processeur de commande immédiatement, même si le délai d’expiration n’a pas expiré.
--   Lorsqu’il est utilisé conjointement avec le **veille** commande, **délai d’attente** est similaire à la **suspendre** commande.
+-   La commande **timeout** est généralement utilisée dans les fichiers de commandes.
+-   Une séquence de touches utilisateur reprend immédiatement l’exécution du processeur de commandes, même si le délai d’expiration n’a pas expiré.
+-   Lorsqu’il est utilisé conjointement avec la commande **Sleep** , le **délai d’attente** est semblable à celui de la commande **Pause** .
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour suspendre l’interpréteur de commandes pour les dix secondes, tapez :
+Pour suspendre le processeur de commandes pendant dix secondes, tapez :
 ```
 timeout /t 10
 ```
-Pour mettre en pause le processeur de commandes pendant 100 secondes et ignorer les séquences de touches, tapez :
+Pour suspendre l’interpréteur de commandes pendant 100 secondes et ignorer les séquences de touches, tapez :
 ```
 timeout /t 100 /nobreak
 ```
-Pour suspendre l’interpréteur de commandes jusqu'à ce qu’une touche est enfoncée, tapez :
+Pour suspendre indéfiniment le processeur de commandes jusqu’à ce qu’une touche soit enfoncée, tapez :
 ```
 timeout /t -1
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

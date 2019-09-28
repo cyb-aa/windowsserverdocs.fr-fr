@@ -3,7 +3,7 @@ title: Association de cartes réseau
 description: Dans cette rubrique, nous vous proposons une vue d’ensemble de l’Association de cartes d’interface réseau (NIC) dans Windows Server 2016. L’Association de cartes réseau vous permet de grouper entre une et 32 cartes réseau Ethernet physiques dans une ou plusieurs cartes réseau virtuelles basées sur le logiciel. Ces cartes réseau virtuelles fournissent des performances élevées et une tolérance de panne importante en cas de défaillance de la carte réseau.
 manager: dougkim
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-nict
@@ -13,12 +13,12 @@ ms.assetid: abded6f3-5708-4e35-9a9e-890e81924fec
 ms.author: pashort
 author: shortpatti
 ms.date: 09/10/2018
-ms.openlocfilehash: acbb01acb39990126d5dce1d0811aefb8c931164
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 2356de674bfc6e57c9444136b1244934464a2d02
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871908"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71396503"
 ---
 # <a name="nic-teaming"></a>Association de cartes réseau
 

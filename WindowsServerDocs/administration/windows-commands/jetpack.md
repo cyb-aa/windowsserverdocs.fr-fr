@@ -1,8 +1,8 @@
 ---
 title: jetpack
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a3bffc29519df139921bdb1de53e67acd558b306
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b011658c6a745d62707cf88404379b17b0e05eef
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858010"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375324"
 ---
 # <a name="jetpack"></a>jetpack
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-compacte une base de données Windows Internet WINS (Name Service) ou DHCP Dynamic Host Configuration Protocol (). Microsoft vous recommande de compacter la base de données WINS chaque fois qu’elle approche de 30 Mo. 
+compacte une base de données WINS (Windows Internet Name Service) ou DHCP (Dynamic Host Configuration Protocol). Microsoft vous recommande de compacter la base de données WINS chaque fois qu’elle est proche de 30 Mo. 
 
 ## <a name="syntax"></a>Syntaxe
 ```
@@ -38,7 +38,7 @@ jetpack.EXE <database name> <temp database name>
 |<temp database name>|Spécifie le fichier de base de données temporaire.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 Pour compacter la base de données WINS :
 ```
 cd %SYSTEMROOT%\SYSTEM32\WINS
@@ -53,14 +53,14 @@ NET STOP DHCPSERver
 jetpack DHCP.MDB TMP.MDB
 NET start DHCPSERver
 ```
-Dans les exemples ci-dessus, **TMP** est une base de données temporaire utilisée par jetpack.exe. **WINS.mdb** est la base de données WINS. **DHCP.mdb** est la base de données DHCP.
-Jetpack.exe compacte le service WINS ou base de données DHCP en procédant comme suit :
-1.  Copies de base de données d’informations dans un fichier de base de données temporaire appelé **TMP**.
-2.  Supprime le fichier de base de données d’origine, **Wins.mdb** ou **DHCP.mdb**.
-3.  Renomme les fichiers de base de données temporaire avec le nom de fichier d’origine.
+Dans les exemples ci-dessus, **tmp. mdb** est une base de données temporaire utilisée par Jetpack. exe. **WINS. mdb** est la base de données WINS. **DHCP. mdb** est la base de données DHCP.
+Jetpack. exe compacte la base de données WINS ou DHCP en procédant comme suit :
+1.  Copie les informations de la base de données dans un fichier de base de données temporaire appelé **tmp. mdb**.
+2.  supprime le fichier de base de données d’origine, **WINS. mdb** ou **DHCP. mdb**.
+3.  renomme les fichiers de base de données temporaires avec le nom de fichier d’origine.
 
 > [!NOTE]
-> Pendant le processus compact, jetpack.exe crée un fichier temporaire avec le nom spécifié par le *nom de la base de données temporaire* paramètre. Le fichier temporaire est supprimé lorsque le processus de compactage est terminé. Assurez-vous que vous n’avez pas d’un fichier déjà existant dans WINS ou DHCP dossier portant le même nom que celui spécifié dans le *nom de la base de données temporaire* paramètre.
+> Pendant le processus compact, Jetpack. exe crée un fichier temporaire portant le nom spécifié par le paramètre *nom de la base de données temp* . Le fichier temporaire est supprimé une fois le processus de compactage terminé. Assurez-vous que vous n’avez pas de fichier déjà existant dans le dossier WINS ou DHCP portant le même nom que celui spécifié dans le paramètre *nom de la base de données temporaire* .
 
 ## <a name="additional-references"></a>Références supplémentaires
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

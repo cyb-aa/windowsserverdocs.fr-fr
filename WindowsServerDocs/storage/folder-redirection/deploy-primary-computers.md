@@ -1,19 +1,19 @@
 ---
 title: Déployer des ordinateurs principaux pour la redirection de dossiers et les profils utilisateur itinérants
 description: Comment activer la prise en charge d’ordinateur principal et désigner les ordinateurs principaux pour les utilisateurs ayant une redirection de dossiers et des profils utilisateur itinérants.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: fe026b97f15b4094303c8162c5363cc6205dedd1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: be2b41cf32e2020422c32415e2d8f4273eb09859
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867277"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394439"
 ---
 # <a name="deploy-primary-computers-for-folder-redirection-and-roaming-user-profiles"></a>Déployer des ordinateurs principaux pour la redirection de dossiers et les profils utilisateur itinérants
 
@@ -36,7 +36,7 @@ La prise en charge de l’ordinateur principal présente les exigences suivantes
 > [!TIP]
 > Bien que la prise en charge des ordinateurs principaux nécessite une redirection de dossiers et/ou des profils utilisateur itinérants, si vous déployez ces technologies pour la première fois, il est préférable de configurer la prise en charge de l’ordinateur principal avant d’activer les objets de stratégie de groupe qui configurent la redirection de dossiers et Profils utilisateur itinérants. Cela évite que des données utilisateur soient copiées sur des ordinateurs non principaux avant que la prise en charge des ordinateurs principaux soit activée. Pour plus d’informations sur la configuration, consultez [déployer la redirection de dossiers](deploy-folder-redirection.md) et [déployer des profils utilisateur itinérants](deploy-roaming-user-profiles.md).
 
-## <a name="step-1-designate-primary-computers-for-users"></a>Étape 1 : Désigner les ordinateurs principaux pour les utilisateurs
+## <a name="step-1-designate-primary-computers-for-users"></a>Étape 1 : Désigner les ordinateurs principaux pour les utilisateurs
 
 La première étape du déploiement de la prise en charge des ordinateurs principaux est la désignation des ordinateurs principaux pour chaque utilisateur. Pour ce faire, utilisez le centre d’administration Active Directory pour obtenir le nom unique des ordinateurs concernés, puis définissez l’attribut **MSDS-PrimaryComputer** .
 
@@ -56,7 +56,7 @@ Voici comment spécifier les ordinateurs principaux pour les utilisateurs :
 9. Sélectionnez l’onglet **éditeur d’attributs** , sélectionnez **MSDS-PrimaryComputer** , puis sélectionnez **modifier**. La boîte de dialogue Éditeur de chaînes à valeurs multiples s’affiche.
 10. Cliquez avec le bouton droit sur la zone de texte, sélectionnez **coller**, sélectionnez **Ajouter**, sélectionnez **OK**, puis cliquez à nouveau sur **OK** .
 
-## <a name="step-2-optionally-enable-primary-computers-for-folder-redirection-in-group-policy"></a>Étape 2 : Activez éventuellement les ordinateurs principaux pour la redirection de dossiers dans stratégie de groupe
+## <a name="step-2-optionally-enable-primary-computers-for-folder-redirection-in-group-policy"></a>Étape 2 : Activez éventuellement les ordinateurs principaux pour la redirection de dossiers dans stratégie de groupe
 
 L’étape suivante consiste à configurer éventuellement stratégie de groupe pour activer la prise en charge des ordinateurs principaux pour la redirection de dossiers. Cela permet de rediriger les dossiers d’un utilisateur sur les ordinateurs désignés comme ordinateurs principaux de l’utilisateur, mais pas sur les autres ordinateurs. Vous pouvez contrôler les ordinateurs principaux pour la redirection de dossiers sur une base par ordinateur ou par utilisateur.
 
@@ -70,7 +70,7 @@ Voici comment activer les ordinateurs principaux pour la redirection de dossiers
 4. Cliquez avec le bouton droit sur **Rediriger les dossiers sur les ordinateurs principaux uniquement**, puis sélectionnez **modifier**.
 5. Sélectionnez **activé**, puis cliquez sur **OK**.
 
-## <a name="step-3-optionally-enable-primary-computers-for-roaming-user-profiles-in-group-policy"></a>Étape 3 : Activez éventuellement les ordinateurs principaux pour les profils utilisateur itinérants dans stratégie de groupe
+## <a name="step-3-optionally-enable-primary-computers-for-roaming-user-profiles-in-group-policy"></a>Étape 3 : Activez éventuellement les ordinateurs principaux pour les profils utilisateur itinérants dans stratégie de groupe
 
 L’étape suivante consiste à configurer éventuellement stratégie de groupe pour activer la prise en charge des ordinateurs principaux pour les profils utilisateur itinérants. Cela permet au profil d’un utilisateur d’être itinérant sur des ordinateurs désignés comme ordinateurs principaux de l’utilisateur, mais pas sur d’autres ordinateurs.
 
@@ -82,7 +82,7 @@ Voici comment activer les ordinateurs principaux pour les profils utilisateur it
 4. Cliquez avec le bouton droit sur **Télécharger les profils itinérants sur les ordinateurs principaux uniquement,** puis sélectionnez **modifier**.
 5. Sélectionnez **activé**, puis cliquez sur **OK**.
 
-## <a name="step-4-enable-the-gpo"></a>Étape 4 : Activer l’objet de stratégie de groupe
+## <a name="step-4-enable-the-gpo"></a>Étape 4 : Activer l’objet de stratégie de groupe
 
 Une fois que vous avez terminé la configuration de la redirection de dossiers et des profils utilisateur itinérants, activez l’objet de stratégie de groupe, si ce n’est déjà fait. Cela leur permet d’être appliqués aux utilisateurs et ordinateurs affectés.
 
@@ -91,7 +91,7 @@ Voici comment activer les objets de stratégie de groupe redirection de dossiers
 1. Ouvrir la gestion des stratégie de groupe
 2. Cliquez avec le bouton droit sur les objets de stratégie de groupe que vous avez créés, puis sélectionnez **lien activé**. Une case à cocher doit s’afficher en regard de l’élément de menu.
 
-## <a name="step-5-test-primary-computer-function"></a>Étape 5 : Fonction de test de l’ordinateur principal
+## <a name="step-5-test-primary-computer-function"></a>Étape 5 : Fonction de test de l’ordinateur principal
 
 Pour tester la prise en charge des ordinateurs principaux, connectez-vous à un ordinateur principal, confirmez que les dossiers et les profils sont redirigés, puis connectez-vous à un ordinateur non principal et confirmez que les dossiers et les profils ne sont pas redirigés.
 

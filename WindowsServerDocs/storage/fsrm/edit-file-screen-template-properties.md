@@ -2,18 +2,18 @@
 title: Modifier les propriétés du modèle de filtre de fichiers
 description: Cet article explique comment modifier les propriétés d'un modèle de filtre de fichiers
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 31ca46707a32d23a5dd9606c57bcaec5d6e53a80
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9e84545be86bdb8fcba09d0ff49ac98b44cd7bdf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846890"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403129"
 ---
 # <a name="edit-file-screen-template-properties"></a>Modifier les propriétés du modèle de filtre de fichiers
 
@@ -28,7 +28,7 @@ Lorsque vous modifiez un modèle de filtre de fichiers, vous avez la possibilit�
 
 1.  Dans **Modèles de filtres de fichiers**, sélectionnez le modèle à modifier.
 
-2.  Cliquez sur le modèle d’écran de fichier et sur **modifier les propriétés de modèle** (ou dans le **Actions** volet, sous **modèles d’écran fichier sélectionné**, sélectionnez  **Modifier les propriétés du modèle**.) Cette opération ouvre le **propriétés de modèle de filtre de fichiers** boîte de dialogue.
+2.  Cliquez avec le bouton droit sur le modèle de filtre de fichiers, puis cliquez sur **modifier les propriétés du modèle** (ou, dans le volet **actions** , sous modèles d' **écran de fichiers sélectionnés**, sélectionnez **modifier les propriétés du modèle**). La boîte de dialogue **Propriétés du modèle de filtre de fichiers** s’ouvre.
 
 3.  Si vous souhaitez copier les propriétés d'un autre modèle pour les utiliser comme base de votre modèle modifié, sélectionnez un modèle dans la liste déroulante **Copier les propriétés du modèle**. Cliquez ensuite sur **Copier**.
 
@@ -46,7 +46,7 @@ Lorsque vous modifiez un modèle de filtre de fichiers, vous avez la possibilit�
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Gestion des filtres de fichiers](file-screening-management.md)
--   [Créer un modèle d’écran de fichier](create-file-screen-template.md)
+-   [Gestion du filtrage des fichiers](file-screening-management.md)
+-   [Créer un modèle de filtre de fichiers](create-file-screen-template.md)
 
 

@@ -3,7 +3,7 @@ title: Configurer une station connectée RDP sur réseau local dans MultiPoint s
 description: Découvrez comment configurer un système RDP sur réseau local dans MultiPoint services
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: 60e1a025-c2fb-4708-a3ff-c44c223a3224
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 40899b277ae60169a0eca34b359172941e5391fb
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: d0d63a75d3ef6e042d44df0ecf4cc08973e859a6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871564"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394999"
 ---
 # <a name="set-up-an-rdp-over-lan-connected-station-in-multipoint-services"></a>Configurer une station connectée RDP sur réseau local dans MultiPoint services
 Une station connectée au réseau local (RDP) est un client léger, un ordinateur de bureau traditionnel ou un ordinateur portable qui se connecte à MultiPoint services sur un réseau local (LAN) à l’aide du protocole RDP (Remote Desktop Protocol) (RDP). Pour plus d’informations sur ce type de station et les autres, consultez la page sur les [stations multipoint](MultiPoint-services-Stations.md).  

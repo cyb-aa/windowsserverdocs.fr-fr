@@ -7,34 +7,34 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 169d0a55f9fb167390c13ac1c89f8d68427f318d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3d04530c53150a3222b609a80938d7fdfcdfeff7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842110"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402582"
 ---
 # <a name="evaluating-ad-ds-deployment-strategy-examples"></a>Évaluation des exemples de stratégies de déploiement des services AD DS
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Prenons l’exemple suivant d’une entreprise fictive, Contoso Pharmaceuticals, qui est de déployer des Services de domaine Active Directory (AD DS) dans son environnement. L’environnement Contoso se compose de quatre domaines. Le niveau fonctionnel de forêt est Windows Server 2003. L’illustration suivante montre la structure actuelle de l’organisation Contoso.  
+Prenons l’exemple suivant d’une société fictive, contoso Pharmaceuticals, qui déploie Active Directory Domain Services (AD DS) dans son environnement. L’environnement contoso est constitué de quatre domaines. Le niveau fonctionnel de la forêt est Windows Server 2003. L’illustration suivante montre la structure de domaine actuelle pour l’organisation contoso.  
   
-![Stratégie de déploiement AD DS](media/Evaluating-AD-DS-Deployment-Strategy-Examples/3dd79e00-48f8-4927-989c-c55a79caf1be.gif)  
+![Stratégie de déploiement de AD DS](media/Evaluating-AD-DS-Deployment-Strategy-Examples/3dd79e00-48f8-4927-989c-c55a79caf1be.gif)  
   
-Après avoir examiné son environnement existant et identifier ses objectifs de déploiement, Contoso établi la stratégie de déploiement d’AD DS suivante :  
+Après avoir examiné l’environnement existant et identifié ses objectifs de déploiement, Contoso a établi la stratégie de déploiement AD DS suivante :  
   
--   Mettre à niveau des domaines Windows Server 2003 à des domaines Windows Server 2008.  
+-   Mettez à niveau les domaines Windows Server 2003 vers des domaines Windows Server 2008.  
   
--   Activer les fonctionnalités avancées de AD DS en déclenchant les niveaux fonctionnels de domaine et de forêt vers Windows Server 2008.  
+-   Activez les fonctionnalités de AD DS avancées en augmentant les niveaux fonctionnels du domaine et de la forêt à Windows Server 2008.  
   
--   Restructurer le domaine de africa.concorp.contoso.com au sein de la forêt à consolider ce domaine avec le domaine emea.concorp.contoso.con.  
+-   Restructurez le domaine africa.concorp.contoso.com au sein de la forêt pour consolider ce domaine avec le domaine EMEA. concorp. contoso. con.  
   
-Augmentation du niveau fonctionnel de forêt vers Windows Server 2008 permettra à Contoso tirer pleinement parti des nouvelles fonctionnalités AD DS. Restructuration de domaines de la forêt, comme indiqué dans l’illustration suivante, réduit la quantité d’administration qui est nécessaire pour la gestion des domaines.  
+L’augmentation du niveau fonctionnel de la forêt à Windows Server 2008 permettra à contoso de tirer pleinement parti des nouvelles fonctionnalités de AD DS. La restructuration des domaines au sein de la forêt, comme indiqué dans l’illustration suivante, réduira la quantité d’administration nécessaire à la gestion des domaines.  
   
-![Stratégie de déploiement AD DS](media/Evaluating-AD-DS-Deployment-Strategy-Examples/1c061755-413d-452d-b121-6910f8555327.gif)  
+![Stratégie de déploiement de AD DS](media/Evaluating-AD-DS-Deployment-Strategy-Examples/1c061755-413d-452d-b121-6910f8555327.gif)  
   
 
 

@@ -2,7 +2,7 @@
 title: Connexion à un ordinateur virtuel Hyper-V
 description: Décrit la connexion à un ordinateur virtuel, qui fournit l’accès à distance à un ordinateur virtuel. Contient des détails sur la façon d’effectuer des tâches courantes, comme envoyer Ctrl-Alt-Suppr à la machine virtuelle.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 manager: dongill
@@ -13,12 +13,12 @@ ms.assetid: deae35b9-7647-42b8-b6bf-45645a44c9c4
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 04f3bc581a0065c62ba8878473e45f714ce8a069
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: fba83d22d9e5d9f31a5809781aa04943cc4cd3af
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872109"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364154"
 ---
 # <a name="hyper-v-virtual-machine-connection"></a>Connexion à un ordinateur virtuel Hyper-V
 
@@ -45,7 +45,7 @@ Vous pouvez trouver les informations suivantes utiles pour l’utilisation de VM
 |Passer d’un mode fenêtre à un mode\-plein écran|Sélectionnez mode**plein écran**. >  Pour revenir en mode fenêtre, appuyez sur CTRL\+Alt\+arrêter.|  
 |Créer un point de contrôle pour capturer l’état actuel de l’ordinateur pour la résolution des problèmes|Sélectionnez > **point de contrôle de** l’action ou utilisez\+la combinaison de touches Ctrl N.|  
 |Modifier les paramètres de la machine virtuelle|Sélectionnez**paramètres**du **fichier** > .|  
-|Se connecter à un fichier \(.\) ISO d’image de DVD \(ou à un fichier. VFD de disquette virtuelle\)|Sélectionnez **média**.<br /><br />Les disquettes virtuelles ne sont pas prises en charge pour les ordinateurs virtuels de génération 2. Pour plus d’informations, consultez [Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md).|  
+|Se connecter à un fichier \(.\) ISO d’image de DVD \(ou à un fichier. VFD de disquette virtuelle\)|Sélectionnez **média**.<br /><br />Les disquettes virtuelles ne sont pas prises en charge pour les ordinateurs virtuels de génération 2. Pour plus d’informations, consultez [dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md).|  
 |Utiliser les ressources locales d’un ordinateur hôte\-sur une machine virtuelle Hyper-V comme un disque mémoire flash USB|Activez le mode de session étendu sur l’hôte Hyper-V, utilisez VMConnect pour vous connecter à la machine virtuelle, et avant de vous connecter, choisissez la ressource locale que vous souhaitez utiliser. Pour connaître les étapes spécifiques, consultez [utiliser des ressources locales\-sur une machine virtuelle Hyper-V avec vmconnect](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md).|  
 |Modifier les paramètres VMConnect enregistrés pour un ordinateur virtuel|Exécutez la commande suivante dans Windows PowerShell ou l’invite de commandes :<br /><br />`VMConnect.exe <ServerName> <VMName> \/edit`|  
 |Empêcher un utilisateur VMConnect de prendre le contrôle d’une session VMConnect d’un autre utilisateur|[Activez le mode de session étendu sur l’hôte Hyper-V](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md#turn-on-enhanced-session-mode-on-a-hyper-v-host).<br /><br />Le fait de ne pas activer le mode de session étendu peut poser un risque de sécurité et de confidentialité. Si un utilisateur est connecté et connecté à un ordinateur virtuel via VMConnect et qu’un autre utilisateur autorisé se connecte à la même machine virtuelle, la session est prise par le deuxième utilisateur et le premier utilisateur perd la session. Le deuxième utilisateur sera en mesure d’afficher le bureau, les documents et les applications du premier utilisateur.|
@@ -62,7 +62,7 @@ Par défaut, l’entrée au clavier et les clics de souris sont envoyés à la m
 |CTRL\+ALT\+FIN|Équivalent de Ctrl\+Alt\+SUPPR dans l’ordinateur virtuel|  
 |CTRL\+ALT\+ARRÊTER|Passer du mode\-plein écran au mode fenêtre|  
 |CTRL\+O|Ouvre les paramètres de la machine virtuelle.|  
-|CTRL\+S|Démarrer la machine virtuelle|  
+|CTRL\+S|Démarre la machine virtuelle|  
 |CTRL\+N|Créer un point de contrôle|  
 |CTRL\+E|Revenir à un point de contrôle|  
 |CTRL\+C|Effectuer une capture d’écran|  

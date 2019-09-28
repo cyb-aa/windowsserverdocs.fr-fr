@@ -1,8 +1,8 @@
 ---
-title: Création d’un volume miroir
-description: 'Rubrique de commandes de Windows pour ***- '
+title: créer une mise en miroir du volume
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 72d80fdf6eca1262a858cbe2a98ed8c9c421bff6
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 72ecc4e0ede163857c47c5b7013aacdd49719ac8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434083"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378866"
 ---
-# <a name="create-volume-mirror"></a>Création d’un volume miroir
+# <a name="create-volume-mirror"></a>créer une mise en miroir du volume
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Crée un miroir de volume à l’aide de deux disques dynamiques spécifiés.  
+crée un miroir de volume à l’aide des deux disques dynamiques spécifiés.  
   
 > [!NOTE]  
-> Cette commande est uniquement disponible dans Windows 7 et Windows Server 2008 R2.  
+> Cette commande est disponible uniquement dans Windows 7 et Windows Server 2008 R2.  
   
   
   
@@ -41,17 +41,17 @@ create volume mirror [size=<n>] disk=<n>,<n>[,<n>,...] [align=<n>] [noerr] [noer
   
 |         Paramètre         |                                                                                                                                     Description                                                                                                                                     |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         size\=<n>         |                 Spécifie la quantité d’espace disque, en mégaoctets \(Mo\), que le volume occupera sur chaque disque. Si aucune taille n’est spécifiée, le nouveau volume occupe l’espace libre restant sur le plus petit disque et une quantité d’espace égale sur les disques suivants.                 |
-| disque\=<n>,<n>\[,<n>,...\] |                       Spécifie les disques dynamiques sur lequel le volume en miroir est créé. Vous avez besoin de deux disques dynamiques pour créer un volume en miroir. La quantité d’espace qui est égale à la taille spécifiée avec le **taille** paramètre est alloué sur chaque disque.                        |
-|        align\=<n>         | Aligne toutes les étendues de volume à la limite d’alignement le plus proche. Ce paramètre est généralement utilisé avec le numéro d’unité logique RAID de matériel \(LUN\) tableaux pour améliorer les performances. *n* est le nombre de kilo-octets \(Ko\) à partir du début du disque à la limite d’alignement le plus proche. |
-|           NOERR           |                                        Utilisé pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec une erreur de DiskPart.                                         |
+|         taille @ no__t-0 @ no__t-1         |                 Spécifie la quantité d’espace disque, en mégaoctets \(MB @ no__t-1, que le volume occupera sur chaque disque. Si aucune taille n’est donnée, le nouveau volume occupe l’espace libre restant sur le disque le plus petit et une quantité égale d’espace sur chaque disque suivant.                 |
+| disque @ no__t-0 @ no__t-1, <n> @ no__t-3, <n>,... \] |                       Spécifie les disques dynamiques sur lesquels le volume miroir est créé. Vous avez besoin de deux disques dynamiques pour créer un volume miroir. Une quantité d’espace égale à la taille spécifiée avec le paramètre de **taille** est allouée sur chaque disque.                        |
+|        aligner @ no__t-0 @ no__t-1         | Aligne toutes les étendues de volume sur la limite d’alignement la plus proche. Ce paramètre est généralement utilisé avec le numéro d’unité logique RAID matériel @no__t 0LUN @ no__t-1 pour améliorer les performances. *n* est le nombre de kilo-octets \( Ko @ no__t-2 à partir du début du disque jusqu’à la limite d’alignement la plus proche. |
+|           noerr           |                                        Utilisé uniquement pour les scripts. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec une erreur.                                         |
   
 ## <a name="remarks"></a>Notes  
   
--   Après avoir créé le volume, le focus se déplace automatiquement vers le nouveau volume.  
+-   Une fois le volume créé, le focus se déplace automatiquement vers le nouveau volume.  
   
-## <a name="BKMK_examples"></a>Exemples  
-Pour créer un volume en miroir de 1 000 mégaoctets dans la taille, sur le disque 1 et 2, tapez :  
+## <a name="BKMK_examples"></a>Illustre  
+Pour créer un volume en miroir d’une taille de 1000 mégaoctets, sur les disques 1 et 2, tapez :  
   
 ```  
 create volume mirror size=1000 disk=1,2  

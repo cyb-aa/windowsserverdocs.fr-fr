@@ -1,20 +1,20 @@
 ---
-title: Qu’est-ce que Server Core?
+title: Qu’est-ce que Server Core ?
 description: En savoir plus sur l’option d’installation Server Core dans Windows Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 02/20/2018
-ms.openlocfilehash: ce00bc973b7b750e33326cdec24193ba537b5294
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 269be253367ba2bc692a5903e7d519a40f487d8b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476475"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383338"
 ---
-# <a name="what-is-the-server-core-installation-option-in-windows-server"></a>Qu’est-ce que l’option d’installation Server Core dans Windows Server?
+# <a name="what-is-the-server-core-installation-option-in-windows-server"></a>Qu’est-ce que l’option d’installation Server Core dans Windows Server ?
 
 > S’applique à : Windows Server 2019, Windows Server 2016 et Windows Server (canal semi-annuel)
 
@@ -23,10 +23,10 @@ L’option Server Core est une option d’installation minimale qui est disponib
 ## <a name="server-core-vs-server-with-desktop-experience"></a>Serveur (Core) vs Server avec expérience utilisateur 
 Lorsque vous installez Windows Server, vous ne devez installer que les rôles de serveur de votre choix. cela permet de réduire l’encombrement global de Windows Server. Toutefois, l’option d’installation serveur avec expérience utilisateur installe toujours de nombreux services et d’autres composants qui ne sont généralement pas nécessaires pour un scénario d’utilisation particulier. 
 
-C’est là qu’intervient Server Core: l’installation Server Core élimine tous les services et autres fonctionnalités qui ne sont pas essentiels pour la prise en charge de certains rôles de serveur couramment utilisés. Par exemple, un serveur Hyper-V n’a pas besoin d’une interface utilisateur graphique (GUI), car vous pouvez gérer pratiquement tous les aspects d’Hyper-V à partir de la ligne de commande à l’aide de Windows PowerShell ou à distance à l’aide du Gestionnaire Hyper-V. 
+C’est là qu’intervient Server Core : l’installation Server Core élimine tous les services et autres fonctionnalités qui ne sont pas essentiels pour la prise en charge de certains rôles de serveur couramment utilisés. Par exemple, un serveur Hyper-V n’a pas besoin d’une interface utilisateur graphique (GUI), car vous pouvez gérer pratiquement tous les aspects d’Hyper-V à partir de la ligne de commande à l’aide de Windows PowerShell ou à distance à l’aide du Gestionnaire Hyper-V. 
 
 ## <a name="the-server-core-difference---core-capabilities-without-the-frills"></a>La différence Server Core-fonctionnalités principales sans base
-Lorsque vous avez terminé l’installation de Server Core sur un système et que vous vous connectez pour la première fois, vous avez un peu de surprise. La principale différence entre l’option d’installation Server with Desktop Experience et Server Core est que Server Core n’inclut pas les packages Shell GUI suivants:
+Lorsque vous avez terminé l’installation de Server Core sur un système et que vous vous connectez pour la première fois, vous avez un peu de surprise. La principale différence entre l’option d’installation Server with Desktop Experience et Server Core est que Server Core n’inclut pas les packages Shell GUI suivants :
 
 - Microsoft-Windows-Server-Shell-package
 - Microsoft-Windows-Server-GUI-Mgmt-package
@@ -35,16 +35,16 @@ Lorsque vous avez terminé l’installation de Server Core sur un système et qu
 
 En d’autres termes, il n’y a **pas de bureau** dans Server Core, par conception. Tout en conservant les fonctionnalités requises pour prendre en charge les applications métier traditionnelles et les charges de travail basées sur les rôles, Server Core ne dispose pas d’une interface de bureau traditionnelle. Au lieu de cela, Server Core est conçu pour être géré à distance par le biais de la ligne de commande, de PowerShell ou d’un outil d’interface graphique utilisateur (par exemple, [RSAT](../../remote/remote-server-administration-tools.md) ou [Centre d’administration Windows](../../manage/windows-admin-center/overview.md)).
 
-Outre l’absence d’interface utilisateur, Server Core diffère également du serveur avec l’expérience utilisateur des manières suivantes:
+Outre l’absence d’interface utilisateur, Server Core diffère également du serveur avec l’expérience utilisateur des manières suivantes :
 
 - Server Core n’a aucun outil d’accessibilité
 - Aucun OOBE (prêt à l’emploi) pour la configuration de Server Core
 - Aucune prise en charge audio
 
-Le tableau suivant indique les applications qui sont disponibles *localement* sur Server Core vs Server avec expérience utilisateur. **Important** : Dans la plupart des cas, les applications répertoriées comme «non disponibles» ci-dessous peuvent être exécutées à distance à partir d’un ordinateur client Windows et utilisées pour gérer votre installation Server Core.
+Le tableau suivant indique les applications qui sont disponibles *localement* sur Server Core vs Server avec expérience utilisateur. **Important** : Dans la plupart des cas, les applications répertoriées comme « non disponibles » ci-dessous peuvent être exécutées à distance à partir d’un ordinateur client Windows et utilisées pour gérer votre installation Server Core.
 
 > [!NOTE]
-> Cette liste est destinée à une référence rapide; elle n’est pas destinée à constituer une liste complète.
+> Cette liste est destinée à une référence rapide ; elle n’est pas destinée à constituer une liste complète.
 
 
 | Application                     | Server Core     | Serveur avec Expérience de bureau |
@@ -88,13 +88,13 @@ Pour plus d’informations sur ce qui *est* inclus dans Server Core, voir [rôle
 ## <a name="get-started-using-server-core"></a>Prise en main de l’utilisation de Server Core
 Utilisez les informations suivantes pour installer, configurer et gérer l’option d’installation Server Core de Windows Server.
 
-Installation Server Core: 
+Installation Server Core : 
 - [Rôles, services de rôle et fonctionnalités inclus dans Server Core](server-core-roles-and-services.md)
 - [Rôles, services de rôle et fonctionnalités non disponibles dans Server Core](server-core-removed-roles.md)
 - [Installer l’option d’installation minimale](../../get-started/getting-started-with-server-core.md)
 - [Configurer Server Core avec l’outil SConfig](../../get-started/sconfig-on-ws2016.md)
 
-Utilisation de Server Core:
+Utilisation de Server Core :
 - [Tâches d’administration Server Core de base à l’aide de Windows PowerShell ou de la ligne de commande](server-core-administer.md)
 - [Gérer le Server Core](server-core-manage.md)
 - [Mise à jour corrective de Server Core](server-core-servicing.md)

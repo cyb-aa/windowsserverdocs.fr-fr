@@ -1,18 +1,18 @@
 ---
 title: Présentation de la structure protégée et des machines virtuelles dotées d’une protection maximale
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 579012be66969ffc584b4b4ea021f11acbbdfb78
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ace6eb30ae6df2dc29aacc05eb7852e03145df4f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855900"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386860"
 ---
 # <a name="guarded-fabric-and-shielded-vms-overview"></a>Vue d’ensemble de la structure protégée et des machines virtuelles dotées d’une protection maximale
 
@@ -20,9 +20,9 @@ ms.locfileid: "59855900"
 
 ## <a name="overview-of-the-guarded-fabric"></a>Vue d’ensemble de la structure protégée
 
-Sécurité de la virtualisation est un secteur d’investissement important dans Hyper-V. En plus de protéger les hôtes ou d’autres machines virtuelles contre une machine virtuelle exécutant des logiciels malveillants, nous devons également protéger les machines virtuelles contre un hôte compromis. Il s’agit un danger fondamental pour chaque plate-forme de virtualisation aujourd'hui, qu’il s’agisse d’Hyper-V, VMware ou autre. En termes simples, si une machine virtuelle sort d’une organisation (à des fins malveillantes ou accidentellement), elle peut être exécutée sur n’importe quel autre système. La protection des ressources vitales de votre organisation, comme les contrôleurs de domaine, les serveurs de fichiers sensibles et les systèmes RH, est une priorité majeure.
+La sécurité de la virtualisation est une zone d’investissement importante dans Hyper-V. En plus de protéger les hôtes ou d’autres machines virtuelles contre une machine virtuelle exécutant des logiciels malveillants, nous devons également protéger les machines virtuelles contre un hôte compromis. Il s’agit d’un danger fondamental pour chaque plateforme de virtualisation aujourd’hui, qu’il s’agisse d’Hyper-V, de VMware ou de tout autre plateforme. En termes simples, si une machine virtuelle sort d’une organisation (à des fins malveillantes ou accidentellement), elle peut être exécutée sur n’importe quel autre système. La protection des ressources vitales de votre organisation, comme les contrôleurs de domaine, les serveurs de fichiers sensibles et les systèmes RH, est une priorité majeure.
 
-Pour vous protéger contre la structure de virtualisation compromis, Windows Server 2016 Hyper-V introduit des machines virtuelles protégées. Une machine virtuelle protégée est une génération 2 machines virtuelles (pris en charge sur Windows Server 2012 et versions ultérieures) qui a un module TPM virtuel, est chiffré à l’aide de BitLocker et peuvent s’exécuter uniquement sur des hôtes intègres et approuvés dans l’infrastructure. Les machines virtuelles dotées d’une protection maximale et la structure protégée permettent aux fournisseurs de services cloud ou aux administrateurs du cloud privé d’entreprise d’offrir un environnement plus sécurisé pour les machines virtuelles du locataire. 
+Pour vous aider à vous protéger contre la structure de virtualisation compromise, Windows Server 2016 Hyper-V a introduit des machines virtuelles dotées d’une protection maximale. Une machine virtuelle dotée d’une protection maximale est une machine virtuelle de 2e génération (prise en charge sur Windows Server 2012 et versions ultérieures) qui dispose d’un module de plateforme sécurisée (TPM) virtuel, est chiffrée à l’aide de BitLocker et peut s’exécuter uniquement sur des hôtes sains et approuvés dans l’infrastructure. Les machines virtuelles dotées d’une protection maximale et la structure protégée permettent aux fournisseurs de services cloud ou aux administrateurs du cloud privé d’entreprise d’offrir un environnement plus sécurisé pour les machines virtuelles du locataire. 
 
 Une structure protégée se compose des éléments suivants :
 
@@ -40,30 +40,30 @@ Quand un locataire crée des machines virtuelles dotées d’une protection maxi
 
 ## <a name="attestation-modes-in-the-guarded-fabric-solution"></a>Modes d’attestation de la solution de structure protégée
 
-Le SGH prend en charge les modes d’attestation différents pour une structure protégée :
+Le SGH prend en charge différents modes d’attestation pour une infrastructure protégée :
 
-- Attestation approuvée par le module de plateforme sécurisée (basé sur matériel)
-- Attestation de clé d’hôte (en fonction des paires de clés asymétriques)
+- Attestation approuvée par le module de plateforme sécurisée (basée sur le matériel)
+- Attestation de clé d’hôte (basée sur les paires de clés asymétriques)
 
-L’attestation approuvée par le module de plateforme sécurisée (TPM) est recommandée, car elle offre des garanties renforcées, comme expliqué dans le tableau suivant, mais elle nécessite que TPM 2.0 soit installé sur vos hôtes Hyper-V. Si vous en n’avez pas TPM 2.0 ou n’importe quel module de plateforme sécurisée, vous pouvez utiliser l’attestation de clé hôte. Si vous décidez de passer à l’attestation approuvée par le module de plateforme sécurisée (TPM) quand vous achetez du nouveau matériel, vous pouvez changer de mode d’attestation sur le Service Guardian hôte avec peu ou pas d’interruption sur votre structure.
+L’attestation approuvée par le module de plateforme sécurisée (TPM) est recommandée, car elle offre des garanties renforcées, comme expliqué dans le tableau suivant, mais elle nécessite que TPM 2.0 soit installé sur vos hôtes Hyper-V. Si vous ne disposez pas de TPM 2,0 ou d’un module de plateforme sécurisée (TPM), vous pouvez utiliser l’attestation de clé hôte. Si vous décidez de passer à l’attestation approuvée par le module de plateforme sécurisée (TPM) quand vous achetez du nouveau matériel, vous pouvez changer de mode d’attestation sur le Service Guardian hôte avec peu ou pas d’interruption sur votre structure.
 
-| **Mode d’attestation choisi pour les hôtes**                                            | **Garanties de l’hôte** |
+| **Mode d’attestation que vous choisissez pour les ordinateurs hôtes**                                            | **Host assurance** |
 |-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|**Attestation approuvée par le module de plateforme sécurisée :** Offre les protections possibles plus puissantes, mais nécessite également des étapes de configuration supplémentaires. Matériel hôte et microprogramme doivent inclure TPM 2.0 et UEFI 2.3.1 avec démarrage sécurisé. | Hôtes service Guardian sont approuvées selon leur identité de module de plateforme sécurisée, la séquence de démarrage mesuré et stratégies d’intégrité du code pour vous assurer qu’ils uniquement exécutent du code approuvé.| 
-| **Attestation de clé hôte :** Conçu prendre en charge de matériel hôte existant où TPM 2.0 n’est pas disponible. Nécessite moins d’étapes de configuration et est compatible avec le matériel courant. | Hôtes sont approuvés en fonction de la possession de la clé. | 
+|**Attestation approuvée par le module de plateforme sécurisée :** Offre les protections les plus fortes possibles, mais nécessite également d’autres étapes de configuration. Le matériel et le microprogramme de l’ordinateur hôte doivent inclure TPM 2,0 et UEFI 2.3.1 avec le démarrage sécurisé activé. | Les hôtes service Guardian sont approuvés en fonction de leur identité TPM, de la séquence de démarrage mesurée et des stratégies d’intégrité du code pour s’assurer qu’elles n’exécutent que du code approuvé.| 
+| **Attestation de clé hôte :** Destiné à prendre en charge le matériel hôte existant où le module de plateforme sécurisée 2,0 n’est pas disponible. Nécessite moins d’étapes de configuration et est compatible avec le matériel courant. | Les hôtes service Guardian sont approuvés sur la base de la clé. | 
 
-Un autre mode nommé **attestation approuvée par l’administrateur** est déconseillée à compter de Windows Server 2019. Ce mode était basé sur l’appartenance du service Guardian hôte dans un groupe de sécurité des Services de domaine Active Directory (AD DS) désigné. L’attestation de clé hôte fournissent l’identification de l’hôte similaire et est plus facile à configurer. 
+Un autre mode nommé **attestation approuvée** par l’administrateur est déconseillé à partir de Windows Server 2019. Ce mode était basé sur l’appartenance à un hôte service Guardian dans un groupe de sécurité Active Directory Domain Services (AD DS) désigné. L’attestation de clé hôte fournit une identification d’hôte similaire et est plus facile à configurer. 
 
 ## <a name="assurances-provided-by-the-host-guardian-service"></a>Garanties fournies par le Service Guardian hôte
 
 SGH, ainsi que les méthodes de création de machines virtuelles dotées d’une protection maximale, permettent de fournir les garanties suivantes.
 
-| **Type de garantie pour les machines virtuelles**                         | **Protégées des assurances de machine virtuelle, de Service de Protection de clé et de méthodes de création de machines virtuelles protégées** |
+| **Type d’assurance pour les machines virtuelles**                         | **Assurance des machines virtuelles protégées, du service de protection de clé et des méthodes de création pour les machines virtuelles protégées** |
 |----------------------------|--------------------------------------------------|
-| **Disques (disques de système d’exploitation et disques de données) chiffré avec BitLocker**   | Les machines virtuelles dotées d’une protection maximale utilisent BitLocker pour protéger leurs disques. Les clés BitLocker nécessaires pour démarrer la machine virtuelle et de déchiffrer les disques sont protégées par le module TPM virtuel de machine virtuelle protégée à l’aide de technologies éprouvées telles que le démarrage mesuré sécurisé. Même si les machines virtuelles dotées d’une protection maximale chiffrent et protègent automatiquement le disque du système d’exploitation uniquement, vous pouvez [chiffrer les lecteurs de données](https://technet.microsoft.com/itpro/windows/keep-secure/bitlocker-overview) attachés aux machines virtuelles dotées d’une protection maximale. |
+| **Disques chiffrés par BitLocker (disques du système d’exploitation et disques de données)**   | Les machines virtuelles dotées d’une protection maximale utilisent BitLocker pour protéger leurs disques. Les clés BitLocker nécessaires au démarrage de la machine virtuelle et au déchiffrement des disques sont protégées par le module de plateforme sécurisée virtuel de la machine virtuelle protégée à l’aide de technologies éprouvées telles que le démarrage à mesure sécurisée. Même si les machines virtuelles dotées d’une protection maximale chiffrent et protègent automatiquement le disque du système d’exploitation uniquement, vous pouvez [chiffrer les lecteurs de données](https://technet.microsoft.com/itpro/windows/keep-secure/bitlocker-overview) attachés aux machines virtuelles dotées d’une protection maximale. |
 | **Déploiement de nouvelles machines virtuelles protégées à partir de disques/images de modèle « approuvés »** | Lors du déploiement de nouvelles machines virtuelles dotées d’une protection maximale, les locataires peuvent spécifier les disques de modèle qu’ils approuvent. Les disques de modèle protégés ont des signatures qui sont calculées à un instant donné quand leur contenu est jugé digne de confiance. Les signatures de disque sont ensuite stockées dans un catalogue de signatures, que les locataires fournissent de façon sécurisée à la structure lors de la création de machines virtuelles dotées d’une protection maximale. Pendant la mise en service des machines virtuelles dotées d’une protection maximale, la signature du disque est recalculée et comparée aux signatures approuvées du catalogue. Si les signatures correspondent, la machine virtuelle dotée d’une protection maximale est déployée. Si les signatures ne correspondent pas, le disque de modèle protégé est jugé non fiable et le déploiement échoue. |
-| **Protection des mots de passe et autres secrets lors de la création d’une machine virtuelle protégée** | Lorsque vous créez des machines virtuelles, il est nécessaire pour vous assurer que les secrets de machine virtuelle, telles que les signatures de disque approuvées, les certificats RDP et le mot de passe du compte d’administrateur local de la machine virtuelle, ne sont pas révélés à l’infrastructure. Ces secrets sont stockés dans un fichier chiffré appelé « fichier de données de protection (fichier .PDK), qui est protégé par des clés de locataire et chargé sur la structure par le locataire. Quand une machine virtuelle dotée d’une protection maximale est créée, le locataire sélectionne les données de protection à utiliser qui fournissent en toute sécurité ces secrets uniquement aux composants approuvés dans la structure protégée. |
-| **Contrôle du locataire d’où la machine virtuelle peut être démarrée** | Les données de protection contiennent également une liste de structures protégées sur lesquelles une machine virtuelle dotée d’une protection maximale particulière est autorisée à s’exécuter. Cela est utile, par exemple, dans les cas où une machine virtuelle dotée d’une protection maximale réside dans un cloud privé local, mais doit éventuellement être migrée vers un autre cloud (public ou privé) pour une reprise d’activité. Le cloud ou la structure cible doit prendre en charge les machines virtuelles dotées d’une protection maximale, et celles-ci doivent permettre à cette structure de les exécuter. |
+| **Protection des mots de passe et autres secrets lors de la création d’une machine virtuelle protégée** | Lorsque vous créez des machines virtuelles, il est nécessaire de s’assurer que les secrets des machines virtuelles, tels que les signatures de disque approuvé, les certificats RDP et le mot de passe du compte d’administrateur local de la machine virtuelle, ne sont pas divulgués à l’infrastructure. Ces secrets sont stockés dans un fichier chiffré appelé « fichier de données de protection (fichier .PDK), qui est protégé par des clés de locataire et chargé sur la structure par le locataire. Quand une machine virtuelle dotée d’une protection maximale est créée, le locataire sélectionne les données de protection à utiliser qui fournissent en toute sécurité ces secrets uniquement aux composants approuvés dans la structure protégée. |
+| **Contrôle de locataire de l’emplacement où la machine virtuelle peut être démarrée** | Les données de protection contiennent également une liste de structures protégées sur lesquelles une machine virtuelle dotée d’une protection maximale particulière est autorisée à s’exécuter. Cela est utile, par exemple, dans les cas où une machine virtuelle dotée d’une protection maximale réside dans un cloud privé local, mais doit éventuellement être migrée vers un autre cloud (public ou privé) pour une reprise d’activité. Le cloud ou la structure cible doit prendre en charge les machines virtuelles dotées d’une protection maximale, et celles-ci doivent permettre à cette structure de les exécuter. |
 
 ## <a name="what-is-shielding-data-and-why-is-it-necessary"></a>Que sont les données de protection et pourquoi sont-elles nécessaires ?
 
@@ -73,7 +73,7 @@ Un fichier de données de protection contient des secrets, notamment :
 
 - Les informations d’identification de l’administrateur
 - Un fichier de réponses (unattend.xml)
-- Une stratégie de sécurité qui détermine si les machines virtuelles créées à l’aide de cette protection données sont configurées comme protégé ou chiffrement pris en charge
+- Stratégie de sécurité qui détermine si les machines virtuelles créées à l’aide de ces données de protection sont configurées comme protection ou chiffrement prises en charge
     - N’oubliez pas que les machines virtuelles configurées avec une protection maximale ne sont pas accessibles par les administrateurs de structure tandis que les machines virtuelles prises en charge par le chiffrement le sont
 - Un certificat RDP pour sécuriser les communications de bureau à distance avec la machine virtuelle
 - Un catalogue des signatures de volume qui contient une liste de signatures de disques de modèles signés et approuvés à partir desquelles une nouvelle machine virtuelle est autorisée à être créée
@@ -97,7 +97,7 @@ Les machines virtuelles prises en charge par le chiffrement sont conçues pour �
 
 Les machines virtuelles dotées d’une protection maximale sont destinées à être utilisées dans des structures où les données et l’état de la machine virtuelle doivent être protégés à la fois contre les administrateurs de structure et contre les logiciels non approuvés susceptibles de s’exécuter sur les hôtes Hyper-V. Par exemple, les machines virtuelles dotées d’une protection maximale n’autorisent jamais une connexion à la console de la machine virtuelle alors qu’un administrateur de structure peut activer ou désactiver cette protection pour les machines virtuelles prises en charge par le chiffrement.
 
-Le tableau suivant résume les différences entre les machines virtuelles protégées et de chiffrement pris en charge.
+Le tableau suivant résume les différences entre les machines virtuelles prises en charge par le chiffrement et les machines virtuelles protégées.
 
 | Fonctionnalité        | Génération 2 prise en charge par le chiffrement     | Génération 2 dotée d’une protection maximale         |
 |----------|--------------------|----------------|
@@ -105,15 +105,15 @@ Le tableau suivant résume les différences entre les machines virtuelles proté
 |Module de plateforme sécurisée virtuelle (vTPM)               | Oui, obligatoire mais configurable        | Oui, obligatoire et appliqué    |
 |Chiffrer l’état et le trafic de migration dynamique d’une machine virtuelle | Oui, obligatoire mais configurable |  Oui, obligatoire et appliqué  |
 |Composants d’intégration | Configurable par l’administrateur de structure      | Certains composants d’intégration bloqués (par exemple, l’échange de données, PowerShell Direct) |
-|Connexion à une machine virtuelle (console), périphériques HDI (par exemple, clavier, souris) | Activé. Ne peut pas être désactivé | Activé sur les ordinateurs hôtes à partir de Windows Server version 1803 ; Désactivé sur les ordinateurs hôtes antérieures |
+|Connexion à une machine virtuelle (console), périphériques HDI (par exemple, clavier, souris) | Activé. Ne peut pas être désactivé | Activé sur les ordinateurs hôtes à partir de Windows Server version 1803 ; Désactivé sur les hôtes antérieurs |
 |Ports COM/série   | Prise en charge                             | Désactivé (ne peut pas être activé) |
-|Attacher un débogueur (pour le processus de la machine virtuelle)<sup>1</sup>| Prise en charge          | Désactivé (ne peut pas être activé) |
+|Attacher un débogueur (au processus de machine virtuelle)<sup>1</sup>| Prise en charge          | Désactivé (ne peut pas être activé) |
 
-<sup>1</sup> les débogueurs traditionnels attachement directement à un processus, tels que WinDbg.exe, sont bloqués pour des machines virtuelles protégées, car le processus de travail de la machine virtuelle (VMWP.exe) est une lumière de processus protégé (PPL). Autres techniques de débogage, tels que ceux utilisés par LiveKd.exe, ne sont pas bloqués. Contrairement aux machines virtuelles protégées, le processus de travail pour les machines virtuelles de chiffrement pris en charge ne s’exécute pas comme une bibliothèque de modèles parallèles pour les débogueurs traditionnels comme WinDbg.exe continueront à fonctionner normalement. 
+<sup>1</sup> les débogueurs traditionnels qui s’attachent directement à un processus, par exemple Windbg. exe, sont bloqués pour les machines virtuelles protégées, car le processus de travail de la machine virtuelle (VMWP. exe) est un voyant de processus protégé (PPL). D’autres techniques de débogage, telles que celles utilisées par LiveKd. exe, ne sont pas bloquées. Contrairement aux machines virtuelles dotées d’une protection maximale, le processus de travail pour les machines virtuelles prises en charge par le chiffrement ne s’exécute pas en tant que PPL. ainsi, les débogueurs traditionnels comme WinDbg. exe continuent à fonctionner normalement 
 
 Les machines virtuelles dotées d’une protection maximale et les machines virtuelles prises en charge par le chiffrement continuent à prendre en charge les fonctionnalités de gestion de structure courantes, telles que la migration dynamique, le réplica Hyper-V, les points de contrôle de la machine virtuelle, etc.
 
-## <a name="the-host-guardian-service-in-action-how-a-shielded-vm-is-powered-on"></a>Le Service Guardian hôte en action : Comment une machine virtuelle protégée est sous tension
+## <a name="the-host-guardian-service-in-action-how-a-shielded-vm-is-powered-on"></a>Le service Guardian hôte en action : Mode de mise sous tension d’une machine virtuelle dotée d’une protection maximale
 
 ![Fichier de données de protection](../media/Guarded-Fabric-Shielded-VM/shielded-vms-how-a-shielded-vm-is-powered-on.png)
 
@@ -125,25 +125,25 @@ Les machines virtuelles dotées d’une protection maximale et les machines virt
 
     L’hôte Service Guardian demande une attestation. Le mode d’attestation est dicté par le Service Guardian hôte :
 
-    **Attestation approuvée par le module de plateforme sécurisée**: Hôte Hyper-V envoie des informations qui inclut :
+    **Attestation approuvée par le module de plateforme sécurisée**: L’hôte Hyper-V envoie des informations qui incluent :
 
        - Informations d’identification du module de plateforme sécurisée (TPM) (sa paire de clés de type EK (Endorsement Key))
        - Informations sur les processus qui ont été démarrés pendant la séquence de démarrage la plus récente (le journal TCG)
-       - Informations sur la stratégie d’intégrité du Code (CI) qui a été appliquée sur l’ordinateur hôte. 
+       - Informations sur la stratégie d’intégrité du code (CI) appliquée sur l’hôte. 
 
        Attestation happens when the host starts and every 8 hours thereafter. If for some reason a host doesn't have an attestation certificate when a VM tries to start, this also triggers attestation.
 
-    **Héberger l’attestation de clé**: Hôte Hyper-V envoie le grand public de la moitié de la paire de clés. SGH valide l’hôte clé est inscrite. 
+    **Attestation de clé hôte**: L’hôte Hyper-V envoie la moitié publique de la paire de clés. SGH valide la clé d’hôte est inscrite. 
     
-    **Attestation approuvée par l’administrateur**: Hôte Hyper-V envoie un ticket Kerberos, qui identifie les groupes de sécurité figurant dans l’hôte. SGH valide le fait que l’hôte appartient à un groupe de sécurité qui a été précédemment configuré par l’administrateur SGH approuvé.
+    **Attestation approuvée par l’administrateur**: L’hôte Hyper-V envoie un ticket Kerberos, qui identifie les groupes de sécurité dans lesquels se trouve l’hôte. SGH valide le fait que l’hôte appartient à un groupe de sécurité qui a été précédemment configuré par l’administrateur SGH approuvé.
 
 3. L’attestation réussit (ou échoue).
 
-    Le mode d’attestation détermine quels contrôles sont nécessaires pour correctement attester de que l’hôte est sain. Avec l’attestation approuvée par le module de plateforme sécurisée, de l’hôte module de plateforme sécurisée identité, des mesures de démarrage et stratégie d’intégrité du code sont validés. Avec l’attestation de clé hôte, uniquement l’inscription de la clé d’hôte est validée. 
+    Le mode attestation détermine les vérifications nécessaires pour attester l’intégrité de l’hôte. Avec l’attestation approuvée par le module de plateforme sécurisée (TPM), l’identité TPM, les mesures de démarrage et la stratégie d’intégrité du code de l’hôte sont validées. Avec l’attestation de clé hôte, seule l’inscription de la clé hôte est validée. 
 
 4. Le certificat d’attestation est envoyé à l’hôte.
 
-    En supposant que l’attestation a réussi, un certificat d’intégrité est envoyé à l’hôte et l’hôte est considéré comme « hôte service Guardian » (autorisé à exécuter des machines virtuelles protégées). L’hôte utilise le certificat d’intégrité pour autoriser le service de protection de clé à libérer en toute sécurité les clés nécessaires pour travailler avec des machines virtuelles dotées d’une protection maximale.
+    En supposant que l’attestation a réussi, un certificat d’intégrité est envoyé à l’hôte et l’ordinateur hôte est considéré comme « protégé » (autorisé à exécuter des machines virtuelles dotées d’une protection maximale). L’hôte utilise le certificat d’intégrité pour autoriser le service de protection de clé à libérer en toute sécurité les clés nécessaires pour travailler avec des machines virtuelles dotées d’une protection maximale.
 
 5. L’hôte demande une clé de machine virtuelle.
 
@@ -158,7 +158,7 @@ Les machines virtuelles dotées d’une protection maximale et les machines virt
 
 7. La clé est retournée à l’hôte.
 
-    Si le certificat d’intégrité est valide, KPS tente de déchiffrer la clé secrète et de retourner en toute sécurité les clés nécessaires pour mettre sous tension la machine virtuelle. Notez que les clés sont chiffrées à VBS l’hôte service Guardian.
+    Si le certificat d’intégrité est valide, KPS tente de déchiffrer la clé secrète et de retourner en toute sécurité les clés nécessaires pour mettre sous tension la machine virtuelle. Notez que les clés sont chiffrées dans le VBS de l’hôte service Guardian.
 
 8. L’hôte met VM01 sous tension.
 
@@ -167,18 +167,18 @@ Les machines virtuelles dotées d’une protection maximale et les machines virt
 | Terme              | Définition           |
 |----------|------------|
 | Service Guardian hôte (SGH) | Rôle Windows Server installé sur un cluster sécurisé de serveurs nus qui est capable de mesurer l’intégrité d’un hôte Hyper-V et de libérer des clés pour les hôtes Hyper-V intègres lors de la mise sous tension ou de la migration dynamique de machines virtuelles dotées d’une protection maximale. Ces deux fonctions sont indispensables pour une solution de machine virtuelle dotée d’une protection maximale et sont appelées **Service d’attestation** et **Service de protection de clé**, respectivement. |
-| hôte Service Guardian | Hôte Hyper-V sur lequel les machines virtuelles dotées d’une protection maximale peuvent s’exécuter. Un hôte peut uniquement être considéré comme _service Guardian_ quand il a été jugé intègre par le service d’Attestation SHG. Les machines virtuelles dotées d’une protection maximale ne peuvent pas être mises sous tension ou migrées dynamiquement vers un hôte Hyper-V qui n’est pas encore attesté ou dont l’attestation a échoué. |
+| hôte Service Guardian | Hôte Hyper-V sur lequel les machines virtuelles dotées d’une protection maximale peuvent s’exécuter. Un hôte ne peut être considéré comme _protégé_ que lorsqu’il a été considéré comme sain par le service d’attestation SGH. Les machines virtuelles dotées d’une protection maximale ne peuvent pas être mises sous tension ou migrées dynamiquement vers un hôte Hyper-V qui n’est pas encore attesté ou dont l’attestation a échoué. |
 | structure protégée    | Terme générique utilisé pour décrire une structure d’hôtes Hyper-V et leur Service Guardian hôte qui a la possibilité de gérer et d’exécuter des machines virtuelles dotées d’une protection maximale. |
 | machine virtuelle dotée d’une protection maximale | Machine virtuelle qui peut s’exécuter uniquement sur des hôtes Service Guardian et qui est protégée contre l’inspection, la falsification et le vol par des administrateurs de structure malveillants et des programmes malveillants hôtes. |
 | administrateur de structure | Administrateur de cloud public ou privé qui peut gérer des machines virtuelles. Dans le contexte d’une structure protégée, un administrateur de structure n’a pas accès aux machines virtuelles dotées d’une protection maximale ni aux stratégies qui déterminent quelles machines virtuelles dotées d’une protection maximale peuvent s’exécuter dessus. |
 | administrateur SGH | Administrateur approuvé dans le cloud public ou privé et qui a l’autorité nécessaire pour gérer les stratégies et le matériel de chiffrement pour les hôtes Service Guardian, c’est-à-dire les hôtes sur lesquels une machine virtuelle dotée d’une protection maximale peut s’exécuter.|
 | fichier de données d’approvisionnement ou fichier de données de protection (fichier PDK) | Fichier chiffré qu’un locataire ou un utilisateur crée pour contenir des informations de configuration de machine virtuelle importantes et pour protéger ces informations contre tout accès par d’autres utilisateurs. Par exemple, un fichier de données de protection peut contenir le mot de passe qui sera affecté au compte Administrateur local lors de la création de la machine virtuelle. |
-| sécurité basée sur la virtualisation (VBS) | Hyper-V en fonction de traitement et l’environnement de stockage qui est protégé contre les administrateurs. Le mode sécurisé virtuel fournit au système la possibilité de stocker les clés de système d’exploitation qui ne sont pas visibles par un administrateur de système d’exploitation.|
-| module de plateforme sécurisée (TPM) virtuel | Version virtualisée d’un module de plateforme sécurisée (TPM). À compter de Hyper-V dans Windows Server 2016, vous pouvez fournir un périphérique TPM 2.0 virtuel afin que les machines virtuelles peuvent être chiffrées, tout comme un TPM physique permet à un ordinateur physique à chiffrer.|
+| sécurité basée sur la virtualisation (VBS) | Un environnement de traitement et de stockage basé sur Hyper-V, protégé des administrateurs. Le mode sécurisé virtuel fournit au système la possibilité de stocker les clés de système d’exploitation qui ne sont pas visibles par un administrateur de système d’exploitation.|
+| module de plateforme sécurisée (TPM) virtuel | Version virtualisée d’un module de plateforme sécurisée (TPM). À compter d’Hyper-V dans Windows Server 2016, vous pouvez fournir un périphérique 2,0 TPM 2.0 virtuel pour que les machines virtuelles puissent être chiffrées, tout comme un module de plateforme sécurisée (TPM) physique permet de chiffrer un ordinateur physique.|
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Structure protégée et machines virtuelles protégées](guarded-fabric-and-shielded-vms-top-node.md)
-- Blog : [Centre de données et le Blog de sécurité de Cloud privé](https://blogs.technet.microsoft.com/datacentersecurity/)
-- Vidéo : [Présentation des Machines virtuelles protégées](https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016)
-- Vidéo : [Plongez dans les machines virtuelles protégées avec Windows Server 2016 Hyper-V](https://channel9.msdn.com/events/Ignite/2016/BRK3124)
+- [Structure protégée et machines virtuelles dotées d’une protection maximale](guarded-fabric-and-shielded-vms-top-node.md)
+- Récents [Blog sur la sécurité du centre de sécurité et du Cloud privé](https://blogs.technet.microsoft.com/datacentersecurity/)
+- Vidéo : [Présentation des machines virtuelles protégées](https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016)
+- Vidéo : [Explorez les machines virtuelles protégées avec Windows Server 2016 Hyper-V](https://channel9.msdn.com/events/Ignite/2016/BRK3124)

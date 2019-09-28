@@ -1,8 +1,8 @@
 ---
-title: sauvegarde de l’outil Auditpol
-description: Rubrique de commandes de Windows pour **auditpol sauvegarde** -sauvegarde système auditer les paramètres de stratégie, les paramètres de stratégie d’audit par utilisateur pour tous les utilisateurs et toutes les options d’audit dans un fichier texte de valeurs séparées par des virgules (CSV).
+title: sauvegarde Auditpol
+description: 'Rubrique relative aux commandes Windows pour la **sauvegarde Auditpol** : sauvegarde les paramètres de stratégie d’audit système, les paramètres de stratégie d’audit par utilisateur pour tous les utilisateurs et toutes les options d’audit dans un fichier texte de valeurs séparées par des virgules (CSV).'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7de5e6dc6d205b7e6749d38ac822e31a78788c6e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 96b98a05740d3ce1bfe14eda4c5d97ba6c09ff32
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435210"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382449"
 ---
-# <a name="auditpol-backup"></a>sauvegarde de l’outil Auditpol
+# <a name="auditpol-backup"></a>sauvegarde Auditpol
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Sauvegarde système auditer les paramètres de stratégie, les paramètres de stratégie d’audit par utilisateur pour tous les utilisateurs et toutes les options d’audit dans un fichier texte de valeurs séparées par des virgules (CSV).
+Sauvegarde les paramètres de stratégie d’audit système, les paramètres de stratégie d’audit par utilisateur pour tous les utilisateurs et toutes les options d’audit dans un fichier texte de valeurs séparées par des virgules (CSV).
 
 ## <a name="syntax"></a>Syntaxe
 ```
@@ -34,13 +34,13 @@ auditpol /backup /file:<filename>
 
 | Paramètre |                                 Description                                 |
 |-----------|-----------------------------------------------------------------------------|
-|   /file   | Spécifie le nom du fichier auquel la stratégie d’audit sera sauvegardée. |
+|   /file   | Spécifie le nom du fichier dans lequel la stratégie d’audit sera sauvegardée. |
 |    /?     |                    Affiche l'aide à l'invite de commandes.                     |
 
 ## <a name="remarks"></a>Notes
-pour les opérations de sauvegarde pour les stratégies d’utilisateur et système, vous devez avoir écrire ou jeu d’autorisations de contrôle total sur cet objet dans le descripteur de sécurité. Vous pouvez également effectuer des opérations de sauvegarde en utilisant le **gérer le journal d’audit et de sécurité** droit d’utilisateur (SeSecurityPrivilege). Toutefois, ce droit permet un accès supplémentaire qui n’est pas nécessaire d’effectuer l’opération de liste.
-## <a name="BKMK_examples"></a>Exemples
-Pour sauvegarder d’audit par utilisateur pour tous les utilisateurs, système, les paramètres de stratégie d’audit de paramètres de stratégie et d’audit de toutes les options dans un fichier texte au format CSV nommé auditpolicy.csv, type :
+pour les opérations de sauvegarde pour la stratégie système et la stratégie par utilisateur, vous devez disposer de l’autorisation d’écriture ou de contrôle total sur cet objet défini dans le descripteur de sécurité. Vous pouvez également effectuer des opérations de sauvegarde en possédant le droit **d’utilisateur gérer le journal d’audit et de sécurité** (SeSecurityPrivilege). Toutefois, ce droit autorise un accès supplémentaire qui n’est pas nécessaire pour effectuer l’opération de liste.
+## <a name="BKMK_examples"></a>Illustre
+Pour sauvegarder les paramètres de stratégie d’audit par utilisateur pour tous les utilisateurs, les paramètres de stratégie d’audit système et toutes les options d’audit dans un fichier texte au format CSV nommé Auditpolicy. csv, tapez :
 ```
 auditpol /backup /file:C:\auditpolicy.csv 
 ```
@@ -48,4 +48,4 @@ auditpol /backup /file:C:\auditpolicy.csv
 > Si aucun lecteur n’est spécifié, le répertoire actif est utilisé.
 > #### <a name="additional-references"></a>Références supplémentaires
 > [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-> [auditpol restauration](auditpol-restore.md)
+> [auditpol restore](auditpol-restore.md)

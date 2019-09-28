@@ -2,19 +2,19 @@
 title: Résolution des problèmes de espaces de stockage direct
 description: Découvrez comment résoudre les problèmes liés à votre déploiement espaces de stockage direct.
 keywords: Espaces de stockage
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: ''
 ms.technology: storage-spaces
 ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 30fdda5ada01510027100efce1e95f310f69c6a1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ace19b711445106956ae223f17afb6b4181d352d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865098"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365939"
 ---
 # <a name="troubleshoot-storage-spaces-direct"></a>Résoudre les espaces de stockage direct
 
@@ -38,10 +38,10 @@ Les nœuds d’un espaces de stockage direct système redémarrent de manière i
 
 |FriendlyName|ResiliencySettingName| OperationalStatus| HealthStatus| IsManualAttach|Size| PSComputerName|
 |------------|---------------------| -----------------| ------------| --------------|-----| --------------|
-|Disk4| Mirror| OK|  Healthy| True|  10 To|  Nœud-01. Conto...|
-|Disk3         |Mirror                 |OK                          |Healthy       |True            |10 To | Nœud-01. Conto...|
-|Disk2         |Mirror                 |Aucune redondance               |Unhealthy     |True            |10 To | Nœud-01. Conto...|
-|Disk1         |Mirror                 |{Aucune redondance, InService}  |Unhealthy     |True            |10 To | Nœud-01. Conto...| 
+|Disk4| Mirror| OK|  Healthy| True|  10 TO|  Nœud-01. Conto...|
+|Disk3         |Mirror                 |OK                          |Healthy       |True            |10 TO | Nœud-01. Conto...|
+|Disk2         |Mirror                 |Aucune redondance               |Unhealthy     |True            |10 TO | Nœud-01. Conto...|
+|Disk1         |Mirror                 |{Aucune redondance, InService}  |Unhealthy     |True            |10 TO | Nœud-01. Conto...| 
 
 En outre, après avoir essayé de mettre le disque virtuel en ligne, les informations suivantes sont consignées dans le journal du cluster (DiskRecoveryAction).  
 
@@ -101,10 +101,10 @@ Voici un exemple de sortie de l’applet de commande **VirtualDisk** .
 
 |FriendlyName|  ResiliencySettingName|  OperationalStatus|   HealthStatus|  IsManualAttach|  Size|   PSComputerName|
 |-|-|-|-|-|-|-|
-|Disk4|         Mirror|                 OK|                  Healthy|       True|            10 To|  Nœud-01. Conto...|
-|Disk3|         Mirror|                 OK|                  Healthy|       True|            10 To|  Nœud-01. Conto...|
-|Disk2|         Mirror|                 Détaché|            Inconnu|       True|            10 To|  Nœud-01. Conto...|
-|Disk1|         Mirror|                 Détaché|            Inconnu|       True|            10 To|  Nœud-01. Conto...| 
+|Disk4|         Mirror|                 OK|                  Healthy|       True|            10 TO|  Nœud-01. Conto...|
+|Disk3|         Mirror|                 OK|                  Healthy|       True|            10 TO|  Nœud-01. Conto...|
+|Disk2|         Mirror|                 Détaché|            Inconnu|       True|            10 TO|  Nœud-01. Conto...|
+|Disk1|         Mirror|                 Détaché|            Inconnu|       True|            10 TO|  Nœud-01. Conto...| 
 
 
 En outre, les événements suivants peuvent être consignés sur les nœuds :
@@ -358,25 +358,25 @@ L’étape suivante consiste à supprimer le pool de stockage fantôme :
 
 Maintenant, si vous exécutez la fonction **obtenir-PhysicalDisk** sur l’un des nœuds, vous verrez tous les disques qui se trouvaient dans le pool. Par exemple, dans un laboratoire avec un cluster à 4 nœuds avec 4 disques SAS, 100 Go chacun présenté à chaque nœud. Dans ce cas, une fois que l’espace de stockage direct est désactivé, ce qui supprime la couche de bus de stockage (SBL), mais laisse le filtre, si vous exécutez l’opération **de récupération sur disque physique**, il doit signaler 4 disques à l’exclusion du disque de système d’exploitation local. Au lieu de cela, il a indiqué 16. Cela est identique pour tous les nœuds du cluster. Lorsque vous exécutez une commande d' **extraction de disque** , les disques attachés localement sont numérotés en tant que 0, 1, 2, etc., comme illustré dans l’exemple de sortie suivant :
 
-|Number| Nom convivial| Numéro de série|HealthStatus|OperationalStatus|Taille totale| Style de partition|
+|Numéro| Nom convivial| Numéro de série|HealthStatus|OperationalStatus|Taille totale| Style de partition|
 |-|-|-|-|-|-|-|-|
-|0|Virtu msft...  ||Healthy | Online|  127 Go| GPT|
-||Virtu msft... ||Healthy| Hors ligne| 100 Go| RAW|
-||Virtu msft... ||Healthy| Hors ligne| 100 Go| RAW|
-||Virtu msft... ||Healthy| Hors ligne| 100 Go| RAW|
-||Virtu msft... ||Healthy| Hors ligne| 100 Go| RAW|
-|1|Virtu msft...||Healthy| Hors ligne| 100 Go| RAW|
-||Virtu msft... ||Healthy| Hors ligne| 100 Go| RAW|
-|2|Virtu msft...||Healthy| Hors ligne| 100 Go| RAW|
-||Virtu msft... ||Healthy| Hors ligne| 100 Go| RAW|
-||Virtu msft... ||Healthy| Hors ligne| 100 Go| RAW|
-||Virtu msft... ||Healthy| Hors ligne| 100 Go| RAW|
-||Virtu msft... ||Healthy| Hors ligne| 100 Go| RAW|
-|4|Virtu msft...||Healthy| Hors ligne| 100 Go| RAW|
-|3|Virtu msft...||Healthy| Hors ligne| 100 Go| RAW|
-||Virtu msft... ||Healthy| Hors ligne| 100 Go| RAW|
-||Virtu msft... ||Healthy| Hors ligne| 100 Go| RAW|
-||Virtu msft... ||Healthy| Hors ligne| 100 Go| RAW|
+|0|Virtu msft...  ||Healthy | La licence|  127 Go| GPT|
+||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
+||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
+||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
+||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
+|1|Virtu msft...||Healthy| Hors connexion| 100 GO| PREMIÈRE|
+||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
+|2|Virtu msft...||Healthy| Hors connexion| 100 GO| PREMIÈRE|
+||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
+||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
+||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
+||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
+|4|Virtu msft...||Healthy| Hors connexion| 100 GO| PREMIÈRE|
+|3|Virtu msft...||Healthy| Hors connexion| 100 GO| PREMIÈRE|
+||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
+||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
+||Virtu msft... ||Healthy| Hors connexion| 100 GO| PREMIÈRE|
 
 
 ## <a name="error-message-about-unsupported-media-type-when-you-create-an-storage-spaces-direct-cluster-using-enable-clusters2d"></a>Message d’erreur relatif au type de média non pris en charge lorsque vous créez un cluster espaces de stockage direct à l’aide de Enable-ClusterS2D  
@@ -400,11 +400,11 @@ Le problème est lié à la carte d’extension HPE SAS qui se trouve entre les 
 Vous pouvez voir un problème où un appareil Intel SSD DC P4600 Series semble être à l’origine de la création de plusieurs espaces de noms, tels que 0100000001000000E4D25C000014E214 ou 0100000001000000E4D25C0000EEE214 dans l’exemple ci-dessous.
 
 
-|               quei               | deviceid | Type de média | BusType |               SerialNumber               |      size      | canpool | convivial | OperationalStatus |
+|               quei               | DeviceID | Type de média | BusType |               SerialNumber               |      size      | canpool | convivial | OperationalStatus |
 |--------------------------------------|----------|-----------|---------|------------------------------------------|----------------|---------|--------------|-------------------|
 |           5000CCA251D12E30           |    0     |    HDD    |   SAS   |                 7PKR197G                 | 10000831348736 |  False  |     HGST     |  HUH721010AL4200  |
 | adresse EUI. 0100000001000000E4D25C000014E214 |    4     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  True   |    CARTES     |   SSDPE2KE016T7   |
-| adresse EUI. 0100000001000000E4D25C000014E214 |    5\.     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  True   |    CARTES     |   SSDPE2KE016T7   |
+| adresse EUI. 0100000001000000E4D25C000014E214 |    5     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  True   |    CARTES     |   SSDPE2KE016T7   |
 | adresse EUI. 0100000001000000E4D25C0000EEE214 |    6\.     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_00EE_E214. | 1600321314816  |  True   |    CARTES     |   SSDPE2KE016T7   |
 | adresse EUI. 0100000001000000E4D25C0000EEE214 |    7     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_00EE_E214. | 1600321314816  |  True   |    CARTES     |   SSDPE2KE016T7   |
 

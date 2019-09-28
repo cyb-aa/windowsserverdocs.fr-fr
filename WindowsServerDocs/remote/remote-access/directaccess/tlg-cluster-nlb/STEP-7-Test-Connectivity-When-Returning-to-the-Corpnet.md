@@ -1,9 +1,9 @@
 ---
-title: ÉTAPE 7 de tester la connectivité lors du retour au réseau d’entreprise
-description: Cette rubrique fait partie du Guide de laboratoire de Test - décrire de DirectAccess dans un Cluster avec équilibrage de charge réseau Windows pour Windows Server 2016
+title: ÉTAPE 7 tester la connectivité lors du retour au corpnet
+description: Cette rubrique fait partie du Guide de laboratoire de test-démonstration de DirectAccess dans un cluster avec Windows NLB pour Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,26 +12,26 @@ ms.topic: article
 ms.assetid: 5a7252d0-6db8-4a9d-98ee-75082ecd2929
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 477d11f0e6bf296c41fb7116a7aae43787df263c
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: fa89745d6efcae3591bba2aa5a694ee651bc9912
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283380"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404859"
 ---
-# <a name="step-7-test-connectivity-when-returning-to-the-corpnet"></a>ÉTAPE 7 de tester la connectivité lors du retour au réseau d’entreprise
+# <a name="step-7-test-connectivity-when-returning-to-the-corpnet"></a>ÉTAPE 7 tester la connectivité lors du retour au corpnet
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-La plupart de vos utilisateurs déplacera entre des emplacements distants et le réseau d’entreprise, il est donc important que lorsqu’ils retournent sur le réseau d’entreprise qu’ils sont en mesure d’accéder aux ressources sans avoir à effectuer n’importe quelle configuration change. Accès à distance rend cela possible car lorsque le client DirectAccess revienne au réseau d’entreprise, il est en mesure d’établir une connexion au serveur d’emplacement réseau. Une fois la connexion HTTPS établie correctement au serveur d’emplacement réseau, le client DirectAccess désactive la configuration du client DirectAccess et utilise une connexion directe au réseau d’entreprise.  
+La plupart de vos utilisateurs se déplacent entre les sites distants et le Corpnet. il est donc important que lorsqu’ils retournent au corpnet, ils puissent accéder aux ressources sans avoir à modifier la configuration. L’accès à distance rend cela possible, car lorsque le client DirectAccess revient au réseau d’entreprise, il est en mesure d’établir une connexion avec le serveur emplacement réseau. Une fois la connexion HTTPs établie avec succès sur le serveur emplacement réseau, le client DirectAccess désactive la configuration du client DirectAccess et utilise une connexion directe à Corpnet.  
   
 ### <a name="test-connectivity-on-client1"></a>Tester la connectivité sur CLIENT1  
   
-1. Arrêter de CLIENT1 puis débranchez CLIENT1 à partir du sous-réseau de réseau domestique ou un commutateur virtuel et connectez-le au commutateur virtuel ou sous-réseau Corpnet. Activez sur CLIENT1 et connectez-vous en tant que CORP\User1.  
+1. Arrêtez CLIENT1, puis Déconnectez CLIENT1 du sous-réseau HomeNet ou du commutateur virtuel et connectez-le au sous-réseau Corpnet ou au commutateur virtuel. Activer CLIENT1 et ouvrir une session en tant que CORP\User1.  
   
-2. Ouvrez une fenêtre Windows PowerShell avec élévation de privilèges, tapez **ipconfig/all**, puis appuyez sur ENTRÉE. La sortie indique que CLIENT1 dispose d’une adresse IP locale, et qu’aucune ou n’est active 6to4, Teredo, IP-HTTPS tunnel.  
+2. Ouvrez une fenêtre Windows PowerShell avec élévation de privilèges, tapez **ipconfig/all**et appuyez sur entrée. La sortie indiquera que CLIENT1 a une adresse IP locale et qu’il n’existe aucun tunnel 6to4, Teredo ou IP-HTTPs actif.  
   
-3. Tester la connectivité au partage réseau sur APP2. Sur le **Démarrer** , tapez<strong>\\\APP2\Files</strong>, puis appuyez sur ENTRÉE. Vous serez en mesure d’ouvrir le fichier dans ce dossier.  
+3. Testez la connectivité au partage réseau sur APP2. Dans l’écran d' **Accueil** , tapez<strong>\\ \ APP2\Files</strong>, puis appuyez sur entrée. Vous serez en mesure d’ouvrir le fichier dans ce dossier.  
   
 
 

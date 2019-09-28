@@ -1,6 +1,6 @@
 ---
 title: 'Déployer Dossiers de travail avec AD FS et le proxy d’application Web : Étape 3, Configurer Dossiers de travail'
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 manager: klaasl
@@ -8,31 +8,31 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: 5a43b104-4d02-4d73-a385-da1cfb67e341
-ms.openlocfilehash: d6b21579fb1dedc777733317e7222debd8d944a1
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: ef76b87928e696586356c499367051ff0d0e9ab4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812669"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365770"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 3, les dossiers de travail de configuration
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>Déployer des dossiers de travail avec AD FS et le proxy d’application Web : Étape 3 : configurer les dossiers de travail
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit la troisième étape de déploiement Dossiers de travail avec les services de fédération Active Directory (AD FS) et le proxy d’application Web. Vous pouvez trouver les autres étapes de ce processus dans ces rubriques :  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Vue d’ensemble](deploy-work-folders-adfs-overview.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Vue d’ensemble @ no__t-0  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 1, configurer AD FS](deploy-work-folders-adfs-step1.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 1 : configurer AD FS @ no__t-0  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 2, le travail de post-configuration AD FS](deploy-work-folders-adfs-step2.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 2, AD FS travail postérieur à la configuration @ no__t-0  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 4 : configurer le Proxy d’Application Web](deploy-work-folders-adfs-step4.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 4, configurer le proxy d’application Web @ no__t-0  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : L’étape 5, configurez les Clients](deploy-work-folders-adfs-step5.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 5, configurer les clients @ no__t-0  
   
 > [!NOTE]
->   Les instructions présentées dans cette section concernent un environnement Windows Server 2019 ou Windows Server 2016. Si vous utilisez Windows Server 2012 R2, suivez les [instructions pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Les instructions décrites dans cette section concernent un environnement Windows Server 2019 ou Windows Server 2016. Si vous utilisez Windows Server 2012 R2, suivez les [instructions pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Pour configurer Dossiers de travail, procédez comme suit.  
   
@@ -42,7 +42,7 @@ Pour pouvoir installer Dossiers de travail, vous devez disposer d’un serveur j
 Dans l’exemple de test, joignez l’ordinateur qui exécute Dossiers de travail au domaine Contoso et configurez l’interface réseau comme décrit dans les sections suivantes. 
 
 ### <a name="set-the-server-ip-address"></a>Configurer l’adresse IP du serveur  
-Changez l’adresse IP de votre serveur en adresse IP statique. Pour l’exemple de test, utilisez la classe IP A, qui est 192.168.0.170 / masque de sous-réseau : 255.255.0.0 / passerelle par défaut : 192.168.0.1 / préféré DNS : 192.168.0.150 (l’adresse IP de votre contrôleur de domaine). 
+Changez l’adresse IP de votre serveur en adresse IP statique. Pour l’exemple de test, utilisez la classe IP A, qui est 192.168.0.170/masque de sous-réseau : 255.255.0.0/passerelle par défaut : 192.168.0.1/DNS préféré : 192.168.0.150 (adresse IP de votre contrôleur de domaine). 
   
 ### <a name="create-the-cname-record-for-work-folders"></a>Créer l’enregistrement CNAME pour Dossiers de travail  
 Pour créer l’enregistrement CNAME pour Dossiers de travail, procédez comme suit :  
@@ -189,7 +189,7 @@ Pour terminer la configuration de Dossiers de travail, effectuez les étapes sup
 ### <a name="bind-the-certificate"></a>Lier le certificat  
 Dossiers de travail communique uniquement via SSL et doit posséder un certificat auto-signé lié au port, créé au préalable (ou que votre autorité de certification a émis).  
   
-Il existe deux méthodes que vous pouvez utiliser pour lier le certificat vers le port via Windows PowerShell : Applets de commande IIS et netsh.  
+Vous pouvez utiliser deux méthodes pour lier le certificat au port via Windows PowerShell : Applets de commande IIS et netsh.  
   
 #### <a name="bind-the-certificate-by-using-netsh"></a>Lier le certificat à l’aide de netsh  
 Pour utiliser l’utilitaire de script de ligne de commande netsh dans Windows PowerShell, vous devez diriger la commande vers netsh. L’exemple de script suivant recherche le certificat avec l’objet **workfolders.contoso.com** et les lie au port 443 à l’aide de netsh :  
@@ -271,9 +271,9 @@ Le certificat Dossiers de travail auto-signé doit être exporté afin que vous 
   
 -   Le client Windows qui n’est pas joint au domaine  
   
-Pour exporter le certificat, suivez les mêmes étapes que vous avez utilisé pour exporter le certificat AD FS précédemment, comme décrit dans [déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 2, AD FS post-configuration travail](deploy-work-folders-adfs-step2.md), exportez le certificat AD FS.  
+Pour exporter le certificat, suivez les mêmes étapes que celles que vous avez utilisées pour exporter le certificat AD FS précédemment, comme décrit dans @no__t de dossiers de travail 0Deploy avec AD FS et proxy d’application Web : Étape 2, AD FS travail postérieur à la configuration @ no__t-0, exportez le certificat AD FS.  
   
-Étape suivante : [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 4 : configurer le Proxy d’Application Web](deploy-work-folders-adfs-step4.md)  
+Étape suivante : [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 4, configurer le proxy d’application Web @ no__t-0  
   
 ## <a name="see-also"></a>Voir aussi  
 [Vue d’ensemble des dossiers de travail](Work-Folders-Overview.md)  

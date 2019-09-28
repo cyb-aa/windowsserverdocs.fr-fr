@@ -1,8 +1,8 @@
 ---
-title: état de gestion-bde
-description: 'Rubrique de commandes de Windows pour ***- '
+title: gérer-État BDE
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,27 +13,27 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d81808b57b1833ca30b95dc9d4b6aa0b0a4bdbaa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 235db54ef2361c0e95c66b15a15be7f188fb74d9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836560"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373857"
 ---
-# <a name="manage-bde-status"></a>gérer-bde : état
+# <a name="manage-bde-status"></a>Manage-bde : Status
 
 
 
-Fournit les informations suivantes sur tous les lecteurs sur l’ordinateur ; qu’ils soient ou non protégés par BitLocker :
+Fournit les informations suivantes sur tous les lecteurs de l’ordinateur ; qu’ils soient ou non protégés par BitLocker :
 -   Size
 -   Version de BitLocker
--   État de conversion
+-   État de la conversion
 -   Pourcentage chiffré
 -   Méthode de chiffrement
 -   État de protection
--   État du verrou
+-   État du verrouillage
 -   Champ d’identification
--   Protecteurs de clé
+-   Protecteurs de clés
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
 
@@ -47,21 +47,21 @@ manage-bde -status [<Drive>] [-protectionaserrorlevel] [-computername <Name>] [{
 
 |Paramètre|Description|
 |---------|-----------|
-|\<Drive>|Représente une lettre de lecteur suivie par un signe deux-points.|
-|-protectionaserrorlevel|L’outil de ligne de commande Manage-bde envoyer le code de retour de 0 lorsque le volume est protégé et 1 lorsque le volume est protégé ; plus couramment utilisés pour les scripts de commandes pour déterminer si un lecteur est protégé par BitLocker. Vous pouvez également utiliser **-p** comme une version abrégée de cette commande.|
-|-computername|Spécifie que gérer-bde.exe permet de modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **- cn** comme une version abrégée de cette commande.|
-|\<Name>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|
-|-? ou /?|Affiche un résumé aide à l’invite de commandes.|
-|-help ou-h|Affiche une aide complète à l’invite de commandes.|
+|@no__t 0Drive >|Représente une lettre de lecteur suivie par un signe deux-points.|
+|-protectionaserrorlevel|Force l’outil en ligne de commande Manage-bde à envoyer le code de retour 0 lorsque le volume est protégé et 1 lorsque le volume n’est pas protégé. le plus souvent utilisé pour les scripts batch pour déterminer si un lecteur est protégé par BitLocker. Vous pouvez également utiliser **-p** comme version abrégée de cette commande.|
+|-ComputerName|Spécifie que Manage-bde. exe sera utilisé pour modifier la protection BitLocker sur un autre ordinateur. Vous pouvez également utiliser **-CN** comme version abrégée de cette commande.|
+|\<Name>|Représente le nom de l’ordinateur sur lequel modifier la protection BitLocker. Les valeurs acceptées incluent le nom NetBIOS de l’ordinateur et l’adresse IP de l’ordinateur.|
+|-? ou /?|Affiche une brève aide à l’invite de commandes.|
+|-Help ou-h|Affiche l’aide complète à l’invite de commandes.|
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 
-L’exemple suivant illustre l’utilisation de la **-état** commande pour afficher l’état du lecteur C.
+L’exemple suivant illustre l’utilisation de la commande **-Status** pour afficher l’état du lecteur C.
 ```
 manage-bde –status C:
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
--   [Manage-bde](manage-bde.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Gérer-bde](manage-bde.md)

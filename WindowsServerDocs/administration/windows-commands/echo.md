@@ -1,8 +1,8 @@
 ---
 title: echo
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bfe6c936ee5606e286aab076bea08db04b8b6500
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 343d6327d262401b4be14e472a135062456890f1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811167"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377628"
 ---
 # <a name="echo"></a>echo
 
 
 
-Affiche des messages ou Active ou désactive l’écho des commandes. Si utilisée sans paramètres, **echo** affiche le paramètre actuel.
+Affiche des messages ou active ou désactive la fonctionnalité d’écho des commandes. En cas d’utilisation sans paramètre, **echo** affiche le paramètre d’écho actuel.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#examples).
 
@@ -39,57 +39,57 @@ echo [on | off]
 
 |Paramètre|Description|
 |---------|-----------|
-|[sur \| off]|Active ou désactive l’écho des commandes. Affichage des commandes est activée par défaut.|
-|\<Message>|Spécifie le texte à afficher sur l’écran.|
+|[sur \| OFF]|Active ou désactive la fonctionnalité d’écho de la commande. L’écho de la commande est activé par défaut.|
+|@no__t 0Message >|Spécifie le texte à afficher à l’écran.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
--   Le **echo** *Message* commande est particulièrement utile lorsque **echo** est désactivée. Pour afficher un message de plusieurs lignes de long sans afficher toutes les commandes, vous pouvez inclure plusieurs **echo** *Message* commandes après le **echo désactivé** commande dans votre programme de traitement par lots.
--   Lorsque **echo** est désactivée, l’invite de commandes n’apparaît pas dans la fenêtre d’invite de commandes. Pour afficher l’invite de commandes, tapez **écho.**
--   Si utilisé dans un fichier de commandes, **écho** et **echo désactivé** n’affectent pas le paramètre à l’invite de commandes.
--   Pour éviter d’afficher une commande particulière dans un fichier de commandes, insérez un signe arobase (@) devant la commande. Pour éviter l’écho de toutes les commandes dans un fichier de commandes, vous devez inclure le **echo désactivé** commande au début du fichier.
--   Pour afficher une barre verticale ( **|** ) ou le caractère de redirection ( **<** ou **>** ) lorsque vous utilisez **echo**, utilisez un accent circonflexe (^) immédiatement avant le caractère de canal ou de la redirection (par exemple, **^|** , **^>** , ou **^<** ). Pour afficher un accent circonflexe, tapez deux signes successivement ( **^^** ).
+-   La commande **echo** *message* est particulièrement utile lorsque **echo** est désactivé. Pour afficher un message de plusieurs lignes sans afficher de commandes, vous pouvez inclure plusieurs commandes de *message* d’écho après la commande **echo off** dans votre programme de traitement par lots.
+-   Quand **echo** est désactivé, l’invite de commandes n’apparaît pas dans la fenêtre d’invite de commandes. Pour afficher l’invite de commandes, tapez **echo on.**
+-   S’il est utilisé dans un fichier de commandes, **echo on** et **echo off** n’affectent pas le paramètre à l’invite de commandes.
+-   Pour empêcher l’écho d’une commande particulière dans un fichier de commandes, insérez un arobase (@) devant la commande. Pour empêcher l’écho de toutes les commandes dans un fichier de commandes, incluez la commande **echo off** au début du fichier.
+-   Pour afficher un canal ( **|** ) ou un caractère de redirection ( **<** ou **>** ) quand vous utilisez **echo**, utilisez un signe d’insertion (^) juste avant le caractère de redirection ou de redirection (par exemple, **^|** , **0** , ou **2**). Pour afficher un signe insertion, tapez deux signes de suite ( **^^** ).
 
 ## <a name="examples"></a>Exemples
 
-Pour afficher les cours **echo** paramètre, tapez :
+Pour afficher le paramètre d' **écho** actuel, tapez :
 
 ```
 echo
 ```
 
-Pour renvoyer une ligne vide dans l’écran, tapez :
+Pour renvoyer une ligne vide à l’écran, tapez :
 
 ```
 echo.
 ```
 
 > [!NOTE]
-> N’incluez pas d’espace avant la période. Sinon, la période s’affichera au lieu d’une ligne vide.
+> N’incluez pas d’espace avant le point. Dans le cas contraire, le point s’affiche à la place d’une ligne vide.
 
-Pour empêcher reproduit en écho les commandes à l’invite de commandes, tapez :
+Pour empêcher l’écho des commandes à l’invite de commandes, tapez :
 
 ```
 echo off 
 ```
 
 > [!NOTE]
-> Lorsque **echo** est désactivée, l’invite de commandes n’apparaît pas dans la fenêtre d’invite de commandes. Pour afficher à nouveau l’invite de commandes, tapez **echo sur**.
+> Quand **echo** est désactivé, l’invite de commandes n’apparaît pas dans la fenêtre d’invite de commandes. Pour afficher à nouveau l’invite de commandes, tapez **echo on**.
 
-Pour empêcher toutes les commandes dans un fichier de commandes (y compris le **echo désactivé** commande) à partir de l’affichage à l’écran, sur la première ligne du type de fichier batch :
+Pour empêcher que toutes les commandes dans un fichier de commandes (y compris la commande **echo off** ) s’affichent à l’écran, sur la première ligne du type de fichier de commandes :
 
 ```
 @echo off
 ```
 
-Vous pouvez utiliser la **echo** commande en tant que partie d’un **si** instruction. Par exemple, pour rechercher le répertoire actif pour n’importe quel fichier avec l’extension de nom de fichier .rpt et renvoyer un message si un tel fichier est trouvé, tapez :
+Vous pouvez utiliser la commande **echo** dans le cadre d’une instruction **If** . Par exemple, pour rechercher dans le répertoire actif tous les fichiers avec l’extension de nom de fichier. rpt et pour renvoyer un message si un tel fichier est trouvé, tapez :
 
 ```
 if exist *.rpt echo The report has arrived.
 ```
 
-Le fichier de commandes suivant recherche dans le répertoire actuel pour les fichiers portant l’extension de nom de fichier .txt et affiche un message indiquant les résultats de la recherche :
+Le fichier de commandes suivant recherche les fichiers avec l’extension de nom de fichier. txt dans le répertoire actif et affiche un message indiquant les résultats de la recherche :
 
 ```
 @echo off
@@ -102,13 +102,13 @@ echo This directory contains no text files.
    )
 ```
 
-Si vous ne trouve aucun fichier .txt lorsque le fichier de commandes est exécuté, le message suivant s’affiche :
+Si aucun fichier. txt n’est trouvé lors de l’exécution du fichier de commandes, le message suivant s’affiche :
 
 ```
 This directory contains no text files.
 ```
 
-Si les fichiers .txt sont trouvés, lorsque le fichier de commandes est exécuté la sortie suivante s’affiche (dans cet exemple, supposons fichiers File1.txt, File2.txt, File3.txt existe) :
+Si des fichiers. txt sont trouvés quand le fichier de commandes est exécuté, les affichages de sortie suivants (pour cet exemple, supposent que les fichiers fichier1. txt, fichier2. txt et fichier3. txt existent) :
 
 ```
 This directory contains the following text files:

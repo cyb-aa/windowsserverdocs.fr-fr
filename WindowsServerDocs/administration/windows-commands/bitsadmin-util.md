@@ -1,8 +1,8 @@
 ---
 title: bitsadmin util
-description: Rubrique de commandes de Windows pour **bitsadmin util** -liste de la **Util** commutateurs
+description: Rubrique commandes Windows pour **Bitsadmin util** -list des commutateurs **util**
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: edc8c5b2d2d42a50902603c56ef7326133bb22f6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a192df3254ac28cbbd9c8186e321b77e087e63e8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867010"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380174"
 ---
 # <a name="bitsadmin-util"></a>bitsadmin util
 
-> S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -38,12 +38,12 @@ bitsadmin /Util /version
 
 |Paramètre|Description|
 |-------|--------|
-|[aide et bitsadmin util](bitsadmin-util-and-help.md)|Affiche l’utilisation de ligne de commande pour les commutateurs /Util. Vous pouvez également spécifier / ?. **BITSAdmin 1.5 et versions antérieur**: Non pris en charge.|
-|[GETIEPROXY et bitsadmin util](bitsadmin-util-and-getieproxy.md)|Récupère l’utilisation du proxy pour le compte de service donné.|
-|[REPAIRSERVICE et bitsadmin util](bitsadmin-util-and-repairservice.md)|réparations des problèmes connus avec le service BITS|
-|[SETIEPROXY et bitsadmin util](bitsadmin-util-and-setieproxy.md)|Spécifie les paramètres de proxy à utiliser lors du transfert de fichiers à l’aide d’un compte de service.|
-|[version et bitsadmin util](bitsadmin-util-and-version.md)|Affiche la version du service BITS|
+|[bitsadmin util and help](bitsadmin-util-and-help.md)|Affiche l’utilisation de la ligne de commande pour les commutateurs/util. Vous pouvez également spécifier/ ?. **BITSAdmin 1,5 et versions antérieures**: Non pris en charge.|
+|[bitsadmin util and getieproxy](bitsadmin-util-and-getieproxy.md)|Récupère l’utilisation du proxy pour le compte de service donné.|
+|[bitsadmin util and repairservice](bitsadmin-util-and-repairservice.md)|répare les problèmes connus liés au service BITS|
+|[bitsadmin util and setieproxy](bitsadmin-util-and-setieproxy.md)|Spécifie les paramètres de proxy à utiliser lors du transfert de fichiers à l’aide d’un compte de service.|
+|[bitsadmin util and version](bitsadmin-util-and-version.md)|Affiche la version du service BITS|
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

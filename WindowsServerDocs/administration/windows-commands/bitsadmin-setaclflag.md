@@ -1,8 +1,8 @@
 ---
 title: bitsadmin setaclflag
-description: Rubrique de commandes de Windows pour **bitsadmin setaclflag** -définit des indicateurs de propagations de liste de contrôle d’accès.
+description: La rubrique commandes Windows pour **Bitsadmin setaclflag** -définit les indicateurs de propagation de la liste de contrôle d’accès.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 89d825a4bc4512022fed98a3188537d3977fa3c3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fbdb12c29af7b4db8b25846d43ee1c93b2454ff2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867400"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380759"
 ---
 # <a name="bitsadmin-setaclflag"></a>bitsadmin setaclflag
 
-Définit des indicateurs de propagations de liste (ACL) pour le travail le contrôle d’accès. Les indicateurs indiquent que vous souhaitez conserver le propriétaire et les informations ACL avec le fichier en cours de téléchargement. Par exemple, pour conserver le propriétaire et le groupe avec le fichier, définissez **indicateurs** à `OG`.
+Définit les indicateurs de propagation de la liste de contrôle d’accès (ACL) pour le travail. Les indicateurs indiquent que vous souhaitez conserver les informations relatives au propriétaire et à la liste de contrôle d’accès avec le fichier en cours de téléchargement. Par exemple, pour conserver le propriétaire et le groupe avec le fichier, définissez les **indicateurs** Pour `OG`.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,20 +34,20 @@ bitsadmin /SetAclFlags <Job> <Flags>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
-|Flags|Spécifiez une ou plusieurs des valeurs d’indicateur suivantes :</br>-O: Copier les informations relatives au propriétaire avec le fichier.</br>-G : Copier les informations de groupe avec le fichier.</br>-D: Copier les informations de la DACL par fichier.</br>-S : copie SACL informations avec le fichier.|
+|Tâche|Nom complet ou GUID du travail|
+|Flags|Spécifiez une ou plusieurs des valeurs d’indicateur suivantes :</br>SORTIES Copiez les informations de propriétaire avec le fichier.</br>ACTIVÉE Copier les informations de groupe avec le fichier.</br>E Copiez les informations DACL avec le fichier.</br>-S : copie des informations SACL avec le fichier.|
 
 ## <a name="remarks"></a>Notes
 
-Le commutateur SetAclFlags est utilisé pour gérer les informations de liste de contrôle propriétaire et l’accès quand une tâche télécharge des données à partir d’un partage Windows (SMB).
+Le commutateur SetAclFlags est utilisé pour gérer les informations de propriétaire et de liste de contrôle d’accès lorsqu’un travail télécharge des données à partir d’un partage Windows (SMB).
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivant définit le contrôle d’accès d’indicateurs de propagation de liste pour le travail nommé *myDownloadJob* pour conserver les informations de propriétaire et le groupe avec les fichiers téléchargés.
+L’exemple suivant définit les indicateurs de propagation de la liste de contrôle d’accès pour le travail nommé *myDownloadJob* afin de conserver les informations de propriétaire et de groupe avec les fichiers téléchargés.
 ```
 C:\>bitsadmin /setaclflags myDownloadJob OG
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

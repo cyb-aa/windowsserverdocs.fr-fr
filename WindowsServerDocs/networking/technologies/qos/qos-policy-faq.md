@@ -1,44 +1,44 @@
 ---
-title: Forum aux Questions de qualité de service
-description: Cette rubrique fournit des réponses aux questions sur les stratégies de qualité de Service (QoS) dans Windows Server 2016.
-ms.prod: windows-server-threshold
+title: Forum aux questions QoS
+description: Cette rubrique fournit des réponses aux questions sur la stratégie de qualité de service (QoS) dans Windows Server 2016.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 74c97a14-b957-4568-b48e-8963a674fdb3
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: f9fb54cc3bda9a259188ae02fb2ef2836dd8718d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1bde6c859284fbd1756517d7b08ec96816bb2bb5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833750"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395958"
 ---
-# <a name="qos-policy-frequently-asked-questions"></a>Questions fréquentes de stratégie de QoS
+# <a name="qos-policy-frequently-asked-questions"></a>Forum aux questions sur la stratégie QoS
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Éléments suivants sont Forum aux questions – et des réponses à ces questions : pour la stratégie QoS.
+Voici les questions fréquemment posées et les réponses à ces questions – pour la stratégie QoS.
   
-1.  **Quel système d’exploitation mon contrôleur de domaine doit-elle exécuter pour utiliser la stratégie de qualité de service ?**
+1.  **Quel système d’exploitation mon contrôleur de domaine doit-il exécuter pour utiliser la stratégie QoS ?**
   
      Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008
 
-2.  **Quels systèmes d’exploitation prennent en charge l’application de la stratégie de QoS à l’utilisateur ou d’un ordinateur ?**
+2.  **Quels systèmes d’exploitation prennent en charge l’application de la stratégie QoS à l’utilisateur ou à l’ordinateur ?**
 
-     Vous pouvez appliquer des stratégies de QoS aux utilisateurs ou ordinateurs qui exécutent Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 et Windows Vista.
+     Vous pouvez appliquer des stratégies de QoS aux utilisateurs ou ordinateurs exécutant Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 et Windows Vista.
 
-3.  **Stratégies de QoS s’appliquent à l’expéditeur ou récepteur de trafic ?**
+3.  **Les stratégies de qualité de service s’appliquent-elles à l’expéditeur ou au récepteur du trafic ?**
 
-     Stratégies de QoS doivent être appliquées sur l’ordinateur émetteur à affecter son trafic sortant. Pour affecter le trafic bidirectionnel de deux ordinateurs, les stratégies de QoS doivent être appliquées aux deux ordinateurs.
+     Les stratégies de qualité de service doivent être appliquées sur l’ordinateur expéditeur pour affecter le trafic sortant. Pour affecter le trafic bidirectionnel de deux ordinateurs, les stratégies de qualité de service doivent être appliquées aux deux ordinateurs.
 
-4.  **Que se passe-t-il si les stratégies de qualité de service en conflit sont déployés sur le même ordinateur ?**  
+4.  **Que se passe-t-il si des stratégies de QoS conflictuelles sont déployées sur le même ordinateur ?**  
   
-     Si plusieurs stratégies s’appliquent, la stratégie de QoS plus spécifique est prioritaire. Par exemple, une stratégie indiquant une adresse d’hôte (192.168.4.12) est appliquée au lieu d’une adresse réseau moins spécifique (192.168.0.0/16). Si une stratégie au niveau de l’ordinateur et au niveau de l’utilisateur ont la spécificité de même, la stratégie de QoS au niveau de l’utilisateur est appliquée au lieu de la stratégie de QoS au niveau de l’ordinateur. 
+     Si plusieurs stratégies s’appliquent, la stratégie QoS la plus spécifique est prioritaire. Par exemple, une stratégie qui indique qu’une adresse d’hôte (192.168.4.12) est appliquée à la place d’une adresse réseau moins spécifique (192.168.0.0/16). Si une stratégie au niveau de l’ordinateur et de l’utilisateur a la même spécificité, la stratégie QoS au niveau de l’utilisateur est appliquée à la place de la stratégie QoS au niveau de l’ordinateur. 
 
-5.  **Stratégie de QoS est activée par défaut ?**
+5.  **La stratégie QoS est-elle activée par défaut ?**
 
-     Non, stratégie de QoS n’est pas activée par défaut. Vous devez créer des stratégies de QoS manuellement pour activer la qualité de service.  Pour plus d’informations, consultez [gérer la stratégie de QoS](qos-policy-manage.md).
+     Non, la stratégie QoS n’est pas activée par défaut. Vous devez créer des stratégies de QoS manuellement pour activer la qualité de service.  Pour plus d’informations, consultez [gérer la stratégie QoS](qos-policy-manage.md).
 
-Pour la première rubrique de ce guide, consultez [stratégie de qualité de Service (QoS)](qos-policy-top.md).
+Pour obtenir la première rubrique de ce guide, consultez [stratégie de qualité de service (QoS)](qos-policy-top.md).

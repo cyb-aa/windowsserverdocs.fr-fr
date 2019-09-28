@@ -1,8 +1,8 @@
 ---
-title: À l’aide de la commande de copie-DriverGroup
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Utilisation de la commande Copy-DriverGroup
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 68d9c6f4ca78991bb4c286042a6172211161dd1e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c08ce616c9b0e2bf79c7f13f922e27d7f7f7ca62
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842080"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363592"
 ---
-# <a name="using-the-copy-drivergroup-command"></a>À l’aide de la commande de copie-DriverGroup
+# <a name="using-the-copy-drivergroup-command"></a>Utilisation de la commande Copy-DriverGroup
 
 
 
@@ -36,13 +36,13 @@ WDSUTIL /Copy-DriverGroup [/Server:<Server name>] /DriverGroup:<Source Group Nam
 
 |Paramètre|Description|
 |---------|-----------|
-|[/ Server :\<nom du serveur >]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom de domaine complet. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
-|/ DriverGroup :\<Source nom_groupe >|Spécifie le nom du groupe pilote source.|
-|/ GroupName :\<nom du nouveau groupe >|Spécifie le nom du nouveau groupe pilote.|
+|[/Server : @no__t-nom 0Server >]|Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
+|/DriverGroup : \<Source nom du groupe >|Spécifie le nom du groupe de pilotes source.|
+|/GroupName : \<New nom du groupe >|Spécifie le nom du nouveau groupe de pilotes.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour copier un groupe de pilotes, tapez une des opérations suivantes :
+Pour copier un groupe de pilotes, tapez l’un des éléments suivants :
 ```
 WDSUTIL /Copy-DriverGroup /Server:MyWdsServer /DriverGroup:PrinterDrivers /GroupName:X86PrinterDrivers
 ```
@@ -52,4 +52,4 @@ WDSUTIL /Copy-DriverGroup /DriverGroup:PrinterDrivers /GroupName:ColorPrinterDri
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

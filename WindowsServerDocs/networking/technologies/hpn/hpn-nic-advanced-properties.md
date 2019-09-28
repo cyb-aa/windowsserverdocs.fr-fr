@@ -1,7 +1,7 @@
 ---
 title: Propriétés avancées de carte réseau
-description: Vous pouvez gérer des cartes réseau et toutes les fonctionnalités par le biais de Windows PowerShell ou le panneau de configuration réseau.
-ms.prod: windows-server-threshold
+description: Vous pouvez gérer des cartes réseau et toutes les fonctionnalités via Windows PowerShell ou le panneau de configuration réseau.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 0cafb1cc-5798-42f5-89b6-3ffe7ac024ba
@@ -9,37 +9,37 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/20/2018
-ms.openlocfilehash: d1a5fb57bf71fd981e001cfd9ac595ab5bc3cfc5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 1395cefca5d9ef696eed3f2735334954b9ee02a5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819900"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405716"
 ---
 # <a name="nic-advanced-properties"></a>Propriétés avancées de carte réseau
 
-Vous pouvez gérer des cartes réseau et toutes les fonctionnalités par le biais de Windows PowerShell à l’aide du [NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/?view=win10-ps&viewFallbackFrom=winserverr2-ps) applet de commande.  Vous pouvez également gérer des cartes réseau et toutes les fonctionnalités à l’aide du Panneau de configuration réseau (ncpa.cpl). 
+Vous pouvez gérer les cartes réseau et toutes les fonctionnalités via Windows PowerShell à l’aide de l’applet de commande [NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/?view=win10-ps&viewFallbackFrom=winserverr2-ps) .  Vous pouvez également gérer des cartes réseau et toutes les fonctionnalités à l’aide du panneau de configuration réseau (ncpa. cpl). 
 
-1. Dans **Windows PowerShell**, exécutez le `Get‑NetAdapterAdvancedProperties` applet de commande par rapport à deux différents marque/modèle de cartes réseau.
+1. Dans **Windows PowerShell**, exécutez l’applet de commande `Get‑NetAdapterAdvancedProperties` sur deux marque/modèle de cartes réseau différentes.
 
-   ![Get-NetAdapterAdvancedProperty m1](../../media/network-offload-and-optimization/Get-NetAdapterAdvancedProperty-m1.png)
+   ![Acquérir-NetAdapterAdvancedProperty M1](../../media/network-offload-and-optimization/Get-NetAdapterAdvancedProperty-m1.png)
 
-   ![Get-NetAdapterAdvancedProperty c1](../../media/network-offload-and-optimization/Get-NetAdapterAdvancedProperty-c1.png)
+   ![NetAdapterAdvancedProperty C1](../../media/network-offload-and-optimization/Get-NetAdapterAdvancedProperty-c1.png)
 
-   Il existe des similitudes et différences entre ces deux cartes réseau avancées Propriétés répertorie.
+   Ces deux listes de propriétés avancées de carte réseau présentent des similarités et des différences.
 
-2. Dans le **le panneau de configuration réseau** (ncpa.cpl), procédez comme suit :
+2. Dans le **panneau de configuration réseau** (ncpa. cpl), procédez comme suit :
 
-   a. et avec le bouton droit de la carte réseau.
+   a. Cliquez avec le bouton droit sur la carte réseau.
 
    ![Boîte de dialogue Connexions réseau](../../media/network-offload-and-optimization/network-connections-dialog.png)
 
    b. Dans la boîte de dialogue Propriétés, cliquez sur **configurer**.
 
-    ![Propriétés de C1](../../media/network-offload-and-optimization/c1-properties.png)
+    ![Propriétés C1](../../media/network-offload-and-optimization/c1-properties.png)
 
-   c. Cliquez sur le **avancé** onglet pour afficher les propriétés avancées.<p>Les éléments dans cette liste est en corrélation avec les éléments dans le `Get-NetAdapterAdvancedProperties` sortie.
+   c. Cliquez sur l’onglet **avancé** pour afficher les propriétés avancées.<p>Les éléments de cette liste sont mis en corrélation avec les éléments de la sortie `Get-NetAdapterAdvancedProperties`.
 
-   ![Propriétés de la carte réseau de Chelsio](../../media/network-offload-and-optimization/chelsio-network-adapter-properties.png)
+   ![Propriétés de la carte réseau Chelsio](../../media/network-offload-and-optimization/chelsio-network-adapter-properties.png)
 
 ---

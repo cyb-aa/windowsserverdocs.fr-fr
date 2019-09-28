@@ -2,7 +2,7 @@
 title: Référentiel de logiciels Linux pour les produits Microsoft
 description: Ce document explique comment utiliser et installer des packages logiciels Linux pour les produits Microsoft.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: szark
 ms.technology: compute
@@ -11,12 +11,12 @@ ms.assetid: b5387444-595f-4f38-abb7-163a70ea1895
 author: szarkos
 ms.author: szark
 ms.date: 10/16/2017
-ms.openlocfilehash: bade9fff306272188ac8d2b91a3d9921c80fe036
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0627c38f15966948dd4bea91b66a96ee59ec89e5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866890"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370455"
 ---
 # <a name="linux-software-repository-for-microsoft-products"></a>Référentiel de logiciels Linux pour les produits Microsoft
 
@@ -30,7 +30,7 @@ Le référentiel de logiciels Linux de Microsoft est constitué de plusieurs sou
  - MSSQL-Server : ces référentiels contiennent des packages pour Microsoft SQL Server sur Linux-voir aussi : [SQL Server sur Linux](https://www.microsoft.com/en-us/sql-server/sql-server-vnext-including-Linux).
 
 > [!Note]
-> Les packages dans les référentiels de logiciels Linux sont soumis aux termes du contrat de licence figurant dans les packages. Lisez les termes du contrat de licence avant d’utiliser le package. Le fait d’installer et d’utiliser le package implique l’acceptation de ces termes. Si vous n’acceptez pas les termes du contrat de licence, n’utilisez pas le package.
+> Les packages dans les référentiels de logiciels Linux sont soumis aux termes du contrat de licence figurant dans les packages. Veuillez lire les termes du contrat de licence avant d’utiliser le package. L’installation et l’utilisation du package constituent votre acceptation de ces termes. Si vous n’acceptez pas les termes du contrat de licence, n’utilisez pas le package.
 
 
 ## <a name="configuring-the-repositories"></a>Configuration des référentiels

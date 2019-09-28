@@ -7,22 +7,22 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/07/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: f8ccaaa8e256e5801e9e638f55a5d6cf20463e03
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b42b1bafdf1d579c916d001becf69591368a0f91
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885290"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71368916"
 ---
 # <a name="ad-ds-operations"></a>Opérations des services AD DS
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Cette section fournit des liens aux procédures et fonctions liées à l’automatisation, gestion et administration quotidienne des tâches pour les Services de domaine Active Directory.
+Cette section fournit des liens vers les fonctions et les fonctions liées à l’administration quotidienne, aux tâches de gestion et d’automatisation pour Active Directory Domain Services.
   
 * [Meilleures pratiques pour la sécurisation d’Active Directory](../../../ad-ds/plan/security-best-practices/Best-Practices-for-Securing-Active-Directory.md)  
-* [Réplication Active Directory et gestion de la topologie à l’aide de Windows PowerShell](../../../ad-ds/manage/powershell/Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell.md)  
-* [La gestion de l’émission RID](../../../ad-ds/manage/Managing-RID-Issuance.md)  
-* [Mises à jour de composant de Services de domaine Active Directory](../../../ad-ds/manage/component-updates/Active-Directory-Domain-Services-Component-Updates.md)
+* [Active Directory la gestion de la topologie et de la réplication à l’aide de Windows PowerShell](../../../ad-ds/manage/powershell/Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell.md)  
+* [Gestion de l’émission RID](../../../ad-ds/manage/Managing-RID-Issuance.md)  
+* [Mises à jour des composants Active Directory Domain Services](../../../ad-ds/manage/component-updates/Active-Directory-Domain-Services-Component-Updates.md)

@@ -1,6 +1,6 @@
 ---
 title: 'Déployer Dossiers de travail avec AD FS et le proxy d’application Web : Étape 2, Tâches post-configuration AD FS'
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 manager: klaasl
@@ -8,31 +8,31 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 06/06/2019
 ms.assetid: 0a48852e-48cc-4047-ae58-99f11c273942
-ms.openlocfilehash: 5497651f57a0276daced614687e89f8047af9116
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 6364c3f8dc35fbafa518a106780ae6b767d4d40c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812676"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365782"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-2-ad-fs-post-configuration-work"></a>Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 2, le travail de post-configuration AD FS
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-2-ad-fs-post-configuration-work"></a>Déployer des dossiers de travail avec AD FS et le proxy d’application Web : Étape 2, AD FS travail après configuration
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit la deuxième étape de déploiement de Dossiers de travail avec les services de fédération Active Directory (AD FS) et le proxy d’application Web. Vous pouvez trouver les autres étapes de ce processus dans ces rubriques :  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Vue d’ensemble](deploy-work-folders-adfs-overview.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Vue d’ensemble @ no__t-0  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 1, configurer AD FS](deploy-work-folders-adfs-step1.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 1 : configurer AD FS @ no__t-0  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 3, configurer des dossiers de travail](deploy-work-folders-adfs-step3.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 3 : configurer les dossiers de travail @ no__t-0  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 4 : configurer le Proxy d’Application Web](deploy-work-folders-adfs-step4.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 4, configurer le proxy d’application Web @ no__t-0  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : L’étape 5, configurez les Clients](deploy-work-folders-adfs-step5.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 5, configurer les clients @ no__t-0  
   
 > [!NOTE]
-> Les instructions présentées dans cette section concernent un environnement Windows Server 2019 ou Windows Server 2016. Si vous utilisez Windows Server 2012 R2, suivez les [instructions pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+> Les instructions décrites dans cette section concernent un environnement Windows Server 2019 ou Windows Server 2016. Si vous utilisez Windows Server 2012 R2, suivez les [instructions pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 À l’étape 1, vous avez installé et configuré les services AD FS. Vous devez maintenant effectuer les étapes de post-configuration suivantes pour AD FS.  
   
@@ -104,7 +104,7 @@ Pour configurer l’approbation de partie de confiance :
   
 7.  Dans la page **Configurer l’URL**, cliquez sur **Suivant**.  
   
-8. Sur le **configurer les identificateurs** page, ajoutez l’identificateur suivant : `https://windows-server-work-folders/V1`. Cet identificateur est une valeur codée en dur utilisée par Dossiers de travail, et il est envoyé par le service Dossiers de travail lorsqu’il communique avec AD FS. Cliquez sur **Suivant**.  
+8. Dans la page **configurer les identificateurs** , ajoutez l’identificateur suivant : `https://windows-server-work-folders/V1`. Cet identificateur est une valeur codée en dur utilisée par Dossiers de travail, et il est envoyé par le service Dossiers de travail lorsqu’il communique avec AD FS. Cliquez sur **Suivant**.  
   
 9. Dans la page Sélectionner une stratégie de contrôle d’accès, sélectionnez **Autoriser tout le monde**, puis cliquez sur **Suivant**.  
   
@@ -124,13 +124,13 @@ Pour configurer l’approbation de partie de confiance :
   
 17. Dans la table de mappage, entrez ces valeurs :  
   
-    -   Principal-nom d’utilisateur : UPN  
+    -   Nom d’utilisateur principal : UPN  
   
     -   Nom complet : Nom  
   
-    -   Nom de famille : Nom  
+    -   Famille Nom  
   
-    -   Given Name : Prénom  
+    -   Nom donné : Prénom  
   
 18. Cliquez sur **Terminer**. La règle WorkFolders sera répertoriée sous l’onglet Règles de transformation d’émission. Cliquez ensuite sur **OK**.  
   
@@ -242,15 +242,15 @@ Vous devez accorder au compte de service AD FS l’autorisation d’accéder à
   
 13. Dans la fenêtre **Autorisations**, accordez au moins les autorisations de lecture au compte, puis cliquez sur **OK**.  
   
-Si vous n’avez pas l’option pour gérer les clés privées, vous devrez peut-être exécuter la commande suivante : `certutil -repairstore my *`  
+Si vous n’avez pas la possibilité de gérer les clés privées, vous devrez peut-être exécuter la commande suivante : `certutil -repairstore my *`  
   
 ## <a name="verify-that-ad-fs-is-operational"></a>Vérifiez que les services AD FS sont opérationnels
 
-Pour vérifier que les services AD FS est opérationnel, ouvrez une fenêtre de navigateur et accédez à `https://blueadfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`, modification de l’URL pour correspondre à votre environnement.
+Pour vérifier que AD FS est opérationnel, ouvrez une fenêtre de navigateur et accédez à `https://blueadfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`, en modifiant l’URL en fonction de votre environnement.
   
 La fenêtre du navigateur affiche les métadonnées du serveur de fédération sans mise en forme. Si les données s’affichent sans avertissements ou erreurs SSL, votre serveur de fédération est opérationnel.  
   
-Étape suivante : [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 3, configurer des dossiers de travail](deploy-work-folders-adfs-step3.md)  
+Étape suivante : [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 3 : configurer les dossiers de travail @ no__t-0  
   
 ## <a name="see-also"></a>Voir aussi  
 [Vue d’ensemble des dossiers de travail](Work-Folders-Overview.md)

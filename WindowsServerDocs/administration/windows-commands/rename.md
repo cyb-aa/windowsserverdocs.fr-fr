@@ -1,8 +1,8 @@
 ---
 title: rename
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 15c6d68e0e1d484274275af5498119a113bcd65f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c49375284376fdeaa09096e04c74c34089fb2a80
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827190"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371564"
 ---
 # <a name="rename"></a>rename
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Ceci est le même que le **ren** commande.
-Consultez [ren](ren.md) pour la syntaxe et les paramètres.
+Il s’agit de la même chose que la commande **ren** .
+Consultez [ren](ren.md) pour connaître la syntaxe et les paramètres.
 ## <a name="additional-references"></a>Références supplémentaires
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 

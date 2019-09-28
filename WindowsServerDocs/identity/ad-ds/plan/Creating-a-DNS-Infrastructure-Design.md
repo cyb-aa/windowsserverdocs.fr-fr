@@ -7,36 +7,36 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/08/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 080c36f8410be4d6b1933c74730e2b55ce8d0a0b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b4b7cea18a6bb6b435b3c3fb6b4e94cfdddb2c04
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856130"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408977"
 ---
 # <a name="creating-a-dns-infrastructure-design"></a>Création d’une conception d’infrastructure DNS
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Après avoir créé vos conceptions de forêt et le domaine Active Directory, vous devez concevoir une infrastructure de système DNS (Domain Name) pour prendre en charge de la structure logique d’Active Directory. DNS permet aux utilisateurs d’utiliser des noms conviviaux qui sont faciles à mémoriser pour se connecter aux ordinateurs et autres ressources sur les réseaux IP. Services de domaine Active Directory (AD DS) dans Windows Server 2008 nécessite DNS.  
+Une fois que vous avez créé votre Active Directory conception de forêt et de domaine, vous devez concevoir une infrastructure DNS (Domain Name System) pour prendre en charge votre structure logique de Active Directory. DNS permet aux utilisateurs d’utiliser des noms conviviaux faciles à mémoriser pour se connecter aux ordinateurs et autres ressources sur les réseaux IP. Active Directory Domain Services (AD DS) dans Windows Server 2008 requiert DNS.  
   
-Le processus de conception de DNS pour prendre en charge les services AD DS varie selon que votre organisation possède déjà un service de serveur DNS existant ou que vous déployez un nouveau service de serveur DNS :  
+Le processus de conception du DNS pour prendre en charge les AD DS varie selon que votre organisation dispose déjà d’un service serveur DNS existant ou que vous déployez un nouveau service serveur DNS :  
   
-- Si vous avez déjà une infrastructure DNS existante, vous devez intégrer l’espace de noms Active Directory dans cet environnement. Pour plus d’informations, consultez [l’intégration AD DS dans une Infrastructure DNS existante](../../ad-ds/plan/Integrating-AD-DS-into-an-Existing-DNS-Infrastructure.md).  
-- Si vous n’avez pas d’une infrastructure DNS en place, vous devez concevoir et déployer une nouvelle infrastructure DNS pour prendre en charge les services AD DS. Pour plus d’informations, consultez [déploiement de système DNS (Domain Name)](https://go.microsoft.com/fwlink/?LinkId=93656).  
+- Si vous disposez déjà d’une infrastructure DNS existante, vous devez intégrer l’espace de noms Active Directory dans cet environnement. Pour plus d’informations, consultez [intégration de AD DS dans une infrastructure DNS existante](../../ad-ds/plan/Integrating-AD-DS-into-an-Existing-DNS-Infrastructure.md).  
+- Si vous n’avez pas d’infrastructure DNS en place, vous devez concevoir et déployer une nouvelle infrastructure DNS pour prendre en charge les AD DS. Pour plus d’informations, consultez [déploiement du système DNS (Domain Name System)](https://go.microsoft.com/fwlink/?LinkId=93656).  
   
-Si votre organisation possède une infrastructure DNS existante, il se peut que vous devez vous assurer que vous comprenez comment votre infrastructure DNS vont interagir avec l’espace de noms Active Directory. Pour une feuille de calcul pour vous aider à documenter votre conception d’infrastructure DNS existante, téléchargez Job_Aids_Designing_and_Deploying_Directory_and_Security_Services.zip à partir de [travail aides pour Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558) et Ouvrez « Inventaire DNS » (DSSLOGI_8.doc).  
+Si votre organisation dispose d’une infrastructure DNS existante, vous devez vous assurer que vous comprenez comment votre infrastructure DNS interagit avec l’espace de noms Active Directory. Pour obtenir une feuille de calcul qui vous aide à documenter votre conception d’infrastructure DNS existante, téléchargez Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip à partir des [Outils d’aide pour le kit de déploiement de Windows Server 2003](https://go.microsoft.com/fwlink/?LinkID=102558) et ouvrez « inventaire DNS » ( DSSLOGI_8. doc).  
   
 > [!NOTE]  
-> En plus du protocole IP version 4 (IPv4) des adresses, corrige également prend en charge IP version 6 (IPv6) de Windows Server. Pour une feuille de calcul pour vous aider à la liste des adresses IPv6 lors de la documentation de la méthode de résolution de noms récursive de la structure actuelle de votre DNS, consultez [annexe a : Inventaire DNS](../../ad-ds/plan/Appendix-A--DNS-Inventory.md).
+> Outre les adresses IP version 4 (IPv4), Windows Server prend également en charge les adresses IP version 6 (IPv6). Pour obtenir une feuille de calcul qui vous aidera à répertorier les adresses IPv6 tout en documentant la méthode de résolution de noms récursive de votre structure DNS actuelle, consultez [Appendix A : Inventaire DNS @ no__t-0.
   
-Avant de concevoir votre infrastructure DNS pour prendre en charge les services AD DS, il peut être utile d’en savoir plus sur la hiérarchie DNS, le processus de résolution de nom DNS, et comment DNS prend en charge les services AD DS. Pour plus d’informations sur le processus de résolution de hiérarchie et le nom DNS, consultez la référence technique DNS ([https://go.microsoft.com/fwlink/?LinkID=48145](https://go.microsoft.com/fwlink/?LinkID=48145)). Pour plus d’informations sur la manière dont DNS prend en charge les services AD DS, consultez la prise en charge de DNS pour les informations de référence technique Active Directory ([https://go.microsoft.com/fwlink/?LinkID=48147](https://go.microsoft.com/fwlink/?LinkID=48147)).  
+Avant de concevoir votre infrastructure DNS pour prendre en charge AD DS, il peut être utile de lire la hiérarchie DNS, le processus de résolution de noms DNS et la façon dont DNS prend en charge les AD DS. Pour plus d’informations sur la hiérarchie DNS et le processus de résolution de noms, consultez la référence technique DNS ([https://go.microsoft.com/fwlink/?LinkID=48145](https://go.microsoft.com/fwlink/?LinkID=48145)). Pour plus d’informations sur la façon dont DNS prend en charge AD DS, consultez la page Active Directory de référence technique sur la prise en charge de DNS ([https://go.microsoft.com/fwlink/?LinkID=48147](https://go.microsoft.com/fwlink/?LinkID=48147)).  
   
 ## <a name="in-this-section"></a>Dans cette section  
 
-- [Examen des Concepts DNS](../../ad-ds/plan/Reviewing-DNS-Concepts.md)  
-- [DNS et AD DS](../../ad-ds/plan/DNS-and-AD-DS.md)  
-- [Affectez le DNS pour le rôle de propriétaire du service d’annuaire AD](../../ad-ds/deploy/Assigning-the-DNS-for-AD-DS-Owner-Role.md)  
-- [L’intégration des services AD DS dans une Infrastructure DNS existante](../../ad-ds/plan/../../ad-ds/plan/Integrating-AD-DS-into-an-Existing-DNS-Infrastructure.md)  
+- [Examen des concepts DNS](../../ad-ds/plan/Reviewing-DNS-Concepts.md)  
+- [DNS et AD DS](../../ad-ds/plan/DNS-and-AD-DS.md)  
+- [Affectation du DNS pour le rôle de propriétaire AD DS](../../ad-ds/deploy/Assigning-the-DNS-for-AD-DS-Owner-Role.md)  
+- [Intégration d’AD DS à une infrastructure DNS existante](../../ad-ds/plan/../../ad-ds/plan/Integrating-AD-DS-into-an-Existing-DNS-Infrastructure.md)  

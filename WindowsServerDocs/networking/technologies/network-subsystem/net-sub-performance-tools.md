@@ -1,7 +1,7 @@
 ---
 title: Outils d’analyse des performances pour les charges de travail de réseau
-description: Cette rubrique fait partie du guide de réglage de performances du sous-système de réseau pour Windows Server 2016.
-ms.prod: windows-server-threshold
+description: Cette rubrique fait partie du Guide d’optimisation des performances du sous-système réseau pour Windows Server 2016.
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: c7789781-87e8-464e-981b-af887d01badd
@@ -9,41 +9,41 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 07/16/2018
-ms.openlocfilehash: e71c5f34041145907c30b279dc91a94c03c2abed
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 09e775bfe956d67adbd70cf4ce3f9461e1c37cf5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824930"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405517"
 ---
 # <a name="performance-tools-for-network-workloads"></a>Outils d’analyse des performances pour les charges de travail de réseau
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour en savoir plus sur les outils de performances.
 
-Cette rubrique contient les sections relatives au Client à l’outil le trafic du serveur, la taille de fenêtre de TCP/IP et Microsoft Server Performance Advisor.
+Cette rubrique contient des sections relatives à l’outil de trafic entre le client et le serveur, la taille de fenêtre TCP/IP et le conseiller Microsoft Server Performance Advisor.
 
-##  <a name="bkmk_tuning"></a> Client à l’outil de trafic du serveur
+##  <a name="bkmk_tuning"></a>Outil de trafic entre le client et le serveur
 
-Le Client pour le trafic serveur \(ctsTraffic\) outil vous offre la possibilité de créer et de vérifier le trafic réseau.
+Le trafic client à serveur \(ctsTraffic @ no__t-1 Tool vous permet de créer et de vérifier le trafic réseau.
 
-Pour plus d’informations et pour télécharger l’outil, consultez [ctsTraffic (trafic de Client à serveur)](https://github.com/Microsoft/ctsTraffic).
+Pour plus d’informations et pour télécharger l’outil, consultez [ctsTraffic (trafic client à serveur)](https://github.com/Microsoft/ctsTraffic).
   
-##  <a name="bkmk_size"></a> Taille de la fenêtre de TCP/IP
+##  <a name="bkmk_size"></a>Taille de la fenêtre TCP/IP
 
-Pour les adaptateurs de 1 Go, les paramètres affichés dans le tableau précédent doivent fournir un débit relativement élevé, car NTttcp définit la taille de fenêtre TCP par défaut à 64 Ko via le processeur logique spécifique \(SO_RCVBUF\) pour la connexion. Cela fournit de bonnes performances sur un réseau à faible latence.  
+Pour les adaptateurs de 1 Go, les paramètres indiqués dans le tableau précédent doivent fournir un bon débit, car NTttcp définit la taille de fenêtre TCP par défaut sur 64 K via une option de processeur logique spécifique \(SO_RCVBUF @ no__t-1 pour la connexion. Cela offre de bonnes performances sur un réseau à faible latence.  
 
-En revanche, pour les réseaux à latence élevée ou pour les cartes de 10 Go, la valeur de taille de fenêtre TCP par défaut pour NTttcp génère inférieure aux performances optimales. Dans les deux cas, vous devez ajuster la taille de fenêtre TCP à autoriser pour le produit de délai de la bande passante supérieure.  
+En revanche, pour les réseaux à latence élevée ou pour les adaptateurs de 10 Go, la valeur de la taille de fenêtre TCP par défaut pour NTttcp génère moins de performances optimales. Dans les deux cas, vous devez ajuster la taille de la fenêtre TCP pour autoriser le produit avec un délai de bande passante supérieur.  
 
-Vous pouvez définir statiquement la taille de fenêtre TCP pour une valeur élevée à l’aide de la **-rb** option. Cette option désactive le réglage automatique de la fenêtre TCP, et nous vous recommandons d’utiliser uniquement si l’utilisateur prend complètement en charge le changement résultant de comportement de TCP/IP. Par défaut, la taille de fenêtre TCP est définie sur une valeur suffisante et ajuste uniquement sous une charge importante ou sur des liaisons à latence élevée.  
+Vous pouvez définir statiquement la taille de la fenêtre TCP sur une valeur élevée à l’aide de l’option **-RB** . Cette option désactive le réglage automatique de la fenêtre TCP, et nous vous recommandons de l’utiliser uniquement si l’utilisateur comprend entièrement la modification résultante dans le comportement TCP/IP. Par défaut, la taille de la fenêtre TCP est définie sur une valeur suffisante et s’ajuste uniquement sous une charge lourde ou sur des liens à latence élevée.  
 
-##  <a name="bkmk_advisor"></a> Microsoft Server Performance Advisor
+##  <a name="bkmk_advisor"></a>Microsoft Server Performance Advisor
 
-Microsoft Server Performance Advisor \(SPA\) permet aux administrateurs informatiques collecter des mesures pour identifier, de comparer et de diagnostiquer les problèmes de performances potentiels dans un Windows Server 2016 Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, ou le déploiement de Windows Server 2008. 
+Microsoft Server Performance Advisor \(SPA @ no__t-1 permet aux administrateurs informatiques de collecter des mesures pour identifier, comparer et diagnostiquer les problèmes de performances potentiels dans un Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 ou Déploiement de Windows Server 2008. 
 
-SPA génère des graphiques et des rapports de Diagnostics complets, et il fournit des recommandations pour vous aider à rapidement analysent les problèmes et développement des actions correctives.  
+SPA génère des rapports et des graphiques de diagnostic complets et fournit des recommandations pour vous aider à analyser rapidement les problèmes et à développer des actions correctives.  
   
- Pour plus d’informations et pour télécharger le conseiller, consultez [Microsoft Server Performance Advisor](https://msdn.microsoft.com/library/windows/hardware/dn481522.aspx) dans le centre de développement de matériel Windows.
+ Pour plus d’informations et pour télécharger le conseiller, consultez [Microsoft Server Performance Advisor](https://msdn.microsoft.com/library/windows/hardware/dn481522.aspx) dans le centre de développement matériel Windows.
 
-Pour obtenir des liens vers toutes les rubriques de ce guide, consultez [réglage des performances réseau sous-système](net-sub-performance-top.md).
+Pour obtenir des liens vers toutes les rubriques de ce guide, consultez [réglage des performances du sous-système réseau](net-sub-performance-top.md).

@@ -2,7 +2,7 @@
 title: klist
 description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6a8f574b65ec8c123379e1b02ee1571cc9f21fa1
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 4b35069faa835b59f2655262f640ddb18068702f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867058"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375308"
 ---
 # <a name="klist"></a>klist
 
@@ -38,7 +38,7 @@ klist [-lh <LogonId.HighPart>] [-li <LogonId.LowPart>] tickets | tgt | purge | s
 |---------|-----------|
 |-LH|Indique la partie haute de l’identificateur unique local (LUID) de l’utilisateur, exprimée au format hexadécimal. Si aucune des options – LH ou-Li n’est présente, la commande prend par défaut le LUID de l’utilisateur actuellement connecté.|
 |-Li|Indique la partie basse de l’identificateur unique local (LUID) de l’utilisateur, exprimée au format hexadécimal. Si aucune des options – LH ou-Li n’est présente, la commande prend par défaut le LUID de l’utilisateur actuellement connecté.|
-|loterie|Répertorie les tickets d’accord de ticket (TGT) actuellement mis en cache et les tickets de service de la session d’ouverture de session spécifiée. Il s'agit de l'option par défaut.|
+|loterie|Répertorie les tickets d’accord de ticket (TGT) actuellement mis en cache et les tickets de service de la session d’ouverture de session spécifiée. Il s’agit de l’option par défaut.|
 |TGT|Affiche le ticket TGT Kerberos initial.|
 |Purger|Vous permet de supprimer tous les tickets de la session d’ouverture de session spécifiée.|
 |Entretiens|Affiche la liste des sessions de connexion sur cet ordinateur.|
@@ -115,7 +115,7 @@ Les paramètres affichent les informations suivantes :
 
     Pour obtenir la liste actuelle des options et leurs explications, consultez [RFC 4120](http://www.ietf.org/rfc/rfc4120.txt).
 
-**Autres points à considérer**
+**Autres considérations**
 -   Klist. exe est disponible dans Windows Server 2012 et Windows 8, et ne nécessite aucune installation particulière.
 
 ## <a name="BKMK_Examples"></a>Illustre

@@ -1,8 +1,8 @@
 ---
-title: logman start | arrêter
-description: 'Rubrique de commandes de Windows pour ***- '
+title: logman start | erreur
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0c6027c4c9a99e45bb1c2e95cdfd4a7687a5c43b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 395d325b31ee596e1394e7ed796a444f159d15fc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437682"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374408"
 ---
-# <a name="logman-start--stop"></a>logman start | arrêter
+# <a name="logman-start--stop"></a>logman start | erreur
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Démarrer un collecteur de données et définir l’heure de début sur manuel ou arrêter un collecteur de données valeur et définir l’heure de fin sur manuel.  
+Démarrez un collecteur de données et définissez l’heure de début sur manuel, ou arrêtez un ensemble de collecteurs de données et définissez l’heure de fin sur manuel.  
 
 ## <a name="syntax"></a>Syntaxe  
 ```  
@@ -36,14 +36,14 @@ logman stop <[-n] <name>> [options]
 |     Paramètre      |                                 Description                                  |
 |--------------------|------------------------------------------------------------------------------|
 |         -?         |                       Affiche l’aide contextuelle.                       |
-| -s <computer name> |            Exécuter la commande sur l’ordinateur distant spécifié.             |
+| -s <computer name> |            Exécutez la commande sur l’ordinateur distant spécifié.             |
 |  -config <value>   |           Spécifie le fichier de paramètres contenant les options de commande.            |
 |    [-n] <name>     |                          Nom de l’objet cible.                          |
-|        -ets        | Envoyer des commandes aux Sessions de suivi d’événements directement sans enregistrement ni planification. |
-|        -as         |               Effectuer l’opération demandée de façon asynchrone.                |
+|        -ETS        | Envoyer des commandes aux sessions de suivi d’événements directement sans enregistrement ou planification. |
+|        -As         |               Effectuez l’opération demandée de manière asynchrone.                |
 
-## <a name="BKMK_examples"></a>Exemples  
-La commande suivante démarre le journal_perf de collecteur de données sur l’ordinateur distant server_1.  
+## <a name="BKMK_examples"></a>Illustre  
+La commande suivante démarre le collecteur de données journal_perf sur l’ordinateur distant serveur_1.  
 ```  
 logman start perf_log -s server_1  
 ```  

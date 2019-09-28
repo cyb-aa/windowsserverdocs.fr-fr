@@ -1,74 +1,74 @@
 ---
 title: Autorisation d’accès
-description: Cette rubrique fournit une vue d’ensemble de l’autorisation d’accès de stratégie réseau pour le serveur NPS dans Windows Server 2016.
+description: Cette rubrique fournit une vue d’ensemble de l’autorisation d’accès à la stratégie réseau pour le serveur NPS (Network Policy Server) dans Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: d6d1ca5e-bde0-4509-9e14-dc3fa9ff447e
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: cdec41fb7925061bb8c8402634e1d9b1625bf301
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8a63bf7d277108a528a3ab1c20263e31b59c1547
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849490"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405363"
 ---
 # <a name="access-permission"></a>Autorisation d’accès
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Autorisation d’accès est configurée sur le **vue d’ensemble** onglet de chaque stratégie de réseau de serveur NPS (Network Policy). 
+L’autorisation d’accès est configurée sous l’onglet **vue d’ensemble** de chaque stratégie réseau dans le serveur NPS (Network Policy Server). 
 
-Ce paramètre vous permet de configurer la stratégie pour accorder ou refuser l’accès aux utilisateurs si les conditions et les contraintes de la stratégie de réseau sont mises en correspondance par la demande de connexion. 
+Ce paramètre vous permet de configurer la stratégie pour accorder ou refuser l’accès aux utilisateurs si les conditions et contraintes de la stratégie réseau sont mises en correspondance par la demande de connexion. 
 
-Paramètres d’autorisation accès ont l’effet suivant :
+Les paramètres d’autorisation d’accès ont les effets suivants :
 
-- **Accorder l’accès**. L’accès est accordé si la demande de connexion correspond aux conditions et des contraintes qui sont configurés dans la stratégie.
-- **Refuser l’accès**. L’accès est refusé si la demande de connexion correspond aux conditions et des contraintes qui sont configurés dans la stratégie.
+- **Accorder l’accès**. L’accès est accordé si la demande de connexion correspond aux conditions et contraintes configurées dans la stratégie.
+- **Refuser l’accès**. L’accès est refusé si la demande de connexion correspond aux conditions et contraintes configurées dans la stratégie.
 
-Autorisation d’accès est également accordée ou refusée en fonction de votre configuration des propriétés d’accès à distance de chaque compte d’utilisateur.
-
->[!NOTE]
->Comptes d’utilisateur et leurs propriétés, telles que les propriétés de l’accès à distance, sont configurées dans soit Active Directory Users et les ordinateurs ou les utilisateurs locaux et groupes Microsoft Management Console \(MMC\) -composant logiciel enfichable, selon que vous avez Active Directory&reg; installé les Services de domaine (AD DS).
-
-Le paramètre de compte utilisateur **l’autorisation d’accès réseau**, qui est configuré dans les propriétés d’accès à distance des comptes d’utilisateur, les substitutions de paramètre d’autorisation d’accéder à la stratégie de réseau. Quand l’autorisation d’accès réseau sur un compte d’utilisateur est définie sur le **contrôler l’accès via la stratégie de réseau de NPS** option, le paramètre d’autorisation accès réseau stratégie détermine si l’utilisateur est accordé ou refusé l’accès.
+L’autorisation d’accès est également accordée ou refusée en fonction de la configuration des propriétés de numérotation de chaque compte d’utilisateur.
 
 >[!NOTE]
->Dans Windows Server 2016, la valeur par défaut **l’autorisation d’accès réseau** dans AD DS à distance dans Propriétés du compte utilisateur est **contrôler l’accès via la stratégie de réseau de NPS**.
+>Les comptes d’utilisateur et leurs propriétés, tels que les propriétés des appels entrants, sont configurés dans le composant logiciel enfichable utilisateurs et ordinateurs Active Directory ou le composant logiciel enfichable utilisateurs et groupes locaux \(MMC @ no__t-1, selon que vous avez activé ou non Répertoire @ no__t-2 Domain Services (AD DS) installé.
 
-Lorsque NPS évalue les demandes de connexion par rapport aux stratégies de réseau configuré, il effectue les actions suivantes :
+Le paramètre compte d’utilisateur **autorisation d’accès réseau**, qui est configuré dans les propriétés de numérotation des comptes d’utilisateur, remplace le paramètre d’autorisation accès à la stratégie réseau. Lorsque l’autorisation d’accès réseau sur un compte d’utilisateur est définie sur l’option **contrôler l’accès via la stratégie de réseau NPS** , le paramètre d’autorisation accès à la stratégie réseau détermine si l’accès est accordé ou refusé à l’utilisateur.
 
-- Si les conditions de la première stratégie ne sont pas mises en correspondance, NPS évalue la stratégie suivante et continue ce processus qu’une correspondance est trouvée, ou toutes les stratégies ont été évaluées pour une correspondance.
-- Si les conditions et les contraintes d’une stratégie sont mises en correspondance, NPS accorde ou refuse l’accès, selon la valeur du paramètre d’autorisation d’accès dans la stratégie.
-- Si les conditions d’une correspondance de stratégie, mais les contraintes dans la stratégie ne correspondent pas, NPS rejette la demande de connexion.
-- Si les conditions de toutes les stratégies ne correspondent pas, NPS rejette la demande de connexion.
+>[!NOTE]
+>Dans Windows Server 2016, la valeur par défaut **autorisation d’accès réseau** dans AD DS propriétés d’accès à distance du compte d’utilisateur est **contrôler l’accès via la stratégie de réseau NPS**.
 
-## <a name="ignore-user-account-dial-in-properties"></a>Ignorer les propriétés d’accès à distance du compte d’utilisateur
+Lorsque NPS évalue les demandes de connexion par rapport aux stratégies réseau configurées, il effectue les actions suivantes :
 
-Vous pouvez configurer la stratégie de réseau NPS pour ignorer les propriétés de numérotation des comptes d’utilisateur en activant ou désactivant la **ignorer les propriétés d’accès à distance du compte d’utilisateur** case à cocher sur la **vue d’ensemble** onglet d’un réseau stratégie. 
+- Si les conditions de la première stratégie ne sont pas mises en correspondance, le serveur NPS évalue la stratégie suivante et poursuit ce processus jusqu’à ce qu’une correspondance soit trouvée ou que toutes les stratégies aient été évaluées pour une correspondance.
+- Si les conditions et contraintes d’une stratégie sont mises en correspondance, le serveur NPS accorde ou refuse l’accès, selon la valeur du paramètre d’autorisation d’accès de la stratégie.
+- Si les conditions d’une stratégie correspondent mais que les contraintes de la stratégie ne correspondent pas, le serveur NPS rejette la demande de connexion.
+- Si les conditions de toutes les stratégies ne correspondent pas, le serveur NPS rejette la demande de connexion.
 
-Normalement, lorsque NPS effectue l’autorisation d’une demande de connexion, il vérifie les propriétés d’accès à distance du compte d’utilisateur, dans lequel l’autorisation d’accès réseau définissant la valeur peut affecter si l’utilisateur est autorisé à se connecter au réseau. Lorsque vous configurez le serveur NPS pour ignorer les propriétés de numérotation des comptes d’utilisateur lors de l’autorisation, les paramètres de stratégie de réseau déterminent si l’utilisateur a accès au réseau.
+## <a name="ignore-user-account-dial-in-properties"></a>Ignorer les propriétés de numérotation du compte d’utilisateur
 
-Les propriétés de numérotation des comptes d’utilisateur contient les éléments suivants :
+Vous pouvez configurer la stratégie de réseau NPS pour ignorer les propriétés de numérotation des comptes d’utilisateur en activant ou en désactivant la case à cocher **Ignorer les propriétés d’accès à distance du compte d’utilisateur** sous l’onglet vue d' **ensemble** d’une stratégie réseau. 
+
+Normalement, lorsque NPS effectue l’autorisation d’une demande de connexion, il vérifie les propriétés de numérotation du compte d’utilisateur, où la valeur du paramètre d’autorisation d’accès réseau peut affecter si l’utilisateur est autorisé à se connecter au réseau. Quand vous configurez NPS pour qu’il ignore les propriétés de numérotation des comptes d’utilisateur lors de l’autorisation, les paramètres de stratégie réseau déterminent si l’accès au réseau est accordé à l’utilisateur.
+
+Les propriétés de numérotation des comptes d’utilisateur contiennent les éléments suivants :
 
 - Autorisation d’accès réseau
-- Caller-ID
+- ID appelant
 - Options de rappel
 - Adresse IP statique
 - Itinéraires statiques
 
-Pour prendre en charge plusieurs types de connexions pour lesquelles NPS fournit l’authentification et l’autorisation, il peut être nécessaire de désactiver le traitement des propriétés d’accès à distance du compte d’utilisateur. Cela est possible pour prendre en charge les scénarios dans lesquels les propriétés de numérotation spécifiques ne sont pas requises.
+Pour prendre en charge plusieurs types de connexions pour lesquelles NPS fournit une authentification et une autorisation, il peut être nécessaire de désactiver le traitement des propriétés de numérotation des comptes d’utilisateur. Cela peut être effectué pour prendre en charge des scénarios dans lesquels des propriétés de numérotation spécifiques ne sont pas requises.
 
-Par exemple, l’ID de l’appelant, de rappel, adresse IP statique et les propriétés des itinéraires statiques sont conçues pour les clients qui se connectent à un serveur d’accès réseau \(NAS\), mais pas pour les clients qui sont connectent aux points d’accès sans fil. Un point d’accès sans fil qui reçoit ces paramètres dans un message RADIUS de NPS ne peut pas être en mesure de les traiter, ce qui peut entraîner la déconnexion du client sans fil.
+Par exemple, les propriétés de l’ID d’appelant, du rappel, de l’adresse IP statique et des itinéraires statiques sont conçues pour un client qui se connecte à un serveur d’accès réseau \(NAS @ no__t-1, et non pour les clients qui se connectent aux points d’accès sans fil. Un point d’accès sans fil qui reçoit ces paramètres dans un message RADIUS du serveur NPS peut ne pas être en mesure de les traiter, ce qui peut entraîner la déconnexion du client sans fil.
 
-Lorsque NPS fournit une authentification et autorisation pour les utilisateurs qui sont à la fois dans la composition et l’accès à votre réseau d’entreprise via des points d’accès sans fil, vous devez configurer les propriétés d’accès à distance pour prendre en charge des connexions d’accès à distance \(par définition des propriétés de numérotation\) ou les connexions sans fil \(en ne définissant ne pas les propriétés de numérotation\).
+Lorsque NPS fournit une authentification et une autorisation pour les utilisateurs qui se connectent et accèdent au réseau de votre organisation par le biais de points d’accès sans fil, vous devez configurer les propriétés d’accès à distance pour prendre en charge les connexions d’accès à distance @no__t paramètre-0BY Propriétés des appels entrants @ no__t-1 ou connexions sans fil \(by ne pas définir les propriétés d’accès à distance @ no__t-3.
 
-Vous pouvez utiliser le serveur NPS pour activer les propriétés d’accès à distance pour le compte d’utilisateur dans certains scénarios de traitement \(, tels que dans l’accès à distance\) et désactiver les propriétés d’accès à distance dans d’autres scénarios de traitement \(telles que 802. 1 X sans fil et commutateur d’authentification\).
+Vous pouvez utiliser NPS pour activer le traitement des propriétés de numérotation pour le compte d’utilisateur dans certains scénarios \(such comme accès à distance @ no__t-1 et pour désactiver le traitement des propriétés de connexion dans d’autres scénarios \(such en tant que 802.1 X sans fil et en utilisant le commutateur d’authentification @ no__t-3.
 
-Vous pouvez également utiliser **ignorer les propriétés d’accès à distance du compte d’utilisateur** pour gérer le contrôle d’accès réseau via les groupes et le paramètre d’autorisation accès sur la stratégie de réseau. Lorsque vous sélectionnez le **ignorer les propriétés d’accès à distance du compte d’utilisateur** case à cocher, autorisation d’accès réseau sur le compte d’utilisateur est ignorée.
+Vous pouvez également utiliser l’option **Ignorer les propriétés du compte d’utilisateur** pour gérer le contrôle d’accès réseau via les groupes et les autorisations d’accès sur la stratégie réseau. Lorsque vous activez la case à cocher **Ignorer les propriétés du compte d’utilisateur** , l’autorisation d’accès réseau sur le compte d’utilisateur est ignorée.
 
-Le seul inconvénient de cette configuration est que vous ne pouvez pas utiliser les propriétés d’accès à distance du compte d’utilisateur supplémentaire de l’ID d’appelant, de rappel, adresse IP statique et les itinéraires statiques.
+Le seul inconvénient de cette configuration est que vous ne pouvez pas utiliser les propriétés de numérotation du compte d’utilisateur supplémentaires de l’ID de l’appelant, du rappel, de l’adresse IP statique et des itinéraires statiques.
 
-Pour plus d’informations sur le serveur NPS, consultez [serveur NPS (Network Policy Server)](nps-top.md).
+Pour plus d’informations sur NPS, consultez [serveur NPS (Network Policy Server)](nps-top.md).

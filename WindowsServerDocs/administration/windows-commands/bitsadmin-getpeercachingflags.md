@@ -1,8 +1,8 @@
 ---
 title: Bitsadmin getpeercachingflags
-description: Rubrique de commandes de Windows pour **bitsadmin getpeercachingflags** -récupère les indicateurs qui déterminent si les fichiers de la tâche peuvent être mis en cache et prise en charge pour les homologues, et si les BITS peuvent télécharger du contenu pour le travail à partir d’homologues.
+description: La rubrique commandes Windows pour **Bitsadmin getpeercachingflags** -récupère les indicateurs qui déterminent si les fichiers du travail peuvent être mis en cache et desservis aux homologues, et si bits peut télécharger du contenu pour le travail à partir d’homologues.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 28f248bab3e3cc3f5c7dd4f5f878f0b6d776029b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6b86214b5289a59e8db2ecff065ab3b8cd17007e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434925"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381438"
 ---
 # <a name="bitsadmin-getpeercachingflags"></a>Bitsadmin getpeercachingflags
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Récupère les indicateurs qui déterminent si les fichiers de la tâche peuvent être mis en cache et prise en charge pour les homologues, et si les BITS peuvent télécharger du contenu pour le travail à partir d’homologues.
+Récupère les indicateurs qui déterminent si les fichiers du travail peuvent être mis en cache et desservis aux homologues, et si BITS peut télécharger du contenu pour le travail à partir de pairs.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,10 +36,10 @@ bitsadmin /GetPeerCachingFlags <Job>
 
 |Paramètre|Description|
 |-------|--------|
-|Tâche|Nom d’affichage ou le GUID du travail|
+|Tâche|Nom complet ou GUID du travail|
 
-## <a name="BKMK_examples"></a>Exemples
-L’exemple suivant récupère les indicateurs pour le travail nommé *myJob*.
+## <a name="BKMK_examples"></a>Illustre
+L’exemple suivant récupère les indicateurs du travail nommé *myJob*.
 
 ```
 C:\>bitsadmin /GetPeerCachingFlags myJob

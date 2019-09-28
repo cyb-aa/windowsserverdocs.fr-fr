@@ -1,8 +1,8 @@
 ---
 title: risetup
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,15 +13,15 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dbaf0026cb5d49b76f72f5aa67f7383de38f6279
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ef805d5ecf4d80e1548baa1685dfd486ea74bdf9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831070"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371433"
 ---
 # <a name="risetup"></a>risetup
 
 
 
-Le **risetup** commande est déconseillée dans Windows Server® 2008 et Windows Server 2008 R2.
+La commande **RISETUP** est déconseillée dans windows server® 2008 et windows Server 2008 R2.

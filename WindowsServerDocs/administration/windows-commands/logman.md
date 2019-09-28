@@ -1,8 +1,8 @@
 ---
 title: logman
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7d4819169ae59d3fed83fc10e6e98f7b39ce8a43
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 420c591a8a6c15d563a344d0450be5eb7da46191
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831900"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374259"
 ---
 # <a name="logman"></a>logman
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-**Logman** crée et gère les journaux de Session de suivi d’événements et les performances et prend en charge de nombreuses fonctions de l’Analyseur de performances à partir de la ligne de commande.
+**Logman** crée et gère les journaux de performances et de session de suivi d’événements et prend en charge de nombreuses fonctions de l’analyseur de performances à partir de la ligne de commande.
 ## <a name="syntax"></a>Syntaxe
 ```
 logman [create | query | start | stop | delete| update | import | export | /?] [options]
@@ -32,9 +32,9 @@ logman [create | query | start | stop | delete| update | import | export | /?] [
 ## <a name="actions"></a>Actions
 |Action|Description|
 |-----|--------|
-|[créer de logman](logman-create.md)|créer un compteur, une trace, un collecteur de données de configuration ou une API.|
-|[requête de logman](logman-query.md)|propriétés de collecteur de données de requête.|
-|[logman start &#124; arrêter](logman-start-stop.md)|Démarrer ou arrêter la collecte de données.|
+|[logman create](logman-create.md)|Créez un compteur, une trace, un collecteur de données de configuration ou une API.|
+|[logman query](logman-query.md)|Propriétés du collecteur de données de requête.|
+|[logman start &#124; stop](logman-start-stop.md)|Démarrer ou arrêter la collecte de données.|
 |[logman delete](logman-delete.md)|supprimer un collecteur de données existant.|
-|[mise à jour de logman](logman-update.md)|Mettre à jour les propriétés d’un collecteur de données existant.|
-|[logman import &#124; export](logman-import-export.md)|importer un ensemble de collecteurs de données à partir d’un fichier XML ou exporter un collecteur de données défini dans un fichier XML.|
+|[logman update](logman-update.md)|Mettre à jour les propriétés d’un collecteur de données existant.|
+|[logman import &#124; export](logman-import-export.md)|importez un ensemble de collecteurs de données à partir d’un fichier XML ou exportez un ensemble de collecteurs de données dans un fichier XML.|

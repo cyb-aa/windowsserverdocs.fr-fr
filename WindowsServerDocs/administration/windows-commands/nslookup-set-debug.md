@@ -1,8 +1,8 @@
 ---
 title: nslookup set debug
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: af0d028e3886e6743f402c2c9aa934d6046abf9b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 63423481e685daac821ae75864f20783f96c56c5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436745"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372954"
 ---
 # <a name="nslookup-set-debug"></a>nslookup set debug
 
 
 
-Active ou désactive la Mode de débogage.
+Active ou désactive le mode de débogage.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,13 +36,13 @@ set [no]debug
 
 |  Paramètre  |                         Description                          |
 |-------------|--------------------------------------------------------------|
-| **nodebug** | Désactive le Mode de débogage. La syntaxe par défaut est **/nodebug**. |
-|  **debug**  |                   Active le Mode débogage.                   |
-|  \*\*{help  |                            ?}\*\*                            |
+| **nodebug** | Désactive le mode de débogage. La syntaxe par défaut est **nodebug**. |
+|  **debug**  |                   Active le mode de débogage.                   |
+|  \* @ no__t-1 {aide  |                            ?} \* @ no__t-1                            |
 
 ## <a name="remarks"></a>Notes
 
--   Avec le Mode de débogage sous tension, plus d’informations sont imprimés sur le paquet envoyé au serveur et la réponse correspondante.
+-   Lorsque le mode de débogage est activé, des informations supplémentaires sont imprimées sur le paquet envoyé au serveur et sur la réponse obtenue.
 
 #### <a name="additional-references"></a>Références supplémentaires
 

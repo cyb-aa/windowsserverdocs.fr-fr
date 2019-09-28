@@ -1,8 +1,8 @@
 ---
 title: Créer un compte d’utilisateur standard
 ms.custom: na
-description: Créez un compte d’utilisateur de base pour MultiPoint Services
-ms.prod: windows-server-threshold
+description: Créer un compte d’utilisateur de base pour MultiPoint services
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -11,15 +11,15 @@ ms.topic: article
 ms.assetid: 1e113666-e45f-48b6-aad8-42c361c9046d
 author: lizap
 manager: dongill
-ms.openlocfilehash: c854fdf7ccb71047b6631d53c08aa095499e7d45
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dc1307855b847b3d27f655e953c718e4049f8332
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837930"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395481"
 ---
 # <a name="create-a-standard-user-account"></a>Créer un compte d’utilisateur standard
-Créez des *comptes d’utilisateur standard* pour les utilisateurs qui accèdent régulièrement aux stations, mais ne gèrent pas votre système MultiPoint Services. Les utilisateurs disposant de comptes d’utilisateur standard peuvent exécuter la plupart des applications et enregistrer des fichiers, mais ne pouvez pas exécuter le gestionnaire MultiPoint. Pour voir qui a accès utilisateur standard, dans le gestionnaire MultiPoint, cliquez sur le **utilisateurs** onglet. Les comptes d’utilisateur standard sont affichés dans la colonne Type de compte comme **Standard**.  
+Créez des *comptes d’utilisateur standard* pour les utilisateurs qui accèdent régulièrement aux stations, mais ne gèrent pas votre système MultiPoint Services. Les utilisateurs disposant de comptes d’utilisateur standard peuvent exécuter la plupart des applications et enregistrer des fichiers, mais ne peuvent pas exécuter le gestionnaire MultiPoint. Pour voir qui dispose d’un accès utilisateur standard, dans le gestionnaire MultiPoint, cliquez sur l’onglet **utilisateurs** . Les comptes d’utilisateur standard sont affichés dans la colonne Type de compte comme **Standard**.  
   
 Si vos utilisateurs MultiPoint Services stockent des documents privés dans Windows, ils doivent chacun se connecter au système MultiPoint Services avec un nom d’utilisateur et un mot de passe uniques.  
   
@@ -28,7 +28,7 @@ Si vos utilisateurs MultiPoint Services stockent des documents privés dans Wind
   
 #### <a name="to-create-a-standard-user-account"></a>Pour créer un compte d’utilisateur standard  
   
-1.  Dans le gestionnaire MultiPoint, cliquez sur le **utilisateurs** onglet.  
+1.  Dans le gestionnaire MultiPoint, cliquez sur l’onglet **utilisateurs** .  
   
 2.  Sous **Tâches utilisateur**, cliquez sur **Ajouter un compte d’utilisateur**. L’Assistant **Ajouter un compte d’utilisateur** s’ouvre.  
   

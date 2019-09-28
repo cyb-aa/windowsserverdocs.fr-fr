@@ -1,36 +1,36 @@
 ---
 title: Installer un nouveau serveur de fichiers comme serveur de contenu
-description: Cette rubrique fait partie de BranchCache déploiement Guide pour Windows Server 2016, qui montre comment déployer BranchCache en mode cache distribué et hébergé pour optimiser l’utilisation de la bande passante WAN dans les succursales
+description: Cette rubrique fait partie du Guide de déploiement BranchCache pour Windows Server 2016, qui montre comment déployer BranchCache en mode de cache distribué et hébergé pour optimiser l’utilisation de la bande passante WAN dans les filiales.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 1f49fc3c-28a6-4d3d-b787-1be9e61e792f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e3a4dbe5339685b385b0157756379e9e545f1964
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 489006c50ccbfa1f452d56b1a18217692d45cb1f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812020"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406457"
 ---
 # <a name="install-a-new-file-server-as-a-content-server"></a>Installer un nouveau serveur de fichiers comme serveur de contenu
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette procédure pour installer le rôle de serveur Services de fichiers et le **BranchCache pour fichiers réseau** service de rôle sur un ordinateur exécutant Windows Server 2016.  
+Vous pouvez utiliser cette procédure pour installer le rôle serveur services de fichiers et le service **de rôle BranchCache pour fichiers réseau** sur un ordinateur exécutant Windows Server 2016.  
   
 Pour exécuter cette procédure, il est nécessaire d'appartenir au minimum au groupe **Administrateurs** ou à un groupe équivalent.  
   
 > [!NOTE]  
-> Pour effectuer cette procédure à l’aide de Windows PowerShell, exécutez Windows PowerShell en tant qu’administrateur, tapez les commandes suivantes à l’invite Windows PowerShell, puis appuyez sur ENTRÉE.  
+> Pour effectuer cette procédure à l’aide de Windows PowerShell, exécutez Windows PowerShell en tant qu’administrateur, tapez les commandes suivantes à l’invite Windows PowerShell, puis appuyez sur entrée.  
 >   
 > `Install-WindowsFeature FS-BranchCache -IncludeManagementTools`  
 >   
 > `Restart-Computer`  
 >   
-> Pour installer le service de rôle de la déduplication des données, tapez la commande suivante, puis appuyez sur ENTRÉE.  
+> Pour installer le service de rôle déduplication des données, tapez la commande suivante, puis appuyez sur entrée.  
 >   
 > `Install-WindowsFeature FS-Data-Deduplication -IncludeManagementTools`  
   
@@ -38,19 +38,19 @@ Pour exécuter cette procédure, il est nécessaire d'appartenir au minimum au g
   
 1.  Dans le Gestionnaire de serveur, cliquez sur **Gérer**, puis sur **Ajouter des rôles et des fonctionnalités**. L’Assistant Ajout de rôles et de fonctionnalités s’ouvre. Dans **Avant de commencer**, cliquez sur **Suivant**.  
   
-2.  Dans **sélectionner type d’installation**, vérifiez que **installation en fonction du rôle ou une fonctionnalité** est sélectionnée, puis cliquez sur **suivant**.  
+2.  Dans **Sélectionner le type d’installation**, vérifiez que installation basée sur **un rôle ou une fonctionnalité** est sélectionné, puis cliquez sur **suivant**.  
   
-3.  Dans **server de sélectionner la destination**, assurez-vous que le serveur correct est sélectionné, puis cliquez sur **suivant**.  
+3.  Dans **Sélectionner le serveur de destination**, vérifiez que le serveur correct est sélectionné, puis cliquez sur **suivant**.  
   
-4.  Dans **sélectionner des rôles de serveur**, dans **rôles**, notez que le **Services de fichiers et de stockage** rôle est déjà installé ; cliquez sur la flèche à gauche du nom du rôle pour développer le sélection des services de rôle, puis cliquez sur la flèche à gauche de **fichiers et iSCSI Services**.  
+4.  Dans **Sélectionner des rôles de serveurs**, dans **rôles**, Notez que le rôle **services de fichiers et de stockage** est déjà installé. Cliquez sur la flèche à gauche du nom de rôle pour développer la sélection des services de rôle, puis cliquez sur la flèche à gauche de **fichiers et de services iSCSI**.  
   
-5.  Sélectionnez les cases à cocher **serveur de fichiers** et **BranchCache pour fichiers réseau**.  
+5.  Activez les cases à cocher pour **serveur de fichiers** et **BranchCache pour fichiers réseau**.  
   
     > [!TIP]  
-    > Il est recommandé que vous sélectionnez également la case à cocher **la déduplication des données**.
+    > Il est recommandé d’activer également la case à cocher de la **déduplication des données**.
   
     Cliquez sur **Suivant**.  
   
-6.  Dans **sélectionner des fonctionnalités**, cliquez sur **suivant**.  
+6.  Dans **Sélectionner des fonctionnalités**, cliquez sur **suivant**.  
   
-7.  Dans **confirmer les sélections d’installation**, passez en revue vos sélections, puis cliquez sur **installer**. Le **progression de l’Installation** volet s’affiche pendant l’installation. Lors de l’installation est terminée, cliquez sur **fermer**.
+7.  Dans **confirmer les sélections pour l’installation**, passez en revue vos sélections, puis cliquez sur **installer**. Le volet progression de l' **installation** s’affiche pendant l’installation. Une fois l’installation terminée, cliquez sur **Fermer**.

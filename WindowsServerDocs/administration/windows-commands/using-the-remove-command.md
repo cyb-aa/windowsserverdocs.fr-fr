@@ -1,8 +1,8 @@
 ---
-title: À l’aide de la commande Supprimer
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Utilisation de la commande Remove
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,27 +13,27 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6f71c60372fa0745caa02e0410b31271e66f0868
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a6c8ccb88500363d91c7985a0c9f790a6cd8bd1f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835980"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362943"
 ---
-# <a name="using-the-remove-command"></a>À l’aide de la commande Supprimer
+# <a name="using-the-remove-command"></a>Utilisation de la commande Remove
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 ## <a name="subcommands"></a>Sous-commandes
 |Subommand|Description|
 |-------|--------|
-|[À l’aide de la commande remove-Image](using-the-remove-image-command.md)|Supprime une image de démarrage ou d’installation à partir du serveur.|
-|[À l’aide de la commande remove-ImageGroup](using-the-remove-imagegroup-command.md)|Supprime un groupe d’images à partir du serveur.|
-|[À l’aide de la commande remove-MulticastTransmission](using-the-remove-multicasttransmission-command.md)|Désactive la transmission par multidiffusion d’une image.|
-|[À l’aide de la commande remove-Namespace](using-the-remove-namespace-command.md)|Supprime un espace de noms à partir du serveur.|
-|[À l’aide de la commande remove-DriverGroupPackage](using-the-remove-drivergrouppackage-command.md)|Supprime un package de pilotes à partir d’un groupe de pilotes sur un serveur.|
-|[À l’aide de la commande remove-DriverGroupPackages](using-the-remove-drivergrouppackages-command.md)|Supprime les packages de pilotes à partir d’un groupe de pilotes sur un serveur.|
-|[À l’aide de la commande remove-DriverPackage](using-the-remove-driverpackage-command.md)|Supprime un package de pilotes à partir d’un serveur.|
-|[À l’aide de la commande remove-DriverPackages](using-the-remove-driverpackages-command.md)|Supprime les packages de pilotes à partir d’un serveur.|
-|[À l’aide de la commande remove-DriverGroup](using-the-remove-drivergroup-command.md)|Supprime un groupe de pilotes à partir d’un serveur.|
-|[À l’aide de la commande remove-DriverGroupFilter](using-the-remove-drivergroupfilter-command.md)|Supprime une règle de filtre d’un groupe de pilotes sur un serveur.|
+|[Utilisation de la commande Remove-image](using-the-remove-image-command.md)|supprime une image de démarrage ou d’installation du serveur.|
+|[Utilisation de la commande Remove-ImageGroup](using-the-remove-imagegroup-command.md)|supprime un groupe d’images du serveur.|
+|[Utilisation de la commande Remove-MulticastTransmission](using-the-remove-multicasttransmission-command.md)|Désactive la transmission par multidiffusion d’une image.|
+|[Utilisation de la commande Remove-Namespace](using-the-remove-namespace-command.md)|supprime un espace de noms du serveur.|
+|[Utilisation de la commande Remove-DriverGroupPackage](using-the-remove-drivergrouppackage-command.md)|Supprime un package de pilotes d’un groupe de pilotes sur un serveur.|
+|[Utilisation de la commande Remove-DriverGroupPackages](using-the-remove-drivergrouppackages-command.md)|supprime des packages de pilotes d’un groupe de pilotes sur un serveur.|
+|[Utilisation de la commande Remove-DriverPackage](using-the-remove-driverpackage-command.md)|supprime un package de pilotes d’un serveur.|
+|[Utilisation de la commande Remove-DriverPackages](using-the-remove-driverpackages-command.md)|supprime des packages de pilotes d’un serveur.|
+|[Utilisation de la commande Remove-DriverGroup](using-the-remove-drivergroup-command.md)|supprime un groupe de pilotes d’un serveur.|
+|[Utilisation de la commande Remove-DriverGroupFilter](using-the-remove-drivergroupfilter-command.md)|Supprime une règle de filtre d’un groupe de pilotes sur un serveur.|

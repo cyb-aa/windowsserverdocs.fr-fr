@@ -1,8 +1,8 @@
 ---
 title: regsvr32
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 87d9291755ddb4484e85248cb01ad78b01a25965
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 444af0ccf7c9bbe21c013f32b396997b7cb2e00f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889990"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371629"
 ---
 # <a name="regsvr32"></a>regsvr32
 
 
 
-Inscrit les fichiers .dll en tant que composants de commande dans le Registre.
+Inscrit les fichiers. dll en tant que composants de commande dans le registre.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -38,20 +38,20 @@ regsvr32 [/u] [/s] [/n] [/i[:cmdline]] <DllName>
 
 |Paramètre|Description|
 |---------|-----------|
-|/u|Annule l’inscription du serveur.|
-|/s|Exécutions **Regsvr32** sans afficher de messages.|
-|/n|Exécutions **Regsvr32** sans appeler **DllRegisterServer**. (Nécessite le **/i** paramètre.)|
-|/i:\<cmdline>|Transmet une chaîne de ligne de commande facultative (*cmdline*) à **DllInstall**. Si vous utilisez ce paramètre conjointement avec la **/u** paramètre, il appelle **DllUninstall**.|
-|\<DllName>|Le nom du fichier .dll qui sera inscrit.|
+|/u.|Annule l’inscription du serveur.|
+|/s|Exécute **regsvr32** sans afficher de messages.|
+|/n|Exécute **regsvr32** sans appeler **DllRegisterServer**. (Requiert le paramètre **/i** .)|
+|/i : \<cmdline >|Passe une chaîne de ligne de commande (*cmdline*) facultative à **DllInstall**. Si vous utilisez ce paramètre conjointement avec le paramètre **/u** , il appelle **DllUninstall**.|
+|@no__t 0DllName >|Nom du fichier. dll qui sera inscrit.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour enregistrer le fichier .dll pour le schéma Active Directory, tapez :
+Pour inscrire le fichier. dll pour le schéma de Active Directory, tapez :
 ```
 regsvr32 schmmgmt.dll
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,8 +1,8 @@
 ---
-title: ensemble de l’outil Auditpol
-description: Rubrique de commandes de Windows pour **auditpol set** - définit la stratégie d’audit par utilisateur, la stratégie d’audit système ou options d’audit.
+title: Auditpol défini
+description: "Rubrique relative aux commandes Windows pour l' **ensemble d’Auditpol** : définit la stratégie d’audit par utilisateur, la stratégie d’audit du système ou les options d’audit."
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8778401efb272a167aaa3d9abb4ecafc67e5f50d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f3c9ec2fab4cad408e0bb845fe157cfdf94f8e09
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435114"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382399"
 ---
-# <a name="auditpol-set"></a>ensemble de l’outil Auditpol
+# <a name="auditpol-set"></a>Auditpol défini
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Stratégie d’audit de jeux par utilisateur, stratégie d’audit système ou options d’audit.
+Définit la stratégie d’audit par utilisateur, la stratégie d’audit du système ou les options d’audit.
 
 ## <a name="syntax"></a>Syntaxe
 ```
@@ -40,47 +40,47 @@ auditpol /set
 
 |  Paramètre   |                                                                                                                                          Description                                                                                                                                           |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /User     |                                        Le principal de sécurité pour lequel l’utilisateur par la stratégie d’audit spécifié par la catégorie ou sous-catégorie est défini. La catégorie ou sous-catégorie option doit être spécifiée, comme un identificateur de sécurité (SID) ou un nom.                                         |
-|   /include   | Spécifié avec /user ; Indique que la stratégie l’utilisateur par utilisateur provoque un audit doit être généré même s’il n’est pas spécifié par la stratégie d’audit système. Ce paramètre est la valeur par défaut et est automatiquement appliqué si ni le / inclure ni /exclude paramètres sont explicitement spécifiés. |
-|   /exclude   |                                Spécifié avec /user ; Indique que la stratégie l’utilisateur par utilisateur provoque un audit à supprimer, quel que soit la stratégie d’audit système. Ce paramètre est ignoré pour les utilisateurs qui sont membres du groupe Administrateurs local.                                |
-|  /category   |                                                                            Une ou plusieurs catégories d’audit spécifiés par nom ou identificateur global unique (GUID). Si aucun utilisateur n’est spécifié, la stratégie système est définie.                                                                             |
-| / SubCategory |                                                                                         Un ou plusieurs des sous-catégories d’audit spécifiés par GUID ou nom. Si aucun utilisateur n’est spécifié, la stratégie système est définie.                                                                                          |
-|   /Success   |                 Spécifie l’audit des réussites. Ce paramètre est la valeur par défaut et est automatiquement appliqué si /failure ni /success paramètres sont explicitement spécifiés. Ce paramètre doit être utilisé avec un paramètre qui indique s’il faut activer ou désactiver le paramètre.                 |
-|   /Failure   |                                                                                  Spécifie l’audit des échecs. Ce paramètre doit être utilisé avec un paramètre qui indique s’il faut activer ou désactiver le paramètre.                                                                                   |
+|    /User     |                                        Principal de sécurité pour lequel la stratégie d’audit par utilisateur spécifiée par la catégorie ou la sous-catégorie est définie. L’option catégorie ou sous-catégorie doit être spécifiée sous la forme d’un identificateur de sécurité (SID) ou d’un nom.                                         |
+|   /include   | Spécifié avec/User ; indique que la stratégie par utilisateur de l’utilisateur entraîne la génération d’un audit même s’il n’est pas spécifié par la stratégie d’audit système. Ce paramètre est la valeur par défaut et est appliqué automatiquement si les paramètres/include et/Exclude ne sont pas explicitement spécifiés. |
+|   /Exclude   |                                Spécifié avec/User ; indique que la stratégie par utilisateur de l’utilisateur entraîne la suppression d’un audit indépendamment de la stratégie d’audit du système. Ce paramètre est ignoré pour les utilisateurs qui sont membres du groupe Administrateurs local.                                |
+|  /Category   |                                                                            Une ou plusieurs catégories d’audit spécifiées par un identificateur global unique (GUID) ou un nom. Si aucun utilisateur n’est spécifié, la stratégie système est définie.                                                                             |
+| /Subcategory |                                                                                         Une ou plusieurs sous-catégories d’audit spécifiées par le GUID ou le nom. Si aucun utilisateur n’est spécifié, la stratégie système est définie.                                                                                          |
+|   /Success   |                 Spécifie l’audit des réussites. Ce paramètre est la valeur par défaut et est appliqué automatiquement si les paramètres/Success et/Failure ne sont pas explicitement spécifiés. Ce paramètre doit être utilisé avec un paramètre indiquant s’il faut activer ou désactiver le paramètre.                 |
+|   /Failure   |                                                                                  Spécifie l’audit des échecs. Ce paramètre doit être utilisé avec un paramètre indiquant s’il faut activer ou désactiver le paramètre.                                                                                   |
 |   /option    |                                                                                   Définit la stratégie d’audit pour les options CrashOnAuditFail, FullprivilegeAuditing, AuditBaseObjects ou AuditBasedirectories.                                                                                    |
-|     /sd      |                 Définit le descripteur de sécurité utilisé pour déléguer l’accès à la stratégie d’audit. Le descripteur de sécurité doit être spécifié à l’aide de la définition de langage SDDL (Security Descriptor). Le descripteur de sécurité doit avoir une liste de contrôle d’accès discrétionnaire (DACL).                 |
+|     /SD      |                 Définit le descripteur de sécurité utilisé pour déléguer l’accès à la stratégie d’audit. Le descripteur de sécurité doit être spécifié à l’aide du langage SDDL (Security Descriptor Definition Language). Le descripteur de sécurité doit avoir une liste de contrôle d’accès discrétionnaire (DACL).                 |
 |      /?      |                                                                                                                              Affiche l'aide à l'invite de commandes.                                                                                                                              |
 
 ## <a name="remarks"></a>Notes
-pour toutes les opérations de jeu pour les stratégies d’utilisateur et système, vous devez avoir écrire ou jeu d’autorisations de contrôle total sur cet objet dans le descripteur de sécurité. Vous pouvez également effectuer des opérations de jeu en utilisant le **gérer le journal d’audit et de sécurité** droit d’utilisateur (SeSecurityPrivilege). Toutefois, ce droit permet un accès supplémentaire qui n’est pas nécessaire d’effectuer l’opération de définition.
-## <a name="BKMK_examples"></a>Exemples
+pour toutes les opérations de définition pour la stratégie système et la stratégie par utilisateur, vous devez disposer de l’autorisation d’écriture ou de contrôle total sur cet objet défini dans le descripteur de sécurité. Vous pouvez également effectuer des opérations de définition en possédant le droit **d’utilisateur gérer le journal d’audit et de sécurité** (SeSecurityPrivilege). Toutefois, ce droit autorise un accès supplémentaire qui n’est pas nécessaire pour effectuer l’opération de définition.
+## <a name="BKMK_examples"></a>Illustre
 ### <a name="examples-for-the-per-user-audit-policy"></a>Exemples pour la stratégie d’audit par utilisateur
-Pour définir l’utilisateur par la stratégie d’audit pour toutes les sous-catégories sous la catégorie de suivi détaillée pour l’utilisateur MarcelRug afin que toutes les tentatives réussies de l’utilisateur doit être auditées, tapez :
+Pour définir la stratégie d’audit par utilisateur pour toutes les sous-catégories de la catégorie suivi détaillé pour l’utilisateur Mikedan afin que toutes les tentatives réussies de l’utilisateur soient auditées, tapez :
 ```
 auditpol /set /user:mikedan /category:"detailed Tracking" /include /success:enable
 ```
-Pour définir la stratégie d’audit par utilisateur pour les catégories spécifiées par nom et les GUID et les sous-catégories spécifiés par GUID pour supprimer l’audit pour toutes les tentatives réussies ou ayant échoués, tapez :
+Pour définir la stratégie d’audit par utilisateur pour les catégories spécifiées par le nom et le GUID, et les sous-catégories spécifiées par le GUID afin de supprimer l’audit pour toutes les tentatives ayant réussi ou échoué, tapez :
 ```
 auditpol /set /user:mikedan /exclude /category:"Object Access","System",{6997984b-797a-11d9-bed3-505054503030} 
 /subcategory:{0ccee9210-69ae-11d9-bed3-505054503030},:{0ccee9211-69ae-11d9-bed3-505054503030}, /success:enable /failure:enable
 ```
-Pour définir la stratégie d’audit par utilisateur pour l’utilisateur spécifié pour toutes les catégories de la suppression de l’audit de toutes les valeurs sauf tentatives réussies, tapez :
+Pour définir la stratégie d’audit par utilisateur pour l’utilisateur spécifié pour toutes les catégories pour la suppression de toutes les tentatives, tapez :
 ```
 auditpol /set /user:mikedan /exclude /category:* /success:enable
 ```
-### <a name="examples-for-the-system-audit-policy"></a>Exemples pour la stratégie d’audit système
-Pour définir la stratégie d’audit système pour toutes les sous-catégories sous la catégorie de suivi détaillée pour inclure l’audit des tentatives réussies uniquement, tapez :
+### <a name="examples-for-the-system-audit-policy"></a>Exemples de stratégie d’audit du système
+Pour définir la stratégie d’audit système pour toutes les sous-catégories de la catégorie suivi détaillé afin d’inclure l’audit uniquement pour les tentatives réussies, tapez :
 ```
 auditpol /set /category:"detailed Tracking" /success:enable
 ```
 > [!NOTE]
 > Le paramètre d’échec n’est pas modifié.
-> Pour définir la stratégie d’audit système pour les catégories de l’accès aux objets et système (ce qui est implicite, car les sous-catégories sont répertoriés) et les sous-catégories spécifiés par le GUID pour la suppression de tentatives ayant échoué et l’audit des tentatives réussies, tapez :
+> Pour définir la stratégie d’audit du système pour l’accès aux objets et les catégories système (qui sont implicites, car les sous-catégories sont répertoriées) et les sous-catégories spécifiées par les GUID pour la suppression des échecs de tentative et l’audit des tentatives réussies, tapez :
 > ```
 > auditpol /set /subcategory:{0ccee9210-69ae-11d9-bed3-505054503030},{0ccee9211-69ae-11d9-bed3-505054503030}, /failure:disable /success:enable
 > ```
 > ### <a name="example-for-auditing-options"></a>Exemple pour les options d’audit
-> Pour définir les options d’audit à l’état activé pour l’option CrashOnAuditFail, tapez :
+> Pour définir les options d’audit sur l’état activé pour l’option CrashOnAuditFail, tapez :
 > ```
 > auditpol /set /option:CrashOnAuditFail /value:enable
 > ```

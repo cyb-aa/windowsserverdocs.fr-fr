@@ -1,7 +1,7 @@
 ---
 title: Systèmes d’exploitation invités Windows pris en charge pour Hyper-V sur Windows Server
 description: Répertorie les systèmes d’exploitation Windows pris en charge pour une utilisation en tant qu’invité dans une machine virtuelle. Fournit également des liens vers des articles similaires pour les versions précédentes d’Hyper-V.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,12 +11,12 @@ ms.assetid: 06b35897-2192-48b7-8c2d-125c520b0786
 author: lizap
 ms.author: elizapo
 ms.date: 01/08/2019
-ms.openlocfilehash: b24c67de90f8773eec69f10381bd9ce1e121853e
-ms.sourcegitcommit: b68ff64ecd87959cd2acde4a47506a01035b542a
+ms.openlocfilehash: f491f283861098bbe98e253cb2ff1d5cee2ac57f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68830885"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365458"
 ---
 # <a name="supported-windows-guest-operating-systems-for-hyper-v-on-windows-server"></a>Systèmes d’exploitation invités Windows pris en charge pour Hyper-V sur Windows Server
 
@@ -32,13 +32,13 @@ Voici les versions de Windows Server prises en charge en tant que systèmes d’
   
 |Système d’exploitation invité (serveur)|Nombre maximal de processeurs virtuels|Services d’intégration|Notes|  
 |-------------------------------------|----------------------------------------|------------------------|---------|  
-|Windows Server, version 1903 |240 pour la génération 2;<br>64 pour la génération 1|Intégré||
-|Windows Server, version 1809 |240 pour la génération 2;<br>64 pour la génération 1|Intégré|| 
-|Windows Server 2019 |240 pour la génération 2;<br>64 pour la génération 1|Intégré||
-|Windows Server, version 1803 |240 pour la génération 2;<br>64 pour la génération 1|Intégré|| 
-|Windows Server 2016 |240 pour la génération 2;<br>64 pour la génération 1|Intégré|| 
-|Windows Server 2012 R2 |64|Intégré||  
-|Windows Server 2012 |64|Intégré||  
+|Windows Server, version 1903 |240 pour la génération 2 ;<br>64 pour la génération 1|Intégrée||
+|Windows Server, version 1809 |240 pour la génération 2 ;<br>64 pour la génération 1|Intégrée|| 
+|Windows Server 2019 |240 pour la génération 2 ;<br>64 pour la génération 1|Intégrée||
+|Windows Server, version 1803 |240 pour la génération 2 ;<br>64 pour la génération 1|Intégrée|| 
+|Windows Server 2016 |240 pour la génération 2 ;<br>64 pour la génération 1|Intégrée|| 
+|Windows Server 2012 R2 |64|Intégrée||  
+|Windows Server 2012 |64|Intégrée||  
 |Windows Server 2008 R2 avec Service Pack 1 (SP1)|64|Installez toutes les mises à jour Windows critiques une fois que vous avez configuré le système d’exploitation invité.|Éditions Datacenter, Entreprise, Standard et Web.|
 |Windows Server 2008 avec Service Pack 2 (SP2)|8|Installez toutes les mises à jour Windows critiques une fois que vous avez configuré le système d’exploitation invité.|Éditions Datacenter, Entreprise, Standard et Web (32 bits et 64 bits).|  
   
@@ -48,8 +48,8 @@ Voici les versions du client Windows prises en charge en tant que systèmes d’
   
 |Système d’exploitation client (client)|Nombre maximal de processeurs virtuels|Services d’intégration|Notes|  
 |-------------------------------------|----------------------------------------|------------------------|---------|  
-|Windows 10|32|Intégré||  
-|Windows 8.1|32|Intégré||  
+|Windows 10|32|Intégrée||  
+|Windows 8.1|32|Intégrée||  
 |Windows 7 avec Service Pack 1 (SP1)|4|Mettez à niveau les services d’intégration une fois que vous avez configuré le système d’exploitation invité.|Édition Intégrale, Édition Entreprise et Édition Professionnel (32 bits et 64 bits).|  
   
 ## <a name="guest-operating-system-support-on-other-versions-of-windows"></a>Prise en charge du système d’exploitation invité sur d’autres versions de Windows  
@@ -59,7 +59,7 @@ Le tableau suivant fournit des liens vers des informations sur les systèmes d�
 |Système d'exploitation de l'ordinateur hôte|Rubrique|  
 |-------------------------|---------|  
 |Windows 10|[Systèmes d’exploitation invités pris en charge pour Hyper-V client dans Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os)|  
-|Windows Server 2012 R2 et Windows 8.1|-   [Systèmes d’exploitation invités Windows pris en charge pour Hyper-V dans Windows Server 2012 R2 et Windows 8.1](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027(v=ws.11))<br />-   [Machines virtuelles Linux et FreeBSD sur Hyper-V](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)|  
+|Windows Server 2012 R2 et Windows 8.1|-   [systèmes d’exploitation invités Windows pris en charge pour Hyper-V dans Windows Server 2012 R2 et Windows 8.1](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027(v=ws.11))<br />[machines virtuelles Linux et FreeBSD -    sur Hyper-V](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)|  
 |Windows Server 2012 et Windows 8|[Systèmes d’exploitation invités Windows pris en charge pour Hyper-V dans Windows Server 2012 et Windows 8](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792028(v=ws.11))|  
 |Windows Server 2008 et Windows Server 2008 R2|[À propos des machines virtuelles et des systèmes d’exploitation invités](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10))|  
   

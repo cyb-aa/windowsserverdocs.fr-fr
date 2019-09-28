@@ -7,14 +7,14 @@ ms.author: dacuo
 manager: dougkim
 ms.date: 10/17/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 161188eccdd848cf50be1a4485beeb58935f643a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 307739042426088fa92c50e6ea4dc5d2a744f15a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871779"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405206"
 ---
 # <a name="windows-time-for-traceability"></a>Temps Windows pour la traçabilité
 >S’applique à : Windows Server 2016 version 1709 ou ultérieure et Windows 10 version 1703 ou ultérieure
@@ -49,9 +49,9 @@ Cet événement est consigné lors du démarrage du service de temps Windows (W3
 |Description de l’événement |Démarrage du service |
 |Détails |Se produit au démarrage de w32time |
 |Données enregistrées |<ul><li>Heure actuelle en heure UTC</li><li>Nombre de cycles actuel</li><li>Configuration de W32Time</li><li>Configuration du fournisseur de temps</li><li>Fréquence d’horloge</li></ul> |
-|Mécanisme de limitation  |Aucune. Cet événement se déclenche chaque fois que le service démarre. |
+|Mécanisme de limitation  |Aucun. Cet événement se déclenche chaque fois que le service démarre. |
 
-**Exemple :**
+**Tels**
 ```
 W32time service has started at 2018-02-27T04:25:17.156Z (UTC), System Tick Count 3132937.
 ```
@@ -79,7 +79,7 @@ Cet événement est consigné lorsque le service de temps Windows (W32Time) est 
 |Description de l’événement |Arrêt du service |
 |Détails |Se produit à l’arrêt de w32time |
 |Données enregistrées |<ul><li>Heure actuelle en heure UTC</li><li>Nombre de cycles actuel</li></ul> |
-|Mécanisme de limitation  |Aucune. Cet événement se déclenche chaque fois que le service s’arrête. |
+|Mécanisme de limitation  |Aucun. Cet événement se déclenche chaque fois que le service s’arrête. |
 
 **Exemple de texte :** 
 `W32time service is stopping at 2018-03-01T05:42:13.944Z (UTC), System Tick Count 6370250.`
@@ -110,7 +110,7 @@ Serveur1. fabrikam. com, 0x8 (NTP. m | 0x8 | [ ::] : 123-> [IPAddress] : 123)
 |||
 |---|---|
 |Description de l’événement |Configuration du service de temps et état |
-|Détails |W32time journalise régulièrement sa configuration et son état. Il s’agit de l’équivalent de l’appel de :<br><br>`w32tm /query /configuration /verbose`<br>Ou<br>`w32tm /query /status /verbose` |
+|Détails |W32time journalise régulièrement sa configuration et son état. Il s’agit de l’équivalent de l’appel de :<br><br>`w32tm /query /configuration /verbose`<br>OU<br>`w32tm /query /status /verbose` |
 |Mécanisme de limitation  |Consigné une fois toutes les 8 heures. |
 
 # <a name="261tab261"></a>[261](#tab/261)
@@ -119,7 +119,7 @@ Cela journalise chaque instance lorsque l’heure système est modifiée à l’
 |||
 |---|---|
 |Description de l’événement |L’heure système est définie |
-|Mécanisme de limitation  |Aucune.<br><br>Cela devrait se produire rarement sur les systèmes avec une synchronisation horaire raisonnable, et nous voulons les enregistrer à chaque fois. Nous ignorons le paramètre TimeJumpAuditOffset lors de l’enregistrement de cet événement, car ce paramètre était destiné à limiter les événements dans le journal des événements système de Windows. |
+|Mécanisme de limitation  |Aucun.<br><br>Cela devrait se produire rarement sur les systèmes avec une synchronisation horaire raisonnable, et nous voulons les enregistrer à chaque fois. Nous ignorons le paramètre TimeJumpAuditOffset lors de l’enregistrement de cet événement, car ce paramètre était destiné à limiter les événements dans le journal des événements système de Windows. |
 
 # <a name="262tab262"></a>[262](#tab/262)
 
@@ -135,7 +135,7 @@ Cela journalise chaque instance lorsque l’heure système est modifiée à l’
 |---|---|
 |Description de l’événement |Modifiez les paramètres du service de temps ou la liste des fournisseurs de temps chargés. |
 |Détails |La relecture des paramètres de w32time peut entraîner la modification en mémoire de certains paramètres critiques, ce qui peut affecter la précision globale de la synchronisation de l’heure.<br><br>W32time journalise chaque occurrence lors de la relecture de ses paramètres, ce qui donne un impact potentiel sur la synchronisation de l’heure. |
-|Mécanisme de limitation  |Aucune.<br><br>Cet événement se produit uniquement lorsqu’une mise à jour de l’administrateur ou de la stratégie de protection modifie les fournisseurs de temps, puis déclenche w32time. Nous souhaitons enregistrer chaque instance de modification des paramètres. |
+|Mécanisme de limitation  |Aucun.<br><br>Cet événement se produit uniquement lorsqu’une mise à jour de l’administrateur ou de la stratégie de protection modifie les fournisseurs de temps, puis déclenche w32time. Nous souhaitons enregistrer chaque instance de modification des paramètres. |
 
 
 # <a name="264tab264"></a>[264](#tab/264)
@@ -152,7 +152,7 @@ Cela journalise chaque instance lorsque l’heure système est modifiée à l’
 |---|---|
 |Description de l’événement |Modifications de la source du service de temps ou du nombre de couches |
 |Détails |La source de temps w32time et le nombre de couches sont des facteurs importants dans la traçabilité et toutes les modifications apportées à celles-ci doivent être journalisées. Si w32time n’a pas de source de temps et que vous n’avez pas configuré comme source de temps fiable, il cessera de publier en tant que serveur de temps et, par conception, répondra aux demandes avec des paramètres non valides. Cet événement est essentiel pour suivre les changements d’État dans une topologie NTP. |
-|Mécanisme de limitation  |Aucune. |
+|Mécanisme de limitation  |Aucun. |
 
 
 # <a name="266tab266"></a>[266](#tab/266)

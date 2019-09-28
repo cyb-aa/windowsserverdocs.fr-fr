@@ -1,8 +1,8 @@
 ---
 title: autofmt
-description: Rubrique de commandes de Windows pour **autofmt** -met en forme un lecteur ou une partition lorsqu’elle est appelée à partir de la Console de récupération Windows.
+description: 'Rubrique relative aux commandes Windows pour **autofmt** : met en forme un lecteur ou une partition quand il est appelé à partir de la console de récupération Windows.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6e976a74a8d491710b9f306f2f45ccab2b190dae
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a15a50966ef4fdcd0abe6615fccae719d73b2d82
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816810"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382260"
 ---
 # <a name="autofmt"></a>autofmt
 
 
 
-Met en forme un lecteur ou une partition lorsqu’elle est appelée à partir de la Console de récupération Windows.
+Met en forme un lecteur ou une partition quand il est appelé à partir de la console de récupération Windows.
 
 ## <a name="remarks"></a>Notes
 
@@ -32,6 +32,6 @@ Vous ne pouvez pas exécuter **Autofmt** directement à partir de la ligne de co
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 [Utilisation des systèmes de fichiers](https://go.microsoft.com/fwlink/?LinkId=4509)

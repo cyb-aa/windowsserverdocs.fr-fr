@@ -1,19 +1,19 @@
 ---
 title: Présentation de la technologie VPN Always On
 description: 'Cette page fournit un bref aperçu des technologies VPN de Always On avec des liens vers des documents détaillés. '
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.date: 11/05/2018
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: de5dd8e17c07e46db28c529847607eec2a05a069
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 31d0d5c12760fc627ce93972f4a70e85f61dd178
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871393"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404364"
 ---
 # <a name="always-on-vpn-technology-overview"></a>Présentation de la technologie VPN Always On
 

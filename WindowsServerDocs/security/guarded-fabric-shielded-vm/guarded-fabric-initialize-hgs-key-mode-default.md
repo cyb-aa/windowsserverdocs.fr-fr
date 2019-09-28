@@ -1,30 +1,30 @@
 ---
-title: Initialiser le cluster SGH à l’aide du mode de clé dans une nouvelle forêt dédiée (par défaut)
+title: Initialiser le cluster SGH à l’aide du mode clé dans une nouvelle forêt dédiée (par défaut)
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 891e94338544e1ced5833a5272502beb239dfd86
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: b8c5c090f97ee02a8c9e5bc6041eacb01c1fa4cf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447457"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402406"
 ---
-# <a name="initialize-the-hgs-cluster-using-key-mode-in-a-new-dedicated-forest-default"></a>Initialiser le cluster SGH à l’aide du mode de clé dans une nouvelle forêt dédiée (par défaut)
+# <a name="initialize-the-hgs-cluster-using-key-mode-in-a-new-dedicated-forest-default"></a>Initialiser le cluster SGH à l’aide du mode clé dans une nouvelle forêt dédiée (par défaut)
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2019, Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2019, Windows Server 2016
 
 
 1.  [!INCLUDE [Initialize HGS](../../../includes/guarded-fabric-initialize-hgs-default-step-one.md)] 
 2.  [!INCLUDE [Obtain certificates for HGS](../../../includes/guarded-fabric-initialize-hgs-default-step-two.md)]
 
-3.  Exécutez [Initialize-HgsServer](https://technet.microsoft.com/library/mt652185.aspx) dans une fenêtre PowerShell avec élévation de privilèges sur le premier nœud SGH. La syntaxe de cette applet de commande prend en charge le nombre d’entrées différents, mais les appels courants 2 sont ci-dessous :
+3.  Exécutez [Initialize-HgsServer](https://technet.microsoft.com/library/mt652185.aspx) dans une fenêtre PowerShell avec élévation de privilèges sur le premier nœud SGH. La syntaxe de cette applet de commande prend en charge de nombreuses entrées différentes, mais les deux appels les plus courants sont les suivants :
 
-    -   Si vous utilisez des fichiers PFX pour vos certificats de signature et le chiffrement, exécutez les commandes suivantes :
+    -   Si vous utilisez des fichiers PFX pour vos certificats de signature et de chiffrement, exécutez les commandes suivantes :
 
         ```powershell
         $signingCertPass = Read-Host -AsSecureString -Prompt "Signing certificate password"
@@ -47,4 +47,4 @@ ms.locfileid: "66447457"
 ## <a name="next-step"></a>Étape suivante
 
 > [!div class="nextstepaction"]
-> [Créer la clé d’hôte](guarded-fabric-create-host-key.md)
+> [Créer une clé d’hôte](guarded-fabric-create-host-key.md)

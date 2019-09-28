@@ -1,7 +1,7 @@
 ---
 title: Prise en charge par les ISV de la distribution des mises à jour Express
 description: 'Rubrique Windows Server Update Service (WSUS) : comment les éditeurs de logiciels indépendants (ISV) peuvent configurer la remise des mises à jour Express à l’aide de WSUS'
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-wsus
@@ -11,12 +11,12 @@ author: sakitong
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: 0f5893d47219e9263ed7f35bee472848a47c6164
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: a4880a1a66d9c722cfda9e194c4eff38c5058674
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868740"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361722"
 ---
 # <a name="express-update-delivery-isv-support"></a>Prise en charge par les ISV de la distribution des mises à jour Express
 
@@ -62,7 +62,7 @@ Les éditeurs de logiciels indépendants peuvent utiliser WSUS et le client WU p
 
 WSUS sert d’interface pour Windows Update et gère toutes les métadonnées décrivant les packages Express qui doivent être téléchargés. Si vous devez effectuer le déploiement, consultez [**vue d’ensemble de Windows Server Update Services 3,0 SP2**](https://technet.microsoft.com/library/dd939931(v=ws.10).aspx). Une fois que WSUS a été déployé, il est primordial de stocker le contenu de mise à jour localement sur le serveur WSUS. Lors de la configuration de WSUS, nous vous recommandons de ne pas stocker les mises à jour localement. Cela suppose que vous avez déjà un logiciel dirigeant le déploiement de ces packages dans votre environnement. Pour plus d’informations sur la configuration du stockage local WSUS, consultez [**déterminer où stocker les mises à jour**](https://technet.microsoft.com/library/cc720494(v=ws.10).aspx).
 
-### <a name="BKMK_2"></a>Étape 2 : Spécifier et remplir le cache des fichiers ISV 
+### <a name="BKMK_2"></a>Étape 2 : Spécifier et remplir le cache des fichiers ISV 
 
 #### <a name="specify-the-isv-file-cache"></a>Spécifier le cache des fichiers ISV
 
@@ -95,7 +95,7 @@ Le cache des fichiers ISV doit être rempli avec les fichiers associés aux mise
 
 1. Utilisez les [API WSUS](https://msdn.microsoft.com/library/windows/desktop/microsoft.updateservices.administration.updatefile(v=vs.85).aspx) pour accéder au chemin d’accès et au nom de fichier de la mise à jour pour le service MU.
 
-    Les métadonnées de chaque mise à jour sur le serveur WSUS contiennent le chemin d’accès et le nom de fichier de la mise à jour sur Microsoft Update comme suit (Microsoft Update nom d' **<http://download.windowsupdate.com>** hôte en gras, suivi du chemin d’accès et du nom de fichier):/c/msdownload/Update/Software/UPDT/2016/09/ Windows 10.0-kb3195781-x64_0c06079bccc35cba35a48bd2b1ec46f818bd2e74. msu
+    Les métadonnées de chaque mise à jour sur le serveur WSUS contiennent le chemin d’accès et le nom de fichier de la mise à jour sur Microsoft Update comme suit (Microsoft Update nom d’hôte en gras, suivi du chemin d’accès et du nom de fichier) : **<http://download.windowsupdate.com>** /c/msdownload/Update/Software/UPDT/2016/09/ Windows 10.0-kb3195781-x64_0c06079bccc35cba35a48bd2b1ec46f818bd2e74. msu
 
 2. Téléchargez les fichiers à partir de Microsoft Update et stockez-les dans le cache des fichiers ISV à l’aide de l’une des deux méthodes suivantes : 
 
@@ -105,7 +105,7 @@ Le cache des fichiers ISV doit être rempli avec les fichiers associés aux mise
 
      Faites en sorte que le serveur HTTP (ou localhost) redirige les requêtes **http obten** , qui font référence au chemin d’accès du dossier MU et au nom du fichier, à l’emplacement du fichier ISV.
 
-### <a name="BKMK_3"></a> Étape 3 : Configurer un agent du client ISV pour diriger les opérations du client WU
+### <a name="BKMK_3"></a>Étape 3 : Configurer un agent du client ISV pour diriger les opérations du client WU
 
 L’agent du client ISV orchestre le téléchargement et l’installation des mises à jour approuvées à l’aide du flux de travail recommandé suivant :
 

@@ -7,54 +7,54 @@ ms.author: billmath
 manager: femila
 ms.date: 10/25/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2f6e4abb4255281be85b7fa928566f681bcf2de2
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 4eb93513d12b2bba2620ff16be24f62ace5dee85
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188360"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407256"
 ---
 # <a name="auditing-enhancements-to-ad-fs-in-windows-server-2016"></a>Améliorations de l’audit apportées à AD FS dans Windows Server 2016
 
 
-Actuellement, dans AD FS pour Windows Server 2012 R2 il sont nombreux événements d’audit générés pour une seule requête et les informations pertinentes sur un journal dans ou les activités d’émission de jeton soient absent (dans certaines versions d’AD FS) ou répartie sur plusieurs événements d’audit. Par défaut, les services AD FS, les événements d’audit sont désactivées en raison de leur nature détaillée.  
-    Avec la version des services AD FS dans Windows Server 2016, l’audit est devenue plus simple et moins détaillé.  
+Actuellement, dans AD FS pour Windows Server 2012 R2, de nombreux événements d’audit sont générés pour une requête unique et les informations pertinentes sur une activité de connexion ou d’émission de jetons sont absentes (dans certaines versions de AD FS) ou réparties sur plusieurs événements d’audit. Par défaut, les événements d’audit AD FS sont désactivés en raison de leur nature détaillée.  
+    Avec la publication de AD FS dans Windows Server 2016, l’audit est devenu plus rationalisé et moins détaillé.  
   
 ## <a name="auditing-levels-in-ad-fs-for-windows-server-2016"></a>Niveaux d’audit dans AD FS pour Windows Server 2016  
-Par défaut, AD FS dans Windows Server 2016 a base l’audit est activé.  Avec l’audit de base, les administrateurs voient maximum 5 événements pour une demande unique.  Cela marque une réduction significative du nombre d’événements, les administrateurs disposent d’examiner, afin de voir une demande unique.   Le niveau d’audit peut être augmentée ou abaissée à l’aide de l’applet de commande PowerShell :  Set-AdfsProperties - AuditLevel.  Le tableau ci-dessous explique les niveaux d’audit disponibles.  
+Par défaut, les AD FS dans Windows Server 2016 sont activés pour l’audit de base.  Avec l’audit de base, les administrateurs verront 5 événements ou moins pour une requête unique.  Cela marque une diminution significative du nombre d’événements que les administrateurs doivent examiner pour afficher une requête unique.   Le niveau d’audit peut être augmenté ou diminué à l’aide de la applet PowerShell:  Set-AdfsProperties-AuditLevel.  Le tableau ci-dessous décrit les niveaux d’audit disponibles.  
   
 ||||  
 |-|-|-|  
-|Niveau d'audit|Syntaxe de PowerShell|Description|  
-|Aucune|Set-AdfsProperties - AuditLevel None|L’audit est désactivé et aucun événement ne sera consigné.|  
-|Basic (valeur par défaut)|Set-AdfsProperties - AuditLevel Basic|Pas plus de 5 événements seront enregistrés pour une demande unique|  
-|Verbose|Set-AdfsProperties - AuditLevel détaillée|Tous les événements seront enregistrés.  Ceci enregistrera une quantité significative d’informations par demande.|  
+|Niveau d'audit|Syntaxe PowerShell|Description|  
+|Aucune|Set-AdfsProperties-AuditLevel aucun|L’audit est désactivé et aucun événement n’est enregistré.|  
+|De base (par défaut)|Set-AdfsProperties-AuditLevel de base|Plus de 5 événements seront journalisés pour une demande unique|  
+|Verbose|Set-AdfsProperties-AuditLevel verbose|Tous les événements sont consignés.  Cela permet de consigner une quantité importante d’informations par demande.|  
   
-Pour afficher le niveau d’audit, vous pouvez utiliser l’applet de commande PowerShell :  Get-AdfsProperties.  
+Pour afficher le niveau d’audit actuel, vous pouvez utiliser le applet PowerShell:  Accédez à AdfsProperties.  
   
-![améliorations d’audit](media/Auditing-Enhancements-to-AD-FS-in-Windows-Server-2016/ADFS_Audit_1.PNG)  
+![améliorations de l’audit](media/Auditing-Enhancements-to-AD-FS-in-Windows-Server-2016/ADFS_Audit_1.PNG)  
   
-Le niveau d’audit peut être augmentée ou abaissée à l’aide de l’applet de commande PowerShell :  Set-AdfsProperties - AuditLevel.  
+Le niveau d’audit peut être augmenté ou diminué à l’aide de la applet PowerShell:  Set-AdfsProperties-AuditLevel.  
   
-![améliorations d’audit](media/Auditing-Enhancements-to-AD-FS-in-Windows-Server-2016/ADFS_Audit_2.png)  
+![améliorations de l’audit](media/Auditing-Enhancements-to-AD-FS-in-Windows-Server-2016/ADFS_Audit_2.png)  
   
-## <a name="types-of-audit-events"></a>Types d’événements d’Audit  
-Événements d’Audit AD FS peut être de types différents, selon les différents types de demandes traitées par AD FS. Chaque type d’événement d’Audit a des données spécifiques associées.  Le type d’événements d’audit peut être différencié entre les demandes de connexion (par exemple, les demandes de jeton) par rapport aux demandes du système (appels y compris l’extraction des informations de configuration de serveur).    
-  Le tableau ci-dessous décrit les types d’événements d’audit de base.  
+## <a name="types-of-audit-events"></a>Types d’événements d’audit  
+AD FS événements d’audit peuvent être de types différents, en fonction des différents types de demandes traités par AD FS. Chaque type d’événement d’audit est associé à des données spécifiques.  Le type d’événements d’audit peut être différencié entre les demandes de connexion (par exemple, les demandes de jeton) et les requêtes système (appels serveur-serveur, y compris la récupération des informations de configuration).    
+  Le tableau ci-dessous décrit les types de base des événements d’audit.  
   
 ||||  
 |-|-|-|  
 |Type d’événement d’audit|ID d’événement|Description|  
-|Réussite de la Validation des informations d’identification fraîches|1202|Une demande où les nouvelles informations d’identification sont validées avec succès par le Service de fédération. Cela inclut WS-Trust, WS-Federation, SAML-P (premier tronçon pour générer l’authentification unique) et les points de terminaison autoriser OAuth.|  
-|Erreur de Validation des informations d’identification fraîches|1203|Une demande où Échec de la validation de nouvelles informations d’identification sur le Service de fédération. Cela inclut WS-Trust, WS-Fed, SAML-P (premier tronçon pour générer l’authentification unique) et les points de terminaison autoriser OAuth.|  
-|Jeton de l’application réussi|1200|Une demande où un jeton de sécurité est émis avec succès par le Service de fédération. Pour WS-Federation, SAML-P, elle est consignée lorsque la demande est traitée avec l’artefact d’authentification unique. (par exemple, le cookie d’authentification unique).|  
-|Échec de jeton d’application|1201|Une demande où les d’émission de jeton de sécurité a échoué sur le Service de fédération. Pour WS-Federation, SAML-P, elle est consignée lorsque la demande a été traitée avec l’artefact d’authentification unique. (par exemple, le cookie d’authentification unique).|  
-|Demande de modification de mot de passe réussie|1204|Une transaction où la demande de modification du mot de passe a été correctement traitée par le Service de fédération.|  
-|Erreur de demande de modification de mot de passe|1205|Une transaction où la demande de modification du mot de passe a échoué doivent être traités par le Service de fédération.| 
-|Déconnectez-vous de réussite|1206|Décrit une demande de déconnexion réussie.|  
-|Déconnectez-vous de défaillance|1207|Décrit une demande de déconnexion a échoué.|  
+|Réussite de la validation des informations d’identification|1202|Demande dans laquelle les nouvelles informations d’identification sont validées correctement par le service FS (Federation Service). Cela comprend WS-Trust, WS-Federation, SAML-P (premier tronçon pour générer l’authentification unique) et des points de terminaison d’autorisation OAuth.|  
+|Nouvelle erreur de validation des informations d’identification|1203|Demande dans laquelle la validation des informations d’identification a échoué sur le service FS (Federation Service). Cela comprend WS-Trust, WS-FED, SAML-P (premier tronçon pour générer l’authentification unique) et des points de terminaison d’autorisation OAuth.|  
+|Jeton d’application réussi|1200|Demande dans laquelle un jeton de sécurité est émis avec succès par le service FS (Federation Service). Pour WS-Federation, SAML-P est consigné lors du traitement de la demande avec l’artefact SSO. (par exemple, le cookie SSO).|  
+|Échec du jeton d’application|1201|Demande dans laquelle l’émission du jeton de sécurité a échoué sur le service FS (Federation Service). Pour WS-Federation, SAML-P est consigné lorsque la requête a été traitée avec l’artefact SSO. (par exemple, le cookie SSO).|  
+|Réussite de la demande de modification de mot de passe|1204|Transaction dans laquelle la demande de modification de mot de passe a été traitée avec succès par le service FS (Federation Service).|  
+|Erreur de demande de modification de mot de passe|1205|Transaction dans laquelle la demande de modification de mot de passe n’a pas pu être traitée par le service FS (Federation Service).| 
+|Déconnexion réussie|1206|Décrit une demande de déconnexion réussie.|  
+|Échec de la déconnexion|1207|Décrit une demande de déconnexion ayant échoué.|  
 
   
 

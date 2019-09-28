@@ -1,8 +1,8 @@
 ---
 title: bitsadmin help
-description: Rubrique de commandes de Windows pour **bitsadmin aide** -affiche l’utilisation de ligne de commande.
+description: La rubrique commandes Windows pour l' **aide de Bitsadmin** -affiche l’utilisation de la ligne de commande.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d00eeb56216852f7861295c930c36cb65fb183dc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9917e3537d4b642cdaeabf7d592614ec7de17ab8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886010"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381124"
 ---
 # <a name="bitsadmin-help"></a>bitsadmin help
 
 
 
-Affiche l’utilisation de ligne de commande.
+Affiche l’utilisation de la ligne de commande.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,13 +32,13 @@ Affiche l’utilisation de ligne de commande.
 bitsadmin /help | /?
 ```
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivant récupère l’aide en ligne de commande.
+L’exemple suivant récupère l’aide de la ligne de commande.
 ```
 C:\>bitsadmin /help
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

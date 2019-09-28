@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: bd9c47c0f786fa8c7814519b26d33daaf01080a3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0a1543f2c935c2ef76ea014567b18bfc778c7401
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869388"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407386"
 ---
 # <a name="the-role-of-attribute-stores"></a>Rôle des magasins d'attributs
 Services ADFS utilise le terme « magasins d’attributs » pour faire référence aux répertoires ou aux bases de données utilisés par une organisation pour stocker ses comptes d’utilisateur et leurs valeurs d’attribut associées. Une fois qu’elle est configurée dans une organisation de fournisseur d’identité, AD FS récupère ces valeurs d’attribut à partir du magasin et crée des revendications en fonction de ces informations afin qu’une application ou un service Web hébergé dans une organisation de partie de confiance puisse faire le décisions d’autorisation lorsqu’un utilisateur \(fédéré dont le compte est stocké dans l’organisation\) du fournisseur d’identité tente d’accéder à l’application ou au service.  

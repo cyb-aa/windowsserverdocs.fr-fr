@@ -1,9 +1,9 @@
 ---
-title: Plan de l’étape 2 avancées des déploiements de DirectAccess
-description: Cette rubrique fait partie du guide de déployer un serveur DirectAccess unique avec les paramètres avancés pour Windows Server 2016
+title: Étape 2 planifier les déploiements avancés de DirectAccess
+description: Cette rubrique fait partie du guide déployer un serveur DirectAccess unique avec des paramètres avancés pour Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,26 +12,26 @@ ms.topic: article
 ms.assetid: 3bba28d4-23e2-449f-8319-7d2190f68d56
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c946d5bbdf6e8660aaa9e47ced44aed91cfb71da
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: b093c4cbf5ceb06e84d5e07c8735106797932bc1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283465"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404922"
 ---
-# <a name="step-2-plan-advanced-directaccess-deployments"></a>Plan de l’étape 2 avancées des déploiements de DirectAccess
+# <a name="step-2-plan-advanced-directaccess-deployments"></a>Étape 2 planifier les déploiements avancés de DirectAccess
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Une fois que vous avez planifié l'infrastructure DirectAccess, l'étape suivante du déploiement des fonctionnalités avancées de DirectAccess sur un serveur individuel avec IPv4 et IPv6 consiste à planifier les paramètres pour l'Assistant Configuration de l'accès à distance.  
   
 |Tâche|Description|  
 |----|--------|  
-|[2.1 planifier le déploiement du client](#21-plan-for-client-deployment)|Planifiez la façon dont les ordinateurs clients pourront se connecter à l'aide de DirectAccess. Décidez quels ordinateurs gérés seront configurés en tant que clients DirectAccess et planifiez le déploiement de l'Assistant Connectivité réseau ou de l'Assistant Connectivité DirectAccess sur les ordinateurs clients.|  
-|[2.2 planifier le déploiement du serveur DirectAccess](#22-plan-for-directaccess-server-deployment)|Planifiez la façon de déployer le serveur DirectAccess.|  
-|[2.3 planifier les serveurs d’infrastructure](#23-plan-infrastructure-servers)|Planifiez les serveurs d'infrastructure pour votre déploiement de DirectAccess, y compris le serveur Emplacement réseau DirectAccess, les serveurs DNS (Domain Name System) et les serveurs d'administration DirectAccess.|  
-|[2.4 planifier les serveurs d’applications](#24-plan-application-servers)|Planifiez des serveurs d'applications IPv4 et IPv6, et considérez éventuellement si une authentification de bout en bout entre les ordinateurs clients DirectAccess et les serveurs d'applications internes est requise.|  
-|[2.5 planifier DirectAccess et les clients VPN tiers](#25-plan-directaccess-and-third-party-vpn-clients)|Lors du déploiement de DirectAccess avec des clients VPN tiers, il peut être nécessaire de définir une valeur de Registre afin de permettre la coexistence sans heurts des deux solutions d'accès à distance.|  
+|[2,1 planifier le déploiement du client](#21-plan-for-client-deployment)|Planifiez la façon dont les ordinateurs clients pourront se connecter à l'aide de DirectAccess. Décidez quels ordinateurs gérés seront configurés en tant que clients DirectAccess et planifiez le déploiement de l'Assistant Connectivité réseau ou de l'Assistant Connectivité DirectAccess sur les ordinateurs clients.|  
+|[2,2 planifier le déploiement du serveur DirectAccess](#22-plan-for-directaccess-server-deployment)|Planifiez la façon de déployer le serveur DirectAccess.|  
+|[2,3 planifier des serveurs d’infrastructure](#23-plan-infrastructure-servers)|Planifiez les serveurs d'infrastructure pour votre déploiement de DirectAccess, y compris le serveur Emplacement réseau DirectAccess, les serveurs DNS (Domain Name System) et les serveurs d'administration DirectAccess.|  
+|[2,4 planifier les serveurs d’applications](#24-plan-application-servers)|Planifiez des serveurs d'applications IPv4 et IPv6, et considérez éventuellement si une authentification de bout en bout entre les ordinateurs clients DirectAccess et les serveurs d'applications internes est requise.|  
+|[2,5 planifier DirectAccess et les clients VPN tiers](#25-plan-directaccess-and-third-party-vpn-clients)|Lors du déploiement de DirectAccess avec des clients VPN tiers, il peut être nécessaire de définir une valeur de Registre afin de permettre la coexistence sans heurts des deux solutions d'accès à distance.|  
   
 ## <a name="21-plan-for-client-deployment"></a>2.1 Planifier le déploiement des clients  
 Vous devez prendre trois décisions lors de la planification du déploiement de vos clients :  
@@ -42,7 +42,7 @@ Vous devez prendre trois décisions lors de la planification du déploiement de 
   
 2.  Quels groupes de sécurité contiendront les ordinateurs clients DirectAccess ?  
   
-    Les paramètres des clients DirectAccess sont contenus dans l'objet de stratégie de groupe de client DirectAccess. L'objet de stratégie de groupe est appliqué aux ordinateurs figurant dans les groupes de sécurité que vous spécifiez dans l'Assistant Installation des clients DirectAccess. Vous pouvez spécifier que les groupes de sécurité doivent être contenus dans tout domaine pris en charge. Pour plus d’informations, consultez la section [1.7 planifier Active Directory Domain Services](da-adv-plan-s1-infrastructure.md#17-plan-active-directory-domain-services).  
+    Les paramètres des clients DirectAccess sont contenus dans l'objet de stratégie de groupe de client DirectAccess. L'objet de stratégie de groupe est appliqué aux ordinateurs figurant dans les groupes de sécurité que vous spécifiez dans l'Assistant Installation des clients DirectAccess. Vous pouvez spécifier que les groupes de sécurité doivent être contenus dans tout domaine pris en charge. Pour plus d’informations, consultez la section [1,7 Plan Active Directory Domain Services](da-adv-plan-s1-infrastructure.md#17-plan-active-directory-domain-services).  
   
     Avant de configurer DirectAccess, vous devez créer les groupes de sécurité. Vous pouvez ajouter des ordinateurs au groupe de sécurité une fois le déploiement de DirectAccess terminé. Toutefois, si vous ajoutez des ordinateurs clients qui résident dans un autre domaine que le groupe de sécurité, l'objet de stratégie de groupe de client ne sera pas appliqué à ces clients. Par exemple, si vous avez créé le groupe de sécurité GS1 dans un domaine A pour les clients DirectAccess et ajoutez ensuite des clients d'un domaine B à ce groupe, l'objet de stratégie de groupe de client ne sera pas appliqué aux clients du domaine B. Pour éviter ce problème, créez un nouveau groupe de sécurité client pour chaque domaine contenant des ordinateurs clients DirectAccess. Ou, si vous ne voulez pas créer un nouveau groupe de sécurité, exécutez l'applet de commande Windows PowerShell **Add-DAClient** avec le nom du nouvel objet de stratégie de groupe pour le nouveau domaine.  
   
@@ -58,7 +58,7 @@ Vous devez prendre trois décisions lors de la planification du déploiement de 
   
         Ce nom doit être enregistré manuellement dans DNS. Vous pouvez créer d'autres vérificateurs de connectivité en utilisant d'autres adresses web via HTTP ou **ping**. Pour chaque vérificateur de connectivité, une entrée DNS doit exister.  
   
-    -   **Une adresse de messagerie du support technique**  
+    -   **Adresse de messagerie du support technique**  
   
         Si les utilisateurs finaux rencontrent des problèmes de connectivité DirectAccess, ils peuvent envoyer un courrier électronique contenant des informations de diagnostic à l'administrateur DirectAccess pour que ce dernier résolve le problème.  
   
@@ -73,7 +73,7 @@ Vous devez prendre trois décisions lors de la planification du déploiement de 
 ## <a name="22-plan-for-directaccess-server-deployment"></a>2.2 Planifier le déploiement du serveur DirectAccess  
 Prenez en compte les décisions suivantes quand vous planifiez le déploiement de votre serveur DirectAccess :  
   
--   **Topologie de réseau**  
+-   **Topologie du réseau**  
   
     Quelques topologies sont disponibles lorsque vous déployez un serveur DirectAccess :  
   
@@ -81,7 +81,7 @@ Prenez en compte les décisions suivantes quand vous planifiez le déploiement d
   
     -   **Une seule carte réseau**. Dans cette configuration, le serveur DirectAccess est installé derrière un périphérique de périmètre tel qu'un pare-feu ou un routeur. La carte réseau est connectée au réseau interne.  
   
-    Pour plus d’informations sur la sélection de la topologie pour votre déploiement, consultez [1.1 topologie de réseau de Plan et les paramètres](da-adv-plan-s1-infrastructure.md#11-plan-network-topology-and-settings).  
+    Pour plus d’informations sur la sélection de la topologie de votre déploiement, consultez [1,1 planifier la topologie et les paramètres du réseau](da-adv-plan-s1-infrastructure.md#11-plan-network-topology-and-settings).  
   
 -   **Adresse ConnectTo**  
   
@@ -91,28 +91,28 @@ Prenez en compte les décisions suivantes quand vous planifiez le déploiement d
   
     L'Assistant Installation du serveur d'accès à distance détecte automatiquement les cartes réseau configurées sur le serveur DirectAccess. Vous devez vous assurer que les cartes appropriées sont sélectionnées.  
   
--   **Certificat IP-HTTPS**  
+-   **Certificat IP-HTTPs**  
   
     L'Assistant Installation du serveur d'accès à distance détecte automatiquement un certificat adapté à la connexion IP-HTTPS. Le nom de sujet du certificat que vous sélectionnez doit correspondre à l'adresse ConnectTo. Si vous utilisez des certificats auto-signés, vous pouvez choisir d'utiliser un certificat créé automatiquement par le serveur d'accès à distance.  
   
 -   **Préfixes IPv6**  
   
-    Si l'Assistant Installation du serveur d'accès à distance détecte qu'IPv6 a été déployé sur les cartes réseau, il renseigne automatiquement les préfixes IPv6 pour le réseau interne, un préfixe IPv6 à affecter aux ordinateurs clients DirectAccess et un préfixe IPv6 à affecter aux ordinateurs clients VPN. Si les préfixes générés automatiquement ne sont pas corrects pour votre infrastructure IPv6 native, vous devez les modifier manuellement. Pour plus d’informations, consultez [1.1 topologie de réseau de Plan et les paramètres](da-adv-plan-s1-infrastructure.md#11-plan-network-topology-and-settings).  
+    Si l'Assistant Installation du serveur d'accès à distance détecte qu'IPv6 a été déployé sur les cartes réseau, il renseigne automatiquement les préfixes IPv6 pour le réseau interne, un préfixe IPv6 à affecter aux ordinateurs clients DirectAccess et un préfixe IPv6 à affecter aux ordinateurs clients VPN. Si les préfixes générés automatiquement ne sont pas corrects pour votre infrastructure IPv6 native, vous devez les modifier manuellement. Pour plus d’informations, consultez [1,1 planifier la topologie et les paramètres du réseau](da-adv-plan-s1-infrastructure.md#11-plan-network-topology-and-settings).  
   
 -   **Authentification**  
   
     Choisissez comment les clients DirectAccess s'authentifieront auprès du serveur DirectAccess :  
   
-    -   **Authentification utilisateur** Vous pouvez permettre aux utilisateurs de s'authentifier à l'aide des informations d'identification Active Directory ou d'une authentification à deux facteurs. Pour plus d’informations sur l’authentification à deux facteurs, consultez [Deploy Remote Access avec l’authentification OTP](https://technet.microsoft.com/library/hh831379.aspx).  
+    -   **Authentification utilisateur** Vous pouvez permettre aux utilisateurs de s'authentifier à l'aide des informations d'identification Active Directory ou d'une authentification à deux facteurs. Pour plus d’informations sur l’authentification à deux facteurs, voir [déployer l’accès à distance avec l’authentification par mot de passe à usage unique](https://technet.microsoft.com/library/hh831379.aspx).  
   
-    -   **Authentification d'ordinateur**. Vous pouvez configurer l'authentification d'ordinateur pour utiliser des certificats ou pour utiliser le serveur DirectAccess en tant que proxy Kerberos de la part du client. Pour plus d’informations, consultez [1.3 Configuration requise des certificats Plan](da-adv-plan-s1-infrastructure.md#13-plan-certificate-requirements).  
+    -   **Authentification d'ordinateur**. Vous pouvez configurer l'authentification d'ordinateur pour utiliser des certificats ou pour utiliser le serveur DirectAccess en tant que proxy Kerberos de la part du client. Pour plus d’informations, consultez [1,3 planifier les certificats requis](da-adv-plan-s1-infrastructure.md#13-plan-certificate-requirements).  
   
-    -   **Les clients Windows 7**. Par défaut, les ordinateurs clients qui exécutent Windows 7 ne peut pas se connecter à un déploiement de Windows Server 2012 R2 ou Windows Server 2012 DirectAccess. Si vous avez des clients qui exécutent Windows 7 dans votre organisation, et qui nécessitent un accès à distance aux ressources internes, vous pouvez les autoriser à se connecter. Tout ordinateur client que vous voulez autoriser à accéder aux ressources internes doit être membre d'un groupe de sécurité que vous spécifiez dans l'Assistant Installation des clients DirectAccess.  
+    -   **Clients Windows 7**. Par défaut, les ordinateurs clients qui exécutent Windows 7 ne peuvent pas se connecter à un déploiement de Windows Server 2012 R2 ou Windows Server 2012 DirectAccess. Si vous avez des clients dans votre organisation qui exécutent Windows 7 et qu’ils nécessitent un accès à distance aux ressources internes, vous pouvez les autoriser à se connecter. Tout ordinateur client que vous voulez autoriser à accéder aux ressources internes doit être membre d'un groupe de sécurité que vous spécifiez dans l'Assistant Installation des clients DirectAccess.  
   
         > [!NOTE]  
-        > Autorisant les clients qui exécutent 7 Windows pour se connecter à l’aide de DirectAccess requiert que vous utilisez l’authentification de certificat d’ordinateur.  
+        > Pour permettre aux clients exécutant Windows 7 de se connecter à l’aide de DirectAccess, vous devez utiliser l’authentification par certificat d’ordinateur.  
   
--   **Configuration de VPN**  
+-   **Configuration VPN**  
   
     Avant de configurer DirectAccess, choisissez si vous envisagez de fournir l'accès VPN à des clients distants non compatibles DirectAccess. Vous devez fournir l'accès VPN si vous possédez dans votre organisation des ordinateurs clients qui ne prennent pas en charge la connectivité DirectAccess (car ils sont non gérés ou exécutent un système d'exploitation pour lequel DirectAccess n'est pas pris en charge). L'Assistant Installation du serveur d'accès à distance vous permet de configurer la manière dont les adresses IP sont attribuées (en utilisant DHCP ou à partir d'un pool d'adresses statiques) et les clients VPN authentifiés (en utilisant Active Directory ou un serveur RADIUS (Remote Authentication Dial-Up Service)).  
   
@@ -133,7 +133,7 @@ Les serveurs d'applications sont les serveurs du réseau d'entreprise qui sont a
   
 Vous pouvez éventuellement avoir besoin d'un chiffrement et d'une authentification de bout en bout entre un client DirectAccess et des serveurs d'applications internes sélectionnés. Si vous configurez l'authentification de bout en bout, les clients DirectAccess utilisent une stratégie de transport IPsec. Cette stratégie exige que l'authentification et la protection du trafic des sessions IPsec soient terminées aux serveurs d'applications spécifiés. Dans ce cas, le serveur d'accès à distance transfère les sessions IPsec authentifiées et protégées vers les serveurs d'applications.  
   
-Par défaut, quand vous étendez l'authentification aux serveurs d'applications, la charge de données est chiffrée entre le client DirectAccess et les serveurs d'applications. Vous pouvez choisir de ne pas chiffrer le trafic et d'utiliser l'authentification uniquement. Toutefois, cela est moins sécurisée que l’authentification et chiffrement, et il est pris en charge uniquement pour les serveurs d’applications exécutant Windows Server 2008 R2, les systèmes d’exploitation Windows Server 2012.  
+Par défaut, quand vous étendez l'authentification aux serveurs d'applications, la charge de données est chiffrée entre le client DirectAccess et les serveurs d'applications. Vous pouvez choisir de ne pas chiffrer le trafic et d'utiliser l'authentification uniquement. Toutefois, cela est moins sécurisé que l’utilisation de l’authentification et du chiffrement, et il est pris en charge uniquement pour les serveurs d’applications exécutant les systèmes d’exploitation Windows Server 2008 R2 ou Windows Server 2012.  
   
 ## <a name="25-plan-directaccess-and-third-party-vpn-clients"></a>2.5 Planifier DirectAccess et les clients VPN tiers  
 Certains clients VPN tiers ne créent pas de connexions dans le dossier de connexions réseau. Cela peut amener DirectAccess à déterminer qu'il n'a aucune connectivité intranet lorsque la connexion VPN est établie et que la connectivité à l'intranet existe. Cela se produit lorsque des clients VPN tiers inscrivent leurs interfaces en les définissant comme types de point de terminaison NDIS. Vous pouvez permettre la coexistence avec ces types de clients VPN en définissant la valeur de Registre suivante sur 1 sur les clients DirectAccess :  
@@ -150,7 +150,7 @@ Si la connexion VPN répertorie sa passerelle par défaut comme vide ou remplie 
   
 ## <a name="previous-step"></a>Étape précédente  
   
--   [Étape 1 : Planifier l’Infrastructure DirectAccess](da-adv-plan-s1-infrastructure.md)  
+-   [Étape 1 : Planifier l’infrastructure DirectAccess @ no__t-0  
   
 
 

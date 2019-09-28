@@ -1,27 +1,27 @@
 ---
-title: Configurer AD FS exclue des adresses IP
+title: Configurer AD FS adresse IP interdite adresses
 description: ''
 author: billmath
 ms.author: billmath
 manager: mtillman
 ms.date: 06/28/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 01ef992554a1e0961d8d795e9baa7730a1a1d682
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 2b518f92f80d06e4bd0854fde94013a412aae515
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189890"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407716"
 ---
-# <a name="ad-fs-and-banned-ip-addresses"></a>AD FS et des adresses IP interdites
+# <a name="ad-fs-and-banned-ip-addresses"></a>AD FS et adresses IP interdites
 
 
-En juin 2018, AD FS sur Windows Server 2016 introduit **interdites** avec les services AD FS juin 2018 mises à jour.  Cette mise à jour vous permet de configurer un ensemble d’adresses IP dans le monde entier dans AD FS, afin que les demandes provenant de ces adresses IP, ou qui ont ces adresses IP le **x-forwarded-for** ou **x-ms-transférés-client-ip** en-têtes, sera bloqué par AD FS.
+En juin 2018, AD FS sur Windows Server 2016 a introduit des **adresses IP interdites** avec la mise à jour AD FS de juin 2018.  Cette mise à jour vous permet de configurer globalement un ensemble d’adresses IP dans AD FS, de sorte que les demandes provenant de ces adresses IP, ou qui ont ces adresses IP dans les en-têtes **x/** **MS-forwarded-client-IP** , sont bloquées par AD FS.
 
 ## <a name="adding-banned-ips"></a>Ajout d’adresses IP interdites
-Pour ajouter des adresses IP interdite à la liste globale, utilisez l’applet de commande Powershell ci-dessous :
+Pour ajouter des adresses IP interdites à la liste globale, utilisez l’applet de commande PowerShell ci-dessous :
 
 ``` powershell
 PS C:\ >Set-AdfsProperties -AddBannedIps "1.2.3.4", "::3", "1.2.3.4/16"
@@ -29,21 +29,21 @@ PS C:\ >Set-AdfsProperties -AddBannedIps "1.2.3.4", "::3", "1.2.3.4/16"
 
 Formats autorisés
 
-1.  IPv4
+1.  IPv4/IPv6
 2.  IPv6
-3.  Format CIDR avec IPv4 ou IPv6
+3.  Format CIDR avec IPv4 ou V6
 
-Il existe une limite de 300 entrées pour les adresses IP interdites. Vous pouvez utiliser le format CIDR ou de plage pour refuser un grand bloc d’entrées avec une seule entrée.
+Il existe une limite de 300 entrées pour les adresses IP interdites. Vous pouvez utiliser CIDR ou le format de plage pour refuser un grand bloc d’entrées avec une seule entrée.
 
-## <a name="removing-banned-ips"></a>Suppression d’adresses IP interdites
-Pour supprimer des adresses IP interdites à partir de la liste globale, utilisez l’applet de commande Powershell ci-dessous :
+## <a name="removing-banned-ips"></a>Suppression des adresses IP interdites
+Pour supprimer des adresses IP interdites de la liste globale, utilisez l’applet de commande PowerShell ci-dessous :
 
 ``` powershell
 PS C:\ >Set-AdfsProperties -RemoveBannedIps "1.2.3.4"
 ```
 
-#### <a name="read-banned-ips"></a>Lecture d’adresses IP interdites
-Pour lire l’ensemble actuel des adresses IP interdites, utilisez l’applet de commande Powershell ci-dessous :
+#### <a name="read-banned-ips"></a>Lire les adresses IP interdites
+Pour lire l’ensemble actuel d’adresses IP interdites, utilisez l’applet de commande PowerShell ci-dessous :
 
 ``` powershell
 PS C:\ >Get-AdfsProperties 
@@ -58,7 +58,7 @@ BannedIpList                   : {1.2.3.4, ::3,1.2.3.4/16}
 
 
 ## <a name="additional-references"></a>Références supplémentaires  
-[Meilleures pratiques pour la sécurisation d’Active Directory Federation Services](../../ad-fs/deployment/best-practices-securing-ad-fs.md)
+[Meilleures pratiques pour la sécurisation des Services ADFS](../../ad-fs/deployment/best-practices-securing-ad-fs.md)
 
 [Set-AdfsProperties](https://technet.microsoft.com/itpro/powershell/windows/adfs/set-adfsproperties)
 

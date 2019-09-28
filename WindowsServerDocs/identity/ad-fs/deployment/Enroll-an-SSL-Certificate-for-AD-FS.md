@@ -7,28 +7,28 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e80927f2670614d2949f4e67cc158319f05c5fa0
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: efa7c7aee848a5bbb68d3ce7140e135d37c2161d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192154"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71408368"
 ---
 # <a name="enroll-an-ssl-certificate-for-ad-fs"></a>Inscrire un certificat SSL pour AD FS
 
-Active Directory Federation Services \(AD FS\) nécessite un certificat pour le protocole SSL (Secure Socket Layer) \(SSL\) authentification serveur sur chaque serveur de fédération dans votre batterie de serveurs de fédération. Le même certificat peut être utilisé sur chaque serveur de fédération dans une batterie de serveurs. Le certificat et sa clé privée doivent être disponibles. Par exemple, si le certificat et sa clé privée se trouvent dans un fichier .pfx, vous pouvez importer le fichier directement dans l’Assistant Configuration des services AD FS (Active Directory Federation Services). Ce certificat SSL doit contenir les éléments suivants :  
+Services ADFS \(AD FS @ no__t-1 nécessite un certificat pour Secure Socket Layer \(SSL @ no__t-3 Server Authentication sur chaque serveur de Fédération de votre batterie de serveurs de Fédération. Le même certificat peut être utilisé sur chaque serveur de Fédération d’une batterie de serveurs. Le certificat et sa clé privée doivent être disponibles. Par exemple, si le certificat et sa clé privée se trouvent dans un fichier .pfx, vous pouvez importer le fichier directement dans l’Assistant Configuration des services AD FS (Active Directory Federation Services). Ce certificat SSL doit contenir les éléments suivants :  
   
-1.  Le nom de sujet et autre nom d’objet doivent contenir votre nom de service de fédération, tel que fs.contoso.com.  
+1.  Le nom d’objet et l’autre nom de l’objet doivent contenir le nom de votre service de Fédération, par exemple fs.contoso.com.  
   
-2.  L’autre nom de sujet doit contenir la valeur **enterpriseregistration** est suivi par le nom d’utilisateur Principal \(UPN\) suffixe de votre organisation, par exemple,  **enterpriseregistration.corp.contoso.com**.  
+2.  L’autre nom de l’objet doit contenir la valeur **enterpriseregistration** suivie du nom d’utilisateur principal \(UPN @ no__t-2 suffixe de votre organisation, par exemple **enterpriseregistration.Corp.contoso.com**.  
   
     > [!WARNING]  
-    > Spécifiez le champ autre nom si vous prévoyez d’activer le Service Device Registration \(DRS\) pour la jonction.  
+    > Spécifiez l’autre nom de l’objet si vous envisagez d’activer Device Registration service \(DRS @ no__t-1 pour Workplace Join.  
   
 > [!IMPORTANT]  
-> Si votre organisation utilise plusieurs suffixes UPN, et que vous prévoyez d’activer le service DRS, le certificat SSL doit contenir une entrée d’autre nom de l’objet pour chaque suffixe.  
+> Si votre organisation utilise plusieurs suffixes UPN et que vous envisagez d’activer le DRS, le certificat SSL doit contenir une entrée d’autre nom de l’objet pour chaque suffixe.  
   
 ## <a name="see-also"></a>Voir aussi
 [Déploiement d’AD FS](../../ad-fs/AD-FS-Deployment.md)  

@@ -2,23 +2,23 @@
 title: Configurer une homologation de réseau virtuel
 description: La configuration de l’homologation de réseaux virtuels implique la création de deux réseaux virtuels qui sont homologués.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: ''
 ms.author: pashort
 author: shortpatti
 ms.date: 08/08/2018
-ms.openlocfilehash: 417585ffbe1e8374be1560073d5636659eaf4332
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 4d35501b8d876f2a178a4744d495125dea8da6c7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869876"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405818"
 ---
 # <a name="configure-virtual-network-peering"></a>Configurer une homologation de réseau virtuel
 
->S’applique à : Windows Server
+>S’applique à : Windows Server
 
 Dans cette procédure, vous utilisez Windows PowerShell pour créer deux réseaux virtuels, chacun avec un sous-réseau. Ensuite, vous configurez l’homologation entre les deux réseaux virtuels pour activer la connectivité entre eux.
 
@@ -34,7 +34,7 @@ Dans cette procédure, vous utilisez Windows PowerShell pour créer deux réseau
 >[!IMPORTANT]
 >N’oubliez pas de mettre à jour les propriétés de votre environnement.
 
-## <a name="step-1-create-the-first-virtual-network"></a>Étape 1. Créer le premier réseau virtuel
+## <a name="step-1-create-the-first-virtual-network"></a>Étape 1. Créer le premier réseau virtuel
 
 Dans cette étape, vous utilisez Windows PowerShell pour rechercher le réseau logique du fournisseur HNV afin de créer le premier réseau virtuel avec un sous-réseau. L’exemple de script suivant crée le réseau virtuel de contoso avec un sous-réseau.
 
@@ -66,7 +66,7 @@ $vnetproperties.Subnets = @($vsubnet)
 New-NetworkControllerVirtualNetwork -ResourceId "Contoso_VNet1" -ConnectionUri $uri -Properties $vnetproperties
 ```
 
-## <a name="step-2-create-the-second-virtual-network"></a>Étape 2. Créer le deuxième réseau virtuel
+## <a name="step-2-create-the-second-virtual-network"></a>Étape 2. Créer le deuxième réseau virtuel
 
 Au cours de cette étape, vous allez créer un deuxième réseau virtuel avec un sous-réseau. L’exemple de script suivant crée un réseau virtuel de Woodgrove avec un sous-réseau.
 
@@ -90,7 +90,7 @@ $vnetproperties.Subnets = @($vsubnet)
 New-NetworkControllerVirtualNetwork -ResourceId "Woodgrove_VNet1" -ConnectionUri $uri -Properties $vnetproperties
 ```
 
-## <a name="step-3-configure-peering-from-the-first-virtual-network-to-the-second-virtual-network"></a>Étape 3. Configurer l’homologation du premier réseau virtuel vers le second réseau virtuel
+## <a name="step-3-configure-peering-from-the-first-virtual-network-to-the-second-virtual-network"></a>Étape 3. Configurer l’homologation du premier réseau virtuel vers le second réseau virtuel
 
 Dans cette étape, vous configurez l’homologation entre le premier réseau virtuel et le deuxième réseau virtuel que vous avez créé au cours des deux étapes précédentes. L’exemple de script suivant établit l’homologation de réseaux virtuels de **Contoso_vnet1** à **Woodgrove_vnet1**.
 
@@ -118,7 +118,7 @@ New-NetworkControllerVirtualNetworkPeering -ConnectionUri $uri -VirtualNetworkId
 >[!IMPORTANT]
 >Une fois cette homologation créée, l’état du réseau virtuel indique **initié**.
 
-## <a name="step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network"></a>Étape 4. Configuration de l’homologation à partir du deuxième réseau virtuel sur le premier réseau virtuel
+## <a name="step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network"></a>Étape 4. Configuration de l’homologation à partir du deuxième réseau virtuel sur le premier réseau virtuel
 
 Dans cette étape, vous configurez l’homologation entre le deuxième réseau virtuel et le premier réseau virtuel que vous avez créé aux étapes 1 et 2 ci-dessus. L’exemple de script suivant établit l’homologation de réseaux virtuels de **Woodgrove_vnet1** à **Contoso_vnet1**.
 

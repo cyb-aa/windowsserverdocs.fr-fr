@@ -1,8 +1,8 @@
 ---
 title: logman create
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cb87ee824bb5802864d4e661fd231b8854ce8b40
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 22e6d19669152f3c9e4761ce2bde5b6d9e524e14
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837820"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374491"
 ---
 # <a name="logman-create"></a>logman create
 
@@ -34,10 +34,10 @@ logman create <counter | trace | alert | cfg | api> <[-n] <name>> [options]
 
 |Paramètre|Description|
 |---------|-----------|
-|[Logman créer compteur](logman-create-counter.md)|Créer un collecteur de données de compteur.|
-|[Logman créer trace](logman-create-trace.md)|Créer un collecteur de données de trace.|
-|[Logman créer d’alerte](logman-create-alert.md)|Créer un collecteur de données d’alerte.|
-|[Logman créer cfg](logman-create-cfg.md)|Créer un collecteur de données de configuration.|
-|[Logman créer des api](logman-create-api.md)|Créer un collecteur de données de suivi API.|
+|[logman créer un compteur](logman-create-counter.md)|créer un collecteur de données de compteur.|
+|[logman create trace](logman-create-trace.md)|Créer un collecteur de données de trace.|
+|[logman créer une alerte](logman-create-alert.md)|créer un collecteur de données d’alerte.|
+|[logman créer cfg](logman-create-cfg.md)|créer un collecteur de données de configuration.|
+|[logman create API](logman-create-api.md)|créer un collecteur de données de suivi d’API.|
 
 #### <a name="additional-references"></a>Références supplémentaires

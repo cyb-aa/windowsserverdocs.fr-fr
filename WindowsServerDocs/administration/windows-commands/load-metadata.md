@@ -1,8 +1,8 @@
 ---
-title: Chargement des métadonnées
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Charger les métadonnées
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b52b5040fc8c834b04cad83ca4b0cfab103fdc43
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 025f75743d61889c4b987e9a2a575d1c599f04c1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871330"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374622"
 ---
-# <a name="load-metadata"></a>Chargement des métadonnées
+# <a name="load-metadata"></a>Charger les métadonnées
 
 
 
-Charge un fichier .cab de métadonnées avant d’importer une copie de clichés instantanés transportables ou charge les métadonnées de writer dans le cas d’une restauration. Si utilisée sans paramètres, **charger les métadonnées** affiche l’aide à l’invite de commandes.
+Charge un fichier de métadonnées. cab avant d’importer un cliché instantané transportable ou charge les métadonnées de l’enregistreur dans le cas d’une restauration. En cas d’utilisation sans paramètre, **charger les métadonnées** affiche l’aide à l’invite de commandes.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -38,21 +38,21 @@ load metadata [<Drive>:][<Path>]<MetaData.cab>
 
 |Paramètre|Description|
 |---------|-----------|
-|[\<Drive>:][<Path>]|Spécifie l’emplacement du fichier de métadonnées.|
-|MetaData.cab|Spécifie le fichier .cab de métadonnées à charger.|
+|[@no__t 0Drive >:] [<Path>]|Spécifie l’emplacement du fichier de métadonnées.|
+|MetaData. cab|Spécifie le fichier. cab de métadonnées à charger.|
 
 ## <a name="remarks"></a>Notes
 
--   Vous pouvez utiliser la **importer** commande pour importer une copie de clichés instantanés transportables basé sur les métadonnées spécifiées par **charger les métadonnées**.
--   Cette commande est nécessaire avant du **commencer restauration** commande pour charger les enregistreurs sélectionnées et les composants pour la restauration.
+-   Vous pouvez utiliser la commande **Importer** pour importer un cliché instantané transportable basé sur les métadonnées spécifiées par **charger les métadonnées**.
+-   Cette commande est nécessaire avant la commande **Begin Restore** pour charger les enregistreurs et les composants sélectionnés pour la restauration.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour charger un fichier de métadonnées appelé metafile.cab à partir de l’emplacement par défaut, tapez :
+Pour charger un fichier de métadonnées appelé Metafile. cab à partir de l’emplacement par défaut, tapez :
 ```
 load metadata metafile.cab
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,19 +1,19 @@
 ---
 title: Scénarios de stratégie de QoS
 description: Cette rubrique fournit des scénarios de stratégie de qualité de service (QoS) qui montrent comment utiliser stratégie de groupe pour hiérarchiser le trafic réseau d’applications et de services spécifiques dans Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: c4306f06-a117-4f65-b78b-9fd0d1133f95
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e0968157532c0b3bd926acbaff4291e27a71de31
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9ac5ab31db1b8c184fd179ecb3e6b87f7fffd2ba
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871872"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405236"
 ---
 # <a name="qos-policy-scenarios"></a>Scénarios de stratégie de QoS
 
@@ -29,7 +29,7 @@ Les deux scénarios de cette rubrique sont les suivants :
 >[!NOTE]
 >Certaines sections de cette rubrique contiennent les étapes générales que vous pouvez suivre pour effectuer les actions décrites. Pour obtenir des instructions plus détaillées sur la gestion de la stratégie QoS, consultez [gérer la stratégie QoS](qos-policy-manage.md).
 
-## <a name="scenario-1-prioritize-network-traffic-for-a-line-of-business-application"></a>Scénario 1 : Hiérarchiser le trafic réseau pour une application métier
+## <a name="scenario-1-prioritize-network-traffic-for-a-line-of-business-application"></a>Scénario 1: Hiérarchiser le trafic réseau pour une application métier
 
 Dans ce scénario, un service informatique a plusieurs objectifs qu’il peut accomplir à l’aide de la stratégie QoS :
 
@@ -79,10 +79,10 @@ Le tableau suivant récapitule les stratégies de QoS pour ce scénario.
   
 |Nom de la stratégie|Valeur DSCP|Taux d’accélération|Appliqué aux unités d’organisation|Description|  
 |-----------------|----------------|-------------------|-----------------------------------|-----------------|
-|[Aucune stratégie]|0|Aucun|[Aucun déploiement]|Meilleur effort (par défaut) pour le trafic non classifié.|  
-|Données de sauvegarde|1|Aucun|Tous les clients|Applique une valeur DSCP de priorité basse pour ces données en bloc.|  
-|LOB serveur|44|Aucun|Unité d’organisation ordinateur pour les serveurs ERP|Applique le DSCP haute priorité pour le trafic du serveur ERP|  
-|LOB client|60|Aucun|Groupe d’utilisateurs finance|Applique le DSCP haute priorité pour le trafic client ERP.|  
+|[Aucune stratégie]|0|Aucune|[Aucun déploiement]|Meilleur effort (par défaut) pour le trafic non classifié.|  
+|Données de sauvegarde|1|Aucune|Tous les clients|Applique une valeur DSCP de priorité basse pour ces données en bloc.|  
+|LOB serveur|44|Aucune|Unité d’organisation ordinateur pour les serveurs ERP|Applique le DSCP haute priorité pour le trafic du serveur ERP|  
+|LOB client|60|Aucune|Groupe d’utilisateurs finance|Applique le DSCP haute priorité pour le trafic client ERP.|  
 
 >[!NOTE]
 >Les valeurs DSCP sont représentées sous forme décimale.

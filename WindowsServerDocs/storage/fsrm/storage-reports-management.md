@@ -2,18 +2,18 @@
 title: Gestion des rapports de stockage
 description: Cet article explique comment générer, planifier et surveiller des rapports de stockage
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 62215aa802e2509be5305aef53069ae9643562f1
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: c78718508194cec834d248f30459b7e50a32b3b0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476098"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403068"
 ---
 # <a name="storage-reports-management"></a>Gestion des rapports de stockage
 

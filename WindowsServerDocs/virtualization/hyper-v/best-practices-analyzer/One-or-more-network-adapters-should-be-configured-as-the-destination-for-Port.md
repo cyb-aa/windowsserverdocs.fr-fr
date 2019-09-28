@@ -1,7 +1,7 @@
 ---
-title: Une ou plusieurs cartes réseau doivent être configurés comme destination pour la mise en miroir de Port
-description: Version en ligne du texte pour cette règle de Best Practices Analyzer.
-ms.prod: windows-server-threshold
+title: Une ou plusieurs cartes réseau doivent être configurées comme destination pour la mise en miroir des ports
+description: Version en ligne du texte de cette règle de Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: b83c166d-f010-47c4-a4bb-02167f2e3361
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: e3fa986ca66e6da03797db4fe7183b9bae1fbdda
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: af51b854659adae1bf3132eed4d68e95467bdf85
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875730"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364813"
 ---
-# <a name="one-or-more-network-adapters-should-be-configured-as-the-destination-for-port-mirroring"></a>Une ou plusieurs cartes réseau doivent être configurés comme destination pour la mise en miroir de Port
+# <a name="one-or-more-network-adapters-should-be-configured-as-the-destination-for-port-mirroring"></a>Une ou plusieurs cartes réseau doivent être configurées comme destination pour la mise en miroir des ports
 
 >S'applique à : Windows Server 2016
 
@@ -27,21 +27,21 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Niveau de gravité**|Warning|  
+|**Va**|Warning|  
 |**Catégorie**|Configuration|  
   
-Dans les sections suivantes, italique indique le texte de l’interface utilisateur qui apparaît dans l’outil Best Practices Analyzer pour ce problème.  
+Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
   
 ## <a name="issue"></a>**Problème**  
-*Un ou plusieurs machines virtuelles ont une carte réseau configurée en tant que source pour la mise en miroir de Port, mais il n’existe aucune destination correspondante sur le commutateur virtuel.*  
+*Une ou plusieurs machines virtuelles ont une carte réseau configurée comme source pour la mise en miroir des ports, mais il n’existe aucune destination correspondante sur le commutateur virtuel.*  
   
 ## <a name="impact"></a>**Impact**  
-*Mise en miroir de port ne fonctionnera pas correctement pour les commutateurs virtuels suivants et les machines virtuelles :*  
+*La mise en miroir des ports ne fonctionnera pas correctement pour les commutateurs virtuels et les ordinateurs virtuels suivants :*  
   
-\<liste des machines virtuelles >  
+@no__t 0list de machines virtuelles >  
   
 ## <a name="resolution"></a>**Résolution**  
-*Utiliser Windows PowerShell ou le Gestionnaire Hyper-V pour terminer ou corrigez la configuration de la mise en miroir de Port.*  
+*Utilisez Windows PowerShell ou le Gestionnaire Hyper-V pour terminer ou corriger la configuration de la mise en miroir des ports.*  
   
 
 

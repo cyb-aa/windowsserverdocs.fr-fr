@@ -1,19 +1,19 @@
 ---
 title: Améliorations en matière de sécurité SMB
 description: Explication de la fonctionnalité de chiffrement SMB dans Windows Server 2012 R2, Windows Server 2012 et Windows Server 2016.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e57c77e6cfb792c90abf3840cf11461b4ad5f60
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 7221d3ea94ff9f2d7fca8e95cee66597e2dc6270
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867294"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402064"
 ---
 # <a name="smb-security-enhancements"></a>Améliorations en matière de sécurité SMB
 

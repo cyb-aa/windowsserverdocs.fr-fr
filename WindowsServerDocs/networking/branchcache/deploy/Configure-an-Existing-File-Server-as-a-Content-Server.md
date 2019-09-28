@@ -1,60 +1,60 @@
 ---
 title: Configurer un serveur de fichiers existant comme serveur de contenu
-description: Cette rubrique fait partie de BranchCache déploiement Guide pour Windows Server 2016, qui montre comment déployer BranchCache en mode cache distribué et hébergé pour optimiser l’utilisation de la bande passante WAN dans les succursales
+description: Cette rubrique fait partie du Guide de déploiement BranchCache pour Windows Server 2016, qui montre comment déployer BranchCache en mode de cache distribué et hébergé pour optimiser l’utilisation de la bande passante WAN dans les filiales.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: bdac7d2a-25b4-4f61-bed1-b290700c18f3
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d031e8aa853849c322692552ca9107838cebb5e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f675322c32db0816d5afb155d53fad9f096ad650
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866910"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356693"
 ---
 # <a name="configure-an-existing-file-server-as-a-content-server"></a>Configurer un serveur de fichiers existant comme serveur de contenu
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette procédure pour installer le **BranchCache pour fichiers réseau** service de rôle du rôle serveur Services de fichiers sur un ordinateur exécutant Windows Server 2016.  
+Vous pouvez utiliser cette procédure pour installer le service de rôle **BranchCache pour fichiers réseau** du rôle serveur services de fichiers sur un ordinateur exécutant Windows Server 2016.  
   
 > [!IMPORTANT]  
-> Si le rôle de serveur Services de fichiers n’est pas déjà installé, ne suivez pas cette procédure. Au lieu de cela, consultez [installer un nouveau serveur de fichiers comme serveur de contenu](../../branchcache/deploy/Install-a-New-File-Server-as-a-Content-Server.md).  
+> Si le rôle serveur services de fichiers n’est pas déjà installé, ne suivez pas cette procédure. Au lieu de cela, consultez [installer un nouveau serveur de fichiers en tant que serveur de contenu](../../branchcache/deploy/Install-a-New-File-Server-as-a-Content-Server.md).  
   
 Pour exécuter cette procédure, il est nécessaire d'appartenir au minimum au groupe **Administrateurs** ou à un groupe équivalent.  
   
 > [!NOTE]  
-> Pour effectuer cette procédure à l’aide de Windows PowerShell, exécutez Windows PowerShell en tant qu’administrateur, tapez les commandes suivantes à l’invite Windows PowerShell, puis appuyez sur ENTRÉE.  
+> Pour effectuer cette procédure à l’aide de Windows PowerShell, exécutez Windows PowerShell en tant qu’administrateur, tapez les commandes suivantes à l’invite Windows PowerShell, puis appuyez sur entrée.  
 >   
 > `Install-WindowsFeature FS-BranchCache -IncludeManagementTools`  
 >   
-> Pour installer le service de rôle de la déduplication des données, tapez la commande suivante, puis appuyez sur ENTRÉE.  
+> Pour installer le service de rôle déduplication des données, tapez la commande suivante, puis appuyez sur entrée.  
 >   
 > `Install-WindowsFeature FS-Data-Deduplication -IncludeManagementTools`  
   
-### <a name="to-install-the-branchcache-for-network-files-role-service"></a>Pour installer le BranchCache pour fichiers réseau  
+### <a name="to-install-the-branchcache-for-network-files-role-service"></a>Pour installer le service de rôle BranchCache pour fichiers réseau  
   
-1.  Dans le Gestionnaire de serveur, cliquez sur **Gérer**, puis sur **Ajouter des rôles et des fonctionnalités**. L’Assistant Ajout de rôles et fonctionnalités s’ouvre. Cliquez sur **Suivant**.  
+1.  Dans le Gestionnaire de serveur, cliquez sur **Gérer**, puis sur **Ajouter des rôles et des fonctionnalités**. L’Assistant Ajout de rôles et de fonctionnalités s’ouvre. Cliquez sur **Suivant**.  
   
-2.  Dans **sélectionner type d’installation**, vérifiez que **installation en fonction du rôle ou une fonctionnalité** est sélectionnée, puis cliquez sur **suivant**.  
+2.  Dans **Sélectionner le type d’installation**, vérifiez que installation basée sur **un rôle ou une fonctionnalité** est sélectionné, puis cliquez sur **suivant**.  
   
-3.  Dans **server de sélectionner la destination**, assurez-vous que le serveur correct est sélectionné, puis cliquez sur **suivant**.  
+3.  Dans **Sélectionner le serveur de destination**, vérifiez que le serveur correct est sélectionné, puis cliquez sur **suivant**.  
   
-4.  Dans **sélectionner des rôles de serveur**, dans **rôles**, notez que le **Services de fichiers et de stockage** rôle est déjà installé ; cliquez sur la flèche à gauche du nom du rôle pour développer le sélection des services de rôle, puis cliquez sur la flèche à gauche de **fichiers et iSCSI Services**.  
+4.  Dans **Sélectionner des rôles de serveurs**, dans **rôles**, Notez que le rôle **services de fichiers et de stockage** est déjà installé. Cliquez sur la flèche à gauche du nom de rôle pour développer la sélection des services de rôle, puis cliquez sur la flèche à gauche de **fichiers et de services iSCSI**.  
   
-5.  Sélectionnez la case à cocher **BranchCache pour fichiers réseau**.  
+5.  Activez la case à cocher pour **BranchCache pour fichiers réseau**.  
   
     > [!TIP]  
-    > Si vous ne le n'avez pas déjà fait, il est recommandé que vous sélectionnez également la case à cocher **la déduplication des données**.  
+    > Si vous ne l’avez pas encore fait, il est recommandé d’activer également la case à cocher de la **déduplication des données**.  
   
     Cliquez sur **Suivant**.  
   
-6.  Dans **sélectionner des fonctionnalités**, cliquez sur **suivant**.  
+6.  Dans **Sélectionner des fonctionnalités**, cliquez sur **suivant**.  
   
-7.  Dans **confirmer les sélections d’installation**, passez en revue vos sélections, puis cliquez sur **installer**. Le **progression de l’Installation** volet s’affiche pendant l’installation. Lors de l’installation est terminée, cliquez sur **fermer**.  
+7.  Dans **confirmer les sélections pour l’installation**, passez en revue vos sélections, puis cliquez sur **installer**. Le volet progression de l' **installation** s’affiche pendant l’installation. Une fois l’installation terminée, cliquez sur **Fermer**.  
   
 
 

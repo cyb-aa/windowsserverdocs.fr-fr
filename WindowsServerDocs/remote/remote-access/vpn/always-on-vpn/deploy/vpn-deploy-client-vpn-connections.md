@@ -1,7 +1,7 @@
 ---
 title: Configurer les connexions VPN Toujours actif (AlwaysOn) du client Windows 10
 description: Au cours de cette étape, vous allez découvrir les options et le schéma ProfileXML et configurer les ordinateurs clients Windows 10 pour qu’ils communiquent avec cette infrastructure avec une connexion VPN.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.date: 05/29/2018
@@ -10,12 +10,12 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.reviewer: deverette
-ms.openlocfilehash: c3ac8295d048c599a1cb6d1ed141cd63a7a73f47
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9621f9bdca0416965861112ba23c1c8dd731f67b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871336"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404288"
 ---
 # <a name="step-6-configure-windows-10-client-always-on-vpn-connections"></a>Étape 6. Configurer le client Windows 10 Always On les connexions VPN
 
@@ -85,7 +85,7 @@ Vous trouverez ci-dessous chacun des paramètres requis et la balise ProfileXML 
 <TrustedNetworkDetection>corp.contoso.com</TrustedNetworkDetection>
 ```
 
-**Authentication :** PEAP-TLS avec certificats d’utilisateur protégés par le module de plateforme sécurisée
+**Identification** PEAP-TLS avec certificats d’utilisateur protégés par le module de plateforme sécurisée
 
 Éléments ProfileXML:
 
@@ -716,7 +716,7 @@ Pour utiliser System Center Configuration Manager pour déployer un profil VPN A
 
     a.  Dans **règles d’adhésion**, cliquez sur **Ajouter une règle**, puis sur **règle directe**. Dans cet exemple, vous ajoutez des utilisateurs individuels au regroupement d’utilisateurs. Toutefois, vous pouvez utiliser une règle de requête pour ajouter dynamiquement des utilisateurs à cette collection dans le cas d’un déploiement à grande échelle.
 
-    b.  Sur la page d’**accueil**, cliquez sur **Suivant**.
+    b.  Dans la page **Bienvenue**, cliquez sur **Suivant**.
 
     c.  Dans la page Rechercher des ressources, dans **valeur**, tapez le nom de l’utilisateur que vous souhaitez ajouter. Le nom de la ressource comprend le domaine de l’utilisateur. Pour inclure des résultats en fonction d’une correspondance partielle, **%** Insérez le caractère à chaque extrémité de votre critère de recherche. Par exemple, pour rechercher tous les utilisateurs contenant la chaîne « Lori », tapez **% Lori%** . Cliquez sur **Suivant**.
 
@@ -863,11 +863,11 @@ Pour utiliser Intune pour déployer l’accès à distance Windows 10 Always On 
 >[!NOTE]
 >Intune utilise désormais des groupes de Azure AD. Si Azure AD Connect synchronisé le groupe d’utilisateurs VPN de l’emplacement local vers Azure AD, et que les utilisateurs sont affectés au groupe d’utilisateurs VPN, vous êtes prêt à continuer.
 
-Créez la stratégie de configuration de périphérique VPN pour configurer les ordinateurs clients Windows 10 pour tous les utilisateurs ajoutés au groupe. Étant donné que le modèle Intune fournit des paramètres VPN, \<Copiez \<uniquement la partie EapHostConfig >/EapHostConfig > du fichier VPN_ProfileXML.
+Créez la stratégie de configuration de périphérique VPN pour configurer les ordinateurs clients Windows 10 pour tous les utilisateurs ajoutés au groupe. Étant donné que le modèle Intune fournit des paramètres VPN, copiez uniquement la partie \<EapHostConfig > \</EapHostConfig > du fichier VPN_ProfileXML.
 
 ### <a name="create-the-always-on-vpn-configuration-policy"></a>Créer la stratégie de configuration Always On VPN
 
-1.  Connectez-vous au [portail Azure](https://portal.azure.com/).
+1.  Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 2.  Accédez aux**profils**de**configuration** > d’appareil **Intune** > .
 
@@ -934,7 +934,7 @@ Pour tester la stratégie de configuration, connectez-vous à un ordinateur clie
 
 Vous avez terminé le déploiement Always On VPN.  Pour les autres fonctionnalités que vous pouvez configurer, consultez le tableau ci-dessous:
 
-|Pour...  |Alors consultez...  |
+|Si vous souhaitez...  |Alors consultez...  |
 |---------|---------|
 |Configurer l’accès conditionnel pour le VPN    |[Étape 7. Facultatif Configurer l’accès conditionnel pour la connectivité VPN](../../ad-ca-vpn-connectivity-windows10.md)à l’aide de Azure ad: Dans cette étape, vous pouvez ajuster la façon dont les utilisateurs VPN autorisés accèdent à vos ressources à l’aide de l' [accès conditionnel Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Avec Azure AD accès conditionnel pour la connectivité de réseau privé virtuel (VPN), vous pouvez protéger les connexions VPN. L’accès conditionnel est un moteur d’évaluation basé sur les stratégies qui vous permet de créer des règles d’accès pour n’importe quelle application connectée Azure Active Directory (Azure AD).         |
 |En savoir plus sur les fonctionnalités VPN avancées  |[Fonctionnalités VPN avancées](always-on-vpn-adv-options.md#advanced-vpn-features): Cette page fournit des conseils sur l’activation des filtres de trafic VPN, sur la configuration des connexions VPN automatiques à l’aide de déclencheurs d’application et sur la configuration de NPS pour autoriser uniquement les connexions VPN à partir de clients utilisant des certificats émis par Azure AD.        |

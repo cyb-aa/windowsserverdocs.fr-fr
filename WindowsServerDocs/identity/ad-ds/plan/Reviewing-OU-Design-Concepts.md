@@ -7,44 +7,44 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: f05104466c1cedcfbc8d94060ffa8fbfd9d18033
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6dc2cbb7ddff8725876f8dd4ec2760e828fd4e4c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832170"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402517"
 ---
 # <a name="reviewing-ou-design-concepts"></a>Examen des concepts d’unité d’organisation
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-La structure d’unité d’organisation (UO) pour un domaine inclut les éléments suivants :  
+La structure de l’unité d’organisation d’un domaine comprend les éléments suivants :  
   
--   Un diagramme de la hiérarchie d’UO  
+-   Diagramme de la hiérarchie d’UO  
   
--   Une liste d’unités d’organisation  
+-   Liste d’unités d’organisation  
   
 -   Pour chaque unité d’organisation :  
   
     -   L’objectif de l’unité d’organisation  
   
-    -   Une liste des utilisateurs ou groupes qui ont un contrôle sur l’unité d’organisation ou les objets dans l’unité d’organisation  
+    -   Liste des utilisateurs ou des groupes qui contrôlent l’unité d’organisation ou les objets de l’unité d’organisation.  
   
-    -   Le type de contrôle dont disposent les utilisateurs et groupes sur les objets dans l’unité d’organisation  
+    -   Type de contrôle que les utilisateurs et les groupes ont sur les objets de l’unité d’organisation  
   
-La hiérarchie d’UO n’a pas besoin afin de refléter la hiérarchie département de l’organisation ou le groupe. Unités d’organisation sont créées dans un but spécifique, telles que la délégation d’administration, l’application de stratégie de groupe, ou pour limiter la visibilité des objets.  
+La hiérarchie d’UO n’a pas besoin de refléter la hiérarchie départementale de l’organisation ou du groupe. Les unités d’organisation sont créées à des fins spécifiques, telles que la délégation de l’administration, l’application de stratégie de groupe ou pour limiter la visibilité des objets.  
   
-Vous pouvez concevoir votre structure d’unité d’organisation pour déléguer l’administration à des personnes ou groupes au sein de votre organisation qui nécessitent l’autonomie à gérer leurs propres ressources et les données. Unités d’organisation représentent les limites administratives et vous permettent de contrôler la portée de l’autorité des administrateurs de données.  
+Vous pouvez concevoir votre structure d’UO pour déléguer l’administration à des personnes ou des groupes de votre organisation qui requièrent l’autonomie pour gérer leurs propres ressources et données. Les unités d’organisation représentent les limites administratives et vous permettent de contrôler l’étendue de l’autorité des administrateurs de données.  
   
-Par exemple, vous pouvez créer une unité d’organisation appelée ResourceOU et l’utiliser pour stocker tous les comptes d’ordinateurs qui appartiennent au fichier et gérés par un groupe de serveurs d’impression. Puis, vous pouvez configurer la sécurité sur l’unité d’organisation afin que seuls les administrateurs de données dans le groupe aient accès à l’unité d’organisation. Cela empêche les administrateurs de données dans d’autres groupes de falsifier le fichier et les comptes de serveur d’impression.  
+Par exemple, vous pouvez créer une unité d’organisation appelée ResourceOU et l’utiliser pour stocker tous les comptes d’ordinateur qui appartiennent au fichier et aux serveurs d’impression gérés par un groupe. Ensuite, vous pouvez configurer la sécurité sur l’unité d’organisation afin que seuls les administrateurs de données du groupe aient accès à l’unité d’organisation. Cela empêche les administrateurs de données dans d’autres groupes de falsifier les comptes de serveur de fichiers et d’impression.  
   
-Vous pouvez affiner davantage votre structure d’unité d’organisation en créant des sous-arborescences d’unités d’organisation à des fins spécifiques, telles que l’application de stratégie de groupe ou pour limiter la visibilité des objets protégés afin que seuls certains utilisateurs puissent les voir. Par exemple, si vous avez besoin appliquer la stratégie de groupe à un groupe sélectionné d’utilisateurs ou des ressources, ajoutez les utilisateurs ou les ressources à une unité d’organisation et ensuite appliquer une stratégie de groupe pour cette unité d’organisation. Vous pouvez également utiliser la hiérarchie d’UO pour activer la délégation du contrôle administratif supplémentaire.  
+Vous pouvez affiner davantage votre structure d’unité d’organisation en créant des sous-arborescences d’unités d’organisation à des fins spécifiques, telles que l’application d’stratégie de groupe ou pour limiter la visibilité des objets protégés afin que seuls certains utilisateurs puissent les voir. Par exemple, si vous devez appliquer des stratégie de groupe à un groupe sélectionné d’utilisateurs ou de ressources, vous pouvez ajouter ces utilisateurs ou ressources à une unité d’organisation, puis appliquer des stratégie de groupe à cette UO. Vous pouvez également utiliser la hiérarchie d’unités d’organisation pour permettre une délégation supplémentaire du contrôle administratif.  
   
-S’il n’existe aucune limite technique pour le nombre de niveaux dans votre structure d’unité d’organisation, pour la gestion de nous vous recommandons de limiter votre structure d’unité d’organisation à une profondeur de pas plus de 10 niveaux. Il n’existe aucune limite au nombre d’unités d’organisation sur chaque niveau technique. Notez que Services de domaine Active Directory (AD DS)-applications activées peuvent avoir des restrictions sur le nombre de caractères utilisé dans le nom unique (autrement dit, le Lightweight Directory Access Protocol (LDAP) chemin d’accès complet à l’objet dans le répertoire) ou sur le Profondeur d’unité d’organisation au sein de la hiérarchie.  
+Bien qu’il n’existe aucune limite technique quant au nombre de niveaux dans votre structure d’unité d’organisation, nous vous recommandons de limiter votre structure d’UO à une profondeur inférieure ou égale à 10 niveaux. Il n’existe aucune limite technique quant au nombre d’unités d’organisation à chaque niveau. Notez que les applications prenant en charge les Active Directory Domain Services (AD DS) peuvent avoir des restrictions sur le nombre de caractères utilisés dans le nom unique (autrement dit, le chemin d’accès LDAP (Lightweight Directory Access Protocol) complet à l’objet dans le répertoire) ou sur le Profondeur de l’unité d’organisation dans la hiérarchie.  
   
-La structure d’UO dans AD DS ne vise pas à être visible aux utilisateurs finaux. La structure d’unité d’organisation est un outil d’administration pour les administrateurs de service et pour les administrateurs de données, et il est facile de modifier. Continuez à consulter et mettre à jour de votre conception de structure d’unité d’organisation afin de refléter les modifications dans votre structure d’administration et pour prendre en charge de l’administration basée sur la stratégie.  
+La structure d’unité d’organisation dans AD DS n’est pas destinée à être visible par les utilisateurs finaux. La structure d’UO est un outil d’administration pour les administrateurs de service et pour les administrateurs de données, et il est facile à modifier. Passez en revue et mettez à jour la conception de votre structure d’UO pour refléter les modifications apportées à votre structure administrative et pour prendre en charge l’administration basée sur des stratégies.  
   
 
 

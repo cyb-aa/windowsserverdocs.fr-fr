@@ -1,60 +1,60 @@
 ---
-title: Créer une machine virtuelle protégée, à l’aide de PowerShell
+title: Créer une machine virtuelle protégée à l’aide de PowerShell
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 0086edb7781a604cc90b9e76d34e5a3dc2725547
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 888177c1288216c28f7d4c0a667fd81e93bdce8c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447524"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402401"
 ---
-# <a name="create-a-shielded-vm-using-powershell"></a>Créer une machine virtuelle protégée, à l’aide de PowerShell
+# <a name="create-a-shielded-vm-using-powershell"></a>Créer une machine virtuelle protégée à l’aide de PowerShell
 
 >S’applique à : Windows Server 2019, Windows Server (canal semi-annuel), Windows Server 2016
 
-En production, vous utiliseriez généralement un gestionnaire de fabric (par exemple, VMM) pour déployer des machines virtuelles protégées. Toutefois, les étapes illustrées ci-dessous permettent de déployer et de valider l’ensemble du scénario sans gestionnaire de fabric.
+En production, vous utiliseriez généralement un gestionnaire de Fabric (par exemple, VMM) pour déployer des machines virtuelles protégées. Toutefois, les étapes illustrées ci-dessous vous permettent de déployer et de valider la totalité du scénario sans structure Manager.
 
-En bref, vous créez un disque de modèle, d’un fichier de données de protection, d’un fichier de réponses d’installation sans assistance et d’autres artefacts de sécurité sur n’importe quel ordinateur, puis copiez ces fichiers dans un hôte service Guardian et approvisionner la machine virtuelle protégée.
+En résumé, vous allez créer un disque de modèle, un fichier de données de protection, un fichier de réponses d’installation sans assistance et d’autres artefacts de sécurité sur n’importe quel ordinateur, puis copier ces fichiers sur un hôte service Guardian et approvisionner la machine virtuelle protégée.
 
 ## <a name="create-a-signed-template-disk"></a>Créer un disque de modèle signé
 
-Pour créer une machine virtuelle protégée, vous devez tout d’abord un disque de modèle de machine virtuelle protégé qui est déjà chiffré avec son volume de système d’exploitation (ou partitions de démarrage et de racine sur Linux) signé.
-Suivez les liens ci-dessous pour plus d’informations sur la création d’un disque de modèle.
+Pour créer une nouvelle machine virtuelle protégée, vous avez d’abord besoin d’un disque de modèle d’ordinateur virtuel protégé qui est pré-chiffré avec le volume du système d’exploitation (ou les partitions de démarrage et racine sur Linux) signé.
+Pour plus d’informations sur la création d’un disque de modèle, suivez les liens ci-dessous.
 
 - [Préparer un disque de modèle Windows](guarded-fabric-create-a-shielded-vm-template.md)
-- [Préparer un disque de modèle de Linux](guarded-fabric-create-a-linux-shielded-vm-template.md)
+- [Préparer un disque de modèle Linux](guarded-fabric-create-a-linux-shielded-vm-template.md)
 
-Vous devez également une copie du catalogue des signatures de volume du disque pour créer le fichier de données de protection.
-Pour enregistrer ce fichier, exécutez la commande suivante sur l’ordinateur où vous avez créé le disque de modèle :
+Vous aurez également besoin d’une copie du catalogue de signatures de volume du disque pour créer le fichier de données de protection.
+Pour enregistrer ce fichier, exécutez la commande suivante sur l’ordinateur sur lequel vous avez créé le disque de modèle :
 
 ```powershell
 Save-VolumeSignatureCatalog -TemplateDiskPath "C:\temp\MyTemplateDisk.vhdx" -VolumeSignatureCatalogPath "C:\temp\MyTemplateDiskCatalog.vsc"
 ```
 
-## <a name="download-guardian-metadata"></a>Télécharger les métadonnées de guardian
+## <a name="download-guardian-metadata"></a>Télécharger les métadonnées Guardian
 
-Pour chacune des structures de virtualisation dans lequel vous souhaitez exécuter votre machine virtuelle protégée, vous devrez obtenir les métadonnées pour les clusters de SGH des infrastructures.
+Pour chacune des infrastructures de virtualisation où vous souhaitez exécuter votre machine virtuelle protégée, vous devez obtenir les métadonnées du gardien pour les clusters SGH de l’étoffe.
 Votre fournisseur d’hébergement doit être en mesure de fournir ces informations pour vous.
 
-Si vous êtes dans un environnement d’entreprise et que vous pouvez communiquer avec le serveur SGH, les métadonnées sont disponible à l’adresse *http://\<HGSCLUSTERNAME\>/KeyProtection/service/metadata/2014-07/metadata.xml*
+Si vous êtes dans un environnement d’entreprise et que vous pouvez communiquer avec le serveur SGH, les métadonnées Guardian sont disponibles sur *http://\<HGSCLUSTERNAME @ no__t-2/keyprotection/service/Metadata/2014-07/Metadata. xml*
 
-## <a name="create-shielding-data-pdk-file"></a>Créer le fichier de données de protection (PDK)
+## <a name="create-shielding-data-pdk-file"></a>Créer un fichier de données de protection (PDK)
 
-Les données de protection sont créée et détenus par les propriétaires de machine virtuelle de locataire et contient les clés secrètes nécessaires à la création de machines virtuelles protégées qui doivent être protégées à partir de l’administrateur de l’infrastructure, comme mot de passe administrateur de machine virtuelle protégée.
-Les données de protection sont chiffrées telles que les serveurs de SGH et le client peuvent le déchiffrer.
-Une fois créé par le propriétaire du locataire/la machine virtuelle, le fichier PDK résultant doit être copié à l’infrastructure service Guardian.
-Pour plus d’informations, consultez [ce qui est des données de protection et pourquoi est-il nécessaire ?](guarded-fabric-and-shielded-vms.md#what-is-shielding-data-and-why-is-it-necessary).
+Les données de protection sont créées et détenues par les propriétaires de machines virtuelles clientes et contiennent des secrets nécessaires pour créer des machines virtuelles protégées qui doivent être protégées de l’administrateur de l’infrastructure, telles que le mot de passe administrateur de la machine virtuelle protégée.
+Les données de protection sont chiffrées afin que seuls les serveurs SGH et le locataire puissent les déchiffrer.
+Une fois créé par le propriétaire du client ou de la machine virtuelle, le fichier PDK résultant doit être copié dans l’infrastructure protégée.
+Pour plus d’informations, consultez [qu’est-ce que les données de protection et pourquoi est-il nécessaire ?](guarded-fabric-and-shielded-vms.md#what-is-shielding-data-and-why-is-it-necessary).
 
-Vous devez en outre, un fichier de réponses d’installation sans assistance (unattend.xml pour Windows, varie pour Linux). Consultez [créer un fichier de réponses](guarded-fabric-tenant-creates-shielding-data.md#create-an-answer-file) pour obtenir des conseils sur les éléments à inclure dans le fichier de réponses.
+En outre, vous aurez besoin d’un fichier de réponses d’installation sans assistance (Unattend. xml pour Windows, qui varie pour Linux). Consultez [créer un fichier de réponses](guarded-fabric-tenant-creates-shielding-data.md#create-an-answer-file) pour obtenir des conseils sur les éléments à inclure dans le fichier de réponses.
 
-Exécuter les applets de commande suivantes sur un ordinateur avec les outils d’Administration de serveur distant pour les machines virtuelles protégées installé.
-Si vous créez un PDK pour une VM Linux, vous devez le faire sur un serveur exécutant Windows Server, version 1709 ou ultérieure.
+Exécutez les applets de commande suivantes sur un ordinateur avec le Outils d’administration de serveur distant pour les machines virtuelles protégées installées.
+Si vous créez un PDK pour une machine virtuelle Linux, vous devez le faire sur un serveur exécutant Windows Server, version 1709 ou ultérieure.
 
  
 ```powershell
@@ -71,49 +71,49 @@ $Guardian = Import-HgsGuardian -Path C:\HGSGuardian.xml -Name 'TestFabric'
 New-ShieldingDataFile -ShieldingDataFilePath 'C:\temp\Contoso.pdk' -Owner $Owner –Guardian $guardian –VolumeIDQualifier (New-VolumeIDQualifier -VolumeSignatureCatalogFilePath 'C:\temp\MyTemplateDiskCatalog.vsc' -VersionRule Equals) -WindowsUnattendFile 'C:\unattend.xml' -Policy Shielded
 ```
     
-## <a name="provision-shielded-vm-on-a-guarded-host"></a>Approvisionner des machines virtuelles protégées sur un ordinateur hôte service Guardian
-Copiez le fichier de disque de modèle (ServerOS.vhdx) et le fichier PDK (contoso.pdk) à l’hôte service Guardian pour se préparer pour le déploiement.
+## <a name="provision-shielded-vm-on-a-guarded-host"></a>Approvisionner une machine virtuelle protégée sur un hôte service Guardian
+Copiez le fichier de modèle de disque (Serveros. vhdx) et le fichier PDK (contoso. PDK) sur l’hôte service Guardian pour préparer le déploiement.
 
-Sur l’hôte service Guardian, installez le module PowerShell des outils de Fabric service Guardian, qui contient l’applet de commande New-ShieldedVM pour simplifier le processus d’approvisionnement. Si votre service Guardian hôte a accès à Internet, exécutez la commande suivante :
+Sur l’hôte service Guardian, installez le module PowerShell outils d’infrastructure protégée, qui contient l’applet de commande New-ShieldedVM pour simplifier le processus de configuration. Si votre hôte service Guardian a accès à Internet, exécutez la commande suivante :
 
 ```powershell
 Install-Module GuardedFabricTools -Repository PSGallery -MinimumVersion 1.0.0
 ```
 
-Vous pouvez également télécharger le module sur un autre ordinateur qui a Internet accéder et de copier le module qui en résulte `C:\Program Files\WindowsPowerShell\Modules` sur l’hôte service Guardian.
+Vous pouvez également télécharger le module sur un autre ordinateur disposant d’un accès à Internet et copier le module résultant sur `C:\Program Files\WindowsPowerShell\Modules` sur l’hôte service Guardian.
 
 ```powershell
 Save-Module GuardedFabricTools -Repository PSGallery -MinimumVersion 1.0.0 -Path C:\temp\
 ```
 
-Une fois que le module est installé, vous êtes prêt à approvisionner votre machine virtuelle protégée.
+Une fois le module installé, vous êtes prêt à configurer votre machine virtuelle protégée.
 
 ```powershell
 New-ShieldedVM -Name 'MyShieldedVM' -TemplateDiskPath 'C:\temp\MyTemplateDisk.vhdx' -ShieldingDataFilePath 'C:\temp\Contoso.pdk' -Wait
 ```
 
-Si votre modèle de disque contient un système d’exploitation basé sur Linux, incluez le `-Linux` indicateur lors de l’exécution de la commande :
+Si votre disque de modèle contient un système d’exploitation Linux, incluez l’indicateur `-Linux` lors de l’exécution de la commande :
 
 ```powershell
 New-ShieldedVM -Name 'MyLinuxVM' -TemplateDiskPath 'C:\temp\MyTemplateDisk.vhdx' -ShieldingDataFilePath 'C:\temp\Contoso.pdk' -Wait -Linux
 ```
 
-Vérifiez le contenu aide `Get-Help New-ShieldedVM -Full` pour en savoir plus sur les autres options que vous pouvez passer à l’applet de commande.
+Consultez le contenu de l’aide à l’aide de `Get-Help New-ShieldedVM -Full` pour en savoir plus sur les autres options que vous pouvez passer à l’applet de commande.
 
-Une fois que la machine virtuelle a terminé l’approvisionnement, il passe à la phase de spécialisation du système d’exploitation spécifiques, après quoi il sera prêt à être utilisé.
-Veillez à connecter la machine virtuelle à un réseau valid pour pouvoir vous connecter à ce dernier une fois qu’il est en cours d’exécution (à l’aide de RDP, PowerShell, SSH ou votre outil de gestion préférés).
+Une fois la configuration terminée, la machine virtuelle passe à la phase de spécialisation propre au système d’exploitation, après quoi elle est prête à être utilisée.
+Veillez à connecter la machine virtuelle à un réseau valide pour pouvoir vous y connecter une fois qu’elle est en cours d’exécution (à l’aide de RDP, de PowerShell, de SSH ou de votre outil de gestion préféré).
 
-## <a name="running-shielded-vms-on-a-hyper-v-cluster"></a>Machines virtuelles protégées en cours d’exécution sur un cluster Hyper-V
+## <a name="running-shielded-vms-on-a-hyper-v-cluster"></a>Exécution de machines virtuelles protégées sur un cluster Hyper-V
 
-Si vous essayez de déployer des machines virtuelles protégées sur les hôtes en cluster (à l’aide d’un Cluster de basculement Windows), vous pouvez configurer une machine virtuelle protégée pour être hautement disponible à l’aide de l’applet de commande suivante :
+Si vous essayez de déployer des machines virtuelles protégées sur des hôtes service Guardian en cluster (à l’aide d’un cluster de basculement Windows), vous pouvez configurer la haute disponibilité de la machine virtuelle protégée à l’aide de l’applet de commande suivante :
 
 ```powershell
 Add-ClusterVirtualMachineRole -VMName 'MyShieldedVM' -Cluster <Hyper-V cluster name>
 ```
 
-La machine virtuelle protégée peut désormais être migrées dynamiquement au sein du cluster.
+La machine virtuelle protégée peut désormais être migrée dynamiquement au sein du cluster.
 
 ## <a name="next-step"></a>Étape suivante
 
 > [!div class="nextstepaction"]
-> [Déployer un protégées à l’aide de VMM](guarded-fabric-tenant-deploys-shielded-vm-using-vmm.md)
+> [Déployer une protection blindée à l’aide de VMM](guarded-fabric-tenant-deploys-shielded-vm-using-vmm.md)

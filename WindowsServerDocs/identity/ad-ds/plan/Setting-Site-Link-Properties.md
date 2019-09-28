@@ -7,28 +7,28 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 4fa9a1fa8d2a463fe5f361a5a27ee2b9e3edc0f6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c9a9b25aa56948e3116ebfef67a6af73917b76c2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870360"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402475"
 ---
 # <a name="setting-site-link-properties"></a>Définition des propriétés des liens de sites
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-La réplication intersite se produit en fonction des propriétés des objets de connexion. Lorsque le vérificateur de cohérence des connaissances (KCC) crée des objets de connexion, il dérive de la planification de réplication à partir des propriétés des objets de lien de site. Chaque objet de lien de site représente la connexion réseau (étendu WAN) entre deux ou plusieurs sites.  
+La réplication intersite a lieu en fonction des propriétés des objets de connexion. Lorsque le vérificateur de cohérence des connaissances (KCC) crée des objets de connexion, il dérive la planification de réplication des propriétés des objets de lien de sites. Chaque objet lien de site représente la connexion de réseau étendu (WAN) entre deux sites ou plus.  
   
-Définition des propriétés d’objet de lien de site comprend les étapes suivantes :  
+La définition des propriétés de l’objet lien de site comprend les étapes suivantes :  
   
--   Détermination du coût associé à ce chemin d’accès de la réplication. Le KCC utilise coût pour déterminer l’itinéraire le moins coûteux pour la réplication entre deux sites qui répliquent la partition d’annuaire.  
+-   Détermination du coût associé à ce chemin de réplication. Le KCC utilise le coût pour déterminer l’itinéraire le moins coûteux pour la réplication entre deux sites qui répliquent la même partition d’annuaire.  
   
 -   Détermination de la planification qui définit les heures pendant lesquelles la réplication intersite peut se produire.  
   
--   Détermination de l’intervalle de réplication qui définit la fréquence à laquelle la réplication doit se faire pendant les heures lorsque la réplication est autorisée, comme défini dans la planification.  
+-   Détermination de l’intervalle de réplication qui définit la fréquence à laquelle la réplication doit se produire au moment où la réplication est autorisée, comme défini dans la planification.  
   
 ## <a name="in-this-guide"></a>Dans ce guide  
   

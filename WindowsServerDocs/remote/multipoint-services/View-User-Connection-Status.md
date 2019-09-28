@@ -3,7 +3,7 @@ title: Afficher le statut de connexion de l’utilisateur
 description: En savoir plus sur l’affichage de l’état des utilisateurs dans MultiPoint services
 ms.custom: na
 ms.date: 07/08/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: 426df382-07a0-4be1-a87a-12e63bd8157b
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: ea162c24dd9fe68e9492dea007583a6b1293da2d
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0473ac9a08967dfc9ed7b9590ba5fa87a9250d2e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871462"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389160"
 ---
 # <a name="view-user-connection-status"></a>Afficher le statut de connexion de l’utilisateur
 Utilisez l’onglet **stations** pour déterminer l’état de la connexion d’un utilisateur standard ou d’un autre administrateur à une station multipoint services.  

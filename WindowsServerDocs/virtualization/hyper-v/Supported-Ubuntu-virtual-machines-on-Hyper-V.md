@@ -1,7 +1,7 @@
 ---
 title: Machines virtuelles Ubuntu prises en charge sur Hyper-V
 description: Répertorie les fonctionnalités et les services d’intégration Linux inclus dans chaque version
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,18 +11,18 @@ ms.assetid: 95ea5f7c-25c6-494b-8ffd-2a77f631ee94
 author: shirgall
 ms.author: shirgall
 ms.date: 06/13/2019
-ms.openlocfilehash: ad0f79767310595244d0d57876c20b9548a81a96
-ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
+ms.openlocfilehash: ed1c1a9f678dd7cb68b59d2df239ca278b7a3688
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69584810"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365481"
 ---
 # <a name="supported-ubuntu-virtual-machines-on-hyper-v"></a>Machines virtuelles Ubuntu prises en charge sur Hyper-V
 
 >S'applique à : Windows Server 2019, 2016, Hyper-V Server 2019, 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
 
-Depuis Ubuntu 12,04, le chargement du package «Linux-Virtual» installe un noyau pouvant être utilisé en tant que machine virtuelle invitée. Ce package dépend toujours de la dernière image de noyau générique minimale et des en-têtes utilisés pour les ordinateurs virtuels. Si son utilisation est facultative, le noyau Linux virtuel charge moins de pilotes et peut démarrer plus rapidement et avoir moins de surcharge de mémoire qu’une image générique.
+Depuis Ubuntu 12,04, le chargement du package « Linux-Virtual » installe un noyau pouvant être utilisé en tant que machine virtuelle invitée. Ce package dépend toujours de la dernière image de noyau générique minimale et des en-têtes utilisés pour les ordinateurs virtuels. Si son utilisation est facultative, le noyau Linux virtuel charge moins de pilotes et peut démarrer plus rapidement et avoir moins de surcharge de mémoire qu’une image générique.
 
 Pour tirer pleinement parti d’Hyper-V, installez les packages Linux-Tools et Linux-Cloud-Tools appropriés pour installer des outils et des démons à utiliser avec les machines virtuelles. Lorsque vous utilisez le noyau Linux-Virtual, chargez les outils Linux-Virtual et Linux-Cloud-Tools-Virtual.
 
@@ -38,7 +38,7 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 
 |**Fonctionnalité**|**Version du système d’exploitation Windows Server**|**18,10/19,04**|**18,04 LTS**|**16,04 LTS**|**14,04 LTS**|**12,04 LTS**|
 |-|-|-|-|-|-|-|
-|**Disponibilité**||Intégré|Intégré|Intégré|Intégré|Intégré|
+|**Disponibilité**||Intégrée|Intégrée|Intégrée|Intégrée|Intégrée|
 |**[Ebauche](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Heure précise de Windows Server 2016|2019, 2016|&#10004;|&#10004;|&#10004;|||
 |**[Mise](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**|||||||
@@ -64,7 +64,7 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 |**[Vidéosurveillance](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**|||||||
 |Périphérique vidéo spécifique à Hyper-V|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
 |**[Diverses](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**||||||
-|Paire clé/valeur|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;Remarque 6, 10|&#10004;Remarque: 5, 10|&#10004;Remarque: 5, 10|&#10004;Remarque: 5, 10|&#10004;Remarque: 5, 10|
+|Paire clé/valeur|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;Remarque 6, 10|&#10004;Remarque : 5, 10|&#10004;Remarque : 5, 10|&#10004;Remarque : 5, 10|&#10004;Remarque : 5, 10|
 |Interruption non masquable|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Copie de fichiers de l’hôte vers l’invité|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
 |commande lsvmbus|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
@@ -80,27 +80,27 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 
 2. Quand vous utilisez des appareils Fibre Channel virtuels, assurez-vous que le numéro d’unité logique 0 (LUN 0) a été rempli. Si le LUN 0 n’a pas été rempli, une machine virtuelle Linux peut ne pas être en mesure de monter des appareils Fibre Channel en mode natif.
 
-3. Si des descripteurs de fichiers sont ouverts pendant une opération de sauvegarde de machine virtuelle en direct, dans certains cas, les disques durs virtuels sauvegardés devront peut-être subir une`fsck`vérification de cohérence du système de fichiers () lors de la restauration.
+3. Si des descripteurs de fichiers sont ouverts pendant une opération de sauvegarde de machine virtuelle en direct, dans certains cas, les VHD sauvegardés devront peut-être subir une vérification de cohérence du système de fichiers (`fsck`) lors de la restauration.
 
 4. Les opérations de sauvegarde en direct peuvent échouer en mode silencieux si l’ordinateur virtuel dispose d’un périphérique iSCSI attaché ou d’un stockage en attachement direct (également appelé disque direct).
 
 5. Sur les versions de support à long terme (LTS), utilisez le dernier noyau d’activation du matériel virtuel (HWE) pour les Integration Services Linux à jour.
 
-   Pour installer le noyau optimisé pour Azure sur 14,04, 16,04 et 18,04, exécutez les commandes suivantes en tant que root (ou sudo):
+   Pour installer le noyau optimisé pour Azure sur 14,04, 16,04 et 18,04, exécutez les commandes suivantes en tant que root (ou sudo) :
 
    ```bash
    # apt-get update
    # apt-get install linux-azure
    ```
 
-   12,04 n’a pas de noyau virtuel distinct. Pour installer le noyau HWE générique sur 12,04, exécutez les commandes suivantes en tant que root (ou sudo):
+   12,04 n’a pas de noyau virtuel distinct. Pour installer le noyau HWE générique sur 12,04, exécutez les commandes suivantes en tant que root (ou sudo) :
 
    ```bash
    # apt-get update
    # apt-get install linux-generic-lts-trusty
    ```
 
-   Sur Ubuntu 12,04, les démons Hyper-V suivants se trouvent dans un package installé séparément:
+   Sur Ubuntu 12,04, les démons Hyper-V suivants se trouvent dans un package installé séparément :
 
    * **Démon d’instantané VSS** : ce démon est nécessaire pour créer des sauvegardes de machines virtuelles Linux en temps réel.
    * **Démon kVp** : ce démon permet de définir et d’interroger des paires clé-valeur intrinsèques et extrinsèques.
@@ -116,7 +116,7 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 
 6. Sur Ubuntu 18,10 ou 19,04, utilisez le dernier noyau virtuel pour disposer de fonctionnalités Hyper-V à jour.
 
-   Pour installer le noyau virtuel sur 18,10 ou 19,04, exécutez les commandes suivantes en tant que root (ou sudo):
+   Pour installer le noyau virtuel sur 18,10 ou 19,04, exécutez les commandes suivantes en tant que root (ou sudo) :
 
    ```bash
    # apt-get update
@@ -127,7 +127,7 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 
 7. La prise en charge de la mémoire dynamique est disponible uniquement sur les ordinateurs virtuels 64 bits.
 
-8. Les opérations de Mémoire dynamique peuvent échouer si le système d’exploitation invité s’exécute trop peu de mémoire. Voici quelques-unes des meilleures pratiques:
+8. Les opérations de Mémoire dynamique peuvent échouer si le système d’exploitation invité s’exécute trop peu de mémoire. Voici quelques-unes des meilleures pratiques :
 
    * La mémoire de démarrage et la mémoire minimale doivent être supérieures ou égales à la quantité de mémoire recommandée par le fournisseur de distribution.
 
@@ -137,35 +137,35 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 
 10. Dans Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2, l’infrastructure de paires clé/valeur peut ne pas fonctionner correctement sans mise à jour logicielle Linux. Contactez votre fournisseur de distribution pour obtenir la mise à jour logicielle en cas de problème avec cette fonctionnalité.
 
-11. Sur Windows Server 2012 R2, le démarrage sécurisé est activé par défaut pour les ordinateurs virtuels de génération 2, et certaines machines virtuelles Linux ne démarrent que si l’option de démarrage sécurisé est désactivée. Vous pouvez désactiver le démarrage sécurisé dans la section microprogramme des paramètres de l’ordinateur virtuel dans le **Gestionnaire Hyper-V** , ou vous pouvez le désactiver à l’aide de PowerShell:
+11. Sur Windows Server 2012 R2, le démarrage sécurisé est activé par défaut pour les ordinateurs virtuels de génération 2, et certaines machines virtuelles Linux ne démarrent que si l’option de démarrage sécurisé est désactivée. Vous pouvez désactiver le démarrage sécurisé dans la section **microprogramme** des paramètres de l’ordinateur virtuel dans le **Gestionnaire Hyper-V** , ou vous pouvez le désactiver à l’aide de PowerShell :
 
     ```Powershell
     Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
     ```
 
-12. Avant de tenter de copier le disque dur virtuel d’une machine virtuelle de génération 2 VHD existante pour créer des ordinateurs virtuels de 2e génération, procédez comme suit:
+12. Avant de tenter de copier le disque dur virtuel d’une machine virtuelle de génération 2 VHD existante pour créer des ordinateurs virtuels de 2e génération, procédez comme suit :
 
     1. Connectez-vous à la machine virtuelle de génération 2 existante.
 
-    2. Accédez au répertoire EFI de démarrage:
+    2. Accédez au répertoire EFI de démarrage :
 
        ```bash
        # cd /boot/efi/EFI
        ```
 
-    3. Copiez le répertoire Ubuntu dans dans un nouveau répertoire nommé boot:
+    3. Copiez le répertoire Ubuntu dans dans un nouveau répertoire nommé boot :
 
        ```bash
        # sudo cp -r ubuntu/ boot
        ```
 
-    4. Accédez au répertoire de démarrage nouvellement créé:
+    4. Accédez au répertoire de démarrage nouvellement créé :
 
        ```bash
        # cd boot
        ```
 
-    5. Renommez le fichier shimx64. EFI:
+    5. Renommez le fichier shimx64. EFI :
 
        ```bash
        # sudo mv shimx64.efi bootx64.efi

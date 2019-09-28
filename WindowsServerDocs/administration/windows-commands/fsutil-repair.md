@@ -1,7 +1,7 @@
 ---
 ms.assetid: 62d77150-1d9e-4069-ab4a-299f33024912
-title: réparation de fsutil
-ms.prod: windows-server-threshold
+title: Fsutil Repair
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,17 +9,17 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 18c06b1f426105b098a5dc7e992b1e3becd3a4ca
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6e4e285bf8401d628f7e4bcbaeafb0c6defa3ad1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846680"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376911"
 ---
-# <a name="fsutil-repair"></a>réparation de fsutil
+# <a name="fsutil-repair"></a>Fsutil Repair
 >S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
-Gère et surveille les NTFS à réparation automatique des opérations de réparation.
+Administre et surveille les opérations de réparation d’auto-réparation NTFS.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -38,47 +38,47 @@ fsutil repair [wait][<WaitType>] <VolumePath>
 
 |Paramètre|Description|
 |-------------|---------------|
-|Énumérer|Énumère les entrées du journal de corruption d’un volume.|
-|\<volumepath>|Spécifie le volume en tant que le nom du lecteur suivi du signe deux-points.|
-|\<LogName>|$Endommagées - l’ensemble des altérations confirmées dans le volume.<br />Vérification des $ - un ensemble des dommages potentiels, non vérifiés dans le volume.|
-|lancer|Lance la réparation spontanée NTFS.|
-|\<FileReference>|Spécifie l’ID de fichier spécifique au volume NTFS (numéro de référence de fichier). La référence de fichier inclut le numéro de segment du fichier.|
+|énumérer|Énumère la totalité du journal de corruption d’un volume.|
+|@no__t 0volumepath >|Spécifie le volume en tant que nom de lecteur suivi d’un signe deux-points.|
+|@no__t 0LogName >|$Corrupt : ensemble des endommagements confirmés dans le volume.<br />$Verify : un ensemble d’altérations potentielles non vérifiées dans le volume.|
+|exécuter|Lance la réparation automatique NTFS.|
+|@no__t 0FileReference >|Spécifie l’ID de fichier NTFS spécifique au volume (numéro de référence du fichier). La référence de fichier comprend le numéro de segment du fichier.|
 |requête|Interroge l’état de réparation automatique du volume NTFS.|
 |jeu|Définit l’état de réparation automatique du volume.|
-|\<indicateurs >|Spécifie la méthode de réparation à utiliser lors de la définition de l’état de réparation automatique du volume.<br /><br />Le **indicateurs** paramètre peut être défini sur trois valeurs :<br /><br />-   **0 x 01**: Autorise la réparation générale.<br />-   **0 x 09**: Signale la perte de données sans la réparation.<br />-   **0 x 00**: Désactive NTFS à réparation automatique des opérations de réparation.|
-|État|Interroge l’état d’altération du système ou pour un volume donné.|
-|attente|Attend que repair(s) terminer. Si NTFS a détecté un problème sur un volume sur lequel il effectue des réparations, cette option permet au système d’attendre que la réparation est terminée avant d’exécuter des scripts en attente.|
-|[WaitType {0&#124;1}]|Indique s’il faut attendre que la réparation en cours pour terminer ou pour attendre que toutes les réparations à effectuer. *Type d’attente* peut être définie sur les valeurs suivantes :<br /><br />-   **0**: Attend que toutes les réparations à effectuer. (valeur par défaut)<br />-   **1**: Attend que la réparation en cours terminer.|
+|@no__t 0Flags >|Spécifie la méthode de réparation à utiliser lors de la définition de l’état de réparation automatique du volume.<br /><br />Le paramètre **Flags** peut être défini sur trois valeurs :<br /><br />-   **0x01**: Active la réparation générale.<br />-   **0x09**: Avertit les pertes de données potentielles sans réparation.<br />-   **0x00**: Désactive les opérations de réparation d’auto-réparation NTFS.|
+|Département|Interroge l’état d’altération du système ou pour un volume donné.|
+|Qu'|Attend la fin de la ou des réparations. Si NTFS a détecté un problème sur un volume sur lequel il effectue des réparations, cette option permet au système d’attendre la fin de la réparation avant d’exécuter les scripts en attente.|
+|[WaitType {0&#124;1}]|Indique s’il faut attendre la fin de la réparation en cours ou attendre la fin de toutes les réparations. *WaitType* peut être défini sur les valeurs suivantes :<br /><br />-   **0**: Attend la fin de toutes les réparations. (valeur par défaut)<br />-   **1**: Attend la fin de la réparation en cours.|
 
 ## <a name="remarks"></a>Notes
 
--   Réparation automatique de NTFS pour tente de résoudre les altérations d’en ligne, le système de fichiers NTFS sans nécessiter de **Chkdsk.exe** à exécuter. Cette fonctionnalité a été introduite dans Windows Server 2008. Pour plus d’informations, consultez [NTFS de réparation automatique](https://go.microsoft.com/fwlink/?LinkID=165401).
+-   Le système de fichiers NTFS à réparation spontanée tente de corriger les altérations du système de fichiers NTFS en ligne, sans nécessiter l’exécution de **chkdsk. exe** . Cette fonctionnalité a été introduite dans Windows Server 2008. Pour plus d’informations, consultez l' [auto-réparation de NTFS](https://go.microsoft.com/fwlink/?LinkID=165401).
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour énumérer les altérations confirmées d’un volume, tapez :
+Pour énumérer les endommagements confirmés d’un volume, tapez :
 
 ```
 fsutil repair enumerate C: $Corrupt 
 ```
 
-Pour activer la réparation spontanée sur le lecteur C, tapez :
+Pour activer la réparation de réparation spontanée sur le lecteur C, tapez :
 
 ```
 fsutil repair set c: 1
 ```
 
-Pour désactiver la réparation spontanée sur le lecteur C, tapez :
+Pour désactiver la réparation de réparation spontanée sur le lecteur C, tapez :
 
 ```
 fsutil repair set c: 0
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
-[Clé de la syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
+[Clé de syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
 
 [Fsutil](Fsutil.md)
 
-[Spontanée de NTFS](https://go.microsoft.com/fwlink/?LinkID=165401)
+[NTFS de réparation automatique](https://go.microsoft.com/fwlink/?LinkID=165401)
 
 

@@ -1,188 +1,188 @@
 ---
 title: Scénarios de mise en réseau pris en charge par Windows Server
-description: Cette rubrique fournit des informations sur les nouveaux scénarios de mise en réseau pris en charge dans Windows Server 2016 et versions ultérieures
+description: Cette rubrique fournit des informations sur les nouveaux scénarios de mise en réseau pris en charge dans Windows Server 2016 et versions ultérieures.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.date: ''
 ms.assetid: 6de4232d-b0b3-4e43-8735-ebae35ae4f9f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 85f73f1f7caf833d23d3d693c0d754f52c4aa27d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f338ddf0a7d3a4fe41277ddbf49b0c3db34ae11b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812230"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71395697"
 ---
 # <a name="windows-server-supported-networking-scenarios"></a>Scénarios de mise en réseau pris en charge par Windows Server
 
->S’applique à : Windows Server \(canal semi-annuel\), Windows Server 2016
+>S’applique à : Windows Server \(Semi-canal annuel @ no__t-1, Windows Server 2016
 
 Cette rubrique fournit des informations sur les scénarios pris en charge et non pris en charge que vous pouvez ou ne pouvez pas effectuer avec cette version de Windows Server 2016.  
 >[!IMPORTANT]
->Pour tous les scénarios de production, utilisez les dernières signé pilotes à partir de votre fabricant \(OEM\) ou fournisseur de matériel indépendants \(IHV\).
+>Pour tous les scénarios de production, utilisez les derniers pilotes matériels signés de votre fabricant d’équipements d’origine \(OEM @ no__t-1 ou fournisseur de matériel indépendant \(IHV @ no__t-3.
   
 ## <a name="bkmk_supp"></a>Scénarios de mise en réseau pris en charge
 
-Cette section inclut des informations sur les scénarios de mise en réseau pris en charge pour Windows Server 2016 et inclut les catégories suivantes de scénario.  
+Cette section contient des informations sur les scénarios de mise en réseau pris en charge pour Windows Server 2016 et comprend les catégories de scénarios suivantes.  
   
--   [Scénarios de Software Defined Networking (SDN)](#bkmk_sdn)  
+-   [Scénarios de mise en réseau à définition logicielle (SDN)](#bkmk_sdn)  
   
--   [Scénarios de réseau de plateforme](#bkmk_netp)  
+-   [Scénarios de plateforme réseau](#bkmk_netp)  
   
 -   [Scénarios de serveur DNS](#bkmk_dns)  
   
--   [Scénarios d’IPAM avec DHCP et DNS](#bkmk_ipam)  
+-   [Scénarios IPAM avec DHCP et DNS](#bkmk_ipam)  
   
--   [Association de cartes réseau de scénarios](#bkmk_nicteam)
+-   [Scénarios d’association de cartes réseau](#bkmk_nicteam)
 
-- [Switch Embedded Teaming \(définir\) scénarios](#bkmk_set)
+- [Switch Embedded Teaming \(SET @ no__t-2 scénarios](#bkmk_set)
   
-### <a name="bkmk_sdn"></a>Scénarios de Software Defined Networking (SDN)
+### <a name="bkmk_sdn"></a>Scénarios de mise en réseau à définition logicielle (SDN)
  
 Vous pouvez utiliser la documentation suivante pour déployer des scénarios SDN avec Windows Server 2016.  
   
   
--   [Déployer une infrastructure de réseau à définition logicielle à l’aide de scripts](sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)  
+-   [Déployer une infrastructure réseau définie par logiciel à l’aide de scripts](sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)  
   
-Pour plus d’informations, consultez [Sdn &#40;SDN&#41;](sdn/software-defined-networking.md).  
+Pour plus d’informations, voir [Software Defined &#40;Networking SDN&#41;](sdn/software-defined-networking.md).  
   
 #### <a name="bkmk_netc"></a>Scénarios de contrôleur de réseau
 
-Les scénarios de contrôleur de réseau vous permettent de :  
+Les scénarios de contrôleur de réseau vous permettent d’effectuer les opérations suivantes :  
   
--   Déployer et gérer une instance de plusieurs nœuds de contrôleur de réseau. Pour plus d’informations, consultez [déployer de contrôleur de réseau à l’aide de Windows PowerShell](sdn/deploy/Deploy-Network-Controller-using-Windows-PowerShell.md).  
+-   Déployez et gérez une instance à plusieurs nœuds du contrôleur de réseau. Pour plus d’informations, consultez [déployer un contrôleur de réseau à l’aide de Windows PowerShell](sdn/deploy/Deploy-Network-Controller-using-Windows-PowerShell.md).  
   
--   Contrôleur de réseau permet de définir par programme la stratégie de réseau à l’aide de l’API Northbound REST.  
+-   Utilisez le contrôleur de réseau pour définir par programmation la stratégie réseau à l’aide de l’API REST Northbound.  
   
--   Utiliser le contrôleur de réseau pour créer et gérer des réseaux virtuels avec virtualisation de réseau Hyper-V - à l’aide de l’encapsulation NVGRE ou VXLAN.  
+-   Utilisez le contrôleur de réseau pour créer et gérer des réseaux virtuels avec la virtualisation de réseau Hyper-V, à l’aide de NVGRE ou de l’encapsulation VXLAN.  
   
 Pour plus d’informations, voir [Contrôleur de réseau](sdn/technologies/network-controller/Network-Controller.md).  
   
-#### <a name="bkmk_netf"></a>Réseau de scénarios de virtualisation (fonction) (NFV)  
-Les scénarios NFV vous permettent de :  
+#### <a name="bkmk_netf"></a>Scénarios de virtualisation de fonction réseau (NFV)  
+Les scénarios NFV vous permettent d’effectuer les opérations suivantes :  
   
--   Déployez et utilisez un équilibreur de charge logiciel pour répartir le trafic northbound et southbound.  
+-   Déployez et utilisez un équilibreur de charge logiciel pour distribuer le trafic Northbound et Southbound.  
   
--   Déployez et utilisez un équilibreur de charge logiciel pour répartir le trafic eastbound et westbound pour les réseaux virtuels créés avec la virtualisation de réseau Hyper-V.  
+-   Déployez et utilisez un équilibreur de charge logiciel pour distribuer le trafic Eastbound et Westbound pour les réseaux virtuels créés avec la virtualisation de réseau Hyper-V.  
   
 -   Déployez et utilisez un équilibreur de charge logiciel NAT pour les réseaux virtuels créés avec la virtualisation de réseau Hyper-V.  
   
 -   Déployer et utiliser une passerelle de transfert de couche 3  
   
--   Déployer et utiliser une passerelle de réseau privé virtuel (VPN) pour les tunnels IPsec (IKEv2) site à site  
+-   Déployer et utiliser une passerelle de réseau privé virtuel (VPN) pour les tunnels IPsec de site à site (IKEv2)  
   
--   Déployer et utiliser une passerelle d’Encapsulation GRE (Generic Routing).  
+-   Déployez et utilisez une passerelle de l’encapsulation générique de routage (GRE).  
   
--   Déployer et configurer le routage dynamique et le routage de transit entre les sites à l’aide du protocole BGP (Border Gateway).  
+-   Déployez et configurez le routage dynamique et le routage de transit entre les sites à l’aide d’Border Gateway Protocol (BGP).  
   
--   Configurer une redondance M + N pour couche 3 et les passerelles de site à site et pour le routage BGP.  
+-   Configurez la redondance M + N pour les passerelles de couche 3 et de site à site, ainsi que pour le routage BGP.  
   
--   Contrôleur de réseau permet de spécifier des ACL sur les réseaux virtuels et des interfaces réseau.  
+-   Utilisez le contrôleur de réseau pour spécifier des listes de contrôle d’accès sur des réseaux virtuels et des interfaces réseau.  
   
-Pour plus d’informations, consultez [virtualisation de fonction réseau](sdn/technologies/network-function-virtualization/Network-Function-Virtualization.md).  
+Pour plus d’informations, consultez [Network Function Virtualization](sdn/technologies/network-function-virtualization/Network-Function-Virtualization.md).  
   
-### <a name="bkmk_netp"></a>Scénarios de réseau de plateforme
+### <a name="bkmk_netp"></a>Scénarios de plateforme réseau
 
-Pour les scénarios de cette section de la mise en réseau Windows Server team prend en charge l’utilisation de n’importe quel pilote certifiés Windows Server 2016. Vérifiez avec votre carte d’interface réseau \(carte réseau\) fabricant pour vous assurer les dernières mises à jour de pilote.
+Pour les scénarios de cette section, l’équipe de mise en réseau Windows Server prend en charge l’utilisation de n’importe quel pilote certifié Windows Server 2016. Vérifiez auprès de votre fournisseur de cartes d’interface réseau \(NIC @ no__t-1 que vous disposez des mises à jour les plus récentes du pilote.
   
-Les scénarios de plate-forme réseau vous permettent de :  
+Les scénarios de plateforme réseau vous permettent d’effectuer les opérations suivantes :  
   
--   Utiliser une carte réseau convergence pour combiner de trafic RDMA et Ethernet à l’aide d’une seule carte réseau.  
+-   Utilisez une carte réseau convergée pour combiner le trafic RDMA et Ethernet à l’aide d’une seule carte réseau.  
   
--   Créer un chemin d’accès de données à faible latence à l’aide de paquets Direct, sont activés dans le commutateur virtuel Hyper-V et une seule carte réseau.  
+-   Créez un chemin de données à faible latence en utilisant Packet direct, activé dans le commutateur virtuel Hyper-V et une seule carte réseau.  
   
--   Configurer ensemble pour répartir les flux de trafic SMB Direct et RDMA entre les deux cartes réseau.  
+-   Configurer SET pour répartir les flux de trafic SMB direct et RDMA entre jusqu’à deux cartes réseau.  
   
-Pour plus d’informations, consultez [Remote Direct Memory Access &#40;RDMA&#41; et Switch Embedded Teaming &#40;définir&#41;](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).  
+Pour plus d’informations, [ &#40;consultez accès direct à la&#41; mémoire à distance RDMA et &#40;Switch&#41;Embedded Teaming Set](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).  
   
 #### <a name="bkmk_switch"></a>Scénarios de commutateur virtuel Hyper-V
 
-Les scénarios de commutateur virtuel Hyper-V vous permettent de :  
+Les scénarios de commutateur virtuel Hyper-V vous permettent d’effectuer les opérations suivantes :  
   
--   Créer un commutateur virtuel Hyper-V avec une carte réseau virtuelle de l’accès de mémoire Direct à distance (RDMA)  
+-   Créer un commutateur virtuel Hyper-V avec un accès direct à la mémoire à distance (RDMA) carte réseau virtuelle  
   
--   Créer un commutateur virtuel Hyper-V avec des cartes VNIC RDMA et SET Switch Embedded Teaming)  
+-   Créer un commutateur virtuel Hyper-V avec switch Embedded Teaming (SET) et RDMA cartes réseau virtuelles  
   
 -   Créer une équipe de jeu dans le commutateur virtuel Hyper-V  
   
 -   Gérer une équipe de jeu à l’aide de commandes Windows PowerShell  
   
-Pour plus d’informations, consultez [Remote Direct Memory Access &#40;RDMA&#41; et Switch Embedded Teaming &#40;définie&#41;](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md)  
+Pour plus d’informations, [ &#40;consultez accès direct à la&#41; mémoire à distance RDMA et &#40;Switch&#41; Embedded Teaming Set](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md)  
   
 ### <a name="bkmk_dns"></a>Scénarios de serveur DNS
 
-Scénarios de serveur DNS vous autorise à :  
+Les scénarios de serveur DNS vous permettent d’effectuer les opérations suivantes :  
   
--   Spécifiez le Qu'emplacement géographique en fonction de gestion du trafic à l’aide de stratégies de DNS  
+-   Spécifier la gestion du trafic basée sur la géolocalisation à l’aide de stratégies DNS  
   
--   Configurer le DNS « split brain » à l’aide de stratégies de DNS  
+-   Configurer le DNS split-brain à l’aide de stratégies DNS  
   
--   Appliquer des filtres sur les requêtes DNS à l’aide de stratégies de DNS  
+-   Appliquer des filtres sur des requêtes DNS à l’aide de stratégies DNS  
   
--   Configurer l’équilibrage de charge Application à l’aide de stratégies de DNS  
+-   Configurer l’équilibrage de charge des applications à l’aide de stratégies DNS  
   
--   Spécifiez que les réponses DNS intelligentes basées sur l’heure du jour  
+-   Spécifier les réponses DNS intelligentes en fonction de l’heure de la journée  
   
--   Configurer des stratégies de transfert de Zone DNS  
+-   Configurer des stratégies de transfert de zone DNS  
   
--   Configurer des zones de stratégies sur les Services de domaine Active Directory (AD DS) intégrés de serveur DNS  
+-   Configurer des stratégies de serveur DNS sur des zones intégrées Active Directory Domain Services (AD DS)  
   
--   Configurer les taux de réponse de limitation  
+-   Configurer la limitation du taux de réponses  
   
--   Spécifier l’authentification basée sur DNS d’entités nommées (DANE)  
+-   Spécifier l’authentification DNS des entités nommées (n)  
   
--   Configurer la prise en charge pour les enregistrements inconnus dans DNS  
+-   Configurer la prise en charge des enregistrements inconnus dans DNS  
   
-Pour plus d’informations, consultez les rubriques [What ' s New in Client DNS dans Windows Server 2016](dns/What-s-New-in-DNS-Client.md) et [What ' s New in serveur DNS dans Windows Server 2016](dns/What-s-New-in-DNS-Server.md).  
+Pour plus d’informations, consultez les rubriques [Nouveautés du client DNS dans Windows server 2016](dns/What-s-New-in-DNS-Client.md) et [Nouveautés du serveur DNS dans Windows Server 2016](dns/What-s-New-in-DNS-Server.md).  
   
-### <a name="bkmk_ipam"></a>Scénarios d’IPAM avec DHCP et DNS
+### <a name="bkmk_ipam"></a>Scénarios IPAM avec DHCP et DNS
 
-Les scénarios d’IPAM vous permettent de :  
+Les scénarios IPAM vous permettent d’effectuer les opérations suivantes :  
   
--   Découvrir et d’administrer des serveurs DNS et DHCP et l’adressage IP sur plusieurs forêts Active Directory fédérés  
+-   Détection et administration des serveurs DNS et DHCP et de l’adressage IP sur plusieurs forêts Active Directory fédérées  
   
--   Utiliser IPAM pour la gestion centralisée des propriétés DNS, notamment les zones et enregistrements de ressources.  
+-   Utilisez IPAM pour la gestion centralisée des propriétés DNS, y compris les zones et les enregistrements de ressources.  
   
--   Définir des stratégies de contrôle d’accès en fonction du rôle granulaire et déléguer les groupes d’utilisateurs ou les utilisateurs IPAM pour gérer l’ensemble de propriétés DNS que vous spécifiez.  
+-   Définir des stratégies granulaires de contrôle d’accès en fonction du rôle et déléguer des utilisateurs ou des groupes d’utilisateurs IPAM pour gérer l’ensemble des propriétés DNS que vous spécifiez.  
   
--   Utilisez les commandes Windows PowerShell pour IPAM pour automatiser la configuration de contrôle d’accès pour DHCP et DNS.  
+-   Utilisez les commandes Windows PowerShell pour IPAM afin d’automatiser la configuration du contrôle d’accès pour DHCP et DNS.  
   
     Pour plus d’informations, consultez [gérer IPAM](technologies/ipam/Manage-IPAM.md).  
   
-### <a name="bkmk_nicteam"></a>Association de cartes réseau de scénarios
+### <a name="bkmk_nicteam"></a>Scénarios d’association de cartes réseau
 
-Les scénarios d’association de cartes réseau vous permettent de :  
+Les scénarios d’association de cartes réseau vous permettent d’effectuer les opérations suivantes :  
   
 -   Créer une association de cartes réseau dans une configuration prise en charge  
   
 -   Supprimer une association de cartes réseau  
   
--   Ajouter des cartes réseau à l’association de cartes réseau dans une configuration prise en charge  
+-   Ajouter des cartes réseau à l’Association de cartes réseau dans une configuration prise en charge  
   
--   Supprimer des cartes réseau à partir de l’association de cartes réseau  
+-   Supprimer les cartes réseau de l’Association de cartes réseau  
   
 > [!NOTE]  
-> Dans Windows Server 2016, vous pouvez utiliser association de cartes réseau dans Hyper-V, mais dans certains cas files d’attente (ordinateurs virtuels) ne peut pas activer automatiquement sur les cartes réseau sous-jacents lorsque vous créez une association de cartes réseau. Si cela se produit, vous pouvez utiliser la commande Windows PowerShell suivante pour vous assurer que VMQ est activé sur les cartes de membre de carte réseau : `Set-NetAdapterVmq -Name <NetworkAdapterName> -Enable`  
+> Dans Windows Server 2016, vous pouvez utiliser l’Association de cartes réseau dans Hyper-V. Toutefois, dans certains cas, les files d’attente d’ordinateurs virtuels peuvent ne pas être activées automatiquement sur les cartes réseau sous-jacentes lorsque vous créez une association de cartes réseau. Si cela se produit, vous pouvez utiliser la commande Windows PowerShell suivante pour vous assurer que la carte réseau est activée sur les adaptateurs de membres de l’équipe de cartes réseau : `Set-NetAdapterVmq -Name <NetworkAdapterName> -Enable`  
 
-Pour plus d’informations, consultez [association de cartes réseau](technologies/nic-teaming/NIC-Teaming.md). 
+Pour plus d’informations, consultez [Association de cartes réseau](technologies/nic-teaming/NIC-Teaming.md). 
 
-### <a name="bkmk_set"></a>Switch Embedded Teaming \(définir\) scénarios
+### <a name="bkmk_set"></a>Switch Embedded Teaming \(SET @ no__t-2 scénarios
 
-JEU est une autre solution association de cartes réseau que vous pouvez utiliser dans les environnements qui incluent Hyper-V et la pile de mise en réseau SDN (Software Defined) dans Windows Server 2016. JEU intègre des fonctionnalités d’association de cartes réseau dans le commutateur virtuel Hyper-V. 
+SET est une autre solution d’association de cartes réseau que vous pouvez utiliser dans les environnements qui incluent Hyper-V et la pile SDN (Software Defined Networking) dans Windows Server 2016. SET intègre certaines fonctionnalités d’association de cartes réseau dans le commutateur virtuel Hyper-V. 
 
-Pour plus d’informations, consultez [accès de mémoire Direct à distance (RDMA) et SET Switch Embedded Teaming ()](https://technet.microsoft.com/windows-server-docs/networking/technologies/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)
+Pour plus d’informations, consultez [accès direct à la mémoire à distance (RDMA) et Switch Embedded Teaming (Set)](https://technet.microsoft.com/windows-server-docs/networking/technologies/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)
   
  
   
 ## <a name="bkmk_unsupp"></a>Scénarios de mise en réseau non pris en charge  
-Les scénarios de mise en réseau suivantes ne sont pas pris en charge dans Windows Server 2016.  
+Les scénarios de mise en réseau suivants ne sont pas pris en charge dans Windows Server 2016.  
   
--   Réseaux virtuels du client basée sur un VLAN.  
+-   Réseaux virtuels locataires basés sur un réseau local virtuel.  
   
--   IPv6 n’est pas pris en charge dans la sous-couche ou un segment de recouvrement.  
+-   IPv6 n’est pas pris en charge dans Underlay ou Overlay.  
   
 
 

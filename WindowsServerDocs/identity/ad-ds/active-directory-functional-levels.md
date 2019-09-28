@@ -7,20 +7,20 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 10/29/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.custom: it-pro
 ms.reviewer: maheshu
 ms.technology: identity-adds
-ms.openlocfilehash: c1e2108084b03fabbf7c6a18c2ecbcaf3cbd1dd9
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 7f16d58eb6c5074c75f49ba7936c4d312a3dbda4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868255"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390976"
 ---
 # <a name="forest-and-domain-functional-levels"></a>Niveaux fonctionnels de forêt et de domaine
 
->S'applique à : Windows Server
+>S'applique à : Windows Server
 
 Les niveaux fonctionnels déterminent les fonctionnalités de forêt ou de domaine de Active Directory Domain Services (AD DS) disponibles. Ils déterminent également les systèmes d’exploitation Windows Server que vous pouvez exécuter sur les contrôleurs de domaine dans le domaine ou la forêt. Toutefois, les niveaux fonctionnels n’affectent pas les systèmes d’exploitation que vous pouvez exécuter sur les stations de travail et les serveurs membres qui sont joints au domaine ou à la forêt.
 
@@ -57,13 +57,13 @@ Système d’exploitation du contrôleur de domaine pris en charge :
 
     Pour plus d’informations, consultez [Nouveautés de l’authentification Kerberos](https://docs.microsoft.com/windows-server/security/kerberos/whats-new-in-kerberos-authentication) et [Nouveautés de la protection des informations d’identification](https://docs.microsoft.com/windows-server/security/credentials-protection-and-management/whats-new-in-credential-protection)
 
-## <a name="windows-server-2012r2"></a>Windows Server 2012 R2
+## <a name="windows-server-2012r2"></a>2012 R2 de Windows Server
 
 Système d’exploitation du contrôleur de domaine pris en charge :
 
 * Windows Server 2019
 * Windows Server 2016
-* Windows Server 2012 R2
+* Windows Server 2012 R2
 
 ### <a name="windows-server-2012r2-forest-functional-level-features"></a>Fonctionnalités de niveau fonctionnel de la forêt Windows Server 2012 R2
 
@@ -88,7 +88,7 @@ Système d’exploitation du contrôleur de domaine pris en charge :
 
 * Windows Server 2019
 * Windows Server 2016
-* Windows Server 2012 R2
+* Windows Server 2012 R2
 * Windows Server 2012
 
 ### <a name="windows-server-2012-forest-functional-level-features"></a>Fonctionnalités de niveau fonctionnel de la forêt Windows Server 2012
@@ -106,7 +106,7 @@ Système d’exploitation du contrôleur de domaine pris en charge :
 
 * Windows Server 2019
 * Windows Server 2016
-* Windows Server 2012 R2
+* Windows Server 2012 R2
 * Windows Server 2012
 * Windows Server 2008 R2
 
@@ -121,13 +121,13 @@ Système d’exploitation du contrôleur de domaine pris en charge :
    * Assurance du mécanisme d’authentification, qui contient des informations sur le type de méthode d’ouverture de session (carte à puce ou nom d’utilisateur/mot de passe) utilisé pour authentifier les utilisateurs du domaine au sein du jeton Kerberos de chaque utilisateur. Lorsque cette fonctionnalité est activée dans un environnement réseau qui a déployé une infrastructure de gestion des identités fédérées, telle que Services ADFS (AD FS), les informations contenues dans le jeton peuvent ensuite être extraites chaque fois qu’un utilisateur tente d’accéder à application prenant en charge les revendications qui a été développée pour déterminer l’autorisation en fonction de la méthode d’ouverture de session d’un utilisateur.
    * Gestion automatique des noms principaux de service pour les services qui s’exécutent sur un ordinateur particulier dans le contexte d’un compte de service administré lorsque le nom ou le nom d’hôte DNS du compte d’ordinateur change. Pour plus d’informations sur les comptes de service administrés, consultez le [Guide pas à pas des comptes de service](https://go.microsoft.com/fwlink/?LinkId=180401).
 
-## <a name="windows-server-2008"></a>Windows Server 2008
+## <a name="windows-server-2008"></a>Windows Server 2008
 
 Système d’exploitation du contrôleur de domaine pris en charge :
 
 * Windows Server 2019
 * Windows Server 2016
-* Windows Server 2012 R2
+* Windows Server 2012 R2
 * Windows Server 2012
 * Windows Server 2008 R2
 * Windows Server 2008
@@ -165,7 +165,7 @@ Système d’exploitation du contrôleur de domaine pris en charge :
 
 Système d’exploitation du contrôleur de domaine pris en charge :
 
-* Windows Server 2012 R2
+* Windows Server 2012 R2
 * Windows Server 2012
 * Windows Server 2008 R2
 * Windows Server 2008

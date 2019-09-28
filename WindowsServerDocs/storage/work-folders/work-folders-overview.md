@@ -1,7 +1,7 @@
 ---
 ms.assetid: c91c7196-ee0d-4856-8cfb-4c38494ccf1f
 title: Vue d’ensemble de Dossiers de travail
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 author: JasonGerend
@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: jgerend
 ms.date: 06/07/2019
 description: 'Vue d’ensemble de Dossiers de travail : rôle de serveur dans Windows Server qui fournit un moyen cohérent pour les utilisateurs d’accéder aux fichiers de travail à partir des PC et appareils.'
-ms.openlocfilehash: 1313c49982cb85b5cce1e9a442ff0c622c6be272
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 69c7319bf1bf777c2a06d4c3a0025220aa4b819d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812568"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365683"
 ---
 # <a name="work-folders-overview"></a>Vue d’ensemble de Dossiers de travail
 
@@ -22,10 +22,10 @@ ms.locfileid: "66812568"
 
 Cette rubrique concerne Dossiers de travail, un service de rôle pour les serveurs de fichiers exécutant Windows Server qui fournit un moyen cohérent pour les utilisateurs d'accéder à leurs fichiers de travail à partir de leurs PC et appareils.  
   
-Si vous avez besoin pour télécharger ou utiliser des dossiers de travail sur Windows 10, Windows 7 ou un appareil Android ou iOS, consultez les rubriques suivantes :
+Si vous envisagez de télécharger ou d’utiliser des dossiers de travail sur Windows 10, Windows 7 ou un appareil Android ou iOS, consultez les rubriques suivantes :
 
 - [Dossiers de travail pour Windows 10](https://support.microsoft.com/help/12370/windows-10-work-folders)
-- [Dossiers de travail pour Windows 7 (téléchargement 64 bits)](https://www.microsoft.com/download/details.aspx?id=42558)
+- [Dossiers de travail pour Windows 7 (téléchargement de 64 bits)](https://www.microsoft.com/download/details.aspx?id=42558)
 - [Dossiers de travail pour Windows 7 (téléchargement de 32 bits)](https://www.microsoft.com/download/details.aspx?id=42559)
 - [Dossiers de travail pour iOS](https://itunes.apple.com/app/work-folders/id950878067)
 - [Dossiers de travail pour Android](https://play.google.com/store/apps/details?id=com.microsoft.workfolders)
@@ -70,7 +70,7 @@ Le tableau suivant décrit certaines des principales modifications apportées à
 | Fonctionnalité/fonction | Nouveauté ou mise à jour ? | Description |
 | ---------------------------- | --------------------- | ----------------- |
 | Prise en charge du proxy d’application Azure AD | Ajouté à Windows 10 version 1703, Android, iOS | Les utilisateurs distants peuvent accéder en toute sécurité à leurs fichiers sur le serveur Dossiers de travail à l’aide du proxy d'application Azure AD. |
-| Accélération de la réplication des modifications | Mises à jour dans Windows 10 et Windows Server 2016 | Pour Windows Server 2012 R2, lorsque les modifications apportées aux fichiers sont synchronisées avec le serveur Dossiers de travail, les clients ne sont pas informés des modifications et attendent jusqu’à 10 minutes pour obtenir la mise à jour. Lorsque vous utilisez Windows Server 2016, le serveur de dossiers de travail informe immédiatement les clients Windows 10 et les modifications de fichiers sont synchronisées immédiatement. Cette fonctionnalité est une nouveauté de Windows Server 2016 et nécessite un client Windows 10. Si vous utilisez un client plus ancien ou si le serveur Dossiers de travail exécute Windows Server 2012 R2, le client continue à interroger le système toutes les 10 minutes, afin d’obtenir les modifications. |  
+| Accélération de la réplication des modifications | Mises à jour dans Windows 10 et Windows Server 2016 | Pour Windows Server 2012 R2, lorsque les modifications apportées aux fichiers sont synchronisées avec le serveur Dossiers de travail, les clients ne sont pas informés des modifications et attendent jusqu’à 10 minutes pour obtenir la mise à jour. Quand vous utilisez Windows Server 2016, le serveur dossiers de travail avertit immédiatement les clients Windows 10 et les modifications de fichiers sont immédiatement synchronisées. Cette fonctionnalité est une nouveauté de Windows Server 2016 et nécessite un client Windows 10. Si vous utilisez un client plus ancien ou si le serveur Dossiers de travail exécute Windows Server 2012 R2, le client continue à interroger le système toutes les 10 minutes, afin d’obtenir les modifications. |  
 | Intégré dans la Protection des informations Windows (WIP) | Ajouté à Windows 10, version 1607 | Si un administrateur déploie WIP, Dossiers de travail peut appliquer la protection des données en chiffrant les données sur le PC. Le chiffrement utilise une clé associée à l’ID de l’entreprise, qui peut être réinitialisée à distance à l’aide d’un package de gestion des appareils mobiles pris en charge comme Microsoft Intune. |  
 | Intégration de Microsoft Office | Ajouté à Windows 10, version 1511 | Dans Windows 8.1. vous pouvez accéder à Dossiers de travail depuis les applications Office en cliquant ou en appuyant sur Ce PC, puis en accédant à l’emplacement Dossiers de travail sur votre PC. Dans Windows 10, vous pouvez accéder encore plus facilement à Dossiers de travail en l’ajoutant à la liste des emplacements affichés par Office lors de l'enregistrement ou de l'ouverture de fichiers. Pour plus d’informations, voir [Dossiers de travail dans Windows 10](https://windows.microsoft.com/windows-10/work-folders-in-windows-10) et [Résolution des problèmes en utilisant Dossiers de travail comme emplacement dans Microsoft Office](https://social.technet.microsoft.com/wiki/contents/articles/32881.troubleshooting-using-work-folders-as-a-place-in-microsoft-office.aspx). |  
   
@@ -78,7 +78,7 @@ Le tableau suivant décrit certaines des principales modifications apportées à
 
 La fonctionnalité Dossiers de travail présente la configuration logicielle requise suivante pour les serveurs de fichiers et votre infrastructure réseau :  
   
--   Un serveur exécutant Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2 pour l’hébergement de synchronisation des partages avec des fichiers utilisateur  
+-   Un serveur exécutant Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2 pour l’hébergement des partages de synchronisation avec des fichiers utilisateur  
   
 -   Un volume formaté avec le système de fichiers NTFS pour le stockage des fichiers utilisateur  
   
@@ -86,7 +86,7 @@ La fonctionnalité Dossiers de travail présente la configuration logicielle req
 
 -   Un certificat de serveur pour chaque serveur de fichiers qui hébergera Dossiers de travail. Ces certificats doivent provenir d’une autorité de certification approuvée par vos utilisateurs, dans l’idéal une autorité de certification publique.
 
--   (Facultatif) Une forêt Active Directory Domain Services avec les extensions de schéma dans Windows Server 2012 R2 pour prendre en charge automatiquement les références des PC et des appareils sur le serveur de fichiers approprié lors de l’utilisation de plusieurs serveurs de fichiers.  
+-   Facultatif Une forêt Active Directory Domain Services avec les extensions de schéma dans Windows Server 2012 R2 afin de prendre en charge automatiquement le référencement des PC et des appareils au serveur de fichiers approprié lors de l’utilisation de plusieurs serveurs de fichiers.  
   
 Pour permettre aux utilisateurs d’effectuer la synchronisation sur Internet, il existe des exigences supplémentaires :  
   
@@ -134,12 +134,12 @@ La fonctionnalité Dossiers de travail présente la configuration logicielle req
 
 Le tableau suivant décrit la position des différentes technologies de synchronisation Microsoft et quand les utiliser.  
   
-| | Dossiers de travail | Fichiers hors connexion | OneDrive Entreprise | OneDrive |
+| | Dossiers de travail | Fichiers hors connexion | OneDrive Entreprise | OneDrive |
 | - | ------------------ | ------------------- | -------------------------- | -------------- |
 | **Résumé de la technologie** | Synchronise les fichiers stockés sur un serveur de fichiers avec les PC et appareils | Synchronise les fichiers stockés sur un serveur de fichiers avec les PC qui ont accès au réseau d’entreprise (peut être remplacé par Dossiers de travail) | Synchronise les fichiers stockés dans Office 365 ou SharePoint avec les PC et appareils à l’intérieur ou en dehors d’un réseau d’entreprise et fournit la fonctionnalité de collaboration de document | Synchronise les fichiers personnels stockés dans OneDrive avec les PC, les ordinateurs Mac et les appareils |
-| **Conçue pour fournir l’accès utilisateur pour les fichiers de travail** | Oui | Oui | Oui | Non |
-| **Service cloud** | Aucune | Aucune | Office 365 | Microsoft OneDrive |
-| **Serveurs du réseau interne** | Serveurs de fichiers exécutant Windows Server 2012 R2 ou Windows Server 2016 | Serveurs de fichiers | Serveur SharePoint (facultatif) | Aucune |
+| **Destiné à fournir aux utilisateurs l’accès aux fichiers de travail** | Oui | Oui | Oui | Non |
+| **Service Cloud** | Aucune | Aucune | Office 365 | Microsoft OneDrive |
+| **Serveurs réseau internes** | Serveurs de fichiers exécutant Windows Server 2012 R2 ou Windows Server 2016 | Serveurs de fichiers | Serveur SharePoint (facultatif) | Aucune |
 | **Clients pris en charge** | PC, iOS, Android | PC d'un réseau d’entreprise ou connectés via DirectAccess, VPN ou d’autres technologies d’accès à distance | PC, iOS, Android, Windows Phone | PC, ordinateurs Mac, Windows Phone, iOS, Android |
   
 > [!NOTE]
@@ -167,9 +167,9 @@ Pour en savoir plus sur la prise en main des machines virtuelles Microsoft Azure
   
 | Type de contenu | Références |
 | ------------------ | ---------------- |
-| **Évaluation du produit** | -   [Dossiers de travail pour Android – lancé](https://blogs.technet.microsoft.com/filecab/2016/03/16/work-folders-for-android-released) (billet de blog)<br />-   [Dossiers de travail pour iOS : iPad application version](https://blogs.technet.com/b/filecab/archive/2015/01/16/work-folders-for-ios-ipad-app-release.aspx) (billet de blog)<br />-   [Présentation des dossiers de travail sur Windows Server 2012 R2](http://blogs.technet.com/b/filecab/archive/2013/07/09/introducing-work-folders-on-windows-server-2012-r2.aspx) (billet de blog)<br />-   [Introduction aux dossiers de travail](http://channel9.msdn.com/posts/Introduction-to-Work-Folders) (vidéo Channel 9)<br />-   [Utiliser des dossiers de déploiement de laboratoire de tests](http://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (billet de blog)<br />-   [Utiliser des dossiers pour Windows 7](http://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) (billet de blog) |
-| **Déploiement** | -   [Conception d’une implémentation de dossiers de travail](plan-work-folders.md)<br />-   [Déploiement de dossiers de travail](deploy-work-folders.md)<br />-   [Déploiement de dossiers de travail avec AD FS et Proxy d’Application Web (WAP)](deploy-work-folders-adfs-overview.md)<br />-   [Déploiement de dossiers de travail avec le Proxy d’Application Azure AD](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />- [Fichiers hors connexion (CSC) pour utiliser le Guide de Migration de dossiers](https://blogs.technet.microsoft.com/filecab/2016/08/12/offline-files-csc-to-work-folders-migration-guide/)<br />-   [Considérations relatives aux performances pour les déploiements de dossiers de travail](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />-   [Dossiers de travail pour Windows 7 (téléchargement 64 bits)](https://www.microsoft.com/download/details.aspx?id=42558)<br />-   [Dossiers de travail pour Windows 7 (téléchargement de 32 bits)](https://www.microsoft.com/download/details.aspx?id=42559) |
-| **Opérations** | -   [Application iPad de dossiers de travail : Forum aux questions](https://windows.microsoft.com/windows/work-folders-ipad-faq) (pour les utilisateurs)<br />-   [Gestion de certificat de dossiers de travail](https://blogs.technet.com/b/filecab/archive/2013/08/09/work-folders-certificate-management.aspx) (billet de blog)<br />-   [Surveillance des déploiements de dossiers de travail Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/10/15/monitoring-windows-server-2012-r2-work-folders-deployments.aspx) (billet de blog)<br />-   [Applets de commande SyncShare (dossiers de travail) dans Windows PowerShell](https://docs.microsoft.com/powershell/module/syncshare/?view=win10-ps)<br />-   [Carte de référence rapide de stockage et les applets de commande PowerShell de Services fichier pour l’édition de Windows Server 2012 R2 Preview](http://blogs.technet.com/b/filecab/archive/2013/07/30/storage-and-file-services-powershell-cmdlets-quick-reference-card-for-windows-server-2012-r2-preview-edition.aspx) |
-| **Résolution des problèmes** | -   [Windows Server 2012 R2 – conflit de Port de résolution avec sites Web IIS et les dossiers de travail](https://blogs.technet.com/b/filecab/archive/2013/10/15/windows-server-2012-r2-resolving-port-conflict-with-iis-websites-and-work-folders.aspx) (billet de blog)<br />-   [Erreurs courantes dans les dossiers de travail](https://social.technet.microsoft.com/wiki/contents/articles/30578.common-errors-in-work-folders.aspx) |
-| **Ressources de la communauté** | -   [Forum sur le stockage et les Services de fichiers](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserverfiles)<br />-   [L’équipe du stockage chez Microsoft - Blog File Cabinet](http://blogs.technet.com/b/filecab/)<br />-   [Demander le Blog de l’équipe Directory Services](http://blogs.technet.com/b/askds/) |  
-| **Technologies connexes** | -   [Stockage dans Windows Server 2016](../storage.md)<br>-   [Services de fichiers et stockage](https://technet.microsoft.com/library/hh831487(v=ws.11).aspx)<br />-   [File Server Resource Manager](https://technet.microsoft.com/library/hh831701(v=ws.11).aspx)<br />-   [La Redirection de dossiers, les fichiers hors connexion et les profils utilisateur itinérants](https://technet.microsoft.com/library/hh848267(v=ws.11).aspx)<br />-   [BranchCache](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx)<br />-   [Espaces de noms DFS et réplication DFS](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx) |
+| **Évaluation du produit** | -   [dossiers de travail pour Android – publié](https://blogs.technet.microsoft.com/filecab/2016/03/16/work-folders-for-android-released) (billet de blog)<br />-   [dossiers de travail pour iOS-version d’application iPad](https://blogs.technet.com/b/filecab/archive/2015/01/16/work-folders-for-ios-ipad-app-release.aspx) (billet de blog)<br />-   [Présentation des dossiers de travail sur Windows Server 2012 R2](http://blogs.technet.com/b/filecab/archive/2013/07/09/introducing-work-folders-on-windows-server-2012-r2.aspx) (billet de blog)<br />-   [Présentation des dossiers de travail](http://channel9.msdn.com/posts/Introduction-to-Work-Folders) (vidéo Channel 9)<br />-   [Dossiers de travail déploiement laboratoire de test](http://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (billet de blog)<br />[dossiers de travail -    pour Windows 7](http://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) (billet de blog) |
+| **Déploiement** | -   [Conception d’une implémentation de dossiers de travail](plan-work-folders.md)<br />-   [déploiement de dossiers de travail](deploy-work-folders.md)<br />-   [Déploiement de dossiers de travail avec AD FS et le proxy d’application Web (WAP)](deploy-work-folders-adfs-overview.md)<br />-   [déploiement de dossiers de travail avec Azure ad proxy d’application](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />[Guide de migration de la -  fichiers hors connexion (CSC) vers des dossiers de travail](https://blogs.technet.microsoft.com/filecab/2016/08/12/offline-files-csc-to-work-folders-migration-guide/)<br />-   [Considérations sur les performances pour les déploiements de dossiers de travail](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />-   [dossiers de travail pour Windows 7 (téléchargement de 64 bits)](https://www.microsoft.com/download/details.aspx?id=42558)<br />-   [dossiers de travail pour Windows 7 (téléchargement de 32 bits)](https://www.microsoft.com/download/details.aspx?id=42559) |
+| **Opérations** | -    @ no__t-1Work dossiers iPad App : FAQ @ no__t-0 (pour les utilisateurs)<br />-   [gestion des certificats de dossiers de travail](https://blogs.technet.com/b/filecab/archive/2013/08/09/work-folders-certificate-management.aspx) (billet de blog)<br />-   [surveillance des déploiements de dossiers de travail Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/10/15/monitoring-windows-server-2012-r2-work-folders-deployments.aspx) (billet de blog)<br />Applets de commande -   [SyncShare (dossiers de travail) dans Windows PowerShell](https://docs.microsoft.com/powershell/module/syncshare/?view=win10-ps)<br />informations[de référence sur les applets de commande PowerShell des services de stockage et de fichiers -    pour Windows Server 2012 R2 Preview Edition](http://blogs.technet.com/b/filecab/archive/2013/07/30/storage-and-file-services-powershell-cmdlets-quick-reference-card-for-windows-server-2012-r2-preview-edition.aspx) |
+| **Résolution des problèmes** | -   [Windows Server 2012 R2 – résolution du conflit de ports avec les sites Web IIS et dossiers de travail](https://blogs.technet.com/b/filecab/archive/2013/10/15/windows-server-2012-r2-resolving-port-conflict-with-iis-websites-and-work-folders.aspx) (billet de blog)<br />-   [Erreurs courantes dans dossiers de travail](https://social.technet.microsoft.com/wiki/contents/articles/30578.common-errors-in-work-folders.aspx) |
+| **Ressources de la communauté** | Forum sur le[stockage et les services de fichiers](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserverfiles) -   <br />-   [l’équipe de stockage sur le blog Microsoft-File Cabinet](http://blogs.technet.com/b/filecab/)<br />-   [demander au blog de l’équipe des services d’annuaire](http://blogs.technet.com/b/askds/) |  
+| **Technologies connexes** | Stockage -   [dans Windows Server 2016](../storage.md)<br>[services de fichiers et de stockage](https://technet.microsoft.com/library/hh831487(v=ws.11).aspx) -   <br />[serveur de fichiers](https://technet.microsoft.com/library/hh831701(v=ws.11).aspx) -    gestionnaire des ressources<br />redirection de dossiers -   [, fichiers hors connexion et profils utilisateur itinérants](https://technet.microsoft.com/library/hh848267(v=ws.11).aspx)<br />-   [BranchCache](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx)<br />[espaces de noms DFS](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx) -    et réplication DFS |

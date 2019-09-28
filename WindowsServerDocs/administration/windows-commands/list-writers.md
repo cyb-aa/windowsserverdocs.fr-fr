@@ -1,8 +1,8 @@
 ---
-title: enregistreurs de liste
-description: 'Rubrique de commandes de Windows pour ***- '
+title: répertorier les enregistreurs
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6fbab6644d46dbb352a5d5a51abefb293f3ffe6f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d00eebe4e562764e97794b3eb1b76ea96c2dc47c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866740"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374718"
 ---
-# <a name="list-writers"></a>enregistreurs de liste
+# <a name="list-writers"></a>répertorier les enregistreurs
 
 
 
-Répertorie les writers qui se trouvent sur le système. Si utilisée sans paramètres, **liste** affiche la sortie **liste métadonnées** par défaut.
+Répertorie les enregistreurs qui se trouvent sur le système. S’il est utilisé sans paramètres, **List** affiche la sortie des **métadonnées de liste** par défaut.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -38,17 +38,17 @@ list writers [metadata | detailed | status]
 
 |Paramètre|Description|
 |---------|-----------|
-|métadonnées|Répertorie l’identité et l’état des enregistreurs et affiche les métadonnées, telles que des détails sur les composants et fichiers exclus. Il s’agit du paramètre par défaut.|
-|Détaillées|Répertorie les mêmes informations que **métadonnées**, mais **détaillées** inclut la liste de fichiers complète pour tous les composants.|
+|métadonnées|Répertorie l’identité et l’état des enregistreurs, et affiche les métadonnées telles que les détails du composant et les fichiers exclus. Il s’agit du paramètre par défaut.|
+|modalités|Répertorie les mêmes informations que les **métadonnées**, mais **détaillé** comprend la liste complète des fichiers pour tous les composants.|
 |status|Répertorie uniquement l’identité et l’état des enregistreurs inscrits.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 Pour répertorier uniquement l’identité et l’état des enregistreurs, tapez :
 ```
 list writers status
 ```
-Sortie est similaire à ce qui suit affiche :
+Une sortie semblable à la suivante s’affiche :
 ```
 Listing writer status ...
 * WRITER "System Writer"
@@ -74,4 +74,4 @@ Listing writer status ...
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

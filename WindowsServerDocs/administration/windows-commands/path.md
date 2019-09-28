@@ -2,7 +2,7 @@
 title: path
 description: Découvrez comment définir la variable d’environnement PATH.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a637abc91dd3342afb3a2723d1b3a835be149122
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 81e8441e7c67e42bdf929e703c8fe780a6f8aff8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436321"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372424"
 ---
 # <a name="path"></a>path
 
 
 
-Définit le chemin d’accès de la commande dans la variable d’environnement PATH (l’ensemble de répertoires utilisés pour rechercher des fichiers exécutables). Si utilisée sans paramètres, **chemin d’accès** affiche le chemin actuel de la commande.
+Définit le chemin d’accès de la commande dans la variable d’environnement PATH (l’ensemble de répertoires utilisés pour rechercher des fichiers exécutables). S’il est utilisé sans paramètres, **path** affiche le chemin d’accès à la commande actuelle.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -39,24 +39,24 @@ path ;
 
 |     Paramètre     |                                                                                                     Description                                                                                                      |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [\<Drive>:]<Path> |                                                                            Spécifie le lecteur et le répertoire à définir dans le chemin d’accès de la commande.                                                                             |
-|         ;         | Sépare les répertoires dans le chemin d’accès de la commande. Si utilisée sans les autres paramètres, **;** efface les chemins d’accès de commande existantes à partir de la variable d’environnement PATH et dirige Cmd.exe de rechercher uniquement dans le répertoire actif. |
-|      CHEMIN D’ACCÈS %       |                                                         Ajoute le chemin d’accès de la commande à l’ensemble existant de répertoires répertoriés dans la variable d’environnement PATH.                                                         |
+| [@no__t 0Drive >:] <Path> |                                                                            Spécifie le lecteur et le répertoire à définir dans le chemin d’accès de la commande.                                                                             |
+|         ;         | Sépare les répertoires dans le chemin d’accès de la commande. S’il est utilisé sans autre **paramètre,** efface les chemins d’accès aux commandes existants de la variable d’environnement PATH et indique à cmd. exe de rechercher uniquement dans le répertoire actif. |
+|      D       |                                                         Ajoute le chemin d’accès de commande à l’ensemble existant de répertoires figurant dans la variable d’environnement PATH.                                                         |
 |        /?         |                                                                                         Affiche l'aide à l'invite de commandes.                                                                                         |
 
 ## <a name="remarks"></a>Notes
 
--   Lorsque vous incluez **% path%** dans la syntaxe, Cmd.exe remplace par les valeurs de chemin d’accès de commande trouvées dans la variable d’environnement PATH, éliminant la nécessité d’entrer manuellement ces valeurs à l’invite de commandes.
--   Le répertoire actif est recherché toujours avant les répertoires spécifiés dans le chemin d’accès de la commande.
--   Vous pouvez avoir des fichiers dans un répertoire qui partagent le même nom de fichier mais avez différentes extensions. Par exemple, vous pouvez avoir un fichier nommé compta.com qui démarre un programme de comptabilité et un autre appelé compta.bat qui connecte votre serveur au réseau du système de comptabilité.
+-   Lorsque vous incluez **% path%** dans la syntaxe, cmd. exe le remplace par les valeurs de chemin d’accès de commande trouvées dans la variable d’environnement PATH, ce qui évite d’avoir à entrer manuellement ces valeurs à l’invite de commandes.
+-   Le répertoire actif est toujours recherché avant les répertoires spécifiés dans le chemin d’accès de la commande.
+-   Vous pouvez avoir des fichiers dans un répertoire qui partagent le même nom de fichier, mais qui ont des extensions différentes. Par exemple, vous pouvez avoir un fichier nommé Accnt.com qui démarre un programme de comptabilité et un autre fichier nommé ACCNT. bat, qui connecte votre serveur au réseau de comptabilité.
 
-    Le système d’exploitation de Windows recherche un fichier à l’aide des extensions de nom de fichier par défaut dans l’ordre de priorité suivant : .exe, .com, .bat, et. cmd. Pour exécuter compta.bat alors compta.com existe dans le même répertoire, vous devez inclure l’extension .bat à l’invite de commandes.
--   Si deux ou plusieurs fichiers dans le chemin d’accès de commande ont le même nom de fichier et l’extension, **chemin d’accès** nom de la première recherche le fichier spécifié dans le répertoire actif. Il recherche ensuite dans les répertoires dans le chemin d’accès de commande dans l’ordre d’apparition dans la variable d’environnement PATH.
--   Si vous placez le **chemin d’accès** commande dans votre fichier Autoexec.nt, le système d’exploitation Windows ajoute automatiquement le chemin de recherche du sous-système MS-DOS spécifié chaque fois que vous ouvrez une session votre ordinateur. Cmd.exe n’utilise pas le fichier Autoexec.nt. Démarrage à partir d’un raccourci, Cmd.exe hérite les variables d’environnement définies dans mon ordinateur/propriétés/Avancé/environnement.
+    Le système d’exploitation Windows recherche un fichier en utilisant les extensions de nom de fichier par défaut dans l’ordre de priorité suivant :. exe,. com,. bat et. cmd. Pour exécuter ACCNT. bat lorsque Accnt.com existe dans le même répertoire, vous devez inclure l’extension. bat à l’invite de commandes.
+-   Si au moins deux fichiers du chemin d’accès de la commande ont le même nom de fichier et l’extension, **path** commence par Rechercher le nom de fichier spécifié dans le répertoire actif. Il recherche ensuite dans les répertoires dans le chemin d’accès de commande dans l’ordre dans lequel ils sont répertoriés dans la variable d’environnement PATH.
+-   Si vous placez la commande **path** dans votre fichier Autoexec. NT, le système d’exploitation Windows ajoute automatiquement le chemin de recherche du sous-système MS-DOS spécifié chaque fois que vous ouvrez une session sur votre ordinateur. Cmd. exe n’utilise pas le fichier Autoexec. NT. Lorsqu’il est démarré à partir d’un raccourci, cmd. exe hérite des variables d’environnement définies dans Poste de travail/Properties/Advanced/Environment.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour rechercher les chemins d’accès C:\User\Taxes, B:\User\Invest et B:\Bin pour des commandes externes, tapez :
+Pour rechercher les chemins C:\User\Taxes, B:\User\Invest et B:\Bin pour les commandes externes, tapez :
 
 `path c:\user\taxes;b:\user\invest;b:\bin`
 

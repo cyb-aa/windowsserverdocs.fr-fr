@@ -1,7 +1,7 @@
 ---
 title: Ordinateurs virtuels Debian pris en charge sur Hyper-V
 description: Répertorie les fonctionnalités et les services d’intégration Linux inclus dans chaque version
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,12 +11,12 @@ ms.assetid: 3cc62c10-02a3-4633-960c-23bf91a45bd5
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: 35603d47439b0bc8702dbaba09dea9d449964026
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 71b1985da522ef9ee2d7745bd19d2548e0241a2f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544739"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366766"
 ---
 # <a name="supported-debian-virtual-machines-on-hyper-v"></a>Ordinateurs virtuels Debian pris en charge sur Hyper-V
 
@@ -45,7 +45,7 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 | vRSS                                                                                                                                         | 2019, 2016, 2012 R2                         | &#10004;Remarque 8       | &#10004;Remarque 8       |                       |                       |
 | Segmentation TCP et déchargements de somme de contrôle                                                                                                       | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;Remarque 8       | &#10004;Remarque 8       |                       |                       |
 | SR-IOV                                                                                                                                       | 2019, 2016                                  | &#10004;Remarque 8       | &#10004;Remarque 8       |                       |                       |
-| **[Rangement](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                                             |                                             |                       |                       |                       |                       |
+| **[Stockage](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                                             |                                             |                       |                       |                       |                       |
 | Redimensionnement VHDX                                                                                                                                  | 2019, 2016, 2012 R2                         | &#10004;Remarque 1       | &#10004;Remarque 1       | &#10004;Remarque 1       | &#10004;Remarque 1       |
 | Fibre Channel virtuel                                                                                                                        | 2019, 2016, 2012 R2                         |                       |                       |                       |                       |
 | Sauvegarde de machine virtuelle en direct                                                                                                                  | 2019, 2016, 2012 R2                         | &#10004;Remarque 4, 5     | &#10004;Remarque 4, 5     | &#10004;Remarque 4, 5     | &#10004;Remarque 4       |
@@ -79,13 +79,13 @@ La carte de distribution des fonctionnalités suivante indique les fonctionnalit
 
 3. Windows Server 2012 R2 une machine virtuelle avec 8 cœurs ou plus aura toutes les interruptions routées vers un seul processeur virtuel.
 
-4. À compter de Debian 8,3, le package Debian installé manuellement «HyperV-daemons» contient la paire clé-valeur, fcopy et les démons VSS. Sur Debian 7. x et 8.0-8.2, le package HyperV-daemons doit provenir d’un [port Debian](https://wiki.debian.org/Backports).
+4. À compter de Debian 8,3, le package Debian installé manuellement « HyperV-daemons » contient la paire clé-valeur, fcopy et les démons VSS. Sur Debian 7. x et 8.0-8.2, le package HyperV-daemons doit provenir d’un [port Debian](https://wiki.debian.org/Backports).
 
 5. La sauvegarde de machines virtuelles en temps réel ne fonctionne pas avec les systèmes de fichiers ext2. La disposition par défaut créée par le programme d’installation de Debian comprend les systèmes de fichiers ext2, vous devez personnaliser la disposition pour ne pas créer ce type de système de fichiers.
 
 6. Si Debian 7. x n’est plus pris en charge et utilise un noyau plus ancien, le noyau inclus dans les [ports Debian](https://wiki.debian.org/Backports) de Debian pour Debian 7. x a amélioré les fonctionnalités Hyper-V.
 
-7. Sur les ordinateurs virtuels Windows Server 2012 R2 génération 2, le démarrage sécurisé est activé par défaut et certaines machines virtuelles Linux ne démarrent pas, sauf si l’option de démarrage sécurisé est désactivée. Vous pouvez désactiver le démarrage sécurisé dans  la section microprogramme des paramètres de l’ordinateur virtuel dans le **Gestionnaire Hyper-V** , ou vous pouvez le désactiver à l’aide de PowerShell:
+7. Sur les ordinateurs virtuels Windows Server 2012 R2 génération 2, le démarrage sécurisé est activé par défaut et certaines machines virtuelles Linux ne démarrent pas, sauf si l’option de démarrage sécurisé est désactivée. Vous pouvez désactiver le démarrage sécurisé dans la section **microprogramme** des paramètres de l’ordinateur virtuel dans le **Gestionnaire Hyper-V** , ou vous pouvez le désactiver à l’aide de PowerShell :
 
    ```Powershell
    Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off

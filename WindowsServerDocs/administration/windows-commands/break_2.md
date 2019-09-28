@@ -1,8 +1,8 @@
 ---
 title: break
-description: Rubrique de commandes de Windows pour **break_2** - dissocie un volume de clichés instantanés de VSS et le rend accessible comme un volume normal.
+description: La rubrique commandes Windows pour **break_2** -dissocie un volume de clichés instantanés de VSS et le rend accessible comme un volume normal.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 49516539ae603e2c93b3fc395c77786be790d663
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a5789e3442152c705b3197bf1ce5e63dc782a15c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886330"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379776"
 ---
 # <a name="break"></a>break
 
 
 
-Dissocie un volume de clichés instantanés de VSS et le rend accessible comme un volume normal. Le volume est ensuite accessible pour les à l’aide d’une lettre de lecteur (s’il est attribué) ou le nom de volume. Si utilisée sans paramètres, **saut** affiche l’aide à l’invite de commandes.
+Dissocie un volume de clichés instantanés de VSS et le rend accessible comme un volume normal. Le volume est ensuite accessible à l’aide d’une lettre de lecteur (si affectée) ou d’un nom de volume. En cas d’utilisation sans paramètre, **break** affiche l’aide à l’invite de commandes.
 
 > [!NOTE]
 > Cette commande s’applique uniquement aux clichés instantanés matériels après l’importation.
@@ -41,24 +41,24 @@ break [writable] <SetID>
 
 |Paramètre|Description|
 |---------|-----------|
-|[writable]|Active en lecture/écriture sur le volume.|
-|\<SetID>|Spécifie l’ID de jeu de clichés instantanés.|
+|inscriptible|Active l’accès en lecture/écriture sur le volume.|
+|@no__t 0SetID >|Spécifie l’ID du jeu de clichés instantanés.|
 
 ## <a name="remarks"></a>Notes
 
--   Les volumes exposés, tels que les clichés instantanés ils proviennent, sont en lecture seule par défaut.
--   L’alias de l’ID du cliché instantané, qui est stocké sous la forme d’une variable d’environnement par le **charger les métadonnées** commande, peut être utilisé dans le *SetID* paramètre.
+-   Les volumes exposés, comme les clichés instantanés à partir desquels ils proviennent, sont en lecture seule par défaut.
+-   L’alias de l’ID de cliché instantané, qui est stocké en tant que variable d’environnement par la commande de **chargement des métadonnées** , peut être utilisé dans le paramètre *SetID* .
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour créer une ombre à copier avec le nom d’alias Alias1 accessible comme un volume accessible en écriture dans le système d’exploitation, tapez :
+Pour créer un cliché instantané avec le nom d’alias Alias1 accessible en tant que volume accessible en écriture dans le système d’exploitation, tapez :
 ```
 break writable %Alias1%
 ```
 
 > [!NOTE]
-> Accès au volume est effectué directement le fournisseur de matériel sans enregistrement du volume ayant été un cliché instantané.
+> L’accès au volume est effectué directement par le fournisseur de matériel sans enregistrement du volume qui a été un cliché instantané.
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

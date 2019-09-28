@@ -6,15 +6,15 @@ ms.author: jgerend
 manager: dmoss
 ms.date: 10/16/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.assetid: 1f1215cd-404f-42f2-b55f-3888294d8a1f
-ms.openlocfilehash: 11f0a696fb843f5cd8b4a7ff3318c28d6c1adeb8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0e41d7ae577bf7e9227ff0c02689d916f1008a3d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871340"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403033"
 ---
 # <a name="refs-integrity-streams"></a>Flux d’intégrité ReFS
 >S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server (canal semi-annuel), Windows 10
@@ -38,7 +38,7 @@ Cette somme de contrôle est alors comparée à la somme de contrôle contenue d
 
 ReFS enregistre toutes les altérations dans le journal des événements système, lequel indique si les altérations ont été corrigées. 
 
-![Écriture corrective restaure l’intégrité des données](media/corrective-write.gif)
+![L’écriture corrective rétablit l’intégrité des données](media/corrective-write.gif)
 
 ## <a name="performance"></a>Performances 
 
@@ -95,6 +95,6 @@ PS C:\> Set-FileIntegrity H:\Docs -Enable $True
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Vue d’ensemble de références](refs-overview.md)
--   [Clonage de bloc reFS](block-cloning.md)
--   [Vue d’ensemble Direct des espaces de stockage](../storage-spaces/storage-spaces-direct-overview.md)
+-   [Vue d’ensemble des ReFS](refs-overview.md)
+-   [Clonage de bloc ReFS](block-cloning.md)
+-   [Présentation de espaces de stockage direct](../storage-spaces/storage-spaces-direct-overview.md)

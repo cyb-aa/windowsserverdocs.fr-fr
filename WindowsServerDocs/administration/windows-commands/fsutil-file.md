@@ -1,7 +1,7 @@
 ---
 ms.assetid: 9f3dc104-dd69-4b03-b824-a29896780164
-title: fichier de fsutil
-ms.prod: windows-server-threshold
+title: Fichier fsutil
+ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
@@ -9,17 +9,17 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: ffaf02f74f20f4eb94b94d8f0ffc51f26a62390e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2b89d96535512f79c83c601be50327c24dc40787
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828120"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376981"
 ---
-# <a name="fsutil-file"></a>fichier de fsutil
+# <a name="fsutil-file"></a>Fichier fsutil
 >S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
-Recherche un fichier par nom d’utilisateur (si les Quotas de disque sont activés), interroge les plages allouées d’un fichier, définit un nom court, définit la longueur de données valide, données égales à zéro pour un fichier ou crée un nouveau fichier.
+Recherche un fichier par nom d’utilisateur (si les quotas de disque sont activés), interroge des plages allouées pour un fichier, définit le nom abrégé d’un fichier, définit la longueur de données valide d’un fichier, ne définit aucune donnée pour un fichier ou crée un nouveau fichier.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -46,55 +46,55 @@ fsutil file [setzerodata] offset=<offset> length=<length> <filename>
 
 |Paramètre|Description|
 |-------------|---------------|
-|CreateNew|Crée un fichier du nom spécifié et la taille, avec du contenu qui se compose de zéros.|
-|\<filename>|Spécifie le chemin d’accès complet au fichier, y compris le nom de fichier et l’extension, par exemple C:\documents\filename.txt.|
-|\<length>|Spécifie la longueur de données valide.|
-|findbysid|Recherche les fichiers qui appartiennent à un utilisateur spécifié sur les volumes NTFS où les Quotas de disque sont activés.|
-|\<username>|Spécifie le nom du utilisateur nom d’utilisateur ou d’ouverture de session.|
-|\<directory>|Spécifie le chemin d’accès complet au répertoire, par exemple C:\users.|
+|CreateNew|Crée un fichier du nom et de la taille spécifiés, avec un contenu composé de zéros.|
+|@no__t 0filename >|Spécifie le chemin d’accès complet au fichier, y compris le nom de fichier et l’extension, par exemple C:\documents\filename.txt.|
+|@no__t 0length >|Spécifie la longueur des données valides du fichier.|
+|findbysid|Recherche des fichiers qui appartiennent à un utilisateur spécifié sur des volumes NTFS où les quotas de disque sont activés.|
+|@no__t 0username >|Spécifie le nom d’utilisateur ou le nom d’ouverture de session de l’utilisateur.|
+|\<directory>|Spécifie le chemin d’accès complet au répertoire, par exemple C:\Users.|
 |optimizemetadata|Cela effectue un compactage immédiat des métadonnées pour un fichier donné.|
-|/A|Analyser les métadonnées d’un fichier avant et après l’optimisation.|
-|queryallocranges|Interroge les plages allouées d’un fichier sur un volume NTFS. Utile pour déterminer si un fichier comporte des zones éparses.|
-|offset=\<offset>|Spécifie le début de la plage qui doit être défini en zéros.|
-|length=\<length>|Spécifie la longueur de la plage (en octets).|
-|queryextents|Extensions de requêtes pour un fichier.|
-|/R|Si <filename> est une nouvelle analyse point, ouvrez il plutôt que sa cible.|
-|\<startingvcn>|Spécifie le premier VCN à interroger. Si omis, commencez à VCN 0.|
-|\<numvcns>|Nombre de VCNs à interroger. Si omis ou 0, la requête jusqu'à ce que EOF.|
+|/A|Analyser les métadonnées de fichier avant et après l’optimisation.|
+|queryallocranges|Interroge les plages allouées pour un fichier sur un volume NTFS. Utile pour déterminer si un fichier a des régions éparses.|
+|offset = \<offset >|Spécifie le début de la plage qui doit être définie sur zéros.|
+|longueur = \<length >|Spécifie la longueur de la plage (en octets).|
+|queryextents|Interroge les étendues d’un fichier.|
+|/R|Si <filename> est un point d’analyse, ouvrez-le au lieu de sa cible.|
+|@no__t 0startingvcn >|Spécifie le premier VCN à interroger. En cas d’omission, commencez à VCN 0.|
+|@no__t 0numvcns >|Nombre de VCNs à interroger. En cas d’omission ou 0, interroger jusqu’à EOF.|
 |queryfileid|Interroge l’ID d’un fichier sur un volume NTFS.<br /><br />Ce paramètre s’applique à :  Windows Server 2008 R2 et Windows 7.|
-|\<volume>|Spécifie le volume en tant que nom du lecteur suivie du signe deux-points.|
-|queryfilenamebyid|Affiche un nom de lien aléatoire pour un ID de fichier spécifié sur un volume NTFS. Dans la mesure où un fichier peut avoir plusieurs noms de lien qui pointe vers ce fichier, il le lien de fichier est fourni à la suite de la requête pour le nom de fichier n’est pas garanti.<br /><br />Ce paramètre s’applique à :  Windows Server 2008 R2 et Windows 7.|
-|\<fileid>|Spécifie l’ID du fichier sur un volume NTFS.|
-|queryoptimizemetadata|Interroge l’état de métadonnées d’un fichier.|
-|queryvaliddata|Interroge la longueur de données valides pour un fichier.|
-|/D|Afficher les informations détaillées des données valides.|
-|seteof|Définit le EOF du fichier donné.|
-|Nom_court|Définit le nom court (nom de fichier de longueur en caractères au format 8.3) pour un fichier sur un volume NTFS.|
-|\<shortname>|Spécifie le nom court.|
-|setvaliddata|Définit la longueur de données valides pour un fichier sur un volume NTFS.|
-|\<datalength>|Spécifie la longueur du fichier en octets.|
-|setzerodata|Définit une plage (spécifié par *décalage* et *longueur*) du fichier en zéros, qui vide le fichier. Si le fichier est un fichier partiellement alloué, les unités d’allocation sous-jacentes sont rendues non valides.|
+|@no__t 0volume >|Spécifie le volume en tant que nom de lecteur suivi d’un signe deux-points.|
+|queryfilenamebyid|Affiche un nom de lien aléatoire pour un ID de fichier spécifié sur un volume NTFS. Étant donné qu’un fichier peut avoir plusieurs noms de liens pointant vers ce fichier, il n’est pas garanti que le lien de fichier sera fourni à la suite de la requête pour le nom de fichier.<br /><br />Ce paramètre s’applique à :  Windows Server 2008 R2 et Windows 7.|
+|@no__t 0fileid >|Spécifie l’ID du fichier sur un volume NTFS.|
+|queryoptimizemetadata|Interroge l’état des métadonnées d’un fichier.|
+|queryvaliddata|Interroge la longueur de données valide d’un fichier.|
+|/D|Affichez des informations détaillées sur les données valides.|
+|seteof|Définit la EOF du fichier donné.|
+|setshortname|Définit le nom abrégé (nom du fichier de longueur 8,3 caractères) d’un fichier sur un volume NTFS.|
+|@no__t 0shortname >|Spécifie le nom abrégé du fichier.|
+|setvaliddata|Définit la longueur de données valide pour un fichier sur un volume NTFS.|
+|@no__t 0datalength >|Spécifie la longueur du fichier en octets.|
+|setzerodata|Définit une plage (spécifiée par le *décalage* et la *longueur*) du fichier à zéro, ce qui vide le fichier. Si le fichier est un fichier partiellement alloué, les unités d’allocation sous-jacentes sont désallouées.|
 
 ## <a name="remarks"></a>Notes
 
--   Dans NTFS, il existe deux concepts importants de la longueur du fichier : le marqueur de fin de fichier (EOF) et la longueur de données valides (VDL). Le EOF indique la longueur réelle du fichier. La longueur de données valides identifie la longueur des données valides sur le disque. N’importe quel lit entre la longueur de données valides et EOF retour automatiquement la nécessité de réutilisation de 0 pour conserver l’objet C2.
+-   Dans NTFS, il existe deux concepts importants de la longueur de fichier : le marqueur de fin de fichier (EOF) et la longueur de données valide (VDL). Le EOF indique la longueur réelle du fichier. Le VDL identifie la longueur des données valides sur le disque. Toutes les lectures entre VDL et EOF retournent automatiquement 0 pour conserver l’exigence de réutilisation de l’objet C2.
 
--   Le **setvaliddata** paramètre est uniquement disponible pour les administrateurs, car il nécessite le privilège de tâches (SeManageVolumePrivilege) de maintenance de volume effectuer. Cette fonctionnalité est requise uniquement pour avancée multimédia et système de réseaux. Le **setvaliddata** paramètre doit être une valeur positive est supérieure à la longueur de données valides, mais inférieure à la taille du fichier.
+-   Le paramètre **setvaliddata** est uniquement disponible pour les administrateurs, car il nécessite le privilège effectuer des tâches de maintenance de volume (SeManageVolumePrivilege). Cette fonctionnalité est uniquement requise pour les scénarios de réseau multimédia avancé et de réseau de zone système. Le paramètre **setvaliddata** doit être une valeur positive supérieure à celle du VDL actuel, mais inférieure à la taille du fichier actuel.
 
-    Il est utile pour les programmes définir une longueur de données valides lorsque :
+    Il est utile pour les programmes de définir un VDL dans les cas suivants :
 
-    -   Écriture de clusters bruts directement sur le disque via un canal de matériel. Cela permet au programme informer le système de fichiers, cette plage contient des données valides qui peuvent être retournées à l’utilisateur.
+    -   Écriture de clusters bruts directement sur le disque via un canal matériel. Cela permet au programme d’informer le système de fichiers que cette plage contient des données valides qui peuvent être renvoyées à l’utilisateur.
 
-    -   Création des fichiers volumineux lorsque les performances sont un problème. Cela évite le temps que nécessaire pour remplir le fichier avec des zéros lorsque le fichier est créé ou étendu.
+    -   Création de fichiers volumineux lorsque la performance est un problème. Cela évite le temps nécessaire pour remplir le fichier avec des zéros lors de la création ou de l’extension du fichier.
 
-## <a name="BKMK_examples"></a>Exemples
-Pour rechercher les fichiers appartenant à scottb sur le lecteur C, tapez :
+## <a name="BKMK_examples"></a>Illustre
+Pour rechercher des fichiers appartenant à scottb sur le lecteur C, tapez :
 
 ```
 fsutil file findbysid scottb c:\users  
 ```
 
-Pour interroger les plages allouées d’un fichier sur un volume NTFS, tapez :
+Pour interroger les plages allouées pour un fichier sur un volume NTFS, tapez :
 
 ```
 fsutil file queryallocranges offset=1024 length=64 c:\temp\sample.txt  
@@ -106,38 +106,38 @@ Pour optimiser les métadonnées d’un fichier, tapez :
 fsutil file optimizemetadata C:\largefragmentedfile.txt
 ```
 
-Pour interroger les étendues pour un fichier, tapez :
+Pour interroger les étendues d’un fichier, tapez :
 
 ```
 fsutil file queryextents C:\Temp\sample.txt
 ```
 
-Pour définir le EOF pour un fichier, tapez :
+Pour définir le EOF d’un fichier, tapez :
 
 ```
 fsutil file seteof C:\testfile.txt 1000
 ```
 
-Pour définir le nom court pour le fichier Longfilename.txt sur le lecteur C à Longfile.txt, tapez :
+Pour définir le nom abrégé du fichier longfilename. txt sur le lecteur C sur Longfile. txt, tapez :
 
 ```
 fsutil file setshortname c:\longfilename.txt longfile.txt  
 ```
 
-Pour définir la longueur de données valide à 4 096 octets pour un fichier nommé Testfile.txt sur un volume NTFS, tapez :
+Pour définir la longueur des données valides sur 4096 octets pour un fichier nommé TestFile. txt sur un volume NTFS, tapez :
 
 ```
 fsutil file setvaliddata c:\testfile.txt 4096  
 ```
 
-Pour définir une plage d’un fichier sur un volume NTFS aux zéros vider, tapez :
+Pour définir une plage d’un fichier sur un volume NTFS sur des zéros pour la vider, tapez :
 
 ```
 fsutil file setzerodata offset=100 length=150 c:\temp\sample.txt  
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
-[Clé de la syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
+[Clé de syntaxe de ligne de commande](Command-Line-Syntax-Key.md)
 
 [Fsutil](Fsutil.md)
 

@@ -1,7 +1,7 @@
 ---
-title: Vérifiez que toutes les extensions de commutateur virtuel obligatoires sont disponibles
-description: Version en ligne du texte pour cette règle de Best Practices Analyzer.
-ms.prod: windows-server-threshold
+title: Vérifier que toutes les extensions de commutateur virtuel obligatoires sont disponibles
+description: Version en ligne du texte de cette règle de Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 2f2f2698-f5ec-4cad-aa64-d6987e8142a1
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: 53ceeb9aab6ca7196454fbcd7f0fdae8b34d05d2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c9363fbce35552a8f7d279662ae9072bcd7ea480
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825940"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364823"
 ---
-# <a name="ensure-that-all-mandatory-virtual-switch-extensions-are-available"></a>Vérifiez que toutes les extensions de commutateur virtuel obligatoires sont disponibles
+# <a name="ensure-that-all-mandatory-virtual-switch-extensions-are-available"></a>Vérifier que toutes les extensions de commutateur virtuel obligatoires sont disponibles
 
 >S'applique à : Windows Server 2016
 
@@ -27,21 +27,21 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Niveau de gravité**|Warning|  
+|**Va**|Warning|  
 |**Catégorie**|Configuration|  
   
-Dans les sections suivantes, italique indique le texte de l’interface utilisateur qui apparaît dans l’outil Best Practices Analyzer pour ce problème.  
+Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
   
 ## <a name="issue"></a>Problème  
-*Un ou plusieurs cartes réseau virtuelles sont connectés à un commutateur virtuel avec les extensions obligatoires qui sont désactivés ou pas installé.*  
+*Une ou plusieurs cartes réseau virtuelles sont connectées à un commutateur virtuel avec des extensions obligatoires qui sont désactivées ou ne sont pas installées.*  
   
 ## <a name="impact"></a>Impact  
-*Le trafic réseau est bloqué sur un ou plusieurs cartes réseau virtuelles sur les ordinateurs virtuels suivants :*  
+*Le trafic réseau est bloqué sur une ou plusieurs cartes réseau virtuelles sur les machines virtuelles suivantes :*  
   
-\<liste des machines virtuelles >  
+@no__t 0list de machines virtuelles >  
   
-## <a name="resolution"></a>Résolution  
-*Tout d’abord, assurez-vous que l’extension obligatoire a été installée sur l’ordinateur hôte et installer l’extension si nécessaire. Ensuite, si l’extension obligatoire est désactivée, utilisez le Gestionnaire de commutateur virtuel ou l’applet de commande Windows PowerShell Enable-VMSwitchExtension pour activer l’extension.*  
+## <a name="resolution"></a>Résolution :  
+*First, assurez-vous que l’extension obligatoire a été installée sur l’hôte et installez l’extension si nécessaire. Ensuite, si l’extension obligatoire est désactivée, utilisez le gestionnaire de commutateur virtuel ou l’applet de commande Windows PowerShell Enable-VMSwitchExtension pour activer l’extension.*  
   
 
 

@@ -1,9 +1,9 @@
 ---
-title: Plan de l’étape 3 du déploiement Multisite
-description: Cette rubrique fait partie du guide de déploiement de plusieurs serveurs d’accès distant dans un déploiement Multisite dans Windows Server 2016.
+title: Étape 3 planifier le déploiement multisite
+description: Cette rubrique fait partie du guide déployer plusieurs serveurs d’accès à distance dans un déploiement multisite dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,161 +12,161 @@ ms.topic: article
 ms.assetid: e5ea9d22-a503-4ed4-96b3-0ee2ccf4fd17
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 973ef70614f056adac1463918cc425d82b21ac62
-ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
+ms.openlocfilehash: 1320a5c8b8c267f270dae43e764533d9289006a4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67792311"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404454"
 ---
-# <a name="step-3-plan-the-multisite-deployment"></a>Plan de l’étape 3 du déploiement Multisite
+# <a name="step-3-plan-the-multisite-deployment"></a>Étape 3 planifier le déploiement multisite
 
 >S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Après la planification de l’infrastructure multisite, planifier des exigences de certificat supplémentaires, comment les ordinateurs clients pour sélectionner des points d’entrée et les adresses IPv6 affectées dans votre déploiement.  
+Après avoir planifié l’infrastructure multisite, planifiez les exigences de certificat supplémentaires, comment les ordinateurs clients sélectionnent les points d’entrée et les adresses IPv6 affectées dans votre déploiement.  
 
-Les sections suivantes fournissent des informations de planification détaillées.
+Les sections suivantes fournissent des informations détaillées sur la planification.
   
-## <a name="bkmk_3_1_IPHTTPS"></a>Certificats IP-HTTPS planifier 3.1  
-Lorsque vous configurez les points d’entrée, vous configurez chaque point d’entrée avec une adresse ConnectTo spécifique. Le certificat IP-HTTPS pour chaque point d’entrée doit correspondre à l’adresse ConnectTo. Notez les points suivants lors de l’obtention du certificat :  
+## <a name="bkmk_3_1_IPHTTPS"></a>3,1 planifier des certificats IP-HTTPs  
+Quand vous configurez les points d’entrée, vous configurez chaque point d’entrée avec une adresse ConnectTo spécifique. Le certificat IP-HTTPs pour chaque point d’entrée doit correspondre à l’adresse ConnectTo. Notez les points suivants lors de l’obtention du certificat :  
   
 -   Vous ne pouvez pas utiliser des certificats auto-signés dans un déploiement multisite.  
   
 -   Il est recommandé d'utiliser une autorité de certification publique, afin que les listes de révocation de certificats soient rapidement disponibles.  
   
--   Dans le champ objet, spécifiez soit l’adresse IPv4 de la carte externe du serveur d’accès à distance (si l’adresse ConnectTo a été spécifiée comme une adresse IP et pas un nom DNS), ou le nom de domaine complet de l’URL IP-HTTPS.  
+-   Dans le champ objet, spécifiez l’adresse IPv4 de la carte externe du serveur d’accès à distance (si l’adresse ConnectTo a été spécifiée comme une adresse IP et non un nom DNS) ou le nom de domaine complet (FQDN) de l’URL IP-HTTPs.  
   
--   Le nom commun du certificat doit correspondre au nom du site Web IP-HTTPS. Utilisation d’une URL générique qui correspond au nom DNS de ConnectTo est également prise en charge.  
+-   Le nom commun du certificat doit correspondre au nom du site Web IP-HTTPs. L’utilisation d’une URL générique qui correspond au nom DNS ConnectTo est également prise en charge.  
   
--   Certificats IP-HTTPS peuvent utiliser des caractères génériques dans le nom du sujet. Le même certificat générique peut être utilisé pour tous les points d’entrée.  
+-   Les certificats IP-HTTPs peuvent utiliser des caractères génériques dans le nom de l’objet. Le même certificat générique peut être utilisé pour tous les points d’entrée.  
   
 -   Pour le champ Utilisation améliorée de la clé, utilisez l’identificateur d’objet (OID) d’authentification du serveur.  
   
--   Si vous prenez en charge des ordinateurs clients qui exécutent Windows 7 dans le déploiement multisite, dans le champ Points de Distribution CRL, spécifiez un point de distribution CRL qui est accessible par les clients DirectAccess qui sont connectés à Internet. Cela n’est pas nécessaire pour les clients qui exécutent Windows 8 (par défaut de que la vérification de révocation de révocation de certificats est désactivée pour IP-HTTPS sur ces clients).  
+-   Si vous prenez en charge des ordinateurs clients exécutant Windows 7 dans le déploiement multisite, dans le champ points de distribution de la liste de révocation de certificats, spécifiez un point de distribution de liste de révocation de certificats accessible par les clients DirectAccess qui sont connectés à Internet. Cela n’est pas nécessaire pour les clients exécutant Windows 8 (par défaut, la vérification de la révocation de la liste de révocation des certificats est désactivée pour IP-HTTPs sur ces clients).  
   
 -   Le certificat IP-HTTPS doit avoir une clé privée.  
   
--   Le certificat IP-HTTPS doit être importé directement dans le magasin personnel de l’ordinateur et non de l’utilisateur.  
+-   Le certificat IP-HTTPs doit être importé directement dans le magasin personnel de l’ordinateur et non de l’utilisateur.  
   
-## <a name="bkmk_3_2_NLS"></a>3.2 planifier le serveur emplacement réseau  
-Le site de serveur d’emplacement réseau peut être hébergé sur le serveur d’accès à distance ou sur un autre serveur dans votre organisation. Si vous hébergez le serveur d’emplacement réseau sur le serveur d’accès à distance, le site Web est créé automatiquement lorsque vous déployez l’accès à distance. Si vous hébergez le serveur d’emplacement réseau sur un autre serveur exécutant un système d’exploitation de Windows dans votre organisation, il se peut que vous devez vous assurer que les Internet Information Services (IIS) est installé pour créer le site Web.  
+## <a name="bkmk_3_2_NLS"></a>3,2 planifier le serveur emplacement réseau  
+Le site Web du serveur emplacement réseau peut être hébergé sur le serveur d’accès à distance ou sur un autre serveur de votre organisation. Si vous hébergez le serveur emplacement réseau sur le serveur d’accès à distance, le site Web est créé automatiquement lorsque vous déployez l’accès à distance. Si vous hébergez le serveur emplacement réseau sur un autre serveur exécutant un système d’exploitation Windows dans votre organisation, vous devez vous assurer que Internet Information Services (IIS) est installé pour créer le site Web.  
   
-### <a name="321-certificate-requirements-for-the-network-location-server"></a>3.2.1 certificats requis pour le serveur emplacement réseau  
-Assurez-vous que le site de serveur d’emplacement réseau respecte les exigences suivantes pour le déploiement du certificat :  
+### <a name="321-certificate-requirements-for-the-network-location-server"></a>3.2.1 exigences relatives aux certificats pour le serveur emplacement réseau  
+Assurez-vous que le site Web du serveur emplacement réseau répond aux conditions requises suivantes pour le déploiement des certificats :  
   
--   Elle nécessite un certificat de serveur HTTPS.  
+-   Il requiert un certificat de serveur HTTPs.  
   
--   Si le serveur emplacement réseau se trouve sur le serveur d’accès à distance et que vous avez sélectionné à utiliser un certificat auto-signé lorsque vous avez déployé le serveur d’accès à distance unique, vous devez reconfigurer le déploiement de serveur unique pour utiliser un certificat émis par une autorité de certification interne.  
+-   Si le serveur emplacement réseau se trouve sur le serveur d’accès à distance et que vous avez choisi d’utiliser un certificat auto-signé lors du déploiement du serveur d’accès à distance unique, vous devez reconfigurer le déploiement sur un seul serveur pour utiliser un certificat émis par une autorité de certification interne.  
   
 -   Les ordinateurs clients DirectAccess doivent faire confiance à l'autorité de certification qui a émis le certificat de serveur pour le site web du serveur Emplacement réseau.  
   
--   Les ordinateurs clients DirectAccess sur le réseau interne doivent être en mesure de résoudre le nom du site de serveur emplacement réseau.  
+-   Les ordinateurs clients DirectAccess sur le réseau interne doivent être en mesure de résoudre le nom du site Web du serveur d’emplacement réseau.  
   
--   Le site de serveur d’emplacement réseau doit être hautement disponible sur les ordinateurs sur le réseau interne.  
+-   Le site Web du serveur emplacement réseau doit être hautement disponible pour les ordinateurs du réseau interne.  
   
 -   Le serveur Emplacement réseau ne doit pas être accessible aux ordinateurs clients DirectAccess figurant sur Internet.  
   
 -   Le certificat de serveur doit être vérifié par rapport à une liste de révocation de certificats (CRL).  
   
--   Certificats avec caractères génériques ne sont pas pris en charge lorsque le serveur emplacement réseau est hébergé sur le serveur d’accès à distance.  
+-   Les certificats avec caractères génériques ne sont pas pris en charge lorsque le serveur emplacement réseau est hébergé sur le serveur d’accès à distance.  
   
-Lors de l’obtention du certificat de site Web à utiliser pour le serveur emplacement réseau, notez les points suivants :  
+Lorsque vous obtenez le certificat de site Web à utiliser pour le serveur emplacement réseau, notez les points suivants :  
   
-1.  Dans le champ Objet, indiquez une adresse IP de l'interface intranet du serveur d'emplacement réseau ou le nom de domaine complet de l'URL d'emplacement réseau. Notez que vous ne devez pas spécifier une adresse IP si le serveur emplacement réseau est hébergé sur le serveur d’accès à distance. Il s’agit, car le serveur emplacement réseau doit utiliser le même nom de sujet pour tous les points d’entrée, et pas tous les points d’entrée ont la même adresse IP.  
+1.  Dans le champ Objet, indiquez une adresse IP de l'interface intranet du serveur d'emplacement réseau ou le nom de domaine complet de l'URL d'emplacement réseau. Notez que vous ne devez pas spécifier d’adresse IP si le serveur emplacement réseau est hébergé sur le serveur d’accès à distance. Cela est dû au fait que le serveur emplacement réseau doit utiliser le même nom de sujet pour tous les points d’entrée, et que tous les points d’entrée n’ont pas la même adresse IP.  
   
 2.  Dans le champ Utilisation améliorée de la clé, utilisez l'identificateur d'objet (OID) d'authentification du serveur.  
   
-3.  Pour le champ Points de Distribution CRL, utilisez un point de distribution CRL qui est accessible par les clients DirectAccess qui sont connectés à l’intranet.  
+3.  Pour le champ points de distribution de la liste de révocation de certificats, utilisez un point de distribution de liste de révocation de certificats accessible par les clients DirectAccess connectés à l’intranet.  
   
-### <a name="322dns-for-the-network-location-server"></a>3.2.2DNS pour le serveur emplacement réseau  
-Si vous hébergez le serveur d’emplacement réseau sur le serveur d’accès à distance, vous devez ajouter une entrée DNS pour le site de serveur d’emplacement réseau pour chaque point d’entrée dans votre déploiement. Notez les points suivants :  
+### <a name="322dns-for-the-network-location-server"></a>3.2.2 DNS pour le serveur emplacement réseau  
+Si vous hébergez le serveur emplacement réseau sur le serveur d’accès à distance, vous devez ajouter une entrée DNS pour le site Web du serveur emplacement réseau pour chaque point d’entrée de votre déploiement. Notez les points suivants :  
   
--   Le nom de sujet du premier certificat de serveur emplacement réseau dans le déploiement multisite est utilisé en tant que l’URL du serveur emplacement réseau pour tous les points d’entrée, le nom du sujet et l’URL du serveur emplacement réseau ne peut donc être le même que le nom d’ordinateur de la premier serveur d’accès à distance dans le déploiement. Il doit être un nom de domaine complet dédié pour le serveur emplacement réseau.  
+-   Le nom du sujet du premier certificat de serveur d’emplacement réseau dans le déploiement multisite est utilisé comme URL du serveur d’emplacement réseau pour tous les points d’entrée. par conséquent, le nom du sujet et l’URL du serveur d’emplacement réseau ne peuvent pas être identiques au nom d’ordinateur du premier serveur d’accès à distance dans le déploiement. Il doit s’agir d’un nom de domaine complet dédié pour le serveur emplacement réseau.  
   
--   Le service fourni par le trafic de serveur d’emplacement réseau est équilibré entre les points d’entrée à l’aide de DNS, et par conséquent, il doit y avoir une entrée DNS avec la même URL pour chaque point d’entrée, configuré avec l’adresse IP interne du point d’entrée.  
+-   Le service fourni par le trafic du serveur d’emplacement réseau est équilibré entre les points d’entrée utilisant DNS, et par conséquent, il doit y avoir une entrée DNS avec la même URL pour chaque point d’entrée, configuré avec l’adresse IP interne du point d’entrée.  
   
--   Tous les points d’entrée doivent être configurés avec un certificat de serveur d’emplacement réseau portant le même nom de sujet (qui correspond à l’URL du serveur emplacement réseau).  
+-   Tous les points d’entrée doivent être configurés avec un certificat de serveur emplacement réseau portant le même nom d’objet (qui correspond à l’URL du serveur emplacement réseau).  
   
--   L’infrastructure de serveur d’emplacement réseau (paramètres DNS et de certificat) pour un point d’entrée doit être créé avant d’ajouter le point d’entrée.  
+-   L’infrastructure de serveur emplacement réseau (paramètres DNS et de certificat) pour un point d’entrée doit être créée avant l’ajout du point d’entrée.  
   
-## <a name="bkmk_3_3_IPsec"></a>3.3 planifier le certificat racine IPsec pour tous les serveurs d’accès à distance  
-Notez les points suivants lors de la planification pour l’authentification de client IPsec dans un déploiement multisite :  
+## <a name="bkmk_3_3_IPsec"></a>3,3 planifier le certificat racine IPsec pour tous les serveurs d’accès à distance  
+Notez les points suivants lors de la planification de l’authentification du client IPsec dans un déploiement multisite :  
   
-1.  Si vous avez choisi d’utiliser le proxy Kerberos intégré pour l’authentification d’ordinateur lorsque vous configurez le serveur d’accès à distance unique, vous devez modifier le paramètre à utiliser des certificats d’ordinateur émis par une autorité de certification interne, dans la mesure où le proxy Kerberos n’est pas pris en charge pour un déploiement multisite déploiement.  
+1.  Si vous avez choisi d’utiliser le proxy Kerberos intégré pour l’authentification de l’ordinateur lorsque vous configurez le serveur d’accès à distance unique, vous devez modifier le paramètre pour utiliser des certificats d’ordinateur émis par une autorité de certification interne, puisque le proxy Kerberos n’est pas pris en charge pour un multisite déploiement.  
   
-2.  Si vous avez utilisé un certificat auto-signé, vous devez reconfigurer le déploiement de serveur unique pour utiliser un certificat émis par une autorité de certification interne.  
+2.  Si vous avez utilisé un certificat auto-signé, vous devez reconfigurer le déploiement sur un seul serveur pour utiliser un certificat émis par une autorité de certification interne.  
   
-3.  Pour l’authentification d’IPsec réussir pendant l’authentification du client, tous les serveurs d’accès à distance doivent avoir un certificat émis par la racine de IPsec ou d’une autorité de certification intermédiaire et avec l’OID d’authentification du Client pour l’utilisation améliorée de la clé.  
+3.  Pour que l’authentification IPsec aboutisse lors de l’authentification du client, tous les serveurs d’accès à distance doivent disposer d’un certificat émis par l’autorité de certification racine ou intermédiaire IPsec, et avec l’OID d’authentification du client pour une utilisation améliorée de la clé.  
   
-4.  Le même IPsec certificat racine ou intermédiaire doit être installé sur tous les serveurs d’accès à distance dans le déploiement multisite.  
+4.  La même racine IPsec ou le même certificat intermédiaire doit être installé sur tous les serveurs d’accès à distance dans le déploiement multisite.  
   
-## <a name="bkmk_3_4_GSLB"></a>3.4 planifier l’équilibrage de charge de serveur global  
-Dans un déploiement multisite, vous pouvez en outre configurer un équilibreur de charge globaux du serveur. Un équilibreur de charge globaux du serveur peut être utile à votre organisation si votre déploiement couvre une grande distribution géographique, car il peut distribuer la charge du trafic entre les points d’entrée.  L’équilibreur de charge globaux du serveur peut être configuré pour fournir des clients DirectAccess avec les informations de point d’entrée le plus proche du point d’entrée. Le processus fonctionne comme suit :  
+## <a name="bkmk_3_4_GSLB"></a>3,4 planifier l’équilibrage de charge du serveur global  
+Dans un déploiement multisite, vous pouvez également configurer un équilibreur de charge de serveur global. Un équilibreur de charge de serveur global peut être utile à votre organisation si votre déploiement couvre une grande distribution géographique, car il peut répartir la charge du trafic entre les points d’entrée.  L’équilibrage de charge du serveur global peut être configuré pour fournir aux clients DirectAccess les informations de point d’entrée du point d’entrée le plus proche. Le processus fonctionne comme suit :  
   
-1.  Les ordinateurs clients exécutant Windows 10 ou Windows 8 ont une liste d’adresses IP d’équilibrage de charge globaux du serveur, chacun étant associé à un point d’entrée.  
+1.  Les ordinateurs clients qui exécutent Windows 10 ou Windows 8 possèdent une liste d’adresses IP de l’équilibreur de charge du serveur global, chacune associée à un point d’entrée.  
   
-2.  L’ordinateur client Windows 10 ou Windows 8 essaie de résoudre le nom de domaine complet de l’équilibreur de charge globaux du serveur dans le DNS public en une adresse IP. Si l’adresse IP résolue est répertorié comme adresse IP serveur global équilibreur de charge d’un point d’entrée, l’ordinateur client sélectionne ce point d’entrée automatiquement et se connecte à son URL IP-HTTPS (adresse ConnectTo), ou à son adresse IP du serveur Teredo. Notez que l’adresse IP de l’équilibreur de charge globaux du serveur ne doit pas être identique à l’adresse ConnectTo ou à l’adresse du serveur Teredo du point d’entrée, étant donné que les ordinateurs clients n’essaient jamais se connecter à l’adresse IP d’équilibrage de charge globaux du serveur.  
+2.  L’ordinateur client Windows 10 ou Windows 8 tente de résoudre le nom de domaine complet de l’équilibreur de charge du serveur global dans le DNS public en une adresse IP. Si l’adresse IP résolue est indiquée en tant qu’adresse IP de l’équilibreur de charge du serveur global d’un point d’entrée, l’ordinateur client sélectionne automatiquement ce point d’entrée et se connecte à son URL IP-HTTPs (adresse ConnectTo) ou à son adresse IP du serveur Teredo. Notez que l’adresse IP de l’équilibreur de charge du serveur global ne doit pas nécessairement être identique à l’adresse ConnectTo ou à l’adresse du serveur Teredo du point d’entrée, car les ordinateurs clients n’essaient jamais de se connecter à l’adresse IP de l’équilibreur de charge du serveur global.  
   
-3.  Si l’ordinateur client se trouve derrière un proxy web (et ne peut pas utiliser la résolution DNS), ou si l’équilibreur de charge globaux du serveur nom de domaine complet n’aboutit pas à un configurés globaux du serveur load balancer adresse IP, puis un point d’entrée sera sélectionné automatiquement à l’aide d’une sonde HTTPS les URL IP-HTTPS de tous les points d’entrée. Le client se connecte au serveur qui répond en premier.  
+3.  Si l’ordinateur client se trouve derrière un proxy Web (et ne peut pas utiliser la résolution DNS), ou si le nom de domaine complet de l’équilibreur de charge du serveur global n’est pas résolu en une adresse IP d’équilibrage de charge du serveur global configurée, un point d’entrée est sélectionné automatiquement à l’aide d’une sonde HTTPs pour URL IP-HTTPs de tous les points d’entrée. Le client se connecte au serveur qui répond en premier.  
   
-Pour obtenir la liste des appareils qui prennent en charge l’accès à distance d’équilibrage de charge globaux du serveur, accédez à la rechercher une page de partenaire à [Microsoft Server et la plateforme Cloud](https://www.microsoft.com/server-cloud/).  
+Pour obtenir la liste des périphériques d’équilibrage de charge de serveur globaux qui prennent en charge l’accès à distance, accédez à la page Rechercher un partenaire sur [Microsoft Server et la plateforme Cloud](https://www.microsoft.com/server-cloud/).  
   
-## <a name="bkmk_3_5_EP_Selection"></a>3.5 planifier la sélection de point d’entrée DirectAccess client  
-Lorsque vous configurez un déploiement multisite, par défaut, Windows 10 et les ordinateurs clients Windows 8 sont configurés avec les informations requises pour se connecter à tous les points d’entrée dans le déploiement et se connecter automatiquement à un point d’entrée unique basé sur une sélection algorithme. Vous pouvez également configurer votre déploiement pour permettre à Windows 10 et les ordinateurs clients Windows 8 afin de sélectionner manuellement l’entrée pointent vers lequel ils se connectent. Si un ordinateur client Windows 10 ou Windows 8 est actuellement connecté au point d’entrée des États-Unis et la sélection de point de saisie automatique est activée, si le point d’entrée United States devient inaccessible, après quelques minutes l’ordinateur client tentent de se connecter via le point d’entrée en Europe. À l’aide de la sélection de point d’entrée automatique est recommandé ; Toutefois, permettant une saisie manuelle sélection permet aux utilisateurs finaux de se connecter à un point d’entrée différents selon les conditions actuelles du réseau. Par exemple, si un ordinateur est connecté au point d’entrée des États-Unis et de la connexion au réseau interne devient beaucoup plus lent que prévu. Dans ce cas, l’utilisateur final peut sélectionner manuellement pour se connecter au point d’entrée en Europe pour améliorer la connexion au réseau interne.  
+## <a name="bkmk_3_5_EP_Selection"></a>3,5 planifier la sélection du point d’entrée du client DirectAccess  
+Quand vous configurez un déploiement multisite, par défaut, les ordinateurs clients Windows 10 et Windows 8 sont configurés avec les informations requises pour se connecter à tous les points d’entrée du déploiement et pour se connecter automatiquement à un point d’entrée unique à partir d’une sélection utilisé. Vous pouvez également configurer votre déploiement pour autoriser les ordinateurs clients Windows 10 et Windows 8 à sélectionner manuellement le point d’entrée auquel ils se connecteront. Si un ordinateur client Windows 10 ou Windows 8 est actuellement connecté au point d’entrée États-Unis et que la sélection de point d’entrée automatique est activée, si le point d’entrée de États-Unis devient inaccessible, après quelques minutes, l’ordinateur client tentera de se connecter. via le point d’entrée de l’Europe. Il est recommandé d’utiliser la sélection automatique des points d’entrée. Toutefois, le fait d’autoriser la sélection manuelle des points d’entrée permet aux utilisateurs finaux de se connecter à un autre point d’entrée en fonction des conditions de réseau actuelles. Par exemple, si un ordinateur est connecté au point d’entrée États-Unis et que la connexion au réseau interne devient beaucoup plus lente que prévu. Dans ce cas, l’utilisateur final peut choisir manuellement de se connecter au point d’entrée Europe pour améliorer la connexion au réseau interne.  
   
 > [!NOTE]  
-> Une fois un utilisateur final sélectionne un point d’entrée manuellement, l’ordinateur client ne reviendra pas à la sélection de point d’entrée automatique. Autrement dit, si le point d’entrée sélectionnées manuellement devient inaccessible, l’utilisateur final doit soit revenir à la sélection de point d’entrée automatique, ou sélectionner manuellement un autre point d’entrée.  
+> Une fois qu’un utilisateur final a sélectionné un point d’entrée manuellement, l’ordinateur client ne reviendra pas à la sélection automatique des points d’entrée. Autrement dit, si le point d’entrée sélectionné manuellement devient inaccessible, l’utilisateur final doit revenir à la sélection automatique des points d’entrée ou sélectionner manuellement un autre point d’entrée.  
   
- Les ordinateurs clients Windows 7 sont configurés avec les informations requises pour se connecter à un point d’entrée unique dans le déploiement multisite. Ils ne peuvent pas stocker les informations de plusieurs points d’entrée simultanément. Par exemple, un ordinateur client de Windows 7 peut être configuré pour se connecter au point d’entrée des États-Unis, mais pas le point d’entrée en Europe. Si le point d’entrée United States est inaccessible, l’ordinateur client Windows 7 perdent la connectivité au réseau interne jusqu'à ce que le point d’entrée est accessible. L’utilisateur final ne peut pas effectuer toute modification apportée à essayer de se connecter au point d’entrée en Europe.  
+ Les ordinateurs clients Windows 7 sont configurés avec les informations requises pour se connecter à un point d’entrée unique dans le déploiement multisite. Ils ne peuvent pas stocker les informations de plusieurs points d’entrée simultanément. Par exemple, un ordinateur client Windows 7 peut être configuré pour se connecter au point d’entrée États-Unis, mais pas au point d’entrée de l’Europe. Si le point d’entrée États-Unis est inaccessible, l’ordinateur client Windows 7 perd la connectivité au réseau interne jusqu’à ce que le point d’entrée soit accessible. L’utilisateur final ne peut pas apporter de modifications pour tenter de se connecter au point d’entrée Europe.  
   
-## <a name="bkmk_3_6_IPv6"></a>3.6 planifier les préfixes et le routage  
+## <a name="bkmk_3_6_IPv6"></a>3,6 planifier les préfixes et le routage  
   
 ### <a name="internal-ipv6-prefix"></a>Préfixe IPv6 interne  
-Lors du déploiement de l’accès à distance unique serveur prévu des préfixes IPv6 de réseau interne Notez ce qui suit dans un déploiement multisite :  
+Lors du déploiement du serveur d’accès à distance unique, vous avez planifié les préfixes IPv6 du réseau interne. Notez les points suivants dans un déploiement multisite :  
   
-1.  Si vous avez inclus tous vos sites Active Directory lorsque vous avez configuré votre déploiement de l’accès à distance de serveur unique, les préfixes IPv6 de réseau interne seront déjà être définies dans la console de gestion de l’accès à distance.  
+1.  Si vous avez inclus tous vos sites Active Directory lors de la configuration de votre déploiement de l’accès à distance à serveur unique, les préfixes IPv6 de réseau interne seront déjà définis dans la console de gestion de l’accès à distance.  
   
-2.  Si vous créez des sites Active Directory supplémentaires pour le déploiement multisite, vous devez planifier de nouveaux préfixes IPv6 pour les sites supplémentaires et les définir l’accès à distance. Notez que les préfixes IPv6 ne peuvent être configurés à l’aide de la console de gestion de l’accès à distance ou les applets de commande PowerShell si IPv6 est déployé dans le réseau d’entreprise interne.  
+2.  Si vous créez des sites de Active Directory supplémentaires pour le déploiement multisite, vous devez planifier de nouveaux préfixes IPv6 pour les sites supplémentaires et les définir dans l’accès à distance. Notez que les préfixes IPv6 peuvent être configurés uniquement à l’aide de la console de gestion de l’accès à distance ou des applets de commande PowerShell si IPv6 est déployé sur le réseau interne de l’entreprise.  
   
-### <a name="ipv6-prefix-for-directaccess-client-computers-ip-https-prefix"></a>Préfixe IPv6 pour les ordinateurs clients DirectAccess (préfixe IP-HTTPS)  
+### <a name="ipv6-prefix-for-directaccess-client-computers-ip-https-prefix"></a>Préfixe IPv6 pour les ordinateurs clients DirectAccess (préfixe IP-HTTPs)  
   
-1.  Si IPv6 est déployé dans le réseau d’entreprise interne, vous devez planifier un préfixe IPv6 à affecter aux ordinateurs de clients DirectAccess dans des points d’entrée supplémentaires dans votre déploiement.  
+1.  Si le protocole IPv6 est déployé dans le réseau interne de l’entreprise, vous devez planifier un préfixe IPv6 à attribuer aux ordinateurs clients DirectAccess dans n’importe quel point d’entrée supplémentaire de votre déploiement.  
   
-2.  Assurez-vous que les préfixes IPv6 à affecter aux ordinateurs de clients DirectAccess dans chaque point d’entrée sont distincts et qu’il n’existe pas de chevauchement dans les préfixes IPv6.  
+2.  Assurez-vous que les préfixes IPv6 à attribuer aux ordinateurs clients DirectAccess dans chaque point d’entrée sont distincts et qu’il n’y a pas de chevauchement des préfixes IPv6.  
   
-3.  Si IPv6 n’est pas déployé dans le réseau d’entreprise, un préfixe IP-HTTPS pour chaque point d’entrée est automatiquement sélectionné lorsque vous ajoutez le point d’entrée.  
+3.  Si IPv6 n’est pas déployé sur le réseau d’entreprise, un préfixe IP-HTTPs pour chaque point d’entrée est automatiquement sélectionné lors de l’ajout du point d’entrée.  
   
 ### <a name="ipv6-prefix-for-vpn-clients"></a>Préfixe IPv6 pour les clients VPN  
-Si vous avez déployé des VPN sur le serveur d’accès à distance unique, notez les points suivants :  
+Si vous avez déployé le VPN sur le serveur d’accès à distance unique, notez les points suivants :  
   
-1.  L’ajout d’un VPN IPv6 préfixe à un point d’entrée n’est requis si vous souhaitez autoriser les clients VPN connectivité IPv6 au réseau d’entreprise.  
+1.  L’ajout d’un préfixe VPN IPv6 à un point d’entrée est requis uniquement si vous souhaitez autoriser la connectivité IPv6 du client VPN au réseau d’entreprise.  
   
-2.  Le préfixe VPN peut uniquement être configuré sur un point d’entrée à l’aide de la console de gestion de l’accès à distance ou d’une applet de commande PowerShell si IPv6 est déployé dans le réseau d’entreprise interne, et si VPN est activé sur le point d’entrée.  
+2.  Le préfixe VPN ne peut être configuré que sur un point d’entrée à l’aide de la console de gestion de l’accès à distance ou de l’applet de commande PowerShell si IPv6 est déployé sur le réseau interne de l’entreprise et si le VPN est activé sur le point d’entrée.  
   
-3.  Le préfixe VPN doit être unique dans chaque point d’entrée et ne doit pas se chevaucher avec d’autres préfixes VPN ou IP-HTTPS.  
+3.  Le préfixe VPN doit être unique dans chaque point d’entrée et ne doit pas se chevaucher avec d’autres préfixes VPN ou IP-HTTPs.  
   
-4.  Si IPv6 n’est pas déployé dans le réseau d’entreprise, les clients VPN en se connectant au point d’entrée ne seront pas affectés une adresse IPv6.  
+4.  Si IPv6 n’est pas déployé dans le réseau d’entreprise, les clients VPN qui se connectent au point d’entrée ne reçoivent pas d’adresse IPv6.  
   
 ### <a name="routing"></a>Routage  
-Dans un déploiement multisite le routage symétrique est appliqué à l’aide de Teredo et IP-HTTPS. Lorsque le protocole IPv6 est déployé dans le réseau d’entreprise, notez les points suivants :  
+Dans un déploiement multisite, le routage symétrique est appliqué à l’aide de Teredo et IP-HTTPs. Quand IPv6 est déployé dans le réseau d’entreprise, notez les points suivants :  
   
-1. Les préfixes de Teredo et IP-HTTPS de chaque point d’entrée doivent être routables sur le réseau d’entreprise à leur serveur d’accès à distance associé.  
+1. Les préfixes Teredo et IP-HTTPs de chaque point d’entrée doivent être routables sur le réseau d’entreprise vers leur serveur d’accès à distance associé.  
   
-2. Les itinéraires doivent être configurées dans l’infrastructure de routage du réseau d’entreprise.  
+2. Les itinéraires doivent être configurés dans l’infrastructure de routage du réseau d’entreprise.  
   
-3. Pour chaque point d’entrée du réseau interne doit être un à trois routes :  
+3. Pour chaque point d’entrée, il doit y avoir un à trois itinéraires dans le réseau interne :  
   
-   1. Préfixe de l’ordinateur ce préfixe IP-HTTPS est choisi par l’administrateur dans l’ajout d’un Assistant de Point d’entrée.  
+   1. Préfixe IP-HTTPs : ce préfixe est choisi par l’administrateur dans l’Assistant Ajouter un point d’entrée.  
   
-   2. Préfixe IPv6 de VPN (facultatif). Ce préfixe peut être choisi après l’activation de VPN pour un point d’entrée  
+   2. Préfixe IPv6 VPN (facultatif). Ce préfixe peut être choisi après l’activation du VPN pour un point d’entrée  
   
-   3. Préfixe de Teredo (facultatif). Ce préfixe est pertinent uniquement si le serveur d’accès à distance est configuré avec deux adresses IPv4 publiques consécutives sur l’adaptateur externe. Le préfixe est basé sur la première adresse IPv4 publique de la paire d’adresses. Par exemple, si les adresses externes sont :  
+   3. Préfixe Teredo (facultatif). Ce préfixe est pertinent uniquement si le serveur d’accès à distance est configuré avec deux adresses IPv4 publiques consécutives sur la carte externe. Le préfixe est basé sur la première adresse IPv4 publique de la paire d’adresses. Par exemple, si les adresses externes sont :  
   
       1. www\.xxx.yyy.zzz  
   
-      2. www\.xxx.yyy.zzz+1  
+      2. www\.xxx.yyy.zzz + 1  
   
-      Le préfixe de Teredo à configurer est 2001:0:WWXX:YYZZ :: / 64, où WWXX : YYZZ est la représentation hexadécimale de la www d’adresse IPv4\.xxx.yyy.zzz.  
+      Le préfixe Teredo à configurer est alors 2001:0 : WWXX : YYZZ ::/64, où WWXX : YYZZ est la représentation hexadécimale de l’adresse IPv4 www\.xxx.yyy.zzz.  
   
       Notez que vous pouvez utiliser le script suivant pour calculer le préfixe Teredo :  
   
@@ -182,19 +182,19 @@ Dans un déploiement multisite le routage symétrique est appliqué à l’aide 
       Write-Host "The server's Teredo prefix is $([System.Net.IPAddress]$TeredoServerAddressBytes)/64"  
       ```  
   
-   4. Tous les itinéraires ci-dessus doivent être acheminées vers l’adresse IPv6 sur la carte réseau interne du serveur d’accès à distance (ou à l’adresse IP (VIP) virtuelle interne pour une charge équilibrée point d’entrée).  
+   4. Tous les itinéraires ci-dessus doivent être routés vers l’adresse IPv6 de la carte interne du serveur d’accès à distance (ou vers l’adresse IP virtuelle interne pour un point d’entrée à charge équilibrée).  
   
 > [!NOTE]  
-> Lorsque le protocole IPv6 est déployé dans le réseau d’entreprise et l’administration de serveur d’accès à distance est effectué à distance via DirectAccess, les itinéraires pour le Teredo et préfixes IP-HTTPS de tous les autres points d’entrée doivent être ajoutés à chaque serveur d’accès à distance afin que le trafic sera transféré au réseau interne.  
+> Quand IPv6 est déployé dans le réseau d’entreprise et que l’administration du serveur d’accès à distance est effectuée à distance via DirectAccess, les itinéraires des préfixes Teredo et IP-HTTPs de tous les autres points d’entrée doivent être ajoutés à chaque serveur d’accès à distance afin que le trafic soit transféré au réseau interne.  
   
-### <a name="active-directory-site-specific-ipv6-prefixes"></a>Préfixes IPv6 de spécifique à un site Active Directory  
-Lorsqu’un ordinateur client exécutant Windows 10 ou Windows 8 est connecté à un point d’entrée, l’ordinateur client est immédiatement associé au site Active Directory du point d’entrée et est configuré avec les préfixes IPv6 associées au point d’entrée. La préférence est pour les ordinateurs clients pour se connecter à des ressources à l’aide de ces préfixes IPv6, dans la mesure où ils sont configurés dynamiquement dans la table de stratégie de préfixe IPv6 avec une priorité plus élevée lors de la connexion à un point d’entrée.  
+### <a name="active-directory-site-specific-ipv6-prefixes"></a>Active Directory des préfixes IPv6 spécifiques au site  
+Lorsqu’un ordinateur client exécutant Windows 10 ou Windows 8 est connecté à un point d’entrée, l’ordinateur client est immédiatement associé au site Active Directory du point d’entrée, et il est configuré avec des préfixes IPv6 associés au point d’entrée. La préférence est que les ordinateurs clients se connectent aux ressources à l’aide de ces préfixes IPv6, car ils sont configurés dynamiquement dans la table de stratégie de préfixe IPv6 avec une priorité plus élevée lors de la connexion à un point d’entrée.  
   
-Si votre organisation utilise une topologie Active Directory avec les préfixes IPv6 spécifiques au site (par exemple un app.corp.com de nom de domaine complet de ressource interne est hébergé en Amérique du Nord et en Europe avec une adresse IP spécifique dans chaque emplacement) Ceci n’est pas configuré par par défaut à l’aide de la console de l’accès à distance et les préfixes IPv6 spécifiques au site n’est pas configuré pour chaque point d’entrée. Si vous ne souhaitez pas activer ce scénario facultatif, vous devez configurer chaque point d’entrée avec les préfixes IPv6 spécifiques qui doivent être utilisés dans les ordinateurs clients se connectant à un point d’entrée spécifique. Procédez comme suit :  
+Si votre organisation utilise une topologie de Active Directory avec des préfixes IPv6 spécifiques à un site (par exemple, un app.corp.com de nom de domaine complet de ressource interne est hébergé dans Amérique du Nord et en Europe avec une adresse IP spécifique à un site dans chaque emplacement), ce n’est pas configuré par par défaut, l’utilisation de la console d’accès à distance et des préfixes IPv6 spécifiques au site ne sont pas configurés pour chaque point d’entrée. Si vous ne souhaitez pas activer ce scénario facultatif, vous devez configurer chaque point d’entrée avec les préfixes IPv6 spécifiques qui doivent être préférés par les ordinateurs clients qui se connectent à un point d’entrée spécifique. Procédez comme suit :  
   
-1.  Pour chaque objet stratégie de groupe utilisé pour Windows 10 ou les ordinateurs clients Windows 8, exécutez l’applet de commande Set-DAEntryPointTableItem PowerShell  
+1.  Pour chaque objet de stratégie de groupe utilisé pour les ordinateurs clients Windows 10 ou Windows 8, exécutez l’applet de commande PowerShell Set-DAEntryPointTableItem  
   
-2.  Définir le paramètre EntryPointRange pour l’applet de commande avec les préfixes IPv6 spécifiques au site. Par exemple, pour ajouter le site préfixes 2001:db8:1:1 :: / 64 et 2001:db:1:2 :: / 64 pour un point d’entrée appelé Europe, exécutez la commande suivante  
+2.  Définissez le paramètre EntryPointRange pour l’applet de commande avec les préfixes IPv6 spécifiques au site. Par exemple, pour ajouter les préfixes spécifiques au site 2001 : DB8:1 : 1 ::/64 et 2001 : DB : 1:2 ::/64 à un point d’entrée nommé Europe, exécutez la commande suivante :  
   
     ```  
     $entryPointName = "Europe"  
@@ -203,74 +203,74 @@ Si votre organisation utilise une topologie Active Directory avec les préfixes 
     $clientGpos | % { Get-DAEntryPointTableItem -EntryPointName $entryPointName -PolicyStore $_ | %{ Set-DAEntryPointTableItem -PolicyStore $_.PolicyStore -EntryPointName $_.EntryPointName -EntryPointRange ($_.EntryPointRange) + $prefixesToAdd}}  
     ```  
   
-3.  Lorsque vous modifiez le paramètre EntryPointRange, assurez-vous que vous ne supprimez pas les préfixes de 128 bits existants qui appartiennent à des points de terminaison du tunnel IPsec et l’adresse DNS64.  
+3.  Lorsque vous modifiez le paramètre EntryPointRange, assurez-vous que vous ne supprimez pas les préfixes 128 bits existants qui appartiennent aux points de terminaison de tunnel IPsec et à l’adresse DNS64.  
   
-## <a name="bkmk_3_7_TransitionIPv6"></a>3.7 planifier la transition vers IPv6 lorsque l’accès à distance multisite est déployé  
-De nombreuses organisations utilisent le protocole IPv4 sur le réseau d’entreprise. Avec l’épuisement des préfixes IPv4 disponibles, de nombreuses organisations font la transition d’IPv4 uniquement à des réseaux IPv6 uniquement.  
+## <a name="bkmk_3_7_TransitionIPv6"></a>3,7 planifier la transition vers IPv6 lorsque l’accès à distance multisite est déployé  
+De nombreuses organisations utilisent le protocole IPv4 sur le réseau de l’entreprise. Avec l’épuisement des préfixes IPv4 disponibles, de nombreuses entreprises effectuent la transition de IPv4 uniquement à des réseaux IPv6 uniquement.  
   
-Cette transition est probablement se déroule en deux étapes :  
+Cette transition est très probablement effectuée en deux étapes :  
   
-1.  À partir d’un IPv4 uniquement à un réseau d’entreprise IPv6 + IPv4.  
+1.  D’un réseau IPv4 uniquement à un réseau d’entreprise IPv6 + IPv4.  
   
-2.  À partir d’IPv6 + IPv4 vers un réseau d’entreprise IPv6 uniquement.  
+2.  D’un IPv4 IPv6 à un réseau d’entreprise IPv6 uniquement.  
   
-Dans chaque partie, la transition peut être effectuée par étapes. Dans chaque phase qu’un seul sous-réseau du réseau peut être modifié pour la nouvelle configuration de réseau. Par conséquent, un déploiement multisite DirectAccess est requis pour prendre en charge un déploiement hybride où, par exemple, certains des points d’entrée appartient à un sous-réseau IPv4 uniquement et d’autres utilisateurs appartiennent à un sous-réseau IPv6 + IPv4. En outre, les modifications de configuration pendant les processus de transition ne doivent pas interrompre la connectivité de client par le biais de DirectAccess.  
+Dans chaque partie, la transition peut être effectuée par étapes. Dans chaque phase, un seul sous-réseau du réseau peut être remplacé par la nouvelle configuration réseau. Par conséquent, un déploiement multisite DirectAccess est requis pour prendre en charge un déploiement hybride où, par exemple, certains des points d’entrée appartiennent à un sous-réseau IPv4 uniquement et d’autres appartiennent à un sous-réseau IPv6 + IPv4. En outre, les modifications de configuration pendant les processus de transition ne doivent pas rompre la connectivité du client via DirectAccess.  
   
-### <a name="TransitionIPv4toMixed"></a>Effectuer une transition entre un IPv4 uniquement à un réseau d’entreprise IPv6 + IPv4  
-Lorsque vous ajoutez des adresses IPv6 à un réseau d’entreprise IPv4 uniquement, vous souhaiterez ajouter une adresse IPv6 à un serveur DirectAccess déjà déployé. En outre, vous souhaiterez ajouter un point d’entrée ou un nœud à un cluster à charge équilibrée de la charge avec les adresses IPv4 et IPv6 pour le déploiement de DirectAccess.  
+### <a name="TransitionIPv4toMixed"></a>Passage d’un réseau d’entreprise IPv4 uniquement à un réseau d’entreprise IPv6 + IPv4  
+Lorsque vous ajoutez des adresses IPv6 à un réseau d’entreprise IPv4 uniquement, vous souhaiterez peut-être ajouter une adresse IPv6 à un serveur DirectAccess déjà déployé. En outre, vous souhaiterez peut-être ajouter un point d’entrée ou un nœud à un cluster à charge équilibrée avec des adresses IPv4 et IPv6 pour le déploiement de DirectAccess.  
   
-Accès à distance vous permet de vous permet d’ajouter des serveurs avec des adresses IPv4 et IPv6 pour un déploiement qui a été initialement configuré avec des adresses IPv4 uniquement. Ces serveurs sont ajoutés en tant que serveurs IPv4 uniquement et leurs adresses IPv6 sont ignorés par DirectAccess ; Par conséquent, votre organisation ne peut pas tirer parti des avantages de la connectivité IPv6 native sur ces nouveaux serveurs.  
+L’accès à distance vous permet d’ajouter des serveurs avec des adresses IPv4 et IPv6 à un déploiement qui a été configuré à l’origine avec uniquement des adresses IPv4. Ces serveurs sont ajoutés en tant que serveurs IPv4 uniquement et leurs adresses IPv6 sont ignorées par DirectAccess ; par conséquent, votre organisation ne peut pas tirer parti des avantages de la connectivité IPv6 native sur ces nouveaux serveurs.  
   
-Pour transformer le déploiement à un déploiement IPv6 + IPv4 et tirer parti des fonctionnalités d’IPv6 natives, vous devez réinstaller DirectAccess. Pour maintenir la connectivité des clients tout au long de la réinstallation voir Transition à partir d’un IPv4 uniquement à un déploiement IPv6 uniquement à l’aide de deux déploiements de DirectAccess.  
+Pour transformer le déploiement en déploiement IPv6 + IPv4 et tirer parti des fonctionnalités IPv6 natives, vous devez réinstaller DirectAccess. Pour maintenir la connectivité client au cours de la réinstallation, consultez transition d’un déploiement IPv4 uniquement vers un déploiement IPv6 à l’aide de deux déploiements DirectAccess.  
   
 > [!NOTE]  
-> Comme avec un réseau IPv4 uniquement, dans un réseau IPv4 + IPv6 mixte, l’adresse du serveur DNS qui est utilisé pour résoudre les demandes de client DNS doit être configuré avec DNS64 qui est déployé sur les serveurs d’accès à distance proprement dits et non avec un nom DNS d’entreprise.  
+> Comme avec un réseau uniquement IPv4, dans un réseau mixte IPv4 + IPv6, l’adresse du serveur DNS qui est utilisée pour résoudre les demandes DNS du client doit être configurée avec l’DNS64 qui est déployé sur les serveurs d’accès à distance eux-mêmes, et non avec un DNS d’entreprise.  
   
-### <a name="TransitionMixedtoIPv6"></a>Effectuer une transition entre IPv6 + IPv4 à un réseau d’entreprise IPv6 uniquement  
-DirectAccess permet d’ajouter des points d’entrée uniquement IPv6 uniquement si le premier serveur d’accès à distance dans le déploiement initial était à la fois IPv4 et des adresses IPv6 ou uniquement une adresse IPv6. Autrement dit, vous ne peut pas effectuer une transition entre un réseau exclusivement IPv4 vers un réseau IPv6 uniquement dans une seule étape sans avoir à réinstaller DirectAccess. Pour passer directement à partir d’un réseau IPv4 uniquement à un réseau IPv6 uniquement, voir la Transition à partir d’un IPv4 uniquement à un déploiement IPv6 uniquement à l’aide de deux déploiements de DirectAccess.  
+### <a name="TransitionMixedtoIPv6"></a>Passage d’un IPv4 IPv6 à un réseau d’entreprise IPv6 uniquement  
+DirectAccess vous permet d’ajouter des points d’entrée IPv6 uniquement si le premier serveur d’accès à distance dans le déploiement avait à l’origine des adresses IPv4 et IPv6, ou seulement une adresse IPv6. Autrement dit, vous ne pouvez pas passer d’un réseau IPv4 uniquement à un réseau IPv6 uniquement en une seule étape sans réinstaller DirectAccess. Pour passer directement d’un réseau IPv4 uniquement à un réseau IPv6 uniquement, consultez transition d’un déploiement IPv4 uniquement vers un déploiement IPv6 uniquement à l’aide de deux déploiements DirectAccess.  
   
-Une fois que vous avez terminé la transition à partir d’un déploiement IPv4 uniquement à un déploiement IPv6 + IPv4, vous pouvez passer à un réseau IPv6 uniquement. Pendant et après la transition, notez les points suivants :  
+Après avoir effectué la transition d’un déploiement IPv4 uniquement vers un déploiement IPv6 + IPv4, vous pouvez passer à un réseau IPv6 uniquement. Pendant et après la transition, notez les points suivants :  
   
--   Si tous les serveurs backend IPv4 uniquement restent dans le réseau d’entreprise, ils ne seront pas accessibles aux clients qui se connectent via les points d’entrée IPv6 uniquement.  
+-   Si des serveurs principaux IPv4 uniquement restent dans le réseau d’entreprise, ils ne seront pas accessibles aux clients qui se connectent par le biais des points d’entrée IPv6 uniquement.  
   
--   Lorsque vous ajoutez des points d’entrée IPv6 uniquement à un déploiement IPv4 + IPv6, DNS64 et NAT64 ne seront pas activé sur les nouveaux serveurs. Les clients qui se connectent à ces points d’entrée seront être automatiquement configurés pour utiliser les serveurs DNS d’entreprise.  
+-   Lors de l’ajout de points d’entrée uniquement IPv6 à un déploiement IPv4 + IPv6, DNS64 et NAT64 ne sont pas activés sur les nouveaux serveurs. Les clients qui se connectent à ces points d’entrée seront automatiquement configurés pour utiliser les serveurs DNS d’entreprise.  
   
--   Si vous avez besoin de supprimer des adresses IPv4 à partir d’un serveur déployé, vous devez supprimer le serveur du déploiement de DirectAccess, supprimez son adresse de réseau d’entreprise IPv4 et ajoutez-le à nouveau au déploiement.  
+-   Si vous devez supprimer des adresses IPv4 d’un serveur déployé, vous devez supprimer le serveur du déploiement de DirectAccess, supprimer son adresse réseau d’entreprise IPv4, puis l’ajouter à nouveau au déploiement.  
   
-Pour prendre en charge la connectivité du client au réseau d’entreprise, vous devez vous assurer que le serveur emplacement réseau peut être résolu par DNS d’entreprise et son adresse IPv6. Une adresse IPv4 supplémentaire peut être également définie, mais n’est pas nécessaire.  
+Pour prendre en charge la connectivité client au réseau d’entreprise, vous devez vous assurer que le serveur emplacement réseau peut être résolu par le DNS d’entreprise en son adresse IPv6. Une autre adresse IPv4 peut également être définie, mais elle n’est pas obligatoire.  
   
-### <a name="DualDeployment"></a>Effectuer une transition entre un IPv4 uniquement à un déploiement IPv6 uniquement à l’aide de deux déploiements de DirectAccess  
-La transition à partir d’un IPv4 uniquement à un réseau d’entreprise IPv6 uniquement ne peut pas être effectuée sans avoir à réinstaller le déploiement de DirectAccess. Pour maintenir la connectivité des clients pendant la transition, vous pouvez utiliser un autre déploiement de DirectAccess. Déploiement double est requis lorsque la première phase de transition termine (réseau IPv4 uniquement mis à niveau vers IPv4 + IPv6) et que vous souhaitez préparer pour une future transition vers un IPv6 uniquement réseau d’entreprise orto tirer parti des avantages de connectivité IPv6 natives. Le déploiement double est décrit dans les étapes générales suivantes :  
+### <a name="DualDeployment"></a>Passage d’un déploiement IPv4 uniquement à un déploiement IPv6 uniquement à l’aide de deux déploiements DirectAccess  
+La transition d’un réseau d’entreprise IPv4 uniquement vers un réseau d’entreprise IPv6 uniquement ne peut pas être effectuée sans réinstaller le déploiement de DirectAccess. Pour maintenir la connectivité du client pendant la transition, vous pouvez utiliser un autre déploiement de DirectAccess. Un double déploiement est nécessaire lorsque la première étape de transition se termine (mise à niveau du réseau uniquement IPv4 vers IPv4 + IPv6) et que vous envisagez de vous préparer à une transition future vers une prise en compte de réseau d’entreprise IPv6 uniquement en tirant parti des avantages de la connectivité IPv6 native. Le déploiement double est décrit dans les étapes générales suivantes :  
   
-1.  Installer un deuxième déploiement DirectAccess. Vous pouvez installer DirectAccess sur les nouveaux serveurs, ou supprimer des serveurs à partir du premier déploiement et les utiliser pour le deuxième déploiement.  
+1.  Installez un deuxième déploiement de DirectAccess. Vous pouvez installer DirectAccess sur de nouveaux serveurs ou supprimer des serveurs du premier déploiement et les utiliser pour le deuxième déploiement.  
   
     > [!NOTE]  
-    > Lorsque vous installez un déploiement DirectAccess supplémentaires en même temps qu’actuel, assurez-vous qu’aucun point de deux entrée ne partage le même préfixe de client.  
+    > Lors de l’installation d’un déploiement de DirectAccess supplémentaire en même temps qu’un déploiement actuel, assurez-vous que deux points d’entrée ne partagent pas le même préfixe client.  
     >   
-    > Si vous installez à l’aide de l’Assistant Mise en route de DirectAccess, ou avec l’applet de commande `Install-RemoteAccess`, accès à distance définit automatiquement le préfixe de client du premier point d’entrée dans le déploiement vers une valeur par défaut de < sous-réseau IPv6\_préfixe > : 1000 :: / 64. Si nécessaire, vous devez modifier le préfixe.  
+    > Si vous installez DirectAccess à l’aide de l’Assistant Prise en main ou avec l’applet de commande `Install-RemoteAccess`, l’accès à distance définit automatiquement le préfixe client du premier point d’entrée dans le déploiement sur une valeur par défaut < sous-réseau IPv6 @ no__t-1prefix >: 1000 ::/64. Si nécessaire, vous devez modifier le préfixe.  
   
-2.  Supprimez les groupes de sécurité du client choisi le premier déploiement.  
+2.  Supprimez les groupes de sécurité du client choisis du premier déploiement.  
   
-3.  Ajoutez les groupes de sécurité client pour le deuxième déploiement.  
+3.  Ajoutez les groupes de sécurité client au second déploiement.  
   
     > [!IMPORTANT]  
-    > Pour maintenir la connectivité client au cours du processus, vous devez ajouter les groupes de sécurité pour le deuxième déploiement immédiatement après leur suppression de la première. Cela garantit que les clients ne seront pas mis à jour avec deux ou aucune stratégie de groupe DirectAccess. Les clients commence à utiliser le deuxième déploiement une fois qu’ils récupèrent et mettre à jour leur client de stratégie de groupe.  
+    > Pour maintenir la connectivité du client tout au long du processus, vous devez ajouter les groupes de sécurité au deuxième déploiement immédiatement après les avoir supprimés de la première. Cela permet de s’assurer que les clients ne seront pas mis à jour avec deux ou zéro objets de stratégie de groupe DirectAccess. Les clients commenceront à utiliser le deuxième déploiement une fois qu’ils auront récupéré et mis à jour leur GPO client.  
   
-4.  Facultatif : Supprimer les points d’entrée DirectAccess à partir du premier déploiement et ajouter ces serveurs en tant que de nouveaux points d’entrée dans la seconde.  
+4.  Facultatif : Supprimez les points d’entrée DirectAccess du premier déploiement et ajoutez ces serveurs comme nouveaux points d’entrée dans la seconde.  
   
-Lorsque vous avez terminé la transition, vous pouvez désinstaller le premier déploiement de DirectAccess. Lors de la désinstallation, les problèmes suivants peuvent se produire :  
+Une fois la transition terminée, vous pouvez désinstaller le premier déploiement de DirectAccess. Lors de la désinstallation de, les problèmes suivants peuvent se produire :  
   
--   Si le déploiement a été configuré pour prendre en charge uniquement les clients sur des ordinateurs portables, le filtre WMI est supprimé. Si les groupes de sécurité de client du deuxième déploiement incluent des ordinateurs de bureau, le client DirectAccess GPO ne filtrera pas les ordinateurs de bureau et peut entraîner des problèmes sur ces derniers. Si un filtre d’ordinateurs portables est nécessaire, recréez l’en suivant les instructions de [créer des filtres WMI pour l’objet de stratégie de groupe](https://technet.microsoft.com/library/cc947846.aspx).  
+-   Si le déploiement a été configuré pour prendre en charge uniquement les clients sur les ordinateurs portables, le filtre WMI sera supprimé. Si les groupes de sécurité du client du deuxième déploiement incluent des ordinateurs de bureau, l’objet de stratégie de groupe du client DirectAccess ne filtre pas les ordinateurs de bureau et peut entraîner des problèmes. Si un filtre d’ordinateurs portables est nécessaire, recréez-le en suivant les instructions sur [créer des filtres WMI pour l’objet de stratégie de groupe](https://technet.microsoft.com/library/cc947846.aspx).  
   
--   Si les deux déploiements ont été initialement créés sur le même domaine Active Directory, le DNS de sonde entrée qui pointe vers localhost sera supprimé et peut provoquer des problèmes de connectivité client. Par exemple, les clients peuvent se connecter à l’aide d’IP-HTTPS au lieu de Teredo, ou basculer entre les points d’entrée multisite DirectAccess. Dans ce cas, vous devez ajouter l’entrée DNS suivante au DNS d’entreprise :  
+-   Si les deux déploiements ont été créés à l’origine sur le même domaine de Active Directory, l’entrée de sonde DNS qui pointe vers localhost sera supprimée et peut entraîner des problèmes de connectivité du client. Par exemple, les clients peuvent se connecter à l’aide d’IP-HTTPs plutôt que de Teredo, ou basculer entre les points d’entrée multisite DirectAccess. Dans ce cas, vous devez ajouter l’entrée DNS suivante au DNS d’entreprise :  
   
     -   Zone : nom de domaine  
   
-    -   Nom : directaccess-corpConnectivityHost  
+    -   Nom : DirectAccess-corpConnectivityHost  
   
-    -   Adresse IP : :: 1  
+    -   Adresse IP ::: 1  
   
-    -   Tapez : AAAA  
+    -   Tapez : AAA  
   
   
   

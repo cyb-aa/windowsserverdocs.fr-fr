@@ -1,8 +1,8 @@
 ---
-title: À l’aide de la commande de désactivation
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Utilisation de la commande Disable
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9ee32827dc08c60003f06377fae0d81497477d8d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 52e1bdf48d682c06356cd2cc52cb8ca3f65a89f4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829520"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363551"
 ---
-# <a name="using-the-disable-command"></a>À l’aide de la commande de désactivation
+# <a name="using-the-disable-command"></a>Utilisation de la commande Disable
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Désactive tous les services pour les Services de déploiement Windows.
+Désactive tous les services pour les services de déploiement Windows.
 ## <a name="subcommands"></a>Sous-commandes
 |Sous-commande|Description|
 |-------|--------|
-|[À l’aide de la commande disable-serveur](using-the-disable-server-command.md)|Désactive tous les services de Services de déploiement Windows sur un serveur spécifié (serveur de déploiement).|
-|[À l’aide de la commande disable-TransportServer](using-the-disable-transportserver-command.md)|Désactive tous les services de Services de déploiement Windows sur un serveur de Transport spécifié.|
+|[Utilisation de la commande Disable-Server](using-the-disable-server-command.md)|Désactive tous les services de déploiement Windows sur un serveur spécifié (serveur de déploiement).|
+|[Utilisation de la commande Disable-TransportServer](using-the-disable-transportserver-command.md)|Désactive tous les services de déploiement Windows sur un serveur de transport spécifié.|

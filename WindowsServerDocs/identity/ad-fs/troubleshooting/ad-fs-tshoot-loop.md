@@ -1,35 +1,35 @@
 ---
-title: Résolution des problèmes d’AD FS - détection en boucle
+title: AD FS la détection des boucles
 description: Ce document décrit comment résoudre les problèmes de détection de boucle
 author: billmath
 ms.author: billmath
 manager: mtillman
 ms.date: 02/21/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: cc8eeb11e44da3b8f26b1ab94143c189bca9ed38
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2f8842dc53756cc4f65b6d6794a8c4952e111c00
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830910"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385344"
 ---
-# <a name="ad-fs-troubleshooting---loop-detection"></a>Résolution des problèmes d’AD FS - détection en boucle 
+# <a name="ad-fs-troubleshooting---loop-detection"></a>AD FS la détection des boucles 
  
-Bouclage dans AD FS se produit lorsqu’une partie de confiance rejette un jeton de sécurité valide en permanence et redirige vers AD FS.
+Le bouclage dans AD FS se produit lorsqu’une partie de confiance rejette en permanence un jeton de sécurité valide et redirige vers AD FS.
 
 ## <a name="loop-detection-cookie"></a>Cookie de détection de boucle
-Pour éviter ce problème, AD FS a implémenté ce que l'on appelle un cookie de détection de boucle. Par défaut, AD FS écrit un cookie pour les clients passifs web nommés **MSISLoopDetectionCookie**. Ce cookie conserve une valeur d’horodatage et un nombre de jetons émis de valeur.  Cela permet à ADFS d’effectuer le suivi de la fréquence et le nombre de fois où un client a visité le Service de fédération au sein d’un intervalle de temps spécifique.
+Pour éviter ce problème, AD FS a implémenté ce qui est appelé un cookie de détection de boucle. Par défaut, AD FS écrit un cookie sur des clients Web passifs nommés **MSISLoopDetectionCookie**. Ce cookie contient une valeur d’horodatage et un nombre de jetons émis.  Cela permet à AD FS d’effectuer le suivi de la fréquence et du nombre de fois où un client a visité le service FS (Federation Service) dans un intervalle de temps spécifique.
 
-Si un client passif visite le Service de fédération pour un jeton de cinq (5) fois pendant 20 secondes, AD FS génère l’erreur suivante :
+Si un client passif parcourt le service FS (Federation Service) pour un jeton cinq fois dans un délai de 20 secondes, AD FS génère l’erreur suivante :
 
-**MSIS7042 : La même session de navigateur du client a apporté '{0}'requêtes dans le dernier'{1}' secondes. Pour plus d’informations, contactez votre administrateur.**
+@NO__T 0MSIS7042 : La même session de navigateur client a effectué des demandes « {0} » au cours des « {1} » dernières secondes. Pour plus d’informations, contactez votre administrateur. **
 
-Entrer dans des boucles infinies est souvent provoquée par une application de tiers qui ne consomme pas correctement le jeton émis par AD FS de partie de confiance anormal, et de l’application est renvoyer le client passif à AD FS, à plusieurs reprises, pour un nouveau jeton.  AD FS est va émettre le client passif un nouveau jeton chaque fois, tant qu’ils ne dépassent pas 5 demandes au sein de 20 secondes. 
+La saisie dans des boucles infinies est souvent due à une application de partie de confiance incorrecte qui ne consomme pas correctement le jeton émis par AD FS, et l’application renvoie le client passif à AD FS, de façon répétée, pour un nouveau jeton.  AD FS est le client passif un nouveau jeton à chaque fois, à condition qu’ils ne dépassent pas 5 demandes dans un délai de 20 secondes. 
 
-## <a name="adjusting-the-loop-detection-cookie"></a>Ajuster le cookie de détection de boucle
-Vous pouvez utiliser PowerShell pour modifier le nombre de jetons émis de valeur et la valeur de l’intervalle de temps.
+## <a name="adjusting-the-loop-detection-cookie"></a>Ajustement du cookie de détection de boucle
+Vous pouvez utiliser PowerShell pour modifier le nombre de jetons émis et la valeur TimeSpan.
 
 ```powershell
 Set-AdfsProperties -LoopDetectionMaximumTokensIssuedInterval 5  -LoopDetectionTimeIntervalInSeconds 20
@@ -38,19 +38,19 @@ La valeur minimale pour **LoopDetectionMaximumTokensIssuedInterval** est 1.
 
 La valeur minimale pour **LoopDetectionTimeIntervalInSeconds** est 5.
 
-Vous pouvez également désactiver la détection des boucles lorsque vous effectuez un test de performances.
+Vous pouvez également désactiver la détection de boucle lorsque vous effectuez des tests de performances.
 
 ```powershell
 Set-AdfsProperties -EnableLoopDetection $false
 ```
 
 >[!IMPORTANT]
->Il est déconseillé de désactiver la détection des boucles de façon permanente car cela empêche les utilisateurs d’entrer dans les États de boucle infinie.
+>Il n’est pas recommandé de désactiver définitivement la détection de boucle, car cela empêche les utilisateurs d’entrer dans des États de boucle infinis.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Résolution des problèmes de AD FS](ad-fs-tshoot-overview.md)
+- [Résolution des problèmes AD FS](ad-fs-tshoot-overview.md)
 
 
 

@@ -1,7 +1,7 @@
 ---
 ms.assetid: 2bab6bf6-90e7-46a7-b917-14a7a8f55366
 title: Gestion de l’intégrité de la mémoire de classe stockage (NVDIMM-N) dans Windows
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: jgerend
 ms.manager: dongill
 ms.technology: storage-spaces
@@ -9,12 +9,12 @@ ms.topic: article
 author: JasonGerend
 ms.date: 06/25/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 4ebec8618c79c43816680387ae5e495f125b3c54
-ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
+ms.openlocfilehash: 03d986832e14e0dd7b80324de3c9f14d0537dba5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67407550"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402909"
 ---
 # <a name="storage-class-memory-nvdimm-n-health-management-in-windows"></a>Gestion de l’intégrité de la mémoire de classe stockage (NVDIMM-N) dans Windows
 
@@ -23,11 +23,11 @@ ms.locfileid: "67407550"
 Cet article fournit aux administrateurs système et aux professionnels de l’informatique des informations sur la gestion des erreurs et la gestion de l’intégrité propres aux dispositifs de mémoire de classe stockage (NVDIMM-N) dans Windows, en soulignant les différences entre la mémoire de classe stockage et les dispositifs de stockage traditionnels.
 
 Si vous ne connaissez pas la prise en charge Windows des dispositifs de mémoire de classe stockage, ces courtes vidéos vous en donnent un aperçu :
-- [À l’aide de la mémoire Non volatile (NVDIMM-N) en tant que stockage de bloc dans Windows Server 2016](https://channel9.msdn.com/Events/Build/2016/P466)
-- [À l’aide de la mémoire Non volatile (NVDIMM-N) en tant que stockage adressable en octets dans Windows Server 2016](https://channel9.msdn.com/Events/Build/2016/P470)
-- [Accélération des performances de SQL Server 2016 avec mémoire persistante dans Windows Server 2016](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-Windows-Server-2016-SCM--FAST)
+- [Utilisation de la mémoire non volatile (NVDIMM-N) comme stockage de bloc dans Windows Server 2016](https://channel9.msdn.com/Events/Build/2016/P466)
+- [Utilisation de la mémoire non volatile (NVDIMM-N) en tant que stockage adressable en octets dans Windows Server 2016](https://channel9.msdn.com/Events/Build/2016/P470)
+- [Accélération des performances de SQL Server 2016 avec de la mémoire persistante dans Windows Server 2016](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-Windows-Server-2016-SCM--FAST)
 
-Consultez également [comprendre et déployer de mémoire persistante dans les espaces de stockage Direct](deploy-pmem.md).
+Consultez également [comprendre et déployer la mémoire persistante dans espaces de stockage direct](deploy-pmem.md).
 
 Les dispositifs de mémoire de classe stockage NVDIMM-N compatibles JEDEC sont pris en charge dans Windows avec des pilotes natifs, à compter de Windows Server 2016 et Windows 10 (version 1607). Même si ces dispositifs se comportent de manière similaire aux autres disques (HDD et SSD), il existe des différences.
 

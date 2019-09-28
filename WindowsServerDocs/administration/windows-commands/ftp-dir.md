@@ -1,8 +1,8 @@
 ---
-title: FTP dir
-description: Rubrique de commandes de Windows pour ftp dir
+title: répertoire FTP
+description: Rubrique commandes Windows pour le répertoire FTP
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 78ac8ac5e9fc4894f55401bb234aa98de981adf7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c47971c52135d79ce62f935bfed981f6eefcecaa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835250"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376444"
 ---
-# <a name="ftp-dir"></a>FTP : dir
+# <a name="ftp-dir"></a>FTP : Rép
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Affiche une liste des fichiers du répertoire et des sous-répertoires sur un ordinateur distant.   
+Affiche la liste des fichiers de répertoire et des sous-répertoires d’un ordinateur distant.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 dir [<remotedirectory>] [<LocalFile>]  
@@ -32,16 +32,16 @@ dir [<remotedirectory>] [<LocalFile>]
 ### <a name="parameters"></a>Paramètres  
 |Paramètre|Description|  
 |-------|--------|  
-|[<remotedirectory>]|Spécifie le répertoire pour lequel vous souhaitez afficher une liste. Si aucun répertoire n’est spécifié, le répertoire de travail actuel sur l’ordinateur distant est utilisé.|  
-|[<LocalFile>]|Spécifie un fichier local dans lequel stocker la liste des répertoires. Si un fichier local n’est pas spécifié, les résultats sont affichés sur l’écran.|  
-## <a name="BKMK_Examples"></a>Exemples  
-Afficher une liste des répertoires de **dir1** sur l’ordinateur distant.  
+|[<remotedirectory>]|Spécifie le répertoire dont vous souhaitez afficher la liste. Si aucun répertoire n’est spécifié, le répertoire de travail actuel sur l’ordinateur distant est utilisé.|  
+|[<LocalFile>]|Spécifie un fichier local dans lequel stocker la liste des répertoires. Si aucun fichier local n’est spécifié, les résultats s’affichent à l’écran.|  
+## <a name="BKMK_Examples"></a>Illustre  
+Affichez une liste de répertoires pour **dir1** sur l’ordinateur distant.  
 ```  
 dir dir1  
 ```  
-Enregistrer une liste du répertoire actif sur l’ordinateur distant dans le fichier local **ListRép.txt**.  
+Enregistrez une liste du répertoire actif sur l’ordinateur distant dans le fichier local **DirList. txt**.  
 ```  
 dir . dirlist.txt  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

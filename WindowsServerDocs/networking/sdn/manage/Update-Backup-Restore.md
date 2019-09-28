@@ -2,19 +2,19 @@
 title: Mettre à niveau, sauvegarder et restaurer l’infrastructure SDN
 description: Dans cette rubrique, vous allez apprendre à mettre à jour, sauvegarder et restaurer une infrastructure SDN.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: e9a8f2fd-48fe-4a90-9250-f6b32488b7a4
 ms.author: grcusanz
 author: shortpatti
 ms.date: 08/27/2018
-ms.openlocfilehash: 1bee4ef9023a1fab49bf796907780662a0297a7c
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 7f385e094ca70027d1b036bf53af23c1fc4a1bd1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869958"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71406058"
 ---
 # <a name="upgrade-backup-and-restore-sdn-infrastructure"></a>Mettre à niveau, sauvegarder et restaurer l’infrastructure SDN
 

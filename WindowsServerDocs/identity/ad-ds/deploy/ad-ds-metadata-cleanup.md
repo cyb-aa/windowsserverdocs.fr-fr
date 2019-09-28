@@ -6,18 +6,18 @@ ms.author: joflore
 manager: mtillman
 ms.date: 11/14/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e8adbaf07976569fdea86156e15f246aad2e4fe0
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 7c9750a4f59cd17d0495e58dbc2fd8b2d2802c89
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868241"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369526"
 ---
 # <a name="clean-up-active-directory-domain-controller-server-metadata"></a>Nettoyer les métadonnées du serveur de contrôleur domaine Active Directory
 
-S'applique à : Windows Server
+S'applique à : Windows Server
 
 Le nettoyage des métadonnées est une procédure obligatoire après une suppression forcée de Active Directory Domain Services (AD DS). Vous effectuez un nettoyage des métadonnées sur un contrôleur de domaine dans le domaine du contrôleur de domaine que vous avez supprimé de force. Le nettoyage des métadonnées supprime les données de AD DS qui identifie un contrôleur de domaine auprès du système de réplication. Le nettoyage des métadonnées supprime également les connexions de réplication du service de réplication de fichiers (FRS) et de système de fichiers DFS (DFS) et tente de transférer ou de prendre des rôles de maître d’opérations (également appelés opérations à maître unique flottant ou FSMO) que le domaine retiré le contrôleur est en bloc.
 

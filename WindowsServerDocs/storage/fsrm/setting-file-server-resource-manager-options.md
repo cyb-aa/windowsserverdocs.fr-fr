@@ -2,18 +2,18 @@
 title: Définition des options du Gestionnaire de ressources du serveur de fichiers
 description: Cet article explique comment définir les options du Gestionnaire de ressources du serveur de fichiers
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 2a3915d3d6d69b0c7a0a63da4622ddcb091d60a6
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: e92a6f030d8ec2ce74edc721469ce67ec73bc6e9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476137"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403099"
 ---
 # <a name="setting-file-server-resource-manager-options"></a>Définition des options du Gestionnaire de ressources du serveur de fichiers
 
@@ -23,7 +23,7 @@ Les options générales du Gestionnaire de ressources du serveur de fichiers peu
 
 Cette section comprend les rubriques suivantes :
 
--   [Configurer des Notifications par courrier électronique](configure-email-notifications.md)
+-   [Configurer les notifications par courrier électronique](configure-email-notifications.md)
 -   [Configurer les limites de notification](configure-notification-limits.md)
 -   [Configurer les rapports de stockage](configure-storage-reports.md)
 -   [Configurer la vérification du filtrage de fichiers](configure-file-screen-audit.md)

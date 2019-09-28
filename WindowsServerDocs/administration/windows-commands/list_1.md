@@ -1,8 +1,8 @@
 ---
 title: list
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ef9262a04f469f54e43cf3a83efe30fac7ad8580
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a9ac8b19ecae30c339138f61a13c21147d4bcf1b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854670"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374646"
 ---
 # <a name="list"></a>list
 
 
 
-Affiche une liste de disques, des partitions dans un disque, des volumes sur un disque ou de disques durs virtuels (VHD).
+Affiche la liste des disques, des partitions sur un disque, des volumes d’un disque ou des disques durs virtuels (VHD).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,18 +36,18 @@ list { disk | partition | volume | vdisk }
 
 |Paramètre|Description|
 |---------|-----------|
-|disque|Affiche une liste des disques et des informations les concernant, telles que leur taille, la quantité d’espace libre disponible, si le disque est un disque de base ou dynamique, et si le disque utilise l’enregistrement de démarrage principal (MBR) ou le style de partition GUID partition GPT (table).|
-|MBR|Affiche les partitions répertoriées dans la table de partition du disque actuelle.|
+|disque|Affiche la liste des disques et des informations à leur sujet, tels que leur taille, la quantité d’espace libre disponible, si le disque est un disque de base ou dynamique, et si le disque utilise l’enregistrement de démarrage principal (MBR) ou le style de partition GPT (GUID partition table).|
+|MBR|Affiche les partitions figurant dans la table de partition du disque actuel.|
 |volume|Affiche une liste des volumes de base et dynamiques sur tous les disques.|
-|vdisk|Affiche une liste de disques durs virtuels qui sont attachés et/ou sélectionnés. Cette commande répertorie les disques durs virtuels détachées si elles ne sont actuellement sélectionnées ; Toutefois, le type de disque est défini sur inconnu jusqu'à ce que le disque dur virtuel est attaché. Le disque dur virtuel marqué d’un astérisque (*) a le focus.</br>Remarque: Cette commande est uniquement disponible pour Windows 7 et Windows Server 2008 R2.|
+|Personal|Affiche la liste des disques durs virtuels attachés et/ou sélectionnés. Cette commande répertorie les VHD détachés s’ils sont actuellement sélectionnés. Toutefois, le type de disque est défini sur inconnu jusqu’à ce que le disque dur virtuel soit attaché. Le disque dur virtuel marqué d’un astérisque (*) a le focus.</br>Remarque : Cette commande est disponible uniquement pour Windows 7 et Windows Server 2008 R2.|
 
 ## <a name="remarks"></a>Notes
 
--   La liste des partitions sur un disque dynamique, les partitions peut ne pas correspondant aux volumes dynamiques sur le disque. Cette incohérence se produit parce que les disques dynamiques contiennent des entrées dans la table de partition pour le volume système ou le volume de démarrage (s’il est présent sur le disque). Elles contiennent également une partition qui occupe le reste du disque pour réserver l’espace pour des volumes dynamiques.
--   L’objet marqué avec un astérisque (*) a le focus.
--   La liste des disques, si un disque est manquant, son numéro de disque est préfixé avec M. Par exemple, le premier disque manquant est numéroté M0.
+-   Lorsque vous répertoriez des partitions sur un disque dynamique, les partitions peuvent ne pas correspondre aux volumes dynamiques sur le disque. Cette différence est due au fait que les disques dynamiques contiennent des entrées dans la table de partition pour le volume système ou le volume de démarrage (s’il est présent sur le disque). Ils contiennent également une partition qui occupe le reste du disque afin de réserver de l’espace pour une utilisation par les volumes dynamiques.
+-   L’objet marqué d’un astérisque (*) a le focus.
+-   Lorsque vous répertoriez les disques, si un disque est manquant, son numéro de disque est préfixé avec M. Par exemple, le premier disque manquant est numéroté M0.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 ```
 list disk
@@ -58,5 +58,5 @@ list vdisk
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 

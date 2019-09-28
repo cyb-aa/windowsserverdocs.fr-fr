@@ -1,8 +1,8 @@
 ---
-title: La commande de progression
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Commande de progression
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5fff31c91b4d267011f2d738b4fc3acb3f0f2377
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 841d9103354e3162489492ba7dd97e726b37d37d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832700"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370179"
 ---
-# <a name="the-progress-command"></a>La commande de progression
+# <a name="the-progress-command"></a>Commande de progression
 
 
 
-Affiche les progrès lorsqu’une commande est en cours d’exécution. Vous pouvez utiliser **/progression** avec toutes les autres commandes WDSUTIL que vous exécutez. Notez que vous devez spécifier **/verbose** et **/progression** directement après **WDSUTIL**.
+Affiche la progression pendant l’exécution d’une commande. Vous pouvez utiliser **/Progress** avec les autres commandes WDSUTIL que vous exécutez. Notez que vous devez spécifier **/Verbose** et **/Progress** directement après **WDSUTIL**.
 
 ## <a name="syntax"></a>Syntaxe
 

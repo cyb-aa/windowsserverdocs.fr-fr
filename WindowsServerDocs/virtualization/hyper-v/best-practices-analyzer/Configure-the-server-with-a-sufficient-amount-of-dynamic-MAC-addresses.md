@@ -1,7 +1,7 @@
 ---
-title: Configurer le serveur avec une quantité suffisante d’adresses MAC dynamiques
-description: Version en ligne du texte pour cette règle de Best Practices Analyzer.
-ms.prod: windows-server-threshold
+title: Configurer le serveur avec un nombre suffisant d’adresses MAC dynamiques
+description: Version en ligne du texte de cette règle de Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,39 +10,39 @@ ms.topic: article
 ms.assetid: a2804519-9790-4006-80b6-e990a8f505fe
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: fc444225c38ef7e8605ec328cfe3f8184b2fd307
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: efd1999411187a592cd8d175eb6de25e11605623
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870730"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364937"
 ---
-# <a name="configure-the-server-with-a-sufficient-amount-of-dynamic-mac-addresses"></a>Configurer le serveur avec une quantité suffisante d’adresses MAC dynamiques
+# <a name="configure-the-server-with-a-sufficient-amount-of-dynamic-mac-addresses"></a>Configurer le serveur avec un nombre suffisant d’adresses MAC dynamiques
 
 >S'applique à : Windows Server 2016
 
-*Cette rubrique est conçue pour résoudre un problème spécifique identifié par une analyse Best Practices Analyzer. Vous devez appliquer les informations contenues dans cette rubrique uniquement aux ordinateurs qui ont été Hyper-V Best Practices Analyzer à exécutée et que vous rencontrez le problème décrit dans cette rubrique. Pour plus d’informations sur les meilleures pratiques et les analyses, consultez* [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
+@no__t rubrique 0This a pour but de résoudre un problème spécifique identifié par une analyse de Best Practices Analyzer. Vous devez appliquer les informations contenues dans cette rubrique uniquement aux ordinateurs sur lesquels l’Best Practices Analyzer Hyper-V s’exécutent et qui rencontrent le problème traité dans cette rubrique. Pour plus d’informations sur les meilleures pratiques et les analyses, consultez @ no__t-0 [Best Practices Analyzer](https://go.microsoft.com/fwlink/?LinkId=122786).  
   
 |Propriété|Détails|  
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Niveau de gravité**|Warning|  
+|**Va**|Warning|  
 |**Catégorie**|Configuration|  
   
-Dans les sections suivantes, italique indique le texte de l’interface utilisateur qui apparaît dans l’outil Best Practices Analyzer pour ce problème.  
+Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
   
 ## <a name="issue"></a>Problème  
   
-*Le nombre d’adresses MAC dynamiques de disponibles est faible.*  
+*Le nombre d’adresses MAC dynamiques disponibles est faible.*  
   
 ## <a name="impact"></a>Impact  
   
-*Quand aucune des adresses MAC dynamiques ne sont disponibles, Impossible de démarrer les ordinateurs virtuels configurés pour utiliser une adresse MAC dynamique.*  
+*Si aucune adresse MAC dynamique n’est disponible, les machines virtuelles configurées pour utiliser une adresse MAC dynamique ne peuvent pas être démarrées.*  
   
-## <a name="resolution"></a>Résolution  
+## <a name="resolution"></a>Résolution :  
   
-*Gestionnaire de commutateur virtuel permet d’afficher et d’étendre la plage d’adresses dynamiques.*  
+*Utilisez le gestionnaire de commutateur virtuel pour afficher et étendre la plage d’adresses dynamiques.*  
   
 
 

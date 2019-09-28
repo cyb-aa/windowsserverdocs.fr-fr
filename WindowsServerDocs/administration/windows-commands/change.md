@@ -1,8 +1,8 @@
 ---
 title: change
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f0a02302c4b99ead3701a966ba2d3fc65f6b078d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: eee52bbb24824ea01f9c55a4bfe6e3e60ad2ab58
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434406"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379553"
 ---
 # <a name="change"></a>change
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Modifie les paramètres du serveur hôte de Session Bureau à distance (hôte de Session Bureau à distance) pour les ouvertures de session, les mappages de port COM et le mode d’installation.
+modifications Bureau à distance paramètres de serveur de l’hôte de session (hôte de session Bureau à distance) pour les ouvertures de session, les mappages de port COM et le mode d’installation.
 > [!NOTE]
-> Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour savoir quelles sont les nouveautés dans la version la plus récente, consultez [les nouveautés des Services Bureau à distance dans Windows Server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
+> Dans Windows Server 2008 R2, les services Terminal Server ont été renommés services Bureau à distance. Pour découvrir les nouveautés de la dernière version, consultez les nouveautés [de services Bureau à distance dans Windows server 2012](https://technet.microsoft.com/library/hh831527) dans la bibliothèque TechNet de Windows Server.
 > ## <a name="syntax"></a>Syntaxe
 > ```
 > change logon
@@ -37,10 +37,10 @@ Modifie les paramètres du serveur hôte de Session Bureau à distance (hôte de
 > 
 > |            Paramètre            |                                                   Description                                                   |
 > |---------------------------------|-----------------------------------------------------------------------------------------------------------------|
-> | [change logon](change-logon.md) | Active ou désactive les ouvertures de session des sessions clientes sur un serveur hôte de Session de bureau à distance ou affiche l’état d’ouverture de session actuel. |
-> |  [change port](change-port.md)  |                Répertorie ou modifie les mappages de port COM pour être compatible avec les applications MS-DOS.                |
-> |  [change user](change-user.md)  |                            modifie le mode d’installation pour le serveur hôte de Session Bureau à distance.                             |
+> | [change logon](change-logon.md) | Active ou désactive les ouvertures de session des sessions clientes sur un serveur hôte de session Bureau à distance ou affiche l’état actuel de l’ouverture de session. |
+> |  [change port](change-port.md)  |                répertorie ou modifie les mappages de port COM pour qu’ils soient compatibles avec les applications MS-DOS.                |
+> |  [change user](change-user.md)  |                            modifie le mode d’installation du serveur hôte de session Bureau à distance.                             |
 > 
 > #### <a name="additional-references"></a>Références supplémentaires
-> [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
-> [des Services Bureau à distance &#40;Services Terminal Server&#41; référence de la commande](remote-desktop-services-terminal-services-command-reference.md)
+> [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
+> [ &#40;services Bureau à distance&#41; référence des commandes des services Terminal Server](remote-desktop-services-terminal-services-command-reference.md)

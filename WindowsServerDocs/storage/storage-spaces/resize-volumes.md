@@ -1,40 +1,40 @@
 ---
 title: Extension des volumes dans les espaces de stockage direct
-description: Guide pratique pour redimensionner les volumes dans Storage Spaces Direct using Windows Admin Center et PowerShell.
-ms.prod: windows-server-threshold
+description: Comment redimensionner des volumes dans espaces de stockage direct à l’aide du centre d’administration Windows et de PowerShell.
+ms.prod: windows-server
 ms.reviewer: cosmosdarwin
 author: cosmosdarwin
 ms.author: cosdar
 manager: eldenc
 ms.technology: storage-spaces
 ms.date: 05/07/2019
-ms.openlocfilehash: 3be6a4cda20f4d7d7d881ad8a272dc38fd787bba
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.openlocfilehash: 20482fe1728b12d4fe56dcfa397352fbb4b4f981
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613226"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366090"
 ---
 # <a name="extending-volumes-in-storage-spaces-direct"></a>Extension des volumes dans les espaces de stockage direct
 > S’applique à : Windows Server 2019, Windows Server 2016
 
-Cette rubrique fournit des instructions pour le redimensionnement des volumes sur un [espaces de stockage Direct](storage-spaces-direct-overview.md) cluster à l’aide de Windows Admin Center.
+Cette rubrique fournit des instructions pour le redimensionnement des volumes sur un cluster [espaces de stockage direct](storage-spaces-direct-overview.md) à l’aide du centre d’administration Windows.
 
-Regardez une courte vidéo sur le redimensionnement d’un volume.
+Regardez une vidéo rapide sur la façon de redimensionner un volume.
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/hqyBzipBoTI]
 
-## <a name="extending-volumes-using-windows-admin-center"></a>Extension des volumes à l’aide de Windows Admin Center
+## <a name="extending-volumes-using-windows-admin-center"></a>Extension des volumes à l’aide du centre d’administration Windows
 
-1. Dans Windows Admin Center, se connecter à un cluster d’espaces de stockage Direct, puis sélectionnez **Volumes** à partir de la **outils** volet.
-2. Dans la page de Volumes, sélectionnez le **inventaire** onglet, puis sélectionnez le volume que vous voulez redimensionner.
+1. Dans le centre d’administration Windows, connectez-vous à un cluster espaces de stockage direct, puis sélectionnez **volumes** dans le volet **Outils** .
+2. Dans la page volumes, sélectionnez l’onglet **inventaire** , puis sélectionnez le volume que vous souhaitez redimensionner.
 
-    Dans la page de détails de volume, la capacité de stockage pour le volume est indiquée. Vous pouvez également ouvrir la page de détails de volumes directement à partir du tableau de bord. Le tableau de bord dans le volet Alertes, sélectionnez l’alerte, ce qui vous avertit si un volume est en cours d’exécution faible capacité de stockage, puis **accéder au Volume**.
+    Sur la page Détails du volume, la capacité de stockage du volume est indiquée. Vous pouvez également ouvrir la page de détails des volumes directement à partir du tableau de bord. Dans le tableau de bord, dans le volet alertes, sélectionnez l’alerte, qui vous avertit si un volume ne dispose pas de suffisamment de capacité de stockage, puis sélectionnez **atteindre le volume**.
 
-4. En haut de la page de détails de volumes, sélectionnez **redimensionner**.
-5. Entrez une nouvelle taille supérieure, puis sélectionnez **redimensionner**.
+4. En haut de la page de détails volumes, sélectionnez **Redimensionner**.
+5. Entrez une nouvelle taille supérieure, puis sélectionnez **Redimensionner**.
 
-    Dans la page de détails de volumes, la plus grande capacité de stockage pour le volume est indiquée, et l’alerte sur le tableau de bord est désactivée.
+    Dans la page de détails volumes, la plus grande capacité de stockage pour le volume est indiquée, et l’alerte sur le tableau de bord est effacée.
 
 ## <a name="extending-volumes-using-powershell"></a>Extension des volumes à l’aide de PowerShell
 
@@ -141,7 +141,7 @@ C’est tout !
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Espaces de stockage Direct dans Windows Server 2016](storage-spaces-direct-overview.md)
-- [Planification des volumes dans les espaces de stockage Direct](plan-volumes.md)
-- [Création de volumes dans les espaces de stockage Direct](create-volumes.md)
-- [Suppression des volumes dans les espaces de stockage Direct](delete-volumes.md)
+- [espaces de stockage direct dans Windows Server 2016](storage-spaces-direct-overview.md)
+- [Planification des volumes dans espaces de stockage direct](plan-volumes.md)
+- [Création de volumes dans espaces de stockage direct](create-volumes.md)
+- [Suppression de volumes dans espaces de stockage direct](delete-volumes.md)

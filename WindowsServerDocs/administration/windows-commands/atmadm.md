@@ -1,8 +1,8 @@
 ---
 title: atmadm
-description: Rubrique de commandes de Windows pour **atmadm** -surveille les connexions et les adresses qui sont inscrits par l’atM appellent le gestionnaire sur un réseau transfert asynchrone (atM).
+description: La rubrique commandes Windows pour **atmadm** -surveille les connexions et les adresses qui sont enregistrées par le gestionnaire d’appels atM sur un réseau ATM (Asynchronous Transfer Mode).
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3a8a8883bad9aa2abdc90d5db5702ef42f46c8a8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fdb0070063f2bfc6be7b762d71e2f30216f9d8d0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831770"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382628"
 ---
 # <a name="atmadm"></a>atmadm
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Surveille les connexions et les adresses qui sont inscrits par l’atM appellent Manager sur un réseau transfert asynchrone (atM). Vous pouvez utiliser **atmadm** pour afficher des statistiques pour les appels entrants et sortants sur les adaptateurs atM. Utilisée sans paramètres, **atmadm** affiche des statistiques pour la surveillance de l’état des connexions atM active. 
+Analyse les connexions et les adresses qui sont enregistrées par le gestionnaire d’appels atM sur un réseau atM (Asynchronous Transfer Mode). Vous pouvez utiliser **atmadm** pour afficher des statistiques sur les appels entrants et sortants sur les adaptateurs atM. Utilisé sans paramètres, **atmadm** affiche des statistiques pour surveiller l’état des connexions atM actives. 
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,14 +36,14 @@ atmadm [/c][/a][/s]
 
 |Paramètre|Description|
 |-------|--------|
-|/c|Informations sur les appels affiche pour toutes les connexions actives à la carte réseau atM installée sur cet ordinateur.|
-|/a|Affiche l’accès au service de réseau atM inscrits point adresse (NSAP) pour chaque carte installée sur cet ordinateur.|
-|/s|Affiche les statistiques pour surveiller l’état des connexions atM active.|
+|/c|Affiche des informations sur les appels pour toutes les connexions en cours à la carte réseau atM installée sur cet ordinateur.|
+|/a|Affiche l’adresse du point d’accès du service réseau atM (NSAP) inscrit pour chaque carte installée sur cet ordinateur.|
+|/s|Affiche des statistiques pour surveiller l’état des connexions atM actives.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
-- Le **atmadm /c** commande produit une sortie similaire à ce qui suit :
+- La commande **atmadm/c** produit une sortie similaire à ce qui suit :
 
     ```
     Windows atM call Manager Statistics
@@ -76,21 +76,21 @@ atmadm [/c][/a][/s]
                               Rx:UBR,Peak 16953936,Avg 16953936,MaxSdu 9180
     ```
     
-    Le tableau suivant contient des descriptions de chaque élément dans le **atmadm /c** exemple de sortie.
+    Le tableau suivant contient les descriptions de chaque élément dans l’exemple de sortie **atmadm/c** .
     
-    |type de données|Capture d’écran|Description|
+    |type de données|Affichage de l’écran|Description|
     |--------|---------|--------|
-    |Informations de connexion|Entrée/Sortie|direction de l’appel.  **Dans** consiste à la carte réseau atM depuis un autre appareil.  **Out** provient de la carte réseau atM vers un autre appareil.|
-    ||PMP|Appel de point-à-multipoint.|
-    ||P-P|Appel de point à point.|
+    |Informations de connexion|Entrée/Sortie|direction de l’appel.  **Dans,** la carte réseau atM d’un autre appareil.  **Out** provient de la carte réseau atM vers un autre appareil.|
+    ||PMP|Appel point-à-multipoint.|
+    ||P-P|Appel point à point.|
     ||SVC|La connexion est sur un circuit virtuel commuté.|
     ||PVC|La connexion est sur un circuit virtuel permanent.|
-    |Informations VPI/VCI|VPI/VCI|Chemin d’accès virtuel et le canal virtuel de l’appel entrant ou sortant.|
-    |adresse distante/paramètres de média|47000580FFE1000000F21A2E180000C110081500|Adresse NSAP de l’appel **(In)** ou appelé **(Out)** périphérique atM.|
-    ||**Tx**|Le **Tx** paramètre inclut trois éléments suivants :<br /><br />-Par défaut ou spécifiée du type de vitesse de transmission (UBR, CBR, VBR ou ABR)<br />-Par défaut ou spécifiée la vitesse de ligne<br />-Taille d’unité (SDU) de données de service spécifié|
-    ||**Rx**|Le **Rx** paramètre inclut trois éléments suivants :<br /><br />-Par défaut ou spécifiée du type de vitesse de transmission (UBR, CBR, VBR ou ABR)<br />-Par défaut ou spécifiée la vitesse de ligne<br />-Taille SDU spécifiée|
+    |Informations VPI/VCI|VPI/VCI|Chemin d’accès virtuel et canal virtuel de l’appel entrant ou sortant.|
+    |Paramètres d’adresse/de média distants|47000580FFE1000000F21A2E180000C110081500|Adresse NSAP du périphérique atM appelant **(in)** ou appelé **(out)** .|
+    ||**Émetteur**|Le paramètre **TX** comprend les trois éléments suivants :<br /><br />-Type de taux de bits par défaut ou spécifié (UBR, CBR, VBR ou ABR)<br />-Vitesse de ligne par défaut ou spécifiée<br />-Taille de l’unité de données de service (SDU) spécifiée|
+    ||**RX**|Le paramètre **RX** comprend les trois éléments suivants :<br /><br />-Type de taux de bits par défaut ou spécifié (UBR, CBR, VBR ou ABR)<br />-Vitesse de ligne par défaut ou spécifiée<br />-Taille de SDU spécifiée|
     
-- Le **atmadm /a** commande produit une sortie similaire à ce qui suit :
+- La commande **atmadm/a** produit une sortie similaire à ce qui suit :
 
     ```
     Windows atM call Manager Statistics
@@ -98,7 +98,7 @@ atmadm [/c][/a][/s]
     47000580FFE1000000F21A2E180000C110081500
     ```
     
-- Le **atmadm /s** commande produit une sortie similaire à ce qui suit :
+- La commande **atmadm/s** produit une sortie similaire à ce qui suit :
 
     ```
     Windows atM call Manager Statistics
@@ -114,35 +114,35 @@ atmadm [/c][/a][/s]
     Signaling and ILMI Packets Received        = 34989
     ```
     
-    Le tableau suivant contient des descriptions de chaque élément dans le **atmadm /s** exemple de sortie.
+    Le tableau suivant contient les descriptions de chaque élément dans l’exemple de sortie **atmadm/s** .
     
-    |appel de statistiques de gestionnaire|Description|
+    |Statistiques du gestionnaire d’appels|Description|
     |-------------|--------|
-    |Appels actifs en cours|appels actuellement actifs sur la carte atM installée sur cet ordinateur.|
-    |Nombre total d’appels entrants réussis|appels reçus avec succès à partir d’autres appareils sur ce réseau atM.|
-    |Nombre total d’appels sortants réussis|appels terminées à d’autres périphériques atM sur ce réseau à partir de cet ordinateur.|
-    |Appels entrants ayant échoué|Appels entrants qui n’a pas pu se connecter à cet ordinateur.|
-    |Appels sortants ayant échoué|Appels sortants qui n’a pas pu se connecter à un autre appareil sur le réseau.|
-    |appels fermé à distance|Appels fermés par un périphérique distant sur le réseau.|
-    |appelle fermé localement|Appels fermés par cet ordinateur.|
-    |La signalisation et les paquets ILMI envoyés|Nombre de paquets d’interface (ILMI) de gestion locale intégrée envoyés au commutateur à laquelle cet ordinateur tente de se connecter.|
-    |La signalisation et les paquets ILMI reçus|Nombre de paquets ILMI reçus du commutateur atM.|
+    |Appels actifs en cours|appelle actuellement actif sur la carte atM installée sur cet ordinateur.|
+    |Nombre total d’appels entrants réussis|appels correctement reçus d’autres appareils sur ce réseau atM.|
+    |Nombre total d’appels sortants réussis|appels correctement effectués à d’autres appareils atM sur ce réseau à partir de cet ordinateur.|
+    |Appels entrants ayant échoué|Appels entrants qui n’ont pas pu se connecter à cet ordinateur.|
+    |Appels sortants ayant échoué|Appels sortants qui n’ont pas réussi à se connecter à un autre périphérique sur le réseau.|
+    |appels fermés par l’accès distant|appels fermés par un périphérique distant sur le réseau.|
+    |appels fermés localement|appels fermés par cet ordinateur.|
+    |Paquets de signalisation et ILMI envoyés|Nombre de paquets de l’interface de gestion locale (ILMI) intégrés envoyés au commutateur auquel cet ordinateur tente de se connecter.|
+    |Paquets de signalisation et ILMI reçus|Nombre de paquets ILMI reçus du commutateur atM.|
     
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 
-Pour afficher les informations d’appel pour toutes les connexions actives à la carte réseau atM installée sur cet ordinateur, tapez :
+Pour afficher les informations d’appel de toutes les connexions en cours à la carte réseau atM installée sur cet ordinateur, tapez :
 
 ```
 atmadm /c
 ```
 
-Pour afficher l’adresse atM inscrits réseau service access point (NSAP) pour chaque carte installée sur cet ordinateur, tapez :
+Pour afficher l’adresse du point d’accès du service réseau atM (NSAP) inscrit pour chaque carte installée sur cet ordinateur, tapez :
 
 ```
 atmadm /a
 ```
 
-Pour afficher les statistiques de surveillance de l’état des connexions atM active, tapez :
+Pour afficher les statistiques de surveillance de l’état des connexions atM actives, tapez :
 
 ```
 atmadm /s
@@ -150,4 +150,4 @@ atmadm /s
 
 ## <a name="additional-references"></a>Références supplémentaires
 
-- [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+- [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

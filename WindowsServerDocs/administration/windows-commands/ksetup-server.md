@@ -1,8 +1,8 @@
 ---
-title: ksetup:server
-description: 'Rubrique de commandes de Windows pour ***- '
+title: 'Ksetup : serveur'
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f370d4dede278e1facdda829503ea3793502b9e6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd05fd294640c63e633b7b866307197ae6770476
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814570"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374956"
 ---
-# <a name="ksetupserver"></a>ksetup:server
+# <a name="ksetupserver"></a>Ksetup : serveur
 
 
 
-Vous permet de spécifier un nom pour un ordinateur exécutant le système d’exploitation Windows afin que les modifications apportées à l’aide de **ksetup** met à jour l’ordinateur cible. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Vous permet de spécifier un nom pour un ordinateur exécutant le système d’exploitation Windows afin que les modifications apportées à l’aide de **Ksetup** mettent à jour l’ordinateur cible. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,17 +36,17 @@ ksetup /server <ServerName>
 
 |Paramètre|Description|
 |---------|-----------|
-|\<ServerName>|Le nom complet de l’ordinateur sur lequel la configuration entreront en vigueur, telles que IPops897.corp.contoso.com.</br>Si complets incomplet nom d’ordinateur de domaine est spécifié, la commande échoue.|
+|@no__t 0ServerName >|Nom complet de l’ordinateur sur lequel la configuration sera effective, par exemple IPops897.corp.contoso.com.</br>Si un nom d’ordinateur de domaine complet incomplet est spécifié, la commande échoue.|
 
 ## <a name="remarks"></a>Notes
 
-Il n’existe aucun moyen pour supprimer le nom de serveur ciblé ; Vous pouvez ne modifier qu’au nom de l’ordinateur local, ce qui est la valeur par défaut.
+Il n’existe aucun moyen de supprimer le nom du serveur ciblé ; vous pouvez uniquement revenir au nom de l’ordinateur local, qui est la valeur par défaut.
 
-Le nom du serveur cible est stocké dans le Registre **HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\LSA\Kerberos**. Il n’est pas signalé à l’aide de **ksetup**.
+Le nom du serveur cible est stocké dans le registre dans **HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\LSA\Kerberos**. Elle n’est pas signalée à l’aide de **Ksetup**.
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 
-Vérifiez votre **ksetup** configurations effectives sur l’ordinateur IPops897 qui est connecté sur le domaine Contoso :
+Faites en sorte que vos configurations **Ksetup** soient effectives sur l’ordinateur IPops897 connecté au domaine contoso :
 ```
 ksetup /server IPops897.corp.contoso.com
 ```
@@ -54,4 +54,4 @@ ksetup /server IPops897.corp.contoso.com
 #### <a name="additional-references"></a>Références supplémentaires
 
 -   [Ksetup](ksetup.md)
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

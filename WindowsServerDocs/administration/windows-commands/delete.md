@@ -1,8 +1,8 @@
 ---
 title: supprimer
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7cfa1c125d9ad1859550ae746839600283d07f44
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c2dd1edc8404ef89ae087e49b9e1d4b302d1c8ad
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813070"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378597"
 ---
 # <a name="delete"></a>supprimer
 
 
 
-Supprime une partition ou un volume. Elle supprime également un disque dynamique à partir de la liste des disques.
+Supprime une partition ou un volume. Elle supprime également un disque dynamique de la liste des disques.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -38,9 +38,9 @@ delete volume
 
 |Paramètre|Description|
 |---------|-----------|
-|[Suppression du disque](delete-disk.md)|Supprime un disque dynamique manquant dans la liste des disques.|
+|[Supprimer le disque](delete-disk.md)|Supprime un disque dynamique manquant de la liste des disques.|
 |[Supprimer la partition](delete-partition.md)|Supprime une partition.|
-|[suppression du volume](delete-volume.md)|Supprime un volume.|
+|[Supprimer le volume](delete-volume.md)|Supprime un volume.|
 
 #### <a name="additional-references"></a>Références supplémentaires
 

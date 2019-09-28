@@ -1,7 +1,7 @@
 ---
-title: Configurer des machines virtuelles pour utiliser SR-IOV uniquement lors de la prise en charge par le système d’exploitation invité
-description: Version en ligne du texte pour cette règle de Best Practices Analyzer.
-ms.prod: windows-server-threshold
+title: Configurer des machines virtuelles pour utiliser SR-IOV uniquement lorsqu’elles sont prises en charge par le système d’exploitation invité
+description: Version en ligne du texte de cette règle de Best Practices Analyzer.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,14 +10,14 @@ ms.topic: article
 ms.assetid: 33cf5b68-e43e-47ef-adbc-6b266c1d4dce
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: e5c2acb21fe8b11e8f020c6d2ab1742116c23b28
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8c43e06806f66ce0faae255f0f34d80a653fbe10
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833360"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366256"
 ---
-# <a name="configure-virtual-machines-to-use-sr-iov-only-when-supported-by-the-guest-operating-system"></a>Configurer des machines virtuelles pour utiliser SR-IOV uniquement lors de la prise en charge par le système d’exploitation invité
+# <a name="configure-virtual-machines-to-use-sr-iov-only-when-supported-by-the-guest-operating-system"></a>Configurer des machines virtuelles pour utiliser SR-IOV uniquement lorsqu’elles sont prises en charge par le système d’exploitation invité
 
 >S'applique à : Windows Server 2016
 
@@ -27,23 +27,23 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Niveau de gravité**|Warning|  
+|**Va**|Warning|  
 |**Catégorie**|Configuration|  
   
-Dans les sections suivantes, italique indique le texte de l’interface utilisateur qui apparaît dans l’outil Best Practices Analyzer pour ce problème.  
+Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.  
   
 ## <a name="issue"></a>Problème  
-*Un ou plusieurs ordinateurs virtuels sont configurés pour utiliser la virtualisation d’e/s de racine unique (SR-IOV), mais le système d’exploitation invité ne prend pas en charge SR-IOV*  
+*Un ou plusieurs ordinateurs virtuels sont configurés pour utiliser la virtualisation d’e/s d’une racine unique (SR-IOV), mais le système d’exploitation invité ne prend pas en charge SR-IOV*  
   
 ## <a name="impact"></a>Impact  
-*Fonctions virtuelles SR-IOV ne seront pas allouées pour les ordinateurs virtuels suivants :*  
+*Les fonctions virtuelles SR-IOV ne sont pas allouées aux ordinateurs virtuels suivants :*  
   
-\<liste des machines virtuelles >  
+@no__t 0list de machines virtuelles >  
   
-## <a name="resolution"></a>Résolution  
-*Désactivez SR-IOV sur toutes les machines virtuelles qui exécutent les systèmes d’exploitation invités qui ne prennent pas en charge SR-IOV.*  
+## <a name="resolution"></a>Résolution :  
+*Désactivez SR-IOV sur toutes les machines virtuelles qui exécutent des systèmes d’exploitation invités qui ne prennent pas en charge SR-IOV.*  
   
-SR-IOV est pris en charge uniquement dans des invités de Windows 64 bits. Pour plus d’informations, consultez [compatibilité des fonctionnalités par génération et invité Hyper-V](../Hyper-V-feature-compatibility-by-generation-and-guest.md).  
+SR-IOV est pris en charge uniquement dans certains invités Windows 64 bits. Pour plus d’informations, consultez [compatibilité des fonctionnalités Hyper-V par génération et invité](../Hyper-V-feature-compatibility-by-generation-and-guest.md).  
   
 
 

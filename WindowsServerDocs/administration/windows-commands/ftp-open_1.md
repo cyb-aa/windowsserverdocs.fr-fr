@@ -1,8 +1,8 @@
 ---
-title: FTP open_1
-description: 'Rubrique de commandes de Windows pour ***- '
+title: open_1 FTP
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 45de8b3c210fe0925ac3cc43c41d3e092d5dfe16
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: c5da1c73362c0396300f712b2e45b906d1652604
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438507"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376190"
 ---
-# <a name="ftp-open1"></a>FTP : open_1
+# <a name="ftp-open_1"></a>FTP : open_1
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Se connecte au serveur ftp spécifié.   
+Établit une connexion au serveur FTP spécifié.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 open <computer> [<Port>]  
@@ -34,16 +34,16 @@ open <computer> [<Port>]
 | Paramètre  |                                           Description                                            |
 |------------|--------------------------------------------------------------------------------------------------|
 | <computer> |                Spécifie l’ordinateur distant auquel vous essayez de vous connecter.                 |
-|  [<Port>]  | Spécifie un numéro de port TCP à utiliser pour se connecter à un serveur ftp. Par défaut, le port TCP 21 est utilisé. |
+|  [<Port>]  | Spécifie un numéro de port TCP à utiliser pour se connecter à un serveur FTP. Par défaut, le port TCP 21 est utilisé. |
 
 ## <a name="remarks"></a>Notes  
-Vous pouvez utiliser un nom d’ordinateur ou adresse IP (auquel cas un serveur DNS ou le fichier Hosts doit être disponible) pour spécifier **ordinateur**.  
-## <a name="BKMK_Examples"></a>Exemples  
-Se connecter au serveur ftp sur **FTP.Microsoft.com**.  
+Vous pouvez utiliser une adresse IP ou un nom d’ordinateur (dans ce cas, un serveur DNS ou un fichier hôte doit être disponible) pour spécifier l' **ordinateur**.  
+## <a name="BKMK_Examples"></a>Illustre  
+Connectez-vous au serveur FTP sur **FTP.Microsoft.com**.  
 ```  
 Open ftp.microsoft.com  
 ```  
-Se connecter au serveur ftp sur **FTP.Microsoft.com** qui est à l’écoute sur le port TCP 755.  
+Connectez-vous au serveur FTP sur **FTP.Microsoft.com** qui écoute sur le port TCP 755.  
 ```  
 open ftp.microsoft.com 755  
 ```  

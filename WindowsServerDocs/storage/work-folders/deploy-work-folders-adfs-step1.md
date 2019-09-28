@@ -1,6 +1,6 @@
 ---
 title: 'Déployer Dossiers de travail avec AD FS et le proxy d’application web : Étape 1, Configurer AD FS'
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 manager: klaasl
@@ -8,31 +8,31 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 10/18/2018
 ms.assetid: 938cdda2-f17e-4964-9218-f5868fd96735
-ms.openlocfilehash: 4f4119e893b215bd9f6d713bc5a17218b751c3d3
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 0920d091d6e8b5f3db9bf945a966fdd577918179
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812686"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365787"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-1-set-up-ad-fs"></a>Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 1, la configuration AD FS
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-1-set-up-ad-fs"></a>Déployer des dossiers de travail avec AD FS et le proxy d’application Web : Étape 1, configurer AD FS
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit la première étape du déploiement de Dossiers de travail avec les services de fédération Active Directory (AD FS) et le proxy d’application Web. Vous pouvez trouver les autres étapes de ce processus dans ces rubriques :  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Vue d’ensemble](deploy-work-folders-adfs-overview.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Vue d’ensemble @ no__t-0  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 2, le travail de post-configuration AD FS](deploy-work-folders-adfs-step2.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 2, AD FS travail postérieur à la configuration @ no__t-0  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 3, configurer des dossiers de travail](deploy-work-folders-adfs-step3.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 3 : configurer les dossiers de travail @ no__t-0  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 4 : configurer le Proxy d’Application Web](deploy-work-folders-adfs-step4.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 4, configurer le proxy d’application Web @ no__t-0  
   
--   [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : L’étape 5, configurez les Clients](deploy-work-folders-adfs-step5.md)  
+-   [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 5, configurer les clients @ no__t-0  
   
 > [!NOTE]
->   Les instructions présentées dans cette section concernent un environnement Windows Server 2019 ou Windows Server 2016. Si vous utilisez Windows Server 2012 R2, suivez les [instructions pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Les instructions décrites dans cette section concernent un environnement Windows Server 2019 ou Windows Server 2016. Si vous utilisez Windows Server 2012 R2, suivez les [instructions pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Pour configurer AD FS pour l’utiliser avec Dossiers de travail, utilisez les procédures suivantes.  
   
@@ -104,7 +104,7 @@ Dans l’exemple de test, les valeurs sont :
 Le SAN enterpriseregistration est nécessaire pour Workplace Join.  
   
 ### <a name="set-the-server-ip-address"></a>Configurer l’adresse IP du serveur  
-Changez l’adresse IP de votre serveur en adresse IP statique. Pour l’exemple de test, utilisez la classe IP A, qui est 192.168.0.160 / masque de sous-réseau : 255.255.0.0 / passerelle par défaut : 192.168.0.1 / préféré DNS : 192.168.0.150 (l’adresse IP de votre contrôleur de domaine\).  
+Changez l’adresse IP de votre serveur en adresse IP statique. Pour l’exemple de test, utilisez la classe IP A, qui est 192.168.0.160/masque de sous-réseau : 255.255.0.0/passerelle par défaut : 192.168.0.1/DNS préféré : 192.168.0.150 (adresse IP de votre contrôleur de domaine @ no__t-0.  
   
 ## <a name="install-the-ad-fs-role-service"></a>Installer le service de rôle AD FS  
 Pour installer les services AD FS, procédez comme suit :  
@@ -182,7 +182,7 @@ $thumbprint = $cert.Thumbprint
 Install-ADFSFarm -CertificateThumbprint $thumbprint -FederationServiceDisplayName "Contoso Corporation" –FederationServiceName blueadfs.contoso.com -GroupServiceAccountIdentifier contoso\ADFSService$ -OverwriteConfiguration -ErrorAction Stop  
 ```  
   
-Étape suivante : [Déployer des dossiers de travail avec AD FS et Proxy d’Application Web : Étape 2, le travail de post-configuration AD FS](deploy-work-folders-adfs-step2.md)  
+Étape suivante : [Deploy les dossiers de travail avec AD FS et le proxy d’application Web : Étape 2, AD FS travail postérieur à la configuration @ no__t-0  
   
 ## <a name="see-also"></a>Voir aussi  
 [Vue d’ensemble des dossiers de travail](Work-Folders-Overview.md)  

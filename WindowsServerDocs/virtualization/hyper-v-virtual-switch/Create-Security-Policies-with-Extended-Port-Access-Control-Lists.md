@@ -1,9 +1,9 @@
 ---
 title: Créer des stratégies de sécurité avec les listes de contrôle d’accès de ports étendues
-description: Cette rubrique fournit des informations sur les ports étendues Access Control Lists (ACL) dans Windows Server 2016.
+description: Cette rubrique fournit des informations sur les listes de Access Control de ports (ACL) étendues dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-hv-switch
@@ -12,18 +12,18 @@ ms.topic: article
 ms.assetid: a92e61c3-f7d4-4e42-8575-79d75d05a218
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d847213f0332b57ae38ada444d7a6cd98ab325ca
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f76a3146c1cb38dab26019be655fadbd15d924c5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848980"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365603"
 ---
 # <a name="create-security-policies-with-extended-port-access-control-lists"></a>Créer des stratégies de sécurité avec les listes de contrôle d’accès de ports étendues
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Cette rubrique fournit des informations sur les ports étendues Access Control Lists (ACL) dans Windows Server 2016. Vous pouvez configurer les listes de contrôle d’accès étendues sur le commutateur virtuel Hyper-V pour autoriser et bloquer le trafic réseau depuis et vers les ordinateurs virtuels (VM) qui sont connectés au commutateur via les cartes réseau virtuelles.  
+Cette rubrique fournit des informations sur les listes de Access Control de ports (ACL) étendues dans Windows Server 2016. Vous pouvez configurer les listes de contrôle d’accès étendues sur le commutateur virtuel Hyper-V pour autoriser et bloquer le trafic réseau depuis et vers les ordinateurs virtuels (VM) qui sont connectés au commutateur via les cartes réseau virtuelles.  
   
 Cette rubrique contient les sections suivantes.  
   
@@ -32,9 +32,9 @@ Cette rubrique contient les sections suivantes.
 -   [Règles ACL avec état](#bkmk_stateful)  
   
 ## <a name="bkmk_detailed"></a>Règles ACL détaillées  
-Étendues des ACL du commutateur virtuel Hyper-V permettent de créer des règles détaillées que vous pouvez appliquer à des cartes de réseau de machine virtuelle individuelles qui sont connectés au commutateur virtuel Hyper-V. La possibilité de créer des règles détaillées permet aux entreprises et fournisseurs de services Cloud (CSP) aux menaces de sécurité réseau dans un environnement de serveur partagé mutualisé.  
+Les listes de contrôle d’accès étendues du commutateur virtuel Hyper-V vous permettent de créer des règles détaillées que vous pouvez appliquer à des cartes réseau de machines virtuelles individuelles connectées au commutateur virtuel Hyper-V. La possibilité de créer des règles détaillées permet aux entreprises et aux fournisseurs de services Cloud (CSP) de répondre aux menaces de sécurité réseau dans un environnement de serveur partagé mutualisée.  
   
-Grâce aux listes de contrôle d’accès étendues, au lieu de créer des règles qui bloquent ou autorisent tout le trafic de tous les protocoles depuis et vers un ordinateur virtuel, vous pouvez désormais bloquer ou autoriser individuellement le trafic réseau de chaque protocole qui s’exécute sur les ordinateurs virtuels. Vous pouvez créer des règles ACL étendues dans Windows Server 2016 qui incluent les ensembles de paramètres 5-tuple suivants : adresse IP, adresse IP de destination, protocole, port source et port de destination de la source. De plus, chaque règle peut indiquer le sens du trafic réseau (entrant ou sortant) et l’action prise en charge par la règle (autoriser ou bloquer le trafic).  
+Grâce aux listes de contrôle d’accès étendues, au lieu de créer des règles qui bloquent ou autorisent tout le trafic de tous les protocoles depuis et vers un ordinateur virtuel, vous pouvez désormais bloquer ou autoriser individuellement le trafic réseau de chaque protocole qui s’exécute sur les ordinateurs virtuels. Vous pouvez créer des règles ACL étendues dans Windows Server 2016 qui incluent l’ensemble de paramètres 5 tuples suivant : adresse IP source, adresse IP de destination, protocole, port source et port de destination. De plus, chaque règle peut indiquer le sens du trafic réseau (entrant ou sortant) et l’action prise en charge par la règle (autoriser ou bloquer le trafic).  
   
 Par exemple, vous pouvez configurer des listes de contrôle d’accès de port pour un ordinateur virtuel qui autorisent tout le trafic HTTP et HTTPS entrant et sortant sur le port 80, et bloquent le trafic réseau de tous les autres protocoles sur tous les ports.  
   
@@ -43,10 +43,10 @@ La possibilité de pouvoir identifier le trafic du protocole qui peut ou ne peut
 ### <a name="configuring-acl-rules-with-windows-powershell"></a>Configuration de règles ACL avec Windows PowerShell  
 Pour configurer une ACL étendue, vous devez utiliser la commande Windows PowerShell **Add-VMNetworkAdapterExtendedAcl**. Cette commande utilise quatre syntaxes distinctes, avec une utilisation spécifique pour chaque syntaxe :  
   
-1.  Ajouter une ACL étendue à toutes les cartes réseau d’une machine virtuelle nommée - ce qui est spécifié par le premier paramètre, - VMName. Syntaxe :  
+1.  Ajoutez une liste de contrôle d’accès (ACL) étendue à toutes les cartes réseau d’une machine virtuelle nommée, qui est spécifiée par le premier paramètre,-VMName. Syntaxe :  
   
     > [!NOTE]  
-    > Si vous souhaitez ajouter une ACL étendue à une carte réseau plutôt qu’à tous, vous pouvez spécifier la carte réseau avec le paramètre - VMNetworkAdapterName.  
+    > Si vous souhaitez ajouter une liste de contrôle d’accès étendue à une carte réseau plutôt qu’à la totalité, vous pouvez spécifier la carte réseau avec le paramètre-VMNetworkAdapterName.  
   
     ```  
     Add-VMNetworkAdapterExtendedAcl [-VMName] <string[]> [-Action] <VMNetworkAdapterExtendedAclAction> {Allow | Deny}  
@@ -69,7 +69,7 @@ Pour configurer une ACL étendue, vous devez utiliser la commande Windows PowerS
 3.  Ajoutez une ACL étendue à toutes les cartes réseau virtuelles qui sont réservées à une utilisation par le système d’exploitation de gestion hôte Hyper-V.  
   
     > [!NOTE]  
-    > Si vous souhaitez ajouter une ACL étendue à une carte réseau plutôt qu’à tous, vous pouvez spécifier la carte réseau avec le paramètre - VMNetworkAdapterName.  
+    > Si vous souhaitez ajouter une liste de contrôle d’accès étendue à une carte réseau plutôt qu’à la totalité, vous pouvez spécifier la carte réseau avec le paramètre-VMNetworkAdapterName.  
   
     ```  
     Add-VMNetworkAdapterExtendedAcl [-Action] <VMNetworkAdapterExtendedAclAction> {Allow | Deny} [-Direction]  
@@ -79,7 +79,7 @@ Pour configurer une ACL étendue, vous devez utiliser la commande Windows PowerS
         [-ComputerName <string[]>] [-WhatIf] [-Confirm]  [<CommonParameters>]  
     ```  
   
-4.  Ajouter une ACL étendue à un objet de machine virtuelle que vous avez créés dans Windows PowerShell, telles que **$vm = get-vm « my_vm »**. Dans la prochaine ligne de code, vous pouvez exécuter cette commande pour créer une ACL étendue avec la syntaxe suivante :  
+4.  Ajoutez une liste de contrôle d’accès étendue à un objet de machine virtuelle que vous avez créé dans Windows PowerShell, par exemple **$VM = obtenir-VM « my_vm »** . Dans la prochaine ligne de code, vous pouvez exécuter cette commande pour créer une ACL étendue avec la syntaxe suivante :  
   
     ```  
     Add-VMNetworkAdapterExtendedAcl [-VM] <VirtualMachine[]> [-Action] <VMNetworkAdapterExtendedAclAction> {Allow |  
@@ -92,40 +92,40 @@ Pour configurer une ACL étendue, vous devez utiliser la commande Windows PowerS
 ### <a name="detailed-acl-rule-examples"></a>Exemples de règle ACL détaillée  
 Vous trouverez ci-dessous plusieurs exemples d’utilisation de la commande **Add-VMNetworkAdapterExtendedAcl** pour configurer les ACL de port étendues et pour créer des stratégies de sécurité pour les ordinateurs virtuels.  
   
--   [Appliquer la sécurité de niveau application](#bkmk_enforce)  
+-   [Appliquer la sécurité au niveau de l’application](#bkmk_enforce)  
   
--   [Appliquer la sécurité au niveau de l’utilisateur et au niveau de l’application](#bkmk_both)  
+-   [Appliquer la sécurité au niveau utilisateur et au niveau de l’application](#bkmk_both)  
   
 -   [Fournir la prise en charge de la sécurité à une application non-TCP/UDP](#bkmk_tcp)  
   
 > [!NOTE]  
 > Les valeurs pour le paramètre de règle **Direction** dans les tableaux ci-dessous sont basées sur le flux de trafic depuis et vers l’ordinateur virtuel pour lequel vous créez la règle. Si l’ordinateur virtuel reçoit du trafic, le trafic est entrant ; si l’ordinateur virtuel envoie du trafic, le trafic est sortant. Par exemple, si vous appliquez une règle à un ordinateur virtuel qui bloque le trafic entrant, la direction du trafic entrant s’entend des ressources externes vers l’ordinateur virtuel. Si vous appliquez une règle qui bloque le trafic sortant, la direction du trafic sortant s’entend de l’ordinateur virtuel local vers les ressources externes.  
   
-### <a name="bkmk_enforce"></a>Appliquer la sécurité de niveau application  
+### <a name="bkmk_enforce"></a>Appliquer la sécurité au niveau de l’application  
 Dans la mesure où de nombreux serveurs d’applications utilisent les ports TCP/UDP standard avec des ordinateurs clients, il est facile de créer des règles qui bloquent ou autorisent l’accès à un serveur d’applications en filtrant le trafic qui arrive et qui part du port indiqué à l’application.  
   
 Par exemple, vous voulez autoriser un utilisateur à se connecter à un serveur d’applications dans votre centre de données en utilisant une connexion Bureau à distance (RDP, Remote Desktop Connection). Dans la mesure où RDP utilise le port TCP 3389, vous pouvez rapidement créer la règle suivante :  
   
-|Adresse IP source|Adresse IP de destination|Protocole|Port source|Port de destination|Direction|Action|  
+|Adresse IP source|Adresse IP de destination|Protocol|Port source|Port de destination|Direction|Action|  
 |-------------|------------------|------------|---------------|--------------------|-------------|----------|  
 |*|*|TCP|*|3389|Vers l’intérieur|Autoriser|  
   
-Vous trouverez ci-dessous deux exemples de création de règles avec des commandes Windows PowerShell. Le premier exemple de règle bloque tout le trafic vers la machine virtuelle nommée « ApplicationServer ». Le deuxième exemple de règle, qui est appliqué à la carte réseau de la machine virtuelle appelée « ApplicationServer », permet uniquement au trafic RDP entrant à la machine virtuelle.  
+Vous trouverez ci-dessous deux exemples de création de règles avec des commandes Windows PowerShell. Le premier exemple de règle bloque tout le trafic vers la machine virtuelle nommée « ApplicationServer ». Le deuxième exemple de règle, qui est appliqué à la carte réseau de la machine virtuelle nommée « ApplicationServer », autorise uniquement le trafic RDP entrant vers la machine virtuelle.  
   
 > [!NOTE]  
-> Lorsque vous créez des règles, vous pouvez utiliser la **-poids** paramètre pour déterminer l’ordre dans lequel le commutateur virtuel Hyper-V traite les règles. Valeurs pour **-poids** sont exprimées sous forme d’entiers ; les règles avec un nombre entier plus élevé sont traitées avant les règles avec des entiers plus faibles. Par exemple, si vous avez appliqué deux règles à une carte réseau d’ordinateur virtuel, une avec une pondération de 1 et l’autre avec une pondération de 10, la règle avec la pondération de 10 est appliquée en premier.  
+> Lorsque vous créez des règles, vous pouvez utiliser le paramètre **-Weight** pour déterminer l’ordre dans lequel le commutateur virtuel Hyper-V traite les règles. Les valeurs de **-Weight** sont exprimées comme des entiers ; les règles avec un entier supérieur sont traitées avant les règles avec des entiers inférieurs. Par exemple, si vous avez appliqué deux règles à une carte réseau d’ordinateur virtuel, une avec une pondération de 1 et l’autre avec une pondération de 10, la règle avec la pondération de 10 est appliquée en premier.  
   
 ```  
 Add-VMNetworkAdapterExtendedAcl -VMName "ApplicationServer" -Action "Deny" -Direction "Inbound" -Weight 1  
 Add-VMNetworkAdapterExtendedAcl -VMName "ApplicationServer" -Action "Allow" -Direction "Inbound" -LocalPort 3389 -Protocol "TCP" -Weight 10  
 ```  
   
-### <a name="bkmk_both"></a>Appliquer la sécurité au niveau de l’utilisateur et au niveau de l’application  
+### <a name="bkmk_both"></a>Appliquer la sécurité au niveau utilisateur et au niveau de l’application  
 Dans la mesure où une règle peut correspondre à un paquet IP 5-tuple (IP source, IP de destination, protocole, port source et port de destination), la règle peut mettre en œuvre une stratégie de sécurité plus détaillée qu’une ACL de port.  
   
-Par exemple, si vous souhaitez fournir un nombre limité de clients du service DHCP à l’aide d’un ensemble spécifique de serveurs DHCP des ordinateurs, vous pouvez configurer les règles suivantes sur l’ordinateur Windows Server 2016 exécutant Hyper-V, où se trouvent les machines virtuelles à l’utilisateur :  
+Par exemple, si vous souhaitez fournir un service DHCP à un nombre limité d’ordinateurs clients à l’aide d’un ensemble spécifique de serveurs DHCP, vous pouvez configurer les règles suivantes sur l’ordinateur Windows Server 2016 qui exécute Hyper-V, où les machines virtuelles utilisateur sont hébergées :  
   
-|Adresse IP source|Adresse IP de destination|Protocole|Port source|Port de destination|Direction|Action|  
+|Adresse IP source|Adresse IP de destination|Protocol|Port source|Port de destination|Direction|Action|  
 |-------------|------------------|------------|---------------|--------------------|-------------|----------|  
 |*|255.255.255.255|UDP|*|67|Vers l’extérieur|Autoriser|  
 |*|10.175.124.0/25|UDP|*|67|Vers l’extérieur|Autoriser|  
@@ -146,7 +146,7 @@ Bien que la grande majorité du trafic réseau dans un centre données utilise T
 > [!NOTE]  
 > Le numéro de protocole IP de IGMP est 0x02.  
   
-|Adresse IP source|Adresse IP de destination|Protocole|Port source|Port de destination|Direction|Action|  
+|Adresse IP source|Adresse IP de destination|Protocol|Port source|Port de destination|Direction|Action|  
 |-------------|------------------|------------|---------------|--------------------|-------------|----------|  
 |*|*|0x02|*|*|Vers l’intérieur|Autoriser|  
 |*|*|0x02|*|*|Vers l’extérieur|Autoriser|  
@@ -159,7 +159,7 @@ Add-VMNetworkAdapterExtendedAcl -VMName "ServerName" -Action "Allow" -Direction 
 ```  
   
 ## <a name="bkmk_stateful"></a>Règles ACL avec état  
-Les ACL étendues permettent désormais de configurer des règles avec état. Une règle avec état filtre les paquets en fonction de cinq attributs dans un paquet - adresse IP Source, adresse IP de Destination, protocole, Port Source et Port de Destination.  
+Les ACL étendues permettent désormais de configurer des règles avec état. Une règle avec état filtre les paquets en fonction de cinq attributs dans une adresse IP de source de paquets, une adresse IP de destination, un protocole, un port source et un port de destination.  
   
 Les règles avec état ont les particularités suivantes :  
   
@@ -187,7 +187,7 @@ Pour obtenir cette configuration de règle, vous pouvez utiliser les paramètres
 |-------------|----------|----------|----------|  
 |Adresse IP source|*|*|*|  
 |Adresse IP de destination|*|*|*|  
-|Protocole|*|*|TCP|  
+|Protocol|*|*|TCP|  
 |Port source|*|*|*|  
 |Port de destination|*|*|80|  
 |Direction|Vers l’intérieur|Vers l’extérieur|Vers l’extérieur|  

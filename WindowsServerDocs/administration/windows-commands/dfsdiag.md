@@ -1,8 +1,8 @@
 ---
-title: dfsdiag
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Dfsdiag
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ab5c86ce7ed4760aef4941de55e8dcf8efe48c8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 61a6ab9a90e4d0220cfe27d2d21120be19b9ff1f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819140"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378309"
 ---
-# <a name="dfsdiag"></a>dfsdiag
+# <a name="dfsdiag"></a>Dfsdiag
 
 
 
-Le `Dfsdiag` commande fournit des informations de diagnostic pour les espaces de noms DFS.
+La commande `Dfsdiag` fournit des informations de diagnostic pour les espaces de noms DFS.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -38,12 +38,12 @@ dfsdiag [ /TestDCs [/Domain:<Domain name>]| /TestSites </Machine:<server name>| 
 |Paramètre|Description|
 |---------|-----------|
 |[Dfsdiag TestDCs](dfsdiag-testdcs.md)|Vérifie la configuration du contrôleur de domaine.|
-|[Dfsdiag TestSites](dfsdiag-testsites.md)|Vérifications des associations de site.|
-|[Dfsdiag TestDFSConfig](dfsdiag-testdfsconfig.md)|Vérifie la configuration de DFS Namespace.|
-|[Dfsdiag TestDFSIntegrity](dfsdiag-testdfsintegrity.md)|Vérifie l’intégrité de DFS Namespace.|
-|[Dfsdiag TestReferral](dfsdiag-testreferral.md)|Vérifie les réponses de redirection.|
+|[Dfsdiag TestSites](dfsdiag-testsites.md)|Vérifie les associations de sites.|
+|[Dfsdiag TestDFSConfig](dfsdiag-testdfsconfig.md)|Vérifie la configuration de l’espace de noms DFS.|
+|[Dfsdiag TestDFSIntegrity](dfsdiag-testdfsintegrity.md)|Vérifie l’intégrité de l’espace de noms DFS.|
+|[Dfsdiag TestReferral](dfsdiag-testreferral.md)|Vérifie les réponses de référence.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

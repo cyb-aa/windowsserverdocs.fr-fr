@@ -1,8 +1,8 @@
 ---
-title: FTP binaire
-description: Rubrique de commandes de Windows pour le binaire de ftp
+title: binaire FTP
+description: Rubrique relative aux commandes Windows pour les fichiers binaires FTP
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cadd59bff3bd2acf5c6d700caef66ca5c871b523
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 48579523f44232dec3357a20e8082050cc5175e6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821920"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376582"
 ---
-# <a name="ftp-binary"></a>ftp: binary
+# <a name="ftp-binary"></a>FTP : binaire
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 Définit le type de transfert de fichier binaire.   
 ## <a name="syntax"></a>Syntaxe  
@@ -32,12 +32,12 @@ binary
 ### <a name="parameters"></a>Paramètres  
 aucune  
 ## <a name="remarks-optional-section"></a>Remarques <optional section>  
-**FTP** prend en charge ASCII et types de transfert de fichiers image binaires. Utilisez le fichier binaire lors du transfert de fichiers exécutables. En mode binaire, les fichiers sont transférés en unités de 1 octet. Pour plus d’informations sur le transfert de fichiers ASCII, consultez **ftp : ascii** dans des références supplémentaires.  
-## <a name="BKMK_Examples"></a>Exemples  
-Définir le type de transfert de fichier binaire.  
+**FTP** prend en charge les types de transfert de fichiers image ASCII et binaires. Utilisez le binaire lors du transfert des fichiers exécutables. En mode binaire, les fichiers sont transférés en unités d’un octet. Pour plus d’informations sur le transfert de fichiers ASCII, consultez **ftp : ASCII** dans Références supplémentaires.  
+## <a name="BKMK_Examples"></a>Illustre  
+Définissez le type de transfert de fichier sur binaire.  
 ```  
 binary  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [ftp: ascii](ftp-ascii.md)  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [FTP : ASCII](ftp-ascii.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

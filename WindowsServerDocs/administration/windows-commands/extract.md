@@ -1,8 +1,8 @@
 ---
 title: extraire
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9113c34b61b98fb738bc0aff03193ab73b1abbd7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 967f08e271019cc33970419179c9ddbf902b1882
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882310"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377259"
 ---
 # <a name="extract"></a>extraire
 
@@ -36,17 +36,17 @@ EXTRACT [/Y] /C source destination
 
 |Paramètre|Description|
 |---------|-----------|
-|CAB|Fichier contient deux ou plusieurs fichiers.|
-|filename|Nom du fichier à extraire le fichier CAB. Les caractères génériques et plusieurs noms de fichiers (séparés par des espaces) peuvent être utilisés.|
-|source|Fichier compressé (fichier CAB avec un seul fichier).|
-|NewName|Nouveau nom de fichier pour le fichier extrait. Si ne pas fourni, le nom d’origine est utilisé.|
-|/A|Traiter tous les fichiers CAB. Suit la chaîne d’installation commençant dans le premier fichier CAB mentionné.|
-|/C|Copier le fichier source vers la destination (pour copier à partir de disques DMF).|
-|/D|Afficher le répertoire CAB (utiliser avec le nom de fichier pour éviter l’extraction).|
-|/E|Extraire (utiliser au lieu de *.* pour extraire tous les fichiers).|
-|/ L dir|Emplacement des fichiers extraits (valeur par défaut est le répertoire actif).|
-|/Y|Ne pas demander avant de remplacer un fichier existant.|
+|CAB|Le fichier contient deux fichiers ou plus.|
+|filename|Nom du fichier à extraire de l’armoire. Les caractères génériques et les noms de fichiers multiples (séparés par des espaces) peuvent être utilisés.|
+|source|Fichier compressé (une armoire avec un seul fichier).|
+|newname|Nouveau nom de fichier pour fournir le fichier extrait. S’il n’est pas fourni, le nom d’origine est utilisé.|
+|/A|Traiter toutes les armoires. Suit la chaîne cab à partir du premier fichier CAB mentionné.|
+|/C|Copiez le fichier source dans la destination (pour effectuer une copie à partir de disques DMF).|
+|/D|Affichez le répertoire CAB (utilisez avec un nom de fichier pour éviter l’extraction).|
+|/E|Extraire (utilisez à la place de *.* pour extraire tous les fichiers).|
+|/L Rép|Emplacement dans lequel placer les fichiers extraits (le répertoire par défaut est le répertoire actif).|
+|/Y|Ne pas demander confirmation avant de remplacer un fichier existant.|
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

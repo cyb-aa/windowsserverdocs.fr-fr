@@ -1,8 +1,8 @@
 ---
-title: désactiver la sauvegarde WBADMIN
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Wbadmin désactiver la sauvegarde
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3fcaf9e8b6ef052b01b5a3184dd8f94bba433cd7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 405bbb3c07206032f1a9e3039c563e7c842e362e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821790"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362494"
 ---
-# <a name="wbadmin-disable-backup"></a>désactiver la sauvegarde WBADMIN
+# <a name="wbadmin-disable-backup"></a>Wbadmin désactiver la sauvegarde
 
 
 
 Arrête l’exécution des sauvegardes quotidiennes planifiées existantes.
 
-Pour désactiver une sauvegarde quotidienne planifiée, vous devez être membre du **administrateurs** groupe, ou vous devez vous avoir été délégué des autorisations appropriées. En outre, vous devez exécuter **wbadmin** à partir d’une invite de commandes avec élévation de privilèges. (Pour ouvrir un invite de commandes avec élévation de privilèges de droit **invite de commandes** puis cliquez sur **exécuter en tant qu’administrateur**.)
+Pour désactiver une sauvegarde quotidienne planifiée, vous devez être membre du groupe **administrateurs** ou les autorisations appropriées doivent vous avoir été déléguées. En outre, vous devez exécuter **Wbadmin** à partir d’une invite de commandes avec élévation de privilèges. (Pour ouvrir une invite de commandes avec élévation de privilèges, cliquez avec le bouton droit sur **invite de commandes** , puis cliquez sur **exécuter en tant qu’administrateur**.)
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -43,5 +43,5 @@ wbadmin disable backup
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

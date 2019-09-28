@@ -7,18 +7,18 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d5760820613c3b791b577a600cae543621eee257
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c8a5863865d465d55f1d5865fdcbdeeb942ce194
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845590"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71409088"
 ---
 # <a name="introduction-to-active-directory-replication-and-topology-management-using-windows-powershell-level-100"></a>Gestion de la topologie et de la réplication Active Directory avec Windows PowerShell (niveau 100)
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Windows PowerShell pour Active Directory offre la possibilité de gérer la réplication, les sites, les domaines et forêts, les contrôleurs de domaine et les partitions. Les utilisateurs d’outils de gestion antérieurs, tels que le composant logiciel enfichable Sites et services Active Directory et repadmin.exe, noteront que des fonctions similaires sont à présent disponibles depuis le contexte Windows PowerShell pour Active Directory. En outre, les applets de commande sont compatibles avec les applets de commande Windows PowerShell pour Active Directory existantes, ce qui crée une expérience utilisateur rationalisée et permet aux clients de générer aisément des scripts d’automatisation.
 
@@ -26,11 +26,11 @@ Windows PowerShell pour Active Directory offre la possibilité de gérer la rép
 > Les applets de commande de topologie et de réplication Windows PowerShell pour Active Directory sont disponibles dans les environnements suivants :
 > 
 > -    Contrôleur de domaine Windows Server 2012
-> -    Windows Server 2012 avec les outils d’Administration de serveur distant pour les services AD DS et AD LDS installé.
-> -   Windows&reg; 8 avec les outils d’Administration de serveur distant pour les services AD DS et AD LDS installés.
+> -    Windows Server 2012 avec le Outils d’administration de serveur distant pour AD DS et AD LDS installés.
+> -   Windows @ no__t-0 8 avec le Outils d’administration de serveur distant pour AD DS et AD LDS installés.
 
 ## <a name="installing-the-active-directory-module-for-windows-powershell"></a>Installation du module Active Directory pour Windows PowerShell
-Le Module Active Directory pour Windows PowerShell est installé par défaut lorsque le rôle serveur AD DS est installé sur un serveur qui exécute Windows Server 2012. L’ajout du rôle serveur est la seule étape supplémentaire requise. Vous pouvez également installer le Module Active Directory sur un serveur qui exécute Windows Server 2012 en installant les outils d’Administration de serveur distant, et vous pouvez installer le Module Active Directory sur un ordinateur exécutant Windows 8 en téléchargeant et installant le [ Outils d’administration de serveur distant (RSAT)](https://www.microsoft.com/download/details.aspx?id=28972). Voir [Instructions](https://www.microsoft.com/download/details.aspx?id=28972)pour les étapes d’installation.
+Le module Active Directory pour Windows PowerShell est installé par défaut lorsque le rôle serveur AD DS est installé sur un serveur qui exécute Windows Server 2012. L’ajout du rôle serveur est la seule étape supplémentaire requise. Vous pouvez également installer le module Active Directory sur un serveur qui exécute Windows Server 2012 en installant le Outils d’administration de serveur distant et vous pouvez installer le module Active Directory sur un ordinateur exécutant Windows 8 en téléchargeant et en installant le [ Outils d’administration de serveur distant (RSAT)](https://www.microsoft.com/download/details.aspx?id=28972). Voir [Instructions](https://www.microsoft.com/download/details.aspx?id=28972)pour les étapes d’installation.
 
 ## <a name="scenarios-for-testing-windows-powershell-for-active-directory-replication-and-topology-management-cmdlets"></a>Scénarios de test des applets de commande de gestion de la topologie et de la réplication Windows PowerShell pour Active Directory
 Les scénarios suivants sont destinés aux administrateurs pour qu’ils se familiarisent avec les nouvelles applets de commande de gestion :
@@ -65,7 +65,7 @@ Pour effectuer les étapes des procédures suivantes, vous devez être membre du
     > 
     > Exemple : tapez `Get-ADRep` et appuyez sur Tab plusieurs fois pour parcourir les commandes correspondantes jusqu’à atteindre `Get-ADReplicationSite`. La saisie semi-automatique fonctionne également pour les noms de paramètres tels que `Filter`.
 
-    Pour mettre en forme la sortie à partir de la `Get-ADReplicationSite` commande sous forme de tableau et limiter l’affichage à des champs spécifiques, vous pouvez diriger la sortie vers le `Format-Table` commande (ou «`ft`» pour faire plus court) :
+    Pour mettre en forme la sortie de la commande `Get-ADReplicationSite` en tant que table et limiter l’affichage à des champs spécifiques, vous pouvez diriger la sortie vers la commande `Format-Table` (ou « `ft` » en abrégé) :
 
     `Get-ADReplicationSite -Filter * | ft Name`
 
@@ -142,7 +142,7 @@ Pour effectuer les étapes des procédures suivantes, vous devez être membre du
 
     `Get-ADReplicationUpToDatenessVectorTable DC1`
 
-    Cette commande fournit une liste des numéros USN les plus élevés détectés **DC1** pour chaque contrôleur de domaine dans la forêt. La valeur **Server** fait référence au serveur qui assure la maintenance de la table, dans le cas présent **DC1**. La valeur **Partner** fait référence au partenaire de réplication (direct ou indirect) sur lequel les modifications ont été apportées. La valeur UsnFilter est le numéro USN le plus élevé détecté par **DC1** à partir du partenaire. Si un contrôleur de domaine est ajouté à la forêt, il n’apparaîtra pas dans **DC1**table jusqu'à ce que **DC1** reçoit une modification provenant du nouveau domaine.
+    Cette commande fournit une liste des numéros USN les plus élevés détectés **DC1** pour chaque contrôleur de domaine dans la forêt. La valeur **Server** fait référence au serveur qui assure la maintenance de la table, dans le cas présent **DC1**. La valeur **Partner** fait référence au partenaire de réplication (direct ou indirect) sur lequel les modifications ont été apportées. La valeur UsnFilter est le numéro USN le plus élevé détecté par **DC1** à partir du partenaire. Si un nouveau contrôleur de domaine est ajouté à la forêt, il n’apparaîtra pas dans la table de **DC1**tant que **DC1** n’aura pas reçu de modification provenant du nouveau domaine.
 
 #### <a name="to-view-the-up-to-dateness-vector-table-for-all-domain-controllers-in-a-domain"></a>Pour afficher la table de vecteurs de mise à jour pour tous les contrôleurs d’un domaine
 
@@ -155,6 +155,6 @@ Pour effectuer les étapes des procédures suivantes, vous devez être membre du
     Le tri vous permet de comparer aisément le dernier numéro USN détecté par chaque contrôleur de domaine pour un partenaire de réplication donné. Il s’agit d’un moyen rapide de vérifier que la réplication a lieu au sein de votre environnement. Si la réplication fonctionne correctement, les valeurs UsnFilter signalées pour un partenaire de réplication donné doivent être assez semblables sur tous les contrôleurs de domaine.
 
 ## <a name="see-also"></a>Voir aussi
-[Gestion avancée de réplication Active Directory et topologie à l’aide de Windows PowerShell &#40;niveau 200&#41;](Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md)
+[Gestion de la topologie et de la réplication avancée &#40;Active Directory à l’aide de Windows PowerShell niveau 200&#41;](Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md)
 
 

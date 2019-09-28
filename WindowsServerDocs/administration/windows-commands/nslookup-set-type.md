@@ -2,7 +2,7 @@
 title: nslookup set type
 description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bc4da57f2e0b8e9727523ed72d55e6042adee5e9
-ms.sourcegitcommit: feec5cbe983c8c5800ccd4fc214914084fcceaba
+ms.openlocfilehash: e3f41cb6bc5117fdd26bba85c6cfd806414bbab4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975290"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372878"
 ---
 # <a name="nslookup-set-type"></a>nslookup set type
 
@@ -35,8 +35,8 @@ set type=<ResourceRecordtype>
 | Value |                                                   Description                                                   |
 |-------|-----------------------------------------------------------------------------------------------------------------|
 |   A   |                                      Spécifie l'&#39;adresse IP de l’ordinateur                                      |
-|  TOUTES  |                                     Spécifie l'&#39;adresse IP de l’ordinateur.                                      |
-| CNAME |                                    Spécifie un nom canonique pour un alias.                                     |
+|  AUX  |                                     Spécifie l'&#39;adresse IP de l’ordinateur.                                      |
+| CANONIQUE |                                    Spécifie un nom canonique pour un alias.                                     |
 |  ID  |                                  Spécifie un identificateur de groupe d’un nom de groupe.                                  |
 | HINFO |                          Spécifie le&#39;processeur et le type de système d’exploitation de l’ordinateur.                           |
 |  Mo   |                                        Spécifie un nom de domaine de boîte aux lettres.                                         |

@@ -1,22 +1,22 @@
 ---
 title: 'Réplication DFS : Forum Aux Questions (FAQ)'
 ms.date: 06/18/2014
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 5bf85938f242ec29d75b32cdcb8b03c5f34bd1bb
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 12410d619245153f759b54e7a8aff257888f04dc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871969"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386074"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>Réplication DFS : Forum Aux Questions (FAQ)
 
 
-Date de mise à jour : 30 avril 2019
+Mise à jour : 30 avril 2019
 
 S'applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
@@ -430,7 +430,7 @@ Pour utiliser la connexion inter-fichiers (RDC), un membre de la connexion de r�
 </thead>
 <tbody>
 <tr class="even">
-<td><p>Windows Server 2012 R2</p></td>
+<td><p>Windows Server 2012 R2</p></td>
 <td><p><em>Oui</p></td>
 <td><p>Non disponible</p></td>
 <td><p>Oui</em></p></td>
@@ -666,7 +666,7 @@ En cas de conflit, réplication DFS consigne un événement d’information dans
   - Le conflit peut résider sur un serveur différent de l’origine du conflit.  
       
 
-## <a name="staging"></a>Staging
+## <a name="staging"></a>Création intermédiaire
 
 ### <a name="does-dfs-replication-continue-staging-files-when-replication-is-disabled-by-a-schedule-or-bandwidth-throttling-quota-or-when-a-connection-is-manually-disabled"></a>Réplication DFS continue-t-il les fichiers intermédiaires lorsque la réplication est désactivée par un quota de limitation de bande passante ou de planification, ou lorsqu’une connexion est désactivée manuellement ?
 
@@ -702,8 +702,8 @@ Les fichiers sont mis en place sur le membre émetteur lorsque le membre récept
 <tbody>
 <tr class="even">
 <td><p>Membre expéditeur</p></td>
-<td><p>64 Ko</p></td>
-<td><p>256 KB</p></td>
+<td><p>64 KO</p></td>
+<td><p>256 KO</p></td>
 </tr>
 <tr class="odd">
 <td><p>Membre de réception</p></td>

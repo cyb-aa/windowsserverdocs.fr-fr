@@ -1,9 +1,9 @@
 ---
 title: Créer une stratégie d’accès
-description: Cette rubrique fait partie du guide de gestion de la gestion des adresses IP (IPAM) dans Windows Server 2016.
+description: Cette rubrique fait partie du Guide de gestion des adresses IP (IPAM) de Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ipam
@@ -12,72 +12,72 @@ ms.topic: article
 ms.assetid: 854bd064-2f86-4678-a940-a04b3e48ae10
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3e72d47dc3c32db7465f7c47b16dcdc777636fd9
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: da5cc366a08f9a3f5b69952a2dff1f717fb1647b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282225"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355360"
 ---
 # <a name="create-an-access-policy"></a>Créer une stratégie d’accès
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Vous pouvez utiliser cette rubrique pour créer une stratégie d’accès dans la console client IPAM.  
   
 Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au groupe **Administrateurs** ou à un groupe équivalent.  
   
 > [!NOTE]  
-> Vous pouvez créer une stratégie d’accès pour un utilisateur spécifique ou pour un groupe d’utilisateurs dans Active Directory. Lorsque vous créez une stratégie d’accès, vous devez sélectionner un rôle d’IPAM intégré ou un rôle personnalisé que vous avez créé. Pour plus d’informations sur les rôles personnalisés, consultez [créer un rôle d’utilisateur pour le contrôle d’accès](../../technologies/ipam/Create-a-User-Role-for-Access-Control.md).  
+> Vous pouvez créer une stratégie d’accès pour un utilisateur spécifique ou un groupe d’utilisateurs dans Active Directory. Lorsque vous créez une stratégie d’accès, vous devez sélectionner un rôle IPAM intégré ou un rôle personnalisé que vous avez créé. Pour plus d’informations sur les rôles personnalisés, consultez [créer un rôle d’utilisateur pour Access Control](../../technologies/ipam/Create-a-User-Role-for-Access-Control.md).  
   
 ### <a name="to-create-an-access-policy"></a>Pour créer une stratégie d’accès  
   
-1.  Dans le Gestionnaire de serveur, cliquez sur **IPAM**. La console client IPAM s’affiche.  
+1.  Dans Gestionnaire de serveur, cliquez sur **IPAM**. La console client IPAM s’affiche.  
   
-2.  Dans le volet de navigation, cliquez sur **contrôle d’accès**. Dans le volet de navigation inférieur, cliquez sur **des stratégies d’accès**, puis cliquez sur **ajouter une stratégie d’accès**.  
+2.  Dans le volet de navigation, cliquez sur **contrôle d’accès**. Dans le volet de navigation inférieur, cliquez avec le bouton droit sur **stratégies d’accès**, puis cliquez sur Ajouter une **stratégie d’accès**.  
   
     ![Ajouter une stratégie d’accès](../../media/Create-an-Access-Policy/ipam_CreateAP_01.jpg)  
   
-3.  Le **ajouter une stratégie d’accès** boîte de dialogue s’ouvre. Dans **paramètres utilisateur**, cliquez sur **ajouter**.  
+3.  La boîte de dialogue **Ajouter une stratégie d’accès** s’ouvre. Dans **paramètres utilisateur**, cliquez sur **Ajouter**.  
   
     ![Ajouter une stratégie d’accès](../../media/Create-an-Access-Policy/ipam_CreateAP_02.jpg)  
   
-4.  Le **sélectionner utilisateur ou groupe** boîte de dialogue s’ouvre. Cliquez sur **emplacements**.  
+4.  La boîte de dialogue **Sélectionner un utilisateur ou un groupe** s’ouvre. Cliquez sur **emplacements**.  
   
-    ![Emplacements d’utilisateur ou un groupe](../../media/Create-an-Access-Policy/ipam_CreateAP_03.jpg)  
+    ![Emplacements d’utilisateur ou de groupe](../../media/Create-an-Access-Policy/ipam_CreateAP_03.jpg)  
   
-5.  Le **emplacements** boîte de dialogue s’ouvre. Accédez à l’emplacement qui contient le compte d’utilisateur, sélectionnez l’emplacement, puis cliquez sur **OK**. Le **emplacements** boîte de dialogue se ferme.  
+5.  La boîte de dialogue **emplacements** s’ouvre. Accédez à l’emplacement qui contient le compte d’utilisateur, sélectionnez l’emplacement, puis cliquez sur **OK**. La boîte de dialogue **emplacements** se ferme.  
   
-    ![Sélectionnez l’emplacement](../../media/Create-an-Access-Policy/ipam_CreateAP_04.jpg)  
+    ![Sélectionner un emplacement](../../media/Create-an-Access-Policy/ipam_CreateAP_04.jpg)  
   
-6.  Dans le **sélectionner utilisateur ou groupe** boîte de dialogue **Entrez le nom de l’objet à sélectionner**, tapez le nom de compte d’utilisateur pour lequel vous souhaitez créer une stratégie d’accès. Cliquez sur **OK**.  
+6.  Dans la boîte de dialogue **Sélectionner l’utilisateur ou le groupe** , dans **Entrez le nom de l’objet à sélectionner**, tapez le nom du compte d’utilisateur pour lequel vous souhaitez créer une stratégie d’accès. Cliquez sur **OK**.  
   
-7.  Dans **ajouter une stratégie d’accès**, dans **paramètres utilisateur**, **alias utilisateur** contient maintenant le compte d’utilisateur auquel s’applique la stratégie. Dans **paramètres d’accès**, cliquez sur **New**.  
+7.  Dans **Ajouter une stratégie d’accès**, dans **paramètres utilisateur**, l’alias de l' **utilisateur** contient maintenant le compte d’utilisateur auquel la stratégie s’applique. Dans **paramètres d’accès**, cliquez sur **nouveau**.  
   
     ![Nouveau paramètre d’accès](../../media/Create-an-Access-Policy/ipam_CreateAP_05.jpg)  
   
-8.  Dans **ajouter une stratégie d’accès**, **paramètres d’accès** devient **nouveau paramètre**.  
+8.  Dans **Ajouter une stratégie d’accès**, les **paramètres d’accès** sont modifiés en **nouveau paramètre**.  
   
-    ![Nom de boîte de dialogue Modifier à nouveau paramètre](../../media/Create-an-Access-Policy/ipam_CreateAP_06.jpg)  
+    ![Le nom de la boîte de dialogue passe au nouveau paramètre](../../media/Create-an-Access-Policy/ipam_CreateAP_06.jpg)  
   
-9. Cliquez sur **sélectionner un rôle** pour développer la liste des rôles. Sélectionnez un des rôles intégrés ou, si vous avez créé des nouveaux rôles, sélectionnez un des rôles que vous avez créé. Par exemple, si vous avez créé le rôle IPAMSrv à appliquer à l’utilisateur, cliquez sur **IPAMSrv**.  
+9. Cliquez sur **Sélectionner un rôle** pour développer la liste des rôles. Sélectionnez l’un des rôles intégrés ou, si vous avez créé de nouveaux rôles, sélectionnez l’un des rôles que vous avez créés. Par exemple, si vous avez créé le rôle IPAMSrv à appliquer à l’utilisateur, cliquez sur **IPAMSrv**.  
   
     ![Sélectionner un rôle](../../media/Create-an-Access-Policy/ipam_CreateAP_07.jpg)  
   
-10. Cliquez sur **ajouter le paramètre**.  
+10. Cliquez sur **Ajouter un paramètre**.  
   
     ![Ajouter un nouveau paramètre](../../media/Create-an-Access-Policy/ipam_CreateAP_08.jpg)  
   
-11. Le rôle est ajouté à la stratégie d’accès. Pour créer des stratégies d’accès supplémentaires, cliquez sur **appliquer**, puis répétez ces étapes pour chaque stratégie que vous souhaitez créer. Si vous ne souhaitez pas créer d’autres stratégies, cliquez sur **OK**.  
+11. Le rôle est ajouté à la stratégie d’accès. Pour créer des stratégies d’accès supplémentaires, cliquez sur **appliquer**, puis répétez ces étapes pour chaque stratégie que vous souhaitez créer. Si vous ne souhaitez pas créer de stratégies supplémentaires, cliquez sur **OK**.  
   
-    ![Cliquez sur Appliquer ou OK](../../media/Create-an-Access-Policy/ipam_CreateAP_09.jpg)  
+    ![Cliquez sur appliquer ou sur OK](../../media/Create-an-Access-Policy/ipam_CreateAP_09.jpg)  
   
-12. Dans le volet Affichage de console du client IPAM, vérifiez que la nouvelle stratégie d’accès est créée.  
+12. Dans le volet d’affichage de la console client IPAM, vérifiez que la nouvelle stratégie d’accès est créée.  
   
     ![Afficher la nouvelle stratégie d’accès](../../media/Create-an-Access-Policy/ipam_CreateAP_09a.jpg)  
   
 ## <a name="see-also"></a>Voir aussi  
-[Contrôle d’accès en fonction du rôle](Role-based-Access-Control.md)  
+[Access Control basée sur les rôles](Role-based-Access-Control.md)  
 [Gérer IPAM](Manage-IPAM.md)  
   
 

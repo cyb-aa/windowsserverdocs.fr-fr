@@ -1,8 +1,8 @@
 ---
-title: À l’aide de la commande remove-DriverGroup
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Utilisation de la commande Remove-DriverGroup
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b56f162861caf4493550f9e063065e9544e52eae
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d22ae4e191c2110a0b8d4cc50c24c2f3ec4a7e60
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885750"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362930"
 ---
-# <a name="using-the-remove-drivergroup-command"></a>À l’aide de la commande remove-DriverGroup
+# <a name="using-the-remove-drivergroup-command"></a>Utilisation de la commande Remove-DriverGroup
 
 
 
-Supprime un groupe de pilotes à partir d’un serveur.
+supprime un groupe de pilotes d’un serveur.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,12 +36,12 @@ WDSUTIL /Remove-DriverGroup /DriverGroup:<Group Name> [/Server:<Server name>]
 
 |Paramètre|Description|
 |---------|-----------|
-|/ DriverGroup :\<nom du groupe >|Spécifie le nom du groupe de pilotes à supprimer.|
-|[/ Server :\<nom du serveur >]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom de domaine complet. Si un nom de serveur n’est pas spécifié, le serveur local est utilisé.|
+|/DriverGroup : nom de \<Group >|Spécifie le nom du groupe de pilotes à supprimer.|
+|[/Server : @no__t-nom 0Server >]|Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour supprimer un groupe de pilotes, tapez une des opérations suivantes :
+Pour supprimer un groupe de pilotes, tapez l’un des éléments suivants :
 ```
 WDSUTIL /Remove-DriverGroup /DriverGroup:PrinterDrivers
 ```
@@ -51,4 +51,4 @@ WDSUTIL /Remove-DriverGroup /DriverGroup:PrinterDrivers /Server:MyWdsServer
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

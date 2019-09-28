@@ -1,8 +1,8 @@
 ---
-title: ksetup:removerealm
-description: 'Rubrique de commandes de Windows pour ***- '
+title: 'Ksetup : removerealm'
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 579b0772e4642389b90aa370dad80a3eebea9d34
-ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.openlocfilehash: 11858d8a24d4f125c83b3e4092ac48f336a9ef0b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65564721"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374946"
 ---
-# <a name="ksetupremoverealm"></a>ksetup:removerealm
+# <a name="ksetupremoverealm"></a>Ksetup : removerealm
 
 
 
-Supprime toutes les informations pour le domaine Kerberos spécifié à partir du Registre. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Supprime du registre toutes les informations pour le domaine spécifié. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,25 +36,25 @@ ksetup /removerealm <RealmName>
 
 |Paramètre|Description|
 |---------|-----------|
-|\<RealmName>|Le nom de domaine est indiqué comme un nom DNS en majuscules, telles que CORP. CONTOSO.COM et il est répertorié en tant que le domaine par défaut lorsque **ksetup** est exécuté.|
+|@no__t 0RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM, et elle est indiquée comme domaine par défaut lorsque **Ksetup** est exécuté.|
 
 ## <a name="remarks"></a>Notes
 
-Le nom de domaine est stocké dans deux emplacements dans le Registre : **HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001** et **\CurrentControlSet\Control\Lsa\Kerberos**.
+Le nom de domaine est stocké à deux emplacements dans le registre : **HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001** et **\CurrentControlSet\Control\Lsa\Kerberos**.
 
-Vous ne pouvez pas supprimer le nom de domaine par défaut à partir du contrôleur de domaine, car cette opération réinitialise ses informations de DNS, et il suppression rendrait le contrôleur de domaine.
+Vous ne pouvez pas supprimer le nom de domaine par défaut du contrôleur de domaine, car cela réinitialisera ses informations DNS et risquerait de rendre le contrôleur de domaine inutilisable.
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 
-Par erreur la valeur est le nom de domaine par la faute d’orthographe dans «.COM » sur l’ordinateur local CORP. CONTOSO. CON
+Par erreur, définissez le nom de domaine en orthographiant mal l’orthographe de « . COM » sur l’ordinateur local sur CORP. CONTOSO. &AMP;
 ```
 ksetup /setrealm CORP.CONTOSO.CON
 ```
-Supprimer ce nom de domaine erronées à partir de l’ordinateur local :
+Supprimez ce nom de domaine erroné de l’ordinateur local :
 ```
 ksetup /removerealm CORP.CONTOSO.CON
 ```
-Vérifier la suppression en exécutant **ksetup** et examinez la sortie.
+Vérifiez la suppression en exécutant **Ksetup** et passez en revue la sortie.
 
 #### <a name="additional-references"></a>Références supplémentaires
 

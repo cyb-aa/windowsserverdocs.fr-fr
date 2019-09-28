@@ -1,8 +1,8 @@
 ---
-title: Nouveautés de la Protection des informations d’identification
+title: Nouveautés de la protection des informations d’identification
 description: Sécurité de Windows Server
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-credential-protection
@@ -13,77 +13,77 @@ author: gitmichiko
 ms.author: michikos
 manager: dongill
 ms.date: 03/06/2017
-ms.openlocfilehash: 475b6a0b24b811008ee213c1604d98d9aa9eb092
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 2351be82ad1d8b9af17715ce363836f57c71ea66
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447035"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71386908"
 ---
-# <a name="whats-new-in-credential-protection"></a>Nouveautés de la Protection des informations d’identification
+# <a name="whats-new-in-credential-protection"></a>Nouveautés de la protection des informations d’identification
 
 ## <a name="credential-guard-for-signed-in-user"></a>Credential Guard pour l’utilisateur connecté
 
-À partir de Windows 10, version 1507, Kerberos et NTLM utilisent la sécurité basée sur la virtualisation pour protéger les secrets de Kerberos et NTLM de l’ouverture de session utilisateur connecté. 
+À compter de Windows 10, version 1507, Kerberos et NTLM utilisent la sécurité basée sur la virtualisation pour protéger Kerberos & secrets NTLM de la session d’ouverture de session utilisateur connectée. 
 
-À partir de Windows 10, version 1511, Credential Manager utilise la sécurité basée sur la virtualisation pour protéger les informations d’identification enregistrées de type d’informations d’identification de domaine. Signé-informations d’identification et les informations d’identification de domaine enregistré ne seront pas transmises à un hôte distant à l’aide du Bureau à distance. Credential Guard peut être activé sans verrouillage UEFI.
+À compter de Windows 10, version 1511, le gestionnaire d’informations d’identification utilise la sécurité basée sur la virtualisation pour protéger les informations d’identification enregistrées du type d’informations d’identification de domaine. Les informations d’identification de connexion et les informations d’identification de domaine enregistrées ne seront pas transmises à un hôte distant à l’aide du Bureau à distance. Credential Guard peut être activé sans le verrou UEFI.
 
-À partir de Windows 10, version 1607, Mode utilisateur isolé est inclus avec Hyper-V afin qu’il n’est plus est installée séparément pour le déploiement de Credential Guard.
+À partir de Windows 10, version 1607, le mode utilisateur isolé est inclus dans Hyper-V, de sorte qu’il n’est plus installé séparément pour le déploiement de la protection des informations d’identification.
 
 [En savoir plus sur Credential Guard](https://technet.microsoft.com/itpro/windows/keep-secure/credential-guard).
 
 
-## <a name="remote-credential-guard-for-signed-in-user"></a>De Credential Guard à distance pour l’utilisateur connecté
+## <a name="remote-credential-guard-for-signed-in-user"></a>Remote Credential Guard pour l’utilisateur connecté
 
-À partir de Windows 10, version 1607, à distance de Credential Guard protège les informations d’identification de l’utilisateur connecté lorsque vous utilisez Bureau à distance en protégeant les secrets de Kerberos et NTLM sur le périphérique client. Pour l’hôte distant afin d’évaluer les ressources réseau en tant que l’utilisateur, les demandes d’authentification exigeant que l’appareil client à utiliser les secrets.
+À compter de Windows 10, version 1607, Credential protection à distance protège les informations d’identification de l’utilisateur connecté lors de l’utilisation de Bureau à distance en protégeant les secrets Kerberos et NTLM sur le périphérique client. Pour que l’hôte distant évalue les ressources réseau en tant qu’utilisateur, les demandes d’authentification requièrent que l’appareil client utilise les secrets.
 
-À partir de Windows 10, version 1703, à distance de Credential Guard protège les informations d’identification de l’utilisateur fourni lors de l’utilisation du Bureau à distance.
+À compter de Windows 10, version 1703, Credential Guard à distance protège les informations d’identification de l’utilisateur fournies lors de l’utilisation de Bureau à distance.
 
-[En savoir plus sur la protection des informations d’identification à distance](https://technet.microsoft.com/itpro/windows/keep-secure/remote-credential-guard).
+[En savoir plus sur Credential Guard à distance](https://technet.microsoft.com/itpro/windows/keep-secure/remote-credential-guard).
 
 ## <a name="domain-protections"></a>Protections de domaine
 
-Protections de domaine nécessitent un domaine Active Directory.
+Les protections de domaine nécessitent un domaine Active Directory.
 
-### <a name="domain-joined-device-support-for-authentication-using-public-key"></a>Prise en charge des appareils joints au domaine pour l’authentification à l’aide de la clé publique
+### <a name="domain-joined-device-support-for-authentication-using-public-key"></a>Prise en charge d’appareils joints à un domaine pour l’authentification à l’aide de la clé publique
 
-Depuis Windows 10 version 1507 et Windows Server 2016, si un appareil joint au domaine est en mesure d’enregistrer sa clé publique lié avec un contrôleur de domaine (DC) Windows Server 2016, puis l’appareil peut s’authentifier avec la clé publique à l’aide de Kerberos PKINIT authentification à un contrôleur de domaine Windows Server 2016.
+À compter de Windows 10 version 1507 et de Windows Server 2016, si un appareil joint à un domaine est en mesure d’inscrire sa clé publique liée auprès d’un contrôleur de domaine Windows Server 2016, l’appareil peut s’authentifier avec la clé publique à l’aide de l’utilisation de Kerberos PKINIT. authentification auprès d’un contrôleur de Windows Server 2016.
 
-À compter de Windows Server 2016, KDC prennent en charge l’authentification à l’aide d’approbation de clés Kerberos.  
+À partir de Windows Server 2016, les KDC prennent en charge l’authentification à l’aide de la confiance de clé Kerberos.  
 
-[En savoir plus sur la prise en charge de la clé publique pour les appareils joints au domaine et approbation de clés Kerberos](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication).
+En [savoir plus sur la prise en charge des clés publiques pour les appareils joints à un domaine & approbation de clé Kerberos](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication).
 
-### <a name="pkinit-freshness-extension-support"></a>Prise en charge de PKINIT fraîcheur extension
+### <a name="pkinit-freshness-extension-support"></a>Prise en charge de l’extension d’actualisation de PKINIT
 
-Depuis Windows 10, version 1507 et Windows Server 2016, les clients Kerberos va tenter de l’extension de fraîcheur PKInit pour la clé publique en connexion complémentaires. 
+À compter de Windows 10, version 1507 et Windows Server 2016, les clients Kerberos tentent d’effectuer l’extension d’actualisation de PKInit pour les connexions basées sur des clés publiques. 
 
-À compter de Windows Server 2016, KDC peut prendre en charge l’extension de fraîcheur PKInit.  Par défaut, le KDC n’offre pas l’extension de fraîcheur PKInit. 
+À partir de Windows Server 2016, les KDC peuvent prendre en charge l’extension d’actualisation de PKInit.  Par défaut, les KDC n’offrent pas l’extension d’actualisation de PKInit. 
 
-[En savoir plus sur la prise en charge PKINIT fraîcheur extension](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication).
+[En savoir plus sur la prise en charge de l’extension d’actualisation de PKINIT](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication).
 
-### <a name="rolling-public-key-only-users-ntlm-secrets"></a>Propagée publique clé uniquement NTLM secrets des utilisateurs
+### <a name="rolling-public-key-only-users-ntlm-secrets"></a>Répercussion de la clé publique uniquement des secrets NTLM de l’utilisateur
 
-À compter de niveau fonctionnel du domaine Windows Server 2016 (niveau fonctionnel du domaine), contrôleurs de domaine peuvent prendre en charge roulement des secrets NTLM publique clé uniquement d’un utilisateur. Cette fonctionnalité est disponible dans DFLs inférieur.
+À partir du niveau fonctionnel de domaine (DFL) de Windows Server 2016, les contrôleurs de domaine peuvent prendre en charge la restauration d’une clé publique uniquement des secrets NTLM de l’utilisateur. Cette fonctionnalité est unavailble dans les DFLs inférieurs.
 
 > [!WARNING] 
-> Ajout d’un contrôleur de domaine à un domaine avec propagées secrets NTLM est activées avant que le contrôleur de domaine a été mis à jour au moins 8 novembre 2016 de maintenance s’exécute le risque du contrôleur de domaine se bloque. 
+> L’ajout d’un contrôleur de domaine à un domaine avec des secrets NTLM enchaînés étant activé avant la mise à jour du contrôleur de domaine avec au moins le 8 novembre, la maintenance de 2016 exécute le risque de panne de contrôleur de domaine. 
 
-Configuration : Pour de nouveaux domaines, cette fonctionnalité est activée par défaut. Pour des domaines existants, il doit être configuré dans le centre d’administration Active Directory : 
+Configuration : Pour les nouveaux domaines, cette fonctionnalité est activée par défaut. Pour les domaines existants, elle doit être configurée dans le centre d’administration Active Directory : 
 
-1. À partir du centre d’administration Active Directory, cliquez sur le domaine dans le volet gauche et sélectionnez **propriétés**.
+1. Dans le centre d’administration Active Directory, cliquez avec le bouton droit sur le domaine dans le volet gauche et sélectionnez **Propriétés**.
 
-    ![Propriétés de domaine](../media/Credentials-Protection-And-Management/domain-properties.png)
+    ![Propriétés du domaine](../media/Credentials-Protection-And-Management/domain-properties.png)
 
-2. Sélectionnez **activer le déploiement des secrets NTLM arrivant à expiration lors de l’inscription, pour les utilisateurs qui sont nécessaires pour utiliser Microsoft Passport ou carte à puce pour l’ouverture de session interactive**.
+2. Sélectionnez **activer le déploiement des secrets NTLM arrivant à expiration pendant l’authentification pour les utilisateurs qui doivent utiliser Microsoft Passport ou une carte à puce pour une ouverture de session interactive**.
 
-    ![Secrets NTLM Autoroll arrivant à expiration](../media/Credentials-Protection-And-Management/autoroll-ntlm.png)
+    ![Annulation des secrets NTLM arrivant à expiration](../media/Credentials-Protection-And-Management/autoroll-ntlm.png)
 
 3. Cliquez sur **OK**. 
 
-### <a name="allowing-network-ntlm-when-user-is-restricted-to-specific-domain-joined-devices"></a>Autorise le réseau NTLM lors de l’utilisateur est limité à des appareils spécifiques à un domaine
+### <a name="allowing-network-ntlm-when-user-is-restricted-to-specific-domain-joined-devices"></a>Autorisation du réseau NTLM quand l’utilisateur est limité à des appareils spécifiques joints à un domaine
 
-À compter de Windows Server 2016 niveau fonctionnel du domaine (DFL), contrôleurs de domaine peut prendre en charge réseau autorisant NTLM lorsqu’un utilisateur est limité à des appareils joints au domaine. Cette fonctionnalité n’est pas disponible dans DFLs inférieur.
+À partir du niveau fonctionnel de domaine (DFL) de Windows Server 2016, les contrôleurs de domaine peuvent prendre en charge l’autorisation du réseau NTLM lorsqu’un utilisateur est limité à des appareils spécifiques joints à un domaine. Cette fonctionnalité n’est pas disponible dans les DFLs inférieurs.
 
-Configuration : Dans la stratégie d’authentification, cliquez sur **l’authentification NTLM autoriser réseau lorsque l’utilisateur est limité à des appareils sélectionnés**. 
+Configuration : Dans la stratégie d’authentification, cliquez sur **autoriser l’authentification réseau NTLM lorsque l’utilisateur est limité à des appareils sélectionnés**. 
 
 [En savoir plus sur les stratégies d’authentification](https://technet.microsoft.com/windows-server-docs/security/credentials-protection-and-management/authentication-policies-and-authentication-policy-silos).

@@ -6,14 +6,14 @@ author: shortpatti
 ms.author: pashort
 ms.date: 09/05/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: a0c4d01d095e8052a2192d6b6352732a6fe60919
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 38682afa37a4c6882ee2e63a4abf4cd9fdbd2b27
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871790"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405211"
 ---
 # <a name="insider-preview"></a>Insider preview 
 
@@ -55,7 +55,7 @@ Pour plus d'informations, voir :
 
 Lors de la réception d’un paquet de synchronisation sur le réseau à partir d’un serveur de temps, il doit être traité par la pile de mise en réseau du système d’exploitation avant d’être consommé dans le service de temps. Chaque composant de la pile de mise en réseau introduit une quantité variable de latence qui affecte la précision de la mesure de synchronisation.
 
-![horodatage logiciel](../media/Windows-Time-Service/software-timestamping.png)
+![Horodatage logiciel](../media/Windows-Time-Service/software-timestamping.png)
 
 Pour résoudre ce problème, l’horodatage logiciel nous permet d’horodater les paquets avant et après les « composants réseau Windows » indiqués ci-dessus pour tenir compte du délai dans le système d’exploitation.
 

@@ -1,8 +1,8 @@
 ---
 title: ntbackup
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,23 +13,23 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 783f73eba2aeaf9f30c5c1e12a623f1f87f24ede
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ebbe71fd5547311beb36747d32d695823e0f0059
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846340"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372681"
 ---
 # <a name="ntbackup"></a>ntbackup
 
 
 
-Le **ntbackup** commande n’est pas disponible dans Windows Vista ou Windows Server 2008. Au lieu de cela, vous devez utiliser le **wbadmin** sous-commandes pour sauvegarder et restaurer votre ordinateur et les fichiers à partir d’une invite de commandes et la commande.
+La commande **ntbackup** n’est pas disponible dans Windows Vista ou windows Server 2008. Au lieu de cela, vous devez utiliser la commande et les sous-commandes **Wbadmin** pour sauvegarder et restaurer votre ordinateur et vos fichiers à partir d’une invite de commandes.
 
-Vous ne pouvez pas récupérer des sauvegardes créées avec **ntbackup** à l'aide de **wbadmin**. Toutefois, une version de **ntbackup** est disponible en téléchargement pour les utilisateurs de Windows Server 2008 et Windows Vista qui souhaitent récupérer des sauvegardes créées à l’aide de **ntbackup**. Cette version téléchargeable de **ntbackup** active vous permettent d’effectuer des récupérations uniquement de sauvegardes héritées et il ne peut pas être utilisé pour créer des sauvegardes sur les ordinateurs exécutant Windows Server 2008 ou Windows Vista. Pour télécharger cette version de **ntbackup**, consultez [ https://go.microsoft.com/fwlink/?LinkId=82917 ](https://go.microsoft.com/fwlink/?LinkId=82917).
+Vous ne pouvez pas récupérer des sauvegardes créées avec **ntbackup** à l'aide de **wbadmin**. Toutefois, une version de **ntbackup** est disponible en téléchargement pour les utilisateurs de windows Server 2008 et Windows Vista qui souhaitent récupérer des sauvegardes créées à l’aide de **ntbackup**. Cette version téléchargeable de **ntbackup** vous permet d’effectuer des récupérations uniquement des sauvegardes héritées et ne peut pas être utilisée sur des ordinateurs exécutant windows Server 2008 ou Windows Vista pour créer de nouvelles sauvegardes. Pour télécharger cette version de **ntbackup**, consultez [https://go.microsoft.com/fwlink/?LinkId=82917](https://go.microsoft.com/fwlink/?LinkId=82917).
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 
 [Wbadmin](wbadmin.md)

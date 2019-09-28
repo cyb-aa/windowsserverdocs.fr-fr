@@ -6,15 +6,15 @@ author: arduppal
 ms.author: arduppal
 ms.date: 12/19/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 8c3bf68f606a9016295649efa69edc47eab7d4f7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 26eba76c836d1157f4d4c10d7a989a3a7dcc1538
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869778"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393829"
 ---
 # <a name="cluster-to-cluster-storage-replica-cross-region-in-azure"></a>Réplica du stockage de cluster à cluster entre régions dans Azure
 
@@ -190,7 +190,7 @@ Regardez la vidéo ci-dessous pour une procédure pas à pas complète du proces
       - Emplacement du volume :-c:\ClusterStorage\DataDiskCross
       - Emplacement du journal :-g :
 
-Exécutez la commande suivante :
+Exécutez la commande :
 
 ```powershell
 PowerShell

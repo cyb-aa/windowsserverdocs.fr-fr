@@ -1,8 +1,8 @@
 ---
-title: À l’aide de la commande get-AutoaddDevices
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Utilisation de la commande AutoaddDevices
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 337c8e76923fe243982ba9c10d18f2e5a5e7d9ff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fa30a8ebd73164dc3d8ab267c3deb0739aa4b700
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885740"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363247"
 ---
-# <a name="using-the-get-autoadddevices-command"></a>À l’aide de la commande get-AutoaddDevices
+# <a name="using-the-get-autoadddevices-command"></a>Utilisation de la commande AutoaddDevices
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Affiche tous les ordinateurs qui se trouvent dans la base de données d’ajout automatique sur un serveur de Services de déploiement Windows.
+Affiche tous les ordinateurs qui se trouvent dans la base de données d’ajout automatique sur un serveur des services de déploiement Windows.
 ## <a name="syntax"></a>Syntaxe
 ```
 wdsutil [Options] /Get-AutoaddDevices [/Server:<Server name>] /Devicetype:{PendingDevices | RejectedDevices | ApprovedDevices}
@@ -32,9 +32,9 @@ wdsutil [Options] /Get-AutoaddDevices [/Server:<Server name>] /Devicetype:{Pendi
 ## <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-|[/Server:<Server name>]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local doit être utilisé.|
-|/ Devicetype : {PendingDevices &#124; RejectedDevices &#124; ApprovedDevices}|Spécifie le type d’ordinateur à retourner.<br /><br />-   **PendingDevices** retourne tous les ordinateurs dans la base de données qui ont le statut en attente.<br />-   **RejectedDevices** retourne tous les ordinateurs dans la base de données qu’ont un état rejetés.<br />-   **ApprovedDevices** retourne tous les ordinateurs dans la base de données qui ont un état approuvé.|
-## <a name="BKMK_examples"></a>Exemples
+|[/Server:<Server name>]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
+|/DeviceType : {PendingDevices &#124; RejectedDevices &#124; ApprovedDevices}|Spécifie le type d’ordinateur à retourner.<br /><br />-   **PendingDevices** retourne tous les ordinateurs de la base de données dont l’État est en attente.<br />-   **RejectedDevices** retourne tous les ordinateurs de la base de données dont l’État est rejeté.<br />-   **ApprovedDevices** retourne tous les ordinateurs de la base de données dont l’État est approuvé.|
+## <a name="BKMK_examples"></a>Illustre
 Pour afficher tous les ordinateurs approuvés, tapez :
 ```
 wdsutil /Get-AutoaddDevices /Devicetype:ApprovedDevices
@@ -46,5 +46,5 @@ wdsutil /verbose /Get-AutoaddDevices /Devicetype:RejectedDevices /Server:MyWDSSe
 #### <a name="additional-references"></a>Références supplémentaires
 [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 [à l’aide de la commande delete-AutoaddDevices](using-the-delete-autoadddevices-command.md)
-[à l’aide de la commande approuver-AutoaddDevices](using-the-approve-autoadddevices-command.md) 
- [ À l’aide de la commande Reject-AutoaddDevices](using-the-reject-autoadddevices-command.md)
+[à l’aide de la commande approve-AutoaddDevices](using-the-approve-autoadddevices-command.md)
+[à l’aide de la commande Reject-AutoaddDevices](using-the-reject-autoadddevices-command.md)

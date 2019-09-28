@@ -1,7 +1,7 @@
 ---
 title: Meilleures pratiques pour exécuter FreeBSD sur Hyper-V
 description: Fournit des recommandations pour l’exécution de FreeBSD sur des machines virtuelles
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,12 +11,12 @@ ms.assetid: 0c66f1c8-2606-43a3-b4cc-166acaaf2d2a
 author: shirgall
 ms.author: kathydav
 ms.date: 01/09/2017
-ms.openlocfilehash: 598087411b35dde2e4a1cb606fae6a4602fe588e
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 1d284b38e1bdb642aa40ecbb8e82caa7712f7aad
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544691"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365630"
 ---
 # <a name="best-practices-for-running-freebsd-on-hyper-v"></a>Meilleures pratiques pour exécuter FreeBSD sur Hyper-V
 
@@ -28,13 +28,13 @@ Cette rubrique contient une liste de recommandations pour l’exécution de Free
 
 Le protocole CARP (Common Address Redundancy Protocol) permet à plusieurs hôtes de partager la même adresse IP et l’ID d’hôte virtuel (VHID) pour fournir une haute disponibilité pour un ou plusieurs services. Si un ou plusieurs ordinateurs hôtes échouent, les autres hôtes prennent le relais de manière transparente afin que les utilisateurs ne remarquent pas un échec du service. Pour utiliser le protocole CARP dans FreeBSD 10,2, suivez les instructions du [Manuel FreeBSD](https://www.freebsd.org/doc/en/books/handbook/carp.html) et procédez comme suit dans le Gestionnaire Hyper-V.
 
-* Vérifiez que la machine virtuelle dispose d’une carte réseau et qu’elle est dotée d’un commutateur virtuel. Sélectionnez la machine virtuelle et sélectionnez les**paramètres** **actions** > .
+* Vérifiez que la machine virtuelle dispose d’une carte réseau et qu’elle est dotée d’un commutateur virtuel. Sélectionnez la machine virtuelle et sélectionnez **Actions** > **paramètres**.
 
 ![Capture d’écran des paramètres de machine virtuelle avec la carte réseau sélectionnée](media/Hyper-V_Settings_NetworkAdapter.png)
 
 * Activez l’usurpation d’adresses MAC. Pour ce faire,
 
-   1. Sélectionnez la machine virtuelle et sélectionnez les**paramètres** **actions** > .
+   1. Sélectionnez la machine virtuelle et sélectionnez **Actions** > **paramètres**.
 
    2. Développez **carte réseau** et sélectionnez **fonctionnalités avancées**.
 
@@ -62,9 +62,9 @@ Au démarrage, les nœuds d’appareil sont créés à mesure que de nouveaux p�
    # exit
    ```
 
-   Vous trouverez des informations supplémentaires sur les étiquettes GEOM à l’adresse suivante: [Étiquetage des périphériques de disque](https://www.freebsd.org/doc/handbook/geom-glabel.html).
+   Vous trouverez des informations supplémentaires sur les étiquettes GEOM à l’adresse suivante : [Étiquetage des périphériques de disque](https://www.freebsd.org/doc/handbook/geom-glabel.html).
 
-3. Le système se poursuit avec le démarrage multi-utilisateur. Une fois le démarrage terminé, modifiez/etc/fstab et remplacez les noms des appareils conventionnels par leurs étiquettes respectives. Le/etc/fstab final se présente comme suit:
+3. Le système se poursuit avec le démarrage multi-utilisateur. Une fois le démarrage terminé, modifiez/etc/fstab et remplacez les noms des appareils conventionnels par leurs étiquettes respectives. Le/etc/fstab final se présente comme suit :
 
    ```
    # Device                Mountpoint      FStype  Options         Dump    Pass#
@@ -72,7 +72,7 @@ Au démarrage, les nœuds d’appareil sont créés à mesure que de nouveaux p�
    /dev/label/swap         none            swap    sw              0       0
    ```
 
-4. Le système peut maintenant être redémarré. Si tout s’est bien passé, le montage sera normal et le montage affichera les éléments suivants:
+4. Le système peut maintenant être redémarré. Si tout s’est bien passé, le montage sera normal et le montage affichera les éléments suivants :
 
    ```
    # mount

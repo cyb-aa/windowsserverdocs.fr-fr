@@ -1,8 +1,8 @@
 ---
-title: compact vdisk
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Compact vdisk
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,39 +13,39 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c4a95354bf041777e43a9eac5f16e693b02c185c
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 7efd40fa4b822636eda9f4082b5f561b452d3846
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434305"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379300"
 ---
-# <a name="compact-vdisk"></a>compact vdisk
+# <a name="compact-vdisk"></a>Compact vdisk
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Réduit la taille physique d’un fichier de disque dur virtuel (VHD) de taille dynamique. Ce paramètre est utile, car l’augmentation de disques durs virtuels de taille à extension dynamique que vous ajoutez des fichiers, mais ils ne diminue pas automatiquement la taille lorsque vous supprimez des fichiers.
+Réduit la taille physique d’un fichier de disque dur virtuel (VHD) de taille dynamique. Ce paramètre est utile, car la taille des disques durs virtuels à extension dynamique augmente au fur et à mesure que vous ajoutez des fichiers, mais ils ne diminuent pas automatiquement la taille lorsque vous supprimez des fichiers.
 > [!NOTE]
-> Cette commande est uniquement applicable à Windows 7 et Windows Server 2008 R2.
+> Cette commande s’applique uniquement à Windows 7 et Windows Server 2008 R2.
 > ## <a name="syntax"></a>Syntaxe
 > ```
 > compact vdisk
 > ```
 > ## <a name="remarks"></a>Notes
-> - Un disque dur virtuel de taille dynamique doit être sélectionné pour cette opération réussisse. Utilisez le **sélectionnez vdisk** commande pour sélectionner un disque dur virtuel et de déplacer le focus vers elle.
-> - Vous pouvez uniquement compacter de taille dynamique des disques durs virtuels sont détachés ou attachés en lecture seule.
->   ## <a name="BKMK_Examples"></a>Exemples
+> - Un VHD de taille dynamique doit être sélectionné pour que cette opération aboutisse. Utilisez la commande **Select vdisk** pour sélectionner un disque dur virtuel et lui déplacer le focus.
+> - Vous ne pouvez compacter que des disques durs virtuels de taille dynamique qui sont détachés ou attachés en lecture seule.
+>   ## <a name="BKMK_Examples"></a>Illustre
 >   Pour compacter un disque dur virtuel de taille dynamique, tapez :
 >   ```
 >   compact vdisk
 >   ```
 >   ## <a name="additional-references"></a>Références supplémentaires
 > - [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-> - [attach vdisk](attach-vdisk.md)
+> - [attacher vdisk](attach-vdisk.md)
 
--   [detail vdisk](detail-vdisk.md)
+-   [détailler vdisk](detail-vdisk.md)
 -   [Détacher vdisk](detach-vdisk.md)
--   [Développez vdisk](expand-vdisk.md)
--   [Fusion vdisk](merge-vdisk.md)
--   [select vdisk](select-vdisk.md)
+-   [développer vdisk](expand-vdisk.md)
+-   [Merge vdisk](merge-vdisk.md)
+-   [sélectionner vdisk](select-vdisk.md)
 -   [list_1](list_1.md)

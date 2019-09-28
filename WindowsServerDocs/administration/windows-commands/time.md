@@ -2,7 +2,7 @@
 title: time
 description: Découvrez comment définir et afficher l’heure système.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b5c1f43be98a19c4b150c247cc7fd48d62edeb5c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 484653ed65d5e5c16d74b2cb45b2c9da71aa62aa
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861910"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369952"
 ---
 # <a name="time"></a>time
 
 
 
-Affiche ou définit l’heure système. Si utilisée sans paramètres, **temps** affiche l’heure système actuelle et vous invite à entrer une nouvelle heure.
+Affiche ou définit l’heure système. S’il est utilisé sans paramètres, l' **heure** affiche l’heure système actuelle et vous invite à entrer une nouvelle heure.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -38,35 +38,35 @@ time [/t | [<HH>[:<MM>[:<SS>]] [am|pm]]]
 
 |Paramètre|Description|
 |---------|-----------|
-|\<HH>[:\<MM>[:\<SS>[.\<NN>]]] [am\|pm]|Définit l’heure système sur la nouvelle heure spécifiée, où *HH* est exprimé en heures (obligatoire), *MM* en minutes, et *SS* est exprimé en secondes. *NN* peut être utilisé pour spécifier les centièmes de seconde. Si **suis** ou **pm** n’est pas spécifié, **temps** utilise le format de 24 heures par défaut.|
-|/t|Affiche l’heure actuelle sans vous invite à entrer une nouvelle heure.|
+|\<HH > [ : \<MM > [ : \<SS > [. \<NN >]]] [AM @ no__t-16h00]|Définit l’heure système sur la nouvelle heure spécifiée, où *hh* est en heures (obligatoire), *mm* est en minutes et *SS* est en secondes. *Nn* peut être utilisé pour spécifier les centièmes de seconde. Si **am** ou **PM** n’est pas spécifié, l' **heure** utilise le format 24 heures par défaut.|
+|commutateur|Affiche l’heure actuelle sans vous demander une nouvelle heure.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
--   Pour modifier l’heure actuelle, vous devez disposer des informations d’identification administratives.
--   Vous devez séparer les valeurs pour *HH*, *MM*, et *SS* avec des deux-points ( :)). *SS* et *NN* doivent être séparés par un point (.).
--   Valide *HH* valeurs vont de 0 à 24.
--   Valide *MM* et *SS* valeurs vont de 0 à 59.
+-   Pour modifier l’heure actuelle, vous devez disposer d’informations d’identification d’administration.
+-   Vous devez séparer les valeurs des valeurs *hh*, *mm*et *SS* par des signes deux-points ( :). *SS* et *nn* doivent être séparés par un point (.).
+-   Les valeurs *hh* valides sont comprises entre 0 et 24.
+-   Les valeurs valides *mm* et *SS* sont comprises entre 0 et 59.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 Si les extensions de commande sont activées, pour afficher l’heure système actuelle, tapez :
 ```
 time /t
 ```
-Pour modifier l’heure système actuelle à 17 h 30, tapez une des opérations suivantes :
+Pour modifier l’heure système actuelle pour 5:30 P.M., tapez l’une des valeurs suivantes :
 ```
 time 17:30:00
 time 5:30 pm
 ```
-Pour afficher l’heure système actuelle, suivie d’une invite à entrer une nouvelle heure, tapez :
+Pour afficher l’heure système actuelle, puis une invite pour entrer une nouvelle heure, tapez :
 ```
 The current time is: 17:33:31.35
 Enter the new time:
 ```
-Pour conserver l’heure actuelle et revenir à l’invite de commandes, appuyez sur ENTRÉE. Pour modifier l’heure actuelle, tapez la nouvelle heure et appuyez sur ENTRÉE.
+Pour conserver l’heure actuelle et revenir à l’invite de commandes, appuyez sur entrée. Pour modifier l’heure actuelle, tapez la nouvelle heure, puis appuyez sur entrée.
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

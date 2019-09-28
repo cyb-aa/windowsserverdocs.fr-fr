@@ -2,7 +2,7 @@
 title: tasklist
 description: Découvrez comment afficher une liste des processus en cours d’exécution sur l’ordinateur local ou distant.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f2c933bb68c488d83311856958a56809f2f5b859
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f7ad61dfe8beb86c8299dd71bec1d862805e50e0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440994"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71383680"
 ---
 # <a name="tasklist"></a>tasklist
 
-Affiche la liste des processus actuellement en cours d’exécution sur l’ordinateur local ou sur un ordinateur distant. **TaskList** remplace le **tlist** outil.
+Affiche la liste des processus actuellement en cours d’exécution sur l’ordinateur local ou sur un ordinateur distant. **TaskList** remplace l’outil **tlist** .
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -36,60 +36,60 @@ tasklist [/s <Computer> [/u [<Domain>\]<UserName> [/p <Password>]]] [{/m <Module
 
 |          Paramètre           |                                                                                                                                            Description                                                                                                                                             |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|        /s \<ordinateur >        |                                                                                         Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.                                                                                         |
-| /u [\<Domain>\\\]\<UserName> | Exécute la commande avec les autorisations de compte de l’utilisateur qui est spécifié par *nom d’utilisateur* ou *domaine*\*nom d’utilisateur<em>. \* \*/u</em> \* peut être spécifié uniquement si **/s** est spécifié. La valeur par défaut est les autorisations de l’utilisateur actuellement connecté à l’ordinateur qui émet la commande. |
-|        /p \<mot de passe >        |                                                                                                       Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** paramètre.                                                                                                        |
-|         /m \<Module>         |                                                               Répertorie toutes les tâches avec les modules DLL chargés qui correspondent au nom de modèle donné. Si le nom du module n’est pas spécifié, cette option affiche tous les modules chargés par chaque tâche.                                                                |
-|             /svc             |                                                                                    Répertorie toutes les informations de service pour chaque processus sans troncation. Valide lorsque le **/fo** paramètre est défini sur **table**.                                                                                    |
-|              /v              |                                                                                 Affiche des commentaires sur les tâches dans la sortie. Pour obtenir une sortie détaillée complète sans troncation, utilisez **/v** et **/svc** ensemble.                                                                                 |
-|  /FO {table \| liste \| csv}  |                                                                             Spécifie le format à utiliser pour la sortie. Les valeurs valides sont **table**, **liste**, et **csv**. Le format par défaut pour la sortie est **table**.                                                                             |
-|             /nh              |                                                                                             Supprime les en-têtes de colonne dans la sortie. Valide lorsque le **/fo** paramètre est défini sur **table** ou **csv**.                                                                                              |
-|        /fi \<Filter>         |                                                                          Spécifie les types de processus à inclure ou à exclure de la requête. Consultez le tableau suivant pour les noms de filtre valide, les opérateurs et les valeurs.                                                                          |
+|        /s \<Computer >        |                                                                                         Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.                                                                                         |
+| /u [\<Domain > \\ @ no__t-2 @ no__t-3UserName > | Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par le *nom d’utilisateur* ou le *domaine*\*UserName<em>. \* @ no__t-5/u</em>\* ne peut être spécifiée que si l’option **/s** est spécifiée. La valeur par défaut est les autorisations de l’utilisateur actuellement connecté à l’ordinateur qui émet la commande. |
+|        /p \<mot de passe >        |                                                                                                       Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .                                                                                                        |
+|         /m \<Module >         |                                                               Répertorie toutes les tâches avec des modules de DLL chargés qui correspondent au nom de modèle donné. Si le nom du module n’est pas spécifié, cette option affiche tous les modules chargés par chaque tâche.                                                                |
+|             /SVC             |                                                                                    Répertorie toutes les informations de service pour chaque processus sans troncation. Valide lorsque le paramètre **/FO** est défini sur **table**.                                                                                    |
+|              /v              |                                                                                 Affiche des informations détaillées sur les tâches dans la sortie. Pour obtenir une sortie détaillée sans troncation, utilisez **/v** et **/SVC** ensemble.                                                                                 |
+|  /FO {table \| liste \| CSV}  |                                                                             Spécifie le format à utiliser pour la sortie. Les valeurs valides sont **table**, **List**et **CSV**. Le format par défaut de la sortie est **table**.                                                                             |
+|             /NH              |                                                                                             Supprime les en-têtes de colonnes dans la sortie. Valide lorsque le paramètre **/FO** est défini sur **table** ou **CSV**.                                                                                              |
+|        /fi \<filtre >         |                                                                          Spécifie les types de processus à inclure dans la requête ou à exclure de celle-ci. Consultez le tableau suivant pour connaître les noms de filtre, les opérateurs et les valeurs valides.                                                                          |
 |              /?              |                                                                                                                                Affiche l'aide à l'invite de commandes.                                                                                                                                |
 
-### <a name="filter-names-operators-and-values"></a>Filtrer les noms, opérateurs et valeurs
+### <a name="filter-names-operators-and-values"></a>Filtrer les noms, les opérateurs et les valeurs
 
 | Nom du filtre |    Opérateurs valides     |                                                                 Valeurs valides                                                                 |
 |-------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-|   ÉTAT    |         eq, ne         |                                                                   EN COURS D’EXÉCUTION                                                                    |
+|   STATU    |         eq, ne         |                                                                   MARCHE                                                                    |
 |  IMAGENAME  |         eq, ne         |                                                                  Nom de l’image                                                                  |
 |     PID     | eq, ne, gt, lt, ge, le |                                                                  Valeur PID                                                                   |
 |   SESSION   | eq, ne, gt, lt, ge, le |                                                                Numéro de session                                                                |
-| NOM DE SESSION |         eq, ne         |                                                                 Nom de session                                                                 |
-|   CPUTIME   | eq, ne, gt, lt, ge, le | Temps processeur dans le format <em>HH</em> **:** <em>MM</em> **:** <em>SS</em>, où *MM* et *SS* sont comprises entre 0 et 59 et *HH* est le nombre non signé |
+| SESSION |         eq, ne         |                                                                 Nom de session                                                                 |
+|   CPUTIME   | eq, ne, gt, lt, ge, le | Temps processeur au format <em>hh</em> **:** <em>mm</em> **:** <em>SS</em>, où *mm* et *SS* sont compris entre 0 et 59 et *hh* est un nombre non signé |
 |  MEMUSAGE   | eq, ne, gt, lt, ge, le |                                                              Utilisation de la mémoire en Ko                                                              |
 |  NOM D’UTILISATEUR   |         eq, ne         |                                                             N’importe quel nom d’utilisateur valide                                                              |
 |  SERVICES   |         eq, ne         |                                                                 Nom du service                                                                 |
 | WINDOWTITLE |         eq, ne         |                                                                 Titre de la fenêtre                                                                 |
-|   MODULES   |         eq, ne         |                                                                   Nom de la DLL                                                                   |
+|   ACTUALIS   |         eq, ne         |                                                                   Nom de la DLL                                                                   |
 
 ## <a name="remarks"></a>Notes
 
-Les filtres WINDOWTITLE et état ne sont pas pris en charge lorsqu’un système distant est spécifié.
+WINDOWTITLE et les filtres d’État ne sont pas pris en charge lorsqu’un système distant est spécifié.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour répertorier toutes les tâches avec un ID de processus supérieur à 1 000 et les afficher au format CSV, tapez :
+Pour répertorier toutes les tâches dont l’ID de processus est supérieur à 1000, et les afficher au format CSV, tapez :
 ```
 tasklist /v /fi "PID gt 1000" /fo csv
 ```
-Pour répertorier les processus système qui sont en cours d’exécution, tapez :
+Pour répertorier les processus système en cours d’exécution, tapez :
 ```
 tasklist /fi "USERNAME ne NT AUTHORITY\SYSTEM" /fi "STATUS eq running"
 ```
-Pour répertorier des informations détaillées pour tous les processus en cours d’exécution, tapez :
+Pour afficher des informations détaillées sur tous les processus en cours d’exécution, tapez :
 ```
 tasklist /v /fi "STATUS eq running"
 ```
-Pour répertorier toutes les informations de service pour les processus sur l’ordinateur distant « Srvmain » qui ont des DLL nom commence par « ntdll », tapez :
+Pour répertorier toutes les informations de service pour les processus sur l’ordinateur distant « Srvmain » qui ont un nom de DLL commençant par « ntdll », tapez :
 ```
 tasklist /s srvmain /svc /fi "MODULES eq ntdll*"
 ```
-Pour répertorier les processus sur l’ordinateur distant « Srvmain », les informations d’identification de votre compte d’utilisateur actuellement connecté, tapez :
+Pour répertorier les processus sur l’ordinateur distant « Srvmain », à l’aide des informations d’identification de votre compte d’utilisateur actuellement connecté, tapez :
 ```
 tasklist /s srvmain 
 ```
-Pour répertorier les processus sur l’ordinateur distant « Srvmain », les informations d’identification du compte d’utilisateur Hiropln, tapez :
+Pour répertorier les processus sur l’ordinateur distant « Srvmain », à l’aide des informations d’identification du compte d’utilisateur hiropln, tapez :
 ```
 tasklist /s srvmain /u maindom\hiropln /p p@ssW23
 ```

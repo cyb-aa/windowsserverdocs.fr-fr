@@ -1,8 +1,8 @@
 ---
-title: ftp mls_1
-description: 'Rubrique de commandes de Windows pour ***- '
+title: mls_1 FTP
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7a379ead9c56af096e121048a8c0f596f6879bb0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: a84a0f8f3121ea19876744e9ef04bebf5f9fcb08
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438542"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376259"
 ---
-# <a name="ftp-mls1"></a>FTP : mls_1
+# <a name="ftp-mls_1"></a>FTP : mls_1
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Affiche une liste abrégée des fichiers et sous-répertoires dans un répertoire distant.   
+Affiche une liste abrégée de fichiers et de sous-répertoires dans un répertoire distant.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 mls <remoteFile>[ ] <LocalFile>  
@@ -37,16 +37,16 @@ mls <remoteFile>[ ] <LocalFile>
 | <LocalFile>  |  Spécifie un fichier local dans lequel stocker la liste.  |
 
 ## <a name="remarks"></a>Notes  
-- Spécification *Fichiers_distants*  
-  Tapez un trait d’union ( **-** ) à utiliser le répertoire de travail actuel sur l’ordinateur distant.  
-- Spécification *LocalFile*  
-  Tapez un trait d’union ( **-** ) pour afficher la liste à l’écran.  
-  ## <a name="BKMK_Examples"></a>Exemples  
-  Afficher une liste abrégée des fichiers et sous-répertoires **dir1** et **dir2**.  
+- Spécification de *remoteFiles*  
+  tapez un trait d’Union ( **-** ) pour utiliser le répertoire de travail actuel sur l’ordinateur distant.  
+- Spécification du *fichier_local*  
+  tapez un trait d’Union ( **-** ) pour afficher la liste à l’écran.  
+  ## <a name="BKMK_Examples"></a>Illustre  
+  Affichez une liste abrégée de fichiers et de sous-répertoires pour **dir1** et **dir2**.  
   ```  
   mls dir1 dir2 -  
   ```  
-  Enregistrer une liste abrégée des fichiers et sous-répertoires **dir1** et **dir2** dans le fichier local **ListRép.txt**  
+  Enregistrer une liste abrégée de fichiers et de sous-répertoires pour **dir1** et **dir2** dans le fichier local **DirList. txt**  
   ```  
   mls dir1 dir2 dirlist.txt   
   ```  

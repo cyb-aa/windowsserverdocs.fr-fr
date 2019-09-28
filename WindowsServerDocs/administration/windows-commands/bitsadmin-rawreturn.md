@@ -1,8 +1,8 @@
 ---
 title: bitsadmin rawreturn
-description: Rubrique de commandes de Windows pour **bitsadmin rawreturn** -retourne des données approprié pour l’analyse.
+description: La rubrique commandes Windows pour **Bitsadmin rawReturn** -retourne des données adaptées à l’analyse.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4e12c8e621021d35ac618b4592515fe38c36be0e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 86d769de460538acda696194348980de5752d6d8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434893"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380878"
 ---
 # <a name="bitsadmin-rawreturn"></a>bitsadmin rawreturn
 
-Retourne des données approprié pour l’analyse.
+Retourne les données appropriées pour l’analyse.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,11 +32,11 @@ bitsadmin /RawReturn
 
 ## <a name="remarks"></a>Notes
 
-Caractères de saut de ligne de bandes et mise en forme à partir de la sortie.
+Supprime les caractères de saut de ligne et la mise en forme de la sortie.
 
-En règle générale, vous utilisez cette commande conjointement avec la **créer** et **obtenir\\** * commutateurs pour recevoir uniquement la valeur. Vous devez spécifier ce commutateur avant les autres commutateurs.
+En général, vous utilisez cette commande conjointement avec les commutateurs **Create** et **obtenir @ no__t-2*** pour recevoir uniquement la valeur. Vous devez spécifier ce commutateur avant les autres commutateurs.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 L’exemple suivant récupère les données brutes pour l’état de la tâche nommée *myDownloadJob*.
 ```

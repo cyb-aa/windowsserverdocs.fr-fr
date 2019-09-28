@@ -7,26 +7,26 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d69ccfd15004619f890c6f5c1cb630c62e16256b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e8673b9e66a0aa3b6bea89b91ae5022efb26c65c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889190"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71390507"
 ---
 # <a name="virtualized-domain-controller-architecture"></a>Architecture des contrôleurs de domaine virtualisés
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique décrit l'architecture du clonage et de la restauration sécurisée d'un contrôleur de domaine virtualisé. Elle illustre le processus de clonage et de restauration sécurisée à l'aide d'organigrammes, puis explique de manière détaillée chaque étape du processus.  
   
--   [Architecture de clonage de contrôleur de domaine virtualisés](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_CloneArch)  
+-   [Architecture de clonage des contrôleurs de domaine virtualisés](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_CloneArch)  
   
--   [Architecture de restauration sécurisée d’un contrôleur de domaine virtualisés](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_SafeRestoreArch)  
+-   [Architecture de la restauration sécurisée des contrôleurs de domaine virtualisés](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_SafeRestoreArch)  
   
-## <a name="BKMK_CloneArch"></a>Architecture de clonage de contrôleur de domaine virtualisés  
+## <a name="BKMK_CloneArch"></a>Architecture de clonage des contrôleurs de domaine virtualisés  
   
 ### <a name="overview"></a>Vue d'ensemble  
 Le clonage d'un contrôleur de domaine virtualisé repose sur la plateforme de l'hyperviseur pour exposer un identificateur appelé **ID de génération d'ordinateur virtuel** pour détecter la création d'un ordinateur virtuel. AD DS stocke d'abord la valeur de cet identifiant dans sa base de données (NTDS.DIT) durant la promotion du contrôleur de domaine. Quand l'ordinateur virtuel démarre, la valeur actuelle de l'ID de génération d'ordinateur virtuel de l'ordinateur virtuel est comparée à la valeur contenue dans la base de données. Si les deux valeurs sont différentes, le contrôleur de domaine réinitialise l'ID d'appel et supprime le pool RID, ce qui empêche ainsi la réutilisation de la valeur USN ou la création potentielle de principaux de sécurité dupliqués. Le contrôleur de domaine recherche ensuite un fichier DCCloneConfig.xml dans les emplacements décrits à l’étape 3 dans [Cloning Detailed Processing](../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_CloneProcessDetails). S'il trouve un fichier DCCloneConfig.xml, il en conclut qu'il est déployé en tant que clone. Il démarre donc le clonage pour s'approvisionner en tant que contrôleur de domaine supplémentaire en effectuant une nouvelle promotion à l'aide du contenu existant de NTDS.DIT et de SYSVOL, copié à partir du média source.  
@@ -35,16 +35,16 @@ Dans un environnement mixte où seuls certains hyperviseurs prennent en charge l
   
 Si le média clone est déployé sur un hyperviseur qui prend en charge l'ID de génération d'ordinateur virtuel mais qu'aucun fichier DCCloneConfig.xml n'est fourni, quand le contrôleur de domaine détecte un changement d'ID de génération d'ordinateur virtuel entre son fichier DIT et celui du nouvel ordinateur virtuel, il déclenche des dispositifs de protection pour empêcher la réutilisation de la valeur USN et la duplication des SID. Cependant, le clonage n'est pas lancé. Ainsi, le contrôleur de domaine secondaire continue de s'exécuter sous la même identité que le contrôleur de domaine source. Ce contrôleur de domaine secondaire doit être supprimé du réseau le plus tôt possible pour éviter toute incohérence dans l'environnement. Pour plus d’informations sur la façon de récupérer ce contrôleur de domaine secondaire tout en veillant à ce que les mises à jour soient répliquées en sortie, voir l’article n° [2742970](https://support.microsoft.com/kb/2742970)dans la Base de connaissances Microsoft.  
   
-### <a name="BKMK_CloneProcessDetails"></a>Processus détaillé du clonage  
+### <a name="BKMK_CloneProcessDetails"></a>Clonage du traitement détaillé  
 Le schéma suivant illustre l'architecture d'une opération de clonage initiale et d'une opération de nouvelle tentative de clonage. Ces processus sont expliqués de manière détaillée plus loin dans cette rubrique.  
   
 **Opération de clonage initiale**  
   
-![Architecture de contrôleur de domaine virtualisé](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_InitialCloningProcess.png)  
+![Architecture DC virtualisée](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_InitialCloningProcess.png)  
   
-**Réessayez l’opération de clonage**  
+**Opération de nouvelle tentative de clonage**  
   
-![Architecture de contrôleur de domaine virtualisé](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_CloningRetryProcess.png)  
+![Architecture DC virtualisée](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_CloningRetryProcess.png)  
   
 Les étapes suivantes expliquent le processus de manière plus détaillée :  
   
@@ -102,7 +102,7 @@ Les étapes suivantes expliquent le processus de manière plus détaillée :
   
 12. Le nom de l'objet ordinateur AD DS est défini pour correspondre au nom spécifié dans le fichier DCCloneConfig.xml, le cas échéant, ou généré automatiquement sur l'émulateur de contrôleur de domaine principal. Le service NTDS crée l'objet paramètre NTDS adéquat pour le site logique Active Directory approprié.  
   
-    1.  S'il s'agit d'un clonage de contrôleur de domaine principal, l'invité renomme l'ordinateur local et redémarre. Après le redémarrage, il passe par l’étape 1-10 à nouveau, puis passe à l’étape 13.  
+    1.  S'il s'agit d'un clonage de contrôleur de domaine principal, l'invité renomme l'ordinateur local et redémarre. Après le redémarrage, il passe à l’étape 1-10, puis passe à l’étape 13.  
   
     2.  S'il s'agit du clonage d'un contrôleur de domaine réplica, aucun redémarrage n'a lieu à ce stade.  
   
@@ -112,7 +112,7 @@ Les étapes suivantes expliquent le processus de manière plus détaillée :
   
 15. L'invité force la synchronisation date/heure NT5DS (protocole Windows NTP) avec un autre contrôleur de domaine (dans une hiérarchie de service de temps Windows par défaut, cela revient à utiliser l'émulateur de contrôleur de domaine principal). L'invité contacte l'émulateur de contrôleur de domaine principal. Tous les tickets Kerberos existants sont vidés.  
   
-16. L'invité configure l'exécution automatique des services DFSR/NTFRS. L’invité supprime tous les fichiers de base de données DFSR et NTFRS existants (par défaut : c:\windows\ntfrs et c:\system information\dfsr volume\\ *< database_GUID >*), afin de forcer la synchronisation ne faisant pas autorité de SYSVOL au prochain démarrage du service. L'invité ne supprime pas le contenu des fichiers de SYSVOL, pour prédéfinir SYSVOL quand la synchronisation démarrera plus tard.  
+16. L'invité configure l'exécution automatique des services DFSR/NTFRS. L’invité supprime tous les fichiers de base de données DFSR et NTFRS existants (par défaut : c:\windows\ntfrs et c:\System volume Information\DFSR @ no__t-0 *< database_GUID >* ), afin de forcer une synchronisation ne faisant pas autorité de SYSVOL lorsque le service est suivant cours. L'invité ne supprime pas le contenu des fichiers de SYSVOL, pour prédéfinir SYSVOL quand la synchronisation démarrera plus tard.  
   
 17. L'invité est renommé. Le service Serveur de rôles DS sur l'invité commence la configuration d'AD DS (promotion) en utilisant le fichier de base de données existant NTDS.DIT en tant que source, au lieu de la base de données de modèle incluse dans c:\windows\system32, comme le fait normalement une promotion.  
   
@@ -142,7 +142,7 @@ Les étapes suivantes expliquent le processus de manière plus détaillée :
   
 26. L'invité redémarre. Il est désormais un contrôleur de domaine de publication normal.  
   
-## <a name="BKMK_SafeRestoreArch"></a>Architecture de restauration sécurisée d’un contrôleur de domaine virtualisés  
+## <a name="BKMK_SafeRestoreArch"></a>Architecture de la restauration sécurisée des contrôleurs de domaine virtualisés  
   
 ### <a name="overview"></a>Vue d'ensemble  
 AD DS repose sur la plateforme de l'hyperviseur pour exposer un identificateur appelé **ID de génération d'ordinateur virtuel** pour détecter la restauration de capture instantanée d'un ordinateur virtuel. AD DS stocke d'abord la valeur de cet identifiant dans sa base de données (NTDS.DIT) durant la promotion du contrôleur de domaine. Quand un administrateur restaure l'ordinateur virtuel à partir d'une capture instantanée précédente, la valeur actuelle de l'ID de génération d'ordinateur virtuel de l'ordinateur virtuel est comparée à la valeur contenue dans la base de données. Si les deux valeurs sont différentes, le contrôleur de domaine réinitialise l'ID d'appel et supprime le pool RID, ce qui empêche ainsi la réutilisation de la valeur USN ou la création potentielle de principaux de sécurité dupliqués. Une restauration sécurisée peut se produire dans deux cas de figure :  
@@ -158,7 +158,7 @@ Les sections suivantes expliquent en détail la restauration sécurisée pour ch
 ### <a name="safe-restore-detailed-processing"></a>Processus détaillé de la restauration sécurisée  
 L'organigramme suivant montre le déroulement de la restauration sécurisée quand un contrôleur de domaine virtuel a démarré après la restauration d'une capture instantanée pendant qu'il était arrêté.  
   
-![Architecture de contrôleur de domaine virtualisé](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_VirtualizationSafeguardsDuringNormalBoot.png)  
+![Architecture DC virtualisée](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_VirtualizationSafeguardsDuringNormalBoot.png)  
   
 1.  Quand l'ordinateur virtuel démarre après la restauration d'une capture instantanée, un nouvel ID de génération d'ordinateur virtuel lui est affecté par l'hôte hyperviseur en raison de la restauration de la capture instantanée.  
   
@@ -175,24 +175,24 @@ L'organigramme suivant montre le déroulement de la restauration sécurisée qua
   
 Le schéma suivant montre comment les dispositifs de protection de virtualisation empêchent la divergence induite par la restauration de la valeur USN quand une capture instantanée est restaurée sur un contrôleur de domaine virtuel en cours d'exécution.  
   
-![Architecture de contrôleur de domaine virtualisé](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_VirtualizationSafeguardsDuringSnapShotRestore.png)  
+![Architecture DC virtualisée](media/Virtualized-Domain-Controller-Architecture/ADDS_VDC_VirtualizationSafeguardsDuringSnapShotRestore.png)  
   
 > [!NOTE]  
 > L'illustration précédente est simplifiée pour permettre l'explication des concepts.  
   
 1.  À l'heure T1, l'administrateur de l'hyperviseur prend une capture instantanée du contrôleur de domaine DC1 virtuel. À ce moment-là, le contrôleur de domaine DC1 possède une valeur USN (**highestCommittedUsn** en pratique) égale à 100, InvocationId (représentée en tant qu'ID dans le schéma précédent) possède la valeur A (GUID en pratique). La valeur de savedVMGID est l'ID de génération d'ordinateur virtuel contenu dans le fichier DIT du contrôleur de domaine (stocké en fonction de l'objet ordinateur du contrôleur de domaine dans un attribut nommé **msDS-GenerationId**). La valeur de VMGID est la valeur actuelle de l'ID de génération d'ordinateur virtuel disponible à partir du pilote d'ordinateur virtuel. Cette valeur est fournie par l'hyperviseur.  
   
-2.  Plus tard, à l'heure T2, 100 utilisateurs sont ajoutés à ce contrôleur de domaine (considérez les utilisateurs comme des exemples de mises à jour qui auraient pu être effectuées sur ce contrôleur de domaine entre les heures T1 et T2 ; ces mises à jour peuvent en fait être un mélange de créations d'utilisateurs, de créations de groupes, de mises à jour de mots de passe, de mises à jour d'attributs, etc.). Dans cet exemple, chaque mise à jour consomme une seule valeur USN (même si, en pratique, la création d'un utilisateur consomme plusieurs valeurs USN). Avant de valider ces mises à jour, le contrôleur de domaine DC1 vérifie si la valeur de l'ID de génération d'ordinateur virtuel dans sa base de données (savedVMGID) est la même que la valeur actuelle disponible à partir du pilote (VMGID). Les valeurs sont identiques, aucune restauration n'a eu lieu pour l'instant. Ainsi, les mises à jour sont validées et la valeur USN monte à 200, ce qui signifie que la prochaine mise à jour peut utiliser la valeur USN 201. Il n'y a aucun changement dans InvocationId, savedVMGID ou VMGID. Ces mises à jour sont répliquées vers le contrôleur de domaine DC2 au prochain cycle de réplication. DC2 met à jour limite supérieure (et **UptoDatenessVector**) représentée ici simplement comme DC1(A) @USN = 200. En d'autres termes, le contrôleur de domaine DC2 connaît l'existence de toutes les mises à jour du contrôleur de domaine DC1 dans le contexte de l'InvocationId A jusqu'à la valeur USN 200.  
+2.  Plus tard, à l'heure T2, 100 utilisateurs sont ajoutés à ce contrôleur de domaine (considérez les utilisateurs comme des exemples de mises à jour qui auraient pu être effectuées sur ce contrôleur de domaine entre les heures T1 et T2 ; ces mises à jour peuvent en fait être un mélange de créations d'utilisateurs, de créations de groupes, de mises à jour de mots de passe, de mises à jour d'attributs, etc.). Dans cet exemple, chaque mise à jour consomme une seule valeur USN (même si, en pratique, la création d'un utilisateur consomme plusieurs valeurs USN). Avant de valider ces mises à jour, le contrôleur de domaine DC1 vérifie si la valeur de l'ID de génération d'ordinateur virtuel dans sa base de données (savedVMGID) est la même que la valeur actuelle disponible à partir du pilote (VMGID). Les valeurs sont identiques, aucune restauration n'a eu lieu pour l'instant. Ainsi, les mises à jour sont validées et la valeur USN monte à 200, ce qui signifie que la prochaine mise à jour peut utiliser la valeur USN 201. Il n'y a aucun changement dans InvocationId, savedVMGID ou VMGID. Ces mises à jour sont répliquées vers le contrôleur de domaine DC2 au prochain cycle de réplication. DC2 met à jour sa limite supérieure (et **UptoDatenessVector**) représentée ici simplement sous la forme DC1 (A) @USN = 200. En d'autres termes, le contrôleur de domaine DC2 connaît l'existence de toutes les mises à jour du contrôleur de domaine DC1 dans le contexte de l'InvocationId A jusqu'à la valeur USN 200.  
   
 3.  À l'heure T3, la capture instantanée prise à l'heure T1 est appliquée au contrôleur de domaine DC1. Le contrôleur de domaine DC1 est restauré. Ainsi, sa valeur USN repasse à 100, ce qui signifie qu'il peut associer aux prochaines mises à jour des valeurs USN commençant à partir de 101. Toutefois, à ce stade, la valeur de VMGID est différente sur les hyperviseurs qui prennent en charge l'ID de génération d'ordinateur virtuel.  
   
-4.  Plus tard, quand le contrôleur de domaine DC1 effectue une mise à jour, il vérifie si la valeur de l'ID de génération d'ordinateur virtuel contenue dans sa base de données (savedVMGID) est la même que la valeur du pilote d'ordinateur virtuel (VMGID). Dans le cas présent, les valeurs ne sont pas les mêmes. Le contrôleur de domaine DC1 en déduit qu'il y a eu une restauration et déclenche les dispositifs de protection de virtualisation. En d'autres termes, il réinitialise son InvocationId (ID = B) et supprime le pool RID (non représenté sur le schéma précédent). Il enregistre la nouvelle valeur de VMGID dans sa base de données et valide ces mises à jour (USN 101 - 250) dans le contexte de la nouvelle B. InvocationId Au prochain cycle de réplication, DC2 ne sait rien de DC1 dans le contexte de l’InvocationId B, et demande à tous les éléments de DC1 associé InvocationID B. Par conséquent, les mises à jour exécutées sur DC1 à la suite de l’application de capture instantanée seront converger en toute sécurité. En outre, l'ensemble des mises à jour effectuées sur le contrôleur de domaine DC1 à l'heure T2 (qui ont été perdues sur le contrôleur de domaine DC1 après la restauration de la capture instantanée) sont à nouveau répliquées vers le contrôleur de domaine DC1 à la prochaine réplication planifiée, car elles avaient été répliquées vers le contrôleur de domaine DC2 (comme le montre la ligne pointillée en direction du contrôleur de domaine DC1).  
+4.  Plus tard, quand le contrôleur de domaine DC1 effectue une mise à jour, il vérifie si la valeur de l'ID de génération d'ordinateur virtuel contenue dans sa base de données (savedVMGID) est la même que la valeur du pilote d'ordinateur virtuel (VMGID). Dans le cas présent, les valeurs ne sont pas les mêmes. Le contrôleur de domaine DC1 en déduit qu'il y a eu une restauration et déclenche les dispositifs de protection de virtualisation. En d'autres termes, il réinitialise son InvocationId (ID = B) et supprime le pool RID (non représenté sur le schéma précédent). Il enregistre ensuite la nouvelle valeur de VMGID dans sa base de données et valide ces mises à jour (USN 101-250) dans le contexte du nouvel invocation de l’invocation B. Lors du prochain cycle de réplication, DC2 ne sait rien de DC1 dans le contexte de l’invocation de l’invocation B. il demande donc tout ce qui est associé à l’invocation de l’invocation B. Par conséquent, les mises à jour effectuées sur DC1 à la suite de l’application de la capture instantanée convergent en toute sécurité. En outre, l'ensemble des mises à jour effectuées sur le contrôleur de domaine DC1 à l'heure T2 (qui ont été perdues sur le contrôleur de domaine DC1 après la restauration de la capture instantanée) sont à nouveau répliquées vers le contrôleur de domaine DC1 à la prochaine réplication planifiée, car elles avaient été répliquées vers le contrôleur de domaine DC2 (comme le montre la ligne pointillée en direction du contrôleur de domaine DC1).  
   
 Une fois que l'invité utilise les dispositifs de protection de virtualisation, le service NTDS effectue une réplication ne faisant pas autorité des différences entre les objets Active Directory en entrée à partir d'un contrôleur de domaine partenaire. Le vecteur de mise à jour du service d'annuaire de destination est mis à jour en conséquence. L'invité synchronise ensuite SYSVOL :  
   
 -   Si le service FRS est utilisé, l'invité arrête le service NTFRS et définit la valeur de Registre D2 BURFLAGS. Il démarre ensuite le service NTFRS, qui effectue une réplication ne faisant pas autorité en entrée, en réutilisant les données SYSVOL existantes inchangées quand cela est possible.  
   
--   Si vous utilisez DFSR, l’invité arrête le service DFSR et supprime les fichiers de base de données DFSR (emplacement par défaut : %systemroot%\system volume information\dfsr\\*<database GUID>*). Il démarre ensuite le service DFSR, qui effectue une réplication ne faisant pas autorité en entrée, en réutilisant les données SYSVOL existantes inchangées quand cela est possible.  
+-   Si vous utilisez DFSR, l’invité arrête le service DFSR et supprime les fichiers de base de données DFSR (emplacement par défaut :%systemroot%\System volume Information\DFSR @ no__t-0 *<database GUID>* ). Il démarre ensuite le service DFSR, qui effectue une réplication ne faisant pas autorité en entrée, en réutilisant les données SYSVOL existantes inchangées quand cela est possible.  
   
 > [!NOTE]  
 > -   Si l'hyperviseur ne fournit aucun ID de génération d'ordinateur virtuel de comparaison, il ne prend pas en charge les dispositifs de protection de virtualisation et l'invité fonctionne comme un contrôleur de domaine virtualisé qui exécute Windows Server 2008 R2 ou une version antérieure. L'invité implémente la protection par mise en quarantaine de la restauration USN en cas de tentative de démarrage d'une réplication avec des valeurs USN qui ne sont pas postérieures à la dernière valeur USN la plus élevée détectée par le contrôleur de domaine partenaire. Pour plus d’informations sur la protection par mise en quarantaine de la restauration USN, voir [USN et restauration USN](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(WS.10).aspx)  
