@@ -1,32 +1,32 @@
 ---
 title: Affinité de cluster
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
 ms.date: 03/07/2019
-description: Cet article décrit les niveaux d’affinité et antiAffinity de cluster de basculement
-ms.openlocfilehash: 67929e6d3399633ebfec0b908463131973aecaf7
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+description: Cet article décrit l’affinité de cluster de basculement et les niveaux d’antiaffinité
+ms.openlocfilehash: 9a269d2b14e953daee849008a473c750dfbfe84b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453030"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361459"
 ---
 # <a name="cluster-affinity"></a>Affinité de cluster
 
 > S’applique à : Windows Server 2019, Windows Server 2016
 
-Un cluster de basculement peut contenir de nombreux rôles qui peuvent déplacer entre les nœuds et à exécuter.  Il est parfois quand les certains rôles (par exemple, les machines virtuelles, groupes de ressources, etc.) ne doivent pas s’exécuter sur le même nœud.  Cela peut être dû à la consommation des ressources, utilisation de la mémoire, etc.  Par exemple, il existe deux machines virtuelles qui sont beaucoup de ressources processeur et mémoire et si les deux machines virtuelles sont en cours d’exécution sur le même nœud, moins le des machines virtuelles peut avoir des problèmes d’impact sur les performances.  Cet article explique les niveaux antiaffinity et comment vous pouvez les utiliser de cluster.
+Un cluster de basculement peut contenir de nombreux rôles pouvant être déplacés entre les nœuds et exécutés.  Dans certains cas, certains rôles (par exemple, les machines virtuelles, les groupes de ressources, etc.) ne doivent pas s’exécuter sur le même nœud.  Cela peut être dû à la consommation des ressources, à l’utilisation de la mémoire, etc.  Par exemple, il existe deux machines virtuelles nécessitant beaucoup de mémoire et de processeur, et si les deux machines virtuelles s’exécutent sur le même nœud, l’un des ordinateurs virtuels ou les deux peut avoir des problèmes d’impact sur les performances.  Cet article explique les niveaux d’antiaffinité du cluster et comment vous pouvez les utiliser.
 
-## <a name="what-is-affinity-and-antiaffinity"></a>Qu’est l’affinité et AntiAffinity ?
+## <a name="what-is-affinity-and-antiaffinity"></a>Qu’est-ce que l’affinité et l’antiaffinité ?
 
-L’affinité est une règle que vous établissez qui établit une relation entre deux ou plusieurs rôles (i, e, machines virtuelles, groupes de ressources, etc.) afin de les regrouper.  AntiAffinity est identique, mais permet de limiter les rôles spécifiés indépendamment les uns des autres.  Clusters de basculement utiliser AntiAffinity pour ses rôles.  Plus précisément, le [AntiAffinityClassNames](https://docs.microsoft.com/previous-versions/windows/desktop/mscs/groups-antiaffinityclassnames) paramètre défini sur les rôles, afin qu’ils ne s’exécutent pas sur le même nœud.  
+L’affinité est une règle que vous devez configurer pour établir une relation entre deux rôles (i, e, machines virtuelles, groupes de ressources, etc.) afin de les conserver ensemble.  L’antiaffinité est la même, mais elle est utilisée pour essayer et conserver les rôles spécifiés indépendamment l’un de l’autre.  Les clusters de basculement utilisent l’antiaffinité pour ses rôles.  Plus précisément, le paramètre [AntiAffinityClassNames](https://docs.microsoft.com/previous-versions/windows/desktop/mscs/groups-antiaffinityclassnames) défini sur les rôles pour qu’ils ne s’exécutent pas sur le même nœud.  
 
 ## <a name="antiaffinityclassnames"></a>AntiAffinityClassnames
 
-Lorsque vous examinez les propriétés d’un groupe, il est le paramètre AntiAffinityClassNames et elle est vide par défaut.  Dans les exemples ci-dessous, le Groupe1 et le groupe2 doivent être séparés de s’exécuter sur le même nœud.  Pour afficher la propriété, la commande PowerShell et le résultat serait :
+Lorsque vous examinez les propriétés d’un groupe, il y a le paramètre AntiAffinityClassNames et il est vide par défaut.  Dans les exemples ci-dessous, Group1 et Group2 doivent être séparés de l’exécution sur le même nœud.  Pour afficher la propriété, la commande PowerShell et le résultat sont les suivants :
 
     PS> Get-ClusterGroup Group1 | fl AntiAffinityClassNames
     AntiAffinityClassNames : {}
@@ -34,7 +34,7 @@ Lorsque vous examinez les propriétés d’un groupe, il est le paramètre AntiA
     PS> Get-ClusterGroup Group2 | fl AntiAffinityClassNames
     AntiAffinityClassNames : {}
 
-Dans la mesure où AntiAffinityClassNames ne sont pas définis par défaut, ces peuvent rôles ensemble exécution ou les uns des autres.  L’objectif est de les conserver pour être séparés.  La valeur AntiAffinityClassNames peut être tout ce que vous voulez, il suffit d’être identiques.  Supposons que le Groupe1 et le groupe2 sont des contrôleurs de domaine en cours d’exécution sur des machines virtuelles, et il seraient mieux servis en cours d’exécution sur des nœuds différents.  Dans la mesure où il s’agit de contrôleurs de domaine, je vais utiliser le contrôleur de domaine pour le nom de classe.  Pour définir la valeur, la commande PowerShell et les résultats serait :
+Étant donné que AntiAffinityClassNames n’est pas défini comme valeur par défaut, ces rôles peuvent être exécutés ensemble ou indépendamment.  L’objectif est de conserver les séparations.  La valeur de AntiAffinityClassNames peut être la même que celle que vous souhaitez, mais elle doit simplement être la même.  Disons que Group1 et Group2 sont des contrôleurs de domaine exécutés sur des machines virtuelles et qu’ils sont les mieux utilisés sur des nœuds différents.  Étant donné qu’il s’agit de contrôleurs de domaine, je vais utiliser DC comme nom de classe.  Pour définir la valeur, la commande PowerShell et les résultats sont les suivants :
 
     PS> $AntiAffinity = New-Object System.Collections.Specialized.StringCollection
     PS> $AntiAffinity.Add("DC")
@@ -47,31 +47,31 @@ Dans la mesure où AntiAffinityClassNames ne sont pas définis par défaut, ces 
     PS> Get-ClusterGroup "Group2" | fl AntiAffinityClassNames
     AntiAffinityClassNames : {DC}
 
-Maintenant qu’elles sont définies, le clustering de basculement tente de conserver les uns des autres.  
+À présent qu’ils sont définis, le clustering de basculement tente de les conserver en dehors.  
 
-Le paramètre AntiAffinityClassName est un bloc « soft ».  Autrement dit, il tente de conserver les uns des autres, mais s’il ne peut pas, elle permettra toujours s’exécuter sur le même nœud.  Par exemple, les groupes sont en cours d’exécution sur un cluster de basculement à deux nœuds.  Si un nœud doit aller vers le bas pour la maintenance, il signifie que les deux groupes est en cours d’exécution sur le même nœud.  Dans ce cas, il serait OK pour le faire.  Il ne peut pas être plus idéale, mais les deux machines virtial seront toujours en cours d’exécution dans les plages de performances acceptables.
+Le paramètre AntiAffinityClassName est un bloc « soft ».  Cela signifie qu’elle tentera de les séparer, mais si elle ne le peut pas, elle pourra toujours s’exécuter sur le même nœud.  Par exemple, les groupes s’exécutent sur un cluster de basculement à deux nœuds.  Si un nœud doit descendre en mode maintenance, cela signifie que les deux groupes sont opérationnels sur le même nœud.  Dans ce cas, il est possible de le faire.  Il n’est peut-être pas le plus idéal, mais les deux machines virtial s’exécutent toujours dans des limites de performances acceptables.
 
 ## <a name="i-need-more"></a>J’ai besoin de plus
 
-Comme mentionné, AntiAffinityClassNames est un bloc de manière réversible.  Mais que se passe-t-il si un blocage critique est nécessaire ?  Les machines virtuelles ne peut pas être exécutés sur le même nœud ; Sinon, impact sur les performances se produira et certains services à tourner vers le bas.
+Comme mentionné, AntiAffinityClassNames est un bloc souple.  Mais que se passe-t-il si un blocage matériel est nécessaire ?  Les machines virtuelles ne peuvent pas être exécutées sur le même nœud ; dans le cas contraire, l’impact sur les performances se produit et les services peuvent éventuellement descendre.
 
-Dans ces cas, il existe une propriété de cluster supplémentaire de ClusterEnforcedAntiAffinity.  Ce niveau antiaffinity empêchera à tout prix les valeurs AntiAffinityClassNames mêmes en cours d’exécution sur le même nœud.
+Dans ce cas, il existe une propriété de cluster supplémentaire de ClusterEnforcedAntiAffinity.  Ce niveau d’antiaffinité empêchera tout coût des mêmes valeurs AntiAffinityClassNames de s’exécuter sur le même nœud.
 
-Pour afficher la propriété et la valeur, la commande PowerShell (et le résultat) serait :
+Pour afficher la propriété et la valeur, la commande PowerShell (et le résultat) sont les suivantes :
 
     PS> Get-Cluster | fl ClusterEnforcedAntiAffinity
     ClusterEnforcedAntiAffinity : 0
 
-La valeur « 0 » signifie qu’elle est désactivée et non à être appliquées.  La valeur « 1 » lui permet d’et est le bloc de disque dur.  Pour activer ce bloc de disque dur, la commande (et le résultat) sont :
+La valeur « 0 » signifie qu’elle est désactivée et qu’elle ne doit pas être appliquée.  La valeur de « 1 » l’active et est le bloc Hard.  Pour activer ce blocage matériel, la commande (et le résultat) est :
 
     PS> (Get-Cluster).ClusterEnforcedAntiAffinity = 1
     ClusterEnforcedAntiAffinity : 1
 
-Lorsque ces deux éléments sont définies, le groupe ne pourra assemblent en ligne.  S’ils sont sur le même nœud, voici ce que vous verriez dans le Gestionnaire de Cluster de basculement.
+Quand ces deux paramètres sont définis, le groupe ne peut pas être mis en ligne ensemble.  S’ils se trouvent sur le même nœud, c’est ce que vous pouvez voir dans Gestionnaire du cluster de basculement.
 
 ![Affinité de cluster](media/Cluster-Affinity/Cluster-Affinity-1.png)
 
-Dans une liste de PowerShell, des groupes, vous verriez cela :
+Dans une liste PowerShell des groupes, vous voyez ceci :
 
     PS> Get-ClusterGroup
 
@@ -82,11 +82,11 @@ Dans une liste de PowerShell, des groupes, vous verriez cela :
 
 ## <a name="additional-comments"></a>Commentaires supplémentaires
 
-- Vérifiez que vous utilisez le paramètre AntiAffinity approprié en fonction des besoins.
-- N’oubliez pas que dans un scénario de deux nœuds et ClusterEnforcedAntiAffinity, si un nœud est arrêté, les deux groupes ne sera ne pas exécuté.  
+- Vérifiez que vous utilisez le paramètre d’antiaffinité approprié en fonction des besoins.
+- N’oubliez pas que dans un scénario à deux nœuds et ClusterEnforcedAntiAffinity, si un nœud est défaillant, les deux groupes ne s’exécuteront pas.  
 
-- L’utilisation de propriétaires favoris sur les groupes peut être combinée avec AntiAffinity dans un cluster à trois ou plusieurs nœuds.
-- Les paramètres AntiAffinityClassNames et ClusterEnforcedAntiAffinity sont lieu uniquement après un recyclage des ressources. I.E. Vous pouvez les définir, mais si les deux groupes sont en ligne sur le même nœud si la valeur, ils continueront tous les deux de rester en ligne.
+- L’utilisation de propriétaires préférés sur des groupes peut être combinée à l’antiaffinité dans un cluster à trois nœuds ou plus.
+- Les paramètres AntiAffinityClassNames et ClusterEnforcedAntiAffinity se produisent uniquement après un recyclage des ressources. SAVOIR vous pouvez les définir, mais si les deux groupes sont en ligne sur le même nœud lorsqu’ils sont définis, ils continuent à rester en ligne.
 
 
 
