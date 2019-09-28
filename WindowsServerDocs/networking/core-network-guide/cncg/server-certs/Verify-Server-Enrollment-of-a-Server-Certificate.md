@@ -1,60 +1,60 @@
 ---
 title: Vérifier l’inscription de serveur d’un certificat de serveur
-description: Cette rubrique fait partie du guide des certificats de serveur de déploiement pour les déploiements de sans fil et câblé à 802.1 X
+description: Cette rubrique fait partie du guide déployer des certificats de serveur pour les déploiements sans fil et câblés 802.1 X.
 manager: brianlic
 ms.topic: article
 ms.assetid: bd80a018-5a30-47c3-89fc-aacb9f5ad298
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 45ba7a9a7fc5b9622ab1b9a94f38f4bf4de13192
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5f87db78d6f07d11c36193b1a56cf66bd44e7160
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850900"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356102"
 ---
 # <a name="verify-server-enrollment-of-a-server-certificate"></a>Vérifier l’inscription de serveur d’un certificat de serveur
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette procédure pour vérifier que vos serveurs de serveur NPS (Network Policy Server) ont inscrit un certificat de serveur à partir de l’autorité de certification (CA).   
+Vous pouvez utiliser cette procédure pour vérifier que vos serveurs NPS (Network Policy Server) ont inscrit un certificat de serveur auprès de l’autorité de certification.   
   
 >[!NOTE]  
->L’appartenance à la **Admins du domaine** groupe est le minimum requis pour réaliser ces procédures.  
+>L’appartenance au groupe **Admins du domaine** est la condition minimale requise pour effectuer ces procédures.  
   
-## <a name="verify-network-policy-server-nps-enrollment-of-a-server-certificate"></a>Vérifier l’inscription de serveur NPS (Network Policy Server) d’un certificat de serveur  
+## <a name="verify-network-policy-server-nps-enrollment-of-a-server-certificate"></a>Vérifier l’inscription du serveur NPS (Network Policy Server) d’un certificat de serveur  
   
-Étant donné que le serveur NPS est utilisé pour authentifier et autoriser les demandes de connexion réseau, il est important de s’assurer que le certificat de serveur que vous avez émis à NPSs est valide lorsqu’il est utilisé dans les stratégies de réseau.  
+Comme NPS est utilisé pour authentifier et autoriser les demandes de connexion réseau, il est important de s’assurer que le certificat de serveur que vous avez délivré à NPSs est valide lorsqu’il est utilisé dans les stratégies réseau.  
   
-Pour vérifier qu’un certificat de serveur est correctement configuré et qu’il est inscrit pour le serveur NPS, vous devez configurer une stratégie de réseau de test et autoriser le serveur NPS vérifier que le serveur NPS peut utiliser le certificat pour l’authentification.  
+Pour vérifier qu’un certificat de serveur est correctement configuré et qu’il est inscrit au serveur NPS, vous devez configurer une stratégie de réseau de test et autoriser le serveur NPS à vérifier que le serveur NPS peut utiliser le certificat pour l’authentification.  
   
-### <a name="to-verify-nps-enrollment-of-a-server-certificate"></a>Pour vérifier l’inscription d’un certificat de serveur NPS  
+### <a name="to-verify-nps-enrollment-of-a-server-certificate"></a>Pour vérifier l’inscription NPS d’un certificat de serveur  
   
-1.  Dans le Gestionnaire de serveur, cliquez sur **outils**, puis cliquez sur **Network Policy Server**. Le réseau stratégie serveur Console MMC (Microsoft Management) s’ouvre.  
+1.  Dans Gestionnaire de serveur, cliquez sur **Outils**, puis sur **serveur NPS (Network Policy Server**). La console MMC (Microsoft Management Console) du serveur NPS (Network Policy Server) s’ouvre.  
   
-2.  Double-cliquez sur **stratégies**, avec le bouton droit **stratégies réseau**, puis cliquez sur **New**. L’Assistant Nouvelle stratégie de réseau s’ouvre.  
+2.  Double-cliquez sur **stratégies**, cliquez avec le bouton droit sur **stratégies réseau**, puis cliquez sur **nouveau**. L’Assistant Nouvelle stratégie réseau s’ouvre.  
   
-3.  Dans **spécifier un nom de stratégie de réseau et le Type de connexion**, dans **nom de la stratégie**, type **tester la stratégie**. Vérifiez que **Type de serveur d’accès réseau** a la valeur **Unspecified**, puis cliquez sur **suivant**.  
+3.  Dans **spécifier le nom de la stratégie réseau et le type de connexion**, dans nom de la **stratégie**, tapez **stratégie de test**. Vérifiez que la valeur **du type de serveur d’accès réseau** n’est pas **spécifiée**, puis cliquez sur **suivant**.  
   
-4.  Dans **spécifier des Conditions**, cliquez sur **ajouter**. Dans **sélectionner condition**, cliquez sur **les groupes Windows**, puis cliquez sur **ajouter**.  
+4.  Dans **spécifier les conditions**, cliquez sur **Ajouter**. Dans **Sélectionner une condition**, cliquez sur **groupes Windows**, puis sur **Ajouter**.  
   
-5.  Dans **groupes**, cliquez sur **ajouter des groupes**. Dans **sélectionner un groupe**, type **utilisateurs du domaine**, puis appuyez sur ENTRÉE. Cliquez sur **OK**, puis cliquez sur **Suivant**.  
+5.  Dans **groupes**, cliquez sur **Ajouter des groupes**. Dans **Sélectionner un groupe**, tapez **utilisateurs du domaine**, puis appuyez sur entrée. Cliquez sur **OK**, puis cliquez sur **Suivant**.  
   
-6.  Dans **spécifier l’autorisation d’accès**, vérifiez que **accès accordé** est sélectionnée, puis cliquez sur **suivant**.  
+6.  Dans **spécifier l’autorisation d’accès**, vérifiez que **l’option accès accordé** est sélectionnée, puis cliquez sur **suivant**.  
   
-7.  Dans **configurer des méthodes d’authentification**, cliquez sur **ajouter**. Dans **EAP ajouter**, cliquez sur **Microsoft : PEAP (Protected EAP)**, puis cliquez sur **OK**. Dans **Types EAP**, sélectionnez **Microsoft : PEAP (Protected EAP)**, puis cliquez sur **modifier**. Le **modifier les propriétés EAP protégées** boîte de dialogue s’ouvre.  
+7.  Dans **configurer les méthodes d’authentification**, cliquez sur **Ajouter**. Dans **Ajouter un EAP**, cliquez sur **Microsoft : PEAP (Protected EAP)** , puis cliquez sur **OK**. Dans **types EAP**, sélectionnez **Microsoft : PEAP (Protected EAP)** , puis cliquez sur **modifier**. La boîte de dialogue **modifier les propriétés EAP protégées** s’ouvre.  
   
-8.  Dans le **modifier les propriétés EAP protégées** boîte de dialogue **certificat délivré à**, NPS affiche le nom de votre certificat de serveur dans le format *ComputerName*. *Domaine*. Par exemple, si votre serveur NPS est nommé NPS-01 et votre domaine est exemple.com, NPS affiche le certificat **NPS-01.example.com**. En outre, dans **émetteur**, le nom de votre autorité de certification s’affiche, puis, dans **date d’Expiration**, la date d’expiration du certificat du serveur s’affiche. Cet exemple montre que le serveur NPS a inscrit un certificat de serveur valide qu’il peut utiliser pour prouver son identité aux ordinateurs clients qui tentent d’accéder au réseau via vos serveurs d’accès réseau, tels que les serveurs de réseau privé virtuel (VPN), 802.1 compatibles X points d’accès sans fil, les serveurs de passerelle Bureau à distance et 802. 1 X compatible Ethernet bascule.  
+8.  Dans la boîte de dialogue **modifier les propriétés EAP protégé** , dans **certificat délivré à**, NPS affiche le nom de votre certificat de serveur au format *ComputerName*. *Domaine*. Par exemple, si votre serveur NPS est nommé NPS-01 et que votre domaine est example.com, NPS affiche le certificat **NPS-01.example.com**. En outre, dans l' **émetteur**, le nom de votre autorité de certification s’affiche et, à la **Date d’expiration**, la date d’expiration du certificat de serveur est affichée. Cela démontre que votre NPS a inscrit un certificat de serveur valide qu’il peut utiliser pour prouver son identité aux ordinateurs clients qui essaient d’accéder au réseau via vos serveurs d’accès réseau, tels que les serveurs de réseau privé virtuel (VPN), 802.1 X les points d’accès sans fil, les serveurs de passerelle Bureau à distance et les commutateurs Ethernet 802.1 X.  
   
     > [!IMPORTANT]  
-    > Si le serveur NPS n’affiche pas d’un certificat de serveur valide et si elle fournit le message de ce type de certificat est introuvable sur l’ordinateur local, il existe deux raisons possibles pour résoudre ce problème. Il est possible que la stratégie de groupe n’a pas actualisé correctement, et le serveur NPS n’a pas inscrit un certificat à partir de l’autorité de certification. Dans ce cas, redémarrez le serveur NPS. Lorsque l’ordinateur redémarre, la stratégie de groupe est actualisée, et vous pouvez effectuer cette procédure pour vérifier que le certificat de serveur est inscrit. Si l’actualisation de stratégie de groupe ne résout pas ce problème, le modèle de certificat, l’inscription automatique de certificat ou les deux ne sont pas configurés correctement. Pour résoudre ces problèmes, depuis le début de ce guide et effectuer toutes les étapes à nouveau pour vous assurer que les paramètres que vous avez fournies sont précises.  
+    > Si le serveur NPS n’affiche pas de certificat de serveur valide et s’il indique que le certificat est introuvable sur l’ordinateur local, il existe deux raisons possibles à ce problème. Il est possible que stratégie de groupe ne s’actualise pas correctement et que le serveur NPS n’ait pas inscrit de certificat auprès de l’autorité de certification. Dans ce cas, redémarrez le serveur NPS. Lorsque l’ordinateur redémarre, stratégie de groupe est actualisée et vous pouvez relancer cette procédure pour vérifier que le certificat de serveur est inscrit. Si l’actualisation stratégie de groupe ne résout pas ce problème, soit le modèle de certificat, l’inscription automatique de certificat, soit les deux ne sont pas configurés correctement. Pour résoudre ces problèmes, commencez au début de ce guide et effectuez à nouveau toutes les étapes pour vous assurer que les paramètres que vous avez fournis sont exacts.  
   
-9. Lorsque vous avez vérifié la présence d’un certificat de serveur valide, vous pouvez cliquer sur **OK** et **Annuler** pour quitter l’Assistant Nouvelle stratégie de réseau.  
+9. Une fois que vous avez vérifié la présence d’un certificat de serveur valide, vous pouvez cliquer sur **OK** et sur **Annuler** pour quitter l’Assistant Nouvelle stratégie réseau.  
   
     > [!NOTE]  
-    > Étant donné que l’Assistant ne s’effectuent pas, la stratégie de réseau de test n’est pas créée dans NPS.  
+    > Étant donné que vous ne terminez pas l’Assistant, la stratégie de test réseau n’est pas créée dans NPS.  
   
 
 

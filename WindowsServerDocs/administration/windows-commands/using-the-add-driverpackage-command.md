@@ -1,8 +1,8 @@
 ---
-title: À l’aide de la commande add-DriverPackage
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Utilisation de la commande Add-DriverPackage
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 893bcd3b28aaa5d501017fe65b7b5205e9452693
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f5370d301f5fec15f4812b3d65588297d179455d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440691"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363751"
 ---
-# <a name="using-the-add-driverpackage-command"></a>À l’aide de la commande add-DriverPackage
+# <a name="using-the-add-driverpackage-command"></a>Utilisation de la commande Add-DriverPackage
 
 
 
@@ -36,15 +36,15 @@ WDSUTIL /Add-DriverPackage /InfFile:<Inf File path> [/Server:<Server name>] [/Ar
 
 |          Paramètre           |                                                              Description                                                              |
 |------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-|   InfFile :\<chemin d’accès du fichier Inf >   |                                           Spécifie le chemin d’accès complet du fichier .inf à ajouter.                                            |
-|    / Server :\<nom du serveur >    | Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom de domaine complet. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé. |
-|      / Architecture : {x86      |                                                                 ia64                                                                  |
-| [/ DriverGroup :\<nom du groupe >] |                             Spécifie le nom du groupe pilote auquel le package doit être ajouté.                              |
-|   [/ Nom :\<nom convivial >]   |                                           Indique le nom convivial pour le package de pilotes.                                            |
+|   InfFile : chemin d’accès du fichier \<Inf >   |                                           Spécifie le chemin d’accès complet du fichier. inf à ajouter.                                            |
+|    /Server : @no__t-nom 0Server >    | Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé. |
+|      /Architecture : {x86      |                                                                 ia64                                                                  |
+| [/DriverGroup : @no__t > 0Group] |                             Spécifie le nom du groupe de pilotes auquel le package doit être ajouté.                              |
+|   [/Name : @no__t-nom 0Friendly >]   |                                           Indique le nom convivial du package de pilotes.                                            |
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour ajouter un package de pilotes, tapez une des opérations suivantes :
+Pour ajouter un package de pilotes, tapez l’un des éléments suivants :
 ```
 WDSUTIL /verbose /Add-DriverPackage /InfFile:"C:\Temp\Display.inf"
 ```

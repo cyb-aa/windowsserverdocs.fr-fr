@@ -7,29 +7,29 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 0b2303bc837cdaf9f6e7ebd4b3ccbf6c66aa7ad2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2cafb040257b0fbc511e8225b0f07a2071012122
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879340"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71360131"
 ---
 # <a name="virtualized-domain-controller-cloning-test-guidance-for-application-vendors"></a>Aide relative aux tests de clonage des contrôleurs de domaine virtualisés pour les fournisseurs d’applications
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Cette rubrique explique que les fournisseurs d’applications doivent prendre en compte afin de garantir que leur application continue à fonctionner comme prévu une fois le contrôleur de domaine virtualisé (DC) processus de clonage terminée. Il couvre les aspects du processus de clonage qui les fournisseurs d’applications qui vous intéresse et les scénarios qui peuvent justifier des tests supplémentaires. Fournisseurs d’applications qui ont validé que leur application fonctionne sur les contrôleurs de domaine virtualisés qui ont été clonés sont encouragés à répertorier le nom de l’application dans le contenu de la Communauté en bas de cette rubrique, ainsi qu’un lien vers votre site web entreprise où les utilisateurs plus d’informations sur la validation.  
+Cette rubrique explique ce que les fournisseurs d’applications doivent prendre en compte pour garantir que leur application continue de fonctionner comme prévu après la fin du processus de clonage du contrôleur de domaine virtualisé. Il couvre les aspects du processus de clonage qui intéressent les fournisseurs d’applications et les scénarios susceptibles de justifier des tests supplémentaires. Les fournisseurs d’applications qui ont validé que leur application fonctionne sur les contrôleurs de domaine virtualisés qui ont été clonés sont encouragés à répertorier le nom de l’application dans le contenu de la communauté en bas de cette rubrique, ainsi qu’un lien vers votre site Web de l’organisation où les utilisateurs peuvent en savoir plus sur la validation.  
   
-## <a name="overview-of-virtualized-dc-cloning"></a>Vue d’ensemble du clonage de contrôleur de domaine virtualisé  
-Le processus de clonage de contrôleur de domaine virtualisé est décrite en détail dans [Introduction à la virtualisation des Services de domaine Active Directory (AD DS) (niveau 100)](https://technet.microsoft.com/library/hh831734.aspx) et [de virtualiser les contrôleur de domaine technique Référence (niveau 300)](https://technet.microsoft.com/library/jj574214.aspx). Du point de vue d’un fournisseur d’application, il s’agit de quelques éléments à prendre en compte lors de l’évaluation de l’impact du clonage à votre application :  
+## <a name="overview-of-virtualized-dc-cloning"></a>Vue d’ensemble du clonage de contrôleur de courant virtuel  
+Le processus de clonage des contrôleurs de domaine virtualisés est décrit en détail dans [Introduction à la Active Directory Domain Services (AD DS) virtualisation (niveau 100)](https://technet.microsoft.com/library/hh831734.aspx) et informations techniques de référence sur les [contrôleurs de domaine virtualisés (niveau 300)](https://technet.microsoft.com/library/jj574214.aspx). Du point de vue du fournisseur de l’application, les considérations à prendre en compte lors de l’évaluation de l’impact du clonage sur votre application sont les suivantes :  
   
--   L’ordinateur d’origine n’est pas détruit. Il reste sur le réseau, l’interaction avec les clients. Contrairement à un changement de nom dans laquelle les enregistrements DNS de l’ordinateur d’origine sont supprimés, les enregistrements d’origine pour le contrôleur de domaine source restent.  
+-   L’ordinateur d’origine n’est pas détruit. Il reste sur le réseau et interagit avec les clients. Contrairement à un changement de nom dans lequel les enregistrements DNS de l’ordinateur d’origine sont supprimés, les enregistrements d’origine du contrôleur de domaine source sont conservés.  
   
--   Pendant le processus de clonage, le nouvel ordinateur est initialement en cours d’exécution pour une courte période de temps sous l’identité de l’ancien ordinateur jusqu'à ce que le processus de clonage est lancé et apporte les modifications nécessaires. Applications qui créent des enregistrements sur l’ordinateur hôte doivent garantir que l’ordinateur cloné ne remplace pas les enregistrements sur l’hôte d’origine pendant le processus de clonage.  
+-   Pendant le processus de clonage, le nouvel ordinateur est initialement exécuté pendant une courte période, sous l’identité de l’ancien ordinateur jusqu’à ce que le processus de clonage soit Initié et effectue les modifications nécessaires. Les applications qui créent des enregistrements sur l’hôte doivent s’assurer que l’ordinateur cloné ne remplace pas les enregistrements sur l’hôte d’origine pendant le processus de clonage.  
   
--   Le clonage est une fonctionnalité de déploiement spécifiques pour les contrôleurs de domaine virtualisés uniquement, pas une extension à usage général pour cloner des autres rôles de serveur. Certains rôles de serveur ne sont pas non plus pris en charge pour le clonage :  
+-   Le clonage est une fonctionnalité de déploiement spécifique pour les contrôleurs de domaine virtualisés uniquement, et non pour un usage général pour cloner d’autres rôles de serveur. Certains rôles de serveur ne sont pas pris en charge pour le clonage :  
   
     -   Protocole DHCP (Dynamic Host Configuration Protocol)  
   
@@ -37,48 +37,48 @@ Le processus de clonage de contrôleur de domaine virtualisé est décrite en d�
   
     -   Services AD LDS (Active Directory Lightweight Directory Services)  
   
--   Dans le cadre du processus de clonage, la machine virtuelle entière qui représente le contrôleur de domaine d’origine est copiée, n’importe quel état de l’application sur cette machine virtuelle est également copié. Valider que l’application s’adapte à cette modification dans l’état de l’hôte local sur le contrôleur de domaine cloné, ou si aucune intervention n’est requise, par exemple, un redémarrage du service.  
+-   Dans le cadre du processus de clonage, la totalité de la machine virtuelle qui représente le contrôleur de source d’origine est copiée, de sorte que tout état de l’application sur cette machine virtuelle est également copié. Vérifiez que l’application s’adapte à cette modification de l’état de l’hôte local sur le contrôleur de réseau cloné, ou si une intervention est nécessaire, comme un redémarrage du service.  
   
--   Dans le cadre de clonage, le nouveau contrôleur de domaine obtient une nouvelle identité de l’ordinateur et dispositions lui-même en tant qu’un contrôleur de domaine réplica dans la topologie. Vérifie si l’application dépend de l’identité de l’ordinateur, telles que son nom, compte, SID et ainsi de suite. Il s’adaptent automatiquement à la modification de l’identité de l’ordinateur sur le clone ? Si cette application met en cache les données, assurez-vous qu’il ne repose pas sur les données d’identité de machine peuvent être mises en cache.  
+-   Dans le cadre du clonage, le nouveau contrôleur de périphérique obtient une nouvelle identité d’ordinateur et provisionne lui-même en tant que contrôleur de périphérique de réplication dans la topologie. Vérifiez si l’application dépend de l’identité de l’ordinateur, par exemple son nom, son compte, son SID, etc. S’adapte-t-elle automatiquement à la modification de l’identité de l’ordinateur sur le clone ? Si cette application met en cache des données, assurez-vous qu’elle ne s’appuie pas sur les données d’identité de l’ordinateur qui peuvent être mises en cache.  
   
-## <a name="what-is-interesting-for-application-vendors"></a>Ce qui est intéressant pour les fournisseurs d’applications ?  
+## <a name="what-is-interesting-for-application-vendors"></a>Qu’est-ce qui est intéressant pour les fournisseurs d’applications ?  
   
-### <a name="customdccloneallowlistxml"></a>CustomDCCloneAllowList.xml  
-Impossible de cloner un contrôleur de domaine qui exécute votre application ou service jusqu'à ce que l’application ou service est :  
+### <a name="customdccloneallowlistxml"></a>Fichier customdccloneallowlist. Xml  
+Un contrôleur de domaine qui exécute votre application ou service ne peut pas être cloné tant que l’application ou le service n’est pas :  
   
--   Ajouté au fichier CustomDCCloneAllowList.xml à l’aide de l’applet de commande Get-ADDCCloningExcludedApplicationList Windows PowerShell  
+-   Ajouté au fichier fichier customdccloneallowlist. XML à l’aide de l’applet de commande Windows PowerShell ADDCCloningExcludedApplicationList  
   
-- Ou -  
+\- Ou -  
   
--   Supprimé à partir du contrôleur de domaine  
+-   Supprimé du contrôleur de domaine  
   
-La première fois que l’utilisateur exécute l’applet de commande Get-ADDCCloningExcludedApplicationList, elle retourne une liste des services et applications qui sont exécutent sur le contrôleur de domaine, mais ne sont pas dans la liste par défaut des services et applications qui sont prises en charge pour le clonage. Par défaut, votre service ou application ne sera pas répertoriée. Pour ajouter votre service ou une application à la liste des applications et services qui peuvent être en toute sécurité cloné, les exécutions de l’utilisateur applet de commande Get-ADDCCloningExcludedApplicationList à nouveau avec l’option - GenerateXML pour l’ajouter au fichier CustomDCCloneAllowList.xml fichier. Pour plus d’informations, consultez [étape 2 : Exécutez l’applet de commande Get-ADDCCloningExcludedApplicationList](https://technet.microsoft.com/library/hh831734.aspx#bkmk6_run_get_addccloningexcludedapplicationlist_cmdlet).  
+La première fois que l’utilisateur exécute l’applet de commande ADDCCloningExcludedApplicationList, il retourne une liste de services et d’applications qui s’exécutent sur le contrôleur de domaine, mais qui ne figurent pas dans la liste par défaut des services et applications pris en charge pour le clonage. Par défaut, votre service ou votre application ne seront pas listés. Pour ajouter votre service ou application à la liste des applications et des services qui peuvent être clonés en toute sécurité, l’utilisateur exécute à nouveau l’applet de commande ADDCCloningExcludedApplicationList à l’aide de l’option-GenerateXML afin de l’ajouter au fichier fichier customdccloneallowlist. Xml. Pour plus d’informations, voir [Step 2 : Exécutez l’applet de commande ADDCCloningExcludedApplicationList @ no__t-0.  
   
-### <a name="distributed-system-interactions"></a>Interactions de systèmes distribués  
-Généralement services isolés à l’ordinateur local réussissent ou échouent lorsque participe de clonage. Services distribués ont besoin sur la présence de deux instances de l’ordinateur hôte sur le réseau simultanément pour une courte période de temps. Cela peut se manifester par une instance de service tente d’extraire des informations à partir d’un système partenaire où le clone a enregistré comme le nouveau fournisseur de l’identité. Ou les deux instances du service peuvent transmettre des informations à la base de données AD DS en même temps avec des résultats différents. Par exemple, il n’est pas déterministe de quel ordinateur sera communiquée avec lorsque deux ordinateurs qui ont le service de Windows Test Technologies (WTT) se trouvent sur le réseau avec le contrôleur de domaine.  
+### <a name="distributed-system-interactions"></a>Interactions du système distribué  
+Généralement, les services isolés sur l’ordinateur local réussissent ou échouent lors de la participation au clonage. Les services distribués doivent se préoccuper de l’utilisation simultanée de deux instances de l’ordinateur hôte sur le réseau pendant une courte période. Cela peut se manifester sous la forme d’une instance de service tentant d’extraire des informations d’un système partenaire sur lequel le clone a été enregistré en tant que nouveau fournisseur de l’identité. Ou les deux instances du service peuvent envoyer des informations dans la base de données AD DS en même temps avec des résultats différents. Par exemple, il n’est pas déterministe pour quel ordinateur sera communiqué quand deux ordinateurs sur lesquels le service WTT (Windows Testing Technologies) se trouve sur le réseau avec le contrôleur de domaine.  
   
-Pour le service serveur DNS distribué, le processus de clonage vous évite avec soin de remplacer les enregistrements DNS du contrôleur de domaine source lorsque le contrôleur de domaine clone démarre avec une nouvelle adresse IP.  
+Pour le service serveur DNS distribué, le processus de clonage évite soigneusement le remplacement des enregistrements DNS du contrôleur de domaine source lorsque le contrôleur de domaine clone commence par une nouvelle adresse IP.  
   
-Ne vous fiez pas sur l’ordinateur pour supprimer tout l’ancienne identité jusqu'à la fin du clonage. Une fois le nouveau contrôleur de domaine est promu dans le nouveau contexte, sélectionnez Sysprep fournisseurs sont exécutés pour nettoyer l’état supplémentaire de l’ordinateur. Par exemple, il est à ce stade les anciens certificats de l’ordinateur sont supprimées et les secrets de chiffrement à l’ordinateur peut accéder sont modifiées.  
+Vous ne devez pas compter sur l’ordinateur pour supprimer l’ancienne identité jusqu’à la fin du clonage. Une fois que le nouveau contrôleur de domaine est promu dans le nouveau contexte, sélectionnez les fournisseurs Sysprep exécutés pour nettoyer l’État supplémentaire de l’ordinateur. Par exemple, c’est à ce stade que les anciens certificats de l’ordinateur sont supprimés et les secrets de chiffrement auxquels l’ordinateur peut accéder sont modifiés.  
   
-Le principal facteur qui fait varier le minutage du clonage est combien d’objets à répliquer à partir du contrôleur de domaine principal. Anciens médias augmente le temps nécessaire pour le clonage terminé.  
+Le plus grand facteur qui varie le temps de clonage est le nombre d’objets à répliquer à partir du contrôleur de domaine principal. Un média plus ancien augmente le temps nécessaire pour effectuer le clonage.  
   
-Étant donné que votre service ou une application est inconnue, il reste en cours d’exécution. Le processus de clonage ne modifie pas l’état des services de non Windows.  
+Étant donné que votre service ou application est inconnu, il est laissé en cours d’exécution. Le processus de clonage ne modifie pas l’état des services non-Windows.  
   
-En outre, le nouvel ordinateur a une adresse IP différente de l’ordinateur d’origine. Ces comportements peuvent entraîner des effets secondaires à votre service ou application en fonction de la manière dont le service ou l’application se comporte dans cet environnement.  
+En outre, le nouvel ordinateur a une adresse IP différente de celle de l’ordinateur d’origine. Ces comportements peuvent entraîner des effets secondaires sur votre service ou application en fonction de la façon dont le service ou l’application se comporte dans cet environnement.  
   
-## <a name="additional-scenarios-suggested-for-testing"></a>Scénarios supplémentaires suggérées pour le test  
+## <a name="additional-scenarios-suggested-for-testing"></a>Scénarios supplémentaires suggérés pour le test  
   
-### <a name="cloning-failure"></a>Échec du clonage  
-Les fournisseurs de services doivent tester ce scénario, car le clonage échoue lors de l’ordinateur démarre dans Services de réparation Mode annuaire (DSRM), un formulaire du Mode sans échec. À ce stade l’ordinateur non terminée le clonage. Un état peut avoir été modifiée et un état peut rester à partir du contrôleur de domaine d’origine. Tester ce scénario pour comprendre quel impact cela peut avoir sur votre application.  
+### <a name="cloning-failure"></a>Échec de clonage  
+Les fournisseurs de services doivent tester ce scénario, car lorsque le clonage échoue, l’ordinateur démarre en mode de réparation des services d’annuaire (DSRM), une forme de mode sans échec. À ce stade, l’ordinateur n’a pas terminé le clonage. Certains États peuvent avoir changé et certains États peuvent être conservés à partir du contrôleur de domaine d’origine. Testez ce scénario pour comprendre l’impact qu’il peut avoir sur votre application.  
   
-Pour provoquer un échec de clonage, essayez de cloner un contrôleur de domaine sans lui accordant l’autorisation d’être cloné. Dans ce cas, l’ordinateur sera uniquement modifié les adresses IP tout en conservant la majorité de son état à partir du contrôleur de domaine d’origine. Pour plus d’informations sur l’octroi d’une autorisation de contrôleur de domaine d’être cloné, consultez [étape 1 : Accordez le contrôleur de domaine virtualisé source l’autorisation d’être cloné](https://technet.microsoft.com/library/hh831734.aspx#bkmk4_grant_source).  
+Pour provoquer un échec de clonage, essayez de cloner un contrôleur de domaine sans lui accorder l’autorisation d’être cloné. Dans ce cas, l’ordinateur aura uniquement modifié les adresses IP et aura toujours la majeure partie de son état du contrôleur de domaine d’origine. Pour plus d’informations sur l’octroi de l’autorisation de clonage d’un contrôleur de domaine, voir [Step 1 : Accordez au contrôleur de domaine virtualisé source l’autorisation d’être cloné @ no__t-0.  
   
-### <a name="pdc-emulator-cloning"></a>Le clonage d’émulateur PDC  
-Les fournisseurs de service et d’application doivent tester ce scénario, car il existe un redémarrage supplémentaire lorsque l’émulateur PDC est cloné. En outre, la majorité de clonage est effectuée sous une identité temporaire pour autoriser le nouveau clone d’interagir avec l’émulateur PDC pendant le processus de clonage.  
+### <a name="pdc-emulator-cloning"></a>Clonage de l’émulateur PDC  
+Les fournisseurs de services et d’applications doivent tester ce scénario, car il y a un redémarrage supplémentaire lorsque l’émulateur de contrôleur de domaine principal est cloné. En outre, la majorité du clonage est effectuée sous une identité temporaire pour permettre au nouveau clone d’interagir avec l’émulateur de contrôleur de domaine principal pendant le processus de clonage.  
   
-### <a name="writable-versus-read-only-domain-controllers"></a>Accessible en écriture par rapport aux contrôleurs de domaine en lecture seule  
-Les fournisseurs de service et d’application doivent tester clonage à l’aide du même type de contrôleur de domaine (autrement dit, sur un contrôleur de domaine accessible en écriture ou en lecture seule) que le service est planifié pour s’exécuter sur.  
+### <a name="writable-versus-read-only-domain-controllers"></a>Contrôleurs de domaine accessibles en écriture et en lecture seule  
+Les fournisseurs de services et d’applications doivent tester le clonage en utilisant le même type de contrôleur de domaine (autrement dit, sur un contrôleur de domaine accessible en écriture ou en lecture seule) sur lequel le service est planifié pour s’exécuter.  
   
 
 

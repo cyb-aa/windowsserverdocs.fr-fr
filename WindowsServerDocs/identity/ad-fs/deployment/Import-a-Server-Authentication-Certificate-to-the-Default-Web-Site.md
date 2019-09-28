@@ -6,40 +6,40 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: da91a3e8c34c86f7fd03ca875b3800fdb6001750
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: b1c602d0cdfa562469419de223f5691ec2ff4527
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192115"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359564"
 ---
 # <a name="import-a-server-authentication-certificate-to-the-default-web-site"></a>Importer un certificat d'authentification serveur sur le site web par défaut
 
-Après avoir obtenu un serveur de certificat d’authentification auprès d’une autorité de certification \(autorité de certification\), vous devez installer manuellement ce certificat sur le Site Web par défaut pour chaque serveur de fédération ou le serveur proxy de fédération dans une batterie de serveurs.  
+Une fois que vous avez obtenu un certificat d’authentification serveur auprès d’une autorité de certification \(CA @ no__t-1, vous devez installer manuellement ce certificat sur le site Web par défaut pour chaque serveur de Fédération ou serveur proxy de Fédération dans une batterie de serveurs.  
   
 Pour les serveurs web, vous devez installer le certificat d'authentification serveur sur le site web ou le répertoire virtuel où se trouve votre application fédérée.  
   
 Si vous configurez une batterie de serveurs, assurez-vous d'effectuer exactement la même procédure, en utilisant des paramètres identiques, sur chacun des serveurs.  
   
 > [!NOTE]  
-> Le composant logiciel enfichable Gestion AD FS\-dans fait référence aux certificats d’authentification serveur pour les serveurs de fédération en tant que certificats de communication de service.  
+> Le composant logiciel enfichable de gestion AD FS @ no__t-0in fait référence aux certificats d’authentification serveur pour les serveurs de Fédération en tant que certificats de communication de service.  
   
 Pour effectuer cette procédure, vous devez au minimum être membre du groupe **Administrateurs**ou d'un groupe équivalent sur l'ordinateur local.  Examinez les informations relatives à l’utilisation des comptes et des appartenances au groupe appropriés dans la rubrique [Groupes locaux et de domaine par défaut](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 ### <a name="to-import-a-server-authentication-certificate-to-the-default-web-site"></a>Pour importer un certificat d'authentification serveur sur le site web par défaut  
   
-1.  Sur le **Démarrer** , tapez**Internet Information Services \(IIS\) Manager**, puis appuyez sur ENTRÉE.  
+1.  Dans l’écran d' **Accueil** , tapez**Internet Information Services \(IIS @ No__t-3 Manager**, puis appuyez sur entrée.  
   
 2.  Dans l'arborescence de la console, cliquez sur **Nom_Ordinateur**.  
   
-3.  Dans le volet central, double-cliquez\-cliquez sur **certificats de serveur**.  
+3.  Dans le volet central, doublez les certificats de **serveur**@ no__t-0click.  
   
 4.  Dans le volet **Actions**, cliquez sur **Importer**.  
   
-5.  Dans le **importer un certificat** boîte de dialogue, cliquez sur le **...** .  
+5.  Dans la boîte de dialogue **Importer un certificat** , cliquez sur **...** .  
   
 6.  Recherchez le fichier de certificat pfx, mettez-le en surbrillance, puis cliquez sur **Ouvrir**.  
   

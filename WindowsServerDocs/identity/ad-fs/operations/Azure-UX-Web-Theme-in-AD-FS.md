@@ -6,14 +6,14 @@ ms.author: billmath
 manager: femila
 ms.date: 10/24/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 25ba9505f3f93fb236d6e60e49efc4206482f977
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: f4dd1d45646475be3788cd6b615b1743976eedae
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866006"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358413"
 ---
 # <a name="using-an-azure-ad-ux-web-theme-in-active-directory-federation-services"></a>Utilisation d’un thème Web Azure AD UX dans Services ADFS
 Actuellement, la connexion AD FS Forms ne reflète pas l’expérience de connexion Azure/O365.  Pour fournir une expérience plus uniforme et homogène aux utilisateurs finaux, nous avons publié le thème Web suivant de feuille de style en cascade qui peut être appliqué à vos serveurs AD FS.  À l’heure actuelle, la connexion de formulaires pour AD FS sur Windows Server 2016 ressemble à ceci :

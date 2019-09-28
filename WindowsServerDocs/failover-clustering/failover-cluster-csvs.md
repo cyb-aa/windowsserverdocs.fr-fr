@@ -1,37 +1,37 @@
 ---
-title: Utiliser des Volumes partagés de Cluster dans un cluster de basculement
-description: Comment utiliser des Volumes partagés de Cluster dans un cluster de basculement.
-ms.prod: windows-server-threshold
+title: Utiliser des volumes partagés de cluster dans un cluster de basculement
+description: Comment utiliser des volumes partagés de cluster dans un cluster de basculement.
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: b41ebd0bb822875a3114de4a849ea3ec5decee11
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: da0f541c34c7f8687822bec365364fdd406fa3c3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810883"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369738"
 ---
-# <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Utiliser des Volumes partagés de Cluster dans un cluster de basculement
+# <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Utiliser des volumes partagés de cluster dans un cluster de basculement
 
 >S’applique à : Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2
 
-Les volumes partagés de cluster permettent à plusieurs nœuds au sein d'un cluster de basculement d'avoir simultanément accès en lecture-écriture à un même numéro d'unité logique (disque) approvisionné en tant que volume NTFS. (Dans Windows Server 2012 R2, le disque peut être approvisionné en tant que NTFS ou Resilient File System (ReFS).) Avec les volumes partagés de cluster, les rôles en cluster peuvent basculer rapidement d'un nœud vers un autre sans qu'il soit nécessaire de modifier la propriété du lecteur, ni de démonter et remonter un volume. Les volumes partagés de cluster peuvent aussi contribuer à simplifier la gestion d'un nombre potentiellement important de numéros d'unités logiques dans un cluster de basculement.
+Les volumes partagés de cluster permettent à plusieurs nœuds au sein d'un cluster de basculement d'avoir simultanément accès en lecture-écriture à un même numéro d'unité logique (disque) approvisionné en tant que volume NTFS. (Dans Windows Server 2012 R2, le disque peut être approvisionné comme NTFS ou le système de fichiers résilient (ReFS).) Avec les volumes partagés de cluster, les rôles en cluster peuvent basculer rapidement d'un nœud vers un autre sans qu'il soit nécessaire de modifier la propriété du lecteur, ni de démonter et remonter un volume. Les volumes partagés de cluster peuvent aussi contribuer à simplifier la gestion d'un nombre potentiellement important de numéros d'unités logiques dans un cluster de basculement.
 
-ILS proposent un système de fichiers en cluster à usage général, qui est en couche au-dessus de NTFS (ou ReFS dans Windows Server 2012 R2). Voici quelques exemples d'applications pour les volumes partagés de cluster :
+Le format CSV fournit un système de fichiers en cluster à usage général, qui se situe au-dessus de NTFS (ou ReFS dans Windows Server 2012 R2). Voici quelques exemples d'applications pour les volumes partagés de cluster :
 
 - fichiers de disque dur virtuel (VHD) en cluster pour les ordinateurs virtuels Hyper-V en cluster ;
-- partages de fichiers avec montée en puissance parallèle pour stocker les données d'application pour le rôle en cluster de serveur de fichiers avec montée en puissance parallèle. Les données d'application dans le cadre de ce rôle peuvent consister notamment dans des fichiers d'ordinateur virtuel Hyper-V ou des données Microsoft SQL Server. (Sachez que ReFS n'est pas pris en charge pour un serveur de fichiers avec montée en puissance parallèle.) Pour plus d’informations sur le serveur de fichiers avec montée en puissance, consultez [Scale-Out File Server pour les données d’Application](sofs-overview.md).
+- partages de fichiers avec montée en puissance parallèle pour stocker les données d'application pour le rôle en cluster de serveur de fichiers avec montée en puissance parallèle. Les données d'application dans le cadre de ce rôle peuvent consister notamment dans des fichiers d'ordinateur virtuel Hyper-V ou des données Microsoft SQL Server. (Sachez que ReFS n'est pas pris en charge pour un serveur de fichiers avec montée en puissance parallèle.) Pour plus d’informations sur la Serveur de fichiers avec montée en puissance parallèle, consultez [serveur de fichiers avec montée en puissance parallèle pour les données d’application](sofs-overview.md).
 
 > [!NOTE]
-> Volumes partagés de cluster ne prennent pas en charge la charge de travail en cluster Microsoft SQL Server dans SQL Server 2012 et versions antérieures de SQL Server.
+> CSV ne prend pas en charge la charge de travail en cluster Microsoft SQL Server dans SQL Server 2012 et les versions antérieures de SQL Server.
 
-Dans Windows Server 2012, CSV fonctionnalités ont été considérablement améliorées. Par exemple, les dépendances vis-à-vis des services de domaine Active Directory ont été éliminées. Les améliorations fonctionnelles apportées à **chkdsk**sont désormais prises en charge, tout comme l’interopérabilité avec les applications antivirus et de sauvegarde et l’intégration avec les fonctionnalités de stockage générales, telles que les volumes chiffrés par BitLocker et les espaces de stockage. Pour une vue d’ensemble des fonctionnalités de volume partagé de cluster qui a été introduite dans Windows Server 2012, consultez [Nouveautés du clustering avec basculement dans Windows Server 2012 \[redirigé\]](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
+Dans Windows Server 2012, la fonctionnalité CSV a été considérablement améliorée. Par exemple, les dépendances vis-à-vis des services de domaine Active Directory ont été éliminées. Les améliorations fonctionnelles apportées à **chkdsk**sont désormais prises en charge, tout comme l’interopérabilité avec les applications antivirus et de sauvegarde et l’intégration avec les fonctionnalités de stockage générales, telles que les volumes chiffrés par BitLocker et les espaces de stockage. Pour obtenir une vue d’ensemble de la fonctionnalité de volume partagé de cluster qui a été introduite dans Windows Server 2012, voir [Nouveautés du clustering de basculement dans Windows server 2012 \[redirected @ no__t-2](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
 
-Windows Server 2012 R2 introduit des fonctionnalités supplémentaires, tels que CSV la propriété distribuée, capacité de résilience accrue grâce à la disponibilité du service de serveur, une plus grande flexibilité quantité de mémoire physique que vous pouvez allouer au cache de volume partagé de cluster, mieux concerne et interopérabilité améliorée avec notamment la prise en charge de ReFS et de la déduplication. Pour plus d’informations, consultez [What ' s New in Clustering de basculement](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
+Windows Server 2012 R2 introduit des fonctionnalités supplémentaires, telles que la propriété du volume partagé de cluster distribué, une résilience accrue grâce à la disponibilité du service serveur, une plus grande souplesse dans la quantité de mémoire physique que vous pouvez allouer au cache de volume partagé de cluster, mieux capacité et l’interopérabilité améliorée qui incluent la prise en charge de ReFS et de la déduplication. Pour plus d’informations, consultez [Nouveautés du clustering de basculement](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
 
 > [!NOTE]
 > Pour plus d’informations sur l’utilisation de la déduplication de données sur un volume partagé de cluster dans le cadre de scénarios d’infrastructure VDI (Virtual Desktop Infrastructure), consultez les billets de blog [Deploying Data Deduplication for VDI storage in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/deploying-data-deduplication-for-vdi-storage-in-windows-server-2012-r2.aspx) et [Extending Data Deduplication to new workloads in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/extending-data-deduplication-to-new-workloads-in-windows-server-2012-r2.aspx).
@@ -46,43 +46,43 @@ Au moment de configurer les réseaux qui prennent en charge les volumes partagé
 
 - **Plusieurs réseaux et plusieurs cartes réseau**. Pour bénéficier d'une tolérance de panne en cas de défaillance réseau, nous vous recommandons de faire transiter le trafic des volumes partagés de cluster par plusieurs réseaux de cluster ou de configurer des cartes réseau associées.
     
-    Si les nœuds du cluster sont connectés à des réseaux que le cluster ne doit pas utiliser, vous devez les désactiver. Par exemple, nous vous recommandons de désactiver l'utilisation de réseaux iSCSI dans le cadre d'un cluster pour empêcher tout trafic de volume partagé de cluster sur ces réseaux. Pour désactiver un réseau, dans le Gestionnaire de Cluster de basculement, sélectionnez **réseaux**, sélectionnez le réseau, sélectionnez le **propriétés** action, puis sélectionnez **ne pas autoriser la communication réseau de cluster sur ce réseau**. Vous pouvez également configurer le **rôle** propriété du réseau à l’aide de la [Get-ClusterNetwork](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusternetwork?view=win10-ps) applet de commande Windows PowerShell.
+    Si les nœuds du cluster sont connectés à des réseaux que le cluster ne doit pas utiliser, vous devez les désactiver. Par exemple, nous vous recommandons de désactiver l'utilisation de réseaux iSCSI dans le cadre d'un cluster pour empêcher tout trafic de volume partagé de cluster sur ces réseaux. Pour désactiver un réseau, dans Gestionnaire du cluster de basculement, sélectionnez **réseaux**, sélectionnez le réseau, sélectionnez l’action **Propriétés** , puis sélectionnez **ne pas autoriser la communication réseau de cluster sur ce réseau**. Vous pouvez également configurer la propriété **role** du réseau à l’aide de l’applet de commande Windows PowerShell [ClusterNetwork](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusternetwork?view=win10-ps) .
 - **Propriétés des cartes réseau**. Dans les propriétés de toutes les cartes par lesquelles transite la communication du cluster, vérifiez que les paramètres suivants sont activés :
 
   - **Client pour les réseaux Microsoft** et **Partage de fichiers et d'imprimantes pour les réseaux Microsoft**. Ces paramètres prennent en charge le protocole SMB (Server Message Block) 3.0, qui est utilisé par défaut pour transporter le trafic de volume partagé de cluster entre les nœuds. Pour activer SMB, vérifiez aussi que le service Serveur et le service Station de travail sont en cours d'exécution et qu'ils sont configurés pour démarrer automatiquement sur chaque nœud du cluster.
 
     >[!NOTE]
-    >Dans Windows Server 2012 R2, il existe plusieurs instances de service de serveur par nœud de cluster de basculement. Il y a l'instance par défaut chargée de traiter le trafic entrant en provenance des clients SMB qui accèdent à des partages de fichiers normaux et une deuxième instance de volume partagé de cluster qui traite uniquement le trafic de volume partagé de cluster entre les nœuds. De même, si le service Serveur se dégrade sur un nœud, la propriété du volume partagé de cluster est transférée à un autre nœud.
+    >Dans Windows Server 2012 R2, il existe plusieurs instances de service serveur par nœud de cluster de basculement. Il y a l'instance par défaut chargée de traiter le trafic entrant en provenance des clients SMB qui accèdent à des partages de fichiers normaux et une deuxième instance de volume partagé de cluster qui traite uniquement le trafic de volume partagé de cluster entre les nœuds. De même, si le service Serveur se dégrade sur un nœud, la propriété du volume partagé de cluster est transférée à un autre nœud.
 
     Le protocole SMB 3.0 intègre les fonctionnalités SMB Multichannel et SMB Direct, qui permettent au trafic de volume partagé de cluster d'être transmis sur plusieurs réseaux dans le cluster et d'exploiter les cartes réseau prenant en charge l'accès direct à la mémoire à distance (RDMA). Par défaut, SMB Multichannel est utilisé pour le trafic de volume partagé de cluster. Pour plus d'informations, voir [Vue d'ensemble du protocole SMB (Server Message Block)](../storage/file-server/file-server-smb-overview.md).
-  - **Filtre de performance de carte virtuelle de cluster de basculement Microsoft**. Ce paramètre améliore l'aptitude des nœuds à rediriger les E/S quand cela s'avère nécessaire pour accéder à un volume partagé de cluster, par exemple, quand une panne de connectivité empêche un nœud de se connecter directement au disque du volume partagé de cluster. Pour plus d’informations, consultez [sur la synchronisation et la redirection d’e/s dans la communication de CSV](#about-io-synchronization-and-io-redirection-in-csv-communication) plus loin dans cette rubrique.
+  - **Filtre de performance de carte virtuelle de cluster de basculement Microsoft**. Ce paramètre améliore l'aptitude des nœuds à rediriger les E/S quand cela s'avère nécessaire pour accéder à un volume partagé de cluster, par exemple, quand une panne de connectivité empêche un nœud de se connecter directement au disque du volume partagé de cluster. Pour plus d’informations, consultez [à propos de la synchronisation des e/s et de la redirection des e/s dans la communication CSV](#about-io-synchronization-and-io-redirection-in-csv-communication) plus loin dans cette rubrique.
 - **Définition des priorités concernant les réseaux de cluster**. Nous déconseillons généralement de modifier les préférences configurées au niveau du cluster pour les réseaux.
 - **Configuration des sous-réseaux IP**. Aucune configuration de sous-réseau spécifique n'est nécessaire pour les nœuds d'un réseau qui utilise des volumes partagés de cluster. Les volumes partagés de cluster peuvent prendre en charge les clusters constitués de plusieurs sous-réseaux.
-- **Qualité de service (QoS) basée sur la stratégie**. Dans le cadre d'une utilisation de volumes partagés de cluster, nous vous recommandons de configurer une stratégie de priorité QoS et une stratégie de bande passante minimale pour le trafic réseau dirigé vers chaque nœud. Pour plus d’informations, consultez [qualité de Service (QoS)](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831679(v%3dws.11)>).
-- **Réseau de stockage**. Pour obtenir des recommandations sur les réseaux de stockage, reportez-vous aux conseils donnés par votre fournisseur de stockage. Pour plus d’informations sur le stockage CSV, consultez [exigences de configuration de stockage et de disque](#storage-and-disk-configuration-requirements) plus loin dans cette rubrique.
+- **Qualité de service (QoS) basée sur la stratégie**. Dans le cadre d'une utilisation de volumes partagés de cluster, nous vous recommandons de configurer une stratégie de priorité QoS et une stratégie de bande passante minimale pour le trafic réseau dirigé vers chaque nœud. Pour plus d’informations, voir [qualité de service (QoS)](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831679(v%3dws.11)>).
+- **Réseau de stockage**. Pour obtenir des recommandations sur les réseaux de stockage, reportez-vous aux conseils donnés par votre fournisseur de stockage. Pour plus d’informations sur le stockage pour les volumes partagés de cluster, consultez [Configuration requise pour le stockage et les disques](#storage-and-disk-configuration-requirements) , plus loin dans cette rubrique.
 
 Pour obtenir une vue d’ensemble de la configuration requise pour les composants matériels, le réseau et le stockage des clusters de basculement, consultez [Failover Clustering Hardware Requirements and Storage Options](clustering-requirements.md).
 
 #### <a name="about-io-synchronization-and-io-redirection-in-csv-communication"></a>À propos de la synchronisation et de la redirection des E/S dans le cadre de la communication des volumes partagés de cluster
 
-- **Synchronisation des e/s**: La fonctionnalité CSV permet à plusieurs nœuds d’accéder simultanément à un même stockage partagé en lecture-écriture. Quand un nœud exécute une entrée/sortie (E/S) de disque sur un volume partagé de cluster, le nœud communique directement avec le stockage, par exemple, via un réseau de zone de stockage (SAN). Cependant, à tout moment, un seul nœud (appelé « nœud coordinateur ») est « propriétaire » de la ressource de disque physique associée au numéro d'unité logique. Le nœud coordinateur d'un volume partagé de cluster s'affiche dans le Gestionnaire du cluster de basculement en tant que **Nœud propriétaire** sous **Disques**. Il apparaît également dans la sortie de la [Get-ClusterSharedVolume](https://docs.microsoft.com/powershell/module/failoverclusters/get-clustersharedvolume?view=win10-ps) applet de commande Windows PowerShell.
+- **Synchronisation des e/s**: Le format CSV permet à plusieurs nœuds d’avoir un accès en lecture-écriture simultané au même stockage partagé. Quand un nœud exécute une entrée/sortie (E/S) de disque sur un volume partagé de cluster, le nœud communique directement avec le stockage, par exemple, via un réseau de zone de stockage (SAN). Cependant, à tout moment, un seul nœud (appelé « nœud coordinateur ») est « propriétaire » de la ressource de disque physique associée au numéro d'unité logique. Le nœud coordinateur d'un volume partagé de cluster s'affiche dans le Gestionnaire du cluster de basculement en tant que **Nœud propriétaire** sous **Disques**. Il apparaît également dans la sortie de l’applet de commande Windows PowerShell [ClusterSharedVolume](https://docs.microsoft.com/powershell/module/failoverclusters/get-clustersharedvolume?view=win10-ps) .
 
   >[!NOTE]
-  >Dans Windows Server 2012 R2, la propriété CSV est répartie uniformément entre les nœuds de cluster de basculement en fonction du nombre de volumes partagés de cluster que chaque nœud possède. De plus, la propriété subit un rééquilibrage automatique dans certaines situations : basculement d'un volume partagé de cluster, un nœud qui rejoint le cluster, ajout d'un nœud au cluster, redémarrage d'un nœud du cluster ou démarrage du cluster de basculement après avoir été arrêté.
+  >Dans Windows Server 2012 R2, la propriété CSV est répartie uniformément entre les nœuds de cluster de basculement en fonction du nombre de volumes CSV détenus par chaque nœud. De plus, la propriété subit un rééquilibrage automatique dans certaines situations : basculement d'un volume partagé de cluster, un nœud qui rejoint le cluster, ajout d'un nœud au cluster, redémarrage d'un nœud du cluster ou démarrage du cluster de basculement après avoir été arrêté.
 
   Quand certaines modifications mineures interviennent dans le système de fichiers d'un volume partagé de cluster, ces métadonnées doivent être synchronisées sur chaque nœud physique qui accède au numéro d'unité logique, et pas seulement sur le nœud coordinateur. Par exemple, dès lors qu'un ordinateur virtuel est démarré, créé ou supprimé au niveau d'un volume partagé de cluster ou qu'un ordinateur virtuel fait l'objet d'une migration, ces informations doivent être synchronisées sur chaque nœud physique qui accède à l'ordinateur virtuel. Ces opérations de mise à jour des métadonnées se produisent en parallèle sur les réseaux du cluster via SMB 3.0. Dans le cadre de ces opérations, les nœuds physiques ne sont pas tous tenus de communiquer avec le stockage partagé.
 
-- **La redirection d’e/s**: Les défaillances de connectivité du stockage et certaines opérations de stockage peuvent empêcher un nœud donné de communiquer directement avec le stockage. Pour maintenir le service pendant l'absence de communication entre le nœud et le stockage, le nœud redirige les E/S de disque via un réseau du cluster vers le nœud coordinateur où le disque est actuellement monté. Si le nœud coordinateur actuel subit une défaillance de connectivité avec le stockage, toutes les opérations d'E/S de disque sont mises provisoirement en file d'attente en attendant qu'un nouveau nœud soit défini comme nœud coordinateur.
+- **Redirection d’e/s**: Les défaillances de connectivité du stockage et certaines opérations de stockage peuvent empêcher un nœud donné de communiquer directement avec le stockage. Pour maintenir le service pendant l'absence de communication entre le nœud et le stockage, le nœud redirige les E/S de disque via un réseau du cluster vers le nœud coordinateur où le disque est actuellement monté. Si le nœud coordinateur actuel subit une défaillance de connectivité avec le stockage, toutes les opérations d'E/S de disque sont mises provisoirement en file d'attente en attendant qu'un nouveau nœud soit défini comme nœud coordinateur.
 
 Le serveur utilise l'un des modes de redirection d'E/S suivants, qui varie selon la situation :
 
 - **Redirection du système de fichiers** : la redirection se fait par volume, par exemple, quand une application de sauvegarde prend des captures instantanées de volume partagé de cluster au moment où un volume partagé de cluster est mis manuellement en mode E/S redirigé.
 - **Redirection de bloc** : la redirection intervient au niveau du bloc de fichier, par exemple, en cas de perte de connectivité entre le stockage et un volume. Le redirection de bloc est nettement plus rapide que la redirection du système de fichiers.
 
-Dans Windows Server 2012 R2, vous pouvez afficher l’état d’un volume partagé de cluster nœud par nœud. Par exemple, vous pouvez voir si les E/S sont directes ou redirigées ou si le volume partagé de cluster est indisponible. Si un volume partagé de cluster est en mode E/S redirigé, vous pouvez aussi en voir la raison. Utilisez l’applet de commande Windows PowerShell **Get-ClusterSharedVolumeState** pour afficher ces informations.
+Dans Windows Server 2012 R2, vous pouvez afficher l’état d’un volume partagé de cluster par nœud. Par exemple, vous pouvez voir si les E/S sont directes ou redirigées ou si le volume partagé de cluster est indisponible. Si un volume partagé de cluster est en mode E/S redirigé, vous pouvez aussi en voir la raison. Utilisez l’applet de commande Windows PowerShell **Get-ClusterSharedVolumeState** pour afficher ces informations.
 
 > [!NOTE]
-> * Dans Windows Server 2012, en raison d’améliorations dans la conception de volume partagé de cluster, ceux-ci réalisent davantage d’opérations en mode d’e/s direct que dans Windows Server 2008 R2.
+> * Dans Windows Server 2012, en raison des améliorations apportées à la conception des volumes partagés de cluster, le volume partagé de cluster effectue plus d’opérations en mode e/s directes que dans Windows Server 2008 R2.
 > * Grâce à l'intégration des volumes partagés de cluster aux fonctionnalités du protocole SMB 3.0, telles que SMB Multichannel et SMB Direct, le trafic d'E/S redirigé peut être diffusé sur plusieurs réseaux de cluster.
 > * Vous devez prévoir sur vos réseaux de cluster une possible augmentation du trafic réseau vers le nœud coordinateur lors de la redirection des E/S.
 
@@ -90,18 +90,18 @@ Dans Windows Server 2012 R2, vous pouvez afficher l’état d’un volume partag
 
 Pour utiliser des volumes partagés de cluster, votre stockage et vos disques doivent répondre aux exigences suivantes :
 
-- **Format du système de fichiers**. Dans Windows Server 2012 R2, un espace de stockage sur disque ou pour un volume partagé de cluster doit être un disque de base partitionné en NTFS ou ReFS. Dans Windows Server 2012, un espace de stockage sur disque ou pour un volume partagé de cluster doit être un disque de base partitionné en NTFS.
+- **Format du système de fichiers**. Dans Windows Server 2012 R2, un disque ou un espace de stockage pour un volume partagé de cluster doit être un disque de base partitionné en NTFS ou ReFS. Dans Windows Server 2012, un disque ou un espace de stockage pour un volume partagé de cluster doit être un disque de base partitionné avec NTFS.
 
   Un volume partagé de cluster présente d'autres exigences, à savoir :
     
-  - Dans Windows Server 2012 R2, vous ne pouvez pas utiliser un disque pour un volume partagé de cluster formaté en FAT ou FAT32.
-  - Dans Windows Server 2012, vous ne pouvez pas utiliser un disque pour un volume partagé de cluster formaté en FAT, FAT32 ou ReFS.
-  - Si vous voulez utiliser un espace de stockage pour un volume partagé de cluster, vous pouvez configurer un espace simple ou un espace en miroir. Dans Windows Server 2012 R2, vous pouvez également configurer un espace de parité. (Dans Windows Server 2012, CSV ne prend pas en charge des espaces de parité.)
-  - Un volume partagé de cluster ne peut pas être utilisé comme disque témoin de quorum. Pour plus d’informations sur le quorum du cluster, consultez [Quorum de présentation dans les espaces de stockage Direct](../storage/storage-spaces/understand-quorum.md).
-  - Une fois que vous avez ajouté un disque en tant que volume partagé de cluster, il est désigné au format CSVFS (CSV File System). Cela permet au cluster et aux autres logiciels de faire la distinction entre le stockage de volumes partagés de cluster et tout autre stockage NTFS ou ReFS. En règle générale, CSVFS prend en charge les mêmes fonctionnalités que NTFS ou ReFS. Cependant, certaines d'entre elles ne le sont pas. Par exemple, dans Windows Server 2012 R2, vous ne pouvez pas activer la compression sur un volume partagé de cluster. Dans Windows Server 2012, vous ne pouvez pas activer la déduplication des données ou la compression sur un volume partagé de cluster.
+  - Dans Windows Server 2012 R2, vous ne pouvez pas utiliser de disque pour un volume partagé de cluster formaté avec FAT ou FAT32.
+  - Dans Windows Server 2012, vous ne pouvez pas utiliser de disque pour un volume partagé de cluster formaté en FAT, FAT32 ou ReFS.
+  - Si vous voulez utiliser un espace de stockage pour un volume partagé de cluster, vous pouvez configurer un espace simple ou un espace en miroir. Dans Windows Server 2012 R2, vous pouvez également configurer un espace de parité. (Dans Windows Server 2012, CSV ne prend pas en charge les espaces de parité.)
+  - Un volume partagé de cluster ne peut pas être utilisé comme disque témoin de quorum. Pour plus d’informations sur le quorum de cluster, consultez [Présentation du quorum dans espaces de stockage direct](../storage/storage-spaces/understand-quorum.md).
+  - Une fois que vous avez ajouté un disque en tant que volume partagé de cluster, il est désigné au format CSVFS (CSV File System). Cela permet au cluster et aux autres logiciels de faire la distinction entre le stockage de volumes partagés de cluster et tout autre stockage NTFS ou ReFS. En règle générale, CSVFS prend en charge les mêmes fonctionnalités que NTFS ou ReFS. Cependant, certaines d'entre elles ne le sont pas. Par exemple, dans Windows Server 2012 R2, vous ne pouvez pas activer la compression sur les volumes partagés de cluster. Dans Windows Server 2012, vous ne pouvez pas activer la déduplication des données ou la compression sur les volumes partagés de cluster.
 - **Type de ressource dans le cluster**. Pour un volume partagé de cluster, vous devez utiliser le type de ressource Disque physique. Par défaut, un disque ou un espace de stockage ajouté à un stockage de cluster est automatiquement configuré de cette façon.
 - **Choix de disques de volume partagé de cluster ou d'autres disques dans un stockage de cluster**. Au moment de choisir un ou plusieurs disques pour un ordinateur virtuel en cluster, tenez compte de l'utilisation qui sera faite de chaque disque. Si un disque doit servir à stocker les fichiers créés par Hyper-V, tels que des fichiers VHD ou des fichiers de configuration, vous pouvez faire un choix parmi les disques de volume partagé de cluster ou les autres disques disponibles dans le stockage de cluster. Si un disque est destiné à être un disque physique directement attaché à l'ordinateur virtuel (aussi appelé « disque pass-through » ou « relais »), votre choix ne peut pas se porter sur un disque de volume partagé de cluster, mais nécessairement sur l'un des autres disques disponibles dans le stockage de cluster.
-- **Nom de chemin d'accès pour l'identification des disques**. Les disques de volume partagé de cluster sont identifiés à l'aide d'un nom de chemin d'accès. Chaque chemin d’accès apparaît sur le lecteur système du nœud comme un volume numéroté sous le  **\\ClusterStorage** dossier. Ce chemin d'accès s'affiche à l'identique sur n'importe quel un nœud du cluster. Vous pouvez renommer les volumes, si nécessaire.
+- **Nom de chemin d'accès pour l'identification des disques**. Les disques de volume partagé de cluster sont identifiés à l'aide d'un nom de chemin d'accès. Chaque chemin d’accès apparaît sur le lecteur système du nœud sous la forme d’un volume numéroté sous le dossier **\\ClusterStorage** . Ce chemin d'accès s'affiche à l'identique sur n'importe quel un nœud du cluster. Vous pouvez renommer les volumes, si nécessaire.
 
 Pour connaître les exigences imposées par les volumes partagés de cluster, reportez-vous aux conseils fournis par votre fournisseur de stockage. Vous découvrirez d’autres éléments à prendre en considération pour la planification du stockage pour les volumes partagés de cluster dans la section [Planifier l'utilisation de volumes partagés de cluster dans un cluster de basculement](#plan-to-use-csv-in-a-failover-cluster) , plus loin dans cette rubrique.
 
@@ -114,7 +114,7 @@ Pour utiliser des volumes partagés de cluster, vos nœuds doivent répondre aux
 
 ## <a name="plan-to-use-csv-in-a-failover-cluster"></a>Planifier l'utilisation de volumes partagés de cluster dans un cluster de basculement
 
-Cette section répertorie les considérations et recommandations pour l’utilisation de volume partagé de cluster dans un cluster de basculement exécutant Windows Server 2012 R2 ou Windows Server 2012 de planification.
+Cette section répertorie les considérations relatives à la planification et les recommandations relatives à l’utilisation des volumes partagés de cluster dans un cluster de basculement exécutant Windows Server 2012 R2 ou Windows Server 2012.
 
 > [!IMPORTANT]
 > Interrogez votre fournisseur de stockage pour savoir comment configurer votre unité de stockage spécifique pour les volumes partagés de cluster. Si les recommandations émanant du fournisseur de stockage sont différentes des informations contenues dans cette rubrique, suivez les recommandations du fournisseur de stockage.
@@ -144,24 +144,24 @@ Au moment de planifier la configuration du stockage pour un cluster de basculeme
 
   - Une organisation déploie des ordinateurs virtuels destinés à prendre en charge une infrastructure VDI, dont la charge de travail est relativement faible. Le cluster utilise un stockage à hautes performances. Après consultation du fournisseur de stockage, l'administrateur du cluster décide de placer un nombre relativement important d'ordinateurs virtuels par volume partagé de cluster.
   - Une autre organisation déploie un grand nombre d'ordinateurs virtuels destinés à prendre en charge une application de base de données fortement sollicitée, dont la charge de travail est plus importante. Le cluster utilise un stockage moins performant. Après consultation du fournisseur de stockage, l'administrateur du cluster décide de placer un nombre relativement faible d'ordinateurs virtuels par volume partagé de cluster.
-- Au moment de planifier la configuration du stockage pour un ordinateur virtuel déterminé, réfléchissez aux caractéristiques que doit présenter le disque pour permettre à l'ordinateur virtuel de prendre en charge le service, l'application ou le rôle qui lui est imparti. L'analyse de ces besoins vous évitera une contention de disque, qui risque de se traduire par des performances médiocres. La configuration du stockage pour l'ordinateur virtuel doit être très proche ce celle que vous utiliseriez pour un serveur physique exécutant un service, une application ou un rôle analogue. Pour plus d’informations, consultez [les fichiers de disposition de numéros d’unités logiques, des volumes et des VHD](#arrangement-of-luns-volumes-and-vhd-files) plus haut dans cette rubrique.
+- Au moment de planifier la configuration du stockage pour un ordinateur virtuel déterminé, réfléchissez aux caractéristiques que doit présenter le disque pour permettre à l'ordinateur virtuel de prendre en charge le service, l'application ou le rôle qui lui est imparti. L'analyse de ces besoins vous évitera une contention de disque, qui risque de se traduire par des performances médiocres. La configuration du stockage pour l'ordinateur virtuel doit être très proche ce celle que vous utiliseriez pour un serveur physique exécutant un service, une application ou un rôle analogue. Pour plus d’informations, consultez [Organisation des numéros d’unités logiques, des volumes et des fichiers VHD](#arrangement-of-luns-volumes-and-vhd-files) , plus haut dans cette rubrique.
 
     Vous pouvez aussi limiter les risques de contention de disque en prévoyant un stockage constitué d'un grand nombre de disques durs physiques indépendants. Choisissez votre matériel de stockage en conséquence et consultez votre fournisseur pour optimiser les performances de votre stockage.
 - Selon les charges de travail de votre cluster et leurs besoins en opérations d'E/S, vous pouvez envisager de configurer seulement un pourcentage d'ordinateurs virtuels ayant accès à chaque numéro d'unité logique, tandis que les autres n'auront pas de connectivité et seront dédiés aux opérations de calcul.
 
 ## <a name="add-a-disk-to-csv-on-a-failover-cluster"></a>Ajouter un disque à un volume partagé de cluster sur un cluster de basculement
 
-La fonctionnalité de volume partagé de cluster est activée par défaut dans le clustering de basculement. Pour ajouter un disque à un volume partagé de cluster, vous devez ajouter un disque au groupe **Stockage disponible** du cluster (s'il n'est pas déjà ajouté), puis ajouter le disque au volume partagé de cluster sur le cluster. Vous pouvez utiliser le Gestionnaire du Cluster de basculement ou les applets de commande de basculement Windows PowerShell pour effectuer ces procédures.
+La fonctionnalité de volume partagé de cluster est activée par défaut dans le clustering de basculement. Pour ajouter un disque à un volume partagé de cluster, vous devez ajouter un disque au groupe **Stockage disponible** du cluster (s'il n'est pas déjà ajouté), puis ajouter le disque au volume partagé de cluster sur le cluster. Vous pouvez utiliser Gestionnaire du cluster de basculement ou les applets de commande Windows PowerShell des clusters de basculement pour exécuter ces procédures.
 
 ### <a name="add-a-disk-to-available-storage"></a>Ajouter un disque au stockage disponible
 
 1. Dans le Gestionnaire du cluster de basculement, dans l'arborescence de la console, développez le nom du cluster, puis **Stockage**.
-2. Avec le bouton droit **disques**, puis sélectionnez **ajouter un disque**. Une liste présentant les disques pouvant être ajoutés pour une utilisation dans un cluster de basculement s'affiche à l'écran.
-3. Sélectionnez l’ou les disques que vous souhaitez ajouter, puis sélectionnez **OK**.
+2. Cliquez avec le bouton droit sur **disques**, puis sélectionnez **Ajouter un disque**. Une liste présentant les disques pouvant être ajoutés pour une utilisation dans un cluster de basculement s'affiche à l'écran.
+3. Sélectionnez le ou les disques que vous souhaitez ajouter, puis sélectionnez **OK**.
 
     Les disques sont dès lors affectés au groupe **Stockage disponible**.
 
-#### <a name="windows-powershell-equivalent-commands-add-a-disk-to-available-storage"></a>Commandes équivalentes de Windows PowerShell (ajouter un disque au stockage disponible)
+#### <a name="windows-powershell-equivalent-commands-add-a-disk-to-available-storage"></a>Commandes Windows PowerShell équivalentes (ajouter un disque au stockage disponible)
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -171,17 +171,17 @@ L'exemple suivant identifie les disques prêts à être ajoutés au cluster avan
 Get-ClusterAvailableDisk | Add-ClusterDisk
 ```
 
-### <a name="add-a-disk-in-available-storage-to-csv"></a>Ajouter un disque de stockage disponible au format CSV
+### <a name="add-a-disk-in-available-storage-to-csv"></a>Ajouter un disque dans stockage disponible au volume partagé de cluster
 
-1. Dans le Gestionnaire de Cluster de basculement, dans l’arborescence de la console, développez le nom du cluster, **stockage**, puis sélectionnez **disques**.
-2. Sélectionnez un ou plusieurs disques affectés à **stockage disponible**, avec le bouton droit de la sélection, puis sélectionnez **ajouter aux Volumes partagés de Cluster**.
+1. Dans Gestionnaire du cluster de basculement, dans l’arborescence de la console, développez le nom du cluster, développez **stockage**, puis sélectionnez **disques**.
+2. Sélectionnez un ou plusieurs disques affectés au **stockage disponible**, cliquez avec le bouton droit sur la sélection, puis sélectionnez **Ajouter aux volumes partagés de cluster**.
 
     Les disques sont à présent affectés au groupe **Volume partagé de cluster** du cluster. Les disques sont exposés à chaque nœud de cluster en tant que volumes numérotés (points de montage) sous le dossier %SystemDisk%ClusterStorage. Les volumes s'affichent dans le système de fichiers CSVFS.
 
 >[!NOTE]
 >Vous pouvez renommer les volumes partagés de cluster dans le dossier %SystemDisk%ClusterStorage.
 
-#### <a name="windows-powershell-equivalent-commands-add-a-disk-to-csv"></a>Commandes équivalentes de Windows PowerShell (ajouter un disque au format CSV)
+#### <a name="windows-powershell-equivalent-commands-add-a-disk-to-csv"></a>Commandes Windows PowerShell équivalentes (ajouter un disque au fichier CSV)
 
 L'applet ou les applets de commande Windows PowerShell suivantes remplissent la même fonction que la procédure précédente. Entrez chaque applet de commande sur une seule ligne, même si elles peuvent apparaître comme renvoyées sur plusieurs lignes ici en raison de contraintes de mise en forme.
 
@@ -198,14 +198,14 @@ Le cache de volume partagé de cluster assure une mise en cache au niveau du blo
 >[!NOTE]
 >Nous vous recommandons d'activer le cache de volume partagé de cluster pour tous les déploiements en cluster d'Hyper-V et de serveurs de fichiers avec montée en puissance parallèle en cluster.
 
-Par défaut dans Windows Server 2012, le cache de volume partagé de cluster est désactivé. Dans Windows Server 2012 R2 et versions ultérieures, il est activé par défaut. Cependant, vous devez toujours allouer la taille du cache de bloc à réserver.
+Par défaut, dans Windows Server 2012, le cache de volume partagé de cluster est désactivé. Dans Windows Server 2012 R2 et versions ultérieures, le cache de volume partagé de cluster est activé par défaut. Cependant, vous devez toujours allouer la taille du cache de bloc à réserver.
 
 Le tableau suivant décrit les deux paramètres de configuration qui contrôlent le cache de volume partagé de cluster.
 
 | Windows Server 2012 R2 et versions ultérieures |  Windows Server 2012                 | Description |
 | -------------------------------- | ------------------------------------ | ----------- |
-| BlockCacheSize                   | SharedVolumeBlockCacheSizeInMB       | Cette propriété de cluster courante permet de définir la quantité de mémoire (en mégaoctets) à réserver pour le cache de volume partagé de cluster sur chaque nœud du cluster. Par exemple, si la valeur définie est 512, la mémoire système réservée sur chaque nœud est de 512 Mo. (Dans de nombreux clusters 512 Mo est la valeur recommandée). Le paramètre par défaut est 0 (pour désactivé). |
-| EnableBlockCache                 | CsvEnableBlockCache                  | Propriété privée de la ressource Disque physique de cluster. Elle permet d'activer le cache de volume partagé de cluster sur un disque individuel ajouté au volume partagé de cluster. Dans Windows Server 2012, le paramètre par défaut est 0 (pour désactivé). Pour activer le cache de volume partagé de cluster sur un disque, définissez la valeur 1. Par défaut, dans Windows Server 2012 R2, ce paramètre est activé. |
+| BlockCacheSize                   | SharedVolumeBlockCacheSizeInMB       | Cette propriété de cluster courante permet de définir la quantité de mémoire (en mégaoctets) à réserver pour le cache de volume partagé de cluster sur chaque nœud du cluster. Par exemple, si la valeur définie est 512, la mémoire système réservée sur chaque nœud est de 512 Mo. (Dans de nombreux clusters, 512 Mo est une valeur recommandée.) La valeur par défaut est 0 (pour désactivé). |
+| EnableBlockCache                 | CsvEnableBlockCache                  | Propriété privée de la ressource Disque physique de cluster. Elle permet d'activer le cache de volume partagé de cluster sur un disque individuel ajouté au volume partagé de cluster. Dans Windows Server 2012, le paramètre par défaut est 0 (pour désactivé). Pour activer le cache de volume partagé de cluster sur un disque, définissez la valeur 1. Par défaut, ce paramètre est activé dans Windows Server 2012 R2. |
 
 Vous pouvez analyser le cache de volume partagé de cluster dans l'Analyseur de performances en ajoutant les compteurs sous **Cache de volume partagé de cluster**.
 
@@ -225,28 +225,28 @@ Vous pouvez analyser le cache de volume partagé de cluster dans l'Analyseur de 
         ```PowerShell
         (Get-Cluster).SharedVolumeBlockCacheSizeInMB = 512  
         ```
-3. Dans Windows Server 2012, pour activer le cache de volume partagé de cluster sur un fichier CSV nommé *Cluster Disk 1*, entrez les informations suivantes :
+3. Dans Windows Server 2012, pour activer le cache de volume partagé de cluster sur un fichier CSV nommé *cluster 1*, entrez ce qui suit :
 
     ```PowerShell
     Get-ClusterSharedVolume "Cluster Disk 1" | Set-ClusterParameter CsvEnableBlockCache 1
     ```
 
 >[!NOTE]
-> * Dans Windows Server 2012, vous pouvez allouer seulement 20 % de la RAM physique au cache de volume partagé de cluster. Dans Windows Server 2012 R2 et versions ultérieures, vous pouvez allouer jusqu'à 80 %. Comme les serveurs de fichiers avec montée en puissance parallèle ne sont généralement pas limités en mémoire, vous pouvez obtenir des gains de performances importants en utilisant la mémoire supplémentaire pour le cache de volume partagé de cluster.
-> * Pour éviter les conflits de ressources, vous devez redémarrer chaque nœud du cluster après avoir modifié la mémoire est allouée au cache de volume partagé de cluster. Dans Windows Server 2012 R2 et versions ultérieures, un redémarrage n’est plus nécessaire.
-> * Après avoir activé ou désactivé le cache de volume partagé de cluster sur un disque individuel, pour que le paramètre prenne effet, vous devez mettre la ressource Disque physique hors connexion, puis la remettre en ligne. (Par défaut, dans Windows Server 2012 R2 et versions ultérieures, il est activé.) 
+> * Dans Windows Server 2012, vous pouvez allouer seulement 20% de la quantité totale de RAM physique au cache de volume partagé de cluster. Dans Windows Server 2012 R2 et versions ultérieures, vous pouvez allouer jusqu’à 80%. Comme les serveurs de fichiers avec montée en puissance parallèle ne sont généralement pas limités en mémoire, vous pouvez obtenir des gains de performances importants en utilisant la mémoire supplémentaire pour le cache de volume partagé de cluster.
+> * Pour éviter les conflits de ressources, vous devez redémarrer chaque nœud du cluster après avoir modifié la mémoire qui est allouée au cache de volume partagé de cluster. Dans Windows Server 2012 R2 et versions ultérieures, un redémarrage n’est plus nécessaire.
+> * Après avoir activé ou désactivé le cache de volume partagé de cluster sur un disque individuel, pour que le paramètre prenne effet, vous devez mettre la ressource Disque physique hors connexion, puis la remettre en ligne. (Par défaut, dans Windows Server 2012 R2 et versions ultérieures, le cache de volume partagé de cluster est activé.) 
 > * Pour plus d’informations sur le cache de volume partagé de cluster contenant des informations sur les compteurs de performances, consultez le billet de blog [How to Enable CSV Cache](https://blogs.msdn.microsoft.com/clustering/2013/07/19/how-to-enable-csv-cache/).
 
-## <a name="backing-up-csvs"></a>Sauvegarde des volumes partagés de cluster
+## <a name="backing-up-csvs"></a>Sauvegarde de CSV
 
-Il existe plusieurs méthodes pour sauvegarder les informations qui sont stockées sur des volumes partagés de cluster dans un cluster de basculement. Vous pouvez utiliser une application de sauvegarde Microsoft ou une application non fournie par Microsoft. En règle générale, les volumes partagés de cluster n'imposent pas de conditions de sauvegarde particulières en dehors de celles liées au stockage en cluster formaté en NTFS ou ReFS. De même, les sauvegardes de volumes partagés de cluster ne perturbent pas les autres opérations de stockage de volume partagé de cluster.
+Il existe plusieurs méthodes pour sauvegarder des informations qui sont stockées sur CSV dans un cluster de basculement. Vous pouvez utiliser une application de sauvegarde Microsoft ou une application non fournie par Microsoft. En règle générale, les volumes partagés de cluster n'imposent pas de conditions de sauvegarde particulières en dehors de celles liées au stockage en cluster formaté en NTFS ou ReFS. De même, les sauvegardes de volumes partagés de cluster ne perturbent pas les autres opérations de stockage de volume partagé de cluster.
 
 Au moment de choisir une application de sauvegarde et un programme de sauvegarde, voici les éléments dont vous devez tenir compte :
 
 - Une sauvegarde au niveau du volume d'un volume partagé de cluster peut être exécutée à partir de n'importe quel nœud connecté au volume partagé de cluster.
 - Votre application de sauvegarde peut utiliser des captures instantanées logicielles ou matérielles. Selon la capacité de votre application de sauvegarde à les prendre en charge, les sauvegardes peuvent utiliser des captures instantanées VSS (Volume Shadow Copy Service) cohérentes du point de vue des applications et des incidents.
 - Si vous sauvegardez des volumes partagés de cluster sur lesquels s'exécutent plusieurs ordinateurs virtuels, vous avez généralement tout intérêt à opter pour une méthode de sauvegarde basée sur le système d'exploitation de gestion. Si votre application de sauvegarde le permet, plusieurs ordinateurs virtuels peuvent être sauvegardés simultanément.
-- CSV prend en charge les demandeurs de sauvegarde qui exécutent la sauvegarde de Windows Server 2012 R2, la sauvegarde de Windows Server 2012 ou la sauvegarde de Windows Server 2008 R2. Cependant, la Sauvegarde Windows Server n'offre généralement qu'une solution de sauvegarde de base qui n'est pas nécessairement adaptée aux organisations dotées de clusters volumineux. La Sauvegarde Windows Server ne prend pas en charge la sauvegarde d'ordinateurs virtuels cohérente du point de vue des applications sur les volumes partagés de cluster. Elle ne prend en charge que la sauvegarde au niveau du volume cohérente du point de vue des incidents. (Si vous restaurez une sauvegarde cohérente du point de vue des incidents, l'ordinateur virtuel se retrouvera dans le même état qui était le sien s'il s'est bloqué au moment précis où la sauvegarde a été effectuée.) La sauvegarde d'un ordinateur virtuel basé sur un volume partagé de cluster aboutira, mais un événement d'erreur sera consigné indiquant que cette opération n'est pas prise en charge.
+- CSV prend en charge les demandeurs de sauvegarde qui exécutent la sauvegarde Windows Server 2012 R2, la sauvegarde Windows Server 2012 ou la sauvegarde Windows Server 2008 R2. Cependant, la Sauvegarde Windows Server n'offre généralement qu'une solution de sauvegarde de base qui n'est pas nécessairement adaptée aux organisations dotées de clusters volumineux. La Sauvegarde Windows Server ne prend pas en charge la sauvegarde d'ordinateurs virtuels cohérente du point de vue des applications sur les volumes partagés de cluster. Elle ne prend en charge que la sauvegarde au niveau du volume cohérente du point de vue des incidents. (Si vous restaurez une sauvegarde cohérente du point de vue des incidents, l'ordinateur virtuel se retrouvera dans le même état qui était le sien s'il s'est bloqué au moment précis où la sauvegarde a été effectuée.) La sauvegarde d'un ordinateur virtuel basé sur un volume partagé de cluster aboutira, mais un événement d'erreur sera consigné indiquant que cette opération n'est pas prise en charge.
 - Vous aurez peut-être besoin d'informations d'identification d'administrateur au moment de sauvegarde un cluster de basculement.
 
 > [!IMPORTANT]
@@ -255,7 +255,7 @@ Au moment de choisir une application de sauvegarde et un programme de sauvegarde
 > [!WARNING]
 > Si vous devez restaurer les données de sauvegarde sur un volume partagé de cluster, tenez compte des capacités et des limitations de l'application de sauvegarde pour conserver et restaurer des données cohérentes du point de vue des applications dans les nœuds du cluster. Par exemple, avec certaines applications, si le volume partagé de cluster est restauré sur un nœud différent de celui sur lequel le volume partagé de cluster a été sauvegardé, vous risquez par mégarde de remplacer des données importantes concernant l'état des applications sur le nœud où la restauration a eu lieu.
 
-## <a name="more-information"></a>Informations supplémentaires
+## <a name="more-information"></a>Plus d’informations
 
 - [Clustering de basculement](failover-clustering.md)
 - [Déployer des espaces de stockage en cluster](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11)>)

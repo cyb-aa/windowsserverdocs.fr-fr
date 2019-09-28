@@ -1,18 +1,18 @@
 ---
 title: Considérations matérielles dans le réglage des performances Active Directory
 description: Considérations matérielles dans le réglage des performances Active Directory
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 4d1e6c2744cfe0d16b034e6511144bef92a46b2e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8e9b121036d33bc36cabb92ca682407bc2382fca
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866658"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355099"
 ---
 # <a name="hardware-considerations-in-adds-performance-tuning"></a>Considérations matérielles dans ajoute l’optimisation des performances 
 
@@ -61,7 +61,7 @@ Les processeurs qui n’ont pas suffisamment de cycles libres peuvent entraîner
 
 -   Ajouter du matériel, optimiser la charge, diriger les clients ailleurs ou supprimer la charge de l’environnement afin de réduire la charge de l’UC.
 
--   Utilisez le compteur de performances\_informations sur\\le processeur ( &lt; total)% utilisation du processeur 60%.
+-   Utilisez les informations du processeur (\_Total) \\% utilisation du processeur &lt; 60% compteur de performances.
 
 ## <a name="avoid-overloading-the-network-adapter"></a>Éviter de surcharger la carte réseau
 

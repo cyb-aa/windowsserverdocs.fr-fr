@@ -1,32 +1,32 @@
 ---
 title: Audit de pare-feu SDN
-description: L’audit de pare-feu est une nouvelle fonctionnalité du pare-feu SDN dans Windows Server 2019. Lorsque vous activez le pare-feu SDN, n’importe quel flux traitée par des règles de pare-feu SDN (ACL) qui ont activé la journalisation obtient enregistrée.
+description: L’audit de pare-feu est une nouvelle fonctionnalité du pare-feu SDN dans Windows Server 2019. Lorsque vous activez le pare-feu SDN, tout workflow traité par les règles de pare-feu SDN (ACL) pour lequel la journalisation est activée est enregistré.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: c4e2f6c7-0364-4bf8-bb66-9af59c0bbd74
 ms.author: pashort
 author: shortpatti
 ms.date: 08/22/2018
-ms.openlocfilehash: a73cdc443dd55b16f6e6cb187e001581620ce771
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 246adc6b4fd3ea130196cf1786f7fa130703de1a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890900"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355758"
 ---
 # <a name="sdn-firewall-auditing"></a>Audit de pare-feu SDN
 
 >S’applique à : Windows Server 2019
 
-L’audit de pare-feu est une nouvelle fonctionnalité du pare-feu SDN dans Windows Server 2019. Lorsque vous activez le pare-feu SDN, n’importe quel flux traitée par des règles de pare-feu SDN (ACL) qui ont activé la journalisation obtient enregistrée. Les fichiers journaux doivent être dans une syntaxe qui est cohérente avec la [journaux de flux Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Ces journaux peuvent être utilisés pour les diagnostics ou archivés pour une analyse ultérieure. 
+L’audit de pare-feu est une nouvelle fonctionnalité du pare-feu SDN dans Windows Server 2019. Lorsque vous activez le pare-feu SDN, tout workflow traité par les règles de pare-feu SDN (ACL) pour lequel la journalisation est activée est enregistré. Les fichiers journaux doivent être dans une syntaxe qui est cohérente avec les [journaux de flow Network Watcher Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Ces journaux peuvent être utilisés pour les diagnostics ou archivés en vue d’une analyse ultérieure. 
 
-Nous fournirons prochainement quelques exemples montrant comment traiter ces fichiers à l’aide des outils tels que Power BI.
+Nous vous présenterons bientôt des exemples de traitement de ces fichiers à l’aide d’outils tels que Power BI.
 
-_**Faites un essai et nous faire part de vos commentaires !**_
+_**Essayez-le et faites-nous part de vos commentaires !**_
 
-Voici un exemple de script pour activer le pare-feu de l’audit sur les hôtes Hyper-V. Mettre à jour les variables au début et exécuter cette procédure sur un ordinateur Windows Server 2019 doté de la fonctionnalité RSAT-NetworkController :
+Voici un exemple de script permettant d’activer l’audit de pare-feu sur les hôtes Hyper-V. Mettez à jour les variables au début et exécutez-les sur un ordinateur Windows Server 2019 avec la fonctionnalité RSAT-NetworkController installée :
 
 ```PowerShell
 $logpath = "C:\test\log1"
@@ -54,7 +54,7 @@ foreach ($s in $servers) {
 }
 ```
 
-Une fois activé un nouveau fichier apparaît dans le répertoire spécifié sur chaque ordinateur hôte sur une fois par heure.  Vous devez régulièrement traiter ces fichiers et les en retirer les ordinateurs hôtes.  Le fichier actuel a une longueur nulle et est verrouillé jusqu'à ce que vidé à la marque de l’heure suivante :
+Une fois activé, un nouveau fichier apparaît dans le répertoire spécifié sur chaque hôte environ une fois par heure.  Vous devez régulièrement traiter ces fichiers et les supprimer des hôtes.  Le fichier actif a une longueur de zéro et est verrouillé jusqu’à ce qu’il soit vidé à l’heure suivante :
 
 ```syntax
 PS C:\test\log1> dir
@@ -70,7 +70,7 @@ Mode                LastWriteTime         Length Name
 -a----        7/19/2018   9:28 AM              0 SdnFirewallAuditing.d8b3b697-5355-40e2-84d2-1bf2f0e0dc4a.20180719TL162803464.json
 ```
 
-Ces fichiers contiennent une séquence d’événements de flux, par exemple :
+Ces fichiers contiennent une séquence d’événements de Flow, par exemple :
 
 ```syntax
 { 
@@ -100,7 +100,7 @@ Ces fichiers contiennent une séquence d’événements de flux, par exemple :
 ```
 
 
-Notez, journalisation intervient uniquement pour les règles qui ont **journalisation** définie sur **activé**, par exemple :
+Notez que la journalisation a lieu uniquement pour les règles dont la **journalisation** est définie sur **activé**, par exemple :
 
 ```syntax
 {

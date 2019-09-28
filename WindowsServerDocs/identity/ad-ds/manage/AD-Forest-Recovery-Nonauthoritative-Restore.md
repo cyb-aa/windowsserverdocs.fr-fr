@@ -1,39 +1,39 @@
 ---
-title: Récupération de forêt AD - restauration ne faisant pas autorité
+title: Récupération de la forêt Active Directory-restauration ne faisant pas autorité
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.date: 08/09/2018
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.assetid: e4ce1d18-d346-492a-8bca-f85513aa3ac1
 ms.technology: identity-adds
-ms.openlocfilehash: 65e33e6507d2affc4d07cc0780a7baf91a170a09
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: d7792cd739931d758125c8946606beb043ce19dd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280588"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71369092"
 ---
-# <a name="performing-a-nonauthoritative-restore-of-active-directory-domain-services"></a>Effectuez une restauration ne faisant pas autoritée des Services de domaine Active Directory 
+# <a name="performing-a-nonauthoritative-restore-of-active-directory-domain-services"></a>Exécution d’une restauration ne faisant pas autorité de Active Directory Domain Services 
 
 >S'applique à : Windows Server 2016, Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
 
-Pour effectuer une restauration ne faisant pas autoritée, effectuez la procédure suivante.  
+Pour effectuer une restauration ne faisant pas autorité, effectuez la procédure suivante.  
   
-Les procédures suivantes utilisent le Wbadmin.exe pour effectuer une restauration ne faisant pas autoritée d’Active Directory ou Services de domaine Active Directory (AD DS). Si vous utilisez une autre solution de sauvegarde ou si vous avez l’intention d’effectuer la restauration faisant autoritée de SYSVOL, plus loin dans le processus de récupération de forêt, vous pouvez effectuer une restauration faisant autorité de SYSVOL à l’aide de ces méthodes :  
+Les procédures suivantes utilisent le fichier Wbadmin. exe pour effectuer une restauration ne faisant pas autorité de Active Directory ou Active Directory Domain Services (AD DS). Si vous utilisez une autre solution de sauvegarde ou si vous envisagez de terminer la restauration faisant autorité de SYSVOL plus tard dans le processus de récupération de forêt, vous pouvez effectuer une restauration faisant autorité de SYSVOL à l’aide des méthodes alternatives suivantes :  
   
-- Si vous utilisez le Service de réplication de fichiers (FRS) pour répliquer SYSVOL, suivez les étapes de [article 290762](https://go.microsoft.com/fwlink/?LinkId=148443) dans la Base de connaissances Microsoft, à l’aide de la **BurFlags** clé de Registre de réinitialisation de réplicas FRS Définit ou si nécessaire, article 315457 [315457](https://support.microsoft.com/kb/315457)pour reconstruire l’arborescence de SYSVOL. Pour déterminer si SYSVOL répliqué par FRS, consultez [dossier SYSVOL de déterminer si un contrôleur de domaine répliqué par DFSR ou FRS](https://msdn.microsoft.com/library/windows/desktop/cc507518.aspx#determining_whether_a_domain_controller_s_sysvol_folder_is_replicated_by_dfsr_or_frs).  
-- Si vous utilisez la réplication de système de fichiers distribués (DFS, Distributed File System) pour répliquer SYSVOL, consultez [effectuera une synchronisation faisant autoritée de SYSVOL de réplication DFSR](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md).  
+- Si vous utilisez le service de réplication de fichiers (FRS) pour répliquer SYSVOL, suivez les étapes de l' [article 290762](https://go.microsoft.com/fwlink/?LinkId=148443) de la base de connaissances Microsoft, en utilisant la clé de Registre **BurFlags** pour réinitialiser les jeux de réplicas FRS ou, si nécessaire, l’article 315457 [ 315457](https://support.microsoft.com/kb/315457)pour régénérer l’arborescence SYSVOL. Pour déterminer si SYSVOL est répliqué par FRS, consultez [déterminer si le dossier Sysvol d’un contrôleur de domaine est répliqué par DFSR ou FRS](https://msdn.microsoft.com/library/windows/desktop/cc507518.aspx#determining_whether_a_domain_controller_s_sysvol_folder_is_replicated_by_dfsr_or_frs).  
+- Si vous utilisez la réplication système de fichiers DFS (DFS) pour répliquer SYSVOL, consultez [effectuer une synchronisation faisant autorité d’un SYSVOL répliqué par DFSR](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md).  
 
-## <a name="performing-a-nonauthoritative-restore"></a>Effectuez une restauration ne faisant pas autoritée
+## <a name="performing-a-nonauthoritative-restore"></a>Exécution d’une restauration ne faisant pas autorité
 
-Utilisez la procédure suivante pour effectuer une restauration ne faisant pas autoritée des services AD DS et une restauration faisant autorité de SYSVOL en même temps à l’aide de wbadmin.exe sur un contrôleur de domaine qui exécute Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008. La sauvegarde doit inclure explicitement les données d’état système ; une sauvegarde complète du serveur qui est utilisée pour la récupération de serveur complet ne fonctionneront pas. Pour plus d’informations sur la création d’une sauvegarde de l’état système, consultez [la sauvegarde des données d’état du système](AD-Forest-Recovery-Backing-up-System-State.md).  
+Utilisez la procédure suivante pour effectuer une restauration ne faisant pas autorité de AD DS et une restauration faisant autorité de SYSVOL en même temps à l’aide de Wbadmin. exe sur un contrôleur de périphérique qui exécute Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008. La sauvegarde doit inclure explicitement les données d’État du système ; une sauvegarde complète du serveur qui est utilisée pour la récupération complète du serveur ne fonctionnera pas. Pour plus d’informations sur la création d’une sauvegarde de l’état du système, consultez [sauvegarde des données sur l’état du système](AD-Forest-Recovery-Backing-up-System-State.md).  
   
-### <a name="to-perform-a-nonauthoritative-restore-of-ad-ds-and-authoritative-restore-of-sysvol-using-wbadminexe"></a>Pour effectuer une restauration ne faisant pas autoritée des services AD DS faisant autorité et la restauration de SYSVOL à l’aide de wbadmin.exe  
+### <a name="to-perform-a-nonauthoritative-restore-of-ad-ds-and-authoritative-restore-of-sysvol-using-wbadminexe"></a>Pour effectuer une restauration ne faisant pas autorité de AD DS et de la restauration faisant autorité de SYSVOL à l’aide de Wbadmin. exe  
   
-- Inclure le **- authsysvol** passer dans votre commande de récupération, comme illustré dans l’exemple suivant :  
+- Incluez le commutateur **-authsysvol** dans votre commande de récupération, comme illustré dans l’exemple suivant :  
 
    ```  
    wbadmin start systemstaterecovery <otheroptions> -authsysvol  

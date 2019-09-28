@@ -4,17 +4,17 @@ description: Cette rubrique fait partie du guide déployer des certificats de se
 manager: dougkim
 ms.topic: article
 ms.assetid: f77a3989-9f92-41ef-92a8-031651dd73a8
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
 ms.date: 07/26/2018
-ms.openlocfilehash: 74d77347e0ca1dffbca4e2cf6f17b9faa25d55bf
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: 94304f6ae2604dad9f1d21be62d19e4a57a7a1ae
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560496"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71356168"
 ---
 # <a name="configure-the-cdp-and-aia-extensions-on-ca1"></a>Configurer les extensions CDP et AIA sur CA1
 
@@ -33,37 +33,37 @@ Pour effectuer cette procédure, vous devez être membre du groupe Admins du dom
     > [!NOTE]  
     > Le nom de votre autorité de certification est différent si vous n’avez pas nommé l’ordinateur CA1 et que votre nom de domaine est différent de celui de cet exemple. Le nom de l’autorité de certification est au format *domaine*-*nomordinateurautoritécertification*-ca.  
   
-3.  Cliquez sur l’onglet **Extensions** . Assurez-vous que l' **option Sélectionner l’extension** est définie sur **point de distribution de liste de révocation de certificats (CDP)** et, dans **spécifier les emplacements à partir desquels les utilisateurs peuvent obtenir une liste de révocation de certificats**, procédez comme suit:  
+3.  Cliquez sur l’onglet **Extensions** . Assurez-vous que l' **option Sélectionner l’extension** est définie sur **point de distribution de liste de révocation de certificats (CDP)** et, dans **spécifier les emplacements à partir desquels les utilisateurs peuvent obtenir une liste de révocation de certificats**, procédez comme suit :  
   
     1.  Sélectionnez l’entrée `file://\\<ServerDNSName>\CertEnroll\<CaName><CRLNameSuffix><DeltaCRLAllowed>.crl`, puis cliquez sur **supprimer**. Dans **confirmer la suppression**, cliquez sur **Oui**.  
   
     2.  Sélectionnez l’entrée `http://<ServerDNSName>/CertEnroll/<CaName><CRLNameSuffix><DeltaCRLAllowed>.crl`, puis cliquez sur **supprimer**. Dans **confirmer la suppression**, cliquez sur **Oui**.  
   
-    3.  Sélectionnez l’entrée qui commence par le chemin `ldap:///CN=<CATruncatedName><CRLNameSuffix>,CN=<ServerShortName>`d’accès, puis cliquez sur **supprimer**. Dans **confirmer la suppression**, cliquez sur **Oui**.  
+    3.  Sélectionnez l’entrée qui commence par le chemin d’accès `ldap:///CN=<CATruncatedName><CRLNameSuffix>,CN=<ServerShortName>`, puis cliquez sur **supprimer**. Dans **confirmer la suppression**, cliquez sur **Oui**.  
   
 4.  Dans **spécifier les emplacements à partir desquels les utilisateurs peuvent obtenir une liste de révocation de certificats**, cliquez sur **Ajouter**. La boîte de dialogue **Ajouter un emplacement** s’ouvre.  
   
-5.  Dans **Ajouter un emplacement**, dans **emplacement**, `http://pki.corp.contoso.com/pki/<CaName><CRLNameSuffix><DeltaCRLAllowed>.crl`tapez, puis cliquez sur **OK**. Cela vous renvoie à la boîte de dialogue Propriétés de l’autorité de certification.  
+5.  Dans **Ajouter un emplacement**, dans **emplacement**, tapez `http://pki.corp.contoso.com/pki/<CaName><CRLNameSuffix><DeltaCRLAllowed>.crl`, puis cliquez sur **OK**. Cela vous renvoie à la boîte de dialogue Propriétés de l’autorité de certification.  
   
-6.  Sous l’onglet **Extensions** , activez les cases à cocher suivantes:  
+6.  Sous l’onglet **Extensions** , activez les cases à cocher suivantes :  
   
-    -   **Inclure dans les listes de révocation de certificats. Les clients l’utilisent pour trouver les emplacements des listes de révocation de certificats delta**  
+    -   **Include dans les listes de révocation de certificats. Les clients l’utilisent pour trouver les emplacements des listes de révocation de certificats delta @ no__t-0  
   
     -   **Inclure dans l’extension CDP des certificats émis**  
   
 7.  Dans **spécifier les emplacements à partir desquels les utilisateurs peuvent obtenir une liste de révocation de certificats**, cliquez sur **Ajouter**. La boîte de dialogue **Ajouter un emplacement** s’ouvre.  
   
-8.  Dans **Ajouter un emplacement**, dans **emplacement**, `file://\\pki.corp.contoso.com\pki\<CaName><CRLNameSuffix><DeltaCRLAllowed>.crl`tapez, puis cliquez sur **OK**. Cela vous renvoie à la boîte de dialogue Propriétés de l’autorité de certification.  
+8.  Dans **Ajouter un emplacement**, dans **emplacement**, tapez `file://\\pki.corp.contoso.com\pki\<CaName><CRLNameSuffix><DeltaCRLAllowed>.crl`, puis cliquez sur **OK**. Cela vous renvoie à la boîte de dialogue Propriétés de l’autorité de certification.  
   
-9. Sous l’onglet **Extensions** , activez les cases à cocher suivantes:  
+9. Sous l’onglet **Extensions** , activez les cases à cocher suivantes :  
   
     -   **Publier les listes de révocation de certificats à cet emplacement**  
   
     -   **Publier des listes de révocation de certificats delta à cet emplacement**  
   
-10. Modifiez l' **option Sélectionner l’extension** en accès aux informations de l' **autorité (AIA)** , puis dans **spécifier les emplacements à partir desquels les utilisateurs peuvent obtenir une liste de révocation de certificats**, procédez comme suit:  
+10. Modifiez l' **option Sélectionner l’extension** en accès aux informations de l' **autorité (AIA)** , puis dans **spécifier les emplacements à partir desquels les utilisateurs peuvent obtenir une liste de révocation de certificats**, procédez comme suit :  
   
-    1.  Sélectionnez l’entrée qui commence par le chemin `ldap:///CN=<CATruncatedName>,CN=AIA,CN=Public Key Services`d’accès, puis cliquez sur **supprimer**. Dans **confirmer la suppression**, cliquez sur **Oui**.  
+    1.  Sélectionnez l’entrée qui commence par le chemin d’accès `ldap:///CN=<CATruncatedName>,CN=AIA,CN=Public Key Services`, puis cliquez sur **supprimer**. Dans **confirmer la suppression**, cliquez sur **Oui**.  
   
     2.  Sélectionnez l’entrée `http://<ServerDNSName>/CertEnroll/<ServerDNSName>_<CaName><CertificateName>.crt`, puis cliquez sur **supprimer**. Dans **confirmer la suppression**, cliquez sur **Oui**.  
   
@@ -71,7 +71,7 @@ Pour effectuer cette procédure, vous devez être membre du groupe Admins du dom
   
 11. Dans **Spécifiez les emplacements à partir desquels les utilisateurs peuvent obtenir le certificat pour cette autorité de certification**, cliquez sur **Ajouter**. La boîte de dialogue **Ajouter un emplacement** s’ouvre.  
   
-12. Dans **Ajouter un emplacement**, dans **emplacement**, `http://pki.corp.contoso.com/pki/<ServerDNSName>_<CaName><CertificateName>.crt`tapez, puis cliquez sur **OK**. Cela vous renvoie à la boîte de dialogue Propriétés de l’autorité de certification.  
+12. Dans **Ajouter un emplacement**, dans **emplacement**, tapez `http://pki.corp.contoso.com/pki/<ServerDNSName>_<CaName><CertificateName>.crt`, puis cliquez sur **OK**. Cela vous renvoie à la boîte de dialogue Propriétés de l’autorité de certification.  
   
 13. Sous l’onglet **Extensions** , sélectionnez **inclure dans l’AIA des certificats émis**.  
   

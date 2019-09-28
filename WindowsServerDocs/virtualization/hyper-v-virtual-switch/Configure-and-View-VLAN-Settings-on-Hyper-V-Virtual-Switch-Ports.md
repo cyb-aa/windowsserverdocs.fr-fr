@@ -1,66 +1,66 @@
 ---
 title: Configurer et afficher les paramètres de réseau local virtuel sur les ports de commutateur virtuel Hyper-V
-description: Vous pouvez utiliser cette rubrique pour découvrir les meilleures pratiques pour la configuration et l’affichage des paramètres de réseau local virtuel (VLAN) virtuel sur un port de commutateur virtuel Hyper-V dans Windows Server 2016.
+description: Vous pouvez utiliser cette rubrique pour découvrir les meilleures pratiques pour la configuration et l’affichage des paramètres de réseau local virtuel (VLAN) sur un port de commutateur virtuel Hyper-V dans Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: article
 ms.assetid: 69e0e28a-98ae-4ade-bd27-ce2ad7eb310f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 1e4843b0ffee86d728736ae212b953bb7c8552c0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 28abdfe8295ad3f9fac29b8cc80aeebe2992392c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820550"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71366869"
 ---
 # <a name="configure-and-view-vlan-settings-on-hyper-v-virtual-switch-ports"></a>Configurer et afficher les paramètres de réseau local virtuel sur les ports de commutateur virtuel Hyper-V
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour découvrir les meilleures pratiques pour la configuration et l’affichage des paramètres de réseau local virtuel (VLAN) virtuel sur un port de commutateur virtuel Hyper-V.
+Vous pouvez utiliser cette rubrique pour découvrir les meilleures pratiques pour la configuration et l’affichage des paramètres de réseau local virtuel (VLAN) sur un port de commutateur virtuel Hyper-V.
 
-Lorsque vous souhaitez configurer les paramètres de réseau local virtuel sur les ports de commutateur virtuel Hyper-V, vous pouvez utiliser soit Windows&reg; Server 2016 Hyper-V Manager ou System Center Virtual Machine Manager (VMM).
+Si vous souhaitez configurer les paramètres de réseau local virtuel sur des ports de commutateur virtuel Hyper-V, vous pouvez utiliser le Gestionnaire Hyper-V du 2016 serveur Windows @ no__t-0 ou System Center Virtual Machine Manager (VMM).
 
-Si vous utilisez VMM, VMM utilise la commande Windows PowerShell suivante pour configurer le port de commutateur.
+Si vous utilisez VMM, VMM utilise la commande Windows PowerShell suivante pour configurer le port commuté.
 
 ```
 Set-VMNetworkAdapterIsolation <VM-name|-managementOS> -IsolationMode VLAN -DefaultIsolationID <vlan-value> -AllowUntaggedTraffic $True
 ```
-Si vous n’utilisez pas de VMM et configurez le port de commutateur dans Windows Server, vous pouvez utiliser la console du Gestionnaire Hyper-V ou la commande Windows PowerShell suivante.
+Si vous n’utilisez pas VMM et que vous configurez le port de commutateur dans Windows Server, vous pouvez utiliser la console du Gestionnaire Hyper-V ou la commande Windows PowerShell suivante.
 ```
 Set-VMNetworkAdapterVlan <VM-name|-managementOS> -Access -VlanID <vlan-value>
 ```
 
-En raison de ces deux méthodes de configuration des paramètres de réseau local virtuel sur les ports de commutateur virtuel Hyper-V, il est possible que lorsque vous tentez d’afficher les paramètres de port de commutateur, il s’affiche pour vous que les paramètres de réseau local virtuel sont non configurés - même lorsqu’elles sont configurées.
+En raison de ces deux méthodes de configuration des paramètres de réseau local virtuel sur les ports de commutateur virtuel Hyper-V, il est possible que lorsque vous tentez d’afficher les paramètres de port du commutateur, les paramètres du réseau local virtuel ne sont pas configurés, même s’ils sont configurés.
 
-## <a name="use-the-same-method-to-configure-and-view-switch-port-vlan-settings"></a>Utiliser la même méthode pour configurer et afficher les paramètres de réseau local virtuel de port de commutateur
+## <a name="use-the-same-method-to-configure-and-view-switch-port-vlan-settings"></a>Utilisez la même méthode pour configurer et afficher les paramètres de réseau local virtuel du port commuté
 
-Pour vous assurer que vous ne rencontrez pas ces problèmes, vous devez utiliser la même méthode pour afficher vos paramètres de réseau local virtuel de port de commutateur que vous avez utilisé pour configurer les paramètres de réseau local virtuel de port de commutateur.
+Pour vous assurer que vous ne rencontrez pas ces problèmes, vous devez utiliser la même méthode pour afficher les paramètres de réseau local virtuel du port de commutateur que vous avez utilisés pour configurer les paramètres de réseau local virtuel du port commuté.
 
-Pour configurer et afficher les paramètres de port de commutateur de réseau local virtuel, vous devez procédez comme suit :
+Pour configurer et afficher les paramètres de port du commutateur de réseau local virtuel, vous devez effectuer les opérations suivantes :
 
-- Si vous utilisez VMM ou contrôleur de réseau pour configurer et gérer votre réseau et que vous avez déployé la mise en réseau SDN (Software Defined), vous devez utiliser le **VMNetworkAdapterIsolation** applets de commande. 
-- Si vous utilisez les applets de commande Windows Server 2016 Hyper-V Manager ou Windows PowerShell, et vous n’avez pas déployé de mise en réseau SDN (Software Defined), vous devez utiliser le **VMNetworkAdapterVlan** applets de commande.
+- Si vous utilisez VMM ou le contrôleur de réseau pour configurer et gérer votre réseau et que vous avez déployé SDN (Software Defined Networking), vous devez utiliser les applets de commande **VMNetworkAdapterIsolation** . 
+- Si vous utilisez le Gestionnaire Hyper-V Windows Server 2016 ou des applets de commande Windows PowerShell et que vous n’avez pas déployé le réseau à définition logicielle (SDN), vous devez utiliser les applets de commande **VMNetworkAdapterVlan** .
 
 ### <a name="possible-issues"></a>Problèmes possibles
 
 Si vous ne suivez pas ces instructions, vous pouvez rencontrer les problèmes suivants.
 
-- Dans les cas où vous avez déployé SDN et que vous utilisez VMM, contrôleur de réseau, ou le **VMNetworkAdapterIsolation** applets de commande pour configurer les paramètres de réseau local virtuel sur un port de commutateur virtuel Hyper-V : Si vous utilisez le Gestionnaire Hyper-V ou **VMNetworkAdapterVlan obtenir** pour afficher les paramètres de configuration, la sortie de commande n’affichera pas vos paramètres de réseau local virtuel. Au lieu de cela, vous devez utiliser le **Get-VMNetworkIsolation** applet de commande pour afficher les paramètres de réseau local virtuel.
-- Dans les cas où vous n’avez pas déployé SDN et utilisez plutôt le Gestionnaire Hyper-V ou le **VMNetworkAdapterVlan** applets de commande pour configurer les paramètres de réseau local virtuel sur un port de commutateur virtuel Hyper-V : Si vous utilisez le **Get-VMNetworkIsolation** applet de commande pour afficher les paramètres de configuration, la sortie de commande n’affichera pas vos paramètres de réseau local virtuel. Au lieu de cela, vous devez utiliser le **VMNetworkAdapterVlan obtenir** applet de commande pour afficher les paramètres de réseau local virtuel.
+- Dans les cas où vous avez déployé SDN et utilisé VMM, le contrôleur de réseau ou les applets de commande **VMNetworkAdapterIsolation** pour configurer les paramètres de réseau local virtuel sur un port de commutateur virtuel Hyper-V : Si vous utilisez le Gestionnaire Hyper-V ou si vous **accédez à VMNetworkAdapterVlan** pour afficher les paramètres de configuration, la sortie de la commande n’affiche pas vos paramètres de réseau local virtuel. Au lieu de cela, vous devez utiliser l’applet de commande **VMNetworkIsolation** pour afficher les paramètres de réseau local virtuel.
+- Dans les cas où vous n’avez pas déployé SDN et utilisez à la place le Gestionnaire Hyper-V ou les applets de commande **VMNetworkAdapterVlan** pour configurer les paramètres de réseau local virtuel sur un port de commutateur virtuel Hyper-v : Si vous utilisez l’applet de commande **VMNetworkIsolation** pour afficher les paramètres de configuration, la sortie de la commande n’affiche pas vos paramètres de réseau local virtuel. Au lieu de cela, vous devez utiliser l’applet de commande **obtenir VMNetworkAdapterVlan** pour afficher les paramètres de réseau local virtuel.
 
-Il est également important de ne pas tenter de configurer les mêmes paramètres de réseau local virtuel de port de commutateur à l’aide de ces méthodes de configuration. Si vous procédez ainsi, le port de commutateur est configuré correctement, et le résultat peut être un échec de communication réseau.
+Il est également important de ne pas tenter de configurer les mêmes paramètres de VLAN de port de commutateur à l’aide de ces deux méthodes de configuration. Si vous procédez ainsi, le port de commutateur est incorrectement configuré et le résultat peut être un échec dans la communication réseau.
 
 ### <a name="resources"></a>Ressources
 
-Pour plus d’informations sur les commandes Windows PowerShell qui sont mentionnées dans cette rubrique, consultez les rubriques suivantes :
+Pour plus d’informations sur les commandes Windows PowerShell mentionnées dans cette rubrique, consultez les rubriques suivantes :
 
 - [Set-VmNetworkAdapterIsolation](https://technet.microsoft.com/library/dn464283.aspx)
-- [Get-VmNetworkAdapterIsolation](https://technet.microsoft.com/library/dn464277.aspx)
+- [VmNetworkAdapterIsolation](https://technet.microsoft.com/library/dn464277.aspx)
 - [Set-VMNetworkAdapterVlan](https://technet.microsoft.com/library/hh848475.aspx)
-- [Get-VMNetworkAdapterVlan](https://technet.microsoft.com/library/hh848516.aspx)
+- [VMNetworkAdapterVlan](https://technet.microsoft.com/library/hh848516.aspx)
 
 
 

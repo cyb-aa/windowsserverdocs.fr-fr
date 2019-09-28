@@ -7,20 +7,20 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 7d78258d8f1db9889b6d2db8c497780940ed35a1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 21ddcbd3b71a8d623950f1600b654e04ecc41f1e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890650"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357569"
 ---
 # <a name="deploy-claims-across-forests"></a>Déployer des revendications dans les forêts
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Dans Windows Server 2012, un type de revendication est une assertion sur l’objet avec lequel elle est associée. Les types de revendications sont définis par forêt dans Active Directory. Il existe de nombreux scénarios où un principal de sécurité doit pouvoir franchir une limite d’approbation pour accéder aux ressources dans une forêt approuvée. Transformation des revendications d’inter-forêts dans Windows Server 2012 vous permet de transformer les revendications entrantes et sortantes qui franchissent les forêts afin que les revendications soient reconnues et acceptées dans les forêts approuvées et d’approbation. Voici certains scénarios réels de transformation des revendications :  
+Dans Windows Server 2012, un type de revendication est une assertion sur l’objet auquel il est associé. Les types de revendications sont définis par forêt dans Active Directory. Il existe de nombreux scénarios où un principal de sécurité doit pouvoir franchir une limite d’approbation pour accéder aux ressources dans une forêt approuvée. La transformation de revendications inter-forêts dans Windows Server 2012 vous permet de transformer les revendications de sortie et d’entrée qui parcourent les forêts de sorte que les revendications soient reconnues et acceptées dans les forêts d’approbation et approuvées. Voici certains scénarios réels de transformation des revendications :  
   
 -   Les forêts de confiance peuvent utiliser la transformation de revendication comme protection contre l’élévation de privilèges en filtrant les revendications entrantes aux valeurs spécifiques.  
   
@@ -45,11 +45,11 @@ Par défaut, une forêt approuvée autorise la transmission de toutes les revend
 ## <a name="in-this-scenario"></a>Dans ce scénario  
 Vous trouverez ci-dessous les instructions disponibles pour ce scénario :  
   
--   [Déployer des revendications dans les forêts &#40;étapes de démonstration&#41;](Deploy-Claims-Across-Forests--Demonstration-Steps-.md)  
+-   [Étapes de la démonstration &#40;déployer des revendications sur les forêts&#41;](Deploy-Claims-Across-Forests--Demonstration-Steps-.md)  
   
--   [Claims Transformation Rules Language](Claims-Transformation-Rules-Language.md)  
+-   [Langage de règles de transformation de revendications](Claims-Transformation-Rules-Language.md)  
   
-## <a name="BKMK_NEW"></a>Fonctionnalités et rôles inclus dans ce scénario  
+## <a name="BKMK_NEW"></a>Rôles et fonctionnalités inclus dans ce scénario  
 Le tableau qui suit décrit les rôles et les fonctionnalités inclus dans ce scénario et détaille la manière dont ils prennent en charge ce dernier.  
   
 |Rôle/fonctionnalité|Prise en charge de ce scénario|  

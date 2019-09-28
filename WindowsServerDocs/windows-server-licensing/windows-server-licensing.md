@@ -1,30 +1,30 @@
 ---
-title: Contenu des licences pour Windows Server
-description: En savoir plus sur les contrats de licence de Windows Server.
+title: Contenu de licence pour Windows Server
+description: En savoir plus sur les contrats de licence Windows Server.
 ms.topic: reference
 author: eross-msft
 ms.author: lizross
 ms.date: 06/11/2019
-ms.prod: windows-server-threshold
-ms.openlocfilehash: 2965d56c1fe968a1ccb7d0e191e9028f7831ceb8
-ms.sourcegitcommit: 9109f35563471ec0f7165bf3d1e1b448fe6e1924
+ms.prod: windows-server
+ms.openlocfilehash: d1aa268b3f5c944496791718c4b396e1313bb13d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67346516"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363980"
 ---
-# <a name="windows-server---license-terms"></a>Windows Server - termes du contrat de licence
+# <a name="windows-server---license-terms"></a>Windows Server-termes du contrat de licence
 
-Consulter nos termes du contrat de licence liés à Windows Server.
+Passez en revue les termes du contrat de licence de Windows Server.
 
 - [Logiciels supplémentaires pour Windows Server 2016](https://docs.microsoft.com/legal/windows-server/Additional-Software)
 
-- [Expiration de Windows Server Technical Preview](https://docs.microsoft.com/legal/windows-server/WinServer2016expiry)
+- [Expiration de la version d’évaluation technique de Windows Server](https://docs.microsoft.com/legal/windows-server/WinServer2016expiry)
 
-- [Conditions de licence de Windows Server 2016 Technical Preview](https://docs.microsoft.com/legal/windows-server/WinServer2016licenseterms)
+- [Termes du contrat de licence de Windows Server 2016 Technical Preview](https://docs.microsoft.com/legal/windows-server/WinServer2016licenseterms)
 
-- [Contrat de licence logiciel Microsoft - MICROSOFT. WINDOWS SERVER. SYSTEMINSIGHTS](https://docs.microsoft.com/legal/windows-server/system-insights-eula)
+- [Termes du contrat de licence logiciel Microsoft-MICROSOFT. WINDOWSSERVER. SYSTEMINSIGHTS](https://docs.microsoft.com/legal/windows-server/system-insights-eula)
 
-- [Contrat de licence logiciel Microsoft - MICROSOFT. WINDOWS SERVER. SYSTEMINSIGHTS. FONCTIONNALITÉS](https://docs.microsoft.com/legal/windows-server/system-insights-capabilities-eula)
+- [Termes du contrat de licence logiciel Microsoft-MICROSOFT. WINDOWSSERVER. SYSTEMINSIGHTS. POSSIBILITÉS](https://docs.microsoft.com/legal/windows-server/system-insights-capabilities-eula)
 
-- [Windows Admin Center - termes du contrat de licence](https://docs.microsoft.com/legal/windows-server/windows-admin-center/windows-admin-center-licensing)
+- [Centre d’administration Windows-termes du contrat de licence](https://docs.microsoft.com/legal/windows-server/windows-admin-center/windows-admin-center-licensing)

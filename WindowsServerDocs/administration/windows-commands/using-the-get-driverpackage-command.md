@@ -1,8 +1,8 @@
 ---
-title: À l’aide de la commande get-DriverPackage
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Utilisation de la commande DriverPackage
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b0f123d281625140b3c4ba46316cb9b773bf5fee
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f3d31d9a02454b0f7fca06b28a4df27174f7b02e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440514"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363190"
 ---
-# <a name="using-the-get-driverpackage-command"></a>À l’aide de la commande get-DriverPackage
+# <a name="using-the-get-driverpackage-command"></a>Utilisation de la commande DriverPackage
 
 
 
@@ -36,14 +36,14 @@ WDSUTIL /Get-DriverPackage [/Server:<Server name>] {/DriverPackage:<Package Name
 
 |        Paramètre         |                                                                           Description                                                                            |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [/ Server :\<nom du serveur >] |              Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom de domaine complet. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.               |
-| [/ DriverPackage :\<nom >] |                                                        Spécifie le nom du package de pilotes à afficher.                                                         |
-|    [/PackageId:\<ID>]    | Spécifie l’ID de Services de déploiement Windows du package de pilotes s’affiche. Vous devez spécifier l’ID si le package de pilotes ne peut pas être identifié de manière unique par son nom. |
-|     [/ Afficher : {pilotes     |                                                                              Fichiers                                                                               |
+| [/Server : @no__t-nom 0Server >] |              Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.               |
+| [/DriverPackage : \<Name >] |                                                        Spécifie le nom du package de pilotes à afficher.                                                         |
+|    [/PackageId : \<ID >]    | Spécifie l’ID des services de déploiement Windows du package de pilotes à afficher. Vous devez spécifier l’ID si le package de pilotes ne peut pas être identifié de manière unique par son nom. |
+|     [/Show : {drivers     |                                                                              Fichiers                                                                               |
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour afficher des informations sur un package de pilotes, tapez une des opérations suivantes :
+Pour afficher des informations sur un package de pilotes, tapez l’un des éléments suivants :
 ```
 WDSUTIL /Get-DriverPackage /PackageId:{4D36E972-E325-11CE-BFC1-08002BE10318}
 ```

@@ -1,8 +1,8 @@
 ---
-title: À l’aide de la commande Export-Image
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Utilisation de la commande Export-image
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: efa9b2d09c37a383a91883ee02c995eedb2f235e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 838d84cb5f604eea710c364ed0d4a14efdc16fec
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823140"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71363395"
 ---
-# <a name="using-the-export-image-command"></a>À l’aide de la commande Export-Image
+# <a name="using-the-export-image-command"></a>Utilisation de la commande Export-image
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Exporte une image existante du magasin d’images vers un autre fichier Image Windows (.wim).
+Exporte une image existante à partir du magasin d’images vers un autre fichier image Windows (. wim).
 ## <a name="syntax"></a>Syntaxe
-images de démarrage :
+pour les images de démarrage :
 ```
 wdsutil [Options] /Export-Imagmedia:<Image name> [/Server:<Server name>]
    mediatype:Boot /Architecture:{x86 | ia64 | x64} [/Filename:<File name>]
@@ -50,22 +50,22 @@ wdsutil [Options] /Export-Imagmedia:<Image name> [/Server:<Server name>]
 ## <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-média :<Image name>|Spécifie le nom de l’image à exporter.|
-|[/Server:<Server name>]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local doit être utilisé.|
-mediatype:{Boot &#124; Install}|Spécifie le type d’image à exporter.|
-|\mediaGroup :<Image group name>]|Spécifie le groupe d’images contenant l’image à exporter. Si aucun nom de groupe d’image n’est spécifié et qu’une seule image existe sur le serveur, ce groupe d’images est utilisé par défaut. Si plus d’un groupe d’images existe sur le serveur, vous devez spécifier le groupe d’images.|
-|/ Architecture : {x86 &#124; ia64 &#124; x64}|Spécifie l’architecture de l’image à exporter. Comme il est possible d’avoir le même nom d’image pour les images de démarrage dans différentes architectures, en spécifiant la valeur de l’architecture permet de s’assurer que l’image correcte sera retourné.|
-|[/Filename:<Filename>]|Si l’image ne peut pas être identifié de manière unique par son nom, le nom de fichier doit être spécifié.|
-|/DestinationImage|Spécifie les paramètres de l’image de destination. Vous pouvez spécifier ces paramètres à l’aide des options suivantes :<br /><br />-FilePath :<File path and name> -Spécifie le chemin d’accès de fichier complet de la nouvelle image.<br />-[/ Nom :<Name>]-définit le nom complet de l’image. Si aucun nom n’est spécifié, le nom complet de l’image source sera utilisé.<br />-[/ Description : <Description>]-Définit la description de l’image.|
-|[/Overwrite : {Oui &#124; non &#124; append}]|Détermine si le fichier spécifié dans le **/DestinationImage /** option sera remplacée s’il existe déjà un fichier existant portant le même nom dans /FilePath.<br /><br />-   **Oui** entraîne le remplacement du fichier existant.<br />-   **Ne** (l’option par défaut) provoque une erreur se produit si un fichier portant le même nom existe déjà.<br />-   **ajouter** provoque l’image générée à ajouter en tant qu’une nouvelle image dans le fichier .wim existant.|
-## <a name="BKMK_examples"></a>Exemples
-Pour exporter une image de démarrage, tapez une des opérations suivantes :
+média : <Image name>|Spécifie le nom de l’image à exporter.|
+|[/Server:<Server name>]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
+MediaType : {boot &#124; install}|Spécifie le type d’image à exporter.|
+|\mediaGroup : <Image group name>]|Spécifie le groupe d’images qui contient l’image à exporter. Si aucun nom de groupe d’images n’est spécifié et qu’il n’existe qu’un seul groupe d’images sur le serveur, ce groupe d’images sera utilisé par défaut. Si plusieurs groupes d’images existent sur le serveur, le groupe d’images doit être spécifié.|
+|/Architecture : {x86 &#124; ia64 &#124; x64}|Spécifie l’architecture de l’image à exporter. Étant donné qu’il est possible d’avoir le même nom d’image pour les images de démarrage dans différentes architectures, la spécification de la valeur d’architecture garantit que l’image correcte sera retournée.|
+|[/Filename:<Filename>]|Si l’image ne peut pas être identifiée de manière unique par son nom, le nom de fichier doit être spécifié.|
+|/DestinationImage|Spécifie les paramètres de l’image de destination. Vous pouvez spécifier ces paramètres à l’aide des options suivantes :<br /><br />-/FilePath. : <File path and name>-spécifie le chemin d’accès complet du fichier pour la nouvelle image.<br />-[/Name : <Name>]-définit le nom d’affichage de l’image. Si aucun nom n’est spécifié, le nom complet de l’image source est utilisé.<br />-[/Description : <Description>]-Définit la description de l’image.|
+|[/Overwrite : {Yes &#124; not &#124; Append}]|Détermine si le fichier spécifié dans l’option **/DestinationImage** sera remplacé si un fichier existant portant ce nom existe déjà dans le/FilePath.<br /><br />-   **Oui** entraîne le remplacement du fichier existant.<br />-   **non** (option par défaut) provoque l’apparition d’une erreur si un fichier portant le même nom existe déjà.<br />-   **Append** entraîne l’ajout de l’image générée sous la forme d’une nouvelle image dans le fichier. wim existant.|
+## <a name="BKMK_examples"></a>Illustre
+Pour exporter une image de démarrage, tapez l’une des options suivantes :
 ```
 wdsutil /Export-Imagmedia:"WinPE boot imagemediatype:Boot /Architecture:x86 /DestinationImage /Filepath:"C:\temp\boot.wim"
 wdsutil /verbose /Progress /Export-Imagmedia:"WinPE boot image" /Server:MyWDSServemediatype:Boot /Architecture:x64 /Filename:boot.wim 
 /DestinationImage /Filepath:"\\Server\Share\ExportImage.wim" /Name:"Exported WinPE image" /Description:"WinPE Image from WDS server" /Overwrite:Yes
 ```
-Pour exporter une image d’installation, tapez une des opérations suivantes :
+Pour exporter une image d’installation, tapez l’une des options suivantes :
 ```
 wdsutil /Export-Imagmedia:"Windows Vista with Officemediatype:Install /DestinationImage /Filepath:"C:\Temp\Install.wim"
 wdsutil /verbose /Progress /Export-Imagmedia:"Windows Vista with Office" /Server:MyWDSServemediatype:InstalmediaGroup:ImageGroup1 
@@ -73,9 +73,8 @@ wdsutil /verbose /Progress /Export-Imagmedia:"Windows Vista with Office" /Server
 ```
 #### <a name="additional-references"></a>Références supplémentaires
 [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-[à l’aide de la commande add-Image](using-the-add-image-command.md)
-[à l’aide de la commande de copie-Image](using-the-copy-image-command.md)
-[à l’aide de l’Image de get Commande](using-the-get-image-command.md)
-[à l’aide de la commande remove-Image](using-the-remove-image-command.md)
-[à l’aide de l’Image de remplacement commande](using-the-replace-image-command.md)
-[sous-commande : set-Image](subcommand-set-image.md)
+[à l’aide de la commande add-image](using-the-add-image-command.md)
+[à l’aide de la commande copy-image](using-the-copy-image-command.md)
+[à l’aide de la commande de l’image](using-the-get-image-command.md)-7 
+[à l’aide de la commande Remove-Image](using-the-remove-image-command.md)
+[à l’aide de l’option Commande Replace-image](using-the-replace-image-command.md)1 sous-[commande : Set-image](subcommand-set-image.md)

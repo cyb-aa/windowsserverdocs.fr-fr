@@ -1,7 +1,7 @@
 ---
 title: Mode de réplica WSUS en cours d’exécution
-description: 'Rubrique de Windows Server Update Service (WSUS) - comment configurer le mode de réplica '
-ms.prod: windows-server-threshold
+description: 'Rubrique Windows Server Update Service (WSUS)-Guide pratique pour configurer le mode de réplica '
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-wsus
@@ -12,34 +12,34 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3b4139354a3f0f7b1f1a97107d2f6b28db2b02c2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5323210962298ff3f2d0b159cba7726adfbb89d1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878740"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361624"
 ---
 # <a name="running-wsus-replica-mode"></a>Mode de réplica WSUS en cours d’exécution
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Un serveur WSUS en cours d’exécution en mode réplica hérite les approbations de mise à jour et les groupes d’ordinateurs créés sur un serveur d’administration. Dans un scénario qui utilise le mode réplica, vous devez en général un seul serveur d’administration et un ou plusieurs serveurs WSUS réplica subordonnés répartis dans toute l’organisation, basée sur site ou de la topographie d’organisation. Approuver les mises à jour et de créer des groupes d’ordinateurs sur le serveur d’administration, puis répercute les serveurs en mode réplica. Serveurs en mode réplica peuvent être configurés uniquement lors de l’installation de WSUS, et si vous avez implémenté ce scénario, il est probable, car il est important de votre organisation qui mettent à jour les approbations et les groupes d’ordinateurs sont gérés de manière centralisée.
+Un serveur WSUS qui s’exécute en mode réplica hérite des approbations de mise à jour et des groupes d’ordinateurs créés sur un serveur d’administration. Dans un scénario qui utilise le mode réplica, vous avez généralement un serveur d’administration unique et un ou plusieurs serveurs WSUS réplicas subordonnés répartis au sein de l’organisation, en fonction de la topographie d’un site ou d’une organisation. Vous approuvez les mises à jour et créez des groupes d’ordinateurs sur le serveur d’administration, que les serveurs en mode de réplica vont ensuite mettre en miroir. Les serveurs en mode de réplica peuvent être configurés uniquement lors de la configuration de WSUS. Si vous avez implémenté ce scénario, il est probable que les approbations de mise à jour et les groupes d’ordinateurs soient gérés de manière centralisée dans votre organisation.
 
-Si votre serveur WSUS s’exécute en mode réplica, vous serez en mesure d’effectuer uniquement les fonctionnalités d’administration limités sur le serveur, ce qui se compose principalement de :
+Si votre serveur WSUS s’exécute en mode réplica, vous ne pouvez effectuer que des fonctionnalités d’administration limitées sur le serveur, qui se composent principalement des éléments suivants :
 
--   Ajout et suppression d’ordinateurs à partir de groupes d’ordinateurs. Groupes d’ordinateurs ne sont pas distribué à des serveurs de réplication, seul l’ordinateur groupes eux-mêmes. Par conséquent, sur un serveur en mode réplica, vous héritera les groupes d’ordinateurs que vous avez créé sur le serveur d’administration. Toutefois, les groupes d’ordinateurs sera vides. Vous devez puis attribuez les ordinateurs clients qui se connectent au serveur de réplica pour les groupes d’ordinateurs.
+-   Ajout et suppression d’ordinateurs dans des groupes d’ordinateurs. L’appartenance au groupe d’ordinateurs n’est pas distribuée aux serveurs de réplication, mais uniquement les groupes d’ordinateurs eux-mêmes. Par conséquent, sur un serveur en mode réplica, vous héritez des groupes d’ordinateurs que vous avez créés sur le serveur d’administration. Toutefois, les groupes d’ordinateurs sont vides. Vous devez ensuite attribuer les ordinateurs clients qui se connectent au serveur de réplication pour les groupes d’ordinateurs.
 
 -   Définition d’une planification de la synchronisation
 
--   Spécification des paramètres de serveur proxy
+-   Spécification des paramètres du serveur proxy
 
--   Spécification de la source de mise à jour. Cela peut être un serveur autre que le serveur d’administration
+-   Spécification de la source de mise à jour. Il peut s’agir d’un serveur autre que le serveur d’administration
 
 -   Affichage des mises à jour disponibles
 
--   Mise à jour, la synchronisation, état de l’ordinateur et les paramètres WSUS sur le serveur de surveillance
+-   Surveillance des paramètres de mise à jour, de synchronisation, d’état de l’ordinateur et WSUS sur le serveur
 
--   Exécutant WSUS standards tous les rapports disponibles sur les serveurs en mode réplica
+-   Exécution de tous les rapports WSUS standard disponibles sur les serveurs en mode réplica
 
 
 

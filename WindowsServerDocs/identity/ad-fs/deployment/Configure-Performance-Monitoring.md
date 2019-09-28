@@ -6,15 +6,15 @@ author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 82added5018d83aeb9fe7d8033204a0d19bd047a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 37dd52b8771eda695069dd996fbd920e31f80ef1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868097"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359811"
 ---
 # <a name="configure-performance-monitoring"></a>Configurer la surveillance des performances
   
@@ -41,7 +41,7 @@ AD FS comprend ses propres compteurs de performances dédiés pour vous aider à
   
 7. Lorsque vous êtes invité à ajouter des clés de Registre à surveiller, cliquez sur **suivant**.  
   
-8. Lorsque vous êtes invité à spécifier l’emplacement d’enregistrement des données de performances, vous pouvez accepter l' \(emplacement par défaut **% systemdrive\\%\\perflogs\\** _< Admin\_Data Collector définissez\_>_ , puis cliquez sur **suivant**.  
+8. Lorsque vous êtes invité à spécifier l’emplacement d’enregistrement des données de performances, vous pouvez accepter l’emplacement par défaut \( **% systemdrive% \\PerfLogs @ no__t-3Admin @ no__t-4** _< Data @ no__t-6collector @ no__t-7SET >_ , puis cliquez sur **Suivant**.  
   
 9. Lorsque vous êtes invité à créer l’ensemble de collecteurs de données, sélectionnez **enregistrer et fermer**, puis cliquez sur **Terminer**.  
   
@@ -60,7 +60,7 @@ AD FS comprend ses propres compteurs de performances dédiés pour vous aider à
 ## <a name="ad-fs-performance-counters"></a>AD FS des compteurs de performances  
 Le tableau suivant répertorie les compteurs de performance AD FS et décrit comment ils sont utiles pour surveiller l’activité qui concerne un serveur de Fédération ou un serveur proxy de Fédération.  
   
-|Compteur|Description|Peut être utilisé sur : 
+|)|Description|Peut être utilisé sur : 
 |-----------|---------------|------------------- 
 |Demandes de jeton|Analyse le nombre de demandes de jetons envoyées au serveur de Fédération, y compris les demandes de jeton SSOAuth.|Serveurs de fédération 
 |Demandes\/de jeton (s)|Analyse le nombre de demandes de jetons envoyées au serveur de Fédération, y compris les demandes de jetons SSOAuth par seconde.|Serveurs de fédération  

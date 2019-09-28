@@ -1,7 +1,7 @@
 ---
 title: Prise en charge mensuelle des ISV de mise à jour Delta sans WSUS
 description: 'Rubrique Windows Server Update Service (WSUS) : comment les éditeurs de logiciels indépendants (ISV) peuvent utiliser temporairement la mise à jour différentielle mensuelle au lieu de la remise des mises à jour de WSUS Express pour réduire la taille des packages'
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-wsus
@@ -11,12 +11,12 @@ author: sakitong
 ms.author: coreyp
 manager: dougkim
 ms.date: 10/16/2017
-ms.openlocfilehash: 9077cb87d1d0f6d59ad037c93f5608d3b698feaa
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 4607827d73c34f50f721a2774fa498eb95f9dbb8
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868720"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361733"
 ---
 # <a name="monthly-delta-update-isv-support-without-wsus"></a>Prise en charge mensuelle des ISV de mise à jour Delta sans WSUS
 

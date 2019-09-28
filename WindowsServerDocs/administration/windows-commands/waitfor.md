@@ -1,8 +1,8 @@
 ---
 title: waitfor
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 21ced4a9ef0dd7dac5f6c4fc6f171d99fa516c07
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: aecea0ad19ee42e61396eb8b8ccd579b9ce2057b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440310"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362600"
 ---
 # <a name="waitfor"></a>waitfor
 
 
 
-Envoie ou attend un signal sur un système. **WAITFOR** est utilisé pour synchroniser des ordinateurs sur un réseau.
+Envoie ou attend un signal sur un système. **WAITFOR** est utilisé pour synchroniser les ordinateurs sur un réseau.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -39,33 +39,33 @@ waitfor [/t <Timeout>] <SignalName>
 
 |       Paramètre       |                                                                                         Description                                                                                          |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /s \<ordinateur >     | Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local. Ce paramètre s’applique à tous les fichiers et dossiers spécifiés dans la commande. |
-| /u [\<domaine >\]<User> |                              Exécute le script en utilisant les informations d’identification du compte d’utilisateur spécifié. Par défaut, **waitfor** utilise les informations d’identification de l’utilisateur actuel.                               |
-|   /p [\<Password>]    |                                                    Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** paramètre.                                                     |
-|          /si          |                                                                        Envoie le signal spécifié sur le réseau.                                                                        |
-|     /t \<délai d’attente >     |                                              Spécifie le nombre de secondes à attendre un signal. Par défaut, **waitfor** attend indéfiniment.                                               |
-|     \<SignalName>     |                                                Spécifie le signal qui **waitfor** attend ou envoie. *NomSignal* ne respecte pas la casse.                                                 |
+|    /s \<Computer >     | Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local. Ce paramètre s’applique à tous les fichiers et dossiers spécifiés dans la commande. |
+| /u [\<Domain > \] @ no__t-2 |                              Exécute le script à l’aide des informations d’identification du compte d’utilisateur spécifié. Par défaut, **WAITFOR** utilise les informations d’identification de l’utilisateur actuel.                               |
+|   /p [@no__t 0Password >]    |                                                    Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .                                                     |
+|          /Si          |                                                                        Envoie le signal spécifié sur le réseau.                                                                        |
+|     /t \<Timeout >     |                                              Spécifie le nombre de secondes d’attente d’un signal. Par défaut, **WAITFOR** attend indéfiniment.                                               |
+|     @no__t 0SignalName >     |                                                Spécifie le signal que **WAITFOR** attend ou envoie. *SignalName* ne respecte pas la casse.                                                 |
 |          /?           |                                                                             Affiche l'aide à l'invite de commandes.                                                                             |
 
 ## <a name="remarks"></a>Notes
 
--   Les noms de signal ne peut pas dépasser 225 caractères. Caractères valides sont 0-9 a-z, A-Z et l’ASCII étendu le jeu de caractères (128 à 255).
--   Si vous n’utilisez pas **/s**, le signal est diffusé à tous les systèmes dans un domaine. Si vous utilisez **/s**, le signal est envoyé uniquement au système spécifié.
--   Vous pouvez exécuter plusieurs instances de **waitfor** sur un seul ordinateur, mais chaque instance de **waitfor** doit attendre un signal différent. Seule une instance de **waitfor** peut attendre un signal donné sur un ordinateur donné.
--   Vous pouvez activer manuellement un signal à l’aide de la **/si** option de ligne de commande.
--   **WAITFOR** s’exécute uniquement sur Windows XP et les serveurs qui exécutent un système d’exploitation de Windows Server 2003, mais il peut envoyer des signaux à n’importe quel ordinateur exécutant un système d’exploitation de Windows.
--   Les ordinateurs peuvent recevoir uniquement les signaux si elles se trouvent dans le même domaine que l’ordinateur qui envoie le signal.
--   Vous pouvez utiliser **waitfor** lorsque vous testez les générations logicielles. Par exemple, l’ordinateur de compilation peut envoyer un signal à plusieurs ordinateurs qui exécutent **waitfor** une fois la compilation terminée avec succès. À la réception du signal, le fichier de commandes qui inclut **waitfor** peut indiquer aux ordinateurs pour démarrer immédiatement l’installation de logiciels ou de tests en cours d’exécution sur la version compilée.
+-   Les noms de signal ne peuvent pas dépasser 225 caractères. Les caractères valides sont les suivants : a-z, A-Z, 0-9 et le jeu de caractères étendus ASCII (128-255).
+-   Si vous n’utilisez pas le **commutateur/s**, le signal est diffusé à tous les systèmes d’un domaine. Si vous utilisez **/s**, le signal est envoyé uniquement au système spécifié.
+-   Vous pouvez exécuter plusieurs instances de **WAITFOR** sur un seul ordinateur, mais chaque instance de **WAITFOR** doit attendre un signal différent. Une seule instance de **WAITFOR** peut attendre un signal donné sur un ordinateur donné.
+-   Vous pouvez activer un signal manuellement à l’aide de l’option de ligne de commande **/si** .
+-   **WAITFOR** s’exécute uniquement sur Windows XP et les serveurs qui exécutent un système d’exploitation windows Server 2003, mais il peut envoyer des signaux à n’importe quel ordinateur exécutant un système d’exploitation Windows.
+-   Les ordinateurs ne peuvent recevoir des signaux que s’ils se trouvent dans le même domaine que l’ordinateur qui envoie le signal.
+-   Vous pouvez utiliser **WAITFOR** lorsque vous testez des builds logicielles. Par exemple, l’ordinateur de compilation peut envoyer un signal à plusieurs ordinateurs exécutant **WAITFOR** une fois la compilation terminée. À la réception du signal, le fichier de commandes qui comprend **WAITFOR** peut demander aux ordinateurs de commencer immédiatement l’installation d’un logiciel ou d’exécuter des tests sur la build compilée.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour attendre jusqu'à la réception du signal « espresso\build007 », tapez :
+Pour attendre la réception du signal « espresso\build007 », tapez :
 ```
 waitfor espresso\build007
 ```
-Par défaut, **waitfor** attend indéfiniment un signal.
+Par défaut, **WAITFOR** attend indéfiniment un signal.
 
-Pour attendre 10 secondes pour le signal « espresso\compile007 » à être reçu avant l’expiration, tapez :
+Pour attendre 10 secondes avant que le signal « espresso\compile007 » soit reçu avant le dépassement du délai d’attente, tapez :
 ```
 waitfor /t 10 espresso\build007
 ```

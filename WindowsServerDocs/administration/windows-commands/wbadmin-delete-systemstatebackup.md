@@ -1,8 +1,8 @@
 ---
-title: WBADMIN delete systemstatebackup
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Wbadmin Delete systemstatebackup
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,23 +13,23 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6801ca5985af626ccb7f6170fbcd6f8fc8305ba1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1f324cba3fcdae8639009395c4df734a2db6b814
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813150"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362522"
 ---
-# <a name="wbadmin-delete-systemstatebackup"></a>WBADMIN delete systemstatebackup
+# <a name="wbadmin-delete-systemstatebackup"></a>Wbadmin Delete systemstatebackup
 
 
 
-Supprime les sauvegardes d’état système que vous spécifiez. Si le volume spécifié contient des sauvegardes autres que des sauvegardes d’état système de votre serveur local, ces sauvegardes ne sont pas supprimés.
+Supprime les sauvegardes de l’état du système que vous spécifiez. Si le volume spécifié contient des sauvegardes autres que les sauvegardes de l’état du système de votre serveur local, ces sauvegardes ne seront pas supprimées.
 
 > [!NOTE]
-> Sauvegarde Windows Server ne pas sauvegarder ou récupérer les ruches utilisateur du Registre (HKEY_CURRENT_USER) dans le cadre de la sauvegarde de l’état système ou de récupération de l’état système.
+> Sauvegarde Windows Server ne sauvegarde pas ou ne récupère pas les ruches des utilisateurs du Registre (HKEY_CURRENT_USER) dans le cadre de la sauvegarde de l’état du système ou de la récupération de l’état du système.
 
-Pour supprimer une sauvegarde de l’état système avec la sous-commande, vous devez être membre du **opérateurs de sauvegarde** groupe ou le **administrateurs** groupe, ou vous devez vous avoir été délégué des autorisations appropriées. En outre, vous devez exécuter **wbadmin** à partir d’une invite de commandes avec élévation de privilèges. (Pour ouvrir un invite de commandes avec élévation de privilèges de droit **invite de commandes**, puis cliquez sur **exécuter en tant qu’administrateur**.)
+Pour supprimer une sauvegarde de l’état du système avec cette sous-commande, vous devez être membre du groupe **opérateurs de sauvegarde** ou **administrateurs** , ou l’autorisation appropriée doit vous avoir été déléguée. En outre, vous devez exécuter **Wbadmin** à partir d’une invite de commandes avec élévation de privilèges. (Pour ouvrir une invite de commandes avec élévation de privilèges, cliquez avec le bouton droit sur **invite de commandes**, puis cliquez sur **exécuter en tant qu’administrateur**.)
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -44,35 +44,35 @@ wbadmin delete systemstatebackup
 ```
 
 > [!IMPORTANT]
-> Un seul et unique de ces paramètres doivent être spécifiés : **- keepVersions**, **-version**, ou **- deleteOldest**.
+> Un et un seul de ces paramètres doivent être spécifiés : **-keepVersions**, **-version**ou **-deleteOldest**.
 
 ## <a name="parameters"></a>Paramètres
 
 |Paramètre|Description|
 |---------|-----------|
-|-keepVersions|Spécifie le nombre des dernières sauvegardes d’état système à conserver. La valeur doit être un entier positif. La valeur du paramètre **- keepVersions : 0** supprime toutes les sauvegardes d’état système.|
-|-version|Spécifie l’identificateur de version de la sauvegarde en MM/jj/aaaa-format hh : mm. Si vous ne connaissez pas l’identificateur de version, tapez **wbadmin get versions**.</br>Les versions qui sont exclusivement les sauvegardes d’état du système peuvent être supprimées à l’aide de cette commande. Utilisez **wbadmin obtenir les éléments** pour afficher le type de version.|
-|-deleteOldest|Supprime la sauvegarde d’état système plus ancienne.|
-|-backupTarget|Spécifie l’emplacement de stockage pour la sauvegarde que vous souhaitez supprimer. L’emplacement de stockage pour les sauvegardes de disques peut être une lettre de lecteur, un point de montage ou un chemin d’accès basé sur le GUID de volume. Cette valeur doit uniquement être spécifié pour la localisation des sauvegardes qui ne sont pas de l’ordinateur local. Informations sur les sauvegardes de l’ordinateur local seront disponibles dans le catalogue de sauvegarde sur l’ordinateur local.|
-|-machine|Spécifie l’ordinateur dont vous souhaitez supprimer la sauvegarde état système. Utile lorsque plusieurs ordinateurs ont été sauvegardées au même emplacement. Doit être utilisé lorsque le **- backupTarget** est précisé.|
+|-keepVersions|Spécifie le nombre de sauvegardes de l’état du système les plus récentes à conserver. La valeur doit être un entier positif. La valeur du paramètre **-keepVersions : 0** supprime toutes les sauvegardes de l’état du système.|
+|-version|Spécifie l’identificateur de version de la sauvegarde au format MM/JJ/AAAA-HH : MM. Si vous ne connaissez pas l’identificateur de version, tapez **Wbadmin obtenir des versions**.</br>Les versions qui sont exclusivement des sauvegardes de l’état du système peuvent être supprimées à l’aide de cette commande. Utilisez **Wbadmin obtenir des éléments** pour afficher le type de version.|
+|-deleteOldest|Supprime la sauvegarde de l’état du système la plus ancienne.|
+|-backupTarget|Spécifie l’emplacement de stockage de la sauvegarde que vous souhaitez supprimer. L’emplacement de stockage des sauvegardes de disques peut être une lettre de lecteur, un point de montage ou un chemin d’accès de volume basé sur un GUID. Cette valeur doit être spécifiée uniquement pour la recherche de sauvegardes qui ne sont pas de l’ordinateur local. Les informations sur les sauvegardes de l’ordinateur local sont disponibles dans le catalogue de sauvegarde de l’ordinateur local.|
+|-machine|Spécifie l’ordinateur dont vous souhaitez supprimer la sauvegarde de l’état du système. Utile lorsque plusieurs ordinateurs ont été sauvegardés au même emplacement. Doit être utilisé lorsque le paramètre **-backupTarget** est spécifié.|
 |-quiet|Exécute la sous-commande sans invite à l’utilisateur.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour supprimer la sauvegarde de l’état système créée sur le 31 mars 2013 à 10 h 00, tapez :
+Pour supprimer la sauvegarde de l’état du système créée le 31 mars 2013 à 10:00 AM, tapez :
 ```
 wbadmin delete systemstatebackup -version:03/31/2013-10:00
 ```
-Pour supprimer toutes les sauvegardes d’état système, sauf les trois derniers, tapez :
+Pour supprimer toutes les sauvegardes de l’état du système, à l’exception des trois types les plus récents :
 ```
 wbadmin delete systemstatebackup -keepVersions:3
 ```
-Pour supprimer la sauvegarde d’état système plus ancien stockée sur le disque f, tapez :
+Pour supprimer la sauvegarde de l’état du système la plus ancienne stockée sur le disque f, tapez :
 ```
 wbadmin delete systemstatebackup -backupTarget:f -deleteOldest
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

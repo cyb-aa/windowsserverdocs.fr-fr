@@ -1,6 +1,6 @@
 ---
-title: Service d’intégrité de Windows Server
-ms.prod: windows-server-threshold
+title: Service de contrôle d’intégrité dans Windows Server
+ms.prod: windows-server
 manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
@@ -8,34 +8,34 @@ ms.topic: article
 ms.assetid: 5bc71e71-920e-454f-8195-afebd2a23725
 author: cosmosdarwin
 ms.date: 02/09/2018
-ms.openlocfilehash: 5afb64dcf0c59697ed55d7cf51ef1bc36e7e0e36
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: df455dfb0d2936192a3c2d7825e2d6d031cfe892
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863810"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361067"
 ---
-# <a name="health-service-in-windows-server"></a>Service d’intégrité de Windows Server
+# <a name="health-service-in-windows-server"></a>Service de contrôle d’intégrité dans Windows Server
 
-> S’applique à Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server 2016
 
-Le Service de contrôle d’intégrité est une nouvelle fonctionnalité de Windows Server 2016 qui améliore l’analyse quotidienne et une expérience opérationnelle pour les clusters exécutant des espaces de stockage Direct.
+Le Service de contrôle d’intégrité est une nouvelle fonctionnalité de Windows Server 2016 qui améliore la surveillance quotidienne et l’expérience opérationnelle pour les clusters exécutant espaces de stockage direct.
 
 ## <a name="prerequisites"></a>Prérequis  
 
-Le service de contrôle d’intégrité est activé par défaut avec les espaces de stockage direct. Aucune action supplémentaire n’est requise pour le configurer ou le démarrer. Pour en savoir plus sur les espaces de stockage Direct, consultez [espaces de stockage Direct dans Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md).  
+Le service de contrôle d’intégrité est activé par défaut avec les espaces de stockage direct. Aucune action supplémentaire n’est requise pour le configurer ou le démarrer. Pour en savoir plus sur les espaces de stockage direct, consultez [espaces de stockage direct dans Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md).  
 
 ## <a name="reports"></a>Rapports
 
-Consultez [rapports du Service de contrôle d’intégrité](health-service-reports.md).
+Consultez [service de contrôle d’intégrité des rapports](health-service-reports.md).
 
 ## <a name="faults"></a>Erreurs
 
-Consultez [pannes de Service de contrôle d’intégrité](health-service-faults.md).
+Consultez [service de contrôle d’intégrité des erreurs](health-service-faults.md).
 
 ## <a name="actions"></a>Actions
 
-Consultez [actions de Service de contrôle d’intégrité](health-service-actions.md).
+Consultez [service de contrôle d’intégrité actions](health-service-actions.md).
 
 ## <a name="automation"></a>Automatisation  
 
@@ -76,34 +76,34 @@ Si possible, le service de contrôle d’intégrité commence à faire clignoter
 
 #### <a name="physical-replacement"></a>Remplacement physique  
 
-Vous devez remplacer le disque physique mis hors service quand cela est possible. En règle générale, il s’agit d’un échange à chaud : autrement dit, hors tension le nœud ou boîtier de stockage n’est pas obligatoire. Consultez l’erreur pour obtenir des informations utiles sur l’emplacement et le composant concernés.  
+Vous devez remplacer le disque physique mis hors service quand cela est possible. La plupart du temps, il s’agit d’un échange à chaud, c’est-à-dire que la mise hors tension du nœud ou du boîtier de stockage n’est pas nécessaire. Consultez l’erreur pour obtenir des informations utiles sur l’emplacement et le composant concernés.  
 
 #### <a name="verification"></a>Vérification
 
-Lorsque le disque de remplacement est inséré, il sera vérifié sur le Document de composants pris en charge (voir la section suivante).
+Lorsque le disque de remplacement est inséré, il est vérifié par rapport au document composants pris en charge (voir la section suivante).
 
 #### <a name="pooling"></a>Mise en pool  
 
 Sur autorisation, le disque de remplacement est automatiquement remplacé dans le pool de son prédécesseur pour entrer en utilisation. À ce stade, le système est rétabli à son état initial d’intégrité parfaite, puis l’erreur disparaît.  
 
-## <a name="supported-components-document"></a>Document de composants pris en charge  
+## <a name="supported-components-document"></a>Document sur les composants pris en charge  
 
-Le Service d’intégrité fournit un mécanisme de mise en œuvre pour limiter les composants utilisés par les espaces de stockage Direct à ceux présents sur un Document de composants pris en charge fournie par l’administrateur ou le fournisseur de solutions. Ce mécanisme permet de vous empêcher, ainsi que d’autres, d’utiliser par erreur du matériel non pris en charge, facilitant ainsi la conformité aux contrats de garantie ou de support. Cette fonctionnalité est actuellement limitée aux périphériques de disque physique, y compris les disques SSD, HDD, et les lecteurs NVMe. Le Document de composants pris en charge peut limiter les modèles, fabricants (facultatif) et versions de microprogramme (facultative).
+Le Service de contrôle d’intégrité fournit un mécanisme de mise en œuvre pour limiter les composants utilisés par espaces de stockage direct à ceux d’un document de composants pris en charge fourni par l’administrateur ou le fournisseur de la solution. Ce mécanisme permet de vous empêcher, ainsi que d’autres, d’utiliser par erreur du matériel non pris en charge, facilitant ainsi la conformité aux contrats de garantie ou de support. Cette fonctionnalité est actuellement limitée aux périphériques de disque physique, y compris les disques SSD, les disques durs et les lecteurs NVMe. Le document composants pris en charge peut restreindre sur le modèle, le fabricant (facultatif) et la version du microprogramme (facultatif).
 
 ### <a name="usage"></a>Utilisation  
 
-Le Document de composants pris en charge utilise une syntaxe inspirée du langage XML. Nous recommandons d’utiliser votre éditeur de texte, telles que la version gratuite [Visual Studio Code](http://code.visualstudio.com/) ou le bloc-notes, pour créer un document XML que vous pouvez enregistrer et réutiliser.
+Le document sur les composants pris en charge utilise une syntaxe XML inspirée. Nous vous recommandons d’utiliser votre éditeur de texte préféré, tel que le [Visual Studio code](http://code.visualstudio.com/) ou le bloc-notes gratuit, pour créer un document XML que vous pouvez enregistrer et réutiliser.
 
 #### <a name="sections"></a>Sections
 
-Le document a deux sections indépendantes : `Disks` et `Cache`.
+Le document comporte deux sections indépendantes : `Disks` et `Cache`.
 
-Si le `Disks` section n’est fourni, uniquement les lecteurs répertoriés (comme `Disk`) sont autorisés à joindre des pools. Tous les lecteurs non listées ne peuvent pas joindre des pools, ce qui exclut effectivement leur utilisation en production. Si cette section est vide, n’importe quel lecteur sera autorisé à joindre des pools.
+Si la section `Disks` est fournie, seuls les lecteurs répertoriés (comme `Disk`) sont autorisés à joindre des pools. Les lecteurs qui ne sont pas répertoriés ne sont pas autorisés à joindre des pools, ce qui exclut efficacement leur utilisation en production. Si cette section est laissée vide, tout lecteur est autorisé à joindre des pools.
 
-Si le `Cache` section n’est fourni, uniquement les lecteurs répertoriés (comme `CacheDisk`) sont utilisés pour la mise en cache. Si cette section est vide, espaces de stockage Direct tente [estimation basée sur le type de média et le type de bus](../storage/storage-spaces/understand-the-cache.md#cache-drives-are-selected-automatically). Les lecteurs répertoriés ici doivent également figurer dans `Disks`.
+Si la section `Cache` est fournie, seuls les lecteurs répertoriés (comme `CacheDisk`) sont utilisés pour la mise en cache. Si cette section est laissée vide, espaces de stockage direct tente de [deviner en fonction du type de média et du type de bus](../storage/storage-spaces/understand-the-cache.md#cache-drives-are-selected-automatically). Les lecteurs répertoriés ici doivent également être répertoriés dans `Disks`.
 
 >[!IMPORTANT]
-> Le Document de composants pris en charge ne s’applique pas rétroactivement aux lecteurs déjà mis en pool et en cours d’utilisation.  
+> Le document composants pris en charge ne s’applique pas rétroactivement aux lecteurs déjà regroupés et en cours d’utilisation.  
 
 #### <a name="example"></a>Exemple
 
@@ -141,16 +141,16 @@ Si le `Cache` section n’est fourni, uniquement les lecteurs répertoriés (com
 
 ```
 
-Pour répertorier plusieurs lecteurs, ajoutez simplement d’autres `<Disk>` ou `<CacheDisk>` balises.
+Pour répertorier plusieurs lecteurs, ajoutez simplement des balises `<Disk>` ou `<CacheDisk>` supplémentaires.
 
-Pour injecter du code XML lors du déploiement d’espaces de stockage Direct, utilisez le `-XML` paramètre :
+Pour injecter ce code XML lors du déploiement de espaces de stockage direct, utilisez le paramètre `-XML` :
 
 ```PowerShell
 $MyXML = Get-Content <Filepath> | Out-String  
 Enable-ClusterS2D -XML $MyXML
 ```
 
-Pour définir ou modifier le Document de composants pris en charge une fois que les espaces de stockage Direct a été déployé :
+Pour définir ou modifier le document composants pris en charge une fois espaces de stockage direct a été déployé :
 
 ```PowerShell
 $MyXML = Get-Content <Filepath> | Out-String  
@@ -168,12 +168,12 @@ Get-PhysicalDisk | Select Model, Manufacturer, FirmwareVersion
 
 ## <a name="settings"></a>Paramètres
 
-Consultez [paramètres du Service de contrôle d’intégrité](health-service-settings.md).
+Consultez [paramètres de service de contrôle d’intégrité](health-service-settings.md).
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Rapports de Service d’intégrité](health-service-reports.md)
+- [Rapports de Service de contrôle d’intégrité](health-service-reports.md)
 - [Erreurs de Service de contrôle d’intégrité](health-service-faults.md)
-- [Actions de Service de contrôle d’intégrité](health-service-actions.md)
-- [Paramètres du Service d’intégrité](health-service-settings.md)
-- [Espaces de stockage Direct dans Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)
+- [Actions Service de contrôle d’intégrité](health-service-actions.md)
+- [Paramètres de Service de contrôle d’intégrité](health-service-settings.md)
+- [espaces de stockage direct dans Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)
