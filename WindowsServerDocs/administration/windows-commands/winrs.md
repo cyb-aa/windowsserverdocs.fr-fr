@@ -1,8 +1,8 @@
 ---
 title: winrs
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f9c612a7c6f5d0935223b3c193c52fe970c970d7
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d6ee44cb530614485f0dbd58a9ec13a4788370fe
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440055"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361939"
 ---
 # <a name="winrs"></a>winrs
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Gestion à distance de Windows vous permet de gérer et exécuter des programmes à distance.   
+La gestion à distance de Windows vous permet de gérer et d’exécuter des programmes à distance.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 winrs [/<parameter>[:<value>]] <command>  
@@ -33,26 +33,26 @@ winrs [/<parameter>[:<value>]] <command>
 
 |           Paramètre            |                                                                                                                                                                                    Description                                                                                                                                                                                     |
 |--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      / distant :\<point de terminaison >       |                                                                                          Spécifie le point de terminaison cible à l’aide d’un nom NetBIOS ou la connexion standard :<br /><br />-   <url>: [\<transport>://]\<target>[:\<port>]<br /><br />Si non spécifié, **/r:localhost** est utilisé.                                                                                          |
-|          / non chiffrés          | Spécifie que les messages à l’interpréteur de commandes à distance ne seront pas chiffrées. Cela est utile pour le dépannage ou lorsque le trafic réseau est déjà chiffré à l’aide de **ipsec**, ou lorsque la sécurité physique est appliquée.<br /><br />Par défaut, les messages sont chiffrés à l’aide de clés Kerberos ou NTLM.<br /><br />Cette option de ligne de commande est ignorée lorsque le transport HTTPS est sélectionné. |
-|     / username :\<nom d’utilisateur >      |                                                                                Spécifie le nom d’utilisateur sur la ligne de commande.<br /><br />Si non spécifié, l’outil utilisera l’authentification par négociation ou l’invite de commandes pour le nom.<br /><br />Si **/username** est spécifié, **/password** doit également être spécifié.                                                                                 |
-|     / Password :\<mot de passe >      |                                                                           Spécifie le mot de passe sur la ligne de commande.<br /><br />Si **/password** n’est pas spécifié, mais **/username** est, l’outil vous demande le mot de passe.<br /><br />Si **/password** est spécifié, **/username** doit également être spécifié.                                                                            |
-|      /timeout :\<secondes >       |                                                                                                                                                                             Cette option est déconseillée.                                                                                                                                                                             |
-|       /directory:\<path>       |                                                                                            Spécifie le répertoire de démarrage pour l’interpréteur de commandes distant.<br /><br />Si non spécifié, l’interpréteur de commandes à distance démarre dans le répertoire de base défini par la variable d’environnement **% USERPROFILE%** .                                                                                             |
-| /environment:\<string>=<value> |                                                                          Spécifie une variable d’environnement unique défini lors de l’interpréteur démarre shell, ce qui permet de changer d’environnement par défaut pour.<br /><br />Plusieurs occurrences de ce commutateur doivent être utilisés pour spécifier plusieurs variables d’environnement.                                                                          |
-|            /noecho             |                                                                                                    Spécifie qu’echo doit être désactivée. Cela peut être nécessaire pour garantir que les réponses de l’utilisateur aux invites à distance ne sont pas affichés localement.<br /><br />Par défaut echo est « activé ».                                                                                                    |
-|           /noprofile           |                                              Spécifie que le profil utilisateur ne doit pas être chargé.<br /><br />Par défaut, le serveur tente de charger le profil utilisateur.<br /><br />Si l’utilisateur distant n’est pas un administrateur local sur le système cible, cette option est requise (la valeur par défaut entraîne erreur).                                               |
-|         /allowdelegate         |                                                                                                                  Spécifie que les informations d’identification de l’utilisateur peuvent être utilisées pour accéder à un partage distant, par exemple, sur un ordinateur différent de celui du point de terminaison cible.                                                                                                                   |
-|          /compression          |                                                                           Activer la compression.  Installations plus anciennes sur des ordinateurs distants ne peuvent pas prenant en charge la compression est désactivée par défaut.<br /><br />Paramètre par défaut est désactivée, étant donné que les anciennes installations sur des ordinateurs distants, n’acceptent pas la compression.                                                                           |
-|            /usessl             |                                                                                                               Utiliser une connexion SSL lors de l’utilisation d’un point de terminaison distant.  Cette spécification au lieu du transport **https :** utilisera la valeur par défaut **WinRM** port par défaut.                                                                                                                |
+|      /Remote : \<endpoint >       |                                                                                          Spécifie le point de terminaison cible à l’aide d’un nom NetBIOS ou de la connexion standard :<br /><br />-    @ no__t-1 : [\<transport >://] \<target > [ : \<Port >]<br /><br />s’il n’est pas spécifié, **/r : localhost** est utilisé.                                                                                          |
+|          /unencrypted          | Spécifie que les messages de l’interpréteur de commandes distant ne seront pas chiffrés. Cela est utile pour la résolution des problèmes ou lorsque le trafic réseau est déjà chiffré à l’aide d' **IPSec**, ou lorsque la sécurité physique est appliquée.<br /><br />Par défaut, les messages sont chiffrés à l’aide de clés Kerberos ou NTLM.<br /><br />Cette option de ligne de commande est ignorée lorsque le transport HTTPs est sélectionné. |
+|     /username : \<username >      |                                                                                Spécifie le nom d’utilisateur sur la ligne de commande.<br /><br />s’il n’est pas spécifié, l’outil utilise l’authentification par négociation ou invite à entrer le nom.<br /><br />Si **/username** est spécifié, **/Password** doit également être spécifié.                                                                                 |
+|     /Password : \<password >      |                                                                           Spécifie le mot de passe sur la ligne de commande.<br /><br />Si **/Password** n’est pas spécifié mais que **/username** est, l’outil vous invite à entrer le mot de passe.<br /><br />Si **/Password** est spécifié, **/username** doit également être spécifié.                                                                            |
+|      /Timeout : @no__t 0seconds >       |                                                                                                                                                                             Cette option est déconseillée.                                                                                                                                                                             |
+|       /Répertoire : \<path >       |                                                                                            Spécifie le répertoire de démarrage de l’interpréteur de commandes distant.<br /><br />s’il n’est pas spécifié, le shell distant démarre dans le répertoire de démarrage de l’utilisateur défini par la variable d’environnement **% UserProfile%** .                                                                                             |
+| /Environment : \<string > =<value> |                                                                          Spécifie une variable d’environnement unique à définir au démarrage de l’interpréteur de commandes, ce qui permet de modifier l’environnement par défaut pour l’interpréteur de commandes.<br /><br />Plusieurs occurrences de ce commutateur doivent être utilisées pour spécifier plusieurs variables d’environnement.                                                                          |
+|            /noecho             |                                                                                                    Spécifie que l’écho doit être désactivé. Cela peut être nécessaire pour s’assurer que les réponses de l’utilisateur aux invites distantes ne s’affichent pas localement.<br /><br />Par défaut, l’écho est « on ».                                                                                                    |
+|           /noprofile           |                                              Spécifie que le profil de l’utilisateur ne doit pas être chargé.<br /><br />Par défaut, le serveur tente de charger le profil utilisateur.<br /><br />Si l’utilisateur distant n’est pas un administrateur local sur le système cible, cette option est requise (la valeur par défaut génère une erreur).                                               |
+|         /allowdelegate         |                                                                                                                  Spécifie que les informations d’identification de l’utilisateur peuvent être utilisées pour accéder à un partage distant, par exemple, sur un ordinateur différent du point de terminaison cible.                                                                                                                   |
+|          /compression          |                                                                           Activez la compression.  Les installations plus anciennes sur des ordinateurs distants peuvent ne pas prendre en charge la compression. par défaut, elle est désactivée.<br /><br />La valeur par défaut est OFF, car les installations plus anciennes sur des ordinateurs distants ne prennent peut-être pas en charge la compression.                                                                           |
+|            /usessl             |                                                                                                               Utilisez une connexion SSL lors de l’utilisation d’un point de terminaison distant.  Si vous spécifiez cette valeur au lieu du transport **https** , le port par défaut **WinRM** est utilisé.                                                                                                                |
 |               /?               |                                                                                                                                                                        Affiche l'aide à l'invite de commandes.                                                                                                                                                                        |
 
 ## <a name="remarks"></a>Notes  
--   Toutes les options de ligne de commande acceptent soit formulaire court ou long. Par exemple **/r** et **/distant** sont valides.  
--   Pour mettre fin à la **/distant** commande, l’utilisateur peut taper **Ctrl-C** ou **Ctrl-Pause**, qui sera envoyée à l’interpréteur de commandes à distance. La seconde **Ctrl-C** forcer l’arrêt de **winrs.exe**.  
--   Pour gérer des interpréteurs de commandes à distance actives ou winrs configuration, utilisez l’outil de WinRM.  L’URI est l’alias pour gérer des interpréteurs de commandes actives **/cmd shell**.  Est l’URI alias pour la configuration de winrs **winrm/config/winrs**.  
+-   Toutes les options de ligne de commande acceptent une forme abrégée ou une forme longue. Par exemple, **/r** et **/Remote** sont valides.  
+-   Pour terminer la commande **/Remote** , l’utilisateur peut taper **Ctrl-C** ou **CTRL-Break**, qui sera envoyé à l’interpréteur de commandes distant. La deuxième **Ctrl-C** force l’arrêt de **Winrs. exe**.  
+-   Pour gérer les interpréteurs de commande à distance ou la configuration Winrs, utilisez l’outil WinRM.  L’alias d’URI pour gérer les interpréteurs de commandes actifs est **Shell/cmd**.  L’alias d’URI pour la configuration de Winrs est **winrm/config/Winrs**.  
 
-## <a name="BKMK_Examples"></a>Exemples  
+## <a name="BKMK_Examples"></a>Illustre  
 ```  
 winrs /r:https://contoso.com command  
 ```  

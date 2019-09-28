@@ -1,8 +1,8 @@
 ---
-title: WBADMIN start recovery
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Wbadmin start Recovery
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,22 +13,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9f24c9dfeb0ce87474e58d3bd2bce8b68e31cb63
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: edb287573dc76619502faf58018f48c464140629
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823280"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362347"
 ---
-# <a name="wbadmin-start-recovery"></a>WBADMIN start recovery
+# <a name="wbadmin-start-recovery"></a>Wbadmin start Recovery
 
 
 
 Exécute une opération de récupération en fonction des paramètres que vous spécifiez.
 
-Pour effectuer une restauration avec la sous-commande, vous devez être membre du **opérateurs de sauvegarde** groupe ou le **administrateurs** groupe, ou vous devez vous avoir été délégué des autorisations appropriées. En outre, vous devez exécuter **wbadmin** à partir d’une invite de commandes avec élévation de privilèges. (Pour ouvrir une invite de commandes avec élévation de privilèges, cliquez sur **Démarrer**, avec le bouton droit **invite de commandes**, puis cliquez sur **exécuter en tant qu’administrateur**.)
+Pour effectuer une récupération avec cette sous-commande, vous devez être membre du groupe **opérateurs de sauvegarde** ou **administrateurs** , ou l’autorisation appropriée doit vous avoir été déléguée. En outre, vous devez exécuter **Wbadmin** à partir d’une invite de commandes avec élévation de privilèges. (Pour ouvrir une invite de commandes avec élévation de privilèges, cliquez sur **Démarrer**, cliquez avec le bouton droit sur **invite de commandes**, puis cliquez sur **exécuter en tant qu’administrateur**.)
 
-Pour obtenir des exemples montrant comment utiliser cette sous-commande, consultez [exemples](#BKMK_Examples).
+Pour obtenir des exemples d’utilisation de cette sous-commande, consultez [exemples](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -52,56 +52,56 @@ wbadmin start recovery
 
 |Paramètre|Description|
 |---------|-----------|
-|-version|Spécifie l’identificateur de version de la sauvegarde à restaurer dans MM/jj/aaaa-format hh : mm. Si vous ne connaissez pas l’identificateur de version, tapez **wbadmin get versions**.|
-|-items|Spécifie une liste délimitée par des virgules des volumes, des applications, des fichiers ou dossiers à récupérer.</br>-If **- itemtype** est **Volume**, vous pouvez spécifier un seul volume, en fournissant la lettre de lecteur de volume, le point de montage de volume ou le nom de volume basée sur GUID.</br>-If **- itemtype** est **application**, vous pouvez spécifier qu’une seule application. Pour être récupérés, l’application doit avoir inscrite avec sauvegarde Windows Server. Vous pouvez également utiliser la valeur **ADIFM** pour récupérer une installation d’Active Directory. Pour plus d’informations, consultez la section Notes dans.</br>-If **- itemtype** est **fichier**, vous pouvez spécifier des fichiers ou dossiers, mais ils doivent faire partie du même volume, et ils doivent être sous le même dossier parent.|
-|-itemtype|Spécifie le type des éléments à récupérer. Doit être **Volume**, **application**, ou **fichier**.|
-|-backupTarget|Spécifie l’emplacement de stockage qui contient la sauvegarde que vous souhaitez récupérer. Ce paramètre est utile lorsque l’emplacement est différent du où les sauvegardes de cet ordinateur sont généralement stockés.|
-|-machine|Spécifie le nom de l’ordinateur que vous souhaitez restaurer la sauvegarde pour. Ce paramètre est utile lorsque plusieurs ordinateurs ont été sauvegardés dans le même emplacement. Il doit être utilisé lorsque le **- backupTarget** est précisé.|
-|-recoveryTarget|Spécifie l’emplacement à restaurer. Ce paramètre est utile si cet emplacement est différent de celui qui a été précédemment sauvegardées. Il peut également être utilisé pour les restaurations de volumes, des fichiers ou des applications. Si vous restaurez un volume, vous pouvez spécifier la lettre de lecteur de volume de l’autre volume. Si vous restaurez un fichier ou une application, vous pouvez spécifier un autre emplacement de récupération.|
-|-récursif|Valide uniquement lors de la récupération de fichiers. Récupère les fichiers dans les dossiers et tous les fichiers subordonnés dans les dossiers spécifiés. Par défaut, seuls les fichiers qui se trouvent directement dans les dossiers spécifiés sont récupérées.|
-|-overwrite|Valide uniquement lors de la récupération de fichiers. Spécifie l’action à entreprendre lorsqu’un fichier qui est en cours de récupération déjà existe dans le même emplacement.</br>-   **Skip** provoque la sauvegarde de Windows Server ignorer le fichier existant et de poursuivre la récupération du fichier suivant.</br>-   **CreateCopy** provoque la sauvegarde de Windows Server créer une copie du fichier existant afin que le fichier existant ne soit pas modifié.</br>-   **Remplacer** provoque la sauvegarde de Windows Server remplacer le fichier existant par le fichier à partir de la sauvegarde.|
-|-notRestoreAcl|Valide uniquement lors de la récupération de fichiers. Spécifie les listes de contrôle d’accès (ACL) de sécurité des fichiers en cours de récupération à partir de la sauvegarde à restaurer. Par défaut, les ACL de sécurité sont restaurés (la valeur par défaut est **true)**. Si ce paramètre est utilisé, les listes ACL pour les fichiers restaurés seront héritées à partir de l’emplacement auquel les fichiers sont en cours de restauration.|
-|-skipBadClusterCheck|Valide uniquement lorsque la récupération de volumes. Ignore la vérification des disques que vous effectuez la récupération pour les informations de cluster défectueux. Si vous récupérez vers un autre serveur ou du matériel, nous recommandons que vous n’utilisez pas ce paramètre. Vous pouvez exécuter manuellement la commande **chkdsk /b** sur ces disques à tout moment pour vérifier les clusters défectueux et puis mettez à jour les informations de système de fichiers en conséquence.</br>Important : Jusqu'à ce que vous exécutiez **chkdsk** comme décrit, les clusters défectueux signalés sur votre système récupéré peuvent être inexact.|
-|-noRollForward|Valide uniquement lors de la récupération des applications. Permet de récupération précédent point-à-temps d’une application si la dernière version à partir des sauvegardes est sélectionnée. Pour d’autres versions de l’application qui ne sont pas la récupération de point-à-temps plus tard, précédente est effectuée en tant que la valeur par défaut.|
+|-version|Spécifie l’identificateur de version de la sauvegarde à récupérer au format MM/JJ/AAAA-HH : MM. Si vous ne connaissez pas l’identificateur de version, tapez **Wbadmin obtenir des versions**.|
+|-éléments|Spécifie une liste délimitée par des virgules de volumes, d’applications, de fichiers ou de dossiers à récupérer.</br>-Si **-ItemType** est un **volume**, vous ne pouvez spécifier qu’un seul volume, en fournissant la lettre de lecteur du volume, le point de montage du volume ou le nom du volume basé sur le GUID.</br>-Si **-ItemType** est **application**, vous ne pouvez spécifier qu’une seule application. Pour être récupérés, l’application doit être inscrite auprès de Sauvegarde Windows Server. Vous pouvez également utiliser la valeur **ADIFM** pour récupérer une installation de Active Directory. Pour plus d’informations, consultez la section Notes dans.</br>-Si **-ItemType est un** **fichier**, vous pouvez spécifier des fichiers ou des dossiers, mais ils doivent faire partie du même volume et ils doivent se trouver dans le même dossier parent.|
+|-ItemType|Spécifie le type des éléments à récupérer. Il doit s’agir d’un **volume**, d’une **application**ou d’un **fichier**.|
+|-backupTarget|Spécifie l’emplacement de stockage qui contient la sauvegarde que vous souhaitez récupérer. Ce paramètre est utile lorsque l’emplacement est différent de l’emplacement où les sauvegardes de cet ordinateur sont généralement stockées.|
+|-machine|Spécifie le nom de l’ordinateur pour lequel vous souhaitez récupérer la sauvegarde. Ce paramètre est utile lorsque plusieurs ordinateurs ont été sauvegardés au même emplacement. Elle doit être utilisée lorsque le paramètre **-backupTarget** est spécifié.|
+|-recoveryTarget|Spécifie l’emplacement vers lequel effectuer la restauration. Ce paramètre est utile si cet emplacement est différent de l’emplacement précédemment sauvegardé. Il peut également être utilisé pour les restaurations de volumes, de fichiers ou d’applications. Si vous restaurez un volume, vous pouvez spécifier la lettre de lecteur du volume de l’autre volume. Si vous restaurez un fichier ou une application, vous pouvez spécifier un autre emplacement de récupération.|
+|-récursif|Valide uniquement lors de la récupération de fichiers. Récupère les fichiers dans les dossiers et tous les fichiers subordonnés aux dossiers spécifiés. Par défaut, seuls les fichiers qui résident directement dans les dossiers spécifiés sont récupérés.|
+|-remplacer|Valide uniquement lors de la récupération de fichiers. Spécifie l’action à entreprendre lorsqu’un fichier récupéré existe déjà au même emplacement.</br>-   **ignore** , sauvegarde Windows Server ignore le fichier existant et poursuit la récupération du fichier suivant.</br>-   **CreateCopy** oblige sauvegarde Windows Server à créer une copie du fichier existant afin que le fichier existant ne soit pas modifié.</br>Si vous**remplacez** -   , sauvegarde Windows Server remplace le fichier existant par le fichier de la sauvegarde.|
+|-notRestoreAcl|Valide uniquement lors de la récupération de fichiers. Spécifie de ne pas restaurer les listes de contrôle d’accès (ACL) de sécurité des fichiers en cours de récupération à partir de la sauvegarde. Par défaut, les listes de contrôle d’accès de sécurité sont restaurées (la valeur par défaut est **true)** . Si ce paramètre est utilisé, les listes de contrôle d’accès des fichiers restaurés sont héritées de l’emplacement dans lequel les fichiers sont restaurés.|
+|-skipBadClusterCheck|Valide uniquement lors de la récupération de volumes. Ignore la vérification des disques sur lesquels vous effectuez la récupération pour obtenir des informations de cluster incorrectes. Si vous effectuez la récupération vers un autre serveur ou matériel, nous vous recommandons de ne pas utiliser ce paramètre. Vous pouvez exécuter manuellement la commande **chkdsk/b** sur ces disques à tout moment pour les vérifier pour les clusters défectueux, puis mettre à jour les informations du système de fichiers en conséquence.</br>Important : Tant que vous n’exécutez pas **chkdsk** comme décrit, les clusters incorrects signalés sur votre système récupéré peuvent ne pas être exacts.|
+|-noRollForward|Valide uniquement lors de la récupération d’applications. Permet une récupération jusqu’à une date et heure antérieure d’une application si la version la plus récente des sauvegardes est sélectionnée. Pour les autres versions de l’application qui ne sont pas la dernière version, la récupération jusqu’à une date et heure précédente est effectuée par défaut.|
 |-quiet|Exécute la sous-commande sans invite à l’utilisateur.|
 
 ## <a name="remarks"></a>Notes
 
--   Pour afficher une liste d’éléments qui sont disponibles pour la récupération à partir d’une version de sauvegarde spécifique, utilisez **wbadmin obtenir les éléments**. Si un volume n’avait pas d’une lettre de lecteur ou le point de montage au moment de la sauvegarde, la sous-commande retournerait un nom basé sur le GUID de volume qui doit être utilisé pour récupérer le volume.
--   Lorsque le **- itemtype** est **application**, vous pouvez utiliser une valeur de **ADIFM** pour **-élément** pour effectuer une installation à partir de l’opération de média pour récupérer tous les le données associées nécessaires pour les Services de domaine Active Directory. **ADIFM** crée une copie de la base de données Active Directory, le Registre et l’état SYSVOL, puis enregistre ces informations dans l’emplacement spécifié par **- recoveryTarget**. Utilisez ce paramètre uniquement lorsque **- recoveryTarget** est spécifié.
+-   Pour afficher la liste des éléments disponibles pour la récupération à partir d’une version de sauvegarde spécifique, utilisez **Wbadmin obtenir des éléments**. Si un volume n’a pas de point de montage ou de lettre de lecteur au moment de la sauvegarde, cette sous-commande retourne un nom de volume basé sur le GUID qui doit être utilisé pour récupérer le volume.
+-   Lorsque l’option **-ItemType** est **app**, vous pouvez utiliser la valeur **ADIFM** pour **-Item** pour effectuer une opération d’installation à partir du support pour récupérer toutes les données associées nécessaires pour Active Directory Domain Services. **ADIFM** crée une copie de la base de données Active Directory, du Registre et de l’État SYSVOL, puis enregistre ces informations à l’emplacement spécifié par **-recoveryTarget**. Utilisez ce paramètre uniquement quand **-recoveryTarget** est spécifié.
 
 >     [!NOTE]
 >     Before using **wbadmin** to perform an install from media operation, you should consider using the **ntdsutil** command because **ntdsutil** only copies the minimum amount of data needed, and it uses a more secure data transport method.
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 
-Pour exécuter une récupération de la sauvegarde depuis le 31 mars 2013, pris à 9 h 00, du volume d:, tapez :
+Pour exécuter une récupération de la sauvegarde à partir du 31 mars 2013, à 9:00 h 00, du volume d :, tapez :
 ```
 wbadmin start recovery -version:03/31/2013-09:00 -itemType:Volume -items:d:
 ```
-Pour exécuter une récupération sur lecteur d de la sauvegarde depuis le 31 mars 2013, pris à 9 h 00, du Registre, tapez :
+Pour exécuter une récupération sur le lecteur d de la sauvegarde à partir du 31 mars 2013, pris à 9:00 h 00, du Registre, tapez :
 ```
 wbadmin start recovery -version:03/31/2013-09:00 -itemType:App -items:Registry -recoverytarget:d:\
 ```
-Pour exécuter une récupération de la sauvegarde depuis le 31 mars 2013, pris à 9 h 00, d:\folder et les dossiers subordonnés à d:\folder, tapez :
+Pour exécuter une récupération de la sauvegarde à partir du 31 mars, de 2013 à 9:00 h 00, des d:\folder et des dossiers subordonnés à d:\folder, tapez :
 ```
 wbadmin start recovery -version:03/31/2013-09:00 -itemType:File -items:d:\folder -recursive
 ```
-Pour exécuter une récupération de la sauvegarde à partir du 31 mars 2013, pris à 9 h 00, du volume \\ \\? \Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\, type :
+Pour exécuter une récupération de la sauvegarde à partir du 31 mars, de 2013 à 9:00 h 00, du volume \\ @ no__t-1 ? \Volume{cc566d14-44A0-11d9-9d93-806e6f6e6963} \, type :
 ```
 wbadmin start recovery -version:03/31/2013-09:00 -itemType:Volume 
 -items:\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
 ```
-Pour exécuter une récupération de la sauvegarde à partir du 30 avril 2013, pris à 9 h 00, du dossier partagé \\ \\servername\share de server01, type :
+Pour exécuter une récupération de la sauvegarde à partir du 30 avril 2013, prise à 9:00 h 00, du dossier partagé \\ @ no__t-1servername\share à partir de Serveur01, tapez :
 ```
 wbadmin start recovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
--   [Start-WBFileRecovery](https://technet.microsoft.com/library/jj902457.aspx) applet de commande
--   [Start-WBHyperVRecovery](https://technet.microsoft.com/library/jj902463.aspx) applet de commande
--   [Start-WBSystemStateRecovery](https://technet.microsoft.com/library/jj902449.aspx) applet de commande
--   [Start-WBVolumeRecovery](https://technet.microsoft.com/library/jj902470.aspx) applet de commande
+-   Applet [de commande Start-WBFileRecovery](https://technet.microsoft.com/library/jj902457.aspx)
+-   Applet [de commande Start-WBHyperVRecovery](https://technet.microsoft.com/library/jj902463.aspx)
+-   Applet [de commande Start-WBSystemStateRecovery](https://technet.microsoft.com/library/jj902449.aspx)
+-   Applet [de commande Start-WBVolumeRecovery](https://technet.microsoft.com/library/jj902470.aspx)

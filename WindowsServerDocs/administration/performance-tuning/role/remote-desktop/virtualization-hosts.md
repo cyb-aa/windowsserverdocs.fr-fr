@@ -1,18 +1,18 @@
 ---
 title: Réglage des performances Bureau à distance les hôtes de virtualisation
 description: Réglage des performances pour les hôtes de virtualisation Bureau à distance
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 24e3243d4e9791c8941729d396e0a96cd8b11a7d
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 6aad1560fa9f9429af94426487d9a33369137ded
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866442"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370030"
 ---
 # <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>Réglage des performances Bureau à distance les hôtes de virtualisation
 
@@ -63,7 +63,7 @@ Pour une charge de travail de travail de base de connaissances classique, les ma
 
 Par conséquent, il est important de fournir suffisamment de mémoire serveur pour satisfaire la mémoire requise par le nombre attendu de machines virtuelles invitées, ainsi que d’une quantité suffisante de mémoire pour le serveur.
 
-### <a name="cpu"></a>UC
+### <a name="cpu"></a>Processeur
 
 Lorsque vous planifiez la capacité du serveur pour un serveur hôte de virtualisation des services Bureau à distance, le nombre d’ordinateurs virtuels par cœur physique dépend de la nature de la charge de travail. Comme point de départ, il est raisonnable de planifier 12 machines virtuelles par cœur physique, puis d’exécuter les scénarios appropriés pour valider les performances et la densité. Une densité plus élevée peut être réalisable en fonction des caractéristiques de la charge de travail.
 
@@ -129,7 +129,7 @@ Les compteurs de performances suivants sont disponibles sur le serveur RemoteFX 
 
 -   **RAM Mo disponibles par processeur** graphique, quantité de mémoire vidéo dédiée non utilisée
 
--   **RAM % Réservé par pourcentage** GPU de mémoire vidéo dédiée qui a été réservée pour RemoteFX
+-   **RAM % Réservé par GPU @ no__t-0% de la mémoire vidéo dédiée qui a été réservée pour RemoteFX
 
 **Logiciel RemoteFX**
 
@@ -207,7 +207,7 @@ Il est logique de désactiver les fonctionnalités et services Windows qui dépe
 
 Chaque service spécifique doit être évalué de manière appropriée avant tout déploiement global. Voici quelques éléments à prendre en compte :
 
-| de diffusion en continu                                      | Pourquoi ?                                                                                                                                                                                                      |
+| de diffusion en continu                                      | Pourquoi ?                                                                                                                                                                                                      |
 |----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Mise à jour automatique                                  | Les bureaux virtuels mis en pool sont mis à jour en recréant le modèle de bureau virtuel.                                                                                                                          |
 | Fichiers hors connexion                                | Les bureaux virtuels sont toujours en ligne et connectés à partir d’un point de vue réseau.                                                                                                                         |

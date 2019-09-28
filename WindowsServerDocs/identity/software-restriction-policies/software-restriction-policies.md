@@ -2,7 +2,7 @@
 title: Stratégies de restriction logicielle
 description: Sécurité de Windows Server
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: security-software-restriction-policies
@@ -13,22 +13,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: ab44013b947d33adc12c54b527415bf16c46a4c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b06d038e919e2f4904d60b88ad223493c4f818eb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875820"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71357671"
 ---
 # <a name="software-restriction-policies"></a>Stratégies de restriction logicielle
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Cette rubrique destinée aux professionnels de l’informatique décrit les stratégies de Restriction logicielle (SRP) dans Windows Server 2012 et Windows 8 et fournit des liens vers des informations techniques sur Windows Server 2003 à compter de stratégies de restriction logicielle.
+Cette rubrique destinée aux professionnels de l’informatique décrit les stratégies de restriction logicielle (SRP) dans Windows Server 2012 et Windows 8, et fournit des liens vers des informations techniques sur les SRP à partir de Windows Server 2003.
 
-Pour des conseils de dépannage et des procédures, consultez [administrer les stratégies de Restriction logicielle](administer-software-restriction-policies.md) et [résoudre les problèmes des stratégies de Restriction logicielle](troubleshoot-software-restriction-policies.md).
+Pour obtenir des procédures et des conseils de dépannage, consultez [administrer les stratégies de restriction logicielle](administer-software-restriction-policies.md) et [résoudre les problèmes de stratégies de restriction logicielle](troubleshoot-software-restriction-policies.md).
 
-## <a name="BKMK_OVER"></a>Description des stratégies de Restriction logicielle
+## <a name="BKMK_OVER"></a>Description des stratégies de restriction logicielle
 La fonctionnalité Stratégies de restriction logicielle est une fonctionnalité fondée sur les stratégies de groupe qui identifie les programmes logiciels s’exécutant sur les ordinateurs d’un domaine et qui contrôle la capacité de ces programmes à s’exécuter. Les stratégies de restriction logicielle s’inscrivent dans la stratégie de gestion et de sécurité Microsoft conçue pour aider les entreprises à accroître la fiabilité, l’intégrité et la facilité de gestion de leurs ordinateurs.
 
 Les stratégies de restriction logicielle peuvent aussi contribuer à créer une configuration fortement restreinte pour vos ordinateurs, dans laquelle seule l’exécution d’applications clairement identifiées est autorisée. Les stratégies de restriction logicielle sont intégrées à Microsoft Active Directory et à la stratégie de groupe. Vous avez également la possibilité de créer des stratégies de restriction logicielle sur des ordinateurs autonomes. Les stratégies de restriction logicielle sont des stratégies d’approbation, c’est-à-dire des règles définies par un administrateur pour limiter des scripts et d’autres formes de code qui n’apparaissent pas entièrement fiables depuis l’exécution.
@@ -61,7 +61,7 @@ Les administrateurs peuvent en particulier faire appel aux stratégies de restri
 ## <a name="BKMK_NEW"></a>Fonctionnalités nouvelles et modifiées
 Aucune modification n’a été apportée aux fonctionnalités des stratégies de restriction logicielle.
 
-## <a name="BKMK_DEP"></a>Fonctionnalité supprimée ou déconseillée
+## <a name="BKMK_DEP"></a>Fonctionnalités supprimées ou déconseillées
 Il n’existe aucune fonctionnalité supprimée ou déconseillée dans le cadre des stratégies de restriction logicielle.
 
 ## <a name="BKMK_SOFT"></a>Configuration logicielle requise
@@ -81,7 +81,7 @@ Si la structure que vous concevez nécessite un déploiement de ces stratégies 
 
 -   Stratégie de groupe
 
-## <a name="BKMK_INSTALL"></a>Informations de gestionnaire de serveur
+## <a name="BKMK_INSTALL"></a>Informations Gestionnaire de serveur
 Les stratégies de restriction logicielle constituent une extension de l’Éditeur d’objets de stratégie de groupe et ne sont pas installées par le biais de la fonctionnalité d’ajout de rôles et de fonctionnalités du Gestionnaire de serveur.
 
 ## <a name="BKMK_LINKS"></a>Voir aussi
@@ -89,14 +89,14 @@ Le tableau qui suit propose des liens menant à des ressources appropriées perm
 
 |Type de contenu|Références|
 |--------|-------|
-|**Évaluation du produit**|[Verrouillage d’applications avec les stratégies de Restriction logicielle](https://technet.microsoft.com/magazine/2008.06.srp.aspx?pr=blog)|
-|**Planification**|[Software Restriction Policies Technical Overview](software-restriction-policies-technical-overview.md) (Windows Server 2012)<br /><br />[Informations techniques de référence sur les stratégies de restriction logicielle](https://technet.microsoft.com/library/cc728085(v=WS.10).aspx) (Windows Server 2003)|
+|**Évaluation du produit**|[Verrouillage d’applications avec des stratégies de restriction logicielle](https://technet.microsoft.com/magazine/2008.06.srp.aspx?pr=blog)|
+|**Planification**|[Vue d’ensemble technique des stratégies de restriction logicielle](software-restriction-policies-technical-overview.md) (Windows Server 2012)<br /><br />[Informations techniques de référence sur les stratégies de restriction logicielle](https://technet.microsoft.com/library/cc728085(v=WS.10).aspx) (Windows Server 2003)|
 |**Déploiement**|Aucune ressource disponible.|
-|**Opérations**|[Administrer les stratégies de Restriction logicielle](administer-software-restriction-policies.md) (Windows Server 2012)<br /><br />[Aide produit pour les stratégies de restriction logicielle](https://technet.microsoft.com/library/cc779607(v=WS.10).aspx) (Windows Server 2003)|
-|**Résolution des problèmes**|[Résoudre les problèmes de stratégies de Restriction logicielle](troubleshoot-software-restriction-policies.md) (Windows Server 2012)<br /><br />[Résolution des problèmes liés aux stratégies de restriction logicielle](https://technet.microsoft.com/library/cc737011(v=WS.10).aspx) (Windows Server 2003)|
+|**Opérations**|[Administrer les stratégies de restriction logicielle](administer-software-restriction-policies.md) (Windows Server 2012)<br /><br />[Aide produit pour les stratégies de restriction logicielle](https://technet.microsoft.com/library/cc779607(v=WS.10).aspx) (Windows Server 2003)|
+|**Résolution des problèmes**|[Résoudre les problèmes liés aux stratégies de restriction logicielle](troubleshoot-software-restriction-policies.md) (Windows Server 2012)<br /><br />[Résolution des problèmes liés aux stratégies de restriction logicielle](https://technet.microsoft.com/library/cc737011(v=WS.10).aspx) (Windows Server 2003)|
 |**Sécurité**|[Menaces et contre-mesures pour les stratégies de restriction logicielle](https://technet.microsoft.com/library/dd349795(v=WS.10).aspx) (Windows Server 2008)<br /><br />[Menaces et contre-mesures pour les stratégies de restriction logicielle](https://technet.microsoft.com/library/hh125926(v=WS.10).aspx) (Windows Server 2008 R2)|
 |**Outils et paramètres**|[Outils et paramètres des stratégies de restriction logicielle](https://technet.microsoft.com/library/cc782454(v=WS.10).aspx) (Windows Server 2003)|
-|**Ressources de la communauté**|[Verrouillage d’applications avec les stratégies de Restriction logicielle](https://technet.microsoft.com/magazine/2008.06.srp.aspx?pr=blog)|
+|**Ressources de la communauté**|[Verrouillage d’applications avec des stratégies de restriction logicielle](https://technet.microsoft.com/magazine/2008.06.srp.aspx?pr=blog)|
 
 
 

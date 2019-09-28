@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 247381b35a038627b5d8c91ac4dda0cc4fab6195
-ms.sourcegitcommit: ccec91c1d32a978159f9b8bb5e39ead5805c26c4
+ms.openlocfilehash: 720c20437f7e6da875b809b2816f0d4df5d210d6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71143778"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359188"
 ---
 # <a name="ad-fs-requirements"></a>Configuration AD FS requise
 
@@ -185,7 +185,7 @@ AD FS crée des\-cookies persistants et basés sur une session qui doivent être
 ## <a name="BKMK_extranet"></a>Exigences relatives aux extranets  
 Pour fournir un accès extranet au service AD FS, vous devez déployer le service de rôle proxy d’application Web en tant que rôle accessible par l’extranet qui transmet les demandes d’authentification de manière sécurisée au service AD FS. Cela permet d’isoler les points de terminaison de service AD FS, ainsi que l’isolation \(de toutes les clés de\) sécurité telles que les certificats de signature de jetons des demandes provenant d’Internet. En outre, des fonctionnalités telles que le verrouillage de compte d’extranet souple nécessitent l’utilisation du proxy d’application Web. Pour plus d’informations sur le proxy d’application Web, voir [proxy d’application Web](https://technet.microsoft.com/library/dn584107.aspx).  
   
-Si vous souhaitez utiliser un proxy tiers\-pour l’accès extranet, ce proxy tiers\-doit prendre en charge le protocole défini dans [http :\/\/Download.Microsoft.com\/download\/ 9\/5E\/95EF66AF\-90264BB0\-A41DA4F81802D92C%5bMS\-ADFSPIP% 5 d.pdf.\/\-\-\/](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-ADFSPIP%5d.pdf)  
+Si vous souhaitez utiliser un troisième proxy @ no__t-0party pour l’accès extranet, ce troisième proxy @ no__t-1party doit prendre en charge le protocole défini dans [http : @no__t -3\/download.microsoft.com @ no__t-5download @ no__t-69 @ no__t-75 @ no__t-8e @ no__t-995EF66AF @ no__t-109026 @ no__t-114BB0 @ no__t-12A41D @ no__t-13A4F81802D92C @ no__t-14%5bMS\-5ADFSPIP%5d.pdf](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-ADFSPIP%5d.pdf).  
   
 ## <a name="BKMK_7"></a>Configuration réseau requise  
 La configuration appropriée des services réseau suivants est essentielle pour réussir le déploiement de AD FS dans votre organisation :  
