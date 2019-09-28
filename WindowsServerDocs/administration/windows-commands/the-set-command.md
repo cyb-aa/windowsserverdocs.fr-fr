@@ -1,8 +1,8 @@
 ---
-title: La commande Set
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Commande Set
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,26 +13,26 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1ad041a6fd1c4cd7fd05def0ea44923e6c59f0bf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8131685b227444a0114e9c0eb70d6191a78f3da0
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879220"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385082"
 ---
-# <a name="the-set-command"></a>La commande Set
+# <a name="the-set-command"></a>Commande Set
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Définit les propriétés et les attributs pour les serveurs de Services de déploiement Windows, des ordinateurs préinstallés, des images, des groupes d’images et des serveurs de Transport.
+Définit les propriétés et les attributs pour les serveurs des services de déploiement Windows, les ordinateurs prédéfinis, les images, les groupes d’images et les serveurs de transport.
 ## <a name="subcommands"></a>Sous-commandes
 |Sous-commande|Description|
 |-------|--------|
-|[Sous-commande : set-Device](subcommand-set-device.md)|Modifie les attributs d’un ordinateur prédéfini. Un ordinateur prédéfini est un ordinateur qui a été lié à un objet de compte d’ordinateur dans les serveurs de domaine active directory (AD DS). Aux clients prédéfinis sont également appelés ordinateurs connus.|
-|[Sous-commande : set-Image](subcommand-set-image.md)|Modifie les attributs d’une image existante.|
-|[Sous-commande : set-ImageGroup](subcommand-set-imagegroup.md)|Modifie les attributs d’un groupe d’images existant.|
-|[Sous-commande : set-Server](subcommand-set-server.md)|Configure les paramètres pour un serveur de Services de déploiement Windows.|
-|[Sous-commande : set-TransportServer](subcommand-set-transportserver.md)|Configure les paramètres pour un serveur de Transport.|
-|[Subcommand: set-DriverPackage](subcommand-set-driverpackage.md)|Renomme et/ou activer/désactiver un package de pilotes sur un serveur.|
-|[Sous-commande : set-DriverGroup](subcommand-set-drivergroup.md)|Définit les propriétés d’un groupe de pilotes existant sur un serveur.|
-|[Subcommand: set-DriverGroupFilter](subcommand-set-drivergroupfilter.md)|Ajoute ou supprime un filtre de groupe de pilotes existant à partir d’un groupe de pilotes.|
+|[Sous-commande : Set-Device](subcommand-set-device.md)|modifie les attributs d’un ordinateur prédéfini. Un ordinateur prédéfini est un ordinateur qui a été lié à un objet de compte d’ordinateur dans les serveurs de domaine Active Directory (AD DS). Les clients prédéfinis sont également appelés ordinateurs connus.|
+|[Sous-commande : Set-image](subcommand-set-image.md)|modifie les attributs d’une image existante.|
+|[Sous-commande : Set-ImageGroup](subcommand-set-imagegroup.md)|modifie les attributs d’un groupe d’images existant.|
+|[Sous-commande : Set-Server](subcommand-set-server.md)|Configure les paramètres d’un serveur des services de déploiement Windows.|
+|[Sous-commande : Set-TransportServer](subcommand-set-transportserver.md)|Configure les paramètres d’un serveur de transport.|
+|[Sous-commande : Set-DriverPackage](subcommand-set-driverpackage.md)|renomme et/ou active ou désactive un package de pilotes sur un serveur.|
+|[Sous-commande : Set-DriverGroup](subcommand-set-drivergroup.md)|Définit les propriétés d’un groupe de pilotes existant sur un serveur.|
+|[Sous-commande : Set-DriverGroupFilter](subcommand-set-drivergroupfilter.md)|Ajoute ou supprime un filtre de groupe de pilotes existant d’un groupe de pilotes.|

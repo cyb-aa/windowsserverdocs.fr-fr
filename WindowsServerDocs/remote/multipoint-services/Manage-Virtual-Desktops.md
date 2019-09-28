@@ -1,8 +1,8 @@
 ---
 title: Gérer les bureaux virtuels
-description: Découvrez comment gérer des bureaux virtuels (VDI) dans MultiPoint Services
+description: En savoir plus sur la gestion des bureaux virtuels (VDI) dans MultiPoint services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,17 +13,17 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 7afc6d2a65cd5cd3b116db5d65fd97e4cc770690
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 45bb3e98779bc27913c7e675a9c9db7e575d9d72
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861440"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389591"
 ---
 # <a name="manage-virtual-desktops"></a>Gérer les bureaux virtuels
-VDI d’ordinateur unique vous permet de configurer chaque *local* station MultiPoint Services pour vous connecter à un système de d’exploitation invité Windows 10 entreprise en cours d’exécution sur une machine virtuelle de Hyper-V (VM) sur le même ordinateur MultiPoint Services en tant que le station. Ces stations de bureaux virtuels peuvent être personnalisées avec une application qui ne peut pas être installée sur une version de Windows Server.  
+L’infrastructure VDI sur un seul ordinateur vous permet de configurer chaque station multipoint services *locale* pour se connecter à un système d’exploitation invité Windows 10 entreprise s’exécutant sur une machine virtuelle Hyper-V sur le même ordinateur multipoint services que la station. Ces stations de bureaux virtuels peuvent être personnalisées avec une application qui ne peut pas être installée sur une version de Windows Server.  
   
-## <a name="enable-the-virtual-desktop-feature"></a>Activer la fonctionnalité de bureau virtuelle  
+## <a name="enable-the-virtual-desktop-feature"></a>Activer la fonctionnalité de bureau virtuel  
   
 1.  Ouvrez le Gestionnaire MultiPoint, puis cliquez sur l’onglet **Bureaux virtuels**.  
   
@@ -76,18 +76,18 @@ Le modèle s’ouvre dans une fenêtre distincte et des instructions supplément
     > [!NOTE]  
     > Si le système MultiPoint Services n’est pas exécuté en mode station, redémarrez-le avant d’exécuter les étapes suivantes.  
   
-2.  Sélectionnez le modèle de bureau virtuel à gauche\-volet. Son nom est <préfixe – t>.  
+2.  Sélectionnez le modèle de bureau virtuel dans le volet gauche @ no__t-0hand. Son nom est <préfixe – t>.  
   
 3.  Sous les tâches de modèle, cliquez sur **Créer des stations de bureaux virtuels**, puis sur **OK**.  
   
     Le processus de création de la station de bureau virtuel prend quelques minutes.  
   
     > [!NOTE]  
-    > Si une des stations locales est actuellement connectée à une session\-virtuel basé sur bureau, vous devez vous déconnecter cette station pour qu’ils se connecter à une station de bureau virtuelle nouvellement créée.  
+    > Si l’une des stations locales est actuellement connectée à un bureau virtuel @ no__t-0based, vous devez vous déconnecter de ces stations afin qu’elles se connectent à l’une des stations de bureaux virtuels nouvellement créées.  
   
 ### <a name="validate-the-newly-created-customized-virtual-station-desktops"></a>Valider les bureaux de station virtuels personnalisés nouvellement créés  
   
-Vous pouvez valider vos bureaux de station virtuels personnalisés en vous connectant à un ou plusieurs des stations de bureaux virtuelles à l’aide d’un compte d’administrateur local ou un compte de domaine, puis vérifiez que la nouvelle machine virtuelle\-fonctionnent en fonction des bureaux virtuels correctement.  
+Vous pouvez valider vos bureaux de stations virtuelles personnalisés en vous connectant à une ou plusieurs stations de bureaux virtuels à l’aide d’un compte d’administrateur local ou d’un compte de domaine, puis vérifiez que les nouveaux bureaux virtuels @ no__t-0based fonctionnent correctement.  
   
 ## <a name="disable-virtual-desktops"></a>Désactiver les bureaux virtuels  
   

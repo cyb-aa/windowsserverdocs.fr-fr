@@ -1,8 +1,8 @@
 ---
-title: Sous-commande DriverPackage de jeu
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Sous-commande Set-DriverPackage
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 24acd672184b8df235e8de843961ac4adb2bd412
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 65751cf6e03baa87c7734b318a26111652bee0a1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441134"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370820"
 ---
-# <a name="subcommand-set-driverpackage"></a>Sous-commande : set-DriverPackage
+# <a name="subcommand-set-driverpackage"></a>Sous-commande : Set-DriverPackage
 
 
 
-Renomme et/ou Active ou désactive un package de pilotes sur un serveur.
+Renomme et/ou active ou désactive un package de pilotes sur un serveur.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,15 +36,15 @@ WDSUTIL /Set-DriverPackage [/Server:<Server name>] {/DriverPackage:<Name> | /Pac
 
 |        Paramètre         |                                                                                                                                                                                                               Description                                                                                                                                                                                                                |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [/ Server :\<nom du serveur >] |                                                                                                                                                 Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom de domaine complet. Si un nom de serveur n’est pas spécifié, le serveur local est utilisé.                                                                                                                                                 |
-| [/ DriverPackage :\<nom >] |                                                                                                                                                                                       Spécifie le nom actuel du package de pilotes à modifier.                                                                                                                                                                                        |
-|    [/PackageId:\<ID>]    | Spécifie l’ID de Services de déploiement Windows du package de pilotes. Vous devez spécifier cette option si le package de pilotes ne peut pas être identifié de manière unique par son nom. Pour rechercher cet ID pour un package, cliquez sur le groupe de pilotes se trouve le package (ou le **tous les Packages** nœud), cliquez sur le package, puis cliquez sur **propriétés**. L’ID de Package est répertorié dans le **général** onglet. Par exemple : {DD098D20-1850-4FC8-8E35-EA24A1BEFF5E}. |
-|   [/ Nom :\<nouveau nom >]    |                                                                                                                                                                                              Spécifie le nouveau nom pour le package de pilotes.                                                                                                                                                                                              |
-|      [/ Enabled : {Oui      |                                                                                                                                                                                                                   No}                                                                                                                                                                                                                    |
+| [/Server : @no__t-nom 0Server >] |                                                                                                                                                 Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.                                                                                                                                                 |
+| [/DriverPackage : \<Name >] |                                                                                                                                                                                       Spécifie le nom actuel du package de pilotes à modifier.                                                                                                                                                                                        |
+|    [/PackageId : \<ID >]    | Spécifie l’ID des services de déploiement Windows du package de pilotes. Vous devez spécifier cette option si le package de pilotes ne peut pas être identifié de manière unique par son nom. Pour trouver cet ID pour un package, cliquez sur le groupe de pilotes dans lequel se trouve le package (ou sur le nœud **tous les packages** ), cliquez avec le bouton droit sur le package, puis cliquez sur **Propriétés**. L’ID de package est indiqué sous l’onglet **général** . Par exemple : {DD098D20-1850-4FC8-8E35-EA24A1BEFF5E}. |
+|   [/Name : @no__t-nom 0New >]    |                                                                                                                                                                                              Spécifie le nouveau nom du package de pilotes.                                                                                                                                                                                              |
+|      [/Enabled : {Oui      |                                                                                                                                                                                                                   º                                                                                                                                                                                                                    |
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour modifier les paramètres sur un package, tapez une des opérations suivantes :
+Pour modifier les paramètres d’un package, tapez l’un des éléments suivants :
 ```
 WDSUTIL /Set-DriverPackage /PackageId:{4D36E972-E325-11CE-BFC1-08002BE10318} /Name:MyDriverPackage
 ```

@@ -2,18 +2,18 @@
 title: Créer une propriété de classification
 description: Cet article décrit les propriétés de classification utilisées pour affecter des valeurs à des fichiers dans un dossier ou un volume spécifié.
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: aa1f1a2ab4422f4bb36a737e47894b22b60160e1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d330f896c71cced8e97701af2c1008b3531e065d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880650"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394223"
 ---
 # <a name="create-a-classification-property"></a>Créer une propriété de classification
 
@@ -51,5 +51,5 @@ La procédure suivante vous guide tout au long du processus de création d’une
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Créer une règle de Classification automatique](create-automatic-classification-rule.md)
+-   [Créer une règle de classification automatique](create-automatic-classification-rule.md)
 -   [Gestion de la classification](classification-management.md)

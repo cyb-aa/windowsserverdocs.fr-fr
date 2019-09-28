@@ -1,8 +1,8 @@
 ---
 title: créer un volume simple
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a35d0de5110c0e1616c42921c8402ecc1aff8c41
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1afb97c5bdb167eaf6ecfcd34ca3607b7b5a4c71
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434054"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378880"
 ---
 # <a name="create-volume-simple"></a>créer un volume simple
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Crée un volume simple sur le disque dynamique spécifié.  
+crée un volume simple sur le disque dynamique spécifié.  
   
 > [!IMPORTANT]  
-> pour Windows Vista, cette commande DiskPart est uniquement disponible dans les éditions de Windows Vista Édition intégrale, Windows Vista Enterprise et Windows Vista Professionnel.  
+> pour Windows Vista, cette commande DiskPart est uniquement disponible dans les éditions Windows Vista Ultimate, Windows Vista entreprise et Windows Vista professionnel.  
   
   
   
@@ -41,17 +41,17 @@ create volume simple [size=<n>] [disk=<n>] [align=<n>] [noerr]
   
 | Paramètre  |                                                                                                                            Description                                                                                                                            |
 |------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| size\=<n>  |                                                                  La taille du volume en mégaoctets \(Mo\). Si aucune taille n’est spécifiée, le nouveau volume occupe l’espace libre restant sur le disque.                                                                   |
-| Disque\=<n>  |                                                                                Le disque dynamique sur lequel le volume est créé. Si aucun disque n’est spécifié, le disque actuel est utilisé.                                                                                |
-| align\=<n> | Aligne toutes les étendues de volume à la limite d’alignement le plus proche. Généralement utilisé avec le matériel RAID numéro d’unité logique \(LUN\) tableaux pour améliorer les performances. *n* est le nombre de kilo-octets \(Ko\) à partir du début du disque à la limite d’alignement le plus proche. |
-|   NOERR    |                               Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.                                |
+| taille @ no__t-0 @ no__t-1  |                                                                  Taille du volume en mégaoctets \(MB @ no__t-1. Si aucune taille n’est indiquée, le nouveau volume occupe l’espace libre restant sur le disque.                                                                   |
+| disque @ no__t-0 @ no__t-1  |                                                                                Disque dynamique sur lequel le volume est créé. Si aucun disque n’est spécifié, le disque actuel est utilisé.                                                                                |
+| aligner @ no__t-0 @ no__t-1 | Aligne toutes les étendues de volume sur la limite d’alignement la plus proche. Généralement utilisé avec le numéro d’unité logique RAID matériel @no__t 0LUN @ no__t-1 pour améliorer les performances. *n* est le nombre de kilo-octets \( Ko @ no__t-2 à partir du début du disque jusqu’à la limite d’alignement la plus proche. |
+|   noerr    |                               À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.                                |
   
 ## <a name="remarks"></a>Notes  
   
--   Après avoir créé le volume, le focus se déplace automatiquement vers le nouveau volume.  
+-   Une fois le volume créé, le focus se déplace automatiquement vers le nouveau volume.  
   
-## <a name="BKMK_examples"></a>Exemples  
-Pour créer un volume de 1 000 mégaoctets dans la taille, sur le disque 1, tapez :  
+## <a name="BKMK_examples"></a>Illustre  
+Pour créer un volume de 1000 mégaoctets de taille, sur le disque 1, tapez :  
   
 ```  
 create volume simple size=1000 disk=1  

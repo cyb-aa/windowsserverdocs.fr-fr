@@ -1,7 +1,7 @@
 ---
 title: Informations de publication de Windows Server
 description: Informations de publication de Windows Server
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: server-general
 ms.tgt_pltfrm: na
 ms.topic: article
@@ -9,12 +9,12 @@ ms.date: 05/21/2019
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
-ms.openlocfilehash: 6133e30b7f3db460cf6174a103c4ce1040e791b6
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 7b45f5e8fa7f2586f6fd3b5f49599928dee436e7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66810642"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391430"
 ---
 # <a name="windows-server-release-information"></a>Informations de publication de Windows Server
 

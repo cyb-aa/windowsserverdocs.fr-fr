@@ -1,8 +1,8 @@
 ---
-title: restauration de reg
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Reg Restore
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0025a37ed8ca50b47e7750501a7362659b500537
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6c121256cecaebc26e2c402d9b9ced8890eddc2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858770"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71384673"
 ---
-# <a name="reg-restore"></a>restauration de reg
+# <a name="reg-restore"></a>Reg Restore
 
 
 
-Entrées et écrit enregistré les sous-clés de nouveau dans le Registre.
+Écrit les sous-clés et les entrées enregistrées dans le registre.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -38,27 +38,27 @@ Reg restore <KeyName> <FileName>
 
 |Paramètre|Description|
 |---------|-----------|
-|\<KeyName>|Spécifie le chemin d’accès complet de la sous-clé à restaurer. L’opération de restauration fonctionne uniquement avec l’ordinateur local. KeyName doit inclure une clé racine valide. Clés racines valides sont : HKLM, HKCU, HKCR, HKU et HKCC.|
-|\<FileName>|Spécifie le nom et le chemin d’accès du fichier avec le contenu à écrire dans le Registre. Ce fichier doit être créé à l’avance avec le **reg enregistrer** opération à l’aide d’une extension .hiv.|
-|/?|Affiche l’aide de **reg restauration** à l’invite de commandes.|
+|@no__t 0KeyName >|Spécifie le chemin d’accès complet de la sous-clé à restaurer. L’opération de restauration fonctionne uniquement avec l’ordinateur local. Le KeyName doit inclure une clé racine valide. Les clés racines valides sont : HKLM, HKCU, HKCR, HKU et HKCC.|
+|\<Nom de fichier >|Spécifie le nom et le chemin d’accès du fichier contenant le contenu à écrire dans le registre. Ce fichier doit être créé à l’avance avec l’opération d' **enregistrement reg** à l’aide d’une extension. HIV.|
+|/?|Affiche l’aide de **reg Restore** à l’invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
--   Avant de modifier les entrées de Registre, enregistrez la sous-clé parente avec la **reg enregistrer** opération. Si la modification échoue, restaurez la sous-clé d’origine avec le **reg restauration** opération.
--   Le tableau suivant répertorie les valeurs de retour pour la **reg restauration** opération.
+-   Avant de modifier des entrées de Registre, enregistrez la sous-clé parente avec l’opération **reg save** . Si la modification échoue, restaurez la sous-clé d’origine avec l’opération **reg Restore** .
+-   Le tableau suivant répertorie les valeurs renvoyées pour l’opération **reg Restore** .
 
 |Value|Description|
 |-----|-----------|
-|0|Opération réussie|
+|0|Succès|
 |1|Échec|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour restaurer le fichier nommé NTRKBkUp.hiv dans la clé HKLM\Software\Microsoft\ResKit et remplacer le contenu existant de la clé, tapez :
+Pour restaurer le fichier nommé NTRKBkUp. HIV dans la clé HKLM\Software\Microsoft\ResKit, et remplacer le contenu existant de la clé, tapez :
 ```
 REG RESTORE HKLM\Software\Microsoft\ResKit NTRKBkUp.hiv
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -2,19 +2,19 @@
 title: Configurer la gestion des comptes de serveur NPS (Network Policy Server)
 description: Cette rubrique fournit des informations sur les fichiers texte et la journalisation des SQL Server pour le serveur NPS (Network Policy Server) dans Windows Server 2016.
 manager: dougkim
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: dfde2e21-f3d5-41e8-8492-cb3f0d028afb
 ms.author: pashort
 author: shortpatti
 ms.date: 05/25/2018
-ms.openlocfilehash: f16e4093ed58f2a2fadc4b9faa1fa42c0c157ca3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 0c154d4d4534f4c343107eecd158974b92903e39
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871904"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405568"
 ---
 # <a name="configure-network-policy-server-accounting"></a>Configurer la gestion des comptes de serveur NPS (Network Policy Server)
 
@@ -55,7 +55,7 @@ Pour empêcher les fichiers journaux de saturer le disque dur, il est fortement 
 
 - Pour envoyer les données du fichier journal pour la collecte par un autre processus, vous pouvez configurer NPS pour écrire dans un canal nommé. Pour utiliser des canaux nommés, définissez le dossier du fichier \\journal sur \\.\pipe ou ComputerName\pipe. Le programme de serveur de canal nommé crée un canal \\nommé appelé .\pipe\iaslog.log pour accepter les données. Dans la boîte de dialogue Propriétés du fichier local, dans créer un fichier journal, sélectionnez jamais (taille de fichier illimitée) quand vous utilisez des canaux nommés.
 
-- Le répertoire du fichier journal peut être créé à l’aide de variables d’environnement système (au lieu de variables utilisateur), telles que% systemdrive%,% systemroot% et% windir%. Par exemple, le chemin d’accès suivant, à l’aide de la variable d’environnement% windir%, localise le fichier journal dans le répertoire système dans le sous-\)dossier \System32\Logs (c’est-à-dire,%windir%\System32\Logs.
+- Le répertoire du fichier journal peut être créé à l’aide de variables d’environnement système (au lieu de variables utilisateur), telles que% systemdrive%,% systemroot% et% windir%. Par exemple, le chemin d’accès suivant, à l’aide de la variable d’environnement% windir%, localise le fichier journal dans le répertoire système dans le sous-dossier \System32\Logs (c’est-à-dire,%windir%\System32\Logs @ no__t-0.
 
 - Le changement de format de fichier journal n’entraîne pas la création d’un nouveau journal. Si vous modifiez les formats de fichier journal, le fichier qui est actif au moment de la modification contient une combinaison des deux formats (les enregistrements au début du journal auront le format précédent, et les enregistrements à la fin du journal auront le nouveau format).
 
@@ -132,7 +132,7 @@ Ping User-Name peut être ajouté à la clé de Registre suivante sous la forme 
 
 - **Nom**:`ping user-name`
 - **Tapez**:`REG_SZ`
-- **Données** :  *Nom d'utilisateur*
+- **Données**:  *Nom d’utilisateur*
 
 >[!TIP]
 >Pour indiquer plusieurs noms d’utilisateur pour une valeur de **nom d’utilisateur ping** , entrez un modèle de nom, tel qu’un nom DNS, y compris des caractères génériques, dans les **données**.

@@ -1,9 +1,9 @@
 ---
 title: Afficher les enregistrements de ressources DNS pour une adresse IP spécifique
-description: Cette rubrique fait partie du guide de gestion de la gestion des adresses IP (IPAM) dans Windows Server 2016.
+description: Cette rubrique fait partie du Guide de gestion des adresses IP (IPAM) de Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ipam
@@ -12,35 +12,35 @@ ms.topic: article
 ms.assetid: f590fb86-4195-4f90-98cb-e90459d4c1e3
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7436a41e167b4d01af0ff9cf294aaf4e5a2d8393
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 63fc52644b4f08d745891763265cc8f929e89910
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67282068"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71355093"
 ---
 # <a name="view-dns-resource-records-for-a-specific-ip-address"></a>Afficher les enregistrements de ressources DNS pour une adresse IP spécifique
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique pour afficher les enregistrements de ressource DNS qui sont associés à l’adresse IP que vous choisissez.  
+Vous pouvez utiliser cette rubrique pour afficher les enregistrements de ressources DNS associés à l’adresse IP de votre choix.  
   
 Pour effectuer cette procédure, il est nécessaire d’appartenir au minimum au groupe **Administrateurs** ou à un groupe équivalent.  
   
-### <a name="to-view-resource-records-for-an-ip-address"></a>Pour afficher les enregistrements de ressource d’adresse IP  
+### <a name="to-view-resource-records-for-an-ip-address"></a>Pour afficher les enregistrements de ressource d’une adresse IP  
   
-1.  Dans le Gestionnaire de serveur, cliquez sur **IPAM**. La console client IPAM s’affiche.  
+1.  Dans Gestionnaire de serveur, cliquez sur **IPAM**. La console client IPAM s’affiche.  
   
-2.  Dans le volet de navigation, dans **espace d’adressage IP**, cliquez sur **inventaire d’adresses IP**. Dans le volet de navigation inférieur, cliquez sur **IPv4** ou **IPv6**. L’inventaire d’adresses IP s’affiche dans le mode recherche du volet. Recherchez et sélectionnez l’adresse IP dont vous souhaitez afficher les enregistrements de ressource DNS.  
+2.  Dans le volet de navigation, dans **espace d’adressage IP**, cliquez sur **inventaire d’adresses IP**. Dans le volet de navigation inférieur, cliquez sur **IPv4** ou **IPv6**. L’inventaire d’adresses IP s’affiche dans le volet d’affichage recherche. Recherchez et sélectionnez l’adresse IP dont vous souhaitez afficher les enregistrements de ressources DNS.  
   
-    ![Afficher l’inventaire adresse IP](../../media/View-DNS-Resource-Records-for-a-Specific-IP-Address/ipam_IPInventory_01.jpg)  
+    ![Afficher l’inventaire des adresses IP](../../media/View-DNS-Resource-Records-for-a-Specific-IP-Address/ipam_IPInventory_01.jpg)  
   
-3.  Dans le volet Affichage **mode Détails**, cliquez sur **enregistrements de ressource DNS**. Les enregistrements de ressources qui sont associés à l’adresse IP sélectionnée sont affichées.  
+3.  Dans la **vue Détails**du volet d’informations, cliquez sur **enregistrements de ressources DNS**. Les enregistrements de ressources associés à l’adresse IP sélectionnée sont affichés.  
   
-    ![Afficher les enregistrements de ressource DNS](../../media/View-DNS-Resource-Records-for-a-Specific-IP-Address/ipam_IPInventory_02.jpg)  
+    ![Afficher les enregistrements de ressources DNS](../../media/View-DNS-Resource-Records-for-a-Specific-IP-Address/ipam_IPInventory_02.jpg)  
   
 ## <a name="see-also"></a>Voir aussi  
-[Gestion des enregistrements ressource DNS](DNS-Resource-Record-Management.md)  
+[Gestion des enregistrements de ressources DNS](DNS-Resource-Record-Management.md)  
 [Gérer IPAM](Manage-IPAM.md)  
   
 

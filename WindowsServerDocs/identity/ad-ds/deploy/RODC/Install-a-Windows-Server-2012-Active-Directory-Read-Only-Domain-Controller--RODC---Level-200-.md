@@ -7,18 +7,18 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c8d34d7b35f3cd5209fd6096f69b16162229bc3a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 82b0035075c981d123ab3b90d56768940f65558e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863080"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391110"
 ---
 # <a name="install-a-windows-server-2012-active-directory-read-only-domain-controller-rodc-level-200"></a>Installer un contrôleur de domaine en lecture seule Windows Server 2012 Active Directory (niveau 200)
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Cette rubrique explique comment créer un compte de contrôleur de domaine en lecture seule intermédiaire, puis associer un serveur à ce compte pendant l'installation d'un contrôleur de domaine en lecture seule. Cette rubrique explique également comment installer un contrôleur de domaine en lecture seule sans effectuer d'installation intermédiaire.  
   
@@ -33,7 +33,7 @@ Le diagramme suivant illustre le processus de création intermédiaire d'un cont
   
 ![Installer le contrôleur de domaine en lecture seule](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/adds_stagedcreation.png)  
   
-## <a name="BKMK_StagePS"></a>Stage RODC Windows PowerShell  
+## <a name="BKMK_StagePS"></a>Phase de RODC Windows PowerShell  
   
 |||  
 |-|-|  
@@ -48,7 +48,7 @@ Le diagramme ci-dessous illustre le processus de configuration des services de d
   
 ![Installer le contrôleur de domaine en lecture seule](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/adds_stageddeploy_beta1.png)  
   
-## <a name="BKMK_AttachPS"></a>Attacher le RODC Windows PowerShell  
+## <a name="BKMK_AttachPS"></a>Attacher Windows PowerShell RODC  
   
 |||  
 |-|-|  
@@ -63,13 +63,13 @@ Le diagramme ci-dessous illustre le processus de configuration des services de d
   
 Vous procédez à la création intermédiaire d'un compte d'ordinateur de contrôleur de domaine en lecture seule en ouvrant le Centre d'administration Active Directory (**Dsac.exe**). Cliquez sur le nom du domaine dans le volet de navigation. Double-cliquez sur **Contrôleurs de domaine** dans la liste de gestion. Cliquez sur **Pré-créer un compte de contrôleur de domaine en lecture seule** dans le volet des tâches.  
   
-Pour plus d’informations sur le centre d’administration d’Active Directory, consultez [avancée AD DS gestion à l’aide de Active Directory Administrative Center &#40;niveau 200&#41; ](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md) et passez en revue [Active Directory Centre d’administration : Mise en route](https://technet.microsoft.com/library/dd560651(WS.10).aspx).  
+Pour plus d’informations sur la Centre d’administration Active Directory, consultez [gestion avancée des AD DS &#40;à l'&#41; aide de centre d’administration Active Directory niveau 200](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md) et examen du centre d’administration de l’annuaire [Active : Prise en main @ no__t-0.  
   
 Si vous avez déjà créé des contrôleurs de domaine en lecture seule, vous allez découvrir que l'Assistant Installation a la même interface graphique que celle affichée avec l'ancien composant logiciel enfichable Utilisateurs et ordinateurs Active Directory de Windows Server 2008 et utilise le même code, qui comprend l'exportation de la configuration au format de fichier d'installation sans assistance employé par le processus dcpromo obsolète.  
   
 Windows Server 2012 introduit une nouvelle applet de commande ADDSDeployment pour créer des comptes d'ordinateurs de contrôleur de domaine en lecture seule intermédiaires, mais l'Assistant ne l'utilise pas pour son opération. Les sections suivantes affichent l'applet de commande et les arguments équivalents pour faciliter la compréhension des informations associées.  
   
-Le **créer au préalable un compte de contrôleur de domaine en lecture seule** lien dans le volet des tâches de l’administration du centre Active Directory est équivalent à l’applet de commande ADDSDeployment Windows PowerShell :  
+Le lien **pré-créer un compte de contrôleur de domaine en lecture seule** dans le volet des tâches de centre d’administration Active Directory est équivalent à l’applet de commande Windows PowerShell ADDSDeployment :  
   
 ```  
 Add-addsreadonlydomaincontrolleraccount  
@@ -134,7 +134,7 @@ L'option **Contrôleur de domaine en lecture seule (RODC)** est présélectionn�
 ```  
   
 > [!NOTE]  
-> Par défaut, le **- NoGlobalCatalog** valeur est $false, ce qui signifie que le contrôleur de domaine sera un serveur de catalogue global si l’argument n’est pas spécifié.  
+> Par défaut, la valeur **-NoGlobalCatalog** est $false, ce qui signifie que le contrôleur de domaine sera un serveur de catalogue global si l’argument n’est pas spécifié.  
   
 ### <a name="specify-the-password-replication-policy"></a>Spécifier la stratégie de réplication de mot de passe  
 ![Installer le contrôleur de domaine en lecture seule](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage1PRP.png)  
@@ -163,7 +163,7 @@ Les arguments Windows PowerShell ADDSDeployment équivalents sont les suivants :
 ### <a name="delegation-of-rodc-installation-and-administration"></a>Délégation de l'installation et de l'administration du contrôleur de domaine en lecture seule (RODC)  
 ![Installer le contrôleur de domaine en lecture seule](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage1DelegateAdmin.png)  
   
-La boîte de dialogue **Délégation de l'installation et de l'administration du contrôleur de domaine en lecture seule (RODC)** vous permet de configurer un utilisateur ou un groupe contenant des utilisateurs qui sont autorisés à associer le serveur au compte d'ordinateur de contrôleur de domaine en lecture seule. Cliquez sur **Définir** pour rechercher un utilisateur ou un groupe dans le domaine. L'utilisateur ou le groupe spécifié dans cette boîte de dialogue obtient des autorisations d'administrateur local sur le contrôleur de domaine en lecture seule. L’utilisateur spécifié ou les membres du groupe spécifié peuvent effectuer des opérations sur le RODC avec des privilèges équivalents au groupe Administrateurs de l’ordinateur. Ils ne sont *pas* membres du groupe Admins du domaine ni du groupe Administrateurs intégré au domaine.  
+La boîte de dialogue **Délégation de l'installation et de l'administration du contrôleur de domaine en lecture seule (RODC)** vous permet de configurer un utilisateur ou un groupe contenant des utilisateurs qui sont autorisés à associer le serveur au compte d'ordinateur de contrôleur de domaine en lecture seule. Cliquez sur **Définir** pour rechercher un utilisateur ou un groupe dans le domaine. L'utilisateur ou le groupe spécifié dans cette boîte de dialogue obtient des autorisations d'administrateur local sur le contrôleur de domaine en lecture seule. L’utilisateur spécifié ou les membres du groupe spécifié peuvent effectuer des opérations sur le contrôleur de domaine en lecture seule avec des privilèges équivalents au groupe administrateurs de l’ordinateur. Ils ne sont *pas* membres du groupe Admins du domaine ni du groupe Administrateurs intégré au domaine.  
   
 Utilisez cette option pour déléguer l'administration de filiale sans accorder à l'administrateur de filiale l'appartenance au groupe Admins du domaine. La délégation de l’administration du contrôleur de domaine en lecture seule n'est pas requise.  
   
@@ -229,10 +229,10 @@ Install-AddsDomainController
 ### <a name="domain-controller-options"></a>Options du contrôleur de domaine  
 ![Installer le contrôleur de domaine en lecture seule](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage2DCOptions.png)  
   
-La page **Options du contrôleur de domaine** affiche les options du contrôleur de domaine pour le nouveau contrôleur de domaine. Quand cette page est chargée, l'Assistant Configuration des services de domaine Active Directory envoie une requête LDAP à un contrôleur de domaine existant pour rechercher les comptes inoccupés. Si la requête recherche un contrôleur de domaine inoccupé compte d’ordinateur qui partage le même nom que l’ordinateur actuel, l’Assistant affiche un message d’information en haut de la page qui indique «**un compte RODC précréé correspondant au nom de la cible de serveur existe dans le répertoire. Choisissez s’il faut utiliser le compte RODC existant ou réinstaller ce contrôleur de domaine**. » L'Assistant utilise l'option **Utiliser le compte RODC existant** comme configuration par défaut.  
+La page **Options du contrôleur de domaine** affiche les options du contrôleur de domaine pour le nouveau contrôleur de domaine. Quand cette page est chargée, l'Assistant Configuration des services de domaine Active Directory envoie une requête LDAP à un contrôleur de domaine existant pour rechercher les comptes inoccupés. Si la requête trouve un compte d’ordinateur de contrôleur de domaine inoccupé qui partage le même nom que l’ordinateur actuel, l’Assistant affiche un message d’information en haut de la page qui indique «**A compte RODC précréé qui correspond au nom de la le serveur cible existe dans le répertoire. Choisissez d’utiliser ce compte RODC existant ou de réinstaller ce contrôleur de domaine @ no__t-0.» L'Assistant utilise l'option **Utiliser le compte RODC existant** comme configuration par défaut.  
   
 > [!IMPORTANT]  
-> Vous pouvez utiliser l'option **Réinstaller ce contrôleur de domaine** quand un contrôleur de domaine a rencontré un problème physique et ne peut plus fonctionner. Vous gagnez du temps quand vous configurez le contrôleur de domaine de remplacement en laissant le compte d'ordinateur de contrôleur de domaine et les métadonnées d'objet dans Active Directory. Installez le nouvel ordinateur avec le *même nom*et promouvez-le comme contrôleur du domaine. Le **réinstaller ce contrôleur de domaine** option n’est pas disponible si vous avez supprimé les métadonnées de l’objet de contrôleur de domaine Active Directory (nettoyage des métadonnées).  
+> Vous pouvez utiliser l'option **Réinstaller ce contrôleur de domaine** quand un contrôleur de domaine a rencontré un problème physique et ne peut plus fonctionner. Vous gagnez du temps quand vous configurez le contrôleur de domaine de remplacement en laissant le compte d'ordinateur de contrôleur de domaine et les métadonnées d'objet dans Active Directory. Installez le nouvel ordinateur avec le *même nom*et promouvez-le comme contrôleur du domaine. L’option **réinstaller ce contrôleur de domaine** n’est pas disponible si vous avez supprimé les métadonnées de l’objet contrôleur de domaine Active Directory (nettoyage des métadonnées).  
   
 Vous ne pouvez pas configurer des options de contrôleur de domaine quand vous associez un serveur à un compte d'ordinateur de contrôleur de domaine en lecture seule. Vous configurez des options de contrôleur de domaine quand vous créez le compte d'ordinateur de contrôleur de domaine en lecture seule intermédiaire.  
   
@@ -297,7 +297,12 @@ $pw | ConvertFrom-SecureString | Set-Content $file
   
 La page **Options supplémentaires** offre des options de configuration permettant de nommer un contrôleur de domaine en tant que source de réplication ; vous pouvez aussi utiliser n'importe quel contrôleur de domaine comme source de réplication.  
   
-Vous pouvez également choisir d’installer le contrôleur de domaine à partir d’un support sauvegardé à l’aide de l’option Installation à partir du support (IFM). La case **Installation à partir du support** fournit une option de navigation quand elle est cochée et vous devez cliquer sur **Vérifier** pour garantir que le chemin d'accès indiqué est un support valide. Le support utilisé par l'option Installation à partir du support est créé avec Sauvegarde Windows Server ou Ntdsutil.exe à partir d'un autre ordinateur Windows Server 2012 existant uniquement ; vous ne pouvez pas utiliser Windows Server 2008 R2 ni un système d'exploitation antérieur pour créer des supports pour un contrôleur de domaine Windows Server 2012. Pour plus d'informations sur les modifications apportées à l'option Installation à partir du support, voir [Modifications apportées à l'option Installation à partir du support avec Ntdsutil.exe](../../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM). En cas d'utilisation du support protégé avec SYSKEY, le Gestionnaire de serveur vous invite à entrer le mot de passe de l'image pendant la vérification.  
+Vous pouvez également choisir d’installer le contrôleur de domaine à partir d’un support sauvegardé à l’aide de l’option Installation à partir du support (IFM). La case **Installation à partir du support** fournit une option de navigation quand elle est cochée et vous devez cliquer sur **Vérifier** pour garantir que le chemin d'accès indiqué est un support valide.
+
+Les instructions relatives à la source IFM : • support utilisé par l’option IFM sont créées avec Sauvegarde Windows Server ou Ntdsutil. exe à partir d’un autre contrôleur de domaine Windows Server existant avec la même version du système d’exploitation uniquement. Par exemple, vous ne pouvez pas utiliser un système d’exploitation Windows Server 2008 R2 ou antérieur pour créer un média pour un contrôleur de domaine Windows Server 2012.
+• Les données sources de l’IFM doivent provenir d’un contrôleur de domaine accessible en écriture. Alors qu’une source à partir de RODC travaillera techniquement pour créer un nouveau RODC, il existe des avertissements de réplication positifs erronés que le RODC source IFM ne réplique pas.
+
+Pour plus d'informations sur les modifications apportées à l'option Installation à partir du support, voir [Modifications apportées à l'option Installation à partir du support avec Ntdsutil.exe](../../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM). En cas d'utilisation du support protégé avec SYSKEY, le Gestionnaire de serveur vous invite à entrer le mot de passe de l'image pendant la vérification. 
   
 ![Installer le contrôleur de domaine en lecture seule](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_StagedIFM.png)  
   
@@ -515,7 +520,7 @@ La page **Options RODC** vous permet de modifier les paramètres :
   
 -   Comptes non autorisés à répliquer les mots de passe pour RODC  
   
-Les comptes d’administrateurs délégués se voient octroyer des autorisations administratives locales au contrôleur de domaine en lecture seule. Ces utilisateurs peuvent fonctionner avec des privilèges équivalents au groupe Administrateurs de l’ordinateur local.  Ils ne sont membres ni du groupe Admins du domaine ni du groupe Administrateurs intégré au domaine. Cette option est utile pour déléguer l’administration de filiales sans octroyer d’autorisations administratives au domaine. La configuration de la délégation de l’administration n’est pas requise.  
+Les comptes d’administrateurs délégués se voient octroyer des autorisations administratives locales au contrôleur de domaine en lecture seule. Ces utilisateurs peuvent utiliser des privilèges équivalents au groupe administrateurs de l’ordinateur local.  Ils ne sont membres ni du groupe Admins du domaine ni du groupe Administrateurs intégré au domaine. Cette option est utile pour déléguer l’administration de filiales sans octroyer d’autorisations administratives au domaine. La configuration de la délégation de l’administration n’est pas requise.  
   
 L'argument Windows PowerShell ADDSDeployment équivalent est le suivant :  
   
@@ -549,7 +554,12 @@ Les arguments Windows PowerShell ADDSDeployment équivalents sont les suivants :
   
 La page **Options supplémentaires** offre des options de configuration permettant de nommer un contrôleur de domaine en tant que source de réplication ; vous pouvez aussi utiliser n'importe quel contrôleur de domaine comme source de réplication.  
   
-Vous pouvez également choisir d’installer le contrôleur de domaine à partir d’un support sauvegardé à l’aide de l’option Installation à partir du support (IFM). La case **Installation à partir du support** fournit une option de navigation quand elle est cochée et vous devez cliquer sur **Vérifier** pour garantir que le chemin d'accès indiqué est un support valide. Le support utilisé par l'option Installation à partir du support est créé avec Sauvegarde Windows Server ou Ntdsutil.exe à partir d'un autre ordinateur Windows Server 2012 existant uniquement ; vous ne pouvez pas utiliser Windows Server 2008 R2 ni un système d'exploitation antérieur pour créer des supports pour un contrôleur de domaine Windows Server 2012.  Les annexes fournissent d'autres informations sur les modifications apportées à l'option Installation à partir du support. En cas d'utilisation du support protégé avec SYSKEY, le Gestionnaire de serveur vous invite à entrer le mot de passe de l'image pendant la vérification.  
+Vous pouvez également choisir d’installer le contrôleur de domaine à partir d’un support sauvegardé à l’aide de l’option Installation à partir du support (IFM). La case **Installation à partir du support** fournit une option de navigation quand elle est cochée et vous devez cliquer sur **Vérifier** pour garantir que le chemin d'accès indiqué est un support valide.
+
+Les instructions relatives à la source IFM : • support utilisé par l’option IFM sont créées avec Sauvegarde Windows Server ou Ntdsutil. exe à partir d’un autre contrôleur de domaine Windows Server existant avec la même version du système d’exploitation uniquement. Par exemple, vous ne pouvez pas utiliser un système d’exploitation Windows Server 2008 R2 ou antérieur pour créer un média pour un contrôleur de domaine Windows Server 2012.
+• Les données sources de l’IFM doivent provenir d’un contrôleur de domaine accessible en écriture. Alors qu’une source à partir de RODC travaillera techniquement pour créer un nouveau RODC, il existe des avertissements de réplication positifs erronés que le RODC source IFM ne réplique pas.
+
+Pour plus d'informations sur les modifications apportées à l'option Installation à partir du support, voir [Modifications apportées à l'option Installation à partir du support avec Ntdsutil.exe](../../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM). En cas d'utilisation du support protégé avec SYSKEY, le Gestionnaire de serveur vous invite à entrer le mot de passe de l'image pendant la vérification.
   
 ![Installer le contrôleur de domaine en lecture seule](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_PSIFM.png)  
   

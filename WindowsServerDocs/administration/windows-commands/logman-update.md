@@ -1,8 +1,8 @@
 ---
 title: logman update
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4f238fa95761e8e561e3a2c10e599bfe8980ae05
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e56a20d622f70f442f605e8ecbb64b7c70a2e02
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841430"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374249"
 ---
 # <a name="logman-update"></a>logman update
 
@@ -36,11 +36,11 @@ logman update <counter | trace | alert | cfg | api> <[-n] <name>> [options]
 
 |Paramètre|Description|
 |---------|-----------|
-|[compteur de mise à jour de logman](logman-update-counter.md)|Mettre à jour un collecteur de données de compteur.|
-|[Logman update trace](logman-update-trace.md)|Mettre à jour un collecteur de données de trace.|
-|[alerte de mise à jour de logman](logman-update-alert.md)|Mettre à jour un collecteur de données d’alerte.|
-|[Logman mise à jour cfg](logman-update-cfg.md)|Mettre à jour un collecteur de données de configuration.|
-|[Logman mettre à jour des api](logman-update-api.md)|Mettre à jour un collecteur de données de suivi API.|
+|[logman update Counter](logman-update-counter.md)|Mettre à jour un collecteur de données de compteur.|
+|[suivi de la mise à jour logman](logman-update-trace.md)|Mettre à jour un collecteur de données de trace.|
+|[alerte de mise à jour logman](logman-update-alert.md)|Mettre à jour un collecteur de données d’alerte.|
+|[logman update cfg](logman-update-cfg.md)|Mettre à jour un collecteur de données de configuration.|
+|[API de mise à jour logman](logman-update-api.md)|Mettre à jour un collecteur de données de suivi d’API.|
 
 #### <a name="additional-references"></a>Références supplémentaires
 

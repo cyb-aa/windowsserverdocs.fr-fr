@@ -1,19 +1,19 @@
 ---
 title: Nouveautés de Windows Server, version 1709
 description: Présentation des nouvelles fonctionnalités de calcul, d’identité, de gestion, d’automatisation, de mise en réseau, de sécurité et de stockage.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: server-general
 ms.topic: article
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
 ms.date: 06/03/2019
-ms.openlocfilehash: b5391677397660e3beacb9a71189bf3ffe2aeaab
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 5dbbdc19707f2eadfa3b2c919af95b58645de441
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868338"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71391366"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Nouveautés de Windows Server, version 1709
 

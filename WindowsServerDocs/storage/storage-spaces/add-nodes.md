@@ -1,21 +1,21 @@
 ---
 ms.assetid: 898d72f1-01e7-4b87-8eb3-a8e0e2e6e6da
 title: Ajout de serveurs ou de lecteurs aux espaces de stockage direct
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: cosdar
 ms.manager: dongill
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 11/06/2017
-description: Comment ajouter des serveurs ou des lecteurs à un cluster d’espaces de stockage Direct
+description: Ajout de serveurs ou de lecteurs à un cluster espaces de stockage direct
 ms.localizationpriority: medium
-ms.openlocfilehash: ae639b920788911dbc16952d7b61aab85b0a391b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3d5949b8fce7253371ee7ecea5118596f713f037
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833450"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393783"
 ---
 # <a name="adding-servers-or-drives-to-storage-spaces-direct"></a>Ajout de serveurs ou de lecteurs aux espaces de stockage direct
 
@@ -23,7 +23,7 @@ ms.locfileid: "59833450"
 
 Cette rubrique décrit comment ajouter des serveurs ou des lecteurs aux espaces de stockage direct.
 
-## <a name="adding-servers"></a> Ajout de serveurs
+## <a name="adding-servers"></a>Ajout de serveurs
 
 L’ajout de serveurs, qui est souvent appelé montée en charge, permet d’ajouter de la capacité de stockage en vue d’améliorer les performances et de profiter d’une plus grande efficacité de stockage. Dans le cas d’un déploiement hyper-convergé, l’ajout de serveurs fournit également une plus grande quantité de ressources de calcul pour votre charge de travail.
 
@@ -166,14 +166,14 @@ Si votre déploiement utilise la tolérance de panne de châssis ou de rack, vou
 
 3. Ajoutez le serveur au cluster, comme décrit dans [Ajout de serveurs](#adding-servers). Quand le nouveau serveur rejoint le cluster, il est automatiquement associé (par son nom) au domaine d’erreur de l’espace réservé.
 
-## <a name="adding-drives"></a> Ajout de lecteurs
+## <a name="adding-drives"></a>Ajout de lecteurs
 
 L’ajout de lecteurs, également appelé montée en puissance, permet d’ajouter de la capacité de stockage et également d’améliorer les performances. Si vous avez des emplacements disponibles, vous pouvez ajouter des lecteurs à chaque serveur pour augmenter votre capacité de stockage sans ajout de serveurs. Vous pouvez ajouter des lecteurs de cache ou de capacité de manière indépendante, à tout moment.
 
    >[!IMPORTANT]
    > Assurez-vous que tous les serveurs présentent la même configuration de stockage.
 
-![Animation présentant l’ajout des disques pour un système](media/add-nodes/Scale-Up.gif)
+![Animation présentant l’ajout de lecteurs à un système](media/add-nodes/Scale-Up.gif)
 
 Pour monter en puissance, connectez les lecteurs et vérifiez que Windows les détecte. Ils doivent apparaître dans la sortie de l’applet de commande **Get-PhysicalDisk** dans PowerShell et avoir leur propriété **CanPool** définie sur **True**. S’ils apparaissent avec la propriété **CanPool = False**, examinez la propriété **CannotPoolReason** pour en connaître la raison.
 
@@ -188,19 +188,19 @@ Si les lecteurs n’apparaissent pas, recherchez manuellement les modifications 
    >[!NOTE]
    > Le regroupement automatique implique de ne disposer que d’un seul pool. Si vous avez contourné la configuration standard pour créer plusieurs pools, vous devez ajouter de nouveaux lecteurs à votre pool préféré à l’aide de l’applet de commande **Add-PhysicalDisk**.
 
-## <a name="optimizing-drive-usage-after-adding-drives-or-servers"></a>Optimisation de l’utilisation de lecteur après l’ajout de disques ou des serveurs
+## <a name="optimizing-drive-usage-after-adding-drives-or-servers"></a>Optimisation de l’utilisation des lecteurs après l’ajout de lecteurs ou de serveurs
 
-Au fil du temps, comme les lecteurs sont ajoutés ou supprimés, la distribution des données entre les disques dans le pool peut devenir inégale. Dans certains cas, cela peut entraîner certains disques saturés alors que d’autres lecteurs de pool ont consommation beaucoup plus faible.
+Au fil du temps, à mesure que des lecteurs sont ajoutés ou supprimés, la distribution des données entre les disques du pool peut devenir inégale. Dans certains cas, cela peut entraîner la saturation de certains lecteurs, tandis que les autres lecteurs du pool ont une consommation beaucoup plus faible.
 
-Pour maintenir l’allocation de disque même à travers le pool, espaces de stockage Direct optimise automatiquement l’utilisation des lecteurs après avoir ajouté des lecteurs ou des serveurs au pool (c’est un processus manuel pour les systèmes d’espaces de stockage qui utilisent les boîtiers partagé SAS). Optimisation démarre 15 minutes après avoir ajouté un nouveau disque au pool. Optimisation du pool s’exécute comme une opération d’arrière-plan de faible priorité, il peut prendre des heures ou des jours, en particulier si vous utilisez des disques durs.
+Pour aider à conserver l’allocation de disque même sur le pool, espaces de stockage direct optimise automatiquement l’utilisation des lecteurs après avoir ajouté des lecteurs ou des serveurs au pool (il s’agit d’un processus manuel pour les systèmes d’espaces de stockage qui utilisent des boîtiers SAS partagés). L’optimisation démarre 15 minutes après l’ajout d’un nouveau lecteur au pool. L’optimisation de pool s’exécute en tant qu’opération en arrière-plan basse priorité. par conséquent, l’exécution peut prendre plusieurs heures ou plusieurs jours, en particulier si vous utilisez des disques durs de grande taille.
 
-Optimisation utilise deux travaux - un fichier nommé *optimiser* et l’autre nommée *rééquilibrer* - et vous pouvez surveiller leur progression avec la commande suivante :
+L’optimisation utilise deux travaux : l’un nommé « *optimize* » et l’autre « *rééquilibrage* ». vous pouvez surveiller leur progression à l’aide de la commande suivante :
 
 ```powershell
 Get-StorageJob
 ```
 
-Vous pouvez optimiser manuellement un pool de stockage avec le [Optimize-StoragePool](https://docs.microsoft.com/powershell/module/storage/optimize-storagepool?view=win10-ps) applet de commande. Voici un exemple :
+Vous pouvez optimiser manuellement un pool de stockage à l’aide de l’applet de commande [optimize-StoragePool](https://docs.microsoft.com/powershell/module/storage/optimize-storagepool?view=win10-ps) . Voici un exemple :
 
 ```powershell
 Get-StoragePool <PoolName> | Optimize-StoragePool

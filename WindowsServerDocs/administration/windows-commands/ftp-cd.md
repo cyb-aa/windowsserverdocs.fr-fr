@@ -1,8 +1,8 @@
 ---
-title: cd de FTP
-description: Rubrique de commandes de Windows pour les cd de ftp
+title: CD FTP
+description: Rubrique commandes Windows pour CD FTP
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9ef14c647534c92a97abdcc9ee8df50c64a72e5f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 891b144b20ebbef6c7e8058771d8249f4bace1cc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438788"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376492"
 ---
-# <a name="ftp-cd"></a>ftp: cd
+# <a name="ftp-cd"></a>FTP : CD
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-change le répertoire de travail sur l’ordinateur distant.   
+modifie le répertoire de travail sur l’ordinateur distant.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 cd <remotedirectory>  
@@ -33,14 +33,14 @@ cd <remotedirectory>
 
 |     Paramètre     |                                 Description                                 |
 |-------------------|-----------------------------------------------------------------------------|
-| <remotedirectory> | Spécifie le répertoire sur l’ordinateur distant auquel vous souhaitez modifier. |
+| <remotedirectory> | Spécifie le répertoire sur l’ordinateur distant vers lequel vous souhaitez modifier. |
 
-## <a name="BKMK_Examples"></a>Exemples  
-Accédez au répertoire sur l’ordinateur distant à **Docs**.  
+## <a name="BKMK_Examples"></a>Illustre  
+Remplacez le répertoire de l’ordinateur distant par **docs**.  
 ```  
 cd Docs  
 ```  
-Accédez au répertoire sur l’ordinateur distant à **vidéos peuvent**.  
+Remplacez le répertoire de l’ordinateur distant par des **vidéos de mai**.  
 ```  
 cd  May Videos  
 ```  

@@ -1,8 +1,8 @@
 ---
 title: Enregistrer et partager des fichiers sur une clé USB
-description: Découvrez comment enregistrer filese sur un lecteur flash USB dans MultiPoint Services
+description: Découvrez comment enregistrer des fichiers sur un disque mémoire flash USB dans MultiPoint services
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: bb9db8936f8098024f76fc09490de7ffef594760
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ddbee49ae80e65f29dcdb3c3c4ad43c17a451ccf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885470"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389414"
 ---
 # <a name="save-and-share-files-on-a-usb-flash-drive"></a>Enregistrer et partager des fichiers sur une clé USB
-En plus de pouvoir partager contenu à l’aide de dossiers publics dans l’Explorateur Windows, vous pouvez également partager du contenu à l’aide d’un périphérique de stockage USB, tel qu’un disque mémoire flash USB ou un périphérique de stockage de masse. Quand vous associez directement un périphérique de stockage USB à l’ordinateur hôte ou à un concentrateur USB qui n’est pas un concentrateur de station, tous les utilisateurs, *standard* et *administratifs*, le voient comme un dispositif de stockage amovible dans le système MultiPoint Services.  
+En plus de pouvoir partager du contenu à l’aide de dossiers publics dans l’Explorateur Windows, vous pouvez également partager du contenu à l’aide d’un périphérique de stockage USB, tel qu’un disque mémoire flash USB ou un dispositif de stockage de masse. Quand vous associez directement un périphérique de stockage USB à l’ordinateur hôte ou à un concentrateur USB qui n’est pas un concentrateur de station, tous les utilisateurs, *standard* et *administratifs*, le voient comme un dispositif de stockage amovible dans le système MultiPoint Services.  
   
 Vous pouvez également utiliser un dispositif de stockage amovible pour enregistrer et stocker des documents privés dans un dossier privé de l’Explorateur Windows, comme le dossier **Mes documents** de la bibliothèque **Documents**.  
   
@@ -45,4 +45,4 @@ Connectez le dispositif de stockage amovible à un port USB ouvert sur votre con
 ## <a name="see-also"></a>Voir aussi  
 [Conserver les fichiers privés](Keep-Files-Private.md)  
 [Partager des fichiers](Share-Files.md)  
-[Gérer les fichiers de l’utilisateur](Manage-User-Files.md)
+[Gérer les fichiers d’utilisateur](Manage-User-Files.md)

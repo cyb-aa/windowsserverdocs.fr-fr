@@ -1,7 +1,7 @@
 ---
 title: Le service de gestion d’ordinateurs virtuels Hyper-V doit être en cours d’exécution
 description: Fournit des instructions pour résoudre le problème signalé par cette règle de Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: f44d6887-6458-4438-9d93-574587e3f7d1
 author: KBDAzure
 ms.date: 10/03/2016
-ms.openlocfilehash: 58886b68ca30ddeb064fc12c6cb4c00183399715
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: de1e2ed9fc24afe7d1ccc12bc11eb94a846f0664
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826110"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364679"
 ---
 # <a name="the-hyper-v-virtual-machine-management-service-must-be-running"></a>Le service de gestion d’ordinateurs virtuels Hyper-V doit être en cours d’exécution
 
@@ -27,48 +27,48 @@ Pour plus d'informations sur les meilleures pratiques et les analyses, consultez
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Niveau de gravité**|Erreur|  
+|**Va**|Error|  
 |**Catégorie**|Prérequis|  
 
-Dans les sections suivantes, italique indique le texte de l’interface utilisateur qui apparaît dans l’outil Best Practices Analyzer pour ce problème.
+Dans les sections suivantes, l’italique indique le texte de l’interface utilisateur qui s’affiche dans l’outil Best Practices Analyzer pour ce problème.
 
 ## <a name="issue"></a>Problème  
   
-*Le service requis pour gérer des machines virtuelles ne fonctionne pas.*  
+*Le service requis pour gérer les ordinateurs virtuels n’est pas en cours d’exécution.*  
   
 ## <a name="impact"></a>Impact  
   
-*Aucune opération de gestion de machine virtuelle ne peut être effectuée.*  
+*Aucune opération de gestion d’ordinateur virtuel ne peut être effectuée.*  
   
-Les machines virtuelles qui sont en cours d’exécution continue de s’exécuter. Toutefois, vous ne pourrez gérer des machines virtuelles, ou créer ou supprimez-les jusqu'à ce que le service est en cours d’exécution.  
+Les ordinateurs virtuels en cours d’exécution continuent à s’exécuter. Toutefois, vous ne pourrez pas gérer les machines virtuelles, ni les créer ou les supprimer tant que le service n’est pas en cours d’exécution.  
   
-## <a name="resolution"></a>Résolution  
+## <a name="resolution"></a>Résolution :  
   
-*Utilisez le composant logiciel enfichable Services ou l’outil de ligne de commande Sc config pour reconfigurer le service pour démarrer automatiquement.*  
+*Utilisez le composant logiciel enfichable Services ou l’outil de ligne de commande sc config pour reconfigurer le service pour qu’il démarre automatiquement.*  
   
 > [!TIP]  
-> Si vous ne trouvez pas le service dans l’application de bureau ou de l’outil de ligne de commande indique que le service n’existe pas, les outils de gestion Hyper-V probablement ne sont pas installés. Et si vous n’êtes pas en mesure de voir la console MMC de Hyper-V dans le menu Démarrer, vous devez installer les outils de gestion Hyper-V.
+> Si vous ne trouvez pas le service dans l’application de bureau ou si l’outil en ligne de commande signale que le service n’existe pas, les outils de gestion Hyper-V ne sont probablement pas installés. Et si vous n’êtes pas en mesure de voir la console MMC Hyper-V dans le menu Démarrer, vous devez installer les outils de gestion Hyper-V.
 
 Pour installer les outils de gestion Hyper-V :  
 >   
-> - Sur Windows Server, ouvrez le Gestionnaire de serveur et utilisez l’Assistant Ajout de rôles et fonctionnalités. Pour plus d’informations, consultez [installer le rôle Hyper-V sur Windows Server 2016](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md).  Vous pouvez également utiliser PowerShell pour installer les outils (`Install-WindowsFeature -Name Hyper-V-Tools, Hyper-V-PowerShell`) 
-> - Sur Windows, à partir du bureau, commencez à taper **programmes**, cliquez sur **programmes et fonctionnalités** (panneau) > **ou désactiver des fonctionnalités Windows activer**  >   **Hyper-V** > **les outils de gestion Hyper-V**. Cliquez ensuite sur **OK**.  
+> - Sur Windows Server, ouvrez Gestionnaire de serveur et utilisez l’Assistant Ajout de rôles et de fonctionnalités. Pour plus d’informations, consultez [installer le rôle Hyper-V sur Windows Server 2016](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md).  Vous pouvez également utiliser PowerShell pour installer les outils (`Install-WindowsFeature -Name Hyper-V-Tools, Hyper-V-PowerShell`) 
+> - Sur Windows, à partir du bureau, commencez à taper **programmes**, cliquez sur **programmes et fonctionnalités** (panneau de configuration) > **activer ou désactiver les fonctionnalités Windows** >  outils de**gestion hyper**-v  > **hyper**-v. Cliquez ensuite sur **OK**.  
   
-### <a name="to-reconfigure-the-service-to-start-automatically-using-the-services-desktop-app"></a>Pour reconfigurer le service pour démarrer automatiquement à l’aide de l’application de bureau de Services  
+### <a name="to-reconfigure-the-service-to-start-automatically-using-the-services-desktop-app"></a>Pour reconfigurer le service de façon à ce qu’il démarre automatiquement à l’aide de l’application de bureau services  
   
-1.  Ouvrez l’application de bureau de Services. (Cliquez sur **Démarrer**, cliquez dans le **rechercher** , tapez **services.msc**, puis appuyez sur ENTRÉE.)  
+1.  Ouvrez l’application de bureau Services. (Cliquez sur **Démarrer**, cliquez dans la zone **Rechercher** , tapez **services. msc**, puis appuyez sur entrée.)  
   
-2.  Dans le volet détails, cliquez sur **gestion d’ordinateurs virtuels Hyper-V**, puis cliquez sur **propriétés**.  
+2.  Dans le volet d’informations, cliquez avec le bouton droit sur **gestion des machines virtuelles Hyper-V**, puis cliquez sur **Propriétés**.  
   
-3.  Sur le **général** sous l’onglet **démarrage** tapez, cliquez sur **automatique**.  
+3.  Sous l’onglet **général** , dans type de **démarrage** , cliquez sur **automatique**.  
   
 4.  Pour démarrer le service, cliquez sur **Démarrer**.  
   
-### <a name="to-reconfigure-the-service-to-start-automatically-using-sc-config"></a>Pour reconfigurer le service pour démarrer automatiquement à l’aide de SC Config  
+### <a name="to-reconfigure-the-service-to-start-automatically-using-sc-config"></a>Pour reconfigurer le service pour qu’il démarre automatiquement à l’aide de SC config  
   
 1.  Ouvrez Windows PowerShell. (À partir du bureau, cliquez sur **Démarrer** et commencez à taper **Windows PowerShell**.)  
   
-2.  Avec le bouton droit **Windows PowerShell** et cliquez sur **exécuter en tant qu’administrateur**.  
+2.  Cliquez avec le bouton droit sur **Windows PowerShell** , puis cliquez sur **exécuter en tant qu’administrateur**.  
   
 3.  Pour reconfigurer le service, tapez :  
   
@@ -82,7 +82,7 @@ Pour installer les outils de gestion Hyper-V :
     sc start vmms  
     ```  
   
-Si le service est déjà configuré pour démarrer automatiquement et vous souhaitez de redémarrer le service, vous pouvez le faire à partir du Gestionnaire Hyper-V ou à partir de la commande « sc start vmms » ci-dessus.  
+Si le service est déjà configuré pour démarrer automatiquement et que vous devez simplement redémarrer le service, vous pouvez le faire à partir du Gestionnaire Hyper-V ou de la commande « sc start VMMS » présentée ci-dessus.  
   
 #### <a name="to-restart-the-service-from-hyper-v-manager"></a>Pour redémarrer le service à partir du Gestionnaire Hyper-V  
   
@@ -90,7 +90,7 @@ Si le service est déjà configuré pour démarrer automatiquement et vous souha
   
 2.  Dans le volet de navigation, cliquez sur le nom du serveur s’il n’est pas déjà sélectionné.  
   
-3.  Dans le **Actions** volet, cliquez sur **démarrer le Service**.  
+3.  Dans le volet **actions** , cliquez sur **Démarrer le service**.  
   
 
 

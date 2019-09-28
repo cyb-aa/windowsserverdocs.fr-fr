@@ -2,7 +2,7 @@
 title: Gérer la journalisation de l'inventaire logiciel
 description: Décrit comment gérer la journalisation de l’inventaire logiciel
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: manage-software-inventory-logging
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 686bb61426e49f00597c423bcf4f52d949a358ab
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: bd8a26d158f53121074881ac8ff204287f9a19ad
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866374"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382969"
 ---
 # <a name="manage-software-inventory-logging"></a>Gérer la journalisation de l'inventaire logiciel
 
@@ -221,7 +221,7 @@ La journalisation de l’inventaire logiciel stocke temporairement les collectio
 > Si, pour une raison quelconque, une réparation de l’installation ou une mise à niveau du système d’exploitation est nécessaire, tous les fichiers journaux stockés localement seront perdus.  Si ces données sont importantes pour les opérations, il est recommandé de les sauvegarder avant l’installation du nouveau système d’exploitation. Après la réparation ou la mise à niveau, restaurez simplement les données au même emplacement.  
   
 > [!NOTE]  
-> Si, pour une raison quelconque, la gestion de la durée de rétention des données enregistrées localement par sil devient importante, vous pouvez configurer cette\\valeur en modifiant la valeur de Registre ici : \HKEY_LOCAL_MACHINE SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging. La valeur par défaut est « 30 » pendant 30 jours.  
+> Si, pour une raison quelconque, la gestion de la durée de rétention des données enregistrées localement par SIL devient importante, vous pouvez configurer cette valeur en modifiant la valeur de Registre ici : \HKEY_LOCAL_MACHINE @ no__t-0SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging. La valeur par défaut est « 30 » pendant 30 jours.  
   
 ## <a name="BKMK_Step6"></a>Lecture des données consignées et publiées par la journalisation de l’inventaire logiciel  
 Les données enregistrées par SIL, mais stockées localement (si le transfert vers l’URI cible échoue) ou les données qui sont transférées avec succès au serveur d’agrégation cible, sont stockées dans un fichier binaire (pour les données de chaque jour). Pour afficher ces données dans PowerShell, utilisez l’applet de commande [Import-BinaryMiLog](https://technet.microsoft.com/library/dn262592.aspx) .  
@@ -244,15 +244,15 @@ Toutes les données stockées localement sur un serveur Windows (se produit uniq
 ## <a name="BKMK_Step10"></a>Activation et configuration de la journalisation de l’inventaire logiciel dans un disque dur virtuel monté  
 La journalisation de l’inventaire logiciel prend également en charge la configuration et l’activation sur des ordinateurs virtuels hors connexion. Ces utilisations pratiques sont destinées à couvrir la configuration de l’image Gold pour un déploiement à grande échelle entre les centres de données, ainsi que la configuration des images des utilisateurs finaux allant d’un site local vers un déploiement Cloud.  
   
-Pour prendre en charge ces utilisations, la journalisation de l’inventaire logiciel comporte des entrées de Registre associées à chaque option configurable.  Ces valeurs de Registre se trouvent sous \HKEY_LOCAL_MACHINE\\SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging.  
+Pour prendre en charge ces utilisations, la journalisation de l’inventaire logiciel comporte des entrées de Registre associées à chaque option configurable.  Ces valeurs de Registre se trouvent sous \HKEY_LOCAL_MACHINE @ no__t-0SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging.  
   
 |||||  
 |-|-|-|-|  
-|**Function**|**Nom de la valeur**|**Données**|**Applet de commande correspondante (disponible uniquement dans le système d’exploitation en cours d’exécution)**|  
+|**Fonctionnalités**|**Nom de la valeur**|**Données**|**Applet de commande correspondante (disponible uniquement dans le système d’exploitation en cours d’exécution)**|  
 |Fonctionnalité de démarrage/d’arrêt|CollectionState|1 ou 0|[Start-SilLogging](https://technet.microsoft.com/library/dn283391.aspx), [Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)|  
 |Spécifie le point d’agrégation cible sur le réseau|TargetUri|chaîne|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) - TargetURI|  
 |Spécifie l’empreinte du certificat ou le hachage du certificat utilisé pour l’authentification SSL pour le serveur web cible|CertificateThumbprint|chaîne|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -CertificateThumbprint|  
-|Spécifie la date et l’heure auxquelles la fonctionnalité débute (si la valeur définie est dans le futur selon l’heure système locale)|CollectionTime|Par défaut :  2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|  
+|Spécifie la date et l’heure auxquelles la fonctionnalité débute (si la valeur définie est dans le futur selon l’heure système locale)|CollectionTime|Default :  2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|  
   
 Pour modifier ces valeurs sur un disque dur virtuel hors connexion (système d’exploitation de l’ordinateur inactif), un disque dur virtuel doit tout d’abord être monté, et ensuite les commandes suivantes peuvent être utilisées pour apporter des modifications :  
   

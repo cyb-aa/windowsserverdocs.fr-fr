@@ -1,8 +1,8 @@
 ---
 title: tracert
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6a97c7656e646a22892eee5caa13d0163d05293d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f08fd3276f3377fed06d7b9a2cc3399fa1071f39
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837180"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71385647"
 ---
 # <a name="tracert"></a>tracert
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Détermine le chemin d’accès effectuée vers une destination en envoyant des messages de demande ou ICMPv6 echo de contrôle Message ICMP (Internet Protocol) vers la destination de façon incrémentielle plus en plus de temps aux valeurs de champ de vie (TTL). Le chemin d’accès affiché est la liste des interfaces de routeur de près/côté des routeurs dans le chemin d’accès entre un hôte source et une destination. L’interface de près/côté est l’interface du routeur qui est le plus proche de l’hôte d’envoi dans le chemin d’accès. Utilisé sans paramètres, tracert affiche l’aide.   
+Détermine le chemin d’accès à une destination en envoyant la demande d’écho ICMP (Internet Control Message Protocol) ou des messages ICMPv6 à la destination avec des valeurs de champ TTL (Time to Live) de manière incrémentielle. Le chemin d’accès affiché est la liste des interfaces de routeur near/Side des routeurs dans le chemin d’accès entre un hôte source et une destination. L’interface near/Side est l’interface du routeur qui est le plus proche de l’hôte d’envoi dans le chemin d’accès. Utilisé sans paramètres, tracert affiche l’aide.   
 
 ## <a name="syntax"></a>Syntaxe  
 ```  
@@ -33,34 +33,34 @@ tracert [/d] [/h <MaximumHops>] [/j <Hostlist>] [/w <timeout>] [/R] [/S <Srcaddr
 ### <a name="parameters"></a>Paramètres  
 |Paramètre|Description|  
 |-------|--------|  
-|/d|Empêche **tracert** de tenter de résoudre les adresses IP des routeurs intermédiaires à leurs noms. Cela peut accélérer l’affichage de **tracert** résultats.|  
-|/h \<MaximumHops>|Spécifie le nombre maximal de sauts dans le chemin d’accès pour rechercher la cible (destination). La valeur par défaut est 30 tronçons.|  
-|/j \<Hostlist>|Spécifie qui renvoient des messages de demande utilisent l’option itinéraire Source libre dans l’en-tête IP avec l’ensemble de destinations intermédiaires spécifiées dans *paramètre ListeHôtes*. Avec le routage de source libre, les destinations intermédiaires successives peuvent être séparées par un ou plusieurs routeurs. Le nombre maximal d’adresses ou des noms dans la liste d’hôtes est 9. Le *paramètre ListeHôtes* est une série d’adresses IP (en notation décimale) séparée par des espaces. Utilisez ce paramètre uniquement lors du suivi des adresses IPv4.|  
-|/w \<délai d’attente >|Spécifie la quantité de temps en millisecondes à attendre l’heure ICMP a été dépassé ou message réponse à écho correspondant à un message de demande d’écho donné en réception. Si ne pas reçu dans le délai d’attente, un astérisque (*) s’affiche. Le délai d’expiration par défaut est 4000 (4 secondes).|  
-|/R|Spécifie que l’en-tête d’extension du routage IPv6 est utilisé pour envoyer un message de demande d’écho à l’hôte local, à l’aide de la destination comme une destination intermédiaire et le test de l’itinéraire inverse.|  
-|/S \<Srcaddr>|Spécifie l’adresse source pour l’utiliser dans l’écho de messages de demande. Utilisez ce paramètre uniquement lors du suivi des adresses IPv6.|  
-|/4|Spécifie que tracert.exe peut utiliser uniquement IPv4 pour cette trace.|  
-|/6|Spécifie que tracert.exe peut utiliser uniquement IPv6 pour cette trace.|  
-|\<TargetName>|Spécifie la destination, identifiée par nom d’hôte ou adresse IP.|  
+|/d|Empêche le **traceurt** de tenter de résoudre les adresses IP des routeurs intermédiaires en leurs noms. Cela peut accélérer l’affichage des résultats de **tracert** .|  
+|/h @no__t 0MaximumHops >|Spécifie le nombre maximal de sauts dans le chemin d’accès pour rechercher la cible (destination). La valeur par défaut est 30 tronçons.|  
+|/j \<Hostlist >|Spécifie que les messages de demande d’écho utilisent l’option de route de source libre dans l’en-tête IP avec l’ensemble de destinations intermédiaires spécifié dans *hostlist*. Avec un routage source libre, les destinations intermédiaires successives peuvent être séparées par un ou plusieurs routeurs. Le nombre maximal d’adresses ou de noms dans la liste d’ordinateurs hôtes est de 9. Le *hostlist* est une série d’adresses IP (en notation décimale séparée par des points), séparées par des espaces. Utilisez ce paramètre uniquement lors du suivi des adresses IPv4.|  
+|/w @no__t 0timeout >|Spécifie la durée, en millisecondes, d’attente pour la réception du message ICMP de dépassement de délai ou de réponse à écho correspondant à un message de demande d’écho donné. S’il n’est pas reçu dans le délai d’attente, un astérisque (*) est affiché. Le délai d’attente par défaut est de 4000 (4 secondes).|  
+|/R|Spécifie que l’en-tête d’extension de routage IPv6 doit être utilisé pour envoyer un message de demande d’écho à l’hôte local, en utilisant la destination comme destination intermédiaire et en testant l’itinéraire inverse.|  
+|/S \<Srcaddr >|Spécifie l’adresse source à utiliser dans les messages de demande d’écho. Utilisez ce paramètre uniquement lors du suivi des adresses IPv6.|  
+|/4|Spécifie que tracert. exe peut uniquement utiliser IPv4 pour cette trace.|  
+|/6|Spécifie que tracert. exe peut utiliser uniquement IPv6 pour ce suivi.|  
+|@no__t 0TargetName >|Spécifie la destination, identifiée par une adresse IP ou un nom d’hôte.|  
 |/?|Affiche l'aide à l'invite de commandes.|  
 
 ## <a name="remarks"></a>Notes  
--   Cet outil de diagnostic détermine l’itinéraire menant vers une destination en envoyant des messages de demande avec divers temps ICMP echo aux valeurs de vie (TTL) vers la destination. Chaque routeur sur le chemin d’accès est nécessaire pour diminuer la durée de vie dans un paquet IP d’au moins 1 avant de le transférer. En effet, la durée de vie est un compteur de lien maximale. Lorsque la durée de vie sur un paquet atteint 0, le routeur est supposée retourner un message ICMP de dépassé le temps à l’ordinateur source. Tracert détermine le chemin d’accès en envoyant l’écho premier message de demande avec une durée de vie de 1 et l’incrémentation de la durée de vie de 1 à chaque transmission ultérieure jusqu'à ce que la cible réponde ou le nombre maximal de sauts est atteinte. Le nombre maximal de sauts est 30 par défaut et peut être spécifié à l’aide de la **/h** paramètre. Le chemin d’accès est déterminé en examinant les messages ICMP Temps dépassé renvoyés par les routeurs intermédiaires et l’écho de message de réponse retourné par la destination. Toutefois, certains routeurs ne retournent pas de messages temps dépassé pour les paquets avec des valeurs de durée de vie a expiré et sont invisile à la commande tracert. Dans ce cas, une ligne d’astérisques (*) s’affiche pour ce tronçon.  
--   Pour suivre un chemin d’accès et fournir une latence du réseau et perte de paquets pour chaque routeur et liaison dans le chemin d’accès, utilisez le **pathping** commande.  
--   Cette commande est disponible uniquement si le protocole TCP/IP (Internet Protocol) est installé en tant que composant dans les propriétés d’une carte réseau dans Connexions réseau.  
+-   Cet outil de diagnostic détermine le chemin emprunté à une destination en envoyant des messages de demande d’écho ICMP avec des valeurs de durée de vie (TTL) différentes à la destination. Chaque routeur sur le chemin d’accès est nécessaire pour décrémenter la durée de vie d’un paquet IP d’au moins 1 avant de le transférer. En effet, la durée de vie est un compteur de liens maximal. Lorsque la durée de vie d’un paquet atteint 0, le routeur est supposé renvoyer un message ICMP temps dépassé à l’ordinateur source. tracert détermine le chemin d’accès en envoyant le premier message de demande d’écho avec une durée de vie de 1 et en incrémentant la durée de vie de 1 sur chaque transmission suivante jusqu’à ce que la cible réponde ou que le nombre maximal de tronçons soit atteint. Le nombre maximal de tronçons est 30 par défaut et peut être spécifié à l’aide du paramètre **/h** . Le chemin d’accès est déterminé en examinant les messages ICMP temps dépassé renvoyés par les routeurs intermédiaires et le message de réponse à écho renvoyé par la destination. Toutefois, certains routeurs ne retournent pas de messages de temps dépassé pour les paquets dont les valeurs TTL ont expiré et sont invisile à la commande tracert. Dans ce cas, une ligne d’astérisques (*) s’affiche pour ce tronçon.  
+-   Pour suivre un chemin d’accès et fournir une latence réseau et une perte de paquets pour chaque routeur et chaque lien dans le chemin d’accès, utilisez la commande **pathping** .  
+-   Cette commande est disponible uniquement si le protocole TCP/IP (Internet Protocol) est installé en tant que composant dans les propriétés d’une carte réseau dans connexions réseau.  
 
-## <a name="BKMK_Examples"></a>Exemples  
-Pour suivre le chemin d’accès à l’hôte nommé corp7.microsoft.com, tapez :  
+## <a name="BKMK_Examples"></a>Illustre  
+Pour suivre le chemin d’accès à l’ordinateur hôte nommé corp7.microsoft.com, tapez :  
 ```  
 tracert corp7.microsoft.com  
 ```  
-Pour suivre le chemin d’accès à l’hôte nommé corp7.microsoft.com et empêcher la résolution de toutes les adresses IP à son nom, tapez :  
+Pour suivre le chemin d’accès à l’ordinateur hôte nommé corp7.microsoft.com et empêcher la résolution de chaque adresse IP en son nom, tapez :  
 ```  
 tracert /d corp7.microsoft.com  
 ```  
-Pour suivre le chemin d’accès à l’hôte nommé corp7.microsoft.com et utiliser le 10.12.0.1/10.29.3.1/10.1.44.1 itinéraire source libre, tapez :  
+Pour suivre le chemin d’accès à l’ordinateur hôte nommé corp7.microsoft.com et utiliser l’Itinéraire source libre 10.12.0.1/10.29.3.1/10.1.44.1, tapez :  
 ```  
 tracert /j 10.12.0.1 10.29.3.1 10.1.44.1 corp7.microsoft.com  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

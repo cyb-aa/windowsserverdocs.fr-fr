@@ -2,7 +2,7 @@
 title: Ajouter la haute disponibilité au serveur frontal d’accès web et de passerelle des services Bureau à distance
 description: Fournit les étapes de l’installation des serveurs d’accès web et de passerelle Bureau à distance dans un déploiement de services Bureau à distance.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: remote-desktop-services
@@ -12,12 +12,12 @@ author: lizap
 ms.author: elizapo
 ms.date: 11/08/2016
 manager: dongill
-ms.openlocfilehash: 869d47be73a39114ecc05080f8da16f460fb8198
-ms.sourcegitcommit: 6423dfa9cecb3b06bdd563cae113c3e80a4ec330
+ms.openlocfilehash: 5838480847e5f86a03f264a0ece1f8d4097597cc
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105039"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71387229"
 ---
 # <a name="add-high-availability-to-the-rd-web-and-gateway-web-front"></a>Ajouter la haute disponibilité au serveur frontal d’accès web et de passerelle des services Bureau à distance
 

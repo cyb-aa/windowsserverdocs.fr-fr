@@ -2,18 +2,18 @@
 title: Créer une exception au filtre de fichiers
 description: Cet article explique comment créer une exception au filtre de fichiers
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 1f0e93cb2535862b9259d438de00c3b769c2282c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6a0fa660db6b03104b585c8ee78a4f20aafe5c88
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866300"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403147"
 ---
 # <a name="create-a-file-screen-exception"></a>Créer une exception au filtre de fichiers
 
@@ -40,14 +40,14 @@ Vous affectez des groupes de fichiers pour déterminer les types de fichiers aut
 4.  Pour spécifier les fichiers à exclure du filtrage de fichiers :
 
     -   Sous **Groupes de fichiers**, sélectionnez chaque groupe de fichiers que vous souhaitez exclure du filtrage de fichiers. (Pour activer la case à cocher du groupe de fichiers, double-cliquez sur le nom du groupe.)
-    -   Si vous souhaitez afficher un groupe de fichiers contient et exclut les types de fichiers, cliquez sur l’étiquette de groupe de fichiers, puis cliquez sur **modifier**.
+    -   Si vous souhaitez afficher les types de fichiers inclus et exclus dans un groupe de fichiers, cliquez sur l’étiquette du groupe de fichiers, puis sur **modifier**.
     -   Pour créer un groupe de fichiers, cliquez sur **Créer**.
 
 5.  Cliquez sur **OK**.
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Gestion des filtres de fichiers](file-screening-management.md)
+-   [Gestion du filtrage des fichiers](file-screening-management.md)
 -   [Définir des groupes de fichiers pour le filtrage](define-file-groups-for-screening.md)
 
 

@@ -2,18 +2,18 @@
 title: Créer une tâche d'expiration de fichiers
 description: Cet article décrit le processus de création d’une tâche de gestion des fichiers sur le point d’expirer
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: b816dbe759d94980b2cc27284fd2e0ec7787d0b0
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 0901c17203252414a37ccc5205a0946b8bef0d41
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446003"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394228"
 ---
 # <a name="create-a-file-expiration-task"></a>Créer une tâche d'expiration de fichiers
 
@@ -61,7 +61,7 @@ Le nom du nouveau répertoire est basé sur le nom de la tâche de gestion de fi
 
      - Pour envoyer un courrier électronique à la personne dont les fichiers vont expirer, cochez la case **Envoyer un message électronique à l’utilisateur dont les fichiers vont expirer**.
 
-     - Pour configurer le message, modifiez le contenu par défaut de la ligne d'objet et du corps du message. Le texte entre crochets insère les informations de variables sur l’événement de quota qui a provoqué la notification. Par exemple, le **\[propriétaire du fichier Source\]** variable insère le nom de l’utilisateur dont le fichier est sur le point d’expirer. Pour insérer d'autres variables dans le texte, cliquez sur **Insérer une variable**.
+     - Pour configurer le message, modifiez le contenu par défaut de la ligne d'objet et du corps du message. Le texte entre crochets insère les informations de variables sur l’événement de quota qui a provoqué la notification. Par exemple, la variable **\[Source du fichier @ no__t-2** insère le nom de l’utilisateur dont le fichier est sur le paragraphe de l’expiration. Pour insérer d'autres variables dans le texte, cliquez sur **Insérer une variable**.
 
      - Pour joindre une liste des fichiers qui vont expirer, cliquez sur **Joindre aux messages électroniques la liste des fichiers sur lesquels une action sera effectuée**, puis tapez ou sélectionnez une valeur pour **Nombre maximal de fichiers dans la liste**.
 

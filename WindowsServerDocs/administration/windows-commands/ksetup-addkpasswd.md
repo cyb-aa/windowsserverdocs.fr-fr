@@ -1,8 +1,8 @@
 ---
-title: ksetup:addkpasswd
-description: 'Rubrique de commandes de Windows pour ***- '
+title: 'Ksetup : addkpasswd'
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2a85eb6dfe30c33126504744a7659fe2cc573087
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 72c27cb6b068dc46cd58e753b4b08d68b39bfb20
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856820"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375193"
 ---
-# <a name="ksetupaddkpasswd"></a>ksetup:addkpasswd
+# <a name="ksetupaddkpasswd"></a>Ksetup : addkpasswd
 
 
 
-Ajoute une adresse de serveur de mot de passe (Kpasswd) Kerberos pour un domaine. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Ajoute une adresse de serveur de mot de passe Kerberos (kpasswd) pour un domaine. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,31 +34,31 @@ ksetup /addkpasswd <RealmName> [<KpasswdName>]
 
 ### <a name="parameters"></a>Paramètres
 
-Si le domaine Kerberos que la station de travail authentifiera pour prendre en charge du protocole Kerberos modifier le protocole de mot de passe, vous pouvez configurer un ordinateur client exécutant le système d’exploitation Windows pour utiliser un serveur de mot de passe Kerberos. Ce paramètre est configuré sur le côté du domaine.
+Si le domaine Kerberos sur lequel la station de travail doit s’authentifier prend en charge le protocole de modification Kerberos, vous pouvez configurer un ordinateur client exécutant le système d’exploitation Windows pour qu’il utilise un serveur de mot de passe Kerberos. Ce paramètre est configuré côté domaine.
 
 |Paramètre|Description|
 |---------|-----------|
-|\<RealmName>|Le nom de domaine est indiqué comme un nom DNS en majuscules, telles que CORP. CONTOSO.COM et est répertorié en tant que la valeur par défaut domaine ou du domaine Kerberos = quand **ksetup** est exécuté.|
-|\<KpasswdName>|Le nom de contrôleur de domaine Kerberos qui doit être utilisé en tant que le serveur de mot de passe Kerberos est établi comme un nom de domaine complet de la casse, comme mitkdc.microsoft.com. Si le nom de contrôleur de domaine Kerberos est omis, DNS peut être utilisé pour localiser le KDC.|
+|@no__t 0RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM et est indiqué comme domaine par défaut ou domaine = lorsque **Ksetup** est exécuté.|
+|@no__t 0KpasswdName >|Le nom du KDC qui doit être utilisé en tant que serveur de mot de passe Kerberos est indiqué comme un nom de domaine complet qui ne respecte pas la casse, par exemple mitkdc.microsoft.com. Si le nom du KDC est omis, DNS peut être utilisé pour localiser les KDC.|
 
 ## <a name="remarks"></a>Notes
 
-Si le domaine Kerberos que la station de travail authentifiera pour prendre en charge du protocole Kerberos modifier le protocole de mot de passe, vous pouvez configurer un ordinateur client exécutant le système d’exploitation Windows pour utiliser un serveur de mot de passe Kerberos.
+Si le domaine Kerberos sur lequel la station de travail doit s’authentifier prend en charge le protocole de modification Kerberos, vous pouvez configurer un ordinateur client exécutant le système d’exploitation Windows pour qu’il utilise un serveur de mot de passe Kerberos.
 
-Exécutez la commande **ksetup** pour vérifier le nom de contrôleur de domaine Kerberos. Si **kpasswd =** n’apparaît pas dans la sortie, le mappage n’a pas été configuré.
+Exécutez la commande **Ksetup** pour vérifier le nom du KDC. Si **kpasswd =** n’apparaît pas dans la sortie, le mappage n’a pas été configuré.
 
-Vous pouvez ajouter des noms KDC supplémentaires à la fois.
+Vous pouvez ajouter des noms KDC supplémentaires un par un.
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 
-Configurer le domaine, CORP. CONTOSO.COM, de sorte qu’il utilise le serveur KDC Windows non-, mitkdc.contoso.com, que le serveur de mot de passe :
+Configurez le domaine, CORP. CONTOSO.COM, afin qu’il utilise le serveur KDC non-Windows, mitkdc.contoso.com, comme serveur de mot de passe :
 ```
 ksetup /addkpasswd CORP.CONTOSO.COM mitkdc.contoso.com
 ```
-Ceci aboutit à un serveur de mot de passe non Windows Kerberos qui contrôle tous les mots de passe pour l’authentification entre elle et le domaine.
+Cela aboutit à un serveur de mot de passe Kerberos non-Windows qui contrôle tous les mots de passe pour l’authentification entre l’informatique et le domaine.
 
 #### <a name="additional-references"></a>Références supplémentaires
 
 -   [Ksetup](ksetup.md)
 -   [Ksetup:delkpasswd](ksetup-delkpasswd.md)
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

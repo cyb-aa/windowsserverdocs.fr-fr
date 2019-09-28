@@ -1,8 +1,8 @@
 ---
-title: ksetup:addkdc
-description: 'Rubrique de commandes de Windows pour ***- '
+title: 'Ksetup : addkdc'
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0466bee0b357e896bd971152a56da57612472672
-ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.openlocfilehash: 66efe4e56007aff39b83c92dfea2afaadcfc0210
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65564727"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375212"
 ---
-# <a name="ksetupaddkdc"></a>ksetup:addkdc
+# <a name="ksetupaddkdc"></a>Ksetup : addkdc
 
 
 
-Ajoute une adresse de centre de Distribution de clés (KDC) pour le domaine Kerberos donné. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
+Ajoute une adresse de centre de distribution de clés (KDC) pour le domaine Kerberos donné. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,24 +36,24 @@ ksetup /addkdc <RealmName> [<KDCName>]
 
 |Paramètre|Description|
 |---------|-----------|
-|\<RealmName>|Le nom de domaine est indiqué comme un nom DNS en majuscules, telles que CORP. CONTOSO.COM et il est répertorié en tant que le domaine par défaut lorsque **ksetup** est exécuté. Il est de ce domaine que vous essayez d’ajouter l’autre contrôleur de domaine Kerberos.|
-|\<KDCName>|Le nom de contrôleur de domaine Kerberos est établi comme un nom de domaine complet de la casse, comme mitkdc.microsoft.com. Si le nom de contrôleur de domaine Kerberos est omis, DNS localise KDC.|
+|@no__t 0RealmName >|Le nom de domaine est indiqué en tant que nom DNS en majuscules, par exemple CORP. CONTOSO.COM, et elle est indiquée comme domaine par défaut lorsque **Ksetup** est exécuté. C’est à ce domaine que vous essayez d’ajouter l’autre KDC.|
+|@no__t 0KDCName >|Le nom KDC est indiqué comme un nom de domaine complet qui ne respecte pas la casse, par exemple mitkdc.microsoft.com. Si le nom du KDC est omis, DNS localise les KDC.|
 
 ## <a name="remarks"></a>Notes
 
-Ces mappages sont stockés dans le Registre sous **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\LSA\Kerberos\Domains**. Pour déployer des données de configuration de domaine Kerberos sur plusieurs ordinateurs, utilisez la distribution de logiciel enfichable et la stratégie de modèle de Configuration de sécurité au lieu d’utiliser **ksetup** explicitement sur des ordinateurs individuels.
+Ces mappages sont stockés dans le Registre sous **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\LSA\Kerberos\Domains**. Pour déployer des données de configuration de domaine Kerberos sur plusieurs ordinateurs, utilisez le composant logiciel enfichable modèle de configuration de sécurité et la distribution de stratégie au lieu d’utiliser **Ksetup** explicitement sur des ordinateurs individuels.
 
-L’ordinateur doit être redémarré avant que le nouveau paramètre de domaine sera être utilisé.
+L’ordinateur doit être redémarré pour que le nouveau paramètre de domaine soit utilisé.
 
-Pour vérifier le nom de domaine par défaut pour l’ordinateur, ou pour vérifier que cette commande a fonctionné comme prévu, exécutez **ksetup** à l’invite de commandes et vérifiez la sortie pour le KDC ajouté.
+Pour vérifier le nom de domaine par défaut de l’ordinateur, ou pour vérifier que cette commande fonctionnait comme prévu, exécutez **Ksetup** à l’invite de commandes et vérifiez la sortie du KDC ajouté.
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 
-Configurer un serveur KDC Windows non - et le domaine que la station de travail doit utiliser :
+Configurez un serveur KDC non-Windows et le domaine que la station de travail doit utiliser :
 ```
 ksetup /addkdc CORP.CONTOSO.COM mitkdc.contoso.com
 ```
-Exécuter l’outil de Ksetup à la ligne de commande du même ordinateur, comme dans la commande précédente pour définir le mot de passe du compte ordinateur local «p@sswrd1% ». Puis redémarrez l’ordinateur.
+Exécutez l’outil Ksetup sur la ligne de commande du même ordinateur que dans la commande précédente pour définir le mot de passe du compte d’ordinateur local sur « p@sswrd1% ». Ensuite, redémarrez l’ordinateur.
 ```
 Ksetup /setcomputerpassword p@sswrd1%
 ```

@@ -1,8 +1,8 @@
 ---
-title: bye de FTP
-description: Rubrique de commandes de Windows pour bye de ftp
+title: Bye FTP
+description: Rubrique relative aux commandes Windows pour FTP Bye
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 202db0d819d070a0c9ebc281fc86dac3408fb691
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 592796ca91a847b16ff8daab7ab1252f252105b7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830980"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376510"
 ---
 # <a name="ftp-bye"></a>FTP : bye
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Termine la session ftp avec l’ordinateur distant et quitte.   
+Met fin à la session FTP avec l’ordinateur distant et se ferme.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 bye  
@@ -32,12 +32,12 @@ bye
 ### <a name="parameters"></a>Paramètres  
 aucune  
 ## <a name="remarks"></a>Notes  
-**Bye** et **quitter** à la fois mettre fin à la session ftp avec l’ordinateur distant et s’arrête.  
-## <a name="BKMK_Examples"></a>Exemples  
-Terminer la session ftp avec l’ordinateur distant et de sortie.  
+**Bye** et **quittent** à la fois la session FTP avec l’ordinateur distant et se termine.  
+## <a name="BKMK_Examples"></a>Illustre  
+Mettez fin à la session FTP avec l’ordinateur distant et quittez.  
 ```  
 bye  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [ftp: quit](ftp-quit.md)  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [FTP : quitter](ftp-quit.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  

@@ -7,34 +7,34 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: b14ded98c4f1a340349119bd9f5f42e3a1bf9434
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ecbaa33d83d7b37f376a426571c0d2df89c7695d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445744"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71407116"
 ---
 # <a name="deploy-security-auditing-with-central-audit-policies-demonstration-steps"></a>Déployer l’audit de sécurité avec les stratégies d’audit centralisées (étapes de démonstration)
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Dans ce scénario, vous allez contrôler l’accès aux fichiers dans le dossier Documents financiers à l’aide de la stratégie financière que vous avez créé dans [déployer une stratégie d’accès centralisée &#40;étapes de démonstration&#41;](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md). Si un utilisateur non autorisé tente d’accéder au dossier, l’activité est capturée dans l’Observateur d’événements.   
+Dans ce scénario, vous allez auditer l’accès aux fichiers dans le dossier Finance documents à l’aide de la stratégie financière que vous avez créée dans les [ &#40;étapes&#41;de la démonstration déployer une stratégie d’accès centralisée](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md). Si un utilisateur non autorisé tente d’accéder au dossier, l’activité est capturée dans l’Observateur d’événements.   
  Les étapes suivantes sont requises pour tester ce scénario.  
   
 |Tâche|Description|  
 |--------|---------------|  
-|[Configurer l’accès Global aux objets](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_1)|Au cours de cette étape, vous configurez la stratégie d’accès global aux objets au niveau du contrôleur de domaine.|  
-|[Paramètres de stratégie de groupe de mise à jour](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_2)|Connectez-vous au serveur de fichiers et appliquez la mise à jour de la stratégie de groupe.|  
-|[Vérifier que la stratégie d’accès objet global a été appliquée.](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_3)|Affichez les événements pertinents dans l’Observateur d’événements. Les événements doivent inclure les métadonnées relatives au pays et au type de document.|  
+|[Configurer l’accès global aux objets](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_1)|Au cours de cette étape, vous configurez la stratégie d’accès global aux objets au niveau du contrôleur de domaine.|  
+|[Mettre à jour les paramètres de stratégie de groupe](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_2)|Connectez-vous au serveur de fichiers et appliquez la mise à jour de la stratégie de groupe.|  
+|[Vérifier que la stratégie d’accès global aux objets a été appliquée](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md#BKMK_3)|Affichez les événements pertinents dans l’Observateur d’événements. Les événements doivent inclure les métadonnées relatives au pays et au type de document.|  
   
-## <a name="BKMK_1"></a>Configurer la stratégie d’accès objet global  
+## <a name="BKMK_1"></a>Configurer la stratégie d’accès global aux objets  
 Au cours de cette étape, vous configurez la stratégie d’accès global aux objets au niveau du contrôleur de domaine.  
   
 #### <a name="to-configure-a-global-object-access-policy"></a>Pour configurer une stratégie d’audit d’accès global aux objets  
   
-1. Connectez-vous au contrôleur de domaine DC1 en tant que Contoso\Administrateur avec le mot de passe <strong>pass@word1</strong>.  
+1. Connectez-vous au contrôleur de domaine DC1 en tant que CONTOSO\Administrateur avec le mot de passe <strong>pass@word1</strong>.  
   
 2. Dans le Gestionnaire de serveur, pointez sur **Outils**, puis cliquez sur **Gestion de stratégie de groupe**.  
   
@@ -58,8 +58,8 @@ Au cours de cette étape, vous configurez la stratégie d’accès global aux ob
   
 12. Dans la zone **Audits pour SACL globale d’accès aux fichiers**, activez **Contrôle total** dans la zone **Autorisations**.  
   
-13. Dans le **ajouter une condition :** , cliquez sur **ajouter une condition** et dans la liste déroulante les listes select   
-    [**Ressource**] [**département**] [**des**] [**valeur**] [**Finance**].  
+13. Dans la section **Ajouter une condition :** , cliquez sur **Ajouter une condition** , puis dans les listes déroulantes, sélectionnez   
+    [**Ressource**] [**Service**] [**Tout de**] [**Valeur**] [**Finance**].  
   
 14. Cliquez trois fois sur **OK** pour terminer la configuration du paramètre de la stratégie d’audit de l’accès global aux objets.  
   
@@ -70,7 +70,7 @@ Au cours de cette étape, vous mettez à jour les paramètres de stratégie de g
   
 #### <a name="to-update-group-policy-settings"></a>Pour mettre à jour les paramètres Stratégie de groupe  
   
-1. Connectez-vous au serveur de fichiers fichier1 en tant que Contoso\Administrateur avec le mot de passe <strong>pass@word1</strong>.  
+1. Connectez-vous au serveur de fichiers, FILE1 en tant que CONTOSO\Administrateur, avec le mot de passe <strong>pass@word1</strong>.  
   
 2. Appuyez sur la touche Windows + R, tapez **cmd** pour ouvrir une fenêtre d’invite de commandes.  
   
@@ -79,12 +79,12 @@ Au cours de cette étape, vous mettez à jour les paramètres de stratégie de g
   
 3. Tapez **gpupdate /force** et appuyez sur Entrée.  
   
-## <a name="BKMK_3"></a>Vérifier que la stratégie d’accès objet global a été appliquée.  
+## <a name="BKMK_3"></a>Vérifier que la stratégie d’accès global aux objets a été appliquée  
 Une fois les paramètres Stratégie de groupe appliqués, vérifiez que les paramètres de stratégie d’audit ont été appliqués correctement.  
   
 #### <a name="to-verify-that-the-global-object-access-policy-has-been-applied"></a>Pour vérifier que la stratégie d’accès global aux objets a été appliquée  
   
-1.  Connectez-vous à l’ordinateur client, CLIENT1 en tant que Contoso\MReid. Accédez au dossier HYPERLINK « file:///\\\\\\\ID_AD_FILE1\\\Finance « \\\ FILE1\Finance Documents et modifier le Document Word 2.  
+1.  Connectez-vous à l’ordinateur client, CLIENT1 en tant que Contoso\MReid. Accédez au dossier HYPERLINK « file:///\\ @ no__t-1 @ no__t-2\ID_AD_FILE1 @ no__t-3\Finance » \\ \ FILE1\Finance documents, puis modifiez le document Word 2.  
   
 2.  Connectez-vous au serveur de fichiers FICHIER1 en tant que contoso\Administrateur. Ouvrez l’Observateur d’événements, accédez à **Journaux Windows**, sélectionnez **Sécurité**, puis confirmez que vos activités ont généré les événements d’audit **4656** et **4663** (même si vous n’avez pas défini explicitement des listes SACL d’audit sur les fichiers ou les dossiers que vous avez créés, modifiés et supprimés).  
   

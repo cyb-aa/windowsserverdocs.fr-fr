@@ -1,8 +1,8 @@
 ---
-title: Montage automatique
-description: Rubrique de commandes de Windows pour **automount** - Active ou désactive la fonctionnalité de montage automatique.
+title: montage automatique
+description: Rubrique relative aux commandes Windows pour le **montage** automatique-active ou désactive la fonctionnalité de montage automatique.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 957f75173390ff628c8b52c645742d83216ebf56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bcddad3713bc61101f03e4e60ea0497aac751761
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886350"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382279"
 ---
-# <a name="automount"></a>Montage automatique
+# <a name="automount"></a>montage automatique
 
 
 
-Active ou désactive la fonctionnalité de montage automatique. Lorsque activé (valeur par défaut), Windows monte automatiquement le système de fichiers pour un nouveau volume de base ou dynamique lorsqu’il est ajouté au système et puis attribue une lettre de lecteur au volume.
+Active ou désactive la fonctionnalité de montage automatique. Lorsque cette option est activée (valeur par défaut), Windows monte automatiquement le système de fichiers pour un nouveau volume de base ou dynamique lorsqu’il est ajouté au système, puis affecte une lettre de lecteur au volume.
 

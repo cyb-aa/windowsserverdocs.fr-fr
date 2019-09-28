@@ -1,8 +1,8 @@
 ---
 title: active
-description: Rubrique de commandes de Windows pour **active** - disques de base, marque la partition avec le focus comme active.
+description: La rubrique commandes Windows pour les disques de base **actifs** , marque la partition avec le focus comme active.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3a039e0200fb84d446739ac7017556b6c302f4af
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c926bf9b7a583cf7eaa23166e09e6f0a1599e625
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868760"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382850"
 ---
 # <a name="active"></a>active
 
 
 
-Disques de base, marque la partition avec le focus comme active.
+Sur les disques de base, marque la partition ayant le focus comme active.
 
 > [!CAUTION]
-> DiskPart vérifie uniquement que la partition est capable de contenir les fichiers de démarrage du système d’exploitation. DiskPart ne vérifie pas le contenu de la partition. Si vous marquez par erreur une partition comme active et il ne contient-elle pas les fichiers de démarrage du système d’exploitation, votre ordinateur ne peut pas démarrer.
+> DiskPart vérifie uniquement que la partition est capable de contenir les fichiers de démarrage du système d’exploitation. DiskPart ne vérifie pas le contenu de la partition. Si, par erreur, vous marquez une partition comme active et qu’elle ne contient pas les fichiers de démarrage du système d’exploitation, il se peut que votre ordinateur ne démarre pas.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -37,13 +37,13 @@ active
 
 ## <a name="remarks"></a>Notes
 
--   Cela informe le système de base d’entrée/sortie (BIOS) ou l’Interface EFI (Extensible Firmware) que la partition ou le volume est une partition système valide ou le volume système.
+-   Cela indique au système BIOS ou Extensible Firmware Interface (EFI) de base que la partition ou le volume est une partition système ou un volume système valide.
 -   Seules les partitions peuvent être marquées comme actives.
--   Une partition doit être sélectionnée pour cette opération réussisse. Utilisez le **sélectionnez partition** commande pour sélectionner une partition et déplacer le focus vers elle.
+-   Une partition doit être sélectionnée pour que cette opération aboutisse. Utilisez la commande **Sélectionner une partition** pour sélectionner une partition et y déplacer le focus.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour marquer la partition avec le focus comme partition active, tapez :
+Pour marquer la partition ayant le focus sur la partition active, tapez :
 ```
 active
 ```

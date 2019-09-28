@@ -1,8 +1,8 @@
 ---
 title: bitsadmin resume
-description: Rubrique de commandes de Windows pour **bitsadmin resume** -Active un travail nouveau ou suspendu dans la file d’attente de transfert.
+description: La rubrique commandes Windows pour **Bitsadmin Resume** -active un travail nouveau ou suspendu dans la file d’attente de transfert.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 76027ac927f8a9bb2558e3ce6d75e4f6692e56e7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1393e959980b72de09c546ced763a506d334b56c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842030"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380770"
 ---
 # <a name="bitsadmin-resume"></a>bitsadmin resume
 
 
 
-Active un travail nouveau ou suspendu dans la file d’attente de transfert.
+Active une tâche nouvelle ou suspendue dans la file d’attente de transfert.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,14 +36,14 @@ bitsadmin /Resume <Job>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
+|Tâche|Nom complet ou GUID du travail|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivant reprend le travail nommé *myDownloadJob*.
+L’exemple suivant reprend la tâche nommée *myDownloadJob*.
 ```
 C:\>bitsadmin /Resume myDownloadJob
 ```
 Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
