@@ -1,18 +1,18 @@
 ---
 title: Détection des goulots d’étranglement dans un environnement virtualisé
 description: Comment détecter et résoudre les goulots d’étranglement potentiels des performances Hyper-v
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: a0d6d263b344cde412ee4dd3caa80305742d56e7
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 53ec6159d177284773f17a05a37dd89184ef3c12
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866600"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370125"
 ---
 # <a name="detecting-bottlenecks-in-a-virtualized-environment"></a>Détection des goulots d’étranglement dans un environnement virtualisé
 
@@ -28,15 +28,15 @@ Voici quelques scénarios courants qui peuvent entraîner des goulots d’étran
 
 Vous pouvez utiliser les compteurs de performances suivants à partir de l’hôte :
 
--   Utilisation du processeur logique \\-processeur logique hyperviseur hyper\*-\\V ()% durée totale d’exécution
+-   Utilisation du processeur logique-processeur logique de l’hyperviseur \\Hyper-V (\*) \\% de la durée d’exécution totale
 
--   Utilisation du processeur virtuel \\-processeur virtuel de l’hyperviseur\\Hyper-V (\*)% de la durée d’exécution totale
+-   Utilisation du processeur virtuel-\\Hyper-V-processeur virtuel de l’hyperviseur (\*) \\% de la durée d’exécution totale
 
--   Utilisation du processeur virtuel racine \\-processeur virtuel racine de l’hyperviseur\\Hyper-V (\*)% de la durée d’exécution totale
+-   Utilisation du processeur virtuel racine-processeur virtuel de l’hyperviseur \\Hyper-V (\*) \\% de la durée d’exécution totale
 
-Si le compteur d' **exécution total du processeur logique\_de l'\\hyperviseur Hyper-V (total)% Total** est supérieur à 90%, l’ordinateur hôte est surchargé. Vous devez ajouter de la puissance de traitement ou déplacer des ordinateurs virtuels vers un autre ordinateur hôte.
+Si le **processeur logique de l’hyperviseur Hyper-V (\_Total) \\%** du compteur d’exécution total est supérieur à 90%, l’ordinateur hôte est surchargé. Vous devez ajouter de la puissance de traitement ou déplacer des ordinateurs virtuels vers un autre ordinateur hôte.
 
-Si le compteur de **processeur virtuel de l’hyperviseur Hyper-V (\\nom de la machine virtuelle : VP x)% total du Runtime** est supérieur à 90% pour tous les processeurs virtuels, vous devez effectuer les opérations suivantes :
+Si le compteur de **processeur virtuel de l’hyperviseur Hyper-V (nom de la machine virtuelle : VP x) \\% du nombre total d’exécutions** est supérieur à 90% pour tous les processeurs virtuels, vous devez effectuer les opérations suivantes :
 
 -   Vérifier que l’hôte n’est pas surchargé
 
@@ -44,7 +44,7 @@ Si le compteur de **processeur virtuel de l’hyperviseur Hyper-V (\\nom de la m
 
 -   Affecter plus de processeurs virtuels à la machine virtuelle
 
-Si le **processeur virtuel de l’hyperviseur Hyper-V (nom\\de la machine virtuelle : VP x)%** du compteur d’exécution total est supérieur à 90% pour certains processeurs virtuels, mais pas tous, vous devez effectuer les opérations suivantes :
+Si le **processeur virtuel de l’hyperviseur Hyper-V (nom de la machine virtuelle : VP x) \\%** du compteur d’exécution total est supérieur à 90% pour certains, mais pas tous, des processeurs virtuels, vous devez effectuer les opérations suivantes :
 
 -   Si votre charge de travail reçoit beaucoup de ressources réseau, vous devez envisager d’utiliser vRSS.
 
@@ -52,7 +52,7 @@ Si le **processeur virtuel de l’hyperviseur Hyper-V (nom\\de la machine virtue
 
 -   Si votre charge de travail est gourmande en stockage, vous devez activer la topologie NUMA virtuelle et ajouter d’autres disques virtuels.
 
-Si le compteur de l' **exécution du processeur virtuel racine de l’hyperviseur Hyper-V (VP racine x)\\% total d’exécution** est supérieur à 90% pour certains processeurs virtuels, mais pas tous, et le processeur **(x)\\% du temps d’interruption et du processeur (x)\\% du temps DPC** le compteur augmente approximativement la valeur du compteur de **processeur virtuel racine (VP racine x)\\% total du runtime** . vous devez donc vous assurer que l’installation de la carte réseau est activée sur les cartes réseau.
+Si le **nombre total de processeurs virtuels racine de l’hyperviseur Hyper-V (VP supérieur x) \\%** est supérieur à 90% pour certains processeurs virtuels, mais pas tous, et le compteur **processeur (x) \\% temps d’interruption et processeur (x) \\% du temps DPC** à peu près la valeur du compteur de **processeur virtuel racine (VP racine x) \\% au total Runtime** , vous devez vous assurer que l’installation de la carte réseau est activée sur les cartes réseau.
 
 ## <a name="memory-bottlenecks"></a>Goulots d’étranglement de mémoire
 

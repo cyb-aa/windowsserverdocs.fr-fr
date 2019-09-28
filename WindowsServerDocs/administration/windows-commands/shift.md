@@ -1,8 +1,8 @@
 ---
 title: shift
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e72b4be1b265d682d489cf372cdfe5ef54bb444d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f74e0f1f9041a4a7b95d83772ea79376c82876de
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441246"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71371250"
 ---
 # <a name="shift"></a>shift
 
 
 
-Modifie l’emplacement des paramètres dans un fichier de commandes.
+Modifie la position des paramètres de lot dans un fichier de commandes.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -38,20 +38,20 @@ shift [/n <N>]
 
 |Paramètre|Description|
 |---------|-----------|
-|/n \<N>|Spécifie pour démarrer le décalage au *N*argument th, où *N* est toute valeur comprise entre 0 et 8. Requiert des extensions de commande, qui sont activées par défaut.|
+|/n @no__t 0N >|Spécifie de commencer le décalage au *N*ième argument, où *N* est une valeur comprise entre 0 et 8. Requiert des extensions de commande, qui sont activées par défaut.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
-- Le **MAJ** commande modifie les valeurs des paramètres de lot **%0** via **%9** en copiant chaque paramètre dans le précédent, la valeur de **%1** est copié vers **%0**, la valeur de **%2** est copié vers **%1**, et ainsi de suite. Cela est utile pour l’écriture d’un fichier de commandes qui effectue la même opération sur n’importe quel nombre de paramètres.
-- Si les extensions de commande sont activées, le **MAJ** commande prend en charge la **/n** option de ligne de commande. Le **/n** option indique de démarrer le décalage au N-ième argument, où **N** est toute valeur comprise entre 0 et 8. Par exemple, **MAJ /2** décale **%3** à **%2**, **%4** à **%3**, et ainsi de suite et laissez **%0** et **%1** pas affectées. Les extensions de commande sont activées par défaut.
-- Vous pouvez utiliser la **MAJ** commande pour créer un fichier de commandes qui peut accepter plus de 10 paramètres de traitement par lots. Si vous spécifiez plus de 10 paramètres sur la ligne de commande, ceux qui apparaissent après le dixième ( **%9**) sera décalée à la fois dans **%9**.
-- Le **MAJ** commande n’a aucun effet le **% \\** * paramètre du lot.
-- Il est descendante ne **MAJ** commande. Une fois que vous implémentez le **MAJ** commande, vous ne pouvez pas récupérer le paramètre de lot ( **%0**) qui existait avant le déplacement.
+- La commande **Shift** modifie les valeurs des paramètres de lot **% 0** à **% 9** en copiant chaque paramètre dans le précédent : la valeur **% 1** est copiée dans **% 0**, la valeur **% 2** est copiée dans **% 1**, et ainsi de suite. Cela est utile pour écrire un fichier de commandes qui effectue la même opération sur un nombre quelconque de paramètres.
+- Si les extensions de commande sont activées, la commande **Shift** prend en charge l’option de ligne de commande **/n** . L’option **/n** spécifie de commencer le décalage au nième argument, où **n** est une valeur comprise entre 0 et 8. Par exemple, **Shift/2** déplace **% 3** vers **% 2**, **% 4** vers **% 3**, et ainsi de suite, et laisse **% 0** et **% 1** non affectés. Les extensions de commande sont activées par défaut.
+- Vous pouvez utiliser la commande **Shift** pour créer un fichier de commandes qui peut accepter plus de 10 paramètres batch. Si vous spécifiez plus de 10 paramètres sur la ligne de commande, ceux qui apparaissent après le dixième ( **% 9**) sont décalés un à la fois dans **% 9**.
+- La commande **Shift** n’a aucun effet sur le paramètre batch **% @ no__t-3***.
+- Il n’y a pas de commande de **décalage vers** l’arrière. Après avoir implémenté la commande **Shift** , vous ne pouvez pas récupérer le paramètre batch ( **% 0**) qui existait avant le décalage.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Les lignes suivantes à partir d’un exemple de fichier batch appelée appelé MaCopie.bat montrent comment utiliser **MAJ** avec n’importe quel nombre de paramètres de traitement par lots. Dans cet exemple, appelé MaCopie.bat copie une liste de fichiers dans un répertoire spécifique. Les paramètres de traitement par lots sont représentées par les arguments de nom de répertoire et fichier.
+Les lignes suivantes d’un exemple de fichier de commandes nommé Mycopy. bat montrent comment utiliser **Shift** avec un nombre quelconque de paramètres de lot. Dans cet exemple, Mycopy. bat copie une liste de fichiers dans un répertoire spécifique. Les paramètres de lot sont représentés par les arguments de nom de fichier et de répertoire.
 ```
 @echo off 
 rem MYCOPY.BAT copies any number of files

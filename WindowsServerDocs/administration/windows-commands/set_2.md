@@ -1,8 +1,8 @@
 ---
 title: set_2
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3f5523646fddbfec31cb3900fc09230efc1c7813
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e91bee5f0d351e461d16ccd22478d67f26887728
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862610"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370914"
 ---
-# <a name="set2"></a>set_2
+# <a name="set_2"></a>set_2
 
 
 
-Définit le contexte, les options, le mode détaillé et fichier de métadonnées pour la création de clichés instantanés. Si utilisée sans paramètres, **définir** répertorie tous les paramètres actuels.
+Définit le contexte, les options, le mode détaillé et le fichier de métadonnées pour la création de clichés instantanés. En cas d’utilisation sans paramètre, **Set** répertorie tous les paramètres actuels.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,16 +36,16 @@ set verbose {on|off}
 set metadata <MetaData.cab>
 ```
 
-## <a name="set-sub-commands"></a>Sous-commandes de jeu
+## <a name="set-sub-commands"></a>Définir des sous-commandes
 
 |Sous-commande|Description|
 |-----------|-----------|
 |Contexte|Définit le contexte pour la création de clichés instantanés. Consultez [définir le contexte](set-context.md) pour la syntaxe et les paramètres.|
-|option|Définit les options pour la création de clichés instantanés. Consultez [définir option](set-option.md) pour la syntaxe et les paramètres.|
-|commentaires|Active ou désactive la le mode documenté. Consultez [valeur commentaires](set-verbose.md) pour la syntaxe et les paramètres.|
-|métadonnées|Définit le nom et l’emplacement du fichier de métadonnées de la création de clichés instantanés. Consultez [définir les métadonnées](set-metadata.md) pour la syntaxe et les paramètres.|
+|Option|Définit des options pour la création de clichés instantanés. Pour connaître la syntaxe et les paramètres, consultez [set option](set-option.md) .|
+|commentaires|Active ou désactive le mode de sortie détaillé. Consultez [définir verbose](set-verbose.md) pour la syntaxe et les paramètres.|
+|métadonnées|Définit le nom et l’emplacement du fichier de métadonnées de création de clichés instantanés. Consultez [définir les métadonnées](set-metadata.md) pour la syntaxe et les paramètres.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

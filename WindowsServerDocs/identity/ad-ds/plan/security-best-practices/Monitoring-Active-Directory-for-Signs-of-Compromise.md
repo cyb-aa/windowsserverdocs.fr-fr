@@ -7,340 +7,340 @@ ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 40d0d06f8d6d25c2c1dbf4662d3296a996d22055
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ba67a5fcc127bbe6ffce9454ff98fd3bc3725e55
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882940"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71367711"
 ---
 # <a name="monitoring-active-directory-for-signs-of-compromise"></a>Surveillance des signes de compromission d'Active Directory
 
->S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-*La loi numéro cinq : Vigilance externe est le prix de la sécurité.* - [10 lois immuables de l’Administration de la sécurité](https://technet.microsoft.com/library/cc722488.aspx)  
+@no__t 0Law numéro cinq : Externes vigilance est le prix de la sécurité. * - [10 lois immuables de l’administration de la sécurité](https://technet.microsoft.com/library/cc722488.aspx)  
   
-Un solid journal des événements système de surveillance est un élément essentiel de toute conception Active Directory sécurisée. Nombreuses violations de sécurité ordinateur pourrait être détectées au début de l’événement si victimes mises en œuvre la surveillance et les alertes journal d’événements approprié. Rapports indépendants ont en charge depuis longtemps à cette conclusion. Par exemple, le [rapport de violation des données Verizon 2009](http://www.verizonbusiness.com/resources/security/reports/2009_databreach_rp.pdf) états :  
+Un système de surveillance du journal des événements solide est un élément essentiel de toute conception de Active Directory sécurisée. De nombreuses compromissions de la sécurité de l’ordinateur peuvent être découvertes tôt dans le cas où les victimes d’une surveillance et d’alertes appropriées du journal des événements. Les rapports indépendants ont pris en charge cette conclusion à long terme. Par exemple, le [rapport de violation de données 2009 Verizon](http://www.verizonbusiness.com/resources/security/reports/2009_databreach_rp.pdf) indique les États suivants :  
   
-« L’inefficacité apparente de l’analyse de surveillance et de journaux des événements reste quelque sorte une énigme. L’opportunité pour la détection est enquêteurs de noter que 66 % des victimes avait suffisamment d’éléments disponible au sein de leurs journaux pour découvrir la violation s’ils avaient été plus soucieux de l’analyse de ces ressources. »  
+«L’inefficacité apparente de la surveillance des événements et de l’analyse des journaux continue d’être un peu plus d’un Enigma. L’opportunité de la détection est là ; les investigateurs ont noté que 66% des victimes avaient suffisamment d’éléments de preuve disponibles dans leurs journaux pour découvrir la violation de ces ressources.»  
   
-Ce manque de surveillance des journaux d’événements actives reste une faiblesse cohérente dans les plans de défense de sécurité de nombreuses sociétés. Le [rapport de divulgation de données Verizon 2012](http://www.verizonbusiness.com/resources/reports/rp_data-breach-investigations-report-2012_en_xg.pdf) trouvé que bien que 85 % des violations a duré plusieurs semaines pour être remarqué, 84 % des victimes avait preuve de la violation dans leurs journaux des événements.  
+Ce manque de surveillance des journaux des événements actifs reste une faille cohérente dans les plans de défense de la sécurité des entreprises. Le [rapport de divulgation de données 2012 Verizon](http://www.verizonbusiness.com/resources/reports/rp_data-breach-investigations-report-2012_en_xg.pdf) a détecté que, même si 85% des violations ont duré plusieurs semaines, 84% des victimes avaient prouvé la violation dans leurs journaux d’événements.  
   
-## <a name="windows-audit-policy"></a>Stratégie d’Audit de Windows
+## <a name="windows-audit-policy"></a>Stratégie d’audit Windows
 
-Voici des liens vers le blog de support technique de Microsoft enterprise officiel. Le contenu de ces blogs fournit des conseils, des instructions et des recommandations sur l’audit qui vous aideront à améliorer la sécurité de votre infrastructure Active Directory et sont des ressources précieuses lors de la conception d’une stratégie d’audit.  
+Vous trouverez ci-dessous des liens vers le blog du support Microsoft Official Enterprise. Le contenu de ces blogs fournit des conseils, des conseils et des recommandations sur l’audit qui vous aideront à améliorer la sécurité de votre infrastructure de Active Directory et vous serez une ressource précieuse lors de la conception d’une stratégie d’audit.  
   
-* [Audit d’accès objet global est magique](http://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) -décrit un mécanisme de contrôle appelé Advanced Configuration stratégie d’Audit qui a été ajouté à Windows 7 et Windows Server 2008 R2 qui permet de vous définir quels types de données que vous souhaitez auditer facilement et pas jongler avec les scripts et auditpol.exe.  
-* [Présentation de l’audit des modifications dans Windows 2008](http://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) -introduit les modifications audit apportées dans Windows Server 2008.  
-* [Refroidir l’audit des astuces dans Vista et 2008](http://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) -explique les fonctionnalités d’audit intéressantes de Windows Vista et Windows Server 2008 qui peut être utilisé pour la résolution des problèmes ou pour voir ce qui se passe dans votre environnement.  
-* [Guichet unique pour l’audit dans Windows Server 2008 et Windows Vista](http://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) -contient une compilation de l’audit des fonctionnalités et les informations contenues dans Windows Server 2008 et Windows Vista.  
+* [L’audit d’accès global aux objets est](http://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) un mécanisme de contrôle appelé configuration avancée de la stratégie d’audit qui a été ajouté à Windows 7 et windows Server 2008 R2, qui vous permet de définir les types de données que vous souhaitez auditer facilement, sans jongler avec les scripts et auditpol. exe.  
+* [Présentation des modifications d’audit dans windows 2008](http://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : présente les modifications apportées aux audits dans windows Server 2008.  
+* [Astuces d’audit intéressantes dans Vista et 2008](http://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : explique les fonctionnalités d’audit intéressantes de Windows Vista et de windows Server 2008 qui peuvent être utilisées pour résoudre des problèmes ou voir ce qui se passe dans votre environnement.  
+* [One-Stop pour l’audit dans Windows server 2008 et Windows Vista](http://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : contient une compilation des fonctionnalités d’audit et des informations contenues dans windows Server 2008 et Windows Vista.  
   
-Les liens suivants fournissent plus d’informations sur les améliorations apportées à Windows de l’audit dans Windows 8 et Windows Server 2012 et des informations sur les services AD DS l’audit dans Windows Server 2008.  
+Les liens suivants fournissent des informations sur les améliorations apportées à l’audit Windows dans Windows 8 et Windows Server 2012, ainsi que des informations sur l’audit d’AD DS dans Windows Server 2008.  
   
-* [Quelles sont les nouveautés dans l’audit de sécurité](https://technet.microsoft.com/library/hh849638.aspx) -fournit une vue d’ensemble de fonctionnalités dans Windows 8 et Windows Server 2012 d’audit de sécurité de nouveau.  
-* [Guide pas à pas d’audit d’AD DS](https://technet.microsoft.com/library/a9c25483-89e2-4202-881c-ea8e02b4b2a5.aspx) -décrit la nouvelle fonctionnalité audit de Services de domaine Active Directory (AD DS) dans Windows Server 2008. Il fournit également des procédures pour implémenter cette nouvelle fonctionnalité.  
+* [Nouveautés de l’audit de sécurité](https://technet.microsoft.com/library/hh849638.aspx) -fournit une vue d’ensemble des nouvelles fonctionnalités d’audit de sécurité dans Windows 8 et windows server 2012.  
+* [Guide pas à pas d’audit de AD DS](https://technet.microsoft.com/library/a9c25483-89e2-4202-881c-ea8e02b4b2a5.aspx) : décrit la nouvelle fonctionnalité d’audit Active Directory Domain Services (AD DS) dans Windows Server 2008. Il fournit également des procédures permettant d’implémenter cette nouvelle fonctionnalité.  
   
-### <a name="windows-audit-categories"></a>Catégories d’Audit de Windows
+### <a name="windows-audit-categories"></a>Catégories d’audit Windows
 
-Avant Windows Vista et Windows Server 2008, Windows avait uniquement neuf catégories de stratégie journal des événements d’audit :  
+Avant Windows Vista et Windows Server 2008, Windows avait seulement neuf catégories de stratégie d’audit des journaux des événements :  
   
 * Événements d’ouverture de session de compte  
 * Gestion du compte  
-* Accès au Service  
-* Événements d’ouverture de session  
+* Accès au service d’annuaire  
+* Événements de connexion  
 * Accès aux objets  
 * Modification de la stratégie  
 * Utilisation des privilèges  
 * Suivi des processus  
-* Événements du système  
+* Événements système  
   
-Ces neuf catégories d’audit traditionnel constituent une stratégie d’audit. Chaque catégorie de stratégie d’audit peut être activé pour la réussite, échec et d’échec ou réussite événements. Leurs descriptions sont incluses dans la section suivante.  
+Ces neuf catégories d’audit traditionnelles comprennent une stratégie d’audit. Chaque catégorie de stratégie d’audit peut être activée pour les événements de réussite, d’échec ou de réussite et d’échec. Leurs descriptions sont incluses dans la section suivante.  
   
-#### <a name="audit-policy-category-descriptions"></a>Descriptions de catégorie de stratégie d’audit  
-Les catégories de stratégie d’audit activer les types de message de journal des événements suivants.  
+#### <a name="audit-policy-category-descriptions"></a>Descriptions des catégories de stratégie d’audit  
+Les catégories de stratégie d’audit activent les types de messages du journal des événements suivants.  
   
-##### <a name="audit-account-logon-events"></a>Auditer les événements d’ouverture de session comptes  
-Signale chaque instance d’un principal de sécurité (par exemple, utilisateur, ordinateur ou compte de service) qui est à connexion ou déconnexion d’un ordinateur dans lequel un autre ordinateur est utilisé pour valider le compte. Événements d’ouverture de session de compte sont générés lorsqu’un compte de principal de sécurité de domaine est authentifié sur un contrôleur de domaine. Authentification d’un utilisateur local sur un ordinateur local génère un événement d’ouverture de session qui est consigné dans le journal de sécurité local. Aucun événement de fermeture de session de compte n’est enregistrés.  
+##### <a name="audit-account-logon-events"></a>Auditer les événements de connexion au compte  
+Signale chaque instance d’un principal de sécurité (par exemple, un compte d’utilisateur, d’ordinateur ou de service) qui se connecte à ou se déconnecte d’un ordinateur dans lequel un autre ordinateur est utilisé pour valider le compte. Les événements d’ouverture de session de compte sont générés lorsqu’un compte de principal de sécurité de domaine est authentifié sur un contrôleur de domaine. L’authentification d’un utilisateur local sur un ordinateur local génère un événement d’ouverture de session qui est consigné dans le journal de sécurité local. Aucun événement de déconnexion de compte n’est enregistré.  
   
-Cette catégorie génère un grand nombre de « bruit », car Windows rencontre constamment des comptes d’ouverture de session sur et désactivés sur les ordinateurs locaux et distants en cours normal de l’entreprise. Malgré tout, tout plan de sécurité doit inclure la réussite et Échec de cette catégorie d’audit.  
+Cette catégorie génère beaucoup de « bruit », car Windows dispose constamment de comptes ouvrant une session sur les ordinateurs locaux et distants au cours d’une activité normale. Toutefois, tout plan de sécurité doit inclure la réussite et l’échec de cette catégorie d’audit.  
   
-##### <a name="audit-account-management"></a>Gestion des comptes d’audit  
-Ce paramètre d’audit détermine s’il faut effectuer le suivi de la gestion des utilisateurs et groupes. Par exemple, utilisateurs et groupes doivent être suivies lorsqu’un utilisateur ou compte d’ordinateur, un groupe de sécurité ou un groupe de distribution est créé, modifié ou supprimé. Quand un utilisateur ou compte d’ordinateur est renommé, désactivé ou activé ; ou qu’un mot de passe d’utilisateur ou d’ordinateur est modifié. Un événement peut être généré pour les utilisateurs ou groupes qui sont ajoutés ou supprimés à partir d’autres groupes.  
+##### <a name="audit-account-management"></a>Auditer la gestion des comptes  
+Ce paramètre d’audit détermine s’il faut effectuer le suivi de la gestion des utilisateurs et des groupes. Par exemple, les utilisateurs et les groupes doivent être suivis lorsqu’un compte d’utilisateur ou d’ordinateur, un groupe de sécurité ou un groupe de distribution est créé, modifié ou supprimé ; Lorsqu’un compte d’utilisateur ou d’ordinateur est renommé, désactivé ou activé ; ou lorsque le mot de passe d’un utilisateur ou d’un ordinateur est modifié. Un événement peut être généré pour des utilisateurs ou des groupes qui sont ajoutés ou supprimés d’autres groupes.  
   
 ##### <a name="audit-directory-service-access"></a>Auditer l’accès au service d’annuaire  
 
-Ce paramètre de stratégie détermine si pour auditer l’accès au principal de sécurité à un objet Active Directory qui a sa propre liste de contrôle d’accès spécifiée du système (SACL). En règle générale, cette catégorie doit uniquement être activée sur les contrôleurs de domaine. Lorsque l’option est activée, ce paramètre génère un grand nombre de « bruit ».  
+Ce paramètre de stratégie détermine s’il faut auditer l’accès du principal de sécurité à un objet Active Directory qui a sa propre liste de contrôle d’accès système (SACL) spécifiée. En général, cette catégorie doit être activée uniquement sur les contrôleurs de domaine. Lorsqu’il est activé, ce paramètre génère beaucoup de « bruit ».  
   
-##### <a name="audit-logon-events"></a>Auditer les événements d’ouverture de session  
-Les événements d’ouverture de session sont générés lorsqu’un principal de sécurité local est authentifié sur un ordinateur local. Les événements d’ouverture de session enregistre les ouvertures de session de domaine qui se produisent sur l’ordinateur local. Événements de fermeture de session de compte ne sont pas générés. Lorsque l’option est activée, les événements d’ouverture de session génère un grand nombre de « bruit », mais elles doivent être activées par défaut dans n’importe quel plan d’audit de sécurité.  
+##### <a name="audit-logon-events"></a>Auditer les événements de connexion  
+Les événements d’ouverture de session sont générés lorsqu’une entité de sécurité locale est authentifiée sur un ordinateur local. Les événements d’ouverture de session consignent les ouvertures de session de domaine qui se produisent sur l’ordinateur local. Les événements de fermeture de session de compte ne sont pas générés. Lorsque cette option est activée, les événements d’ouverture de session génèrent beaucoup de « bruit », mais ils doivent être activés par défaut dans n’importe quel plan d’audit de sécurité.  
   
-##### <a name="audit-object-access"></a>Audit Object Access  
-Accès aux objets peut générer des événements lorsque des objets définis par la suite avec l’audit est activé sont accessibles (par exemple, Opened, lecture, renommé, supprimé ou fermé). Une fois la catégorie d’audit principale est activée, l’administrateur doit définir individuellement les objets qui sera l’audit activé. Nombre d’objets système Windows sont fournis avec l’audit est activé, afin de l’activation de cette catégorie généralement commence à générer des événements avant que l’administrateur a défini une.  
+##### <a name="audit-object-access"></a>Auditer l’accès aux objets  
+L’accès aux objets peut générer des événements lorsque des objets définis par la suite avec l’audit activé sont accessibles (par exemple, ouvert, lu, renommé, supprimé ou fermé). Une fois la catégorie d’audit principale activée, l’administrateur doit définir individuellement les objets pour lesquels l’audit est activé. De nombreux objets système Windows sont livrés avec l’audit activé. ainsi, l’activation de cette catégorie commencera généralement à générer des événements avant que l’administrateur en ait défini un.  
   
-Cette catégorie est très « bruyante » et génère des événements de cinq à dix chaque accès à un objet. Il peut être difficile pour les administrateurs de nouveau à l’audit d’objets obtenir des informations utiles. Elle doit être activée uniquement si nécessaire.  
+Cette catégorie est très « bruyante » et génère cinq à dix événements pour chaque accès à un objet. Il peut être difficile pour les administrateurs qui débutent dans l’audit d’objets d’obtenir des informations utiles. Elle doit être activée uniquement lorsque cela est nécessaire.  
   
-##### <a name="auditing-policy-change"></a>L’audit des modifications de stratégie  
-Ce paramètre de stratégie détermine s’il faut auditer chaque instance d’une modification de stratégies de droits d’utilisateur, les stratégies de pare-feu de Windows, les stratégies d’approbation ou les modifications apportées à la stratégie d’audit. Cette catégorie doit être activée sur tous les ordinateurs. Il génère très peu de bruit.  
+##### <a name="auditing-policy-change"></a>Modification de la stratégie d’audit  
+Ce paramètre de stratégie détermine s’il faut auditer chaque incidence d’une modification apportée aux stratégies d’attribution de droits d’utilisateur, stratégies de pare-feu Windows, stratégies d’approbation ou modifications apportées à la stratégie d’audit. Cette catégorie doit être activée sur tous les ordinateurs. Il génère très peu de bruit.  
   
-##### <a name="audit-privilege-use"></a>Utilisation des privilèges d’audit  
+##### <a name="audit-privilege-use"></a>Auditer l’utilisation des privilèges  
 
-Il existe des dizaines de droits d’utilisateur et les autorisations dans Windows (par exemple, d’ouverture de session en tant que traitement par lots et agir en tant que partie du système d’exploitation). Ce paramètre de stratégie détermine s’il faut auditer chaque instance d’une entité de sécurité en exerçant un droit d’utilisateur ou un privilège. L’activation des résultats de cette catégorie dans un grand nombre de « bruit », mais il peut être utile dans le suivi des comptes de principal de sécurité avec des privilèges élevés.  
+Il existe des dizaines de droits d’utilisateur et d’autorisations dans Windows (par exemple, ouverture de session en tant que traitement par lots et agir en tant que partie du système d’exploitation). Ce paramètre de stratégie détermine s’il faut auditer chaque instance d’un principal de sécurité en exerçant un droit d’utilisateur ou un privilège. L’activation de cette catégorie entraîne un « bruit », mais elle peut être utile pour suivre les comptes d’entités de sécurité à l’aide de privilèges élevés.  
   
-##### <a name="audit-process-tracking"></a>Suivi du processus d’audit  
-Ce paramètre de stratégie détermine s’il faut auditer le processus détaillé suivi des informations relatives aux événements tels que l’activation de programme, la sortie du processus, duplication de handle et accès indirect aux objets. Il est utile pour le suivi des utilisateurs malveillants et les programmes qu’ils utilisent.  
+##### <a name="audit-process-tracking"></a>Auditer le suivi des processus  
+Ce paramètre de stratégie détermine s’il faut auditer les informations détaillées de suivi des processus pour les événements tels que l’activation du programme, la sortie du processus, la duplication des handles et l’accès indirect aux objets. Il est utile pour le suivi des utilisateurs malveillants et des programmes qu’ils utilisent.  
   
-Activer le suivi des processus d’Audit génère un grand nombre d’événements, par conséquent, en général, elle est définie sur **aucun audit**. Toutefois, ce paramètre peut fournir un énorme avantage au cours de la réponse aux incidents à partir du journal détaillé des processus démarré et le temps qu’ils ont été lancées. Pour les contrôleurs de domaine et d’autres serveurs d’infrastructure du seul rôle, cette catégorie peut être activée en toute sécurité sur tout le temps. Serveurs de rôle unique ne génèrent pas de processus beaucoup suivi du trafic en cours normal de leurs fonctions. Par conséquent, être activés pour capturer les événements non autorisés s’ils se produisent.  
+L’activation du suivi des processus d’audit génère un grand nombre d’événements. il est donc généralement défini sur **aucun audit**. Toutefois, ce paramètre peut fournir un avantage considérable au cours d’une réponse à un incident à partir du journal détaillé des processus démarrés et de l’heure à laquelle ils ont été lancés. Pour les contrôleurs de domaine et d’autres serveurs d’infrastructure à rôle unique, cette catégorie peut être activée en toute sécurité. Les serveurs à rôle unique ne génèrent pas beaucoup de trafic de suivi des processus dans le cadre normal de leurs tâches. Par conséquent, ils peuvent être activés pour capturer les événements non autorisés s’ils se produisent.  
   
 ##### <a name="system-events-audit"></a>Audit des événements système  
 
-Événements du système est presque une catégorie fourre-tout générique, l’inscription des différents événements ayant un impact sur l’ordinateur, sa sécurité système ou le journal de sécurité. Il inclut des événements pour arrêts de l’ordinateur redémarre, pannes d’alimentation, changement d’heure système, initialisations de package d’authentification, clearings de journal d’audit, des problèmes de l’emprunt d’identité et une multitude d’autres événements générales. En règle générale, l’activation de cette catégorie d’audit génère un grand nombre de « bruit », mais il génère suffisamment très utile d’événements qu’il est difficile à jamais ne recommandons pas l’activer.  
+Les événements système sont presque une catégorie générique de rattrapage, qui consiste à inscrire divers événements qui ont un impact sur l’ordinateur, sa sécurité système ou le journal de sécurité. Il comprend des événements pour les arrêts de l’ordinateur et les redémarrages, les pannes d’alimentation, les modifications de l’heure du système, les initialisations du package d’authentification, les effacs du journal d’audit, les problèmes d’emprunt d’identité et un hôte d’autres événements généraux. En général, l’activation de cette catégorie d’audit génère beaucoup de « bruit », mais elle génère suffisamment d’événements très utiles, qu’il est difficile de ne jamais activer.  
   
-#### <a name="advanced-audit-policies"></a>Stratégies d’Audit avancée
+#### <a name="advanced-audit-policies"></a>Stratégies d’audit avancées
 
-À partir de Windows Vista et Windows Server 2008, Microsoft a amélioré la façon de sélections de catégorie de journal des événements peuvent être effectuées en créant des sous-catégories sous chaque catégorie d’audit principale. Les sous-catégories permettent à être beaucoup plus granulaire qu’il est impossible dans le cas contraire à l’aide les principales catégories d’audit. À l’aide de sous-catégories, vous pouvez activer uniquement les parties d’une catégorie principale particulière et ignorer la génération d’événements pour lesquels vous ne disposez d’aucune utilité. Chaque sous-catégorie d’audit peut être activée pour la réussite, l’échec, ou la réussite et l’échec.  
+À compter de Windows Vista et de Windows Server 2008, Microsoft a amélioré la façon dont les sélections de catégories du journal des événements peuvent être effectuées en créant des sous-catégories sous chaque catégorie d’audit principale. Les sous-catégories permettent à l’audit d’être beaucoup plus granulaire qu’en utilisant les catégories principales. En utilisant des sous-catégories, vous pouvez activer uniquement des parties d’une catégorie principale particulière et ignorer la génération d’événements pour lesquels vous n’avez pas d’utilisation. Chaque sous-catégorie d’audit peut être activée pour la réussite, l’échec, ou la réussite et l’échec.  
   
-Pour répertorier toutes les sous-catégories d’audit disponibles, passez en revue le conteneur de stratégie d’Audit avancée dans un objet de stratégie de groupe, ou tapez la commande suivante à une invite de commandes sur n’importe quel ordinateur exécutant Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008, Windows 8, Windows 7 ou Windows Vista :  
+Pour répertorier toutes les sous-catégories d’audit disponibles, examinez le conteneur de stratégie d’audit avancé dans un objet stratégie de groupe ou tapez la commande suivante à l’invite de commandes sur n’importe quel ordinateur exécutant Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008, Windows 8, Windows 7 ou Windows Vista :  
   
-`auditpol /list /subcategory:\*`
+`auditpol /list /subcategory:*`
   
-Pour obtenir une liste de sous-catégories d’audit actuellement configurés sur un ordinateur exécutant Windows Server 2012, Windows Server 2008 R2 ou Windows 2008, tapez la commande suivante :  
+Pour obtenir la liste des sous-catégories d’audit actuellement configurées sur un ordinateur exécutant Windows Server 2012, Windows Server 2008 R2 ou Windows 2008, tapez la commande suivante :  
   
-`auditpol /get /category:\*`
+`auditpol /get /category:*`
   
-La capture d’écran suivante montre un exemple de auditpol.exe répertoriant la stratégie d’audit actuelle.  
+La capture d’écran suivante montre un exemple d’auditpol. exe qui répertorie la stratégie d’audit actuelle.  
   
-![surveillance d’Active Directory](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_5.gif)  
+![surveillance d’AD](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_5.gif)  
   
 > [!NOTE]  
-> Stratégie de groupe ne signale pas toujours avec précision l’état de toutes les stratégies d’audit est activées, contrairement à auditpol.exe. Consultez [l’obtention de la stratégie d’Audit efficace dans Windows 7 et 2008 R2](http://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) pour plus d’informations.  
+> Stratégie de groupe ne signale pas toujours avec précision l’état de toutes les stratégies d’audit activées, contrairement à auditpol. exe. Pour plus d’informations, consultez obtention d’une [stratégie d’audit efficace dans Windows 7 et 2008 R2](http://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
   
-Chaque catégorie principale a plusieurs sous-catégories. Voici une liste de catégories, leurs sous-catégories et une description de leurs fonctions.  
+Chaque catégorie principale a plusieurs sous-catégories. Vous trouverez ci-dessous une liste des catégories, des sous-catégories et une description de leurs fonctions.  
   
 ### <a name="auditing-subcategories-descriptions"></a>Descriptions des sous-catégories d’audit  
-Sous-catégories de stratégie d’audit activer les types de message de journal des événements suivants :  
+Les sous-catégories de stratégie d’audit activent les types de message de journal des événements suivants :  
   
-#### <a name="account-logon"></a>Connexion au compte  
+#### <a name="account-logon"></a>Ouverture de session de compte  
   
 ##### <a name="credential-validation"></a>Validation des informations d’identification  
-Cette sous-catégorie signale les résultats des tests de validation sur les informations d’identification soumises à une demande d’ouverture de session du compte utilisateur. Ces événements se produisent sur l’ordinateur qui fait autorité pour les informations d’identification. Pour les comptes de domaine, le contrôleur de domaine fait autorité, tandis que pour les comptes locaux, l’ordinateur local est faisant autorité.  
+Cette sous-catégorie signale les résultats des tests de validation sur les informations d’identification soumises pour une demande d’ouverture de session de compte d’utilisateur. Ces événements se produisent sur l’ordinateur qui fait autorité pour les informations d’identification. Pour les comptes de domaine, le contrôleur de domaine fait autorité, tandis que pour les comptes locaux, l’ordinateur local fait autorité.  
   
-Dans les environnements de domaine, la plupart des événements d’ouverture de session de compte est enregistrée dans le journal de sécurité des contrôleurs de domaine faisant autorité pour les comptes de domaine. Toutefois, ces événements peuvent se produire sur d’autres ordinateurs de l’organisation lorsque les comptes locaux sont utilisés pour se connecter.  
+Dans les environnements de domaine, la plupart des événements d’ouverture de session de compte sont consignés dans le journal de sécurité des contrôleurs de domaine faisant autorité pour les comptes de domaine. Toutefois, ces événements peuvent se produire sur d’autres ordinateurs de l’organisation lorsque des comptes locaux sont utilisés pour ouvrir une session.  
   
-##### <a name="kerberos-service-ticket-operations"></a>Opérations de Ticket de Service Kerberos  
-Cette sous-catégorie signale les événements générés par le processus de demande de ticket Kerberos du contrôleur de domaine qui fait autorité pour le compte de domaine.  
+##### <a name="kerberos-service-ticket-operations"></a>Opérations de ticket de service Kerberos  
+Cette sous-catégorie signale les événements générés par les processus de demande de ticket Kerberos sur le contrôleur de domaine faisant autorité pour le compte de domaine.  
   
 ##### <a name="kerberos-authentication-service"></a>Service d’authentification Kerberos  
 Cette sous-catégorie signale les événements générés par le service d’authentification Kerberos. Ces événements se produisent sur l’ordinateur qui fait autorité pour les informations d’identification.  
   
 ##### <a name="other-account-logon-events"></a>Autres événements d’ouverture de session de compte  
-Cette sous-catégorie signale les événements qui se produisent en réponse aux informations d’identification soumis à une demande d’ouverture de session du compte utilisateur qui ne sont pas liées à la validation des informations d’identification ou les tickets Kerberos. Ces événements se produisent sur l’ordinateur qui fait autorité pour les informations d’identification. Pour les comptes de domaine, le contrôleur de domaine fait autorité, tandis que pour les comptes locaux, l’ordinateur local est faisant autorité.  
+Cette sous-catégorie signale les événements qui se produisent en réponse aux informations d’identification soumises pour une demande d’ouverture de session de compte d’utilisateur qui ne sont pas liées à la validation des informations d’identification ou aux tickets Kerberos. Ces événements se produisent sur l’ordinateur qui fait autorité pour les informations d’identification. Pour les comptes de domaine, le contrôleur de domaine fait autorité, tandis que pour les comptes locaux, l’ordinateur local fait autorité.  
   
-Dans les environnements de domaine, la plupart des événements d’ouverture de session de compte sont enregistrés dans le journal de sécurité des contrôleurs de domaine faisant autorité pour les comptes de domaine. Toutefois, ces événements peuvent se produire sur d’autres ordinateurs de l’organisation lorsque les comptes locaux sont utilisés pour se connecter. Exemples peuvent être les suivants :  
+Dans les environnements de domaine, la plupart des événements d’ouverture de session de compte sont consignés dans le journal de sécurité des contrôleurs de domaine faisant autorité pour les comptes de domaine. Toutefois, ces événements peuvent se produire sur d’autres ordinateurs de l’organisation lorsque des comptes locaux sont utilisés pour ouvrir une session. Voici quelques exemples :  
   
-* Déconnexions de session Services Bureau à distance  
+* Services Bureau à distance des déconnexions de session  
 * Nouvelles sessions de Services Bureau à distance  
 * Verrouillage et déverrouillage d’une station de travail  
-* Appel d’un écran de veille  
-* Faire disparaître un économiseur d’écran  
-* Détection d’un Kerberos relire l’attaque, dans lequel une requête Kerberos avec des informations identiques est reçue à deux reprises  
+* Appel d’un économiseur d’écran  
+* Disparition d’un écran de veille  
+* Détection d’une attaque par relecture Kerberos, dans laquelle une demande Kerberos avec des informations identiques est reçue deux fois  
 * Accès à un réseau sans fil accordé à un compte d’utilisateur ou d’ordinateur  
-* Accès à un câblé 802. 1 x réseau accordé à un utilisateur ou compte d’ordinateur  
+* Accès à un réseau 802.1 x câblé accordé à un compte d’utilisateur ou d’ordinateur  
   
 #### <a name="account-management"></a>Gestion du compte  
   
 ##### <a name="user-account-management"></a>Gestion des comptes d’utilisateur  
-Cette sous-catégorie signale chaque événement de gestion des comptes utilisateur, par exemple quand un compte d’utilisateur est créé, modifié ou supprimé ; un compte d’utilisateur est renommé, désactivé ou activé ; ou un mot de passe est défini ou modifié. Si ce paramètre de stratégie d’audit est activé, les administrateurs peuvent suivre les événements pour détecter malveillante, accidentelle et autorisée la création de comptes d’utilisateur.  
+Cette sous-catégorie signale chaque événement de la gestion des comptes d’utilisateur, par exemple lorsqu’un compte d’utilisateur est créé, modifié ou supprimé ; un compte d’utilisateur est renommé, désactivé ou activé ; ou un mot de passe est défini ou modifié. Si ce paramètre de stratégie d’audit est activé, les administrateurs peuvent suivre les événements pour détecter la création de comptes d’utilisateur malveillants, accidentels et autorisés.  
   
-##### <a name="computer-account-management"></a>Gestion de compte d’ordinateur  
-Cette sous-catégorie signale chaque événement de gestion de compte d’ordinateur, telles que quand un compte d’ordinateur est créé, modifié, supprimé, renommé, désactivé ou activé.  
+##### <a name="computer-account-management"></a>Gestion des comptes d’ordinateur  
+Cette sous-catégorie signale chaque événement de gestion de compte d’ordinateur, par exemple lorsqu’un compte d’ordinateur est créé, modifié, supprimé, renommé, désactivé ou activé.  
   
-##### <a name="security-group-management"></a>Gestion de groupe de sécurité  
-Cette sous-catégorie signale chaque événement de la gestion de groupe de sécurité, telles que lorsqu’un groupe de sécurité est créé, modifié ou supprimé ou lorsqu’un membre est ajouté ou supprimé d’un groupe de sécurité. Si ce paramètre de stratégie d’audit est activé, les administrateurs peuvent suivre les événements pour détecter malveillante, accidentelle et autorisée la création de comptes de groupe de sécurité.  
+##### <a name="security-group-management"></a>Gestion des groupes de sécurité  
+Cette sous-catégorie signale chaque événement de la gestion des groupes de sécurité, par exemple lorsqu’un groupe de sécurité est créé, modifié ou supprimé ou lorsqu’un membre est ajouté ou supprimé dans un groupe de sécurité. Si ce paramètre de stratégie d’audit est activé, les administrateurs peuvent effectuer le suivi des événements pour détecter les comptes de groupe de sécurité malveillants, accidentels et autorisés.  
   
 ##### <a name="distribution-group-management"></a>Gestion des groupes de distribution  
-Cette sous-catégorie signale chaque événement de la gestion de groupe de distribution, par exemple quand un groupe de distribution est créé, modifié ou supprimé ou lorsqu’un membre est ajouté ou supprimé d’un groupe de distribution. Si ce paramètre de stratégie d’audit est activé, les administrateurs peuvent suivre les événements pour détecter malveillante et accidentelle autorisée la création de comptes de groupe.  
+Cette sous-catégorie signale chaque événement de la gestion des groupes de distribution, par exemple lorsqu’un groupe de distribution est créé, modifié ou supprimé ou lorsqu’un membre est ajouté ou supprimé dans un groupe de distribution. Si ce paramètre de stratégie d’audit est activé, les administrateurs peuvent suivre les événements pour détecter la création de comptes de groupe malveillants, accidentels et autorisés.  
   
-##### <a name="application-group-management"></a>Gestion de groupe d’applications  
-Cette sous-catégorie signale chaque événement de groupe de gestion des applications sur un ordinateur, par exemple quand un groupe d’application est créé, modifié ou supprimé ou lorsqu’un membre est ajouté ou supprimé à partir d’un groupe d’applications. Si ce paramètre de stratégie d’audit est activé, les administrateurs peuvent suivre les événements pour détecter malveillante et accidentelle autorisée la création du groupe de comptes d’application.  
+##### <a name="application-group-management"></a>Gestion des groupes d’applications  
+Cette sous-catégorie signale chaque événement de gestion des groupes d’applications sur un ordinateur, par exemple lorsqu’un groupe d’applications est créé, modifié ou supprimé ou lorsqu’un membre est ajouté ou supprimé dans un groupe d’applications. Si ce paramètre de stratégie d’audit est activé, les administrateurs peuvent suivre les événements pour détecter la création d’un compte de groupe d’applications malveillant, accidentel et autorisé.  
   
 ##### <a name="other-account-management-events"></a>Autres événements de gestion des comptes  
-Cette sous-catégorie signale les autres événements de gestion des comptes.  
+Cette sous-catégorie signale d’autres événements de gestion des comptes.  
   
-#### <a name="detailed-process-tracking"></a>Processus détaillé suivi  
+#### <a name="detailed-process-tracking"></a>Suivi détaillé des processus  
   
 ##### <a name="process-creation"></a>Création de processus  
-Cette sous-catégorie signale la création d’un processus et le nom de l’utilisateur ou d’un programme qui l’a créée.  
+Cette sous-catégorie signale la création d’un processus et le nom de l’utilisateur ou du programme qui l’a créé.  
   
 ##### <a name="process-termination"></a>Arrêt du processus  
-Cette sous-catégorie signale quand un processus se termine.  
+Cette sous-catégorie signale le moment où un processus se termine.  
   
 ##### <a name="dpapi-activity"></a>Activité DPAPI  
-Cette sous-catégorie signale les chiffrer ou déchiffrer appelle le data protection application programming interface (DPAPI). DPAPI est utilisé pour protéger les informations secrètes comme mot de passe stockée et les informations de clé.  
+Cette sous-catégorie signale les appels de chiffrement ou de déchiffrement dans l’interface de programmation d’applications de protection des données (DPAPI). DPAPI est utilisé pour protéger les informations confidentielles, telles que le mot de passe stocké et les informations de clé.  
   
 ##### <a name="rpc-events"></a>Événements RPC  
-Cette procédure à distance de rapports de sous-catégorie appeler des événements de connexion (RPC).  
+Cette sous-catégorie signale les événements de connexion d’appel de procédure distante (RPC).  
   
-#### <a name="directory-service-access"></a>Accès au Service  
+#### <a name="directory-service-access"></a>Accès au service d’annuaire  
   
-##### <a name="directory-service-access"></a>Accès au Service  
-Cette sous-catégorie signale lors de l’accès à un objet AD DS. Seuls les objets avec des listes SACL configuré entraînent être généré et uniquement lorsqu’ils sont accessibles de manière qui correspond aux entrées de la liste SACL d’événements d’audit. Ces événements sont similaires aux événements de l’accès de service d’annuaire dans les versions antérieures de Windows Server. Cette sous-catégorie s’applique uniquement aux contrôleurs de domaine.  
+##### <a name="directory-service-access"></a>Accès au service d’annuaire  
+Cette sous-catégorie signale l’accès à un objet AD DS. Seuls les objets avec des listes SACL configurées provoquent la génération d’événements d’audit et uniquement lorsqu’ils sont accessibles de manière à correspondre aux entrées SACL. Ces événements sont semblables aux événements d’accès au service d’annuaire dans les versions antérieures de Windows Server. Cette sous-catégorie s’applique uniquement aux contrôleurs de domaine.  
   
-##### <a name="directory-service-changes"></a>Modifications du Service d’annuaire  
-Cette sous-catégorie signale les modifications apportées aux objets dans AD DS. Les types de modifications qui sont signalées sont créer, modifier, déplacer et restaurer les opérations qui sont effectuées sur un objet. Directory service l’audit des modifications, le cas échéant, indique les valeurs anciennes et nouvelles des propriétés modifiées des objets qui ont été modifiés. Seuls les objets avec des listes SACL entraînent être généré et uniquement lorsqu’ils sont accessibles d’une manière qui correspond à leurs entrées de la liste SACL d’événements d’audit. Certains objets et les propriétés ne provoquent pas de génération en raison des paramètres sur la classe d’objet dans le schéma d’événements d’audit. Cette sous-catégorie s’applique uniquement aux contrôleurs de domaine.  
+##### <a name="directory-service-changes"></a>Modifications du service d’annuaire  
+Cette sous-catégorie signale les modifications apportées aux objets dans AD DS. Les types de modifications signalés sont les opérations de création, de modification, de déplacement et d’annulation de suppression effectuées sur un objet. L’audit des modifications du service d’annuaire, le cas échéant, indique les anciennes et nouvelles valeurs des propriétés modifiées des objets qui ont été modifiés. Seuls les objets avec SACL entraînent la génération d’événements d’audit et uniquement lorsqu’ils sont accessibles de manière à correspondre à leurs entrées SACL. Certains objets et propriétés n’entraînent pas la génération d’événements d’audit en raison des paramètres de la classe d’objet dans le schéma. Cette sous-catégorie s’applique uniquement aux contrôleurs de domaine.  
   
-##### <a name="directory-service-replication"></a>Réplication du Service d’annuaire  
-Cette sous-catégorie signale lors de la réplication entre deux contrôleurs de domaine commence et se termine.  
+##### <a name="directory-service-replication"></a>Réplication du service d’annuaire  
+Cette sous-catégorie signale que la réplication entre deux contrôleurs de domaine commence et se termine.  
   
-##### <a name="detailed-directory-service-replication"></a>Réplication du Service d’annuaire détaillé  
-Cette sous-catégorie signale des informations détaillées sur les informations répliquées entre les contrôleurs de domaine. Ces événements peuvent être très élevées dans le volume.  
+##### <a name="detailed-directory-service-replication"></a>Réplication de service d’annuaire détaillée  
+Cette sous-catégorie fournit des informations détaillées sur les informations répliquées entre les contrôleurs de domaine. Ces événements peuvent être très élevés en volume.  
   
-#### <a name="logonlogoff"></a>Logon/Logoff  
+#### <a name="logonlogoff"></a>Ouverture/fermeture de session  
   
 ##### <a name="logon"></a>Ouverture de session  
-Cette sous-catégorie signale quand un utilisateur tente de se connecter au système. Ces événements se produisent sur l’ordinateur accessible. Pour les ouvertures de session interactive, la génération de ces événements se produit sur l’ordinateur qui a ouvert une session. Si une ouverture de session réseau se produit pour accéder à un partage, ces événements génèrent sur l’ordinateur qui héberge la ressource accessible. Si ce paramètre est configuré pour **aucun audit**, il est difficile ou impossible de déterminer quel utilisateur a accédé ou tenté d’accéder aux ordinateurs de l’organisation.  
+Cette sous-catégorie signale quand un utilisateur tente de se connecter au système. Ces événements se produisent sur l’ordinateur auquel vous accédez. Pour les ouvertures de session interactives, la génération de ces événements se produit sur l’ordinateur qui est connecté à. Si une ouverture de session réseau a lieu pour accéder à un partage, ces événements sont générés sur l’ordinateur qui héberge la ressource accédée. Si ce paramètre est configuré sur **aucun audit**, il est difficile, voire impossible, de déterminer quel utilisateur a accédé ou a tenté d’accéder aux ordinateurs de l’organisation.  
   
 ##### <a name="network-policy-server"></a>Serveur NPS (Network Policy Server)  
-Cette sous-catégorie signale les événements générés par les demandes d’accès utilisateur RADIUS (IAS) et la Protection d’accès réseau (NAP). Ces demandes peuvent être **Grant**, **Deny**, **ignorer**, **mise en quarantaine**, **verrou**et **Déverrouiller**. L’audit de ce paramètre entraîne un volume moyen ou élevé d’enregistrements sur les serveurs NPS et IAS.  
+Cette sous-catégorie signale les événements générés par les demandes d’accès utilisateur RADIUS (IAS) et protection d’accès réseau (NAP). Ces demandes peuvent être **accordées**, **refusées**, **ignorées**, **mises en quarantaine**, **verrouillées**et **déverrouillées**. L’audit de ce paramètre entraîne un volume moyen ou élevé d’enregistrements sur les serveurs NPS et IAS.  
   
 ##### <a name="ipsec-main-mode"></a>Mode principal IPsec  
-Cette sous-catégorie signale les résultats de la clé Exchange protocole IKE (Internet) et Internet AuthIP (Authenticated Protocol) au cours des négociations de Mode principal.  
+Cette sous-catégorie signale les résultats du protocole IKE (protocole IKE (Internet Key Exchange) Protocol et protocole Authenticated IP (Authenticated Internet Protocol)) lors des négociations en mode principal.  
   
 ##### <a name="ipsec-extended-mode"></a>Mode étendu IPsec  
-Cette sous-catégorie signale les résultats d’AuthIP à celle des négociations en Mode étendu.  
+Cette sous-catégorie signale les résultats d’AuthIP lors des négociations en mode étendu.  
   
-##### <a name="other-logonlogoff-events"></a>Autres événements d’ouverture de session/fermeture de session  
-Les rapports de cette sous-catégorie autres d’ouverture de session et les événements liés à la fermeture de session, tels que les Services Bureau à distance session se déconnecte et se reconnecte, avec la commande RunAs pour exécuter des processus sous un compte différent et le verrouillage et déverrouillage d’une station de travail.  
+##### <a name="other-logonlogoff-events"></a>Autres événements d’ouverture/de fermeture de session  
+Cette sous-catégorie signale d’autres événements liés à l’ouverture et à la fermeture de session, tels que les déconnexions et les reconnexions de Services Bureau à distance session, à l’aide de RunAs pour exécuter des processus sous un compte différent, et pour le verrouillage et le déverrouillage d’une station de travail.  
   
 ##### <a name="logoff"></a>Fermer la session  
-Cette sous-catégorie signale quand un utilisateur se déconnecte du système. Ces événements se produisent sur l’ordinateur accessible. Pour les ouvertures de session interactive, la génération de ces événements se produit sur l’ordinateur qui a ouvert une session. Si une ouverture de session réseau se produit pour accéder à un partage, ces événements génèrent sur l’ordinateur qui héberge la ressource accessible. Si ce paramètre est configuré pour **aucun audit**, il est difficile ou impossible de déterminer quel utilisateur a accédé ou tenté d’accéder aux ordinateurs de l’organisation.  
+Cette sous-catégorie signale qu’un utilisateur se déconnecte du système. Ces événements se produisent sur l’ordinateur auquel vous accédez. Pour les ouvertures de session interactives, la génération de ces événements se produit sur l’ordinateur qui est connecté à. Si une ouverture de session réseau a lieu pour accéder à un partage, ces événements sont générés sur l’ordinateur qui héberge la ressource accédée. Si ce paramètre est configuré sur **aucun audit**, il est difficile, voire impossible, de déterminer quel utilisateur a accédé ou a tenté d’accéder aux ordinateurs de l’organisation.  
   
 ##### <a name="account-lockout"></a>Verrouillage de compte  
-Cette sous-catégorie signale quand un compte d’utilisateur est verrouillé en raison de trop nombreuses tentatives d’ouverture de session ayant échoué.  
+Cette sous-catégorie signale quand un compte d’utilisateur est verrouillé suite à un trop grand nombre de tentatives de connexion ayant échoué.  
   
 ##### <a name="ipsec-quick-mode"></a>Mode rapide IPsec  
-Cette sous-catégorie signale les résultats du protocole IKE et AuthIP lors des négociations de Mode rapide.  
+Cette sous-catégorie signale les résultats du protocole IKE et AuthIP lors des négociations en mode rapide.  
   
 ##### <a name="special-logon"></a>Ouverture de session spéciale  
-Cette sous-catégorie signale quand une ouverture de session spéciale est utilisée. Une ouverture de session spéciale est une ouverture de session qui a des privilèges d’administrateur équivalent et peut être utilisé pour élever un processus à un niveau plus élevé.  
+Cette sous-catégorie signale qu’une ouverture de session spéciale est utilisée. Une ouverture de session spéciale est une ouverture de session disposant de privilèges d’administrateur et qui peut être utilisée pour élever un processus à un niveau supérieur.  
   
 #### <a name="policy-change"></a>Modification de la stratégie  
   
 ##### <a name="audit-policy-change"></a>Modification de la stratégie d’audit  
-Cette sous-catégorie signale les modifications apportées dans la stratégie d’audit, y compris les modifications de la liste SACL.  
+Cette sous-catégorie signale les modifications apportées à la stratégie d’audit, y compris les modifications SACL.  
   
 ##### <a name="authentication-policy-change"></a>Modification de la stratégie d’authentification  
-Cette sous-catégorie signale les modifications apportées dans la stratégie d’authentification.  
+Cette sous-catégorie signale les modifications apportées à la stratégie d’authentification.  
   
 ##### <a name="authorization-policy-change"></a>Modification de la stratégie d’autorisation  
-Cette sous-catégorie signale les modifications apportées dans la stratégie d’autorisation, y compris les modifications apportées aux autorisations (DACL).  
+Cette sous-catégorie signale les modifications apportées à la stratégie d’autorisation, y compris les modifications des autorisations (DACL).  
   
-##### <a name="mpssvc-rule-level-policy-change"></a>Modification de la stratégie de niveau règle MPSSVC  
-Cette sous-catégorie signale les modifications apportées dans les règles de stratégie utilisés par le Service de Protection de Microsoft (MPSSVC.exe). Ce service est utilisé par le pare-feu Windows.  
+##### <a name="mpssvc-rule-level-policy-change"></a>Modification de la stratégie au niveau de la règle MPSSVC  
+Cette sous-catégorie signale les modifications apportées aux règles de stratégie utilisées par le service de protection Microsoft (MPSSVC. exe). Ce service est utilisé par le pare-feu Windows.  
   
-##### <a name="filtering-platform-policy-change"></a>Changement de stratégie de plateforme de filtrage  
-Cette sous-catégorie signale l’ajout et la suppression d’objets à partir de la protection des fichiers Windows, notamment les filtres de démarrage. Ces événements peuvent être très élevées dans le volume.  
+##### <a name="filtering-platform-policy-change"></a>Filtrage de la modification de stratégie de plateforme  
+Cette sous-catégorie signale l’ajout et la suppression d’objets de WFP, y compris les filtres de démarrage. Ces événements peuvent être très élevés en volume.  
   
 ##### <a name="other-policy-change-events"></a>Autres événements de modification de stratégie  
-Cette sous-catégorie signale les autres types de modifications de stratégie de sécurité telles que la configuration du Module de plateforme sécurisée (TPM) ou des fournisseurs de chiffrement.  
+Cette sous-catégorie signale d’autres types de modifications de stratégie de sécurité, telles que la configuration du Module de plateforme sécurisée (TPM) (TPM) ou des fournisseurs de services de chiffrement.  
   
 #### <a name="privilege-use"></a>Utilisation des privilèges  
   
 ##### <a name="sensitive-privilege-use"></a>Utilisation des privilèges sensibles  
-Cette sous-catégorie signale quand un compte d’utilisateur ou le service utilise un privilège sensible. Un privilège sensible inclut les droits d’utilisateur suivants : agir en tant que partie du système d’exploitation, sauvegarder des fichiers et répertoires, créer un objet du jeton, de déboguer des programmes, permettre aux comptes d’ordinateur et utilisateur être approuvé pour la délégation, générer des audits de sécurité, emprunter l’identité d’un client après authentification, charger et décharger des pilotes de périphérique, gérer le journal d’audit et de sécurité, modifier les valeurs d’environnement du microprogramme, remplacer un jeton au niveau du processus, restaurer des fichiers et répertoires et prendre possession de fichiers ou d’autres objets. L’audit de cette sous-catégorie créera un volume élevé d’événements.  
+Cette sous-catégorie signale qu’un compte d’utilisateur ou un service utilise un privilège sensible. Un privilège sensible comprend les droits d’utilisateur suivants : agir en tant que partie du système d’exploitation, sauvegarder des fichiers et des répertoires, créer un objet jeton, déboguer des programmes, activer les comptes d’ordinateur et d’utilisateur à approuver pour la délégation, générer des audits de sécurité, emprunter l’identité d’un client après l’authentification, charger et décharger des pilotes de périphériques, gérer le journal d’audit et de sécurité, modifier les valeurs de l’environnement du microprogramme, remplacer un jeton au niveau du processus, restaurer des fichiers et des répertoires et prendre possession de fichiers ou d’autres objets. L’audit de cette sous-catégorie crée un volume élevé d’événements.  
   
-##### <a name="nonsensitive-privilege-use"></a>Utilisation des privilèges affecter  
-Cette sous-catégorie signale quand un compte d’utilisateur ou le service utilise un privilège affecter. Un privilège affecter inclut les droits d’utilisateur suivants : accéder au gestionnaire d’informations d’identification en tant qu’appelant approuvé, accéder à cet ordinateur à partir du réseau, ajouter des stations de travail au domaine, ajuster les quotas de mémoire pour un processus, autoriser la connexion localement, autoriser la connexion via à distance Desktop Services, le contournement du contrôle, transversal modifier l’heure système, créer un fichier d’échange, créer des objets globaux, créer des objets partagés permanents, créer des liens symboliques, refuser l’accès à cet ordinateur à partir du réseau, refuse la connexion en tant que traitement par lots, refuse la connexion en tant que service, refuse la connexion locale, refuse la connexion via les Services Bureau à distance, forcer l’arrêt à partir d’un système distant, augmenter une plage de travail de processus, augmenter la priorité de planification, verrouiller les pages en mémoire, connectez-vous en tant qu’un traitement par lots, ouvrez une session en tant que service, modifier une étiquette de l’objet, effectuer le volume tâches de maintenance, processus unique du profil, les performances du système de profil, supprimer l’ordinateur à partir de la station d’accueil, arrêter le système et synchroniser les données de service d’annuaire. L’audit de cette sous-catégorie créera un volume très élevé d’événements.  
+##### <a name="nonsensitive-privilege-use"></a>Utilisation des privilèges non sensibles  
+Cette sous-catégorie signale qu’un compte d’utilisateur ou un service utilise un privilège non sensible. Un privilège non sensible comprend les droits d’utilisateur suivants : accéder au gestionnaire d’informations d’identification en tant qu’appelant approuvé, accéder à cet ordinateur à partir du réseau, ajouter des stations de travail au domaine, ajuster les quotas de mémoire pour un processus, autoriser l’ouverture d’une session locale, autoriser l’ouverture de session via une connexion distante Services Bureau, contourner la vérification de parcours, modifier l’heure système, créer un fichier d’échange, créer des objets globaux, créer des objets partagés permanents, créer des liens symboliques, interdire l’accès à cet ordinateur à partir du réseau, interdire l’ouverture d’une session en tant que tâche, interdire l’ouverture d’une session en tant que service, interdire l’ouverture d’une session locale, interdire l’ouverture d’une session via Services Bureau à distance, forcer l’arrêt à partir d’un système distant, augmenter une plage de travail de processus, augmenter la priorité de planification, verrouiller les pages en mémoire, ouvrir une session en tant que tâche, ouvrir une session en tant que service, modifier l’étiquette d’un objet, effectuer un volume tâches de maintenance, profiler un processus unique, profiler les performances du système, supprimer l’ordinateur de la station d’accueil, arrêter le système et synchroniser les données du service d’annuaire. L’audit de cette sous-catégorie crée un très gros volume d’événements.  
   
-##### <a name="other-privilege-use-events"></a>Autres événements d’utilisation des privilèges  
-Ce paramètre de stratégie de sécurité n’est pas actuellement utilisé.  
+##### <a name="other-privilege-use-events"></a>Autres événements d’utilisation de privilège  
+Ce paramètre de stratégie de sécurité n’est pas utilisé actuellement.  
   
 #### <a name="object-access"></a>Accès aux objets  
   
 ##### <a name="file-system"></a>Système de fichiers  
-Cette sous-catégorie signale lorsque les objets de système de fichiers sont accessibles. Uniquement les objets de système de fichiers avec des listes SACL provoquent des événements d’audit être généré et uniquement lorsqu’ils sont accessibles de manière que leurs entrées SACL correspondantes. En soi, ce paramètre de stratégie n’entraîne pas l’audit de tous les événements. Il détermine s’il faut auditer les événements d’un utilisateur qui accède à un objet de système de fichiers qui a une liste de contrôle d’accès spécifiée du système (SACL), efficacement l’activation de l’audit ait lieu.  
+Cette sous-catégorie signale l’accès aux objets du système de fichiers. Seuls les objets de système de fichiers avec SACL entraînent la génération d’événements d’audit, et uniquement quand ils sont accessibles de manière à correspondre à leurs entrées SACL. En soi, ce paramètre de stratégie ne provoque pas l’audit de tous les événements. Elle détermine s’il faut auditer l’événement d’un utilisateur qui accède à un objet de système de fichiers qui a une liste de contrôle d’accès système (SACL) spécifiée, ce qui permet d’effectuer l’audit.  
   
-Si le paramètre Auditer l’accès aux objets est configuré pour **réussite**, une entrée d’audit est générée chaque fois qu’un utilisateur accède à un objet avec une SACL spécifiée. Si ce paramètre de stratégie est configuré pour **échec**, une entrée d’audit est générée chaque fois qu’un utilisateur ne parvient pas à accéder à un objet avec une SACL spécifiée.  
+Si le paramètre Auditer l’accès aux objets est configuré sur **succès**, une entrée d’audit est générée chaque fois qu’un utilisateur accède à un objet avec une liste SACL spécifiée. Si ce paramètre de stratégie est configuré sur **échec**, une entrée d’audit est générée chaque fois qu’un utilisateur échoue dans une tentative d’accès à un objet avec une liste SACL spécifiée.  
   
 ##### <a name="registry"></a>Registre  
-Cette sous-catégorie signale lors de l’accès à des objets de Registre. Uniquement les objets de Registre avec des listes SACL provoquent des événements d’audit être généré et uniquement lorsqu’ils sont accessibles de manière que leurs entrées SACL correspondantes. En soi, ce paramètre de stratégie n’entraîne pas l’audit de tous les événements.  
+Cette sous-catégorie signale les accès aux objets du Registre. Seuls les objets de Registre avec SACL entraînent la génération d’événements d’audit et uniquement lorsqu’ils sont accessibles de manière à correspondre à leurs entrées SACL. En soi, ce paramètre de stratégie ne provoque pas l’audit de tous les événements.  
   
 ##### <a name="kernel-object"></a>Objet de noyau  
-Cette sous-catégorie signale lorsque des objets de noyau tels que les processus et les mutex sont accessibles. Uniquement les objets du noyau avec SACL provoquent des événements d’audit être généré et uniquement lorsqu’ils sont accessibles de manière que leurs entrées SACL correspondantes. En général, les objets de noyau reçoivent uniquement SACL si les options d’audit AuditBaseObjects ou AuditBaseDirectories sont activées.  
+Cette sous-catégorie signale les accès aux objets de noyau tels que les processus et les mutex. Seuls les objets noyau avec SACL entraînent la génération d’événements d’audit, et uniquement lorsqu’ils sont accessibles de manière à correspondre à leurs entrées SACL. En général, les objets de noyau reçoivent uniquement des SACL si les options d’audit AuditBaseObjects ou AuditBaseDirectories sont activées.  
   
 ##### <a name="sam"></a>SAM  
-Cette sous-catégorie signale lors de l’accès des objets de base de données de l’authentification Gestionnaire de comptes de sécurité (SAM) local.  
+Cette sous-catégorie signale les accès aux objets de base de données d’authentification SAM (Security Accounts Manager) locaux.  
   
 ##### <a name="certification-services"></a>Services de certification  
-Cette sous-catégorie signale lorsque les opérations de Services de Certification sont effectuées.  
+Cette sous-catégorie signale les opérations des services de certification effectuées.  
   
 ##### <a name="application-generated"></a>Application générée  
-Cette sous-catégorie génère quand des applications tentent de générer des événements d’audit à l’aide de l’audit des interfaces de programmation d’applications (API) de Windows.  
+Cette sous-catégorie signale quand des applications tentent de générer des événements d’audit à l’aide des interfaces de programmation d’applications (API) d’audit Windows.  
   
-##### <a name="handle-manipulation"></a>Manipulation de handle  
-Cette sous-catégorie signale quand un handle vers un objet est ouvert ou fermé. Seuls les objets avec des listes SACL déclencher ces événements être généré et uniquement si l’opération tentée handle correspond aux entrées de la liste SACL. Gérer les événements de Manipulation sont générées uniquement pour les types d’objets où la sous-catégorie d’accès objet correspondant est activée (par exemple, système de fichiers ou du Registre).  
+##### <a name="handle-manipulation"></a>Manipulation de handles  
+Cette sous-catégorie signale quand un handle vers un objet est ouvert ou fermé. Seuls les objets avec SACL entraînent la génération de ces événements, et uniquement si l’opération tentée par le handle correspond aux entrées SACL. Les événements de manipulation de handle sont générés uniquement pour les types d’objets où la sous-catégorie d’accès à l’objet correspondante est activée (par exemple, le système de fichiers ou le registre).  
   
 ##### <a name="file-share"></a>Partage de fichiers  
-Cette sous-catégorie signale quand un partage de fichiers est accessible. En soi, ce paramètre de stratégie n’entraîne pas l’audit de tous les événements. Il détermine s’il faut auditer les événements d’un utilisateur qui accède à un objet de partage de fichier qui a une liste de contrôle d’accès spécifiée du système (SACL), efficacement l’activation de l’audit ait lieu.  
+Cette sous-catégorie signale l’accès à un partage de fichiers. En soi, ce paramètre de stratégie ne provoque pas l’audit de tous les événements. Elle détermine s’il faut auditer l’événement d’un utilisateur qui accède à un objet partage de fichiers qui a une liste de contrôle d’accès système (SACL) spécifiée, ce qui permet d’effectuer l’audit.  
   
-##### <a name="filtering-platform-packet-drop"></a>Rejet de paquets de plateforme de filtrage  
-Cette sous-catégorie signale lorsque les paquets sont ignorés par le plateforme de filtrage de Windows (WFP). Ces événements peuvent être très élevées dans le volume.  
+##### <a name="filtering-platform-packet-drop"></a>Filtrage de la suppression de paquets de plateforme  
+Cette sous-catégorie signale la suppression des paquets par la plateforme de filtrage Windows (WFP). Ces événements peuvent être très élevés en volume.  
   
-##### <a name="filtering-platform-connection"></a>Connexion de la plateforme de filtrage  
-Cette sous-catégorie signale lorsque les connexions sont autorisées ou bloquées par WFP. Ces événements peuvent être élevées dans le volume.  
+##### <a name="filtering-platform-connection"></a>Filtrage de la connexion de plateforme  
+Cette sous-catégorie signale quand les connexions sont autorisées ou bloquées par WFP. Ces événements peuvent avoir un volume élevé.  
   
 ##### <a name="other-object-access-events"></a>Autres événements d’accès aux objets  
-Cette sous-catégorie signale les autres événements de dépendant de l’accès d’objet tels que les travaux du Planificateur de tâches et des objets COM +.  
+Cette sous-catégorie signale d’autres événements liés à l’accès aux objets, tels que les travaux de Planificateur de tâches et les objets COM+.  
   
 #### <a name="system"></a>System  
   
 ##### <a name="security-state-change"></a>Changement d’état de sécurité  
-Cette sous-catégorie signale les modifications apportées dans l’état de sécurité du système, notamment lorsque le sous-système de sécurité démarre et s’arrête.  
+Cette sous-catégorie signale les modifications de l’état de sécurité du système, par exemple lorsque le sous-système de sécurité démarre et s’arrête.  
   
 ##### <a name="security-system-extension"></a>Extension du système de sécurité  
-Cette sous-catégorie signale le chargement du code d’extension tels que les packages de l’authentification par le sous-système de sécurité.  
+Cette sous-catégorie signale le chargement du code d’extension, par exemple les packages d’authentification, par le sous-système de sécurité.  
   
 ##### <a name="system-integrity"></a>Intégrité du système  
-Cette sous-catégorie de rapports sur les violations de l’intégrité du sous-système de sécurité.  
+Cette sous-catégorie signale les violations de l’intégrité du sous-système de sécurité.  
   
 Pilote IPsec  
   
-Cette sous-catégorie de rapports sur les activités du pilote Internet Protocol security (IPsec).  
+Cette sous-catégorie signale les activités du pilote IPsec (Internet Protocol Security).  
   
 ##### <a name="other-system-events"></a>Autres événements système  
-Cette sous-catégorie de rapports sur les autres événements système.  
+Cette sous-catégorie signale d’autres événements système.  
   
-Pour plus d’informations sur les descriptions de la sous-catégorie, reportez-vous à la [Microsoft Security Compliance Manager outil](https://technet.microsoft.com/library/cc677002.aspx).  
+Pour plus d’informations sur les descriptions des sous-catégories, reportez-vous à l' [outil Microsoft Security Compliance Manager](https://technet.microsoft.com/library/cc677002.aspx).  
   
-Chaque organisation doit consulter les catégories couvertes précédentes et les sous-catégories et activez celles qui correspondent le mieux à leur environnement. Modifications apportées à la stratégie d’audit doivent toujours être testées avant le déploiement dans un environnement de production.  
+Chaque organisation doit passer en revue les catégories et sous-catégories couvertes précédentes et activer celles qui conviennent le mieux à leur environnement. Les modifications apportées à la stratégie d’audit doivent toujours être testées avant le déploiement dans un environnement de production.  
   
-## <a name="configuring-windows-audit-policy"></a>Stratégie d’Audit de configuration Windows
+## <a name="configuring-windows-audit-policy"></a>Configuration de la stratégie d’audit Windows
 
-Stratégie d’audit de Windows peut être définie à l’aide des modifications de stratégies, auditpol.exe, API ou du Registre de groupe. Les méthodes recommandées pour la configuration de stratégie d’audit pour la plupart des entreprises sont la stratégie de groupe ou auditpol.exe. Définition de la stratégie d’audit d’un système requiert des autorisations de compte de niveau administrateur ou les autorisations déléguées appropriées.  
+La stratégie d’audit Windows peut être définie à l’aide des stratégies de groupe, auditpol. exe, des API ou des modifications du Registre. Les méthodes recommandées pour configurer la stratégie d’audit pour la plupart des entreprises sont stratégie de groupe ou auditpol. exe. La définition d’une stratégie d’audit du système nécessite des autorisations de compte de niveau administrateur ou les autorisations déléguées appropriées.  
   
 > [!NOTE]  
-> Le **gérer le journal d’audit et de sécurité** privilège doit être accordée à des principaux de sécurité (les administrateurs en disposent par défaut) pour autoriser la modification de l’audit des options des ressources individuelles, telles que les fichiers, Active l’accès aux objets Objets d’annuaire et les clés de Registre.  
+> Le privilège **gérer le journal d’audit et de sécurité** doit être accordé aux principaux de sécurité (les administrateurs l’ont par défaut) pour permettre la modification des options d’audit de l’accès aux objets des ressources individuelles, telles que les fichiers, les objets Active Directory et clés de registre.  
   
-### <a name="setting-windows-audit-policy-by-using-group-policy"></a>Définition de Windows la stratégie d’Audit à l’aide de stratégie de groupe
+### <a name="setting-windows-audit-policy-by-using-group-policy"></a>Définition de la stratégie d’audit Windows à l’aide de stratégie de groupe
 
-Pour définir la stratégie d’audit à l’aide de stratégies de groupe, configurez les catégories d’audit approprié situés sous **Computer Configuration\Windows Settings\Security Settings\Local Policies\Audit Policy** (voir la capture d’écran suivante pour un exemple à partir de l’éditeur de stratégie de groupe de Local (gpedit.msc)). Chaque catégorie de stratégie d’audit peut être activée pour **réussite**, **échec**, ou **réussite** et événements d’échec.  
+Pour définir la stratégie d’audit à l’aide de stratégies de groupe, configurez les catégories d’audit appropriées situées sous **Configuration ordinateur \ paramètres Windows \ paramètres** de configuration \ stratégie de \ (voir la capture d’écran suivante pour obtenir un exemple de la page Éditeur de stratégie de groupe (gpedit. msc)). Chaque catégorie de stratégie d’audit peut être activée pour les événements de **réussite**, d' **échec**ou de **réussite** et d’échec.  
   
-![surveillance d’Active Directory](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_6.gif)  
+![surveillance d’AD](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_6.gif)  
   
-Stratégie d’Audit avancée peut être définie à l’aide d’Active Directory ou des stratégies de groupe local. Pour définir la stratégie d’Audit avancée, configurez les sous-catégories appropriés, situés sous **ordinateur Configuration ordinateur\Paramètres Windows\Paramètres de stratégie avancée d’Audit** (voir la capture d’écran suivante pour obtenir un exemple à partir de l’ordinateur Local Éditeur stratégies de groupe (gpedit.msc)). Chaque sous-catégorie de stratégie d’audit peut être activée pour **réussite**, **échec**, ou **réussite** et **échec** événements.  
+La stratégie d’audit avancée peut être définie à l’aide de Active Directory ou de stratégies de groupe locales. Pour définir une stratégie d’audit avancée, configurez les sous-catégories appropriées situées sous **ordinateur \ paramètres de configuration \ stratégie d’audit avancée** (consultez la capture d’écran suivante pour obtenir un exemple de l’éditeur de stratégie de groupe local ( gpedit. msc)). Chaque sous-catégorie de stratégie d’audit peut être activée pour les événements de **réussite**, d' **échec**ou de **réussite** et d' **échec** .  
   
-![surveillance d’Active Directory](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_7.gif)  
+![surveillance d’AD](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_7.gif)  
   
-### <a name="setting-windows-audit-policy-using-auditpolexe"></a>Stratégie d’Audit de paramètre Windows à l’aide d’Auditpol.exe
+### <a name="setting-windows-audit-policy-using-auditpolexe"></a>Définition de la stratégie d’audit Windows à l’aide d’auditpol. exe
 
-Auditpol.exe (pour définir la stratégie d’audit de Windows) a été introduite dans Windows Server 2008 et Windows Vista. Initialement, auditpol.exe uniquement peut servir à définir la stratégie d’Audit avancée, mais la stratégie de groupe peut être utilisée dans Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008, Windows 8 et Windows 7.  
+Auditpol. exe (pour la définition de la stratégie d’audit Windows) a été introduit dans Windows Server 2008 et Windows Vista. Initialement, seul auditpol. exe pouvait être utilisé pour définir une stratégie d’audit avancée, mais stratégie de groupe peut être utilisé dans Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008, Windows 8 et Windows 7.  
   
-Auditpol.exe est un utilitaire de ligne de commande. La syntaxe est la suivante :  
+Auditpol. exe est un utilitaire de ligne de commande. La syntaxe est la suivante :  
   
 `auditpol /set /<Category|Subcategory>:<audit category> /<success|failure:> /<enable|disable>`
   
-Exemples de syntaxe Auditpol.exe :  
+Exemples de syntaxe d’auditpol. exe :  
   
 `auditpol /set /subcategory:"user account management" /success:enable /failure:enable`
   
@@ -349,51 +349,51 @@ Exemples de syntaxe Auditpol.exe :
 `auditpol /set /subcategory:"IPSEC Main Mode" /failure:enable`
   
 > [!NOTE]  
-> Auditpol.exe définit stratégie d’Audit avancée localement. Si la stratégie locale est en conflit avec Active Directory ou de stratégie de groupe locale, les paramètres de stratégie de groupe prévalent généralement les paramètres auditpol.exe. Lorsque plusieurs conflits de stratégie locale ou le groupe existent, qu’une seule stratégie prévaut (qui est, remplacez). Stratégies d’audit ne seront pas fusionner.  
+> Auditpol. exe définit localement la stratégie d’audit avancée. Si la stratégie locale est en conflit avec Active Directory ou stratégie de groupe locale, les paramètres de stratégie de groupe prévalent généralement sur les paramètres d’auditpol. exe. Lorsqu’il existe plusieurs conflits de stratégie de groupe ou de stratégie locale, une seule stratégie prévaut (c’est-à-dire, remplacer). Les stratégies d’audit ne seront pas fusionnées.  
   
 #### <a name="scripting-auditpol"></a>Écriture de scripts Auditpol
 
-Microsoft fournit un [exemple de script](https://support.microsoft.com/kb/921469) aux administrateurs qui souhaitent pour définir la stratégie d’Audit avancée à l’aide d’un script au lieu de taper manuellement dans chaque commande auditpol.exe.  
+Microsoft fournit un [exemple de script](https://support.microsoft.com/kb/921469) pour les administrateurs qui souhaitent définir une stratégie d’audit avancée à l’aide d’un script au lieu de taper manuellement chaque commande auditpol. exe.  
   
-**Remarque** stratégie de groupe ne signale pas toujours avec précision l’état de toutes les stratégies d’audit est activées, contrairement à auditpol.exe. Consultez [l’obtention de la stratégie d’Audit efficace dans Windows 7 et Windows 2008 R2](http://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) pour plus d’informations.  
+**Remarque** Stratégie de groupe ne signale pas toujours avec précision l’état de toutes les stratégies d’audit activées, contrairement à auditpol. exe. Pour plus d’informations, consultez obtention d’une [stratégie d’audit efficace dans Windows 7 et windows 2008 R2](http://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
   
 #### <a name="other-auditpol-commands"></a>Autres commandes Auditpol
 
-Auditpol.exe peut être utilisé pour enregistrer et restaurer une stratégie d’audit local et pour afficher d’autres commandes connexes d’audit. Voici l’autre **auditpol** commandes.  
+Auditpol. exe peut être utilisé pour enregistrer et restaurer une stratégie d’audit locale et pour afficher d’autres commandes associées à l’audit. Voici les autres commandes **Auditpol** .  
   
-`auditpol /clear` -Utilisé pour supprimer et réinitialiser les stratégies d’audit local  
+`auditpol /clear`-utilisé pour effacer et réinitialiser les stratégies d’audit locales  
   
-`auditpol /backup /file:<filename>` -Utilisé pour sauvegarder une stratégie d’audit local en cours dans un fichier binaire  
+`auditpol /backup /file:<filename>`-utilisé pour sauvegarder une stratégie d’audit locale actuelle dans un fichier binaire  
   
-`auditpol /restore /file:<filename>` -Utilisé pour importer un fichier de stratégie d’audit précédemment enregistré dans une stratégie d’audit local  
+`auditpol /restore /file:<filename>`-utilisé pour importer un fichier de stratégie d’audit précédemment enregistré dans une stratégie d’audit locale  
   
-`auditpol /<get/set> /option:<CrashOnAuditFail> /<enable/disable>` -Si ce paramètre de stratégie d’audit est activé, il provoque le système immédiatement (avec arrêt : C0000244 {Échec d’Audit} message) si une sécurité d’audit ne peut pas être connecté pour une raison quelconque. En règle générale, un événement ne peut pas être consigné quand le journal d’audit de sécurité est plein et la méthode de rétention spécifiée pour le journal de sécurité est **ne pas remplacer les événements** ou **remplacer les événements par jours**. En général, il est activé uniquement par les environnements qui doivent garantir que le journal de sécurité se connecte. Si activé, les administrateurs doivent étroitement regarder la taille de journal de sécurité et faire tourner les journaux en fonction des besoins. Elle peut également être définie avec la stratégie de groupe en modifiant l’option de sécurité **Audit : Arrêter le système immédiatement s’il est impossible d’enregistrer les audits de sécurité** (par défaut = désactivé).  
+`auditpol /<get/set> /option:<CrashOnAuditFail> /<enable/disable>`-si ce paramètre de stratégie d’audit est activé, il provoque l’arrêt immédiat du système (avec arrêt : C0000244 {audit failed} message) si un audit de sécurité ne peut pas être enregistré pour une raison quelconque. En règle générale, un événement ne peut pas être consigné lorsque le journal d’audit de sécurité est plein et que la méthode de rétention spécifiée pour le journal de sécurité est **ne pas remplacer les événements** ou **remplacer les événements par jours**. En général, elle est uniquement activée par des environnements nécessitant une plus grande assurance que le journal de sécurité est en journal. Si cette option est activée, les administrateurs doivent observer attentivement la taille du journal de sécurité et faire pivoter les journaux en fonction des besoins. Il peut également être défini avec stratégie de groupe en modifiant l’option de sécurité **Audit : Arrêter immédiatement le système s’il n’est pas possible d’enregistrer les audits de sécurité @ no__t-0 (valeur par défaut = désactivé).  
   
-`auditpol /<get/set> /option:<AuditBaseObjects> /<enable/disable>` : Ce paramètre de stratégie d’audit détermine s’il faut auditer l’accès des objets système globaux. Si cette stratégie est activée, les objets du système, telles que les mutex, les événements, les sémaphores et les périphériques de déni de service sont créés avec une liste de contrôle d’accès système (SACL) par défaut. La plupart des administrateurs d’envisager l’audit des objets système globaux pour être trop « bruyantes », et ils seront uniquement Activez-le si piratage malveillant est suspectée. Uniquement les objets nommés bénéficient d’une liste SACL. Si l’audit objet accès d’audit stratégie (ou objet de noyau d’audit sous-catégorie) est également activé, l’accès à ces objets système est audité. Lorsque vous configurez ce paramètre de sécurité, modifications ne prendront effet qu’après le redémarrage de Windows. Cette stratégie peut également être définie avec la stratégie de groupe en modifiant l’option de sécurité Auditer l’accès des objets système globaux (par défaut = désactivé).  
+`auditpol /<get/set> /option:<AuditBaseObjects> /<enable/disable>`-ce paramètre de stratégie d’audit détermine s’il faut auditer l’accès des objets système globaux. Si cette stratégie est activée, les objets système, tels que les mutex, les événements, les sémaphores et les appareils DOS, sont créés avec une liste de contrôle d’accès système (SACL) par défaut. La plupart des administrateurs considèrent que l’audit des objets système globaux est trop « bruyant » et ne l’activera que si le piratage malveillant est suspecté. Seuls les objets nommés reçoivent une liste SACL. Si la stratégie d’audit Auditer l’accès aux objets (ou sous-catégorie audit d’objets noyau) est également activée, l’accès à ces objets système est audité. Lors de la configuration de ce paramètre de sécurité, les modifications ne prennent effet qu’après le redémarrage de Windows. Vous pouvez également définir cette stratégie avec stratégie de groupe en modifiant l’option de sécurité auditer l’accès des objets système globaux (valeur par défaut = désactivé).  
   
-`auditpol /<get/set> /option:<AuditBaseDirectories> /<enable/disable>` : Ce paramètre de stratégie d’audit spécifie que les objets du noyau nommés (par exemple, les mutex et les sémaphores) sont indiquées SACL lorsqu’elles sont créées. AuditBaseDirectories affecte les objets conteneur tandis que AuditBaseObjects affecte les objets qui ne peut pas contenir d’autres objets.  
+`auditpol /<get/set> /option:<AuditBaseDirectories> /<enable/disable>`-ce paramètre de stratégie d’audit spécifie que les objets de noyau nommés (tels que les mutex et les sémaphores) doivent recevoir des listes SACL lors de leur création. AuditBaseDirectories affecte les objets de conteneur tandis que AuditBaseObjects affecte les objets qui ne peuvent pas contenir d’autres objets.  
   
-`auditpol /<get/set> /option:<FullPrivilegeAuditing> /<enable/disable>` : Ce paramètre de stratégie d’audit spécifie si le client génère un événement lorsqu’un ou plusieurs de ces privilèges sont attribués à un jeton de sécurité : AssignPrimaryTokenPrivilege, AuditPrivilege, BackupPrivilege, CreateTokenPrivilege, DebugPrivilege, EnableDelegationPrivilege, ImpersonatePrivilege, LoadDriverPrivilege, RestorePrivilege, SecurityPrivilege, SystemEnvironmentPrivilege, TakeOwnershipPrivilege et TcbPrivilege. Si cette option n’est pas activée (valeur par défaut = désactivé), les privilèges BackupPrivilege et RestorePrivilege ne sont pas enregistrés. L’activation de cette option peut rendre le journal de sécurité sont très bruyant (parfois des centaines d’événements une seconde) pendant une opération de sauvegarde. Cette stratégie peut également être définie avec la stratégie de groupe en modifiant l’option de sécurité **Audit : Auditer l’utilisation des privilèges de sauvegarde et restauration**.  
+`auditpol /<get/set> /option:<FullPrivilegeAuditing> /<enable/disable>`-ce paramètre de stratégie d’audit spécifie si le client génère un événement lorsqu’un ou plusieurs de ces privilèges sont affectés à un jeton de sécurité utilisateur : AssignPrimaryTokenPrivilege, AuditPrivilege, BackupPrivilege, CreateTokenPrivilege, DebugPrivilege, EnableDelegationPrivilege, ImpersonatePrivilege, LoadDriverPrivilege, RestorePrivilege, SecurityPrivilege, SystemEnvironmentPrivilege, TakeOwnershipPrivilege et TcbPrivilege. Si cette option n’est pas activée (valeur par défaut = désactivé), les privilèges BackupPrivilege et RestorePrivilege ne sont pas enregistrés. L’activation de cette option peut rendre le journal de sécurité extrêmement bruyant (parfois des centaines d’événements par seconde) pendant une opération de sauvegarde. Vous pouvez également définir cette stratégie avec stratégie de groupe en modifiant l’option de sécurité **Audit : Auditer l’utilisation des privilèges de sauvegarde et de restauration @ no__t-0.  
   
 > [!NOTE]  
-> Certaines informations fournies ici a été effectuées à partir de Microsoft [Type d’Option d’Audit](https://msdn.microsoft.com/library/dd973862(prot.20).aspx) et l’outil Microsoft SCM.  
+> Certaines informations fournies ici proviennent du [type d’option d’audit](https://msdn.microsoft.com/library/dd973862(prot.20).aspx) Microsoft et de l’outil Microsoft SCM.  
   
-## <a name="enforcing-traditional-auditing-or-advanced-auditing"></a>Mettre en œuvre l’audit traditionnel ou audit avancé
+## <a name="enforcing-traditional-auditing-or-advanced-auditing"></a>Application de l’audit traditionnel ou de l’audit avancé
 
-Dans Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, Windows 8, Windows 7 et Windows Vista, les administrateurs peuvent choisir activer les neuf catégories traditionnels ou utiliser les sous-catégories. Il est un choix binaire qui doit être effectué dans chaque système Windows. Les principales catégories peuvent être activés ou le subcategoriesit ne peut pas être à la fois.  
+Dans Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, Windows 8, Windows 7 et Windows Vista, les administrateurs peuvent choisir d’activer les neuf catégories traditionnelles ou d’utiliser les sous-catégories. Il s’agit d’un choix binaire qui doit être effectué dans chaque système Windows. Soit les catégories principales peuvent être activées, soit les subcategoriesit ne peuvent pas être les deux à la fois.  
   
-Pour empêcher la stratégie héritée catégorie traditionnel de remplacer des sous-catégories de stratégie d’audit, vous devez activer le **paramètres de sous-catégorie de stratégie d’audit (Windows Vista ou version ultérieure) pour remplacer les paramètres de catégorie de stratégie d’audit** paramètre de stratégie se trouve sous **Configuration ordinateur\Paramètres Windows\Paramètres de sécurité\Stratégies Locales\options de sécurité**.  
+Pour empêcher la stratégie classique héritée de remplacer les sous-catégories de stratégie d’audit, vous devez activer les paramètres de la sous-catégorie de stratégie d' **audit forcée (Windows Vista ou version ultérieure) pour remplacer le paramètre de stratégie paramètres de catégorie de stratégie d’audit** situés sous **Configuration ordinateur \ paramètres Windows \ paramètres de configuration \ stratégies**.  
   
-Nous recommandons que les sous-catégories être activées et configurées au lieu des neuf catégories principales. Cela nécessite qu’un paramètre de stratégie de groupe (pour permettre des sous-catégories remplacer les catégories d’audit) ainsi que la configuration des différentes sous-catégories qui prennent en charge les stratégies d’audit.  
+Nous vous recommandons d’activer et de configurer les sous-catégories à la place des neuf catégories principales. Cela nécessite l’activation d’un paramètre stratégie de groupe (pour permettre aux sous-catégories de remplacer les catégories d’audit) et de configurer les différentes sous-catégories qui prennent en charge les stratégies d’audit.  
   
-Sous-catégories d’audit peut être configuré à l’aide de plusieurs méthodes, notamment la stratégie de groupe et que le programme de ligne de commande, auditpol.exe.  
+Les sous-catégories d’audit peuvent être configurées à l’aide de plusieurs méthodes, notamment stratégie de groupe et le programme de ligne de commande, auditpol. exe.  
   
 ## <a name="next-steps"></a>Étapes suivantes
   
-* [Fonctions avancées de sécurité d’audit dans Windows 7 et Windows Server 2008 R2](https://social.technet.microsoft.com/wiki/contents/articles/advanced-security-auditing-in-windows-7-and-windows-server-2008-r2.aspx)  
+* [Audit de sécurité avancé dans Windows 7 et Windows Server 2008 R2](https://social.technet.microsoft.com/wiki/contents/articles/advanced-security-auditing-in-windows-7-and-windows-server-2008-r2.aspx)  
   
 * [Audit et conformité dans Windows Server 2008](https://technet.microsoft.com/magazine/2008.03.auditing.aspx)  
   
-* [Comment utiliser la stratégie de groupe pour configurer les paramètres pour les ordinateurs basés sur Windows Server 2008 et Windows Vista dans un domaine Windows Server 2008, dans un domaine Windows Server 2003 ou dans un domaine Windows 2000 d’audit de sécurité détaillés](https://support.microsoft.com/kb/921469)  
+* [Comment utiliser stratégie de groupe pour configurer des paramètres d’audit de sécurité détaillés pour les ordinateurs Windows Vista et Windows Server 2008 dans un domaine Windows Server 2008, dans un domaine Windows Server 2003 ou dans un domaine Windows 2000](https://support.microsoft.com/kb/921469)  
   
-* [Advanced Guide pas à pas des stratégie d’Audit de sécurité](https://technet.microsoft.com/library/dd408940(WS.10).aspx)  
+* [Guide pas à pas de la stratégie d’audit de sécurité avancée](https://technet.microsoft.com/library/dd408940(WS.10).aspx)  

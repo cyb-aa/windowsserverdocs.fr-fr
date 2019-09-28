@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2298ba360bb59c950a78514d137c0b4d5fbdd1af
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 5f6911bea712dadd9a0b666c3bf8cbe9a260efb7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867815"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71359143"
 ---
 # <a name="federation-server-farm-using-wid"></a>Batterie de serveurs de fédération utilisant la base de données interne Windows
 
@@ -27,7 +27,7 @@ Tous les autres serveurs de Fédération configurés pour cette batterie sont d�
 > [!NOTE]  
 > Nous vous recommandons d’utiliser au moins deux serveurs de Fédération dans une\-configuration à charge équilibrée.  
   
-## <a name="deployment-considerations"></a>Points à prendre en considération pour le déploiement  
+## <a name="deployment-considerations"></a>Considérations relatives au déploiement  
 Cette section décrit les différentes considérations à prendre en compte concernant le public concerné, les avantages et les limitations associés à cette topologie de déploiement.  
   
 ### <a name="who-should-use-this-topology"></a>Qui doit utiliser cette topologie ?  

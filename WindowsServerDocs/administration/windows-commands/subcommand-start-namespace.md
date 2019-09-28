@@ -1,8 +1,8 @@
 ---
-title: Sous-commande start-Namespace
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Sous-commande Start-namespace
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9a54f849580a139470c2cca43ba57fee60dc81ec
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 55fe4a6136fe4f8e886dc62fff746a1e5ff1898f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66441154"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370748"
 ---
-# <a name="subcommand-start-namespace"></a>Sous-commande : start-Namespace
+# <a name="subcommand-start-namespace"></a>Sous-commande : Start-namespace
 
 > S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 démarre un espace de noms de diffusion planifiée.
 > ## <a name="syntax"></a>Syntaxe
@@ -31,17 +31,17 @@ ms.locfileid: "66441154"
 > 
 > |          Paramètre          |                                                                                                                                                                                             Description                                                                                                                                                                                             |
 > |-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | / Namespace :<Namespace name> | Spécifie le nom de l’espace de noms. Notez que cela n’est pas le nom convivial, et il doit être unique.<br /><br />-   **Serveur de déploiement**: La syntaxe de nom de l’espace de noms est /Namspace:WDS :<Image group>/<Image name>/<Index>. Exemple : **WDS:ImageGroup1/install.wim/1**<br />-   **Serveur de transport**: Ce nom doit correspondre au nom donné à l’espace de noms lorsqu’il a été créé sur le serveur. |
-> |   [/Server:<Server name>]   |                                                                                                           Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local doit être utilisé.                                                                                                           |
+> | /Namespace : <Namespace name> | Spécifie le nom de l’espace de noms. Notez qu’il ne s’agit pas du nom convivial et qu’il doit être unique.<br /><br />**serveur de déploiement**-    : La syntaxe du nom de l’espace de noms est/Namspace : WDS : <Image group> @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4. Exemple : **WDS : ImageGroup1/install. wim/1**<br />**serveur de Transport**-    : Ce nom doit correspondre au nom donné à l’espace de noms lorsqu’il a été créé sur le serveur. |
+> |   [/Server:<Server name>]   |                                                                                                           Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom FQDN. Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.                                                                                                           |
 > 
-> ## <a name="BKMK_examples"></a>Exemples
-> Pour démarrer un espace de noms, tapez une des opérations suivantes :
+> ## <a name="BKMK_examples"></a>Illustre
+> Pour démarrer un espace de noms, tapez l’un des éléments suivants :
 > ```
 > wdsutil /start-Namespace /Namespace:"Custom Auto 1"
 > wdsutil /start-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1"
 > ```
 > #### <a name="additional-references"></a>Références supplémentaires
 > [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-> [à l’aide de la commande get-AllNamespaces](using-the-get-allnamespaces-command.md)
-> [à l’aide de la commande Nouveau Namespace](using-the-new-namespace-command.md)
-> [Using la commande remove-Namespace](using-the-remove-namespace-command.md)
+> [à l’aide de la commande AllNamespaces](using-the-get-allnamespaces-command.md)
+> [à l’aide de la commande New-Namespace](using-the-new-namespace-command.md)
+> [à l’aide de la commande Remove-Namespace](using-the-remove-namespace-command.md)

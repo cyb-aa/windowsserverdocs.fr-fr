@@ -1,18 +1,18 @@
 ---
 title: Configuration d’Hyper-V
 description: Considérations relatives à la configuration d’Hyper-V pour le réglage des performances
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 0c608d3762c45a0b1478bcb3303159feef963291
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: f21115265ca7d2788fc0be078860048602d82c0f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866623"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370157"
 ---
 # <a name="hyper-v-configuration"></a>Configuration d’Hyper-V
 
@@ -24,7 +24,7 @@ Les considérations matérielles pour les serveurs exécutant Hyper-V sont gén�
 
     Hyper-V dans Windows Server 2016 présente les processeurs logiques sous la forme d’un ou de plusieurs processeurs virtuels à chaque machine virtuelle active. Hyper-V nécessite désormais des processeurs prenant en charge les technologies de traduction d’adresses de second niveau (SLAT), telles que les tables de pages étendues (EPT) ou les tables de pages imbriquées (NPT).
 
--   **Cache**
+-   **En**
 
     Hyper-V peut tirer parti de caches de processeur plus volumineux, en particulier pour les charges qui ont une plage de travail importante en mémoire et dans les configurations d’ordinateur virtuel dans lesquelles le rapport entre les processeurs virtuels et les processeurs logiques est élevé.
 
@@ -76,11 +76,11 @@ Hyper-V publie des compteurs de performances pour faciliter la caractérisation 
 
 Vous devez toujours mesurer l’utilisation du processeur par le système physique à l’aide des compteurs de performance du processeur logique de l’hyperviseur Hyper-V. Les compteurs d’utilisation de l’UC que le gestionnaire des tâches et le rapport de l’analyseur de performances dans les partitions racines et enfants ne reflètent pas l’utilisation réelle de l’UC physique. Utilisez les compteurs de performances suivants pour surveiller les performances :
 
-- **Processeur logique de l’hyperviseur\*hyper\\-V () pourcentage** du temps d’exécution total du temps d’inactivité total des processeurs logiques
+- **Processeur logique de l’hyperviseur Hyper-V (\*) \\% de la durée d’exécution totale** Durée totale d’inactivité des processeurs logiques
 
-- **Processeur logique de l’hyperviseur\*hyper\\-V ()% temps d’exécution invité** temps passé à exécuter des cycles au sein d’un invité ou de l’hôte
+- **Processeur logique de l’hyperviseur Hyper-V (\*) \\% de la durée d’exécution** de l’invité Temps passé à exécuter des cycles au sein d’un invité ou de l’hôte
 
-- **Processeur logique de l’hyperviseur\*hyper\\-V () pourcentage d’exécution de l’hyperviseur** temps passé à s’exécuter dans l’hyperviseur
+- **Processeur logique de l’hyperviseur Hyper-V (\*) \\% de la durée d’exécution de l’hyperviseur** Temps passé à s’exécuter au sein de l’hyperviseur
 
 - Le **processeur virtuel de la racine de l'\*hyperviseur Hyper-V ()\\\\** * mesure l’utilisation du processeur de la partition racine
 

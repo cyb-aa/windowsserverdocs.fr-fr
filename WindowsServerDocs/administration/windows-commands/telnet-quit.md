@@ -1,8 +1,8 @@
 ---
-title: Telnet quitter
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Telnet-quitter
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,28 +13,28 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 80af81d193530fbd3f288cc3cdc4c84fc24154f7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fa14fc325808149c355236fcabab76b21909a4dd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846770"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71370592"
 ---
-# <a name="telnet-quit"></a>telnet: quit
+# <a name="telnet-quit"></a>Telnet : quitter
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-quitte telnet.   
+quitte Telnet.   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 q[uit]  
 ```  
 ### <a name="parameters"></a>Paramètres  
 aucune  
-## <a name="BKMK_Examples"></a>Exemples  
-Quittez telnet.  
+## <a name="BKMK_Examples"></a>Illustre  
+Quittez Telnet.  
 ```  
 q  
 ```  
 ## <a name="additional-references"></a>Références supplémentaires  
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
