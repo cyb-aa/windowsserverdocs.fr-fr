@@ -1,9 +1,9 @@
 ---
-title: ÉTAPE 1 terminer la Configuration de DirectAccess
-description: Cette rubrique fait partie du Guide de laboratoire de Test - décrire de DirectAccess dans un Cluster avec équilibrage de charge réseau Windows pour Windows Server 2016
+title: ÉTAPE 1 pour terminer la configuration de DirectAccess
+description: Cette rubrique fait partie du Guide de laboratoire de test-démonstration de DirectAccess dans un cluster avec Windows NLB pour Windows Server 2016
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,18 +12,18 @@ ms.topic: article
 ms.assetid: e1e15544-b575-4f39-af0b-771bfae8b0b7
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0d341fd8608a12639bcb0c855d10c91b830e6365
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: cb009d5872d2045124601f1459e829a4d15f3058
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283400"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404882"
 ---
-# <a name="step-1-complete-the-directaccess-configuration"></a>ÉTAPE 1 terminer la Configuration de DirectAccess
+# <a name="step-1-complete-the-directaccess-configuration"></a>ÉTAPE 1 pour terminer la configuration de DirectAccess
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-La première étape consiste à effectuer toutes les étapes dans le [Guide de laboratoire de Test : Montrez l’installation du serveur DirectAccess unique avec un environnement mixte IPv4 et IPv6](https://go.microsoft.com/fwlink/p/?LinkId=237004). Si vous avez déjà effectué les étapes décrites dans ce laboratoire de test Guide et enregistré une image de disque ou d’instantané du laboratoire de test, vous pouvez restaurer la capture instantanée ou une image et commencer à l’étape suivante.  
+La première étape consiste à effectuer toutes les étapes décrites dans le Guide de laboratoire [Test : Démonstration de la configuration d’un seul serveur DirectAccess avec mixte IPv4 et IPv6 @ no__t-0. Si vous avez déjà effectué les étapes de ce guide de laboratoire de test et que vous avez enregistré une capture instantanée ou une image disque du laboratoire de test, vous pouvez restaurer l’instantané ou l’image et commencer par l’étape suivante.  
   
 
 

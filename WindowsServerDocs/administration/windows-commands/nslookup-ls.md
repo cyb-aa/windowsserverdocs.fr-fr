@@ -1,8 +1,8 @@
 ---
 title: nslookup ls
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6a11867ff2ec69b1ef938149ac485ff8827b58de
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ecc419a72599b661865af6283821129a7021938a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436924"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373087"
 ---
 # <a name="nslookup-ls"></a>nslookup ls
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Affiche des informations pour un domaine du système DNS (Domain Name).
+Répertorie des informations pour un domaine DNS (Domain Name System).
 ## <a name="syntax"></a>Syntaxe
 ```
 ls [<Option>] <DNSDomain> [{[>] <FileName>|[>>] <FileName>}]
@@ -33,13 +33,13 @@ ls [<Option>] <DNSDomain> [{[>] <FileName>|[>>] <FileName>}]
 
 |    Paramètre    |                                                                                                                                                                                                                                                                                                               Description                                                                                                                                                                                                                                                                                                                |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    <Option>     | Le tableau suivant répertorie les options valides.<br /><br />--t : répertorie tous les enregistrements du type spécifié. Pour obtenir une description de <querytype>, consultez **setquerytype** dans des références supplémentaires.<br />--r : répertorie les alias des ordinateurs dans le domaine DNS. Ce paramètre est un synonyme de **- t CNAME**<br />--d: répertorie tous les enregistrements pour le domaine DNS. Ce paramètre est un synonyme de **- t ANY**<br />--h : répertorie les informations de processeur et de système d’exploitation pour le domaine DNS. Ce paramètre est un synonyme de **- t HINFO**<br />--s: répertorie des services bien connus des ordinateurs dans le domaine DNS. Ce paramètre est un synonyme de **-t WKS**. |
-|   <DNSDomain>   |                                                                                                                                                                                                                                                                                         Spécifie le domaine DNS pour lesquels vous voulez des informations.                                                                                                                                                                                                                                                                                         |
-|   <FileName>    |                                                                                                                                                                                                                                 Spécifie un nom de fichier dans lequel enregistrer la sortie. Vous pouvez utiliser le signe supérieur à (>) et double supérieur (>>) caractères pour rediriger la sortie de la manière habituelle.                                                                                                                                                                                                                                  |
-| {aide &#124; ?} |                                                                                                                                                                                                                                                                                          Affiche un résumé de **nslookup** sous-commandes.                                                                                                                                                                                                                                                                                           |
+|    <Option>     | Le tableau suivant répertorie les options valides.<br /><br />--t : répertorie tous les enregistrements du type spécifié. Pour obtenir une description de <querytype>, consultez **SetQueryType** dans Références supplémentaires.<br />--a : répertorie les alias des ordinateurs dans le domaine DNS. Ce paramètre est un synonyme de **-t CNAME**<br />--d : répertorie tous les enregistrements du domaine DNS. Ce paramètre est un synonyme de **-t any**<br />--h : répertorie les informations du processeur et du système d’exploitation pour le domaine DNS. Ce paramètre est un synonyme de **-t HINFO**<br />--s : répertorie les services connus des ordinateurs dans le domaine DNS. Ce paramètre est un synonyme de **-t WKS**. |
+|   <DNSDomain>   |                                                                                                                                                                                                                                                                                         Spécifie le domaine DNS pour lequel vous souhaitez obtenir des informations.                                                                                                                                                                                                                                                                                         |
+|   <FileName>    |                                                                                                                                                                                                                                 Spécifie un nom de fichier dans lequel enregistrer la sortie. Vous pouvez utiliser les caractères supérieur à (>) et double supérieur à (> >) pour rediriger la sortie de manière habituelle.                                                                                                                                                                                                                                  |
+| {Help &#124; ?} |                                                                                                                                                                                                                                                                                          Affiche un bref résumé des sous-commandes **nslookup** .                                                                                                                                                                                                                                                                                           |
 
 ## <a name="remarks"></a>Notes
-- La sortie par défaut contient les noms d’ordinateurs et leur adresse IP adresses. Lors de la sortie est dirigée vers un fichier, les marques de hachage sont imprimés pour tous les 50 enregistrements reçus à partir du serveur
+- La sortie par défaut contient les noms des ordinateurs et leurs adresses IP. Lorsque la sortie est dirigée vers un fichier, les marques de hachage sont imprimées pour chaque enregistrement 50 reçu du serveur
   ## <a name="additional-references"></a>Références supplémentaires
-  [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-  [nslookup définie querytype](nslookup-set-querytype.md)
+  [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)[nslookup Set QueryType](nslookup-set-querytype.md) 
+  

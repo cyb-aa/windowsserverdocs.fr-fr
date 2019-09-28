@@ -2,18 +2,18 @@
 title: Créer un filtre de fichiers
 description: Cet article explique comment créer un filtre de fichiers
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c1f261eb926eca3ead58b87aeb00a5060b9d957c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e049162e7aff449774928d6a1d25cc1116f9aee9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815920"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403160"
 ---
 # <a name="create-a-file-screen"></a>Créer un filtre de fichiers
 
@@ -39,7 +39,7 @@ Lorsque vous créez un filtre de fichiers, vous pouvez choisir d’enregistrer u
 
 7.  Sous **Groupes de fichiers**, sélectionnez chaque groupe de fichiers que vous souhaitez inclure dans votre filtre de fichiers. (Pour activer la case à cocher du groupe de fichiers, double-cliquez sur le nom du groupe.)
 
-    Si vous souhaitez afficher un groupe de fichiers contient et exclut les types de fichiers et cliquez sur l’étiquette de groupe de fichiers, puis cliquez sur **modifier**. Pour créer un groupe de fichiers, cliquez sur **créer**.
+    Si vous souhaitez afficher les types de fichiers inclus et exclus dans un groupe de fichiers, cliquez sur l’étiquette du groupe de fichiers, puis sur **modifier**. Pour créer un nouveau groupe de fichiers, cliquez sur **créer**.
 
 8.  Vous pouvez également configurer le **Gestionnaire de ressources de serveur de fichiers** pour qu'il génère une ou plusieurs notifications en définissant les options sous les onglets **Message électronique**, **Journal des événements**, **Commande** et **Rapport**. Pour plus d’informations sur les options de notification du filtre de fichiers, voir [Créer un modèle de filtre de fichiers](create-file-screen-template.md).
 
@@ -56,9 +56,9 @@ Lorsque vous créez un filtre de fichiers, vous pouvez choisir d’enregistrer u
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Gestion des filtres de fichiers](file-screening-management.md)
+-   [Gestion du filtrage des fichiers](file-screening-management.md)
 -   [Définir des groupes de fichiers pour le filtrage](define-file-groups-for-screening.md)
--   [Créer un modèle d’écran de fichier](create-file-screen-template.md)
--   [Modifier les propriétés de modèle de filtre de fichier](edit-file-screen-template-properties.md)
+-   [Créer un modèle de filtre de fichiers](create-file-screen-template.md)
+-   [Modifier les propriétés du modèle de filtre de fichiers](edit-file-screen-template-properties.md)
 
 

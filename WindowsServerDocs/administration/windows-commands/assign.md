@@ -1,8 +1,8 @@
 ---
 title: assign
-description: Rubrique de commandes de Windows pour **affecter** -attribue un point de montage ou de lettre de lecteur au volume qui a le focus.
+description: La rubrique commandes Windows pour **Assign** -attribue une lettre de lecteur ou un point de montage au volume avec le focus.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e7f680fe93e846f5b916cf3210a7ca61f190674
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 3e07edcd4ac4ddf5eca1e57da17df441043d15f6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435299"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382676"
 ---
 # <a name="assign"></a>assign
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-assigne un point de montage ou de lettre de lecteur au volume qui a le focus.
+affecte une lettre de lecteur ou un point de montage au volume qui a le focus.
 
 ## <a name="syntax"></a>Syntaxe
 ```
@@ -34,17 +34,17 @@ assign [{letter=<d> | mount=<path>}] [noerr]
 
 |  Paramètre   |                                                                                                                                 Description                                                                                                                                 |
 |--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  letter=<d>  |                                                                                                             La lettre de lecteur que vous souhaitez affecter au volume.                                                                                                              |
-| mount=<path> | Le chemin du point de montage à affecter au volume.<br /><br />Pour obtenir des instructions concernant l’utilisation de cette commande, consultez [affecter un chemin d’accès du dossier de point de montage à un lecteur](https://go.microsoft.com/fwlink/?LinkId=207059) (<https://go.microsoft.com/fwlink/?LinkId=207059>). |
-|    NOERR     |                                    Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.                                     |
+|  lettre = <d>  |                                                                                                             Lettre de lecteur que vous souhaitez affecter au volume.                                                                                                              |
+| Mount = <path> | Chemin d’accès du point de montage que vous souhaitez affecter au volume.<br /><br />pour obtenir des instructions sur l’utilisation de cette commande, consultez [affecter un chemin d’accès au dossier du point de montage à un lecteur](https://go.microsoft.com/fwlink/?LinkId=207059) (<https://go.microsoft.com/fwlink/?LinkId=207059>). |
+|    noerr     |                                    À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.                                     |
 
 ## <a name="remarks"></a>Notes
-- Si aucun point de montage ou de lettre de lecteur n’est spécifié, la lettre de lecteur disponible suivante est affectée. Si le point de montage ou de lettre de lecteur est déjà en cours d’utilisation, une erreur est générée.
-- À l’aide de la commande assign, vous pouvez modifier la lettre de lecteur associée à un lecteur amovible.
-- Impossible d’attribuer des lettres de lecteur aux volumes système, les volumes de démarrage ou les volumes contenant le fichier d’échange. En outre, vous ne peut pas attribuer une lettre de lecteur à une partition de fabricant (OEM) ou de n’importe quelle partition de Table de Partition GUID (gpt) autre qu’une partition de base de données.
-- Un volume doit être sélectionné pour cette opération réussisse. Utilisez le **sélectionnez volume** commande pour sélectionner un volume et déplacer le focus vers elle.
-  ## <a name="BKMK_examples"></a>Exemples
-  Pour affecter la lettre E sur le volume dans le focus, tapez :
+- Si aucune lettre de lecteur ou aucun point de montage n’est spécifié, la lettre de lecteur disponible suivante est attribuée. Si la lettre de lecteur ou le point de montage est déjà utilisé, une erreur est générée.
+- À l’aide de la commande Assign, vous pouvez modifier la lettre de lecteur associée à un lecteur amovible.
+- Vous ne pouvez pas affecter des lettres de lecteur aux volumes système, aux volumes de démarrage ou aux volumes qui contiennent le fichier d’échange. En outre, vous ne pouvez pas attribuer une lettre de lecteur à une partition OEM (Original Equipment Manufacturer) ou à une partition GPT (GUID partition table) autre qu’une partition de données de base.
+- Vous devez sélectionner un volume pour que cette opération aboutisse. Utilisez la commande **Sélectionner un volume** pour sélectionner un volume et lui déplacer le focus.
+  ## <a name="BKMK_examples"></a>Illustre
+  Pour affecter la lettre E au volume sélectionné, tapez :
   ```
   assign letter=e
   ```

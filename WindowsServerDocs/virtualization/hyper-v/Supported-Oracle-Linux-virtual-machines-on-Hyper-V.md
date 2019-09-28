@@ -1,7 +1,7 @@
 ---
 title: Ordinateurs virtuels Oracle Linux pris en charge sur Hyper-V
 description: Répertorie les fonctionnalités et les services d’intégration Linux inclus dans chaque version
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,12 +11,12 @@ ms.assetid: c02fdb5b-62f3-43cb-a190-ab74b3ebcf77
 author: shirgall
 ms.author: kathydav
 ms.date: 06/01/2017
-ms.openlocfilehash: 3005907a085d1769716105f570f47f0114eae68d
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: 4b09b8e760ce716da7f5aa6abecbead52293e77b
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544703"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71365490"
 ---
 # <a name="supported-oracle-linux-virtual-machines-on-hyper-v"></a>Ordinateurs virtuels Oracle Linux pris en charge sur Hyper-V
 
@@ -40,7 +40,7 @@ Dans cette section :
 
 * (*vide*)-fonctionnalité non disponible
 
-* **UEK R\*x qu\*y** -unbriseable Enterprise kernel (UEK) où *x* est le numéro de version et *y* la mise à jour trimestrielle.
+* **UEK R @ no__t-1x qu @ no__t-2y** -unbrised Enterprise kernel (UEK) où *x* est le numéro de version et *y* la mise à jour trimestrielle.
 
 ## <a name="BKMK_rhc"></a>Série de noyaux compatibles Red Hat
 
@@ -59,7 +59,7 @@ Le noyau 32 bits pour la série 6. x est compatible PAE. Il n’existe aucune pr
 | vRSS                                                                                                                                         | 2019, 2016, 2012 R2                | &#10004;           | &#10004;            | &#10004;                                                            | &#10004;                                                            | &#10004;                 | &#10004;                 | &#10004;                 |                           |                           |
 | Segmentation TCP et déchargements de somme de contrôle                                                                                                       | 2019, 2016, 2012 R2, 2012, 2008 R2 | &#10004;           | &#10004;            | &#10004;                                                            | &#10004;                                                            | &#10004;                 | &#10004;                 | &#10004;                 |                           |                           |
 | SR-IOV                                                                                                                                       | 2019, 2016                         | &#10004;           | &#10004;            |                                                                     |                                                                     |                          |                          |                          |                           |                           |
-| **[Rangement](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                                             |                                    |                    |                     |                                                                     |                                                                     |                          |                          |                          |                           |                           |
+| **[Stockage](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                                             |                                    |                    |                     |                                                                     |                                                                     |                          |                          |                          |                           |                           |
 | Redimensionnement VHDX                                                                                                                                  | 2019, 2016, 2012 R2                | &#10004;           | &#10004;            | &#10004;                                                            | &#10004;                                                            | &#10004;                 | &#10004;                 | &#10004;                 | &#10004;                  |                           |
 | Fibre Channel virtuel                                                                                                                        | 2019, 2016, 2012 R2                | &#10004;Remarque 2    | &#10004;Remarque 2     | &#10004;Remarque 2                                                     | &#10004;Remarque 2                                                     | &#10004;Remarque 2          | &#10004;Remarque 2          | &#10004;Remarque 2          | &#10004;Remarque 2           |                           |
 | Sauvegarde de machine virtuelle en direct                                                                                                                  | 2019, 2016, 2012 R2                | &#10004;Remarque 11, 3 | &#10004;Remarque 11, 3 | &#10004;Remarque 3, 4                                                  | &#10004;Remarque 3, 4                                                  | &#10004;Remarque 3, 4, 11   | &#10004;Remarque 3, 4, 11   | &#10004;Remarque 3, 4, 11   | &#10004;Remarque 3, 4, 5, 11 | &#10004;Remarque 3, 4, 5, 11 |
@@ -102,7 +102,7 @@ Le Oracle Linux UEK (unbrised Enterprise kernel) est 64-bit uniquement et dispos
 | vRSS                                                                                                                                         | 2019, 2016, 2012 R2                | &#10004;                  | &#10004;                  |                           |                           |                      |
 | Segmentation TCP et déchargements de somme de contrôle                                                                                                       | 2019, 2016, 2012 R2, 2012, 2008 R2 | &#10004;                  | &#10004;                  |                           |                           |                      |
 | SR-IOV                                                                                                                                       | 2019, 2016                         |                           |                           |                           |                           |                      |
-| **[Rangement](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                                             |                                    |                           |                           |                           |                           |                      |
+| **[Stockage](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                                             |                                    |                           |                           |                           |                           |                      |
 | Redimensionnement VHDX                                                                                                                                  | 2019, 2016, 2012 R2                | &#10004;                  | &#10004;                  | &#10004;                  | &#10004;                  |                      |
 | Fibre Channel virtuel                                                                                                                        | 2019, 2016, 2012 R2                | &#10004;                  | &#10004;                  | &#10004;                  | &#10004;                  |                      |
 | Sauvegarde de machine virtuelle en direct                                                                                                                  | 2019, 2016, 2012 R2                | &#10004;Remarque 3, 4, 5, 11 | &#10004;Remarque 3, 4, 5, 11 | &#10004;Remarque 3, 4, 5, 11 | &#10004;Remarque 3, 4, 5, 11 |                      |
@@ -141,17 +141,17 @@ Le Oracle Linux UEK (unbrised Enterprise kernel) est 64-bit uniquement et dispos
 
 6. La prise en charge de la mémoire dynamique est disponible uniquement sur les ordinateurs virtuels 64 bits.
 
-7. La prise en charge de l’ajout à chaud n’est pas activée par défaut dans cette distribution. Pour activer la prise en charge de l’ajout à chaud, vous devez ajouter une règle udev sous/etc/udev/rules.d/comme suit:
+7. La prise en charge de l’ajout à chaud n’est pas activée par défaut dans cette distribution. Pour activer la prise en charge de l’ajout à chaud, vous devez ajouter une règle udev sous/etc/udev/rules.d/comme suit :
 
    1. Créez un fichier **/etc/udev/rules.d/100-Balloon.Rules**. Vous pouvez utiliser n’importe quel autre nom souhaité pour le fichier.
 
-   2. Ajoutez le contenu suivant au fichier:`SUBSYSTEM=="memory", ACTION=="add", ATTR{state}="online"`
+   2. Ajoutez le contenu suivant au fichier : `SUBSYSTEM=="memory", ACTION=="add", ATTR{state}="online"`
 
    3. Redémarrez le système pour activer la prise en charge de l’ajout à chaud.
 
    Tandis que le téléchargement de la Integration Services Linux crée cette règle lors de l’installation, la règle est également supprimée lorsque la LIS est désinstallée, de sorte que la règle doit être recréée si la mémoire dynamique est nécessaire après la désinstallation.
 
-8. Les opérations de mémoire dynamique peuvent échouer si le système d’exploitation invité s’exécute trop peu de mémoire. Voici quelques-unes des meilleures pratiques:
+8. Les opérations de mémoire dynamique peuvent échouer si le système d’exploitation invité s’exécute trop peu de mémoire. Voici quelques-unes des meilleures pratiques :
 
    * La mémoire de démarrage et la mémoire minimale doivent être supérieures ou égales à la quantité de mémoire recommandée par le fournisseur de distribution.
 
@@ -165,7 +165,7 @@ Le Oracle Linux UEK (unbrised Enterprise kernel) est 64-bit uniquement et dispos
 
 12. L’infrastructure de paires clé/valeur (KVP) peut ne pas fonctionner correctement sans mise à jour logicielle Linux. Contactez votre fournisseur de distribution pour obtenir la mise à jour logicielle en cas de problème avec cette fonctionnalité.
 
-13. Le démarrage sécurisé est activé par défaut sur les machines virtuelles OnWindows Server 2012 R2Generation 2, et certaines machines virtuelles Linux ne démarrent que si l’option de démarrage sécurisé est désactivée. Vous pouvez désactiver le démarrage sécurisé dans  la section microprogramme des paramètres de l’ordinateur virtuel dans le **Gestionnaire Hyper-V** , ou vous pouvez le désactiver à l’aide de PowerShell:
+13. Le démarrage sécurisé est activé par défaut sur les machines virtuelles OnWindows Server 2012 R2Generation 2, et certaines machines virtuelles Linux ne démarrent que si l’option de démarrage sécurisé est désactivée. Vous pouvez désactiver le démarrage sécurisé dans la section **microprogramme** des paramètres de l’ordinateur virtuel dans le **Gestionnaire Hyper-V** , ou vous pouvez le désactiver à l’aide de PowerShell :
 
     ```Powershell
     Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off

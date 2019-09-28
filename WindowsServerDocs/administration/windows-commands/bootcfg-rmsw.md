@@ -1,8 +1,8 @@
 ---
 title: bootcfg rmsw
-description: Rubrique de commandes de Windows pour **bootcfg rmsw** - supprime d’exploitation des options de chargement pour une entrée de système d’exploitation spécifié.
+description: La rubrique commandes Windows pour **bootcfg Rmsw** -supprime les options de chargement du système d’exploitation pour une entrée de système d’exploitation spécifiée.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f3d873cffbdb386b5f4f564801a4f4b815c6987a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 43629f2e13bb6269a43d592fa0907637135aea71
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434678"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379856"
 ---
 # <a name="bootcfg-rmsw"></a>bootcfg rmsw
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Supprime les options de chargement de système d’exploitation pour une entrée de système d’exploitation spécifié.
+supprime les options de chargement du système d’exploitation pour une entrée de système d’exploitation spécifiée.
 
 ## <a name="syntax"></a>Syntaxe
 ```
@@ -35,17 +35,17 @@ bootcfg /rmsw [/s <computer> [/u <Domain>\<User> [/p <Password>]]] [/mm] [/bv] [
 |      Paramètre       |                                                                                                      Description                                                                                                       |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    /s <computer>     |                                                   Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.                                                   |
-| /u <Domain>\\<User>  |          Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User> ou <Domain> \\ <User>. La valeur par défaut est les autorisations de l’utilisateur actuellement connecté sur l’ordinateur exécutant la commande.          |
-|    /p <Password>     |                                                                 Spécifie le mot de passe du compte d’utilisateur qui est spécifié dans le **/u** paramètre.                                                                  |
-|         /mm          |           Supprime l’option/maxmem et sa valeur de mémoire maximale associée à partir du spécifié <OSEntryLineNum>. L’option/maxmem spécifie la quantité maximale de mémoire RAM que le système d’exploitation peut utiliser.            |
-|         /bv          |                     Supprime l’option /basevideo spécifié <OSEntryLineNum>. L’option /basevideo indique le système d’exploitation à utiliser le mode VGA standard pour le pilote vidéo installé.                     |
-|         /so          |                         Supprime l’option/sos spécifié <OSEntryLineNum>. L’option/sos dirige le système d’exploitation pour afficher les noms de pilote de périphérique pendant qu’ils sont chargés.                          |
-|         /ng          |                         Supprime l’option d’option spécifié <OSEntryLineNum>. L’option de l’option désactive la barre de progression qui apparaît avant le CTRL + ALT + SUPPR invite d’ouverture.                          |
-| /id <OSEntryLineNum> | Spécifie le numéro de ligne d’entrée système d’exploitation dans la section [operating systems] du fichier Boot.ini à partir de laquelle les Options de chargement du système d’exploitation sont supprimées. La première ligne après l’en-tête de section de la section [operating systems] est 1. |
+| /u <Domain> @ no__t-1 @ no__t-2  |          Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User> ou <Domain> @ no__t-2 @ no__t-3. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande.          |
+|    /p <Password>     |                                                                 Spécifie le mot de passe du compte d’utilisateur spécifié dans le paramètre **/u** .                                                                  |
+|         /mm          |           supprime l’option/MAXMEM et la valeur de mémoire maximale associée du @no__t spécifié-0. L’option/MAXMEM spécifie la quantité maximale de RAM que le système d’exploitation peut utiliser.            |
+|         /bv          |                     supprime l’option/basevideo du @no__t spécifié. L’option/basevideo indique au système d’exploitation d’utiliser le mode VGA standard pour le pilote vidéo installé.                     |
+|         /So          |                         supprime l’option/SOS du @no__t spécifié-0. L’option/SOS indique au système d’exploitation d’afficher les noms des pilotes de périphériques pendant leur chargement.                          |
+|         /ng          |                         supprime l’option/noguiboot du @no__t spécifié-0. L’option/noguiboot désactive la barre de progression qui s’affiche avant l’invite d’ouverture de session CTRL + ALT + SUPPR.                          |
+| /ID <OSEntryLineNum> | Spécifie le numéro de ligne d’entrée du système d’exploitation dans la section [Operating Systems] du fichier Boot. ini à partir duquel les options de chargement du système d’exploitation sont supprimées. La première ligne après l’en-tête de la section [Operating Systems] est 1. |
 |          /?          |                                                                                          Affiche l'aide à l'invite de commandes.                                                                                          |
 
-## <a name="BKMK_examples"></a>Exemples
-Les exemples suivants montrent comment vous pouvez utiliser la **bootcfg /rmsw**commande :
+## <a name="BKMK_examples"></a>Illustre
+Les exemples suivants illustrent la façon dont vous pouvez utiliser la commande **bootcfg/Rmsw**:
 ```
 bootcfg /rmsw /mm 64 /id 2 
 bootcfg /rmsw /so /id 3 

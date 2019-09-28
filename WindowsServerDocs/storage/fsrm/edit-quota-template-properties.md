@@ -2,18 +2,18 @@
 title: Modifier les propriétés du modèle de quota
 description: Cet article explique comment modifier les propriétés du modèle de quota pour étendre les modifications aux quotas créés à partir du modèle de quota d’origine
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 0362b30e16dacb354220c770899195240f3e19ee
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 37719656e107869b97045af98c1a63744e4f6b38
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885780"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403023"
 ---
 # <a name="edit-quota-template-properties"></a>Modifier les propriétés du modèle de quota
 
@@ -45,6 +45,6 @@ Lorsque vous modifiez un modèle de quota, vous avez la possibilité d’étendr
 ## <a name="see-also"></a>Voir aussi
 
 -   [Gestion de quota](quota-management.md)
--   [Créer un modèle de Quota](create-quota-template.md)
+-   [Créer un modèle de quota](create-quota-template.md)
 
 

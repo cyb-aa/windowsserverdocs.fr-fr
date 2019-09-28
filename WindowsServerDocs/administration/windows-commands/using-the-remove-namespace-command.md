@@ -1,8 +1,8 @@
 ---
-title: À l’aide de la commande remove-Namespace
-description: 'Rubrique de commandes de Windows pour ***- '
+title: Utilisation de la commande Remove-Namespace
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 115c0a90a60e18ee4b89758200773d1dfec2163f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b4c087442c43fd885fe4554cb29f9b2788420e05
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842040"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71362788"
 ---
-# <a name="using-the-remove-namespace-command"></a>À l’aide de la commande remove-Namespace
+# <a name="using-the-remove-namespace-command"></a>Utilisation de la commande Remove-Namespace
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Supprime un espace de noms personnalisé.
+supprime un espace de noms personnalisé.
 ## <a name="syntax"></a>Syntaxe
 ```
 wdsutil /remove-Namespace /Namespace:<Namespace name> [/Server:<Server name>] [/force]
@@ -32,11 +32,11 @@ wdsutil /remove-Namespace /Namespace:<Namespace name> [/Server:<Server name>] [/
 ## <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-|/ Namespace :<Namespace name>|Spécifie le nom de l’espace de noms. Cela n’est pas le nom convivial, et il doit être unique.<br /><br />-   **Service de rôle de serveur de déploiement**: La syntaxe de nom de l’espace de noms est /Namespace:WDS :<ImageGroup>/<ImageName>/<Index>. Exemple : **WDS:ImageGroup1/install.wim/1**<br />-   **Service de rôle serveur de transport**: Cette valeur doit correspondre au nom donné à l’espace de noms lorsqu’il a été créé sur le serveur.|
-|[/Server:<Server name>]|Spécifie le nom du serveur. Cela peut être le nom NetBIOS ou le nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
-|[/force]|Supprime l’espace de noms immédiatement et met fin à tous les clients. Notez que, sauf si vous spécifiez **/force**, les clients existants peuvent terminer le transfert, mais les nouveaux clients ne sont pas en mesure de joindre.|
-## <a name="BKMK_examples"></a>Exemples
-Pour arrêter un espace de noms (clients actuels peuvent terminer le transfert mais nouveaux clients ne sont pas en mesure de joindre), type :
+|/Namespace : <Namespace name>|Spécifie le nom de l’espace de noms. Il ne s’agit pas du nom convivial et il doit être unique.<br /><br />**service de rôle serveur de déploiement**-    : La syntaxe du nom de l’espace de noms est/Namespace : WDS : <ImageGroup> @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4. Exemple : **WDS : ImageGroup1/install. wim/1**<br />**service de rôle serveur de Transport**-    : Cette valeur doit correspondre au nom donné à l’espace de noms lorsqu’il a été créé sur le serveur.|
+|[/Server:<Server name>]|Spécifie le nom du serveur. Il peut s’agir du nom NetBIOS ou du nom de domaine complet (FQDN). Si aucun nom de serveur n’est spécifié, le serveur local est utilisé.|
+|/Force|supprime immédiatement l’espace de noms et met fin à tous les clients. Notez que, à moins que vous ne spécifiiez **/force**, les clients existants peuvent terminer le transfert, mais les nouveaux clients ne peuvent pas se joindre.|
+## <a name="BKMK_examples"></a>Illustre
+Pour arrêter un espace de noms (les clients actuels peuvent terminer le transfert, mais les nouveaux clients ne peuvent pas se joindre à), tapez :
 ```
 wdsutil /remove-Namespace /Namespace:"Custom Auto 1"
 ```
@@ -46,6 +46,6 @@ wdsutil /remove-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1" /force
 ```
 #### <a name="additional-references"></a>Références supplémentaires
 [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-[à l’aide de la commande get-AllNamespaces](using-the-get-allnamespaces-command.md)
-[à l’aide de la commande Nouveau Namespace](using-the-new-namespace-command.md) 
- [ Sous-commande : start-Namespace](subcommand-start-namespace.md)
+[à l’aide de la commande AllNamespaces](using-the-get-allnamespaces-command.md)
+[à l’aide de la commande New-Namespace](using-the-new-namespace-command.md)
+ sous-[commande : Start-namespace](subcommand-start-namespace.md)

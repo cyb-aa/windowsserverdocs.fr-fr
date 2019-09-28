@@ -1,8 +1,8 @@
 ---
 title: nslookup set port
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 47eb780631da766f49c0ca2cac8ef90007a95c7e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5e1d7565499b87d861b727be54442a86527a85a7
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436710"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372916"
 ---
 # <a name="nslookup-set-port"></a>nslookup set port
 
 
 
-Modifie le port de serveur de noms par défaut TCP/UDP système DNS (Domain Name) à la valeur spécifiée.
+Remplace le port du serveur de noms DNS (Domain Name System) TCP/UDP par défaut par la valeur spécifiée.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,7 +36,7 @@ set port=<Port>
 
 | Paramètre |                                          Description                                          |
 |-----------|-----------------------------------------------------------------------------------------------|
-|  \<Port>  | Spécifie la nouvelle valeur pour le port de serveur de nom DNS de TCP/UDP par défaut. Le port par défaut est 53. |
+|  @no__t 0Port >  | Spécifie la nouvelle valeur pour le port du serveur de noms DNS TCP/UDP par défaut. Le port par défaut est 53. |
 |   {aide   |                                              ?}                                               |
 
 #### <a name="additional-references"></a>Références supplémentaires

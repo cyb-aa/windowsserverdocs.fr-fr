@@ -2,7 +2,7 @@
 title: certreq
 description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 19b4750b627a86a724b2a0f58ed7f9bde5ea1613
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 3098cb12379493a82c77412b2328f5312afb2c0c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867107"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379678"
 ---
 # <a name="certreq"></a>certreq
 
@@ -68,7 +68,7 @@ Retourner au [contenu](#BKMK_Contents)
 
 Le tableau suivant décrit la notation utilisée pour indiquer la syntaxe de la ligne de commande.
 
-|Notation|Description|
+|Conventions|Description|
 |--------|-----------|
 |Texte sans crochets ou accolades|Éléments que vous devez taper comme indiqué|
 |\<Texte à l’intérieur des crochets angulaires >|Espace réservé pour lequel vous devez fournir une valeur|
@@ -372,7 +372,7 @@ Retourner au [contenu](#BKMK_Contents)
 Les articles suivants contiennent des exemples d’utilisation de Certreq :
 -   [Comment demander un certificat avec un autre nom d’objet personnalisé](https://technet.microsoft.com/library/ff625722.aspx)
 -   [Guide de laboratoire de test : Déploiement d’une hiérarchie PKI à deux couches AD CS](https://technet.microsoft.com/library/hh831348.aspx)
--   [Annexe 3 : Syntaxe Certreq. exe](https://technet.microsoft.com/library/cc736326.aspx)
+-   [Annexe 3 : Syntaxe Certreq. exe](https://technet.microsoft.com/library/cc736326.aspx)
 -   [Comment créer un certificat SSL de serveur Web manuellement](http://blogs.technet.com/b/pki/archive/2009/08/05/how-to-create-a-web-server-ssl-certificate-manually.aspx)
 -   [Demander un certificat de configuration AMT à l’aide d’une autorité de certification Windows Server 2008](https://social.technet.microsoft.com/wiki/contents/articles/request-an-amt-provisioning-certificate-using-a-windows-server-2008-ca.aspx)
 -   [Inscription de certificats pour System Center Operations Manager agent](https://social.technet.microsoft.com/wiki/contents/articles/certificate-enrollment-for-system-center-operations-manager-agent.aspx)

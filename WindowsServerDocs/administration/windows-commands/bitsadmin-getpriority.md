@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin getpriority
-description: Rubrique de commandes de Windows pour **bitsadmin getpriority** -récupère la priorité de la tâche spécifiée.
+title: Bitsadmin getPriority,
+description: La rubrique commandes Windows pour **Bitsadmin getPriority,** -récupère la priorité du travail spécifié.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -12,16 +12,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: 6be2461ed87b75144367b1bd74376381e4674b66
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0b8914f27c690aa9bb9cbf30430b3edf55f2eb92
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841440"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381432"
 ---
-# <a name="bitsadmin-getpriority"></a>Bitsadmin getpriority
+# <a name="bitsadmin-getpriority"></a>Bitsadmin getPriority,
 
-Récupère la priorité de la tâche spécifiée.
+Récupère la priorité du travail spécifié.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -33,19 +33,19 @@ bitsadmin /GetPriority <Job>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
+|Tâche|Nom complet ou GUID du travail|
 
 ## <a name="remarks"></a>Notes
 
-La priorité est soit **premier plan**, **haute**, **NORMAL**, **faible**, ou **inconnu**.
+La priorité est de **premier plan**, **haute**, **normale**, **faible**ou **inconnue**.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivant récupère la priorité du travail *myDownloadJob*.
+L’exemple suivant récupère la priorité pour la tâche nommée *myDownloadJob*.
 ```
 C:\>bitsadmin /GetPriority myDownloadJob
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

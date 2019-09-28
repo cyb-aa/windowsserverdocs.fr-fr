@@ -1,8 +1,8 @@
 ---
 title: nslookup set domain
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d1af9f30dd2c44111adecb477a6469333f4f7685
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f140a371a6374baa7921ca823df469156593423c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436769"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372926"
 ---
 # <a name="nslookup-set-domain"></a>nslookup set domain
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-modifie le nom de domaine du système DNS (Domain Name) par défaut pour le nom spécifié.
+remplace le nom de domaine DNS (Domain Name System) par défaut par le nom spécifié.
 ## <a name="syntax"></a>Syntaxe
 ```
 set domain=<DomainName>
@@ -34,11 +34,11 @@ set domain=<DomainName>
 |    Paramètre    |                                           Description                                           |
 |-----------------|-------------------------------------------------------------------------------------------------|
 |  <DomainName>   | Spécifie un nouveau nom pour le nom de domaine DNS par défaut. Le nom de domaine par défaut est le nom d’hôte. |
-| {aide &#124; ?} |                      Affiche un résumé de **nslookup** sous-commandes.                      |
+| {Help &#124; ?} |                      Affiche un bref résumé des sous-commandes **nslookup** .                      |
 
 ## <a name="remarks"></a>Notes
-- Le nom de domaine DNS par défaut est ajouté à une demande de recherche selon l’état de la **defname** et **recherche** options. La liste de recherche du domaine DNS contient les parents du domaine DNS par défaut si elle a au moins deux composants dans son nom. Par exemple, si le domaine DNS par défaut est mfg.widgets.com, la liste de recherche est nommée mfg.widgets.com et widgets.com. Utilisez le **définir srchlist** commande pour spécifier une liste différente et la **définir tout** commande pour afficher la liste.
+- Le nom de domaine DNS par défaut est ajouté à une demande de recherche en fonction de l’état des **defname** et des options de **recherche** . La liste de recherche de domaine DNS contient les parents du domaine DNS par défaut s’il a au moins deux composants dans son nom. Par exemple, si le domaine DNS par défaut est mfg.widgets.com, la liste de recherche est nommée à la fois mfg.widgets.com et widgets.com. Utilisez la commande **Set srchlist** pour spécifier une autre liste et la commande **Set All** pour afficher la liste.
   ## <a name="additional-references"></a>Références supplémentaires
   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-  [nslookup définie srchlist](nslookup-set-srchlist.md)
-  [nslookup définie toutes les](nslookup-set-all.md)
+  [nslookup Set srchlist](nslookup-set-srchlist.md)
+  [nslookup Set All](nslookup-set-all.md)

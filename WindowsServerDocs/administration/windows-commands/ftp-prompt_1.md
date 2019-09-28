@@ -1,8 +1,8 @@
 ---
-title: FTP prompt_1
-description: 'Rubrique de commandes de Windows pour ***- '
+title: prompt_1 FTP
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 65f7505dfcb3677fcaace9bd645cca7e7ba70b7d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 08c7f9c14f4168bb5d3aa874711669eede8d0d87
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66438595"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71376200"
 ---
-# <a name="ftp-prompt1"></a>FTP : prompt_1
+# <a name="ftp-prompt_1"></a>FTP : prompt_1
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Active/désactive **invite** et désactiver le mode.   
+Active ou désactive le mode d' **invite** .   
 ## <a name="syntax"></a>Syntaxe  
 ```  
 prompt  
@@ -32,10 +32,10 @@ prompt
 ### <a name="parameters"></a>Paramètres  
 aucune  
 ## <a name="remarks"></a>Notes  
-- Par défaut, **invite** se trouve sur.  
-- **FTP** invites lors de transferts de fichiers multiples pour vous permettre de récupérer ou de stocker les fichiers de manière sélective.  **Mget** et **mput** transférer tous les fichiers si **invite** est désactivé.  
-  ## <a name="BKMK_Examples"></a>Exemples  
-  Activer et désactiver les mode invite.  
+- Par défaut, l' **invite** est activée.  
+- les invites **FTP** au cours de plusieurs transferts de fichiers vous permettent de récupérer ou de stocker des fichiers de manière sélective.  **Mget** et **mput** transfèrent tous les fichiers si l' **invite** est désactivée.  
+  ## <a name="BKMK_Examples"></a>Illustre  
+  Activez ou désactivez le mode d’invite.  
   ```  
   prompt  
   ```  

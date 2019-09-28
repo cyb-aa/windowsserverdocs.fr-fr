@@ -3,7 +3,7 @@ title: Configuration matérielle requise et recommandations relatives aux perfor
 description: Fournit les spécifications matérielles et de performances et les recommandations pour MultiPoint services
 ms.custom: na
 ms.date: 07/22/2016
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: multipoint-services
 ms.reviewer: na
 ms.suite: na
@@ -13,12 +13,12 @@ ms.assetid: 99a5c9c2-270f-4753-a28c-434882c03125
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: afabab738527e7a0994c917b0065baa4f8c53fda
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 284131028b308ee86389f25102d934390ba2f16d
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871439"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71389114"
 ---
 # <a name="hardware-requirements-and-performance-recommendations"></a>Configuration matérielle requise et recommandations relatives aux performances
 Cette rubrique décrit le matériel requis pour exécuter un système MultiPoint services et prendre en charge les scénarios d’application utilisateur. Le scénario utilisateur affecte directement les besoins en bande passante du processeur, de la RAM et du réseau.  
@@ -41,14 +41,14 @@ Pour obtenir de bonnes performances avec votre système MultiPoint services sous
   
 |Scénario d’application|Jusqu’à 5 stations|Stations 6-8|Stations 9-12|Stations 13-16|Stations 17-20|Stations 21-24|  
 |------------------------|----------------------|-------------------|------------------|-------------------|-------------------|-----------------|  
-|**Améliorer**<br /><br />Office, navigation Web, applications métier|Processeur : 2C<br /><br />RAM : 2 GO|Processeur : 2C<br /><br />RAM : 4 Go|Processeur : 4C<br /><br />RAM : 6 GO|Processeur : 4C<br /><br />RAM : 8 GO|Processeur : 4C + MT ou 6C<br /><br />RAM : 10 Go| Processeur : 6C + MT<br /><br />RAM : 12 GO|
-|**Majuscule**<br /><br />Office, navigation Web, applications métier et utilisation vidéo occasionnelle par certains utilisateurs|Processeur : 2C<br /><br />RAM : 2 GO|Processeur : 2C<br /><br />RAM : 4 Go|Processeur : 4C<br /><br />RAM : 6 GO|Processeur : 4C + MT ou 6C<br /><br />RAM : 8 GO|Processeur : 6C + MT<br /><br />RAM : 10 Go| Processeur : 6C + MT<br /><br />RAM : 12 GO| 
-|**Utilisation intensive de la vidéo**<br /><br />Office, la navigation Web, les applications métier et l’utilisation fréquente de vidéos par tous les utilisateurs **Remarque :** Le test vidéo a été effectué à l’aide de la vidéo 360p H. 264 à la résolution native.|Processeur : 4C + MT<br /><br />RAM : 2 GO|Processeur : 6C + MT<br /><br />RAM : 4 Go|Processeur : 8C + MT<br /><br />RAM : 6 GO|Processeur : 12C + MT<br /><br />RAM : 8 GO|Processeur : 16C + MT<br /><br />RAM : 10 Go<br /><br />-Client léger : RemoteFX<br />-Vidéo USB non recommandée| Processeur : 20-20 + MT<br /><br />RAM : 12 GO<br /><br />-Client léger : RemoteFX<br />-Vidéo USB non recommandée|   
+|**Améliorer**<br /><br />Office, navigation Web, applications métier|UC : 2C<br /><br />RAM : 2 GO|UC : 2C<br /><br />RAM : 4 Go|UC : 4C<br /><br />RAM : 6 GO|UC : 4C<br /><br />RAM : 8 GO|UC : 4C + MT ou 6C<br /><br />RAM : 10 Go| UC : 6C + MT<br /><br />RAM : 12 GO|
+|**Majuscule**<br /><br />Office, navigation Web, applications métier et utilisation vidéo occasionnelle par certains utilisateurs|UC : 2C<br /><br />RAM : 2 GO|UC : 2C<br /><br />RAM : 4 Go|UC : 4C<br /><br />RAM : 6 GO|UC : 4C + MT ou 6C<br /><br />RAM : 8 GO|UC : 6C + MT<br /><br />RAM : 10 Go| UC : 6C + MT<br /><br />RAM : 12 GO| 
+|**Utilisation intensive de la vidéo**<br /><br />Office, la navigation Web, les applications métier et l’utilisation fréquente de vidéos par tous les utilisateurs **Remarque :** Le test vidéo a été effectué à l’aide de la vidéo 360p H. 264 à la résolution native.|UC : 4C + MT<br /><br />RAM : 2 GO|UC : 6C + MT<br /><br />RAM : 4 Go|UC : 8C + MT<br /><br />RAM : 6 GO|UC : 12C + MT<br /><br />RAM : 8 GO|UC : 16C + MT<br /><br />RAM : 10 Go<br /><br />-Client léger : RemoteFX<br />-Vidéo USB non recommandée| UC : 20-20 + MT<br /><br />RAM : 12 GO<br /><br />-Client léger : RemoteFX<br />-Vidéo USB non recommandée|   
   
 ## <a name="minimum-recommended-hardware-for-running-full-windows-10-virtual-desktops"></a>Configuration matérielle minimale recommandée pour l’exécution de bureaux virtuels Windows 10 complets  
 L’exécution d’une instance de système d’exploitation virtuelle complète pour chaque station est plus gourmande en ressources de calcul que l’exécution des sessions MultiPoint Desktop par défaut. par conséquent, les exigences matérielles de l’ordinateur hôte par station sont plus élevées :  
   
-1.  Processeur : 1 cœur ou thread par station  
+1.  UC : 1 cœur ou thread par station  
   
 2.  SSD (Solid State Drive)  
   

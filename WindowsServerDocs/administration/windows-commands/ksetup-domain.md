@@ -1,8 +1,8 @@
 ---
-title: Ksetup:Domain
-description: 'Rubrique de commandes de Windows pour ***- '
+title: 'Ksetup : domaine'
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f53e807891b434709b1a8faed7aae8e8d444f6e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0a4d9f09def32c7518046c25887f4154020c5d7e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857450"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375118"
 ---
-# <a name="ksetupdomain"></a>Ksetup:Domain
+# <a name="ksetupdomain"></a>Ksetup : domaine
 
 
 
@@ -36,21 +36,21 @@ ksetup /domain <DomainName>
 
 |Paramètre|Description|
 |---------|-----------|
-|\<DomainName>|Nom du domaine auquel vous souhaitez établir une connexion. Utilisez le nom de domaine complet ou un formulaire simple du nom, tel que contoso.com ou contoso.|
+|@no__t 0DomainName >|Nom du domaine auquel vous souhaitez établir une connexion. Utilisez le nom de domaine complet ou une forme simple du nom, par exemple contoso.com ou contoso.|
 
 ## <a name="remarks"></a>Notes
 
 Aucun.
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 
-Établir une connexion à un domaine valide, tels que Microsoft à l’aide de la sous-commande /mapuser :
+Établissez une connexion à un domaine valide, tel que Microsoft, à l’aide de la sous-commande/mapuser :
 ```
 ksetup /mapuser principal@realm domain-user /domain domain-name
 ```
-Lorsque la connexion est établie, vous recevez un nouveau ticket TGT ou un ticket TGT existante est actualisée.
+Une fois la connexion établie, vous recevrez un nouveau TGT ou un ticket TGT existant sera actualisé.
 
 #### <a name="additional-references"></a>Références supplémentaires
 
 -   [Ksetup](ksetup.md)
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

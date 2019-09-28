@@ -1,8 +1,8 @@
 ---
-title: volume d’attributs
-description: Rubrique de commandes de Windows pour **attributs volume** -affiche, définit ou efface les attributs d’un volume.
+title: volume des attributs
+description: 'Rubrique relative aux commandes Windows pour les **attributs volume** : affiche, définit ou efface les attributs d’un volume.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 37af55ee2a041fbcf8068e0def72147732d3a687
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 225a10307123763d1a024fcc08fbae536fd0b5df
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846580"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382582"
 ---
-# <a name="attributes-volume"></a>volume d’attributs
+# <a name="attributes-volume"></a>volume des attributs
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 Affiche, définit ou efface les attributs d’un volume.  
   
@@ -38,43 +38,43 @@ attributes volume [{set | clear}] [{hidden | readonly | nodefaultdriveletter | s
   
 |Paramètre|Description|  
 |-------|--------|  
-|jeu|Définit l’attribut spécifié du volume qui a le focus.|  
-|clear|Supprime l’attribut spécifié du volume qui a le focus.|  
-|en lecture seule|Spécifie que le volume est en lecture\-uniquement.|  
-|Masqué|Spécifie que le volume est masqué.|  
-|nodefaultdriveletter|Spécifie que le volume ne reçoit pas une lettre de lecteur par défaut.|  
-|Shadowcopy|Spécifie que le volume est un volume de clichés instantanés.|  
-|NOERR|Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.|  
+|jeu|Définit l’attribut spécifié du volume avec le focus.|  
+|clear|Efface l’attribut spécifié du volume qui a le focus.|  
+|seulement|Spécifie que le volume est lu @ no__t-0only.|  
+|masquer|Spécifie que le volume est masqué.|  
+|nodefaultdriveletter|Spécifie que le volume ne reçoit pas de lettre de lecteur par défaut.|  
+|cliché|Spécifie que le volume est un volume de clichés instantanés.|  
+|noerr|À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.|  
   
 ## <a name="remarks"></a>Notes  
   
--   Dans l’enregistrement de démarrage principal \(MBR\) disques, le **masqué**, **readonly**, et **nodefaultdriveletter** paramètres s’appliquent à tous les volumes sur le disque.  
+-   Sur un enregistrement de démarrage principal \(MBR @ no__t-1, les paramètres **Hidden**, **ReadOnly**et **nodefaultdriveletter** s’appliquent à tous les volumes sur le disque.  
   
--   Sur la table de partition GUID base \(gpt\) disques et sur dynamique disques MBR et gpt, le **masqué**, **readonly**, et **nodefaultdriveletter** paramètres s’appliquent uniquement au volume sélectionné.  
+-   Sur la table de partition GUID de base \(gpt @ no__t-1, et sur les disques MBR et GPT dynamiques, les paramètres **Hidden**, **ReadOnly**et **nodefaultdriveletter** s’appliquent uniquement au volume sélectionné.  
   
--   Un volume doit être sélectionné pour le **attributs volume** commande réussisse. Utilisez le **sélectionnez volume** commande pour sélectionner un volume et déplacer le focus vers elle.  
+-   Vous devez sélectionner un volume pour que la commande **attributs volume** aboutisse. Utilisez la commande **Sélectionner un volume** pour sélectionner un volume et lui déplacer le focus.  
   
-## <a name="BKMK_examples"></a>Exemples  
-Pour afficher les attributs en cours sur le volume sélectionné, tapez :  
+## <a name="BKMK_examples"></a>Illustre  
+Pour afficher les attributs actuels sur le volume sélectionné, tapez :  
   
 ```  
 attributes volume  
 ```  
   
-Pour définir le volume sélectionné comme masqué et lecture\-uniquement, tapez :  
+Pour définir le volume sélectionné comme masqué et lire @ no__t-0only, tapez :  
   
 ```  
 attributes volume set hidden readonly  
 ```  
   
-Pour supprimer les masqué et lecture\-uniquement les attributs sur le volume sélectionné, tapez :  
+Pour supprimer les attributs Hidden et Read @ no__t-0only sur le volume sélectionné, tapez :  
   
 ```  
 attributes volume clear hidden readonly  
 ```  
   
 #### <a name="additional-references"></a>Références supplémentaires  
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)  
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)  
   
 
   

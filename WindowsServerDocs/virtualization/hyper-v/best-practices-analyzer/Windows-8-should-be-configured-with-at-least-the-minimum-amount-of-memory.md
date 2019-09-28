@@ -1,7 +1,7 @@
 ---
 title: Windows 8 doit être configuré avec au moins la quantité minimale de mémoire
 description: Fournit des instructions pour résoudre le problème signalé par cette règle de Best Practices Analyzer.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 519d1091-fa4d-44d7-83ca-83f6aa71fb7d
 author: KBDAzure
 ms.date: 8/16/2016
-ms.openlocfilehash: b109dc747410dfc2868b00a1a0b95620ed314a56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 830dc05556f78734341fc86c377e5f34805b44dd
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864440"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71393220"
 ---
 # <a name="windows-8-should-be-configured-with-at-least-the-minimum-amount-of-memory"></a>Windows 8 doit être configuré avec au moins la quantité minimale de mémoire
 
@@ -27,39 +27,39 @@ Pour plus d’informations sur les bonnes pratiques et les analyses, consultez [
 |-|-|  
 |**Système d'exploitation**|Windows Server 2016|  
 |**Produit/fonctionnalité**|Hyper-V|  
-|**Niveau de gravité**|Erreur|  
+|**Va**|Error|  
 |**Catégorie**|Configuration|  
   
-Les sections suivantes fournissent des détails sur le problème spécifique. Italique indique le texte de l’interface utilisateur qui apparaît dans l’outil Best Practices Analyzer pour le problème spécifique.  
+Les sections suivantes fournissent des détails sur le problème spécifique. L’italique indique le texte de l’interface utilisateur qui apparaît dans l’outil Best Practices Analyzer pour le problème spécifique.  
   
 ## <a name="issue"></a>**Problème**  
-*Une machine virtuelle exécutant Windows 8 est configurée avec inférieure à la quantité minimale de RAM, qui est de 512 Mo.*  
+*Une machine virtuelle exécutant Windows 8 est configurée avec une quantité inférieure à la quantité minimale de RAM, qui est de 512 Mo.*  
   
 ## <a name="impact"></a>**Impact**  
-*Le système d’exploitation invité sur les ordinateurs virtuels suivants ne peut pas s’exécuter ou peut s’exécuter unreliably :*  
+*Le système d’exploitation invité sur les ordinateurs virtuels suivants peut ne pas s’exécuter ou ne pas fonctionner de manière fiable :*  
 ```  
 <list of virtual machines>  
 ```  
 ## <a name="resolution"></a>**Résolution**  
-*Utilisez le Gestionnaire Hyper-V pour augmenter la mémoire allouée à cette machine virtuelle sur au moins 512 Mo.*  
+*Utilisez le Gestionnaire Hyper-V pour augmenter la mémoire allouée à cette machine virtuelle à au moins 512 Mo.*  
   
-#### <a name="increase-the-memory-using-hyper-v-manager"></a>Augmentez la mémoire à l’aide du Gestionnaire Hyper-V  
+#### <a name="increase-the-memory-using-hyper-v-manager"></a>Augmenter la mémoire à l’aide du Gestionnaire Hyper-V  
   
 1.  Ouvrez le Gestionnaire Hyper-V. Cliquez sur **Démarrer**, pointez sur **Outils d'administration**, puis cliquez sur **Gestionnaire Hyper-V**.  
   
-2.  Dans le volet de résultats, sous **Machines virtuelles**, sélectionnez la machine virtuelle que vous souhaitez configurer. L’état de la machine virtuelle doit être répertorié en tant que **hors**. Si elle n’est pas le cas, avec le bouton droit de la machine virtuelle, puis cliquez sur **arrêter**.  
+2.  Dans le volet de résultats, sous **machines virtuelles**, sélectionnez la machine virtuelle que vous souhaitez configurer. L’état de la machine virtuelle doit être défini sur **désactivé**. Si ce n’est pas le cas, cliquez avec le bouton droit sur l’ordinateur virtuel, puis cliquez sur **arrêter**.  
   
 3.  Dans le volet **Action**, sous le nom de l'ordinateur virtuel, cliquez sur **Paramètres**.  
   
 4.  Dans le volet de navigation, cliquez sur **mémoire**.  
   
-5.  Sur le **mémoire** , définissez le **RAM de démarrage** au moins 512 Mo, puis cliquez sur **OK**.  
+5.  Sur la page **mémoire** , définissez la **RAM de démarrage** sur au moins 512 Mo, puis cliquez sur **OK**.  
   
-### <a name="increase-the-memory-using-windows-powershell"></a>Augmentez la mémoire à l’aide de Windows PowerShell  
+### <a name="increase-the-memory-using-windows-powershell"></a>Augmenter la mémoire à l’aide de Windows PowerShell  
   
 1.  Ouvrez Windows PowerShell. (À partir du bureau, cliquez sur **Démarrer** et commencez à taper **Windows PowerShell**.)  
   
-2.  Avec le bouton droit **Windows PowerShell** et cliquez sur **exécuter en tant qu’administrateur**.  
+2.  Cliquez avec le bouton droit sur **Windows PowerShell** , puis cliquez sur **exécuter en tant qu’administrateur**.  
   
 3.  Exécutez cette commande après avoir remplacé \<MyVM > par le nom de votre machine virtuelle :  
   

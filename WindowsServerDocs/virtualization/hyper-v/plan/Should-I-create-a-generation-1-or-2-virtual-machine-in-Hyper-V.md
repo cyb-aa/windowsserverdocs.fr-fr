@@ -1,7 +1,7 @@
 ---
 title: Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?
-description: Fournit des considérations relatives à la prise en charge tels que les méthodes de démarrage et d’autres différences de fonctionnalités pour vous aider à choisir la génération répond à vos besoins.
-ms.prod: windows-server-threshold
+description: Fournit des considérations telles que les méthodes de démarrage prises en charge et d’autres différences de fonctionnalités pour vous aider à choisir la génération qui répond à vos besoins.
+ms.prod: windows-server
 ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
@@ -11,51 +11,51 @@ ms.assetid: 02e31413-6140-4723-a8d6-46c7f667792d
 author: KBDAzure
 ms.author: kathydav
 ms.date: 12/05/2016
-ms.openlocfilehash: 95ececde8a1b8c591ea2baf367a93f63ee55a6e3
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: bd0b50534096bc06edb41390ef2c4ec3554d8406
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811988"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71364078"
 ---
 # <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?
 
 >S'applique à : Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 > [!NOTE]
-> Si vous prévoyez de jamais télécharger Windows machines virtuelles (VM) en local à Microsoft Azure, de génération 1 et de machines virtuelles de génération 2 dans le format de fichier de disque dur virtuel et que vous avez un disque de taille fixe sont pris en charge. Consultez [machines virtuelles de génération 2 sur Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) pour en savoir plus sur les fonctionnalités de génération 2 prise en charge sur Azure. Pour plus d’informations sur le téléchargement d’un disque dur virtuel Windows ou un VHDX, consultez [préparer un disque dur virtuel Windows à charger sur Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> Si vous envisagez de télécharger des machines virtuelles Windows à partir d’un emplacement local vers Microsoft Azure, les machines virtuelles de génération 1 et de génération 2 dans le format de fichier VHD et qui ont un disque de taille fixe sont prises en charge. Consultez [machines virtuelles de génération 2 sur Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) pour en savoir plus sur les fonctionnalités de génération 2 prises en charge sur Azure. Pour plus d’informations sur le téléchargement d’un disque dur virtuel Windows ou VHDX, consultez [préparer un disque dur virtuel Windows ou un vhdx à charger sur Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
-Votre choix pour créer une génération 1 ou un ordinateur virtuel de génération 2 dépend de système d’exploitation invité que vous souhaitez installer et de la méthode de démarrage que vous souhaitez utiliser pour déployer l’ordinateur virtuel. Nous vous recommandons de créer une machine virtuelle de génération 2 pour tirer parti des fonctionnalités comme le démarrage sécurisé, sauf si une des instructions suivantes est remplie :  
+Votre choix de créer une machine virtuelle de génération 1 ou de génération 2 dépend du système d’exploitation invité que vous souhaitez installer et de la méthode de démarrage que vous souhaitez utiliser pour déployer l’ordinateur virtuel. Nous vous recommandons de créer une machine virtuelle de génération 2 pour tirer parti des fonctionnalités telles que le démarrage sécurisé, sauf si l’une des affirmations suivantes est vraie :  
 
-- Le disque dur virtuel que vous voulez démarrer à partir de n’est pas [compatible avec UEFI](https://technet.microsoft.com/library/hh824898.aspx).  
-- Génération 2 ne prend pas en charge le système d’exploitation que vous souhaitez exécuter sur l’ordinateur virtuel.  
-- Génération 2 ne prend pas en charge la méthode de démarrage que vous souhaitez utiliser.  
+- Le disque dur virtuel à partir duquel vous voulez démarrer n’est pas [compatible avec UEFI](https://technet.microsoft.com/library/hh824898.aspx).  
+- La génération 2 ne prend pas en charge le système d’exploitation que vous souhaitez exécuter sur la machine virtuelle.  
+- La génération 2 ne prend pas en charge la méthode de démarrage que vous souhaitez utiliser.  
 
-Pour plus d’informations sur quelles sont les fonctionnalités disponibles avec les ordinateurs virtuels de génération 2, consultez [compatibilité des fonctionnalités par génération et invité Hyper-V](../Hyper-V-feature-compatibility-by-generation-and-guest.md).
+Pour plus d’informations sur les fonctionnalités disponibles avec les ordinateurs virtuels de génération 2, consultez [compatibilité des fonctionnalités Hyper-V par génération et invité](../Hyper-V-feature-compatibility-by-generation-and-guest.md).
 
-Vous ne pouvez pas modifier la génération d’une machine virtuelle une fois que vous l’avez créé. Par conséquent, nous recommandons que vous passez en revue les considérations ici, mais aussi choisissez le système d’exploitation, méthode de démarrage et fonctionnalités que vous souhaitez utiliser avant de choisir une génération.  
+Vous ne pouvez pas modifier la génération d’un ordinateur virtuel après l’avoir créé. Nous vous recommandons donc de passer en revue les considérations ici, ainsi que de choisir le système d’exploitation, la méthode de démarrage et les fonctionnalités que vous souhaitez utiliser avant de choisir une génération.  
 
-## <a name="which-guest-operating-systems-are-supported"></a>Quels systèmes d’exploitation invités sont pris en charge ?
+## <a name="which-guest-operating-systems-are-supported"></a>Quels sont les systèmes d’exploitation invités pris en charge ?
 
-Ordinateurs virtuels de génération 1 prennent en charge la plupart des systèmes d’exploitation invités. Ordinateurs virtuels de génération 2 prennent en charge plus les versions 64 bits de Windows et des versions plus récentes des systèmes d’exploitation Linux et FreeBSD. Utilisez les sections suivantes pour la génération d’ordinateur virtuel prend en charge le système d’exploitation invité à installer.  
+Les ordinateurs virtuels de génération 1 prennent en charge la plupart des systèmes d’exploitation invités. Les ordinateurs virtuels de 2e génération prennent en charge la plupart des versions 64 bits de Windows, ainsi que des versions plus récentes des systèmes d’exploitation Linux et FreeBSD. Utilisez les sections suivantes pour déterminer la génération de la machine virtuelle qui prend en charge le système d’exploitation invité que vous souhaitez installer.  
 
-- [Prise en charge du système d’exploitation Windows invité](#windows-guest-operating-system-support)  
+- [Prise en charge du système d’exploitation invité Windows](#windows-guest-operating-system-support)  
 
-- [CentOS et prise en charge du système d’exploitation Red Hat Enterprise Linux invité](#centos-and-red-hat-enterprise-linux-guest-operating-system-support)  
+- [Prise en charge des systèmes d’exploitation invités CentOS et Red Hat Enterprise Linux](#centos-and-red-hat-enterprise-linux-guest-operating-system-support)  
 
 - [Prise en charge du système d’exploitation invité Debian](#debian-guest-operating-system-support)  
 
-- [Prise en charge du système d’exploitation FreeBSD invité](#freebsd-guest-operating-system-support)  
+- [Prise en charge du système d’exploitation invité FreeBSD](#freebsd-guest-operating-system-support)  
 
-- [Prise en charge du système d’exploitation invité Linux Oracle](#oracle-linux-guest-operating-system-support)  
+- [Oracle Linux la prise en charge du système d’exploitation invité](#oracle-linux-guest-operating-system-support)  
 
-- [Prise en charge du système d’exploitation SUSE invité](#suse-guest-operating-system-support)  
+- [Prise en charge du système d’exploitation invité SUSE](#suse-guest-operating-system-support)  
 
-- [Prise en charge du système d’exploitation Ubuntu invité](#ubuntu-guest-operating-system-support)  
+- [Prise en charge du système d’exploitation invité Ubuntu](#ubuntu-guest-operating-system-support)  
 
-### <a name="windows-guest-operating-system-support"></a>Prise en charge du système d’exploitation Windows invité
+### <a name="windows-guest-operating-system-support"></a>Prise en charge du système d’exploitation invité Windows
 
-Le tableau suivant présente les versions 64 bits de Windows vous pouvez utiliser comme système d’exploitation invité pour la génération 1 et les ordinateurs virtuels de génération 2.  
+Le tableau suivant répertorie les versions 64 bits de Windows que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et 2.  
 
 |versions 64 bits de Windows|1e génération|2e génération|  
 |-------------------------------|----------------|----------------|  
@@ -70,7 +70,7 @@ Le tableau suivant présente les versions 64 bits de Windows vous pouvez utilise
 |Windows 8|&#10004;|&#10004;|  
 |Windows 7|&#10004;| &#10006;|
 
-Le tableau suivant présente les versions 32 bits de Windows vous pouvez utiliser comme système d’exploitation invité pour la génération 1 et les ordinateurs virtuels de génération 2.
+Le tableau suivant répertorie les versions 32 bits de Windows que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et 2.
 
 |versions 32 bits de Windows|1e génération|2e génération|  
 |-------------------------------|----------------|----------------|  
@@ -79,109 +79,109 @@ Le tableau suivant présente les versions 32 bits de Windows vous pouvez utilise
 |Windows 8|&#10004;| &#10006;|  
 |Windows 7|&#10004;| &#10006;|  
 
-### <a name="centos-and-red-hat-enterprise-linux-guest-operating-system-support"></a>CentOS et prise en charge du système d’exploitation Red Hat Enterprise Linux invité
+### <a name="centos-and-red-hat-enterprise-linux-guest-operating-system-support"></a>Prise en charge des systèmes d’exploitation invités CentOS et Red Hat Enterprise Linux
 
-Le tableau suivant indique les versions de Red Hat Enterprise Linux \(RHEL\) et CentOS vous pouvez utiliser comme système d’exploitation invité pour la génération 1 et les ordinateurs virtuels de génération 2.
+Le tableau suivant indique les versions de Red Hat Enterprise Linux \(RHEL @ no__t-1 et CentOS que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et de génération 2.
 
 |Versions de système d’exploitation|1e génération|2e génération|  
 |-----------------------------|----------------|----------------|  
-|Série de 7.x RHEL/CentOS|&#10004;|&#10004;|  
-|Série de RHEL/CentOS 6.x|&#10004;|&#10004;<br />**Remarque :** Prise en charge uniquement sur Windows Server 2016 et versions ultérieures.|  
-|Série de 5.x RHEL/CentOS|&#10004;| &#10006;|  
+|Série RHEL/CentOS 7. x|&#10004;|&#10004;|  
+|Série RHEL/CentOS 6. x|&#10004;|&#10004;<br />**Remarque :** Pris en charge uniquement sur Windows Server 2016 et versions ultérieures.|  
+|Série RHEL/CentOS 5. x|&#10004;| &#10006;|  
 
-Pour plus d’informations, consultez [CentOS et Red Hat Enterprise Linux ordinateurs virtuels sur Hyper-V](../Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md).  
+Pour plus d’informations, consultez [CentOS et Red Hat Enterprise Linux des machines virtuelles sur Hyper-V](../Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md).  
 
 ### <a name="debian-guest-operating-system-support"></a>Prise en charge du système d’exploitation invité Debian  
 
-Le tableau suivant présente les versions de Debian vous pouvez utiliser comme système d’exploitation invité pour la génération 1 et les ordinateurs virtuels de génération 2.
+Le tableau suivant répertorie les versions de Debian que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et de génération 2.
 
 |Versions de système d’exploitation|1e génération|2e génération|  
 |-----------------------------|----------------|----------------|  
-|Série de Debian 7.x|&#10004;| &#10006;|  
-|Série de Debian 8.x|&#10004;|&#10004;|  
+|Série Debian 7. x|&#10004;| &#10006;|  
+|Série Debian 8. x|&#10004;|&#10004;|  
 
-Pour plus d’informations, consultez [des machines virtuelles Debian sur Hyper-V](../Supported-Debian-virtual-machines-on-Hyper-V.md).  
+Pour plus d’informations, consultez [machines virtuelles Debian sur Hyper-V](../Supported-Debian-virtual-machines-on-Hyper-V.md).  
 
-### <a name="freebsd-guest-operating-system-support"></a>Prise en charge du système d’exploitation FreeBSD invité
+### <a name="freebsd-guest-operating-system-support"></a>Prise en charge du système d’exploitation invité FreeBSD
 
-Le tableau suivant présente les versions de FreeBSD vous pouvez utiliser comme système d’exploitation invité pour la génération 1 et les ordinateurs virtuels de génération 2.  
+Le tableau suivant répertorie les versions de FreeBSD que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et de génération 2.  
 
 |Versions de système d’exploitation|1e génération|2e génération|  
 |-----------------------------|----------------|----------------|  
-|FreeBSD 10 et 10.1|&#10004;| &#10006;|  
-|FreeBSD 9.1 et 9.3|&#10004;| &#10006;|  
-|8.4 de FreeBSD|&#10004;| &#10006;|  
+|FreeBSD 10 et 10,1|&#10004;| &#10006;|  
+|FreeBSD 9,1 et 9,3|&#10004;| &#10006;|  
+|FreeBSD 8,4|&#10004;| &#10006;|  
 
-Pour plus d’informations, consultez [machines virtuelles de FreeBSD sur Hyper-V](../Supported-FreeBSD-virtual-machines-on-Hyper-V.md).  
+Pour plus d’informations, consultez [machines virtuelles FreeBSD sur Hyper-V](../Supported-FreeBSD-virtual-machines-on-Hyper-V.md).  
 
-### <a name="oracle-linux-guest-operating-system-support"></a>Prise en charge du système d’exploitation invité Linux Oracle  
+### <a name="oracle-linux-guest-operating-system-support"></a>Oracle Linux la prise en charge du système d’exploitation invité  
 
-Le tableau suivant présente les versions de la série de noyau Compatible Red Hat vous pouvez utiliser comme système d’exploitation invité pour la génération 1 et les ordinateurs virtuels de génération 2.  
+Le tableau suivant répertorie les versions de la série de noyaux compatibles Red Hat que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et de génération 2.  
 
-|Versions de la série de noyau Compatible Red Hat|1e génération|2e génération|  
+|Versions de la série de noyaux compatibles Red Hat|1e génération|2e génération|  
 |---------------------------------------------|----------------|----------------|  
-|Série de Oracle Linux 7.x|&#10004;|&#10004;|
-|Série de 6.x Oracle Linux|&#10004;| &#10006;|  
+|Série Oracle Linux 7. x|&#10004;|&#10004;|
+|Série de Oracle Linux 6. x|&#10004;| &#10006;|  
 
-Le tableau suivant présente les versions de Unbreakable Enterprise Kernel vous pouvez utiliser comme système d’exploitation invité pour la génération 1 et les ordinateurs virtuels de génération 2.
+Le tableau suivant indique les versions du noyau d’entreprise qui peuvent être utilisées en tant que système d’exploitation invité pour les ordinateurs virtuels de génération 1 et de génération 2.
 
-|Versions Unbreakable Enterprise Kernel (UEK)|1e génération|2e génération|  
+|Versions du noyau d’entreprise (UEK)|1e génération|2e génération|  
 |--------------------------------------------------|----------------|----------------|  
 |Oracle Linux UEK R3 QU3|&#10004;| &#10006;|  
 |Oracle Linux UEK R3 QU2|&#10004;| &#10006;|  
 |Oracle Linux UEK R3 QU1|&#10004;| &#10006;|  
 
-Pour plus d’informations, consultez [les machines virtuelles Oracle Linux sur Hyper-V](../Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md).  
+Pour plus d’informations, consultez [Oracle Linux des machines virtuelles sur Hyper-V](../Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md).  
 
-### <a name="suse-guest-operating-system-support"></a>Prise en charge du système d’exploitation SUSE invité
+### <a name="suse-guest-operating-system-support"></a>Prise en charge du système d’exploitation invité SUSE
 
-Le tableau suivant présente les versions de SUSE vous pouvez utiliser comme système d’exploitation invité pour la génération 1 et les ordinateurs virtuels de génération 2.
-
-|Versions de système d’exploitation|1e génération|2e génération|  
-|-----------------------------|----------------|----------------|  
-|Série de SUSE Linux Enterprise Server 12|&#10004;|&#10004;|  
-|Série de SUSE Linux Enterprise Server 11|&#10004;| &#10006;|  
-|Open SUSE 12.3|&#10004;| &#10006;|  
-
-Pour plus d’informations, consultez [des machines virtuelles SUSE sur Hyper-V](../Supported-SUSE-virtual-machines-on-Hyper-V.md).  
-
-### <a name="ubuntu-guest-operating-system-support"></a>Prise en charge du système d’exploitation Ubuntu invité
-
-Le tableau suivant présente les versions d’Ubuntu vous pouvez utiliser comme système d’exploitation invité pour la génération 1 et les ordinateurs virtuels de génération 2.
+Le tableau suivant indique les versions de SUSE que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et de génération 2.
 
 |Versions de système d’exploitation|1e génération|2e génération|  
 |-----------------------------|----------------|----------------|  
-|Ubuntu 14.04 et versions ultérieures|&#10004;|&#10004;|  
+|Série SUSE Linux Enterprise Server 12|&#10004;|&#10004;|  
+|Série SUSE Linux Enterprise Server 11|&#10004;| &#10006;|  
+|Ouvrir SUSE 12,3|&#10004;| &#10006;|  
+
+Pour plus d’informations, consultez [machines virtuelles Suse sur Hyper-V](../Supported-SUSE-virtual-machines-on-Hyper-V.md).  
+
+### <a name="ubuntu-guest-operating-system-support"></a>Prise en charge du système d’exploitation invité Ubuntu
+
+Le tableau suivant indique les versions de Ubuntu que vous pouvez utiliser comme système d’exploitation invité pour les ordinateurs virtuels de génération 1 et de génération 2.
+
+|Versions de système d’exploitation|1e génération|2e génération|  
+|-----------------------------|----------------|----------------|  
+|Ubuntu 14,04 et versions ultérieures|&#10004;|&#10004;|  
 |Ubuntu 12.04|&#10004;| &#10006;|  
 
-Pour plus d’informations, consultez [de machines virtuelles Ubuntu sur Hyper-V](../Supported-Ubuntu-virtual-machines-on-Hyper-V.md).  
+Pour plus d’informations, consultez [machines virtuelles Ubuntu sur Hyper-V](../Supported-Ubuntu-virtual-machines-on-Hyper-V.md).  
 
-## <a name="how-can-i-boot-the-virtual-machine"></a>Comment puis-je démarrer la machine virtuelle ?
+## <a name="how-can-i-boot-the-virtual-machine"></a>Comment puis-je démarrer l’ordinateur virtuel ?
 
-Le tableau suivant présente le méthodes sont prises en charge par la génération 1 et les ordinateurs virtuels de génération 2 de démarrage.  
+Le tableau suivant indique les méthodes de démarrage prises en charge par les ordinateurs virtuels de génération 1 et de génération 2.  
 
 |Méthode de démarrage|1e génération|2e génération|  
 |---------------|----------------|----------------|  
 |démarrage PXE avec une carte réseau standard ;| &#10006;|&#10004;|  
 |Démarrage PXE à l’aide d’une carte réseau héritée|&#10004;| &#10006;|  
-|Démarrage à partir d’un disque dur virtuel de SCSI (. VHDX) ou de DVD virtuel (. ISO)| &#10006;|&#10004;|  
-|Démarrer à partir du disque dur virtuel de contrôleur IDE (. Disque dur virtuel) ou de DVD virtuel (. ISO)|&#10004;| &#10006;|  
-|Démarrer à partir du lecteur de disquette (. VFD)|&#10004;| &#10006;|  
+|Démarrez à partir d’un disque dur virtuel SCSI (. VHDX) ou DVD virtuel (. ISO| &#10006;|&#10004;|  
+|Démarrage à partir du disque dur virtuel du contrôleur IDE (. VHD) ou DVD virtuel (. ISO|&#10004;| &#10006;|  
+|Démarrage à partir d’une disquette (. VFD|&#10004;| &#10006;|  
 
 ## <a name="what-are-the-advantages-of-using-generation-2-virtual-machines"></a>Quels sont les avantages de l’utilisation d’ordinateurs virtuels de génération 2 ?
 
-Voici quelques-uns des avantages que vous obtenez lorsque vous utilisez une machine virtuelle de génération 2 :  
-- **Démarrage sécurisé** il s’agit d’une fonctionnalité qui vérifie le chargeur de démarrage est signé par une autorité approuvée dans la base de données UEFI pour aider à empêcher l’exécution au moment du démarrage microprogrammes, systèmes d’exploitation ou pilotes UEFI. Le démarrage sécurisé est activé par défaut pour les ordinateurs virtuels de génération 2. Si vous avez besoin exécuter un système d’exploitation invité qui n’est pas pris en charge par le démarrage sécurisé, vous pouvez le désactiver après la création de la machine virtuelle.  Pour plus d'informations, voir [Démarrage sécurisé](https://technet.microsoft.com/library/dn486875.aspx).  
+Voici quelques-uns des avantages que vous pouvez obtenir lorsque vous utilisez un ordinateur virtuel de 2e génération :  
+- **Démarrage sécurisé** Il s’agit d’une fonctionnalité qui vérifie que le chargeur de démarrage est signé par une autorité de confiance dans la base de données UEFI afin d’empêcher l’exécution des microprogrammes, systèmes d’exploitation ou pilotes UEFI non autorisés au moment du démarrage. Le démarrage sécurisé est activé par défaut pour les ordinateurs virtuels de génération 2. Si vous devez exécuter un système d’exploitation invité qui n’est pas pris en charge par le démarrage sécurisé, vous pouvez le désactiver après la création de l’ordinateur virtuel.  Pour plus d'informations, voir [Démarrage sécurisé](https://technet.microsoft.com/library/dn486875.aspx).  
 
-    Pour le démarrage sécurisé 2e-machines virtuelles Linux, vous devez choisir le modèle le démarrage sécurisé UEFI autorité de certification lorsque vous créez la machine virtuelle.  
+    Pour sécuriser les machines virtuelles Linux de génération de démarrage 2, vous devez choisir le modèle de démarrage sécurisé de l’autorité de certification UEFI lors de la création de la machine virtuelle.  
 
-- **Plus grand volume de démarrage** le volume de démarrage maximale pour les machines virtuelles de génération 2 est de 64 To. Cela correspond à la taille de disque maximal pris en charge par un. VHDX. Pour les machines virtuelles de génération 1, le volume de démarrage maximale est de 2 To pour un. VHDX et 2 040 Go pour un. DISQUE DUR VIRTUEL. Pour plus d’informations, consultez [Hyper-V Virtual Hard Disk Format Overview](https://technet.microsoft.com/library/hh831446.aspx).  
+- **Plus grand volume de démarrage** Le volume de démarrage maximal pour les ordinateurs virtuels de génération 2 est de 64 to. Il s’agit de la taille de disque maximale prise en charge par un. VHDX. Pour les ordinateurs virtuels de génération 1, le volume de démarrage maximal est de 2 to pour un. VHDX et 2040GB pour un. Virtuels. Pour plus d’informations, consultez [vue d’ensemble du format de disque dur virtuel Hyper-V](https://technet.microsoft.com/library/hh831446.aspx).  
 
-  Vous pouvez également voir une légère amélioration des durées d’installation et de démarrage des machines virtuelles avec des machines virtuelles de génération 2.
+  Vous pouvez également constater une légère amélioration des durées d’installation et de démarrage des machines virtuelles avec les ordinateurs virtuels de 2e génération.
 
-## <a name="whats-the-difference-in-device-support"></a>Quelle est la différence dans la prise en charge de l’appareil ?
+## <a name="whats-the-difference-in-device-support"></a>Quelle est la différence en matière de prise en charge des appareils ?
 
-Le tableau suivant compare les appareils disponibles entre la génération 1 et les ordinateurs virtuels de génération 2.  
+Le tableau suivant compare les périphériques disponibles entre les ordinateurs virtuels de génération 1 et de génération 2.  
 
 |Périphérique de génération 1|Remplacement de génération 2|Améliorations de génération 2|  
 |-----------------------|----------------------------|-----------------------------|  
@@ -200,31 +200,31 @@ Le tableau suivant compare les appareils disponibles entre la génération 1 et 
 |Minuteur d'intervalle programmable (PIT)|Plus nécessaire|N/A|  
 |Super périphérique d'E/S|Plus nécessaire|N/A|  
 
-## <a name="more-about-generation-2-virtual-machines"></a>Plus d’informations sur les ordinateurs virtuels de génération 2
+## <a name="more-about-generation-2-virtual-machines"></a>En savoir plus sur les machines virtuelles de génération 2
 
-Voici quelques conseils supplémentaires sur l’utilisation d’ordinateurs virtuels de génération 2.
+Voici quelques conseils supplémentaires sur l’utilisation des ordinateurs virtuels de génération 2.
 
 ### <a name="attach-or-add-a-dvd-drive"></a>Attacher ou ajouter un lecteur de DVD
 
-- Vous ne pouvez pas attacher un lecteur de CD ou DVD physique à une machine virtuelle de génération 2. Le lecteur de DVD virtuel sur les ordinateurs virtuels de génération 2 ne prend en charge que les fichiers image ISO. Pour créer un fichier image ISO d’un environnement Windows, vous pouvez utiliser l’outil en ligne de commande Oscdimg. Pour plus d’informations, voir [Options de ligne de commande Oscdimg](https://msdn.microsoft.com/library/hh824847.aspx).
-- Lorsque vous créez une machine virtuelle avec l’applet de commande New-VM Windows PowerShell, la machine virtuelle de génération 2 n’a pas un lecteur de DVD. Vous pouvez ajouter un lecteur de DVD pendant l’exécution de la machine virtuelle.
+- Vous ne pouvez pas attacher un lecteur de CD ou DVD physique à un ordinateur virtuel de 2e génération. Le lecteur de DVD virtuel sur les ordinateurs virtuels de génération 2 ne prend en charge que les fichiers image ISO. Pour créer un fichier image ISO d’un environnement Windows, vous pouvez utiliser l’outil en ligne de commande Oscdimg. Pour plus d’informations, voir [Options de ligne de commande Oscdimg](https://msdn.microsoft.com/library/hh824847.aspx).
+- Lorsque vous créez un nouvel ordinateur virtuel avec l’applet de commande Windows PowerShell New-VM, l’ordinateur virtuel de génération 2 ne dispose pas d’un lecteur de DVD. Vous pouvez ajouter un lecteur de DVD pendant que l’ordinateur virtuel est en cours d’exécution.
 
-### <a name="use-uefi-firmware"></a>Utilisent le microprogramme UEFI
+### <a name="use-uefi-firmware"></a>Utiliser le microprogramme UEFI
 
-- Démarrage sécurisé ou le microprogramme UEFI n’est pas requis sur l’hôte Hyper-V physique. Hyper-V fournit le microprogramme virtuel aux machines virtuelles qui est indépendant de ce qui est sur l’ordinateur hôte Hyper-V.
-- Microprogramme UEFI dans une machine virtuelle de génération 2 ne prend pas en charge le mode d’installation pour le démarrage sécurisé.
-- Nous n’en charge l’exécution d’un shell UEFI ou autre application UEFI sur une machine virtuelle de génération 2. L'utilisation d'un shell ou d'une application UEFI non-Microsoft est techniquement possible s'il (ou elle) est compilé(e) directement à partir des sources. Si ces applications ne sont pas correctement signées numériquement, vous devez désactiver le démarrage sécurisé pour la machine virtuelle.
+- Le démarrage sécurisé ou le microprogramme UEFI n’est pas requis sur l’hôte Hyper-V physique. Hyper-V fournit le microprogramme virtuel aux machines virtuelles qui est indépendant de ce qui se trouve sur l’hôte Hyper-V.
+- Le microprogramme UEFI d’un ordinateur virtuel de génération 2 ne prend pas en charge le mode d’installation pour le démarrage sécurisé.
+- Nous ne prenons pas en charge l’exécution d’un shell UEFI ou d’autres applications UEFI sur un ordinateur virtuel de génération 2. L'utilisation d'un shell ou d'une application UEFI non-Microsoft est techniquement possible s'il (ou elle) est compilé(e) directement à partir des sources. Si ces applications ne sont pas correctement signées numériquement, vous devez désactiver le démarrage sécurisé pour l’ordinateur virtuel.
 
-### <a name="work-with-vhdx-files"></a>Travailler avec des fichiers VHDX
+### <a name="work-with-vhdx-files"></a>Utiliser des fichiers VHDX
 
-- Vous pouvez redimensionner un fichier VHDX qui contient le volume de démarrage pour un ordinateur virtuel de génération 2 pendant l’exécution de la machine virtuelle.
-- Nous ne prennent en charge et ne vous recommandons de créer un fichier VHDX est amorçable pour la génération 1 et machines virtuelles de génération 2.  
-- La génération de l’ordinateur virtuel est une propriété de l’ordinateur virtuel, et non du disque dur virtuel. Par conséquent, vous ne savez pas si un fichier VHDX a été créé par une génération 1 ou une machine virtuelle de génération 2.  
-- Un fichier VHDX est créé avec une génération 2 machines virtuelles peut être attaché au contrôleur IDE ou SCSI d’une machine virtuelle de génération 1. Toutefois, s’il s’agit d’un fichier VHDX de démarrage, la machine virtuelle de génération 1 ne démarre pas.
+- Vous pouvez redimensionner un fichier VHDX qui contient le volume de démarrage d’un ordinateur virtuel de génération 2 pendant que l’ordinateur virtuel est en cours d’exécution.
+- Nous ne prenons pas en charge ou ne recommandons pas la création d’un fichier VHDX démarrable sur les ordinateurs virtuels de génération 1 et de génération 2.  
+- La génération de l’ordinateur virtuel est une propriété de l’ordinateur virtuel, et non du disque dur virtuel. Vous ne pouvez donc pas savoir si un fichier VHDX a été créé par un ordinateur virtuel de génération 1 ou de génération 2.  
+- Un fichier VHDX créé avec un ordinateur virtuel de génération 2 peut être attaché au contrôleur IDE ou au contrôleur SCSI d’un ordinateur virtuel de génération 1. Toutefois, s’il s’agit d’un fichier VHDX démarrable, l’ordinateur virtuel de génération 1 ne démarre pas.
 
-### <a name="use-ipv6-instead-of-ipv4"></a>Utilise IPv6 plutôt qu’IPv4
+### <a name="use-ipv6-instead-of-ipv4"></a>Utiliser IPv6 au lieu de IPv4
 
-Par défaut, les ordinateurs virtuels de génération 2 utilisent IPv4. Pour utiliser IPv6 au lieu de cela, exécutez le [Set-VMFirmware](https://technet.microsoft.com/library/dn464287.aspx) applet de commande Windows PowerShell. Par exemple, la commande suivante définit le protocole préféré pour IPv6 pour un ordinateur virtuel nommé TestVM :  
+Par défaut, les ordinateurs virtuels de génération 2 utilisent IPv4. Pour utiliser IPv6 à la place, exécutez l’applet de commande Windows PowerShell [Set-VMFirmware](https://technet.microsoft.com/library/dn464287.aspx) . Par exemple, la commande suivante définit le protocole préféré sur IPv6 pour un ordinateur virtuel nommé TestVM :  
 
 ```powershell
 Set-VMFirmware -VMName TestVM -IPProtocolPreference IPv6  
@@ -232,27 +232,27 @@ Set-VMFirmware -VMName TestVM -IPProtocolPreference IPv6
 
 ## <a name="add-a-com-port-for-kernel-debugging"></a>Ajouter un port COM pour le débogage du noyau
 
-Les ports COM ne sont pas disponibles dans les ordinateurs virtuels de génération 2 jusqu'à ce que vous les ajoutez. Vous pouvez le faire avec Windows PowerShell ou Windows Management Instrumentation (WMI). Ces étapes vous montrent comment le faire avec Windows PowerShell.
+Les ports COM ne sont pas disponibles dans les ordinateurs virtuels de génération 2 tant que vous ne les avez pas ajoutés. Pour ce faire, vous pouvez utiliser Windows PowerShell ou Windows Management Instrumentation (WMI). Ces étapes vous montrent comment effectuer cette opération avec Windows PowerShell.
 
 Pour ajouter un port COM :  
 
-1. Désactivez le démarrage sécurisé. Débogage du noyau n’est pas compatible avec le démarrage sécurisé. Assurez-vous que l’ordinateur virtuel est dans un état désactivé, puis utiliser le [Set-VMFirmware](https://technet.microsoft.com/library/dn464287.aspx) applet de commande. Par exemple, la commande suivante désactive le démarrage sécurisé sur l’ordinateur virtuel TestVM :  
+1. Désactivez le démarrage sécurisé. Le débogage du noyau n’est pas compatible avec le démarrage sécurisé. Assurez-vous que l’ordinateur virtuel est à l’état désactivé, puis utilisez l’applet [de commande Set-VMFirmware](https://technet.microsoft.com/library/dn464287.aspx) . Par exemple, la commande suivante désactive le démarrage sécurisé sur la machine virtuelle TestVM :  
 
     ```powershell  
     Set-VMFirmware -Vmname TestVM -EnableSecureBoot Off  
     ```  
 
-2. Ajouter un port COM. Utilisez le [Set-VMComPort](https://technet.microsoft.com/library/hh848616.aspx) applet de commande pour ce faire. Par exemple, la commande suivante configure le premier port COM sur l’ordinateur virtuel, TestVM, pour se connecter au canal nommé TestPipe sur l’ordinateur local :  
+2. Ajoutez un port COM. Pour ce faire, utilisez l’applet de commande [Set-VMComPort](https://technet.microsoft.com/library/hh848616.aspx) . Par exemple, la commande suivante configure le premier port COM sur l’ordinateur virtuel, TestVM, pour se connecter au canal nommé, TestPipe, sur l’ordinateur local :  
 
     ```powershell
     Set-VMComPort -VMName TestVM 1 \\.\pipe\TestPipe  
     ```  
 
 > [!NOTE]  
-> Les ports COM configurés ne sont pas répertoriés dans les paramètres d’un ordinateur virtuel dans le Gestionnaire Hyper-V.
+> Les ports COM configurés ne sont pas listés dans les paramètres d’un ordinateur virtuel dans le Gestionnaire Hyper-V.
 
 ## <a name="see-also"></a>Voir aussi  
 
-- [Linux et les Machines virtuelles de FreeBSD sur Hyper-V](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
-- [Utiliser les ressources locales sur l’ordinateur virtuel Hyper-V avec VMConnect](../learn-more/Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md)
-- [Plan pour l’extensibilité d’Hyper-V dans Windows Server 2016](Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md)
+- [Machines virtuelles Linux et FreeBSD sur Hyper-V](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
+- [Utiliser des ressources locales sur un ordinateur virtuel Hyper-V avec VMConnect](../learn-more/Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md)
+- [Planifier l’extensibilité d’Hyper-V dans Windows Server 2016](Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md)

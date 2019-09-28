@@ -1,6 +1,6 @@
 ---
-title: Actions de Service de contrôle d’intégrité
-ms.prod: windows-server-threshold
+title: Actions Service de contrôle d’intégrité
+ms.prod: windows-server
 manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
@@ -8,18 +8,18 @@ ms.topic: article
 ms.assetid: ''
 author: cosmosdarwin
 ms.date: 08/14/2017
-ms.openlocfilehash: efdf8f04e68fcbdc7051e78d6725cb919e740ffa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 519f0321f36fb7afc86962950aeab729d7a38adb
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843020"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361101"
 ---
-# <a name="health-service-actions"></a>Actions de Service de contrôle d’intégrité
+# <a name="health-service-actions"></a>Actions Service de contrôle d’intégrité
 
-> S’applique à Windows Server 2016
+> S’applique à : Windows Server 2019, Windows Server 2016
 
-Le Service de contrôle d’intégrité est une nouvelle fonctionnalité de Windows Server 2016 qui améliore l’analyse quotidienne et une expérience opérationnelle pour les clusters exécutant des espaces de stockage Direct.
+Le Service de contrôle d’intégrité est une nouvelle fonctionnalité de Windows Server 2016 qui améliore la surveillance quotidienne et l’expérience opérationnelle pour les clusters exécutant espaces de stockage direct.
 
 ## <a name="actions"></a>Actions  
 
@@ -35,7 +35,7 @@ Get-StorageHealthAction
 
 ### <a name="coverage"></a>Couverture  
 
-Dans Windows Server 2016, le **Get-StorageHealthAction** applet de commande permet de retourner les informations suivantes :  
+Dans Windows Server 2016, l’applet de commande **StorageHealthAction** peut retourner les informations suivantes :  
 
 -   Mise hors service ayant échoué, perte de connectivité ou absence de réponse d’un disque physique  
 
@@ -47,5 +47,5 @@ Dans Windows Server 2016, le **Get-StorageHealthAction** applet de commande perm
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Service d’intégrité de Windows Server 2016](health-service-overview.md)
-- [Documentation du développeur, exemple de code et référence API sur MSDN](https://msdn.microsoft.com/windowshealthservice)
+- [Service de contrôle d’intégrité dans Windows Server 2016](health-service-overview.md)
+- [Documentation pour développeurs, exemples de code et informations de référence sur les API sur MSDN](https://msdn.microsoft.com/windowshealthservice)

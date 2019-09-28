@@ -1,8 +1,8 @@
 ---
 title: cd
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 53340612d26eaa7c4ae6fd977a0eac573f91881d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ed0942232eb205a8198d4b3d366ca9482af1f4b3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434601"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379708"
 ---
 # <a name="cd"></a>cd
 
 
 
-Affiche le nom d’ou change le répertoire actif. Si utilisé avec uniquement une lettre de lecteur (par exemple, `cd C:`), **cd** affiche les noms du répertoire actif dans le lecteur spécifié. Si utilisée sans paramètres, **cd** affiche le lecteur actuel et le répertoire.
+Affiche le nom ou modifie le répertoire actif. S’il est utilisé uniquement avec une lettre de lecteur (par exemple, `cd C:`), **CD** affiche les noms du répertoire actif dans le lecteur spécifié. S’il est utilisé sans paramètres, **CD** affiche le lecteur et le répertoire en cours.
 
 > [!NOTE]
-> Cette commande est identique à la **chdir** commande.
+> Cette commande est identique à la commande **ChDir** .
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -44,17 +44,17 @@ chdir [..]
 
 |Paramètre|Description|
 |---------|-----------|
-|/d|Modifie le lecteur actif, ainsi que le répertoire actif pour un lecteur.|
-|\<Lecteur > :|Spécifie le lecteur pour afficher ou modifier (s’il diffère du lecteur actif).|
-|\<Path>|Spécifie le chemin d’accès au répertoire que vous souhaitez afficher ou modifier.|
-|[..]|Spécifie que vous souhaitez modifier dans le dossier parent.|
+|/d|Modifie le lecteur actif, ainsi que le répertoire actif d’un lecteur.|
+|> @no__t 0Drive :|Spécifie le lecteur à afficher ou à modifier (s’il est différent du lecteur en cours).|
+|@no__t 0Path >|Spécifie le chemin d’accès au répertoire que vous souhaitez afficher ou modifier.|
+|[..]|Spécifie que vous souhaitez passer au dossier parent.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
-Si les extensions de commande sont activées, les conditions suivantes s’appliquent à la **cd** commande :
-- La chaîne du répertoire en cours est convertie pour utiliser la même casse que les noms sur le disque. Par exemple, `cd C:\TEMP` aurait la valeur est le répertoire actif C:\Temp si tel est le cas sur le disque.
-- Les espaces ne sont pas traités comme délimiteurs, par conséquent, *chemin d’accès* peut contenir des espaces sans placer entre guillemets. Exemple :  
+Si les extensions de commande sont activées, les conditions suivantes s’appliquent à la commande **CD** :
+- La chaîne de répertoire active est convertie pour utiliser la même casse que les noms sur le disque. Par exemple, `cd C:\TEMP` définit le répertoire en cours sur C:\Temp si c’est le cas sur le disque.
+- Les espaces ne sont pas considérés comme des délimiteurs ; par conséquent, le *chemin d’accès* peut contenir des espaces sans guillemets. Exemple :  
   ```
   cd username\programs\start menu
   ```  
@@ -62,24 +62,24 @@ Si les extensions de commande sont activées, les conditions suivantes s’appli
   ```
   cd "username\programs\start menu"
   ```  
-  Les guillemets sont requis, toutefois, si les extensions sont désactivées.
+  Toutefois, les guillemets sont requis si les extensions sont désactivées.
 
-Pour désactiver les extensions de commandes, tapez :
+Pour désactiver les extensions de commande, tapez :
 ```
 cmd /e:off
 ```
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Le répertoire racine est en haut de la hiérarchie de répertoires d’un lecteur. Pour revenir au répertoire racine, tapez :
+Le répertoire racine est le haut de la hiérarchie de répertoires d’un lecteur. Pour revenir au répertoire racine, tapez :
 ```
 cd\
 ```
-Pour modifier le répertoire par défaut sur un lecteur qui est différent de celui que vous êtes sur, tapez :
+Pour modifier le répertoire par défaut sur un lecteur différent de celui sur lequel vous êtes, tapez :
 ```
 cd [<Drive>:\[<Directory>]]
 ```
-Pour vérifier le changement de répertoire, tapez :
+Pour vérifier la modification apportée au répertoire, tapez :
 ```
 cd [<Drive>:]
 ```

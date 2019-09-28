@@ -1,8 +1,8 @@
 ---
-title: aide et mise en cache bitsadmin
-description: Rubrique de commandes de Windows pour **mise en cache bitsadmin et aider à** -affiche l’utilisation de ligne de commande pour le **mise en cache** commutateurs.
+title: Bitsadmin et aide
+description: Rubrique relative aux commandes Windows pour **Bitsadmin en cache et aide** -affiche l’utilisation de la ligne de commande pour les commutateurs de cache de la **cache** .
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2e1bb255da0b457ec41f62c93d87bed7575c049e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7d01d6cc50552320d99e668a6fc7292a2275b9db
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881940"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381068"
 ---
-# <a name="bitsadmin-peercaching-and-help"></a>aide et mise en cache bitsadmin
+# <a name="bitsadmin-peercaching-and-help"></a>Bitsadmin et aide
 
 
 
-Affiche l’utilisation de ligne de commande pour le **mise en cache** commutateurs.
+Affiche l’utilisation de la ligne de commande pour les commutateurs de **surcache** .
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -32,13 +32,13 @@ Affiche l’utilisation de ligne de commande pour le **mise en cache** commutate
 Bitsadmin /PeerCaching /Help 
 ```
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-La commande suivante affiche l’aide en ligne de commande pour le **mise en cache** commutateurs.
+La commande suivante affiche l’aide de la ligne de commande pour les commutateurs de la fonction de **cache** .
 ```
 Bitsadmin /PeerCaching /Help
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

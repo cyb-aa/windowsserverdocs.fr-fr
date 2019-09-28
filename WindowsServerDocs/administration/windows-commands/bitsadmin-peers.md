@@ -1,8 +1,8 @@
 ---
-title: Bitsadmin homologues
-description: Rubrique de commandes de Windows pour **bitsadmin homologues** - liste de la **homologues** commutateurs.
+title: homologues Bitsadmin
+description: Rubrique relative aux commandes Windows pour les **pairs Bitsadmin** -liste des commutateurs **pairs** .
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d3a741b44a9a62efda15f10adc4184f6b4344b8d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3611afa3abde89b5eeab99a59994b7feae227a54
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873420"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380894"
 ---
-# <a name="bitsadmin-peers"></a>Bitsadmin homologues
+# <a name="bitsadmin-peers"></a>homologues Bitsadmin
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
 ```
 bitsadmin /Peers /help
@@ -33,9 +33,9 @@ bitsadmin /Peers /list
 ## <a name="parameters"></a>Paramètres
 |Paramètre|Description|
 |-------|--------|
-|[Bitsadmin homologues et aide](bitsadmin-peers-and-help.md)|Affiche l’utilisation de ligne de commande pour les commutateurs /Peers.|
-|[Bitsadmin pairs et découvrir des informations](bitsadmin-peers-and-discover.md)|Détecte les pairs à nouveau.|
-|[Bitsadmin homologues et clear](bitsadmin-peers-and-clear.md)|Efface la liste des homologues.|
-|[Bitsadmin homologues et liste](bitsadmin-peers-and-list.md)|répertorier tous les homologues.|
+|[bitsadmin peers and help](bitsadmin-peers-and-help.md)|Affiche l’utilisation de la ligne de commande pour les commutateurs/Peers.|
+|[bitsadmin peers and discover](bitsadmin-peers-and-discover.md)|Découvre à nouveau les homologues.|
+|[bitsadmin peers and clear](bitsadmin-peers-and-clear.md)|Efface la liste des homologues.|
+|[bitsadmin peers and list](bitsadmin-peers-and-list.md)|répertorie tous les pairs.|
 ## <a name="additional-references"></a>Références supplémentaires
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

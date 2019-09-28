@@ -1,8 +1,8 @@
 ---
 title: bitsadmin replaceremoteprefix
-description: Rubrique de commandes de Windows pour **bitsadmin replaceremoteprefix** -tous les fichiers dans le travail à distance dont l’URL commence par *OldPrefix* sont modifiés pour utiliser *NewPrefix*.
+description: 'Rubrique relative aux commandes Windows pour **Bitsadmin REPLACEREMOTEPREFIX** : tous les fichiers du travail dont l’URL distante commence par *OldPrefix* sont modifiés pour utiliser *NewPrefix*.'
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 25c0f997ea0b9f97051baa291bdf87c84b6b1cbb
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: ee896a337b571487797967d3ce0bf1f1b17e7507
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811299"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380799"
 ---
 # <a name="bitsadmin-replaceremoteprefix"></a>bitsadmin replaceremoteprefix
 
-Tous les fichiers dans le travail à distance dont l’URL commence par *OldPrefix* sont modifiés pour utiliser *NewPrefix*.
+Tous les fichiers du travail dont l’URL distante commence par *OldPrefix* sont modifiés pour utiliser *NewPrefix*.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -34,13 +34,13 @@ bitsadmin /ReplaceRemotePrefix <Job> <OldPrefix> <NewPrefix
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
+|Tâche|Nom complet ou GUID du travail|
 |OldPrefix|Préfixe d’URL existant|
 |NewPrefix|Nouveau préfixe d’URL|
 
 ## <a name="examples"></a>Exemples
 
-L’exemple suivant modifie tous les fichiers de travail nommé *myDownloadJob* dont la propriété URL distante commence par *http://stageserver* à *http://prodserver* .
+L’exemple suivant modifie tous les fichiers du travail nommé *myDownloadJob* dont l’URL distante commence par *http://stageserver* à *http://prodserver* .
 
 ```
 C:\>bitsadmin /ReplaceRemotePrefix myDownloadJob http://stageserver http://prodserver

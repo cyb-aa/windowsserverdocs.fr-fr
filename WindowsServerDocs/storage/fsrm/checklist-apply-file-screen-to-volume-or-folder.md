@@ -2,18 +2,18 @@
 title: 'Liste de vérification : appliquer un filtre de fichiers à un volume ou un dossier'
 description: Cet article explique comment appliquer un filtre de fichiers à un volume ou un dossier
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 03325d8a65d88c35f09985223608fc7474a0fde5
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 4d38e9a92a9c99663d81aab2a0164c5a30002f6a
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65475847"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71401994"
 ---
 # <a name="checklist---apply-a-file-screen-to-a-volume-or-folder"></a>Liste de vérification : appliquer un filtre de fichiers à un volume ou un dossier
 
@@ -25,13 +25,13 @@ Pour appliquer un filtre de fichiers à un volume ou un dossier, utilisez la lis
 2. Activez l’enregistrement des événements de filtrage des fichiers dans la base de données de vérification si vous prévoyez de générer des rapports de vérification du filtrage des fichiers.
 [Configurer la vérification du filtrage de fichiers](configure-file-screen-audit.md)
 
-3. Évaluez les types de fichiers stockés qui constituent des candidats aux règles de filtrage. Vous pouvez utiliser des rapports au niveau du nœud **Gestion des rapports de stockage** pour fournir des données. (Par exemple, exécutez des fichiers par rapport de groupe de fichiers ou des fichiers volumineux à la demande pour identifier les fichiers qui occupent de grandes quantités d’espace disque.) [Générer des rapports à la demande](generate-reports-on-demand.md) 
+3. Évaluez les types de fichiers stockés qui constituent des candidats aux règles de filtrage. Vous pouvez utiliser des rapports au niveau du nœud **Gestion des rapports de stockage** pour fournir des données. (Par exemple, exécutez un rapport de rapport sur les fichiers par groupe de fichiers ou un rapport rapport sur les fichiers volumineux à la demande pour identifier les fichiers qui occupent de grandes quantités d’espace disque.) [Générer des rapports à la demande](generate-reports-on-demand.md) 
 
 4. Passez en revue les groupes de fichiers préconfigurés ou créez un nouveau groupe de fichiers pour appliquer une stratégie de filtrage spécifique dans votre organisation. [Définir des groupes de fichiers pour le filtrage](define-file-groups-for-screening.md)  
 
-5. Passez en revue les propriétés des modèles de filtres de fichiers disponibles. (Dans **gestion du filtrage de fichier**, cliquez sur le **modèles d’écran fichier** nœud.) [Modifier les propriétés de modèle de filtre de fichier](edit-file-screen-template-properties.md) 
+5. Passez en revue les propriétés des modèles de filtres de fichiers disponibles. (Dans **gestion du filtrage de fichiers**, cliquez sur le nœud **modèles de filtres de fichiers** .) [Modifier les propriétés du modèle d’écran de fichier](edit-file-screen-template-properties.md) 
 <br />
- - Ou -
+ \- Ou -
  <br /> Créez un nouveau modèle de filtre de fichiers pour appliquer une stratégie de stockage dans votre organisation.  [Créer un modèle de filtre de fichiers](create-file-screen-template.md) 
 
 6. Créez un filtre de fichiers basé sur le modèle sur un volume ou un dossier. 
@@ -44,4 +44,4 @@ Pour appliquer un filtre de fichiers à un volume ou un dossier, utilisez la lis
 
 
 > [!NOTE]
-> Pour limiter le stockage sur un volume ou un dossier, consultez [liste de vérification : appliquer un quota à un volume ou un dossier](checklist-apply-file-screen-to-volume-or-folder.md)
+> Pour limiter le stockage sur un volume ou un dossier, voir [Checklist : appliquer un quota à un volume ou un dossier](checklist-apply-file-screen-to-volume-or-folder.md)

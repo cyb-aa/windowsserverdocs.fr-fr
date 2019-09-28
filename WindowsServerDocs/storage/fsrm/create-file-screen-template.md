@@ -2,18 +2,18 @@
 title: Créer un modèle de filtre de fichiers
 description: Cet article explique comment créer un modèle de filtre de fichiers
 ms.date: 7/7/2017
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: b06597bce0b88ed5a2e98ad45d0cbc355d1b13fc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 63824f016180ce5a92d9a16b9ee0d26a46e5db72
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858350"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394209"
 ---
 # <a name="create-a-file-screen-template"></a>Créer un modèle de filtre de fichiers
 
@@ -46,7 +46,7 @@ En créant des filtres de fichiers exclusivement à partir de modèles, vous pou
 
     Sous **Groupes de fichiers**, sélectionnez chaque groupe de fichiers que vous souhaitez inclure. (Pour activer la case à cocher du groupe de fichiers, double-cliquez sur le nom du groupe.)
 
-    Si vous souhaitez afficher un groupe de fichiers contient et exclut les types de fichiers et cliquez sur l’étiquette de groupe de fichiers, puis cliquez sur **modifier**. Pour créer un groupe de fichiers, cliquez sur **créer**.
+    Si vous souhaitez afficher les types de fichiers inclus et exclus dans un groupe de fichiers, cliquez sur l’étiquette du groupe de fichiers, puis sur **modifier**. Pour créer un nouveau groupe de fichiers, cliquez sur **créer**.
 
     Vous pouvez également configurer le Gestionnaire de ressources de serveur de fichiers pour qu'il génère une ou plusieurs notifications en définissant les options suivantes sous les onglets **Message électronique**, **Journal des événements**, **Commande** et **Rapport**.
 
@@ -56,7 +56,7 @@ En créant des filtres de fichiers exclusivement à partir de modèles, vous pou
 
     -   Pour avertir les administrateurs qu’un utilisateur ou une application tente d'enregistrer un fichier non autorisé, cochez la case **Envoyer un courrier électronique aux administrateurs suivants**, puis entrez les noms des comptes d’administration qui recevront les notifications. Utilisez le format *compte*@*domaine* et séparez les différents comptes par des points-virgules.
     -   Pour envoyer un courrier électronique à l’utilisateur qui a tenté d’enregistrer le fichier, cochez la case **Courrier électronique à l’utilisateur qui a tenté d’enregistrer un fichier non autorisé**.
-    -   Pour configurer le message, modifiez le contenu par défaut de la ligne d'objet et du corps du message. Le texte entre crochets insère les informations de variables sur l’événement de filtre de fichiers qui a provoqué la notification. Par exemple, le \[ **propriétaire de la Source d’e/s** \] variable insère le nom de l’utilisateur qui a tenté d’enregistrer un fichier non autorisé. Pour insérer d'autres variables dans le texte, cliquez sur **Insérer une variable**.
+    -   Pour configurer le message, modifiez le contenu par défaut de la ligne d'objet et du corps du message. Le texte entre crochets insère les informations de variables sur l’événement de filtre de fichiers qui a provoqué la notification. Par exemple, la variable \[**source d’e/s**\] insère le nom de l’utilisateur qui a tenté d’enregistrer un fichier non autorisé. Pour insérer d'autres variables dans le texte, cliquez sur **Insérer une variable**.
     -   Pour configurer des en-têtes supplémentaires (notamment De, Cc, Cci et Répondre), cliquez sur **Autres en-têtes de courrier électronique**.
 
 8.  Pour consigner une erreur dans le journal des événements lorsqu’un utilisateur tente d’enregistrer un fichier non autorisé :
@@ -77,7 +77,7 @@ En créant des filtres de fichiers exclusivement à partir de modèles, vous pou
 
 ## <a name="see-also"></a>Voir aussi
 
--   [Gestion des filtres de fichiers](file-screening-management.md)
--   [Options de paramètre File Server Resource Manager](setting-file-server-resource-manager-options.md)
--   [Modifier les propriétés de modèle de filtre de fichier](edit-file-screen-template-properties.md)
+-   [Gestion du filtrage des fichiers](file-screening-management.md)
+-   [Définition des options du Gestionnaire de ressources du serveur de fichiers](setting-file-server-resource-manager-options.md)
+-   [Modifier les propriétés du modèle de filtre de fichiers](edit-file-screen-template-properties.md)
 

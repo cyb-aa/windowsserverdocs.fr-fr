@@ -1,8 +1,8 @@
 ---
-title: Ksetup:setrealm
-description: 'Rubrique de commandes de Windows pour ***- '
+title: 'Ksetup : setrealm'
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aa6b2a21904ec4dae1e60def5bd36647291b1af6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1bbe5c000b7e84066c19511639fe3d92d7e4b558
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877400"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374900"
 ---
-# <a name="ksetupsetrealm"></a>Ksetup:setrealm
+# <a name="ksetupsetrealm"></a>Ksetup : setrealm
 
 
 
@@ -36,23 +36,23 @@ ksetup /setrealm <DNSDomainName>
 
 |Paramètre|Description|
 |---------|-----------|
-|\<DNSDomainName>|Le nom de domaine DNS peut être sous la forme d’un nom de domaine complet ou le nom de domaine simple.|
+|@no__t 0DNSDomainName >|Le nom de domaine DNS peut se présenter sous la forme d’un nom de domaine complet ou d’un nom de domaine simple.|
 
 ## <a name="remarks"></a>Notes
 
-Le paramètre de nom de domaine DNS doit être entré en lettres majuscules. Sinon, le **ksetup** commande vous demandera de vérification continuer.
+Le paramètre de nom de domaine DNS doit être entré en majuscules. Dans le cas contraire, la commande **Ksetup** vous demandera de poursuivre la vérification.
 
-Définissez le domaine Kerberos sur un contrôleur de domaine n’est pas pris en charge. Une tentative pour ce faire, entraîne un avertissement et Échec d’une commande.
+La définition du domaine Kerberos sur un contrôleur de domaine n’est pas prise en charge. Si vous tentez de le faire, vous obtiendrez un avertissement et un échec de la commande.
 
-## <a name="BKMK_Examples"></a>Exemples
+## <a name="BKMK_Examples"></a>Illustre
 
-Définir le domaine pour cet ordinateur à un nom de domaine spécifique à restreindre l’accès par un contrôleur de domaine non simplement au domaine Kerberos de CONTOSO :
+Définissez le domaine de cet ordinateur sur un nom de domaine spécifique pour limiter l’accès par un contrôleur non-domaine uniquement au domaine Kerberos CONTOSO :
 ```
 ksetup /setrealm CONTOSO
 ```
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
 -   [Ksetup](ksetup.md)
 -   [Ksetup:removerealm](ksetup-removerealm.md)

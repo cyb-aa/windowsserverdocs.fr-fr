@@ -2,23 +2,23 @@
 title: Configurer le chiffrement pour un réseau virtuel
 description: Le chiffrement de réseau virtuel permet le chiffrement du trafic réseau virtuel entre les machines virtuelles qui communiquent entre elles au sein des sous-réseaux marqués comme « chiffrement activé ».
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: 378213f5-2d59-4c9b-9607-1fc83f8072f1
 ms.author: pashort
 author: shortpatti
 ms.date: 08/08/2018
-ms.openlocfilehash: ebd086c6fa93f7ab5855debfd1f71845fb9ff309
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 40150e312f4776ec093c9230eedb646eec277f49
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870059"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405809"
 ---
 # <a name="configure-encryption-for-a-virtual-subnet"></a>Configurer le chiffrement pour un sous-réseau virtuel
 
->S’applique à : Windows Server
+>S’applique à : Windows Server
 
 Le chiffrement de réseau virtuel permet le chiffrement du trafic réseau virtuel entre les machines virtuelles qui communiquent entre elles dans des sous-réseaux marqués comme « chiffrement activé ». Il utilise aussi le protocole DTLS (Datagram Transport Layer Security) sur le sous-réseau virtuel pour chiffrer les paquets. DTLS protège contre les écoutes clandestines, l'altération et la falsification par toute personne ayant accès au réseau physique.
 
@@ -36,7 +36,7 @@ Une fois que vous activez le chiffrement sur un sous-réseau, tout le trafic ré
 >Si vous devez limiter les applications pour qu’elles communiquent uniquement sur le sous-réseau chiffré, vous pouvez utiliser des listes de Access Control (ACL) uniquement pour autoriser la communication au sein du sous-réseau actuel. Pour plus d’informations, consultez [utiliser des listes de Access Control (ACL) pour gérer le flux de trafic réseau du centre de](https://docs.microsoft.com/windows-server/networking/sdn/manage/use-acls-for-traffic-flow)données.
 
 
-## <a name="step-1-create-the-encryption-certificate"></a>Étape 1. Créer le certificat de chiffrement
+## <a name="step-1-create-the-encryption-certificate"></a>Étape 1. Créer le certificat de chiffrement
 Un certificat de chiffrement doit être installé sur chaque ordinateur hôte. Vous pouvez utiliser le même certificat pour tous les locataires ou en générer un unique pour chaque locataire. 
 
 1.  Générer le certificat  
@@ -196,7 +196,7 @@ Thumbprint                                Subject
 
 7. Prenez note de l’empreinte numérique.<p>Vous devez prendre note de l’empreinte numérique car vous en avez besoin pour créer l’objet d’informations d’identification de certificat dans le contrôleur de réseau.
 
-## <a name="step-2-create-the-certificate-credential"></a>Étape 2. Créer les informations d’identification du certificat
+## <a name="step-2-create-the-certificate-credential"></a>Étape 2. Créer les informations d’identification du certificat
 
 Après avoir installé le certificat sur chacun des ordinateurs hôtes Hyper-V connectés au contrôleur de réseau, vous devez maintenant configurer le contrôleur de réseau pour l’utiliser.  Pour ce faire, vous devez créer un objet d’informations d’identification contenant l’empreinte numérique du certificat à partir de l’ordinateur sur lequel sont installés les modules PowerShell du contrôleur de réseau. 
 
@@ -218,7 +218,7 @@ Après avoir installé le certificat sur chacun des ordinateurs hôtes Hyper-V c
 >Vous pouvez réutiliser ces informations d’identification pour chaque réseau virtuel chiffré, ou vous pouvez déployer et utiliser un certificat unique pour chaque locataire.
 
 
-## <a name="step-3-configuring-a-virtual-network-for-encryption"></a>Étape 3. Configuration d’un réseau virtuel pour le chiffrement
+## <a name="step-3-configuring-a-virtual-network-for-encryption"></a>Étape 3. Configuration d’un réseau virtuel pour le chiffrement
 
 Cette étape suppose que vous avez déjà créé un nom de réseau virtuel « mon réseau » et qu’il contient au moins un sous-réseau virtuel.  Pour plus d’informations sur la création de réseaux virtuels, consultez [créer, supprimer ou mettre à jour des réseaux virtuels locataires](../Manage/Create,-Delete,-or-Update-Tenant-Virtual-Networks.md).
 

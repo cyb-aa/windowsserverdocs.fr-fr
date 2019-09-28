@@ -1,8 +1,8 @@
 ---
 title: mklink
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1ea80b81b268b31f637c72a828fee8b6f0229a47
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 9d930cbf7acbfceab16f2fa619aaaac6e789c131
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280024"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373640"
 ---
 # <a name="mklink"></a>mklink
 Crée un lien symbolique.
@@ -35,16 +35,16 @@ mklink [[/d] | [/h] | [/j]] <Link> <Target>
 
 |Paramètre|Description|
 |---------|-----------|
-|/d|Crée un lien symbolique du répertoire. Par défaut, **mklink** crée un lien symbolique du fichier.|
+|/d|Crée un lien symbolique de répertoire. Par défaut, **MKLINK** crée un lien symbolique de fichier.|
 |/h|Crée un lien physique au lieu d’un lien symbolique.|
-|/j|Crée une jonction de répertoires.|
-|\<Link>|Spécifie le nom du lien symbolique en cours de création.|
-|\<Target>|Spécifie le chemin d’accès (relatif ou absolu) qui désigne le nouveau lien symbolique.|
+|/j|Crée une jonction de répertoire.|
+|@no__t 0Link >|Spécifie le nom du lien symbolique en cours de création.|
+|@no__t 0Target >|Spécifie le chemin d’accès (relatif ou absolu) auquel le nouveau lien symbolique fait référence.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-L’exemple suivant illustre la création et la suppression d’un lien symbolique nommé MyFolder et MyFile.file à partir du répertoire racine dans le répertoire \Users\User1\Documents et un example.file situé dans le répertoire :
+L’exemple suivantes illustre la création et la suppression d’un lien symbolique nommé mondossier et MyFile. file du répertoire racine vers le répertoire \Users\User1\Documents et d’un exemple de fichier situé dans le répertoire suivant :
 ```
 mklink /d \MyFolder \Users\User1\Documents
 mklink /h \MyFile.file \User1\Documents\example.file
@@ -52,6 +52,6 @@ rd \MyFolder
 del \MyFile.file
 ```
 ## <a name="additional-references"></a>Références supplémentaires
--   [New-Item](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/new-item?view=powershell-6)
+-   [Nouvel élément](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/new-item?view=powershell-6)
 -   [del](https://docs.microsoft.com/windows-server/administration/windows-commands/del)
 -   [rmdir](https://docs.microsoft.com/windows-server/administration/windows-commands/rd)

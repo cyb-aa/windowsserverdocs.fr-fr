@@ -1,19 +1,19 @@
 ---
 title: Utilisez Robocopy pour préamorcer des fichiers pour réplication DFS
 description: Comment utiliser Robocopy. exe pour préamorcer des fichiers pour des réplication DFS.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 4a0cad3c685c8609784c7096fe31d55294712c2e
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: ea5cd954dde6d4fa8fcaa7874f75cb9588115ab1
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871977"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402129"
 ---
 # <a name="use-robocopy-to-preseed-files-for-dfs-replication"></a>Utilisez Robocopy pour préamorcer des fichiers pour réplication DFS
 
@@ -47,7 +47,7 @@ Pour utiliser Robocopy afin de préamorcer des fichiers pour réplication DFS, p
 
 - Sur le serveur source, vous pouvez éventuellement installer process Monitor ou Process Explorer, que vous pouvez utiliser pour rechercher les applications qui verrouillent des fichiers. Pour obtenir des informations sur le téléchargement, consultez [Process Monitor](https://docs.microsoft.com/sysinternals/downloads/procmon) and [Process Explorer](https://docs.microsoft.com/sysinternals/downloads/process-explorer).
 
-## <a name="step-1-download-and-install-the-latest-version-of-robocopy"></a>Étape 1 : Télécharger et installer la dernière version de Robocopy
+## <a name="step-1-download-and-install-the-latest-version-of-robocopy"></a>Étape 1 : Télécharger et installer la dernière version de Robocopy
 
 Avant d’utiliser Robocopy pour préamorcer des fichiers, vous devez télécharger et installer la dernière version de **Robocopy. exe**. Cela permet de s’assurer que réplication DFS n’ignore pas les fichiers en raison de problèmes au sein des versions d’expédition de Robocopy.
 
@@ -69,16 +69,16 @@ Vous pouvez également localiser et installer le correctif logiciel le plus réc
 
 4. Installez le correctif logiciel sur le serveur.
 
-## <a name="step-2-stabilize-files-that-will-be-replicated"></a>Étape 2 : Stabiliser les fichiers qui seront répliqués
+## <a name="step-2-stabilize-files-that-will-be-replicated"></a>Étape 2 : Stabiliser les fichiers qui seront répliqués
 
 Une fois que vous avez installé la dernière version de Robocopy sur le serveur, vous devez empêcher les fichiers verrouillés de bloquer la copie à l’aide des méthodes décrites dans le tableau suivant. La plupart des applications ne verrouillent pas exclusivement les fichiers. Toutefois, pendant les opérations normales, un petit pourcentage de fichiers peut être verrouillé sur les serveurs de fichiers.
 
-|Source du verrou|Explication|Atténuation|
+|Source du verrou|Explication|Solution|
 |---|---|---|
 |Les utilisateurs ouvrent à distance des fichiers sur les partages.|Les employés se connectent à un serveur de fichiers standard et modifient des documents, du contenu multimédia ou d’autres fichiers. Parfois appelé dossier de travail traditionnel ou charges de travail de données partagées.|Effectuez uniquement des opérations Robocopy pendant les heures creuses, hors des heures de bureau. Cela réduit le nombre de fichiers que Robocopy doit ignorer pendant le préamorçage.<br><br>Envisagez de définir temporairement l’accès en lecture seule sur les partages de fichiers qui seront répliqués à l’aide des applets de commande **Grant-SmbShareAccess** et **Close-SmbSession** de Windows PowerShell. Si vous définissez des autorisations pour un groupe commun comme tout le monde ou les utilisateurs authentifiés pour la lecture, les utilisateurs standard peuvent être moins enclins à ouvrir des fichiers avec des verrous exclusifs (si leurs applications détectent l’accès en lecture seule lorsque des fichiers sont ouverts).<br><br>Vous pouvez également envisager de définir une règle de pare-feu temporaire pour le port SMB 445 entrant sur ce serveur pour bloquer l’accès aux fichiers ou utiliser l’applet **de commande Block-SmbShareAccess** . Toutefois, ces deux méthodes sont très perturbatrices pour les opérations de l’utilisateur.|
 |Les applications ouvrent fichiers locaux.|Les charges de travail d’application exécutées sur un serveur de fichiers verrouillent parfois des fichiers.|Désactivez ou désinstallez temporairement les applications qui verrouillent des fichiers. Vous pouvez utiliser process Monitor ou Process Explorer pour déterminer les applications qui verrouillent des fichiers. Pour télécharger process Monitor ou Process Explorer, visitez les pages [Process Monitor](https://docs.microsoft.com/sysinternals/downloads/procmon) et [Process Explorer](https://docs.microsoft.com/sysinternals/downloads/process-explorer) .|
 
-## <a name="step-3-copy-the-replicated-files-to-the-destination-server"></a>Étape 3 : Copier les fichiers répliqués sur le serveur de destination
+## <a name="step-3-copy-the-replicated-files-to-the-destination-server"></a>Étape 3 : Copier les fichiers répliqués sur le serveur de destination
 
 Après avoir réduit les verrous sur les fichiers qui seront répliqués, vous pouvez préamorcer les fichiers du serveur source vers le serveur de destination.
 

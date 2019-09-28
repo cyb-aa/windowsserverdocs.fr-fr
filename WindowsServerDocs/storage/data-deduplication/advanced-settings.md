@@ -1,19 +1,19 @@
 ---
 ms.assetid: 01c8cece-66ce-4a83-a81e-aa6cc98e51fc
 title: Paramètres de déduplication des données avancés
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: storage-deduplication
 ms.topic: article
 author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
-ms.openlocfilehash: af977519b5e77eb768fdf8de1e6a34f7c8274666
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1d0677cec134ddeb4c706d0f1231f2c26b39967e
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447240"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71403214"
 ---
 # <a name="advanced-data-deduplication-settings"></a>Paramètres de déduplication des données avancés
 
@@ -21,15 +21,15 @@ ms.locfileid: "66447240"
 
 Ce document décrit la manière de modifier les paramètres de [déduplication des données](overview.md) avancés. Pour les [charges de travail recommandées](install-enable.md#enable-dedup-candidate-workloads), les paramètres par défaut peuvent suffire. La principale raison de modifier ces paramètres est d’améliorer les performances de la déduplication des données avec d’autres types de charges de travail.
 
-## <a id="modifying-job-schedules"></a>Modification des planifications de travail de la déduplication des données
+## <a id="modifying-job-schedules"></a>Modification des planifications de travaux de déduplication des données
 Les [planifications de travaux de déduplication des données](understand.md#job-info) sont conçues pour fonctionner parfaitement pour les charges de travail recommandées et être le moins intrusives possible (mis à part le travail d’*optimisation des priorités* qui est activé pour le type d’utilisation [**Sauvegarde**](understand.md#usage-type-backup)). Quand les charges de travail ont des besoins en ressources importants, il est possible de vérifier que les travaux s’exécutent uniquement pendant les heures d’inactivité, ou de réduire ou augmenter la quantité de ressources système qu’un travail de déduplication des données est autorisé à consommer.
 
 ### <a id="modifying-job-schedules-change-schedule"></a>Modification d’une planification de la déduplication des données
 Les travaux de déduplication des données sont planifiés par le biais du Planificateur de tâches de Windows. Vous pouvez les afficher et les modifier sous le chemin Microsoft\Windows\Deduplication. La déduplication des données comprend plusieurs applets de commande qui facilitent la planification.
-* [`Get-DedupSchedule`](https://technet.microsoft.com/library/hh848446.aspx) Affiche les travaux planifiés actuels.
-* [`New-DedupSchedule`](https://technet.microsoft.com/library/hh848445.aspx) Crée une nouvelle tâche planifiée.
+* [`Get-DedupSchedule`](https://technet.microsoft.com/library/hh848446.aspx) affiche les tâches planifiées en cours.
+* [`New-DedupSchedule`](https://technet.microsoft.com/library/hh848445.aspx) crée une nouvelle tâche planifiée.
 * [`Set-DedupSchedule`](https://technet.microsoft.com/library/hh848447.aspx) modifie une tâche planifiée existante.
-* [`Remove-DedupSchedule`](https://technet.microsoft.com/library/hh848451.aspx) Supprime une tâche planifiée.
+* [`Remove-DedupSchedule`](https://technet.microsoft.com/library/hh848451.aspx) supprime une tâche planifiée.
 
 Le motif de modification le plus courant pendant l’exécution de travaux de déduplication des données consiste à garantir que les travaux s’exécutent pendant les heures creuses. L’exemple pas à pas suivant montre comment modifier la planification de déduplication des données pour un scénario *idéal* : un hôte Hyper-V hyperconvergé qui est inactif le week-end et après 19h00 tous les soirs de la semaine. Pour modifier la planification, exécutez les applets de commande PowerShell suivantes dans un contexte d’administrateur.
 
@@ -62,7 +62,7 @@ Le motif de modification le plus courant pendant l’exécution de travaux de d�
     New-DedupSchedule -Name "WeeklyIntegrityScrubbing" -Type Scrubbing -DurationHours 23 -Memory 100 -Cores 100 -Priority High -Days @(0) -Start (Get-Date "2016-08-14 07:00:00")
     ```
 
-### <a id="modifying-job-schedules-available-settings"></a>Paramètres à l’échelle de travail disponibles
+### <a id="modifying-job-schedules-available-settings"></a>Paramètres disponibles à l’ensemble du travail
 Vous pouvez activer les paramètres suivants pour les travaux de déduplication des données nouveaux ou planifiés :
 
 <table>
@@ -76,7 +76,7 @@ Vous pouvez activer les paramètres suivants pour les travaux de déduplication 
     </thead>
     <tbody>
         <tr>
-            <td>type</td>
+            <td>Type</td>
             <td>Type du travail à planifier</td>
             <td>
                 <ul>
@@ -92,8 +92,8 @@ Vous pouvez activer les paramètres suivants pour les travaux de déduplication 
             <td>Priorité système du travail planifié</td>
             <td>
                 <ul>
-                    <li>Élevée</li>
-                    <li>Moyen</li>
+                    <li>Élevé</li>
+                    <li>Moyenne</li>
                     <li>Faible</li>
                 </ul>
             </td>
@@ -123,7 +123,7 @@ Vous pouvez activer les paramètres suivants pour les travaux de déduplication 
             <td>DurationHours</td>
             <td>Nombre maximal d’heures pendant lesquelles un travail doit être autorisé à s’exécuter</td>
             <td>Entiers positifs</td>
-            <td>Pour empêcher un travail de s’exécuter une charge de travail&#39;les heures d’activité s</td>
+            <td>Pour empêcher une tâche d’être exécutée dans&#39;des heures de travail non inactives</td>
         </tr>
         <tr>
             <td>Enabled</td>
@@ -141,7 +141,7 @@ Vous pouvez activer les paramètres suivants pour les travaux de déduplication 
             <td>InputOutputThrottle</td>
             <td>Spécifie le limite d’entrées/sorties appliquée au travail</td>
             <td>Entiers de 0 à 100 (indique un pourcentage)</td>
-            <td>La limitation permet de s’assurer que don de travaux&#39;t interfère avec d’autres processus d’e/S intensives.</td>
+            <td>La limitation garantit que les travaux&#39;n’interfèrent pas avec les autres processus nécessitant beaucoup d’e/s.</td>
         </tr>
         <tr>
             <td>Mémoire</td>
@@ -162,10 +162,10 @@ Vous pouvez activer les paramètres suivants pour les travaux de déduplication 
             <td>Vous voulez restaurer manuellement les fichiers qui se trouvent sur des sections incorrectes du disque.</td>
         </tr>
         <tr>
-            <td>Début</td>
+            <td>Start</td>
             <td>Spécifie l’heure de début d’un travail</td>
             <td><code>System.DateTime</code></td>
-            <td>Le <em>date</em> dans le cadre de la <code>System.Datetime</code> fourni à <em>Démarrer</em> n’est pas pertinente (tant qu’il&#39;s dans le passé), mais la <em>temps</em> partie spécifie quand la tâche doit démarrer .</td>
+            <td>La partie <em>Date</em> du <code>System.Datetime</code> fournie pour <em>Démarrer</em> n’est pas pertinente (aussi longtemps qu'&#39;elle se trouve dans le passé), mais la partie <em>heure</em> spécifie le moment où le travail doit démarrer.</td>
         </tr>
         <tr>
             <td>StopWhenSystemBusy</td>
@@ -176,8 +176,8 @@ Vous pouvez activer les paramètres suivants pour les travaux de déduplication 
     </tbody>
 </table>
 
-## <a id="modifying-volume-settings"></a>Modification des paramètres de l’échelle du volume de la déduplication des données
-### <a id="modifying-volume-settings-how-to-toggle"></a>Activation/désactivation des paramètres de volume
+## <a id="modifying-volume-settings"></a>Modification des paramètres à l’ensemble du volume de la déduplication des données
+### <a id="modifying-volume-settings-how-to-toggle"></a>Basculement des paramètres de volume
 Vous pouvez définir les paramètres par défaut à l’échelle du volume de la déduplication des données par le biais du [type d’utilisation](understand.md#usage-type) que vous sélectionnez quand vous activez une déduplication pour un volume. La déduplication des données comprend des applets de commande qui facilitent la modification des paramètres à l’échelle du volume :
 
 * [`Get-DedupVolume`](https://technet.microsoft.com/library/hh848448.aspx)
@@ -195,7 +195,7 @@ Les principales raisons de modifier les paramètres de volume du type d’utilis
     Set-DedupVolume -Volume C:\ClusterStorage\Volume1 -OptimizePartialFiles
     ```
 
-### <a id="modifying-volume-settings-available-settings"></a>Paramètres de l’échelle du volume disponibles
+### <a id="modifying-volume-settings-available-settings"></a>Paramètres disponibles à l’ensemble du volume
 <table>
     <thead>
         <tr>
@@ -208,9 +208,9 @@ Les principales raisons de modifier les paramètres de volume du type d’utilis
     <tbody>
         <tr>
             <td>ChunkRedundancyThreshold</td>
-            <td>Nombre de fois qu’un bloc est référencé avant d’être dupliqué dans la section de la zone réactive du magasin de blocs. La valeur de la section de la zone réactive est que ce que l'on appelle &quot;à chaud&quot; segments souvent référencés qui ont plusieurs chemins d’accès pour améliorer les temps d’accès.</td>
+            <td>Nombre de fois qu’un bloc est référencé avant d’être dupliqué dans la section de la zone réactive du magasin de blocs. La valeur de la section Hotspot est que les segments &quot;hot @ no__t-1 qui sont référencés ont souvent plusieurs chemins d’accès pour améliorer le temps d’accès.</td>
             <td>Entiers positifs</td>
-            <td>La principale raison de modifier ce nombre est d’accroître le taux de réduction pour les volumes à duplication élevée. En règle générale, la valeur par défaut (100) est le paramètre recommandé et ne doit pas vous&#39;inutile de modifier cela.</td>
+            <td>La principale raison de modifier ce nombre est d’accroître le taux de réduction pour les volumes à duplication élevée. En général, la valeur par défaut (100) est le paramètre recommandé, et vous&#39;devez le modifier.</td>
         </tr>
         <tr>
             <td>ExcludeFileType</td>
@@ -228,7 +228,7 @@ Les principales raisons de modifier les paramètres de volume du type d’utilis
             <td>InputOutputScale</td>
             <td>Spécifie le niveau de parallélisation des E/S (files d’attente d’E/S) que la déduplication des données doit utiliser sur un volume pendant un travail de post-traitement</td>
             <td>Entiers positifs compris entre 1 et 36</td>
-            <td>La principale raison de modifier cette valeur est de réduire l’impact sur les performances d’une charge de travail à E/S élevées en limitant le nombre de files d’attente d’E/S que la déduplication des données est autorisée à utiliser sur un volume. Notez que la modification de ce paramètre à partir de la valeur par défaut peut entraîner la déduplication des données&#39;s exécution lente des travaux de traitement ultérieur.</td>
+            <td>La principale raison de modifier cette valeur est de réduire l’impact sur les performances d’une charge de travail à E/S élevées en limitant le nombre de files d’attente d’E/S que la déduplication des données est autorisée à utiliser sur un volume. Notez que la modification de ce paramètre par défaut peut entraîner l’exécution lente&#39;des travaux de la déduplication des données.</td>
         </tr>
         <tr>
             <td>MinimumFileAgeDays</td>
@@ -258,7 +258,7 @@ Les principales raisons de modifier les paramètres de volume du type d’utilis
             <td>OptimizeInUseFiles</td>
             <td>Quand ce paramètre est activé, les fichiers qui ont des descripteurs actifs sont considérés comme conformes à la stratégie d’optimisation.</td>
             <td>Vrai/Faux</td>
-            <td>Activez ce paramètre si votre charge de travail garde des fichiers ouverts pendant de longues périodes. Si ce paramètre n’est pas activé, un fichier ne serait jamais optimisé si la charge de travail a un descripteur ouvert, même si elle&#39;s n'ajoutait qu’occasionnellement des données à la fin.</td>
+            <td>Activez ce paramètre si votre charge de travail garde des fichiers ouverts pendant de longues périodes. Si ce paramètre n’est pas activé, un fichier ne peut jamais être optimisé si la charge de travail y a un handle ouvert,&#39;même s’il n’ajoute que des données à la fin.</td>
         </tr>
         <tr>
             <td>OptimizePartialFiles</td>
@@ -275,7 +275,7 @@ Les principales raisons de modifier les paramètres de volume du type d’utilis
     </tbody>
 </table>
 
-## <a id="modifying-dedup-system-settings"></a>Modification des paramètres de l’échelle du système de la déduplication des données
+## <a id="modifying-dedup-system-settings"></a>Modification des paramètres système de la déduplication des données
 La déduplication des données possède des paramètres à l’échelle du système supplémentaires que vous pouvez configurer par le biais du [Registre](https://technet.microsoft.com/library/cc755256(v=ws.11).aspx). Ces paramètres s’appliquent à tous les travaux et volumes qui s’exécutent sur le système. Une attention particulière doit être donnée à chaque modification du Registre.
 
 Par exemple, vous voulez peut-être désactiver le nettoyage de la mémoire complet. Vous trouverez plus d’informations sur l’utilité d’une telle opération pour votre scénario dans le [Forum aux questions](#faq-why-disable-full-gc). Pour modifier le Registre avec PowerShell :
@@ -291,7 +291,7 @@ Par exemple, vous voulez peut-être désactiver le nettoyage de la mémoire comp
     Set-ItemProperty -Path HKLM:\System\CurrentControlSet\Services\ddpsvc\Settings -Name DeepGCInterval -Type DWord -Value 0xFFFFFFFF
     ```
 
-### <a id="modifying-dedup-system-settings-available-settings"></a>Paramètres de l’échelle du système disponibles
+### <a id="modifying-dedup-system-settings-available-settings"></a>Paramètres disponibles à l’ensemble du système
 <table>
     <thead>
         <tr>
@@ -310,7 +310,7 @@ Par exemple, vous voulez peut-être désactiver le nettoyage de la mémoire comp
         </tr>
         <tr>
             <td>DeepGCInterval</td>
-            <td>Ce paramètre configure l’intervalle auquel les travaux de nettoyage de la mémoire réguliers deviennent des <a href="advanced-settings.md#faq-full-v-regular-gc" data-raw-source="[full Garbage Collection jobs](advanced-settings.md#faq-full-v-regular-gc)">travaux de nettoyage de la mémoire complet</a>. Le paramètre n signifie que tous les n<sup>ièmes</sup> travaux sont un travail de nettoyage de la mémoire complet. Notez que le nettoyage de la mémoire complet est toujours désactivé (quelle que soit la valeur de Registre) pour les volumes avec le <a href="understand.md#usage-type-backup" data-raw-source="[Backup Usage Type](understand.md#usage-type-backup)">Type d’utilisation Sauvegarde</a>. <code>Start-DedupJob -Type GarbageCollection -Full</code> peut être utilisé si le Garbage Collection complet est souhaité sur un volume de sauvegarde.</td>
+            <td>Ce paramètre configure l’intervalle auquel les travaux de nettoyage de la mémoire réguliers deviennent des <a href="advanced-settings.md#faq-full-v-regular-gc" data-raw-source="[full Garbage Collection jobs](advanced-settings.md#faq-full-v-regular-gc)">travaux de nettoyage de la mémoire complet</a>. Le paramètre n signifie que tous les n<sup>ièmes</sup> travaux sont un travail de nettoyage de la mémoire complet. Notez que le nettoyage de la mémoire complet est toujours désactivé (quelle que soit la valeur de Registre) pour les volumes avec le <a href="understand.md#usage-type-backup" data-raw-source="[Backup Usage Type](understand.md#usage-type-backup)">Type d’utilisation Sauvegarde</a>. <code>Start-DedupJob -Type GarbageCollection -Full</code> peut être utilisé si le garbage collection complet est souhaité sur un volume de sauvegarde.</td>
             <td>Entiers (-1 = désactivé)</td>
             <td>Consultez cette <a href="advanced-settings.md#faq-why-disable-full-gc" data-raw-source="[this frequently asked question](advanced-settings.md#faq-why-disable-full-gc)">question du Forum aux questions</a>.</td>
         </tr>
@@ -318,18 +318,18 @@ Par exemple, vous voulez peut-être désactiver le nettoyage de la mémoire comp
 </table>
 
 ## <a id="faq"></a>Forum aux questions
-<a id="faq-use-responsibly"></a>**J’ai modifié un paramètre de la déduplication des données et désormais les travaux sont lents ou ne se termine ou mes performances de charge de travail a diminué. Pourquoi ?**  
+<a id="faq-use-responsibly"></a>**I a modifié un paramètre de déduplication des données et les tâches sont lentes ou ne se terminent pas, ou les performances de la charge de travail diminuent. Pourquoi ?**  
 Ces paramètres vous confèrent beaucoup de pouvoir sur l’exécution de la déduplication des données. Utilisez-les de manière responsable et [surveillez les performances](run.md#monitoring-dedup).
 
-<a id="faq-running-dedup-jobs-manually"></a>**Je souhaite exécuter un travail de déduplication des données dès maintenant, mais je ne veux pas créer une planification : est-ce possible ?**  
+<a id="faq-running-dedup-jobs-manually"></a>**Je souhaite exécuter un travail de déduplication des données pour le moment, mais je ne veux pas créer une nouvelle planification, puis-je faire cela ?**  
 Oui, [tous les travaux peuvent être exécutés manuellement](run.md#running-dedup-jobs-manually).
 
-<a id="faq-full-v-regular-gc"></a>**Quelle est la différence entre les opérations Garbage Collection complet et régulière ?**  
+<a id="faq-full-v-regular-gc"></a>**Quelle est la différence entre le garbage collection complet et normal ?**  
 Il existe deux types de [nettoyage de la mémoire ](understand.md#job-info-gc):
 
 - Le *nettoyage normal* utilise un algorithme statistique pour rechercher les blocs non référencés volumineux qui remplissent certains critères (mémoire et E/S par seconde faibles). Le nettoyage de la mémoire normal compacte un conteneur de magasin de blocs uniquement si un pourcentage minimal de blocs n’est pas référencé. Ce type de nettoyage de la mémoire s’exécute beaucoup plus vite et utilise moins de ressources que le nettoyage de la mémoire complet. La planification par défaut du travail de nettoyage de la mémoire normal prévoit une exécution une fois par semaine.
 - Le *nettoyage de la mémoire complet* effectue un travail beaucoup plus approfondi de recherche des blocs non référencés et de libération d’espace disque. Le nettoyage de la mémoire complet compacte chaque conteneur même si un seul bloc dans le conteneur n’est pas référencé. Le nettoyage de la mémoire complet libère également de l’espace éventuellement en cours d’utilisation, en cas d’incident ou de problème d’alimentation pendant un travail d’optimisation. Les travaux de nettoyage de la mémoire complet récupèrent 100 pour cent de l’espace disponible récupérable sur un volume dédupliqué en exigeant plus de temps et de ressources système qu’un travail de nettoyage de la mémoire normal. En général, le travail de nettoyage de la mémoire complet recherche et libère jusqu’à 5 pour cent de données non référencées en plus qu’un travail de nettoyage de la mémoire normal. La planification par défaut du travail de nettoyage de la mémoire complet prévoit une exécution tous les quatre nettoyages de la mémoire planifiés.
 
-<a id="faq-why-disable-full-gc"></a>**Pourquoi voudrais-je désactiver le Garbage Collection complet ?**  
+<a id="faq-why-disable-full-gc"></a>**Pourquoi voulez-vous désactiver le garbage collection complet ?**  
 - Le travail de nettoyage de la mémoire complet peut avoir des effets négatifs sur la durée de vie des clichés instantanés du volume et la taille de la sauvegarde incrémentielle. Les charges de travail à forte évolution ou gourmandes en E/S peuvent voir leurs performances se dégrader à cause des travaux de nettoyage de la mémoire complet.           
 - Vous pouvez exécuter manuellement un travail de nettoyage de la mémoire complet depuis PowerShell pour nettoyer les fuites si vous savez que votre système a subi un incident.

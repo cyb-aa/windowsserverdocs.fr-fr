@@ -1,9 +1,9 @@
 ---
 title: Référence à la commande Windows PowerShell BGP
-description: Vous pouvez utiliser cette rubrique comme une référence, lors de l’écriture de scripts Windows PowerShell dans Windows Server 2016, pour ajouter, configurer et retirer les capacités BGP de routeurs de passerelle RAS et le réseau local d’accès à distance (LAN).
+description: Vous pouvez utiliser cette rubrique comme référence lors de l’écriture de scripts Windows PowerShell dans Windows Server 2016, pour ajouter, configurer et supprimer des fonctionnalités BGP de la passerelle RAS et des routeurs de réseau local (LAN) d’accès à distance.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,35 +12,35 @@ ms.topic: article
 ms.assetid: 4b0240a3-b927-4a1e-b241-5f8f29a9552f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ef1dc1c8193a2f923f8154164e6b59fe54202527
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 2da5bc3008b9b686ddb2bce460ced39f98183f28
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283650"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394615"
 ---
 # <a name="bgp-windows-powershell-command-reference"></a>Référence à la commande Windows PowerShell BGP
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Vous pouvez utiliser cette rubrique comme une référence, lors de l’écriture de scripts Windows PowerShell, pour ajouter, configurer et retirer les capacités BGP de routeurs de passerelle RAS et le réseau local d’accès à distance (LAN).  
+Vous pouvez utiliser cette rubrique comme référence lors de l’écriture de scripts Windows PowerShell, pour ajouter, configurer et supprimer des fonctionnalités BGP de la passerelle RAS et des routeurs de réseau local (LAN) d’accès à distance.  
   
-Ces commandes BGP font partie de la commande PowerShell pour Windows l’accès à distance définies pour Windows Server 2016. Cette rubrique vous permet de localiser rapidement les commandes BGP que vous souhaitez utiliser dans les scripts.  
+Ces commandes BGP font partie du jeu de commandes Windows PowerShell d’accès à distance pour Windows Server 2016. Cette rubrique vous aide à localiser rapidement les commandes BGP que vous souhaitez utiliser dans les scripts.  
   
-Pour plus d’informations sur toutes les commandes d’accès à distance, consultez [applets de commande de l’accès à distance](https://technet.microsoft.com/library/hh918399.aspx).  
+Pour plus d’informations sur toutes les commandes d’accès à distance, consultez applets de commande d' [accès à distance](https://technet.microsoft.com/library/hh918399.aspx).  
   
-## <a name="bgp-command-reference"></a>Référence des commandes BGP  
-Les sections suivantes fournissent un nom de la commande, objectif et la syntaxe pour chaque commande BGP, ainsi qu’un lien vers la commande dans la référence de l’accès à distance, qui contient des informations plus détaillées sur chaque commande.  
+## <a name="bgp-command-reference"></a>Référence de commande BGP  
+Les sections suivantes fournissent le nom de commande, l’objectif et la syntaxe de chaque commande BGP, ainsi qu’un lien vers la commande dans la référence d’accès à distance, qui contient des informations plus détaillées sur chaque commande.  
   
 Cette référence contient les sections suivantes.  
   
 -   [Ajouter des commandes](#bkmk_add)  
   
--   [Commandes clair](#bkmk_clear)  
+-   [Effacer les commandes](#bkmk_clear)  
   
--   [Désactiver et activer les commandes](#bkmk_disable)  
+-   [Désactiver et activer des commandes](#bkmk_disable)  
   
--   [Obtenir les commandes](#bkmk_get)  
+-   [Commandes d’extraction](#bkmk_get)  
   
 -   [Commandes d’installation](#bkmk_install)  
   
@@ -48,12 +48,12 @@ Cette référence contient les sections suivantes.
   
 -   [Commandes Set](#bkmk_set)  
   
--   [Instructions Start et Stop](#bkmk_start)  
+-   [Commandes de démarrage et d’arrêt](#bkmk_start)  
   
 -   [Commandes de désinstallation](#bkmk_uninstall)  
   
 ### <a name="bkmk_add"></a>Ajouter des commandes  
-Voici les commandes Ajouter BGP.  
+Vous trouverez ci-dessous les commandes d’ajout BGP.  
   
 [Add-BgpCustomRoute](https://technet.microsoft.com/library/dn262684.aspx)  
   
@@ -73,7 +73,7 @@ Add-BgpPeer [-Name] <String> -LocalIPAddress <IPAddress> -PeerASN <UInt32> -Peer
   
 [Add-BgpRouteAggregate](https://technet.microsoft.com/library/mt463113.aspx)  
   
-Ajoute un nouvel itinéraire d’agrégation pour les itinéraires BGP spécifiques.  
+Ajoute une nouvelle route d’agrégation pour des itinéraires BGP spécifiques.  
   
 ```  
 Add-BgpRouteAggregate -Prefix <String> [-AttributePolicy <String[]> ] [-CimSession <CimSession[]> ] [-Force] [-InformationAction <ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <String> ] [-PassThru] [-PreserveASPath <PreserveASPath> ] [-RoutingDomain <String> ] [-SummaryOnly <SummaryOnly> ] [-ThrottleLimit <Int32> ] [-Confirm] [-WhatIf] [ <CommonParameters>] [ <WorkflowParameters>]  
@@ -81,7 +81,7 @@ Add-BgpRouteAggregate -Prefix <String> [-AttributePolicy <String[]> ] [-CimSessi
   
 [Add-BgpRouter](https://technet.microsoft.com/library/dn262665.aspx)  
   
-Ajoute un routeur BGP pour l’ID de client spécifié.  
+Ajoute un routeur BGP pour l’ID de locataire spécifié.  
   
 ```  
 Add-BgpRouter -BgpIdentifier <IPAddress> -LocalASN <UInt32> [-CimSession <CimSession[]> ] [-ClientToClientReflection <ClientToClientReflection> ] [-ClusterId <UInt32> ] [-CompareMEDAcrossASN <Boolean> ] [-DefaultGatewayRouting <Boolean> ] [-Force] [-InformationAction <ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <String> ] [-IPv6Routing <IPv6RoutingState> {Disabled | Enabled} ] [-LocalIPv6Address <IPAddress> ] [-PassThru] [-RouteReflector <RouteReflector> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [-TransitRouting <TransitRouting> ] [ <CommonParameters>] [ <WorkflowParameters>]  
@@ -89,7 +89,7 @@ Add-BgpRouter -BgpIdentifier <IPAddress> -LocalASN <UInt32> [-CimSession <CimSes
   
 [Add-BgpRoutingPolicy](https://technet.microsoft.com/library/dn262662.aspx)  
   
-Ajoute une stratégie de routage BGP pour le magasin de stratégies.  
+Ajoute une stratégie de routage BGP au magasin de stratégies.  
   
 ```  
 Add-BgpRoutingPolicy [-Name] <String> [-PolicyType] <PolicyType> {Deny | Allow | ModifyAttribute} [-AddCommunity <String[]> ] [-CimSession <CimSession[]> ] [-ClearMED] [-Force] [-IgnorePrefix <String[]> ] [-InformationAction <System.Management.Automation.ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <System.String> ] [-MatchASNRange <UInt32[]> ] [-MatchCommunity <String[]> ] [-MatchNextHop <IPAddress[]> ] [-MatchPrefix <String[]> ] [-NewLocalPref <UInt32]> ] [-NewMED <UInt32]> ] [-NewNextHop <IPAddress> ] [-PassThru] [-RemoveAllCommunities] [-RemoveCommunity <String[]> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [ <CommonParameters>] [ <WorkflowParameters>]  
@@ -97,29 +97,29 @@ Add-BgpRoutingPolicy [-Name] <String> [-PolicyType] <PolicyType> {Deny | Allow |
   
 [Add-BgpRoutingPolicyForPeer](https://technet.microsoft.com/library/dn262680.aspx)  
   
-Ajoute des stratégies de routage BGP homologues BGP.  
+Ajoute des stratégies de routage BGP aux homologues BGP.  
   
 ```  
 Add-BgpRoutingPolicyForPeer -Direction <PolicyDirection> {Ingress | Egress} -PolicyName <String[]> [-CimSession <CimSession[]> ] [-Force] [-InformationAction <System.Management.Automation.ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <System.String> ] [-PeerName <String[]> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [-Confirm] [-WhatIf] [ <CommonParameters>] [ <WorkflowParameters>]  
 ```  
   
-### <a name="bkmk_clear"></a>Commandes clair  
-Voici les commandes clair pour BGP  
+### <a name="bkmk_clear"></a>Effacer les commandes  
+Voici les commandes Clear pour BGP  
   
 [Clear-BgpRouteFlapDampening](https://technet.microsoft.com/library/mt463114.aspx)  
   
-Efface le rabat itinéraire blocage des informations pour le jeu d’itinéraires BGP spécifié.  
+Efface les informations de blocage du rabat d’itinéraires pour le jeu d’itinéraires BGP spécifié.  
   
 ```  
 Clear-BgpRouteFlapDampening [-CimSession <CimSession[]> ] [-Force] [-InformationAction <ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <String> ] [-Prefix <String[]> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [-Confirm] [-WhatIf] [ <CommonParameters>] [ <WorkflowParameters>]  
 ```  
   
-### <a name="bkmk_disable"></a>Désactiver et activer les commandes  
-Voici les commandes désactivée ou activée pour BGP  
+### <a name="bkmk_disable"></a>Désactiver et activer des commandes  
+Voici les commandes Disable et Enable pour BGP  
   
 [Disable-BgpRouteFlapDampening](https://technet.microsoft.com/library/mt463100.aspx)  
   
-Itinéraire désactive atténuation pour les itinéraires BGP ailes.  
+Désactive le blocage de l’itinéraire pour les itinéraires BGP du battant.  
   
 ```  
 Disable-BgpRouteFlapDampening [-CimSession <CimSession[]> ] [-Force] [-InformationAction <ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <String> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [-Confirm] [-WhatIf] [ <CommonParameters>] [ <WorkflowParameters>]  
@@ -127,64 +127,64 @@ Disable-BgpRouteFlapDampening [-CimSession <CimSession[]> ] [-Force] [-Informati
   
 [Enable-BgpRouteFlapDampening](https://technet.microsoft.com/library/mt463102.aspx)  
   
-Permet d’achemine l’atténuation pour les itinéraires BGP ailes.  
+Active le blocage de l’itinéraire pour les itinéraires BGP du battant.  
   
 ```  
 Enable-BgpRouteFlapDampening [-CimSession <CimSession[]> ] [-Force] [-InformationAction <ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <String> ] [-PassThru] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [-Confirm] [-WhatIf] [ <CommonParameters>] [ <WorkflowParameters>]  
 ```  
   
-### <a name="bkmk_get"></a>Obtenir les commandes  
-Voici les commandes Get pour BGP.  
+### <a name="bkmk_get"></a>Commandes d’extraction  
+Voici les commandes obtenir pour BGP.  
   
-[Get-BgpCustomRoute](https://technet.microsoft.com/library/dn262664.aspx)  
+[BgpCustomRoute](https://technet.microsoft.com/library/dn262664.aspx)  
   
-Obtient les informations d’itinéraire personnalisé à partir du routeur BGP.  
+Obtient des informations d’itinéraire personnalisées à partir du routeur BGP.  
   
 ```  
 Get-BgpCustomRoute [-CimSession <CimSession[]> ] [-InformationAction <System.Management.Automation.ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <System.String> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [ <CommonParameters>] [ <WorkflowParameters>]  
 ```  
   
-[Get-BgpPeer](https://technet.microsoft.com/library/dn262659.aspx)  
+[BgpPeer](https://technet.microsoft.com/library/dn262659.aspx)  
   
-Obtient les informations de configuration pour les homologues BGP.  
+Obtient des informations de configuration pour les homologues BGP.  
   
 ```  
 Get-BgpPeer [[-Name] <String[]> ] [-CimSession <CimSession[]> ] [-InformationAction <System.Management.Automation.ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <System.String> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [ <CommonParameters>] [ <WorkflowParameters>]  
 ```  
   
-[Get-BgpRouteAggregate](https://technet.microsoft.com/library/mt463103.aspx)  
+[BgpRouteAggregate](https://technet.microsoft.com/library/mt463103.aspx)  
   
-Obtient tous les itinéraires BGP agrégation configurés par l’administrateur.  
+Obtient tous les itinéraires BGP d’agrégation configurés par l’administrateur.  
   
 ```  
 Get-BgpRouteAggregate [-CimSession <CimSession[]> ] [-InformationAction <ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <String> ] [-Prefix <String[]> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [-Confirm] [-WhatIf] [ <CommonParameters>] [ <WorkflowParameters>]  
 ```  
   
-[Get-BgpRouteFlapDampening](https://technet.microsoft.com/library/mt463108.aspx)  
+[BgpRouteFlapDampening](https://technet.microsoft.com/library/mt463108.aspx)  
   
-Récupère la configuration d’un moteur de blocage de routage BGP.  
+Récupère la configuration d’un moteur d’atténuation des itinéraires BGP.  
   
 ```  
 Get-BgpRouteFlapDampening [-CimSession <CimSession[]> ] [-InformationAction <ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <String> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [-Confirm] [-WhatIf] [ <CommonParameters>] [ <WorkflowParameters>]  
 ```  
   
-[Get-BgpRouteInformation](https://technet.microsoft.com/library/dn262667.aspx)  
+[BgpRouteInformation](https://technet.microsoft.com/library/dn262667.aspx)  
   
-Récupère des informations sur les itinéraires BGP pour un ou plusieurs préfixes de réseau à partir de la table de routage BGP.  
+Récupère les informations d’itinéraire BGP pour un ou plusieurs préfixes réseau de la table de routage BGP.  
   
 ```  
 Get-BgpRouteInformation [-CimSession <CimSession[]> ] [-InformationAction <ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <String> ] [-Network <String[]> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [-Type <RouteType> ] [ <CommonParameters>] [ <WorkflowParameters>]  
 ```  
   
-[Get-BgpRouter](https://technet.microsoft.com/library/dn262660.aspx)  
+[BgpRouter](https://technet.microsoft.com/library/dn262660.aspx)  
   
-Obtient les informations de configuration de routeurs BGP.  
+Obtient des informations de configuration pour les routeurs BGP.  
   
 ```  
 Get-BgpRouter [-CimSession <CimSession[]> ] [-InformationAction <System.Management.Automation.ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <System.String> ] [-RoutingDomain <String[]> ] [-ThrottleLimit <Int32> ] [ <CommonParameters>] [ <WorkflowParameters>]  
 ```  
   
-[Get-BgpRoutingPolicy](https://technet.microsoft.com/library/dn262672.aspx)  
+[BgpRoutingPolicy](https://technet.microsoft.com/library/dn262672.aspx)  
   
 Obtient les informations de configuration des stratégies de routage BGP.  
   
@@ -192,9 +192,9 @@ Obtient les informations de configuration des stratégies de routage BGP.
 Get-BgpRoutingPolicy [[-Name] <String[]> ] [-CimSession <CimSession[]> ] [-InformationAction <System.Management.Automation.ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <System.String> ] [-PolicyType <PolicyType> {Deny | Allow | ModifyAttribute} ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [ <CommonParameters>] [ <WorkflowParameters>]  
 ```  
   
-[Get-BgpStatistics](https://technet.microsoft.com/library/dn262685.aspx)  
+[BgpStatistics](https://technet.microsoft.com/library/dn262685.aspx)  
   
-Récupère le BGP homologation statistiques concernant le message et router publication.  
+Récupère les statistiques relatives aux messages et aux publications d’itinéraires liés à l’homologation BGP.  
   
 ```  
 Get-BgpStatistics [-CimSession <CimSession[]> ] [-InformationAction <System.Management.Automation.ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <System.String> ] [-PeerName <String[]> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [ <CommonParameters>] [ <WorkflowParameters>]  
@@ -203,9 +203,9 @@ Get-BgpStatistics [-CimSession <CimSession[]> ] [-InformationAction <System.Mana
 ### <a name="bkmk_install"></a>Commandes d’installation  
 Voici les commandes d’installation pour la passerelle RAS et BGP.  
   
-[Install-RemoteAccess](https://technet.microsoft.com/library/hh918408.aspx)  
+[Installer-RemoteAccess](https://technet.microsoft.com/library/hh918408.aspx)  
   
-Effectue des vérifications préalables pour DirectAccess (DA) pour vous assurer qu’il peut être installé, installée DA pour l’accès à distance (RA) (inclut la gestion des clients à distance) ou pour la gestion des clients distants uniquement, VPN (VPN d’accès à distance et VPN de site à site), et installe le routage BGP.  
+Effectue des vérifications de la configuration requise pour DirectAccess (DA) afin de s’assurer qu’il peut être installé, installe DA pour l’accès à distance (y compris la gestion des clients distants) ou pour la gestion des clients distants uniquement, installe le VPN (VPN d’accès à distance et VPN de site à site). et installe le routage BGP.  
   
 ```  
 Parameter Set: MultiTenant  
@@ -216,7 +216,7 @@ Install-RemoteAccess [-VpnType] <String> {Vpn | VpnS2S | SstpProxy | RoutingOnly
 ```  
   
 > [!IMPORTANT]  
-> Lorsque vous installez la passerelle RAS en mode partagé, vous devez spécifier si BGP est activé pour chaque client à l’aide de la **Enable-RemoteAccessRoutingDomain** commande Windows PowerShell avec le **-Type** valeur du paramètre de **tous les**. L’exemple de code suivant montre comment installer le service RAS en mode mutualisé avec toutes les fonctionnalités RAS (point-to-site VPN site à site VPN et BGP routage) activée pour les deux clients, Contoso et Fabrikam.  
+> Quand vous installez la passerelle RAS en mode multi-locataire, vous devez spécifier si le protocole BGP est activé pour chaque locataire à l’aide de la commande Windows PowerShell **Enable-remoteaccessroutingdomain et définissez** avec la valeur de paramètre **-type** de **All**. L’exemple de code suivant illustre l’installation du service RAS en mode d’architecture mutualisée avec toutes les fonctionnalités RAS (VPN de point à site, VPN de site à site et routage BGP) activées pour deux locataires, contoso et fabrikam.  
   
 ```  
 $Contoso_RoutingDomain = "ContosoTenant"  
@@ -228,18 +228,18 @@ Enable-RemoteAccessRoutingDomain -Name $Contoso_RoutingDomain -Type All -PassThr
 Enable-RemoteAccessRoutingDomain -Name $Fabrikam_RoutingDomain -Type All -PassThru  
 ```  
   
-Si vous utilisez l’accès à distance en tant que routeur de réseau local au lieu d’en tant que passerelle, vous pouvez toujours utiliser le protocole BGP, qui offre l’avantage de générer un routage dynamique sur votre intranet. Pour installer l’accès distant en tant que routeur de réseau local de BGP, tapez la commande suivante dans une invite Windows PowerShell, puis appuyez sur ENTRÉE.  
+Si vous utilisez l’accès à distance en tant que routeur LAN plutôt qu’en tant que passerelle, vous pouvez toujours utiliser le protocole BGP, qui offre l’avantage d’avoir un routage dynamique sur votre intranet. Pour installer l’accès à distance en tant que routeur LAN BGP, tapez la commande suivante dans une invite Windows PowerShell, puis appuyez sur entrée.  
   
 ```  
 Install-RemoteAccess -VpnType RoutingOnly  
 ```  
   
 ### <a name="bkmk_remove"></a>Supprimer des commandes  
-Voici les commandes de suppression pour BGP.  
+Voici les commandes Remove pour BGP.  
   
 [Remove-BgpCustomRoute](https://technet.microsoft.com/library/dn262669.aspx)  
   
-Supprime des itinéraires personnalisés à partir du routeur BGP.  
+Supprime les itinéraires personnalisés du routeur BGP.  
   
 ```  
 Remove-BgpCustomRoute [-CimSession <CimSession[]> ] [-Force] [-InformationAction <System.Management.Automation.ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <System.String> ] [-Interface <String[]> ] [-Network <String[]> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [-Confirm] [-WhatIf] [ <CommonParameters>] [ <WorkflowParameters>]  
@@ -247,7 +247,7 @@ Remove-BgpCustomRoute [-CimSession <CimSession[]> ] [-Force] [-InformationAction
   
 [Remove-BgpPeer](https://technet.microsoft.com/library/dn262675.aspx)  
   
-Supprime les homologues BGP à partir d’un routeur.  
+Supprime les homologues BGP d’un routeur.  
   
 ```  
 Remove-BgpPeer [-Name] <String[]> [-CimSession <CimSession[]> ] [-Force] [-InformationAction <System.Management.Automation.ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <System.String> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [-Confirm] [-WhatIf] [ <CommonParameters>] [ <WorkflowParameters>]  
@@ -255,7 +255,7 @@ Remove-BgpPeer [-Name] <String[]> [-CimSession <CimSession[]> ] [-Force] [-Infor
   
 [Remove-BgpRouteAggregate](https://technet.microsoft.com/library/mt463110.aspx)  
   
-Supprime l’ensemble des itinéraires BGP agrégation spécifiée.  
+Supprime le jeu d’itinéraires BGP d’agrégation spécifiés.  
   
 ```  
 Remove-BgpRouteAggregate [-CimSession <CimSession[]> ] [-Force] [-InformationAction <ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <String> ] [-Prefix <String[]> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [-Confirm] [-WhatIf] [ <CommonParameters>] [ <WorkflowParameters>]  
@@ -271,7 +271,7 @@ Remove-BgpRouter [-CimSession <CimSession[]> ] [-Force] [-InformationAction <Sys
   
 [Remove-BgpRoutingPolicy](https://technet.microsoft.com/library/dn262656.aspx)  
   
-Supprime le routage des stratégies à partir du magasin de stratégies.  
+Supprime les stratégies de routage du magasin de stratégies.  
   
 ```  
 Remove-BgpRoutingPolicy [-Name] <String[]> [-CimSession <CimSession[]> ] [-Force] [-InformationAction <System.Management.Automation.ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <System.String> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [-Confirm] [-WhatIf] [ <CommonParameters>] [ <WorkflowParameters>]  
@@ -279,7 +279,7 @@ Remove-BgpRoutingPolicy [-Name] <String[]> [-CimSession <CimSession[]> ] [-Force
   
 [Remove-BgpRoutingPolicyForPeer](https://technet.microsoft.com/library/dn262681.aspx)  
   
-Supprime les stratégies à partir d’homologues BGP.  
+Supprime les stratégies de routage des homologues BGP.  
   
 ```  
 Parameter Set: Remove1  
@@ -287,11 +287,11 @@ Remove-BgpRoutingPolicyForPeer [-CimSession <CimSession[]> ] [-Direction <Policy
 ```  
   
 ### <a name="bkmk_set"></a>Commandes Set  
-Voici les commandes de jeu pour BGP.  
+Voici les commandes SET pour BGP.  
   
 [Set-BgpPeer](https://technet.microsoft.com/library/dn262673.aspx)  
   
-Met à jour la configuration de l’homologue BGP spécifiée.  
+Met à jour la configuration de l’homologue BGP spécifié.  
   
 ```  
 Set-BgpPeer [-Name] <String> [-CimSession <CimSession[]> ] [-ClearPrefixLimit] [-Force] [-HoldTimeSec <UInt16> ] [-IdleHoldTimeSec <UInt16> ] [-InformationAction <ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <String> ] [-LocalASN <UInt32> ] [-LocalIPAddress <IPAddress> ] [-MaxAllowedPrefix <UInt32> ] [-OperationMode <OperationMode> {Mixed | Server} ] [-PassThru] [-PeerASN <UInt32> ] [-PeeringMode <PeeringMode> {Automatic | Manual} ] [-PeerIPAddress <IPAddress> ] [-RouteReflectorClient <Boolean> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [-Weight <UInt16> ] [-Confirm] [-WhatIf] [ <CommonParameters>] [ <WorkflowParameters>]  
@@ -307,7 +307,7 @@ Set-BgpRouteAggregate -Prefix <String> [-AttributePolicy <String[]> ] [-CimSessi
   
 [Set-BgpRouteFlapDampening](https://technet.microsoft.com/library/mt463116.aspx)  
   
-Configure l’itinéraire BGP du moteur de blocage.  
+Configure le moteur d’atténuation des itinéraires BGP.  
   
 ```  
 Set-BgpRouteFlapDampening [-CimSession <CimSession[]> ] [-Force] [-HalfLife <UInt32> ] [-HalfLifeUnreachable <UInt32> ] [-InformationAction <ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <String> ] [-MaxSuppressTime <UInt32> ] [-PassThru] [-ReuseThreshold <UInt32> ] [-RoutingDomain <String> ] [-SuppressThreshold <UInt32> ] [-ThrottleLimit <Int32> ] [-Confirm] [-WhatIf] [ <CommonParameters>] [ <WorkflowParameters>]  
@@ -315,7 +315,7 @@ Set-BgpRouteFlapDampening [-CimSession <CimSession[]> ] [-Force] [-HalfLife <UIn
   
 [Set-BgpRouter](https://technet.microsoft.com/library/dn262652.aspx)  
   
-Met à jour la configuration du routeur BGP local pour l’ID de client spécifié.  
+Met à jour la configuration du routeur BGP local pour l’ID de locataire spécifié.  
   
 ```  
 Set-BgpRouter [-BgpIdentifier <IPAddress> ] [-CimSession <CimSession[]> ] [-ClientToClientReflection <ClientToClientReflection> ] [-ClusterId <UInt32> ] [-CompareMEDAcrossASN <Boolean> ] [-DefaultGatewayRouting <Boolean> ] [-Force] [-InformationAction <ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <String> ] [-IPv6Routing <IPv6RoutingState> {Disabled | Enabled} ] [-LocalASN <UInt32> ] [-LocalIPv6Address <IPAddress> ] [-PassThru] [-RouteReflector <RouteReflector> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [-TransitRouting <TransitRouting> ] [-Confirm] [-WhatIf] [ <CommonParameters>] [ <WorkflowParameters>]  
@@ -337,12 +337,12 @@ Modifie les stratégies de routage BGP pour les homologues BGP.
 Set-BgpRoutingPolicyForPeer -Direction <PolicyDirection> {Ingress | Egress} -PolicyName <String[]> [-CimSession <CimSession[]> ] [-Force] [-InformationAction <System.Management.Automation.ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <System.String> ] [-PeerName <String[]> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [-Confirm] [-WhatIf] [ <CommonParameters>] [ <WorkflowParameters>]  
 ```  
   
-### <a name="bkmk_start"></a>Instructions Start et Stop  
+### <a name="bkmk_start"></a>Commandes de démarrage et d’arrêt  
 Voici les commandes de démarrage et d’arrêt pour BGP.  
   
 [Start-BgpPeer](https://technet.microsoft.com/library/dn262683.aspx)  
   
-Démarre le routage des sessions pour les homologues BGP.  
+Démarre les sessions de routage pour les homologues BGP.  
   
 ```  
 Start-BgpPeer [-Name] <String[]> [-CimSession <CimSession[]> ] [-InformationAction <System.Management.Automation.ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <System.String> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [ <CommonParameters>] [ <WorkflowParameters>]  
@@ -350,7 +350,7 @@ Start-BgpPeer [-Name] <String[]> [-CimSession <CimSession[]> ] [-InformationActi
   
 [Stop-BgpPeer](https://technet.microsoft.com/library/dn262661.aspx)  
   
-Arrête le routage des sessions pour les homologues BGP.  
+Arrête les sessions de routage pour les homologues BGP.  
   
 ```  
 Stop-BgpPeer [-Name] <String[]> [-CimSession <CimSession[]> ] [-Force] [-InformationAction <System.Management.Automation.ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <System.String> ] [-RoutingDomain <String> ] [-ThrottleLimit <Int32> ] [-Confirm] [-WhatIf] [ <CommonParameters>] [ <WorkflowParameters>]  
@@ -361,7 +361,7 @@ Voici les commandes de désinstallation pour la passerelle RAS et BGP.
   
 [Uninstall-RemoteAccess](https://technet.microsoft.com/library/hh918390.aspx)  
   
-Désinstalle l’accès à distance à partir de l’ordinateur, y compris toutes les fonctionnalités d’accès à distance et les fonctionnalités (passerelle RAS, BGP, etc.).  
+Désinstalle l’accès à distance de l’ordinateur, y compris toutes les fonctionnalités et fonctionnalités d’accès à distance (passerelle RAS, BGP, etc.).  
   
 ```  
 Uninstall-RemoteAccess [-CimSession <CimSession[]> ] [-ComputerName <String> ] [-EntrypointName <String> ] [-Force] [-InformationAction <System.Management.Automation.ActionPreference> {SilentlyContinue | Stop | Continue | Inquire | Ignore | Suspend} ] [-InformationVariable <System.String> ] [-ThrottleLimit <Int32> ] [-VpnType <String> {Vpn | VpnS2S} ] [-Confirm] [-WhatIf] [ <CommonParameters>] [ <WorkflowParameters>]  

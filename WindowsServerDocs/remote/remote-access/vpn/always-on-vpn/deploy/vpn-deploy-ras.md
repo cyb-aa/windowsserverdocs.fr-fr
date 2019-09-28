@@ -1,7 +1,7 @@
 ---
 title: Configurer le serveur d'accès à distance pour VPN Toujours actif (AlwaysOn)
 description: RRAS est conçu pour fonctionner correctement à la fois comme un routeur et un serveur d’accès à distance. par conséquent, il prend en charge un vaste éventail de fonctionnalités.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
@@ -10,19 +10,19 @@ ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: 8ed7dd9b8b02ab58cfb6dacf031576004c8d0290
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: c04074338cf4ba0189eb1e9bc45a80b948fdbfbf
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871308"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71388043"
 ---
-# <a name="step-3-configure-the-remote-access-server-for-always-on-vpn"></a>Étape 3. Configurer le serveur d'accès à distance pour VPN Toujours actif (AlwaysOn)
+# <a name="step-3-configure-the-remote-access-server-for-always-on-vpn"></a>Étape 3. Configurer le serveur d'accès à distance pour VPN Toujours actif (AlwaysOn)
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Premier** Étape 2. Configurer l’infrastructure de serveur](vpn-deploy-server-infrastructure.md)
-- [**Premier** Étape 4. Installer et configurer le serveur NPS (Network Policy Server)](vpn-deploy-nps.md)
+- [**Premier** Étape 2. Configurer l’infrastructure de serveur](vpn-deploy-server-infrastructure.md)
+- [**Premier** Étape 4. Installer et configurer le serveur NPS (Network Policy Server)](vpn-deploy-nps.md)
 
 RRAS est conçu pour fonctionner correctement à la fois comme un routeur et un serveur d’accès à distance, car il prend en charge un vaste éventail de fonctionnalités. Dans le cadre de ce déploiement, vous n’avez besoin que d’un petit sous-ensemble de ces fonctionnalités : la prise en charge des connexions VPN IKEv2 et du routage LAN.
 

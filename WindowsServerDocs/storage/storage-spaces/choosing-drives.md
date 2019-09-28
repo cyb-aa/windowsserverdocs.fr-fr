@@ -1,7 +1,7 @@
 ---
 ms.assetid: 1368bc83-9121-477a-af09-4ae73ac16789
 title: Choix des disques pour les espaces de stockage direct
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: cosdar
 ms.manager: eldenc
 ms.technology: storage-spaces
@@ -9,12 +9,12 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 10/08/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: eb19e7ecf89f02200d3393dc1a4a9e5cd85cf598
-ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
+ms.openlocfilehash: b02d26e8a2f2cd699d8e1eda95cf72fe71396a21
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314996"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402895"
 ---
 # <a name="choosing-drives-for-storage-spaces-direct"></a>Choix des disques pour les espaces de stockage direct
 
@@ -110,9 +110,9 @@ Pour les charges de travail qui requièrent une grande capacité de stockage et 
 
 Chaque serveur doit avoir au minimum deux lecteurs de cache pour assurer la redondance. Nous vous recommandons de choisir un nombre de lecteurs de capacité qui soit un multiple du nombre de lecteurs de cache. Par exemple, si vous avez quatre disques de cache, vous obtiendrez des performances plus constantes avec huit disques de capacité plutôt qu'avec sept ou neuf.
 
-Le cache doit être dimensionné pour s’adapter à la plage de travail de vos applications et charges de travail, c’est-à-dire toutes les données qu’ils lisent et écrivent activement à un moment donné. Il n’y a pas d’autre exigence pour la taille du cache. Pour les déploiements avec des disques durs, un emplacement de départ équitable est de 10% de la capacité, par exemple, si chaque serveur possède un disque dur de 4 x 4 to = 16 to de capacité, alors 2 x 800 Go SSD = 1,6 to de cache par serveur. Pour les déploiements de tous les disques, en particulier avec des disques SSD à endurance très [élevés](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/) , il peut être juste de commencer plus près à 5% de la capacité, par exemple, si chaque serveur possède 24 x 1,2 to SSD = 28,8 to de capacité, puis 2 x 750 Go NVMe = 1,5 to de cache par serveur. Vous pouvez ajuster la taille à tout moment en ajoutant ou en supprimant des lecteurs de cache.
+Le cache doit être dimensionné pour s’adapter à la plage de travail de vos applications et charges de travail, c’est-à-dire toutes les données qu’ils lisent et écrivent activement à un moment donné. Il n’y a pas d’autre exigence pour la taille du cache. Pour les déploiements avec des disques durs, un emplacement de départ équitable est de 10% de la capacité, par exemple, si chaque serveur possède un disque dur de 4 x 4 to = 16 to de capacité, alors 2 x 800 Go SSD = 1,6 to de cache par serveur. Pour les déploiements de tous les disques, en particulier avec des disques SSD à [endurance très élevés](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/) , il peut être juste de commencer plus près à 5% de la capacité, par exemple, si chaque serveur possède 24 x 1,2 to SSD = 28,8 to de capacité, puis 2 x 750 Go NVMe = 1,5 to de cache par serveur. Vous pouvez ajuster la taille à tout moment en ajoutant ou en supprimant des lecteurs de cache.
 
-### <a name="general"></a>Généralités
+### <a name="general"></a>Général
 
 Nous recommandons de limiter la capacité de stockage totale par serveur à environ 100 téraoctets (To). Plus la capacité de stockage par serveur est élevée, plus il faut de temps pour resynchroniser les données après un arrêt ou un redémarrage (par exemple, pour appliquer des mises à jour logicielles).
 

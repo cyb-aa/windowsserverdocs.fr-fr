@@ -1,7 +1,7 @@
 ---
 title: Configurer l’infrastructure de serveur
 description: Dans cette étape, vous installez et configurez les composants côté serveur nécessaires pour prendre en charge le VPN. Les composants côté serveur incluent la configuration de l’infrastructure à clé publique pour distribuer les certificats utilisés par les utilisateurs, le serveur VPN et le serveur NPS.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
@@ -10,19 +10,19 @@ ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: 260d5c6273d877386dc1cd8833b2f226533127c3
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: c7e2c4172621416048fa9e82bbd12f5b1717d490
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70871296"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404293"
 ---
-# <a name="step-2-configure-the-server-infrastructure"></a>Étape 2. Configurer l’infrastructure de serveur
+# <a name="step-2-configure-the-server-infrastructure"></a>Étape 2. Configurer l’infrastructure de serveur
 
 >S’applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Premier** Étape 1. Planifier le déploiement de VPN Toujours actif (AlwaysOn)](always-on-vpn-deploy-planning.md)
-- [**Situé** Étape 3. Configurer le serveur d’accès à distance pour VPN Toujours actif (AlwaysOn)](vpn-deploy-ras.md)
+- [**Premier** Étape 1. Planifier le déploiement de VPN Toujours actif (AlwaysOn)](always-on-vpn-deploy-planning.md)
+- [**Situé** Étape 3. Configurer le serveur d’accès à distance pour VPN Toujours actif (AlwaysOn)](vpn-deploy-ras.md)
 
 Au cours de cette étape, vous allez installer et configurer les composants côté serveur nécessaires à la prise en charge du VPN. Les composants côté serveur incluent la configuration de l’infrastructure à clé publique pour distribuer les certificats utilisés par les utilisateurs, le serveur VPN et le serveur NPS.  Vous configurez également RRAS pour prendre en charge les connexions IKEv2 et le serveur NPS pour effectuer l’autorisation pour les connexions VPN.
 
@@ -116,7 +116,7 @@ Vous inscrivez manuellement les certificats sur les serveurs VPN.
 
     - **Rôles prévus :** Authentification du serveur, sécurité IP IKE intermédiaire 
 
-    - **Modèle de certificat :** [_Client_] Serveur VPN
+    - **Modèle de certificat :** serveur VPN [_client_]
 
 #### <a name="example-vpngatewayinf-script"></a>Exemple : Script VPNGateway. inf
 

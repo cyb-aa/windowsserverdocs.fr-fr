@@ -1,57 +1,57 @@
 ---
 ms.assetid: 56fc7f80-9558-467e-a6e9-a04c9abbee33
 title: Reconnaissance des domaines d'erreur
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.author: cosdar
 ms.manager: eldenc
 ms.technology: storage-failover-clustering
 ms.topic: article
 author: cosmosdarwin
 ms.date: 09/16/2016
-ms.openlocfilehash: 18b7a932cc8a22c356fde89baa316c0532ebc374
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 439f898b7c96ecc3d2f380509fe86d528aa737c5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476003"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71361141"
 ---
 # <a name="fault-domain-awareness"></a>Reconnaissance des domaines d'erreur
 
 > S’applique à : Windows Server 2019 et Windows Server 2016
 
-Le clustering de basculement permet à plusieurs serveurs de travailler ensemble pour fournir une haute disponibilité, autrement dit, pour fournir une tolérance de panne aux nœuds. Mais les entreprises d’aujourd'hui exigent une disponibilité toujours plus grande à partir de leur infrastructure. Pour obtenir un temps d’activité de type cloud, une protection contre des circonstances même très improbables comme une rupture de châssis, un dysfonctionnement de rack ou une catastrophe naturelle doit être mise en place. C’est pourquoi le Clustering de basculement dans Windows Server 2016 introduit des châssis en rack et site une tolérance de panne ainsi.
+Le clustering de basculement permet à plusieurs serveurs de travailler ensemble pour fournir une haute disponibilité, autrement dit, pour fournir une tolérance de panne aux nœuds. Mais aujourd’hui, les entreprises exigent une disponibilité optimale de leur infrastructure. Pour obtenir un temps d’activité de type cloud, une protection contre des circonstances même très improbables comme une rupture de châssis, un dysfonctionnement de rack ou une catastrophe naturelle doit être mise en place. C’est la raison pour laquelle le clustering de basculement dans Windows Server 2016 a également introduit la tolérance de panne du châssis, du rack et du site.
 
 ## <a name="fault-domain-awareness"></a>Reconnaissance des domaines d'erreur
 
 Les domaines d’erreur et la tolérance de panne sont des concepts étroitement liés. Un domaine d’erreur est un ensemble de composants matériels qui partagent un point de défaillance unique. Pour obtenir une tolérance de panne à un certain niveau, vous avez besoin de plusieurs domaines d’erreur à ce niveau. Par exemple, pour obtenir une tolérance de panne au niveau des racks, vos serveurs et vos données doivent être distribués sur plusieurs racks.
 
 Cette brève vidéo présente une vue d’ensemble des domaines d’erreur dans Windows Server 2016 :  
-[![Cliquez sur cette image pour regarder une vue d’ensemble des domaines d’erreur dans Windows Server 2016](media/Fault-Domains-in-Windows-Server-2016/Part-1-Fault-Domains-Overview.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-1-Overview)
+[![Cliquez sur cette image pour visionner une vue d’ensemble des domaines d’erreur dans Windows Server 2016](media/Fault-Domains-in-Windows-Server-2016/Part-1-Fault-Domains-Overview.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-1-Overview)
 
-### <a name="fault-domain-awareness-in-windows-server-2019"></a>Reconnaissance des domaines d’erreur dans Windows Server 2019
+### <a name="fault-domain-awareness-in-windows-server-2019"></a>Connaissance du domaine d’erreur dans Windows Server 2019
 
-Reconnaissance des domaines d’erreur est disponible dans Windows Server 2019, mais il est désactivé par défaut et doit être activé via le Registre Windows.
+La sensibilisation au domaine d’erreur est disponible dans Windows Server 2019, mais elle est désactivée par défaut et doit être activée via le Registre Windows.
 
-Pour activer la reconnaissance des domaines d’erreur dans Windows Server 2019, accédez au Registre Windows et définissez (Get-Cluster). Clé de Registre AutoAssignNodeSite sur 1.
+Pour activer la reconnaissance du domaine d’erreur dans Windows Server 2019, accédez au registre Windows et définissez (obten-cluster). Clé de Registre AutoAssignNodeSite sur 1.
 
 ```Registry
     (Get-Cluster).AutoAssignNodeSite=1
 ```
 
-Pour désactiver la reconnaissance des domaines d’erreur dans Windows 2019, accédez au Registre Windows et définissez (Get-Cluster). Clé de Registre AutoAssignNodeSite sur 0.
+Pour désactiver la reconnaissance du domaine d’erreur dans Windows 2019, accédez au registre Windows et définissez (obten-cluster). Clé de Registre AutoAssignNodeSite sur 0.
 
 ```Registry
     (Get-Cluster).AutoAssignNodeSite=0
 ```
 
 ## <a name="benefits"></a>Avantages
-- **Espaces de stockage, y compris les espaces de stockage Direct, utilise des domaines d’erreur pour optimiser la sécurité des données.**  
+- **Les espaces de stockage, y compris espaces de stockage direct, utilisent des domaines d’erreur pour optimiser la sécurité des données.**  
     Du point de vue conceptuel, la résilience dans les espaces de stockage est similaire à la technologie RAID distribuée et à définition logicielle. Plusieurs copies de toutes les données restent synchronisées, et si le matériel tombe en panne et qu’une copie est perdue, les autres sont recopiées pour restaurer la résilience. Pour obtenir la meilleure résilience possible, les copies doivent être conservées dans des domaines d’erreur distincts.
 
-- **Le [Service d’intégrité](health-service-overview.md) utilise des domaines pour fournir des alertes plus utiles d’erreur.**  
+- **Le [service de contrôle d’intégrité](health-service-overview.md) utilise des domaines d’erreur pour fournir des alertes plus utiles.**  
     Chaque domaine d’erreur peut être associé à des métadonnées d’emplacement, automatiquement incluses dans les alertes ultérieures. Ces descripteurs peuvent aider le personnel d’exploitation et de maintenance et réduire les erreurs en levant les ambiguïtés liées au matériel.  
 
-- **Le clustering étendu utilise des domaines d’erreur pour l’affinité de stockage.** Le clustering étendu permet aux serveurs éloignés de rejoindre un cluster commun. Pour des performances optimales, les applications ou machines virtuelles doivent être exécutées sur des serveurs situés à proximité de ceux qui fournissent leur stockage. Reconnaissance des domaines d’erreur permet cette affinité de stockage.   
+- **Le clustering étendu utilise des domaines d’erreur pour l’affinité de stockage.** Le clustering étendu permet aux serveurs éloignés de rejoindre un cluster commun. Pour des performances optimales, les applications ou machines virtuelles doivent être exécutées sur des serveurs situés à proximité de ceux qui fournissent leur stockage. La sensibilisation au domaine de l’erreur active cette affinité de stockage.   
 
 ## <a name="levels-of-fault-domains"></a>Niveaux de domaines d’erreur  
 Il existe quatre niveaux canoniques de domaines d’erreur : site, rack, châssis et nœud. Les nœuds sont découverts automatiquement. Chaque niveau supplémentaire est facultatif. Par exemple, si votre déploiement n’utilise pas de serveurs lames, le niveau du châssis n’a peut-être pas de sens pour vous.  
@@ -59,22 +59,22 @@ Il existe quatre niveaux canoniques de domaines d’erreur : site, rack, châss
 ![Diagramme des différents niveaux de domaines d’erreur](media/Fault-Domains-in-Windows-Server-2016/levels-of-fault-domains.png)
 
 ## <a name="usage"></a>Utilisation  
-Vous pouvez utiliser PowerShell ou le balisage XML pour spécifier les domaines d’erreur. Les deux approches sont équivalentes et fournissent des fonctionnalités complètes.
+Vous pouvez utiliser PowerShell ou le balisage XML pour spécifier des domaines d’erreur. Les deux approches sont équivalentes et fournissent des fonctionnalités complètes.
 
 >[!IMPORTANT]
 > Spécifiez les domaines d’erreur avant d’activer les espaces de stockage direct, si possible. Ainsi, la configuration automatique est activée pour préparer le pool, les niveaux et les paramètres tels que la résilience et le nombre de colonnes, pour une tolérance de panne au niveau du châssis ou rack. Une fois le pool et les volumes créés, les données ne se déplacement pas rétroactivement en réponse aux modifications apportées à la topologie des domaines d’erreur. Pour déplacer des nœuds entre des châssis ou racks après avoir activé des espaces de stockage direct, vous devez tout d’abord supprimer le nœud et ses lecteurs du pool à l’aide de `Remove-ClusterNode -CleanUpDisks`.
 
 ### <a name="defining-fault-domains-with-powershell"></a>Définition des domaines d’erreur avec PowerShell
-Windows Server 2016 introduit des applets de commande suivantes pour travailler avec des domaines d’erreur :
+Windows Server 2016 introduit les applets de commande suivantes pour travailler avec les domaines d’erreur :
 * `Get-ClusterFaultDomain`
 * `Set-ClusterFaultDomain`
 * `New-ClusterFaultDomain` 
 * `Remove-ClusterFaultDomain`
 
 Cette courte vidéo montre l’utilisation de ces applets de commande.
-[![Cliquez sur cette image pour regarder une courte vidéo sur l’utilisation des applets de commande de domaine d’erreur de Cluster](media/Fault-Domains-in-Windows-Server-2016/Part-2-Using-PowerShell.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-2-Using-PowerShell)
+[![Cliquez sur cette image pour regarder une brève vidéo sur l’utilisation des applets de commande du domaine d’erreur du cluster](media/Fault-Domains-in-Windows-Server-2016/Part-2-Using-PowerShell.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-2-Using-PowerShell)
 
-Utilisez `Get-ClusterFaultDomain` pour afficher la topologie des domaines d’erreur actuel. Celle-ci répertorie tous les nœuds du cluster, ainsi que tous les châssis, racks ou sites que vous avez créés. Vous pouvez les filtrer à l’aide de paramètres tels que **-Type** ou **-Name**, mais ceux-ci ne sont pas obligatoires.
+Utilisez `Get-ClusterFaultDomain` pour voir la topologie de domaine d’erreur actuelle. Celle-ci répertorie tous les nœuds du cluster, ainsi que tous les châssis, racks ou sites que vous avez créés. Vous pouvez les filtrer à l’aide de paramètres tels que **-Type** ou **-Name**, mais ceux-ci ne sont pas obligatoires.
 
 ```PowerShell
 Get-ClusterFaultDomain
@@ -82,7 +82,7 @@ Get-ClusterFaultDomain -Type Rack
 Get-ClusterFaultDomain -Name "server01.contoso.com"
 ```
 
-Utilisez `New-ClusterFaultDomain` pour créer des châssis, racks ou sites. Le `-Type` et `-Name` sont des paramètres obligatoires. Les valeurs possibles pour `-Type` sont `Chassis`, `Rack`, et `Site`. Le `-Name` peut être n’importe quelle chaîne. (Pour `Node` domaines d’erreur de type, le nom doivent être le nom réel du nœud, en tant que jeu automatiquement).
+Utilisez `New-ClusterFaultDomain` pour créer de nouveaux châssis, racks ou sites. Les paramètres `-Type` et `-Name` sont requis. Les valeurs possibles pour `-Type` sont `Chassis`, `Rack` et `Site`. La `-Name` peut être n’importe quelle chaîne. (Pour les domaines d’erreur de type `Node`, le nom doit être le nom du nœud réel, tel que défini automatiquement).
 
 ```PowerShell
 New-ClusterFaultDomain -Type Chassis -Name "Chassis 007"
@@ -91,9 +91,9 @@ New-ClusterFaultDomain -Type Site -Name "Shanghai"
 ```
 
 > [!IMPORTANT]  
-> Windows Server ne peut pas et ne vérifie pas que les domaines d’erreur que vous créez correspondent à quoi que ce soit dans le monde réel, physique. (Cela peut paraître évident, mais il est important de comprendre). Si, dans la configuration physique, vos nœuds sont tous dans un seul rack, alors la création de deux domaines d’erreur `-Type Rack` dans le logiciel ne fournit pas comme par magie une tolérance de panne au niveau du rack. Il vous incombe de veiller à ce que la topologie que vous créez à l’aide de ces applets de commande corresponde à la disposition réelle de votre matériel.
+> Windows Server ne peut pas et ne vérifie pas que les domaines d’erreur que vous créez correspondent à tout ce qui se trouve dans le monde réel. (Cela peut paraître évident, mais il est important de comprendre.) Si, dans la configuration physique, vos nœuds sont tous dans un seul rack, alors la création de deux domaines d’erreur `-Type Rack` dans le logiciel ne fournit pas comme par magie une tolérance de panne au niveau du rack. Il vous incombe de veiller à ce que la topologie que vous créez à l’aide de ces applets de commande corresponde à la disposition réelle de votre matériel.
 
-Utilisez `Set-ClusterFaultDomain` pour déplacer un domaine d’erreur dans un autre. Les termes « parent » et « enfant » sont couramment utilisés pour décrire cette relation d’imbrication. Le `-Name` et `-Parent` sont des paramètres obligatoires. Dans `-Name`, indiquez le nom du domaine d’erreur qui se déplace ; dans `-Parent`, indiquez le nom de la destination. Pour déplacer plusieurs domaines d’erreur à la fois, dressez la liste de leurs noms.
+Utilisez `Set-ClusterFaultDomain` pour déplacer un domaine d’erreur dans un autre. Les termes « parent » et « enfant » sont couramment utilisés pour décrire cette relation d’imbrication. Les paramètres `-Name` et `-Parent` sont requis. Dans `-Name`, indiquez le nom du domaine d’erreur qui est en cours de déplacement. dans `-Parent`, indiquez le nom de la destination. Pour déplacer plusieurs domaines d’erreur à la fois, dressez la liste de leurs noms.
 
 ```PowerShell
 Set-ClusterFaultDomain -Name "server01.contoso.com" -Parent "Rack A"
@@ -103,9 +103,9 @@ Set-ClusterFaultDomain -Name "Rack A", "Rack B", "Rack C", "Rack D" -Parent "Sha
 > [!IMPORTANT]  
 > Quand des domaines d’erreur se déplacent, leurs enfants se déplacent avec eux. Dans l’exemple ci-dessus, si le rack A est le parent de server01.contoso.com, ce dernier n’a pas besoin de se déplacer séparément vers le site de Shanghai : il y est déjà puisque son parent y est, comme dans la configuration physique.
 
-Vous pouvez voir les relations parent-enfant dans la sortie de `Get-ClusterFaultDomain`, dans le `ParentName` et `ChildrenNames` colonnes.
+Vous pouvez voir les relations parent-enfant dans la sortie de `Get-ClusterFaultDomain`, dans les colonnes `ParentName` et `ChildrenNames`.
 
-Vous pouvez également utiliser `Set-ClusterFaultDomain` pour modifier certaines autres propriétés de domaines d’erreur. Par exemple, vous pouvez fournir facultatif `-Location` ou `-Description` métadonnées pour n’importe quel domaine d’erreur. Si ces informations sont fournies, elles sont incluses dans les alertes matérielles provenant du service de contrôle d’intégrité. Vous pouvez également renommer les domaines d’erreur à l’aide de le `-NewName` paramètre. Ne renommez pas `Node` les domaines d’erreur de type.
+Vous pouvez également utiliser `Set-ClusterFaultDomain` pour modifier certaines autres propriétés des domaines d’erreur. Par exemple, vous pouvez fournir des métadonnées `-Location` ou `-Description` facultatives pour n’importe quel domaine d’erreur. Si ces informations sont fournies, elles sont incluses dans les alertes matérielles provenant du service de contrôle d’intégrité. Vous pouvez également renommer les domaines d’erreur à l’aide du paramètre `-NewName`. Ne renommez pas les domaines d’erreur de type `Node`.
 
 ```PowerShell
 Set-ClusterFaultDomain -Name "Rack A" -Location "Building 34, Room 4010"
@@ -113,7 +113,7 @@ Set-ClusterFaultDomain -Type Node -Description "Contoso XYZ Server"
 Set-ClusterFaultDomain -Name "Shanghai" -NewName "China Region"
 ```
 
-Utilisez `Remove-ClusterFaultDomain` pour supprimer les châssis, racks ou sites que vous avez créés. Le paramètre `-Name` est obligatoire. Vous ne peut pas supprimer un domaine d’erreur qui contient des enfants : tout d’abord, supprimez les enfants ou déplacez-les à l’extérieur à l’aide de `Set-ClusterFaultDomain`. Pour déplacer un domaine d’erreur en dehors de tous les autres domaines d’erreur, définissez son `-Parent` à la chaîne vide ( » »). Vous ne pouvez pas supprimer `Node` tapez des domaines d’erreur. Pour supprimer plusieurs domaines d’erreur à la fois, dressez la liste de leurs noms.
+Utilisez `Remove-ClusterFaultDomain` pour supprimer le châssis, les racks ou les sites que vous avez créés. Le paramètre `-Name` est obligatoire. Vous ne pouvez pas supprimer un domaine d’erreur qui contient des enfants – tout d’abord, supprimez les enfants ou déplacez-les à l’extérieur à l’aide de `Set-ClusterFaultDomain`. Pour déplacer un domaine d’erreur en dehors de tous les autres domaines d’erreur, définissez son `-Parent` sur la chaîne vide (""). Vous ne pouvez pas supprimer les domaines d’erreur de type `Node`. Pour supprimer plusieurs domaines d’erreur à la fois, dressez la liste de leurs noms.
 
 ```PowerShell
 Set-ClusterFaultDomain -Name "server01.contoso.com" -Parent ""
@@ -125,9 +125,9 @@ Vous pouvez spécifier des domaines d’erreur en utilisant une syntaxe inspiré
 
 Cette courte vidéo montre l’utilisation du balisage XML pour spécifier des domaines d’erreur.
 
-[![Cliquez sur cette image pour regarder une courte vidéo sur l’utilisation de XML pour spécifier les domaines d’erreur](media/Fault-Domains-in-Windows-Server-2016/Part-3-Using-XML-Markup.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-3-Using-XML)
+[![Cliquez sur cette image pour regarder une brève vidéo sur l’utilisation de XML pour spécifier des domaines d’erreur](media/Fault-Domains-in-Windows-Server-2016/Part-3-Using-XML-Markup.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-3-Using-XML)
 
-Dans PowerShell, exécutez l’applet de commande suivante : `Get-ClusterFaultDomainXML`. Celle-ci retourne la spécification de domaine d’erreur actuelle du cluster, au format XML. Cela reflète chaque découverts `<Node>`, encapsulé dans ouvrantes et fermantes `<Topology>` balises.  
+Dans PowerShell, exécutez l’applet de commande suivante : `Get-ClusterFaultDomainXML`. Celle-ci retourne la spécification de domaine d’erreur actuelle du cluster, au format XML. Cela reflète chaque @no__t détecté-0, encapsulé dans des balises d’ouverture et de fermeture `<Topology>`.  
 
 Exécutez la commande suivante pour enregistrer cette sortie dans un fichier.  
 
@@ -135,13 +135,13 @@ Exécutez la commande suivante pour enregistrer cette sortie dans un fichier.
 Get-ClusterFaultDomainXML | Out-File <Path>  
 ```
 
-Ouvrez le fichier, puis ajoutez `<Site>`, `<Rack>`, et `<Chassis>` balises pour spécifier la façon dont ces nœuds sont répartis entre les sites, racks et châssis. Chaque balise doit être identifiée par un **nom** unique. Pour les nœuds, vous devez conserver le nom du nœud tel qu’il est renseigné par défaut.  
+Ouvrez le fichier et ajoutez les balises `<Site>`, `<Rack>` et `<Chassis>` pour spécifier la façon dont ces nœuds sont répartis entre les sites, les racks et les châssis. Chaque balise doit être identifiée par un **nom** unique. Pour les nœuds, vous devez conserver le nom du nœud tel qu’il est renseigné par défaut.  
 
 > [!IMPORTANT]  
 > Bien que toutes les balises supplémentaires soient facultatives, elles doivent respecter la hiérarchie Site &gt; Rack &gt; Châssis &gt; transitive et être correctement fermées.  
-En plus du nom, de forme libre `Location="..."` et `Description="..."` descripteurs peuvent être ajoutés à n’importe quelle balise.  
+Outre le nom, les descripteurs de forme libre `Location="..."` et `Description="..."` peuvent être ajoutés à n’importe quelle balise.  
 
-#### <a name="example-two-sites-one-rack-each"></a>Exemple : Deux sites, un seul rack chacun  
+#### <a name="example-two-sites-one-rack-each"></a>Exemple : Deux sites, un rack chacun  
 
 ```XML
 <Topology>  
@@ -185,15 +185,15 @@ $xml = Get-Content <Path> | Out-String
 Set-ClusterFaultDomainXML -XML $xml
 ```
 
-Ce guide présente simplement deux exemples, mais la `<Site>`, `<Rack>`, `<Chassis>`, et `<Node>` balises peuvent être mélangés et mis en correspondance de nombreuses autres manières afin de refléter la topologie physique de votre déploiement, quelle qu’elle soit. Nous espérons que ces exemples illustrent la flexibilité de ces balises et la valeur des descripteurs d’emplacement libre pour les distinguer.  
+Ce guide présente simplement deux exemples, mais les balises `<Site>`, `<Rack>`, `<Chassis>` et `<Node>` peuvent être mélangées et mises en correspondance de nombreuses façons supplémentaires pour refléter la topologie physique de votre déploiement, quelle que soit la valeur de. Nous espérons que ces exemples illustrent la flexibilité de ces balises et la valeur des descripteurs d’emplacement libre pour les distinguer.  
 
-### <a name="optional-location-and-description-metadata"></a>Facultatif : Emplacement et la description des métadonnées
+### <a name="optional-location-and-description-metadata"></a>Facultatif : Emplacement et métadonnées de description
 
-Vous pouvez fournir facultatif **emplacement** ou **Description** métadonnées pour n’importe quel domaine d’erreur. Si ces informations sont fournies, elles sont incluses dans les alertes matérielles provenant du service de contrôle d’intégrité. Cette courte vidéo montre la valeur de l’ajout de ces descripteurs.
+Vous pouvez fournir des métadonnées d' **emplacement** ou de **Description** facultatives pour tout domaine d’erreur. Si ces informations sont fournies, elles sont incluses dans les alertes matérielles provenant du service de contrôle d’intégrité. Cette brève vidéo montre la valeur de l’ajout de tels descripteurs.
 
-[![Cliquez pour afficher une courte vidéo de démonstration de la valeur de l’ajout de descripteurs d’emplacement aux domaines d’erreur](media/Fault-Domains-in-Windows-Server-2016/part-4-location-description.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-4-Location-Description)
+[![Cliquez pour voir une brève vidéo montrant la valeur de l’ajout de descripteurs d’emplacement aux domaines d’erreur](media/Fault-Domains-in-Windows-Server-2016/part-4-location-description.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-4-Location-Description)
 
 ## <a name="see-also"></a>Voir aussi  
 - [Prise en main de Windows Server 2019](https://docs.microsoft.com/windows-server/get-started-19/get-started-19)  
-- [Prise en main Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/server-basics)  
--   [Vue d’ensemble des espaces de stockage Direct](../storage/storage-spaces/storage-spaces-direct-overview.md) 
+- [Prise en main de Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/server-basics)  
+-   [Présentation de espaces de stockage direct](../storage/storage-spaces/storage-spaces-direct-overview.md) 

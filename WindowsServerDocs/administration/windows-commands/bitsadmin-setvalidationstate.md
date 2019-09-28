@@ -1,8 +1,8 @@
 ---
 title: Bitsadmin setvalidationstate
-description: Rubrique de commandes de Windows pour **bitsadmin setvalidationstate** -définit l’état de validation du contenu du fichier donné au sein du travail.
+description: La rubrique commandes Windows pour **Bitsadmin setvalidationstate** -définit l’état de validation du contenu du fichier donné au sein du travail.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a832e8f3d21681f67a4486df33c387e5a8456718
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 37d7fa3a8a91abf1e7b6ac5a51b6cebd78984a91
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434871"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71380400"
 ---
 # <a name="bitsadmin-setvalidationstate"></a>Bitsadmin setvalidationstate
 
@@ -36,11 +36,11 @@ bitsadmin /SetValidationState <Job> <file index> <true|false>
 
 | Paramètre  |          Description           |
 |------------|--------------------------------|
-|    Tâche     | Nom d’affichage ou le GUID du travail |
-| Fichier d’index |         Démarre à 0          |
+|    Tâche     | Nom complet ou GUID du travail |
+| Index de fichiers |         Commence à 0          |
 |    True    |             False              |
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 L’exemple suivant définit l’état de validation du contenu du fichier 2 sur TRUE pour le travail nommé *myJob*.
 ```

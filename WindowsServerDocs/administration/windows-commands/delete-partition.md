@@ -1,8 +1,8 @@
 ---
-title: Supprimer la partition
-description: 'Rubrique de commandes de Windows pour ***- '
+title: supprimer la partition
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3b47338b74cf71a4754b7320d6b3842f342d324d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 46a214f26e7c21f6ae08eb16d95fd898bd949b0f
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436140"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378665"
 ---
-# <a name="delete-partition"></a>Supprimer la partition
+# <a name="delete-partition"></a>supprimer la partition
 
 
 
@@ -36,17 +36,17 @@ delete partition [noerr] [override]
 
 |Paramètre|Description|
 |---------|-----------|
-|override|Permet de supprimer n’importe quelle partition, quel que soit le type de DiskPart. En règle générale, DiskPart permet uniquement de supprimer des partitions de données connues.|
-|NOERR|Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.|
+|remplacer|Permet à DiskPart de supprimer n’importe quelle partition quel que soit le type. En règle générale, DiskPart vous permet uniquement de supprimer des partitions de données connues.|
+|noerr|À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.|
 
 ## <a name="remarks"></a>Notes
 
 > [!CAUTION]
-> Suppression d’une partition sur un disque dynamique peut supprimer tous les volumes dynamiques sur le disque, par conséquent la destruction de toutes les données et en laissant le disque dans un état endommagé. Pour supprimer un volume dynamique, utilisez toujours le **supprimer volume** commande à la place. Les partitions peuvent être supprimées à partir de disques dynamiques, mais ils ne doivent pas être créées. Par exemple, il est possible de supprimer une partition de Table de Partition GUID (GPT) non reconnue sur un disque GPT dynamique. Suppression d’une partition de ce type n’entraîne pas de libérer de l’espace soit disponible. Cette commande est conçue pour vous permettre à l’espace de reclame sur un disque dynamique en mode hors connexion corrompu dans une situation d’urgence où le **propre** commandes dans DiskPart ne peut pas être utilisé.
-> -   Vous ne pouvez pas supprimer la partition système, partition de démarrage ou n’importe quelle partition qui contient les actives la pagination une panne ou fichier de vidage des informations.
-> -   Une partition doit être sélectionnée pour cette opération réussisse. Utilisez le **sélectionnez partition** commande pour sélectionner une partition et déplacer le focus vers elle.
+> La suppression d’une partition sur un disque dynamique peut supprimer tous les volumes dynamiques sur le disque, détruisant ainsi les données et laissant le disque dans un état endommagé. Pour supprimer un volume dynamique, utilisez toujours la commande **Delete Volume** à la place. Les partitions peuvent être supprimées des disques dynamiques, mais elles ne doivent pas être créées. Par exemple, il est possible de supprimer une partition GPT (GUID partition table) non reconnue sur un disque GPT dynamique. La suppression d’une telle partition n’entraîne pas la disponibilité de l’espace libre qui en résulte. Cette commande a pour but de vous permettre de récupérer de l’espace sur un disque dynamique hors connexion endommagé dans une situation d’urgence où la commande **Clean** dans DiskPart ne peut pas être utilisée.
+> -   Vous ne pouvez pas supprimer la partition système, la partition de démarrage ou une partition qui contient les informations de fichier d’échange actif ou de vidage sur incident.
+> -   Une partition doit être sélectionnée pour que cette opération aboutisse. Utilisez la commande **Sélectionner une partition** pour sélectionner une partition et y déplacer le focus.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
 Pour supprimer la partition qui a le focus, tapez :
 ```

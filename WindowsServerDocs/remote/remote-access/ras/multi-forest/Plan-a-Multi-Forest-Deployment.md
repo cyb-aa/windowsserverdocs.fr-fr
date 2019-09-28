@@ -1,9 +1,9 @@
 ---
 title: Plan a Multi-Forest Deployment
-description: Cette rubrique fait partie du guide de déploiement des accès à distance dans un environnement à plusieurs forêts dans Windows Server 2016.
+description: Cette rubrique fait partie du guide déployer l’accès à distance dans un environnement à plusieurs forêts dans Windows Server 2016.
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-ras
@@ -12,16 +12,16 @@ ms.topic: article
 ms.assetid: 8acc260f-d6d1-4d32-9e3a-1fd0b2a71586
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a2f14fdb2fd3ab6f0a89c8d8c1a8853041dcba94
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 2a0f04a3ff7797d18f7647416dc99319860c7030
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67281009"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404514"
 ---
 # <a name="plan-a-multi-forest-deployment"></a>Plan a Multi-Forest Deployment
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
 Cette rubrique décrit les étapes de planification requises pour configurer l’accès à distance dans un déploiement à forêts multiples.  
   
@@ -42,15 +42,15 @@ En outre, l’administrateur de l’accès à distance doit être administrateur
 Vous devez configurer au moins un groupe de sécurité dans la nouvelle forêt pour les ordinateurs clients DirectAccess inclus dans cette nouvelle forêt. Cela est dû au fait qu’un groupe de sécurité ne peut pas contenir des comptes provenant de plusieurs forêts.  
   
 > [!NOTE]  
-> -   DirectAccess requiert au moins Windows 10&reg; ou Windows&reg; le groupe de sécurité client 8 pour chaque forêt. Toutefois, il est recommandé d’avoir un Windows 10 ou un groupe de sécurité de client Windows 8 pour chaque domaine qui contient des clients Windows 10 ou Windows 8.  
-> -   Lorsque le déploiement multisite est activé, DirectAccess requiert au moins Windows 7&reg; le groupe de sécurité client par forêt pour chaque point d’entrée DirectAccess dans les 7 Windows sont prises en charge les ordinateurs clients. Toutefois, il est recommandé d’avoir un groupe de sécurité Windows 7 client distinct pour chaque point d’entrée pour chaque domaine qui contient des clients Windows 7.  
+> -   DirectAccess requiert au moins un groupe de sécurité client Windows 10 @ no__t-0 ou Windows @ no__t-1 8 pour chaque forêt. Toutefois, il est recommandé de disposer d’un groupe de sécurité client Windows 10 ou Windows 8 pour chaque domaine contenant des clients Windows 10 ou Windows 8.  
+> -   Lorsque le multisite est activé, DirectAccess requiert au moins un groupe de sécurité client Windows 7 @ no__t-0 par forêt pour chaque point d’entrée DirectAccess dans lequel les ordinateurs clients Windows 7 sont pris en charge. Toutefois, il est recommandé de disposer d’un groupe de sécurité client Windows 7 distinct pour chaque point d’entrée de chaque domaine contenant des clients Windows 7.  
 >   
 > Pour que DirectAccess soit appliqué aux ordinateurs clients situés dans d’autres domaines, il est nécessaire de créer des objets de stratégie de groupe dans ces domaines. L’ajout de groupes de sécurité déclenche l’écriture de nouveaux objets de stratégie de groupe clients pour les nouveaux domaines ; par conséquent, si vous ajoutez un nouveau groupe de sécurité à partir d’un nouveau domaine à la liste des groupes de sécurité clients DirectAccess, un objet de stratégie de groupe client est automatiquement créé sur le nouveau domaine et les ordinateurs clients du nouveau domaine obtiennent les paramètres DirectAccess via cet objet de stratégie de groupe client.  
 >   
 > Notez que si vous ajoutez un client depuis un nouveau domaine à un groupe de sécurité existant qui est déjà configuré en tant que groupe de sécurité client DirectAccess, l’objet de stratégie de groupe client n’est pas créé automatiquement par DirectAccess sur le nouveau domaine. Le client situé dans le nouveau domaine ne reçoit pas les paramètres DirectAccess et n’est pas en mesure de se connecter à l’aide de DirectAccess.  
   
 ## <a name="plan-certification-authorities"></a>Planifier les autorités de certification  
-Si le déploiement DirectAccess est configuré de sorte à utiliser une authentification par mot de passe à usage unique, chaque forêt contient les mêmes modèles de certificat de signature mais avec des valeurs OID différentes. Par conséquent, les forêts ne peuvent pas être configurées en tant qu’unité de configuration unique. Pour résoudre ce problème et configurer le secret à usage unique dans un environnement à forêts multiples, consultez la section « Configurer secret à usage unique dans un déploiement à forêts multiples » dans la rubrique [configurer un déploiement à forêts multiples](Configure-a-Multi-Forest-Deployment.md).  
+Si le déploiement DirectAccess est configuré de sorte à utiliser une authentification par mot de passe à usage unique, chaque forêt contient les mêmes modèles de certificat de signature mais avec des valeurs OID différentes. Par conséquent, les forêts ne peuvent pas être configurées en tant qu’unité de configuration unique. Pour résoudre ce problème et configurer un mot de passe à usage unique dans un environnement à plusieurs forêts, consultez la section « configurer un mot de passe à usage unique dans un déploiement à forêts multiples » dans la rubrique [configurer un déploiement à forêts multiples](Configure-a-Multi-Forest-Deployment.md).  
   
 Dans le cadre de l’utilisation d’une authentification par certificat d’ordinateur IPsec, tous les ordinateurs clients et serveurs doivent posséder un certificat d’ordinateur émis par la même autorité de certification racine ou intermédiaire, quelle que soit la forêt à laquelle ils appartiennent.  
   

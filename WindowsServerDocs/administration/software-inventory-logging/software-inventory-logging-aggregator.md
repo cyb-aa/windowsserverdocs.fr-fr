@@ -2,7 +2,7 @@
 title: Agrégateur de journalisation de l’inventaire logiciel
 description: Décrit comment installer et gérer l’agrégateur de journalisation de l’inventaire logiciel
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: manage-software-inventory-logging
 ms.reviewer: na
 ms.suite: na
@@ -13,16 +13,16 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0edecb86c7d5afa7d267c75ec858ded9af36e4c0
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 81dbfb89d2e72af57c070db8473fd3b0e521906c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866319"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71382938"
 ---
 # <a name="software-inventory-logging-aggregator"></a>Agrégateur de journalisation de l’inventaire logiciel
 
->S'applique à : Windows Server 2012 R2
+>S'applique à : Windows Server 2012 R2
 
 ## <a name="what-is-software-inventory-logging-aggregator"></a>Qu’est-ce que l’agrégateur de journalisation de l’inventaire logiciel ?
 Software Inventory Logging Aggregator (SILA) reçoit, compile et produit des rapports simples sur le nombre et le type de logiciels professionnels Microsoft installés sur les serveurs Windows d’un centre de données.
@@ -162,7 +162,7 @@ Vous devez vérifier les points suivants avant d’installer SIL Aggregator sur
 
 -   Vous êtes **connecté au serveur avec un compte disposant des privilèges d’administrateur système sur le serveur SQL Server**, si vous voulez appliquer l’authentification Windows
 
-    Ou
+    OU
 
     Si vous voulez utiliser l’authentification SQL, **vous disposez du mot de passe pour un compte disposant des privilèges d’administrateur SQL**.
 
@@ -243,7 +243,7 @@ Une fois que vous avez installé Software Inventory Logging Aggregator sur votre
 
     -   Exécutez `Add-SilVMHost`
 
-        Exemple : `add-silvmhost –vmhostname contoso1 –hostcredential get-credential`
+        Exemple : `add-silvmhost –vmhostname contoso1 –hostcredential get-credential`
 
         -   Dans cet exemple, **contoso1** est le nom de réseau (ou adresse IP) du serveur hôte physique que votre Aggregagor doit interroger pour consulter les mises à jour régulières concernant les machines virtuelles en cours d’exécution, afin d’assurer le suivi de ces données au fil du temps. Get-Credential invite l’utilisateur connecté à entrer le compte à utiliser pour commencer à interroger cet hôte. L’exécution de la même commande sur le même hôte vous permet de mettre à jour le compte utilisé à tout moment. Soyez attentif aux modifications de mot de passe de compte et aux délais d’expiration dans le temps. Si les informations d’identification sont modifiées ou expirent, l’interrogation sur l’hôte échoue.
 
@@ -547,7 +547,7 @@ Si vous devez désinstaller, puis réinstaller SIL Aggregator, vous pouvez le fa
 
 Après avoir effectué cette opération, vous devez mettre à jour les informations d’identification à l’aide de l’applet de commande `Add-SilVMHost` sur tous les hôtes qui ont été précédemment interrogés par SIL Aggregator (en supposant que vous vouliez continuer à collecter des données sur ces hôtes). En outre, pour éviter les doublons d’entrées pour le même hôte dans les rapports, vous devez rajouter des hôtes pour l’interrogation à l’aide de la même adresse réseau que celle ajoutée à l’origine. Voici les trois types de vmhostname pris en charge qui peuvent être utilisés pour ajouter un hôte à l’aide de l’applet de commande `Add-SilVMHost` :
 
--   Adresse IP
+-   Adresse IP
 
 -   Nom de domaine complet
 

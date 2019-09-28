@@ -1,8 +1,8 @@
 ---
 title: nslookup set timeout
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f6c8863d0a9330fd3a8499b0e6dbc802bd95022
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 32fcfcaeccb6599e9aaca21f9c085bb00857479c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436510"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71372759"
 ---
 # <a name="nslookup-set-timeout"></a>nslookup set timeout
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-modifie le nombre initial de secondes à attendre une réponse à une demande de recherche.
+modifie le nombre initial de secondes d’attente d’une réponse à une demande de recherche.
 ## <a name="syntax"></a>Syntaxe
 ```
 set timeout=<Number>
@@ -33,16 +33,16 @@ set timeout=<Number>
 
 |    Paramètre    |                                           Description                                            |
 |-----------------|--------------------------------------------------------------------------------------------------|
-|    <Number>     | Spécifie le nombre de secondes à attendre une réponse. Le nombre de secondes d’attente par défaut est 5. |
-| {aide &#124; ?} |                      Affiche un résumé de **nslookup** sous-commandes.                       |
+|    <Number>     | Spécifie le nombre de secondes d’attente d’une réponse. Le nombre de secondes d’attente par défaut est de 5. |
+| {Help &#124; ?} |                      Affiche un bref résumé des sous-commandes **nslookup** .                       |
 
 ## <a name="remarks"></a>Notes
-- Une réponse à une demande n’est pas reçue dans la période spécifiée, le délai d’attente est doublée et la demande est envoyée à nouveau. Vous pouvez utiliser la **nouvelle tentative ensemble** commande pour contrôler le nombre de tentatives.
-  ## <a name="BKMK_examples"></a>Exemples
+- Quand une réponse à une demande n’est pas reçue au cours de la période spécifiée, le délai d’attente est doublé et la demande est renvoyée. Vous pouvez utiliser la commande **Set Retry** pour contrôler le nombre de nouvelles tentatives.
+  ## <a name="BKMK_examples"></a>Illustre
   L’exemple suivant définit le délai d’attente pour l’obtention d’une réponse à 2 secondes :
   ```
   set timeout=2
   ```
   ## <a name="additional-references"></a>Références supplémentaires
   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)
-  [nslookup définie de nouvelles tentatives](nslookup-set-retry.md)
+  [nslookup Set Retry](nslookup-set-retry.md)

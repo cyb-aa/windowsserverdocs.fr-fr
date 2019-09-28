@@ -1,9 +1,9 @@
 ---
 title: ÉTAPE 2 installer et configurer ROUTEUR1
-description: 'Cette rubrique fait partie du Guide de laboratoire de Test : illustrer un déploiement Multisite DirectAccess pour Windows Server 2016'
+description: 'Cette rubrique fait partie du Guide de laboratoire de test : illustrer un déploiement multisite DirectAccess pour Windows Server 2016'
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,26 +12,26 @@ ms.topic: article
 ms.assetid: dc20b1a0-540d-4531-a176-50b87c071600
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7d215ca234d63e7e393fbbce4d65e0803f023487
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 0c6bff2acc15b7ff90731e0113ae0d5a429c635c
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283215"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404800"
 ---
 # <a name="step-2-install-and-configure-router1"></a>ÉTAPE 2 installer et configurer ROUTEUR1
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Dans ce guide de laboratoire de test multisite, l’ordinateur routeur fournit un pont IPv4 et IPv6 entre les sous-réseaux du réseau d’entreprise et 2-réseau d’entreprise et agit comme un routeur pour IP-HTTPS et le trafic Teredo.  
+Dans ce guide de laboratoire de test multisite, l’ordinateur routeur fournit un pont IPv4 et IPv6 entre les sous-réseaux corpnet et 2-corpnet, et joue le rôle de routeur pour le trafic IP-HTTPs et Teredo.  
   
 - Installer le système d’exploitation sur ROUTEUR1 
   
-- Configurez les propriétés TCP/IP et renommer l’ordinateur  
+- Configurer les propriétés TCP/IP et renommer l’ordinateur  
   
 - Désactiver le pare-feu
   
-- Configurer le routage et de transfert
+- Configurer le routage et le transfert
   
 ## <a name="install-the-operating-system-on-router1"></a>Installer le système d’exploitation sur ROUTEUR1  
 Tout d’abord, installez Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012.  
@@ -42,52 +42,52 @@ Tout d’abord, installez Windows Server 2016, Windows Server 2012 R2 ou Windows
   
 2.  Suivez les instructions pour effectuer l’installation, en spécifiant un mot de passe fort pour le compte Administrateur local. Ouvrez une session à l’aide du compte Administrateur local.  
   
-3.  Connecter ROUTEUR1 à un réseau qui a accès à Internet et exécutez la mise à jour de Windows pour installer les dernières mises à jour pour Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012 et vous déconnecter puis à partir d’Internet.  
+3.  Connectez ROUTEUR1 à un réseau disposant d’un accès Internet et exécutez Windows Update pour installer les dernières mises à jour pour Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012, puis vous déconnecter d’Internet.  
   
-4.  Se connecter à ROUTEUR1 vers les sous-réseaux du réseau d’entreprise et 2-réseau d’entreprise.  
+4.  Connectez ROUTEUR1 aux sous-réseaux corpnet et 2-Corpnet.  
   
-## <a name="configure-tcpip-properties-and-rename-the-computer"></a>Configurez les propriétés TCP/IP et renommer l’ordinateur  
-Configurer les paramètres TCP/IP sur le routeur et renommez l’ordinateur ROUTEUR1.  
+## <a name="configure-tcpip-properties-and-rename-the-computer"></a>Configurer les propriétés TCP/IP et renommer l’ordinateur  
+Configurez les paramètres TCP/IP sur le routeur et renommez l’ordinateur en ROUTEUR1.  
   
-### <a name="to-configure-tcpip-properties-and-rename-the-computer"></a>Pour configurer les propriétés de TCP/IP et de renommer l’ordinateur  
+### <a name="to-configure-tcpip-properties-and-rename-the-computer"></a>Pour configurer les propriétés TCP/IP et renommer l’ordinateur  
   
-1.  Dans la console Gestionnaire de serveur, cliquez sur **serveur Local**, puis, dans le **propriétés** zone, en regard **connexion Ethernet câblée**, cliquez sur le lien.  
+1.  Dans la console Gestionnaire de serveur, cliquez sur **serveur local**, puis dans la zone **Propriétés** , en regard de **connexion Ethernet câblée**, cliquez sur le lien.  
   
-2.  Dans le **connexions réseau** fenêtre, cliquez sur la carte réseau qui est connectée au réseau d’entreprise, cliquez sur **renommer**, type **Corpnet**, puis appuyez sur ENTRÉE.  
+2.  Dans la fenêtre **connexions réseau** , cliquez avec le bouton droit sur la carte réseau connectée à corpnet, cliquez sur **Renommer**, tapez **CORPNET**, puis appuyez sur entrée.  
   
-3.  Avec le bouton droit **Corpnet**, puis cliquez sur **propriétés**.  
+3.  Cliquez avec le bouton droit sur **corpnet**, puis cliquez sur **Propriétés**.  
   
 4.  Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
-5.  Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, type **10.0.0.254**. Dans **masque de sous-réseau**, type **255.255.255.0**, puis cliquez sur **OK**.  
+5.  Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, tapez **10.0.0.254**. Dans **masque de sous-réseau**, tapez **255.255.255.0**, puis cliquez sur **OK**.  
   
 6.  Cliquez sur **Internet Protocol Version 6 (TCP/IPv6)** , puis cliquez sur **Propriétés**.  
   
-7.  Cliquez sur **utiliser l’adresse IPv6 suivante**. Dans **adresse IPv6**, type **2001:db8:1::fe**. Dans **longueur de préfixe de sous-réseau**, type **64**, puis cliquez sur **OK**.  
+7.  Cliquez sur **utiliser l’adresse IPv6 suivante**. Dans **adresse IPv6**, tapez **2001 : DB8:1 :: Fe**. Dans **longueur du préfixe du sous-réseau**, tapez **64**, puis cliquez sur **OK**.  
   
-8.  Sur le **Corpnet propriétés** boîte dialogue, cliquez sur **fermer**.  
+8.  Dans la boîte de dialogue **Propriétés de corpnet** , cliquez sur **Fermer**.  
   
-9. Dans le **connexions réseau** fenêtre, cliquez sur la carte réseau qui est connectée au réseau d’entreprise de 2, cliquez sur **renommer**, type **2-réseau d’entreprise**, puis appuyez sur ENTRÉE.  
+9. Dans la fenêtre **connexions réseau** , cliquez avec le bouton droit sur la carte réseau qui est connectée à 2-corpnet, cliquez sur **Renommer**, tapez **2-CORPNET**, puis appuyez sur entrée.  
   
-10. Avec le bouton droit **2-réseau d’entreprise**, puis cliquez sur **propriétés**.  
+10. Cliquez avec le bouton droit sur **2-corpnet**, puis cliquez sur **Propriétés**.  
   
 11. Cliquez sur **Protocole Internet version 4 (TCP/IPv4)** , puis sur **Propriétés**.  
   
-12. Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, type **10.2.0.254**. Dans **masque de sous-réseau**, type **255.255.255.0**, puis cliquez sur **OK**.  
+12. Cliquez sur **Utiliser l’adresse IP suivante**. Dans **adresse IP**, tapez **10.2.0.254**. Dans **masque de sous-réseau**, tapez **255.255.255.0**, puis cliquez sur **OK**.  
   
 13. Cliquez sur **Internet Protocol Version 6 (TCP/IPv6)** , puis cliquez sur **Propriétés**.  
   
-14. Cliquez sur **utiliser l’adresse IPv6 suivante**. Dans **adresse IPv6**, type **2001:db8:2::fe**. Dans **longueur de préfixe de sous-réseau**, type **64**, puis cliquez sur **OK**.  
+14. Cliquez sur **utiliser l’adresse IPv6 suivante**. Dans **adresse IPv6**, tapez **2001 : DB8:2 :: Fe**. Dans **longueur du préfixe du sous-réseau**, tapez **64**, puis cliquez sur **OK**.  
   
-15. Sur le **2-réseau d’entreprise propriétés** boîte dialogue, cliquez sur **fermer**.  
+15. Dans la boîte de dialogue **Propriétés de 2-corpnet,** cliquez sur **Fermer**.  
   
 16. Fermez la fenêtre **Connexions réseau**.  
   
-17. Dans la console Gestionnaire de serveur, dans **serveur Local**, dans le **propriétés** zone, en regard **nom de l’ordinateur**, cliquez sur le lien.  
+17. Dans la console Gestionnaire de serveur, dans **serveur local**, dans la zone **Propriétés** , en regard de nom de l' **ordinateur**, cliquez sur le lien.  
   
 18. Dans la boîte de dialogue **Propriétés système**, sous l'onglet **Nom de l'ordinateur**, cliquez sur **Modifier**.  
   
-19. Sur le **modification du nom ou du domaine d’ordinateur** boîte de dialogue **nom de l’ordinateur**, type **ROUTEUR1**, puis cliquez sur **OK**.  
+19. Dans la boîte de dialogue **modification du nom ou du domaine** de l’ordinateur, dans nom de l' **ordinateur**, tapez **ROUTEUR1**, puis cliquez sur **OK**.  
   
 20. Lorsque vous êtes invité à redémarrer l’ordinateur, cliquez sur **OK**.  
   
@@ -98,30 +98,30 @@ Configurer les paramètres TCP/IP sur le routeur et renommez l’ordinateur ROUT
 23. Une fois que l’ordinateur a redémarré, connectez-vous avec le compte d’administrateur local.  
   
 ## <a name="turn-off-the-firewall"></a>Désactiver le pare-feu  
-Cet ordinateur est configuré uniquement pour fournir un routage entre les sous-réseaux du réseau d’entreprise et 2-réseau d’entreprise ; Par conséquent, le pare-feu doit être désactivé.  
+Cet ordinateur est configuré uniquement pour assurer le routage entre les sous-réseaux corpnet et 2-Corpnet. par conséquent, le pare-feu doit être désactivé.  
   
 ### <a name="to-turn-off-the-firewall"></a>Pour désactiver le pare-feu  
   
-1.  Sur le **Démarrer** , tapez**wf.msc**, puis appuyez sur ENTRÉE.  
+1.  Dans l’écran d' **Accueil** , tapez**WF. msc**, puis appuyez sur entrée.  
   
-2.  Dans le pare-feu Windows avec fonctions avancées de sécurité, dans le **Actions** volet, cliquez sur **propriétés**.  
+2.  Dans pare-feu Windows avec fonctions avancées de sécurité, dans le volet **actions** , cliquez sur **Propriétés**.  
   
-3.  Sur le **pare-feu Windows avec fonctions avancées de sécurité** boîte de dialogue le **profil de domaine** sous l’onglet **état du pare-feu**, cliquez sur **hors**.  
+3.  Dans la boîte de dialogue **pare-feu Windows avec fonctions avancées de sécurité** , sous l’onglet **profil de domaine** , dans **État du pare-feu**, cliquez sur **désactivé**.  
   
-4.  Sur le **pare-feu Windows avec fonctions avancées de sécurité** boîte de dialogue le **profil privé** sous l’onglet **état du pare-feu**, cliquez sur **hors**.  
+4.  Dans la boîte de dialogue **pare-feu Windows avec fonctions avancées de sécurité** , sous l’onglet **profil privé** , dans **État du pare-feu**, cliquez sur **désactivé**.  
   
-5.  Sur le **pare-feu Windows avec fonctions avancées de sécurité** boîte de dialogue le **profil Public** sous l’onglet **état du pare-feu**, cliquez sur **hors**, puis Cliquez sur **OK**.  
+5.  Dans la boîte de dialogue **pare-feu Windows avec fonctions avancées de sécurité** , sous l’onglet **profil public** , dans **État du pare-feu**, cliquez sur **désactivé**, puis sur **OK**.  
   
-6.  Fermez les pare-feu Windows avec fonctions avancées de sécurité.  
+6.  Fermez pare-feu Windows avec fonctions avancées de sécurité.  
   
-## <a name="configure-routing-and-forwarding"></a>Configurer le routage et de transfert  
-Pour fournir le routage et de transfert des services entre les sous-réseaux du réseau d’entreprise et 2-réseau d’entreprise, vous devez activer le transfert sur les interfaces réseau et configurer des itinéraires statiques entre les sous-réseaux.  
+## <a name="configure-routing-and-forwarding"></a>Configurer le routage et le transfert  
+Pour fournir des services de routage et de transfert entre les sous-réseaux corpnet et 2-corpnet, vous devez activer le transfert sur les interfaces réseau et configurer des itinéraires statiques entre les sous-réseaux.  
   
 ### <a name="to-configure-static-routes"></a>Pour configurer des itinéraires statiques  
   
-1.  Sur le **Démarrer** , tapez**cmd.exe**, puis appuyez sur ENTRÉE.  
+1.  Dans l’écran d' **Accueil** , tapez**cmd. exe**, puis appuyez sur entrée.  
   
-2.  Activer le transfert sur les interfaces IPv4 et IPv6 de deux cartes réseau à l’aide des commandes suivantes. Après avoir entré chaque commande, appuyez sur ENTRÉE.  
+2.  Activez le transfert sur les interfaces IPv4 et IPv6 des deux cartes réseau à l’aide des commandes suivantes. Après avoir entré chaque commande, appuyez sur entrée.  
   
     ```  
     netsh interface IPv4 set interface Corpnet forwarding=enabled  
@@ -130,14 +130,14 @@ Pour fournir le routage et de transfert des services entre les sous-réseaux du 
     netsh interface IPv6 set interface 2-Corpnet forwarding=enabled  
     ```  
   
-3.  Activer le routage IP-HTTPS entre les sous-réseaux du réseau d’entreprise et 2-réseau d’entreprise.  
+3.  Activez le routage IP-HTTPs entre les sous-réseaux corpnet et 2-Corpnet.  
   
     ```  
     netsh interface IPv6 add route 2001:db8:1:1000::/59 Corpnet 2001:db8:1::2  
     netsh interface IPv6 add route 2001:db8:2:2000::/59 2-Corpnet 2001:db8:2::20  
     ```  
   
-4.  Activer le routage de Teredo entre les sous-réseaux du réseau d’entreprise et 2-réseau d’entreprise.  
+4.  Activez le routage Teredo entre les sous-réseaux corpnet et 2-Corpnet.  
   
     ```  
     netsh interface IPv6 add route 2001:0:836b:2::/64 Corpnet 2001:db8:1::2  

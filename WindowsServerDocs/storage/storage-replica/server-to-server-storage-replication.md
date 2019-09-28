@@ -1,7 +1,7 @@
 ---
 title: Réplication de stockage de serveur à serveur
 description: Comment configurer et utiliser le réplica de stockage pour la réplication de serveur à serveur dans Windows Server, y compris le centre d’administration Windows et PowerShell.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 manager: siroy
 ms.author: nedpyle
 ms.technology: storage-replica
@@ -9,12 +9,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 61881b52-ee6a-4c8e-85d3-702ab8a2bd8c
-ms.openlocfilehash: fccdb8547ff27083ce943892842c2e2d05e5ace8
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: a21000e857d702846703deb4f55380e1a998f6d2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865289"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71402961"
 ---
 # <a name="server-to-server-storage-replication-with-storage-replica"></a>Réplication de stockage de serveur à serveur avec le réplica de stockage
 
@@ -50,7 +50,7 @@ Beaucoup de ces exigences peuvent être déterminées à l’aide de `Test-SRTop
 
 Pour utiliser ensemble le réplica de stockage et le centre d’administration Windows, vous avez besoin des éléments suivants :
 
-| System                        | Système d’exploitation                                            | Requis pour     |
+| System                        | Système d'exploitation                                            | Requis pour     |
 |-------------------------------|-------------------------------------------------------------|------------------|
 | Deux serveurs <br>(n’importe quelle combinaison de matériel local, de machines virtuelles et de machines virtuelles Cloud, y compris les machines virtuelles Azure)| Windows Server 2019, Windows Server 2016 ou Windows Server (canal semi-annuel) | Réplica de stockage  |
 | Un PC                     | Windows 10                                                  | Windows Admin Center |
@@ -69,7 +69,7 @@ Cette procédure pas à pas utilise l’environnement suivant comme exemple :
 
 **Figure 1 : Réplication de serveur à serveur**  
 
-## <a name="step-1-install-and-configure-windows-admin-center-on-your-pc"></a>Étape 1 : Installer et configurer le centre d’administration Windows sur votre PC
+## <a name="step-1-install-and-configure-windows-admin-center-on-your-pc"></a>Étape 1 : Installer et configurer le centre d’administration Windows sur votre PC
 
 Si vous utilisez le centre d’administration Windows pour gérer le réplica de stockage, suivez les étapes ci-dessous pour préparer votre ordinateur à la gestion du réplica de stockage.
 1. Téléchargez et installez le [Centre d’administration Windows](../../manage/windows-admin-center/overview.md).
@@ -84,7 +84,7 @@ Si vous utilisez le centre d’administration Windows pour gérer le réplica de
 
 5. Tapez **Y** pour activer les services WinRM et activer l’exception de pare-feu WinRM.
 
-## <a name="provision-os"></a>Étape 2 : Configurer le système d’exploitation, les fonctionnalités, les rôles, le stockage et le réseau
+## <a name="provision-os"></a>Étape 2 : Configurer le système d’exploitation, les fonctionnalités, les rôles, le stockage et le réseau
 
 1.  Installez Windows Server sur les deux nœuds de serveur avec le type d’installation Windows Server **(expérience utilisateur)** . 
  
@@ -188,9 +188,9 @@ Si vous utilisez le centre d’administration Windows pour gérer le réplica de
 
     ![Écran affichant le rapport de topologie](media/Server-to-Server-Storage-Replication/SRTestSRTopologyReport.png)
 
-    **Figure 2 : Rapport de topologie de réplication du stockage**
+    **Figure 2: Rapport de topologie de réplication du stockage**
 
-## <a name="step-3-set-up-server-to-server-replication"></a>Étape 3 : Configurer la réplication de serveur à serveur
+## <a name="step-3-set-up-server-to-server-replication"></a>Étape 3 : Configurer la réplication de serveur à serveur
 ### <a name="using-windows-admin-center"></a>Utilisation du centre d’administration Windows
 
 1. Ajoutez le serveur source.
@@ -287,7 +287,7 @@ Vous allez maintenant configurer la réplication de serveur à serveur à l’ai
         ```  
 
         > [!NOTE]
-        > Le réplica de stockage démonte les volumes de destination et leurs points de montage ou lettres de lecteur. C’est normal.  
+        > Le réplica de stockage démonte les volumes de destination et leurs points de montage ou lettres de lecteur. Cela est normal.  
 
     3.  Alternativement, le groupe de serveurs de destination pour le réplica indique le nombre d’octets restants à copier à tout moment, et peut être obtenu via PowerShell. Exemple :  
 
@@ -312,7 +312,7 @@ Vous allez maintenant configurer la réplication de serveur à serveur à l’ai
         Get-WinEvent -ProviderName Microsoft-Windows-StorageReplica | FL  
         ```  
 
-## <a name="step-4-manage-replication"></a>Étape 4 : Gérer la réplication
+## <a name="step-4-manage-replication"></a>Étape 4 : Gérer la réplication
 
 Maintenant, vous allez gérer et faire fonctionner votre infrastructure répliquée de serveur à serveur. Vous pouvez effectuer toutes les étapes ci-dessous sur les nœuds directement ou à partir d’un ordinateur de gestion à distance qui contient le Outils d’administration de serveur distant de Windows Server.  
 
@@ -433,12 +433,12 @@ Le processus est généralement le suivant :
 1. [Créez un ExpressRoute dans le portail Azure](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager).<br>Une fois le ExpressRoute approuvé, un groupe de ressources est ajouté à l’abonnement. Accédez à **groupes de ressources** pour afficher ce nouveau groupe. Notez le nom du réseau virtuel.
 ![Portail Azure de l’indication du groupe de ressources ajouté avec ExpressRoute](media/Server-to-Server-Storage-Replication/express-route-resource-group.png)
     
-    **Figure 4 : Ressources associées à un ExpressRoute-prenez note du nom du réseau virtuel**
+    **Figure 4 : Ressources associées à un ExpressRoute-prenez note du nom du réseau virtuel**
 1. [Créez un groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 1. [Ajoutez un groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal). Lors de sa création, sélectionnez l’ID d’abonnement associé au ExpressRoute que vous avez créé, puis sélectionnez le groupe de ressources que vous venez de créer.
 <br><br>Ajoutez les règles de sécurité entrantes et sortantes dont vous avez besoin au groupe de sécurité réseau. Par exemple, vous souhaiterez peut-être autoriser Bureau à distance accès à la machine virtuelle.
 1. [Créez une machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) avec les paramètres suivants (illustrée à la figure 5) :
-    - **Adresse IP publique** : Aucun
+    - **Adresse IP publique**: Aucune
     - **Réseau virtuel**: Sélectionnez le réseau virtuel que vous avez noté dans le groupe de ressources ajouté avec ExpressRoute.
     - **Groupe de sécurité réseau (pare-feu)** : Sélectionnez le groupe de sécurité réseau que vous avez créé précédemment.
     ![Créer une machine virtuelle présentant les paramètres](media/Server-to-Server-Storage-Replication/azure-vm-express-route.png)

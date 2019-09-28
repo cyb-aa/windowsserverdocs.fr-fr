@@ -1,8 +1,8 @@
 ---
 title: mqtgsvc
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c420c9d00ab71993fc35d0046fc905049e57b58f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c10a260470c6a97e521b04f5bef2844c1f3893a9
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817180"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71373480"
 ---
 # <a name="mqtgsvc"></a>mqtgsvc
 
 
 
-Surveille une file d’attente pour les messages entrants et effectue une action, sous la forme d’un fichier exécutable ou un composant COM, lorsque les règles d’un déclencheur sont évaluées comme true. Pour obtenir des exemples d’utilisation du service Déclencheurs Message Queuing, consultez [déclencheurs Message Queuing](https://go.microsoft.com/fwlink/?LinkId=248725)sur MSDN.
+Surveille les messages entrants dans une file d’attente et effectue une action, sous la forme d’un fichier exécutable ou d’un composant COM, lorsque les règles d’un déclencheur sont évaluées comme vraies. Pour obtenir des exemples d’utilisation du service de déclencheurs Message Queuing, consultez [Message Queuing déclencheurs](https://go.microsoft.com/fwlink/?LinkId=248725)sur MSDN.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -38,4 +38,4 @@ Aucune
 
 #### <a name="additional-references"></a>Références supplémentaires
 
--   [Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+-   [Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

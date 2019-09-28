@@ -1,8 +1,8 @@
 ---
-title: créer la partition étendue
-description: 'Rubrique de commandes de Windows pour ***- '
+title: création d’une partition étendue
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0a1cca93a064cfb6e5c18f4a472ea837b922d07b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 21620da46be0e1375f320172e7ccfe2edc338114
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434191"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378912"
 ---
-# <a name="create-partition-extended"></a>créer la partition étendue
+# <a name="create-partition-extended"></a>création d’une partition étendue
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Crée une partition étendue sur le disque qui a le focus. Vous pouvez utiliser cette commande uniquement sur Master Boot Record \(MBR\) disques.  
+crée une partition étendue sur le disque qui a le focus. Vous pouvez utiliser cette commande uniquement sur un enregistrement de démarrage principal \(MBR @ no__t-1 disques.  
   
   
   
@@ -38,25 +38,25 @@ create partition extended [size=<n>] [offset=<n>] [align=<n>] [noerr]
   
 |  Paramètre  |                                                                                                                             Description                                                                                                                              |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  size\=<n>  |                                                  Spécifie la taille de la partition en mégaoctets \(Mo\). Si aucune taille n’est donnée, la partition se poursuit jusqu'à ce que l’espace libre dans la partition étendue.                                                  |
-| offset\=<n> |                     Spécifie le décalage en kilo-octets \(Ko\), à laquelle la partition est créée. Si aucun décalage n’est fourni, la partition démarre au début de l’espace libre sur le disque qui est suffisamment grand pour contenir la nouvelle partition.                      |
-| align\=<n>  | Aligne toutes les étendues de partition à la limite d’alignement le plus proche. Généralement utilisé avec le matériel RAID numéro d’unité logique \(LUN\) tableaux pour améliorer les performances. <n> est le nombre de kilo-octets \(Ko\) à partir du début du disque à la limite d’alignement le plus proche. |
-|    NOERR    |                                 Pour les scripts uniquement. Lorsqu’une erreur est rencontrée, DiskPart continue à traiter les commandes comme si l’erreur ne s’est pas produite. Sans ce paramètre, une erreur provoque la fermeture avec un code d’erreur de DiskPart.                                 |
+|  taille @ no__t-0 @ no__t-1  |                                                  Spécifie la taille de la partition en mégaoctets \(MB @ no__t-1. Si aucune taille n’est indiquée, la partition se poursuit jusqu’à ce qu’il n’y ait plus d’espace libre dans la partition étendue.                                                  |
+| décalage @ no__t-0 @ no__t-1 |                     Spécifie l’offset en kilo-octets @no__t-taille 0 Ko @ no__t-1, à partir duquel la partition est créée. Si aucun décalage n’est spécifié, la partition démarre au début de l’espace libre sur le disque qui est suffisamment grand pour contenir la nouvelle partition.                      |
+| aligner @ no__t-0 @ no__t-1  | Aligne toutes les étendues de partition sur la limite d’alignement la plus proche. Généralement utilisé avec le numéro d’unité logique RAID matériel @no__t 0LUN @ no__t-1 pour améliorer les performances. <n> est le nombre de kilo-octets \( Ko @ no__t-2 à partir du début du disque jusqu’à la limite d’alignement la plus proche. |
+|    noerr    |                                 À des fins de script uniquement. Lorsqu’une erreur se produit, DiskPart continue à traiter les commandes comme si l’erreur ne s’était pas produite. Sans ce paramètre, une erreur provoque la fermeture de DiskPart avec un code d’erreur.                                 |
   
 ## <a name="remarks"></a>Notes  
   
--   Une fois que la partition a été créée, le focus passe automatiquement à la nouvelle partition.  
+-   Une fois la partition créée, le focus se déplace automatiquement vers la nouvelle partition.  
   
--   Qu’une seule partition étendue peut être créée par disque.  
+-   Une seule partition étendue peut être créée par disque.  
   
--   Cette commande échoue si vous essayez de créer une partition étendue au sein d’une autre partition étendue.  
+-   Cette commande échoue si vous tentez de créer une partition étendue au sein d’une autre partition étendue.  
   
 -   Vous devez créer une partition étendue avant de pouvoir créer des lecteurs logiques.  
   
--   Un disque MBR de base doit être sélectionné pour cette opération réussisse. Utilisez le **sélectionnez disque** commande pour sélectionner un disque et de déplacer le focus vers elle.  
+-   Vous devez sélectionner un disque MBR de base pour que cette opération aboutisse. Utilisez la commande **Sélectionner le disque** pour sélectionner un disque et lui déplacer le focus.  
   
-## <a name="BKMK_examples"></a>Exemples  
-Pour créer une partition étendue de 1 000 mégaoctets taille, tapez :  
+## <a name="BKMK_examples"></a>Illustre  
+Pour créer une partition étendue de 1000 mégaoctets de taille, tapez :  
   
 ```  
 create partition extended size=1000  

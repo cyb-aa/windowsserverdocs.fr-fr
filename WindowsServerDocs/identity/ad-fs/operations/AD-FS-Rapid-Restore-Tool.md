@@ -7,14 +7,14 @@ ms.author: billmath
 manager: femila
 ms.date: 07/02/2019
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: fc924f5e5bdd7dabecac4fdd6805ad261a0fc634
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 77655ab414f83f2c74873b12719f9718c6fb59e5
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866167"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358525"
 ---
 # <a name="ad-fs-rapid-restore-tool"></a>Outil de restauration rapide ADFS
 
@@ -60,7 +60,7 @@ import-module 'C:\Program Files (x86)\ADFS Rapid Recreation Tool\ADFSRapidRecrea
 - Le .NET Framework requis est au moins 4,0. 
 - La restauration doit être effectuée sur un serveur AD FS de la même version que la sauvegarde et qui utilise le même compte Active Directory que le compte de service AD FS.
 
-## <a name="create-a-backup"></a>Création d'une sauvegarde
+## <a name="create-a-backup"></a>Créer une sauvegarde
 Pour créer une sauvegarde, utilisez l’applet de commande Backup-ADFS. Cette applet de commande sauvegarde la configuration AD FS, la base de données, les certificats SSL, etc. 
 
 L’utilisateur doit être au moins un administrateur local pour exécuter cette applet de commande. Pour sauvegarder le conteneur Active Directory DKM (requis dans la configuration de AD FS par défaut), l’utilisateur doit être un administrateur de domaine, doit transmettre les informations d’identification du compte de service AD FS ou avoir accès au conteneur DKM.  Si vous utilisez un compte gMSA, l’utilisateur doit être administrateur de domaine ou disposer d’autorisations sur le conteneur. vous ne pouvez pas fournir les informations d’identification gMSA. 
@@ -88,7 +88,7 @@ Jeux de paramètres
 
 - **ServiceAccountCredential&lt;PSCredential&gt;** -spécifie le compte de service utilisé pour le service AD FS en cours d’exécution. Ce paramètre n’est nécessaire que si l’utilisateur souhaite sauvegarder le DKM et n’est pas administrateur de domaine ou n’a pas accès au contenu du conteneur. 
 
-- **BackupComment&lt;String []&gt;** : chaîne d’informations sur la sauvegarde qui sera affichée lors de la restauration, de la même façon que le concept de nom de point de contrôle Hyper-V. La valeur par défaut est une chaîne vide
+- **BackupComment &lt;string [] &gt;** : chaîne d’informations sur la sauvegarde qui sera affichée pendant la restauration, de la même façon que le concept de nom de point de contrôle Hyper-V. La valeur par défaut est une chaîne vide
 
  
 ## <a name="backup-examples"></a>Exemples de sauvegarde
@@ -220,14 +220,14 @@ RngCryptoServiceProvider est utilisé pour générer le Salt utilisé par AES et
 ### <a name="version-10820"></a>Version 1.0.82.0
 3/05 2019 juillet
 
-**Problèmes résolus :**
+**Problèmes résolus:**
 - Résolution de bogue pour les noms de compte de service AD FS qui contiennent des caractères d’échappement LDAP
 
 
 ### <a name="version-10810"></a>Version : 1.0.81.0
 3/05 Avril 2019
 
-**Problèmes résolus :**
+**Problèmes résolus:**
 
 
 - Correctifs de bogues pour la sauvegarde et la restauration des certificats
@@ -235,15 +235,15 @@ RngCryptoServiceProvider est utilisé pour générer le Salt utilisé par AES et
 
 
 ### <a name="version-10750"></a>Version : 1.0.75.0
-3/05 Août 2018
+3/05 Août 2018
 
-**Problèmes résolus :**
+**Problèmes résolus:**
 * Mettez à jour Backup-ADFS lors de l’utilisation du commutateur-BackupDKM.  L’outil déterminera si le contexte actuel a accès au conteneur DKM.  Dans ce cas, il ne nécessite pas de privilèges d’administrateur de domaine ou d’informations d’identification de compte de service.  Cela permet d’effectuer des sauvegardes automatisées sans fournir de manière explicite les informations d’identification ou s’exécuter en tant que compte d’administrateur de domaine.
 
 ### <a name="version-10730"></a>Version : 1.0.73.0
-3/05 Août 2018
+3/05 Août 2018
 
-**Problèmes résolus :**
+**Problèmes résolus:**
 * Mettre à jour les algorithmes de chiffrement pour que l’application soit conforme aux normes FIPS
     
     >[!NOTE]
@@ -254,20 +254,20 @@ RngCryptoServiceProvider est utilisé pour générer le Salt utilisé par AES et
 ### <a name="version-10720"></a>Version : 1.0.72.0
 3/05 Juillet 2018
 
-**Problèmes résolus :**
+**Problèmes résolus:**
 
    - Résolution de bogue: Correction de. MSI installer pour prendre en charge les mises à niveau sur place 
 
 ### <a name="10180"></a>1.0.18.0
 3/05 Juillet 2018
 
-**Problèmes résolus :**
+**Problèmes résolus:**
 
    - Résolution de bogue : gérer les mots de passe de compte de service qui contiennent des caractères spéciaux (par ex., « & »)
    - Résolution de bogue: la restauration échoue car Microsoft. IdentityServer. ServiceHost. exe. config est utilisé par un autre processus
 
 
 ### <a name="1000"></a>1.0.0.0
-Publication : Octobre 2016
+Incluses Octobre 2016
 
 Version initiale de AD FS outil de restauration rapide

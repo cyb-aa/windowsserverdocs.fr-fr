@@ -1,8 +1,8 @@
 ---
 title: diskcomp
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ccd1a347f9ac51fc98c963dedb1c0ab3fcd27d41
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ca5ea0f4587b21b2a274c772aab239668b7868b4
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439589"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71377871"
 ---
 # <a name="diskcomp"></a>diskcomp
 
 
 
-Compare le contenu de deux disquettes. Si utilisée sans paramètres, **diskcomp** utilise le lecteur en cours pour comparer les deux disques. Pour obtenir des exemples montrant comment utiliser cette commande, consultez [exemples](#BKMK_examples).
+Compare le contenu de deux disquettes. En cas d’utilisation sans paramètre, **diskcomp** utilise le lecteur actuel pour comparer les deux disques. Pour obtenir des exemples d’utilisation de cette commande, consultez [exemples](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -36,86 +36,86 @@ diskcomp [<Drive1>: [<Drive2>:]]
 
 |Paramètre|Description|
 |---------|-----------|
-|\<Drive1>|Spécifie le lecteur qui contient l’une des disquettes.|
-|\<Drive2>|Spécifie le lecteur qui contient l’autre disquette.|
+|@no__t 0Drive1 >|Spécifie le lecteur contenant l’une des disquettes.|
+|@no__t 0Drive2 >|Spécifie le lecteur contenant l’autre disquette.|
 |/?|Affiche l'aide à l'invite de commandes.|
 
 ## <a name="remarks"></a>Notes
 
-- À l’aide de disques
+- Utilisation de disques
 
-  Le **diskcomp** commande fonctionne uniquement avec les disquettes. Vous ne pouvez pas utiliser **diskcomp** avec un disque dur. Si vous spécifiez un lecteur de disque dur *lecteur1* ou *lecteur2*, **diskcomp** affiche le message d’erreur suivant :  
+  La commande **diskcomp** fonctionne uniquement avec les disquettes. Vous ne pouvez pas utiliser **diskcomp** avec un disque dur. Si vous spécifiez un disque dur pour *lecteur1* ou *lecteur2*, **diskcomp** affiche le message d’erreur suivant :  
   ```
   Invalid drive specification
   Specified drive does not exist
   or is nonremovable
   ```  
-- Comparaison de disques
+- Comparaison des disques
 
-  Si toutes les pistes sur les deux disques comparés sont les mêmes, **diskcomp** affiche le message suivant :  
+  Si toutes les pistes sur les deux disques comparées sont identiques, **diskcomp** affiche le message suivant :  
   ```
   Compare OK
   ```  
-  Si les pistes ne sont pas identiques, **diskcomp** affiche un message semblable au suivant :  
+  Si les pistes ne sont pas les mêmes, **diskcomp** affiche un message similaire à ce qui suit :  
   ```
   Compare error on
   side 1, track 2
   ```  
-  Lorsque **diskcomp** une fois la comparaison, il affiche le message suivant :  
+  Lorsque **diskcomp** termine la comparaison, il affiche le message suivant :  
   ```
   Compare another diskette (Y/N)?
   ```  
-  Si vous appuyez sur O, **diskcomp** vous invite à insérer le disque de la comparaison suivante. Si vous appuyez sur N, **diskcomp** arrête la comparaison.
+  Si vous appuyez sur Y, **diskcomp** vous invite à insérer le disque pour la comparaison suivante. Si vous appuyez sur N, **diskcomp** arrête la comparaison.
 
-  Lorsque **diskcomp** rend la comparaison, il ignore le nombre de volume d’un disque.
-- En omettant les paramètres de lecteur
+  Lorsque **diskcomp** effectue la comparaison, il ignore le numéro de volume d’un disque.
+- Omission des paramètres de lecteur
 
-  Si vous omettez le *lecteur2* paramètre, **diskcomp** utilise le lecteur actuel pour *lecteur2*. Si vous omettez les deux paramètres de lecteur, **diskcomp** utilise le lecteur en cours pour les deux. Si le lecteur actuel est identique à *lecteur1*, **diskcomp** vous invite à permuter des disques en fonction des besoins.
-- À l’aide d’un lecteur
+  Si vous omettez le paramètre *lecteur2* , **diskcomp** utilise le lecteur actif pour *lecteur2*. Si vous omettez les deux paramètres de lecteur, **diskcomp** utilise le lecteur actif pour les deux. Si le lecteur actuel est le même que *lecteur1*, **diskcomp** vous invite à échanger des disques si nécessaire.
+- Utilisation d’un lecteur
 
-  Si vous spécifiez le même lecteur de disquette pour *lecteur1* et *lecteur2*, **diskcomp** les compare à l’aide d’un seul lecteur et vous invite à insérer les disques en fonction des besoins. Vous devrez peut-être permuter les disques de plusieurs fois, en fonction de la capacité des disques et la quantité de mémoire disponible.
-- Comparaison des différents types de disques
+  Si vous spécifiez le même lecteur de disquette pour *lecteur1* et *lecteur2*, **diskcomp** les compare à l’aide d’un lecteur et vous invite à insérer les disques en fonction des besoins. Vous devrez peut-être permuter les disques plusieurs fois, en fonction de la capacité des disques et de la quantité de mémoire disponible.
+- Comparaison de différents types de disques
 
-  **Diskcomp** ne peut pas comparer un disque recto avec un disque recto-verso, ni un disque à haute densité avec un disque double densité. Si le disque dans *lecteur1* n’est pas du même type que le disque dans *lecteur2*, **diskcomp** affiche le message suivant :  
+  **Diskcomp** ne peut pas comparer un disque à une seule face et un disque à double face, ni un disque à haute densité avec un disque à double densité. Si le disque dans *lecteur1* n’est pas du même type que le disque dans *lecteur2*, **diskcomp** affiche le message suivant :  
   ```
   Drive types or diskette types not compatible
   ```  
-- À l’aide de **diskcomp** avec les réseaux et des lecteurs redirigés
+- Utilisation de **diskcomp** avec des réseaux et des lecteurs redirigés
 
-  **Diskcomp** ne fonctionne pas sur un lecteur réseau ou sur un lecteur créé par le **subst** commande. Si vous essayez d’utiliser **diskcomp** avec un lecteur d’une de ces types, **diskcomp** affiche le message d’erreur suivant :  
+  **Diskcomp** ne fonctionne pas sur un lecteur réseau ou sur un lecteur créé par la commande **subst** . Si vous tentez d’utiliser **diskcomp** avec un lecteur de l’un de ces types, **diskcomp** affiche le message d’erreur suivant :  
   ```
   Invalid drive specification
   ```  
 - Comparaison d’un disque d’origine avec une copie
 
-  Lorsque vous utilisez **diskcomp** avec un disque que vous avez apportées à l’aide de **copie**, **diskcomp** peut afficher un message semblable au suivant :  
+  Quand vous utilisez **diskcomp** avec un disque que vous avez créé à l’aide de la commande **copier**, **diskcomp** peut afficher un message similaire à ce qui suit :  
   ```
   Compare error on 
   side 0, track 0
   ```  
-  Ce type d’erreur peut se produire même si les fichiers sur les disques sont identiques. Bien que **copie** les doublons d’informations, il ne pas nécessairement le placer dans le même emplacement sur le disque de destination.
-- Présentation de **diskcomp** les codes de sortie
+  Ce type d’erreur peut se produire même si les fichiers sur les disques sont identiques. Bien que **copie** les informations de doublons, elles ne sont pas nécessairement placées au même emplacement sur le disque de destination.
+- Fonctionnement des codes de sortie de **diskcomp**
 
   Le tableau suivant décrit chaque code de sortie.  
 
   |Code de sortie|Description|
   |---------|-----------|
   |0|Les disques sont identiques|
-  |1|Différences ont été trouvées.|
-  |3|Erreur matérielle s’est produite|
-  |4|Erreur d’initialisation s’est produite|
+  |1|Des différences ont été trouvées|
+  |3|Une erreur matérielle s’est produite|
+  |4|Une erreur d’initialisation s’est produite|
 
-  Pour traiter des codes de sortie qui sont retournés par **diskcomp**, vous pouvez utiliser la variable d’environnement ERRORLEVEL sur le **si** ligne de commande dans un programme de traitement par lots.
+  Pour traiter les codes de sortie retournés par **diskcomp**, vous pouvez utiliser la variable d’environnement errorlevel sur la ligne de commande **If** dans un programme de traitement par lots.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Si votre ordinateur n'a qu’un seul lecteur de disquette (par exemple, le lecteur A), et que vous souhaitez comparer deux disques, tapez :
+Si votre ordinateur ne possède qu’un seul lecteur de disquette (par exemple, le lecteur A) et que vous souhaitez comparer deux disques, tapez :
 ```
 diskcomp a: a:
 ```
-**Diskcomp** vous invite à insérer chaque disque, en fonction des besoins.
+**Diskcomp** vous invite à insérer chaque disque, si nécessaire.
 
-L’exemple suivant illustre comment traiter un **diskcomp** quitter le code dans un programme de traitement par lots qui utilise la variable d’environnement ERRORLEVEL sur le **si** ligne de commande :
+L’exemple suivant illustre le traitement d’un code de sortie **diskcomp** dans un programme de traitement par lots qui utilise la variable d’environnement errorlevel sur la ligne de commande **If** :
 ```
 rem Checkout.bat compares the disks in drive A and B 
 echo off 

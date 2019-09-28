@@ -1,19 +1,19 @@
 ---
 title: Activer les déplacements optimisés de dossiers redirigés
 description: Comment effectuer un déplacement optimisé de dossiers redirigés vers un nouveau partage de fichiers.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: edf6596f7daaa2f496b8b4da36e98ee72b05dfcd
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 6c54fee98247b1ce0aa3ef3a2502cf18f314e763
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70867259"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71394368"
 ---
 # <a name="enable-optimized-moves-of-redirected-folders"></a>Activer les déplacements optimisés de dossiers redirigés
 
@@ -30,7 +30,7 @@ Le déplacement optimisé présente les exigences suivantes :
 - La redirection de dossiers doit être configurée. Pour plus d’informations, consultez [déployer la redirection de dossiers avec fichiers hors connexion](deploy-folder-redirection.md).
 - Les ordinateurs clients doivent exécuter Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 ou Windows Server (canal semi-annuel).
 
-## <a name="step-1-enable-optimized-move-in-group-policy"></a>Étape 1 : Activer le déplacement optimisé stratégie de groupe
+## <a name="step-1-enable-optimized-move-in-group-policy"></a>Étape 1 : Activer le déplacement optimisé stratégie de groupe
 
 Pour optimiser le réadressage des données de redirection de dossiers, utilisez stratégie de groupe pour activer le paramètre de stratégie **activer le déplacement du contenu optimisé dans fichiers hors connexion cache sur le serveur redirection de dossiers** pour l’objet de stratégie de groupe (GPO) approprié. Si vous configurez ce paramètre de stratégie sur **désactivé** ou **non configuré** , le client copie tout le contenu de redirection de dossiers vers le nouvel emplacement, puis supprime le contenu de l’ancien emplacement si le chemin d’accès au serveur est modifié.
 
@@ -41,7 +41,7 @@ Voici comment activer le déplacement optimisé de dossiers redirigés :
 3. Cliquez avec le bouton droit sur **activer le déplacement du contenu optimisé dans fichiers hors connexion cache sur le chemin d’accès du serveur de redirection de dossiers**, puis sélectionnez **modifier**.
 4. Sélectionnez **activé**, puis cliquez sur **OK**.
 
-## <a name="step-2-relocate-the-file-share-for-redirected-folders"></a>Étape 2 : Déplacer le partage de fichiers pour les dossiers redirigés
+## <a name="step-2-relocate-the-file-share-for-redirected-folders"></a>Étape 2 : Déplacer le partage de fichiers pour les dossiers redirigés
 
 Lors du déplacement du partage de fichiers qui contient les dossiers redirigés des utilisateurs, il est nécessaire de prendre des précautions pour s’assurer que les dossiers sont correctement déplacés.
 

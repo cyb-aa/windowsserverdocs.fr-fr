@@ -1,8 +1,8 @@
 ---
 title: Bitsadmin makecustomheaderswriteonly
-description: Rubrique de commandes de Windows pour **bitsadmin makecustomheaderswriteonly** -Assurez-vous en-têtes d’un travail HTTP personnalisés en écriture seule (Impossible d’annuler).
+description: Rubrique relative aux commandes Windows pour **Bitsadmin makecustomheaderswriteonly** -rendre les en-têtes HTTP personnalisés d’un travail en écriture seule (ne peut pas être annulé).
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -12,16 +12,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: 18d170098a5e913522b5daa42a22c66b67c2206b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 64bf048ddc76ad1d751509e95d09403db1de7883
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861890"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71381032"
 ---
 # <a name="bitsadmin-makecustomheaderswriteonly"></a>Bitsadmin makecustomheaderswriteonly
 
-Assurez-vous en-têtes d’un travail HTTP personnalisés en écriture seule (Impossible d’annuler).
+Rendre les en-têtes HTTP personnalisés d’un travail en écriture seule (ne peut pas être annulé).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -33,8 +33,8 @@ bitsadmin /MakeCustomHeadersWriteOnly <Job>
 
 |Paramètre|Description|
 |---------|-----------|
-|Tâche|Nom d’affichage ou le GUID du travail|
+|Tâche|Nom complet ou GUID du travail|
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,39 +1,40 @@
 ---
 title: Résoudre les problèmes de SDN
-description: Cette rubrique fournit des liens vers le contenu sur le dépannage de Sdn dans Windows Server 2016.
+description: Cette rubrique fournit des liens vers des informations sur la résolution des problèmes de mise en réseau définie par logiciel dans Windows Server 2016.
 manager: brianlic
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: 427048db-bab6-49b1-9611-099bb547ec0e
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 8c1cea8785efce0356763a46c60a368c02d5e3cf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 33eef13bc13081acf398f3d3f26dc04219aa1d20
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863390"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71405824"
 ---
 # <a name="troubleshoot-sdn"></a>Résoudre les problèmes de SDN
 
->S’applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S’applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Les rubriques de cette section fournissent des informations sur le dépannage des technologies de mise en réseau SDN (Software Defined) qui sont inclus dans Windows Server 2016.
+Les rubriques de cette section fournissent des informations sur le dépannage des technologies SDN (Software Defined Networking) incluses dans Windows Server 2016.
 
 > [!NOTE]  
-> Pour plus de documentation Sdn, vous pouvez utiliser les sections suivantes de la bibliothèque.  
+> Pour obtenir des informations supplémentaires sur la mise en réseau, vous pouvez utiliser les sections suivantes de la bibliothèque.  
 >  
 > - [Technologies SDN](../technologies/Software-Defined-Networking-Technologies.md) 
 > - [Planifier SDN](../plan/Plan-Software-Defined-Networking.md)
 > - [Déployer SDN](../deploy/Deploy-Software-Defined-Networking.md)
-> - [Gestion SDN](../manage/manage-sdn.md)
+> - [Gérer SDN](../manage/manage-sdn.md)
 > - [Sécurité pour SDN](../security/sdn-security-top.md)
 
 Cette section contient les rubriques suivantes :
 
-- [Résoudre les problèmes de la pile Windows Server Software Defined Networking](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack)  
-- Billet de blog [dépanner configuration SDN RAS passerelle VPN paramètres de bande passante dans Virtual Machine Manager](https://blogs.technet.microsoft.com/wsnetdoc/2017/03/02/troubleshoot-changing-sdn-ras-gateway-vpn-bandwidth-settings-in-virtual-machine-manager/)
-- Billet de blog [SDN résolution des problèmes : Rechercher l’adresse IP du serveur Local SDN RAS passerelle](https://blogs.technet.microsoft.com/wsnetdoc/2017/03/23/sdn-troubleshooting-find-the-local-sdn-ras-gateway-server-ip-address/)
-- Billet de blog [SDN résolution des problèmes : Les communications UDP et variation Cert de contrôleur de réseau](https://blogs.technet.microsoft.com/wsnetdoc/2017/08/25/sdn-troubleshooting-udp-communication-and-changing-network-controller-cert/)
+- [Résolution des problèmes de la pile de mise en réseau SDN (Software Defined Networking) dans Windows Server](https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack)
+- Billet de blog @no__t-Troubleshooting 0SDN : Échecs de communication UDP et modification du certificat de contrôleur de réseau @ no__t-0
+- Billet [de blog Troubleshooting Certificate Problems in Software Defined Networking (SDN) (en anglais)](https://techcommunity.microsoft.com/t5/Networking-Blog/Troubleshooting-certificate-issues-in-Software-Defined/ba-p/339671)
+- Billet de blog [Comment trouver l’adresse locale de la passerelle SDN pour l’homologation BGP dans Windows Server 2016](https://techcommunity.microsoft.com/t5/Networking-Blog/How-to-find-the-SDN-gateway-local-address-for-BGP-peering-in/ba-p/339663)
+- Billet [de blog résolution des problèmes de configuration des paramètres de bande passante VPN de la passerelle RAS SDN dans Virtual Machine Manager](https://techcommunity.microsoft.com/t5/Networking-Blog/Troubleshoot-Configuring-SDN-RAS-Gateway-VPN-Bandwidth-Settings/ba-p/339661)
 

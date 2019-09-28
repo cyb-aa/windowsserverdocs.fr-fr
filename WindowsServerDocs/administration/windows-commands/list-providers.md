@@ -1,8 +1,8 @@
 ---
 title: répertorier les fournisseurs
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f94df982205d639f64dde2cfb014c851bac02b61
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ed2da9e5c38c13377e694f9e39a63a15b9f144b2
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840640"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71374744"
 ---
 # <a name="list-providers"></a>répertorier les fournisseurs
 
 
 
-Répertorie les fournisseurs de clichés instantanés qui sont actuellement enregistrés sur le système.
+Répertorie les fournisseurs de clichés instantanés qui sont actuellement inscrits sur le système.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -34,13 +34,13 @@ Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples
 list providers
 ```
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour répertorier les fournisseurs actuellement enregistrés, tapez :
+Pour répertorier les fournisseurs de clichés instantanés actuellement inscrits, tapez :
 ```
 list providers
 ```
-Sortie est similaire à ce qui suit affiche :
+Une sortie semblable à la suivante s’affiche :
 ```
 * ProviderID: {b5946137-7b9f-4925-af80-51abd60b20d5}
         Type: [1] VSS_PROV_SYSTEM
@@ -52,4 +52,4 @@ Sortie est similaire à ce qui suit affiche :
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

@@ -1,8 +1,8 @@
 ---
 title: help
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 793034c32897d8f4a7d7810016eecbad6a982064
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1d759c85c07d76811053ba0a4a938e07220c2648
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883380"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71375592"
 ---
 # <a name="help"></a>help
 
 
 
-Fournit des informations en ligne sur les commandes système (autrement dit, les commandes non réseau). Si utilisée sans paramètres, **aide** répertorie et décrit brièvement chaque commande du système.
+Fournit des informations en ligne sur les commandes système (autrement dit, les commandes qui ne sont pas de réseau). En cas **d'** utilisation sans paramètre, répertorie et décrit brièvement chaque commande système.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -39,11 +39,11 @@ help [<Command>]
 
 |Paramètre|Description|
 |---------|-----------|
-|\<Command>|Spécifie le nom de la commande que vous voulez obtenir des informations.|
+|@no__t 0Command >|Spécifie le nom de la commande sur laquelle vous souhaitez obtenir des informations.|
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour afficher des informations sur le **robocopy** de commande, tapez une des opérations suivantes :
+Pour afficher des informations sur la commande **Robocopy** , tapez l’un des éléments suivants :
 ```
 help robocopy
 robocopy /? 
@@ -51,4 +51,4 @@ robocopy /?
 
 #### <a name="additional-references"></a>Références supplémentaires
 
-[Clé de la syntaxe de ligne de commande](command-line-syntax-key.md)
+[Clé de syntaxe de ligne de commande](command-line-syntax-key.md)

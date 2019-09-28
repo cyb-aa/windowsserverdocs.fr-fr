@@ -1,8 +1,8 @@
 ---
 title: cipher
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d801d6e6286e97319766c879f7289f6191cc7101
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 7ba6a54c275e1765bfdc31fe30d78fc6e3da6c05
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434335"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379358"
 ---
 # <a name="cipher"></a>cipher
 
 
 
-Affiche ou modifie le chiffrement des répertoires et des fichiers sur les volumes NTFS. Si utilisée sans paramètres, **chiffrement** affiche l’état de chiffrement de l’annuaire actuel et de tous les fichiers qu’il contient.
+Affiche ou modifie le chiffrement des répertoires et des fichiers sur les volumes NTFS. En cas d’utilisation sans paramètres, l’algorithme de **chiffrement** affiche l’état de chiffrement du répertoire actif et des fichiers qu’il contient.
 
 Pour obtenir des exemples d’utilisation de cette commande, consultez [Exemples](#BKMK_examples).
 
@@ -47,37 +47,37 @@ cipher /rekey [PathName [...]]
 
 |          Paramètres           |                                                                                                                                                   Description                                                                                                                                                    |
 |-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|              /b               |                                                                                                    Abandonne si une erreur s’est produite. Par défaut, **chiffrement** continue à s’exécuter même si des erreurs sont rencontrées.                                                                                                    |
-|              /c               |                                                                                                                                   Affiche des informations sur les fichiers chiffrés.                                                                                                                                    |
+|              /b               |                                                                                                    Abandonne si une erreur est rencontrée. Par défaut, le **chiffrement** continue à s’exécuter même si des erreurs sont rencontrées.                                                                                                    |
+|              /c               |                                                                                                                                   Affiche des informations sur le fichier chiffré.                                                                                                                                    |
 |              /d               |                                                                                                                                   Déchiffre les fichiers ou répertoires spécifiés.                                                                                                                                   |
-|              /e               |                                                                                          Chiffre les fichiers ou répertoires spécifiés. Les répertoires sont marqués afin que les fichiers ajoutés par la suite seront chiffrées.                                                                                           |
-|              /h               |                                                                                                     Affiche les fichiers cachés ou les attributs du système. Par défaut, ces fichiers ne sont pas chiffrées ou déchiffrées.                                                                                                     |
-|              /k               |                                                                            Crée un nouveau certificat et une clé pour une utilisation avec les fichiers de système de fichiers EFS (Encrypting File System). Si le **/k** paramètre est spécifié, tous les autres paramètres sont ignorés.                                                                            |
-|  / r:\<FileName > [/smartcard]  |   Génère une clé de l’agent de récupération EFS et le certificat, puis les écrit dans un fichier .pfx (contenant le certificat et la clé privée) et un fichier .cer (contenant uniquement le certificat). Si **/smartcard** est spécifié, il écrit la clé de récupération et le certificat à une carte à puce, et aucun fichier .pfx est généré.   |
-|        / s:\<répertoire >        |                                                                                                               Effectue l’opération spécifiée sur tous les sous-répertoires dans le texte spécifié *Directory*.                                                                                                               |
-|            /u [/n]            |  Recherche tous les fichiers chiffrés sur les ou les disques locaux. Si utilisé avec le **/n** paramètre, aucune mise à jour n’est apportées. Si utilisée sans **/n**, **/u** compare la clé de chiffrement de fichier de l’utilisateur ou de clé de l’agent de récupération en cours et les met à jour si elles ont été modifiés. Ce paramètre fonctionne uniquement avec **/n**.  |
-|        / w:\<répertoire >        | Supprime l’espace disque inutilisé disponibles sur la totalité du volume de données. Si vous utilisez le **/w** paramètre, tous les autres paramètres sont ignorés. Le répertoire spécifié peut être situé n’importe où dans un volume local. S’il s’agit de montage point ou pointe vers un répertoire dans un autre volume, les données sur que le volume est supprimé. |
-|  /x[:efsfile] [\<FileName>]   |                                 Permet de sauvegarder le certificat EFS et les clés pour le nom de fichier spécifié. Si utilisé avec **: efsfile**, **/x** sauvegarde des certificats de l’utilisateur qui ont été utilisés pour chiffrer le fichier. Sinon, l’utilisateur actuel certificat EFS et les clés sont sauvegardées.                                 |
-|              /y               |                                                                                                                      Affiche votre miniature de certificat EFS actuelle sur l’ordinateur local.                                                                                                                      |
-|  /adduser [/ certhash :\<hachage >  |                                                                                                                                              / certfile :<FileName>]                                                                                                                                               |
-|            /rekey             |                                                                                                                 Met à jour les fichiers chiffrés spécifiés pour utiliser la clé EFS actuellement configurée.                                                                                                                 |
-| /RemoveUser /certhash :\<hachage > |                                                                                       Supprime un utilisateur des ou les fichiers spécifiés. Le *hachage* fourni pour **/certhash** doit être le hachage SHA1 du certificat à supprimer.                                                                                       |
+|              /e               |                                                                                          Chiffre les fichiers ou répertoires spécifiés. Les répertoires sont marqués afin que les fichiers ajoutés par la suite soient chiffrés.                                                                                           |
+|              /h               |                                                                                                     Affiche les fichiers avec des attributs système ou masqués. Par défaut, ces fichiers ne sont pas chiffrés ou déchiffrés.                                                                                                     |
+|              /k               |                                                                            Crée un certificat et une clé à utiliser avec les fichiers système de fichiers EFS (EFS). Si le paramètre **/k** est spécifié, tous les autres paramètres sont ignorés.                                                                            |
+|  /r : \<FileName > [/Smartcard]  |   Génère une clé et un certificat d’agent de récupération EFS, puis les écrit dans un fichier. pfx (contenant le certificat et la clé privée) et un fichier. cer (contenant uniquement le certificat). Si **/Smartcard** est spécifié, il écrit la clé de récupération et le certificat sur une carte à puce, et aucun fichier. pfx n’est généré.   |
+|        /s : \<Directory >        |                                                                                                               Exécute l’opération spécifiée sur tous les sous-répertoires du *répertoire*spécifié.                                                                                                               |
+|            /u [/n]            |  Recherche tous les fichiers chiffrés sur le ou les lecteurs locaux. S’il est utilisé avec le paramètre **/n** , aucune mise à jour n’est effectuée. S’il est utilisé sans **/n**, **/u** compare la clé de chiffrement de fichier de l’utilisateur ou la clé de l’agent de récupération aux valeurs actuelles, et les met à jour si elles ont été modifiées. Ce paramètre fonctionne uniquement avec **/n**.  |
+|        /w : \<Directory >        | Supprime les données de l’espace disque inutilisé disponible sur l’ensemble du volume. Si vous utilisez le paramètre **/w** , tous les autres paramètres sont ignorés. Le répertoire spécifié peut se trouver n’importe où dans un volume local. S’il s’agit d’un point de montage ou pointe vers un répertoire d’un autre volume, les données de ce volume sont supprimées. |
+|  /x [ : efsfile] [\<FileName >]   |                                 Sauvegarde le certificat EFS et les clés dans le nom de fichier spécifié. S’il est utilisé avec **: efsfile**, **/x** sauvegarde le ou les certificats de l’utilisateur qui ont été utilisés pour chiffrer le fichier. Dans le cas contraire, le certificat EFS actuel de l’utilisateur et les clés sont sauvegardés.                                 |
+|              /y               |                                                                                                                      Affiche la miniature actuelle de votre certificat EFS sur l’ordinateur local.                                                                                                                      |
+|  /adduser [/certhash : \<Hash >  |                                                                                                                                              /CertFile : <FileName>]                                                                                                                                               |
+|            /rekey             |                                                                                                                 Met à jour le ou les fichiers chiffrés spécifiés pour utiliser la clé EFS actuellement configurée.                                                                                                                 |
+| /RemoveUser/certhash : \<Hash > |                                                                                       Supprime un utilisateur du ou des fichiers spécifiés. Le *hachage* fourni pour **/certhash** doit être le hachage SHA1 du certificat à supprimer.                                                                                       |
 |              /?               |                                                                                                                                       Affiche l'aide à l'invite de commandes.                                                                                                                                       |
 
 ## <a name="remarks"></a>Notes
 
--   Si le répertoire parent n’est pas chiffré, un fichier crypté peut devenir décrypté lorsque celle-ci est modifiée. Par conséquent, lorsque vous chiffrez un fichier, vous devez également chiffrer le répertoire parent.
--   Un administrateur peut ajouter le contenu d’un fichier .cer à la stratégie de récupération EFS pour créer l’agent de récupération pour les utilisateurs et puis importer le fichier .pfx pour récupérer des fichiers individuels.
--   Vous pouvez utiliser plusieurs noms de répertoires et des caractères génériques.
--   Vous devez placer des espaces entre chaque paramètre.
+-   Si le répertoire parent n’est pas chiffré, un fichier chiffré peut devenir déchiffré lorsqu’il est modifié. Par conséquent, lorsque vous chiffrez un fichier, vous devez également chiffrer le répertoire parent.
+-   Un administrateur peut ajouter le contenu d’un fichier. cer à la stratégie de récupération EFS pour créer l’agent de récupération pour les utilisateurs, puis importer le fichier. pfx pour récupérer des fichiers individuels.
+-   Vous pouvez utiliser plusieurs noms de répertoires et caractères génériques.
+-   Vous devez placer des espaces entre plusieurs paramètres.
 
-## <a name="BKMK_examples"></a>Exemples
+## <a name="BKMK_examples"></a>Illustre
 
-Pour afficher l’état de chiffrement de chacun des fichiers et sous-répertoires dans le répertoire actif, tapez :
+Pour afficher l’état de chiffrement de chacun des fichiers et sous-répertoires du répertoire actif, tapez :
 ```
 cipher
 ```
-Les fichiers chiffrés et les répertoires sont marqués avec un **E**. Fichiers non chiffrés et les répertoires sont marqués avec un **U**. Par exemple, la sortie suivante indique que le répertoire actif et tout son contenu est actuellement non chiffré :
+Les fichiers et les répertoires chiffrés sont marqués d’un **E**. Les fichiers et les répertoires non chiffrés sont marqués d’un **U**. Par exemple, la sortie suivante indique que le répertoire actif et tout son contenu sont actuellement non chiffrés :
 ```
 Listing C:\Users\MainUser\Documents\
 New files added to this directory will not be encrypted.
@@ -85,7 +85,7 @@ U Private
 U hello.doc
 U hello.txt
 ```
-Pour activer le chiffrement sur le répertoire privé utilisé dans l’exemple précédent, tapez :
+Pour activer le chiffrement sur le Répertoire privé utilisé dans l’exemple précédent, tapez :
 ```
 cipher /e private
 ```
@@ -95,7 +95,7 @@ Encrypting files in C:\Users\MainUser\Documents\
 Private             [OK]
 1 file(s) [or directorie(s)] within 1 directorie(s) were encrypted.
 ```
-Le **chiffrement** commande affiche la sortie suivante :
+La commande **cipher** affiche la sortie suivante :
 ```
 Listing C:\Users\MainUser\Documents\
 New files added to this directory will not be encrypted.
@@ -103,7 +103,7 @@ E Private
 U hello.doc
 U hello.txt
 ```
-Notez que le répertoire privé est marqué comme chiffré.
+Notez que le Répertoire privé est marqué comme étant chiffré.
 
 #### <a name="additional-references"></a>Références supplémentaires
 

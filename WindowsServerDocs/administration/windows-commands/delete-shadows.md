@@ -1,8 +1,8 @@
 ---
 title: supprimer les ombres
-description: 'Rubrique de commandes de Windows pour ***- '
+description: 'Rubrique relative aux commandes Windows pour * * * *- '
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1a0945477bc4fce907b5ec4a697c7a2ec2f59557
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: c965af8b045c5ab3a110542d148b255f382a95c3
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436109"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71378628"
 ---
 # <a name="delete-shadows"></a>supprimer les ombres
 
 
 
-Supprime les clichés instantanés.
+supprime les clichés instantanés.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -37,11 +37,11 @@ delete shadows [all | volume <Volume> | oldest <Volume> | set <SetID> | id <Shad
 |     Paramètre     |                                                                             Description                                                                              |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |        tous        |                                                                      Supprime tous les clichés instantanés.                                                                      |
-| volume \<Volume>  |                                                            Supprime tous les clichés instantanés du volume donné.                                                            |
-| plus ancien \<Volume >  |                                                         Supprime l’ancienne copie de clichés instantanés de volume donné.                                                          |
-|   Définissez \<SetID >    | Supprime les clichés instantanés dans le jeu de copie de clichés instantanés de l’ID donné. Vous pouvez spécifier un alias à l’aide de la **%** si l’alias existe dans l’environnement actuel de symboles. |
-|  ID \<ShadowID >   |              Supprime un cliché instantané de l’ID donné. Vous pouvez spécifier un alias à l’aide de la **%** si l’alias existe dans l’environnement actuel de symboles.               |
-| exposé {\<lecteur > |                                                                            <MountPoint>}                                                                             |
+| @no__t de volume-0Volume >  |                                                            Supprime tous les clichés instantanés du volume donné.                                                            |
+| @no__t le plus ancien > 0Volume  |                                                         Supprime le cliché instantané le plus ancien du volume donné.                                                          |
+|   définir @no__t > 0SetID    | Supprime les clichés instantanés dans le jeu de clichés instantanés de l’ID donné. Vous pouvez spécifier un alias à l’aide du symbole **%** si l’alias existe dans l’environnement actuel. |
+|  ID \<ShadowID >   |              Supprime un cliché instantané de l’ID donné. Vous pouvez spécifier un alias à l’aide du symbole **%** si l’alias existe dans l’environnement actuel.               |
+| {\<Drive exposée > |                                                                            <MountPoint>}                                                                             |
 
 #### <a name="additional-references"></a>Références supplémentaires
 

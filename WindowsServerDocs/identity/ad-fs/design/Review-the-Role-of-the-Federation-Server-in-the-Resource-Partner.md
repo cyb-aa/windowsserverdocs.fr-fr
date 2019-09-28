@@ -7,26 +7,26 @@ ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b2ed7a09bbc50c83d3bf6f8f2688152ed5202abc
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: fd9f20eb7559f5862ee50bdd8364fa1604d3c1b6
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190819"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71358968"
 ---
 # <a name="review-the-role-of-the-federation-server-in-the-resource-partner"></a>Revue du rôle du serveur de fédération du partenaire de ressource
 
-Le serveur de fédération dans l’organisation partenaire de ressource intercepte les jetons de sécurité entrants qui sont envoyés par un serveur de fédération de compte valide et les signe et émet alors ses propres jetons de sécurité qui sont destinés pour le Web\-en fonction application.  
+Le serveur de Fédération dans l’organisation partenaire de ressource intercepte les jetons de sécurité entrants qui sont envoyés par un serveur de Fédération de compte, les valide et les signe, puis émet ses propres jetons de sécurité destinés à l’application Web @ no__t-0based. .  
   
 > [!NOTE]  
-> Lorsque les utilisateurs fédérés utilisent leurs navigateurs Web pour accéder à Web\-basé sur les applications, le serveur de fédération dans l’organisation partenaire ressource génère un cookie d’authentification et l’écrit dans le navigateur. Ce cookie permet unique\-connexion\-sur \(SSO\) fonctionnalités afin que les utilisateurs n’ont pas à se reconnecter au serveur de fédération du partenaire de compte lorsque les utilisateurs tentent d’accéder aux différents Web\- applications basées sur le partenaire de ressource.  
+> Lorsque les utilisateurs fédérés utilisent leurs navigateurs Web pour accéder aux applications Web @ no__t-0based, le serveur de Fédération dans l’organisation partenaire de ressource crée un nouveau cookie d’authentification et l’écrit dans le navigateur. Ce cookie active les fonctionnalités uniques @ no__t-0sign @ no__t-1On \(SSO @ no__t-3 afin que les utilisateurs n’aient pas à se reconnecter au serveur de Fédération du partenaire de compte lorsque les utilisateurs tentent d’accéder à différentes applications Web @ no__t-4based dans la ressource associer.  
   
-Dans la conception SSO de Web, au moins un serveur de fédération doit être installé dans le réseau de périmètre. Dans la conception SSO de Web fédéré, il doit être au moins un serveur de fédération installé dans le réseau d’entreprise de l’organisation partenaire de compte et au moins un serveur de fédération installé dans le réseau d’entreprise de l’organisation partenaire ressource.  
+Dans la conception SSO de Web, au moins un serveur de Fédération doit être installé dans le réseau de périmètre. Dans la conception SSO de Web fédéré, au moins un serveur de Fédération doit être installé sur le réseau d’entreprise de l’organisation partenaire de compte et au moins un serveur de Fédération installé sur le réseau d’entreprise de l’organisation partenaire de ressource.  
   
 > [!NOTE]  
-> Avant de configurer un serveur de fédération dans l’organisation partenaire de ressource, vous devez tout d’abord joindre l’ordinateur à un domaine Active Directory dans l’organisation partenaire ressource. Pour plus d'informations, consultez [Liste de vérification : Configuration d’un serveur de fédération](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md).  
+> Avant de pouvoir configurer un ordinateur serveur de Fédération dans l’organisation partenaire de ressource, vous devez d’abord joindre l’ordinateur à un domaine Active Directory de l’organisation partenaire de ressource. Pour plus d'informations, consultez [Liste de vérification : Configuration d’un serveur de Fédération @ no__t-0.  
   
 ## <a name="see-also"></a>Voir aussi
 [Guide de conception AD FS dans Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

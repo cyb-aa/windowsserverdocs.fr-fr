@@ -1,9 +1,9 @@
 ---
 title: Vue d’ensemble du scénario de laboratoire de test
-description: Cette rubrique fait partie du Guide de laboratoire de Test - démontrer DirectAccess avec l’authentification OTP et RSA SecurID pour Windows Server 2016
+description: 'Cette rubrique fait partie du Guide de laboratoire de test : illustrer DirectAccess avec l’authentification par mot de passe à usage unique et RSA SecurID pour Windows Server 2016'
 manager: brianlic
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: networking-da
@@ -12,24 +12,24 @@ ms.topic: article
 ms.assetid: ce584811-b209-48fe-ab2b-4c399bd0bd79
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 944a38438d81bfffcff002336a5eb0427ab9e5ea
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: ba3981c79d1441797f21c8ed8051ace6ac490cab
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67283151"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71404738"
 ---
 # <a name="overview-of-the-test-lab-scenario"></a>Vue d’ensemble du scénario de laboratoire de test
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016
+>S'applique à : Windows Server (Canal semi-annuel), Windows Server 2016
 
-Accès à distance est un rôle de serveur dans Windows Server 2016, des systèmes d’exploitation Windows Server 2012 R2 et Windows Server 2012 qui permet aux utilisateurs distants d’accéder en toute sécurité interne réseau des ressources à l’aide de DirectAccess ou réseaux privés virtuels (VPN) avec le Service d’accès distant (RRAS). Ce guide contient des instructions pas à pas permettant d’élargir le [Guide de laboratoire de Test : Démontrer DirectAccess configuration d’un serveur dans un environnement mixte IPv4 et IPv6](https://go.microsoft.com/fwlink/p/?LinkId=237004) pour illustrer une configuration de mot de passe à usage unique (OTP) d’accès à distance.  
+L’accès à distance est un rôle serveur dans les systèmes d’exploitation Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012 qui permet aux utilisateurs distants d’accéder en toute sécurité aux ressources réseau internes à l’aide de DirectAccess ou des réseaux privés virtuels (VPN) avec le Service de routage et d’accès à distance (RRAS). Ce guide contient des instructions pas à pas pour l’extension du Guide de laboratoire [Test : Démonstration de la configuration d’un seul serveur DirectAccess avec Mixed IPv4 et IPv6 @ no__t-0 pour illustrer une configuration de mot de passe à usage unique à accès à distance.  
   
 > [!WARNING]  
-> La conception de ce guide de laboratoire de test inclut des serveurs d’infrastructure, comme un contrôleur de domaine et une autorité de certification (CA) qui exécutent Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012. À l’aide de ce guide de laboratoire de test pour configurer les serveurs d’infrastructure qui exécutent d’autres systèmes d’exploitation n’a pas été testée et des instructions pour configurer d’autres systèmes d’exploitation ne sont pas incluses dans ce guide.  
+> La conception de ce guide de laboratoire de test comprend des serveurs d’infrastructure, tels qu’un contrôleur de domaine et une autorité de certification (CA) qui exécutent Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012. L’utilisation de ce guide de laboratoire de test pour configurer des serveurs d’infrastructure qui exécutent d’autres systèmes d’exploitation n’a pas été testée et les instructions de configuration d’autres systèmes d’exploitation ne sont pas incluses dans ce guide.  
   
 ## <a name="about-this-guide"></a>À propos de ce guide  
-Accès à distance dans Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012 prend en charge l’authentification du client avec l’OTP. Dans le cadre de ce laboratoire de test uniquement RSA SecurID est utilisé pour illustrer des fonctionnalités d’OTP avec accès à distance. Autres RADIUS basé OTP solutions sont également pris en charge, mais sont en dehors de la portée de ce laboratoire de test. Ce guide contient des instructions permettant de configurer le rôle serveur Accès à distance et d’en faire la démonstration à l’aide de six serveurs et deux ordinateurs clients. L’accès à distance terminé avec le laboratoire de test OTP simule un intranet, Internet et un réseau domestique et illustre la fonctionnalité d’accès à distance dans différents scénarios de connexion Internet.  
+L’accès à distance dans Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012 ajoute la prise en charge de l’authentification du client avec un mot de passe à usage unique. Dans le cadre de ce laboratoire de test, seul RSA SecurID est utilisé pour illustrer la fonctionnalité de mot de passe à usage unique avec accès à distance. D’autres solutions à mot de passe à usage unique RADIUS sont également prises en charge, mais elles ne sont pas abordées dans ce laboratoire de test. Ce guide contient des instructions permettant de configurer le rôle serveur Accès à distance et d’en faire la démonstration à l’aide de six serveurs et deux ordinateurs clients. Le laboratoire de test accès à distance terminé avec mot de passe à usage unique simule un intranet, Internet et un réseau privé, et illustre les fonctionnalités d’accès à distance dans différents scénarios de connexion Internet.  
   
 > [!IMPORTANT]  
 > Pour appuyer cette démonstration, il utilise un nombre minimum d’ordinateurs. La configuration détaillée dans ce guide est fournie à des fins de tests en laboratoire seulement et ne doit pas être utilisée dans un environnement de production.  

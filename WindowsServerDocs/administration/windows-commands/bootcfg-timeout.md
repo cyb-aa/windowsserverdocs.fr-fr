@@ -1,8 +1,8 @@
 ---
 title: bootcfg timeout
-description: Rubrique de commandes de Windows pour **délai d’attente bootcfg** -modifie la valeur de délai d’attente de système d’exploitation.
+description: Rubrique Windows Commands for **bootcfg Timeout** -modifie la valeur du délai d’attente du système d’exploitation.
 ms.custom: na
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.technology: manage-windows-commands
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1fc33d2d20d6d2532c5ed1f33e27a768935d1e85
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 94bc2de43dd179117c7a44747961213d12741a09
+ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434643"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71379868"
 ---
 # <a name="bootcfg-timeout"></a>bootcfg timeout
 
->S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>S'applique à : Windows Server (canal semi-annuel), Windows Server 2016, Windows Server 2012 R2 et Windows Server 2012
 
-Modifie la valeur de délai d’attente de système d’exploitation.
+modifie la valeur du délai d’attente du système d’exploitation.
 
 ## <a name="syntax"></a>Syntaxe
 ```
@@ -34,14 +34,14 @@ bootcfg /timeout <timeOutValue> [/s <computer> [/u <Domain\User>/p <Password>]]
 
 |        Paramètre        |                                                                                                                                                                                  Description                                                                                                                                                                                   |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /timeout <timeOutValue> | Spécifie la valeur de délai d’expiration dans la section [boot loader]. Le <timeOutValue> est le nombre de secondes dont dispose l’utilisateur pour sélectionner un système d’exploitation à partir de l’écran de démarrage avant que NTLDR ne charge la valeur par défaut. Plage valide pour <timeOutValue> est 0 et 999. Si la valeur est 0, NTLDR démarre immédiatement le système d’exploitation par défaut sans afficher l’écran de démarrage. |
+| /Timeout <timeOutValue> | Spécifie la valeur du délai d’attente dans la section [Boot Loader]. La <timeOutValue> représente le nombre de secondes pendant lesquelles l’utilisateur doit sélectionner un système d’exploitation à partir de l’écran de chargement de démarrage avant que NTLDR ne charge la valeur par défaut. Plage valide pour <timeOutValue> est 0-999. Si la valeur est 0, NTLDR démarre immédiatement le système d’exploitation par défaut sans afficher l’écran du chargeur de démarrage. |
 |      /s <computer>      |                                                                                                                               Spécifie le nom ou l’adresse IP d’un ordinateur distant (n’utilisez pas de barres obliques inverses). La valeur par défaut est l'ordinateur local.                                                                                                                               |
-|    /u < domaine\nom d’utilisateur >     |                                                                                       Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User> ou < domaine\nom d’utilisateur >. La valeur par défaut est les autorisations de l’utilisateur actuellement connecté sur l’ordinateur exécutant la commande.                                                                                        |
-|      /p <Password>      |                                                                                                                                            Spécifie le <Password> du compte d’utilisateur qui est spécifié dans le **/u** paramètre.                                                                                                                                             |
+|    /u < domaine\utilisateur >     |                                                                                       Exécute la commande avec les autorisations de compte de l’utilisateur spécifié par <User> ou < domaine\utilisateur >. Par défaut, il s’agit des autorisations de l’utilisateur actuellement connecté sur l’ordinateur qui émet la commande.                                                                                        |
+|      /p <Password>      |                                                                                                                                            Spécifie le <Password> du compte d’utilisateur spécifié dans le paramètre **/u** .                                                                                                                                             |
 |           /?            |                                                                                                                                                                      Affiche l'aide à l'invite de commandes.                                                                                                                                                                      |
 
-## <a name="BKMK_examples"></a>Exemples
-Les exemples suivants montrent comment vous pouvez utiliser la **bootcfg /timeout** commande :
+## <a name="BKMK_examples"></a>Illustre
+Les exemples suivants illustrent la façon dont vous pouvez utiliser la commande **bootcfg/Timeout** :
 ```
 bootcfg /timeout 30
 bootcfg /s srvmain /u maindom\hiropln /p p@ssW23 /timeout 50
